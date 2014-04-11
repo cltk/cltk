@@ -118,6 +118,14 @@ class Compile(object):
                 os.mkdir(orig_files_dir_treebank_perseus_greek)
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_treebank_perseus_greek)
             self.get_treebank_perseus_greek_tar()
+        elif corpus_name == 'treebank_perseus_latin':
+            orig_files_dir_treebank_perseus_latin = os.path.join(self.orig_files_dir, 'treebank_perseus_latin')
+            if os.path.isdir(orig_files_dir_treebank_perseus_latin) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_treebank_perseus_latin)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_treebank_perseus_latin)
+            self.get_treebank_perseus_latin_tar()
         else:
             logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin", "perseus_greek", "lacus_curtius_latin".')
 
@@ -647,6 +655,34 @@ class Compile(object):
             logging.info('Finished unpacking %s', treebank_perseus_greek_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', treebank_perseus_greek_file_name)
+
+    def get_treebank_perseus_latin_tar(self):
+        orig_files_dir_treebank_perseus_latin = os.path.join(self.orig_files_dir, 'treebank_perseus_latin')
+        #make compiled files dir for treebank_perseus_latin
+        '''
+        compiled_files_dir_treebank_perseus_latin = os.path.join(self.compiled_files_dir, 'treebank_perseus_latin')
+        if os.path.isdir(compiled_files_dir_treebank_perseus_latin) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_treebank_perseus_latin)
+        '''
+        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/treebank_perseus_latin/master/treebank_perseus_latin.tar.gz'
+        s = requests.Session()
+        s.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = s.get(pg_url, stream=True)
+        treebank_perseus_latin_file_name = urlsplit(pg_url).path.split('/')[-1]
+        treebank_perseus_latin_file_path = os.path.join(orig_files_dir_treebank_perseus_latin, treebank_perseus_latin_file_name)
+        try:
+            with open(treebank_perseus_latin_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', treebank_perseus_latin_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', treebank_perseus_latin_file_name)
+        try:
+            shutil.unpack_archive(treebank_perseus_latin_file_path, self.compiled_files_dir)
+            logging.info('Finished unpacking %s', treebank_perseus_latin_file_name)
+        except IOError:
+            logging.info('Failed to unpack %s.', treebank_perseus_latin_file_name)
 
 
 def remove_non_ascii(input_string):
