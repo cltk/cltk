@@ -543,25 +543,23 @@ class Compile(object):
             pass
         else:
             os.mkdir(compiled_files_dir_perseus_latin)
-        pl_urls = ['https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_1.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_2.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_3.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_4.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin_5.tar.gz']
-        for pl_url in pl_urls:
-            s = requests.Session()
-            s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-            ll_tar = s.get(pl_url, stream=True)
-            perseus_latin_file_name = urlsplit(pl_url).path.split('/')[-1]
-            perseus_latin_file_path = os.path.join(orig_files_dir_perseus_latin, perseus_latin_file_name)
-            try:
-                with open(perseus_latin_file_path, 'wb') as new_file:
-                    new_file.write(ll_tar.content)
-                    logging.info('Finished writing %s.', perseus_latin_file_name)
-            except IOError:
-                logging.error('Failed to write file %s', perseus_latin_file_name)
-            try:
-                shutil.unpack_archive(perseus_latin_file_path, compiled_files_dir_perseus_latin)
-                logging.info('Finished unpacking %s', perseus_latin_file_name)
-            except IOError:
-                logging.info('Failed to unpack %s.', perseus_latin_file_name)
-
+        pl_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_latin/master/perseus_latin.tar.gz'
+        s = requests.Session()
+        s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        ll_tar = s.get(pl_url, stream=True)
+        perseus_latin_file_name = urlsplit(pl_url).path.split('/')[-1]
+        perseus_latin_file_path = os.path.join(orig_files_dir_perseus_latin, perseus_latin_file_name)
+        try:
+            with open(perseus_latin_file_path, 'wb') as new_file:
+                new_file.write(ll_tar.content)
+                logging.info('Finished writing %s.', perseus_latin_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', perseus_latin_file_name)
+        try:
+            shutil.unpack_archive(perseus_latin_file_path, compiled_files_dir_perseus_latin)
+            logging.info('Finished unpacking %s', perseus_latin_file_name)
+        except IOError:
+            logging.info('Failed to unpack %s.', perseus_latin_file_name)
 
     #get_lacus_curtius_latin_tar
     def get_lacus_curtius_latin_tar(self):
@@ -592,24 +590,23 @@ class Compile(object):
             pass
         else:
             os.mkdir(compiled_files_dir_perseus_greek)
-        pg_urls = ['https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_1.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_2.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_3.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_4.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_5.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_6.tar.gz', 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek_7.tar.gz']
-        for pl_url in pg_urls:
-            s = requests.Session()
-            s.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-            pg_tar = s.get(pl_url, stream=True)
-            perseus_greek_file_name = urlsplit(pl_url).path.split('/')[-1]
-            perseus_greek_file_path = os.path.join(orig_files_dir_perseus_greek, perseus_greek_file_name)
-            try:
-                with open(perseus_greek_file_path, 'wb') as new_file:
-                    new_file.write(pg_tar.content)
-                    logging.info('Finished writing %s.', perseus_greek_file_name)
-            except IOError:
-                logging.error('Failed to write file %s', perseus_greek_file_name)
-            try:
-                shutil.unpack_archive(perseus_greek_file_path, compiled_files_dir_perseus_greek)
-                logging.info('Finished unpacking %s', perseus_greek_file_name)
-            except IOError:
-                logging.info('Failed to unpack %s.', perseus_greek_file_name)
+        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek.tar.gz'
+        s = requests.Session()
+        s.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = s.get(pg_url, stream=True)
+        perseus_greek_file_name = urlsplit(pg_url).path.split('/')[-1]
+        perseus_greek_file_path = os.path.join(orig_files_dir_perseus_greek, perseus_greek_file_name)
+        try:
+            with open(perseus_greek_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', perseus_greek_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', perseus_greek_file_name)
+        try:
+            shutil.unpack_archive(perseus_greek_file_path, compiled_files_dir_perseus_greek)
+            logging.info('Finished unpacking %s', perseus_greek_file_name)
+        except IOError:
+            logging.info('Failed to unpack %s.', perseus_greek_file_name)
 
 
 def remove_non_ascii(input_string):
