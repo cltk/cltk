@@ -116,7 +116,7 @@ class Compile(object):
                 pass
             else:
                 os.mkdir(orig_files_dir_treebank_perseus_greek)
-                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_perseus_greek)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_treebank_perseus_greek)
             self.get_treebank_perseus_greek_tar()
         else:
             logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin", "perseus_greek", "lacus_curtius_latin".')
@@ -619,7 +619,6 @@ class Compile(object):
             logging.info('Finished unpacking %s', perseus_greek_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', perseus_greek_file_name)
-
 
     def get_treebank_perseus_greek_tar(self):
         orig_files_dir_treebank_perseus_greek = os.path.join(self.orig_files_dir, 'treebank_perseus_greek')
