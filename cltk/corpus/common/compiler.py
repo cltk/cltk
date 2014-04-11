@@ -587,11 +587,13 @@ class Compile(object):
     def get_perseus_greek_tar(self):
         orig_files_dir_perseus_greek = os.path.join(self.orig_files_dir, 'perseus_greek')
         #make compiled files dir for perseus_greek
+        '''
         compiled_files_dir_perseus_greek = os.path.join(self.compiled_files_dir, 'perseus_greek')
         if os.path.isdir(compiled_files_dir_perseus_greek) is True:
             pass
         else:
             os.mkdir(compiled_files_dir_perseus_greek)
+        '''
         pg_url = 'https://raw.githubusercontent.com/kylepjohnson/corpus_perseus_greek/master/perseus_greek.tar.gz'
         s = requests.Session()
         s.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
