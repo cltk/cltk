@@ -10,7 +10,7 @@ Latin
 Latin Library
 -------------
 
-A pre--compiled version of the `Latin Library  <http://www.thelatinlibrary.com/>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_latin_library>`_. The CLTK can fetch a compressed file of the site's contents with:
+A pre--compiled version of the `Latin Library  <http://www.thelatinlibrary.com/>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_latin_library>`_. The CLTK can fetch these files with:
 
 .. code-block:: python
 
@@ -23,7 +23,7 @@ A pre--compiled version of the `Latin Library  <http://www.thelatinlibrary.com/>
 Perseus Digital Library, Latin
 ------------------------------
 
-A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_latin>`_. The CLTK can fetch a compressed files of the site's contents with:
+A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_latin>`_. The CLTK can fetch these files with:
 
 .. code-block:: python
 
@@ -32,6 +32,19 @@ A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tuf
    In [2]: c = Compile()
 
    In [3]: c.import_corpus('perseus_latin')
+
+
+Perseus Digital Library, Latin Treebank
+------------------------------
+A pre--compiled version of the `Perseus Digital Library's Latin treebank  <http://nlp.perseus.tufts.edu/syntax/treebank/latin.html>`_ is maintained on `GitHub <https://github.com/kylepjohnson/treebank_perseus_latin>`_. The CLTK can fetch these files with:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('treebank_perseus_latin')
 
 
 PHI 5
@@ -58,7 +71,7 @@ Classical Greek
 Perseus Digital Library, Greek
 ------------------------------
 
-A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_greek>`_. The CLTK can fetch a compressed files of the site's contents with:
+A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tufts.edu/hopper/opensource/download>`_ is maintained on `GitHub <https://github.com/kylepjohnson/corpus_perseus_greek>`_. The CLTK can fetch these files with:
 
 .. code-block:: python
 
@@ -67,6 +80,19 @@ A pre--compiled version of the `Perseus Digital Library  <http://www.perseus.tuf
    In [2]: c = Compile()
 
    In [3]: c.import_corpus('perseus_greek')
+
+
+Perseus Digital Library, Greek Treebank
+------------------------------
+A pre--compiled version of the `Perseus Digital Library's Greek treebank  <http://nlp.perseus.tufts.edu/syntax/treebank/greek.html>`_ is maintained on `GitHub <https://github.com/kylepjohnson/treebank_perseus_greek>`_. The CLTK can fetch these files with:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('treebank_perseus_greek')
 
 
 PHI 7, Classical Greek
