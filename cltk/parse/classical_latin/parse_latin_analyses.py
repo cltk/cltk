@@ -2,8 +2,8 @@
 #!TODO
 #add perseus word ids
 #break multiple cases (eg, nom/acc/voc) and genders (masc/neut)
-import re
 from pprint import pprint
+import re
 
 with open('./latin-analyses.txt') as file_opened:
     string_raw = file_opened.read()
