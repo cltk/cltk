@@ -8,6 +8,8 @@ POS Tagging
 
    POS tagging is a work in progress.
 
+First, `obtain the Latin POS tagging files<>`_.
+
 Text Processing
 ===============
 
