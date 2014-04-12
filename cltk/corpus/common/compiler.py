@@ -13,7 +13,7 @@ import ssl
 import sys
 from urllib.parse import urlsplit
 
-from cltk.corpus.classical_greek.replacer import Replacer
+from cltk.corpus.classical_greek.beta_to_unicode import Replacer
 
 INDEX_DICT_PHI5 = {}
 INDEX_DICT_PHI7 = {}
