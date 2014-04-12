@@ -11,7 +11,7 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.classical_greek.replacer import Replacer
+   In [1]: from cltk.corpus.classical_greek.beta_to_unicode import Replacer
 
    In [2]: BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
 
