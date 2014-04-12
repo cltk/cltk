@@ -8,7 +8,7 @@ POS Tagging
 
    POS tagging is a work in progress.
 
-First, `obtain the Latin POS tagging files<>`_.
+First, `obtain the Latin POS tagging files<https://github.com/kylepjohnson/cltk/blob/master/docs/import_corpora.rst#pos>`_.
 
 Text Processing
 ===============
