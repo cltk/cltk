@@ -104,66 +104,58 @@ class MakePOSTagger(object):
                                 if pos[3] in ('fem', 'masc', 'neut'):
                                     pos_dict['gender'] = pos[3]
                                     if pos[4] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                                        #this pos_dict needs to be rewritten to add as many as pos0, pos1, pos2, ..
-                                        #examples as there are splits
-                                        pos_dict['case'] = pos[4]
-                                        #!begin case breakout
-                                        cases = pos_dict['case']
-                                        #print(cases)
+                                        cases = pos[4]
                                         split_cases = cases.split('/')
                                         for a_case in split_cases:
-                                            #print('a_case: ', a_case)
-                                            #print('pos[0]: ', pos[0])
-                                            #print('pos[1]: ', pos[1])
-                                            #print('pos[2]: ', pos[2])
-                                            #print('pos[3]: ', pos[3])
-                                            print(a_case)
-                                            #this is what it'll be, I think:
-                                            #pos_dict['case'] = a_case
-                                        #end case breakout
-                                        try:
-                                            if pos[5] in ('pl', 'sg'):
-                                                pos_dict['number'] = pos[5]
+                                            pos_dict['case'] = a_case
+                                            try:
+                                                if pos[5] in ('pl', 'sg'):
+                                                    pos_dict['number'] = pos[5]
+                                                    pos_dict['gloss'] = gloss
+                                                    word_dict[pos_iterator] = pos_dict
+                                                    perseus_pos_list.append(word_dict)
+                                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                                    headword_dict[headword] = perseus_pos_dict
+
+                                                else:
+                                                    pass
+                                            #~10 -iens participles w/o number
+                                            except:
+                                                pos_dict['number'] = 'sg'
                                                 pos_dict['gloss'] = gloss
                                                 word_dict[pos_iterator] = pos_dict
                                                 perseus_pos_list.append(word_dict)
                                                 perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                                 headword_dict[headword] = perseus_pos_dict
-
-                                            else:
-                                                pass
-                                        #~10 -iens participles w/o number
-                                        except:
-                                            pos_dict['number'] = 'sg'
+                            #b/c voice left off present tense participles
+                            elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
+                                genders = pos[2]
+                                genders_split = genders.split('/')
+                                for a_gender in genders_split:
+                                    pos_dict['gender'] = a_gender
+                                    pos_dict['voice'] = 'act'
+                                    #!do fix at 113
+                                    if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
+                                        if pos[3] in ('pl', 'sg'):
+                                            pos_dict['number'] = pos[4]
                                             pos_dict['gloss'] = gloss
                                             word_dict[pos_iterator] = pos_dict
                                             perseus_pos_list.append(word_dict)
                                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                             headword_dict[headword] = perseus_pos_dict
-                            #b/c voice left off present tense participles
-                            elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
-                                pos_dict['voice'] = 'act'
-                                if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
-                                    if pos[3] in ('pl', 'sg'):
-                                        pos_dict['number'] = pos[4]
+                                    else:
+                                        pass
+                                else:
+                                    if pos[2] in ('abl', 'dat', 'gen'):
+                                        #b/c voice left off present voice participles
+                                        pos_dict['voice'] = 'act'
                                         pos_dict['gloss'] = gloss
                                         word_dict[pos_iterator] = pos_dict
                                         perseus_pos_list.append(word_dict)
                                         perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                         headword_dict[headword] = perseus_pos_dict
-                                else:
-                                    pass
-                            else:
-                                if pos[2] in ('abl', 'dat', 'gen'):
-                                    #b/c voice left off present voice participles
-                                    pos_dict['voice'] = 'act'
-                                    pos_dict['gloss'] = gloss
-                                    word_dict[pos_iterator] = pos_dict
-                                    perseus_pos_list.append(word_dict)
-                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                    headword_dict[headword] = perseus_pos_dict
-                                else:
-                                    pass
+                                    else:
+                                        pass
                         elif pos[1] in ('inf'):
                             if pos[2] in ('act', 'pass'):
                                 pos_dict['voice'] = pos[2]
@@ -194,8 +186,10 @@ class MakePOSTagger(object):
                             pass
                     elif pos[0] == 'gerundive':
                         pos_dict['type'] = 'gerundive'
+                        #!do fix at 113
                         if pos[1] in ('fem', 'neut', 'masc', 'masc/neut'):
                             pos_dict['gender'] = pos[1]
+                            #!do fix at 113
                             if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
                                 if pos[3] in ('pl', 'sg'):
                                     pos_dict['number'] = pos[3]
@@ -210,6 +204,7 @@ class MakePOSTagger(object):
                                 pass
                         else:
                             pass
+                    #!do fix at 113 here and at 221
                     elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
                         pos_dict['type'] = 'substantive'
                         pos_dict['gender'] = pos[0]
@@ -263,7 +258,6 @@ class MakePOSTagger(object):
                                     perseus_pos_list.append(word_dict)
                                     perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                     perseus_pos_dict[headword] = word_dict
-
                             else:
                                 pass
                         else:
@@ -294,6 +288,7 @@ class MakePOSTagger(object):
                         else:
                             pass
                     #!confirm that these elifs don't output anything
+                    #!do fix at 113
                     elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
                         pass
                     elif pos[0] == 'sg':
