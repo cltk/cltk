@@ -136,13 +136,17 @@ class MakePOSTagger(object):
                                     pos_dict['voice'] = 'act'
                                     #!do fix at 113
                                     if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
-                                        if pos[3] in ('pl', 'sg'):
-                                            pos_dict['number'] = pos[4]
-                                            pos_dict['gloss'] = gloss
-                                            word_dict[pos_iterator] = pos_dict
-                                            perseus_pos_list.append(word_dict)
-                                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                            headword_dict[headword] = perseus_pos_dict
+                                        cases = pos[3]
+                                        cases_split = cases.split('/')
+                                        for a_case in cases_split:
+                                            pos_dict['case'] = a_case
+                                            if pos[3] in ('pl', 'sg'):
+                                                pos_dict['number'] = pos[4]
+                                                pos_dict['gloss'] = gloss
+                                                word_dict[pos_iterator] = pos_dict
+                                                perseus_pos_list.append(word_dict)
+                                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                                headword_dict[headword] = perseus_pos_dict
                                     else:
                                         pass
                                 else:
