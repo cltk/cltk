@@ -62,8 +62,9 @@ TLG
 In addition to copying the TLG's author files at ``~/cltk_local/compiled/tlg/``, it creates ``index_author_works.txt``, ``index_file_author.txt``,  and ``index_meta.txt`` (an index of the TLG's other indices).
 
 
-Latin
-=====
+
+Classical Latin
+===============
 
 Latin Library
 -------------
