@@ -122,3 +122,17 @@ In addition to copying the PHI5's author files at ``~/cltk_local/compiled/phi5/`
 PHI 7, Latin
 ------------
 See instructions under Classical Greek.
+
+
+POS
+---
+
+Download these files for POS tagging by the CLTK.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('pos_latin')
