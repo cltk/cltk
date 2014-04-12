@@ -124,8 +124,8 @@ PHI 7, Latin
 See instructions under Classical Greek.
 
 
-POS
----
+POS Tagging
+-----------
 
 Download these files for POS tagging by the CLTK.
 
