@@ -1,182 +1,172 @@
-"""rework Perseus latin-analyses.txt into Python dictionary"""
-#!TODO
-#add perseus word ids
-#break multiple cases (eg, nom/acc/voc) and genders (masc/neut)
+"""Build taggers and tag text"""
+import logging
+import os
 from pprint import pprint
 import re
+import site
 
-with open('./latin-analyses.txt') as file_opened:
-    string_raw = file_opened.read()
-    string_rows = string_raw.splitlines()
-    headword_dict = {}
-    for row in string_rows:
-        perseus_pos_dict = {}
-        headword = row.split('\t', 1)[0]
-        analyses_string = row.split('\t', 1)[1]
-        reg_bracket = re.compile('\{.*?\}')
-        analyses = reg_bracket.findall(analyses_string)
-        print(headword)
-        pos_counter = -1
-        perseus_pos_list = []
-        for analysis in analyses:
-            pos_counter += 1
-            pos_iterator = 'pos' + str(pos_counter)
-            parts = analysis.split('\t')
-            first = parts[0][1:]
-            gloss = parts[1]
-            if gloss == ' ':
-                gloss = ''
-            third = parts[2][:-1]
-            reg_digits = re.compile('\w+')
-            perseus_headword_id = reg_digits.findall(first)[0]
-            #print(perseus_headword_id)
-            perseus_pos_id = reg_digits.findall(first)[1]
-            #print(perseus_pos_id)
-            perseus_parsed = reg_digits.findall(first)[2]
-            #print(perseus_parsed)
-            try:
-                perseus_headword = reg_digits.findall(first)[3]
-            except:
-                pass
-            pos = third.split(' ')
-            word_dict = {}
-            pos_dict = {}
-            if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
-                pos_dict['type'] = 'verb'
-                pos_dict['tense'] = pos[0]
-                if pos[1] in ('ind', 'imperat', 'subj'):
-                    pos_dict['mood'] = pos[1]
-                    if pos[2] in ('act', 'pass'):
-                        pos_dict['voice'] = pos[2]
-                        if pos[3] in ('1st', '2nd', '3rd'):
-                            pos_dict['person'] = pos[3]
-                            if pos[4] in ('pl', 'sg'):
-                                pos_dict['number'] = pos[4]
-                                pos_dict['gloss'] = gloss
-                                word_dict[pos_iterator] = pos_dict
-                                perseus_pos_list.append(word_dict)
-                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                headword_dict[headword] = perseus_pos_dict
-                            else:
-                                pass
-                        else:
-                            pass
-                    else:
+class MakePOSTagger(object):
+    """rework Perseus latin-analyses.txt into Python dictionary"""
+
+    def __init__(self):
+        """identify absolute path to cltk_local dir
+        TODO: add argument for cltk_local not at root"""
+        self.cltk_bin_path = os.path.join(site.getsitepackages()[0], 'cltk')
+        default_cltk_local = '~/cltk_local'
+        cltk_local = os.path.expanduser(default_cltk_local)
+        if os.path.isdir(cltk_local) is True:
+            logging.info('cltk_local dir found.')
+        else:
+            logging.error('cltk_local dir not found.')
+        log_path = os.path.join(cltk_local, 'cltk.log')
+        logging.basicConfig(filename=log_path,
+                            level=logging.INFO,
+                            format='%(asctime)s %(message)s',
+                            datefmt='%m/%d/%Y %I:%M:%S %p')
+        self.cltk_local_compiled_pos_latin = os.path.join(cltk_local,'compiled', 'pos_latin')
+        if os.path.isdir(self.cltk_local_compiled_pos_latin) is True:
+            logging.info('compiled/pos_latin dir found.')
+        else:
+            logging.error('compiled/pos_latin dir not found.')
+        self.cltk_latin_pos_dict_path = os.path.join(self.cltk_local_compiled_pos_latin, 'cltk_latin_pos_dict.txt')
+
+    def make_files(self):
+        """build tagger out of old Perseus files
+        TODO:
+        add perseus word ids
+        break multiple cases (eg, nom/acc/voc) and genders (masc/neut)
+        """
+        lat_anal_txt = os.path.join(self.cltk_local_compiled_pos_latin, 'latin-analyses.txt')
+        with open(lat_anal_txt) as file_opened:
+            string_raw = file_opened.read()
+            string_rows = string_raw.splitlines()
+            headword_dict = {}
+            for row in string_rows:
+                perseus_pos_dict = {}
+                headword = row.split('\t', 1)[0]
+                analyses_string = row.split('\t', 1)[1]
+                reg_bracket = re.compile('\{.*?\}')
+                analyses = reg_bracket.findall(analyses_string)
+                print(headword)
+                pos_counter = -1
+                perseus_pos_list = []
+                for analysis in analyses:
+                    pos_counter += 1
+                    pos_iterator = 'pos' + str(pos_counter)
+                    parts = analysis.split('\t')
+                    first = parts[0][1:]
+                    gloss = parts[1]
+                    if gloss == ' ':
+                        gloss = ''
+                    third = parts[2][:-1]
+                    reg_digits = re.compile('\w+')
+                    #? what are these lines doing?
+                    perseus_headword_id = reg_digits.findall(first)[0]
+                    #print(perseus_headword_id)
+                    perseus_pos_id = reg_digits.findall(first)[1]
+                    #print(perseus_pos_id)
+                    perseus_parsed = reg_digits.findall(first)[2]
+                    #print(perseus_parsed)
+                    try:
+                        perseus_headword = reg_digits.findall(first)[3]
+                    except:
                         pass
-                elif pos[1] in ('part'):
-                    pos_dict['tense'] = pos[0]
-                    pos_dict['participle'] = pos[1]
-                    if pos[2] in ('act', 'pass'):
-                        pos_dict['voice'] = pos[2]
-                        if pos[3] in ('fem', 'masc', 'neut'):
-                            pos_dict['gender'] = pos[3]
-                            if pos[4] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                                pos_dict['case'] = pos[4]
-                                try:
-                                    if pos[5] in ('pl', 'sg'):
-                                        pos_dict['number'] = pos[5]
+                    pos = third.split(' ')
+                    word_dict = {}
+                    pos_dict = {}
+                    if pos[0] in ('fut', 'futperf', 'imperf', 'perf', 'pres', 'plup'):
+                        pos_dict['type'] = 'verb'
+                        pos_dict['tense'] = pos[0]
+                        if pos[1] in ('ind', 'imperat', 'subj'):
+                            pos_dict['mood'] = pos[1]
+                            if pos[2] in ('act', 'pass'):
+                                pos_dict['voice'] = pos[2]
+                                if pos[3] in ('1st', '2nd', '3rd'):
+                                    pos_dict['person'] = pos[3]
+                                    if pos[4] in ('pl', 'sg'):
+                                        pos_dict['number'] = pos[4]
                                         pos_dict['gloss'] = gloss
                                         word_dict[pos_iterator] = pos_dict
                                         perseus_pos_list.append(word_dict)
                                         perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                         headword_dict[headword] = perseus_pos_dict
-
                                     else:
                                         pass
-                                #~10 -iens participles w/o number
-                                except:
-                                    pos_dict['number'] = 'sg'
+                                else:
+                                    pass
+                            else:
+                                pass
+                        elif pos[1] in ('part'):
+                            pos_dict['tense'] = pos[0]
+                            pos_dict['participle'] = pos[1]
+                            if pos[2] in ('act', 'pass'):
+                                pos_dict['voice'] = pos[2]
+                                if pos[3] in ('fem', 'masc', 'neut'):
+                                    pos_dict['gender'] = pos[3]
+                                    if pos[4] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                                        #this pos_dict needs to be rewritten to add as many as pos0, pos1, pos2, ..
+                                        #examples as there are splits
+                                        pos_dict['case'] = pos[4]
+                                        #!begin case breakout
+                                        cases = pos_dict['case']
+                                        #print(cases)
+                                        split_cases = cases.split('/')
+                                        for a_case in split_cases:
+                                            #print('a_case: ', a_case)
+                                            #print('pos[0]: ', pos[0])
+                                            #print('pos[1]: ', pos[1])
+                                            #print('pos[2]: ', pos[2])
+                                            #print('pos[3]: ', pos[3])
+                                            print(a_case)
+                                            #this is what it'll be, I think:
+                                            #pos_dict['case'] = a_case
+                                        #end case breakout
+                                        try:
+                                            if pos[5] in ('pl', 'sg'):
+                                                pos_dict['number'] = pos[5]
+                                                pos_dict['gloss'] = gloss
+                                                word_dict[pos_iterator] = pos_dict
+                                                perseus_pos_list.append(word_dict)
+                                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                                headword_dict[headword] = perseus_pos_dict
+
+                                            else:
+                                                pass
+                                        #~10 -iens participles w/o number
+                                        except:
+                                            pos_dict['number'] = 'sg'
+                                            pos_dict['gloss'] = gloss
+                                            word_dict[pos_iterator] = pos_dict
+                                            perseus_pos_list.append(word_dict)
+                                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                            headword_dict[headword] = perseus_pos_dict
+                            #b/c voice left off present tense participles
+                            elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
+                                pos_dict['voice'] = 'act'
+                                if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
+                                    if pos[3] in ('pl', 'sg'):
+                                        pos_dict['number'] = pos[4]
+                                        pos_dict['gloss'] = gloss
+                                        word_dict[pos_iterator] = pos_dict
+                                        perseus_pos_list.append(word_dict)
+                                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                        headword_dict[headword] = perseus_pos_dict
+                                else:
+                                    pass
+                            else:
+                                if pos[2] in ('abl', 'dat', 'gen'):
+                                    #b/c voice left off present voice participles
+                                    pos_dict['voice'] = 'act'
                                     pos_dict['gloss'] = gloss
                                     word_dict[pos_iterator] = pos_dict
                                     perseus_pos_list.append(word_dict)
                                     perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                     headword_dict[headword] = perseus_pos_dict
-                    #b/c voice left off present tense participles
-                    elif pos[2] in ('masc/fem/neut', 'masc/fem', 'neut'):
-                        pos_dict['voice'] = 'act'
-                        if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
-                            if pos[3] in ('pl', 'sg'):
-                                pos_dict['number'] = pos[4]
-                                pos_dict['gloss'] = gloss
-                                word_dict[pos_iterator] = pos_dict
-                                perseus_pos_list.append(word_dict)
-                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                headword_dict[headword] = perseus_pos_dict
-                        else:
-                            pass
-                    else:
-                        if pos[2] in ('abl', 'dat', 'gen'):
-                            #b/c voice left off present voice participles
-                            pos_dict['voice'] = 'act'
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
-                        else:
-                            pass
-                elif pos[1] in ('inf'):
-                    if pos[2] in ('act', 'pass'):
-                        pos_dict['voice'] = pos[2]
-                        pos_dict['gloss'] = gloss
-                        word_dict[pos_iterator] = pos_dict
-                        perseus_pos_list.append(word_dict)
-                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                        headword_dict[headword] = perseus_pos_dict
-                    else:
-                        pass
-                elif pos[1] in ('act', 'pass'):
-                    #ferre verbs
-                    pos_dict['voice'] = pos[1]
-                    if pos[2] in ('1st', '2nd', '3rd'):
-                        pos_dict['person'] = pos[2]
-                        if pos[3] in ('pl', 'sg'):
-                            pos_dict['number'] = pos[3]
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
-                        else:
-                            pass
-                    else:
-                        pass
-                else:
-                    pass
-            elif pos[0] == 'gerundive':
-                pos_dict['type'] = 'gerundive'
-                if pos[1] in ('fem', 'neut', 'masc', 'masc/neut'):
-                    pos_dict['gender'] = pos[1]
-                    if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                        if pos[3] in ('pl', 'sg'):
-                            pos_dict['number'] = pos[3]
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
-                        else:
-                            pass
-                    else:
-                        pass
-                else:
-                    pass
-            elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
-                pos_dict['type'] = 'substantive'
-                pos_dict['gender'] = pos[0]
-                try:
-                    if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                        pos_dict['case'] = pos[1]
-                        if pos[2] in ('pl', 'sg'):
-                            pos_dict['number'] = pos[2]
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
-                        else:
-                            if pos[2] in ('comp', 'superl'):
-                                pos_dict['comparison'] = pos[2]
+                                else:
+                                    pass
+                        elif pos[1] in ('inf'):
+                            if pos[2] in ('act', 'pass'):
+                                pos_dict['voice'] = pos[2]
                                 pos_dict['gloss'] = gloss
                                 word_dict[pos_iterator] = pos_dict
                                 perseus_pos_list.append(word_dict)
@@ -184,83 +174,157 @@ with open('./latin-analyses.txt') as file_opened:
                                 headword_dict[headword] = perseus_pos_dict
                             else:
                                 pass
-                    else:
-                        if pos[1] in ('pl', 'sg'):
-                            pos_dict['number'] = pos[1]
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
-                except:
-                    pos_dict['case'] = 'indeclinable'
-                    pos_dict['gender'] = pos[0]
-                    pos_dict['number'] = 'sg'
-                    pos_dict['gloss'] = gloss
-                    word_dict[pos_iterator] = pos_dict
-                    perseus_pos_list.append(word_dict)
-                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                    headword_dict[headword] = perseus_pos_dict
-            elif pos[0] == 'supine':
-                pos_dict['type'] = pos[0]
-                if pos[1] == 'neut':
-                    pos_dict['gender'] = pos[1]
-                    if pos[2] in ('nom', 'dat'):
-                        pos_dict['case'] = pos[2]
-                        if pos[3] == 'sg':
-                            pos_dict['number'] = pos[3]
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            perseus_pos_dict[headword] = word_dict
-
-                    else:
-                        pass
-                else:
-                    pass
-            elif pos[0] == 'indeclform':
-                pos_dict['case'] = pos[0]
-                pos_dict['type'] = pos[1][1:-1]
-                pos_dict['gloss'] = gloss
-                word_dict[pos_iterator] = pos_dict
-                perseus_pos_list.append(word_dict)
-                perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                headword_dict[headword] = perseus_pos_dict
-            elif pos[0] == 'adverbial':
-                if pos[0] == 'adverbial':
-                    pos_dict['type'] = pos[0]
-                    try:
-                        if pos[1] in ('comp', 'superl'):
-                            pos_dict['comparison'] = pos[1]
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
+                        elif pos[1] in ('act', 'pass'):
+                            #ferre verbs
+                            pos_dict['voice'] = pos[1]
+                            if pos[2] in ('1st', '2nd', '3rd'):
+                                pos_dict['person'] = pos[2]
+                                if pos[3] in ('pl', 'sg'):
+                                    pos_dict['number'] = pos[3]
+                                    pos_dict['gloss'] = gloss
+                                    word_dict[pos_iterator] = pos_dict
+                                    perseus_pos_list.append(word_dict)
+                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                    headword_dict[headword] = perseus_pos_dict
+                                else:
+                                    pass
+                            else:
+                                pass
                         else:
                             pass
-                    except:
+                    elif pos[0] == 'gerundive':
+                        pos_dict['type'] = 'gerundive'
+                        if pos[1] in ('fem', 'neut', 'masc', 'masc/neut'):
+                            pos_dict['gender'] = pos[1]
+                            if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                                if pos[3] in ('pl', 'sg'):
+                                    pos_dict['number'] = pos[3]
+                                    pos_dict['gloss'] = gloss
+                                    word_dict[pos_iterator] = pos_dict
+                                    perseus_pos_list.append(word_dict)
+                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                    headword_dict[headword] = perseus_pos_dict
+                                else:
+                                    pass
+                            else:
+                                pass
+                        else:
+                            pass
+                    elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
+                        pos_dict['type'] = 'substantive'
+                        pos_dict['gender'] = pos[0]
+                        try:
+                            if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                                pos_dict['case'] = pos[1]
+                                if pos[2] in ('pl', 'sg'):
+                                    pos_dict['number'] = pos[2]
+                                    pos_dict['gloss'] = gloss
+                                    word_dict[pos_iterator] = pos_dict
+                                    perseus_pos_list.append(word_dict)
+                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                    headword_dict[headword] = perseus_pos_dict
+                                else:
+                                    if pos[2] in ('comp', 'superl'):
+                                        pos_dict['comparison'] = pos[2]
+                                        pos_dict['gloss'] = gloss
+                                        word_dict[pos_iterator] = pos_dict
+                                        perseus_pos_list.append(word_dict)
+                                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                        headword_dict[headword] = perseus_pos_dict
+                                    else:
+                                        pass
+                            else:
+                                if pos[1] in ('pl', 'sg'):
+                                    pos_dict['number'] = pos[1]
+                                    pos_dict['gloss'] = gloss
+                                    word_dict[pos_iterator] = pos_dict
+                                    perseus_pos_list.append(word_dict)
+                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                    headword_dict[headword] = perseus_pos_dict
+                        except:
+                            pos_dict['case'] = 'indeclinable'
+                            pos_dict['gender'] = pos[0]
+                            pos_dict['number'] = 'sg'
+                            pos_dict['gloss'] = gloss
+                            word_dict[pos_iterator] = pos_dict
+                            perseus_pos_list.append(word_dict)
+                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                            headword_dict[headword] = perseus_pos_dict
+                    elif pos[0] == 'supine':
+                        pos_dict['type'] = pos[0]
+                        if pos[1] == 'neut':
+                            pos_dict['gender'] = pos[1]
+                            if pos[2] in ('nom', 'dat'):
+                                pos_dict['case'] = pos[2]
+                                if pos[3] == 'sg':
+                                    pos_dict['number'] = pos[3]
+                                    pos_dict['gloss'] = gloss
+                                    word_dict[pos_iterator] = pos_dict
+                                    perseus_pos_list.append(word_dict)
+                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                    perseus_pos_dict[headword] = word_dict
+
+                            else:
+                                pass
+                        else:
+                            pass
+                    elif pos[0] == 'indeclform':
+                        pos_dict['case'] = pos[0]
+                        pos_dict['type'] = pos[1][1:-1]
+                        pos_dict['gloss'] = gloss
+                        word_dict[pos_iterator] = pos_dict
+                        perseus_pos_list.append(word_dict)
+                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                        headword_dict[headword] = perseus_pos_dict
+                    elif pos[0] == 'adverbial':
+                        if pos[0] == 'adverbial':
+                            pos_dict['type'] = pos[0]
+                            try:
+                                if pos[1] in ('comp', 'superl'):
+                                    pos_dict['comparison'] = pos[1]
+                                    pos_dict['gloss'] = gloss
+                                    word_dict[pos_iterator] = pos_dict
+                                    perseus_pos_list.append(word_dict)
+                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                    headword_dict[headword] = perseus_pos_dict
+                                else:
+                                    pass
+                            except:
+                                pass
+                        else:
+                            pass
+                    #!confirm that these elifs don't output anything
+                    elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
                         pass
-                else:
-                    pass
-            #!confirm that these elifs don't output anything
-            elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
-                pass
-            elif pos[0] == 'sg':
-                pass #??? ex: ut, uter, altus, alter
-            elif pos[0] == 'comp':
-                pass # ex: diu, se
-            elif pos[0] in ('subj', 'ind'):
-                pass # ex: fio, impleo, deleo, compleo
-            elif pos[0] == 'nu_movable':
-                pass #only 1 ex: sum
-            else:
-                pass
-#pprint(headword_dict)
-try:
-    with open('cltk_analyses.txt', 'w') as new_file:
-        #write_morph.write(str(inflections))
-        pprint(headword_dict, stream=new_file)
-except IOError:
-    pass
+                    elif pos[0] == 'sg':
+                        pass #??? ex: ut, uter, altus, alter
+                    elif pos[0] == 'comp':
+                        pass # ex: diu, se
+                    elif pos[0] in ('subj', 'ind'):
+                        pass # ex: fio, impleo, deleo, compleo
+                    elif pos[0] == 'nu_movable':
+                        pass #only 1 ex: sum
+                    else:
+                        pass
+        #pprint(headword_dict)
+        try:
+            with open(self.cltk_latin_pos_dict_path, 'w') as new_file:
+                #write_morph.write(str(inflections))
+                pprint(headword_dict, stream=new_file)
+                logging.info('Successfully wrote Latin POS file at %s', self.cltk_latin_pos_dict_path)
+        except IOError:
+            logging.error('Failed to write Latin POS file at %s', self.cltk_latin_pos_dict_path)
+
+    #probably not nec
+    '''
+    def rewrite_cltk_file(self):
+        """A second pass is necessary b/c the original Perseus analyses does not distinguish between ambiguous
+        substantives, ie, 'nom/acc'"""
+        print(self.cltk_latin_pos_dict_path)
+        try:
+            with open(self.cltk_latin_pos_dict_path, 'r') as file_opened:
+                string_raw = file_opened.read()
+                print(string_raw)
+        except IOError:
+            logging.error('CLTK log file not found.')
+    '''
