@@ -1,6 +1,12 @@
 Classical Latin
 ************************
 
+POS Tagging
+===========
+
+.. warning::
+
+   POS tagging is a work in progress.
 
 Text Processing
 ===============
