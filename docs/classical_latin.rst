@@ -42,5 +42,5 @@ Convert J to I, V to U
 
    In [2]: j = JVReplacer()
 
-   In [4]: j.replace('vem jam')
-   Out[4]: 'uem iam'
+   In [3]: j.replace('vem jam')
+   Out[3]: 'uem iam'
