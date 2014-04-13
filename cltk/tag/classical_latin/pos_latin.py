@@ -213,47 +213,50 @@ class MakePOSTagger(object):
                                     pass
                         else:
                             pass
-                    #!do fix at 113 here and at 221
                     elif pos[0] in ('fem', 'masc', 'neut', 'masc/fem/neut', 'masc/fem', 'masc/neut'):
-                        pos_dict['type'] = 'substantive'
-                        pos_dict['gender'] = pos[0]
-                        try:
-                            if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                                pos_dict['case'] = pos[1]
-                                if pos[2] in ('pl', 'sg'):
-                                    pos_dict['number'] = pos[2]
-                                    pos_dict['gloss'] = gloss
-                                    word_dict[pos_iterator] = pos_dict
-                                    perseus_pos_list.append(word_dict)
-                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                    headword_dict[headword] = perseus_pos_dict
-                                else:
-                                    if pos[2] in ('comp', 'superl'):
-                                        pos_dict['comparison'] = pos[2]
+                        genders = pos[0]
+                        genders_split = genders.split('/')
+                        for a_gender in genders_split:
+                            pos_dict['gender'] = a_gender
+                            pos_dict['type'] = 'substantive'
+                            pos_dict['gender'] = pos[0]
+                            try:
+                                if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
+                                    pos_dict['case'] = pos[1]
+                                    if pos[2] in ('pl', 'sg'):
+                                        pos_dict['number'] = pos[2]
                                         pos_dict['gloss'] = gloss
                                         word_dict[pos_iterator] = pos_dict
                                         perseus_pos_list.append(word_dict)
                                         perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                         headword_dict[headword] = perseus_pos_dict
                                     else:
-                                        pass
-                            else:
-                                if pos[1] in ('pl', 'sg'):
-                                    pos_dict['number'] = pos[1]
-                                    pos_dict['gloss'] = gloss
-                                    word_dict[pos_iterator] = pos_dict
-                                    perseus_pos_list.append(word_dict)
-                                    perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                    headword_dict[headword] = perseus_pos_dict
-                        except:
-                            pos_dict['case'] = 'indeclinable'
-                            pos_dict['gender'] = pos[0]
-                            pos_dict['number'] = 'sg'
-                            pos_dict['gloss'] = gloss
-                            word_dict[pos_iterator] = pos_dict
-                            perseus_pos_list.append(word_dict)
-                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                            headword_dict[headword] = perseus_pos_dict
+                                        if pos[2] in ('comp', 'superl'):
+                                            pos_dict['comparison'] = pos[2]
+                                            pos_dict['gloss'] = gloss
+                                            word_dict[pos_iterator] = pos_dict
+                                            perseus_pos_list.append(word_dict)
+                                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                            headword_dict[headword] = perseus_pos_dict
+                                        else:
+                                            pass
+                                else:
+                                    if pos[1] in ('pl', 'sg'):
+                                        pos_dict['number'] = pos[1]
+                                        pos_dict['gloss'] = gloss
+                                        word_dict[pos_iterator] = pos_dict
+                                        perseus_pos_list.append(word_dict)
+                                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                        headword_dict[headword] = perseus_pos_dict
+                            except:
+                                pos_dict['case'] = 'indeclinable'
+                                pos_dict['gender'] = pos[0]
+                                pos_dict['number'] = 'sg'
+                                pos_dict['gloss'] = gloss
+                                word_dict[pos_iterator] = pos_dict
+                                perseus_pos_list.append(word_dict)
+                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                headword_dict[headword] = perseus_pos_dict
                     elif pos[0] == 'supine':
                         pos_dict['type'] = pos[0]
                         if pos[1] == 'neut':
