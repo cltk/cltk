@@ -335,14 +335,21 @@ class MakePOSTagger(object):
                     elif pos[0] == 'sg':
                         pos_dict['type'] = 'substantive'
                         pos_dict['number'] = pos[0]
-                        try:
-                            #print(headword)
-                            print(pos[1])
-                        except:
-                            pass
+                        #?gender? all 3?
+                        word_dict[pos_iterator] = pos_dict
+                        perseus_pos_list.append(word_dict)
+                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                        headword_dict[headword] = perseus_pos_dict
                     elif pos[0] == 'comp':
-                        pass # ex: diu, se
-                        #print(pos[0])
+                        pos_dict['comparison'] = pos[0]
+                        pos_dict['type'] = pos[0]
+                        #adv or subst?: diutius, diutiusque, setius
+                        #I'm calling these adverbs, but maybe should be written as substantives too
+                        pos_dict['type'] = 'adverbial'
+                        word_dict[pos_iterator] = pos_dict
+                        perseus_pos_list.append(word_dict)
+                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                        headword_dict[headword] = perseus_pos_dict
                     elif pos[0] in ('subj', 'ind'):
                         pass # ex: fio, impleo, deleo, compleo
                     elif pos[0] == 'nu_movable':
