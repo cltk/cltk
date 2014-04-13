@@ -325,14 +325,18 @@ class MakePOSTagger(object):
                             elif pos[1] in ('sg', 'pl'):
                                 pos_dict['type'] = 'substantive'
                                 pos_dict['number'] = pos[1]
-                                try:
-                                    print(pos[2])
-                                except:
-                                    pass
+                                #?gender?
+                                word_dict[pos_iterator] = pos_dict
+                                perseus_pos_list.append(word_dict)
+                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                headword_dict[headword] = perseus_pos_dict
                             else:
                                 pass
                     elif pos[0] == 'sg':
-                        pass #??? ex: ut, uter, altus, alter
+                        print(headword)
+                        print(pos)
+                        print(pos[2])
+                        #pass #??? ex: ut, uter, altus, alter
                         #print(pos[0])
                     elif pos[0] == 'comp':
                         pass # ex: diu, se
