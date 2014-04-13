@@ -367,8 +367,8 @@ class MakePOSTagger(object):
                         else:
                             pass
                     elif pos[0] == 'nu_movable':
-                        pos_dict['type'] = 'adverbial'
-                        #only 1: sin
+                        pos_dict['type'] = 'conj'
+                        #only 1: sin; conjunction, right?
                         pos_dict['case'] = pos[1]
                     else:
                         pass
