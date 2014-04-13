@@ -134,7 +134,6 @@ class MakePOSTagger(object):
                                 for a_gender in genders_split:
                                     pos_dict['gender'] = a_gender
                                     pos_dict['voice'] = 'act'
-                                    #!do fix at 113
                                     if pos[3] in ('acc', 'gen', 'abl', 'dat', 'nom/voc/acc', 'nom/voc'):
                                         cases = pos[3]
                                         cases_split = cases.split('/')
