@@ -34,7 +34,7 @@ class MakePOSTagger(object):
         """build tagger out of old Perseus files
         TODO:
         add perseus word ids
-        break multiple cases (eg, nom/acc/voc) and genders (masc/neut)
+        check if some entries (esp. at end) need gender manually added
         """
         lat_anal_txt = os.path.join(self.cltk_local_compiled_pos_latin, 'latin-analyses.txt')
         with open(lat_anal_txt) as file_opened:
