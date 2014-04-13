@@ -30,7 +30,7 @@ class MakePOSTagger(object):
             logging.error('compiled/pos_latin dir not found.')
         self.cltk_latin_pos_dict_path = os.path.join(self.cltk_local_compiled_pos_latin, 'cltk_latin_pos_dict.txt')
 
-    def make_files(self):
+    def make_file(self):
         """build tagger out of old Perseus files
         TODO:
         add perseus word ids
