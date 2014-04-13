@@ -367,7 +367,9 @@ class MakePOSTagger(object):
                         else:
                             pass
                     elif pos[0] == 'nu_movable':
-                        pass #only 1 ex: sum
+                        pos_dict['type'] = 'adverbial'
+                        #only 1: sin
+                        pos_dict['case'] = pos[1]
                     else:
                         pass
         #pprint(headword_dict)
@@ -378,17 +380,3 @@ class MakePOSTagger(object):
                 logging.info('Successfully wrote Latin POS file at %s', self.cltk_latin_pos_dict_path)
         except IOError:
             logging.error('Failed to write Latin POS file at %s', self.cltk_latin_pos_dict_path)
-
-    #probably not nec
-    '''
-    def rewrite_cltk_file(self):
-        """A second pass is necessary b/c the original Perseus analyses does not distinguish between ambiguous
-        substantives, ie, 'nom/acc'"""
-        print(self.cltk_latin_pos_dict_path)
-        try:
-            with open(self.cltk_latin_pos_dict_path, 'r') as file_opened:
-                string_raw = file_opened.read()
-                print(string_raw)
-        except IOError:
-            logging.error('CLTK log file not found.')
-    '''
