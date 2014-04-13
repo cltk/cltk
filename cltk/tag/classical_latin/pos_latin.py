@@ -375,7 +375,6 @@ class MakePOSTagger(object):
         #pprint(headword_dict)
         try:
             with open(self.cltk_latin_pos_dict_path, 'w') as new_file:
-                #write_morph.write(str(inflections))
                 pprint(headword_dict, stream=new_file)
                 logging.info('Successfully wrote Latin POS file at %s', self.cltk_latin_pos_dict_path)
         except IOError:
