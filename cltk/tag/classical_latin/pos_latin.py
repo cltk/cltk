@@ -372,7 +372,6 @@ class MakePOSTagger(object):
                         pos_dict['case'] = pos[1]
                     else:
                         pass
-        #pprint(headword_dict)
         try:
             with open(self.cltk_latin_pos_dict_path, 'w') as new_file:
                 pprint(headword_dict, stream=new_file)
