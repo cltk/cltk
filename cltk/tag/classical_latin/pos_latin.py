@@ -363,7 +363,7 @@ class MakePOSTagger(object):
                                     perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                     headword_dict[headword] = perseus_pos_dict
                             else:
-                                print(headword, pos)
+                                pass
                         else:
                             pass
                     elif pos[0] == 'nu_movable':
