@@ -222,24 +222,27 @@ class MakePOSTagger(object):
                             pos_dict['gender'] = pos[0]
                             try:
                                 if pos[1] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                                    pos_dict['case'] = pos[1]
-                                    if pos[2] in ('pl', 'sg'):
-                                        pos_dict['number'] = pos[2]
-                                        pos_dict['gloss'] = gloss
-                                        word_dict[pos_iterator] = pos_dict
-                                        perseus_pos_list.append(word_dict)
-                                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                        headword_dict[headword] = perseus_pos_dict
-                                    else:
-                                        if pos[2] in ('comp', 'superl'):
-                                            pos_dict['comparison'] = pos[2]
+                                    cases = pos[1]
+                                    cases_split = cases.split('/')
+                                    for a_case in cases_split:
+                                        pos_dict['case'] = a_case
+                                        if pos[2] in ('pl', 'sg'):
+                                            pos_dict['number'] = pos[2]
                                             pos_dict['gloss'] = gloss
                                             word_dict[pos_iterator] = pos_dict
                                             perseus_pos_list.append(word_dict)
                                             perseus_pos_dict['perseus_pos'] = perseus_pos_list
                                             headword_dict[headword] = perseus_pos_dict
                                         else:
-                                            pass
+                                            if pos[2] in ('comp', 'superl'):
+                                                pos_dict['comparison'] = pos[2]
+                                                pos_dict['gloss'] = gloss
+                                                word_dict[pos_iterator] = pos_dict
+                                                perseus_pos_list.append(word_dict)
+                                                perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                                headword_dict[headword] = perseus_pos_dict
+                                            else:
+                                                pass
                                 else:
                                     if pos[1] in ('pl', 'sg'):
                                         pos_dict['number'] = pos[1]
@@ -300,7 +303,7 @@ class MakePOSTagger(object):
                         else:
                             pass
                     #!confirm that these elifs don't output anything
-                    #!do fix at 113
+                    #maybe do fix at 113
                     elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
                         pass
                     elif pos[0] == 'sg':
