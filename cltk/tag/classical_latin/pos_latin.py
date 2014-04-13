@@ -196,15 +196,19 @@ class MakePOSTagger(object):
                             for a_gender in genders_split:
                                 pos_dict['gender'] = a_gender
                                 if pos[2] in ('abl', 'acc', 'dat', 'gen', 'voc', 'nom', 'nom/voc', 'nom/voc/acc'):
-                                    if pos[3] in ('pl', 'sg'):
-                                        pos_dict['number'] = pos[3]
-                                        pos_dict['gloss'] = gloss
-                                        word_dict[pos_iterator] = pos_dict
-                                        perseus_pos_list.append(word_dict)
-                                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
-                                        headword_dict[headword] = perseus_pos_dict
-                                    else:
-                                        pass
+                                    cases = pos[2]
+                                    cases_split = cases.split('/')
+                                    for a_case in cases_split:
+                                        pos_dict['case'] = a_case
+                                        if pos[3] in ('pl', 'sg'):
+                                            pos_dict['number'] = pos[3]
+                                            pos_dict['gloss'] = gloss
+                                            word_dict[pos_iterator] = pos_dict
+                                            perseus_pos_list.append(word_dict)
+                                            perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                            headword_dict[headword] = perseus_pos_dict
+                                        else:
+                                            pass
                                 else:
                                     pass
                         else:
