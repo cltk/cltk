@@ -305,23 +305,37 @@ class MakePOSTagger(object):
                     #maybe do fix at 113
                     #yes this has values:
                     elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
-                        #pass
-                        print(headword)
-                        #print(pos[0])
-                        #print(pos)
                         cases = pos[0]
                         cases_split = cases.split('/')
                         for a_case in cases_split:
-                            pos_dict['case'] = pos[0]
-                            pos_dict['comparison'] = pos[1]
-                            print(pos[2])
-                    #yes:
+                            pos_dict['case'] = a_case
+                            if pos[1] in ('comp'):
+                                pos_dict['comparison'] = pos[1]
+                                try:
+                                    if pos[2] in ('sg', 'pl'):
+                                        pos_dict['case'] = pos[2]
+                                        word_dict[pos_iterator] = pos_dict
+                                        perseus_pos_list.append(word_dict)
+                                        perseus_pos_dict['perseus_pos'] = perseus_pos_list
+                                        headword_dict[headword] = perseus_pos_dict
+                                    else:
+                                        print(pos[2])
+                                except:
+                                    pass
+                            elif pos[1] in ('sg', 'pl'):
+                                #print(pos[1])
+                                #print(headword)
+                                #print(pos)
+                                pass
+                            #print(pos[1])
+                            #pos_dict['comparison'] = pos[1]
+                            #print(pos[2])
                     elif pos[0] == 'sg':
                         pass #??? ex: ut, uter, altus, alter
                         #print(pos[0])
                     elif pos[0] == 'comp':
-                        #pass # ex: diu, se
-                        print(pos[0])
+                        pass # ex: diu, se
+                        #print(pos[0])
                     elif pos[0] in ('subj', 'ind'):
                         pass # ex: fio, impleo, deleo, compleo
                     elif pos[0] == 'nu_movable':
