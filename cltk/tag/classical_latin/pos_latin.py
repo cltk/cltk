@@ -47,7 +47,7 @@ class MakePOSTagger(object):
                 analyses_string = row.split('\t', 1)[1]
                 reg_bracket = re.compile('\{.*?\}')
                 analyses = reg_bracket.findall(analyses_string)
-                print(headword)
+                #print(headword)
                 pos_counter = -1
                 perseus_pos_list = []
                 for analysis in analyses:
@@ -303,12 +303,25 @@ class MakePOSTagger(object):
                             pass
                     #!confirm that these elifs don't output anything
                     #maybe do fix at 113
+                    #yes this has values:
                     elif pos[0] in ('nom', 'abl', 'gen', 'dat', 'nom/acc', 'nom/voc'):
-                        pass
+                        #pass
+                        print(headword)
+                        #print(pos[0])
+                        #print(pos)
+                        cases = pos[0]
+                        cases_split = cases.split('/')
+                        for a_case in cases_split:
+                            pos_dict['case'] = pos[0]
+                            pos_dict['comparison'] = pos[1]
+                            print(pos[2])
+                    #yes:
                     elif pos[0] == 'sg':
                         pass #??? ex: ut, uter, altus, alter
+                        #print(pos[0])
                     elif pos[0] == 'comp':
-                        pass # ex: diu, se
+                        #pass # ex: diu, se
+                        print(pos[0])
                     elif pos[0] in ('subj', 'ind'):
                         pass # ex: fio, impleo, deleo, compleo
                     elif pos[0] == 'nu_movable':
