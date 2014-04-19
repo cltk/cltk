@@ -1,7 +1,7 @@
 Import Corpora
 **************
 
-The CLTK works solely out of the local directory ``cltk_local``, which is created at a user's root directory. Within this are two directories, ``originals``, in which copies of outside corpora are made, and ``compiled``, in which transformed copies of the former are written.
+The CLTK works solely out of the local directory ``cltk_data``, which is created at a user's root directory. Within this are two directories, ``originals``, in which copies of outside corpora are made, and ``compiled``, in which transformed copies of the former are written.
 
 
 Classical Greek
@@ -46,7 +46,7 @@ If the PHI 7 files were located at ``/Users/kyle/Downloads/corpora/PHI7/``, then
    In [2]: c = Compile()
    In [3]: c.import_corpus('phi7', '/Users/kyle/Downloads/corpora/PHI7/')
 
-In addition to copying the PHI7's author files at ``~/cltk_local/compiled/phi7/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
+In addition to copying the PHI7's author files at ``~/cltk_data/compiled/phi7/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
 
 TLG
 ---
@@ -59,7 +59,7 @@ TLG
 
    In [3]: c.import_corpus('tlg', '/Users/kyle/Downloads/corpora/TLG_E/')
 
-In addition to copying the TLG's author files at ``~/cltk_local/compiled/tlg/``, it creates ``index_author_works.txt``, ``index_file_author.txt``,  and ``index_meta.txt`` (an index of the TLG's other indices).
+In addition to copying the TLG's author files at ``~/cltk_data/compiled/tlg/``, it creates ``index_author_works.txt``, ``index_file_author.txt``,  and ``index_meta.txt`` (an index of the TLG's other indices).
 
 
 
@@ -117,7 +117,7 @@ If the PHI 5 files were located at ``/Users/kyle/Downloads/corpora/PHI5/``, then
    In [2]: c = Compile()
    In [3]: c.import_corpus('phi5', '/Users/kyle/Downloads/corpora/PHI5/')
 
-In addition to copying the PHI5's author files at ``~/cltk_local/compiled/phi5/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
+In addition to copying the PHI5's author files at ``~/cltk_data/compiled/phi5/``, it creates ``index_author_works.txt`` and ``index_file_author.txt``.
 
 PHI 7, Latin
 ------------
