@@ -1,4 +1,4 @@
-"""Assembles corpora into ~/cltk_local"""
+"""Assembles corpora into ~/cltk_data"""
 
 import ast
 import logging
@@ -24,26 +24,26 @@ class Compile(object):
     """Copy or download files out of TLG & PHI disks"""
 
     def __init__(self):
-        """Initializer, makes ~/cltk_local dirs"""
+        """Initializer, makes ~/cltk_data dirs"""
         self.cltk_bin_path = os.path.join(site.getsitepackages()[0], 'cltk')
         #make local CLTK dirs
-        default_cltk_local = '~/cltk_local'
-        cltk_local = os.path.expanduser(default_cltk_local)
-        if os.path.isdir(cltk_local) is True:
+        default_cltk_data = '~/cltk_data'
+        cltk_data = os.path.expanduser(default_cltk_data)
+        if os.path.isdir(cltk_data) is True:
             pass
         else:
-            os.mkdir(cltk_local)
-        self.orig_files_dir = os.path.join(cltk_local, 'originals')
+            os.mkdir(cltk_data)
+        self.orig_files_dir = os.path.join(cltk_data, 'originals')
         if os.path.isdir(self.orig_files_dir) is True:
             pass
         else:
             os.mkdir(self.orig_files_dir)
-        self.compiled_files_dir = os.path.join(cltk_local, 'compiled')
+        self.compiled_files_dir = os.path.join(cltk_data, 'compiled')
         if os.path.isdir(self.compiled_files_dir) is True:
             pass
         else:
             os.mkdir(self.compiled_files_dir)
-        log_path = os.path.join(cltk_local, 'cltk.log')
+        log_path = os.path.join(cltk_data, 'cltk.log')
         logging.basicConfig(filename=log_path,
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
