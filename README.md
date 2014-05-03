@@ -13,9 +13,9 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 *   Develop a free and open platform for generating reproducible, scholarly research
 
 
-DOCUMENTATION
-----
-The docs are at [http://cltk.readthedocs.org](http://cltk.readthedocs.org/en/latest/index.html).
+```bash
+pip install cltk
+```
 
 LICENSE
 -------
