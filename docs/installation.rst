@@ -14,7 +14,7 @@ Next, install the `alpha version of the NLTK (3.0a3) <http://nltk.org/nltk3-alph
 
 Through Pip
 ===========
-To install the CLTK with Pip:
+The CLTK is also `available on PyPI <https://pypi.python.org/pypi/cltk>`_. To install with Pip:
 
 .. code-block:: python
 
