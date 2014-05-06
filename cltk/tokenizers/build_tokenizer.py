@@ -7,7 +7,7 @@ In [3]: language_punkt_vars.sent_end_chars=('.', '?', ';', ':')
 In [4]: with open('sents_cael.txt') as f:
     train_data = f.read()
 
-In [6]: trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
+In [5]: trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
   Abbreviation: [5.0545] c
   Abbreviation: [0.3420] sex
   Abbreviation: [50.5447] m
@@ -19,11 +19,11 @@ In [6]: trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_va
   Sent Starter: [42.0636] 'sed'
   Sent Starter: [48.3138] 'nam'
 
-In [7]: params = trainer.get_params()
+In [6]: params = trainer.get_params()
 
-In [8]: sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
+In [7]: sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
 
-In [11]: with open('phil1.txt') as f:
+In [8]: with open('phil1.txt') as f:
    ....:     to_be_tokenized = f.read()
    ....:     
 
