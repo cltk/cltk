@@ -49,16 +49,16 @@ All of the following commands were done with IPython in the directory `~/cltk/cl
 
 .. code-block:: python
 
-In [1]: import nltk
+   In [1]: import nltk
 
-In [2]: language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
+   In [2]: language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
 
-In [3]: language_punkt_vars.sent_end_chars=('.', '?', ';', ':')
+   In [3]: language_punkt_vars.sent_end_chars=('.', '?', ';', ':')
 
-In [4]: with open('sents_cael.txt') as f:
+   In [4]: with open('sents_cael.txt') as f:
     train_data = f.read()
 
-In [5]: trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
+   In [5]: trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
   Abbreviation: [5.0545] c
   Abbreviation: [0.3420] sex
   Abbreviation: [50.5447] m
@@ -70,17 +70,30 @@ In [5]: trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_va
   Sent Starter: [42.0636] 'sed'
   Sent Starter: [48.3138] 'nam'
 
-In [6]: params = trainer.get_params()
+   In [6]: params = trainer.get_params()
 
-In [7]: sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
+   In [7]: sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
 
-In [8]: with open('phil1.txt') as f:
+   In [8]: with open('phil1.txt') as f:
    ....:     to_be_tokenized = f.read()
    ....:     
 
-for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
-    print(sentence)
-    print('---')
+   In [12]: for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
+      ....:     print(sentence)
+      ....:     print('---')
+      ....:      
+   [ 1 ] Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.
+   ---
+   Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.
+   ---
+   Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.
+   ---
+   In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum;
+   ---
+   Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.
+   ---
+   ...
+
 
 
 Text Processing
