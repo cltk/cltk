@@ -1,3 +1,45 @@
+import nltk
+language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
+language_punkt_vars.sent_end_chars=('.', '?', ';', ':')
+
+
+train_data = """
+
+"""
+
+trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
+params = trainer.get_params()
+sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
+
+for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
+    print(sentence)
+    print('---')
+
+
+or:
+
+# import punkt
+import nltk.tokenize.punkt
+
+# Make a new Tokenizer
+tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
+
+# Read in trainings corpus (one example: Slovene)
+import codecs
+text = codecs.open("slovene.plain","Ur","iso-8859-2").read()
+
+# Train tokenizer
+tokenizer.train(text)
+
+# Dump pickled tokenizer
+import pickle
+out = open("slovene.pickle","wb")
+pickle.dump(tokenizer, out)
+out.close()
+
+###########
+
+
 # http://www.nltk.org/api/nltk.tokenize.html#module-nltk.tokenize.punkt
 
 In [1]: import nltk.data
