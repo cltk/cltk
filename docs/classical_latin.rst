@@ -43,7 +43,7 @@ Sentence Tokenization
 
 .. warning::
 
-   This sentence tokenizer appears to work well, though it was trained on a small training set of 639 words (Cicero, *Pro Caelio*).
+   This sentence tokenizer appears to work well, though it was trained on a small training set of 8439 words and 529 sentences  (Cicero, *Pro Caelio*).
 
 .. note::
 
