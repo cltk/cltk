@@ -68,14 +68,15 @@ The file `latin.txt` was generated with the following commands, executed in IPyt
      Sent Starter: [48.3078] 'nam'
    <nltk.tokenize.punkt.PunktTrainer object at 0x103b06278>
 
-To tokenize a text, pass a text to `tokenize_sentences()` as follows:
+   To tokenize a text, such as Cicero's *Philippic* 1, pass it to `tokenize_sentences()` as follows:
 
 .. code-block:: python
 
    In [1]: from sentence_tokenizer import tokenize_sentences
    
-   In [2]: tokenize_sentences('phil1.txt') 
-   ['Cicero: Philippic I\n\t\t \n\n\t\t \n\t\t \n\t \n\t\n \n\n M. TVLLI CICERONIS IN M. ANTONIVM ORATIO PHILIPPICA PRIMA\n \n\n \n\n \n 1 \t 2 \t 3 \t 4 \t 5 \t 6 \t 7 \t 8 \t 9 \t 10 \t 11 \t 12 \t 13 \t 14 \t 15 \t 16 \t 17 \t 18 \t 19 \t 20 \t 21 \t 22 \t 23 \t 24 \t 25 \t 26 \t 27 \t 28 \t 29 \t 30 \t 31 \t 32 \t 33 \t 34 \t 35 \t 36 \t 37 \t 38 \n \n\n \n\n \n[ 1 ] Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.', 'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.', 'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.', 'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.', ... ]
+   In [2]: tokenize_sentences('phil1.txt')
+
+   ['Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.', 'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.', 'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.', 'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.', ... ]
 
 
 Text Processing
