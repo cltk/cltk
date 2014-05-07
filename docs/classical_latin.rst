@@ -68,7 +68,7 @@ The file `latin.txt` was generated with the following commands, executed in IPyt
      Sent Starter: [48.3078] 'nam'
    <nltk.tokenize.punkt.PunktTrainer object at 0x103b06278>
 
-   To tokenize a text, such as Cicero's *Philippic* 1, pass it to `tokenize_sentences()` as follows:
+To tokenize a text, such as Cicero's *Philippic* 1, pass it to `tokenize_sentences()` as follows:
 
 .. code-block:: python
 
