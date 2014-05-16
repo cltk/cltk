@@ -1,5 +1,6 @@
 The Classical Language Toolkit
 ==============================
+
 [![PyPI version](https://badge.fury.io/py/cltk.png)](http://badge.fury.io/py/cltk) [![Build Status](https://travis-ci.org/kylepjohnson/cltk.png?branch=master)](https://travis-ci.org/kylepjohnson/cltk)
 
 WARNING: This is an alpha-stage project. Everything should work, but expect braking changes.
@@ -13,23 +14,19 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 *   Develop a free and open platform for generating reproducible, scholarly research
 
 
-
 DOCUMENTATION
-----
+-------------
+
 The docs are at [http://cltk.readthedocs.org](http://cltk.readthedocs.org/en/latest/index.html).
 
 
 INSTALLATION
 ------------
 
-The [CLTK is available from PyPI](https://pypi.python.org/pypi/cltk) and installable with pip.
+See [installation instructions available in the docs](http://cltk.readthedocs.org/en/latest/installation.html).
 
-```bash
-pip install cltk
-```
-
-More [installation options available in the docs](http://cltk.readthedocs.org/en/latest/installation.html).
 
 LICENSE
 -------
+
 The CLTK is Copyright (c) 2014 Kyle P. Johnson, under The MIT License. See file LICENSE for details.
