@@ -46,9 +46,9 @@ Sentence Tokenization
    This sentence tokenizer appears to work well, though it was trained on a small training set of ~12K words  (Cicero's *Catilinarians*).
 
 .. note::
-   The files within `~/cltk/cltk/tokenizers/` are copied from the `CLTK repository dedicated to Latin language sentence tokenization <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. See this for more about to improve this training set.
+   The files within `~/cltk/cltk/tokenizers/` are copied from the `CLTK repository dedicated to Latin language sentence tokenization <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. See this for more about improving this training set.
 
-To create a training set, based off a file in which each line begins a new sentece, try the following from within `~/cltk/cltk/tokenizers/`.
+To create a training set, based off a file in which each line begins a new sentence, try the following from within `~/cltk/cltk/tokenizers/`.
 
 .. code-block:: python
 
@@ -76,7 +76,7 @@ To create a training set, based off a file in which each line begins a new sente
      Sent Starter: [55.7801] 'quodsi'
      Sent Starter: [31.5105] 'itaque'
 
-To tokenize a text, such as Cicero's *Catiline* 1, pass it to `tokenize_sentences()` as follows.
+To tokenize a text, such as Cicero's *Catiline* 1, pass it to ``tokenize_sentences()`` as follows.
 
 .. code-block:: python
 
