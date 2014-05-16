@@ -12,6 +12,8 @@ Next, install the `alpha version of the NLTK (3.0a3) <http://nltk.org/nltk3-alph
 
    pip install http://nltk.org/nltk3-alpha/nltk-3.0a3.tar.gz
 
+And then:
+
 .. code-block:: python
 
    pip install astroid gnureadline readline requests requests-toolbelt numpy
