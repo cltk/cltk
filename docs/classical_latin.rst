@@ -43,40 +43,47 @@ Sentence Tokenization
 
 .. warning::
 
-   This sentence tokenizer appears to work well, though it was trained on a small training set of 8439 words and 529 sentences  (Cicero, *Pro Caelio*).
+   This sentence tokenizer appears to work well, though it was trained on a small training set of ~12K words  (Cicero's *Catalinarians*).
 
 .. note::
+   The files within `~/cltk/cltk/tokenizers/` are copied from the `CLTK repository dedicated to Latin language sentence tokenization <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. See this for more about to improve this training set.
 
-   A batch processor should be added to this, so as to process more texts. Once the training set has been expanded and a good tokenizer has been created, this code should be moved to a `cltk_data` repository.
-
-The file `latin.txt` was generated with the following commands, executed in IPython, from within `~/cltk/cltk/tokenizers/`.
+To create a training set, based off a file in which each line begins a new sentece, try the following from within `~/cltk/cltk/tokenizers/`.
 
 .. code-block:: python
 
    In [1]: from sentence_tokenizer import train_from_file
 
-   In [2]: train_from_file('training_set/sents_cael.txt')
-     Abbreviation: [50.5402] m
-     Abbreviation: [0.3420] sex
-     Abbreviation: [17.6891] l
-     Abbreviation: [5.0540] c
-     Abbreviation: [0.9296] cn
-     Abbreviation: [15.1621] q
-     Abbreviation: [10.1080] p
-     Rare Abbrev: putaverunt.
-     Sent Starter: [42.0530] 'sed'
-     Sent Starter: [48.3078] 'nam'
-   <nltk.tokenize.punkt.PunktTrainer object at 0x103b06278>
+   In [2]: train_from_file('training_sentences.txt')
+     Abbreviation: [12.4351] q
+     Abbreviation: [47.2533] c
+     Abbreviation: [47.2533] l
+     Abbreviation: [0.9149] pl
+     Abbreviation: [0.9149] sp
+     Abbreviation: [0.3366] kal
+     Abbreviation: [2.4870] t
+     Abbreviation: [37.3053] p
+     Abbreviation: [1.8298] ti
+     Abbreviation: [0.9149] cn
+     Abbreviation: [14.0461] m
+     Abbreviation: [2.4870] d
+     Rare Abbrev: fateatur.
+     Rare Abbrev: ingravescet.
+     Rare Abbrev: ceterorum.
+     Sent Starter: [63.1264] 'nam'
+     Sent Starter: [40.0581] 'nunc'
+     Sent Starter: [51.3624] 'etenim'
+     Sent Starter: [55.7801] 'quodsi'
+     Sent Starter: [31.5105] 'itaque'
 
-To tokenize a text, such as Cicero's *Philippic* 1, pass it to `tokenize_sentences()` as follows:
+To tokenize a text, such as Cicero's *Cataline* 1, pass it to `tokenize_sentences()` as follows.
 
 .. code-block:: python
 
    In [1]: from sentence_tokenizer import tokenize_sentences
    
-   In [2]: tokenize_sentences('phil1.txt')
-
-   ['Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.', 'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.', 'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.', 'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.', ... ]
+   In [2]: tokenize_sentences('transform/cat1.txt')
+   ['Cicero: In Catilinam I\n\t\t \n\n\t\t \n\t\t\n\t\t \n\t\t\n\t\t \n\t\t \n\t \n\t\n \n\n \n\n ORATIO IN L. CATILINAM PRIMA \n\n \n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 \n \n\n \n[ 1 ] I.', 'Quo usque tandem abutere, Catilina, patientia nostra?', 'quam diu etiam furor iste tuus nos eludet?', 'quem ad finem sese effrenata iactabit audacia?', 'Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?', 'Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides?', 'Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris?', ... ]
 
 
 Text Processing
