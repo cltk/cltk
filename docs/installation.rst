@@ -25,7 +25,7 @@ If these all install correctly, move onto the CLTK:
 Source
 ======
 
-The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, clone and run within the repository's root directory:
+The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, install the above requirements as above, and then clone and run within the repository's root directory:
 
 .. code-block:: python
 
