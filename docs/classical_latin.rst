@@ -41,11 +41,32 @@ If you wish to edit the POS dictionary creator, ``cltk_latin_pos_dict.txt`` may 
 Sentence Tokenization
 =====================
 
-.. warning::
+In order to tokenize Latin text by sentence, use one of the following two functions. The function `tokenize_sentences()` takes two arguments, the first (file to tokenize) being mandatory and the latter (output file) optional. If no output is given as argument, the list of sentence tokens are simply returned. This example outputs to a specific directory:
 
-   This sentence tokenizer appears to work well, though it was trained on a small training set of ~12K words  (Cicero's *Catilinarians*).
+.. code-block:: python
+
+   In [1]: from cltk.tokenizers.sentence_tokenizer import tokenize_sentences
+
+   In [2]: tokenize_sentences('/Users/kyle/cltk_data/compiled/latin_library/cicero/phil1.txt', '/Users/kyle/cltk_data/philippics_1_sentence_tokenized.txt')
+/Users/kyle/cltk_data/compiled/sentence_tokens_latin/
+   ['Cicero: Philippic I\n\t\t \n\n\t\t \n\t\t \n\t \n\t\n \n\n M. TVLLI CICERONIS IN M. ANTONIVM ORATIO PHILIPPICA PRIMA\n \n\n \n\n \n 1 \t 2 \t 3 \t 4 \t 5 \t 6 \t 7 \t 8 \t 9 \t 10 \t 11 \t 12 \t 13 \t 14 \t 15 \t 16 \t 17 \t 18 \t 19 \t 20 \t 21 \t 22 \t 23 \t 24 \t 25 \t 26 \t 27 \t 28 \t 29 \t 30 \t 31 \t 32 \t 33 \t 34 \t 35 \t 36 \t 37 \t 38 \n \n\n \n\n \n[ 1 ] Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.', 'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.', 'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.', 'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.', ... ]
+
+The other tokenizing function, `tokenize_sentences_from_str()`, takes raw Latin text as argument, then returns a tokenized list. As with the above, there is an optional output to file. This taks the Latin string and returns the tokens.
+
+.. code-block:: python
+
+   In [1]: In [1]: from cltk.tokenizers.sentence_tokenizer import tokenize_sentences_from_str
+
+   In [2]: tokenize_sentences_from_str("Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae. Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria. Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus. In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.")
+   Out[2]: 
+   ['Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.',
+    'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.',
+    'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.',
+    'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.']
 
 .. note::
+   This sentence tokenizer appears to work well, though it was trained on a small training set of ~12K words  (Cicero's *Catilinarians*). In the above example, semi-colons are not breaking sentece. This should be investivaged.
+
    The files within `~/cltk/cltk/tokenizers/` are copied from the `CLTK repository dedicated to Latin language sentence tokenization <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. See this for more about improving this training set.
 
 To create a training set, based off a file in which each line begins a new sentence, try the following from within `~/cltk/cltk/tokenizers/`.
@@ -75,16 +96,6 @@ To create a training set, based off a file in which each line begins a new sente
      Sent Starter: [51.3624] 'etenim'
      Sent Starter: [55.7801] 'quodsi'
      Sent Starter: [31.5105] 'itaque'
-
-To tokenize a text, such as Cicero's *Catiline* 1, pass it to ``tokenize_sentences()`` as follows.
-
-.. code-block:: python
-
-   In [1]: from sentence_tokenizer import tokenize_sentences
-   
-   In [2]: tokenize_sentences('transform/cat1.txt')
-   ['Cicero: In Catilinam I\n\t\t \n\n\t\t \n\t\t\n\t\t \n\t\t\n\t\t \n\t\t \n\t \n\t\n \n\n \n\n ORATIO IN L. CATILINAM PRIMA \n\n \n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 \n \n\n \n[ 1 ] I.', 'Quo usque tandem abutere, Catilina, patientia nostra?', 'quam diu etiam furor iste tuus nos eludet?', 'quem ad finem sese effrenata iactabit audacia?', 'Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?', 'Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides?', 'Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris?', ... ]
-
 
 Text Processing
 ===============
