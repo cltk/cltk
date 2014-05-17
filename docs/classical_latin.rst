@@ -41,6 +41,8 @@ If you wish to edit the POS dictionary creator, ``cltk_latin_pos_dict.txt`` may 
 Sentence Tokenization
 =====================
 
+In order to use the Latin sentence tokenizer, download the compressed rule set, which can be automatically fetched and installed with `the installation commands here <http://cltk.readthedocs.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin>`_.
+
 In order to tokenize Latin text by sentence, use one of the following two functions. The function `tokenize_sentences()` takes two arguments, the first (file to tokenize) being mandatory and the latter (output file) optional. If no output is given as argument, the list of sentence tokens are simply returned. This example outputs to a specific directory:
 
 .. code-block:: python
