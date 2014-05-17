@@ -69,7 +69,7 @@ Classical Latin
 CLTK Sentence Tokenizer, Latin
 ------------------------------
 
-A `pre-trained rule set is available for inclusion into the CLTK for the Latin language <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. The relevant rule set can be downloaded and installed locally with the following.
+A `pre-trained rule set <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_ is available for inclusion into the CLTK for the Latin language. The relevant rule set can be downloaded and installed locally with the following.
 
 .. code-block:: python
 
