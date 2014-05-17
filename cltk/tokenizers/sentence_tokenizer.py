@@ -23,7 +23,6 @@ def tokenize_sentences(input_file, output_file=None):
     default_cltk_data = '~/cltk_data'
     cltk_data = os.path.expanduser(default_cltk_data)
     compile_cltk_lat_sent_data = os.path.join(cltk_data, 'compiled', 'sentence_tokens_latin/')
-    print(compile_cltk_lat_sent_data)
     pickle_name = 'latin.pickle'
     pickle_path = compile_cltk_lat_sent_data + pickle_name
     #open pickle file, which is actually a class of trained rule class
@@ -48,7 +47,6 @@ def tokenize_sentences_from_str(to_be_tokenized, output_file=None):
     default_cltk_data = '~/cltk_data'
     cltk_data = os.path.expanduser(default_cltk_data)
     compile_cltk_lat_sent_data = os.path.join(cltk_data, 'compiled', 'sentence_tokens_latin/')
-    print(compile_cltk_lat_sent_data)
     pickle_name = 'latin.pickle'
     pickle_path = compile_cltk_lat_sent_data + pickle_name
     #open pickle file, which is actually a class of trained rule class

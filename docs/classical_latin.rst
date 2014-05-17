@@ -48,7 +48,6 @@ In order to tokenize Latin text by sentence, use one of the following two functi
    In [1]: from cltk.tokenizers.sentence_tokenizer import tokenize_sentences
 
    In [2]: tokenize_sentences('/Users/kyle/cltk_data/compiled/latin_library/cicero/phil1.txt', '/Users/kyle/cltk_data/philippics_1_sentence_tokenized.txt')
-/Users/kyle/cltk_data/compiled/sentence_tokens_latin/
    ['Cicero: Philippic I\n\t\t \n\n\t\t \n\t\t \n\t \n\t\n \n\n M. TVLLI CICERONIS IN M. ANTONIVM ORATIO PHILIPPICA PRIMA\n \n\n \n\n \n 1 \t 2 \t 3 \t 4 \t 5 \t 6 \t 7 \t 8 \t 9 \t 10 \t 11 \t 12 \t 13 \t 14 \t 15 \t 16 \t 17 \t 18 \t 19 \t 20 \t 21 \t 22 \t 23 \t 24 \t 25 \t 26 \t 27 \t 28 \t 29 \t 30 \t 31 \t 32 \t 33 \t 34 \t 35 \t 36 \t 37 \t 38 \n \n\n \n\n \n[ 1 ] Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.', 'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.', 'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.', 'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.', ... ]
 
 The other tokenizing function, `tokenize_sentences_from_str()`, takes raw Latin text as argument, then returns a tokenized list. As with the above, there is an optional output to file. This taks the Latin string and returns the tokens.
@@ -57,15 +56,24 @@ The other tokenizing function, `tokenize_sentences_from_str()`, takes raw Latin 
 
    In [1]: In [1]: from cltk.tokenizers.sentence_tokenizer import tokenize_sentences_from_str
 
-   In [2]: tokenize_sentences_from_str("Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae. Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria. Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus. In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.")
+   In [2]: tokenize_sentences_from_str("Quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia? Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt? Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides? Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris? O tempora, o mores! Senatus haec intellegit. Consul videt; hic tamen vivit. Vivit? immo vero etiam in senatum venit, fit publici consilii particeps, notat et designat oculis ad caedem unum quemque nostrum. Nos autem fortes viri satis facere rei publicae videmur, si istius furorem ac tela vitemus. Ad mortem te, Catilina, duci iussu consulis iam pridem oportebat, in te conferri pestem, quam tu in nos [omnes iam diu] machinaris.")
    Out[2]: 
-   ['Antequam de republica, patres conscripti, dicam ea, quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.',
-    'Ego cum sperarem aliquando ad vestrum consilium auctoritatemque rem publicam esse revocatam, manendum mihi statuebam, quasi in vigilia quadam consulari ac senatoria.',
-    'Nec vero usquam discedebam nec a re publica deiciebam oculos ex eo die, quo in aedem Telluris convocati sumus.',
-    'In quo templo, quantum in me fuit, ieci fundamenta pacis Atheniensiumque renovavi vetus exemplum; Graecum etiam verbum usurpavi, quo tum in sedandis discordiis usa erat civitas illa, atque omnem memoriam discordiarum oblivione sempiterna delendam censui.']
+   ['Quo usque tandem abutere, Catilina, patientia nostra?',
+    'quam diu etiam furor iste tuus nos eludet?',
+    'quem ad finem sese effrenata iactabit audacia?',
+    'Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?',
+    'Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides?',
+    'Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris?',
+    'O tempora, o mores!',
+    'Senatus haec intellegit.',
+    'Consul videt; hic tamen vivit.',
+    'Vivit?',
+    'immo vero etiam in senatum venit, fit publici consilii particeps, notat et designat oculis ad caedem unum quemque nostrum.',
+    'Nos autem fortes viri satis facere rei publicae videmur, si istius furorem ac tela vitemus.',
+    'Ad mortem te, Catilina, duci iussu consulis iam pridem oportebat, in te conferri pestem, quam tu in nos [omnes iam diu] machinaris.']
 
 .. note::
-   This sentence tokenizer appears to work well, though it was trained on a small training set of ~12K words  (Cicero's *Catilinarians*). In the above example, semi-colons are not breaking sentece. This should be investivaged.
+   This sentence tokenizer appears to work well, though it was trained on a small training set of ~12K words  (Cicero's *Catilinarians*). In the first example, semicolons are not breaking sentences (which should be investivaged).
 
    The files within `~/cltk/cltk/tokenizers/` are copied from the `CLTK repository dedicated to Latin language sentence tokenization <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. See this for more about improving this training set.
 
