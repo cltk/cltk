@@ -134,6 +134,14 @@ class Compile(object):
                 os.mkdir(orig_files_dir_pos_latin)
                 logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_pos_latin)
             self.get_pos_latin_tar()
+        elif corpus_name == 'sentence_tokens_latin':
+            orig_files_dir_tokens_latin = os.path.join(self.orig_files_dir, 'sentence_tokens_latin')
+            if os.path.isdir(orig_files_dir_tokens_latin) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_tokens_latin)
+                logging.info('Made new directory "%s" at "%s"', corpus_name, orig_files_dir_tokens_latin)
+            self.get_sentence_tokens_latin_tar()
         else:
             logging.error('Unrecognized corpus name. Choose one of the following: "tlg", "phi7", "phi5", "latin_library", "perseus_latin", "perseus_greek", "lacus_curtius_latin".')
 
@@ -719,6 +727,32 @@ class Compile(object):
             logging.info('Finished unpacking %s', pos_latin_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', pos_latin_file_name)
+
+    def get_sentence_tokens_latin_tar(self):
+        orig_files_dir_tokens_latin = os.path.join(self.orig_files_dir, 'sentence_tokens_latin')
+        #make compiled files dir for tokens_latin
+        compiled_files_dir_tokens_latin = os.path.join(self.compiled_files_dir, 'sentence_tokens_latin')
+        if os.path.isdir(compiled_files_dir_tokens_latin) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_tokens_latin)
+        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/cltk_latin_sentence_tokenizer/master/latin.tar.gz'
+        s = requests.Session()
+        s.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = s.get(pg_url, stream=True)
+        tokens_latin_file_name = urlsplit(pg_url).path.split('/')[-1]
+        tokens_latin_file_path = os.path.join(orig_files_dir_tokens_latin, tokens_latin_file_name)
+        try:
+            with open(tokens_latin_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', tokens_latin_file_name)
+                try:
+                    shutil.unpack_archive(tokens_latin_file_path, compiled_files_dir_tokens_latin)
+                    logging.info('Finished unpacking %s.', tokens_latin_file_name)
+                except IOError:
+                    logging.info('Failed to unpack %s.', tokens_latin_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', tokens_latin_file_name)
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""

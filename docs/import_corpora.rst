@@ -66,6 +66,21 @@ In addition to copying the TLG's author files at ``~/cltk_data/compiled/tlg/``, 
 Classical Latin
 ===============
 
+CLTK Sentence Tokenizer, Latin
+------------------------------
+
+A `pre-trained rule set is available for inclusion into the CLTK for the Latin language <https://github.com/kylepjohnson/cltk_latin_sentence_tokenizer>`_. The relevant rule set can be downloaded and installed locally with the following.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('sentence_tokens_latin')
+
+You will now have the uncompressed `latin.pickle` at `~/cltk_data/compiled/`.
+
 Latin Library
 -------------
 
