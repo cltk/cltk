@@ -3,7 +3,7 @@ About
 
 .. warning::
 
-   This is an alpha-stage project. Everything should work, but expect braking changes.
+   This is an alpha-stage project. Everything should work, but expect breaking changes.
 
 The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the Classical Language Toolkit (CLTK) are to:
 
