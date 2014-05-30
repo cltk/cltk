@@ -18,13 +18,13 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 DOCUMENTATION
 -------------
 
-The docs are at [http://cltk.readthedocs.org](http://cltk.readthedocs.org/en/latest/index.html).
+The docs are at [http://docs.cltk.org/en/latest/](http://docs.cltk.org/en/latest/).
 
 
 INSTALLATION
 ------------
 
-See [installation instructions available in the docs](http://cltk.readthedocs.org/en/latest/installation.html).
+See [installation instructions available in the docs](http://docs.cltk.org/en/latest/installation.html).
 
 
 LICENSE
