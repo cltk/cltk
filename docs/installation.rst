@@ -18,13 +18,13 @@ And then:
 
    pip install astroid gnureadline readline requests requests-toolbelt numpy
 
-If these all install correctly, move onto the CLTK:
+If these all install correctly, move on to the CLTK:
 
 .. code-block:: python
 
    pip install cltk
 
-Source
+From source
 ======
 
 The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, install the above requirements as above, and then clone and run within the repository's root directory:
