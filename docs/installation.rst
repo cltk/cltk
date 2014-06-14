@@ -10,7 +10,7 @@ Next, install the `alpha version of the NLTK (3.0a3) <http://nltk.org/nltk3-alph
 
 .. code-block:: python
 
-   pip install http://nltk.org/nltk3-alpha/nltk-3.0a3.tar.gz
+   pip install http://www.nltk.org/nltk3-alpha/nltk-3.0a4.tar.gz
 
 And then:
 
