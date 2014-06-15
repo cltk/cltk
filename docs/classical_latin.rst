@@ -76,7 +76,7 @@ To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()
 
 .. note::
 
-   The trained set is not persisting across sessions, which is why it is being rebuild for each use. The tokenizer works fine, though this needs to be fixed.
+   The tokenizer (`latin.pickle`) is not persisting after it is made (that or it is being incorrectly read), which is why right now the tokenizer recreates it for every use.
 
 
 Text Processing
