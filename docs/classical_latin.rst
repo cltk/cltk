@@ -108,7 +108,7 @@ To create a new training set, based off a file in which each line begins a new s
 Text Processing
 ===============
 
-Filter Stopwords
+Filter Stopwords [#]_
 ----------------
 
 .. code-block:: python
