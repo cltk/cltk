@@ -1,4 +1,4 @@
-`Classical Latin
+Classical Latin
 ************************
 
 POS Tagging
