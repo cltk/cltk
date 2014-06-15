@@ -82,7 +82,7 @@ To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()
 Text Processing
 ===============
 
-Filter Stopwords [#]_
+Filter Stopwords
 ----------------
 
 .. code-block:: python
