@@ -1,5 +1,7 @@
 """Config for PyPI"""
-from setuptools import setup, find_packages
+
+from setuptools import find_packages
+from setuptools import setup
 
 setup(
     author='Kyle P. Johnson',
@@ -30,6 +32,6 @@ and Latin languages. It is developed in Python 3.4.""",
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
-    version='0.0.0.15',
+    version='0.0.0.16',
     zip_safe=True,
 )
