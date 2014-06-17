@@ -6,7 +6,7 @@ Through Pip
 
 First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip.
 
-Next, install the `alpha version of the NLTK (3.0a3) <http://nltk.org/nltk3-alpha/>`_:
+Next, install the `alpha version of the NLTK (3.0a4) <http://nltk.org/nltk3-alpha/>`_:
 
 .. code-block:: python
 
