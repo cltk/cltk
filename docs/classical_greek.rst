@@ -25,19 +25,17 @@ Filter Stopwords
 
 .. code-block:: python
 
-   In [1]: import nltk.tokenize
+   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
 
-   In [2]: from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
+   In [2]: from cltk.stop.classical_greek.stops_unicode import GREEK_STOPS_LIST
 
-   In [3]: SENTENCE = """
-      ...: Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.
-      ...: """
+   In [3]: SENTENCE = """Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας."""
 
    In [4]: lowered = SENTENCE.lower()
 
-   In [5]: tokens = nltk.word_tokenize(lowered)
+   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
 
-   In [6]: [w for w in tokens if not w in STOPS_LIST]
+   In [6]: [w for w in tokens if not w in GREEK_STOPS_LIST]
    Out[6]: 
    ['ἅρπαγος',
     'καταστρεψάμενος',
@@ -51,5 +49,4 @@ Filter Stopwords
     'ἅμα',
     'ἀγόμενος',
     'ἴωνας',
-    'αἰολέας',
-    '.']
+    'αἰολέας.']
