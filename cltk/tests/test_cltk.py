@@ -1,4 +1,4 @@
-"""unit tests for CLTK
+"""Unit tests for CLTK
 """
 
 from cltk.corpus.classical_greek.beta_to_unicode import Replacer
@@ -17,7 +17,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(trans, 'uem iam UEL IAM')
 
     def test_latin_stopwords(self):
-        """filter Latin stopwords"""
+        """Filter Latin stopwords"""
         SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
         lowered = SENTENCE.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
@@ -26,7 +26,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(no_stops, target_list)
 
     def test_greek_stopwords(self):
-        """filter Greek stopwords"""
+        """Filter Greek stopwords"""
         sentence = """Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας."""
         lowered = sentence.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
@@ -35,7 +35,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(no_stops, target_list)
 
     def test_greek_betacode_to_unicode(self):
-        """test conversion of betacode to unicode
+        """Test conversion of betacode to unicode
         note: assertEqual appears to not be correctly comparing certain characters (ά and ί, at least)
         """
         BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ """
