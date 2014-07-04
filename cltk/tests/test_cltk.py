@@ -20,7 +20,7 @@ class TestSequenceFunctions(unittest.TestCase):
         SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
         lowered = SENTENCE.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
-        no_stops = [w for w in tokens if not w in LATIN_STOPS_LIST]
+        no_stops = [w for w in tokens if not w in STOPS_LIST]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',', 'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)
 
@@ -30,7 +30,7 @@ class TestSequenceFunctions(unittest.TestCase):
         sentence = """Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας."""
         lowered = sentence.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
-        no_stops = [w for w in tokens if not w in GREEK_STOPS_LIST]
+        no_stops = [w for w in tokens if not w in STOPS_LIST]
         target_list = ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο', 'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',', 'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας.']
         self.assertEqual(no_stops, target_list)
 
