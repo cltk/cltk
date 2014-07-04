@@ -38,6 +38,7 @@ class TestSequenceFunctions(unittest.TestCase):
         trans = j.replace('vem jam VEL JAM')
         self.assertEqual(trans, 'uem iam UEL IAM')
 
+    '''
     def test_latin_stopwords(self):
         """filter Latin stopwords"""
         SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
@@ -46,6 +47,7 @@ class TestSequenceFunctions(unittest.TestCase):
         no_stops = [w for w in tokens if not w in STOPS_LIST]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',', 'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)
+    '''
 
     def test_greek_betacode_to_unicode(self):
         """test conversion of betacode to unicode
