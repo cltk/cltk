@@ -1,6 +1,7 @@
-"""The file test_ex.py is only a test example taken from the Python docs
-http://docs.python.org/3.3/library/unittest.html
+"""unit tests, not complete
 """
+
+from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
 import random
 import unittest
 
@@ -27,6 +28,13 @@ class TestSequenceFunctions(unittest.TestCase):
             random.sample(self.seq, 20)
         for element in random.sample(self.seq, 5):
             self.assertTrue(element in self.seq)
+
+    def test_latin_i_u_transform(self):
+        """Test conversion of j to i and v to u"""
+        j = JVReplacer()
+        trans = j.replace('vem jam')
+        self.assertEqual(trans, 'uem iam')
+
 
 if __name__ == '__main__':
     unittest.main()
