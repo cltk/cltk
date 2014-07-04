@@ -10,7 +10,7 @@
 #- Eventually, an entirely new list of stopwords should be generated from the TLG corpus, including the most frequently found words in the entire Ancient Greek canon, as well as more specific lists according to date, genre, etc..
 
 
-GREEK_STOPS_LIST = ['αὐτὸσ',
+STOPS_LIST = ['αὐτὸσ',
               'αὐτόσ',
               'γε',
               'γὰρ',

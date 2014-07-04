@@ -3,9 +3,7 @@
 
 from cltk.corpus.classical_greek.beta_to_unicode import Replacer
 from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
-#from cltk.stop.classical_greek.stops_unicode import GREEK_STOPS_LIST
-#from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
-#from nltk.tokenize.punkt import PunktWordTokenizer
+from nltk.tokenize.punkt import PunktWordTokenizer
 import unittest
 
 class TestSequenceFunctions(unittest.TestCase):
@@ -16,9 +14,9 @@ class TestSequenceFunctions(unittest.TestCase):
         trans = j.replace('vem jam VEL JAM')
         self.assertEqual(trans, 'uem iam UEL IAM')
 
-    '''
     def test_latin_stopwords(self):
         """Filter Latin stopwords"""
+        from cltk.stop.classical_latin.stops import STOPS_LIST
         SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
         lowered = SENTENCE.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
@@ -28,13 +26,13 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_greek_stopwords(self):
         """Filter Greek stopwords"""
+        from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
         sentence = """Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας."""
         lowered = sentence.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
         no_stops = [w for w in tokens if not w in GREEK_STOPS_LIST]
         target_list = ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο', 'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',', 'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας.']
         self.assertEqual(no_stops, target_list)
-    '''
 
     def test_greek_betacode_to_unicode(self):
         """Test conversion of betacode to unicode
