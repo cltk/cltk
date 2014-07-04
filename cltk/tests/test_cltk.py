@@ -3,7 +3,7 @@
 
 from cltk.corpus.classical_greek.beta_to_unicode import Replacer
 from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
-from cltk.stop.classical_greek.stops_unicode import GREEK_STOPS_LIST
+#from cltk.stop.classical_greek.stops_unicode import GREEK_STOPS_LIST
 from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
 from nltk.tokenize.punkt import PunktWordTokenizer
 import unittest
