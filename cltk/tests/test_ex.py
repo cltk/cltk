@@ -1,7 +1,9 @@
-"""unit tests, not complete
+"""unit tests for CLTK
 """
 
+from cltk.stop.classical_latin.stops import STOPS_LIST
 from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
+import nltk.tokenize
 import random
 import unittest
 
@@ -34,6 +36,15 @@ class TestSequenceFunctions(unittest.TestCase):
         j = JVReplacer()
         trans = j.replace('vem jam VEL JAM')
         self.assertEqual(trans, 'uem iam UEL IAM')
+
+    def test_latin_stopwords(self):
+        """filter Latin stopwords"""
+        SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
+        lowered = SENTENCE.lower()
+        tokens = nltk.word_tokenize(lowered)
+        no_stops = [w for w in tokens if not w in STOPS_LIST]
+        target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',', 'patientia', 'nostra', '?']
+        self.assertEqual(no_stops, target_list)
 
 
 if __name__ == '__main__':
