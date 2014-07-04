@@ -34,5 +34,5 @@ and Latin languages. It is developed in Python 3.4.""",
     url='https://github.com/kylepjohnson/cltk',
     version='0.0.0.17',
     zip_safe=True,
-    test_suite = 'cltk.tests.test_cltk'
+    #test_suite = 'cltk.tests.test_cltk',
 )
