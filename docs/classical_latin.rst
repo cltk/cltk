@@ -1,6 +1,48 @@
 Classical Latin
 ************************
 
+   
+Convert J to I, V to U
+======================
+
+.. code-block:: python
+
+   In [1]: from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
+
+   In [2]: j = JVReplacer()
+
+   In [3]: j.replace('vem jam')
+   Out[3]: 'uem iam'
+
+
+Filter Stopwords
+======================
+
+.. code-block:: python
+
+   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
+
+   In [2]: from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
+
+   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
+
+   In [4]: lowered = SENTENCE.lower()
+
+   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
+
+   In [6]: [w for w in tokens if not w in LATIN_STOPS_LIST]
+   Out[6]: 
+   ['usque',
+    'tandem',
+    'abutere',
+    ',',
+    'catilina',
+    ',',
+    'patientia',
+    'nostra',
+    '?']
+
+
 POS Tagging
 ===========
 
@@ -37,6 +79,7 @@ If you wish to edit the POS dictionary creator, ``cltk_latin_pos_dict.txt`` may 
    In [2]: m = MakePOSTagger()
 
    In [3]: m.make_file()
+
 
 Sentence Tokenization
 =====================
@@ -77,47 +120,3 @@ To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()
 .. note::
 
    The tokenizer (`latin.pickle`) is not persisting after it is made (that or it is being incorrectly read), which is why right now the tokenizer recreates it for every use.
-
-
-Text Processing
-===============
-
-Filter Stopwords
-----------------
-
-.. code-block:: python
-
-   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
-
-   In [2]: from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
-
-   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
-
-   In [4]: lowered = SENTENCE.lower()
-
-   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
-
-   In [6]: [w for w in tokens if not w in LATIN_STOPS_LIST]
-   Out[6]: 
-   ['usque',
-    'tandem',
-    'abutere',
-    ',',
-    'catilina',
-    ',',
-    'patientia',
-    'nostra',
-    '?']
-
-   
-Convert J to I, V to U
-----------------------
-
-.. code-block:: python
-
-   In [1]: from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
-
-   In [2]: j = JVReplacer()
-
-   In [3]: j.replace('vem jam')
-   Out[3]: 'uem iam'
