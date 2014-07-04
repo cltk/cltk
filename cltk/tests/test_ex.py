@@ -32,8 +32,8 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
         j = JVReplacer()
-        trans = j.replace('vem jam')
-        self.assertEqual(trans, 'uem iam')
+        trans = j.replace('vem jam VEL JAM')
+        self.assertEqual(trans, 'uem iam UEL IAM')
 
 
 if __name__ == '__main__':
