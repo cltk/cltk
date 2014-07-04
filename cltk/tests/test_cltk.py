@@ -4,7 +4,7 @@
 from cltk.corpus.classical_greek.beta_to_unicode import Replacer
 from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
 #from cltk.stop.classical_greek.stops_unicode import GREEK_STOPS_LIST
-from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
+#from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
 from nltk.tokenize.punkt import PunktWordTokenizer
 import unittest
 
@@ -16,6 +16,7 @@ class TestSequenceFunctions(unittest.TestCase):
         trans = j.replace('vem jam VEL JAM')
         self.assertEqual(trans, 'uem iam UEL IAM')
 
+    '''
     def test_latin_stopwords(self):
         """Filter Latin stopwords"""
         SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
@@ -24,6 +25,7 @@ class TestSequenceFunctions(unittest.TestCase):
         no_stops = [w for w in tokens if not w in LATIN_STOPS_LIST]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',', 'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)
+    '''
 
     '''
     def test_greek_stopwords(self):
