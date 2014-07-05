@@ -55,7 +55,7 @@ copyright = '2014, Kyle P. Johnson'
 # built documents.
 #
 # The short X.Y version.
-version = '0.0.0.16'
+version = '0.0.0.18'
 # The full version, including alpha/beta/rc tags.
 release = '0.0.0.16'
 
