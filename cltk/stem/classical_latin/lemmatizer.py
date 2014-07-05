@@ -1,11 +1,19 @@
+"""Lemmatize Latin words with a replacement list."""
+
 import re
-from lemmata_list import replacement_patterns
+from cltk.stem.classical_latin.lemmata_list import REPLACEMENT_PATTERNS
+
 
 class LemmaReplacer(object):
-    def __init__(self, patterns=replacement_patterns):
-        self.patterns = [(re.compile(regex), repl) for (regex, repl) in patterns]
-    def replace(self, text):
-        s = text
+    """Lemmatizing class"""
+
+    def __init__(self, patterns=REPLACEMENT_PATTERNS):
+        """Initializer for lemmatizer, imports replacement dict."""
+        self.patterns = \
+            [(re.compile(regex), repl) for (regex, repl) in patterns]
+
+    def lemmatize(self, text):
+        """Replacer of text via the dict."""
         for (pattern, repl) in self.patterns:
-            (s, count) = re.subn(pattern, repl, s)
-        return s
+            text = re.subn(pattern, repl, text)[0]
+        return text
