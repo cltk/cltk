@@ -1,21 +1,16 @@
-"""Converts legacy encodings into Unicode"""
+"""Converts legacy encodings into Unicode
+#See (instructions for loading TLG data files into the CLTK)
+http://cltk.readthedocs.org/en/latest/classical_greek.html#compile-tlg
 
-#See (instructions for loading TLG data files into the CLTK)[http://cltk.readthedocs.org/en/latest/classical_greek.html#compile-tlg].
-#
-#TODO for replacer.py
-#
-#Errors have been found with the following Beta Code translations:
-#
-#  - ~~"\*)A", "Ἀ"  (eg, "\*)AQHNAI=OI", "*)αθηναῖοι")~~
-#  - ~~":", "·" (eg, "R(A/|DION:", "ῥᾴδιον:")~~
-#  - ~~As with the first todo item, add the Perseus-style conversions for all headword characters~~~
-#  - add perseus-style iota subscript and diaeresis
+TODO for replacer.py:
+ - add perseus-style iota subscript and diaeresis
+"""
 
 
 import re
 
 UPPER = [
-    #Perseus-style head words
+    # Perseus-style head words
     # CAPS smooth
     (r'\*\)A', 'Ἀ'),
     (r'\*\)E', 'Ἐ'),
@@ -72,7 +67,7 @@ UPPER = [
     (r'\*\(/O', 'Ὅ'),
     (r'\*\(/U', 'Ὕ'),
     (r'\*\(/W', 'Ὥ'),
-    #TLG-style
+    # TLG-style
     (r'\*A\'', 'Ᾰ'),
     (r'\*I\'', 'Ῐ'),
     (r'\*U\'', 'Ῠ'),
@@ -334,7 +329,7 @@ LOWER = [
     (r'X', 'χ'),
     (r'Y', 'ψ'),
     (r'Z', 'ζ'),
-    #punctuation here
+    # punctuation here
     (r':', '·'),
     (r'\.', '.'),
     (r',', ','),
@@ -344,7 +339,7 @@ LOWER = [
     (r'_', '—'),
 ]
 
-#the third punctuation list wasn't working
+# the third punctuation list wasn't working
 PUNCT = [
     (r':', '·'),
     (r'\.', '.'),
@@ -356,8 +351,8 @@ PUNCT = [
 ]
 
 
-class Replacer(object):#pylint: disable=R0903
-    """Beta match and replace; PUNCT broken???"""
+class Replacer(object):  # pylint: disable=R0903
+    """Beta match and replace; PUNCT broken?"""
     def __init__(self, pattern1=None, pattern2=None, pattern3=None):
         if pattern1 is None:
             pattern1 = UPPER
@@ -365,22 +360,23 @@ class Replacer(object):#pylint: disable=R0903
             pattern2 = LOWER
         if pattern3 is None:
             pattern3 = PUNCT
-        self.pattern1 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern1]
-        self.pattern2 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern2]
-        self.pattern3 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern3]
+        self.pattern1 = \
+            [(re.compile(regex), repl) for (regex, repl) in pattern1]
+        self.pattern2 = \
+            [(re.compile(regex), repl) for (regex, repl) in pattern2]
+        self.pattern3 = \
+            [(re.compile(regex), repl) for (regex, repl) in pattern3]
 
     def beta_code(self, text):
         """Replace method, returns a tuple (new_string, number_of_subs_made)"""
         no_hyph = text.replace('-', '')
         beta_string = no_hyph
         for (pattern, repl) in self.pattern1:
-            (beta_string, count) = re.subn(pattern, repl, beta_string)#pylint: disable=W0612
+            (beta_string, count) = \
+                re.subn(pattern, repl, beta_string)  # pylint: disable=W0612
         for (pattern, repl) in self.pattern2:
             (beta_string, count) = re.subn(pattern, repl, beta_string)
-        #remove third run, if punct list not used
+        # remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
             (unicode_string, count) = re.subn(pattern, repl, beta_string)
         return unicode_string
