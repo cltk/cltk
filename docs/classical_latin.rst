@@ -16,7 +16,7 @@ Convert J to I, V to U
 
 
 Filter Stopwords
-======================
+================
 
 .. code-block:: python
 
@@ -41,6 +41,21 @@ Filter Stopwords
     'patientia',
     'nostra',
     '?']
+
+
+Lemmatize
+=========
+
+.. code-block:: python
+
+   In [1]: from cltk.stem.classical_latin.lemmatizer import LemmaReplacer
+
+   In [2]: l = LemmaReplacer()
+
+   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
+
+   In [4]: l.lemmatize(SENTENCE)
+   Out[4]: 'Quo usque tandem abutor, Catilina, patior noster?'
 
 
 POS Tagging
