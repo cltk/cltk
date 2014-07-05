@@ -1,19 +1,19 @@
+"""Functions for replacing j/J and v/V to i/I and u/U"""
+
 import re
 
-#I need to decide whether to always lower() before this replacement
-#and with main lemmatizer
-replacement_patterns = [
-    (r'j', 'i'),
-    (r'v', 'u'),
-    (r'J', 'I'),
-    (r'V', 'U'),
-]
 
-class JVReplacer(object):
-    def __init__(self, patterns=replacement_patterns):
-        self.patterns = [(re.compile(regex), repl) for (regex, repl) in patterns]
+class JVReplacer(object):  # pylint: disable=R0903
+    """Replace J/V with I/U."""
+
+    def __init__(self):
+        """Initialization for JVReplacer, reads replacement pattern tuple."""
+        patterns = [(r'j', 'i'), (r'v', 'u'), (r'J', 'I'), (r'V', 'U')]
+        self.patterns = \
+            [(re.compile(regex), repl) for (regex, repl) in patterns]
+
     def replace(self, text):
-        s = text
+        """Do j/v replacement"""
         for (pattern, repl) in self.patterns:
-            (s, count) = re.subn(pattern, repl, s)
-        return s
+            text = re.subn(pattern, repl, text)[0]
+        return text
