@@ -2,7 +2,7 @@ Classical Latin
 ************************
 
    
-Convert J to I, V to U
+Converting J to I, V to U
 ======================
 
 .. code-block:: python
@@ -15,7 +15,7 @@ Convert J to I, V to U
    Out[3]: 'uem iam'
 
 
-Filter Stopwords
+Stopword Filtering
 ================
 
 .. code-block:: python
@@ -43,7 +43,7 @@ Filter Stopwords
     '?']
 
 
-Lemmatize
+Lemmatization
 =========
 
 .. code-block:: python

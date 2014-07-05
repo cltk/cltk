@@ -2,8 +2,8 @@ Classical Greek
 ***************
 
 
-Convert Beta Code to Unicode
-============================
+Converting Beta Code to Unicode
+===============================
 
 Note that incoming strings need to begin with an ``r`` and that the Beta Code must follow immediately after the intital ``"""``, as in input line 2, below.
 
@@ -19,8 +19,8 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    Out[4]: 'ὅπωσ οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοισ, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲσ μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖσ, τινὲσ δὲ οὐκ ἀκριβεῖσ ὄντεσ μεταπίπτουσιν εἰσ τοὺσ ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶσ καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶσ δυνηθείημεν.'
 
 
-Filter Stopwords
-================
+Stopword Filtering
+==================
 
 .. code-block:: python
 
