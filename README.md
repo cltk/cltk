@@ -1,6 +1,9 @@
 The Classical Language Toolkit
 ==============================
 
+[![PyPI version](http://img.shields.io/pypi/dm/cltk.svg)](http://badge.fury.io/py/cltk)  [![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg)](https://pypi.python.org/pypi/cltk/) [![Build Status](http://img.shields.io/travis/kylepjohnson/cltk.svg)](https://travis-ci.org/kylepjohnson/cltk)
+
+
 [![PyPI version](https://badge.fury.io/py/cltk.png)](http://badge.fury.io/py/cltk) 
 [![PyPi downloads](https://pypip.in/d/cltk/badge.png)](https://pypi.python.org/pypi/cltk/) [![Build Status](https://travis-ci.org/kylepjohnson/cltk.png?branch=master)](https://travis-ci.org/kylepjohnson/cltk)
 
