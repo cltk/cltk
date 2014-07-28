@@ -15,34 +15,6 @@ Converting J to I, V to U
    Out[3]: 'uem iam'
 
 
-Stopword Filtering
-================
-
-.. code-block:: python
-
-   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
-
-   In [2]: from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
-
-   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
-
-   In [4]: lowered = SENTENCE.lower()
-
-   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
-
-   In [6]: [w for w in tokens if not w in LATIN_STOPS_LIST]
-   Out[6]: 
-   ['usque',
-    'tandem',
-    'abutere',
-    ',',
-    'catilina',
-    ',',
-    'patientia',
-    'nostra',
-    '?']
-
-
 Lemmatization
 =========
 
@@ -135,3 +107,31 @@ To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()
 .. note::
 
    The tokenizer (`latin.pickle`) is not persisting after it is made (that or it is being incorrectly read), which is why right now the tokenizer recreates it for every use.
+
+
+Stopword Filtering
+================
+
+.. code-block:: python
+
+   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
+
+   In [2]: from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
+
+   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
+
+   In [4]: lowered = SENTENCE.lower()
+
+   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
+
+   In [6]: [w for w in tokens if not w in LATIN_STOPS_LIST]
+   Out[6]: 
+   ['usque',
+    'tandem',
+    'abutere',
+    ',',
+    'catilina',
+    ',',
+    'patientia',
+    'nostra',
+    '?']
