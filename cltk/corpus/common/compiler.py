@@ -162,6 +162,16 @@ class Compile(object):  # pylint: disable=R0904
                 logging.info('Made new directory "%s" at "%s"', corpus_name,
                              orig_files_dir_tokens_latin)
             self.get_sentence_tokens_latin_tar()
+        elif corpus_name == 'sentence_tokens_greek':
+            orig_files_dir_tokens_greek = os.path.join(self.orig_files_dir,
+                                                       'sentence_tokens_greek')
+            if os.path.isdir(orig_files_dir_tokens_greek) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_tokens_greek)
+                logging.info('Made new directory "%s" at "%s"', corpus_name,
+                             orig_files_dir_tokens_greek)
+            self.get_sentence_tokens_greek_tar()
         else:
             logging.error('Unrecognized corpus name. Choose one of the '
                           'following: "tlg", "phi7", "phi5", "latin_library", '
@@ -839,6 +849,41 @@ class Compile(object):  # pylint: disable=R0904
                                  tokens_latin_file_name)
         except IOError:
             logging.error('Failed to write file %s', tokens_latin_file_name)
+
+
+    def get_sentence_tokens_greek_tar(self):
+        """Fetch algorithm for Greek sentence tokenization"""
+        orig_files_dir_tokens_greek = \
+            os.path.join(self.orig_files_dir, 'sentence_tokens_greek')
+        # make compiled files dir for tokens_greek
+        compiled_files_dir_tokens_greek = \
+            os.path.join(self.compiled_files_dir, 'sentence_tokens_greek')
+        if os.path.isdir(compiled_files_dir_tokens_greek) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_tokens_greek)
+        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
+                 'cltk_greek_sentence_tokenizer/master/greek.tar.gz'
+        session = requests.Session()
+        session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = session.get(pg_url, stream=True)
+        tokens_greek_file_name = urlsplit(pg_url).path.split('/')[-1]
+        tokens_greek_file_path = os.path.join(orig_files_dir_tokens_greek,
+                                              tokens_greek_file_name)
+        try:
+            with open(tokens_greek_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', tokens_greek_file_name)
+                try:
+                    shutil.unpack_archive(tokens_greek_file_path,
+                                          compiled_files_dir_tokens_greek)
+                    logging.info('Finished unpacking %s.',
+                                 tokens_greek_file_name)
+                except IOError:
+                    logging.info('Failed to unpack %s.',
+                                 tokens_greek_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', tokens_greek_file_name)
 
 
 def remove_non_ascii(input_string):
