@@ -23,47 +23,7 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 Sentence Tokenization
 =====================
 
-In order to use the Greek sentence tokenizer, download the compressed rule and training sets, which can be fetched and installed with `the installation commands here <http://cltk.readthedocs.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-greek>`_.
-
-To tokenize sentences, give a string as argument to ``train_and_tokenize_greek()``, as follows.
-
-.. code-block:: python
-   
-   In [1]: from sentence_tokenizer import train_from_file
-   
-   In [2]: train_from_file('training_sentences.txt')
-     Abbreviation: [0.3255] ἐᾶν
-     Abbreviation: [0.3255] ἔζη
-     Abbreviation: [0.8848] ὄν
-     Sent Starter: [366.4722] 'ὁ'
-     Sent Starter: [32.3856] 'καίτοι'
-     Sent Starter: [54.1370] 'οὐκοῦν'
-     Sent Starter: [338.3707] 'ἐνταῦθα'
-     Sent Starter: [127.1078] 'ἐκ'
-     Sent Starter: [59.5778] 'ἀκούσασ'
-     Sent Starter: [653.2848] 'ἐπεὶ'
-     Sent Starter: [45.2915] 'ταύτην'
-     Sent Starter: [66.8957] 'εἰ'
-     Sent Starter: [47.9663] 'ἀκούσαντεσ'
-     Sent Starter: [230.3898] 'καὶ'
-     Sent Starter: [432.8013] 'ἐντεῦθεν'
-     Sent Starter: [32.3856] 'τοιγαροῦν'
-     Sent Starter: [98.9058] 'ἐπειδὴ'
-     Sent Starter: [116.9693] 'οἱ'
-     Sent Starter: [103.8642] 'ἔνθα'
-     Sent Starter: [58.9851] 'ταῦτα'
-     Sent Starter: [36.9662] 'ἀλλὰ'
-     Sent Starter: [187.9368] 'μετὰ'
-   
-   In [3]: from sentence_tokenizer import tokenize_sentences
-   
-   In [4]: tokenize_sentences('models/xen_anab_1.txt')
-   ['Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος· ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι.', '[2] ὁ μὲν οὖν πρεσβύτερος παρὼν ἐτύγχανε· Κῦρον δὲ μεταπέμπεται ἀπὸ τῆς ἀρχῆς ἧς αὐτὸν σατράπην ἐποίησε, καὶ στρατηγὸν δὲ αὐτὸν ἀπέδειξε πάντων ὅσοι ἐς Καστωλοῦ πεδίον ἁθροίζονται.', 'ἀναβαίνει οὖν ὁ Κῦρος λαβὼν Τισσαφέρνην ὡς φίλον, καὶ τῶν Ἑλλήνων ἔχων ὁπλίτας ἀνέβη τριακοσίους, ἄρχοντα δὲ αὐτῶν Ξενίαν Παρράσιον.', '[3] ἐπεὶ δὲ ἐτελεύτησε Δαρεῖος καὶ κατέστη εἰς τὴν βασιλείαν Ἀρταξέρξης, Τισσαφέρνης διαβάλλει τὸν Κῦρον πρὸς τὸν ἀδελφὸν ὡς ἐπιβουλεύοι αὐτῷ.',]
-```
-
-.. note::
-
-   The tokenizer (`greek.pickle`) is not persisting after it is made (that or it is being incorrectly read), which is why right now the tokenizer recreates it for every use.
+The Greek sentence tokenizer is not yet integrated into the CLTK. To tokenize Greek, clone the [cltk_greek_sentence_tokenizer](https://github.com/kylepjohnson/cltk_greek_sentence_tokenizer) and follow the directions there.
 
 
 Stopword Filtering
