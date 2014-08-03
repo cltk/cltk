@@ -62,7 +62,7 @@ def train_greek_from_file():
     with open(pickle_path, 'wb') as f:
         pickle.dump(trainer, f)
 
-def tokenize_greek_sentences(input_file):
+def tokenize_greek_sentences(sentences_string):
     pickle_name = 'greek.pickle'
     pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_greek/', pickle_name)
     with open(pickle_path, 'rb') as f:
@@ -71,10 +71,12 @@ def tokenize_greek_sentences(input_file):
     train_data.INCLUDE_ABBREV_COLLOCS = True
     params = train_data.get_params()
     sbd = PunktSentenceTokenizer(params)
+    '''
     with open(input_file) as f:
         to_be_tokenized = f.read()
+    '''
     tokenenized_sentences = []
-    for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
+    for sentence in sbd.sentences_from_text(sentences_string, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
     print(tokenenized_sentences)
     return tokenenized_sentences
