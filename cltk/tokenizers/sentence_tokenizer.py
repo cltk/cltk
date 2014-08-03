@@ -47,11 +47,13 @@ def train_and_tokenize_latin(sentences_string_input):
     tokenize_sents_latin(sentences_string_input)
 
 
-def train_greek_from_file(training_file):
+def train_greek_from_file():
     language_punkt_vars = PunktLanguageVars
     language_punkt_vars.sent_end_chars = ('.', ';',)
     language_punkt_vars.internal_punctuation = (',', '·')
-    with open(training_file) as f:
+    training_file = 'training_sentences.txt'
+    training_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_greek/', training_file)
+    with open(training_path) as f:
         train_data = f.read()
     #build trainer
     trainer = PunktTrainer(train_data, language_punkt_vars)
@@ -59,13 +61,6 @@ def train_greek_from_file(training_file):
     pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_latin/', pickle_name)
     with open(pickle_path, 'wb') as f:
         pickle.dump(trainer, f)
-
-def train_and_tokenize_greek(sentences_string_input):
-    training_file = 'training_sentences.txt'
-    training_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_greek/', training_file)
-    train_greek_from_file(training_path)
-    #input_file = 'models/xen_anab_1.txt'
-    tokenize_greek_sentences(input_file)
 
 def tokenize_greek_sentences(input_file):
     pickle_name = 'greek.pickle'
@@ -81,10 +76,10 @@ def tokenize_greek_sentences(input_file):
     tokenenized_sentences = []
     for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
-    #file_output_name = 'sentences_tokenized_' + input_file
-    '''
-    with open('tokenized_output.txt', 'w') as f:
-        f.write(str(tokenenized_sentences))
     print(tokenenized_sentences)
-    '''
     return tokenenized_sentences
+
+
+def train_and_tokenize_greek(sentences_string_input):
+    train_greek_from_file()
+    tokenize_greek_sentences(sentences_string_input)
