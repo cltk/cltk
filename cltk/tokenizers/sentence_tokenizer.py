@@ -58,13 +58,13 @@ def train_greek_from_file():
     #build trainer
     trainer = PunktTrainer(train_data, language_punkt_vars)
     pickle_name = 'greek.pickle'
-    pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_latin/', pickle_name)
+    pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_greek/', pickle_name)
     with open(pickle_path, 'wb') as f:
         pickle.dump(trainer, f)
 
 def tokenize_greek_sentences(input_file):
     pickle_name = 'greek.pickle'
-    pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_latin/', pickle_name)
+    pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_greek/', pickle_name)
     with open(pickle_path, 'rb') as f:
         train_data = pickle.load(f)
     train_data.INCLUDE_ALL_COLLOCS = True
