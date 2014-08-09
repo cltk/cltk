@@ -82,30 +82,43 @@ To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()
    In [2]: phil_14 = """Si, ut ex litteris, quae recitatae sunt, patres conscripti, sceleratissimorum hostium exercitum caesum fusumque cognovi, sic id, quod et omnes maxime optamus et ex ea victoria, quae parta est, consecutum arbitramur, D. Brutum egressum iam Mutina esse cognovissem, propter cuius periculum ad saga issemus, propter eiusdem salutem redeundum ad pristinum vestitum sine ulla dubitatione censerem. Ante vero quam sit ea res, quam avidissime civitas exspectat, allata, laetitia frui satis est maximae praeclarissimaeque pugnae; reditum ad vestitum confectae victoriae reservate. Confectio autem huius belli est D. Bruti salus. Quae autem est ista sententia, ut in hodiernum diem vestitus mutetur, deinde cras sagati prodeamus? Nos vero cum semel ad eum, quem cupimus optamusque, vestitum redierimus, id agamus, ut eum in perpetuum retineamus. Nam hoc quidem cum turpe est, tum ne dis quidem immortalibus gratum, ab eorum aris, ad quas togati adierimus, ad saga sumenda discedere. Atque animadverto , patres conscripti, quosdam huic favere sententiae; quorum ea mens idque consilium est, ut, cum videant gloriosissimum illum D. Bruto futurum diem, quo die propter eius salutem redierimus ad vestitum, hunc ei fructum eripere cupiant, ne memoriae posteritatique prodatur propter unius civis periculum populum Romanum ad saga isse, propter eiusdem salutem redisse ad togas. Tollite hanc; nullam tam pravae sententiae causam reperietis. Vos vero, patres conscripti, conservate auctoritatem vestram, manete in sententia, tenete vestra memoria, quod saepe ostendistis, huius totius belli in unius viri fortissimi et maximi vita positum esse discrimen. Ad D. Brutum liberandum legati missi principes civitatis, qui illi hosti ac parricidae denuntiarent, ut a Mutina discederet; eiusdem D. Bruti conservandi gratia consul sortitu ad bellum profectus A. Hirtius, cuius inbecillitatem valetudinis animi virtus et spes victoriae confirmavit; Caesar cum exercitu per se comparato, cum prius pestibus rem publicam liberasset, ne quid postea sceleris oriretur, profectus est ad eundem Brutum liberandum vicitque dolorem aliquem domesticum patriae caritate."""
 
    In [3]: train_and_tokenize_latin(phil_14)
-     Abbreviation: [47.2533] c
-     Abbreviation: [0.9149] sp
-     Abbreviation: [1.8298] ti
-     Abbreviation: [0.9149] pl
-     Abbreviation: [2.4870] d
-     Abbreviation: [0.9149] cn
-     Abbreviation: [14.0461] m
      Abbreviation: [12.4351] q
      Abbreviation: [2.4870] t
-     Abbreviation: [0.3366] kal
+     Abbreviation: [47.2533] c
+     Abbreviation: [1.8298] ti
+     Abbreviation: [0.9149] cn
+     Abbreviation: [14.0461] m
      Abbreviation: [47.2533] l
+     Abbreviation: [0.9149] pl
+     Removed abbreviation: [-0.0000] ceterorum
+     Abbreviation: [2.4870] d
      Abbreviation: [37.3053] p
+     Removed abbreviation: [-0.0000] fateatur
+     Abbreviation: [0.9149] sp
+     Abbreviation: [0.3366] kal
      Rare Abbrev: fateatur.
-     Rare Abbrev: ingravescet.
      Rare Abbrev: ceterorum.
-     Sent Starter: [69.1803] 'nam'
-     Sent Starter: [34.5212] 'itaque'
-     Sent Starter: [56.3912] 'etenim'
-     Sent Starter: [35.8697] 'sed'
-     Sent Starter: [45.4307] 'nunc'
-     Sent Starter: [60.3399] 'quodsi'
-
-   In [4]: tokenize_sentences('models/cat1.txt')
-   ['Quo usque tandem abutere, Catilina, patientia nostra?', 'quam diu etiam furor iste tuus nos eludet?', 'quem ad finem sese effrenata iactabit audacia?', 'Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?', 'Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides?', 'Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris?', 'O tempora, o mores! Senatus haec intellegit.', 'Consul videt; hic tamen vivit.', 'Vivit?',]
+     Sent Starter: [51.3932] 'etenim'
+     Sent Starter: [31.5289] 'itaque'
+     Sent Starter: [63.1635] 'nam'
+     Sent Starter: [40.0909] 'nunc'
+     Sent Starter: [55.8081] 'quodsi'
+   Out[7]: 
+   ['Si, ut ex litteris, quae recitatae sunt, patres conscripti, sceleratissimorum hostium exercitum caesum fusumque cognovi, sic id, quod et omnes maxime optamus et ex ea victoria, quae parta est, consecutum arbitramur, D. Brutum egressum iam Mutina esse cognovissem, propter cuius periculum ad saga issemus, propter eiusdem salutem redeundum ad pristinum vestitum sine ulla dubitatione censerem.',
+    'Ante vero quam sit ea res, quam avidissime civitas exspectat, allata, laetitia frui satis est maximae praeclarissimaeque pugnae;',
+    'reditum ad vestitum confectae victoriae reservate.',
+    'Confectio autem huius belli est D. Bruti salus.',
+    'Quae autem est ista sententia, ut in hodiernum diem vestitus mutetur, deinde cras sagati prodeamus?',
+    'Nos vero cum semel ad eum, quem cupimus optamusque, vestitum redierimus, id agamus, ut eum in perpetuum retineamus.',
+    'Nam hoc quidem cum turpe est, tum ne dis quidem immortalibus gratum, ab eorum aris, ad quas togati adierimus, ad saga sumenda discedere.',
+    'Atque animadverto , patres conscripti, quosdam huic favere sententiae;',
+    'quorum ea mens idque consilium est, ut, cum videant gloriosissimum illum D. Bruto futurum diem, quo die propter eius salutem redierimus ad vestitum, hunc ei fructum eripere cupiant, ne memoriae posteritatique prodatur propter unius civis periculum populum Romanum ad saga isse, propter eiusdem salutem redisse ad togas.',
+    'Tollite hanc;',
+    'nullam tam pravae sententiae causam reperietis.',
+    'Vos vero, patres conscripti, conservate auctoritatem vestram, manete in sententia, tenete vestra memoria, quod saepe ostendistis, huius totius belli in unius viri fortissimi et maximi vita positum esse discrimen.',
+    'Ad D. Brutum liberandum legati missi principes civitatis, qui illi hosti ac parricidae denuntiarent, ut a Mutina discederet;',
+    'eiusdem D. Bruti conservandi gratia consul sortitu ad bellum profectus A. Hirtius, cuius inbecillitatem valetudinis animi virtus et spes victoriae confirmavit;',
+    'Caesar cum exercitu per se comparato, cum prius pestibus rem publicam liberasset, ne quid postea sceleris oriretur, profectus est ad eundem Brutum liberandum vicitque dolorem aliquem domesticum patriae caritate.']
 
 
 .. note::

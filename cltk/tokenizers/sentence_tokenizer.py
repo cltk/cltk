@@ -27,6 +27,7 @@ def train_latin_from_file():
         pickle.dump(trainer, f)
 
 def tokenize_sents_latin(sentences_string):
+    global tokenenized_sentences
     """Tokenize a Latin string into sentences"""
     pickle_name = 'latin.pickle'
     pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_latin/', pickle_name)
@@ -39,12 +40,13 @@ def tokenize_sents_latin(sentences_string):
     tokenenized_sentences = []
     for sentence in sbd.sentences_from_text(sentences_string, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
-    print(tokenenized_sentences)
+    #print(tokenenized_sentences)
     return tokenenized_sentences
 
 def train_and_tokenize_latin(sentences_string_input):
     train_latin_from_file()
     tokenize_sents_latin(sentences_string_input)
+    return tokenenized_sentences
 
 
 def train_greek_from_file():
@@ -63,6 +65,7 @@ def train_greek_from_file():
         pickle.dump(trainer, f)
 
 def tokenize_greek_sentences(sentences_string):
+    global tokenenized_sentences
     pickle_name = 'greek.pickle'
     pickle_path = os.path.join(cltk_data, 'compiled', 'sentence_tokens_greek/', pickle_name)
     with open(pickle_path, 'rb') as f:
@@ -78,10 +81,11 @@ def tokenize_greek_sentences(sentences_string):
     tokenenized_sentences = []
     for sentence in sbd.sentences_from_text(sentences_string, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
-    print(tokenenized_sentences)
+    #print(tokenenized_sentences)
     return tokenenized_sentences
 
 
 def train_and_tokenize_greek(sentences_string_input):
     train_greek_from_file()
     tokenize_greek_sentences(sentences_string_input)
+    return tokenenized_sentences
