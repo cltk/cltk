@@ -4,7 +4,6 @@ import re
 from cltk.stop.classical_latin.stops import STOPS_LIST 
 
 
-
 class Stemmer(object):
     """Stem Latin words via Schnike Latin stemming algorithm"""
 
@@ -19,7 +18,7 @@ class Stemmer(object):
 
         stemmed_text = ''
 
-        for word in text:
+        for word in text.split(' '):
             if word not in self.stops:
 
                 # remove '-que' suffix
@@ -33,7 +32,7 @@ class Stemmer(object):
                     word = self._matchremove_verb_endings(word)
 
             # add the stemmed word to the text
-            stemmed_text += word
+            stemmed_text += word + ' '
 
 
         return stemmed_text
@@ -101,7 +100,7 @@ class Stemmer(object):
         return word
 
     def _matchremove_simple_endings(self, word):
-    """Remove the noun, adjective, adverb word endings"""
+        """Remove the noun, adjective, adverb word endings"""
 
         was_stemmed = False
 
@@ -135,7 +134,7 @@ class Stemmer(object):
         return word, was_stemmed
 
     def _matchremove_verb_endings(self, word):
-    """Remove the verb endings""" 
+        """Remove the verb endings""" 
 
         i_verb_endings = ['iuntur',
                             'erunt', 
