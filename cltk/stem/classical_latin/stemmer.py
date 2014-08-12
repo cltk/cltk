@@ -22,14 +22,15 @@ class Stemmer(object):
             if word not in self.stops:
 
                 # remove '-que' suffix
-                word = self._checkremove_que(word)
+                word, in_que_pass_list = self._checkremove_que(word)
+                if not in_que_pass_list:
 
-                # remove the simple endings from the target word  
-                word, was_stemmed = self._matchremove_simple_endings(word)
+                    # remove the simple endings from the target word  
+                    word, was_stemmed = self._matchremove_simple_endings(word)
 
-                # if word didn't match the simple endings, try verb endings 
-                if not was_stemmed:
-                    word = self._matchremove_verb_endings(word)
+                    # if word didn't match the simple endings, try verb endings 
+                    if not was_stemmed:
+                        word = self._matchremove_verb_endings(word)
 
             # add the stemmed word to the text
             stemmed_text += word + ' '
@@ -39,7 +40,10 @@ class Stemmer(object):
 
     def _checkremove_que(self, word):
         """If word ends in -que and if word is not in pass list, strip -que""" 
-        pass_list = ['atque', 
+
+        in_que_pass_list = False 
+
+        que_pass_list = ['atque', 
                         'quoque',
                         'neque', 
                         'itaque', 
@@ -94,10 +98,12 @@ class Stemmer(object):
                         'intorque', 
                         'praetorque']
 
-        if word not in pass_list:
+        if word not in que_pass_list:
             word = re.sub(r'que$', '', word)
+        else:
+            in_que_pass_list = True
 
-        return word
+        return word, in_que_pass_list
 
     def _matchremove_simple_endings(self, word):
         """Remove the noun, adjective, adverb word endings"""
