@@ -130,16 +130,22 @@ Stemming
 ========
 The stemmer strip suffixes via an algorithm. It is much faster than the lemmatizer, which uses a replacement list.
 
-   .. code-block:: python
+.. code-block:: python
    
    In [1]: from cltk.stem.classical_latin.stemmer import Stemmer
+
+   In [2]: from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
+
+   In [3]: cato = "Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum. Maiores nostri sic habuerunt et ita in legibus posiverunt: furem dupli condemnari, foeneratorem quadrupli. Quanto peiorem civem existimarint foeneratorem quam furem, hinc licet existimare. Et virum bonum quom laudabant, ita laudabant: bonum agricolam bonumque colonum; amplissime laudari existimabatur qui ita laudabatur. Mercatorem autem strenuum studiosumque rei quaerendae existimo, verum, ut supra dixi, periculosum et calamitosum. At ex agricolis et viri fortissimi et milites strenuissimi gignuntur, maximeque pius quaestus stabilissimusque consequitur minimeque invidiosus, minimeque male cogitantes sunt qui in eo studio occupati sunt. Nunc, ut ad rem redeam, quod promisi institutum principium hoc erit."
+
+   In [4]: j = JVReplacer()
+
+   In [5]: iu_cato = j.replace(cato.lower())
+
+   In [6]: s = Stemmer()
    
-   In [2]: cato = "Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum. Maiores nostri sic habuerunt et ita in legibus posiverunt: furem dupli condemnari, foeneratorem quadrupli. Quanto peiorem civem existimarint foeneratorem quam furem, hinc licet existimare. Et virum bonum quom laudabant, ita laudabant: bonum agricolam bonumque colonum; amplissime laudari existimabatur qui ita laudabatur. Mercatorem autem strenuum studiosumque rei quaerendae existimo, verum, ut supra dixi, periculosum et calamitosum. At ex agricolis et viri fortissimi et milites strenuissimi gignuntur, maximeque pius quaestus stabilissimusque consequitur minimeque invidiosus, minimeque male cogitantes sunt qui in eo studio occupati sunt. Nunc, ut ad rem redeam, quod promisi institutum principium hoc erit."
-   
-   In [3]: s = Stemmer()
-   
-   In [4]: s.stem(cato)
-   Out[4]: 'Es interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. Maior nostr sic habueru et ita in leg posiverunt: fur dupl condemnari, foenerator quadrupli. Quant peior civ existimari foenerator quam furem, hinc lice existimare. E vir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. Mercator autem strenu studios re quaerend existimo, verum, ut supr dixi, periculos et calamitosum. A ex agricol et vir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim invidiosus, minim mal cogitant su qui in e studi occupat sunt. Nunc, ut ad r redeam, quod promis institut principi hoc erit. '
+   In [7]: s.stem(iu_cato)
+   Out[7]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
 
 
 Stopword Filtering
