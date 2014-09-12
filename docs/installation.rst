@@ -6,13 +6,13 @@ Through Pip
 
 First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip.
 
-Next, install the `alpha version of the NLTK (3.0a4) <http://nltk.org/nltk3-alpha/>`_:
+Next, install the nltk:
 
 .. code-block:: python
 
-   pip install http://www.nltk.org/nltk3-alpha/nltk-3.0a4.tar.gz
+   pip install nltk
 
-And then:
+And then a few additional packages:
 
 .. code-block:: python
 
