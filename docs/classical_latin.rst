@@ -128,7 +128,7 @@ To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()
 
 Stemming
 ========
-The stemmer strip suffixes via an algorithm. It is much faster than the lemmatizer, which uses a replacement list.
+The stemmer strips suffixes via an algorithm. It is much faster than the lemmatizer, which uses a replacement list.
 
 .. code-block:: python
    
