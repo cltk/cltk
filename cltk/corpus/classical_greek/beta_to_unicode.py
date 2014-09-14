@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """Converts legacy encodings into Unicode"""
 
 #See (instructions for loading TLG data files into the CLTK)[http://cltk.readthedocs.org/en/latest/classical_greek.html#compile-tlg].
@@ -11,11 +13,10 @@
 #  - ~~As with the first todo item, add the Perseus-style conversions for all headword characters~~~
 #  - add perseus-style iota subscript and diaeresis
 
-
 import re
 
 UPPER = [
-    #Perseus-style head words
+    # Perseus-style head words
     # CAPS smooth
     (r'\*\)A', 'Ἀ'),
     (r'\*\)E', 'Ἐ'),
@@ -72,7 +73,7 @@ UPPER = [
     (r'\*\(/O', 'Ὅ'),
     (r'\*\(/U', 'Ὕ'),
     (r'\*\(/W', 'Ὥ'),
-    #TLG-style
+    # TLG-style
     (r'\*A\'', 'Ᾰ'),
     (r'\*I\'', 'Ῐ'),
     (r'\*U\'', 'Ῠ'),
@@ -186,10 +187,10 @@ UPPER = [
 
 LOWER = [
     (r'i\\\+', 'ῒ'),
-    (r'i/\+', 'ΐ'),
+    (r'i/\+', 'ΐ'),
     (r'i=\+', 'ῗ'),
     (r'U\\\+', 'ῢ'),
-    (r'U/\+', 'ΰ'),
+    (r'U/\+', 'ΰ'),
     (r'U=\+', 'ῧ'),
     (r'A\'', 'ᾰ'),
     (r'I\'', 'ῐ'),
@@ -293,18 +294,18 @@ LOWER = [
     (r'W\)', 'ὠ'),
     (r'W\(', 'ὡ'),
     (r'A\\', 'ὰ'),
-    (r'A/', 'ά'),
-    (r'E/', 'έ'),
+    (r'A/', 'ά'),
+    (r'E/', 'έ'),
     (r'E\\', 'ὲ'),
-    (r'H/', 'ή'),
+    (r'H/', 'ή'),
     (r'H\\', 'ὴ'),
-    (r'I/', 'ί'),
+    (r'I/', 'ί'),
     (r'I\\', 'ὶ'),
-    (r'O/', 'ό'),
+    (r'O/', 'ό'),
     (r'O\\', 'ὸ'),
-    (r'U/', 'ύ'),
+    (r'U/', 'ύ'),
     (r'U\\', 'ὺ'),
-    (r'W/', 'ώ'),
+    (r'W/', 'ώ'),
     (r'W\\', 'ὼ'),
     (r'A', 'α'),
     (r'B', 'β'),
@@ -323,6 +324,16 @@ LOWER = [
     (r'P', 'π'),
     (r'Q', 'θ'),
     (r'R', 'ρ'),
+    # better handle final sigmas; could be more DRY since it duplicates the PUNCT list
+    (r'S ', 'ς '),
+    (r'S:', 'ς:'),
+    (r'S\.', 'ς\.'),
+    (r'S,', 'ς,'),
+    (r'S;', 'ς;'),
+    (r'S\'', 'ς\''),
+    (r'S-', 'ς-'),
+    (r'S_', 'ς_'),
+    #
     (r'S1', 'σ'),
     (r'S2', 'ς'),
     (r'S3', 'c'),
@@ -334,7 +345,7 @@ LOWER = [
     (r'X', 'χ'),
     (r'Y', 'ψ'),
     (r'Z', 'ζ'),
-    #punctuation here
+    # punctuation here
     (r':', '·'),
     (r'\.', '.'),
     (r',', ','),
@@ -344,7 +355,7 @@ LOWER = [
     (r'_', '—'),
 ]
 
-#the third punctuation list wasn't working
+# the third punctuation list wasn't working
 PUNCT = [
     (r':', '·'),
     (r'\.', '.'),
@@ -356,8 +367,8 @@ PUNCT = [
 ]
 
 
-class Replacer(object):#pylint: disable=R0903
-    """Beta match and replace; PUNCT broken???"""
+class Replacer(object):  # pylint: disable=R0903
+    """Beta match and replace; PUNCT broken?"""
     def __init__(self, pattern1=None, pattern2=None, pattern3=None):
         if pattern1 is None:
             pattern1 = UPPER
@@ -365,22 +376,23 @@ class Replacer(object):#pylint: disable=R0903
             pattern2 = LOWER
         if pattern3 is None:
             pattern3 = PUNCT
-        self.pattern1 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern1]
-        self.pattern2 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern2]
-        self.pattern3 = [(re.compile(regex), repl) for \
-                         (regex, repl) in pattern3]
+        self.pattern1 = \
+            [(re.compile(regex), repl) for (regex, repl) in pattern1]
+        self.pattern2 = \
+            [(re.compile(regex), repl) for (regex, repl) in pattern2]
+        self.pattern3 = \
+            [(re.compile(regex), repl) for (regex, repl) in pattern3]
 
     def beta_code(self, text):
         """Replace method, returns a tuple (new_string, number_of_subs_made)"""
         no_hyph = text.replace('-', '')
         beta_string = no_hyph
         for (pattern, repl) in self.pattern1:
-            (beta_string, count) = re.subn(pattern, repl, beta_string)#pylint: disable=W0612
+            (beta_string, count) = \
+                re.subn(pattern, repl, beta_string)  # pylint: disable=W0612
         for (pattern, repl) in self.pattern2:
             (beta_string, count) = re.subn(pattern, repl, beta_string)
-        #remove third run, if punct list not used
+        # remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
             (unicode_string, count) = re.subn(pattern, repl, beta_string)
         return unicode_string
