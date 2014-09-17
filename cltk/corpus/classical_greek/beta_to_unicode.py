@@ -1,11 +1,7 @@
 """Converts legacy encodings into Unicode
-#See (instructions for loading TLG data files into the CLTK)
-http://cltk.readthedocs.org/en/latest/classical_greek.html#compile-tlg
-
 TODO for replacer.py:
  - add perseus-style iota subscript and diaeresis
 """
-
 
 import re
 
@@ -181,10 +177,10 @@ UPPER = [
 
 LOWER = [
     (r'i\\\+', 'ῒ'),
-    (r'i/\+', 'ΐ'),
+    (r'i/\+', 'ΐ'),
     (r'i=\+', 'ῗ'),
     (r'U\\\+', 'ῢ'),
-    (r'U/\+', 'ΰ'),
+    (r'U/\+', 'ΰ'),
     (r'U=\+', 'ῧ'),
     (r'A\'', 'ᾰ'),
     (r'I\'', 'ῐ'),
@@ -288,18 +284,18 @@ LOWER = [
     (r'W\)', 'ὠ'),
     (r'W\(', 'ὡ'),
     (r'A\\', 'ὰ'),
-    (r'A/', 'ά'),
-    (r'E/', 'έ'),
+    (r'A/', 'ά'),
+    (r'E/', 'έ'),
     (r'E\\', 'ὲ'),
-    (r'H/', 'ή'),
+    (r'H/', 'ή'),
     (r'H\\', 'ὴ'),
-    (r'I/', 'ί'),
+    (r'I/', 'ί'),
     (r'I\\', 'ὶ'),
-    (r'O/', 'ό'),
+    (r'O/', 'ό'),
     (r'O\\', 'ὸ'),
-    (r'U/', 'ύ'),
+    (r'U/', 'ύ'),
     (r'U\\', 'ὺ'),
-    (r'W/', 'ώ'),
+    (r'W/', 'ώ'),
     (r'W\\', 'ὼ'),
     (r'A', 'α'),
     (r'B', 'β'),
@@ -318,6 +314,16 @@ LOWER = [
     (r'P', 'π'),
     (r'Q', 'θ'),
     (r'R', 'ρ'),
+    # better handle final sigmas; could be more DRY since it duplicates the PUNCT list
+    (r'S ', 'ς '),
+    (r'S:', 'ς:'),
+    (r'S\.', 'ς\.'),
+    (r'S,', 'ς,'),
+    (r'S;', 'ς;'),
+    (r'S\'', 'ς\''),
+    (r'S-', 'ς-'),
+    (r'S_', 'ς_'),
+    #
     (r'S1', 'σ'),
     (r'S2', 'ς'),
     (r'S3', 'c'),
