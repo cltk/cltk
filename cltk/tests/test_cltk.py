@@ -49,7 +49,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         beta_example = r"""O(/PWS OU)=N MH\ TAU)TO\ """
         replacer = Replacer()
         unicode = replacer.beta_code(beta_example)
-        target_unicode = 'ὅπωσ οὖν μὴ ταὐτὸ '
+        target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
         self.assertEqual(unicode, target_unicode)
 
 if __name__ == '__main__':
