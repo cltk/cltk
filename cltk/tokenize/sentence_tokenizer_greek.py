@@ -10,12 +10,11 @@ from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
 
+
 CLTK_DATA_DIR_REL = '~/cltk_data'
 CLTK_DATA_DIR_ABS = os.path.expanduser(CLTK_DATA_DIR_REL)
 GREEK_SENTENCE_TOKENIZER_DIR = os.path.join(CLTK_DATA_DIR_ABS,
                                             'compiled/sentence_tokens_greek')
-FILE_NAME = 'greek.pickle'
-PICKLE_PATH = os.path.join(GREEK_SENTENCE_TOKENIZER_DIR, FILE_NAME)
 
 
 def tokenize_sentences(input_string):
@@ -23,7 +22,7 @@ def tokenize_sentences(input_string):
     :param input_string: str
     :rtype : list
     """
-    with open(PICKLE_PATH, 'rb') as open_pickle:
+    with open('greek.pickle', 'rb') as open_pickle:
         training_set = pickle.load(open_pickle)
 
     language_punkt_vars = PunktLanguageVars
