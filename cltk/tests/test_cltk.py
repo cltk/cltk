@@ -1,5 +1,7 @@
-"""Unit tests for CLTK
-"""
+"""Unit tests for CLTK"""
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.classical_greek.beta_to_unicode import Replacer
 from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
