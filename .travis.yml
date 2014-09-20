@@ -4,11 +4,14 @@ python:
 
 install:
 
-  # - "pip install http://www.nltk.org/nltk3-alpha/nltk-3.0a4.tar.gz"
-  - "pip install nltk"
-  - pip install astroid gnureadline readline requests requests-toolbelt numpy
+  - pip install nltk
+  - pip install astroid
+  - pip install gnureadline
+  - pip install readline
+  - pip install requests
+  - pip install requests-toolbelt
+  - pip install numpy
   - pip install cltk
-  #- "pip install -r requirements.txt"
 
 # command to run tests, e.g. python setup.py test
 script:
