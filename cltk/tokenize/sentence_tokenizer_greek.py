@@ -15,14 +15,15 @@ CLTK_DATA_DIR_REL = '~/cltk_data'
 CLTK_DATA_DIR_ABS = os.path.expanduser(CLTK_DATA_DIR_REL)
 GREEK_SENTENCE_TOKENIZER_DIR = os.path.join(CLTK_DATA_DIR_ABS,
                                             'compiled/sentence_tokens_greek')
-
+PICKLE_FILE = 'greek.pickle'
+PICKLE_FILE_PATH = os.path.join(GREEK_SENTENCE_TOKENIZER_DIR, PICKLE_FILE)
 
 def tokenize_sentences(input_string):
     """Tokenize incoming Greek strings and output a list.
     :param input_string: str
     :rtype : list
     """
-    with open('greek.pickle', 'rb') as open_pickle:
+    with open(PICKLE_FILE_PATH, 'rb') as open_pickle:
         training_set = pickle.load(open_pickle)
 
     language_punkt_vars = PunktLanguageVars
