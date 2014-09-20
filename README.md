@@ -11,7 +11,7 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 
 *   Compile analysis-friendly corpora in a variety of Classical languages (Greek and Latin are in progress, with [more in the pipeline](https://github.com/kylepjohnson/cltk/wiki/List-of-Classical-languages))
 *   Gather, improve, and generate linguistic data required for NLP
-*   Develop a free and open platform for generating reproducible, scientific research into the literature and languages of the ancient world
+*   Develop a free and open platform for generating reproducible, scientific research that advances the study of the literature and languages of the ancient world
 
 
 DOCUMENTATION
