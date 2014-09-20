@@ -1,4 +1,11 @@
-"""Stem Latin words with an implementation of the Schinke Latin stemming algorithm (Schnike, 1995)."""
+"""Stem Latin words with an implementation of the Schinke Latin stemming
+algorithm (Schinke R, Greengrass M, Robertson AM and Willett P. (1996). 'A
+ stemming algorithm for Latin text databases'. Journal of Documentation, 52:
+  172-187).
+"""
+
+__author__ = 'Luke Hollis <lukehollis@gmail.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 import re
 from cltk.stop.classical_latin.stops import STOPS_LIST 

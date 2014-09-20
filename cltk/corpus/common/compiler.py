@@ -1,4 +1,6 @@
 """Assembles corpora into ~/cltk_data"""
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 import ast
 import logging

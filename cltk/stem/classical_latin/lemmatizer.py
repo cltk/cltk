@@ -1,5 +1,8 @@
 """Lemmatize Latin words with a replacement list."""
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 import re
 from cltk.stem.classical_latin.lemmata_list import REPLACEMENT_PATTERNS
 

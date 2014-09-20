@@ -29,4 +29,4 @@ See [installation instructions available in the docs](http://docs.cltk.org/en/la
 LICENSE
 -------
 
-The CLTK is Copyright (c) 2014 Kyle P. Johnson, under the MIT License. See file LICENSE for details.
+The CLTK is Copyright (c) 2014 Kyle P. Johnson, under the MIT License. See 'LICENSE' for details.

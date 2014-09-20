@@ -1,5 +1,8 @@
 """Functions for replacing j/J and v/V to i/I and u/U"""
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 import re
 
 

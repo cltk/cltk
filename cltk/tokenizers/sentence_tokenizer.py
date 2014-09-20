@@ -2,6 +2,9 @@
 Some guidance available here: http://wiki.apertium.org/wiki/Sentence_segmenting
 """
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 from nltk.tokenize.punkt import PunktTrainer

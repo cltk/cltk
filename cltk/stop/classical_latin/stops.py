@@ -5,6 +5,10 @@
 Perseus data licensed under  the Mozilla Public License 1.1 (MPL 1.1)
 [http://www.mozilla.org/MPL/1.1/].
 """
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'GPL License.'
+
 STOPS_LIST = ['ab',
               'ac',
               'ad',

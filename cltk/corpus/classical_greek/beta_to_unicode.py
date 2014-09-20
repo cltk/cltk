@@ -2,6 +2,8 @@
 TODO for replacer.py:
  - add perseus-style iota subscript and diaeresis
 """
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__license__ = 'MIT License. See LICENSE.'
 
 import re
 
