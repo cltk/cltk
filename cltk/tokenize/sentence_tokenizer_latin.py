@@ -1,4 +1,4 @@
-"""Build a sentence tokenizer for Greek.
+"""Build a sentence tokenizer for Latin.
 Some guidance available here: http://wiki.apertium.org/wiki/Sentence_segmenting
 """
 
@@ -13,12 +13,12 @@ import os
 
 CLTK_DATA_DIR_REL = '~/cltk_data'
 CLTK_DATA_DIR_ABS = os.path.expanduser(CLTK_DATA_DIR_REL)
-GREEK_SENTENCE_TOKENIZER_DIR = os.path.join(CLTK_DATA_DIR_ABS,
-                                            'compiled/sentence_tokens_greek')
-PICKLE_FILE = 'greek.pickle'
-PICKLE_FILE_PATH = os.path.join(GREEK_SENTENCE_TOKENIZER_DIR, PICKLE_FILE)
+LATIN_SENTENCE_TOKENIZER_DIR = os.path.join(CLTK_DATA_DIR_ABS,
+                                            'compiled/sentence_tokens_latin')
+PICKLE_FILE = 'latin.pickle'
+PICKLE_FILE_PATH = os.path.join(LATIN_SENTENCE_TOKENIZER_DIR, PICKLE_FILE)
 
-def tokenize_greek_sentences(input_string):
+def tokenize_latin_sentences(input_string):
     """Tokenize incoming Greek strings and output a list.
     :param input_string: str
     :rtype : list
@@ -27,8 +27,8 @@ def tokenize_greek_sentences(input_string):
         training_set = pickle.load(open_pickle)
 
     language_punkt_vars = PunktLanguageVars
-    language_punkt_vars.sent_end_chars = ('.', ';',)
-    language_punkt_vars.internal_punctuation = (',', '·')
+    language_punkt_vars.sent_end_chars = ('.', '?', ':')
+    language_punkt_vars.internal_punctuation = (',', ';')
     training_set.INCLUDE_ALL_COLLOCS = True
     training_set.INCLUDE_ABBREV_COLLOCS = True
 
