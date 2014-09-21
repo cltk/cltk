@@ -18,7 +18,7 @@ GREEK_SENTENCE_TOKENIZER_DIR = os.path.join(CLTK_DATA_DIR_ABS,
 PICKLE_FILE = 'greek.pickle'
 PICKLE_FILE_PATH = os.path.join(GREEK_SENTENCE_TOKENIZER_DIR, PICKLE_FILE)
 
-def tokenize_sentences(input_string):
+def tokenize_latin_sentences(input_string):
     """Tokenize incoming Greek strings and output a list.
     :param input_string: str
     :rtype : list

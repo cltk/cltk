@@ -11,7 +11,7 @@ Classical Greek
 CLTK Sentence Tokenizer, Greek
 ------------------------------
 
-A `pre-trained rule set <https://github.com/kylepjohnson/cltk_greek_sentence_tokenizer>`_ is available for inclusion into the CLTK for the Ancient Greek language. The relevant rule set can be downloaded and installed locally with the following.
+A `pre-trained rule set <https://github.com/kylepjohnson/cltk_greek_sentence_tokenizer>`_ is available for inclusion into the CLTK for the Ancient Greek language. It can be downloaded and installed locally as follows.
 
 .. code-block:: python
 
@@ -21,7 +21,7 @@ A `pre-trained rule set <https://github.com/kylepjohnson/cltk_greek_sentence_tok
 
    In [3]: c.import_corpus('sentence_tokens_greek')
 
-You will now have the uncompressed `greek.pickle` at `~/cltk_data/compiled/`.
+You will now have the uncompressed `greek.pickle` saved to `~/cltk_data/compiled/`.
 
 
 Perseus Digital Library, Greek
