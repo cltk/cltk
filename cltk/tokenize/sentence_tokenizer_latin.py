@@ -9,6 +9,7 @@ import pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
+import sys
 
 
 CLTK_DATA_DIR_REL = '~/cltk_data'
@@ -23,9 +24,12 @@ def tokenize_latin_sentences(input_string):
     :param input_string: str
     :rtype : list
     """
-    with open(PICKLE_FILE_PATH, 'rb') as open_pickle:
-        training_set = pickle.load(open_pickle)
-
+    try:
+        with open(PICKLE_FILE_PATH, 'rb') as open_pickle:
+            training_set = pickle.load(open_pickle)
+    except FileNotFoundError as err:
+        print('latin.pickle not found. Install Latin sentence tokenization ruleset. Error: %s' % err)
+        sys.exit()
     language_punkt_vars = PunktLanguageVars
     language_punkt_vars.sent_end_chars = ('.', '?', ':')
     language_punkt_vars.internal_punctuation = (',', ';')
