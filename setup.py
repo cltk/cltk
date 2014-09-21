@@ -26,8 +26,7 @@ setup(
     description=('NLP support for Ancient Greek and Latin'),
     keywords=['nlp', 'ancient greek', 'latin', 'tlg', 'phi', 'literature'],
     license='MIT',
-    long_description="""The Classical Language Toolkit (CLTK) offers natural \
-    language processing support for Classical languages.""",
+    long_description="The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages.",  # pylint: disable=C0301
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
