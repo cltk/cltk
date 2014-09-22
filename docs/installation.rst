@@ -1,34 +1,28 @@
 Installation
 ************
 
-Through Pip
-===========
+With Pip
+========
 
-First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip.
+First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
 
-Next, install the nltk:
+.. code-block:: shell
 
-.. code-block:: python
+   $ pyvenv venv
 
-   pip install nltk
+   $ source venv/bin/activate
 
-And then a few additional packages:
+Then, install the CLTK, which automatically includes all dependencies.
 
-.. code-block:: python
-
-   pip install astroid gnureadline readline requests requests-toolbelt numpy
-
-If these all install correctly, move on to the CLTK:
-
-.. code-block:: python
+.. code-block:: shell
 
    pip install cltk
 
 From source
-======
+===========
 
 The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, install the above requirements as above, and then clone and run within the repository's root directory:
 
-.. code-block:: python
+.. code-block:: shell
 
    python setup.py sdist install
