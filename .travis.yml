@@ -1,17 +1,11 @@
 language: python
 
-os:
-  - linux
-  - osx
-
 python:
   - "3.4"
 
 install:
-
   - pip install cltk
 
-# command to run tests, e.g. python setup.py test
 script:
   - cd cltk/tests/
   - python test_cltk.py
