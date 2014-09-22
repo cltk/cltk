@@ -14,19 +14,19 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 *   Develop a free and open platform for generating reproducible, scientific research that advances the study of the literature and languages of the ancient world.
 
 
-DOCUMENTATION
+Documentation
 -------------
 
 The docs are at [http://docs.cltk.org/en/latest/](http://docs.cltk.org/en/latest/).
 
 
-INSTALLATION
+Installation
 ------------
 
 See [installation instructions available in the docs](http://docs.cltk.org/en/latest/installation.html).
 
 
-LICENSE
+License
 -------
 
 The CLTK is Copyright (c) 2014 Kyle P. Johnson, under the MIT License. See 'LICENSE' for details.
