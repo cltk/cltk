@@ -812,8 +812,16 @@ class Compile(object):  # pylint: disable=R0904
                 logging.info('Finished writing %s.', pos_latin_file_name)
         except IOError:
             logging.error('Failed to write file %s', pos_latin_file_name)
+        compiled_files_dir_pos_latin = os.path.join(self.compiled_files_dir,
+                                                'pos_latin')
+        if os.path.isdir(compiled_files_dir_pos_latin) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_pos_latin)
+            logging.info('Made new directory "pos_latin" at "%s"',
+                         compiled_files_dir_pos_latin)
         try:
-            shutil.unpack_archive(pos_latin_file_path, self.compiled_files_dir)
+            shutil.unpack_archive(pos_latin_file_path, compiled_files_dir_pos_latin)
             logging.info('Finished unpacking %s', pos_latin_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', pos_latin_file_name)
