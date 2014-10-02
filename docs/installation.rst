@@ -33,4 +33,4 @@ If you make changes to the CLTK's source, and would like to validate them by bun
 
    $ python setup.py sdist install
 
-If you are considering making a pull request to the CLTK, consider first  making a test build in this fashion and running the tests (`python cltk/tests/test_cltk.py`).
+If you are going to make a pull request to the CLTK, consider first making a test build in this fashion and running the tests (``python cltk/tests/test_cltk.py``).
