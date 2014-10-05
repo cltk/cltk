@@ -1,0 +1,11 @@
+language: python
+
+python:
+  - "3.4"
+
+install:
+  - pip install cltk
+
+script:
+  - cd cltk/tests/
+  - python test_cltk.py
