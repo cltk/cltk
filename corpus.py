@@ -119,6 +119,10 @@ class Corpus(object):
             msg = 'Failed to unpack tar to : {}'.format(tar_path)
             self.cltk.logger.error(msg)
 
+    def remove_non_ascii(self, input_string):
+        """remove non-ascii: http://stackoverflow.com/a/1342373"""
+        return "".join(i for i in input_string if ord(i) < 128)
+
 
 class TEIDoc(object):
     def __init__(self, path):
