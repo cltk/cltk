@@ -150,3 +150,9 @@ class TEIDoc(object):
             tags = self.soup.find_all(True)
         tag_names = [x.name for x in tags if x.name]
         return list(set(tag_names))
+
+
+class TXTDoc(object):
+    def __init__(self, path):
+        self.path = path
+        self.beta_replacer = Replacer()
