@@ -18,6 +18,7 @@ setup(
         'Operating System :: OS Independent',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 3.4',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence',
         'Topic :: Text Processing',
         'Topic :: Text Processing :: General',
         'Topic :: Text Processing :: Linguistic',
@@ -37,7 +38,7 @@ setup(
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
-    version='0.0.0.26',
+    version='0.0.0.27',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )
