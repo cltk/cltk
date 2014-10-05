@@ -60,6 +60,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_sentence_tokenizer_greek(self):
         """Reads Greek sentence tokenizer pickle, tokenizes into a list, and
         checks against a known good list.
+        TODO: import corpus if not found.
         """
         try:
             cltk_data_dir_rel = '~/cltk_data'
@@ -82,6 +83,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_sentence_tokenizer_latin(self):
         """Reads Latin sentence tokenizer pickle, tokenizes into a list, and
         checks against a known good list.
+        TODO: import corpus if not found.
         """
         try:
             cltk_data_dir_rel = '~/cltk_data'
