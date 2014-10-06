@@ -2,11 +2,7 @@
 *.pyc
 =======
 *.py[cod]
-
-# C extensions
 *.so
-
-# Packages
 *.egg
 *.egg-info
 dist
@@ -21,47 +17,26 @@ develop-eggs
 lib
 lib64
 __pycache__
-
-# Installer logs
 pip-log.txt
-
-# Unit test / coverage reports
 .coverage
 .tox
 nosetests.xml
-
-# Translations
 *.mo
-
-# Mr Developer
 .mr.developer.cfg
 .project
 .pydevproject
-
 classics_corpus_compiler.log
-
 *\~
 venv
 *.log
 \#*
-
 tmp_*
-
-# Sphinx
 _build
 _static
 _templates
-
-# Greek and Latin
-# don't save proprietary data
-# PHI5
-# PHI7
-# TLG_E
-
 phi5.json
 phi7.json
 tlg.json
-
 phi5.pickle
 phi7.pickle
 tlg.pickle
@@ -70,16 +45,10 @@ DDP*
 INS*
 CHR*
 LAT*
-
 *.IDT
 *.idt
-
 local
-
-# Mac
 .DS_Store
-
-# an IDE
 .idea
-
 >>>>>>> 7a51e83f8ce774037bdd566e998af6c1f58efab1
+test_space.py
