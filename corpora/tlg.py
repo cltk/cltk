@@ -20,7 +20,7 @@ class TLG(LocalCorpus):
         self.tlgu = TLGU()
 
     def retrieve(self):
-        return self.retrieve(location=self.path)
+        return self.copy_contents()
 
     def compile(self):
         """Reads original Beta Code files and converts to Unicode files
@@ -55,6 +55,7 @@ class TLG(LocalCorpus):
     def works(self):
         return self._property('works_index.json', self.index_works)
 
+    # TODO
     def index_works(self, path):
         self.logger.info('Starting TLG works index parsing.')
         works_dict = {}
@@ -188,4 +189,4 @@ class TLGDoc(TXTDoc):
         self.path = path
         TXTDoc.__init__(self, self.path)
 
-print(TLG('~').compile())
+print(TLG('~'))
