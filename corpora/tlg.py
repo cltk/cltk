@@ -6,6 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 import re
 import json
+import subprocess
 from cltk.corpus import Corpus, TXTDoc
 from cltk.corpora.classical_greek.beta_to_unicode import Replacer
 
@@ -19,6 +20,7 @@ class TLG(Corpus):
     def retrieve(self):
         return self.retrieve(location=self.tlg_path)
 
+    #TODO: use `tlgu` for compiling
     def compile(self):
         """Reads original Beta Code files and converts to Unicode files
 
@@ -131,6 +133,33 @@ class TLG(Corpus):
         return self._indexer('authors', 'AUTHTAB.DIR', 'authors_index.json',
                              path, splitter, to_dict)
 
+    def _find_tglu(self):
+        find_exe = ['mdfind', 'kMDItemFSName=tlgu',
+                    'kMDItemContentType=public.unix-executable']
+        c_path = subprocess.check_output(find_exe)
+        exe_paths = c_path.split(b'\n')
+        if len(exe_paths) > 0:
+            return exe_paths[0]
+        else:
+            self._compile_tglu()
+            return self._find_tglu()
+
+    def _compile_tglu(self):
+        if subprocess.check_output(['which', 'gcc']):
+            find_c = ['mdfind', 'kMDItemFSName=tlgu.c']
+            c_path = subprocess.check_output(find_c)
+            c_path = c_path.strip()
+            # If running in a Virtual Env, it should create the executable file
+            # at `[venv]/lib/python3.4/site-packages/cltk/tlgu`
+            compile_c = ['gcc', c_path, '-o', 'tlgu']
+            subprocess.check_output(compile_c)
+               
+    def _run_tglu(self):
+        tglu = self._find_tglu()
+        convert_tlg = [tglu, '--help']
+        out = subprocess.call(convert_tlg)
+        print(out)
+
     def _property(self, json_file, index_func):
         path = os.path.join(self.compiled_texts, json_file)
         if os.path.exists(path):
@@ -179,4 +208,4 @@ class TLGDoc(TXTDoc):
         self.path = path
         TXTDoc.__init__(self, self.path)
 
-print(TLG('~/Code').compile())
+print(TLG('~/Code')._run_tglu())
