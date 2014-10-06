@@ -5,20 +5,20 @@ __license__ = 'MIT License. See LICENSE.'
 
 import re
 import bs4
-from cltk.corpus import Corpus, TEIDoc
+from cltk.corpus import RemoteCorpus, TEIDoc
 from cltk import soup_utils
 from cltk.corpora.classical_greek.beta_to_unicode import Replacer
 
 
-class PerseusGreek(Corpus):
+class PerseusGreek(RemoteCorpus):
     def __init__(self):
         self.name = 'perseus_greek'
-        Corpus.__init__(self, self.name)
         self.tar_url = ('https://raw.githubusercontent.com/kylepjohnson/'
                         'corpus_perseus_greek/master/perseus_greek.tar.gz')
+        RemoteCorpus.__init__(self, self.name, self.tar_url)
 
     def retrieve(self):
-        self.retrieve(url=self.tar_url)
+        self.get_tar()
 
 
 class PerseusGreekDoc(TEIDoc):
@@ -135,4 +135,4 @@ class PerseusGreekDoc(TEIDoc):
         return indent_level
 
 
-#print(PerseusGreekDoc('').struct_tags)
+print(PerseusGreek().retrieve)
