@@ -20,5 +20,3 @@ class LatinLibrary(RemoteCorpus):
 class LatinLibraryDoc(object):
     def __init__(self, path):
         self.path = path
-
-LatinLibrary().retrieve()

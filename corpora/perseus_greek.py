@@ -133,6 +133,3 @@ class PerseusGreekDoc(TEIDoc):
         # Extract indent level
         indent_level = len(x.group(1)) if x else indent_level
         return indent_level
-
-
-print(PerseusGreek().retrieve)
