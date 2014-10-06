@@ -34,32 +34,6 @@ class Corpus(object):
         original_texts = os.path.join(self.cltk.originals_dir, self.name)
         return self.cltk.resolve_path(original_texts)
 
-    def retrieve(self, location=None, url=None):
-        if location is None and url is not None:
-            self.get_tar(url)
-        elif url is None and location is not None:
-            self.copy_contents(location)
-
-    def get_tar(self, url):
-        # Initiate HTTP session
-        session = requests.Session()
-        session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-        pg_tar = session.get(url, stream=True)
-        # Prepare local file
-        file_name = urlsplit(url).path.split('/')[-1]
-        file_path = os.path.join(self.original_texts, file_name)
-        # Write tar data to file in originals dir
-        self._write_tar(pg_tar, file_path)
-        # Unpack tar data in compiled dir
-        self._unpack_tar(file_path)
-
-    def copy_contents(self, location):
-        """Copy contents of one directory to another"""
-        for file_name in os.listdir(location):
-            full_file_name = os.path.join(location, file_name)
-            if os.path.isfile(full_file_name):
-                shutil.copy(full_file_name, self.original_texts)
-
     def prettify_all(self):
         prettified = os.path.join(self.compiled_texts, '.prettified')
         if os.path.exists(prettified):
@@ -99,6 +73,44 @@ class Corpus(object):
                         )
         return tag_index
 
+    def remove_non_ascii(self, input_string):
+        """remove non-ascii: http://stackoverflow.com/a/1342373"""
+        return "".join(i for i in input_string if ord(i) < 128)
+
+
+class LocalCorpus(Corpus):
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        Corpus.__init__(self, self.name)
+
+    def copy_contents(self):
+        """Copy contents of one directory to another"""
+        for file_name in os.listdir(self.location):
+            full_file_name = os.path.join(self.location, file_name)
+            if os.path.isfile(full_file_name):
+                shutil.copy(full_file_name, self.original_texts)
+
+
+class RemoteCorpus(Corpus):
+    def __init__(self, name, url):
+        self.name = name
+        self.url = url
+        Corpus.__init__(self, self.name)
+
+    def get_tar(self):
+        # Initiate HTTP session
+        session = requests.Session()
+        session.mount(self.url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = session.get(self.url, stream=True)
+        # Prepare local file
+        file_name = urlsplit(self.url).path.split('/')[-1]
+        file_path = os.path.join(self.original_texts, file_name)
+        # Write tar data to file in originals dir
+        self._write_tar(pg_tar, file_path)
+        # Unpack tar data in compiled dir
+        self._unpack_tar(file_path)
+
     def _write_tar(self, tar, path):
         try:
             with open(path, 'wb') as file:
@@ -118,10 +130,6 @@ class Corpus(object):
         except IOError:
             msg = 'Failed to unpack tar to : {}'.format(tar_path)
             self.cltk.logger.error(msg)
-
-    def remove_non_ascii(self, input_string):
-        """remove non-ascii: http://stackoverflow.com/a/1342373"""
-        return "".join(i for i in input_string if ord(i) < 128)
 
 
 class TEIDoc(object):
