@@ -5,22 +5,23 @@ __license__ = 'MIT License. See LICENSE.'
 
 import os
 import re
+import bs4
 import json
+import requests
 import subprocess
-from cltk.corpus import Corpus, TXTDoc
-from cltk.corpora.classical_greek.beta_to_unicode import Replacer
+from cltk.corpus import LocalCorpus, TXTDoc
 
 
-class TLG(Corpus):
+class TLG(LocalCorpus):
     def __init__(self, path):
         self.name = 'tlg'
-        Corpus.__init__(self, self.name)
-        self.tlg_path = path
+        self.path = path
+        LocalCorpus.__init__(self, self.name, self.path)
+        self.tlgu = TLGU()
 
     def retrieve(self):
-        return self.retrieve(location=self.tlg_path)
+        return self.retrieve(location=self.path)
 
-    #TODO: use `tlgu` for compiling
     def compile(self):
         """Reads original Beta Code files and converts to Unicode files
 
@@ -29,26 +30,18 @@ class TLG(Corpus):
         for file_name, abbrev in self.authors.items():
             orig_file = file_name + '.TXT'
             orig_path = os.path.join(self.original_texts, orig_file)
-            try:
-                with open(orig_path, 'rb') as file:
-                    txt_read = file.read().decode('latin-1')
-                # Is all non-ascii text useless?
-                txt_ascii = self.remove_non_ascii(txt_read)
-                txt_unicode = Replacer().beta_code(txt_ascii)
-                compiled_file = file_name + '.txt'
-                compiled_path = os.path.join(self.compiled_texts,
-                                             compiled_file)
-                try:
-                    with open(compiled_path, 'w', encoding='utf-8') as file:
-                        file.write(txt_unicode)
-                    msg = 'Compiled {} to : {}'.format(file_name, compiled_path)
-                    self.logger.info(msg)
-                except IOError:
-                    msg = 'Failed to compile {}'.format(file_name)
-                    self.logger.error(msg)
-            except IOError:
-                msg = 'Failed to open {}'.format(file_name)
-                self.logger.error(msg)
+            #try:
+            compiled_file = file_name + '.txt'
+            compiled_path = os.path.join(self.compiled_texts,
+                                         compiled_file)
+            # Use `tlgu` utility to compile to Unicode text
+            self.tlgu.run(orig_path, compiled_path,
+                          opts=['-X', '-W', '-b'])
+            msg = 'Compiled {} to : {}'.format(file_name, compiled_path)
+            self.logger.info(msg)
+            #except IOError:
+            #    msg = 'Failed to compile {}'.format(file_name)
+            #    self.logger.error(msg)
 
     @property
     def metadata(self):
@@ -133,33 +126,6 @@ class TLG(Corpus):
         return self._indexer('authors', 'AUTHTAB.DIR', 'authors_index.json',
                              path, splitter, to_dict)
 
-    def _find_tglu(self):
-        find_exe = ['mdfind', 'kMDItemFSName=tlgu',
-                    'kMDItemContentType=public.unix-executable']
-        c_path = subprocess.check_output(find_exe)
-        exe_paths = c_path.split(b'\n')
-        if len(exe_paths) > 0:
-            return exe_paths[0]
-        else:
-            self._compile_tglu()
-            return self._find_tglu()
-
-    def _compile_tglu(self):
-        if subprocess.check_output(['which', 'gcc']):
-            find_c = ['mdfind', 'kMDItemFSName=tlgu.c']
-            c_path = subprocess.check_output(find_c)
-            c_path = c_path.strip()
-            # If running in a Virtual Env, it should create the executable file
-            # at `[venv]/lib/python3.4/site-packages/cltk/tlgu`
-            compile_c = ['gcc', c_path, '-o', 'tlgu']
-            subprocess.check_output(compile_c)
-               
-    def _run_tglu(self):
-        tglu = self._find_tglu()
-        convert_tlg = [tglu, '--help']
-        out = subprocess.call(convert_tlg)
-        print(out)
-
     def _property(self, json_file, index_func):
         path = os.path.join(self.compiled_texts, json_file)
         if os.path.exists(path):
@@ -202,10 +168,65 @@ class TLG(Corpus):
             self.logger.error(msg)
 
 
+class TLGU(object):
+    def __init__(self):
+        self.name = 'tlgu'
+        self.url = 'http://tlgu.carmen.gr'
+
+    @property
+    def exe(self):
+        find_exe = ['mdfind', 'kMDItemFSName=tlgu',
+                    'kMDItemContentType=public.unix-executable']
+        c_path = subprocess.check_output(find_exe)
+        exe_paths = c_path.split(b'\n')
+        if len(exe_paths) > 0:
+            return exe_paths[0]
+        else:
+            self.compile()
+            return self.exe
+
+    def compile(self):
+        if subprocess.check_output(['which', 'gcc']):
+            find_c = ['mdfind', 'kMDItemFSName=tlgu.c']
+            c_path = subprocess.check_output(find_c)
+            c_path = c_path.strip()
+            if c_path:
+                # If running in a Virtual Env,
+                # it should create the executable file
+                # at `[venv]/lib/python3.4/site-packages/cltk/tlgu`
+                compile_c = ['gcc', c_path, '-o', 'tlgu']
+                subprocess.check_output(compile_c)
+            else:
+                self.download()
+                self.compile()
+        else:
+            raise Error('Cannot compile `tlgu` without `gcc`!')
+
+    def run(self, input_path, output_path, opts=[]):
+        convert_tlg = [self.exe]
+        if opts != []:
+            convert_tlg.extend(opts)
+        convert_tlg.extend([input_path, output_path])
+        return subprocess.call(convert_tlg)
+
+    def download(self):
+        zip_url = self._get_zip_url()
+        #Download zip to temp file
+        #Unpack to temp dir
+        #Compile
+
+    def _get_zip_url(self):
+        r = requests.get(self.url)
+        soup = bs4.BeautifulSoup(r.text)
+        download = soup.find('a', {'href': re.compile('.zip')}).get('href')
+        return '/'.join([self.url, download])
+
+    
+
 
 class TLGDoc(TXTDoc):
     def __init__(self, path):
         self.path = path
         TXTDoc.__init__(self, self.path)
 
-print(TLG('~/Code')._run_tglu())
+print(TLG('~').compile())
