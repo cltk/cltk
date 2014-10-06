@@ -50,60 +50,60 @@ class Stemmer(object):
 
         in_que_pass_list = False 
 
-        que_pass_list = ['atque', 
-                        'quoque',
-                        'neque', 
-                        'itaque', 
-                        'absque', 
-                        'apsque', 
-                        'abusque', 
-                        'adaeque', 
-                        'adusque', 
-                        'denique',
-                        'deque', 
-                        'susque', 
-                        'oblique', 
-                        'peraeque', 
-                        'plenisque', 
-                        'quandoque', 
-                        'quisque', 
-                        'quaeque',
-                        'cuiusque', 
-                        'cuique', 
-                        'quemque', 
-                        'quamque', 
-                        'quaque', 
-                        'quique', 
-                        'quorumque', 
-                        'quarumque',
-                        'quibusque', 
-                        'quosque', 
-                        'quasque', 
-                        'quotusquisque', 
-                        'quousque', 
-                        'ubique', 
-                        'undique', 
-                        'usque',
-                        'uterque', 
-                        'utique', 
-                        'utroque', 
-                        'utribique', 
-                        'torque', 
-                        'coque', 
-                        'concoque', 
-                        'contorque',
-                        'detorque', 
-                        'decoque', 
-                        'excoque', 
-                        'extorque', 
-                        'obtorque', 
-                        'optorque', 
-                        'retorque', 
-                        'recoque',
-                        'attorque', 
-                        'incoque', 
-                        'intorque', 
-                        'praetorque']
+        que_pass_list = set('atque', 
+                            'quoque',
+                            'neque', 
+                            'itaque', 
+                            'absque', 
+                            'apsque', 
+                            'abusque', 
+                            'adaeque', 
+                            'adusque', 
+                            'denique',
+                            'deque', 
+                            'susque', 
+                            'oblique', 
+                            'peraeque', 
+                            'plenisque', 
+                            'quandoque', 
+                            'quisque', 
+                            'quaeque',
+                            'cuiusque', 
+                            'cuique', 
+                            'quemque', 
+                            'quamque', 
+                            'quaque', 
+                            'quique', 
+                            'quorumque', 
+                            'quarumque',
+                            'quibusque', 
+                            'quosque', 
+                            'quasque', 
+                            'quotusquisque', 
+                            'quousque', 
+                            'ubique', 
+                            'undique', 
+                            'usque',
+                            'uterque', 
+                            'utique', 
+                            'utroque', 
+                            'utribique', 
+                            'torque', 
+                            'coque', 
+                            'concoque', 
+                            'contorque',
+                            'detorque', 
+                            'decoque', 
+                            'excoque', 
+                            'extorque', 
+                            'obtorque', 
+                            'optorque', 
+                            'retorque', 
+                            'recoque',
+                            'attorque', 
+                            'incoque', 
+                            'intorque', 
+                            'praetorque')
 
         if word not in que_pass_list:
             word = re.sub(r'que$', '', word)
@@ -118,29 +118,29 @@ class Stemmer(object):
         was_stemmed = False
 
         # noun, adjective, and adverb word endings sorted by charlen, then alph 
-        simple_endings = ['ibus',
-                            'ius',
-                            'ae',
-                            'am',
-                            'as',
-                            'em',
-                            'es',
-                            'ia',
-                            'is',
-                            'nt',
-                            'os',
-                            'ud',
-                            'um',
-                            'us',
-                            'a',
-                            'e',
-                            'i',
-                            'o',
-                            'u']
+        simple_endings = set('ibus',
+                             'ius',
+                             'ae',
+                             'am',
+                             'as',
+                             'em',
+                             'es',
+                             'ia',
+                             'is',
+                             'nt',
+                             'os',
+                             'ud',
+                             'um',
+                             'us',
+                             'a',
+                             'e',
+                             'i',
+                             'o',
+                             'u')
 
         for ending in simple_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, '', word)
+                word = re.sub(r'{}$'.format(ending), '', word)
                 was_stemmed = True
                 break
 
@@ -149,57 +149,57 @@ class Stemmer(object):
     def _matchremove_verb_endings(self, word):
         """Remove the verb endings""" 
 
-        i_verb_endings = ['iuntur',
-                            'erunt', 
-                            'untur', 
-                            'iunt', 
-                            'unt']
+        i_verb_endings = set('iuntur',
+                             'erunt', 
+                             'untur', 
+                             'iunt', 
+                             'unt')
 
-        bi_verb_endings = ['beris', 
-                            'bor', 
-                            'bo']
+        bi_verb_endings = set('beris', 
+                              'bor', 
+                              'bo')
 
-        eri_verb_endings = ['ero']
+        eri_verb_endings = set('ero')
 
-        verb_endings = ['mini',
-                            'ntur',
-                            'stis',
-                            'mur',
-                            'mus',
-                            'ris',
-                            'sti',
-                            'tis',
-                            'tur',
-                            'ns',
-                            'nt',
-                            'ri',
-                            'm',
-                            'r',
-                            's',
-                            't']
+        verb_endings = set('mini',
+                           'ntur',
+                           'stis',
+                           'mur',
+                           'mus',
+                           'ris',
+                           'sti',
+                           'tis',
+                           'tur',
+                           'ns',
+                           'nt',
+                           'ri',
+                           'm',
+                           'r',
+                           's',
+                           't')
 
         # replace i verb endings with i
         for ending in i_verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, 'i', word)
+                word = re.sub(r'{}$'.format(ending), 'i', word)
                 return word
 
         # replace bi verb endings with bi
         for ending in bi_verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, 'bi', word)
+                word = re.sub(r'{}$'.format(ending), 'bi', word)
                 return word
 
         # replace eri verb endings with eri 
         for ending in eri_verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, 'eri', word)
+                word = re.sub(r'{}$'.format(ending), 'eri', word)
                 return word
 
         # otherwise, remove general verb endings
         for ending in verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, '', word)
+                word = re.sub(r'{}$'.format(ending), '', word)
                 break
 
         return word
