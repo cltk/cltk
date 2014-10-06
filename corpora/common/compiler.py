@@ -1,3 +1,4 @@
+# encoding: utf-8
 """Assembles corpora into ~/cltk_data"""
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -14,7 +15,7 @@ import site
 import ssl
 from urllib.parse import urlsplit
 
-from cltk.corpus.classical_greek.beta_to_unicode import Replacer
+from cltk.corpora.classical_greek.beta_to_unicode import Replacer
 
 # these can be deleted, I think
 INDEX_DICT_PHI5 = {}
@@ -179,6 +180,8 @@ class Compile(object):  # pylint: disable=R0904
                           'following: "tlg", "phi7", "phi5", "latin_library", '
                           '"perseus_latin", "perseus_greek", '
                           '"lacus_curtius_latin".')
+
+    ## TLG ---------------------------------------------------------------
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
@@ -346,6 +349,8 @@ class Compile(object):  # pylint: disable=R0904
         except IOError:
             logging.error('Failed to open TLG index file LSTSCDCN.DIR')
 
+    ## PHI7 --------------------------------------------------------------
+
     def read_phi7_index_file_author(self):
         """Reads CLTK's index_file_author.txt for phi7."""
         global phi7_index
@@ -404,22 +409,6 @@ class Compile(object):  # pylint: disable=R0904
                                   'index_file_author.txt.')
         except IOError:
             logging.error('Failed to open PHI7 index file AUTHTAB.DIR')
-
-    def read_phi7_index_file_author(self):
-        """Reads CLTK's index_file_author.txt for PHI7."""
-        global phi7_index
-        logging.info('Starting phi7 index_file_author.txt read.')
-        compiled_files_dir_phi7_index = \
-            os.path.join(self.compiled_files_dir, 'phi7',
-                         'index_file_author.txt')
-        try:
-            with open(compiled_files_dir_phi7_index, 'r') as index_opened:
-                phi7_index = index_opened.read()
-                phi7_index = ast.literal_eval(phi7_index)
-                return phi7_index
-        except IOError:
-            logging.error('Failed to open PHI7 index file '
-                          'index_file_author.txt.')
 
     def read_phi7_author_work_titles(self, auth_abbrev):
         """Reads a converted phi7 file and returns a list of header titles
@@ -497,6 +486,8 @@ class Compile(object):  # pylint: disable=R0904
                 logging.error('Failed to open PHI7 file %s of author %s',
                               file_name, abbrev)
         self.make_phi7_index_auth_works()
+
+    ## PHI5 --------------------------------------------------------------
 
     def read_phi5_index_file_author(self):
         """Reads CLTK's index_file_author.txt for phi5."""
@@ -630,6 +621,8 @@ class Compile(object):  # pylint: disable=R0904
                               file_name, abbrev)
         self.make_phi5_index_auth_works()
 
+    ## Latin Library -----------------------------------------------------
+
     def get_latin_library_tar(self):
         """Fetch Latin Library corpus"""
         orig_files_dir_latin_library = \
@@ -655,6 +648,8 @@ class Compile(object):  # pylint: disable=R0904
         except IOError:
             logging.info('Failed to unpack %s.', latin_library_file_name)
 
+    ## Perseus Latin -----------------------------------------------------
+
     def get_perseus_latin_tar(self):
         """Fetch Perseus Latin corpus"""
         orig_files_dir_perseus_latin = os.path.join(self.orig_files_dir,
@@ -679,6 +674,8 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Finished unpacking %s', perseus_latin_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', perseus_latin_file_name)
+
+    ## Lacus Curtius Latin -----------------------------------------------
 
     def get_lacus_curtius_latin_tar(self):
         """Fetch lacus_curtius_latin_tar"""
@@ -709,6 +706,8 @@ class Compile(object):  # pylint: disable=R0904
         except IOError:
             logging.info('Failed to unpack %s.', lacus_curtius_latin_file_name)
 
+    ## Perseus Greek -----------------------------------------------------
+
     def get_perseus_greek_tar(self):
         """Fetch Perseus Greek corpus"""
         orig_files_dir_perseus_greek = os.path.join(self.orig_files_dir,
@@ -733,6 +732,8 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Finished unpacking %s', perseus_greek_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', perseus_greek_file_name)
+
+    ## Perseus Greek Treebank --------------------------------------------
 
     def get_treebank_perseus_greek_tar(self):
         """Fetch Perseus's Greek part-of-speech treebank"""
@@ -770,6 +771,8 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Failed to unpack %s.',
                          treebank_perseus_greek_file_name)
 
+    ## Perseus Latin Treebank --------------------------------------------
+
     def get_treebank_perseus_latin_tar(self):
         """Fetch Perseus's Latin treebank files"""
         compiled_files_dir_treebank_perseus_latin = os.path.join(self.compiled_files_dir, 'treebank_perseus_latin')
@@ -806,6 +809,8 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Failed to unpack %s.',
                          treebank_perseus_latin_file_name)
 
+    ## POS Latin ---------------------------------------------------------
+
     def get_pos_latin_tar(self):
         """Fetch Latin part-of-speech files"""
         orig_files_dir_pos_latin = os.path.join(self.orig_files_dir,
@@ -837,6 +842,8 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Finished unpacking %s', pos_latin_file_name)
         except IOError:
             logging.info('Failed to unpack %s.', pos_latin_file_name)
+
+    ## Sentence Tokens Latin ---------------------------------------------
 
     def get_sentence_tokens_latin_tar(self):
         """Fetch algorithm for Latin sentence tokenization"""
@@ -872,6 +879,7 @@ class Compile(object):  # pylint: disable=R0904
         except IOError:
             logging.error('Failed to write file %s', tokens_latin_file_name)
 
+    ## Sentence Tokens Greek ---------------------------------------------
 
     def get_sentence_tokens_greek_tar(self):
         """Fetch algorithm for Greek sentence tokenization"""
