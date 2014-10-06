@@ -36,7 +36,7 @@ class TLG(LocalCorpus):
                                          compiled_file)
             # Use `tlgu` utility to compile to Unicode text
             self.tlgu.run(orig_path, compiled_path,
-                          opts=['-X', '-W', '-b'])
+                          opts=['-X', '-b'])
             msg = 'Compiled {} to : {}'.format(file_name, compiled_path)
             self.logger.info(msg)
             #except IOError:
