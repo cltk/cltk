@@ -103,8 +103,7 @@ class TLG(LocalCorpus):
             else:
                 return None
 
-        return self._indexer('metadata', 'LSTSCDCN.DIR', 'meta_index.json',
-                             path, splitter, to_dict)
+        return self._indexer('LSTSCDCN.DIR', path, splitter, to_dict)
 
     def index_authors(self, path):
         """Reads TLG's `AUTHTAB.DIR` and writes a JSON dict
@@ -123,49 +122,9 @@ class TLG(LocalCorpus):
             item_split = item_repl.split(' ', 1)
             return item_split[0], item_split[1]
 
-        return self._indexer('authors', 'AUTHTAB.DIR', 'authors_index.json',
-                             path, splitter, to_dict)
+        return self._indexer('AUTHTAB.DIR', path, splitter, to_dict)
 
-    def _property(self, json_file, index_func):
-        path = os.path.join(self.compiled_texts, json_file)
-        if os.path.exists(path):
-            with open(path, 'r') as file:
-                property_index = json.load(file)
-        else:
-            property_index = index_func(path)
-        return property_index
-
-    def _indexer(self, type, input_file, output_file, output_path,
-                 splitter_func, to_dict_func):
-        self.logger.info('Starting TLG {} index parsing.'.format(type))
-        orig_index = os.path.join(self.original_texts, input_file)
-        try:
-            with open(orig_index, 'rb') as file:
-                index_read = file.read().decode('latin-1')
-            index_split = splitter_func(index_read)
-            index_filtered = (item for item in index_split if item)
-            index_dict = {}
-            for file in index_filtered:
-                dict = to_dict_func(file)
-                if dict:
-                    key, val = dict
-                    index_dict[key] = val
-            self.logger.info('Finished TLG {} index parsing.'.format(type))
-            msg = 'Writing `{}` to : {}'.format(output_file, output_path)
-            self.logger.info(msg)
-            try:
-                with open(output_path, 'w') as file:
-                    file.write(json.dumps(index_dict,
-                                          sort_keys=True,
-                                          indent=2,
-                                          separators=(',', ': ')))
-                return index_dict
-            except IOError:
-                msg = "Failed to write TLG's `{}`".format(output_file)
-                self.logger.error(msg)
-        except IOError:
-            msg = "Failed to open TLG's `` index file".format(input_file)
-            self.logger.error(msg)
+    
 
 
 class TLGU(object):

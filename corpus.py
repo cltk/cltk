@@ -91,6 +91,48 @@ class LocalCorpus(Corpus):
             if os.path.isfile(full_file_name):
                 shutil.copy(full_file_name, self.original_texts)
 
+    def _property(self, json_file, index_func):
+        path = os.path.join(self.compiled_texts, json_file)
+        if os.path.exists(path):
+            with open(path, 'r') as file:
+                property_index = json.load(file)
+        else:
+            property_index = index_func(path)
+        return property_index
+
+    def _indexer(self, input_file, output_path, splitter_func, to_dict_func):
+        output_file = os.path.basename(output_path)
+        type = ' '.join([self.name.upper(), output_file.split('_')[0]])
+        self.logger.info('Starting {} index parsing.'.format(type))
+        orig_index = os.path.join(self.original_texts, input_file)
+        try:
+            with open(orig_index, 'rb') as file:
+                index_read = file.read().decode('latin-1')
+            index_split = splitter_func(index_read)
+            index_filtered = (item for item in index_split if item)
+            index_dict = {}
+            for file in index_filtered:
+                dict = to_dict_func(file)
+                if dict:
+                    key, val = dict
+                    index_dict[key] = val
+            self.logger.info('Finished {} index parsing.'.format(type))
+            msg = 'Writing `{}` to : {}'.format(output_file, output_path)
+            self.logger.info(msg)
+            try:
+                with open(output_path, 'w') as file:
+                    file.write(json.dumps(index_dict,
+                                          sort_keys=True,
+                                          indent=2,
+                                          separators=(',', ': ')))
+                return index_dict
+            except IOError:
+                msg = "Failed to write `{}`".format(output_file)
+                self.logger.error(msg)
+        except IOError:
+            msg = "Failed to open `{}` index file".format(input_file)
+            self.logger.error(msg)
+
 
 class RemoteCorpus(Corpus):
     def __init__(self, name, url):
