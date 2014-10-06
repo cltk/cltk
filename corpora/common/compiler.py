@@ -737,6 +737,12 @@ class Compile(object):  # pylint: disable=R0904
 
     def get_treebank_perseus_greek_tar(self):
         """Fetch Perseus's Greek part-of-speech treebank"""
+        compiled_files_dir_treebank_perseus_greek = os.path.join(self.compiled_files_dir, 'treebank_perseus_greek')
+        if os.path.isdir(compiled_files_dir_treebank_perseus_greek) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_treebank_perseus_greek)
+            logging.info('Made new directory at "%s"', compiled_files_dir_treebank_perseus_greek)
         orig_files_dir_treebank_perseus_greek = \
             os.path.join(self.orig_files_dir, 'treebank_perseus_greek')
         pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
@@ -758,7 +764,7 @@ class Compile(object):  # pylint: disable=R0904
                           treebank_perseus_greek_file_name)
         try:
             shutil.unpack_archive(treebank_perseus_greek_file_path,
-                                  self.compiled_files_dir)
+                                  compiled_files_dir_treebank_perseus_greek)
             logging.info('Finished unpacking %s',
                          treebank_perseus_greek_file_name)
         except IOError:
@@ -768,7 +774,13 @@ class Compile(object):  # pylint: disable=R0904
     ## Perseus Latin Treebank --------------------------------------------
 
     def get_treebank_perseus_latin_tar(self):
-        """Fetch Persus's Latin treebank files"""
+        """Fetch Perseus's Latin treebank files"""
+        compiled_files_dir_treebank_perseus_latin = os.path.join(self.compiled_files_dir, 'treebank_perseus_latin')
+        if os.path.isdir(compiled_files_dir_treebank_perseus_latin) is True:
+            pass
+        else:
+            os.mkdir(compiled_files_dir_treebank_perseus_latin)
+            logging.info('Made new directory at "%s"', compiled_files_dir_treebank_perseus_latin)
         orig_files_dir_treebank_perseus_latin = \
             os.path.join(self.orig_files_dir, 'treebank_perseus_latin')
         pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
@@ -790,7 +802,7 @@ class Compile(object):  # pylint: disable=R0904
                           treebank_perseus_latin_file_name)
         try:
             shutil.unpack_archive(treebank_perseus_latin_file_path,
-                                  self.compiled_files_dir)
+                                  compiled_files_dir_treebank_perseus_latin)
             logging.info('Finished unpacking %s',
                          treebank_perseus_latin_file_name)
         except IOError:
