@@ -20,9 +20,9 @@ Contents:
 
    about
    installation
-   import_corpora
-   classical_greek
-   classical_latin
+   importing_corpora
+   greek
+   latin
 
 
 
