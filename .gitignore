@@ -35,43 +35,17 @@ nosetests.xml
 .project
 .pydevproject
 
-classics_corpus_compiler.log
-
-*\~
+# virtualenv
 venv
-*.log
-\#*
 
-tmp_*
+# text editor leavings
+*\~
+\#*
 
 # Sphinx
 _build
 _static
 _templates
-
-# Greek and Latin
-# don't save proprietary data
-# PHI5
-# PHI7
-# TLG_E
-
-phi5.json
-phi7.json
-tlg.json
-
-phi5.pickle
-phi7.pickle
-tlg.pickle
-TLG*
-DDP*
-INS*
-CHR*
-LAT*
-
-*.IDT
-*.idt
-
-local
 
 # Mac
 .DS_Store
