@@ -744,8 +744,7 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Made new directory at "%s"', compiled_files_dir_treebank_perseus_greek)
         orig_files_dir_treebank_perseus_greek = \
             os.path.join(self.orig_files_dir, 'treebank_perseus_greek')
-        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
-                 'treebank_perseus_greek/master/treebank_perseus_greek.tar.gz'
+        pg_url = 'https://raw.githubusercontent.com/cltk/greek_treebank_perseus/master/greek_treebank_perseus.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         pg_tar = session.get(pg_url, stream=True)
@@ -780,8 +779,7 @@ class Compile(object):  # pylint: disable=R0904
             logging.info('Made new directory at "%s"', compiled_files_dir_treebank_perseus_latin)
         orig_files_dir_treebank_perseus_latin = \
             os.path.join(self.orig_files_dir, 'treebank_perseus_latin')
-        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
-                 'treebank_perseus_latin/master/treebank_perseus_latin.tar.gz'
+        pg_url = 'https://raw.githubusercontent.com/cltk/latin_treebank_perseus/master/latin_treebank_perseus.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         pg_tar = session.get(pg_url, stream=True)
