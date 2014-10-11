@@ -7,7 +7,7 @@ Converting J to I, V to U
 
 .. code-block:: python
 
-   In [1]: from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
+   In [1]: from cltk.stem.latin.j_and_v_converter import JVReplacer
 
    In [2]: j = JVReplacer()
 
@@ -20,7 +20,7 @@ Lemmatization
 
 .. code-block:: python
 
-   In [1]: from cltk.stem.classical_latin.lemmatizer import LemmaReplacer
+   In [1]: from cltk.stem.latin.lemmatizer import LemmaReplacer
 
    In [2]: l = LemmaReplacer()
 
@@ -57,15 +57,7 @@ First, `obtain the Latin POS tagging files <http://cltk.readthedocs.org/en/lates
                                         'type': 'substantive'}}]},
    }
 
-If you wish to edit the POS dictionary creator, ``cltk_latin_pos_dict.txt`` may be recreated with:
-
-.. code-block:: python
-
-   In [1]: from cltk.tag.classical_latin.pos_latin import MakePOSTagger
-
-   In [2]: m = MakePOSTagger()
-
-   In [3]: m.make_file()
+If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/kylepjohnson/pos_latin) repository.
 
 
 Sentence Tokenization
@@ -100,9 +92,9 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
 
 .. code-block:: python
    
-   In [1]: from cltk.stem.classical_latin.stemmer import Stemmer
+   In [1]: from cltk.stem.latin.stemmer import Stemmer
 
-   In [2]: from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
+   In [2]: from cltk.stem.latin.j_and_v_converter import JVReplacer
 
    In [3]: cato = "Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum. Maiores nostri sic habuerunt et ita in legibus posiverunt: furem dupli condemnari, foeneratorem quadrupli. Quanto peiorem civem existimarint foeneratorem quam furem, hinc licet existimare. Et virum bonum quom laudabant, ita laudabant: bonum agricolam bonumque colonum; amplissime laudari existimabatur qui ita laudabatur. Mercatorem autem strenuum studiosumque rei quaerendae existimo, verum, ut supra dixi, periculosum et calamitosum. At ex agricolis et viri fortissimi et milites strenuissimi gignuntur, maximeque pius quaestus stabilissimusque consequitur minimeque invidiosus, minimeque male cogitantes sunt qui in eo studio occupati sunt. Nunc, ut ad rem redeam, quod promisi institutum principium hoc erit."
 
@@ -123,7 +115,7 @@ Stopword Filtering
 
    In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
 
-   In [2]: from cltk.stop.classical_latin.stops import LATIN_STOPS_LIST
+   In [2]: from cltk.stop.latin.stops import STOPS_LIST
 
    In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
 
@@ -131,7 +123,7 @@ Stopword Filtering
 
    In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
 
-   In [6]: [w for w in tokens if not w in LATIN_STOPS_LIST]
+   In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]: 
    ['usque',
     'tandem',

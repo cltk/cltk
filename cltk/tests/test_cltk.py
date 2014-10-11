@@ -3,8 +3,8 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.classical_greek.beta_to_unicode import Replacer
-from cltk.stem.classical_latin.j_and_v_converter import JVReplacer
+from cltk.corpus.greek.beta_to_unicode import Replacer
+from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.tokenize.sentence_tokenizer_greek import tokenize_greek_sentences
 from cltk.tokenize.sentence_tokenizer_latin import tokenize_latin_sentences
 from nltk.tokenize.punkt import PunktWordTokenizer
@@ -23,7 +23,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_latin_stopwords(self):
         """Filter Latin stopwords"""
-        from cltk.stop.classical_latin.stops import STOPS_LIST
+        from cltk.stop.latin.stops import STOPS_LIST
         sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
         lowered = sentence.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
@@ -34,7 +34,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_greek_stopwords(self):
         """Filter Greek stopwords."""
-        from cltk.stop.classical_greek.stops_unicode import STOPS_LIST
+        from cltk.stop.greek.stops_unicode import STOPS_LIST
         sentence = 'Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην \
         ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ \
         Αἰολέας.'

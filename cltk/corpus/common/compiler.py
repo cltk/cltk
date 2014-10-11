@@ -14,7 +14,7 @@ import site
 import ssl
 from urllib.parse import urlsplit
 
-from cltk.corpus.classical_greek.beta_to_unicode import Replacer
+from cltk.corpus.greek.beta_to_unicode import Replacer
 
 # these can be deleted, I think
 INDEX_DICT_PHI5 = {}

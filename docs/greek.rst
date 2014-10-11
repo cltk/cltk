@@ -9,7 +9,7 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.classical_greek.beta_to_unicode import Replacer
+   In [1]: from cltk.corpus.greek.beta_to_unicode import Replacer
 
    In [2]: BETA_EXAMPLE = r"""O(/PWS OU)=N MH\ TAU)TO\ PA/QWMEN E)KEI/NOIS, E)PI\ TH\N DIA/GNWSIN AU)TW=N E)/RXESQAI DEI= PRW=TON. TINE\S ME\N OU)=N AU)TW=N EI)SIN A)KRIBEI=S, TINE\S DE\ OU)K A)KRIBEI=S O)/NTES METAPI/-PTOUSIN EI)S TOU\S E)PI\ SH/YEI: OU(/TW GA\R KAI\ LOU=SAI KAI\ QRE/YAI KALW=S KAI\ MH\ LOU=SAI PA/LIN, O(/TE MH\ O)RQW=S DUNHQEI/HMEN."""
 
@@ -46,7 +46,7 @@ Stopword Filtering
 
    In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
 
-   In [2]: from cltk.stop.classical_greek.stops_unicode import GREEK_STOPS_LIST
+   In [2]: from cltk.stop.greek.stops_unicode import STOPS_LIST
 
    In [3]: SENTENCE = """Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας."""
 
@@ -54,7 +54,7 @@ Stopword Filtering
 
    In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
 
-   In [6]: [w for w in tokens if not w in GREEK_STOPS_LIST]
+   In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]: 
    ['ἅρπαγος',
     'καταστρεψάμενος',
