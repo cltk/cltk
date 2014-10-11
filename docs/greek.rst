@@ -1,5 +1,5 @@
-Classical Greek
-***************
+Greek
+*****
 
 
 Converting Beta Code to Unicode
