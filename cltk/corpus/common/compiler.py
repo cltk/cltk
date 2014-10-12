@@ -659,8 +659,7 @@ class Compile(object):  # pylint: disable=R0904
         """Fetch Perseus Latin corpus"""
         orig_files_dir_perseus_latin = os.path.join(self.orig_files_dir,
                                                     'perseus_latin')
-        pl_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
-                 'corpus_perseus_latin/master/perseus_latin.tar.gz'
+        pl_url = 'https://raw.githubusercontent.com/cltk/latin_corpus_perseus/master/latin_corpus_perseus.tar.gz'
         session = requests.Session()
         session.mount(pl_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         ll_tar = session.get(pl_url, stream=True)
@@ -713,8 +712,7 @@ class Compile(object):  # pylint: disable=R0904
         """Fetch Perseus Greek corpus"""
         orig_files_dir_perseus_greek = os.path.join(self.orig_files_dir,
                                                     'perseus_greek')
-        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
-                 'corpus_perseus_greek/master/perseus_greek.tar.gz'
+        pg_url = 'https://raw.githubusercontent.com/cltk/greek_corpus_perseus/master/greek_corpus_perseus.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         pg_tar = session.get(pg_url, stream=True)
