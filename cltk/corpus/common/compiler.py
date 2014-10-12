@@ -845,7 +845,7 @@ class Compile(object):  # pylint: disable=R0904
             pass
         else:
             os.mkdir(compiled_files_dir_tokens_latin)
-        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
+        pg_url = 'https://raw.githubusercontent.com/cltk/' \
                  'cltk_latin_sentence_tokenizer/master/latin.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
@@ -880,7 +880,7 @@ class Compile(object):  # pylint: disable=R0904
             pass
         else:
             os.mkdir(compiled_files_dir_tokens_greek)
-        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
+        pg_url = 'https://raw.githubusercontent.com/cltk/' \
                  'cltk_greek_sentence_tokenizer/master/greek.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
