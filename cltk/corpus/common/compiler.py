@@ -634,8 +634,8 @@ class Compile(object):  # pylint: disable=R0904
         """Fetch Latin Library corpus"""
         orig_files_dir_latin_library = \
             os.path.join(self.orig_files_dir, 'latin_library')
-        ll_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
-                 'corpus_latin_library/master/latin_library.tar.gz'
+        ll_url = 'https://raw.githubusercontent.com/cltk/' \
+                 'latin_corpus_latin_library/master/latin_library.tar.gz'
         session = requests.Session()
         session.mount(ll_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         ll_tar = session.get(ll_url, stream=True)
