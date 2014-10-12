@@ -806,7 +806,7 @@ class Compile(object):  # pylint: disable=R0904
         """Fetch Latin part-of-speech files"""
         orig_files_dir_pos_latin = os.path.join(self.orig_files_dir,
                                                 'pos_latin')
-        pg_url = 'https://raw.githubusercontent.com/kylepjohnson/pos_latin/' \
+        pg_url = 'https://raw.githubusercontent.com/cltk/pos_latin/' \
                  'master/pos_latin.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
