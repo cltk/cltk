@@ -683,8 +683,8 @@ class Compile(object):  # pylint: disable=R0904
         """Fetch lacus_curtius_latin_tar"""
         orig_files_dir_lacus_curtius_latin = \
             os.path.join(self.orig_files_dir, 'lacus_curtius_latin')
-        lc_url = 'https://raw.githubusercontent.com/kylepjohnson/' \
-                 'corpus_lacus_curtius_latin/master/lacus_curtius.tar.gz'
+        lc_url = 'https://raw.githubusercontent.com/cltk/' \
+                 'latin_corpus_lacus_curtius/master/lacus_curtius.tar.gz'
         session = requests.Session()
         session.mount(lc_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         ll_tar = session.get(lc_url, stream=True)
