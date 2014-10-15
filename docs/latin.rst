@@ -30,8 +30,8 @@ Lemmatization
    Out[4]: 'Quo usque tandem abutor, Catilina, patior noster?'
 
 
-POS Tagging
-===========
+Making POS training sets
+========================
 
 .. warning::
 
@@ -58,6 +58,28 @@ First, `obtain the Latin POS tagging files <http://cltk.readthedocs.org/en/lates
    }
 
 If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/kylepjohnson/pos_latin) repository.
+
+
+POS tagging
+===========
+
+.. code-block:: python
+
+   In [1]: from cltk.tag.pos.pos_tagger import POSTag
+
+   In [2]: p = POSTag()
+
+   In [3]: p.unigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   Out[3]:
+   [('Gallia', 'N-S---FB-'),
+    ('est', 'V3SPIA---'),
+    ('omnis', 'A-P---MA-'),
+    ('divisa', 'T-SRPPFN-'),
+    ('in', 'R--------'),
+    ('partes', 'N-P---FA-'),
+    ('tres', 'M--------')]
+
+The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available<https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own POS tagger.
 
 
 Sentence Tokenization
