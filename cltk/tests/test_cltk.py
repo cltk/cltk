@@ -3,13 +3,14 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.greek.beta_to_unicode import Replacer
-from cltk.stem.latin.j_and_v_converter import JVReplacer
-from cltk.tokenize.sentence_tokenizer_greek import tokenize_greek_sentences
-from cltk.tokenize.sentence_tokenizer_latin import tokenize_latin_sentences
-from nltk.tokenize.punkt import PunktWordTokenizer
 import os
 import unittest
+
+from cltk.corpus.greek.beta_to_unicode import Replacer
+from cltk.stem.latin.j_and_v_converter import JVReplacer
+from cltk.tokenize.sentence.greek.sentence_tokenizer_greek import tokenize_greek_sentences
+from cltk.tokenize.sentence.latin.sentence_tokenizer_latin import tokenize_latin_sentences
+from nltk.tokenize.punkt import PunktWordTokenizer
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
