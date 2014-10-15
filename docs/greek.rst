@@ -42,7 +42,7 @@ POS Tagging
     ('ἐτείας', 'A-S---FG-'),
     ('μῆκος', 'N-S---NA-')]
 
-The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available<https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own POS tagger.
+The POS tagger is a work in progress, based upon the Perseus treebank. The [CLTK's version of this data is available](https://github.com/cltk/greek_treebank_perseus), along with tagging conventions and instructions on creating your own tagger.
 
 Sentence Tokenization
 =====================
