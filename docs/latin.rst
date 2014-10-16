@@ -85,28 +85,22 @@ The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK
 Sentence Tokenization
 =====================
 
-In order to use the Latin sentence tokenizer, download the compressed rule and training sets, which can be fetched and installed with `the installation commands here <http://cltk.readthedocs.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin>`_.
+The CLTK's core comes with a Latin sentence tokenizer. For more on it, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 
-To tokenize sentences, give a string as argument to ``train_and_tokenize_latin()``, as follows.
+To use the tokenizer, use the following commands:
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenize.sentence_tokenizer_latin import tokenize_latin_sentences
+   In [1]: from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
 
-   In [2]: untokenized_text = "Num qui exsules restituti? Unum aiebat, praeterea neminem. Num immunitates datae? 'Nullae', respondebat. Assentiri etiam nos Ser. Sulpicio, clarissimo viro, voluit, ne qua tabula post Idus Martias ullius decreti Caesaris aut beneficii figeretur. Multa praetereo, eaque praeclara; ad singulare enim M. Antoni factum festinat oratio. Dictaturam, quae iam vim regiae potestatis obsederat, funditus ex re publica sustulit; de qua re ne sententias quidem diximus. Scriptum senatus consultum, quod fieri vellet, attulit; quo recitato, auctoritatem eius summo studio secuti sumus eique amplissimis verbis per senatus consultum gratias egimus."
+   In [2]: t = TokenizeSentence()
 
-   In [3]: tokenize_latin_sentences(untokenized_text)
-   Out[3]:
-   ['Num qui exsules restituti?',
-    'Unum aiebat, praeterea neminem.',
-    'Num immunitates datae?',
-    "'Nullae', respondebat.",
-    'Assentiri etiam nos Ser.',
-    'Sulpicio, clarissimo viro, voluit, ne qua tabula post Idus Martias ullius decreti Caesaris aut beneficii figeretur.',
-    'Multa praetereo, eaque praeclara; ad singulare enim M. Antoni factum festinat oratio.',
-    'Dictaturam, quae iam vim regiae potestatis obsederat, funditus ex re publica sustulit; de qua re ne sententias quidem diximus.',
-   'Scriptum senatus consultum, quod fieri vellet, attulit; quo recitato, auctoritatem eius summo studio secuti sumus eique amplissimis verbis per senatus consultum gratias egimus.']
+   In [3]: untokenized_text = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."
 
+   In [4]: t.sentence_tokenizer(untokenized_text, 'latin')
+   Out[4]:
+   ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.',
+    'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']
 
 Stemming
 ========
