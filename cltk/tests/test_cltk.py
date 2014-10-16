@@ -8,8 +8,7 @@ import unittest
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.stem.latin.j_and_v_converter import JVReplacer
-from cltk.tokenize.sentence.greek.sentence_tokenizer import tokenize_greek_sentences
-from cltk.tokenize.sentence.latin.sentence_tokenizer import tokenize_latin_sentences
+from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
 
 
@@ -59,50 +58,20 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(unicode, target_unicode)
 
     def test_sentence_tokenizer_greek(self):
-        """Reads Greek sentence tokenizer pickle, tokenizes into a list, and
-        checks against a known good list.
-        TODO: import corpus if not found.
-        """
-        try:
-            cltk_data_dir_rel = '~/cltk_data'
-            cltk_data_dir_abs = os.path.expanduser(cltk_data_dir_rel)
-            greek_sentence_tokenizer_dir = os.path.join(cltk_data_dir_abs,
-                                                        'compiled/sentence_tokens_greek')
-            pickle_file = 'greek.pickle'
-            pickle_file_path = os.path.join(greek_sentence_tokenizer_dir, pickle_file)
-            try:
-                os.path.exists(pickle_file_path)
-                sentences = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.'  # pylint: disable=C0301
-                good_tokenized_sentences = ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;', 'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.']  # pylint: disable=C0301
-                tokenized_sentences = tokenize_greek_sentences(sentences)
-                self.assertEqual(tokenized_sentences, good_tokenized_sentences)
-            except:
-                pass
-        except:
-            pass
+        """Tokenizes Greek sentences."""
+        t = TokenizeSentence()
+        sentences = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.'  # pylint: disable=C0301
+        good_tokenized_sentences = ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;', 'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.']  # pylint: disable=C0301
+        tokenized_sentences = t.sentence_tokenizer(sentences, 'greek')
+        self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
     def test_sentence_tokenizer_latin(self):
-        """Reads Latin sentence tokenizer pickle, tokenizes into a list, and
-        checks against a known good list.
-        TODO: import corpus if not found.
-        """
-        try:
-            cltk_data_dir_rel = '~/cltk_data'
-            cltk_data_dir_abs = os.path.expanduser(cltk_data_dir_rel)
-            latin_sentence_tokenizer_dir = os.path.join(cltk_data_dir_abs,
-                                                        'compiled/sentence_tokens_latin')
-            pickle_file = 'latin.pickle'
-            pickle_file_path = os.path.join(latin_sentence_tokenizer_dir, pickle_file)
-            try:
-                os.path.exists(pickle_file_path)
-                sentences = "Num qui exsules restituti? Unum aiebat, praeterea neminem. Num immunitates datae? 'Nullae', respondebat. Assentiri etiam nos Ser. Sulpicio, clarissimo viro, voluit, ne qua tabula post Idus Martias ullius decreti Caesaris aut beneficii figeretur. Multa praetereo, eaque praeclara; ad singulare enim M. Antoni factum festinat oratio. Dictaturam, quae iam vim regiae potestatis obsederat, funditus ex re publica sustulit; de qua re ne sententias quidem diximus. Scriptum senatus consultum, quod fieri vellet, attulit; quo recitato, auctoritatem eius summo studio secuti sumus eique amplissimis verbis per senatus consultum gratias egimus."  # pylint: disable=C0301
-                good_tokenized_sentences = ['Num qui exsules restituti?', 'Unum aiebat, praeterea neminem.', 'Num immunitates datae?', "'Nullae', respondebat.", 'Assentiri etiam nos Ser.', 'Sulpicio, clarissimo viro, voluit, ne qua tabula post Idus Martias ullius decreti Caesaris aut beneficii figeretur.', 'Multa praetereo, eaque praeclara; ad singulare enim M. Antoni factum festinat oratio.', 'Dictaturam, quae iam vim regiae potestatis obsederat, funditus ex re publica sustulit; de qua re ne sententias quidem diximus.', 'Scriptum senatus consultum, quod fieri vellet, attulit; quo recitato, auctoritatem eius summo studio secuti sumus eique amplissimis verbis per senatus consultum gratias egimus.']  # pylint: disable=C0301
-                tokenized_sentences = tokenize_latin_sentences(sentences)
-                self.assertEqual(tokenized_sentences, good_tokenized_sentences)
-            except:
-                pass
-        except:
-            pass
+        """Tokenizes Greek sentences"""
+        t = TokenizeSentence()
+        sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=C0301
+        good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=C0301
+        tokenized_sentences = t.sentence_tokenizer(sentences, 'latin')
+        self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
 if __name__ == '__main__':
     unittest.main()
