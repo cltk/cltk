@@ -63,6 +63,10 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 POS tagging
 ===========
 
+.. warning::
+
+   Currently you will need to [install the repository version of the CLTK](http://cltk.readthedocs.org/en/latest/installation.html#from-source) to use this feature. A fix to integrate this into the `pypi` package is in the works.
+
 .. code-block:: python
 
    In [1]: from cltk.tag.pos.pos_tagger import POSTag
@@ -84,6 +88,10 @@ The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK
 
 Sentence Tokenization
 =====================
+
+.. warning::
+
+   Currently you will need to [install the repository version of the CLTK](http://cltk.readthedocs.org/en/latest/installation.html#from-source) to use this feature. A fix to integrate this into the `pypi` package is in the works.
 
 The CLTK's core comes with a Latin sentence tokenizer. For more on it, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 

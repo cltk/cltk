@@ -22,6 +22,10 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 POS Tagging
 ===========
 
+.. warning::
+
+   Currently you will need to [install the repository version of the CLTK](http://cltk.readthedocs.org/en/latest/installation.html#from-source) to use this feature. A fix to integrate this into the `pypi` package is in the works.
+
 .. code-block:: python
 
    In [1]: from cltk.tag.pos.pos_tagger import POSTag
@@ -46,6 +50,10 @@ The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK
 
 Sentence Tokenization
 =====================
+
+.. warning::
+
+   Currently you will need to [install the repository version of the CLTK](http://cltk.readthedocs.org/en/latest/installation.html#from-source) to use this feature. A fix to integrate this into the `pypi` package is in the works.
 
 The CLTK's core comes with a Latin sentence tokenizer. For more on it, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
