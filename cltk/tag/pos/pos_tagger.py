@@ -18,9 +18,9 @@ class POSTag(object):
     def unigram_tagger(self, untagged_string, language):
         """Reads language .pickle for right language"""
         if language == 'greek':
-            pickle_path = os.path.abspath('cltk/tag/pos/greek/greek.pickle')
+            pickle_path = os.path.expanduser('~/cltk_data/greek/taggers/pos/unigram.pickle')
         elif language == 'latin':
-            pickle_path = os.path.abspath('cltk/tag/pos/latin/latin.pickle')
+            pickle_path = os.path.expanduser('~/cltk_data/latin/taggers/pos/unigram.pickle')
         else:
             print('No unigram tagger for this language available.')
         with open(pickle_path, 'rb') as open_pickle:

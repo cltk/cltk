@@ -24,7 +24,7 @@ POS Tagging
 
 .. warning::
 
-   Currently you will need to `install the repository version of the CLTK <http://cltk.readthedocs.org/en/latest/installation.html#from-source>`_ to use this feature. A fix to integrate this into the `pypi` package is in the works.
+   To use this feature, you currently need to copy the contents of `the CLTK Greek linguistic data repository <https://github.com/cltk/cltk_greek_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
 
 .. code-block:: python
 
@@ -53,7 +53,7 @@ Sentence Tokenization
 
 .. warning::
 
-   Currently you will need to `install the repository version of the CLTK <http://cltk.readthedocs.org/en/latest/installation.html#from-source>`_ to use this feature. A fix to integrate this into the `pypi` package is in the works.
+   To use this feature, you currently need to copy the contents of `the CLTK Greek linguistic data repository <https://github.com/cltk/cltk_greek_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
 
 The CLTK's core comes with a Latin sentence tokenizer. For more on it, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
