@@ -17,12 +17,6 @@ import os
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-
-    def setUp(self):
-        """Import CLTK linguistic data to ~/cltk_data/latin/"""
-        c = Compile()
-        c.import_corpus('cltk_latin_linguistic_data')
-
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
         j = JVReplacer()
@@ -93,6 +87,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_sentence_tokenizer_latin(self):
         """Tokenizes Greek sentences."""
+        c = Compile()
+        c.import_corpus('cltk_latin_linguistic_data')
+
         t = TokenizeSentence()
         sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=C0301
         good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=C0301
