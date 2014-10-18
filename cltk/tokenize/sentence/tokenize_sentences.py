@@ -19,12 +19,12 @@ class TokenizeSentence(object):
     def sentence_tokenizer(self, untokenized_string, language):
         """Reads language .pickle for right language"""
         if language == 'greek':
-            pickle_path = os.path.expanduser('~/cltk_data/greek/tokenizers/sentence/greek.pickle')
+            pickle_path = os.path.expanduser('~/cltk_data/greek/cltk_linguistic_data/tokenizers/sentence/greek.pickle')
             language_punkt_vars = PunktLanguageVars
             language_punkt_vars.sent_end_chars = ('.', ';')
             language_punkt_vars.internal_punctuation = (',', '·')
         elif language == 'latin':
-            pickle_path = os.path.expanduser('~/cltk_data/latin/tokenizers/sentence/latin.pickle')
+            pickle_path = os.path.expanduser('~/cltk_data/latin/cltk_linguistic_data/tokenizers/sentence/latin.pickle')
             language_punkt_vars = PunktLanguageVars
             language_punkt_vars.sent_end_chars = ('.', '?', ':')
             language_punkt_vars.internal_punctuation = (',', ';')
