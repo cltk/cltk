@@ -63,9 +63,10 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 POS tagging
 ===========
 
-.. warning::
+To tag parts-of-speech, you must first `import the CLTK Latin linguistic data <>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
-   To use this feature, you currently need to copy the contents of `the CLTK Latin linguistic data repository <https://github.com/cltk/cltk_latin_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
+Unigram
+```````
 
 .. code-block:: python
 
@@ -83,7 +84,38 @@ POS tagging
     ('partes', 'N-P---FA-'),
     ('tres', 'M--------')]
 
-The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
+
+Bigram
+``````
+
+.. code-block:: python
+
+   In [4]: p.bigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   Out[4]:
+   [('Gallia', None),
+    ('est', None),
+    ('omnis', None),
+    ('divisa', None),
+    ('in', None),
+    ('partes', None),
+    ('tres', None)]
+
+
+Trigram
+```````
+
+.. code-block:: python
+
+   In [5]: p.trigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   Out[5]:
+   [('Gallia', None),
+    ('est', None),
+    ('omnis', None),
+    ('divisa', None),
+    ('in', None),
+    ('partes', None),
+    ('tres', None)]
+
 
 
 Sentence Tokenization

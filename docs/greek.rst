@@ -19,23 +19,20 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
 
-POS Tagging
+
+POS tagging
 ===========
 
-.. warning::
+To tag parts-of-speech, you must first `import the CLTK Greek linguistic data <>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
-   To use this feature, you currently need to copy the contents of `the CLTK Greek linguistic data repository <https://github.com/cltk/cltk_greek_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
+Unigram
+```````
 
 .. code-block:: python
 
-   In [1]: from cltk.tag.pos.pos_tagger import POSTag
-
-   In [2]: p = POSTag()
-
-   In [3]: p.unigram_tagger('"θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   In [3]: p.unigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
    Out[3]:
-   [('"', 'U--------'),
-    ('θεοὺς', 'N-P---MA-'),
+   [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),
     ('τῶνδ', None),
@@ -46,7 +43,47 @@ POS Tagging
     ('ἐτείας', 'A-S---FG-'),
     ('μῆκος', 'N-S---NA-')]
 
-The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
+
+Bigram
+``````
+
+.. code-block:: python
+
+   In [4]: p.bigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[4]:
+   [('θεοὺς', 'N-P---MA-'),
+    ('μὲν', 'G--------'),
+    ('αἰτῶ', 'V1SPIA---'),
+    ('τῶνδ', None),
+    ('᾽', None),
+    ('ἀπαλλαγὴν', None),
+    ('πόνων', None),
+    ('φρουρᾶς', None),
+    ('ἐτείας', None),
+    ('μῆκος', None)]
+
+
+Trigram
+```````
+
+.. code-block:: python
+
+   In [5]: p.trigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[5]:
+   [('θεοὺς', 'N-P---MA-'),
+    ('μὲν', 'G--------'),
+    ('αἰτῶ', 'V1SPIA---'),
+    ('τῶνδ', None),
+    ('᾽', None),
+    ('ἀπαλλαγὴν', None),
+    ('πόνων', None),
+    ('φρουρᾶς', None),
+    ('ἐτείας', None),
+    ('μῆκος', None)]
+
+
+
+
 
 Sentence Tokenization
 =====================
@@ -55,7 +92,7 @@ Sentence Tokenization
 
    To use this feature, you currently need to copy the contents of `the CLTK Greek linguistic data repository <https://github.com/cltk/cltk_greek_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
 
-The CLTK's core comes with a Latin sentence tokenizer. For more on it, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
+The CLTK's core comes with a Greek sentence tokenizer. For more on it, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
 To use the tokenizer, use the following commands:
 
