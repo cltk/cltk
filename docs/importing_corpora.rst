@@ -8,6 +8,20 @@ Classical Greek
 ===============
 
 
+CLTK Linguistic Data, Greek
+------------------------------
+
+The CLTK makes available some pre-trained taggers and tokenizers trained on its best data sets. To download the contents of `CLTK Greek linguistic data <https://github.com/cltk/cltk_greek_linguistic_data>`_, use these commands:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('cltk_greek_linguistic_data')
+
+
 CLTK Sentence Tokenizer, Greek
 ------------------------------
 
@@ -81,6 +95,21 @@ In addition to copying the TLG's author files at ``~/cltk_data/compiled/tlg/``, 
 
 Classical Latin
 ===============
+
+
+CLTK Linguistic Data, Latin
+------------------------------
+
+The CLTK makes available some pre-trained taggers and tokenizers trained on its best data sets. To download the contents of `CLTK Latin linguistic data <https://github.com/cltk/cltk_latin_linguistic_data>`_, use these commands:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.common.compiler import Compile
+
+   In [2]: c = Compile()
+
+   In [3]: c.import_corpus('cltk_latin_linguistic_data')
+
 
 CLTK Sentence Tokenizer, Latin
 ------------------------------
