@@ -67,6 +67,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         rel_path = '~/cltk_data/greek/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
+    '''
 
     def test_import_cltk_linguistic_data_latin(self):
         """Import CLTK linguistic data to ~/cltk_data/latin/"""
@@ -76,6 +77,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
 
+    '''
     def test_sentence_tokenizer_greek(self):
         """Tokenizes Greek sentences."""
         t = TokenizeSentence()
