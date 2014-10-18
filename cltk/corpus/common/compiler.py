@@ -174,12 +174,6 @@ class Compile(object):  # pylint: disable=R0904
                 logging.info('Made new directory "%s" at "%s"', corpus_name,
                              orig_files_dir_tokens_greek)
             self.get_sentence_tokens_greek_tar()
-        else:
-            logging.error('Unrecognized corpus name.')
-
-
-
-
         elif corpus_name == 'cltk_greek_linguistic_data':
             orig_files_dir_tokens_greek = os.path.join(self.orig_files_dir,
                                                        'cltk_greek_linguistic_data')
@@ -190,12 +184,18 @@ class Compile(object):  # pylint: disable=R0904
                 logging.info('Made new directory "%s" at "%s"', corpus_name,
                              orig_files_dir_tokens_greek)
             self.get_cltk_greek_linguistic_data_tar()
+        elif corpus_name == 'cltk_latin_linguistic_data':
+            orig_files_dir_tokens_latin = os.path.join(self.orig_files_dir,
+                                                       'cltk_latin_linguistic_data')
+            if os.path.isdir(orig_files_dir_tokens_latin) is True:
+                pass
+            else:
+                os.mkdir(orig_files_dir_tokens_latin)
+                logging.info('Made new directory "%s" at "%s"', corpus_name,
+                             orig_files_dir_tokens_latin)
+            self.get_cltk_latin_linguistic_data_tar()
         else:
             logging.error('Unrecognized corpus name.')
-
-
-
-
 
     def read_tlg_index_file_author(self):
         """Reads CLTK's index_file_author.txt for TLG."""
