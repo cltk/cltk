@@ -121,13 +121,7 @@ Trigram
 Sentence Tokenization
 =====================
 
-.. warning::
-
-   To use this feature, you currently need to copy the contents of `the CLTK Latin linguistic data repository <https://github.com/cltk/cltk_latin_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
-
-The CLTK's core comes with a Latin sentence tokenizer. For more on it, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
-
-To use the tokenizer, use the following commands:
+To tokenize sentences, you must first `import the CLTK Latin linguistic data <>`_. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 
 .. code-block:: python
 

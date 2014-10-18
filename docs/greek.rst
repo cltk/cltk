@@ -85,7 +85,7 @@ Trigram
 Sentence Tokenization
 =====================
 
-To tokenize sentences, you must first `import the CLTK Greek linguistic data <>`_. The `CLTK's version of this data is available <https://github.com/cltk/greek_training_set_sentence>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
+To tokenize sentences, you must first `import the CLTK Greek linguistic data <>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
 .. code-block:: python
 
