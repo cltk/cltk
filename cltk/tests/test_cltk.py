@@ -87,6 +87,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         good_tokenized_sentences = ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;', 'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.']  # pylint: disable=C0301
         tokenized_sentences = t.sentence_tokenizer(sentences, 'greek')
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
+    '''
 
     def test_sentence_tokenizer_latin(self):
         """Tokenizes Greek sentences."""
@@ -96,6 +97,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = t.sentence_tokenizer(sentences, 'latin')
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
+    '''
     def test_pos_unigram_greek(self):
         """POS unigram tag Greek words."""
         p = POSTag()
