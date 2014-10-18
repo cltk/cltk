@@ -10,7 +10,6 @@ import re
 import requests
 from requests_toolbelt import SSLAdapter
 import shutil
-import site
 import ssl
 from urllib.parse import urlsplit
 
@@ -26,7 +25,6 @@ class Compile(object):  # pylint: disable=R0904
     """Copy or download files out of TLG & PHI disks"""
     def __init__(self):
         """Initializer, makes ~/cltk_data dirs"""
-        #self.cltk_bin_path = os.path.join(site.getsitepackages()[0], 'cltk')
         # make local CLTK dirs
         default_cltk_data = '~/cltk_data'
         self.cltk_data = os.path.expanduser(default_cltk_data)
