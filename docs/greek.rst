@@ -82,19 +82,10 @@ Trigram
     ('μῆκος', None)]
 
 
-
-
-
 Sentence Tokenization
 =====================
 
-.. warning::
-
-   To use this feature, you currently need to copy the contents of `the CLTK Greek linguistic data repository <https://github.com/cltk/cltk_greek_linguistic_data>`_ into ``~/cltk_data``. A downloadable corpus will be added shortly.
-
-The CLTK's core comes with a Greek sentence tokenizer. For more on it, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
-
-To use the tokenizer, use the following commands:
+To tokenize sentences, you must first `import the CLTK Greek linguistic data <>`_. The `CLTK's version of this data is available <https://github.com/cltk/greek_training_set_sentence>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
 .. code-block:: python
 
