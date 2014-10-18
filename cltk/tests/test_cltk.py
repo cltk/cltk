@@ -3,13 +3,13 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import unittest
 
 from cltk.corpus.common.compiler import Compile
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.tag.pos.pos_tagger import POSTag
 from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
+import unittest
 from nltk.tokenize.punkt import PunktWordTokenizer
 import os
 
