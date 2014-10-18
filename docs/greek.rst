@@ -30,6 +30,10 @@ Unigram
 
 .. code-block:: python
 
+   In [1]: from cltk.tag.pos.pos_tagger import POSTag
+
+   In [2]: p = POSTag()
+
    In [3]: p.unigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
    Out[3]:
    [('θεοὺς', 'N-P---MA-'),

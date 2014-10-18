@@ -3,11 +3,11 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import os
 import unittest
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.stem.latin.j_and_v_converter import JVReplacer
+from cltk.tag.pos.pos_tagger import POSTag
 from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
 
@@ -66,13 +66,48 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
     def test_sentence_tokenizer_latin(self):
-        """Tokenizes Greek sentences"""
+        """Tokenizes Greek sentences."""
         t = TokenizeSentence()
         sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=C0301
         good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=C0301
         tokenized_sentences = t.sentence_tokenizer(sentences, 'latin')
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
+    def test_pos_unigram_greek(self):
+        """POS unigram tag Greek words."""
+        p = POSTag()
+        tagged = p.unigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        self.assertTrue(tagged)
+
+    def test_pos_bigram_greek(self):
+        """POS bigram tag Greek words."""
+        p = POSTag()
+        tagged = p.bigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        self.assertTrue(tagged)
+
+    def test_pos_trigram_greek(self):
+        """POS trigram tag Greek words."""
+        p = POSTag()
+        tagged = p.trigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        self.assertTrue(tagged)
+
+    def test_pos_unigram_latin(self):
+        """POS unigram tag Latin words."""
+        p = POSTag()
+        tagged = p.unigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        self.assertTrue(tagged)
+
+    def test_pos_bigram_latin(self):
+        """POS bigram tag Latin words."""
+        p = POSTag()
+        tagged = p.bigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        self.assertTrue(tagged)
+
+    def test_pos_trigram_latin(self):
+        """POS trigram tag Latin words."""
+        p = POSTag()
+        tagged = p.trigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        self.assertTrue(tagged)
 
 if __name__ == '__main__':
     unittest.main()
