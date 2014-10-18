@@ -9,7 +9,7 @@ Greek
 
 
 CLTK Linguistic Data, Greek
-------------------------------
+---------------------------
 
 The CLTK makes available some pre-trained taggers and tokenizers trained on its best data sets. To download the contents of `CLTK Greek linguistic data <https://github.com/cltk/cltk_greek_linguistic_data>`_, use these commands:
 
@@ -98,7 +98,7 @@ Latin
 
 
 CLTK Linguistic Data, Latin
-------------------------------
+---------------------------
 
 The CLTK makes available some pre-trained taggers and tokenizers trained on its best data sets. To download the contents of `CLTK Latin linguistic data <https://github.com/cltk/cltk_latin_linguistic_data>`_, use these commands:
 
