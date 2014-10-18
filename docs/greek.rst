@@ -23,7 +23,7 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 POS tagging
 ===========
 
-To tag parts-of-speech, you must first `import the CLTK Greek linguistic data <>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
+To tag parts-of-speech, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-greek>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
 Unigram
 ```````
@@ -89,7 +89,7 @@ Trigram
 Sentence Tokenization
 =====================
 
-To tokenize sentences, you must first `import the CLTK Greek linguistic data <>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
+To tokenize sentences, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-greek>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
 .. code-block:: python
 

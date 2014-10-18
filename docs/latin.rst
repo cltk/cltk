@@ -63,7 +63,7 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 POS tagging
 ===========
 
-To tag parts-of-speech, you must first `import the CLTK Latin linguistic data <>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
+To tag parts-of-speech, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
 Unigram
 ```````
@@ -121,7 +121,7 @@ Trigram
 Sentence Tokenization
 =====================
 
-To tokenize sentences, you must first `import the CLTK Latin linguistic data <>`_. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
+To tokenize sentences, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 
 .. code-block:: python
 
