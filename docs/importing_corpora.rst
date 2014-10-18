@@ -4,8 +4,8 @@ Importing Corpora
 The CLTK works solely out of the local directory ``cltk_data``, which is created at a user's root directory upon initialization of the ``Compile()`` class. Within this are two directories, ``originals``, in which copies of outside corpora are made, and ``compiled``, in which transformed copies of the former are written. Also within ``cltk_data`` is ``cltk.log``, which contains all of the cltk's logging.
 
 
-Classical Greek
-===============
+Greek
+=====
 
 
 CLTK Linguistic Data, Greek
@@ -93,8 +93,8 @@ In addition to copying the TLG's author files at ``~/cltk_data/compiled/tlg/``, 
 
 
 
-Classical Latin
-===============
+Latin
+=====
 
 
 CLTK Linguistic Data, Latin
