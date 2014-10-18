@@ -17,11 +17,6 @@ import os
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    '''
-    def setUp(self):
-        self.seq = list(range(10))
-    '''
-
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
         j = JVReplacer()
