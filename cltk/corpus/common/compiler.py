@@ -29,22 +29,22 @@ class Compile(object):  # pylint: disable=R0904
         self.cltk_bin_path = os.path.join(site.getsitepackages()[0], 'cltk')
         # make local CLTK dirs
         default_cltk_data = '~/cltk_data'
-        cltk_data = os.path.expanduser(default_cltk_data)
-        if os.path.isdir(cltk_data) is True:
+        self.cltk_data = os.path.expanduser(default_cltk_data)
+        if os.path.isdir(self.cltk_data) is True:
             pass
         else:
-            os.mkdir(cltk_data)
-        self.orig_files_dir = os.path.join(cltk_data, 'originals')
+            os.mkdir(self.cltk_data)
+        self.orig_files_dir = os.path.join(self.cltk_data, 'originals')
         if os.path.isdir(self.orig_files_dir) is True:
             pass
         else:
             os.mkdir(self.orig_files_dir)
-        self.compiled_files_dir = os.path.join(cltk_data, 'compiled')
+        self.compiled_files_dir = os.path.join(self.cltk_data, 'compiled')
         if os.path.isdir(self.compiled_files_dir) is True:
             pass
         else:
             os.mkdir(self.compiled_files_dir)
-        log_path = os.path.join(cltk_data, 'cltk.log')
+        log_path = os.path.join(self.cltk_data, 'cltk.log')
         logging.basicConfig(filename=log_path,
                             level=logging.INFO,
                             format='%(asctime)s %(message)s',
@@ -174,6 +174,7 @@ class Compile(object):  # pylint: disable=R0904
                 logging.info('Made new directory "%s" at "%s"', corpus_name,
                              orig_files_dir_tokens_greek)
             self.get_sentence_tokens_greek_tar()
+        #!
         elif corpus_name == 'cltk_greek_linguistic_data':
             orig_files_dir_tokens_greek = os.path.join(self.orig_files_dir,
                                                        'cltk_greek_linguistic_data')
@@ -919,6 +920,50 @@ class Compile(object):  # pylint: disable=R0904
                                  tokens_greek_file_name)
         except IOError:
             logging.error('Failed to write file %s', tokens_greek_file_name)
+
+
+
+    #! greek ling data
+    def get_cltk_greek_linguistic_data_tar(self):
+        """Get CLTK's ML taggers, tokenizers, etc."""
+        orig_files_dir_ling_greek = \
+            os.path.join(self.orig_files_dir, 'cltk_greek_linguistic_data')
+        greek_dir = os.path.join(self.cltk_data, 'greek')
+        if os.path.isdir(greek_dir) is True:
+            pass
+        else:
+            os.mkdir(greek_dir)
+        greek_dir_ling = os.path.join(greek_dir, 'cltk_linguistic_data')
+        if os.path.isdir(greek_dir_ling) is True:
+            pass
+        else:
+            os.mkdir(greek_dir_ling)
+        print(greek_dir_ling)
+
+        pg_url = 'https://raw.githubusercontent.com/cltk/cltk_greek_linguistic_data/master/greek.tar.gz'
+        session = requests.Session()
+        session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = session.get(pg_url, stream=True)
+        ling_greek_file_name = urlsplit(pg_url).path.split('/')[-1]
+        tar_greek_file_path = os.path.join(orig_files_dir_ling_greek,
+                                           ling_greek_file_name)
+        print(tar_greek_file_path)
+        try:
+            with open(tar_greek_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', ling_greek_file_name)
+                try:
+                    shutil.unpack_archive(tar_greek_file_path,
+                                          greek_dir_ling)
+                    logging.info('Finished unpacking %s.',
+                                 ling_greek_file_name)
+                except IOError:
+                    logging.info('Failed to unpack %s.',
+                                 ling_greek_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', ling_greek_file_name)
+
+
 
 
 def remove_non_ascii(input_string):
