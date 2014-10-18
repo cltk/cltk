@@ -922,8 +922,6 @@ class Compile(object):  # pylint: disable=R0904
             logging.error('Failed to write file %s', tokens_greek_file_name)
 
 
-
-    #! greek ling data
     def get_cltk_greek_linguistic_data_tar(self):
         """Get CLTK's ML taggers, tokenizers, etc."""
         orig_files_dir_ling_greek = \
@@ -938,8 +936,6 @@ class Compile(object):  # pylint: disable=R0904
             pass
         else:
             os.mkdir(greek_dir_ling)
-        print(greek_dir_ling)
-
         pg_url = 'https://raw.githubusercontent.com/cltk/cltk_greek_linguistic_data/master/greek.tar.gz'
         session = requests.Session()
         session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
@@ -947,7 +943,6 @@ class Compile(object):  # pylint: disable=R0904
         ling_greek_file_name = urlsplit(pg_url).path.split('/')[-1]
         tar_greek_file_path = os.path.join(orig_files_dir_ling_greek,
                                            ling_greek_file_name)
-        print(tar_greek_file_path)
         try:
             with open(tar_greek_file_path, 'wb') as new_file:
                 new_file.write(pg_tar.content)
@@ -964,6 +959,41 @@ class Compile(object):  # pylint: disable=R0904
             logging.error('Failed to write file %s', ling_greek_file_name)
 
 
+    def get_cltk_latin_linguistic_data_tar(self):
+        """Get CLTK's ML taggers, tokenizers, etc."""
+        orig_files_dir_ling_latin = \
+            os.path.join(self.orig_files_dir, 'cltk_latin_linguistic_data')
+        latin_dir = os.path.join(self.cltk_data, 'latin')
+        if os.path.isdir(latin_dir) is True:
+            pass
+        else:
+            os.mkdir(latin_dir)
+        latin_dir_ling = os.path.join(latin_dir, 'cltk_linguistic_data')
+        if os.path.isdir(latin_dir_ling) is True:
+            pass
+        else:
+            os.mkdir(latin_dir_ling)
+        pg_url = 'https://raw.githubusercontent.com/cltk/cltk_latin_linguistic_data/master/latin.tar.gz'
+        session = requests.Session()
+        session.mount(pg_url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+        pg_tar = session.get(pg_url, stream=True)
+        ling_latin_file_name = urlsplit(pg_url).path.split('/')[-1]
+        tar_latin_file_path = os.path.join(orig_files_dir_ling_latin,
+                                           ling_latin_file_name)
+        try:
+            with open(tar_latin_file_path, 'wb') as new_file:
+                new_file.write(pg_tar.content)
+                logging.info('Finished writing %s.', ling_latin_file_name)
+                try:
+                    shutil.unpack_archive(tar_latin_file_path,
+                                          latin_dir_ling)
+                    logging.info('Finished unpacking %s.',
+                                 ling_latin_file_name)
+                except IOError:
+                    logging.info('Failed to unpack %s.',
+                                 ling_latin_file_name)
+        except IOError:
+            logging.error('Failed to write file %s', ling_latin_file_name)
 
 
 def remove_non_ascii(input_string):
