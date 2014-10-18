@@ -57,7 +57,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
         self.assertEqual(unicode, target_unicode)
 
-    '''
     def test_sentence_tokenizer_greek(self):
         """Tokenizes Greek sentences."""
         t = TokenizeSentence()
@@ -73,7 +72,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=C0301
         tokenized_sentences = t.sentence_tokenizer(sentences, 'latin')
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
-    '''
+
 
 if __name__ == '__main__':
     unittest.main()
