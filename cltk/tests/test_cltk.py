@@ -66,16 +66,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_import_cltk_linguistic_data_greek(self):
         """Import CLTK linguistic data to ~/cltk_data/greek/"""
-        c = Compile()
-        c.import_corpus('cltk_greek_linguistic_data')
         rel_path = '~/cltk_data/greek/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
 
     def test_import_cltk_linguistic_data_latin(self):
         """Import CLTK linguistic data to ~/cltk_data/latin/"""
-        c = Compile()
-        c.import_corpus('cltk_latin_linguistic_data')
         rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
