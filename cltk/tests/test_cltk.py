@@ -17,6 +17,11 @@ import os
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
+    '''
+    def setUp(self):
+        self.seq = list(range(10))
+    '''
+
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
         j = JVReplacer()
@@ -59,6 +64,22 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
         self.assertEqual(unicode, target_unicode)
 
+    def test_import_cltk_linguistic_data_greek(self):
+        """Import CLTK linguistic data to ~/cltk_data/greek/"""
+        c = Compile()
+        c.import_corpus('cltk_greek_linguistic_data')
+        rel_path = '~/cltk_data/greek/cltk_linguistic_data/'
+        abs_path = os.path.expanduser(rel_path)
+        self.assertTrue(abs_path)
+
+    def test_import_cltk_linguistic_data_latin(self):
+        """Import CLTK linguistic data to ~/cltk_data/latin/"""
+        c = Compile()
+        c.import_corpus('cltk_latin_linguistic_data')
+        rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
+        abs_path = os.path.expanduser(rel_path)
+        self.assertTrue(abs_path)
+
     def test_sentence_tokenizer_greek(self):
         """Tokenizes Greek sentences."""
         t = TokenizeSentence()
@@ -74,22 +95,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=C0301
         tokenized_sentences = t.sentence_tokenizer(sentences, 'latin')
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
-
-    def import_cltk_linguistic_data_greek(self):
-        """Import CLTK linguistic data to ~/cltk_data/greek/"""
-        c = Compile()
-        c.import_corpus('cltk_greek_linguistic_data')
-        rel_path = '~/cltk_data/greek/cltk_linguistic_data/'
-        abs_path = os.path.expanduser(rel_path)
-        self.assertTrue(abs_path)
-
-    def import_cltk_linguistic_data_latin(self):
-        """Import CLTK linguistic data to ~/cltk_data/latin/"""
-        c = Compile()
-        c.import_corpus('cltk_latin_linguistic_data')
-        rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
-        abs_path = os.path.expanduser(rel_path)
-        self.assertTrue(abs_path)
 
     def test_pos_unigram_greek(self):
         """POS unigram tag Greek words."""
