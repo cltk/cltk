@@ -117,6 +117,22 @@ Trigram
     ('tres', None)]
 
 
+1–2–3–gram backoff tagger
+`````````````````````````
+
+.. code-block:: python
+
+   In [6]: p.ngram_123_backoff_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   Out[6]:
+   [('Gallia', 'N-S---FB-'),
+    ('est', 'V3SPIA---'),
+    ('omnis', 'A-S---MN-'),
+    ('divisa', 'T-PRPPNN-'),
+    ('in', 'R--------'),
+    ('partes', 'N-P---FA-'),
+    ('tres', 'M--------')]
+
+
 
 Sentence Tokenization
 =====================
