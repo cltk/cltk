@@ -7,6 +7,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.common.compiler import Compile
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.stem.latin.j_and_v_converter import JVReplacer
+from cltk.stem.latin.stemmer import Stemmer
 from cltk.tag.pos.pos_tagger import POSTag
 from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
 import unittest
@@ -63,6 +64,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         unicode = replacer.beta_code(beta_example)
         target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
         self.assertEqual(unicode, target_unicode)
+
+    def test_latin_stemmer(self):
+        """Test Latin stemmer."""
+        cato = 'Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit.'
+        j = JVReplacer()
+        iu_cato = j.replace(cato.lower())
+        s = Stemmer()
+        stemmed_text = s.stem(iu_cato)
+        target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit. '
+        self.assertEqual(stemmed_text, target)
 
     def test_import_cltk_linguistic_data_greek(self):
         """Import CLTK linguistic data to ~/cltk_data/greek/"""
