@@ -134,6 +134,22 @@ Trigram
 
 
 
+TnT tagger
+`````````````````````````
+
+.. code-block:: python
+
+   In [7]: p.tnt_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   Out[7]:
+   [('Gallia', 'N-S---FB-'),
+    ('est', 'V3SPIA---'),
+    ('omnis', 'N-S---MN-'),
+    ('divisa', 'T-SRPPFN-'),
+    ('in', 'R--------'),
+    ('partes', 'N-P---FA-'),
+    ('tres', 'M--------')]
+
+
 Sentence Tokenization
 =====================
 

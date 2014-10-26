@@ -127,6 +127,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tagged = p.ngram_123_backoff_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
         self.assertTrue(tagged)
 
+    def test_pos_tnt_tagger_greek(self):
+        """POS 123 ngram backoff tagger Greek words."""
+        p = POSTag()
+        tagged = p.ngram_123_backoff_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        self.assertTrue(tagged)
+
     def test_pos_unigram_latin(self):
         """POS unigram tag Latin words."""
         p = POSTag()
@@ -146,6 +152,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(tagged)
 
     def test_pos_ngram_123_backoff_tagger_latin(self):
+        """POS 123 ngram backoff tagger Latin words."""
+        p = POSTag()
+        tagged = p.ngram_123_backoff_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        self.assertTrue(tagged)
+
+    def test_pos_tnt_tagger_latin(self):
         """POS 123 ngram backoff tagger Latin words."""
         p = POSTag()
         tagged = p.ngram_123_backoff_tagger('Gallia est omnis divisa in partes tres', 'latin')

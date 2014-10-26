@@ -73,3 +73,18 @@ class POSTag(object):
         untagged_tokens = wordpunct_tokenize(untagged_string)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
+
+
+    def tnt_tagger(self, untagged_string, language):
+        """Reads language .pickle for right language"""
+        if language == 'greek':
+            pickle_path = os.path.expanduser('~/cltk_data/greek/cltk_linguistic_data/taggers/pos/tnt.pickle')
+        elif language == 'latin':
+            pickle_path = os.path.expanduser('~/cltk_data/latin/cltk_linguistic_data/taggers/pos/tnt.pickle')
+        else:
+            print('No n–gram backoff tagger for this language available.')
+        with open(pickle_path, 'rb') as open_pickle:
+            tagger = pickle.load(open_pickle)
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
