@@ -19,9 +19,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
     def setUp(self):
-        c = Compile()
-        c.import_corpus('cltk_greek_linguistic_data')
-        c.import_corpus('cltk_latin_linguistic_data')
+        rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
+        abs_path = os.path.expanduser(rel_path)
+        if not os.path.isdir(abs_path):
+            c = Compile()
+            c.import_corpus('cltk_greek_linguistic_data')
+            c.import_corpus('cltk_latin_linguistic_data')
 
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
