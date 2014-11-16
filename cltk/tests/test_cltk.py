@@ -4,8 +4,10 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
+from cltk.corpus import CLTK_DATA_DIR
 from cltk.corpus.common.compiler import Compile
 from cltk.corpus.greek.beta_to_unicode import Replacer
+from cltk.corpus.cltk_logging import logger
 from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.stem.latin.stemmer import Stemmer
 from cltk.tag.pos.pos_tagger import POSTag
@@ -89,6 +91,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
+
+    def test_logging(self):
+        """Test CLTK logger."""
+        logger.info('Testing CLTK logging module.')
+        home_rel = CLTK_DATA_DIR
+        home = os.path.expanduser(home_rel)
+        logfile_path = os.path.join(home, 'cltk.log')
+        with open(logfile_path, 'r') as f:
+            r = f.read()
+        eof = r.splitlines()[-1]
+        log_message = eof.endswith('Testing CLTK logging module.')
+        self.assertTrue(log_message)
 
     def test_sentence_tokenizer_greek(self):
         """Tokenizes Greek sentences."""
