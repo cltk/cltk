@@ -5,8 +5,9 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 from cltk.corpus import CLTK_DATA_DIR
-#from cltk.corpus.common.compiler import Compile
 from cltk.corpus.cltk_logging import logger
+from cltk.corpus.formatter import cleanup_tlg_txt
+from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import import_corpora, list_corpora
 from cltk.stem.latin.j_and_v_converter import JVReplacer
@@ -31,6 +32,20 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         latin_path = os.path.expanduser(latin_path_rel)
         if not os.path.isdir(latin_path):
             import_corpora('latin', 'cltk_linguistic_data')
+
+    def test_formatter_strip_ascii(self):
+        """Test removing all non-ascii characters from a string."""
+        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'
+        ascii_str = remove_non_ascii(non_ascii_str)
+        valid = 'Ascii and some non-ascii:     '
+        self.assertEqual(ascii_str, valid)
+
+    def test_formatter_cleanup_tlg(self):
+        """Test removing misc TLG formatting."""
+        unclean_str = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι [2χρὴ]2 χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
+        clean_str = cleanup_tlg_txt(unclean_str)
+        valid = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι  χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
+        self.assertEqual(clean_str, valid)
 
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
