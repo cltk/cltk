@@ -5,9 +5,10 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 from cltk.corpus import CLTK_DATA_DIR
-from cltk.corpus.common.compiler import Compile
-from cltk.corpus.greek.beta_to_unicode import Replacer
+#from cltk.corpus.common.compiler import Compile
 from cltk.corpus.cltk_logging import logger
+from cltk.corpus.greek.beta_to_unicode import Replacer
+from cltk.corpus.importer import import_corpora, list_corpora
 from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.stem.latin.stemmer import Stemmer
 from cltk.tag.pos.pos_tagger import POSTag
@@ -21,12 +22,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
     def setUp(self):
-        rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
-        abs_path = os.path.expanduser(rel_path)
-        if not os.path.isdir(abs_path):
-            c = Compile()
-            c.import_corpus('cltk_greek_linguistic_data')
-            c.import_corpus('cltk_latin_linguistic_data')
+        """Download CLTK linguistic data for tests."""
+        greek_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
+        greek_path = os.path.expanduser(greek_path_rel)
+        if not os.path.isdir(greek_path):
+            import_corpora('greek', 'cltk_linguistic_data')
+        latin_path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
+        latin_path = os.path.expanduser(latin_path_rel)
+        if not os.path.isdir(latin_path):
+            import_corpora('latin', 'cltk_linguistic_data')
 
     def test_latin_i_u_transform(self):
         """Test conversion of j to i and v to u"""
@@ -81,14 +85,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(stemmed_text, target)
 
     def test_import_cltk_linguistic_data_greek(self):
-        """Import CLTK linguistic data to ~/cltk_data/greek/"""
-        rel_path = '~/cltk_data/greek/cltk_linguistic_data/'
+        """Check whether Greek linguistic data was imported during setUp()."""
+        rel_path = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
 
     def test_import_cltk_linguistic_data_latin(self):
-        """Import CLTK linguistic data to ~/cltk_data/latin/"""
-        rel_path = '~/cltk_data/latin/cltk_linguistic_data/'
+        """Check whether Latin linguistic data was imported during setUp()."""
+        rel_path = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
 
