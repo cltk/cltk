@@ -205,8 +205,10 @@ List corpora available for remote download or local loading:
 
 .. code-block:: python
 
-   In [1]: list_corpora('latin')
-   Out [1]: latin_text_perseus
+   In [1]: from cltk.corpus.importer import import_corpora, list_corpora
+
+   In [2]: list_corpora('latin')
+   Out [2]: latin_text_perseus
      latin_treebank_perseus
      latin_text_lacus_curtius
      latin_text_latin_library
@@ -217,7 +219,7 @@ List corpora available for remote download or local loading:
 
 To download a particular corpus:
 
-   In [2]: import_corpora('latin', 'latin_text_latin_library')
-   Out [2]: ...
+   In [3]: import_corpora('latin', 'latin_text_latin_library')
+   Out [3]: ...
 
 Not that the tlgu software can be obtained this way, too: ``import_corpora('greek', 'tlgu')``.
