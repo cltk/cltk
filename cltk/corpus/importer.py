@@ -1,3 +1,8 @@
+"""CLTK corpus and software importer. Remote `.tar.gz` files are saved in
+`~/cltk_data/originals`, then unpacked into its fitting directory. Indices of
+available corpora are available in, e.g.: `cltk/corpora/greek/corpora.py`.
+"""
+
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>',
               ]
@@ -6,7 +11,6 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus import CLTK_DATA_DIR
 #from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
-#from cltk.corpus.formatter import ???
 from cltk.corpus.cltk_logging import logger
 import os
 import requests
