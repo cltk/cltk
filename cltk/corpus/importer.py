@@ -1,3 +1,8 @@
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Stephen Margheim <stephen.margheim@gmail.com>',
+              ]
+__license__ = 'MIT License. See LICENSE.'
+
 from cltk.corpus import CLTK_DATA_DIR
 #from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
