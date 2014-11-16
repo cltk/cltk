@@ -1,10 +1,11 @@
 """Converts legacy encodings into Unicode
 TODO for replacer.py:
  - add perseus-style iota subscript and diaeresis
- - fix TLG diaeresis: εὐνοι+κῶς -> εὐνοϊκῶς (KJ found in Xen. Anab. 1.1.5, TLG0032.txt)
+ - fix TLG diaeresis: εὐνοι+κῶς -> εὐνοϊκῶς (at Xen. Anab. 1.1.5, TLG0032.txt)
  -- προί+δοιεν -> προΐδοιεν (for TLG, Xen Anab 1.8.20)
 """
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', ]
 __license__ = 'MIT License. See LICENSE.'
 
 import re
@@ -318,7 +319,8 @@ LOWER = [
     (r'P', 'π'),
     (r'Q', 'θ'),
     (r'R', 'ρ'),
-    # better handle final sigmas; could be more DRY since it duplicates the PUNCT list
+    # better handle final sigmas; could be more DRY
+    # since it duplicates the PUNCT list
     (r'S ', 'ς '),
     (r'S:', 'ς:'),
     (r'S\.', 'ς\.'),
@@ -378,15 +380,16 @@ class Replacer(object):  # pylint: disable=R0903
             [(re.compile(regex), repl) for (regex, repl) in pattern3]
 
     def beta_code(self, text):
-        """Replace method, returns a tuple (new_string, number_of_subs_made)"""
+        """Replace method. Note: re.subn() returns a tuple (new_string,
+        number_of_subs_made).
+        """
         no_hyph = text.replace('-', '')
         beta_string = no_hyph
         for (pattern, repl) in self.pattern1:
-            (beta_string, count) = \
-                re.subn(pattern, repl, beta_string)  # pylint: disable=W0612
+            beta_string = re.subn(pattern, repl, beta_string)[0]
         for (pattern, repl) in self.pattern2:
-            (beta_string, count) = re.subn(pattern, repl, beta_string)
+            beta_string = re.subn(pattern, repl, beta_string)[0]
         # remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
-            (unicode_string, count) = re.subn(pattern, repl, beta_string)
+            unicode_string = re.subn(pattern, repl, beta_string)[0]
         return unicode_string
