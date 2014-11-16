@@ -32,12 +32,12 @@ def list_corpora(language):
 
 def make_dirs(language, corpus_type, corpus_name):
     """Make directories for an incoming corpus.
+    # TODO: Check if tuple is right return type.
 
     :param language: str
     :param corpus_type: str
     :param corpus_name: str
     :rtype : tuple
-    # TODO is tuple right return type?
     """
     home_rel = CLTK_DATA_DIR
     home = os.path.expanduser(home_rel)
