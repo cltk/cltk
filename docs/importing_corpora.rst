@@ -196,3 +196,28 @@ Download these files for POS tagging by the CLTK.
    In [2]: c = Compile()
 
    In [3]: c.import_corpus('pos_latin')
+
+
+New API
+=======
+
+List corpora available for remote download or local loading:
+
+.. code-block:: python
+
+   In [1]: list_corpora('latin')
+   Out [1]: latin_text_perseus
+     latin_treebank_perseus
+     latin_text_lacus_curtius
+     latin_text_latin_library
+     phi5
+     phi7
+     latin_proper_names
+     cltk_linguistic_data
+
+To download a particular corpus:
+
+   In [2]: import_corpora('latin', 'latin_text_latin_library')
+   Out [2]: ...
+
+Not that the tlgu software can be obtained this way, too: ``import_corpora('greek', 'tlgu')``.

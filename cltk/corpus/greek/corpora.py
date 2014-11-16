@@ -1,6 +1,13 @@
 """Greek language corpora available for download or loading locally."""
 
 GREEK_CORPORA = [
+    {'encoding': None,  #?
+     'homepage': 'https://github.com/cltk/tlgu',
+     'markup': None,
+     'name': 'tlgu',
+     'location': 'remote',
+     'type': 'software',
+     'path': 'https://github.com/cltk/tlgu/blob/master/tlgu-1.6.zip?raw=true'},  # pylint: disable=C0301
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/greek_corpus_perseus',
      'markup': 'tei_xml',

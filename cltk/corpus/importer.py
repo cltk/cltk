@@ -6,6 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus import CLTK_DATA_DIR
 #from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
+#from cltk.corpus.formatter import ???
 from cltk.corpus.cltk_logging import logger
 import os
 import requests
@@ -137,6 +138,7 @@ def import_corpora(language, corpus_name, path=None):
     if location == 'remote':
         download_corpus(language, corpus_type, corpus_name, path)
     elif location == 'local':
+        if path is None:
+            logger.info("'path' argument required for local corpora.")
         if corpus_name in ('tlg', 'phi5', 'phi7'):
-            logger.info('Pass to tlgu for parsing.')
-
+            logger.info('Pass to `formatter.py` for parsing.')
