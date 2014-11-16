@@ -6,12 +6,13 @@ other files.
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>', ]
+              'Stephen Margheim <stephen.margheim@gmail.com>',
+              ]
 __license__ = 'MIT License. See LICENSE.'
 
 
-from cltk.corpus.greek.tlgu import tlgu
-
+#from cltk.corpus.greek.tlgu import tlgu
+import re
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
