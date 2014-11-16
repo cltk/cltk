@@ -70,11 +70,9 @@ Unigram
 
 .. code-block:: python
 
-   In [1]: from cltk.tag.pos.pos_tagger import POSTag
+   In [1]: from cltk.tag.pos import tag_unigram, tag_bigram, tag_trigram, tag_ngram_123_backoff, tag_tnt
 
-   In [2]: p = POSTag()
-
-   In [3]: p.unigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   In [3]: tag_unigram('Gallia est omnis divisa in partes tres', 'latin')
    Out[3]:
    [('Gallia', 'N-S---FB-'),
     ('est', 'V3SPIA---'),
@@ -90,7 +88,7 @@ Bigram
 
 .. code-block:: python
 
-   In [4]: p.bigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   In [4]: tag_bigram('Gallia est omnis divisa in partes tres', 'latin')
    Out[4]:
    [('Gallia', None),
     ('est', None),
@@ -106,7 +104,7 @@ Trigram
 
 .. code-block:: python
 
-   In [5]: p.trigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   In [5]: tag_trigram('Gallia est omnis divisa in partes tres', 'latin')
    Out[5]:
    [('Gallia', None),
     ('est', None),
@@ -122,7 +120,7 @@ Trigram
 
 .. code-block:: python
 
-   In [6]: p.ngram_123_backoff_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   In [6]: tag_ngram_123_backoff('Gallia est omnis divisa in partes tres', 'latin')
    Out[6]:
    [('Gallia', 'N-S---FB-'),
     ('est', 'V3SPIA---'),
@@ -139,7 +137,7 @@ TnT tagger
 
 .. code-block:: python
 
-   In [7]: p.tnt_tagger('Gallia est omnis divisa in partes tres', 'latin')
+   In [7]: tag_tnt('Gallia est omnis divisa in partes tres', 'latin')
    Out[7]:
    [('Gallia', 'N-S---FB-'),
     ('est', 'V3SPIA---'),

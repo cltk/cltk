@@ -30,12 +30,10 @@ Unigram
 
 .. code-block:: python
 
-   In [1]: from cltk.tag.pos.pos_tagger import POSTag
+   In [1]: from cltk.tag.pos import tag_unigram, tag_bigram, tag_trigram, tag_ngram_123_backoff, tag_tnt
 
-   In [2]: p = POSTag()
-
-   In [3]: p.unigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
-   Out[3]:
+   In [2]: tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[2]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),
@@ -53,8 +51,8 @@ Bigram
 
 .. code-block:: python
 
-   In [4]: p.bigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
-   Out[4]:
+   In [3]: tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[3]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),
@@ -72,8 +70,8 @@ Trigram
 
 .. code-block:: python
 
-   In [5]: p.trigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
-   Out[5]:
+   In [4]: tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[4]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),
@@ -91,8 +89,8 @@ Trigram
 
 .. code-block:: python
 
-   In [6]: p.ngram_123_backoff_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
-   Out[6]:
+   In [5]: tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[5]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),
@@ -110,8 +108,8 @@ TnT tagger
 
 .. code-block:: python
 
-   In [7]: p.tnt_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
-   Out[7]:
+   In [6]: tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+   Out[6]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),

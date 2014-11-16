@@ -12,7 +12,8 @@ from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import import_corpora, list_corpora
 from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.stem.latin.stemmer import Stemmer
-from cltk.tag.pos.pos_tagger import POSTag
+#from cltk.tag.pos.pos_tagger import POSTag
+from cltk.tag.pos import tag_unigram, tag_bigram, tag_trigram, tag_ngram_123_backoff, tag_tnt
 #from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
 from cltk.tokenize.sentence import tokenize_sentences
 import unittest
@@ -140,62 +141,52 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_pos_unigram_greek(self):
         """POS unigram tag Greek words."""
-        p = POSTag()
-        tagged = p.unigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        tagged = tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
         self.assertTrue(tagged)
 
     def test_pos_bigram_greek(self):
         """POS bigram tag Greek words."""
-        p = POSTag()
-        tagged = p.bigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        tagged = tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
         self.assertTrue(tagged)
 
     def test_pos_trigram_greek(self):
         """POS trigram tag Greek words."""
-        p = POSTag()
-        tagged = p.trigram_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        tagged = tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
         self.assertTrue(tagged)
 
     def test_pos_ngram_123_backoff_tagger_greek(self):
         """POS 123 ngram backoff tagger Greek words."""
-        p = POSTag()
-        tagged = p.ngram_123_backoff_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        tagged = tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
         self.assertTrue(tagged)
 
     def test_pos_tnt_tagger_greek(self):
         """POS 123 ngram backoff tagger Greek words."""
-        p = POSTag()
-        tagged = p.ngram_123_backoff_tagger('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        tagged = tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
         self.assertTrue(tagged)
 
     def test_pos_unigram_latin(self):
         """POS unigram tag Latin words."""
-        p = POSTag()
-        tagged = p.unigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        tagged = tag_unigram('Gallia est omnis divisa in partes tres', 'latin')
         self.assertTrue(tagged)
 
     def test_pos_bigram_latin(self):
         """POS bigram tag Latin words."""
-        p = POSTag()
-        tagged = p.bigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        tagged = tag_bigram('Gallia est omnis divisa in partes tres', 'latin')
         self.assertTrue(tagged)
 
     def test_pos_trigram_latin(self):
         """POS trigram tag Latin words."""
-        p = POSTag()
-        tagged = p.trigram_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        tagged = tag_trigram('Gallia est omnis divisa in partes tres', 'latin')
         self.assertTrue(tagged)
 
     def test_pos_ngram_123_backoff_tagger_latin(self):
         """POS 123 ngram backoff tagger Latin words."""
-        p = POSTag()
-        tagged = p.ngram_123_backoff_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        tagged = tag_ngram_123_backoff('Gallia est omnis divisa in partes tres', 'latin')
         self.assertTrue(tagged)
 
     def test_pos_tnt_tagger_latin(self):
-        """POS 123 ngram backoff tagger Latin words."""
-        p = POSTag()
-        tagged = p.ngram_123_backoff_tagger('Gallia est omnis divisa in partes tres', 'latin')
+        """POS TNT tagger Latin words."""
+        tagged = tag_tnt('Gallia est omnis divisa in partes tres', 'latin')
         self.assertTrue(tagged)
 
 
