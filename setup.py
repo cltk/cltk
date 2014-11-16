@@ -38,7 +38,7 @@ setup(
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
-    version='0.0.0.47',
+    version='0.0.0.48a',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )

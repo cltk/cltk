@@ -1,0 +1,1 @@
+CLTK_DATA_DIR = '~/cltk_data/'
