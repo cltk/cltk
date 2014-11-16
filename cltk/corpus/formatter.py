@@ -2,8 +2,6 @@
 Some formatting can happen here, or invoke language-specific formatters in
 other files.
 
-#TODO: Add TLG & PHI text cleaners from KJ's IPython notebooks
-#TODO: Add non-ascii stripper
 #TODO: Add generic HTML stripper
 """
 
