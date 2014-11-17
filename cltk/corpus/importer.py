@@ -110,7 +110,6 @@ def download_file(url, corpus_name):
         session = requests.Session()
         session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         downloaded_object = session.get(url, stream=True)
-        session.close()
         #logger.info('Downloaded file at %s .' % url)
     except Exception as e:
         pass
