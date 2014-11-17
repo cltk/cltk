@@ -11,7 +11,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus import CLTK_DATA_DIR
 #from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
-from cltk.corpus.cltk_logging import logger
+#from cltk.corpus.cltk_logging import logger
 import os
 import requests
 from requests_toolbelt import SSLAdapter
@@ -31,9 +31,9 @@ def list_corpora(language):
     elif language == 'latin':
         corpora = LATIN_CORPORA
     else:
-        logger.info('No corpora available for this language.')
-    logger.info('Available CLTK corpora for %s:' % language)
-    [logger.info(corpus['name']) for corpus in corpora]
+        #logger.info('No corpora available for this language.')
+    #logger.info('Available CLTK corpora for %s:' % language)
+    # [logger.info(corpus['name']) for corpus in corpora]
     corpora_list = []
     for corpus in corpora:
         corpora_list.append(corpus['name'])
@@ -55,16 +55,18 @@ def make_dirs(language, corpus_type, corpus_name):
     originals_dir = os.path.join(home, 'originals')
     if not os.path.isdir(originals_dir):
         os.makedirs(originals_dir)
-        logger.info('Wrote directory at: %s' % originals_dir)
+        #logger.info('Wrote directory at: %s' % originals_dir)
     else:
-        logger.info('Directory already exists at: %s' % originals_dir)
+        pass
+        #logger.info('Directory already exists at: %s' % originals_dir)
     # make directories for unpacking downloaded file
     unpack_dir = os.path.join(home, language, corpus_type, corpus_name)
     if not os.path.isdir(unpack_dir):
         os.makedirs(unpack_dir)
-        logger.info('Wrote directories at: %s' % unpack_dir)
+        #logger.info('Wrote directories at: %s' % unpack_dir)
     else:
-        logger.info('Directories already exist at: %s' % unpack_dir)
+        pass
+        #logger.info('Directories already exist at: %s' % unpack_dir)
     return originals_dir, unpack_dir
 
 def save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name):
@@ -83,15 +85,17 @@ def save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name):
     try:
         with open(file_path_originals, 'wb') as new_file:
             new_file.write(downloaded_object.content)
-            logger.info('Wrote file %s to %s.' % (file_name, originals_dir))
+            #logger.info('Wrote file %s to %s.' % (file_name, originals_dir))
     except Exception as e:
-        logger.info('Failed to write file %s to %s: %s' % (file_name, originals_dir, e))
+        pass
+        #logger.info('Failed to write file %s to %s: %s' % (file_name, originals_dir, e))
     # unpack into new dir
     try:
         shutil.unpack_archive(file_path_originals, unpack_dir)
-        logger.info('Finished unpacking corpus %s to %s.' % (corpus_name, unpack_dir))
+        #logger.info('Finished unpacking corpus %s to %s.' % (corpus_name, unpack_dir))
     except Exception as e:
-        logger.info('Finished unpacking corpus %s to %s: %s' % (corpus_name, unpack_dir, e))
+        pass
+        #logger.info('Finished unpacking corpus %s to %s: %s' % (corpus_name, unpack_dir, e))
 
 def download_file(url, corpus_name):
     """Download file with SSL.
@@ -100,14 +104,15 @@ def download_file(url, corpus_name):
     :param corpus_name: str
     :rtype : object
     """
-    logger.info('Starting download of corpus %s from: %s .' % (corpus_name, url))
+    #logger.info('Starting download of corpus %s from: %s .' % (corpus_name, url))
     try:
         session = requests.Session()
         session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
         downloaded_object = session.get(url, stream=True)
-        logger.info('Downloaded file at %s .' % url)
+        #logger.info('Downloaded file at %s .' % url)
     except Exception as e:
-        logger.info('Failed to download file at %s : %s' % (url, e))
+        pass
+        #logger.info('Failed to download file at %s : %s' % (url, e))
     return downloaded_object
 
 def download_corpus(language, corpus_type, corpus_name, url):
@@ -140,7 +145,8 @@ def import_corpora(language, corpus_name, path=None):
         if corpus['name'] == corpus_name:
             corpus_properties = corpus
     if not corpus_properties:
-        logger.info('Corpus %s not available for the %s language.' % (corpus_name, language))
+        pass
+        #logger.info('Corpus %s not available for the %s language.' % (corpus_name, language))
     location = corpus_properties['location']
     corpus_type = corpus_properties['type']
     path = corpus_properties['path']
@@ -148,6 +154,8 @@ def import_corpora(language, corpus_name, path=None):
         download_corpus(language, corpus_type, corpus_name, path)
     elif location == 'local':
         if path is None:
-            logger.info("'path' argument required for local corpora.")
+            pass
+            #logger.info("'path' argument required for local corpora.")
         if corpus_name in ('tlg', 'phi5', 'phi7'):
-            logger.info('Pass to `formatter.py` for parsing.')
+            pass
+            #logger.info('Pass to `formatter.py` for parsing.')

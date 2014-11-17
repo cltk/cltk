@@ -5,7 +5,6 @@ Use methods in importer.py like so:
 from cltk.corpus.importer import download_file
 from cltk.corpus.importer import save_untar
 
-url =
 downloaded_object = download_file(url, corpus_name)
 originals_dir, unpack_dir = make_dirs(language, corpus_type, corpus_name)
 save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name)
