@@ -9,7 +9,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus import CLTK_DATA_DIR
-#from cltk.corpus.greek.corpora import GREEK_CORPORA
+from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
 #from cltk.corpus.cltk_logging import logger
 import os
@@ -31,6 +31,7 @@ def list_corpora(language):
     elif language == 'latin':
         corpora = LATIN_CORPORA
     else:
+        pass
         #logger.info('No corpora available for this language.')
     #logger.info('Available CLTK corpora for %s:' % language)
     # [logger.info(corpus['name']) for corpus in corpora]
