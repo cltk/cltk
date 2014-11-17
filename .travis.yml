@@ -4,7 +4,7 @@ python:
   - "3.4"
 
 install:
-  - pip install cltk
+  - pip install https://pypi.python.org/packages/source/c/cltk/cltk-0.0.0.48a.tar.gz
 
 script:
   - cd cltk/tests/

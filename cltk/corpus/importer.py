@@ -34,6 +34,11 @@ def list_corpora(language):
         logger.info('No corpora available for this language.')
     logger.info('Available CLTK corpora for %s:' % language)
     [logger.info(corpus['name']) for corpus in corpora]
+    corpora_list = []
+    for corpus in corpora:
+        corpora_list.append(corpus['name'])
+    return corpora_list
+
 
 def make_dirs(language, corpus_type, corpus_name):
     """Make directories for an incoming corpus.

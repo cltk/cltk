@@ -1,4 +1,6 @@
-"""Unit tests for CLTK"""
+"""Unit tests for CLTK
+TODO: Add test for list_corpora (now w/ return type of list)
+"""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
