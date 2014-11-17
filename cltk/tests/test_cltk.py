@@ -7,7 +7,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 from cltk.corpus import CLTK_DATA_DIR
-from cltk.corpus.cltk_logging import logger
+#from cltk.corpus.cltk_logging import logger
 from cltk.corpus.formatter import cleanup_tlg_txt
 from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
