@@ -139,6 +139,8 @@ def copy_dir_recursive(src_rel, dst_rel):
     """
     src = os.path.expanduser(src_rel)
     dst = os.path.expanduser(dst_rel)
+    print(src)
+    print(dst)
     try:
         shutil.copytree(src, dst)
         #logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
@@ -173,15 +175,16 @@ def import_corpora(language, corpus_name, path=None):
         #logger.info('Corpus %s not available for the %s language.' % (corpus_name, language))
     location = corpus_properties['location']
     corpus_type = corpus_properties['type']
-    path = corpus_properties['path']
     if location == 'remote':
+        path = corpus_properties['path']
         download_corpus(language, corpus_type, corpus_name, path)
     elif location == 'local':
-        if path is None:
+        print('incoming path:', path)
+        if not path:
             print("'path' argument required for local corpora.")
             #logger.info("'path' argument required for local corpora.")
         if corpus_name in ('tlg', 'phi5', 'phi7'):
-            #originals = os.path.join(home, language, corpus_type, corpus_name)
+            #! add check for srcs dir ending in right name
             data_dir = os.path.expanduser(CLTK_DATA_DIR)
             originals_dir = os.path.join(data_dir, 'originals')
             if not os.path.isdir(originals_dir):
