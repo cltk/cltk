@@ -186,11 +186,10 @@ def import_corpora(language, corpus_name, path=None):
             originals_dir = os.path.join(data_dir, 'originals')
             if not os.path.isdir(originals_dir):
                 os.makedirs(originals_dir)
-            tlg_originals_dir = os.path.join(data_dir, 'originals', 'tlg')
+                #logger.info('Wrote directory at: %s' % originals_dir)
+            tlg_originals_dir = os.path.join(data_dir, 'originals', corpus_name)
             if os.path.isdir(tlg_originals_dir):
-                #rmtree
+                shutil.rmtree(tlg_originals_dir)
+                #logger.info('Removed directory at: %s.' % tlg_originals_dir)
             if not os.path.isdir(tlg_originals_dir):
                 copy_dir_recursive(path, tlg_originals_dir)
-
-
-            #logger.info('Pass to `formatter.py` for parsing.')
