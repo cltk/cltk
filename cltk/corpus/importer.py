@@ -5,13 +5,14 @@ available corpora are available in, e.g.: `cltk/corpora/greek/corpora.py`.
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>',
-              ]
+]
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus import CLTK_DATA_DIR
 from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
-#from cltk.corpus.cltk_logging import logger
+# from cltk.corpus.cltk_logging import logger
+import errno
 import os
 import requests
 from requests_toolbelt import SSLAdapter
@@ -70,6 +71,7 @@ def make_dirs(language, corpus_type, corpus_name):
         #logger.info('Directories already exist at: %s' % unpack_dir)
     return originals_dir, unpack_dir
 
+
 def save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name):
     """Write downloaded tar object and unpack.
 
@@ -98,6 +100,7 @@ def save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name):
         pass
         #logger.info('Finished unpacking corpus %s to %s: %s' % (corpus_name, unpack_dir, e))
 
+
 def download_file(url, corpus_name):
     """Download file with SSL.
 
@@ -116,6 +119,7 @@ def download_file(url, corpus_name):
         #logger.info('Failed to download file at %s : %s' % (url, e))
     return downloaded_object
 
+
 def download_corpus(language, corpus_type, corpus_name, url):
     """Download and save incoming data.
 
@@ -128,9 +132,28 @@ def download_corpus(language, corpus_type, corpus_name, url):
     originals_dir, unpack_dir = make_dirs(language, corpus_type, corpus_name)
     save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name)
 
+
+def copy_dir_recursive(src_rel, dst_rel):
+    """Copy contents of one directory to another. `dst` dir cannot exist.
+    Source: http://stackoverflow.com/a/1994840
+    """
+    src = os.path.expanduser(src_rel)
+    dst = os.path.expanduser(dst_rel)
+    try:
+        shutil.copytree(src, dst)
+        #logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+    except OSError as exc:
+        if exc.errno == errno.ENOTDIR:
+            shutil.copy(src, dst)
+            #logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+        else:
+            raise
+
+
 def import_corpora(language, corpus_name, path=None):
     """Download a remote or load local corpus into 'cltk_data'. Invoke with
-    e.g.,: `import_corpora('latin', 'latin_text_latin_library')`.
+    e.g. `import_corpora('latin', 'latin_text_latin_library')` or for local
+    corpora e.g. `import_corpora('latin', 'latin_text_latin_library', '~/Downloads/corpora/TLG_E/')`.
 
     :param language: str
     :param corpus_name: str
@@ -155,8 +178,19 @@ def import_corpora(language, corpus_name, path=None):
         download_corpus(language, corpus_type, corpus_name, path)
     elif location == 'local':
         if path is None:
-            pass
+            print("'path' argument required for local corpora.")
             #logger.info("'path' argument required for local corpora.")
         if corpus_name in ('tlg', 'phi5', 'phi7'):
-            pass
+            #originals = os.path.join(home, language, corpus_type, corpus_name)
+            data_dir = os.path.expanduser(CLTK_DATA_DIR)
+            originals_dir = os.path.join(data_dir, 'originals')
+            if not os.path.isdir(originals_dir):
+                os.makedirs(originals_dir)
+            tlg_originals_dir = os.path.join(data_dir, 'originals', 'tlg')
+            if os.path.isdir(tlg_originals_dir):
+                #rmtree
+            if not os.path.isdir(tlg_originals_dir):
+                copy_dir_recursive(path, tlg_originals_dir)
+
+
             #logger.info('Pass to `formatter.py` for parsing.')
