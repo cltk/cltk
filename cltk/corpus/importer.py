@@ -18,6 +18,7 @@ import requests
 from requests_toolbelt import SSLAdapter
 import shutil
 import ssl
+import sys
 from urllib.parse import urlsplit
 
 
@@ -152,7 +153,8 @@ def copy_dir_recursive(src_rel, dst_rel):
             raise
 
 
-def import_corpora(language, corpus_name, path=None):
+#TODO mk singuler
+def import_corpus(language, corpus_name, path=None):
     """Download a remote or load local corpus into 'cltk_data'. Invoke with
     e.g. `import_corpora('latin', 'latin_text_latin_library')` or for local
     corpora e.g. `import_corpora('latin', 'latin_text_latin_library', '~/Downloads/corpora/TLG_E/')`.
@@ -171,28 +173,49 @@ def import_corpora(language, corpus_name, path=None):
         if corpus['name'] == corpus_name:
             corpus_properties = corpus
     if not corpus_properties:
-        pass
-        #logger.info('Corpus %s not available for the %s language.' % (corpus_name, language))
+        print('Corpus %s not available for the %s language.' % (corpus_name, language))
+        sys.exit()
     location = corpus_properties['location']
     corpus_type = corpus_properties['type']
     if location == 'remote':
         path = corpus_properties['path']
         download_corpus(language, corpus_type, corpus_name, path)
     elif location == 'local':
-        print('incoming path:', path)
+        print('Incoming path:', path)
         if not path:
             print("'path' argument required for local corpora.")
-            #logger.info("'path' argument required for local corpora.")
-        if corpus_name in ('tlg', 'phi5', 'phi7'):
-            #! add check for srcs dir ending in right name
+            sys.exit()
+        if corpus_name in ('phi5', 'phi7', 'tlg'):
+            if corpus_name == 'phi5':
+                if path.endswith('/'):  # normalize path for checking dir
+                    path = path[:-1]
+                if os.path.split(path)[1] != 'PHI5':  # check for right corpus dir
+                    print("Directory must be named 'PHI5'.")
+                    sys.exit()
+            if corpus_name == 'phi7':
+                if path.endswith('/'):  # normalize path for checking dir
+                    path = path[:-1]
+                if os.path.split(path)[1] != 'PHI7':  # check for right corpus dir
+                    print("Directory must be named 'PHI7'.")
+                    sys.exit()
+            if corpus_name == 'tlg':
+                if path.endswith('/'):  # normalize path for checking dir
+                    path = path[:-1]
+                if os.path.split(path)[1] != 'TLG_E':  # check for right corpus dir
+                    print("Directory must be named 'TLG_E'.")
+                    sys.exit()
+            # move the dir-checking commands into a function
             data_dir = os.path.expanduser(CLTK_DATA_DIR)
             originals_dir = os.path.join(data_dir, 'originals')
+            # check for `originals` dir; if not present mkdir
             if not os.path.isdir(originals_dir):
                 os.makedirs(originals_dir)
-                #logger.info('Wrote directory at: %s' % originals_dir)
+                print('Wrote directory at: %s' % originals_dir)
             tlg_originals_dir = os.path.join(data_dir, 'originals', corpus_name)
+            # check for `originals/<corpus_name>`; if pres, delete
             if os.path.isdir(tlg_originals_dir):
                 shutil.rmtree(tlg_originals_dir)
-                #logger.info('Removed directory at: %s.' % tlg_originals_dir)
+                print('Removed directory at: %s.' % tlg_originals_dir)
+            # copy_dir requires that target
             if not os.path.isdir(tlg_originals_dir):
                 copy_dir_recursive(path, tlg_originals_dir)
