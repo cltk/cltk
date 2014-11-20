@@ -1,6 +1,8 @@
 """CLTK corpus and software importer. Remote `.tar.gz` files are saved in
 `~/cltk_data/originals`, then unpacked into its fitting directory. Indices of
 available corpora are available in, e.g.: `cltk/corpora/greek/corpora.py`.
+
+TODO: refactor, pylint cleanup
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
