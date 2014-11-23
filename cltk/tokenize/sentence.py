@@ -10,18 +10,27 @@ import os
 
 
 class TokenizeSentence(object):
-    """Tokenize sentences."""
+    """Tokenize sentences. ``two ticks`` for code.
+    """
 
     def __init__(self, language):
         """Initializer. Should it do anything?"""
         self.language = language
 
-    def show_lang(self):
-        """Print lang."""
+    def show_language(self) -> str:
+        """Print language of instance.
+            :type self: object
+            :return : Active language for tokenizer's instance.
+            :rtype : str
+        """
         return self.language
 
-    def tokenize_sentences(self, untokenized_string):
-        """Reads language .pickle for right language"""
+    def tokenize_sentences(self, untokenized_string: str):
+        """Reads language .pickle for right language
+        :type untokenized_string: str
+        :type self: object
+        :param untokenized_string: A string containing one of more sentences.
+        """
         if self.language == 'greek':
             path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
             language_punkt_vars = PunktLanguageVars

@@ -9,7 +9,7 @@ import pickle
 
 
 def tag_unigram(untagged_string, language):
-    """Reads language .pickle for right language"""
+    """Reads language .pickle for right language."""
     if language == 'greek':
         path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/unigram.pickle'  # pylint: disable=C0301
     elif language == 'latin':
@@ -25,7 +25,7 @@ def tag_unigram(untagged_string, language):
 
 
 def tag_bigram(untagged_string, language):
-    """Reads language .pickle for right language"""
+    """Reads language .pickle for right language."""
     if language == 'greek':
         path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/bigram.pickle'  # pylint: disable=C0301
     elif language == 'latin':

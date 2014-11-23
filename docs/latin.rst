@@ -1,7 +1,7 @@
 Latin
 *****
 
-   
+
 Converting J to I, V to U
 ======================
 
