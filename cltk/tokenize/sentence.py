@@ -87,7 +87,6 @@ class TokenizeSentence(object):  # pylint: disable=R0903
 
         # mk list of tokenized sentences
         tokenized_sentences = []
-        return [tokenized_sentences.append(sentence)
-                for sentence
-                in pst.sentences_from_text(untokenized_string,
-                                           realign_boundaries=True)]
+        for sentence in pst.sentences_from_text(untokenized_string, realign_boundaries=True):
+            tokenized_sentences.append(sentence)
+        return tokenized_sentences
