@@ -3,86 +3,112 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.common.file_operations import open_pickle
 from nltk.tokenize import wordpunct_tokenize
 import os
-import pickle
+
+TAGGERS = {'greek':
+               {'unigram': 'unigram.pickle',
+                'bigram': 'bigram.pickle',
+                'trigram': 'trigram.pickle',
+                'ngram_123_backoff': '123grambackoff.pickle',
+                'tnt': 'tnt.pickle',
+               },
+           'latin':
+               {'unigram': 'unigram.pickle',
+                'bigram': 'bigram.pickle',
+                'trigram': 'trigram.pickle',
+                'ngram_123_backoff': '123grambackoff.pickle',
+                'tnt': 'tnt.pickle',
+               }}
 
 
-def tag_unigram(untagged_string, language):
-    """Reads language .pickle for right language."""
-    if language == 'greek':
-        path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/unigram.pickle'  # pylint: disable=C0301
-    elif language == 'latin':
-        path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/taggers/pos/unigram.pickle'  # pylint: disable=C0301
-    else:
-        print('No unigram tagger for this language available.')
-    pickle_path = os.path.expanduser(path_rel)
-    with open(pickle_path, 'rb') as open_pickle:
-        tagger = pickle.load(open_pickle)
-    untagged_tokens = wordpunct_tokenize(untagged_string)
-    tagged_text = tagger.tag(untagged_tokens)
-    return tagged_text
+class POSTag(object):
+    """Tag words' parts-of-speech."""
 
+    def __init__(self: object, language: str):
+        """Setup variables."""
+        self.language = language
+        self.available_taggers = self._setup_language_variables(self.language)
 
-def tag_bigram(untagged_string, language):
-    """Reads language .pickle for right language."""
-    if language == 'greek':
-        path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/bigram.pickle'  # pylint: disable=C0301
-    elif language == 'latin':
-        path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/taggers/pos/bigram.pickle'  # pylint: disable=C0301
-    else:
-        print('No bigram tagger for this language available.')
-    pickle_path = os.path.expanduser(path_rel)
-    with open(pickle_path, 'rb') as open_pickle:
-        tagger = pickle.load(open_pickle)
-    untagged_tokens = wordpunct_tokenize(untagged_string)
-    tagged_text = tagger.tag(untagged_tokens)
-    return tagged_text
+    @staticmethod
+    def _setup_language_variables(lang: str):
+        """Check for language availability and presence of tagger files.
+        :param lang: The language argument given to the class.
+        :type lang: str
+        :rtype : dict
+        """
+        assert lang in TAGGERS.keys(), \
+            'POS tagger not available for %s language.' % lang
+        rel_path = os.path.join('~/cltk_data',
+                                lang,
+                                'trained_model/cltk_linguistic_data/taggers/pos')  # pylint: disable=C0301
+        path = os.path.expanduser(rel_path)
+        tagger_paths = {}
+        for tagger_key, tagger_val in TAGGERS[lang].items():
+            tagger_path = os.path.join(path, tagger_val)
+            assert os.path.isfile(tagger_path), \
+                'CLTK linguistics data not available for %s.' % tagger_val
+            tagger_paths[tagger_key] = tagger_path
+        return tagger_paths
 
+    def tag_unigram(self, untagged_string: str):
+        """Loads unigram tagger pickle file and tags an untagged string.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['unigram']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
 
-def tag_ngram_123_backoff(untagged_string, language):
-    """Reads language .pickle for right language"""
-    if language == 'greek':
-        path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/123grambackoff.pickle'  # pylint: disable=C0301
-    elif language == 'latin':
-        path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/taggers/pos/123grambackoff.pickle'  # pylint: disable=C0301
-    else:
-        print('No n–gram backoff tagger for this language available.')
-    pickle_path = os.path.expanduser(path_rel)
-    with open(pickle_path, 'rb') as open_pickle:
-        tagger = pickle.load(open_pickle)
-    untagged_tokens = wordpunct_tokenize(untagged_string)
-    tagged_text = tagger.tag(untagged_tokens)
-    return tagged_text
+    def tag_bigram(self, untagged_string: str):
+        """Loads bigram tagger pickle file and tags an untagged string.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['bigram']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
 
+    def tag_trigram(self, untagged_string: str):
+        """Loads trigram tagger pickle file and tags an untagged string.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['trigram']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
 
-def tag_trigram(untagged_string, language):
-    """Reads language .pickle for right language"""
-    if language == 'greek':
-        path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/trigram.pickle'  # pylint: disable=C0301
-    elif language == 'latin':
-        path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/taggers/pos/trigram.pickle'  # pylint: disable=C0301
-    else:
-        print('No trigram tagger for this language available.')
-    pickle_path = os.path.expanduser(path_rel)
-    with open(pickle_path, 'rb') as open_pickle:
-        tagger = pickle.load(open_pickle)
-    untagged_tokens = wordpunct_tokenize(untagged_string)
-    tagged_text = tagger.tag(untagged_tokens)
-    return tagged_text
+    def tag_ngram_123_backoff(self, untagged_string: str):
+        """Loads ngram_123_backoff tagger pickle file and tags an untagged
+        string.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['ngram_123_backoff']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
 
-
-def tag_tnt(untagged_string, language):
-    """Reads language .pickle for right language"""
-    if language == 'greek':
-        path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/taggers/pos/tnt.pickle'  # pylint: disable=C0301
-    elif language == 'latin':
-        path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/taggers/pos/tnt.pickle'  # pylint: disable=C0301
-    else:
-        print('No n–gram backoff tagger for this language available.')
-    pickle_path = os.path.expanduser(path_rel)
-    with open(pickle_path, 'rb') as open_pickle:
-        tagger = pickle.load(open_pickle)
-    untagged_tokens = wordpunct_tokenize(untagged_string)
-    tagged_text = tagger.tag(untagged_tokens)
-    return tagged_text
+    def tag_tnt(self, untagged_string: str):
+        """Loads tnt tagger pickle file and tags an untagged string.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['tnt']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
