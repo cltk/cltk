@@ -10,41 +10,52 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
 import sys
 
+PUNCTUATION = {'greek':
+                   {'external': ('.', ';'),
+                    'internal': (',', '·'),
+                    'file': 'greek.pickle', },
+               'latin':
+                   {'external': ('.', '?', ':'),
+                    'internal': (',', ';'),
+                    'file': 'latin.pickle', }}
+
 
 class TokenizeSentence(object):  # pylint: disable=R0903
-    """Tokenize sentences."""
+    """Tokenize sentences for the language given as argument, e.g.,
+    ``TokenizeSentence('greek')``.
+    """
 
     def __init__(self: object, language: str):
-        """Initializer. Should it do anything?
-        :type self: object
+        """Lower incoming language name and assemble variables.
+        :type language: str
         :param language : Language for sentence tokenization.
         """
         self.language = language.lower()
-        self.lang_punct, self.pickle_path = self._setup_variables(self.language)
+        self.internal_punctuation, \
+        self.external_punctuation, \
+        self.tokenizer_path = self._setup_language_variables(self.language)
 
-    def _setup_variables(self, lang):
-        """"Read punctuation details for a language and assemble pickle
+    @staticmethod
+    def _setup_language_variables(lang: str):
+        """Check for language availability and presence of tokenizer file.
+        Read punctuation characters for language and build tokenizer file
         path.
-        TODO: move `punctuation` to somewhere accessible to the rest of the
-        class or module.
+        :param lang: The language argument given to the class.
+        :type lang: str
+        :rtype (str, str, str)
         """
-        rel_path = os.path.join('~/cltk_data', self.language,
+        assert lang in PUNCTUATION.keys(), 'Sentence tokenizer not available for language.'  # pylint: disable=C0301
+        internal_punctuation = PUNCTUATION[lang]['internal']
+        external_punctuation = PUNCTUATION[lang]['external']
+
+        file = PUNCTUATION[lang]['file']
+        rel_path = os.path.join('~/cltk_data',
+                                lang,
                                 'trained_model/cltk_linguistic_data/tokenizers/sentence')  # pylint: disable=C0301
-        punctuation = {'greek':
-                           {'external': ('.', ';'),
-                            'internal': (',', '·'),
-                            'file': 'greek.pickle',},
-                       'latin':
-                           {'external': ('.', '?', ':'),
-                            'internal': (',', ';'),
-                            'file': 'latin.pickle',}}
-        assert lang in punctuation.keys(), 'Sentence tokenizer not available for chosen language.'  # pylint: disable=C0301
-        lang_punct = punctuation[lang]
         path = os.path.expanduser(rel_path)
-        pickle_path = os.path.join(path, lang_punct['file'])
-        return lang_punct, pickle_path
-
-
+        tokenizer_path = os.path.join(path, file)
+        assert os.path.isfile(tokenizer_path), 'CLTK linguistics data not available.'  # pylint: disable=C0301
+        return internal_punctuation, external_punctuation, tokenizer_path
 
     def _setup_tokenizer(self, tokenizer: object):
         """Add tokenizer and punctuation variables.
@@ -53,8 +64,8 @@ class TokenizeSentence(object):  # pylint: disable=R0903
         :rtype : object
         """
         language_punkt_vars = PunktLanguageVars
-        language_punkt_vars.sent_end_chars = self.lang_punct['external']
-        language_punkt_vars.internal_punctuation = self.lang_punct['internal']
+        language_punkt_vars.sent_end_chars = self.external_punctuation
+        language_punkt_vars.internal_punctuation = self.internal_punctuation
         tokenizer.INCLUDE_ALL_COLLOCS = True
         tokenizer.INCLUDE_ABBREV_COLLOCS = True
         params = tokenizer.get_params()
@@ -62,14 +73,13 @@ class TokenizeSentence(object):  # pylint: disable=R0903
 
     def tokenize_sentences(self: object, untokenized_string: str):
         """Reads language tokenizer and invokes ``PunktSentenceTokenizer()``.
-        :type self: object
         :type untokenized_string: str
         :param untokenized_string: A string containing one of more sentences.
         :rtype : str
         """
         assert isinstance(untokenized_string, str), 'Incoming argument must be a string.'  # pylint: disable=C0301
 
-        tokenizer = open_pickle(self.pickle_path)
+        tokenizer = open_pickle(self.tokenizer_path)
         pst = self._setup_tokenizer(tokenizer)
 
         # mk list of tokenized sentences
@@ -85,6 +95,7 @@ def open_pickle(path: str):
     :type path: str
     :param : path: File path to pickle file to be opened.
     :rtype : object
+    TODO: move function to corpus dir
     """
     try:
         with open(path, 'rb') as opened_pickle:
