@@ -7,10 +7,11 @@ import shutil
 import sys
 
 
-def copy_dir_contents(src_path, destination_path):
+def copy_dir_contents(src_path: str, destination_path: str):
     """Copy contents of one directory to another. ``destination_path`` will
     be the name of the new dir and cannot exist.
     :type src_path: str
+    :type destination_path: str
     :param : src_path: Path of dir to be copied.
     :param : destination_path: Path of new dir.
     """
@@ -22,7 +23,7 @@ def copy_dir_contents(src_path, destination_path):
 
 
 def open_pickle(path: str):
-    """Open a pickle and returns pickle object.
+    """Open a pickle and return loaded pickle object.
     :type path: str
     :param : path: File path to pickle file to be opened.
     :rtype : object
