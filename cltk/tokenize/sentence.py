@@ -47,7 +47,7 @@ class TokenizeSentence(object):  # pylint: disable=R0903
         :type lang: str
         :rtype (str, str, str)
         """
-        assert lang in PUNCTUATION.keys(), 'Sentence tokenizer not available for language.'  # pylint: disable=C0301
+        assert lang in PUNCTUATION.keys(), 'Sentence tokenizer not available for %s language.' % lang  # pylint: disable=C0301
         internal_punctuation = PUNCTUATION[lang]['internal']
         external_punctuation = PUNCTUATION[lang]['external']
 
@@ -91,4 +91,3 @@ class TokenizeSentence(object):  # pylint: disable=R0903
                 for sentence
                 in pst.sentences_from_text(untokenized_string,
                                            realign_boundaries=True)]
-
