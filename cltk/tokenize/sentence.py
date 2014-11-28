@@ -3,6 +3,7 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.common.file_operations import open_pickle
 import pickle
 from pickle import PickleError
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -23,6 +24,8 @@ PUNCTUATION = {'greek':
 class TokenizeSentence(object):  # pylint: disable=R0903
     """Tokenize sentences for the language given as argument, e.g.,
     ``TokenizeSentence('greek')``.
+    TODO: Maybe add class arguments for accepting manually declared
+    punctuation characters and pickle path.
     """
 
     def __init__(self: object, language: str):
@@ -89,21 +92,3 @@ class TokenizeSentence(object):  # pylint: disable=R0903
                 in pst.sentences_from_text(untokenized_string,
                                            realign_boundaries=True)]
 
-
-def open_pickle(path: str):
-    """Open a pickle and returns pickle object.
-    :type path: str
-    :param : path: File path to pickle file to be opened.
-    :rtype : object
-    TODO: move function to corpus dir
-    """
-    try:
-        with open(path, 'rb') as opened_pickle:
-            try:
-                return pickle.load(opened_pickle)
-            except PickleError as pickle_error:
-                print(pickle_error)
-                sys.exit(1)
-    except IOError as io_err:
-        print(io_err)
-        sys.exit(1)
