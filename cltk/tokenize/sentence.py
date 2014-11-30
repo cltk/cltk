@@ -18,7 +18,7 @@ PUNCTUATION = {'greek':
                     'file': 'latin.pickle', }}
 
 
-class TokenizeSentence(object):  # pylint: disable=R0903
+class TokenizeSentence():  # pylint: disable=R0903
     """Tokenize sentences for the language given as argument, e.g.,
     ``TokenizeSentence('greek')``.
     TODO: Maybe add class arguments for accepting manually declared

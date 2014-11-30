@@ -23,7 +23,7 @@ TAGGERS = {'greek':
                }}
 
 
-class POSTag(object):
+class POSTag():
     """Tag words' parts-of-speech."""
 
     def __init__(self: object, language: str):
