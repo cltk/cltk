@@ -14,10 +14,8 @@ from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import import_corpus, list_corpora
 from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.stem.latin.stemmer import Stemmer
-#from cltk.tag.pos.pos_tagger import POSTag
-from cltk.tag.pos import tag_unigram, tag_bigram, tag_trigram, tag_ngram_123_backoff, tag_tnt
-#from cltk.tokenize.sentence.tokenize_sentences import TokenizeSentence
-from cltk.tokenize.sentence import tokenize_sentences
+from cltk.tag.pos import POSTag
+from cltk.tokenize.sentence import TokenizeSentence
 import unittest
 from nltk.tokenize.punkt import PunktWordTokenizer
 import os
@@ -26,6 +24,7 @@ import os
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
+    '''
     def setUp(self):
         """Download CLTK linguistic data for tests."""
         greek_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
@@ -114,6 +113,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         rel_path = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
+    '''
 
     '''
     def test_logging(self):
@@ -130,67 +130,79 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     '''
 
     def test_sentence_tokenizer_greek(self):
-        """Tokenizes Greek sentences."""
+        """Test tokenizing Greek sentences."""
         sentences = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.'  # pylint: disable=C0301
         good_tokenized_sentences = ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;', 'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.']  # pylint: disable=C0301
-        tokenized_sentences = tokenize_sentences(sentences, 'greek')
+        t = TokenizeSentence('greek')
+        tokenized_sentences = t.tokenize_sentences(sentences)
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
     def test_sentence_tokenizer_latin(self):
-        """Tokenizes Greek sentences."""
+        """Test tokenizing Latin sentences."""
         sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=C0301
         good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=C0301
-        tokenized_sentences = tokenize_sentences(sentences, 'latin')
+        t = TokenizeSentence('latin')
+        tokenized_sentences = t.tokenize_sentences(sentences)
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
     def test_pos_unigram_greek(self):
-        """POS unigram tag Greek words."""
-        tagged = tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        """Test tagging Greek POS with unigram tagger."""
+        t = POSTag('greek')
+        tagged = t.tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
         self.assertTrue(tagged)
 
     def test_pos_bigram_greek(self):
-        """POS bigram tag Greek words."""
-        tagged = tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        """Test tagging Greek POS with bigram tagger."""
+        t = POSTag('greek')
+        tagged = t.tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
         self.assertTrue(tagged)
 
     def test_pos_trigram_greek(self):
-        """POS trigram tag Greek words."""
-        tagged = tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        """Test tagging Greek POS with trigram tagger."""
+        t = POSTag('greek')
+        tagged = t.tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
         self.assertTrue(tagged)
 
     def test_pos_ngram_123_backoff_tagger_greek(self):
-        """POS 123 ngram backoff tagger Greek words."""
-        tagged = tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        """Test tagging Greek POS with a 1-, 2-, and 3-ngram backoff tagger."""
+        t = POSTag('greek')
+        tagged = t.tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
         self.assertTrue(tagged)
 
     def test_pos_tnt_tagger_greek(self):
-        """POS 123 ngram backoff tagger Greek words."""
-        tagged = tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος', 'greek')
+        """Test tagging Greek POS with TnT tagger."""
+        t = POSTag('greek')
+        tagged = t.tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
         self.assertTrue(tagged)
 
     def test_pos_unigram_latin(self):
-        """POS unigram tag Latin words."""
-        tagged = tag_unigram('Gallia est omnis divisa in partes tres', 'latin')
+        """Test tagging Latin POS with unigram tagger."""
+        t = POSTag('latin')
+        tagged = t.tag_unigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
     def test_pos_bigram_latin(self):
-        """POS bigram tag Latin words."""
-        tagged = tag_bigram('Gallia est omnis divisa in partes tres', 'latin')
+        """Test tagging Latin POS with bigram tagger."""
+        t = POSTag('latin')
+        tagged = t.tag_bigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
     def test_pos_trigram_latin(self):
-        """POS trigram tag Latin words."""
-        tagged = tag_trigram('Gallia est omnis divisa in partes tres', 'latin')
+        """Test tagging Latin POS with trigram tagger."""
+        t = POSTag('latin')
+        tagged = t.tag_trigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
     def test_pos_ngram_123_backoff_tagger_latin(self):
-        """POS 123 ngram backoff tagger Latin words."""
-        tagged = tag_ngram_123_backoff('Gallia est omnis divisa in partes tres', 'latin')
+        """Test tagging Latin POS with a 1-, 2-, and 3-ngram backoff tagger."""
+        t = POSTag('latin')
+        tagged = t.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
     def test_pos_tnt_tagger_latin(self):
-        """POS TNT tagger Latin words."""
-        tagged = tag_tnt('Gallia est omnis divisa in partes tres', 'latin')
+        """Test tagging Latin POS with TnT tagger."""
+        t = POSTag('latin')
+        tagged = t.tag_tnt('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
 
