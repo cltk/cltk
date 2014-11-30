@@ -147,7 +147,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(tagged)
 
     def test_pos_ngram123_tagger_greek(self):
-        """Test tagging Greek POS with a 1-, 2-, and 3-ngram backoff tagger."""
+        """Test tagging Greek POS with a 1-, 2-, and 3-gram backoff tagger."""
         tagger = POSTag('greek')
         tagged = tagger.tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=C0301
         self.assertTrue(tagged)
@@ -177,7 +177,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(tagged)
 
     def test_pos_ngram123_tagger_latin(self):
-        """Test tagging Latin POS with a 1-, 2-, and 3-ngram backoff tagger."""
+        """Test tagging Latin POS with a 1-, 2-, and 3-gram backoff tagger."""
         tagger = POSTag('latin')
         tagged = tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')  # pylint: disable=C0301
         self.assertTrue(tagged)
