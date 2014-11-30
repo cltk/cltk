@@ -3,6 +3,7 @@ Some formatting can happen here, or invoke language-specific formatters in
 other files.
 
 #TODO: Add generic HTML stripper
+#TODO mk class accepting language as argument
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
@@ -31,4 +32,3 @@ def cleanup_tlg_txt(tlg_str):
     tlg_str = re.sub(r'@|%|\x00', '', tlg_str)
     tlg_str = re.sub('—', ' — ', tlg_str)
     return tlg_str
-

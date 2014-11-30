@@ -13,7 +13,6 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus import CLTK_DATA_DIR
 from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
-# from cltk.corpus.cltk_logging import logger
 import errno
 import os
 import requests
