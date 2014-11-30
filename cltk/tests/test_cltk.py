@@ -7,7 +7,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.formatter import cleanup_tlg_txt
 from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
-from cltk.corpus.importer import import_corpus
+from cltk.corpus.importer import Corpus
 from cltk.stem.latin.j_and_v_converter import JVReplacer
 from cltk.stem.latin.stemmer import Stemmer
 from cltk.tag.pos import POSTag
@@ -25,12 +25,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         greek_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
         greek_path = os.path.expanduser(greek_path_rel)
         if not os.path.isdir(greek_path):
-            import_corpus('greek', 'cltk_linguistic_data')
+            corpus_importer = Corpus('greek')
+            corpus_importer.import_corpus('cltk_linguistic_data')
         latin_path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
         latin_path = os.path.expanduser(latin_path_rel)
         if not os.path.isdir(latin_path):
-            import_corpus('latin', 'cltk_linguistic_data')
-
+            corpus_importer = Corpus('latin')
+            corpus_importer.import_corpus('cltk_linguistic_data')
 
     def test_formatter_strip_ascii(self):
         """Test removing all non-ascii characters from a string."""
