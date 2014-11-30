@@ -1,4 +1,4 @@
-"""Tags part of speech (POS)."""
+"""Tag part of speech (POS) using CLTK taggers."""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -53,7 +53,7 @@ class POSTag(object):
         return tagger_paths
 
     def tag_unigram(self, untagged_string: str):
-        """Loads unigram tagger pickle file and tags an untagged string.
+        """Tag POS with unigram tagger.
         :type untagged_string: str
         :param : An untagged, untokenized string of text.
         :rtype tagged_text: str
@@ -65,7 +65,7 @@ class POSTag(object):
         return tagged_text
 
     def tag_bigram(self, untagged_string: str):
-        """Loads bigram tagger pickle file and tags an untagged string.
+        """Tag POS with bigram tagger.
         :type untagged_string: str
         :param : An untagged, untokenized string of text.
         :rtype tagged_text: str
@@ -77,7 +77,7 @@ class POSTag(object):
         return tagged_text
 
     def tag_trigram(self, untagged_string: str):
-        """Loads trigram tagger pickle file and tags an untagged string.
+        """Tag POS with trigram tagger.
         :type untagged_string: str
         :param : An untagged, untokenized string of text.
         :rtype tagged_text: str
@@ -89,8 +89,7 @@ class POSTag(object):
         return tagged_text
 
     def tag_ngram_123_backoff(self, untagged_string: str):
-        """Loads ngram_123_backoff tagger pickle file and tags an untagged
-        string.
+        """Tag POS with 1-, 2-, 3-gram tagger.
         :type untagged_string: str
         :param : An untagged, untokenized string of text.
         :rtype tagged_text: str
@@ -102,7 +101,7 @@ class POSTag(object):
         return tagged_text
 
     def tag_tnt(self, untagged_string: str):
-        """Loads tnt tagger pickle file and tags an untagged string.
+        """Tag POS with TnT tagger.
         :type untagged_string: str
         :param : An untagged, untokenized string of text.
         :rtype tagged_text: str
