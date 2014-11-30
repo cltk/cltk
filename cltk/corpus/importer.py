@@ -1,13 +1,7 @@
-"""CLTK corpus and software importer. Remote `.tar.gz` files are saved in
-`~/cltk_data/originals`, then unpacked into its fitting directory. Indices of
-available corpora are available in, e.g.: `cltk/corpora/greek/corpora.py`.
-
-TODO: refactor, pylint cleanup
-"""
+"""Import CLTK corpora."""
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>',
-]
+              'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus import CLTK_DATA_DIR
@@ -22,201 +16,208 @@ import ssl
 import sys
 from urllib.parse import urlsplit
 
-
-def list_corpora(language):
-    """Print to screen corpora available to the CLTK. Invoke with, e.g.:
-    `list_corpora('latin')`.
-
-    :param language: str
-    """
-    if language == 'greek':
-        corpora = GREEK_CORPORA
-    elif language == 'latin':
-        corpora = LATIN_CORPORA
-    else:
-        pass
-        #logger.info('No corpora available for this language.')
-    #logger.info('Available CLTK corpora for %s:' % language)
-    # [logger.info(corpus['name']) for corpus in corpora]
-    corpora_list = []
-    for corpus in corpora:
-        corpora_list.append(corpus['name'])
-    return corpora_list
+AVAILABLE_LANGUAGES = ['greek', 'latin']
 
 
-def make_dirs(language, corpus_type, corpus_name):
-    """Make directories for an incoming corpus.
-    # TODO: Check if tuple is right return type.
+class Corpus():
+    """Import CLTK corpora."""
 
-    :param language: str
-    :param corpus_type: str
-    :param corpus_name: str
-    :rtype : tuple
-    """
-    home_rel = CLTK_DATA_DIR
-    home = os.path.expanduser(home_rel)
-    # make originals dir for saving downloaded file
-    originals_dir = os.path.join(home, 'originals')
-    if not os.path.isdir(originals_dir):
-        os.makedirs(originals_dir)
-        #logger.info('Wrote directory at: %s' % originals_dir)
-    else:
-        pass
-        #logger.info('Directory already exists at: %s' % originals_dir)
-    # make directories for unpacking downloaded file
-    unpack_dir = os.path.join(home, language, corpus_type, corpus_name)
-    if not os.path.isdir(unpack_dir):
-        os.makedirs(unpack_dir)
-        #logger.info('Wrote directories at: %s' % unpack_dir)
-    else:
-        pass
-        #logger.info('Directories already exist at: %s' % unpack_dir)
-    return originals_dir, unpack_dir
+    def __init__(self, language):
+        self.language = language.lower()
+        self._setup_language_variables()
 
+    def _setup_language_variables(self):
+        """Check for availability of corpora for a language.
+        TODO: Make the selection of available languages dynamic from dirs
+        within ``corpora`` which contain a ``corpora.py`` file.
+        """
+        assert self.language in AVAILABLE_LANGUAGES, \
+            'Corpora not available for %s language.' % self.language
 
-def save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name):
-    """Write downloaded tar object and unpack.
-
-    :param url: str
-    :param downloaded_object: str
-    :param originals_dir: str
-    :param unpack_dir: str
-    :param corpus_name: str
-    """
-    # get filename from URL
-    file_name = urlsplit(url).path.split('/')[-1]
-    file_path_originals = os.path.join(originals_dir, file_name)
-    # save into originals file
-    try:
-        with open(file_path_originals, 'wb') as new_file:
-            new_file.write(downloaded_object.content)
-            #logger.info('Wrote file %s to %s.' % (file_name, originals_dir))
-    except Exception as e:
-        pass
-        #logger.info('Failed to write file %s to %s: %s' % (file_name, originals_dir, e))
-    # unpack into new dir
-    try:
-        shutil.unpack_archive(file_path_originals, unpack_dir)
-        #logger.info('Finished unpacking corpus %s to %s.' % (corpus_name, unpack_dir))
-    except Exception as e:
-        pass
-        #logger.info('Finished unpacking corpus %s to %s: %s' % (corpus_name, unpack_dir, e))
-
-
-def download_file(url, corpus_name):
-    """Download file with SSL.
-
-    :param url: str
-    :param corpus_name: str
-    :rtype : object
-    """
-    #logger.info('Starting download of corpus %s from: %s .' % (corpus_name, url))
-    try:
-        session = requests.Session()
-        session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-        downloaded_object = session.get(url, stream=True)
-        #logger.info('Downloaded file at %s .' % url)
-    except Exception as e:
-        pass
-        #logger.info('Failed to download file at %s : %s' % (url, e))
-    return downloaded_object
-
-
-def download_corpus(language, corpus_type, corpus_name, url):
-    """Download and save incoming data.
-
-    :param language: str
-    :param corpus_type: str
-    :param corpus_name: str
-    :param url: str
-    """
-    downloaded_object = download_file(url, corpus_name)
-    originals_dir, unpack_dir = make_dirs(language, corpus_type, corpus_name)
-    save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name)
-
-
-def copy_dir_recursive(src_rel, dst_rel):
-    """Copy contents of one directory to another. `dst` dir cannot exist.
-    Source: http://stackoverflow.com/a/1994840
-    """
-    src = os.path.expanduser(src_rel)
-    dst = os.path.expanduser(dst_rel)
-    print(src)
-    print(dst)
-    try:
-        shutil.copytree(src, dst)
-        #logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
-    except OSError as exc:
-        if exc.errno == errno.ENOTDIR:
-            shutil.copy(src, dst)
-            #logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+    @property
+    def list_corpora(self):
+        """Show corpora available for the CLTK to download."""
+        if self.language == 'greek':
+            corpora = GREEK_CORPORA
+        elif self.language == 'latin':
+            corpora = LATIN_CORPORA
         else:
-            raise
+            sys.exit(1)
+        corpus_list = []
+        for corpus in corpora:
+            corpus_list.append(corpus['name'])
+        return corpus_list
 
+    def _make_dirs(self, corpus_type, corpus_name):
+        """Make directories for an incoming corpus."""
+        home_rel = CLTK_DATA_DIR
+        home = os.path.expanduser(home_rel)
+        # make originals dir for saving downloaded file
+        originals_dir = os.path.join(home, 'originals')
+        if not os.path.isdir(originals_dir):
+            os.makedirs(originals_dir)
+            print("Wrote directory at '%s'." % originals_dir)
+        else:
+            print("Directory already exists at: '%s'." % originals_dir)
+        # make directories for unpacking downloaded file
+        unpack_dir = os.path.join(home, self.language, corpus_type, corpus_name)
+        if not os.path.isdir(unpack_dir):
+            os.makedirs(unpack_dir)
+            print("Wrote directories at '%s'." % unpack_dir)
+        else:
+            print("Directories already exist at '%s'." % unpack_dir)
+        return originals_dir, unpack_dir
 
-#TODO mk singuler
-def import_corpus(language, corpus_name, path=None):
-    """Download a remote or load local corpus into 'cltk_data'. Invoke with
-    e.g. `import_corpora('latin', 'latin_text_latin_library')` or for local
-    corpora e.g. `import_corpora('latin', 'latin_text_latin_library', '~/Downloads/corpora/TLG_E/')`.
+    @staticmethod
+    def _save_untar(url, dl_object, originals_dir, unpack_dir, corpus_name):
+        """Write downloaded tar object and unpack."""
+        # get filename from URL
+        file_name = urlsplit(url).path.split('/')[-1]
+        file_path_originals = os.path.join(originals_dir, file_name)
+        # save into originals file
+        try:
+            with open(file_path_originals, 'wb') as new_file:
+                new_file.write(dl_object.content)
+                print("Wrote file %s to '%s'." % (file_name, originals_dir))
+        except Exception as except_write:# pylint: disable=W0703
+            print("Failed to write file %s to '%s': %s" %
+                  (file_name, originals_dir, except_write))
+        # unpack into new dir
+        try:
+            shutil.unpack_archive(file_path_originals, unpack_dir)
+            print("Finished unpacking corpus %s to '%s'." %
+                  (corpus_name, unpack_dir))
+        except Exception as except_write:# pylint: disable=W0703
+            print("Finished unpacking corpus %s to '%s': %s" %
+                  (corpus_name, unpack_dir, except_write))
 
-    :param language: str
-    :param corpus_name: str
-    :param path: str
-    """
-    if language == 'greek':
-        corpora = GREEK_CORPORA
-    elif language == 'latin':
-        corpora = LATIN_CORPORA
+    @staticmethod
+    def _download_file(url, corpus_name):
+        """Download file with SSL. Note: SSL GitHub connections require a
+        extra TLSv1 extension to the ``requests`` library's connection."""
+        print("Starting download of corpus %s from: '%s'." % (corpus_name, url))
+        try:
+            session = requests.Session()
+            session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
+            downloaded_object = session.get(url, stream=True)
+            print("Downloaded file at '%s'." % url)
+        except Exception as except_req:  # pylint: disable=W0703
+            print("Failed to download file at '%s': %s" % (url, except_req))
+        return downloaded_object
 
-    corpus_properties = None
-    for corpus in corpora:
-        if corpus['name'] == corpus_name:
-            corpus_properties = corpus
-    if not corpus_properties:
-        print('Corpus %s not available for the %s language.' % (corpus_name, language))
-        sys.exit()
-    location = corpus_properties['location']
-    corpus_type = corpus_properties['type']
-    if location == 'remote':
-        path = corpus_properties['path']
-        download_corpus(language, corpus_type, corpus_name, path)
-    elif location == 'local':
-        print('Incoming path:', path)
-        if not path:
-            print("'path' argument required for local corpora.")
-            sys.exit()
-        if corpus_name in ('phi5', 'phi7', 'tlg'):
-            if corpus_name == 'phi5':
-                if path.endswith('/'):  # normalize path for checking dir
-                    path = path[:-1]
-                if os.path.split(path)[1] != 'PHI5':  # check for right corpus dir
-                    print("Directory must be named 'PHI5'.")
-                    sys.exit()
-            if corpus_name == 'phi7':
-                if path.endswith('/'):  # normalize path for checking dir
-                    path = path[:-1]
-                if os.path.split(path)[1] != 'PHI7':  # check for right corpus dir
-                    print("Directory must be named 'PHI7'.")
-                    sys.exit()
-            if corpus_name == 'tlg':
-                if path.endswith('/'):  # normalize path for checking dir
-                    path = path[:-1]
-                if os.path.split(path)[1] != 'TLG_E':  # check for right corpus dir
-                    print("Directory must be named 'TLG_E'.")
-                    sys.exit()
-            # move the dir-checking commands into a function
-            data_dir = os.path.expanduser(CLTK_DATA_DIR)
-            originals_dir = os.path.join(data_dir, 'originals')
-            # check for `originals` dir; if not present mkdir
-            if not os.path.isdir(originals_dir):
-                os.makedirs(originals_dir)
-                print('Wrote directory at: %s' % originals_dir)
-            tlg_originals_dir = os.path.join(data_dir, 'originals', corpus_name)
-            # check for `originals/<corpus_name>`; if pres, delete
-            if os.path.isdir(tlg_originals_dir):
-                shutil.rmtree(tlg_originals_dir)
-                print('Removed directory at: %s.' % tlg_originals_dir)
-            # copy_dir requires that target
-            if not os.path.isdir(tlg_originals_dir):
-                copy_dir_recursive(path, tlg_originals_dir)
+    def _download_corpus(self, corpus_type, corpus_name, url):
+        """Download and save incoming data.
+        :type corpus_type: str
+        :param corpus_type: Type of corpus to be downloaded.
+        :type corpus_name: str
+        :param corpus_name: Name of corpus to be downloaded.
+        :type url: str
+        :param url: URL from which to fetch ``tar.gz`` file.
+        """
+        downloaded_object = self._download_file(url, corpus_name)
+        originals_dir, unpack_dir = self._make_dirs(corpus_type, corpus_name)
+        self._save_untar(url, downloaded_object, originals_dir, unpack_dir,
+                         corpus_name)
+
+    @staticmethod
+    def _copy_dir_recursive(src_rel, dst_rel):
+        """Copy contents of one directory to another. `dst_rel` dir cannot
+        exist. Source: http://stackoverflow.com/a/1994840
+        :type src_rel: str
+        :param src_rel: Directory to be copied.
+        :type dst_rel: str
+        :param dst_rel: Directory to be created with contents of ``src_rel``.
+        """
+        src = os.path.expanduser(src_rel)
+        dst = os.path.expanduser(dst_rel)
+        try:
+            shutil.copytree(src, dst)
+            print(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+        except OSError as exc:
+            if exc.errno == errno.ENOTDIR:
+                shutil.copy(src, dst)
+                print(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+            else:
+                raise
+
+    def _check_corpus_availability(self, corpus_name):
+        """Check whether a corpus is available for import.
+        :type corpus_name: str
+        :param corpus_name: Name of available corpus.
+        :rtype : str
+        """
+        if self.language == 'greek':
+            corpora = GREEK_CORPORA
+        elif self.language == 'latin':
+            corpora = LATIN_CORPORA
+        corpus_properties = None
+        for corpus in corpora:
+            if corpus['name'] == corpus_name:
+                corpus_properties = corpus
+        if not corpus_properties:
+            print('Corpus %s not available for the %s language.' %
+                  (corpus_name, self.language))
+            sys.exit(1)
+        return corpus_properties
+
+    def import_corpus(self, corpus_name, path=None):  # pylint: disable=R0912
+        """Download a remote or load local corpus into dir ``~/cltk_data``.
+        TODO: Move some if/else logic into own methods.
+        :type corpus_name: str
+        :param corpus_name: The name of an available corpus.
+        :param path: str
+        :param path: A filepath, required when importing local corpora.
+        """
+        corpus_properties = self._check_corpus_availability(corpus_name)
+        location = corpus_properties['location']
+        corpus_type = corpus_properties['type']
+        if location == 'remote':
+            path = corpus_properties['path']
+            self._download_corpus(corpus_type, corpus_name, path)
+        elif location == 'local':
+            print('Incoming path:', path)
+            if not path:
+                print("'path' argument required for local corpora.")
+                sys.exit(1)
+            if corpus_name in ('phi5', 'phi7', 'tlg'):
+                if corpus_name == 'phi5':
+                    # normalize path for checking dir
+                    if path.endswith('/'):
+                        path = path[:-1]
+                    # check for right corpus dir
+                    if os.path.split(path)[1] != 'PHI5':
+                        print("Directory must be named 'PHI5'.")
+                        sys.exit(1)
+                if corpus_name == 'phi7':
+                    # normalize path for checking dir
+                    if path.endswith('/'):
+                        path = path[:-1]
+                    # check for right corpus dir
+                    if os.path.split(path)[1] != 'PHI7':
+                        print("Directory must be named 'PHI7'.")
+                        sys.exit(1)
+                if corpus_name == 'tlg':
+                    # normalize path for checking dir
+                    if path.endswith('/'):
+                        path = path[:-1]
+                    # check for right corpus dir
+                    if os.path.split(path)[1] != 'TLG_E':
+                        print("Directory must be named 'TLG_E'.")
+                        sys.exit(1)
+                # move the dir-checking commands into a function
+                data_dir = os.path.expanduser(CLTK_DATA_DIR)
+                originals_dir = os.path.join(data_dir, 'originals')
+                # check for `originals` dir; if not present mkdir
+                if not os.path.isdir(originals_dir):
+                    os.makedirs(originals_dir)
+                    print("Wrote directory at '%s'." % originals_dir)
+                tlg_originals_dir = os.path.join(data_dir,
+                                                 'originals',
+                                                 corpus_name)
+                # check for `originals/<corpus_name>`; if pres, delete
+                if os.path.isdir(tlg_originals_dir):
+                    shutil.rmtree(tlg_originals_dir)
+                    print("Removed directory at '%s'." % tlg_originals_dir)
+                # copy_dir requires that target
+                if not os.path.isdir(tlg_originals_dir):
+                    self._copy_dir_recursive(path, tlg_originals_dir)
