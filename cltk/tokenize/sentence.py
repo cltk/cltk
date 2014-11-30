@@ -4,12 +4,9 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.common.file_operations import open_pickle
-import pickle
-from pickle import PickleError
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
-import sys
 
 PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
@@ -40,8 +37,8 @@ class TokenizeSentence(object):  # pylint: disable=R0903
 
     @staticmethod
     def _setup_language_variables(lang: str):
-        """Check for language availability and presence of tokenizer file.
-        Read punctuation characters for language and build tokenizer file
+        """Check for language availability and presence of tokenizer file,
+        then read punctuation characters for language and build tokenizer file
         path.
         :param lang: The language argument given to the class.
         :type lang: str
@@ -57,7 +54,7 @@ class TokenizeSentence(object):  # pylint: disable=R0903
                                 'trained_model/cltk_linguistic_data/tokenizers/sentence')  # pylint: disable=C0301
         path = os.path.expanduser(rel_path)
         tokenizer_path = os.path.join(path, file)
-        assert os.path.isfile(tokenizer_path), 'CLTK linguistics data not available.'  # pylint: disable=C0301
+        assert os.path.isfile(tokenizer_path), 'CLTK linguistics data not found for language %s' % lang  # pylint: disable=C0301
         return internal_punctuation, external_punctuation, tokenizer_path
 
     def _setup_tokenizer(self, tokenizer: object):
@@ -75,7 +72,8 @@ class TokenizeSentence(object):  # pylint: disable=R0903
         return PunktSentenceTokenizer(params)
 
     def tokenize_sentences(self: object, untokenized_string: str):
-        """Reads language tokenizer and invokes ``PunktSentenceTokenizer()``.
+        """Tokenize sentences by reading trained tokenizer and invoking
+        ``PunktSentenceTokenizer()``.
         :type untokenized_string: str
         :param untokenized_string: A string containing one of more sentences.
         :rtype : str
@@ -87,6 +85,6 @@ class TokenizeSentence(object):  # pylint: disable=R0903
 
         # mk list of tokenized sentences
         tokenized_sentences = []
-        for sentence in pst.sentences_from_text(untokenized_string, realign_boundaries=True):
+        for sentence in pst.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
             tokenized_sentences.append(sentence)
         return tokenized_sentences
