@@ -155,12 +155,10 @@ Stopword Filtering
 
    In [3]: sentence = 'Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.'
 
-   In [4]: lowered = sentence.lower()
+   In [4]: tokens = PunktWordTokenizer().tokenize(sentence.lower())
 
-   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
-
-   In [6]: [w for w in tokens if not w in STOPS_LIST]
-   Out[6]: 
+   In [5]: [w for w in tokens if not w in STOPS_LIST]
+   Out[5]:
    ['ἅρπαγος',
     'καταστρεψάμενος',
     'ἰωνίην',

@@ -1,5 +1,6 @@
 Latin
 *****
+Note that for most of the following operations, the j/i and v/u replacer (``JVReplacer()``) and ``.lower()`` should be used on the input string first, if necessary.
 
 
 Converting J to I, V to U
@@ -70,9 +71,11 @@ Unigram
 
 .. code-block:: python
 
-   In [1]: from cltk.tag.pos import tag_unigram, tag_bigram, tag_trigram, tag_ngram_123_backoff, tag_tnt
+   In [1]: from cltk.tag.pos import POSTag
 
-   In [3]: tag_unigram('Gallia est omnis divisa in partes tres', 'latin')
+   In [2]: tagger = POSTag('latin')
+
+   In [3]: tagger.tag_unigram('Gallia est omnis divisa in partes tres')
    Out[3]:
    [('Gallia', 'N-S---FB-'),
     ('est', 'V3SPIA---'),
@@ -88,7 +91,7 @@ Bigram
 
 .. code-block:: python
 
-   In [4]: tag_bigram('Gallia est omnis divisa in partes tres', 'latin')
+   In [4]: tagger.tag_bigram('Gallia est omnis divisa in partes tres')
    Out[4]:
    [('Gallia', None),
     ('est', None),
@@ -104,7 +107,7 @@ Trigram
 
 .. code-block:: python
 
-   In [5]: tag_trigram('Gallia est omnis divisa in partes tres', 'latin')
+   In [5]: tagger.tag_trigram('Gallia est omnis divisa in partes tres')
    Out[5]:
    [('Gallia', None),
     ('est', None),
@@ -120,7 +123,7 @@ Trigram
 
 .. code-block:: python
 
-   In [6]: tag_ngram_123_backoff('Gallia est omnis divisa in partes tres', 'latin')
+   In [6]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
    Out[6]:
    [('Gallia', 'N-S---FB-'),
     ('est', 'V3SPIA---'),
@@ -137,7 +140,7 @@ TnT tagger
 
 .. code-block:: python
 
-   In [7]: tag_tnt('Gallia est omnis divisa in partes tres', 'latin')
+   In [7]: tagger.tag_tnt('Gallia est omnis divisa in partes tres')
    Out[7]:
    [('Gallia', 'N-S---FB-'),
     ('est', 'V3SPIA---'),
@@ -155,12 +158,14 @@ To tokenize sentences, you must first `import the CLTK Latin linguistic data <ht
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenize.sentence import tokenize_sentences
+   In [1]: from cltk.tokenize.sentence import TokenizeSentence
 
-   In [2]: untokenized_text = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."
+   In [2]: tokenizer = TokenizeSentence('latin')
 
-   In [3]: tokenize_sentences(untokenized_text, 'latin')
-   Out[3]:
+   In [3]: untokenized_text = 'Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.'
+
+   In [4]: tokenizer.tokenize_sentences(untokenized_text)
+   Out[4]:
    ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.',
     'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']
 
@@ -168,10 +173,8 @@ Stemming
 ========
 The stemmer strips suffixes via an algorithm. It is much faster than the lemmatizer, which uses a replacement list.
 
-Note that the j/i and v/u replacer (``JVReplacer()``) and ``.lower()`` should be used on the input string first, if necessary.
-
 .. code-block:: python
-   
+
    In [1]: from cltk.stem.latin.stem import Stemmer
 
    In [2]: sentence = 'Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum. Maiores nostri sic habuerunt et ita in legibus posiuerunt: furem dupli condemnari, foeneratorem quadrupli. Quanto peiorem ciuem existimarint foeneratorem quam furem, hinc licet existimare. Et uirum bonum quom laudabant, ita laudabant: bonum agricolam bonumque colonum; amplissime laudari existimabatur qui ita laudabatur. Mercatorem autem strenuum studiosumque rei quaerendae existimo, uerum, ut supra dixi, periculosum et calamitosum. At ex agricolis et uiri fortissimi et milites strenuissimi gignuntur, maximeque pius quaestus stabilissimusque consequitur minimeque inuidiosus, minimeque male cogitantes sunt qui in eo studio occupati sunt. Nunc, ut ad rem redeam, quod promisi institutum principium hoc erit.'
@@ -183,7 +186,7 @@ Note that the j/i and v/u replacer (``JVReplacer()``) and ``.lower()`` should be
 
 
 Stopword Filtering
-================
+==================
 
 .. code-block:: python
 
@@ -191,11 +194,9 @@ Stopword Filtering
 
    In [2]: from cltk.stop.latin.stops import STOPS_LIST
 
-   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
+   In [3]: sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
 
-   In [4]: lowered = SENTENCE.lower()
-
-   In [5]: tokens = PunktWordTokenizer().tokenize(lowered)
+   In [5]: tokens = PunktWordTokenizer().tokenize(sentence.lower())
 
    In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]: 
