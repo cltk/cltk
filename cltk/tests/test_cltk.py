@@ -1,4 +1,6 @@
-"""Test the CLTK."""
+"""Test the CLTK.
+TODO: Add tests for all corpora dl.
+"""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'

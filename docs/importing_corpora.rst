@@ -7,6 +7,23 @@ The CLTK works solely out of the local directory ``cltk_data``, which is created
 Greek
 =====
 
+To see available corpora, use the following:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.importer import Corpus
+
+   In [2]: c_importer = Corpus('greek')
+
+   In [3]: c_importer.list_corpora
+   Out[4]:
+   ['tlgu',
+    'greek_text_perseus',
+    'phi7',
+    'tlg',
+    'greek_proper_names',
+    'cltk_linguistic_data']
+
 
 CLTK Linguistic Data, Greek
 ---------------------------
@@ -15,11 +32,11 @@ The CLTK makes available some pre-trained taggers and tokenizers trained on its 
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.common.compiler import Compile
+   In [1]: from cltk.corpus.importer import Corpus
 
-   In [2]: c = Compile()
+   In [2]: c_importer = Corpus('greek')
 
-   In [3]: c.import_corpus('cltk_greek_linguistic_data')
+   In [3]: c_importer.import_corpus('cltk_greek_linguistic_data')
 
 
 CLTK Sentence Tokenizer, Greek
