@@ -4,7 +4,8 @@ python:
   - "3.4"
 
 install:
-  # - pip install https://pypi.python.org/packages/source/c/cltk/cltk-0.0.1.0a.tar.gz
+  # - pip install cltk
+  # Note: requests must be installed before `python setup.py sdist install`.
   - pip install requests
   - python setup.py sdist install
 
