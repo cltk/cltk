@@ -20,7 +20,7 @@ Lemmatization
 
 .. code-block:: python
 
-   In [1]: from cltk.stem.latin.lemmatizer import LemmaReplacer
+   In [1]: from cltk.stem.latin.lemma import LemmaReplacer
 
    In [2]: lemmatizer = LemmaReplacer()
 
@@ -170,7 +170,7 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
 
 .. code-block:: python
    
-   In [1]: from cltk.stem.latin.stemmer import Stemmer
+   In [1]: from cltk.stem.latin.stem import Stemmer
 
    In [2]: from cltk.stem.latin.j_and_v_converter import JVReplacer
 

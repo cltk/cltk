@@ -9,8 +9,8 @@ from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import Corpus
 from cltk.stem.latin.j_and_v_converter import JVReplacer
-from cltk.stem.latin.lemmatizer import LemmaReplacer
-from cltk.stem.latin.stemmer import Stemmer
+from cltk.stem.latin.lemma import LemmaReplacer
+from cltk.stem.latin.stem import Stemmer
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
