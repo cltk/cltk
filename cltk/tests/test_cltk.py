@@ -100,12 +100,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_latin_stemmer(self):
         """Test Latin stemmer."""
-        cato = 'Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit.'  # pylint: disable=C0301
-        j = JVReplacer()
-        iu_cato = j.replace(cato.lower())
+        sentence = 'Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum.'  # pylint: disable=C0301
         stemmer = Stemmer()
-        stemmed_text = stemmer.stem(iu_cato)
-        target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit. '  # pylint: disable=C0301
+        stemmed_text = stemmer.stem(sentence.lower())
+        target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=C0301
         self.assertEqual(stemmed_text, target)
 
     def test_import_ling_data_greek(self):
