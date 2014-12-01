@@ -9,6 +9,7 @@ from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import Corpus
 from cltk.stem.latin.j_and_v_converter import JVReplacer
+from cltk.stem.latin.lemmatizer import LemmaReplacer
 from cltk.stem.latin.stemmer import Stemmer
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
@@ -46,6 +47,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         clean_str = cleanup_tlg_txt(unclean_str)
         valid = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι  χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
         self.assertEqual(clean_str, valid)
+
+    def test_lemmatizer_latin(self):
+        """Test the Latin lemmatizer."""
+        lemmatizer = LemmaReplacer()
+        sentence = 'hominum divomque voluptas'
+        lemmatized = lemmatizer.lemmatize(sentence)
+        target = 'homo divus voluptas'
+        self.assertEqual(lemmatized, target)
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""

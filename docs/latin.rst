@@ -22,12 +22,12 @@ Lemmatization
 
    In [1]: from cltk.stem.latin.lemmatizer import LemmaReplacer
 
-   In [2]: l = LemmaReplacer()
+   In [2]: lemmatizer = LemmaReplacer()
 
-   In [3]: SENTENCE = 'Quo usque tandem abutere, Catilina, patientia nostra?'
+   In [3]: sentence = 'Aeneadum genetrix, hominum divomque voluptas, alma Venus, caeli subter labentia signa quae mare navigerum, quae terras frugiferentis concelebras, per te quoniam genus omne animantum concipitur visitque exortum lumina solis.'
 
-   In [4]: l.lemmatize(SENTENCE)
-   Out[4]: 'Quo usque tandem abutor, Catilina, patior noster?'
+   In [4]: lemmatizer.lemmatize(sentence)
+   Out[4]: 'Aeneadum genetrix, homo divus voluptas, almus Venus1, caelus subter labor1 signum qui1 marum naviger, qui1 terra frugiferens concelebro, per tu quoniam genus1 omnicanus animantum concipio visus2 exortus2 lumen solus1.'
 
 
 Making POS training sets
