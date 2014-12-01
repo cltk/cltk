@@ -5,8 +5,10 @@ python:
 
 install:
   # - pip install https://pypi.python.org/packages/source/c/cltk/cltk-0.0.1.0a.tar.gz
+  - pip install requests
   - python setup.py sdist install
 
 script:
   - cd cltk/tests/
   - python test_cltk.py
+  # TODO: add nose + pylint check
