@@ -4,7 +4,7 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 import re
-from cltk.stem.latin.lemmata_list import REPLACEMENT_PATTERNS
+from cltk.stem.latin.lemma_list import REPLACEMENT_PATTERNS
 
 
 class LemmaReplacer(object):

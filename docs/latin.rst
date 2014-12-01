@@ -8,7 +8,7 @@ Converting J to I, V to U
 
 .. code-block:: python
 
-   In [1]: from cltk.stem.latin.j_and_v_converter import JVReplacer
+   In [1]: from cltk.stem.latin.j_v import JVReplacer
 
    In [2]: j = JVReplacer()
 

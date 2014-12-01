@@ -8,7 +8,7 @@ from cltk.corpus.formatter import cleanup_tlg_txt
 from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import Corpus
-from cltk.stem.latin.j_and_v_converter import JVReplacer
+from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.latin.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
 from cltk.tag.pos import POSTag
