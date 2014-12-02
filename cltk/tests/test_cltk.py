@@ -5,19 +5,19 @@ TODO: Add tests for all corpora dl.
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+import os
+import unittest
 
 from cltk.corpus.formatter import cleanup_tlg_txt
 from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.importer import Corpus
 from cltk.stem.latin.j_v import JVReplacer
-from cltk.stem.latin.lemma import LemmaReplacer
+from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
-import os
-import unittest
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -52,9 +52,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer."""
-        lemmatizer = LemmaReplacer()
+        replacer = LemmaReplacer('latin')
         sentence = 'hominum divomque voluptas'
-        lemmatized = lemmatizer.lemmatize(sentence)
+        lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
 
