@@ -9,7 +9,7 @@ from cltk.stem.latin.lemma_list import REPLACEMENT_PATTERNS
 AVAILABLE_LANGUAGES = ['latin']
 
 
-class LemmaReplacer(object):
+class LemmaReplacer(object):  # pylint: disable=R0903
     """Lemmatize Latin words by replacing input words with corresponding
     values from a replacement list.
     """
