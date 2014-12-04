@@ -1,4 +1,6 @@
-"""Import CLTK corpora."""
+"""Import CLTK corpora.
+TODO: Fix so ``import_corpora()`` can take relative path.
+"""
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
@@ -155,7 +157,7 @@ class Corpus():
             if corpus['name'] == corpus_name:
                 corpus_properties = corpus
         if not corpus_properties:
-            print('Corpus %s not available for the %s language.' %
+            print("Corpus '%s' not available for the '%s' language." %
                   (corpus_name, self.language))
             sys.exit(1)
         return corpus_properties
