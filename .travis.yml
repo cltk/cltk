@@ -7,9 +7,12 @@ install:
   # - pip install cltk
   # Note: requests must be installed before `python setup.py sdist install`.
   - pip install requests
+  # I think this needs to be installed
+  - pip install nose
   - python setup.py sdist install
 
 script:
-  - cd cltk/tests/
-  - python test_cltk.py
+  #- cd cltk/tests/
+  #- python test_cltk.py
   # TODO: add nose + pylint check
+  - nosetests
