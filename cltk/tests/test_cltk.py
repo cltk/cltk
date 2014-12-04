@@ -47,7 +47,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
 
-
     def test_import_perseus_latin_text(self):
         """Test downloading the Perseus Latin text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_perseus/'
@@ -58,6 +57,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'Ammianus')
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
+
+    def test_import_tlgu(self):
+        """Test downloading TLGU."""
+        path_rel = '~/cltk_data/greek/software/tlgu/'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            corpus_importer = Corpus('greek')
+            corpus_importer.import_corpus('tlgu')
+        author_path = os.path.join(path, 'tlgu.h')
+        file = os.path.isfile(author_path)
+        self.assertTrue(file)
 
     def test_formatter_strip_ascii(self):
         """Test removing all non-ascii characters from a string."""
