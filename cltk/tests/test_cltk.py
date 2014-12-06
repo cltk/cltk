@@ -1,4 +1,6 @@
-"""Test the CLTK."""
+"""Test the CLTK.
+TODO: Write test for copy_dir_contents
+"""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -6,6 +8,7 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 import unittest
 
+from cltk.corpus.common.file_operations import open_pickle
 from cltk.corpus.formatter import cleanup_tlg_txt
 from cltk.corpus.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
@@ -34,7 +37,30 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = Corpus('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
-    def test_import_latin_text_latin_library(self):
+    def test_open_pickle(self):
+        """Test opening function pickle."""
+        pickle_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
+        pickle_path = os.path.expanduser(pickle_path_rel)
+        a_pickle = open_pickle(pickle_path)
+        object_type = type(a_pickle)
+        self.assertEqual(object_type, "<class 'nltk.tokenize.punkt.PunktTrainer'>")
+
+    '''
+    def test_copy_dir_contents(self):
+        """Test corpus's recursive directory copy function.
+        TODO: Fix this or the function
+        """
+        src_dir_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
+        src_dir = os.path.expanduser(src_dir_rel)
+        target_dir_rel = '~/cltk_linguistic_data'
+        target_dir = os.path.expanduser(target_dir_rel)
+        copy_dir_contents(src_dir, target_dir)
+        #new_dir = os.path.join(target_dir, 'cltk_linguistic_data')
+        is_dir = os.path.isdir(target_dir)
+        self.assertTrue(is_dir)
+    '''
+
+    def test_import_latin_library(self):
         """Test downloading the Latin Libraray text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
         path = os.path.expanduser(path_rel)
@@ -45,7 +71,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
 
-    def test_import_latin_text_lacus_curtius(self):
+    def test_import_lacus_curtius(self):
         """Test downloading the Lacus_Curtius Latin text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_lacus_curtius/'
         path = os.path.expanduser(path_rel)
@@ -67,7 +93,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
 
-    def test_import_latin_treebank_perseus(self):
+    def test_import_latin_trbnk_perseus(self):
         """Test downloading the Perseus Latin treebank corpus."""
         path_rel = '~/cltk_data/latin/treebank/latin_treebank_perseus/'
         path = os.path.expanduser(path_rel)
@@ -78,7 +104,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         is_file = os.path.isfile(filepath)
         self.assertTrue(is_file)
 
-    def test_import_greek_treebank_perseus(self):
+    def test_import_greek_trbnk_perseus(self):
         """Test downloading the Perseus greek treebank corpus."""
         path_rel = '~/cltk_data/greek/treebank/greek_treebank_perseus/'
         path = os.path.expanduser(path_rel)
