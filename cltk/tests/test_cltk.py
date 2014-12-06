@@ -1,5 +1,21 @@
 """Test the CLTK.
 TODO: Add tests for all corpora dl.
+Latin:
+['latin_text_perseus',
+ 'latin_treebank_perseus',
+ 'latin_text_lacus_curtius',
+ 'latin_text_latin_library',
+ 'phi5',
+ 'phi7',
+ 'latin_proper_names',
+ 'cltk_linguistic_data']
+ Greek:
+ ['',
+ '',
+ 'phi7',
+ 'tlg',
+ 'greek_proper_names',
+ 'cltk_linguistic_data']
 """
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
@@ -45,6 +61,28 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer.import_corpus('greek_text_perseus')
         author_path = os.path.join(path, 'Aeschines')
         author_dir = os.path.isdir(author_path)
+        self.assertTrue(author_dir)
+
+    def test_import_proper_names_greek(self):
+        """Test downloading the Greek proper names corpus."""
+        path_rel = '~/cltk_data/greek/dictionary/greek_proper_names/'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            corpus_importer = Corpus('greek')
+            corpus_importer.import_corpus('greek_proper_names')
+        author_path = os.path.join(path, 'proper_names.txt')
+        filepath = os.path.isfile(author_path)
+        self.assertTrue(filepath)
+
+    def test_import_proper_names_latin(self):
+        """Test downloading the Latin proper names corpus."""
+        path_rel = '~/cltk_data/latin/dictionary/latin_proper_names/'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            corpus_importer = Corpus('latin')
+            corpus_importer.import_corpus('latin_proper_names')
+        filepath = os.path.join(path, 'proper_names.txt')
+        author_dir = os.path.isfile(filepath)
         self.assertTrue(author_dir)
 
     def test_import_perseus_latin_text(self):

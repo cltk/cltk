@@ -35,7 +35,7 @@ GREEK_CORPORA = [
      'name': 'greek_proper_names',
      'location': 'remote',
      'type': 'dictionary',
-     'path': 'https://raw.githubusercontent.com/cltk/greek_proper_names/master/greek_names.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/greek_proper_names/master/greek_proper_names.tar.gz'},  # pylint: disable=C0301
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/cltk_greek_linguistic_data',
      'markup': 'pickle',

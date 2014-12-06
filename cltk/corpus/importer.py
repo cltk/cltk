@@ -90,7 +90,7 @@ class Corpus():
             print("Finished unpacking corpus %s to '%s'." %
                   (corpus_name, unpack_dir))
         except Exception as except_write:# pylint: disable=W0703
-            print("Finished unpacking corpus %s to '%s': %s" %
+            print("Failed to uncompress corpus %s to '%s': %s" %
                   (corpus_name, unpack_dir, except_write))
 
     @staticmethod
