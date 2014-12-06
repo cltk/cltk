@@ -43,6 +43,13 @@ GREEK_CORPORA = [
      'location': 'remote',
      'type': 'trained_model',
      'path': 'https://raw.githubusercontent.com/cltk/cltk_greek_linguistic_data/master/greek.tar.gz'},  # pylint: disable=C0301
+    {'encoding': 'utf-8',
+     'homepage': 'https://github.com/cltk/greek_treebank_perseus',
+     'markup': 'xml',
+     'name': 'greek_treebank_perseus',
+     'location': 'remote',
+     'type': 'treebank',
+     'path': 'https://raw.githubusercontent.com/cltk/greek_treebank_perseus/master/greek_treebank_perseus.tar.gz'},  # pylint: disable=C0301
 ]
 
 
