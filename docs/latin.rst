@@ -19,11 +19,13 @@ Converting J to I, V to U
 Lemmatization
 =============
 
+The lemmatizer requires the CLTK linguistic data (`import instructions here <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_).
+
 .. code-block:: python
 
    In [1]: from cltk.stem.lemma import LemmaReplacer
 
-   In [2]: replacer = Replacer('latin')
+   In [2]: replacer = LemmaReplacer('latin')
 
    In [3]: sentence = 'Aeneadum genetrix, hominum divomque voluptas, alma Venus, caeli subter labentia signa quae mare navigerum, quae terras frugiferentis concelebras, per te quoniam genus omne animantum concipitur visitque exortum lumina solis.'
 
@@ -38,7 +40,7 @@ Making POS training sets
 
    POS tagging is a work in progress. A new tagging dictionary has been created, though a tagger has not yet been written.
 
-First, `obtain the Latin POS tagging files <http://cltk.readthedocs.org/en/latest/import_corpora.html#pos-tagging>`_. The important file here is ``cltk_latin_pos_dict.txt``, which is saved at ``~/cltk_data/compiled/pos_latin``. This file is a Python ``dict`` type which aims to give all possible parts-of-speech for any given form, though this is based off the incomplete Perseus ``latin-analyses.txt``. Thus, there may be gaps in (i) the inflected forms defined and (ii) the comprehensiveness of the analyses of any given form. ``cltk_latin_pos_dict.txt`` looks like:
+First, `obtain the Latin POS tagging files <http://docs.cltk.org/en/latest/importing_corpora.html#pos-tagging>`_. The important file here is ``cltk_latin_pos_dict.txt``, which is saved at ``~/cltk_data/compiled/pos_latin``. This file is a Python ``dict`` type which aims to give all possible parts-of-speech for any given form, though this is based off the incomplete Perseus ``latin-analyses.txt``. Thus, there may be gaps in (i) the inflected forms defined and (ii) the comprehensiveness of the analyses of any given form. ``cltk_latin_pos_dict.txt`` looks like:
 
 .. code-block:: python
 

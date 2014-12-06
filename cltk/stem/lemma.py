@@ -3,8 +3,9 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+import importlib.machinery
+import os
 import re
-from cltk.stem.latin.lemma_list import REPLACEMENT_PATTERNS
 
 AVAILABLE_LANGUAGES = ['latin']
 
@@ -21,13 +22,19 @@ class LemmaReplacer(object):  # pylint: disable=R0903
 
     def _setup_language_variables(self):
         """Check for availability of lemmatizer for a language.
-        TODO: Move ``lemma_list.py`` to CLTK linguistic DL.
+        TODO: Turn 'lemma_list' file a simple csv and importing on the fly.
         """
         assert self.language in AVAILABLE_LANGUAGES, \
             'Corpora not available for %s language.' % self.language
         if self.language == 'latin':
-            patterns = REPLACEMENT_PATTERNS
-        print('Loading lemmata. This may take a minute.')
+            rel_path = os.path.join('~/cltk_data',
+                                    self.language,
+                                    'lemmata/lemma_list.py')
+            path = os.path.expanduser(rel_path)
+            print('Loading lemmata. This may take a minute.')
+            loader = importlib.machinery.SourceFileLoader('lemma_list', path)
+            module = loader.load_module()
+            patterns = module.REPLACEMENT_PATTERNS
         return [(re.compile(regex), repl) for (regex, repl) in patterns]
 
     def lemmatize(self, text):
