@@ -4,14 +4,10 @@ python:
   - "3.4"
 
 install:
-  # - pip install cltk
   # Note: requests must be installed before `python setup.py sdist install`.
   - pip install requests
-  - pip install pylint
-  # I think this needs to be installed
-  - pip install nose
   - python setup.py sdist install
 
 script:
+  - pip install nose
   - nosetests
-  - pylint --errors-only
