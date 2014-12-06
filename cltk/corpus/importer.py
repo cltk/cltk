@@ -1,5 +1,6 @@
 """Import CLTK corpora.
 TODO: Fix so ``import_corpora()`` can take relative path.
+TODO: Add https://github.com/cltk/pos_latin
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',

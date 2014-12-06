@@ -1,10 +1,4 @@
-"""Test the CLTK.
-TODO: Add tests for all corpora dl.
-Latin:
- 'latin_treebank_perseus',
- 'latin_text_lacus_curtius',
- 'latin_text_latin_library',
-"""
+"""Test the CLTK."""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -39,6 +33,28 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         if not os.path.isdir(latin_path):
             corpus_importer = Corpus('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
+
+    def test_import_latin_text_latin_library(self):
+        """Test downloading the Latin Libraray text corpus."""
+        path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            corpus_importer = Corpus('latin')
+            corpus_importer.import_corpus('latin_text_latin_library')
+        author_path = os.path.join(path, 'abelard')
+        author_dir = os.path.isdir(author_path)
+        self.assertTrue(author_dir)
+
+    def test_import_latin_text_lacus_curtius(self):
+        """Test downloading the Lacus_Curtius Latin text corpus."""
+        path_rel = '~/cltk_data/latin/text/latin_text_lacus_curtius/'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            corpus_importer = Corpus('latin')
+            corpus_importer.import_corpus('latin_text_lacus_curtius')
+        author_path = os.path.join(path, 'Aelian')
+        author_dir = os.path.isdir(author_path)
+        self.assertTrue(author_dir)
 
     def test_import_perseus_greek_text(self):
         """Test downloading the Perseus Greek text corpus."""
