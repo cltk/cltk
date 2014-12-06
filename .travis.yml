@@ -12,7 +12,5 @@ install:
   - python setup.py sdist install
 
 script:
-  #- cd cltk/tests/
-  #- python test_cltk.py
-  # TODO: add nose + pylint check
   - nosetests
+  - pylint --errors-only
