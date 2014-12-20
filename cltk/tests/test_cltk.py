@@ -5,9 +5,6 @@ TODO: Write test for copy_dir_contents
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import os
-import unittest
-
 from cltk.corpus.common.file_operations import open_pickle
 from cltk.corpus.formatter import cleanup_tlg_txt
 from cltk.corpus.formatter import remove_non_ascii
@@ -21,6 +18,8 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
+import os
+import unittest
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -39,9 +38,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = Corpus('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
-    def test_corpora_import_list(self):
+    def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
+        corpus_importer = Corpus('greek')
+        available_corpora = corpus_importer.list_corpora
+        self.assertTrue(available_corpora)
 
+    def test_corpora_import_list_latin(self):
+        """Test listing of available corpora."""
+        corpus_importer = Corpus('latin')
+        available_corpora = corpus_importer.list_corpora
+        self.assertTrue(available_corpora)
 
     def test_open_pickle(self):
         """Test opening function pickle."""
