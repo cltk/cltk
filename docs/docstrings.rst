@@ -1,7 +1,5 @@
 CLTK API
 ********
-
-
 .. automodule:: cltk.stem.latin.j_and_v_converter
    :members:
 

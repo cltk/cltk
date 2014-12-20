@@ -4,9 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Classical Language Toolkit's documentation
-======================================================
-
-
+=====================================================
 .. warning::
 
    This is an alpha-stage project. Everything should work as described, but expect breaking changes.
@@ -28,7 +26,6 @@ Contents:
 
 Indices and tables
 ==================
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`

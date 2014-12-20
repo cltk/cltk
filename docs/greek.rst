@@ -1,11 +1,9 @@
 Greek
 *****
 
-
 Converting Beta Code to Unicode
 ===============================
-
-Note that incoming strings need to begin with an ``r`` and that the Beta Code must follow immediately after the intital ``"""``, as in input line 2, below.
+Note that incoming strings need to begin with an ``r`` and that the Beta Code must follow immediately after the initial ``"""``, as in input line 2, below.
 
 .. code-block:: python
 
@@ -19,15 +17,12 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
 
-
 POS tagging
 ===========
-
 To tag parts-of-speech, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-greek>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
 Unigram
 ```````
-
 .. code-block:: python
 
    In [1]: from cltk.tag.pos import POSTag
@@ -50,7 +45,6 @@ Unigram
 
 Bigram
 ``````
-
 .. code-block:: python
 
    In [4]: tagger.tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
@@ -69,7 +63,6 @@ Bigram
 
 Trigram
 ```````
-
 .. code-block:: python
 
    In [5]: tagger.tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
@@ -88,7 +81,6 @@ Trigram
 
 1–2–3–gram backoff tagger
 `````````````````````````
-
 .. code-block:: python
 
    In [6]: tagger.tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
@@ -106,8 +98,7 @@ Trigram
 
 
 TnT tagger
-`````````````````````````
-
+``````````
 .. code-block:: python
 
    In [7]: tagger.tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
@@ -126,7 +117,6 @@ TnT tagger
 
 Sentence Tokenization
 =====================
-
 To tokenize sentences, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-greek>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
 .. code-block:: python
@@ -146,7 +136,6 @@ To tokenize sentences, you must first `import the CLTK Greek linguistic data <ht
 
 Stopword Filtering
 ==================
-
 .. code-block:: python
 
    In [1]: from nltk.tokenize.punkt import PunktWordTokenizer

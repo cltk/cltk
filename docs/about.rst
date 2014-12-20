@@ -1,6 +1,5 @@
 About
 #####
-
 .. warning::
 
    This is an alpha-stage project. Everything should work, but expect breaking changes.

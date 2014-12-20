@@ -5,7 +5,6 @@ Note that for most of the following operations, the j/i and v/u replacer (``JVRe
 
 Converting J to I, V to U
 =========================
-
 .. code-block:: python
 
    In [1]: from cltk.stem.latin.j_v import JVReplacer
@@ -18,7 +17,6 @@ Converting J to I, V to U
 
 Lemmatization
 =============
-
 The lemmatizer requires the CLTK linguistic data (`import instructions here <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_).
 
 .. code-block:: python
@@ -35,7 +33,6 @@ The lemmatizer requires the CLTK linguistic data (`import instructions here <htt
 
 Making POS training sets
 ========================
-
 .. warning::
 
    POS tagging is a work in progress. A new tagging dictionary has been created, though a tagger has not yet been written.
@@ -65,12 +62,10 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 
 POS tagging
 ===========
-
 To tag parts-of-speech, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
 Unigram
 ```````
-
 .. code-block:: python
 
    In [1]: from cltk.tag.pos import POSTag
@@ -90,7 +85,6 @@ Unigram
 
 Bigram
 ``````
-
 .. code-block:: python
 
    In [4]: tagger.tag_bigram('Gallia est omnis divisa in partes tres')
@@ -106,7 +100,6 @@ Bigram
 
 Trigram
 ```````
-
 .. code-block:: python
 
    In [5]: tagger.tag_trigram('Gallia est omnis divisa in partes tres')
@@ -122,7 +115,6 @@ Trigram
 
 1–2–3–gram backoff tagger
 `````````````````````````
-
 .. code-block:: python
 
    In [6]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
@@ -138,8 +130,7 @@ Trigram
 
 
 TnT tagger
-`````````````````````````
-
+``````````
 .. code-block:: python
 
    In [7]: tagger.tag_tnt('Gallia est omnis divisa in partes tres')
@@ -155,7 +146,6 @@ TnT tagger
 
 Sentence Tokenization
 =====================
-
 To tokenize sentences, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 
 .. code-block:: python
@@ -189,7 +179,6 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
 
 Stopword Filtering
 ==================
-
 .. code-block:: python
 
    In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
