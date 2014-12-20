@@ -29,7 +29,7 @@ The lemmatizer requires the CLTK linguistic data (`import instructions here <htt
 
    In [3]: sentence = 'Aeneadum genetrix, hominum divomque voluptas, alma Venus, caeli subter labentia signa quae mare navigerum, quae terras frugiferentis concelebras, per te quoniam genus omne animantum concipitur visitque exortum lumina solis.'
 
-   In [4]: replacer.lemmatize(sentence)
+   In [4]: replacer.lemmatize(sentence.lower())
    Out[4]: 'Aeneadum genetrix, homo divus voluptas, almus Venus1, caelus subter labor1 signum qui1 marum naviger, qui1 terra frugiferens concelebro, per tu quoniam genus1 omnicanus animantum concipio visus2 exortus2 lumen solus1.'
 
 
