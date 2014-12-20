@@ -16,6 +16,8 @@ from cltk.corpus.importer import Corpus
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
+from cltk.stop.greek.stops_unicode import STOPS_LIST as greek_stops
+from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
@@ -36,6 +38,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         if not os.path.isdir(latin_path):
             corpus_importer = Corpus('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
+
+    def test_corpora_import_list(self):
+        """Test listing of available corpora."""
+
 
     def test_open_pickle(self):
         """Test opening function pickle."""
@@ -188,24 +194,22 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_latin_stopwords(self):
         """Test filtering Latin stopwords."""
-        from cltk.stop.latin.stops import STOPS_LIST
         sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
         lowered = sentence.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
-        no_stops = [w for w in tokens if w not in STOPS_LIST]
+        no_stops = [w for w in tokens if w not in latin_stops]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)
 
     def test_greek_stopwords(self):
         """Test filtering Greek stopwords."""
-        from cltk.stop.greek.stops_unicode import STOPS_LIST
         sentence = 'Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην \
         ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ \
         Αἰολέας.'
         lowered = sentence.lower()
         tokens = PunktWordTokenizer().tokenize(lowered)
-        no_stops = [w for w in tokens if w not in STOPS_LIST]
+        no_stops = [w for w in tokens if w not in greek_stops]
         target_list = ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο',
                        'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',',
                        'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας.']
