@@ -1,4 +1,6 @@
-"""Config for PyPI"""
+"""Config for PyPI
+TODO: Confirm whether necessary: 'astroid', 'gnureadline', 'readline',
+"""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -31,7 +33,8 @@ setup(
                       'readline',
                       'requests',
                       'requests-toolbelt',
-                      'numpy', 'cltk'],
+                      'numpy',
+                      'cltk'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',
     long_description="The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.",  # pylint: disable=C0301
