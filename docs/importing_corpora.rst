@@ -5,6 +5,7 @@ The CLTK works solely out of the local directory ``cltk_data``, which is created
 Listing corpora
 ===============
 To see all of the corpora available for importing, use ``list_corpora()``.
+
 .. code-block:: python
 
    In [1]: from cltk.corpus.importer import Corpus
@@ -12,6 +13,7 @@ To see all of the corpora available for importing, use ``list_corpora()``.
    In [2]: corpus_importer = Corpus('greek')
 
    In [3]: corpus_importer.list_corpora
+
    Out[3]:
    ['tlgu',
     'greek_text_perseus',
@@ -24,6 +26,7 @@ To see all of the corpora available for importing, use ``list_corpora()``.
 Importing a corpus
 ==================
 To download a remote corpus, use the following, for example, for the Latin Library.
+
 .. code-block:: python
 
    In [1]: from cltk.corpus.importer import Corpus
@@ -33,6 +36,7 @@ To download a remote corpus, use the following, for example, for the Latin Libra
    In [3]: corpus_importer.import_corpus('latin_text_latin_library')
 
 For a local corpus, such as the TLG, you must give a second argument of the filepath to the corpus, e.g.:
+
 .. code-block:: python
 
    In [4]: corpus_importer.import_corpus('tlg', '~/Documents/corpora/TLG_E/')
