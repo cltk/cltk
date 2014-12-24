@@ -57,21 +57,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         a_pickle = open_pickle(pickle_path)
         self.assertTrue(a_pickle)
 
-    '''
-    def test_copy_dir_contents(self):
-        """Test corpus's recursive directory copy function.
-        TODO: Fix this or the function
-        """
-        src_dir_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
-        src_dir = os.path.expanduser(src_dir_rel)
-        target_dir_rel = '~/cltk_linguistic_data'
-        target_dir = os.path.expanduser(target_dir_rel)
-        copy_dir_contents(src_dir, target_dir)
-        #new_dir = os.path.join(target_dir, 'cltk_linguistic_data')
-        is_dir = os.path.isdir(target_dir)
-        self.assertTrue(is_dir)
-    '''
-
     def test_import_latin_library(self):
         """Test downloading the Latin Libraray text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
