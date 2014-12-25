@@ -4,7 +4,7 @@ import logging
 import logging.config
 import os
 
-home_dir = os.path.expanduser('~/')
+home_dir = os.path.expanduser('~/cltk_data')
 log_path = os.path.join(home_dir, 'cltk.log')
 
 '''

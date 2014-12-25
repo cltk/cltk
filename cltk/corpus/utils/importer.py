@@ -19,7 +19,7 @@ import sys
 from urllib.parse import urlsplit
 
 AVAILABLE_LANGUAGES = ['greek', 'latin']
-CLTK_DATA_DIR = '~/'
+CLTK_DATA_DIR = '~/cltk_data'
 
 
 class CorpusImporter():
