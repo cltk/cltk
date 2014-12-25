@@ -5,11 +5,14 @@ TODO: Write test for copy_dir_contents
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.common.file_operations import open_pickle
-from cltk.corpus.formatter import cleanup_tlg_txt
-from cltk.corpus.formatter import remove_non_ascii
+import os
+import unittest
+
+from cltk.corpus.utils.file_operations import open_pickle
+from cltk.corpus.utils.formatter import cleanup_tlg_txt
+from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.greek.beta_to_unicode import Replacer
-from cltk.corpus.importer import Corpus
+from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
@@ -18,8 +21,6 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktWordTokenizer
-import os
-import unittest
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -30,23 +31,23 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         greek_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
         greek_path = os.path.expanduser(greek_path_rel)
         if not os.path.isdir(greek_path):
-            corpus_importer = Corpus('greek')
+            corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('cltk_linguistic_data')
         latin_path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
         latin_path = os.path.expanduser(latin_path_rel)
         if not os.path.isdir(latin_path):
-            corpus_importer = Corpus('latin')
+            corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
-        corpus_importer = Corpus('greek')
+        corpus_importer = CorpusImporter('greek')
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
     def test_corpora_import_list_latin(self):
         """Test listing of available corpora."""
-        corpus_importer = Corpus('latin')
+        corpus_importer = CorpusImporter('latin')
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
@@ -62,7 +63,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('latin')
+            corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('latin_text_latin_library')
         author_path = os.path.join(path, 'abelard')
         author_dir = os.path.isdir(author_path)
@@ -73,7 +74,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/latin/text/latin_text_lacus_curtius/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('latin')
+            corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('latin_text_lacus_curtius')
         author_path = os.path.join(path, 'Aelian')
         author_dir = os.path.isdir(author_path)
@@ -84,7 +85,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/greek/text/greek_text_perseus/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('greek')
+            corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('greek_text_perseus')
         author_path = os.path.join(path, 'Aeschines')
         author_dir = os.path.isdir(author_path)
@@ -95,7 +96,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/latin/treebank/latin_treebank_perseus/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('latin')
+            corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('latin_treebank_perseus')
         filepath = os.path.join(path, 'unigram.pickle')
         is_file = os.path.isfile(filepath)
@@ -106,7 +107,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/greek/treebank/greek_treebank_perseus/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('greek')
+            corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('greek_treebank_perseus')
         filepath = os.path.join(path, 'unigram.pickle')
         is_file = os.path.isfile(filepath)
@@ -117,7 +118,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/greek/dictionary/greek_proper_names/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('greek')
+            corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('greek_proper_names')
         author_path = os.path.join(path, 'proper_names.txt')
         filepath = os.path.isfile(author_path)
@@ -128,7 +129,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/latin/dictionary/latin_proper_names/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('latin')
+            corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('latin_proper_names')
         filepath = os.path.join(path, 'proper_names.txt')
         author_dir = os.path.isfile(filepath)
@@ -139,7 +140,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/latin/text/latin_text_perseus/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('latin')
+            corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('latin_text_perseus')
         author_path = os.path.join(path, 'Ammianus')
         author_dir = os.path.isdir(author_path)
@@ -150,7 +151,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         path_rel = '~/cltk_data/greek/software/tlgu/'
         path = os.path.expanduser(path_rel)
         if not os.path.isdir(path):
-            corpus_importer = Corpus('greek')
+            corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('tlgu')
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)

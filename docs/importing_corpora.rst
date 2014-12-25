@@ -8,9 +8,9 @@ To see all of the corpora available for importing, use ``list_corpora()``.
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.importer import Corpus
+   In [1]: from cltk.corpus.utils.importer import CorpusImporter
 
-   In [2]: corpus_importer = Corpus('greek')
+   In [2]: corpus_importer = CorpusImporter('greek')
 
    In [3]: corpus_importer.list_corpora
 
@@ -29,9 +29,9 @@ To download a remote corpus, use the following, for example, for the Latin Libra
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.importer import Corpus
+   In [1]: from cltk.corpus.utils.importer import CorpusImporter
 
-   In [2]: corpus_importer = Corpus('latin')
+   In [2]: corpus_importer = CorpusImporter('latin')
 
    In [3]: corpus_importer.import_corpus('latin_text_latin_library')
 

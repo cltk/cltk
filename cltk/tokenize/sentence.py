@@ -3,7 +3,7 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.common.file_operations import open_pickle
+from cltk.corpus.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
