@@ -9,6 +9,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
+from cltk.corpus.utils.cltk_logger import logger
 import errno
 import os
 import requests
@@ -17,6 +18,7 @@ import shutil
 import ssl
 import sys
 from urllib.parse import urlsplit
+
 
 AVAILABLE_LANGUAGES = ['greek', 'latin']
 CLTK_DATA_DIR = '~/cltk_data'
@@ -59,16 +61,16 @@ class CorpusImporter():
         originals_dir = os.path.join(home, 'originals')
         if not os.path.isdir(originals_dir):
             os.makedirs(originals_dir)
-            print("Wrote directory at '%s'." % originals_dir)
+            logger.info("Wrote directory at '%s'." % originals_dir)
         else:
-            print("Directory already exists at: '%s'." % originals_dir)
+            logger.info("Directory already exists at: '%s'." % originals_dir)
         # make directories for unpacking downloaded file
         unpack_dir = os.path.join(home, self.language, corpus_type, corpus_name)
         if not os.path.isdir(unpack_dir):
             os.makedirs(unpack_dir)
-            print("Wrote directories at '%s'." % unpack_dir)
+            logger.info("Wrote directories at '%s'." % unpack_dir)
         else:
-            print("Directories already exist at '%s'." % unpack_dir)
+            logger.info("Directories already exist at '%s'." % unpack_dir)
         return originals_dir, unpack_dir
 
     @staticmethod
@@ -81,31 +83,31 @@ class CorpusImporter():
         try:
             with open(file_path_originals, 'wb') as new_file:
                 new_file.write(dl_object.content)
-                print("Wrote file %s to '%s'." % (file_name, originals_dir))
+                logger.info("Wrote file %s to '%s'." % (file_name, originals_dir))
         except Exception as except_write:# pylint: disable=W0703
-            print("Failed to write file %s to '%s': %s" %
+            logger.error("Failed to write file %s to '%s': %s" %
                   (file_name, originals_dir, except_write))
         # unpack into new dir
         try:
             shutil.unpack_archive(file_path_originals, unpack_dir)
-            print("Finished unpacking corpus %s to '%s'." %
+            logger.info("Finished unpacking corpus %s to '%s'." %
                   (corpus_name, unpack_dir))
         except Exception as except_write:# pylint: disable=W0703
-            print("Failed to uncompress corpus %s to '%s': %s" %
+            logger.error("Failed to uncompress corpus %s to '%s': %s" %
                   (corpus_name, unpack_dir, except_write))
 
     @staticmethod
     def _download_file(url, corpus_name):
         """Download file with SSL. Note: SSL GitHub connections require a
         extra TLSv1 extension to the ``requests`` library's connection."""
-        print("Starting download of corpus %s from: '%s'." % (corpus_name, url))
+        logger.info("Starting download of corpus %s from: '%s'." % (corpus_name, url))
         try:
             session = requests.Session()
             session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
             downloaded_object = session.get(url, stream=True)
-            print("Downloaded file at '%s'." % url)
+            logger.info("Downloaded file at '%s'." % url)
         except Exception as except_req:  # pylint: disable=W0703
-            print("Failed to download file at '%s': %s" % (url, except_req))
+            logger.error("Failed to download file at '%s': %s" % (url, except_req))
         return downloaded_object
 
     def _download_corpus(self, corpus_type, corpus_name, url):
@@ -135,11 +137,11 @@ class CorpusImporter():
         dst = os.path.expanduser(dst_rel)
         try:
             shutil.copytree(src, dst)
-            print(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+            logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
         except OSError as exc:
             if exc.errno == errno.ENOTDIR:
                 shutil.copy(src, dst)
-                print(u'Files copied from {0:s} to {1:s}'.format(src, dst))
+                logger.info(u'Files copied from {0:s} to {1:s}'.format(src, dst))
             else:
                 raise
 
@@ -158,7 +160,7 @@ class CorpusImporter():
             if corpus['name'] == corpus_name:
                 corpus_properties = corpus
         if not corpus_properties:
-            print("Corpus '%s' not available for the '%s' language." %
+            logger.info("Corpus '%s' not available for the '%s' language." %
                   (corpus_name, self.language))
             sys.exit(1)
         return corpus_properties
@@ -178,9 +180,9 @@ class CorpusImporter():
             path = corpus_properties['path']
             self._download_corpus(corpus_type, corpus_name, path)
         elif location == 'local':
-            print('Incoming path:', path)
+            logger.info('Incoming path:', path)
             if not path:
-                print("'path' argument required for local corpora.")
+                logger.info("'path' argument required for local corpora.")
                 sys.exit(1)
             if corpus_name in ('phi5', 'phi7', 'tlg'):
                 if corpus_name == 'phi5':
@@ -189,7 +191,7 @@ class CorpusImporter():
                         path = path[:-1]
                     # check for right corpus dir
                     if os.path.split(path)[1] != 'PHI5':
-                        print("Directory must be named 'PHI5'.")
+                        logger.info("Directory must be named 'PHI5'.")
                         sys.exit(1)
                 if corpus_name == 'phi7':
                     # normalize path for checking dir
@@ -197,7 +199,7 @@ class CorpusImporter():
                         path = path[:-1]
                     # check for right corpus dir
                     if os.path.split(path)[1] != 'PHI7':
-                        print("Directory must be named 'PHI7'.")
+                        logger.info("Directory must be named 'PHI7'.")
                         sys.exit(1)
                 if corpus_name == 'tlg':
                     # normalize path for checking dir
@@ -205,7 +207,7 @@ class CorpusImporter():
                         path = path[:-1]
                     # check for right corpus dir
                     if os.path.split(path)[1] != 'TLG_E':
-                        print("Directory must be named 'TLG_E'.")
+                        logger.info("Directory must be named 'TLG_E'.")
                         sys.exit(1)
                 # move the dir-checking commands into a function
                 data_dir = os.path.expanduser(CLTK_DATA_DIR)
@@ -213,14 +215,14 @@ class CorpusImporter():
                 # check for `originals` dir; if not present mkdir
                 if not os.path.isdir(originals_dir):
                     os.makedirs(originals_dir)
-                    print("Wrote directory at '%s'." % originals_dir)
+                    logger.info("Wrote directory at '%s'." % originals_dir)
                 tlg_originals_dir = os.path.join(data_dir,
                                                  'originals',
                                                  corpus_name)
                 # check for `originals/<corpus_name>`; if pres, delete
                 if os.path.isdir(tlg_originals_dir):
                     shutil.rmtree(tlg_originals_dir)
-                    print("Removed directory at '%s'." % tlg_originals_dir)
+                    logger.info("Removed directory at '%s'." % tlg_originals_dir)
                 # copy_dir requires that target
                 if not os.path.isdir(tlg_originals_dir):
                     self._copy_dir_recursive(path, tlg_originals_dir)

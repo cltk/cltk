@@ -1,53 +1,36 @@
 """CLTK's logging module."""
 
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Stephen Margheim <stephen.margheim@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
+import os
 import logging
 import logging.config
-import os
 
 home_dir = os.path.expanduser('~/cltk_data')
 log_path = os.path.join(home_dir, 'cltk.log')
 
-'''
-LOGGING = {
-    'version': 1,
-    'formatters': {
-        'simple': {
-            'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        },
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'level': 'DEBUG',
-            'formatter': 'simple',
-            'stream': 'ext://sys.stdout',
-        }
-    },
-    'loggers': {
-        'simpleExample': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-            'propagate': 'no',
-        },
-    },
-    'root': {
-        'level': 'DEBUG',
-        'handlers': ['console'],
-    }
-}
+if not os.path.isdir(home_dir):
+    os.mkdir(home_dir)
+else:
+    pass
 
-logging.config.dictConfig(LOGGING)
 logger = logging.getLogger('CLTK')
-logger.debug('A debug message')
-logger.info('A debug message')
-logger.warning('A debug message')
-logger.error('A debug message')
-logger.critical('A debug message')
-'''
+handler = logging.FileHandler(log_path)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
 
-import os
+
+'''
+home_dir = os.path.expanduser('~/cltk_data')
+log_path = os.path.join(home_dir, 'cltk.log')
+
 import logging
 import logging.handlers
+import os
 
 
 class Logger(object):
@@ -79,12 +62,6 @@ class Logger(object):
 
             console = logging.StreamHandler()
 
-            '''
-            fmt = logging.Formatter(
-                '%(asctime)s %(filename)s:%(lineno)s'
-                ' %(levelname)-8s %(message)s',
-                datefmt='%H:%M:%S')
-            '''
             fmt = logging.Formatter('%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s')
 
             logfile.setFormatter(fmt)
@@ -111,3 +88,4 @@ class Logger(object):
 
 # Alias
 logger = Logger().logger
+'''

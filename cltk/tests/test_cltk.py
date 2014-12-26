@@ -317,6 +317,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tagged = tagger.tag_tnt('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
+    def test_logger(self):
+        """Test the CLTK logger."""
+        home_dir = os.path.expanduser('~/cltk_data')
+        log_path = os.path.join(home_dir, 'cltk.log')
+        self.assertTrue(log_path)
+
 
 if __name__ == '__main__':
     unittest.main()
