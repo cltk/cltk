@@ -3,6 +3,7 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.utils.cltk_logger import logger
 import importlib.machinery
 import os
 import re
@@ -31,7 +32,7 @@ class LemmaReplacer(object):  # pylint: disable=R0903
                                     self.language,
                                     'trained_model/cltk_linguistic_data/lemmata/lemma_list.py')  # pylint: disable=C0301
             path = os.path.expanduser(rel_path)
-            print('Loading lemmata. This may take a minute.')
+            logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('lemma_list', path)
             module = loader.load_module()
             patterns = module.REPLACEMENT_PATTERNS

@@ -25,6 +25,10 @@ logger.setLevel(logging.INFO)
 
 
 '''
+I would like to use this but it wasn't writing to file in the tests. Can we
+make it work similar with `from cltk.corpus.utils.cltk_logger import logger`
+and then usual commands like `logger.info('msg')`?
+
 home_dir = os.path.expanduser('~/cltk_data')
 log_path = os.path.join(home_dir, 'cltk.log')
 
