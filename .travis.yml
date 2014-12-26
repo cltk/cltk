@@ -9,5 +9,5 @@ install:
   - python setup.py sdist install
 
 script:
-  # - pip install nose
+  # Note: Travis CI's virtualenv installs `nose`
   - nosetests
