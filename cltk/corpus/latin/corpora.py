@@ -60,11 +60,8 @@ LATIN_CORPORA = [
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/pos_latin',
      'markup': 'python',
-     'name': 'pos_lemma',
+     'name': 'latin_pos',
      'location': 'remote',
      'type': 'lemma',
      'path': 'https://raw.githubusercontent.com/cltk/pos_latin/master/pos_latin.tar.gz'},  # pylint: disable=C0301
 ]
-
-
-
