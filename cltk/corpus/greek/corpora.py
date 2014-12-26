@@ -7,7 +7,7 @@ GREEK_CORPORA = [
      'name': 'tlgu',
      'location': 'remote',
      'type': 'software',
-     'path': 'https://github.com/cltk/tlgu/blob/master/tlgu-1.6.zip?raw=true'},  # pylint: disable=C0301
+     'path': 'https://github.com/cltk/tlgu/blob/master/tlgu-1.6.tar.gz?raw=true'},  # pylint: disable=C0301
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/greek_corpus_perseus',
      'markup': 'tei_xml',

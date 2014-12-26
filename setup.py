@@ -9,7 +9,7 @@ setup(
     author='Kyle P. Johnson',
     author_email='kyle@kyle-p-johnson.com',
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 3 - Alpha',
         'Environment :: Console',
         'Intended Audience :: Education',
         'Intended Audience :: Science/Research',
