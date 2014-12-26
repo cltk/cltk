@@ -1,14 +1,5 @@
 """Wrapper for `tlgu` command line utility
 
-Use methods in importer.py like so:
-
-from cltk.corpus.importer import download_file
-from cltk.corpus.importer import save_untar
-
-downloaded_object = download_file(url, corpus_name)
-originals_dir, unpack_dir = make_dirs(language, corpus_type, corpus_name)
-save_untar(url, downloaded_object, originals_dir, unpack_dir, corpus_name)
-
 TODO: Fully implement this.
 """
 
@@ -17,15 +8,9 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 import os.path
-import requests
 import itertools
-import requests
-from requests_toolbelt import SSLAdapter
-import ssl
 import subprocess
 
-from cltk.corpus import CLTK_DATA_DIR
-#from cltk.cltk.data import cltk_data
 
 ARGS = {
     'book_breaks': '-b',
@@ -49,8 +34,11 @@ ARGS = {
 
 class TLGU(object):
     def __init__(self):
-        self.name = 'tlgu'
-        self.url = 'https://github.com/cltk/tlgu/blob/master/tlgu-1.6.zip?raw=true'
+        """Check if tlgu imported, if not import it.
+        from cltk.corpus.utils.importer import CorpusImporter
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('tlgu')
+        """
 
     @property
     def exe(self):
@@ -79,7 +67,6 @@ class TLGU(object):
                 compile_c = ['gcc', c_path, '-o', 'tlgu']
                 subprocess.check_output(compile_c)
             else:
-                self.download()
                 self.compile()
         else:
             return 'Cannot compile `tlgu` without `gcc`!'
@@ -139,18 +126,6 @@ class TLGU(object):
             return ['-W']
         elif divide_works is False:
             return []
-
-    # mv download and untar logic to importer.py
-    '''
-    def download(self):
-        path = cltk_data.resolve_path(os.path.join(cltk_data.downloads_dir,
-                                                   'tlgu.zip'))
-        r = requests.get(self.url)
-        with open(path, "wb") as code:
-            code.write(r.content)
-        #Unpack to temp dir
-        #Compile
-    '''
 
     def _run_combination_tests(self):
         # TODO: fix paths
