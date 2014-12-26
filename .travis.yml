@@ -9,5 +9,5 @@ install:
   - python setup.py sdist install
 
 script:
-  - pip install nose
+  # - pip install nose
   - nosetests
