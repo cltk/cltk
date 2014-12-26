@@ -7,9 +7,12 @@ __author__ = 'Stephen Margheim <stephen.margheim@gmail.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
-import os.path
+from cltk.corpus.utils.cltk_logger import logger
+from cltk.corpus.utils.importer import CorpusImporter
+import os
 import itertools
 import subprocess
+import sys
 
 
 ARGS = {
@@ -34,43 +37,45 @@ ARGS = {
 
 class TLGU(object):
     def __init__(self):
-        """Check if tlgu imported, if not import it.
-        from cltk.corpus.utils.importer import CorpusImporter
-        corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('tlgu')
-        """
+        """Check whether tlgu is installed, if not, import and install."""
+        self._check_source()
+        self._check_installed()
 
-    @property
-    def exe(self):
-        query = 'kMDItemFSName=tlgu&&kMDItemContentType=public.unix-executable'
-        find_exe = ['mdfind', query]
-        c_path = subprocess.check_output(find_exe)
-        exe_paths = c_path.split(b'\n')
-        if len(exe_paths) > 0:
-            if isinstance(exe_paths[0], bytes):
-                return exe_paths[0].decode('utf-8')
-            if isinstance(exe_paths[0], str):
-                return exe_paths[0]
-        else:
-            self.compile()
-            return self.exe
+    def _check_source(self):
+        """Check if tlgu imported, if not import it."""
+        path_rel = '~/cltk_data/greek/software/tlgu/tlgu.h'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            try:
+                corpus_importer = CorpusImporter('greek')
+                corpus_importer.import_corpus('tlgu')
+            except:
+                logger.error('Failed to import TLGU.')
+                sys.exit(1)
 
-    def compile(self):
-        if subprocess.check_output(['which', 'gcc']):
-            find_c = ['mdfind', 'kMDItemFSName=tlgu.c']
-            c_path = subprocess.check_output(find_c)
-            c_path = c_path.strip()
-            if c_path:
-                # If running in a Virtual Env,
-                # it should create the executable file
-                # at `[venv]/lib/python3.4/site-packages/cltk/tlgu`
-                compile_c = ['gcc', c_path, '-o', 'tlgu']
-                subprocess.check_output(compile_c)
+    def _check_installed(self):
+        """Check if tlgu installed, if not install it."""
+        if not subprocess.check_output(['which', 'tlgu']):
+            logger.info('TLGU not installed.')
+            logger.info('Installing TLGU.')
+            if not subprocess.check_output(['which', 'gcc']):
+                logger.error('GCC seems not to be installed.')
             else:
-                self.compile()
-        else:
-            return 'Cannot compile `tlgu` without `gcc`!'
+                tlgu_path_rel = '~/cltk_data/greek/software/tlgu'
+                tlgu_path = os.path.expanduser(tlgu_path_rel)
+                try:
+                    p_out = subprocess.call('cd %s && make install' % tlgu_path, shell=True)
+                    if p_out == 0:
+                        logger.info('TLGU installed.')
+                    else:
+                        logger.error('TLGU install failed.')
+                        sys.exit(1)
+                except:
+                    logger.error('TLGU install failed.')
+                    sys.exit(1)
 
+
+    '''
     def convert(self, input_path, markup='plain',
                 break_lines=False, divide_works=False,
                 output_path=None, opts=[]):
@@ -138,16 +143,12 @@ class TLGU(object):
                 latin_args = args + ['-r']
                 out_path = out.format(''.join(args).replace('-', ''))
                 self.run(inp, out_path, opts=latin_args)
+    '''
 
-# alias
-tlgu = TLGU()
-
+'''
 if __name__ == '__main__':
-    """
     p = '/Users/smargh/Code/cltk/cltk_data/originals/tlg/LSTSCDCN.DIR'
     o = '/Users/smargh/Code/cltk/cltk_data/tlg_LSTSCDCN.txt'
     out = TLGU(p).convert('plain', True, False, output_path=o)
     print(out.encode('utf-8'))
-    """
-
-    print(tlgu.compile())
+'''
