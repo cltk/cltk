@@ -45,7 +45,7 @@ class TLGU(object):
         """Check if tlgu imported, if not import it."""
         path_rel = '~/cltk_data/greek/software/tlgu/tlgu.h'
         path = os.path.expanduser(path_rel)
-        if not os.path.isdir(path):
+        if not os.path.isfile(path):
             try:
                 corpus_importer = CorpusImporter('greek')
                 corpus_importer.import_corpus('tlgu')
@@ -55,7 +55,9 @@ class TLGU(object):
 
     def _check_installed(self):
         """Check if tlgu installed, if not install it."""
-        if not subprocess.check_output(['which', 'tlgu']):
+        try:
+            subprocess.check_output(['which', 'tlgu'])
+        except:
             logger.info('TLGU not installed.')
             logger.info('Installing TLGU.')
             if not subprocess.check_output(['which', 'gcc']):
