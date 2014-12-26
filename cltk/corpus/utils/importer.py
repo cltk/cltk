@@ -84,17 +84,17 @@ class CorpusImporter():
             with open(file_path_originals, 'wb') as new_file:
                 new_file.write(dl_object.content)
                 logger.info("Wrote file %s to '%s'." % (file_name, originals_dir))
-        except Exception as except_write:# pylint: disable=W0703
+        except Exception as except_write:  # pylint: disable=W0703
             logger.error("Failed to write file %s to '%s': %s" %
-                  (file_name, originals_dir, except_write))
+                         (file_name, originals_dir, except_write))
         # unpack into new dir
         try:
             shutil.unpack_archive(file_path_originals, unpack_dir)
             logger.info("Finished unpacking corpus %s to '%s'." %
-                  (corpus_name, unpack_dir))
-        except Exception as except_write:# pylint: disable=W0703
+                        (corpus_name, unpack_dir))
+        except Exception as except_write:  # pylint: disable=W0703
             logger.error("Failed to uncompress corpus %s to '%s': %s" %
-                  (corpus_name, unpack_dir, except_write))
+                         (corpus_name, unpack_dir, except_write))
 
     @staticmethod
     def _download_file(url, corpus_name):
@@ -108,6 +108,7 @@ class CorpusImporter():
             logger.info("Downloaded file at '%s'." % url)
         except Exception as except_req:  # pylint: disable=W0703
             logger.error("Failed to download file at '%s': %s" % (url, except_req))
+            sys.exit(1)
         return downloaded_object
 
     def _download_corpus(self, corpus_type, corpus_name, url):
@@ -161,7 +162,7 @@ class CorpusImporter():
                 corpus_properties = corpus
         if not corpus_properties:
             logger.info("Corpus '%s' not available for the '%s' language." %
-                  (corpus_name, self.language))
+                        (corpus_name, self.language))
             sys.exit(1)
         return corpus_properties
 
