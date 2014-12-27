@@ -324,7 +324,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(log_path)
 
     def test_tlgu_init(self):
-        """Test constructors of tlgu module for check, import, and install."""
+        """Test constructors of tlgu module for check, import, and install.
+        Note: Non-sudo install fails on Ubuntu:
+        cp -f tlgu /usr/local/bin
+        cp: cannot create regular file `/usr/local/bin/tlgu': Permission denied
+        make: *** [install] Error 1
+        """
         t = TLGU()
         self.assertTrue(t)
 
