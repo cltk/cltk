@@ -73,10 +73,10 @@ class TLGU(object):
                         logger.info('TLGU installed.')
                     else:
                         logger.error('TLGU install failed.')
-                        sys.exit(1)
+                        #sys.exit(1)
                 except:
                     logger.error('TLGU install failed.')
-                    sys.exit(1)
+                    #sys.exit(1)
                 else: #  for Ubunut and others needing root access to '/usr/local/bin'
                     p_out = subprocess.call('cd %s && sudo make install' % tlgu_path, shell=True)
                     if p_out == 0:
