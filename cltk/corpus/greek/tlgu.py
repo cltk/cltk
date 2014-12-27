@@ -38,10 +38,11 @@ ARGS = {
 class TLGU(object):
     def __init__(self):
         """Check whether tlgu is installed, if not, import and install."""
-        self._check_source()
-        self._check_installed()
+        self.check_source()
+        self.check_installed()
 
-    def _check_source(self):
+    @staticmethod
+    def check_source():
         """Check if tlgu imported, if not import it."""
         path_rel = '~/cltk_data/greek/software/tlgu/tlgu.h'
         path = os.path.expanduser(path_rel)
@@ -53,7 +54,8 @@ class TLGU(object):
                 logger.error('Failed to import TLGU.')
                 sys.exit(1)
 
-    def _check_installed(self):
+    @staticmethod
+    def check_installed():
         """Check if tlgu installed, if not install it."""
         try:
             subprocess.check_output(['which', 'tlgu'])
