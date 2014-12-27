@@ -36,6 +36,7 @@ ARGS = {
 
 
 class TLGU(object):
+    """Check, install, and call TLGU."""
     def __init__(self):
         """Check whether tlgu is installed, if not, import and install."""
         self.check_source()
@@ -73,11 +74,9 @@ class TLGU(object):
                         logger.info('TLGU installed.')
                     else:
                         logger.error('TLGU install failed.')
-                        #sys.exit(1)
                 except:
                     logger.error('TLGU install failed.')
-                    #sys.exit(1)
-                else: #  for Ubunut and others needing root access to '/usr/local/bin'
+                else: #  for Ubuntu and others needing root access to '/usr/local/bin'
                     p_out = subprocess.call('cd %s && sudo make install' % tlgu_path, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
@@ -85,10 +84,10 @@ class TLGU(object):
                         logger.error('TLGU install failed.')
                         sys.exit(1)
 
+    '''
     def convert(self, markup='plain', break_lines=False, divide_works=False, opts=[]):
         pass
 
-    '''
     def convert(self, input_path, markup='plain',
                 break_lines=False, divide_works=False,
                 output_path=None, opts=[]):
