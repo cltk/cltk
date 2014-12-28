@@ -27,11 +27,11 @@ ARGS = {
     'line_tab': '-B',
     'higher_levels': '-X',
     'lower_levels': '-Y',
-    'no_spaces': '-N',
+    'no_spaces': '-N', # break_lines
     'citation_debug': '-C',
     'code_debug': '-S',
     'verbose': '-V',
-    'split_works': '-W'
+    'split_works': '-W' #  divide_works
 }
 
 
@@ -73,7 +73,7 @@ class TLGU(object):
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
-                        logger.error('TLGU install failed.')
+                        logger.error('TLGU install without sudo failed.')
                 except:
                     logger.error('TLGU install failed.')
                 else: #  for Ubuntu and others needing root access to '/usr/local/bin'
@@ -81,26 +81,35 @@ class TLGU(object):
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
-                        logger.error('TLGU install failed.')
+                        logger.error('TLGU install with sudo failed.')
                         sys.exit(1)
 
-    '''
-    def convert(self, markup='plain', break_lines=False, divide_works=False, opts=[]):
-        pass
+    def convert(self, markup=None, break_lines=False, divide_works=False, latin=False, misc_args=None):
+        tlgu_options = []
+        if markup=='full':
+            ['v', 'w', 'x', 'y', 'z']
+        if break_lines:
+            tlgu_options.append('N')
+        if divide_works:
+            tlgu_options.append('W')
+        if latin:
+            tlgu_options.append('r')
+        if misc_args is None:
+            misc_args = []
+        else:
+            try:
+                misc_args = eval(misc_args)
+            except:
+                logger.error("Argument 'misc_args' must be a list.")
+                sys.exit(1)
+            [tlgu_options.append(x) for x in misc_args]
+            misc_args = list(set(misc_args))
 
+
+    '''
     def convert(self, input_path, markup='plain',
                 break_lines=False, divide_works=False,
                 output_path=None, opts=[]):
-        options = [self.exe]
-        # Ensure there are no duplicate options
-        poss_opts = list()
-        poss_opts.extend(self._language(output_path))
-        poss_opts.extend(self._markup(markup))
-        poss_opts.extend(self._break_lines(break_lines))
-        poss_opts.extend(self._divide_works(divide_works))
-        if opts != []:
-            poss_opts.extend(opts)
-        options.extend(list(set(poss_opts)))
         # Add input and output paths
         paths = [input_path]
         if output_path:
@@ -115,34 +124,6 @@ class TLGU(object):
         output, err = p.communicate()
         return output.decode('utf-8')
         #return output
-
-    def _language(self, path):
-        if path.endswith('.txt'):
-            if 'tlg' in path:
-                return []
-            else:
-                return ['-r']
-        else:
-            return ['-r']
-
-    def _markup(self, markup):
-        if markup == 'full':
-            return [v for k, v in ARGS.items()
-                    if 'level_' in k]
-        elif markup == 'plain':
-            return []
-
-    def _break_lines(self, break_lines):
-        if break_lines is True:
-            return []
-        elif break_lines is False:
-            return ['-N']
-
-    def _divide_works(self, divide_works):
-        if divide_works is True:
-            return ['-W']
-        elif divide_works is False:
-            return []
 
     def _run_combination_tests(self):
         # TODO: fix paths
