@@ -3,18 +3,18 @@
 TODO: Fully implement this.
 """
 
-__author__ = 'Stephen Margheim <stephen.margheim@gmail.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
 from cltk.corpus.utils.cltk_logger import logger
 from cltk.corpus.utils.importer import CorpusImporter
 import os
-import itertools
 import subprocess
 import sys
 
-
+# this currently not in use
 ARGS = {
     'book_breaks': '-b',
     'page_breaks': '-p',
@@ -27,11 +27,11 @@ ARGS = {
     'line_tab': '-B',
     'higher_levels': '-X',
     'lower_levels': '-Y',
-    'no_spaces': '-N', # break_lines
+    'no_spaces': '-N',  # break_lines
     'citation_debug': '-C',
     'code_debug': '-S',
     'verbose': '-V',
-    'split_works': '-W' #  divide_works
+    'split_works': '-W'
 }
 
 
@@ -39,11 +39,11 @@ class TLGU(object):
     """Check, install, and call TLGU."""
     def __init__(self):
         """Check whether tlgu is installed, if not, import and install."""
-        self.check_source()
-        self.check_installed()
+        self._check_import_source()
+        self._check_install()
 
     @staticmethod
-    def check_source():
+    def _check_import_source():
         """Check if tlgu imported, if not import it."""
         path_rel = '~/cltk_data/greek/software/tlgu/tlgu.h'
         path = os.path.expanduser(path_rel)
@@ -51,17 +51,17 @@ class TLGU(object):
             try:
                 corpus_importer = CorpusImporter('greek')
                 corpus_importer.import_corpus('tlgu')
-            except:
-                logger.error('Failed to import TLGU.')
+            except Exception as exc:
+                logger.error('Failed to import TLGU: %s' % exc)
                 sys.exit(1)
 
     @staticmethod
-    def check_installed():
+    def _check_install():
         """Check if tlgu installed, if not install it."""
         try:
             subprocess.check_output(['which', 'tlgu'])
-        except:
-            logger.info('TLGU not installed.')
+        except Exception as exc:
+            logger.info('TLGU not installed: %s' % exc)
             logger.info('Installing TLGU.')
             if not subprocess.check_output(['which', 'gcc']):
                 logger.error('GCC seems not to be installed.')
@@ -69,79 +69,77 @@ class TLGU(object):
                 tlgu_path_rel = '~/cltk_data/greek/software/tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
                 try:
-                    p_out = subprocess.call('cd %s && make install' % tlgu_path, shell=True)
+                    p_out = subprocess.call('cd %s && make install' %
+                                            tlgu_path, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
                         logger.error('TLGU install without sudo failed.')
-                except:
-                    logger.error('TLGU install failed.')
-                else: #  for Ubuntu and others needing root access to '/usr/local/bin'
-                    p_out = subprocess.call('cd %s && sudo make install' % tlgu_path, shell=True)
+                except Exception as exc:
+                    logger.error('TLGU install failed: %s' % exc)
+                else:  # for Linux needing root access to '/usr/local/bin'
+                    p_out = subprocess.call('cd %s && sudo make install' %
+                                            tlgu_path, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
                         logger.error('TLGU install with sudo failed.')
                         sys.exit(1)
 
-    def convert(self, markup=None, break_lines=False, divide_works=False, latin=False, misc_args=None):
+    @staticmethod
+    def convert(input_path=None, output_path=None, markup=None,
+                break_lines=False, divide_works=False, latin=False,
+                tlgu_args=None):
+        """
+        :param input_path: TLG filepath to convert.
+        :param output_path: filepath of new converted text.
+        :param markup: Specificity of inline markup. Default None removes all
+        numerical markup; 'full' gives most detailed, with reference numbers
+        included before each text line.
+        :param break_lines: No spaces; removes line ends and hyphens before an
+         ID code; hyphens and spaces before page and column ends are retained.
+        :param divide_works: Each work (book) is output as a separate file in
+        the form output_file-xxx.txt; if an output file is not specified, this
+         option has no effect.
+        :param latin: Primarily Latin text (PHI). Some TLG texts, notably
+        doccan1.txt and doccan2.txt are mostly roman texts lacking explicit
+        language change codes. Setting this option will force a change to
+        Latin text after each citation block is encountered.
+        :param tlgu_args: Any other tlgu args to be passed, in list form and
+        without dashes, e.g.: ['p', 'b', 'B'].
+        """
+        # setup file paths
+        input_path = os.path.expanduser(input_path)
+        output_path = os.path.expanduser(output_path)
+        # setup tlgu flags
         tlgu_options = []
-        if markup=='full':
-            ['v', 'w', 'x', 'y', 'z']
+        if markup == 'full':
+            full_args = ['v', 'w', 'x', 'y', 'z']
+            [tlgu_options.append(x) for x in full_args]
         if break_lines:
             tlgu_options.append('N')
         if divide_works:
             tlgu_options.append('W')
         if latin:
             tlgu_options.append('r')
-        if misc_args is None:
-            misc_args = []
+        if tlgu_args is None:
+            tlgu_args = []
         else:
             try:
-                misc_args = eval(misc_args)
-            except:
-                logger.error("Argument 'misc_args' must be a list.")
+                tlgu_args = eval(tlgu_args)
+            except Exception as exc:
+                logger.error("Argument 'tlgu_args' must be a list: %s" % exc)
                 sys.exit(1)
-            [tlgu_options.append(x) for x in misc_args]
-            misc_args = list(set(misc_args))
-
-
-    '''
-    def convert(self, input_path, markup='plain',
-                break_lines=False, divide_works=False,
-                output_path=None, opts=[]):
-        # Add input and output paths
-        paths = [input_path]
-        if output_path:
-            cltk_data.resolve_path(os.path.dirname(output_path))
-            paths = [input_path, output_path]
-        options.extend(paths)
-
-        p = subprocess.Popen(options,
-                             stdin=subprocess.PIPE,
-                             stdout=subprocess.PIPE,
-                             stderr=subprocess.PIPE)
-        output, err = p.communicate()
-        return output.decode('utf-8')
-        #return output
-
-    def _run_combination_tests(self):
-        # TODO: fix paths
-        inp = '/Users/smargh/Code/cltk/cltk_data/originals/phi5/LAT1212.TXT'
-        out = '/Users/smargh/Code/GitHub/tlgu/tlgu_tests/opts_{}'
-        for l in range(len(ARGS.values())):
-            i = itertools.combinations(ARGS.values(), l)
-            for arg in list(i):
-                args = list(arg)
-                latin_args = args + ['-r']
-                out_path = out.format(''.join(args).replace('-', ''))
-                self.run(inp, out_path, opts=latin_args)
-    '''
-
-'''
-if __name__ == '__main__':
-    p = '/Users/smargh/Code/cltk/cltk_data/originals/tlg/LSTSCDCN.DIR'
-    o = '/Users/smargh/Code/cltk/cltk_data/tlg_LSTSCDCN.txt'
-    out = TLGU(p).convert('plain', True, False, output_path=o)
-    print(out.encode('utf-8'))
-'''
+            [tlgu_options.append(x) for x in tlgu_args]
+            tlgu_args = list(set(tlgu_args))
+        tlgu_flags = '-' + ' -'.join(tlgu_args)
+        # make tlgu call
+        tlgu_call = 'tlgu %s %s %s' % (tlgu_flags, input_path, output_path)
+        try:
+            p_out = subprocess.call(tlgu_call, shell=True)
+            if p_out == 1:
+                logger.error('Failed to convert %s to %s.' % (input_path, output_path))
+                sys.exit(1)
+        except Exception as exc:
+            logger.error('Failed to convert %s to %s: %s' % (input_path, output_path, exc))
+            sys.exit(1)
