@@ -324,15 +324,25 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(log_path)
 
     def test_tlgu_init(self):
-        """Test constructors of tlgu module for check, import, and install.
-        Note: Non-sudo install fails on Ubuntu:
-        cp -f tlgu /usr/local/bin
-        cp: cannot create regular file `/usr/local/bin/tlgu': Permission denied
-        make: *** [install] Error 1
-        """
+        """Test constructors of TLGU module for check, import, and install."""
         t = TLGU()
         self.assertTrue(t)
 
+    def test_tlgu_convert(self):
+        """Test TLGU convert.
+        Note: assertEquals fails on some accented characters ('ή', 'ί').
+        TODO: Remove out_test file at end of function.
+        """
+        in_test = os.path.abspath('cltk/tests/tlgu_test_text_beta_code.txt')
+        out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
+        t = TLGU()
+        t.convert(in_test, out_test)
+        with open(out_test) as out_file:
+            new_text = out_file.read()
+        target = """
+βλλον δ' ἀλλλους χαλκρεσιν ἐγχεῃσιν.
+"""
+        self.assertEqual(new_text, target)
 
 if __name__ == '__main__':
     unittest.main()
