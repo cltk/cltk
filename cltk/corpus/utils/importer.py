@@ -156,6 +156,9 @@ class CorpusImporter():
             corpora = GREEK_CORPORA
         elif self.language == 'latin':
             corpora = LATIN_CORPORA
+        else:
+            logger.error('Corpora not available for %s language.' % self.language)
+            sys.exit(1)
         corpus_properties = None
         for corpus in corpora:
             if corpus['name'] == corpus_name:
