@@ -89,7 +89,7 @@ class TLGU(object):
     @staticmethod
     def convert(input_path=None, output_path=None, markup=None,
                 break_lines=False, divide_works=False, latin=False,
-                tlgu_args=None):
+                extra_args=None):
         """
         :param input_path: TLG filepath to convert.
         :param output_path: filepath of new converted text.
@@ -105,7 +105,7 @@ class TLGU(object):
         doccan1.txt and doccan2.txt are mostly roman texts lacking explicit
         language change codes. Setting this option will force a change to
         Latin text after each citation block is encountered.
-        :param tlgu_args: Any other tlgu args to be passed, in list form and
+        :param extra_args: Any other tlgu args to be passed, in list form and
         without dashes, e.g.: ['p', 'b', 'B'].
         """
         # setup file paths
@@ -122,19 +122,25 @@ class TLGU(object):
             tlgu_options.append('W')
         if latin:
             tlgu_options.append('r')
-        if tlgu_args is None:
-            tlgu_args = []
+        # setup extra args
+        if extra_args is None:
+            extra_args = []
         else:
             try:
-                tlgu_args = eval(tlgu_args)
+                extra_args = list(extra_args)
             except Exception as exc:
-                logger.error("Argument 'tlgu_args' must be a list: %s" % exc)
+                logger.error("Argument 'extra_args' must be a list: %s" % exc)
                 sys.exit(1)
-            [tlgu_options.append(x) for x in tlgu_args]
-            tlgu_args = list(set(tlgu_args))
-        tlgu_flags = '-' + ' -'.join(tlgu_args)
+        tlgu_options = tlgu_options + extra_args
+        # assemble all tlgu flags
+        tlgu_options = list(set(tlgu_options))
+        if tlgu_options:
+            tlgu_flags = '-' + ' -'.join(tlgu_options)
+        else:
+            tlgu_flags = ''
         # make tlgu call
         tlgu_call = 'tlgu %s %s %s' % (tlgu_flags, input_path, output_path)
+        logger.info(tlgu_call)
         try:
             p_out = subprocess.call(tlgu_call, shell=True)
             if p_out == 1:
