@@ -331,7 +331,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_tlgu_convert(self):
         """Test TLGU convert.
         Note: assertEquals fails on some accented characters ('ή', 'ί').
-        TODO: Remove out_test file at end of function.
         """
         in_test = os.path.abspath('cltk/tests/tlgu_test_text_beta_code.txt')
         out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
@@ -339,6 +338,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         t.convert(in_test, out_test)
         with open(out_test) as out_file:
             new_text = out_file.read()
+        os.remove(out_test)
         target = """
 βλλον δ' ἀλλλους χαλκρεσιν ἐγχεῃσιν.
 """
