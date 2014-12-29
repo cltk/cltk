@@ -1,6 +1,6 @@
 Latin
 *****
-Note that for most of the following operations, the j/i and v/u replacer (``JVReplacer()``) and ``.lower()`` should be used on the input string first, if necessary.
+Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
 
 
 Converting J to I, V to U
