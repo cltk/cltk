@@ -1,7 +1,8 @@
 Latin
 *****
-Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
+For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``cltk_linguistic_data``).
 
+Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
 
 Converting J to I, V to U
 =========================
@@ -17,18 +18,25 @@ Converting J to I, V to U
 
 Lemmatization
 =============
-The lemmatizer requires the CLTK linguistic data (`import instructions here <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_).
-
 .. code-block:: python
 
    In [1]: from cltk.stem.lemma import LemmaReplacer
 
-   In [2]: replacer = LemmaReplacer('latin')
+   In [2]: from cltk.stem.latin.j_v import JVReplacer
 
    In [3]: sentence = 'Aeneadum genetrix, hominum divomque voluptas, alma Venus, caeli subter labentia signa quae mare navigerum, quae terras frugiferentis concelebras, per te quoniam genus omne animantum concipitur visitque exortum lumina solis.'
 
-   In [4]: replacer.lemmatize(sentence.lower())
-   Out[4]: 'Aeneadum genetrix, homo divus voluptas, almus Venus1, caelus subter labor1 signum qui1 marum naviger, qui1 terra frugiferens concelebro, per tu quoniam genus1 omnicanus animantum concipio visus2 exortus2 lumen solus1.'
+   In [4]: j = JVReplacer()
+
+   In [5]: sentence = j.replace(sentence)
+
+   In [6]: sentence = sentence.lower()
+
+   In [7]: lemmatizer = LemmaReplacer('latin')
+
+   In [8]: lemmatizer.lemmatize(sentence)
+   Out[8]: 'aeneadum genetrix, homo divus voluptas, almus venus2, caelus subter labor1 signum qui1 marum nauigerum, qui1 terra frugiferens concelebro, per tu quoniam genus1 omnicanus animantum concipio uisitque exortus2 lumen solus1.'
+
 
 
 Making POS training sets
@@ -62,7 +70,6 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 
 POS tagging
 ===========
-To tag parts-of-speech, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/latin_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
 Unigram
 ```````
@@ -146,7 +153,7 @@ TnT tagger
 
 Sentence Tokenization
 =====================
-To tokenize sentences, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-latin>`_. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
+For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 
 .. code-block:: python
 

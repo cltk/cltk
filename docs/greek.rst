@@ -1,5 +1,6 @@
 Greek
 *****
+For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``cltk_linguistic_data``).
 
 Converting Beta Code to Unicode
 ===============================
@@ -18,7 +19,6 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 
 Converting TLG and PHI texts with TLGU
 ======================================
-
 .. code-block:: python
 
    In [1]: from cltk.corpus.greek.tlgu import TLGU
@@ -41,7 +41,6 @@ This makes two texts, one for each work by Thucydides in the TLG's index: ``thuc
 
 POS tagging
 ===========
-To tag parts-of-speech, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-greek>`_. The POS tagger is a work in progress, based upon the Perseus treebank. The `CLTK's version of this data is available <https://github.com/cltk/greek_treebank_perseus>`_, along with tagging conventions and instructions on creating your own tagger.
 
 Unigram
 ```````
@@ -139,7 +138,6 @@ TnT tagger
 
 Sentence Tokenization
 =====================
-To tokenize sentences, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html#cltk-linguistic-data-greek>`_. For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
 
 .. code-block:: python
 
