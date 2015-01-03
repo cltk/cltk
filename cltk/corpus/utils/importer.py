@@ -129,6 +129,7 @@ class CorpusImporter():
     def _copy_dir_recursive(src_rel, dst_rel):
         """Copy contents of one directory to another. `dst_rel` dir cannot
         exist. Source: http://stackoverflow.com/a/1994840
+        TODO: Move this to file_operations.py module.
         :type src_rel: str
         :param src_rel: Directory to be copied.
         :type dst_rel: str
