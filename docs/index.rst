@@ -5,11 +5,10 @@
 
 Welcome to Classical Language Toolkit's documentation
 =====================================================
-
 The Classical Language Toolkit (CLTK) offers natural language processing (NLP) support for Classical languages.
 
-Contents:
-
+Contents
+========
 .. toctree::
    :maxdepth: 2
 
