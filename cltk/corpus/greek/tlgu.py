@@ -166,11 +166,15 @@ class TLGU(object):
             tlg_files = os.listdir(orig_path)
         except Exception as exception:
             logger.error("Failed to find an TLG files: %s" % exception)
+            sys.exit(1)
         txts = []
         [txts.append(x) for x in tlg_files if x.endswith('TXT')]
         for txt in txts:
             orig_txt_path = os.path.join(orig_path, txt)
-            target_txt_dir = os.path.join(target_path, 'plaintext')  # make target path changeable based on chose markup
+            if markup is None:
+                target_txt_dir = os.path.join(target_path, 'plaintext')
+            else:
+                target_txt_dir = os.path.join(target_path, str(markup))
             if not os.path.isdir(target_txt_dir):
                 os.makedirs(target_txt_dir)
             target_txt_path = os.path.join(target_txt_dir, txt)
