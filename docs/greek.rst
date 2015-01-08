@@ -39,13 +39,17 @@ This makes two texts, one for each work by Thucydides in the TLG's index: ``thuc
 
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
-Most will probably want to convert the entirety of the TLG, which is done with:
+Most will probably want to convert the entirety of a corpus, which is done with, e.g.:
 
 .. code-block:: python
 
-   In [8]: t.convert_tlg()
+   In [8]: t.convert_corpus(corpus='tlg')
 
-This files which have been imported and put them in ``~/cltk_data/greek/text/tlg/plaintext``.
+This files have been copied and converted from ``~/cltk_data/originals/tlg`` and moved to ``~/cltk_data/greek/text/tlg/plaintext``.
+
+For the ``corpus`` argument of ``convert_corpus()``, the only three valid options are ``phi5, ``phi7``, or ``tlg``. Aside from ``input_path`` and ``output_path``, all of the arguments available to ``convert()`` can be passed to ``convert_corpus()``.
+
+For language, note that for ``corpus='tlg'`` the TLGU's language is set to the default Greek (that is, ``Latin=None``); for ``corpus='phi5'`` it is ``Latin=True``; and for ``phi7`` the default is ``Latin=None``, however you may pass the argument ``Latin=True``. If you call the latter, that is ``convert_corpus(corpus='phi7', latin=True)``, then the files will be copied to ``~/cltk_data/latin``, not ``~/cltk_data/greek``.
 
 POS tagging
 ===========

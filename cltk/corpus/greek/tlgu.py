@@ -151,7 +151,7 @@ class TLGU(object):
             sys.exit(1)
 
     #@staticmethod
-    def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, extra_args=None):
+    def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):
         """Look for imported TLG or PHI files and convert them all to
         ``~/cltk_data/greek/text/tlg/<plaintext>``.
         TODO: Should this and/or convert() be static?
@@ -164,8 +164,12 @@ class TLGU(object):
         if corpus in ['tlg', 'phi5', 'phi7']:
             orig_path = os.path.join(orig_path, corpus)
             if corpus in ['tlg', 'phi7']:
-                target_path = os.path.join(target_path, 'greek', 'text', corpus)
-                latin = None
+                if 'phi7' and latin is True:
+                    latin = True
+                    target_path = os.path.join(target_path, 'latin', 'text', corpus)
+                else:
+                    latin = None
+                    target_path = os.path.join(target_path, 'greek', 'text', corpus)
             else:
                 target_path = os.path.join(target_path, 'latin', 'text', corpus)
                 latin = True
