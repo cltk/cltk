@@ -151,24 +151,36 @@ class TLGU(object):
             sys.exit(1)
 
     #@staticmethod
-    def convert_tlg(self, markup=None, break_lines=False, divide_works=False,
-                    latin=False, extra_args=None):
-        """Look for imported TLG files and convert them all to
+    def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, extra_args=None):
+        """Look for imported TLG or PHI files and convert them all to
         ``~/cltk_data/greek/text/tlg/<plaintext>``.
         TODO: Should this and/or convert() be static?
+        TODO: Add markup options to input.
         """
-        orig_path_rel = '~/cltk_data/originals/tlg'
+        orig_path_rel = '~/cltk_data/originals'
         orig_path = os.path.expanduser(orig_path_rel)
-        target_path_rel = '~/cltk_data/greek/text/tlg'
+        target_path_rel = '~/cltk_data'
         target_path = os.path.expanduser(target_path_rel)
-
+        if corpus in ['tlg', 'phi5', 'phi7']:
+            orig_path = os.path.join(orig_path, corpus)
+            if corpus in ['tlg', 'phi7']:
+                target_path = os.path.join(target_path, 'greek', 'text', corpus)
+                latin = None
+            else:
+                target_path = os.path.join(target_path, 'latin', 'text', corpus)
+                latin = True
+        else:
+            logger.error("Corpus variable must be: 'tlg', 'phi5', or 'phi7'.")
+            sys.exit(0)
         try:
-            tlg_files = os.listdir(orig_path)
+            corpus_files = os.listdir(orig_path)
         except Exception as exception:
             logger.error("Failed to find an TLG files: %s" % exception)
             sys.exit(1)
+        # make a list of files to be converted
         txts = []
-        [txts.append(x) for x in tlg_files if x.endswith('TXT')]
+        [txts.append(x) for x in corpus_files if x.endswith('TXT')]
+        # loop through list and convert one at a time
         for txt in txts:
             orig_txt_path = os.path.join(orig_path, txt)
             if markup is None:
@@ -180,7 +192,7 @@ class TLGU(object):
             target_txt_path = os.path.join(target_txt_dir, txt)
             try:
                 self.convert(orig_txt_path, target_txt_path, markup=None,
-                             break_lines=False, divide_works=False, latin=False,
+                             break_lines=False, divide_works=False, latin=latin,
                              extra_args=None)
             except Exception as exception:
                 logger.error("Failed to convert file '%s' to '%s': %s" % (orig_txt_path, target_txt_path, exception))
