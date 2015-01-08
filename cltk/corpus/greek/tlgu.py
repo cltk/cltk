@@ -86,8 +86,8 @@ class TLGU(object):
                         logger.error('TLGU install with sudo failed.')
                         sys.exit(1)
 
-    @staticmethod
-    def convert(input_path=None, output_path=None, markup=None,
+    #@staticmethod
+    def convert(self, input_path=None, output_path=None, markup=None,
                 break_lines=False, divide_works=False, latin=False,
                 extra_args=None):
         """
@@ -149,3 +149,34 @@ class TLGU(object):
         except Exception as exc:
             logger.error('Failed to convert %s to %s: %s' % (input_path, output_path, exc))
             sys.exit(1)
+
+    #@staticmethod
+    def convert_tlg(self, markup=None, break_lines=False, divide_works=False,
+                    latin=False, extra_args=None):
+        """Look for imported TLG files and convert them all to
+        ``~/cltk_data/greek/text/tlg/<plaintext>``.
+        TODO: Should this and/or convert() be static?
+        """
+        orig_path_rel = '~/cltk_data/originals/tlg'
+        orig_path = os.path.expanduser(orig_path_rel)
+        target_path_rel = '~/cltk_data/greek/text/tlg'
+        target_path = os.path.expanduser(target_path_rel)
+
+        try:
+            tlg_files = os.listdir(orig_path)
+        except Exception as exception:
+            logger.error("Failed to find an TLG files: %s" % exception)
+        txts = []
+        [txts.append(x) for x in tlg_files if x.endswith('TXT')]
+        for txt in txts:
+            orig_txt_path = os.path.join(orig_path, txt)
+            target_txt_dir = os.path.join(target_path, 'plaintext')  # make target path changeable based on chose markup
+            if not os.path.isdir(target_txt_dir):
+                os.makedirs(target_txt_dir)
+            target_txt_path = os.path.join(target_txt_dir, txt)
+            try:
+                self.convert(orig_txt_path, target_txt_path, markup=None,
+                             break_lines=False, divide_works=False, latin=False,
+                             extra_args=None)
+            except Exception as exception:
+                logger.error("Failed to convert file '%s' to '%s': %s" % (orig_txt_path, target_txt_path, exception))

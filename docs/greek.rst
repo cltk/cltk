@@ -39,6 +39,14 @@ This makes two texts, one for each work by Thucydides in the TLG's index: ``thuc
 
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
+Most will probably want to convert the entirety of the TLG, which is done with:
+
+.. code-block:: python
+
+   In [8]: t.convert_tlg()
+
+This files which have been imported and put them in ``~/cltk_data/greek/text/tlg/plaintext``.
+
 POS tagging
 ===========
 
