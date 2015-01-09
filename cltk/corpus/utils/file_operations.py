@@ -1,5 +1,8 @@
 """Miscellaneous file operations used by various parts of the CLTK."""
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 import os
 import pickle
 from pickle import PickleError
