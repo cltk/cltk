@@ -1,6 +1,4 @@
-"""Config for PyPI
-TODO: Confirm whether necessary: 'astroid', 'gnureadline', 'readline',
-"""
+"""Config for PyPI."""
 
 from setuptools import find_packages
 from setuptools import setup
