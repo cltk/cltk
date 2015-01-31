@@ -30,4 +30,4 @@ If you have modified the CLTK source, rebuild the project with this same command
 
 .. code-block:: shell
 
-   $ nosetests
+   $ python cltk/tests/test_cltk.py
