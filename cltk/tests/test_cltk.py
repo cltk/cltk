@@ -329,7 +329,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(t)
 
     def test_tlgu_convert(self):
-        """Test TLGU convert.
+        """Test TLGU convert. This reads the file
+        ``tlgu_test_text_beta_code.txt``, which mimics a TLG file, and
+        converts it.
         Note: assertEquals fails on some accented characters ('ή', 'ί').
         """
         in_test = os.path.abspath('cltk/tests/tlgu_test_text_beta_code.txt')
