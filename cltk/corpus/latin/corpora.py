@@ -21,7 +21,7 @@ LATIN_CORPORA = [
      'name': 'latin_text_lacus_curtius',
      'location': 'remote',
      'type': 'text',
-     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_lacus_curtius/master/lacus_curtius_new.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_lacus_curtius/master/lacus_curtius.tar.gz'},  # pylint: disable=C0301
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_corpus_latin_library',
      'markup': 'plaintext',
