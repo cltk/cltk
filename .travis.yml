@@ -6,8 +6,14 @@ python:
 install:
   # Note: requests must be installed before `python setup.py sdist install`.
   - pip install requests
+  - pip install coveralls
   - python setup.py sdist install
 
 script:
   # Note: Travis CI's virtualenv installs `nose`
   - nosetests
+  # better coverage command?
+  - coverage run --source=cltk cltk/tests/test_cltk.py
+
+after_success:
+  coveralls
