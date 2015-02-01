@@ -11,9 +11,9 @@ install:
 
 script:
   # Note: Travis CI's virtualenv installs `nose`
-  - nosetests
+  # - nosetests
   # better coverage command?
-  - coverage run --source=cltk cltk/tests/test_cltk.py
+  # - coverage run --source=cltk cltk/tests/test_cltk.py
 
-after_success:
-  coveralls
+#after_success:
+#  coveralls
