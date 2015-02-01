@@ -85,4 +85,4 @@ setup(
     test_suite='cltk.tests.test_cltk',
 )
 
-build_contribs_file()
+#build_contribs_file()
