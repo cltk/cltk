@@ -14,6 +14,9 @@ script:
   # - nosetests
   # better coverage command?
   # - coverage run --source=cltk cltk/tests/test_cltk.py
+  # https://github.com/coagulant/coveralls-python#nosetests
+  - nosetests  --with-coverage --cover-package=cltk
 
-#after_success:
-#  coveralls
+# https://github.com/coagulant/coveralls-python#usage-travis-ci
+after_success:
+  - coveralls
