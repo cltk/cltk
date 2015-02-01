@@ -82,6 +82,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(author_dir)
     '''
 
+    '''
     def test_import_perseus_greek_text(self):
         """Test downloading the Perseus Greek text corpus."""
         path_rel = '~/cltk_data/greek/text/greek_text_perseus/'
@@ -92,6 +93,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'Aeschines')
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
+    '''
 
     def test_import_latin_trbnk_perseus(self):
         """Test downloading the Perseus Latin treebank corpus."""
