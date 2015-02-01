@@ -1,7 +1,51 @@
 """Config for PyPI."""
 
+from collections import OrderedDict
+import importlib.machinery
 from setuptools import find_packages
 from setuptools import setup
+import os
+from pprint import pprint
+
+
+def build_contribs_file():
+    """Recursively scan ``cltk`` dir for ``.py`` files and read
+    ``__author__``, then build a dictionary index of
+    'author': [files contributed to], and write it to file.
+    """
+    py_files_list = []
+    for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
+        for name in files:
+            if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
+                py_files_list.append(os.path.join(dir_path, name))
+
+    file_author = {}
+    # get all authors in each file
+    for py_file in py_files_list:
+        loader = importlib.machinery.SourceFileLoader('__author__', py_file)
+        mod = loader.load_module()
+        mod_path = mod.__file__
+
+        # check if author value is a string, turn to list
+        if type(mod.__author__) is str:
+            authors = [mod.__author__]
+        elif type(mod.__author__) is list:
+            authors = mod.__author__
+        else:
+            print('ERROR bad __author__ type: ', mod.__author__, type(mod.__author__))
+
+        # get all authors
+        for author in authors:
+            if author not in file_author:
+                file_author[author] = [mod_path]
+            else:
+                file_author[author].append(mod_path)
+
+    # order dict by contrib's first name
+    file_author_ordered = OrderedDict(sorted(file_author.items()))
+
+    with open('contributors.txt', 'w') as contrib_f:
+        pprint(file_author_ordered, contrib_f)
 
 setup(
     author='Kyle P. Johnson',
@@ -40,3 +84,6 @@ setup(
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )
+
+if __name__ == "__main__":
+    build_contribs_file()
