@@ -9,9 +9,9 @@ install:
   - pip install coveralls
   - python setup.py sdist install
 
-#script:
+script:
   # tmp stub: https://github.com/travis-ci/travis-ci/issues/2870
-  - echo foo
+  - python --version
   # Note: Travis CI's virtualenv installs `nose`
   # - nosetests
   # better coverage command?
