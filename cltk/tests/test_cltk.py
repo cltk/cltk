@@ -58,6 +58,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         a_pickle = open_pickle(pickle_path)
         self.assertTrue(a_pickle)
 
+    '''
     def test_import_latin_library(self):
         """Test downloading the Latin Libraray text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
@@ -68,6 +69,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'abelard')
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
+    '''
 
     '''
     def test_import_lacus_curtius(self):
