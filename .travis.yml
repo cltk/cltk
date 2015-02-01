@@ -16,10 +16,8 @@ script:
   - python --version
   # Note: Travis CI's virtualenv installs `nose`
   # - nosetests
-  # better coverage command?
-  # - coverage run --source=cltk cltk/tests/test_cltk.py
   # https://github.com/coagulant/coveralls-python#nosetests
-  # - nosetests  --with-coverage --cover-package=cltk
+  - nosetests  --with-coverage --cover-package=cltk
 
 # https://github.com/coagulant/coveralls-python#usage-travis-ci
 #after_success: - coveralls
