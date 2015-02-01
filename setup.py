@@ -4,48 +4,94 @@ from collections import OrderedDict
 import importlib.machinery
 from setuptools import find_packages
 from setuptools import setup
+from setuptools.command.install import install
 import os
 from pprint import pprint
 
-
-def build_contribs_file():
-    """Recursively scan ``cltk`` dir for ``.py`` files and read
-    ``__author__``, then build a dictionary index of
-    'author': [files contributed to], and write it to file.
+class CustomInstallCommand(install):
+    """Customized setuptools install command.
+    Source: www.niteoweb.com/blog/setuptools-run-custom-code-during-install
     """
-    py_files_list = []
-    for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
-        for name in files:
-            if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
-                py_files_list.append(os.path.join(dir_path, name))
+    def run(self):
+        print('$$$$$$$' * 100)
+        print("Hello, developer, how are you? :)")
+        py_files_list = []
+        for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
+            for name in files:
+                if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
+                    py_files_list.append(os.path.join(dir_path, name))
+        print(py_files_list)
 
-    file_author = {}
-    # get all authors in each file
-    for py_file in py_files_list:
-        loader = importlib.machinery.SourceFileLoader('__author__', py_file)
-        mod = loader.load_module()
-        mod_path = mod.__file__
+        file_author = {}
+        # get all authors in each file
+        for py_file in py_files_list:
+            loader = importlib.machinery.SourceFileLoader('__author__', py_file)
+            mod = loader.load_module()
+            mod_path = mod.__file__
 
-        # check if author value is a string, turn to list
-        if type(mod.__author__) is str:
-            authors = [mod.__author__]
-        elif type(mod.__author__) is list:
-            authors = mod.__author__
-        else:
-            print('ERROR bad __author__ type: ', mod.__author__, type(mod.__author__))
-
-        # get all authors
-        for author in authors:
-            if author not in file_author:
-                file_author[author] = [mod_path]
+            # check if author value is a string, turn to list
+            if type(mod.__author__) is str:
+                authors = [mod.__author__]
+            elif type(mod.__author__) is list:
+                authors = mod.__author__
             else:
-                file_author[author].append(mod_path)
+                print('ERROR bad __author__ type: ', mod.__author__, type(mod.__author__))
 
-    # order dict by contrib's first name
-    file_author_ordered = OrderedDict(sorted(file_author.items()))
+            # get all authors
+            for author in authors:
+                if author not in file_author:
+                    file_author[author] = [mod_path]
+                else:
+                    file_author[author].append(mod_path)
 
-    with open('contributors.txt', 'w') as contrib_f:
-        pprint(file_author_ordered, contrib_f)
+        # order dict by contrib's first name
+        file_author_ordered = OrderedDict(sorted(file_author.items()))
+
+        with open('contributors.txt', 'w') as contrib_f:
+            pprint(file_author_ordered, contrib_f)
+        install.run(self)
+
+    '''
+    def build_contribs_file(self):
+        """Recursively scan ``cltk`` dir for ``.py`` files and read
+        ``__author__``, then build a dictionary index of
+        'author': [files contributed to], and write it to file.
+        """
+        py_files_list = []
+        for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
+            for name in files:
+                if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
+                    py_files_list.append(os.path.join(dir_path, name))
+
+        file_author = {}
+        # get all authors in each file
+        for py_file in py_files_list:
+            loader = importlib.machinery.SourceFileLoader('__author__', py_file)
+            mod = loader.load_module()
+            mod_path = mod.__file__
+
+            # check if author value is a string, turn to list
+            if type(mod.__author__) is str:
+                authors = [mod.__author__]
+            elif type(mod.__author__) is list:
+                authors = mod.__author__
+            else:
+                print('ERROR bad __author__ type: ', mod.__author__, type(mod.__author__))
+
+            # get all authors
+            for author in authors:
+                if author not in file_author:
+                    file_author[author] = [mod_path]
+                else:
+                    file_author[author].append(mod_path)
+
+        # order dict by contrib's first name
+        file_author_ordered = OrderedDict(sorted(file_author.items()))
+
+        with open('contributors.txt', 'w') as contrib_f:
+            pprint(file_author_ordered, contrib_f)
+        install.build_contribs_file(self)
+    '''
 
 setup(
     author='Kyle P. Johnson',
@@ -68,6 +114,7 @@ setup(
         'Topic :: Text Processing :: Linguistic',
         'Topic :: Utilities',
     ],
+    cmdclass={'install': CustomInstallCommand,},
     description='NLP support for Classical languages.',
     install_requires=['nltk',
                       'requests',
