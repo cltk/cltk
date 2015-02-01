@@ -47,8 +47,6 @@ def build_contribs_file():
     with open('contributors.txt', 'w') as contrib_f:
         pprint(file_author_ordered, contrib_f)
 
-build_contribs_file()
-
 setup(
     author='Kyle P. Johnson',
     author_email='kyle@kyle-p-johnson.com',
@@ -86,3 +84,5 @@ setup(
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )
+
+build_contribs_file()
