@@ -1,12 +1,13 @@
-"""Build a file ``contributors.txt``, an index of contribs and what they've
+"""Build a file ``contributors.md``, an index of contribs and what they've
 helped on. This writes the file to whatever file from which it is run.
 TODO: Print this in Markdown, not an ordered Python dictionary.
 """
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+
 from collections import OrderedDict
 import os
 import importlib.machinery
-from pprint import pprint
 
 
 def build_contribs_file():
@@ -34,6 +35,7 @@ def build_contribs_file():
             authors = mod.__author__
         else:
             print('ERROR: bad __author__ type: ', mod.__author__, type(mod.__author__))
+            continue
 
         # get all authors
         for author in authors:
@@ -45,8 +47,19 @@ def build_contribs_file():
     # order dict by contrib's first name
     file_author_ordered = OrderedDict(sorted(file_author.items()))
 
-    with open('contributors.txt', 'w') as contrib_f:
-        pprint(file_author_ordered, contrib_f)
+    # build string to write to file
+    contrib_str = ''
+    note = 'CLTK authors alphabetically ordered by first name\n\n'
+    contrib_str += note
+    for name, py_files in file_author_ordered.items():
+        author_row = '# %s\n' % name
+        contrib_str += author_row
+        for py_file in py_files:
+            contrib_str = contrib_str + py_file + '\n'
+        contrib_str += '\n'
+    print(contrib_str)
+    with open('contributors.md', 'w') as contrib_md:
+        contrib_md.write(contrib_str)
 
 if __name__ == "__main__":
     build_contribs_file()
