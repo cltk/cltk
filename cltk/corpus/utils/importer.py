@@ -99,7 +99,11 @@ class CorpusImporter():
     @staticmethod
     def _download_file(url, corpus_name):
         """Download file with SSL. Note: SSL GitHub connections require a
-        extra TLSv1 extension to the ``requests`` library's connection."""
+        extra TLSv1 extension to the ``requests`` library's connection.
+        TODO: Maybe up max_retries
+        http://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter
+        http://stackoverflow.com/a/21371922
+        """
         logger.info("Starting download of corpus %s from: '%s'." % (corpus_name, url))
         try:
             session = requests.Session()
