@@ -4,20 +4,16 @@ python:
   - "3.4"
 
 install:
-  # Note: requests must be installed before `python setup.py sdist install`.
+  # Note: On Travis-CI, requests must be installed before `python setup.py sdist install`.
   - pip install requests
   - pip install coveralls
   - python setup.py sdist install
-  # tmp fix for unstable nltk builds
-  # - pip install cltk
 
 script:
-  # tmp stub: https://github.com/travis-ci/travis-ci/issues/2870
-  - python --version
-  # Note: Travis CI's virtualenv installs `nose`
-  # - nosetests
+  # Note: Travis CI's virtualenv pre-installs `nose`
   # https://github.com/coagulant/coveralls-python#nosetests
   - nosetests  --with-coverage --cover-package=cltk
 
 # https://github.com/coagulant/coveralls-python#usage-travis-ci
-#after_success: - coveralls
+after_success:
+ - coveralls
