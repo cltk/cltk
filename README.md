@@ -1,7 +1,7 @@
 The Classical Language Toolkit
 ==============================
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](http://img.shields.io/travis/kylepjohnson/cltk.svg?style=flat)](https://travis-ci.org/kylepjohnson/cltk) [![Code Health](https://landscape.io/github/kylepjohnson/cltk/master/landscape.svg)](https://landscape.io/github/kylepjohnson/cltk/master) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](http://img.shields.io/travis/kylepjohnson/cltk.svg?style=flat)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master)
 
 About 
 -----
