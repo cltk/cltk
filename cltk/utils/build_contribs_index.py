@@ -49,10 +49,10 @@ def build_contribs_file():
 
     # build string to write to file
     contrib_str = ''
-    note = 'CLTK authors alphabetically ordered by first name\n\n'
+    note = '# Contributors\nCLTK authors alphabetically ordered by first name\n\n'
     contrib_str += note
     for name, py_files in file_author_ordered.items():
-        author_row = '# %s\n' % name
+        author_row = '## %s\n' % name
         contrib_str += author_row
         for py_file in py_files:
             contrib_str += py_file + '\n'
