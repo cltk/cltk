@@ -26,7 +26,7 @@ TAGGERS = {'greek':
 class POSTag():
     """Tag words' parts-of-speech."""
 
-    def __init__(self: object, language: str):
+    def __init__(self, language: str):
         """Setup variables."""
         self.language = language
         self.available_taggers = self._setup_language_variables(self.language)
