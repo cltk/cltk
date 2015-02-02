@@ -55,7 +55,7 @@ def build_contribs_file():
         author_row = '# %s\n' % name
         contrib_str += author_row
         for py_file in py_files:
-            contrib_str = contrib_str + py_file + '\n'
+            contrib_str += py_file + '\n'
         contrib_str += '\n'
     print(contrib_str)
     with open('contributors.md', 'w') as contrib_md:
