@@ -12,7 +12,7 @@ install:
 script:
   # Note: Travis CI's virtualenv pre-installs `nose`
   # https://github.com/coagulant/coveralls-python#nosetests
-  - nosetests  --with-coverage --cover-package=cltk
+  - nosetests --no-skip --with-coverage --cover-package=cltk
 
 # https://github.com/coagulant/coveralls-python#usage-travis-ci
 after_success:
