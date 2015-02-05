@@ -5,6 +5,7 @@ TODO: Write test for copy_dir_contents
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.utils.formatter import build_phi5_index
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.file_operations import open_pickle
@@ -68,6 +69,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'abelard')
         author_dir = os.path.isdir(author_path)
         self.assertTrue(author_dir)
+
     def test_import_lacus_curtius(self):
         """Test downloading the Lacus_Curtius Latin text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_lacus_curtius/'
@@ -344,6 +346,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 βλλον δ' ἀλλλους χαλκρεσιν ἐγχεῃσιν.
 """
         self.assertEqual(new_text, target)
+
+    @unittest.skipIf(not os.path.isfile(os.path.expanduser('~/cltk_data/originals/phi5/AUTHTAB.DIR')),
+                     'No PHI5 index file found.')
+    def test_build_phi5_index(self):
+        """Test building PHI5 index if PHI5 corpus available."""
+        index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
+        index_path = os.path.expanduser(index_path_rel)
+        if os.path.isfile(index_path):
+            index = build_phi5_index()
+            self.assertTrue(index)
 
 if __name__ == '__main__':
     unittest.main()

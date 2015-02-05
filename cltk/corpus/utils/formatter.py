@@ -11,8 +11,10 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-# from cltk.corpus.greek.tlgu import tlgu
+from cltk.corpus.utils.cltk_logger import logger
+import os
 import re
+import sys
 
 
 def remove_non_ascii(input_string):
@@ -34,3 +36,35 @@ def cleanup_tlg_txt(tlg_str):
     tlg_str = re.sub(r'@|%|\x00', '', tlg_str)
     tlg_str = re.sub('—', ' — ', tlg_str)
     return tlg_str
+
+
+def build_phi5_index():
+    """Return dict of 362 files in format of {file: author_name}. This has
+    been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
+    TODO: Update this to account for works within each author's file.
+    """
+    index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
+    index_path = os.path.expanduser(index_path_rel)
+    if not os.path.isfile(index_path):
+        logger.info("Failed to locate original PHI5 index at '%s'. Please import PHI5 first." % index_path)
+        sys.exit(1)
+    with open(index_path, 'rb') as f:
+        r = f.read()
+        index_all = r.decode('latin-1').split('\xff')[1:-21]
+        index = [x for x in index_all if x]
+        file_author = {}
+        for x in index:
+            # file name
+            pattern_file = re.compile('LAT[\d].{4}')
+            m = pattern_file.match(x)
+            file_name = m.group()[:-1] + '.TXT'
+
+            # author name
+            author_name = pattern_file.split(x)[-1]
+            pattern_author = re.compile('&1|&l|l$|&|1$|\x83')
+            author_name = pattern_author.sub('', author_name)
+            pattern_comma = re.compile('\x80')
+            author_name = pattern_comma.sub(', ', author_name)
+            file_author[file_name] = author_name
+
+    return file_author
