@@ -68,3 +68,33 @@ def build_phi5_index():
             file_author[file_name] = author_name
 
     return file_author
+
+
+def build_tlg_index():
+    """Return dict of 362 files in format of {file: author_name}. This has
+    been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
+    TODO: Update this to account for works within each author's file.
+    TODO: merge with phi5 build index
+"""
+    index_path_rel = '~/cltk_data/originals/tlg/AUTHTAB.DIR'
+    index_path = os.path.expanduser(index_path_rel)
+    with open(index_path, 'rb') as f:
+        r = f.read()
+        index_all = r.decode('latin-1').split('\xff')[1:-6]  # diff from phi5
+        index = [x for x in index_all if x]
+        file_author = {}
+        for x in index:
+            # file name
+            pattern_file = re.compile('TLG[\d].{4}')
+            m = pattern_file.match(x)
+            file_name = m.group()[:-1] + '.TXT'
+
+            # author name
+            author_name = pattern_file.split(x)[-1]
+            pattern_author = re.compile('&1|&l|l$|&|1$|\x83|\[2|\]2')  # diff from phi5
+            author_name = pattern_author.sub('', author_name)
+            pattern_comma = re.compile('\x80')
+            author_name = pattern_comma.sub(', ', author_name)
+            file_author[file_name] = author_name
+
+    return file_author

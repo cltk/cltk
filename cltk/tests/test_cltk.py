@@ -6,6 +6,7 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.utils.formatter import build_phi5_index
+from cltk.corpus.utils.formatter import build_tlg_index
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.file_operations import open_pickle
@@ -350,11 +351,21 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     @unittest.skipIf(not os.path.isfile(os.path.expanduser('~/cltk_data/originals/phi5/AUTHTAB.DIR')),
                      'No PHI5 index file found.')
     def test_build_phi5_index(self):
-        """Test building PHI5 index if PHI5 corpus available."""
+        """Test building PHI5 index if corpus available."""
         index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
         index_path = os.path.expanduser(index_path_rel)
         if os.path.isfile(index_path):
             index = build_phi5_index()
+            self.assertTrue(index)
+
+    @unittest.skipIf(not os.path.isfile(os.path.expanduser('~/cltk_data/originals/tlg/AUTHTAB.DIR')),
+                     'No TLG index file found.')
+    def test_build_tlg_index(self):
+        """Test building TLG index if corpus available."""
+        index_path_rel = '~/cltk_data/originals/tlg/AUTHTAB.DIR'
+        index_path = os.path.expanduser(index_path_rel)
+        if os.path.isfile(index_path):
+            index = build_tlg_index()
             self.assertTrue(index)
 
 if __name__ == '__main__':
