@@ -38,12 +38,11 @@ def cleanup_tlg_txt(tlg_str):
     return tlg_str
 
 
-def build_phi5_index():
+def build_phi5_index(index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'):
     """Return dict of 362 files in format of {file: author_name}. This has
     been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
     TODO: Update this to account for works within each author's file.
     """
-    index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
     index_path = os.path.expanduser(index_path_rel)
     if not os.path.isfile(index_path):
         logger.info("Failed to locate original PHI5 index at '%s'. Please import PHI5 first." % index_path)
@@ -70,13 +69,12 @@ def build_phi5_index():
     return file_author
 
 
-def build_tlg_index():
+def build_tlg_index(index_path_rel='~/cltk_data/originals/tlg/AUTHTAB.DIR'):
     """Return dict of 362 files in format of {file: author_name}. This has
     been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
     TODO: Update this to account for works within each author's file.
     TODO: merge with phi5 build index
 """
-    index_path_rel = '~/cltk_data/originals/tlg/AUTHTAB.DIR'
     index_path = os.path.expanduser(index_path_rel)
     with open(index_path, 'rb') as f:
         r = f.read()

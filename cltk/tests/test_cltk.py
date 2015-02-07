@@ -327,8 +327,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
-        t = TLGU()
-        self.assertTrue(t)
+        tlgu = TLGU()
+        self.assertTrue(tlgu)
 
     def test_tlgu_convert(self):
         """Test TLGU convert. This reads the file
@@ -338,8 +338,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         in_test = os.path.abspath('cltk/tests/tlgu_test_text_beta_code.txt')
         out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
-        t = TLGU()
-        t.convert(in_test, out_test)
+        tlgu = TLGU()
+        tlgu.convert(in_test, out_test)
         with open(out_test) as out_file:
             new_text = out_file.read()
         os.remove(out_test)
@@ -348,25 +348,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 """
         self.assertEqual(new_text, target)
 
-    @unittest.skipIf(not os.path.isfile(os.path.expanduser('~/cltk_data/originals/phi5/AUTHTAB.DIR')),
-                     'No PHI5 index file found.')
     def test_build_phi5_index(self):
         """Test building PHI5 index if corpus available."""
-        index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
-        index_path = os.path.expanduser(index_path_rel)
-        if os.path.isfile(index_path):
-            index = build_phi5_index()
-            self.assertTrue(index)
+        index_path_rel = 'cltk/tests/phi5_fake_authtab_for_testing.txt'
+        index = build_phi5_index(index_path_rel)
+        self.assertIs(type(index), dict)
 
-    @unittest.skipIf(not os.path.isfile(os.path.expanduser('~/cltk_data/originals/tlg/AUTHTAB.DIR')),
-                     'No TLG index file found.')
     def test_build_tlg_index(self):
         """Test building TLG index if corpus available."""
-        index_path_rel = '~/cltk_data/originals/tlg/AUTHTAB.DIR'
+        index_path_rel = 'cltk/tests/tlg_fake_authtab_for_testing.txt'
         index_path = os.path.expanduser(index_path_rel)
-        if os.path.isfile(index_path):
-            index = build_tlg_index()
-            self.assertTrue(index)
+        index = build_tlg_index(index_path)
+        self.assertIs(type(index), dict)
 
 if __name__ == '__main__':
     unittest.main()
