@@ -3,10 +3,9 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import os
+from cltk.corpus.utils.cltk_logger import logger
 import pickle
 from pickle import PickleError
-import shutil
 import sys
 
 
@@ -20,9 +19,10 @@ def open_pickle(path: str):
         with open(path, 'rb') as opened_pickle:
             try:
                 return pickle.load(opened_pickle)
-            except PickleError as pickle_error:
-                print(pickle_error)
+            #except PickleError as pickle_error:
+            except Exception as pickle_error:
+                logger.error(pickle_error)
                 sys.exit(1)
     except IOError as io_err:
-        print(io_err)
+        logger.error(io_err)
         sys.exit(1)
