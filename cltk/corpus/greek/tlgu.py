@@ -86,7 +86,6 @@ class TLGU(object):
                         logger.error('TLGU install with sudo failed.')
                         sys.exit(1)
 
-    #@staticmethod
     def convert(self, input_path=None, output_path=None, markup=None,
                 break_lines=False, divide_works=False, latin=False,
                 extra_args=None):
@@ -150,7 +149,6 @@ class TLGU(object):
             logger.error('Failed to convert %s to %s: %s' % (input_path, output_path, exc))
             sys.exit(1)
 
-    #@staticmethod
     def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):
         """Look for imported TLG or PHI files and convert them all to
         ``~/cltk_data/greek/text/tlg/<plaintext>``.
@@ -179,7 +177,7 @@ class TLGU(object):
         try:
             corpus_files = os.listdir(orig_path)
         except Exception as exception:
-            logger.error("Failed to find an TLG files: %s" % exception)
+            logger.error("Failed to find TLG files: %s" % exception)
             sys.exit(1)
         # make a list of files to be converted
         txts = []
