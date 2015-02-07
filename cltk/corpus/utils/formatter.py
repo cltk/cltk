@@ -76,6 +76,9 @@ def build_tlg_index(index_path_rel='~/cltk_data/originals/tlg/AUTHTAB.DIR'):
     TODO: merge with phi5 build index
 """
     index_path = os.path.expanduser(index_path_rel)
+    if not os.path.isfile(index_path):
+        logger.info("Failed to locate original TLG index at '%s'. Please import TLG first." % index_path)
+        sys.exit(1)
     with open(index_path, 'rb') as f:
         r = f.read()
         index_all = r.decode('latin-1').split('\xff')[1:-6]  # diff from phi5

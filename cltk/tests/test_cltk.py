@@ -173,6 +173,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         valid = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι  χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
         self.assertEqual(clean_str, valid)
 
+    '''
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer."""
         replacer = LemmaReplacer('latin')
@@ -180,6 +181,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
+    '''
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
@@ -354,12 +356,24 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         index = build_phi5_index(index_path_rel)
         self.assertIs(type(index), dict)
 
+    def test_build_phi5_index_fail(self):
+        """Test fail of building PHI5 index due to AUTHTAB.DIR not found."""
+        index_path_rel = 'cltk/tests/bad_path.txt'
+        with self.assertRaises(SystemExit):
+            build_phi5_index(index_path_rel)
+
     def test_build_tlg_index(self):
         """Test building TLG index if corpus available."""
         index_path_rel = 'cltk/tests/tlg_fake_authtab_for_testing.txt'
         index_path = os.path.expanduser(index_path_rel)
         index = build_tlg_index(index_path)
         self.assertIs(type(index), dict)
+
+    def test_build_tlg_index_fail(self):
+        """Test fail of building TLG index due to AUTHTAB.DIR not found."""
+        index_path_rel = 'cltk/tests/bad_path.txt'
+        with self.assertRaises(SystemExit):
+            build_tlg_index(index_path_rel)
 
 if __name__ == '__main__':
     unittest.main()
