@@ -46,8 +46,6 @@ class CorpusImporter():
             corpora = GREEK_CORPORA
         elif self.language == 'latin':
             corpora = LATIN_CORPORA
-        else:
-            sys.exit(1)
         corpus_list = []
         for corpus in corpora:
             corpus_list.append(corpus['name'])
