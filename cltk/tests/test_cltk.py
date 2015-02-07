@@ -71,6 +71,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(SystemExit):
             open_pickle(bad_file)
 
+    def test_show_corpora_unsupported_lang(self):
+        """Test failure of importer upon selecting unsupported language."""
+        with self.assertRaises(AssertionError):
+            CorpusImporter('bad_lang')
+
     def test_import_latin_library(self):
         """Test downloading the Latin Libraray text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
