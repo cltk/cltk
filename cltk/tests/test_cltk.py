@@ -173,7 +173,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         valid = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι  χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
         self.assertEqual(clean_str, valid)
 
-    '''
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer."""
         replacer = LemmaReplacer('latin')
@@ -181,7 +180,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
-    '''
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
