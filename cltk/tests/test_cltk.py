@@ -61,6 +61,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(a_pickle)
 
     def test_open_pickle_fail_doesnt_exist(self):
+        """Test failure to unpickle a file that doesn't exist"""
         bad_file = 'cltk/tests/doesnt_exist.pickle'
         with self.assertRaises(SystemExit):
             open_pickle(bad_file)

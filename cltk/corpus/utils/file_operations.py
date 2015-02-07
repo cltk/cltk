@@ -19,7 +19,6 @@ def open_pickle(path: str):
         with open(path, 'rb') as opened_pickle:
             try:
                 return pickle.load(opened_pickle)
-            #except PickleError as pickle_error:
             except Exception as pickle_error:
                 logger.error(pickle_error)
                 sys.exit(1)
