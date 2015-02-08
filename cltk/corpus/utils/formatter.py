@@ -58,7 +58,7 @@ def build_corpus_index(corpus, authtab_path=None):
         file_name_match = 'LAT[\d].{4}'
         pattern_author_regex = '&1|&l|l$|&|1$|\x83'
     else:
-        logger.warning("Corpus not available. Choose from 'tlg' or 'phi5'.")
+        logger.warning("Corpus %s not available. Choose from 'tlg' or 'phi5'." % corpus)
         sys.exit(1)
     index_path = os.path.expanduser(authtab_path)
     if not os.path.isfile(index_path):
