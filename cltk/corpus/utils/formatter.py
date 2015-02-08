@@ -84,3 +84,48 @@ def build_corpus_index(corpus, authtab_path=None):
         file_author[file_name] = author_name
 
     return file_author
+
+def make_tlg_work_dict(author_dict):
+    """ Lots to do here still. Pare characters around formats and clean all junk characters.
+    :param author_dict:
+    :return:
+    """
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+
+    final_dict = {}
+    for file, author in file_index.items():
+        a_id = {'id:': file[:-4]}
+        idt_file = file[:-4] + '.IDT'
+        author_index_path = os.path.join(orig_dir_path, idt_file)
+        with open(author_index_path, 'rb') as a_ind_f:
+            a_ind = a_ind_f.read()
+        lat_list = a_ind.decode('latin-1').split('ÿ')
+        ascii_list = [remove_non_ascii(x) for x in lat_list]
+
+        works_list = []
+        author_works = {}
+        for possible_title in ascii_list:
+            title_parts = possible_title.split('\x10', maxsplit=1)
+            title_parts = [x for x in title_parts if x]
+            for part in title_parts:
+                try:
+                    title_format = part.split('\x11', maxsplit=1)
+                    title = title_format[0]
+                    format = title_format[1]
+                    author_works[title] = format
+                    works_list.append(author_works)
+                except:
+                    pass
+        author_vals = {'works': works_list, 'id': file[:-4]}
+        final_dict[author] = author_vals
+    #print(len(final_dict))  # 1777 this is missing ~100 files; find why
+    return final_dict
+
+
+if __name__ == '__main__':
+    file_index = build_corpus_index('tlg')
+    x = make_tlg_work_dict(file_index)
+    print(x)
+
+
