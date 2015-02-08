@@ -38,6 +38,57 @@ def cleanup_tlg_txt(tlg_str):
     return tlg_str
 
 
+def build_corpus_index(corpus, authtab_path=None):
+    """Build index for TLG or PHI5. ``authtab_path`` for testing only.
+    :param corpus:
+    :return: dict
+    """
+    if corpus == 'tlg':
+        if not authtab_path:
+            authtab_path = '~/cltk_data/originals/tlg/AUTHTAB.DIR'
+        slice_start = 1
+        slice_end = -6
+        file_name_match = 'TLG[\d].{4}'
+        pattern_author_regex = '&1|&l|l$|&|1$|\x83|\[2|\]2'
+    elif corpus == 'phi5':
+        if not authtab_path:
+            authtab_path = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
+        slice_start = 1
+        slice_end = -21
+        file_name_match = 'LAT[\d].{4}'
+        pattern_author_regex = '&1|&l|l$|&|1$|\x83'
+    else:
+        logger.warning("Corpus not available. Choose from 'tlg' or 'phi5'.")
+        sys.exit(1)
+    index_path = os.path.expanduser(authtab_path)
+    if not os.path.isfile(index_path):
+        logger.info("Failed to locate original %s index at '%s'. Please import first." % (corpus, index_path))
+        sys.exit(1)
+    with open(index_path, 'rb') as f:
+        r = f.read()
+        index_all = r.decode('latin-1').split('\xff')[slice_start:slice_end]
+        index = [x for x in index_all if x]
+        file_author = {}
+        for x in index:
+            # file name
+            pattern_file = re.compile(file_name_match)
+            m = pattern_file.match(x)
+            file_name = m.group()[:-1] + '.TXT'
+
+            # author name
+            author_name = pattern_file.split(x)[-1]
+            pattern_author = re.compile(pattern_author_regex)
+            author_name = pattern_author.sub('', author_name)
+            pattern_comma = re.compile('\x80')
+            author_name = pattern_comma.sub(', ', author_name)
+            file_author[file_name] = author_name
+
+    return file_author
+
+
+
+'''
+
 def build_phi5_index(index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'):
     """Return dict of 362 files in format of {file: author_name}. This has
     been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
@@ -99,3 +150,4 @@ def build_tlg_index(index_path_rel='~/cltk_data/originals/tlg/AUTHTAB.DIR'):
             file_author[file_name] = author_name
 
     return file_author
+'''

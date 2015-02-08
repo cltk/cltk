@@ -5,8 +5,7 @@ TODO: Write test for copy_dir_contents
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.utils.formatter import build_phi5_index
-from cltk.corpus.utils.formatter import build_tlg_index
+from cltk.corpus.utils.formatter import build_corpus_index
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.file_operations import open_pickle
@@ -377,36 +376,30 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
 
-    def test_tlgu_convert_unsupported_corpus_fail(self):
-        """Test the TLGU to fail when trying to convert an unsupported corpus."""
-        tlgu = TLGU()
-        with self.assertRaises(SystemExit):
-            tlgu.convert_corpus(corpus='bad_corpus')
-
-    def test_build_phi5_index(self):
-        """Test building PHI5 index if corpus available."""
+    def build_corpus_index_phi5(self):
+        """Test functionality for building PHI5 index."""
         index_path_rel = 'cltk/tests/phi5_fake_authtab_for_testing.txt'
-        index = build_phi5_index(index_path_rel)
+        index = build_corpus_index('phi5', index_path_rel)
+        self.assertIs(type(index), dict)
+
+    def build_corpus_index_tlg(self):
+        """Test functionality for building TLG index."""
+        index_path_rel = 'cltk/tests/tlg_fake_authtab_for_testing.txt'
+        index = build_corpus_index('tlg', index_path_rel)
         self.assertIs(type(index), dict)
 
     def test_build_phi5_index_fail(self):
         """Test fail of building PHI5 index due to AUTHTAB.DIR not found."""
         index_path_rel = 'cltk/tests/bad_path.txt'
         with self.assertRaises(SystemExit):
-            build_phi5_index(index_path_rel)
-
-    def test_build_tlg_index(self):
-        """Test building TLG index if corpus available."""
-        index_path_rel = 'cltk/tests/tlg_fake_authtab_for_testing.txt'
-        index_path = os.path.expanduser(index_path_rel)
-        index = build_tlg_index(index_path)
-        self.assertIs(type(index), dict)
+            build_corpus_index('phi5', index_path_rel)
 
     def test_build_tlg_index_fail(self):
         """Test fail of building TLG index due to AUTHTAB.DIR not found."""
         index_path_rel = 'cltk/tests/bad_path.txt'
         with self.assertRaises(SystemExit):
-            build_tlg_index(index_path_rel)
+            build_corpus_index('tlg', index_path_rel)
+
 
 if __name__ == '__main__':
     unittest.main()
