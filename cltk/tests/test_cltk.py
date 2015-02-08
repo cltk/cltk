@@ -400,6 +400,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(SystemExit):
             build_corpus_index('tlg', index_path_rel)
 
+    def test_build_index_name_fail(self):
+        """Test fail of building index due to unsupported corpus."""
+        with self.assertRaises(SystemExit):
+            build_corpus_index('unsupported_corpus')
+
 
 if __name__ == '__main__':
     unittest.main()
