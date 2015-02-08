@@ -66,22 +66,22 @@ def build_corpus_index(corpus, authtab_path=None):
         sys.exit(1)
     with open(index_path, 'rb') as f:
         r = f.read()
-        index_all = r.decode('latin-1').split('\xff')[slice_start:slice_end]
-        index = [x for x in index_all if x]
-        file_author = {}
-        for x in index:
-            # file name
-            pattern_file = re.compile(file_name_match)
-            m = pattern_file.match(x)
-            file_name = m.group()[:-1] + '.TXT'
+    index_all = r.decode('latin-1').split('\xff')[slice_start:slice_end]
+    index = [x for x in index_all if x]
+    file_author = {}
+    for x in index:
+        # file name
+        pattern_file = re.compile(file_name_match)
+        m = pattern_file.match(x)
+        file_name = m.group()[:-1] + '.TXT'
 
-            # author name
-            author_name = pattern_file.split(x)[-1]
-            pattern_author = re.compile(pattern_author_regex)
-            author_name = pattern_author.sub('', author_name)
-            pattern_comma = re.compile('\x80')
-            author_name = pattern_comma.sub(', ', author_name)
-            file_author[file_name] = author_name
+        # author name
+        author_name = pattern_file.split(x)[-1]
+        pattern_author = re.compile(pattern_author_regex)
+        author_name = pattern_author.sub('', author_name)
+        pattern_comma = re.compile('\x80')
+        author_name = pattern_comma.sub(', ', author_name)
+        file_author[file_name] = author_name
 
     return file_author
 
