@@ -3,7 +3,6 @@ Some formatting can happen here, or invoke language-specific formatters in
 other files.
 
 #TODO: Add generic HTML stripper
-#TODO mk class accepting language as argument
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
@@ -11,6 +10,8 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
+from cltk.corpus.greek.tlg_index import TLG_INDEX
+from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.cltk_logger import logger
 import os
 import re
@@ -87,6 +88,7 @@ def build_corpus_index(corpus, authtab_path=None):
 
 def make_tlg_work_dict(author_dict):
     """ Lots to do here still. Pare characters around formats and clean all junk characters.
+    Also find why returning only 1777; find rejected authors -- prob at a .split().
     :param author_dict:
     :return:
     """
@@ -120,12 +122,109 @@ def make_tlg_work_dict(author_dict):
         author_vals = {'works': works_list, 'id': file[:-4]}
         final_dict[author] = author_vals
     #print(len(final_dict))  # 1777 this is missing ~100 files; find why
+
     return final_dict
 
 
+def make_tlg_work_dict2(author_dict):
+
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+
+    final_dict = {}
+    for file, author in file_index.items():
+        works = []
+        idt_file = file[:-4] + '.IDT'
+        author_index_path = os.path.join(orig_dir_path, idt_file)
+        with open(author_index_path, 'rb') as a_ind_f:
+            a_ind = a_ind_f.read()
+        lat_list = a_ind.decode('latin-1').split('ÿ')
+        ascii_list = [remove_non_ascii(x) for x in lat_list]
+        for possible_title in ascii_list:
+            title_parts = possible_title.split('\x10', maxsplit=1)
+            title_parts = [x for x in title_parts if x]
+            for part in title_parts:
+                title_format = part.split('\x11', maxsplit=1)
+                if len(title_format) == 2:  # Note: nothing with len(title_format) > 2
+                    work_title = title_format[0]
+                    work_format = title_format[1]
+
+                    # clean work title
+                    work_title = remove_non_ascii(work_title)
+                    work_title = work_title.replace('	', '').strip()
+                    work_title = work_title
+
+                    # clean format info
+    return final_dict
+
+
+def bad_idts():
+    l = ['TLG2212.TXT', 'TLG2466.TXT', 'TLG0288.TXT', 'TLG1225.TXT', 'TLG4347.TXT', 'TLG1917.TXT', 'TLG1843.TXT', 'TLG4346.TXT', 'TLG1263.TXT', 'TLG1318.TXT', 'TLG0413.TXT', 'TLG1123.TXT', 'TLG0635.TXT', 'TLG2319.TXT', 'TLG1326.TXT', 'TLG0595.TXT', 'TLG2186.TXT', 'TLG9020.TXT', 'TLG1324.TXT', 'TLG4391.TXT', 'TLG0613.TXT', 'TLG2482.TXT', 'TLG2314.TXT', 'TLG4344.TXT', 'TLG2587.TXT', 'TLG1941.TXT', 'TLG0069.TXT', 'TLG2681.TXT', 'TLG1319.TXT', 'TLG1678.TXT', 'TLG0023.TXT', 'TLG2475.TXT', 'TLG2423.TXT', 'TLG0085.TXT', 'TLG1138.TXT', 'TLG1320.TXT', 'TLG2696.TXT', 'TLG0538.TXT', 'TLG1414.TXT', 'TLG4157.TXT', 'TLG1429.TXT', 'TLG1192.TXT', 'TLG4345.TXT', 'TLG2354.TXT', 'TLG0380.TXT', 'TLG2307.TXT']
+    #l = ['TLG0003.TXT']
+    l = [str(x[:-4] + '.IDT') for x in l]
+    #print(l)
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+
+    tmp = []
+    for idt_file in l:
+        author_index_path = os.path.join(orig_dir_path, idt_file)
+        with open(author_index_path, 'rb') as f:
+            r = f.read()
+        lat_list = r.decode('latin-1').split('ÿ')
+        ascii_list = [remove_non_ascii(x) for x in lat_list]
+        for possible_title in ascii_list:
+            title_parts = possible_title.split('\x10', maxsplit=1)
+            title_parts = [x for x in title_parts if x]
+            for part in title_parts:
+                title_format = part.split('\x11', maxsplit=1)
+                if len(title_format) == 2:
+                    #print('what', len(title_format), title_format)
+                    tmp.append(idt_file)
+                elif len(title_format) > 2:
+                    print('what', len(title_format), title_format)
+    print(len(set(idt_file)))
+
+
+def tlgu_break_works():
+    """Use the work-breaking option for TLGU.
+    TODO: This should be added to ``tlgu.py`` to allow bulk corpus converting with work-breaking."""
+    t = TLGU()
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+    tlg_files = os.listdir(orig_dir_path)
+    texts = [x for x in tlg_files if x.endswith('.TXT') and x.startswith('TLG')]
+
+    for file in texts:
+        orig_file_path = os.path.join(orig_dir_path, file)
+        works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
+        works_dir = os.path.expanduser(works_dir_rel)
+        if not os.path.isdir(works_dir):
+            os.makedirs(works_dir)
+        new_file_path = os.path.join(works_dir_rel, file)
+
+        orig_file_rel = os.path.join(orig_dir_path_rel, file)
+        print(orig_file_rel)
+        print(new_file_path)
+        t.convert(orig_file_rel, new_file_path, divide_works=True)
+
+'''
+def find_works_in_texts(author_dict):
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+    for file in author_dict:
+        author_file_path = os.path.join(orig_dir_path, file)
+        print(author_file_path)
+'''
+
+
 if __name__ == '__main__':
-    file_index = build_corpus_index('tlg')
-    x = make_tlg_work_dict(file_index)
-    print(x)
-
-
+    individual_work_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+    individual_work_dir = os.path.expanduser(individual_work_dir_rel)
+    individual_work = os.path.join(individual_work_dir, 'TLG0007.TXT-007.txt')
+    if not os.path.isfile(individual_work):
+        tlgu_break_works()
+    for file, author in TLG_INDEX.items():
+        file_base = os.path.join(individual_work_dir, file)
+        print(file_base)
+        input()
