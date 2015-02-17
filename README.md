@@ -28,12 +28,25 @@ See [installation instructions available in the docs](http://docs.cltk.org/en/la
 Citation
 --------
 
-Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change.
+Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the repository's home (`README.md`). To the end of your bibliographic entry, append `DOI ` plus the current identifier.
 
-To find the citation of the current CLTK, follow the link of the blue `DOI` button in the repository's home (`README.md`). In the following page, find 'Share Cite as' and generate the type of citation you would like (e.g., `chicago-author-date`, `mla`, etc.). For example, here is the appropriate citation for version 0.0.1.7:
+Therefore, please cite the CLTK as follows: 
 ```
-Kyle P. Johnson et al.. (2015). cltk: v0.0.1.7. Zenodo. 10.5281/zenodo.15442
+Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.15442
 ```
+
+A style-neutral BibTex entry would look like this:
+```
+@Misc{johnson2013,
+author = {Kyle P. Johnson et al.},
+title = {CLTK: The Classical Language Toolkit},
+howpublished = {\url{https://github.com/kylepjohnson/cltk}},
+note = {{DOI} 10.5281/zenodo.15442},
+year = {2014--2015}
+}
+```
+
+You could optionally add version number (e.g., `v.0.0.1.7`), though how exactly belongs to your bibliographic style.
 
 License
 -------
