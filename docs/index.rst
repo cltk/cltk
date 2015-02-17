@@ -12,6 +12,7 @@ Contents
    :maxdepth: 2
 
    about
+   citation
    installation
    importing_corpora
    greek
