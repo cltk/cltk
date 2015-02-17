@@ -28,9 +28,9 @@ See [installation instructions available in the docs](http://docs.cltk.org/en/la
 Citation
 --------
 
-Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a unique identity for digital documents. This DOI ought to be included in your citation, as this will allow your readers to reproduce your scholarship should the CLTK's API or codebase change.
+Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change.
 
-To find the citation for the current CLTK, follow the link of the blue `DOI` button in the repository's home (`README.md`). In the following page, find 'Share Cite as' and generate the type of citation you would like (e.g., `chicago-author-date`, `mla`, etc.). For example, here is the appropriate citation for version 0.0.1.7:
+To find the citation of the current CLTK, follow the link of the blue `DOI` button in the repository's home (`README.md`). In the following page, find 'Share Cite as' and generate the type of citation you would like (e.g., `chicago-author-date`, `mla`, etc.). For example, here is the appropriate citation for version 0.0.1.7:
 ```
 Kyle P. Johnson et al.. (2015). cltk: v0.0.1.7. Zenodo. 10.5281/zenodo.15442
 ```
