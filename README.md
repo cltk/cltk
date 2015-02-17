@@ -37,7 +37,7 @@ Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 1
 
 A style-neutral BibTex entry would look like this:
 ```
-@Misc{johnson2013,
+@Misc{johnson2014,
 author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
 howpublished = {\url{https://github.com/kylepjohnson/cltk}},

@@ -14,7 +14,7 @@ A style-neutral BibTex entry would look like this:
 
 .. code-block:: none
 
-   @Misc{johnson2013,
+   @Misc{johnson2014,
    author = {Kyle P. Johnson et al.},
    title = {CLTK: The Classical Language Toolkit},
    howpublished = {\url{https://github.com/kylepjohnson/cltk}},
