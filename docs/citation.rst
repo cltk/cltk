@@ -1,7 +1,7 @@
 Citation
 ********
 
-Each major release of the CLTK is given a `DOI <http://en.wikipedia.org/wiki/Digital_object_identifier>`_, a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the `repository's home (``README.md``) <https://github.com/kylepjohnson/cltk>`. To the end of your bibliographic entry, append `DOI ` plus the current identifier.
+Each major release of the CLTK is given a `DOI <http://en.wikipedia.org/wiki/Digital_object_identifier>`_, a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue ``DOI`` button in the `repository's home (``README.md``) <https://github.com/kylepjohnson/cltk>`. To the end of your bibliographic entry, append `DOI ` plus the current identifier.
 
 Therefore, please cite the CLTK as follows:
 
@@ -22,3 +22,4 @@ A style-neutral BibTex entry would look like this:
    year = {2014--2015}
    }
 
+Optionally you may add version/release number, e.g., ``v0.0.1.7``, to the entry.

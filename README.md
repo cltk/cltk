@@ -46,7 +46,8 @@ year = {2014--2015}
 }
 ```
 
-You could optionally add version number (e.g., `v.0.0.1.7`), though how exactly belongs to your bibliographic style.
+Optionally you may add version/release number, e.g., ``v0.0.1.7``, to the entry.
+
 
 License
 -------
