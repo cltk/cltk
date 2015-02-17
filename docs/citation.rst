@@ -13,6 +13,7 @@ Therefore, please cite the CLTK as follows:
 A style-neutral BibTex entry would look like this:
 
 .. code-block::
+
    @Misc{johnson2013,
    author = {Kyle P. Johnson et al.},
    title = {CLTK: The Classical Language Toolkit},
