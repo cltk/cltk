@@ -10,6 +10,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
+from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg_index import TLG_INDEX
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.cltk_logger import logger
@@ -41,6 +42,7 @@ def cleanup_tlg_txt(tlg_str):
 
 def build_corpus_index(corpus, authtab_path=None):
     """Build index for TLG or PHI5. ``authtab_path`` for testing only.
+    TODO: Add a test flag argument and rm authtab_path
     :param corpus:
     :return: dict
     """
@@ -74,7 +76,7 @@ def build_corpus_index(corpus, authtab_path=None):
         # file name
         pattern_file = re.compile(file_name_match)
         m = pattern_file.match(x)
-        file_name = m.group()[:-1] + '.TXT'
+        file_name = m.group()[:-1]# + '.TXT'
 
         # author name
         author_name = pattern_file.split(x)[-1]
@@ -208,23 +210,135 @@ def tlgu_break_works():
         print(new_file_path)
         t.convert(orig_file_rel, new_file_path, divide_works=True)
 
-'''
+
 def find_works_in_texts(author_dict):
     orig_dir_path_rel = '~/cltk_data/originals/tlg'
     orig_dir_path = os.path.expanduser(orig_dir_path_rel)
-    for file in author_dict:
+    comp_title = re.compile('\{1(.+?)\}1')
+    author_works = {}
+    replacer = Replacer()
+    for file, auth in author_dict.items():
         author_file_path = os.path.join(orig_dir_path, file)
-        print(author_file_path)
+        with open(author_file_path, 'rb') as auth_file:
+            auth_read = auth_file.read()
+        auth_read = auth_read.decode('latin-1')
+        titles = comp_title.findall(auth_read)
+        unicode_titles = []
+        for title in titles:
+            title = remove_non_ascii(title)
+            unicode_title = replacer.beta_code(title)
+            unicode_titles.append(unicode_title)
+        titles_in_file = {'titles_in_file': unicode_titles}
+        author_works[auth] = titles_in_file
+        print(author_works)
+        input()
+
+
+# was doing something with parsing the individually divided works
+''''
+individual_work_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+individual_work_dir = os.path.expanduser(individual_work_dir_rel)
+individual_work = os.path.join(individual_work_dir, 'TLG0007.TXT-007.txt')
+if not os.path.isfile(individual_work):
+    tlgu_break_works()
+for file, author in TLG_INDEX.items():
+    file_base = os.path.join(individual_work_dir, file)
+    print(file_base)
+    input()
 '''
 
 
+def read_tlg_idts():
+    """Read TLG IDT files from the directory. These should later be checked against the TLG_INDEX."""
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+    return [os.path.join(orig_dir_path, x) for x in os.listdir(orig_dir_path) if x.endswith('.IDT') and x.startswith('TLG')]
+
+
+def open_idt(idt_path):
+    #print(idt_path)
+    with open(idt_path, 'rb') as opened_idt:
+        return opened_idt.read()
+
+
+def cleanup_author(author_text):
+    comp_clean_author = re.compile('&|\[2|\]2|1')
+    author = comp_clean_author.sub('', author_text)
+
+    # super ugly. replace name if 1 of 3 which has Greek in name
+    greek_name = {'Dialexeis ($*DISSOI\\ LO/GOI)': 'Dialexeis Δισσοὶ λόγοι',
+                  'Dionysius $*METAQE/MENOS Phil.': 'Dionysius Μεταθέμενος Phil.',
+                  'Lexicon $AI(MWDEI=N': 'Lexicon αἱμωδεῖν'}
+    if author in greek_name:
+        author = greek_name[author]
+
+    # same as above. damn ugly. replace name w/ dict value if name is one we
+    # know to have a diaresis in it
+    diaresis_authors = {'Danai+s vel Danai+des': 'Danaïs vel Danaïdes',
+                       'Ae+tius Doxogr.': 'Aëtius Doxogr.',
+                       'Aglai+s Poet. Med.': 'Aglaïs Poet. Med.',
+                       'Ae+tius Med.': 'Aëtius Med.',
+                       'Thebai+s': 'Thebaïs',
+                       'Boi+das Phil.': 'Boïdas Phil.'
+    }
+    if author in diaresis_authors:
+        author = diaresis_authors[author]
+
+    return author
+
+def match_idt_author_name(idt_binary):
+    idt_text = idt_binary.decode('latin-1')
+    comp_name = re.compile('&1(.+?)\x02')
+    author = comp_name.findall(idt_text)
+    return author[0]
+
+def match_idt_titles(idt_binary):
+    #idt_text = idt_binary.decode('latin-1')
+    comp_post_name = re.compile(b'\x02')
+    post_name = comp_post_name.split(idt_binary, 1)
+    comp_pre_first_title = re.compile(b'\xff\x10')
+    pre_first_title = comp_pre_first_title.split(post_name[1])
+    print(pre_first_title[1:])  #! This is good! Each element of the list is a work + its index method
+    input()
+    return ''
+
+def author_names_from_idts():
+    """There are 1823 TLG*.IDT files, but the authors in them are only 1773
+    unique. That is 50 IDT files give an author name identical to one in
+    another file. OIPOPOI!
+    """
+    orig_dir_path_rel = '~/cltk_data/originals/tlg'
+    orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+    #return [os.path.join(orig_dir_path, x) for x in os.listdir(orig_dir_path) if x.endswith('.IDT') and x.startswith('TLG')]
+
+    author_dict = {}
+
+    for tlg_id, dir_name in TLG_INDEX.items():
+        idt_path = os.path.join(orig_dir_path, tlg_id + '.IDT')
+
+        idt_binary = open_idt(idt_path)
+        author_ugly = match_idt_author_name(idt_binary)
+        author = cleanup_author(author_ugly)
+
+        author_names = {'name_idt': author,
+                        'name_authtab': dir_name
+                        }
+        author_dict[tlg_id] = author_names
+
+    # here add parsing of works in .idt file
+    for tlg_id, dir_name in TLG_INDEX.items():
+        idt_path = os.path.join(orig_dir_path, tlg_id + '.IDT')
+        idt_binary = open_idt(idt_path)
+        titles_ugly = match_idt_titles(idt_binary)
+
+    return author_dict
+
+
 if __name__ == '__main__':
-    individual_work_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
-    individual_work_dir = os.path.expanduser(individual_work_dir_rel)
-    individual_work = os.path.join(individual_work_dir, 'TLG0007.TXT-007.txt')
-    if not os.path.isfile(individual_work):
-        tlgu_break_works()
-    for file, author in TLG_INDEX.items():
-        file_base = os.path.join(individual_work_dir, file)
-        print(file_base)
-        input()
+    author_dict = author_names_from_idts()
+
+    '''
+    with open('cltk/corpus/greek/tlg_master_index.py', 'w') as f:
+        f.write('TLG_MASTER_INDEX = ' + str(author_dict))
+    '''
+
