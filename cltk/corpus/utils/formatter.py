@@ -298,8 +298,25 @@ def match_idt_titles(idt_binary):
     post_name = comp_post_name.split(idt_binary, 1)
     comp_pre_first_title = re.compile(b'\xff\x10')
     pre_first_title = comp_pre_first_title.split(post_name[1])
-    print(pre_first_title[1:])  #! This is good! Each element of the list is a work + its index method
-    input()
+    titles_format = pre_first_title[1:]  #! This is good! Each element of the list is a work + its index method
+    #print(len(titles))
+    # for testing that I get at least 1 title for every .idt
+    if len(titles_format) < 1:
+        print(titles_format)  # success! A title found for every .idt
+    for title_format in titles_format:
+        comp_pre_format = re.compile(b'\x11')
+        pre_format = comp_pre_format.split(title_format, 1)
+        problem_idts = []
+        try:
+            title = pre_format[0]
+            format = pre_format[1]
+            comp_clean_title = re.compile(b'\x01|\t|\n|\x0e|\x1e|\x13|\x1d|\x14|\x08|\x07|\x1b|\x10|\x0f|\x19|\x1c|\x10|\x15|\x06|\x12|\x18|\x0b|\x0c|\x17|\x16|\x1f|\x05|\x04|\x04|\x1a|\x04|\x1a|\x00')
+            title_clean = comp_clean_title.sub(b'', title)
+            print(title_clean)
+        except:
+            problem_idts.append(title_format)  # these have index error on pre_format[1]
+            #continue
+    #input()
     return ''
 
 def author_names_from_idts():
@@ -330,6 +347,7 @@ def author_names_from_idts():
         idt_path = os.path.join(orig_dir_path, tlg_id + '.IDT')
         idt_binary = open_idt(idt_path)
         titles_ugly = match_idt_titles(idt_binary)
+
 
     return author_dict
 
