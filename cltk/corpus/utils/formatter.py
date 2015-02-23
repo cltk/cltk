@@ -321,17 +321,191 @@ def match_idt_titles(idt_binary):
                 format_units = comp_between_format.split(format)  # tested no fewer than len() 1
                 # end of format break = '\x03\x00\x00\x08' # nec?
 
+                work_formats = []
                 for format in format_units:
                     #! this is super ugly and contains redundancies
                     # the purpose: to rm enough junk in order to .decode('latin-1') w/o breaking text
-                    comp_clean_format = re.compile(b'\x01|\x08|\x00|\x02|\x03|x91|\n|\x90|\x88|\xad|\n|\x94|\x88|\x9a|\t|\x96|\x88|\x98|\x0b|\x9f|\xf4|\xff|\x0c|\x83|\x02|\x7f|\x02|\xef|\x81|\xb0|\xb0|\xb2|\x04|\x07|\xd4|\x9b|\x89|\x84|\xc4|\x84|\xd8|\xe8|\xaf|\xc1|\xf5|\xec|\xe9|\x91|\xaf|\xc5|\xf0|\xe9|\xe9|\x91|\xaa|\xaf|\xc5|\xe9|\xe6|\xe9|\x91|\x85|\x80|\x95|\x82|\x93|\x9d|\x95|\x9c|\x8a|\x8b|\x93|\x9c|\x95|\xb8|\x97|\xb8|\x99|\xb9|\x9c|\x95|\x9e|\x97|\xa2|\x95|\xa5|\xa8|\r|\xb1|\xb1|\xa1|\xa3!|\xa1|\x1d|\x87|\xa6|\x86|\x1c|\xf8|\x1c|\x8f|\x1c|\x1c|\xf1|\xb5|\x8d|\xf2|\xa0|\xe1|\xf2|\xf2|\xa0|\xe5|\xac|\xac|\xe7|\xac|\xe3|\xa0|\xa3|\xe2|\x8d|\xf2|\xa0|\xe7|\xa0|\xe3|\xa0|\xf2|\xa0|\xf2|\xda|\xd5|\xfd|\xe4|\xb7|~|\xd9|\x8cd|\x06|!||\xce|\xce|\xb3|\xee|\xce|\xce|\xdb|\xb4|\xc9|\xb4|\xa9|\xc9|\xb6|\xa9|\xbd|\xf3|\xed|\xcd|\xbe|\xcf|\x92|\xab|\xc0|\xdb|\x92|\xf6|\xbc|\xb3|\xb6|\xd3|\xc7|\x10|\xb3|\xbb|\xc6E|\xb4|\xb3|\xbb|\xa9|\xc8N|\xd0|\xdb|\xa7|\xc6A|\xb4|\xb3|\xb3|\xb6|\xb3|\xc9|\xbf|\x92|\x1f|\xba|\xae|\xc2|\x8c|\x8e|\x1f|\xee|\x1f|\xb6|\xb4|\xce|\x92|\xa4|\xa7|\x92|\x8c|\xb4|\xbb|\xc3|\xc2|\x8c|\xcb|\xce|\xd1|\xb3\xb4|\x92|S\xb4|\xb3V\xd7|\xdb|\xd2|\xb4|\xbf|\x8c|\xa4|=|\xf3|\xee|\x8c|\xf3|\xf6|\x8e|\x8ed|\xb6|\x8cf|\xb4|\x8cg|\xb3|\x92|\xbf|\xb6|\xb4|\xf6|\xf6|@|\xb6W|\xb6|\xf6|\xa4|\xee|\xa4s|\x92|\xc2|\x92|\xd0|\xee|\xb3|\x8e|\xbc|\\|\xb3|\x8c|\x92|\x92|\xa4|\xa9|\xab|\xa7|\x8e|\xb4|\xbb|\xbe|\xc0|\xa4|\xc3|\xc8|\xca|\x92|\xcc|\xcf|\x92|\xd1|\xa4|\xd6|\xdb|\xde|\xe0|\xee|\xf3|\xf7|\xa7|\xfa|\x8e|\xfc|\x92|\x8e|\xb3|\xbc|\xc3|\xb3|\xcf|\xc3|\xb4v|\xb3|N\x92NTO|EEG\xc7GSN|9\xc09:\xb6|00|8\xbf8N9|\x92|\xa7|\x8c|\x8e|\x8c|\x8e|\x8c|\xab|\xaeM8|\xb4|\x1b|\xbc|\xc8|\x1b|\xc6|\xb3|\x19|\xa4|\x19G|\x1b|\x17|\xa4|\x17b|\x19|\xfb|\x92|\xa7|\x92|\x92|\x8c|\xa4|\xa9|\xab|\x8e|\xb3|\xfbH|\x17|\xb3|\xc7|\xb3|\xcd|\x8c|\x92|\x8e|^|\xb6|\xa4|\x92|\xa4T|\x92W|\xb4|}|\x8e|\xbdl|\xb3|\xa7|\xbd|\x8cyM|\x92|\xa9|\xa9|\xa7|\xbf|\xd0|\xde|\xbe|\x92Zy|\xc6|\x10|\x92|\x8e|\xa7|\x10|"|\xae|\xb3|\xb6|\x05|\xae|\xed|\xf3|\xee|\xfa|\x8e|\xb3|\xed|\xbd|\xce|\xd0|\xea|\x8e|\x92|\x8e|\x8c|\x12|\x14|\x8c|\x13|\x8c|\x92|\x923|\x05|\x8c|\(|\)|\xcf|\x8c| \xb4|\x1eX |\x1a|\x8e|\xa9M|\x1e|\x1a|\xb4|\xcc|\xbf|\xd0|\x8c|\x8e|\x8e|\xab|\x92|\xa9|\xa7|\x13E|\x13|\x12|\xfb')
+                    comp_clean_format = re.compile(b'\x01|\x08|\x00|\x02|\x03|x91|\n|\x90|\x88|\xad|\n|\x94|\x88|\x9a|\t|\x96|\x88|\x98|\x0b|\x9f|\xf4|\xff|\x0c|\x83|\x02|\x7f|\x02|\xef|\x81|\xb0|\xb0|\xb2|\x04|\x07|\xd4|\x9b|\x89|\x84|\xc4|\x84|\xd8|\xe8|\xaf|\xc1|\xf5|\xec|\xe9|\x91|\xaf|\xc5|\xf0|\xe9|\xe9|\x91|\xaa|\xaf|\xc5|\xe9|\xe6|\xe9|\x91|\x85|\x80|\x95|\x82|\x93|\x9d|\x95|\x9c|\x8a|\x8b|\x93|\x9c|\x95|\xb8|\x97|\xb8|\x99|\xb9|\x9c|\x95|\x9e|\x97|\xa2|\x95|\xa5|\xa8|\r|\xb1|\xb1|\xa1|\xa3!|\xa1|\x1d|\x87|\xa6|\x86|\x1c|\xf8|\x1c|\x8f|\x1c|\x1c|\xf1|\xb5|\x8d|\xf2|\xa0|\xe1|\xf2|\xf2|\xa0|\xe5|\xac|\xac|\xe7|\xac|\xe3|\xa0|\xa3|\xe2|\x8d|\xf2|\xa0|\xe7|\xa0|\xe3|\xa0|\xf2|\xa0|\xf2|\xda|\xd5|\xfd|\xe4|\xb7|~|\xd9|\x8cd|\x06|!||\xce|\xce|\xb3|\xee|\xce|\xce|\xdb|\xb4|\xc9|\xb4|\xa9|\xc9|\xb6|\xa9|\xbd|\xf3|\xed|\xcd|\xbe|\xcf|\x92|\xab|\xc0|\xdb|\x92|\xf6|\xbc|\xb3|\xb6|\xd3|\xc7|\x10|\xb3|\xbb|\xc6E|\xb4|\xb3|\xbb|\xa9|\xc8N|\xd0|\xdb|\xa7|\xc6A|\xb4|\xb3|\xb3|\xb6|\xb3|\xc9|\xbf|\x92|\x1f|\xba|\xae|\xc2|\x8c|\x8e|\x1f|\xee|\x1f|\xb6|\xb4|\xce|\x92|\xa4|\xa7|\x92|\x8c|\xb4|\xbb|\xc3|\xc2|\x8c|\xcb|\xce|\xd1|\xb3\xb4|\x92|S\xb4|\xb3V\xd7|\xdb|\xd2|\xb4|\xbf|\x8c|\xa4|=|\xf3|\xee|\x8c|\xf3|\xf6|\x8e|\x8ed|\xb6|\x8cf|\xb4|\x8cg|\xb3|\x92|\xbf|\xb6|\xb4|\xf6|\xf6|@|\xb6W|\xb6|\xf6|\xa4|\xee|\xa4s|\x92|\xc2|\x92|\xd0|\xee|\xb3|\x8e|\xbc|\\|\xb3|\x8c|\x92|\x92|\xa4|\xa9|\xab|\xa7|\x8e|\xb4|\xbb|\xbe|\xc0|\xa4|\xc3|\xc8|\xca|\x92|\xcc|\xcf|\x92|\xd1|\xa4|\xd6|\xdb|\xde|\xe0|\xee|\xf3|\xf7|\xa7|\xfa|\x8e|\xfc|\x92|\x8e|\xb3|\xbc|\xc3|\xb3|\xcf|\xc3|\xb4v|\xb3|N\x92NTO|EEG\xc7GSN|9\xc09:\xb6|00|8\xbf8N9|\x92|\xa7|\x8c|\x8e|\x8c|\x8e|\x8c|\xab|\xaeM8|\xb4|\x1b|\xbc|\xc8|\x1b|\xc6|\xb3|\x19|\xa4|\x19G|\x1b|\x17|\xa4|\x17b|\x19|\xfb|\x92|\xa7|\x92|\x92|\x8c|\xa4|\xa9|\xab|\x8e|\xb3|\xfbH|\x17|\xb3|\xc7|\xb3|\xcd|\x8c|\x92|\x8e|^|\xb6|\xa4|\x92|\xa4T|\x92W|\xb4|}|\x8e|\xbdl|\xb3|\xa7|\xbd|\x8cyM|\x92|\xa9|\xa9|\xa7|\xbf|\xd0|\xde|\xbe|\x92Zy|\xc6|\x10|\x92|\x8e|\xa7|\x10|"|\xae|\xb3|\xb6|\x05|\xae|\xed|\xf3|\xee|\xfa|\x8e|\xb3|\xed|\xbd|\xce|\xd0|\xea|\x8e|\x92|\x8e|\x8c|\x12|\x14|\x8c|\x13|\x8c|\x92|\x923|\x8c|\(|\)|\xcf|\x8c| \xb4|\x1eX |\x1a|\x8e|\xa9M|\x1e|\x1a|\xb4|\xcc|\xbf|\xd0|\x8c|\x8e|\x8e|\xab|\x92|\xa9|\xa7|\x13E|\x13|\x12|\xfb')
                     format = comp_clean_format.sub(b'', format)
 
-                    #! this isn't working very well :(
                     format_2 = format.decode('latin-1')
-                    comp_clean_format = re.compile(r'¶|à|®|«|ß|¼|É|ó|í|³|î||ö|P|´|Ã|¾|=|´Þ|û|ü|Ë|ÃL|Ì|Î|´|ÆQ|Æ|´ö|©|¿|;|È|Í|ü|¤|©|À|Ì|Ñ|Ýù||½|§|Ð|Ü|ù|»|½|ö||ê||Þ|||¿|ë|º|¤|§')
-                    format_2 = comp_clean_format.sub('', format_2)
-                    print(format_2)
+
+                    # the following is a more direct approach to cleaning up
+                    # problem formatting
+                    comp_line = re.compile(r'line.*')
+                    format_2 = comp_line.sub('line', format_2)
+
+                    comp_line = re.compile(r'Line.*')
+                    format_2 = comp_line.sub('line', format_2)
+
+                    comp_line = re.compile(r'Volume-Jacoby.*')
+                    format_2 = comp_line.sub('line', format_2)
+
+                    comp_line = re.compile(r'Lexicon.*')
+                    format_2 = comp_line.sub('Lexicon', format_2)
+
+                    comp_line = re.compile(r'%Argumentum-dramatis personae-scholion')
+                    format_2 = comp_line.sub('Argumentum-dramatis personae-scholion', format_2)
+
+                    comp_line = re.compile(r'\x0eStephanus page')
+                    format_2 = comp_line.sub('Stephanus page', format_2)
+
+                    #\x12line
+                    comp_line = re.compile(r'\x12line')
+                    format_2 = comp_line.sub('line', format_2)
+
+                    #\x10line
+                    comp_line = re.compile(r'\x10line')
+                    format_2 = comp_line.sub('line', format_2)
+
+                    #\x10Alphabetic entry
+                    comp_line = re.compile(r'\x10Alphabetic entry')
+                    format_2 = comp_line.sub('Alphabetic entry', format_2)
+
+
+                    #\x05Entry
+                    comp_line = re.compile(r'\x05Entry')
+                    format_2 = comp_line.sub('Entry', format_2)
+
+
+                    #\x05entry
+                    comp_line = re.compile(r'\x05entry')
+                    format_2 = comp_line.sub('entry', format_2)
+
+
+                    #\x12column or fragment
+                    comp_line = re.compile(r'\x12column or fragment')
+                    format_2 = comp_line.sub('column or fragment', format_2)
+
+
+
+                    #\x10Kaibel paragraph
+                    comp_line = re.compile(r'\x10Kaibel paragraph')
+                    format_2 = comp_line.sub('Kaibel paragraph', format_2)
+
+
+
+                    #\x18hypothesis-verse of play
+                    comp_line = re.compile(r'\x18hypothesis-verse of play')
+                    format_2 = comp_line.sub('hypothesis-verse of play', format_2)
+
+                    #\x19Hypothesis-apologia-cento
+                    comp_line = re.compile(r'\x19Hypothesis-apologia-cento')
+                    format_2 = comp_line.sub('Hypothesis-apologia-cento', format_2)
+
+
+
+                    #\x1bhypothesis-epigram-scholion
+                    comp_line = re.compile(r'\x1bhypothesis-epigram-scholion')
+                    format_2 = comp_line.sub('hypothesis-epigram-scholion', format_2)
+
+
+                    #\x0fQuestion+answer
+                    comp_line = re.compile(r'\x0fQuestion+answer')
+                    format_2 = comp_line.sub('Question+answer', format_2)
+
+                    #\x05Codex
+                    comp_line = re.compile(r'\x05Codex')
+                    format_2 = comp_line.sub('Codex', format_2)
+
+                    #Ku+hn volume --> Kühn volume
+                    comp_line = re.compile(r'Ku+hn volume')
+                    format_2 = comp_line.sub('Kühn volume', format_2)
+
+                    #\x05Idyll
+                    comp_line = re.compile(r'\x05Idyll')
+                    format_2 = comp_line.sub('Idyll', format_2)
+
+                    #\x10Tome+volume+part
+                    comp_line = re.compile(r'\x10Tome+volume+part')
+                    format_2 = comp_line.sub('Tome+volume+part', format_2)
+
+                    #\x05Title
+                    comp_line = re.compile(r'\x05Title')
+                    format_2 = comp_line.sub('Title', format_2)
+
+                    #\x05verse
+                    comp_line = re.compile(r'verse')
+                    format_2 = comp_line.sub('verse', format_2)
+
+
+                    #\x18Vita-argumentum-scholion
+                    comp_line = re.compile(r'\x18Vita-argumentum-scholion')
+                    format_2 = comp_line.sub('Vita-argumentum-scholion', format_2)
+
+                    #$*PENTAETHRIKO/S&
+                    comp_line = re.compile(r'\$*PENTAETHRIKO/S&')
+                    format_2 = comp_line.sub('$*PENTAETHRIKO/S& !!! TRANSLITERATE', format_2)
+
+                    #&1Palladius& Med.Y
+                    comp_line = re.compile(r'&1Palladius& Med.Y')
+                    format_2 = comp_line.sub('Palladius Med. !!! AUTHOR NOT FORMAT', format_2)
+
+                    #\x05Psalm
+                    #\x12Preisendanz number
+                    #\x15Prolegomenon-scholion
+                    #&1Simonides& Lyr.S
+                    #\x1ePausanias book+chapter+section
+                    #$*PERI\\ STA/SEWN&
+                    #\x10Bekker page+line'
+                    #\x05Paean
+                    #\x0fBook of Odyssey
+                    #$*PERI\\ METOXW=N&
+                    #\x12Fragment or column
+                    #\x0fFragment+column
+                    #\x12Verso-recto+column
+                    #$*KWMW|DOU/MENOI&
+                    #&1Hesiodus& Epic.E
+                    #&1Nicolaus& Hist.³
+                    #\x05Folio
+                    #\x12column or fragment
+                    #$*SUMMAXIKO\\S A#&
+                    #$*PANAQHNAI+KO/S&
+                    #\x13Argumentum-scholion
+                    #\x13Hypothesis-scholion
+                    #\x1bhypothesis-epigram-scholion
+                    #\x16Dindorf-Stephanus page
+
+                    '''
+                    #! Super horrible parsing. hopefully this only has to be done once
+                    format_2.replace('\x10Alphabetic entry', 'Alphabetic entry').replace('\x05Entry', 'Entry')\
+                        .replace('\x12column or fragment', 'column or fragment').replace('\x10Kaibel paragraph', 'Kaibel paragraph')\
+                        .replace('\x18hypothesis-verse of play', 'hypothesis-verse of play')\
+                        .replace(r'\x19Hypothesis-apologia-cento', 'Hypothesis-apologia-cento')\
+                        .replace('\x1bhypothesis-epigram-scholion', 'hypothesis-epigram-scholion')\
+                        .replace('\x12line', 'line').replace('\x0fQuestion+answer', 'Question+answer')\
+                        .replace('\x05Codex', 'Codex').replace('Ku+hn volume', 'Kühn volume')\
+                        .replace('\x05Idyll', 'Idyll').replace('\x10Tome+volume+part', 'Tome+volume+part')\
+                        .replace('\x05Title', 'Title').replace('\x05verse', 'verse')\
+                        .replace('\x18Vita-argumentum-scholion', 'Vita-argumentum-scholion')\
+                        .replace('$*PENTAETHRIKO/S&', '$*PENTAETHRIKO/S& !!!! TRANSLITERATE')\
+                        .replace('&1Palladius& Med.Y', 'Palladius& Med. !!! THIS IS A NAME NOT FORMAT')\
+                        .replace('\x05Psalm', 'Psalm').replace('\x12Preisendanz number', 'Preisendanz number')\
+                        .replace('\x15Prolegomenon-scholion', 'Prolegomenon-scholion')\
+                        .replace('&1Simonides& Lyr.S', 'Simonides& Lyr. !!! THIS IS A NAME NOT FORMAT')\
+                        .replace('\x1ePausanias book+chapter+section', 'Pausanias book+chapter+section !!! CHECK FORMAT TYPE')\
+                        .replace('$*PERI\\ STA/SEWN&', '$*PERI\\ STA/SEWN& !!! TRANSLITERATE')\
+                        .replace('\x10Bekker page+line', 'Bekker page+line')\
+                        .replace('\x05Paean', 'Paean').replace('\x0fBook of Odyssey', 'Book of Odyssey')\
+                        .replace('$*PERI\\ METOXW=N&', '$*PERI\\ METOXW=N& !!! TRANSLITERATE')\
+                        .replace('\x12Fragment or column', 'Fragment or column').replace('\x0fFragment+column', 'Fragment+column')\
+                        .replace('\x12Verso-recto+column', 'Verso-recto+column')\
+                        .replace('\x12column or fragment', 'column or fragment').replace('$*SUMMAXIKO\\S A#&', '$*SUMMAXIKO\\S A#& !!! TRANSLITERATE')\
+                        .replace('$*PANAQHNAI+KO/S&', '$*PANAQHNAI+KO/S& !!! TRANSLITERATE')\
+                        .replace('\x13Argumentum-scholion', 'Argumentum-scholion').replace('\x13Hypothesis-scholion', 'Hypothesis-scholion')\
+                        .replace('\x1bhypothesis-epigram-scholion', 'hypothesis-epigram-scholion')\
+                        .replace('\x16Dindorf-Stephanus page', 'Dindorf-Stephanus page')#.replace('', '').replace('', '').replace('', '').replace('', '').replace('', '').replace('', '').replace('', '')
+                    '''
+
+
+
+                    #print(format_2)
+
+                    work_formats.append(format_2)
+                try:
+                    print(work_formats)
+                except:
+                    pass
 
                 #input()
 
