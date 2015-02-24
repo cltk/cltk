@@ -12,6 +12,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg_index import TLG_INDEX
+from cltk.corpus.greek.tlg_master_index import TLG_MASTER_INDEX
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.cltk_logger import logger
 import os
@@ -303,6 +304,7 @@ def match_idt_titles(idt_binary):
     # for testing that I get at least 1 title for every .idt
     if len(titles_format) < 1:
         print(titles_format)  # success! A title found for every .idt
+    titles = {}
     for title_format in titles_format:
         comp_pre_format = re.compile(b'\x11')
         pre_format = comp_pre_format.split(title_format, 1)
@@ -314,6 +316,7 @@ def match_idt_titles(idt_binary):
             # clean the title
             comp_clean_title = re.compile(b'\x01|\t|\n|\x0e|\x1e|\x13|\x1d|\x14|\x08|\x07|\x1b|\x10|\x0f|\x19|\x1c|\x10|\x15|\x06|\x03|\x12|\x18|\x0b|\x0c|\x17|\x16|\x1f|\x05|\x04|\x04|\x1a|\x04|\x1a|\x00|\r')
             title_clean = comp_clean_title.sub(b'', title)
+            title_clean = title_clean.decode('latin-1')
 
             # parse and clean the format
             try:
@@ -362,28 +365,21 @@ def match_idt_titles(idt_binary):
                     comp_line = re.compile(r'\x10Alphabetic entry')
                     format_2 = comp_line.sub('Alphabetic entry', format_2)
 
-
                     #\x05Entry
                     comp_line = re.compile(r'\x05Entry')
                     format_2 = comp_line.sub('Entry', format_2)
-
 
                     #\x05entry
                     comp_line = re.compile(r'\x05entry')
                     format_2 = comp_line.sub('entry', format_2)
 
-
                     #\x12column or fragment
                     comp_line = re.compile(r'\x12column or fragment')
                     format_2 = comp_line.sub('column or fragment', format_2)
 
-
-
                     #\x10Kaibel paragraph
                     comp_line = re.compile(r'\x10Kaibel paragraph')
                     format_2 = comp_line.sub('Kaibel paragraph', format_2)
-
-
 
                     #\x18hypothesis-verse of play
                     comp_line = re.compile(r'\x18hypothesis-verse of play')
@@ -393,12 +389,9 @@ def match_idt_titles(idt_binary):
                     comp_line = re.compile(r'\x19Hypothesis-apologia-cento')
                     format_2 = comp_line.sub('Hypothesis-apologia-cento', format_2)
 
-
-
                     #\x1bhypothesis-epigram-scholion
                     comp_line = re.compile(r'\x1bhypothesis-epigram-scholion')
                     format_2 = comp_line.sub('hypothesis-epigram-scholion', format_2)
-
 
                     #\x0fQuestion+answer
                     comp_line = re.compile(r'\x0fQuestion+answer')
@@ -428,7 +421,6 @@ def match_idt_titles(idt_binary):
                     comp_line = re.compile(r'verse')
                     format_2 = comp_line.sub('verse', format_2)
 
-
                     #\x18Vita-argumentum-scholion
                     comp_line = re.compile(r'\x18Vita-argumentum-scholion')
                     format_2 = comp_line.sub('Vita-argumentum-scholion', format_2)
@@ -442,81 +434,91 @@ def match_idt_titles(idt_binary):
                     format_2 = comp_line.sub('Palladius Med. !!! AUTHOR NOT FORMAT', format_2)
 
                     #\x05Psalm
+                    comp_line = re.compile(r'\x05Psalm')
+                    format_2 = comp_line.sub('Psalm', format_2)
                     #\x12Preisendanz number
+                    comp_line = re.compile(r'\x12Preisendanz number')
+                    format_2 = comp_line.sub('Preisendanz number', format_2)
                     #\x15Prolegomenon-scholion
+                    comp_line = re.compile(r'\x15Prolegomenon-scholion')
+                    format_2 = comp_line.sub('Prolegomenon-scholion', format_2)
                     #&1Simonides& Lyr.S
+                    comp_line = re.compile(r'&1Simonides& Lyr.S')
+                    format_2 = comp_line.sub('Simonides& Lyr. !!! AUTHOR NAME', format_2)
                     #\x1ePausanias book+chapter+section
+                    comp_line = re.compile(r'\x1ePausanias book+chapter+section')
+                    format_2 = comp_line.sub('Pausanias book+chapter+section', format_2)
                     #$*PERI\\ STA/SEWN&
-                    #\x10Bekker page+line'
+                    comp_line = re.compile(r'\$*PERI\\ STA/SEWN&')
+                    format_2 = comp_line.sub('$*PERI\\ STA/SEWN& !!! TRANSLITERATE', format_2)
+                    #\x10Bekker page+line
+                    comp_line = re.compile(r'\x10Bekker page+line')
+                    format_2 = comp_line.sub('Bekker page+line', format_2)
                     #\x05Paean
+                    comp_line = re.compile(r'\x05Paean')
+                    format_2 = comp_line.sub('Paean', format_2)
                     #\x0fBook of Odyssey
+                    comp_line = re.compile(r'\x0fBook of Odyssey')
+                    format_2 = comp_line.sub('Book of Odyssey', format_2)
                     #$*PERI\\ METOXW=N&
+                    comp_line = re.compile(r'\$*PERI\\ METOXW=N&')
+                    format_2 = comp_line.sub('$*PERI\\ METOXW=N& !!! TRANSLITERATE', format_2)
                     #\x12Fragment or column
+                    comp_line = re.compile(r'Fragment or column')
+                    format_2 = comp_line.sub('', format_2)
                     #\x0fFragment+column
+                    comp_line = re.compile(r'\x0fFragment+column')
+                    format_2 = comp_line.sub('Fragment+column', format_2)
                     #\x12Verso-recto+column
+                    comp_line = re.compile(r'\x12Verso-recto+column')
+                    format_2 = comp_line.sub('Verso-recto+column', format_2)
                     #$*KWMW|DOU/MENOI&
+                    comp_line = re.compile(r'\$*KWMW|DOU/MENOI&')
+                    format_2 = comp_line.sub('$*KWMW|DOU/MENOI& !!! TRANSLITERATE', format_2)
                     #&1Hesiodus& Epic.E
+                    comp_line = re.compile(r'&1Hesiodus& Epic.E')
+                    format_2 = comp_line.sub('Hesiodus Epic. !!! AUTHOR NAME', format_2)
                     #&1Nicolaus& Hist.³
+                    comp_line = re.compile(r'&1Nicolaus& Hist.³')
+                    format_2 = comp_line.sub('Nicolaus Hist. !!! AUTHOR NAME', format_2)
                     #\x05Folio
+                    comp_line = re.compile(r'\x05Folio')
+                    format_2 = comp_line.sub('Folio', format_2)
                     #\x12column or fragment
+                    comp_line = re.compile(r'\x12column or fragment')
+                    format_2 = comp_line.sub('column or fragment', format_2)
                     #$*SUMMAXIKO\\S A#&
+                    comp_line = re.compile(r'\$*SUMMAXIKO\\S A#&')
+                    format_2 = comp_line.sub('$*SUMMAXIKO\\S A#& !!! TRANSLITERATE', format_2)
                     #$*PANAQHNAI+KO/S&
+                    comp_line = re.compile(r'\$*PANAQHNAI+KO/S&')
+                    format_2 = comp_line.sub('$*PANAQHNAI+KO/S& !!! TRANSLITERATE', format_2)
                     #\x13Argumentum-scholion
+                    comp_line = re.compile(r'\x13Argumentum-scholion')
+                    format_2 = comp_line.sub('Argumentum-scholion', format_2)
                     #\x13Hypothesis-scholion
+                    comp_line = re.compile(r'\x13Hypothesis-scholion')
+                    format_2 = comp_line.sub('Hypothesis-scholion', format_2)
                     #\x1bhypothesis-epigram-scholion
+                    comp_line = re.compile(r'\x1bhypothesis-epigram-scholion')
+                    format_2 = comp_line.sub('hypothesis-epigram-scholion', format_2)
                     #\x16Dindorf-Stephanus page
-
-                    '''
-                    #! Super horrible parsing. hopefully this only has to be done once
-                    format_2.replace('\x10Alphabetic entry', 'Alphabetic entry').replace('\x05Entry', 'Entry')\
-                        .replace('\x12column or fragment', 'column or fragment').replace('\x10Kaibel paragraph', 'Kaibel paragraph')\
-                        .replace('\x18hypothesis-verse of play', 'hypothesis-verse of play')\
-                        .replace(r'\x19Hypothesis-apologia-cento', 'Hypothesis-apologia-cento')\
-                        .replace('\x1bhypothesis-epigram-scholion', 'hypothesis-epigram-scholion')\
-                        .replace('\x12line', 'line').replace('\x0fQuestion+answer', 'Question+answer')\
-                        .replace('\x05Codex', 'Codex').replace('Ku+hn volume', 'Kühn volume')\
-                        .replace('\x05Idyll', 'Idyll').replace('\x10Tome+volume+part', 'Tome+volume+part')\
-                        .replace('\x05Title', 'Title').replace('\x05verse', 'verse')\
-                        .replace('\x18Vita-argumentum-scholion', 'Vita-argumentum-scholion')\
-                        .replace('$*PENTAETHRIKO/S&', '$*PENTAETHRIKO/S& !!!! TRANSLITERATE')\
-                        .replace('&1Palladius& Med.Y', 'Palladius& Med. !!! THIS IS A NAME NOT FORMAT')\
-                        .replace('\x05Psalm', 'Psalm').replace('\x12Preisendanz number', 'Preisendanz number')\
-                        .replace('\x15Prolegomenon-scholion', 'Prolegomenon-scholion')\
-                        .replace('&1Simonides& Lyr.S', 'Simonides& Lyr. !!! THIS IS A NAME NOT FORMAT')\
-                        .replace('\x1ePausanias book+chapter+section', 'Pausanias book+chapter+section !!! CHECK FORMAT TYPE')\
-                        .replace('$*PERI\\ STA/SEWN&', '$*PERI\\ STA/SEWN& !!! TRANSLITERATE')\
-                        .replace('\x10Bekker page+line', 'Bekker page+line')\
-                        .replace('\x05Paean', 'Paean').replace('\x0fBook of Odyssey', 'Book of Odyssey')\
-                        .replace('$*PERI\\ METOXW=N&', '$*PERI\\ METOXW=N& !!! TRANSLITERATE')\
-                        .replace('\x12Fragment or column', 'Fragment or column').replace('\x0fFragment+column', 'Fragment+column')\
-                        .replace('\x12Verso-recto+column', 'Verso-recto+column')\
-                        .replace('\x12column or fragment', 'column or fragment').replace('$*SUMMAXIKO\\S A#&', '$*SUMMAXIKO\\S A#& !!! TRANSLITERATE')\
-                        .replace('$*PANAQHNAI+KO/S&', '$*PANAQHNAI+KO/S& !!! TRANSLITERATE')\
-                        .replace('\x13Argumentum-scholion', 'Argumentum-scholion').replace('\x13Hypothesis-scholion', 'Hypothesis-scholion')\
-                        .replace('\x1bhypothesis-epigram-scholion', 'hypothesis-epigram-scholion')\
-                        .replace('\x16Dindorf-Stephanus page', 'Dindorf-Stephanus page')#.replace('', '').replace('', '').replace('', '').replace('', '').replace('', '').replace('', '').replace('', '')
-                    '''
-
-
-
-                    #print(format_2)
+                    comp_line = re.compile(r'\x16Dindorf-Stephanus page')
+                    format_2 = comp_line.sub('Dindorf-Stephanus page', format_2)
 
                     work_formats.append(format_2)
-                try:
-                    print(work_formats)
-                except:
-                    pass
-
-                #input()
+                #print(title_clean, work_formats)
+                #d = {title_clean: work_formats}
+                #titles = titles.append(d)
+                titles[title_clean] = work_formats
 
 
             except:
                 print('ERROR!!', format) #! check for errrors. None so far.
         except:
             problem_idts.append(title_format)  # these have index error on pre_format[1]
-            #continue
-    #input()
-    return ''
+
+    return titles
 
 def author_names_from_idts():
     """There are 1823 TLG*.IDT files, but the authors in them are only 1773
@@ -525,11 +527,11 @@ def author_names_from_idts():
     """
     orig_dir_path_rel = '~/cltk_data/originals/tlg'
     orig_dir_path = os.path.expanduser(orig_dir_path_rel)
-    #return [os.path.join(orig_dir_path, x) for x in os.listdir(orig_dir_path) if x.endswith('.IDT') and x.startswith('TLG')]
 
-    author_dict = {}
 
+    total = {}
     for tlg_id, dir_name in TLG_INDEX.items():
+        author_dict = {}
         idt_path = os.path.join(orig_dir_path, tlg_id + '.IDT')
 
         idt_binary = open_idt(idt_path)
@@ -539,23 +541,33 @@ def author_names_from_idts():
         author_names = {'name_idt': author,
                         'name_authtab': dir_name
                         }
-        author_dict[tlg_id] = author_names
+        #file_id = {'tlg_id': tlg_id}
+        #author_dict[tlg_id] = author_names
 
-    # here add parsing of works in .idt file
-    for tlg_id, dir_name in TLG_INDEX.items():
+    # parsing of works in .idt file
+    #for tlg_id, dir_name in TLG_INDEX.items():
         idt_path = os.path.join(orig_dir_path, tlg_id + '.IDT')
         idt_binary = open_idt(idt_path)
-        titles_ugly = match_idt_titles(idt_binary)
+        titles = match_idt_titles(idt_binary)
 
+        author_dict = {'names': author_names,
+                       'tlg_id': tlg_id,
+                       'works': titles
+        }
+        total[author] = author_dict
+    #
+    #print('Found data for', len(total), 'files out of', len(TLG_INDEX)) # 1773/1823
 
-    return author_dict
+    return total
 
 
 if __name__ == '__main__':
-    author_dict = author_names_from_idts()
+    #total_index = author_names_from_idts()
+    #print(total_index)
 
     '''
     with open('cltk/corpus/greek/tlg_master_index.py', 'w') as f:
-        f.write('TLG_MASTER_INDEX = ' + str(author_dict))
+        f.write('TLG_MASTER_INDEX = ' + str(total_index))
     '''
 
+    
