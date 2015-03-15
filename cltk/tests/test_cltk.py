@@ -40,7 +40,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
-    '''
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
         corpus_importer = CorpusImporter('greek')
@@ -52,7 +51,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = CorpusImporter('latin')
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
-    '''
 
     def test_open_pickle(self):
         """Test opening function pickle."""
@@ -77,7 +75,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
 
-    '''
     def test_import_latin_library(self):
         """Test downloading the Latin Libraray text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
@@ -176,7 +173,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)
         self.assertTrue(file)
-    '''
 
     def test_formatter_strip_ascii(self):
         """Test removing all non-ascii characters from a string."""
@@ -252,7 +248,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=C0301
         self.assertEqual(stemmed_text, target)
 
-    '''
     def test_import_ling_data_greek(self):
         """Test whether CLTK Greek linguistic data was imported during
         ``setUp()``."""
@@ -266,7 +261,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         rel_path = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
-    '''
 
     def test_sentence_tokenizer_greek(self):
         """Test tokenizing Greek sentences."""
