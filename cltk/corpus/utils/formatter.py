@@ -560,6 +560,24 @@ def author_names_from_idts():
 
     return total
 
+def index_from_files():
+    path_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+    path = os.path.expanduser(path_rel)
+    individual_works = os.listdir(path)
+    #print(TLG_INDEX)
+    new_dict = {}
+    for author_code in TLG_INDEX:
+        author_name = TLG_INDEX[author_code[:7]]
+        works = []
+        comp = re.compile(author_code + r'.*')
+        for y in individual_works:
+            match = comp.match(y)
+            if match:
+                work = match.group()[8:-4]
+                works.append(work)
+        new_dict[author_code] = {'name': author_name, 'works': works}
+    #print(new_dict)
+
 
 if __name__ == '__main__':
     #total_index = author_names_from_idts()
@@ -570,4 +588,7 @@ if __name__ == '__main__':
         f.write('TLG_MASTER_INDEX = ' + str(total_index))
     '''
 
-    
+    works_index = index_from_files()
+
+    with open('cltk/corpus/greek/tlg_index_works.py', 'w') as f:
+        f.write('TLG_WORKS_INDEX = ' + str(works_index))
