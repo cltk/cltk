@@ -39,7 +39,7 @@ class POSTag():
         :rtype : dict
         """
         assert lang in TAGGERS.keys(), \
-            'POS tagger not available for %s language.' % lang
+            'POS tagger not available for {0} language.'.format(lang)
         rel_path = os.path.join('~/cltk_data',
                                 lang,
                                 'trained_model/cltk_linguistic_data/taggers/pos')  # pylint: disable=C0301
@@ -48,7 +48,7 @@ class POSTag():
         for tagger_key, tagger_val in TAGGERS[lang].items():
             tagger_path = os.path.join(path, tagger_val)
             assert os.path.isfile(tagger_path), \
-                'CLTK linguistics data not available for %s.' % tagger_val
+                'CLTK linguistics data not available for {0}.'.format(tagger_val)
             tagger_paths[tagger_key] = tagger_path
         return tagger_paths
 

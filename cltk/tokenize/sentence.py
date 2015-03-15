@@ -44,7 +44,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         :type lang: str
         :rtype (str, str, str)
         """
-        assert lang in PUNCTUATION.keys(), 'Sentence tokenizer not available for %s language.' % lang  # pylint: disable=C0301
+        assert lang in PUNCTUATION.keys(), 'Sentence tokenizer not available for {0} language.'.format(lang)  # pylint: disable=C0301
         internal_punctuation = PUNCTUATION[lang]['internal']
         external_punctuation = PUNCTUATION[lang]['external']
 
@@ -54,7 +54,7 @@ class TokenizeSentence():  # pylint: disable=R0903
                                 'trained_model/cltk_linguistic_data/tokenizers/sentence')  # pylint: disable=C0301
         path = os.path.expanduser(rel_path)
         tokenizer_path = os.path.join(path, file)
-        assert os.path.isfile(tokenizer_path), 'CLTK linguistics data not found for language %s' % lang  # pylint: disable=C0301
+        assert os.path.isfile(tokenizer_path), 'CLTK linguistics data not found for language {0}'.format(lang)  # pylint: disable=C0301
         return internal_punctuation, external_punctuation, tokenizer_path
 
     def _setup_tokenizer(self, tokenizer: object):

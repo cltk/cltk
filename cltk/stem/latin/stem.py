@@ -141,7 +141,7 @@ class Stemmer(object):
 
         for ending in simple_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, '', word)
+                word = re.sub(r'{0}$'.format(ending), '', word)
                 was_stemmed = True
                 break
 
@@ -182,25 +182,25 @@ class Stemmer(object):
         # replace i verb endings with i
         for ending in i_verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, 'i', word)
+                word = re.sub(r'{0}$'.format(ending), 'i', word)
                 return word
 
         # replace bi verb endings with bi
         for ending in bi_verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, 'bi', word)
+                word = re.sub(r'{0}$'.format(ending), 'bi', word)
                 return word
 
         # replace eri verb endings with eri
         for ending in eri_verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, 'eri', word)
+                word = re.sub(r'{0}$'.format(ending), 'eri', word)
                 return word
 
         # otherwise, remove general verb endings
         for ending in verb_endings:
             if word.endswith(ending):
-                word = re.sub( r'%s$' % ending, '', word)
+                word = re.sub(r'{0}$'.format(ending), '', word)
                 break
 
         return word

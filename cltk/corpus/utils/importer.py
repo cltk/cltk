@@ -37,7 +37,7 @@ class CorpusImporter():
         within ``corpora`` which contain a ``corpora.py`` file.
         """
         assert self.language in AVAILABLE_LANGUAGES, \
-            'Corpora not available for %s language.' % self.language
+            'Corpora not available for {0} language.'.format(self.language)
 
     @property
     def list_corpora(self):
@@ -59,16 +59,16 @@ class CorpusImporter():
         originals_dir = os.path.join(home, 'originals')
         if not os.path.isdir(originals_dir):
             os.makedirs(originals_dir)
-            logger.info("Wrote directory at '%s'." % originals_dir)
+            logger.info("Wrote directory at '{0}'.".format(originals_dir))
         else:
-            logger.info("Directory already exists at: '%s'." % originals_dir)
+            logger.info("Directory already exists at: '{0}'.".format(originals_dir))
         # make directories for unpacking downloaded file
         unpack_dir = os.path.join(home, self.language, corpus_type, corpus_name)
         if not os.path.isdir(unpack_dir):
             os.makedirs(unpack_dir)
-            logger.info("Wrote directories at '%s'." % unpack_dir)
+            logger.info("Wrote directories at '{0}'.".format(unpack_dir))
         else:
-            logger.info("Directories already exist at '%s'." % unpack_dir)
+            logger.info("Directories already exist at '{0}'.".format(unpack_dir))
         return originals_dir, unpack_dir
 
     @staticmethod
@@ -81,18 +81,15 @@ class CorpusImporter():
         try:
             with open(file_path_originals, 'wb') as new_file:
                 new_file.write(dl_object.content)
-                logger.info("Wrote file %s to '%s'." % (file_name, originals_dir))
+                logger.info("Wrote file '{0}' to '{1}'.".format(file_name, originals_dir))
         except Exception as except_write:  # pylint: disable=W0703
-            logger.error("Failed to write file %s to '%s': %s" %
-                         (file_name, originals_dir, except_write))
+            logger.error("Failed to write file '{0}' to '{1}': '{2}'".format(file_name, originals_dir, except_write))
         # unpack into new dir
         try:
             shutil.unpack_archive(file_path_originals, unpack_dir)
-            logger.info("Finished unpacking corpus %s to '%s'." %
-                        (corpus_name, unpack_dir))
+            logger.info("Finished unpacking corpus '{0}' to '{1}'.".format(corpus_name, unpack_dir))
         except Exception as except_write:  # pylint: disable=W0703
-            logger.error("Failed to uncompress corpus %s to '%s': %s" %
-                         (corpus_name, unpack_dir, except_write))
+            logger.error("Failed to uncompress corpus '{0}' to '{1}': '{2}'".format(corpus_name, unpack_dir, except_write))
 
     @staticmethod
     def _download_file(url, corpus_name):
@@ -102,14 +99,14 @@ class CorpusImporter():
         http://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter
         http://stackoverflow.com/a/21371922
         """
-        logger.info("Starting download of corpus %s from: '%s'." % (corpus_name, url))
+        logger.info("Starting download of corpus '{0}' from: '{1}'.".format(corpus_name, url))
         try:
             session = requests.Session()
             session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
             downloaded_object = session.get(url, stream=True)
-            logger.info("Downloaded file at '%s'." % url)
+            logger.info("Downloaded file at '{0}'.".format(url))
         except Exception as except_req:  # pylint: disable=W0703
-            logger.error("Failed to download file at '%s': %s" % (url, except_req))
+            logger.error("Failed to download file at '{0}': '{0}'".format(url, except_req))
             sys.exit(1)
         return downloaded_object
 
@@ -160,15 +157,14 @@ class CorpusImporter():
         elif self.language == 'latin':
             corpora = LATIN_CORPORA
         else:
-            logger.error('Corpora not available for %s language.' % self.language)
+            logger.error("Corpora not available for '{0}' language.".format(self.language))
             sys.exit(1)
         corpus_properties = None
         for corpus in corpora:
             if corpus['name'] == corpus_name:
                 corpus_properties = corpus
         if not corpus_properties:
-            logger.info("Corpus '%s' not available for the '%s' language." %
-                        (corpus_name, self.language))
+            logger.info("Corpus '{0}' not available for the '{1}' language.".format(corpus_name, self.language))
             sys.exit(1)
         return corpus_properties
 
@@ -187,7 +183,7 @@ class CorpusImporter():
             path = corpus_properties['path']
             self._download_corpus(corpus_type, corpus_name, path)
         elif location == 'local':
-            logger.info('Incoming path:', path)
+            logger.info("Incoming path: '{0}'".format(path))
             if not path:
                 logger.info("'path' argument required for local corpora.")
                 sys.exit(1)
@@ -222,14 +218,14 @@ class CorpusImporter():
                 # check for `originals` dir; if not present mkdir
                 if not os.path.isdir(originals_dir):
                     os.makedirs(originals_dir)
-                    logger.info("Wrote directory at '%s'." % originals_dir)
+                    logger.info("Wrote directory at '{0}'.".format(originals_dir))
                 tlg_originals_dir = os.path.join(data_dir,
                                                  'originals',
                                                  corpus_name)
                 # check for `originals/<corpus_name>`; if pres, delete
                 if os.path.isdir(tlg_originals_dir):
                     shutil.rmtree(tlg_originals_dir)
-                    logger.info("Removed directory at '%s'." % tlg_originals_dir)
+                    logger.info("Removed directory at '{0}'.".format(tlg_originals_dir))
                 # copy_dir requires that target
                 if not os.path.isdir(tlg_originals_dir):
                     self._copy_dir_recursive(path, tlg_originals_dir)

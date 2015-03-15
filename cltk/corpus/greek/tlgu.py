@@ -52,7 +52,7 @@ class TLGU(object):
                 corpus_importer = CorpusImporter('greek')
                 corpus_importer.import_corpus('tlgu')
             except Exception as exc:
-                logger.error('Failed to import TLGU: %s' % exc)
+                logger.error('Failed to import TLGU: {0}'.format(exc))
                 sys.exit(1)
 
     @staticmethod
@@ -61,7 +61,7 @@ class TLGU(object):
         try:
             subprocess.check_output(['which', 'tlgu'])
         except Exception as exc:
-            logger.info('TLGU not installed: %s' % exc)
+            logger.info('TLGU not installed: {0}'.format(exc))
             logger.info('Installing TLGU.')
             if not subprocess.check_output(['which', 'gcc']):
                 logger.error('GCC seems not to be installed.')
@@ -69,17 +69,15 @@ class TLGU(object):
                 tlgu_path_rel = '~/cltk_data/greek/software/tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
                 try:
-                    p_out = subprocess.call('cd %s && make install' %
-                                            tlgu_path, shell=True)
+                    p_out = subprocess.call('cd {0} && make install'.format(tlgu_path), shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
                         logger.error('TLGU install without sudo failed.')
                 except Exception as exc:
-                    logger.error('TLGU install failed: %s' % exc)
+                    logger.error('TLGU install failed: {0}'.format(exc))
                 else:  # for Linux needing root access to '/usr/local/bin'
-                    p_out = subprocess.call('cd %s && sudo make install' %
-                                            tlgu_path, shell=True)
+                    p_out = subprocess.call('cd {0} && sudo make install'.format(tlgu_path), shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
@@ -128,7 +126,7 @@ class TLGU(object):
             try:
                 extra_args = list(extra_args)
             except Exception as exc:
-                logger.error("Argument 'extra_args' must be a list: %s" % exc)
+                logger.error("Argument 'extra_args' must be a list: {0}.".format(exc))
                 sys.exit(1)
         tlgu_options = tlgu_options + extra_args
         # assemble all tlgu flags
@@ -138,15 +136,15 @@ class TLGU(object):
         else:
             tlgu_flags = ''
         # make tlgu call
-        tlgu_call = 'tlgu %s %s %s' % (tlgu_flags, input_path, output_path)
+        tlgu_call = 'tlgu {0} {1} {2}'.format(tlgu_flags, input_path, output_path)
         logger.info(tlgu_call)
         try:
             p_out = subprocess.call(tlgu_call, shell=True)
             if p_out == 1:
-                logger.error('Failed to convert %s to %s.' % (input_path, output_path))
+                logger.error('Failed to convert {0} to {1}.'.format(input_path, output_path))
                 sys.exit(1)
         except Exception as exc:
-            logger.error('Failed to convert %s to %s: %s' % (input_path, output_path, exc))
+            logger.error('Failed to convert {0} to {1}: {2}'.format(input_path, output_path, exc))
             sys.exit(1)
 
     def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):
@@ -177,7 +175,7 @@ class TLGU(object):
         try:
             corpus_files = os.listdir(orig_path)
         except Exception as exception:
-            logger.error("Failed to find TLG files: %s" % exception)
+            logger.error("Failed to find TLG files: {0}".format(exception))
             sys.exit(1)
         # make a list of files to be converted
         txts = []
@@ -197,7 +195,7 @@ class TLGU(object):
                              break_lines=False, divide_works=False, latin=latin,
                              extra_args=None)
             except Exception as exception:
-                logger.error("Failed to convert file '%s' to '%s': %s" % (orig_txt_path, target_txt_path, exception))
+                logger.error("Failed to convert file '{0}' to '{1}': {2}".format(orig_txt_path, target_txt_path, exception))
 
     def make_individual_works(self):
         """Use the work-breaking option for all TLG.

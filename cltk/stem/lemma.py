@@ -26,7 +26,7 @@ class LemmaReplacer(object):  # pylint: disable=R0903
         TODO: Turn 'lemma_list' file a simple csv and importing on the fly.
         """
         assert self.language in AVAILABLE_LANGUAGES, \
-            'Corpora not available for %s language.' % self.language
+            'Corpora not available for {0} language.'.format(self.language)
         if self.language == 'latin':
             rel_path = os.path.join('~/cltk_data',
                                     self.language,
