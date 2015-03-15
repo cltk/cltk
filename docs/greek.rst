@@ -170,16 +170,18 @@ Stopword Filtering
 ==================
 .. code-block:: python
 
-   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
 
    In [2]: from cltk.stop.greek.stops_unicode import STOPS_LIST
 
    In [3]: sentence = 'Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.'
 
-   In [4]: tokens = PunktWordTokenizer().tokenize(sentence.lower())
+   In [4]: p = PunktLanguageVars()
 
-   In [5]: [w for w in tokens if not w in STOPS_LIST]
-   Out[5]:
+   In [5]: tokens = p.word_tokenize(tokenize(sentence.lower())
+
+   In [6]: [w for w in tokens if not w in STOPS_LIST]
+   Out[6]:
    ['ἅρπαγος',
     'καταστρεψάμενος',
     'ἰωνίην',

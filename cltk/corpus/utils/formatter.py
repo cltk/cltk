@@ -3,7 +3,6 @@ Some formatting can happen here, or invoke language-specific formatters in
 other files.
 
 #TODO: Add generic HTML stripper
-#TODO mk class accepting language as argument
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
@@ -11,6 +10,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
+from cltk.corpus.greek.tlg_indices import TLG_INDEX
 from cltk.corpus.utils.cltk_logger import logger
 import os
 import re
@@ -26,7 +26,7 @@ def remove_non_ascii(input_string):
 def cleanup_tlg_txt(tlg_str):
     """"Remove all non–Greek characters from a TLG corpus."""
     # fix beta code transliteration problems
-    tlg_str = re.sub(r'ι\+', 'ϊ', tlg_str)
+    tlg_str = re.sub(r'ι|\+', 'ϊ', tlg_str)
     tlg_str = re.sub(r'ί\+', 'ΐ', tlg_str)
     tlg_str = re.sub(r'\\.', '.', tlg_str)
     # fix tlg markup
@@ -40,6 +40,7 @@ def cleanup_tlg_txt(tlg_str):
 
 def build_corpus_index(corpus, authtab_path=None):
     """Build index for TLG or PHI5. ``authtab_path`` for testing only.
+    TODO: Add a test flag argument and rm authtab_path
     :param corpus:
     :return: dict
     """
@@ -73,7 +74,7 @@ def build_corpus_index(corpus, authtab_path=None):
         # file name
         pattern_file = re.compile(file_name_match)
         m = pattern_file.match(x)
-        file_name = m.group()[:-1] + '.TXT'
+        file_name = m.group()[:-1]# + '.TXT'
 
         # author name
         author_name = pattern_file.split(x)[-1]
@@ -86,68 +87,24 @@ def build_corpus_index(corpus, authtab_path=None):
     return file_author
 
 
-
-'''
-
-def build_phi5_index(index_path_rel = '~/cltk_data/originals/phi5/AUTHTAB.DIR'):
-    """Return dict of 362 files in format of {file: author_name}. This has
-    been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
-    TODO: Update this to account for works within each author's file.
+def index_from_files():
+    """This uses the TLG author index and makes  new index including the file
+    names of TLG works. The TLGU().make_individual_works() must be run first
+    to create the files to look for.
+    TODO: Remove this once a good TLG index has been finalized.
     """
-    index_path = os.path.expanduser(index_path_rel)
-    if not os.path.isfile(index_path):
-        logger.info("Failed to locate original PHI5 index at '%s'. Please import PHI5 first." % index_path)
-        sys.exit(1)
-    with open(index_path, 'rb') as f:
-        r = f.read()
-        index_all = r.decode('latin-1').split('\xff')[1:-21]
-        index = [x for x in index_all if x]
-        file_author = {}
-        for x in index:
-            # file name
-            pattern_file = re.compile('LAT[\d].{4}')
-            m = pattern_file.match(x)
-            file_name = m.group()[:-1] + '.TXT'
-
-            # author name
-            author_name = pattern_file.split(x)[-1]
-            pattern_author = re.compile('&1|&l|l$|&|1$|\x83')
-            author_name = pattern_author.sub('', author_name)
-            pattern_comma = re.compile('\x80')
-            author_name = pattern_comma.sub(', ', author_name)
-            file_author[file_name] = author_name
-
-    return file_author
-
-
-def build_tlg_index(index_path_rel='~/cltk_data/originals/tlg/AUTHTAB.DIR'):
-    """Return dict of 362 files in format of {file: author_name}. This has
-    been pre-generated and saved at ``~/cltk/corpus/latin/phi5_index.py``.
-    TODO: Update this to account for works within each author's file.
-    TODO: merge with phi5 build index
-"""
-    index_path = os.path.expanduser(index_path_rel)
-    if not os.path.isfile(index_path):
-        logger.info("Failed to locate original TLG index at '%s'. Please import TLG first." % index_path)
-        sys.exit(1)
-    with open(index_path, 'rb') as f:
-        r = f.read()
-        index_all = r.decode('latin-1').split('\xff')[1:-6]  # diff from phi5
-        index = [x for x in index_all if x]
-        file_author = {}
-        for x in index:
-            # file name
-            pattern_file = re.compile('TLG[\d].{4}')
-            m = pattern_file.match(x)
-            file_name = m.group()[:-1] + '.TXT'
-
-            # author name
-            author_name = pattern_file.split(x)[-1]
-            pattern_author = re.compile('&1|&l|l$|&|1$|\x83|\[2|\]2')  # diff from phi5
-            author_name = pattern_author.sub('', author_name)
-            pattern_comma = re.compile('\x80')
-            author_name = pattern_comma.sub(', ', author_name)
-            file_author[file_name] = author_name
-
-    return file_author
-'''
+    path_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+    path = os.path.expanduser(path_rel)
+    individual_works = os.listdir(path)
+    new_dict = {}
+    for author_code in TLG_INDEX:
+        author_name = TLG_INDEX[author_code[:7]]
+        works = []
+        comp = re.compile(author_code + r'.*')
+        for y in individual_works:
+            match = comp.match(y)
+            if match:
+                work = match.group()[8:-4]
+                works.append(work)
+        new_dict[author_code] = {'name': author_name, 'works': works}
+    return new_dict
