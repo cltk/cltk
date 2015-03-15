@@ -40,6 +40,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
+    '''
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
         corpus_importer = CorpusImporter('greek')
@@ -51,6 +52,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = CorpusImporter('latin')
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
+    '''
 
     def test_open_pickle(self):
         """Test opening function pickle."""
@@ -75,6 +77,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
 
+    '''
     def test_import_latin_library(self):
         """Test downloading the Latin Libraray text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
@@ -173,6 +176,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)
         self.assertTrue(file)
+    '''
 
     def test_formatter_strip_ascii(self):
         """Test removing all non-ascii characters from a string."""
@@ -185,7 +189,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test removing miscellaneous TLG formatting."""
         unclean_str = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι [2χρὴ]2 χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
         clean_str = cleanup_tlg_txt(unclean_str)
-        print(clean_str)
         valid = """πολλὰ ἔτϊ πάνυ παραλείπω· τὸ δὲ μέγϊστον εἴρηταϊ πλὴν αἱ τάξεϊσ τοῦ φόρου· τοῦτο δὲ γίγνεταϊ ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαϊ  χρῆναϊ δϊαδϊκάζεϊν ἅπαντα; εἰπάτω γάρ τϊσ ὅ τϊ οὐ χρῆν αὐτόθϊ δϊαδϊκάζεσθαϊ. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναϊ δϊαδϊκάζεϊν, ἀνάγκη δῐ ἐνϊαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνϊαυτοῦ δϊκάζοντεσ ὑπάρχουσϊν ὥστε παύεϊν τοὺσ ἀδϊκοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων."""
         self.assertEqual(clean_str, valid)
 
@@ -245,6 +248,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=C0301
         self.assertEqual(stemmed_text, target)
 
+    '''
     def test_import_ling_data_greek(self):
         """Test whether CLTK Greek linguistic data was imported during
         ``setUp()``."""
@@ -258,6 +262,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         rel_path = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
         abs_path = os.path.expanduser(rel_path)
         self.assertTrue(abs_path)
+    '''
 
     def test_sentence_tokenizer_greek(self):
         """Test tokenizing Greek sentences."""
@@ -405,6 +410,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test fail of building index due to unsupported corpus."""
         with self.assertRaises(SystemExit):
             build_corpus_index('unsupported_corpus')
+
 
 
 
