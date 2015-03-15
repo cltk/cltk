@@ -198,3 +198,24 @@ class TLGU(object):
                              extra_args=None)
             except Exception as exception:
                 logger.error("Failed to convert file '%s' to '%s': %s" % (orig_txt_path, target_txt_path, exception))
+
+    def break_works(self):
+        """Use the work-breaking option for all TLG.
+        TODO: Add logging to this.
+        """
+        orig_dir_path_rel = '~/cltk_data/originals/tlg'
+        orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+        tlg_files = os.listdir(orig_dir_path)
+        texts = [x for x in tlg_files if x.endswith('.TXT') and x.startswith('TLG')]
+
+        for file in texts:
+            orig_file_path = os.path.join(orig_dir_path, file)
+            works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
+
+            works_dir = os.path.expanduser(works_dir_rel)
+            if not os.path.isdir(works_dir):
+                os.makedirs(works_dir)
+            new_file_path = os.path.join(works_dir_rel, file)
+
+            #orig_file_rel = os.path.join(orig_dir_path_rel, file)
+            self.convert(orig_file_path, new_file_path, divide_works=True)
