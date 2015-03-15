@@ -1,7 +1,8 @@
 The Classical Language Toolkit
 ==============================
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![DOI](https://zenodo.org/badge/10145/kylepjohnson/cltk.svg)](http://dx.doi.org/10.5281/zenodo.15442)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.16074.svg)](http://dx.doi.org/10.5281/zenodo.16074)
+
 
 
 About 
@@ -32,7 +33,7 @@ Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Dig
 
 Therefore, please cite the CLTK as follows: 
 ```
-Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.15442
+Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.16074
 ```
 
 A style-neutral BibTex entry would look like this:
@@ -41,7 +42,7 @@ A style-neutral BibTex entry would look like this:
 author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
 howpublished = {\url{https://github.com/kylepjohnson/cltk}},
-note = {{DOI} 10.5281/zenodo.15442},
+note = {{DOI} 10.5281/zenodo.16074},
 year = {2014--2015}
 }
 ```
