@@ -199,7 +199,7 @@ class TLGU(object):
             except Exception as exception:
                 logger.error("Failed to convert file '%s' to '%s': %s" % (orig_txt_path, target_txt_path, exception))
 
-    def break_works(self):
+    def make_individual_works(self):
         """Use the work-breaking option for all TLG.
         TODO: Add logging to this.
         """
