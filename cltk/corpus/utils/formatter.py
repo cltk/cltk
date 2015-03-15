@@ -576,7 +576,7 @@ def index_from_files():
                 work = match.group()[8:-4]
                 works.append(work)
         new_dict[author_code] = {'name': author_name, 'works': works}
-    #print(new_dict)
+    return new_dict
 
 
 if __name__ == '__main__':
