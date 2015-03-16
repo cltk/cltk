@@ -19,11 +19,39 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 
 Converting TLG and PHI texts with TLGU
 ======================================
+The `TLGU <http://tlgu.carmen.gr/>`_ is C-language software which does an excellent job at converting the TLG and PHI corpora into various forms of human-readable Unicode plaintext. The CLTK has an automated downloader and installer, as well as a wrapper package which facilitates its use. Download and installation is handled in the background. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
+
+Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers).
+
 .. code-block:: python
 
    In [1]: from cltk.corpus.greek.tlgu import TLGU
 
    In [2]: t = TLGU()
+
+   In [3]: t.convert_corpus(corpus='tlg')  # writes to: ~/cltk_data/greek/text/tlg/plaintext/
+
+   In [4]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/
+
+For the PHI7, you may declare whether you want the corpus to be written to the ``greek`` or ``latin`` directories. By default, it writes to ``greek``.
+
+.. code-block:: python
+
+   In [5]: t.convert_corpus(corpus='phi7')  # ~/cltk_data/greek/text/phi7/plaintext/
+
+   In [6]: t.convert_corpus(corpus='phi7', latin=True)  # ~/cltk_data/latin/text/phi7/plaintext/
+
+The above commands take each author file and translates them into another author file. But the software has a useful option to divide each author file into a new file for each work it contains. Thus, Homer's file, ``TLG0012.TXT``, becomes ``TLG0012.TXT-001.txt``, ``TLG0012.TXT-002.txt``, and ``TLG0012.TXT-003.txt``. To achieve this, use the following command for the ``TLG``:
+
+.. code-block:: python
+
+   In [7]: t.divide_works('tlg')  # ~/cltk_data/greek/text/tlg/individual_works/
+
+   In [8]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
+
+You may also convert individual files, with options for how the conversion happens.
+
+.. code-block:: python
 
    In [3]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt')
 
@@ -33,23 +61,15 @@ Converting TLG and PHI texts with TLGU
 
    In [6]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', divide_works=True)
 
-This makes two texts, one for each work by Thucydides in the TLG's index: ``thucydides.txt-001.txt`` and ``thucydides.txt-002.txt``.
+
+For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well, via ``extra_args``:
 
 .. code-block:: python
 
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
-Most will probably want to convert the entirety of a corpus, which is done with, e.g.:
+You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
 
-.. code-block:: python
-
-   In [8]: t.convert_corpus(corpus='tlg')
-
-With this, the files have been copied and converted from ``~/cltk_data/originals/tlg`` and moved to ``~/cltk_data/greek/text/tlg/plaintext``.
-
-For the ``corpus`` argument of ``convert_corpus()``, the only three valid options are ``'phi5'``, ``'phi7'``, or ``'tlg'``. Aside from ``input_path`` and ``output_path``, all of the arguments available to ``convert()`` can be passed to ``convert_corpus()``.
-
-Note that for ``phi7`` there is an optional argument ``Latin``, which is set to None by default (that is, can be called as ``convert_corpus(corpus='phi7')`` or ``convert_corpus(corpus='phi7', latin=None)``. However if you want to convert the texts as Latin and put them in ``~cltk_data/latin/``, then pass: ``convert_corpus(corpus='phi7', latin=True)``.
 
 POS tagging
 ===========
