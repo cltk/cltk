@@ -41,7 +41,7 @@ For the PHI7, you may declare whether you want the corpus to be written to the `
 
    In [6]: t.convert_corpus(corpus='phi7', latin=True)  # ~/cltk_data/latin/text/phi7/plaintext/
 
-The above commands take each author file and translates them into another author file. But the software has a useful option to divide each author file into a new file for each work it contains. Thus, Homer's file, ``TLG0012.TXT``, becomes ``TLG0012.TXT-001.txt``, ``TLG0012.TXT-002.txt``, and ``TLG0012.TXT-003.txt``. To achieve this, use the following command for the ``TLG``:
+The above commands take each author file and convert them into a new author file. But the software has a useful option to divide each author file into a new file for each work it contains. Thus, Homer's file, ``TLG0012.TXT``, becomes ``TLG0012.TXT-001.txt``, ``TLG0012.TXT-002.txt``, and ``TLG0012.TXT-003.txt``. To achieve this, use the following command for the ``TLG``:
 
 .. code-block:: python
 
@@ -69,6 +69,47 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
+
+The CLTK contains several indices to the TLG which expect files pre-processed by TLGU. ``TLG_INDEX`` expects a simple bulk conversion via ``convert_corpus()`` and ``TLG_WORKS_INDEX`` expects ``divide_works()``.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tlg_indices import TLG_INDEX
+
+   In [2]: from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
+
+   In [3]: In [4]: TLG_INDEX
+   Out[3]:
+   {'TLG1414': 'Heraclitus Phil.',
+    'TLG2033': 'Theon Math.',
+    'TLG2349': '[Pyrander] Hist.',
+    ...}
+
+   In [5]: TLG_WORKS_INDEX
+   Out[5]:
+   {'TLG1161': {'works': ['TXT-001'], 'name': 'Apocryphon Ezechiel'},
+    'TLG2033': {'works': ['TXT-001', 'TXT-002', 'TXT-006', 'TXT-007', 'TXT-009'],
+     'name': 'Theon Math.'},
+    'TLG2045': {'works': ['TXT-001', 'TXT-002', 'TXT-003'],
+     'name': 'Nonnus Epic.'},
+    'TLG0418': {'works': ['TXT-001', 'TXT-002'], 'name': 'Aristagoras Comic.'},
+     'name': 'Joannes Anagnostes Hist. et Poeta'},
+    'TLG2020': {'works': ['TXT-001',
+      'TXT-002',
+      'TXT-003',
+      'TXT-004',
+      'TXT-005',
+      'TXT-006',
+      'TXT-007',
+      'TXT-008'],
+     'name': 'Theodosius Gramm.'},
+    ...}
+
+
+.. tip::
+
+   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
+
 
 
 POS tagging
