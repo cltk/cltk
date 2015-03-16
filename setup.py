@@ -26,9 +26,8 @@ setup(
     ],
     description='NLP support for Classical languages.',
     install_requires=['nltk',
-                      'requests',
                       'requests-toolbelt',
-                      'numpy'],
+                      'requests',],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',
     long_description="The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.",  # pylint: disable=C0301
