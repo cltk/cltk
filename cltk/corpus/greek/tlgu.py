@@ -222,5 +222,6 @@ class TLGU(object):
 
             try:
                 self.convert(orig_file_path, new_file_path, divide_works=True)
+                logger.info('Writing files at {0} to {1}.'.format(orig_file_path, new_file_path))
             except Exception as err:
-                logger.error('Failed to convert files: {0}'.format(err))
+                logger.error('Failed to convert files at {0}: {1}.'.format(err))
