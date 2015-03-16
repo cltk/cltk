@@ -3,15 +3,18 @@ test-warnings: no
 strictness: low
 max-line-length: 120
 uses:
-    - django
-    - celery
+  - django
+  - celery
 autodetect: yes
 requirements:
-    - deps/core.txt
-    - deps/test.txt
+  - deps/core.txt
+  - deps/test.txt
 ignore-paths:
-    - docs
-    - mypackage/vendor
+  - docs
+  - mypackage/vendor
 ignore-patterns:
-    - ^example/doc_.*\.py$
-    - (^|/)docs(/|$)
+  - ^example/doc_.*\.py$
+  - (^|/)docs(/|$)
+pylint:
+  - disable
+    - invalid-encoded-data
