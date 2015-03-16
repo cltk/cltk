@@ -4,19 +4,19 @@ python:
   - "3.4"
 
 install:
-  # ? Note: On Travis-CI, requests must be installed before `python setup.py sdist install`.
-  #- pip install requests
   - python setup.py sdist install
 
 before_script:
-  - # Note: Travis CI's virtualenv pre-installs `nose`
   - pip install coveralls
 
 script:
+  # Notes on nose:
+  # Travis CI pre-installs `nose`
   # https://github.com/coagulant/coveralls-python#nosetests
   # http://nose.readthedocs.org/en/latest/plugins/skip.html
   - nosetests --no-skip --with-coverage --cover-package=cltk
 
-# https://github.com/coagulant/coveralls-python#usage-travis-ci
 after_success:
- - coveralls
+  # Notes on Coveralls
+  # https://github.com/coagulant/coveralls-python#usage-travis-ci
+  - coveralls
