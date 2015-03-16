@@ -1,6 +1,6 @@
-"""Wrapper for `tlgu` command line utility
+"""Wrapper for `tlgu` command line utility. Original software at: ``http://tlgu.carmen.gr/``.
 
-TODO: Fully implement this.
+TODO: the arguments to ``convert_corpus()`` need some rationalization, and ``divide_works()`` should be incorporated into it.
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
@@ -197,23 +197,31 @@ class TLGU(object):
             except Exception as exception:
                 logger.error("Failed to convert file '{0}' to '{1}': {2}".format(orig_txt_path, target_txt_path, exception))
 
-    def make_individual_works(self):
-        """Use the work-breaking option for all TLG.
-        TODO: Add logging to this.
+    def divide_works(self, corpus):
+        """Use the work-breaking option.
+        TODO: Incorporate this into ``convert_corpus()``
         """
-        orig_dir_path_rel = '~/cltk_data/originals/tlg'
+        if corpus == 'tlg':
+            orig_dir_path_rel = '~/cltk_data/originals/tlg'
+            works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
+        elif corpus == 'phi5':
+            orig_dir_path_rel = '~/cltk_data/originals/phi5'
+            works_dir_rel = '~/cltk_data/latin/text/phi5/individual_works'
         orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+
         tlg_files = os.listdir(orig_dir_path)
         texts = [x for x in tlg_files if x.endswith('.TXT') and x.startswith('TLG')]
 
         for file in texts:
             orig_file_path = os.path.join(orig_dir_path, file)
-            works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
 
             works_dir = os.path.expanduser(works_dir_rel)
             if not os.path.isdir(works_dir):
                 os.makedirs(works_dir)
             new_file_path = os.path.join(works_dir_rel, file)
 
-            #orig_file_rel = os.path.join(orig_dir_path_rel, file)
-            self.convert(orig_file_path, new_file_path, divide_works=True)
+            try:
+                self.convert(orig_file_path, new_file_path, divide_works=True)
+                logger.info('Writing files at {0} to {1}.'.format(orig_file_path, new_file_path))
+            except Exception as err:
+                logger.error('Failed to convert files at {0}: {1}.'.format(err))
