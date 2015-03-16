@@ -1,0 +1,17 @@
+doc-warnings: yes
+test-warnings: no
+strictness: low
+max-line-length: 120
+uses:
+    - django
+    - celery
+autodetect: yes
+requirements:
+    - deps/core.txt
+    - deps/test.txt
+ignore-paths:
+    - docs
+    - mypackage/vendor
+ignore-patterns:
+    - ^example/doc_.*\.py$
+    - (^|/)docs(/|$)
