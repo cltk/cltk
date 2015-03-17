@@ -9,12 +9,12 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-
-from cltk.corpus.greek.tlg_indices import TLG_INDEX
-from cltk.corpus.utils.cltk_logger import logger
 import os
 import re
 import sys
+
+from cltk.corpus.greek.tlg_indices import TLG_INDEX
+from cltk.utils.cltk_logger import logger
 
 
 def remove_non_ascii(input_string):

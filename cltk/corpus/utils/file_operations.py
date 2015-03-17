@@ -3,10 +3,10 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.utils.cltk_logger import logger
 import pickle
-from pickle import PickleError
 import sys
+
+from cltk.utils.cltk_logger import logger
 
 
 def open_pickle(path: str):

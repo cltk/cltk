@@ -4,9 +4,9 @@ The Classical Language Toolkit
 [![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![Dependency Status](https://gemnasium.com/kylepjohnson/cltk.svg)](https://gemnasium.com/kylepjohnson/cltk) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.16078.svg)](http://dx.doi.org/10.5281/zenodo.16078)
 
 
-
-About 
+About
 -----
+
 The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the CLTK are to:
 
 *   compile analysis-friendly corpora in a variety of Classical languages (Greek and Latin are in progress, with [more in the pipeline](https://github.com/kylepjohnson/cltk/wiki/List-of-Classical-languages));

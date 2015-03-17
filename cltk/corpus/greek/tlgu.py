@@ -1,18 +1,22 @@
-"""Wrapper for `tlgu` command line utility. Original software at: ``http://tlgu.carmen.gr/``.
+"""Wrapper for `tlgu` command line utility.
 
-TODO: the arguments to ``convert_corpus()`` need some rationalization, and ``divide_works()`` should be incorporated into it.
+Original software at: ``http://tlgu.carmen.gr/``.
+
+TODO: the arguments to ``convert_corpus()`` need some rationalization, and
+``divide_works()`` should be incorporated into it.
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-
-from cltk.corpus.utils.cltk_logger import logger
-from cltk.corpus.utils.importer import CorpusImporter
 import os
 import subprocess
 import sys
+
+from cltk.utils.cltk_logger import logger
+from cltk.corpus.utils.importer import CorpusImporter
+
 
 # this currently not in use
 ARGS = {
@@ -52,7 +56,7 @@ class TLGU(object):
                 corpus_importer = CorpusImporter('greek')
                 corpus_importer.import_corpus('tlgu')
             except Exception as exc:
-                logger.error('Failed to import TLGU: {0}'.format(exc))
+                logger.error('Failed to import TLGU: %s', exc)
                 sys.exit(1)
 
     @staticmethod
@@ -61,7 +65,7 @@ class TLGU(object):
         try:
             subprocess.check_output(['which', 'tlgu'])
         except Exception as exc:
-            logger.info('TLGU not installed: {0}'.format(exc))
+            logger.info('TLGU not installed: %s', exc)
             logger.info('Installing TLGU.')
             if not subprocess.check_output(['which', 'gcc']):
                 logger.error('GCC seems not to be installed.')
@@ -75,7 +79,7 @@ class TLGU(object):
                     else:
                         logger.error('TLGU install without sudo failed.')
                 except Exception as exc:
-                    logger.error('TLGU install failed: {0}'.format(exc))
+                    logger.error('TLGU install failed: %s', exc)
                 else:  # for Linux needing root access to '/usr/local/bin'
                     p_out = subprocess.call('cd {0} && sudo make install'.format(tlgu_path), shell=True)
                     if p_out == 0:
@@ -112,7 +116,7 @@ class TLGU(object):
         tlgu_options = []
         if markup == 'full':
             full_args = ['v', 'w', 'x', 'y', 'z']
-            [tlgu_options.append(x) for x in full_args]
+            [tlgu_options.append(x) for x in full_args]  # pylint: disable=W0106
         if break_lines:
             tlgu_options.append('N')
         if divide_works:
@@ -126,7 +130,7 @@ class TLGU(object):
             try:
                 extra_args = list(extra_args)
             except Exception as exc:
-                logger.error("Argument 'extra_args' must be a list: {0}.".format(exc))
+                logger.error("Argument 'extra_args' must be a list: %s.", exc)
                 sys.exit(1)
         tlgu_options = tlgu_options + extra_args
         # assemble all tlgu flags
@@ -136,22 +140,30 @@ class TLGU(object):
         else:
             tlgu_flags = ''
         # make tlgu call
-        tlgu_call = 'tlgu {0} {1} {2}'.format(tlgu_flags, input_path, output_path)
+        tlgu_call = 'tlgu {0} {1} {2}'.format(tlgu_flags,
+                                              input_path,
+                                              output_path)
         logger.info(tlgu_call)
         try:
             p_out = subprocess.call(tlgu_call, shell=True)
             if p_out == 1:
-                logger.error('Failed to convert {0} to {1}.'.format(input_path, output_path))
+                logger.error('Failed to convert %s to %s.',
+                             input_path,
+                             output_path)
                 sys.exit(1)
         except Exception as exc:
-            logger.error('Failed to convert {0} to {1}: {2}'.format(input_path, output_path, exc))
+            logger.error('Failed to convert %s to %s: %s',
+                         input_path,
+                         output_path,
+                         exc)
             sys.exit(1)
 
-    def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):
+    def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):  # pylint: disable=W0613
         """Look for imported TLG or PHI files and convert them all to
         ``~/cltk_data/greek/text/tlg/<plaintext>``.
         TODO: Should this and/or convert() be static?
         TODO: Add markup options to input.
+        TODO: Do something with break_lines, divide_works, and extra_args or rm them
         """
         orig_path_rel = '~/cltk_data/originals'
         orig_path = os.path.expanduser(orig_path_rel)
@@ -175,11 +187,11 @@ class TLGU(object):
         try:
             corpus_files = os.listdir(orig_path)
         except Exception as exception:
-            logger.error("Failed to find TLG files: {0}".format(exception))
+            logger.error("Failed to find TLG files: %s", exception)
             sys.exit(1)
         # make a list of files to be converted
         txts = []
-        [txts.append(x) for x in corpus_files if x.endswith('TXT')]
+        [txts.append(x) for x in corpus_files if x.endswith('TXT')]  # pylint: disable=W0106
         # loop through list and convert one at a time
         for txt in txts:
             orig_txt_path = os.path.join(orig_path, txt)
@@ -195,7 +207,7 @@ class TLGU(object):
                              break_lines=False, divide_works=False, latin=latin,
                              extra_args=None)
             except Exception as exception:
-                logger.error("Failed to convert file '{0}' to '{1}': {2}".format(orig_txt_path, target_txt_path, exception))
+                logger.error("Failed to convert file '%s' to '%s': %s", orig_txt_path, target_txt_path, exception)
 
     def divide_works(self, corpus):
         """Use the work-breaking option.
@@ -222,6 +234,6 @@ class TLGU(object):
 
             try:
                 self.convert(orig_file_path, new_file_path, divide_works=True)
-                logger.info('Writing files at {0} to {1}.'.format(orig_file_path, new_file_path))
+                logger.info('Writing files at %s to %s.', orig_file_path, new_file_path)
             except Exception as err:
-                logger.error('Failed to convert files at {0}: {1}.'.format(err))
+                logger.error('Failed to convert files: %s.', err)

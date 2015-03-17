@@ -7,17 +7,18 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.greek.corpora import GREEK_CORPORA
-from cltk.corpus.latin.corpora import LATIN_CORPORA
-from cltk.corpus.utils.cltk_logger import logger
 import errno
 import os
-import requests
-from requests_toolbelt import SSLAdapter
 import shutil
 import ssl
 import sys
 from urllib.parse import urlsplit
+
+from cltk.corpus.greek.corpora import GREEK_CORPORA
+from cltk.corpus.latin.corpora import LATIN_CORPORA
+from cltk.utils.cltk_logger import logger
+import requests
+from requests_toolbelt import SSLAdapter
 
 
 AVAILABLE_LANGUAGES = ['greek', 'latin']
