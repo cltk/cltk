@@ -59,11 +59,11 @@ def build_corpus_index(corpus, authtab_path=None):
         file_name_match = 'LAT[\d].{4}'
         pattern_author_regex = '&1|&l|l$|&|1$|\x83'
     else:
-        logger.warning("Corpus {0} not available. Choose from 'tlg' or 'phi5'.".format(corpus))
+        logger.warning("Corpus %s not available. Choose from 'tlg' or 'phi5'.", corpus)
         sys.exit(1)
     index_path = os.path.expanduser(authtab_path)
     if not os.path.isfile(index_path):
-        logger.info("Failed to locate original {0} index at '{1}'. Please import first.".format(corpus, index_path))
+        logger.info("Failed to locate original %s index at '%s'. Please import first.", corpus, index_path)
         sys.exit(1)
     with open(index_path, 'rb') as f:
         r = f.read()
