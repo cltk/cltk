@@ -3,9 +3,12 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.utils.file_operations import open_pickle
-from nltk.tokenize import wordpunct_tokenize
 import os
+
+from cltk.utils.file_operations import open_pickle
+
+from nltk.tokenize import wordpunct_tokenize
+
 
 TAGGERS = {'greek':
                {'unigram': 'unigram.pickle',
