@@ -39,7 +39,10 @@ def remove_non_ascii(input_string):
 
 
 def tlg_plaintext_cleanup(text):
-    """Remove and substitute post-processing for Greek TLG text."""
+    """Remove and substitute post-processing for Greek TLG text.
+    TODO: Contents of { } and ( ) not getting removed.
+    TODO: Surely more junk to pull out. Please submit bugs!
+    """
     remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
     text = remove_comp.sub('', text)
 
