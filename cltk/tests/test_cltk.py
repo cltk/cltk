@@ -19,7 +19,7 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
-from cltk.stop.greek.stops_unicode import STOPS_LIST as greek_stops
+from cltk.stop.greek.stops import STOPS_LIST as greek_stops
 from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
