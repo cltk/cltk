@@ -17,8 +17,13 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    In [4]: r.beta_code(BETA_EXAMPLE)
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
-Converting TLG and PHI texts with TLGU
+Converting TLG texts with TLGU
 ======================================
+
+.. note::
+
+   Update this section with new post-TLGU processors in formatter.py
+
 The `TLGU <http://tlgu.carmen.gr/>`_ is C-language software which does an excellent job at converting the TLG and PHI corpora into various forms of human-readable Unicode plaintext. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. Download and installation is handled in the background. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
 
 Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers).
@@ -31,7 +36,6 @@ Most users will want to do a bulk conversion of the entirety of a corpus without
 
    In [3]: t.convert_corpus(corpus='tlg')  # writes to: ~/cltk_data/greek/text/tlg/plaintext/
 
-   In [4]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/
 
 For the PHI7, you may declare whether you want the corpus to be written to the ``greek`` or ``latin`` directories. By default, it writes to ``greek``.
 

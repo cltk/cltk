@@ -16,6 +16,27 @@ Converting J to I, V to U
    Out[3]: 'uem iam'
 
 
+
+Converting PHI texts with TLGU
+==============================
+
+.. note::
+
+   1) Update this section with new post-TLGU processors in formatter.py
+
+The `TLGU <http://tlgu.carmen.gr/>`_ is C-language software which does an excellent job at converting the TLG and PHI corpora into various forms of human-readable Unicode plaintext. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. Download and installation is handled in the background. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
+
+Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tlgu import TLGU
+
+   In [2]: t = TLGU()
+
+   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/ #! This isn't working!
+
+
 Lemmatization
 =============
 .. code-block:: python
