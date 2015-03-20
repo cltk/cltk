@@ -8,13 +8,17 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 import unittest
 
-from cltk.corpus.utils.formatter import build_corpus_index
 from cltk.corpus.greek.beta_to_unicode import Replacer
 
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.utils.file_operations import open_pickle
-from cltk.corpus.utils.formatter import cleanup_tlg_txt
 from cltk.corpus.utils.formatter import remove_non_ascii
+from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
+from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
+from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
+from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
+from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer
@@ -42,6 +46,58 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
+
+    def test_remove_non_ascii(self):
+        """Test removing all non-ascii characters from a string."""
+        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301
+        ascii_str = remove_non_ascii(non_ascii_str)
+        valid = 'Ascii and some non-ascii:     '
+        self.assertEqual(ascii_str, valid)
+
+    def test_tlg_plaintext_cleanup(self):
+        """Test post-TLGU cleanup of text of Greek TLG text."""
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        clean = tlg_plaintext_cleanup(dirty)
+        target = """  Ἀθήναιος  ὁ τῆς  βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = """        {ODYSSIA}
+        {Liber I}
+Virum 999 mihi, Camena, insece versutum.
+Pater noster, Saturni filie . . .
+Mea puera, quid verbi ex tuo ore supera fugit?
+argenteo polubro, aureo eclutro. """
+        clean = phi5_plaintext_cleanup(dirty)
+        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """
+        self.assertEqual(clean, target)
+
+    def test_assemble_tlg_author_filepaths(self):
+        """Test building absolute filepaths from TLG index."""
+        paths = assemble_tlg_author_filepaths()
+        self.assertEqual(len(paths), 1823)
+
+    def test_assemble_phi5_author_filepaths(self):
+        """Test building absolute filepaths from TLG index."""
+        paths = assemble_phi5_author_filepaths()
+        self.assertEqual(len(paths), 362)
+
+    def test_assemble_tlg_works_filepaths(self):
+        """"Test building absolute filepaths from TLG works index."""
+        paths = assemble_tlg_works_filepaths()
+        self.assertEqual(len(paths), 6625)
+
+    def test_assemble_phi5_works_filepaths(self):
+        """"Test building absolute filepaths from PHI5 works index.
+        TODO: finish this once the PHI5 works index is finished.
+        """
+        paths = assemble_phi5_works_filepaths()
+        #self.assertEqual(len(paths), 6625)
+        self.assertEqual(5, 5)
+
+
+    '''
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
         corpus_importer = CorpusImporter('greek')
@@ -175,13 +231,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)
         self.assertTrue(file)
-
-    def test_formatter_strip_ascii(self):
-        """Test removing all non-ascii characters from a string."""
-        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301
-        ascii_str = remove_non_ascii(non_ascii_str)
-        valid = 'Ascii and some non-ascii:     '
-        self.assertEqual(ascii_str, valid)
 
     def test_formatter_cleanup_tlg(self):
         """Test removing miscellaneous TLG formatting."""
@@ -410,6 +459,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test fail of building index due to unsupported corpus."""
         with self.assertRaises(SystemExit):
             build_corpus_index('unsupported_corpus')
+    '''
 
 
 
