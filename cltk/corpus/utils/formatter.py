@@ -40,7 +40,6 @@ def remove_non_ascii(input_string):
 
 def tlg_plaintext_cleanup(text):
     """Remove and substitute post-processing for Greek TLG text.
-    TODO: Contents of { } and ( ) not getting removed.
     TODO: Surely more junk to pull out. Please submit bugs!
     """
     remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
@@ -54,9 +53,9 @@ def tlg_plaintext_cleanup(text):
 
 def phi5_plaintext_cleanup(text):
     """Remove and substitute post-processing for Greek PHI5 text.
-    TODO: Review this thoroughly.
+    TODO: Surely more junk to pull out. Please submit bugs!
     """
-    remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)')
+    remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[0-9]')
     text = remove_comp.sub('', text)
 
     replace_comp = re.compile(r'\n')
@@ -66,9 +65,7 @@ def phi5_plaintext_cleanup(text):
 
 
 def assemble_tlg_author_filepaths():
-    """Reads TLG index and builds a list of absolute filepaths.
-    TODO: Do for PHI5.
-    """
+    """Reads TLG index and builds a list of absolute filepaths."""
     plaintext_dir_rel = '~/cltk_data/greek/text/tlg/plaintext/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     filepaths = [os.path.join(plaintext_dir, x + '.TXT') for x in TLG_INDEX]
@@ -76,9 +73,7 @@ def assemble_tlg_author_filepaths():
 
 
 def assemble_tlg_works_filepaths():
-    """Reads TLG index and builds a list of absolute filepaths.
-    TODO: Do for PHI5.
-    """
+    """Reads TLG index and builds a list of absolute filepaths."""
     plaintext_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     all_filepaths = []
@@ -103,6 +98,7 @@ def assemble_phi5_author_filepaths():
 def assemble_phi5_works_filepaths():
     """Reads PHI5 index and builds a list of absolute filepaths.
     TODO: Do this like TLG when PHI5 works index is finished.
+    TODO: Update the stubbed out test for this.
     """
     '''
     plaintext_dir_rel = '~/cltk_data/latin/text/phi5/individual_works/'
