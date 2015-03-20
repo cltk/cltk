@@ -37,6 +37,14 @@ Most users will want to do a bulk conversion of the entirety of a corpus without
    In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/ #! This isn't working!
 
 
+You can also divide the texts into a file for each individual work.
+
+.. code-block:: python
+
+   In [4]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
+
+
+
 Lemmatization
 =============
 .. code-block:: python

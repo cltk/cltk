@@ -46,7 +46,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
 
-
     def test_remove_non_ascii(self):
         """Test removing all non-ascii characters from a string."""
         non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301

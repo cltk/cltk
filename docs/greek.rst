@@ -51,7 +51,6 @@ The above commands take each author file and convert them into a new author file
 
    In [7]: t.divide_works('tlg')  # ~/cltk_data/greek/text/tlg/individual_works/
 
-   In [8]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
 
 You may also convert individual files, with options for how the conversion happens.
 
