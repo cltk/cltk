@@ -92,8 +92,7 @@ argenteo polubro, aureo eclutro. """
         TODO: finish this once the PHI5 works index is finished.
         """
         paths = assemble_phi5_works_filepaths()
-        #self.assertEqual(len(paths), 6625)
-        self.assertEqual(5, 5)
+        self.assertEqual(len(paths), 836)
 
 
     '''

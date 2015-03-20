@@ -12,6 +12,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.greek.tlg_indices import TLG_INDEX
 from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_INDEX
+from cltk.corpus.latin.phi5_index import PHI5_WORKS_INDEX
 from cltk.utils.cltk_logger import logger
 import os
 import re
@@ -72,20 +73,6 @@ def assemble_tlg_author_filepaths():
     return filepaths
 
 
-def assemble_tlg_works_filepaths():
-    """Reads TLG index and builds a list of absolute filepaths."""
-    plaintext_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
-    plaintext_dir = os.path.expanduser(plaintext_dir_rel)
-    all_filepaths = []
-    for author_code in TLG_WORKS_INDEX:
-        author_data = TLG_WORKS_INDEX[author_code]
-        works = author_data['works']
-        for work in works:
-            f = os.path.join(plaintext_dir, work)
-            all_filepaths.append(f)
-    return all_filepaths
-
-
 def assemble_phi5_author_filepaths():
     """Reads PHI5 index and builds a list of absolute filepaths.
     """
@@ -95,25 +82,32 @@ def assemble_phi5_author_filepaths():
     return filepaths
 
 
+def assemble_tlg_works_filepaths():
+    """Reads TLG index and builds a list of absolute filepaths."""
+    plaintext_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+    plaintext_dir = os.path.expanduser(plaintext_dir_rel)
+    all_filepaths = []
+    for author_code in TLG_WORKS_INDEX:
+        author_data = TLG_WORKS_INDEX[author_code]
+        works = author_data['works']
+        for work in works:
+            f = os.path.join(plaintext_dir, author_code + '.TXT' + '-' + work + '.txt')
+            all_filepaths.append(f)
+    return all_filepaths
+
+
 def assemble_phi5_works_filepaths():
-    """Reads PHI5 index and builds a list of absolute filepaths.
-    TODO: Do this like TLG when PHI5 works index is finished.
-    TODO: Update the stubbed out test for this.
-    """
-    '''
+    """Reads PHI5 index and builds a list of absolute filepaths."""
     plaintext_dir_rel = '~/cltk_data/latin/text/phi5/individual_works/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     all_filepaths = []
-    for author_code in PHI_WORKS_INDEX:
-        author_data = PHI_WORKS_INDEX[author_code]
+    for author_code in PHI5_WORKS_INDEX:
+        author_data = PHI5_WORKS_INDEX[author_code]
         works = author_data['works']
         for work in works:
-            f = os.path.join(plaintext_dir, work)
+            f = os.path.join(plaintext_dir, author_code + '.TXT' + '-' + work + '.txt')
             all_filepaths.append(f)
     return all_filepaths
-    '''
-    pass
-
 
 if __name__ == '__main__':
     pass
