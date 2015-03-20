@@ -114,7 +114,6 @@ The CLTK contains several indices to the TLG which expect files pre-processed by
    These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
 
 
-
 POS tagging
 ===========
 
@@ -259,3 +258,69 @@ Stopword Filtering
     'ἀγόμενος',
     'ἴωνας',
     'αἰολέας.']
+
+
+TLG Indices
+===========
+
+Located at ``cltk/corpus/greek/tlg_index.py`` of the source are indices for the TLG, one of just id and name (``TLG_INDEX``) and another also containing information on the authors' works (``TLG_WORKS_INDEX``).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tlg_indices import TLG_INDEX
+
+   In [2]: TLG_INDEX
+   Out[2]:
+   {'TLG1124': 'Andronicus Rhodius Phil.',
+    'TLG3094': 'Nicetas Choniates Hist., Scr. Eccl. et Rhet.',
+    'TLG2565': 'Mnesimachus Hist.',
+    'TLG1477': 'Manetho Hist.',
+    ... }
+
+   In [3]: from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
+
+   In [4]: TLG_WORKS_INDEX
+   Out [4]:
+   {'TLG1587': {'name': 'Philiades Eleg.', 'works': ['001']},
+    'TLG0555': {'name': 'Clemens Alexandrinus Theol.',
+     'works': ['001', '002', '003', '004', '005', '006', '007', '008']},
+    'TLG0402': {'name': 'Alexis Comic.',
+     'works': ['001', '002', '003', '004', '005', '006']},
+    'TLG2304': {'name': 'Idaeus Phil.', 'works': ['001']},
+    'TLG5015': {'name': 'Scholia In Aristotelem', 'works': ['001', '002', '003']},
+     ...}
+
+
+In addition to these indices there are several helper functions which will build filepaths for your particular computer. Not that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
+
+   In [2]: assemble_tlg_author_filepaths()
+   Out[2]:
+   ['/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1167.TXT',
+    '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1584.TXT',
+    '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1196.TXT',
+    '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1201.TXT',
+    ...]
+
+   In [3]: from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
+
+   In [4]: assemble_tlg_works_filepaths()
+   Out[4]:
+   ['/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG1585.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG0038.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG1607.TXT-002.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG0468.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG0468.TXT-002.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-002.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-003.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-004.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-005.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-006.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-007.txt',
+    ...]
+
+These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
