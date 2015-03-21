@@ -9,8 +9,8 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.corpus.greek.tlg_indices import TLG_INDEX
-from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
+from cltk.corpus.greek.tlg_index import TLG_INDEX
+from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_WORKS_INDEX
 from cltk.utils.cltk_logger import logger

@@ -17,6 +17,7 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    In [4]: r.beta_code(BETA_EXAMPLE)
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
+
 Converting TLG texts with TLGU
 ======================================
 
@@ -72,46 +73,6 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
-
-The CLTK contains several indices to the TLG which expect files pre-processed by TLGU. ``TLG_INDEX`` expects a simple bulk conversion via ``convert_corpus()`` and ``TLG_WORKS_INDEX`` expects ``divide_works()``.
-
-.. code-block:: python
-
-   In [1]: from cltk.corpus.greek.tlg_indices import TLG_INDEX
-
-   In [2]: from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
-
-   In [3]: In [4]: TLG_INDEX
-   Out[3]:
-   {'TLG1414': 'Heraclitus Phil.',
-    'TLG2033': 'Theon Math.',
-    'TLG2349': '[Pyrander] Hist.',
-    ...}
-
-   In [5]: TLG_WORKS_INDEX
-   Out[5]:
-   {'TLG1161': {'works': ['TXT-001'], 'name': 'Apocryphon Ezechiel'},
-    'TLG2033': {'works': ['TXT-001', 'TXT-002', 'TXT-006', 'TXT-007', 'TXT-009'],
-     'name': 'Theon Math.'},
-    'TLG2045': {'works': ['TXT-001', 'TXT-002', 'TXT-003'],
-     'name': 'Nonnus Epic.'},
-    'TLG0418': {'works': ['TXT-001', 'TXT-002'], 'name': 'Aristagoras Comic.'},
-     'name': 'Joannes Anagnostes Hist. et Poeta'},
-    'TLG2020': {'works': ['TXT-001',
-      'TXT-002',
-      'TXT-003',
-      'TXT-004',
-      'TXT-005',
-      'TXT-006',
-      'TXT-007',
-      'TXT-008'],
-     'name': 'Theodosius Gramm.'},
-    ...}
-
-
-.. tip::
-
-   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
 
 
 POS tagging
@@ -267,7 +228,7 @@ Located at ``cltk/corpus/greek/tlg_index.py`` of the source are indices for the 
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.greek.tlg_indices import TLG_INDEX
+   In [1]: from cltk.corpus.greek.tlg_index import TLG_INDEX
 
    In [2]: TLG_INDEX
    Out[2]:
@@ -277,7 +238,7 @@ Located at ``cltk/corpus/greek/tlg_index.py`` of the source are indices for the 
     'TLG1477': 'Manetho Hist.',
     ... }
 
-   In [3]: from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
+   In [3]: from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
 
    In [4]: TLG_WORKS_INDEX
    Out [4]:
@@ -324,3 +285,8 @@ In addition to these indices there are several helper functions which will build
     ...]
 
 These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
+
+
+.. tip::
+
+   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
