@@ -94,8 +94,6 @@ argenteo polubro, aureo eclutro. """
         paths = assemble_phi5_works_filepaths()
         self.assertEqual(len(paths), 836)
 
-
-    '''
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
         corpus_importer = CorpusImporter('greek')
@@ -229,13 +227,6 @@ argenteo polubro, aureo eclutro. """
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)
         self.assertTrue(file)
-
-    def test_formatter_cleanup_tlg(self):
-        """Test removing miscellaneous TLG formatting."""
-        unclean_str = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι [2χρὴ]2 χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
-        clean_str = cleanup_tlg_txt(unclean_str)
-        valid = """πολλὰ ἔτϊ πάνυ παραλείπω· τὸ δὲ μέγϊστον εἴρηταϊ πλὴν αἱ τάξεϊσ τοῦ φόρου· τοῦτο δὲ γίγνεταϊ ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαϊ  χρῆναϊ δϊαδϊκάζεϊν ἅπαντα; εἰπάτω γάρ τϊσ ὅ τϊ οὐ χρῆν αὐτόθϊ δϊαδϊκάζεσθαϊ. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναϊ δϊαδϊκάζεϊν, ἀνάγκη δῐ ἐνϊαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνϊαυτοῦ δϊκάζοντεσ ὑπάρχουσϊν ὥστε παύεϊν τοὺσ ἀδϊκοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων."""
-        self.assertEqual(clean_str, valid)
 
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer."""
@@ -428,38 +419,6 @@ argenteo polubro, aureo eclutro. """
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
-
-    def build_corpus_index_phi5(self):
-        """Test functionality for building PHI5 index."""
-        index_path_rel = 'cltk/tests/phi5_fake_authtab_for_testing.txt'
-        index = build_corpus_index('phi5', index_path_rel)
-        self.assertIs(type(index), dict)
-
-    def build_corpus_index_tlg(self):
-        """Test functionality for building TLG index."""
-        index_path_rel = 'cltk/tests/tlg_fake_authtab_for_testing.txt'
-        index = build_corpus_index('tlg', index_path_rel)
-        self.assertIs(type(index), dict)
-
-    def test_build_phi5_index_fail(self):
-        """Test fail of building PHI5 index due to AUTHTAB.DIR not found."""
-        index_path_rel = 'cltk/tests/bad_path.txt'
-        with self.assertRaises(SystemExit):
-            build_corpus_index('phi5', index_path_rel)
-
-    def test_build_tlg_index_fail(self):
-        """Test fail of building TLG index due to AUTHTAB.DIR not found."""
-        index_path_rel = 'cltk/tests/bad_path.txt'
-        with self.assertRaises(SystemExit):
-            build_corpus_index('tlg', index_path_rel)
-
-    def test_build_index_name_fail(self):
-        """Test fail of building index due to unsupported corpus."""
-        with self.assertRaises(SystemExit):
-            build_corpus_index('unsupported_corpus')
-    '''
-
-
 
 
 if __name__ == '__main__':
