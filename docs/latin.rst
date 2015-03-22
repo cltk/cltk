@@ -183,6 +183,21 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
    In [4]: stemmer.stem(sentence.lower())
    Out[4]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
 
+Syllabifier
+========
+The syllabifier splits a given input Latin word into a list of syllables based on an algorithm and set of syllable specifications for Latin.
+
+.. code-block:: python
+
+   In [1]: from cltk.stem.latin.syllabifier import Syllabifier
+
+   In [2]: word = 'sidere' 
+
+   In [3]: syllabifier = Syllabifier()
+   
+   In [4]: syllabifier.syllabify(word)
+   Out[4]: ['si', 'de', 're']
+
 
 Stopword Filtering
 ==================

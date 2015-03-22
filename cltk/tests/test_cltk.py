@@ -20,6 +20,7 @@ from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
 from cltk.stop.greek.stops import STOPS_LIST as greek_stops
+from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
@@ -249,6 +250,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stemmed_text = stemmer.stem(sentence.lower())
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=C0301
         self.assertEqual(stemmed_text, target)
+
+    def test_latin_syllabifier(self):
+        """Test Latin syllabifier."""
+        word = 'sidere'  # pylint: disable=C0301
+        syllabifier = Syllabifier()
+        syllables = syllabifier.syllabify(word)
+        target = ['si', 'de', 're']  # pylint: disable=C0301
+        self.assertEqual(syllables, target)
 
     def test_import_ling_data_greek(self):
         """Test whether CLTK Greek linguistic data was imported during
