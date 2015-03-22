@@ -2,19 +2,35 @@
 Some formatting can happen here, or invoke language-specific formatters in
 other files.
 
-#TODO: Add generic HTML stripper
+TODO: Add function to build all tlg/phi files from the index
 """
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.greek.tlg_index import TLG_INDEX
+from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
+from cltk.corpus.latin.phi5_index import PHI5_INDEX
+from cltk.corpus.latin.phi5_index import PHI5_WORKS_INDEX
+from cltk.utils.cltk_logger import logger
 import os
 import re
-import sys
 
-from cltk.corpus.greek.tlg_indices import TLG_INDEX
-from cltk.utils.cltk_logger import logger
+
+# research how to build regex values for re.compile() from this dict
+TLG_PHI_REPLACEMENTS = {
+    'newline_hyphen': '-\n',
+    'newline': '\n',  # you probably want to substitute this with an empty space ' '
+    'within_pointed_brackets': '\{.+?\}',
+    'chevrons': '«|»',
+    'ellipsis': ' ... ',
+    'latin_09': '[a-zA-Z0-9]',
+    'within_parentheses': '\(.+?\)',
+    'pointed_brackets': '\<|\>',
+    'curled_single_quotes': '‘|’',
+    'underscore': '_',
+}
 
 
 def remove_non_ascii(input_string):
@@ -23,88 +39,76 @@ def remove_non_ascii(input_string):
     return no_ascii
 
 
-def cleanup_tlg_txt(tlg_str):
-    """"Remove all non–Greek characters from a TLG corpus."""
-    # fix beta code transliteration problems
-    tlg_str = re.sub(r'ι|\+', 'ϊ', tlg_str)
-    tlg_str = re.sub(r'ί\+', 'ΐ', tlg_str)
-    tlg_str = re.sub(r'\\.', '.', tlg_str)
-    # fix tlg markup
-    tlg_str = re.sub(r'@1 \{1.+?\}1 @', '', tlg_str)  # rm book titles
-    tlg_str = re.sub(r'\[.+?\]', '', tlg_str)  # rm words in square brackets
-    tlg_str = re.sub(r'[0-9]', '', tlg_str)
-    tlg_str = re.sub(r'@|%|\x00', '', tlg_str)
-    tlg_str = re.sub('—', ' — ', tlg_str)
-    return tlg_str
-
-
-def build_corpus_index(corpus, authtab_path=None):
-    """Build index for TLG or PHI5. ``authtab_path`` for testing only.
-    TODO: Add a test flag argument and rm authtab_path
-    :param corpus:
-    :return: dict
+def tlg_plaintext_cleanup(text):
+    """Remove and substitute post-processing for Greek TLG text.
+    TODO: Surely more junk to pull out. Please submit bugs!
+    TODO: \{.+?\}|\(.+?\) not always working, tho ok for latin
     """
-    if corpus == 'tlg':
-        if not authtab_path:
-            authtab_path = '~/cltk_data/originals/tlg/AUTHTAB.DIR'
-        slice_start = 1
-        slice_end = -6
-        file_name_match = 'TLG[\d].{4}'
-        pattern_author_regex = '&1|&l|l$|&|1$|\x83|\[2|\]2'
-    elif corpus == 'phi5':
-        if not authtab_path:
-            authtab_path = '~/cltk_data/originals/phi5/AUTHTAB.DIR'
-        slice_start = 1
-        slice_end = -21
-        file_name_match = 'LAT[\d].{4}'
-        pattern_author_regex = '&1|&l|l$|&|1$|\x83'
-    else:
-        logger.warning("Corpus %s not available. Choose from 'tlg' or 'phi5'.", corpus)
-        sys.exit(1)
-    index_path = os.path.expanduser(authtab_path)
-    if not os.path.isfile(index_path):
-        logger.info("Failed to locate original %s index at '%s'. Please import first.", corpus, index_path)
-        sys.exit(1)
-    with open(index_path, 'rb') as f:
-        r = f.read()
-    index_all = r.decode('latin-1').split('\xff')[slice_start:slice_end]
-    index = [x for x in index_all if x]
-    file_author = {}
-    for x in index:
-        # file name
-        pattern_file = re.compile(file_name_match)
-        m = pattern_file.match(x)
-        file_name = m.group()[:-1]# + '.TXT'
+    remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
+    text = remove_comp.sub('', text)
 
-        # author name
-        author_name = pattern_file.split(x)[-1]
-        pattern_author = re.compile(pattern_author_regex)
-        author_name = pattern_author.sub('', author_name)
-        pattern_comma = re.compile('\x80')
-        author_name = pattern_comma.sub(', ', author_name)
-        file_author[file_name] = author_name
+    replace_comp = re.compile(r'\n')
+    text = replace_comp.sub(' ', text)
 
-    return file_author
+    return text
 
 
-def index_from_files():
-    """This uses the TLG author index and makes  new index including the file
-    names of TLG works. The TLGU().make_individual_works() must be run first
-    to create the files to look for.
-    TODO: Remove this once a good TLG index has been finalized.
+def phi5_plaintext_cleanup(text):
+    """Remove and substitute post-processing for Greek PHI5 text.
+    TODO: Surely more junk to pull out. Please submit bugs!
     """
-    path_rel = '~/cltk_data/greek/text/tlg/individual_works/'
-    path = os.path.expanduser(path_rel)
-    individual_works = os.listdir(path)
-    new_dict = {}
-    for author_code in TLG_INDEX:
-        author_name = TLG_INDEX[author_code[:7]]
-        works = []
-        comp = re.compile(author_code + r'.*')
-        for y in individual_works:
-            match = comp.match(y)
-            if match:
-                work = match.group()[8:-4]
-                works.append(work)
-        new_dict[author_code] = {'name': author_name, 'works': works}
-    return new_dict
+    remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[0-9]')
+    text = remove_comp.sub('', text)
+
+    replace_comp = re.compile(r'\n')
+    text = replace_comp.sub(' ', text)
+
+    return text
+
+
+def assemble_tlg_author_filepaths():
+    """Reads TLG index and builds a list of absolute filepaths."""
+    plaintext_dir_rel = '~/cltk_data/greek/text/tlg/plaintext/'
+    plaintext_dir = os.path.expanduser(plaintext_dir_rel)
+    filepaths = [os.path.join(plaintext_dir, x + '.TXT') for x in TLG_INDEX]
+    return filepaths
+
+
+def assemble_phi5_author_filepaths():
+    """Reads PHI5 index and builds a list of absolute filepaths.
+    """
+    plaintext_dir_rel = '~/cltk_data/latin/text/phi5/plaintext/'
+    plaintext_dir = os.path.expanduser(plaintext_dir_rel)
+    filepaths = [os.path.join(plaintext_dir, x + '.TXT') for x in PHI5_INDEX]
+    return filepaths
+
+
+def assemble_tlg_works_filepaths():
+    """Reads TLG index and builds a list of absolute filepaths."""
+    plaintext_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+    plaintext_dir = os.path.expanduser(plaintext_dir_rel)
+    all_filepaths = []
+    for author_code in TLG_WORKS_INDEX:
+        author_data = TLG_WORKS_INDEX[author_code]
+        works = author_data['works']
+        for work in works:
+            f = os.path.join(plaintext_dir, author_code + '.TXT' + '-' + work + '.txt')
+            all_filepaths.append(f)
+    return all_filepaths
+
+
+def assemble_phi5_works_filepaths():
+    """Reads PHI5 index and builds a list of absolute filepaths."""
+    plaintext_dir_rel = '~/cltk_data/latin/text/phi5/individual_works/'
+    plaintext_dir = os.path.expanduser(plaintext_dir_rel)
+    all_filepaths = []
+    for author_code in PHI5_WORKS_INDEX:
+        author_data = PHI5_WORKS_INDEX[author_code]
+        works = author_data['works']
+        for work in works:
+            f = os.path.join(plaintext_dir, author_code + '.TXT' + '-' + work + '.txt')
+            all_filepaths.append(f)
+    return all_filepaths
+
+if __name__ == '__main__':
+    pass

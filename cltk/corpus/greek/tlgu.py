@@ -211,29 +211,33 @@ class TLGU(object):
 
     def divide_works(self, corpus):
         """Use the work-breaking option.
-        TODO: Incorporate this into ``convert_corpus()``
+        TODO: Maybe incorporate this into ``convert_corpus()``
+        TODO: Write test for this
         """
         if corpus == 'tlg':
-            orig_dir_path_rel = '~/cltk_data/originals/tlg'
+            orig_dir_rel = '~/cltk_data/originals/tlg'
             works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
+            file_prefix = 'TLG'
         elif corpus == 'phi5':
-            orig_dir_path_rel = '~/cltk_data/originals/phi5'
+            orig_dir_rel = '~/cltk_data/originals/phi5'
             works_dir_rel = '~/cltk_data/latin/text/phi5/individual_works'
-        orig_dir_path = os.path.expanduser(orig_dir_path_rel)
+            file_prefix = 'LAT'
+            latin = True  # this is for the optional TLGU argument to convert()
 
-        tlg_files = os.listdir(orig_dir_path)
-        texts = [x for x in tlg_files if x.endswith('.TXT') and x.startswith('TLG')]
+        orig_dir = os.path.expanduser(orig_dir_rel)
+        works_dir = os.path.expanduser(works_dir_rel)
+        if not os.path.exists(works_dir):
+            os.makedirs(works_dir)
+
+        files = os.listdir(orig_dir)
+        texts = [x for x in files if x.endswith('.TXT') and x.startswith(file_prefix)]
 
         for file in texts:
-            orig_file_path = os.path.join(orig_dir_path, file)
-
-            works_dir = os.path.expanduser(works_dir_rel)
-            if not os.path.isdir(works_dir):
-                os.makedirs(works_dir)
-            new_file_path = os.path.join(works_dir_rel, file)
+            orig_file_path = os.path.join(orig_dir, file)
+            new_file_path = os.path.join(works_dir, file)
 
             try:
-                self.convert(orig_file_path, new_file_path, divide_works=True)
-                logger.info('Writing files at %s to %s.', orig_file_path, new_file_path)
+                self.convert(orig_file_path, new_file_path, divide_works=True, latin=latin)
+                logger.info('Writing files at %s to %s.', orig_file_path, works_dir)
             except Exception as err:
                 logger.error('Failed to convert files: %s.', err)

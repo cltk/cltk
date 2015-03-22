@@ -8,13 +8,17 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 import unittest
 
-from cltk.corpus.utils.formatter import build_corpus_index
 from cltk.corpus.greek.beta_to_unicode import Replacer
 
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.utils.file_operations import open_pickle
-from cltk.corpus.utils.formatter import cleanup_tlg_txt
 from cltk.corpus.utils.formatter import remove_non_ascii
+from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
+from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
+from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
+from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
+from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer
@@ -42,6 +46,54 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         if not os.path.isdir(latin_path):
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
+
+    def test_remove_non_ascii(self):
+        """Test removing all non-ascii characters from a string."""
+        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301
+        ascii_str = remove_non_ascii(non_ascii_str)
+        valid = 'Ascii and some non-ascii:     '
+        self.assertEqual(ascii_str, valid)
+
+    def test_tlg_plaintext_cleanup(self):
+        """Test post-TLGU cleanup of text of Greek TLG text."""
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        clean = tlg_plaintext_cleanup(dirty)
+        target = """  Ἀθήναιος  ὁ τῆς  βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = """        {ODYSSIA}
+        {Liber I}
+Virum 999 mihi, Camena, insece versutum.
+Pater noster, Saturni filie . . .
+Mea puera, quid verbi ex tuo ore supera fugit?
+argenteo polubro, aureo eclutro. """
+        clean = phi5_plaintext_cleanup(dirty)
+        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """
+        self.assertEqual(clean, target)
+
+    def test_assemble_tlg_author_filepaths(self):
+        """Test building absolute filepaths from TLG index."""
+        paths = assemble_tlg_author_filepaths()
+        self.assertEqual(len(paths), 1823)
+
+    def test_assemble_phi5_author_filepaths(self):
+        """Test building absolute filepaths from TLG index."""
+        paths = assemble_phi5_author_filepaths()
+        self.assertEqual(len(paths), 362)
+
+    def test_assemble_tlg_works_filepaths(self):
+        """"Test building absolute filepaths from TLG works index."""
+        paths = assemble_tlg_works_filepaths()
+        self.assertEqual(len(paths), 6625)
+
+    def test_assemble_phi5_works_filepaths(self):
+        """"Test building absolute filepaths from PHI5 works index.
+        TODO: finish this once the PHI5 works index is finished.
+        """
+        paths = assemble_phi5_works_filepaths()
+        self.assertEqual(len(paths), 836)
 
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
@@ -176,20 +228,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)
         self.assertTrue(file)
-
-    def test_formatter_strip_ascii(self):
-        """Test removing all non-ascii characters from a string."""
-        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301
-        ascii_str = remove_non_ascii(non_ascii_str)
-        valid = 'Ascii and some non-ascii:     '
-        self.assertEqual(ascii_str, valid)
-
-    def test_formatter_cleanup_tlg(self):
-        """Test removing miscellaneous TLG formatting."""
-        unclean_str = 'πολλὰ ἔτι πάνυ παραλείπω· τὸ δὲ μέγιστον εἴρηται πλὴν αἱ τάξεισ τοῦ φόρου· τοῦτο δὲ γίγνεται ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαι [2χρὴ]2 χρῆναι διαδικάζειν ἅπαντα; εἰπάτω γάρ τισ ὅ τι οὐ χρῆν αὐτόθι διαδικάζεσθαι. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναι διαδικάζειν, ἀνάγκη δῐ ἐνιαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνιαυτοῦ δικάζοντεσ ὑπάρχουσιν ὥστε παύειν τοὺσ ἀδικοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων.'  # pylint: disable=C0301
-        clean_str = cleanup_tlg_txt(unclean_str)
-        valid = """πολλὰ ἔτϊ πάνυ παραλείπω· τὸ δὲ μέγϊστον εἴρηταϊ πλὴν αἱ τάξεϊσ τοῦ φόρου· τοῦτο δὲ γίγνεταϊ ὡσ τὰ πολλὰ δῐ ἔτουσ πέμπτου. φέρε δὴ τοίνυν, ταῦτα οὐκ οἴεσθαϊ  χρῆναϊ δϊαδϊκάζεϊν ἅπαντα; εἰπάτω γάρ τϊσ ὅ τϊ οὐ χρῆν αὐτόθϊ δϊαδϊκάζεσθαϊ. εἰ δ’ αὖ ὁμολογεῖν δεῖ ἅπαντα χρῆναϊ δϊαδϊκάζεϊν, ἀνάγκη δῐ ἐνϊαυτοῦ· ὡσ οὐδὲ νῦν δῐ ἐνϊαυτοῦ δϊκάζοντεσ ὑπάρχουσϊν ὥστε παύεϊν τοὺσ ἀδϊκοῦντασ ὑπὸ τοῦ πλήθουσ τῶν ἀνθρώπων."""
-        self.assertEqual(clean_str, valid)
 
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer."""
@@ -390,37 +428,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
-
-    def build_corpus_index_phi5(self):
-        """Test functionality for building PHI5 index."""
-        index_path_rel = 'cltk/tests/phi5_fake_authtab_for_testing.txt'
-        index = build_corpus_index('phi5', index_path_rel)
-        self.assertIs(type(index), dict)
-
-    def build_corpus_index_tlg(self):
-        """Test functionality for building TLG index."""
-        index_path_rel = 'cltk/tests/tlg_fake_authtab_for_testing.txt'
-        index = build_corpus_index('tlg', index_path_rel)
-        self.assertIs(type(index), dict)
-
-    def test_build_phi5_index_fail(self):
-        """Test fail of building PHI5 index due to AUTHTAB.DIR not found."""
-        index_path_rel = 'cltk/tests/bad_path.txt'
-        with self.assertRaises(SystemExit):
-            build_corpus_index('phi5', index_path_rel)
-
-    def test_build_tlg_index_fail(self):
-        """Test fail of building TLG index due to AUTHTAB.DIR not found."""
-        index_path_rel = 'cltk/tests/bad_path.txt'
-        with self.assertRaises(SystemExit):
-            build_corpus_index('tlg', index_path_rel)
-
-    def test_build_index_name_fail(self):
-        """Test fail of building index due to unsupported corpus."""
-        with self.assertRaises(SystemExit):
-            build_corpus_index('unsupported_corpus')
-
-
 
 
 if __name__ == '__main__':

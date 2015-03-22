@@ -16,6 +16,35 @@ Converting J to I, V to U
    Out[3]: 'uem iam'
 
 
+
+Converting PHI texts with TLGU
+==============================
+
+.. note::
+
+   1) Update this section with new post-TLGU processors in formatter.py
+
+The `TLGU <http://tlgu.carmen.gr/>`_ is C-language software which does an excellent job at converting the TLG and PHI corpora into various forms of human-readable Unicode plaintext. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. Download and installation is handled in the background. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
+
+Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tlgu import TLGU
+
+   In [2]: t = TLGU()
+
+   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/ #! This isn't working!
+
+
+You can also divide the texts into a file for each individual work.
+
+.. code-block:: python
+
+   In [4]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
+
+
+
 Lemmatization
 =============
 .. code-block:: python
@@ -66,6 +95,61 @@ First, `obtain the Latin POS tagging files <http://docs.cltk.org/en/latest/impor
    }
 
 If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/kylepjohnson/pos_latin) repository.
+
+
+PHI Indices
+===========
+
+Located at ``cltk/corpus/latin/phi5_index.py`` of the source are indices for the PHI5, one of just id and name (``PHI5_INDEX``) and another also containing information on the authors' works (``PHI5_WORKS_INDEX``).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.latin.phi5_index import PHI5_INDEX
+
+   In [2]: PHI5_INDEX
+   Out[2]:
+   {'LAT1050': 'Lucius Verginius Rufus',
+    'LAT2335': 'Anonymi de Differentiis [Fronto]',
+    'LAT1345': 'Silius Italicus',
+    ... }
+
+   In [3]: from cltk.corpus.latin.phi5_index import PHI5_WORKS_INDEX
+
+   In [4]: PHI5_WORKS_INDEX
+   Out [4]:
+   {'LAT2335': {'works': ['001'], 'name': 'Anonymi de Differentiis [Fronto]'},
+    'LAT1345': {'works': ['001'], 'name': 'Silius Italicus'},
+    'LAT1351': {'works': ['001', '002', '003', '004', '005'],
+     'name': 'Cornelius Tacitus'},
+    'LAT2349': {'works': ['001', '002', '003', '004', '005', '006', '007'],
+     'name': 'Maurus Servius Honoratus, Servius'},
+     ...}
+
+
+In addition to these indices there are several helper functions which will build filepaths for your particular computer. Not that you will need to have run ``convert_corpus(corpus='phi5')`` and ``divide_works('phi5')`` from the ``TLGU()`` class, respectively, for the following two functions.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
+
+   In [2]: assemble_phi5_author_filepaths()
+   Out[2]:
+   ['/Users/kyle/cltk_data/latin/text/phi5/plaintext/LAT0636.TXT',
+    '/Users/kyle/cltk_data/latin/text/phi5/plaintext/LAT0658.TXT',
+    '/Users/kyle/cltk_data/latin/text/phi5/plaintext/LAT0827.TXT',
+    ...]
+
+   In [3]: from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
+
+   In [4]: assemble_phi5_works_filepaths()
+   Out[4]:
+   ['/Users/kyle/cltk_data/latin/text/phi5/individual_works/LAT0636.TXT-001.txt',
+    '/Users/kyle/cltk_data/latin/text/phi5/individual_works/LAT0902.TXT-001.txt',
+    '/Users/kyle/cltk_data/latin/text/phi5/individual_works/LAT0472.TXT-001.txt',
+    '/Users/kyle/cltk_data/latin/text/phi5/individual_works/LAT0472.TXT-002.txt',
+    ...]
+
+These two functions are useful when, for example, needing to process all authors of the PHI5 corpus, all works of the corpus, or all works of one particular author.
 
 
 POS tagging

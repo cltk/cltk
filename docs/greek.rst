@@ -17,8 +17,14 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    In [4]: r.beta_code(BETA_EXAMPLE)
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
-Converting TLG and PHI texts with TLGU
+
+Converting TLG texts with TLGU
 ======================================
+
+.. note::
+
+   Update this section with new post-TLGU processors in formatter.py
+
 The `TLGU <http://tlgu.carmen.gr/>`_ is C-language software which does an excellent job at converting the TLG and PHI corpora into various forms of human-readable Unicode plaintext. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. Download and installation is handled in the background. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
 
 Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers).
@@ -31,7 +37,6 @@ Most users will want to do a bulk conversion of the entirety of a corpus without
 
    In [3]: t.convert_corpus(corpus='tlg')  # writes to: ~/cltk_data/greek/text/tlg/plaintext/
 
-   In [4]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/
 
 For the PHI7, you may declare whether you want the corpus to be written to the ``greek`` or ``latin`` directories. By default, it writes to ``greek``.
 
@@ -47,7 +52,6 @@ The above commands take each author file and convert them into a new author file
 
    In [7]: t.divide_works('tlg')  # ~/cltk_data/greek/text/tlg/individual_works/
 
-   In [8]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
 
 You may also convert individual files, with options for how the conversion happens.
 
@@ -69,47 +73,6 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
-
-The CLTK contains several indices to the TLG which expect files pre-processed by TLGU. ``TLG_INDEX`` expects a simple bulk conversion via ``convert_corpus()`` and ``TLG_WORKS_INDEX`` expects ``divide_works()``.
-
-.. code-block:: python
-
-   In [1]: from cltk.corpus.greek.tlg_indices import TLG_INDEX
-
-   In [2]: from cltk.corpus.greek.tlg_indices import TLG_WORKS_INDEX
-
-   In [3]: In [4]: TLG_INDEX
-   Out[3]:
-   {'TLG1414': 'Heraclitus Phil.',
-    'TLG2033': 'Theon Math.',
-    'TLG2349': '[Pyrander] Hist.',
-    ...}
-
-   In [5]: TLG_WORKS_INDEX
-   Out[5]:
-   {'TLG1161': {'works': ['TXT-001'], 'name': 'Apocryphon Ezechiel'},
-    'TLG2033': {'works': ['TXT-001', 'TXT-002', 'TXT-006', 'TXT-007', 'TXT-009'],
-     'name': 'Theon Math.'},
-    'TLG2045': {'works': ['TXT-001', 'TXT-002', 'TXT-003'],
-     'name': 'Nonnus Epic.'},
-    'TLG0418': {'works': ['TXT-001', 'TXT-002'], 'name': 'Aristagoras Comic.'},
-     'name': 'Joannes Anagnostes Hist. et Poeta'},
-    'TLG2020': {'works': ['TXT-001',
-      'TXT-002',
-      'TXT-003',
-      'TXT-004',
-      'TXT-005',
-      'TXT-006',
-      'TXT-007',
-      'TXT-008'],
-     'name': 'Theodosius Gramm.'},
-    ...}
-
-
-.. tip::
-
-   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
-
 
 
 POS tagging
@@ -256,3 +219,74 @@ Stopword Filtering
     'ἀγόμενος',
     'ἴωνας',
     'αἰολέας.']
+
+
+TLG Indices
+===========
+
+Located at ``cltk/corpus/greek/tlg_index.py`` of the source are indices for the TLG, one of just id and name (``TLG_INDEX``) and another also containing information on the authors' works (``TLG_WORKS_INDEX``).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tlg_index import TLG_INDEX
+
+   In [2]: TLG_INDEX
+   Out[2]:
+   {'TLG1124': 'Andronicus Rhodius Phil.',
+    'TLG3094': 'Nicetas Choniates Hist., Scr. Eccl. et Rhet.',
+    'TLG2565': 'Mnesimachus Hist.',
+    'TLG1477': 'Manetho Hist.',
+    ... }
+
+   In [3]: from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
+
+   In [4]: TLG_WORKS_INDEX
+   Out [4]:
+   {'TLG1587': {'name': 'Philiades Eleg.', 'works': ['001']},
+    'TLG0555': {'name': 'Clemens Alexandrinus Theol.',
+     'works': ['001', '002', '003', '004', '005', '006', '007', '008']},
+    'TLG0402': {'name': 'Alexis Comic.',
+     'works': ['001', '002', '003', '004', '005', '006']},
+    'TLG2304': {'name': 'Idaeus Phil.', 'works': ['001']},
+    'TLG5015': {'name': 'Scholia In Aristotelem', 'works': ['001', '002', '003']},
+     ...}
+
+
+In addition to these indices there are several helper functions which will build filepaths for your particular computer. Not that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
+
+   In [2]: assemble_tlg_author_filepaths()
+   Out[2]:
+   ['/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1167.TXT',
+    '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1584.TXT',
+    '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1196.TXT',
+    '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG1201.TXT',
+    ...]
+
+   In [3]: from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
+
+   In [4]: assemble_tlg_works_filepaths()
+   Out[4]:
+   ['/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG1585.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG0038.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG1607.TXT-002.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG0468.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG0468.TXT-002.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-001.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-002.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-003.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-004.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-005.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-006.txt',
+    '/Users/kyle/cltk_data/greek/text/tlg/individual_works/TLG4175.TXT-007.txt',
+    ...]
+
+These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
+
+
+.. tip::
+
+   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
