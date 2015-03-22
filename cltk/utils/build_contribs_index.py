@@ -1,5 +1,6 @@
 """Build a file ``contributors.md``, an index of contribs and what they've
-helped on. This writes the file to whatever file from which it is run.
+helped on. This writes the file to whatever file from which it is run, thus,
+to use, run from root of the project with ``python cltk/utils/build_contribs_index.py``.
 """
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
