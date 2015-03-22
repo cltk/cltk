@@ -12,6 +12,7 @@ from cltk.corpus.greek.beta_to_unicode import Replacer
 
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.utils.file_operations import open_pickle
+from cltk.utils.build_contribs_index import build_contribs_file
 from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
@@ -46,6 +47,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         if not os.path.isdir(latin_path):
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('cltk_linguistic_data')
+
+    def test_build_contribs_file(self):
+        str = build_contribs_file(test=True)
+        self.assertTrue(str)
 
     def test_remove_non_ascii(self):
         """Test removing all non-ascii characters from a string."""
@@ -428,7 +433,6 @@ argenteo polubro, aureo eclutro. """
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
-
 
 if __name__ == '__main__':
     unittest.main()

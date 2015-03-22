@@ -10,7 +10,7 @@ import os
 import importlib.machinery
 
 
-def build_contribs_file():
+def build_contribs_file(test=None):
     """Build an index of authors and the modules for which they've
     contributed. Reads each ``*.py`` file and gets value of ``__author__``,
     then builds a dictionary of ``'author': [list of module contributions]``.
@@ -57,9 +57,11 @@ def build_contribs_file():
         for py_file in py_files:
             contrib_str += '* ' + py_file + '\n'
         contrib_str += '\n'
-    print(contrib_str)
-    with open('contributors.md', 'w') as contrib_md:
-        contrib_md.write(contrib_str)
+    if not test:
+        with open('contributors.md', 'w') as contrib_md:
+            contrib_md.write(contrib_str)
+    else:
+        return contrib_str
 
 if __name__ == "__main__":
     build_contribs_file()
