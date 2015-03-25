@@ -32,7 +32,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'text',
      'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_latin_library/master/latin_library_new.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/latin_corpus_latin_library.git'},
+     'git': 'https://github.com/cltk/latin_corpus_latin_library.git'},
     {'encoding': 'latin-1',
      'homepage': 'http://latin.packhum.org/',
      'markup': 'beta_code',
