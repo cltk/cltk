@@ -41,38 +41,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     # these need replacing
     '''
-    def test_import_lacus_curtius(self):
-        """Test downloading the Lacus_Curtius Latin text corpus."""
-        path_rel = '~/cltk_data/latin/text/latin_text_lacus_curtius/'
-        path = os.path.expanduser(path_rel)
-        if not os.path.isdir(path):
-            corpus_importer = CorpusImporter('latin')
-            corpus_importer.import_corpus('latin_text_lacus_curtius')
-        author_path = os.path.join(path, 'Aelian')
-        author_dir = os.path.isdir(author_path)
-        self.assertTrue(author_dir)
 
-    def test_import_perseus_greek_text(self):
-        """Test downloading the Perseus Greek text corpus."""
-        path_rel = '~/cltk_data/greek/text/greek_text_perseus/'
-        path = os.path.expanduser(path_rel)
-        if not os.path.isdir(path):
-            corpus_importer = CorpusImporter('greek')
-            corpus_importer.import_corpus('greek_text_perseus')
-        author_path = os.path.join(path, 'Aeschines')
-        author_dir = os.path.isdir(author_path)
-        self.assertTrue(author_dir)
-
-    def test_import_latin_trbnk_perseus(self):
-        """Test downloading the Perseus Latin treebank corpus."""
-        path_rel = '~/cltk_data/latin/treebank/latin_treebank_perseus/'
-        path = os.path.expanduser(path_rel)
-        if not os.path.isdir(path):
-            corpus_importer = CorpusImporter('latin')
-            corpus_importer.import_corpus('latin_treebank_perseus')
-        filepath = os.path.join(path, 'unigram.pickle')
-        is_file = os.path.isfile(filepath)
-        self.assertTrue(is_file)
 
     def test_import_greek_trbnk_perseus(self):
         """Test downloading the Perseus greek treebank corpus."""
@@ -130,6 +99,50 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(file)
     '''
 
+    def test_import_lacus_curtius(self):
+        """Test downloading the Lacus_Curtius Latin text corpus."""
+        c = CorpusImporter('latin')
+        c.import_corpus('latin_text_lacus_curtius')
+        dir_rel = os.path.join('~/cltk_data/latin/text/latin_text_lacus_curtius/lacus_curtius/Aelian')
+        dir = os.path.expanduser(dir_rel)
+        dir_exists = os.path.isdir(dir)
+        self.assertTrue(dir_exists)
+
+
+    def test_import_perseus_greek_text(self):
+        """Test downloading the Perseus Greek text corpus."""
+        c = CorpusImporter('greek')
+        c.import_corpus('greek_text_perseus')
+        dir_rel = os.path.join('~/cltk_data/greek/text/greek_text_perseus/greek_corpus_perseus/Aeschines')
+        dir = os.path.expanduser(dir_rel)
+        dir_exists = os.path.isdir(dir)
+        self.assertTrue(dir_exists)
+
+
+    def test_import_latin_trbnk_perseus(self):
+        """Test downloading the Perseus Latin treebank corpus."""
+        path_rel = '~/cltk_data/latin/treebank/latin_treebank_perseus/'
+        path = os.path.expanduser(path_rel)
+        if not os.path.isdir(path):
+            corpus_importer = CorpusImporter('latin')
+            corpus_importer.import_corpus('latin_treebank_perseus')
+        filepath = os.path.join(path, 'unigram.pickle')
+        is_file = os.path.isfile(filepath)
+        self.assertTrue(is_file)
+
+
+        c = CorpusImporter('latin')
+        c.import_corpus('latin_treebank_perseus')
+        file_rel = os.path.join('~/cltk_data/latin/treebank/latin_treebank_perseus/unigram.pickle')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+
+    # below imports are good
+    '''
+
+
 
     # good
     def test_import_latin_library(self):
@@ -141,11 +154,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
 
-
-
-
-    # below imports are good
-    '''
     def test_latin_ling_import(self):
         # good
         c = CorpusImporter('latin')
