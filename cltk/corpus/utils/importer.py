@@ -8,6 +8,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 import errno
+from git import Repo
 import os
 import shutil
 import ssl
@@ -199,7 +200,21 @@ class CorpusImporter():
         corpus_type = corpus_properties['type']
         if location == 'remote':
             path = corpus_properties['path']
-            self._download_corpus(corpus_type, corpus_name, path)
+            git_uri = corpus_properties['git']
+            #self._download_corpus(corpus_type, corpus_name, path)
+            type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
+            type_dir = os.path.expanduser(type_dir_rel)
+            if not os.path.isdir(type_dir):
+                os.makedirs(type_dir)
+            target_dir = os.path.join(type_dir, corpus_name)
+            #! maybe mv old dir to /tmp first, then delete
+            if os.path.isdir(target_dir):
+                shutil.rmtree(target_dir)
+                logger.info('Removing old directory at: %s', target_dir)
+            try:
+                Repo.clone_from(git_uri, target_dir, depth=1)
+            except Exception as e:
+                logger.error('Git clone failed: %s', e)
         elif location == 'local':
             logger.info("Incoming path: '%s'", path)
             if not path:
