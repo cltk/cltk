@@ -7,28 +7,32 @@ LATIN_CORPORA = [
      'name': 'latin_text_perseus',
      'location': 'remote',
      'type': 'text',
-     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_perseus/master/latin_corpus_perseus_new.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_perseus/master/latin_corpus_perseus_new.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/latin_corpus_perseus.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_treebank_perseus',
      'markup': 'xml',
      'name': 'latin_treebank_perseus',
      'location': 'remote',
      'type': 'treebank',
-     'path': 'https://raw.githubusercontent.com/cltk/latin_treebank_perseus/master/latin_treebank_perseus.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/latin_treebank_perseus/master/latin_treebank_perseus.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/latin_treebank_perseus.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_corpus_lacus_curtius',
      'markup': 'plaintext',
      'name': 'latin_text_lacus_curtius',
      'location': 'remote',
      'type': 'text',
-     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_lacus_curtius/master/lacus_curtius.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_lacus_curtius/master/lacus_curtius.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/latin_corpus_lacus_curtius.git',},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_corpus_latin_library',
      'markup': 'plaintext',
      'name': 'latin_text_latin_library',
      'location': 'remote',
      'type': 'text',
-     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_latin_library/master/latin_library_new.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_latin_library/master/latin_library_new.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/latin_corpus_latin_library.git'},
     {'encoding': 'latin-1',
      'homepage': 'http://latin.packhum.org/',
      'markup': 'beta_code',
@@ -49,19 +53,22 @@ LATIN_CORPORA = [
      'name': 'latin_proper_names',
      'location': 'remote',
      'type': 'dictionary',
-     'path': 'https://raw.githubusercontent.com/cltk/latin_proper_names/master/latin_proper_names.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/latin_proper_names/master/latin_proper_names.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/latin_proper_names.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/cltk_latin_linguistic_data',
      'markup': 'pickle',
      'name': 'cltk_linguistic_data',
      'location': 'remote',
      'type': 'trained_model',
-     'path': 'https://raw.githubusercontent.com/cltk/cltk_latin_linguistic_data/master/latin.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/cltk_latin_linguistic_data/master/latin.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/cltk_latin_linguistic_data.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/pos_latin',
      'markup': 'python',
      'name': 'latin_pos',
      'location': 'remote',
      'type': 'lemma',
-     'path': 'https://raw.githubusercontent.com/cltk/pos_latin/master/pos_latin.tar.gz'},  # pylint: disable=C0301
+     'path': 'https://raw.githubusercontent.com/cltk/pos_latin/master/pos_latin.tar.gz',  # pylint: disable=C0301
+     'git': 'git@github.com:cltk/pos_latin.git'},
 ]
