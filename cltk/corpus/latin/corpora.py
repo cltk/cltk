@@ -54,7 +54,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'dictionary',
      'path': 'https://raw.githubusercontent.com/cltk/latin_proper_names/master/latin_proper_names.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/latin_proper_names.git'},
+     'git': 'https://github.com/cltk/latin_proper_names.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/cltk_latin_linguistic_data',
      'markup': 'pickle',
