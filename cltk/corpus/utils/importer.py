@@ -33,6 +33,13 @@ class CorpusImporter():
         self.language = language.lower()
         self._setup_language_variables()
 
+
+    def remove_readonly(func, path, excinfo):
+        """This does the equivalent of ``rm -rf ...``.
+        http://stackoverflow.com/a/1889686"""
+        os.chmod(path, stat.S_IWRITE)
+        func(path)
+
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
         TODO: Make the selection of available languages dynamic from dirs
@@ -208,8 +215,10 @@ class CorpusImporter():
                 os.makedirs(type_dir)
             target_dir = os.path.join(type_dir, corpus_name)
             #! maybe mv old dir to /tmp first, then delete
+            #! much better: do a check on sha commit version locally and remote, then decide whether to replace
+            # TODO: print git output to screen
             if os.path.isdir(target_dir):
-                shutil.rmtree(target_dir)
+                shutil.rmtree(target_dir, onerror=self.remove_readonly)
                 logger.info('Removing old directory at: %s', target_dir)
             try:
                 Repo.clone_from(git_uri, target_dir, depth=1)

@@ -30,122 +30,17 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktLanguageVars
+import stat
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
     def setUp(self):
-        """Test downloading CLTK linguistic data."""
-        greek_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
-        greek_path = os.path.expanduser(greek_path_rel)
-        if not os.path.isdir(greek_path):
-            corpus_importer = CorpusImporter('greek')
-            corpus_importer.import_corpus('cltk_linguistic_data')
-        latin_path_rel = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
-        latin_path = os.path.expanduser(latin_path_rel)
-        if not os.path.isdir(latin_path):
-            corpus_importer = CorpusImporter('latin')
-            corpus_importer.import_corpus('cltk_linguistic_data')
+        pass
 
-    def test_build_contribs_file(self):
-        str = build_contribs_file(test=True)
-        self.assertTrue(str)
-
-    def test_remove_non_ascii(self):
-        """Test removing all non-ascii characters from a string."""
-        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301
-        ascii_str = remove_non_ascii(non_ascii_str)
-        valid = 'Ascii and some non-ascii:     '
-        self.assertEqual(ascii_str, valid)
-
-    def test_tlg_plaintext_cleanup(self):
-        """Test post-TLGU cleanup of text of Greek TLG text."""
-        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
-        clean = tlg_plaintext_cleanup(dirty)
-        target = """  Ἀθήναιος  ὁ τῆς  βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
-        self.assertEqual(clean, target)
-
-    def test_phi5_plaintext_cleanup(self):
-        """Test post-TLGU cleanup of text of Latin PHI5 text."""
-        dirty = """        {ODYSSIA}
-        {Liber I}
-Virum 999 mihi, Camena, insece versutum.
-Pater noster, Saturni filie . . .
-Mea puera, quid verbi ex tuo ore supera fugit?
-argenteo polubro, aureo eclutro. """
-        clean = phi5_plaintext_cleanup(dirty)
-        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """
-        self.assertEqual(clean, target)
-
-    def test_assemble_tlg_author_filepaths(self):
-        """Test building absolute filepaths from TLG index."""
-        paths = assemble_tlg_author_filepaths()
-        self.assertEqual(len(paths), 1823)
-
-    def test_assemble_phi5_author_filepaths(self):
-        """Test building absolute filepaths from TLG index."""
-        paths = assemble_phi5_author_filepaths()
-        self.assertEqual(len(paths), 362)
-
-    def test_assemble_tlg_works_filepaths(self):
-        """"Test building absolute filepaths from TLG works index."""
-        paths = assemble_tlg_works_filepaths()
-        self.assertEqual(len(paths), 6625)
-
-    def test_assemble_phi5_works_filepaths(self):
-        """"Test building absolute filepaths from PHI5 works index.
-        TODO: finish this once the PHI5 works index is finished.
-        """
-        paths = assemble_phi5_works_filepaths()
-        self.assertEqual(len(paths), 836)
-
-    def test_corpora_import_list_greek(self):
-        """Test listing of available corpora."""
-        corpus_importer = CorpusImporter('greek')
-        available_corpora = corpus_importer.list_corpora
-        self.assertTrue(available_corpora)
-
-    def test_corpora_import_list_latin(self):
-        """Test listing of available corpora."""
-        corpus_importer = CorpusImporter('latin')
-        available_corpora = corpus_importer.list_corpora
-        self.assertTrue(available_corpora)
-
-    def test_open_pickle(self):
-        """Test opening function pickle."""
-        pickle_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
-        pickle_path = os.path.expanduser(pickle_path_rel)
-        a_pickle = open_pickle(pickle_path)
-        self.assertTrue(a_pickle)
-
-    def test_open_pickle_fail_doesnt_exist(self):
-        """Test failure to unpickle a file that doesn't exist"""
-        bad_file = 'cltk/tests/doesnt_exist.pickle'
-        with self.assertRaises(SystemExit):
-            open_pickle(bad_file)
-
-    def test_open_pickle_fail_corrupt(self):
-        bad_file = 'cltk/tests/bad_pickle.pickle'
-        with self.assertRaises(SystemExit):
-            open_pickle(bad_file)
-
-    def test_show_corpora_unsupported_lang(self):
-        """Test failure of importer upon selecting unsupported language."""
-        with self.assertRaises(AssertionError):
-            CorpusImporter('bad_lang')
-
-    def test_import_latin_library(self):
-        """Test downloading the Latin Libraray text corpus."""
-        path_rel = '~/cltk_data/latin/text/latin_text_latin_library/'
-        path = os.path.expanduser(path_rel)
-        if not os.path.isdir(path):
-            corpus_importer = CorpusImporter('latin')
-            corpus_importer.import_corpus('latin_text_latin_library')
-        author_path = os.path.join(path, 'abelard')
-        author_dir = os.path.isdir(author_path)
-        self.assertTrue(author_dir)
-
+    # these need replacing
+    '''
     def test_import_lacus_curtius(self):
         """Test downloading the Lacus_Curtius Latin text corpus."""
         path_rel = '~/cltk_data/latin/text/latin_text_lacus_curtius/'
@@ -233,6 +128,140 @@ argenteo polubro, aureo eclutro. """
         author_path = os.path.join(path, 'tlgu.h')
         file = os.path.isfile(author_path)
         self.assertTrue(file)
+    '''
+
+
+    # good
+    def test_import_latin_library(self):
+        """Test downloading the Latin Library text corpus."""
+        c = CorpusImporter('latin')
+        c.import_corpus('latin_text_latin_library')
+        dir_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/latin_library/abelard')
+        dir = os.path.expanduser(dir_rel)
+        dir_exists = os.path.isdir(dir)
+        self.assertTrue(dir_exists)
+
+
+
+
+    # below imports are good
+    '''
+    def test_latin_ling_import(self):
+        # good
+        c = CorpusImporter('latin')
+        c.import_corpus('cltk_linguistic_data')
+        dir_rel = os.path.join('~/cltk_data/latin/trained_model/cltk_linguistic_data')
+        dir = os.path.expanduser(dir_rel)
+        dir_exists = os.path.isdir(dir)
+        self.assertTrue(dir_exists)
+
+
+    def test_greek_ling_import(self):
+        # good
+        c = CorpusImporter('greek')
+        c.import_corpus('cltk_linguistic_data')
+        dir_rel = os.path.join('~/cltk_data/greek/trained_model/cltk_linguistic_data')
+        dir = os.path.expanduser(dir_rel)
+        dir_exists = os.path.isdir(dir)
+        self.assertTrue(dir_exists)
+
+    def test_git_import(self):
+        # good
+        c = CorpusImporter('latin')
+        c.import_corpus('latin_proper_names')
+        dir_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names')
+        dir = os.path.expanduser(dir_rel)
+        dir_exists = os.path.isdir(dir)
+        self.assertTrue(dir_exists)
+    '''
+
+    '''
+    def test_build_contribs_file(self):
+        str = build_contribs_file(test=True)
+        self.assertTrue(str)
+
+    def test_remove_non_ascii(self):
+        """Test removing all non-ascii characters from a string."""
+        non_ascii_str = 'Ascii and some non-ascii: θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν'  # pylint: disable=C0301
+        ascii_str = remove_non_ascii(non_ascii_str)
+        valid = 'Ascii and some non-ascii:     '
+        self.assertEqual(ascii_str, valid)
+
+    def test_tlg_plaintext_cleanup(self):
+        """Test post-TLGU cleanup of text of Greek TLG text."""
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        clean = tlg_plaintext_cleanup(dirty)
+        target = """  Ἀθήναιος  ὁ τῆς  βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = """        {ODYSSIA}
+        {Liber I}
+Virum 999 mihi, Camena, insece versutum.
+Pater noster, Saturni filie . . .
+Mea puera, quid verbi ex tuo ore supera fugit?
+argenteo polubro, aureo eclutro. """
+        clean = phi5_plaintext_cleanup(dirty)
+        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """
+        self.assertEqual(clean, target)
+
+    def test_assemble_tlg_author_filepaths(self):
+        """Test building absolute filepaths from TLG index."""
+        paths = assemble_tlg_author_filepaths()
+        self.assertEqual(len(paths), 1823)
+
+    def test_assemble_phi5_author_filepaths(self):
+        """Test building absolute filepaths from TLG index."""
+        paths = assemble_phi5_author_filepaths()
+        self.assertEqual(len(paths), 362)
+
+    def test_assemble_tlg_works_filepaths(self):
+        """"Test building absolute filepaths from TLG works index."""
+        paths = assemble_tlg_works_filepaths()
+        self.assertEqual(len(paths), 6625)
+
+    def test_assemble_phi5_works_filepaths(self):
+        """"Test building absolute filepaths from PHI5 works index.
+        TODO: finish this once the PHI5 works index is finished.
+        """
+        paths = assemble_phi5_works_filepaths()
+        self.assertEqual(len(paths), 836)
+
+    def test_corpora_import_list_greek(self):
+        """Test listing of available corpora."""
+        corpus_importer = CorpusImporter('greek')
+        available_corpora = corpus_importer.list_corpora
+        self.assertTrue(available_corpora)
+
+    def test_corpora_import_list_latin(self):
+        """Test listing of available corpora."""
+        corpus_importer = CorpusImporter('latin')
+        available_corpora = corpus_importer.list_corpora
+        self.assertTrue(available_corpora)
+
+    def test_open_pickle(self):
+        """Test opening function pickle."""
+        pickle_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
+        pickle_path = os.path.expanduser(pickle_path_rel)
+        a_pickle = open_pickle(pickle_path)
+        self.assertTrue(a_pickle)
+
+    def test_open_pickle_fail_doesnt_exist(self):
+        """Test failure to unpickle a file that doesn't exist"""
+        bad_file = 'cltk/tests/doesnt_exist.pickle'
+        with self.assertRaises(SystemExit):
+            open_pickle(bad_file)
+
+    def test_open_pickle_fail_corrupt(self):
+        bad_file = 'cltk/tests/bad_pickle.pickle'
+        with self.assertRaises(SystemExit):
+            open_pickle(bad_file)
+
+    def test_show_corpora_unsupported_lang(self):
+        """Test failure of importer upon selecting unsupported language."""
+        with self.assertRaises(AssertionError):
+            CorpusImporter('bad_lang')
 
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer."""
@@ -433,6 +462,7 @@ argenteo polubro, aureo eclutro. """
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
+    '''
 
 if __name__ == '__main__':
     unittest.main()
