@@ -8,7 +8,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'text',
      'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_perseus/master/latin_corpus_perseus_new.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/latin_corpus_perseus.git'},
+     'git': 'https://github.com/cltk/latin_corpus_perseus.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_treebank_perseus',
      'markup': 'xml',
@@ -16,7 +16,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'treebank',
      'path': 'https://raw.githubusercontent.com/cltk/latin_treebank_perseus/master/latin_treebank_perseus.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/latin_treebank_perseus.git'},
+     'git': 'https://github.com/cltk/latin_treebank_perseus.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_corpus_lacus_curtius',
      'markup': 'plaintext',
@@ -24,7 +24,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'text',
      'path': 'https://raw.githubusercontent.com/cltk/latin_corpus_lacus_curtius/master/lacus_curtius.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/latin_corpus_lacus_curtius.git',},
+     'git': 'https://github.com/cltk/latin_corpus_lacus_curtius.git',},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/latin_corpus_latin_library',
      'markup': 'plaintext',
@@ -62,7 +62,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'trained_model',
      'path': 'https://raw.githubusercontent.com/cltk/cltk_latin_linguistic_data/master/latin.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/cltk_latin_linguistic_data.git'},
+     'git': 'https://github.com/cltk/cltk_latin_linguistic_data.git'},
     {'encoding': 'utf-8',
      'homepage': 'https://github.com/cltk/pos_latin',
      'markup': 'python',
@@ -70,5 +70,5 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'lemma',
      'path': 'https://raw.githubusercontent.com/cltk/pos_latin/master/pos_latin.tar.gz',  # pylint: disable=C0301
-     'git': 'git@github.com:cltk/pos_latin.git'},
+     'git': 'https://github.com/cltk/pos_latin.git'},
 ]
