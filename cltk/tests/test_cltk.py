@@ -431,7 +431,6 @@ argenteo polubro, aureo eclutro. """
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
-    '''
 
 if __name__ == '__main__':
     unittest.main()
