@@ -45,7 +45,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         c.import_corpus('latin_text_perseus')
         dir_rel = os.path.join('~/cltk_data/latin/text/latin_text_perseus/latin_corpus_perseus/Ammianus')
         dir = os.path.expanduser(dir_rel)
-        dir_exists = os.path.isfile(dir)
+        dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
 
     # below imports are good
