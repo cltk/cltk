@@ -9,6 +9,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 import errno
 from git import Repo
+from git import Remote
 import os
 import shutil
 import ssl
@@ -196,7 +197,7 @@ class CorpusImporter():
 
     def import_corpus(self, corpus_name, path=None):  # pylint: disable=R0912
         """Download a remote or load local corpus into dir ``~/cltk_data``.
-        TODO: Move some if/else logic into own methods.
+        TODO: add ``from git import RemoteProgress``
         :type corpus_name: str
         :param corpus_name: The name of an available corpus.
         :param path: str
@@ -211,19 +212,22 @@ class CorpusImporter():
             #self._download_corpus(corpus_type, corpus_name, path)
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
+            target_dir = os.path.join(type_dir, corpus_name)
             if not os.path.isdir(type_dir):
                 os.makedirs(type_dir)
-            target_dir = os.path.join(type_dir, corpus_name)
-            #! maybe mv old dir to /tmp first, then delete
-            #! much better: do a check on sha commit version locally and remote, then decide whether to replace
-            # TODO: print git output to screen
-            if os.path.isdir(target_dir):
-                shutil.rmtree(target_dir, onerror=self.remove_readonly)
-                logger.info('Removing old directory at: %s', target_dir)
-            try:
-                Repo.clone_from(git_uri, target_dir, depth=1)
-            except Exception as e:
-                logger.error('Git clone failed: %s', e)
+                try:
+                    Repo.clone_from(git_uri, target_dir, depth=1)
+                except Exception as e:
+                    logger.error('Git clone failed: %s', e)
+            else:
+                try:
+                    repo = Repo(target_dir)
+                    assert not repo.bare  # or: assert repo.exists()
+                    o = repo.remotes.origin
+                    logger.info("Pulling latest '%s' from '%s' to '%s'." % (corpus_name, git_uri, path))
+                    o.pull()
+                except Exception as e:
+                    logger.error('Git pull failed: %s', e)
         elif location == 'local':
             logger.info("Incoming path: '%s'", path)
             if not path:
