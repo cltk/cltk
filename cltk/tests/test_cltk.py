@@ -48,9 +48,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
 
-    # below imports are good
-    '''
-    # good
     def test_import_proper_names_latin(self):
         """Test downloading the Latin proper names corpus."""
         c = CorpusImporter('latin')
@@ -60,7 +57,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    # good
     def test_import_tlgu(self):
         """Test downloading TLGU."""
         c = CorpusImporter('greek')
@@ -70,8 +66,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-
-    # good
     def test_import_proper_names_greek(self):
         """Test downloading the Greek proper names corpus."""
         c = CorpusImporter('greek')
@@ -81,8 +75,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-
-    # good
     def test_import_greek_trbnk_perseus(self):
         """Test downloading the Perseus greek treebank corpus."""
         c = CorpusImporter('greek')
@@ -92,8 +84,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-
-    # good
     def test_import_latin_trbnk_perseus(self):
         """Test downloading the Perseus Latin treebank corpus."""
         c = CorpusImporter('latin')
@@ -102,9 +92,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-
-
-    # good
+    
     def test_import_lacus_curtius(self):
         """Test downloading the Lacus_Curtius Latin text corpus."""
         c = CorpusImporter('latin')
@@ -114,7 +102,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
 
-    # good
     def test_import_perseus_greek_text(self):
         """Test downloading the Perseus Greek text corpus."""
         c = CorpusImporter('greek')
@@ -123,10 +110,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir = os.path.expanduser(dir_rel)
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
-
-
-
-    # good
+    
     def test_import_latin_library(self):
         """Test downloading the Latin Library text corpus."""
         c = CorpusImporter('latin')
@@ -137,7 +121,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(dir_exists)
 
     def test_latin_ling_import(self):
-        # good
         c = CorpusImporter('latin')
         c.import_corpus('cltk_linguistic_data')
         dir_rel = os.path.join('~/cltk_data/latin/trained_model/cltk_linguistic_data')
@@ -145,9 +128,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
 
-
     def test_greek_ling_import(self):
-        # good
         c = CorpusImporter('greek')
         c.import_corpus('cltk_linguistic_data')
         dir_rel = os.path.join('~/cltk_data/greek/trained_model/cltk_linguistic_data')
@@ -156,16 +137,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(dir_exists)
 
     def test_git_import(self):
-        # good
         c = CorpusImporter('latin')
         c.import_corpus('latin_proper_names')
         dir_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names')
         dir = os.path.expanduser(dir_rel)
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
-    '''
 
-    '''
+
     def test_build_contribs_file(self):
         str = build_contribs_file(test=True)
         self.assertTrue(str)
