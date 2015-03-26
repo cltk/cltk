@@ -43,12 +43,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_import_proper_names_latin(self):
         """Test downloading the Latin proper names corpus."""
         c = CorpusImporter('latin')
-        c.import_corpus('greek_proper_names')
+        c.import_corpus('latin_proper_names')
         file_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names/proper_names.txt')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-
+'''
 
 
     def test_import_perseus_latin_text(self):
@@ -60,7 +60,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir_exists = os.path.isfile(dir)
         self.assertTrue(dir_exists)
 
-
+'''
     # below imports are good
     '''
 
