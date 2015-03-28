@@ -7,20 +7,19 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-import errno
-from git import Repo
-from git import Remote
-import os
-import shutil
-import ssl
-import sys
-from urllib.parse import urlsplit
-
 from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
 from cltk.utils.cltk_logger import logger
+import errno
+from git import Repo
+import os
 import requests
 from requests_toolbelt import SSLAdapter
+import shutil
+import ssl
+import stat
+import sys
+from urllib.parse import urlsplit
 
 
 AVAILABLE_LANGUAGES = ['greek', 'latin']
@@ -33,7 +32,6 @@ class CorpusImporter():
     def __init__(self, language):
         self.language = language.lower()
         self._setup_language_variables()
-
 
     def remove_readonly(func, path, excinfo):
         """This does the equivalent of ``rm -rf ...``.
@@ -213,12 +211,15 @@ class CorpusImporter():
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
+            # check if corpus already present
+            # if not, clone
             if not os.path.isdir(type_dir):
                 os.makedirs(type_dir)
                 try:
                     Repo.clone_from(git_uri, target_dir, depth=1)
                 except Exception as e:
                     logger.error('Git clone failed: %s', e)
+            # if corpus is present, pull latest
             else:
                 try:
                     repo = Repo(target_dir)
