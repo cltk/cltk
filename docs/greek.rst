@@ -196,7 +196,7 @@ Stopword Filtering
 
    In [1]: from nltk.tokenize.punkt import PunktLanguageVars
 
-   In [2]: from cltk.stop.greek.stops_unicode import STOPS_LIST
+   In [2]: from cltk.stop.greek.stops import STOPS_LIST
 
    In [3]: sentence = 'Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ Αἰολέας.'
 
