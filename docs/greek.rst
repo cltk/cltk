@@ -202,7 +202,7 @@ Stopword Filtering
 
    In [4]: p = PunktLanguageVars()
 
-   In [5]: tokens = p.word_tokenize(tokenize(sentence.lower())
+   In [5]: tokens = p.word_tokenize(sentence.lower())
 
    In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]:

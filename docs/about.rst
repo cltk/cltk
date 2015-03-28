@@ -9,4 +9,4 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 
 * develop a free and open platform for generating reproducible, scientific research that advances the study of the literature and languages of the ancient world.
 
-This project's source is hosted `on GitHub <https://github.com/kylepjohnson/cltk>`_.
+The project's source is hosted `on GitHub <https://github.com/kylepjohnson/cltk>`_ and the homepage is `http://cltk.org<http://cltk.org>`_.
