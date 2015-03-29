@@ -35,6 +35,16 @@ GREEK_CORPORA = [
      'name': 'greek_treebank_perseus',
      'location': 'remote',
      'type': 'treebank'},
+    {'encoding': 'xml',
+     'markup': 'plaintext',
+     'name': 'greek_lexica_perseus',
+     'location': 'remote',
+     'type': 'lexicon'},
+    {'encoding': 'utf-8',
+     'markup': 'plaintext',
+     'name': 'greek_training_set_sentence_cltk',
+     'location': 'remote',
+     'type': 'training_set'},
 ]
 
 
