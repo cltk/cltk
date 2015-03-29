@@ -17,7 +17,6 @@ import requests
 from requests_toolbelt import SSLAdapter
 import shutil
 import ssl
-import stat
 import sys
 from urllib.parse import urlsplit
 
@@ -32,12 +31,6 @@ class CorpusImporter():
     def __init__(self, language):
         self.language = language.lower()
         self._setup_language_variables()
-
-    def remove_readonly(func, path, excinfo):
-        """This does the equivalent of ``rm -rf ...``.
-        http://stackoverflow.com/a/1889686"""
-        os.chmod(path, stat.S_IWRITE)
-        func(path)
 
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
@@ -216,7 +209,7 @@ class CorpusImporter():
             if not os.path.isdir(type_dir):
                 os.makedirs(type_dir)
                 try:
-                    Repo.clone_from(git_uri, target_dir, depth=1)
+                    Repo.clone_from(git_uri, target_dir, depth=1, branch='new')  # ch new to master when live
                 except Exception as e:
                     logger.error('Git clone failed: %s', e)
             # if corpus is present, pull latest
@@ -226,7 +219,7 @@ class CorpusImporter():
                     assert not repo.bare  # or: assert repo.exists()
                     o = repo.remotes.origin
                     logger.info("Pulling latest '%s' from '%s' to '%s'." % (corpus_name, git_uri, path))
-                    o.pull()
+                    o.pull(branch='new')  # works? ch new to master when live
                 except Exception as e:
                     logger.error('Git pull failed: %s', e)
         elif location == 'local':
