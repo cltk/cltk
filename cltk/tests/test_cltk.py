@@ -147,6 +147,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         dir_exists = os.path.isdir(dir)
         self.assertTrue(dir_exists)
 
+    def test_git_import_coptic_scriptorium(self):
+        c = CorpusImporter('coptic')
+        c.import_corpus('coptic_text_scriptorium')
+        file_rel = os.path.join('~/cltk_data/coptic/text/coptic_text_scriptorium/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
     def test_build_contribs_file(self):
         str = build_contribs_file(test=True)

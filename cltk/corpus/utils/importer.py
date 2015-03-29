@@ -7,8 +7,12 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.chinese.corpora import CHINESE_CORPORA
+from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
+from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
+from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.utils.cltk_logger import logger
 import errno
 from git import Repo
@@ -18,11 +22,19 @@ from requests_toolbelt import SSLAdapter
 import shutil
 import ssl
 import sys
+from urllib.parse import urljoin
 from urllib.parse import urlsplit
 
 
-AVAILABLE_LANGUAGES = ['greek', 'latin']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali']
 CLTK_DATA_DIR = '~/cltk_data'
+LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
+                    'coptic': COPTIC_CORPORA,
+                    'greek': GREEK_CORPORA,
+                    'latin': LATIN_CORPORA,
+                    'multilingual': MULTILINGUAL_CORPORA,
+                    'pali': PALI_CORPORA}
+
 
 
 class CorpusImporter():
@@ -43,10 +55,11 @@ class CorpusImporter():
     @property
     def list_corpora(self):
         """Show corpora available for the CLTK to download."""
-        if self.language == 'greek':
-            corpora = GREEK_CORPORA
-        elif self.language == 'latin':
-            corpora = LATIN_CORPORA
+        try:
+            corpora = LANGUAGE_CORPORA[self.language]
+        except NameError as name_error:
+            logger.error('Corpus not available for language %s: %s', (self.language, name_error))
+
         corpus_list = []
         for corpus in corpora:
             corpus_list.append(corpus['name'])
@@ -168,13 +181,10 @@ class CorpusImporter():
         :param corpus_name: Name of available corpus.
         :rtype : str
         """
-        if self.language == 'greek':
-            corpora = GREEK_CORPORA
-        elif self.language == 'latin':
-            corpora = LATIN_CORPORA
-        else:
-            logger.error("Corpora not available for '%s' language.", self.language)
-            sys.exit(1)
+        try:
+            corpora = LANGUAGE_CORPORA[self.language]
+        except NameError as name_error:
+            logger.error('Corpus not available for language %s: %s', (self.language, name_error))
         corpus_properties = None
         for corpus in corpora:
             if corpus['name'] == corpus_name:
@@ -188,7 +198,8 @@ class CorpusImporter():
 
     def import_corpus(self, corpus_name, local_path=None):  # pylint: disable=R0912
         """Download a remote or load local corpus into dir ``~/cltk_data``.
-        TODO: add ``from git import RemoteProgress``
+        TODO: maybe add ``from git import RemoteProgress``
+        TODO: refactor this, it's getting kinda long
         :type corpus_name: str
         :param corpus_name: The name of an available corpus.
         :param local_path: str
@@ -198,7 +209,7 @@ class CorpusImporter():
         location = corpus_properties['location']
         corpus_type = corpus_properties['type']
         if location == 'remote':
-            git_uri = corpus_properties['git']
+            git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
             #self._download_corpus(corpus_type, corpus_name, path)
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
@@ -208,7 +219,8 @@ class CorpusImporter():
             if not os.path.isdir(type_dir):
                 os.makedirs(type_dir)
                 try:
-                    Repo.clone_from(git_uri, target_dir, depth=1, branch='new')  # ch new to master when live
+                    logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
+                    Repo.clone_from(git_uri, target_dir, depth=1)
                 except Exception as e:
                     logger.error('Git clone failed: %s', e)
             # if corpus is present, pull latest
@@ -217,8 +229,8 @@ class CorpusImporter():
                     repo = Repo(target_dir)
                     assert not repo.bare  # or: assert repo.exists()
                     o = repo.remotes.origin
-                    logger.info("Pulling latest '%s' from '%s' to '%s'." % (corpus_name, git_uri))
-                    o.pull(branch='new')  # works? ch new to master when live
+                    logger.info("Pulling latest '%s' from '%s'." % (corpus_name, git_uri))
+                    o.pull()
                 except Exception as e:
                     logger.error('Git pull failed: %s', e)
         elif location == 'local':
