@@ -186,19 +186,18 @@ class CorpusImporter():
             sys.exit(1)
         return corpus_properties
 
-    def import_corpus(self, corpus_name, path=None):  # pylint: disable=R0912
+    def import_corpus(self, corpus_name, local_path=None):  # pylint: disable=R0912
         """Download a remote or load local corpus into dir ``~/cltk_data``.
         TODO: add ``from git import RemoteProgress``
         :type corpus_name: str
         :param corpus_name: The name of an available corpus.
-        :param path: str
-        :param path: A filepath, required when importing local corpora.
+        :param local_path: str
+        :param local_path: A filepath, required when importing local corpora.
         """
         corpus_properties = self._check_corpus_availability(corpus_name)
         location = corpus_properties['location']
         corpus_type = corpus_properties['type']
         if location == 'remote':
-            path = corpus_properties['path']
             git_uri = corpus_properties['git']
             #self._download_corpus(corpus_type, corpus_name, path)
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
@@ -218,38 +217,35 @@ class CorpusImporter():
                     repo = Repo(target_dir)
                     assert not repo.bare  # or: assert repo.exists()
                     o = repo.remotes.origin
-                    logger.info("Pulling latest '%s' from '%s' to '%s'." % (corpus_name, git_uri, path))
+                    logger.info("Pulling latest '%s' from '%s' to '%s'." % (corpus_name, git_uri))
                     o.pull(branch='new')  # works? ch new to master when live
                 except Exception as e:
                     logger.error('Git pull failed: %s', e)
         elif location == 'local':
-            logger.info("Incoming path: '%s'", path)
-            if not path:
-                logger.info("'path' argument required for local corpora.")
-                sys.exit(1)
+            logger.info("Importing from local path: '%s'", local_path)
             if corpus_name in ('phi5', 'phi7', 'tlg'):
                 if corpus_name == 'phi5':
                     # normalize path for checking dir
-                    if path.endswith('/'):
-                        path = path[:-1]
+                    if local_path.endswith('/'):
+                        local_path = local_path[:-1]
                     # check for right corpus dir
-                    if os.path.split(path)[1] != 'PHI5':
+                    if os.local_path.split(local_path)[1] != 'PHI5':
                         logger.info("Directory must be named 'PHI5'.")
                         sys.exit(1)
                 if corpus_name == 'phi7':
-                    # normalize path for checking dir
-                    if path.endswith('/'):
-                        path = path[:-1]
+                    # normalize local_path for checking dir
+                    if local_path.endswith('/'):
+                        local_path = local_path[:-1]
                     # check for right corpus dir
-                    if os.path.split(path)[1] != 'PHI7':
+                    if os.path.split(local_path)[1] != 'PHI7':
                         logger.info("Directory must be named 'PHI7'.")
                         sys.exit(1)
                 if corpus_name == 'tlg':
                     # normalize path for checking dir
-                    if path.endswith('/'):
-                        path = path[:-1]
+                    if local_path.endswith('/'):
+                        local_path = local_path[:-1]
                     # check for right corpus dir
-                    if os.path.split(path)[1] != 'TLG_E':
+                    if os.path.split(local_path)[1] != 'TLG_E':
                         logger.info("Directory must be named 'TLG_E'.")
                         sys.exit(1)
                 # move the dir-checking commands into a function
@@ -268,4 +264,4 @@ class CorpusImporter():
                     logger.info("Removed directory at '%s'.", tlg_originals_dir)
                 # copy_dir requires that target
                 if not os.path.isdir(tlg_originals_dir):
-                    self._copy_dir_recursive(path, tlg_originals_dir)
+                    self._copy_dir_recursive(local_path, tlg_originals_dir)
