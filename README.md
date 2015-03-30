@@ -13,13 +13,7 @@ The Classical Language Toolkit (CLTK) offers natural language processing support
 
 *   compile analysis-friendly corpora in a variety of Classical languages (Greek and Latin are in progress, with [more in the pipeline](https://github.com/kylepjohnson/cltk/wiki/List-of-Classical-languages));
 *   gather, improve, and generate linguistic data required for NLP;
-*   develop a free and open platform for generating reproducible, scientific research that advances the study of the literature and languages of the ancient world.
-
-
-Documentation
--------------
-
-The docs are at [http://docs.cltk.org/en/latest/](http://docs.cltk.org/en/latest/).
+*   develop a free and open platform for generating reproducible, scientific research that advances the study of the languages and literatures of the ancient world.
 
 
 Installation
@@ -28,10 +22,16 @@ Installation
 See [installation instructions available in the docs](http://docs.cltk.org/en/latest/installation.html).
 
 
+Documentation
+-------------
+
+The docs are at [docs.cltk.org](http://docs.cltk.org). More information is available on the CLTK's website, [cltk.org](http://cltk.org).
+
+
 Corpora, training sets, models, etc.
 ------------------------------------
 
-The CLTK imports files and stores them locally to your computer in at `~/cltk_data`. Corpora are kept in [the CLTK's GitHub user group](https://github.com/cltk) and a language's trained models are found in, e.g., [`latin_models_cltk`](https://github.com/cltk/latin_models_cltk) and [`greek_models_cltk`](https://github.com/cltk/greek_models_cltk).
+Corpora are kept in [the CLTK's GitHub user group](https://github.com/cltk) and a language's trained models are found in, e.g., [`latin_models_cltk`](https://github.com/cltk/latin_models_cltk) and [`greek_models_cltk`](https://github.com/cltk/greek_models_cltk). The CLTK imports files and stores them locally to your computer in at `~/cltk_data`.
 
 
 Citation
