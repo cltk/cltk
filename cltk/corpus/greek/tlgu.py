@@ -49,7 +49,7 @@ class TLGU(object):
     @staticmethod
     def _check_import_source():
         """Check if tlgu imported, if not import it."""
-        path_rel = '~/cltk_data/greek/software/tlgu/tlgu.h'
+        path_rel = '~/cltk_data/greek/software/greek_software_tlgu/tlgu.h'
         path = os.path.expanduser(path_rel)
         if not os.path.isfile(path):
             try:
@@ -70,7 +70,7 @@ class TLGU(object):
             if not subprocess.check_output(['which', 'gcc']):
                 logger.error('GCC seems not to be installed.')
             else:
-                tlgu_path_rel = '~/cltk_data/greek/software/tlgu'
+                tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
                 try:
                     p_out = subprocess.call('cd {0} && make install'.format(tlgu_path), shell=True)

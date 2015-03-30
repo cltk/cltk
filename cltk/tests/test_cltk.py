@@ -36,6 +36,7 @@ import stat
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
+    '''
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -389,15 +390,13 @@ argenteo polubro, aureo eclutro. """
         home_dir = os.path.expanduser('~/cltk_data')
         log_path = os.path.join(home_dir, 'cltk.log')
         self.assertTrue(log_path)
-
     '''
+
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
         tlgu = TLGU()
         self.assertTrue(tlgu)
-    '''
 
-    '''
     def test_tlgu_convert(self):
         """Test TLGU convert. This reads the file
         ``tlgu_test_text_beta_code.txt``, which mimics a TLG file, and
@@ -415,24 +414,19 @@ argenteo polubro, aureo eclutro. """
 βλλον δ' ἀλλλους χαλκρεσιν ἐγχεῃσιν.
 """
         self.assertEqual(new_text, target)
-    '''
 
-    '''
     def test_tlgu_convert_fail(self):
         """Test the TLGU to fail when importing a corpus that doesn't exist."""
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert('~/Downloads/corpora/TLG_E/bad_path.txt',
                          '~/Documents/thucydides.txt')
-    '''
 
-    '''
     def test_tlgu_convert_unsupported_corpus_fail(self):
         """Test the TLGU to fail when trying to convert an unsupported corpus."""
         tlgu = TLGU()
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
-    '''
 
     '''
     def test_lemmatizer_latin(self):
