@@ -24,7 +24,7 @@ Then, install the CLTK, which automatically includes all dependencies.
 
    $ pip install cltk
 
-Second, you will need an installation of [Git](http://git-scm.com/downloads), which the CLTK uses to download and update corpora, if you want to automatically import any of the [CLTK's corpora](https://github.com/cltk/). Installation of Git will depend on your operating system.
+Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, which the CLTK uses to download and update corpora, if you want to automatically import any of the `CLTK's corpora <https://github.com/cltk/>`_. Installation of Git will depend on your operating system.
 
 
 From source
