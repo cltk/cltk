@@ -31,7 +31,7 @@ See [installation instructions available in the docs](http://docs.cltk.org/en/la
 Corpora, training sets, models, etc.
 ------------------------------------
 
-The CLTK imports files and stores them locally to your computer in at `~/cltk_data`. Corpora are kept in [the CLTK's GitHub user group](https://github.com/cltk) and a language's trained models are found in, e.g., [`cltk_latin_linguistic_data`](https://github.com/cltk/cltk_latin_linguistic_data) and [`cltk_greek_linguistic_data`](https://github.com/cltk/cltk_greek_linguistic_data).
+The CLTK imports files and stores them locally to your computer in at `~/cltk_data`. Corpora are kept in [the CLTK's GitHub user group](https://github.com/cltk) and a language's trained models are found in, e.g., [`latin_models_cltk`](https://github.com/cltk/latin_models_cltk) and [`greek_models_cltk`](https://github.com/cltk/greek_models_cltk).
 
 
 Citation
