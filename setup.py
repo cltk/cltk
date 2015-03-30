@@ -27,14 +27,15 @@ setup(
     description='NLP support for Classical languages.',
     install_requires=['nltk',
                       'requests-toolbelt',
-                      'requests',],
+                      'requests',
+                      'gitpython'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',
     long_description="The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.",  # pylint: disable=C0301
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
-    version='0.0.1.11',
+    version='0.0.1.12',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )

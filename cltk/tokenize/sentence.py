@@ -54,7 +54,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         file = PUNCTUATION[lang]['file']
         rel_path = os.path.join('~/cltk_data',
                                 lang,
-                                'trained_model/cltk_linguistic_data/tokenizers/sentence')  # pylint: disable=C0301
+                                'model/' + lang + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
         path = os.path.expanduser(rel_path)
         tokenizer_path = os.path.join(path, file)
         assert os.path.isfile(tokenizer_path), 'CLTK linguistics data not found for language {0}'.format(lang)  # pylint: disable=C0301

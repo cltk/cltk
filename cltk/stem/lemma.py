@@ -16,6 +16,8 @@ AVAILABLE_LANGUAGES = ['latin']
 class LemmaReplacer(object):  # pylint: disable=R0903
     """Lemmatize Latin words by replacing input words with corresponding
     values from a replacement list.
+    TODO: this is broken. Need to change the way that the lemma file gets imported.
+    rm the tar and turn the 250MB file into 5 50MB, then join them here.
     """
 
     def __init__(self, language):
