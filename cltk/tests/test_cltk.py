@@ -57,81 +57,68 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    '''
     def test_import_proper_names_latin(self):
         """Test downloading the Latin proper names corpus."""
         c = CorpusImporter('latin')
-        c.import_corpus('latin_proper_names')
-        file_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names/proper_names.txt')
+        c.import_corpus('latin_proper_names_cltk')
+        file_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
-    '''
-    def test_import_tlgu(self):
-        """Test downloading TLGU."""
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_proper_names')
-        file_rel = os.path.join('~/cltk_data/greek/software/tlgu/tlgu.h')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-    '''
-
-    '''
     def test_import_proper_names_greek(self):
         """Test downloading the Greek proper names corpus."""
         c = CorpusImporter('greek')
-        c.import_corpus('greek_proper_names')
-        file_rel = os.path.join('~/cltk_data/greek/dictionary/greek_proper_names/proper_names.txt')
+        c.import_corpus('greek_proper_names_cltk')
+        file_rel = os.path.join('~/cltk_data/greek/dictionary/greek_proper_names_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
-    '''
-    def test_import_greek_trbnk_perseus(self):
-        """Test downloading the Perseus greek treebank corpus."""
+    def test_import_greek_software_tlgu(self):
+        """Test downloading TLGU."""
+        c = CorpusImporter('greek')
+        c.import_corpus('greek_software_tlgu')
+        file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+    def test_import_greek_treebank_perseus(self):
+        """Test downloading the Perseus Greek treebank corpus."""
         c = CorpusImporter('greek')
         c.import_corpus('greek_treebank_perseus')
-        file_rel = os.path.join('~/cltk_data/greek/treebank/greek_treebank_perseus/unigram.pickle')
+        file_rel = os.path.join('~/cltk_data/greek/treebank/greek_treebank_perseus/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_latin_trbnk_perseus(self):
+    def test_import_latin_treebank_perseus(self):
         """Test downloading the Perseus Latin treebank corpus."""
         c = CorpusImporter('latin')
         c.import_corpus('latin_treebank_perseus')
-        file_rel = os.path.join('~/cltk_data/latin/treebank/latin_treebank_perseus/unigram.pickle')
+        file_rel = os.path.join('~/cltk_data/latin/treebank/latin_treebank_perseus/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
-    '''
-    def test_import_lacus_curtius(self):
+    def test_import_latin_text_lacus_curtius(self):
         """Test downloading the Lacus Curtius Latin text corpus."""
         c = CorpusImporter('latin')
         c.import_corpus('latin_text_lacus_curtius')
-        dir_rel = os.path.join('~/cltk_data/latin/text/latin_text_lacus_curtius/lacus_curtius/Aelian')
-        dir = os.path.expanduser(dir_rel)
-        dir_exists = os.path.isdir(dir)
-        self.assertTrue(dir_exists)
-    '''
+        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_lacus_curtius/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
-    '''
-    TODO: fix the dl of this
-    def test_import_latin_library(self):
+    def test_import_latin_text_latin_library(self):
         """Test downloading the Latin Library text corpus."""
         c = CorpusImporter('latin')
         c.import_corpus('latin_text_latin_library')
-        dir_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/latin_library/abelard')
-        dir = os.path.expanduser(dir_rel)
-        dir_exists = os.path.isdir(dir)
-        self.assertTrue(dir_exists)
-    '''
+        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
     '''
     def test_latin_ling_import(self):
@@ -366,12 +353,15 @@ argenteo polubro, aureo eclutro. """
         tagged = tagger.tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=C0301
         self.assertTrue(tagged)
 
+    '''
     def test_pos_bigram_greek(self):
         """Test tagging Greek POS with bigram tagger."""
         tagger = POSTag('greek')
         tagged = tagger.tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=C0301
         self.assertTrue(tagged)
+    '''
 
+    '''
     def test_pos_trigram_greek(self):
         """Test tagging Greek POS with trigram tagger."""
         tagger = POSTag('greek')
@@ -395,13 +385,17 @@ argenteo polubro, aureo eclutro. """
         tagger = POSTag('latin')
         tagged = tagger.tag_unigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
+    '''
 
+    '''
     def test_pos_bigram_latin(self):
         """Test tagging Latin POS with bigram tagger."""
         tagger = POSTag('latin')
         tagged = tagger.tag_bigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
+    '''
 
+    '''
     def test_pos_trigram_latin(self):
         """Test tagging Latin POS with trigram tagger."""
         tagger = POSTag('latin')
@@ -425,6 +419,7 @@ argenteo polubro, aureo eclutro. """
         home_dir = os.path.expanduser('~/cltk_data')
         log_path = os.path.join(home_dir, 'cltk.log')
         self.assertTrue(log_path)
+    '''
 
     '''
     def test_tlgu_init(self):
