@@ -36,7 +36,6 @@ import stat
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    '''
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -369,7 +368,6 @@ argenteo polubro, aureo eclutro. """
         home_dir = os.path.expanduser('~/cltk_data')
         log_path = os.path.join(home_dir, 'cltk.log')
         self.assertTrue(log_path)
-    '''
 
     def test_import_greek_software_tlgu(self):
         """Test cloning TLGU."""
