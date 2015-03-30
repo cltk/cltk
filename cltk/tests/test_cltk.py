@@ -84,15 +84,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_greek_software_tlgu(self):
-        """Test cloning TLGU."""
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_software_tlgu')
-        file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
     def test_import_greek_treebank_perseus(self):
         """Test cloning the Perseus Greek treebank corpus."""
         c = CorpusImporter('greek')
@@ -379,6 +370,15 @@ argenteo polubro, aureo eclutro. """
         log_path = os.path.join(home_dir, 'cltk.log')
         self.assertTrue(log_path)
     '''
+
+    def test_import_greek_software_tlgu(self):
+        """Test cloning TLGU."""
+        c = CorpusImporter('greek')
+        c.import_corpus('greek_software_tlgu')
+        file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
