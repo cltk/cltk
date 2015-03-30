@@ -120,6 +120,25 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+    def test_import_latin_models_cltk(self):
+        """Test downloading the CLTK Latin models."""
+        c = CorpusImporter('latin')
+        c.import_corpus('latin_models_cltk')
+        file_rel = os.path.join('~/cltk_data/latin/text/latin_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+    def test_import_greek_models_cltk(self):
+        """Test downloading the CLTK Greek models."""
+        c = CorpusImporter('greek')
+        c.import_corpus('greek_models_cltk')
+        file_rel = os.path.join('~/cltk_data/greek/text/greek_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+
     '''
     def test_latin_ling_import(self):
         c = CorpusImporter('latin')
@@ -317,20 +336,7 @@ argenteo polubro, aureo eclutro. """
         target = ['si', 'de', 're']  # pylint: disable=C0301
         self.assertEqual(syllables, target)
 
-    def test_import_ling_data_greek(self):
-        """Test whether CLTK Greek linguistic data was imported during
-        ``setUp()``."""
-        rel_path = '~/cltk_data/greek/trained_model/cltk_linguistic_data/'
-        abs_path = os.path.expanduser(rel_path)
-        self.assertTrue(abs_path)
-
-    def test_import_ling_data_latin(self):
-        """Test whether CLTK Latin linguistic data was imported during
-        ``setUp()``."""
-        rel_path = '~/cltk_data/latin/trained_model/cltk_linguistic_data/'
-        abs_path = os.path.expanduser(rel_path)
-        self.assertTrue(abs_path)
-
+    '''
     def test_sentence_tokenizer_greek(self):
         """Test tokenizing Greek sentences."""
         sentences = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.'  # pylint: disable=C0301
@@ -347,11 +353,14 @@ argenteo polubro, aureo eclutro. """
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
+    #? Test tagging Greek POS with unigram tagger.
+
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag('greek')
         tagged = tagger.tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=C0301
         self.assertTrue(tagged)
+    '''
 
     '''
     def test_pos_bigram_greek(self):

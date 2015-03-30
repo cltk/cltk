@@ -28,6 +28,12 @@ def build_contribs_file(test=None):
         mod = loader.load_module()
         mod_path = mod.__file__
 
+        # test if file has __author__ in it; will fail w/o this try/except
+        try:
+            mod.__author__
+        except Exception as e:
+            print(e)
+            continue
         # check if author value is a string, turn to list
         if type(mod.__author__) is str:
             authors = [mod.__author__]

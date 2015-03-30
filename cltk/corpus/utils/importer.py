@@ -222,7 +222,7 @@ class CorpusImporter():
                     logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
                     Repo.clone_from(git_uri, target_dir, depth=1)
                 except Exception as e:
-                    logger.error('Git clone failed: %s', e)
+                    logger.error("Git clone of '%s' failed: '%s'", e)
             # if corpus is present, pull latest
             else:
                 try:
@@ -232,7 +232,7 @@ class CorpusImporter():
                     logger.info("Pulling latest '%s' from '%s'." % (corpus_name, git_uri))
                     o.pull()
                 except Exception as e:
-                    logger.error('Git pull failed: %s', e)
+                    logger.error("Git pull of '%s' failed: '%s'" % (git_uri, e))
         elif location == 'local':
             logger.info("Importing from local path: '%s'", local_path)
             if corpus_name in ('phi5', 'phi7', 'tlg'):
