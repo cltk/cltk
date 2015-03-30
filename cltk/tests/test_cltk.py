@@ -37,7 +37,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
     def setUp(self):
-        pass
+        c = CorpusImporter('greek')
+        c.import_corpus('greek_models_cltk')
+        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
     def test_import_latin_text_perseus(self):
         """Test downloading the Perseus Latin text corpus."""
@@ -130,7 +135,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(file_exists)
 
     def test_import_greek_models_cltk(self):
-        """Test downloading the CLTK Greek models."""
+        """Test pull (not clone) the CLTK Greek models. Import was run in
+        ``setUp()``.
+        """
         c = CorpusImporter('greek')
         c.import_corpus('greek_models_cltk')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
@@ -303,9 +310,8 @@ argenteo polubro, aureo eclutro. """
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
     def test_open_pickle(self):
-        """Test opening function pickle. This test will only work if
-        ``greek_models_cltk`` has already been imported. Maybe add the import
-        to setUp()
+        """Test opening function pickle. This test requires
+        ``greek_models_cltk`` to have been run in ``setUp()``.
         """
         pickle_path_rel = '/Users/kyle/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
         pickle_path = os.path.expanduser(pickle_path_rel)
