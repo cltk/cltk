@@ -313,18 +313,6 @@ argenteo polubro, aureo eclutro. """
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
-    '''
-    def test_open_pickle(self):
-        """Test opening pickle. This requires ``greek_models_cltk``
-        to have been run in ``setUp()``.
-        TODO: Test not working, not sure why.
-        """
-        pickle_path_rel = '/Users/kyle/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
-        pickle_path = os.path.expanduser(pickle_path_rel)
-        a_pickle = open_pickle(pickle_path)
-        self.assertTrue(a_pickle)
-    '''
-
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag('greek')
@@ -428,6 +416,17 @@ argenteo polubro, aureo eclutro. """
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
 
+    '''
+    def test_open_pickle(self):
+        """Test opening pickle. This requires ``greek_models_cltk``
+        to have been run in ``setUp()``.
+        TODO: Test not working, not sure why.
+        """
+        pickle_path_rel = '/Users/kyle/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
+        pickle_path = os.path.expanduser(pickle_path_rel)
+        a_pickle = open_pickle(pickle_path)
+        self.assertTrue(a_pickle)
+    '''
     '''
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer. Requires `latin_pos_lemmata_cltk`
