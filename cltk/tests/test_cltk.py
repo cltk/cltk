@@ -138,37 +138,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-
-    '''
-    def test_latin_ling_import(self):
-        c = CorpusImporter('latin')
-        c.import_corpus('cltk_linguistic_data')
-        dir_rel = os.path.join('~/cltk_data/latin/trained_model/cltk_linguistic_data')
-        dir = os.path.expanduser(dir_rel)
-        dir_exists = os.path.isdir(dir)
-        self.assertTrue(dir_exists)
-    '''
-
-    '''
-    def test_greek_ling_import(self):
-        c = CorpusImporter('greek')
-        c.import_corpus('cltk_linguistic_data')
-        dir_rel = os.path.join('~/cltk_data/greek/trained_model/cltk_linguistic_data')
-        dir = os.path.expanduser(dir_rel)
-        dir_exists = os.path.isdir(dir)
-        self.assertTrue(dir_exists)
-    '''
-
-    '''
-    def test_git_import(self):
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_proper_names')
-        dir_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names')
-        dir = os.path.expanduser(dir_rel)
-        dir_exists = os.path.isdir(dir)
-        self.assertTrue(dir_exists)
-    '''
-
     def test_git_import_coptic_scriptorium(self):
         c = CorpusImporter('coptic')
         c.import_corpus('coptic_text_scriptorium')
@@ -241,15 +210,6 @@ argenteo polubro, aureo eclutro. """
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
-    '''
-    def test_open_pickle(self):
-        """Test opening function pickle."""
-        pickle_path_rel = '~/cltk_data/greek/trained_model/cltk_linguistic_data/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
-        pickle_path = os.path.expanduser(pickle_path_rel)
-        a_pickle = open_pickle(pickle_path)
-        self.assertTrue(a_pickle)
-    '''
-
     def test_open_pickle_fail_doesnt_exist(self):
         """Test failure to unpickle a file that doesn't exist"""
         bad_file = 'cltk/tests/doesnt_exist.pickle'
@@ -265,16 +225,6 @@ argenteo polubro, aureo eclutro. """
         """Test failure of importer upon selecting unsupported language."""
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
-
-    '''
-    def test_lemmatizer_latin(self):
-        """Test the Latin lemmatizer."""
-        replacer = LemmaReplacer('latin')
-        sentence = 'hominum divomque voluptas'
-        lemmatized = replacer.lemmatize(sentence)
-        target = 'homo divus voluptas'
-        self.assertEqual(lemmatized, target)
-    '''
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
@@ -336,15 +286,6 @@ argenteo polubro, aureo eclutro. """
         target = ['si', 'de', 're']  # pylint: disable=C0301
         self.assertEqual(syllables, target)
 
-    '''
-    def test_sentence_tokenizer_greek(self):
-        """Test tokenizing Greek sentences."""
-        sentences = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.'  # pylint: disable=C0301
-        good_tokenized_sentences = ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;', 'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.']  # pylint: disable=C0301
-        tokenizer = TokenizeSentence('greek')
-        tokenized_sentences = tokenizer.tokenize_sentences(sentences)
-        self.assertEqual(tokenized_sentences, good_tokenized_sentences)
-
     def test_sentence_tokenizer_latin(self):
         """Test tokenizing Latin sentences."""
         sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=C0301
@@ -353,24 +294,36 @@ argenteo polubro, aureo eclutro. """
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
-    #? Test tagging Greek POS with unigram tagger.
+    def test_sentence_tokenizer_greek(self):
+        """Test tokenizing Greek sentences."""
+        sentences = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.'  # pylint: disable=C0301
+        good_tokenized_sentences = ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;', 'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.']  # pylint: disable=C0301
+        tokenizer = TokenizeSentence('greek')
+        tokenized_sentences = tokenizer.tokenize_sentences(sentences)
+        self.assertEqual(tokenized_sentences, good_tokenized_sentences)
+
+    def test_open_pickle(self):
+        """Test opening function pickle. This test will only work if
+        ``greek_models_cltk`` has already been imported. Maybe add the import
+        to setUp()
+        """
+        pickle_path_rel = '/Users/kyle/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
+        pickle_path = os.path.expanduser(pickle_path_rel)
+        a_pickle = open_pickle(pickle_path)
+        self.assertTrue(a_pickle)
 
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag('greek')
         tagged = tagger.tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=C0301
         self.assertTrue(tagged)
-    '''
 
-    '''
     def test_pos_bigram_greek(self):
         """Test tagging Greek POS with bigram tagger."""
         tagger = POSTag('greek')
         tagged = tagger.tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=C0301
         self.assertTrue(tagged)
-    '''
 
-    '''
     def test_pos_trigram_greek(self):
         """Test tagging Greek POS with trigram tagger."""
         tagger = POSTag('greek')
@@ -394,17 +347,13 @@ argenteo polubro, aureo eclutro. """
         tagger = POSTag('latin')
         tagged = tagger.tag_unigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
-    '''
 
-    '''
     def test_pos_bigram_latin(self):
         """Test tagging Latin POS with bigram tagger."""
         tagger = POSTag('latin')
         tagged = tagger.tag_bigram('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
-    '''
 
-    '''
     def test_pos_trigram_latin(self):
         """Test tagging Latin POS with trigram tagger."""
         tagger = POSTag('latin')
@@ -428,7 +377,6 @@ argenteo polubro, aureo eclutro. """
         home_dir = os.path.expanduser('~/cltk_data')
         log_path = os.path.join(home_dir, 'cltk.log')
         self.assertTrue(log_path)
-    '''
 
     '''
     def test_tlgu_init(self):
@@ -473,6 +421,21 @@ argenteo polubro, aureo eclutro. """
         with self.assertRaises(SystemExit):
             tlgu.convert_corpus(corpus='bad_corpus')
     '''
+
+    '''
+    def test_lemmatizer_latin(self):
+        """Test the Latin lemmatizer. Requires `latin_pos_lemmata_cltk`
+        to be imported.
+        TODO: Lemmatizer is currently broken. See note at class docstring.
+        """
+        replacer = LemmaReplacer('latin')
+        sentence = 'hominum divomque voluptas'
+        lemmatized = replacer.lemmatize(sentence)
+        target = 'homo divus voluptas'
+        self.assertEqual(lemmatized, target)
+    '''
+
+
 
 if __name__ == '__main__':
     unittest.main()
