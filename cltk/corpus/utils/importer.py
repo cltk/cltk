@@ -214,9 +214,10 @@ class CorpusImporter():
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
+            target_file = os.path.join(type_dir, corpus_name, 'README.md')
             # check if corpus already present
             # if not, clone
-            if not os.path.isdir(type_dir):
+            if not os.path.isdir(target_file):
                 os.makedirs(type_dir)
                 try:
                     logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))

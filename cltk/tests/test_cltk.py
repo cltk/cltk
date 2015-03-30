@@ -124,7 +124,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test downloading the CLTK Latin models."""
         c = CorpusImporter('latin')
         c.import_corpus('latin_models_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/text/latin_models_cltk/README.md')
+        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -133,7 +133,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test downloading the CLTK Greek models."""
         c = CorpusImporter('greek')
         c.import_corpus('greek_models_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/text/greek_models_cltk/README.md')
+        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
