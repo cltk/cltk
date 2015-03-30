@@ -218,7 +218,8 @@ class CorpusImporter():
             # check if corpus already present
             # if not, clone
             if not os.path.isfile(target_file):
-                os.makedirs(type_dir)
+                if not os.path.isdir(type_dir):
+                    os.makedirs(type_dir)
                 try:
                     logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
                     Repo.clone_from(git_uri, target_dir, depth=1)
