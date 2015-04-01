@@ -128,6 +128,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+    def test_import_latin_pos_lemmata_cltk(self):
+        """Test cloning the CLTK POS lemmata dict."""
+        c = CorpusImporter('latin')
+        c.import_corpus('latin_pos_lemmata_cltk')
+        file_rel = os.path.join('~/cltk_data/latin/lemma/latin_pos_lemmata_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
     def test_import_greek_models_cltk(self):
         """Test pull (not clone) the CLTK Greek models. Import was run in
         ``setUp()``.
