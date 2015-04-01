@@ -15,8 +15,12 @@ Contents
    citation
    installation
    importing_corpora
+   chinese
+   coptic
    greek
    latin
+   multilingual
+   pali
 
 
 
