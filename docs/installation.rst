@@ -4,6 +4,12 @@ Please note that the CLTK is built, tested, and supported only on POSIX-complian
 
 With Pip
 ========
+
+
+.. note::
+
+   The CLTK is only compatible with Python 3 on a POSIX-compatible operating system (Mac OS X, Linux, BSD, etc.).
+
 First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
 
 .. code-block:: shell
@@ -17,6 +23,9 @@ Then, install the CLTK, which automatically includes all dependencies.
 .. code-block:: shell
 
    $ pip install cltk
+
+Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, which the CLTK uses to download and update corpora, if you want to automatically import any of the `CLTK's corpora <https://github.com/cltk/>`_. Installation of Git will depend on your operating system.
+
 
 From source
 ===========
