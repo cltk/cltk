@@ -1,5 +1,8 @@
-Corpora
+Chinese
 *******
+
+Corpora
+=======
 
 Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``chinese_``) to discover available Chinese corpora.
 

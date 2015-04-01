@@ -1,5 +1,8 @@
+Coptic
+******
+
 Corpora
-*******
+=======
 
 Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``coptic_``) to discover available Coptic corpora.
 
