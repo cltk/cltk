@@ -433,18 +433,15 @@ argenteo polubro, aureo eclutro. """
         a_pickle = open_pickle(pickle_path)
         self.assertTrue(a_pickle)
 
-    '''
     def test_lemmatizer_latin(self):
         """Test the Latin lemmatizer. Requires `latin_pos_lemmata_cltk`
         to be imported.
-        TODO: Lemmatizer is currently broken. See note at class docstring.
         """
         replacer = LemmaReplacer('latin')
         sentence = 'hominum divomque voluptas'
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
-    '''
 
 
 

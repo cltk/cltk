@@ -16,8 +16,6 @@ AVAILABLE_LANGUAGES = ['latin']
 class LemmaReplacer(object):  # pylint: disable=R0903
     """Lemmatize Latin words by replacing input words with corresponding
     values from a replacement list.
-    TODO: this is broken. Need to change the way that the lemma file gets imported.
-    rm the tar and turn the 250MB file into 5 50MB, then join them here.
     """
 
     def __init__(self, language):
@@ -34,7 +32,7 @@ class LemmaReplacer(object):  # pylint: disable=R0903
         if self.language == 'latin':
             rel_path = os.path.join('~/cltk_data',
                                     self.language,
-                                    'trained_model/cltk_linguistic_data/lemmata/lemma_list.py')  # pylint: disable=C0301
+                                    'model/latin_models_cltk/lemmata/lemma_list.py')  # pylint: disable=C0301
             path = os.path.expanduser(rel_path)
             logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('lemma_list', path)
