@@ -287,13 +287,15 @@ Stopword Filtering
 ==================
 .. code-block:: python
 
-   In [1]: from nltk.tokenize.punkt import PunktWordTokenizer
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
 
    In [2]: from cltk.stop.latin.stops import STOPS_LIST
 
    In [3]: sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
 
-   In [5]: tokens = PunktWordTokenizer().tokenize(sentence.lower())
+   In [4]: p = PunktLanguageVars()
+
+   In [5]: tokens = p.word_tokenize(sentence.lower())
 
    In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]: 
