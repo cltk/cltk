@@ -293,7 +293,9 @@ Stopword Filtering
 
    In [3]: sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
 
-   In [5]: tokens = PunktWordTokenizer().tokenize(sentence.lower())
+   In [4]: p = PunktLanguageVars()
+
+   In [5]: tokens = p.word_tokenize(sentence.lower())
 
    In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]: 
