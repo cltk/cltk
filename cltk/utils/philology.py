@@ -175,9 +175,10 @@ class ConcordanceIndex(object):
         else:
             print("No matches")
 
-    def return_concordance(self, word, width=150, lines=1000000):
+    def return_concordance_word(self, word, width=150, lines=1000000):
         """
-        Print a concordance for ``word`` with the specified context window.
+        Makes concordance for ``word`` with the specified context window.
+        Returns a list of concordance lines for the given input word.
         :param word: The target word
         :type word: str
         :param width: The width of each line, in characters (default=80)
@@ -185,27 +186,40 @@ class ConcordanceIndex(object):
         :param lines: The number of lines to display (default=25)
         :type lines: int
         """
+
+        return_list = []
+
         half_width = (width - len(word) - 2) // 2
         context = width // 4 # approx number of words of context
 
         offsets = self.offsets(word)
         if offsets:
-            return_list = []
-            return_str = ''
             lines = min(lines, len(offsets))
-            for i in offsets:
-                line_str = ''
-                if lines <= 0:
-                    return return_list
-                left = (' ' * half_width +
-                        ' '.join(self._tokens[i-context:i]))
-                right = ' '.join(self._tokens[i+1:i+context])
-                left = left[-half_width:]
-                right = right[:half_width]
-                #print(left, self._tokens[i], right)
-                line_str = left + ' ' + self._tokens[i] + ' ' + right
-                #return_list.append(line_str)
-                return_str = return_str + line_str
-                lines -= 1
-        else:
-            pass
+            while lines:
+                for i in offsets:
+                    left = (' ' * half_width +
+                            ' '.join(self._tokens[i-context:i]))
+                    right = ' '.join(self._tokens[i+1:i+context])
+                    left = left[-half_width:]
+                    right = right[:half_width]
+                    #print(left, '*', self._tokens[i], '*', right)
+                    line_str = left + ' *' + self._tokens[i] + '* ' + right
+                    return_list.append(line_str)
+                    print(line_str)
+                    lines -= 1
+            return return_list
+
+    def return_concordance_all(self, tokens):
+        """Take a list of tokens, iteratively run each word through
+        return_concordance_word and build a list of all. Ths returns a list
+        of lists.
+        """
+
+        concordance_list = []
+        for token in tokens:
+            x = None
+            x = self.return_concordance_word(token)
+            concordance_list.append(x)
+
+        return concordance_list
+

@@ -11,8 +11,17 @@ c = ConcordanceIndex(tokens)
 tokens = set(tokens)  #! rm dupes after index, before loop
 tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]
 
+'''
 concordance_list = []
 for token in tokens:
-    word_conc_list = c.return_concordance(token)
-    concordance_list.append(word_conc_list)
+    x = None
+    x = c.return_concordance(token)
+    print(x)
+    #input()
+    concordance_list.append(x)
+
 print(concordance_list)
+'''
+
+x = c.return_concordance_all(tokens)
+print(x)
