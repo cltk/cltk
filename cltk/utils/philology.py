@@ -51,6 +51,10 @@ class Philology:
         """This calls my modified ConcordanceIndex, taken and modified from
         the NLTK, and writes to disk a file named 'concordance_' + name at
         '~/cltk_data/user_data/'.
+
+        TODO: Add language (here or in class), lowercase option, stemming/
+        lemmatization, else?
+
         :type filepaths: str or list
         :param filepaths: Filepath of text(s) to be used in concordance.
         :rtype : str
@@ -84,9 +88,9 @@ class Philology:
 class ConcordanceIndex(object):
     """
     An index that can be used to look up the offset locations at which
-    a given word occurs in a document.
-    # repurposed from NLTK: https://github.com/nltk/nltk/blob/7ba46b9d52ed0c03bf806193f38d8c0e9bd8a9b4/nltk/text.py
-    # TODO: ch this to return str or print to file
+    a given word occurs in a document. This is a helper class not
+    intended for direct use. Repurposed from the NLTK:
+    https://github.com/nltk/nltk/blob/7ba46b9d52ed0c03bf806193f38d8c0e9bd8a9b4/nltk/text.py
     """
     def __init__(self, tokens, key=lambda x:x):
         """
