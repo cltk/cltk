@@ -1,27 +1,27 @@
 from cltk.utils.philology import ConcordanceIndex
+from cltk.utils.philology import Philology
 from nltk.tokenize.punkt import PunktLanguageVars
 
+path = '/Users/kyle/Desktop/bg.txt'
+paths = ['~/Desktop/PlinyNH.xml', '/Users/kyle/Desktop/bg.txt']
+
+'''
 with open('/Users/kyle/Desktop/bg.txt') as f:
     r = f.read()
 p = PunktLanguageVars()
-tokens = p.word_tokenize(r)
+orig_tokens = p.word_tokenize(r)
+c = ConcordanceIndex(orig_tokens)
+tokens = set(orig_tokens)
 
-c = ConcordanceIndex(tokens)
-
-tokens = set(tokens)  #! rm dupes after index, before loop
+#! rm dupes after index, before loop
 tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]
 
-'''
-concordance_list = []
-for token in tokens:
-    x = None
-    x = c.return_concordance(token)
-    print(x)
-    #input()
-    concordance_list.append(x)
+all_tokens = c.return_concordance_all(tokens)
 
-print(concordance_list)
+for words in all_tokens:
+    for line in words:
+        print(line)
 '''
 
-x = c.return_concordance_all(tokens)
-print(x)
+p = Philology()
+p.write_concordance(paths, 'bellum_gallicum')

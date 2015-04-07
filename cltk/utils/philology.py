@@ -1,27 +1,25 @@
 """Miscellaneous operations for traditional philology and simple
 statistics."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Steven Bird <stevenbird1@gmail.com>',  # original author of NLTK's ConcordanceIndex()
+              'Edward Loper <edloper@gmail.com>']  # original author of NLTK's ConcordanceIndex()
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.utils.cltk_logger import logger
+from collections import defaultdict
 from nltk.text import ConcordanceIndex
 from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.text import Text
 import os
-
-from collections import defaultdict
-
-
-
-# AVAILABLE_LANGUAGES = ['latin']
 
 
 class Philology:
     """Class for Philological and simple statistics."""
 
     def __init__(self):
-        """Misc. contructors."""
+        """Misc. contructors.
+        TODO: add a language here
+        """
         pass
 
     def _read_file(self, filepath):
@@ -37,26 +35,22 @@ class Philology:
         and/or ConcordanceSearchView() & SearchCorpus() at https://github.com/nltk/nltk/blob/develop/nltk/app/concordance_app.py
         :param text_string: Text to be turned into a concordance
         :type text_string: str
-        :return: str
+        :return: list
         """
         p = PunktLanguageVars()
-        tokens = p.word_tokenize(text_str.lower())  # mk lower() an option later
-        #concordance = ConcordanceIndex(tokens) # this returns just one word
-        #c.print_concordance('ut')  # this returns just one word
+        orig_tokens = p.word_tokenize(text_str)
+        c = ConcordanceIndex(orig_tokens)
 
-        tokens = [x for x in tokens if x not in ['[', ']', ',', ';', ':', '?']]
-        tokens = set(tokens)
+        #! rm dupes after index, before loop
+        tokens = set(orig_tokens)
+        tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'ed
 
-        t = Text(tokens)
-        #t.concordance('ut')  # this has better formatting than c.print_concordance('ut')
-        tokens_read = t.tokens
+        return c.return_concordance_all(tokens)
 
-        for token in tokens_read:
-            print(t.concordance(token, width=79, lines=1000000000))  # the original object prints a lot of junk; figure how to stop this
-        #! from here, add lines to memory, then return
-
-    def concordance(self, filepaths):
-        """Replacer of text via the dict.
+    def write_concordance(self, filepaths, name):
+        """This calls my modified ConcordanceIndex, taken and modified from
+        the NLTK, and writes to disk a file named 'concordance_' + name at
+        '~/cltk_data/user_data/'.
         :type filepaths: str or list
         :param filepaths: Filepath of text(s) to be used in concordance.
         :rtype : str
@@ -69,32 +63,30 @@ class Philology:
             text = ''
             for filepath in filepaths:
                 text += self._read_file(filepath)
-        concordance = self._build_concordance(text)
-        return concordance
+        list_of_lists = self._build_concordance(text)
+        user_data_rel = '~/cltk_data/user_data'
+        user_data = os.path.expanduser(user_data_rel)
+        if not os.path.isdir(user_data):
+            os.makedirs(user_data)
+        file_path = os.path.join(user_data, 'concordance_' + name + '.txt')
+        concordance_output = ''
+        for word_list in list_of_lists:
+            for line in word_list:
+                concordance_output += line + '\n'
+        try:
+            with open(file_path, 'w') as open_file:
+                open_file.write(concordance_output)
+                logger.info("Wrote concordance to '%s'." % file_path)
+        except IOError as io_error:
+            logger.error("Failed to write concordance to '%s'." % file_path)
 
 
 class ConcordanceIndex(object):
     """
     An index that can be used to look up the offset locations at which
     a given word occurs in a document.
-    # from: https://github.com/nltk/nltk/blob/7ba46b9d52ed0c03bf806193f38d8c0e9bd8a9b4/nltk/text.py
+    # repurposed from NLTK: https://github.com/nltk/nltk/blob/7ba46b9d52ed0c03bf806193f38d8c0e9bd8a9b4/nltk/text.py
     # TODO: ch this to return str or print to file
-    Test with:
-    from cltk.utils.philology import ConcordanceIndex
-    from nltk.tokenize.punkt import PunktLanguageVars
-
-    with open('/Users/kyle/Desktop/bg.txt') as f:
-        r = f.read()
-    p = PunktLanguageVars()
-    tokens = p.word_tokenize(r)
-
-    c = ConcordanceIndex(tokens)
-
-    tokens = set(tokens)  #! rm dupes after index, before loop
-    tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]
-
-    for token in tokens:
-        c.print_concordance(token)
     """
     def __init__(self, tokens, key=lambda x:x):
         """
@@ -145,36 +137,6 @@ class ConcordanceIndex(object):
         return '<ConcordanceIndex for %d tokens (%d types)>' % (
             len(self._tokens), len(self._offsets))
 
-    def print_concordance(self, word, width=150, lines=1000000):
-        """
-        Print a concordance for ``word`` with the specified context window.
-        :param word: The target word
-        :type word: str
-        :param width: The width of each line, in characters (default=80)
-        :type width: int
-        :param lines: The number of lines to display (default=25)
-        :type lines: int
-        """
-        half_width = (width - len(word) - 2) // 2
-        context = width // 4 # approx number of words of context
-
-        offsets = self.offsets(word)
-        if offsets:
-            lines = min(lines, len(offsets))
-            print("Displaying %s of %s matches:" % (lines, len(offsets)))
-            for i in offsets:
-                if lines <= 0:
-                    break
-                left = (' ' * half_width +
-                        ' '.join(self._tokens[i-context:i]))
-                right = ' '.join(self._tokens[i+1:i+context])
-                left = left[-half_width:]
-                right = right[:half_width]
-                print(left, self._tokens[i], right)
-                lines -= 1
-        else:
-            print("No matches")
-
     def return_concordance_word(self, word, width=150, lines=1000000):
         """
         Makes concordance for ``word`` with the specified context window.
@@ -205,15 +167,16 @@ class ConcordanceIndex(object):
                     #print(left, '*', self._tokens[i], '*', right)
                     line_str = left + ' *' + self._tokens[i] + '* ' + right
                     return_list.append(line_str)
-                    print(line_str)
                     lines -= 1
             return return_list
 
     def return_concordance_all(self, tokens):
         """Take a list of tokens, iteratively run each word through
-        return_concordance_word and build a list of all. Ths returns a list
+        return_concordance_word and build a list of all. This returns a list
         of lists.
         """
+
+        tokens = sorted(tokens)  #! is the list order preserved?
 
         concordance_list = []
         for token in tokens:
