@@ -218,6 +218,7 @@ class TLGU(object):
             orig_dir_rel = '~/cltk_data/originals/tlg'
             works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
             file_prefix = 'TLG'
+            latin = False
         elif corpus == 'phi5':
             orig_dir_rel = '~/cltk_data/originals/phi5'
             works_dir_rel = '~/cltk_data/latin/text/phi5/individual_works'

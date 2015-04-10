@@ -243,7 +243,7 @@ class CorpusImporter():
                     if local_path.endswith('/'):
                         local_path = local_path[:-1]
                     # check for right corpus dir
-                    if os.local_path.split(local_path)[1] != 'PHI5':
+                    if os.path.split(local_path)[1] != 'PHI5':
                         logger.info("Directory must be named 'PHI5'.")
                         sys.exit(1)
                 if corpus_name == 'phi7':

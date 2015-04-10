@@ -47,7 +47,7 @@ class Philology:
 
         return c.return_concordance_all(tokens)
 
-    def write_concordance(self, filepaths, name):
+    def write_concordance_from_file(self, filepaths, name):
         """This calls my modified ConcordanceIndex, taken and modified from
         the NLTK, and writes to disk a file named 'concordance_' + name at
         '~/cltk_data/user_data/'.
@@ -67,6 +67,25 @@ class Philology:
             text = ''
             for filepath in filepaths:
                 text += self._read_file(filepath)
+        list_of_lists = self._build_concordance(text)
+        user_data_rel = '~/cltk_data/user_data'
+        user_data = os.path.expanduser(user_data_rel)
+        if not os.path.isdir(user_data):
+            os.makedirs(user_data)
+        file_path = os.path.join(user_data, 'concordance_' + name + '.txt')
+        concordance_output = ''
+        for word_list in list_of_lists:
+            for line in word_list:
+                concordance_output += line + '\n'
+        try:
+            with open(file_path, 'w') as open_file:
+                open_file.write(concordance_output)
+                logger.info("Wrote concordance to '%s'." % file_path)
+        except IOError as io_error:
+            logger.error("Failed to write concordance to '%s'." % file_path)
+
+    def write_concordance_from_string(self, text, name):
+        """A reworkinng of write_concordance_from_file(). Refactor these."""
         list_of_lists = self._build_concordance(text)
         user_data_rel = '~/cltk_data/user_data'
         user_data = os.path.expanduser(user_data_rel)
@@ -169,7 +188,7 @@ class ConcordanceIndex(object):
                     left = left[-half_width:]
                     right = right[:half_width]
                     #print(left, '*', self._tokens[i], '*', right)
-                    line_str = left + ' *' + self._tokens[i] + '* ' + right
+                    line_str = left + ' ' + self._tokens[i] + ' ' + right
                     return_list.append(line_str)
                     lines -= 1
             return return_list
