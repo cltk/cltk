@@ -1,6 +1,6 @@
 Latin
 *****
-For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``cltk_linguistic_data``).
+For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``latin_models_cltk``).
 
 Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
 
