@@ -30,7 +30,7 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktLanguageVars
-import stat
+from cltk.utils.philology import Philology
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -46,6 +46,22 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
+
+    def test_concordance_from_string(self):
+        p = Philology()
+        text = 'felices cantus ore sonante dedit'
+        p.write_concordance_from_string(text, 'test_string')
+        file = os.path.expanduser('~/cltk_data/user_data/concordance_test_string.txt')
+        is_file = os.path.isfile(file)
+        self.assertTrue(is_file)
+
+    def test_concordance_from_file(self):
+        p = Philology()
+        file = 'cltk/tests/bad_pickle.pickle'
+        p.write_concordance_from_file(file, 'test_file')
+        file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
+        is_file = os.path.isfile(file)
+        self.assertTrue(is_file)
 
     def test_import_latin_text_perseus(self):
         """Test cloning the Perseus Latin text corpus."""
@@ -442,7 +458,6 @@ argenteo polubro, aureo eclutro. """
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
-
 
 
 if __name__ == '__main__':
