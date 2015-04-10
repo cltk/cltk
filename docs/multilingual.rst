@@ -25,6 +25,8 @@ This will print a traditional, human–readable, 120,000–line concordance at `
 
 Multiple files can be passed as a list into this method.
 
+.. code-block:: python
+
    In [5]: odyssey = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-002.txt'
 
    In [6]: p.write_concordance_from_file([iliad, odyssey], 'homer')
@@ -51,7 +53,7 @@ This creates the file ``~/cltk_data/user_data/concordance_homer.txt``.
 
 The resulting concordance looks like:
 
-.. code-block
+.. code-block:: none
 
    modulatus eburno felices cantus ore sonante dedit. sed postquam fuerant digiti cum voce locuti , edidit haec tristi dulcia verba modo : 'salve , cura
     caveto , neve cubet laxo pectus aperta sinu , neu te decipiat nutu , digitoque liquorem ne trahat et mensae ducat in orbe notas. exibit quam saepe ,
