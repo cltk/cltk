@@ -18,13 +18,9 @@ from cltk.utils.cltk_logger import logger
 import errno
 from git import Repo
 import os
-import requests
-from requests_toolbelt import SSLAdapter
 import shutil
-import ssl
 import sys
 from urllib.parse import urljoin
-from urllib.parse import urlsplit
 
 
 AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan']
