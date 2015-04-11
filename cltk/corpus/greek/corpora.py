@@ -26,7 +26,7 @@ GREEK_CORPORA = [
      'markup': 'plaintext',
      'name': 'greek_proper_names_cltk',
      'location': 'remote',
-     'type': 'dictionary'},
+     'type': 'lexicon'},
     {'name': 'greek_models_cltk',
      'location': 'remote',
      'type': 'model'},

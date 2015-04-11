@@ -27,8 +27,6 @@ setup(
     ],
     description='NLP support for Classical languages.',
     install_requires=['nltk',
-                      'requests-toolbelt',
-                      'requests',
                       'gitpython'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',

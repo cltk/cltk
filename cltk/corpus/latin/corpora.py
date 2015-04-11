@@ -38,7 +38,7 @@ LATIN_CORPORA = [
      'markup': 'plaintext',
      'name': 'latin_proper_names_cltk',
      'location': 'remote',
-     'type': 'dictionary'},
+     'type': 'lexicon'},
     {'name': 'latin_models_cltk',
      'location': 'remote',
      'type': 'model'},
