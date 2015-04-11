@@ -47,7 +47,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    '''
     def test_concordance_from_string(self):
         p = Philology()
         text = 'felices cantus ore sonante dedit'
@@ -172,7 +171,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
     def test_git_import_tibetan_pos_tdc(self):
         c = CorpusImporter('tibetan')
@@ -190,7 +188,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    '''
     def test_build_contribs_file(self):
         str = build_contribs_file(test=True)
         self.assertTrue(str)
@@ -477,7 +474,6 @@ argenteo polubro, aureo eclutro. """
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
-    '''
 
 if __name__ == '__main__':
     unittest.main()
