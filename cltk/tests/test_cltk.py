@@ -85,7 +85,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test cloning the Latin proper names corpus."""
         c = CorpusImporter('latin')
         c.import_corpus('latin_proper_names_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/dictionary/latin_proper_names_cltk/README.md')
+        file_rel = os.path.join('~/cltk_data/latin/lexicon/latin_proper_names_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -94,7 +94,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test cloning the Greek proper names corpus."""
         c = CorpusImporter('greek')
         c.import_corpus('greek_proper_names_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/dictionary/greek_proper_names_cltk/README.md')
+        file_rel = os.path.join('~/cltk_data/greek/lexicon/greek_proper_names_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
