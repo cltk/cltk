@@ -67,6 +67,7 @@ class CorpusImporter():
             corpus_list.append(corpus['name'])
         return corpus_list
 
+    '''
     def _make_dirs(self, corpus_type, corpus_name):
         """Make directories for an incoming corpus."""
         home_rel = CLTK_DATA_DIR
@@ -87,7 +88,9 @@ class CorpusImporter():
         else:
             logger.info("Directories already exist at '%s'.", unpack_dir)
         return originals_dir, unpack_dir
+    '''
 
+    '''
     @staticmethod
     def _save_untar(url, dl_object, originals_dir, unpack_dir, corpus_name):
         """Write downloaded tar object and unpack."""
@@ -117,7 +120,9 @@ class CorpusImporter():
                          corpus_name,
                          unpack_dir,
                          except_write)
+    '''
 
+    '''
     @staticmethod
     def _download_file(url, corpus_name):
         """Download file with SSL. Note: SSL GitHub connections require a
@@ -140,7 +145,10 @@ class CorpusImporter():
                          except_req)
             sys.exit(1)
         return downloaded_object
+    '''
 
+    '''
+    # not in use with new git system; maybe delete
     def _download_corpus(self, corpus_type, corpus_name, url):
         """Download and save incoming data.
         :type corpus_type: str
@@ -154,6 +162,7 @@ class CorpusImporter():
         originals_dir, unpack_dir = self._make_dirs(corpus_type, corpus_name)
         self._save_untar(url, downloaded_object, originals_dir, unpack_dir,
                          corpus_name)
+    '''
 
     @staticmethod
     def _copy_dir_recursive(src_rel, dst_rel):
