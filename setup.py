@@ -12,7 +12,7 @@ setup(
         'Intended Audience :: Education',
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: MIT License',
-        'Natural Language :: Chinese (Traditional)'
+        'Natural Language :: Chinese (Traditional)',
         'Natural Language :: English',
         'Natural Language :: Greek',
         'Natural Language :: Latin',
