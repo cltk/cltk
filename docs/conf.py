@@ -21,7 +21,6 @@ import os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
-sys.path.append(os.path.abspath('_themes'))
 sys.path.insert(0, os.path.abspath('../'))
 
 # -- General configuration ------------------------------------------------
@@ -40,7 +39,6 @@ extensions = [
 
 # Add any paths that contain templates here, relative to this directory.
 #templates_path = ['_templates']
-html_theme_path = ['_themes']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -53,7 +51,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Classical Language Toolkit'
-copyright = '2014, Kyle P. Johnson'
+copyright = '2015, Kyle P. Johnson'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -108,7 +106,6 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #html_theme = 'default'
-html_theme = 'flask'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -269,6 +266,3 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-
-html_theme_path = ['_themes']
-html_theme = 'flask'
