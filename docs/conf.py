@@ -16,31 +16,7 @@
 import sys
 import os
 
-import alabaster
 
-html_static_path = ['_static']
-html_favicon = 'favicon-32x32.png'
-
-html_theme_path = [alabaster.get_path()]
-extensions = ['alabaster']
-html_theme = 'alabaster'
-html_sidebars = {
-    '**': [
-        'about.html', 'navigation.html', 'searchbox.html', 'donate.html',
-    ]
-}
-
-html_theme_options = {
-    #'logo': '_static/64px-PhoenicianA-01.svg.png',
-    #'logo_name': True,
-    #'logo_text_align': 'center',
-    'description': "NLP for the ancient world",
-    'github_user': 'kylepjohnson',
-    'github_repo': 'cltk',
-    'analytics_id': '',
-    'link': '#3782BE',
-    'link_hover': '#3782BE',
-}
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -155,6 +131,11 @@ pygments_style = 'sphinx'
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #html_favicon = None
+
+
+html_static_path = ['_static']
+html_favicon = 'favicon-32x32.png'
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
