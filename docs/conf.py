@@ -16,8 +16,6 @@
 import sys
 import os
 
-import alabaster
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -37,16 +35,6 @@ extensions = [
     'sphinx.ext.coverage',
 ]
 
-
-
-html_theme_path = [alabaster.get_path()]
-extensions = ['alabaster']
-html_theme = 'alabaster'
-html_sidebars = {
-    '**': [
-        'about.html', 'navigation.html', 'searchbox.html', 'donate.html',
-    ]
-}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
