@@ -22,18 +22,4 @@ Contents
    multilingual
    pali
    tibetan
-   api
-
-.. automodule:: SomeModuleName
-
-.. autoclass:: SomeClassName
-    :members:
-
-
-
-Indices and tables
-==================
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
