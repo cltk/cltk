@@ -81,12 +81,99 @@ The CLTK uses languages in its organization of data, however some good corpora d
    Out[3]: ['multilingual_treebank_proiel']
 
 
+N–grams
+=======
+
+
+ .. code-block:: python
+
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
+
+   In [2]: from nltk.util import bigrams
+
+   In [3]: from nltk.util import trigrams
+
+   In [4]: from nltk.util import ngrams
+
+   In [5]: s = 'Ut primum nocte discussa sol novus diem fecit, et somno simul emersus et lectulo, anxius alioquin et nimis cupidus cognoscendi quae rara miraque sunt, reputansque me media Thessaliae loca tenere qua artis magicae nativa cantamina totius orbis consono orbe celebrentur fabulamque illam optimi comitis Aristomenis de situ civitatis huius exortam, suspensus alioquin et voto simul et studio, curiose singula considerabam. Nec fuit in illa civitate quod aspiciens id esse crederem quod esset, sed omnia prorsus ferali murmure in aliam effigiem translata, ut et lapides quos offenderem de homine duratos et aves quas audirem indidem plumatas et arbores quae pomerium ambirent similiter foliatas et fontanos latices de corporibus humanis fluxos crederem; iam statuas et imagines incessuras, parietes locuturos, boves et id genus pecua dicturas praesagium, de ipso vero caelo et iubaris orbe subito venturum oraculum.'.lower()
+
+   In [6]: p = PunktLanguageVars()
+
+   In [7]: tokens = p.word_tokenize(s)
+
+   In [8]: b = bigrams(tokens)
+
+   In [8]: [x for x in b]
+   Out[8]:
+   [('ut', 'primum'),
+    ('primum', 'nocte'),
+    ('nocte', 'discussa'),
+    ('discussa', 'sol'),
+    ('sol', 'novus'),
+    ('novus', 'diem'),
+    ...]
+
+   In [9]: t = trigrams(tokens)
+   In [9]: [x for x in t]
+   [('ut', 'primum', 'nocte'),
+    ('primum', 'nocte', 'discussa'),
+    ('nocte', 'discussa', 'sol'),
+    ('discussa', 'sol', 'novus'),
+    ('sol', 'novus', 'diem'),
+    …]
+
+   In [10]: five_gram = ngrams(tokens, 5)
+
+   In [11]: [x for x in five_gram]
+   Out[11]:
+   [('ut', 'primum', 'nocte', 'discussa', 'sol'),
+    ('primum', 'nocte', 'discussa', 'sol', 'novus'),
+    ('nocte', 'discussa', 'sol', 'novus', 'diem'),
+    ('discussa', 'sol', 'novus', 'diem', 'fecit'),
+    ('sol', 'novus', 'diem', 'fecit', ','),
+    ('novus', 'diem', 'fecit', ',', 'et'),
+    …]
+
+
+
+Word count
+==========
+
+For a dictionary-like object of word frequencies, use the NLTK's ``Text()``.
+
+ .. code-block:: python
+
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
+
+   In [2]: from nltk.text import Text
+
+   In [3]: s = 'At at at ego ego tibi'.lower()
+
+   In [4]: p = PunktLanguageVars()
+
+   In [5]: tokens = p.word_tokenize(s)
+
+   In [6]: t = Text(tokens)
+
+   In [7]: vocabulary_count = t.vocab()
+
+   In [8]: vocabulary_count['at']
+   Out[8]: 3
+
+   In [9]: vocabulary_count['ego']
+   Out[9]: 2
+
+   In [10]: vocabulary_count['tibi']
+   Out[10]: 1
+
+
+
 Word tokenization
 =================
 
 The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is the latest tokenizer.
 
-.. code-block::python
+.. code-block:: python
 
    In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 
