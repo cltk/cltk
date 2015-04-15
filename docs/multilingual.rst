@@ -66,7 +66,6 @@ The resulting concordance looks like:
 
 
 
-
 Corpora
 =======
 
@@ -80,4 +79,70 @@ The CLTK uses languages in its organization of data, however some good corpora d
 
    In [3]: c.list_corpora
    Out[3]: ['multilingual_treebank_proiel']
+
+
+Word tokenization
+=================
+
+The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is the latest tokenizer.
+
+.. code-block::python
+
+   In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+
+   In [2]: from nltk.text import Text
+
+   In [3]: from nltk.tokenize.punkt import PunktLanguageVars
+
+   In [4]: import os
+
+   In [5]: path = '~/cltk_data/latin/text/phi5/individual_works/LAT0690.TXT-003.txt'
+
+   In [6]: path = os.path.expanduser(path)
+
+   In [7]: with open(path) as f:
+      ...:     r = f.read()
+      ...:
+
+   In [8]: cleaned = phi5_plaintext_cleanup(r)
+
+   In [9]: p = PunktLanguageVars()
+
+   In [10]: tokens = p.word_tokenize(cleaned)
+
+   In [13]: tokens[:10]
+   Out[13]:
+   ['Arma',
+    'uirumque',
+    'cano',
+    ',',
+    'Troiae',
+    'qui',
+    'primus',
+    'ab',
+    'oris',
+    'Italiam']
+
+
+Another, simpler tokenizer can tokenize on word breaks and whatever other regular expressions you add.
+
+.. code-block:: python
+
+   In [14]: from nltk.tokenize import RegexpTokenizer
+
+   In [15]: word_breaks = RegexpTokenizer(r'\w+')
+
+   In [16]: tokens = word_breaks.tokenize(cleaned)
+
+   In [17]: tokens[:10]
+   Out[17]: ['Arma',
+    'uirumque',
+    'cano',
+    'Troiae',
+    'qui',
+    'primus',
+    'ab',
+    'oris',
+    'Italiam',
+    'fato']
 
