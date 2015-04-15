@@ -22,6 +22,12 @@ Contents
    multilingual
    pali
    tibetan
+   api
+
+.. automodule:: SomeModuleName
+
+.. autoclass:: SomeClassName
+    :members:
 
 
 
