@@ -63,102 +63,6 @@ class CorpusImporter():
             corpus_list.append(corpus['name'])
         return corpus_list
 
-    '''
-    def _make_dirs(self, corpus_type, corpus_name):
-        """Make directories for an incoming corpus."""
-        home_rel = CLTK_DATA_DIR
-        home = os.path.expanduser(home_rel)
-        # make originals dir for saving downloaded file
-        originals_dir = os.path.join(home, 'originals')
-        if not os.path.isdir(originals_dir):
-            os.makedirs(originals_dir)
-            logger.info("Wrote directory at '%s'.", originals_dir)
-        else:
-            logger.info("Directory already exists at: '%s'.", originals_dir)
-        # make directories for unpacking downloaded file
-        unpack_dir = os.path.join(home, self.language, corpus_type,
-                                  corpus_name)
-        if not os.path.isdir(unpack_dir):
-            os.makedirs(unpack_dir)
-            logger.info("Wrote directories at '%s'.", unpack_dir)
-        else:
-            logger.info("Directories already exist at '%s'.", unpack_dir)
-        return originals_dir, unpack_dir
-    '''
-
-    '''
-    @staticmethod
-    def _save_untar(url, dl_object, originals_dir, unpack_dir, corpus_name):
-        """Write downloaded tar object and unpack."""
-        # get filename from URL
-        file_name = urlsplit(url).path.split('/')[-1]
-        file_path_originals = os.path.join(originals_dir, file_name)
-        # save into originals file
-        try:
-            with open(file_path_originals, 'wb') as new_file:
-                new_file.write(dl_object.content)
-                logger.info("Wrote file '%s' to '%s'.",
-                            file_name,
-                            originals_dir)
-        except Exception as except_write:  # pylint: disable=W0703
-            logger.error("Failed to write file '%s' to '%s': '%s'",
-                         file_name,
-                         originals_dir,
-                         except_write)
-        # unpack into new dir
-        try:
-            shutil.unpack_archive(file_path_originals, unpack_dir)
-            logger.info("Finished unpacking corpus '%s' to '%s'.",
-                        corpus_name,
-                        unpack_dir)
-        except Exception as except_write:  # pylint: disable=W0703
-            logger.error("Failed to uncompress corpus '%s' to '%s': '%s'",
-                         corpus_name,
-                         unpack_dir,
-                         except_write)
-    '''
-
-    '''
-    @staticmethod
-    def _download_file(url, corpus_name):
-        """Download file with SSL. Note: SSL GitHub connections require a
-        extra TLSv1 extension to the ``requests`` library's connection.
-        TODO: Maybe up max_retries
-        http://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter
-        http://stackoverflow.com/a/21371922
-        """
-        logger.info("Starting download of corpus '%s' from: '%s'.",
-                    corpus_name,
-                    url)
-        try:
-            session = requests.Session()
-            session.mount(url, SSLAdapter(ssl.PROTOCOL_TLSv1))
-            downloaded_object = session.get(url, stream=True)
-            logger.info("Downloaded file at '%s'.", url)
-        except Exception as except_req:  # pylint: disable=W0703
-            logger.error("Failed to download file at '%s': '%s'",
-                         url,
-                         except_req)
-            sys.exit(1)
-        return downloaded_object
-    '''
-
-    '''
-    # not in use with new git system; maybe delete
-    def _download_corpus(self, corpus_type, corpus_name, url):
-        """Download and save incoming data.
-        :type corpus_type: str
-        :param corpus_type: Type of corpus to be downloaded.
-        :type corpus_name: str
-        :param corpus_name: Name of corpus to be downloaded.
-        :type url: str
-        :param url: URL from which to fetch ``tar.gz`` file.
-        """
-        downloaded_object = self._download_file(url, corpus_name)
-        originals_dir, unpack_dir = self._make_dirs(corpus_type, corpus_name)
-        self._save_untar(url, downloaded_object, originals_dir, unpack_dir,
-                         corpus_name)
-    '''
 
     @staticmethod
     def _copy_dir_recursive(src_rel, dst_rel):
@@ -200,7 +104,6 @@ class CorpusImporter():
             logger.info("Corpus '%s' not available for the '%s' language.",
                         corpus_name,
                         self.language)
-            sys.exit(1)
         return corpus_properties
 
     def import_corpus(self, corpus_name, local_path=None):  # pylint: disable=R0912
@@ -252,7 +155,6 @@ class CorpusImporter():
                     # check for right corpus dir
                     if os.path.split(local_path)[1] != 'PHI5':
                         logger.info("Directory must be named 'PHI5'.")
-                        sys.exit(1)
                 if corpus_name == 'phi7':
                     # normalize local_path for checking dir
                     if local_path.endswith('/'):
@@ -260,7 +162,6 @@ class CorpusImporter():
                     # check for right corpus dir
                     if os.path.split(local_path)[1] != 'PHI7':
                         logger.info("Directory must be named 'PHI7'.")
-                        sys.exit(1)
                 if corpus_name == 'tlg':
                     # normalize path for checking dir
                     if local_path.endswith('/'):
@@ -268,7 +169,6 @@ class CorpusImporter():
                     # check for right corpus dir
                     if os.path.split(local_path)[1] != 'TLG_E':
                         logger.info("Directory must be named 'TLG_E'.")
-                        sys.exit(1)
                 # move the dir-checking commands into a function
                 data_dir = os.path.expanduser(CLTK_DATA_DIR)
                 originals_dir = os.path.join(data_dir, 'originals')

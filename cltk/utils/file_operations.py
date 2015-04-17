@@ -21,7 +21,7 @@ def open_pickle(path: str):
                 return pickle.load(opened_pickle)
             except Exception as pickle_error:
                 logger.error(pickle_error)
-                sys.exit(1)
+                raise
     except IOError as io_err:
         logger.error(io_err)
-        sys.exit(1)
+        raise

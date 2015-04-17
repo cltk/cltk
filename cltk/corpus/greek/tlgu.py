@@ -57,7 +57,7 @@ class TLGU(object):
                 corpus_importer.import_corpus('tlgu')
             except Exception as exc:
                 logger.error('Failed to import TLGU: %s', exc)
-                sys.exit(1)
+                raise
 
     @staticmethod
     def _check_install():
@@ -86,7 +86,6 @@ class TLGU(object):
                         logger.info('TLGU installed.')
                     else:
                         logger.error('TLGU install with sudo failed.')
-                        sys.exit(1)
 
     def convert(self, input_path=None, output_path=None, markup=None,
                 break_lines=False, divide_works=False, latin=False,
@@ -131,7 +130,7 @@ class TLGU(object):
                 extra_args = list(extra_args)
             except Exception as exc:
                 logger.error("Argument 'extra_args' must be a list: %s.", exc)
-                sys.exit(1)
+                raise
         tlgu_options = tlgu_options + extra_args
         # assemble all tlgu flags
         tlgu_options = list(set(tlgu_options))
@@ -150,13 +149,12 @@ class TLGU(object):
                 logger.error('Failed to convert %s to %s.',
                              input_path,
                              output_path)
-                sys.exit(1)
         except Exception as exc:
             logger.error('Failed to convert %s to %s: %s',
                          input_path,
                          output_path,
                          exc)
-            sys.exit(1)
+            raise
 
     def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):  # pylint: disable=W0613
         """Look for imported TLG or PHI files and convert them all to
@@ -183,12 +181,11 @@ class TLGU(object):
                 latin = True
         else:
             logger.error("Corpus variable must be: 'tlg', 'phi5', or 'phi7'.")
-            sys.exit(0)
         try:
             corpus_files = os.listdir(orig_path)
         except Exception as exception:
             logger.error("Failed to find TLG files: %s", exception)
-            sys.exit(1)
+            raise
         # make a list of files to be converted
         txts = []
         [txts.append(x) for x in corpus_files if x.endswith('TXT')]  # pylint: disable=W0106
