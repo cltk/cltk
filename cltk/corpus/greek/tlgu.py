@@ -111,6 +111,10 @@ class TLGU(object):
         # setup file paths
         input_path = os.path.expanduser(input_path)
         output_path = os.path.expanduser(output_path)
+
+        # check input path exists
+        assert os.path.isfile(input_path), 'File {0} does not exist.'.format(input_path)
+
         # setup tlgu flags
         tlgu_options = []
         if markup == 'full':
@@ -167,6 +171,7 @@ class TLGU(object):
         orig_path = os.path.expanduser(orig_path_rel)
         target_path_rel = '~/cltk_data'
         target_path = os.path.expanduser(target_path_rel)
+        assert corpus in ['tlg', 'phi5', 'phi7'], "Corpus must be 'tlg', 'phi5', or 'phi7'"
         if corpus in ['tlg', 'phi5', 'phi7']:
             orig_path = os.path.join(orig_path, corpus)
             if corpus in ['tlg', 'phi7']:
@@ -179,8 +184,6 @@ class TLGU(object):
             else:
                 target_path = os.path.join(target_path, 'latin', 'text', corpus)
                 latin = True
-        else:
-            logger.error("Corpus variable must be: 'tlg', 'phi5', or 'phi7'.")
         try:
             corpus_files = os.listdir(orig_path)
         except Exception as exception:

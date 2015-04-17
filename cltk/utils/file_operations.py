@@ -25,3 +25,9 @@ def open_pickle(path: str):
     except IOError as io_err:
         logger.error(io_err)
         raise
+    except EOFError as eof_error:
+        logger.error(eof_error)
+        raise
+    except FileNotFoundError as fnf_error:
+        logger.error(fnf_error)
+        raise
