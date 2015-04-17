@@ -308,3 +308,27 @@ Stopword Filtering
     'patientia',
     'nostra',
     '?']
+
+
+Text Cleanup
+============
+
+Intended for use on the TLG after processing by ``TLGU()``.
+
+.. code-block::
+
+   In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+
+   In [2]: import os
+
+   In [3]: file = os.path.expanduser('~/cltk_data/latin/text/phi5/individual_works/LAT0031.TXT-001.txt')
+
+   In [4]: with open(file) as f:
+   ...:     r = f.read()
+   ...:
+
+   In [5]: r[:500]
+   Out[5]: '\nDices pulchrum esse inimicos \nulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uide-\ntur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non  \npotest, multo tempore multisque partibus inimici nostri non peribunt \natque, uti nunc sunt, erunt potius quam res publica profligetur atque \npereat. \n    Verbis conceptis deierare ausim, praeterquam qui \nTiberium Gracchum necarunt, neminem inimicum tantum molestiae \ntantumque laboris, quantum te ob has res, mihi tradidis'
+
+   In [6]: phi5_plaintext_cleanup(r)[:500]
+   Out[6]: ' Dices pulchrum esse inimicos  ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non   potest, multo tempore multisque partibus inimici nostri non peribunt  atque, uti nunc sunt, erunt potius quam res publica profligetur atque  pereat.      Verbis conceptis deierare ausim, praeterquam qui  Tiberium Gracchum necarunt, neminem inimicum tantum molestiae  tantumque laboris, quantum te ob has res, mihi tradidisse'
