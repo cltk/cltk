@@ -332,3 +332,16 @@ Intended for use on the TLG after processing by ``TLGU()``.
 
    In [6]: phi5_plaintext_cleanup(r)[:500]
    Out[6]: ' Dices pulchrum esse inimicos  ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non   potest, multo tempore multisque partibus inimici nostri non peribunt  atque, uti nunc sunt, erunt potius quam res publica profligetur atque  pereat.      Verbis conceptis deierare ausim, praeterquam qui  Tiberium Gracchum necarunt, neminem inimicum tantum molestiae  tantumque laboris, quantum te ob has res, mihi tradidisse'
+
+
+
+If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` might be of use.
+
+.. code-block::
+
+   In [1]: from cltk.corpus.utils.formatter import remove_non_ascii
+
+   In [2]: text =  'Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'
+
+   In [3]: remove_non_ascii(text)
+   Out[3]: 'Dices   pulchrum esse inimicos ulcisci.
