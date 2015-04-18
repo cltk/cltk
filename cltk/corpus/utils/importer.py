@@ -231,7 +231,7 @@ class CorpusImporter():
                     logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
                     Repo.clone_from(git_uri, target_dir, depth=1)
                 except Exception as e:
-                    logger.error("Git clone of '%s' failed: '%s'", e)
+                    logger.error("Git clone of '%s' failed: '%s'", (git_uri, e))
             # if corpus is present, pull latest
             else:
                 try:
