@@ -5,11 +5,8 @@ TODO: Write test for copy_dir_contents
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import os
-import unittest
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
-
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.build_contribs_index import build_contribs_file
@@ -29,8 +26,10 @@ from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
-from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.utils.philology import Philology
+from nltk.tokenize.punkt import PunktLanguageVars
+import os
+import unittest
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
