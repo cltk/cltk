@@ -45,6 +45,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
+    '''
 
     def test_concordance_from_string(self):
         p = Philology()
@@ -79,8 +80,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-
     '''
+
     def test_import_proper_names_latin(self):
         """Test cloning the Latin proper names corpus."""
         c = CorpusImporter('latin')
@@ -475,6 +476,7 @@ argenteo polubro, aureo eclutro. """
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
+    '''
 
 if __name__ == '__main__':
     unittest.main()
