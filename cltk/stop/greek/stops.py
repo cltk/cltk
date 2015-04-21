@@ -1,9 +1,4 @@
-"""This list of stop words has been moved over from the now-defunct
-Latin_and_Ancient_Greek_for_NLTK
-[https://github.com/kylepjohnson/Latin_and_Ancient_Greek_for_NLTK/
-tree/master/stop].
-
-Its original source was the Perseus Hopper source
+"""This list comes from the Perseus Hopper source
 [http://sourceforge.net/projects/perseus-hopper], found at
 "/sgml/reading/build/stoplists", though this only contained acute accents on
 the ultima. There has thus been added grave accents to the ultima of each.
