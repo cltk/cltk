@@ -1,6 +1,4 @@
-"""Test the CLTK.
-TODO: Write test for copy_dir_contents
-"""
+"""Test the CLTK."""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -39,33 +37,37 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Clone Greek models in order to test pull function and other model
         tests later.
         """
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_models_cltk')
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('greek_models_cltk')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
     def test_concordance_from_string(self):
-        p = Philology()
+        """Test ``write_concordance_from_string()`` for file writing completion
+        of concordance builder. Doesn't test quality of output."""
+        philology = Philology()
         text = 'felices cantus ore sonante dedit'
-        p.write_concordance_from_string(text, 'test_string')
+        philology.write_concordance_from_string(text, 'test_string')
         file = os.path.expanduser('~/cltk_data/user_data/concordance_test_string.txt')
         is_file = os.path.isfile(file)
         self.assertTrue(is_file)
 
     def test_concordance_from_file(self):
-        p = Philology()
+        """Test ``write_concordance_from_file()`` for file writing completion
+        of concordance builder. Doesn't test quality of output."""
+        philology = Philology()
         file = 'cltk/tests/bad_pickle.pickle'
-        p.write_concordance_from_file(file, 'test_file')
+        philology.write_concordance_from_file(file, 'test_file')
         file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
         is_file = os.path.isfile(file)
         self.assertTrue(is_file)
 
     def test_import_latin_text_perseus(self):
         """Test cloning the Perseus Latin text corpus."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_text_perseus')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_perseus')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_perseus/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -73,8 +75,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_import_greek_text_perseus(self):
         """Test cloning the Perseus Greek text corpus."""
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_text_perseus')
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('greek_text_perseus')
         file_rel = os.path.join('~/cltk_data/greek/text/greek_text_perseus/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -82,8 +84,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_import_proper_names_latin(self):
         """Test cloning the Latin proper names corpus."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_proper_names_cltk')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_proper_names_cltk')
         file_rel = os.path.join('~/cltk_data/latin/lexicon/latin_proper_names_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -91,44 +93,44 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_import_proper_names_greek(self):
         """Test cloning the Greek proper names corpus."""
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_proper_names_cltk')
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('greek_proper_names_cltk')
         file_rel = os.path.join('~/cltk_data/greek/lexicon/greek_proper_names_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_greek_treebank_perseus(self):
+    def test_import_grk_treebank_pers(self):
         """Test cloning the Perseus Greek treebank corpus."""
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_treebank_perseus')
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('greek_treebank_perseus')
         file_rel = os.path.join('~/cltk_data/greek/treebank/greek_treebank_perseus/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_latin_treebank_perseus(self):
+    def test_import_la_treebank_pers(self):
         """Test cloning the Perseus Latin treebank corpus."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_treebank_perseus')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_treebank_perseus')
         file_rel = os.path.join('~/cltk_data/latin/treebank/latin_treebank_perseus/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_latin_text_lacus_curtius(self):
+    def test_import_la_text_lac_curt(self):
         """Test cloning the Lacus Curtius Latin text corpus."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_text_lacus_curtius')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_lacus_curtius')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_lacus_curtius/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_latin_text_latin_library(self):
+    def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_text_latin_library')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -136,17 +138,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_models_cltk')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_import_latin_pos_lemmata_cltk(self):
+    def test_import_lat_pos_lemm_cltk(self):
         """Test cloning the CLTK POS lemmata dict."""
-        c = CorpusImporter('latin')
-        c.import_corpus('latin_pos_lemmata_cltk')
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_pos_lemmata_cltk')
         file_rel = os.path.join('~/cltk_data/latin/lemma/latin_pos_lemmata_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -156,40 +158,45 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test pull (not clone) the CLTK Greek models. Import was run in
         ``setUp()``.
         """
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_models_cltk')
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('greek_models_cltk')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_git_import_coptic_scriptorium(self):
-        c = CorpusImporter('coptic')
-        c.import_corpus('coptic_text_scriptorium')
+    def test_git_import_copt_script(self):
+        """Test import of Coptic Scriptorium."""
+        corpus_importer = CorpusImporter('coptic')
+        corpus_importer.import_corpus('coptic_text_scriptorium')
         file_rel = os.path.join('~/cltk_data/coptic/text/coptic_text_scriptorium/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_git_import_tibetan_pos_tdc(self):
-        c = CorpusImporter('tibetan')
-        c.import_corpus('tibetan_pos_tdc')
+    def test_git_import_tib_pos_tdc(self):
+        """Test import Tibetan POS files."""
+        corpus_importer = CorpusImporter('tibetan')
+        corpus_importer.import_corpus('tibetan_pos_tdc')
         file_rel = os.path.join('~/cltk_data/tibetan/pos/tibetan_pos_tdc/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_git_import_tibetan_lexica_tdc(self):
-        c = CorpusImporter('tibetan')
-        c.import_corpus('tibetan_lexica_tdc')
+    def test_git_import_tib_lexica_tdc(self):
+        """Test import of Tibetan dictionary."""
+        corpus_importer = CorpusImporter('tibetan')
+        corpus_importer.import_corpus('tibetan_lexica_tdc')
         file_rel = os.path.join('~/cltk_data/tibetan/lexicon/tibetan_lexica_tdc/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
     def test_build_contribs_file(self):
-        str = build_contribs_file(test=True)
-        self.assertTrue(str)
+        """Test building of contributors file ``contributors.md`` by
+        ``build_contribs_file.py``."""
+        string = build_contribs_file(test=True)
+        self.assertTrue(string)
 
     def test_remove_non_ascii(self):
         """Test removing all non-ascii characters from a string."""
@@ -200,7 +207,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_tlg_plaintext_cleanup(self):
         """Test post-TLGU cleanup of text of Greek TLG text."""
-        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=C0301
         clean = tlg_plaintext_cleanup(dirty)
         target = """  Ἀθήναιος  ὁ τῆς  βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""
         self.assertEqual(clean, target)
@@ -214,28 +221,26 @@ Pater noster, Saturni filie . . .
 Mea puera, quid verbi ex tuo ore supera fugit?
 argenteo polubro, aureo eclutro. """
         clean = phi5_plaintext_cleanup(dirty)
-        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """
+        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """  # pylint: disable=C0301
         self.assertEqual(clean, target)
 
-    def test_assemble_tlg_author_filepaths(self):
+    def test_assemble_tlg_author(self):
         """Test building absolute filepaths from TLG index."""
         paths = assemble_tlg_author_filepaths()
         self.assertEqual(len(paths), 1823)
 
-    def test_assemble_phi5_author_filepaths(self):
+    def test_assemble_phi5_author(self):
         """Test building absolute filepaths from TLG index."""
         paths = assemble_phi5_author_filepaths()
         self.assertEqual(len(paths), 362)
 
-    def test_assemble_tlg_works_filepaths(self):
+    def test_assemble_tlg_works(self):
         """"Test building absolute filepaths from TLG works index."""
         paths = assemble_tlg_works_filepaths()
         self.assertEqual(len(paths), 6625)
 
-    def test_assemble_phi5_works_filepaths(self):
-        """"Test building absolute filepaths from PHI5 works index.
-        TODO: finish this once the PHI5 works index is finished.
-        """
+    def test_assemble_phi5_works(self):
+        """"Test building absolute filepaths from PHI5 works index."""
         paths = assemble_phi5_works_filepaths()
         self.assertEqual(len(paths), 836)
 
@@ -251,18 +256,19 @@ argenteo polubro, aureo eclutro. """
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
-    def test_open_pickle_fail_doesnt_exist(self):
+    def test_open_pickle_fail_missing(self):
         """Test failure to unpickle a file that doesn't exist"""
         bad_file = 'cltk/tests/doesnt_exist.pickle'
         with self.assertRaises(FileNotFoundError):
             open_pickle(bad_file)
 
     def test_open_pickle_fail_corrupt(self):
+        """Test failure to open corrupted pickle."""
         bad_file = 'cltk/tests/bad_pickle.pickle'
         with self.assertRaises(EOFError):
             open_pickle(bad_file)
 
-    def test_show_corpora_unsupported_lang(self):
+    def test_show_corpora_bad_lang(self):
         """Test failure of importer upon selecting unsupported language."""
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
@@ -277,9 +283,8 @@ argenteo polubro, aureo eclutro. """
         """Test filtering Latin stopwords."""
         sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
         lowered = sentence.lower()
-        #tokens = PunktWordTokenizer().tokenize(lowered)
-        p = PunktLanguageVars()
-        tokens = p.word_tokenize(lowered)
+        punkt = PunktLanguageVars()
+        tokens = punkt.word_tokenize(lowered)
         no_stops = [w for w in tokens if w not in latin_stops]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
@@ -291,9 +296,8 @@ argenteo polubro, aureo eclutro. """
         ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ \
         Αἰολέας.'
         lowered = sentence.lower()
-        #tokens = PunktWordTokenizer().tokenize(lowered)
-        p = PunktLanguageVars()
-        tokens = p.word_tokenize(lowered)
+        punkt = PunktLanguageVars()
+        tokens = punkt.word_tokenize(lowered)
         no_stops = [w for w in tokens if w not in greek_stops]
         target_list = ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο',
                        'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',',
@@ -411,8 +415,8 @@ argenteo polubro, aureo eclutro. """
 
     def test_import_greek_software_tlgu(self):
         """Test cloning TLGU."""
-        c = CorpusImporter('greek')
-        c.import_corpus('greek_software_tlgu')
+        corpus_importer = CorpusImporter('greek')
+        corpus_importer.import_corpus('greek_software_tlgu')
         file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -448,7 +452,7 @@ argenteo polubro, aureo eclutro. """
             tlgu.convert('~/Downloads/corpora/TLG_E/bad_path.txt',
                          '~/Documents/thucydides.txt')
 
-    def test_tlgu_convert_unsupported_corpus_fail(self):
+    def test_tlgu_convert_corpus_fail(self):
         """Test the TLGU to fail when trying to convert an unsupported corpus."""
         tlgu = TLGU()
         with self.assertRaises(AssertionError):
@@ -457,7 +461,6 @@ argenteo polubro, aureo eclutro. """
     def test_open_pickle(self):
         """Test opening pickle. This requires ``greek_models_cltk``
         to have been run in ``setUp()``.
-        TODO: Test not working, not sure why.
         """
         pickle_path_rel = '~/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=C0301
         pickle_path = os.path.expanduser(pickle_path_rel)
