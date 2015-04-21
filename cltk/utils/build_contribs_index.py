@@ -6,8 +6,8 @@ to use, run from root of the project with ``python cltk/utils/build_contribs_ind
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 
 from collections import OrderedDict
-import os
 import importlib.machinery
+import os
 
 
 def build_contribs_file(test=None):
@@ -31,8 +31,7 @@ def build_contribs_file(test=None):
         # test if file has __author__ in it; will fail w/o this try/except
         try:
             mod.__author__
-        except Exception as e:
-            print(e)
+        except AttributeError as exception:
             continue
         # check if author value is a string, turn to list
         if type(mod.__author__) is str:
