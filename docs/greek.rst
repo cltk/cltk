@@ -174,6 +174,9 @@ TnT tagger
 
 Sentence Tokenization
 =====================
+
+The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings.  For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
+
 .. code-block:: python
 
    In [1]: from cltk.tokenize.sentence import TokenizeSentence

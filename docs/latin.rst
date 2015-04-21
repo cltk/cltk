@@ -237,7 +237,7 @@ TnT tagger
 
 Sentence Tokenization
 =====================
-For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
+The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
 
 .. code-block:: python
 
