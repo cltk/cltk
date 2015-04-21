@@ -3,10 +3,8 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import pickle
-import sys
-
 from cltk.utils.cltk_logger import logger
+import pickle
 
 
 def open_pickle(path: str):
@@ -22,12 +20,12 @@ def open_pickle(path: str):
             except Exception as pickle_error:
                 logger.error(pickle_error)
                 raise
+    except FileNotFoundError as fnf_error:
+        logger.error(fnf_error)
+        raise
     except IOError as io_err:
         logger.error(io_err)
         raise
     except EOFError as eof_error:
         logger.error(eof_error)
-        raise
-    except FileNotFoundError as fnf_error:
-        logger.error(fnf_error)
         raise
