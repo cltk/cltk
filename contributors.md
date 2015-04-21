@@ -1,6 +1,9 @@
 # Contributors
 CLTK authors alphabetically ordered by first name
 
+## Edward Loper <edloper@gmail.com>
+* cltk/utils/philology.py
+
 ## Kyle P. Johnson <kyle@kyle-p-johnson.com>
 * cltk/corpus/greek/beta_to_unicode.py
 * cltk/corpus/greek/corpora.py
@@ -8,6 +11,9 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/greek/tlgu.py
 * cltk/corpus/latin/corpora.py
 * cltk/corpus/latin/phi5_index.py
+* cltk/corpus/multilingual/corpora.py
+* cltk/corpus/pali/corpora.py
+* cltk/corpus/tibetan/corpora.py
 * cltk/corpus/utils/formatter.py
 * cltk/corpus/utils/importer.py
 * cltk/stem/lemma.py
@@ -20,6 +26,7 @@ CLTK authors alphabetically ordered by first name
 * cltk/utils/build_contribs_index.py
 * cltk/utils/cltk_logger.py
 * cltk/utils/file_operations.py
+* cltk/utils/philology.py
 
 ## Luke Hollis <lukehollis@gmail.com>
 * cltk/stem/latin/stem.py
@@ -34,7 +41,13 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/greek/tlgu.py
 * cltk/corpus/latin/corpora.py
 * cltk/corpus/latin/phi5_index.py
+* cltk/corpus/multilingual/corpora.py
+* cltk/corpus/pali/corpora.py
+* cltk/corpus/tibetan/corpora.py
 * cltk/corpus/utils/formatter.py
 * cltk/corpus/utils/importer.py
 * cltk/utils/cltk_logger.py
+
+## Steven Bird <stevenbird1@gmail.com>
+* cltk/utils/philology.py
 
