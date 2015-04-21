@@ -6,24 +6,24 @@ __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlgu import TLGU
-from cltk.utils.file_operations import open_pickle
-from cltk.utils.build_contribs_index import build_contribs_file
-from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
-from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.stem import Stemmer
-from cltk.stop.greek.stops import STOPS_LIST as greek_stops
+from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.syllabifier import Syllabifier
+from cltk.stop.greek.stops import STOPS_LIST as greek_stops
 from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
+from cltk.utils.build_contribs_index import build_contribs_file
+from cltk.utils.file_operations import open_pickle
 from cltk.utils.philology import Philology
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
