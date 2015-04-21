@@ -1,4 +1,6 @@
-"""CLTK's logging module."""
+"""CLTK's logging module.
+TODO: add pylint ignores for 'invalid-name'.
+"""
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
@@ -18,7 +20,7 @@ else:
 
 logger = logging.getLogger('CLTK')
 handler = logging.FileHandler(log_path)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s')  # pylint: disable=C0301
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
