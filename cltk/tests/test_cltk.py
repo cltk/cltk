@@ -254,12 +254,12 @@ argenteo polubro, aureo eclutro. """
     def test_open_pickle_fail_doesnt_exist(self):
         """Test failure to unpickle a file that doesn't exist"""
         bad_file = 'cltk/tests/doesnt_exist.pickle'
-        with self.assertRaises(SystemExit):
+        with self.assertRaises(FileNotFoundError):
             open_pickle(bad_file)
 
     def test_open_pickle_fail_corrupt(self):
         bad_file = 'cltk/tests/bad_pickle.pickle'
-        with self.assertRaises(SystemExit):
+        with self.assertRaises(EOFError):
             open_pickle(bad_file)
 
     def test_show_corpora_unsupported_lang(self):
@@ -444,14 +444,14 @@ argenteo polubro, aureo eclutro. """
     def test_tlgu_convert_fail(self):
         """Test the TLGU to fail when importing a corpus that doesn't exist."""
         tlgu = TLGU()
-        with self.assertRaises(SystemExit):
+        with self.assertRaises(AssertionError):
             tlgu.convert('~/Downloads/corpora/TLG_E/bad_path.txt',
                          '~/Documents/thucydides.txt')
 
     def test_tlgu_convert_unsupported_corpus_fail(self):
         """Test the TLGU to fail when trying to convert an unsupported corpus."""
         tlgu = TLGU()
-        with self.assertRaises(SystemExit):
+        with self.assertRaises(AssertionError):
             tlgu.convert_corpus(corpus='bad_corpus')
 
     def test_open_pickle(self):
@@ -473,6 +473,7 @@ argenteo polubro, aureo eclutro. """
         lemmatized = replacer.lemmatize(sentence)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
+
 
 if __name__ == '__main__':
     unittest.main()

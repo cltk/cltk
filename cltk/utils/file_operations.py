@@ -21,7 +21,13 @@ def open_pickle(path: str):
                 return pickle.load(opened_pickle)
             except Exception as pickle_error:
                 logger.error(pickle_error)
-                sys.exit(1)
+                raise
     except IOError as io_err:
         logger.error(io_err)
-        sys.exit(1)
+        raise
+    except EOFError as eof_error:
+        logger.error(eof_error)
+        raise
+    except FileNotFoundError as fnf_error:
+        logger.error(fnf_error)
+        raise
