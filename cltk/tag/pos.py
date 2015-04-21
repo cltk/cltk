@@ -3,11 +3,10 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import os
 
 from cltk.utils.file_operations import open_pickle
-
 from nltk.tokenize import wordpunct_tokenize
+import os
 
 
 TAGGERS = {'greek':
@@ -34,8 +33,7 @@ class POSTag():
         self.language = language
         self.available_taggers = self._setup_language_variables(self.language)
 
-    @staticmethod
-    def _setup_language_variables(lang: str):
+    def _setup_language_variables(self, lang: str):
         """Check for language availability and presence of tagger files.
         :param lang: The language argument given to the class.
         :type lang: str
@@ -51,7 +49,7 @@ class POSTag():
         for tagger_key, tagger_val in TAGGERS[lang].items():
             tagger_path = os.path.join(path, tagger_val)
             assert os.path.isfile(tagger_path), \
-                'CLTK linguistics data not available for {0}.'.format(tagger_val)
+                'CLTK linguistics models not available for {0}.'.format(tagger_val)
             tagger_paths[tagger_key] = tagger_path
         return tagger_paths
 
