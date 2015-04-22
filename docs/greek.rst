@@ -194,6 +194,9 @@ The sentence tokenizer takes a string input into ``tokenize_sentences()`` and re
 
 Stopword Filtering
 ==================
+
+To use the CLTK's built-in stopwords list:
+
 .. code-block:: python
 
    In [1]: from nltk.tokenize.punkt import PunktLanguageVars
@@ -221,6 +224,76 @@ Stopword Filtering
     'ἀγόμενος',
     'ἴωνας',
     'αἰολέας.']
+
+The CLTK has a module, ``make_stopwords_list``, which will create a custom stopwords list based on inputs you define. It's algorithm simply collects the most commonly used words in a selection of texts.
+
+.. code-block:: python
+
+   In [1]: from cltk.stop.make_stopwords_list import Stopwords
+
+   In [2]: from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
+
+   In [3]: import os
+
+   In [4]: s = Stopwords('greek')
+
+   In [5]: file = '~/cltk_data/greek/text/tlg/plaintext/TLG0012.TXT'
+
+   In [6]: file = os.path.expanduser(file)
+
+   In [7]: with open(file) as f:
+   ...:     r = f.read().lower()
+   ...:
+
+   In [8]: text = tlg_plaintext_cleanup(r)
+
+   In [9]: s.make_list_from_str(text, 10)  # second argument determines number of words output
+   Out[9]: ['δ', 'καὶ', 'δὲ', 'τε', 'μὲν', 'ἐν', 'δέ', 'ὣς', 'οἱ', 'τ']
+
+You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
+
+.. code-block:: python
+
+   In [10]: s.make_list_from_str(text, 10, save=True)
+   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/greek_stops_2015_04_22_1935.py'.
+
+If you have access to the PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
+
+.. code-block:: python
+
+   In [11]: s.make_list_from_corpus('tlg', 200, save=False)  #! this takes a really long time!
+   Out[11]:
+   ['δ', 'καὶ', 'δὲ', …]
+
+To use a saved module,
+
+.. code-block:: python
+
+   In [12]: import importlib.machinery
+
+   In [13]: stops_module = os.path.expanduser('~/cltk_data/user_data/greek_stops_2015_04_22_1935.py')
+
+   In [14]: loader = importlib.machinery.SourceFileLoader('stops', stops_module)
+
+   In [15]: module = loader.load_module()
+
+   In [16]: stops = module.STOPS_LIST
+
+and then filter out the stopwords as usual:
+
+.. code-block:: python
+
+   In [17]: tokens = p.word_tokenize(text.lower())
+
+   In [18]: [w for w in tokens if not w in stops]
+   Out[18]:
+   ['μῆνιν',
+    'ἄειδε',
+    'θεὰ',
+    'πηληϊάδεω',
+    'ἀχιλῆος',
+    'οὐλομένην',
+    …]
 
 
 

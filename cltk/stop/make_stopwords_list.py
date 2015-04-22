@@ -7,6 +7,7 @@ from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.utils.cltk_logger import logger
 from collections import Counter
+import importlib.machinery
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 from time import strftime
@@ -34,8 +35,13 @@ class Stopwords:
         tokens = punkt.word_tokenize(string_joined)
         counter = Counter(tokens)
         counter_common = counter.most_common(threshold)
-        stops_list = [x[0] for x in counter_common]
-        return stops_list
+        stopwords = [x[0] for x in counter_common]
+
+        if not save:
+            return stopwords
+        elif save:
+            self._save_stopwords(stopwords)
+
 
     def _assemble_corpus_string(self, corpus):
         """Takes a list of filepaths, returns a string containing contents of
@@ -57,18 +63,16 @@ class Stopwords:
             all_strings += file_clean
         return all_strings
 
-    def _save_stopwords(self, stopwords, corpus):
+    def _save_stopwords(self, stopwords):
         """Take a list of stopwords and save to ``cltk_data/user_data``.
         :param stopwords: A list of stopwords.
         :type stopwords: list
-        :param corpus: Name of corpus.
-        :type corpus: str
         """
         user_data_rel = '~/cltk_data/user_data'
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
             os.makedirs(user_data)
-        stops_path = os.path.join(user_data, self.language + 'stops_' + corpus + '_' + strftime("%Y_%m_%d_%H%M") + '.py')
+        stops_path = os.path.join(user_data, self.language + '_stops_' + strftime("%Y_%m_%d_%H%M") + '.py')
         with open(stops_path, 'w') as file_open:
             file_open.write('STOPS_LIST = {0}'.format(stopwords))
         message = "Custom stopword file saved at '{0}'.".format(stops_path)
@@ -94,10 +98,4 @@ class Stopwords:
         if not save:
             return stopwords
         elif save:
-            self._save_stopwords(stopwords, corpus)
-
-if __name__ == '__main__':
-    s = Stopwords('latin')
-    l = s.make_list_from_corpus('tlg', threshold=200, save=True)
-    #print(l)
-    #print(len(l))
+            self._save_stopwords(stopwords)
