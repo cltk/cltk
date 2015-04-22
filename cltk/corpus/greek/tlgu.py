@@ -10,12 +10,10 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-import os
-import subprocess
-import sys
-
 from cltk.utils.cltk_logger import logger
 from cltk.corpus.utils.importer import CorpusImporter
+import os
+import subprocess
 
 
 # this currently not in use

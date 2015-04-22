@@ -3,12 +3,10 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.utils.cltk_logger import logger
 import importlib.machinery
 import os
 import re
-
-from cltk.utils.cltk_logger import logger
-
 
 AVAILABLE_LANGUAGES = ['latin']
 

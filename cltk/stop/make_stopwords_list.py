@@ -9,6 +9,7 @@ from cltk.utils.cltk_logger import logger
 from collections import Counter
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
+from time import strftime
 
 
 class Stopwords:
@@ -56,6 +57,24 @@ class Stopwords:
             all_strings += file_clean
         return all_strings
 
+    def _save_stopwords(self, stopwords, corpus):
+        """Take a list of stopwords and save to ``cltk_data/user_data``.
+        :param stopwords: A list of stopwords.
+        :type stopwords: list
+        :param corpus: Name of corpus.
+        :type corpus: str
+        """
+        user_data_rel = '~/cltk_data/user_data'
+        user_data = os.path.expanduser(user_data_rel)
+        if not os.path.isdir(user_data):
+            os.makedirs(user_data)
+        stops_path = os.path.join(user_data, self.language + 'stops_' + corpus + '_' + strftime("%Y_%m_%d_%H%M") + '.py')
+        with open(stops_path, 'w') as file_open:
+            file_open.write('STOPS_LIST = {0}'.format(stopwords))
+        message = "Custom stopword file saved at '{0}'.".format(stops_path)
+        logger.info(message)
+        print(message)
+
     def make_list_from_corpus(self, corpus, threshold=100, save=False):
         """Build stopword list from one of several available corpora.
         Build stopword list from incoming string.
@@ -75,16 +94,10 @@ class Stopwords:
         if not save:
             return stopwords
         elif save:
-            user_data_rel = '~/cltk_data/user_data'
-            user_data = os.path.expanduser(user_data_rel)
-            stops_path = os.path.join(user_data, self.language + 'stops_' + corpus )
-            with open(stops_path, 'w') as file_open:
-                file_open = file_open.write(str(stopwords))
-                logger.info('File saved here!!!') #!
-
+            self._save_stopwords(stopwords, corpus)
 
 if __name__ == '__main__':
     s = Stopwords('latin')
-    l = s.make_list_from_corpus('phi5', threshold=200)
-    print(l)
-    print(len(l))
+    l = s.make_list_from_corpus('tlg', threshold=200, save=True)
+    #print(l)
+    #print(len(l))
