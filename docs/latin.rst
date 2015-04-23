@@ -337,7 +337,7 @@ You can save the output to file into ``~/cltk_data/user_data`` by selecting the 
 .. code-block:: python
 
    In [10]: s.make_list_from_str(text, 10, save=True)
-   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/latin_stops_2015_04_22_1843.py'.
+   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/stops_latin_2015_04_22_1843.py'.
 
 If you have access to the PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
 

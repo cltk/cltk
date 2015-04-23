@@ -271,7 +271,7 @@ To use a saved module,
 
    In [12]: import importlib.machinery
 
-   In [13]: stops_module = os.path.expanduser('~/cltk_data/user_data/greek_stops_2015_04_22_1935.py')
+   In [13]: stops_module = os.path.expanduser('~/cltk_data/user_data/stops_greek_2015_04_22_1935.py')
 
    In [14]: loader = importlib.machinery.SourceFileLoader('stops', stops_module)
 
