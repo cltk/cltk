@@ -20,6 +20,7 @@ from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stop.greek.stops import STOPS_LIST as greek_stops
 from cltk.stop.latin.stops import STOPS_LIST as latin_stops
+from cltk.stop.make_stopwords_list import Stopwords
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.utils.build_contribs_index import build_contribs_file
@@ -477,6 +478,42 @@ argenteo polubro, aureo eclutro. """
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
 
+    def test_make_stopwords(self):
+        """Test stopword builder."""
+        s = Stopwords('latin')
+        text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
+        stops = s.make_list_from_str(text, 3)
+        target = ['quo', 'catilina', 'nostra']
+        self.assertEqual(stops, target)
+
+    def test_make_stopwords_save(self):
+        """Test stopword builder."""
+        s = Stopwords('latin')
+        text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
+        s.make_list_from_str(text, 3, save=True)
+        # cltk_data/user_data/stops_latin_*
+        user_data_rel = '~/cltk_data/user_data/'
+        user_data = os.path.expanduser(user_data_rel)
+        list_dir = os.listdir(user_data)
+        file_start = 'stops_latin_'
+        for file in list_dir:
+            if file.startswith(file_start):
+                self.assertTrue(file.startswith(file_start))
+                os.remove(user_data + file)
+
+    def test_save_stopwords(self):
+        """Test stopword saving private module."""
+        s = Stopwords('latin')
+        s._save_stopwords(['word1', 'word2'])
+        # cltk_data/user_data/stops_latin_*
+        user_data_rel = '~/cltk_data/user_data/'
+        user_data = os.path.expanduser(user_data_rel)
+        list_dir = os.listdir(user_data)
+        file_start = 'stops_latin_'
+        for file in list_dir:
+            if file.startswith(file_start):
+                self.assertTrue(file.startswith(file_start))
+                os.remove(user_data + file)
 
 if __name__ == '__main__':
     unittest.main()
