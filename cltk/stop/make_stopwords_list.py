@@ -70,7 +70,7 @@ class Stopwords:
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
             os.makedirs(user_data)
-        stops_path = os.path.join(user_data, self.language + '_stops_' + strftime("%Y_%m_%d_%H%M") + '.py')
+        stops_path = os.path.join(user_data, 'stops_' + self.language + '_' + strftime("%Y_%m_%d_%H%M") + '.py')
         with open(stops_path, 'w') as file_open:
             file_open.write('STOPS_LIST = {0}'.format(stopwords))
         message = "Custom stopword file saved at '{0}'.".format(stops_path)
