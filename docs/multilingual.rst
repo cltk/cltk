@@ -135,6 +135,30 @@ N–grams
     …]
 
 
+Stopword generator
+==================
+
+The stopword generator makes a list the most commonly occurring words in a text.
+
+.. code-block:: python
+
+   In [1]: from cltk.stop.make_stopwords_list import Stopwords
+
+   In [2]: s = Stopwords('coptic')
+
+   In [3]: text = 'ⲡⲁⲩⲗⲟⲥ ⲡ ⲁⲡⲟⲥⲧⲟⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ϩⲓⲧⲙ ⲡ ⲟⲩⲱϣ ⲙ ⲡ ⲛⲟⲩⲧⲉ'
+
+   In [4]: stops = s.make_list_from_str(text, 5)  # get 5 most common words
+
+   In [5]: sentence = 'ⲡⲁⲩⲗⲟⲥ ⲡ ⲁⲡⲟⲥⲧⲟⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ϩⲓⲧⲙ ⲡ ⲟⲩⲱϣ ⲙ ⲡ ⲛⲟⲩⲧⲉ ⲙⲛ ⲥⲱⲥⲑⲉⲛⲏⲥ ⲡ ⲥⲟⲛ ⲉ ⲩ ⲥϩⲁⲓ ⲛ ⲧ ⲉⲕⲕⲗⲏⲥⲓⲁ ⲙ ⲡ ⲛⲟⲩⲧⲉ ⲧⲁⲓ ⲉⲧ ϣⲟⲟⲡ ϩⲛ ⲕⲟⲣⲓⲛⲑⲟⲥ .'
+
+   In [6]: tokens = p.word_tokenize(sentence)
+
+   In [7]: no_stops = [w for w in tokens if not w in stops]
+
+   In [8]: ' '.join(no_stops)
+   Out[8]: 'ⲡⲁⲩⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ⲛⲟⲩⲧⲉ ⲙⲛ ⲥⲱⲥⲑⲉⲛⲏⲥ ⲥⲟⲛ ⲉ ⲩ ⲥϩⲁⲓ ⲛ ⲧ ⲉⲕⲕⲗⲏⲥⲓⲁ ⲛⲟⲩⲧⲉ ⲧⲁⲓ ⲉⲧ ϣⲟⲟⲡ ϩⲛ ⲕⲟⲣⲓⲛⲑⲟⲥ .'
+
 
 Word count
 ==========

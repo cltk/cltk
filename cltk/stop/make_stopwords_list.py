@@ -7,7 +7,6 @@ from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.utils.cltk_logger import logger
 from collections import Counter
-import importlib.machinery
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 from time import strftime
@@ -41,7 +40,6 @@ class Stopwords:
             return stopwords
         elif save:
             self._save_stopwords(stopwords)
-
 
     def _assemble_corpus_string(self, corpus):
         """Takes a list of filepaths, returns a string containing contents of
