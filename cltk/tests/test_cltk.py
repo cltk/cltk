@@ -23,6 +23,7 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.stop.make_stopwords_list import Stopwords
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
+from cltk.tokenize.word import WordTokenizer
 from cltk.utils.build_contribs_index import build_contribs_file
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.philology import Philology
@@ -34,6 +35,7 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
+    '''
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -514,6 +516,23 @@ argenteo polubro, aureo eclutro. """
             if file.startswith(file_start):
                 self.assertTrue(file.startswith(file_start))
                 os.remove(user_data + file)
+    '''
+
+    def test_latin_word_tokenizer(self):
+        """Test Latin-specific word tokenizer."""
+        word_tokenizer = WordTokenizer('latin')
+        text = 'haec abuterque puerve paterne nihil'
+        tokens = word_tokenizer.tokenize(text)
+        target = ['haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
+        self.assertEqual(tokens, target)
+
+    def test_greek_word_tokenizer(self):
+        """Test Greek-specific word tokenizer."""
+        word_tokenizer = WordTokenizer('greek')
+        text = ''
+        tokens = word_tokenizer.tokenize(text)
+        target = []
+        self.assertEqual(tokens, target)
 
 if __name__ == '__main__':
     unittest.main()
