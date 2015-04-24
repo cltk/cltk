@@ -302,7 +302,7 @@ Text Cleanup
 
 Intended for use on the TLG after processing by ``TLGU()``.
 
-.. code-block::
+.. code-block:: python
 
    In [1]: from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 

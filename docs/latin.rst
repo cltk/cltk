@@ -405,7 +405,7 @@ Text Cleanup
 
 Intended for use on the TLG after processing by ``TLGU()``.
 
-.. code-block::
+.. code-block:: python
 
    In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 
@@ -427,7 +427,7 @@ Intended for use on the TLG after processing by ``TLGU()``.
 
 If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` might be of use.
 
-.. code-block::
+.. code-block:: python
 
    In [1]: from cltk.corpus.utils.formatter import remove_non_ascii
 
