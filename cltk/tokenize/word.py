@@ -1,6 +1,7 @@
 """Language-specific word tokenizers. Primary purpose is to handle enclitics."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -18,6 +19,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
         if self.language == 'latin':
             self.enclitics = ['que', 've', 'ne']
+            self.exceptions = ['atque', 'neque', 'quoque', 'itaque', 'usque', 'denique', 'quisque', 'namque', 'quinque', 'utique', 'quaeque', 'plerumque', 'utrumque', 'aeque', 'undique', 'utraque', 'cumque', 'cuique', 'plerique', 'cuiusque', 'utroque', 'utriusque', 'uterque', 'ubique', 'quaecumque', 'utrimque', 'quemque', 'quodque', 'quique', 'plerisque', 'utrique', 'quocumque', 'quicumque', 'pleraque', 'quodcumque', 'quaque', 'quacumque', 'utramque', 'quamque', 'quandoque', 'ubicumque', 'plerosque', 'utcumque', 'quidque', 'quibusque', 'unusquisque', 'quosque', 'quasque', 'quotienscumque', 'cuiuscumque', 'quemcumque', 'inique', 'cuicumque', 'quousque',
+                               'tenue', 'siue', 'ioue', 'assidue', 'leue', 'adsidue', 'neue', 'niue', 'salue', 'quidue', 'breue', 'caue', 'graue', 'naue', 'pingue', 'praecipue'
+                               ]
 
     def tokenize(self, string):
         """Tokenize incoming string."""
@@ -26,14 +30,14 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
-            for enclitic in self.enclitics:
-                if generic_token.endswith(enclitic):
-                    new_tokens = [generic_token[:-len(enclitic)]] + [enclitic]
-                    specific_tokens += new_tokens
-                    is_enclitic = True
-                    break
+            if generic_token not in self.exceptions:
+                for enclitic in self.enclitics:
+                    if generic_token.endswith(enclitic):
+                        new_tokens = [generic_token[:-len(enclitic)]] + [enclitic]
+                        specific_tokens += new_tokens
+                        is_enclitic = True
+                        break
             if not is_enclitic:
-                print('generic unsplit token:', generic_token)
                 specific_tokens.append(generic_token)
 
         return specific_tokens
