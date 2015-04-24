@@ -440,7 +440,7 @@ If you have a text of a language in Latin characters which contain a lot of junk
 Word Tokenization
 =================
 
-.. code-block::
+.. code-block:: python
 
    In [1]: from cltk.tokenize.word import WordTokenizer
 
