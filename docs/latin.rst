@@ -435,3 +435,19 @@ If you have a text of a language in Latin characters which contain a lot of junk
 
    In [3]: remove_non_ascii(text)
    Out[3]: 'Dices   pulchrum esse inimicos ulcisci.
+
+
+Word Tokenization
+=================
+
+.. code-block::
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+
+   In [2]: word_tokenizer = WordTokenizer('latin')
+
+   In [3]: text = 'atque haec abuterque puerve paterne nihil'
+
+   In [4]: word_tokenizer.tokenize(text)
+   Out[4]: ['atque', 'haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
+

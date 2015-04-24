@@ -35,7 +35,6 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    '''
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -516,7 +515,7 @@ argenteo polubro, aureo eclutro. """
             if file.startswith(file_start):
                 self.assertTrue(file.startswith(file_start))
                 os.remove(user_data + file)
-    '''
+
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
