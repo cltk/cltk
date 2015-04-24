@@ -1,6 +1,11 @@
 """This module's main class reads a text corpus and assembles a list of n
 most common words."""
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
+
+
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup

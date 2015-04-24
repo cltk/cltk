@@ -18,11 +18,13 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/utils/importer.py
 * cltk/stem/lemma.py
 * cltk/stem/latin/j_v.py
+* cltk/stop/make_stopwords_list.py
 * cltk/stop/greek/stops.py
 * cltk/stop/latin/stops.py
 * cltk/tag/pos.py
 * cltk/tests/test_cltk.py
 * cltk/tokenize/sentence.py
+* cltk/tokenize/word.py
 * cltk/utils/build_contribs_index.py
 * cltk/utils/cltk_logger.py
 * cltk/utils/file_operations.py
@@ -36,6 +38,7 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/greek/beta_to_unicode.py
 * cltk/corpus/greek/corpora.py
 * cltk/corpus/greek/tlg_index.py
+* cltk/tokenize/word.py
 
 ## Stephen Margheim <stephen.margheim@gmail.com>
 * cltk/corpus/greek/tlgu.py
