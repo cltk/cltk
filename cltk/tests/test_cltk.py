@@ -516,15 +516,13 @@ argenteo polubro, aureo eclutro. """
                 self.assertTrue(file.startswith(file_start))
                 os.remove(user_data + file)
 
-    '''
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
-        text = 'atque haec abuterque puerve paterne nihil'
+        text = 'atque haec abuterque nihil'
         tokens = word_tokenizer.tokenize(text)
-        target = ['atque', 'haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
+        target = ['atque', 'haec', 'abuter', 'que', 'nihil']
         self.assertEqual(tokens, target)
-    '''
 
 if __name__ == '__main__':
     unittest.main()
