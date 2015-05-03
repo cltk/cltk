@@ -319,9 +319,9 @@ LOWER = [
     (r'P', 'π'),
     (r'Q', 'θ'),
     (r'R', 'ρ'),
-    # better handle final sigmas; could be more DRY
-    # since it duplicates the PUNCT list
+    # better handle final sigmas
     (r'S ', 'ς '),
+    (r'S$', 'ς'),
     (r'S:', 'ς:'),
     (r'S\.', 'ς\.'),
     (r'S,', 'ς,'),
