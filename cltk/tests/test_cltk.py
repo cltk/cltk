@@ -53,7 +53,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    '''
     def test_concordance_from_string(self):
         """Test ``write_concordance_from_string()`` for file writing completion
         of concordance builder. Doesn't test quality of output."""
@@ -145,7 +144,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
@@ -155,7 +153,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
     def test_import_lat_pos_lemm_cltk(self):
         """Test cloning the CLTK POS lemmata dict."""
@@ -165,7 +162,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-    '''
 
     def test_import_greek_models_cltk(self):
         """Test pull (not clone) the CLTK Greek models. Import was run in
@@ -178,7 +174,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    '''
     def test_git_import_copt_script(self):
         """Test import of Coptic Scriptorium."""
         corpus_importer = CorpusImporter('coptic')
@@ -480,7 +475,6 @@ argenteo polubro, aureo eclutro. """
         pickle_path = os.path.expanduser(pickle_path_rel)
         a_pickle = open_pickle(pickle_path)
         self.assertTrue(a_pickle)
-    '''
 
     def test_lemmatizer_inlist_latin(self):
         """Test the Latin lemmatizer.
@@ -626,7 +620,6 @@ argenteo polubro, aureo eclutro. """
         target = 'τὴν/τὴν διάγνωσιν/διάγνωσις ἔρχεσθαι/ἔρχομαι'
         self.assertEqual(lemmatized, target)
 
-    '''
     def test_make_stopwords(self):
         """Test stopword builder."""
         s = Stopwords('latin')
@@ -671,7 +664,6 @@ argenteo polubro, aureo eclutro. """
         tokens = word_tokenizer.tokenize(text)
         target = ['atque', 'haec', 'abuter', 'que', 'nihil']
         self.assertEqual(tokens, target)
-    '''
 
 if __name__ == '__main__':
     unittest.main()
