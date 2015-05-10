@@ -34,7 +34,7 @@ import unittest
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
-    '''
+
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -46,6 +46,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+    '''
     def test_concordance_from_string(self):
         """Test ``write_concordance_from_string()`` for file writing completion
         of concordance builder. Doesn't test quality of output."""
