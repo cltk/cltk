@@ -46,6 +46,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_models_cltk')
+        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
     '''
     def test_concordance_from_string(self):
         """Test ``write_concordance_from_string()`` for file writing completion
