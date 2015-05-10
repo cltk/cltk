@@ -34,7 +34,7 @@ import unittest
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
-
+    '''
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -468,17 +468,81 @@ argenteo polubro, aureo eclutro. """
         pickle_path = os.path.expanduser(pickle_path_rel)
         a_pickle = open_pickle(pickle_path)
         self.assertTrue(a_pickle)
+    '''
 
-    def test_lemmatizer_latin(self):
-        """Test the Latin lemmatizer. Requires `latin_pos_lemmata_cltk`
-        to be imported.
+    def test_lemmatizer_inlist_latin(self):
+        """Test the Latin lemmatizer.
         """
         replacer = LemmaReplacer('latin')
-        sentence = 'hominum divomque voluptas'
-        lemmatized = replacer.lemmatize(sentence)
+        unlemmatized = ['hominum', 'divomque', 'voluptas']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        target = ['homo', 'divus', 'voluptas']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_inlist_outlemma_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = ['hominum', 'divomque', 'voluptas']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        target = ['hominum/homo', 'divomque/divus', 'voluptas/voluptas']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_inlist_outstring_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = ['hominum', 'divomque', 'voluptas']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
 
+    def test_lemmatizer_inlist_outlemma_outstring_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = ['hominum', 'divomque', 'voluptas']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        target = 'hominum/homo divomque/divus voluptas/voluptas'
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = 'hominum divomque voluptas'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        target = ['homo', 'divus', 'voluptas']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_outlemma_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = 'hominum divomque voluptas'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        target = ['hominum/homo', 'divomque/divus', 'voluptas/voluptas']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_outstring_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = 'hominum divomque voluptas'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        target = 'homo divus voluptas'
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_outlemma_outstring_latin(self):
+        """Test the Latin lemmatizer.
+        """
+        replacer = LemmaReplacer('latin')
+        unlemmatized = 'hominum divomque voluptas'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        target = 'hominum/homo divomque/divus voluptas/voluptas'
+        self.assertEqual(lemmatized, target)
+
+    '''
     def test_make_stopwords(self):
         """Test stopword builder."""
         s = Stopwords('latin')
@@ -523,6 +587,7 @@ argenteo polubro, aureo eclutro. """
         tokens = word_tokenizer.tokenize(text)
         target = ['atque', 'haec', 'abuter', 'que', 'nihil']
         self.assertEqual(tokens, target)
+    '''
 
 if __name__ == '__main__':
     unittest.main()
