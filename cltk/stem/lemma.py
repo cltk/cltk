@@ -32,9 +32,17 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
             path = os.path.expanduser(rel_path)
             logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('latin_lemmata_cltk', path)
-            module = loader.load_module()
-            lemmata = module.LEMMATA
-            return lemmata
+
+        elif self.language == 'greek':
+            rel_path = os.path.join('~/cltk_data',
+                                    self.language,
+                                    'model/greek_models_cltk/lemmata/greek_lemmata_cltk.py')  # pylint: disable=line-too-long
+            path = os.path.expanduser(rel_path)
+            logger.info('Loading lemmata. This may take a minute.')
+            loader = importlib.machinery.SourceFileLoader('greek_lemmata_cltk', path)
+        module = loader.load_module()
+        lemmata = module.LEMMATA
+        return lemmata
 
     def lemmatize(self, input_text, return_lemma=False, return_string=False):
         """Take incoming string or list of tokens. Lookup done against a
@@ -88,10 +96,11 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
 
 
 if __name__ == '__main__':
-    REPLACER = LemmaReplacer('latin')
+    REPLACER = LemmaReplacer('greek')
     PUNKT = PunktLanguageVars()
     #STRING = 'Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum. Maiores nostri sic habuerunt et ita in legibus posiuerunt: furem dupli condemnari, foeneratorem quadrupli. Quanto peiorem ciuem existimarint foeneratorem quam furem, hinc licet existimare. Et uirum bonum quom laudabant, ita laudabant: bonum agricolam bonumque colonum; amplissime laudari existimabatur qui ita laudabatur. Mercatorem autem strenuum studiosumque rei quaerendae existimo, uerum, ut supra dixi, periculosum et calamitosum. At ex agricolis et uiri fortissimi et milites strenuissimi gignuntur, maximeque pius quaestus stabilissimusque consequitur minimeque inuidiosus, minimeque male cogitantes sunt qui in eo studio occupati sunt. Nunc, ut ad rem redeam, quod promisi institutum principium hoc erit.'  # pylint: disable=line-too-long
-    STRING = 'hominum divomque voluptas'
-    EX_TOKENS = PUNKT.word_tokenize(STRING.lower())
-    LEMMATIZED = REPLACER.lemmatize(EX_TOKENS, return_lemma=True, return_string=True)
+    #STRING = 'hominum divomque voluptas'
+    #EX_TOKENS = PUNKT.word_tokenize(UMLEMMATIZED)
+    UMLEMMATIZED = ['τὴν', 'διάγνωσιν', 'αὐτῶν', 'ἔρχεσθαι']
+    LEMMATIZED = REPLACER.lemmatize(UMLEMMATIZED, return_lemma=False, return_string=True)
     print(LEMMATIZED)

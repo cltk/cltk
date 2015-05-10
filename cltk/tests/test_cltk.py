@@ -145,6 +145,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
+    '''
 
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
@@ -154,6 +155,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
+    '''
 
     def test_import_lat_pos_lemm_cltk(self):
         """Test cloning the CLTK POS lemmata dict."""
@@ -163,6 +165,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
+    '''
 
     def test_import_greek_models_cltk(self):
         """Test pull (not clone) the CLTK Greek models. Import was run in
@@ -175,6 +178,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+    '''
     def test_git_import_copt_script(self):
         """Test import of Coptic Scriptorium."""
         corpus_importer = CorpusImporter('coptic')
@@ -548,6 +552,78 @@ argenteo polubro, aureo eclutro. """
         unlemmatized = 'hominum divomque voluptas'
         lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
         target = 'hominum/homo divomque/divus voluptas/voluptas'
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_inlist_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        target = ['τὴν', 'διάγνωσις', 'ἔρχομαι']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_inlist_outlemma_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        target = ['τὴν/τὴν', 'διάγνωσιν/διάγνωσις', 'ἔρχεσθαι/ἔρχομαι']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_inlist_outstring_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        target = 'τὴν διάγνωσις ἔρχομαι'
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_inlist_outlemma_outstring_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        target = 'τὴν/τὴν διάγνωσιν/διάγνωσις ἔρχεσθαι/ἔρχομαι'
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        target = ['τὴν', 'διάγνωσις', 'ἔρχομαι']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_outlemma_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        target = ['τὴν/τὴν', 'διάγνωσιν/διάγνωσις', 'ἔρχεσθαι/ἔρχομαι']
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_outstring_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        target = 'τὴν διάγνωσις ἔρχομαι'
+        self.assertEqual(lemmatized, target)
+
+    def test_lemmatizer_instr_outlemma_outstring_greek(self):
+        """Test the Greek lemmatizer.
+        """
+        replacer = LemmaReplacer('greek')
+        unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
+        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        target = 'τὴν/τὴν διάγνωσιν/διάγνωσις ἔρχεσθαι/ἔρχομαι'
         self.assertEqual(lemmatized, target)
 
     '''
