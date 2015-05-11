@@ -89,43 +89,51 @@ The lemmatizer offers several input and output options. For text input, it can t
 
    In [1]: from cltk.stem.lemma import LemmaReplacer
 
-   In [2]: sentence = 'θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος'
+   In [2]: sentence = 'τὰ γὰρ πρὸ αὐτῶν καὶ τὰ ἔτι παλαίτερα σαφῶς μὲν εὑρεῖν διὰ χρόνου πλῆθος ἀδύνατα ἦν'
 
    In [3]: lemmatizer = LemmaReplacer('greek')
 
    In [4]: lemmatizer.lemmatize(sentence)
    Out[4]:
-   ['θεοὺς',
+   ['τὰ',
+    'γὰρ',
+    'πρὸ',
+    'αὐτός',
+    'καὶ',
+    'τὰ',
+    'ἔτι',
+    'παλαιός',
+    'σαφής',
     'μὲν',
-    'αἰτέω',
-    'τῶνδ᾽',
-    'ἀπαλλαγὴν',
-    'πόνος',
-    'φρουρά',
-    'ἔτειος',
-    'μῆκος']
+    'εὑρίσκω',
+    'διὰ',
+    'χρόνος',
+    'πλῆθος',
+    'ἀδύνατος',
+    'εἰμί']
+
 
 
 And here taking a list:
 
 .. code-block:: python
 
-   In [5]: lemmatizer.lemmatize(['θεοὺς', 'μὲν', 'αἰτῶ'])
-   Out[5]: ['θεοὺς', 'μὲν', 'αἰτέω']
+   In [5]: lemmatizer.lemmatize(['χρόνου', 'πλῆθος', 'ἀδύνατα', 'ἦν'])
+   Out[5]: ['χρόνος', 'πλῆθος', 'ἀδύνατος', 'εἰμί']
 
-The lemmatizer takes several optional arguments for controlling output: ``lemmatizer(return_lemma=True, return_string=True)``. ``return_lemma`` returns the original infection along with its headword:
+The lemmatizer takes several optional arguments for controlling output: ``return_lemma=True`` and ``return_string=True``. ``return_lemma`` returns the original inflection along with its headword:
 
 .. code-block:: python
 
-   In [6]: lemmatizer.lemmatize(['θεοὺς', 'μὲν', 'αἰτῶ'], return_lemma=True)
-   Out[6]: ['θεοὺς/θεοὺς', 'μὲν/μὲν', 'αἰτῶ/αἰτέω']
+   In [6]: lemmatizer.lemmatize(['χρόνου', 'πλῆθος', 'ἀδύνατα', 'ἦν'], return_lemma=True)
+   Out[6]: ['χρόνου/χρόνος', 'πλῆθος/πλῆθος', 'ἀδύνατα/ἀδύνατος', 'ἦν/εἰμί']
 
 And ``return string`` wraps the list in ``' '.join()``:
 
 .. code-block:: python
 
-   In [7]: lemmatizer.lemmatize(['θεοὺς', 'μὲν', 'αἰτῶ'], return_string=True)
-   Out[7]: 'θεοὺς μὲν αἰτέω'
+   In [7]: lemmatizer.lemmatize(['χρόνου', 'πλῆθος', 'ἀδύνατα', 'ἦν'], return_string=True)
+   Out[7]: 'χρόνος πλῆθος ἀδύνατος εἰμί'
 
 These two arguments can be combined, as well.
 

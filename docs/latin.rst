@@ -90,7 +90,7 @@ And here taking a list:
    In [9]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'])
    Out[9]: ['qui1', 'terra', 'frugiferens', 'concelebro']
 
-The lemmatizer takes several optional arguments for controlling output: ``lemmatizer(return_lemma=True, return_string=True)``. ``return_lemma`` returns the original infection along with its headword:
+The lemmatizer takes several optional arguments for controlling output: ``return_lemma=True`` and ``return_string=True``. ``return_lemma`` returns the original inflection along with its headword:
 
 .. code-block:: python
 
