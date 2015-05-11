@@ -47,6 +47,13 @@ You can also divide the texts into a file for each individual work.
 
 Lemmatization
 =============
+
+.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/latin_pos_lemmata_cltk/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/kylepjohnson/cltk/issues>`_.
+
+The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
+
+The lemmatizer offers several input and output options. For text input, it can take a string or a list of tokens (which, by the way, need ``j``s and ``v``s replaced first). Here is an example of the lemmatizer taking a string:
+
 .. code-block:: python
 
    In [1]: from cltk.stem.lemma import LemmaReplacer
@@ -64,8 +71,44 @@ Lemmatization
    In [7]: lemmatizer = LemmaReplacer('latin')
 
    In [8]: lemmatizer.lemmatize(sentence)
-   Out[8]: 'aeneadum genetrix, homo divus voluptas, almus venus2, caelus subter labor1 signum qui1 marum nauigerum, qui1 terra frugiferens concelebro, per tu quoniam genus1 omnicanus animantum concipio uisitque exortus2 lumen solus1.'
+   Out[8]:
+   ['aeneadum',
+    'genetrix',
+    ',',
+    'homo',
+    'divus',
+    'voluptas',
+    ',',
+    'almus',
+    ...]
 
+
+And here taking a list:
+
+.. code-block:: python
+
+   In [9]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'])
+   Out[9]: ['qui1', 'terra', 'frugiferens', 'concelebro']
+
+The lemmatizer takes several optional arguments for controlling output: ``lemmatizer(return_lemma=True, return_string=True)``. ``return_lemma`` returns the original infection along with its headword:
+
+.. code-block:: python
+
+   In [10]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'], return_lemma=True)
+   Out[10]:
+   ['quae/qui1',
+    'terras/terra',
+    'frugiferentis/frugiferens',
+    'concelebras/concelebro']
+
+And ``return string`` wraps the list in ``' '.join()``:
+
+.. code-block:: python
+
+   In [11]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'], return_string=True)
+   Out[11]: 'qui1 terra frugiferens concelebro'
+
+These two arguments can be combined, as well.
 
 
 Making POS training sets

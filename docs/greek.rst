@@ -75,6 +75,61 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
 
 
+
+Lemmatization
+=============
+
+.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/greek_lexica_perseus/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/kylepjohnson/cltk/issues>`_.
+
+The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
+
+The lemmatizer offers several input and output options. For text input, it can take a string or a list of tokens. Here is an example of the lemmatizer taking a string:
+
+.. code-block:: python
+
+   In [1]: from cltk.stem.lemma import LemmaReplacer
+
+   In [2]: sentence = 'θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος'
+
+   In [3]: lemmatizer = LemmaReplacer('greek')
+
+   In [4]: lemmatizer.lemmatize(sentence)
+   Out[4]:
+   ['θεοὺς',
+    'μὲν',
+    'αἰτέω',
+    'τῶνδ᾽',
+    'ἀπαλλαγὴν',
+    'πόνος',
+    'φρουρά',
+    'ἔτειος',
+    'μῆκος']
+
+
+And here taking a list:
+
+.. code-block:: python
+
+   In [5]: lemmatizer.lemmatize(['θεοὺς', 'μὲν', 'αἰτῶ'])
+   Out[5]: ['θεοὺς', 'μὲν', 'αἰτέω']
+
+The lemmatizer takes several optional arguments for controlling output: ``lemmatizer(return_lemma=True, return_string=True)``. ``return_lemma`` returns the original infection along with its headword:
+
+.. code-block:: python
+
+   In [6]: lemmatizer.lemmatize(['θεοὺς', 'μὲν', 'αἰτῶ'], return_lemma=True)
+   Out[6]: ['θεοὺς/θεοὺς', 'μὲν/μὲν', 'αἰτῶ/αἰτέω']
+
+And ``return string`` wraps the list in ``' '.join()``:
+
+.. code-block:: python
+
+   In [7]: lemmatizer.lemmatize(['θεοὺς', 'μὲν', 'αἰτῶ'], return_string=True)
+   Out[7]: 'θεοὺς μὲν αἰτέω'
+
+These two arguments can be combined, as well.
+
+
 POS tagging
 ===========
 

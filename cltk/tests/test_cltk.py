@@ -284,8 +284,8 @@ argenteo polubro, aureo eclutro. """
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
-        j = JVReplacer()
-        trans = j.replace('vem jam VEL JAM')
+        jv_replacer = JVReplacer()
+        trans = jv_replacer.replace('vem jam VEL JAM')
         self.assertEqual(trans, 'uem iam UEL IAM')
 
     def test_latin_stopwords(self):
