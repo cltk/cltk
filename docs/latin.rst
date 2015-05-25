@@ -62,10 +62,6 @@ The lemmatizer offers several input and output options. For text input, it can t
 
    In [3]: sentence = 'Aeneadum genetrix, hominum divomque voluptas, alma Venus, caeli subter labentia signa quae mare navigerum, quae terras frugiferentis concelebras, per te quoniam genus omne animantum concipitur visitque exortum lumina solis.'
 
-   In [4]: j = JVReplacer()
-
-   In [5]: sentence = j.replace(sentence)
-
    In [6]: sentence = sentence.lower()
 
    In [7]: lemmatizer = LemmaReplacer('latin')
