@@ -30,7 +30,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                                     self.language,
                                     'model/latin_models_cltk/lemmata/latin_lemmata_cltk.py')  # pylint: disable=line-too-long
             path = os.path.expanduser(rel_path)
-            logger.info('Loading lemmata. This may take a minute.')
+            #logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('latin_lemmata_cltk', path)
 
         elif self.language == 'greek':
@@ -38,7 +38,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                                     self.language,
                                     'model/greek_models_cltk/lemmata/greek_lemmata_cltk.py')  # pylint: disable=line-too-long
             path = os.path.expanduser(rel_path)
-            logger.info('Loading lemmata. This may take a minute.')
+            #logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('greek_lemmata_cltk', path)
         module = loader.load_module()
         lemmata = module.LEMMATA
