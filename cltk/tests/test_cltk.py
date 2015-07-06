@@ -14,6 +14,7 @@ from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.importer import CorpusImporter
+from cltk.prosody.latin.scanner import Scansion
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.latin.stem import Stemmer
 from cltk.stem.lemma import LemmaReplacer
@@ -664,6 +665,11 @@ argenteo polubro, aureo eclutro. """
         tokens = word_tokenizer.tokenize(text)
         target = ['atque', 'haec', 'abuter', 'que', 'nihil']
         self.assertEqual(tokens, target)
+
+    def test_latin(self):
+        scan = Scansion()
+        meter = scan.scan_text('quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.')
+        self.assertEqual(meter, ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯¯', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯˘'])
 
 if __name__ == '__main__':
     unittest.main()
