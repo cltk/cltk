@@ -627,17 +627,17 @@ argenteo polubro, aureo eclutro. """
 
     def test_make_stopwords(self):
         """Test stopword builder."""
-        s = Stopwords('latin')
+        stopwords = Stopwords('latin')
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
-        stops = s.make_list_from_str(text, 3)
+        stops = stopwords.make_list_from_str(text, 3)
         target = ['quo', 'catilina', 'nostra']
         self.assertEqual(stops, target)
 
     def test_make_stopwords_save(self):
         """Test stopword builder."""
-        s = Stopwords('latin')
+        stopwords = Stopwords('latin')
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
-        s.make_list_from_str(text, 3, save=True)
+        stopwords.make_list_from_str(text, 3, save=True)
         # cltk_data/user_data/stops_latin_*
         user_data_rel = '~/cltk_data/user_data/'
         user_data = os.path.expanduser(user_data_rel)
@@ -650,8 +650,8 @@ argenteo polubro, aureo eclutro. """
 
     def test_save_stopwords(self):
         """Test stopword saving private module."""
-        s = Stopwords('latin')
-        s._save_stopwords(['word1', 'word2'])
+        stopwords = Stopwords('latin')
+        stopwords._save_stopwords(['word1', 'word2'])
         # cltk_data/user_data/stops_latin_*
         user_data_rel = '~/cltk_data/user_data/'
         user_data = os.path.expanduser(user_data_rel)
@@ -670,7 +670,8 @@ argenteo polubro, aureo eclutro. """
         target = ['atque', 'haec', 'abuter', 'que', 'nihil']
         self.assertEqual(tokens, target)
 
-    def test_latin(self):
+    def test_scanner_latin(self):
+        """Test Latin prosody scanner."""
         scan = Scansion()
         meter = scan.scan_text('quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.')
         self.assertEqual(meter, ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯¯', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯˘'])
