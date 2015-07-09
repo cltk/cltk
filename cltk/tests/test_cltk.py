@@ -360,7 +360,7 @@ argenteo polubro, aureo eclutro. """
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(len(tokenized_sentences), len(good_tokenized_sentences))
     '''
-    
+
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag('greek')

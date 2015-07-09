@@ -55,7 +55,6 @@ class Scansion:
     def _tokenize(self, text):
         """
         Use NLTK's standard tokenizer, rm punctuation.
-
         :param text: pre-processed text
         :return: tokenized text
         :rtype : list
@@ -82,7 +81,6 @@ class Scansion:
     def _qu_fix(self, sents_syllables):
         """
         Ensure that 'qu' is not treated as its own syllable.
-
         :param sents_syllables: Sentence of words of syllables.
         :return: syllabified syllables with 'qu' counted as a single consonant
         :rtype : list
@@ -105,7 +103,6 @@ class Scansion:
         1) A word ends with 'm'
         2) A word ends with a vowel
         3) A word ends with a diphthong
-
         :param word: syllabified/'qu' fixed word
         :return: True if the ending of the word is elidable, otherwise False
         :rtype : bool
@@ -127,7 +124,6 @@ class Scansion:
         1) A word begins with 'h'
         2) A word begins with a vowel
         3) A word begins with a diphthong
-
         :param word: syllabified/'qu' fixed word
         :return: True if the beginning of a word is elidable, otherwise False
         :rtype : bool
@@ -149,7 +145,6 @@ class Scansion:
         Elide words by combining the last syllable of a word with the first of
         the next word if the words elide. E.g. [['quo'], [['us'], ['que']] =>
         [[], ['quous', 'que']].
-
         :param sent_syllables: A list of sentences of words of syllables
         :return: elided syllables
         :rtype : list
@@ -171,7 +166,6 @@ class Scansion:
 
     def _syllable_condenser(self, words_syllables):
         """Reduce a list of [sentence [word [syllable]]] to [sentence [syllable]].
-
         :param syllables_words: Elided text
         :return: Text tokenized only at the sentence and syllable level
         :rtype : list
@@ -189,7 +183,6 @@ class Scansion:
         """Check if syllable is long by nature. Long by nature includes:
         1) Syllable contains a diphthong
         2) Syllable contains a long vowel
-
         :param syllable: current syllable
         :return: True if long by nature
         :rtype : bool
@@ -213,7 +206,6 @@ class Scansion:
         2) Next syllable begins with a double consonant
         3) Syllable ends with a consonant and the next syllable begins with a
         consonant
-
         :param syllable: Current syllable
         :param sentence: Current sentence
         :return: True if syllable is long by position
@@ -242,7 +234,6 @@ class Scansion:
 
     def _scansion(self, sentence_syllables):
         """Replace long and short values for each input syllable.
-
         :param sentence_syllables: A list of strings
         :return : '˘' and '¯' to represent short and long syllables,
         respectively
@@ -266,7 +257,6 @@ class Scansion:
         in this instance is defined as a vocalic group (i.e., a vowel or a
         diphthong). This means that all syllables which are not the last
         syllable in the word will end with a vowel or diphthong.
-
         :param sentences_words: A list of sentences with tokenized words.
         :return: Syllabified words
         :rtype : list
@@ -324,7 +314,6 @@ class Scansion:
 
     def syllabify(self, unsyllabified_tokens):
         """Helper class for calling syllabification-related methods.
-
         :param unsyllabified_tokens:
         :return: List of syllables.
         :rtype : list
@@ -337,7 +326,6 @@ class Scansion:
 
     def scan_text(self, input_string):
         """The primary method of the class.
-
         :param input_string: A string of macronized text.
         :rtype : list
         """
