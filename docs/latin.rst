@@ -274,6 +274,22 @@ TnT tagger
     ('tres', 'M--------')]
 
 
+Scanning
+========
+A prosody scanner is available for text which already has had its natural lengths marked with macrons. It returns a list of strings of long and short marks for each sentence.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin.scanner import Scansion
+
+   In [2]: scanner = Scansion()
+
+   In [3]: text = 'quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.'
+
+   In [4]: scanner.scan_text(text)
+   Out[4]: ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯¯', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯˘']
+
+
 Sentence Tokenization
 =====================
 The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
