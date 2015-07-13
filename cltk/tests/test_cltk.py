@@ -686,5 +686,12 @@ argenteo polubro, aureo eclutro. """
         long_by_pos = scansion._long_by_position('am', ['quam', 'di', 'ūe', 'ti', 'am', 'fu', 'ror', 'i', 'ste', 'tu', 'us', 'nōs', 'ē', 'lū', 'det'])
         self.assertTrue(long_by_pos)
 
+    def test_long_by_position(self):
+        scansion = Scansion()
+        syllables = [['quō', 'usque', 'tandem', 'abūtēre', ',', 'catilīna', ',', 'patientiā', 'nostrā.'], ['quam', 'diū', 'etiam', 'furor', 'iste', 'tuus', 'nōs', 'ēlūdet.']]
+        elided_target = [[[], ['quōu', 'sque'], ['ta'], ['ndema', 'bū', 'tē', 're'], ['ca', 'ti', 'lī', 'na'], ['pa', 'ti', 'e', 'nti', 'ā'], ['no', 'strā']], [['quam'], ['di'], ['ūe', 'ti', 'am'], ['fu', 'ror'], ['i', 'ste'], ['tu', 'us'], ['nōs'], ['ē', 'lū', 'det']]]
+        elided = scansion.syllabify(syllables)
+        self.assertEqual(elided, elided_target)
+
 if __name__ == '__main__':
     unittest.main()
