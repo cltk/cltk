@@ -335,10 +335,10 @@ argenteo polubro, aureo eclutro. """
 
     def test_latin_syllabifier(self):
         """Test Latin syllabifier."""
-        word = 'sidere'  # pylint: disable=line-too-long
+        word = 'sidere'
         syllabifier = Syllabifier()
         syllables = syllabifier.syllabify(word)
-        target = ['si', 'de', 're']  # pylint: disable=line-too-long
+        target = ['si', 'de', 're']
         self.assertEqual(syllables, target)
 
     def test_sentence_tokenizer_latin(self):
@@ -675,6 +675,16 @@ argenteo polubro, aureo eclutro. """
         scan = Scansion()
         meter = scan.scan_text('quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.')
         self.assertEqual(meter, ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯¯', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯˘'])
+
+    def test_long_by_nature(self):
+        scansion = Scansion()
+        long_by_nat = scansion._long_by_nature('aet')
+        self.assertTrue(long_by_nat)
+
+    def test_long_by_position(self):
+        scansion = Scansion()
+        long_by_pos = scansion._long_by_position('am', ['quam', 'di', 'ūe', 'ti', 'am', 'fu', 'ror', 'i', 'ste', 'tu', 'us', 'nōs', 'ē', 'lū', 'det'])
+        self.assertTrue(long_by_pos)
 
 if __name__ == '__main__':
     unittest.main()
