@@ -686,12 +686,20 @@ argenteo polubro, aureo eclutro. """
         long_by_pos = scansion._long_by_position('am', ['quam', 'di', 'ūe', 'ti', 'am', 'fu', 'ror', 'i', 'ste', 'tu', 'us', 'nōs', 'ē', 'lū', 'det'])
         self.assertTrue(long_by_pos)
 
-    def test_long_by_position(self):
+    def test_syllabify(self):
         scansion = Scansion()
         syllables = [['quō', 'usque', 'tandem', 'abūtēre', ',', 'catilīna', ',', 'patientiā', 'nostrā.'], ['quam', 'diū', 'etiam', 'furor', 'iste', 'tuus', 'nōs', 'ēlūdet.']]
         elided_target = [[[], ['quōu', 'sque'], ['ta'], ['ndema', 'bū', 'tē', 're'], ['ca', 'ti', 'lī', 'na'], ['pa', 'ti', 'e', 'nti', 'ā'], ['no', 'strā']], [['quam'], ['di'], ['ūe', 'ti', 'am'], ['fu', 'ror'], ['i', 'ste'], ['tu', 'us'], ['nōs'], ['ē', 'lū', 'det']]]
         elided = scansion.syllabify(syllables)
         self.assertEqual(elided, elided_target)
+
+    '''
+    # Not being counted by nosetests. Why?
+    def test_elidable_begin(self):
+        scansion = Scansion()
+        elidable_begin = scansion._elidable_begin(['u', 'sque'])
+        self.assertTrue(elidable_begin)
+    '''
 
 if __name__ == '__main__':
     unittest.main()
