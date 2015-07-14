@@ -107,18 +107,13 @@ class Scansion:
         :return: True if the ending of the word is elidable, otherwise False
         :rtype : bool
         """
-
         if str(word[-1]).endswith('m'):
-            print('end with m', word[-1])
             return True
         elif str(word[-1][-1]) in self.long_vowels:
-            print('long vowel', word[-1][-1])
             return True
         elif str(word[-1][-2] + word[-1][-1]) in self.diphthongs:
-            print('Diph', word[-1][-2] + word[-1][-1])
             return True
         elif str(word[-1][-1]) in self.vowels:
-            print('vowel', word[-1][-1])
             return True
         else:
             return False

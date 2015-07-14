@@ -693,13 +693,24 @@ argenteo polubro, aureo eclutro. """
         elided = scansion.syllabify(syllables)
         self.assertEqual(elided, elided_target)
 
-    '''
-    # Not being counted by nosetests. Why?
     def test_elidable_begin(self):
+        """Test all the elifs of the `_elidable_begin` method."""
         scansion = Scansion()
+        elidable_begin = scansion._elidable_begin(['hae', 're', 'na'])
+        self.assertTrue(elidable_begin)
+        '''
         elidable_begin = scansion._elidable_begin(['u', 'sque'])
         self.assertTrue(elidable_begin)
-    '''
+        elidable_begin = scansion._elidable_begin(['ā', 're', 'na'])
+        self.assertTrue(elidable_begin)
+        elidable_begin = scansion._elidable_begin(['eu', 're', 'ka'])
+        self.assertTrue(elidable_begin)
+        '''
+
+    def test_elidable_end(self):
+        scansion = Scansion()
+        elidable_end = scansion._elidable_end(['fi', 'li', 'ae'])
+        self.assertTrue(elidable_end)
 
 if __name__ == '__main__':
     unittest.main()
