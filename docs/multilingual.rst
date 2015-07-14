@@ -84,7 +84,6 @@ The CLTK uses languages in its organization of data, however some good corpora d
 N–grams
 =======
 
-
  .. code-block:: python
 
    In [1]: from nltk.tokenize.punkt import PunktLanguageVars
@@ -136,80 +135,6 @@ N–grams
 
 
 
-Word frequency lists
-====================
-
-
-The CLTK has a module, ``make_frequencies_list``, which creates a list based on inputs you define. Its algorithm simply collects the most commonly used words in a selection of texts and returns the top number of those requested. For an example usage:
-
-.. code-block:: python
-
-   In [1]: from cltk.utils.frequency import Frequency
-
-   In [2]: from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
-
-   In [3]: import os
-
-   In [4]: freq = Frequency('greek')
-
-   In [6]: file = os.path.expanduser('~/cltk_data/greek/text/tlg/plaintext/TLG0012.TXT')
-
-   In [7]: with open(file) as f:
-   ...:     text = f.read().lower()
-   ...:
-
-   In [8]: text = tlg_plaintext_cleanup(text)
-
-   In [9]: freq.make_list_from_str(text, 10)  # second argument determines number of words output
-   Out[9]: ['δ', 'καὶ', 'δὲ', 'τε', 'μὲν', 'ἐν', 'δέ', 'ὣς', 'οἱ', 'τ']
-
-You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
-
-.. code-block:: python
-
-   In [10]: freq.make_list_from_str(text, 10, save=True)
-   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/greek_stops_2015_04_22_1935.py'.
-
-If you have access to the PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
-
-.. code-block:: python
-
-   In [11]: freq.make_list_from_corpus('tlg', 200, save=False)  #! this takes a really long time!
-   Out[11]:
-   ['δ', 'καὶ', 'δὲ', …]
-
-
-If you want to use saved frequent words as a list, you can open and access it with:
-
-.. code-block:: python
-
-   In [12]: import importlib.machinery
-
-   In [13]: frequencies_module = os.path.expanduser('~/cltk_data/user_data/frequencies_greek_2015_04_22_1935.py')
-
-   In [14]: loader = importlib.machinery.SourceFileLoader('frequencies', frequencies_module)
-
-   In [15]: module = loader.load_module()
-
-   In [16]: frequencies = module.FREQUENCIES_LIST
-
-and then filter out the stopwords as usual:
-
-.. code-block:: python
-
-   In [17]: tokens = p.word_tokenize(text.lower())
-
-   In [18]: [w for w in tokens if not w in frequencies]
-   Out[18]:
-   ['μῆνιν',
-    'ἄειδε',
-    'θεὰ',
-    'πηληϊάδεω',
-    'ἀχιλῆος',
-    'οὐλομένην',
-    …]
-
-
 Word count
 ==========
 
@@ -240,6 +165,65 @@ For a dictionary-like object of word frequencies, use the NLTK's ``Text()``.
    In [10]: vocabulary_count['tibi']
    Out[10]: 1
 
+
+
+Word frequency lists
+====================
+
+The CLTK has a module which creates a word frequency list based on inputs you define. Its simply collects word counts in specified text(s) and returns the top number of those requested. For an example usage:
+
+.. code-block:: python
+
+   In [1]: from cltk.utils.frequency import Frequency
+
+   In [2]: from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
+
+   In [3]: import os
+
+   In [4]: freq = Frequency('greek')
+
+   In [6]: file = os.path.expanduser('~/cltk_data/greek/text/tlg/plaintext/TLG0012.TXT')
+
+   In [7]: with open(file) as f:
+   ...:     text = f.read().lower()
+   ...:
+
+   In [8]: text = tlg_plaintext_cleanup(text)
+
+   In [9]: freq.make_list_from_str(text, 10)  # second argument determines number of words output
+   Out[9]: ['δ', 'καὶ', 'δὲ', 'τε', 'μὲν', 'ἐν', 'δέ', 'ὣς', 'οἱ', 'τ']
+
+You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
+
+.. code-block:: python
+
+   In [10]: freq.make_list_from_str(text, 10, save=True)
+   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/frequenciess_greek_2015_07_14_0658.py'.
+
+If you have access to the TLG or PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
+
+.. code-block:: python
+
+   In [11]: freq.make_list_from_corpus('tlg', 200, save=False)  # or 'phi5'; both take a while to run
+   Out[11]:
+   ['δ', 'καὶ', 'δὲ', …]
+
+
+If you want to use saved frequent words as a list, you can open and access it with:
+
+.. code-block:: python
+
+   In [12]: import importlib.machinery
+
+   In [13]: frequencies_module = os.path.expanduser('~/cltk_data/user_data/frequencies_greek_2015_04_22_1935.py')
+
+   In [14]: loader = importlib.machinery.SourceFileLoader('frequencies', frequencies_module)
+
+   In [15]: module = loader.load_module()
+
+   In [16]: module.FREQUENCY_LIST
+
+and then filter out the stopwords as usual:
 
 
 Word tokenization
