@@ -256,6 +256,8 @@ class Scansion:
         in this instance is defined as a vocalic group (i.e., a vowel or a
         diphthong). This means that all syllables which are not the last
         syllable in the word will end with a vowel or diphthong.
+
+        TODO: Determine whether Luke Hollis's module at cltk.stem.latin.syllabifier could replace this method.
         :param sentences_words: A list of sentences with tokenized words.
         :return: Syllabified words
         :rtype : list
