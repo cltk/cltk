@@ -275,7 +275,7 @@ TnT tagger
 
 
 Prosody Scanning
-========
+================
 A prosody scanner is available for text which already has had its natural lengths marked with macrons. It returns a list of strings of long and short marks for each sentence.
 
 .. code-block:: python
