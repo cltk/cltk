@@ -698,14 +698,6 @@ argenteo polubro, aureo eclutro. """
         scansion = Scansion()
         elidable_begin = scansion._elidable_begin(['hae', 're', 'na'])
         self.assertTrue(elidable_begin)
-        '''
-        elidable_begin = scansion._elidable_begin(['u', 'sque'])
-        self.assertTrue(elidable_begin)
-        elidable_begin = scansion._elidable_begin(['ā', 're', 'na'])
-        self.assertTrue(elidable_begin)
-        elidable_begin = scansion._elidable_begin(['eu', 're', 'ka'])
-        self.assertTrue(elidable_begin)
-        '''
 
     def test_elidable_end(self):
         scansion = Scansion()
