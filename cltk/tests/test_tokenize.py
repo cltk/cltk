@@ -6,7 +6,6 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
-from nltk.tokenize.punkt import PunktLanguageVars
 import os
 import unittest
 

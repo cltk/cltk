@@ -5,7 +5,6 @@ __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tag.pos import POSTag
-from nltk.tokenize.punkt import PunktLanguageVars
 import os
 import unittest
 

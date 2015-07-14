@@ -4,14 +4,14 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.utils.importer import CorpusImporter
-from cltk.stop.greek.stops import STOPS_LIST as greek_stops
-from cltk.stop.latin.stops import STOPS_LIST as latin_stops
+from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
+from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 import unittest
 
 
-class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
+class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
 
     def setUp(self):
@@ -40,7 +40,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         lowered = sentence.lower()
         punkt = PunktLanguageVars()
         tokens = punkt.word_tokenize(lowered)
-        no_stops = [w for w in tokens if w not in greek_stops]
+        no_stops = [w for w in tokens if w not in GREEK_STOPS]
         target_list = ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο',
                        'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',',
                        'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας.']
@@ -52,7 +52,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         lowered = sentence.lower()
         punkt = PunktLanguageVars()
         tokens = punkt.word_tokenize(lowered)
-        no_stops = [w for w in tokens if w not in latin_stops]
+        no_stops = [w for w in tokens if w not in LATIN_STOPS]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)

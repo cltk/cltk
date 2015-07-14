@@ -15,24 +15,6 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    def setUp(self):
-        """Clone Greek models in order to test pull function and other model
-        tests later.
-        """
-        corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_models_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_models_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
         jv_replacer = JVReplacer()
