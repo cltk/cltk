@@ -625,7 +625,7 @@ argenteo polubro, aureo eclutro. """
         self.assertEqual(lemmatized, target)
 
     def test_make_frequencies(self):
-        """Test stopword builder."""
+        """Test frequency builder."""
         frequencies = Frequency('latin')
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
         stops = frequencies.make_list_from_str(text, 3)
@@ -633,7 +633,7 @@ argenteo polubro, aureo eclutro. """
         self.assertEqual(stops, target)
 
     def test_make_frequencies_save(self):
-        """Test stopword builder."""
+        """Test frequency builder."""
         frequencies = Frequency('latin')
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
         frequencies.make_list_from_str(text, 3, save=True)
@@ -647,15 +647,21 @@ argenteo polubro, aureo eclutro. """
                 self.assertTrue(file.startswith(file_start))
                 os.remove(user_data + file)
 
-    def test_save_frequencies(self):
-        """Test stopword saving private module."""
+    def test_make_list_from_corpus_assert(self):
+        """Test frequency builder for corpus, if present."""
+        frequencies = Frequency('latin')
+        with self.assertRaises(AssertionError):
+            frequencies.make_list_from_corpus('xxx')
+
+    def test_saving_frequencies(self):
+        """Test frequency saving private module."""
         frequencies = Frequency('latin')
         frequencies._save_frequencies(['word1', 'word2'])
         # cltk_data/user_data/stops_latin_*
         user_data_rel = '~/cltk_data/user_data/'
         user_data = os.path.expanduser(user_data_rel)
         list_dir = os.listdir(user_data)
-        file_start = 'stops_latin_'
+        file_start = 'frequency_latin_'
         for file in list_dir:
             if file.startswith(file_start):
                 self.assertTrue(file.startswith(file_start))
