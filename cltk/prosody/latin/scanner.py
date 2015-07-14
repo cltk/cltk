@@ -109,12 +109,16 @@ class Scansion:
         """
 
         if str(word[-1]).endswith('m'):
+            print('end with m', word[-1])
             return True
         elif str(word[-1][-1]) in self.long_vowels:
-            return True
-        elif str(word[-1][-1]) in self.vowels:
+            print('long vowel', word[-1][-1])
             return True
         elif str(word[-1][-2] + word[-1][-1]) in self.diphthongs:
+            print('Diph', word[-1][-2] + word[-1][-1])
+            return True
+        elif str(word[-1][-1]) in self.vowels:
+            print('vowel', word[-1][-1])
             return True
         else:
             return False
@@ -129,7 +133,6 @@ class Scansion:
         :return: True if the beginning of a word is elidable, otherwise False
         :rtype : bool
         """
-
         if str(word[0]).startswith('h'):
             return True
         elif str(word[0][0]) in self.long_vowels:
