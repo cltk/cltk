@@ -1,6 +1,4 @@
-"""CLTK's logging module.
-TODO: add pylint ignores for 'invalid-name'.
-"""
+"""CLTK's logging module."""
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>']
@@ -10,15 +8,15 @@ import logging
 import logging.config
 import os
 
-home_dir = os.path.expanduser('~/cltk_data')
-log_path = os.path.join(home_dir, 'cltk.log')
+home_dir = os.path.expanduser('~/cltk_data')  # pylint: disable=invalid-name
+log_path = os.path.join(home_dir, 'cltk.log')  # pylint: disable=invalid-name
 
 if not os.path.isdir(home_dir):
     os.mkdir(home_dir)
 
-logger = logging.getLogger('CLTK')
-handler = logging.FileHandler(log_path)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s')  # pylint: disable=C0301
+logger = logging.getLogger('CLTK')  # pylint: disable=invalid-name
+handler = logging.FileHandler(log_path)  # pylint: disable=invalid-name
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s')  # pylint: disable=line-too-long,invalid-name
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
