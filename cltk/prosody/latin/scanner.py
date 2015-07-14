@@ -124,6 +124,7 @@ class Scansion:
         1) A word begins with 'h'
         2) A word begins with a vowel
         3) A word begins with a diphthong
+
         :param word: syllabified/'qu' fixed word
         :return: True if the beginning of a word is elidable, otherwise False
         :rtype : bool
@@ -133,9 +134,9 @@ class Scansion:
             return True
         elif str(word[0][0]) in self.long_vowels:
             return True
-        elif str(word[0][0]) in self.vowels:
-            return True
         elif str(word[0][0] + word[0][-1]) in self.diphthongs:
+            return True
+        elif str(word[0][0]) in self.vowels:
             return True
         else:
             return False
@@ -321,7 +322,6 @@ class Scansion:
         syllables = self.make_syllables(unsyllabified_tokens)
         qu_fixed_syllables = self._qu_fix(syllables)
         elision_fixed_syllables = self._elision_fixer(qu_fixed_syllables)
-
         return elision_fixed_syllables
 
     def scan_text(self, input_string):
@@ -334,9 +334,3 @@ class Scansion:
         sentence_syllables = self._syllable_condenser(syllables)
         meter = self._scansion(sentence_syllables)
         return meter
-
-if __name__ == "__main__":
-    UNSCANNED_TEXT = 'quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.'
-    SCAN = Scansion()
-    SCANNED_METER = SCAN.scan_text(UNSCANNED_TEXT)
-    print(SCANNED_METER)
