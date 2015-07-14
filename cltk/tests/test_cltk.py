@@ -3,14 +3,11 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.stop.greek.stops import STOPS_LIST as greek_stops
-from cltk.stop.latin.stops import STOPS_LIST as latin_stops
-from cltk.utils.frequency import Frequency
-from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
 from cltk.utils.build_contribs_index import build_contribs_file
 from cltk.utils.file_operations import open_pickle
+from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
@@ -78,65 +75,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(len(tokenized_sentences), len(good_tokenized_sentences))
     '''
 
-    def test_pos_unigram_greek(self):
-        """Test tagging Greek POS with unigram tagger."""
-        tagger = POSTag('greek')
-        tagged = tagger.tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=line-too-long
-        self.assertTrue(tagged)
-
-    def test_pos_bigram_greek(self):
-        """Test tagging Greek POS with bigram tagger."""
-        tagger = POSTag('greek')
-        tagged = tagger.tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=line-too-long
-        self.assertTrue(tagged)
-
-    def test_pos_trigram_greek(self):
-        """Test tagging Greek POS with trigram tagger."""
-        tagger = POSTag('greek')
-        tagged = tagger.tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=line-too-long
-        self.assertTrue(tagged)
-
-    def test_pos_ngram123_tagger_greek(self):
-        """Test tagging Greek POS with a 1-, 2-, and 3-gram backoff tagger."""
-        tagger = POSTag('greek')
-        tagged = tagger.tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=line-too-long
-        self.assertTrue(tagged)
-
-    def test_pos_tnt_tagger_greek(self):
-        """Test tagging Greek POS with TnT tagger."""
-        tagger = POSTag('greek')
-        tagged = tagger.tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')  # pylint: disable=line-too-long
-        self.assertTrue(tagged)
-
-    def test_pos_unigram_latin(self):
-        """Test tagging Latin POS with unigram tagger."""
-        tagger = POSTag('latin')
-        tagged = tagger.tag_unigram('Gallia est omnis divisa in partes tres')
-        self.assertTrue(tagged)
-
-    def test_pos_bigram_latin(self):
-        """Test tagging Latin POS with bigram tagger."""
-        tagger = POSTag('latin')
-        tagged = tagger.tag_bigram('Gallia est omnis divisa in partes tres')
-        self.assertTrue(tagged)
-
-    def test_pos_trigram_latin(self):
-        """Test tagging Latin POS with trigram tagger."""
-        tagger = POSTag('latin')
-        tagged = tagger.tag_trigram('Gallia est omnis divisa in partes tres')
-        self.assertTrue(tagged)
-
-    def test_pos_ngram123_tagger_latin(self):
-        """Test tagging Latin POS with a 1-, 2-, and 3-gram backoff tagger."""
-        tagger = POSTag('latin')
-        tagged = tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')  # pylint: disable=line-too-long
-        self.assertTrue(tagged)
-
-    def test_pos_tnt_tagger_latin(self):
-        """Test tagging Latin POS with TnT tagger."""
-        tagger = POSTag('latin')
-        tagged = tagger.tag_tnt('Gallia est omnis divisa in partes tres')
-        self.assertTrue(tagged)
 
     def test_logger(self):
         """Test the CLTK logger."""
