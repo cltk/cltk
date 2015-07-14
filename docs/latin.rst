@@ -326,37 +326,11 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
 Stopword Filtering
 ==================
 
-To use the CLTK's built-in stopwords list:
+The CLTK has a word frequency module, which will create a custom stopwords list based on inputs you define. It's algorithm simply collects the most commonly used words in a selection of texts.
 
 .. code-block:: python
 
-   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
-
-   In [2]: from cltk.stop.latin.stops import STOPS_LIST
-
-   In [3]: sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
-
-   In [4]: p = PunktLanguageVars()
-
-   In [5]: tokens = p.word_tokenize(sentence.lower())
-
-   In [6]: [w for w in tokens if not w in STOPS_LIST]
-   Out[6]: 
-   ['usque',
-    'tandem',
-    'abutere',
-    ',',
-    'catilina',
-    ',',
-    'patientia',
-    'nostra',
-    '?']
-
-The CLTK has a module, ``make_stopwords_list``, which will create a custom stopwords list based on inputs you define. It's algorithm simply collects the most commonly used words in a selection of texts.
-
-.. code-block:: python
-
-   In [1]: from cltk.stop.make_stopwords_list import Stopwords
+   In [1]: from cltk.utils.frequency import Frequency
 
    In [2]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 
@@ -364,17 +338,17 @@ The CLTK has a module, ``make_stopwords_list``, which will create a custom stopw
 
    In [4]: s = Stopwords('latin')
 
-   In [5]: file = '~/cltk_data/latin/text/phi5/individual_works/LAT0016.TXT-001.txt'
+   In [5]: file = os.path.expanduser('~/cltk_data/latin/text/phi5/individual_works/LAT0016.TXT-001.txt')
 
    In [6]: file = os.path.expanduser(file)
 
    In [7]: with open(file) as f:
-   ...:     r = f.read().lower()
+   ...:     text = f.read().lower()
    ...:
 
-   In [8]: text = phi5_plaintext_cleanup(r)
+   In [8]: text = phi5_plaintext_cleanup(text)
 
-   In [9]: s.make_list_from_str(text, 10)  # second argument determines number of words output
+   In [9]: freq.make_list_from_str(text, 10)  # second argument determines number of words output
    Out[9]:
    ['flauius',
     'in',

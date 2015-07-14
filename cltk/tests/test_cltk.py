@@ -3,7 +3,6 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
@@ -21,7 +20,7 @@ from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stop.greek.stops import STOPS_LIST as greek_stops
 from cltk.stop.latin.stops import STOPS_LIST as latin_stops
-from cltk.stop.make_stopwords_list import Stopwords
+from cltk.utils.frequency import Frequency
 from cltk.tag.pos import POSTag
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
@@ -625,19 +624,19 @@ argenteo polubro, aureo eclutro. """
         target = 'τὴν/τὴν διάγνωσιν/διάγνωσις ἔρχεσθαι/ἔρχομαι'
         self.assertEqual(lemmatized, target)
 
-    def test_make_stopwords(self):
+    def test_make_frequencies(self):
         """Test stopword builder."""
-        stopwords = Stopwords('latin')
+        frequencies = Frequency('latin')
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
-        stops = stopwords.make_list_from_str(text, 3)
+        stops = frequencies.make_list_from_str(text, 3)
         target = ['quo', 'catilina', 'nostra']
         self.assertEqual(stops, target)
 
-    def test_make_stopwords_save(self):
+    def test_make_frequencies_save(self):
         """Test stopword builder."""
-        stopwords = Stopwords('latin')
+        frequencies = Frequency('latin')
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
-        stopwords.make_list_from_str(text, 3, save=True)
+        frequencies.make_list_from_str(text, 3, save=True)
         # cltk_data/user_data/stops_latin_*
         user_data_rel = '~/cltk_data/user_data/'
         user_data = os.path.expanduser(user_data_rel)
@@ -648,10 +647,10 @@ argenteo polubro, aureo eclutro. """
                 self.assertTrue(file.startswith(file_start))
                 os.remove(user_data + file)
 
-    def test_save_stopwords(self):
+    def test_save_frequencies(self):
         """Test stopword saving private module."""
-        stopwords = Stopwords('latin')
-        stopwords._save_stopwords(['word1', 'word2'])
+        frequencies = Frequency('latin')
+        frequencies._save_frequencies(['word1', 'word2'])
         # cltk_data/user_data/stops_latin_*
         user_data_rel = '~/cltk_data/user_data/'
         user_data = os.path.expanduser(user_data_rel)

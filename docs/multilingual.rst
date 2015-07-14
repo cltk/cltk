@@ -135,29 +135,79 @@ N–grams
     …]
 
 
-Stopword generator
-==================
 
-The stopword generator makes a list the most commonly occurring words in a text.
+Word frequency lists
+====================
+
+
+The CLTK has a module, ``make_frequencies_list``, which creates a list based on inputs you define. Its algorithm simply collects the most commonly used words in a selection of texts and returns the top number of those requested. For an example usage:
 
 .. code-block:: python
 
-   In [1]: from cltk.stop.make_stopwords_list import Stopwords
+   In [1]: from cltk.utils.frequency import Frequency
 
-   In [2]: s = Stopwords('coptic')
+   In [2]: from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 
-   In [3]: text = 'ⲡⲁⲩⲗⲟⲥ ⲡ ⲁⲡⲟⲥⲧⲟⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ϩⲓⲧⲙ ⲡ ⲟⲩⲱϣ ⲙ ⲡ ⲛⲟⲩⲧⲉ'
+   In [3]: import os
 
-   In [4]: stops = s.make_list_from_str(text, 5)  # get 5 most common words
+   In [4]: freq = Frequency('greek')
 
-   In [5]: sentence = 'ⲡⲁⲩⲗⲟⲥ ⲡ ⲁⲡⲟⲥⲧⲟⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ϩⲓⲧⲙ ⲡ ⲟⲩⲱϣ ⲙ ⲡ ⲛⲟⲩⲧⲉ ⲙⲛ ⲥⲱⲥⲑⲉⲛⲏⲥ ⲡ ⲥⲟⲛ ⲉ ⲩ ⲥϩⲁⲓ ⲛ ⲧ ⲉⲕⲕⲗⲏⲥⲓⲁ ⲙ ⲡ ⲛⲟⲩⲧⲉ ⲧⲁⲓ ⲉⲧ ϣⲟⲟⲡ ϩⲛ ⲕⲟⲣⲓⲛⲑⲟⲥ .'
+   In [6]: file = os.path.expanduser('~/cltk_data/greek/text/tlg/plaintext/TLG0012.TXT')
 
-   In [6]: tokens = p.word_tokenize(sentence)
+   In [7]: with open(file) as f:
+   ...:     text = f.read().lower()
+   ...:
 
-   In [7]: no_stops = [w for w in tokens if not w in stops]
+   In [8]: text = tlg_plaintext_cleanup(text)
 
-   In [8]: ' '.join(no_stops)
-   Out[8]: 'ⲡⲁⲩⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ⲛⲟⲩⲧⲉ ⲙⲛ ⲥⲱⲥⲑⲉⲛⲏⲥ ⲥⲟⲛ ⲉ ⲩ ⲥϩⲁⲓ ⲛ ⲧ ⲉⲕⲕⲗⲏⲥⲓⲁ ⲛⲟⲩⲧⲉ ⲧⲁⲓ ⲉⲧ ϣⲟⲟⲡ ϩⲛ ⲕⲟⲣⲓⲛⲑⲟⲥ .'
+   In [9]: freq.make_list_from_str(text, 10)  # second argument determines number of words output
+   Out[9]: ['δ', 'καὶ', 'δὲ', 'τε', 'μὲν', 'ἐν', 'δέ', 'ὣς', 'οἱ', 'τ']
+
+You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
+
+.. code-block:: python
+
+   In [10]: freq.make_list_from_str(text, 10, save=True)
+   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/greek_stops_2015_04_22_1935.py'.
+
+If you have access to the PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
+
+.. code-block:: python
+
+   In [11]: freq.make_list_from_corpus('tlg', 200, save=False)  #! this takes a really long time!
+   Out[11]:
+   ['δ', 'καὶ', 'δὲ', …]
+
+
+If you want to use saved frequent words as a list, you can open and access it with:
+
+.. code-block:: python
+
+   In [12]: import importlib.machinery
+
+   In [13]: frequencies_module = os.path.expanduser('~/cltk_data/user_data/frequencies_greek_2015_04_22_1935.py')
+
+   In [14]: loader = importlib.machinery.SourceFileLoader('frequencies', frequencies_module)
+
+   In [15]: module = loader.load_module()
+
+   In [16]: frequencies = module.FREQUENCIES_LIST
+
+and then filter out the stopwords as usual:
+
+.. code-block:: python
+
+   In [17]: tokens = p.word_tokenize(text.lower())
+
+   In [18]: [w for w in tokens if not w in frequencies]
+   Out[18]:
+   ['μῆνιν',
+    'ἄειδε',
+    'θεὰ',
+    'πηληϊάδεω',
+    'ἀχιλῆος',
+    'οὐλομένην',
+    …]
 
 
 Word count
