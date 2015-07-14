@@ -57,7 +57,7 @@ class Frequency:
         up to the threshold number.
         """
         assert corpus in ['phi5', 'tlg'], \
-            "Corpus '{0}' not available. Choose from 'phi5' or 'tlg'".format(corpus)
+            "Corpus '{0}' not available. Choose from 'phi5' or 'tlg'.".format(corpus)
         all_strings = self._assemble_corpus_string(corpus=corpus)
         frequencies = self.make_list_from_str(all_strings, threshold=threshold)
 
@@ -88,14 +88,14 @@ class Frequency:
 
     def _save_frequencies(self, frequencies):
         """Take a list of word frequencies and save to ``cltk_data/user_data``.
-        :param word frequencies: A list of word frequencies.
+        :param word frequencies: A list of frequent words.
         :type word frequencies: list
         """
         user_data_rel = '~/cltk_data/user_data'
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
             os.makedirs(user_data)
-        frequencies_path = os.path.join(user_data, 'frequenciess_' + self.language + '_' + strftime("%Y_%m_%d_%H%M") + '.py')  # pylint: disable=line-too-long
+        frequencies_path = os.path.join(user_data, 'frequency_' + self.language + '_' + strftime("%Y_%m_%d_%H%M") + '.py')  # pylint: disable=line-too-long
         with open(frequencies_path, 'w') as file_open:
             file_open.write('FREQUENCY_LIST = {0}'.format(frequencies))
         message = "Custom word frequency file saved at '{0}'.".format(frequencies_path)
