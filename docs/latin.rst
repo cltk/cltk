@@ -323,94 +323,35 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
    Out[4]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
 
 
+
 Stopword Filtering
 ==================
 
-The CLTK has a word frequency module, which will create a custom stopwords list based on inputs you define. It's algorithm simply collects the most commonly used words in a selection of texts.
+To use the CLTK's built-in stopwords list:
 
 .. code-block:: python
 
-   In [1]: from cltk.utils.frequency import Frequency
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
 
-   In [2]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+   In [2]: from cltk.stop.latin.stops import STOPS_LIST
 
-   In [3]: import os
+   In [3]: sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
 
-   In [4]: s = Stopwords('latin')
+   In [4]: p = PunktLanguageVars()
 
-   In [5]: file = os.path.expanduser('~/cltk_data/latin/text/phi5/individual_works/LAT0016.TXT-001.txt')
+   In [5]: tokens = p.word_tokenize(sentence.lower())
 
-   In [6]: file = os.path.expanduser(file)
-
-   In [7]: with open(file) as f:
-   ...:     text = f.read().lower()
-   ...:
-
-   In [8]: text = phi5_plaintext_cleanup(text)
-
-   In [9]: freq.make_list_from_str(text, 10)  # second argument determines number of words output
-   Out[9]:
-   ['flauius',
-    'in',
-    'cn',
-    'filius',
-    'qui',
-    'anni',
-    'aedilem',
-    'isque',
-    'quia',
-    'dicunt']
-
-You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
-
-.. code-block:: python
-
-   In [10]: s.make_list_from_str(text, 10, save=True)
-   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/stops_latin_2015_04_22_1843.py'.
-
-If you have access to the PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
-
-.. code-block:: python
-
-   In [11]: s.make_list_from_corpus('phi5', 200, save=False)
-   Out[11]:
-   ['et',
-    'in',
-    'est',
-    'non',
-    …]
-
-To use a saved module,
-
-.. code-block:: python
-
-   In [12]: import importlib.machinery
-
-   In [13]: stops_module = os.path.expanduser('~/cltk_data/user_data/latin_stops_2015_04_22_1843.py')
-
-   In [14]: loader = importlib.machinery.SourceFileLoader('stops', stops_module)
-
-   In [15]: module = loader.load_module()
-
-   In [16]: stops = module.STOPS_LIST
-
-and then filter out the stopwords as usual:
-
-.. code-block:: python
-
-   In [17]: tokens = p.word_tokenize(text.lower())
-
-   In [18]: [w for w in tokens if not w in stops]
-   Out[18]:
-   ['eundem',
-    'romulum',
-    'ad',
-    'cenam',
-    'uocatum',
-    'ibi',
-    'non',
-    …]
-
+   In [6]: [w for w in tokens if not w in STOPS_LIST]
+   Out[6]:
+   ['usque',
+    'tandem',
+    'abutere',
+    ',',
+    'catilina',
+    ',',
+    'patientia',
+    'nostra',
+    '?']
 
 
 Syllabifier
