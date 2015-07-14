@@ -58,31 +58,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(EOFError):
             open_pickle(bad_file)
 
-    def test_latin_stopwords(self):
-        """Test filtering Latin stopwords."""
-        sentence = 'Quo usque tandem abutere, Catilina, patientia nostra?'
-        lowered = sentence.lower()
-        punkt = PunktLanguageVars()
-        tokens = punkt.word_tokenize(lowered)
-        no_stops = [w for w in tokens if w not in latin_stops]
-        target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
-                       'patientia', 'nostra', '?']
-        self.assertEqual(no_stops, target_list)
-
-    def test_greek_stopwords(self):
-        """Test filtering Greek stopwords."""
-        sentence = 'Ἅρπαγος δὲ καταστρεψάμενος Ἰωνίην ἐποιέετο στρατηίην \
-        ἐπὶ Κᾶρας καὶ Καυνίους καὶ Λυκίους, ἅμα ἀγόμενος καὶ Ἴωνας καὶ \
-        Αἰολέας.'
-        lowered = sentence.lower()
-        punkt = PunktLanguageVars()
-        tokens = punkt.word_tokenize(lowered)
-        no_stops = [w for w in tokens if w not in greek_stops]
-        target_list = ['ἅρπαγος', 'καταστρεψάμενος', 'ἰωνίην', 'ἐποιέετο',
-                       'στρατηίην', 'κᾶρας', 'καυνίους', 'λυκίους', ',',
-                       'ἅμα', 'ἀγόμενος', 'ἴωνας', 'αἰολέας.']
-        self.assertEqual(no_stops, target_list)
-
     def test_sentence_tokenizer_latin(self):
         """Test tokenizing Latin sentences."""
         sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=line-too-long
