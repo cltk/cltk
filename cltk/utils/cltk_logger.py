@@ -15,8 +15,6 @@ log_path = os.path.join(home_dir, 'cltk.log')
 
 if not os.path.isdir(home_dir):
     os.mkdir(home_dir)
-else:
-    pass
 
 logger = logging.getLogger('CLTK')
 handler = logging.FileHandler(log_path)
