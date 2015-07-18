@@ -44,7 +44,7 @@ Therefore, please cite as follows:
 Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.17476
 ```
 
-A style-neutral BibTex entry would look like this:
+A style-neutral BibTeX entry would look like this:
 ```
 @Misc{johnson2014,
 author = {Kyle P. Johnson et al.},
@@ -55,7 +55,7 @@ year = {2014--2015}
 }
 ```
 
-Optionally you may add version/release number, e.g., ``v0.0.1.12``, to the entry.
+Optionally you may add version/release number, e.g., ``v0.0.1.19``, to the entry.
 
 
 License
