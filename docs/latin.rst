@@ -355,7 +355,7 @@ To use the CLTK's built-in stopwords list:
 
 
 Syllabifier
-========
+===========
 The syllabifier splits a given input Latin word into a list of syllables based on an algorithm and set of syllable specifications for Latin.
 
 .. code-block:: python

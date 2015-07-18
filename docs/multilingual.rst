@@ -191,14 +191,24 @@ The CLTK has a module which creates a word frequency list based on inputs you de
    In [8]: text = tlg_plaintext_cleanup(text)
 
    In [9]: freq.make_list_from_str(text, 10)  # second argument determines number of words output
-   Out[9]: ['δ', 'καὶ', 'δὲ', 'τε', 'μὲν', 'ἐν', 'δέ', 'ὣς', 'οἱ', 'τ']
+   Out[9]:
+   [('δ', 6507),
+    ('καὶ', 4799),
+    ('δὲ', 3194),
+    ('τε', 2645),
+    ('μὲν', 1628),
+    ('ἐν', 1420),
+    ('δέ', 1267),
+    ('ὣς', 1203),
+    ('οἱ', 1126),
+    ('τ', 1101)]
 
-You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
+You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``:
 
 .. code-block:: python
 
    In [10]: freq.make_list_from_str(text, 10, save=True)
-   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/frequenciess_greek_2015_07_14_0658.py'.
+   Custom word frequency file saved at '/Users/kyle/cltk_data/user_data/frequency_greek_2015_07_14_1215.py'.
 
 If you have access to the TLG or PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
 
@@ -206,7 +216,16 @@ If you have access to the TLG or PHI5 disc, and have already imported it and con
 
    In [11]: freq.make_list_from_corpus('tlg', 200, save=False)  # or 'phi5'; both take a while to run
    Out[11]:
-   ['δ', 'καὶ', 'δὲ', …]
+   [('δ', 6507),
+    ('καὶ', 4799),
+    ('δὲ', 3194),
+    ('τε', 2645),
+    ('μὲν', 1628),
+    ('ἐν', 1420),
+    ('δέ', 1267),
+    ('ὣς', 1203),
+    ('οἱ', 1126),
+    ('τ', 1101)]
 
 
 If you want to use saved frequent words as a list, you can open and access it with:
@@ -215,13 +234,13 @@ If you want to use saved frequent words as a list, you can open and access it wi
 
    In [12]: import importlib.machinery
 
-   In [13]: frequencies_module = os.path.expanduser('~/cltk_data/user_data/frequencies_greek_2015_04_22_1935.py')
+   In [13]: frequencies = os.path.expanduser('~/cltk_data/user_data/frequency_greek_2015_07_14_1215.py')
 
-   In [14]: loader = importlib.machinery.SourceFileLoader('frequencies', frequencies_module)
+   In [14]: loader = importlib.machinery.SourceFileLoader('frequencies', frequencies)
 
    In [15]: module = loader.load_module()
 
-   In [16]: module.FREQUENCY_LIST
+   In [16]: module.FREQUENCY_COUNT
 
 and then filter out the stopwords as usual:
 
