@@ -8,6 +8,7 @@ from cltk.utils.build_contribs_index import build_contribs_file
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
+from collections import Counter
 import os
 import unittest
 
@@ -69,46 +70,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_make_frequencies(self):
         """Test frequency builder."""
-        frequencies = Frequency('latin')
+        frequencies = Frequency()
         text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
-        stops = frequencies.make_list_from_str(text, 3)
-        target = ['quo', 'catilina', 'nostra']
-        self.assertEqual(stops, target)
-
-    def test_make_frequencies_save(self):
-        """Test frequency builder."""
-        frequencies = Frequency('latin')
-        text = 'Quo Quo Quo Quo usque tandem abutere, Catilina Catilina Catilina, patientia nostra nostra ?'.lower()
-        frequencies.make_list_from_str(text, 3, save=True)
-        # cltk_data/user_data/stops_latin_*
-        user_data_rel = '~/cltk_data/user_data/'
-        user_data = os.path.expanduser(user_data_rel)
-        list_dir = os.listdir(user_data)
-        file_start = 'stops_latin_'
-        for file in list_dir:
-            if file.startswith(file_start):
-                self.assertTrue(file.startswith(file_start))
-                os.remove(user_data + file)
+        count = frequencies.counter_from_str(text)
+        target = Counter({'quo': 4, 'catilina': 3, 'nostra': 2, 'patientia': 1, 'abutere': 1, 'usque': 1, 'tandem': 1})
+        self.assertEqual(count, target)
 
     def test_make_list_from_corpus_assert(self):
         """Test frequency builder for corpus, if present."""
-        frequencies = Frequency('latin')
+        frequencies = Frequency()
         with self.assertRaises(AssertionError):
-            frequencies.make_list_from_corpus('xxx')
-
-    def test_saving_frequencies(self):
-        """Test frequency saving private module."""
-        frequencies = Frequency('latin')
-        frequencies._save_frequencies(['word1', 'word2'])
-        # cltk_data/user_data/stops_latin_*
-        user_data_rel = '~/cltk_data/user_data/'
-        user_data = os.path.expanduser(user_data_rel)
-        list_dir = os.listdir(user_data)
-        file_start = 'frequency_latin_'
-        for file in list_dir:
-            if file.startswith(file_start):
-                self.assertTrue(file.startswith(file_start))
-                os.remove(user_data + file)
+            frequencies.counter_from_corpus('xxx')
 
     def test_concordance_from_string(self):
         """Test ``write_concordance_from_string()`` for file writing completion
