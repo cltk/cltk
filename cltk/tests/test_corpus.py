@@ -87,12 +87,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test post-TLGU cleanup of text of Latin PHI5 text."""
         dirty = """        {ODYSSIA}
         {Liber I}
-Virum 999 mihi, Camena, insece versutum.
+Virum áge 999 mihi, Camena, (insece) versutum.
 Pater noster, Saturni filie . . .
 Mea puera, quid verbi ex tuo ore supera fugit?
 argenteo polubro, aureo eclutro. """
         clean = phi5_plaintext_cleanup(dirty)
-        target = """                  Virum  mihi, Camena, insece versutum. Pater noster, Saturni filie . . . Mea puera, quid verbi ex tuo ore supera fugit? argenteo polubro, aureo eclutro. """  # pylint: disable=line-too-long
+        target = ' Virum áge mihi Camena versutum. Pater noster Saturni filie . . . Mea puera quid verbi ex tuo ore supera fugit argenteo polubro aureo eclutro. '  # pylint: disable=line-too-long
         self.assertEqual(clean, target)
 
     def test_assemble_tlg_author(self):
