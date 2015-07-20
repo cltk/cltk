@@ -390,9 +390,8 @@ Intended for use on the TLG after processing by ``TLGU()``.
    In [5]: r[:500]
    Out[5]: '\nDices pulchrum esse inimicos \nulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uide-\ntur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non  \npotest, multo tempore multisque partibus inimici nostri non peribunt \natque, uti nunc sunt, erunt potius quam res publica profligetur atque \npereat. \n    Verbis conceptis deierare ausim, praeterquam qui \nTiberium Gracchum necarunt, neminem inimicum tantum molestiae \ntantumque laboris, quantum te ob has res, mihi tradidis'
 
-   In [6]: phi5_plaintext_cleanup(r)[:500]
-   Out[6]: ' Dices pulchrum esse inimicos  ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non   potest, multo tempore multisque partibus inimici nostri non peribunt  atque, uti nunc sunt, erunt potius quam res publica profligetur atque  pereat.      Verbis conceptis deierare ausim, praeterquam qui  Tiberium Gracchum necarunt, neminem inimicum tantum molestiae  tantumque laboris, quantum te ob has res, mihi tradidisse'
-
+   In [6]: phi5_plaintext_cleanup(r, rm_punctuation=True, rm_periods=False)[:500]
+   Out[7]: ' Dices pulchrum esse inimicos ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur sed si liceat re publica salua ea persequi. sed quatenus id fieri non potest multo tempore multisque partibus inimici nostri non peribunt atque uti nunc sunt erunt potius quam res publica profligetur atque pereat. Verbis conceptis deierare ausim praeterquam qui Tiberium Gracchum necarunt neminem inimicum tantum molestiae tantumque laboris quantum te ob has res mihi tradidisse quem oportebat omni'
 
 
 If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` might be of use.

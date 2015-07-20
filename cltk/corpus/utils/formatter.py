@@ -40,21 +40,40 @@ def remove_non_ascii(input_string):
     return no_ascii
 
 
-def tlg_plaintext_cleanup(text):
+def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek TLG text.
     TODO: Surely more junk to pull out. Please submit bugs!
-    TODO: \{.+?\}|\(.+?\) not always working
+    TODO: \{.+?\}|\(.+?\) always working?
     """
-    remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
+    remove_comp = re.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
     text = remove_comp.sub('', text)
 
+    new_text = None
+    if rm_punctuation:
+        new_text = ''
+        punctuation = [',', '·', ':', '"', "'", '?', '-', '!', '*', '[', ']', '{', '}']
+        if rm_periods:
+            punctuation += ['.', ';']
+        for char in text:
+            # second try at rming some punctuation; merge with above regex
+            if char in punctuation:
+                pass
+            else:
+                new_text += char
+    if new_text:
+        text = new_text
+
+    # replace line breaks w/ space
     replace_comp = re.compile(r'\n')
     text = replace_comp.sub(' ', text)
+
+    comp_space = re.compile(r'\s+')
+    text = comp_space.sub(' ', text)
 
     return text
 
 
-def phi5_plaintext_cleanup(text, rm_periods=False):
+def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek PHI5 text.
     TODO: Surely more junk to pull out. Please submit bugs!
     """
@@ -63,24 +82,28 @@ def phi5_plaintext_cleanup(text, rm_periods=False):
     remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[0-9]')
     text = remove_comp.sub('', text)
 
-    new_text = ''
-    punctuation = [',', ';', ':', '"', "'", '?', '-', '!', '*', '[', ']', '{', '}']
-    if rm_periods:
-        punctuation += ['.']
-    for char in text:
-        # rm acute combining acute accents made by TLGU
-        # Could be caught by regex, tried and failed, not sure why
-        if bytes(char, 'utf-8') == b'\xcc\x81':
-            pass
-        # second try at rming some punctuation; merge with above regex
-        elif char in punctuation:
-            pass
-        else:
-            new_text += char
+    new_text = None
+    if rm_punctuation:
+        new_text = ''
+        punctuation = [',', ';', ':', '"', "'", '?', '-', '!', '*', '[', ']', '{', '}']
+        if rm_periods:
+            punctuation += ['.']
+        for char in text:
+            # rm acute combining acute accents made by TLGU
+            # Could be caught by regex, tried and failed, not sure why
+            if bytes(char, 'utf-8') == b'\xcc\x81':
+                pass
+            # second try at rming some punctuation; merge with above regex
+            elif char in punctuation:
+                pass
+            else:
+                new_text += char
+    if new_text:
+        text = new_text
 
     # replace line breaks w/ space
     replace_comp = re.compile(r'\n')
-    text = replace_comp.sub(' ', new_text)
+    text = replace_comp.sub(' ', text)
 
     comp_space = re.compile(r'\s+')
     text = comp_space.sub(' ', text)
