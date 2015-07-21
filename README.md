@@ -1,7 +1,7 @@
 The Classical Language Toolkit
 ==============================
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![Dependency Status](https://gemnasium.com/kylepjohnson/cltk.svg)](https://gemnasium.com/kylepjohnson/cltk) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.17476.svg)](http://dx.doi.org/10.5281/zenodo.17476)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![Dependency Status](https://gemnasium.com/kylepjohnson/cltk.svg)](https://gemnasium.com/kylepjohnson/cltk) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.20858.svg)](http://dx.doi.org/10.5281/zenodo.20858)
 
 [![Join the chat at https://gitter.im/kylepjohnson/cltk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kylepjohnson/cltk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -41,7 +41,7 @@ Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Dig
 
 Therefore, please cite as follows: 
 ```
-Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.17476
+Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.20858
 ```
 
 A style-neutral BibTeX entry would look like this:
@@ -50,12 +50,12 @@ A style-neutral BibTeX entry would look like this:
 author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
 howpublished = {\url{https://github.com/kylepjohnson/cltk}},
-note = {{DOI} 10.5281/zenodo.17476},
+note = {{DOI} 10.5281/zenodo.20858},
 year = {2014--2015}
 }
 ```
 
-Optionally you may add version/release number, e.g., ``v0.0.1.19``, to the entry.
+Optionally you may add version/release number, e.g., ``v0.0.1.20``, to the entry.
 
 
 License
