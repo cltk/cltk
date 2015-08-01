@@ -56,7 +56,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word_tokenizer = WordTokenizer('latin')
         text = 'atque haec abuterque nihil'
         tokens = word_tokenizer.tokenize(text)
-        target = ['atque', 'haec', 'abuter', 'que', 'nihil']
+        target = ['atque', 'haec', 'abuter', '-que', 'nihil']
         self.assertEqual(tokens, target)
 
 if __name__ == '__main__':
