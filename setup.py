@@ -25,7 +25,7 @@ setup(
         'Topic :: Text Processing :: Linguistic',
         'Topic :: Utilities',
     ],
-    description='NLP support for Classical languages.',
+    description='NLP for the ancient world.',
     install_requires=['nltk',
                       'gitpython'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
