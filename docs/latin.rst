@@ -249,7 +249,7 @@ Trigram
 
    In [6]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
    Out[6]:
-   [('Gallia', 'N-S---FB-'),
+   [('Gallia', None),
     ('est', 'V3SPIA---'),
     ('omnis', 'A-S---MN-'),
     ('divisa', 'T-PRPPNN-'),
@@ -265,7 +265,7 @@ TnT tagger
 
    In [7]: tagger.tag_tnt('Gallia est omnis divisa in partes tres')
    Out[7]:
-   [('Gallia', 'N-S---FB-'),
+   [('Gallia', 'Unk'),
     ('est', 'V3SPIA---'),
     ('omnis', 'N-S---MN-'),
     ('divisa', 'T-SRPPFN-'),
