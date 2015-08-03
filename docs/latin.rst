@@ -409,10 +409,6 @@ If you have a text of a language in Latin characters which contain a lot of junk
 Word Tokenization
 =================
 
-.. warning::
-
-   This module is currently in development. Results may not be accurate.
-
 .. code-block:: python
 
    In [1]: from cltk.tokenize.word import WordTokenizer
