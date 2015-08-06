@@ -19,7 +19,6 @@ import errno
 from git import Repo
 import os
 import shutil
-import sys
 from urllib.parse import urljoin
 
 

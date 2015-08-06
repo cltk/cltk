@@ -1,6 +1,9 @@
 # Contributors
 CLTK authors alphabetically ordered by first name
 
+## Bradley Baker <bradley.baker12@ncf.edu>
+* cltk/prosody/latin/scanner.py
+
 ## Edward Loper <edloper@gmail.com>
 * cltk/utils/philology.py
 
@@ -18,16 +21,22 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/utils/importer.py
 * cltk/stem/lemma.py
 * cltk/stem/latin/j_v.py
-* cltk/stop/make_stopwords_list.py
 * cltk/stop/greek/stops.py
 * cltk/stop/latin/stops.py
 * cltk/tag/pos.py
-* cltk/tests/test_cltk.py
+* cltk/tests/test_corpus.py
+* cltk/tests/test_prosody.py
+* cltk/tests/test_stem.py
+* cltk/tests/test_stop.py
+* cltk/tests/test_tag.py
+* cltk/tests/test_tokenize.py
+* cltk/tests/test_utils.py
 * cltk/tokenize/sentence.py
 * cltk/tokenize/word.py
 * cltk/utils/build_contribs_index.py
 * cltk/utils/cltk_logger.py
 * cltk/utils/file_operations.py
+* cltk/utils/frequency.py
 * cltk/utils/philology.py
 
 ## Luke Hollis <lukehollis@gmail.com>
@@ -53,4 +62,7 @@ CLTK authors alphabetically ordered by first name
 
 ## Steven Bird <stevenbird1@gmail.com>
 * cltk/utils/philology.py
+
+## Tyler Kirby <joseph.kirby12@ncf.edu>
+* cltk/prosody/latin/scanner.py
 

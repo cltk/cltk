@@ -249,7 +249,7 @@ Trigram
 
    In [6]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
    Out[6]:
-   [('Gallia', 'N-S---FB-'),
+   [('Gallia', None),
     ('est', 'V3SPIA---'),
     ('omnis', 'A-S---MN-'),
     ('divisa', 'T-PRPPNN-'),
@@ -265,13 +265,29 @@ TnT tagger
 
    In [7]: tagger.tag_tnt('Gallia est omnis divisa in partes tres')
    Out[7]:
-   [('Gallia', 'N-S---FB-'),
+   [('Gallia', 'Unk'),
     ('est', 'V3SPIA---'),
     ('omnis', 'N-S---MN-'),
     ('divisa', 'T-SRPPFN-'),
     ('in', 'R--------'),
     ('partes', 'N-P---FA-'),
     ('tres', 'M--------')]
+
+
+Prosody Scanning
+================
+A prosody scanner is available for text which already has had its natural lengths marked with macrons. It returns a list of strings of long and short marks for each sentence.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin.scanner import Scansion
+
+   In [2]: scanner = Scansion()
+
+   In [3]: text = 'quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.'
+
+   In [4]: scanner.scan_text(text)
+   Out[4]: ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯¯', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯˘']
 
 
 Sentence Tokenization
@@ -307,6 +323,7 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
    Out[4]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
 
 
+
 Stopword Filtering
 ==================
 
@@ -325,7 +342,7 @@ To use the CLTK's built-in stopwords list:
    In [5]: tokens = p.word_tokenize(sentence.lower())
 
    In [6]: [w for w in tokens if not w in STOPS_LIST]
-   Out[6]: 
+   Out[6]:
    ['usque',
     'tandem',
     'abutere',
@@ -336,95 +353,9 @@ To use the CLTK's built-in stopwords list:
     'nostra',
     '?']
 
-The CLTK has a module, ``make_stopwords_list``, which will create a custom stopwords list based on inputs you define. It's algorithm simply collects the most commonly used words in a selection of texts.
-
-.. code-block:: python
-
-   In [1]: from cltk.stop.make_stopwords_list import Stopwords
-
-   In [2]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
-
-   In [3]: import os
-
-   In [4]: s = Stopwords('latin')
-
-   In [5]: file = '~/cltk_data/latin/text/phi5/individual_works/LAT0016.TXT-001.txt'
-
-   In [6]: file = os.path.expanduser(file)
-
-   In [7]: with open(file) as f:
-   ...:     r = f.read().lower()
-   ...:
-
-   In [8]: text = phi5_plaintext_cleanup(r)
-
-   In [9]: s.make_list_from_str(text, 10)  # second argument determines number of words output
-   Out[9]:
-   ['flauius',
-    'in',
-    'cn',
-    'filius',
-    'qui',
-    'anni',
-    'aedilem',
-    'isque',
-    'quia',
-    'dicunt']
-
-You can save the output to file into ``~/cltk_data/user_data`` by selecting the argument ``save=True``.
-
-.. code-block:: python
-
-   In [10]: s.make_list_from_str(text, 10, save=True)
-   Custom stopword file saved at '/Users/kyle/cltk_data/user_data/stops_latin_2015_04_22_1843.py'.
-
-If you have access to the PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
-
-.. code-block:: python
-
-   In [11]: s.make_list_from_corpus('phi5', 200, save=False)
-   Out[11]:
-   ['et',
-    'in',
-    'est',
-    'non',
-    …]
-
-To use a saved module,
-
-.. code-block:: python
-
-   In [12]: import importlib.machinery
-
-   In [13]: stops_module = os.path.expanduser('~/cltk_data/user_data/latin_stops_2015_04_22_1843.py')
-
-   In [14]: loader = importlib.machinery.SourceFileLoader('stops', stops_module)
-
-   In [15]: module = loader.load_module()
-
-   In [16]: stops = module.STOPS_LIST
-
-and then filter out the stopwords as usual:
-
-.. code-block:: python
-
-   In [17]: tokens = p.word_tokenize(text.lower())
-
-   In [18]: [w for w in tokens if not w in stops]
-   Out[18]:
-   ['eundem',
-    'romulum',
-    'ad',
-    'cenam',
-    'uocatum',
-    'ibi',
-    'non',
-    …]
-
-
 
 Syllabifier
-========
+===========
 The syllabifier splits a given input Latin word into a list of syllables based on an algorithm and set of syllable specifications for Latin.
 
 .. code-block:: python
@@ -459,9 +390,8 @@ Intended for use on the TLG after processing by ``TLGU()``.
    In [5]: r[:500]
    Out[5]: '\nDices pulchrum esse inimicos \nulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uide-\ntur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non  \npotest, multo tempore multisque partibus inimici nostri non peribunt \natque, uti nunc sunt, erunt potius quam res publica profligetur atque \npereat. \n    Verbis conceptis deierare ausim, praeterquam qui \nTiberium Gracchum necarunt, neminem inimicum tantum molestiae \ntantumque laboris, quantum te ob has res, mihi tradidis'
 
-   In [6]: phi5_plaintext_cleanup(r)[:500]
-   Out[6]: ' Dices pulchrum esse inimicos  ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur, sed si liceat re publica salua ea persequi. sed quatenus id fieri non   potest, multo tempore multisque partibus inimici nostri non peribunt  atque, uti nunc sunt, erunt potius quam res publica profligetur atque  pereat.      Verbis conceptis deierare ausim, praeterquam qui  Tiberium Gracchum necarunt, neminem inimicum tantum molestiae  tantumque laboris, quantum te ob has res, mihi tradidisse'
-
+   In [6]: phi5_plaintext_cleanup(r, rm_punctuation=True, rm_periods=False)[:500]
+   Out[7]: ' Dices pulchrum esse inimicos ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur sed si liceat re publica salua ea persequi. sed quatenus id fieri non potest multo tempore multisque partibus inimici nostri non peribunt atque uti nunc sunt erunt potius quam res publica profligetur atque pereat. Verbis conceptis deierare ausim praeterquam qui Tiberium Gracchum necarunt neminem inimicum tantum molestiae tantumque laboris quantum te ob has res mihi tradidisse quem oportebat omni'
 
 
 If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` might be of use.
@@ -478,10 +408,6 @@ If you have a text of a language in Latin characters which contain a lot of junk
 
 Word Tokenization
 =================
-
-.. warning::
-
-   This module is currently in development. Results may not be accurate.
 
 .. code-block:: python
 

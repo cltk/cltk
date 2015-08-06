@@ -25,7 +25,7 @@ setup(
         'Topic :: Text Processing :: Linguistic',
         'Topic :: Utilities',
     ],
-    description='NLP support for Classical languages.',
+    description='NLP for the ancient world.',
     install_requires=['nltk',
                       'gitpython'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
@@ -34,7 +34,7 @@ setup(
     name='cltk',
     packages=find_packages(),
     url='https://github.com/kylepjohnson/cltk',
-    version='0.0.1.17',
+    version='0.0.1.21',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )

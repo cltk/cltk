@@ -1,16 +1,10 @@
 """This list comes from the Perseus Hopper source
 [http://sourceforge.net/projects/perseus-hopper], found at
 "/sgml/reading/build/stoplists", though this only contained acute accents on
-the ultima. There has thus been added grave accents to the ultima of each.
+the ultima. There has been added to this grave accents to the ultima of each.
 
 Perseus source is made available under the Mozilla Public License 1.1
 (MPL 1.1) [http://www.mozilla.org/MPL/1.1/].
-
-TODO:
- - Add alternate versions of these words to the list, such as 'ἐξ' for 'ἐκ'.
- - Eventually, an entirely new list of stopwords should be generated from the
- TLG corpus, including the most frequently found words in the entire Ancient
- Greek canon, as well as more specific lists according to date, genre, etc..
 """
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
@@ -107,6 +101,7 @@ STOPS_LIST = ['αὐτὸς',
               'ἐγὼ',
               'ἐγώ',
               'ἐκ',
+              'ἐξ',
               'ἐμὸς',
               'ἐμός',
               'ἐν',

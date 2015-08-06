@@ -84,7 +84,6 @@ The CLTK uses languages in its organization of data, however some good corpora d
 N–grams
 =======
 
-
  .. code-block:: python
 
    In [1]: from nltk.tokenize.punkt import PunktLanguageVars
@@ -135,30 +134,6 @@ N–grams
     …]
 
 
-Stopword generator
-==================
-
-The stopword generator makes a list the most commonly occurring words in a text.
-
-.. code-block:: python
-
-   In [1]: from cltk.stop.make_stopwords_list import Stopwords
-
-   In [2]: s = Stopwords('coptic')
-
-   In [3]: text = 'ⲡⲁⲩⲗⲟⲥ ⲡ ⲁⲡⲟⲥⲧⲟⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ϩⲓⲧⲙ ⲡ ⲟⲩⲱϣ ⲙ ⲡ ⲛⲟⲩⲧⲉ'
-
-   In [4]: stops = s.make_list_from_str(text, 5)  # get 5 most common words
-
-   In [5]: sentence = 'ⲡⲁⲩⲗⲟⲥ ⲡ ⲁⲡⲟⲥⲧⲟⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ϩⲓⲧⲙ ⲡ ⲟⲩⲱϣ ⲙ ⲡ ⲛⲟⲩⲧⲉ ⲙⲛ ⲥⲱⲥⲑⲉⲛⲏⲥ ⲡ ⲥⲟⲛ ⲉ ⲩ ⲥϩⲁⲓ ⲛ ⲧ ⲉⲕⲕⲗⲏⲥⲓⲁ ⲙ ⲡ ⲛⲟⲩⲧⲉ ⲧⲁⲓ ⲉⲧ ϣⲟⲟⲡ ϩⲛ ⲕⲟⲣⲓⲛⲑⲟⲥ .'
-
-   In [6]: tokens = p.word_tokenize(sentence)
-
-   In [7]: no_stops = [w for w in tokens if not w in stops]
-
-   In [8]: ' '.join(no_stops)
-   Out[8]: 'ⲡⲁⲩⲗⲟⲥ ⲉⲧ ⲧⲁϩⲙ ⲡⲉ ⲭⲣⲓⲥⲧⲟⲥ ⲓⲏⲥⲟⲩⲥ ⲛⲟⲩⲧⲉ ⲙⲛ ⲥⲱⲥⲑⲉⲛⲏⲥ ⲥⲟⲛ ⲉ ⲩ ⲥϩⲁⲓ ⲛ ⲧ ⲉⲕⲕⲗⲏⲥⲓⲁ ⲛⲟⲩⲧⲉ ⲧⲁⲓ ⲉⲧ ϣⲟⲟⲡ ϩⲛ ⲕⲟⲣⲓⲛⲑⲟⲥ .'
-
 
 Word count
 ==========
@@ -190,6 +165,40 @@ For a dictionary-like object of word frequencies, use the NLTK's ``Text()``.
    In [10]: vocabulary_count['tibi']
    Out[10]: 1
 
+
+
+Word frequency lists
+====================
+
+The CLTK has a module which finds word frequency. The export is a ``Counter`` type of dictionary.
+
+.. code-block:: python
+
+   In [1]: from cltk.utils.frequency import Frequency
+
+   In [2]: from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
+
+   In [3]: import os
+
+   In [4]: freq = Frequency()
+
+   In [6]: file = os.path.expanduser('~/cltk_data/greek/text/tlg/plaintext/TLG0012.TXT')
+
+   In [7]: with open(file) as f:
+   ...:     text = f.read().lower()
+   ...:
+
+   In [8]: text = tlg_plaintext_cleanup(text)
+
+   In [9]: freq.counter_from_str(text)
+   Out[9]: Counter({'δ': 6507, 'καὶ': 4799, 'δὲ': 3194, 'τε': 2645, 'μὲν': 1628, 'ἐν': 1420, 'δέ': 1267, 'ὣς': 1203, 'οἱ': 1126, 'τ': 1101, 'γὰρ': 969, 'ἀλλ': 936, 'τὸν': 904, 'ἐπὶ': 830, 'τοι': 772, 'αὐτὰρ': 761, 'δὴ': 748, 'μοι': 745, 'μιν': 645, 'γε': 632, 'ἐπεὶ': 611, 'ἄρ': 603, 'ἦ': 598, 'νῦν': 581, 'ἄρα': 576, 'κατὰ': 572, 'ἐς': 571, 'ἐκ': 554, 'ἐνὶ': 544, 'ὡς': 541, 'ὃ': 533, 'οὐ': 530, 'οἳ': 527, 'περ': 491, 'τις': 491, 'οὐδ': 482, 'καί': 481, 'οὔ': 476, 'γάρ': 435, 'κεν': 407, 'τι': 407, 'γ': 406, 'ἐγὼ': 404, 'ἐπ': 397, … })
+
+If you have access to the TLG or PHI5 disc, and have already imported it and converted it with the CLTK, you can build your own custom lists off of that.
+
+.. code-block:: python
+
+   In [11]: freq.make_list_from_corpus('phi5', 200, save=False)  # or 'phi5'; both take a while to run
+   Out[11]: Counter({',': 749396, 'et': 196410, 'in': 141035, 'non': 89836, 'est': 86472, ':': 76915, 'ut': 70516, ';': 69901, 'cum': 61454, 'si': 59578, 'ad': 59248, 'quod': 52896, 'qui': 46385, 'sed': 41546, '?': 40717, 'quae': 38085, 'ex': 36996, 'quam': 34431, "'": 33596, 'de': 31331, 'esse': 31066, 'aut': 30568, 'a': 29871, 'hoc': 26266, 'nec': 26027, 'etiam': 22540, 'se': 22486, 'enim': 22104, 'ab': 21336, 'quid': 21269, 'per': 20981, 'atque': 20201, 'sunt': 20025, 'sit': 19123, 'autem': 18853, 'id': 18846, 'quo': 18204, 'me': 17713, 'ne': 17265, 'ac': 17007, 'te': 16880, 'nam': 16640, 'tamen': 15560, 'eius': 15306, 'haec': 15080, 'ita': 14752, 'iam': 14532, 'mihi': 14440, 'neque': 13833, 'eo': 13125, 'quidem': 13063, 'est.': 12767, 'quoque': 12561, 'ea': 12389, 'pro': 12259, 'uel': 11824, 'quia': 11518, 'tibi': 11493, … })
 
 
 Word tokenization
