@@ -235,6 +235,20 @@ TnT tagger
     ('μῆκος', 'N-S---NA-')]
 
 
+Prosody Scanning
+================
+A prosody scanner designed for scanning prose rhythms in Greek texts. It returns a list of strings or long and short marks for each sentence. Note that the last syllable of each sentence string is marked with an anceps so that specific clausulae are dileneated.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.greek import Scansion
+   
+   In [2]: scanner = Scansion()
+   
+   In [3]: text = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
+   Out[4]: ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
+   
+
 Sentence Tokenization
 =====================
 
