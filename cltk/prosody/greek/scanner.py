@@ -23,7 +23,7 @@ __license__ = 'MIT License'
 import unittest
 
 
-class ScansionGreek:
+class Scansion:
 
     """Scans Greek texts, but does not macronize the text."""
 
