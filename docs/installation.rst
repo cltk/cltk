@@ -29,7 +29,7 @@ Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, 
 
 .. note::
 
-   For a user–friendly interactive shell environment, consider trying IPython, which may be invoked with ``ipython`` or `ipython notebook`` from the command line. You may install it with ``pip install ipython``.
+   For a user–friendly interactive shell environment, consider trying IPython, which may be invoked with ``ipython`` or ``ipython notebook`` from the command line. You may install it with ``pip install ipython``.
 
 
 From source
