@@ -70,6 +70,8 @@ class TLGU(object):
             else:
                 tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
+                print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
+                input()
                 try:
                     p_out = subprocess.call('cd {0} && make install'.format(tlgu_path), shell=True)
                     if p_out == 0:

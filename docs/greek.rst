@@ -21,13 +21,10 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 Converting TLG texts with TLGU
 ======================================
 
-.. note::
 
-   Update this section with new post-TLGU processors in formatter.py
+The `TLGU <http://tlgu.carmen.gr/>`_ is excellent C language software for converting the TLG and PHI corpora into human-readable Unicode. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
 
-The `TLGU <http://tlgu.carmen.gr/>`_ is C-language software which does an excellent job at converting the TLG and PHI corpora into various forms of human-readable Unicode plaintext. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. Download and installation is handled in the background. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
-
-Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers).
+Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers). Note that you must `import a local corpus <http://docs.cltk.org/en/latest/importing_corpora.html#importing-a-corpus>`_ before converting it.
 
 .. code-block:: python
 
@@ -71,6 +68,8 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 .. code-block:: python
 
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
+
+Concerning text normalization: Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some helpful code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
 
