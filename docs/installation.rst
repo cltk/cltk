@@ -8,7 +8,7 @@ With Pip
 
 .. note::
 
-   The CLTK is only compatible with Python 3 on a POSIX-compatible operating system (Mac OS X, Linux, BSD, etc.).
+   The CLTK is only compatible with Python 3.
 
 First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
 
@@ -27,21 +27,21 @@ Then, install the CLTK, which automatically includes all dependencies.
 Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, which the CLTK uses to download and update corpora, if you want to automatically import any of the `CLTK's corpora <https://github.com/cltk/>`_. Installation of Git will depend on your operating system.
 
 
-.. note::
+.. tip::
 
-   For a user–friendly interactive shell environment, consider trying IPython, which may be invoked with ``ipython`` or ``ipython notebook`` from the command line. You may install it with ``pip install ipython``.
+   For a user–friendly interactive shell environment, try IPython, which may be invoked with ``ipython`` from the command line. You may install it with ``pip install ipython``.
 
 
 From source
 ===========
-The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, clone the repository, make a virtual environment (as above), and finally run:
+The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, clone the repository, make a virtual environment (as above), and run:
 
 .. code-block:: shell
 
    $ python setup.py install
 
-If you have modified the CLTK source, rebuild the project with this same command. If you make any changes, it is a good idea to run the test suite to ensure you did not introduce any breakage. Test with:
+If you have modified the CLTK source, rebuild the project with this same command. If you make any changes, it is a good idea to run the test suite to ensure you did not introduce any breakage. Test with ``nose`` (obtained with ``pip install nose``):
 
 .. code-block:: shell
 
-   $ python cltk/tests/test_cltk.py
+   $ nosetests
