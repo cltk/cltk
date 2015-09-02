@@ -21,8 +21,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
     def setUp(self):
-        tlgu = TLGU(testing=True)
-        print('Existing tlgu?', tlgu)
+        #tlgu = TLGU(testing=True)
+        #print('Existing tlgu?', tlgu)
+        pass
 
     def test_greek_betacode_to_unicode(self):
         """Test converting Beta Code to Unicode.
