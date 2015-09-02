@@ -70,7 +70,7 @@ class TLGU(object):
             else:
                 tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
-                if self.testing:
+                if not self.testing:
                     print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
                     input()
                 else:
