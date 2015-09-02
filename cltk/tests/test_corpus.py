@@ -31,6 +31,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
         self.assertEqual(unicode, target_unicode)
 
+    def test_tlgu_init(self):
+        """Test constructors of TLGU module for check, import, and install."""
+        tlgu = TLGU(testing=True)
+        self.assertTrue(tlgu)
+
     def test_import_greek_software_tlgu(self):
         """Test cloning TLGU."""
         corpus_importer = CorpusImporter('greek')
@@ -39,11 +44,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-
-    def test_tlgu_init(self):
-        """Test constructors of TLGU module for check, import, and install."""
-        tlgu = TLGU()
-        self.assertTrue(tlgu)
 
     def test_tlgu_convert(self):
         """Test TLGU convert. This reads the file
