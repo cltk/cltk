@@ -70,14 +70,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(new_text, target)
     '''
 
-    '''
     def test_tlgu_convert_fail(self):
         """Test the TLGU to fail when importing a corpus that doesn't exist."""
-        tlgu = TLGU()
+        tlgu = TLGU(testing=True)
         with self.assertRaises(AssertionError):
             tlgu.convert('~/Downloads/corpora/TLG_E/bad_path.txt',
                          '~/Documents/thucydides.txt')
-    '''
 
     '''
     def test_tlgu_convert_corpus_fail(self):
