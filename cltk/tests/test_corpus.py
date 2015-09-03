@@ -31,6 +31,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
         self.assertEqual(unicode, target_unicode)
 
+    def test_tlgu_init(self):
+        """Test constructors of TLGU module for check, import, and install."""
+        tlgu = TLGU(testing=True)
+        self.assertTrue(tlgu)
+
     def test_import_greek_software_tlgu(self):
         """Test cloning TLGU."""
         corpus_importer = CorpusImporter('greek')
@@ -40,11 +45,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
-    def test_tlgu_init(self):
-        """Test constructors of TLGU module for check, import, and install."""
-        tlgu = TLGU()
-        self.assertTrue(tlgu)
-
     def test_tlgu_convert(self):
         """Test TLGU convert. This reads the file
         ``tlgu_test_text_beta_code.txt``, which mimics a TLG file, and
@@ -53,7 +53,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         in_test = os.path.abspath('cltk/tests/tlgu_test_text_beta_code.txt')
         out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
-        tlgu = TLGU()
+        tlgu = TLGU(testing=True)
         tlgu.convert(in_test, out_test)
         with open(out_test) as out_file:
             new_text = out_file.read()
@@ -65,14 +65,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_tlgu_convert_fail(self):
         """Test the TLGU to fail when importing a corpus that doesn't exist."""
-        tlgu = TLGU()
+        tlgu = TLGU(testing=True)
         with self.assertRaises(AssertionError):
             tlgu.convert('~/Downloads/corpora/TLG_E/bad_path.txt',
                          '~/Documents/thucydides.txt')
 
     def test_tlgu_convert_corpus_fail(self):
         """Test the TLGU to fail when trying to convert an unsupported corpus."""
-        tlgu = TLGU()
+        tlgu = TLGU(testing=True)
         with self.assertRaises(AssertionError):
             tlgu.convert_corpus(corpus='bad_corpus')
 
