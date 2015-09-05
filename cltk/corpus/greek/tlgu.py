@@ -39,8 +39,9 @@ ARGS = {
 
 class TLGU(object):
     """Check, install, and call TLGU."""
-    def __init__(self):
+    def __init__(self, testing=False):
         """Check whether tlgu is installed, if not, import and install."""
+        self.testing = testing
         self._check_import_source()
         self._check_install()
 
@@ -57,8 +58,7 @@ class TLGU(object):
                 logger.error('Failed to import TLGU: %s', exc)
                 raise
 
-    @staticmethod
-    def _check_install():
+    def _check_install(self):
         """Check if tlgu installed, if not install it."""
         try:
             subprocess.check_output(['which', 'tlgu'])
@@ -70,8 +70,11 @@ class TLGU(object):
             else:
                 tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
-                print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
-                input()
+                if not self.testing:
+                    print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
+                    input()
+                else:
+                    print('Automated or test build, skipping keyboard input confirmation for installation of TLGU.')
                 try:
                     p_out = subprocess.call('cd {0} && make install'.format(tlgu_path), shell=True)
                     if p_out == 0:

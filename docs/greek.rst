@@ -22,7 +22,7 @@ Converting TLG texts with TLGU
 ======================================
 
 
-The `TLGU <http://tlgu.carmen.gr/>`_ is excellent C language software for converting the TLG and PHI corpora into human-readable Unicode. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is installed.
+The `TLGU <http://tlgu.carmen.gr/>`_ is excellent C language software for converting the TLG and PHI corpora into human-readable Unicode. The CLTK has an automated downloader and installer, as well as a wrapper which facilitates its use. When ``TLGU()`` is instantiated, it checks the local OS for a functioning version of the software. If not found it is, following the user's confirmation, downloaded and installed.
 
 Most users will want to do a bulk conversion of the entirety of a corpus without any text markup (such as chapter or line numbers). Note that you must `import a local corpus <http://docs.cltk.org/en/latest/importing_corpora.html#importing-a-corpus>`_ before converting it.
 

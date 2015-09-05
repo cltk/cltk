@@ -1,6 +1,6 @@
 Importing Corpora
 *****************
-The CLTK works solely out of the local directory ``cltk_data``, which is created at a user's root directory upon the first initialization of the ``CorpusImporter()`` class. Within this is ``originals``, in which copies of downloaded or copied files are left, and also a directory for every language for which a corpus has been downloaded. Also within ``cltk_data`` is ``cltk.log``, which contains all of the cltk's logging.
+The CLTK stores all data in the local directory ``cltk_data``, which is created at a user's root directory upon first initialization of the ``CorpusImporter()`` class. Within this are an ``originals`` directory, in which untouched copies of downloaded or copied files are preserved, and a directory for every language for which a corpus has been downloaded. It also contains ``cltk.log`` for all CLTK logging.
 
 Listing corpora
 ===============
