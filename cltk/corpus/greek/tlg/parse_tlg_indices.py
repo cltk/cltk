@@ -82,19 +82,30 @@ def select_author_by_name(query):
     return matches
 
 
-def select_author_by_epithet(query):
-    id_epithet = get_author_epithet()
-    comp = re.compile(r'{}'.format(query.casefold()))
-    matches = []
-    for epithet, ids in id_epithet.items():
-        epithet_lower = epithet.casefold()
-        match = comp.findall(epithet_lower)
-        if match:
-            matches += ids
-    return matches
+def select_authors_by_epithet(query):
+    """Pass exact name (case insensitive) of epithet name, return list of author ids."""
+
+    _path = os.path.join(THIS_DIR, 'author_epithet.json')
+    with open(_path) as file_open:
+        _dict = json.load(file_open)
+
+    for epithet,ids in _dict.items():
+        if epithet.casefold() == query.casefold():
+            return sorted(ids)
 
 
+def get_epithet_of_author(_id):
+    """Takes author id, returns TLG's epithet"""
+    _path = os.path.join(THIS_DIR, 'author_epithet.json')
+
+    _id = str(_id)  # the loaded json expects a str
+
+    with open(_path) as file_open:
+        _dict = json.load(file_open)
+
+    for epithet, ids in _dict.items():
+        if _id in ids:
+            return epithet
 
 if __name__ == "__main__":
-
-    print(get_epithets())
+    print(get_epithet_of_author('0016'))
