@@ -4,6 +4,7 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
@@ -266,6 +267,18 @@ argenteo polubro, aureo eclutro. """
         """Test failure of importer upon selecting unsupported language."""
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
+
+    def test_get_female_authors(self):
+        """Test function to parse TLG female authors list.
+        TODO: fix
+        """
+        pass
+        '''
+        authors = get_female_authors()
+        authors = sorted(authors)[:3]
+        print(authors)
+        self.assertEqual(authors, ['0009', '0051', '0054'])
+        '''
 
 if __name__ == '__main__':
     unittest.main()
