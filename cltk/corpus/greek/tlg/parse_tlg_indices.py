@@ -140,7 +140,7 @@ def get_id_author():
     return _dict
 
 
-def select_author_by_name(query):
+def select_id_by_name(query):
     """Do a case-insensitive regex match on author name, returns TLG id."""
     id_author = get_id_author()
     comp = re.compile(r'{}'.format(query.casefold()))
@@ -156,8 +156,28 @@ def select_author_by_name(query):
 def get_date_author():
     """Returns entirety of date-author index."""
     _path = os.path.join(THIS_DIR, 'author_date.json')
+    return open_json(_path)
+
+
+def get_dates():
+    """Return a list of all the epithet labels."""
+    _path = os.path.join(THIS_DIR, 'author_date.json')
     _dict = open_json(_path)
-    return _dict
+    return sorted(_dict.keys())
+
+
+def get_date_of_author(_id):
+    """Pass author id and return the name of its associated date."""
+    _path = os.path.join(THIS_DIR, 'author_date.json')
+
+    _id = str(_id)
+
+    _dict = open_json(_path)
+
+    for date, ids in _dict.items():
+        if _id in ids:
+            return date
+
 
 if __name__ == "__main__":
-    print(get_date_author())
+    print(get_date_of_author('0001'))
