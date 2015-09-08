@@ -179,5 +179,82 @@ def get_date_of_author(_id):
             return date
 
 
+def _get_epoch(_str):
+    """Take incoming string, return its epoch."""
+    if _str.startswith('B.C. '):
+        return 'bc'
+    elif _str.startswith('A.D. '):
+        return 'ad'
+    elif _str.startswith('a. B.C. '):
+        return 'bc'
+    elif _str.startswith('p. B.C. '):
+        return None  #?
+    elif _str.startswith('a. A.D. '):
+        return None  #?
+    elif _str.startswith('p. A.D. '):
+        return 'ad'
+    else:
+        return None
+
+
+def _handle_splits(_str):
+    """Check if incoming date has a '-" or '/', if so do stuff."""
+
+    _tmp_dict = {}
+
+    if '-' in _str:
+        start, stop = _str.split('-')
+    elif '/' in _str:
+        start, stop = _str.split('/')
+    else:
+        _tmp_dict['start_epoch'] = _get_epoch(_str)
+    _tmp_dict['start_raw'] = start
+    _tmp_dict['stop_raw'] = stop
+
+    start_epoch = _get_epoch(start)
+    stop_epoch = _get_epoch(stop)
+
+    if start_epoch:
+        _tmp_dict['start_epoch'] = start_epoch
+    else:
+        _tmp_dict['start_epoch'] = stop_epoch
+
+    if stop_epoch:
+        _tmp_dict['stop_epoch'] = stop_epoch
+    else:
+        _tmp_dict['stop_epoch'] = start_epoch
+
+    return _tmp_dict
+
+
+def normalize_dates():
+    """Experiment to make sense of TLG dates.
+    TODO: start here, parse everything with pass
+    """
+    _dict = open_json('author_date.json')
+
+    for tlg_date in _dict:
+
+        date = {}
+
+        if '-' in tlg_date:
+            tmp_date = _handle_splits(tlg_date)
+            date.update(tmp_date)
+        elif '/' in _dict:
+            tmp_date = _handle_splits(tlg_date)
+            date.update(tmp_date)
+        else:
+            known_epoch = _get_epoch(tlg_date)
+            if known_epoch:
+                date['epoch'] = known_epoch
+
+            if tlg_date is 'Varia' or 'Incertum':
+                # give a homer-to-byz date for 'varia'
+                # for incertum?
+                pass  #?
+
+        print(date)
+
+
 if __name__ == "__main__":
-    print(get_date_of_author('0001'))
+    normalize_dates()
