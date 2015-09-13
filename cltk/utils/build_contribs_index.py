@@ -3,17 +3,21 @@ helped on. This writes the file to whatever file from which it is run, thus,
 to use, run from root of the project with ``python cltk/utils/build_contribs_index.py``.
 """
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-
 from collections import OrderedDict
 import importlib.machinery
 import os
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 def build_contribs_file(test=None):
     """Build an index of authors and the modules for which they've
     contributed. Reads each ``*.py`` file and gets value of ``__author__``,
     then builds a dictionary of ``'author': [list of module contributions]``.
+
+    TODO: This outputs wrong results, assigns people to work they're not
+    authors of. Fix this.
     """
     py_files_list = []
     for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
@@ -31,7 +35,7 @@ def build_contribs_file(test=None):
         # test if file has __author__ in it; will fail w/o this try/except
         try:
             mod.__author__
-        except AttributeError as exception:
+        except AttributeError:
             continue
         # check if author value is a string, turn to list
         if type(mod.__author__) is str:
