@@ -32,7 +32,6 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    '''
     def test_greek_betacode_to_unicode(self):
         """Test converting Beta Code to Unicode.
         Note: assertEqual appears to not be correctly comparing certain
@@ -279,7 +278,6 @@ argenteo polubro, aureo eclutro. """
         """Test failure of importer upon selecting unsupported language."""
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
-    '''
 
     def test_get_female_authors(self):
         """Test function to parse TLG female authors list."""
