@@ -329,32 +329,114 @@ Intended for use on the TLG after processing by ``TLGU()``.
 TLG Indices
 ===========
 
-Located at ``cltk/corpus/greek/tlg_index.py`` of the source are indices for the TLG, one of just id and name (``TLG_INDEX``) and another also containing information on the authors' works (``TLG_WORKS_INDEX``).
+The TLG comes with some old, difficult-to-parse index files which have been made available as Python dictionaries (at ``/Users/kyle/cltk/cltk/corpus/greek/tlg``). There are some methods to make accessing these easy. The output are variously a ``dict`` of the indices or ``set`` if the function returns the unique id for an author.
+
+.. tip::
+
+   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.4/library/stdtypes.html?highlight=set#set>`_).
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.greek.tlg_index import TLG_INDEX
+   In [1]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 
-   In [2]: TLG_INDEX
-   Out[2]:
-   {'TLG1124': 'Andronicus Rhodius Phil.',
-    'TLG3094': 'Nicetas Choniates Hist., Scr. Eccl. et Rhet.',
-    'TLG2565': 'Mnesimachus Hist.',
-    'TLG1477': 'Manetho Hist.',
-    ... }
+   In [2]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
 
-   In [3]: from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
+   In [3]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithets
 
-   In [4]: TLG_WORKS_INDEX
-   Out [4]:
-   {'TLG1587': {'name': 'Philiades Eleg.', 'works': ['001']},
-    'TLG0555': {'name': 'Clemens Alexandrinus Theol.',
-     'works': ['001', '002', '003', '004', '005', '006', '007', '008']},
-    'TLG0402': {'name': 'Alexis Comic.',
-     'works': ['001', '002', '003', '004', '005', '006']},
-    'TLG2304': {'name': 'Idaeus Phil.', 'works': ['001']},
-    'TLG5015': {'name': 'Scholia In Aristotelem', 'works': ['001', '002', '003']},
-     ...}
+   In [4]: from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_epithet
+
+   In [5]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_of_author
+
+   In [6]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_index
+
+   In [7]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_geographies
+
+   In [8]: from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_geo
+
+   In [9]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_of_author
+
+   In [10]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_lists
+
+   In [11]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_id_author
+
+   In [12]: from cltk.corpus.greek.tlg.parse_tlg_indices import select_id_by_name
+
+   In [13]: get_female_authors()
+   Out[13]:
+   {'0009',
+    '0051',
+    '0054',
+    …}
+
+   In [14]: get_epithet_index()
+   Out[14]:
+   {'Lexicographi': {'3136', '4040', '4085', '9003'},
+    'Lyrici/-ae': {'0009',
+     '0033',
+     '0199',
+     …}}
+
+   In [15]: get_epithets()
+   Out[15]:
+   ['Alchemistae',
+    'Apologetici',
+    'Astrologici',
+    …]
+
+   In [16]: select_authors_by_epithet('Tactici')
+   Out[16]: {'0058', '0546', '0556', '0648', '3075', '3181'}
+
+   In [17]: get_epithet_of_author('0016')
+   Out[17]: 'Historici/-ae'
+
+   In [18]: get_geo_index()
+   Out[18]:
+   {'Alchemistae': {'1016',
+     '2019',
+     '2140',
+     '2181',
+     …}}
+
+   In [19]: get_geographies()
+   Out[19]:
+   ['Abdera',
+    'Adramytteum',
+    'Aegae',
+    …]
+
+   In [20]: select_authors_by_geo('Thmuis')
+   Out[20]: {'2966'}
+
+   In [21]: get_geo_of_author('0216')
+   Out[21]: 'Aetolia'
+
+   In [22]: get_lists()
+   Out[22]:
+   {'Lists pertaining to all works in Canon (by TLG number)': {'LIST3CLA.BIN': 'Literary classifications of works',
+     'LIST3CLX.BIN': 'Literary classifications of works (with x-refs)',
+     'LIST3DAT.BIN': 'Chronological classifications of authors',
+      …}}
+
+   In [23]: get_id_author()
+   Out[23]:
+   {'1139': 'Anonymi Historici (FGrH)',
+    '4037': 'Anonymi Paradoxographi',
+    '0616': 'Polyaenus Rhet.',
+    …}
+
+   In [28]: select_id_by_name('hom')
+   Out[28]:
+   [('0012', 'Homerus Epic., Homer'),
+    ('1252', 'Certamen Homeri Et Hesiodi'),
+    ('1805', 'Vitae Homeri'),
+    ('5026', 'Scholia In Homerum'),
+    ('1375', 'Evangelium Thomae'),
+    ('2038', 'Acta Thomae'),
+    ('0013', 'Hymni Homerici, Homeric Hymns'),
+    ('0253', '[Homerus] [Epic.]'),
+    ('1802', 'Homerica'),
+    ('1220', 'Batrachomyomachia'),
+    ('9023', 'Thomas Magister Philol.')]
 
 
 In addition to these indices there are several helper functions which will build filepaths for your particular computer. Not that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
@@ -390,8 +472,3 @@ In addition to these indices there are several helper functions which will build
     ...]
 
 These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
-
-
-.. tip::
-
-   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
