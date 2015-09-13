@@ -329,7 +329,7 @@ Intended for use on the TLG after processing by ``TLGU()``.
 TLG Indices
 ===========
 
-The TLG comes with some old, difficult-to-parse index files which have been made available as Python dictionaries (at ``/Users/kyle/cltk/cltk/corpus/greek/tlg``). There are some methods to make accessing these easy. The output are variously a ``dict`` of the indices or ``set`` if the function returns the unique id for an author.
+The TLG comes with some old, difficult-to-parse index files which have been made available as Python dictionaries (at ``/Users/kyle/cltk/cltk/corpus/greek/tlg``). Below are some functions to make accessing these easy. The outputs are variously a ``dict`` of an index or ``set`` if the function returns unique author ids.
 
 .. tip::
 
