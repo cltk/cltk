@@ -7,9 +7,6 @@ from cltk.corpus.greek.tlg.author_female import AUTHOR_FEMALE
 from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
 from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
-import inspect
-import json
-import os
 import re
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
