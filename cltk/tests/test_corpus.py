@@ -279,13 +279,13 @@ argenteo polubro, aureo eclutro. """
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
 
-    '''
     def test_get_female_authors(self):
         """Test function to parse TLG female authors list."""
         authors = get_female_authors()
         authors = sorted(authors)[:3]
         self.assertEqual(authors, ['0009', '0051', '0054'])
 
+    '''
     def test_get_epithet_index(self):
         """Test get_epithet_index()."""
         ind = get_epithet_index()
