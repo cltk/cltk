@@ -285,7 +285,6 @@ argenteo polubro, aureo eclutro. """
         authors = sorted(authors)[:3]
         self.assertEqual(authors, ['0009', '0051', '0054'])
 
-    '''
     def test_get_epithet_index(self):
         """Test get_epithet_index()."""
         ind = get_epithet_index()
@@ -339,7 +338,6 @@ argenteo polubro, aureo eclutro. """
         """Test select_id_by_name()."""
         matches = select_id_by_name('hom')
         self.assertEqual(len(matches), 11)
-    '''
 
 if __name__ == '__main__':
     unittest.main()
