@@ -439,7 +439,7 @@ The TLG comes with some old, difficult-to-parse index files which have been made
     ('9023', 'Thomas Magister Philol.')]
 
 
-In addition to these indices there are several helper functions which will build filepaths for your particular computer. Not that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
+In addition to these indices there are several helper functions which will build filepaths for your particular computer. Note that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
 
 .. code-block:: python
 
