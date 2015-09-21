@@ -3,8 +3,8 @@ sudo: required  # install TLGU w/o sudo and then use `false`
 language: python
 
 python:
-  #- "3.4"
-  - "3.5"
+  - "3.4"
+  #- "3.5"
 
 install:
   - python setup.py sdist install
