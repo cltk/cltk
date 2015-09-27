@@ -1,12 +1,12 @@
 """Test cltk.ner."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
-
 from cltk.ner import ner
 from cltk.stem.latin.j_v import JVReplacer
 import os
 import unittest
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
