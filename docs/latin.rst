@@ -136,6 +136,47 @@ First, `obtain the Latin POS tagging files <http://docs.cltk.org/en/latest/impor
 If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/kylepjohnson/pos_latin) repository.
 
 
+Named Entity Recognition
+========================
+
+.. tip::
+
+   NER is new functionality. Any mistakes observed should be reported.
+
+There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+
+.. code-block:: python
+
+   In [1]: from cltk.ner import ner
+
+   In [2]: from cltk.stem.latin.j_v import JVReplacer
+
+   In [3]: text_str = """ut Venus, ut Sirius, ut Spica, ut aliae quae primae dicuntur esse mangitudinis."""
+
+   In [4]: jv_replacer = JVReplacer()
+
+   In [5]: text_str_iu = jv_replacer.replace(text_str)
+
+   In [7]: ner.tag_ner('latin', input_text=text_str_iu, output_type=list)
+   Out[7]:
+   [('ut',),
+    ('Uenus', 'Entity'),
+    (',',),
+    ('ut',),
+    ('Sirius', 'Entity'),
+    (',',),
+    ('ut',),
+    ('Spica', 'Entity'),
+    (',',),
+    ('ut',),
+    ('aliae',),
+    ('quae',),
+    ('primae',),
+    ('dicuntur',),
+    ('esse',),
+    ('mangitudinis',),
+    ('.',)]
+
 PHI Indices
 ===========
 
