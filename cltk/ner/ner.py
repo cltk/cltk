@@ -22,11 +22,11 @@ def _check_latest_data(lang):
         corpus_importer.import_corpus('{}_models_cltk'.format(lang))
 
 
-def make_ner(lang, input_text, output_type=list):
+def tag_ner(lang, input_text, output_type=list):
     """Run NER for chosen language.
 
     Choosing output_type=list, returns a list of tuples:
-    >>> make_ner('latin', input_text=text_str, output_type=list)
+    >>> tag_ner('latin', input_text=text_str, output_type=list)
     >>> [('ut',), ('Venus', 'Entity'), (',',), ('ut',), ('Sirius', 'Entity'),
     (',',), ('ut',), ('Spica', 'Entity')]
     """
@@ -94,4 +94,4 @@ if __name__ == "__main__":
 
     jv_replacer = JVReplacer()
     text_str = jv_replacer.replace(text_str)
-    print(make_ner('latin', input_text=text_str, output_type=list))
+    print(tag_ner('latin', input_text=text_str, output_type=list))
