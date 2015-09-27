@@ -37,5 +37,24 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = [('ut',), ('Uenus', 'Entity'), ('Sirius', 'Entity')]
         self.assertEqual(tokens, target)
 
+    def test_make_ner_list_str_latin(self):
+        """Test make_ner(), list, str."""
+        text_list = ['ut', 'Venus', 'Sirius']
+        jv_replacer = JVReplacer()
+        text_list_iu = [jv_replacer.replace(x) for x in text_list]
+        text = ner.make_ner('latin', input_text=text_list_iu, output_type=str)
+        target = ' ut Uenus/Entity Sirius/Entity'
+        self.assertEqual(text, target)
+
+    def test_make_ner_str_str_latin(self):
+        """Test make_ner(), str, str."""
+        jv_replacer = JVReplacer()
+        text_str = """ut Venus, ut Sirius, ut Spica, ut aliae quae primae dicuntur esse mangitudinis."""
+        jv_replacer = JVReplacer()
+        text_str_iu = jv_replacer.replace(text_str)
+        text = ner.make_ner('latin', input_text=text_str_iu, output_type=str)
+        target = ' ut Uenus/Entity, ut Sirius/Entity, ut Spica/Entity, ut aliae quae primae dicuntur esse mangitudinis.'
+        self.assertEqual(text, target)
+
 if __name__ == '__main__':
     unittest.main()
