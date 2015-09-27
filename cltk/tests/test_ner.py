@@ -11,6 +11,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
+
     def test_check_latest_latin(self):
         """Test _check_latest_data()"""
         ner._check_latest_data('latin')
@@ -18,22 +19,22 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(os.path.isfile(names_path))
 
     def test_make_ner_str_list_latin(self):
-        """Test make_ner()."""
+        """Test make_ner(), str, list."""
         jv_replacer = JVReplacer()
         text_str = """ut Venus, ut Sirius, ut Spica, ut aliae quae primae dicuntur esse mangitudinis."""
         jv_replacer = JVReplacer()
         text_str_iu = jv_replacer.replace(text_str)
         tokens = ner.make_ner('latin', input_text=text_str_iu, output_type=list)
-        target = [('ut',), ('Uenus',), (',',), ('ut',), ('Sirius', 'Entity'), (',',), ('ut',), ('Spica', 'Entity'), (',',), ('ut',), ('aliae',), ('quae',), ('primae',), ('dicuntur',), ('esse',), ('mangitudinis',), ('.',)]
+        target = [('ut',), ('Uenus', 'Entity'), (',',), ('ut',), ('Sirius', 'Entity'), (',',), ('ut',), ('Spica', 'Entity'), (',',), ('ut',), ('aliae',), ('quae',), ('primae',), ('dicuntur',), ('esse',), ('mangitudinis',), ('.',)]
         self.assertEqual(tokens, target)
 
     def test_make_ner_list_list_latin(self):
-        """Test make_ner()."""
+        """Test make_ner(), list, list."""
         text_list = ['ut', 'Venus', 'Sirius']
         jv_replacer = JVReplacer()
         text_list_iu = [jv_replacer.replace(x) for x in text_list]
         tokens = ner.make_ner('latin', input_text=text_list_iu, output_type=list)
-        target = [('ut',), ('Uenus',), ('Sirius', 'Entity')]
+        target = [('ut',), ('Uenus', 'Entity'), ('Sirius', 'Entity')]
         self.assertEqual(tokens, target)
 
 if __name__ == '__main__':
