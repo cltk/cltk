@@ -41,7 +41,7 @@ def make_ner(lang, input_text, output_type=list):
 
     if type(input_text) == str:
         punkt = PunktLanguageVars()
-        tokens = punkt.word_tokenize(text_str)
+        tokens = punkt.word_tokenize(input_text)
         new_tokens = []
         for word in tokens:
             if word.endswith('.'):
