@@ -210,28 +210,26 @@ The NLTK offers several methods for word tokenization. The ``PunktLanguageVars``
 
    In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 
-   In [2]: from nltk.text import Text
+   In [2]: from nltk.tokenize.punkt import PunktLanguageVars
 
-   In [3]: from nltk.tokenize.punkt import PunktLanguageVars
+   In [3]: import os
 
-   In [4]: import os
+   In [4]: path = '~/cltk_data/latin/text/phi5/individual_works/LAT0690.TXT-003.txt'
 
-   In [5]: path = '~/cltk_data/latin/text/phi5/individual_works/LAT0690.TXT-003.txt'
+   In [5]: path = os.path.expanduser(path)
 
-   In [6]: path = os.path.expanduser(path)
-
-   In [7]: with open(path) as f:
+   In [6]: with open(path) as f:
       ...:     r = f.read()
       ...:
 
-   In [8]: cleaned = phi5_plaintext_cleanup(r)
+   In [7]: cleaned = phi5_plaintext_cleanup(r)
 
-   In [9]: p = PunktLanguageVars()
+   In [8]: p = PunktLanguageVars()
 
-   In [10]: tokens = p.word_tokenize(cleaned)
+   In [9]: tokens = p.word_tokenize(cleaned)
 
-   In [13]: tokens[:10]
-   Out[13]:
+   In [10]: tokens[:10]
+   Out[10]:
    ['Arma',
     'uirumque',
     'cano',
@@ -248,14 +246,14 @@ Another, simpler tokenizer can tokenize on word breaks and whatever other regula
 
 .. code-block:: python
 
-   In [14]: from nltk.tokenize import RegexpTokenizer
+   In [11]: from nltk.tokenize import RegexpTokenizer
 
-   In [15]: word_breaks = RegexpTokenizer(r'\w+')
+   In [12]: word_breaks = RegexpTokenizer(r'\w+')
 
-   In [16]: tokens = word_breaks.tokenize(cleaned)
+   In [13]: tokens = word_breaks.tokenize(cleaned)
 
-   In [17]: tokens[:10]
-   Out[17]: ['Arma',
+   In [14]: tokens[:10]
+   Out[14]: ['Arma',
     'uirumque',
     'cano',
     'Troiae',
