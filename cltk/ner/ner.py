@@ -88,10 +88,12 @@ def tag_ner(lang, input_text, output_type=list):
 
 
 if __name__ == "__main__":
-    input_file = '/Users/kyle/cltk_data/latin/text/latin_text_latin_library/patricius1.txt'
-    with open(input_file) as file_open:
-        text_str = file_open.read()
+    #input_file = '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG0016.TXT'
+    #with open(input_file) as file_open:
+    #    text_str = file_open.read()
 
-    jv_replacer = JVReplacer()
-    text_str = jv_replacer.replace(text_str)
-    print(tag_ner('latin', input_text=text_str, output_type=list))
+    text_str = 'τὰ Σίλαριν Σιννᾶν Κάππαρος Πρωτογενείας Διονυσιάδες τὴν'
+
+    #jv_replacer = JVReplacer()
+    #text_str = jv_replacer.replace(text_str)
+    print(tag_ner('greek', input_text=text_str, output_type=list))

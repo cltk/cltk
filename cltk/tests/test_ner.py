@@ -55,5 +55,33 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' ut Uenus/Entity, ut Sirius/Entity, ut Spica/Entity, ut aliae quae primae dicuntur esse mangitudinis.'
         self.assertEqual(text, target)
 
+    def test_tag_ner_str_list_greek(self):
+        """Test make_ner(), str, list."""
+        text_str = 'τὰ Σίλαριν Σιννᾶν Κάππαρος Πρωτογενείας Διονυσιάδες τὴν'
+        tokens = ner.tag_ner('greek', input_text=text_str, output_type=list)
+        target = [('τὰ',), ('Σίλαριν', 'Entity'), ('Σιννᾶν', 'Entity'), ('Κάππαρος', 'Entity'), ('Πρωτογενείας', 'Entity'), ('Διονυσιάδες', 'Entity'), ('τὴν',)]
+        self.assertEqual(tokens, target)
+
+    def test_tag_ner_list_list_greek(self):
+        """Test make_ner(), list, list."""
+        text_list = ['τὰ', 'Σίλαριν', 'Σιννᾶν']
+        tokens = ner.tag_ner('greek', input_text=text_list, output_type=list)
+        target = [('τὰ',), ('Σίλαριν', 'Entity'), ('Σιννᾶν', 'Entity')]
+        self.assertEqual(tokens, target)
+
+    def test_tag_ner_list_str_greek(self):
+        """Test make_ner(), list, str."""
+        text_list = ['τὰ', 'Σίλαριν', 'Σιννᾶν']
+        text = ner.tag_ner('greek', input_text=text_list, output_type=str)
+        target = ' τὰ Σίλαριν/Entity Σιννᾶν/Entity'
+        self.assertEqual(text, target)
+
+    def test_tag_ner_str_str_greek(self):
+        """Test make_ner(), str, str."""
+        text_str = 'τὰ Σίλαριν Σιννᾶν Κάππαρος Πρωτογενείας Διονυσιάδες τὴν'
+        text = ner.tag_ner('greek', input_text=text_str, output_type=str)
+        target = ' τὰ Σίλαριν/Entity Σιννᾶν/Entity Κάππαρος/Entity Πρωτογενείας/Entity Διονυσιάδες/Entity τὴν'
+        self.assertEqual(text, target)
+
 if __name__ == '__main__':
     unittest.main()
