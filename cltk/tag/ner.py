@@ -1,7 +1,6 @@
 """Named entity recognition (NER)."""
 
 from cltk.corpus.utils.importer import CorpusImporter
-from cltk.stem.latin.j_v import JVReplacer
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 
@@ -88,6 +87,7 @@ def tag_ner(lang, input_text, output_type=list):
 
 
 if __name__ == "__main__":
+    #from cltk.stem.latin.j_v import JVReplacer
     #input_file = '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG0016.TXT'
     #with open(input_file) as file_open:
     #    text_str = file_open.read()

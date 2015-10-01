@@ -143,17 +143,17 @@ Named Entity Recognition
 
 .. tip::
 
-   NER is new functionality. Any mistakes observed should be reported.
+   NER is new functionality. Please report any errors you observe.
 
 There is available a simple interface to `a list of Greek proper nouns <https://github.com/cltk/greek_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
 
 .. code-block:: python
 
-   In [1]: from cltk.ner import ner
+   In [1]: from cltk.tag import ner
 
    In [2]: text_str = 'τὰ Σίλαριν Σιννᾶν Κάππαρος Πρωτογενείας Διονυσιάδες τὴν'
 
-   In [3]: ner.tag_ner('latin', input_text=text_str_iu, output_type=list)
+   In [3]: ner.tag_ner('greek', input_text=text_str, output_type=list)
    Out[3]:
    [('τὰ',),
     ('Σίλαριν', 'Entity'),
