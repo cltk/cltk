@@ -72,7 +72,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ['Sentence', '1.', 'Sentence', '2.']
         self.assertEqual(tokens, target)
 
-    def test_nltk_tokenize_words_attached(self):
+    def test_nltk_tokenize_words_assert(self):
         """Test assert error for CLTK's word tokenizer."""
         with self.assertRaises(AssertionError):
             nltk_tokenize_words(['Sentence', '1.'])
