@@ -204,56 +204,75 @@ If you have access to the TLG or PHI5 disc, and have already imported it and con
 Word tokenization
 =================
 
-The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is the latest tokenizer.
+The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is its latest tokenizer.
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
 
-   In [2]: from nltk.tokenize.punkt import PunktLanguageVars
+   In [2]: s = """Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."""
 
-   In [3]: import os
+   In [3]: p = PunktLanguageVars()
 
-   In [4]: path = '~/cltk_data/latin/text/phi5/individual_works/LAT0690.TXT-003.txt'
-
-   In [5]: path = os.path.expanduser(path)
-
-   In [6]: with open(path) as f:
-      ...:     r = f.read()
-      ...:
-
-   In [7]: cleaned = phi5_plaintext_cleanup(r)
-
-   In [8]: p = PunktLanguageVars()
-
-   In [9]: tokens = p.word_tokenize(cleaned)
-
-   In [10]: tokens[:10]
-   Out[10]:
-   ['Arma',
-    'uirumque',
-    'cano',
+   In [4]: p.word_tokenize(s)
+   Out[4]:
+   ['Anna',
+    'soror',
     ',',
-    'Troiae',
-    'qui',
-    'primus',
-    'ab',
-    'oris',
-    'Italiam']
+    'quae',
+    'me',
+    'suspensam',
+    'insomnia',
+    'terrent',
+    '!',
+    'Quis',
+    'novus',
+    'hic',
+    'nostris',
+    'successit',
+    'sedibus',
+    'hospes.']
 
-
-Another, simpler tokenizer can tokenize on word breaks and whatever other regular expressions you add.
+This tokenizer works well, though has the particular feature that periods are fixed to the word preceding it. Notice the final token ``hospes.`` in the above. To get around this limitation, the CLTK offers ``nltk_tokenize_words()``, which is a simple wrapper for ``PunktLanguageVars.word_tokenize()``. It simply identifies final periods and turns them into their own item.
 
 .. code-block:: python
 
-   In [11]: from nltk.tokenize import RegexpTokenizer
+   In [5]: from cltk.tokenize.word import nltk_tokenize_words
 
-   In [12]: word_breaks = RegexpTokenizer(r'\w+')
+   In [6]: nltk_tokenize_words(s)
+   Out[6]:
+   ['Anna',
+    'soror',
+    ',',
+    'quae',
+    'me',
+    'suspensam',
+    'insomnia',
+    'terrent',
+    '!',
+    'Quis',
+    'novus',
+    'hic',
+    'nostris',
+    'successit',
+    'sedibus',
+    'hospes',
+    '.']
 
-   In [13]: tokens = word_breaks.tokenize(cleaned)
+If, however, you want the defaul output of ``PunktLanguageVars.word_tokenize()``, use the argument ``attached_period=True``, as in ``nltk_tokenize_words(s, attached_period=True)``.
 
-   In [14]: tokens[:10]
-   Out[14]: ['Arma',
+If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another tokenizer from the NLTK, which breaks on any other regular expression pattern you choose. Here, for instance, on whitespace word breaks:
+
+.. code-block:: python
+
+   In [7]: from nltk.tokenize import RegexpTokenizer
+
+   In [8]: word_breaks = RegexpTokenizer(r'\w+')
+
+   In [8]: tokens = word_breaks.tokenize(cleaned)
+
+   In [9]: tokens[:10]
+   Out[9]: ['Arma',
     'uirumque',
     'cano',
     'Troiae',

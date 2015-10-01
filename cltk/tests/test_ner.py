@@ -1,9 +1,10 @@
 """Test cltk.ner."""
 
-from cltk.ner import ner
-from cltk.stem.latin.j_v import JVReplacer
 import os
 import unittest
+
+from cltk.tag import ner
+from cltk.stem.latin.j_v import JVReplacer
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
