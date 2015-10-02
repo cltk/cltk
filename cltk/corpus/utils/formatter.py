@@ -16,10 +16,10 @@ from cltk.corpus.latin.phi5_index import PHI5_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_WORKS_INDEX
 from cltk.utils.cltk_logger import logger
 import os
-import re
+import regex
 
 
-# research how to build regex values for re.compile() from this dict
+# research how to build regex values for regex.compile() from this dict
 TLG_PHI_REPLACEMENTS = {
     'newline_hyphen': '-\n',
     'newline': '\n',  # you probably want to substitute this with an empty space ' '
@@ -46,7 +46,7 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     TODO: \{.+?\}|\(.+?\) always working?
     TODO: This is a rather slow now, help in speeding up welcome.
     """
-    remove_comp = re.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
+    remove_comp = regex.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
     text = remove_comp.sub('', text)
 
     new_text = None
@@ -65,10 +65,10 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
         text = new_text
 
     # replace line breaks w/ space
-    replace_comp = re.compile(r'\n')
+    replace_comp = regex.compile(r'\n')
     text = replace_comp.sub(' ', text)
 
-    comp_space = re.compile(r'\s+')
+    comp_space = regex.compile(r'\s+')
     text = comp_space.sub(' ', text)
 
     return text
@@ -81,7 +81,7 @@ def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """
     # This works OK, doesn't get some
     # Note: rming all characters between {} and ()
-    remove_comp = re.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[0-9]')
+    remove_comp = regex.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[0-9]')
     text = remove_comp.sub('', text)
 
     new_text = None
@@ -104,10 +104,10 @@ def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
         text = new_text
 
     # replace line breaks w/ space
-    replace_comp = re.compile(r'\n')
+    replace_comp = regex.compile(r'\n')
     text = replace_comp.sub(' ', text)
 
-    comp_space = re.compile(r'\s+')
+    comp_space = regex.compile(r'\s+')
     text = comp_space.sub(' ', text)
 
     return text

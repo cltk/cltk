@@ -7,7 +7,7 @@ from cltk.corpus.greek.tlg.author_female import AUTHOR_FEMALE
 from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
 from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
-import re
+import regex
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>',
@@ -102,7 +102,7 @@ def get_id_author():
 def select_id_by_name(query):
     """Do a case-insensitive regex match on author name, returns TLG id."""
     id_author = get_id_author()
-    comp = re.compile(r'{}'.format(query.casefold()))
+    comp = regex.compile(r'{}'.format(query.casefold()))
     matches = []
     for _id, author in id_author.items():
         match = comp.findall(author.casefold())
