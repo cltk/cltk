@@ -324,7 +324,7 @@ LOWER = [
     (r'S ', 'ς '),
     (r'S$', 'ς'),
     (r'S:', 'ς:'),
-    (r'S\.', 'ς\.'),
+    (r'S\.', 'ς\.'),  # pylint: disable=anomalous-backslash-in-string
     (r'S,', 'ς,'),
     (r'S;', 'ς;'),
     (r'S\'', 'ς\''),
@@ -365,7 +365,7 @@ PUNCT = [
 
 
 class Replacer(object):  # pylint: disable=R0903
-    """Beta match and replace; PUNCT broken?"""
+    """Replace Beta Code with Unicode."""
     def __init__(self, pattern1=None, pattern2=None, pattern3=None):
         if pattern1 is None:
             pattern1 = UPPER
@@ -374,31 +374,25 @@ class Replacer(object):  # pylint: disable=R0903
         if pattern3 is None:
             pattern3 = PUNCT
         self.pattern1 = \
-            [(regex.compile(beta_regex, flags=regex.VERSION1), repl) for (beta_regex, repl) in pattern1]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl)
+             for (beta_regex, repl) in pattern1]
         self.pattern2 = \
-            [(regex.compile(beta_regex, flags=regex.VERSION1), repl) for (beta_regex, repl) in pattern2]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl)
+             for (beta_regex, repl) in pattern2]
         self.pattern3 = \
-            [(regex.compile(beta_regex, flags=regex.VERSION1), repl) for (beta_regex, repl) in pattern3]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl)
+             for (beta_regex, repl) in pattern3]
 
     def beta_code(self, text):
         """Replace method. Note: regex.subn() returns a tuple (new_string,
         number_of_subs_made).
         """
-        no_hyph = text.replace('-', '')
-        beta_string = no_hyph
+        text = text.replace('-', '')
         for (pattern, repl) in self.pattern1:
-            beta_string = regex.subn(pattern, repl, beta_string)[0]
+            text = regex.subn(pattern, repl, text)[0]
         for (pattern, repl) in self.pattern2:
-            beta_string = regex.subn(pattern, repl, beta_string)[0]
+            text = regex.subn(pattern, repl, text)[0]
         # remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
-            unicode_string = regex.subn(pattern, repl, beta_string)[0]
-        return unicode_string
-
-if __name__ == "__main__":
-    beta_example = r"""O(/PWS OU)=N MH\ TAU)TO\ """
-    replacer = Replacer()
-    unicode = replacer.beta_code(beta_example)
-    target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
-    #self.assertEqual(unicode, target_unicode)
-    print(unicode == target_unicode)
+            text = regex.subn(pattern, repl, text)[0]
+        return text
