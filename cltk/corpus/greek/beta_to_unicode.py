@@ -4,11 +4,12 @@ TODO for replacer.py:
  - fix TLG diaeresis: εὐνοι+κῶς -> εὐνοϊκῶς (at Xen. Anab. 1.1.5, TLG0032.txt)
  -- προί+δοιεν -> προΐδοιεν (for TLG, Xen Anab 1.8.20)
 """
+
+import regex
+
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', ]
 __license__ = 'MIT License. See LICENSE.'
-
-import regex
 
 UPPER = [
     # Perseus-style head words
@@ -373,11 +374,11 @@ class Replacer(object):  # pylint: disable=R0903
         if pattern3 is None:
             pattern3 = PUNCT
         self.pattern1 = \
-            [(regex.compile(regex), repl) for (regex, repl) in pattern1]
+            [(regex.compile(beta_regex), repl) for (beta_regex, repl) in pattern1]
         self.pattern2 = \
-            [(regex.compile(regex), repl) for (regex, repl) in pattern2]
+            [(regex.compile(beta_regex), repl) for (beta_regex, repl) in pattern2]
         self.pattern3 = \
-            [(regex.compile(regex), repl) for (regex, repl) in pattern3]
+            [(regex.compile(beta_regex), repl) for (beta_regex, repl) in pattern3]
 
     def beta_code(self, text):
         """Replace method. Note: regex.subn() returns a tuple (new_string,
@@ -393,3 +394,11 @@ class Replacer(object):  # pylint: disable=R0903
         for (pattern, repl) in self.pattern3:
             unicode_string = regex.subn(pattern, repl, beta_string)[0]
         return unicode_string
+
+if __name__ == "__main__":
+    beta_example = r"""O(/PWS OU)=N MH\ TAU)TO\ """
+    replacer = Replacer()
+    unicode = replacer.beta_code(beta_example)
+    target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
+    #self.assertEqual(unicode, target_unicode)
+    print(unicode == target_unicode)
