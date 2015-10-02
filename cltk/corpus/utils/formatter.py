@@ -46,7 +46,7 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     TODO: \{.+?\}|\(.+?\) always working?
     TODO: This is a rather slow now, help in speeding up welcome.
     """
-    remove_comp = regex.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]')
+    remove_comp = regex.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]', flags=regex.VERSION1)
     text = remove_comp.sub('', text)
 
     new_text = None

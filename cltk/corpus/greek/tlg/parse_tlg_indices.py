@@ -102,7 +102,7 @@ def get_id_author():
 def select_id_by_name(query):
     """Do a case-insensitive regex match on author name, returns TLG id."""
     id_author = get_id_author()
-    comp = regex.compile(r'{}'.format(query.casefold()))
+    comp = regex.compile(r'{}'.format(query.casefold()), flags=regex.VERSION1)
     matches = []
     for _id, author in id_author.items():
         match = comp.findall(author.casefold())

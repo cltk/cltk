@@ -374,11 +374,11 @@ class Replacer(object):  # pylint: disable=R0903
         if pattern3 is None:
             pattern3 = PUNCT
         self.pattern1 = \
-            [(regex.compile(beta_regex), repl) for (beta_regex, repl) in pattern1]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl) for (beta_regex, repl) in pattern1]
         self.pattern2 = \
-            [(regex.compile(beta_regex), repl) for (beta_regex, repl) in pattern2]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl) for (beta_regex, repl) in pattern2]
         self.pattern3 = \
-            [(regex.compile(beta_regex), repl) for (beta_regex, repl) in pattern3]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl) for (beta_regex, repl) in pattern3]
 
     def beta_code(self, text):
         """Replace method. Note: regex.subn() returns a tuple (new_string,
