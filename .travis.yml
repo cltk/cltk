@@ -10,6 +10,7 @@ install:
   - python setup.py sdist install
 
 before_script:
+  - pip install codecov
   - pip install coveralls
 
 script:
@@ -20,6 +21,7 @@ script:
   - nosetests --no-skip --with-coverage --cover-package=cltk
 
 after_success:
+  - codecov
   # Notes on Coveralls
   # https://github.com/coagulant/coveralls-python#usage-travis-ci
   - coveralls
