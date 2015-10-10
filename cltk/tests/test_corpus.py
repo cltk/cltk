@@ -95,6 +95,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' Ἀθήναιος ὁ τῆς βίβλου πατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην.'
         self.assertEqual(clean, target)
 
+    def test_tlg_plaintext_cleanup_rm_periods(self):
+        """Test post-TLGU cleanup of text of Greek TLG text."""
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=line-too-long
+        clean = tlg_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
+        target = ' Ἀθήναιος ὁ τῆς βίβλου πατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην'
+        self.assertEqual(clean, target)
+
     def test_phi5_plaintext_cleanup(self):
         """Test post-TLGU cleanup of text of Latin PHI5 text."""
         dirty = """        {ODYSSIA}
@@ -105,6 +112,25 @@ Mea puera, quid verbi ex tuo ore supera fugit?
 argenteo polubro, aureo eclutro. """
         clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=False)
         target = ' Virum áge mihi Camena versutum. Pater noster Saturni filie . . . Mea puera quid verbi ex tuo ore supera fugit argenteo polubro aureo eclutro. '  # pylint: disable=line-too-long
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup_rm_periods(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = """        {ODYSSIA}
+        {Liber I}
+Virum áge 999 mihi, Camena, (insece) versutum.
+Pater noster, Saturni filie . . .
+Mea puera, quid verbi ex tuo ore supera fugit?
+argenteo polubro, aureo eclutro. """
+        clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
+        target = ' Virum áge mihi Camena versutum Pater noster Saturni filie Mea puera quid verbi ex tuo ore supera fugit argenteo polubro aureo eclutro '  # pylint: disable=line-too-long
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup_rm_periods_bytes(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = '\xcc\x81 Virum áge 999 mihi.'
+        clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
+        target = 'Ì Virum áge mihi'
         self.assertEqual(clean, target)
 
     def test_assemble_tlg_author(self):

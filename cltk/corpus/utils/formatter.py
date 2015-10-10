@@ -156,6 +156,3 @@ def assemble_phi5_works_filepaths():
             f = os.path.join(plaintext_dir, author_code + '.TXT' + '-' + work + '.txt')
             all_filepaths.append(f)
     return all_filepaths
-
-if __name__ == '__main__':
-    pass
