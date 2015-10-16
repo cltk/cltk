@@ -10,7 +10,7 @@ With Pip
 
    The CLTK is only compatible with Python 3.
 
-First, you'll need a working installation of `Python 3.4 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
+First, you'll need a working installation of `Python 3.5 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
 
 .. code-block:: shell
 
