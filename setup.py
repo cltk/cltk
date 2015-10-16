@@ -18,7 +18,7 @@ setup(
         'Natural Language :: Latin',
         'Operating System :: OS Independent',
         'Operating System :: POSIX',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
         'Topic :: Text Processing',
         'Topic :: Text Processing :: General',
