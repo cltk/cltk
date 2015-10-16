@@ -1,16 +1,17 @@
 """Test cltk.utils."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
+from collections import Counter
+import os
+import unittest
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.utils.build_contribs_index import build_contribs_file
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
-from collections import Counter
-import os
-import unittest
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -102,26 +103,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         is_file = os.path.isfile(file)
         self.assertTrue(is_file)
 
-    def test_concordance_from_file_list(self):
-        """Test ``write_concordance_from_file()`` for file writing completion
-        of concordance builder, with list input. Doesn't test quality of output."""
-        philology = Philology()
-        file_1 = 'cltk/tests/bad_pickle.pickle'
-        file_2 = 'cltk/tests/tlgu_test_text_beta_code.txt'
-        philology.write_concordance_from_file([file_1, file_2], 'test_file')
-        file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
-        is_file = os.path.isfile(file)
-        self.assertTrue(is_file)
-
     def test_concordance_from_file_ioerror(self):
         """Test ``write_concordance_from_file()`` for file writing completion
         of concordance builder, with IOError. Doesn't test quality of output."""
         philology = Philology()
-        file = 'cltk/tests/bad_pickle.pickle'
-        philology.write_concordance_from_file(file, 'test_file')
         bad_path = '/cltk_data/user_data/concordance_test_file.txt'
-        is_file = os.path.isfile(file)
-        self.assertIOError(is_file)
+        with self.assertRaises(IOError):
+            philology.write_concordance_from_file(bad_path, 'test_file')
 
 if __name__ == '__main__':
     unittest.main()
