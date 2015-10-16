@@ -102,5 +102,26 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         is_file = os.path.isfile(file)
         self.assertTrue(is_file)
 
+    def test_concordance_from_file_list(self):
+        """Test ``write_concordance_from_file()`` for file writing completion
+        of concordance builder, with list input. Doesn't test quality of output."""
+        philology = Philology()
+        file_1 = 'cltk/tests/bad_pickle.pickle'
+        file_2 = 'cltk/tests/tlgu_test_text_beta_code.txt'
+        philology.write_concordance_from_file([file_1, file_2], 'test_file')
+        file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
+        is_file = os.path.isfile(file)
+        self.assertTrue(is_file)
+
+    def test_concordance_from_file_ioerror(self):
+        """Test ``write_concordance_from_file()`` for file writing completion
+        of concordance builder, with IOError. Doesn't test quality of output."""
+        philology = Philology()
+        file = 'cltk/tests/bad_pickle.pickle'
+        philology.write_concordance_from_file(file, 'test_file')
+        bad_path = '/cltk_data/user_data/concordance_test_file.txt'
+        is_file = os.path.isfile(file)
+        self.assertIOError(is_file)
+
 if __name__ == '__main__':
     unittest.main()
