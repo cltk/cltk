@@ -1,14 +1,16 @@
 """Test cltk.tag."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
+import os
+import shutil
+import unittest
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
 from cltk.tag.pos import POSTag
-import os
-import unittest
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -96,6 +98,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test _check_latest_data()"""
         ner._check_latest_data('latin')
         names_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt')
+        self.assertTrue(os.path.isfile(names_path))
+
+    def test_check_latest_latin(self):
+        """Test _check_latest_data()"""
+        path = '~/cltk_data/latin/model/latin_models_cltk'
+        #p = '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt'
+        names_dir = os.path.expanduser(path)
+        shutil.rmtree(names_dir, ignore_errors=True)
+        ner._check_latest_data('latin')
+        names_path = os.path.join(names_dir, 'ner', 'proper_names.txt')
         self.assertTrue(os.path.isfile(names_path))
 
     def test_tag_ner_str_list_latin(self):

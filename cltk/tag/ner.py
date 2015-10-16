@@ -84,16 +84,3 @@ def tag_ner(lang, input_text, output_type=list):
         return string
 
     return ner_tuple_list
-
-
-if __name__ == "__main__":
-    #from cltk.stem.latin.j_v import JVReplacer
-    #input_file = '/Users/kyle/cltk_data/greek/text/tlg/plaintext/TLG0016.TXT'
-    #with open(input_file) as file_open:
-    #    text_str = file_open.read()
-
-    text_str = 'τὰ Σίλαριν Σιννᾶν Κάππαρος Πρωτογενείας Διονυσιάδες τὴν'
-
-    #jv_replacer = JVReplacer()
-    #text_str = jv_replacer.replace(text_str)
-    print(tag_ner('greek', input_text=text_str, output_type=list))
