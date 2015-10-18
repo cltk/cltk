@@ -22,6 +22,9 @@ def _regex_span(_regex, _str):
 def _sentence_context(match, language='latin'):
     """Take one incoming regex match object and return the sentence in which
      the match occurs.
+
+     TODO: Rm trailing whitespace if any.
+
     :rtype : str
     :param match: regex.match
     :param language: str
@@ -115,6 +118,7 @@ def _highlight_match(match, window=100):
     :param window: Characters on each side of match to return.
     :type window: int
     """
+    window = int(window)
     start = match.start()
     end = match.end()
     snippet_left = match.string[start - window:start]
@@ -124,6 +128,29 @@ def _highlight_match(match, window=100):
     snippet = snippet_left + '*' + snippet_match + '*' + snippet_right
 
     return snippet
+
+
+def match_regex(input_str, pattern, language, context=160):
+    """Take input string and a regex pattern, then yield generator of matches
+     in desired format.
+
+    :param input_str:
+    :param pattern:
+    :param language:
+    :param context:
+    :rtype : str
+
+     TODO: Make case sensitive.
+     """
+    contexts = ['sentence', 'paragraph']
+    assert context in contexts or type(context) is int, 'Available contexts: {}'.format(contexts)
+    for match in _regex_span(pattern, input_str):
+        if context == 'sentence':
+            yield _sentence_context(match, language)
+        elif context == 'paragraph':
+            yield _paragraph_context(match)
+        else:
+            yield _highlight_match(match, context)
 
 
 if __name__ == '__main__':
@@ -137,9 +164,6 @@ Turpissima tamen est iactura, quae per neglegentiam fit.
 
 Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus.
 """
-    _matches = _regex_span(r'scribo', TEXT)
+    _matches = match_regex(TEXT, r'scribo', language='latin', context='paragraph')
     for _match in _matches:
-        s = _paragraph_context(_match)
-        print(s)
-        print("'" + s + "'")
-    #print(s == 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.')
+        print(_match)
