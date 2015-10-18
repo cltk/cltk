@@ -1,4 +1,9 @@
-"""Functions for retrieving data from text corpora."""
+"""Functions for retrieving data from text corpora.
+
+TODO: Write function for highlight-matching (with context of ~1000).
+TODO: Write function for paragraph matching, do just like sentence matching.
+TODO: Write public function(s) for different query types.
+"""
 
 import regex
 
