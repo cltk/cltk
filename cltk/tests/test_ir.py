@@ -1,9 +1,9 @@
 """Test cltk.ir."""
 
-import os
 import unittest
 
 from cltk.ir.query import _regex_span
+from cltk.ir.query import _sentence_context
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -20,6 +20,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         for match in _matches:
             matches_list.append(match.span())
         self.assertEqual(matches_list, [(12, 13), (22, 23)])
+
+    def test_sentence_context(self):
+        """Test _sentence_context()."""
+        sentence = None
+        paragraph = """Ita fac, mi Lucili; vindica te tibi, et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva. Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt. Turpissima tamen est iactura, quae per neglegentiam fit. Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus."""  # pylint: disable=line-too-long
+        _matches = _regex_span(r'scribo', paragraph)
+        for _match in _matches:
+            sentence = _sentence_context(_match, language='latin')
+        sentence_target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        self.assertEqual(sentence, sentence_target)
+
 
 if __name__ == '__main__':
     unittest.main()
