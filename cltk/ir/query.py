@@ -108,6 +108,10 @@ def _paragraph_context(match):
 
     sentence = snippet_left[last_period:-1] + re_match + snippet_right[0:first_period - 1]
 
+    # Remove any trailing whitespace. Necessary?
+    #comp_final_space = regex.compile(r'\s*$')
+    #sentence = comp_final_space.sub('', sentence)
+
     return sentence
 
 

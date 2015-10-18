@@ -49,7 +49,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
 et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.
 
-Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.  # pylint: disable=line-too-long
+Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.
 
 Turpissima tamen est iactura, quae per neglegentiam fit.
 
