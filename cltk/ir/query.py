@@ -1,25 +1,25 @@
-"""Functions for retrieving data from text corpora.
-
-TODO: Write function for paragraph matching, do just like sentence matching.
-TODO: Write public function(s) for different query types.
-"""
+"""Functions for retrieving data from text corpora."""
 
 import regex
 
 
-def _regex_span(_regex, _str):
+def _regex_span(_regex, _str, case_insensitive=True):
     """Return all matches in an input string.
     :rtype : regex.match.span
     :param _regex: A regular expression pattern.
     :param _str: Text on which to run the pattern.
     """
-    comp = regex.compile(_regex, flags=regex.VERSION1)
+    if case_insensitive:
+        flags = regex.IGNORECASE | regex.FULLCASE | regex.VERSION1
+    else:
+        flags = regex.VERSION1
+    comp = regex.compile(_regex, flags=flags)
     matches = comp.finditer(_str)
     for match in matches:
         yield match
 
 
-def _sentence_context(match, language='latin'):
+def _sentence_context(match, language='latin', case_insensitive=True):
     """Take one incoming regex match object and return the sentence in which
      the match occurs.
 
@@ -43,7 +43,7 @@ def _sentence_context(match, language='latin'):
     snippet_right = match.string[end:end + window]
     re_match = match.string[match.start():match.end()]
 
-    comp_sent_boundary = regex.compile(language_punct[language])
+    comp_sent_boundary = regex.compile(language_punct[language], flags=regex.VERSION1)
     # Left
     left_punct = []
     for punct in comp_sent_boundary.finditer(snippet_left):
@@ -85,7 +85,7 @@ def _paragraph_context(match):
 
     # (1) Optional any whitespaces, (2) one newline, (3) optional any whitespaces.
     para_break_pattern = r'\s*?\n\s*?'
-    comp_sent_boundary = regex.compile(para_break_pattern)
+    comp_sent_boundary = regex.compile(para_break_pattern, flags=regex.VERSION1)
     # Left
     left_punct = []
     for punct in comp_sent_boundary.finditer(snippet_left):
@@ -134,7 +134,7 @@ def _highlight_match(match, window=100):
     return snippet
 
 
-def match_regex(input_str, pattern, language, context):
+def match_regex(input_str, pattern, language, context, case_insensitive=True):
     """Take input string and a regex pattern, then yield generator of matches
      in desired format.
 
@@ -151,7 +151,7 @@ def match_regex(input_str, pattern, language, context):
         assert context in contexts or type(context) is int, 'Available contexts: {}'.format(contexts)
     else:
         context = int(context)
-    for match in _regex_span(pattern, input_str):
+    for match in _regex_span(pattern, input_str, case_insensitive=case_insensitive):
         if context == 'sentence':
             yield _sentence_context(match, language)
         elif context == 'paragraph':
@@ -171,6 +171,6 @@ Turpissima tamen est iactura, quae per neglegentiam fit.
 
 Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus.
 """
-    _matches = match_regex(TEXT, r'scribo', language='latin', context='paragraph')
+    _matches = match_regex(TEXT, r'scribo', language='latin', context='paragraph', case_insensitive=False)
     for _match in _matches:
         print(_match)

@@ -27,6 +27,25 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             matches_list.append(match.span())
         self.assertEqual(matches_list, [(12, 13), (22, 23)])
 
+    def test_regex_span_case_insens(self):
+        """Test _regex_span()."""
+        text = 'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων, οὐκ οἶδα:'
+        _matches = _regex_span(r'Σ', text, case_insensitive=True)
+        matches_list = []
+        for match in _matches:
+            matches_list.append(match.span())
+        self.assertEqual(matches_list, [(12, 13), (22, 23)])
+
+    def test_regex_span_case_sens(self):
+        """Test _regex_span()."""
+        text = 'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων, οὐκ οἶδα:'
+        _matches = _regex_span(r'Σ', text, case_insensitive=False)
+        matches_list = []
+        for match in _matches:
+            matches_list.append(match.span())
+        self.assertEqual(matches_list, [])
+
+
     def test_sentence_context(self):
         """Test _sentence_context()."""
         sentence = None
