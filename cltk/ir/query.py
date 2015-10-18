@@ -1,6 +1,5 @@
 """Functions for retrieving data from text corpora.
 
-TODO: Write function for highlight-matching (with context of ~1000).
 TODO: Write function for paragraph matching, do just like sentence matching.
 TODO: Write public function(s) for different query types.
 """
@@ -69,9 +68,28 @@ def _sentence_context(match, language='latin'):
     return sentence
 
 
+def _highlight_match(match, window=100):
+    """Take incoming match and highlight in context.
+    :rtype : str
+    :param match: Regex match.
+    :param window: Characters on each side of match to return.
+    :type window: int
+    """
+    start = match.start()
+    end = match.end()
+    snippet_left = match.string[start - window:start]
+    snippet_match = match.string[match.start():match.end()]
+    snippet_right = match.string[end:end + window]
+
+    snippet = snippet_left + '*' + snippet_match + '*' + snippet_right
+
+    return snippet
+
+
 if __name__ == '__main__':
     TEXT = """Ita fac, mi Lucili; vindica te tibi, et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva. Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt. Turpissima tamen est iactura, quae per neglegentiam fit. Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus."""
     _matches = _regex_span(r'scribo', TEXT)
     for _match in _matches:
-        s = _sentence_context(_match)
-    print(s == 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.')
+        s = _highlight_match(_match)
+        print(s)
+    #print(s == 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.')

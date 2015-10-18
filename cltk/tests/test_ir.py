@@ -2,6 +2,7 @@
 
 import unittest
 
+from cltk.ir.query import _highlight_match
 from cltk.ir.query import _regex_span
 from cltk.ir.query import _sentence_context
 
@@ -29,6 +30,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         for _match in _matches:
             sentence = _sentence_context(_match, language='latin')
         sentence_target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        self.assertEqual(sentence, sentence_target)
+
+    def test_highlight_match(self):
+        """Test _highlight_match()."""
+        sentence = None
+        paragraph = """Ita fac, mi Lucili; vindica te tibi, et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva. Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt. Turpissima tamen est iactura, quae per neglegentiam fit. Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus."""  # pylint: disable=line-too-long
+        _matches = _regex_span(r'scribo', paragraph)
+        for _match in _matches:
+            sentence = _highlight_match(_match, window=10)
+        print(sentence)
+        sentence_target = ' esse, ut *scribo*: quaedam '  # pylint: disable=line-too-long
         self.assertEqual(sentence, sentence_target)
 
 
