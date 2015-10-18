@@ -4,6 +4,7 @@ import unittest
 
 from cltk.ir.query import _highlight_match
 from cltk.ir.query import _regex_span
+from cltk.ir.query import _paragraph_context
 from cltk.ir.query import _sentence_context
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
@@ -39,10 +40,25 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         _matches = _regex_span(r'scribo', paragraph)
         for _match in _matches:
             sentence = _highlight_match(_match, window=10)
-        print(sentence)
         sentence_target = ' esse, ut *scribo*: quaedam '  # pylint: disable=line-too-long
         self.assertEqual(sentence, sentence_target)
 
+    def test_paragraph_context(self):
+        """Test _paragraph_context()."""
+        text = """Ita fac, mi Lucili; vindica te tibi.
+
+et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.
+
+Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.  # pylint: disable=line-too-long
+
+Turpissima tamen est iactura, quae per neglegentiam fit.
+
+Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus."""  # pylint: disable=line-too-long
+        _matches = _regex_span(r'scribo', text)
+        for _match in _matches:
+            para = _paragraph_context(_match)
+        target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        self.assertEqual(para, target)
 
 if __name__ == '__main__':
     unittest.main()
