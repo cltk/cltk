@@ -134,20 +134,23 @@ def _highlight_match(match, window=100):
     return snippet
 
 
-def match_regex(input_str, pattern, language, context=160):
+def match_regex(input_str, pattern, language, context):
     """Take input string and a regex pattern, then yield generator of matches
      in desired format.
 
     :param input_str:
     :param pattern:
     :param language:
-    :param context:
+    :param context: Integer or 'sentence' 'paragraph'
     :rtype : str
 
      TODO: Make case sensitive.
      """
-    contexts = ['sentence', 'paragraph']
-    assert context in contexts or type(context) is int, 'Available contexts: {}'.format(contexts)
+    if type(context) is str:
+        contexts = ['sentence', 'paragraph']
+        assert context in contexts or type(context) is int, 'Available contexts: {}'.format(contexts)
+    else:
+        context = int(context)
     for match in _regex_span(pattern, input_str):
         if context == 'sentence':
             yield _sentence_context(match, language)
