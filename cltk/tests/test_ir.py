@@ -5,7 +5,7 @@ TODO: Test Greek version of some of these.
 
 import unittest
 
-from cltk.ir.query import _highlight_match
+from cltk.ir.query import _window_match
 from cltk.ir.query import _regex_span
 from cltk.ir.query import _paragraph_context
 from cltk.ir.query import _sentence_context
@@ -53,16 +53,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         _matches = _regex_span(r'scribo', paragraph)
         for _match in _matches:
             sentence = _sentence_context(_match, language='latin')
-        sentence_target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        sentence_target = 'Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
         self.assertEqual(sentence, sentence_target)
 
     def test_highlight_match(self):
-        """Test _highlight_match()."""
+        """Test _window_match()."""
         sentence = None
         paragraph = """Ita fac, mi Lucili; vindica te tibi, et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva. Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt. Turpissima tamen est iactura, quae per neglegentiam fit. Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus."""  # pylint: disable=line-too-long
         _matches = _regex_span(r'scribo', paragraph)
         for _match in _matches:
-            sentence = _highlight_match(_match, window=10)
+            sentence = _window_match(_match, window=10)
         sentence_target = ' esse, ut *scribo*: quaedam '  # pylint: disable=line-too-long
         self.assertEqual(sentence, sentence_target)
 
@@ -80,7 +80,7 @@ Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil
         _matches = _regex_span(r'scribo', text)
         for _match in _matches:
             para = _paragraph_context(_match)
-        target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        target = 'Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
         self.assertEqual(para, target)
 
     def test_match_regex_para(self):
@@ -98,7 +98,7 @@ Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil
         _matches = match_regex(text, r'scribo', language='latin', context='paragraph')
         for _match in _matches:
             para = _match
-        para_target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        para_target = 'Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
         self.assertEqual(para, para_target)
 
     def test_match_regex_sentence(self):
@@ -107,16 +107,16 @@ Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil
         _matches = match_regex(text, r'scribo', language='latin', context='sentence')
         for _match in _matches:
             sent = _match
-        sent_target = 'Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
+        sent_target = 'Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.'  # pylint: disable=line-too-long
         self.assertEqual(sent, sent_target)
 
     def test_match_regex_window(self):
         """Test match_regex()."""
         text = """Ita fac, mi Lucili; vindica te tibi. et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva. Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt. Turpissima tamen est iactura, quae per neglegentiam fit. Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus."""  # pylint: disable=line-too-long
-        _matches = match_regex(text, r'scribo', language='latin', context=50)
+        _matches = match_regex(text, r'scribo', language='latin', context=40)
         for _match in _matches:
             sent = _match
-        sent_target = ' collige et serva. Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quaedam subduc'  # pylint: disable=line-too-long
+        sent_target = 't serva. Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quae'  # pylint: disable=line-too-long
         self.assertEqual(sent, sent_target)
 
 if __name__ == '__main__':

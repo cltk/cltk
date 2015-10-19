@@ -81,6 +81,55 @@ The CLTK uses languages in its organization of data, however some good corpora d
    Out[3]: ['multilingual_treebank_proiel']
 
 
+Information Retrieval
+=====================
+
+.. tip::
+
+   To begin working with regular expressions, try `Pythex <http://pythex.org/>`_, a handy tool for developing patterns. For more thorough lessons, try `Learn Regex The Hard Way <http://regex.learncodethehardway.org/book/>`_.
+
+Several functions are available for querying text in order to match regular expression patterns. `match_regex()` is the most basic. Punctuation rules are included for texts using Latin sentence–final punctuation ('.', '!', '?') and Greek ('.', ';'). For returned strings, you may choose between a context of the match's sentence, paragraph, or custom number of characters on each side of a hit. Note that this function and the next each return a generator.
+
+Example in Latin with a sentence context, case-insensitive.
+.. code-block:: python
+
+   In [1]: from cltk.ir.query import match_regex
+
+   In [2]: text = 'Ita fac, mi Lucili; vindica te tibi. et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.'
+
+   In [3]: matches = match_regex(text, r'tempus', language='latin', context='sentence', case_insensitive=True)
+
+   In [4]: for match in matches:
+       print(match)
+      ...:
+   et *tempus*, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.
+
+Here with context of 40 characters:
+
+.. code-block:: python
+
+   In [5]: matches = match_regex(text, r'tempus', language='latin', context=40, case_insensitive=True)
+
+   In [6]: for match in matches:
+       print(match)
+      ...:
+   Ita fac, mi Lucili; vindica te tibi. et *tempus*, quod adhuc aut auferebatur aut subripi
+
+For querying the entirety of a corpus, see `search_corpus()`, which returns a tuple of ``('author_name': 'match_context')``.
+
+.. code-block:: python
+
+   In [7]: from cltk.ir.query import search_corpus
+
+   In [8]: for match in search_corpus('ὦ ἄνδρες Ἀθηναῖοι', 'tlg', context='sentence'):
+       print(match)
+      ...:
+   ('Ammonius Phil.', ' \nκαλοῦντας ἑτέρους ἢ προστάσσοντας ἢ ἐρωτῶντας ἢ εὐχομένους περί τινων, \nπολλάκις δὲ καὶ αὐτοπροσώπως κατά τινας τῶν ἐνεργειῶν τούτων ἐνεργοῦ-\nσι “πρῶτον μέν, *ὦ ἄνδρες Ἀθηναῖοι*, τοῖς θεοῖς εὔχομαι πᾶσι καὶ πάσαις” \nλέγοντες ἢ “ἀπόκριναι γὰρ δεῦρό μοι ἀναστάς”. οἱ οὖν περὶ τῶν τεχνῶν \nτούτων πραγματευόμενοι καὶ τοὺς λόγους εἰς θεωρίαν ')
+   ('Sopater Rhet.', "θόντα, ἢ συγγνωμονηκέναι καὶ ἐλεῆσαι. ψυχῆς γὰρ \nπάθος ἐπὶ συγγνώμῃ προτείνεται. παθητικὴν οὖν ποιή-\nσῃ τοῦ πρώτου προοιμίου τὴν ἔννοιαν: ἁπάντων, ὡς ἔοι-\nκεν, *ὦ ἄνδρες Ἀθηναῖοι*, πειρασθῆναί με τῶν παραδό-\nξων ἀπέκειτο, πόλιν ἰδεῖν ἐν μέσῃ Βοιωτίᾳ κειμένην. καὶ \nμετὰ Θήβας οὐκ ἔτ' οὔσας, ὅτι μὴ στεφανοῦντας Ἀθη-\nναίους ἀπέδειξα παρὰ τὴ")
+   …
+
+
+
 N–grams
 =======
 

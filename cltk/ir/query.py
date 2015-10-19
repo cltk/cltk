@@ -1,5 +1,10 @@
 """Functions for retrieving data from text corpora."""
 
+from cltk.corpus.greek.tlg_index import TLG_INDEX
+from cltk.corpus.latin.phi5_index import PHI5_INDEX
+from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
+from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
+import os
 import regex
 
 
@@ -22,8 +27,6 @@ def _regex_span(_regex, _str, case_insensitive=True):
 def _sentence_context(match, language='latin', case_insensitive=True):
     """Take one incoming regex match object and return the sentence in which
      the match occurs.
-
-     TODO: Rm trailing whitespace if any.
 
     :rtype : str
     :param match: regex.match
@@ -64,7 +67,7 @@ def _sentence_context(match, language='latin', case_insensitive=True):
     except IndexError:
         first_period = 0
 
-    sentence = snippet_left[last_period:-1] + re_match + snippet_right[0:first_period]
+    sentence = snippet_left[last_period:-1] + '*' + re_match + '*' + snippet_right[0:first_period]
 
     return sentence
 
@@ -106,7 +109,7 @@ def _paragraph_context(match):
     except IndexError:
         first_period = 0
 
-    sentence = snippet_left[last_period:-1] + re_match + snippet_right[0:first_period - 1]
+    sentence = snippet_left[last_period:-1] + '*' + re_match + '*' + snippet_right[0:first_period - 1]
 
     # Remove any trailing whitespace. Necessary?
     #comp_final_space = regex.compile(r'\s*$')
@@ -115,7 +118,7 @@ def _paragraph_context(match):
     return sentence
 
 
-def _highlight_match(match, window=100):
+def _window_match(match, window=100):
     """Take incoming match and highlight in context.
     :rtype : str
     :param match: Regex match.
@@ -143,9 +146,7 @@ def match_regex(input_str, pattern, language, context, case_insensitive=True):
     :param language:
     :param context: Integer or 'sentence' 'paragraph'
     :rtype : str
-
-     TODO: Make case sensitive.
-     """
+    """
     if type(context) is str:
         contexts = ['sentence', 'paragraph']
         assert context in contexts or type(context) is int, 'Available contexts: {}'.format(contexts)
@@ -157,20 +158,42 @@ def match_regex(input_str, pattern, language, context, case_insensitive=True):
         elif context == 'paragraph':
             yield _paragraph_context(match)
         else:
-            yield _highlight_match(match, context)
+            yield _window_match(match, context)
+
+
+def search_corpus(pattern, corpus, context, case_insensitive=True):
+    """Search for pattern in TLG or PHI5.
+    TODO: Cleanup hyphenation.
+    """
+
+    corpora = ['tlg', 'phi5']
+    assert corpus in corpora, "Available corpora: {''}.".format(corpora)
+
+    if type(context) is str:
+        contexts = ['sentence', 'paragraph']
+        assert context in contexts or type(context) is int, 'Available contexts: {}'.format(contexts)
+    else:
+        context = int(context)
+
+    if corpus == 'phi5':
+        lang = 'latin'
+        index = PHI5_INDEX
+        paths = assemble_phi5_author_filepaths()
+    elif corpus == 'tlg':
+        index = TLG_INDEX
+        lang = 'greek'
+        paths = assemble_tlg_author_filepaths()
+
+    for path in paths:
+        with open(path) as file_open:
+            text = file_open.read()
+        _matches = match_regex(text, pattern, language=lang, context=160, case_insensitive=case_insensitive)
+        for _match in _matches:
+            _id = os.path.split(path)[1][:-4]
+            author = index[_id]
+            yield (author, _match)
 
 
 if __name__ == '__main__':
-    TEXT = """Ita fac, mi Lucili; vindica te tibi.
-
-et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.
-
-Persuade tibi hoc sic esse, ut scribo: quaedam tempora eripiuntur nobis, quaedam subducuntur, quaedam effluunt.
-
-Turpissima tamen est iactura, quae per neglegentiam fit.
-
-Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil agentibus, tota vita aliud agentibus.
-"""
-    _matches = match_regex(TEXT, r'scribo', language='latin', context='paragraph', case_insensitive=False)
-    for _match in _matches:
-        print(_match)
+    for x in search_corpus('ὦ ἄνδρες Ἀθηναῖοι', 'tlg', context='sentence'):
+        print(x)
