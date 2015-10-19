@@ -7,6 +7,9 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 import os
 import regex
 
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 
 def _regex_span(_regex, _str, case_insensitive=True):
     """Return all matches in an input string.
