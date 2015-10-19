@@ -55,7 +55,7 @@ year = {2014--2015}
 }
 ```
 
-Optionally you may add version/release number, e.g., ``v0.1.27``, to the entry.
+Optionally you may add version/release number, e.g., ``v0.1.28``, to the entry.
 
 
 License
