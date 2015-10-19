@@ -48,7 +48,7 @@ You can also divide the texts into a file for each individual work.
 Information Retrieval
 =====================
 
-See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilingual.html#information-retieval>`_ for Latin–specific search options.
+See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilingual.html#information-retrieval>`_ for Latin–specific search options.
 
 
 

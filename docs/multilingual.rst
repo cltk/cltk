@@ -88,9 +88,10 @@ Information Retrieval
 
    To begin working with regular expressions, try `Pythex <http://pythex.org/>`_, a handy tool for developing patterns. For more thorough lessons, try `Learn Regex The Hard Way <http://regex.learncodethehardway.org/book/>`_.
 
-Several functions are available for querying text in order to match regular expression patterns. `match_regex()` is the most basic. Punctuation rules are included for texts using Latin sentence–final punctuation ('.', '!', '?') and Greek ('.', ';'). For returned strings, you may choose between a context of the match's sentence, paragraph, or custom number of characters on each side of a hit. Note that this function and the next each return a generator.
+Several functions are available for querying text in order to match regular expression patterns. ``match_regex()`` is the most basic. Punctuation rules are included for texts using Latin sentence–final punctuation ('.', '!', '?') and Greek ('.', ';'). For returned strings, you may choose between a context of the match's sentence, paragraph, or custom number of characters on each side of a hit. Note that this function and the next each return a generator.
 
-Example in Latin with a sentence context, case-insensitive.
+Here is an example in Latin with a sentence context, case-insensitive:
+
 .. code-block:: python
 
    In [1]: from cltk.ir.query import match_regex
@@ -104,7 +105,8 @@ Example in Latin with a sentence context, case-insensitive.
       ...:
    et *tempus*, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.
 
-Here with context of 40 characters:
+
+And here with context of 40 characters:
 
 .. code-block:: python
 
@@ -115,7 +117,7 @@ Here with context of 40 characters:
       ...:
    Ita fac, mi Lucili; vindica te tibi. et *tempus*, quod adhuc aut auferebatur aut subripi
 
-For querying the entirety of a corpus, see `search_corpus()`, which returns a tuple of ``('author_name': 'match_context')``.
+For querying the entirety of a corpus, see ``search_corpus()``, which returns a tuple of ``('author_name': 'match_context')``.
 
 .. code-block:: python
 
