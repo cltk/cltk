@@ -75,6 +75,12 @@ You may read about these arguments in `the TLGU manual <https://github.com/cltk/
 
 
 
+Information Retrieval
+=====================
+
+See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilingual.html#information-retieval>`_ for Greek–specific search options.
+
+
 Lemmatization
 =============
 
