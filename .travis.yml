@@ -7,26 +7,6 @@ python:
   - "3.5"
 
 install:
-  # openblas req'd for numpy
-  #- sudo apt-get install -y libblas-dev liblapack-dev
-  # for scipy
-  #- sudo apt-get install -y libatlas-base-dev gfortran
-  #- sudo apt-get install -y gfortran
-  #- pip install scipy
-  #- sudo apt-get install python-scipy
-  #- pip install gensim
-
-  # Install Anaconda, b/c installing scipy on Travis is too slow
-  # https://github.com/piskvorky/gensim/blob/develop/.travis.yml
-  - wget 'http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh' -O miniconda.sh
-  - chmod +x miniconda.sh
-  - ./miniconda.sh -b
-  - export PATH=/home/travis/miniconda/bin:$PATH
-  - conda update --yes conda
-  # make a conda virtualenv
-  - conda create --yes -n cltk-gensim python=$TRAVIS_PYTHON_VERSION pip atlas numpy scipy
-  - conda install --yes atlas numpy scipy gensim
-  - source activate cltk-gensim
   - python setup.py sdist install
 
 before_script:
