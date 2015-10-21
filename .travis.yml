@@ -23,7 +23,8 @@ install:
   - ./miniconda.sh -b
   - export PATH=/home/travis/miniconda/bin:$PATH
   - conda update --yes conda
-  - conda create --yes -n gensim-test python=$TRAVIS_PYTHON_VERSION pip atlas numpy scipy gensim
+  - conda install --yes atlas numpy scipy gensim
+  #- conda create --yes -n python=$TRAVIS_PYTHON_VERSION pip atlas numpy scipy
 
   - python setup.py sdist install
 
