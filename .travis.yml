@@ -9,6 +9,9 @@ python:
 install:
   # openblas req'd for numpy
   - sudo apt-get install -y libblas-dev liblapack-dev
+  # fortran for scipy
+  # TODO: trim this down
+  - sudo apt-get install -y libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran python-all-dev libatlas-base-de
   - pip install gensim
   - python setup.py sdist install
 
