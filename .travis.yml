@@ -7,6 +7,7 @@ python:
   - "3.5"
 
 install:
+  - pip install gensim
   - python setup.py sdist install
 
 before_script:

@@ -131,7 +131,7 @@ def make_model(corpus, lemmatize=False, rm_stops=False, size=100, window=10, min
         save_path = os.path.expanduser(save_path)
         model.save(save_path)
 
-    print('Total training time for {0}: {1} seconds'.format(save_path, (time.time() - t0) / 60))
+    print('Total training time for {0}: {1} minutes'.format(save_path, (time.time() - t0) / 60))
 
 
 if __name__ == '__main__':
