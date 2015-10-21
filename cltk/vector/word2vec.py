@@ -1,3 +1,7 @@
+"""Helper functions for any word-vector operations.
+
+TODO: Run Latin W2V again with WordTokenizer().
+"""
 
 import logging
 import os
@@ -13,7 +17,10 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
-from gensim.models import Word2Vec
+try:
+    from gensim.models import Word2Vec
+except ImportError:
+    print('Gensim not installed.')
 
 
 def gen_docs(corpus, lemmatize, rm_stops):

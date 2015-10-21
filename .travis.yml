@@ -7,6 +7,8 @@ python:
   - "3.5"
 
 install:
+  # openblas req'd for gensim
+  - apt-get -y install libopenblas-dev
   - pip install gensim
   - python setup.py sdist install
 
