@@ -12,6 +12,8 @@ install:
   # for scipy
   - sudo apt-get install -y libatlas-base-dev gfortran
   - sudo apt-get install -y gfortran
+  #- pip install scipy
+  - sudo apt-get install python-scipy
   - pip install gensim
   - python setup.py sdist install
 
