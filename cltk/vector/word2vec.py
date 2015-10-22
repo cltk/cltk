@@ -25,7 +25,7 @@ try:
     from gensim.models import Word2Vec
 except ImportError:
     print('Gensim not installed.')
-    #raise
+    raise
 
 
 def gen_docs(corpus, lemmatize, rm_stops):

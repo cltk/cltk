@@ -29,7 +29,11 @@ def build_contribs_file(test=None):
     # get all authors in each file
     for py_file in py_files_list:
         loader = importlib.machinery.SourceFileLoader('__author__', py_file)
-        mod = loader.load_module()
+        try:
+            mod = loader.load_module()
+        except ImportError as imp_err:
+            print(imp_err)
+            pass
         mod_path = mod.__file__
 
         # test if file has __author__ in it; will fail w/o this try/except
