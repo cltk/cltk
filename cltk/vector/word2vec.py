@@ -1,5 +1,6 @@
 """Helper functions for any word-vector operations.
 
+TODO: Figure out how to log ImportError when building on travis, if gensim not available
 TODO: Run Latin W2V again with WordTokenizer().
 TODO: Add CLTK logging to this.
 """
@@ -24,7 +25,7 @@ try:
     from gensim.models import Word2Vec
 except ImportError:
     print('Gensim not installed.')
-    raise
+    #raise
 
 
 def gen_docs(corpus, lemmatize, rm_stops):
