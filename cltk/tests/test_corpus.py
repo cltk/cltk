@@ -1,4 +1,7 @@
-"""Test cltk.corpus."""
+"""Test cltk.corpus.
+
+TODO: Consider whether to import the very large Word2Vec corpora for Greek and Latin.
+"""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'

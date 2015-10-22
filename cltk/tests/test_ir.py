@@ -1,6 +1,8 @@
 """Test cltk.ir.
 
 TODO: Test Greek version of some of these.
+TODO: Figure out how to test functions relying on word2vec/gensim.
+TODO: Update tests for keyword exapansion additions to it.py module.
 """
 
 import unittest
