@@ -33,7 +33,7 @@ def build_contribs_file(test=None):
             mod = loader.load_module()
         except ImportError as imp_err:
             print(imp_err)
-            pass
+            continue
         mod_path = mod.__file__
 
         # test if file has __author__ in it; will fail w/o this try/except
