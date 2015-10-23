@@ -1,7 +1,7 @@
 The Classical Language Toolkit
 ==============================
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![codecov.io](http://codecov.io/github/kylepjohnson/cltk/coverage.svg?branch=master)](http://codecov.io/github/kylepjohnson/cltk?branch=master) [![Dependency Status](https://gemnasium.com/kylepjohnson/cltk.svg)](https://gemnasium.com/kylepjohnson/cltk) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.32167.svg)](http://dx.doi.org/10.5281/zenodo.32167)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![PyPI version](http://img.shields.io/pypi/dm/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/)  [![Build Status](https://travis-ci.org/kylepjohnson/cltk.svg?branch=master)](https://travis-ci.org/kylepjohnson/cltk) [![Coverage Status](https://coveralls.io/repos/kylepjohnson/cltk/badge.svg?branch=master)](https://coveralls.io/r/kylepjohnson/cltk?branch=master) [![codecov.io](http://codecov.io/github/kylepjohnson/cltk/coverage.svg?branch=master)](http://codecov.io/github/kylepjohnson/cltk?branch=master) [![Dependency Status](https://gemnasium.com/kylepjohnson/cltk.svg)](https://gemnasium.com/kylepjohnson/cltk) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.32167.svg)](http://dx.doi.org/10.5281/zenodo.32540)
 
 [![Join the chat at https://gitter.im/kylepjohnson/cltk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kylepjohnson/cltk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -37,11 +37,11 @@ Corpora are kept in [the CLTK's GitHub user group](https://github.com/cltk). A l
 Citation
 --------
 
-Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the repository's home (`README.md`). To the end of your bibliographic entry, append `DOI ` plus the current identifier.
+Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow your readers to reproduce your scholarship should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the repository's home on GitHub. To the end of your bibliographic entry, append `DOI ` plus the current identifier.
 
 Therefore, please cite as follows: 
 ```
-Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.32167
+Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.<current_release_id>
 ```
 
 A style-neutral BibTeX entry would look like this:
@@ -50,12 +50,12 @@ A style-neutral BibTeX entry would look like this:
 author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
 howpublished = {\url{https://github.com/kylepjohnson/cltk}},
-note = {{DOI} 10.5281/zenodo.32167},
-year = {2014--2015}
+note = {{DOI} 10.5281/zenodo.<current_release_id>},
+year = {2014--2015},
 }
 ```
 
-Optionally you may add version/release number, e.g., ``v0.1.28``, to the entry.
+You may also add version/release number, located in the `pypi` button at the project's GitHub repository homepage.
 
 
 License
