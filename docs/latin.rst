@@ -489,7 +489,7 @@ similar contexts (something akin to synonyms; think of them as lexical clusters)
 The CLTK repository contains pre-trained Word2Vec models for Latin (import as ``latin_word2vec_cltk``), one lemmatized and the other not. They were trained on \
 the PHI5 corpus. To train your own, see the README at `the Latin Word2Vec repository <https://github.com/cltk/latin_word2vec_cltk>`_.
 
-One of the most useful simple features of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
+One of the most common uses of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
 finding synonyms, and searching for those, too. Here's an example of its use:
 
 .. code-block:: python
