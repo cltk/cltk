@@ -526,9 +526,9 @@ words in relation to each other. For instance, it is commonly used to discover w
 similar contexts (something akin to synonyms; think of them as lexical clusters).
 
 The CLTK repository contains pre-trained Word2Vec models for Greek (import as ``greek_word2vec_cltk``), one lemmatized and the other not. They were trained on \
-the TLG corpus. To train your own, see the README at `the Greek Word2Vec repository <https://github.com/cltk/gatin_word2vec_cltk>`_.
+the TLG corpus. To train your own, see the README at `the Greek Word2Vec repository <https://github.com/cltk/greek_word2vec_cltk>`_.
 
-One of the most useful simple features of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
+One of the most common uses of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
 finding synonyms, and searching for those, too. Here's an example of its use:
 
 .. code-block:: python
