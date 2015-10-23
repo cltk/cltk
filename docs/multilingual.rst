@@ -88,6 +88,10 @@ Information Retrieval
 
    To begin working with regular expressions, try `Pythex <http://pythex.org/>`_, a handy tool for developing patterns. For more thorough lessons, try `Learn Regex The Hard Way <http://regex.learncodethehardway.org/book/>`_.
 
+.. tip::
+
+   Read about `Word2Vec for Latin <http://docs.cltk.org/en/latest/latin.html#word2vec>`_ or `Greek <http://docs.cltk.org/en/latest/greek.html#word2vec>`_ for the powerful keyword expansion functionality.
+
 Several functions are available for querying text in order to match regular expression patterns. ``match_regex()`` is the most basic. Punctuation rules are included for texts using Latin sentence–final punctuation ('.', '!', '?') and Greek ('.', ';'). For returned strings, you may choose between a context of the match's sentence, paragraph, or custom number of characters on each side of a hit. Note that this function and the next each return a generator.
 
 Here is an example in Latin with a sentence context, case-insensitive:

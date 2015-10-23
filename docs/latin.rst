@@ -468,3 +468,84 @@ Word Tokenization
    In [4]: word_tokenizer.tokenize(text)
    Out[4]: ['atque', 'haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
 
+
+
+Word2Vec
+========
+
+.. note::
+
+   The Word2Vec models have not been fully vetted and are offered in the spirit of a beta. The CLTK's API for it \
+   will be revised.
+
+.. note::
+
+   You will need to install `Gensim <https://radimrehurek.com/gensim/install.html>`_ to use these features.
+
+Word2Vec is a `Vector space model <https://en.wikipedia.org/wiki/Vector_space_model>`_ especially powerful for comparing \
+words in relation to each other. For instance, it is commonly used in situations to discover words which appear in \
+similar contexts (that is, something akin to synonyms).
+
+The CLTK repository contains pre-trained Word2Vec models for Latin (import as ``latin_word2vec_cltk``), one lemmatized and the other not. They were trained on \
+the PHI5 corpus. To train your own, see the README at `the Latin Word2Vec repository <https://github.com/cltk/latin_word2vec_cltk>`_.
+
+One of the most useful simple features of Word2Vec is as a keyword expander. Keyword expansion is the taking of an query term, \
+finding synonyms, and searching for those, too. Here's an example of its use:
+
+.. code-block:: python
+
+   In [1]: from cltk.ir.query import search_corpus
+
+   In [2]: for x in search_corpus('amicitia', 'phi5', context='sentence', case_insensitive=True, expand_keyword=True, threshold=0.25):
+       print(x)
+      ...:
+   The following similar terms will be added to the 'amicitia' query: '['societate', 'praesentia', 'uita', 'sententia', 'promptu', 'beneuolentia', 'dignitate', 'monumentis', 'somnis', 'philosophia']'.
+   ('L. Iunius Moderatus Columella', 'hospitem, nisi ex *amicitia* domini, quam raris-\nsime recipiat.')
+   ('L. Iunius Moderatus Columella', ' \n    Xenophon Atheniensis eo libro, Publi Siluine, qui Oeconomicus \ninscribitur, prodidit maritale coniugium sic comparatum esse \nnatura, ut non solum iucundissima, uerum etiam utilissima uitae \nsocietas iniretur: nam primum, quod etiam Cicero ait, ne genus \nhumanum temporis longinquitate occideret, propter \nhoc marem cum femina esse coniunctum, deinde, ut ex \nhac eadem *societate* mortalibus adiutoria senectutis nec \nminus propugnacula praeparentur.')
+   ('L. Iunius Moderatus Columella', 'ac ne ista quidem \npraesidia, ut diximus, non adsiduus labor et experientia \nuilici, non facultates ac uoluntas inpendendi tantum pollent \nquantum uel una *praesentia* domini, quae nisi frequens \noperibus interuenerit, ut in exercitu, cum abest imperator, \ncuncta cessant officia.')
+
+``threshold`` is the closeness of the query term to its neighboring words. Note that when ``expand_keyword=True``, the \
+search term will be stripped of any regular expression syntax.
+
+The keyword expander leverages ``get_sims()`` (which in turn leverages functionality of the Gensim package) to find similar terms. \
+Some example of it in action:
+
+.. code-block:: python
+
+   In [3]: from cltk.vector.word2vec import get_sims
+
+   In [4]: get_sims('iubeo', 'latin', lemmatized=True, threshold=0.7)
+   Matches found, but below the threshold of 'threshold=0.7'. Lower it to see these results.
+   Out[9]: []
+
+   In [5]: get_sims('iubeo', 'latin', lemmatized=True, threshold=0.2)
+   Out[5]:
+   ['lictor',
+    'extemplo',
+    'cena',
+    'nuntio',
+    'aduenio',
+    'iniussus2',
+    'forum',
+    'dictator',
+    'fabium',
+   'caesarem']
+
+   In [6]: get_sims('iube', 'latin', lemmatized=True, threshold=0.7)
+   "word 'iube' not in vocabulary"
+   The following terms in the Word2Vec model you may be looking for: '['iubet”', 'iubet', 'iubilo', 'iubĕ', 'iubar', 'iubes', 'iubatus', 'iuba1', 'iubeo']'.
+
+   In [7]: get_sims('dictator', 'latin', lemmatized=False, threshold=0.7)
+   Out[7]:
+   ['consul',
+    'caesar',
+    'seruilius',
+    'praefectus',
+    'flaccus',
+    'manlius',
+    'sp',
+    'fuluius',
+    'fabio',
+    'ualerius']
+
+To add and subtract vectors, you will currently need to load the model yourself with Gensim.

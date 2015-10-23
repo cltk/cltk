@@ -89,7 +89,7 @@ def gen_docs(corpus, lemmatize, rm_stops):
                 sentence = lemmatizer.lemmatize(sentence)
             if sentence and language == 'latin':
                 sentence = [jv_replacer.replace(word) for word in sentence]
-            if sentence != []:
+            if sentence:
                 yield sentence
                 # doc_sentences.append(sentence)
                 # if doc_sentences != []:
