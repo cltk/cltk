@@ -506,3 +506,60 @@ In addition to these indices there are several helper functions which will build
     ...]
 
 These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
+
+
+
+Word2Vec
+========
+
+.. note::
+
+   The Word2Vec models have not been fully vetted and are offered in the spirit of a beta. The CLTK's API for it \
+   will be revised.
+
+.. note::
+
+   You will need to install `Gensim <https://radimrehurek.com/gensim/install.html>`_ to use these features.
+
+Word2Vec is a `Vector space model <https://en.wikipedia.org/wiki/Vector_space_model>`_ especially powerful for comparing \
+words in relation to each other. For instance, it is commonly used to discover words which appear in \
+similar contexts (something akin to synonyms; think of them as lexical clusters).
+
+The CLTK repository contains pre-trained Word2Vec models for Greek (import as ``greek_word2vec_cltk``), one lemmatized and the other not. They were trained on \
+the TLG corpus. To train your own, see the README at `the Greek Word2Vec repository <https://github.com/cltk/gatin_word2vec_cltk>`_.
+
+One of the most useful simple features of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
+finding synonyms, and searching for those, too. Here's an example of its use:
+
+.. code-block:: python
+
+   In [1]: from cltk.ir.query import search_corpus
+
+   In [2]: In [6]: for x in search_corpus('πνεῦμα', 'tlg', context='sentence', case_insensitive=True, expand_keyword=True, threshold=0.5):
+       print(x)
+      ...:
+   The following similar terms will be added to the 'πνεῦμα' query: '['γεννώμενον', 'ἔντερον', 'βάπτισμα', 'εὐαγγέλιον', 'δέρμα', 'ἐπιῤῥέον', 'ἔμβρυον', 'ϲῶμα', 'σῶμα', 'συγγενὲς']'.
+   ('Lucius Annaeus Cornutus Phil.', "μυθολογεῖται δ' ὅτι διασπασθεὶς ὑπὸ τῶν Τιτά-\nνων συνετέθη πάλιν ὑπὸ τῆς Ῥέας, αἰνιττομένων τῶν \nπαραδόντων τὸν μῦθον ὅτι οἱ γεωργοί, θρέμματα γῆς \nὄντες, συνέχεαν τοὺς βότρυς καὶ τοῦ ἐν αὐτοῖς Διονύσου \nτὰ μέρη ἐχώρισαν ἀπ' ἀλλήλων, ἃ δὴ πάλιν ἡ εἰς ταὐτὸ \nσύρρυσις τοῦ γλεύκους συνήγαγε καὶ ἓν *σῶμα* ἐξ αὐτῶν \nἀπετέλεσε.")
+   ('Metopus Phil.', '\nκαὶ ταὶ νόσοι δὲ γίνονται τῶ σώματος <τῷ> θερμότερον ἢ κρυμωδέσ-\nτερον γίνεσθαι τὸ *σῶμα*.')
+   …
+
+
+``threshold`` is the closeness of the query term to its neighboring words. Note that when ``expand_keyword=True``, the \
+search term will be stripped of any regular expression syntax.
+
+The keyword expander leverages ``get_sims()`` (which in turn leverages functionality of the Gensim package) to find similar terms. \
+Some examples of it in action:
+
+.. code-block:: python
+
+   In [3]: from cltk.vector.word2vec import get_sims
+
+   In [4]: get_sims('βασιλεύς', 'greek', lemmatized=False, threshold=0.5)
+   "word 'βασιλεύς' not in vocabulary"
+   The following terms in the Word2Vec model you may be looking for: '['βασκαίνων', 'βασκανίας', 'βασιλάκιος', 'βασιλίδων', 'βασανισθέντα', 'βασιλήϊον', 'βασιλευόμενα', 'βασανιστηρίων', … ]'.
+
+   In [36]: get_sims('τυραννος', 'greek', lemmatized=True, threshold=0.7)
+   "word 'τυραννος' not in vocabulary"
+   The following terms in the Word2Vec model you may be looking for: '['τυραννίσιν', 'τυρόριζαν', 'τυρεύοντες', 'τυρρηνοὶ', 'τυραννεύοντα', 'τυροὶ', 'τυραννικά', 'τυρσηνίαν', 'τυρώ', 'τυρσηνίας', … ]'.
+
+To add and subtract vectors, you need to load the models yourself with Gensim.

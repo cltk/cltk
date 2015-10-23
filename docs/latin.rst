@@ -483,13 +483,13 @@ Word2Vec
    You will need to install `Gensim <https://radimrehurek.com/gensim/install.html>`_ to use these features.
 
 Word2Vec is a `Vector space model <https://en.wikipedia.org/wiki/Vector_space_model>`_ especially powerful for comparing \
-words in relation to each other. For instance, it is commonly used in situations to discover words which appear in \
-similar contexts (that is, something akin to synonyms).
+words in relation to each other. For instance, it is commonly used to discover words which appear in \
+similar contexts (something akin to synonyms; think of them as lexical clusters).
 
 The CLTK repository contains pre-trained Word2Vec models for Latin (import as ``latin_word2vec_cltk``), one lemmatized and the other not. They were trained on \
 the PHI5 corpus. To train your own, see the README at `the Latin Word2Vec repository <https://github.com/cltk/latin_word2vec_cltk>`_.
 
-One of the most useful simple features of Word2Vec is as a keyword expander. Keyword expansion is the taking of an query term, \
+One of the most useful simple features of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
 finding synonyms, and searching for those, too. Here's an example of its use:
 
 .. code-block:: python
@@ -503,12 +503,13 @@ finding synonyms, and searching for those, too. Here's an example of its use:
    ('L. Iunius Moderatus Columella', 'hospitem, nisi ex *amicitia* domini, quam raris-\nsime recipiat.')
    ('L. Iunius Moderatus Columella', ' \n    Xenophon Atheniensis eo libro, Publi Siluine, qui Oeconomicus \ninscribitur, prodidit maritale coniugium sic comparatum esse \nnatura, ut non solum iucundissima, uerum etiam utilissima uitae \nsocietas iniretur: nam primum, quod etiam Cicero ait, ne genus \nhumanum temporis longinquitate occideret, propter \nhoc marem cum femina esse coniunctum, deinde, ut ex \nhac eadem *societate* mortalibus adiutoria senectutis nec \nminus propugnacula praeparentur.')
    ('L. Iunius Moderatus Columella', 'ac ne ista quidem \npraesidia, ut diximus, non adsiduus labor et experientia \nuilici, non facultates ac uoluntas inpendendi tantum pollent \nquantum uel una *praesentia* domini, quae nisi frequens \noperibus interuenerit, ut in exercitu, cum abest imperator, \ncuncta cessant officia.')
+   …
 
 ``threshold`` is the closeness of the query term to its neighboring words. Note that when ``expand_keyword=True``, the \
 search term will be stripped of any regular expression syntax.
 
 The keyword expander leverages ``get_sims()`` (which in turn leverages functionality of the Gensim package) to find similar terms. \
-Some example of it in action:
+Some examples of it in action:
 
 .. code-block:: python
 
@@ -516,7 +517,7 @@ Some example of it in action:
 
    In [4]: get_sims('iubeo', 'latin', lemmatized=True, threshold=0.7)
    Matches found, but below the threshold of 'threshold=0.7'. Lower it to see these results.
-   Out[9]: []
+   Out[4]: []
 
    In [5]: get_sims('iubeo', 'latin', lemmatized=True, threshold=0.2)
    Out[5]:
@@ -548,4 +549,4 @@ Some example of it in action:
     'fabio',
     'ualerius']
 
-To add and subtract vectors, you will currently need to load the model yourself with Gensim.
+To add and subtract vectors, you need to load the models yourself with Gensim.
