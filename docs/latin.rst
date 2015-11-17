@@ -55,7 +55,7 @@ See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilin
 Lemmatization
 =============
 
-.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/latin_pos_lemmata_cltk/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/kylepjohnson/cltk/issues>`_.
+.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/latin_pos_lemmata_cltk/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/cltk/cltk/issues>`_.
 
 The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
 
@@ -140,7 +140,7 @@ First, `obtain the Latin POS tagging files <http://docs.cltk.org/en/latest/impor
                                         'type': 'substantive'}}]},
    }
 
-If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/kylepjohnson/pos_latin) repository.
+If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/cltk/latin_pos_lemmata_cltk) repository.
 
 
 Named Entity Recognition

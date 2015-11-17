@@ -49,7 +49,7 @@ A style-neutral BibTeX entry would look like this:
 @Misc{johnson2014,
 author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
-howpublished = {\url{https://github.com/kylepjohnson/cltk}},
+howpublished = {\url{https://github.com/cltk/cltk}},
 note = {{DOI} 10.5281/zenodo.<current_release_id>},
 year = {2014--2015},
 }
