@@ -5,14 +5,17 @@ import time
 
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR as tlg_author_map
 from cltk.corpus.latin.phi5_index import PHI5_INDEX as phi5_author_map
-from whoosh.fields import *
+from cltk.utils.cltk_logger import logger
+from whoosh.fields import ID
+from whoosh.fields import Schema
+from whoosh.fields import TEXT
 from whoosh.index import create_in
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser
 
 
 class CLTKIndex:
-
+    """Functions sharing the state of an index to be made or already created."""
     def __init__(self, lang, corpus, chunk='author'):
         self.lang = lang
         self.corpus = corpus
@@ -55,7 +58,7 @@ class CLTKIndex:
         # And to start indexing:
         >>> cltk_index.index_corpus()
 
-        TODO: Prevent from overwriting. Ask user to rm old dir before re-indexing.
+        TODO: Prevent overwriting. Ask user to rm old dir before re-indexing.
         """
 
         # Setup index dir
@@ -78,7 +81,7 @@ class CLTKIndex:
             corpus_path = os.path.expanduser('~/cltk_data/latin/text/phi5/plaintext/')
             if self.chunk == 'work':
                 corpus_path = os.path.expanduser('~/cltk_data/latin/text/phi5/individual_works/')
-        assert os.path.isdir(corpus_path), 'Corpus does not exist in the following location: "{}". Use CLTK Corpus Importer and TLGU to create transformed corpus.'.format(corpus_path)
+        assert os.path.isdir(corpus_path), 'Corpus does not exist in the following location: "%s". Use CLTK Corpus Importer and TLGU to create transformed corpus.' % corpus_path  # pylint: disable=line-too-long
 
         files = os.listdir(corpus_path)
         if self.lang == 'greek' and self.corpus == 'tlg':
@@ -88,9 +91,9 @@ class CLTKIndex:
             files = [f[:-4] for f in files if f.startswith('LAT')]
             corpus_index = phi5_author_map
 
-        t0 = time.time()
-        print("Commencing indexing of {0} documents of '{1}' corpus.".format(len(files), self.corpus))
-        print('Index will be written to: "{}".'.format(self.index_path))
+        time_0 = time.time()
+        logger.info("Commencing indexing of %s documents of '%s' corpus." % (len(files), self.corpus))  # pylint: disable=line-too-long
+        logger.info('Index will be written to: "%s".' % self.index_path)
         if self.chunk == 'author':
             for count, file in enumerate(files, 1):
 
@@ -102,11 +105,11 @@ class CLTKIndex:
                     if self.lang == 'latin' and self.corpus == 'phi5':
                         author = corpus_index[file]
                         path = os.path.join(corpus_path, file + '.TXT')
-                except KeyError as ke:
-                    # log this
+                except KeyError as key_error:
                     if file.startswith('LAT9999'):
                         continue
                     raise
+                    logger.error(key_error)
 
                 with open(path) as file_open:
                     content = file_open.read()
@@ -115,7 +118,7 @@ class CLTKIndex:
                                     content=content)
 
                 if count % 100 == 0:
-                    print('Indexed doc {}.'.format(count))
+                    logger.info('Indexed doc %s.' % count)
 
         if self.chunk == 'work':
             for count, file in enumerate(files, 1):
@@ -126,10 +129,10 @@ class CLTKIndex:
                     if self.lang == 'latin' and self.corpus == 'phi5':
                         path = os.path.join(corpus_path, file + '.TXT')
                         author = corpus_index[file[:-8]]
-                except KeyError as ke:
-                    # log this
+                except KeyError as key_error:
                     if file.startswith('LAT9999'):
                         continue
+                    logger.error(key_error)
                     raise
 
                 with open(path) as file_open:
@@ -138,13 +141,13 @@ class CLTKIndex:
                                     author=author,
                                     content=content)
                 if count % 100 == 0:
-                    print('Indexed doc {}.'.format(count))
-        print('Commencing to commit changes.')
+                    logger.info('Indexed doc %s.' % count)
+        logger.info('Commencing to commit changes.')
         writer.commit()
 
-        t1 = time.time()
-        elapsed = t1 - t0
-        print('Finished indexing all documents in {} seconds (averaging {} docs per sec.)'.format(elapsed, (len(files) / elapsed)))
+        time_1 = time.time()
+        elapsed = time_1 - time_0
+        logger.info('Finished indexing all documents in %s seconds (averaging %s docs per sec.)' % (elapsed, (len(files) / elapsed)))  # pylint: disable=line-too-long
 
     def query_index_example(self, query):
         """Send query to pre-made index, get response.
