@@ -64,6 +64,10 @@ class CLTKIndex:
 
         TODO: Prevent overwriting. Ask user to rm old dir before re-indexing.
         TODO: Add option for lemmatizing.
+        TODO: Add for figure out lower() options.
+        TODO: Process TLG through forthcoming normalize().
+        TODO: Add name to each index.
+        TODO: Turn off any language-specific mods (eg, stemming, case) that Whoosh might be doing by default.
         """
 
         # Setup index dir
@@ -169,6 +173,9 @@ class CLTKIndex:
 
         >>> cltk_index = CLTKIndex('latin', 'phi5')
         >>> results = cltk_index.query_index_example('first')
+
+        TODO: Remove limits.
+        TODO: Add highlights option, enabled by default.
         """
         _index = open_dir(self.index_path)
         with _index.searcher() as searcher:
@@ -177,12 +184,13 @@ class CLTKIndex:
             return results
 
 
-
 if __name__ == '__main__':
-    cltk_index = CLTKIndex('latin', 'phi5')
+    #cltk_index = CLTKIndex('latin', 'phi5')
     #cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
     #cltk_index = CLTKIndex('greek', 'tlg')
-    #cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
+    cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
     #cltk_index.index_corpus()
 
-    cltk_index.corpus_query('Cicero')
+    #results = cltk_index.corpus_query('Cicero')
+    results = cltk_index.corpus_query('ἀνὴρ')
+    print(results)
