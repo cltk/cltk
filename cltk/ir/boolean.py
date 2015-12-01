@@ -42,7 +42,16 @@ class CLTKIndex:
         writer.commit()
 
     def index_corpus(self):
-        """Make a Whoosh index."""
+        """Make a Whoosh index out of a pre-processed corpus, ie TLG, PHI5,
+        or PHI7.
+
+        TLG takes almost 13 min; PHI5 1.5 min.
+
+        >>> cltk_index = CLTKIndex('latin', 'phi5')
+        >>> cltk_index.index_corpus()
+
+        TODO: Prevent from overwriting. Ask user to rm old dir before re-indexing.
+        """
 
         # Setup index dir
         schema = Schema(path=ID(stored=True),
@@ -78,7 +87,7 @@ class CLTKIndex:
         print("Commencing indexing of {0} documents of '{1}' corpus.".format(len(files), self.corpus))
         print('Index will be written to: "{}".'.format(self.index_path))
         if self.chunk == 'author':
-            for count, file in enumerate(files):
+            for count, file in enumerate(files, 1):
 
                 try:
                     if self.lang == 'greek' and self.corpus == 'tlg':
@@ -100,7 +109,7 @@ class CLTKIndex:
                                     author=author,
                                     content=content)
 
-                if count % 10 == 0:
+                if count % 100 == 0:
                     print('Indexed doc {}.'.format(count))
 
         print('Commencing to commit changes.')
@@ -122,7 +131,7 @@ class CLTKIndex:
 if __name__ == '__main__':
     #cltk_index = CLTKIndex('latin', 'phi5')
     #cltk_index.index_corpus()
-    cltk_index = CLTKIndex('greek', 'tlg')
-    cltk_index.index_corpus()
+    #cltk_index = CLTKIndex('greek', 'tlg')
+    #cltk_index.index_corpus()
     #results = cltk_index.query_index('none')
     #print(results)
