@@ -46,8 +46,13 @@ class CLTKIndex:
         or PHI7.
 
         TLG takes almost 13 min; PHI5 1.5 min.
+        To setup index parameters
+        >>> cltk_index = CLTKIndex('latin', 'phi5')  # 1.5 min, 363 docs
+        >>> cltk_index = CLTKIndex('latin', 'phi5', chunk='work')  # 2 min, 837 docs
+        >>> cltk_index = CLTKIndex('greek', 'tlg')  # 13 min, 1823 docs
+        >>> cltk_index = CLTKIndex('greek', 'tlg', chunk='work')  #15.5 min, 6625 docs
 
-        >>> cltk_index = CLTKIndex('latin', 'phi5')
+        # And to start indexing:
         >>> cltk_index.index_corpus()
 
         TODO: Prevent from overwriting. Ask user to rm old dir before re-indexing.
@@ -154,8 +159,8 @@ class CLTKIndex:
 
 
 if __name__ == '__main__':
-    #cltk_index = CLTKIndex('latin', 'phi5')
-    cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
+    cltk_index = CLTKIndex('latin', 'phi5')
+    #cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
     #cltk_index = CLTKIndex('greek', 'tlg')
     #cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
     cltk_index.index_corpus()
