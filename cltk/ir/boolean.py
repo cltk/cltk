@@ -99,7 +99,7 @@ class CLTKIndex:
                         path = os.path.join(corpus_path, file + '.TXT')
                 except KeyError as ke:
                     # log this
-                    if file == 'LAT9999':
+                    if file.startswith('LAT9999'):
                         continue
                     raise
 
@@ -112,6 +112,28 @@ class CLTKIndex:
                 if count % 100 == 0:
                     print('Indexed doc {}.'.format(count))
 
+        if self.chunk == 'work':
+            for count, file in enumerate(files, 1):
+                try:
+                    if self.lang == 'greek' and self.corpus == 'tlg':
+                        path = os.path.join(corpus_path, file + '.TXT')
+                        author = corpus_index[file[3:-8]]
+                    if self.lang == 'latin' and self.corpus == 'phi5':
+                        path = os.path.join(corpus_path, file + '.TXT')
+                        author = corpus_index[file[:-8]]
+                except KeyError as ke:
+                    # log this
+                    if file.startswith('LAT9999'):
+                        continue
+                    raise
+
+                with open(path) as file_open:
+                    content = file_open.read()
+                writer.add_document(path=path,
+                                    author=author,
+                                    content=content)
+                if count % 100 == 0:
+                    print('Indexed doc {}.'.format(count))
         print('Commencing to commit changes.')
         writer.commit()
 
@@ -119,8 +141,11 @@ class CLTKIndex:
         elapsed = t1 - t0
         print('Finished indexing all documents in {} seconds (averaging {} docs per sec.)'.format(elapsed, (len(files) / elapsed)))
 
-    def query_index(self, query):
-        """Send query to pre-made index, get response."""
+    def query_index_example(self, query):
+        """Send query to pre-made index, get response.
+
+        >>> results = cltk_index.query_index_example('first')
+        """
         _index = open_dir(self.index_path)
         with _index.searcher() as searcher:
             _query = QueryParser("content", _index.schema).parse(query)
@@ -130,8 +155,7 @@ class CLTKIndex:
 
 if __name__ == '__main__':
     #cltk_index = CLTKIndex('latin', 'phi5')
-    #cltk_index.index_corpus()
+    cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
     #cltk_index = CLTKIndex('greek', 'tlg')
-    #cltk_index.index_corpus()
-    #results = cltk_index.query_index('none')
-    #print(results)
+    #cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
+    cltk_index.index_corpus()
