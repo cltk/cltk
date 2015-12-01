@@ -63,6 +63,7 @@ class CLTKIndex:
         >>> cltk_index.index_corpus()
 
         TODO: Prevent overwriting. Ask user to rm old dir before re-indexing.
+        TODO: Add option for lemmatizing.
         """
 
         # Setup index dir
@@ -156,6 +157,17 @@ class CLTKIndex:
     def query_index_example(self, query):
         """Send query to pre-made index, get response.
 
+        """
+        _index = open_dir(self.index_path)
+        with _index.searcher() as searcher:
+            _query = QueryParser("content", _index.schema).parse(query)
+            results = searcher.search(_query)
+            return results
+
+    def corpus_query(self, query):
+        """Send query to a corpus's index.
+
+        >>> cltk_index = CLTKIndex('latin', 'phi5')
         >>> results = cltk_index.query_index_example('first')
         """
         _index = open_dir(self.index_path)
@@ -165,9 +177,12 @@ class CLTKIndex:
             return results
 
 
+
 if __name__ == '__main__':
     cltk_index = CLTKIndex('latin', 'phi5')
     #cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
     #cltk_index = CLTKIndex('greek', 'tlg')
     #cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
-    cltk_index.index_corpus()
+    #cltk_index.index_corpus()
+
+    cltk_index.corpus_query('Cicero')
