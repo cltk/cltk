@@ -1,12 +1,12 @@
 """CLTK's logging module."""
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
-
 import logging
 import logging.config
 import os
+
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Stephen Margheim <stephen.margheim@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
 
 home_dir = os.path.expanduser('~/cltk_data')  # pylint: disable=invalid-name
 log_path = os.path.join(home_dir, 'cltk.log')  # pylint: disable=invalid-name

@@ -1,5 +1,9 @@
 """Search CLTK corpora with Whoosh, a Python-language index."""
 
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 import os
 import time
 
