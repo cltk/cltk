@@ -5,6 +5,7 @@ from collections import OrderedDict
 import importlib.machinery
 import os
 import re
+import sys
 
 from cltk.utils.cltk_logger import logger
 
@@ -20,9 +21,15 @@ class Contributors:
         variables throughout library."""
         self.credits = self._make_authors_dict()
 
-    def walk_cltk(self, rel_start_dir='cltk'):
+    def walk_cltk(self):
+
+        binaries = sys.path
+        for binary in binaries:
+            if os.path.split(binary)[1] == 'site-packages':
+                cltk_path = os.path.join(binary, 'cltk')
+
         py_files_list = []
-        for dir_path, dir_names, files in os.walk(rel_start_dir):  # pylint: disable=W0612
+        for dir_path, dir_names, files in os.walk(cltk_path):  # pylint: disable=W0612
             for name in files:
                 if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
                     py_files_list.append(os.path.join(dir_path, name))
@@ -86,4 +93,4 @@ if __name__ == "__main__":
     #print(dir(contribs))
     #print(contribs.credits)  # a dict
     #print(contribs.credits['Patrick J. Burns <patrick@diyclassics.org>'])  # a list of modules
-    contribs.write_contribs()
+    contribs.show()
