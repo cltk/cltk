@@ -1,14 +1,10 @@
 """Search CLTK corpora with Whoosh, a Python-language index."""
 
-
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
-
 import os
 import time
 
-from cltk.corpus.greek.tlg.id_author import ID_AUTHOR as tlg_author_map
-from cltk.corpus.latin.phi5_index import PHI5_INDEX as phi5_author_map
+from cltk.corpus.greek.tlg.id_author import ID_AUTHOR as TLG_AUTHOR_MAP
+from cltk.corpus.latin.phi5_index import PHI5_INDEX as PHI5_AUTHOR_MAP
 from cltk.utils.cltk_logger import logger
 from whoosh.fields import ID
 from whoosh.fields import Schema
@@ -16,6 +12,10 @@ from whoosh.fields import TEXT
 from whoosh.index import create_in
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser
+
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class CLTKIndex:
@@ -95,10 +95,10 @@ class CLTKIndex:
         files = os.listdir(corpus_path)
         if self.lang == 'greek' and self.corpus == 'tlg':
             files = [f[:-4] for f in files if f.startswith('TLG')]
-            corpus_index = tlg_author_map
+            corpus_index = TLG_AUTHOR_MAP
         elif self.lang == 'latin' and self.corpus == 'phi5':
             files = [f[:-4] for f in files if f.startswith('LAT')]
-            corpus_index = phi5_author_map
+            corpus_index = PHI5_AUTHOR_MAP
 
         time_0 = time.time()
         logger.info("Commencing indexing of %s documents of '%s' corpus." % (len(files), self.corpus))  # pylint: disable=line-too-long
@@ -117,8 +117,8 @@ class CLTKIndex:
                 except KeyError as key_error:
                     if file.startswith('LAT9999'):
                         continue
-                    raise
                     logger.error(key_error)
+                    raise
 
                 with open(path) as file_open:
                     content = file_open.read()
@@ -180,7 +180,7 @@ class CLTKIndex:
         _index = open_dir(self.index_path)
         with _index.searcher() as searcher:
             _query = QueryParser("content", _index.schema).parse(query)
-            results = searcher.search(_query)
+            results = searcher.search(_query, limit=None)
             return results
 
 
