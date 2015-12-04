@@ -1,13 +1,11 @@
-# Contributors
-CLTK authors alphabetically ordered by first name
-
-## Bradley Baker <bradley.baker12@ncf.edu>
+# Bradley Baker <bradley.baker12@ncf.edu>
 * cltk/prosody/latin/scanner.py
 
-## Edward Loper <edloper@gmail.com>
+# Edward Loper <edloper@gmail.com>
 * cltk/utils/philology.py
+* cltk/vector/word2vec.py
 
-## Kyle P. Johnson <kyle@kyle-p-johnson.com>
+# Kyle P. Johnson <kyle@kyle-p-johnson.com>
 * cltk/corpus/greek/beta_to_unicode.py
 * cltk/corpus/greek/corpora.py
 * cltk/corpus/greek/tlg_index.py
@@ -45,15 +43,17 @@ CLTK authors alphabetically ordered by first name
 * cltk/tokenize/word.py
 * cltk/utils/build_contribs_index.py
 * cltk/utils/cltk_logger.py
+* cltk/utils/contributors.py
 * cltk/utils/file_operations.py
 * cltk/utils/frequency.py
 * cltk/utils/philology.py
+* cltk/vector/word2vec.py
 
-## Luke Hollis <lukehollis@gmail.com>
+# Luke Hollis <lukehollis@gmail.com>
 * cltk/stem/latin/stem.py
 * cltk/stem/latin/syllabifier.py
 
-## Martín Pozzi <marpozzi@gmail.com>
+# Martín Pozzi <marpozzi@gmail.com>
 * cltk/corpus/greek/tlg/parse_tlg_indices.py
 * cltk/corpus/latin/corpora.py
 * cltk/corpus/latin/phi5_index.py
@@ -61,13 +61,13 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/pali/corpora.py
 * cltk/corpus/tibetan/corpora.py
 
-## Patrick J. Burns <patrick@diyclassics.org>
+# Patrick J. Burns <patrick@diyclassics.org>
 * cltk/corpus/greek/beta_to_unicode.py
 * cltk/corpus/greek/corpora.py
 * cltk/corpus/greek/tlg_index.py
 * cltk/tokenize/word.py
 
-## Stephen Margheim <stephen.margheim@gmail.com>
+# Stephen Margheim <stephen.margheim@gmail.com>
 * cltk/corpus/greek/tlgu.py
 * cltk/corpus/greek/tlg/author_date.py
 * cltk/corpus/greek/tlg/author_epithet.py
@@ -85,10 +85,11 @@ CLTK authors alphabetically ordered by first name
 * cltk/corpus/utils/importer.py
 * cltk/utils/cltk_logger.py
 
-## Steven Bird <stevenbird1@gmail.com>
+# Steven Bird <stevenbird1@gmail.com>
 * cltk/utils/philology.py
+* cltk/vector/word2vec.py
 
-## Tyler Kirby <joseph.kirby12@ncf.edu>
+# Tyler Kirby <joseph.kirby12@ncf.edu>
 * cltk/prosody/greek/scanner.py
 * cltk/prosody/latin/scanner.py
 
