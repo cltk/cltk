@@ -7,7 +7,7 @@ import os
 import re
 import sys
 
-# from cltk.utils.cltk_logger import logger
+from cltk.utils.cltk_logger import logger
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -16,37 +16,22 @@ __license__ = 'MIT License. See LICENSE.'
 class Contributors:
     """An object which data about available contributors."""
 
-    def __init__(self, from_repo=False):
+    def __init__(self):
         """Upon loading this class, query all modules for "__author__"
         variables throughout library."""
-        self.from_repo = from_repo
         self.credits = self._make_authors_dict()
 
     def walk_cltk(self):
-        if self.from_repo:
-            py_files_list = []
-            for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
-                for name in files:
-                    if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
-                        py_files_list.append(os.path.join(dir_path, name))
-            return py_files_list
-        else:
-            binaries = sys.path
-            for binary in binaries:
-                if os.path.split(binary)[1] == 'site-packages':
-                    cltk_path = os.path.join(binary, 'cltk')
-                else:
-                    sys.exit('Error: CLTK must be installed before running this.')
-            print(cltk_path)
-            if not os.path.isdir(cltk_path):
-                sys.exit('Error: CLTK must be installed before running this.')
-
-            py_files_list = []
-            for dir_path, dir_names, files in os.walk(cltk_path):  # pylint: disable=W0612
-                for name in files:
-                    if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
-                        py_files_list.append(os.path.join(dir_path, name))
-            return py_files_list
+        """Walk through either this repo's corpus or the directory where CLTK
+        is installed. The former is useful when building a contribs file
+        without before installing and packaging the software.
+        """
+        py_files_list = []
+        for dir_path, dir_names, files in os.walk('cltk'):  # pylint: disable=W0612
+            for name in files:
+                if name.lower().endswith('.py') and not name.lower().startswith('__init__'):
+                    py_files_list.append(os.path.join(dir_path, name))
+        return py_files_list
 
     def get_module_authors(self, module):
         """# Get "__author__" variables for a module"""
@@ -102,9 +87,9 @@ class Contributors:
 
 
 if __name__ == "__main__":
-    contribs = Contributors(from_repo=False)
-    contribs.write_contribs()
+    contribs = Contributors()
+    #contribs.write_contribs()
     #print(dir(contribs))
     #print(contribs.credits)  # a dict
-    #print(contribs.credits['Patrick J. Burns <patrick@diyclassics.org>'])  # a list of modules
+    print(contribs.credits['Patrick J. Burns <patrick@diyclassics.org>'])  # a list of modules
 
