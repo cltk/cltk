@@ -3,14 +3,6 @@
 from setuptools import find_packages
 from setuptools import setup
 
-from cltk.utils.contributors import Contributors
-
-def write_contribs():
-    """Helper to update 'contributors.md' before each install."""
-    contribs = Contributors()
-    contribs.write_contribs()
-
-write_contribs()
 
 setup(
     author='Kyle P. Johnson',
