@@ -5,7 +5,6 @@ import os
 import unittest
 
 from cltk.corpus.utils.importer import CorpusImporter
-#from cltk.utils.build_contribs_index import build_contribs_file
 from cltk.utils.contributors import Contributors
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
