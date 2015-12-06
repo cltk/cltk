@@ -18,7 +18,6 @@ __license__ = 'MIT License. See LICENSE.'
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    '''
     def setUp(self):
         """Clone Greek models in order to test pull function and other model
         tests later.
@@ -105,7 +104,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         bad_path = '/cltk_data/user_data/concordance_test_file.txt'
         with self.assertRaises(IOError):
             philology.write_concordance_from_file(bad_path, 'test_file')
-    '''
 
     def test_contribs_walk_cltk(self):
         contribs = Contributors()
