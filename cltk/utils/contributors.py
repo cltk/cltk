@@ -4,8 +4,6 @@ from collections import defaultdict
 from collections import OrderedDict
 import importlib.machinery
 import os
-import re
-import sys
 
 from cltk.utils.cltk_logger import logger
 
@@ -33,21 +31,30 @@ class Contributors:
                     py_files_list.append(os.path.join(dir_path, name))
         return py_files_list
 
-    def get_module_authors(self, module):
-        """# Get "__author__" variables for a module"""
+    @staticmethod
+    def get_module_authors(module):
+        """Get "__author__" variables for a module.
+
+        TODO: If ImportError occurs (as with word2vec.py), then correctly
+        get authors' names anyway.
+        """
         loader = importlib.machinery.SourceFileLoader('__author__', module)
         try:
             mod = loader.load_module()
         except ImportError:
-            pass
+            return
+        if module == 'cltk/vector/word2vec.py':
+            print(True)
+            input()
         try:
             mod.__author__
         except AttributeError:
             return None
-        if type(mod.__author__) is str:
+        if isinstance(mod.__author__, str):
             author_list = [mod.__author__]
-        elif type(mod.__author__) is list:
+        elif isinstance(mod.__author__, list):
             author_list = mod.__author__
+
         return author_list
 
     def _make_authors_dict(self):
@@ -56,6 +63,7 @@ class Contributors:
 
         modules = self.walk_cltk()
         for _module in modules:
+            authors = []
             authors = self.get_module_authors(_module)
 
             try:
@@ -70,6 +78,7 @@ class Contributors:
         return authors_dict
 
     def show(self):
+        """Print to screen contributor info."""
         for contrib in self.credits:
             print('# ', contrib)
             for module in self.credits[contrib]:
@@ -77,6 +86,7 @@ class Contributors:
             print()
 
     def write_contribs(self):
+        """Write to file, in current dir, 'contributors.md'."""
         file_str = ''
         note = '# Contributors\nCLTK Core authors, ordered alphabetically by first name\n\n'
         file_str += note
@@ -85,14 +95,16 @@ class Contributors:
             for module in self.credits[contrib]:
                 file_str += '* ' + module + '\n'
             file_str += '\n'
-        with open('contributors.md', 'w') as file_open:
+        file_name = 'contributors.md'
+        with open(file_name, 'w') as file_open:
             file_open.write(file_str)
+        logger.info('Wrote contribs file at "%s".', file_name)
 
 
 if __name__ == "__main__":
-    contribs = Contributors()
-    #contribs.write_contribs()
-    #print(dir(contribs))
-    #print(contribs.credits)  # a dict
-    print(contribs.credits['Patrick J. Burns <patrick@diyclassics.org>'])  # a list of modules
+    CONTRIBS = Contributors()
+    CONTRIBS.write_contribs()
+    #print(dir(CONTRIBS))
+    #print(CONTRIBS.credits)  # a dict
+    print(CONTRIBS.credits['Steven Bird <stevenbird1@gmail.com>'])  # a list of modules
 

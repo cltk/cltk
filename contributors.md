@@ -5,14 +5,9 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/prosody/latin/scanner.py
 
 ## Edward Loper <edloper@gmail.com>
-* cltk/corpus/chinese/corpora.py
-* cltk/corpus/coptic/corpora.py
 * cltk/utils/philology.py
-* cltk/vector/word2vec.py
 
 ## Kyle P. Johnson <kyle@kyle-p-johnson.com>
-* cltk/corpus/chinese/corpora.py
-* cltk/corpus/coptic/corpora.py
 * cltk/corpus/greek/beta_to_unicode.py
 * cltk/corpus/greek/corpora.py
 * cltk/corpus/greek/tlg_index.py
@@ -54,7 +49,6 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/utils/file_operations.py
 * cltk/utils/frequency.py
 * cltk/utils/philology.py
-* cltk/vector/word2vec.py
 
 ## Luke Hollis <lukehollis@gmail.com>
 * cltk/stem/latin/stem.py
@@ -93,10 +87,7 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/utils/cltk_logger.py
 
 ## Steven Bird <stevenbird1@gmail.com>
-* cltk/corpus/chinese/corpora.py
-* cltk/corpus/coptic/corpora.py
 * cltk/utils/philology.py
-* cltk/vector/word2vec.py
 
 ## Tyler Kirby <joseph.kirby12@ncf.edu>
 * cltk/prosody/greek/scanner.py

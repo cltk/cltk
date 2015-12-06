@@ -24,9 +24,8 @@ from cltk.tokenize.word import WordTokenizer
 try:
     from gensim.models import Word2Vec
 except ImportError:
-    pass
-    #print('Gensim not installed.')
-    #raise
+    print('Gensim not installed.')
+    raise
 
 
 def gen_docs(corpus, lemmatize, rm_stops):
