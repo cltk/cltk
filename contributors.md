@@ -1,5 +1,5 @@
 # Contributors
-CLTK authors alphabetically ordered by first name
+CLTK Core authors, ordered alphabetically by first name
 
 ## Bradley Baker <bradley.baker12@ncf.edu>
 * cltk/prosody/latin/scanner.py
@@ -45,6 +45,7 @@ CLTK authors alphabetically ordered by first name
 * cltk/tokenize/word.py
 * cltk/utils/build_contribs_index.py
 * cltk/utils/cltk_logger.py
+* cltk/utils/contributors.py
 * cltk/utils/file_operations.py
 * cltk/utils/frequency.py
 * cltk/utils/philology.py

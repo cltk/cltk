@@ -3,6 +3,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
+
 setup(
     author='Kyle P. Johnson',
     author_email='kyle@kyle-p-johnson.com',
@@ -35,7 +36,7 @@ setup(
     name='cltk',
     packages=find_packages(),
     url='https://github.com/cltk/cltk',
-    version='0.1.29',
+    version='0.1.30',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )
