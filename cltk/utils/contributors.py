@@ -36,7 +36,10 @@ class Contributors:
     def get_module_authors(self, module):
         """# Get "__author__" variables for a module"""
         loader = importlib.machinery.SourceFileLoader('__author__', module)
-        mod = loader.load_module()
+        try:
+            mod = loader.load_module()
+        except ImportError:
+            pass
         try:
             mod.__author__
         except AttributeError:
