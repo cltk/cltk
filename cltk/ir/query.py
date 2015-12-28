@@ -10,7 +10,6 @@ TODO: For whatever output, generate statistics on # of matches found, # docs sea
 
 import os
 import string
-import sys
 
 from cltk.corpus.greek.tlg_index import TLG_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_INDEX
