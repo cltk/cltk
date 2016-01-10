@@ -81,8 +81,8 @@ The CLTK uses languages in its organization of data, however some good corpora d
    Out[3]: ['multilingual_treebank_proiel']
 
 
-Information Retrieval
-=====================
+Information Retrieval (regex, keyword expansion)
+=============================
 
 .. tip::
 
@@ -133,6 +133,38 @@ For querying the entirety of a corpus, see ``search_corpus()``, which returns a 
    ('Ammonius Phil.', ' \nκαλοῦντας ἑτέρους ἢ προστάσσοντας ἢ ἐρωτῶντας ἢ εὐχομένους περί τινων, \nπολλάκις δὲ καὶ αὐτοπροσώπως κατά τινας τῶν ἐνεργειῶν τούτων ἐνεργοῦ-\nσι “πρῶτον μέν, *ὦ ἄνδρες Ἀθηναῖοι*, τοῖς θεοῖς εὔχομαι πᾶσι καὶ πάσαις” \nλέγοντες ἢ “ἀπόκριναι γὰρ δεῦρό μοι ἀναστάς”. οἱ οὖν περὶ τῶν τεχνῶν \nτούτων πραγματευόμενοι καὶ τοὺς λόγους εἰς θεωρίαν ')
    ('Sopater Rhet.', "θόντα, ἢ συγγνωμονηκέναι καὶ ἐλεῆσαι. ψυχῆς γὰρ \nπάθος ἐπὶ συγγνώμῃ προτείνεται. παθητικὴν οὖν ποιή-\nσῃ τοῦ πρώτου προοιμίου τὴν ἔννοιαν: ἁπάντων, ὡς ἔοι-\nκεν, *ὦ ἄνδρες Ἀθηναῖοι*, πειρασθῆναί με τῶν παραδό-\nξων ἀπέκειτο, πόλιν ἰδεῖν ἐν μέσῃ Βοιωτίᾳ κειμένην. καὶ \nμετὰ Θήβας οὐκ ἔτ' οὔσας, ὅτι μὴ στεφανοῦντας Ἀθη-\nναίους ἀπέδειξα παρὰ τὴ")
    …
+
+
+Information Retrieval (boolean)
+===============================
+
+
+.. note::
+
+   The API for the CLTK index and query will likely change. Consider this module an alpha. Please `report improvements or problems <https://github.com/cltk/cltk/issues>`_.
+
+An index to a corpus allows for faster, and sometimes more nuanced, searches. The CLTK has built some indexing and querying \
+functionality on top of the `Whoosh library <https://pythonhosted.org/Whoosh/index.html>`_. The following show how to make an index and then query it:
+
+First, ensure that you have `imported and converted the PHI5 or TLG disks <http://docs.cltk.org/en/latest/greek.html#converting-tlg-texts-with-tlgu>`_ imported. \
+If you want to use the author chunking, convert with ``convert_corpus()``, but for searching by work, use ``divide_works()``.
+
+.. code-block:: python
+
+   In [2]: from cltk.ir.boolean import CLTKIndex
+
+   In [3]: cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
+
+   In [4]: cltk_index.index_corpus()
+
+   In [5]: results = cltk_index.corpus_query('amicitia')
+   Out[5]: <Top 108 Results for Term('content', 'amicitia') runtime=0.0017584800007170998>
+
+``CLTKIndex()`` has an optional argument ``chunk``, which defaults to ``chunk='author'``. ``chunk='author'`` is also available.
+
+An index only needs to be made once. Then it can be queried with, e.g.:
+
+
 
 
 

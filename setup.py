@@ -29,7 +29,8 @@ setup(
     description='NLP for the ancient world.',
     install_requires=['nltk',
                       'gitpython',
-                      'regex'],
+                      'regex',
+                      'whoosh'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',
     long_description="The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.",  # pylint: disable=C0301
