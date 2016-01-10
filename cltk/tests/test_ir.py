@@ -2,7 +2,9 @@
 
 TODO: Test Greek version of some of these.
 TODO: Figure out how to test functions relying on word2vec/gensim.
-TODO: Update tests for keyword exapansion additions to it.py module.
+TODO: Update tests for keyword exapansion additions to ir.py module.
+
+TODO: Figure out a way to test boolean module (which relies on local corpora).
 """
 
 import unittest
@@ -120,6 +122,7 @@ Et si volueris attendere, maxima pars vitae elabitur male agentibus, magna nihil
             sent = _match
         sent_target = 't serva. Persuade tibi hoc sic esse, ut *scribo*: quaedam tempora eripiuntur nobis, quae'  # pylint: disable=line-too-long
         self.assertEqual(sent, sent_target)
+
 
 if __name__ == '__main__':
     unittest.main()

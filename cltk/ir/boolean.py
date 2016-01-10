@@ -3,15 +3,16 @@
 import os
 import time
 
-from cltk.corpus.greek.tlg.id_author import ID_AUTHOR as TLG_AUTHOR_MAP
-from cltk.corpus.latin.phi5_index import PHI5_INDEX as PHI5_AUTHOR_MAP
-from cltk.utils.cltk_logger import logger
 from whoosh.fields import ID
 from whoosh.fields import Schema
 from whoosh.fields import TEXT
 from whoosh.index import create_in
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser
+
+from cltk.corpus.greek.tlg.id_author import ID_AUTHOR as TLG_AUTHOR_MAP
+from cltk.corpus.latin.phi5_index import PHI5_INDEX as PHI5_AUTHOR_MAP
+from cltk.utils.cltk_logger import logger
 
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
@@ -27,26 +28,9 @@ class CLTKIndex:
         chunks = ['author', 'work']
         assert self.chunk in chunks, 'Chunk must be one of the following: {}.'.format(chunks)
 
-        self.index_dir_base = os.path.expanduser('~/cltk_data/index')
-        self.index_path = os.path.join(self.index_dir_base, lang, corpus, chunk)
-
-    def make_index_example(self):
-        """Make a Whoosh index."""
-        schema = Schema(title=TEXT(stored=True), path=ID(stored=True), content=TEXT)
-        try:
-            _index = create_in(self.index_path, schema)
-        except FileNotFoundError:
-            os.makedirs(self.index_path)
-            _index = create_in(self.index_path, schema)
-        writer = _index.writer()
-
-        writer.add_document(title=u"First document",
-                            path=u"/a",
-                            content=u"This is the first document we've added!")
-        writer.add_document(title=u"Second document",
-                            path=u"/b",
-                            content=u"The second one is even more interesting!")
-        writer.commit()
+        self.index_dir_base = os.path.expanduser('~/cltk_data')
+        self.index_dir_base = os.path.join(self.index_dir_base, lang, 'index')
+        self.index_path = os.path.join(self.index_dir_base, corpus, chunk)
 
     def index_corpus(self):
         """Make a Whoosh index out of a pre-processed corpus, ie TLG, PHI5,
@@ -67,7 +51,8 @@ class CLTKIndex:
         TODO: Add for figure out lower() options.
         TODO: Process TLG through forthcoming normalize().
         TODO: Add name to each index.
-        TODO: Turn off any language-specific mods (eg, stemming, case) that Whoosh might be doing by default.
+        TODO: Turn off any language-specific mods (eg, stemming, case) that
+        Whoosh might be doing by default.
         """
 
         # Setup index dir
@@ -146,6 +131,7 @@ class CLTKIndex:
 
                 with open(path) as file_open:
                     content = file_open.read()
+
                 writer.add_document(path=path,
                                     author=author,
                                     content=content)
@@ -158,21 +144,11 @@ class CLTKIndex:
         elapsed = time_1 - time_0
         logger.info('Finished indexing all documents in %s seconds (averaging %s docs per sec.)' % (elapsed, (len(files) / elapsed)))  # pylint: disable=line-too-long
 
-    def query_index_example(self, query):
-        """Send query to pre-made index, get response.
-
-        """
-        _index = open_dir(self.index_path)
-        with _index.searcher() as searcher:
-            _query = QueryParser("content", _index.schema).parse(query)
-            results = searcher.search(_query)
-            return results
-
     def corpus_query(self, query):
         """Send query to a corpus's index.
 
         >>> cltk_index = CLTKIndex('latin', 'phi5')
-        >>> results = cltk_index.query_index_example('first')
+        >>> results = cltk_index.corpus_query('first')
 
         TODO: Remove limits.
         TODO: Add highlights option, enabled by default.
@@ -184,13 +160,65 @@ class CLTKIndex:
             return results
 
 
+
 if __name__ == '__main__':
     #cltk_index = CLTKIndex('latin', 'phi5')
     #cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
     #cltk_index = CLTKIndex('greek', 'tlg')
-    cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
+    #cltk_index = CLTKIndex('greek', 'tlg', chunk='work')
     #cltk_index.index_corpus()
 
-    #results = cltk_index.corpus_query('Cicero')
-    results = cltk_index.corpus_query('ἀνὴρ')
-    print(results)
+    #_results = cltk_index.corpus_query('amicitia')
+    #_results = cltk_index.corpus_query('ἀνὴρ')
+    #print(_results)
+
+    user_dir = os.path.expanduser('~/cltk_data/user_data/search')
+    output_file = 'amicitia.html'
+    output_path = os.path.join(user_dir, output_file)
+
+    _index = open_dir('/Users/kyle/cltk_data/latin/index/phi5/work/')
+    query = 'amicitia'
+
+    output_str = ''
+    with _index.searcher() as searcher:
+        _query = QueryParser("content", _index.schema).parse(query)
+        results = searcher.search(_query, limit=None)
+        results.fragmenter.charlimit = None
+
+        # Allow larger fragments
+        results.fragmenter.maxchars = 300
+        # Show more context before and after
+        results.fragmenter.surround = 50
+
+        docs_number = searcher.doc_count_all()
+
+        output_str += 'Docs containing hits: {}.'.format(docs_number) + '</br></br>'
+
+
+        for hit in results:
+            author = hit['author']
+            filepath = hit['path']
+            output_str += author + '</br>'
+            output_str += filepath + '</br>'
+
+            with open(filepath) as file_open:
+                file_contents = file_open.read()
+
+            highlights = hit.highlights("content", text=file_contents, top=10000000)
+            lines = highlights.split('\n')
+            lines_numbers = [l for l in lines]
+            lines_br = '</br>'.join(lines)
+            lines_number_approx = len(lines)
+            output_str += 'Approximate hits: {}.'.format(lines_number_approx) + '</br>'
+
+            output_str += lines_br + '</br></br>'
+
+    try:
+        with open(output_path, 'w') as file_open:
+            file_open.write(output_str)
+    except FileNotFoundError:
+        os.mkdir(user_dir)
+        with open(output_path, 'w') as file_open:
+            file_open.write(output_str)
+
+
