@@ -138,34 +138,40 @@ For querying the entirety of a corpus, see ``search_corpus()``, which returns a 
 Information Retrieval (boolean)
 ===============================
 
-
 .. note::
 
    The API for the CLTK index and query will likely change. Consider this module an alpha. Please `report improvements or problems <https://github.com/cltk/cltk/issues>`_.
 
 An index to a corpus allows for faster, and sometimes more nuanced, searches. The CLTK has built some indexing and querying \
-functionality on top of the `Whoosh library <https://pythonhosted.org/Whoosh/index.html>`_. The following show how to make an index and then query it:
+functionality with the `Whoosh library <https://pythonhosted.org/Whoosh/index.html>`_. The following show how to make \
+an index and then query it:
 
 First, ensure that you have `imported and converted the PHI5 or TLG disks <http://docs.cltk.org/en/latest/greek.html#converting-tlg-texts-with-tlgu>`_ imported. \
-If you want to use the author chunking, convert with ``convert_corpus()``, but for searching by work, use ``divide_works()``.
-
-.. code-block:: python
-
-   In [2]: from cltk.ir.boolean import CLTKIndex
-
-   In [3]: cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
-
-   In [4]: cltk_index.index_corpus()
-
-   In [5]: results = cltk_index.corpus_query('amicitia')
-   Out[5]: <Top 108 Results for Term('content', 'amicitia') runtime=0.0017584800007170998>
-
-``CLTKIndex()`` has an optional argument ``chunk``, which defaults to ``chunk='author'``. ``chunk='author'`` is also available.
+If you want to use the author chunking, convert with ``convert_corpus()``, but for searching by work, convert with ``divide_works()``. ``CLTKIndex()`` has an optional argument ``chunk``, which defaults to ``chunk='author'``. ``chunk='work'`` is also available.
 
 An index only needs to be made once. Then it can be queried with, e.g.:
 
+.. code-block:: python
 
+   In [1]: from cltk.ir.boolean import CLTKIndex
 
+   In [2]: cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
+
+   In [3]: results = cltk_index.corpus_query('amicitia')
+
+   In [4]: results[:500]
+   Out[4]: 'Docs containing hits: 836.</br></br>Marcus Tullius Cicero, Cicero, Tully</br>/Users/kyle/cltk_data/latin/text/phi5/individual_works/LAT0474.TXT-052.TXT</br>Approximate hits: 132.</br>LAELIUS DE <b class="match term0">AMICITIA</b> LIBER </br>        AD T. POMPONIUM ATTICUM.} </br>    Q. Mucius augur multa narrare...incidisset, exposuit </br>nobis sermonem Laeli de <b class="match term1">amicitia</b> habitum ab illo </br>secum et cum altero genero, C. Fannio...videretur. </br>    Cum enim saepe me'
+
+The function returns an string in HTML markup, which you can then parse yourself.
+
+To save results, use the ``save_file`` parameter:
+
+.. code-block:: python
+
+ In [4]: cltk_index.corpus_query('amicitia', save_file='2016_amicitia')
+
+This will save a file at ``~/cltk_data/user_data/search/2016_amicitia.html``, being a human-readable output \
+with word-matches highlighted, of all authors (or texts, if ``chunk='work'``).
 
 
 N–grams

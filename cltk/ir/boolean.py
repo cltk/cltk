@@ -144,22 +144,62 @@ class CLTKIndex:
         elapsed = time_1 - time_0
         logger.info('Finished indexing all documents in %s seconds (averaging %s docs per sec.)' % (elapsed, (len(files) / elapsed)))  # pylint: disable=line-too-long
 
-    def corpus_query(self, query):
-        """Send query to a corpus's index.
+    def corpus_query(self, query, save_file=None, window_size=300, surround_size=50):
+        """Send query to a corpus's index. `save_file` is a filename.
 
         >>> cltk_index = CLTKIndex('latin', 'phi5')
-        >>> results = cltk_index.corpus_query('first')
-
-        TODO: Remove limits.
-        TODO: Add highlights option, enabled by default.
+        >>> results = cltk_index.corpus_query('amicitia')
+        :type save_file: str
         """
         _index = open_dir(self.index_path)
+
+        output_str = ''
+
         with _index.searcher() as searcher:
             _query = QueryParser("content", _index.schema).parse(query)
             results = searcher.search(_query, limit=None)
-            return results
+            results.fragmenter.charlimit = None
 
+            # Allow larger fragments
+            results.fragmenter.maxchars = window_size
+            # Show more context before and after
+            results.fragmenter.surround = surround_size
 
+            docs_number = searcher.doc_count_all()
+
+            output_str += 'Docs containing hits: {}.'.format(docs_number) + '</br></br>'
+
+            for hit in results:
+                author = hit['author']
+                filepath = hit['path']
+                output_str += author + '</br>'
+                output_str += filepath + '</br>'
+
+                with open(filepath) as file_open:
+                    file_contents = file_open.read()
+
+                highlights = hit.highlights("content", text=file_contents, top=10000000)
+                lines = highlights.split('\n')
+                #lines_numbers = [l for l in lines]
+                lines_br = '</br>'.join(lines)
+                lines_number_approx = len(lines)
+                output_str += 'Approximate hits: {}.'.format(lines_number_approx) + '</br>'
+
+                output_str += lines_br + '</br></br>'
+
+        if save_file:
+            user_dir = os.path.expanduser('~/cltk_data/user_data/search')
+            output_path = os.path.join(user_dir, save_file + '.html')
+
+            try:
+                with open(output_path, 'w') as file_open:
+                    file_open.write(output_str)
+            except FileNotFoundError:
+                os.mkdir(user_dir)
+                with open(output_path, 'w') as file_open:
+                    file_open.write(output_str)
+        else:
+            return output_str
 
 if __name__ == '__main__':
     #cltk_index = CLTKIndex('latin', 'phi5')
