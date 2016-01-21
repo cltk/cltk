@@ -39,7 +39,7 @@ Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Dig
 
 Please cite core software as:
 ```
-Kyle P. Johnson et al.. (2014-2015). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.<current_release_id>
+Kyle P. Johnson et al.. (2014-2016). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.<current_release_id>
 ```
 
 A style-neutral BibTeX entry would look like this:
@@ -49,7 +49,7 @@ author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
 howpublished = {\url{https://github.com/cltk/cltk}},
 note = {{DOI} 10.5281/zenodo.<current_release_id>},
-year = {2014--2015},
+year = {2014--2016},
 }
 ```
 
@@ -59,4 +59,4 @@ You may also add version/release number, located in the `pypi` button at the pro
 License
 -------
 
-The CLTK is Copyright (c) 2015 Kyle P. Johnson, under the MIT License. See 'LICENSE' for details.
+The CLTK is Copyright (c) 2016 Kyle P. Johnson, under the MIT License. See 'LICENSE' for details.
