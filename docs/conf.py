@@ -51,7 +51,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Classical Language Toolkit'
-copyright = '2015, Kyle P. Johnson'
+copyright = '2016, Kyle P. Johnson'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
