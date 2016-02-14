@@ -1,7 +1,7 @@
 """Split Latin words into a list of syllables, based on a set of Latin
 language syllable specifications and the original work of Father Matthew
 Spencer in C# and Javascript. Original documentation from Fr. Spencer
-is preserved where applicable.  
+is preserved where applicable.
 """
 
 __author__ = 'Luke Hollis <lukehollis@gmail.com>'
@@ -9,75 +9,74 @@ __license__ = 'MIT License. See LICENSE.'
 
 import re
 
-Latin = {  # nota bene: ui is only a diphthong in the exceptional cases below (according to Wheelock's Latin)
-           'diphthongs': ["ae", "au", "ei", "eu", "oe"],
 
-           'exceptions': {
-               'huius': ["hui", "us"],
-               'cuius': ["cui", "us"],
-               'huic': ["huic"],
-               'cui': ["cui"],
-               'hui': ["hui"]
-           },
+# nota bene: ui is only a diphthong in the exceptional cases below (according to Wheelock's Latin)
+LATIN = {'diphthongs': ["ae", "au", "ei", "eu", "oe"],
 
-           'vowels': [
-               "a", "e", "i", "o", "u",
-               "á", "é", "í", "ó", "ú",
-               "æ", "œ",
-               "ǽ",  # no accented œ in unicode?
-               "y"  # y is treated as a vowel; not native to Latin but useful for words borrowed from Greek
-           ],
+         'exceptions': {
+             'huius': ["hui", "us"],
+             'cuius': ["cui", "us"],
+             'huic': ["huic"],
+             'cui': ["cui"],
+             'hui': ["hui"]
+         },
 
-           'mute_consonants_and_f': ["b", "c", "d", "g", "p", "t", "f"],
+         # y is treated as a vowel; not native to Latin but useful for words borrowed from Greek
+         'vowels': [
+             "a", "e", "i", "o", "u",
+             "á", "é", "í", "ó", "ú",
+             "æ", "œ",
+             "ǽ",  # no accented œ in unicode?
+             "y"
+             ],
 
-           'liquid_consonants': ["l", "r"],
+         'mute_consonants_and_f': ["b", "c", "d", "g", "p", "t", "f"],
 
-           'prefixes': [
-               "a", "ab", "abs",
-               "ad", "ac",
-               "amb", "ambi",
-               "ante",
-               "circum",
-               "co", "con", "com",
-               "contra", "counter",
-               "de",
-               "dis", "di", "dif",
-               "e", "ex", "ef",
-               "extra", "extro",
-               "in", "en",
-               "infra",
-               "inter",
-               "intro",
-               "juxta",
-               "ne",
-               "non",
-               "ob",
-               "per",
-               "post",
-               "prae", "pre",
-               "preter",
-               "pro",
-               "quasi",
-               "re", "red",
-               "retro",
-               "se", "sed",
-               "sin", "sine",
-               "sub",
-               "subter",
-               "super", "sur",
-               "supra",
-               "trans", "tra", "tran",
-               "ultra", "outr"
+         'liquid_consonants': ["l", "r"],
 
-           ],
+         'prefixes': [
+             "a", "ab", "abs",
+             "ad", "ac",
+             "amb", "ambi",
+             "ante",
+             "circum",
+             "co", "con", "com",
+             "contra", "counter",
+             "de",
+             "dis", "di", "dif",
+             "e", "ex", "ef",
+             "extra", "extro",
+             "in", "en",
+             "infra",
+             "inter",
+             "intro",
+             "juxta",
+             "ne",
+             "non",
+             "ob",
+             "per",
+             "post",
+             "prae", "pre",
+             "preter",
+             "pro",
+             "quasi",
+             "re", "red",
+             "retro",
+             "se", "sed",
+             "sin", "sine",
+             "sub",
+             "subter",
+             "super", "sur",
+             "supra",
+             "trans", "tra", "tran",
+             "ultra", "outr"
+             ],
 
-           'single_syllable_prefixes': [
-               "in",
-               "ex",
-               "ob"
-           ]
-
-           }
+         'single_syllable_prefixes': [
+             "in",
+             "ex",
+             "ob"
+         ]}
 
 
 class Syllabifier(object):
