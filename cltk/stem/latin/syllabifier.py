@@ -82,7 +82,7 @@ LATIN = {'diphthongs': ["ae", "au", "ei", "eu", "oe"],
 class Syllabifier(object):
     """Split Latin words into syllables"""
 
-    def __init__(self, language=Latin):
+    def __init__(self, language=LATIN):
         """Initializer for syllabifier, import language syllable data"""
 
         self.language = language
