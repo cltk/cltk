@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# !/usr/bin/env python
 """
 This program returns the prosimetric scansion of Greek texts.
 
@@ -18,9 +16,10 @@ Known bugs:
 1) Reduplicated syllables in a single sentence are not scanned seperately
 """
 
+from cltk.utils.cltk_logger import logger
+
 __author__ = 'Tyler Kirby <joseph.kirby12@ncf.edu>'
 __license__ = 'MIT License'
-import unittest
 
 
 class Scansion:
@@ -175,7 +174,7 @@ class Scansion:
             else:
                 pass
         except IndexError:
-            pass
+            logger.info("Syllable '%s' out of index. Continuing.", syllable)
 
     def _scansion(self, sentence_syllables):
         """Replace long and short values for each input syllable.
@@ -234,7 +233,7 @@ class Scansion:
                     cur_letter_in += 1
                 try:
                     last_vowel = syll_per_word[-1][-1]  # Last vowel of a word
-                    # Modifies general iterator to accomandate consonants after
+                    # Modifies general iterator to accomodate consonants after
                     # the last syllable in a word
                     cur_letter_in = len(word) - 1
                     # Contains all of the consonants after the last vowel in a word
@@ -248,7 +247,7 @@ class Scansion:
                     syll_per_word[-1] += leftovers
                     syll_per_sent.append(syll_per_word)
                 except IndexError:
-                    pass
+                    logger.info("IndexError while making syllables of '%s'. Continuing.", word)
             all_syllables.append(syll_per_sent)
         return all_syllables
 
