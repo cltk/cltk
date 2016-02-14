@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 This program returns the prosimetric scansion of Latin texts. A user is first
 prompted to supply the file path of the text they wish to scan.
@@ -19,8 +18,11 @@ Known bugs:
 1) Reduplicated syllables in a single sentence are not scanned separately
 """
 
-from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktLanguageVars
+
+from cltk.tokenize.sentence import TokenizeSentence
+from cltk.utils.cltk_logger import logger
+
 
 __author__ = ['Tyler Kirby <joseph.kirby12@ncf.edu>',
               'Bradley Baker <bradley.baker12@ncf.edu>']
@@ -70,7 +72,7 @@ class Scansion:
             assert isinstance(words, list)
             words_new = []
             for word in words:
-                if word not in self.punctuation or self.abbreviations or self.numbers or self.abbreviations:
+                if word not in self.punctuation or self.abbreviations or self.numbers or self.abbreviations:  # pylint: disable=line-too-long
                     words_new.append(word)
 
             # rm all numbers here with: re.compose(r'[09]')
@@ -229,7 +231,7 @@ class Scansion:
             else:
                 pass
         except IndexError:
-            pass
+            logger.info("IndexError while checking if syllable '%s' is long. Continuing.", syllable)
 
     def _scansion(self, sentence_syllables):
         """Replace long and short values for each input syllable.
@@ -257,7 +259,9 @@ class Scansion:
         diphthong). This means that all syllables which are not the last
         syllable in the word will end with a vowel or diphthong.
 
-        TODO: Determine whether Luke Hollis's module at cltk.stem.latin.syllabifier could replace this method.
+        TODO: Determine whether Luke Hollis's module at
+        `cltk.stem.latin.syllabifier could replace this method.`
+        
         :param sentences_words: A list of sentences with tokenized words.
         :return: Syllabified words
         :rtype : list
@@ -309,7 +313,7 @@ class Scansion:
                     syll_per_word[-1] += leftovers
                     syll_per_sent.append(syll_per_word)
                 except IndexError:
-                    pass
+                    logger.info("IndexError while making syllables of '%s'. Continuing.", word)
             all_syllables.append(syll_per_sent)
         return all_syllables
 

@@ -174,7 +174,7 @@ class Scansion:
             else:
                 pass
         except IndexError:
-            logger.info("Syllable '%s' out of index. Continuing.", syllable)
+            logger.info("IndexError while checking if syllable '%s' is long. Continuing.", syllable)
 
     def _scansion(self, sentence_syllables):
         """Replace long and short values for each input syllable.
