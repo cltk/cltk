@@ -261,7 +261,7 @@ class Scansion:
 
         TODO: Determine whether Luke Hollis's module at
         `cltk.stem.latin.syllabifier could replace this method.`
-        
+
         :param sentences_words: A list of sentences with tokenized words.
         :return: Syllabified words
         :rtype : list

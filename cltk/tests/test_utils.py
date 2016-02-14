@@ -5,10 +5,12 @@ import os
 import unittest
 
 from cltk.corpus.utils.importer import CorpusImporter
+from cltk.utils.cltk_logger import logger
 from cltk.utils.contributors import Contributors
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
+
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
@@ -125,7 +127,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         try:
             os.remove(file)
         except FileNotFoundError:
-            pass
+            logger.info("No file to remove at '%s'. Continuing.", file)
         contribs.write_contribs()
         contribs_file = os.path.isfile(file)
         self.assertTrue(contribs_file)
