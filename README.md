@@ -64,4 +64,4 @@ Many [contributors](https://github.com/cltk/cltk/blob/master/contributors.md) ha
 
 ## License
 
-The CLTK is Copyright (c) 2016 Kyle P. Johnson, under the MIT License. See 'LICENSE' for details.
+The CLTK is Copyright (c) 2016 Kyle P. Johnson, under the MIT License. See '[LICENSE](https://github.com/cltk/cltk/blob/master/LICENSE)' for details.
