@@ -33,6 +33,12 @@ See docs for [complete installation instructions](http://docs.cltk.org/en/latest
 
 The [CLTK organization curates corpora](https://github.com/cltk) which can download directly or, better, [imported by the toolkit](http://docs.cltk.org/en/latest/importing_corpora.html).
 
+
+## Contribute
+
+See the [Quickstart for contributors](https://github.com/cltk/cltk/wiki/Quickstart-for-contributors) for an overview of the process. If you're looking to start with a small contribution, see the [Issue tracker for "easy" jobs](https://github.com/cltk/cltk/issues?q=is%3Aopen+is%3Aissue+label%3Aeasy) needing to be done. Bigger projects may be found at [Project ideas](https://github.com/cltk/cltk/wiki/Project-ideas) page.
+
+
 ## Citation
 
 Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow researcher to reproduce your results should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the repository's home on GitHub. To the end of your bibliographic entry, append `DOI ` plus the current identifier. You may also add version/release number, located in the `pypi` button at the project's GitHub repository homepage.
@@ -52,6 +58,8 @@ note = {{DOI} 10.5281/zenodo.<current_release_id>},
 year = {2014--2016},
 }
 ```
+
+Many [contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. In scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
 
 
 ## License
