@@ -1,11 +1,8 @@
 About
 #####
 
-The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the Classical Language Toolkit (CLTK) are to:
-
-
-
-
+The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. \
+In some areas, it extends the NLTK. The goals of the Classical Language Toolkit (CLTK) are to:
 
 * compile analysis-friendly corpora in a variety of Classical languages (currently available for Chinese, Coptic, Greek, Latin, Pali, and Tibetan);
 
