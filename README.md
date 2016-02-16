@@ -34,9 +34,9 @@ See docs for [complete installation instructions](http://docs.cltk.org/en/latest
 The [CLTK organization curates corpora](https://github.com/cltk) which can download directly or, better, [imported by the toolkit](http://docs.cltk.org/en/latest/importing_corpora.html).
 
 
-## Contribute
+## Contributing
 
-See the [Quickstart for contributors](https://github.com/cltk/cltk/wiki/Quickstart-for-contributors) for an overview of the process. If you're looking to start with a small contribution, see the [Issue tracker for "easy" jobs](https://github.com/cltk/cltk/issues?q=is%3Aopen+is%3Aissue+label%3Aeasy) needing to be done. Bigger projects may be found at [Project ideas](https://github.com/cltk/cltk/wiki/Project-ideas) page.
+See the [Quickstart for contributors](https://github.com/cltk/cltk/wiki/Quickstart-for-contributors) for an overview of the process. If you're looking to start with a small contribution, see the [Issue tracker for "easy" jobs](https://github.com/cltk/cltk/issues?q=is%3Aopen+is%3Aissue+label%3Aeasy) needing to be done. Bigger projects may be found at [Project ideas](https://github.com/cltk/cltk/wiki/Project-ideas) page. Of course, new ideas are always welcome.
 
 
 ## Citation
