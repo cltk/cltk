@@ -59,7 +59,7 @@ year = {2014--2016},
 }
 ```
 
-Many [contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. In scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
+[Many contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. For scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
 
 
 ## License
