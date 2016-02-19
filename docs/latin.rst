@@ -45,10 +45,17 @@ You can also divide the texts into a file for each individual work.
 
 
 
+Information Retrieval
+=====================
+
+See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilingual.html#information-retrieval>`_ for Latin–specific search options.
+
+
+
 Lemmatization
 =============
 
-.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/latin_pos_lemmata_cltk/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/kylepjohnson/cltk/issues>`_.
+.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/latin_pos_lemmata_cltk/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/cltk/cltk/issues>`_.
 
 The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
 
@@ -133,8 +140,49 @@ First, `obtain the Latin POS tagging files <http://docs.cltk.org/en/latest/impor
                                         'type': 'substantive'}}]},
    }
 
-If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/kylepjohnson/pos_latin) repository.
+If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.For more, see the [pos_latin](https://github.com/cltk/latin_pos_lemmata_cltk) repository.
 
+
+Named Entity Recognition
+========================
+
+.. tip::
+
+   NER is new functionality. Please report any errors you observe.
+
+There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+
+.. code-block:: python
+
+   In [1]: from cltk.tag import ner
+
+   In [2]: from cltk.stem.latin.j_v import JVReplacer
+
+   In [3]: text_str = """ut Venus, ut Sirius, ut Spica, ut aliae quae primae dicuntur esse mangitudinis."""
+
+   In [4]: jv_replacer = JVReplacer()
+
+   In [5]: text_str_iu = jv_replacer.replace(text_str)
+
+   In [7]: ner.tag_ner('latin', input_text=text_str_iu, output_type=list)
+   Out[7]:
+   [('ut',),
+    ('Uenus', 'Entity'),
+    (',',),
+    ('ut',),
+    ('Sirius', 'Entity'),
+    (',',),
+    ('ut',),
+    ('Spica', 'Entity'),
+    (',',),
+    ('ut',),
+    ('aliae',),
+    ('quae',),
+    ('primae',),
+    ('dicuntur',),
+    ('esse',),
+    ('mangitudinis',),
+    ('.',)]
 
 PHI Indices
 ===========
@@ -420,3 +468,85 @@ Word Tokenization
    In [4]: word_tokenizer.tokenize(text)
    Out[4]: ['atque', 'haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
 
+
+
+Word2Vec
+========
+
+.. note::
+
+   The Word2Vec models have not been fully vetted and are offered in the spirit of a beta. The CLTK's API for it \
+   will be revised.
+
+.. note::
+
+   You will need to install `Gensim <https://radimrehurek.com/gensim/install.html>`_ to use these features.
+
+Word2Vec is a `Vector space model <https://en.wikipedia.org/wiki/Vector_space_model>`_ especially powerful for comparing \
+words in relation to each other. For instance, it is commonly used to discover words which appear in \
+similar contexts (something akin to synonyms; think of them as lexical clusters).
+
+The CLTK repository contains pre-trained Word2Vec models for Latin (import as ``latin_word2vec_cltk``), one lemmatized and the other not. They were trained on \
+the PHI5 corpus. To train your own, see the README at `the Latin Word2Vec repository <https://github.com/cltk/latin_word2vec_cltk>`_.
+
+One of the most common uses of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
+finding synonyms, and searching for those, too. Here's an example of its use:
+
+.. code-block:: python
+
+   In [1]: from cltk.ir.query import search_corpus
+
+   In [2]: for x in search_corpus('amicitia', 'phi5', context='sentence', case_insensitive=True, expand_keyword=True, threshold=0.25):
+       print(x)
+      ...:
+   The following similar terms will be added to the 'amicitia' query: '['societate', 'praesentia', 'uita', 'sententia', 'promptu', 'beneuolentia', 'dignitate', 'monumentis', 'somnis', 'philosophia']'.
+   ('L. Iunius Moderatus Columella', 'hospitem, nisi ex *amicitia* domini, quam raris-\nsime recipiat.')
+   ('L. Iunius Moderatus Columella', ' \n    Xenophon Atheniensis eo libro, Publi Siluine, qui Oeconomicus \ninscribitur, prodidit maritale coniugium sic comparatum esse \nnatura, ut non solum iucundissima, uerum etiam utilissima uitae \nsocietas iniretur: nam primum, quod etiam Cicero ait, ne genus \nhumanum temporis longinquitate occideret, propter \nhoc marem cum femina esse coniunctum, deinde, ut ex \nhac eadem *societate* mortalibus adiutoria senectutis nec \nminus propugnacula praeparentur.')
+   ('L. Iunius Moderatus Columella', 'ac ne ista quidem \npraesidia, ut diximus, non adsiduus labor et experientia \nuilici, non facultates ac uoluntas inpendendi tantum pollent \nquantum uel una *praesentia* domini, quae nisi frequens \noperibus interuenerit, ut in exercitu, cum abest imperator, \ncuncta cessant officia.')
+   …
+
+``threshold`` is the closeness of the query term to its neighboring words. Note that when ``expand_keyword=True``, the \
+search term will be stripped of any regular expression syntax.
+
+The keyword expander leverages ``get_sims()`` (which in turn leverages functionality of the Gensim package) to find similar terms. \
+Some examples of it in action:
+
+.. code-block:: python
+
+   In [3]: from cltk.vector.word2vec import get_sims
+
+   In [4]: get_sims('iubeo', 'latin', lemmatized=True, threshold=0.7)
+   Matches found, but below the threshold of 'threshold=0.7'. Lower it to see these results.
+   Out[4]: []
+
+   In [5]: get_sims('iubeo', 'latin', lemmatized=True, threshold=0.2)
+   Out[5]:
+   ['lictor',
+    'extemplo',
+    'cena',
+    'nuntio',
+    'aduenio',
+    'iniussus2',
+    'forum',
+    'dictator',
+    'fabium',
+   'caesarem']
+
+   In [6]: get_sims('iube', 'latin', lemmatized=True, threshold=0.7)
+   "word 'iube' not in vocabulary"
+   The following terms in the Word2Vec model you may be looking for: '['iubet”', 'iubet', 'iubilo', 'iubĕ', 'iubar', 'iubes', 'iubatus', 'iuba1', 'iubeo']'.
+
+   In [7]: get_sims('dictator', 'latin', lemmatized=False, threshold=0.7)
+   Out[7]:
+   ['consul',
+    'caesar',
+    'seruilius',
+    'praefectus',
+    'flaccus',
+    'manlius',
+    'sp',
+    'fuluius',
+    'fabio',
+    'ualerius']
+
+To add and subtract vectors, you need to load the models yourself with Gensim.

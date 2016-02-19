@@ -62,4 +62,7 @@ LATIN_CORPORA = [
      'name': 'latin_training_set_sentence_cltk',
      'location': 'remote',
      'type': 'training_set'},
+    {'name': 'latin_word2vec_cltk',
+     'location': 'remote',
+     'type': 'model'},
 ]

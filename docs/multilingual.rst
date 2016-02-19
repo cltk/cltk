@@ -81,6 +81,99 @@ The CLTK uses languages in its organization of data, however some good corpora d
    Out[3]: ['multilingual_treebank_proiel']
 
 
+Information Retrieval (regex, keyword expansion)
+=============================
+
+.. tip::
+
+   To begin working with regular expressions, try `Pythex <http://pythex.org/>`_, a handy tool for developing patterns. For more thorough lessons, try `Learn Regex The Hard Way <http://regex.learncodethehardway.org/book/>`_.
+
+.. tip::
+
+   Read about `Word2Vec for Latin <http://docs.cltk.org/en/latest/latin.html#word2vec>`_ or `Greek <http://docs.cltk.org/en/latest/greek.html#word2vec>`_ for the powerful keyword expansion functionality.
+
+Several functions are available for querying text in order to match regular expression patterns. ``match_regex()`` is the most basic. Punctuation rules are included for texts using Latin sentence–final punctuation ('.', '!', '?') and Greek ('.', ';'). For returned strings, you may choose between a context of the match's sentence, paragraph, or custom number of characters on each side of a hit. Note that this function and the next each return a generator.
+
+Here is an example in Latin with a sentence context, case-insensitive:
+
+.. code-block:: python
+
+   In [1]: from cltk.ir.query import match_regex
+
+   In [2]: text = 'Ita fac, mi Lucili; vindica te tibi. et tempus, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.'
+
+   In [3]: matches = match_regex(text, r'tempus', language='latin', context='sentence', case_insensitive=True)
+
+   In [4]: for match in matches:
+       print(match)
+      ...:
+   et *tempus*, quod adhuc aut auferebatur aut subripiebatur aut excidebat, collige et serva.
+
+
+And here with context of 40 characters:
+
+.. code-block:: python
+
+   In [5]: matches = match_regex(text, r'tempus', language='latin', context=40, case_insensitive=True)
+
+   In [6]: for match in matches:
+       print(match)
+      ...:
+   Ita fac, mi Lucili; vindica te tibi. et *tempus*, quod adhuc aut auferebatur aut subripi
+
+For querying the entirety of a corpus, see ``search_corpus()``, which returns a tuple of ``('author_name': 'match_context')``.
+
+.. code-block:: python
+
+   In [7]: from cltk.ir.query import search_corpus
+
+   In [8]: for match in search_corpus('ὦ ἄνδρες Ἀθηναῖοι', 'tlg', context='sentence'):
+       print(match)
+      ...:
+   ('Ammonius Phil.', ' \nκαλοῦντας ἑτέρους ἢ προστάσσοντας ἢ ἐρωτῶντας ἢ εὐχομένους περί τινων, \nπολλάκις δὲ καὶ αὐτοπροσώπως κατά τινας τῶν ἐνεργειῶν τούτων ἐνεργοῦ-\nσι “πρῶτον μέν, *ὦ ἄνδρες Ἀθηναῖοι*, τοῖς θεοῖς εὔχομαι πᾶσι καὶ πάσαις” \nλέγοντες ἢ “ἀπόκριναι γὰρ δεῦρό μοι ἀναστάς”. οἱ οὖν περὶ τῶν τεχνῶν \nτούτων πραγματευόμενοι καὶ τοὺς λόγους εἰς θεωρίαν ')
+   ('Sopater Rhet.', "θόντα, ἢ συγγνωμονηκέναι καὶ ἐλεῆσαι. ψυχῆς γὰρ \nπάθος ἐπὶ συγγνώμῃ προτείνεται. παθητικὴν οὖν ποιή-\nσῃ τοῦ πρώτου προοιμίου τὴν ἔννοιαν: ἁπάντων, ὡς ἔοι-\nκεν, *ὦ ἄνδρες Ἀθηναῖοι*, πειρασθῆναί με τῶν παραδό-\nξων ἀπέκειτο, πόλιν ἰδεῖν ἐν μέσῃ Βοιωτίᾳ κειμένην. καὶ \nμετὰ Θήβας οὐκ ἔτ' οὔσας, ὅτι μὴ στεφανοῦντας Ἀθη-\nναίους ἀπέδειξα παρὰ τὴ")
+   …
+
+
+Information Retrieval (boolean)
+===============================
+
+.. note::
+
+   The API for the CLTK index and query will likely change. Consider this module an alpha. Please `report improvements or problems <https://github.com/cltk/cltk/issues>`_.
+
+An index to a corpus allows for faster, and sometimes more nuanced, searches. The CLTK has built some indexing and querying \
+functionality with the `Whoosh library <https://pythonhosted.org/Whoosh/index.html>`_. The following show how to make \
+an index and then query it:
+
+First, ensure that you have `imported and converted the PHI5 or TLG disks <http://docs.cltk.org/en/latest/greek.html#converting-tlg-texts-with-tlgu>`_ imported. \
+If you want to use the author chunking, convert with ``convert_corpus()``, but for searching by work, convert with ``divide_works()``. ``CLTKIndex()`` has an optional argument ``chunk``, which defaults to ``chunk='author'``. ``chunk='work'`` is also available.
+
+An index only needs to be made once. Then it can be queried with, e.g.:
+
+.. code-block:: python
+
+   In [1]: from cltk.ir.boolean import CLTKIndex
+
+   In [2]: cltk_index = CLTKIndex('latin', 'phi5', chunk='work')
+
+   In [3]: results = cltk_index.corpus_query('amicitia')
+
+   In [4]: results[:500]
+   Out[4]: 'Docs containing hits: 836.</br></br>Marcus Tullius Cicero, Cicero, Tully</br>/Users/kyle/cltk_data/latin/text/phi5/individual_works/LAT0474.TXT-052.TXT</br>Approximate hits: 132.</br>LAELIUS DE <b class="match term0">AMICITIA</b> LIBER </br>        AD T. POMPONIUM ATTICUM.} </br>    Q. Mucius augur multa narrare...incidisset, exposuit </br>nobis sermonem Laeli de <b class="match term1">amicitia</b> habitum ab illo </br>secum et cum altero genero, C. Fannio...videretur. </br>    Cum enim saepe me'
+
+The function returns an string in HTML markup, which you can then parse yourself.
+
+To save results, use the ``save_file`` parameter:
+
+.. code-block:: python
+
+ In [4]: cltk_index.corpus_query('amicitia', save_file='2016_amicitia')
+
+This will save a file at ``~/cltk_data/user_data/search/2016_amicitia.html``, being a human-readable output \
+with word-matches highlighted, of all authors (or texts, if ``chunk='work'``).
+
+
 N–grams
 =======
 
@@ -204,58 +297,75 @@ If you have access to the TLG or PHI5 disc, and have already imported it and con
 Word tokenization
 =================
 
-The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is the latest tokenizer.
+The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is its latest tokenizer.
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
+   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
 
-   In [2]: from nltk.text import Text
+   In [2]: s = """Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."""
 
-   In [3]: from nltk.tokenize.punkt import PunktLanguageVars
+   In [3]: p = PunktLanguageVars()
 
-   In [4]: import os
-
-   In [5]: path = '~/cltk_data/latin/text/phi5/individual_works/LAT0690.TXT-003.txt'
-
-   In [6]: path = os.path.expanduser(path)
-
-   In [7]: with open(path) as f:
-      ...:     r = f.read()
-      ...:
-
-   In [8]: cleaned = phi5_plaintext_cleanup(r)
-
-   In [9]: p = PunktLanguageVars()
-
-   In [10]: tokens = p.word_tokenize(cleaned)
-
-   In [13]: tokens[:10]
-   Out[13]:
-   ['Arma',
-    'uirumque',
-    'cano',
+   In [4]: p.word_tokenize(s)
+   Out[4]:
+   ['Anna',
+    'soror',
     ',',
-    'Troiae',
-    'qui',
-    'primus',
-    'ab',
-    'oris',
-    'Italiam']
+    'quae',
+    'me',
+    'suspensam',
+    'insomnia',
+    'terrent',
+    '!',
+    'Quis',
+    'novus',
+    'hic',
+    'nostris',
+    'successit',
+    'sedibus',
+    'hospes.']
 
-
-Another, simpler tokenizer can tokenize on word breaks and whatever other regular expressions you add.
+This tokenizer works well, though has the particular feature that periods are fixed to the word preceding it. Notice the final token ``hospes.`` in the above. To get around this limitation, the CLTK offers ``nltk_tokenize_words()``, which is a simple wrapper for ``PunktLanguageVars.word_tokenize()``. It simply identifies final periods and turns them into their own item.
 
 .. code-block:: python
 
-   In [14]: from nltk.tokenize import RegexpTokenizer
+   In [5]: from cltk.tokenize.word import nltk_tokenize_words
 
-   In [15]: word_breaks = RegexpTokenizer(r'\w+')
+   In [6]: nltk_tokenize_words(s)
+   Out[6]:
+   ['Anna',
+    'soror',
+    ',',
+    'quae',
+    'me',
+    'suspensam',
+    'insomnia',
+    'terrent',
+    '!',
+    'Quis',
+    'novus',
+    'hic',
+    'nostris',
+    'successit',
+    'sedibus',
+    'hospes',
+    '.']
 
-   In [16]: tokens = word_breaks.tokenize(cleaned)
+If, however, you want the defaul output of ``PunktLanguageVars.word_tokenize()``, use the argument ``attached_period=True``, as in ``nltk_tokenize_words(s, attached_period=True)``.
 
-   In [17]: tokens[:10]
-   Out[17]: ['Arma',
+If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another tokenizer from the NLTK, which breaks on any other regular expression pattern you choose. Here, for instance, on whitespace word breaks:
+
+.. code-block:: python
+
+   In [7]: from nltk.tokenize import RegexpTokenizer
+
+   In [8]: word_breaks = RegexpTokenizer(r'\w+')
+
+   In [8]: tokens = word_breaks.tokenize(cleaned)
+
+   In [9]: tokens[:10]
+   Out[9]: ['Arma',
     'uirumque',
     'cano',
     'Troiae',

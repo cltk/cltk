@@ -1,9 +1,24 @@
-"""Test cltk.corpus."""
+"""Test cltk.corpus.
+
+TODO: Consider whether to import the very large Word2Vec corpora for Greek and Latin.
+"""
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithets
+from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_epithet
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_of_author
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_index
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_geographies
+from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_geo
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_of_author
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_lists
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_id_author
+from cltk.corpus.greek.tlg.parse_tlg_indices import select_id_by_name
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
@@ -83,6 +98,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' Ἀθήναιος ὁ τῆς βίβλου πατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην.'
         self.assertEqual(clean, target)
 
+    def test_tlg_plaintext_cleanup_rm_periods(self):
+        """Test post-TLGU cleanup of text of Greek TLG text."""
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου πατήρ: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=line-too-long
+        clean = tlg_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
+        target = ' Ἀθήναιος ὁ τῆς βίβλου πατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην'
+        self.assertEqual(clean, target)
+
     def test_phi5_plaintext_cleanup(self):
         """Test post-TLGU cleanup of text of Latin PHI5 text."""
         dirty = """        {ODYSSIA}
@@ -93,6 +115,25 @@ Mea puera, quid verbi ex tuo ore supera fugit?
 argenteo polubro, aureo eclutro. """
         clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=False)
         target = ' Virum áge mihi Camena versutum. Pater noster Saturni filie . . . Mea puera quid verbi ex tuo ore supera fugit argenteo polubro aureo eclutro. '  # pylint: disable=line-too-long
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup_rm_periods(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = """        {ODYSSIA}
+        {Liber I}
+Virum áge 999 mihi, Camena, (insece) versutum.
+Pater noster, Saturni filie . . .
+Mea puera, quid verbi ex tuo ore supera fugit?
+argenteo polubro, aureo eclutro. """
+        clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
+        target = ' Virum áge mihi Camena versutum Pater noster Saturni filie Mea puera quid verbi ex tuo ore supera fugit argenteo polubro aureo eclutro '  # pylint: disable=line-too-long
+        self.assertEqual(clean, target)
+
+    def test_phi5_plaintext_cleanup_rm_periods_bytes(self):
+        """Test post-TLGU cleanup of text of Latin PHI5 text."""
+        dirty = '\xcc\x81 Virum áge 999 mihi.'
+        clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
+        target = 'Ì Virum áge mihi'
         self.assertEqual(clean, target)
 
     def test_assemble_tlg_author(self):
@@ -266,6 +307,66 @@ argenteo polubro, aureo eclutro. """
         """Test failure of importer upon selecting unsupported language."""
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
+
+    def test_get_female_authors(self):
+        """Test function to parse TLG female authors list."""
+        authors = get_female_authors()
+        authors = sorted(authors)[:3]
+        self.assertEqual(authors, ['0009', '0051', '0054'])
+
+    def test_get_epithet_index(self):
+        """Test get_epithet_index()."""
+        ind = get_epithet_index()
+        self.assertEqual(type(ind), dict)
+
+    def test_get_epithets(self):
+        """Test get_epithets()."""
+        epithets = get_epithets()
+        self.assertEqual(epithets[:2], ['Alchemistae', 'Apologetici'])
+
+    def test_select_authors_by_epithet(self):
+        """Test select_authors_by_epithet()."""
+        authors = select_authors_by_epithet('Apologetici')
+        self.assertEqual(len(authors), 9)
+
+    def test_get_epithet_of_author(self):
+        """Test get_epithet_of_author()."""
+        epithet = get_epithet_of_author('0016')
+        self.assertEqual(epithet, 'Historici/-ae')
+
+    def test_get_geo_index(self):
+        """Test get_geo_index()."""
+        index = get_geo_index()
+        self.assertEqual(type(index), dict)
+
+    def test_get_geographies(self):
+        """Test get_geographies()."""
+        geos = get_geographies()
+        self.assertEqual(type(geos), list)
+
+    def test_select_authors_by_geo(self):
+        """Test select_authors_by_geo()."""
+        authors = select_authors_by_geo('Athenae')
+        self.assertEqual(len(authors), 113)
+
+    def test_get_geo_of_author(self):
+        """Test get_geo_of_author()."""
+        geo = get_geo_of_author('0008')
+        self.assertEqual(geo, 'Naucratis')
+
+    def test_get_lists(self):
+        """Test get_lists()."""
+        index = get_lists()
+        self.assertEqual(type(index), dict)
+
+    def test_get_id_author(self):
+        """Test get_id_author()."""
+        self.assertEqual(type(get_id_author()), dict)
+
+    def test_select_id_by_name(self):
+        """Test select_id_by_name()."""
+        matches = select_id_by_name('hom')
+        self.assertEqual(len(matches), 11)
 
 if __name__ == '__main__':
     unittest.main()

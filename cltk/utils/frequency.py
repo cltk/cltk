@@ -12,8 +12,6 @@ from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.utils.cltk_logger import logger
 from collections import Counter
 from nltk.tokenize.punkt import PunktLanguageVars
-import os
-from time import strftime
 
 
 class Frequency:
@@ -31,7 +29,6 @@ class Frequency:
         string_joined = ''.join(string_list)
         tokens = self.punkt.word_tokenize(string_joined)
         return Counter(tokens)
-
 
     def counter_from_corpus(self, corpus):
         """Build word frequency list from one of several available corpora.

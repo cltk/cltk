@@ -1,13 +1,14 @@
 """Test cltk.tokenize."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
-
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence
+from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 import os
 import unittest
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -58,6 +59,24 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokens = word_tokenizer.tokenize(text)
         target = ['atque', 'haec', 'abuter', '-que', 'nihil']
         self.assertEqual(tokens, target)
+
+    def test_nltk_tokenize_words(self):
+        """Test wrapper for NLTK's PunktLanguageVars()"""
+        tokens = nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=False)
+        target = ['Sentence', '1', '.', 'Sentence', '2', '.']
+        self.assertEqual(tokens, target)
+
+    def test_nltk_tokenize_words_attached(self):
+        """Test wrapper for NLTK's PunktLanguageVars(), returning unaltered output."""
+        tokens = nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=True)
+        target = ['Sentence', '1.', 'Sentence', '2.']
+        self.assertEqual(tokens, target)
+
+    def test_nltk_tokenize_words_assert(self):
+        """Test assert error for CLTK's word tokenizer."""
+        with self.assertRaises(AssertionError):
+            nltk_tokenize_words(['Sentence', '1.'])
+
 
 if __name__ == '__main__':
     unittest.main()

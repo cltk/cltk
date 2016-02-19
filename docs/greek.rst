@@ -75,10 +75,16 @@ You may read about these arguments in `the TLGU manual <https://github.com/cltk/
 
 
 
+Information Retrieval
+=====================
+
+See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilingual.html#information-retrieval>`_ for Greek–specific search options.
+
+
 Lemmatization
 =============
 
-.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/greek_lexica_perseus/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/kylepjohnson/cltk/issues>`_.
+.. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/greek_lexica_perseus/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/cltk/cltk/issues>`_.
 
 The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
 
@@ -135,6 +141,34 @@ And ``return string`` wraps the list in ``' '.join()``:
    Out[7]: 'χρόνος πλῆθος ἀδύνατος εἰμί'
 
 These two arguments can be combined, as well.
+
+
+
+Named Entity Recognition
+========================
+
+.. tip::
+
+   NER is new functionality. Please report any errors you observe.
+
+There is available a simple interface to `a list of Greek proper nouns <https://github.com/cltk/greek_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+
+.. code-block:: python
+
+   In [1]: from cltk.tag import ner
+
+   In [2]: text_str = 'τὰ Σίλαριν Σιννᾶν Κάππαρος Πρωτογενείας Διονυσιάδες τὴν'
+
+   In [3]: ner.tag_ner('greek', input_text=text_str, output_type=list)
+   Out[3]:
+   [('τὰ',),
+    ('Σίλαριν', 'Entity'),
+    ('Σιννᾶν', 'Entity'),
+    ('Κάππαρος', 'Entity'),
+    ('Πρωτογενείας', 'Entity'),
+    ('Διονυσιάδες', 'Entity'),
+    ('τὴν',)]
+
 
 
 POS tagging
@@ -329,35 +363,117 @@ Intended for use on the TLG after processing by ``TLGU()``.
 TLG Indices
 ===========
 
-Located at ``cltk/corpus/greek/tlg_index.py`` of the source are indices for the TLG, one of just id and name (``TLG_INDEX``) and another also containing information on the authors' works (``TLG_WORKS_INDEX``).
+The TLG comes with some old, difficult-to-parse index files which have been made available as Python dictionaries (at ``/Users/kyle/cltk/cltk/corpus/greek/tlg``). Below are some functions to make accessing these easy. The outputs are variously a ``dict`` of an index or ``set`` if the function returns unique author ids.
+
+.. tip::
+
+   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.4/library/stdtypes.html?highlight=set#set>`_).
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.greek.tlg_index import TLG_INDEX
+   In [1]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 
-   In [2]: TLG_INDEX
-   Out[2]:
-   {'TLG1124': 'Andronicus Rhodius Phil.',
-    'TLG3094': 'Nicetas Choniates Hist., Scr. Eccl. et Rhet.',
-    'TLG2565': 'Mnesimachus Hist.',
-    'TLG1477': 'Manetho Hist.',
-    ... }
+   In [2]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
 
-   In [3]: from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
+   In [3]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithets
 
-   In [4]: TLG_WORKS_INDEX
-   Out [4]:
-   {'TLG1587': {'name': 'Philiades Eleg.', 'works': ['001']},
-    'TLG0555': {'name': 'Clemens Alexandrinus Theol.',
-     'works': ['001', '002', '003', '004', '005', '006', '007', '008']},
-    'TLG0402': {'name': 'Alexis Comic.',
-     'works': ['001', '002', '003', '004', '005', '006']},
-    'TLG2304': {'name': 'Idaeus Phil.', 'works': ['001']},
-    'TLG5015': {'name': 'Scholia In Aristotelem', 'works': ['001', '002', '003']},
-     ...}
+   In [4]: from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_epithet
+
+   In [5]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_of_author
+
+   In [6]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_index
+
+   In [7]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_geographies
+
+   In [8]: from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_geo
+
+   In [9]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_of_author
+
+   In [10]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_lists
+
+   In [11]: from cltk.corpus.greek.tlg.parse_tlg_indices import get_id_author
+
+   In [12]: from cltk.corpus.greek.tlg.parse_tlg_indices import select_id_by_name
+
+   In [13]: get_female_authors()
+   Out[13]:
+   {'0009',
+    '0051',
+    '0054',
+    …}
+
+   In [14]: get_epithet_index()
+   Out[14]:
+   {'Lexicographi': {'3136', '4040', '4085', '9003'},
+    'Lyrici/-ae': {'0009',
+     '0033',
+     '0199',
+     …}}
+
+   In [15]: get_epithets()
+   Out[15]:
+   ['Alchemistae',
+    'Apologetici',
+    'Astrologici',
+    …]
+
+   In [16]: select_authors_by_epithet('Tactici')
+   Out[16]: {'0058', '0546', '0556', '0648', '3075', '3181'}
+
+   In [17]: get_epithet_of_author('0016')
+   Out[17]: 'Historici/-ae'
+
+   In [18]: get_geo_index()
+   Out[18]:
+   {'Alchemistae': {'1016',
+     '2019',
+     '2140',
+     '2181',
+     …}}
+
+   In [19]: get_geographies()
+   Out[19]:
+   ['Abdera',
+    'Adramytteum',
+    'Aegae',
+    …]
+
+   In [20]: select_authors_by_geo('Thmuis')
+   Out[20]: {'2966'}
+
+   In [21]: get_geo_of_author('0216')
+   Out[21]: 'Aetolia'
+
+   In [22]: get_lists()
+   Out[22]:
+   {'Lists pertaining to all works in Canon (by TLG number)': {'LIST3CLA.BIN': 'Literary classifications of works',
+     'LIST3CLX.BIN': 'Literary classifications of works (with x-refs)',
+     'LIST3DAT.BIN': 'Chronological classifications of authors',
+      …}}
+
+   In [23]: get_id_author()
+   Out[23]:
+   {'1139': 'Anonymi Historici (FGrH)',
+    '4037': 'Anonymi Paradoxographi',
+    '0616': 'Polyaenus Rhet.',
+    …}
+
+   In [28]: select_id_by_name('hom')
+   Out[28]:
+   [('0012', 'Homerus Epic., Homer'),
+    ('1252', 'Certamen Homeri Et Hesiodi'),
+    ('1805', 'Vitae Homeri'),
+    ('5026', 'Scholia In Homerum'),
+    ('1375', 'Evangelium Thomae'),
+    ('2038', 'Acta Thomae'),
+    ('0013', 'Hymni Homerici, Homeric Hymns'),
+    ('0253', '[Homerus] [Epic.]'),
+    ('1802', 'Homerica'),
+    ('1220', 'Batrachomyomachia'),
+    ('9023', 'Thomas Magister Philol.')]
 
 
-In addition to these indices there are several helper functions which will build filepaths for your particular computer. Not that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
+In addition to these indices there are several helper functions which will build filepaths for your particular computer. Note that you will need to have run ``convert_corpus(corpus='tlg')`` and ``divide_works('tlg')`` from the ``TLGU()`` class, respectively, for the following two functions.
 
 .. code-block:: python
 
@@ -392,6 +508,58 @@ In addition to these indices there are several helper functions which will build
 These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
 
 
-.. tip::
 
-   These index files can be greatly improved by better parsing of the TLG's ``.IDT`` index files, as well as the metadata indices which contain information about authors' genres, dates, etc.
+Word2Vec
+========
+
+.. note::
+
+   The Word2Vec models have not been fully vetted and are offered in the spirit of a beta. The CLTK's API for it \
+   will be revised.
+
+.. note::
+
+   You will need to install `Gensim <https://radimrehurek.com/gensim/install.html>`_ to use these features.
+
+Word2Vec is a `Vector space model <https://en.wikipedia.org/wiki/Vector_space_model>`_ especially powerful for comparing \
+words in relation to each other. For instance, it is commonly used to discover words which appear in \
+similar contexts (something akin to synonyms; think of them as lexical clusters).
+
+The CLTK repository contains pre-trained Word2Vec models for Greek (import as ``greek_word2vec_cltk``), one lemmatized and the other not. They were trained on \
+the TLG corpus. To train your own, see the README at `the Greek Word2Vec repository <https://github.com/cltk/greek_word2vec_cltk>`_.
+
+One of the most common uses of Word2Vec is as a keyword expander. Keyword expansion is the taking of a query term, \
+finding synonyms, and searching for those, too. Here's an example of its use:
+
+.. code-block:: python
+
+   In [1]: from cltk.ir.query import search_corpus
+
+   In [2]: In [6]: for x in search_corpus('πνεῦμα', 'tlg', context='sentence', case_insensitive=True, expand_keyword=True, threshold=0.5):
+       print(x)
+      ...:
+   The following similar terms will be added to the 'πνεῦμα' query: '['γεννώμενον', 'ἔντερον', 'βάπτισμα', 'εὐαγγέλιον', 'δέρμα', 'ἐπιῤῥέον', 'ἔμβρυον', 'ϲῶμα', 'σῶμα', 'συγγενὲς']'.
+   ('Lucius Annaeus Cornutus Phil.', "μυθολογεῖται δ' ὅτι διασπασθεὶς ὑπὸ τῶν Τιτά-\nνων συνετέθη πάλιν ὑπὸ τῆς Ῥέας, αἰνιττομένων τῶν \nπαραδόντων τὸν μῦθον ὅτι οἱ γεωργοί, θρέμματα γῆς \nὄντες, συνέχεαν τοὺς βότρυς καὶ τοῦ ἐν αὐτοῖς Διονύσου \nτὰ μέρη ἐχώρισαν ἀπ' ἀλλήλων, ἃ δὴ πάλιν ἡ εἰς ταὐτὸ \nσύρρυσις τοῦ γλεύκους συνήγαγε καὶ ἓν *σῶμα* ἐξ αὐτῶν \nἀπετέλεσε.")
+   ('Metopus Phil.', '\nκαὶ ταὶ νόσοι δὲ γίνονται τῶ σώματος <τῷ> θερμότερον ἢ κρυμωδέσ-\nτερον γίνεσθαι τὸ *σῶμα*.')
+   …
+
+
+``threshold`` is the closeness of the query term to its neighboring words. Note that when ``expand_keyword=True``, the \
+search term will be stripped of any regular expression syntax.
+
+The keyword expander leverages ``get_sims()`` (which in turn leverages functionality of the Gensim package) to find similar terms. \
+Some examples of it in action:
+
+.. code-block:: python
+
+   In [3]: from cltk.vector.word2vec import get_sims
+
+   In [4]: get_sims('βασιλεύς', 'greek', lemmatized=False, threshold=0.5)
+   "word 'βασιλεύς' not in vocabulary"
+   The following terms in the Word2Vec model you may be looking for: '['βασκαίνων', 'βασκανίας', 'βασιλάκιος', 'βασιλίδων', 'βασανισθέντα', 'βασιλήϊον', 'βασιλευόμενα', 'βασανιστηρίων', … ]'.
+
+   In [36]: get_sims('τυραννος', 'greek', lemmatized=True, threshold=0.7)
+   "word 'τυραννος' not in vocabulary"
+   The following terms in the Word2Vec model you may be looking for: '['τυραννίσιν', 'τυρόριζαν', 'τυρεύοντες', 'τυρρηνοὶ', 'τυραννεύοντα', 'τυροὶ', 'τυραννικά', 'τυρσηνίαν', 'τυρώ', 'τυρσηνίας', … ]'.
+
+To add and subtract vectors, you need to load the models yourself with Gensim.

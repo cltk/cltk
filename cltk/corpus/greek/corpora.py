@@ -45,6 +45,9 @@ GREEK_CORPORA = [
      'name': 'greek_training_set_sentence_cltk',
      'location': 'remote',
      'type': 'training_set'},
+    {'name': 'greek_word2vec_cltk',
+     'location': 'remote',
+     'type': 'model'},
 ]
 
 

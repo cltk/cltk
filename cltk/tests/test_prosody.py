@@ -79,7 +79,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         current = ScansionGreek()._make_syllables(self.test)
         self.assertEqual(current, correct)
 
-    def text_scan_text_greek(self):
+    def test_scan_text_greek(self):
         """Test scan_text method."""
         correct = ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
         current = ScansionGreek().scan_text(self.test)

@@ -1,16 +1,19 @@
 """Test cltk.utils."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
-
-from cltk.corpus.utils.importer import CorpusImporter
-from cltk.utils.build_contribs_index import build_contribs_file
-from cltk.utils.file_operations import open_pickle
-from cltk.utils.frequency import Frequency
-from cltk.utils.philology import Philology
 from collections import Counter
 import os
 import unittest
+
+from cltk.corpus.utils.importer import CorpusImporter
+from cltk.utils.cltk_logger import logger
+from cltk.utils.contributors import Contributors
+from cltk.utils.file_operations import open_pickle
+from cltk.utils.frequency import Frequency
+from cltk.utils.philology import Philology
+
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -33,13 +36,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-
-    def test_build_contribs_file(self):
-        """Test building of contributors file ``contributors.md`` by
-        ``build_contribs_file.py``."""
-        string = build_contribs_file(test=True)
-        self.assertTrue(string)
-
 
     def test_open_pickle_fail_missing(self):
         """Test failure to unpickle a file that doesn't exist"""
@@ -101,6 +97,42 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
         is_file = os.path.isfile(file)
         self.assertTrue(is_file)
+
+    def test_concordance_from_file_ioerror(self):
+        """Test ``write_concordance_from_file()`` for file writing completion
+        of concordance builder, with IOError. Doesn't test quality of output."""
+        philology = Philology()
+        bad_path = '/cltk_data/user_data/concordance_test_file.txt'
+        with self.assertRaises(IOError):
+            philology.write_concordance_from_file(bad_path, 'test_file')
+
+    def test_contribs_walk_cltk(self):
+        contribs = Contributors()
+        modules_list = contribs.walk_cltk()
+        self.assertEqual(type(modules_list), list)
+
+    def test_get_module_authors(self):
+        contribs = Contributors()
+        author = contribs.get_module_authors('cltk/corpus/utils/importer.py')[0]
+        self.assertEqual(author, 'Kyle P. Johnson <kyle@kyle-p-johnson.com>')
+
+    def test_contribs_make_authors_dict(self):
+        contribs = Contributors()
+        authors_dict = contribs._make_authors_dict()
+        self.assertGreater(len(authors_dict), 8)
+
+    def test_contribs_write_contribs(self):
+        contribs = Contributors()
+        file = 'contributors.md'
+        try:
+            os.remove(file)
+        except FileNotFoundError:
+            logger.info("No file to remove at '%s'. Continuing.", file)
+        contribs.write_contribs()
+        contribs_file = os.path.isfile(file)
+        self.assertTrue(contribs_file)
+
+
 
 if __name__ == '__main__':
     unittest.main()

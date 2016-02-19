@@ -4,11 +4,12 @@ TODO for replacer.py:
  - fix TLG diaeresis: εὐνοι+κῶς -> εὐνοϊκῶς (at Xen. Anab. 1.1.5, TLG0032.txt)
  -- προί+δοιεν -> προΐδοιεν (for TLG, Xen Anab 1.8.20)
 """
+
+import regex
+
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', ]
 __license__ = 'MIT License. See LICENSE.'
-
-import re
 
 UPPER = [
     # Perseus-style head words
@@ -323,7 +324,7 @@ LOWER = [
     (r'S ', 'ς '),
     (r'S$', 'ς'),
     (r'S:', 'ς:'),
-    (r'S\.', 'ς\.'),
+    (r'S\.', 'ς\.'),  # pylint: disable=anomalous-backslash-in-string
     (r'S,', 'ς,'),
     (r'S;', 'ς;'),
     (r'S\'', 'ς\''),
@@ -364,7 +365,7 @@ PUNCT = [
 
 
 class Replacer(object):  # pylint: disable=R0903
-    """Beta match and replace; PUNCT broken?"""
+    """Replace Beta Code with Unicode."""
     def __init__(self, pattern1=None, pattern2=None, pattern3=None):
         if pattern1 is None:
             pattern1 = UPPER
@@ -373,23 +374,25 @@ class Replacer(object):  # pylint: disable=R0903
         if pattern3 is None:
             pattern3 = PUNCT
         self.pattern1 = \
-            [(re.compile(regex), repl) for (regex, repl) in pattern1]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl)
+             for (beta_regex, repl) in pattern1]
         self.pattern2 = \
-            [(re.compile(regex), repl) for (regex, repl) in pattern2]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl)
+             for (beta_regex, repl) in pattern2]
         self.pattern3 = \
-            [(re.compile(regex), repl) for (regex, repl) in pattern3]
+            [(regex.compile(beta_regex, flags=regex.VERSION1), repl)
+             for (beta_regex, repl) in pattern3]
 
     def beta_code(self, text):
-        """Replace method. Note: re.subn() returns a tuple (new_string,
+        """Replace method. Note: regex.subn() returns a tuple (new_string,
         number_of_subs_made).
         """
-        no_hyph = text.replace('-', '')
-        beta_string = no_hyph
+        text = text.replace('-', '')
         for (pattern, repl) in self.pattern1:
-            beta_string = re.subn(pattern, repl, beta_string)[0]
+            text = regex.subn(pattern, repl, text)[0]
         for (pattern, repl) in self.pattern2:
-            beta_string = re.subn(pattern, repl, beta_string)[0]
+            text = regex.subn(pattern, repl, text)[0]
         # remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
-            unicode_string = re.subn(pattern, repl, beta_string)[0]
-        return unicode_string
+            text = regex.subn(pattern, repl, text)[0]
+        return text
