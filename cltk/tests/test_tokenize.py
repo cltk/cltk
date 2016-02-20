@@ -40,7 +40,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(tokenized_sentences, good_tokenized_sentences)
 
-    '''
+
     def test_sentence_tokenizer_greek(self):
         """Test tokenizing Greek sentences.
         TODO: Re-enable this. Test & code are good, but now fail on Travis CI for some reason.
@@ -50,14 +50,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenizer = TokenizeSentence('greek')
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(len(tokenized_sentences), len(good_tokenized_sentences))
-    '''
 
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
-        text = 'atque haec abuterque nihil'
+        text = 'Arma virumque cano, Troiae qui primus ab oris'
         tokens = word_tokenizer.tokenize(text)
-        target = ['atque', 'haec', 'abuter', '-que', 'nihil']
+        target = ['Arma', 'que', 'virum', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris']
         self.assertEqual(tokens, target)
 
     def test_nltk_tokenize_words(self):
