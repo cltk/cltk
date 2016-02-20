@@ -55,9 +55,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
-        text = 'atque haec abuterque nihil'
+        text = 'Arma virumque cano, Troiae qui primus ab oris'
         tokens = word_tokenizer.tokenize(text)
-        target = ['atque', 'haec', 'abuter', '-que', 'nihil']
+        target = ['Arma', 'que', 'virum', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris']
         self.assertEqual(tokens, target)
 
     def test_nltk_tokenize_words(self):

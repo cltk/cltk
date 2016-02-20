@@ -174,7 +174,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             if generic_token not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
-                        new_tokens = [generic_token[:-len(enclitic)]] + ['-' + enclitic]
+                        new_tokens = [enclitic] + [generic_token[:-len(enclitic)]]
                         specific_tokens += new_tokens
                         is_enclitic = True
                         break
