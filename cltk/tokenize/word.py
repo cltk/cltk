@@ -27,7 +27,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
         if self.language == 'latin':
-            self.enclitics = ['que', 'ne', 'ue', 've', 'cum']
+            self.enclitics = ['que', 'ne', 'ue', 've', 'cum','mst']
+#            self.enclitics = ['que', 'mst'] #, 'ne', 'ue', 've', 'cum','mst']
             self.exceptions = self.enclitics
 
             que_exceptions = []
@@ -174,15 +175,15 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             if generic_token not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
-                        new_tokens = [enclitic] + [generic_token[:-len(enclitic)]]
-                        specific_tokens += new_tokens
+                        if enclitic == 'mst':
+                            specific_tokens += [generic_token[:-len(enclitic)+1]] + ['e'+ generic_token[-len(enclitic)+1:]]                        
+                        else:
+                            specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                         is_enclitic = True
                         break
             if not is_enclitic:
                 specific_tokens.append(generic_token)
-
         return specific_tokens
-
 
 def nltk_tokenize_words(string, attached_period=False):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
