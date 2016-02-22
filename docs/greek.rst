@@ -174,63 +174,7 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 POS tagging
 ===========
 
-Unigram
-```````
-.. code-block:: python
-
-   In [1]: from cltk.tag.pos import POSTag
-
-   In [2]: tagger = POSTag('greek')
-
-   In [3]: tagger.tag_unigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
-   Out[3]:
-   [('θεοὺς', 'N-P---MA-'),
-    ('μὲν', 'G--------'),
-    ('αἰτῶ', 'V1SPIA---'),
-    ('τῶνδ', 'P-P---NG-'),
-    ('᾽', None),
-    ('ἀπαλλαγὴν', 'N-S---FA-'),
-    ('πόνων', 'N-P---MG-'),
-    ('φρουρᾶς', 'N-S---FG-'),
-    ('ἐτείας', 'A-S---FG-'),
-    ('μῆκος', 'N-S---NA-')]
-
-
-Bigram
-``````
-.. code-block:: python
-
-   In [4]: tagger.tag_bigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
-   Out[4]:
-   [('θεοὺς', 'N-P---MA-'),
-    ('μὲν', 'G--------'),
-    ('αἰτῶ', 'V1SPIA---'),
-    ('τῶνδ', 'P-P---NG-'),
-    ('᾽', None),
-    ('ἀπαλλαγὴν', None),
-    ('πόνων', None),
-    ('φρουρᾶς', None),
-    ('ἐτείας', None),
-    ('μῆκος', None)]
-
-
-Trigram
-```````
-.. code-block:: python
-
-   In [5]: tagger.tag_trigram('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
-   Out[5]:
-   [('θεοὺς', 'N-P---MA-'),
-    ('μὲν', 'G--------'),
-    ('αἰτῶ', 'V1SPIA---'),
-    ('τῶνδ', 'P-P---MG-'),
-    ('᾽', None),
-    ('ἀπαλλαγὴν', None),
-    ('πόνων', None),
-    ('φρουρᾶς', None),
-    ('ἐτείας', None),
-    ('μῆκος', None)]
-
+These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM.
 
 1–2–3–gram backoff tagger
 `````````````````````````
