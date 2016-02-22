@@ -28,7 +28,6 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
         if self.language == 'latin':
             self.enclitics = ['que', 'ne', 'ue', 've', 'cum','mst']
-#            self.enclitics = ['que', 'mst'] #, 'ne', 'ue', 've', 'cum','mst']
             self.exceptions = self.enclitics
 
             que_exceptions = []
