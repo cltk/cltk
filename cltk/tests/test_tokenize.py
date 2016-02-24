@@ -53,6 +53,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     '''
         
     def test_latin_word_tokenizer(self):
+        """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
         
         #Test sources:
