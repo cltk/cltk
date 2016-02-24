@@ -174,7 +174,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                             specific_tokens += [generic_token[:-len(enclitic)+1]] + ['e'+ generic_token[-len(enclitic)+1:]]
                         elif enclitic == 'cum':
                             if generic_token in self.inclusions:
-                                specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]                                                     
+                                specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
+                            else:
+                                specific_tokens += [generic_token]                                                     
                         else:
                             specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                         is_enclitic = True
