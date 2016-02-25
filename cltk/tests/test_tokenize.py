@@ -63,7 +63,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
-                    'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!']
+                    'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!',
+                    'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.']
         
         results = []
         
@@ -73,7 +74,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     
         target = [['Arma', 'que', 'virum', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris.'],
                     ['Hoc', 'verum', 'est', ',', 'tota', 'te', 'ferri', ',', 'Cynthia', ',', 'Roma', ',', 'et', 'non', 'ignota', 'vivere', 'nequitia', '?'],
-                    ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!']]
+                    ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!'],
+                    ['que', 'Ne', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'nec', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur.']]
                     
         self.assertEqual(results, target)
 
