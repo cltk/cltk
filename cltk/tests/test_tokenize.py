@@ -60,6 +60,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         # - V. Aen. 1.1
         # - Prop. 2.5.1-2
         # - Ov. Am. 1.8.65-66
+        # - Cic. Phillip. 13.14
         
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
