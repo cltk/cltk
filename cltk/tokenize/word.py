@@ -72,7 +72,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             que_exceptions += ['absque', 'abusque', 'adaeque', 'adusque', 'aeque', 'antique', 'atque',
                                'circumundique', 'conseque', 'cumque', 'cunque', 'denique', 'deque',
                                'donique', 'hucusque', 'inique', 'inseque', 'itaque', 'longinque',
-                               'namque', 'neque', 'oblique', 'peraeque', 'praecoque', 'propinque',
+                               'namque', 'oblique', 'peraeque', 'praecoque', 'propinque',
                                'qualiscumque', 'quandocumque', 'quandoque', 'quantuluscumque',
                                'quantumcumque', 'quantuscumque', 'quinque', 'quocumque',
                                'quomodocumque', 'quomque', 'quotacumque', 'quotcumque',
