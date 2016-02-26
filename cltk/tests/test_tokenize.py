@@ -76,7 +76,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = [['Arma', 'que', 'virum', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris.'],
                     ['Hoc', 'verum', 'est', ',', 'tota', 'te', 'ferri', ',', 'Cynthia', ',', 'Roma', ',', 'et', 'non', 'ignota', 'vivere', 'nequitia', '?'],
                     ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!'],
-                    ['que', 'Ne', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'nec', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur.']]
+                    ['que', 'Ne', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'c', 'ne', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur.']]
                     
         self.assertEqual(results, target)
 
