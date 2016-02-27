@@ -1,6 +1,6 @@
 
 """
-Calculate simple Levenshtein distance algorithm on two strings.
+Offer tools for working with Levenshtein distance algorithm and distance ratio between strings.
 
 Requirements:
 fuzzywuzzy
@@ -26,13 +26,13 @@ class Levenshtein:
 
         return
 
-    def distance(self, string_a, string_b):
+    def ratio(self, string_a, string_b):
         """At the most basic level, return a Levenshtein distance ratio via fuzzywuzzy"""
 
         return fuzz.ratio(string_a, string_b)/100
 
 
-    def distance_sentences(self, language, string_a, string_b):
+    def ratio_sentences(self, language, string_a, string_b):
         """Tokenize two input strings on sentence boundary and return a matrix of
         Levenshtein distance ratios"""
 
