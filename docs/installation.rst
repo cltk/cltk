@@ -34,7 +34,7 @@ Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, 
 
 From source
 ===========
-The `CLTK source is available at GitHub <https://github.com/kylepjohnson/cltk>`_. To build from source, clone the repository, make a virtual environment (as above), and run:
+The `CLTK source is available at GitHub <https://github.com/cltk/cltk>`_. To build from source, clone the repository, make a virtual environment (as above), and run:
 
 .. code-block:: shell
 

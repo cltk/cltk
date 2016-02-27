@@ -27,7 +27,13 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
         if self.language == 'latin':
-            self.enclitics = ['que', 'ne', 'ue', 've', 'cum']
+            self.enclitics = ['que', 'ne', 'ue', 've', 'cum','mst']
+#            self.enclitics = ['que', 'mst'] #, 'ne', 'ue', 've', 'cum','mst']
+
+            self.inclusions = []
+            
+            cum_inclusions = ['mecum', 'tecum', 'secum', 'nobiscum', 'vobiscum', 'quocum', 'quicum' 'quibuscum']
+            
             self.exceptions = self.enclitics
 
             que_exceptions = []
@@ -66,7 +72,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             que_exceptions += ['absque', 'abusque', 'adaeque', 'adusque', 'aeque', 'antique', 'atque',
                                'circumundique', 'conseque', 'cumque', 'cunque', 'denique', 'deque',
                                'donique', 'hucusque', 'inique', 'inseque', 'itaque', 'longinque',
-                               'namque', 'neque', 'oblique', 'peraeque', 'praecoque', 'propinque',
+                               'namque', 'oblique', 'peraeque', 'praecoque', 'propinque',
                                'qualiscumque', 'quandocumque', 'quandoque', 'quantuluscumque',
                                'quantumcumque', 'quantuscumque', 'quinque', 'quocumque',
                                'quomodocumque', 'quomque', 'quotacumque', 'quotcumque',
@@ -145,44 +151,40 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                               'nave', 'neve', 'nive', 'praegrave', 'prospicve', 'proterve', 'remove',
                               'resolve', 'saeve', 'salve', 'sive', 'solve', 'summove', 'vive', 'vove']
 
-            # checked against lucan, propertius, tibullus, ovid (elegy), virgil (aeneid)
-            cum_exceptions += ['actiacum', 'amicum', 'amycum', 'anticum', 'arcum', 'argolicum', 'cacum',
-                               'caecum', 'cappadocum', 'cilicum', 'circum', 'cornicum', 'coruscum',
-                               'crocum', 'cupencum', 'ducum', 'fatidicum', 'focum', 'glaucum',
-                               'horrificum', 'inicum', 'inimicum', 'iocum', 'iuuencum', 'iuvencum',
-                               'lacum', 'laticum', 'libycum', 'locum', 'lucum', 'magnificum',
-                               'meretricum', 'metiscum', 'modicum', 'nutricum', 'oblicum', 'opacum',
-                               'phaeacum', 'phoenicum', 'priscum', 'propincum', 'pudicum', 'quercum',
-                               'quicum', 'raucum', 'saetacum', 'salaminiacum', 'scythicum', 'siccum',
-                               'silicum', 'tabificum', 'thessalicum', 'truncum', 'uiscum', 'uncum',
-                               'uocum', 'viscum', 'vocum']
-
             self.exceptions = list(set(self.exceptions
                                        + que_exceptions
                                        + ne_exceptions
                                        + ue_exceptions
-                                       + ve_exceptions
-                                       + cum_exceptions))
+                                       + ve_exceptions))
+
+            self.inclusions = list(set(self.inclusions
+                                       + cum_inclusions))
 
     def tokenize(self, string):
         """Tokenize incoming string."""
         punkt = PunktLanguageVars()
         generic_tokens = punkt.word_tokenize(string)
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item != 'nec' else ['c', 'ne'])] # Handle 'nec' as a special case.
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
             if generic_token not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
-                        new_tokens = [generic_token[:-len(enclitic)]] + ['-' + enclitic]
-                        specific_tokens += new_tokens
+                        if enclitic == 'mst':
+                            specific_tokens += [generic_token[:-len(enclitic)+1]] + ['e'+ generic_token[-len(enclitic)+1:]]
+                        elif enclitic == 'cum':
+                            if generic_token in self.inclusions:
+                                specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
+                            else:
+                                specific_tokens += [generic_token]                                                     
+                        else:
+                            specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                         is_enclitic = True
                         break
             if not is_enclitic:
                 specific_tokens.append(generic_token)
-
         return specific_tokens
-
 
 def nltk_tokenize_words(string, attached_period=False):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period

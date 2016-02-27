@@ -242,54 +242,7 @@ These two functions are useful when, for example, needing to process all authors
 POS tagging
 ===========
 
-Unigram
-```````
-.. code-block:: python
-
-   In [1]: from cltk.tag.pos import POSTag
-
-   In [2]: tagger = POSTag('latin')
-
-   In [3]: tagger.tag_unigram('Gallia est omnis divisa in partes tres')
-   Out[3]:
-   [('Gallia', 'N-S---FB-'),
-    ('est', 'V3SPIA---'),
-    ('omnis', 'A-P---MA-'),
-    ('divisa', 'T-SRPPFN-'),
-    ('in', 'R--------'),
-    ('partes', 'N-P---FA-'),
-    ('tres', 'M--------')]
-
-
-Bigram
-``````
-.. code-block:: python
-
-   In [4]: tagger.tag_bigram('Gallia est omnis divisa in partes tres')
-   Out[4]:
-   [('Gallia', None),
-    ('est', None),
-    ('omnis', None),
-    ('divisa', None),
-    ('in', None),
-    ('partes', None),
-    ('tres', None)]
-
-
-Trigram
-```````
-.. code-block:: python
-
-   In [5]: tagger.tag_trigram('Gallia est omnis divisa in partes tres')
-   Out[5]:
-   [('Gallia', None),
-    ('est', None),
-    ('omnis', None),
-    ('divisa', None),
-    ('in', None),
-    ('partes', None),
-    ('tres', None)]
-
+These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM.
 
 1–2–3–gram backoff tagger
 `````````````````````````

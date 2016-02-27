@@ -51,14 +51,34 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(len(tokenized_sentences), len(good_tokenized_sentences))
     '''
-
+        
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
-        text = 'atque haec abuterque nihil'
-        tokens = word_tokenizer.tokenize(text)
-        target = ['atque', 'haec', 'abuter', '-que', 'nihil']
-        self.assertEqual(tokens, target)
+        
+        #Test sources:
+        # - V. Aen. 1.1
+        # - Prop. 2.5.1-2
+        # - Ov. Am. 1.8.65-66
+        # - Cic. Phillip. 13.14
+        
+        tests = ['Arma virumque cano, Troiae qui primus ab oris.',
+                    'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
+                    'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!',
+                    'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.']
+        
+        results = []
+        
+        for test in tests:
+            result = word_tokenizer.tokenize(test)
+            results.append(result)
+                    
+        target = [['Arma', 'que', 'virum', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris.'],
+                    ['Hoc', 'verum', 'est', ',', 'tota', 'te', 'ferri', ',', 'Cynthia', ',', 'Roma', ',', 'et', 'non', 'ignota', 'vivere', 'nequitia', '?'],
+                    ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!'],
+                    ['que', 'Ne', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'c', 'ne', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur.']]
+                    
+        self.assertEqual(results, target)
 
     def test_nltk_tokenize_words(self):
         """Test wrapper for NLTK's PunktLanguageVars()"""

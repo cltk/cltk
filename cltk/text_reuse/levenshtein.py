@@ -1,4 +1,3 @@
-
 """
 Offer tools for working with Levenshtein distance algorithm and distance ratio between strings.
 
@@ -10,31 +9,48 @@ python-Levenshtein
 
 """
 
+from cltk.tokenize.sentence import TokenizeSentence
+from cltk.utils.cltk_logger import logger
+
+try:
+    from fuzzywuzzy import fuzz
+except ImportError as imp_err:
+    logger.error("'fuzzywuzzy' library required for this module: %s" % imp_err)
+    raise ImportError
 
 
 __author__ = 'Luke Hollis <lukehollis@gmail.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
-from fuzzywuzzy import fuzz
-from cltk.tokenize.sentence import TokenizeSentence
-
-
 class Levenshtein:
+    """A class for doing string similarity comparisons."""
 
     def __init__(self):
-
+        """Initialize class. Currently empty."""
         return
 
+    @staticmethod
     def ratio(self, string_a, string_b):
-        """At the most basic level, return a Levenshtein distance ratio via fuzzywuzzy"""
+        """At the most basic level, return a Levenshtein distance ratio via
+        fuzzywuzzy.
+        :param string_a: str
+        :param string_b: str
+        :return: float
+        """
 
         return fuzz.ratio(string_a, string_b)/100
 
 
-    def ratio_sentences(self, language, string_a, string_b):
-        """Tokenize two input strings on sentence boundary and return a matrix of
-        Levenshtein distance ratios"""
+    @staticmethod
+    def distance_sentences(language, string_a, string_b):
+        """Tokenize two input strings on sentence boundary and return a
+        matrix of Levenshtein distance ratios.
+        :param language: str (language name)
+        :param string_a: str
+        :param string_b: str
+        :return: float
+        """
 
         sentences_a = []
         sentences_b = []
@@ -51,7 +67,8 @@ class Levenshtein:
         # Otherwise, if language, is unsupported, throw error stating accepted Language
         # values that may be used to tokenize sentences
         else:
-            print("Language for sentence tokenization not recognized. Accepted values are 'latin' and 'greek'.")
+            print("Language for sentence tokenization not recognized. "
+                  "Accepted values are 'latin' and 'greek'.")
             return
 
         # Tokenize input strings

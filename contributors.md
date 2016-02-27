@@ -51,6 +51,7 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/utils/philology.py
 
 ## Luke Hollis <lukehollis@gmail.com>
+* cltk/reuse/levenshtein.py
 * cltk/stem/latin/stem.py
 * cltk/stem/latin/syllabifier.py
 
