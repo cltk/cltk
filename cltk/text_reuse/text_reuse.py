@@ -21,7 +21,7 @@ class TextReuse:
 
     This class currently only relies on the Levenshtein distance calucation for
     string comparison.  When we have the need to support multiple types of string
-    comparison, we will do so.
+    comparison, update the class to do so.
 
     """
 
