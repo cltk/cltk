@@ -3,6 +3,7 @@
 __author__ = 'Luke Hollis <lukehollis@gmail.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+import unittest
 from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
 
