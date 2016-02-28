@@ -250,6 +250,8 @@ class Scansion:
                     scanned_sent.append('¯')
                 else:
                     scanned_sent.append('˘')
+            del scanned_sent[-1]
+            scanned_sent.append('x')
             scanned_text.append(''.join(scanned_sent))
         return scanned_text
 
