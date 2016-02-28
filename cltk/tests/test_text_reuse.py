@@ -51,11 +51,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_distance_sentences(self):
         """Test comparing two passages tokenized at the sentence level"""
         t = TextReuse()
-        comparisons = t.compare_sentences(demo_verg, demo_prop)
-        self.assertEqual(comparisons[1][0]['ratio'], 0.39)
+        comparisons = t.compare_sentences(demo_verg, demo_prop, 'latin')
+        self.assertEqual(comparisons[1][0].ratio, 0.40)
 
     def test_distance_sliding_window(self):
         """Test comparing two passages with the sliding window strategy"""
         t = TextReuse()
         comparisons = t.compare_sliding_window(demo_verg, demo_prop)
-        self.assertEqual(comparisons[19][3]['ratio'], 0.64)
+        self.assertEqual(comparisons[19][3].ratio, 0.64)
+
+
+if __name__ == '__main__':
+    unittest.main()
