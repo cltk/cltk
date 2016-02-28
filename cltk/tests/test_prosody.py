@@ -15,7 +15,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test Latin prosody scanner."""
         scan = ScansionLatin()
         meter = scan.scan_text('quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.')
-        self.assertEqual(meter, ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯¯', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯˘'])
+        self.assertEqual(meter, ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯x', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯x'])
 
     def test_long_by_nature_latin(self):
         """Test Latin prosody scanner's `_long_by_nature` method."""
