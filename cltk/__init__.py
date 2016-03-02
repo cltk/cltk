@@ -19,25 +19,14 @@ The goals of the Classical Language Toolkit (CLTK) are to:
 See the webpage for more information and documentation:
     http://cltk.org
 """
-from __future__ import print_function, absolute_import
 
 import os
-
+from pkg_resources import get_distribution
 # //////////////////////////////////////////////////////
 # Metadata
 # //////////////////////////////////////////////////////
 
-# Version.  For each new release, the version number should be updated
-# in the file VERSION.
-try:
-    # If a VERSION file exists, use it!
-    version_file = os.path.join(os.path.dirname(__file__), 'VERSION')
-    with open(version_file, 'r') as infile:
-        __version__ = infile.read().strip()
-except NameError:
-    __version__ = 'unknown (running code interactively?)'
-except IOError as ex:
-    __version__ = "unknown (%s)" % ex
+ __version__ = get_distribution('cltk').version
 
 if __doc__ is not None:
     __doc__ += '\n@version: ' + __version__
