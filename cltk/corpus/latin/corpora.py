@@ -24,6 +24,11 @@ LATIN_CORPORA = [
      'name': 'latin_text_latin_library',
      'location': 'remote',
      'type': 'text'},
+    {'encoding': 'utf-8',
+     'markup': 'plaintext',
+     'location': 'remote',
+     'type': 'text',
+     'name': 'digiliblt_antiquelatin_texts'}
     {'encoding': 'latin-1',
      'markup': 'beta_code',
      'name': 'phi5',
