@@ -26,15 +26,21 @@ class TextReuse:
     """
 
 
-    def __init__(self, stem_words=False, sanitize_input=False):
+    def __init__(self, text_ref_a=None, text_ref_b=None, stem_words=False, sanitize_input=False):
         """
         Indicate if text reuse class should stem words and/or sanitize_input before comparison
+        :param text_a: dict
+        :param text_b: dict
         :param stem_words: bool
         :param sanitize_input: bool
+        :param csv_output: bool
         """
 
+        self.text_ref_a = text_ref_a
+        self.text_ref_b = text_ref_b
         self.stem_words = stem_words
         self.sanitize_input = sanitize_input
+        self.csv_output = csv_output
 
         return
 
@@ -119,23 +125,40 @@ class TextReuse:
         comparisons = []
         l = Levenshtein()
 
+        # For all strings in list a
         for i, str_a in enumerate(list_a):
+
+            # Add a new list to our list of lists of comparisons
             comparisons.append([])
+
+            # Compare str_a to every string in list_b
             for str_b in list_b:
+
+                # If the sanitize, input flag is set, make the ratio with the sanitized values
                 if self.sanitize_input:
-                    comparisons[i].append(
-                            Comparison(
-                                str_a['text'],
-                                str_b['text'],
-                                l.ratio(str_a['sanitized'], str_b['sanitized'])
-                            ))
+                    new_comparison = Comparison(
+                                            str_a['text'],
+                                            str_b['text'],
+                                            l.ratio(str_a['sanitized'], str_b['sanitized'])
+                                        )
+
+                # Otherwise, make the ratio with the original, unsanitize text strings
                 else:
-                    comparisons[i].append(
-                            Comparison(
-                                str_a['text'],
-                                str_b['text'],
-                                l.ratio(str_a['text'], str_b['text'])
-                            ))
+                    new_comparison = Comparison(
+                                            str_a['text'],
+                                            str_b['text'],
+                                            l.ratio(str_a['text'], str_b['text'])
+                                        )
+
+                # If text metadata is set on this class for text a or b, save that data with the
+                # comparison
+                if self.text_ref_a:
+                    new_comparison.set_ref_a(self.text_ref_a)
+                if self.text_ref_b:
+                    new_comparison.set_ref_b(self.text_ref_b)
+
+                # Finally, append the new comparison to the list of comparisons
+                comparisons[i].append(new_comparison)
 
         return comparisons
 
