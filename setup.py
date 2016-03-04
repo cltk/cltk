@@ -28,7 +28,8 @@ setup(
                       'regex',
                       'whoosh',
                       'fuzzywuzzy',
-                      'python-Levenshtein'],
+                      'python-Levenshtein',
+                      'pyuca'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',
     long_description="The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.",  # pylint: disable=C0301
