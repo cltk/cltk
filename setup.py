@@ -28,7 +28,7 @@ setup(
                       'regex',
                       'whoosh',
                       'fuzzywuzzy',
-                      'python-Levenshtein'
+                      'python-Levenshtein',
                       'pyuca'],
     keywords=['nlp', 'nltk', 'greek', 'latin'],
     license='MIT',
