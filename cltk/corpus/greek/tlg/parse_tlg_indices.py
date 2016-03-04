@@ -8,11 +8,16 @@ from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
 from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
 import regex
+import os
+import json
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>',
               'Martín Pozzi <marpozzi@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
+
+
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # Gender
@@ -111,12 +116,13 @@ def select_id_by_name(query):
     return matches
 
 
+def open_json(_file):
+    """Loads the json file as a dictionary and returns it."""
+    with open(_file) as f:
+        return json.load(f)
+
+
 # Dates
-# IMPORTANT! All of this date parsing is unfinished
-# pretty nasty formatting, not to even mention the how
-# encode them. Leaving here in case they help me (or anyone)
-# finish this
-'''
 def get_date_author():
     """Returns entirety of date-author index."""
     _path = os.path.join(THIS_DIR, 'author_date.json')
@@ -125,19 +131,13 @@ def get_date_author():
 
 def get_dates():
     """Return a list of all the epithet labels."""
-    _path = os.path.join(THIS_DIR, 'author_date.json')
-    _dict = open_json(_path)
+    _dict = get_date_author()
     return sorted(_dict.keys())
 
 
 def get_date_of_author(_id):
     """Pass author id and return the name of its associated date."""
-    _path = os.path.join(THIS_DIR, 'author_date.json')
-
-    _id = str(_id)
-
-    _dict = open_json(_path)
-
+    _dict = get_date_author()
     for date, ids in _dict.items():
         if _id in ids:
             return date
@@ -149,18 +149,23 @@ def _get_epoch(_str):
         return 'bc'
     elif _str.startswith('A.D. '):
         return 'ad'
-    elif _str.startswith('a. B.C. '):
+    #Here we can not use .startswith('a. B.C. ') because there is a number between a. and B.C.
+    #So regex is used for this purpose.
+    elif regex.match(r'^a\. *[0-9]+ B\.C\. *', _str):
         return 'bc'
-    elif _str.startswith('p. B.C. '):
+    elif regex.match(r'^p\. *[0-9]+ B\.C\. *', _str):
         return None  #?
     elif _str.startswith('a. A.D. '):
         return None  #?
     elif _str.startswith('p. A.D. '):
         return 'ad'
+    elif _str == 'Incertum' or _str == 'Varia':
+        return _str
     else:
         return None
 
 
+'''
 def _handle_splits(_str):
     """Check if incoming date has a '-" or '/', if so do stuff."""
 
