@@ -199,7 +199,7 @@ class ConcordanceIndex(object):
 		return_concordance_word and build a list of all. This returns a list
 		of lists.
 		"""
-		#using 
+		
 		coll = pyuca.Collator()
 		tokens = sorted(tokens, key=coll.sort_key)  #! is the list order preserved?
 
