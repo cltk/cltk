@@ -51,9 +51,11 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/utils/philology.py
 
 ## Luke Hollis <lukehollis@gmail.com>
-* cltk/reuse/levenshtein.py
 * cltk/stem/latin/stem.py
 * cltk/stem/latin/syllabifier.py
+* cltk/text_reuse/comparison.py
+* cltk/text_reuse/levenshtein.py
+* cltk/text_reuse/text_reuse.py
 
 ## Martín Pozzi <marpozzi@gmail.com>
 * cltk/corpus/greek/tlg/parse_tlg_indices.py
@@ -93,4 +95,3 @@ CLTK Core authors, ordered alphabetically by first name
 ## Tyler Kirby <joseph.kirby12@ncf.edu>
 * cltk/prosody/greek/scanner.py
 * cltk/prosody/latin/scanner.py
-
