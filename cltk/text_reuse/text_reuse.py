@@ -33,14 +33,12 @@ class TextReuse:
         :param text_b: dict
         :param stem_words: bool
         :param sanitize_input: bool
-        :param csv_output: bool
         """
 
         self.text_ref_a = text_ref_a
         self.text_ref_b = text_ref_b
         self.stem_words = stem_words
         self.sanitize_input = sanitize_input
-        self.csv_output = csv_output
 
         return
 
