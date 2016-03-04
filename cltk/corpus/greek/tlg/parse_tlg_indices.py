@@ -145,57 +145,55 @@ def get_date_of_author(_id):
 
 def _get_epoch(_str):
     """Take incoming string, return its epoch."""
-    if _str.startswith('B.C. '):
-        return 'bc'
-    elif _str.startswith('A.D. '):
+    if _str.startswith('A.D. '):
         return 'ad'
-    #Here we can not use .startswith('a. B.C. ') because there is a number between a. and B.C.
-    #So regex is used for this purpose.
+    elif _str.startswith('a. A.D. '):
+        return None #?
+    elif _str.startswith('p. A.D. '):
+        return 'ad'
+    elif regex.match(r'^[0-9]+ B\.C\. *', _str):
+        return 'bc'
     elif regex.match(r'^a\. *[0-9]+ B\.C\. *', _str):
         return 'bc'
     elif regex.match(r'^p\. *[0-9]+ B\.C\. *', _str):
         return None  #?
-    elif _str.startswith('a. A.D. '):
-        return None  #?
-    elif _str.startswith('p. A.D. '):
-        return 'ad'
     elif _str == 'Incertum' or _str == 'Varia':
         return _str
     else:
         return None
 
 
-'''
+def _check_number(_str):
+    """check if the string contains only a number followed by ?"""
+    if regex.match(r'^[0-9]+\?*', _str):
+        return True
+    return False
+
+
 def _handle_splits(_str):
     """Check if incoming date has a '-" or '/', if so do stuff."""
-
+    _str = _str.replace('/', '-')
     _tmp_dict = {}
 
     if '-' in _str:
         start, stop = _str.split('-')
-    elif '/' in _str:
-        start, stop = _str.split('/')
+        if _check_number(start):
+            start = regex.sub(r'[0-9]+\?*', start, stop)
+        elif _check_number(stop):
+            stop = regex.sub(r'[0-9]+\?*', stop, start)
     else:
-        _tmp_dict['start_epoch'] = _get_epoch(_str)
+        start = _str
+        stop = _str
     _tmp_dict['start_raw'] = start
     _tmp_dict['stop_raw'] = stop
 
-    start_epoch = _get_epoch(start)
-    stop_epoch = _get_epoch(stop)
-
-    if start_epoch:
-        _tmp_dict['start_epoch'] = start_epoch
-    else:
-        _tmp_dict['start_epoch'] = stop_epoch
-
-    if stop_epoch:
-        _tmp_dict['stop_epoch'] = stop_epoch
-    else:
-        _tmp_dict['stop_epoch'] = start_epoch
+    _tmp_dict['start_epoch'] = _get_epoch(start)
+    _tmp_dict['stop_epoch'] = _get_epoch(stop)
 
     return _tmp_dict
 
 
+'''
 def normalize_dates():
     """Experiment to make sense of TLG dates.
     TODO: start here, parse everything with pass
@@ -224,7 +222,6 @@ def normalize_dates():
 
         print(date)
 '''
-
 
 if __name__ == "__main__":
     pass
