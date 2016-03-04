@@ -11,6 +11,7 @@ from collections import defaultdict
 from nltk.text import ConcordanceIndex
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
+import pyuca
 
 
 class Philology:
@@ -199,7 +200,8 @@ class ConcordanceIndex(object):
         of lists.
         """
 
-        tokens = sorted(tokens)  #! is the list order preserved?
+        coll = pyuca.Collator()
+        tokens = sorted(tokens, key=coll.sort_key)  #! is the list order preserved?
 
         concordance_list = []
         for token in tokens:
