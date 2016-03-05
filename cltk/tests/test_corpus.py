@@ -303,6 +303,15 @@ argenteo polubro, aureo eclutro. """
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+    def test_git_import_chinese_cbeta_txt(self):
+        """Test import of plaintext CBETA."""
+        corpus_importer = CorpusImporter('chinese')
+        corpus_importer.import_corpus('chinese_text_cbeta_txt')
+        file_rel = os.path.join('~/cltk_data/chinese/text/chinese_text_cbeta_txt/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
     def test_show_corpora_bad_lang(self):
         """Test failure of importer upon selecting unsupported language."""
         with self.assertRaises(AssertionError):
