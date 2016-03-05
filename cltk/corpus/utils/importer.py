@@ -10,7 +10,6 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
 from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
-from cltk.corpus.sanskrit.corpora import SANSKRIT_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
 from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
 from cltk.corpus.pali.corpora import PALI_CORPORA
@@ -23,7 +22,7 @@ import shutil
 from urllib.parse import urljoin
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan','sanskrit']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan']
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
@@ -31,8 +30,7 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'latin': LATIN_CORPORA,
                     'multilingual': MULTILINGUAL_CORPORA,
                     'pali': PALI_CORPORA,
-                    'tibetan': TIBETAN_CORPORA,
-                    'sanskrit':SANSKRIT_CORPORA,}
+                    'tibetan': TIBETAN_CORPORA,}
 
 
 
