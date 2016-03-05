@@ -141,26 +141,27 @@ def get_date_of_author(_id):
     for date, ids in _dict.items():
         if _id in ids:
             return date
+    return None
 
 
 def _get_epoch(_str):
     """Take incoming string, return its epoch."""
+    _return = None
     if _str.startswith('A.D. '):
-        return 'ad'
+        _return = 'ad'
     elif _str.startswith('a. A.D. '):
-        return None #?
+        _return = None #?
     elif _str.startswith('p. A.D. '):
-        return 'ad'
+        _return = 'ad'
     elif regex.match(r'^[0-9]+ B\.C\. *', _str):
-        return 'bc'
+        _return = 'bc'
     elif regex.match(r'^a\. *[0-9]+ B\.C\. *', _str):
-        return 'bc'
+        _return = 'bc'
     elif regex.match(r'^p\. *[0-9]+ B\.C\. *', _str):
-        return None  #?
+        _return = None  #?
     elif _str == 'Incertum' or _str == 'Varia':
-        return _str
-    else:
-        return None
+        _return = _str
+    return _return
 
 
 def _check_number(_str):
@@ -193,35 +194,25 @@ def _handle_splits(_str):
     return _tmp_dict
 
 
-'''
 def normalize_dates():
     """Experiment to make sense of TLG dates.
     TODO: start here, parse everything with pass
     """
-    _dict = open_json('author_date.json')
-
+    _dict = get_date_author()
     for tlg_date in _dict:
-
         date = {}
-
-        if '-' in tlg_date:
-            tmp_date = _handle_splits(tlg_date)
-            date.update(tmp_date)
-        elif '/' in _dict:
-            tmp_date = _handle_splits(tlg_date)
-            date.update(tmp_date)
+        if tlg_date == 'Varia':
+            #give a homer-to-byz date for 'varia'
+            pass
+        elif tlg_date == 'Incertum':
+            #?
+            pass
         else:
-            known_epoch = _get_epoch(tlg_date)
-            if known_epoch:
-                date['epoch'] = known_epoch
-
-            if tlg_date is 'Varia' or 'Incertum':
-                # give a homer-to-byz date for 'varia'
-                # for incertum?
-                pass  #?
+            tmp_date = _handle_splits(tlg_date)
+            date.update(tmp_date)
 
         print(date)
-'''
+
 
 if __name__ == "__main__":
     pass
