@@ -28,5 +28,8 @@ CHINESE_CORPORA = [
      'markup': 'xml',
      'location': 'remote',
      'type': 'text',
-     'name': 'chinese_text_cbeta_taf_xml'}
+     'name': 'chinese_text_cbeta_taf_xml'},
+    {'location': 'remote',
+     'type': 'text',
+     'name': 'chinese_text_cbeta_txt'}
 ]
