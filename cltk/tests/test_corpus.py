@@ -19,6 +19,13 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_of_author
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_lists
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_id_author
 from cltk.corpus.greek.tlg.parse_tlg_indices import select_id_by_name
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_author
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_dates
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_of_author
+from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
+from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
+from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
+from cltk.corpus.greek.tlg.parse_tlg_indices import normalize_dates
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
@@ -56,8 +63,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_software_tlgu')
         file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_tlgu_convert(self):
@@ -180,8 +187,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_perseus')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_perseus/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_greek_text_perseus(self):
@@ -189,8 +196,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_text_perseus')
         file_rel = os.path.join('~/cltk_data/greek/text/greek_text_perseus/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_proper_names_latin(self):
@@ -198,8 +205,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_proper_names_cltk')
         file_rel = os.path.join('~/cltk_data/latin/lexicon/latin_proper_names_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_proper_names_greek(self):
@@ -207,8 +214,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_proper_names_cltk')
         file_rel = os.path.join('~/cltk_data/greek/lexicon/greek_proper_names_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_grk_treebank_pers(self):
@@ -216,8 +223,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_treebank_perseus')
         file_rel = os.path.join('~/cltk_data/greek/treebank/greek_treebank_perseus/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_la_treebank_pers(self):
@@ -225,8 +232,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_treebank_perseus')
         file_rel = os.path.join('~/cltk_data/latin/treebank/latin_treebank_perseus/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_la_text_lac_curt(self):
@@ -234,8 +241,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_lacus_curtius')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_lacus_curtius/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_lat_text_lat_lib(self):
@@ -243,8 +250,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_latin_library')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_latin_models_cltk(self):
@@ -252,8 +259,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_lat_pos_lemma_cltk(self):
@@ -261,8 +268,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_pos_lemmata_cltk')
         file_rel = os.path.join('~/cltk_data/latin/lemma/latin_pos_lemmata_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_import_greek_models_cltk(self):
@@ -272,8 +279,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_models_cltk')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_git_import_copt_script(self):
@@ -281,8 +288,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('coptic')
         corpus_importer.import_corpus('coptic_text_scriptorium')
         file_rel = os.path.join('~/cltk_data/coptic/text/coptic_text_scriptorium/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_git_import_tib_pos_tdc(self):
@@ -290,8 +297,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('tibetan')
         corpus_importer.import_corpus('tibetan_pos_tdc')
         file_rel = os.path.join('~/cltk_data/tibetan/pos/tibetan_pos_tdc/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_git_import_tib_lexica_tdc(self):
@@ -299,8 +306,8 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('tibetan')
         corpus_importer.import_corpus('tibetan_lexica_tdc')
         file_rel = os.path.join('~/cltk_data/tibetan/lexicon/tibetan_lexica_tdc/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
     def test_git_import_chinese_cbeta_txt(self):
@@ -376,6 +383,61 @@ argenteo polubro, aureo eclutro. """
         """Test select_id_by_name()."""
         matches = select_id_by_name('hom')
         self.assertEqual(len(matches), 11)
+
+    def test_get_date_author(self):
+        """Test get_date_author()."""
+        dates = get_date_author()
+        self.assertEqual(type(dates), dict)
+
+    def test_get_dates(self):
+        """Test get_dates()."""
+        dates = get_dates()
+        self.assertEqual(type(dates), list)
+        self.assertEqual(len(dates), 183)
+
+    def test_get_date_of_author(self):
+        """Test get_date_of_author()."""
+        self.assertEqual(get_date_of_author('1747'), '1 B.C./A.D. 1')
+        self.assertEqual(get_date_of_author('1143'), '2-1 B.C.')
+        self.assertEqual(get_date_of_author('0295'), 'Varia')
+        self.assertEqual(get_date_of_author('4304'), 'a. A.D. 10')
+        self.assertIsNone(get_date_of_author('123456'))
+
+    def test_get_epoch(self):
+        """Test _get_epoch()."""
+        self.assertEqual(_get_epoch('A.D. 9-10'), 'ad')
+        self.assertEqual(_get_epoch('p. A.D. 2'), 'ad')
+        self.assertIsNone(_get_epoch('a. A.D. 2'))
+        self.assertEqual(_get_epoch('3 B.C.'), 'bc')
+        self.assertIsNone(_get_epoch('p. 7 B.C.'))
+        self.assertEqual(_get_epoch('a. 1 B.C.'), 'bc')
+        self.assertEqual(_get_epoch('a. 1 B.C.?'), 'bc')
+
+    def test_check_number(self):
+        """Test _check_number()."""
+        self.assertTrue(_check_number('5'))
+        self.assertTrue(_check_number('5?'))
+        self.assertFalse(_check_number('A.D. 5'))
+        self.assertFalse(_check_number('A.D. 5?'))
+        self.assertFalse(_check_number('p. 4 B.C.'))
+
+    def test_handle_splits(self):
+        """Test _handle_splits()."""
+        _dict = {'start_raw': 'A.D. 9', 'start_epoch': 'ad',\
+                 'stop_epoch': 'ad', 'stop_raw': 'A.D. 10'}
+        self.assertEqual(_handle_splits('A.D. 9-10'), _dict)
+        _dict = {'start_raw': 'A.D. 1?', 'start_epoch': 'ad',\
+                 'stop_epoch': 'ad', 'stop_raw': 'A.D. 6'}
+        self.assertEqual(_handle_splits('A.D. 1?-6'), _dict)
+        _dict = {'stop_raw': 'p. A.D. 2', 'start_raw': 'a. 4 B.C.',\
+                 'stop_epoch': 'ad', 'start_epoch': 'bc'}
+        self.assertEqual(_handle_splits('a. 4 B.C.-p. A.D. 2'), _dict)
+        _dict = {'stop_raw': 'A.D. 2?', 'start_raw': 'A.D. 2?',\
+                 'stop_epoch': 'ad', 'start_epoch': 'ad'}
+        self.assertEqual(_handle_splits('A.D. 2?'), _dict)
+        _dict = {'stop_raw': '1 B.C.?', 'start_raw': '2 B.C.?',\
+                 'stop_epoch': 'bc', 'start_epoch': 'bc'}
+        self.assertEqual(_handle_splits('2/1 B.C.?'), _dict)
 
 if __name__ == '__main__':
     unittest.main()

@@ -8,11 +8,15 @@ from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
 from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
 import regex
+import os
+import json
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>',
               'Martín Pozzi <marpozzi@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
+
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # Gender
@@ -111,12 +115,13 @@ def select_id_by_name(query):
     return matches
 
 
+def open_json(_file):
+    """Loads the json file as a dictionary and returns it."""
+    with open(_file) as f:
+        return json.load(f)
+
+
 # Dates
-# IMPORTANT! All of this date parsing is unfinished
-# pretty nasty formatting, not to even mention the how
-# encode them. Leaving here in case they help me (or anyone)
-# finish this
-'''
 def get_date_author():
     """Returns entirety of date-author index."""
     _path = os.path.join(THIS_DIR, 'author_date.json')
@@ -125,68 +130,65 @@ def get_date_author():
 
 def get_dates():
     """Return a list of all the epithet labels."""
-    _path = os.path.join(THIS_DIR, 'author_date.json')
-    _dict = open_json(_path)
+    _dict = get_date_author()
     return sorted(_dict.keys())
 
 
 def get_date_of_author(_id):
     """Pass author id and return the name of its associated date."""
-    _path = os.path.join(THIS_DIR, 'author_date.json')
-
-    _id = str(_id)
-
-    _dict = open_json(_path)
-
+    _dict = get_date_author()
     for date, ids in _dict.items():
         if _id in ids:
             return date
+    return None
 
 
 def _get_epoch(_str):
     """Take incoming string, return its epoch."""
-    if _str.startswith('B.C. '):
-        return 'bc'
-    elif _str.startswith('A.D. '):
-        return 'ad'
-    elif _str.startswith('a. B.C. '):
-        return 'bc'
-    elif _str.startswith('p. B.C. '):
-        return None  #?
+    _return = None
+    if _str.startswith('A.D. '):
+        _return = 'ad'
     elif _str.startswith('a. A.D. '):
-        return None  #?
+        _return = None #?
     elif _str.startswith('p. A.D. '):
-        return 'ad'
-    else:
-        return None
+        _return = 'ad'
+    elif regex.match(r'^[0-9]+ B\.C\. *', _str):
+        _return = 'bc'
+    elif regex.match(r'^a\. *[0-9]+ B\.C\. *', _str):
+        _return = 'bc'
+    elif regex.match(r'^p\. *[0-9]+ B\.C\. *', _str):
+        _return = None  #?
+    elif _str == 'Incertum' or _str == 'Varia':
+        _return = _str
+    return _return
+
+
+def _check_number(_str):
+    """check if the string contains only a number followed by ?"""
+    if regex.match(r'^[0-9]+\?*', _str):
+        return True
+    return False
 
 
 def _handle_splits(_str):
     """Check if incoming date has a '-" or '/', if so do stuff."""
-
+    _str = _str.replace('/', '-')
     _tmp_dict = {}
 
     if '-' in _str:
         start, stop = _str.split('-')
-    elif '/' in _str:
-        start, stop = _str.split('/')
+        if _check_number(start):
+            start = regex.sub(r'[0-9]+\?*', start, stop)
+        elif _check_number(stop):
+            stop = regex.sub(r'[0-9]+\?*', stop, start)
     else:
-        _tmp_dict['start_epoch'] = _get_epoch(_str)
+        start = _str
+        stop = _str
     _tmp_dict['start_raw'] = start
     _tmp_dict['stop_raw'] = stop
 
-    start_epoch = _get_epoch(start)
-    stop_epoch = _get_epoch(stop)
-
-    if start_epoch:
-        _tmp_dict['start_epoch'] = start_epoch
-    else:
-        _tmp_dict['start_epoch'] = stop_epoch
-
-    if stop_epoch:
-        _tmp_dict['stop_epoch'] = stop_epoch
-    else:
-        _tmp_dict['stop_epoch'] = start_epoch
+    _tmp_dict['start_epoch'] = _get_epoch(start)
+    _tmp_dict['stop_epoch'] = _get_epoch(stop)
 
     return _tmp_dict
 
@@ -195,30 +197,20 @@ def normalize_dates():
     """Experiment to make sense of TLG dates.
     TODO: start here, parse everything with pass
     """
-    _dict = open_json('author_date.json')
-
+    _dict = get_date_author()
     for tlg_date in _dict:
-
         date = {}
-
-        if '-' in tlg_date:
-            tmp_date = _handle_splits(tlg_date)
-            date.update(tmp_date)
-        elif '/' in _dict:
-            tmp_date = _handle_splits(tlg_date)
-            date.update(tmp_date)
+        if tlg_date == 'Varia':
+            #give a homer-to-byz date for 'varia'
+            pass
+        elif tlg_date == 'Incertum':
+            #?
+            pass
         else:
-            known_epoch = _get_epoch(tlg_date)
-            if known_epoch:
-                date['epoch'] = known_epoch
-
-            if tlg_date is 'Varia' or 'Incertum':
-                # give a homer-to-byz date for 'varia'
-                # for incertum?
-                pass  #?
+            tmp_date = _handle_splits(tlg_date)
+            date.update(tmp_date)
 
         print(date)
-'''
 
 
 if __name__ == "__main__":
