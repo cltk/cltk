@@ -48,6 +48,10 @@ GREEK_CORPORA = [
     {'name': 'greek_word2vec_cltk',
      'location': 'remote',
      'type': 'model'},
+    {'name': 'greek_text_lacus_curtius',
+     'location': 'remote',
+     'type': 'text'},
+
 ]
 
 
