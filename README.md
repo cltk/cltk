@@ -38,7 +38,7 @@ The [CLTK organization curates corpora](https://github.com/cltk) which can downl
 
 ## Contributing
 
-See the [Quickstart for contributors](https://github.com/cltk/cltk/wiki/Quickstart-for-contributors) for an overview of the process. If you're looking to start with a small contribution, see the [Issue tracker for "easy" jobs](https://github.com/cltk/cltk/issues?q=is%3Aopen+is%3Aissue+label%3Aeasy) needing to be done. Bigger projects may be found at [Project ideas](https://github.com/cltk/cltk/wiki/Project-ideas) page. Of course, new ideas are always welcome.
+See the [Quickstart for contributors](https://github.com/cltk/cltk/wiki/Quickstart-for-contributors) and [CONTRIBUTING.md](https://github.com/cltk/cltk/blob/master/CONTRIBUTING.md) for an overview of the process. If you're looking to start with a small contribution, see the [Issue tracker for "easy" jobs](https://github.com/cltk/cltk/issues?q=is%3Aopen+is%3Aissue+label%3Aeasy) needing to be done. Bigger projects may be found at [Project ideas](https://github.com/cltk/cltk/wiki/Project-ideas) page. Of course, new ideas are always welcome.
 
 
 ## Citation
