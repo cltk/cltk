@@ -4,6 +4,5 @@ SANSKRIT_CORPORA = [
         'type':'text'},
         {'name':'sanskrit_text_dcs',
         'location':'remote',
-        'type':'text'
-            },
+        'type':'text'},
         ]
