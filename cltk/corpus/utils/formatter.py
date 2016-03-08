@@ -15,6 +15,7 @@ from cltk.corpus.greek.tlg_index import TLG_WORKS_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_INDEX
 from cltk.corpus.latin.phi5_index import PHI5_WORKS_INDEX
 from cltk.utils.cltk_logger import logger
+from unicodedata import normalize
 import os
 import regex
 
@@ -73,6 +74,11 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
 
     return text
 
+def cltk_normalize(text, compatibility=True):
+    if compatibility:
+        return normalize('NFKC', text)
+    else:
+        return normalize('NFC', text)
 
 def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek PHI5 text.
@@ -84,6 +90,9 @@ def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     remove_comp = regex.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|\(|\)|“|#|%|⚔|&|=|/|\\|〚|†|『|⚖|–|˘|⚕|☾|◌|◄|►|⌐|⌊|⌋|≈|∷|≈|∞|”|[0-9]')
     text = remove_comp.sub('', text)
 
+    #normalizing text to combine diacritics into precomposed characters
+    text=cltk_normalize(text)
+
     new_text = None
     if rm_punctuation:
         new_text = ''
@@ -91,12 +100,8 @@ def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
         if rm_periods:
             punctuation += ['.']
         for char in text:
-            # rm acute combining acute accents made by TLGU
-            # Could be caught by regex, tried and failed, not sure why
-            if bytes(char, 'utf-8') == b'\xcc\x81':
-                pass
-            # second try at rming some punctuation; merge with above regex
-            elif char in punctuation:
+            #try at rming some punctuation; merge with above regex
+            if char in punctuation:
                 pass
             else:
                 new_text += char
