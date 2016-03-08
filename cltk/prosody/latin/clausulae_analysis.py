@@ -47,7 +47,3 @@ class Clausulae:
             'cretic + double spondee': prosody.count('¯˘¯¯¯¯x'),
             'heroic': prosody.count('¯˘˘¯x')
         }
-
-
-if __name__ == "__main__":
-    print(Clausulae().clausulae_analysis(['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']))
