@@ -324,6 +324,15 @@ argenteo polubro, aureo eclutro. """
         with self.assertRaises(AssertionError):
             CorpusImporter('bad_lang')
 
+    def test_import_latin_text_antique_digiliblt(self):
+        """Test cloning the Antique Latin from digilibLT."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_antique_digiliblt')
+        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_antique_digiliblt/README.md')
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
+        self.assertTrue(file_exists)
+
     def test_get_female_authors(self):
         """Test function to parse TLG female authors list."""
         authors = get_female_authors()
