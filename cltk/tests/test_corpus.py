@@ -35,6 +35,8 @@ from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.importer import CorpusImporter
+from cltk.corpus.utils.formatter import cltk_normalize
+from unicodedata import normalize
 import os
 import unittest
 
@@ -142,6 +144,22 @@ argenteo polubro, aureo eclutro. """
         clean = phi5_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
         target = 'Ì Virum áge mihi'
         self.assertEqual(clean, target)
+
+    def test_cltk_normalize_compatible(self):
+        """Test Normalizing Text with compatibility True"""
+        s1 = 'café'
+        s2 = 'cafe\u0301'
+        normalized_text=cltk_normalize(s1,compatibility=True)
+        target=normalize('NFKC', s2)
+        self.assertEquals(normalized_text ,target)
+
+    def test_cltk_normalize_noncompatible(self):
+        """Test Normalizing Text with compatibility False"""
+        s1 = 'café'
+        s2 = 'cafe\u0301'
+        normalized_text=cltk_normalize(s1,compatibility=False)
+        target=normalize('NFC', s2)
+        self.assertEquals(normalized_text ,target)
 
     def test_assemble_tlg_author(self):
         """Test building absolute filepaths from TLG index."""
