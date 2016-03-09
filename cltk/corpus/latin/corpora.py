@@ -65,4 +65,9 @@ LATIN_CORPORA = [
     {'name': 'latin_word2vec_cltk',
      'location': 'remote',
      'type': 'model'},
+    {'encoding': 'utf-8',
+     'markup': 'tei_xml',
+     'location': 'remote',
+     'type': 'text',
+     'name': 'latin_text_antique_digiliblt'},
 ]
