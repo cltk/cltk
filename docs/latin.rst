@@ -26,6 +26,8 @@ Clausulae analysis is an integral part of Latin prosimetrics. The clausulae anal
     In [7]: c.clausulae_analysis(prosody)
     Out[7]: {'1st paeon + trochee': 0, 'molossus + iamb': 0, '1st paeon + anapest': 0, '4th paeon + trochee': 0, 'choriamb + double trochee': 0, 'molossus + cretic': 0, 'double spondee': 1, 'molossus + double trochee': 0, 'substituted cretic + trochee': 0, 'cretic + iamb': 0, 'cretic + trochee': 1, 'double trochee': 0, 'heroic': 0, 'cretic + double trochee': 0, 'cretic + double spondee': 0, '4th paeon + cretic': 0, 'double cretic': 0, 'dactyl + double trochee': 0}
 
+
+
 Converting J to I, V to U
 =========================
 .. code-block:: python
