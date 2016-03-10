@@ -27,8 +27,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
         if self.language == 'latin':
-            self.enclitics = ['que', 'ne', 'ue', 've', 'cum','mst']
-#            self.enclitics = ['que', 'mst'] #, 'ne', 'ue', 've', 'cum','mst']
+            self.enclitics = ['que', 'ne', 'ue', 've', 'cum','st']
 
             self.inclusions = []
             
@@ -41,6 +40,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             ue_exceptions = []
             ve_exceptions = []
             cum_exceptions = []
+            st_exceptions = []
 
             # quisque
             que_exceptions += ['quisque', 'quidque', 'quicque', 'quodque', 'cuiusque', 'cuique',
@@ -151,11 +151,15 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                               'nave', 'neve', 'nive', 'praegrave', 'prospicve', 'proterve', 'remove',
                               'resolve', 'saeve', 'salve', 'sive', 'solve', 'summove', 'vive', 'vove']
 
+            st_exceptions += ['abest', 'adest', 'ast', 'deest', 'est', 'inest', 'interest', 'post', 'potest', 'prodest', 'subest', 'superest']
+
             self.exceptions = list(set(self.exceptions
                                        + que_exceptions
                                        + ne_exceptions
                                        + ue_exceptions
-                                       + ve_exceptions))
+                                       + ve_exceptions
+                                       + st_exceptions
+                                       ))
 
             self.inclusions = list(set(self.inclusions
                                        + cum_inclusions))
@@ -171,13 +175,17 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             if generic_token not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
-                        if enclitic == 'mst':
-                            specific_tokens += [generic_token[:-len(enclitic)+1]] + ['e'+ generic_token[-len(enclitic)+1:]]
-                        elif enclitic == 'cum':
+                        if enclitic == 'cum':
                             if generic_token in self.inclusions:
                                 specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                             else:
-                                specific_tokens += [generic_token]                                                     
+                                specific_tokens += [generic_token]                                                                         
+                        elif enclitic == 'st':
+                            if generic_token.endswith('ust'):
+                                specific_tokens += [generic_token[:-len(enclitic)+1]] + ['est']
+                            else:
+                                # Does not handle 'similist', 'qualist', etc. correctly
+                                specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
                         else:
                             specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                         is_enclitic = True
