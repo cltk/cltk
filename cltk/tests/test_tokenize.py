@@ -63,13 +63,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         # - Cic. Phillip. 13.14
         # - Plaut. Capt. 937
         # - Lucr. DRN. 5.1351-53
+        # - Plaut. Bacch. 837-38
         
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
                     'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!',
                     'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.',
                     'Quid opust verbis? lingua nullast qua negem quidquid roges.',
-                    'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.'
+                    'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',
+                    'Dic sodes mihi, bellan videtur specie mulier?'
                     ]
         
         results = []
@@ -83,7 +85,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!'],
                     ['que', 'Ne', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'c', 'ne', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur.'],
                     ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges.'],
-                    ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'c', 'ne', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'que', 'scapi', 'sonantes.']
+                    ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'c', 'ne', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'que', 'scapi', 'sonantes.'],
+                    ['Dic', 'si', 'audes', 'mihi', ',', 'bellan', 'videtur', 'specie', 'mulier', '?']
                     ]
                     
         self.assertEqual(results, target)
