@@ -7,25 +7,7 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithets
-from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_epithet
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_of_author
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_index
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_geographies
-from cltk.corpus.greek.tlg.parse_tlg_indices import select_authors_by_geo
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_of_author
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_lists
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_id_author
-from cltk.corpus.greek.tlg.parse_tlg_indices import select_id_by_name
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_author
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_dates
-from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_of_author
-from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
-from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
-from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
-from cltk.corpus.greek.tlg.parse_tlg_indices import normalize_dates
+from cltk.corpus.greek.tlg.parse_tlg_indices import *
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
@@ -424,47 +406,43 @@ argenteo polubro, aureo eclutro. """
 
     def test_get_date_of_author(self):
         """Test get_date_of_author()."""
-        self.assertEqual(get_date_of_author('1747'), '1 B.C./A.D. 1')
-        self.assertEqual(get_date_of_author('1143'), '2-1 B.C.')
-        self.assertEqual(get_date_of_author('0295'), 'Varia')
-        self.assertEqual(get_date_of_author('4304'), 'a. A.D. 10')
-        self.assertIsNone(get_date_of_author('123456'))
+        a = tlgDate()
+        a.parse(get_date_of_author('1747'))
+        self.assertEqual(a.__str__(), '{1 B.C. / 1 A.D.}')
+        a = tlgDate()
+        a.parse(get_date_of_author('1143'))
+        self.assertEqual(a.__str__(), '{2 B.C. - 1 B.C.}')
+        a = tlgDate()
+        a.parse(get_date_of_author('0295'))
+        self.assertEqual(a.__str__(), '{Varia}')
 
-    def test_get_epoch(self):
-        """Test _get_epoch()."""
-        self.assertEqual(_get_epoch('A.D. 9-10'), 'ad')
-        self.assertEqual(_get_epoch('p. A.D. 2'), 'ad')
-        self.assertIsNone(_get_epoch('a. A.D. 2'))
-        self.assertEqual(_get_epoch('3 B.C.'), 'bc')
-        self.assertIsNone(_get_epoch('p. 7 B.C.'))
-        self.assertEqual(_get_epoch('a. 1 B.C.'), 'bc')
-        self.assertEqual(_get_epoch('a. 1 B.C.?'), 'bc')
+    def test_check_date_attributes(self):
+        """Test for checking various attributes of tlgDate"""
+        a = tlgDate()
+        a.parse(get_date_of_author('1747'))
+        self.assertTrue(a.isRange)
+        self.assertFalse(a.isVaria)
+        self.assertFalse(a.isIncertum)
 
-    def test_check_number(self):
-        """Test _check_number()."""
-        self.assertTrue(_check_number('5'))
-        self.assertTrue(_check_number('5?'))
-        self.assertFalse(_check_number('A.D. 5'))
-        self.assertFalse(_check_number('A.D. 5?'))
-        self.assertFalse(_check_number('p. 4 B.C.'))
+        self.assertTrue(a.year_first.isBC)
+        self.assertFalse(a.year_first.isAD)
+        self.assertFalse(a.year_first.isPost)
+        self.assertFalse(a.year_first.isAnte)
+        self.assertFalse(a.year_first.isProblematical)
+        self.assertEqual(a.year_first.val, "1")
 
-    def test_handle_splits(self):
-        """Test _handle_splits()."""
-        _dict = {'start_raw': 'A.D. 9', 'start_epoch': 'ad',\
-                 'stop_epoch': 'ad', 'stop_raw': 'A.D. 10'}
-        self.assertEqual(_handle_splits('A.D. 9-10'), _dict)
-        _dict = {'start_raw': 'A.D. 1?', 'start_epoch': 'ad',\
-                 'stop_epoch': 'ad', 'stop_raw': 'A.D. 6'}
-        self.assertEqual(_handle_splits('A.D. 1?-6'), _dict)
-        _dict = {'stop_raw': 'p. A.D. 2', 'start_raw': 'a. 4 B.C.',\
-                 'stop_epoch': 'ad', 'start_epoch': 'bc'}
-        self.assertEqual(_handle_splits('a. 4 B.C.-p. A.D. 2'), _dict)
-        _dict = {'stop_raw': 'A.D. 2?', 'start_raw': 'A.D. 2?',\
-                 'stop_epoch': 'ad', 'start_epoch': 'ad'}
-        self.assertEqual(_handle_splits('A.D. 2?'), _dict)
-        _dict = {'stop_raw': '1 B.C.?', 'start_raw': '2 B.C.?',\
-                 'stop_epoch': 'bc', 'start_epoch': 'bc'}
-        self.assertEqual(_handle_splits('2/1 B.C.?'), _dict)
+        self.assertTrue(a.year_second.isAD)
+        self.assertFalse(a.year_second.isBC)
+        self.assertFalse(a.year_second.isPost)
+        self.assertFalse(a.year_second.isAnte)
+        self.assertFalse(a.year_second.isProblematical)
+        self.assertEqual(a.year_second.val, "1")
+
+        a = tlgDate()
+        a.parse(get_date_of_author('0295'))
+        self.assertFalse(a.isRange)
+        self.assertTrue(a.isVaria)
+        self.assertFalse(a.isIncertum)
 
 if __name__ == '__main__':
     unittest.main()
