@@ -169,9 +169,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         punkt = PunktLanguageVars()
         generic_tokens = punkt.word_tokenize(string)
         # Rewrite as an if-else block for exceptions rather than separate list comprehensions
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item != 'nec' else ['c', 'ne'])] # Handle 'nec' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item != 'sodes' else ['si', 'audes'])] # Handle 'sodes' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item != 'sultis' else ['si', 'vultis'])] # Handle 'sultis' as a special case.        
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'nec' else ['c', item[:-1]])] # Handle 'nec' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sodes' else [item[0]+'i', 'audes'])] # Handle 'sodes' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sultis' else [item[0]+'i', 'vultis'])] # Handle 'sultis' as a special case.        
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
@@ -179,7 +179,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
                         if enclitic == 'cum':
-                            if generic_token in self.inclusions:
+                            if generic_token.lower() in self.inclusions:
                                 specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                             else:
                                 specific_tokens += [generic_token]                                                                         
