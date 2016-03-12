@@ -43,7 +43,7 @@ See the [Quickstart for contributors](https://github.com/cltk/cltk/wiki/Quicksta
 
 ## Citation
 
-Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow researcher to reproduce your results should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the repository's home on GitHub. To the end of your bibliographic entry, append `DOI ` plus the current identifier. You may also add version/release number, located in the `pypi` button at the project's GitHub repository homepage.
+Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), a type of unique identity for digital documents. This DOI ought to be included in your citation, as it will allow researchers to reproduce your results should the CLTK's API or codebase change. To find the CLTK's current DOI, observe the blue `DOI` button in the repository's home on GitHub. To the end of your bibliographic entry, append `DOI ` plus the current identifier. You may also add version/release number, located in the `pypi` button at the project's GitHub repository homepage.
 
 Thus, please cite core software as something like:
 ```
