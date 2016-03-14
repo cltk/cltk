@@ -136,6 +136,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                               'tisiphone', 'torone', 'transitione', 'troiane', 'turbine', 'turne',
                               'tyrrhene', 'uane', 'uelamine', 'uertigine', 'uesane', 'uimine', 'uirgine',
                               'umbone', 'unguine', 'uolumine', 'uoragine', 'urbane', 'uulcane', 'zone']
+                              
+                              n_exceptions += ['aenean', 'agmen', 'alioquin', 'an', 'attamen', 'carmen', 'certamen', 'cognomen', 'crimen', 'dein', 'discrimen', 'en', 'epitheton', 'exin', 'flumen', 'forsan', 'forsitan', 'fulmen', 'iason', 'in', 'limen', 'liquamen', 'lumen', 'nomen', 'non', 'numen', 'omen', 'orion', 'quin', 'semen', 'specimen', 'tamen', 'titan']
 
             ue_exceptions += ['agaue', 'ambigue', 'assidue', 'aue', 'boue', 'breue', 'calue', 'caue',
                               'ciue', 'congrue', 'contigue', 'continue', 'curue', 'exigue', 'exue',
@@ -156,6 +158,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             self.exceptions = list(set(self.exceptions
                                        + que_exceptions
                                        + ne_exceptions
+                                       + n_exceptions
                                        + ue_exceptions
                                        + ve_exceptions
                                        + st_exceptions
@@ -171,7 +174,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         # Rewrite as an if-else block for exceptions rather than separate list comprehensions
         generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'nec' else ['c', item[:-1]])] # Handle 'nec' as a special case.
         generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sodes' else [item[0]+'i', 'audes'])] # Handle 'sodes' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sultis' else [item[0]+'i', 'vultis'])] # Handle 'sultis' as a special case.        
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sultis' else [item[0]+'i', 'vultis'])] # Handle 'sultis' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'satin' else [item[:-1] + 's', 'ne'])] # Handle 'satin' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'scin' else [item[:-1] + 's', 'ne'])] # Handle 'scin' as a special case.      
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
@@ -182,7 +187,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                             if generic_token.lower() in self.inclusions:
                                 specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                             else:
-                                specific_tokens += [generic_token]                                                                         
+                                specific_tokens += [generic_token]
+                        elif enclitic == 'n':
+                                specific_tokens += [generic_token[:-len(enclitic)]] + ['ne']                                                                                                    
                         elif enclitic == 'st':
                             if generic_token.endswith('ust'):
                                 specific_tokens += [generic_token[:-len(enclitic)+1]] + ['est']
