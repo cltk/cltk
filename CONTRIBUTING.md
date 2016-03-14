@@ -21,43 +21,43 @@ of [Python 3.5](https://www.python.org/downloads/):
 
 2. Clone this copy to your local disk:
 ``` bash
-        $ git clone git://github.com/cltk/cltk.git
-        $ cd cltk
+$ git clone git://github.com/cltk/cltk.git
+$ cd cltk
 ```
 3. Create a virtualenv and activate it:
 ``` bash
-   	$ pyvenv venv
-	$ source venv/bin/activate
+$ pyvenv venv
+$ source venv/bin/activate
 ```
 4. Install cltk from source:
 ``` bash
-  	$ python setup.py install
+$ python setup.py install
 ```	
    If you have modified the cltk source you will have to rebuild the project
    with the same command.
 
 5. Install cltk development dependencies:
 ``` bash
-   	$ pip install -r dev-requirements.txt
+$ pip install -r dev-requirements.txt
 ```	
 6. Run the test suite to ensure proper installation by running `nosetests -v`
    in the root directory. To install nose, run `pip install nose`.
 
 7. If all tests pass, create a branch to hold your changes:
 ``` bash
-        $ git checkout -b my-feature
+$ git checkout -b my-feature
 ```
    and start making changes. Never work in the ``master`` branch!
 
 8. Work on this copy on your computer using Git to do the version
    control. When you're done editing, do:
 ``` bash
-        $ git add modified_files
-        $ git commit
+$ git add modified_files
+$ git commit
 ``` 
    to record your changes in Git, then push them to GitHub with:
 ``` bash
-        $ git push -u origin my-feature
+$ git push -u origin my-feature
 ```
 Finally, go to the web page of your fork of the cltk repo,
 and click 'Pull request' to send your changes to the maintainers for
