@@ -180,7 +180,10 @@ LOWER = [
     (r'I\+', 'ϊ'),
     (r'I\\\+', 'ῒ'),
     (r'I/\+', 'ΐ'),
+    # Add a second entry for out-of-order betacode
+    (r'I\+/', 'ΐ'),
     (r'I=\+', 'ῗ'),
+    (r'U\+', 'ϋ'),
     (r'U\\\+', 'ῢ'),
     (r'U/\+', 'ΰ'),
     (r'U=\+', 'ῧ'),
