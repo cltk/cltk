@@ -27,7 +27,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
         if self.language == 'latin':
-            self.enclitics = ['que', 'ne', 'ue', 've', 'cum','st']
+            self.enclitics = ['que', 'n', 'ne', 'ue', 've', 'cum','st']
 
             self.inclusions = []
             
@@ -36,6 +36,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             self.exceptions = self.enclitics
 
             que_exceptions = []
+            n_exceptions = []
             ne_exceptions = []
             ue_exceptions = []
             ve_exceptions = []
@@ -137,7 +138,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                               'tyrrhene', 'uane', 'uelamine', 'uertigine', 'uesane', 'uimine', 'uirgine',
                               'umbone', 'unguine', 'uolumine', 'uoragine', 'urbane', 'uulcane', 'zone']
                               
-                              n_exceptions += ['aenean', 'agmen', 'alioquin', 'an', 'attamen', 'carmen', 'certamen', 'cognomen', 'crimen', 'dein', 'discrimen', 'en', 'epitheton', 'exin', 'flumen', 'forsan', 'forsitan', 'fulmen', 'iason', 'in', 'limen', 'liquamen', 'lumen', 'nomen', 'non', 'numen', 'omen', 'orion', 'quin', 'semen', 'specimen', 'tamen', 'titan']
+            n_exceptions += ['aenean', 'agmen', 'alioquin', 'an', 'attamen', 'carmen', 'certamen', 'cognomen', 'crimen', 'dein', 'discrimen', 'en', 'epitheton', 'exin', 'flumen', 'forsan', 'forsitan', 'fulmen', 'iason', 'in', 'limen', 'liquamen', 'lumen', 'nomen', 'non', 'numen', 'omen', 'orion', 'quin', 'semen', 'specimen', 'tamen', 'titan']
 
             ue_exceptions += ['agaue', 'ambigue', 'assidue', 'aue', 'boue', 'breue', 'calue', 'caue',
                               'ciue', 'congrue', 'contigue', 'continue', 'curue', 'exigue', 'exue',
