@@ -64,6 +64,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         # - Plaut. Capt. 937
         # - Lucr. DRN. 5.1351-53
         # - Plaut. Bacch. 837-38
+        # - Plaut. Amph. 823
         
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
@@ -71,7 +72,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.',
                     'Quid opust verbis? lingua nullast qua negem quidquid roges.',
                     'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',
-                    'Dic sodes mihi, bellan videtur specie mulier?'
+                    'Dic sodes mihi, bellan videtur specie mulier?',
+                    'Cenavin ego heri in navi in portu Persico?'
                     ]
         
         results = []
@@ -86,7 +88,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     ['que', 'Ne', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'c', 'ne', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur.'],
                     ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges.'],
                     ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'c', 'ne', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'que', 'scapi', 'sonantes.'],
-                    ['Dic', 'si', 'audes', 'mihi', ',', 'bellan', 'videtur', 'specie', 'mulier', '?']
+                    ['Dic', 'si', 'audes', 'mihi', ',', 'bella', 'ne', 'videtur', 'specie', 'mulier', '?'],
+                    ['Cenavi', 'ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
                     ]
                     
         self.assertEqual(results, target)

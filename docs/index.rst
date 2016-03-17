@@ -21,5 +21,6 @@ Contents
    latin
    multilingual
    pali
+   sanskrit
    tibetan
 
