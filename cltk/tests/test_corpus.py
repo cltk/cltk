@@ -50,13 +50,21 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         characters (``ά`` and ``ί``, at least).
         """
         replacer = Replacer()
+        # Generic test
         beta_1 = r"""O(/PWS OU)=N MH\ TAU)TO\ """
         unicode_1 = replacer.beta_code(beta_1)
         target_1 = 'ὅπως οὖν μὴ ταὐτὸ '
+        # Test for iota and diaeresis
         self.assertEqual(unicode_1, target_1)
         beta_2 = r"""*XALDAI+KH\N"""
         unicode_2 = replacer.beta_code(beta_2)
         target_2 = 'Χαλδαϊκὴν'
+        self.assertEqual(unicode_2, target_2)
+        # Test for upsilon and diaeresis
+        beta_3 = r"""PROU+POTETAGME/NWN"""
+        unicode_3 = replacer.beta_code(beta_3)
+        target_3 = 'προϋποτεταγμένων'
+        self.assertEqual(unicode_3, target_3)
 
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
