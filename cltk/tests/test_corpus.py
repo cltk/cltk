@@ -49,11 +49,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         Note: assertEqual appears to not be correctly comparing certain
         characters (``ά`` and ``ί``, at least).
         """
-        beta_example = r"""O(/PWS OU)=N MH\ TAU)TO\ """
         replacer = Replacer()
-        unicode = replacer.beta_code(beta_example)
-        target_unicode = 'ὅπως οὖν μὴ ταὐτὸ '
-        self.assertEqual(unicode, target_unicode)
+        beta_1 = r"""O(/PWS OU)=N MH\ TAU)TO\ """
+        unicode_1 = replacer.beta_code(beta_1)
+        target_1 = 'ὅπως οὖν μὴ ταὐτὸ '
+        self.assertEqual(unicode_1, target_1)
+        beta_2 = r"""*XALDAI+KH\N"""
+        unicode_2 = replacer.beta_code(beta_2)
+        target_2 = 'Χαλδαϊκὴν'
 
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
