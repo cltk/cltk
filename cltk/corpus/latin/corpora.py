@@ -70,4 +70,7 @@ LATIN_CORPORA = [
      'location': 'remote',
      'type': 'text',
      'name': 'latin_text_antique_digiliblt'},
+     {'location': 'remote',
+     'type': 'text',
+     'name': 'latin_text_corpus_grammaticorum_latinorum'}
 ]
