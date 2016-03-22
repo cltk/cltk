@@ -69,5 +69,8 @@ LATIN_CORPORA = [
      'markup': 'tei_xml',
      'location': 'remote',
      'type': 'text',
-     'name': 'latin_text_antique_digiliblt'},
+     'name': 'latin_text_antique_digiliblt},
+     {'location': 'remote',
+     'type': 'text',
+     'name': 'latin_text_corpus_grammaticorum_latinorum'}
 ]
