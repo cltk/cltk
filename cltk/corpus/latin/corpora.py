@@ -71,6 +71,6 @@ LATIN_CORPORA = [
      'type': 'text',
      'name': 'latin_text_antique_digiliblt'},
      {'location': 'remote',
-     'type': 'json',
+     'type': 'text',
      'name': 'latin_text_corpus_grammaticorum_latinorum'}
 ]
