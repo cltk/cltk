@@ -15,14 +15,12 @@ __copyright__ = 'Copyright (c) 2016 Kyle P. Johnson. Distributed and Licensed un
 
 __description__ = __doc__
 
-with open('LICENSE') as file_open:
-    __license__ = file_open.read()
+__license__ = 'MIT'
 
 __url__ = 'http://cltk.org'
 
 __version__ = get_distribution('cltk').version  # pylint: disable=no-member
 
 # rm these namespaces from memory, or these show up in dir(cltk)
-del file_open
 del get_distribution
 del sys
