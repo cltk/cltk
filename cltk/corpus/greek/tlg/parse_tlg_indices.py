@@ -7,9 +7,9 @@ from cltk.corpus.greek.tlg.author_female import AUTHOR_FEMALE
 from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
 from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
+from cltk.corpus.greek.tlg.tlgDate import *
 import regex
 import os
-import json
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Stephen Margheim <stephen.margheim@gmail.com>',
@@ -115,17 +115,10 @@ def select_id_by_name(query):
     return matches
 
 
-def open_json(_file):
-    """Loads the json file as a dictionary and returns it."""
-    with open(_file) as f:
-        return json.load(f)
-
-
 # Dates
 def get_date_author():
     """Returns entirety of date-author index."""
-    _path = os.path.join(THIS_DIR, 'author_date.json')
-    return open_json(_path)
+    return AUTHOR_DATE
 
 
 def get_dates():
@@ -139,79 +132,9 @@ def get_date_of_author(_id):
     _dict = get_date_author()
     for date, ids in _dict.items():
         if _id in ids:
-            return date
+            d = tlgDate()
+            return d.parse(date)
     return None
-
-
-def _get_epoch(_str):
-    """Take incoming string, return its epoch."""
-    _return = None
-    if _str.startswith('A.D. '):
-        _return = 'ad'
-    elif _str.startswith('a. A.D. '):
-        _return = None #?
-    elif _str.startswith('p. A.D. '):
-        _return = 'ad'
-    elif regex.match(r'^[0-9]+ B\.C\. *', _str):
-        _return = 'bc'
-    elif regex.match(r'^a\. *[0-9]+ B\.C\. *', _str):
-        _return = 'bc'
-    elif regex.match(r'^p\. *[0-9]+ B\.C\. *', _str):
-        _return = None  #?
-    elif _str == 'Incertum' or _str == 'Varia':
-        _return = _str
-    return _return
-
-
-def _check_number(_str):
-    """check if the string contains only a number followed by ?"""
-    if regex.match(r'^[0-9]+\?*', _str):
-        return True
-    return False
-
-
-def _handle_splits(_str):
-    """Check if incoming date has a '-" or '/', if so do stuff."""
-    _str = _str.replace('/', '-')
-    _tmp_dict = {}
-
-    if '-' in _str:
-        start, stop = _str.split('-')
-        if _check_number(start):
-            start = regex.sub(r'[0-9]+\?*', start, stop)
-        elif _check_number(stop):
-            stop = regex.sub(r'[0-9]+\?*', stop, start)
-    else:
-        start = _str
-        stop = _str
-    _tmp_dict['start_raw'] = start
-    _tmp_dict['stop_raw'] = stop
-
-    _tmp_dict['start_epoch'] = _get_epoch(start)
-    _tmp_dict['stop_epoch'] = _get_epoch(stop)
-
-    return _tmp_dict
-
-
-def normalize_dates():
-    """Experiment to make sense of TLG dates.
-    TODO: start here, parse everything with pass
-    """
-    _dict = get_date_author()
-    for tlg_date in _dict:
-        date = {}
-        if tlg_date == 'Varia':
-            #give a homer-to-byz date for 'varia'
-            pass
-        elif tlg_date == 'Incertum':
-            #?
-            pass
-        else:
-            tmp_date = _handle_splits(tlg_date)
-            date.update(tmp_date)
-
-        print(date)
-
 
 if __name__ == "__main__":
     pass
