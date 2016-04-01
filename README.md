@@ -31,6 +31,11 @@ The docs are at [docs.cltk.org](http://docs.cltk.org).
 $ pip install cltk
 ```
 
+#### Python Versions Supported
+
+* 3.4
+* 3.5
+
 See docs for [complete installation instructions](http://docs.cltk.org/en/latest/installation.html).
 
 The [CLTK organization curates corpora](https://github.com/cltk) which can download directly or, better, [imported by the toolkit](http://docs.cltk.org/en/latest/importing_corpora.html).

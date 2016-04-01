@@ -17,8 +17,9 @@ from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.utils.cltk_logger import logger
 import errno
-from git import Repo
+from git import Repo, RemoteProgress
 import os
+import sys
 import shutil
 from urllib.parse import urljoin
 
@@ -35,6 +36,19 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,}
 
 
+class CorpusImportError(Exception):
+    """CLTK exception to use when something goes wrong importing corpora"""
+    pass
+
+
+class ProgressPrinter(RemoteProgress):
+    """Class that implements progress reporting"""
+    def update(self, op_code, cur_count, max_count=None, message=''):
+        if message:
+            percentage = '%.0f' % (100*cur_count / (max_count or 100.0))
+            # TODO: think if it makes sense to log this
+            sys.stdout.write('Downloaded %s%% %s \r' % (percentage, message))
+
 
 class CorpusImporter():
     """Import CLTK corpora."""
@@ -43,27 +57,34 @@ class CorpusImporter():
         self.language = language.lower()
         self._setup_language_variables()
 
+    def __repr__(self):
+        """Representation string for ipython
+        :rtype : str
+        """
+        return 'CorpusImporter for: %s' % self.language
+
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
         TODO: Make the selection of available languages dynamic from dirs
         within ``corpora`` which contain a ``corpora.py`` file.
         """
-        assert self.language in AVAILABLE_LANGUAGES, \
-            'Corpora not available for {0} language.'.format(self.language)
+        if self.language not in AVAILABLE_LANGUAGES:
+            msg = 'Corpora not available for the "%s" language.' \
+                   % self.language
+            raise CorpusImportError(msg)
 
     @property
     def list_corpora(self):
         """Show corpora available for the CLTK to download."""
         try:
             corpora = LANGUAGE_CORPORA[self.language]
-        except NameError as name_error:
-            logger.error('Corpus not available for language %s: %s', (self.language, name_error))
-
-        corpus_list = []
-        for corpus in corpora:
-            corpus_list.append(corpus['name'])
-        return corpus_list
-
+            corpus_names = [corpus['name'] for corpus in corpora]
+            return corpus_names
+        except (NameError, KeyError) as error:
+            msg = 'Corpus not available for language ' \
+                  '"%s": %s' % (self.language, error)
+            logger.error(msg)
+            raise CorpusImportError(msg)
 
     @staticmethod
     def _copy_dir_recursive(src_rel, dst_rel):
@@ -87,7 +108,7 @@ class CorpusImporter():
             else:
                 raise
 
-    def _check_corpus_availability(self, corpus_name):
+    def _get_corpus_properties(self, corpus_name):
         """Check whether a corpus is available for import.
         :type corpus_name: str
         :param corpus_name: Name of available corpus.
@@ -96,16 +117,17 @@ class CorpusImporter():
         try:
             corpora = LANGUAGE_CORPORA[self.language]
         except NameError as name_error:
-            logger.error('Corpus not available for language %s: %s', (self.language, name_error))
-        corpus_properties = None
-        for corpus in corpora:
-            if corpus['name'] == corpus_name:
-                corpus_properties = corpus
-        if not corpus_properties:
-            logger.info("Corpus '%s' not available for the '%s' language.",
-                        corpus_name,
-                        self.language)
-        return corpus_properties
+            msg = 'Corpus not available for language ' \
+                  '"%s": %s' % (self.language, name_error)
+            logger.error(msg)
+            raise CorpusImportError(msg)
+        for corpus_properties in corpora:
+            if corpus_properties['name'] == corpus_name:
+                return corpus_properties
+        msg = 'Corpus "%s" not available for the ' \
+              '"%s" language.' % (corpus_name, self.language)
+        logger.error(msg)
+        raise CorpusImportError(msg)
 
     def import_corpus(self, corpus_name, local_path=None):  # pylint: disable=R0912
         """Download a remote or load local corpus into dir ``~/cltk_data``.
@@ -116,12 +138,12 @@ class CorpusImporter():
         :param local_path: str
         :param local_path: A filepath, required when importing local corpora.
         """
-        corpus_properties = self._check_corpus_availability(corpus_name)
+        corpus_properties = self._get_corpus_properties(corpus_name)
         location = corpus_properties['location']
         corpus_type = corpus_properties['type']
         if location == 'remote':
             git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
-            #self._download_corpus(corpus_type, corpus_name, path)
+            # self._download_corpus(corpus_type, corpus_name, path)
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
@@ -133,7 +155,8 @@ class CorpusImporter():
                     os.makedirs(type_dir)
                 try:
                     logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
-                    Repo.clone_from(git_uri, target_dir, depth=1)
+                    Repo.clone_from(git_uri, target_dir, depth=1,
+                                    progress=ProgressPrinter())
                 except Exception as e:
                     logger.error("Git clone of '%s' failed: '%s'", (git_uri, e))
             # if corpus is present, pull latest
