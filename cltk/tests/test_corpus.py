@@ -25,7 +25,6 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_of_author
 from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
 from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
 from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
-from cltk.corpus.greek.tlg.parse_tlg_indices import normalize_dates
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
@@ -34,8 +33,8 @@ from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
-from cltk.corpus.utils.importer import CorpusImporter
 from cltk.corpus.utils.formatter import cltk_normalize
+from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
 from unicodedata import normalize
 import os
 import unittest
@@ -350,8 +349,16 @@ argenteo polubro, aureo eclutro. """
 
     def test_show_corpora_bad_lang(self):
         """Test failure of importer upon selecting unsupported language."""
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(CorpusImportError):
             CorpusImporter('bad_lang')
+
+    def test_import_nonexistant_corpus(self):
+        """Test that creating a CorpusImporter for a non existent lang
+           fails smoothly
+        """
+        with self.assertRaises(CorpusImportError):
+            corpus_importer = CorpusImporter('greek')
+            corpus_importer.import_corpus('euclids_book_of_recipes')
 
     def test_import_latin_text_antique_digiliblt(self):
         """Test cloning the Antique Latin from digilibLT."""
