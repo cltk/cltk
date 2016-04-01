@@ -17,8 +17,9 @@ from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.utils.cltk_logger import logger
 import errno
-from git import Repo
+from git import Repo, RemoteProgress
 import os
+import sys
 import shutil
 from urllib.parse import urljoin
 
@@ -35,6 +36,14 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,}
 
 
+class ProgressPrinter(RemoteProgress):
+    """Class that implements progress reporting"""
+    def update(self, op_code, cur_count, max_count=None, message=''):
+        if message:
+            percentage = '%.0f' % (100*cur_count / (max_count or 100.0))
+            # TODO: think if it makes sense to log this
+            sys.stdout.write('Downloaded %s%% %s \r' % (percentage, message))
+
 
 class CorpusImporter():
     """Import CLTK corpora."""
@@ -42,6 +51,12 @@ class CorpusImporter():
     def __init__(self, language):
         self.language = language.lower()
         self._setup_language_variables()
+
+    def __repr__(self):
+        """Representation string for ipython
+        :rtype : str
+        """
+        return 'CorpusImporter for: %s' % self.language
 
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
@@ -121,7 +136,7 @@ class CorpusImporter():
         corpus_type = corpus_properties['type']
         if location == 'remote':
             git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
-            #self._download_corpus(corpus_type, corpus_name, path)
+            # self._download_corpus(corpus_type, corpus_name, path)
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
@@ -133,7 +148,8 @@ class CorpusImporter():
                     os.makedirs(type_dir)
                 try:
                     logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
-                    Repo.clone_from(git_uri, target_dir, depth=1)
+                    Repo.clone_from(git_uri, target_dir, depth=1,
+                                    progress=ProgressPrinter())
                 except Exception as e:
                     logger.error("Git clone of '%s' failed: '%s'", (git_uri, e))
             # if corpus is present, pull latest
