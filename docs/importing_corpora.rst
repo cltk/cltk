@@ -20,7 +20,7 @@ To see all of the corpora available for importing, use ``list_corpora()``.
     'phi7',
     'tlg',
     'greek_proper_names',
-    'cltk_linguistic_data',
+    'greek_models_cltk',
     'greek_treebank_perseus']
 
 Importing a corpus
