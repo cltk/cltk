@@ -27,14 +27,11 @@ The docs are at [docs.cltk.org](http://docs.cltk.org).
 
 ### Installation
 
+CLTK supports Python version 3.4 and 3.5.
+
 ``` bash
 $ pip install cltk
 ```
-
-#### Python Versions Supported
-
-* 3.4
-* 3.5
 
 See docs for [complete installation instructions](http://docs.cltk.org/en/latest/installation.html).
 
