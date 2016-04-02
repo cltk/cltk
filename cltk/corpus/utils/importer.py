@@ -3,10 +3,6 @@ TODO: Fix so ``import_corpora()`` can take relative path.
 TODO: Add https://github.com/cltk/pos_latin
 """
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
-
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
 from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
@@ -16,15 +12,22 @@ from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
 from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.utils.cltk_logger import logger
+
 import errno
-from git import Repo, RemoteProgress
+from git import RemoteProgress
+from git import Repo
 import os
 import sys
 import shutil
 from urllib.parse import urljoin
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan','sanskrit']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Stephen Margheim <stephen.margheim@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
+
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan', 'sanskrit']
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
@@ -42,11 +45,10 @@ class CorpusImportError(Exception):
 
 
 class ProgressPrinter(RemoteProgress):
-    """Class that implements progress reporting"""
+    """Class that implements progress reporting."""
     def update(self, op_code, cur_count, max_count=None, message=''):
         if message:
             percentage = '%.0f' % (100*cur_count / (max_count or 100.0))
-            # TODO: think if it makes sense to log this
             sys.stdout.write('Downloaded %s%% %s \r' % (percentage, message))
 
 
@@ -61,7 +63,7 @@ class CorpusImporter():
         """Representation string for ipython
         :rtype : str
         """
-        return 'CorpusImporter for: %s' % self.language
+        return 'CorpusImporter for: {}'.format(self.language)
 
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
@@ -69,8 +71,7 @@ class CorpusImporter():
         within ``corpora`` which contain a ``corpora.py`` file.
         """
         if self.language not in AVAILABLE_LANGUAGES:
-            msg = 'Corpora not available for the "%s" language.' \
-                   % self.language
+            msg = 'Corpora not available for the "{}" language.'.format(self.language)
             raise CorpusImportError(msg)
 
     @property
@@ -81,8 +82,7 @@ class CorpusImporter():
             corpus_names = [corpus['name'] for corpus in corpora]
             return corpus_names
         except (NameError, KeyError) as error:
-            msg = 'Corpus not available for language ' \
-                  '"%s": %s' % (self.language, error)
+            msg = 'Corpus not available for language "{}": {}'.format(self.language, error)
             logger.error(msg)
             raise CorpusImportError(msg)
 
@@ -154,23 +154,28 @@ class CorpusImporter():
                 if not os.path.isdir(type_dir):
                     os.makedirs(type_dir)
                 try:
-                    logger.info("Cloning '%s' from '%s'" % (corpus_name, git_uri))
+                    msg = "Cloning '{}' from '{}'".format(corpus_name, git_uri)
+                    logger.info(msg)
                     Repo.clone_from(git_uri, target_dir, depth=1,
                                     progress=ProgressPrinter())
-                except Exception as e:
-                    logger.error("Git clone of '%s' failed: '%s'", (git_uri, e))
+                except CorpusImportError as corpus_imp_err:
+                    msg = "Git clone of '{}' failed: '{}'".format(git_uri, corpus_imp_err)
+                    logger.error(msg)
             # if corpus is present, pull latest
             else:
                 try:
                     repo = Repo(target_dir)
                     assert not repo.bare  # or: assert repo.exists()
-                    o = repo.remotes.origin
-                    logger.info("Pulling latest '%s' from '%s'." % (corpus_name, git_uri))
-                    o.pull()
-                except Exception as e:
-                    logger.error("Git pull of '%s' failed: '%s'" % (git_uri, e))
+                    git_origin = repo.remotes.origin
+                    msg = "Pulling latest '{}' from '{}'.".format(corpus_name, git_uri)
+                    logger.info(msg)
+                    git_origin.pull()
+                except CorpusImportError as corpus_imp_err:
+                    msg = "Git pull of '{}' failed: '{}'".format(git_uri, corpus_imp_err)
+                    logger.error(msg)
         elif location == 'local':
-            logger.info("Importing from local path: '%s'", local_path)
+            msg = "Importing from local path: '{}'".format(local_path)
+            logger.info(msg)
             if corpus_name in ('phi5', 'phi7', 'tlg'):
                 if corpus_name == 'phi5':
                     # normalize path for checking dir
@@ -199,14 +204,16 @@ class CorpusImporter():
                 # check for `originals` dir; if not present mkdir
                 if not os.path.isdir(originals_dir):
                     os.makedirs(originals_dir)
-                    logger.info("Wrote directory at '%s'.", originals_dir)
+                    msg = "Wrote directory at '{}'.".format(originals_dir)
+                    logger.info(msg)
                 tlg_originals_dir = os.path.join(data_dir,
                                                  'originals',
                                                  corpus_name)
                 # check for `originals/<corpus_name>`; if pres, delete
                 if os.path.isdir(tlg_originals_dir):
                     shutil.rmtree(tlg_originals_dir)
-                    logger.info("Removed directory at '%s'.", tlg_originals_dir)
+                    msg = "Removed directory at '{}'.".format(tlg_originals_dir)
+                    logger.info(msg)
                 # copy_dir requires that target
                 if not os.path.isdir(tlg_originals_dir):
                     self._copy_dir_recursive(local_path, tlg_originals_dir)
