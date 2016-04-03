@@ -8,4 +8,7 @@ SANSKRIT_CORPORA = [
         {'name':'sanskrit_parallel_sacred_texts',
         'location':'remote',
         'type':'parallel'},
-        ]
+        {'name':'sanskrit_text_sacred_texts',
+        'location':'remote',
+         'type':'text'},
+]
