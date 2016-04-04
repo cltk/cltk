@@ -274,6 +274,10 @@ These taggers were built with the assistance of the NLTK. The backoff tagger is 
 `````````````````````````
 .. code-block:: python
 
+   In [1]: from cltk.tag.pos import POSTag
+
+   In [2]: tagger = POSTag('latin')
+
    In [6]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
    Out[6]:
    [('Gallia', None),
