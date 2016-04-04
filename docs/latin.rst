@@ -268,7 +268,7 @@ These two functions are useful when, for example, needing to process all authors
 POS tagging
 ===========
 
-These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM. To obtain the models, first import the `latin_models_cltk` corpus.
+These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM. To obtain the models, first import the ``latin_models_cltk`` corpus.
 
 1–2–3–gram backoff tagger
 `````````````````````````

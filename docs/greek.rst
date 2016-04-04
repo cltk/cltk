@@ -174,7 +174,7 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 POS tagging
 ===========
 
-These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM. To obtain the models, first import the `greek_models_cltk` corpus.
+These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM. To obtain the models, first import the ``greek_models_cltk`` corpus.
 
 1–2–3–gram backoff tagger
 `````````````````````````
