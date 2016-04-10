@@ -161,7 +161,7 @@ argenteo polubro, aureo eclutro. """
         s2 = 'cafe\u0301'
         normalized_text=cltk_normalize(s1,compatibility=True)
         target=normalize('NFKC', s2)
-        self.assertEquals(normalized_text ,target)
+        self.assertEqual(normalized_text ,target)
 
     def test_cltk_normalize_noncompatible(self):
         """Test Normalizing Text with compatibility False"""
@@ -169,7 +169,7 @@ argenteo polubro, aureo eclutro. """
         s2 = 'cafe\u0301'
         normalized_text=cltk_normalize(s1,compatibility=False)
         target=normalize('NFC', s2)
-        self.assertEquals(normalized_text ,target)
+        self.assertEqual(normalized_text ,target)
 
     def test_assemble_tlg_author(self):
         """Test building absolute filepaths from TLG index."""

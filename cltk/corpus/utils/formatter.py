@@ -87,7 +87,7 @@ def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """
     # This works OK, doesn't get some
     # Note: rming all characters between {} and ()
-    remove_comp = regex.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|\(|\)|“|#|%|⚔|&|=|/|\\|〚|†|『|⚖|–|˘|⚕|☾|◌|◄|►|⌐|⌊|⌋|≈|∷|≈|∞|”|[0-9]')
+    remove_comp = regex.compile(r'-\n|«|»|\<|\>|\.\.\.|‘|’|_|{.+?}|\(.+?\)|\(|\)|“|#|%|⚔|&|=|/|\\|〚|†|『|⚖|–|˘|⚕|☾|◌|◄|►|⌐|⌊|⌋|≈|∷|≈|∞|”|[0-9]')
     text = remove_comp.sub('', text)
 
     new_text = None
