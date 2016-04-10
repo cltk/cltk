@@ -24,7 +24,7 @@ import regex
 TLG_PHI_REPLACEMENTS = {
     'newline_hyphen': '-\n',
     'newline': '\n',  # you probably want to substitute this with an empty space ' '
-    'within_pointed_brackets': '\{.+?\}',
+    'within_pointed_brackets': '{.+?}',
     'chevrons': '«|»',
     'ellipsis': ' ... ',
     'latin_09': '[a-zA-Z0-9]',
@@ -44,10 +44,10 @@ def remove_non_ascii(input_string):
 def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek TLG text.
     TODO: Surely more junk to pull out. Please submit bugs!
-    TODO: \{.+?\}|\(.+?\) always working?
+    TODO: {.+?}|\(.+?\) working?
     TODO: This is a rather slow now, help in speeding up welcome.
     """
-    remove_comp = regex.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|\{.+?\}|\(.+?\)|[a-zA-Z0-9]', flags=regex.VERSION1)
+    remove_comp = regex.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|{.+?}|\(.+?\)|[a-zA-Z0-9]', flags=regex.VERSION1)
     text = remove_comp.sub('', text)
 
     new_text = None
