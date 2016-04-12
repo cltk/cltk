@@ -14,6 +14,6 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.c
 
    In [3]: c.list_corpora
    Out[3]:
-   ['sanskrit_text_jnu', 'sanskrit_text_dcs', 'sanskrit_parallel_sacred_texts', 'sanskrit_text_sacred_texts', 'sanskrit_parallel_gitasupersite']
+   ['sanskrit_text_jnu', 'sanskrit_text_dcs', 'sanskrit_parallel_sacred_texts', 'sanskrit_text_sacred_texts', 'sanskrit_parallel_gitasupersite', 'sanskrit_text_gitasupersite']
 
 
