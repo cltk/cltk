@@ -27,8 +27,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
         if self.language == 'latin':
-            self.enclitics = ['que', 'ne', 'ue', 've', 'cum','mst']
-#            self.enclitics = ['que', 'mst'] #, 'ne', 'ue', 've', 'cum','mst']
+            self.enclitics = ['que', 'n', 'ne', 'ue', 've', 'cum','st']
 
             self.inclusions = []
             
@@ -37,10 +36,12 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             self.exceptions = self.enclitics
 
             que_exceptions = []
+            n_exceptions = []
             ne_exceptions = []
             ue_exceptions = []
             ve_exceptions = []
             cum_exceptions = []
+            st_exceptions = []
 
             # quisque
             que_exceptions += ['quisque', 'quidque', 'quicque', 'quodque', 'cuiusque', 'cuique',
@@ -136,6 +137,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                               'tisiphone', 'torone', 'transitione', 'troiane', 'turbine', 'turne',
                               'tyrrhene', 'uane', 'uelamine', 'uertigine', 'uesane', 'uimine', 'uirgine',
                               'umbone', 'unguine', 'uolumine', 'uoragine', 'urbane', 'uulcane', 'zone']
+                              
+            n_exceptions += ['aenean', 'agmen', 'alioquin', 'an', 'attamen', 'carmen', 'certamen', 'cognomen', 'crimen', 'dein', 'discrimen', 'en', 'epitheton', 'exin', 'flumen', 'forsan', 'forsitan', 'fulmen', 'iason', 'in', 'limen', 'liquamen', 'lumen', 'nomen', 'non', 'numen', 'omen', 'orion', 'quin', 'semen', 'specimen', 'tamen', 'titan']
 
             ue_exceptions += ['agaue', 'ambigue', 'assidue', 'aue', 'boue', 'breue', 'calue', 'caue',
                               'ciue', 'congrue', 'contigue', 'continue', 'curue', 'exigue', 'exue',
@@ -151,11 +154,16 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                               'nave', 'neve', 'nive', 'praegrave', 'prospicve', 'proterve', 'remove',
                               'resolve', 'saeve', 'salve', 'sive', 'solve', 'summove', 'vive', 'vove']
 
+            st_exceptions += ['abest', 'adest', 'ast', 'deest', 'est', 'inest', 'interest', 'post', 'potest', 'prodest', 'subest', 'superest']
+
             self.exceptions = list(set(self.exceptions
                                        + que_exceptions
                                        + ne_exceptions
+                                       + n_exceptions
                                        + ue_exceptions
-                                       + ve_exceptions))
+                                       + ve_exceptions
+                                       + st_exceptions
+                                       ))
 
             self.inclusions = list(set(self.inclusions
                                        + cum_inclusions))
@@ -164,20 +172,31 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Tokenize incoming string."""
         punkt = PunktLanguageVars()
         generic_tokens = punkt.word_tokenize(string)
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item != 'nec' else ['c', 'ne'])] # Handle 'nec' as a special case.
+        # Rewrite as an if-else block for exceptions rather than separate list comprehensions
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'nec' else ['c', item[:-1]])] # Handle 'nec' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sodes' else [item[0]+'i', 'audes'])] # Handle 'sodes' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sultis' else [item[0]+'i', 'vultis'])] # Handle 'sultis' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'satin' else [item[:-1] + 's', 'ne'])] # Handle 'satin' as a special case.
+        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'scin' else [item[:-1] + 's', 'ne'])] # Handle 'scin' as a special case.      
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
             if generic_token not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
-                        if enclitic == 'mst':
-                            specific_tokens += [generic_token[:-len(enclitic)+1]] + ['e'+ generic_token[-len(enclitic)+1:]]
-                        elif enclitic == 'cum':
-                            if generic_token in self.inclusions:
+                        if enclitic == 'cum':
+                            if generic_token.lower() in self.inclusions:
                                 specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                             else:
-                                specific_tokens += [generic_token]                                                     
+                                specific_tokens += [generic_token]
+                        elif enclitic == 'n':
+                                specific_tokens += [generic_token[:-len(enclitic)]] + ['ne']                                                                                                    
+                        elif enclitic == 'st':
+                            if generic_token.endswith('ust'):
+                                specific_tokens += [generic_token[:-len(enclitic)+1]] + ['est']
+                            else:
+                                # Does not handle 'similist', 'qualist', etc. correctly
+                                specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
                         else:
                             specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
                         is_enclitic = True

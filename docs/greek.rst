@@ -174,14 +174,18 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 POS tagging
 ===========
 
-These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM.
+These taggers were built with the assistance of the NLTK. The backoff tagger is Bayseian and the TnT is HMM. To obtain the models, first import the ``greek_models_cltk`` corpus.
 
 1–2–3–gram backoff tagger
 `````````````````````````
 .. code-block:: python
 
-   In [6]: tagger.tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
-   Out[6]:
+   In [1]: from cltk.tag.pos import POSTag
+
+   In [2]: tagger = POSTag('greek')
+
+   In [3]: tagger.tag_ngram_123_backoff('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
+   Out[3]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),
@@ -198,8 +202,8 @@ TnT tagger
 ``````````
 .. code-block:: python
 
-   In [7]: tagger.tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
-   Out[7]:
+   In [4]: tagger.tag_tnt('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
+   Out[4]:
    [('θεοὺς', 'N-P---MA-'),
     ('μὲν', 'G--------'),
     ('αἰτῶ', 'V1SPIA---'),

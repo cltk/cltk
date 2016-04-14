@@ -4,6 +4,7 @@ __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.prosody.latin.scanner import Scansion as ScansionLatin
+from cltk.prosody.latin.clausulae_analysis import Clausulae
 from cltk.prosody.greek.scanner import Scansion as ScansionGreek
 import unittest
 
@@ -83,6 +84,31 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test scan_text method."""
         correct = ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
         current = ScansionGreek().scan_text(self.test)
+        self.assertEqual(current, correct)
+
+    def test_clausulae_analysis(self):
+        """Test clausulae_analysis"""
+        correct = {
+            'cretic + double spondee': 0,
+            '1st paeon + anapest': 0,
+            'double cretic': 0,
+            'double trochee': 1,
+            'dactyl + double trochee': 0,
+            '4th paeon + cretic': 0,
+            'cretic + trochee': 0,
+            'molossus + iamb': 0,
+            'cretic + double trochee': 0,
+            'heroic': 0,
+            'double spondee': 0,
+            'molossus + double trochee': 0,
+            '1st paeon + trochee': 0,
+            'cretic + iamb': 0,
+            'substituted cretic + trochee': 0,
+            '4th paeon + trochee': 0,
+            'molossus + cretic': 0,
+            'choriamb + double trochee': 0
+        }
+        current = Clausulae().clausulae_analysis(['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x'])
         self.assertEqual(current, correct)
 
 if __name__ == '__main__':

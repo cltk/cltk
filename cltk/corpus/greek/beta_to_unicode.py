@@ -1,9 +1,4 @@
-"""Converts legacy encodings into Unicode
-TODO for replacer.py:
- - add perseus-style iota subscript and diaeresis
- - fix TLG diaeresis: εὐνοι+κῶς -> εὐνοϊκῶς (at Xen. Anab. 1.1.5, TLG0032.txt)
- -- προί+δοιεν -> προΐδοιεν (for TLG, Xen Anab 1.8.20)
-"""
+"""Converts legacy encodings into Unicode."""
 
 import regex
 
@@ -182,9 +177,13 @@ UPPER = [
 ]
 
 LOWER = [
-    (r'i\\\+', 'ῒ'),
-    (r'i/\+', 'ΐ'),
-    (r'i=\+', 'ῗ'),
+    (r'I\+', 'ϊ'),
+    (r'I\\\+', 'ῒ'),
+    (r'I/\+', 'ΐ'),
+    # Add a second entry for out-of-order betacode
+    (r'I\+/', 'ΐ'),
+    (r'I=\+', 'ῗ'),
+    (r'U\+', 'ϋ'),
     (r'U\\\+', 'ῢ'),
     (r'U/\+', 'ΰ'),
     (r'U=\+', 'ῧ'),
