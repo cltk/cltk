@@ -14,4 +14,7 @@ SANSKRIT_CORPORA = [
         {'name':'sanskrit_parallel_gitasupersite',
          'location':'remote',
          'type':'parallel'},
+        {'name':'sanskrit_text_gitasupersite',
+         'location':'remote',
+         'type':'text'},
 ]
