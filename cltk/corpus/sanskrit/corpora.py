@@ -17,4 +17,10 @@ SANSKRIT_CORPORA = [
         {'name':'sanskrit_text_gitasupersite',
          'location':'remote',
          'type':'text'},
+        {'name':'sanskrit_text_wikipedia',
+         'location':'remote',
+         'type':'text'},
+        {'name':'sanskrit_text_sanskrit_documents',
+         'location':'remote',
+         'type':'text'},
 ]
