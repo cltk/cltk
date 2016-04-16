@@ -1,10 +1,4 @@
-"""Test cltk.corpus.
-
-TODO: Consider whether to import the very large Word2Vec corpora for Greek and Latin.
-"""
-
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
+"""Test cltk.corpus."""
 
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
@@ -35,9 +29,13 @@ from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
 from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
+
 from unicodedata import normalize
 import os
 import unittest
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
@@ -159,7 +157,7 @@ argenteo polubro, aureo eclutro. """
         """Test Normalizing Text with compatibility True"""
         s1 = 'café'
         s2 = 'cafe\u0301'
-        normalized_text=cltk_normalize(s1,compatibility=True)
+        normalized_text = cltk_normalize(s1,compatibility=True)
         target=normalize('NFKC', s2)
         self.assertEqual(normalized_text ,target)
 
@@ -167,7 +165,7 @@ argenteo polubro, aureo eclutro. """
         """Test Normalizing Text with compatibility False"""
         s1 = 'café'
         s2 = 'cafe\u0301'
-        normalized_text=cltk_normalize(s1,compatibility=False)
+        normalized_text = cltk_normalize(s1,compatibility=False)
         target=normalize('NFC', s2)
         self.assertEqual(normalized_text ,target)
 
