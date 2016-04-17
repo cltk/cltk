@@ -10,7 +10,8 @@ __license__ = 'MIT License. See LICENSE.'
 import re
 
 
-# nota bene: ui is only a diphthong in the exceptional cases below (according to Wheelock's Latin)
+# nota bene: ui is only a diphthong in the exceptional 
+# cases below (according to Wheelock's Latin)
 LATIN = {'diphthongs': ["ae", "au", "ei", "eu", "oe"],
 
          'exceptions': {
@@ -21,7 +22,8 @@ LATIN = {'diphthongs': ["ae", "au", "ei", "eu", "oe"],
              'hui': ["hui"]
          },
 
-         # y is treated as a vowel; not native to Latin but useful for words borrowed from Greek
+         # y is treated as a vowel; not native to Latin but useful 
+         # for words borrowed from Greek
          'vowels': [
              "a", "e", "i", "o", "u",
              "á", "é", "í", "ó", "ú",
@@ -89,9 +91,29 @@ class Syllabifier(object):
 
         return
 
+    def _is_consonant(self, char):
+        """Checks if char is in the list of vowels in the language"""
+        return not char in self.language['vowels']
+
+    def _is_vowel(self, char):
+        """Checks if char is in the list of vowels in the language"""
+        return char in self.language['vowels']
+
+    def _is_diphthong(self, char_1, char_2):
+        """Checks if two sequential characters compose a diphthong"""
+        return char_1 + char_2 in self.language['diphthongs']
+
+    def _is_mute_consonant_or_f(self, char):
+        """Checks if char is in the mute_consonants_and_f list"""
+        return char in self.language['mute_consonants_and_f']
+
+    def _is_liquid_consonant(self, char):
+        """Checks if char is in the mute_consonants_and_f list"""
+        return char in self.language['liquid_consonants']
+
     def syllabify(self, word):
-        """Splits input Latin word into a list of syllables, based on the language
-        syllables loaded for the Syllabifier instance"""
+        """Splits input Latin word into a list of syllables, based on 
+        the language syllables loaded for the Syllabifier instance"""
 
         prefixes = self.language['single_syllable_prefixes']
         prefixes.sort(key=len, reverse=True)
@@ -138,11 +160,11 @@ class Syllabifier(object):
                     if has_prev_char:
                         prev_char = word[i - 1]
 
-                    # 'i' is a special case for a vowel. when i is at the beginning
-                    # of the word (Iesu) or i is between vowels (alleluia),
-                    # then the i is treated as a consonant (y)
-                    # Note: what about compounds like 'adiungere'
-                    if char == 'i' and has_next_char and self._is_vowel(next_char):
+                    # 'i' is a special case for a vowel. when i is at the 
+                    # beginning of the word (Iesu) or i is between 
+                    # vowels (alleluia), then the i is treated as a 
+                    # consonant (y) Note: what about compounds like 'adiungere'
+                    if char == 'i' and has_next_char and self._is_vowel(next_char): 
                         if i == 0:
                             char_is_vowel = False
                         elif self._is_vowel(prev_char):
@@ -150,51 +172,39 @@ class Syllabifier(object):
 
                     # Determine if the syllable is complete
                     if char_is_vowel:
-                        if (
-                                    (  # If the next character's a vowel
-                                       self._is_vowel(
-                                               next_char)  # And it doesn't compose a dipthong with the current character
-                                       and not self._is_diphthong(char,
-                                                                  next_char)  # And the current character isn't preceded by a q, unless followed by a u
-                                       and not (
-                                                           has_prev_char
-                                                       and prev_char == "q"
-                                                   and char == "u"
-                                               and next_char != "u"
-                                       )
 
-                                       )
-                                or (
-                                        # If the next character's a consonant but not a double consonant, unless it's a mute consonant followed by a liquid consonant
-                                        i < word_len - 2
-                                        and (
-                                                        (
-                                                                    (
-                                                                                        has_prev_char
-                                                                                    and prev_char != "q"
-                                                                                and char == "u"
-                                                                            and self._is_vowel(word[i + 2])
-                                                                    )
-                                                                or (
-                                                                                not has_prev_char
-                                                                            and char == "u"
-                                                                        and self._is_vowel(word[i + 2])
-                                                                )
-                                                        )
-                                                    or (
-                                                                        char != "u"
-                                                                and self._is_vowel(word[i + 2])
-                                                            and not self._is_diphthong(char, next_char)
-                                                    )
-                                                or (
-                                                            self._is_mute_consonant_or_f(next_char)
-                                                        and self._is_liquid_consonant(word[i + 2])
-                                                )
-                                        )
+                        # And it doesn't compose a dipthong 
+                        # with the current character
+                        notDipthong = self._is_diphthong(char, next_char)
 
-                                )
-                        ):
-                            syllable_complete = True
+                        # And the current character isn't preceded by a q, 
+                        # unless followed by a u
+                        hasQ = has_prev_char and prev_char == "q"
+
+                        isCharU = char == "u"
+
+                        isVowel = self._is_vowel(word[i + 2])
+
+                        if ((self._is_vowel(next_char) 
+                            and not notDipthong
+                            and not hasQ
+                            and isCharU and next_char != "u") 
+                            or (i < word_len - 2 
+                            and hasQ
+                            and isCharU
+                            and isVowel)
+                            or (not has_prev_char
+                            and isCharU
+                            and isVowel
+                            and not notDipthong)
+                            or (char != "u"
+                            and isVowel
+                            and not notDipthong)
+                            or (self._is_mute_consonant_or_f(next_char)
+                            and self._is_liquid_consonant(word[i + 2]))):
+
+                                syllable_complete = True
+
 
                     # Otherwise, it's a consonant
                     else:
@@ -232,23 +242,3 @@ class Syllabifier(object):
 
         return syllables
 
-
-    def _is_consonant(self, char):
-        """Checks if char is in the list of vowels in the language"""
-        return not char in self.language['vowels']
-
-    def _is_vowel(self, char):
-        """Checks if char is in the list of vowels in the language"""
-        return char in self.language['vowels']
-
-    def _is_diphthong(self, char_1, char_2):
-        """Checks if two sequential characters compose a diphthong"""
-        return char_1 + char_2 in self.language['diphthongs']
-
-    def _is_mute_consonant_or_f(self, char):
-        """Checks if char is in the mute_consonants_and_f list"""
-        return char in self.language['mute_consonants_and_f']
-
-    def _is_liquid_consonant(self, char):
-        """Checks if char is in the mute_consonants_and_f list"""
-        return char in self.language['liquid_consonants']
