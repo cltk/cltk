@@ -185,26 +185,71 @@ class Syllabifier(object):
 
                         isVowel = self._is_vowel(word[i + 2])
 
-                        if ((self._is_vowel(next_char) 
-                            and not notDipthong
-                            and not hasQ
-                            and isCharU and next_char != "u") 
-                            or (i < word_len - 2 
-                            and hasQ
-                            and isCharU
-                            and isVowel)
-                            or (not has_prev_char
-                            and isCharU
-                            and isVowel
-                            and not notDipthong)
-                            or (char != "u"
-                            and isVowel
-                            and not notDipthong)
-                            or (self._is_mute_consonant_or_f(next_char)
-                            and self._is_liquid_consonant(word[i + 2]))):
+                        # if ((self._is_vowel(next_char) 
+                        #     and not notDipthong
+                        #     and not hasQ
+                        #     and isCharU and next_char != "u") 
+                        #     or (i < word_len - 2 
+                        #     and hasQ
+                        #     and isCharU
+                        #     and isVowel)
+                        #     or (not has_prev_char
+                        #     and isCharU
+                        #     and isVowel
+                        #     and not notDipthong)
+                        #     or (char != "u"
+                        #     and isVowel
+                        #     and not notDipthong)
+                        #     or (self._is_mute_consonant_or_f(next_char)
+                        #     and self._is_liquid_consonant(word[i + 2]))):
 
-                                syllable_complete = True
+                        #         syllable_complete = True
 
+                        if (
+                                    (  # If the next character's a vowel
+                                       self._is_vowel(
+                                               next_char)  # And it doesn't compose a dipthong with the current character
+                                       and not self._is_diphthong(char,
+                                                                  next_char)  # And the current character isn't preceded by a q, unless followed by a u
+                                       and not (
+                                                           has_prev_char
+                                                       and prev_char == "q"
+                                                   and char == "u"
+                                               and next_char != "u"
+                                       )
+
+                                       )
+                                or (
+                                        # If the next character's a consonant but not a double consonant, unless it's a mute consonant followed by a liquid consonant
+                                        i < word_len - 2
+                                        and (
+                                                        (
+                                                                    (
+                                                                                        has_prev_char
+                                                                                    and prev_char != "q"
+                                                                                and char == "u"
+                                                                            and self._is_vowel(word[i + 2])
+                                                                    )
+                                                                or (
+                                                                                not has_prev_char
+                                                                            and char == "u"
+                                                                        and self._is_vowel(word[i + 2])
+                                                                )
+                                                        )
+                                                    or (
+                                                                        char != "u"
+                                                                and self._is_vowel(word[i + 2])
+                                                            and not self._is_diphthong(char, next_char)
+                                                    )
+                                                or (
+                                                            self._is_mute_consonant_or_f(next_char)
+                                                        and self._is_liquid_consonant(word[i + 2])
+                                                )
+                                        )
+
+                                )
+                        ):
+                            syllable_complete = True
 
                     # Otherwise, it's a consonant
                     else:
