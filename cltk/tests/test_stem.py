@@ -34,7 +34,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = ['hominum', 'divomque', 'voluptas']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=False)
         target = ['homo', 'divus', 'voluptas']
         self.assertEqual(lemmatized, target)
 
@@ -43,7 +43,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = ['hominum', 'divomque', 'voluptas']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=False)
         target = ['hominum/homo', 'divomque/divus', 'voluptas/voluptas']
         self.assertEqual(lemmatized, target)
 
@@ -52,7 +52,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = ['hominum', 'divomque', 'voluptas']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=True)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
 
@@ -61,7 +61,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = ['hominum', 'divomque', 'voluptas']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=True)
         target = 'hominum/homo divomque/divus voluptas/voluptas'
         self.assertEqual(lemmatized, target)
 
@@ -70,7 +70,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = 'hominum divomque voluptas'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=False)
         target = ['homo', 'divus', 'voluptas']
         self.assertEqual(lemmatized, target)
 
@@ -79,7 +79,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = 'hominum divomque voluptas'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=False)
         target = ['hominum/homo', 'divomque/divus', 'voluptas/voluptas']
         self.assertEqual(lemmatized, target)
 
@@ -88,7 +88,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = 'hominum divomque voluptas'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=True)
         target = 'homo divus voluptas'
         self.assertEqual(lemmatized, target)
 
@@ -97,7 +97,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('latin')
         unlemmatized = 'hominum divomque voluptas'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=True)
         target = 'hominum/homo divomque/divus voluptas/voluptas'
         self.assertEqual(lemmatized, target)
 
@@ -106,7 +106,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=False)
         target = ['τὴν', 'διάγνωσις', 'ἔρχομαι']
         self.assertEqual(lemmatized, target)
 
@@ -115,7 +115,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=False)
         target = ['τὴν/τὴν', 'διάγνωσιν/διάγνωσις', 'ἔρχεσθαι/ἔρχομαι']
         self.assertEqual(lemmatized, target)
 
@@ -124,7 +124,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=True)
         target = 'τὴν διάγνωσις ἔρχομαι'
         self.assertEqual(lemmatized, target)
 
@@ -133,7 +133,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = ['τὴν', 'διάγνωσιν', 'ἔρχεσθαι']
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=True)
         target = 'τὴν/τὴν διάγνωσιν/διάγνωσις ἔρχεσθαι/ἔρχομαι'
         self.assertEqual(lemmatized, target)
 
@@ -142,7 +142,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=False)
         target = ['τὴν', 'διάγνωσις', 'ἔρχομαι']
         self.assertEqual(lemmatized, target)
 
@@ -151,7 +151,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=False)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=False)
         target = ['τὴν/τὴν', 'διάγνωσιν/διάγνωσις', 'ἔρχεσθαι/ἔρχομαι']
         self.assertEqual(lemmatized, target)
 
@@ -160,7 +160,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=False, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=False, return_string=True)
         target = 'τὴν διάγνωσις ἔρχομαι'
         self.assertEqual(lemmatized, target)
 
@@ -169,7 +169,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         replacer = LemmaReplacer('greek')
         unlemmatized = 'τὴν διάγνωσιν ἔρχεσθαι'
-        lemmatized = replacer.lemmatize(unlemmatized, return_lemma=True, return_string=True)
+        lemmatized = replacer.lemmatize(unlemmatized, return_raw=True, return_string=True)
         target = 'τὴν/τὴν διάγνωσιν/διάγνωσις ἔρχεσθαι/ἔρχομαι'
         self.assertEqual(lemmatized, target)
 

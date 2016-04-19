@@ -126,11 +126,11 @@ And here taking a list:
    In [5]: lemmatizer.lemmatize(['χρόνου', 'πλῆθος', 'ἀδύνατα', 'ἦν'])
    Out[5]: ['χρόνος', 'πλῆθος', 'ἀδύνατος', 'εἰμί']
 
-The lemmatizer takes several optional arguments for controlling output: ``return_lemma=True`` and ``return_string=True``. ``return_lemma`` returns the original inflection along with its headword:
+The lemmatizer takes several optional arguments for controlling output: ``return_raw=True`` and ``return_string=True``. ``return_raw`` returns the original inflection along with its headword:
 
 .. code-block:: python
 
-   In [6]: lemmatizer.lemmatize(['χρόνου', 'πλῆθος', 'ἀδύνατα', 'ἦν'], return_lemma=True)
+   In [6]: lemmatizer.lemmatize(['χρόνου', 'πλῆθος', 'ἀδύνατα', 'ἦν'], return_raw=True)
    Out[6]: ['χρόνου/χρόνος', 'πλῆθος/πλῆθος', 'ἀδύνατα/ἀδύνατος', 'ἦν/εἰμί']
 
 And ``return string`` wraps the list in ``' '.join()``:
