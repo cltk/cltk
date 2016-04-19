@@ -19,6 +19,7 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.c
 
 ITrans Transliterator
 =====================
+
 This tool has been derived from the `IndicNLP Project <https://github.com/anoopkunchukuttan/indic_nlp_library>` courtesy of `anoopkunchukuttan <https://github.com/anoopkunchukuttan/>`
 This tool is made for transliterating Itrans text to Devanagari(Unicode) script.
 Also, it can romanize Devanagari script.
@@ -26,6 +27,7 @@ Also, it can romanize Devanagari script.
 ------------------
  Script Conversion
 ------------------
+
 Convert from one Indic script to another. This is a simple script which exploits the fact that Unicode points of various Indic scripts are at corresponding offsets from the base codepoint for that script.more.
 
 .. code-block:: python
