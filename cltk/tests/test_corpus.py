@@ -29,6 +29,9 @@ from cltk.corpus.utils.formatter import remove_non_ascii
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
 from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
+from cltk.corpus.sanskrit.itrans.itrans_transliterator import *
+from cltk.corpus.sanskrit.itrans.unicode_transliterate import *
+from cltk.corpus.sanskrit.itrans.langinfo import *
 
 from unicodedata import normalize
 import os
@@ -481,6 +484,109 @@ argenteo polubro, aureo eclutro. """
         _dict = {'stop_raw': '1 B.C.?', 'start_raw': '2 B.C.?',\
                  'stop_epoch': 'bc', 'start_epoch': 'bc'}
         self.assertEqual(_handle_splits('2/1 B.C.?'), _dict)
+
+
+class TestUnicode(unittest.TestCase):
+    "Test py23char"
+    def test_py23char(self):
+        try:
+            self.assertEqual(py23char(0x92D),'भ'.decode('utf-8'))
+            self.assertFalse(py23char(0x93D)=='भ'.decode('utf-8'))
+        except:
+            self.assertEqual(py23char(0x92D),'भ')
+            self.assertFalse(py23char(0x93D)=='भ')
+
+class TestTransliteration(unittest.TestCase):
+    "Test the transliteration in corpus.sanskrit"
+    def test_Indicization(self): # Test ItransTransliterator - Convert from Itrans to Devanagari
+        x=ItransTransliterator.from_itrans('pitL^In','hi')
+        y=ItransTransliterator.from_itrans('yogazcittavRttinirodhaH','hi')
+        self.assertEqual(x,'पितॣन्')
+        self.assertEqual(y,'योगश्चित्तव्ऱ्त्तिनिरोधः')
+
+    def test_ScriptConversion(self): # Test UnicodeIndicTransliterator - Convert between various scripts
+        x = UnicodeIndicTransliterator.transliterate(u'राजस्थान',"hi","pa")
+        self.assertEqual(x,'ਰਾਜਸ੍ਥਾਨ')
+
+    def test_Romanization(self):
+        x = ItransTransliterator.to_itrans('राजस्थान','hi')
+        self.assertTrue(x=='rAjasthAna' or x=='raajasthaana')
+
+
+class TestScriptInformation(unittest.TestCase):
+
+    def test_IsVowel(self):
+        self.assertFalse(is_vowel('क','hi'))
+        self.assertTrue(is_vowel('अ','hi'))
+
+    def test_IsConsonant(self):
+        self.assertTrue(is_consonant('क','hi'))
+        self.assertFalse(is_consonant('अ','hi'))
+
+    def test_IsVelar(self):
+        self.assertTrue(is_velar('क','hi'))
+        self.assertFalse(is_velar('अ','hi'))
+
+    def test_IsPalatal(self):
+        self.assertTrue(is_palatal('च','hi'))
+        self.assertFalse(is_palatal('त','hi'))
+
+    def test_IsAspirated(self):
+        self.assertTrue(is_aspirated('छ','hi'))
+        self.assertFalse(is_aspirated('क','hi'))
+
+    def test_IsUnvoiced(self):
+        self.assertTrue(is_unvoiced('ट','hi'))
+        self.assertFalse(is_unvoiced('ग','hi'))
+
+    def test_IsNasal(self):
+        self.assertTrue(is_nasal('ण','hi'))
+        self.assertFalse(is_nasal('ड','hi'))
+
+    def test_IsVowelSign(self):
+        self.assertTrue(is_vowel_sign('ा','hi'))
+
+    def test_IsNukta(self):
+        self.assertTrue(is_nukta('़','hi'))
+
+    def test_IsAum(self):
+        self.assertTrue(is_aum('ॐ','hi'))
+
+    def test_IsHalanta(self):
+        self.assertTrue(is_halanta('्','hi'))
+
+    def test_IsRetroflex(self):
+        self.assertTrue(is_retroflex('ट','hi'))
+    
+    def test_IsDental(self):
+        self.assertTrue(is_dental('त','hi'))
+
+    def test_IsLabial(self):
+        self.assertTrue(is_labial('प','hi'))
+
+    def test_IsVoiced(self):
+        self.assertTrue(is_voiced('ग','hi'))
+
+    def test_IsUnAspirated(self):
+        self.assertTrue(is_unaspirated('ज','hi'))
+
+    def test_IsFricative(self):
+        self.assertTrue(is_fricative('श','hi'))
+
+    def test_IsApproximant(self):
+        self.assertTrue(is_approximant('य','hi'))
+
+    def test_IsNumber(self):
+        self.assertTrue(is_number('२','hi'))
+
+    def test_offset_to_char(self):
+        self.assertEqual(offset_to_char(0x021,'hi'),'ड')
+
+    def test_in_coordinated_range(self):
+    	self.assertTrue(in_coordinated_range(0x6e))
+
+    def test_is_indiclang_char(self):
+    	self.assertTrue(is_indiclang_char('क','hi'))
 
 if __name__ == '__main__':
     unittest.main()
