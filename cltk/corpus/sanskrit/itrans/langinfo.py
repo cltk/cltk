@@ -87,7 +87,7 @@ def offset_to_char(c,lang):
     """
     Applicable to Brahmi derived Indic scripts 
     """
-    return unichr(c+SCRIPT_RANGES[lang][0])
+    return chr(c+SCRIPT_RANGES[lang][0])
 
 def in_coordinated_range(c_offset): 
     """
