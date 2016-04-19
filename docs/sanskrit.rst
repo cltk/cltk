@@ -18,12 +18,11 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.c
 'sanskrit_text_wikipedia','sanskrit_text_sanskrit_documents']
 
 
-ITrans Transliterator
+Transliterator
 =====================
 
 This tool has been derived from the `IndicNLP Project <https://github.com/anoopkunchukuttan/indic_nlp_library>`_ courtesy of `anoopkunchukuttan <https://github.com/anoopkunchukuttan/>`_
-This tool is made for transliterating Itrans text to Devanagari(Unicode) script.
-Also, it can romanize Devanagari script.
+This tool is made for transliterating Itrans text to Devanagari(Unicode) script. Also, it can romanize Devanagari script.
 
 
 ------------------
