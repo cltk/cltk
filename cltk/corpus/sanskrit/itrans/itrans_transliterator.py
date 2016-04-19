@@ -146,11 +146,7 @@ def _unrecognised(achr):
         raise KeyError(achr)
 
 def py23char(x):
-    try:
-        m = unichr(x)
-        return m
-    except:
-        return chr(x)
+    return chr(x)
  
 class TLCharacter (object):
     """ Class representing a Unicode character with its equivalents.
