@@ -119,11 +119,11 @@ And here taking a list:
    In [9]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'])
    Out[9]: ['qui1', 'terra', 'frugiferens', 'concelebro']
 
-The lemmatizer takes several optional arguments for controlling output: ``return_lemma=True`` and ``return_string=True``. ``return_lemma`` returns the original inflection along with its headword:
+The lemmatizer takes several optional arguments for controlling output: ``return_raw=True`` and ``return_string=True``. ``return_raw`` returns the original inflection along with its headword:
 
 .. code-block:: python
 
-   In [10]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'], return_lemma=True)
+   In [10]: lemmatizer.lemmatize(['quae', 'terras', 'frugiferentis', 'concelebras'], return_raw=True)
    Out[10]:
    ['quae/qui1',
     'terras/terra',

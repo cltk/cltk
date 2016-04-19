@@ -44,7 +44,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         lemmata = module.LEMMATA
         return lemmata
 
-    def lemmatize(self, input_text, return_lemma=False, return_string=False):
+    def lemmatize(self, input_text, return_raw=False, return_string=False):
         """Take incoming string or list of tokens. Lookup done against a
         key-value list of lemmata-headword. If a string, tokenize with
         ``PunktLanguageVars()``. If a final period appears on a token, remove
@@ -76,7 +76,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                     headword += '.'
 
                 # append to return list
-                if not return_lemma:
+                if not return_raw:
                     lemmatized_tokens.append(headword)
                 else:
                     lemmatized_tokens.append(token + '/' + headword)
@@ -86,7 +86,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                 if final_period:
                     token += '.'
 
-                if not return_lemma:
+                if not return_raw:
                     lemmatized_tokens.append(token)
                 else:
                     lemmatized_tokens.append(token + '/' + token)
@@ -103,5 +103,5 @@ if __name__ == '__main__':
     #STRING = 'hominum divomque voluptas'
     #EX_TOKENS = PUNKT.word_tokenize(UMLEMMATIZED)
     UMLEMMATIZED = ['τὴν', 'διάγνωσιν', 'αὐτῶν', 'ἔρχεσθαι']
-    LEMMATIZED = REPLACER.lemmatize(UMLEMMATIZED, return_lemma=False, return_string=True)
+    LEMMATIZED = REPLACER.lemmatize(UMLEMMATIZED, return_raw=False, return_string=True)
     print(LEMMATIZED)
