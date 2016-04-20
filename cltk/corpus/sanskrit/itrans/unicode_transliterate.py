@@ -39,10 +39,7 @@ else:
 
 
 def py23char(x):
-	try:
-		return unichr(x)
-	except:
-		return chr(x)
+    return chr(x)
 
 class UnicodeIndicTransliterator(object):
     """
