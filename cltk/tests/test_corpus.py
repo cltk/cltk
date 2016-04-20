@@ -32,6 +32,7 @@ from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
 from cltk.corpus.sanskrit.itrans.itrans_transliterator import *
 from cltk.corpus.sanskrit.itrans.unicode_transliterate import *
 from cltk.corpus.sanskrit.itrans.langinfo import *
+from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagariTransliterator  as sdt
 
 from unicodedata import normalize
 import os
@@ -489,29 +490,44 @@ argenteo polubro, aureo eclutro. """
 class TestUnicode(unittest.TestCase):
     "Test py23char"
     def test_py23char(self):
-        try:
-            self.assertEqual(py23char(0x92D),'भ'.decode('utf-8'))
-            self.assertFalse(py23char(0x93D)=='भ'.decode('utf-8'))
-        except:
-            self.assertEqual(py23char(0x92D),'भ')
-            self.assertFalse(py23char(0x93D)=='भ')
+        self.assertEqual(py23char(0x92D),'भ')
+        self.assertFalse(py23char(0x93D)=='भ')
 
 class TestTransliteration(unittest.TestCase):
     "Test the transliteration in corpus.sanskrit"
     def test_Indicization(self): # Test ItransTransliterator - Convert from Itrans to Devanagari
         x=ItransTransliterator.from_itrans('pitL^In','hi')
         y=ItransTransliterator.from_itrans('yogazcittavRttinirodhaH','hi')
+        z=ItransTransliterator.from_itrans('yogazcittavRttinirodhaH','badVar')
         self.assertEqual(x,'पितॣन्')
         self.assertEqual(y,'योगश्चित्तव्ऱ्त्तिनिरोधः')
+        self.assertEqual(z,'yogazcittavRttinirodhaH')
 
     def test_ScriptConversion(self): # Test UnicodeIndicTransliterator - Convert between various scripts
-        x = UnicodeIndicTransliterator.transliterate(u'राजस्थान',"hi","pa")
+        x = UnicodeIndicTransliterator.transliterate('राजस्थान',"hi","pa")
         self.assertEqual(x,'ਰਾਜਸ੍ਥਾਨ')
+        y = UnicodeIndicTransliterator.transliterate('සිංහල අක්ෂර මාලාව',"si","hi")
+        self.assertEqual(y,'सिंहल अक्षर मालाव')
+        z = UnicodeIndicTransliterator.transliterate('सिंहल अक्षर मालाव',"hi","si")
+        self.assertEqual(z,'සිංහල අක්ෂර මාලාව')
+        t = UnicodeIndicTransliterator.transliterate('தமிழ் அரிச்சுவடி','ta','hi')
+        self.assertEqual(t,'तमिऴ् अरिच्चुवटि')
+        h = UnicodeIndicTransliterator.transliterate('तमिऴ् अरिच्चुवटि','hi','ta')
+        self.assertEqual(h,'தமிழ் அரிச்சுவடி')
 
     def test_Romanization(self):
         x = ItransTransliterator.to_itrans('राजस्थान','hi')
         self.assertTrue(x=='rAjasthAna' or x=='raajasthaana')
+        x = ItransTransliterator.to_itrans('राजस्थान','asdasd')
+        self.assertEqual(x,'राजस्थान')
+        ml = ItransTransliterator.to_itrans('മല','ml')
+        self.assertEqual(ml,'mala')
 
+    def test_SinhalaDevanagariTransliterator(self):
+        sin = sdt.devanagari_to_sinhala('राजस्थान')
+        self.assertEqual(sin,'රාජස්ථාන')
+        dev = sdt.sinhala_to_devanagari('රාජස්ථාන')
+        self.assertEqual(dev,'राजस्थान')
 
 class TestScriptInformation(unittest.TestCase):
 
