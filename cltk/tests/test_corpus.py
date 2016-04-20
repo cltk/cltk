@@ -490,12 +490,8 @@ argenteo polubro, aureo eclutro. """
 class TestUnicode(unittest.TestCase):
     "Test py23char"
     def test_py23char(self):
-        try:
-            self.assertEqual(py23char(0x92D),'भ'.decode('utf-8'))
-            self.assertFalse(py23char(0x93D)=='भ'.decode('utf-8'))
-        except:
-            self.assertEqual(py23char(0x92D),'भ')
-            self.assertFalse(py23char(0x93D)=='भ')
+        self.assertEqual(py23char(0x92D),'भ')
+        self.assertFalse(py23char(0x93D)=='भ')
 
 class TestTransliteration(unittest.TestCase):
     "Test the transliteration in corpus.sanskrit"
