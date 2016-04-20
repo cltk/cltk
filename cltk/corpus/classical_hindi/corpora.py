@@ -7,5 +7,5 @@ CLASSICAL_HINDI_CORPORA = [
     {'encoding': 'utf-8',
      'location': 'remote',
      'type': 'text',
-     'name': 'classical_hindi_text_ltrc'}
+     'name': 'hindi_text_ltrc'}
 ]
