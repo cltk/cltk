@@ -205,7 +205,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                 specific_tokens.append(generic_token)
         return specific_tokens
 
-def nltk_tokenize_words(string, attached_period=False):
+def nltk_tokenize_words(string, attached_period=False, language=None):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
     its own token.
     >>> nltk_punkt("Sentence 1. Sentence 2.")
@@ -221,15 +221,21 @@ def nltk_tokenize_words(string, attached_period=False):
     object. Maybe integrate with WordTokenizer.
     """
     assert isinstance(string, str), "Incoming string must be type str."
+    if language=='sanskrit': 
+    	period = ('.', '।','॥')
+    else:
+        period = ('.')
     punkt = PunktLanguageVars()
     tokens = punkt.word_tokenize(string)
     if attached_period:
         return tokens
     new_tokens = []
     for word in tokens:
-        if word.endswith('.'):
-            new_tokens.append(word[:-1])
-            new_tokens.append('.')
+        for char in period:
+            if word.endswith(char):
+                new_tokens.append(word[:-1])
+                new_tokens.append(char)
+                break
         else:
             new_tokens.append(word)
     return new_tokens

@@ -106,11 +106,22 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ['Sentence', '1.', 'Sentence', '2.']
         self.assertEqual(tokens, target)
 
+    def test_sanskrit_nltk_tokenize_words(self):
+        """Test wrapper for NLTK's PunktLanguageVars()"""
+        tokens = nltk_tokenize_words("कृपया।", attached_period=False, language='sanskrit')
+        target = ['कृपया', '।']
+        self.assertEqual(tokens, target)
+
+    def test_sanskrit_nltk_tokenize_words_attached(self):
+        """Test wrapper for NLTK's PunktLanguageVars(), returning unaltered output."""
+        tokens = nltk_tokenize_words("कृपया।", attached_period=True, language='sanskrit')
+        target = ['कृपया।']
+        self.assertEqual(tokens, target)
+
     def test_nltk_tokenize_words_assert(self):
         """Test assert error for CLTK's word tokenizer."""
         with self.assertRaises(AssertionError):
             nltk_tokenize_words(['Sentence', '1.'])
-
 
 if __name__ == '__main__':
     unittest.main()
