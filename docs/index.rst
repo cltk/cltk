@@ -22,5 +22,6 @@ Contents
    multilingual
    pali
    sanskrit
+   telugu
    tibetan
 
