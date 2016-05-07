@@ -126,6 +126,11 @@ def get_works_by_author(_id):
   """Pass author id and return a dictionary of its works."""
     return WORK_NUMBERS[_id]
     
+# Check id
+def check_author_id(_id):
+  """Pass author id and return a string with the author label"""
+  return ID_AUTHOR[_id]
+    
 # Dates
 def get_date_author():
     """Returns entirety of date-author index."""
