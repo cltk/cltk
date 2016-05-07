@@ -7,6 +7,7 @@ from cltk.corpus.greek.tlg.author_female import AUTHOR_FEMALE
 from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
 from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
 from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
+from cltk.corpus.greek.tlg.work_numbers import WORK_NUMBERS
 import regex
 import os
 import json
@@ -120,7 +121,11 @@ def open_json(_file):
     with open(_file) as f:
         return json.load(f)
 
-
+# Work numbers
+def get_works_by_author(_id):
+  """Pass author id and return a dictionary of its works."""
+    return WORK_NUMBERS[_id]
+    
 # Dates
 def get_date_author():
     """Returns entirety of date-author index."""
