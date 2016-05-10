@@ -124,7 +124,7 @@ def open_json(_file):
 # Work numbers
 def get_works_by_author(_id):
   """Pass author id and return a dictionary of its works."""
-    return WORK_NUMBERS[_id]
+  return WORK_NUMBERS[_id]
     
 # Check id
 def check_author_id(_id):
