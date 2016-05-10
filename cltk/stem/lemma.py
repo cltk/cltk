@@ -26,17 +26,19 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
     def _load_replacement_patterns(self):
         """Check for availability of lemmatizer for a language."""
         if self.language == 'latin':
-            rel_path = os.path.join('~/cltk_data',
+            rel_path = os.path.join('~','cltk_data',
                                     self.language,
-                                    'model/latin_models_cltk/lemmata/latin_lemmata_cltk.py')  # pylint: disable=line-too-long
+                                    'model','latin_models_cltk',
+                                    'lemmata','latin_lemmata_cltk.py')
             path = os.path.expanduser(rel_path)
             #logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('latin_lemmata_cltk', path)
 
         elif self.language == 'greek':
-            rel_path = os.path.join('~/cltk_data',
+            rel_path = os.path.join('~','cltk_data',
                                     self.language,
-                                    'model/greek_models_cltk/lemmata/greek_lemmata_cltk.py')  # pylint: disable=line-too-long
+                                    'model','greek_models_cltk',
+                                    'lemmata','greek_lemmata_cltk.py')
             path = os.path.expanduser(rel_path)
             #logger.info('Loading lemmata. This may take a minute.')
             loader = importlib.machinery.SourceFileLoader('greek_lemmata_cltk', path)
