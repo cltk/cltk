@@ -34,6 +34,31 @@ TLG_PHI_REPLACEMENTS = {
     'underscore': '_',
 }
 
+# see issue #273
+PSILI_TONOS = {
+    "Ἀ" : "Ά",    
+    "Ἐ" : "Έ",
+    "Ἠ" : "Ή",
+    "Ἰ" : "Ί",
+    "Ὀ" : "Ό", # there is no capital upsilon WITH PSILI
+    "Ὠ" : "Ώ",
+    "ἀ" : "ά",
+    "ἐ" : "έ",
+    "ἠ" : "ή",
+    "ἰ" : "ί",
+    "ὀ" : "ό",
+    "ὐ" : "ύ",
+    "ὠ" : "ώ"
+}
+
+def psili_converter(text, reverse = False):
+    """ Replaces WITH PSILI --> WITH TONOS. reverse = True for WITH TONOS --> WITH PSILI """
+    for p, t in PSILI_TONOS.items():
+        if not reverse:        
+            text = text.replace(p, t)
+        else:
+            text = text.replace(t, p)
+    return text
 
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
