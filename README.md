@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![Coverage Status](https://coveralls.io/repos/github/cltk/cltk/badge.svg?branch=master)](https://coveralls.io/github/cltk/cltk?branch=master) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/ac803b087b1543e190dc31224dd7f4bf/badge.svg)](https://www.quantifiedcode.com/app/project/ac803b087b1543e190dc31224dd7f4bf)
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.44555.svg)](http://dx.doi.org/10.5281/zenodo.44555)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.51144.svg)](http://dx.doi.org/10.5281/zenodo.51144)
 
 <a href="https://zenhub.io"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
 
@@ -35,7 +35,7 @@ $ pip install cltk
 
 See docs for [complete installation instructions](http://docs.cltk.org/en/latest/installation.html).
 
-The [CLTK organization curates corpora](https://github.com/cltk) which can download directly or, better, [imported by the toolkit](http://docs.cltk.org/en/latest/importing_corpora.html).
+The [CLTK organization curates corpora](https://github.com/cltk) which can be downloaded directly or, better, [imported by the toolkit](http://docs.cltk.org/en/latest/importing_corpora.html).
 
 
 ## Contributing
@@ -63,9 +63,18 @@ year = {2014--2016},
 }
 ```
 
+
 [Many contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. For scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
+
+
+# Gratitude
+
+We are thankful for the following organizations that have offered support:
+
+* Google Summer of Code (sponsoring two students, 2016)
+* JetBrains (licenses for PyCharm and WebStorm)
 
 
 ## License
 
-The CLTK is Copyright (c) 2016 Kyle P. Johnson, under the MIT License. See '[LICENSE](https://github.com/cltk/cltk/blob/master/LICENSE)' for details.
+The CLTK is Copyright (c) 2016 Kyle P. Johnson, under the MIT License. See [LICENSE](https://github.com/cltk/cltk/blob/master/LICENSE) for details.
