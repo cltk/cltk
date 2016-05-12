@@ -122,14 +122,14 @@ def open_json(_file):
         return json.load(f)
 
 # Work numbers
-def get_works_by_author(_id):
-  """Pass author id and return a dictionary of its works."""
-  return WORK_NUMBERS[_id]
+def get_works_by_id(_id):
+    """Pass author id and return a dictionary of its works."""
+    return WORK_NUMBERS[_id]
     
 # Check id
-def check_author_id(_id):
-  """Pass author id and return a string with the author label"""
-  return ID_AUTHOR[_id]
+def check_id(_id):
+    """Pass author id and return a string with the author label"""
+    return ID_AUTHOR[_id]
     
 # Dates
 def get_date_author():

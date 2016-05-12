@@ -34,26 +34,20 @@ TLG_PHI_REPLACEMENTS = {
     'underscore': '_',
 }
 
-# see issue #273
-PSILI_TONOS = {
-    "Ἀ" : "Ά",    
-    "Ἐ" : "Έ",
-    "Ἠ" : "Ή",
-    "Ἰ" : "Ί",
-    "Ὀ" : "Ό", # there is no capital upsilon WITH PSILI
-    "Ὠ" : "Ώ",
-    "ἀ" : "ά",
-    "ἐ" : "έ",
-    "ἠ" : "ή",
-    "ἰ" : "ί",
-    "ὀ" : "ό",
-    "ὐ" : "ύ",
-    "ὠ" : "ώ"
+
+OXIA_TONOS = {
+    "ά" : "ά",    
+    "έ" : "έ",
+    "ή" : "ή",
+    "ί" : "ί",
+    "ό" : "ό",
+    "ύ" : "ύ",
+    "ώ" : "ώ",
 }
 
-def psili_converter(text, reverse = False):
-    """ Replaces WITH PSILI --> WITH TONOS. reverse = True for WITH TONOS --> WITH PSILI """
-    for p, t in PSILI_TONOS.items():
+def oxia_converter(text, reverse = False):
+    """Converts some characters causing lemmatizer and PoS issues"""
+    for p, t in OXIA_TONOS.items():
         if not reverse:        
             text = text.replace(p, t)
         else:
