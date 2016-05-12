@@ -28,7 +28,7 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
-from cltk.corpus.utils.formatter import oxia_conversion
+from cltk.corpus.utils.formatter import oxia_converter
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
 from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
