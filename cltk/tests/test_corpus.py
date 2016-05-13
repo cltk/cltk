@@ -13,6 +13,8 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import get_geo_of_author
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_lists
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_id_author
 from cltk.corpus.greek.tlg.parse_tlg_indices import select_id_by_name
+from cltk.corpus.greek.tlg.parse_tlg_indices import get_works_by_id
+from cltk.corpus.greek.tlg.parse_tlg_indices import check_id
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_author
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_dates
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_date_of_author
@@ -26,6 +28,7 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
+from cltk.corpus.utils.formatter import oxia_converter
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
 from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
@@ -204,6 +207,13 @@ argenteo polubro, aureo eclutro. """
         corpus_importer = CorpusImporter('latin')
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
+
+    def test_oxia_converter(self):
+        """Test converting greek characters causing issues with tagging and lemmatization"""
+        oxia_str = "Ὁμοίως δὲ καὶ τὰ ἐκ τούτων τῶν παθημάτων γινόμενα"
+        tonos_str = oxia_converter(oxia_str)
+        valid = "Ὁμοίως δὲ καὶ τὰ ἐκ τούτων τῶν παθημάτων γινόμενα"
+        self.assertEqual(tonos_str, valid)       
 
     def test_remove_non_ascii(self):
         """Test removing all non-ascii characters from a string."""
@@ -430,6 +440,17 @@ argenteo polubro, aureo eclutro. """
         """Test select_id_by_name()."""
         matches = select_id_by_name('hom')
         self.assertEqual(len(matches), 11)
+
+    def test_get_works_by_id(self):
+        """Test get_works_by_id()."""
+        works = get_works_by_id("0007")
+        self.assertEqual(len(works), 147)
+
+    def test_check_id(self):
+        """Test check_id"""
+        author = check_id("0557")
+        valid = "Epictetus Phil."
+        self.assertEqual(author, valid)
 
     def test_get_date_author(self):
         """Test get_date_author()."""

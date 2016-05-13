@@ -35,6 +35,25 @@ TLG_PHI_REPLACEMENTS = {
 }
 
 
+OXIA_TONOS = {
+    "ά" : "ά",    
+    "έ" : "έ",
+    "ή" : "ή",
+    "ί" : "ί",
+    "ό" : "ό",
+    "ύ" : "ύ",
+    "ώ" : "ώ",
+}
+
+def oxia_converter(text, reverse = False):
+    """Converts some characters causing lemmatizer and PoS issues"""
+    for p, t in OXIA_TONOS.items():
+        if not reverse:        
+            text = text.replace(p, t)
+        else:
+            text = text.replace(t, p)
+    return text
+
 def remove_non_ascii(input_string):
     """remove non-ascii: http://stackoverflow.com/a/1342373"""
     no_ascii = "".join(i for i in input_string if ord(i) < 128)
