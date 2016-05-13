@@ -1,12 +1,16 @@
 """Tag part of speech (POS) using CLTK taggers."""
 
+import os
+
+from nltk.tag import CRFTagger
+from nltk.tokenize import wordpunct_tokenize
+
+from cltk.utils.file_operations import open_pickle
+
+
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-
-from cltk.utils.file_operations import open_pickle
-from nltk.tokenize import wordpunct_tokenize
-import os
 
 
 TAGGERS = {'greek':
@@ -15,6 +19,7 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
+                'crf': 'crf.pickle',
                },
            'latin':
                {'unigram': 'unigram.pickle',
@@ -22,7 +27,7 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
-               }}
+                'crf': 'crf.pickle',}}
 
 
 class POSTag():
@@ -33,7 +38,7 @@ class POSTag():
         self.language = language
         self.available_taggers = self._setup_language_variables(self.language)
 
-    def _setup_language_variables(self, lang: str):
+    def _setup_language_variables(self, lang: str):  # pylint: disable=no-self-use
         """Check for language availability and presence of tagger files.
         :param lang: The language argument given to the class.
         :type lang: str
@@ -110,5 +115,18 @@ class POSTag():
         untagged_tokens = wordpunct_tokenize(untagged_string)
         pickle_path = self.available_taggers['tnt']
         tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
+
+    def tag_crf(self, untagged_string: str):
+        """Tag POS with CRF tagger.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['crf']
+        tagger = CRFTagger()
+        tagger.set_model_file(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text

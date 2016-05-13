@@ -278,8 +278,8 @@ These taggers were built with the assistance of the NLTK. The backoff tagger is 
 
    In [2]: tagger = POSTag('latin')
 
-   In [6]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
-   Out[6]:
+   In [3]: tagger.tag_ngram_123_backoff('Gallia est omnis divisa in partes tres')
+   Out[3]:
    [('Gallia', None),
     ('est', 'V3SPIA---'),
     ('omnis', 'A-S---MN-'),
@@ -294,12 +294,32 @@ TnT tagger
 ``````````
 .. code-block:: python
 
-   In [7]: tagger.tag_tnt('Gallia est omnis divisa in partes tres')
-   Out[7]:
+   In [4]: tagger.tag_tnt('Gallia est omnis divisa in partes tres')
+   Out[4]:
    [('Gallia', 'Unk'),
     ('est', 'V3SPIA---'),
     ('omnis', 'N-S---MN-'),
     ('divisa', 'T-SRPPFN-'),
+    ('in', 'R--------'),
+    ('partes', 'N-P---FA-'),
+    ('tres', 'M--------')]
+
+
+CRF tagger
+``````````
+
+.. warning:: This tagger's accuracy has not yet been tested.
+
+We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://www.nltk.org/_modules/nltk/tag/crf.html>`_.
+
+.. code-block:: python
+
+   In [5]: tagger.tag_crf('Gallia est omnis divisa in partes tres')
+   Out[5]:
+   [('Gallia', 'A-P---NA-'),
+    ('est', 'V3SPIA---'),
+    ('omnis', 'A-S---FN-'),
+    ('divisa', 'N-S---FN-'),
     ('in', 'R--------'),
     ('partes', 'N-P---FA-'),
     ('tres', 'M--------')]

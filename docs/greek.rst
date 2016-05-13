@@ -216,6 +216,29 @@ TnT tagger
     ('μῆκος', 'N-S---NA-')]
 
 
+CRF tagger
+``````````
+
+.. warning:: This tagger's accuracy has not yet been tested.
+
+We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://www.nltk.org/_modules/nltk/tag/crf.html>`_.
+
+.. code-block:: python
+
+   In [5]: tagger.tag_crf('θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων φρουρᾶς ἐτείας μῆκος')
+   Out[5]:
+   [('θεοὺς', 'N-P---MA-'),
+    ('μὲν', 'G--------'),
+    ('αἰτῶ', 'V1SPIA---'),
+    ('τῶνδ', 'P-P---NG-'),
+    ('᾽', 'A-S---FA-'),
+    ('ἀπαλλαγὴν', 'N-S---FA-'),
+    ('πόνων', 'N-P---MG-'),
+    ('φρουρᾶς', 'A-S---FG-'),
+    ('ἐτείας', 'N-S---FG-'),
+    ('μῆκος', 'N-S---NA-')]
+
+
 Prosody Scanning
 ================
 There is a prosody scanner for scanning rhythms in Greek texts. It returns a list of strings or long and short marks for each sentence. Note that the last syllable of each sentence string is marked with an anceps so that specific clausulae are dileneated.
