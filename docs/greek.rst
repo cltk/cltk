@@ -218,6 +218,9 @@ TnT tagger
 
 CRF tagger
 ``````````
+
+.. warning:: This tagger's accuracy has not yet been tested.
+
 We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://www.nltk.org/_modules/nltk/tag/crf.html>`_.
 
 .. code-block:: python

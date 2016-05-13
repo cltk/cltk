@@ -1,15 +1,16 @@
 """Tag part of speech (POS) using CLTK taggers."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
-
-
-from cltk.utils.file_operations import open_pickle
-
 import os
 
 from nltk.tag import CRFTagger
 from nltk.tokenize import wordpunct_tokenize
+
+from cltk.utils.file_operations import open_pickle
+
+
+__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 
 
 TAGGERS = {'greek':
@@ -26,7 +27,7 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
-               }}
+                'crf': 'crf.pickle',}}
 
 
 class POSTag():
@@ -37,7 +38,7 @@ class POSTag():
         self.language = language
         self.available_taggers = self._setup_language_variables(self.language)
 
-    def _setup_language_variables(self, lang: str):
+    def _setup_language_variables(self, lang: str):  # pylint: disable=no-self-use
         """Check for language availability and presence of tagger files.
         :param lang: The language argument given to the class.
         :type lang: str
@@ -127,6 +128,5 @@ class POSTag():
         pickle_path = self.available_taggers['crf']
         tagger = CRFTagger()
         tagger.set_model_file(pickle_path)
-        # tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
