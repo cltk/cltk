@@ -5,8 +5,11 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 from cltk.utils.file_operations import open_pickle
-from nltk.tokenize import wordpunct_tokenize
+
 import os
+
+from nltk.tag import CRFTagger
+from nltk.tokenize import wordpunct_tokenize
 
 
 TAGGERS = {'greek':
@@ -15,6 +18,7 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
+                'crf': 'crf.pickle',
                },
            'latin':
                {'unigram': 'unigram.pickle',
@@ -110,5 +114,19 @@ class POSTag():
         untagged_tokens = wordpunct_tokenize(untagged_string)
         pickle_path = self.available_taggers['tnt']
         tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
+
+    def tag_crf(self, untagged_string: str):
+        """Tag POS with CRF tagger.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['crf']
+        tagger = CRFTagger()
+        tagger.set_model_file(pickle_path)
+        # tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
