@@ -7,7 +7,7 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.utils.cltk_logger import logger
 from cltk.utils.contributors import Contributors
-from cltk.utils.file_operations import open_pickle
+from cltk.utils.file_operations import open_pickle, make_cltk_path
 from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
 
@@ -133,6 +133,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(contribs_file)
 
 
+class TestPathCreation(unittest.TestCase):
+
+    def test_empty_path(self):
+        self.assertEqual(make_cltk_path(),
+                         os.path.expanduser(os.path.join('~','cltk_data'))
+                         )
+        
+    def test_path(self):
+        self.assertEqual(make_cltk_path('greek', 'perseus_corpus'),
+                         os.path.expanduser(os.path.join('~','cltk_data', 'greek', 'perseus_corpus'))
+                         )
 
 if __name__ == '__main__':
     unittest.main()

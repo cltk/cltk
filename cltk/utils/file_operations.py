@@ -5,7 +5,17 @@ __license__ = 'MIT License. See LICENSE.'
 
 from cltk.utils.cltk_logger import logger
 import pickle
+import os.path
 
+def make_cltk_path(*fp_list):
+    """
+    :type fp_list: str positional arguments
+    :param: : fp_list tokens to join together beginning from cltk_root
+              folder
+    :rtype: str
+    """
+    home = os.path.expanduser('~')
+    return os.path.join(home, 'cltk_data', *fp_list)
 
 def open_pickle(path: str):
     """Open a pickle and return loaded pickle object.
