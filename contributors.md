@@ -1,11 +1,23 @@
 # Contributors
 CLTK Core authors, ordered alphabetically by first name
 
+## Andreas Grivas <andreasgrv@gmail.com>
+* cltk/utils/file_operations.py
+
+## Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>
+* cltk/corpus/sanskrit/itrans/itrans_transliterator.py
+* cltk/corpus/sanskrit/itrans/langinfo.py
+* cltk/corpus/sanskrit/itrans/sinhala_transliterator.py
+* cltk/corpus/sanskrit/itrans/unicode_transliterate.py
+* cltk/corpus/telugu/corpora.py
+* cltk/corpus/tibetan/corpora.py
+
 ## Bradley Baker <bradley.baker12@ncf.edu>
 * cltk/prosody/latin/scanner.py
 
 ## Edward Loper <edloper@gmail.com>
 * cltk/utils/philology.py
+* cltk/vector/word2vec.py
 
 ## Kyle P. Johnson <kyle@kyle-p-johnson.com>
 * cltk/corpus/greek/beta_to_unicode.py
@@ -19,13 +31,15 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/greek/tlg/id_author.py
 * cltk/corpus/greek/tlg/index_lists.py
 * cltk/corpus/greek/tlg/parse_tlg_indices.py
+* cltk/corpus/greek/tlg/work_numbers.py
 * cltk/corpus/latin/corpora.py
 * cltk/corpus/latin/phi5_index.py
 * cltk/corpus/multilingual/corpora.py
 * cltk/corpus/pali/corpora.py
-* cltk/corpus/tibetan/corpora.py
+* cltk/corpus/sanskrit/corpora.py
 * cltk/corpus/utils/formatter.py
 * cltk/corpus/utils/importer.py
+* cltk/ir/boolean.py
 * cltk/ir/query.py
 * cltk/stem/lemma.py
 * cltk/stem/latin/j_v.py
@@ -43,26 +57,36 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/tests/test_utils.py
 * cltk/tokenize/sentence.py
 * cltk/tokenize/word.py
-* cltk/utils/build_contribs_index.py
 * cltk/utils/cltk_logger.py
 * cltk/utils/contributors.py
 * cltk/utils/file_operations.py
 * cltk/utils/frequency.py
 * cltk/utils/philology.py
+* cltk/vector/word2vec.py
 
 ## Luke Hollis <lukehollis@gmail.com>
 * cltk/stem/latin/stem.py
 * cltk/stem/latin/syllabifier.py
+* cltk/tests/test_text_reuse.py
 * cltk/text_reuse/comparison.py
 * cltk/text_reuse/levenshtein.py
 * cltk/text_reuse/text_reuse.py
 
 ## Martín Pozzi <marpozzi@gmail.com>
 * cltk/corpus/greek/tlg/parse_tlg_indices.py
+* cltk/corpus/greek/tlg/work_numbers.py
 * cltk/corpus/latin/corpora.py
 * cltk/corpus/latin/phi5_index.py
 * cltk/corpus/multilingual/corpora.py
 * cltk/corpus/pali/corpora.py
+* cltk/corpus/sanskrit/corpora.py
+
+## Nurendra Choudhary <nurendrachoudhary31@gmail.com>
+* cltk/corpus/sanskrit/itrans/itrans_transliterator.py
+* cltk/corpus/sanskrit/itrans/langinfo.py
+* cltk/corpus/sanskrit/itrans/sinhala_transliterator.py
+* cltk/corpus/sanskrit/itrans/unicode_transliterate.py
+* cltk/corpus/telugu/corpora.py
 * cltk/corpus/tibetan/corpora.py
 
 ## Patrick J. Burns <patrick@diyclassics.org>
@@ -80,18 +104,24 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/greek/tlg/id_author.py
 * cltk/corpus/greek/tlg/index_lists.py
 * cltk/corpus/greek/tlg/parse_tlg_indices.py
+* cltk/corpus/greek/tlg/work_numbers.py
 * cltk/corpus/latin/corpora.py
 * cltk/corpus/latin/phi5_index.py
 * cltk/corpus/multilingual/corpora.py
 * cltk/corpus/pali/corpora.py
-* cltk/corpus/tibetan/corpora.py
+* cltk/corpus/sanskrit/corpora.py
 * cltk/corpus/utils/formatter.py
 * cltk/corpus/utils/importer.py
 * cltk/utils/cltk_logger.py
 
 ## Steven Bird <stevenbird1@gmail.com>
 * cltk/utils/philology.py
+* cltk/vector/word2vec.py
 
 ## Tyler Kirby <joseph.kirby12@ncf.edu>
 * cltk/prosody/greek/scanner.py
 * cltk/prosody/latin/scanner.py
+
+## Tyler Kirby <tyler.kirby9398@gmail.com>
+* cltk/prosody/latin/clausulae_analysis.py
+
