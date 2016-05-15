@@ -178,39 +178,35 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_lapos_is_cloned_get_make(self):
         """Test download_install."""
-        print('Starting test_lapos_is_cloned_get_make')
         lapos_tagger = Lapos('latin')
         response = lapos_tagger._is_cloned_get_make()
         self.assertTrue(response)
 
     def test_lapos_what_os(self):
         """Test os."""
-        print('Starting test_lapos_what_os')
         lapos_tagger = Lapos('latin')
         response = lapos_tagger._what_os()
         self.assertIn(response, ['mac', 'linux', 'windows'])
 
     def test_make(self):
         """Test Lapos make."""
-        print('Starting test_make')
         lapos_tagger = Lapos('latin')
         fp = os.path.expanduser('~/cltk_data/multilingual/software/lapos/crf.o')
         is_file = os.path.isfile(fp)
         self.assertTrue(is_file)
 
-    '''
     def test_lapos_tag(self):
         """Test install and tagging of Lapos in Latin."""
-        print('Starting ')
+        print('Starting test_lapos_tag')
         lapos_tagger = Lapos('latin')
         sentence = 'Gallia est omnis divisa in partes tres'
         tagged = lapos_tagger.tag_sentence(sentence)
+        print(tagged)
         tagged_target = [('Gallia', 'n-p---nn-'), ('est', 'v3spia---'),
                          ('omnis', 'n-p---fa-'), ('divisa', 't-prppnn-'),
                          ('in', 'p-p---fd-'), ('partes', 'n-p---fa-'),
                          ('tres', 'a-p---nbc')]
         self.assertEqual(tagged, tagged_target)
-    '''
 
 if __name__ == '__main__':
     unittest.main()
