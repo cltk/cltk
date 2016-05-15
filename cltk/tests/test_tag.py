@@ -196,16 +196,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         is_file = os.path.isfile(fp)
         self.assertTrue(is_file)
 
-    # def test_lapos_tag(self):
-    #     """Test install and tagging of Lapos in Latin."""
-    #     lapos_tagger = Lapos('latin')
-    #     sentence = 'Gallia est omnis divisa in partes tres'
-    #     tagged = lapos_tagger.tag_sentence(sentence)
-    #     tagged_target = [('Gallia', 'n-p---nn-'), ('est', 'v3spia---'),
-    #                      ('omnis', 'n-p---fa-'), ('divisa', 't-prppnn-'),
-    #                      ('in', 'p-p---fd-'), ('partes', 'n-p---fa-'),
-    #                      ('tres', 'a-p---nbc')]
-    #     self.assertEqual(tagged, tagged_target)
+    def test_lapos_tag(self):
+        """Test install and tagging of Lapos in Latin."""
+        lapos_tagger = Lapos('latin')
+        sentence = 'Gallia est omnis divisa in partes tres'
+        tagged = lapos_tagger.tag_sentence(sentence)
+        tagged_target = [('Gallia', 'n-p---nn-'), ('est', 'v3spia---'),
+                         ('omnis', 'n-p---fa-'), ('divisa', 't-prppnn-'),
+                         ('in', 'p-p---fd-'), ('partes', 'n-p---fa-'),
+                         ('tres', 'a-p---nbc')]
+        self.assertEqual(tagged, tagged_target)
 
 if __name__ == '__main__':
     unittest.main()
