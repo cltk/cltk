@@ -178,18 +178,21 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_lapos_is_cloned_get_make(self):
         """Test download_install."""
+        print('Starting test_lapos_is_cloned_get_make')
         lapos_tagger = Lapos('latin')
         response = lapos_tagger._is_cloned_get_make()
         self.assertTrue(response)
 
     def test_lapos_what_os(self):
         """Test os."""
+        print('Starting test_lapos_what_os')
         lapos_tagger = Lapos('latin')
         response = lapos_tagger._what_os()
         self.assertIn(response, ['mac', 'linux', 'windows'])
 
     def test_make(self):
         """Test Lapos make."""
+        print('Starting test_make')
         lapos_tagger = Lapos('latin')
         fp = os.path.expanduser('~/cltk_data/multilingual/software/lapos/crf.o')
         is_file = os.path.isfile(fp)
@@ -198,6 +201,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     '''
     def test_lapos_tag(self):
         """Test install and tagging of Lapos in Latin."""
+        print('Starting ')
         lapos_tagger = Lapos('latin')
         sentence = 'Gallia est omnis divisa in partes tres'
         tagged = lapos_tagger.tag_sentence(sentence)
