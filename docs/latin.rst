@@ -308,7 +308,9 @@ TnT tagger
 CRF tagger
 ``````````
 
-.. warning:: This tagger's accuracy has not yet been tested.
+.. warning:: This tagger's accuracy has not yet been evaluated.
+
+.. note:: As designed, Lapos is slow to load a pre-trained module into memory, so tagging sentence-by-sentence can be slow.
 
 We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://www.nltk.org/_modules/nltk/tag/crf.html>`_.
 
@@ -323,6 +325,35 @@ We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://
     ('in', 'R--------'),
     ('partes', 'N-P---FA-'),
     ('tres', 'M--------')]
+
+
+Lapos tagger
+
+.. warning:: This tagger's accuracy has not yet been evaluated.
+
+The Lapos tagger is C++ code which must be compiled before use, so you'll need a C compiler (normally GCC Linux, Clang on Mac and the *BSDs, and Cygwin on Windows).
+
+When you first instantiate the `Lapos()` class, it will check if it is already present. If not the Lapos source will will be downloaded and a `make` command attempted.
+
+.. code-block:: python
+
+   In [1]: from cltk.tag.lapos import Lapos
+
+   In [2]: lapos_tagger = Lapos('latin')
+   Cloned Lapos successfully.
+   Lapos built successfully.
+
+   In [3]: sentence = 'Gallia est omnis divisa in partes tres'
+
+   In [4]: lapos_tagger.tag_sentence(sentence)
+   Out[4]:
+   [('Gallia', 'n-p---nn-'),
+    ('est', 'v3spia---'),
+    ('omnis', 'n-p---fa-'),
+    ('divisa', 't-prppnn-'),
+    ('in', 'p-p---fd-'),
+    ('partes', 'n-p---fa-'),
+    ('tres', 'a-p---nbc')]
 
 
 Prosody Scanning
