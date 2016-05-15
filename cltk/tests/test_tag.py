@@ -176,7 +176,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' τὰ Σίλαριν/Entity Σιννᾶν/Entity Κάππαρος/Entity Πρωτογενείας/Entity Διονυσιάδες/Entity τὴν'
         self.assertEqual(text, target)
 
-    def test_make_lapos(self):
+    def test_lapos_tag(self):
         """Test install and tagging of Lapos in Latin."""
         lapos_tagger = Lapos('latin')
         sentence = 'Gallia est omnis divisa in partes tres'
@@ -187,7 +187,24 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                          ('tres', 'a-p---nbc')]
         self.assertEqual(tagged, tagged_target)
 
+    def test_lapos_is_cloned_get_make(self):
+        """Test download_install."""
+        lapos_tagger = Lapos('latin')
+        response = lapos_tagger._is_cloned_get_make()
+        self.assertTrue(response)
 
+    def test_lapos_what_os(self):
+        """Test os."""
+        lapos_tagger = Lapos('latin')
+        response = lapos_tagger._what_os()
+        self.assertIn(response, ['mac', 'linux', 'windows'])
+
+    def test_make(self):
+        """Test Lapos make."""
+        lapos_tagger = Lapos('latin')
+        fp = os.path.expanduser('~/cltk_data/multilingual/software/lapos/crf.o')
+        is_file = os.path.isfile(fp)
+        self.assertTrue(is_file)
 
 if __name__ == '__main__':
     unittest.main()
