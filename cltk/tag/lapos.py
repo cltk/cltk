@@ -25,7 +25,7 @@ class Lapos:
         """
         # ! add check here for mac or unix
         if self.operating_system == 'mac':
-            branch = 'clang'
+            branch = 'apple'
         else:
             branch = 'master'
         fp = os.path.expanduser('~/cltk_data/multilingual/software/lapos/README.md')
