@@ -1,21 +1,31 @@
 """Miscellaneous file operations used by various parts of the CLTK."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
-__license__ = 'MIT License. See LICENSE.'
+import os.path
+import pickle
 
 from cltk.utils.cltk_logger import logger
-import pickle
-import os.path
+
+__author__ = ['Andreas Grivas <andreasgrv@gmail.com>',
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__license__ = 'MIT License. See LICENSE.'
+
 
 def make_cltk_path(*fp_list):
-    """
+    """Take arbitrary number of str arguments (not list) and return expanded,
+    absolute path to a user's cltk_data dir.
+
+    Example:
+    In [8]: make_cltk_path('greek', 'model', 'greek_models_cltk')
+    Out[8]: '/Users/kyle/cltk_data/greek/model/greek_models_cltk'
+
     :type fp_list: str positional arguments
-    :param: : fp_list tokens to join together beginning from cltk_root
-              folder
+    :param: : fp_list tokens to join together beginning from cltk_root folder
     :rtype: str
     """
+    
     home = os.path.expanduser('~')
     return os.path.join(home, 'cltk_data', *fp_list)
+
 
 def open_pickle(path: str):
     """Open a pickle and return loaded pickle object.

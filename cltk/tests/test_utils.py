@@ -7,7 +7,8 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.utils.cltk_logger import logger
 from cltk.utils.contributors import Contributors
-from cltk.utils.file_operations import open_pickle, make_cltk_path
+from cltk.utils.file_operations import make_cltk_path
+from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
 
@@ -107,21 +108,25 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             philology.write_concordance_from_file(bad_path, 'test_file')
 
     def test_contribs_walk_cltk(self):
+        """Test recursive fp walk."""
         contribs = Contributors()
         modules_list = contribs.walk_cltk()
         self.assertEqual(type(modules_list), list)
 
     def test_get_module_authors(self):
+        """Test opening contribs file."""
         contribs = Contributors()
         author = contribs.get_module_authors('cltk/corpus/utils/importer.py')[0]
         self.assertEqual(author, 'Kyle P. Johnson <kyle@kyle-p-johnson.com>')
 
     def test_contribs_make_authors_dict(self):
+        """Test making dict for author contrib file."""
         contribs = Contributors()
         authors_dict = contribs._make_authors_dict()
         self.assertGreater(len(authors_dict), 8)
 
     def test_contribs_write_contribs(self):
+        """Test contrib writing function."""
         contribs = Contributors()
         file = 'contributors.md'
         try:
@@ -134,16 +139,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
 
 class TestPathCreation(unittest.TestCase):
+    """Class for filepath maker."""
 
     def test_empty_path(self):
+        """Test empty empty_path()"""
         self.assertEqual(make_cltk_path(),
-                         os.path.expanduser(os.path.join('~','cltk_data'))
-                         )
-        
+                         os.path.expanduser(os.path.join('~', 'cltk_data')))
+
     def test_path(self):
+        """Test empty_path() with argument."""
         self.assertEqual(make_cltk_path('greek', 'perseus_corpus'),
-                         os.path.expanduser(os.path.join('~','cltk_data', 'greek', 'perseus_corpus'))
-                         )
+                         os.path.expanduser(os.path.join('~', 'cltk_data', 'greek', 'perseus_corpus')))
+
 
 if __name__ == '__main__':
     unittest.main()
