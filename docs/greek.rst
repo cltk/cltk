@@ -245,7 +245,7 @@ There is a prosody scanner for scanning rhythms in Greek texts. It returns a lis
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.greek import Scansion
+   In [1]: from cltk.prosody.greek.scanner import Scansion
 
    In [2]: scanner = Scansion()
 
