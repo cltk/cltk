@@ -173,7 +173,6 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         punkt = PunktLanguageVars()
         generic_tokens = punkt.word_tokenize(string)
         # Rewrite as an if-else block for exceptions rather than separate list comprehensions
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'nec' else ['c', item[:-1]])] # Handle 'nec' as a special case.
         generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sodes' else [item[0]+'i', 'audes'])] # Handle 'sodes' as a special case.
         generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sultis' else [item[0]+'i', 'vultis'])] # Handle 'sultis' as a special case.
         generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'satin' else [item[:-1] + 's', 'ne'])] # Handle 'satin' as a special case.
