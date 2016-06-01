@@ -7,6 +7,8 @@ Starter lists have been included to handle the Latin enclitics
  comprehensive. Additions to the exceptions list are welcome. PJB
 """
 
+import re
+
 from nltk.tokenize.punkt import PunktLanguageVars
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
@@ -27,11 +29,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
         if self.language == 'latin':
-            self.enclitics = ['que', 'n', 'ne', 'ue', 've', 'cum','st']
-
-            self.inclusions = []
-            
-            cum_inclusions = ['mecum', 'tecum', 'secum', 'nobiscum', 'vobiscum', 'quocum', 'quicum' 'quibuscum']
+            self.enclitics = ['que', 'n', 'ne', 'ue', 've', 'st']
             
             self.exceptions = self.enclitics
 
@@ -40,7 +38,6 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             ne_exceptions = []
             ue_exceptions = []
             ve_exceptions = []
-            cum_exceptions = []
             st_exceptions = []
 
             # quisque
@@ -73,7 +70,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             que_exceptions += ['absque', 'abusque', 'adaeque', 'adusque', 'aeque', 'antique', 'atque',
                                'circumundique', 'conseque', 'cumque', 'cunque', 'denique', 'deque',
                                'donique', 'hucusque', 'inique', 'inseque', 'itaque', 'longinque',
-                               'namque', 'oblique', 'peraeque', 'praecoque', 'propinque',
+                               'namque', 'neque', 'oblique', 'peraeque', 'praecoque', 'propinque',
                                'qualiscumque', 'quandocumque', 'quandoque', 'quantuluscumque',
                                'quantumcumque', 'quantuscumque', 'quinque', 'quocumque',
                                'quomodocumque', 'quomque', 'quotacumque', 'quotcumque',
@@ -165,40 +162,64 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                        + st_exceptions
                                        ))
 
-            self.inclusions = list(set(self.inclusions
-                                       + cum_inclusions))
 
     def tokenize(self, string):
         """Tokenize incoming string."""
+        
+        def matchcase(word):
+            # From Python Cookbook
+            def replace(m):
+                text = m.group()
+                if text.isupper():
+                    return word.upper()
+                elif text.islower():
+                    return word.lower()
+                elif text[0].isupper():
+                    return word.capitalize()
+                else:
+                    return word
+            return replace
+        
+        replacements = [(r'mecum', 'cum me'),
+                (r'tecum', 'cum te'),
+                (r'secum', 'cum se'),
+                (r'nobiscum', 'cum nobis'),
+                (r'vobiscum', 'cum vobis'),
+                (r'quocum', 'cum quo'),
+                (r'quacum', 'cum qua'), 
+                (r'quicum', 'cum qui'),
+                (r'quibuscum', 'cum quibus'),
+                (r'sodes', 'si audes'),
+                (r'satin', 'satis ne'),
+                (r'scin', 'scis ne'),
+                (r'sultis', 'si vultis'),
+                (r'similist', 'similis est'),
+                (r'qualist', 'qualis est')
+                ]
+                
+        for replacement in replacements:
+            string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
+            
+        print(string)
+        
         punkt = PunktLanguageVars()
         generic_tokens = punkt.word_tokenize(string)
-        # Rewrite as an if-else block for exceptions rather than separate list comprehensions
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'nec' else ['c', item[:-1]])] # Handle 'nec' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sodes' else [item[0]+'i', 'audes'])] # Handle 'sodes' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'sultis' else [item[0]+'i', 'vultis'])] # Handle 'sultis' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'satin' else [item[:-1] + 's', 'ne'])] # Handle 'satin' as a special case.
-        generic_tokens = [x for item in generic_tokens for x in ([item] if item.lower() != 'scin' else [item[:-1] + 's', 'ne'])] # Handle 'scin' as a special case.      
+                    
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
-            if generic_token not in self.exceptions:
+            if generic_token.lower() not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
-                        if enclitic == 'cum':
-                            if generic_token.lower() in self.inclusions:
-                                specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
-                            else:
-                                specific_tokens += [generic_token]
-                        elif enclitic == 'n':
-                                specific_tokens += [generic_token[:-len(enclitic)]] + ['ne']                                                                                                    
+                        if enclitic == 'n':
+                                specific_tokens += [generic_token[:-len(enclitic)]] + ['-ne']                                                                                                    
                         elif enclitic == 'st':
                             if generic_token.endswith('ust'):
                                 specific_tokens += [generic_token[:-len(enclitic)+1]] + ['est']
                             else:
-                                # Does not handle 'similist', 'qualist', etc. correctly
                                 specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
                         else:
-                            specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
+                            specific_tokens += [generic_token[:-len(enclitic)]] + ['-' + enclitic]
                         is_enclitic = True
                         break
             if not is_enclitic:
