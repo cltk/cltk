@@ -198,7 +198,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                 # Does not handle 'similist', 'qualist', etc. correctly
                                 specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
                         else:
-                            specific_tokens += ['-' + enclitic] + [generic_token[:-len(enclitic)]]
+                            specific_tokens += [generic_token[:-len(enclitic)]] + ['-' + enclitic]
                         is_enclitic = True
                         break
             if not is_enclitic:
