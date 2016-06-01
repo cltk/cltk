@@ -180,7 +180,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         specific_tokens = []
         for generic_token in generic_tokens:
             is_enclitic = False
-            if generic_token not in self.exceptions:
+            if generic_token.lower() not in self.exceptions:
                 for enclitic in self.enclitics:
                     if generic_token.endswith(enclitic):
                         if enclitic == 'cum':
