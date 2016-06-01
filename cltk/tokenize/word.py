@@ -189,7 +189,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                             else:
                                 specific_tokens += [generic_token]
                         elif enclitic == 'n':
-                                specific_tokens += [generic_token[:-len(enclitic)]] + ['ne']                                                                                                    
+                                specific_tokens += [generic_token[:-len(enclitic)]] + ['-ne']                                                                                                    
                         elif enclitic == 'st':
                             if generic_token.endswith('ust'):
                                 specific_tokens += [generic_token[:-len(enclitic)+1]] + ['est']
@@ -197,7 +197,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                 # Does not handle 'similist', 'qualist', etc. correctly
                                 specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
                         else:
-                            specific_tokens += [enclitic] + [generic_token[:-len(enclitic)]]
+                            specific_tokens += ['-' + enclitic] + [generic_token[:-len(enclitic)]]
                         is_enclitic = True
                         break
             if not is_enclitic:
