@@ -73,7 +73,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             que_exceptions += ['absque', 'abusque', 'adaeque', 'adusque', 'aeque', 'antique', 'atque',
                                'circumundique', 'conseque', 'cumque', 'cunque', 'denique', 'deque',
                                'donique', 'hucusque', 'inique', 'inseque', 'itaque', 'longinque',
-                               'namque', 'oblique', 'peraeque', 'praecoque', 'propinque',
+                               'namque', 'neque', 'oblique', 'peraeque', 'praecoque', 'propinque',
                                'qualiscumque', 'quandocumque', 'quandoque', 'quantuluscumque',
                                'quantumcumque', 'quantuscumque', 'quinque', 'quocumque',
                                'quomodocumque', 'quomque', 'quotacumque', 'quotcumque',
@@ -197,7 +197,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                 # Does not handle 'similist', 'qualist', etc. correctly
                                 specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
                         else:
-                            specific_tokens += ['-' + enclitic] + [generic_token[:-len(enclitic)]]
+                            specific_tokens += [generic_token[:-len(enclitic)]] + ['-' + enclitic]
                         is_enclitic = True
                         break
             if not is_enclitic:
