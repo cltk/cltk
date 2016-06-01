@@ -31,7 +31,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
             self.inclusions = []
             
-            cum_inclusions = ['mecum', 'tecum', 'secum', 'nobiscum', 'vobiscum', 'quocum', 'quicum' 'quibuscum']
+            cum_inclusions = ['mecum', 'tecum', 'secum', 'nobiscum', 'vobiscum', 'quocum', 'quicum', 'quibuscum']
             
             self.exceptions = self.enclitics
 
