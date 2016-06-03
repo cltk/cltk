@@ -16,32 +16,28 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
     values from a replacement list.
     """
 
-    def __init__(self, language):
+    def __init__(self, language, include_ambiguous=True):
         """Import replacement patterns into a list."""
         self.language = language.lower()
         assert self.language in AVAILABLE_LANGUAGES, \
             "Lemmatizer not available for language '{0}'.".format(self.language)
-        self.lemmata = self._load_replacement_patterns()
+        self.lemmata = self._load_replacement_patterns(include_ambiguous)
 
-    def _load_replacement_patterns(self):
+    def _load_replacement_patterns(self, include_ambiguous):
         """Check for availability of lemmatizer for a language."""
-        if self.language == 'latin':
-            rel_path = os.path.join('~','cltk_data',
-                                    self.language,
-                                    'model','latin_models_cltk',
-                                    'lemmata','latin_lemmata_cltk.py')
-            path = os.path.expanduser(rel_path)
-            #logger.info('Loading lemmata. This may take a minute.')
-            loader = importlib.machinery.SourceFileLoader('latin_lemmata_cltk', path)
-
-        elif self.language == 'greek':
-            rel_path = os.path.join('~','cltk_data',
-                                    self.language,
-                                    'model','greek_models_cltk',
-                                    'lemmata','greek_lemmata_cltk.py')
-            path = os.path.expanduser(rel_path)
-            #logger.info('Loading lemmata. This may take a minute.')
-            loader = importlib.machinery.SourceFileLoader('greek_lemmata_cltk', path)
+        if include_ambiguous:
+            lemmata_filename = '{}_lemmata_cltk.py'.format(self.language)
+        else:
+            lemmata_filename = '{}_unambiguous_lemmata_ctlk.py'.format(self.language)
+        model_filename = '{}_models_ctlk.py'.format(self.language)
+        module_name = '{}_lemmata_cltk'.format(self.language)
+        rel_path = os.path.join('~','cltk_data',
+                                self.language,
+                                'model',model_filename,
+                                'lemmata',lemmata_filename)
+        path = os.path.expanduser(rel_path)
+        #logger.info('Loading lemmata. This may take a minute.')
+        loader = importlib.machinery.SourceFileLoader(module_name, path)
         module = loader.load_module()
         lemmata = module.LEMMATA
         return lemmata
