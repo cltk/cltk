@@ -28,8 +28,8 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         if include_ambiguous:
             lemmata_filename = '{}_lemmata_cltk.py'.format(self.language)
         else:
-            lemmata_filename = '{}_unambiguous_lemmata_ctlk.py'.format(self.language)
-        model_filename = '{}_models_ctlk.py'.format(self.language)
+            lemmata_filename = '{}_unambiguous_lemmata_cltk.py'.format(self.language)
+        model_filename = '{}_models_cltk'.format(self.language)
         module_name = '{}_lemmata_cltk'.format(self.language)
         rel_path = os.path.join('~','cltk_data',
                                 self.language,
