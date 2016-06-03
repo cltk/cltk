@@ -3,7 +3,9 @@
 
 import re
 
-from nltk.tokenize.punkt import PunktLanguageVars
+#from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize import word_tokenize
+
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
@@ -67,8 +69,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         for replacement in replacements:
             string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
 
-        punkt = PunktLanguageVars()
-        generic_tokens = punkt.word_tokenize(string)
+#       punkt = PunktLanguageVars()
+        generic_tokens = word_tokenize(string)
 
         specific_tokens = []
         for generic_token in generic_tokens:
