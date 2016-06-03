@@ -4,12 +4,10 @@
 import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
-#from nltk.tokenize import word_tokenize
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
-
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
