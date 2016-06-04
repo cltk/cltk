@@ -42,7 +42,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         lemmata = module.LEMMATA
         return lemmata
 
-    def lemmatize(self, input_text, return_raw=False, return_string=False):
+    def lemmatize(self, input_text, return_raw=False, return_string=False, default=None):
         """Take incoming string or list of tokens. Lookup done against a
         key-value list of lemmata-headword. If a string, tokenize with
         ``PunktLanguageVars()``. If a final period appears on a token, remove
@@ -81,6 +81,9 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
             # if token not found in lemma-headword list
             else:
                 # re-add final period if rm'd
+                if default is not None:
+                    return default
+                
                 if final_period:
                     token += '.'
 
