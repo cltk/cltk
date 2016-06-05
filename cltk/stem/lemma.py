@@ -24,7 +24,9 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         self.lemmata = self._load_replacement_patterns(include_ambiguous)
 
     def _load_replacement_patterns(self, include_ambiguous):
-        """Check for availability of lemmatizer for a language."""
+        """Check for availability of lemmatizer for a language. 
+        `include_ambiguous` specifies whether to return the most likely headword
+        for an ambiguous lemma."""
         if include_ambiguous:
             lemmata_filename = '{}_lemmata_cltk.py'.format(self.language)
         else:
@@ -46,7 +48,8 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         """Take incoming string or list of tokens. Lookup done against a
         key-value list of lemmata-headword. If a string, tokenize with
         ``PunktLanguageVars()``. If a final period appears on a token, remove
-        it, then re-add once replacement done.
+        it, then re-add once replacement done. If `default` is given a value,
+        that value is treated as the headword for any unidentifiable lemmas.
         TODO: rm check for final period, change PunktLanguageVars() to nltk_tokenize_words()
         """
         assert type(input_text) in [list, str], \
@@ -66,31 +69,22 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                 token = token[:-1]
 
             # look for token in lemma dict keys
-            if token.lower() in self.lemmata.keys():
+            if token in self.lemmata.keys():
+                headword = self.lemmata[token]
+            elif token.lower() in self.lemmata.keys():
                 headword = self.lemmata[token.lower()]
-
-                # re-add final period if rm'd
-                if final_period:
-                    headword += '.'
-
-                # append to return list
-                if not return_raw:
-                    lemmatized_tokens.append(headword)
-                else:
-                    lemmatized_tokens.append(token + '/' + headword)
-            # if token not found in lemma-headword list
             else:
-                # re-add final period if rm'd
-                if default is not None:
-                    return default
-                
-                if final_period:
-                    token += '.'
+                headword = token if default is None else default
 
-                if not return_raw:
-                    lemmatized_tokens.append(token)
-                else:
-                    lemmatized_tokens.append(token + '/' + token)
+            # re-add final period if rm'd
+            if final_period:
+                headword += '.'
+
+            # append to return list
+            if not return_raw:
+                lemmatized_tokens.append(headword)
+            else:
+                lemmatized_tokens.append(token + '/' + headword)
         if not return_string:
             return lemmatized_tokens
         elif return_string:
