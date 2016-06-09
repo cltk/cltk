@@ -29,11 +29,11 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
-
         else:
             tokens = nltk_tokenize_words(string)
 
         return tokens
+
 
 def nltk_tokenize_words(string, attached_period=False, language=None):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
@@ -161,4 +161,3 @@ def tokenize_latin_words(string):
             specific_tokens.append(token)
 
     return specific_tokens
-
