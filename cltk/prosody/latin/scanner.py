@@ -217,8 +217,15 @@ class Scansion:
             next_syll = sentence[sentence.index(syllable) + 1]
             # Long by postion by case 1
             if (next_syll[0] in self.sing_cons and next_syll[1] in
-                    self.sing_cons) and (next_syll[0] not in self.stops and
-                                         next_syll[1] not in self.liquids):
+                self.sing_cons) and (next_syll[0] not in self.stops and next_syll[1] not in self.liquids):
+                return True
+            # Checks if next syllable begins with two liquids, if so, long by position by case 1
+            elif (next_syll[0] in self.sing_cons and next_syll[1] in
+                self.sing_cons) and (next_syll[0] in self.liquids and next_syll[1] in self.liquids):
+                return True
+            # Checks if next syllable begins with two stops, if so, long by position by case 1
+            elif (next_syll[0] in self.sing_cons and next_syll[1] in
+                self.sing_cons) and (next_syll[0] in self.stops and next_syll[1] in self.stops):
                 return True
             # Long by position by case 2
             elif syllable[-1] in self.vowels and next_syll[0] in \
