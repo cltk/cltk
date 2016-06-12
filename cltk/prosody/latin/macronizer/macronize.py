@@ -13,7 +13,7 @@ Out    : [('gallia', 'galliā'),
 """
 
 from cltk.tag.pos import POSTag
-from cltk.prosody.latin.macronizer.macron_temp import vowel_len_map
+from ..macronizer import macron_temp
 
 class Macronizer():
     def __init__(self, tagger: str):
@@ -25,9 +25,10 @@ class Macronizer():
 
     def get_macronized(self, text):
         tag = Macronizer('test').get_tags(text)[0][1]
-        entry = vowel_len_map.get(text)
+        entry = macronizer.macrons.vowel_len_map.get(text)
         return entry
 
 if __name__ == "__main__":
     test = "divisa"
-    print(Macronizer('test').get_macronized(test))
+    print(sys.path)
+    #print(Macronizer('test').get_macronized(test))
