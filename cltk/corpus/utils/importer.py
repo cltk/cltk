@@ -129,7 +129,7 @@ class CorpusImporter():
         logger.error(msg)
         raise CorpusImportError(msg)
 
-    def import_corpus(self, corpus_name, local_path=None):  # pylint: disable=R0912
+    def import_corpus(self, corpus_name, local_path=None, branch='master'):  # pylint: disable=R0912
         """Download a remote or load local corpus into dir ``~/cltk_data``.
         TODO: maybe add ``from git import RemoteProgress``
         TODO: refactor this, it's getting kinda long
@@ -137,6 +137,7 @@ class CorpusImporter():
         :param corpus_name: The name of an available corpus.
         :param local_path: str
         :param local_path: A filepath, required when importing local corpora.
+        :param branch: What Git branch to clone.
         """
         corpus_properties = self._get_corpus_properties(corpus_name)
         location = corpus_properties['location']
@@ -156,7 +157,7 @@ class CorpusImporter():
                 try:
                     msg = "Cloning '{}' from '{}'".format(corpus_name, git_uri)
                     logger.info(msg)
-                    Repo.clone_from(git_uri, target_dir, depth=1,
+                    Repo.clone_from(git_uri, target_dir, branch=branch, depth=1,
                                     progress=ProgressPrinter())
                 except CorpusImportError as corpus_imp_err:
                     msg = "Git clone of '{}' failed: '{}'".format(git_uri, corpus_imp_err)
