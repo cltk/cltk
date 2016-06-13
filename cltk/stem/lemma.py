@@ -70,7 +70,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                 token = token[:-1]
 
             # look for token in lemma dict keys
-            if token in self.lemmata.keys():
+po            if token in self.lemmata.keys():
                 headword = self.lemmata[token.lower()]
 
                 # re-add final period if rm'd
