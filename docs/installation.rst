@@ -32,6 +32,16 @@ Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, 
    For a user–friendly interactive shell environment, try IPython, which may be invoked with ``ipython`` from the command line. You may install it with ``pip install ipython``.
 
 
+Older releases
+--------------
+For reproduction of scholarship, the CLTK archives past versions of its software releases. To find an older release by version, say `` v0.1.32``, use:
+
+.. code-block:: shell
+
+   $ pip install cltk==0.1.32
+
+The `CLTK GitHub Releases page <https://github.com/cltk/cltk/releases>`_ contains information about past releases. If you do not know a release's version number but have its DOI, you can research at Zenodo. For example, if you want to install version ``10.5281/zenodo.51144``, then you can `search Zenodo <https://zenodo.org/search?ln=en&p=10.5281%2Fzenodo.51144&action_search=>`_ and learn that this corresponds to version v0.1.34.
+
 From source
 ===========
 The `CLTK source is available at GitHub <https://github.com/cltk/cltk>`_. To build from source, clone the repository, make a virtual environment (as above), and run:
