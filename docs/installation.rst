@@ -34,13 +34,47 @@ Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, 
 
 Older releases
 --------------
-For reproduction of scholarship, the CLTK archives past versions of its software releases. To find an older release by version, say `` v0.1.32``, use:
+For reproduction of scholarship, the CLTK archives past versions of its software releases. \
+To find an older release by version, say ``v0.1.32``, use:
 
 .. code-block:: shell
 
    $ pip install cltk==0.1.32
 
-The `CLTK GitHub Releases page <https://github.com/cltk/cltk/releases>`_ contains information about past releases. If you do not know a release's version number but have its DOI, you can research at Zenodo. For example, if you want to install version ``10.5281/zenodo.51144``, then you can `search Zenodo <https://zenodo.org/search?ln=en&p=10.5281%2Fzenodo.51144&action_search=>`_ and learn that this corresponds to version v0.1.34.
+If you do not know a release's version number but have its DOI, you can research at Zenodo. \
+For example, if you want to install version ``10.5281/zenodo.51144``, then you can \
+`search Zenodo <https://zenodo.org/search?ln=en&p=10.5281%2Fzenodo.51144&action_search=>`_ \
+and learn that this DOI corresponds to version v0.1.34.
+
+The above procedures will work for most researchers seeking to reproduce \
+results. They will give you CLTK code identical to what \
+the original researcher was using. However, it is possible that you will want \
+to use the exact same CLTK dependencies the researcher was using, too. In \
+this case, consult the `CLTK GitHub Releases page <https://github.com/cltk/cltk/releases>`_ \
+and download a `.tar.gz` file of the desired version. Then, you may do the following:
+
+.. code-block:: shell
+
+   $ tar zxvf cltk-0.1.34.tar.gz
+   $ cd cltk-0.1.34
+   $ pyvenv venv
+   $ source venv/bin/activate
+   $ pip install -r requirements.txt
+
+This will give you CLTK and immediate dependencies identical to your target codebase.
+
+The CLTK's repositories are versioned, too, using Git. Should there have been changes \
+to a target corpus, you may acquire your needed version by manually cloning the entire repo, \
+then checking out the past version by commit log. For example, if you need commit \
+``0ed43e025df276e95768038eb3692ba155cc78c9`` from the repo ``latin_text_perseus``:
+
+.. code-block:: shell
+
+   $ cd ~/cltk_data/latin/text/
+   $ rm -rf text/latin_text_perseus/
+   $ git clone https://github.com/cltk/latin_text_perseus.git
+   $ git checkout 0ed43e025df276e95768038eb3692ba155cc78c9
+
 
 From source
 ===========
