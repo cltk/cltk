@@ -35,19 +35,19 @@ Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, 
 Older releases
 --------------
 For reproduction of scholarship, the CLTK archives past versions of its software releases. \
-To find an older release by version, say ``v0.1.32``, use:
+To get an older release by version, say ``v0.1.32``, use:
 
 .. code-block:: shell
 
    $ pip install cltk==0.1.32
 
-If you do not know a release's version number but have its DOI, you can research at Zenodo. \
-For example, if you want to install version ``10.5281/zenodo.51144``, then you can \
+If you do not know a release's version number but have its DOI \
+(for instance, if you want to install version ``10.5281/zenodo.51144``), then you can \
 `search Zenodo <https://zenodo.org/search?ln=en&p=10.5281%2Fzenodo.51144&action_search=>`_ \
 and learn that this DOI corresponds to version v0.1.34.
 
-The above procedures will work for most researchers seeking to reproduce \
-results. They will give you CLTK code identical to what \
+The above will work for most researchers seeking to reproduce \
+results. It will give you CLTK code identical to what \
 the original researcher was using. However, it is possible that you will want \
 to use the exact same CLTK dependencies the researcher was using, too. In \
 this case, consult the `CLTK GitHub Releases page <https://github.com/cltk/cltk/releases>`_ \
@@ -73,6 +73,7 @@ then checking out the past version by commit log. For example, if you need commi
    $ cd ~/cltk_data/latin/text/
    $ rm -rf text/latin_text_perseus/
    $ git clone https://github.com/cltk/latin_text_perseus.git
+   $ cd latin_text_perseus/
    $ git checkout 0ed43e025df276e95768038eb3692ba155cc78c9
 
 
