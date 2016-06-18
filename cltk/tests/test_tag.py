@@ -7,7 +7,7 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
-from cltk.tag.lapos import Lapos
+# from cltk.tag.lapos import Lapos
 from cltk.tag.pos import POSTag
 
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
@@ -176,6 +176,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' τὰ Σίλαριν/Entity Σιννᾶν/Entity Κάππαρος/Entity Πρωτογενείας/Entity Διονυσιάδες/Entity τὴν'
         self.assertEqual(text, target)
 
+    '''
     def test_lapos_what_os(self):
         """Test os."""
         lapos_tagger = Lapos('latin')
@@ -206,6 +207,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                          ('in', 'p-p---fd-'), ('partes', 'n-p---fa-'),
                          ('tres', 'a-p---nbc')]
         self.assertEqual(tagged, tagged_target)
+    '''
 
 if __name__ == '__main__':
     unittest.main()
