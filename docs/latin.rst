@@ -326,6 +326,9 @@ We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://
 
 
 Lapos tagger
+````````````
+
+.. note:: The Lapos tagger currently only builds on Mac. To help with Linux, please contact us on the Issues page.
 
 .. warning:: This tagger's accuracy has not yet been evaluated.
 
