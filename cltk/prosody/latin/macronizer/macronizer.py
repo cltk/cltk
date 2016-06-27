@@ -14,6 +14,7 @@ Out    : [('gallia', 'n-s---fb-', 'galliā'),
 
 from cltk.tag.pos import POSTag
 import macrons
+import random
 
 AVAILABLE_TAGGERS = ['tag_ngram_123_backoff']
 
@@ -54,8 +55,8 @@ class Macronizer(object):
             pos_tag = tag[1]
             entry = macrons.vowel_len_map.get(tag[0])
             matching_entries = [entries for entries in entry if pos_tag in entries]
-            if entry == None or matching_entries == None:
-                entries.append(tag + (None,))
+            if len(entry) == 0 or len(matching_entries) == 0:
+                entries.append([tag + (None,)])
             else:
                 entries.append(matching_entries)
         return entries
@@ -64,29 +65,21 @@ class Macronizer(object):
 
     def macronize(self, text): # TODO Rewrite with new retrieve_morpheus_entry method
         """
-        Macronize text by accessing Morpheus data.
-
+        Return list of tuples containing the POS tag, token, and macronized token.
         :param text: string
-        :return: list of tuples containing the word, its pos tag, and its macronized form
+        :return: tuples with POS tag, token, and macornized token
         :rtype : list
         """
-        tags = Macronizer(self.tagger).retrieve_tag(text)
+        entries = Macronizer(self.tagger).retrieve_morpheus_entry(text)
         macronized = []
-        for tag in tags:
-            if tag[1] != None: # Check if pos tag exists
-                pos_tag = tag[1]
-                entry = macrons.vowel_len_map.get(tag[0]) # Retrieve entry from Morpheus
-                if len(entry) == 1: # Checks if entry only contains one possible form
-                    macronized_form = tag + (entry[0][2],) # Assigns macronized form to tag
-                    macronized.append(macronized_form)
-                else: # Entry contains several possible forms
-                    macronized_form = [entries for entries in entry if pos_tag in entries]
+        for entry in entries:
+            if len(entry) == 1:
+                macronized.append(entry[0])
             else:
-                macronized.append(tag)
+                macronized.append(random.choice(entry))
         return macronized
-
 
 
 if __name__ == "__main__":
     test = "gallia est omnis divisa partes tres"
-    print(Macronizer('tag_ngram_123_backoff').retrieve_morpheus_entry(test))
+    print(Macronizer('tag_ngram_123_backoff').macronize(test))
