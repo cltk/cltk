@@ -42,7 +42,7 @@ class Macronizer(object):
                 tags = POSTag('latin').tag_ngram_123_backoff(text.lower())
                 return [(tag[0], tag[1].lower()) for tag in tags]
 
-    def retrieve_morpheus_entry(self, text): # TODO Add tag with None if no entry found; log unfound entries
+    def retrieve_morpheus_entry(self, text):
         """
         Return morpheus entry.
         :param text: string
@@ -63,7 +63,7 @@ class Macronizer(object):
 
 
 
-    def macronize(self, text): # TODO Rewrite with new retrieve_morpheus_entry method
+    def macronize(self, text):
         """
         Return list of tuples containing the POS tag, token, and macronized token.
         :param text: string
