@@ -1,22 +1,27 @@
 """
 Macronizes Latin word by matching its POS tag to its entry in the Morpehus database.
+All unfound and ambiguous entries are logged in cltk_log.
 
 Example:
 In  [1]: text = "Gallia est omnis divisa in partes tres"
 In  [2]: Macronizer().macronize_text(text)
-Out    : [('gallia', 'n-s---fb-', 'galliā'),
-          ('est', 'v3spia---', 'est'),
-          ('omnis', 'omnīs'),
-          ('divisa', 'dīvīsā'),
-          ('partes', 'partēs'),
-          ('tres', 'tres')]
+Out    : [('n-s---fb-', 'Gallia', 'Galliā')
+          ('v3spia---', 'sum', 'est')
+          ('a-s---mn-', 'omnis', 'omnis')
+          ('divisa', 't-prppnn-', None)
+          ('n-p---fa-', 'pars', 'partēs')
+          ('tres', 'm--------', None)]
 """
+# TODO Figure out what to do with ambiguous lemmata (e.g. est -> edo or sum)
+# TODO Determine how to regularize tags
 
 from cltk.tag.pos import POSTag
+from cltk.utils.cltk_logger import logger
 import macrons
 import random
 
 AVAILABLE_TAGGERS = ['tag_ngram_123_backoff']
+
 
 class Macronizer(object):
     """
@@ -57,6 +62,7 @@ class Macronizer(object):
             matching_entries = [entries for entries in entry if pos_tag in entries]
             if len(entry) == 0 or len(matching_entries) == 0:
                 entries.append([tag + (None,)])
+                logger.info('No entry found for "{}".'.format(tag))
             else:
                 entries.append(matching_entries)
         return entries
@@ -76,10 +82,12 @@ class Macronizer(object):
             if len(entry) == 1:
                 macronized.append(entry[0])
             else:
+                logger.info('Multiple entries found for "{}".'.format(entry))
                 macronized.append(random.choice(entry))
         return macronized
 
 
 if __name__ == "__main__":
     test = "gallia est omnis divisa partes tres"
-    print(Macronizer('tag_ngram_123_backoff').macronize(test))
+    for tuple in (Macronizer('tag_ngram_123_backoff').macronize(test)):
+        print(tuple)
