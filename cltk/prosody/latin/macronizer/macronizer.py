@@ -22,7 +22,7 @@ from cltk.utils.cltk_logger import logger
 from cltk.prosody.latin.macronizer import macrons
 import random
 
-AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf', 'lapos']
+AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf']
 
 
 class Macronizer(object):
