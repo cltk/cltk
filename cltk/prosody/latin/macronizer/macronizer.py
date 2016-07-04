@@ -14,13 +14,15 @@ Out    : [('n-s---fb-', 'Gallia', 'Galliā')
 """
 # TODO Figure out what to do with ambiguous lemmata (e.g. est -> edo or sum)
 # TODO Determine how to regularize tags
+# TODO Fix CRF tagger option
+# TODO Fix import error with full import statement
 
 from cltk.tag.pos import POSTag
 from cltk.utils.cltk_logger import logger
-import macrons
+from cltk.prosody.latin.macronizer import macrons
 import random
 
-AVAILABLE_TAGGERS = ['tag_ngram_123_backoff']
+AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf', 'lapos']
 
 
 class Macronizer(object):
@@ -44,8 +46,14 @@ class Macronizer(object):
         :rtype : list
         """
         if self.tagger == 'tag_ngram_123_backoff': # Data format: Perseus Style (see https://github.com/cltk/latin_treebank_perseus)
-                tags = POSTag('latin').tag_ngram_123_backoff(text.lower())
-                return [(tag[0], tag[1].lower()) for tag in tags]
+            tags = POSTag('latin').tag_ngram_123_backoff(text.lower())
+            return [(tag[0], tag[1].lower()) for tag in tags]
+        elif self.tagger == 'tag_tnt':
+            tags = POSTag('latin').tag_tnt(text.lower())
+            return [(tag[0], tag[1].lower()) for tag in tags]
+        elif self.tagger == 'tag_crf':
+            tags = POSTag('latin').tag_crf(text.lower())
+            return [(tag[0], tag[1].lower()) for tag in tags]
 
     def retrieve_morpheus_entry(self, text):
         """
@@ -89,5 +97,5 @@ class Macronizer(object):
 
 if __name__ == "__main__":
     test = "gallia est omnis divisa partes tres"
-    for tuple in (Macronizer('tag_ngram_123_backoff').macronize(test)):
+    for tuple in (Macronizer('tag_tnt').macronize(test)):
         print(tuple)
