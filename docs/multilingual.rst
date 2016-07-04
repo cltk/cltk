@@ -348,7 +348,7 @@ The NLTK offers several methods for word tokenization. The ``PunktLanguageVars``
     'sedibus',
     'hospes.']
 
-This tokenizer works well, though has the particular feature that periods are fixed to the word preceding it. Notice the final token ``hospes.`` in the above. To get around this limitation, the CLTK offers ``nltk_tokenize_words()``, which is a simple wrapper for ``PunktLanguageVars.word_tokenize()``. It simply identifies final periods and turns them into their own item.
+This tokenizer works well, though has the particular feature that periods are fixed to the word preceding it. Notice the final token ``hospes.`` in the above. To get around this limitation, the CLTK offers ``nltk_tokenize_words()``, which is a simple wrapper for ``PunktLanguageVars.word_tokenize()``. It identifies final periods and turns them into their own item.
 
 .. code-block:: python
 

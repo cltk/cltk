@@ -93,11 +93,13 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
 
     return text
 
+
 def cltk_normalize(text, compatibility=True):
     if compatibility:
         return normalize('NFKC', text)
     else:
         return normalize('NFC', text)
+
 
 def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek PHI5 text.

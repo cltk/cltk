@@ -625,5 +625,6 @@ class TestScriptInformation(unittest.TestCase):
     def test_is_indiclang_char(self):
     	self.assertTrue(is_indiclang_char('क','hi'))
 
+
 if __name__ == '__main__':
     unittest.main()
