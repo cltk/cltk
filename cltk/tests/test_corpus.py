@@ -556,7 +556,7 @@ class TestTransliteration(unittest.TestCase):
         self.assertEqual(sin,'රාජස්ථාන')
         dev = sdt.sinhala_to_devanagari('රාජස්ථාන')
         self.assertEqual(dev,'राजस्थान')
-    '''
+
 
 class TestScriptInformation(unittest.TestCase):
 
