@@ -227,6 +227,39 @@ N–grams
     …]
 
 
+Normalization
+=============
+
+If you are working from texts from different resources, it is likely a good idea to normalize them before
+further processing (such as sting comparison). The CLTK provides a wrapper to the Python language's builtin \
+``normalize()``. Here's an example its use in "compatibility" mode (``NFKC``):
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.formatter import cltk_normalize
+
+   In [2]: tonos = "ά"
+
+   In [3]: oxia = "ά"
+
+   In [4]: tonos == oxia
+   Out[4]: False
+
+   In [5]: tonos == cltk_normalize(oxia)
+   Out[5]: True
+
+
+One can turn off compatibility with:
+
+.. code-block:: python
+
+   In [6]: tonos == cltk_normalize(oxia, compatibility=False)
+   Out[6]: True
+
+For more on ``normalize()`` see the `Python Unicode docs <https://docs.python.org/3.5/library/unicodedata.html#unicodedata.normalize>`_.
+
+
+
 Skipgrams
 =========
 The NLTK has a handy `skipgram <https://en.wikipedia.org/wiki/N-gram#Skip-gram>`_ function. Use it like this:

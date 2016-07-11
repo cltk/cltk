@@ -208,6 +208,33 @@ If for any reason you want to go from oxia to tonos, just add the ``reverse=True
    Out[8]: True
 
 
+Another approach to normalization is to use the Python language's builtin ``normalize()``. The CLTK provides a wrapper \
+for this, as a convenience. Here's an example its use in "compatibility" mode (``NFKC``):
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.formatter import cltk_normalize
+
+   In [2]: tonos = "ά"
+
+   In [3]: oxia = "ά"
+
+   In [4]: tonos == oxia
+   Out[4]: False
+
+   In [5]: tonos == cltk_normalize(oxia)
+   Out[5]: True
+
+
+One can turn off compatability with:
+
+.. code-block:: python
+
+   In [6]: tonos == cltk_normalize(oxia, compatibility=False)
+   Out[6]: True
+
+For more on ``normalize()`` see the `Python Unicode docs <https://docs.python.org/3.5/library/unicodedata.html#unicodedata.normalize>`_.
+
 
 POS tagging
 ===========
