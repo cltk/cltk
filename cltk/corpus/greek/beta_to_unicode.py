@@ -388,10 +388,10 @@ class Replacer(object):  # pylint: disable=R0903
         """
         text = text.replace('-', '')
         for (pattern, repl) in self.pattern1:
-            text = regex.subn(pattern, repl, text)[0]
+            text = pattern.subn(repl, text)[0]
         for (pattern, repl) in self.pattern2:
-            text = regex.subn(pattern, repl, text)[0]
+            text = pattern.subn(repl, text)[0]
         # remove third run, if punct list not used
         for (pattern, repl) in self.pattern3:
-            text = regex.subn(pattern, repl, text)[0]
+            text = pattern.subn(repl, text)[0]
         return text
