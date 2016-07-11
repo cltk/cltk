@@ -170,6 +170,44 @@ There is available a simple interface to `a list of Greek proper nouns <https://
     ('τὴν',)]
 
 
+Normalization
+=============
+
+Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications \
+ issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
+
+One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents
+ (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.formatter import tonos_oxia_converter
+
+   In [2]: char_tonos = "ά"  # with tonos, for Modern Greek
+
+   In [3]: char_oxia = "ά"  # with oxia, for Ancient Greek
+
+   In [4]: char_tonos == char_oxia
+   Out[4]: False
+
+   In [5]: ord(char_tonos)
+   Out[5]: 940
+
+   In [6]: ord(char_oxia)
+   Out[6]: 8049
+
+   In [7]: char_oxia == tonos_oxia_converter(char_tonos)
+   Out[7]: True
+
+
+If for any reason you want to go from oxia to tonos, just add the ``reverse=True`` parameter:
+
+.. code-block:: python
+
+   In [8]: char_tonos == tonos_oxia_converter(char_oxia, reverse=True)
+   Out[8]: True
+
+
 
 POS tagging
 ===========
