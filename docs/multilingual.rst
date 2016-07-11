@@ -227,6 +227,57 @@ N–grams
     …]
 
 
+Skipgrams
+=========
+The NLTK has a handy `skipgram <https://en.wikipedia.org/wiki/N-gram#Skip-gram>`_ function. Use it like this:
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+
+   In [2]: from nltk.util import skipgrams
+
+   In [3]: text = 'T. Pomponis Atticus, ab origine ultima stirpis Romanae generatus, \
+      ...:    perpetuo a maioribus acceptam equestrem obtinuit dignitatem.'
+
+   In [4]: word_tokenizer = WordTokenizer('latin')
+
+   In [5]: unigrams = word_tokenizer.tokenize(text)
+
+   In [6]: for ngram in skipgrams(unigrams, 3, 5):
+      ...:     print(ngram)
+      ...:
+   ('T.', 'Pomponis', 'Atticus')
+   ('T.', 'Pomponis', ',')
+   ('T.', 'Pomponis', 'ab')
+   ('T.', 'Pomponis', 'origine')
+   ('T.', 'Pomponis', 'ultima')
+   ('T.', 'Pomponis', 'stirpis')
+   ('T.', 'Atticus', ',')
+   ('T.', 'Atticus', 'ab')
+   ('T.', 'Atticus', 'origine')
+   ('T.', 'Atticus', 'ultima')
+   …
+   ('equestrem', 'obtinuit', '.')
+   ('equestrem', 'dignitatem', '.')
+   ('obtinuit', 'dignitatem', '.')
+
+The first parameter is the length of the output n-gram and the second parameter is how many tokens to skip.
+
+The NLTK's ``skipgrams()`` produces a generator whose values can be turned into a list like so:
+
+.. code-block:: python
+
+   In [8]: list(skipgrams(unigrams, 3, 5))
+   Out[8]:
+   [('T.', 'Pomponis', 'Atticus'),
+    ('T.', 'Pomponis', ','),
+    ('T.', 'Pomponis', 'ab'),
+    …
+    ('equestrem', 'dignitatem', '.'),
+    ('obtinuit', 'dignitatem', '.')]
+
+
 Text Reuse
 ==========
 The text reuse module offers a few tools to get started with studying text reuse (i.e., allusion and intertext). The major goals of this module are to leverage conventional text reuse strategies and to create comparison methods designed specifically for the languages of the corpora included in the CLTK.
