@@ -211,7 +211,7 @@ argenteo polubro, aureo eclutro. """
     def test_tonos_oxia_converter(self):
         """Test function converting tonos to oxia accent."""
         char_tonos = "ά"  # with tonos, for Modern Greek
-        char_oxia = "ά"  # with oxia, for Ancient Greek
+        char_oxia = "ά"  # with oxia, for Ancient Greek
         corrected = tonos_oxia_converter(char_tonos)
         self.assertEqual(char_oxia, corrected)
 
@@ -556,6 +556,7 @@ class TestTransliteration(unittest.TestCase):
         self.assertEqual(sin,'රාජස්ථාන')
         dev = sdt.sinhala_to_devanagari('රාජස්ථාන')
         self.assertEqual(dev,'राजस्थान')
+    '''
 
 class TestScriptInformation(unittest.TestCase):
 
