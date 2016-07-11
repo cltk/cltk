@@ -28,7 +28,7 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
-from cltk.corpus.utils.formatter import oxia_converter
+from cltk.corpus.utils.formatter import tonos_oxia_converter
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
 from cltk.corpus.utils.importer import CorpusImporter, CorpusImportError
@@ -208,12 +208,19 @@ argenteo polubro, aureo eclutro. """
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
-    def test_oxia_converter(self):
-        """Test converting greek characters causing issues with tagging and lemmatization"""
-        oxia_str = "Ὁμοίως δὲ καὶ τὰ ἐκ τούτων τῶν παθημάτων γινόμενα"
-        tonos_str = oxia_converter(oxia_str)
-        valid = "Ὁμοίως δὲ καὶ τὰ ἐκ τούτων τῶν παθημάτων γινόμενα"
-        self.assertEqual(tonos_str, valid)       
+    def test_tonos_oxia_converter(self):
+        """Test function converting tonos to oxia accent."""
+        char_tonos = "ά"  # with tonos, for Modern Greek
+        char_oxia = "ά"  # with oxia, for Ancient Greek
+        corrected = tonos_oxia_converter(char_tonos)
+        self.assertEqual(char_oxia, corrected)
+
+    def test_tonos_oxia_converter_reverse(self):
+        """Test function converting tonos to oxia accent."""
+        char_tonos = "ά"  # with tonos, for Modern Greek
+        char_oxia = "ά"  # with oxia, for Ancient Greek
+        corrected = tonos_oxia_converter(char_oxia, reverse=True)
+        self.assertEqual(char_tonos, corrected)
 
     def test_remove_non_ascii(self):
         """Test removing all non-ascii characters from a string."""
