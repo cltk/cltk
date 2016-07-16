@@ -3,16 +3,30 @@
 __author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
+from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.latin.stem import Stemmer
 from cltk.stem.lemma import LemmaReplacer
 from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stem.sanskrit.indian_syllabifier import Syllabifier
+
+import os
 import unittest
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
+
+    def setUp(self):
+        """Import sanskrit models first, some CSV files necessary for the
+        Indian lang tokenizers.
+        """
+        corpus_importer = CorpusImporter('sanskrit')
+        corpus_importer.import_corpus('sanskrit_models_cltk')
+        file_rel = os.path.join('~/cltk_data/sanskrit/model/sanskrit_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""

@@ -1,4 +1,7 @@
-"""Test cltk.tokenize."""
+"""Test cltk.tokenize.
+
+TODO: Add tests for the Indian lang tokenizers: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+"""
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence
