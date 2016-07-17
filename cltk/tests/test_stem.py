@@ -7,8 +7,8 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.latin.stem import Stemmer
 from cltk.stem.lemma import LemmaReplacer
-from cltk.stem.latin.syllabifier import Syllabifier as IndianSyllabifier
-from cltk.stem.sanskrit.indian_syllabifier import Syllabifier
+from cltk.stem.latin.syllabifier import Syllabifier
+from cltk.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
 
 import os
 import unittest
