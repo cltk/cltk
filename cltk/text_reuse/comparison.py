@@ -104,6 +104,8 @@ class Comparison:
         :param str_a: str
         :param str_b: str
         
+        Big Thanks to Pulkit Kathuria(@kevincobain2000) for the function 
+        The function is derived from jProcessing toolkit suite
         """
         data = [str_a, str_b]
         substr = ''
