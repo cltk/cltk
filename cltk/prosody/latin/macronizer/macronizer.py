@@ -61,8 +61,6 @@ class Macronizer(object):
             tags = POSTag('latin').tag_crf(text.lower())
             return [(tag[0], tag[1]) for tag in tags]
 
-
-
     def retrieve_morpheus_entry(self, text):
         """
         Return morpheus entry.
@@ -85,7 +83,7 @@ class Macronizer(object):
                 logger.info('Entry {} not found in Morpheus.'.format(tag[0]))
                 continue
             if len(entry) == 0 or len(matching_entries) == 0:
-                entries.append([tag + (None,)])
+                entries.append([tag + (tag[0],)])
                 logger.info('No entry found for "{}".'.format(tag))
             else:
                 entries.append(matching_entries)
@@ -118,7 +116,6 @@ if __name__ == "__main__":
     test = "/Users/Tyler1/cltk_data/latin/text/latin_text_latin_library/caesar/gall1.txt"
     with open(test) as file:
         caesar = file.read()
-    for tuple in (Macronizer('tag_ngram_123_backoff').macronize(clean_text(caesar))):
-        print(tuple)
+    print(Macronizer('tag_ngram_123_backoff').macronize(clean_text(caesar))[990:1000])
     # test = "[1] gallia est divisa omnis tres partes."
     # print(Macronizer("tag_ngram_123_backoff").retrieve_morpheus_entry(test))
