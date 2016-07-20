@@ -36,7 +36,8 @@ from cltk.corpus.sanskrit.itrans.itrans_transliterator import *
 from cltk.corpus.sanskrit.itrans.unicode_transliterate import *
 from cltk.corpus.sanskrit.itrans.langinfo import *
 from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagariTransliterator  as sdt
-from cltk.corpus.punjabi.numerifier import *
+from cltk.corpus.punjabi.numerifier import punToEnglish_number
+from cltk.corpus.punjabi.numerifier import englishToPun_number
 from unicodedata import normalize
 import os
 import unittest
@@ -514,6 +515,13 @@ argenteo polubro, aureo eclutro. """
                  'stop_epoch': 'bc', 'start_epoch': 'bc'}
         self.assertEqual(_handle_splits('2/1 B.C.?'), _dict)
 
+    def test_punToEnglish_number(self):
+        str_test = '੧੨੩੪੫੬੭੮੯੦'
+        self.assertEqual(1234567890, punToEnglish_number(str_test))
+    def test_englishToPun_number(self):
+        str_test = '੧੨੩੪੫੬੭੮੯੦'
+        self.assertEqual(str_test, englishToPun_number(1234567890))
+
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
@@ -633,13 +641,6 @@ class TestScriptInformation(unittest.TestCase):
     def test_is_indiclang_char(self):
     	self.assertTrue(is_indiclang_char('क','hi'))
 
-class NumericalMethods(unittest.TestCase):
-    def test_punToEnglish_number(self):
-        str_test = '੧੨੩੪੫੬੭੮੯੦'
-        self.assertEqual(1234567890, punToEnglish_number(str_test))
-    def test_englishToPun_number(self):
-        str_test = '੧੨੩੪੫੬੭੮੯੦'
-        self.assertEqual(str_test, englishToPun_number(1234567890))
 
 
 if __name__ == '__main__':

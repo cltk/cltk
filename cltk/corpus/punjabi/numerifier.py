@@ -1,4 +1,4 @@
-from cltk.corpus.punjabi.alphabet import *
+from cltk.corpus.punjabi.alphabet import DIGITS
 def punToEnglish_number(number):
     '''
         Thee punToEnglish_number function will take a string num which is\
