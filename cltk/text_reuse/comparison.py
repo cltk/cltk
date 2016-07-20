@@ -98,7 +98,7 @@ class Comparison:
 
         return
     
-    def long_substring(str_a, str_b):
+    def long_substring(self,str_a, str_b):
         """
         Looks for a longest common string between any two given strings passed
         :param str_a: str
