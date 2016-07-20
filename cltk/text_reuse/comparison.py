@@ -107,6 +107,8 @@ class Comparison:
         Big Thanks to Pulkit Kathuria(@kevincobain2000) for the function 
         The function is derived from jProcessing toolkit suite
         """
+        self.str_a= str_a
+        self.str_b= str_b
         data = [str_a, str_b]
         substr = ''
         if len(data) > 1 and len(data[0]) > 0:
