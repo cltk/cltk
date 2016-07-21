@@ -24,9 +24,6 @@ These are the INDEPENDENT_VOWELS, they don't need any other consonant to be prin
 
 Similarly there is the list of DIGITS, DEPENDENT_VOWELS, CONSONANTS, BINDI_CONSONANTS(just like consonants but just change in some sound) and some OTHER_SYMBOLS, which can be used and imported in the same way as is done with the INDEPENDENT_VOWELS.
 
-One important thing, some editors like vim, was not able to render the punjabi symbols like in DEPENDENT_VOWELS and OTHER_SYMBOLS correctly, so on adding the space in the list(during writing them) corrected this bug, but actually the space is not neccessary, so a trimmer function is also added which removes the left and right spaces.
-
-
 Numerifier
 ==========
 
