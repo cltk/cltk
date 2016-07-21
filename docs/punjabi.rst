@@ -1,7 +1,6 @@
 Punjabi
 *******
 
-At this time only the support of the punjabi alphabets and digits is added, and two functions in numerifier are added in the punjabi module
 
 Numerifier
 ==========
