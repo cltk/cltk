@@ -38,6 +38,7 @@ from cltk.corpus.sanskrit.itrans.langinfo import *
 from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagariTransliterator  as sdt
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
+from cltk.corpus.punjabi.alphabet import trimmer
 from unicodedata import normalize
 import os
 import unittest
@@ -518,10 +519,14 @@ argenteo polubro, aureo eclutro. """
     def test_punToEnglish_number(self):
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(1234567890, punToEnglish_number(str_test))
+
     def test_englishToPun_number(self):
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(str_test, englishToPun_number(1234567890))
 
+    def test_trimmer(self):
+        str_test = ['  Yo  ', '   Hello   ']
+        self.assertEqual(['Yo', 'Hello'], trimmer(str_test))
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
