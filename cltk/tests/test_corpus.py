@@ -518,10 +518,10 @@ argenteo polubro, aureo eclutro. """
     def test_punToEnglish_number(self):
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(1234567890, punToEnglish_number(str_test))
+
     def test_englishToPun_number(self):
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(str_test, englishToPun_number(1234567890))
-
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
