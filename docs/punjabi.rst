@@ -1,7 +1,7 @@
 Punjabi
 *******
 
-Alphabets
+Alphabet
 =========
 
 The Punjabi digits, vowels, consonants, and symbols are placed in `cltk/corpus/punjabi/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/punjabi/alphabet.py>`_. It is fully commented, so look there for more information about the language's phonology.
