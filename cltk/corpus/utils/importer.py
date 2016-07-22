@@ -2,7 +2,6 @@
 TODO: Fix so ``import_corpora()`` can take relative path.
 TODO: Add https://github.com/cltk/pos_latin
 """
-
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
 from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
@@ -27,7 +26,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan', 'sanskrit']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali',  'tibetan', 'sanskrit']
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
