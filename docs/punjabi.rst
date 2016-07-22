@@ -4,28 +4,24 @@ Punjabi
 Alphabets
 =========
 
-The punjabi alphabets and numbers are placed in alphabet.py file, so we can use them, the alphabet.py file in cltk/corpus/punjabi/ is fully commented, for more info you can see the comments there.
+The Punjabi digits, vowels, consonants, and symbols are placed in `cltk/corpus/punjabi/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/punjabi/alphabet.py>`_. It is fully commented, so look there for more information about the language's phonology.
 
-This module is necessary for the working all other modules, so directly or indirectly, they are importing this module.
-
-Here, the basics about the file are explained.
-
-It contains, list, which store the digits, vowels, consonants and symbols of punjabi language in lexiological order.
-You can check it
-
+To use Punjabi's independent vowels, for example:
 .. code-block:: python
 
-   In[1]: from cltk.corpus.punjabi.alphabet import INDEPENDENT_VOWELS
+   In [1]: from cltk.corpus.punjabi.alphabet import INDEPENDENT_VOWELS
 
-   In[2]: print (INDEPENDENT_VOWELS)
+   In [2]: print(INDEPENDENT_VOWELS)
    Out[2]: ['ਆ', 'ਇ', 'ਈ', 'ਉ', 'ਊ', 'ਏ', 'ਐ', 'ਓ', 'ਔ']
 
-These are the INDEPENDENT_VOWELS, they don't need any other consonant to be printed, they are printed as just they are, they represent the sound aa, i, iii, u, uuu, a, oo, o and ou respectively.
+These are the INDEPENDENT_VOWELS, they don't need any other consonant to be printed, they are printed as just they are, they represent the sounds "aa", "i", "iii", "u", "uuu", "a", "oo", "o" and "ou", respectively.
 
-Similarly there is the list of DIGITS, DEPENDENT_VOWELS, CONSONANTS, BINDI_CONSONANTS(just like consonants but just change in some sound) and some OTHER_SYMBOLS, which can be used and imported in the same way as is done with the INDEPENDENT_VOWELS.
+Similarly there are lists for ``DIGITS``, ``DEPENDENT_VOWELS``, ``CONSONANTS``, ``BINDI_CONSONANTS`` (nasal pronunciation) and some ``OTHER_SYMBOLS`` (mostly for pronunciation).
+
 
 Numerifier
 ==========
+These convert English numbers into Punjabi and vice versa.
 
 .. code-block:: python
 
