@@ -16,7 +16,6 @@ from cltk.utils.cltk_logger import logger
 
 
 AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf']
-macrons = "/Users/Tyler1/GitHub/latin_models_cltk/taggers/macrons/macrons.py"
 
 
 class Macronizer(object):
