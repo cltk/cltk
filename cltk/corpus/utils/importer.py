@@ -56,6 +56,7 @@ class CorpusImporter():
     """Import CLTK corpora."""
 
     def __init__(self, language):
+        """Setup corpus importing."""
         self.language = language.lower()
         self.user_defined_corpora = self._setup_language_variables()
 
@@ -63,14 +64,14 @@ class CorpusImporter():
         if self.user_defined_corpora:
             logger.info('User-defined corpus found for "{}" language'.format(self.language))
             try:
-                logger.info('Core corpora also found for "{}" language'.format(self.language))
-                logger.info('Combine the user-defined and the core corpora')
+                logger.debug('Core corpora also found for "{}" language'.format(self.language))
+                logger.debug('Combine the user-defined and the core corpora')
                 self.official_corpora = LANGUAGE_CORPORA[self.language]
                 self.all_corpora = self.official_corpora
                 for corpus in self.user_defined_corpora:
                     self.all_corpora.append(corpus)
             except KeyError:
-                logger.info('Nothing of this language in the official repos '
+                logger.debug('Nothing of this language in the official repos '
                             'for "{}" language. Make the all_corpora solely '
                             'from the .yaml'.format(self.language))
                 self.all_corpora = []
@@ -87,11 +88,14 @@ class CorpusImporter():
         """
         return 'CorpusImporter for: {}'.format(self.language)
 
-    def _check_distributed_corpora_file(self):
+    def _check_distributed_corpora_file(self, testing=False):
         """Check '~/cltk_data/distributed_corpora.yaml' for any custom,
         distributed corpora that the user wants to load locally.
         """
-        distributed_corpora_fp = os.path.expanduser('~/cltk_data/distributed_corpora.yaml')
+        if not testing:
+            distributed_corpora_fp = os.path.expanduser('~/cltk_data/distributed_corpora.yaml')
+        else:
+            distributed_corpora_fp = os.path.expanduser('~/cltk_data/test_distributed_corpora.yaml')
 
         with open(distributed_corpora_fp) as file_open:
             corpora_dict = yaml.safe_load(file_open)
@@ -109,18 +113,19 @@ class CorpusImporter():
 
         return user_defined_corpora
 
-    def _setup_language_variables(self):
+    def _setup_language_variables(self, testing=False):
         """Check for availability of corpora for a language.
         TODO: Make the selection of available languages dynamic from dirs
         within ``corpora`` which contain a ``corpora.py`` file.
         """
         if self.language not in AVAILABLE_LANGUAGES:
             # If no official repos, check if user has custom
-            user_defined_corpora = self._check_distributed_corpora_file()
+            user_defined_corpora = self._check_distributed_corpora_file(testing=testing)
             if user_defined_corpora:
                 return user_defined_corpora
             else:
-                msg = 'Corpora not available for the "{}" language.'.format(self.language)
+                msg = 'Corpora not available (either core or user-defined) for the "{}" language.'.format(self.language)
+                logger.info(msg)
                 raise CorpusImportError(msg)
         else:
             user_defined_corpora = self._check_distributed_corpora_file()
@@ -322,5 +327,6 @@ class CorpusImporter():
 
 
 if __name__ == '__main__':
-    c = CorpusImporter('latinx')
-    c.import_corpus('example_1')
+    c = CorpusImporter('fake_language')
+    print(c.list_corpora)
+    # c.import_corpus('example_1')
