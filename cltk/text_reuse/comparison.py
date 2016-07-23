@@ -97,3 +97,23 @@ class Comparison:
             self.language_b = text_ref['language']
 
         return
+class Similarity(object):
+    def minhash(self, *args):
+        """
+        :*args:A tokenized string like a and b
+        :Sentences: should be tokenized in string
+        a = u"There is"
+        b = u"There was"
+        
+        Thanks to Pulkit Kathuria(@kevincobain2000) for the definition of the function.
+        The function makes use of minhash for estimation of similarity between two strings or texts.
+        """
+        score = 0.0
+        tok_sent_1 = args[0]
+        tok_sent_2 = args[1]
+        shingles = lambda s: set(s[i:i+3] for i in range(len(s)-2))
+        try:
+            jaccard_distance = lambda seta, setb: len(seta & setb)/float(len(seta | setb))
+            score = jaccard_distance(shingles(tok_sent_1), shingles(tok_sent_2))
+            return score
+        except ZeroDivisionError: return score
