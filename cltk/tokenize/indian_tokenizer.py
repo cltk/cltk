@@ -29,8 +29,5 @@ def indian_punctuation_tokenize_regex(input_str):
 
 if __name__ == '__main__':
 
-    triv1 = indian_punctuation_tokenize_regex("The quick brown fox jumps over the lazy dog")
-    print(triv1)
-
-    triv2 = indian_punctuation_tokenize_regex("प्रेमचन्द का जन्म ३१ जुलाई सन् १८८० को बनारस शहर से चार मील दूर लमही गाँव में हुआ था।")
+    triv2 = indian_punctuation_tokenize_regex("हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है।")
     print(triv2)
