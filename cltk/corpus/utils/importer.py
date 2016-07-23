@@ -61,14 +61,23 @@ class CorpusImporter():
 
         # if user_defined_corpora, then we need to add these to the corpus.py objects
         if self.user_defined_corpora:
+            logger.info('User-defined corpus found for "{}" language'.format(self.language))
             try:
+                logger.info('Core corpora also found for "{}" language'.format(self.language))
+                logger.info('Combine the user-defined and the core corpora')
                 self.official_corpora = LANGUAGE_CORPORA[self.language]
                 self.all_corpora = self.official_corpora
                 for corpus in self.user_defined_corpora:
                     self.all_corpora.append(corpus)
             except KeyError:
-                print('Nothing of this language in the official repos.')
+                logger.info('Nothing of this language in the official repos '
+                            'for "{}" language. Make the all_corpora solely '
+                            'from the .yaml'.format(self.language))
+                self.all_corpora = []
+                for corpus in self.user_defined_corpora:
+                    self.all_corpora.append(corpus)
         else:
+            logger.info('No user-defined corpora found for "{}" language'.format(self.language))
             self.official_corpora = LANGUAGE_CORPORA[self.language]
             self.all_corpora = LANGUAGE_CORPORA[self.language]
 
