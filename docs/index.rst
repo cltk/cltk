@@ -21,6 +21,7 @@ Contents
    latin
    multilingual
    pali
+   punjabi
    sanskrit
    telugu
    tibetan
