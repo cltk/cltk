@@ -99,8 +99,12 @@ class CorpusImporter():
         else:
             distributed_corpora_fp = os.path.expanduser('~/cltk_data/test_distributed_corpora.yaml')
 
-        with open(distributed_corpora_fp) as file_open:
-            corpora_dict = yaml.safe_load(file_open)
+        try:
+            with open(distributed_corpora_fp) as file_open:
+                corpora_dict = yaml.safe_load(file_open)
+        except FileNotFoundError:
+            logger.info('distributed_corpora.yaml file not found.')
+            return []
 
         user_defined_corpora = []
         for corpus_name in corpora_dict:
