@@ -553,7 +553,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_setup_language_variables_user_and_core(self):
         """Test function which checks for presence of
-        `~/cltk_data/distributed_corpora.yaml
+        `~/cltk_data/distributed_corpora.yaml`
         """
         self.make_distributed_corpora_testing_file()
         corpus_importer = CorpusImporter('latin')

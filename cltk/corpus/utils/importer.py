@@ -134,7 +134,7 @@ class CorpusImporter():
                 logger.info(msg)
                 raise CorpusImportError(msg)
         else:
-            user_defined_corpora = self._check_distributed_corpora_file()
+            user_defined_corpora = self._check_distributed_corpora_file(testing=testing)
             return user_defined_corpora
 
     @property
