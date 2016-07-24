@@ -137,7 +137,7 @@ This tool can break a word into its syllables, this can be applied across 17 Ind
    In [27]: x = Syllabifier(lang)
 
    In [28]: current = x.orthographic_syllabify(input_text)
-   Out[28]: ['न', 'म', 'स्ते']
+   Out[28]: ['न', 'म','स्ते']
 
 
 Tokenizer
@@ -150,9 +150,9 @@ This tool can break a sentence into into its constituent words. It works on the 
 
    In [29]: from cltk.tokenize.indian_tokenizer import *
 
-   In [30]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है।"
+   In [30]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है"
 
    In [31]: x = indian_punctuation_tokenize_regex(input_text)
-   Out[31]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है', '।']
+   Out[31]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
 
 
