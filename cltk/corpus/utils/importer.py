@@ -103,7 +103,10 @@ class CorpusImporter():
             with open(distributed_corpora_fp) as file_open:
                 corpora_dict = yaml.safe_load(file_open)
         except FileNotFoundError:
-            logger.info('distributed_corpora.yaml file not found.')
+            logger.info('Distributed_corpora.yaml file not found.')
+            return []
+        except yaml.parser.ParserError as parse_err:
+            logger.debug('Yaml parsing error: %s' % parse_err)
             return []
 
         user_defined_corpora = []
