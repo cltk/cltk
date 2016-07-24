@@ -297,15 +297,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 #         file_exists = os.path.isfile(_file)
 #         self.assertTrue(file_exists)
 #
-#     def test_import_lat_text_lat_lib(self):
-#         """Test cloning the Latin Library text corpus."""
-#         corpus_importer = CorpusImporter('latin')
-#         corpus_importer.import_corpus('latin_text_latin_library')
-#         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
-#         _file = os.path.expanduser(file_rel)
-#         file_exists = os.path.isfile(_file)
-#         self.assertTrue(file_exists)
-#
+    def test_import_lat_text_lat_lib(self):
+        """Test cloning the Latin Library text corpus."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
+        _file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(_file)
+        self.assertTrue(file_exists)
+
 #     def test_import_latin_models_cltk(self):
 #         """Test cloning the CLTK Latin models."""
 #         corpus_importer = CorpusImporter('latin')
