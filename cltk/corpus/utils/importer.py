@@ -91,6 +91,8 @@ class CorpusImporter():
     def _check_distributed_corpora_file(self, testing=False):
         """Check '~/cltk_data/distributed_corpora.yaml' for any custom,
         distributed corpora that the user wants to load locally.
+
+        TODO: write check or try if `cltk_data` dir is not present
         """
         if not testing:
             distributed_corpora_fp = os.path.expanduser('~/cltk_data/distributed_corpora.yaml')

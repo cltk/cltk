@@ -531,6 +531,8 @@ argenteo polubro, aureo eclutro. """
     def make_distributed_corpora_testing_file(self):
         """Setup for some cloning tests, make file at
         '~/cltk_data/test_distributed_corpora.yaml'.
+
+        TODO: make `cltk_data` dir is not present
         """
         yaml_str_to_write = """example_distributed_latin_corpus:
         git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
