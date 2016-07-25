@@ -1,4 +1,7 @@
-# -*- coding=utf-8 -*-
+"""Data module for the Punjabi languages alphabet and related characters."""
+
+__author__ = 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'
+__license__ = 'MIT License. See LICENSE.'
 
 #The Functions Needed for making the data of alphabets is here
 
