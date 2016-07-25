@@ -199,7 +199,7 @@ class CorpusImporter():
 
     def _git_user_defined_corpus(self, corpus_name, corpus_type, uri:str, branch='master'):
         """Clone or update a git repo defined by user.
-        TODO: This code is very reduntand with what's in import_corpus(),
+        TODO: This code is very redundant with what's in import_corpus(),
         could be refactored.
         """
         # git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')

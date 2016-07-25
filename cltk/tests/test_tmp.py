@@ -468,125 +468,125 @@ argenteo polubro, aureo eclutro. """
         self.assertEqual(type(dates), list)
         self.assertEqual(len(dates), 183)
 
-    def test_get_date_of_author(self):
-        """Test get_date_of_author()."""
-        self.assertEqual(get_date_of_author('1747'), '1 B.C./A.D. 1')
-        self.assertEqual(get_date_of_author('1143'), '2-1 B.C.')
-        self.assertEqual(get_date_of_author('0295'), 'Varia')
-        self.assertEqual(get_date_of_author('4304'), 'a. A.D. 10')
-        self.assertIsNone(get_date_of_author('123456'))
-
-    def test_get_epoch(self):
-        """Test _get_epoch()."""
-        self.assertEqual(_get_epoch('A.D. 9-10'), 'ad')
-        self.assertEqual(_get_epoch('p. A.D. 2'), 'ad')
-        self.assertIsNone(_get_epoch('a. A.D. 2'))
-        self.assertEqual(_get_epoch('3 B.C.'), 'bc')
-        self.assertIsNone(_get_epoch('p. 7 B.C.'))
-        self.assertEqual(_get_epoch('a. 1 B.C.'), 'bc')
-        self.assertEqual(_get_epoch('a. 1 B.C.?'), 'bc')
-
-    def test_check_number(self):
-        """Test _check_number()."""
-        self.assertTrue(_check_number('5'))
-        self.assertTrue(_check_number('5?'))
-        self.assertFalse(_check_number('A.D. 5'))
-        self.assertFalse(_check_number('A.D. 5?'))
-        self.assertFalse(_check_number('p. 4 B.C.'))
-
-    def test_handle_splits(self):
-        """Test _handle_splits()."""
-        _dict = {'start_raw': 'A.D. 9', 'start_epoch': 'ad', \
-                 'stop_epoch': 'ad', 'stop_raw': 'A.D. 10'}
-        self.assertEqual(_handle_splits('A.D. 9-10'), _dict)
-        _dict = {'start_raw': 'A.D. 1?', 'start_epoch': 'ad', \
-                 'stop_epoch': 'ad', 'stop_raw': 'A.D. 6'}
-        self.assertEqual(_handle_splits('A.D. 1?-6'), _dict)
-        _dict = {'stop_raw': 'p. A.D. 2', 'start_raw': 'a. 4 B.C.', \
-                 'stop_epoch': 'ad', 'start_epoch': 'bc'}
-        self.assertEqual(_handle_splits('a. 4 B.C.-p. A.D. 2'), _dict)
-        _dict = {'stop_raw': 'A.D. 2?', 'start_raw': 'A.D. 2?', \
-                 'stop_epoch': 'ad', 'start_epoch': 'ad'}
-        self.assertEqual(_handle_splits('A.D. 2?'), _dict)
-        _dict = {'stop_raw': '1 B.C.?', 'start_raw': '2 B.C.?', \
-                 'stop_epoch': 'bc', 'start_epoch': 'bc'}
-        self.assertEqual(_handle_splits('2/1 B.C.?'), _dict)
-
-    def test_punjabi_to_english_number_conversion(self):
-        str_test = '੧੨੩੪੫੬੭੮੯੦'
-        self.assertEqual(1234567890, punToEnglish_number(str_test))
-
-    def test_english_to_punjabi_number_conversion(self):
-        """Test English to Punjabi number conversion."""
-        str_test = '੧੨੩੪੫੬੭੮੯੦'
-        self.assertEqual(str_test, englishToPun_number(1234567890))
-
-    def make_distributed_corpora_testing_file(self):
-        """Setup for some cloning tests, make file at
-        '~/cltk_data/test_distributed_corpora.yaml'.
-
-        TODO: make `cltk_data` dir is not present
-        """
-        yaml_str_to_write = """example_distributed_latin_corpus:
-        git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
-        language: latin
-        type: text
-
-    example_distributed_fake_language_corpus:
-        git_remote: git@github.com:kylepjohnson/doesntexistyet.git
-        language: fake_language
-        type: treebank
-    """
-        with open(DISTRIBUTED_CORPUS_PATH, 'w') as file_open:
-            file_open.write(yaml_str_to_write)
-
-    def remove_distributed_corpora_testing_file(self):
-        """Remove '~/cltk_data/test_distributed_corpora.yaml'."""
-        os.remove(DISTRIBUTED_CORPUS_PATH)
-
-    def test_setup_language_variables_user_and_core(self):
-        """Test function which checks for presence of
-        `~/cltk_data/distributed_corpora.yaml`
-        """
-        self.make_distributed_corpora_testing_file()
-        corpus_importer = CorpusImporter('latin')
-        list_of_dicts = corpus_importer._setup_language_variables(testing=True)
-        remote_url = list_of_dicts[0]['git_remote']
-        self.assertEqual(remote_url, 'git@github.com:kylepjohnson/latin_corpus_newton_example.git')
-        self.remove_distributed_corpora_testing_file()
-
-    def test_setup_language_variables_no_user_but_core(self):
-        """Test function which checks for presence of
-        `~/cltk_data/distributed_corpora.yaml.` Look for a language
-        not in core repos but not in user-defined.
-        """
-        self.make_distributed_corpora_testing_file()
-        corpus_importer = CorpusImporter('sanskrit')
-        empty_list = corpus_importer._setup_language_variables(testing=True)
-        self.assertEqual(empty_list, [])
-        self.remove_distributed_corpora_testing_file()
-
-    def test_setup_language_variables_user_but_not_core(self):
-        """Test function which checks for presence of
-        `~/cltk_data/distributed_corpora.yaml`. Look for a language
-        not in the core but in the user's custom file.
-        """
-        self.make_distributed_corpora_testing_file()
-        corpus_importer = CorpusImporter('fake_language')
-        corpus_name = corpus_importer.list_corpora
-        target_name = 'example_distributed_greek_corpus'
-        self.assertEqual(corpus_name[0], target_name)
-        self.remove_distributed_corpora_testing_file()
-
-    def test_setup_language_variables_no_user_no_core(self):
-        """Test function which checks for presence of
-        `~/cltk_data/distributed_corpora.yaml`. Look for a language
-        not in the core nor in the user's custom file.
-        """
-        self.make_distributed_corpora_testing_file()
-        with self.assertRaises(CorpusImportError):
-            CorpusImporter('fake_language_nowhere')
-        self.remove_distributed_corpora_testing_file()
+#     def test_get_date_of_author(self):
+#         """Test get_date_of_author()."""
+#         self.assertEqual(get_date_of_author('1747'), '1 B.C./A.D. 1')
+#         self.assertEqual(get_date_of_author('1143'), '2-1 B.C.')
+#         self.assertEqual(get_date_of_author('0295'), 'Varia')
+#         self.assertEqual(get_date_of_author('4304'), 'a. A.D. 10')
+#         self.assertIsNone(get_date_of_author('123456'))
+#
+#     def test_get_epoch(self):
+#         """Test _get_epoch()."""
+#         self.assertEqual(_get_epoch('A.D. 9-10'), 'ad')
+#         self.assertEqual(_get_epoch('p. A.D. 2'), 'ad')
+#         self.assertIsNone(_get_epoch('a. A.D. 2'))
+#         self.assertEqual(_get_epoch('3 B.C.'), 'bc')
+#         self.assertIsNone(_get_epoch('p. 7 B.C.'))
+#         self.assertEqual(_get_epoch('a. 1 B.C.'), 'bc')
+#         self.assertEqual(_get_epoch('a. 1 B.C.?'), 'bc')
+#
+#     def test_check_number(self):
+#         """Test _check_number()."""
+#         self.assertTrue(_check_number('5'))
+#         self.assertTrue(_check_number('5?'))
+#         self.assertFalse(_check_number('A.D. 5'))
+#         self.assertFalse(_check_number('A.D. 5?'))
+#         self.assertFalse(_check_number('p. 4 B.C.'))
+#
+#     def test_handle_splits(self):
+#         """Test _handle_splits()."""
+#         _dict = {'start_raw': 'A.D. 9', 'start_epoch': 'ad', \
+#                  'stop_epoch': 'ad', 'stop_raw': 'A.D. 10'}
+#         self.assertEqual(_handle_splits('A.D. 9-10'), _dict)
+#         _dict = {'start_raw': 'A.D. 1?', 'start_epoch': 'ad', \
+#                  'stop_epoch': 'ad', 'stop_raw': 'A.D. 6'}
+#         self.assertEqual(_handle_splits('A.D. 1?-6'), _dict)
+#         _dict = {'stop_raw': 'p. A.D. 2', 'start_raw': 'a. 4 B.C.', \
+#                  'stop_epoch': 'ad', 'start_epoch': 'bc'}
+#         self.assertEqual(_handle_splits('a. 4 B.C.-p. A.D. 2'), _dict)
+#         _dict = {'stop_raw': 'A.D. 2?', 'start_raw': 'A.D. 2?', \
+#                  'stop_epoch': 'ad', 'start_epoch': 'ad'}
+#         self.assertEqual(_handle_splits('A.D. 2?'), _dict)
+#         _dict = {'stop_raw': '1 B.C.?', 'start_raw': '2 B.C.?', \
+#                  'stop_epoch': 'bc', 'start_epoch': 'bc'}
+#         self.assertEqual(_handle_splits('2/1 B.C.?'), _dict)
+#
+#     def test_punjabi_to_english_number_conversion(self):
+#         str_test = '੧੨੩੪੫੬੭੮੯੦'
+#         self.assertEqual(1234567890, punToEnglish_number(str_test))
+#
+#     def test_english_to_punjabi_number_conversion(self):
+#         """Test English to Punjabi number conversion."""
+#         str_test = '੧੨੩੪੫੬੭੮੯੦'
+#         self.assertEqual(str_test, englishToPun_number(1234567890))
+#
+#     def make_distributed_corpora_testing_file(self):
+#         """Setup for some cloning tests, make file at
+#         '~/cltk_data/test_distributed_corpora.yaml'.
+#
+#         TODO: make `cltk_data` dir is not present
+#         """
+#         yaml_str_to_write = """example_distributed_latin_corpus:
+#         git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
+#         language: latin
+#         type: text
+#
+#     example_distributed_fake_language_corpus:
+#         git_remote: git@github.com:kylepjohnson/doesntexistyet.git
+#         language: fake_language
+#         type: treebank
+#     """
+#         with open(DISTRIBUTED_CORPUS_PATH, 'w') as file_open:
+#             file_open.write(yaml_str_to_write)
+#
+#     def remove_distributed_corpora_testing_file(self):
+#         """Remove '~/cltk_data/test_distributed_corpora.yaml'."""
+#         os.remove(DISTRIBUTED_CORPUS_PATH)
+#
+#     def test_setup_language_variables_user_and_core(self):
+#         """Test function which checks for presence of
+#         `~/cltk_data/distributed_corpora.yaml`
+#         """
+#         self.make_distributed_corpora_testing_file()
+#         corpus_importer = CorpusImporter('latin')
+#         list_of_dicts = corpus_importer._setup_language_variables(testing=True)
+#         remote_url = list_of_dicts[0]['git_remote']
+#         self.assertEqual(remote_url, 'git@github.com:kylepjohnson/latin_corpus_newton_example.git')
+#         self.remove_distributed_corpora_testing_file()
+#
+#     def test_setup_language_variables_no_user_but_core(self):
+#         """Test function which checks for presence of
+#         `~/cltk_data/distributed_corpora.yaml.` Look for a language
+#         not in core repos but not in user-defined.
+#         """
+#         self.make_distributed_corpora_testing_file()
+#         corpus_importer = CorpusImporter('sanskrit')
+#         empty_list = corpus_importer._setup_language_variables(testing=True)
+#         self.assertEqual(empty_list, [])
+#         self.remove_distributed_corpora_testing_file()
+#
+#     def test_setup_language_variables_user_but_not_core(self):
+#         """Test function which checks for presence of
+#         `~/cltk_data/distributed_corpora.yaml`. Look for a language
+#         not in the core but in the user's custom file.
+#         """
+#         self.make_distributed_corpora_testing_file()
+#         corpus_importer = CorpusImporter('fake_language')
+#         corpus_name = corpus_importer.list_corpora
+#         target_name = 'example_distributed_greek_corpus'
+#         self.assertEqual(corpus_name[0], target_name)
+#         self.remove_distributed_corpora_testing_file()
+#
+#     def test_setup_language_variables_no_user_no_core(self):
+#         """Test function which checks for presence of
+#         `~/cltk_data/distributed_corpora.yaml`. Look for a language
+#         not in the core nor in the user's custom file.
+#         """
+#         self.make_distributed_corpora_testing_file()
+#         with self.assertRaises(CorpusImportError):
+#             CorpusImporter('fake_language_nowhere')
+#         self.remove_distributed_corpora_testing_file()
 
 
 if __name__ == '__main__':
