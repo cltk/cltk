@@ -457,16 +457,16 @@ argenteo polubro, aureo eclutro. """
         valid = "Epictetus Phil."
         self.assertEqual(author, valid)
 
-    def test_get_date_author(self):
-        """Test get_date_author()."""
-        dates = get_date_author()
-        self.assertEqual(type(dates), dict)
+    # def test_get_date_author(self):
+    #     """Test get_date_author()."""
+    #     dates = get_date_author()
+    #     self.assertEqual(type(dates), dict)
 
-    def test_get_dates(self):
-        """Test get_dates()."""
-        dates = get_dates()
-        self.assertEqual(type(dates), list)
-        self.assertEqual(len(dates), 183)
+    # def test_get_dates(self):
+    #     """Test get_dates()."""
+    #     dates = get_dates()
+    #     self.assertEqual(type(dates), list)
+    #     self.assertEqual(len(dates), 183)
 
 #     def test_get_date_of_author(self):
 #         """Test get_date_of_author()."""
