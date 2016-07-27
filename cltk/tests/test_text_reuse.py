@@ -6,6 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 import unittest
 from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
+from cltk.text_reuse.comparison import minhash
 
 
 demo_verg = """
@@ -59,6 +60,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         t = TextReuse()
         comparisons = t.compare_sliding_window(demo_verg, demo_prop)
         self.assertEqual(comparisons[19][3].ratio, 0.64)
+    
+    def test_minhash(self):
+        """Test for finding the similarity between two sentences using Minhash"""
+        score = minhash(demo_verg, demo_prop)
+        self.assertEqual(score, 0.17163120567375886)
 
 
 if __name__ == '__main__':
