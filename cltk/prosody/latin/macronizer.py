@@ -10,6 +10,9 @@ Morpheus entry, the Macronizer class allows for multiple POS to be used.
 """
 # TODO Determine how to disambiguate tags (see logger)
 
+__author__ = 'Tyler Kirby <tyler.kirby9398@gmail.com>'
+__license__ = 'MIT License. See LICENSE.'
+
 import os
 import importlib.machinery
 from cltk.tag.pos import POSTag
