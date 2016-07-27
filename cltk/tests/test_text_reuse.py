@@ -6,7 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 import unittest
 from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
-from cltk.text_reuse.comparison import Comparison 
+from cltk.text_reuse.comparison import long_substring
 
 demo_verg = """
 tuque o, cui prima frementem
@@ -62,8 +62,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     
     def test_long_substring(self):
         """Test to check for the longest substring in the two passages"""
-        c = Comparison()
-        substring = c.long_substring(demo_verg, demo_prop)
+        substring = long_substring(demo_verg, demo_prop)
         self.assertEqual(substring,"dique deaeque omnes,")
 
 
