@@ -11,10 +11,9 @@ Morpheus entry, the Macronizer class allows for multiple POS to be used.
 # TODO Determine how to disambiguate tags (see logger)
 
 import os
+import importlib.machinery
 from cltk.tag.pos import POSTag
 from cltk.utils.cltk_logger import logger
-
-
 
 AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf']
 
@@ -29,17 +28,18 @@ class Macronizer(object):
 
     def __init__(self, tagger):
         """Initialize class with chosen tagger."""
-        self.macrons_data = self._setup_macrons_data()
+        self.macron_data = self._setup_macrons_data()
         self.tagger = tagger.lower()
         assert self.tagger in AVAILABLE_TAGGERS, \
             "Macronizer not available for '{0}' tagger.".format(self.tagger)
 
     def _setup_macrons_data(self):
         rel_path = "~/cltk_data/latin/model/latin_models_cltk/taggers/macrons/macrons.py"
-        full_path = os.path.expanduser(rel_path)
-        with open(full_path) as file:
-            macrons_dict = eval(file.read())
-            return macrons_dict
+        path = os.path.expanduser(rel_path)
+        loader = importlib.machinery.SourceFileLoader("macrons", path)
+        module = loader.load_module()
+        macrons = module.vowel_len_map
+        return macrons
 
     def _retrieve_tag(self, text):
         """
@@ -72,8 +72,7 @@ class Macronizer(object):
         :return: Morpheus entry in tuples
         :rtype : list
         """
-        macron_data = self._setup_macrons_data()
-        entry = macron_data.vowel_len_map.get(word)
+        entry = self.macron_data.get(word)
         if len(entry) == 0:
             logger.info('No Morpheus entry found for {}.'.format(word))
         return entry
