@@ -98,19 +98,20 @@ class Comparison:
 
         return
     
-def minhash(self, *args):
+def minhash(str_a, str_b):
     """
-    :*args:A tokenized string like a and b
+    :param str_a: str
+    :param str_b: str
     :Sentences: should be tokenized in string
-    a = u"There is"
-    b = u"There was"
+    str_a = u"There is"
+    str_b = u"There was"
         
     Thanks to Pulkit Kathuria(@kevincobain2000) for the definition of the function.
     The function makes use of minhash for estimation of similarity between two strings or texts.
     """
     score = 0.0
-    tok_sent_1 = args[0]
-    tok_sent_2 = args[1]
+    tok_sent_1 = str_a
+    tok_sent_2 = str_b
     shingles = lambda s: set(s[i:i+3] for i in range(len(s)-2))
     try:
         jaccard_distance = lambda seta, setb: len(seta & setb)/float(len(seta | setb))
