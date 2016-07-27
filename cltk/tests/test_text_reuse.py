@@ -6,7 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 import unittest
 from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
-from cltk.text_reuse.text_reuse import minhash
+from cltk.text_reuse.comparison import minhash
 
 
 demo_verg = """
