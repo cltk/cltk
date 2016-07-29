@@ -19,8 +19,8 @@ script:
   # Travis CI pre-installs `nose`
   # https://github.com/coagulant/coveralls-python#nosetests
   # http://nose.readthedocs.org/en/latest/plugins/skip.html
-  # - nosetests --no-skip --with-coverage --cover-package=cltk
-  python cltk/tests/test_distributed_corpus.py
+  - nosetests --no-skip --with-coverage --cover-package=cltk
+  # python cltk/tests/test_distributed_corpus.py
 
 after_success:
   - codecov
