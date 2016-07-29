@@ -523,6 +523,10 @@ argenteo polubro, aureo eclutro. """
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(1234567890, punToEnglish_number(str_test))
 
+    def test_englishToPun_number(self):
+        str_test = '੧੨੩੪੫੬੭੮੯੦'
+        self.assertEqual(str_test, englishToPun_number(1234567890))
+
     def test_english_to_punjabi_number_conversion(self):
         """Test English to Punjabi number conversion."""
         str_test = '੧੨੩੪੫੬੭੮੯੦'
