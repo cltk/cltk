@@ -51,9 +51,12 @@ For a local corpus, such as the TLG, you must give a second argument of the file
 User-defined, distributed corpora
 =================================
 
-Most users will want to use the CLTK's publicly available corpora. However users can import any corpus \
-that is hosted by Git. For example, perhaps a user wants to keep a special, custom corpus on GitHub \
-(say, ``git@github.com:kylepjohnson/latin_corpus_newton_example.git``, it could be cloned \
+Most users will want to use the CLTK's publicly available corpora. However users can import any repository \
+that is hosted on a Git server. The benefit of this is that users can use corpora \
+that the CLTK organization is not able to distribute itself (because too specific, license restrictions, etc.).
+
+Let's say a user wants to keep a particular Git-backed corpus at \
+``git@github.com:kylepjohnson/latin_corpus_newton_example.git``. It can be cloned \
 into the ``~/cltk_data/`` directory by declaring it in a manually created YAML file at \
 ``~/cltk_data/distributed_corpora.yaml`` like the following:
 
@@ -65,9 +68,10 @@ into the ``~/cltk_data/`` directory by declaring it in a manually created YAML f
        type: text
 
    example_distributed_greek_corpus:
-       git_remote: git@github.com:kylepjohnson/a_nonesistent_repo.git
+       git_remote: git@github.com:kylepjohnson/a_nonexistent_repo.git
        language: pali
        type: treebank
 
 Each block defines a separate corpus. The first line of a block (e.g., ``example_distributed_latin_corpus``) \
-defines the corpus's name and is not used
+gives the unique name to the custom corpus, however it is not used elsewhere. This first example block would allow \
+a user to fetch the repo and install it at ``~/cltk_data/latin/text/latin_corpus_newton_example``.
