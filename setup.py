@@ -28,6 +28,7 @@ setup(
                       'nltk',
                       'python-Levenshtein',
                       'pyuca',
+                      'pyyaml',
                       'regex',
                       'whoosh'],
     keywords=['nlp', 'nltk', 'greek', 'latin', 'chinese', 'sanskrit', 'pali', 'tibetan'],
