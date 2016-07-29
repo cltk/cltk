@@ -43,7 +43,7 @@ example_distributed_fake_language_corpus:
         """Remove ~/cltk_data/test_distributed_corpora.yaml."""
         os.remove(DISTRIBUTED_CORPUS_PATH)
 
-    def test_setup_language_variables_no_user_but_in_core(self):
+    def test_corpus_importer_variables_no_user_but_in_core(self):
         """Test function which checks for presence of
         ~/cltk_data/distributed_corpora.yaml. Look for a language
         not in core repos but not in user-defined.
@@ -53,7 +53,7 @@ example_distributed_fake_language_corpus:
         self.assertIn('sanskrit_models_cltk', corpus_importer.list_corpora)
         self.remove_distributed_corpora_testing_file()
 
-    def test_setup_language_variables_user_but_not_core(self):
+    def test_corpus_importer_variables_user_but_not_core(self):
         """Test function which checks for presence of
         `~/cltk_data/distributed_corpora.yaml`. Look for a language
         not in the core but in the user's custom file.
@@ -65,7 +65,7 @@ example_distributed_fake_language_corpus:
         self.assertEqual(corpus_name[0], target_name)
         self.remove_distributed_corpora_testing_file()
 
-    def test_setup_language_variables_no_user_but_yes_core(self):
+    def test_corpus_importer_variables_no_user_but_yes_core(self):
         """Test function which checks for presence of
         `~/cltk_data/distributed_corpora.yaml`. Look for a language
         in the core but not in the user's custom file.
@@ -76,7 +76,7 @@ example_distributed_fake_language_corpus:
         self.assertIn('pali_text_ptr_tipitaka', corpora)
         self.remove_distributed_corpora_testing_file()
 
-    def test_setup_language_variables_no_user_no_core(self):
+    def test_corpus_importer_variables_no_user_no_core(self):
         """Test function which checks for presence of
         `~/cltk_data/distributed_corpora.yaml`. Look for a language
         neither in the core or in the user's custom file.
@@ -86,6 +86,7 @@ example_distributed_fake_language_corpus:
             CorpusImporter('fake_language_nowhere')
         self.remove_distributed_corpora_testing_file()
 
+    def test_
 
 if __name__ == '__main__':
     unittest.main()
