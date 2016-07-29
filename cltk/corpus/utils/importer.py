@@ -55,9 +55,17 @@ class ProgressPrinter(RemoteProgress):
 class CorpusImporter():
     """Import CLTK corpora."""
 
-    def __init__(self, language):
-        """Setup corpus importing."""
+    def __init__(self, language, testing=False):
+        """Setup corpus importing.
+
+        `testing` is a hack to check a tmp .yaml file to look at or local corpus. This keeps from overwriting
+        local. A better idea is probably to refuse to overwrite the .yaml.
+        """
         self.language = language.lower()
+
+        assert isinstance(testing, bool), '`testing` parameter must be boolean type'
+        self.testing = testing
+
         self.user_defined_corpora = self._setup_language_variables()
 
         # if user_defined_corpora, then we need to add these to the corpus.py objects
@@ -65,13 +73,13 @@ class CorpusImporter():
             logger.info('User-defined corpus found for "{}" language'.format(self.language))
             try:
                 logger.debug('Core corpora also found for "{}" language'.format(self.language))
-                logger.debug('Combine the user-defined and the core corpora')
+                logger.debug('Combining the user-defined and the core corpora')
                 self.official_corpora = LANGUAGE_CORPORA[self.language]
                 self.all_corpora = self.official_corpora
                 for corpus in self.user_defined_corpora:
                     self.all_corpora.append(corpus)
             except KeyError:
-                logger.debug('Nothing of this language in the official repos '
+                logger.debug('Nothing in the official repos '
                             'for "{}" language. Make the all_corpora solely '
                             'from the .yaml'.format(self.language))
                 self.all_corpora = []
@@ -79,7 +87,7 @@ class CorpusImporter():
                     self.all_corpora.append(corpus)
         else:
             logger.info('No user-defined corpora found for "{}" language'.format(self.language))
-            self.official_corpora = LANGUAGE_CORPORA[self.language]
+            # self.official_corpora = LANGUAGE_CORPORA[self.language]
             self.all_corpora = LANGUAGE_CORPORA[self.language]
 
     def __repr__(self):
@@ -88,16 +96,16 @@ class CorpusImporter():
         """
         return 'CorpusImporter for: {}'.format(self.language)
 
-    def _check_distributed_corpora_file(self, testing=False):
+    def _check_distributed_corpora_file(self):
         """Check '~/cltk_data/distributed_corpora.yaml' for any custom,
         distributed corpora that the user wants to load locally.
 
         TODO: write check or try if `cltk_data` dir is not present
         """
-        if not testing:
-            distributed_corpora_fp = os.path.expanduser('~/cltk_data/distributed_corpora.yaml')
-        else:
+        if self.testing:
             distributed_corpora_fp = os.path.expanduser('~/cltk_data/test_distributed_corpora.yaml')
+        else:
+            distributed_corpora_fp = os.path.expanduser('~/cltk_data/distributed_corpora.yaml')
 
         try:
             with open(distributed_corpora_fp) as file_open:
@@ -122,14 +130,14 @@ class CorpusImporter():
 
         return user_defined_corpora
 
-    def _setup_language_variables(self, testing=False):
+    def _setup_language_variables(self):
         """Check for availability of corpora for a language.
         TODO: Make the selection of available languages dynamic from dirs
         within ``corpora`` which contain a ``corpora.py`` file.
         """
         if self.language not in AVAILABLE_LANGUAGES:
             # If no official repos, check if user has custom
-            user_defined_corpora = self._check_distributed_corpora_file(testing=testing)
+            user_defined_corpora = self._check_distributed_corpora_file()
             if user_defined_corpora:
                 return user_defined_corpora
             else:
@@ -137,7 +145,7 @@ class CorpusImporter():
                 logger.info(msg)
                 raise CorpusImportError(msg)
         else:
-            user_defined_corpora = self._check_distributed_corpora_file(testing=testing)
+            user_defined_corpora = self._check_distributed_corpora_file()
             return user_defined_corpora
 
     @property
