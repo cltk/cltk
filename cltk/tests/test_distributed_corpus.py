@@ -86,7 +86,5 @@ example_distributed_fake_language_corpus:
             CorpusImporter('fake_language_nowhere')
         self.remove_distributed_corpora_testing_file()
 
-    def test_
-
 if __name__ == '__main__':
     unittest.main()
