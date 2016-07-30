@@ -606,6 +606,14 @@ example_distributed_fake_language_corpus:
             CorpusImporter('fake_language_nowhere')
         self.remove_distributed_corpora_testing_file()
 
+    def test_import_punjabi_punjabi_text_gurban(self):
+        pun_import = CorpusImporter('punjabi')
+        corpora_list = pun_import.list_corpora
+        self.assertTrue('punjabi_text_gurban' in corpora_list)
+        pun_import.import_corpus('punjabi_text_gurban')
+        file_path = os.path.join('~/cltk_data/punjabi/text/punjabi_text_gurban/README.md')
+        _file = os.path.expanduser(file_path)
+        self.assertTrue(os.path.isfile(_file))
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
