@@ -9,6 +9,7 @@ from cltk.corpus.latin.corpora import LATIN_CORPORA
 from cltk.corpus.sanskrit.corpora import SANSKRIT_CORPORA
 from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
 from cltk.corpus.pali.corpora import PALI_CORPORA
+from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.utils.cltk_logger import logger
 
@@ -26,7 +27,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali',  'tibetan', 'sanskrit']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit']
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
@@ -34,6 +35,7 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'latin': LATIN_CORPORA,
                     'multilingual': MULTILINGUAL_CORPORA,
                     'pali': PALI_CORPORA,
+                    'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,}
 
