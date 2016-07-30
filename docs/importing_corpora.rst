@@ -27,6 +27,7 @@ To see all of the corpora available for importing, use ``list_corpora()``.
     'greek_word2vec_cltk',
     'greek_text_lacus_curtius']
 
+
 Importing a corpus
 ==================
 To download a remote corpus, use the following, for example, for the Latin Library.
@@ -45,3 +46,32 @@ For a local corpus, such as the TLG, you must give a second argument of the file
 .. code-block:: python
 
    In [4]: corpus_importer.import_corpus('tlg', '~/Documents/corpora/TLG_E/')
+
+
+User-defined, distributed corpora
+=================================
+
+Most users will want to use the CLTK's publicly available corpora. However users can import any repository \
+that is hosted on a Git server. The benefit of this is that users can use corpora \
+that the CLTK organization is not able to distribute itself (because too specific, license restrictions, etc.).
+
+Let's say a user wants to keep a particular Git-backed corpus at \
+``git@github.com:kylepjohnson/latin_corpus_newton_example.git``. It can be cloned \
+into the ``~/cltk_data/`` directory by declaring it in a manually created YAML file at \
+``~/cltk_data/distributed_corpora.yaml`` like the following:
+
+.. code-block:: python
+
+   example_distributed_latin_corpus:
+       git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
+       language: latin
+       type: text
+
+   example_distributed_greek_corpus:
+       git_remote: git@github.com:kylepjohnson/a_nonexistent_repo.git
+       language: pali
+       type: treebank
+
+Each block defines a separate corpus. The first line of a block (e.g., ``example_distributed_latin_corpus``) \
+gives the unique name to the custom corpus, however it is not used elsewhere. This first example block would allow \
+a user to fetch the repo and install it at ``~/cltk_data/latin/text/latin_corpus_newton_example``.
