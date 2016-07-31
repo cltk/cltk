@@ -123,6 +123,9 @@ def minhash(str_a, str_b):
         :Sentences: should be tokenized in string
         str_a = u"There is"
         str_b = u"There was"
+        
+        Thanks to Pulkit Kathuria(@kevincobain2000) for the definition of the function.
+        The function makes use of minhash for estimation of similarity between two strings or texts.
         """
         score = 0.0
         tok_sent_1 = str_a
