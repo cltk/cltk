@@ -135,5 +135,5 @@ def minhash(str_a, str_b):
             jaccard_distance = lambda seta, setb: len(seta & setb)/float(len(seta | setb))
             score = jaccard_distance(shingles(tok_sent_1), shingles(tok_sent_2))
             return score
-except ZeroDivisionError: return score
+        except ZeroDivisionError: return score
 
