@@ -23,4 +23,7 @@ SANSKRIT_CORPORA = [
         {'name':'sanskrit_text_sanskrit_documents',
          'location':'remote',
          'type':'text'},
+        {'name':'sanskrit_models_cltk',
+         'location':'remote',
+         'type':'model'},
 ]

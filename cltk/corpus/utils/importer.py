@@ -2,7 +2,6 @@
 TODO: Fix so ``import_corpora()`` can take relative path.
 TODO: Add https://github.com/cltk/pos_latin
 """
-
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
 from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
@@ -10,6 +9,7 @@ from cltk.corpus.latin.corpora import LATIN_CORPORA
 from cltk.corpus.sanskrit.corpora import SANSKRIT_CORPORA
 from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
 from cltk.corpus.pali.corpora import PALI_CORPORA
+from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.utils.cltk_logger import logger
 
@@ -20,6 +20,7 @@ import os
 import sys
 import shutil
 from urllib.parse import urljoin
+import yaml
 
 
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
@@ -27,7 +28,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'tibetan', 'sanskrit']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit']
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
@@ -35,6 +36,7 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'latin': LATIN_CORPORA,
                     'multilingual': MULTILINGUAL_CORPORA,
                     'pali': PALI_CORPORA,
+                    'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,}
 
@@ -48,16 +50,47 @@ class ProgressPrinter(RemoteProgress):
     """Class that implements progress reporting."""
     def update(self, op_code, cur_count, max_count=None, message=''):
         if message:
-            percentage = '%.0f' % (100*cur_count / (max_count or 100.0))
+            percentage = '%.0f' % (100 * cur_count / (max_count or 100.0))
             sys.stdout.write('Downloaded %s%% %s \r' % (percentage, message))
 
 
 class CorpusImporter():
     """Import CLTK corpora."""
 
-    def __init__(self, language):
+    def __init__(self, language, testing=False):
+        """Setup corpus importing.
+
+        `testing` is a hack to check a tmp .yaml file to look at or local corpus. This keeps from overwriting
+        local. A better idea is probably to refuse to overwrite the .yaml.
+        """
         self.language = language.lower()
-        self._setup_language_variables()
+
+        assert isinstance(testing, bool), '`testing` parameter must be boolean type'
+        self.testing = testing
+
+        self.user_defined_corpora = self._setup_language_variables()
+
+        # if user_defined_corpora, then we need to add these to the corpus.py objects
+        if self.user_defined_corpora:
+            logger.info('User-defined corpus found for "{}" language'.format(self.language))
+            try:
+                logger.debug('Core corpora also found for "{}" language'.format(self.language))
+                logger.debug('Combining the user-defined and the core corpora')
+                self.official_corpora = LANGUAGE_CORPORA[self.language]
+                self.all_corpora = self.official_corpora
+                for corpus in self.user_defined_corpora:
+                    self.all_corpora.append(corpus)
+            except KeyError:
+                logger.debug('Nothing in the official repos '
+                            'for "{}" language. Make the all_corpora solely '
+                            'from the .yaml'.format(self.language))
+                self.all_corpora = []
+                for corpus in self.user_defined_corpora:
+                    self.all_corpora.append(corpus)
+        else:
+            logger.info('No user-defined corpora found for "{}" language'.format(self.language))
+            # self.official_corpora = LANGUAGE_CORPORA[self.language]
+            self.all_corpora = LANGUAGE_CORPORA[self.language]
 
     def __repr__(self):
         """Representation string for ipython
@@ -65,20 +98,64 @@ class CorpusImporter():
         """
         return 'CorpusImporter for: {}'.format(self.language)
 
+    def _check_distributed_corpora_file(self):
+        """Check '~/cltk_data/distributed_corpora.yaml' for any custom,
+        distributed corpora that the user wants to load locally.
+
+        TODO: write check or try if `cltk_data` dir is not present
+        """
+        if self.testing:
+            distributed_corpora_fp = os.path.expanduser('~/cltk_data/test_distributed_corpora.yaml')
+        else:
+            distributed_corpora_fp = os.path.expanduser('~/cltk_data/distributed_corpora.yaml')
+
+        try:
+            with open(distributed_corpora_fp) as file_open:
+                corpora_dict = yaml.safe_load(file_open)
+        except FileNotFoundError:
+            logger.info('Distributed_corpora.yaml file not found.')
+            return []
+        except yaml.parser.ParserError as parse_err:
+            logger.debug('Yaml parsing error: %s' % parse_err)
+            return []
+
+        user_defined_corpora = []
+        for corpus_name in corpora_dict:
+            about = corpora_dict[corpus_name]
+
+            if about['language'].lower() == self.language:
+                user_defined_corpus = dict()
+                user_defined_corpus['git_remote'] = about['git_remote']
+                user_defined_corpus['name'] = corpus_name
+                user_defined_corpus['type'] = about['type']
+                user_defined_corpora.append(user_defined_corpus)
+
+        return user_defined_corpora
+
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
         TODO: Make the selection of available languages dynamic from dirs
         within ``corpora`` which contain a ``corpora.py`` file.
         """
         if self.language not in AVAILABLE_LANGUAGES:
-            msg = 'Corpora not available for the "{}" language.'.format(self.language)
-            raise CorpusImportError(msg)
+            # If no official repos, check if user has custom
+            user_defined_corpora = self._check_distributed_corpora_file()
+            if user_defined_corpora:
+                return user_defined_corpora
+            else:
+                msg = 'Corpora not available (either core or user-defined) for the "{}" language.'.format(self.language)
+                logger.info(msg)
+                raise CorpusImportError(msg)
+        else:
+            user_defined_corpora = self._check_distributed_corpora_file()
+            return user_defined_corpora
 
     @property
     def list_corpora(self):
         """Show corpora available for the CLTK to download."""
         try:
-            corpora = LANGUAGE_CORPORA[self.language]
+            # corpora = LANGUAGE_CORPORA[self.language]
+            corpora = self.all_corpora
             corpus_names = [corpus['name'] for corpus in corpora]
             return corpus_names
         except (NameError, KeyError) as error:
@@ -115,7 +192,8 @@ class CorpusImporter():
         :rtype : str
         """
         try:
-            corpora = LANGUAGE_CORPORA[self.language]
+            # corpora = LANGUAGE_CORPORA[self.language]
+            corpora = self.all_corpora
         except NameError as name_error:
             msg = 'Corpus not available for language ' \
                   '"%s": %s' % (self.language, name_error)
@@ -129,7 +207,46 @@ class CorpusImporter():
         logger.error(msg)
         raise CorpusImportError(msg)
 
-    def import_corpus(self, corpus_name, local_path=None):  # pylint: disable=R0912
+    def _git_user_defined_corpus(self, corpus_name, corpus_type, uri:str, branch='master'):
+        """Clone or update a git repo defined by user.
+        TODO: This code is very redundant with what's in import_corpus(),
+        could be refactored.
+        """
+        # git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
+        # self._download_corpus(corpus_type, corpus_name, path)
+        type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
+        type_dir = os.path.expanduser(type_dir_rel)
+        repo_name = uri.split('/')[-1]  # eg, 'latin_corpus_newton_example.git'
+        repo_name = repo_name.rstrip('.git')
+        target_dir = os.path.join(type_dir, repo_name)
+        target_file = os.path.join(type_dir, repo_name, 'README.md')
+        # check if corpus already present
+        # if not, clone
+        if not os.path.isfile(target_file):
+            if not os.path.isdir(type_dir):
+                os.makedirs(type_dir)
+            try:
+                msg = "Cloning '{}' from '{}'".format(corpus_name, uri)
+                logger.info(msg)
+                Repo.clone_from(uri, target_dir, branch=branch, depth=1,
+                                progress=ProgressPrinter())
+            except CorpusImportError as corpus_imp_err:
+                msg = "Git clone of '{}' failed: '{}'".format(uri, corpus_imp_err)
+                logger.error(msg)
+        # if corpus is present, pull latest
+        else:
+            try:
+                repo = Repo(target_dir)
+                assert not repo.bare  # or: assert repo.exists()
+                git_origin = repo.remotes.origin
+                msg = "Pulling latest '{}' from '{}'.".format(corpus_name, uri)
+                logger.info(msg)
+                git_origin.pull()
+            except CorpusImportError as corpus_imp_err:
+                msg = "Git pull of '{}' failed: '{}'".format(uri, corpus_imp_err)
+                logger.error(msg)
+
+    def import_corpus(self, corpus_name, local_path=None, branch='master'):  # pylint: disable=R0912
         """Download a remote or load local corpus into dir ``~/cltk_data``.
         TODO: maybe add ``from git import RemoteProgress``
         TODO: refactor this, it's getting kinda long
@@ -137,9 +254,18 @@ class CorpusImporter():
         :param corpus_name: The name of an available corpus.
         :param local_path: str
         :param local_path: A filepath, required when importing local corpora.
+        :param branch: What Git branch to clone.
         """
         corpus_properties = self._get_corpus_properties(corpus_name)
-        location = corpus_properties['location']
+        try:
+            location = corpus_properties['location']
+        except KeyError:
+            git_uri = corpus_properties['git_remote']
+            git_name = corpus_properties['name']
+            git_type = corpus_properties['type']
+            # pass this off to a special downloader just for custom urls
+            self._git_user_defined_corpus(git_name, git_type, git_uri)
+            return
         corpus_type = corpus_properties['type']
         if location == 'remote':
             git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
@@ -156,7 +282,7 @@ class CorpusImporter():
                 try:
                     msg = "Cloning '{}' from '{}'".format(corpus_name, git_uri)
                     logger.info(msg)
-                    Repo.clone_from(git_uri, target_dir, depth=1,
+                    Repo.clone_from(git_uri, target_dir, branch=branch, depth=1,
                                     progress=ProgressPrinter())
                 except CorpusImportError as corpus_imp_err:
                     msg = "Git clone of '{}' failed: '{}'".format(git_uri, corpus_imp_err)
@@ -217,3 +343,9 @@ class CorpusImporter():
                 # copy_dir requires that target
                 if not os.path.isdir(tlg_originals_dir):
                     self._copy_dir_recursive(local_path, tlg_originals_dir)
+
+
+if __name__ == '__main__':
+    c = CorpusImporter('fake_language')
+    print(c.list_corpora)
+    # c.import_corpus('example_1')

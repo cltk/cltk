@@ -4,6 +4,8 @@
 import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
@@ -21,73 +23,17 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
                                                                                             self.available_languages)  # pylint: disable=line-too-long
 
-        if self.language == 'latin':
-            from cltk.tokenize.latin_exceptions import latin_exceptions
-            self.enclitics = ['que', 'n', 'ne', 'ue', 've', 'st']
-
-            self.exceptions = self.enclitics
-            self.exceptions = list(set(self.exceptions + latin_exceptions))
-
 
     def tokenize(self, string):
         """Tokenize incoming string."""
 
-        def matchcase(word):
-            # From Python Cookbook
-            def replace(m):
-                text = m.group()
-                if text.isupper():
-                    return word.upper()
-                elif text.islower():
-                    return word.lower()
-                elif text[0].isupper():
-                    return word.capitalize()
-                else:
-                    return word
-            return replace
+        if self.language == 'latin':
+            tokens = tokenize_latin_words(string)
+        else:
+            tokens = nltk_tokenize_words(string)
 
-        replacements = [(r'mecum', 'cum me'),
-                (r'tecum', 'cum te'),
-                (r'secum', 'cum se'),
-                (r'nobiscum', 'cum nobis'),
-                (r'vobiscum', 'cum vobis'),
-                (r'quocum', 'cum quo'),
-                (r'quacum', 'cum qua'),
-                (r'quicum', 'cum qui'),
-                (r'quibuscum', 'cum quibus'),
-                (r'sodes', 'si audes'),
-                (r'satin', 'satis ne'),
-                (r'scin', 'scis ne'),
-                (r'sultis', 'si vultis'),
-                (r'similist', 'similis est'),
-                (r'qualist', 'qualis est')
-                ]
+        return tokens
 
-        for replacement in replacements:
-            string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
-
-        generic_tokens = nltk_tokenize_words(string)
-
-        specific_tokens = []
-        for generic_token in generic_tokens:
-            is_enclitic = False
-            if generic_token.lower() not in self.exceptions:
-                for enclitic in self.enclitics:
-                    if generic_token.endswith(enclitic):
-                        if enclitic == 'n':
-                                specific_tokens += [generic_token[:-len(enclitic)]] + ['-ne']
-                        elif enclitic == 'st':
-                            if generic_token.endswith('ust'):
-                                specific_tokens += [generic_token[:-len(enclitic)+1]] + ['est']
-                            else:
-                                specific_tokens += [generic_token[:-len(enclitic)]] + ['est']
-                        else:
-                            specific_tokens += [generic_token[:-len(enclitic)]] + ['-' + enclitic]
-                        is_enclitic = True
-                        break
-            if not is_enclitic:
-                specific_tokens.append(generic_token)
-        return specific_tokens
 
 def nltk_tokenize_words(string, attached_period=False, language=None):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
@@ -121,3 +67,97 @@ def nltk_tokenize_words(string, attached_period=False, language=None):
         else:
             new_tokens.append(word)
     return new_tokens
+
+def tokenize_latin_words(string):
+    from cltk.tokenize.latin_exceptions import latin_exceptions
+
+    assert isinstance(string, str), "Incoming string must be type str."
+
+    def matchcase(word):
+        # From Python Cookbook
+        def replace(m):
+            text = m.group()
+            if text.isupper():
+                return word.upper()
+            elif text.islower():
+                return word.lower()
+            elif text[0].isupper():
+                return word.capitalize()
+            else:
+                return word
+
+        return replace
+
+    replacements = [(r'mecum', 'cum me'),
+                    (r'tecum', 'cum te'),
+                    (r'secum', 'cum se'),
+                    (r'nobiscum', 'cum nobis'),
+                    (r'vobiscum', 'cum vobis'),
+                    (r'quocum', 'cum quo'),
+                    (r'quacum', 'cum qua'),
+                    (r'quicum', 'cum qui'),
+                    (r'quibuscum', 'cum quibus'),
+                    (r'sodes', 'si audes'),
+                    (r'satin', 'satis ne'),
+                    (r'scin', 'scis ne'),
+                    (r'sultis', 'si vultis'),
+                    (r'similist', 'similis est'),
+                    (r'qualist', 'qualis est')
+                    ]
+
+    for replacement in replacements:
+        string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
+
+
+    punkt_param = PunktParameters()
+    abbreviations = ['c', 'l', 'm', 'p', 'q', 't', 'ti', 'sex', 'a', 'd', 'cn', 'sp', "m'", 'ser', 'ap', 'n', 'v', 'k', 'mam', 'post', 'f', 'oct', 'opet', 'paul', 'pro', 'sert', 'st', 'sta', 'v', 'vol', 'vop']
+    punkt_param.abbrev_types = set(abbreviations)
+    sent_tokenizer = PunktSentenceTokenizer(punkt_param)
+
+    word_tokenizer = PunktLanguageVars()
+    sents = sent_tokenizer.tokenize(string)
+
+    enclitics = ['que', 'n', 'ue', 've', 'st']
+    exceptions = enclitics
+    exceptions = list(set(exceptions + latin_exceptions))
+
+    tokens = []
+
+    for sent in sents:
+        temp_tokens = word_tokenizer.word_tokenize(sent)
+        if temp_tokens[0].endswith('ne'):
+            if temp_tokens[0].lower() not in exceptions:
+                temp = [temp_tokens[0][:-2], '-ne']
+                temp_tokens = temp + temp_tokens[1:]
+
+        if temp_tokens[-1].endswith('.'):
+            final_word = temp_tokens[-1][:-1]
+            del temp_tokens[-1]
+            temp_tokens += [final_word, '.']
+
+        for token in temp_tokens:
+            tokens.append(token)
+
+    # Break enclitic handling into own function?
+    specific_tokens = []
+
+    for token in tokens:
+        is_enclitic = False
+        if token.lower() not in exceptions:
+            for enclitic in enclitics:
+                if token.endswith(enclitic):
+                    if enclitic == 'n':
+                        specific_tokens += [token[:-len(enclitic)]] + ['-ne']
+                    elif enclitic == 'st':
+                        if token.endswith('ust'):
+                            specific_tokens += [token[:-len(enclitic) + 1]] + ['est']
+                        else:
+                            specific_tokens += [token[:-len(enclitic)]] + ['est']
+                    else:
+                        specific_tokens += [token[:-len(enclitic)]] + ['-' + enclitic]
+                    is_enclitic = True
+                    break
+        if not is_enclitic:
+            specific_tokens.append(token)
+
+    return specific_tokens

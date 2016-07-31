@@ -35,27 +35,33 @@ TLG_PHI_REPLACEMENTS = {
 }
 
 
-OXIA_TONOS = {
-    "ά" : "ά",    
-    "έ" : "έ",
-    "ή" : "ή",
-    "ί" : "ί",
-    "ό" : "ό",
-    "ύ" : "ύ",
-    "ώ" : "ώ",
+TONOS_OXIA = {
+    "ά": "ά",
+    "έ": "έ",
+    "ή": "ή",
+    "ί": "ί",
+    "ό": "ό",
+    "ύ": "ύ",
+    "ώ": "ώ",
 }
 
-def oxia_converter(text, reverse = False):
-    """Converts some characters causing lemmatizer and PoS issues"""
-    for p, t in OXIA_TONOS.items():
+
+def tonos_oxia_converter(text, reverse=False):
+    """For the Ancient Greek language. Converts characters accented with the
+      tonos (meant for Modern Greek) into the oxia equivalent. Without this
+      normalization, string comparisons will fail."""
+    for char_tonos, char_oxia in TONOS_OXIA.items():
         if not reverse:        
-            text = text.replace(p, t)
+            text = text.replace(char_tonos, char_oxia)
         else:
-            text = text.replace(t, p)
+            text = text.replace(char_oxia, char_tonos)
     return text
 
+
 def remove_non_ascii(input_string):
-    """remove non-ascii: http://stackoverflow.com/a/1342373"""
+    """Remove non-ascii characters
+    Source: http://stackoverflow.com/a/1342373
+    """
     no_ascii = "".join(i for i in input_string if ord(i) < 128)
     return no_ascii
 
@@ -93,11 +99,13 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
 
     return text
 
+
 def cltk_normalize(text, compatibility=True):
     if compatibility:
         return normalize('NFKC', text)
     else:
         return normalize('NFC', text)
+
 
 def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek PHI5 text.

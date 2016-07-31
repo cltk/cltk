@@ -12,21 +12,21 @@ The list of rhythms which the module tallies is drawn from John Ramsey's list of
 
 .. code-block:: python
 
-    In [1]: from cltk.prosody.latin.scanner import Scansion
+   In [1]: from cltk.prosody.latin.scanner import Scansion
 
-    In [2]: from cltk.prosody.latin.clausulae_analysis import Clausulae
+   In [2]: from cltk.prosody.latin.clausulae_analysis import Clausulae
 
-    In [3]: text = 'quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.'
+   In [3]: text = 'quō usque tandem abūtēre, Catilīna, patientiā nostrā. quam diū etiam furor iste tuus nōs ēlūdet.'
 
-    In [4]: s = Scansion()
+   In [4]: s = Scansion()
 
-    In [5]: c = Clausulae()
+   In [5]: c = Clausulae()
+ 
+   In [6]: prosody = s.scan_text(text)
+   Out[6]: ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯x', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯x']
 
-    In [6]: prosody = s.scan_text(text)
-    Out[6]: ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯x', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯x']
-
-    In [7]: c.clausulae_analysis(prosody)
-    Out[7]: {'1st paeon + trochee': 0, 'molossus + iamb': 0, '1st paeon + anapest': 0, '4th paeon + trochee': 0, 'choriamb + double trochee': 0, 'molossus + cretic': 0, 'double spondee': 1, 'molossus + double trochee': 0, 'substituted cretic + trochee': 0, 'cretic + iamb': 0, 'cretic + trochee': 1, 'double trochee': 0, 'heroic': 0, 'cretic + double trochee': 0, 'cretic + double spondee': 0, '4th paeon + cretic': 0, 'double cretic': 0, 'dactyl + double trochee': 0}
+   In [7]: c.clausulae_analysis(prosody)
+   Out[7]: {'1st paeon + trochee': 0, 'molossus + iamb': 0, '1st paeon + anapest': 0, '4th paeon + trochee': 0, 'choriamb + double trochee': 0, 'molossus + cretic': 0, 'double spondee': 1, 'molossus + double trochee': 0, 'substituted cretic + trochee': 0, 'cretic + iamb': 0, 'cretic + trochee': 1, 'double trochee': 0, 'heroic': 0, 'cretic + double trochee': 0, 'cretic + double spondee': 0, '4th paeon + cretic': 0, 'double cretic': 0, 'dactyl + double trochee': 0}
 
 
 
@@ -308,7 +308,7 @@ TnT tagger
 CRF tagger
 ``````````
 
-.. warning:: This tagger's accuracy has not yet been tested.
+.. warning:: This tagger's accuracy has not yet been evaluated.
 
 We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://www.nltk.org/_modules/nltk/tag/crf.html>`_.
 
@@ -323,6 +323,40 @@ We use the NLTK's CRF tagger. For information on it, see `the NLTK docs <http://
     ('in', 'R--------'),
     ('partes', 'N-P---FA-'),
     ('tres', 'M--------')]
+
+
+Lapos tagger
+````````````
+
+.. note:: The Lapos tagger currently only builds on Mac. To help with Linux, please contact us on the Issues page.
+
+.. warning:: This tagger's accuracy has not yet been evaluated.
+
+.. note:: As designed, Lapos is slow to load a pre-trained module into memory, so tagging sentence-by-sentence can be slow.
+
+The Lapos tagger is C++ code which must be compiled before use, so you'll need a C compiler (normally GCC Linux, Clang on Mac and the *BSDs, and Cygwin on Windows).
+
+When you first instantiate the `Lapos()` class, it will check if it is already present. If not the Lapos source will will be downloaded and a `make` command attempted.
+
+.. code-block:: python
+
+   In [1]: from cltk.tag.lapos import Lapos
+
+   In [2]: lapos_tagger = Lapos('latin')
+   Cloned Lapos successfully.
+   Lapos built successfully.
+
+   In [3]: sentence = 'Gallia est omnis divisa in partes tres'
+
+   In [4]: lapos_tagger.tag_sentence(sentence)
+   Out[4]:
+   [('Gallia', 'n-p---nn-'),
+    ('est', 'v3spia---'),
+    ('omnis', 'n-p---fa-'),
+    ('divisa', 't-prppnn-'),
+    ('in', 'p-p---fd-'),
+    ('partes', 'n-p---fa-'),
+    ('tres', 'a-p---nbc')]
 
 
 Prosody Scanning
