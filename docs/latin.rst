@@ -143,25 +143,23 @@ Macronizer
 ==========
 Automatically mark long latin vowels with a macron. The algorithm used in this module is largely based on Johan Winge's, which is detailed in his thesis found `here <http://stp.lingfil.uu.se/exarb/arch/winge2015.pdf>`_.
 
-Note that the macronizer's accuracy varies depending on which tagger is used. Currently, the macronizer supports the following taggers: ``tag_ngram_123_backoff``, ``tag_tnt``, and ``tag_crf``. The tagger is selected when the class is called, as seen in line 3.
+Note that the macronizer's accuracy varies depending on which tagger is used. Currently, the macronizer supports the following taggers: ``tag_ngram_123_backoff``, ``tag_tnt``, and ``tag_crf``. The tagger is selected when the class is called, as seen in line 3. Be sure to import the data models from ``latin_models_cltk`` via the corpus importer since both the taggers and macronizer rely on them.
 
 The macronizer can either macronize text, as seen at line 5 below, or return a list of tagged tokens containing the macronized form like in line 6.
 
 .. code-block:: python
 
-    In [1]: from cltk.tag.pos import POSTag
+    In [1]: from cltk.prosody.latin.macronizer import Macronizer
 
-    In [2]: from cltk.prosody.latin.macronizer import Macronizer
+    In [2]: macronizer = Macronizer('tag_ngram_123_backoff')
 
-    In [3]: macronizer = Macronizer('tag_ngram_123_backoff')
+    In [3]: text = 'Quo usque tandem, O Catilina, abutere nostra patientia?'
 
-    In [4]: text = 'Quo usque tandem, O Catilina, abutere nostra patientia?'
+    In [4]: macronizer.macronize_text(text)
+    Out[4]: 'quō usque tandem , ō catilīnā , abūtēre nostrā patientia ?
 
-    In [5]: macronizer.macronize_text(text)
-    Out[5]: 'quō usque tandem , ō catilīnā , abūtēre nostrā patientia ?
-
-    In [6]: macronizer.macronize_tags(text)
-    Out[6]: [('quo', 'd--------', 'quō'), ('usque', 'd--------', 'usque'), ('tandem', 'd--------', 'tandem'), (',', 'u--------', ','), ('o', 'e--------', 'ō'), ('catilina', 'n-s---mb-', 'catilīnā'), (',', 'u--------', ','), ('abutere', 'v2sfip---', 'abūtēre'), ('nostra', 'a-s---fb-', 'nostrā'), ('patientia', 'n-s---fn-', 'patientia'), ('?', None, '?')]
+    In [5]: macronizer.macronize_tags(text)
+    Out[5]: [('quo', 'd--------', 'quō'), ('usque', 'd--------', 'usque'), ('tandem', 'd--------', 'tandem'), (',', 'u--------', ','), ('o', 'e--------', 'ō'), ('catilina', 'n-s---mb-', 'catilīnā'), (',', 'u--------', ','), ('abutere', 'v2sfip---', 'abūtēre'), ('nostra', 'a-s---fb-', 'nostrā'), ('patientia', 'n-s---fn-', 'patientia'), ('?', None, '?')]
 
 
 Making POS training sets
