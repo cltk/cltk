@@ -143,9 +143,9 @@ Macronizer
 ==========
 Automatically mark long latin vowels with a macron. The algorithm used in this module is largely based on Johan Winge's, which is detailed in his thesis found `here <http://stp.lingfil.uu.se/exarb/arch/winge2015.pdf>`_.
 
-Note that the macronizer's accuracy varies depending on which tagger is used. Currently, the macronizer supports the following taggers: ``tag_ngram_123_backoff``, ``tag_tnt``, and ``tag_crf``. The tagger is selected when the class is called, as seen in line 3. Be sure to import the data models from ``latin_models_cltk`` via the corpus importer since both the taggers and macronizer rely on them.
+Note that the macronizer's accuracy varies depending on which tagger is used. Currently, the macronizer supports the following taggers: ``tag_ngram_123_backoff``, ``tag_tnt``, and ``tag_crf``. The tagger is selected when calling the class, as seen on line 2. Be sure to import the data models from ``latin_models_cltk`` via the corpus importer since both the taggers and macronizer rely on them.
 
-The macronizer can either macronize text, as seen at line 5 below, or return a list of tagged tokens containing the macronized form like in line 6.
+The macronizer can either macronize text, as seen at line 4 below, or return a list of tagged tokens containing the macronized form like on line 5.
 
 .. code-block:: python
 
