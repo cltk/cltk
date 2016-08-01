@@ -125,7 +125,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_macronize_word(self):
         """Test Macronizer()._macronize_word()"""
         correct = ('flumine', 'n-s---nb-', 'flūmine')
-        current = Macronizer("tag_ngram_123_backoff")._macronize_word(('n-s---fb-', 'puella'))
+        current = Macronizer("tag_ngram_123_backoff")._macronize_word(('flumine', 'n-s---nb-'))
         self.assertEqual(current, correct)
 
     def test_macronize_tags(self):
