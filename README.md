@@ -1,6 +1,6 @@
 # The Classical Language Toolkit
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.59120.svg)](http://dx.doi.org/10.5281/zenodo.59120)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.59248.svg)](http://dx.doi.org/10.5281/zenodo.59248)
 
 [![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![Coverage Status](https://coveralls.io/repos/github/cltk/cltk/badge.svg?branch=master)](https://coveralls.io/github/cltk/cltk?branch=master) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/ac803b087b1543e190dc31224dd7f4bf/badge.svg)](https://www.quantifiedcode.com/app/project/ac803b087b1543e190dc31224dd7f4bf)
 
