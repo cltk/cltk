@@ -1,5 +1,4 @@
-"""
-Delineate length of latin vowels.
+"""Delineate length of latin vowels.
 
 The Macronizer class places a macron over naturally long Latin vowels. To discern whether a vowel is long, a word is
 first matched with its Morpheus entry by way of its POS tag. The Morpheus entry includes the macronized form of the
@@ -7,26 +6,29 @@ matched word.
 
 Since the accuracy of the macronizer largely derives from the accuracy of the POS tagger used to match words to their
 Morpheus entry, the Macronizer class allows for multiple POS to be used.
+
 """
+
 # TODO Determine how to disambiguate tags (see logger)
+
+import os
+import importlib.machinery
+
+from cltk.tag.pos import POSTag
+from cltk.utils.cltk_logger import logger
 
 __author__ = 'Tyler Kirby <tyler.kirby9398@gmail.com>'
 __license__ = 'MIT License. See LICENSE.'
 
-import os
-import importlib.machinery
-from cltk.tag.pos import POSTag
-from cltk.utils.cltk_logger import logger
 
 AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf']
 
 
-class Macronizer(object):
-    """
-    Macronize Latin words.
+class Macronizer:
+    """Macronize Latin words.
 
     Macronize text by using the POS tag to find the macronized form within the
-    morpheus database.
+    Morpheus database.
     """
 
     def __init__(self, tagger):
@@ -45,8 +47,7 @@ class Macronizer(object):
         return macrons
 
     def _retrieve_tag(self, text):
-        """
-        Tag text with chosen tagger and clean tags.
+        """Tag text with chosen tagger and clean tags.
 
         Tag format: [('word', 'tag')]
 
@@ -65,8 +66,7 @@ class Macronizer(object):
             return [(tag[0], tag[1]) for tag in tags]
 
     def _retrieve_morpheus_entry(self, word):
-        """
-        Return Morpheus entry for word
+        """Return Morpheus entry for word
 
         Entry format: [(head word, tag, macronized form)]
 
@@ -81,8 +81,7 @@ class Macronizer(object):
         return entry
 
     def _macronize_word(self, word):
-        """
-        Return macronized word.
+        """Return macronized word.
 
         :param word: (word, tag)
         :ptype word: tuple
@@ -109,8 +108,7 @@ class Macronizer(object):
                 return head_word, tag.lower(), matched_entry[1][2].lower()
 
     def macronize_tags(self, text):
-        """
-        Return macronized form along with POS tags.
+        """Return macronized form along with POS tags.
 
         E.g. "Gallia est omnis divisa in partes tres," ->
         [('gallia', 'n-s---fb-', 'galliā'), ('est', 'v3spia---', 'est'), ('omnis', 'a-s---mn-', 'omnis'),
@@ -124,8 +122,7 @@ class Macronizer(object):
         return [self._macronize_word(word) for word in self._retrieve_tag(text)]
 
     def macronize_text(self, text):
-        """
-        Return macronized form of text.
+        """Return macronized form of text.
 
         E.g. "Gallia est omnis divisa in partes tres," ->
         "galliā est omnis dīvīsa in partēs trēs ,"
