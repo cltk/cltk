@@ -125,15 +125,17 @@ def tokenize_latin_words(string):
 
     for sent in sents:
         temp_tokens = word_tokenizer.word_tokenize(sent)
-        if temp_tokens[0].endswith('ne'):
-            if temp_tokens[0].lower() not in exceptions:
-                temp = [temp_tokens[0][:-2], '-ne']
-                temp_tokens = temp + temp_tokens[1:]
+        # Need to check that tokens exist before handling them; needed to make stream.readlines work in PlaintextCorpusReader
+        if temp_tokens: 
+            if temp_tokens[0].endswith('ne'):
+                if temp_tokens[0].lower() not in exceptions:
+                    temp = [temp_tokens[0][:-2], '-ne']
+                    temp_tokens = temp + temp_tokens[1:]
 
-        if temp_tokens[-1].endswith('.'):
-            final_word = temp_tokens[-1][:-1]
-            del temp_tokens[-1]
-            temp_tokens += [final_word, '.']
+            if temp_tokens[-1].endswith('.'):
+                final_word = temp_tokens[-1][:-1]
+                del temp_tokens[-1]
+                temp_tokens += [final_word, '.']
 
         for token in temp_tokens:
             tokens.append(token)
