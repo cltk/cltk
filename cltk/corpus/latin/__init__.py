@@ -9,6 +9,7 @@ CLTK Latin corpus readers
 
 import os.path
 from nltk.corpus.reader.plaintext import PlaintextCorpusReader
+from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
@@ -18,12 +19,22 @@ from cltk.tokenize.word import WordTokenizer
 home = os.path.expanduser('~')
 cltk_path = os.path.join(home, 'CLTK_DATA')
 
+word_tokenizer = WordTokenizer('latin')
+
+if os.path.exists(cltk_path + 'latin/model/latin_models_cltk/tokenizers/sentence'):
+    sent_tokenizer = TokenizeSentence('latin')
+else:
+    punkt_param = PunktParameters()
+    abbreviations = ['c', 'l', 'm', 'p', 'q', 't', 'ti', 'sex', 'a', 'd', 'cn', 'sp', "m'", 'ser', 'ap', 'n', 'v', 'k', 'mam', 'post', 'f', 'oct', 'opet', 'paul', 'pro', 'sert', 'st', 'sta', 'v', 'vol', 'vop']
+    punkt_param.abbrev_types = set(abbreviations)
+    sent_tokenizer = PunktSentenceTokenizer(punkt_param)
+
 # Latin Library
 try:
     latinlibrary = PlaintextCorpusReader(cltk_path + '/latin/text/latin_text_latin_library', 
     '.*\.txt',
-    word_tokenizer=WordTokenizer('latin'), 
-    sent_tokenizer=TokenizeSentence('latin'), 
+    word_tokenizer=word_tokenizer, 
+    sent_tokenizer=sent_tokenizer, 
     encoding='utf-8')    
     pass
 except IOError as e:
