@@ -136,7 +136,7 @@ For querying the entirety of a corpus, see ``search_corpus()``, which returns a 
 
 
 Information Retrieval (boolean)
-===============================m
+===============================
 
 .. note::
 
