@@ -136,7 +136,7 @@ For querying the entirety of a corpus, see ``search_corpus()``, which returns a 
 
 
 Information Retrieval (boolean)
-===============================
+===============================m
 
 .. note::
 
@@ -333,18 +333,12 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
 
-String Comparison
------------------
 
-There are two main functions for doing string comparisons in CLTK-
+Longest Common Substring
+------------------------
 
-1) Longest Common Substring
-2) Minhash
-
-The first function takes two strings as an argument to the function and returns a substring which is common between both the 
+Longest Common Substring takes two strings as an argument to the function and returns a substring which is common between both the 
 strings.
-
-The simple example compares two English strings a and b and returns the longest common substring common between both of them- 
 
 .. code-block:: python
 
@@ -366,25 +360,9 @@ Vergil's Georgics with a line from Propertius (Elegies III.13.41):
    Out[3]: dique deaque omnes,
 
    
-The second function makes use of the Minhash algorithm to check the similarity between any two strings and generates a score
-based on the similarity between the two strings. The minhash takes two strings as a parameter to the function and returns a 
-float.
-
-The example demonstrates the usage of the minhash function using two given English strings:
-
-.. code-block:: python
-
-   In [1]: from cltk.text_reuse.comparison import minhash
-   
-   In [2]: a = 'There was'
-   
-   In [3]: b = 'There is'
-   
-   In[3]: print minhash(a,b)
-   Out[3]:0.444444444444
-
-The example below compares a line from Vergil's Georgics with a line from Propertius (Elegies III.13.41) to demonstrate the
-usage of minhash in Classical Latin:
+MinHash
+-------
+The MinHash algorithm  generates a score based on the similarity of the two strings. It takes two strings as a parameter to the  function and returns a float.
 
 .. code-block:: python
 
