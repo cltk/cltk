@@ -7,6 +7,8 @@ import unittest
 from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
 from cltk.text_reuse.comparison import long_substring
+from cltk.text_reuse.comparison import minhash
+
 
 demo_verg = """
 tuque o, cui prima frementem
@@ -64,6 +66,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test to check for the longest substring in the two passages"""
         substring = long_substring(demo_verg, demo_prop)
         self.assertEqual(substring,"dique deaeque omnes,")
+
+    def test_minhash(self):
+        """Test for finding the similarity between two sentences using Minhash"""
+        score = minhash(demo_verg, demo_prop)
+        self.assertEqual(score, 0.17163120567375886)
 
 
 if __name__ == '__main__':
