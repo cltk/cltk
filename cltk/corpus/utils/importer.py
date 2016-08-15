@@ -12,6 +12,7 @@ from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.corpus.old_english.corpora import OLD_ENGLISH_CORPORA
+from cltk.corpus.bengali.corpora import BENGALI_CORPORA
 from cltk.utils.cltk_logger import logger
 
 import errno
@@ -40,7 +41,8 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
-                    'old_english':OLD_ENGLISH_CORPORA}
+                    'old_english':OLD_ENGLISH_CORPORA
+					'bengali':BENGALI_CORPORA}
 
 
 class CorpusImportError(Exception):
