@@ -41,8 +41,7 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
-                    'old_english':OLD_ENGLISH_CORPORA
-					'bengali':BENGALI_CORPORA}
+                    'old_english':OLD_ENGLISH_CORPORA}
 
 
 class CorpusImportError(Exception):
