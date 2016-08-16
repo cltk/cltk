@@ -4,7 +4,7 @@ Punjabi
 Corpora
 =======
 
-Use ``CorpusImporter`` or browse the `CLTK Github repository <http://github.com/cltk>`_ (anything beginning with ``punjabi_``) to discover available Sanskrit corpora.
+Use ``CorpusImporter`` or browse the `CLTK Github repository <http://github.com/cltk>`_ (anything beginning with ``punjabi_``) to discover available Punjabi corpora.
 
 .. code-block:: python
 
