@@ -1,8 +1,8 @@
-'''Bengali is an Indic language which uses Bengali script, closely related to Devanagri script, both
+"""Bengali is an Indic language which uses Bengali script, closely related to Devanagri script, both
 deriving from Brahmi script. Bengali script is also used to write other languages, including
 Assamese, Daphla, Garo, Hallam, Khasi, Manipuri, Mizo, Munda, Naga, Rian and Santali 
 Bengali character set is divided into 21 vowels, 36 consonants and modifiers. The vowels
-themselves can be divided into dependent and independent vowels'''
+themselves can be divided into dependent and independent vowels"""
 
 
 
