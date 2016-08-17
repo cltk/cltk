@@ -9,7 +9,9 @@ rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX
 ###
 ### Ambiguous patterns have been commented out; in progress
 
-misc_latin_patterns = [
+misc_latin_patterns = [ 
+                        (r'(\w*)abimus', 'o'), 
+                        
                         (r'(\w*)toris', 'tor'),
                         (r'(\w*)tori', 'tor'),
                         (r'(\w*)torem', 'tor'),
@@ -336,6 +338,7 @@ latin_pps = {
     'dedo': [3, 'ded', 'dedere', 'dedid', 'dedit'],
     'defendo': [3, 'defend', 'defendere', 'defend', 'defens'],
     'depono': [3, 'depon', 'deponere', 'deposu', 'deposit'],
+    'desidero': [1, 'desider', 'desiderare', 'desiderau', 'desiderat'], 
     'despero': [1, 'desper', 'desperare', 'desperau', 'desperat'],
     'dico': [3, 'dic', 'dicere', 'dix', 'dict'],
     'dicto': [1, 'dict', 'dictare', 'dictau', 'dictat'],

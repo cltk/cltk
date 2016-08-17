@@ -271,18 +271,18 @@ if __name__ == "__main__":
 
 
     backoffx = None
-    #backoff0 = DefaultLemmatizer(lemma="UNK")
-    #backoff1 = IdentityLemmatizer()
+    backoff0 = DefaultLemmatizer(lemma="UNK")
+    backoff1 = IdentityLemmatizer()
     #backoff1 = ModelLemmatizer(model={'emathios':'emathius'})
-    #backoff2 = ModelLemmatizer(model=old_latin_model, backoff=backoff1)
-    #backoff3 = RegexpLemmatizer(misc_latin_patterns, backoff=backoff2)
-    #backoff4 = PPLemmatizer(backoff=backoff3)
-    #backoff5 = UnigramLemmatizer(train_sents, backoff=backoff3)
-    #backoff6 = ModelLemmatizer(model=latin_model, backoff=backoff5)
+    backoff2 = ModelLemmatizer(model=old_latin_model, backoff=backoff0)
+    backoff3 = RegexpLemmatizer(misc_latin_patterns, backoff=backoff2)
+    backoff4 = PPLemmatizer(backoff=backoff3)
+    backoff5 = UnigramLemmatizer(train_sents, backoff=backoff4)
+    backoff6 = ModelLemmatizer(model=latin_model, backoff=backoff5)
     #lemmatizer = BigramPOSLemmatizer(pos_train_sents, include=['cum'], backoff=backoff5)
-    #lemmatizer = backoff6
+    lemmatizer = backoff6
     
-    lemmatizer = ModelLemmatizer(model=old_latin_model)
+    #lemmatizer = ModelLemmatizer(model=old_latin_model)
 
     from cltk.tokenize.word import WordTokenizer
     tokenizer = WordTokenizer('latin')
