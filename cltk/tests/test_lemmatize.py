@@ -9,7 +9,7 @@ from cltk.stem.latin.j_v import JVReplacer
 
 
     
-from cltk.lemmatize.latin.backoff import DefaultLemmatizer, IdentityLemmatizer
+from cltk.lemmatize.latin.backoff import DefaultLemmatizer, IdentityLemmatizer, ModelLemmatizer, UnigramLemmatizer, RegexpLemmatizer, PPLemmatizer, RomanNumeralLemmatizer
 
 __author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
 __license__ = 'MIT License. See LICENSE.'
@@ -27,9 +27,9 @@ class TestSequenceFunctions(unittest.TestCase):
         """
         lemmatizer = DefaultLemmatizer('UNK')
         
-        test_str = """Ceterum antequam destinata componam, repetendum uidetur qualis status urbis, quae mens exercituum, quis habitus prouinciarum, quid in toto terrarum orbe ualidum, quid aegrum fuerit, ut non modo casus euentusque rerum, qui plerumque fortuiti sunt, sed ratio etiam causaeque noscantur."""
+        test_str = """Ceterum antequam destinata componam"""
         
-        target = [('ceterum', 'UNK'), ('antequam', 'UNK'), ('destinata', 'UNK'), ('componam', 'UNK'), (',', 'UNK'), ('repetendum', 'UNK'), ('uidetur', 'UNK'), ('qualis', 'UNK'), ('status', 'UNK'), ('urbis', 'UNK'), (',', 'UNK'), ('quae', 'UNK'), ('mens', 'UNK'), ('exercituum', 'UNK'), (',', 'UNK'), ('quis', 'UNK'), ('habitus', 'UNK'), ('prouinciarum', 'UNK'), (',', 'UNK'), ('quid', 'UNK'), ('in', 'UNK'), ('toto', 'UNK'), ('terrarum', 'UNK'), ('orbe', 'UNK'), ('ualidum', 'UNK'), (',', 'UNK'), ('quid', 'UNK'), ('aegrum', 'UNK'), ('fuerit', 'UNK'), (',', 'UNK'), ('ut', 'UNK'), ('non', 'UNK'), ('modo', 'UNK'), ('casus', 'UNK'), ('euentus', 'UNK'), ('-que', 'UNK'), ('rerum', 'UNK'), (',', 'UNK'), ('qui', 'UNK'), ('plerumque', 'UNK'), ('fortuiti', 'UNK'), ('sunt', 'UNK'), (',', 'UNK'), ('sed', 'UNK'), ('ratio', 'UNK'), ('etiam', 'UNK'), ('causae', 'UNK'), ('-que', 'UNK'), ('noscantur', 'UNK'), ('.', 'UNK')]
+        target = [('ceterum', 'UNK'), ('antequam', 'UNK'), ('destinata', 'UNK'), ('componam', 'UNK')]
 
         jv = JVReplacer()        
         tokenizer = WordTokenizer('latin')
@@ -46,14 +46,125 @@ class TestSequenceFunctions(unittest.TestCase):
         """
         lemmatizer = IdentityLemmatizer()
         
-        test_str = """Ceterum antequam destinata componam, repetendum uidetur qualis status urbis, quae mens exercituum, quis habitus prouinciarum, quid in toto terrarum orbe ualidum, quid aegrum fuerit, ut non modo casus euentusque rerum, qui plerumque fortuiti sunt, sed ratio etiam causaeque noscantur."""
+        test_str = """Ceterum antequam destinata componam"""
         
-        target = [('ceterum', 'ceterum'), ('antequam', 'antequam'), ('destinata', 'destinata'), ('componam', 'componam'), (',', ','), ('repetendum', 'repetendum'), ('uidetur', 'uidetur'), ('qualis', 'qualis'), ('status', 'status'), ('urbis', 'urbis'), (',', ','), ('quae', 'quae'), ('mens', 'mens'), ('exercituum', 'exercituum'), (',', ','), ('quis', 'quis'), ('habitus', 'habitus'), ('prouinciarum', 'prouinciarum'), (',', ','), ('quid', 'quid'), ('in', 'in'), ('toto', 'toto'), ('terrarum', 'terrarum'), ('orbe', 'orbe'), ('ualidum', 'ualidum'), (',', ','), ('quid', 'quid'), ('aegrum', 'aegrum'), ('fuerit', 'fuerit'), (',', ','), ('ut', 'ut'), ('non', 'non'), ('modo', 'modo'), ('casus', 'casus'), ('euentus', 'euentus'), ('-que', '-que'), ('rerum', 'rerum'), (',', ','), ('qui', 'qui'), ('plerumque', 'plerumque'), ('fortuiti', 'fortuiti'), ('sunt', 'sunt'), (',', ','), ('sed', 'sed'), ('ratio', 'ratio'), ('etiam', 'etiam'), ('causae', 'causae'), ('-que', '-que'), ('noscantur', 'noscantur'), ('.', '.')]
+        target = [('ceterum', 'ceterum'), ('antequam', 'antequam'), ('destinata', 'destinata'), ('componam', 'componam')]
 
         jv = JVReplacer()
         
         tokenizer = WordTokenizer('latin')
         
+        test_str = test_str.lower()
+        test_str = jv.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        
+        self.assertEqual(lemmas, target)
+
+    def test_model_lemmatizer(self):
+        """
+        """
+        model = {'ceterum': 'ceterus', 'antequam': 'antequam', 'destinata': 'destino', 'componam': 'compono'}
+
+        lemmatizer = ModelLemmatizer(model=model)
+
+        test_str = """Ceterum antequam destinata componam"""
+        
+        target = [('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]
+
+        jv = JVReplacer()
+        
+        tokenizer = WordTokenizer('latin')
+        
+        test_str = test_str.lower()
+        test_str = jv.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        
+        self.assertEqual(lemmas, target)
+
+    def test_unigram_lemmatizer(self):
+        """
+        """
+        train = [[('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]]
+
+        lemmatizer = UnigramLemmatizer(train=train)
+
+        test_str = """Ceterum antequam destinata componam"""
+        
+        target = [('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]
+
+        jv = JVReplacer()
+        
+        tokenizer = WordTokenizer('latin')
+        
+        test_str = test_str.lower()
+        test_str = jv.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        
+        self.assertEqual(lemmas, target)
+
+    def test_regex_lemmatizer(self):
+        """
+        """
+        pattern = [(r'(\w*)abimus', 'o')]
+
+        lemmatizer = RegexpLemmatizer(pattern)
+
+        test_str = """amabimus"""
+        
+        target = [('amabimus', 'amo')]
+
+        jv = JVReplacer()
+        
+        tokenizer = WordTokenizer('latin')
+        
+        test_str = test_str.lower()
+        test_str = jv.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        
+        self.assertEqual(lemmas, target)
+    
+    def test_latin_pp_lemmatizer(self):
+        """
+        """
+        from cltk.lemmatize.latin.latin_regexp_patterns import latin_pps
+        pattern = [(r'(\w*)[a|ie]bimus\b', 1)]
+
+        lemmatizer = PPLemmatizer(pattern)
+
+        test_str = """amabimus"""
+        
+        target = [('amabimus', 'amo')]
+
+        jv = JVReplacer()
+        
+        tokenizer = WordTokenizer('latin')
+        
+        test_str = test_str.lower()
+        test_str = jv.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        
+        self.assertEqual(lemmas, target)
+        
+    def test_roman_numeral_lemmatizer(self):
+        """
+        """
+        from cltk.lemmatize.latin.latin_regexp_patterns import rn_patterns
+        
+        lemmatizer = RomanNumeralLemmatizer(rn_patterns)
+
+        test_str = """i ii iii iv v vi vii vii ix x xx xxx xl l lx c cc"""
+        
+        target = [('i', 'NUM'), ('ii', 'NUM'), ('iii', 'NUM'), ('iu', 'NUM'), ('u', 'NUM'), ('ui', 'NUM'), ('uii', 'NUM'), ('uii', 'NUM'), ('ix', 'NUM'), ('x', 'NUM'), ('xx', 'NUM'), ('xxx', 'NUM'), ('xl', 'NUM'), ('l', 'NUM'), ('lx', 'NUM'), ('c', 'NUM'), ('cc', 'NUM')]
+
+        jv = JVReplacer()
+        
+        tokenizer = WordTokenizer('latin')
+
         test_str = test_str.lower()
         test_str = jv.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
