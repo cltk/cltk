@@ -76,7 +76,10 @@ class Macronizer:
         :rtype : list
         """
         entry = self.macron_data.get(word)
-        if len(entry) == 0:
+        if entry is None:
+            logger.info('No Morpheus entry found for {}.'.format(word))
+            return None
+        elif len(entry) == 0:
             logger.info('No Morpheus entry found for {}.'.format(word))
         return entry
 
@@ -97,6 +100,8 @@ class Macronizer:
             return (head_word, tag.lower(), head_word)
         else:
             entries = self._retrieve_morpheus_entry(head_word)
+            if entries is None:
+                return head_word, tag.lower(), head_word
             matched_entry = [entry for entry in entries if entry[0] == tag.lower()]
             if len(matched_entry) == 0:
                 logger.info('No matching Morpheus entry found for {}.'.format(head_word))
@@ -148,6 +153,6 @@ if __name__ == "__main__":
                      "Helvetiis flumen Rhenum, vergit ad septentriones. Belgae ab extremis Galliae finibus oriuntur, pertinent " \
                      "ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna " \
                      "flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum " \
-                     "solis et septentriones."
+                     "solis et septentriones. M. Caelio est malus."
     test = Macronizer("tag_ngram_123_backoff")
     print(test.macronize_text(not_macronized))
