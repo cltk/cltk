@@ -39,6 +39,7 @@ from cltk.corpus.sanskrit.itrans.langinfo import *
 from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagariTransliterator  as sdt
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
+from cltk.corpus.bengali.numconvert import *
 from unicodedata import normalize
 import os
 import unittest
