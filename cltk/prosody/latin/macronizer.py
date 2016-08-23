@@ -15,13 +15,14 @@ import os
 import importlib.machinery
 
 from cltk.tag.pos import POSTag
+from cltk.tag.lapos import Lapos
 from cltk.utils.cltk_logger import logger
 
 __author__ = 'Tyler Kirby <tyler.kirby9398@gmail.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf']
+AVAILABLE_TAGGERS = ['tag_ngram_123_backoff', 'tag_tnt', 'tag_crf', 'lapos']
 
 
 class Macronizer:
@@ -63,6 +64,9 @@ class Macronizer:
             return [(tag[0], tag[1]) for tag in tags]
         elif self.tagger == 'tag_crf':
             tags = POSTag('latin').tag_crf(text.lower())
+            return [(tag[0], tag[1]) for tag in tags]
+        elif self.tagger == 'lapos':
+            tags = Lapos('latin').tag_sentence(text.lower())
             return [(tag[0], tag[1]) for tag in tags]
 
     def _retrieve_morpheus_entry(self, word):
@@ -154,5 +158,5 @@ if __name__ == "__main__":
                      "ad inferiorem partem fluminis Rheni, spectant in septentrionem et orientem solem. Aquitania a Garumna " \
                      "flumine ad Pyrenaeos montes et eam partem Oceani quae est ad Hispaniam pertinet; spectat inter occasum " \
                      "solis et septentriones. M. Caelio est malus."
-    test = Macronizer("tag_ngram_123_backoff")
+    test = Macronizer("lapos")
     print(test.macronize_text(not_macronized))
