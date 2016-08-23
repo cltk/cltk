@@ -1,12 +1,28 @@
 Punjabi
 *******
 
+Corpora
+=======
+
+Use ``CorpusImporter`` or browse the `CLTK Github repository <http://github.com/cltk>`_ (anything beginning with ``punjabi_``) to discover available Punjabi corpora.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.importer import CorpusImporter
+   In [2]: c = CorpusImporter('punjabi')
+   In [3]: c.list_corpora
+   Out[3]:
+   ['punjabi_text_gurban']
+
+Now from the list of available corpora import any one you like.
+
 Alphabet
 =========
 
 The Punjabi digits, vowels, consonants, and symbols are placed in `cltk/corpus/punjabi/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/punjabi/alphabet.py>`_. It is fully commented, so look there for more information about the language's phonology.
 
 To use Punjabi's independent vowels, for example:
+
 .. code-block:: python
 
    In [1]: from cltk.corpus.punjabi.alphabet import INDEPENDENT_VOWELS
@@ -21,7 +37,7 @@ Similarly there are lists for ``DIGITS``, ``DEPENDENT_VOWELS``, ``CONSONANTS``, 
 
 Numerifier
 ==========
-These convert English numbers into Punjabi and vice versa.
+These convert English numbers into Punjabi and vice-verse.
 
 .. code-block:: python
 

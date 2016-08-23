@@ -234,69 +234,6 @@ argenteo polubro, aureo eclutro. """
         valid = 'Ascii and some non-ascii:     '
         self.assertEqual(ascii_str, valid)
 
-    def test_import_latin_text_perseus(self):
-        """Test cloning the Perseus Latin text corpus."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_perseus')
-        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_perseus/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_import_greek_text_perseus(self):
-        """Test cloning the Perseus Greek text corpus."""
-        corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_text_perseus')
-        file_rel = os.path.join('~/cltk_data/greek/text/greek_text_perseus/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_import_proper_names_latin(self):
-        """Test cloning the Latin proper names corpus."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_proper_names_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/lexicon/latin_proper_names_cltk/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_import_proper_names_greek(self):
-        """Test cloning the Greek proper names corpus."""
-        corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_proper_names_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/lexicon/greek_proper_names_cltk/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_import_grk_treebank_pers(self):
-        """Test cloning the Perseus Greek treebank corpus."""
-        corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_treebank_perseus')
-        file_rel = os.path.join('~/cltk_data/greek/treebank/greek_treebank_perseus/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_import_la_treebank_pers(self):
-        """Test cloning the Perseus Latin treebank corpus."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_treebank_perseus')
-        file_rel = os.path.join('~/cltk_data/latin/treebank/latin_treebank_perseus/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_import_la_text_lac_curt(self):
-        """Test cloning the Lacus Curtius Latin text corpus."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_lacus_curtius')
-        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_lacus_curtius/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
@@ -315,15 +252,6 @@ argenteo polubro, aureo eclutro. """
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
-    def test_import_lat_pos_lemma_cltk(self):
-        """Test cloning the CLTK POS lemmata dict."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_pos_lemmata_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/lemma/latin_pos_lemmata_cltk/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
     def test_import_greek_models_cltk(self):
         """Test pull (not clone) the CLTK Greek models. Import was run in
         ``setUp()``.
@@ -333,42 +261,6 @@ argenteo polubro, aureo eclutro. """
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_git_import_copt_script(self):
-        """Test import of Coptic Scriptorium."""
-        corpus_importer = CorpusImporter('coptic')
-        corpus_importer.import_corpus('coptic_text_scriptorium')
-        file_rel = os.path.join('~/cltk_data/coptic/text/coptic_text_scriptorium/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_git_import_tib_pos_tdc(self):
-        """Test import Tibetan POS files."""
-        corpus_importer = CorpusImporter('tibetan')
-        corpus_importer.import_corpus('tibetan_pos_tdc')
-        file_rel = os.path.join('~/cltk_data/tibetan/pos/tibetan_pos_tdc/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_git_import_tib_lexica_tdc(self):
-        """Test import of Tibetan dictionary."""
-        corpus_importer = CorpusImporter('tibetan')
-        corpus_importer.import_corpus('tibetan_lexica_tdc')
-        file_rel = os.path.join('~/cltk_data/tibetan/lexicon/tibetan_lexica_tdc/README.md')
-        _file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(_file)
-        self.assertTrue(file_exists)
-
-    def test_git_import_chinese_cbeta_txt(self):
-        """Test import of plaintext CBETA."""
-        corpus_importer = CorpusImporter('chinese')
-        corpus_importer.import_corpus('chinese_text_cbeta_txt')
-        file_rel = os.path.join('~/cltk_data/chinese/text/chinese_text_cbeta_txt/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
     def test_show_corpora_bad_lang(self):
