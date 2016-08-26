@@ -41,7 +41,7 @@ These convert English numbers into Punjabi and vice-verse.
 
 .. code-block:: python
 
-   In[1]: from cltk.corpus.punjabi.numerifier import punToEnglist_number
+   In[1]: from cltk.corpus.punjabi.numerifier import punToEnglish_number
 
    In[2]: from cltk.corpus.punjabi.numerifier import englishToPun_number
 
