@@ -41,7 +41,7 @@ These convert English numbers into Punjabi and vice-verse.
 
 .. code-block:: python
 
-   In[1]: from cltk.corpus.punjabi.numerifier import punToEnglist_number
+   In[1]: from cltk.corpus.punjabi.numerifier import punToEnglish_number
 
    In[2]: from cltk.corpus.punjabi.numerifier import englishToPun_number
 
@@ -54,3 +54,25 @@ These convert English numbers into Punjabi and vice-verse.
 
    In[6]: print(c)
    Out[6]: ੧੨੩੪੫੬੭੮੯੦
+
+Stopword Filtering
+==================
+To use the CLTK's built-in stopwords list:
+
+.. code-block:: python
+
+   In[1]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+   
+   In[2]: from cltk.stop.punjabi.stops import STOPS_LIST
+   
+   In[3]: sample = "ਪੰਜਾਬੀ ਪੰਜਾਬ ਦੀ ਮੁਖੱ ਬੋੋਲਣ ਜਾਣ ਵਾਲੀ ਭਾਸ਼ਾ ਹੈ।"
+   
+   In[4]: x = indian_punctuation_tokenize_regex(sample)
+   
+   In[5]: print(x)
+   Out[5]: ['ਪੰਜਾਬੀ', 'ਪੰਜਾਬ', 'ਦੀ', 'ਮੁਖੱ', 'ਬੋੋਲਣ', 'ਜਾਣ', 'ਵਾਲੀ', 'ਭਾਸ਼ਾ', 'ਹੈ', '।']
+   
+   In[6]: lis = [w for w in x if not w in STOPS_LIST]
+   
+   In[7]: print (lis)
+   Out[7]: ['ਪੰਜਾਬੀ', 'ਪੰਜਾਬ', 'ਮੁਖੱ', 'ਬੋੋਲਣ', 'ਜਾਣ', 'ਭਾਸ਼ਾ', '।']
