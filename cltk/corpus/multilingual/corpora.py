@@ -8,5 +8,5 @@ MULTILINGUAL_CORPORA = [
      'markup': ['conll', 'xml'],
      'location': 'remote',
      'type': 'treebank',
-     'name': 'multilingual_treebank_proiel'},
+     'name': 'https://github.com/cltk/multilingual_treebank_proiel.git'},
 ]

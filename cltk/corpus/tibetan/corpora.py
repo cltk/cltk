@@ -8,10 +8,10 @@ TIBETAN_CORPORA = [
      'markup': 'xml',
      'location': 'remote',
      'type': 'pos',
-     'name': 'tibetan_pos_tdc'},
+     'name': 'https://github.com/cltk/tibetan_pos_tdc.git'},
     {'encoding': 'utf-8',
      'markup': 'xml',
      'location': 'remote',
      'type': 'lexicon',
-     'name': 'tibetan_lexica_tdc'}
+     'name': 'https://github.com/cltk/tibetan_lexica_tdc.git'}
 ]

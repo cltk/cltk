@@ -17,7 +17,7 @@ from cltk.tokenize.word import WordTokenizer
 # Would like to have this search through a CLTK_DATA environment variable
 # Better to use something like make_cltk_path in cltk.utils.file_operations?
 home = os.path.expanduser('~')
-cltk_path = os.path.join(home, 'cltk_data')
+cltk_path = os.path.join(home, 'CLTK_DATA')
 
 word_tokenizer = WordTokenizer('latin')
 
