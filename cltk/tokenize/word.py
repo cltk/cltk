@@ -69,6 +69,21 @@ def nltk_tokenize_words(string, attached_period=False, language=None):
     return new_tokens
 
 def tokenize_latin_words(string):
+  """
+  Tokenizers divide strings into a list of substrings
+  
+  >>> from cltk.corpus.utils.formatter import remove_non_ascii
+  >>> text =  'Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'
+  >>> remove_non_ascii(text)
+  >>> 'Dices   pulchrum esse inimicos ulcisci.
+  
+  Args:
+      string: A text string which needs to be tokenized.
+  
+  Returns:
+      Returns a list of subtrings which is obtained from the
+      main string.
+  """
     from cltk.tokenize.latin_exceptions import latin_exceptions
 
     assert isinstance(string, str), "Incoming string must be type str."
