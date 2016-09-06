@@ -270,7 +270,8 @@ class CorpusImporter():
             return
         corpus_type = corpus_properties['type']
         if location == 'remote':
-            git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
+            # git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
+            git_uri = corpus_name
             # self._download_corpus(corpus_type, corpus_name, path)
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)

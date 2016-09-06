@@ -8,5 +8,5 @@ COPTIC_CORPORA = [
      'markup': 'tei_xml',
      'location': 'remote',
      'type': 'text',
-     'name': 'coptic_text_scriptorium'}
+     'name': 'https://github.com/cltk/coptic_text_scriptorium.git'}
 ]

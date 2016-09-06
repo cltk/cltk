@@ -1,5 +1,5 @@
 TELUGU_CORPORA = [
-        {'name':'telugu_text_wikisource',
+        {'name':'https://github.com/cltk/telugu_text_wikisource.git',
         'location':'remote',
         'type':'text'},
 ]
