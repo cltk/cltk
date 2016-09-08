@@ -9,7 +9,4 @@ MULTILINGUAL_CORPORA = [
      'location': 'remote',
      'type': 'treebank',
      'name': 'multilingual_treebank_proiel'},
-    {'name': 'lapos',
-     'location': 'remote',
-     'type': 'software'},
 ]
