@@ -18,7 +18,7 @@ def _check_latest_data(lang):
 
     if not os.path.isfile(ner_file_path):
         corpus_importer = CorpusImporter(lang)
-        corpus_importer.import_corpus('{}_models_cltk'.format(lang))
+        corpus_importer.import_corpus('https://github.com/cltk/{}_models_cltkgit'.format(lang))
 
 
 def tag_ner(lang, input_text, output_type=list):

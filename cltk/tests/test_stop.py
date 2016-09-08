@@ -19,14 +19,14 @@ class TestSequenceFunctions(unittest.TestCase):
         tests later.
         """
         corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_models_cltk')
+        corpus_importer.import_corpus('https://github.com/cltk/greek_models_cltk.git')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_models_cltk')
+        corpus_importer.import_corpus('https://github.com/cltk/latin_models_cltk.git')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)

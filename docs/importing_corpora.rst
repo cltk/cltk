@@ -38,14 +38,14 @@ To download a remote corpus, use the following, for example, for the Latin Libra
 
    In [2]: corpus_importer = CorpusImporter('latin')  # e.g., or CorpusImporter('greek')
 
-   In [3]: corpus_importer.import_corpus('latin_text_latin_library')
+   In [3]: corpus_importer.import_corpus('https://github.com/cltk/latin_text_latin_library.git')
    Downloaded 100% , 35.53 MiB | 3.28 MiB/s s
 
 For a local corpus, such as the TLG, you must give a second argument of the filepath to the corpus, e.g.:
 
 .. code-block:: python
 
-   In [4]: corpus_importer.import_corpus('tlg', '~/Documents/corpora/TLG_E/')
+   In [4]: corpus_importer.import_corpus('https://github.com/cltk/tlg.git', '~/Documents/corpora/TLG_E/')
 
 
 User-defined, distributed corpora

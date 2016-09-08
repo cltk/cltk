@@ -351,4 +351,4 @@ class CorpusImporter():
 if __name__ == '__main__':
     c = CorpusImporter('fake_language')
     print(c.list_corpora)
-    # c.import_corpus('example_1')
+    # c.import_corpus('https://github.com/cltk/example_1.git')

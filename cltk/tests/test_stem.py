@@ -22,7 +22,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         Indian lang tokenizers.
         """
         corpus_importer = CorpusImporter('sanskrit')
-        corpus_importer.import_corpus('sanskrit_models_cltk')
+        corpus_importer.import_corpus('https://github.com/cltk/sanskrit_models_cltk.git')
         file_rel = os.path.join('~/cltk_data/sanskrit/model/sanskrit_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)

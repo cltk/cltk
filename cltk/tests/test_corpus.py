@@ -83,7 +83,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_import_greek_software_tlgu(self):
         """Test cloning TLGU."""
         corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_software_tlgu')
+        corpus_importer.import_corpus('https://github.com/cltk/greek_software_tlgu.git')
         file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -237,7 +237,7 @@ argenteo polubro, aureo eclutro. """
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_latin_library')
+        corpus_importer.import_corpus('https://github.com/cltk/latin_text_latin_library.git')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -246,7 +246,7 @@ argenteo polubro, aureo eclutro. """
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_models_cltk')
+        corpus_importer.import_corpus('https://github.com/cltk/latin_models_cltk.git')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -257,7 +257,7 @@ argenteo polubro, aureo eclutro. """
         ``setUp()``.
         """
         corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_models_cltk')
+        corpus_importer.import_corpus('https://github.com/cltk/greek_models_cltk.git')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -274,12 +274,12 @@ argenteo polubro, aureo eclutro. """
         """
         with self.assertRaises(CorpusImportError):
             corpus_importer = CorpusImporter('greek')
-            corpus_importer.import_corpus('euclids_book_of_recipes')
+            corpus_importer.import_corpus('https://github.com/cltk/euclids_book_of_recipes.git')
 
     def test_import_latin_text_antique_digiliblt(self):
         """Test cloning the Antique Latin from digilibLT."""
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_antique_digiliblt')
+        corpus_importer.import_corpus('https://github.com/cltk/latin_text_antique_digiliblt.git')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_antique_digiliblt/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -502,7 +502,7 @@ example_distributed_fake_language_corpus:
         pun_import = CorpusImporter('punjabi')
         corpora_list = pun_import.list_corpora
         self.assertTrue('punjabi_text_gurban' in corpora_list)
-        pun_import.import_corpus('punjabi_text_gurban')
+        pun_import.import_corpus('https://github.com/cltk/punjabi_text_gurban.git')
         file_path = os.path.join('~/cltk_data/punjabi/text/punjabi_text_gurban/README.md')
         _file = os.path.expanduser(file_path)
         self.assertTrue(os.path.isfile(_file))
