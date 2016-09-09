@@ -626,3 +626,172 @@ Breathings, which are used not only on vowels, but also on *ρ*, indicate the pr
 Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
 
 For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
+
+Using jtauber's Greek Accentuation library
+===========================================
+
+`James Tauber <https://github.com/jtauber/>`_ has created a Python 3 based `library  <https://github.com/jtauber/greek-accentuation>`_  with further functions to enable working with the accentuation of Ancient Greek words. Installing it is optional for working with CLTK.
+For further information please see the `original docs <https://github.com/jtauber/greek-accentuation/blob/master/docs.rst>`_, this is just an abridged version.
+
+The library can be installed with ``pip`` like this:
+
+.. code-block:: python
+
+    pip install greek-accentuation==1.0.0
+
+Contrary to the original docs to use the functions from this module it is necessary to *explicitly* import every function you need as opposed to
+
+.. code-block:: python
+
+    from greek_accentuation.characters import *
+
+**The Characters Module:**
+
+- ``base(character)`` returns the character passed to the function without diacritics. For example:
+
+  .. code-block:: python
+
+       In[1]: from greek_accentuation.characters import base
+       In[2]: base('ᾳ')
+       Out[2]: 'α'
+
+- ``add_diacritic(base, diacritic)`` and ``add_breathing(character, breathing)`` add diacritics (accents, diaresis, macrons, breves) and breathing symbols to the given character. ``add_diacritic`` is stackable, for example:
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.characters import add_diacritic
+       In[2]: add_diacritic(add_diacritic('ο', ROUGH), ACUTE)
+       Out[2]: 'ὅ'
+
+- ``accent`` and ``strip_accent`` return the accent of a character as an Unicode escape and the character stripped of its accent respectively. ``breathing``, ``strip_breathing``, ``length`` and ``strip_length`` work analogously, for example:
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.characters import length, strip_length
+       In[2]: length('ῠ') == SHORT
+       Out[2]: True
+       In[3]: strip_length('ῡ')
+       Out[3]: 'υ'
+
+   If a length diacritic becmoes redundant because of a circumflex it can be stripped with ``remove_redundant_macron`` just like ``strip_length`` above.
+
+
+**The Syllabify Module:**
+
+- ``syllabify(word)`` splits the given word in syllables, which are returned as a list of strings. Words without vowels are syllabified as a single syllable. The syllabification can also be displayed as a word with the syllablles separated by periods with ``display_word``.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.syllabify import syllabify, display_word
+       In[2]: syllabify('γυναικός')
+       Out[2]: ['γυ', 'ναι', 'κός']
+       In[3]: syllabify('γγγ')
+       Out[3]: ['γγγ']
+       In[4]: display_word(syllabify('καταλλάσσω'))
+       Out[4]: 'κα.ταλ.λάσ.σω'
+
+- ``is_vowel(character)`` and ``is_diphthong(characters)`` return a boolean value to determine whether a character is a vowel or two characters are a diphthong.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.syllabify import is_diphthong
+       In[2]: is_diphthong('αι')
+       Out[2]: True
+
+- ``ultima``, ``antepenult`` and ``penult`` return the ultima, antepenult or penult (i.e. the last, next-to-last or third-from-last syllables) of a word. A syllable can also be further broken down into its onset, nucleus and coda (i.e. the starting consonant, middle part and ending consonant) with the functions named accordingly. ``rime`` returns the sequence of a syllable's nucleus and coda and ``body`` returns the sequence of a syllable's onset and nucleus.
+
+  ``onset_nucleus_coda`` returns a syllable's onset, nucleus and coda all at once as a triple.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.syllabify import ultima, rime, onset_nucleus_coda
+       In[2]: ultima('γυναικός')
+       Out[2]: 'κός'
+       In[3]: rime('κός')
+       Out[3]: 'ός'
+       In[4]: onset_nucleus_coda('ναι')
+       Out[4]: ('ν', 'αι', '')
+
+- ``debreath`` returns a word with the smooth breathing removed and the rough breathing replaced with an h. ``rebreath`` reverses ``debreath``.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.syllabify import debreath, rebreath
+       In[2]: debreath('οἰκία')
+       Out[2]: 'οικία'
+       In[3]: rebreath('οικία')
+       Out[3]: 'οἰκία'
+
+- ``syllable_length`` returns the length of a syllable (in the linguistic sense) and ``syllable_accent`` extracts a syllable's accent.
+  
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.syllabify import syllable_length, syllable_accent
+       In[2]: syllable_length('σω') == LONG
+       Out[2]: True
+       In[3]: syllable_accent('ναι') is None
+       Out[3]: True
+
+- The accentuation class of a word such as oxytone, paroxytone, proparoxytone, perispomenon, properispomenon or barytone can be tested with the functions named accordingly.
+
+- ``add_necessary_breathing`` adds smooth breathing to a word if necessary.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.syllabify import add_necessary_breathing
+       In[2]: add_necessary_breathing('οι')
+       Out[2]: 'οἰ'
+       In[3]: add_necessary_breathing('οἰ')
+       Out[3]: 'οἰ'
+
+       **The Accentuation Module:**
+
+- ``get_accent_type`` returns the accent type of a word as a tuple of the syllable number and accent, which is comparable to the constants provided. The accent type can also be displayed as a string with ``display_accent_type``.
+
+   .. code-block:: python
+ 
+       In[1]: from greek_accentuation.accentuation import get_accent_type, display_accent_type
+       In[2]: get_accent_type('ἀγαθοῦ') == PERISPOMENON
+       Out[2]: True
+       In[3]: display_accent_type(get_accent_type('ψυχή'))
+       Out[3]: 'oxytone'
+
+- ``syllable_add_accent(syllable, accent)`` adds the given accent to a syllable. It is also possible to add an accent class to a syllable, for example:
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.accentuation import syllable_add_accent, make_paroxytone
+       In[2]: syllable_add_accent('ου', CIRCUMFLEX)
+       Out[2]: 'οῦ'
+       In[3]: make_paroxytone('λογος')
+       Out[3]: 'λόγος'
+
+- ``possible_accentuations`` returns all possible accentuations of a given syllabification according to Ancient Greek accentuation rules. To treat vowels of unmarked length as short vowels set ``default_short = True`` in the function parameters.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.accentuation import possible_accentuations
+       In[2]: s = syllabify('εγινωσκου')
+       In[3]: for accent_class in possible_accentuations(s):
+       In[4]:     print(add_accent(s, accent_class))
+       Out[4]: εγινώσκου
+       Out[4]: εγινωσκού
+       Out[4]: εγινωσκοῦ
+       In[5]: s = syllabify('κυριος')
+       In[6]: for accent_class in possible_accentuations(s, default_short=True):
+       In[7]:     print(add_accent(s, accent_class))
+       Out[7]: κύριος
+       Out[7]: κυρίος
+       Out[7]: κυριός
+
+- ``recessive`` finds the most recessive (i.e. as far away from the end of the word as possible) accent and returns the given word with that accent. A ``|`` can be placed to set a point past which the accent will not recede. ``on_penult`` places the accent on the penult (third-from-last syllable).
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.accentuation import recessive, on_penult
+       In[2]: recessive('εἰσηλθον')
+       Out[2]: 'εἴσηλθον'
+       In[3]: recessive('εἰσ|ηλθον')
+       Out[3]: 'εἰσῆλθον'
+       In[4]: on_penult('φωνησαι')
+       Out[4]: 'φωνῆσαι'
+       
