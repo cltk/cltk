@@ -599,3 +599,30 @@ Some examples of it in action:
    The following terms in the Word2Vec model you may be looking for: '['τυραννίσιν', 'τυρόριζαν', 'τυρεύοντες', 'τυρρηνοὶ', 'τυραννεύοντα', 'τυροὶ', 'τυραννικά', 'τυρσηνίαν', 'τυρώ', 'τυρσηνίας', … ]'.
 
 To add and subtract vectors, you need to load the models yourself with Gensim.
+
+Alphabet
+========
+
+The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
+
+Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
+
+In `alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_ the vowels and consonants are grouped by upper or lower case, accent, breathing, a diaresis and possible combinations thereof.
+These groupings are stored in lists or, in case of a single letter like ρ, as strings with descriptive names structured like ``CASE_SPECIFIERS``, e.g. ``LOWER_DIARESIS_CIRCUMFLEX``.
+
+For example to use upper case vowels with rough breathing and an acute accent:
+
+.. code-block:: python
+
+   In[1]: from cltk.corpus.greek.alphabet import UPPER_ROUGH_ACUTE
+   In[2]: print(UPPER_ROUGH_ACUTE)
+   Out[2]: ['Ἅ', 'Ἕ', 'Ἥ', 'Ἵ', 'Ὅ', 'Ὕ', 'Ὥ', 'ᾍ', 'ᾝ', 'ᾭ']
+
+
+Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
+
+Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
+
+Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
+
+For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
