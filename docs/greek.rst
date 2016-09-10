@@ -647,7 +647,7 @@ Contrary to the original docs to use the functions from this module it is necess
 
 **The Characters Module:**
 
-- ``base(character)`` returns the character passed to the function without diacritics. For example:
+- ``base`` returns a given character without diacritics. For example:
 
   .. code-block:: python
 
@@ -655,7 +655,7 @@ Contrary to the original docs to use the functions from this module it is necess
        In[2]: base('ᾳ')
        Out[2]: 'α'
 
-- ``add_diacritic(base, diacritic)`` and ``add_breathing(character, breathing)`` add diacritics (accents, diaresis, macrons, breves) and breathing symbols to the given character. ``add_diacritic`` is stackable, for example:
+- ``add_diacritic`` and ``add_breathing`` add diacritics (accents, diaresis, macrons, breves) and breathing symbols to the given character. ``add_diacritic`` is stackable, for example:
 
    .. code-block:: python
 
@@ -677,7 +677,7 @@ Contrary to the original docs to use the functions from this module it is necess
 
 **The Syllabify Module:**
 
-- ``syllabify(word)`` splits the given word in syllables, which are returned as a list of strings. Words without vowels are syllabified as a single syllable. The syllabification can also be displayed as a word with the syllablles separated by periods with ``display_word``.
+- ``syllabify`` splits the given word in syllables, which are returned as a list of strings. Words without vowels are syllabified as a single syllable. The syllabification can also be displayed as a word with the syllablles separated by periods with ``display_word``.
 
    .. code-block:: python
 
@@ -689,7 +689,7 @@ Contrary to the original docs to use the functions from this module it is necess
        In[4]: display_word(syllabify('καταλλάσσω'))
        Out[4]: 'κα.ταλ.λάσ.σω'
 
-- ``is_vowel(character)`` and ``is_diphthong(characters)`` return a boolean value to determine whether a character is a vowel or two characters are a diphthong.
+- ``is_vowel`` and ``is_diphthong`` return a boolean value to determine whether a given character is a vowel or two given characters are a diphthong.
 
    .. code-block:: python
 
@@ -697,7 +697,8 @@ Contrary to the original docs to use the functions from this module it is necess
        In[2]: is_diphthong('αι')
        Out[2]: True
 
-- ``ultima``, ``antepenult`` and ``penult`` return the ultima, antepenult or penult (i.e. the last, next-to-last or third-from-last syllables) of a word. A syllable can also be further broken down into its onset, nucleus and coda (i.e. the starting consonant, middle part and ending consonant) with the functions named accordingly. ``rime`` returns the sequence of a syllable's nucleus and coda and ``body`` returns the sequence of a syllable's onset and nucleus.
+- ``ultima``, ``antepenult`` and ``penult`` return the ultima, antepenult or penult (i.e. the last, next-to-last or third-from-last syllables) of the given word. A syllable can also be further broken down into its onset, nucleus and coda (i.e. the starting consonant, middle part and ending consonant) with the functions named accordingly. ``rime`` returns the sequence of a syllable's nucleus and coda and ``body`` returns the sequence of a syllable's onset and nucleus.
+
 
   ``onset_nucleus_coda`` returns a syllable's onset, nucleus and coda all at once as a triple.
 
@@ -743,7 +744,7 @@ Contrary to the original docs to use the functions from this module it is necess
        In[3]: add_necessary_breathing('οἰ')
        Out[3]: 'οἰ'
 
-       **The Accentuation Module:**
+**The Accentuation Module:**
 
 - ``get_accent_type`` returns the accent type of a word as a tuple of the syllable number and accent, which is comparable to the constants provided. The accent type can also be displayed as a string with ``display_accent_type``.
 
@@ -794,4 +795,12 @@ Contrary to the original docs to use the functions from this module it is necess
        Out[3]: 'εἰσῆλθον'
        In[4]: on_penult('φωνησαι')
        Out[4]: 'φωνῆσαι'
-       
+
+- ``persistent`` gets passed a word and a lemma (i.e. the canonical form of a set of words) and derives the accent from these two words.
+
+   .. code-block:: python
+
+       In[1]: from greek_accentuation.accentuation import persistent
+       In[2]: persistent('ἀνθρωπου', 'ἄνθρωπος')
+       Out[2]: 'ἀνθρώπου'
+        
