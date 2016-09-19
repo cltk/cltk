@@ -18,6 +18,7 @@ Contents
    chinese
    coptic
    greek
+   hebrew
    latin
    multilingual
    pali
