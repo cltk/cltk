@@ -408,6 +408,31 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
    Out[4]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
 
 
+Declining
+=========
+
+The CollatinusDecliner proposes to retrieve all possible form of a lemma. This proves useful if you want to search for all forms of a word across a repository of non lemmatized texts. \
+This object is based on the lexical and linguistic data built for and by the Collatinus Team ( https://github.com/biblissima/collatinus ). You can contribute new models in the repository \
+https://github.com/biblissima/collatinus/tree/master/bin/data . The converter of original data lies in https://github.com/cltk/latin_models_cltk/tree/master/lemmata/collatinus
+
+This module inherits the license from the original project (GNU GPL V3).
+
+.. code-block:: python
+
+   # Ensure you have downloaded the corpus latin_models_cltk before running this
+   from cltk.stem.latin.declension import CollatinusDecliner
+
+   decliner = CollatinusDecliner()
+   print(decliner.decline("via"))
+
+    [
+        ('via', '--s----n-'), ('via', '--s----v-'), ('viam', '--s----a-'), ('viae', '--s----g-'),
+        ('viae', '--s----d-'), ('via', '--s----b-'), ('viae', '--p----n-'), ('viae', '--p----v-'),
+        ('vias', '--p----a-'), ('viarum', '--p----g-'), ('viis', '--p----d-'), ('viis', '--p----b-')
+    ]
+
+    print(decliner.decline("via", flatten=True))
+    ['via', 'via', 'viam', 'viae', 'viae', 'via', 'viae', 'viae', 'vias', 'viarum', 'viis', 'viis']
 
 Stopword Filtering
 ==================
