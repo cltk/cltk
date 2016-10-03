@@ -14,4 +14,4 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.c
 
    In [3]: c.list_corpora
    Out[3]:
-   ['bengali_text_tatsama']
+   ['bengali_text_wikisource']
