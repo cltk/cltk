@@ -1,6 +1,5 @@
-# coding=utf-8
-"""This list is taken from various sources and can be verified at
-``www.spokensanskrit.de``
+"""Sankskrit stopwords.
+Further explanations at: https://gist.github.com/Akhilesh28/b012159a10a642ed5c34e551db76f236
 """
 
 __author__ = 'Akhilesh S. Chobey <akhileshchobey03@gmail.com>'
