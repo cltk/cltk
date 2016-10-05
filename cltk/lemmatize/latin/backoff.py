@@ -1,15 +1,22 @@
 """Primary module for lemmatizing Latin.
 
-TODO: Get rid of the wildcard "*" import
 """
 
-# from pprint import pprint
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
+__license__ = 'MIT License. See LICENSE.'
 
-# from nltk.tag.api import TaggerI
-from nltk.tag.sequential import *
+import os
+import re
+
+from nltk.probability import ConditionalFreqDist
+from nltk.tag.api import TaggerI
+from nltk.tag.sequential import SequentialBackoffTagger, ContextTagger, DefaultTagger, NgramTagger, UnigramTagger, RegexpTagger
+
+from cltk.utils.file_operations import open_pickle
 
 from cltk.lemmatize.latin.model import LATIN_MODEL
-from cltk.lemmatize.latin.old_model import LATIN_OLD_MODEL
+#from cltk.lemmatize.latin.old_model import LATIN_OLD_MODEL
+
 from cltk.lemmatize.latin.regexp_patterns import latin_pps
 from cltk.lemmatize.latin.regexp_patterns import latin_verb_patterns
 from cltk.lemmatize.latin.regexp_patterns import latin_misc_patterns
@@ -115,13 +122,13 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
         return _lemma
 
 
-class ModelLemmatizer(SequentialBackoffLemmatizer):
+class TrainLemmatizer(SequentialBackoffLemmatizer):
     """Standalone version of 'model' function found in UnigramTagger; by
     defining as its own class, it is clearer that this lemmatizer is
     based on dictionary lookup and does not use training data."""
 
     def __init__(self, model, backoff=None):
-        """Setup for ModelLemmatizer().
+        """Setup for TrainLemmatizer().
 
         :param model: Dictionary with form {TOKEN: LEMMA}
         :param backoff: Next lemmatizer in backoff chain.
@@ -168,7 +175,7 @@ class NgramLemmatizer(ContextLemmatizer, NgramTagger):
 
         :param n: Int with length of 'n'-gram
         :param train: List of tuples of the form (TOKEN, LEMMA)
-        :param model: Dict; DEPRECATED, use ModelLemmatizer
+        :param model: Dict; DEPRECATED, use TrainLemmatizer
         :param backoff: Next lemmatizer in backoff chain.
         :param cutoff: Int with minimum number of matches to choose lemma
         """
@@ -433,13 +440,13 @@ class TrigramPOSLemmatizer(NgramPOSLemmatizer):
                                     backoff, cutoff)
 
 
-class LazyLatinLemmatizer(object):
+class BackoffLatinLemmatizer(object):
     """Suggested backoff chain; includes at least on of each
     type of major sequential backoff class from backoff.py
 
     ### Putting it all together
-    ### BETA Version of the Backoff Lemmatizer AKA LazyLatinLemmatizer
-    ### For comparison, there is also a ModelLemmatizer that replicates the
+    ### BETA Version of the Backoff Lemmatizer AKA BackoffLatinLemmatizer
+    ### For comparison, there is also a TrainLemmatizer that replicates the
     ###    original Latin lemmatizer from cltk.stem
     """
     def __init__(self, train):
@@ -456,15 +463,29 @@ class LazyLatinLemmatizer(object):
             return pos_train_sents, train_sents, test_sents
 
         self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train)
+        
+        # Check for presence of LATIN_OLD_MODEL file,
+        file = 'latin_lemmata_cltk.pickle'        
+        rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata')
+        path = os.path.expanduser(rel_path)
+        old_model_path = os.path.join(path, file)
+        if os.path.isfile(old_model_path):
+            #print(old_model_path)
+            #with open(old_model_path, 'rb') as handle:
+            #    LATIN_OLD_MODEL = pickle.load(handle)
+            self.LATIN_OLD_MODEL = open_pickle(old_model_path)
+            #LATIN_OLD_MODEL = {}
+        else:
+            LATIN_OLD_MODEL = {}
 
     def _define_lemmatizer(self):
         backoff0 = None
         backoff1 = IdentityLemmatizer()
-        backoff2 = ModelLemmatizer(model=LATIN_OLD_MODEL, backoff=backoff1)
+        backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
         backoff3 = PPLemmatizer(backoff=backoff2)                 
         backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)
         backoff5 = RegexpLemmatizer(latin_misc_patterns, backoff=backoff4)
-        backoff6 = ModelLemmatizer(model=LATIN_MODEL, backoff=backoff5)
+        backoff6 = TrainLemmatizer(model=LATIN_MODEL, backoff=backoff5)
         backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         lemmatizer = backoff7
         return lemmatizer
@@ -476,7 +497,7 @@ class LazyLatinLemmatizer(object):
 
     def evaluate(self):
         lemmatizer = self._define_lemmatizer()
-        #lemmatizer = ModelLemmatizer(model=self.model)
+        #lemmatizer = TrainLemmatizer(model=self.model)
         return lemmatizer.evaluate(self.test_sents)
 
 
@@ -500,7 +521,7 @@ class OriginalLatinLemmatizer(object):
         self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train)
 
     def _define_lemmatizer(self):
-        lemmatizer = ModelLemmatizer(model=self.model)
+        lemmatizer = TrainLemmatizer(model=self.model)
         return lemmatizer
 
     def lemmatize(self, tokens):
@@ -510,7 +531,7 @@ class OriginalLatinLemmatizer(object):
 
     def evaluate(self):
         lemmatizer = self._define_lemmatizer()
-        #lemmatizer = ModelLemmatizer(model=self.model)
+        #lemmatizer = TrainLemmatizer(model=self.model)
         return lemmatizer.evaluate(self.test_sents)
 
 
@@ -519,7 +540,7 @@ if __name__ == "__main__":
     ACCURACIES = []
 
     for I in range(RUN):
-        LEMMATIZER = LazyLatinLemmatizer(latin_pos_lemmatized_sents)
+        LEMMATIZER = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
         # lemmatizer = OriginalLatinLemmatizer(latin_pos_lemmatized_sents)
         ACC = LEMMATIZER.evaluate()
         ACCURACIES.append(ACC)
