@@ -14,14 +14,16 @@ from nltk.tag.sequential import SequentialBackoffTagger, ContextTagger, DefaultT
 
 from cltk.utils.file_operations import open_pickle
 
-from cltk.lemmatize.latin.model import LATIN_MODEL
-#from cltk.lemmatize.latin.old_model import LATIN_OLD_MODEL
+#from cltk.lemmatize.latin.model import LATIN_MODEL
 
-from cltk.lemmatize.latin.regexp_patterns import latin_pps
-from cltk.lemmatize.latin.regexp_patterns import latin_verb_patterns
-from cltk.lemmatize.latin.regexp_patterns import latin_misc_patterns
-from cltk.lemmatize.latin.regexp_patterns import rn_patterns
-from cltk.lemmatize.latin.lemmatized_sentences import latin_pos_lemmatized_sents
+#from cltk.lemmatize.latin.regexp_patterns import latin_pps
+#from cltk.lemmatize.latin.regexp_patterns import latin_verb_patterns
+#from cltk.lemmatize.latin.regexp_patterns import latin_misc_patterns
+#from cltk.lemmatize.latin.regexp_patterns import rn_patterns
+#from cltk.lemmatize.latin.lemmatized_sentences import latin_pos_lemmatized_sents
+
+rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'),
+               (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
 
 __author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
 __license__ = 'MIT License. See LICENSE.'
@@ -231,7 +233,7 @@ class PPLemmatizer(RegexpLemmatizer):
     """Customization of the RegexpLemmatizer for Latin. The RegexpLemmatizer is
         used as a stemmer; the stem is then applied to a dictionary lookup of
         principal parts."""
-    def __init__(self, regexps=latin_verb_patterns, backoff=None):
+    def __init__(self, regexps=None, backoff=None):
         """Setup PPLemmatizer().
 
         :param regexps: List of tuples of form (PATTERN, INT) where INT is
@@ -244,6 +246,19 @@ class PPLemmatizer(RegexpLemmatizer):
         # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
         self._regexs = [(re.compile(regexp), num) for regexp, num in
                         regexps]
+        # Set up training sentences
+        rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata')
+        path = os.path.expanduser(rel_path)
+
+        # Check for presence of latin_pos_lemmatized_sents
+        file = 'latin_pps.pickle'      
+
+        latin_pps_path = os.path.join(path, file)
+        if os.path.isfile(latin_pps_path):
+            self.latin_pps = open_pickle(latin_pps_path)
+        else:
+            self.latin_pps = {}
+            print('There is no training data available for this lemmatizer in cltk_data')
 
     def choose_lemma(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on
@@ -260,7 +275,7 @@ class PPLemmatizer(RegexpLemmatizer):
             m = re.match(regexp[0], tokens[index])
             if m:
                 root = m.group(1)
-                match = [lemma for (lemma, pp) in latin_pps.items() if root == pp[regexp[1]]]
+                match = [lemma for (lemma, pp) in self.latin_pps.items() if root == pp[regexp[1]]]
                 if not match:
                     pass
                 else:
@@ -451,6 +466,46 @@ class BackoffLatinLemmatizer(object):
     """
     def __init__(self, train):
         self.train = train
+        
+        rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata')
+        path = os.path.expanduser(rel_path)
+
+        # Check for presence of LATIN_OLD_MODEL
+        file = 'latin_lemmata_cltk.pickle'      
+
+        old_model_path = os.path.join(path, file)
+        if os.path.isfile(old_model_path):
+            self.LATIN_OLD_MODEL = open_pickle(old_model_path)
+        else:
+            self.LATIN_OLD_MODEL = {}
+        
+        # Check for presence of LATIN_MODEL
+        file = 'latin_model.pickle'      
+
+        model_path = os.path.join(path, file)
+        if os.path.isfile(model_path):
+            self.LATIN_MODEL = open_pickle(model_path)
+        else:
+            self.LATIN_MODEL = {}
+        
+        # Check for presence of LATIN_MODEL
+        file = 'latin_misc_patterns.pickle'      
+
+        misc_patterns_path = os.path.join(path, file)
+        if os.path.isfile(misc_patterns_path):
+            self.latin_misc_patterns = open_pickle(misc_patterns_path)
+        else:
+            self.latin_misc_patterns = {}
+
+        # Check for presence of LATIN_MODEL
+        file = 'latin_verb_patterns.pickle'      
+
+        verb_patterns_path = os.path.join(path, file)
+        if os.path.isfile(verb_patterns_path):
+            self.latin_verb_patterns = open_pickle(verb_patterns_path)
+        else:
+            self.latin_verb_patterns = {}
+            
 
         def _randomize_data(train):
             import random
@@ -463,29 +518,15 @@ class BackoffLatinLemmatizer(object):
             return pos_train_sents, train_sents, test_sents
 
         self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train)
-        
-        # Check for presence of LATIN_OLD_MODEL file,
-        file = 'latin_lemmata_cltk.pickle'        
-        rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata')
-        path = os.path.expanduser(rel_path)
-        old_model_path = os.path.join(path, file)
-        if os.path.isfile(old_model_path):
-            #print(old_model_path)
-            #with open(old_model_path, 'rb') as handle:
-            #    LATIN_OLD_MODEL = pickle.load(handle)
-            self.LATIN_OLD_MODEL = open_pickle(old_model_path)
-            #LATIN_OLD_MODEL = {}
-        else:
-            LATIN_OLD_MODEL = {}
 
     def _define_lemmatizer(self):
         backoff0 = None
         backoff1 = IdentityLemmatizer()
         backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
-        backoff3 = PPLemmatizer(backoff=backoff2)                 
+        backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, backoff=backoff2)                 
         backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)
-        backoff5 = RegexpLemmatizer(latin_misc_patterns, backoff=backoff4)
-        backoff6 = TrainLemmatizer(model=LATIN_MODEL, backoff=backoff5)
+        backoff5 = RegexpLemmatizer(self.latin_misc_patterns, backoff=backoff4)
+        backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)
         backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         lemmatizer = backoff7
         return lemmatizer
@@ -536,6 +577,22 @@ class OriginalLatinLemmatizer(object):
 
 
 if __name__ == "__main__":
+
+    # Set up training sentences
+    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata')
+    path = os.path.expanduser(rel_path)
+
+    # Check for presence of latin_pos_lemmatized_sents
+    file = 'latin_pos_lemmatized_sents.pickle'      
+
+    latin_pos_lemmatized_sents_path = os.path.join(path, file)
+    if os.path.isfile(latin_pos_lemmatized_sents_path):
+        latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
+    else:
+        latin_pos_lemmatized_sents = {}
+        print('There is no training data available for this lemmatizer in cltk_data')
+
+
     RUN = 10
     ACCURACIES = []
 
