@@ -4,7 +4,7 @@ import unittest
 
 from cltk.lemmatize.latin.backoff import DefaultLemmatizer
 from cltk.lemmatize.latin.backoff import IdentityLemmatizer
-from cltk.lemmatize.latin.backoff import ModelLemmatizer
+from cltk.lemmatize.latin.backoff import TrainLemmatizer
 from cltk.lemmatize.latin.backoff import PPLemmatizer
 from cltk.lemmatize.latin.backoff import RegexpLemmatizer
 from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer
@@ -49,7 +49,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_model_lemmatizer(self):
         """Test model_lemmatizer()"""
         model = {'ceterum': 'ceterus', 'antequam': 'antequam', 'destinata': 'destino', 'componam': 'compono'}  # pylint: disable=line-too-long
-        lemmatizer = ModelLemmatizer(model=model)
+        lemmatizer = TrainLemmatizer(model=model)
         test_str = 'Ceterum antequam destinata componam'
         target = [('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
