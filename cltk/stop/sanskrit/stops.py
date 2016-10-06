@@ -1,4 +1,4 @@
-# coding=utf-8
+
 """Sankskrit stopwords.
 Further explanations at: https://gist.github.com/Akhilesh28/b012159a10a642ed5c34e551db76f236
 """
