@@ -205,7 +205,7 @@ class UnigramLemmatizer(NgramLemmatizer, UnigramTagger):
 
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
     """"""
-    def __init__(self, regexps, backoff=None):
+    def __init__(self, regexps=None, backoff=None):
         """Setup for RegexpLemmatizer()
 
         :param regexps: List of tuples of form (PATTERN, REPLACEMENT)
@@ -233,7 +233,7 @@ class PPLemmatizer(RegexpLemmatizer):
     """Customization of the RegexpLemmatizer for Latin. The RegexpLemmatizer is
         used as a stemmer; the stem is then applied to a dictionary lookup of
         principal parts."""
-    def __init__(self, regexps=None, backoff=None):
+    def __init__(self, regexps=None, pps=None, backoff=None):
         """Setup PPLemmatizer().
 
         :param regexps: List of tuples of form (PATTERN, INT) where INT is
@@ -246,19 +246,7 @@ class PPLemmatizer(RegexpLemmatizer):
         # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
         self._regexs = [(re.compile(regexp), num) for regexp, num in
                         regexps]
-        # Set up training sentences
-        rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata')
-        path = os.path.expanduser(rel_path)
-
-        # Check for presence of latin_pos_lemmatized_sents
-        file = 'latin_pps.pickle'      
-
-        latin_pps_path = os.path.join(path, file)
-        if os.path.isfile(latin_pps_path):
-            self.latin_pps = open_pickle(latin_pps_path)
-        else:
-            self.latin_pps = {}
-            print('There is no training data available for this lemmatizer in cltk_data')
+        self.pps = pps
 
     def choose_lemma(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on
@@ -275,7 +263,7 @@ class PPLemmatizer(RegexpLemmatizer):
             m = re.match(regexp[0], tokens[index])
             if m:
                 root = m.group(1)
-                match = [lemma for (lemma, pp) in self.latin_pps.items() if root == pp[regexp[1]]]
+                match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
                 if not match:
                     pass
                 else:
@@ -488,7 +476,7 @@ class BackoffLatinLemmatizer(object):
         else:
             self.LATIN_MODEL = {}
         
-        # Check for presence of LATIN_MODEL
+        # Check for presence of misc_patterns
         file = 'latin_misc_patterns.pickle'      
 
         misc_patterns_path = os.path.join(path, file)
@@ -497,7 +485,7 @@ class BackoffLatinLemmatizer(object):
         else:
             self.latin_misc_patterns = {}
 
-        # Check for presence of LATIN_MODEL
+        # Check for presence of verb_patterns
         file = 'latin_verb_patterns.pickle'      
 
         verb_patterns_path = os.path.join(path, file)
@@ -505,7 +493,16 @@ class BackoffLatinLemmatizer(object):
             self.latin_verb_patterns = open_pickle(verb_patterns_path)
         else:
             self.latin_verb_patterns = {}
-            
+
+        # Check for presence of latin_pps
+        file = 'latin_pps.pickle'      
+
+        latin_pps_path = os.path.join(path, file)
+        if os.path.isfile(latin_pps_path):
+            self.latin_pps = open_pickle(latin_pps_path)
+        else:
+            self.latin_pps = {}
+            print('There is no training data available for this lemmatizer in cltk_data')            
 
         def _randomize_data(train):
             import random
