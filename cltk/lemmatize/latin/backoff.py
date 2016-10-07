@@ -483,7 +483,7 @@ class BackoffLatinLemmatizer(object):
             self.LATIN_OLD_MODEL = open_pickle(old_model_path)
         else:
             self.LATIN_OLD_MODEL = {}
-            print(print('The file %s is not available in cltk_data' % file)')   
+            print('The file %s is not available in cltk_data' % file)  
         
         # Check for presence of LATIN_MODEL
         file = 'latin_model.pickle'      
@@ -493,7 +493,7 @@ class BackoffLatinLemmatizer(object):
             self.LATIN_MODEL = open_pickle(model_path)
         else:
             self.LATIN_MODEL = {}
-            print(print('The file %s is not available in cltk_data' % file)')   
+            print('The file %s is not available in cltk_data' % file)  
         
         # Check for presence of misc_patterns
         file = 'latin_misc_patterns.pickle'      
@@ -503,7 +503,7 @@ class BackoffLatinLemmatizer(object):
             self.latin_misc_patterns = open_pickle(misc_patterns_path)
         else:
             self.latin_misc_patterns = {}
-            print(print('The file %s is not available in cltk_data' % file)')   
+            print('The file %s is not available in cltk_data' % file)  
 
         # Check for presence of verb_patterns
         file = 'latin_verb_patterns.pickle'      
@@ -513,7 +513,7 @@ class BackoffLatinLemmatizer(object):
             self.latin_verb_patterns = open_pickle(verb_patterns_path)
         else:
             self.latin_verb_patterns = {}
-            print(print('The file %s is not available in cltk_data' % file)')   
+            print('The file %s is not available in cltk_data' % file)  
 
         # Check for presence of latin_pps
         file = 'latin_pps.pickle'      
@@ -523,7 +523,7 @@ class BackoffLatinLemmatizer(object):
             self.latin_pps = open_pickle(latin_pps_path)
         else:
             self.latin_pps = {}
-            print(print('The file %s is not available in cltk_data' % file)')            
+            print('The file %s is not available in cltk_data' % file)  
 
         def _randomize_data(train):
             import random
@@ -608,7 +608,8 @@ if __name__ == "__main__":
         latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
     else:
         latin_pos_lemmatized_sents = []
-        print(print('The file %s is not available in cltk_data' % file)')   
+        print('The file %s is not available in cltk_data' % file)  
+  
 
     RUN = 10
     ACCURACIES = []
