@@ -132,6 +132,7 @@ class CorpusImporter():
                 user_defined_corpus['git_remote'] = about['git_remote']
                 user_defined_corpus['origin'] = corpus_name
                 user_defined_corpus['type'] = about['type']
+                user_defined_corpus['name'] = corpus_name
                 user_defined_corpora.append(user_defined_corpus)
 
         return user_defined_corpora
