@@ -129,8 +129,8 @@ class CorpusImporter():
 
             if about['language'].lower() == self.language:
                 user_defined_corpus = dict()
-                user_defined_corpus['git_remote'] = about['git_remote']
-                user_defined_corpus['origin'] = corpus_name
+                # user_defined_corpus['git_remote'] = about['git_remote']
+                user_defined_corpus['origin'] = about['origin']
                 user_defined_corpus['type'] = about['type']
                 user_defined_corpus['name'] = corpus_name
                 user_defined_corpora.append(user_defined_corpus)
@@ -265,8 +265,9 @@ class CorpusImporter():
         try:
             location = corpus_properties['location']
         except KeyError:
-            git_uri = corpus_properties['git_remote']
-            git_name = corpus_properties['origin']  #!?
+            # git_uri = corpus_properties['git_remote']
+            git_name = corpus_properties['']
+            git_uri = corpus_properties['origin']
             git_type = corpus_properties['type']
             # pass this off to a special downloader just for custom urls
             self._git_user_defined_corpus(git_name, git_type, git_uri)
