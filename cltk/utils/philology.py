@@ -44,10 +44,9 @@ class Philology:
 
         #! rm dupes after index, before loop
         tokens = set(orig_tokens)
-        tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'ed
-        readable_tokens = ["#_" + aToken.swapcase() + "_#" for aToken in tokens] # Changed Kaan
+        tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'e
         
-        return c.return_concordance_all(readable_tokens)
+        return c.return_concordance_all(tokens)
 
     def write_concordance_from_file(self, filepaths, name):
         """This calls my modified ConcordanceIndex, taken and modified from
@@ -190,7 +189,7 @@ class ConcordanceIndex(object):
                     left = left[-half_width:]
                     right = right[:half_width]
                     #print(left, '*', self._tokens[i], '*', right)
-                    line_str = left + ' ' + self._tokens[i] + ' ' + right
+                    line_str = left + ' ' + "#_" + str(self._tokens[i]).swapcase() + "_#" + ' ' + right
                     return_list.append(line_str)
                     lines -= 1
             return return_list
