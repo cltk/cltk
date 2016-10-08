@@ -8,5 +8,6 @@ PALI_CORPORA = [
      'markup': 'xml',
      'location': 'remote',
      'type': 'text',
+     'origin': 'https://github.com/cltk/pali_text_ptr_tipitaka.git',
      'name': 'pali_text_ptr_tipitaka'}
 ]

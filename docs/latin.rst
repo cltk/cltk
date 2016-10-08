@@ -42,7 +42,6 @@ Converting J to I, V to U
    Out[3]: 'uem iam'
 
 
-
 Converting PHI texts with TLGU
 ==============================
 
@@ -76,6 +75,29 @@ Information Retrieval
 
 See `Multilingual Information Retrieval <http://docs.cltk.org/en/latest/multilingual.html#information-retrieval>`_ for Latin–specific search options.
 
+
+Declining
+=========
+
+The `CollatinusDecliner()` attempts to retrieve all possible form of a lemma. This may be useful if you want to search for all forms of a word across a repository of non-lemmatized texts. This class is based on lexical and linguistic data built by `the Collatinus Team <https://github.com/biblissima/collatinus>`_. Data corrections and additions can be contributed back to the Collatinus project (in particular, into `bin/data <https://github.com/biblissima/collatinus/tree/master/bin/data>`_).
+
+Example use, assuming you have already imported the `latin_models_cltk`:
+
+.. code-block:: python
+
+   In [1]: from cltk.stem.latin.declension import CollatinusDecliner
+
+   In [2]: decliner = CollatinusDecliner()
+   
+   In [3]: print(decliner.decline("via"))
+   Out[3]: [
+        ('via', '--s----n-'), ('via', '--s----v-'), ('viam', '--s----a-'), ('viae', '--s----g-'),
+        ('viae', '--s----d-'), ('via', '--s----b-'), ('viae', '--p----n-'), ('viae', '--p----v-'),
+        ('vias', '--p----a-'), ('viarum', '--p----g-'), ('viis', '--p----d-'), ('viis', '--p----b-')
+    ]
+
+    In [4]: print(decliner.decline("via", flatten=True))
+    Out[4]: ['via', 'via', 'viam', 'viae', 'viae', 'via', 'viae', 'viae', 'vias', 'viarum', 'viis', 'viis']
 
 
 Lemmatization
@@ -406,7 +428,6 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
    
    In [4]: stemmer.stem(sentence.lower())
    Out[4]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
-
 
 
 Stopword Filtering

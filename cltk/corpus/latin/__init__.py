@@ -18,6 +18,8 @@ from cltk.tokenize.word import WordTokenizer
 # Better to use something like make_cltk_path in cltk.utils.file_operations?
 home = os.path.expanduser('~')
 cltk_path = os.path.join(home, 'cltk_data')
+if not os.path.isdir(cltk_path):
+    os.makedirs(cltk_path)
 
 word_tokenizer = WordTokenizer('latin')
 
@@ -38,4 +40,5 @@ try:
     encoding='utf-8')    
     pass
 except IOError as e:
-    print("Corpus not found. Please check that the Latin Library is installed in CLTK_DATA.")
+    pass
+    # print("Corpus not found. Please check that the Latin Library is installed in CLTK_DATA.")

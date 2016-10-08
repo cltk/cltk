@@ -13,7 +13,6 @@ from cltk.utils.frequency import Frequency
 from cltk.utils.philology import Philology
 
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 

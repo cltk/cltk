@@ -9,7 +9,6 @@ from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
 from cltk.tag.pos import POSTag
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
