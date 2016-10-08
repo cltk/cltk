@@ -17,6 +17,7 @@ Contents
    importing_corpora
    chinese
    coptic
+   old_english
    greek
    hebrew
    latin
