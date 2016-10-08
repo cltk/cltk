@@ -32,6 +32,30 @@ Second, you will need an installation of `Git <http://git-scm.com/downloads>`_, 
    For a user–friendly interactive shell environment, try IPython, which may be invoked with ``ipython`` from the command line. You may install it with ``pip install ipython``.
 
 
+Microsoft Windows
+-----------------
+
+.. warning:: CLTK on Windows is not officially supported, however we do encourage Windows 10 users to give the following a try. Others have reported success. If this should fail for you, please open an issue on GitHub.
+
+Windows 10 features a beta of "Bash on Ubuntu on Windows", which creates a fully functional POSIX environment. For an introduction, `see Microsoft's docs here <https://msdn.microsoft.com/en-us/commandline/wsl/about>`_.
+
+Once you have enabled Bash on Windows, installation and use is just the same as on Ubuntu. For instance, you do use the following:
+
+.. code:: bash
+
+   sudo apt update
+   sudo apt install git
+   sudo apt-get install python-setuptools
+   sudo apt install python-virtualenv
+   virtualenv -p python3 ~/venv
+   source ~/venv/bin/activate
+   pip3 install cltk
+
+.. tip::
+
+   Some fonts do not render Unicode well in the Bash Terminal. Try ``SimSub-ExtB`` or ``Courier New``.
+
+
 Older releases
 --------------
 For reproduction of scholarship, the CLTK archives past versions of its software releases. \
