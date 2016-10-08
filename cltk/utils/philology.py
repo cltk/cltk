@@ -45,8 +45,9 @@ class Philology:
         #! rm dupes after index, before loop
         tokens = set(orig_tokens)
         tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'ed
-
-        return c.return_concordance_all(tokens)
+        readable_tokens = ["#_" + aToken.swapcase() + "_#" for aToken in tokens] # Changed Kaan
+        
+        return c.return_concordance_all(readable_tokens)
 
     def write_concordance_from_file(self, filepaths, name):
         """This calls my modified ConcordanceIndex, taken and modified from
@@ -92,7 +93,7 @@ class Philology:
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
             os.makedirs(user_data)
-        file_path = os.path.join(user_data, 'concordance_' + name + '.txt')
+        file_path = os.path.join(user_data, 'concordance_' + name + '.txt') # Changed Kaan
         concordance_output = ''
         for word_list in list_of_lists:
             for line in word_list:
