@@ -42,7 +42,6 @@ import os
 import unittest
 
 
-
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 

@@ -43,7 +43,6 @@ from unicodedata import normalize
 import os
 import unittest
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 DISTRIBUTED_CORPUS_PATH_REL = '~/cltk_data/test_distributed_corpora.yaml'
