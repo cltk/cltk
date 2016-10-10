@@ -1,7 +1,10 @@
-STOPS_LIST = ['but', 
-			  'nor',
-			  'nat',
-			  'a',
+"""These stopwords are taken from 
+- people.stanford.edu/widner/content/text-mining-middle-ages (slide 13)
+- en.wikipedia.org/wiki/Middle_English
+- en.wiktionary.org/wiki/Category:Middle_English_prepositions
+- e.wiktionary.org/wiki/Category:MIddle_English_determiners"""
+
+STOPS_LIST = ['a',
 			  'y', 
 			  'ne',
 			  'o',
@@ -206,4 +209,5 @@ STOPS_LIST = ['but',
 			  'they\'re',
 			  'they\'ve',
 			  'whan']
+
 			  
