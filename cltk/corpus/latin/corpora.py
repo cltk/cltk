@@ -88,5 +88,9 @@ LATIN_CORPORA = [
      {'location': 'remote',
      'type': 'text',
      'name': 'latin_text_corpus_grammaticorum_latinorum',
-     'origin': 'https://github.com/cltk/latin_text_corpus_grammaticorum_latinorum.git'}
+     'origin': 'https://github.com/cltk/latin_text_corpus_grammaticorum_latinorum.git'},
+    {'location': 'remote',
+     'type': 'text',
+     'name': 'latin_text_poeti_ditalia',
+     'origin': 'https://github.com/cltk/latin_text_poeti_ditalia.git'}
 ]
