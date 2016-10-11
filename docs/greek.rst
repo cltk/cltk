@@ -32,7 +32,7 @@ Contrary to the original docs to use the functions from this module it is necess
 
 ``add_diacritic`` and ``add_breathing`` add diacritics (accents, diaresis, macrons, breves) and breathing symbols to the given character. ``add_diacritic`` is stackable, for example:
 
-   .. code-block:: python
+.. code-block:: python
 
    In[1]: from greek_accentuation.characters import add_diacritic
 

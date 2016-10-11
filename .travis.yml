@@ -13,6 +13,7 @@ before_script:
   - pip install codecov
   - pip install coveralls
   - pip install pandas  # for the Indian syllabifier
+  - pip install greek-accentuation  # for the phonetic transcriber
 
 script:
   # Notes on nose:
