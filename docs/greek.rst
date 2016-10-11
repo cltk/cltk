@@ -639,7 +639,7 @@ The TLG comes with some old, difficult-to-parse index files which have been made
 
 .. tip::
 
-   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.4/library/stdtypes.html?highlight=set#set>`_).
+   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.5/library/stdtypes.html?highlight=set#set>`_).
 
 .. code-block:: python
 
