@@ -1,7 +1,10 @@
+Middle English
+**************
+
 Stopword Filtering
 ==================
 
-To use the CLTK's built-in stopwords list, We use an example from Chaucer's "The SUmmoner's Tale":
+To use the CLTK's built-in stopwords list, We use an example from Chaucer's "The Summoner's Tale":
 
 .. code-block:: python
 
