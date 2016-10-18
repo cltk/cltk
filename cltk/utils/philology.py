@@ -1,3 +1,4 @@
+
 """Miscellaneous operations for traditional philology and simple
 statistics."""
 
@@ -7,7 +8,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.utils.cltk_logger import logger
-from collections import defaultdict,OrderedDict
+from collections import defaultdict
 from nltk.text import ConcordanceIndex
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
@@ -36,7 +37,7 @@ class Philology:
         and/or ConcordanceSearchView() & SearchCorpus() at https://github.com/nltk/nltk/blob/develop/nltk/app/concordance_app.py
         :param text_string: Text to be turned into a concordance
         :type text_string: str
-        :return: dict
+        :return: tuple
         """
         p = PunktLanguageVars()
         orig_tokens = p.word_tokenize(text_str)
@@ -46,13 +47,14 @@ class Philology:
         tokens = set(orig_tokens)
         tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'ed
         # preparing a token concordance dict
-        token_concordance_lines = {}
+        token_concordance_lines = []
         #
         # Mapping tokens and concordance_lines
         #
         for token in tokens:
-            token_concordance_lines.setdefault(token, c.return_concordance_word(token,separator))
-        #
+            token_wordGrp = (token, c.return_concordance_word(token,separator))
+            token_concordance_lines.append(token_wordGrp)
+                   #
         return token_concordance_lines
  
     def write_concordance_from_file(self, filepaths, name, file_name=False, separator=" "):
@@ -74,27 +76,27 @@ class Philology:
             # Check if the file path is a string
             filepath = filepaths
             text = self._read_file(filepath)
-            dict_of_lists = self._build_concordance(text,separator)
-            # Return dict with token:concordance_line pairs
+            list_of_tuples = self._build_concordance(text,separator)
+            # Return list of tuples with (token,concordance_lines) pairs
         elif (isinstance(filepaths, list) and file_name == True):
             # Check to see if the file_name option is enabled for list of filepaths
             text = ''
-            dict_of_lists = {}
-            # Create a dictionary to store file names of the filepaths
+            list_of_tuples = []
+            # Create a list to store file names of the filepaths with relative tuples
             for filepath in filepaths:
                 text += self._read_file(filepath)
                 search_filename = re.search("(\w+\.txt)",filepath)
                 group_filename = search_filename.group()
-                dict_of_lists.setdefault(group_filename, self._build_concordance(text,separator))
-                # returns filename:{token:concordance_line}
+                list_of_tuples.append((group_filename, self._build_concordance(text,separator)))
+                # returns (filename,(token,[concordance_lines]))
         elif isinstance(filepaths, list):
             # Check to see if the file_name option is not enabled for list of filepaths
             text = ''
             for filepath in filepaths:
                 text += self._read_file(filepath)
-            dict_of_lists = self._build_concordance(text,separator)
-            # returns dict with token:concordance_line pairs
-            # No problem with dict keys and tokens because build_concordance method already uses a set of tokens
+            list_of_tuples = self._build_concordance(text,separator)
+            # returns a list with (token,concordance_lines) tuples
+            # 
         user_data_rel = '~/cltk_data/user_data'
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
@@ -103,22 +105,20 @@ class Philology:
         concordance_output = ''
         #
         if isinstance(filepaths,str) == True:
-            # Ordering the dict for output
-            ordered_dict_token_concordance_lines = OrderedDict(sorted(dict_of_lists.items()))
-            #
-            for word_list in ordered_dict_token_concordance_lines.values():
-                # list here contains concordance_lines
-                for line in word_list:
+            # 
+            for word_list in list_of_tuples:
+                # word_list here contains (token,concordance_lines)
+                for line in word_list[1]:
                     concordance_output += line + '\n'
         #
         elif (isinstance(filepaths, list) == True and file_name == True):
             #
             token_conc_list = []
             # Create a list for storing unfolded dict key:value pairs
-            for fileName, token_conc_lines in dict_of_lists.items():
-                # dict here contains filename:{token:concordance_lines} structure
+            for fileName, token_conc_lines in list_of_tuples:
+                # list_of_tuples here contains (filename,(token,concordance_lines)) structure
                 #
-                for token, concordance_lines in token_conc_lines.items():
+                for token, concordance_lines in token_conc_lines:
                     fileName_token_concLines = (fileName,token,concordance_lines)
                     token_conc_list.append(fileName_token_concLines)
             #
@@ -131,11 +131,9 @@ class Philology:
                     concordance_output += fName_token_clines[0] + separator + cLine + "\n" # 0 corresponding to filename
         #
         elif (isinstance(filepaths, list) == True and file_name == False):
-            # Ordering the dict for output
-            order_Tok_conLines = OrderedDict(sorted(dict_of_lists.items()))
             #
-            for token, conLines in order_Tok_conLines.items():
-                for line in conLines:
+            for Atuple in list_of_tuples:
+                for line in Atuple[1]:
                     concordance_output += line + "\n"
         #
         try:
@@ -147,15 +145,15 @@ class Philology:
 
     def write_concordance_from_string(self, text, name, separator=" "):
         """A reworkinng of write_concordance_from_file(). Refactor these."""
-        dict_of_lists = self._build_concordance(text, separator)
+        list_of_tuples = self._build_concordance(text, separator)
         user_data_rel = '~/cltk_data/user_data'
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
             os.makedirs(user_data)
         file_path = os.path.join(user_data, 'concordance_' + name + '.txt')
         concordance_output = ''
-        for word_list in dict_of_lists.values():
-            for line in word_list:
+        for word_list in list_of_tuples:
+            for line in word_list[1]:
                 concordance_output += line + '\n'
         try:
             with open(file_path, 'w') as open_file:
