@@ -8,7 +8,7 @@ With Pip
 
 .. note::
 
-   The CLTK is only compatible with Python 3.4 and 3.5 on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
+   The CLTK is only compatible with Python 3.5 on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
 
 First, you'll need a working installation of `Python 3.5 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
 

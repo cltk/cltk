@@ -32,7 +32,7 @@ Contrary to the original docs to use the functions from this module it is necess
 
 ``add_diacritic`` and ``add_breathing`` add diacritics (accents, diaresis, macrons, breves) and breathing symbols to the given character. ``add_diacritic`` is stackable, for example:
 
-   .. code-block:: python
+.. code-block:: python
 
    In[1]: from greek_accentuation.characters import add_diacritic
 
@@ -639,7 +639,7 @@ The TLG comes with some old, difficult-to-parse index files which have been made
 
 .. tip::
 
-   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.4/library/stdtypes.html?highlight=set#set>`_).
+   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.5/library/stdtypes.html?highlight=set#set>`_).
 
 .. code-block:: python
 
