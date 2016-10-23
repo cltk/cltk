@@ -2,7 +2,7 @@
 
 [![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.60021.svg)](http://dx.doi.org/10.5281/zenodo.60021)
 
-[![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![Coverage Status](https://coveralls.io/repos/github/cltk/cltk/badge.svg?branch=master)](https://coveralls.io/github/cltk/cltk?branch=master) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/ac803b087b1543e190dc31224dd7f4bf/badge.svg)](https://www.quantifiedcode.com/app/project/ac803b087b1543e190dc31224dd7f4bf)
+[![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master)
 
 [![Join the chat at https://gitter.im/cltk/cltk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cltk/cltk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <a href="https://zenhub.io"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
 
@@ -11,7 +11,7 @@
 
 The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the CLTK are to:
 
-*   compile analysis-friendly corpora in a variety of Classical languages (currently available for Chinese, Coptic, Greek, Latin, Pali, and Tibetan);
+*   compile analysis-friendly corpora in a variety of Classical languages (currently available for Chinese, Coptic, Greek, Hebrew, Latin, Pali, Punjabi, Sanskrit, Telugu, and Tibetan);
 *   gather, improve, and generate linguistic data required for NLP (Greek and Latin are in progress, with [more in the pipeline](https://github.com/cltk/cltk/wiki/List-of-Classical-languages));
 *   develop a free and open platform for generating reproducible, scientific research that advances the study of the languages and literatures of the ancient world.
 

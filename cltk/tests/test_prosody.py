@@ -1,6 +1,5 @@
 """Test cltk.prosody."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.prosody.latin.scanner import Scansion as ScansionLatin

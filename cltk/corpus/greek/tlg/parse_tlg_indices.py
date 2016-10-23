@@ -227,4 +227,5 @@ def normalize_dates():
 
 
 if __name__ == "__main__":
+    print(get_date_author())
     pass

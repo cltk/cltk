@@ -15,7 +15,6 @@ from cltk.ir.query import _paragraph_context
 from cltk.ir.query import _sentence_context
 from cltk.ir.query import match_regex
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
