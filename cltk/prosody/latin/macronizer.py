@@ -105,7 +105,7 @@ class Macronizer:
             matched_entry = [entry for entry in entries if entry[0] == tag.lower()]
             if len(matched_entry) == 0:
                 logger.info('No matching Morpheus entry found for {}.'.format(head_word))
-                return head_word, tag.lower(), head_word
+                return head_word, tag.lower(), entries[0][2]
             elif len(matched_entry) == 1:
                 return head_word, tag.lower(), matched_entry[0][2].lower()
             else:

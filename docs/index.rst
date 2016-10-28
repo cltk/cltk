@@ -17,7 +17,10 @@ Contents
    importing_corpora
    chinese
    coptic
+   old_english
+   middle_english
    greek
+   hebrew
    latin
    multilingual
    pali

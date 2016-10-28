@@ -12,6 +12,7 @@ from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.corpus.old_english.corpora import OLD_ENGLISH_CORPORA
+from cltk.corpus.bengali.corpora import BENGALI_CORPORA
 from cltk.utils.cltk_logger import logger
 
 import errno
@@ -29,7 +30,7 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit','old_english']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit','old_english','bengali']
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
@@ -40,7 +41,8 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
-                    'old_english':OLD_ENGLISH_CORPORA}
+                    'old_english':OLD_ENGLISH_CORPORA,
+		    'bengali':BENGALI_CORPORA}
 
 
 class CorpusImportError(Exception):
@@ -127,9 +129,10 @@ class CorpusImporter():
 
             if about['language'].lower() == self.language:
                 user_defined_corpus = dict()
-                user_defined_corpus['git_remote'] = about['git_remote']
-                user_defined_corpus['name'] = corpus_name
+                # user_defined_corpus['git_remote'] = about['git_remote']
+                user_defined_corpus['origin'] = about['origin']
                 user_defined_corpus['type'] = about['type']
+                user_defined_corpus['name'] = corpus_name
                 user_defined_corpora.append(user_defined_corpus)
 
         return user_defined_corpora
@@ -262,16 +265,17 @@ class CorpusImporter():
         try:
             location = corpus_properties['location']
         except KeyError:
-            git_uri = corpus_properties['git_remote']
-            git_name = corpus_properties['name']
+            # git_uri = corpus_properties['git_remote']
+            git_name = corpus_properties['']
+            git_uri = corpus_properties['origin']
             git_type = corpus_properties['type']
             # pass this off to a special downloader just for custom urls
             self._git_user_defined_corpus(git_name, git_type, git_uri)
             return
         corpus_type = corpus_properties['type']
         if location == 'remote':
-            git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
-            # self._download_corpus(corpus_type, corpus_name, path)
+            # git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
+            git_uri = corpus_properties['origin']
             type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
@@ -348,6 +352,6 @@ class CorpusImporter():
 
 
 if __name__ == '__main__':
-    c = CorpusImporter('fake_language')
-    print(c.list_corpora)
-    # c.import_corpus('example_1')
+    c = CorpusImporter('latin')
+    # print(c.list_corpora)
+    c.import_corpus('latin_training_set_sentence_cltk')

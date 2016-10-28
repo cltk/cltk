@@ -155,3 +155,49 @@ This tool can break a sentence into into its constituent words. It works on the 
 
    In [31]: x = indian_punctuation_tokenize_regex(input_text)
    Out[31]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
+
+
+Stopword Filtering
+==================
+
+To use the CLTK's built-in stopwords list:
+
+.. code-block:: python
+
+   In [1]: from cltk.stop.sanskrit.stops import STOPS_LIST
+
+   In [2]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+
+   In [3]: s = "हमने पिछले पाठ मे सीखा था कि “अहम् गच्छामि” का मतलब “मै जाता हूँ” है। आप ऊपर
+      ...:  की तालिकाँओ "
+
+   In [4]: tokens = indian_punctuation_tokenize_regex(s)
+
+   In [5]: len(tokens)
+   Out[5]: 20
+
+   In [6]: no_stops = [w for w in tokens if w not in STOPS_LIST]
+
+   In [7]: len(no_stops)
+   Out[7]: 18
+
+   In [8]: no_stops
+   Out[8]: 
+   ['हमने',
+    'पिछले',
+    'पाठ',
+    'सीखा',
+    'था',
+    'कि',
+    '“अहम्',
+    'गच्छामि”',
+    'मतलब',
+    '“मै',
+    'जाता',
+    'हूँ”',
+    'है',
+    '।',
+    'आप',
+    'ऊपर',
+    'की',
+    'तालिकाँओ']
