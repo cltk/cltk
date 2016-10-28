@@ -9,6 +9,7 @@ from cltk.lemmatize.latin.backoff import PPLemmatizer
 from cltk.lemmatize.latin.backoff import RegexpLemmatizer
 from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer
 from cltk.lemmatize.latin.backoff import UnigramLemmatizer
+from cltk.lemmatizer.latin.backoff import NgramPOSLemmatizer
 from cltk.lemmatize.latin.backoff import BigramPOSLemmatizer
 #from cltk.lemmatize.latin.regexp_patterns import rn_patterns
 from cltk.stem.latin.j_v import JVReplacer
