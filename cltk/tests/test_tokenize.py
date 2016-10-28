@@ -10,7 +10,6 @@ from cltk.tokenize.word import WordTokenizer
 import os
 import unittest
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 

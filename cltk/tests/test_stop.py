@@ -1,6 +1,5 @@
 """Test cltk.stop."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.utils.importer import CorpusImporter
