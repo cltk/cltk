@@ -556,41 +556,6 @@ class BackoffLatinLemmatizer(object):
 
     def evaluate(self):
         lemmatizer = self._define_lemmatizer()
-        #lemmatizer = TrainLemmatizer(model=self.model)
-        return lemmatizer.evaluate(self.test_sents)
-
-
-class OriginalLatinLemmatizer(object):
-    """Dictionary matching on the old LEMMATA model."""
-    def __init__(self, train):
-        """Setup for OriginalLatinLemmatizer()"""
-        self.model = LATIN_OLD_MODEL
-        self.train = train
-
-        def _randomize_data(train):
-            import random
-            random.shuffle(train)
-            pos_train_sents = train[:4000]
-            lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
-            train_sents = lem_train_sents[:4000]
-            test_sents = lem_train_sents[4000:5000]
-
-            return pos_train_sents, train_sents, test_sents
-
-        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train)
-
-    def _define_lemmatizer(self):
-        lemmatizer = TrainLemmatizer(model=self.model)
-        return lemmatizer
-
-    def lemmatize(self, tokens):
-        lemmatizer = self._define_lemmatizer()
-        lemmas = lemmatizer.lemmatize(tokens)
-        return lemmas
-
-    def evaluate(self):
-        lemmatizer = self._define_lemmatizer()
-        #lemmatizer = TrainLemmatizer(model=self.model)
         return lemmatizer.evaluate(self.test_sents)
 
 
@@ -616,7 +581,6 @@ if __name__ == "__main__":
 
     for I in range(RUN):
         LEMMATIZER = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
-        # lemmatizer = OriginalLatinLemmatizer(latin_pos_lemmatized_sents)
         ACC = LEMMATIZER.evaluate()
         ACCURACIES.append(ACC)
         print('{:.2%}'.format(ACC))
