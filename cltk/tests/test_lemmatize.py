@@ -9,6 +9,7 @@ from cltk.lemmatize.latin.backoff import PPLemmatizer
 from cltk.lemmatize.latin.backoff import RegexpLemmatizer
 from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer
 from cltk.lemmatize.latin.backoff import UnigramLemmatizer
+from cltk.lemmatize.latin.backoff import BigramPOSLemmatizer
 #from cltk.lemmatize.latin.regexp_patterns import rn_patterns
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
@@ -116,6 +117,21 @@ class TestSequenceFunctions(unittest.TestCase):
         tokens = tokenizer.tokenize(test_str)
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
+        
 
+    def test_bigram_pos_lemmatizer(self):
+        train = [[('dixissem', 'dico', 'v')], [('de', 'de', 'r'), ('te', 'tu', 'p'), ('autem', 'autem', 'c'), (',', 'punc', 'u'), ('catilina', 'catilina', 'n'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('quiescunt', 'quiesco', 'v'), (',', 'punc', 'u'), ('probant', 'probo', 'v'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('patiuntur', 'patior', 'v'), (',', 'punc', 'u'), ('decernunt', 'decerno', 'v'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('tacent', 'taceo', 'v'), (',', 'punc', 'u'), ('clamant', 'clamo', 'v'), (',', 'punc', 'u'), ('neque', 'neque', 'c'), ('hi', 'hic', 'p'), ('solum', 'solus', 'd'), ('quorum', 'qui', 'p'), ('tibi', 'tu', 'p'), ('auctoritas', 'auctoritas', 'n'), ('est', 'sum', 'v'), ('uidelicet', 'uidelicet', 'd'), ('cara', 'carus', 'a'), (',', 'punc', 'u'), ('uita', 'uita', 'n'), ('uilissima', 'uilis', 'a'), (',', 'punc', 'u'), ('sed', 'sed', 'c'), ('etiam', 'etiam', 'c'), ('illi', 'ille', 'p'), ('equites', 'eques', 'n'), ('romani', 'romanus', 'a'), (',', 'punc', 'u'), ('honestissimi', 'honestus', 'a'), ('atque', 'atque', 'c'), ('optimi', 'bonus', 'a'), ('uiri', 'uir', 'n'), (',', 'punc', 'u'), ('ceteri', 'ceterus', 'a'), ('-que', '-que', 'c'), ('fortissimi', 'fortis', 'a'), ('ciues', 'ciuis', 'n'), ('qui', 'qui', 'p'), ('circumstant', 'circumsto', 'v'), ('senatum', 'senatus', 'n'), (',', 'punc', 'u'), ('quorum', 'qui', 'p'), ('tu', 'tu', 'p'), ('et', 'et', 'c'), ('frequentiam', 'frequentia', 'n'), ('uidere', 'uideo', 'v'), ('et', 'et', 'c'), ('studia', 'studium', 'n'), ('perspicere', 'perspicio', 'v'), ('et', 'et', 'c'), ('uoces', 'uox', 'n'), ('paulo', 'paulus', 'd'), ('ante', 'ante', 'd'), ('exaudire', 'exaudio', 'v'), ('potuisti', 'possum', 'v'), ('.', 'punc', 'u')]]
+        lemmatizer = BigramPOSLemmatizer(train=train, include=['cum'])
+        test_str = """Quod cum esset intellectum et animadversum fecit animo libentissimo populus Romanus"""
+        target = [('quod', None), ('cum', 'cum2'), ('esset', None), ('intellectum', None), ('et', None), ('animaduersum', None), ('fecit', None), ('animo', None), ('libentissimo', None), ('populus', None), ('romanus', None)]  # pylint: disable=line-too-long
+        jv_replacer = JVReplacer()
+        tokenizer = WordTokenizer('latin')
+        test_str = test_str.lower()
+        test_str = jv_replacer.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        self.assertEqual(lemmas, target)
+        
+        
 if __name__ == '__main__':
     unittest.main()
