@@ -63,12 +63,12 @@ into the ``~/cltk_data/`` directory by declaring it in a manually created YAML f
 .. code-block:: python
 
    example_distributed_latin_corpus:
-       git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
+       origin: git@github.com:kylepjohnson/latin_corpus_newton_example.git
        language: latin
        type: text
 
    example_distributed_greek_corpus:
-       git_remote: git@github.com:kylepjohnson/a_nonexistent_repo.git
+       origin: git@github.com:kylepjohnson/a_nonexistent_repo.git
        language: pali
        type: treebank
 
