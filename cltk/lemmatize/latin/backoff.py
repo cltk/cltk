@@ -451,13 +451,13 @@ class BigramPOSLemmatizer(NgramPOSLemmatizer):
                                     include, backoff, cutoff)
 
 
-class TrigramPOSLemmatizer(NgramPOSLemmatizer):
-    """"""
-    def __init__(self, train=None, model=None, include=None,
-                 backoff=None, cutoff=0):
-        """Setup for TrigramPOSLemmatizer()"""
-        NgramPOSLemmatizer.__init__(self, 3, train, model, include,
-                                    backoff, cutoff)
+#class TrigramPOSLemmatizer(NgramPOSLemmatizer):
+#    """"""
+#    def __init__(self, train=None, model=None, include=None,
+#                 backoff=None, cutoff=0):
+#        """Setup for TrigramPOSLemmatizer()"""
+#        NgramPOSLemmatizer.__init__(self, 3, train, model, include,
+#                                    backoff, cutoff)
 
 
 class BackoffLatinLemmatizer(object):
