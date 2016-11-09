@@ -214,6 +214,8 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
         """
         SequentialBackoffLemmatizer.__init__(self, backoff)
         RegexpTagger.__init__(self, regexps, backoff)
+        self._check = re.compile('|'.join('(?:%s)' % r[0] for r in regexps))
+        self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
 
     def choose_lemma(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on word endings;
@@ -224,11 +226,12 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
         :param history: List with tokens that have already been lemmatized
         :return: Str with concatenated lemma
         """
-        for regexp, pattern in self._regexs:
-            m = re.match(regexp, tokens[index])
-            if m:
-                return (m.group(1)) + pattern
-
+        if self._check.match(tokens[index]):
+            for regexp, pattern in self._regexs:
+                m = re.match(regexp, tokens[index])
+                if m:
+                    return (m.group(1)) + pattern
+                    
 
 class PPLemmatizer(RegexpLemmatizer):
     """Customization of the RegexpLemmatizer for Latin. The RegexpLemmatizer is
@@ -245,6 +248,7 @@ class PPLemmatizer(RegexpLemmatizer):
         # Note different compile to make use of principal parts dictionary structure; also, note
         # that the PP dictionary has been set up so that principal parts match their traditional
         # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
+        self._check = re.compile('|'.join('(?:%s)' % r[0] for r in regexps))
         self._regexs = [(re.compile(regexp), num) for regexp, num in
                         regexps]
         self.pps = pps
@@ -259,16 +263,17 @@ class PPLemmatizer(RegexpLemmatizer):
         :param index: Int with current token
         :param history: List with tokens that have already been lemmatized
         :return: Str with index[0] from the dictionary value, see above about '0 index'
-        """
-        for regexp in self._regexs:
-            m = re.match(regexp[0], tokens[index])
-            if m:
-                root = m.group(1)
-                match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
-                if not match:
-                    pass
-                else:
-                    return match[0] # Lemma is indexed at zero in PP dictionary
+        """        
+        if self._check.match(tokens[index]):    
+            for regexp in self._regexs:
+                m = re.match(regexp[0], tokens[index])
+                if m:
+                    root = m.group(1)
+                    match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
+                    if not match:
+                        pass
+                    else:
+                        return match[0] # Lemma is indexed at zero in PP dictionary
 
 
 class RomanNumeralLemmatizer(RegexpLemmatizer):
@@ -276,6 +281,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
     def __init__(self, regexps=rn_patterns, backoff=None):
         """RomanNumeralLemmatizer"""
         RegexpLemmatizer.__init__(self, regexps, backoff)
+        self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
 
     def choose_lemma(self, tokens, index, history):
         """Test case for customized rules-based improvements to lemmatizer using regex; differs
@@ -542,11 +548,12 @@ class BackoffLatinLemmatizer(object):
         backoff1 = IdentityLemmatizer()
         backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
         backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=backoff2)                 
-        backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)
+        backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)        
         backoff5 = RegexpLemmatizer(self.latin_misc_patterns, backoff=backoff4)
-        backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)
+        backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)        
         backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
-        lemmatizer = backoff7
+        #lemmatizer = backoff7
+        lemmatizer = backoff6
         return lemmatizer
 
     def lemmatize(self, tokens):
