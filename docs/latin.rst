@@ -161,6 +161,52 @@ And ``return string`` wraps the list in ``' '.join()``:
 
 These two arguments can be combined, as well.
 
+
+Lemmatization, backoff method
+=============
+
+The CLTK offers a series of lemmatizers that can be combined in a backoff sequence, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
+
+There is a generic version of the backoff latin lemmatizer which requires data from the CLTK latin models data found here: <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+
+The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
+
+.. code-block:: python
+
+
+   In [1]: from cltk.lemmatize.latin.backoff import DefaultLemmatizer
+
+   In [2]: lemmatizer = DefaultLemmatizer()
+
+   In [3]: tokens = ['Quo', 'usque', 'tandem', 'abutere', ',', 'Catilina', ',', 'patientia', 'nostra', '?']
+
+   In [4]: lemmatizer.lemmatize(tokens)
+   Out[4]: [('Quo', None), ('usque', None), ('tandem', None), ('abutere', None), (',', None), ('Catilina', None), (',', None), ('patientia', None), ('nostra', None), ('?', None)]
+
+DefaultLemmatizer can take as a parameter what "lemma" should be returned:
+
+.. code-block:: python
+
+   In [5]: lemmatizer = DefaultLemmatizer('UNK')
+
+   In [6]: lemmatizer.lemmatize(tokens)
+   Out[6]: [('Quo', 'UNK'), ('usque', 'UNK'), ('tandem', 'UNK'), ('abutere', 'UNK'), (',', 'UNK'), ('Catilina', 'UNK'), (',', 'UNK'), ('patientia', 'UNK'), ('nostra', 'UNK'), ('?', 'UNK')]
+
+The backoff module also offers IdentityLemmatizer which returns the given token as the lemma:
+
+.. code-block:: python
+
+   In [7]: from cltk.lemmatize.latin.backoff import IdentityLemmatizer
+
+   In [8]: lemmatizer = IdentityLemmatizer()
+
+   In [9]: lemmatizer.lemmatize(tokens)
+
+   Out[9]: [('Quo', 'Quo'), ('usque', 'usque'), ('tandem', 'tandem'), ('abutere', 'abutere'), (',', ','), ('Catilina', 'Catilina'), (',', ','), ('patientia', 'patientia'), ('nostra', 'nostra'), ('?', '?')]
+
+NB: Documentation is still be written for the remaining backoff lemmatizers, i.e. TrainLemmatizer, ContextLemmatizer, RegexpLemmatizer, and ContextPOSLemmatizer.
+
+
 Macronizer
 ==========
 Automatically mark long Latin vowels with a macron. The algorithm used in this module is largely based on \
