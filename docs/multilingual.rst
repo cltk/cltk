@@ -333,6 +333,27 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
 
+Damerau-Levenshtein algorithm
+-----------------------------
+
+.. note::
+
+   You will need to install `pyxDamerauLevenshtein <https://github.com/gfairchild/pyxDamerauLevenshtein>`_ to use these features.
+   
+The Damerau-Levenshtein algorithm is used for finding the distance metric between any two strings i.e., finite number of symbols or letters between any two strings. The Damerau-Levenshtein algorithm is an enhancement over Levenshtein algorithm in the sense that it allows for transposition operations.
+
+This simple example compares a two Latin words to find the distance between them:
+
+.. code-block:: python
+
+   In [1]: from from pyxdameraulevenshtein import damerau_levenshtein_distance
+
+   In [2]: damerau_levenshtein_distance("deaeque", "deaque")
+   Out[2]: 1
+   
+
+
+
 
 Longest Common Substring
 ------------------------
@@ -374,8 +395,7 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
    
    In[3]: print minhash(a,b)
    Out[3]:0.171631205673
-
-
+   
 Word count
 ==========
 
