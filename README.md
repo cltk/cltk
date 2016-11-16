@@ -69,6 +69,7 @@ We are thankful for the following organizations that have offered support:
 
 * Google Summer of Code (sponsoring two students, 2016)
 * JetBrains (licenses for PyCharm and WebStorm)
+* Google Cloud Platform (with credits for the Classical Language Archive and API)
 
 
 ## License
