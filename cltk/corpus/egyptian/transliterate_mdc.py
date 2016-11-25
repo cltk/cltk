@@ -63,4 +63,4 @@ def mdc_unicode(string, q_kopf=True):
     djed_capital = re.sub("[\u00a9\u002b]", "\u1e0e", tche_capital) # ©|+ -> Ḏ
     unicode_text = djed_capital.replace("\u0043", "\u015a") # C -> Ś
     #
-return unicode_text
+    return unicode_text
