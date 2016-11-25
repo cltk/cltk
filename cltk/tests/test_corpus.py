@@ -509,9 +509,10 @@ example_distributed_fake_language_corpus:
     #     file_path = os.path.join('~/cltk_data/punjabi/text/punjabi_text_gurban/README.md')
     #     _file = os.path.expanduser(file_path)
     #     self.assertTrue(os.path.isfile(_file))
+    #
     # Ancient Egyptian Stuff -----------------------------
 
-    def test_mdc_unicode_q_kopf_True(self):
+    def test_egyptian_transliterate_mdc_to_unicode_q_kopf_True(self):
         """
         test to transliterate mdc to unicode
         for ancient egyptian texts.
@@ -525,11 +526,14 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string)
         #
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt\ni҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt\nsꜣt nswt i҆mn-m-ḥꜣt m\nqꜣ-nfrw nfrw nbt i҆mꜣḫ"""
+        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
+        i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
+        sꜣt nswt i҆mn-m-ḥꜣt m
+        qꜣ-nfrw nfrw nbt i҆mꜣḫ"""
         #
         self.assertEqual(test_result_string, comparison_string)
 
-    def test_mdc_unicode_q_kopf_False(self):
+    def test_egyptian_transliterate_mdc_to_unicode_q_kopf_False(self):
         """
         test to transliterate mdc to unicode
         for ancient egyptian texts.
@@ -543,7 +547,10 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string, q_kopf=False)
         #
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt\ni҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt\nsꜣt nswt i҆mn-m-ḥꜣt m\nḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
+        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
+        i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
+        sꜣt nswt i҆mn-m-ḥꜣt m
+        ḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
         #
         self.assertEqual(test_result_string, comparison_string)
 
