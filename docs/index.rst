@@ -17,15 +17,15 @@ Contents
    importing_corpora
    chinese
    coptic
-   old_english
-   middle_english
    greek
    hebrew
+   hindi
    latin
+   middle_english
    multilingual
+   old_english
    pali
    punjabi
    sanskrit
    telugu
    tibetan
-

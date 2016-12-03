@@ -24,7 +24,7 @@ def indian_punctuation_tokenize_regex(input_str):
     :rtype: list
     """
     tok_str = indian_punctuation_pattern.sub(r' \1 ',input_str.replace('\t',' '))
-    return re.sub(r'[ ]+',u' ',tok_str).strip(' ').split(' ')
+    return re.sub(r'\s+',u' ',tok_str).strip(' ').split(' ')
 
 
 if __name__ == '__main__':

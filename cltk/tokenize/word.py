@@ -18,7 +18,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
-        self.available_languages = ['latin']
+        self.available_languages = ['latin','sanskrit','hindi']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
                                                                                             self.available_languages)  # pylint: disable=line-too-long
@@ -49,10 +49,12 @@ def nltk_tokenize_words(string, attached_period=False, language=None):
     object. Maybe integrate with WordTokenizer.
     """
     assert isinstance(string, str), "Incoming string must be type str."
-    if language=='sanskrit':
+    
+    if language == 'sanskrit' or language == 'hindi' :
         periods = ['.', '।','॥']
     else:
         periods = ['.']
+    
     punkt = PunktLanguageVars()
     tokens = punkt.word_tokenize(string)
     if attached_period:
