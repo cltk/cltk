@@ -22,13 +22,13 @@ Usage:
 
 Import the function:
 
-..code-block:: python
+.. code-block:: python
 
     In [1]: from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 
 Take a MdC encoded string (P.Berlin 3022:28-31):
 
-..code-block:: python
+.. code-block:: python
 
     In [1]: mdc_string = """rdi.n wi xAst n xAst
     fx.n.i r kpny Hs.n.i r qdmi
@@ -37,7 +37,7 @@ Take a MdC encoded string (P.Berlin 3022:28-31):
 
 Ensure that `mdc_string` is encoded in unicode characters (this is mostly unnecessary):
 
-..code-block:: python
+.. code-block:: python
 
  In [2]: mdc_string.encode().decode("utf-8")
  Out[6]: 
@@ -45,7 +45,7 @@ Ensure that `mdc_string` is encoded in unicode characters (this is mostly unnece
 
 Apply the function to obtain the unicode map result:
 
-..code-block:: python
+.. code-block:: python
 
     In [10]: unicode_string = mdc_unicode(mdc_string)
     In [11]: print(unicode_string)
@@ -56,7 +56,7 @@ Apply the function to obtain the unicode map result:
 
 If you disable the option q_kopf, the result would be following:
 
-..code-block:: python
+.. code-block:: python
 
     In [136]: unicode_string = mdc_unicode(mdc_string, q_kopf=False)
 
@@ -70,13 +70,13 @@ Notice the q -> ḳ transformation.
 
 If you are going to pass a string object read from a file be sure to precise the encoding during the opening of the file:
 
-..code-block:: python
+.. code-block:: python
 
     with open("~/mdc_text.txt", "r", encoding="utf-8") as f:
         mdc_text = f.read()
         unicode_text = mdc_unicode(mdc_text)
 
-Notice the precision in `encoding="utf-8"`.
+Notice `encoding="utf-8"`.
 
 
 
