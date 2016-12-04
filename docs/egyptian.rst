@@ -4,9 +4,10 @@ Ancient Egyptian
 Transliterate MdC
 =================
 
-MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceieved as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here <https://en.wikipedia.org/wiki/Manuel_de_Codage>` and `here <http://www.catchpenny.org/codage/#trans>`
+MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceieved as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
+<https://en.wikipedia.org/wiki/Manuel_de_Codage>`_ and `here <http://www.catchpenny.org/codage/#trans>`_
 
-Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`
+Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`_
 
 The unicode still doesn't cover all of the transliteration conventions used within the egyptology, but there has been a lot of progress. Only three characters are now problematic and are not covered by precomposed characters of the Unicode Consortium.
 
@@ -14,7 +15,7 @@ Egyptological Yod
 Capital H4
 Small and Capital H5: almost exclusively used for transliterating demotic script.
 
-The function is created in the view of transliteration `font <http://www.yare.org/egypt/fonts.htm>` provided by CCER which maps couple of extra characters to transliterated equivalents such as '¡' or '@' for Ḥ.
+The function is created in the view of transliteration `font <http://www.yare.org/egypt/fonts.htm>`_ provided by CCER which maps couple of extra characters to transliterated equivalents such as '¡' or '@' for Ḥ.
 
 There is also a q_kopf flag for choosing between the 'q' or 'ḳ' at the resulting text.
 
