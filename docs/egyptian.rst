@@ -11,9 +11,11 @@ Transliteration conventions proposed by MdC are widely accepted though. Since at
 
 The unicode still doesn't cover all of the transliteration conventions used within the egyptology, but there has been a lot of progress. Only three characters are now problematic and are not covered by precomposed characters of the Unicode Consortium.
 
-Egyptological Yod
-Capital H4
-Small and Capital H5: almost exclusively used for transliterating demotic script.
+* Egyptological Yod       
+
+* Capital H4       
+
+* Small and Capital H5: almost exclusively used for transliterating demotic script.
 
 The function is created in the view of transliteration `font <http://www.yare.org/egypt/fonts.htm>`_ provided by CCER which maps couple of extra characters to transliterated equivalents such as '¡' or '@' for Ḥ.
 
