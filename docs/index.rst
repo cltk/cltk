@@ -28,4 +28,5 @@ Contents
    sanskrit
    telugu
    tibetan
+   ancient_egyptian
 
