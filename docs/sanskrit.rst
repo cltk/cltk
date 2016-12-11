@@ -145,7 +145,7 @@ Tokenizer
 =========
 
 This tool has also been derived from the `IndicNLP Project <https://github.com/anoopkunchukuttan/indic_nlp_library>`_ courtesy of `anoopkunchukuttan <https://github.com/anoopkunchukuttan/>`_
-This tool can break a sentence into into its constituent words. It works on the basis of filtering out punctuations and spaces.
+This tool can break a sentence into its constituent words. It works on the basis of filtering out punctuations and spaces.
 
 .. code-block:: python
 
