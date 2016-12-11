@@ -17,6 +17,7 @@ Contents
    importing_corpora
    chinese
    coptic
+   egyptian
    old_english
    middle_english
    greek
@@ -28,5 +29,3 @@ Contents
    sanskrit
    telugu
    tibetan
-   ancient_egyptian
-
