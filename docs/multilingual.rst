@@ -359,26 +359,15 @@ Longest Common Substring
 ------------------------
 
 Longest Common Substring takes two strings as an argument to the function and returns a substring which is common between both the 
-strings.
+strings. The example below compares a line from Vergil's Georgics with a line from Propertius (Elegies III.13.41):
 
 .. code-block:: python
 
    In [1]: from cltk.text_reuse.comparison import long_substring
    
-   In [2]: a = 'Once upon a time in Italy'
-   
-   In [3]: b = 'There was a time in America'
-   
-   In[3]: print long_substring(a,b)
-   Out[3]:...a time in
+   In [2]: print(long_substring("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,"))
+   Out[2]: dique deaque omnes,
 
-The function can also be used with Classical Latin or other Classical Languages. The example below compares a line from 
-Vergil's Georgics with a line from Propertius (Elegies III.13.41):
-
-   In [1]: from cltk.text_reuse.comparison import long_substring
-
-   In [2]: print long_substring("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
-   Out[3]: dique deaque omnes,
 
    
 MinHash
