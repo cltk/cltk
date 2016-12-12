@@ -381,7 +381,7 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
    
    In [3]: b = 'dique deaeque omnes, quibus est tutela per agros,'
    
-   In[3]: print minhash(a,b)
+   In[3]: print(minhash(a,b))
    Out[3]:0.171631205673
    
 Word count
