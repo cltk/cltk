@@ -15,9 +15,10 @@ Contents
    citation
    installation
    importing_corpora
+   bengali
    chinese
    coptic
-   egyptian
+   ancient_egyptian
    old_english
    middle_english
    greek
