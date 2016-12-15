@@ -1,4 +1,4 @@
-from from cltk.corpus.latin import *
+from cltk.corpus.latin import *
 
 try:
     latinlibrary = PlaintextCorpusReader(cltk_path + '/latin/text/latin_text_latin_library', 
