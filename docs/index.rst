@@ -27,7 +27,6 @@ Contents
    latin
    middle_english
    multilingual
-   old_english
    pali
    punjabi
    sanskrit
