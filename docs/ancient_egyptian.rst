@@ -4,12 +4,6 @@ Ancient Egyptian
 Transliterate MdC
 =================
 
-.. important::
-   For correct visualisation of the unicode transliterated text you probably need a font, 
-    - either `egyptoserif <http://jsesh.qenherkhopeshef.org/en/node/1416>`_ 
-    - or `noto <https://www.google.com/get/noto/>`_ or any other comprehensive unicode font
-   egyptoserif handles the yod better though
-
 MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceieved as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
 <https://en.wikipedia.org/wiki/Manuel_de_Codage>`_ and `here <http://www.catchpenny.org/codage/#trans>`_
 
@@ -88,9 +82,16 @@ If you are going to pass a string object read from a file be sure to precise the
 Notice `encoding="utf-8"`.
 
 
+
 TODO
 -----
 
 * Add support for different transliteration systems used within egyptology.
 * Add an option to for i -> j transformation for facilitating computer based operations.
 * Add support for the problematic characters in future.
+
+
+
+
+
+

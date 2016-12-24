@@ -364,12 +364,11 @@ strings. The example below compares a line from Vergil's Georgics with a line fr
 .. code-block:: python
 
    In [1]: from cltk.text_reuse.comparison import long_substring
-   
+
    In [2]: print(long_substring("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,"))
    Out[2]: dique deaque omnes,
 
 
-   
 MinHash
 -------
 The MinHash algorithm  generates a score based on the similarity of the two strings. It takes two strings as a parameter to the  function and returns a float.
@@ -382,7 +381,7 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
    
    In [3]: b = 'dique deaeque omnes, quibus est tutela per agros,'
    
-   In[3]: print minhash(a,b)
+   In[3]: print(minhash(a,b))
    Out[3]:0.171631205673
    
 Word count
