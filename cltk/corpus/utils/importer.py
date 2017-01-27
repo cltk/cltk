@@ -2,6 +2,7 @@
 TODO: Fix so ``import_corpora()`` can take relative path.
 TODO: Add https://github.com/cltk/pos_latin
 """
+
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
 from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
@@ -13,6 +14,10 @@ from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.corpus.old_english.corpora import OLD_ENGLISH_CORPORA
 from cltk.corpus.bengali.corpora import BENGALI_CORPORA
+from cltk.corpus.old_church_slavonic.corpora import OCS_CORPORA
+from cltk.corpus.prakrit.corpora import PRAKRIT_CORPORA
+from cltk.corpus.hindi.corpora import HINDI_CORPORA
+
 from cltk.utils.cltk_logger import logger
 
 import errno
@@ -30,7 +35,8 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit','old_english','bengali']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english', 'bengali', 'prakrit', 'hindi', 'old_church_slavonic']
+
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
@@ -41,8 +47,11 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
-                    'old_english':OLD_ENGLISH_CORPORA,
-		    'bengali':BENGALI_CORPORA}
+                    'old_english': OLD_ENGLISH_CORPORA,
+ 		                'bengali': BENGALI_CORPORA,
+                    'old_church_slavonic': OCS_CORPORA,
+                    'prakrit': PRAKRIT_CORPORA,
+                    'hindi': HINDI_CORPORA,}
 
 
 class CorpusImportError(Exception):

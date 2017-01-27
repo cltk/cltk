@@ -19,17 +19,25 @@ def mdc_unicode(string, q_kopf=True):
     parameters:
     string: str
     q_kopf: boolean
+<<<<<<< HEAD
 
     return:
     unicode_text: str
 
+=======
+    return:
+    unicode_text: str
+>>>>>>> upstream/master
     The translitterated text passes to the
     function under the variable 'string'.
     The search and replace operation
     is done for the related caracters. If
     the q_kopf parameter is False, we replace
     'q' with 'ḳ'
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
     """
     #
     # lettres miniscules/lower case letters/küçük harfler
@@ -67,4 +75,7 @@ def mdc_unicode(string, q_kopf=True):
     unicode_text = djed_capital.replace("\u0043", "\u015a") # C -> Ś
     #
     return unicode_text
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
