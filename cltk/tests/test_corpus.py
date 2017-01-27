@@ -509,17 +509,10 @@ example_distributed_fake_language_corpus:
     #     file_path = os.path.join('~/cltk_data/punjabi/text/punjabi_text_gurban/README.md')
     #     _file = os.path.expanduser(file_path)
     #     self.assertTrue(os.path.isfile(_file))
-<<<<<<< HEAD
-    
-# Ancient Egyptian Stuff -----------------------------
-
-    def test_mdc_unicode_q_kopf_True(self):
-=======
     #
     # Ancient Egyptian Stuff -----------------------------
 
     def test_egyptian_transliterate_mdc_to_unicode_q_kopf_True(self):
->>>>>>> upstream/master
         """
         test to transliterate mdc to unicode
         for ancient egyptian texts.
@@ -533,13 +526,6 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string)
         #
-<<<<<<< HEAD
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt\ni҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt\nsꜣt nswt i҆mn-m-ḥꜣt m\nqꜣ-nfrw nfrw nbt i҆mꜣḫ"""
-        #
-        self.assertEqual(test_result_string, comparison_string)
-
-    def test_mdc_unicode_q_kopf_False(self):
-=======
         comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
@@ -548,7 +534,6 @@ example_distributed_fake_language_corpus:
         self.assertEqual(test_result_string, comparison_string)
 
     def test_egyptian_transliterate_mdc_to_unicode_q_kopf_False(self):
->>>>>>> upstream/master
         """
         test to transliterate mdc to unicode
         for ancient egyptian texts.
@@ -562,12 +547,6 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string, q_kopf=False)
         #
-<<<<<<< HEAD
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt\ni҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt\nsꜣt nswt i҆mn-m-ḥꜣt m\nḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
-        #
-        self.assertEqual(test_result_string, comparison_string)
-        
-=======
         comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
@@ -575,7 +554,6 @@ example_distributed_fake_language_corpus:
         #
         self.assertEqual(test_result_string, comparison_string)
 
->>>>>>> upstream/master
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
