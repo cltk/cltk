@@ -567,7 +567,8 @@ the Latin language. Currently, the only available dialect is Classical as recons
 (which was taken from `A Companion to the Ancient Greek Language \
 <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, 85-103). Example:
 
-.. code-block::
+.. code-block:: python
+
    In [1]: from cltk.phonology.latin.transcription import Transcriber
 
    In [2]: transcriber = Transcriber(dialect="Classical", reconstruction="Allen")

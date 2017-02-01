@@ -789,7 +789,8 @@ the Greek language. Currently, the only available dialect is Attic as reconstruc
 (which was taken from `A Companion to the Ancient Greek Language <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, \
 85-103). Example:
 
-.. code-block::
+.. code-block:: python
+
    In [1]: from cltk.phonology.greek.transcription import Transcriber
 
    In [2]: transcriber = Transcriber(dialect="Attic", reconstruction="Probert")
