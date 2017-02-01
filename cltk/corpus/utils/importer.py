@@ -58,7 +58,7 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'prakrit': PRAKRIT_CORPORA,
                     'hindi': HINDI_CORPORA,
                     'malayalam': MALAYALAM_CORPORA,
-                    'old_javanese': JAVANESE_CORPORA,
+                    'javanese': JAVANESE_CORPORA,
                     }
 
 
