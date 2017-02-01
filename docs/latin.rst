@@ -559,10 +559,10 @@ If you have a text of a language in Latin characters which contain a lot of junk
 
 
 
-Transcription
-=============
+Transliteration
+===============
 
-The CLTK provides `IPA transcription <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
+The CLTK provides `IPA phonetic transliteration <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
 the Latin language. Currently, the only available dialect is Classical as reconstructed by Allen \
 (which was taken from `A Companion to the Ancient Greek Language \
 <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, 85-103). Example:
