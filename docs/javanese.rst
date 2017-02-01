@@ -4,7 +4,7 @@ Javanese
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``javanese_``) to discover available javanese corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``javanese_``) to discover available javanese corpora.
 
 .. code-block:: python
 

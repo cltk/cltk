@@ -4,7 +4,7 @@ Chinese
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``chinese_``) to discover available Chinese corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``chinese_``) to discover available Chinese corpora.
 
 .. code-block:: python
 

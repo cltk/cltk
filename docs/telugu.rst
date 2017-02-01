@@ -4,7 +4,7 @@ Telugu
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``telugu_``) to discover available Telugu corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``telugu_``) to discover available Telugu corpora.
 
 .. code-block:: python
 

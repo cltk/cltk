@@ -4,7 +4,7 @@ Malayalam
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``malayalam_``) to discover available Malayalam corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``malayalam_``) to discover available Malayalam corpora.
 
 .. code-block:: python
 

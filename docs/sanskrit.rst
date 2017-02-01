@@ -4,7 +4,7 @@ Sanskrit
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``sanskrit_``) to discover available Sanskrit corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``sanskrit_``) to discover available Sanskrit corpora.
 
 .. code-block:: python
 
