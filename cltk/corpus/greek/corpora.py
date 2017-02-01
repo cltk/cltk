@@ -62,8 +62,5 @@ GREEK_CORPORA = [
      'origin': 'https://github.com/cltk/greek_text_lacus_curtius.git',
      'location': 'remote',
      'type': 'text'},
-
 ]
-
-
 

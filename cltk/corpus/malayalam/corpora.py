@@ -4,8 +4,8 @@ All remote corpora hosted by github on the cltk organization account, eg:
 """
 
 MALAYALAM_CORPORA = [
-				{'name': 'malayalam_text_gretil',
-				 'origin': 'https://github.com/cltk/malayalam_text_gretil.git',
-				 'location': 'remote',
-				 'type': 'text'},
+	{'name': 'malayalam_text_gretil',
+	 'origin': 'https://github.com/cltk/malayalam_text_gretil.git',
+	 'location': 'remote',
+	 'type': 'text'},
 ]
