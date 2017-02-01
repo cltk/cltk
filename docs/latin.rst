@@ -563,17 +563,16 @@ Transcription
 =============
 
 The CLTK provides `IPA transcription <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
- the Latin language. Currently, the only available dialect is Classical as reconstructed by Allen \
-  (which was taken from `A Companion to the Ancient Greek Language \
-  <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, 85-103). Example:
+the Latin language. Currently, the only available dialect is Classical as reconstructed by Allen \
+(which was taken from `A Companion to the Ancient Greek Language \
+<https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, 85-103). Example:
 
 .. code-block::
    In [1]: from cltk.phonology.latin.transcription import Transcriber
 
    In [2]: transcriber = Transcriber(dialect="Classical", reconstruction="Allen")
 
-   In [3]: transcriber.transcribe("Quo usque tandem, O Catilina, abutere nostra pat
-   ...: ientia?")
+   In [3]: transcriber.transcribe("Quo usque tandem, O Catilina, abutere nostra patientia?")
    Out[3]: "['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]"
 
 
