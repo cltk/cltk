@@ -563,9 +563,8 @@ Transliteration
 ===============
 
 The CLTK provides `IPA phonetic transliteration <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
-the Latin language. Currently, the only available dialect is Classical as reconstructed by Allen \
-(which was taken from `A Companion to the Ancient Greek Language \
-<https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, 85-103). Example:
+the Latin language. Currently, the only available dialect is Classical as reconstructed by W. Sidney Allen \
+(taken from `Vox Latina <https://books.google.com/books/about/Vox_Latina.html?id=aexkj_0oj3MC>`_, 85-103). Example:
 
 .. code-block:: python
 
