@@ -6,10 +6,6 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-cur_dir = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(cur_dir, 'README.md')) as file_open:
-    readme_text = file_open.read()
-
 setup(
     author='Kyle P. Johnson',
     author_email='kyle@kyle-p-johnson.com',
@@ -39,11 +35,11 @@ setup(
                       'whoosh'],
     keywords=['nlp', 'nltk', 'greek', 'latin', 'chinese', 'sanskrit', 'pali', 'tibetan'],
     license='MIT',
-    long_description=readme_text,
+    long_description='The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.',  # pylint: disable=C0301,
     name='cltk',
     packages=find_packages(),
     url='https://github.com/cltk/cltk',
-    version='0.1.44',
+    version='0.1.46',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )
