@@ -475,8 +475,9 @@ class BackoffLatinLemmatizer(object):
     ### For comparison, there is also a TrainLemmatizer that replicates the
     ###    original Latin lemmatizer from cltk.stem
     """
-    def __init__(self, train):
+    def __init__(self, train, seed=3):
         self.train = train
+        self.seed = seed
         
         rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
         path = os.path.expanduser(rel_path)
@@ -531,8 +532,9 @@ class BackoffLatinLemmatizer(object):
             self.latin_pps = {}
             print('The file %s is not available in cltk_data' % file)  
 
-        def _randomize_data(train):
+        def _randomize_data(train, seed):
             import random
+            random.seed(seed)
             random.shuffle(train)
             pos_train_sents = train[:4000]
             lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
@@ -541,7 +543,7 @@ class BackoffLatinLemmatizer(object):
 
             return pos_train_sents, train_sents, test_sents
 
-        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train)
+        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train, self.seed)
 
     def _define_lemmatizer(self):
         backoff0 = None
@@ -551,7 +553,7 @@ class BackoffLatinLemmatizer(object):
         backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)        
         backoff5 = RegexpLemmatizer(self.latin_misc_patterns, backoff=backoff4)
         backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)        
-        backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
+        #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         #lemmatizer = backoff7
         lemmatizer = backoff6
         return lemmatizer
