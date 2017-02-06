@@ -24,8 +24,9 @@ Contents
    greek
    hebrew
    hindi
+   javanese
    latin
-   middle_english
+   malayalam
    multilingual
    pali
    punjabi

@@ -781,6 +781,25 @@ These two functions are useful when, for example, needing to process all authors
 
 
 
+Transliteration
+===============
+
+The CLTK provides `IPA phonetic transliteration <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
+the Greek language. Currently, the only available dialect is Attic as reconstructed by Philomen Probert \
+(taken from `A Companion to the Ancient Greek Language <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, \
+85-103). Example:
+
+.. code-block:: python
+
+   In [1]: from cltk.phonology.greek.transcription import Transcriber
+
+   In [2]: transcriber = Transcriber(dialect="Attic", reconstruction="Probert")
+
+   In [3]: transcriber.transcribe("Διόθεν καὶ δισκήπτρου τιμῆς ὀχυρὸν ζεῦγος Ἀτρειδᾶν στόλον Ἀργείων")
+   Out[3]: '[di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn]'
+
+
+
 Word2Vec
 ========
 

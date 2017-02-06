@@ -4,7 +4,7 @@ Bengali
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``bengali_``) to discover available Bengali corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``bengali_``) to discover available Bengali corpora.
 
 .. code-block:: python
 
