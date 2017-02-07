@@ -49,3 +49,6 @@ def open_pickle(path: str):
     except EOFError as eof_error:
         logger.error(eof_error)
         raise
+    except pickle.UnpicklingError as unp_error:
+        logger.error(unp_error)
+        raise
