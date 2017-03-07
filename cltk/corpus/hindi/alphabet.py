@@ -17,9 +17,13 @@ DEPENDENT_VOWELS = ['◌া','ি','◌ী','◌ু','◌ূ','◌ৃ','ে','�
 CONSONANTS = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द', 'ध', 'न', 'प','फ','ब','भ','म']
 
 
-#here are some Semivowels also in the script of hindi
-SEMIVOWELS = ['य ','र ','ल' ,'व']                                                                   
+#the Semivowels are also in the script of hindi
+SEMIVOWELS = ['य ','र ','ल' ,'व']    
 
+#There are three sibilants:
+SIBILANTS = ['श','ष','स']
+
+FRICATIVE = ['ह']
 
 # Anusvara is used for final velar nasal sound, Visarga adds voiceless breath after vowel and Candrabindu is used to nasalize vowels 
 
