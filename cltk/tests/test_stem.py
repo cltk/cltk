@@ -221,7 +221,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test Akkadian syllabifier"""
         syllabifier = AkkadianSyllabifier()
         word = "epištašu"
-        syllables = syllabifier(word)
+        syllables = syllabifier.syllabify(word)
         target = ['e','piš','ta','šu']
         self.assertEqual(syllables, target)
 
