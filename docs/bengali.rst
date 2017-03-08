@@ -1,6 +1,6 @@
 Bengali
 ********
-Bengali (/bɛŋˈɡɔːli/),[4] also known by its endonym Bangla (/bɑːŋlɑː/; বাংলা [ˈbaŋla] ( listen)) is an Indo-Aryan language spoken in South Asia. It is the national and official language of the People's Republic of Bangladesh, and the official language of several northeastern states of the Republic of India, including West Bengal, Tripura, Assam (Barak Valley) and Andaman and Nicobar Islands. With over 210 million speakers, Bengali is the seventh most spoken native language in the world. 
+Bengali also known by its endonym Bangla is an Indo-Aryan language spoken in South Asia. It is the national and official language of the People's Republic of Bangladesh, and the official language of several northeastern states of the Republic of India, including West Bengal, Tripura, Assam (Barak Valley) and Andaman and Nicobar Islands. With over 210 million speakers, Bengali is the seventh most spoken native language in the world. 
 Source: `Wikipedia 
 <https://en.wikipedia.org/wiki/Bengali_language>`_.
 
