@@ -1,5 +1,8 @@
 Bengali
 ********
+Bengali (/bɛŋˈɡɔːli/),[4] also known by its endonym Bangla (/bɑːŋlɑː/; বাংলা [ˈbaŋla] ( listen)) is an Indo-Aryan language spoken in South Asia. It is the national and official language of the People's Republic of Bangladesh, and the official language of several northeastern states of the Republic of India, including West Bengal, Tripura, Assam (Barak Valley) and Andaman and Nicobar Islands. With over 210 million speakers, Bengali is the seventh most spoken native language in the world. 
+Source: `Wikipedia 
+<https://en.wikipedia.org/wiki/Bengali_language>`_.
 
 Corpora
 =======
@@ -25,12 +28,12 @@ This tool can help break up a sentence into smaller constituents.
 
    In [1]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex as i_word
 
-   In [2]: sentence = "গল্প-উপন্যাস লিখতেন; কিন্তু ঐ অস্থিরচিত্ততার জন্যই কোন লেখা সম্পূর্ণ করতেন না।"
+   In [2]: sentence = "রাজপণ্ডিত হব মনে আশা করে | সপ্তশ্লোক ভেটিলাম রাজা গৌড়েশ্বরে ||"
 
    In [3]: bengali_text_tokenize = i_word(sentence)
 
    In [4]: bengali_text_tokenize
-   ['গল্প', '-', 'উপন্যাস', 'লিখতেন', ';', 'কিন্তু', 'ঐ', 'অস্থিরচিত্ততার', 'জন্যই', 'কোন', 'লেখা', 'সম্পূর্ণ', 'করতেন', 'না', '।']
+   ['রাজপণ্ডিত', 'হব', 'মনে', 'আশা', 'করে', '|', 'সপ্তশ্লোক', 'ভেটিলাম', 'রাজা', 'গৌড়েশ্বরে', '|', '|']
 
 
 
