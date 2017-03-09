@@ -1,9 +1,8 @@
 Chinese
 *******
 
-Chinese is a group of related, but in many cases mutually unintelligible, language varieties, forming a branch of the Sino-Tibetan language family. Chinese is spoken by the Han majority and many other ethnic groups in China. Nearly 1.2 billion people (around 16% of the world's population) speak some form of Chinese as their first language.
-Source: `Wikipedia
-<https://en.wikipedia.org/wiki/Chinese_language>`_.
+Chinese can be traced back to a hypothetical Sino-Tibetan proto-language. The first written records appeared over 3,000 years ago during the Shang dynasty. The earliest examples of Chinese are divinatory inscriptions on oracle bones from around 1250 BCE in the late Shang dynasty. Old Chinese was the language of the Western Zhou period (1046–771 BCE), recorded in inscriptions on bronze artifacts, the Classic of Poetry and portions of the Book of Documents and I Ching. Middle Chinese was the language used during Northern and Southern dynasties and the Sui, Tang, and Song dynasties (6th through 10th centuries CE). (Source: `Wikipedia <https://en.wikipedia.org/wiki/Chinese_language>`_)
+
 
 Corpora
 =======
