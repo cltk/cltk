@@ -6,7 +6,7 @@ import string
 __author__ = 'Anoop Kunchukuttan'
 __copyright = 'GPL'
 
-indian_punctuation_pattern = re.compile('(['+string.punctuation+'\u0964\u0965'+'])')
+indian_punctuation_pattern = re.compile('(['+string.punctuation.replace("|","")+'\u0964\u0965'+']|\|+)')
 
 
 def indian_punctuation_tokenize_regex(input_str):
