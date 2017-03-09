@@ -1,5 +1,9 @@
 Greek
 *****
+Greek is an independent branch of the Indo-European family of languages, native to Greece and other parts of the Eastern Mediterranean. It has the longest documented history of any living language, spanning 34 centuries of written records. In its modern form, the Greek language is the official language in two countries, Greece and Cyprus, a recognised minority language in seven other countries, and is one of the 24 official languages of the European Union. The language is spoken by at least 13 million people today in Greece, Cyprus, Italy, Albania, Turkey, and the Greek diaspora.
+Source: `Wikipedia
+<https://en.wikipedia.org/wiki/Greek_language>`_.
+
 For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
