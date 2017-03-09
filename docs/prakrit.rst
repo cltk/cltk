@@ -11,14 +11,14 @@ The Ardhamagadhi ("half-Magadhi") Prakrit, which was used extensively to write t
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``pali_``) to discover available Pali corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``prakrit_``) to discover available Prakrit corpora.
 
 .. code-block:: python
 
    In [1]: from cltk.corpus.utils.importer import CorpusImporter
 
-   In [2]: c = CorpusImporter('pali')
+   In [2]: c = CorpusImporter('prakrit')
 
    In [3]: c.list_corpora
-   Out[3]: ['pali_text_ptr_tipitaka']
+   Out[3]: ['prakrit_texts_gretil']
 
