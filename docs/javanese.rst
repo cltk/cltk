@@ -1,6 +1,8 @@
 Javanese
 ********
 
+Javanese is the language of the Javanese people from the central and eastern parts of the island of Java, in Indonesia. There are also pockets of Javanese speakers in the northern coast of western Java. It is the native language of more than 98 million people (more than 42% of the total population of Indonesia). (Source: `Wikipedia <https://en.wikipedia.org/wiki/Javanese_language>`_)
+
 Corpora
 =======
 
