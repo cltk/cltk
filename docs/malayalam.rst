@@ -1,6 +1,8 @@
 Malayalam
 ********
 
+Malayalam is a language spoken in India, predominantly in the state of Kerala. It is one of the 22 scheduled languages of India and was designated as a Classical Language in India in 2013. It belongs to the Dravidian family of languages and is spoken by some 38 million people. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Malayalam>`_)
+
 Corpora
 =======
 
