@@ -6,6 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 import unicodedata
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.latin import transcription as lat
+from cltk.phonology.akkadian import stress as AkkadianStress
 import unittest
 
 class TestSequenceFunctions(unittest.TestCase):
@@ -388,6 +389,14 @@ class TestSequenceFunctions(unittest.TestCase):
         target = ("['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ" 
             + " 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]")
         self.assertEqual(transcription, target)
+
+    def test_akkadian_stress(self):
+        """Test finding stressed syllable in an Akkadian word."""
+        word = "napištašunu"
+        target = ['na', '[piš]', 'ta', 'šu', 'nu']
+        stresser = AkkadianStress.StressFinder()
+        stress = stresser.find_stress(word)
+        self.assertEqual(target, stress)
 
 if __name__ == '__main__':
     unittest.main()
