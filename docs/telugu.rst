@@ -1,7 +1,8 @@
 Telugu
 ********
-Telugu (English pronunciation: /ˈtɛlᵿɡuː/telugu, IPA: [t̪el̪uɡu]) is a Dravidian language native to India. It stands alongside Hindi, English, and Bengali as one of the few languages with official status in more than one Indian state; it is the primary language in the states of Andhra Pradesh, Telangana, and in the town of Yanam, Puducherry. It is also spoken by significant minorities in the Andaman and Nicobar Islands, Chhattisgarh, Karnataka, Maharashtra, Odisha, Tamil Nadu, and by the Sri Lankan Gypsy people. It is one of six languages designated a classical language of India by the Government of India.Telugu ranks third by the number of native speakers in India (74 million, 2001 census),fifteenth in the Ethnologue list of most-spoken languages worldwide and is the most widely spoken Dravidian language. It is one of the twenty-two scheduled languages of the Republic of India.
-SOURCE:`Wikipedia <https://en.wikipedia.org/wiki/Telugu_language>`_.
+
+Telugu is a Dravidian language native to India. Inscriptions with Telugu words dating back to 400 BC to 100 BC have been discovered in Bhattiprolu in the Guntur district of Andhra Pradesh. Telugu literature can be traced back to the early 11th century period when Mahabharata was first translated to Telugu from Sanskrit by Nannaya. It flourished under the rule of the Vijayanagar empire, where Telugu was one of the empire's official languages. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Telugu_language>`_)
+
 
 Corpora
 =======
