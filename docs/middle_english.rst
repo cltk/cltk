@@ -1,6 +1,9 @@
 Middle English
 **************
 
+Middle English is collectively the varieties of the English language spoken after the Norman Conquest (1066) until the late 15th century; scholarly opinion varies but the Oxford English Dictionary specifies the period of 1150 to 1500.
+(Source: `Wikipedia <https://en.wikipedia.org/wiki/Middle_English>`_)
+
 Stopword Filtering
 ==================
 
