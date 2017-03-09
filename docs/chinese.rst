@@ -4,6 +4,10 @@ Chinese is a group of related, but in many cases mutually unintelligible, langua
 
 The varieties of Chinese are usually described by native speakers as dialects of a single Chinese language, but linguists note that they are as diverse as a language family.The internal diversity of Chinese has been likened to that of the Romance languages, but may be even more varied. There are between 7 and 13 main regional groups of Chinese (depending on classification scheme), of which the most spoken by far is Mandarin (about 960 million), followed by Wu (80 million), Min (70 million), and Yue (60 million).
 SOURCE:`Wikipedia <https://en.wikipedia.org/wiki/Chinese_language>`_
+
+
+
+
 Corpora
 =======
 
