@@ -1,13 +1,5 @@
-About Language: 
-                Hindi (Devanagari: हिन्दी, IAST: Hindī), or Modern Standard Hindi (Devanagari: मानक हिन्दी, IAST: Mānak Hindī) is a standardised and Sanskritised variety[7] of the Hindustani language. Along with the English language, Hindi written in the Devanagari script, is the official language of the Government of India.[8] It is also one of the 22 scheduled languages of the Republic of India.[9]
-
-Hindi is the lingua franca of the so-called Hindi belt of India. Outside India, it is an official language in Fiji, and is a recognised regional language in Mauritius, Suriname, Guyana, and Trinidad and Tobago.[10][11][4][3]
-
-Hindi is the fourth most-spoken first language in the world, after Standard Mandarin Chinese, Spanish and English.[12] Apart from specialized vocabulary, Hindi is mutually intelligible with Standard Urdu, another recognized register of Hindustan
-Source: Wikipedia
-
-
-
+Hindi is the fourth most-spoken first language in the world, after Standard Mandarin Chinese, Spanish and EnglishApart from specialized vocabulary, Hindi is mutually intelligible with Standard Urdu, another recognized register of Hindustani. Hindi is the lingua franca of the so-called Hindi belt of India.  
+Source: https://en.m.wikipedia.org/wiki/Hindi
 
 
 
@@ -32,7 +24,6 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
 Tokenizer
 =========
-
 This tool can break a sentence into its constituent words. It simply splits the text into tokens of words and punctuations.
 
 .. code-block:: python
