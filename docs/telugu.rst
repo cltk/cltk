@@ -18,3 +18,20 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
    In [3]: c.list_corpora
    Out[3]:
    ['telugu_text_wikisource']
+
+
+Tokenizer
+=========
+
+This tool can help break up a sentence into smaller constituents i.e into words.
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex as i_word
+
+   In [2]: sentence = "ఎలా టైపు చెయ్యాలో వివరంగా తెలుసుకోండి"
+
+   In [3]: telugu_text_tokenize = i_word(sentence)
+
+   In [4]: telugu_text_tokenize
+   ['ఎలా', 'టైపు', 'చెయ్యాలో', 'వివరంగా', 'తెలుసుకోండి']
