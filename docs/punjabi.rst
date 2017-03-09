@@ -1,6 +1,8 @@
 Punjabi
 *******
 
+Punjabi is an Indo-Aryan language spoken by over 100 million native speakers worldwide, making it the 10th most widely spoken language (2015)[5][6] in the world. It is the native language of the Punjabi people who inhabit the historical Punjab region of Pakistan and India. Among the Indo-European languages it is unusual in being a tonal language. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Punjabi_language>`_)
+
 Corpora
 =======
 
