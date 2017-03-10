@@ -1,8 +1,13 @@
 Latin
 *****
-For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``latin_models_cltk``).
 
-Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
+Latin is a classical language belonging to the Italic branch of the Indo-European languages. The Latin alphabet is derived from the Etruscan and Greek alphabets, and ultimately from the Phoenician alphabet. Latin was originally spoken in Latium, in the Italian Peninsula. Through the power of the Roman Republic, it became the dominant language, initially in Italy and subsequently throughout the Roman Empire. Vulgar Latin developed into the Romance languages, such as Italian, Portuguese, Spanish, French, and Romanian. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Latin>`_)
+
+
+.. note:: For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``latin_models_cltk``).
+
+.. note:: Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
+
 
 Clausulae Analysis
 ==================
