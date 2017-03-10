@@ -1,6 +1,9 @@
 Javanese
 ********
 
+Javanese is the language of the Javanese people from the central and eastern parts of the island of Java, in Indonesia. Javanese is one of the Austronesian languages, but it is not particularly close to other languages and is difficult to classify. The 8th and 9th centuries are marked by the emergence of the Javanese literary tradition – with Sang Hyang Kamahayanikan, a Buddhist treatise; and the Kakawin Rāmâyaṇa, a Javanese rendering in Indian metres of the Vaishnavist Sanskrit epic Rāmāyaṇa. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Javanese_language>`_)
+
+
 Corpora
 =======
 
