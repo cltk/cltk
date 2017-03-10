@@ -1,7 +1,7 @@
 Tibetan
 *******
 
-Classical Tibetan refers to the language of any text written in Tibetic after the Old Tibetan period; though it extends from the 7th century until the modern day, it particularly refers to the language of early canonical texts translated from other languages, especially Sanskrit. The phonology implied by Classical Tibetan orthography is basically identical to the phonology of Old Tibetan, but the grammar varies greatly depending on period and geographic origin of the author. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Classical_Tibetan>`_)
+Classical Tibetan refers to the language of any text written in Tibetic after the Old Tibetan period; though it extends from the 7th century until the modern day, it particularly refers to the language of early canonical texts translated from other languages, especially Sanskrit. In 816, during the reign of King Sadnalegs, literary Tibetan underwent a thorough reform aimed at standardizing the language and vocabulary of the translations being made from Indian texts, which resulted in what is now called Classical Tibetan. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Classical_Tibetan>`_)
 
 Corpora
 =======
