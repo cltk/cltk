@@ -20,3 +20,4 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at maximus
 words = ["Lorem", "ipsum"]
 dispersionPlot(text, words, "la")
 ```
+![Output](https://acodeforthought.files.wordpress.com/2017/03/lexicaldispersion.png)
