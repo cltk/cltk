@@ -1,7 +1,8 @@
 Hindi
 ********
 
-Hindi is a standardised and Sanskritised register of the Hindustani language. Hindi written in the Devanagari script, is the official language of the Government of India. Hindi is the fourth most-spoken first language in the world, after Standard Mandarin Chinese, Spanish and English. Apart from specialized vocabulary, Hindi is mutually intelligible with Standard Urdu, another recognized register of Hindustani. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Hindi>`_)
+Hindi is a standardised and Sanskritised register of the Hindustani language. Like other Indo-Aryan languages, Hindi is considered to be a direct descendant of an early form of Sanskrit, through Sauraseni Prakrit and Śauraseni Apabhraṃśa. It has been influenced by Dravidian languages, Turkic languages, Persian, Arabic, Portuguese and English. Hindi emerged as Apabhramsha, a degenerated form of Prakrit, in the 7th century A.D. By the 10th century A.D., it became stable. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Hindi>`_)
+
 
 Corpora
 =======
