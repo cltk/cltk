@@ -1,6 +1,8 @@
 Pali
 ****
 
+Pali is a Prakrit language native to the Indian subcontinent. It is widely studied because it is the language of much of the earliest extant literature of Buddhism as collected in the Pāli Canon or Tipiṭaka and is the sacred language of Theravāda Buddhism: <https://en.wikipedia.org/wiki/Pali>.
+
 Corpora
 =======
 
