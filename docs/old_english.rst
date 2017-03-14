@@ -1,6 +1,8 @@
 Old English
 ***********
 
+Old English is the earliest historical form of the English language, spoken in England and southern and eastern Scotland in the early Middle Ages. It was brought to Great Britain by Anglo-Saxon settlers probably in the mid 5th century, and the first Old English literary works date from the mid-7th century.
+(Source: `Wikipedia <https://en.wikipedia.org/wiki/Old_English>`_)
 
 Stopword Filtering
 ==================
@@ -28,5 +30,3 @@ To use the CLTK's built-in stopwords list, We use an example from Beowulf:
     'lange',
     'hwile',
     '.']
-
-
