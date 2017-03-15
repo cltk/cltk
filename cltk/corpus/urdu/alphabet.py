@@ -1,5 +1,7 @@
 """
-
+Urdu is a persianized standard register of the Hindustani language.
+It is the national language and lingua franca of Pakistan, and an official language of six states of India. 
+It is also one of the 22 official languages recognized in the Constitution of India. Hyderabad, Rampur, Bhopal and Lucknow are noted Urdu-speaking cities of India.
 """
 
 #Persian digits from 0 to 9
