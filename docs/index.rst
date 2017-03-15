@@ -29,6 +29,7 @@ Contents
    latin
    malayalam
    multilingual
+   old_norse
    pali
    punjabi
    sanskrit
