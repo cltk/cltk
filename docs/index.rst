@@ -15,6 +15,7 @@ Contents
    citation
    installation
    importing_corpora
+   akkadian
    bengali
    chinese
    coptic

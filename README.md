@@ -9,11 +9,11 @@
 
 ## About
 
-The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the CLTK are to:
+The Classical Language Toolkit (CLTK) offers natural language processing (NLP) support for the languages of Ancient, Classical, and Medieval Eurasia. Greek and Latin functionality are currently most complete. The goals of the CLTK are to:
 
-*   compile analysis-friendly corpora in a variety of Classical languages (currently available for Chinese, Coptic, Greek, Hebrew, Latin, Pali, Punjabi, Sanskrit, Telugu, and Tibetan);
-*   gather, improve, and generate linguistic data required for NLP (Greek and Latin are in progress, with [more in the pipeline](https://github.com/cltk/cltk/wiki/List-of-Classical-languages));
-*   develop a free and open platform for generating reproducible, scientific research that advances the study of the languages and literatures of the ancient world.
+*   compile analysis-friendly corpora;
+*   collect and generate linguistic data;
+*   act as a free and open platform for generating scientific research.
 
 
 ## Documentation
@@ -23,7 +23,7 @@ The docs are at [docs.cltk.org](http://docs.cltk.org).
 
 ### Installation
 
-CLTK supports Python version 3.5. The software only runs on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
+CLTK supports Python version 3.6. The software only runs on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
 
 ``` bash
 $ pip install cltk
