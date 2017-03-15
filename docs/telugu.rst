@@ -29,9 +29,17 @@ This tool can help break up a sentence into smaller constituents i.e into words.
 
    In [1]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex as i_word
 
-   In [2]: sentence = "ఎలా టైపు చెయ్యాలో వివరంగా తెలుసుకోండి"
+   In [2]: sentence = "క్లేశభూర్యల్పసారాణి కర్మాణి విఫలాని వా దేహినాం విషయార్తానాం న తథైవార్పితం త్వయి"
 
    In [3]: telugu_text_tokenize = i_word(sentence)
 
    In [4]: telugu_text_tokenize
-   ['ఎలా', 'టైపు', 'చెయ్యాలో', 'వివరంగా', 'తెలుసుకోండి']
+   ['క్లేశభూర్యల్పసారాణి',
+ 'కర్మాణి',
+ 'విఫలాని',
+ 'వా',
+ 'దేహినాం',
+ 'విషయార్తానాం',
+ 'న',
+ 'తథైవార్పితం',
+ 'త్వయి']
