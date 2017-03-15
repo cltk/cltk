@@ -31,6 +31,7 @@ Contents
    multilingual
    old_norse
    pali
+   prakrit
    punjabi
    sanskrit
    telugu
