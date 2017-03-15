@@ -9,6 +9,7 @@ Corpora
 Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old_norse corpora.
 
 .. code-block:: python
+
    In [1]: from cltk.corpus.utils.importer import CorpusImporter as ci
 
    In [2]: i=ci("old_norse")
