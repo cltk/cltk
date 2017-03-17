@@ -5,7 +5,7 @@ Further explanations at: https://gist.github.com/Akhilesh28/b012159a10a642ed5c34
 
 __author__ = 'Akhilesh S. Chobey <akhileshchobey03@gmail.com>'
 
-STOPS_LIST = set(['अहम्',
+STOPS_LIST = ['अहम्',
               'आवाम्',
               'वयम्',
               'माम्',
@@ -743,6 +743,4 @@ STOPS_LIST = set(['अहम्',
               'कतमायाम्',
               'कतमयोः',
               'कतमासु'
-             ])
-             
-            
+             ]
