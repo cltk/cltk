@@ -10,9 +10,9 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.utils.importer import CorpusImporter as ci
+   In [1]: from cltk.corpus.utils.importer import CorpusImporter
 
-   In [2]: i=ci("old_norse")
+   In [2]: corpus_importer = CorpusImporter("old_norse")
 
-   In [3]: i.list_corpora
+   In [3]: corpus_importer.list_corpora
    Out[3]: ['old_norse_text_perseus']
