@@ -31,8 +31,10 @@ Contents
    multilingual
    old_norse
    pali
+   persian
    prakrit
    punjabi
    sanskrit
    telugu
    tibetan
+   urdu
