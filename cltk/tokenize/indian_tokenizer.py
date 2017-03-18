@@ -6,9 +6,9 @@ import string
 __author__ = 'Anoop Kunchukuttan'
 __copyright = 'GPL'
 
-modified_punctuations = string.puctuation.replace("|","") # The replace , deletes the ' | ' from the punctuation string provided by the library
+modified_punctuations = string.punctuation.replace("|","") # The replace , deletes the ' | ' from the punctuation string provided by the library
 
-indian_punctuation_pattern = re.compile('(['+modified_pucntuations+'\u0964\u0965'+']|\|+)')
+indian_punctuation_pattern = re.compile('(['+modified_punctuations+'\u0964\u0965'+']|\|+)')
 
 
 def indian_punctuation_tokenize_regex(input_str):
