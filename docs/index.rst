@@ -15,6 +15,7 @@ Contents
    citation
    installation
    importing_corpora
+   akkadian
    bengali
    chinese
    coptic
@@ -28,8 +29,12 @@ Contents
    latin
    malayalam
    multilingual
+   old_norse
    pali
+   persian
+   prakrit
    punjabi
    sanskrit
    telugu
    tibetan
+   urdu

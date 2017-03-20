@@ -10,6 +10,7 @@ from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stem.latin.declension import CollatinusDecliner
 from cltk.exceptions import UnknownLemma
 from cltk.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
+from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
 
 import os
 import unittest
@@ -215,6 +216,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         current = syllabifier.get_offset('न', 'hi')
         current1 = syllabifier.in_coordinated_range_offset(current)
         self.assertTrue(current1)
+
+    def test_akkadian_syllabifier(self):
+        """Test Akkadian syllabifier"""
+        syllabifier = AkkadianSyllabifier()
+        word = "epištašu"
+        syllables = syllabifier.syllabify(word)
+        target = ['e','piš','ta','šu']
+        self.assertEqual(syllables, target)
 
     '''
     #? Someone fix this; assertTrue() doesn't make sense here
