@@ -22,7 +22,7 @@ Persian has three ``SHORT_VOWELS`` that are essentially diacritics used in the s
    In [2]: SHORT_VOWELS
    Out[2]: ['َ', 'ِ', 'ُ']
 
-In [3]: from cltk.corpus.urdu.alphabet import LONG_VOWELS
+   In [3]: from cltk.corpus.urdu.alphabet import LONG_VOWELS
    In [4]: LONG_VOWELS
    Out[4]: ['ا', 'و', 'ی', 'ے']
 	
