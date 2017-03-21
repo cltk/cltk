@@ -30,7 +30,9 @@ Contents
    malayalam
    multilingual
    pali
+   persian
    punjabi
    sanskrit
    telugu
    tibetan
+   urdu
