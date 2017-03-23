@@ -1,8 +1,8 @@
 """Data module for the Punjabi languages alphabet and related characters."""
 
-__author__ = 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'
+__author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>', 'Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk']
 __license__ = 'MIT License. See LICENSE.'
-__credits__ = 'Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk'
+
 
 #The Functions Needed for making the data of alphabets is here
 
