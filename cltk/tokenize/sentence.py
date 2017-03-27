@@ -37,7 +37,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         :param language : Language for sentence tokenization.
         """
         
-        #self.language = language.lower() """Does not apply in hindi"""
+        self.language = language.lower() """Does not apply in hindi"""
         self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
             self._setup_language_variables(self.language)
 
