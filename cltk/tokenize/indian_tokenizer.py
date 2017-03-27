@@ -9,10 +9,12 @@ __copyright = 'GPL'
 indian_punctuation_pattern = re.compile('(['+string.punctuation+'\u0964\u0965'+'])')
 
 
-def indian_punctuation_tokenize_regex(input_str):
+def indian_word_tokenize_regex(input_str):
     """A trivial tokenizer which just tokenizes on the punctuation boundaries.
     This also includes punctuation, namely the the purna virama ("|") and
     deergha virama ("॥"), for Indian language scripts.
+    
+    This is for words.
 
     >>> indian_str = "प्रेमचन्द का जन्म ३१ जुलाई सन् १८८० को बनारस शहर।"
     >>> indian_punctuation_tokenize_regex(indian_str)
@@ -26,6 +28,9 @@ def indian_punctuation_tokenize_regex(input_str):
     tok_str = indian_punctuation_pattern.sub(r' \1 ',input_str.replace('\t',' '))
     return re.sub(r'[ ]+',u' ',tok_str).strip(' ').split(' ')
 
+def indian_sentence_tokenize_regex(input_file):
+    tok_str = indian_punctuation_pattern.sub(r' \1 ',input_str.replace('\t',' '))
+    return re.sub(r'[ ]+',u' ',tok_str).strip('|').split('|', '||')
 
 if __name__ == '__main__':
     example = indian_punctuation_tokenize_regex("हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है।")
