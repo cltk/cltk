@@ -16,8 +16,14 @@ PUNCTUATION = {'greek':
                     'file': 'greek.pickle', },
                'latin':
                    {'external': ('.', '?', ':'),
-                    'internal': (',', ';'),
-                    'file': 'latin.pickle', }}
+                    'internal': (',', ';',),
+                    'file': 'latin.pickle', }
+                'hindi':
+                   {'external': ('|','||', '?'),
+                    'internal': (',', ';', )
+                    'file': 'hindi.pickle'
+                   }
+              }
 
 
 class TokenizeSentence():  # pylint: disable=R0903
@@ -30,7 +36,8 @@ class TokenizeSentence():  # pylint: disable=R0903
         :type language: str
         :param language : Language for sentence tokenization.
         """
-        self.language = language.lower()
+        
+        #self.language = language.lower() """Does not apply in hindi"""
         self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
             self._setup_language_variables(self.language)
 
