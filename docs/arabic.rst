@@ -26,62 +26,88 @@ The Arabic alphabet are placed in `cltk/corpus/arabic/alphabet.py <https://githu
 
 .. code-block:: python
 
-	In [1]: from cltk.corpus.arabic.alphabet import *
+    In [1]: from cltk.corpus.arabic.alphabet import *
 
-	# all Hamza forms
-	In [2]: HAMZAT
-	Out[2]: ['ء', 'أ', 'إ', 'آ', 'ؤ', 'ئ']
+    # all Hamza forms
+    In [2]: HAMZAT
+    Out[2]: ('ء', 'أ', 'إ', 'آ', 'ؤ', 'ؤ', 'ٔ', 'ٕ')
 
-	# print HAMZA from hamza const and from HAMZAT list
+    # print HAMZA from hamza const and from HAMZAT list
 
-	In [3] HAMZA
-	Out [3] 'ء'
+    In [3] HAMZA
+    Out [3] 'ء'
 
-	In [4] HAMZAT[0]
-	Out [4] 'ء'
+    In [4] HAMZAT[0]
+    Out [4] 'ء'
 
-  # listing all Arabic letters
+    # listing all Arabic letters
 
-	In [5] ARABIC_LETTERS
-	out [5] ['ا', 'ى', 'ب', 'ة', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ع', 'ص', 'ض', 'ط', 'ظ', 'ع',
-          'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي']
+    In [5] LETTERS
+    out [5] 'ا ب ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ء آ أ ؤ إ ؤ'
 
-	# Listing all shaped forms for example  Beh letter
+    # Listing all shaped forms for example  Beh letter
 
-	In [6] SHAPED_FORMS[6]
-	Out [6] {'ﺒ', 'ﺐ', 'ﺏ', 'ﺑ'}
+    In [6] SHAPED_FORMS[BEH]
+    Out [6] ('ﺏ', 'ﺐ', 'ﺑ', 'ﺒ')
 
-	# Listing all Punctuation marks
+    # Listing all Punctuation marks
 
-	In [7] PONCTUATION_MARKS
-	Out [7] ['،', '؛', '؟']
+    In [7] PUNCTUATION_MARKS
+    Out [7] ['،', '؛', '؟']
 
-	# Listing all Diacritics  FatHatanً ,Dammatanٌ ,Kasratanٍ ,FatHaَ ,Dammaُ ,Kasraِ ,Sukunْ ,Shaddaّ
+    # Listing all Diacritics  FatHatanً ,Dammatanٌ ,Kasratanٍ ,FatHaَ ,Dammaُ ,Kasraِ ,Sukunْ ,Shaddaّ
 
-	In [8] HARAKAT
-	Out [8] ['ً', 'ٌ', 'ٍ', 'َ', 'ُ', 'ِ', 'ْ', 'ّ']
+    In [8] TASHKEEL
+    Out [8] ('ً', 'ٌ', 'ٍ', 'َ', 'ُ', 'ِ', 'ْ', 'ّ')
 
-	# WESTERN_ARABIC_NUMERALS numerals
+    # Listing HARAKAT
 
-	In [9] WESTERN_ARABIC_NUMERALS
-	Out [9] ['0','1','2','3','4','5','6','7','8','9']
+    In [9] HARAKAT
+    Out [9] ('ً', 'ٌ', 'ٍ', 'َ', 'ُ', 'ِ', 'ْ')
 
-	# EASTERN ARABIC NUMERALS from 0 to 9
+    # Listing SHORTHARAKAT
 
-	In [10] EASTERN_ARABIC_NUMERALS
-	Out [10] ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹']
+    In [10] SHORTHARAKAT
+    Out [10] ('َ', 'ُ', 'ِ', 'ْ')
 
-	# Listing The Weak letters  .
+    # Listing Tanween
 
-	In [11] WEAK_LETTERS
-  Out [11]  ['ا', 'و', 'ي']
+    In [11] TANWEEN
+    Out [11] ('ً', 'ٌ', 'ٍ')
 
-	# Listing all Ligatures Lam-Alef
+    # Kasheeda, Tatweel
 
-	In [12] LIGATURES_LAM_ALEF
-	Out [12] ['لا', 'ﻼ', 'لأ', 'ﻸ', 'لإ', 'ﻺ', 'لآ', 'ﻶ']
+    In [12] NOT_DEF_HARAKA
+    Out [12] 'ـ'
 
-	# Kasheeda, Tatweel
 
-	In [13] KASHEEDA
-	Out [13] 'ـ'
+    # WESTERN_ARABIC_NUMERALS numerals
+
+    In [13] WESTERN_ARABIC_NUMERALS
+    Out [13] ['0','1','2','3','4','5','6','7','8','9']
+
+    # EASTERN ARABIC NUMERALS from 0 to 9
+
+    In [14] EASTERN_ARABIC_NUMERALS
+    Out [14] ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹']
+
+    # Listing The Weak letters  .
+
+    In [15] WEAK
+    Out [15]  ('ا', 'و', 'ي', 'ى')
+
+    # Listing all Ligatures Lam-Alef
+
+    In [16] LIGATURES_LAM_ALEF
+    Out [16] ('ﻻ', 'ﻷ', 'ﻹ', 'ﻵ')
+
+    # listing small letters
+
+    In [17] SMALL
+    Out [17] ('ٰ', 'ۥ', 'ۦ')
+
+    # Import letters names in arabic
+
+    In [18] Names[ALEF]
+    Out [18]  'ألف'
+
