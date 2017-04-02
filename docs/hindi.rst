@@ -1,3 +1,5 @@
+Hindi is the lingua franca of the so-called Hindi belt of India. Outside India, it is an official language in Fiji, and is a recognised regional language in Mauritius, Suriname, Guyana, and Trinidad and Tobago. Hindi written in the Devanagari script, is the official language of the Government of India
+Source: https://en.m.wikipedia.org/wiki/Hindi
 Hindi
 ********
 
