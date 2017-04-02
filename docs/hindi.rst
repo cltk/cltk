@@ -1,3 +1,8 @@
+Hindi is the fourth most-spoken first language in the world, after Standard Mandarin Chinese, Spanish and EnglishApart from specialized vocabulary, Hindi is mutually intelligible with Standard Urdu, another recognized register of Hindustani. Hindi is the lingua franca of the so-called Hindi belt of India.  
+Source: https://en.m.wikipedia.org/wiki/Hindi
+
+
+
 Hindi
 ********
 
@@ -22,7 +27,6 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
 Tokenizer
 =========
-
 This tool can break a sentence into its constituent words. It simply splits the text into tokens of words and punctuations.
 
 .. code-block:: python
