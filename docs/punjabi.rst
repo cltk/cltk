@@ -1,5 +1,7 @@
 Punjabi
 *******
+Punjabi  is an Indo-Aryan language spoken by over 100 million native speakers worldwide, making it the 10th most widely spoken language (2015) in the world. It is the native language of the Punjabi people who inhabit the historical Punjab region of Pakistan and India. Among the Indo-European languages it is unusual in being a tonal language.
+Source: `Wikipedia <https://en.wikipedia.org/wiki/Punjabi_language>`_.
 
 Punjabi is an Indo-Aryan language native language of the Punjabi people who inhabit the historical Punjab region of Pakistan and India. Punjabi developed from Sanskrit through Prakrit language and later Apabhraṃśa. Punjabi emerged as an Apabhramsha, a degenerated form of Prakrit, in the 7th century A.D. and became stable by the 10th century. By the 10th century, many Nath poets were associated with earlier Punjabi works. Arabic and Persian influence in the historical Punjab region began with the late first millennium Muslim conquests on the Indian subcontinent. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Punjabi_language>`_)
 
