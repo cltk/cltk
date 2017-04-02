@@ -1,5 +1,6 @@
 Coptic
 ******
+Coptic or Coptic Egyptian is the latest stage of the Egyptian language, a northern Afroasiatic language spoken in Egypt until at least the 17th century. Egyptian began to be written in the Coptic alphabet, an adaptation of the Greek alphabet with the addition of six or seven signs from demotic to represent Egyptian sounds the Greek language did not have, in the first century AD. Coptic flourished as a literary language from the second to thirteenth centuries, and its Bohairic dialect continues to be the liturgical language of the Coptic Orthodox Church of Alexandria. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Coptic_language>`_)
 
 Coptic is the latest stage of the Egyptian language, a northern Afroasiatic language spoken in Egypt until at least the 17th century. Coptic flourished as a literary language from the second to thirteenth centuries, and its Bohairic dialect continues to be the liturgical language of the Coptic Orthodox Church of Alexandria. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Coptic_language>`_)
 
