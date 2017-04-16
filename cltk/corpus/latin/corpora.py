@@ -22,6 +22,11 @@ LATIN_CORPORA = [
      'origin': 'https://github.com/cltk/latin_text_latin_library.git',
      'location': 'remote',
      'type': 'text'},
+    {'encoding': 'utf-8',
+     'markup': 'plaintext',
+     'location': 'remote',
+     'type': 'text',
+     'name': 'digiliblt_antiquelatin_texts'}
     {'encoding': 'latin-1',
      'markup': 'beta_code',
      'name': '',
