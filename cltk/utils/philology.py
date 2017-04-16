@@ -44,8 +44,8 @@ class Philology:
 
         #! rm dupes after index, before loop
         tokens = set(orig_tokens)
-        tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'ed
-
+        tokens = [x for x in tokens if x not in [',', '.', ';', ':', '"', "'", '[', ']']]  # this needs to be changed or rm'e
+        
         return c.return_concordance_all(tokens)
 
     def write_concordance_from_file(self, filepaths, name):
@@ -92,7 +92,7 @@ class Philology:
         user_data = os.path.expanduser(user_data_rel)
         if not os.path.isdir(user_data):
             os.makedirs(user_data)
-        file_path = os.path.join(user_data, 'concordance_' + name + '.txt')
+        file_path = os.path.join(user_data, 'concordance_' + name + '.txt') # Changed Kaan
         concordance_output = ''
         for word_list in list_of_lists:
             for line in word_list:
@@ -189,7 +189,7 @@ class ConcordanceIndex(object):
                     left = left[-half_width:]
                     right = right[:half_width]
                     #print(left, '*', self._tokens[i], '*', right)
-                    line_str = left + ' ' + self._tokens[i] + ' ' + right
+                    line_str = left + ' ' + "#_" + str(self._tokens[i]).swapcase() + "_#" + ' ' + right
                     return_list.append(line_str)
                     lines -= 1
             return return_list
