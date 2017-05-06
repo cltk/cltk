@@ -63,7 +63,7 @@ year = {2014--2017},
 [Many contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. For scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
 
 
-# Gratitude
+## Gratitude
 
 We are thankful for the following organizations that have offered support:
 
