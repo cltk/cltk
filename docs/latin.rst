@@ -211,6 +211,29 @@ The backoff module also offers IdentityLemmatizer which returns the given token 
 
 NB: Documentation is still be written for the remaining backoff lemmatizers, i.e. TrainLemmatizer, ContextLemmatizer, RegexpLemmatizer, and ContextPOSLemmatizer.
 
+Line Tokenization
+=====================
+The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.line import LineTokenizer
+
+   In [2]: tokenizer = LineTokenizer('latin')
+
+   In [3]: untokenized_text = """49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+
+   In [4]: tokenizer.tokenize(untokenized_text)
+   
+   Out[4]: ['49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+
+The line tokenizer by default removes multiple line breaks. If you wish to retain blank lines in the returned list, set the ``include_blanks`` to ``True``.
+
+   In [5]: untokenized_text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+
+   In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
+   
+   Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 Macronizer
 ==========
