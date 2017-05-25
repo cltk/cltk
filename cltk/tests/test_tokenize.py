@@ -7,6 +7,7 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
+from cltk.tokenize.line import LineTokenizer
 import os
 import unittest
 
@@ -28,11 +29,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_models_cltk')
+#        corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
+        file = os.path.expanduser(file_rel)        
         file_exists = os.path.isfile(file)
+        if file_exists:
+            self.assertTrue(file_exists)
+        else:
+            corpus_importer.import_corpus('latin_models_cltk')
         self.assertTrue(file_exists)
+        
+
+         
 
     def test_sentence_tokenizer_latin(self):
         """Test tokenizing Latin sentences."""
@@ -124,6 +132,22 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test assert error for CLTK's word tokenizer."""
         with self.assertRaises(AssertionError):
             nltk_tokenize_words(['Sentence', '1.'])
+    
+    def test_line_tokenizer(self):
+        """Test LineTokenizer"""
+        text = """49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+        target = ['49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+        tokenizer = LineTokenizer('latin')
+        tokenized_lines = tokenizer.tokenize(text)
+        self.assertTrue(tokenized_lines == target)
+
+    def test_line_tokenizer_include_blanks(self):
+        """Test LineTokenizer"""
+        text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+        target = ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+        tokenizer = LineTokenizer('latin')
+        tokenized_lines = tokenizer.tokenize(text, include_blanks=True)
+        self.assertTrue(tokenized_lines == target)
 
 if __name__ == '__main__':
     unittest.main()
