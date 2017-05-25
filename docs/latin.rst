@@ -229,6 +229,8 @@ The line tokenizer takes a string input into ``tokenize()`` and returns a list o
 
 The line tokenizer by default removes multiple line breaks. If you wish to retain blank lines in the returned list, set the ``include_blanks`` to ``True``.
 
+.. code-block:: python
+
    In [5]: untokenized_text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
 
    In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
