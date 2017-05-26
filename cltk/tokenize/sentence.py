@@ -15,7 +15,7 @@ PUNCTUATION = {'greek':
                     'internal': (',', '·'),
                     'file': 'greek.pickle', },
                'latin':
-                   {'external': ('.', '?', ':'),
+                   {'external': ('.', '?', '!', ':'),
                     'internal': (',', ';'),
                     'file': 'latin.pickle', }}
 
