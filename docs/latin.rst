@@ -172,7 +172,7 @@ Lemmatization, backoff method
 
 The CLTK offers a series of lemmatizers that can be combined in a backoff sequence, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
 
-There is a generic version of the backoff latin lemmatizer which requires data from the CLTK latin models data found here: <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+There is a generic version of the backoff latin lemmatizer which requires data from `the CLTK latin models data found here <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>`_. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
 
 The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
 
@@ -234,9 +234,9 @@ The TrainLemmatizer—like all of the lemmatizers in this module—can take a se
    In [17]: lemmatizer.lemmatize(tokens)
    Out[17]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', 'UNK'), ('cano', 'UNK'), (',', 'UNK'), ('troiae', 'troia'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'ora')]
 
-With the ContextLemmatizer, the backoff module allows you to provide a list of lists of sentences of the form [[('TOKEN1', 'LEMMA1'), ('TOKEN2', 'LEMMA2')], [('TOKEN3', 'LEMMA3'), ('TOKEN4', 'LEMMA4')], etc. ] for lemmatization. The lemmatizer returns the the lemma that has the highest frequency based on the provided context (i.e. unigram, bigram, etc.). So, for example, with unigram context and the token 'est', if the tuple ('est', 'sum') appears in the training sents 99 times and ('est', 'comedo') appears 1 time, the lemmatizer would return the lemma 'sum'. The ContextLemmatizer and its subclasses can take a 'backoff' parameter. (There is a model available in CLTK Data that can be used for this purpose with slight modification: ~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff/latin_pos_lemmatized_sents.pickle. This model has the form [[('TOKEN1', 'LEMMA1', 'POS1'), ('TOKEN2', 'LEMMA2', 'POS2')], etc. ] A list comprehension can get you the model you need for the ContextLemmatizer, e.g. [[(item[0], item[1]) for item in sent] for sent in train_data])
+With the ContextLemmatizer, the backoff module allows you to provide a list of lists of sentences of the form `[[('TOKEN1', 'LEMMA1'), ('TOKEN2', 'LEMMA2')], [('TOKEN3', 'LEMMA3'), ('TOKEN4', 'LEMMA4')], ... ]` for lemmatization. The lemmatizer returns the the lemma that has the highest frequency based on the provided context (i.e. unigram, bigram, etc.). So, for example, with unigram context and the token 'est', if the tuple ('est', 'sum') appears in the training sents 99 times and ('est', 'comedo') appears 1 time, the lemmatizer would return the lemma 'sum'. The ContextLemmatizer and its subclasses can take a 'backoff' parameter. (There is a model available in CLTK Data that can be used for this purpose with slight modification: `~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff/latin_pos_lemmatized_sents.pickle`. This model has the form `[[('TOKEN1', 'LEMMA1', 'POS1'), ('TOKEN2', 'LEMMA2', 'POS2')], ... ]`. A list comprehension can get you the model you need for the ContextLemmatizer, e.g. `[[(item[0], item[1]) for item in sent] for sent in train_data]`)
 
-There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer:
+There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer():
 
 .. code-block:: python
     
@@ -249,7 +249,8 @@ There are subclasses included in the backoff lemmatizer for unigram and bigram c
    
    Out[21]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
     
-NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer, and ContextPOSLemmatizer.
+NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer(), and ContextPOSLemmatizer().
+
 
 Line Tokenization
 =====================
