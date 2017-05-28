@@ -53,7 +53,7 @@ class TLGU(object):
         if not os.path.isfile(path):
             try:
                 corpus_importer = CorpusImporter('greek')
-                corpus_importer.import_corpus('tlgu')
+                corpus_importer.import_corpus('greek_software_tlgu')
             except Exception as exc:
                 logger.error('Failed to import TLGU: %s', exc)
                 raise
