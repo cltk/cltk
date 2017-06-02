@@ -71,12 +71,15 @@ class TLGU(object):
                 tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
                 if not self.testing:
-                    print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
+                    print('Do you want to install TLGU?')
+                    print('To continue, press Return. To exit, Control-C.')
                     input()
                 else:
                     print('Automated or test build, skipping keyboard input confirmation for installation of TLGU.')
                 try:
-                    p_out = subprocess.call('cd {0} && make install'.format(tlgu_path), shell=True)
+                    command = 'cd {0} && make install'.format(tlgu_path)
+                    print('Going to run command:', command)
+                    p_out = subprocess.call(command, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
@@ -85,10 +88,15 @@ class TLGU(object):
                     logger.error('TLGU install failed: %s', exc)
                 else:  # for Linux needing root access to '/usr/local/bin'
                     if not self.testing:
-                        print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
+                        print('Could not install without root access. Do you want to install TLGU with sudo?')
+                        command = 'cd {0} && sudo make install'.format(tlgu_path)
+                        print('Going to run command:', command)
+                        print('To continue, press Return. To exit, Control-C.')
                         input()
+                        p_out = subprocess.call(command, shell=True)
                     else:
-                        p_out = subprocess.call('cd {0} && sudo make install'.format(tlgu_path), shell=True)
+                        command = 'cd {0} && sudo make install'.format(tlgu_path)
+                        p_out = subprocess.call(command, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:

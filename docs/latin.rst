@@ -64,7 +64,7 @@ Most users will want to do a bulk conversion of the entirety of a corpus without
 
    In [2]: t = TLGU()
 
-   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/ #! This isn't working!
+   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/phi5/plaintext/
 
 
 You can also divide the texts into a file for each individual work.
@@ -73,6 +73,10 @@ You can also divide the texts into a file for each individual work.
 
    In [4]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
 
+
+Once these files are created, see `PHI Indices <http://docs.cltk.org/en/latest/latin.html#phi-indices>`_ below for accessing these newly created files.
+
+See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>` for removing extraneous non-textual characters from these files.
 
 
 Information Retrieval
@@ -168,7 +172,7 @@ These two arguments can be combined, as well.
 
 
 Lemmatization, backoff method
-=============
+=============================
 
 The CLTK offers a series of lemmatizers that can be combined in a backoff sequence, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
 
@@ -253,7 +257,7 @@ NB: Documentation is still be written for the remaining backoff lemmatizers, i.e
 
 
 Line Tokenization
-=====================
+=================
 The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
 
 .. code-block:: python
