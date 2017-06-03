@@ -2,7 +2,7 @@
 
 from cltk.corpus.punjabi.alphabet import DIGITS
 
-__author__ = 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'
+__author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 def punToEnglish_number(number):

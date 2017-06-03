@@ -1,6 +1,6 @@
 """Tokenize sentences."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

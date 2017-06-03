@@ -21,7 +21,7 @@ except ImportError as imp_err:
     raise ImportError
 
 
-__author__ = 'Luke Hollis <lukehollis@gmail.com>'
+__author__ = ['Luke Hollis <lukehollis@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
