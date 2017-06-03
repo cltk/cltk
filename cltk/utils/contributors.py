@@ -14,22 +14,25 @@ __license__ = 'MIT License. See LICENSE.'
 
 def get_authors(filepath):
     """Open file and check for author info."""
-    comp_str = re.compile(r'(__author__ = \[)(.*)(\])')
+    comp_str = re.compile(r'(__author__ = \[)(.*)(\])', re.DOTALL) #! get this right
     with open(filepath) as file_open:
         file_read = file_open.read()
     match = comp_str.findall(file_read)
 
     if len(match) > 0 and len(match[0]) == 3:
-        inner_str = match[0][1]
-        if not inner_str.startswith('"') or not inner_str.startswith("'"):
-            inner_cast = ast.literal_eval(inner_str)
-            if type(inner_cast) == str:
-                inner_list = [inner_cast]
-            elif type(inner_cast) == tuple:
-                inner_list = list(inner_cast)
-            else:
-                raise ValueError
-            return inner_list
+        print(match[0])
+    else:
+        print('?')
+    #     inner_str = match[0][1]
+        # if not inner_str.startswith('"') or not inner_str.startswith("'"):
+        #     inner_cast = ast.literal_eval(inner_str)
+        #     if type(inner_cast) == str:
+        #         inner_list = [inner_cast]
+        #     elif type(inner_cast) == tuple:
+        #         inner_list = list(inner_cast)
+        #     else:
+        #         raise ValueError
+        #     return inner_list
 
 
 def scantree(path):
@@ -78,3 +81,4 @@ def find_write_contribs():
 
 if __name__ == "__main__":
     find_write_contribs()
+    # print(get_authors('cltk/corpus/utils/importer.py'))
