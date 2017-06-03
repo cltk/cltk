@@ -1,9 +1,11 @@
-"""
-   Arabic alphabet
-   source 1 : pyarabic 'https://github.com/linuxscout/pyarabic'
-   source 2 : arabicstemmer 'https://github.com/assem-ch/arabicstemmer/blob/master/algorithm/stemmer.sbl'
+"""Arabic alphabet
+source 1 : pyarabic 'https://github.com/linuxscout/pyarabic'
+source 2 : arabicstemmer 'https://github.com/assem-ch/arabicstemmer/blob/master/algorithm/stemmer.sbl'
 """
 __author__ = 'Lakhdar Benzahia <lakhdar[.]benzahia[at]gmail[.]com>'
+
+#Arabic digits from 0 to 9
+DIGITS = ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹']
 
 # Arabic letters
 
@@ -251,7 +253,9 @@ STAR = u'\u066d'
 FULL_STOP = u'\u06d4'
 BYTE_ORDER_MARK = u'\ufeff'
 
-#Diacritics
+# Diacritics
+SHORT_VOWELS = ['َ', 'ِ', 'ُ']
+
 FATHATAN = u'\u064b'
 DAMMATAN = u'\u064c'
 KASRATAN = u'\u064d'
@@ -460,6 +464,11 @@ SHAPED_FORMS = {
 
 PUNCTUATION_MARKS = [COMMA, SEMICOLON, QUESTION]
 
+# The Persian Alphabet
+LONG_VOWELS = ['ا', 'و', 'ي']
+CONSONANTS = ['ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک', 'ل', 'م', 'ن', 'ه']
+# Special Characters
+SPECIAL = ['‎ّ', 'ﻻ']
 
 WESTERN_ARABIC_NUMERALS = ['0','1','2','3','4','5','6','7','8','9']
 
