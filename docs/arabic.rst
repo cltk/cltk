@@ -119,6 +119,7 @@ The digits are placed in a list ``DIGITS`` with the digit the same as the list i
    Out[2]: '٤'
 
 Arabic has three ``SHORT_VOWELS`` that are essentially diacritics used in the script. It also has three LONG_VOWELS that are actually part of the alphabet. The corresponding lists can be imported:
+
 .. code-block:: python
    In [1]: from cltk.corpus.arabic.alphabet import SHORT_VOWELS
    In [2]: SHORT_VOWELS
@@ -135,3 +136,4 @@ There are two ``SPECIAL`` characters. The first one is called "shaddah", and it 
    In [1]: from cltk.corpus.arabic.alphabet import SPECIAL
    In [2]: SPECIAL
    Out[2]: ['‎ّ', 'ﻻ']
+
