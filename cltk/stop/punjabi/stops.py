@@ -6,7 +6,7 @@ by Mr. Sahib Singh
 '''
 
 
-__author__ = 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'
+__author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>']
 __license__ = 'MIT License'
 
 STOPS_LIST =[

@@ -17,7 +17,7 @@ import importlib.machinery
 from cltk.tag.pos import POSTag
 from cltk.utils.cltk_logger import logger
 
-__author__ = 'Tyler Kirby <tyler.kirby9398@gmail.com>'
+__author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

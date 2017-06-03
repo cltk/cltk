@@ -7,7 +7,7 @@ import re
 
 # -----------------------------------------------------------
 
-__author__ = "Doğu Kaan Eraslan, <kaaneraslan@gmail.com>"
+__author__ = ["Doğu Kaan Eraslan <kaaneraslan@gmail.com>"]
 
 __license__ = "MIT License. See LICENSE."
 

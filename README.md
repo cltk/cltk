@@ -1,6 +1,6 @@
 # The Classical Language Toolkit
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.60021.svg)](http://dx.doi.org/10.5281/zenodo.60021)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.583327.svg)](https://doi.org/10.5281/zenodo.583327)
 
 [![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master)
 
@@ -63,11 +63,11 @@ year = {2014--2017},
 [Many contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. For scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
 
 
-# Gratitude
+## Gratitude
 
 We are thankful for the following organizations that have offered support:
 
-* Google Summer of Code (sponsoring two students, 2017)
+* Google Summer of Code (sponsoring two students, 2016 & 2017)
 * JetBrains (licenses for PyCharm and WebStorm)
 * Google Cloud Platform (with credits for the Classical Language Archive and API)
 
