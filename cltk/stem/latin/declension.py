@@ -5,9 +5,9 @@ This module hence inherit the license from the original project. The objective o
 
 """
 
-__author__ = "Thibault Clerice"
-__license__ = "GNU GENERAL PUBLIC LICENSE, 2007"
-__credits__ = ["Thibault Clerice", "Yves Ouvrard", "Philippe Verkerk"]
+__author__ = ["Thibault Clerice"]
+# credits also to "Yves Ouvrard" and "Philippe Verkerk"
+__license__ = "GPL v3"
 
 
 import os

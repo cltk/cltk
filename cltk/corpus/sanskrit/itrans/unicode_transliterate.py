@@ -1,4 +1,4 @@
-__author__ = ["Nurendra Choudhary <nurendrachoudhary31@gmail.com>","Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>"]
+__author__ = ["Nurendra Choudhary <nurendrachoudhary31@gmail.com>", "Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>"]
 __license__ = "GPLv3"
 # Indic NLP Library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

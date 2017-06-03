@@ -64,7 +64,7 @@ Most users will want to do a bulk conversion of the entirety of a corpus without
 
    In [2]: t = TLGU()
 
-   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/ #! This isn't working!
+   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/phi5/plaintext/
 
 
 You can also divide the texts into a file for each individual work.
@@ -73,6 +73,10 @@ You can also divide the texts into a file for each individual work.
 
    In [4]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
 
+
+Once these files are created, see `PHI Indices <http://docs.cltk.org/en/latest/latin.html#phi-indices>`_ below for accessing these newly created files.
+
+See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>` for removing extraneous non-textual characters from these files.
 
 
 Information Retrieval
@@ -168,16 +172,15 @@ These two arguments can be combined, as well.
 
 
 Lemmatization, backoff method
-=============
+=============================
 
 The CLTK offers a series of lemmatizers that can be combined in a backoff sequence, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
 
-There is a generic version of the backoff latin lemmatizer which requires data from the CLTK latin models data found here: <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+There is a generic version of the backoff latin lemmatizer which requires data from `the CLTK latin models data found here <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>`_. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
 
 The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
 
 .. code-block:: python
-
 
    In [1]: from cltk.lemmatize.latin.backoff import DefaultLemmatizer
 
@@ -209,8 +212,75 @@ The backoff module also offers IdentityLemmatizer which returns the given token 
 
    Out[9]: [('Quo', 'Quo'), ('usque', 'usque'), ('tandem', 'tandem'), ('abutere', 'abutere'), (',', ','), ('Catilina', 'Catilina'), (',', ','), ('patientia', 'patientia'), ('nostra', 'nostra'), ('?', '?')]
 
-NB: Documentation is still be written for the remaining backoff lemmatizers, i.e. TrainLemmatizer, ContextLemmatizer, RegexpLemmatizer, and ContextPOSLemmatizer.
+With the TrainLemmatizer, the backoff module allows you to provide a dictionary of the form {'TOKEN1': 'LEMMA1', 'TOKEN2': 'LEMMA2'} for lemmatization.
 
+.. code-block:: python
+   
+   In [10]: tokens = ['arma', 'uirum', '-que', 'cano', ',', 'troiae', 'qui', 'primus', 'ab', 'oris']
+
+   In [11]: dict = {'arma': 'arma', 'uirum': 'uir', 'troiae': 'troia', 'oris': 'ora'}
+
+   In [12]: from cltk.lemmatize.latin.backoff import TrainLemmatizer
+
+   In [13]: lemmatizer = TrainLemmatizer(dict)
+   
+   In [14]: lemmatizer.lemmatize(tokens)
+   Out[14]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', None), ('cano', None), (',', None), ('troiae', 'troia'), ('qui', None), ('primus', None), ('ab', None), ('oris', 'ora')]
+
+The TrainLemmatizer—like all of the lemmatizers in this module—can take a second lemmatizer (or backoff lemmatizer) for any of the tokens that return 'None'. This is done with a 'backoff' parameter:
+
+.. code-block:: python
+
+   In [15]: default = DefaultLemmatizer('UNK')
+   
+   In [16]: lemmatizer = TrainLemmatizer(dict, backoff=default)
+
+   In [17]: lemmatizer.lemmatize(tokens)
+   Out[17]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', 'UNK'), ('cano', 'UNK'), (',', 'UNK'), ('troiae', 'troia'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'ora')]
+
+With the ContextLemmatizer, the backoff module allows you to provide a list of lists of sentences of the form `[[('TOKEN1', 'LEMMA1'), ('TOKEN2', 'LEMMA2')], [('TOKEN3', 'LEMMA3'), ('TOKEN4', 'LEMMA4')], ... ]` for lemmatization. The lemmatizer returns the the lemma that has the highest frequency based on the provided context (i.e. unigram, bigram, etc.). So, for example, with unigram context and the token 'est', if the tuple ('est', 'sum') appears in the training sents 99 times and ('est', 'comedo') appears 1 time, the lemmatizer would return the lemma 'sum'. The ContextLemmatizer and its subclasses can take a 'backoff' parameter. (There is a model available in CLTK Data that can be used for this purpose with slight modification: `~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff/latin_pos_lemmatized_sents.pickle`. This model has the form `[[('TOKEN1', 'LEMMA1', 'POS1'), ('TOKEN2', 'LEMMA2', 'POS2')], ... ]`. A list comprehension can get you the model you need for the ContextLemmatizer, e.g. `[[(item[0], item[1]) for item in sent] for sent in train_data]`)
+
+There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer():
+
+.. code-block:: python
+    
+   In [18]: train_data = [[('cum', 'cum2'), ('esset', 'sum'), ('caesar', 'caesar'), ('in', 'in'), ('citeriore', 'citer'), ('gallia', 'gallia'), ('in', 'in'), ('hibernis', 'hibernus'), (',', 'punc'), ('ita', 'ita'), ('uti', 'ut'), ('supra', 'supra'), ('demonstrauimus', 'demonstro'), (',', 'punc'), ('crebri', 'creber'), ('ad', 'ad'), ('eum', 'is'), ('rumores', 'rumor'), ('adferebantur', 'affero'), ('litteris', 'littera'), ('-que', '-que'), ('item', 'item'), ('labieni', 'labienus'), ('certior', 'certus'), ('fiebat', 'fio'), ('omnes', 'omnis'), ('belgas', 'belgae'), (',', 'punc'), ('quam', 'qui'), ('tertiam', 'tertius'), ('esse', 'sum'), ('galliae', 'gallia'), ('partem', 'pars'), ('dixeramus', 'dico'), (',', 'punc'), ('contra', 'contra'), ('populum', 'populus'), ('romanum', 'romanus'), ('coniurare', 'coniuro'), ('obsides', 'obses'), ('-que', '-que'), ('inter', 'inter'), ('se', 'sui'), ('dare', 'do'), ('.', 'punc')], [('coniurandi', 'coniuro'), ('has', 'hic'), ('esse', 'sum'), ('causas', 'causa'), ('primum', 'primus'), ('quod', 'quod'), ('uererentur', 'uereor'), ('ne', 'ne'), (',', 'punc'), ('omni', 'omnis'), ('pacata', 'paco'), ('gallia', 'gallia'), (',', 'punc'), ('ad', 'ad'), ('eos', 'is'), ('exercitus', 'exercitus'), ('noster', 'noster'), ('adduceretur', 'adduco'), (';', 'punc')]]
+   
+   In [19]: default = DefaultLemmatizer('UNK')
+    
+   In [20]: lemmatizer = UnigramLemmatizer(train_sents, backoff=default)
+   In [21]: lemmatizer.lemmatize(tokens)
+   
+   Out[21]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
+    
+NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer(), and ContextPOSLemmatizer().
+
+
+Line Tokenization
+=================
+The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.line import LineTokenizer
+
+   In [2]: tokenizer = LineTokenizer('latin')
+
+   In [3]: untokenized_text = """49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+
+   In [4]: tokenizer.tokenize(untokenized_text)
+   
+   Out[4]: ['49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+
+The line tokenizer by default removes multiple line breaks. If you wish to retain blank lines in the returned list, set the ``include_blanks`` to ``True``.
+
+.. code-block:: python
+
+   In [5]: untokenized_text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+
+   In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
+   
+   Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 Macronizer
 ==========
