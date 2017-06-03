@@ -5,8 +5,7 @@ import pickle
 
 from cltk.utils.cltk_logger import logger
 
-__author__ = ['Andreas Grivas <andreasgrv@gmail.com>',
-              'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__author__ = ['Andreas Grivas <andreasgrv@gmail.com>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

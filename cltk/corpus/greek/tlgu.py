@@ -6,8 +6,7 @@ TODO: the arguments to ``convert_corpus()`` need some rationalization, and
 ``divide_works()`` should be incorporated into it.
 """
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.utils.cltk_logger import logger
