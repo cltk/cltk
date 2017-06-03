@@ -83,4 +83,3 @@ def find_write_contribs():
 
 if __name__ == "__main__":
     find_write_contribs()
-    # print(get_authors('cltk/corpus/utils/importer.py'))
