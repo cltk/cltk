@@ -22,7 +22,7 @@ Use ``CorpusImporter()``.
 Alphabet
 ========
 
-The Arabic alphabet are placed in `cltk/corpus/arabic/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/arabic/alphabet.py>`_.
+The Arabic alphabet and digits are placed in `cltk/corpus/arabic/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/arabic/alphabet.py>`_.
 
 .. code-block:: python
 
