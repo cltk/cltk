@@ -2,14 +2,14 @@
 
 ARABIC_CORPORA = [
     {'name': 'arabic_text_perseus',
-     'markup':'xml',
+     'markup': 'xml',
      'origin': 'https://github.com/LBenzahia/arabic_text_perseus',
      'location': 'remote',
      'type': 'text',
      'RomanizationType': 'Buckwalter',
      },
      {'name': 'quranic-corpus',
-      'markup':'xml',
+      'markup': 'xml',
       'origin': 'https://github.com/LBenzahia/quranic-corpus',
       'location': 'remote',
       'type': 'text',
