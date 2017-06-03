@@ -1,23 +1,13 @@
-"""
-Offer tools for working with Levenshtein distance algorithm and distance ratio between strings.
-
-Requirements:
-fuzzywuzzy
-
-Good-to-haves:
-python-Levenshtein
-
+"""Tools for working with Levenshtein distance algorithm and distance ratio between strings.
 """
 
-import re, string
-import unicodedata
-from cltk.tokenize.sentence import TokenizeSentence
 from cltk.utils.cltk_logger import logger
-
 try:
     from fuzzywuzzy import fuzz
 except ImportError as imp_err:
-    logger.error("'fuzzywuzzy' library required for this module: %s" % imp_err)
+    message = "'fuzzywuzzy' library required for this module: %s. Install with `pip install fuzzywuzzy python-Levenshtein`" % imp_err
+    logger.error(message)
+    print(message)
     raise ImportError
 
 
