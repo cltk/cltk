@@ -16,6 +16,7 @@ Contents
    installation
    importing_corpora
    akkadian
+   arabic
    bengali
    chinese
    coptic
