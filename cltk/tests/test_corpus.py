@@ -28,6 +28,7 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
+from cltk.corpus.utils.formatter import remove_non_latin
 from cltk.corpus.utils.formatter import tonos_oxia_converter
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
@@ -233,6 +234,22 @@ argenteo polubro, aureo eclutro. """
         ascii_str = remove_non_ascii(non_ascii_str)
         valid = 'Ascii and some non-ascii:     '
         self.assertEqual(ascii_str, valid)
+
+    def test_remove_non_latin(self):
+        """Test removing all non-Latin characters from a string."""
+        latin_str = '(1) Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'  # pylint: disable=line-too-long
+        non_latin_str = remove_non_latin(latin_str)
+        valid = ' Dices   pulchrum esse inimicos ulcisci'
+        self.assertEqual(non_latin_str, valid)
+
+    def test_remove_non_latin_opt(self):
+        """Test removing all non-Latin characters from a string, with
+        `also_keep` parameter.
+        """
+        latin_str = '(1) Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'  # pylint: disable=line-too-long
+        non_latin_str = remove_non_latin(latin_str, also_keep=['.', ','])
+        valid = ' Dices   pulchrum esse inimicos ulcisci.'
+        self.assertEqual(non_latin_str, valid)
 
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""

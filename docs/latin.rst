@@ -621,7 +621,7 @@ Intended for use on the TLG after processing by ``TLGU()``.
    Out[7]: ' Dices pulchrum esse inimicos ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur sed si liceat re publica salua ea persequi. sed quatenus id fieri non potest multo tempore multisque partibus inimici nostri non peribunt atque uti nunc sunt erunt potius quam res publica profligetur atque pereat. Verbis conceptis deierare ausim praeterquam qui Tiberium Gracchum necarunt neminem inimicum tantum molestiae tantumque laboris quantum te ob has res mihi tradidisse quem oportebat omni'
 
 
-If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` might be of use.
+If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` and ``remove_non_latin()`` might be of use.
 
 .. code-block:: python
 
@@ -632,6 +632,13 @@ If you have a text of a language in Latin characters which contain a lot of junk
    In [3]: remove_non_ascii(text)
    Out[3]: 'Dices   pulchrum esse inimicos ulcisci.
 
+   In [4]: from cltk.corpus.utils.formatter import remove_non_latin
+
+   In [5]: remove_non_latin(text)
+   Out[5]: ' Dices   pulchrum esse inimicos ulcisci'
+
+   In [6]: remove_non_latin(text, also_keep=['.', ','])
+   Out[6]: ' Dices   pulchrum esse inimicos ulcisci.'
 
 
 Transliteration
