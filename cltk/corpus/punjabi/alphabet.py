@@ -1,47 +1,51 @@
-"""Data module for the Punjabi languages alphabet and related characters."""
+"""Data module for the Punjabi languages alphabet and related characters.
+
+There are two scripts used in Punjabi: Gurmukhi (having its origins in the Brahmi) and Shahmukhi (which a Perso-Arabic script).
+"""
 
 __author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>', 'Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk']
 __license__ = 'MIT License. See LICENSE.'
 
-#The Functions Needed for making the data of alphabets is here
 
-#The Digits are given under, the given list starts from 0 to 9, that is
-#the index of the list tell the digit in punjabi
+# 0 through 9
+DIGITS_GURMUKHI = ['੦', '੧', '੨', '੩', '੪', '੫', '੬', '੭', '੮', '੯']
+DIGITS_SHAHMUKHI = ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹']
 
-DIGITS = ['੦', '੧', '੨', '੩', '੪', '੫', '੬', '੭', '੮', '੯']
+# independent vowels
+# These are the base of the dependent vowels
+# They give the sounds: aaa, e, ee, u, uuu, ea, eaa, o, ou
+INDEPENDENT_VOWELS_GURMUKHI = ['ਆ', 'ਇ', 'ਈ', 'ਉ', 'ਊ', 'ਏ', 'ਐ', 'ਓ', 'ਔ']
+INDEPENDENT_VOWELS_SHAHMUKHI = ['ا', 'و', 'ی', 'ے']
 
-#Below are the independent vowels of the punjabi language.
-#They give the sound aaa, e, ee, u, uuu, ea, eaa, o, ou
-#These vowels are the base of the dependent vowels
-INDEPENDENT_VOWELS = ['ਆ', 'ਇ', 'ਈ', 'ਉ', 'ਊ', 'ਏ', 'ਐ', 'ਓ', 'ਔ']
+# dependent vowels
+# these are added after or on the consonants
+DEPENDENT_VOWELS_GURMUKHI = ['ਾ', 'ਿ', 'ੀ', 'ੁ', 'ੂ', 'ੇ', 'ੈ', 'ੋ', 'ੌ']
+# In the shahmukhi script, the following dependent vowels perform the action of diacritics
+DEPENDENT_VOWELS_SHAHMUKHI = ['َ', 'ِ', 'ُ']
 
-#The given are the dependent vowels, these are added after or on the consonants
+# consonants
+# except first 3 consonants in first row, all other are used in normal writing
+CONSONANTS_GURMUKHI = ['ੳ', 'ਅ', 'ੲ', 'ਸ', 'ਹ',
+                        'ਕ', 'ਖ', 'ਗ', 'ਘ', 'ਙ',
+                        'ਚ', 'ਛ', 'ਜ', 'ਝ', 'ਞ',
+                        'ਟ', 'ਠ', 'ਡ', 'ਢ', 'ਣ',
+                        'ਤ', 'ਥ', 'ਦ', 'ਧ', 'ਨ',
+                        'ਪ', 'ਫ', 'ਬ', 'ਭ', 'ਮ',
+                        'ਯ', 'ਰ', 'ਲ', 'ਵ', 'ੜ']
+CONSONANTS_SHAHMUKHI = ['ء', 'ب', 'پ', 'ت', 'ٹ',
+                        'ث', 'ج', 'چ', 'ح', 'خ',
+                        'د', 'ڈ', 'ذ', 'ر', 'ڑ',
+                        'ز', 'ژ', 'س', 'ش', 'ص',
+                        'ض', 'ط', 'ظ', 'ع', 'غ',
+                        'ف', 'ق', 'ک', 'گ', 'ل',
+                        'م', 'ن', 'ه', 'ھ']
 
-DEPENDENT_VOWELS = ['ਾ', 'ਿ', 'ੀ', 'ੁ', 'ੂ', 'ੇ', 'ੈ', 'ੋ', 'ੌ']
+# consonants
+# As shown under only a dot is added to some of the consonants, this dot is
+# known as the bindi in hindi or punjabi, they change the sound of the
+# consonant like , ਜ is for 'j' sound, while ਜ਼ is for 'z' sound
+BINDI_CONSONANTS_GURMUKHI = ['ਖ਼', 'ਗ਼', 'ਜ਼', 'ਫ਼', 'ਲ਼', 'ਸ਼']
 
-
-#Below are the consonants of the punjabi language.
-#except first 3 consonants in first row, all other are used in normal writting
-
-CONSONANTS = ['ੳ', 'ਅ', 'ੲ', 'ਸ', 'ਹ',\
-              'ਕ', 'ਖ', 'ਗ', 'ਘ', 'ਙ',\
-              'ਚ', 'ਛ', 'ਜ', 'ਝ', 'ਞ',\
-              'ਟ', 'ਠ', 'ਡ', 'ਢ', 'ਣ',\
-              'ਤ', 'ਥ', 'ਦ', 'ਧ', 'ਨ',\
-              'ਪ', 'ਫ', 'ਬ', 'ਭ', 'ਮ',\
-              'ਯ', 'ਰ', 'ਲ', 'ਵ', 'ੜ']
-#As shown under only a dot is added to some of the consonants, this dot is
-#known as the bindi in hindi or punjabi, they change the sound of the
-#consonant like , ਜ is for 'j' sound, while ਜ਼ is for 'z' sound
-BINDI_CONSONANTS = ['ਖ਼', 'ਗ਼', 'ਜ਼', 'ਫ਼', 'ਲ਼', 'ਸ਼']
-
-#Here are some other symbols that are used in punjabi
-
-OTHER_SYMBOLS = ['ੱ', 'ਂ', 'ਃ', 'ੰ', 'ੑ', 'ੴ', 'ਁ']
-#Now here is the explanation of these symbols, symbol at index 0 is addak, it halfens the
-#sound, at 2 is bindi on the alphabet, it gives a nasal sound, then symbol at
-#index 4 gives a ha sound, then at index 4 is tippi does almost same function as bindi above
-#, then is halant cuts the natural vowel sound, then is Ek Omkar, meaning God is One.
-
-
-#Here is a note that all the alphabets can be made by adding the consonant with the dependent vowel sound or with some other symbols
+# other symbols
+OTHER_SYMBOLS_GURMUKHI = ['ੱ', 'ਂ', 'ਃ', 'ੰ', 'ੑ', 'ੴ', 'ਁ']
+OTHER_SYMBOLS_SHAHMUKHI = ['ﺁ', 'ۀ', 'ﻻ']
