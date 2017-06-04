@@ -1,5 +1,7 @@
 """Arabic corpora available for download."""
 
+__author__ = 'Lakhdar Benzahia <lakhdar[.]benzahia[at]gmail[.]com>'
+
 ARABIC_CORPORA = [
     {'name': 'arabic_text_perseus',
      'markup':'xml',
