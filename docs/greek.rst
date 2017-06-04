@@ -1,6 +1,9 @@
 Greek
 *****
-For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
+Greek is an independent branch of the Indo-European family of languages, native to Greece and other parts of the Eastern Mediterranean. It has the longest documented history of any living language, spanning 34 centuries of written records. Its writing system has been the Greek alphabet for the major part of its history; other systems, such as Linear B and the Cypriot syllabary, were used previously. The alphabet arose from the Phoenician script and was in turn the basis of the Latin, Cyrillic, Armenian, Coptic, Gothic and many other writing systems. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Greek_language>`_)
+
+
+.. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
 Accentuation
@@ -308,6 +311,10 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 Concerning text normalization: Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some helpful code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
+
+Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
+
+See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
 
 
 

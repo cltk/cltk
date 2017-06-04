@@ -3,7 +3,7 @@
 import re
 import string
 
-__author__ = 'Anoop Kunchukuttan'
+__author__ = ['Anoop Kunchukuttan']
 __copyright = 'GPL'
 
 modified_punctuations = string.punctuation.replace("|","") # The replace , deletes the ' | ' from the punctuation string provided by the library

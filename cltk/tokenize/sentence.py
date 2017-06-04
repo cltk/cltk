@@ -1,6 +1,6 @@
 """Tokenize sentences."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -15,7 +15,7 @@ PUNCTUATION = {'greek':
                     'internal': (',', '·'),
                     'file': 'greek.pickle', },
                'latin':
-                   {'external': ('.', '?', ':'),
+                   {'external': ('.', '?', '!', ':'),
                     'internal': (',', ';'),
                     'file': 'latin.pickle', }}
 

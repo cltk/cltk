@@ -1,8 +1,8 @@
 """This module contains functions pertaining to numbers in Punjabi."""
 
-from cltk.corpus.punjabi.alphabet import DIGITS
+from cltk.corpus.punjabi.alphabet import DIGITS_GURMUKHI as DIGITS
 
-__author__ = 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'
+__author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 def punToEnglish_number(number):

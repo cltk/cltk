@@ -63,15 +63,15 @@ into the ``~/cltk_data/`` directory by declaring it in a manually created YAML f
 .. code-block:: python
 
    example_distributed_latin_corpus:
-       origin: git@github.com:kylepjohnson/latin_corpus_newton_example.git
+       origin: https://github.com/kylepjohnson/latin_corpus_newton_example.git
        language: latin
        type: text
 
    example_distributed_greek_corpus:
-       origin: git@github.com:kylepjohnson/a_nonexistent_repo.git
+       origin: https://github.com/kylepjohnson/a_nonexistent_repo.git
        language: pali
        type: treebank
 
 Each block defines a separate corpus. The first line of a block (e.g., ``example_distributed_latin_corpus``) \
-gives the unique name to the custom corpus, however it is not used elsewhere. This first example block would allow \
+gives the unique name to the custom corpus. This first example block would allow \
 a user to fetch the repo and install it at ``~/cltk_data/latin/text/latin_corpus_newton_example``.

@@ -21,7 +21,7 @@ except ImportError as import_error:
     logger.error(import_error)
     raise
 
-__author__ = 'Jack Duff <jmunroeduff@gmail.com>'
+__author__ = ['Jack Duff <jmunroeduff@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

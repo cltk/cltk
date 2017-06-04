@@ -8,7 +8,7 @@ clausulae. Because of the heavy Greek influence on Cicero's rhythms, however, th
 on the prosody of Greek prose as well.
 """
 
-__author__ = 'Tyler Kirby <tyler.kirby9398@gmail.com>'
+__author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>']
 __license__ = 'MIT License. See LICENSE'
 
 

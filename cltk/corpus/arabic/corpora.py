@@ -1,0 +1,25 @@
+"""Arabic corpora available for download."""
+
+ARABIC_CORPORA = [
+    {'name': 'arabic_text_perseus',
+     'markup': 'xml',
+     'origin': 'https://github.com/LBenzahia/arabic_text_perseus',
+     'location': 'remote',
+     'type': 'text',
+     'RomanizationType': 'Buckwalter',
+     },
+     {'name': 'quranic-corpus',
+      'markup': 'xml',
+      'origin': 'https://github.com/LBenzahia/quranic-corpus',
+      'location': 'remote',
+      'type': 'text',
+      'RomanizationType': 'none',
+      },
+      {'name': 'quranic-corpus-morphology',
+       'origin': 'https://github.com/LBenzahia/quranic-corpus-morphology',
+       'location': 'remote',
+       'type': 'text',
+       'RomanizationType': 'Buckwalter',
+       'script': 'Uthmani',
+       },
+]

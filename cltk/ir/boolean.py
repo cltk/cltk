@@ -15,7 +15,7 @@ from cltk.corpus.latin.phi5_index import PHI5_INDEX as PHI5_AUTHOR_MAP
 from cltk.utils.cltk_logger import logger
 
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

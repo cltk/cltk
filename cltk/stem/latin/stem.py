@@ -5,7 +5,7 @@ algorithm (Schinke R, Greengrass M, Robertson AM and Willett P. (1996). 'A
 TODO: Make this stemmer like lemma, with import from ``stem`` dir.
 """
 
-__author__ = 'Luke Hollis <lukehollis@gmail.com>'
+__author__ = ['Luke Hollis <lukehollis@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import re

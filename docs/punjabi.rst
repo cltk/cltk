@@ -1,6 +1,9 @@
 Punjabi
 *******
 
+Punjabi is an Indo-Aryan language native language of the Punjabi people who inhabit the historical Punjab region of Pakistan and India. Punjabi developed from Sanskrit through Prakrit language and later Apabhraṃśa. Punjabi emerged as an Apabhramsha, a degenerated form of Prakrit, in the 7th century A.D. and became stable by the 10th century. By the 10th century, many Nath poets were associated with earlier Punjabi works. Arabic and Persian influence in the historical Punjab region began with the late first millennium Muslim conquests on the Indian subcontinent. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Punjabi_language>`_)
+
+
 Corpora
 =======
 
@@ -16,21 +19,28 @@ Use ``CorpusImporter`` or browse the `CLTK Github repository <http://github.com/
 
 Now from the list of available corpora import any one you like.
 
+
 Alphabet
 =========
 
-The Punjabi digits, vowels, consonants, and symbols are placed in `cltk/corpus/punjabi/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/punjabi/alphabet.py>`_. It is fully commented, so look there for more information about the language's phonology.
+Punjabi is written in two sripts: Gurumukhi and Shahmukhi. Gurmukhi has its origins in Brahmi and Shahmukhi is a Perso-Arabic script.
 
-To use Punjabi's independent vowels, for example:
+The Punjabi digits, vowels, consonants, and symbols for both are placed in `cltk/corpus/punjabi/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/punjabi/alphabet.py>`_. Look there for more information about the language's phonology.
+
+For example, to use Punjabi's independent vowels in each script:
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.punjabi.alphabet import INDEPENDENT_VOWELS
+   In [1]: from cltk.corpus.punjabi.alphabet import INDEPENDENT_VOWELS_GURMUKHI
 
-   In [2]: print(INDEPENDENT_VOWELS)
-   Out[2]: ['ਆ', 'ਇ', 'ਈ', 'ਉ', 'ਊ', 'ਏ', 'ਐ', 'ਓ', 'ਔ']
+   In [2]: from cltk.corpus.punjabi.alphabet import INDEPENDENT_VOWELS_SHAHMUKHI
 
-These are the INDEPENDENT_VOWELS, they don't need any other consonant to be printed, they are printed as just they are, they represent the sounds "aa", "i", "iii", "u", "uuu", "a", "oo", "o" and "ou", respectively.
+   In [3]: INDEPENDENT_VOWELS_GURMUKHI
+   Out[3]: ['ਆ', 'ਇ', 'ਈ', 'ਉ', 'ਊ', 'ਏ', 'ਐ', 'ਓ', 'ਔ']
+
+   In [4]: INDEPENDENT_VOWELS_SHAHMUKHI
+   Out[4]: ['ا', 'و', 'ی', 'ے']
+
 
 Similarly there are lists for ``DIGITS``, ``DEPENDENT_VOWELS``, ``CONSONANTS``, ``BINDI_CONSONANTS`` (nasal pronunciation) and some ``OTHER_SYMBOLS`` (mostly for pronunciation).
 
