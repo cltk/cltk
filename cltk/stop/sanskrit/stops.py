@@ -3,7 +3,7 @@
 Further explanations at: https://gist.github.com/Akhilesh28/b012159a10a642ed5c34e551db76f236
 """
 
-__author__ = 'Akhilesh S. Chobey <akhileshchobey03@gmail.com>'
+__author__ = ['Akhilesh S. Chobey <akhileshchobey03@gmail.com>']
 
 STOPS_LIST = ['अहम्',
               'आवाम्',

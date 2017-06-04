@@ -6,8 +6,7 @@ TODO: the arguments to ``convert_corpus()`` need some rationalization, and
 ``divide_works()`` should be incorporated into it.
 """
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.utils.cltk_logger import logger
@@ -53,7 +52,7 @@ class TLGU(object):
         if not os.path.isfile(path):
             try:
                 corpus_importer = CorpusImporter('greek')
-                corpus_importer.import_corpus('tlgu')
+                corpus_importer.import_corpus('greek_software_tlgu')
             except Exception as exc:
                 logger.error('Failed to import TLGU: %s', exc)
                 raise
@@ -71,12 +70,15 @@ class TLGU(object):
                 tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
                 if not self.testing:
-                    print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
+                    print('Do you want to install TLGU?')
+                    print('To continue, press Return. To exit, Control-C.')
                     input()
                 else:
                     print('Automated or test build, skipping keyboard input confirmation for installation of TLGU.')
                 try:
-                    p_out = subprocess.call('cd {0} && make install'.format(tlgu_path), shell=True)
+                    command = 'cd {0} && make install'.format(tlgu_path)
+                    print('Going to run command:', command)
+                    p_out = subprocess.call(command, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:
@@ -85,10 +87,15 @@ class TLGU(object):
                     logger.error('TLGU install failed: %s', exc)
                 else:  # for Linux needing root access to '/usr/local/bin'
                     if not self.testing:
-                        print('Do you want to install TLGU? To continue, press Return. To exit, Control-C.')
+                        print('Could not install without root access. Do you want to install TLGU with sudo?')
+                        command = 'cd {0} && sudo make install'.format(tlgu_path)
+                        print('Going to run command:', command)
+                        print('To continue, press Return. To exit, Control-C.')
                         input()
+                        p_out = subprocess.call(command, shell=True)
                     else:
-                        p_out = subprocess.call('cd {0} && sudo make install'.format(tlgu_path), shell=True)
+                        command = 'cd {0} && sudo make install'.format(tlgu_path)
+                        p_out = subprocess.call(command, shell=True)
                     if p_out == 0:
                         logger.info('TLGU installed.')
                     else:

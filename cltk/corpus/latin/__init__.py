@@ -1,6 +1,6 @@
 # CLTK: Latin Corpus Readers
 
-__author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
 """

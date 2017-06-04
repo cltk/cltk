@@ -15,7 +15,7 @@ except ImportError:
     print('"pandas" and "numpy" libraries not installed.')
     raise
 
-__author__ = 'Anoop Kunchukuttan'
+__author__ = ['Anoop Kunchukuttan']
 __license__ = 'GPLv3'
 
 

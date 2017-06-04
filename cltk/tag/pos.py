@@ -8,7 +8,7 @@ from nltk.tokenize import wordpunct_tokenize
 from cltk.utils.file_operations import open_pickle
 
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

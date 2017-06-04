@@ -320,6 +320,10 @@ This module is under active development, so if you experience a bug or have a su
 Levenshtein distance calculation
 --------------------------------
 
++.. note::
++
++   You will need to install two packages to use Levenshtein measures. Install them with `pip install fuzzywuzzy python-Levenshtein`. `python-Levenshtein` is optional but gives speed improvements.
+
 The Levenshtein distance comparison is a commonly-used method for fuzzy string comparison.  The CLTK Levenshtein class offers a few helps for getting started with creating comparisons from document.
 
 This simple example compares a line from Vergil's Georgics with a line from Propertius (Elegies III.13.41):
@@ -332,6 +336,7 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
 
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
+
 
 Damerau-Levenshtein algorithm
 -----------------------------
@@ -351,9 +356,6 @@ This simple example compares a two Latin words to find the distance between them
    In [2]: damerau_levenshtein_distance("deaeque", "deaque")
    Out[2]: 1
    
-
-
-
 
 Longest Common Substring
 ------------------------
