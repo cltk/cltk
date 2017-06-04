@@ -19,14 +19,17 @@ def mdc_unicode(string, q_kopf=True):
     parameters:
     string: str
     q_kopf: boolean
+
     return:
     unicode_text: str
+
     The translitterated text passes to the
     function under the variable 'string'.
     The search and replace operation
     is done for the related caracters. If
     the q_kopf parameter is False, we replace
     'q' with 'ḳ'
+
     """
     #
     # lettres miniscules/lower case letters/küçük harfler
