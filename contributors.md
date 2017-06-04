@@ -92,6 +92,9 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/utils/formatter.py
 * cltk/corpus/utils/importer.py
 
+## Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk
+* cltk/corpus/punjabi/alphabet.py
+
 ## Thibault Clerice
 * cltk/stem/latin/declension.py
 
