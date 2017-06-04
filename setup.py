@@ -25,6 +25,7 @@ setup(
     description='NLP for the ancient world',
     install_requires=['gitpython',
                       'nltk',
+                      'python-crfsuite',
                       'pyuca',
                       'pyyaml',
                       'regex',
