@@ -76,7 +76,7 @@ You can also divide the texts into a file for each individual work.
 
 Once these files are created, see `PHI Indices <http://docs.cltk.org/en/latest/latin.html#phi-indices>`_ below for accessing these newly created files.
 
-See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>` for removing extraneous non-textual characters from these files.
+See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>`_ for removing extraneous non-textual characters from these files.
 
 
 Information Retrieval
