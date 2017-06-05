@@ -221,6 +221,9 @@ The accentuation class of a word such as oxytone, paroxytone, proparoxytone, per
    Out[2]: 'ἀνθρώπου'
 
 
+
+**Expand iota subscript:**
+
 The CLTK offers one transformation that can be useful in certain types of processing: Expanding the iota subsctipt from a unicode point and placing beside, to the right, of the character.
 
 .. code-block:: python
