@@ -1,5 +1,6 @@
 """Test cltk.corpus."""
 
+from cltk.corpus.greek.alphabet import expand_iota_subscript
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
@@ -570,6 +571,20 @@ example_distributed_fake_language_corpus:
         ḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
         #
         self.assertEqual(test_result_string, comparison_string)
+
+    def test_expand_iota_subscript(self):
+        """Test subscript expander."""
+        unexpanded = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+        expanded = expand_iota_subscript(unexpanded)
+        target = 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+        self.assertEqual(expanded, target)
+
+    def test_expand_iota_subscript_lower(self):
+        """Test subscript expander."""
+        unexpanded = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+        expanded = expand_iota_subscript(unexpanded, lowercase=True)
+        target = 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+        self.assertEqual(expanded, target)
 
 
 class TestUnicode(unittest.TestCase):

@@ -6,8 +6,8 @@ Greek is an independent branch of the Indo-European family of languages, native 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
-Accentuation
-============
+Accentuation and diacritics
+===========================
 
 `James Tauber <https://github.com/jtauber/>`_ has created a Python 3 based `library  <https://github.com/jtauber/greek-accentuation>`_  to enable working with the accentuation of Ancient Greek words. Installing it is optional for working with CLTK.
 
@@ -219,6 +219,23 @@ The accentuation class of a word such as oxytone, paroxytone, proparoxytone, per
 
    In[2]: persistent('ἀνθρωπου', 'ἄνθρωπος')
    Out[2]: 'ἀνθρώπου'
+
+
+The CLTK offers one transformation that can be useful in certain types of processing: Expanding the iota subsctipt from a unicode point and placing beside, to the right, of the character.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.alphabet import expand_iota_subscript
+
+   In [2]: s = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+
+   In [3]: expand_iota_subscript(s)
+   Out[3]: 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+
+   In [4]: expand_iota_subscript(s, lowercase=True)
+   Out[4]: 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+
+
 
 
 Alphabet
