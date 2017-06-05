@@ -113,6 +113,13 @@ If a length diacritic becomes redundant because of a circumflex it can be stripp
    In[3]: rebreath('οικία')
    Out[3]: 'οἰκία'
 
+   In[3]: debreath('ἑξεῖ')
+   Out[3]: 'hεξεῖ'
+
+   In[4]: rebreath('hεξεῖ')
+   Out[4]: 'ἑξεῖ'
+
+
 ``syllable_length`` returns the length of a syllable (in the linguistic sense) and ``syllable_accent`` extracts a syllable's accent.
 
 .. code-block:: python
