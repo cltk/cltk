@@ -2,6 +2,7 @@ import csv
 import re
 #encoding: utf-8
 
+##converts text file to .csv with columns for lemma number, headword, part of speech, and definition
 
 import csv
 
