@@ -7,9 +7,11 @@ import os, sys
 
 with open('lexiquedelancienfrancais.txt', 'r') as in_file:
        stripped = (line.strip() for line in in_file)
+## removes additional commas
        for stripped in stripped:
               entry, PoS, definition_sce = stripped.split(',', 2)
               definition = definition_sce.replace(',','')
+## adds lemma number for non-pre-existing lemma numbers
               if not entry[0].isdigit():
                   entry = " ".join(("1.", entry))
               entry = entry.replace('1.','1.,')
