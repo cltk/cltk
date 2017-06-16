@@ -1,4 +1,4 @@
-OLD_FRENCH_MIDDLE_FRENCH_CORPORA = [
+FRENCH_CORPORA = [
   {'encoding': 'utf-8',
    'name': 'french',
    'origin': 'https://github.com/nat1881/french',
