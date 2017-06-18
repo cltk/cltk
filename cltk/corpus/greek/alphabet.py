@@ -398,3 +398,82 @@ LOWER_CONSONANTS = [#
 '\u03c7', # χ Greek Small Letter Chi
 '\u03c8' # ψ Greek Small Letter Psi
 ]
+
+MAP_SUBSCRIPT_NO_SUB = {'Ἄ': 'ᾌΙ',
+                        'ᾀ': 'ἀΙ',
+                        'ᾁ': 'ἁΙ',
+                        'ᾂ': 'ἂΙ',
+                        'ᾃ': 'ἃΙ',
+                        'ᾄ': 'ἄΙ',
+                        'ᾅ': 'ἅΙ',
+                        'ᾆ': 'ἆΙ',
+                        'ᾇ': 'ἇΙ',
+                        'ᾈ': 'ἈΙ',
+                        'ᾉ': 'ἉΙ',
+                        'ᾊ': 'ἊΙ',
+                        'ᾋ': 'ἋΙ',
+                        'ᾌ': 'ἌΙ',
+                        'ᾍ': 'ἍΙ',
+                        'ᾎ': 'ἎΙ',
+                        'ᾏ': 'ἏΙ',
+                        'ᾐ': 'ἠΙ',
+                        'ᾑ': 'ἡΙ',
+                        'ᾒ': 'ἢΙ',
+                        'ᾓ': 'ἣΙ',
+                        'ᾔ': 'ἤΙ',
+                        'ᾕ': 'ἥΙ',
+                        'ᾖ': 'ἦΙ',
+                        'ᾗ': 'ἧΙ',
+                        'ᾘ': 'ἨΙ',
+                        'ᾙ': 'ἩΙ',
+                        'ᾚ': 'ἪΙ',
+                        'ᾛ': 'ἫΙ',
+                        'ᾜ': 'ἬΙ',
+                        'ᾝ': 'ἭΙ',
+                        'ᾞ': 'ἮΙ',
+                        'ᾟ': 'ἯΙ',
+                        'ᾠ': 'ὠΙ',
+                        'ᾡ': 'ὡΙ',
+                        'ᾢ': 'ὢΙ',
+                        'ᾣ': 'ὣΙ',
+                        'ᾤ': 'ὤΙ',
+                        'ᾥ': 'ὥΙ',
+                        'ᾦ': 'ὦΙ',
+                        'ᾧ': 'ὧΙ',
+                        'ᾨ': 'ὨΙ',
+                        'ᾩ': 'ὩΙ',
+                        'ᾪ': 'ὪΙ',
+                        'ᾫ': 'ὫΙ',
+                        'ᾬ': 'ὬΙ',
+                        'ᾭ': 'ὭΙ',
+                        'ᾮ': 'ὮΙ',
+                        'ᾯ': 'ὯΙ',
+                        'ᾲ': 'ὰΙ',
+                        'ᾳ': 'αΙ',
+                        'ᾴ': 'άΙ',
+                        'ᾷ': 'ᾶΙ',
+                        'ᾼ': 'ΑΙ',
+                        'ῂ': 'ὴΙ',
+                        'ῃ': 'ηΙ',
+                        'ῄ': 'ήΙ',
+                        'ῇ': 'ῆΙ',
+                        'ῌ': 'ΗΙ',
+                        'ῲ': 'ὼΙ',
+                        'ῳ': 'ωΙ',
+                        'ῴ': 'ώΙ',
+                        'ῷ': 'ῶΙ',
+                        'ῼ': 'ΩΙ'}
+
+
+def expand_iota_subscript(input_str, lowercase=False):
+    """Find characters with iota subscript and replace w/ char + iota added."""
+    new_list = []
+    for char in input_str:
+        new_char = MAP_SUBSCRIPT_NO_SUB.get(char)
+        if not new_char:
+            new_char = char
+        new_list.append(new_char)
+    new_str = ''.join(new_list)
+    if lowercase:
+        new_str = new_str.lower()
+    return new_str

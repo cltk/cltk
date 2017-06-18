@@ -16,8 +16,9 @@ Use ``CorpusImporter()``.
 
    In [3]: c.list_corpora
    Out[3]:
-   ['arabic_text_perseus','quranic-corpus','quranic-corpus-morphology']
+   ['arabic_text_perseus','arabic_text_quranic_corpus','arabic_morphology_quranic-corpus']
 
+   In [4]: c.import_corpus('arabic_text_perseus')  # ~/cltk_data/arabic/text/arabic_text_perseus/
 
 Alphabet
 ========
