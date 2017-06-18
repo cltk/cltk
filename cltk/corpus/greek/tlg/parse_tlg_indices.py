@@ -12,9 +12,7 @@ import regex
 import os
 import json
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>',
-              'Martín Pozzi <marpozzi@gmail.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>', 'Martín Pozzi <marpozzi@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))

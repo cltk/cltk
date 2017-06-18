@@ -16,6 +16,9 @@ DEPENDENT_VOWELS = ['◌া','ি','◌ী','◌ু','◌ূ','◌ৃ','ে','�
 #following are the general consonants
 CONSONANTS = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द', 'ध', 'न', 'प','फ','ब','भ','म']
 
+#following are modified constants
+Modified_constants = ['क़', 'ग़', 'ख़', 'ज़', 'ड़', 'ढ़', 'फ़']
+
 
 #the Semivowels are also in the script of hindi
 SEMIVOWELS = ['य ','र ','ल' ,'व']    

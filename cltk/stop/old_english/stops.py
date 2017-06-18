@@ -2,7 +2,7 @@
 Introduction to Old English website  at ``https://lrc.la.utexas.edu/eieol/engol``.
 """
 
-__author__ = 'Sourav Singh <ssouravsingh12@gmail.com>'
+__author__ = ['Sourav Singh <ssouravsingh12@gmail.com>']
 __license__ = 'GPL License.'
 
 STOPS_LIST = ['and',

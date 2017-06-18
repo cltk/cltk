@@ -1,6 +1,6 @@
 """Test cltk.phonology."""
 
-__author__ = 'Jack Duff <jmunroeduff@gmail.com>'
+__author__ = ['Jack Duff <jmunroeduff@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import unicodedata

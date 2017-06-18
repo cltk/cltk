@@ -15,7 +15,7 @@ from cltk.lemmatize.latin.backoff import BigramPOSLemmatizer
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
 
-__author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
 

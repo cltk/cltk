@@ -4,7 +4,7 @@ Spencer in C# and Javascript. Original documentation from Fr. Spencer
 is preserved where applicable.
 """
 
-__author__ = 'Luke Hollis <lukehollis@gmail.com>'
+__author__ = ['Luke Hollis <lukehollis@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import re

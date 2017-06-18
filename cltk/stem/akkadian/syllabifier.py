@@ -6,7 +6,7 @@ TODO: Check this logic with von Soden's Grundriss der akkadischen Grammatik.
 TODO: Deal with j/y issue.
 """
 
-__author__ = 'M. Willis Monroe <willismonroe@gmail.com>'
+__author__ = ['M. Willis Monroe <willismonroe@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 AKKADIAN = {
