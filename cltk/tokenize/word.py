@@ -5,6 +5,7 @@ import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+import pyarabic.araby as araby
 
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
@@ -17,7 +18,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
-        self.available_languages = ['latin']
+        self.available_languages = ['arabic', 'latin']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
                                                                                             self.available_languages)  # pylint: disable=line-too-long
@@ -28,6 +29,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
+        if self.language == 'arabic':
+            tokens = tokenize_arabic_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -174,3 +177,19 @@ def tokenize_latin_words(string):
             specific_tokens.append(token)
 
     return specific_tokens
+
+def tokenize_arabic_words(text):
+
+    """
+        Tokenize text into words
+        @param text: the input text.
+        @type text: unicode.
+        @return: list of words.
+        @rtype: list.
+    """
+    specific_tokens = []
+    if not text:
+        return specific_tokens
+    else:
+        specific_tokens = araby.tokenize(text)
+        return specific_tokens

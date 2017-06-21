@@ -112,3 +112,15 @@ The Arabic alphabet are placed in `cltk/corpus/arabic/alphabet.py <https://githu
     In [18] Names[ALEF]
     Out [18]  'ألف'
 
+Word Tokenization
+=================
+.. code-block:: python
+
+    In [1]: from cltk.tokenize.word import WordTokenizer
+
+    In [2]: word_tokenizer = WordTokenizer('arabic')
+
+    In [3]: text = 'اللُّغَةُ الْعَرَبِيَّةُ جَمِيلَةٌ.'
+
+    In [4]: word_tokenizer.tokenize(text)
+    Out[4]: ['اللُّغَةُ', 'الْعَرَبِيَّةُ', 'جَمِيلَةٌ', '.']
