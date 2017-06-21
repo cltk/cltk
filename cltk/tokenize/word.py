@@ -43,8 +43,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokens = tokenize_latin_words(string)
 
         elif self.language == 'arabic':
-
             tokens = tokenize_arabic_words(string)
+            
         else:
             tokens = nltk_tokenize_words(string)
 
