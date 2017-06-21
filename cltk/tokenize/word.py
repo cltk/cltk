@@ -6,6 +6,7 @@ import re
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
+
 do_arabic = False
 try:
     import pyarabic.araby as araby
@@ -25,10 +26,12 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
+
         if do_arabic:
             self.available_languages = ['arabic', 'latin']
         else:
             self.available_languages = ['latin']
+
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
                                                                                             self.available_languages)  # pylint: disable=line-too-long
@@ -38,8 +41,10 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Tokenize incoming string."""
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
+
         elif self.language == 'arabic':
             tokens = tokenize_arabic_words(string)
+
         else:
             tokens = nltk_tokenize_words(string)
 
