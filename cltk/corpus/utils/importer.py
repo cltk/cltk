@@ -22,6 +22,7 @@ from cltk.corpus.malayalam.corpora import MALAYALAM_CORPORA
 from cltk.corpus.old_norse.corpora import OLD_NORSE_CORPORA
 from cltk.corpus.telugu.corpora import TELUGU_CORPORA
 from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
+from cltk.corpus.french.corpora import FRENCH_CORPORA
 
 from cltk.utils.cltk_logger import logger
 
@@ -42,7 +43,8 @@ __license__ = 'MIT License. See LICENSE.'
 AVAILABLE_LANGUAGES = ['arabic','chinese', 'coptic', 'greek', 'latin', 'multilingual',
                        'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
                        'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
-                       'malayalam', 'javanese','old_norse','telugu','classical_hindi']
+                       'malayalam', 'javanese','old_norse','telugu','classical_hindi',
+                       'french']
 
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
@@ -65,6 +67,7 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'old_norse':OLD_NORSE_CORPORA,
                     'telugu':TELUGU_CORPORA,
                     'classical_hindi':CLASSICAL_HINDI_CORPORA,
+                    'french':FRENCH_CORPORA,
                     }
 
 
