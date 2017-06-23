@@ -39,12 +39,13 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
     def tokenize(self, string):
         """Tokenize incoming string."""
+
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
 
         elif self.language == 'arabic':
-
             tokens = tokenize_arabic_words(string)
+
         else:
             tokens = nltk_tokenize_words(string)
 
