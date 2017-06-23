@@ -7,8 +7,17 @@ from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
 
+do_arabic = False
+try:
+    import pyarabic.araby as araby
+    do_arabic = True
+except ImportError:
+    print('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
+    pass
+
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
+
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
@@ -17,7 +26,12 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
-        self.available_languages = ['latin']
+
+        if do_arabic:
+            self.available_languages = ['arabic', 'latin']
+        else:
+            self.available_languages = ['latin']
+
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
                                                                                             self.available_languages)  # pylint: disable=line-too-long
@@ -25,9 +39,12 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
     def tokenize(self, string):
         """Tokenize incoming string."""
-
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
+
+        elif self.language == 'arabic':
+            tokens = tokenize_arabic_words(string)
+            
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -174,3 +191,19 @@ def tokenize_latin_words(string):
             specific_tokens.append(token)
 
     return specific_tokens
+
+def tokenize_arabic_words(text):
+
+    """
+        Tokenize text into words
+        @param text: the input text.
+        @type text: unicode.
+        @return: list of words.
+        @rtype: list.
+    """
+    specific_tokens = []
+    if not text:
+        return specific_tokens
+    else:
+        specific_tokens = araby.tokenize(text)
+        return specific_tokens
