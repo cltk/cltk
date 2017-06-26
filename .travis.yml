@@ -16,6 +16,7 @@ before_script:
   - pip install greek-accentuation  # for the phonetic transcriber
   - pip install fuzzywuzzy
   - pip install python-Levenshtein
+  - pip install PyArabic  # for Arabic in tokenize/word.py
 
 script:
   # Notes on nose:
