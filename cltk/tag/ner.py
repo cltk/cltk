@@ -5,7 +5,8 @@ from nltk.tokenize.punkt import PunktLanguageVars
 import os
 
 NER_DICT = {'greek': '~/cltk_data/greek/model/greek_models_cltk/ner/proper_names.txt',
-            'latin': '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt'}
+            'latin': '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt',
+            'french': 'named_entities.txt'}
 
 
 def _check_latest_data(lang):
@@ -23,11 +24,12 @@ def _check_latest_data(lang):
 
 def tag_ner(lang, input_text, output_type=list):
     """Run NER for chosen language.
-
     Choosing output_type=list, returns a list of tuples:
     >>> tag_ner('latin', input_text=text_str, output_type=list)
     >>> [('ut',), ('Venus', 'Entity'), (',',), ('ut',), ('Sirius', 'Entity'),
     (',',), ('ut',), ('Spica', 'Entity')]
+    >>> tag_ner('french', input_text=text_str, output_type=list)
+    >>> [('Berte', 'Entity'), ('fu',), ('mere',), ('Charlemaine', 'Entity')]
     """
 
     _check_latest_data(lang)
