@@ -182,24 +182,8 @@ def tokenize_latin_words(string):
 def tokenize_french_words(string):
     assert isinstance(string, str), "Incoming string must be type str."
 
-    ##Dealing with contracted forms
-    text = re.sub(r"N'", "Ne ", s)
-    text = re.sub(r"n'", "ne ", text)
-
-    text = re.sub(r"S'", "Si ", text)
-    text = re.sub(r"s'", "si ", text)
-
-    text = re.sub(r"T'", "Te ", text)
-    text = re.sub(r"t'", "te ", text)
-
-    text = re.sub(r"Qu'", "Que ", text)
-    text = re.sub(r"qu'", "que ", text)
-
-    text = re.sub(r"L'", "Lui ", text)
-    text = re.sub(r"L'", "lui ", text)
-
     ##Dealing with punctuation
-    text = re.sub(r"\'", r" '", text)
+    text = re.sub(r"\'", r"' ", string)
     text = re.sub(r",", r" ,", text)
     text = re.sub(r"\.", r" .", text)
     text = re.sub(r";", r" ;", text)
@@ -209,5 +193,4 @@ def tokenize_french_words(string):
     text = re.sub(r"\\\"", r" \\\" ", text)
 
     results = str.split(text)
-    print(results)
     return (results)
