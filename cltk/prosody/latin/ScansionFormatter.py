@@ -10,6 +10,8 @@ class ScansionFormatter:
     """Users can specify which scansion symbols to use in the formatting.
 
     >>> print(ScansionFormatter().hexameter("-UU-UU-UU---UU--"))
+    >>> from cltk.prosody.latin.ScansionConstants import ScansionConstants
+    >>> print(ScansionFormatter().hexameter( "-UU-UU-UU---UU--"))
     -UU|-UU|-UU|--|-UU|--
     >>> constants = ScansionConstants(unstressed="˘", \
             stressed= "¯", optional_terminal_ending="x")

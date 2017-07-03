@@ -4,6 +4,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 import unittest
 import doctest
+
 from cltk.prosody.latin.HexameterScanner import HexameterScanner
 import cltk.prosody.latin.Hexameter
 
