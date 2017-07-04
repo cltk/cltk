@@ -1,3 +1,4 @@
+#encoding:utf-8
 """Test cltk.stop."""
 
 __license__ = 'MIT License. See LICENSE.'
@@ -5,6 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
+from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 import unittest
@@ -54,6 +56,17 @@ class TestSequenceFunctions(unittest.TestCase):
         no_stops = [w for w in tokens if w not in LATIN_STOPS]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
+        self.assertEqual(no_stops, target_list)
+
+    def test_french_stopwords(self):
+        ##test filtering French stopwords
+        sentence = "En pensé ai e en talant que d ’ Yonec vus die avant dunt il fu nez, e de sun pere cum il vint primes a sa mere ."
+        lowered = sentence.lower()
+        punkt = PunktLanguageVars()
+        tokens = punkt.word_tokenize(lowered)
+        no_stops = [w for w in tokens if w not in FRENCH_STOPS]
+        target_list = ['pensé', 'talant', 'd', '’', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes',
+                       'mere','.']
         self.assertEqual(no_stops, target_list)
 
 if __name__ == '__main__':

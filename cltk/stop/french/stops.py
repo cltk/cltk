@@ -183,5 +183,6 @@ STOPS_LIST = ["et",
 "at",
 "avons",
 "avez",
-"ont"
+"ont",
+"d'"
 ]
