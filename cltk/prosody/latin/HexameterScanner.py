@@ -43,7 +43,7 @@ class HexameterScanner:
         self.punctuation_substitutions = StringUtils.punctuation_for_spaces_dict()
         self.metrical_validator = MetricalValidator(constants)
         self.formatter = ScansionFormatter(constants)
-        self.syllabifier = Syllabifier()
+        self.syllabifier = syllabifier
         self.inverted_amphibrach_re = re.compile(
             r"{}\s*{}\s*{}".format(self.constants.STRESSED,
                                    self.constants.UNSTRESSED,

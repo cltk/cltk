@@ -527,7 +527,7 @@ About the use of macrons in poetry
 
 Most Latin poetry arrives to us without macrons. Some lines of Latin poetry can be scanned and fit a poetic meter without any macrons at all, due to the rules of meter and positional accentuation.
 
-Automatically macronizing every word in a line of Latin poetry does not mean that it will automatically scan correctly. Poets often diverge from standard usage: regularly short vowels can appear as long; e.g. Lucretius regularly writes rēligiō which scans, instead of the usual religiō; and there is a prosody device: diastole - the short final vowel of a word is lengthened to fit the meter; e.g. tibī in Lucretius I.104 and III.899, etc.
+Automatically macronizing every word in a line of Latin poetry does not mean that it will automatically scan correctly. Poets often diverge from standard usage: regularly long vowels can appear short; the verb nesciō in poetry scans the final personal ending as a short o; and regularly short vowels can appear as long; e.g. Lucretius regularly writes rēligiō which scans, instead of the usual religiō; and there is a prosody device: diastole - the short final vowel of a word is lengthened to fit the meter; e.g. tibī in Lucretius I.104 and III.899, etc.
 
 However, some macrons are necessary for scansion: Lucretius I.12 begins with "aeriae" which will not scan in hexameter unless one substitutes its macronized form "āeriae".
 
