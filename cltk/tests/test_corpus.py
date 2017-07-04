@@ -1,6 +1,7 @@
 """Test cltk.corpus."""
 
 from cltk.corpus.greek.alphabet import expand_iota_subscript
+from cltk.corpus.greek.alphabet import filter_non_greek
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
@@ -585,6 +586,16 @@ example_distributed_fake_language_corpus:
         expanded = expand_iota_subscript(unexpanded, lowercase=True)
         target = 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
         self.assertEqual(expanded, target)
+    #
+    def test_filter_non_greek(self):
+        """
+        Test filter non greek characters in a mixed string.
+        """
+        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]" # PH247029, line 2
+        comparison_string = "Ἑκατμανδρος Αἰσχρωνος  Ἀριστεδη"
+        test_result_string = filter_non_greek(test_input_string)
+        #
+        self.assertEqual(test_result_string, comparison_string)
 
 
 class TestUnicode(unittest.TestCase):
