@@ -6,13 +6,14 @@ import re
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
+from cltk.utils.cltk_logger import logger
 
 do_arabic = False
 try:
     import pyarabic.araby as araby
     do_arabic = True
 except ImportError:
-    print('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
+    logger.info('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
     pass
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
