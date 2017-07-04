@@ -1,11 +1,12 @@
 
 from cltk.tokenize.word import WordTokenizer
 from cltk.stop.arabic.stops import STOPS_LIST as ARABIC_STOPS
+from cltk.utils.cltk_logger import logger
 
 try:
     import pyarabic.araby as araby
 except ImportError:
-    print('Arabic not supported. Install `pyarabic` library to strip diacritics.')
+    logger.info('Arabic not supported. Install `pyarabic` library to strip diacritics.')
     pass
 
 def stopwords_filter(string):
