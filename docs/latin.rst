@@ -547,7 +547,7 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import MetricalValidator
+   In [1]: from cltk.prosody.latin import HexameterScanner
 
    In [2]: scanner = HexameterScanner()
 
@@ -577,7 +577,7 @@ The ScansionConstants class is a configuration class for specifying scansion con
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import MetricalValidator
+   In [1]: from cltk.prosody.latin import ScansionConstants
 
    In [2]: constants = ScansionConstants(unstressed="U",stressed= "-", optional_terminal_ending="X")
 
@@ -599,7 +599,7 @@ The Syllabifier class is a Latin language syllabifier. It parses a Latin word or
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import MetricalValidator
+   In [1]: from cltk.prosody.latin import Syllabifier
 
    In [1]: syllabifier = Syllabifier()
 

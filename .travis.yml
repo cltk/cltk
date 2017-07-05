@@ -17,6 +17,7 @@ before_script:
   - pip install fuzzywuzzy
   - pip install python-Levenshtein
   - pip install PyArabic  # for Arabic in tokenize/word.py
+  - pip install gensim # for word2vec.py
 
 script:
   # Notes on nose:
