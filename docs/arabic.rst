@@ -115,6 +115,7 @@ The Arabic alphabet are placed in `cltk/corpus/arabic/alphabet.py <https://githu
 Stopword Filtering
 ==================
 To use the CLTK's built-in stopwords list:
+
 .. code-block:: python
 
     In [1]: from cltk.stop.arabic.stopword_filter import stopwords_filter as ar_stop_filter
