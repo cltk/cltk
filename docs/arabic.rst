@@ -138,3 +138,35 @@ Word Tokenization
     In [4]: word_tokenizer.tokenize(text)
     Out[4]: ['اللُّغَةُ', 'الْعَرَبِيَّةُ', 'جَمِيلَةٌ', '.']
 
+Transliteration
+===============
+The CLTK Provides `Buckwalter <https://en.wikipedia.org/wiki/Buckwalter_transliteration>`_ and `ISO233-2 <https://fr.wikipedia.org/wiki/ISO_233-2>`_ Transliteration Systems for the Arabic language.
+
+Available Transliteration Systems
+`````````````````````````````````
+
+.. code-block:: python
+
+    In [1] from cltk.phonology.arabic.romanization import *
+
+    In [2] available_transliterate_systems()
+    Out [2] ['iso233-2', 'buckwalter']
+
+Usage
+`````
+
+.. code-block:: python
+
+    In [1] from cltk.phonology.arabic.romanization import transliterate
+
+    In [2] mode = 'buckwalter'
+
+    In [3] ar_string = 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ' # translate in English: In the name of Allah, the Most Merciful, the Most Compassionate
+
+    In [4] ignore = '' # this is for ignore an arabic char from transliterate operation
+
+    In [5] revere = True # true means transliteration from arabic native script to roman script such as Buckwalter
+
+    In [6] transliterate(mode, ar_string,ignore,reverse)
+    Out[7] 'bisomi Allhi Alra~Hom`ni Alra~Hiyomi'
+
