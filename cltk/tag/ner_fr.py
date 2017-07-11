@@ -3,22 +3,14 @@
 from cltk.corpus.utils.importer import CorpusImporter
 from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.tokenize.word import WordTokenizer
+from cltk.tag.named_entities_fr import entities
 
-entities = [("Abel", "REL"),
-    ("Abilant", "LOC"),
-    ("Abirun", "CHI"),
-    ("Abisme", "CHI"),
-    ("Abraham", "REL"),
-    ("Absalon", "REL"),
-    ("Acelin", "CHI"),
-    ("Acenssion", "FEST"),
-    ("Achilles", "CLAS"),
-    ("Acre", "LOC")]
-
+#tags named entities in a string and outputs a list of tuples in the following format:
+# (name, "entity", kind_of_entity)
 def tag_ner_fr(input_text, output_type=list):
 
-    NER_DICT = {'french': 'named_entities.txt'}
-    entities = NER_DICT
+    for entity in entities:
+        (name, kind) = entity
 
     word_tokenizer = WordTokenizer('french')
     tokenized_text = word_tokenizer.tokenize(input_text)
@@ -34,4 +26,7 @@ def tag_ner_fr(input_text, output_type=list):
                 break
         else:
             ner_tuple_list.append((word,))
-    return(ner_tuple_list)
+    return ner_tuple_list
+
+
+
