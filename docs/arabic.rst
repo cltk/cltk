@@ -112,6 +112,19 @@ The Arabic alphabet are placed in `cltk/corpus/arabic/alphabet.py <https://githu
     In [18] Names[ALEF]
     Out [18]  'ألف'
     
+Stopword Filtering
+==================
+To use the CLTK's built-in stopwords list:
+
+.. code-block:: python
+
+    In [1]: from cltk.stop.arabic.stopword_filter import stopwords_filter as ar_stop_filter
+
+    In [2]: text = 'سُئِل بعض الكُتَّاب عن الخَط، متى يَسْتحِقُ أن يُوصَف بِالجَودةِ؟'
+
+    In [3]: ar_stop_filter(text)
+    Out[3]: ['سئل', 'الكتاب', 'الخط', '،', 'يستحق', 'يوصف', 'بالجودة', '؟']
+
 Word Tokenization
 =================
 .. code-block:: python

@@ -1,6 +1,7 @@
 """Test cltk.corpus."""
 
 from cltk.corpus.greek.alphabet import expand_iota_subscript
+from cltk.corpus.greek.alphabet import filter_non_greek
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index

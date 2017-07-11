@@ -25,9 +25,8 @@ def tag_ner(lang, input_text, output_type=list):
     """Run NER for chosen language.
 
     Choosing output_type=list, returns a list of tuples:
-    >>> tag_ner('latin', input_text=text_str, output_type=list)
-    >>> [('ut',), ('Venus', 'Entity'), (',',), ('ut',), ('Sirius', 'Entity'),
-    (',',), ('ut',), ('Spica', 'Entity')]
+    >>> tag_ner('latin', input_text='ut Venus, ut Sirius, ut Spica', output_type=list)
+    [('ut',), ('Venus',), (',',), ('ut',), ('Sirius', 'Entity'), (',',), ('ut',), ('Spica', 'Entity')]
     """
 
     _check_latest_data(lang)
