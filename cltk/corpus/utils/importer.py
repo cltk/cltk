@@ -2,10 +2,11 @@
 TODO: Fix so ``import_corpora()`` can take relative path.
 TODO: Add https://github.com/cltk/pos_latin
 """
-
+from cltk.corpus.arabic.corpora import ARABIC_CORPORA
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
 from cltk.corpus.coptic.corpora import COPTIC_CORPORA
 from cltk.corpus.greek.corpora import GREEK_CORPORA
+from cltk.corpus.hebrew.corpora import HEBREW_CORPORA
 from cltk.corpus.latin.corpora import LATIN_CORPORA
 from cltk.corpus.sanskrit.corpora import SANSKRIT_CORPORA
 from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
@@ -35,20 +36,22 @@ from urllib.parse import urljoin
 import yaml
 
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual',
-                       'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
-                       'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
-                       'malayalam', 'javanese','old_norse','telugu','classical_hindi']
+AVAILABLE_LANGUAGES = ['arabic', 'chinese', 'coptic', 'greek', 'hebrew', 'latin',
+                       'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit',
+                       'old_english', 'bengali', 'prakrit', 'hindi',
+                       'old_church_slavonic', 'malayalam', 'javanese',
+                       'old_norse', 'telugu', 'classical_hindi']
 
 CLTK_DATA_DIR = '~/cltk_data'
-LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
+LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
+                    'chinese': CHINESE_CORPORA,
                     'coptic': COPTIC_CORPORA,
                     'greek': GREEK_CORPORA,
+                    'hebrew': HEBREW_CORPORA,
                     'latin': LATIN_CORPORA,
                     'multilingual': MULTILINGUAL_CORPORA,
                     'pali': PALI_CORPORA,
@@ -56,7 +59,7 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
                     'old_english': OLD_ENGLISH_CORPORA,
- 		            'bengali': BENGALI_CORPORA,
+                    'bengali': BENGALI_CORPORA,
                     'old_church_slavonic': OCS_CORPORA,
                     'prakrit': PRAKRIT_CORPORA,
                     'hindi': HINDI_CORPORA,

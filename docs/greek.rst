@@ -6,8 +6,8 @@ Greek is an independent branch of the Indo-European family of languages, native 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
-Accentuation
-============
+Accentuation and diacritics
+===========================
 
 `James Tauber <https://github.com/jtauber/>`_ has created a Python 3 based `library  <https://github.com/jtauber/greek-accentuation>`_  to enable working with the accentuation of Ancient Greek words. Installing it is optional for working with CLTK.
 
@@ -113,6 +113,13 @@ If a length diacritic becomes redundant because of a circumflex it can be stripp
    In[3]: rebreath('οικία')
    Out[3]: 'οἰκία'
 
+   In[3]: debreath('ἑξεῖ')
+   Out[3]: 'hεξεῖ'
+
+   In[4]: rebreath('hεξεῖ')
+   Out[4]: 'ἑξεῖ'
+
+
 ``syllable_length`` returns the length of a syllable (in the linguistic sense) and ``syllable_accent`` extracts a syllable's accent.
 
 .. code-block:: python
@@ -214,6 +221,26 @@ The accentuation class of a word such as oxytone, paroxytone, proparoxytone, per
    Out[2]: 'ἀνθρώπου'
 
 
+
+**Expand iota subscript:**
+
+The CLTK offers one transformation that can be useful in certain types of processing: Expanding the iota subsctipt from a unicode point and placing beside, to the right, of the character.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.alphabet import expand_iota_subscript
+
+   In [2]: s = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+
+   In [3]: expand_iota_subscript(s)
+   Out[3]: 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+
+   In [4]: expand_iota_subscript(s, lowercase=True)
+   Out[4]: 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+
+
+
+
 Alphabet
 ========
 
@@ -311,6 +338,10 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 Concerning text normalization: Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some helpful code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
+
+Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
+
+See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
 
 
 

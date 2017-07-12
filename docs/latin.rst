@@ -64,7 +64,7 @@ Most users will want to do a bulk conversion of the entirety of a corpus without
 
    In [2]: t = TLGU()
 
-   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/tlg/plaintext/ #! This isn't working!
+   In [3]: t.convert_corpus(corpus='phi5')  # ~/cltk_data/latin/text/phi5/plaintext/
 
 
 You can also divide the texts into a file for each individual work.
@@ -73,6 +73,10 @@ You can also divide the texts into a file for each individual work.
 
    In [4]: t.divide_works('phi5')  # ~/cltk_data/latin/text/phi5/individual_works/
 
+
+Once these files are created, see `PHI Indices <http://docs.cltk.org/en/latest/latin.html#phi-indices>`_ below for accessing these newly created files.
+
+See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>`_ for removing extraneous non-textual characters from these files.
 
 
 Information Retrieval
@@ -112,7 +116,7 @@ Lemmatization
 
 The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
 
-The lemmatizer offers several input and output options. For text input, it can take a string or a list of tokens (which, by the way, need ``j``s and ``v``s replaced first). Here is an example of the lemmatizer taking a string:
+The lemmatizer offers several input and output options. For text input, it can take a string or a list of tokens (which, by the way, need **j** and **v** replaced first). Here is an example of the lemmatizer taking a string:
 
 .. code-block:: python
 
@@ -168,16 +172,15 @@ These two arguments can be combined, as well.
 
 
 Lemmatization, backoff method
-=============
+=============================
 
 The CLTK offers a series of lemmatizers that can be combined in a backoff sequence, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
 
-There is a generic version of the backoff latin lemmatizer which requires data from the CLTK latin models data found here: <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+There is a generic version of the backoff latin lemmatizer which requires data from `the CLTK latin models data found here <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>`_. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
 
 The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
 
 .. code-block:: python
-
 
    In [1]: from cltk.lemmatize.latin.backoff import DefaultLemmatizer
 
@@ -209,10 +212,52 @@ The backoff module also offers IdentityLemmatizer which returns the given token 
 
    Out[9]: [('Quo', 'Quo'), ('usque', 'usque'), ('tandem', 'tandem'), ('abutere', 'abutere'), (',', ','), ('Catilina', 'Catilina'), (',', ','), ('patientia', 'patientia'), ('nostra', 'nostra'), ('?', '?')]
 
-NB: Documentation is still be written for the remaining backoff lemmatizers, i.e. TrainLemmatizer, ContextLemmatizer, RegexpLemmatizer, and ContextPOSLemmatizer.
+With the TrainLemmatizer, the backoff module allows you to provide a dictionary of the form {'TOKEN1': 'LEMMA1', 'TOKEN2': 'LEMMA2'} for lemmatization.
+
+.. code-block:: python
+   
+   In [10]: tokens = ['arma', 'uirum', '-que', 'cano', ',', 'troiae', 'qui', 'primus', 'ab', 'oris']
+
+   In [11]: dict = {'arma': 'arma', 'uirum': 'uir', 'troiae': 'troia', 'oris': 'ora'}
+
+   In [12]: from cltk.lemmatize.latin.backoff import TrainLemmatizer
+
+   In [13]: lemmatizer = TrainLemmatizer(dict)
+   
+   In [14]: lemmatizer.lemmatize(tokens)
+   Out[14]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', None), ('cano', None), (',', None), ('troiae', 'troia'), ('qui', None), ('primus', None), ('ab', None), ('oris', 'ora')]
+
+The TrainLemmatizer—like all of the lemmatizers in this module—can take a second lemmatizer (or backoff lemmatizer) for any of the tokens that return 'None'. This is done with a 'backoff' parameter:
+
+.. code-block:: python
+
+   In [15]: default = DefaultLemmatizer('UNK')
+   
+   In [16]: lemmatizer = TrainLemmatizer(dict, backoff=default)
+
+   In [17]: lemmatizer.lemmatize(tokens)
+   Out[17]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', 'UNK'), ('cano', 'UNK'), (',', 'UNK'), ('troiae', 'troia'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'ora')]
+
+With the ContextLemmatizer, the backoff module allows you to provide a list of lists of sentences of the form `[[('TOKEN1', 'LEMMA1'), ('TOKEN2', 'LEMMA2')], [('TOKEN3', 'LEMMA3'), ('TOKEN4', 'LEMMA4')], ... ]` for lemmatization. The lemmatizer returns the the lemma that has the highest frequency based on the provided context (i.e. unigram, bigram, etc.). So, for example, with unigram context and the token 'est', if the tuple ('est', 'sum') appears in the training sents 99 times and ('est', 'comedo') appears 1 time, the lemmatizer would return the lemma 'sum'. The ContextLemmatizer and its subclasses can take a 'backoff' parameter. (There is a model available in CLTK Data that can be used for this purpose with slight modification: `~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff/latin_pos_lemmatized_sents.pickle`. This model has the form `[[('TOKEN1', 'LEMMA1', 'POS1'), ('TOKEN2', 'LEMMA2', 'POS2')], ... ]`. A list comprehension can get you the model you need for the ContextLemmatizer, e.g. `[[(item[0], item[1]) for item in sent] for sent in train_data]`)
+
+There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer():
+
+.. code-block:: python
+    
+   In [18]: train_data = [[('cum', 'cum2'), ('esset', 'sum'), ('caesar', 'caesar'), ('in', 'in'), ('citeriore', 'citer'), ('gallia', 'gallia'), ('in', 'in'), ('hibernis', 'hibernus'), (',', 'punc'), ('ita', 'ita'), ('uti', 'ut'), ('supra', 'supra'), ('demonstrauimus', 'demonstro'), (',', 'punc'), ('crebri', 'creber'), ('ad', 'ad'), ('eum', 'is'), ('rumores', 'rumor'), ('adferebantur', 'affero'), ('litteris', 'littera'), ('-que', '-que'), ('item', 'item'), ('labieni', 'labienus'), ('certior', 'certus'), ('fiebat', 'fio'), ('omnes', 'omnis'), ('belgas', 'belgae'), (',', 'punc'), ('quam', 'qui'), ('tertiam', 'tertius'), ('esse', 'sum'), ('galliae', 'gallia'), ('partem', 'pars'), ('dixeramus', 'dico'), (',', 'punc'), ('contra', 'contra'), ('populum', 'populus'), ('romanum', 'romanus'), ('coniurare', 'coniuro'), ('obsides', 'obses'), ('-que', '-que'), ('inter', 'inter'), ('se', 'sui'), ('dare', 'do'), ('.', 'punc')], [('coniurandi', 'coniuro'), ('has', 'hic'), ('esse', 'sum'), ('causas', 'causa'), ('primum', 'primus'), ('quod', 'quod'), ('uererentur', 'uereor'), ('ne', 'ne'), (',', 'punc'), ('omni', 'omnis'), ('pacata', 'paco'), ('gallia', 'gallia'), (',', 'punc'), ('ad', 'ad'), ('eos', 'is'), ('exercitus', 'exercitus'), ('noster', 'noster'), ('adduceretur', 'adduco'), (';', 'punc')]]
+   
+   In [19]: default = DefaultLemmatizer('UNK')
+    
+   In [20]: lemmatizer = UnigramLemmatizer(train_sents, backoff=default)
+   In [21]: lemmatizer.lemmatize(tokens)
+   
+   Out[21]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
+    
+NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer(), and ContextPOSLemmatizer().
+
 
 Line Tokenization
-=====================
+=================
 The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
 
 .. code-block:: python
@@ -473,6 +518,145 @@ A prosody scanner is available for text which already has had its natural length
    Out[4]: ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯x', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯x']
 
 
+
+Scansion of Poetry
+==================
+
+About the use of macrons in poetry
+```````````````````````````````````
+
+Most Latin poetry arrives to us without macrons. Some lines of Latin poetry can be scanned and fit a poetic meter without any macrons at all, due to the rules of meter and positional accentuation.
+
+Automatically macronizing every word in a line of Latin poetry does not mean that it will automatically scan correctly. Poets often diverge from standard usage: regularly long vowels can appear short; the verb nesciō in poetry scans the final personal ending as a short o; and regularly short vowels can appear as long; e.g. Lucretius regularly writes rēligiō which scans, instead of the usual religiō; and there is a prosody device: diastole - the short final vowel of a word is lengthened to fit the meter; e.g. tibī in Lucretius I.104 and III.899, etc.
+
+However, some macrons are necessary for scansion: Lucretius I.12 begins with "aeriae" which will not scan in hexameter unless one substitutes its macronized form "āeriae".
+
+
+HexameterScanner
+`````````````````
+
+The HexameterScanner class scans lines of Latin hexameter (with or without macrons) and determines if the line is a valid hexameter and what its scansion pattern is.
+
+If the line is not properly macronized to scan, the scanner tries to determine whether the line:
+
+1. Scans merely by position.
+2. Syllabifies according to the common rules.
+3. Is complete (e.g. some hexameter lines are partial).
+
+The scanner also determines which syllables would have to be made long to make the line scan as a valid hexameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HexameterScanner's scan method returns a Hexameter class object.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import HexameterScanner
+
+   In [2]: scanner = HexameterScanner()
+
+   In [3]: print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
+   Out[3]: [Hexameter( original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm, pu, le, rīt, Tān, taen, a, ni, mīs, cae, lēs, ti, bus, i, rae'])]
+
+
+Hexameter
+``````````
+
+The Hexameter class object returned by the HexameterScanner provides slots for:
+
+1. original - original line of verse
+2. scansion - the scansion pattern
+3. valid - whether or not the hexameter is valid
+4. syllable_count - number of syllables according to common syllabification rules
+5. accented - if the hexameter is valid, a version of the line with accented vowels
+6. scansion_notes - a list recording characteristics and transformations made to the original line
+7. syllables - a list of syllables of which the line is divided into
+
+The Scansion notes are defined in a NOTE_MAP dictionary object contained in the ScansionConstants class.
+
+ScansionConstants
+``````````````````
+
+The ScansionConstants class is a configuration class for specifying scansion constants. This class also allows users to customizing scansion constants and scanner behavior, for example, a user may alter the symbols used for stressed and unstressed syllables:
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import ScansionConstants
+
+   In [2]: constants = ScansionConstants(unstressed="U",stressed= "-", optional_terminal_ending="X")
+
+   In [3]: print(constants.DACTYL)
+   Out[3]: ['-UU']
+
+   In [4]: smaller_constants = ScansionConstants(unstressed="˘",stressed= "¯", optional_terminal_ending="x")
+
+   In [5]: print(smaller_constants.DACTYL)
+   Out[5]: ['¯˘˘']
+
+
+Constants containing strings have characters in upper and lower case since they will often be used in regular expressions, and used to preserve/a verse's original case.
+
+Syllabifier
+````````````
+
+The Syllabifier class is a Latin language syllabifier. It parses a Latin word or a space separated list of words into a list of syllables. Consonantal I is transformed into a J at the start of a word as necessary. Tuned for poetry and verse, this class is tolerant of isolated single character consonants that may appear due to elision.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import Syllabifier
+
+   In [1]: syllabifier = Syllabifier()
+
+   In [2]: print(syllabifier.syllabify("libri"))
+   Out[2]: ['li', 'bri']
+
+   In [3]: print(syllabifier.syllabify("contra"))
+   Out[3]: ['con', 'tra']
+
+
+Metrical Validator
+```````````````````
+
+The MetricalValidator class is a utility class for validating scansion patterns. Users may configure the scansion symbols internally via passing a customized ScansionConstants via a constructor argument:
+
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import MetricalValidator
+
+   In [2]: print(MetricalValidator().is_valid_hexameter("-UU---UU---UU-U"))
+   Out[2]: ['True']
+
+
+ScansionFormatter
+``````````````````
+
+The ScansionFormatter class is a utility class for formatting scansion patterns.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import ScansionFormatter
+
+   In [2]: print(ScansionFormatter().hexameter("-UU-UU-UU---UU--"))
+   Out[2]: ['-UU|-UU|-UU|--|-UU|--']
+
+   In [3]: constants = ScansionConstants(unstressed="˘", stressed= "¯", optional_terminal_ending="x")
+
+   In [4]: formatter = ScansionFormatter(constants)
+
+   In [5]: print(formatter.hexameter( "¯˘˘¯˘˘¯˘˘¯¯¯˘˘¯¯"))
+   Out[5]: ['¯˘˘|¯˘˘|¯˘˘|¯¯|¯˘˘|¯¯']
+
+
+StringUtils module
+```````````````````
+
+The StringUtils module contains utility methods for processing scansion and text. Such as ``punctuation_for_spaces_dict()`` returns a dictionary object that maps unicode punctuation to blanks spaces, which are essential for scansion to keep stress patterns in alignment with original vowel positions in the verse.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import StringUtils
+
+   In [2]: print("I'm ok! Oh #%&*()[]{}!? Fine!".translate(punctuation_for_spaces_dict()).strip())
+   Out[2]: ['I m ok  Oh              Fine']
+
+
 Sentence Tokenization
 =====================
 The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
@@ -576,7 +760,7 @@ Intended for use on the TLG after processing by ``TLGU()``.
    Out[7]: ' Dices pulchrum esse inimicos ulcisci. id neque maius neque pulchrius cuiquam atque mihi esse uidetur sed si liceat re publica salua ea persequi. sed quatenus id fieri non potest multo tempore multisque partibus inimici nostri non peribunt atque uti nunc sunt erunt potius quam res publica profligetur atque pereat. Verbis conceptis deierare ausim praeterquam qui Tiberium Gracchum necarunt neminem inimicum tantum molestiae tantumque laboris quantum te ob has res mihi tradidisse quem oportebat omni'
 
 
-If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` might be of use.
+If you have a text of a language in Latin characters which contain a lot of junk, ``remove_non_ascii()`` and ``remove_non_latin()`` might be of use.
 
 .. code-block:: python
 
@@ -587,6 +771,13 @@ If you have a text of a language in Latin characters which contain a lot of junk
    In [3]: remove_non_ascii(text)
    Out[3]: 'Dices   pulchrum esse inimicos ulcisci.
 
+   In [4]: from cltk.corpus.utils.formatter import remove_non_latin
+
+   In [5]: remove_non_latin(text)
+   Out[5]: ' Dices   pulchrum esse inimicos ulcisci'
+
+   In [6]: remove_non_latin(text, also_keep=['.', ','])
+   Out[6]: ' Dices   pulchrum esse inimicos ulcisci.'
 
 
 Transliteration
@@ -652,11 +843,11 @@ finding synonyms, and searching for those, too. Here's an example of its use:
    In [2]: for x in search_corpus('amicitia', 'phi5', context='sentence', case_insensitive=True, expand_keyword=True, threshold=0.25):
        print(x)
       ...:
-   The following similar terms will be added to the 'amicitia' query: '['societate', 'praesentia', 'uita', 'sententia', 'promptu', 'beneuolentia', 'dignitate', 'monumentis', 'somnis', 'philosophia']'.
+   Out[2]: The following similar terms will be added to the 'amicitia' query: '['societate', 'praesentia', 'uita', 'sententia', 'promptu', 'beneuolentia', 'dignitate', 'monumentis', 'somnis', 'philosophia']'.
    ('L. Iunius Moderatus Columella', 'hospitem, nisi ex *amicitia* domini, quam raris-\nsime recipiat.')
    ('L. Iunius Moderatus Columella', ' \n    Xenophon Atheniensis eo libro, Publi Siluine, qui Oeconomicus \ninscribitur, prodidit maritale coniugium sic comparatum esse \nnatura, ut non solum iucundissima, uerum etiam utilissima uitae \nsocietas iniretur: nam primum, quod etiam Cicero ait, ne genus \nhumanum temporis longinquitate occideret, propter \nhoc marem cum femina esse coniunctum, deinde, ut ex \nhac eadem *societate* mortalibus adiutoria senectutis nec \nminus propugnacula praeparentur.')
    ('L. Iunius Moderatus Columella', 'ac ne ista quidem \npraesidia, ut diximus, non adsiduus labor et experientia \nuilici, non facultates ac uoluntas inpendendi tantum pollent \nquantum uel una *praesentia* domini, quae nisi frequens \noperibus interuenerit, ut in exercitu, cum abest imperator, \ncuncta cessant officia.')
-   …
+   ['…']
 
 ``threshold`` is the closeness of the query term to its neighboring words. Note that when ``expand_keyword=True``, the \
 search term will be stripped of any regular expression syntax.
@@ -686,8 +877,8 @@ Some examples of it in action:
    'caesarem']
 
    In [6]: get_sims('iube', 'latin', lemmatized=True, threshold=0.7)
-   "word 'iube' not in vocabulary"
-   The following terms in the Word2Vec model you may be looking for: '['iubet”', 'iubet', 'iubilo', 'iubĕ', 'iubar', 'iubes', 'iubatus', 'iuba1', 'iubeo']'.
+   Out[6]: "word 'iube' not in vocabulary"
+   ['The following terms in the Word2Vec model you may be looking for: '['iubet”', 'iubet', 'iubilo', 'iubĕ', 'iubar', 'iubes', 'iubatus', 'iuba1', 'iubeo']'.]'
 
    In [7]: get_sims('dictator', 'latin', lemmatized=False, threshold=0.7)
    Out[7]:

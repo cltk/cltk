@@ -93,6 +93,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tagged = tagger.tag_tnt('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
+    def test_pos_crf_tagger_latin(self):
+        """Test tagging Latin POS with CRF tagger."""
+        tagger = POSTag('latin')
+        tagged = tagger.tag_crf('Gallia est omnis divisa in partes tres')
+        self.assertTrue(tagged)
+
     def test_check_latest_latin(self):
         """Test _check_latest_data()"""
         ner._check_latest_data('latin')

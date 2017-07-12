@@ -26,7 +26,7 @@ from cltk.utils.file_operations import open_pickle
 rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'),
                (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
 
-__author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
 

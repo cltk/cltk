@@ -1,12 +1,9 @@
 """Process downloaded or local corpora from one format into another.
 Some formatting can happen here, or invoke language-specific formatters in
 other files.
-
-TODO: Add function to build all tlg/phi files from the index
 """
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Stephen Margheim <stephen.margheim@gmail.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from builtins import bytes
@@ -64,6 +61,22 @@ def remove_non_ascii(input_string):
     """
     no_ascii = "".join(i for i in input_string if ord(i) < 128)
     return no_ascii
+
+
+def remove_non_latin(input_string, also_keep=None):
+    """Remove non-Latin characters.
+    `also_keep` should be a list which will add chars (e.g. punctuation)
+    that will not be filtered.
+    """
+    if also_keep:
+        also_keep += [' ']
+    else:
+        also_keep = [' ']
+    latin_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    latin_chars += latin_chars.lower()
+    latin_chars += ''.join(also_keep)
+    no_latin = "".join([char for char in input_string if char in latin_chars])
+    return no_latin
 
 
 def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):

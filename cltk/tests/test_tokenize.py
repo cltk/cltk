@@ -38,17 +38,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         else:
             corpus_importer.import_corpus('latin_models_cltk')
         self.assertTrue(file_exists)
-        
 
-         
 
     def test_sentence_tokenizer_latin(self):
         """Test tokenizing Latin sentences."""
-        sentences = "Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum."  # pylint: disable=line-too-long
-        good_tokenized_sentences = ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.', 'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']  # pylint: disable=line-too-long
+        text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
         tokenizer = TokenizeSentence('latin')
-        tokenized_sentences = tokenizer.tokenize_sentences(sentences)
-        self.assertEqual(tokenized_sentences, good_tokenized_sentences)
+        tokenized_sentences = tokenizer.tokenize_sentences(text)
+        self.assertEqual(tokenized_sentences, target)
+
 
     '''
     def test_sentence_tokenizer_greek(self):
@@ -61,6 +60,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = tokenizer.tokenize_sentences(sentences)
         self.assertEqual(len(tokenized_sentences), len(good_tokenized_sentences))
     '''
+
         
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
@@ -102,6 +102,32 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
                     ]
                     
+        self.assertEqual(results, target)
+
+    def test_tokenize_arabic_words(self):
+        word_tokenizer = WordTokenizer('arabic')
+        tests = ['اللُّغَةُ الْعَرَبِيَّةُ جَمِيلَةٌ.',
+                 'انما الْمُؤْمِنُونَ اخوه فاصلحوا بَيْنَ اخويكم',
+                 'الْعَجُزُ عَنِ الْإِدْرَاكِ إِدْرَاكٌ، وَالْبَحْثَ فِي ذاتِ اللَّه اشراك.',
+                 'اللَّهُمُّ اُسْتُرْ عُيُوبَنَا وَأَحْسَنَ خَوَاتِيمَنَا الْكَاتِبِ: نَبِيلُ جلهوم',
+                 'الرَّأْي قَبْلَ شَجَاعَة الشّجعَانِ',
+                 'فَأَنْزَلْنَا مِنْ السَّمَاء مَاء فَأَسْقَيْنَاكُمُوهُ',
+                 'سُئِلَ بَعْضُ الْكُتَّابِ عَنِ الْخَطّ، مَتَى يَسْتَحِقُّ أَنْ يُوصَفَ بِالْجَوْدَةِ ؟'
+                ]
+
+        results = []
+        for test in tests:
+            result = word_tokenizer.tokenize(test)
+            results.append(result)
+
+        target = [['اللُّغَةُ', 'الْعَرَبِيَّةُ', 'جَمِيلَةٌ', '.'],
+                  ['انما', 'الْمُؤْمِنُونَ', 'اخوه', 'فاصلحوا', 'بَيْنَ', 'اخويكم'],
+                  ['الْعَجُزُ', 'عَنِ', 'الْإِدْرَاكِ', 'إِدْرَاكٌ', '،', 'وَالْبَحْثَ', 'فِي', 'ذاتِ', 'اللَّه', 'اشراك', '.'],
+                  ['اللَّهُمُّ', 'اُسْتُرْ', 'عُيُوبَنَا', 'وَأَحْسَنَ', 'خَوَاتِيمَنَا', 'الْكَاتِبِ', ':', 'نَبِيلُ', 'جلهوم'],
+                  ['الرَّأْي', 'قَبْلَ', 'شَجَاعَة', 'الشّجعَانِ'],
+                  ['فَأَنْزَلْنَا', 'مِنْ', 'السَّمَاء', 'مَاء', 'فَأَسْقَيْنَاكُمُوهُ'],
+                  ['سُئِلَ', 'بَعْضُ', 'الْكُتَّابِ', 'عَنِ', 'الْخَطّ', '،', 'مَتَى', 'يَسْتَحِقُّ', 'أَنْ', 'يُوصَفَ', 'بِالْجَوْدَةِ', '؟']
+                 ]
         self.assertEqual(results, target)
 
     def test_nltk_tokenize_words(self):

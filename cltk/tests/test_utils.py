@@ -1,13 +1,17 @@
 """Test cltk.utils."""
 
 from collections import Counter
+from collections import defaultdict
 import os
 from pickle import UnpicklingError
 import unittest
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.utils.cltk_logger import logger
-from cltk.utils.contributors import Contributors
+from cltk.utils.contributors import find_write_contribs
+from cltk.utils.contributors import write_contribs
+from cltk.utils.contributors import scantree
+from cltk.utils.contributors import get_authors
 from cltk.utils.file_operations import make_cltk_path
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
@@ -107,33 +111,42 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         with self.assertRaises(IOError):
             philology.write_concordance_from_file(bad_path, 'test_file')
 
-    def test_contribs_walk_cltk(self):
-        """Test recursive fp walk."""
-        contribs = Contributors()
-        modules_list = contribs.walk_cltk()
-        self.assertEqual(type(modules_list), list)
-
-    def test_get_module_authors(self):
-        """Test opening contribs file."""
-        contribs = Contributors()
-        author = contribs.get_module_authors('cltk/corpus/utils/importer.py')[0]
-        self.assertEqual(author, 'Kyle P. Johnson <kyle@kyle-p-johnson.com>')
-
-    def test_contribs_make_authors_dict(self):
-        """Test making dict for author contrib file."""
-        contribs = Contributors()
-        authors_dict = contribs._make_authors_dict()
-        self.assertGreater(len(authors_dict), 8)
-
-    def test_contribs_write_contribs(self):
+    def test_contribs_find_write_contribs(self):
         """Test contrib writing function."""
-        contribs = Contributors()
         file = 'contributors.md'
         try:
             os.remove(file)
         except FileNotFoundError:
             logger.info("No file to remove at '%s'. Continuing.", file)
-        contribs.write_contribs()
+        find_write_contribs()
+        contribs_file = os.path.isfile(file)
+        self.assertTrue(contribs_file)
+
+    def test_get_authors(self):
+        """Test extracting authors from file."""
+        auths = get_authors('cltk/corpus/utils/importer.py')
+        self.assertEqual(type(auths), list)
+
+    def test_scantree(self):
+        """Test treescan for contribs module."""
+        a_generator = scantree('cltk')
+        self.assertEqual(str(type(a_generator)), "<class 'generator'>")
+
+
+    def test_write_contribs(self):
+        """Test file writer for contribs module."""
+        # rm old
+        file = 'contributors.md'
+        try:
+            os.remove(file)
+        except FileNotFoundError:
+            logger.info("No file to remove at '%s'. Continuing.", file)
+        # mk new dict
+        def_dict = defaultdict(list)
+        def_dict['key'].append('val1')
+        def_dict['key'].append('val2')
+        write_contribs(def_dict)
+        # write file
         contribs_file = os.path.isfile(file)
         self.assertTrue(contribs_file)
 

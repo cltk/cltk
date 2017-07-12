@@ -1,5 +1,7 @@
 """Test cltk.corpus."""
 
+from cltk.corpus.greek.alphabet import expand_iota_subscript
+from cltk.corpus.greek.alphabet import filter_non_greek
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
@@ -28,6 +30,7 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
+from cltk.corpus.utils.formatter import remove_non_latin
 from cltk.corpus.utils.formatter import tonos_oxia_converter
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
@@ -233,6 +236,22 @@ argenteo polubro, aureo eclutro. """
         ascii_str = remove_non_ascii(non_ascii_str)
         valid = 'Ascii and some non-ascii:     '
         self.assertEqual(ascii_str, valid)
+
+    def test_remove_non_latin(self):
+        """Test removing all non-Latin characters from a string."""
+        latin_str = '(1) Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'  # pylint: disable=line-too-long
+        non_latin_str = remove_non_latin(latin_str)
+        valid = ' Dices   pulchrum esse inimicos ulcisci'
+        self.assertEqual(non_latin_str, valid)
+
+    def test_remove_non_latin_opt(self):
+        """Test removing all non-Latin characters from a string, with
+        `also_keep` parameter.
+        """
+        latin_str = '(1) Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'  # pylint: disable=line-too-long
+        non_latin_str = remove_non_latin(latin_str, also_keep=['.', ','])
+        valid = ' Dices   pulchrum esse inimicos ulcisci.'
+        self.assertEqual(non_latin_str, valid)
 
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
@@ -551,6 +570,30 @@ example_distributed_fake_language_corpus:
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
         ḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
+        #
+        self.assertEqual(test_result_string, comparison_string)
+
+    def test_expand_iota_subscript(self):
+        """Test subscript expander."""
+        unexpanded = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+        expanded = expand_iota_subscript(unexpanded)
+        target = 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+        self.assertEqual(expanded, target)
+
+    def test_expand_iota_subscript_lower(self):
+        """Test subscript expander."""
+        unexpanded = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+        expanded = expand_iota_subscript(unexpanded, lowercase=True)
+        target = 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+        self.assertEqual(expanded, target)
+    #
+    def test_filter_non_greek(self):
+        """
+        Test filter non greek characters in a mixed string.
+        """
+        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]" # PH247029, line 2
+        comparison_string = "Ἑκατμανδρος Αἰσχρωνος  Ἀριστεδη"
+        test_result_string = filter_non_greek(test_input_string)
         #
         self.assertEqual(test_result_string, comparison_string)
 

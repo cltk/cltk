@@ -21,11 +21,6 @@ from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
 
-try:
-    from gensim.models import Word2Vec
-except ImportError:
-    print('Gensim not installed.')
-    raise
 
 
 def gen_docs(corpus, lemmatize, rm_stops):
@@ -172,5 +167,10 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
 
 
 if __name__ == '__main__':
+    try:
+        from gensim.models import Word2Vec
+    except ImportError:
+        print('Gensim not installed.')
+        raise
     similar_vectors = get_sims('ἄνδρες', 'greek', lemmatized=True, threshold=0)
     print(similar_vectors)
