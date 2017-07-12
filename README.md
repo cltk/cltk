@@ -1,6 +1,6 @@
 # The Classical Language Toolkit
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.60021.svg)](http://dx.doi.org/10.5281/zenodo.60021)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.583327.svg)](https://doi.org/10.5281/zenodo.583327)
 
 [![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master)
 
@@ -9,11 +9,11 @@
 
 ## About
 
-The Classical Language Toolkit (CLTK) offers natural language processing support for Classical languages. In some areas, it extends the NLTK. The goals of the CLTK are to:
+The Classical Language Toolkit (CLTK) offers natural language processing (NLP) support for the languages of Ancient, Classical, and Medieval Eurasia. Greek and Latin functionality are currently most complete. The goals of the CLTK are to:
 
-*   compile analysis-friendly corpora in a variety of Classical languages (currently available for Chinese, Coptic, Greek, Hebrew, Latin, Pali, Punjabi, Sanskrit, Telugu, and Tibetan);
-*   gather, improve, and generate linguistic data required for NLP (Greek and Latin are in progress, with [more in the pipeline](https://github.com/cltk/cltk/wiki/List-of-Classical-languages));
-*   develop a free and open platform for generating reproducible, scientific research that advances the study of the languages and literatures of the ancient world.
+*   compile analysis-friendly corpora;
+*   collect and generate linguistic data;
+*   act as a free and open platform for generating scientific research.
 
 
 ## Documentation
@@ -23,7 +23,7 @@ The docs are at [docs.cltk.org](http://docs.cltk.org).
 
 ### Installation
 
-CLTK supports Python version 3.5. The software only runs on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
+CLTK supports Python version 3.6. The software only runs on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
 
 ``` bash
 $ pip install cltk
@@ -45,7 +45,7 @@ Each major release of the CLTK is given a [DOI](http://en.wikipedia.org/wiki/Dig
 
 Thus, please cite core software as something like:
 ```
-Kyle P. Johnson et al.. (2014-2016). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.<current_release_id>
+Kyle P. Johnson et al.. (2014-2017). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.<current_release_id>
 ```
 
 A style-neutral BibTeX entry would look like this:
@@ -55,7 +55,7 @@ author = {Kyle P. Johnson et al.},
 title = {CLTK: The Classical Language Toolkit},
 howpublished = {\url{https://github.com/cltk/cltk}},
 note = {{DOI} 10.5281/zenodo.<current_release_id>},
-year = {2014--2016},
+year = {2014--2017},
 }
 ```
 
@@ -63,15 +63,15 @@ year = {2014--2016},
 [Many contributors](https://github.com/cltk/cltk/blob/master/contributors.md) have made substantial contributions to the CLTK. For scholarship about particular code, it might be proper to cite these individuals as authors of the work under discussion.
 
 
-# Gratitude
+## Gratitude
 
 We are thankful for the following organizations that have offered support:
 
-* Google Summer of Code (sponsoring two students, 2016)
+* Google Summer of Code (sponsoring two students, 2016 & 2017)
 * JetBrains (licenses for PyCharm and WebStorm)
 * Google Cloud Platform (with credits for the Classical Language Archive and API)
 
 
 ## License
 
-The CLTK is Copyright (c) 2016 Kyle P. Johnson, under the MIT License. See [LICENSE](https://github.com/cltk/cltk/blob/master/LICENSE) for details.
+The CLTK is Copyright (c) 2017 Kyle P. Johnson, under the MIT License. See [LICENSE](https://github.com/cltk/cltk/blob/master/LICENSE) for details.

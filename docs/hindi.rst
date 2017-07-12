@@ -1,10 +1,13 @@
 Hindi
 ********
 
+Hindi is a standardised and Sanskritised register of the Hindustani language. Like other Indo-Aryan languages, Hindi is considered to be a direct descendant of an early form of Sanskrit, through Sauraseni Prakrit and Śauraseni Apabhraṃśa. It has been influenced by Dravidian languages, Turkic languages, Persian, Arabic, Portuguese and English. Hindi emerged as Apabhramsha, a degenerated form of Prakrit, in the 7th century A.D. By the 10th century A.D., it became stable. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Hindi>`_)
+
+
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``hindi_``) to discover available Hindi corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``hindi_``) to discover available Hindi corpora.
 
 .. code-block:: python
 

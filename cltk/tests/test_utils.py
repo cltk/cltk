@@ -2,6 +2,7 @@
 
 from collections import Counter
 import os
+from pickle import UnpicklingError
 import unittest
 
 from cltk.corpus.utils.importer import CorpusImporter
@@ -46,7 +47,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_open_pickle_fail_corrupt(self):
         """Test failure to open corrupted pickle."""
         bad_file = 'cltk/tests/bad_pickle.pickle'
-        with self.assertRaises(EOFError):
+        with self.assertRaises(UnpicklingError):
             open_pickle(bad_file)
 
     def test_logger(self):

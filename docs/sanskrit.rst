@@ -1,10 +1,13 @@
 Sanskrit
 ********
 
+Sanskrit is the primary liturgical language of Hinduism, a philosophical language of Hinduism, Jainism, Buddhism and Sikhism, and a literary language of ancient and medieval South Asia that also served as a lingua franca. It is a standardised dialect of Old Indo-Aryan, originating as Vedic Sanskrit and tracing its linguistic ancestry back to Proto-Indo-Iranian and Proto-Indo-European. As one of the oldest Indo-European languages for which substantial written documentation exists, Sanskrit holds a prominent position in Indo-European studies. (Source: `Wikipedia <https:// https://en.m.wikipedia.org/wiki/Sanskrit>`_)
+
+
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``sanskrit_``) to discover available Sanskrit corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``sanskrit_``) to discover available Sanskrit corpora.
 
 .. code-block:: python
 

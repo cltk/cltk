@@ -17,6 +17,11 @@ from cltk.corpus.bengali.corpora import BENGALI_CORPORA
 from cltk.corpus.old_church_slavonic.corpora import OCS_CORPORA
 from cltk.corpus.prakrit.corpora import PRAKRIT_CORPORA
 from cltk.corpus.hindi.corpora import HINDI_CORPORA
+from cltk.corpus.javanese.corpora import JAVANESE_CORPORA
+from cltk.corpus.malayalam.corpora import MALAYALAM_CORPORA
+from cltk.corpus.old_norse.corpora import OLD_NORSE_CORPORA
+from cltk.corpus.telugu.corpora import TELUGU_CORPORA
+from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
 
 from cltk.utils.cltk_logger import logger
 
@@ -35,7 +40,10 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual', 'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english', 'bengali', 'prakrit', 'hindi', 'old_church_slavonic']
+AVAILABLE_LANGUAGES = ['chinese', 'coptic', 'greek', 'latin', 'multilingual',
+                       'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
+                       'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
+                       'malayalam', 'javanese','old_norse','telugu','classical_hindi']
 
 CLTK_DATA_DIR = '~/cltk_data'
 LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
@@ -48,10 +56,16 @@ LANGUAGE_CORPORA = {'chinese': CHINESE_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
                     'old_english': OLD_ENGLISH_CORPORA,
- 		                'bengali': BENGALI_CORPORA,
+ 		            'bengali': BENGALI_CORPORA,
                     'old_church_slavonic': OCS_CORPORA,
                     'prakrit': PRAKRIT_CORPORA,
-                    'hindi': HINDI_CORPORA,}
+                    'hindi': HINDI_CORPORA,
+                    'malayalam': MALAYALAM_CORPORA,
+                    'javanese': JAVANESE_CORPORA,
+                    'old_norse':OLD_NORSE_CORPORA,
+                    'telugu':TELUGU_CORPORA,
+                    'classical_hindi':CLASSICAL_HINDI_CORPORA,
+                    }
 
 
 class CorpusImportError(Exception):

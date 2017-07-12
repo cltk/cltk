@@ -1,6 +1,9 @@
 Greek
 *****
-For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
+Greek is an independent branch of the Indo-European family of languages, native to Greece and other parts of the Eastern Mediterranean. It has the longest documented history of any living language, spanning 34 centuries of written records. Its writing system has been the Greek alphabet for the major part of its history; other systems, such as Linear B and the Cypriot syllabary, were used previously. The alphabet arose from the Phoenician script and was in turn the basis of the Latin, Cyrillic, Armenian, Coptic, Gothic and many other writing systems. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Greek_language>`_)
+
+
+.. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
 Accentuation
@@ -778,6 +781,25 @@ In addition to these indices there are several helper functions which will build
     ...]
 
 These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
+
+
+
+Transliteration
+===============
+
+The CLTK provides `IPA phonetic transliteration <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
+the Greek language. Currently, the only available dialect is Attic as reconstructed by Philomen Probert \
+(taken from `A Companion to the Ancient Greek Language <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, \
+85-103). Example:
+
+.. code-block:: python
+
+   In [1]: from cltk.phonology.greek.transcription import Transcriber
+
+   In [2]: transcriber = Transcriber(dialect="Attic", reconstruction="Probert")
+
+   In [3]: transcriber.transcribe("Διόθεν καὶ δισκήπτρου τιμῆς ὀχυρὸν ζεῦγος Ἀτρειδᾶν στόλον Ἀργείων")
+   Out[3]: '[di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn]'
 
 
 

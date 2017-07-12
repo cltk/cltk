@@ -1,8 +1,13 @@
 Latin
 *****
-For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``latin_models_cltk``).
 
-Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
+Latin is a classical language belonging to the Italic branch of the Indo-European languages. The Latin alphabet is derived from the Etruscan and Greek alphabets, and ultimately from the Phoenician alphabet. Latin was originally spoken in Latium, in the Italian Peninsula. Through the power of the Roman Republic, it became the dominant language, initially in Italy and subsequently throughout the Roman Empire. Vulgar Latin developed into the Romance languages, such as Italian, Portuguese, Spanish, French, and Romanian. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Latin>`_)
+
+
+.. note:: For most of the following operations, you must first `import the CLTK Latin linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``latin_models_cltk``).
+
+.. note:: Note that for most of the following operations, the j/i and v/u replacer ``JVReplacer()`` and ``.lower()`` should be used on the input string first, if necessary.
+
 
 Clausulae Analysis
 ==================
@@ -206,6 +211,31 @@ The backoff module also offers IdentityLemmatizer which returns the given token 
 
 NB: Documentation is still be written for the remaining backoff lemmatizers, i.e. TrainLemmatizer, ContextLemmatizer, RegexpLemmatizer, and ContextPOSLemmatizer.
 
+Line Tokenization
+=====================
+The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.line import LineTokenizer
+
+   In [2]: tokenizer = LineTokenizer('latin')
+
+   In [3]: untokenized_text = """49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+
+   In [4]: tokenizer.tokenize(untokenized_text)
+   
+   Out[4]: ['49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+
+The line tokenizer by default removes multiple line breaks. If you wish to retain blank lines in the returned list, set the ``include_blanks`` to ``True``.
+
+.. code-block:: python
+
+   In [5]: untokenized_text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
+
+   In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
+   
+   Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 Macronizer
 ==========
@@ -556,6 +586,25 @@ If you have a text of a language in Latin characters which contain a lot of junk
 
    In [3]: remove_non_ascii(text)
    Out[3]: 'Dices   pulchrum esse inimicos ulcisci.
+
+
+
+Transliteration
+===============
+
+The CLTK provides `IPA phonetic transliteration <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
+the Latin language. Currently, the only available dialect is Classical as reconstructed by W. Sidney Allen \
+(taken from `Vox Latina <https://books.google.com/books/about/Vox_Latina.html?id=aexkj_0oj3MC>`_, 85-103). Example:
+
+.. code-block:: python
+
+   In [1]: from cltk.phonology.latin.transcription import Transcriber
+
+   In [2]: transcriber = Transcriber(dialect="Classical", reconstruction="Allen")
+
+   In [3]: transcriber.transcribe("Quo usque tandem, O Catilina, abutere nostra patientia?")
+   Out[3]: "['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]"
+
 
 
 Word Tokenization

@@ -1,6 +1,9 @@
 Punjabi
 *******
 
+Punjabi is an Indo-Aryan language native language of the Punjabi people who inhabit the historical Punjab region of Pakistan and India. Punjabi developed from Sanskrit through Prakrit language and later Apabhraṃśa. Punjabi emerged as an Apabhramsha, a degenerated form of Prakrit, in the 7th century A.D. and became stable by the 10th century. By the 10th century, many Nath poets were associated with earlier Punjabi works. Arabic and Persian influence in the historical Punjab region began with the late first millennium Muslim conquests on the Indian subcontinent. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Punjabi_language>`_)
+
+
 Corpora
 =======
 
