@@ -243,8 +243,7 @@ The CLTK offers one transformation that can be useful in certain types of proces
 
 Alphabet
 ========
-
-The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
+The Greek vowels, consonants in upper and lower case, greek numerals and accents are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
 
 Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
 
@@ -262,11 +261,89 @@ For example to use upper case vowels with rough breathing and an acute accent:
 
 Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
 
-Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
+For accessing the accents and numerals:
+
+.. code-block:: python  
+
+    In[1]: from cltk.corpus.greek.alphabet import ACCENTS, NUMERAL_SIGNS
+    In [2]:  print(ACCENTS)
+    Out[2]: ['ͺ', '΄', '΅', '·', '᾽', 'ι', '᾿', '῀', '῁', '῍', '῎', '῏', '῝', '῞', '῟', '῭', '΅', '`', '´', '῾']
+    In [3]: print(NUMERAL_SIGNS)
+    Out[7]: ['ʹ', '͵']
+
+.. note:: Some combinations of accents and vowels produce the same output. Ex.: ά, Greek Small Letter Alpha with Tonos U+03AC and ά, Greek Small Letter Alpha with Oxia U+1F71. It is a good idea to decide early on which one to conserve ro to conserve both.
+
+Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicates a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
 
 Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
 
 For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
+
+A simple filtering function is also implemented for working with mixed texts. It simply filters out non greek elements from your text. Here is an example:
+
+.. code-block:: python
+
+    In [39]: text = """
+        {²Much missing above.}²
+	    [․․․․․c.14․․․․․]α ζεῦγος α[․c.4․ ὁλκὴ]
+	    [τῆς μιᾶς? Ἀλεξαν]δρείου δραχμα[ὶ ․c.6․․,]
+	    [ὁλκὴ] τῆς ἑτέρας Ἀλεξανδρείου δ[ραχμαὶ]
+	    πεν[τήκο]ντα ἕξ ὀβολοὶ τρεῖς. προχοῒς καὶ φι[άλαι]
+    5 	δύο, ἃς ὁ δῆμος ὁ Μιλησίων ἐποήσατο, ὁλκὴ
+    	Ἀλεξανδρείου δραχμαὶ τριακόσιαι. τάδε πε[ρι]-
+	    εγενήθη ἐκ τοῦ πολέμου παρὰ Ἀπόλλωνι· φιά[λη]
+	    τυπωτή, κέρας βοὸς περιηργυρωμένον· v2 τάδ[ε]
+	    περιεγενήθη παρὰ Ἀρτέμιδι· θυμίατρον Τυρρη[νι]-
+    10 	κὸν οὐκ ἔχον πλινθίδα ὑπὸ μιᾶι τῶν βάσεω[ν]
+	    οὐδὲ τὸρρόδον ἐπὶ τῶι κημῶι, ἀνάθημα Βαττίδος
+	    τῆς Πανταίνου, ἄστ[α]τον· λιβανωτίς, ὁλκὴ Ἀλεξα[ν]-
+	    δρείου δραχμαὶ ἑκατὸν τριάκοντα τέσσαρες·
+	    λιβανωτίδιον, ὀλκὴ Ἀλεξανδρείου δραχμαὶ
+    15 	δεκαμία ὀβολοὶ τρεῖς· ζῶναι τρεῖς, ὁλκὴ Ἀλεξαν-
+	    δρείου δραχμαὶ δεκαδύο. v2 ταῦτά τε καὶ ὅσα
+	    παρελάβομεν παρὰ τῶν ταμιῶν τῶν ἐπὶ Λεωσθέ-
+	    νους παρεδώκαμεν τοῖς ταμίαις τοῖς ἐπὶ [τοῦ]
+	    θεοῦ τοῦ μετὰ Ποσείδιππον Π[ροταγόραι Ἀναξι]-
+    20 	φῶντος, Στήρι Στήριος, Ἀπολλᾶι [Ἡλιοδώρου,]
+	    Ὀρνυμενῶι Ἑστιαίου, Ἀχαιῶι Κράτητος, Δίωνι
+	    Ἡρακλείτου. """ # PH247029
+        
+    In [40]: from cltk.corpus.greek.alphabet import filter_non_greek
+    
+    In [41]: filter_non_greek(text)
+    Out[53]: """α ζεῦγος α ὁλκὴ
+    τῆς μιᾶς Ἀλεξανδρεου δραχμαὶ 
+    ὁλκὴ τῆς ἑτρας Ἀλεξανδρεου δραχμαὶ
+    πεντκοντα ἕξ ὀβολοὶ τρεῖς προχος καὶ φιάλαι
+    δο ἃς ὁ δῆμος ὁ Μιλησων ἐποσατο ὁλκὴ
+    Ἀλεξανδρεου δραχμαὶ τριακσιαι τάδε περι
+    εγενθη ἐκ τοῦ πολμου παρὰ Ἀπλλωνι· φιάλη
+    τυπωτ κρας βοὸς περιηργυρωμνον·  τάδε
+    περιεγενθη παρὰ Ἀρτμιδι· θυματρον Τυρρηνι
+    κὸν οὐκ ἔχον πλινθδα ὑπὸ μιᾶι τῶν βάσεων
+    οὐδὲ τὸρρδον ἐπὶ τῶι κημῶι ἀνάθημα Βαττδος
+    τῆς Παντανου ἄστατον· λιβανωτς ὁλκὴ Ἀλεξαν
+    δρεου δραχμαὶ ἑκατὸν τριάκοντα τσσαρες·
+    λιβανωτδιον ὀλκὴ Ἀλεξανδρεου δραχμαὶ
+    δεκαμα ὀβολοὶ τρεῖς· ζῶναι τρεῖς ὁλκὴ Ἀλεξαν
+    δρεου δραχμαὶ δεκαδο  ταῦτά τε καὶ ὅσα
+    παρελάβομεν παρὰ τῶν ταμιῶν τῶν ἐπὶ Λεωσθ
+    νους παρεδκαμεν τοῖς ταμαις τοῖς ἐπὶ τοῦ
+    θεοῦ τοῦ μετὰ Ποσεδιππον Προταγραι Ἀναξι
+    φῶντος Στρι Στριος Ἀπολλᾶι Ἡλιοδρου
+    Ὀρνυμενῶι Ἑστιαου Ἀχαιῶι Κράτητος Δωνι
+    Ἡρακλετου"""
+
+.. Tip:: This function is conceieved for the usecase of cleaning epigraphical and philological mark-up in a given text during the preprocessing phase.
+    
+.. Warning:: Beware **this function will filter out anything that doesn't figure in the Greek/Coptic, and Greek Extended Unicode blocks also some characters which are found in those blocks**. This means integers like 1-9 or punctuations like ".," and symbols like "ϓ,ϐ" will be filtered out. However, it conserves whitespace and newline character.
+
+If you are having difficulties having the proper output, check the following before filling out an issue:
+
+- Do the greek letters in your text correspond to letter encoding rather than symbol encoding. Ex. ϕ, is Greek Phi Symbol U+03D5, and not covered by the alphabet, but φ, is Greek Small Letter Phi U+03C6, and is covered by the alphabet.py.
+
+- Are the free standing accents encoded properly ? Or are they represented as space + combined accent ? Ex. ͺ is  Greek Ypogegrammeni U+037A and is covered, whereas  ͅ is Combining Greek Ypogegrammeni U+0345 and not covered, since it is not suppose to appear as a free standing accent. Actually accents are not free standing entities anyway, but some projects store the letter and its accent as two separate entities.
+
 
 Converting Beta Code to Unicode
 ===============================
