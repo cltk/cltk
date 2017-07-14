@@ -669,11 +669,6 @@ def strip_harakat(text):
         - FATHATAN,  DAMMATAN,  KASRATAN,
 
 
-    Example:
-        >>> text = u"الْعَرَبِيّةُ"
-        >>> strip_harakat(text)
-        >>> العربيّة
-
     @param text: arabic text.
     @type text: unicode.
     @return: return a striped text.
@@ -697,11 +692,6 @@ def strip_lastharaka(text):
         - SUKUN
         - FATHATAN,  DAMMATAN,  KASRATAN
 
-    Example:
-        >>> text = u"الْعَرَبِيّةُ"
-        >>> strip_lastharaka(text)
-        الْعَرَبِيّة
-
     @param text: arabic text.
     @type text: unicode.
     @return: return a striped text.
@@ -721,11 +711,6 @@ def strip_tashkeel(text):
         - SHADDA
         - FATHATAN,  DAMMATAN,  KASRATAN,  ,  ,  .
 
-    Example:
-        >>> text = u"الْعَرَبِيّةُ"
-        >>> strip_tashkeel(text)
-        العربية
-
     @param text: arabic text.
     @type text: unicode.
     @return: return a striped text.
@@ -743,11 +728,6 @@ def strip_tatweel(text):
     """
     Strip tatweel from a text and return a result text.
 
-    Example:
-        >>> text = u"العـــــربية"
-        >>> strip_tatweel(text)
-        العربية
-
     @param text: arabic text.
     @type text: unicode.
     @return: return a striped text.
@@ -760,11 +740,6 @@ def strip_tatweel(text):
 def strip_shadda(text):
     """
     Strip Shadda from a text and return a result text.
-
-    Example:
-        >>> text = u"الشّمسيّة"
-        >>> strip_shadda(text)
-         الشمسية
 
     @param text: arabic text.
     @type text: unicode.
@@ -782,11 +757,6 @@ def normalize_ligature(text):
     The converted letters into  LAM and ALEF are :
         - LAM_ALEF,  LAM_ALEF_HAMZA_ABOVE,  LAM_ALEF_HAMZA_BELOW,  LAM_ALEF_MADDA_ABOVE
 
-    Example:
-        >>> text = u"لانها لالء الاسلام"
-        >>> normalize_ligature(text)
-        لانها لالئ الاسلام
-
     @param text: arabic text.
     @type text: unicode.
     @return: return a converted text.
@@ -801,12 +771,6 @@ def normalize_hamza(word):
     """Standardize the Hamzat into one form of hamza,
     replace Madda by hamza and alef.
     Replace the LamAlefs by simplified letters.
-
-
-    Example:
-        >>> text = u"سئل أحد الأئمة"
-        >>> normalize_hamza(text)
-         سءل ءحد الءءمة
 
     @param word: arabic text.
     @type word: unicode.
@@ -830,24 +794,6 @@ def separate(word, extract_shadda=False):
     separate the letters from the vowels,  in arabic word,
     if a letter hasn't a haraka,  the not definited haraka is attributed.
     return ( letters, vowels)
-
-    Example:
-        >>> separate(text)
-        (u'\u0627\u0644\u0639\u0631\u0628\u064a\u0629', u'\u064e\u0652\u064e\u064e\u064e\u064e\u064f')
-        >>> letters, marks = separate(text)
-        >>> print letters.encode('utf8')
-        العربية
-        >>> print marks.encode('utf8')
-        >>> for m in marks:
-        ...     print name(m)
-        فتحة
-        سكون
-        فتحة
-        فتحة
-        فتحة
-        فتحة
-        ضمة
-
     @param word: the input word
     @type word: unicode
     @param extract_shadda: extract shadda as seperate text
@@ -903,14 +849,6 @@ def joint(letters, marks):
     """ joint the letters with the marks
     the length ot letters and marks must be equal
     return word
-
-    Example:
-        >>> letters = u"العربية"
-        >>> marks   = u'\u064e\u0652\u064e\u064e\u064e\u064e\u064f'
-        >>> word = joint(letters, marks)
-        >>> print word.encode('utf8')
-        اَلْعَرَبَيَةُ
-
     @param letters: the word letters
     @type letters: unicode
     @param marks: the word marks
@@ -957,12 +895,6 @@ def vocalizedlike(word1, word2):
     if the two words has the same letters and the same harakats,  this fuction return True.
     The two words can be full vocalized,  or partial vocalized
 
-    Example:
-        >>> word1 = u"ضَربٌ"
-        >>> word2 = u"ضَرْبٌ"
-        >>> vocalizedlike(word1, word2)
-        True
-
     @param word1: first word
     @type word1: unicode
     @param word2: second word
@@ -985,12 +917,6 @@ def waznlike(word1, wazn):
     the wazn has FEH,  AIN,  LAM letters.
     this are as generic letters.
     The two words can be full vocalized,  or partial vocalized
-
-    Example:
-        >>> word1 = u"ضارب"
-        >>> wazn =  u"فَاعِل"
-        >>> waznlike(word1, wazn)
-        True
 
     @param word1: input word
     @type word1: unicode
@@ -1035,11 +961,6 @@ def shaddalike(partial, fully):
     The first word is partially vocalized, the second is fully
     if the partially contians a shadda, it must be at the same place in the fully
 
-    Example:
-        >>> word1 = u"ردّ"
-        >>> word2=u"ردَّ"
-        >>> shaddalike(word1, word2)
-        True
 
     @param partial: the partially vocalized word
     @type partial: unicode
@@ -1084,12 +1005,6 @@ def shaddalike(partial, fully):
 def reduce_tashkeel(text):
     """Reduce the Tashkeel,  by deleting evident cases.
 
-    Exmaple:
-        >>> word = u"يُتَسََلَّمْنَ"
-        >>> reduced = reduce_tashkeel(word)
-        >>> print reduced.encode('utf8')
-        يُتسلّمن
-
     @param text: the input text fully vocalized.
     @type text: unicode.
     @return : partially vocalized text.
@@ -1121,16 +1036,6 @@ def vocalized_similarity(word1, word2):
     """
     if the two words has the same letters and the same harakats,  this function return True.
     The two words can be full vocalized, or partial vocalized
-
-    Example:
-        >>> word1 = u"ضَربٌ"
-        >>> word2 = u"ضَرْبٌ"
-        >>> vocalizedlike(word1, word2)
-        True
-        >>> word1 = u"ضَربٌ"
-        >>> word2 = u"ضَرْبٍ"
-        >>> vocalized_similarity(word1, word2)
-        -1
 
     @param word1: first word
     @type word1: unicode
@@ -1173,15 +1078,6 @@ def vocalized_similarity(word1, word2):
 def tokenize(text=u""):
     """
     Tokenize text into words.
-
-    Example:
-        >>> text = u"العربية لغة جميلة."
-        >>> tokens = tokenize(text)
-        >>> print u"\\n".join(tokens)
-        ‎العربية
-        ‎لغة
-        ‎جميلة
-        .
 
     @param text: the input text.
     @type text: unicode.
