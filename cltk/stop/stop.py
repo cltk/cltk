@@ -3,7 +3,10 @@
 
 ## Goal: to build a stop list of from top 100 count using Counter
 
+from abc import abstractmethod
 from collections import Counter
+
+from cltk.utils.cltk_logger import logger
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'GPL License.'
@@ -19,46 +22,38 @@ class Stoplist():
         :param language : text from which to build the stoplist
         """
         self.language = language.lower()
-        Stoplist.__init__(self, language)        
         self.numpy_installed = True ## Write utility for common import traps?
         self.sklearn_installed = True
         
         try:
             import numpy as np
+            self.np = np
         except ImportError:
             self.numpy_installed = False        
         
         try:
             from sklearn.feature_extraction.text import CountVectorizer
+            self.vectorizer = CountVectorizer(input='content') # Set df?
         except ImportError:
             self.sklearn_installed = False
             
-    def build_stoplist(text, size=100):
+            
+    @abstractmethod        
+    def build_stoplist(self, text, size=100):
         """
-        :type language: int
-        :param language : size of the output list
-        :type language: str
-        :param language : language in case of language-specific considerations
+        Build a stoplist based on string or list of strings. This method 
+        should be overridden by subclasses of Stoplist.
         """
         
-        if self.language = 'latin':
-            pass
-            # set preprocessing
-        else:
-            pass
         
-        text = text.split() # Load real tokenizer
-        c = Counter(text)
-        return c.most_common(size)
-
 ## Write subclass designed to make a stoplist from a single string.
 class StringStoplist(Stoplist):
     
     def __init__(self, language=None):
         Stoplist.__init__(self, language)      
+        self.language = language
         
-        
-    def build_stoplist(text, size=100):
+    def build_stoplist(self, text, size=100):
         """
         :type language: int
         :param language : size of the output list
@@ -66,7 +61,7 @@ class StringStoplist(Stoplist):
         :param language : language in case of language-specific considerations
         """
         
-        if self.language = 'latin':
+        if self.language == 'latin':
             pass
             # set preprocessing
         else:
@@ -81,63 +76,60 @@ class CorpusStoplist(Stoplist):
 
     def __init__(self, language=None):
         Stoplist.__init__(self, language)
-        if not self.numpy_installed and not self.sklearn_installed:
-            logger.error('The Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.')
+        if not self.numpy_installed or not self.sklearn_installed:
+            #logger.error('The Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.')
             raise ImportError
+        else:
+            from sklearn.feature_extraction.text import CountVectorizer
+        
         
     
-    def _make_dtm(texts):
-        vectorizer = CountVectorizer(input='content') # Set df?
-        dtm = vectorizer.fit_transform(texts)
+    def _make_dtm_vocab(self, texts):
+        dtm = self.vectorizer.fit_transform(texts)
         dtm = dtm.toarray()
-        return dtm
+        vocab = self.vectorizer.get_feature_names()
+        vocab = self.np.array(vocab)
+        return dtm, vocab
+            
     
-    
-    def _make_vocabulary(dtm)
-        vectorizer = CountVectorizer(input='content') # Set df? Make DRY with previous function?
-        dtm = vectorizer.fit_transform(texts)
-        vocab = vectorizer.get_feature_names()
-        vocab = np.array(vocab)
-        return vocab
-    
-    def _get_raw_lengths(texts):
+    def _get_raw_lengths(self, texts):
         return [len(tokens.split()) for tokens in texts] # Use tokenizer rather than split?
     
-    def _get_length_array(raw_lengths):
-        length_array = np.array(raw_lengths)
-        length_array = length_array.reshape(len(lengths),1)
+    def _get_length_array(self, raw_lengths):
+        length_array = self.np.array(raw_lengths)
+        length_array = length_array.reshape(len(length_array),1)
         return length_array
     
     
-    def _get_probabilities(dtm, length_array):
+    def _get_probabilities(self, dtm, length_array):
         return dtm / length_array
 
     
-    def _get_mean_probabilities(P, N):
+    def _get_mean_probabilities(self, P, N):
         # Call N something different?
-        probability_sum = np.ravel(P.sum(axis=0))
+        probability_sum = self.np.ravel(P.sum(axis=0))
         return probability_sum / N
     
     
-    def _get_variance_probabilities(bP, P, N):
+    def _get_variance_probabilities(self, bP, P, N):
         variance = (P-bP) ** 2
-        variance_sum = np.ravel(variance.sum(axis=0))
+        variance_sum = self.np.ravel(variance.sum(axis=0))
         return variance_sum / N
 
     
-    def _get_entropies(P):
-        with np.errstate(divide='ignore', invalid='ignore'):
-            log_probabilties = np.where(P != 0, np.log10(1/P), 0)
-        return P / log_probabilities
+    #def _get_entropies(self, P):
+    #    with self.np.errstate(divide='ignore', invalid='ignore'):
+    #        log_probabilities = self.np.where(P != 0, self.np.log10(1/P), 0)
+    #    return P / log_probabilities
 
-    def _combine_vocabulary(vocab, measure):
+    def _combine_vocabulary(self, vocab, measure):
         temp = list(zip(vocab, measure))
-        temp.sort(key=lambda x: x[1], reverse=True)
+        temp = sorted(temp, key=lambda x: x[1], reverse=True)
         temp = [item[0] for item in temp]
         return temp        
     
     
-    def _borda_sort(lists):
+    def _borda_sort(self, lists):
         ### From http://stackoverflow.com/a/30259368/1816347 ###
         scores = {}
         for l in lists:
@@ -147,7 +139,7 @@ class CorpusStoplist(Stoplist):
                 scores[elem] += idx
         return sorted(scores.keys(), key=lambda elem: scores[elem], reverse=True)    
     
-    def build_stoplist(texts, size=100):
+    def build_stoplist(self, texts, size=100):
         """
         :type language: int
         :param language : size of the output list
@@ -155,37 +147,37 @@ class CorpusStoplist(Stoplist):
         :param language : language in case of language-specific considerations
         """
         
-        if self.language = 'latin':
+        if self.language == 'latin':
             pass
             # set preprocessing
         else:
             pass
         
-        dtm = _make_dtm(texts)
-        vocab = _make_vocabulary(d)       
+        dtm, vocab = self._make_dtm_vocab(texts)  
         
         M = len(vocab)
         N = len(texts)
 
         # Calculate probabilities
-        raw_lengths = _get_raw_lengths(texts)
-        l = _get_length_array(raw_lengths)
+        raw_lengths = self._get_raw_lengths(texts)
+        l = self._get_length_array(raw_lengths)
         P = dtm / l
         
         # Calculate mean probabilities
-        MP = _get_mean_probabilities(P, N)
+        MP = self._get_mean_probabilities(P, N)
         
         # Calculate variance probabilities
         bP = dtm / sum(raw_lengths)        
-        VP = _get_variance_probabilities(bP, VP, N)
+        VP = self._get_variance_probabilities(bP, P, N)
         
         # Calculate entropies
-        ent = _get_entropies(P)
+        #ent = self._get_entropies(P)
         
         # Zip vocabulary
-        mp_list = _combine_vocabulary(vocab, MP)[:size]
-        vp_list = combine_vocabulary(vocab, VP)[:size]
-        ent_list = combine_vocabulary(vocab, ent)[:size]
-        
-        lists = [mp, vp, ent]
-        return borda_sort(lists) 
+        mp_list = self._combine_vocabulary(vocab, MP)[:size]
+        vp_list = self._combine_vocabulary(vocab, VP)[:size]
+        #ent_list = self._combine_vocabulary(vocab, ent)[:size]
+
+        lists = [mp_list, vp_list]        
+        #lists = [mp_list, vp_list, ent_list]
+        return self._borda_sort(lists) 
