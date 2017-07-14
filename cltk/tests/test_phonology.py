@@ -400,7 +400,6 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(target, stress)
 
     def test_arabic_transliterate(self):
-        # todo: add arabtex unit test
         """
          arabic transliterate: Roman <-> Arabic
         :return:
