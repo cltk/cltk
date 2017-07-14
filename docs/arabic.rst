@@ -116,11 +116,11 @@ CLTK Arabic Support
 ===================
 
 1. Pyarabic
-````````
+```````````
 Specific Arabic language library for Python, provides basic functions to manipulate Arabic letters and text, like detecting Arabic letters, Arabic letters groups and characteristics, remove diacritics etc.Developed by `Taha Zerrouki: <http://tahadz.com>`_.
 
 1.1. Features
---------
+-------------
 1. Arabic letters classification
 2. Text tokenization
 3. Strip Harakat ( all, except Shadda, tatweel, last_haraka)
@@ -134,11 +134,11 @@ Specific Arabic language library for Python, provides basic functions to manipul
 11. Unshiping texts
 
 1.2. Applications
-------------
+-----------------
 - Arabic text processing
 
 1.3. Usage
------
+----------
 
 .. code-block:: python
 
