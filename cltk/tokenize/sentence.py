@@ -40,7 +40,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         :param language : Language for sentence tokenization.
         """
         self.language = language.lower()
-        self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
+        self.internal_punctuation, self.external_punctuation, self.abbreviations, self.tokenizer_path = \
             self._setup_language_variables(self.language)
 
     def _setup_language_variables(self, lang: str):
@@ -55,6 +55,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             'Sentence tokenizer not available for {0} language.'.format(lang)
         internal_punctuation = PUNCTUATION[lang]['internal']
         external_punctuation = PUNCTUATION[lang]['external']
+        abbreviations = ABBREVIATIONS[lang]
         file = PUNCTUATION[lang]['file']
         rel_path = os.path.join('~/cltk_data',
                                 lang,
@@ -63,7 +64,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         tokenizer_path = os.path.join(path, file)
         assert os.path.isfile(tokenizer_path), \
             'CLTK linguistics data not found for language {0}'.format(lang)
-        return internal_punctuation, external_punctuation, tokenizer_path
+        return internal_punctuation, external_punctuation, abbreviations, tokenizer_path
 
     def _setup_tokenizer(self, tokenizer: object):
         """Add tokenizer and punctuation variables.
@@ -77,7 +78,9 @@ class TokenizeSentence():  # pylint: disable=R0903
         tokenizer.INCLUDE_ALL_COLLOCS = True
         tokenizer.INCLUDE_ABBREV_COLLOCS = True
         params = tokenizer.get_params()
-        return PunktSentenceTokenizer(params)
+        setup_tokenizer = PunktSentenceTokenizer(params)
+        setup_tokenizer._params.abbrev_types.update(self.abbreviations) # Update with language specific abbreviations
+        return setup_tokenizer
 
     def tokenize_sentences(self: object, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
