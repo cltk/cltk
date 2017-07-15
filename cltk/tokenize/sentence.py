@@ -1,23 +1,32 @@
 """Tokenize sentences."""
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
-
-from cltk.utils.file_operations import open_pickle
-from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
 
+from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktSentenceTokenizer
 
-PUNCTUATION = {'greek':
-                   {'external': ('.', ';'),
-                    'internal': (',', '·'),
-                    'file': 'greek.pickle', },
-               'latin':
-                   {'external': ('.', '?', '!', ':'),
-                    'internal': (',', ';'),
-                    'file': 'latin.pickle', }}
+from cltk.utils.file_operations import open_pickle
+
+from cltk.tokenize.latin import PUNCTUATION as latin_punctuation
+from cltk.tokenize.greek import PUNCTUATION as greek_punctuation
+from cltk.tokenize.latin import ABBREVIATIONS as latin_abbreviations
+from cltk.tokenize.greek import ABBREVIATIONS as greek_abbreviations
+
+supported_languages = ['latin', 'greek']
+
+# Build list of punctuation for available languages
+PUNCTUATION = dict()
+for language in supported_languages:
+    PUNCTUATION.update(eval(language+'_punctuation'))
+
+# Build list of abbreviations for available languages
+ABBREVIATIONS = dict()
+for language in supported_languages:
+    ABBREVIATIONS.update(eval(language+'_abbreviations'))
 
 
 class TokenizeSentence():  # pylint: disable=R0903
