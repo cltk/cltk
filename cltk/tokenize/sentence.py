@@ -1,12 +1,12 @@
 """Tokenize sentences."""
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import os
+import warnings
 
-from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktLanguageVars, PunktParameters
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.utils.file_operations import open_pickle
@@ -51,19 +51,23 @@ class TokenizeSentence():  # pylint: disable=R0903
         :type lang: str
         :rtype (str, str, str)
         """
-        assert lang in PUNCTUATION.keys(), \
-            'Sentence tokenizer not available for {0} language.'.format(lang)
-        internal_punctuation = PUNCTUATION[lang]['internal']
-        external_punctuation = PUNCTUATION[lang]['external']
-        abbreviations = ABBREVIATIONS[lang]
-        file = PUNCTUATION[lang]['file']
-        rel_path = os.path.join('~/cltk_data',
-                                lang,
-                                'model/' + lang + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-        path = os.path.expanduser(rel_path)
-        tokenizer_path = os.path.join(path, file)
-        assert os.path.isfile(tokenizer_path), \
-            'CLTK linguistics data not found for language {0}'.format(lang)
+        #assert lang in PUNCTUATION.keys(), \
+        #    'CLTK sentence tokenizer not available for {0} language. Using default NLTK PunktSentenceTokenizer.'.format(lang)
+        if lang not in PUNCTUATION.keys():
+            warnings.warn('CLTK sentence tokenizer not available for {0} language. Using default NLTK PunktSentenceTokenizer.'.format(lang.title()), RuntimeWarning)
+            return None, None, None
+        else:
+            internal_punctuation = PUNCTUATION[lang]['internal']
+            external_punctuation = PUNCTUATION[lang]['external']
+            abbreviations = ABBREVIATIONS[lang]
+            file = PUNCTUATION[lang]['file']
+            rel_path = os.path.join('~/cltk_data',
+                                    lang,
+                                    'model/' + lang + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
+            path = os.path.expanduser(rel_path)
+            tokenizer_path = os.path.join(path, file)
+            assert os.path.isfile(tokenizer_path), \
+                'CLTK linguistics data not found for language {0}'.format(lang)
         return internal_punctuation, external_punctuation, abbreviations, tokenizer_path
 
     def _setup_tokenizer(self, tokenizer: object):
@@ -82,6 +86,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         setup_tokenizer._params.abbrev_types.update(self.abbreviations) # Update with language specific abbreviations
         return setup_tokenizer
 
+
     def tokenize_sentences(self: object, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
         ``PunktSentenceTokenizer()``.
@@ -92,8 +97,11 @@ class TokenizeSentence():  # pylint: disable=R0903
         # load tokenizer
         assert isinstance(untokenized_string, str), \
             'Incoming argument must be a string.'
-        tokenizer = open_pickle(self.tokenizer_path)
-        tokenizer = self._setup_tokenizer(tokenizer)
+        if self.language in PUNCTUATION.keys():
+            tokenizer = open_pickle(self.tokenizer_path)
+            tokenizer = self._setup_tokenizer(tokenizer)
+        else:
+            tokenizer = PunktSentenceTokenizer()
 
         # mk list of tokenized sentences
         tokenized_sentences = []
