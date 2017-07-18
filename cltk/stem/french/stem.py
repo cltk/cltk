@@ -3,18 +3,8 @@ import re
 from cltk.tokenize.word import WordTokenizer
 from cltk.stem.french.exceptions import exceptions
 
-text = "sains jorge ne vost plus atendre " \
-       "ains comença son cors estendre" \
-       "ses mains joinst sur sa peitréine " \
-       "vers les sergens son chief encline " \
-       "que tantost le chief li trencherent " \
-       "conques de rien ne l’sparaignerent " \
-       "li angle deu l’arme saisirent " \
-       "a grant joie quant il la virent " \
-       "lié furent docement chanterent " \
-       "véant tos au ciel la porterent " \
-       "grant joie en est et fu jadis " \
-       "de saint jorge en paradis"
+text = "ja departissent a itant quant par la vile vint errant tut a cheval " \
+                   "une pucele en tut le siecle n’ot si bele un blanc palefrei chevalchot"
 
 def stem(text):
 #normalise apostrophes
@@ -45,11 +35,15 @@ def matchremove_simple_endings(word):
     was_stemmed = False
 
     # common and proper noun and adjective word endings sorted by charlen, then alph
-    simple_endings = ['arons', 'ains', 'aron', 'ment', 'ain', 'age', 'on', 'es', 'ie', 's']
+    simple_endings = ['arons', 'ains', 'aron', 'ment', 'ain', 'age', 'on', 'es', 'ée', 'ee', 'ie', 's']
 
     for ending in simple_endings:
         #ignore exceptions
         if word in exceptions:
+            word = word
+            was_stemmed = True
+            break
+        if word == ending:
             word = word
             was_stemmed = True
             break
@@ -64,18 +58,22 @@ def matchremove_simple_endings(word):
 def matchremove_verb_endings(word):
     """Remove the verb endings"""
     #sorted by len then alphabetic order
-    verb_endings = ['issiiens', 'isseient', 'issiiez', 'issons', 'issent', 'issant', 'isseie', 'isseit', 'issons',
-                    'isseiz', 'assent', 'issons', 'isseiz', 'issent', 'iiens', 'eient', 'issez', 'er,es', 'oient',
-                    'istes', 'ïstes', 'istes', 'astes', 'erent', 'istes', 'irent', 'ustes', 'urent', 'âmes', 'âtes',
-                    'èrent', 'asses', 'isses', 'issez', 'ssons', 'sseiz', 'ssent', 'erent', 'eies', 'iiez', 'oies',
-                    'iens', 'ions', 'oint', 'eret', 'imes', 'rent', 'ümes', 'ütes', 'ïmes', 'imes', 'asse', 'isse',
-                    'usse', 'ames', 'imes', 'umes', 'asse', 'isse', 'sses', 'ssez', 'ons', 'ent', 'ant', 'eie', 'eit',
-                    'ist', 'eiz', 'oie', 'oit', 'iez', 'ois', 'oit', 'iez', 'res', 'ert', 'ast', 'ist', 'sse', 'mes',
-                    'et', 'er', 'ez', 'is', 're', 'oi', 'ïs', 'üs', 'ai', 'ai', 'as', 'at', 'is', 'it', 'ui', 'us', 'ut',
-                    'st', 's', 't', 'e', 'é', 'z', 'i', 'u', 'a', 'i', 'i', 'u']
+    verb_endings =['issiiens', 'isseient', 'issiiez', 'issons', 'issent', 'issant', 'isseie', 'isseit', 'issons',
+                   'isseiz', 'assent', 'issons', 'isseiz', 'issent', 'iiens', 'eient', 'issez', 'oient', 'istes',
+                   'ïstes', 'istes', 'astes', 'erent', 'istes', 'irent', 'ustes', 'urent', 'âmes', 'âtes', 'èrent',
+                   'asses', 'isses', 'issez', 'ssons', 'sseiz', 'ssent', 'erent', 'eies', 'iiez', 'oies', 'iens',
+                   'ions', 'oint', 'eret', 'imes', 'rent', 'ümes', 'ütes', 'ïmes', 'imes', 'asse', 'isse', 'usse',
+                   'ames', 'imes', 'umes', 'asse', 'isse', 'sses', 'ssez', 'ons', 'ent', 'ant', 'eie', 'eit', 'int',
+                   'ist', 'eiz', 'oie', 'oit', 'iez', 'ois', 'oit', 'iez', 'res', 'ert', 'ast', 'ist', 'sse', 'mes', 'er',
+                   'es', 'et', 'ez', 'is', 're', 'oi', 'ïs', 'üs', 'ai', 'as', 'at', 'is', 'it', 'ui',
+                   'us', 'ut', 'st', 's', 't', 'e', 'é', 'z', 'u', 'a', 'i']
+
 
     # otherwise, remove verb endings
     for ending in verb_endings:
+        if word == ending:
+            word = word
+            break
         if word.endswith(ending):
             word = re.sub(r'{0}$'.format(ending), '', word)
             break
