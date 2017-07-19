@@ -645,18 +645,25 @@ To use the CLTK's built-in stopwords list:
 TEI XML
 =======
 
-There is a rudimentary corpus converter for the corpus from the "First 1K Years of Greek" project. Download the corpus (``'greek_text_first1kgreek'``) and run the following. Note that this will just dump all text not contained within a node's bracket (including sometimes metadata).
+There are several rudimentary corpus converters for the "First 1K Years of Greek" project (download the corpus ``'greek_text_first1kgreek'``). Both write files to `` ~/cltk_data/greek/text/greek_text_first1kgreek_plaintext``.
+
+This one is built upon the ``MyCapytain`` library (``pip install lxml MyCapytain``), which has the ability for very precise chunking of TEI xml. The following function only preserves numbers:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tei import onekgreek_tei_xml_to_text_capitains
+
+   In [2]: onekgreek_tei_xml_to_text_capitains()
+
+
+
+For the following, install the ``BeautifulSoup`` library (``pip install bs4``). Note that this will just dump all text not contained within a node's bracket (including sometimes metadata).
 
 .. code-block:: python
 
    In [1]: from cltk.corpus.greek.tei import onekgreek_tei_xml_to_text
 
    In [2]: onekgreek_tei_xml_to_text()
-
-
-.. note::
-
-   This function should be improved to include better preservation of the XML document structure, and also made to work with other TEI texts.
 
 
 Text Cleanup
