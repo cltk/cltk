@@ -8,7 +8,6 @@ The logic behind the backoff lemmatizer is based on backoff POS-tagging in
 NLTK and repurposes several of the tagging classes for lemmatization
 tasks. See here for more info on sequential backoff tagging in NLTK:
 http://www.nltk.org/_modules/nltk/tag/sequential.html
-
 """
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
@@ -22,13 +21,7 @@ from nltk.tag.api import TaggerI
 from nltk.tag.sequential import SequentialBackoffTagger, ContextTagger, DefaultTagger, NgramTagger, UnigramTagger, RegexpTagger
 
 from cltk.utils.file_operations import open_pickle
-from cltk.lemmatize.latin.latin import latin_sub_patterns
-
-rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'),
-               (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
-
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
-__license__ = 'MIT License. See LICENSE.'
+from cltk.lemmatize.latin.latin import latin_sub_patterns, latin_verb_patterns, latin_pps, rn_patterns
 
 
 def backoff_lemmatizer(train_sents, lemmatizer_classes, backoff=None):
@@ -248,10 +241,9 @@ class PPLemmatizer(RegexpLemmatizer):
         # Note different compile to make use of principal parts dictionary structure; also, note
         # that the PP dictionary has been set up so that principal parts match their traditional
         # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
-        self._check = re.compile('|'.join('(?:%s)' % r[0] for r in regexps))
-        self._regexs = [(re.compile(regexp), num) for regexp, num in
-                        regexps]
-        self.pps = pps
+        self._regexs = latin_verb_patterns
+        self.pps = latin_pps
+        
 
     def choose_lemma(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on
@@ -263,25 +255,25 @@ class PPLemmatizer(RegexpLemmatizer):
         :param index: Int with current token
         :param history: List with tokens that have already been lemmatized
         :return: Str with index[0] from the dictionary value, see above about '0 index'
-        """        
-        if self._check.match(tokens[index]):    
-            for regexp in self._regexs:
-                m = re.match(regexp[0], tokens[index])
-                if m:
-                    root = m.group(1)
-                    match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
-                    if not match:
-                        pass
-                    else:
-                        return match[0] # Lemma is indexed at zero in PP dictionary
-
-
+        """
+        for regexp in self._regexs:
+            m = re.match(regexp[0], tokens[index])
+            if m:
+                root = m.group(1)
+                match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
+                if not match:
+                    pass
+                else:
+                    return match[0] # Lemma is indexed at zero in PP dictionary
+                
+                
 class RomanNumeralLemmatizer(RegexpLemmatizer):
     """"""
-    def __init__(self, regexps=rn_patterns, backoff=None):
+    def __init__(self, regexps=rn_patterns, default=None, backoff=None):
         """RomanNumeralLemmatizer"""
         RegexpLemmatizer.__init__(self, regexps, backoff)
         self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
+        self.default = default
 
     def choose_lemma(self, tokens, index, history):
         """Test case for customized rules-based improvements to lemmatizer using regex; differs
@@ -292,11 +284,13 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
         :param history: List with tokens that have already been lemmatized
         :return: Str with replacement from pattern
         """
-        for regexp, pattern in self._regexs:
-            m = re.match(regexp, tokens[index])
-            if m:
-                return pattern
-        return None
+        for pattern, replace in self._regexs:
+            if re.search(pattern, tokens[index]):
+                if self.default:
+                    return self.default
+                else:
+                    return replace
+                break
 
 
 class ContextPOSLemmatizer(ContextLemmatizer):
@@ -506,24 +500,10 @@ class BackoffLatinLemmatizer(object):
         self.latin_sub_patterns = latin_sub_patterns
 
         # Check for presence of verb_patterns
-        file = 'latin_verb_patterns.pickle'      
-
-        verb_patterns_path = os.path.join(path, file)
-        if os.path.isfile(verb_patterns_path):
-            self.latin_verb_patterns = open_pickle(verb_patterns_path)
-        else:
-            self.latin_verb_patterns = {}
-            print('The file %s is not available in cltk_data' % file)  
+        self.latin_verb_patterns = latin_verb_patterns
 
         # Check for presence of latin_pps
-        file = 'latin_pps.pickle'      
-
-        latin_pps_path = os.path.join(path, file)
-        if os.path.isfile(latin_pps_path):
-            self.latin_pps = open_pickle(latin_pps_path)
-        else:
-            self.latin_pps = {}
-            print('The file %s is not available in cltk_data' % file)  
+        self.latin_pps = latin_pps
 
         def _randomize_data(train, seed):
             import random
