@@ -1,0 +1,20 @@
+latin_sub_patterns = [
+    ('(bil)(is|i|em|e|es|ium|ibus)$', r'\1is'),
+    ('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),
+    ('(.)tut(is|i|em|e|es|um|ibus)$', r'\1tus'),
+    ('(.)ab(o|is|it|imus|itis|unt)$', r'\1o'),
+    ('(.)(s|t)or(is|i|em|e|es|um|ibus)$', r'\1\2or'),
+    ('(.)tric(is|i|em|e|es|um|ibus)$', r'\1trix'),
+    ('(.)ion(is|i|em|e|es|um|ibus)$', r'\1io'),
+    ('(.)tudin(is|i|em|e|es|um|ibus)$', r'\1tudo'),
+    ('(.)din(is|i|em|e|es|um|ibus)$', r'\1do'),
+    ('(.)gin(is|i|em|e|es|um|ibus)$', r'\1go'),
+    ('(al)(is|i|em|e|es|um|ibus)$', r'\1'),
+    ('(ar)(is|i|em|e|es|um|ibus)$', r'\1is'),
+    ('(el)(is|i|em|e|es|um|ibus)$', r'\1is'),
+    ('(sil)(is|i|em|e|es|um|ibus)$', r'\1is'),
+    ('(til)(is|i|em|e|es|um|ibus)$', r'\1is'),
+    ('(il)(is|i|em|e|es|um|ibus)$', r'\1is'),
+    ('(ul)(is|i|em|e|es|um|ibus)$', r'\1is'),
+    ('(.)antissim(us|a|um|i|ae|am|o|orum|arum|is|os|as)$', r'\1o')
+]

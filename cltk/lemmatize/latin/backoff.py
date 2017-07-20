@@ -22,6 +22,7 @@ from nltk.tag.api import TaggerI
 from nltk.tag.sequential import SequentialBackoffTagger, ContextTagger, DefaultTagger, NgramTagger, UnigramTagger, RegexpTagger
 
 from cltk.utils.file_operations import open_pickle
+from cltk.lemmatize.latin.latin import latin_sub_patterns
 
 rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'),
                (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
@@ -206,6 +207,7 @@ class UnigramLemmatizer(NgramLemmatizer, UnigramTagger):
 
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
     """"""
+
     def __init__(self, regexps=None, backoff=None):
         """Setup for RegexpLemmatizer()
 
@@ -214,8 +216,7 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
         """
         SequentialBackoffLemmatizer.__init__(self, backoff)
         RegexpTagger.__init__(self, regexps, backoff)
-        self._check = re.compile('|'.join('(?:%s)' % r[0] for r in regexps))
-        self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
+        self._regexs = regexps
 
     def choose_lemma(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on word endings;
@@ -226,12 +227,11 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
         :param history: List with tokens that have already been lemmatized
         :return: Str with concatenated lemma
         """
-        if self._check.match(tokens[index]):
-            for regexp, pattern in self._regexs:
-                m = re.match(regexp, tokens[index])
-                if m:
-                    return (m.group(1)) + pattern
-                    
+        for pattern, replace in self._regexs:
+            if re.search(pattern, tokens[index]):
+                return re.sub(pattern, replace, tokens[index])
+                break
+
 
 class PPLemmatizer(RegexpLemmatizer):
     """Customization of the RegexpLemmatizer for Latin. The RegexpLemmatizer is
@@ -503,14 +503,7 @@ class BackoffLatinLemmatizer(object):
             print('The file %s is not available in cltk_data' % file)  
         
         # Check for presence of misc_patterns
-        file = 'latin_misc_patterns.pickle'      
-
-        misc_patterns_path = os.path.join(path, file)
-        if os.path.isfile(misc_patterns_path):
-            self.latin_misc_patterns = open_pickle(misc_patterns_path)
-        else:
-            self.latin_misc_patterns = {}
-            print('The file %s is not available in cltk_data' % file)  
+        self.latin_sub_patterns = latin_sub_patterns
 
         # Check for presence of verb_patterns
         file = 'latin_verb_patterns.pickle'      
@@ -551,7 +544,7 @@ class BackoffLatinLemmatizer(object):
         backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
         backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=backoff2)                 
         backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)        
-        backoff5 = RegexpLemmatizer(self.latin_misc_patterns, backoff=backoff4)
+        backoff5 = RegexpLemmatizer(self.latin_sub_patterns, backoff=backoff4)
         backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)        
         #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         #lemmatizer = backoff7
