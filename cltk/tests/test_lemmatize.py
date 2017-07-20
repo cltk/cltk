@@ -79,7 +79,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_regex_lemmatizer(self):
         """Test regex_lemmatizer()"""
         sub = [('(.)ab(o|is|it|imus|itis|unt)$', r'\1o')]
-        lemmatizer = RegexpLemmatizer(pattern)
+        lemmatizer = RegexpLemmatizer(sub)
         test_str = 'amabimus'
         target = [('amabimus', 'amo')]
         jv_replacer = JVReplacer()
