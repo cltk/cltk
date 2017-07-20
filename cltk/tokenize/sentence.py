@@ -3,21 +3,30 @@
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
+import os
+import warnings
+
+from nltk.tokenize.punkt import PunktLanguageVars, PunktParameters
+from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.utils.file_operations import open_pickle
-from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktSentenceTokenizer
-import os
 
+from cltk.tokenize.latin import PUNCTUATION as latin_punctuation
+from cltk.tokenize.greek import PUNCTUATION as greek_punctuation
+from cltk.tokenize.latin import ABBREVIATIONS as latin_abbreviations
+from cltk.tokenize.greek import ABBREVIATIONS as greek_abbreviations
 
-PUNCTUATION = {'greek':
-                   {'external': ('.', ';'),
-                    'internal': (',', '·'),
-                    'file': 'greek.pickle', },
-               'latin':
-                   {'external': ('.', '?', '!', ':'),
-                    'internal': (',', ';'),
-                    'file': 'latin.pickle', }}
+supported_languages = ['latin', 'greek']
+
+# Build list of punctuation for available languages
+PUNCTUATION = dict()
+for language in supported_languages:
+    PUNCTUATION.update(eval(language+'_punctuation'))
+
+# Build list of abbreviations for available languages
+ABBREVIATIONS = dict()
+for language in supported_languages:
+    ABBREVIATIONS.update(eval(language+'_abbreviations'))
 
 
 class TokenizeSentence():  # pylint: disable=R0903
@@ -31,7 +40,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         :param language : Language for sentence tokenization.
         """
         self.language = language.lower()
-        self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
+        self.internal_punctuation, self.external_punctuation, self.abbreviations, self.tokenizer_path = \
             self._setup_language_variables(self.language)
 
     def _setup_language_variables(self, lang: str):
@@ -42,19 +51,24 @@ class TokenizeSentence():  # pylint: disable=R0903
         :type lang: str
         :rtype (str, str, str)
         """
-        assert lang in PUNCTUATION.keys(), \
-            'Sentence tokenizer not available for {0} language.'.format(lang)
-        internal_punctuation = PUNCTUATION[lang]['internal']
-        external_punctuation = PUNCTUATION[lang]['external']
-        file = PUNCTUATION[lang]['file']
-        rel_path = os.path.join('~/cltk_data',
-                                lang,
-                                'model/' + lang + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-        path = os.path.expanduser(rel_path)
-        tokenizer_path = os.path.join(path, file)
-        assert os.path.isfile(tokenizer_path), \
-            'CLTK linguistics data not found for language {0}'.format(lang)
-        return internal_punctuation, external_punctuation, tokenizer_path
+        #assert lang in PUNCTUATION.keys(), \
+        #    'CLTK sentence tokenizer not available for {0} language. Using default NLTK PunktSentenceTokenizer.'.format(lang)
+        if lang not in PUNCTUATION.keys():
+            warnings.warn('CLTK sentence tokenizer not available for {0} language. Using default NLTK PunktSentenceTokenizer.'.format(lang.title()), RuntimeWarning)
+            return None, None, None
+        else:
+            internal_punctuation = PUNCTUATION[lang]['internal']
+            external_punctuation = PUNCTUATION[lang]['external']
+            abbreviations = ABBREVIATIONS[lang]
+            file = PUNCTUATION[lang]['file']
+            rel_path = os.path.join('~/cltk_data',
+                                    lang,
+                                    'model/' + lang + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
+            path = os.path.expanduser(rel_path)
+            tokenizer_path = os.path.join(path, file)
+            assert os.path.isfile(tokenizer_path), \
+                'CLTK linguistics data not found for language {0}'.format(lang)
+        return internal_punctuation, external_punctuation, abbreviations, tokenizer_path
 
     def _setup_tokenizer(self, tokenizer: object):
         """Add tokenizer and punctuation variables.
@@ -68,7 +82,10 @@ class TokenizeSentence():  # pylint: disable=R0903
         tokenizer.INCLUDE_ALL_COLLOCS = True
         tokenizer.INCLUDE_ABBREV_COLLOCS = True
         params = tokenizer.get_params()
-        return PunktSentenceTokenizer(params)
+        setup_tokenizer = PunktSentenceTokenizer(params)
+        setup_tokenizer._params.abbrev_types.update(self.abbreviations) # Update with language specific abbreviations
+        return setup_tokenizer
+
 
     def tokenize_sentences(self: object, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
@@ -80,8 +97,11 @@ class TokenizeSentence():  # pylint: disable=R0903
         # load tokenizer
         assert isinstance(untokenized_string, str), \
             'Incoming argument must be a string.'
-        tokenizer = open_pickle(self.tokenizer_path)
-        tokenizer = self._setup_tokenizer(tokenizer)
+        if self.language in PUNCTUATION.keys():
+            tokenizer = open_pickle(self.tokenizer_path)
+            tokenizer = self._setup_tokenizer(tokenizer)
+        else:
+            tokenizer = PunktSentenceTokenizer()
 
         # mk list of tokenized sentences
         tokenized_sentences = []

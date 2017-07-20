@@ -48,6 +48,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = tokenizer.tokenize_sentences(text)
         self.assertEqual(tokenized_sentences, target)
 
+    def test_sentence_tokenizer_nltk_alias(self):
+        text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+        tokenizer = TokenizeSentence('latin')
+        tokenized_sentences = tokenizer.tokenize_sentences(text)
+        tokenized_sentences_alias = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, tokenized_sentences_alias)
 
     '''
     def test_sentence_tokenizer_greek(self):

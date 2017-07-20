@@ -102,7 +102,7 @@ def tokenize_latin_words(string):
     :param string: This accepts the string value that needs to be tokenized
     :returns: A list of substrings extracted from the string
     """
-    from cltk.tokenize.latin_exceptions import latin_exceptions
+    from cltk.tokenize.latin import latin_exceptions
 
     assert isinstance(string, str), "Incoming string must be type str."
 
