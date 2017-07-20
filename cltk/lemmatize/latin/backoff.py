@@ -23,12 +23,12 @@ from nltk.tag.sequential import SequentialBackoffTagger, ContextTagger, DefaultT
 from cltk.utils.file_operations import open_pickle
 from cltk.lemmatize.latin.latin import latin_sub_patterns, latin_verb_patterns, latin_pps, rn_patterns
 
-
-def backoff_lemmatizer(train_sents, lemmatizer_classes, backoff=None):
-    """From Python Text Processing with NLTK Cookbook."""
-    for cls in lemmatizer_classes:
-        backoff = cls(train_sents, backoff=backoff)
-    return backoff
+# Unused for now
+#def backoff_lemmatizer(train_sents, lemmatizer_classes, backoff=None):
+#    """From Python Text Processing with NLTK Cookbook."""
+#    for cls in lemmatizer_classes:
+#        backoff = cls(train_sents, backoff=backoff)
+#    return backoff
 
 
 class LemmatizerI(TaggerI):
@@ -115,8 +115,7 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
         :param history: List with tokens that have already been lemmatized
         :return: String, spec. the token found at the current index.
         """
-        _lemma = tokens[index]
-        return _lemma
+        return tokens[index]
 
 
 class TrainLemmatizer(SequentialBackoffLemmatizer):
@@ -223,7 +222,7 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
         for pattern, replace in self._regexs:
             if re.search(pattern, tokens[index]):
                 return re.sub(pattern, replace, tokens[index])
-                break
+                break # pragma: no cover
 
 
 class PPLemmatizer(RegexpLemmatizer):
@@ -290,7 +289,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
                     return self.default
                 else:
                     return replace
-                break
+                break # pragma: no cover
 
 
 class ContextPOSLemmatizer(ContextLemmatizer):
@@ -540,32 +539,32 @@ class BackoffLatinLemmatizer(object):
         lemmatizer = self._define_lemmatizer()
         return lemmatizer.evaluate(self.test_sents)
 
-
-if __name__ == "__main__":
-
-    # Set up training sentences
-    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-    path = os.path.expanduser(rel_path)
-
-    # Check for presence of latin_pos_lemmatized_sents
-    file = 'latin_pos_lemmatized_sents.pickle'      
-
-    latin_pos_lemmatized_sents_path = os.path.join(path, file)
-    if os.path.isfile(latin_pos_lemmatized_sents_path):
-        latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
-    else:
-        latin_pos_lemmatized_sents = []
-        print('The file %s is not available in cltk_data' % file)  
-  
-
-    RUN = 10
-    ACCURACIES = []
-
-    for I in range(RUN):
-        LEMMATIZER = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
-        ACC = LEMMATIZER.evaluate()
-        ACCURACIES.append(ACC)
-        print('{:.2%}'.format(ACC))
-
-    print('\nTOTAL (Run %d) times' % RUN)
-    print('{:.2%}'.format(sum(ACCURACIES) / RUN))
+# Accuracty test available below——keep? delete?
+#if __name__ == "__main__":
+#
+#    # Set up training sentences
+#    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+#    path = os.path.expanduser(rel_path)
+#
+#    # Check for presence of latin_pos_lemmatized_sents
+#    file = 'latin_pos_lemmatized_sents.pickle'      
+#
+#    latin_pos_lemmatized_sents_path = os.path.join(path, file)
+#    if os.path.isfile(latin_pos_lemmatized_sents_path):
+#        latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
+#    else:
+#        latin_pos_lemmatized_sents = []
+#        print('The file %s is not available in cltk_data' % file)  
+#  
+#
+#    RUN = 10
+#    ACCURACIES = []
+#
+#    for I in range(RUN):
+#        LEMMATIZER = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
+#        ACC = LEMMATIZER.evaluate()
+#        ACCURACIES.append(ACC)
+#        print('{:.2%}'.format(ACC))
+#
+#    print('\nTOTAL (Run %d) times' % RUN)
+#    print('{:.2%}'.format(sum(ACCURACIES) / RUN))
