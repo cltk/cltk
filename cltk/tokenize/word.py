@@ -1,3 +1,4 @@
+#encoding:utf-8
 """Language-specific word tokenizers. Primary purpose is to handle enclitics.
 """
 
@@ -6,6 +7,26 @@ import re
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
+import re
+
+from nltk.data              import load
+from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
+from nltk.tokenize.mwe      import MWETokenizer
+from nltk.tokenize.punkt    import PunktSentenceTokenizer
+from nltk.tokenize.regexp   import (RegexpTokenizer, WhitespaceTokenizer,
+                                    BlanklineTokenizer, WordPunctTokenizer,
+                                    wordpunct_tokenize, regexp_tokenize,
+                                    blankline_tokenize)
+#from nltk.tokenize.repp     import ReppTokenizer
+from nltk.tokenize.sexpr    import SExprTokenizer, sexpr_tokenize
+from nltk.tokenize.simple   import (SpaceTokenizer, TabTokenizer, LineTokenizer,
+                                    line_tokenize)
+from nltk.tokenize.stanford import StanfordTokenizer
+from nltk.tokenize.texttiling import TextTilingTokenizer
+#from nltk.tokenize.toktok   import ToktokTokenizer
+from nltk.tokenize.treebank import TreebankWordTokenizer
+from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
+from nltk.tokenize.stanford_segmenter import StanfordSegmenter
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
@@ -78,7 +99,7 @@ def tokenize_latin_words(string):
     >>> from cltk.corpus.utils.formatter import remove_non_ascii
     >>> text =  'Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'
     >>> remove_non_ascii(text)
-    >>> 'Dices   pulchrum esse inimicos ulcisci.
+    >>> 'Dices   pulchrum esse inimicos ulcisci.'
   
     :param string: This accepts the string value that needs to be tokenized
     :returns: A list of substrings extracted from the string
@@ -191,6 +212,15 @@ def tokenize_french_words(string):
     text = re.sub(r"!", r" !", text)
     text = re.sub(r"\?", r" ?", text)
     text = re.sub(r"\\\"", r" \\\" ", text)
+    text = re.sub(r"\(", r"\( ", text)
+    text = re.sub(r"\)", r" \)", text)
+   # _treebank_word_tokenizer = TreebankWordTokenizer()
+   # improved_open_quote_regex = re.compile(u'([«“‘])', re.U)
+   # improved_close_quote_regex = re.compile(u'([»”’])', re.U)
+   # improved_punct_regex = re.compile(r'([^\.])(\.)([\]\)}>"\'' u'»”’ ' r']*)\s*$', re.U)
+   # _treebank_word_tokenizer.STARTING_QUOTES.insert(0, (improved_open_quote_regex, r' \1 '))
+   # _treebank_word_tokenizer.ENDING_QUOTES.insert(0, (improved_close_quote_regex, r' \1 '))
+   # _treebank_word_tokenizer.PUNCTUATION.insert(0, (improved_punct_regex, r'\1 \2 \3 '))
 
     results = str.split(text)
     return (results)
