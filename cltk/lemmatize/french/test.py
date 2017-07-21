@@ -36,10 +36,39 @@ lemmas = "en Bretaigne jadis manoir" \
 
 
 from cltk.lemmatize.french.backoff_test import DefaultLemmatizer
+from cltk.lemmatize.french.backoff_test import DictLemmatizer
 from cltk.tokenize.word import WordTokenizer
 
+text = text.lower()
+
 lemmatizer = DefaultLemmatizer()
+
 tokenizer = WordTokenizer('french')
 tokens = tokenizer.tokenize(text)
+
 a = lemmatizer.lemmatize(tokens)
+
 print(a)
+
+lemmatizer = DictLemmatizer()
+
+
+from cltk.lemmatize.french.lex import entries
+
+lemmatized_tokens = []
+
+for token in tokens:
+    for lemma, entry in entries:
+        if token == lemma:
+            lemmatized = (token, lemma)
+            lemmatized_tokens.append(lemmatized)
+            break
+      #  if token != lemma:
+       #     lemmatized = (token, 'None')
+        #    lemmatized_tokens.append(lemmatized)
+        #    break
+
+print(lemmatized_tokens)
+
+
+

@@ -79,16 +79,6 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
     defining as its own class, it is clearer that this lemmatizer is
     based on dictionary lookup and does not use training data."""
 
-    def __init__(self, model, backoff=None):
-        """Setup for TrainLemmatizer().
-
-        :param model: Dictionary with form {TOKEN: LEMMA}
-        :param backoff: Next lemmatizer in backoff chain.
-        """
-        SequentialBackoffLemmatizer.__init__(self, backoff)
-        self.model = model
-
-
     def choose_lemma(self, tokens, index, history):
         """Returns the given token as the lemma.
 
@@ -97,10 +87,9 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
         :param history: List with tokens that have already been lemmatized; NOT USED
         :return: String, spec. the dictionary value found with token as key.
         """
-        key = []
-        for lemma, entry, PoS, definition in entries:
-            if tokens[index] == entry:
-                return self.model[tokens[index]]
+        for lemma, entry in entries:
+            if tokens == lemma:
+                return (tokens, lemma)
 
 
 
