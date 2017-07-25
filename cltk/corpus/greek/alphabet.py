@@ -7,6 +7,7 @@ UPPER = [#
     '\u0391',# Α Greek Capital Letter Alpha
     '\u0395', # Ε Greek Capital Letter Epsilon
     '\u0397', # Η Greek Capital Letter Eta
+    '\u0370', # Ͱ Greek Capital Letter Heta
     '\u0399', # Ι Greek Capital Letter Iota
     '\u039f', # Ο Greek Capital Letter Omicron
     '\u03a5', # Υ Greek Capital Letter Upsilon
@@ -160,6 +161,7 @@ LOWER = [#
 '\u03b1', # α Greek Small Letter Alpha
 '\u03b5', # ε Greek Small Letter Epsilon
 '\u03b7', # η Greek Small Letter Eta
+'\u0371', # ͱ Greek Small Letter Heta
 '\u03b9', # ι Greek Small Letter Iota
 '\u03bf', # ο Greek Small Letter Omicron
 '\u03c5', # υ Greek Small Letter Upsilon
@@ -356,6 +358,9 @@ LOWER_RHO_SMOOTH = '\u1fe4' # ῤ Greek Small Letter Rho With Psili
 
 LOWER_RHO_ROUGH = '\u1fe5' # ῥ Greek Small Letter Rho With Dasia
 
+UPPER_RHO = '\u03a1' # Ρ Greek Capital Letter Rho
+
+UPPER_RHO_ROUGH = '\u1fec' # Ῥ Greek Capital Letter Rho with Dasia
 
 # Consonants --------------------------
 
@@ -363,9 +368,13 @@ UPPER_CONSONANTS = [#
 '\u0392', # Β Greek Capital Letter Beta
 '\u0393', # Γ Greek Capital Letter Gamma
 '\u0394', # Δ Greek Capital Letter Delta
+'\u03dc', # Ϝ Greek Letter Digamma
+'\u0376', # Ͷ Greek Capital Letter Pamphylian Digamma
 '\u0396', # Ζ Greek Capital Letter Zeta
 '\u0398', # Θ Greek Capital Letter Theta
 '\u039a', # Κ Greek Capital Letter Kappa
+'\u03d8', # Ϙ Greek Letter Archaic Koppa
+'\u03de', # Ϟ Greek Letter Koppa
 '\u039b', # Λ Greek Capital Letter Lamda
 '\u039c', # Μ Greek Capital Letter Mu
 '\u039d', # Ν Greek Capital Letter Nu
@@ -373,6 +382,11 @@ UPPER_CONSONANTS = [#
 '\u03a0', # Π Greek Capital Letter Pi
 '\u03a1', # Ρ Greek Capital Letter Rho
 '\u03a3', # Σ Greek Capital Letter Sigma
+'\u03da', # Ϛ Greek Letter Stigma
+'\u03e0', # Ϡ Greek Letter Sampi
+'\u0372', # Ͳ Greek Capital Letter Archaic Sampi
+'\u03f6', # Ϻ Greek Capital Letter San
+'\u03f7', # Ϸ Greek Capital Letter Sho
 '\u03a4', # Τ Greek Capital Letter Tau
 '\u03a6', # Φ Greek Capital Letter Phi
 '\u03a7', # Χ Greek Capital Letter Chi
@@ -383,9 +397,13 @@ LOWER_CONSONANTS = [#
 '\u03b2', # β Greek Small Letter Beta
 '\u03b3', # γ Greek Small Letter Gamma
 '\u03b4', # δ Greek Small Letter Delta
+'\u03dd', # ϝ Greek Small Letter Digamma
+'\u0377', # ͷ Greek Small Letter Pamphylian Digamma
 '\u03b6', # ζ Greek Small Letter Zeta
 '\u03b8', # θ Greek Small Letter Theta
 '\u03ba', # κ Greek Small Letter Kappa
+'\u03d9', # ϙ Greek Small Letter Archaic Koppa
+'\u03df', # ϟ Greek Small Letter Koppa
 '\u03bb', # λ Greek Small Letter Lamda
 '\u03bc', # μ Greek Small Letter Mu
 '\u03bd', # ν Greek Small Letter Nu
@@ -393,10 +411,46 @@ LOWER_CONSONANTS = [#
 '\u03c0', # π Greek Small Letter Pi
 '\u03c1', # ρ Greek Small Letter Rho
 '\u03c3', # σ Greek Small Letter Sigma
+'\u03c2', # ς Greek Small Letter Final Sigma
+'\u03db', # ϛ Greek Small Letter Stigma
+'\u03e1', # ϡ Greek Small Letter Sampi
+'\u0373', # ͳ Greek Small Letter Archaic Sampi
+'\u03fb', # ϻ Greek Small Letter San
+'\u03f8', # ϸ Greek Small Letter Sho
 '\u03c4', # τ Greek Small Letter Tau
-'\u03d5', # ϕ Greek Phi Symbol
+'\u03c6', # φ Greek Small Letter Phi
 '\u03c7', # χ Greek Small Letter Chi
 '\u03c8' # ψ Greek Small Letter Psi
+]
+
+# Numeral Signs and Accents
+
+NUMERAL_SIGNS = [
+    '\u0374', # ʹ Greek Numeral Sign
+    '\u0375' # ͵ Greek Lower Numeral Sign
+]
+
+ACCENTS = [
+    '\u0376', # ͺ Greek Ypogegrammeni
+    '\u0384', # ΄ Greek Tonos
+    '\u0385', # ΅ Greek Dialytika Tonos
+    '\u0387', # · Greek Ano Teleia
+    '\u1fbd', # ᾽ Greek Koronis
+    '\u1fbe', # ι Greek Prosgegrammeni
+    '\u1fbf', # ᾿ Greek Psili
+    '\u1fc0', # ῀ Greek Perispomeni
+    '\u1fc1', # ῁ Greek Dialytika and Perispomeni
+    '\u1fcd', # ῍ Greek Psili and Varia
+    '\u1fce', # ῎ Greek Psili and Oxia
+    '\u1fcf', # ῏ Greek Psili and Perispomeni
+    '\u1fdd', # ῝ Greek Dasia and Varia
+    '\u1fde', # ῞ Greek Dasia and Oxia
+    '\u1fdf', # ῟ Greek Dasia and Perispomeni
+    '\u1fed', # ῭ Greek Dialytika and Varia
+    '\u1fee', # ΅ Greek Dialytika and Oxia
+    '\u1fef', # ` Greek Varia
+    '\u1ffd', # ´ Greek Oxia
+    '\u1ffe' # ´ Greek Dasia
 ]
 
 MAP_SUBSCRIPT_NO_SUB = {'Ἄ': 'ᾌΙ',
@@ -477,3 +531,16 @@ def expand_iota_subscript(input_str, lowercase=False):
     if lowercase:
         new_str = new_str.lower()
     return new_str
+
+def filter_non_greek(input_str):
+    """
+    input: string with mixed characters
+    return: string with ancient greek characters
+
+    It conserves whitespace.
+    """
+    greek_alphabet = LOWER + LOWER_ACUTE + LOWER_BREVE + LOWER_CIRCUMFLEX + LOWER_CONSONANTS + LOWER_DIAERESIS + LOWER_DIAERESIS_ACUTE + LOWER_DIAERESIS_CIRCUMFLEX + LOWER_DIAERESIS_GRAVE + LOWER_GRAVE + LOWER_MACRON + [LOWER_RHO] + LOWER_ROUGH + [LOWER_RHO_ROUGH] + [LOWER_RHO_SMOOTH] + LOWER_ROUGH_ACUTE + LOWER_ROUGH_CIRCUMFLEX + LOWER_ROUGH_GRAVE + LOWER_SMOOTH + LOWER_SMOOTH_ACUTE + LOWER_SMOOTH_CIRCUMFLEX + LOWER_SMOOTH_GRAVE + UPPER + UPPER_ACUTE + UPPER_BREVE + UPPER_CONSONANTS + UPPER_DIAERESIS + UPPER_GRAVE + UPPER_MACRON + [UPPER_RHO] + UPPER_ROUGH + [UPPER_RHO_ROUGH] + UPPER_ROUGH_ACUTE + UPPER_ROUGH_CIRCUMFLEX + UPPER_ROUGH_GRAVE + UPPER_SMOOTH + UPPER_SMOOTH_ACUTE + UPPER_SMOOTH_CIRCUMFLEX + UPPER_SMOOTH_GRAVE + NUMERAL_SIGNS + ACCENTS
+    greek_string = "".join([lem for lem in input_str if lem in greek_alphabet or lem == " "])
+    #
+    return greek_string.strip()
+

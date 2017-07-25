@@ -7,6 +7,7 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
 from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
+from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 import unittest
@@ -56,6 +57,12 @@ class TestSequenceFunctions(unittest.TestCase):
         no_stops = [w for w in tokens if w not in LATIN_STOPS]
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
+        self.assertEqual(no_stops, target_list)
+    def test_arabic_stopwords(self):
+        """Test filtering arabic stopwords."""
+        sentence = 'سُئِل بعض الكُتَّاب عن الخَط، متى يَسْتحِقُ أن يُوصَف بِالجَودةِ؟'
+        no_stops = arabic_stop_filter(sentence)
+        target_list = ['سئل', 'الكتاب', 'الخط', '،', 'يستحق', 'يوصف', 'بالجودة', '؟']
         self.assertEqual(no_stops, target_list)
 
     def test_french_stopwords(self):

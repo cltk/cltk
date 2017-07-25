@@ -16,13 +16,15 @@ before_script:
   - pip install greek-accentuation  # for the phonetic transcriber
   - pip install fuzzywuzzy
   - pip install python-Levenshtein
+  - pip install PyArabic  # for Arabic in tokenize/word.py
+  - pip install gensim # for word2vec.py
 
 script:
   # Notes on nose:
   # Travis CI pre-installs `nose`
   # https://github.com/coagulant/coveralls-python#nosetests
   # http://nose.readthedocs.org/en/latest/plugins/skip.html
-  - nosetests --no-skip --with-coverage --cover-package=cltk
+  - nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
 
 after_success:
   - codecov
