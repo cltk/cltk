@@ -50,8 +50,6 @@ a = lemmatizer.lemmatize(tokens)
 
 print(a)
 
-lemmatizer = DictLemmatizer()
-
 
 from cltk.lemmatize.french.lex import entries
 
@@ -67,7 +65,6 @@ for token in tokens:
        #     lemmatized = (token, 'None')
         #    lemmatized_tokens.append(lemmatized)
         #    break
-
 print(lemmatized_tokens)
 
 

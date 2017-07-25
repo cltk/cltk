@@ -19,8 +19,8 @@ def normalize(text):
         word, was_normalized = matchremove_endings(word)
         # if word didn't match the s
             # imple endings, try verb endings
-        if not was_normalized:
-            word = match_substitute_others(word)
+       # if not was_normalized:
+       #     word = match_substitute_others(word)
         # add the stemmed word to the text
         normalized_text += word + ' '
     return normalized_text
@@ -58,13 +58,36 @@ def match_substitute_others(word):
                    ("ew", "ieux"),
                    (r"a$", "e")]
 
-    for alteration in alterations:
-        for initial, later in alteration:
+
+    for initial, later in alterations:
+        for alteration in alterations:
             if initial in word:
                 word = re.sub(initial, later, word)
                 break
     return word
 
+word = "ceaus"
+
+c = match_substitute_others(word)
+print(c)
+
+alterations = [("eaus$", "eus"),
+                ("ceaus$", "ceus"),
+                ("iu", "ieu"),
+                #("u", "eu"),
+                ("ie", "iee"),
+                ("ue", "uee"),
+                ("ure$", "eure"),
+                ("eo", "o"),
+                (r"iw$", "ieux"),
+                (r"ew$", "ieux"),
+                (r"a$", "e")]
+
+for initial, changed in alterations:
+    for alteration in alterations:
+        word = re.sub(initial, changed, word)
+        break
+print(word)
 
 
 #use of <u> over <ou>
