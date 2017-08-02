@@ -6,13 +6,14 @@ import re
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
+from cltk.utils.cltk_logger import logger
 
 do_arabic = False
 try:
     import pyarabic.araby as araby
     do_arabic = True
 except ImportError:
-    print('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
+    logger.info('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
     pass
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
@@ -39,12 +40,13 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
     def tokenize(self, string):
         """Tokenize incoming string."""
+
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
 
         elif self.language == 'arabic':
             tokens = tokenize_arabic_words(string)
-            
+
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -54,11 +56,15 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 def nltk_tokenize_words(string, attached_period=False, language=None):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
     its own token.
-    >>> nltk_punkt("Sentence 1. Sentence 2.")
-    >>> ['Sentence', 'one', '.', 'Sentence', 'two', '.']
-    Optionally keep the NLTK's output:
-    >>> nltk_punkt("Sentence 1. Sentence 2.", attached_period=True)
-    >>> ['Sentence', 'one.', 'Sentence', 'two.']
+
+    >>> nltk_tokenize_words("Sentence 1. Sentence 2.")
+    ['Sentence', '1', '.', 'Sentence', '2', '.']
+
+    >>> #Optionally keep the NLTK's output:
+
+    >>> nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=True)
+    ['Sentence', '1.', 'Sentence', '2.']
+
     TODO: Run some tests to determine whether there is a large penalty for
     re-calling PunktLanguageVars() for each use of this function. If so, this
     will need to become a class, perhaps inheriting from the PunktLanguageVars
@@ -90,8 +96,8 @@ def tokenize_latin_words(string):
   
     >>> from cltk.corpus.utils.formatter import remove_non_ascii
     >>> text =  'Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'
-    >>> remove_non_ascii(text)
-    >>> 'Dices   pulchrum esse inimicos ulcisci.
+    >>> tokenize_latin_words(text)
+    ['Dices', 'ἐστιν', 'ἐμός', 'pulchrum', 'esse', 'inimicos', 'ulcisci', '.']
   
     :param string: This accepts the string value that needs to be tokenized
     :returns: A list of substrings extracted from the string
