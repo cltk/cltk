@@ -6,40 +6,8 @@ __author__ = ['M. Willis Monroe <willismonroe@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.stem.akkadian.stem import Stemmer
+from cltk.stem.akkadian.stem import ENDINGS
 from cltk.phonology.akkadian.stress import AKKADIAN
-
-ENDINGS = {
-    'm': {
-        'singular': {
-            'nominative': 'um',
-            'accusative': 'am',
-            'genitive': 'im'
-        },
-        'dual': {
-            'nominative': 'ān',
-            'oblique': 'īn'
-        },
-        'plural': {
-            'nominative': 'ū',
-            'oblique': 'ī'
-        }
-    },
-    'f': {
-        'singular': {
-            'nominative': 'tum',
-            'accusative': 'tam',
-            'genitive': 'tim'
-        },
-        'dual': {
-            'nominative': 'tān',
-            'oblique': 'tīn'
-        },
-        'plural': {
-            'nominative': ['ātum', 'ētum', 'ītum'],
-            'oblique': ['ātim', 'ētim', 'ītum']
-        }
-    }
-}
 
 
 class NaiveDecliner(object):

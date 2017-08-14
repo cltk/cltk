@@ -8,8 +8,38 @@ TODO: Deal with j/y issue.
 __author__ = ['M. Willis Monroe <willismonroe@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.stem.akkadian.declension import ENDINGS
-
+ENDINGS = {
+    'm': {
+        'singular': {
+            'nominative': 'um',
+            'accusative': 'am',
+            'genitive': 'im'
+        },
+        'dual': {
+            'nominative': 'ān',
+            'oblique': 'īn'
+        },
+        'plural': {
+            'nominative': 'ū',
+            'oblique': 'ī'
+        }
+    },
+    'f': {
+        'singular': {
+            'nominative': 'tum',
+            'accusative': 'tam',
+            'genitive': 'tim'
+        },
+        'dual': {
+            'nominative': 'tān',
+            'oblique': 'tīn'
+        },
+        'plural': {
+            'nominative': ['ātum', 'ētum', 'ītum'],
+            'oblique': ['ātim', 'ētim', 'ītum']
+        }
+    }
+}
 
 class Stemmer(object):
     """Stem Akkadian words with a simple algorithm based on Huehnergard"""
