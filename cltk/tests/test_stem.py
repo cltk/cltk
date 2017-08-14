@@ -225,7 +225,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test Akkadian bound form method"""
         bound_former = AkkadianBoundForm()
         word = "awīlum"
-        bound_form = bound_former.get_bound_form(word)
+        bound_form = bound_former.get_bound_form(word, 'm')
         target = "awīl"
         self.assertEquals(bound_form, target)
 
