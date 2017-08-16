@@ -1,5 +1,5 @@
 ''' 
-	Auther Chandana K.G.D  GitHub- chandanakgd 
+Chandana K.G.D  GitHub- chandanakgd 
 '''
 
 INDEPENDENT_VOWELS=['අ','ආ','ඉ','ඊ','උ','එ','ඔ']
