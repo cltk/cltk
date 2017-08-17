@@ -46,17 +46,18 @@ def matchremove_endings(word):
 
 def match_substitute_others(word):
 
-    alterations = [("eaus", "eus"),
-                   ("ceaus", "ceus"),
+    alterations = [("eaus$", "eus$"),
+                   ("ceaus$", "ceus$"),
                    ("iu", "ieu"),
-                   ("u", "eu"),
-                   ("ie", "iee"),
-                   ("ue", "uee"),
-                   ("ure", "eure"),
-                   ("eo", "o"),
-                   ("iw", "ieux"),
-                   ("ew", "ieux"),
-                   (r"a$", "e")]
+                   ("(^$)u(^$)", "\weu\w"),
+                   ("ie\b", "iee\b"),
+                   ("ue\b", "uee\b"),
+                   ("ure\b", "eure\b"),
+                   ("eo\b", "o\b"),
+                   ("iw\b", "ieux\b"),
+                   ("ew\b", "ieux\b"),
+                   (r"a$", "e"),
+                   ("^en", "^an")]
 
 
     for initial, later in alterations:
