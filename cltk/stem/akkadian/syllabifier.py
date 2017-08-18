@@ -37,6 +37,10 @@ class Syllabifier(object):
     def syllabify(self, word):
         syllables = []
 
+        # catch single character words
+        if len(word) == 1:
+            return [word]
+
         # If there's an initial vowel and the word is longer than 2 letters,
         # and the third syllable is a not consonant (easy way to check for VCC pattern),
         # the initial vowel is the first syllable.
