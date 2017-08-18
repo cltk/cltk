@@ -3,6 +3,11 @@ Given an Akkadian word, either normalized or as a list of syllables, return a li
 syllable surounded by square brackets.
 """
 
+<<<<<<< Updated upstream
+=======
+#TODO: fails on: ['hammurabi', 'išmeānim']
+
+>>>>>>> Stashed changes
 from cltk.stem.akkadian.syllabifier import Syllabifier
 
 __author__ = ['M. Willis Monroe <willismonroe@gmail.com>']
