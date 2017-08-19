@@ -14,7 +14,7 @@ AKKADIAN = {
     'macron_vowels': ['ā', 'ē', 'ī', 'ū'],
     'circumflex_vowels': ['â', 'ê', 'î', 'û'],
 
-    'consonants': ['b', 'd', 'g', 'ḫ', 'k', 'l', 'm',
+    'consonants': ['b', 'd', 'g', 'h', 'ḫ', 'k', 'l', 'm',
                    'n', 'p', 'q', 'r', 's', 'ṣ', 'š',
                    't', 'ṭ', 'w', 'y', 'z', 'ʾ']
 }
