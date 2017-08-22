@@ -88,8 +88,17 @@ The stopword filterer removes the function words from a string of OF or MF text.
 
 NORMALIZER
 ==================
-The normalizer aims to maximally reduce the variation between the orthography of texts written in Anglo-Norman to bring it in line with “orthographe commune”.
-It is heavily inspired by Pope (1956)and should be used with the caveat that medieval orthography is highly inconsistent.
+The normalizer aims to maximally reduce the variation between the orthography of texts written in the `Anglo-Norman dialect <https://en.wikipedia.org/wiki/Anglo-Norman_language>`_ to bring it in line with “orthographe commune”.
+It is heavily inspired by Pope (1956). It takes a string as its input. Spelling variation is not consistent enough to ensure the highest accuracy; the normalizer should therefore be used as a last resort.
+
+.. code-block:: python
+
+    In [1]: from cltk.normalize.normalize import normalize
+
+    In [2]: text = "viw"
+
+    In [3]: normalize(text)
+    Out [3]: ['vieux']
 
 .. Reference: Pope, M.K. 1956. From Latin to Modern French with Especial Consideration of Anglo-Norman. Manchester: MUP.
 
@@ -115,7 +124,7 @@ The lemmatizer takes as its input a list of tokens, previously tokenized and mad
 .. It first seeks a match between each token and a list of potential lemmas taken from Godefory (1901)’s Lexique, the Tobler-Lommatszch, and the DECT. If a match is not found, the lemmatizer then seeks a match between the forms different lemmas have been known to take and the token (this at present only applies to lemmas from A-D and W-Z). If no match is returned at this stage, a set of rules is applied to the token. These rules are similar to those applied by the stemmer but aim to bring forms in line with lemmas rather than truncating them. Finally, if no match is found between the modified token and the list of lemmas, a result of ‘None’ is applied.
 
 .. References:
-- Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.;
+- Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.
 - Tobler, Adolf and Erhard Lommatzsch. 1915. Altfranzösisches Wörterbuch. Adolf Toblers nachgelassene Materialen, bearbeitet und herausgegeben von Erhard Lommatzsch, wietergeführt von Hans Helmut Christmann. Stuttgart: Franz Steiner Verlag.
 - DÉCT : Dictionnaire Électronique de Chrétien de Troyes, http://www.atilf.fr/dect, LFA/Université d'Ottawa - ATILF/CNRS & Université de Lorraine. 2014.
 

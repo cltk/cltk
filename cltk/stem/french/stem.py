@@ -3,12 +3,9 @@ import re
 from cltk.tokenize.word import WordTokenizer
 from cltk.stem.french.exceptions import exceptions
 
-text = "ja departissent a itant quant par la vile vint errant tut a cheval " \
-                   "une pucele en tut le siecle n’ot si bele un blanc palefrei chevalchot"
 
 def stem(text):
-#normalise apostrophes
-    text = re.sub(r"’", "'", text)
+
 # make string lower-case
     text = text.lower()
     """Stem each word of the French text."""
@@ -17,27 +14,25 @@ def stem(text):
 
     word_tokenizer = WordTokenizer('french')
     tokenized_text = word_tokenizer.tokenize(text)
-    #tokenize text rather than split on ' '
     for word in tokenized_text:
             # remove the simple endings from the target word
-        word, was_stemmed = matchremove_simple_endings(word)
-        # if word didn't match the s
-            # imple endings, try verb endings
+        word, was_stemmed = matchremove_noun_endings(word)
+        # if word didn't match the simple endings, try verb endings
         if not was_stemmed:
             word = matchremove_verb_endings(word)
         # add the stemmed word to the text
         stemmed_text += word + ' '
     return stemmed_text
 
-def matchremove_simple_endings(word):
-    """Remove the noun, adverb word endings"""
+def matchremove_noun_endings(word):
+    """Remove the noun and adverb word endings"""
 
     was_stemmed = False
 
     # common and proper noun and adjective word endings sorted by charlen, then alph
-    simple_endings = ['arons', 'ains', 'aron', 'ment', 'ain', 'age', 'on', 'es', 'ée', 'ee', 'ie', 's']
+    noun_endings = ['arons', 'ains', 'aron', 'ment', 'ain', 'age', 'on', 'es', 'ée', 'ee', 'ie', 's']
 
-    for ending in simple_endings:
+    for ending in noun_endings:
         #ignore exceptions
         if word in exceptions:
             word = word
@@ -47,7 +42,7 @@ def matchremove_simple_endings(word):
             word = word
             was_stemmed = True
             break
-        #removes simple endings
+        #removes noun endings
         if word.endswith(ending):
             word = re.sub(r'{0}$'.format(ending), '', word)
             was_stemmed = True
@@ -79,7 +74,3 @@ def matchremove_verb_endings(word):
             break
 
     return word
-
-print(stem(text))
-
-

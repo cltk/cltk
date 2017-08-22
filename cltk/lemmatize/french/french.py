@@ -1,4 +1,6 @@
 import re
+"""Rules are based on Brunot & Bruneau (1949).
+"""
 
 
 estre_replace = [('^sereient$|^fussions$|^fussiens$|^sereies$|^sereiet$|^serïens$|^seriiez$|^fussiez$|^fussent$|^ierent$|^fustes$|^furent$|^ierent$|^sereie$|^seroie$|^sereit$|^seiens$|^seient$|^fusses$|^fussez$|^estant$|^seiens$|^somes$|^estes$|^ieres$|^ieres$|^eiens$|^eriez$|^erent$|^fumes$|^irmes$|^ertes$|^seies$|^seiet$|^seiez$|^fusse$|^seies$|^seiez$|^suis$|^sont$|^iere$|^eres$|^eret$|^iers$|^iert$|^seie$|^seit$|^fust$|^esté$|^ies$|^est$|^ere$|^ert$|^fui$|^fus$|^ier$|^ert$|^es$|^fu$', 'estre')]
