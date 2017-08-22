@@ -11,6 +11,7 @@ from cltk.stem.latin.declension import CollatinusDecliner
 from cltk.exceptions import UnknownLemma
 from cltk.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
 from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
+from cltk.stem.french.stem import stem
 
 import os
 import unittest
@@ -43,6 +44,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stemmed_text = stemmer.stem(sentence.lower())
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=line-too-long
         self.assertEqual(stemmed_text, target)
+
 
     def test_lemmatizer_inlist_latin(self):
         """Test the Latin lemmatizer.
@@ -485,6 +487,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             UnknownLemma, decline
         )
 
+    def french_stemmer_test(self):
+        sentence = "ja departissent a itant quant par la vile vint errant tut a cheval " \
+                    "une pucele en tut le siecle n'ot si bele un blanc palefrei chevalchot"
+        stemmed_text = stem(sentence)
+        target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n'o si bel un blanc palefre" \
+                    " chevalcho "
+        self.assertEqual(stemmed_text, target)
 
 if __name__ == '__main__':
     unittest.main()
