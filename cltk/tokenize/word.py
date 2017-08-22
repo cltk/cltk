@@ -226,8 +226,12 @@ def tokenize_latin_words(string):
 def tokenize_french_words(string):
     assert isinstance(string, str), "Incoming string must be type str."
 
+    #normalize apostrophes
+
+    text = re.sub(r"’", r"'", string)
+
     ##Dealing with punctuation
-    text = re.sub(r"\'", r"' ", string)
+    text = re.sub(r"\'", r"' ", text)
     text = re.sub(r",", r" ,", text)
     text = re.sub(r"\.", r" .", text)
     text = re.sub(r";", r" ;", text)
