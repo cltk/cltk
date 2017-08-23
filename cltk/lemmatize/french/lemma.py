@@ -29,6 +29,3 @@ def lemmatize(tokens):
                     lemmed = (token, "None")
                     lemmatized.append(lemmed)
     return lemmatized
-
-
-

@@ -15,6 +15,8 @@ from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
 #from cltk.lemmatize.latin.regexp_patterns import rn_patterns
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
+from cltk.lemmatize.french.lemma import lemmatize
+
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
@@ -161,8 +163,16 @@ class TestSequenceFunctions(unittest.TestCase):
         tokens = tokenizer.tokenize(test_str)
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
-        
-        
-        
+
+    def test_french_lemmatizer(self):
+        text = "Li rois pense que par folie, Sire Tristran, vos aie amé ; Mais Dé plevis ma loiauté, Qui sor mon cors mete flaele, S'onques fors cil qui m’ot pucele Out m'amistié encor nul jor !"
+        text = str.lower(text)
+        tokenizer = WordTokenizer('french')
+        tokens = tokenizer.tokenize(text)
+        lemmas = lemmatize(tokens)
+        target = [('li', 'li'), ('rois', 'rois'), ('pense', 'pense'), ('que', 'que'), ('par', 'par'), ('folie', 'folie'), (',', ['PUNK']), ('sire', 'sire'), ('tristran', 'None'), (',', ['PUNK']), ('vos', 'vos'), ('aie', ['avoir']), ('amé', 'amer'), (';', ['PUNK']), ('mais', 'mais'), ('dé', 'dé'), ('plevis', 'plevir'), ('ma', 'ma'), ('loiauté', 'loiauté'), (',', ['PUNK']), ('qui', 'qui'), ('sor', 'sor'), ('mon', 'mon'), ('cors', 'cors'), ('mete', 'mete'), ('flaele', 'flaele'), (',', ['PUNK']), ("s'", "s'"), ('onques', 'onques'), ('fors', 'fors'), ('cil', 'cil'), ('qui', 'qui'), ("m'", "m'"), ('ot', 'ot'), ('pucele', 'pucele'), ('out', ['avoir']), ("m'", "m'"), ('amistié', 'amistié'), ('encor', 'encor'), ('nul', 'nul'), ('jor', 'jor'), ('!', ['PUNK'])]
+        self.assertEqual(lemmas, target)
+
+
 if __name__ == '__main__':
     unittest.main()
