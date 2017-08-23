@@ -8,7 +8,6 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
 from cltk.tag.pos import POSTag
-from cltk.tag import ner_fr
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -185,7 +184,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test make_ner(), str, list."""
         text_str = """Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."""
 
-        tokens = ner_fr.tag_ner_fr(input_text=text_str, output_type=list)
+        tokens = ner.tag_ner_fr(input_text=text_str, output_type=list)
         target = [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',),
                   ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
         self.assertEqual(tokens, target)
