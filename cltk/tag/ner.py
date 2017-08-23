@@ -89,6 +89,7 @@ def tag_ner(lang, input_text, output_type=list):
 
 """tags named entities in a string and outputs a list of tuples in the following format:
 (name, "entity", kind_of_entity)"""
+
 def tag_ner_fr(input_text, output_type=list):
 
     for entity in entities:
