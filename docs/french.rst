@@ -4,15 +4,16 @@ French
 Old French (franceis, françois, romanz; Modern French ancien français) was the language spoken in Northern France from the 8th century to the 14th century. In the 14th century, these dialects came to be collectively known as the langue d'oïl, contrasting with the langue d'oc or Occitan language in the south of France. The mid-14th century is taken as the transitional period to Middle French, the language of the French Renaissance, specifically based on the dialect of the Île-de-France region. The place and area where Old French was spoken natively roughly extended to the historical Kingdom of France and its vassals, but the influence of Old French was much wider, as it was carried to England, Sicily and the Crusader states as the language of a feudal elite and of commerce.
 
 (Source: `Wikipedia <https://en.wikipedia.org/wiki/Old_French>`_)
+
 LEMMATIZER
 ==================
 The lemmatizer takes as its input a list of tokens, previously tokenized and made lower-case.
 .. It first seeks a match between each token and a list of potential lemmas taken from Godefory (1901)’s Lexique, the Tobler-Lommatszch, and the DECT. If a match is not found, the lemmatizer then seeks a match between the forms different lemmas have been known to take and the token (this at present only applies to lemmas from A-D and W-Z). If no match is returned at this stage, a set of rules is applied to the token. These rules are similar to those applied by the stemmer but aim to bring forms in line with lemmas rather than truncating them. Finally, if no match is found between the modified token and the list of lemmas, a result of ‘None’ is returned.
 
 .. References:
-- Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.
-- Tobler, Adolf and Erhard Lommatzsch. 1915. Altfranzösisches Wörterbuch. Adolf Toblers nachgelassene Materialen, bearbeitet und herausgegeben von Erhard Lommatzsch, wietergeführt von Hans Helmut Christmann. Stuttgart: Franz Steiner Verlag.
-- DÉCT : Dictionnaire Électronique de Chrétien de Troyes, http://www.atilf.fr/dect, LFA/Université d'Ottawa - ATILF/CNRS & Université de Lorraine. 2014.
+..- Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.
+..- Tobler, Adolf and Erhard Lommatzsch. 1915. Altfranzösisches Wörterbuch. Adolf Toblers nachgelassene Materialen, bearbeitet und herausgegeben von Erhard Lommatzsch, wietergeführt von Hans Helmut Christmann. Stuttgart: Franz Steiner Verlag.
+..- DÉCT : Dictionnaire Électronique de Chrétien de Troyes, http://www.atilf.fr/dect, LFA/Université d'Ottawa - ATILF/CNRS & Université de Lorraine. 2014.
 
 
 .. code-block:: python
@@ -32,6 +33,7 @@ The lemmatizer takes as its input a list of tokens, previously tokenized and mad
     In [7]: lemmatize(tokens)
     Out [7]: [('li', 'li'), ('rois', 'rois'), ('pense', 'pense'), ('que', 'que'), ('par', 'par'), ('folie', 'folie'), (',', ['PUNK']), ('sire', 'sire'), ('tristran', 'None'), (',', ['PUNK']), ('vos', 'vos'), ('aie', ['avoir']), ('amé', 'amer'), (';', ['PUNK']), ('mais', 'mais'), ('dé', 'dé'), ('plevis', 'plevir'), ('ma', 'ma'), ('loiauté', 'loiauté'), (',', ['PUNK']), ('qui', 'qui'), ('sor', 'sor'), ('mon', 'mon'), ('cors', 'cors'), ('mete', 'mete'), ('flaele', 'flaele'), (',', ['PUNK']), ("s'", "s'"), ('onques', 'onques'), ('fors', 'fors'), ('cil', 'cil'), ('qui', 'qui'), ("m'", "m'"), ('ot', 'ot'), ('pucele', 'pucele'), ('out', ['avoir']), ("m'", "m'"), ('amistié', 'amistié'), ('encor', 'encor'), ('nul', 'nul'), ('jor', 'jor'), ('!', ['PUNK'])]
 
+
 LINE TOKENIZATION:
 ==================
 The line tokenizer takes a string as its input and returns a list of strings.
@@ -46,6 +48,7 @@ The line tokenizer takes a string as its input and returns a list of strings.
 
     In [4]: tokenizer.tokenize(untokenized_text)
     Out[4]: ['Ki de bone matire traite,', 'mult li peise, se bien n’est faite.','Oëz, seignur, que dit Marie,', 'ki en sun tens pas ne s’oblie. ']
+
 
 NAMED ENTITY RECOGNITION
 ==================
@@ -110,6 +113,7 @@ The stemmer strips morphological endings from an input string.
 
 .. Reference: Brunot, F. & Bruneau, C. 1949. Précis de grammaire historique de la langue française. Paris: Masson & Cie.
 
+
 STOPWORD FILTERING
 ==================
 The stopword filterer removes the function words from a string of OF or MF text. The list includes function words from the most common 100 words in the corpus, as well as all conjugated forms of auxiliaries estre and avoir.
@@ -130,6 +134,7 @@ The stopword filterer removes the function words from a string of OF or MF text.
 
     In [7]: no_stops = [w for w in tokens if w not in FRENCH_STOPS]
     Out [7]: ['pensé', 'talant', "d'", 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes', 'mere','.']
+
 
 
 WORD TOKENIZATION
