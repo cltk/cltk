@@ -4,6 +4,8 @@ Spelling variation is not consistent enough to ensure the highest accuracy; the 
 therefore be used as a last resort.
 
 
+The normalizer, word tokenizer, stemmer, lemmatizer, and list of stopwords for OF/MF were developed as part of Google Summer of Code 2017.
+A full write-up of this work can be found at : https://gist.github.com/nat1881/6f134617805e2efbe5d275770e26d350
 
 
-References : Pope, M.K. 1956. From Latin to Modern French with Especial Consideration of Anglo-Norman. Manchester: MUP.
+**References :** Pope, M.K. 1956. From Latin to Modern French with Especial Consideration of Anglo-Norman. Manchester: MUP.
