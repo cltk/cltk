@@ -1,3 +1,6 @@
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
 from cltk.normalize.normalize import normalize
 import unittest
 

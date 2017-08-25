@@ -18,7 +18,7 @@ from cltk.tokenize.word import WordTokenizer
 from cltk.lemmatize.french.lemma import lemmatize
 
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Natasha Voake <natashavoake@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

@@ -86,6 +86,8 @@ def tag_ner(lang, input_text, output_type=list):
 
     return ner_tuple_list
 
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
 
 """tags named entities in a string and outputs a list of tuples in the following format:
 (name, "entity", kind_of_entity)"""

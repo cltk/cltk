@@ -1,3 +1,6 @@
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
 #encoding : utf-8
 import re
 from cltk.tokenize.word import WordTokenizer
@@ -52,7 +55,7 @@ def matchremove_noun_endings(word):
 
 def matchremove_verb_endings(word):
     """Remove the verb endings"""
-    #sorted by len then alphabetic order
+    #verb endings sorted by charlen then alph
     verb_endings =['issiiens', 'isseient', 'issiiez', 'issons', 'issent', 'issant', 'isseie', 'isseit', 'issons',
                    'isseiz', 'assent', 'issons', 'isseiz', 'issent', 'iiens', 'eient', 'issez', 'oient', 'istes',
                    'ïstes', 'istes', 'astes', 'erent', 'istes', 'irent', 'ustes', 'urent', 'âmes', 'âtes', 'èrent',
@@ -63,8 +66,6 @@ def matchremove_verb_endings(word):
                    'es', 'et', 'ez', 'is', 're', 'oi', 'ïs', 'üs', 'ai', 'as', 'at', 'is', 'it', 'ui',
                    'us', 'ut', 'st', 's', 't', 'e', 'é', 'z', 'u', 'a', 'i']
 
-
-    # otherwise, remove verb endings
     for ending in verb_endings:
         if word == ending:
             word = word

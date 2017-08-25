@@ -1,3 +1,6 @@
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
 from cltk.tokenize.word import WordTokenizer
 from cltk.lemmatize.french.entries import entries
 from cltk.lemmatize.french.forms_and_lemmas import forms_and_lemmas
