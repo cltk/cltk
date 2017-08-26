@@ -7,7 +7,7 @@ The language spoken in ancient Egypt was a branch of the Afroasiatic language fa
 Transliterate MdC
 =================
 
-MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceieved as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
+MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceived as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
 <https://en.wikipedia.org/wiki/Manuel_de_Codage>`_ and `here <http://www.catchpenny.org/codage/#trans>`_
 
 Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`_
