@@ -543,7 +543,7 @@ If the line is not properly macronized to scan, the scanner tries to determine w
 2. Syllabifies according to the common rules.
 3. Is complete (e.g. some hexameter lines are partial).
 
-The scanner also determines which syllables would have to be made long to make the line scan as a valid hexameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HexameterScanner's scan method returns a Hexameter class object.
+The scanner also determines which syllables would have to be made long to make the line scan as a valid hexameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HexameterScanner's scan method returns a Verse class object.
 
 .. code-block:: python
 
@@ -552,21 +552,67 @@ The scanner also determines which syllables would have to be made long to make t
    In [2]: scanner = HexameterScanner()
 
    In [3]: print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
-   Out[3]: [Hexameter( original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm, pu, le, rīt, Tān, taen, a, ni, mīs, cae, lēs, ti, bus, i, rae'])]
+
+   Out[3]: [Verse(original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', meter='hexameter', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm', 'pu', 'le', 'rīt', 'Tān', 'taen', 'a', 'ni', 'mīs', 'cae', 'lēs', 'ti', 'bus', 'i', 'rae'])]
 
 
-Hexameter
-``````````
+PentameterScanner
+`````````````````
+The PentameterScanner class scans lines of Latin pentameter (with or without macrons) and determines if the line is a valid pentameter and what its scansion pattern is.
 
-The Hexameter class object returned by the HexameterScanner provides slots for:
+If the line is not properly macronized to scan, the scanner tries to determine whether the line:
+
+1. Scans merely by position.
+2. Syllabifies according to the common rules.
+
+The scanner also determines which syllables would have to be made long to make the line scan as a valid pentameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The PentameterScanner's scan method returns a Verse class object.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import PentameterScanner
+
+   In [2]: scanner = PentameterScanner()
+
+   In [3]: print(scanner.scan("ex hoc ingrato gaudia amore tibi."))
+
+   Out[3]: [Verse(original='ex hoc ingrato gaudia amore tibi.', scansion='-   -  -   - -   - U  U - U  U U ', meter='pentameter', valid=True, syllable_count=12, accented='ēx hōc īngrātō gaudia amōre tibi.', scansion_notes=['Spondaic pentameter'], syllables = ['ēx', 'hoc', 'īn', 'gra', 'to', 'gau', 'di', 'a', 'mo', 're', 'ti', 'bi'])]
+
+
+HendecasyllableScanner
+``````````````````````
+The HendecasyllableScanner class scans lines of Latin hendecasyllables (with or without macrons) and determines if the line is a valid example of the hendecasyllablic meter and what its scansion pattern is.
+
+If the line is not properly macronized to scan, the scanner tries to determine whether the line:
+
+1. Scans merely by position.
+2. Syllabifies according to the common rules.
+
+The scanner also determines which syllables would have to be made long to make the line scan as a valid hendecasyllables. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HendecasyllableScanner's scan method returns a Verse class object.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin import HendecasyllableScanner
+
+   In [2]: scanner = HendecasyllableScanner()
+
+   In [3]: print(scanner.scan("Iam tum, cum ausus es unus Italorum"))
+
+   Out[3]: Verse(original='Iam tum, cum ausus es unus Italorum', scansion=' -   -        - U  U  - U  - U - U ', meter='hendecasyllable', valid=True, syllable_count=11, accented='Iām tūm, cum ausus es ūnus Ītalōrum', scansion_notes=['antepenult foot onward normalized.'], syllables = ['Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum'])]
+
+
+Verse
+``````
+
+The Verse class object returned by the HexameterScanner, PentameterScanner, and HendecasyllableScanner provides slots for:
 
 1. original - original line of verse
 2. scansion - the scansion pattern
-3. valid - whether or not the hexameter is valid
-4. syllable_count - number of syllables according to common syllabification rules
-5. accented - if the hexameter is valid, a version of the line with accented vowels
-6. scansion_notes - a list recording characteristics and transformations made to the original line
-7. syllables - a list of syllables of which the line is divided into
+3. meter - the meter of the verse
+4. valid - whether or not the hexameter is valid
+5. syllable_count - number of syllables according to common syllabification rules
+6. accented - if the hexameter is valid, a version of the line with accented vowels (dipthongs are not accented)
+7. scansion_notes - a list recording the characteristics of the transformations made to the original line
+8. syllables - a list of syllables of which the line is divided into at the scansion level; elided syllables are not provided.
 
 The Scansion notes are defined in a NOTE_MAP dictionary object contained in the ScansionConstants class.
 

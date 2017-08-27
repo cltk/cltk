@@ -5,6 +5,7 @@ Tuned for poetry and verse, this class is tolerant of isolated single character 
 may appear due to elision."""
 
 import re
+import copy
 from cltk.prosody.latin.ScansionConstants import ScansionConstants
 import cltk.prosody.latin.StringUtils as StringUtils
 
@@ -74,7 +75,7 @@ class Syllabifier:
         ['pul', 'cher']
         >>> print(syllabifier.syllabify("ruptus"))
         ['ru', 'ptus']
-    """
+        """
         cleaned = words.translate(self.remove_punct_map)
         cleaned = cleaned.replace("qu", "kw")
         cleaned = cleaned.replace("Qu", "Kw")
@@ -89,11 +90,14 @@ class Syllabifier:
             if "Kw" in syl:
                 syl = syl.replace("Kw", "Qu")
                 syllables[idx] = syl
-        return syllables
+
+        return StringUtils.remove_blank_spaces(syllables)
 
     def _setup(self, word) -> list:
-        """Prepares a word for syllable processing. If the word starts with a prefix, process it
-        separately."""
+        """Prepares a word for syllable processing.
+
+        If the word starts with a prefix, process it separately.
+        """
         if len(word) == 1:
             return [word]
         for prefix in self.constants.PREFIXES:
@@ -244,7 +248,7 @@ class Syllabifier:
                 return StringUtils.move_consonant_left(letters, [pos])
             if consonant in self.constants.MUTES and next_letter[0] in self.constants.LIQUIDS:
                 return StringUtils.move_consonant_right(letters, [pos])
-            if consonant in ['k', 'K'] and next_letter[0] in ['w','W']:
+            if consonant in ['k', 'K'] and next_letter[0] in ['w', 'W']:
                 return StringUtils.move_consonant_right(letters, [pos])
             if self._contains_consonants(next_letter[0]) and self._starts_with_vowel(
                     previous_letter[-1]):
@@ -253,3 +257,20 @@ class Syllabifier:
             if self._contains_consonants(next_letter[0]):
                 return StringUtils.move_consonant_right(letters, [pos])
         return letters
+
+    def get_syllable_count(self, syllables: list) -> int:
+        """Counts the number of syllable groups that would occur after ellision.
+
+        Often we will want preserve the position and separation of syllables so that they
+        can be used to reconstitute a line, and apply stresses to the original word positions.
+        However, we also want to be able to count the number of syllables accurately.
+
+        >>> syllabifier = Syllabifier()
+        >>> print(syllabifier.get_syllable_count([
+        ... 'Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum']))
+        11
+        """
+        tmp_syllables = copy.deepcopy(syllables)
+        return len(StringUtils.remove_blank_spaces(
+                    StringUtils.move_consonant_right(tmp_syllables,
+                                             self._find_solo_consonant(tmp_syllables))))

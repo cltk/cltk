@@ -82,4 +82,17 @@ class ScansionConstants:
                                     ("5th dactyl", "13 syllables; probable dactyl at 5th foot."),
                                     ("> 17", "Invalid hexameter; too many syllables."),
                                     ("closest match", "Scansion matched to closest valid pattern."),
-                                    ("dactyl smoothing", "Dactyl chain smoothing.")))
+                                    ("dactyl smoothing", "Dactyl chain smoothing."),
+                                    ("antepenult chain", "antepenult foot onward normalized."),
+                                    ("penultimate dactyl chain", "penultimate foot onward normalized."),
+                                    ("> 11",
+                                     "Invalid hendecasyllables; more than eleven syllables detected"),
+                                    ("< 12p",
+                                     "Invalid pentameter; too few syllables"),
+                                    ("12p",
+                                     "Spondaic pentameter"),
+                                    ("14p",
+                                     "Dactylic pentameter"),
+                                    ("> 14",
+                                     "Invalid pentameter; too many syllables")
+                                    ))
