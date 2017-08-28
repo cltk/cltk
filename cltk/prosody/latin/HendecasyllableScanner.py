@@ -73,6 +73,12 @@ class HendecasyllableScanner(VerseScanner):
         verse.working_line = working_line
         verse.syllable_count = self.syllabifier.get_syllable_count(syllables)
         verse.syllables = syllables
+        # identify some obvious and probably choices based on number of syllables
+        if verse.syllable_count > 11:
+            verse.valid = False
+            verse.scansion_notes += [self.constants.NOTE_MAP["> 11"]]
+            return verse
+
         stresses = self.flag_dipthongs(syllables)
         syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
         offset_map = self.calc_offset(syllables_wspaces)
@@ -126,13 +132,6 @@ class HendecasyllableScanner(VerseScanner):
                 if self.metrical_validator.is_valid_hendecasyllables(tmp_scansion):
                     verse.scansion_notes += [self.constants.NOTE_MAP["closest match"]]
                     return self.assign_candidate(verse, tmp_scansion)
-
-        # identify some obvious and probably choices based on number of syllables
-
-        if verse.syllable_count > 11:
-            verse.valid = False
-            verse.scansion_notes += [self.constants.NOTE_MAP["> 11"]]
-            return verse
 
         # if the line doesn't scan "as is", if may scan if the optional i to j transformations
         # are made, so here we set them and try again.

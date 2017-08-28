@@ -31,6 +31,11 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         for idx, val in enumerate(verse):
             count += 1  # one might want to print or process the sequence here...
         self.assertEqual(count, 8)
+        # if you give the scanner too little it will return invalid
+        self.assertFalse(scanner.scan('pauca verba').valid)
+        # same if too many syllables
+        self.assertFalse(scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
+
 
     def test_pentameter_scanner(self):
         scanner = PentameterScanner()
@@ -98,6 +103,11 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         verse = scanner.scan("aut, quod non potis est, esse pudica velit:")
         self.assertTrue(verse.valid)
         self.assertEqual(verse.accented, 'aut, quōd nōn potis ēst, ēsse pudīca velit:')
+        # if you give the scanner too little it will return invalid
+        self.assertFalse(scanner.scan('pauca verba').valid)
+        # same if too many syllables
+        self.assertFalse(scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
+
 
     def test_hendecasyllable_scanner(self):
         scanner = HendecasyllableScanner()
@@ -191,3 +201,9 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(verse.scansion, '  -  - -  U U-   U -  U   -  U ')
         self.assertTrue(verse.valid)
         self.assertEqual(verse.accented, 'plūs ūnō maneāt perēnne saeclo!')
+
+        # if you give the scanner too little it will return invalid
+        self.assertFalse(scanner.scan('pauca verba').valid)
+        # same if too many syllables
+        self.assertFalse(scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
+

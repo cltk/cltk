@@ -78,6 +78,10 @@ class PentameterScanner(VerseScanner):
         verse.working_line = working_line
         verse.syllable_count = self.syllabifier.get_syllable_count(syllables)
         verse.syllables = syllables
+        if verse.syllable_count < 12:
+            verse.valid = False
+            verse.scansion_notes += [self.constants.NOTE_MAP["< 12p"]]
+            return verse
         stresses = self.flag_dipthongs(syllables)
         syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
         offset_map = self.calc_offset(syllables_wspaces)
@@ -107,17 +111,10 @@ class PentameterScanner(VerseScanner):
             candidate = self.make_spondaic(verse.scansion)
             verse.scansion_notes += [self.constants.NOTE_MAP["12p"]]
             return self.assign_candidate(verse, candidate)
-
         if verse.syllable_count == 14:  # produce spondees where possible
             candidate = self.make_dactyls(verse.scansion)
             verse.scansion_notes += [self.constants.NOTE_MAP["14p"]]
             return self.assign_candidate(verse, candidate)
-
-        if verse.syllable_count < 12:
-            verse.valid = False
-            verse.scansion_notes += [self.constants.NOTE_MAP["< 12p"]]
-            return verse
-
         if verse.syllable_count > 14:
             verse.valid = False
             verse.scansion_notes += [self.constants.NOTE_MAP["> 14"]]

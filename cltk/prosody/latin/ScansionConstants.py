@@ -44,9 +44,9 @@ class ScansionConstants:
         self.CONSONANTS_WO_H = "bcdfgjklmnpqrstvwxzBCDFGJKLMNPQRSTVWXZ"
 
         # Vowels and accented vowels should be kept the same length & position for easy dict map
-        self.VOWELS = "aeiouyAEIOUYëË"
-        self.ACCENTED_VOWELS = "āēīōūȳĀĒĪŌŪȲëË"
-        self.VOWELS_WO_I = "aeouAEOUYāēōūȳĀĒŪŌȲëË"
+        self.VOWELS = "aeiouyAEIOUYäÄëËïÏöÖüÜÿŸ"
+        self.ACCENTED_VOWELS = "āēīōūȳĀĒĪŌŪȲäÄëËïÏöÖüÜÿŸ"
+        self.VOWELS_WO_I = "aeouAEOUYāēōūȳĀĒŪŌȲäÄëËöÖüÜÿŸ"
         self.VOWELS_TO_ACCENTS = dict(zip(list(self.VOWELS), list(self.ACCENTED_VOWELS)))
         self.ACCENTS_TO_VOWELS = dict(zip(list(self.ACCENTED_VOWELS), list(self.VOWELS)))
 

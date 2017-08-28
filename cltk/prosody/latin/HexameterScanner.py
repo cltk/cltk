@@ -73,24 +73,23 @@ class HexameterScanner(VerseScanner):
         ... "vī superum saevae memorem Iūnōnis ob īram;").scansion) # doctest: +NORMALIZE_WHITESPACE
         -  U U -    -  -  U U -   - - U  U  - U
         >>> # handle multiple elisions
-        >>> print(scanner.scan(
-        ... "monstrum horrendum, informe, ingens, cui lumen ademptum"
-        ... ).scansion) # doctest: +NORMALIZE_WHITESPACE
+        >>> print(scanner.scan("monstrum horrendum, informe, ingens, cui lumen ademptum").scansion) # doctest: +NORMALIZE_WHITESPACE
         -        -  -      -  -     -  -      -  - U  U -   U
         >>> # if we have 17 syllables, create a chain of all dactyls
         >>> print(scanner.scan("quadrupedante putrem sonitu quatit ungula campum"
         ... ).scansion) # doctest: +NORMALIZE_WHITESPACE
         -  U U -  U  U  -   U U -   U U  -  U U  -  U
+        >>> # if we have 13 syllables exactly, we'll create a spondaic hexameter
         >>> print(HexameterScanner().scan(
         ... "illi inter sese multa vi bracchia tollunt").scansion)  # doctest: +NORMALIZE_WHITESPACE
         -    -  -   - -  -  -  -   -   UU  -  -
-        >>> print( HexameterScanner().scan(
+        >>> print(HexameterScanner().scan(
         ... "dat latus; insequitur cumulo praeruptus aquae mons").scansion) # doctest: +NORMALIZE_WHITESPACE
         -   U U   -  U  U -   U U -    - -  U  U   -  -
         >>> print(optional_transform_scanner.scan(
         ... "Non quivis videt inmodulata poëmata iudex").scansion) # doctest: +NORMALIZE_WHITESPACE
         -    - -   U U  -  U U - U  U- U U  - -
-        >>> print( HexameterScanner().scan(
+        >>> print(HexameterScanner().scan(
         ... "certabant urbem Romam Remoramne vocarent").scansion) # doctest: +NORMALIZE_WHITESPACE
         -  - -   -  -   - -   U U -  U  U - -
         >>> # advanced smoothing is available via keyword flags: dactyl_smoothing
@@ -116,6 +115,10 @@ class HexameterScanner(VerseScanner):
         verse.working_line = working_line
         verse.syllable_count = self.syllabifier.get_syllable_count(syllables)
         verse.syllables = syllables
+        if verse.syllable_count < 12:
+            verse.valid = False
+            verse.scansion_notes += [self.constants.NOTE_MAP["< 12"]]
+            return verse
         stresses = self.flag_dipthongs(syllables)
         syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
         offset_map = self.calc_offset(syllables_wspaces)
@@ -139,6 +142,39 @@ class HexameterScanner(VerseScanner):
         if self.metrical_validator.is_valid_hexameter(verse.scansion):
             verse.scansion_notes += [self.constants.NOTE_MAP["positionally"]]
             return self.assign_candidate(verse, verse.scansion)
+
+        # identify some obvious and probably choices based on number of syllables
+        if verse.syllable_count == 17:  # produce all dactyls
+            candidate = self.produce_scansion(
+                self.metrical_validator.hexameter_known_stresses(),
+                syllables_wspaces, offset_map)
+            verse.scansion_notes += [self.constants.NOTE_MAP["17"]]
+            if self.metrical_validator.is_valid_hexameter(candidate):
+                return self.assign_candidate(verse, candidate)
+        if verse.syllable_count == 12:  # create all spondee hexameter
+            candidate = self.produce_scansion(list(range(12)), syllables_wspaces, offset_map)
+            if self.metrical_validator.is_valid_hexameter(verse.scansion):
+                verse.scansion_notes += [self.constants.NOTE_MAP["12"]]
+                return self.assign_candidate(verse, candidate)
+        if verse.syllable_count == 13:  # create spondee hexameter with a dactyl at 5th foot
+            known_unaccents = [9, 10]
+            last_syllable_accented = False
+            for vowel in self.constants.ACCENTED_VOWELS:
+                if vowel in verse.syllables[12]:
+                    last_syllable_accented = True
+            if not last_syllable_accented:
+                known_unaccents.append(12)
+            if set(known_unaccents) - set(stresses) != len(known_unaccents):
+                verse.scansion = self.produce_scansion([x for x in range(13)
+                                                        if x not in known_unaccents],
+                                                       syllables_wspaces, offset_map)
+                verse.scansion_notes += [self.constants.NOTE_MAP["5th dactyl"]]
+                if self.metrical_validator.is_valid_hexameter(verse.scansion):
+                    return self.assign_candidate(verse, verse.scansion)
+        if verse.syllable_count > 17:
+            verse.valid = False
+            verse.scansion_notes += [self.constants.NOTE_MAP["> 17"]]
+            return verse
 
         smoothed = self.correct_inverted_amphibrachs(verse.scansion)
         if distance(verse.scansion, smoothed) > 0:
@@ -209,40 +245,6 @@ class HexameterScanner(VerseScanner):
                 if self.metrical_validator.is_valid_hexameter(tmp_scansion):
                     verse.scansion_notes += [self.constants.NOTE_MAP["closest match"]]
                     return self.assign_candidate(verse, tmp_scansion)
-
-        # identify some obvious and probably choices based on number of syllables
-        if verse.syllable_count == 17:  # produce all dactyls
-            candidate = self.produce_scansion(
-                self.metrical_validator.hexameter_known_stresses(),
-                syllables_wspaces, offset_map)
-            verse.scansion_notes += [self.constants.NOTE_MAP["17"]]
-            if self.metrical_validator.is_valid_hexameter(candidate):
-                return self.assign_candidate(verse, candidate)
-
-        if verse.syllable_count == 12:  # create all spondee hexameter
-            candidate = self.produce_scansion(list(range(12)), syllables_wspaces, offset_map)
-            if self.metrical_validator.is_valid_hexameter(verse.scansion):
-                verse.scansion_notes += [self.constants.NOTE_MAP["12"]]
-                return self.assign_candidate(verse, candidate)
-
-        if verse.syllable_count < 12:
-            verse.valid = False
-            verse.scansion_notes += [self.constants.NOTE_MAP["< 12"]]
-            return verse
-        if verse.syllable_count == 13:  # create spondee hexameter with a dactyl at 5th foot
-            known_unaccents = [9, 10, 12]
-            if set(known_unaccents) - set(stresses) != len(known_unaccents):
-                verse.scansion = self.produce_scansion([x for x in range(13)
-                                                        if x not in known_unaccents],
-                                                       syllables_wspaces, offset_map)
-                verse.scansion_notes += [self.constants.NOTE_MAP["5th dactyl"]]
-                if self.metrical_validator.is_valid_hexameter(verse.scansion):
-                    return self.assign_candidate(verse, verse.scansion)
-
-        if verse.syllable_count > 17:
-            verse.valid = False
-            verse.scansion_notes += [self.constants.NOTE_MAP["> 17"]]
-            return verse
 
         # need to do this again, since the scansion has changed
         smoothed = self.correct_inverted_amphibrachs(smoothed)

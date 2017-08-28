@@ -75,6 +75,8 @@ class Syllabifier:
         ['pul', 'cher']
         >>> print(syllabifier.syllabify("ruptus"))
         ['ru', 'ptus']
+        >>> print(syllabifier.syllabify("Bīthÿnus"))
+        ['Bī', 'thÿ', 'nus']
         """
         cleaned = words.translate(self.remove_punct_map)
         cleaned = cleaned.replace("qu", "kw")
