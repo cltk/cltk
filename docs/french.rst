@@ -8,7 +8,7 @@ Old French (franceis, françois, romanz; Modern French ancien français) was the
 LEMMATIZER
 ==================
 The lemmatizer takes as its input a list of tokens, previously tokenized and made lower-case.
-.. It first seeks a match between each token and a list of potential lemmas taken from Godefory (1901)’s Lexique, the Tobler-Lommatszch, and the DECT. If a match is not found, the lemmatizer then seeks a match between the forms different lemmas have been known to take and the token (this at present only applies to lemmas from A-D and W-Z). If no match is returned at this stage, a set of rules is applied to the token. These rules are similar to those applied by the stemmer but aim to bring forms in line with lemmas rather than truncating them. Finally, if no match is found between the modified token and the list of lemmas, a result of ‘None’ is returned.
+.. It first seeks a match between each token and a list of potential lemmas taken from Godefroy (1901)’s Lexique, the Tobler-Lommatszch, and the DECT. If a match is not found, the lemmatizer then seeks a match between the forms different lemmas have been known to take and the token (this at present only applies to lemmas from A-D and W-Z). If no match is returned at this stage, a set of rules is applied to the token. These rules are similar to those applied by the stemmer but aim to bring forms in line with lemmas rather than truncating them. Finally, if no match is found between the modified token and the list of lemmas, a result of ‘None’ is returned.
 
 .. References:
 ..- Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.
@@ -120,7 +120,7 @@ The stopword filterer removes the function words from a string of OF or MF text.
 
 .. code-block:: python
 
-    In [1] : from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
+    In [1]: from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
 
     In [2]: from cltk.tokenize.word import WordTokenizer
 
@@ -133,7 +133,7 @@ The stopword filterer removes the function words from a string of OF or MF text.
     In [6]: tokens = tokenizer.tokenize(text)
 
     In [7]: no_stops = [w for w in tokens if w not in FRENCH_STOPS]
-    Out [7]: ['pensé', 'talant', "d'", 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes', 'mere','.']
+    Out [7]: ['pensé', 'talant', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes', 'mere', '.']
 
 
 
