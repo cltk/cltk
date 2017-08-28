@@ -87,6 +87,8 @@ class ScansionConstants:
                                     ("penultimate dactyl chain", "penultimate foot onward normalized."),
                                     ("> 11",
                                      "Invalid hendecasyllables; more than eleven syllables detected"),
+                                    ("< 11",
+                                     "Invalid hendecasyllables; less than eleven syllables detected"),
                                     ("< 12p",
                                      "Invalid pentameter; too few syllables"),
                                     ("12p",

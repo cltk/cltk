@@ -78,6 +78,11 @@ class HendecasyllableScanner(VerseScanner):
             verse.valid = False
             verse.scansion_notes += [self.constants.NOTE_MAP["> 11"]]
             return verse
+        if verse.syllable_count < 11:
+            verse.valid = False
+            verse.scansion_notes += [self.constants.NOTE_MAP["< 11"]]
+            return verse
+
 
         stresses = self.flag_dipthongs(syllables)
         syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
