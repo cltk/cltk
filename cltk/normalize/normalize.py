@@ -10,7 +10,6 @@ A full write-up of this work can be found at : https://gist.github.com/nat1881/6
 
 **References :** Pope, M.K. 1956. From Latin to Modern French with Especial Consideration of Anglo-Norman. Manchester: MUP.
 
-
 Anglo-French spelling variants normalized to "orthographe commune", from M. K. Pope (1956)
 
 - word-final d - e.g. vertud vs vertu
@@ -36,6 +35,7 @@ Anglo-French spelling variants normalized to "orthographe commune", from M. K. P
 
 import re
 from cltk.tokenize.word import WordTokenizer
+
 
 __author__ = ['Natasha Voake <natashavoake@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
@@ -77,4 +77,3 @@ def normalize(string):
                 normalized = apply_rule(token)
                 normalized_text.append(normalized)
     return normalized_text
-

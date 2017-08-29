@@ -19,3 +19,4 @@ FRENCH_CORPORA = [
      'encoding': 'utf-8'
      }
 ]
+

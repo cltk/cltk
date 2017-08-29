@@ -18,6 +18,10 @@ rel_path = os.path.join('~','cltk_data',
             loader = importlib.machinery.SourceFileLoader('french_data_cltk', path)
         module = loader.load_module()
 
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
+
 def lemmatize(tokens):
     """define list of lemmas"""
     lemma_list = [x[0] for x in entries]
