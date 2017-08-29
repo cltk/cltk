@@ -72,11 +72,13 @@ Categories are modeled on those found in (`Moisan, 1986 <https://books.google.fr
 
 .. code-block:: python
 
-    In [1]: from cltk.tag import ner
+    In [1]: from cltk.tag.ner import NamedEntityReplacer
 
     In [2]: text_str = """Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."""
 
-    In [3]: ner.tag_ner_fr(text_str)
+    In [3]: ner_replacer = NamedEntityReplacer()
+
+    In [3]: ner_replacer.tag_ner_fr(text_str)
     Out[3]: [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',), ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
 
 .. Reference: Moisan, A. 1986. Répertoire des noms propres de personnes et de lieux cités dans les Chansons de Geste françaises et les œuvres étrangères dérivées. Publications romanes et françaises CLXXIII. Geneva: Droz.

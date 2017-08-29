@@ -12,17 +12,52 @@ __license__ = 'MIT License. See LICENSE.'
 NER_DICT = {'greek': '~/cltk_data/greek/model/greek_models_cltk/ner/proper_names.txt',
             'latin': '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt'}
 
-def _load_necessary_data():
-    rel_path = os.path.join('~','cltk_data',
-                                    'french',
-                                    'text','cltk_data_french',
-                                    'entities','named_entities_fr.py')
-    path = os.path.expanduser(rel_path)
-    #logger.info('Loading entries. This may take a minute.')
-    loader = importlib.machinery.SourceFileLoader('entities', path)
-    module1 = loader.load_module()
-    entities = module1.entities
-    return entities
+
+class NamedEntityReplacer(object):
+
+    def __init__(self):
+
+        self.entities = self._load_necessary_data()
+
+
+    def _load_necessary_data(self):
+        rel_path = os.path.join('~', 'cltk_data',
+                                'french',
+                                'text', 'french_data_cltk',
+                                'named_entities_fr.py')
+        path = os.path.expanduser(rel_path)
+        # logger.info('Loading entries. This may take a minute.')
+        loader = importlib.machinery.SourceFileLoader('entities', path)
+        module = loader.load_module()
+        entities = module.entities
+        return entities
+
+    """tags named entities in a string and outputs a list of tuples in the following format:
+    (name, "entity", kind_of_entity)"""
+
+    def tag_ner_fr(self, input_text, output_type=list):
+
+        entities = self.entities
+
+        for entity in entities:
+            (name, kind) = entity
+
+        word_tokenizer = WordTokenizer('french')
+        tokenized_text = word_tokenizer.tokenize(input_text)
+        ner_tuple_list = []
+
+        match = False
+        for word in tokenized_text:
+            for name, kind in entities:
+                if word == name:
+                    named_things = ([(name, 'entity', kind)])
+                    ner_tuple_list.append(named_things)
+                    match = True
+                    break
+            else:
+                ner_tuple_list.append((word,))
+        return ner_tuple_list
+
 
 def _check_latest_data(lang):
     """Check for presence of proper names dir, clone if not."""
@@ -98,32 +133,5 @@ def tag_ner(lang, input_text, output_type=list):
                 string += start_space + tup[0] + final_space
         return string
 
-    return ner_tuple_list
-
-
-"""tags named entities in a string and outputs a list of tuples in the following format:
-(name, "entity", kind_of_entity)"""
-
-def tag_ner_fr(input_text, output_type=list):
-
-    _load_necessary_data()
-
-    for entity in entities:
-        (name, kind) = entity
-
-    word_tokenizer = WordTokenizer('french')
-    tokenized_text = word_tokenizer.tokenize(input_text)
-    ner_tuple_list = []
-
-    match = False
-    for word in tokenized_text:
-        for name, kind in entities:
-            if word == name:
-                named_things = ([(name, 'entity', kind)])
-                ner_tuple_list.append(named_things)
-                match = True
-                break
-        else:
-            ner_tuple_list.append((word,))
     return ner_tuple_list
 

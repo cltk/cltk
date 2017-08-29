@@ -7,6 +7,7 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
+from cltk.tag.ner import NamedEntityReplacer
 from cltk.tag.pos import POSTag
 
 __license__ = 'MIT License. See LICENSE.'
@@ -35,7 +36,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
         corpus_importer = CorpusImporter('french')
         corpus_importer.import_corpus('french_data_cltk')
-        file_rel = os.path.join('~/cltk_data/french/model/french_data_cltk/README.md')
+        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -190,8 +191,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_tag_ner_str_list_french(self):
         """Test make_ner(), str, list."""
         text_str = """Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."""
-
-        tokens = ner.tag_ner_fr(input_text=text_str, output_type=list)
+        ner_replacer = NamedEntityReplacer()
+        tokens = ner_replacer.tag_ner_fr(input_text=text_str, output_type=list)
         target = [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',),
                   ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
         self.assertEqual(tokens, target)
