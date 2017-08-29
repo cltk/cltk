@@ -17,7 +17,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
 
         rel_path = os.path.join('~','cltk_data',
                                 'french',
-                                'model','cltk_data_french',
+                                'text','cltk_data_french',
                                 'lemmas','entries.py')
         path = os.path.expanduser(rel_path)
         #logger.info('Loading entries. This may take a minute.')
@@ -27,7 +27,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
 
         rel_path = os.path.join('~', 'cltk_data',
                                 'french',
-                                'model', 'cltk_data_french',
+                                'text', 'cltk_data_french',
                                 'lemmas', 'forms_and_lemmas.py')
         path = os.path.expanduser(rel_path)
         # logger.info('Loading forms and lemmas. This may take a minute.')

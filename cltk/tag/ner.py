@@ -15,7 +15,7 @@ NER_DICT = {'greek': '~/cltk_data/greek/model/greek_models_cltk/ner/proper_names
 def _load_necessary_data():
     rel_path = os.path.join('~','cltk_data',
                                     'french',
-                                    'model','cltk_data_french',
+                                    'text','cltk_data_french',
                                     'entities','named_entities_fr.py')
     path = os.path.expanduser(rel_path)
     #logger.info('Loading entries. This may take a minute.')
