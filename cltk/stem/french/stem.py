@@ -1,15 +1,12 @@
-__author__ = ['Natasha Voake <natashavoake@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
-
-#encoding : utf-8
 import re
 from cltk.tokenize.word import WordTokenizer
 from cltk.stem.french.exceptions import exceptions
 
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
 
 def stem(text):
-
-# make string lower-case
+    """make string lower-case"""
     text = text.lower()
     """Stem each word of the French text."""
 
@@ -18,12 +15,12 @@ def stem(text):
     word_tokenizer = WordTokenizer('french')
     tokenized_text = word_tokenizer.tokenize(text)
     for word in tokenized_text:
-            # remove the simple endings from the target word
+        """remove the simple endings from the target word"""
         word, was_stemmed = matchremove_noun_endings(word)
-        # if word didn't match the simple endings, try verb endings
+        """if word didn't match the simple endings, try verb endings"""
         if not was_stemmed:
             word = matchremove_verb_endings(word)
-        # add the stemmed word to the text
+        """add the stemmed word to the text"""
         stemmed_text += word + ' '
     return stemmed_text
 
@@ -32,11 +29,11 @@ def matchremove_noun_endings(word):
 
     was_stemmed = False
 
-    # common and proper noun and adjective word endings sorted by charlen, then alph
+    """common and proper noun and adjective word endings sorted by charlen, then alph"""
     noun_endings = ['arons', 'ains', 'aron', 'ment', 'ain', 'age', 'on', 'es', 'ée', 'ee', 'ie', 's']
 
     for ending in noun_endings:
-        #ignore exceptions
+        """ignore exceptions"""
         if word in exceptions:
             word = word
             was_stemmed = True
@@ -45,7 +42,7 @@ def matchremove_noun_endings(word):
             word = word
             was_stemmed = True
             break
-        #removes noun endings
+        """removes noun endings"""
         if word.endswith(ending):
             word = re.sub(r'{0}$'.format(ending), '', word)
             was_stemmed = True
@@ -55,7 +52,7 @@ def matchremove_noun_endings(word):
 
 def matchremove_verb_endings(word):
     """Remove the verb endings"""
-    #verb endings sorted by charlen then alph
+    """verb endings sorted by charlen then alph"""
     verb_endings =['issiiens', 'isseient', 'issiiez', 'issons', 'issent', 'issant', 'isseie', 'isseit', 'issons',
                    'isseiz', 'assent', 'issons', 'isseiz', 'issent', 'iiens', 'eient', 'issez', 'oient', 'istes',
                    'ïstes', 'istes', 'astes', 'erent', 'istes', 'irent', 'ustes', 'urent', 'âmes', 'âtes', 'èrent',

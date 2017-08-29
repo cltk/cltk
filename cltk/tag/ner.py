@@ -6,6 +6,9 @@ from cltk.tokenize.word import WordTokenizer
 from cltk.tag.named_entities_fr import entities
 import os
 
+__author__ = ['Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
 NER_DICT = {'greek': '~/cltk_data/greek/model/greek_models_cltk/ner/proper_names.txt',
             'latin': '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt'}
 
@@ -86,8 +89,6 @@ def tag_ner(lang, input_text, output_type=list):
 
     return ner_tuple_list
 
-__author__ = ['Natasha Voake <natashavoake@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
 
 """tags named entities in a string and outputs a list of tuples in the following format:
 (name, "entity", kind_of_entity)"""
