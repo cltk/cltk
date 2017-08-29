@@ -3,8 +3,8 @@
 from cltk.corpus.utils.importer import CorpusImporter
 from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.tokenize.word import WordTokenizer
-from cltk.tag.named_entities_fr import entities
 import os
+import importlib.machinery
 
 __author__ = ['Natasha Voake <natashavoake@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
@@ -12,6 +12,17 @@ __license__ = 'MIT License. See LICENSE.'
 NER_DICT = {'greek': '~/cltk_data/greek/model/greek_models_cltk/ner/proper_names.txt',
             'latin': '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt'}
 
+def _load_necessary_data():
+    rel_path = os.path.join('~','cltk_data',
+                                    'french',
+                                    'model','cltk_data_french',
+                                    'entities','named_entities_fr.py')
+    path = os.path.expanduser(rel_path)
+    #logger.info('Loading entries. This may take a minute.')
+    loader = importlib.machinery.SourceFileLoader('entities', path)
+    module1 = loader.load_module()
+    entities = module1.entities
+    return entities
 
 def _check_latest_data(lang):
     """Check for presence of proper names dir, clone if not."""
@@ -94,6 +105,8 @@ def tag_ner(lang, input_text, output_type=list):
 (name, "entity", kind_of_entity)"""
 
 def tag_ner_fr(input_text, output_type=list):
+
+    _load_necessary_data()
 
     for entity in entities:
         (name, kind) = entity
