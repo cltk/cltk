@@ -1,7 +1,7 @@
 
 FRENCH_CORPORA = [
     {'name': 'french_text_wikisource',
-     'origin': 'https:github.com/cltk/french_text_wikisource.git',
+     'origin': 'https://github.com/cltk/french_text_wikisource.git',
      'location': 'remote',
      'type': 'text',
      'encoding': 'utf-8'

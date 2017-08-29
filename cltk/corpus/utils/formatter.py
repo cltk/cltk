@@ -245,7 +245,7 @@ Anglo-French spelling variants normalized to "orthographe commune", from M. K. P
 patterns = [("eaus$", "eus"),
             ("ceaus$", "ceus"),
             ("iu", "ieu"),
-            ("((?<!^|(?<!(e))u(?!$)", "eu"),
+            ("((?<!^)|(?<!(e)))u(?!$)", "eu"),
             ("ie$", "iee"),
             ("ue$", "uee"),
             ("ure$", "eure"),
