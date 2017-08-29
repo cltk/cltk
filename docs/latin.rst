@@ -99,14 +99,34 @@ Example use, assuming you have already imported the `latin_models_cltk`:
    In [2]: decliner = CollatinusDecliner()
    
    In [3]: print(decliner.decline("via"))
-   Out[3]: [
-        ('via', '--s----n-'), ('via', '--s----v-'), ('viam', '--s----a-'), ('viae', '--s----g-'),
-        ('viae', '--s----d-'), ('via', '--s----b-'), ('viae', '--p----n-'), ('viae', '--p----v-'),
-        ('vias', '--p----a-'), ('viarum', '--p----g-'), ('viis', '--p----d-'), ('viis', '--p----b-')
-    ]
+   Out[3]:
+    [('via', '--s----n-'),
+     ('via', '--s----v-'),
+     ('viam', '--s----a-'),
+     ('viae', '--s----g-'),
+     ('viae', '--s----d-'),
+     ('via', '--s----b-'),
+     ('viae', '--p----n-'),
+     ('viae', '--p----v-'),
+     ('vias', '--p----a-'),
+     ('viarum', '--p----g-'),
+     ('viis', '--p----d-'),
+     ('viis', '--p----b-')]
 
-    In [4]: print(decliner.decline("via", flatten=True))
-    Out[4]: ['via', 'via', 'viam', 'viae', 'viae', 'via', 'viae', 'viae', 'vias', 'viarum', 'viis', 'viis']
+    In [4]: decliner.decline("via", flatten=True)
+    Out[4]:
+    ['via',
+     'via',
+     'viam',
+     'viae',
+     'viae',
+     'via',
+     'viae',
+     'viae',
+     'vias',
+     'viarum',
+     'viis',
+     'viis']
 
 
 Lemmatization
@@ -547,13 +567,12 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import HexameterScanner
+   In [1]: from cltk.prosody.latin.HexameterScanner import HexameterScanner
 
    In [2]: scanner = HexameterScanner()
 
-   In [3]: print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
-
-   Out[3]: [Verse(original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', meter='hexameter', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm', 'pu', 'le', 'rīt', 'Tān', 'taen', 'a', 'ni', 'mīs', 'cae', 'lēs', 'ti', 'bus', 'i', 'rae'])]
+   In [3]: scanner.scan("impulerit. Tantaene animis caelestibus irae?")
+   Out[3]: Verse(original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', meter='hexameter', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm', 'pu', 'le', 'rīt', 'Tān', 'taen', 'a', 'ni', 'mīs', 'cae', 'lēs', 'ti', 'bus', 'i', 'rae'])
 
 
 PentameterScanner
@@ -569,13 +588,12 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import PentameterScanner
+   In [1]: from cltk.prosody.latin.PentameterScanner import PentameterScanner
 
    In [2]: scanner = PentameterScanner()
 
-   In [3]: print(scanner.scan("ex hoc ingrato gaudia amore tibi."))
-
-   Out[3]: [Verse(original='ex hoc ingrato gaudia amore tibi.', scansion='-   -  -   - -   - U  U - U  U U ', meter='pentameter', valid=True, syllable_count=12, accented='ēx hōc īngrātō gaudia amōre tibi.', scansion_notes=['Spondaic pentameter'], syllables = ['ēx', 'hoc', 'īn', 'gra', 'to', 'gau', 'di', 'a', 'mo', 're', 'ti', 'bi'])]
+   In [3]: scanner.scan("ex hoc ingrato gaudia amore tibi.")
+   Out[3]: Verse(original='ex hoc ingrato gaudia amore tibi.', scansion='-   -  -   - -   - U  U - U  U U ', meter='pentameter', valid=True, syllable_count=12, accented='ēx hōc īngrātō gaudia amōre tibi.', scansion_notes=['Spondaic pentameter'], syllables = ['ēx', 'hoc', 'īn', 'gra', 'to', 'gau', 'di', 'a', 'mo', 're', 'ti', 'bi'])
 
 
 HendecasyllableScanner
@@ -591,13 +609,12 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import HendecasyllableScanner
+   In [1]: from cltk.prosody.latin.HendecasyllableScanner import HendecasyllableScanner
 
    In [2]: scanner = HendecasyllableScanner()
 
-   In [3]: print(scanner.scan("Iam tum, cum ausus es unus Italorum"))
-
-   Out[3]: Verse(original='Iam tum, cum ausus es unus Italorum', scansion=' -   -        - U  U  - U  - U - U ', meter='hendecasyllable', valid=True, syllable_count=11, accented='Iām tūm, cum ausus es ūnus Ītalōrum', scansion_notes=['antepenult foot onward normalized.'], syllables = ['Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum'])]
+   In [3]: scanner.scan("Iam tum, cum ausus es unus Italorum")
+   Out[3]: Verse(original='Iam tum, cum ausus es unus Italorum', scansion=' -   -        - U  U  - U  - U - U ', meter='hendecasyllable', valid=True, syllable_count=11, accented='Iām tūm, cum ausus es ūnus Ītalōrum', scansion_notes=['antepenult foot onward normalized.'], syllables = ['Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum'])
 
 
 Verse
@@ -623,17 +640,17 @@ The ScansionConstants class is a configuration class for specifying scansion con
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import ScansionConstants
+   In [1]: from cltk.prosody.latin.ScansionConstants import ScansionConstants
 
    In [2]: constants = ScansionConstants(unstressed="U",stressed= "-", optional_terminal_ending="X")
 
-   In [3]: print(constants.DACTYL)
-   Out[3]: ['-UU']
+   In [3]: constants.DACTYL
+   Out[3]: '-UU'
 
    In [4]: smaller_constants = ScansionConstants(unstressed="˘",stressed= "¯", optional_terminal_ending="x")
 
-   In [5]: print(smaller_constants.DACTYL)
-   Out[5]: ['¯˘˘']
+   In [5]: smaller_constants.DACTYL
+   Out[5]: '¯˘˘'
 
 
 Constants containing strings have characters in upper and lower case since they will often be used in regular expressions, and used to preserve/a verse's original case.
@@ -645,15 +662,16 @@ The Syllabifier class is a Latin language syllabifier. It parses a Latin word or
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import Syllabifier
+   In [1]: from cltk.prosody.latin.Syllabifier import Syllabifier
 
    In [1]: syllabifier = Syllabifier()
 
-   In [2]: print(syllabifier.syllabify("libri"))
+   In [2]: syllabifier.syllabify("libri")
    Out[2]: ['li', 'bri']
 
-   In [3]: print(syllabifier.syllabify("contra"))
+   In [3]: syllabifier.syllabify("contra")
    Out[3]: ['con', 'tra']
+
 
 
 Metrical Validator
@@ -664,10 +682,10 @@ The MetricalValidator class is a utility class for validating scansion patterns.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import MetricalValidator
+   In [1]: from cltk.prosody.latin.MetricalValidator import MetricalValidator
 
-   In [2]: print(MetricalValidator().is_valid_hexameter("-UU---UU---UU-U"))
-   Out[2]: ['True']
+   In [2]: MetricalValidator().is_valid_hexameter("-UU---UU---UU-U")
+   Out[2]: 'True'
 
 
 ScansionFormatter
@@ -677,17 +695,17 @@ The ScansionFormatter class is a utility class for formatting scansion patterns.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import ScansionFormatter
+   In [1]: from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
 
-   In [2]: print(ScansionFormatter().hexameter("-UU-UU-UU---UU--"))
-   Out[2]: ['-UU|-UU|-UU|--|-UU|--']
+   In [2]: ScansionFormatter().hexameter("-UU-UU-UU---UU--")
+   Out[2]: '-UU|-UU|-UU|--|-UU|--'
 
    In [3]: constants = ScansionConstants(unstressed="˘", stressed= "¯", optional_terminal_ending="x")
 
    In [4]: formatter = ScansionFormatter(constants)
 
-   In [5]: print(formatter.hexameter( "¯˘˘¯˘˘¯˘˘¯¯¯˘˘¯¯"))
-   Out[5]: ['¯˘˘|¯˘˘|¯˘˘|¯¯|¯˘˘|¯¯']
+   In [5]: formatter.hexameter( "¯˘˘¯˘˘¯˘˘¯¯¯˘˘¯¯")
+   Out[5]: '¯˘˘|¯˘˘|¯˘˘|¯¯|¯˘˘|¯¯'
 
 
 StringUtils module
@@ -699,8 +717,9 @@ The StringUtils module contains utility methods for processing scansion and text
 
    In [1]: from cltk.prosody.latin import StringUtils
 
-   In [2]: print("I'm ok! Oh #%&*()[]{}!? Fine!".translate(punctuation_for_spaces_dict()).strip())
-   Out[2]: ['I m ok  Oh              Fine']
+   In [2]: "I'm ok! Oh #%&*()[]{}!? Fine!".translate(StringUtils.punctuation_for_spaces_dict()).strip()
+   Out[2]: 'I m ok  Oh              Fine'
+
 
 
 Sentence Tokenization
@@ -719,6 +738,7 @@ The sentence tokenizer takes a string input into ``tokenize_sentences()`` and re
    Out[4]:
    ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.',
     'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']
+
 
 Stemming
 ========
