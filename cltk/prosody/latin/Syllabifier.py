@@ -4,10 +4,14 @@ Consonantal I is transformed into a J at the start of a word as necessary.
 Tuned for poetry and verse, this class is tolerant of isolated single character consonants that
 may appear due to elision."""
 
-import re
 import copy
+import re
+import logging
 from cltk.prosody.latin.ScansionConstants import ScansionConstants
 import cltk.prosody.latin.StringUtils as StringUtils
+
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -18,13 +22,15 @@ class Syllabifier:
 
     def __init__(self, constants=ScansionConstants()):
         self.constants = constants
-        self.consonant_matcher = re.compile("[{}]".format(self.constants.CONSONANTS))
+        self.consonant_matcher = re.compile("[{}]".format(constants.CONSONANTS))
         self.vowel_matcher = re.compile(
-            "[{}]".format(self.constants.VOWELS + self.constants.ACCENTED_VOWELS))
+            "[{}]".format(constants.VOWELS + constants.ACCENTED_VOWELS))
         self.consonantal_i_matcher = re.compile(
-            r"\b[iIīĪ][{}]".format(self.constants.VOWELS + self.constants.ACCENTED_VOWELS))
+            r"\b[iIīĪ][{}]".format(constants.VOWELS + constants.ACCENTED_VOWELS))
         self.remove_punct_map = StringUtils.remove_punctuation_dict()
         self.kw_matcher = re.compile("[kK][w]")
+        self.ACCEPTABLE_CHARS = constants.ACCENTED_VOWELS + constants.VOWELS + ' ' \
+                                + constants.CONSONANTS
 
     def syllabify(self, words: str) -> list:
         """Parse a Latin word into a list of syllable strings.
@@ -82,6 +88,10 @@ class Syllabifier:
         cleaned = cleaned.replace("qu", "kw")
         cleaned = cleaned.replace("Qu", "Kw")
         items = cleaned.strip().split(" ")
+        for char in cleaned:
+            if not char in self.ACCEPTABLE_CHARS:
+                LOG.error("Unsupported character found in %s " % cleaned)
+                return items
         syllables: list = []
         for item in items:
             syllables += self._setup(item)
@@ -274,5 +284,5 @@ class Syllabifier:
         """
         tmp_syllables = copy.deepcopy(syllables)
         return len(StringUtils.remove_blank_spaces(
-                    StringUtils.move_consonant_right(tmp_syllables,
+            StringUtils.move_consonant_right(tmp_syllables,
                                              self._find_solo_consonant(tmp_syllables))))

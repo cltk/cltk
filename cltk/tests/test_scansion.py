@@ -7,7 +7,7 @@ import unittest
 from cltk.prosody.latin.HexameterScanner import HexameterScanner
 from cltk.prosody.latin.PentameterScanner import PentameterScanner
 from cltk.prosody.latin.HendecasyllableScanner import HendecasyllableScanner
-
+from cltk.prosody.latin.Syllabifier import Syllabifier
 
 class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
@@ -34,8 +34,8 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         # if you give the scanner too little it will return invalid
         self.assertFalse(scanner.scan('pauca verba').valid)
         # same if too many syllables
-        self.assertFalse(scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
-
+        self.assertFalse(
+            scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
 
     def test_pentameter_scanner(self):
         scanner = PentameterScanner()
@@ -106,8 +106,8 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         # if you give the scanner too little it will return invalid
         self.assertFalse(scanner.scan('pauca verba').valid)
         # same if too many syllables
-        self.assertFalse(scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
-
+        self.assertFalse(
+            scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
 
     def test_hendecasyllable_scanner(self):
         scanner = HendecasyllableScanner()
@@ -205,5 +205,16 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         # if you give the scanner too little it will return invalid
         self.assertFalse(scanner.scan('pauca verba').valid)
         # same if too many syllables
-        self.assertFalse(scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
+        self.assertFalse(
+            scanner.scan('o multa verba versum hexameterum non facit hodie! visne?').valid)
 
+    def test_syllabifier(self):
+        syllabifier = Syllabifier()
+        # break a word into syllables
+        self.assertEqual(syllabifier.syllabify("Bīthÿnus"), ['Bī', 'thÿ', 'nus'])
+        # break a group of words into a group of syllables:
+        self.assertEqual(syllabifier.syllabify("arbor pulcher ruptus"), [
+            'ar', 'bor', 'pul', 'cher', 'ru', 'ptus'])
+        # do not process character sets that have not been specified by the ScansionConstants class
+        # that is injected into the constructor; a whole group is rejected when this occurs
+        self.assertEqual(syllabifier.syllabify("Platonis Ψυχη"),['Platonis', 'Ψυχη'])
