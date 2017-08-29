@@ -87,11 +87,11 @@ It is heavily inspired by Pope (1956). It takes a string as its input. Spelling 
 
 .. code-block:: python
 
-    In [1]: from cltk.normalize.normalize import normalize
+    In [1]: from cltk.corpus.utils.formatter import normalize_fr
 
     In [2]: text = "viw"
 
-    In [3]: normalize(text)
+    In [3]: normalize_fr(text)
     Out [3]: ['vieux']
 
 .. Reference: Pope, M.K. 1956. From Latin to Modern French with Especial Consideration of Anglo-Norman. Manchester: MUP.
