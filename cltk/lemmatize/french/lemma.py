@@ -11,33 +11,43 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
     """Lemmatize French words by replacing input words with corresponding
     values from a replacement list.
     """
+    def __init__(self):
 
-    def _load_necessary_data(self):
+        self.entries = self._load_entries()
+        self.forms_and_lemmas = self._load_forms_and_lemmas()
+
+    def _load_entries(self):
         """Check for availability of lemmatizer for French."""
 
         rel_path = os.path.join('~','cltk_data',
                                 'french',
-                                'text','cltk_data_french',
-                                'lemmas','entries.py')
+                                'text','french_data_cltk'
+                                ,'entries.py')
         path = os.path.expanduser(rel_path)
         #logger.info('Loading entries. This may take a minute.')
         loader = importlib.machinery.SourceFileLoader('entries', path)
-        module1 = loader.load_module()
-        entries = module1.entries
+        module = loader.load_module()
+        entries = module.entries
+        return entries
+
+    def _load_forms_and_lemmas(self):
 
         rel_path = os.path.join('~', 'cltk_data',
                                 'french',
-                                'text', 'cltk_data_french',
-                                'lemmas', 'forms_and_lemmas.py')
+                                'text', 'french_data_cltk',
+                                'forms_and_lemmas.py')
         path = os.path.expanduser(rel_path)
         # logger.info('Loading forms and lemmas. This may take a minute.')
         loader = importlib.machinery.SourceFileLoader('forms_and_lemmas', path)
-        module2 = loader.load_module()
-        forms_and_lemmas = module2.forms_and_lemmas
-        return entries, forms_and_lemmas
+        module = loader.load_module()
+        forms_and_lemmas = module.forms_and_lemmas
+        return forms_and_lemmas
 
     def lemmatize(self, tokens):
         """define list of lemmas"""
+        entries = self.entries
+        forms_and_lemmas = self.forms_and_lemmas
+
         lemma_list = [x[0] for x in entries]
         """Provide a lemma for each token"""
         lemmatized = []
@@ -62,5 +72,4 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                         lemmed = (token, "None")
                         lemmatized.append(lemmed)
         return lemmatized
-
 
