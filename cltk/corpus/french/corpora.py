@@ -13,7 +13,7 @@ FRENCH_CORPORA = [
      'encoding' : 'utf-8'
      },
     {'name': 'french_data_cltk',
-     'origin': 'https:github.com/cltk/french_data_cltk.git',
+     'origin': 'https://github.com/cltk/french_data_cltk.git',
      'location': 'remote',
      'type': 'text',
      'encoding': 'utf-8'
