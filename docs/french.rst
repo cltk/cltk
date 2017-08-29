@@ -78,8 +78,8 @@ Categories are modeled on those found in (`Moisan, 1986 <https://books.google.fr
 
     In [3]: ner_replacer = NamedEntityReplacer()
 
-    In [3]: ner_replacer.tag_ner_fr(text_str)
-    Out[3]: [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',), ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
+    In [4]: ner_replacer.tag_ner_fr(text_str)
+    Out[4]: [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',), ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
 
 .. Reference: Moisan, A. 1986. Répertoire des noms propres de personnes et de lieux cités dans les Chansons de Geste françaises et les œuvres étrangères dérivées. Publications romanes et françaises CLXXIII. Geneva: Droz.
 
