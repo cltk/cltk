@@ -1,6 +1,4 @@
-#encoding:utf-8
-"""Language-specific word tokenizers. Primary purpose is to handle enclitics.
-"""
+"""Language-specific word tokenizers. Primary purpose is to handle enclitics."""
 
 import re
 
