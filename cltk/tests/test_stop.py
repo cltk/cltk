@@ -1,4 +1,3 @@
-#encoding:utf-8
 """Test cltk.stop."""
 
 __license__ = 'MIT License. See LICENSE.'
