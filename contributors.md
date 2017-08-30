@@ -98,6 +98,18 @@ CLTK Core authors, ordered alphabetically by first name
 ## Thibault Clerice
 * cltk/stem/latin/declension.py
 
+## Todd Cook <todd.g.cook@gmail.com>
+* cltk/prosody/latin/HendecasyllableScanner.py
+* cltk/prosody/latin/HexameterScanner.py
+* cltk/prosody/latin/MetricalValidator.py
+* cltk/prosody/latin/PentameterScanner.py
+* cltk/prosody/latin/ScansionConstants.py
+* cltk/prosody/latin/ScansionFormatter.py
+* cltk/prosody/latin/StringUtils.py
+* cltk/prosody/latin/Syllabifier.py
+* cltk/prosody/latin/VerseScanner.py
+* cltk/prosody/latin/Verse.py
+
 ## Tyler Kirby <tyler.kirby9398@gmail.com>
 * cltk/prosody/greek/scanner.py
 * cltk/prosody/latin/scanner.py

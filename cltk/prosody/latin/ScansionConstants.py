@@ -44,9 +44,9 @@ class ScansionConstants:
         self.CONSONANTS_WO_H = "bcdfgjklmnpqrstvwxzBCDFGJKLMNPQRSTVWXZ"
 
         # Vowels and accented vowels should be kept the same length & position for easy dict map
-        self.VOWELS = "aeiouyAEIOUYëË"
-        self.ACCENTED_VOWELS = "āēīōūȳĀĒĪŌŪȲëË"
-        self.VOWELS_WO_I = "aeouAEOUYāēōūȳĀĒŪŌȲëË"
+        self.VOWELS = "aeiouyAEIOUYäÄëËïÏöÖüÜÿŸ"
+        self.ACCENTED_VOWELS = "āēīōūȳĀĒĪŌŪȲäÄëËïÏöÖüÜÿŸ"
+        self.VOWELS_WO_I = "aeouAEOUYāēōūȳĀĒŌŪȲäÄëËöÖüÜÿŸ"
         self.VOWELS_TO_ACCENTS = dict(zip(list(self.VOWELS), list(self.ACCENTED_VOWELS)))
         self.ACCENTS_TO_VOWELS = dict(zip(list(self.ACCENTED_VOWELS), list(self.VOWELS)))
 
@@ -82,4 +82,19 @@ class ScansionConstants:
                                     ("5th dactyl", "13 syllables; probable dactyl at 5th foot."),
                                     ("> 17", "Invalid hexameter; too many syllables."),
                                     ("closest match", "Scansion matched to closest valid pattern."),
-                                    ("dactyl smoothing", "Dactyl chain smoothing.")))
+                                    ("dactyl smoothing", "Dactyl chain smoothing."),
+                                    ("antepenult chain", "antepenult foot onward normalized."),
+                                    ("penultimate dactyl chain", "penultimate foot onward normalized."),
+                                    ("> 11",
+                                     "Invalid hendecasyllables; more than eleven syllables detected"),
+                                    ("< 11",
+                                     "Invalid hendecasyllables; less than eleven syllables detected"),
+                                    ("< 12p",
+                                     "Invalid pentameter; too few syllables"),
+                                    ("12p",
+                                     "Spondaic pentameter"),
+                                    ("14p",
+                                     "Dactylic pentameter"),
+                                    ("> 14",
+                                     "Invalid pentameter; too many syllables")
+                                    ))
