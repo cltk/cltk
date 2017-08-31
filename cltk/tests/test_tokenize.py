@@ -65,7 +65,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
-        
+
         #Test sources:
         # - V. Aen. 1.1
         # - Prop. 2.5.1-2
@@ -130,6 +130,21 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                  ]
         self.assertEqual(results, target)
 
+    def test_word_tokenizer_french(self):
+        word_tokenizer = WordTokenizer('french')
+
+        tests = ["S'a table te veulz maintenir, Honnestement te dois tenir Et garder les enseignemens Dont cilz vers sont commancemens."]
+
+        results = []
+
+        for test in tests:
+            result = word_tokenizer.tokenize(test)
+            results.append(result)
+
+        target = [["S'", 'a', 'table', 'te', 'veulz', 'maintenir', ',', 'Honnestement', 'te', 'dois', 'tenir', 'Et', 'garder', 'les', 'enseignemens', 'Dont', 'cilz', 'vers', 'sont', 'commancemens', '.']]
+
+        self.assertEqual(results, target)
+
     def test_nltk_tokenize_words(self):
         """Test wrapper for NLTK's PunktLanguageVars()"""
         tokens = nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=False)
@@ -172,6 +187,23 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
         target = ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
         tokenizer = LineTokenizer('latin')
+        tokenized_lines = tokenizer.tokenize(text, include_blanks=True)
+        self.assertTrue(tokenized_lines == target)
+
+
+    def test_french_line_tokenizer(self):
+        """Test LineTokenizer"""
+        text = """Ki de bone matire traite,\nmult li peise, se bien n’est faite.\nOëz, seignur, que dit Marie,\nki en sun tens pas ne s’oblie. """
+        target = ['Ki de bone matire traite,', 'mult li peise, se bien n’est faite.','Oëz, seignur, que dit Marie,', 'ki en sun tens pas ne s’oblie. ']
+        tokenizer = LineTokenizer('french')
+        tokenized_lines = tokenizer.tokenize(text)
+        self.assertTrue(tokenized_lines == target)
+
+    def test_french_line_tokenizer_include_blanks(self):
+        """Test LineTokenizer"""
+        text = """Ki de bone matire traite,\nmult li peise, se bien n’est faite.\nOëz, seignur, que dit Marie,\nki en sun tens pas ne s’oblie.\n\nLes contes que jo sai verais,\ndunt li Bretun unt fait les lais,\nvos conterai assez briefment."""
+        target = ['Ki de bone matire traite,', 'mult li peise, se bien n’est faite.','Oëz, seignur, que dit Marie,', 'ki en sun tens pas ne s’oblie.','','Les contes que jo sai verais,','dunt li Bretun unt fait les lais,','vos conterai assez briefment.']
+        tokenizer = LineTokenizer('french')
         tokenized_lines = tokenizer.tokenize(text, include_blanks=True)
         self.assertTrue(tokenized_lines == target)
 

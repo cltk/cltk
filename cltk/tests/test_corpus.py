@@ -43,6 +43,7 @@ from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagari
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
+from cltk.corpus.utils.formatter import normalize_fr
 from unicodedata import normalize
 import os
 import unittest
@@ -596,6 +597,15 @@ example_distributed_fake_language_corpus:
         test_result_string = filter_non_greek(test_input_string)
         #
         self.assertEqual(test_result_string, comparison_string)
+
+    def test_normalize(self):
+        """
+        Test french normalizer
+        """
+        text = "viw"
+        normalized = normalize_fr(text)
+        target = ['vieux']
+        self.assertEqual(normalized, target)
 
 
 class TestUnicode(unittest.TestCase):

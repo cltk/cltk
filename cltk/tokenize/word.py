@@ -1,10 +1,30 @@
-"""Language-specific word tokenizers. Primary purpose is to handle enclitics.
-"""
+"""Language-specific word tokenizers. Primary purpose is to handle enclitics."""
 
 import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+
+import re
+
+from nltk.data              import load
+from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
+from nltk.tokenize.mwe      import MWETokenizer
+from nltk.tokenize.punkt    import PunktSentenceTokenizer
+from nltk.tokenize.regexp   import (RegexpTokenizer, WhitespaceTokenizer,
+                                    BlanklineTokenizer, WordPunctTokenizer,
+                                    wordpunct_tokenize, regexp_tokenize,
+                                    blankline_tokenize)
+#from nltk.tokenize.repp     import ReppTokenizer
+from nltk.tokenize.sexpr    import SExprTokenizer, sexpr_tokenize
+from nltk.tokenize.simple   import (SpaceTokenizer, TabTokenizer, LineTokenizer,
+                                    line_tokenize)
+from nltk.tokenize.stanford import StanfordTokenizer
+from nltk.tokenize.texttiling import TextTilingTokenizer
+#from nltk.tokenize.toktok   import ToktokTokenizer
+from nltk.tokenize.treebank import TreebankWordTokenizer
+from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
+from nltk.tokenize.stanford_segmenter import StanfordSegmenter
 
 from cltk.utils.cltk_logger import logger
 
@@ -16,7 +36,9 @@ except ImportError:
     logger.info('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
     pass
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>',
+              'Natasha Voake <natashavoake@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -28,10 +50,11 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         setup class variables."""
         self.language = language
 
+
         if do_arabic:
-            self.available_languages = ['arabic', 'latin']
+            self.available_languages = ['arabic', 'latin', 'french']
         else:
-            self.available_languages = ['latin']
+            self.available_languages = ['latin', 'french']
 
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
@@ -43,10 +66,10 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
-
+        elif self.language == 'french':
+            tokens = tokenize_french_words(string)
         elif self.language == 'arabic':
             tokens = tokenize_arabic_words(string)
-
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -197,6 +220,21 @@ def tokenize_latin_words(string):
             specific_tokens.append(token)
 
     return specific_tokens
+
+
+def tokenize_french_words(string):
+    assert isinstance(string, str), "Incoming string must be type str."
+
+    #normalize apostrophes
+
+    text = re.sub(r"’", r"'", string)
+
+    ##Dealing with punctuation
+    text = re.sub(r"\'", r"' ", text)
+    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
+
+    results = str.split(text)
+    return (results)
 
 def tokenize_arabic_words(text):
 
