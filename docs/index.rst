@@ -23,6 +23,7 @@ Contents
    ancient_egyptian
    old_english
    middle_english
+   french
    greek
    hebrew
    hindi

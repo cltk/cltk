@@ -11,9 +11,9 @@ The lemmatizer takes as its input a list of tokens, previously tokenized and mad
 .. It first seeks a match between each token and a list of potential lemmas taken from Godefroy (1901)’s Lexique, the Tobler-Lommatszch, and the DECT. If a match is not found, the lemmatizer then seeks a match between the forms different lemmas have been known to take and the token (this at present only applies to lemmas from A-D and W-Z). If no match is returned at this stage, a set of rules is applied to the token. These rules are similar to those applied by the stemmer but aim to bring forms in line with lemmas rather than truncating them. Finally, if no match is found between the modified token and the list of lemmas, a result of ‘None’ is returned.
 
 .. References:
-..- Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.
-..- Tobler, Adolf and Erhard Lommatzsch. 1915. Altfranzösisches Wörterbuch. Adolf Toblers nachgelassene Materialen, bearbeitet und herausgegeben von Erhard Lommatzsch, wietergeführt von Hans Helmut Christmann. Stuttgart: Franz Steiner Verlag.
-..- DÉCT : Dictionnaire Électronique de Chrétien de Troyes, http://www.atilf.fr/dect, LFA/Université d'Ottawa - ATILF/CNRS & Université de Lorraine. 2014.
+..  Godefroy. 1901. Lexique de l'Ancien Français. Paris & Leipzig : Welter.
+..  Tobler, Adolf and Erhard Lommatzsch. 1915. Altfranzösisches Wörterbuch. Adolf Toblers nachgelassene Materialen, bearbeitet und herausgegeben von Erhard Lommatzsch, wietergeführt von Hans Helmut Christmann. Stuttgart: Franz Steiner Verlag.
+..  DÉCT : Dictionnaire Électronique de Chrétien de Troyes, http://www.atilf.fr/dect, LFA/Université d'Ottawa - ATILF/CNRS & Université de Lorraine. 2014.
 
 
 .. code-block:: python
@@ -49,7 +49,7 @@ The line tokenizer takes a string as its input and returns a list of strings.
     In [3]: untokenized_text = """Ki de bone matire traite,\nmult li peise, se bien n’est faite.\nOëz, seignur, que dit Marie,\nki en sun tens pas ne s’oblie."""
 
     In [4]: tokenizer.tokenize(untokenized_text)
-    Out[4]: ['Ki de bone matire traite,', 'mult li peise, se bien n’est faite.','Oëz, seignur, que dit Marie,', 'ki en sun tens pas ne s’oblie. ']
+    Out [4]: ['Ki de bone matire traite,', 'mult li peise, se bien n’est faite.','Oëz, seignur, que dit Marie,', 'ki en sun tens pas ne s’oblie. ']
 
 
 NAMED ENTITY RECOGNITION
@@ -79,7 +79,7 @@ Categories are modeled on those found in (`Moisan, 1986 <https://books.google.fr
     In [3]: ner_replacer = NamedEntityReplacer()
 
     In [4]: ner_replacer.tag_ner_fr(text_str)
-    Out[4]: [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',), ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
+    Out [4]: [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',), ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
 
 .. Reference: Moisan, A. 1986. Répertoire des noms propres de personnes et de lieux cités dans les Chansons de Geste françaises et les œuvres étrangères dérivées. Publications romanes et françaises CLXXIII. Geneva: Droz.
 
@@ -137,7 +137,9 @@ The stopword filterer removes the function words from a string of OF or MF text.
     In [6]: tokens = tokenizer.tokenize(text)
 
     In [7]: no_stops = [w for w in tokens if w not in FRENCH_STOPS]
-    Out [7]: ['pensé', 'talant', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes', 'mere', '.']
+
+    In [8]: no_stops
+    Out [8]: ['pensé', 'talant', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes', 'mere', '.']
 
 
 
@@ -152,7 +154,7 @@ WORD TOKENIZATION
     In [3]: text = "S'a table te veulz maintenir, Honnestement te dois tenir Et garder les enseignemens Dont cilz vers sont commancemens."
 
     In [4]: word_tokenizer.tokenize(text)
-    Out[4]: ["S'", 'a', 'table', 'te', 'veulz', 'maintenir', ',', 'Honnestement', 'te', 'dois', 'tenir', 'Et', 'garder', 'les', 'enseignemens', 'Dont', 'cilz', 'vers', 'sont', 'commancemens', '.']
+    Out [4]: ["S'", 'a', 'table', 'te', 'veulz', 'maintenir', ',', 'Honnestement', 'te', 'dois', 'tenir', 'Et', 'garder', 'les', 'enseignemens', 'Dont', 'cilz', 'vers', 'sont', 'commancemens', '.']
 
 
 Apostrophes are considered part of the first word of the two they separate. Apostrophes are also normalized from “’” to “'“.
