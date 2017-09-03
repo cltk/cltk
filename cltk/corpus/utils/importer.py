@@ -25,6 +25,7 @@ from cltk.corpus.telugu.corpora import TELUGU_CORPORA
 from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
 from cltk.corpus.french.corpora import FRENCH_CORPORA
 from cltk.corpus.marathi.corpora import MARATHI_CORPORA
+
 from cltk.utils.cltk_logger import logger
 
 import errno
