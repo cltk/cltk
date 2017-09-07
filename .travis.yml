@@ -28,3 +28,12 @@ script:
 
 after_success:
   - codecov
+
+deploy:
+  provider: pypi
+  user: "kyle_johnson"
+  password: ""
+    secure: "qBNTRm7RgcXFIqNIN2pEN2bm6mhuNJC9vXyZOKUpWdjPrcKoAYSCoCKMa/YuhKowMW9NHHjakbU7T3sJJb15GsAE0JkrQ7dfk5baqA9E9Wgsis++/qJ0LxgRvZAypNxHsl+Ofx9RDJnTi7LGFkVU4QqmYyYDuC7x1NE4jU+4h3M="
+  on:
+    branch: master
+    # tags: true
