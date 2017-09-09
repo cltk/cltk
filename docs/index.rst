@@ -30,6 +30,7 @@ Contents
    javanese
    latin
    malayalam
+   marathi
    multilingual
    old_norse
    pali
