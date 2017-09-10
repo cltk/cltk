@@ -6,7 +6,7 @@
             3. https://en.wikipedia.org/wiki/ArabTeX
 """
 
-__author__ = ['Lakhdar Benzahia, <lakhdar.benzahia@gmail.com>']
+__author__ = ['Lakhdar Benzahia <lakhdar.benzahia@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 __reviewers__ = ['Taha Zerrouki taha.zerrouki@gmail.com', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 
