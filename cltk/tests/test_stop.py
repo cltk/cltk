@@ -5,6 +5,7 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
+from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
@@ -61,6 +62,17 @@ class TestSequenceFunctions(unittest.TestCase):
         sentence = 'سُئِل بعض الكُتَّاب عن الخَط، متى يَسْتحِقُ أن يُوصَف بِالجَودةِ؟'
         no_stops = arabic_stop_filter(sentence)
         target_list = ['سئل', 'الكتاب', 'الخط', '،', 'يستحق', 'يوصف', 'بالجودة', '؟']
+        self.assertEqual(no_stops, target_list)
+
+    def test_french_stopwords(self):
+        ##test filtering French stopwords
+        sentence = "En pensé ai e en talant que d ’ Yonec vus die avant dunt il fu nez, e de sun pere cum il vint primes a sa mere ."
+        lowered = sentence.lower()
+        punkt = PunktLanguageVars()
+        tokens = punkt.word_tokenize(lowered)
+        no_stops = [w for w in tokens if w not in FRENCH_STOPS]
+        target_list = ['pensé', 'talant', 'd', '’', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes',
+                       'mere','.']
         self.assertEqual(no_stops, target_list)
 
 if __name__ == '__main__':

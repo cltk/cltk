@@ -23,12 +23,14 @@ Contents
    ancient_egyptian
    old_english
    middle_english
+   french
    greek
    hebrew
    hindi
    javanese
    latin
    malayalam
+   marathi
    multilingual
    old_norse
    pali

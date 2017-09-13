@@ -25,3 +25,101 @@ Syllabify Akkadian words.
 
    In [4]: syll.syllabify(word)
    ['e', 'piš', 'ta', 'šu']
+
+Stress
+=====
+
+This function identifies the stress on an Akkadian word.
+
+.. code-block:: python
+
+   In[2]: from cltk.phonology.akkadian.stress import StressFinder
+
+   In[3]: stresser = StressFinder()
+
+   In[4]: word = "šarrātim"
+
+   In[5]: stresser.find_stress(word)
+
+   Out[5]: ['šar', '[rā]', 'tim']
+
+Decliner
+=========
+
+This method outputs a list of tuples the first element being a declined noun, the second a dictionary containing its attributes.
+
+.. code-block:: python
+
+   In[2]: from cltk.stem.akkadian.declension import NaiveDecliner
+
+   In[3]: word = 'ilum'
+
+   In[4]: decliner = NaiveDecliner()
+
+   In[5]: decliner.decline_noun(word, 'm')
+
+   Out[5]:
+   [('ilam', {'case': 'accusative', 'number': 'singular'}),
+    ('ilim', {'case': 'genitive', 'number': 'singular'}),
+    ('ilum', {'case': 'nominative', 'number': 'singular'}),
+    ('ilīn', {'case': 'oblique', 'number': 'dual'}),
+    ('ilān', {'case': 'nominative', 'number': 'dual'}),
+    ('ilī', {'case': 'oblique', 'number': 'plural'}),
+    ('ilū', {'case': 'nominative', 'number': 'plural'})]
+
+Stems and Bound Forms
+=========
+
+These two methods reduce a noun to its stem or bound form.
+
+.. code-block:: python
+
+   In[2]: from cltk.stem.akkadian.stem import Stemmer
+
+   In[3]: stemmer = Stemmer()
+
+   In[4]: word = "ilātim"
+
+   In[5]: stemmer.get_stem(word, 'f')
+
+   Out[5]: 'ilt'
+
+.. code-block:: python
+
+   In[2]: from cltk.stem.akkadian.bound_form import BoundForm
+
+   In[3]: bound_former = BoundForm()
+
+   In[4]: word = "kalbim"
+
+   In[5]: bound_former.get_bound_form(word, 'm')
+
+   Out[5]: 'kalab'
+
+Consonant and Vowel patterns
+======
+
+It's useful to be able to parse Akkadian words as sequences of consonants and vowels.
+
+.. code-block:: python
+
+   In[2]: from cltk.stem.akkadian.cv_pattern import CVPattern
+
+   In[3]: cv_patterner = CVPattern()
+
+   In[4]: word = "iparras"
+
+   In[5]: cv_patterner.get_cv_pattern(word)
+
+   Out[5]:
+   [('V', 1, 'i'),
+    ('C', 1, 'p'),
+    ('V', 2, 'a'),
+    ('C', 2, 'r'),
+    ('C', 2, 'r'),
+    ('V', 2, 'a'),
+    ('C', 3, 's')]
+
+   In[6]: cv_patterner.get_cv_pattern(word, pprint=True)
+
+   Out[6]: 'V₁C₁V₂C₂C₂V₂C₃'
