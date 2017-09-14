@@ -10,8 +10,7 @@ Alphabet
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.pali.alphabet import CONSONANTS, DEPENDENT_VOWELS, INDE
-      ...: PENDENT_VOWELS
+   In [1]: from cltk.corpus.pali.alphabet import CONSONANTS, DEPENDENT_VOWELS, INDEPENDENT_VOWELS
 
    In [2]: print(CONSONANTS)
    ['ක', 'ඛ', 'ග', 'ඝ', 'ඞ', 'ච', 'ඡ', 'ජ', 'ඣ', 'ඤ', 'ට', 'ඨ', 'ඩ', 'ඪ', 'ණ', 'ත', 'ථ', 'ද', 'ධ', 'න', 'ප', 'ඵ', 'බ', 'භ', 'ම', 'ය', 'ර', 'ල', 'ව', 'ස', 'හ', 'ළ', 'අං']
