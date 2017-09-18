@@ -145,28 +145,28 @@ Specific Arabic language library for Python, provides basic functions to manipul
     In [1] from cltk.corpus.arabic.utils.pyarabic import araby as araby
 
     # Checks for Arabic Sukun Mark
-    In [3] char = 'ْ '
+    In [3] char = 'ْ'
     In [4] araby.is_sukun(char)
     Out [4] True
 
     # Checks for Arabic Shadda Mark
-    In [5] char = 'ّ '
+    In [5] char = 'ّ'
     In [6] araby.is_shadda(char)
     Out [6] True
 
     # Strip Harakat from arabic word except Shadda.
-    In [7] text = u"الْعَرَبِيّةُ"
+    In [7] text = "الْعَرَبِيّةُ"
     In [8] araby.strip_harakat(text)
     Out [8] العربيّة
 
     # Strip the last Haraka from arabic word except Shadda
-    In [9] text = u"الْعَرَبِيّةُ"
+    In [9] text = "الْعَرَبِيّةُ"
 
     In [10] araby.strip_lastharaka(text)
     Out [10] الْعَرَبِيّة
 
     # Strip vowels from a text,  include Shadda
-    In [11] text = u"الْعَرَبِيّةُ"
+    In [11] text = "الْعَرَبِيّةُ"
 
     In [12] strip_tashkeel(text)
     Out [12] العربية
