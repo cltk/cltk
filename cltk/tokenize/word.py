@@ -26,16 +26,7 @@ from nltk.tokenize.treebank import TreebankWordTokenizer
 from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
 from nltk.tokenize.stanford_segmenter import StanfordSegmenter
 
-from cltk.utils.cltk_logger import logger
-
-do_arabic = False
-try:
-    import pyarabic.araby as araby
-    do_arabic = True
-except ImportError:
-    logger.info('Arabic not supported. Install `pyarabic` library to tokenize Arabic.')
-    pass
-
+import cltk.corpus.arabic.utils.pyarabic.araby as araby
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Natasha Voake <natashavoake@gmail.com>']
@@ -49,13 +40,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
-
-
-        if do_arabic:
-            self.available_languages = ['arabic', 'latin', 'french']
-        else:
-            self.available_languages = ['latin', 'french']
-
+        self.available_languages = ['arabic', 'latin', 'french']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
                                                                                             self.available_languages)  # pylint: disable=line-too-long

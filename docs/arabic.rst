@@ -111,7 +111,67 @@ The Arabic alphabet are placed in `cltk/corpus/arabic/alphabet.py <https://githu
 
     In [18] Names[ALEF]
     Out [18]  'ألف'
-    
+
+CLTK Arabic Support
+===================
+
+1. Pyarabic
+```````````
+Specific Arabic language library for Python, provides basic functions to manipulate Arabic letters and text, like detecting Arabic letters, Arabic letters groups and characteristics, remove diacritics etc.Developed by `Taha Zerrouki: <http://tahadz.com>`_.
+
+1.1. Features
+-------------
+1. Arabic letters classification
+2. Text tokenization
+3. Strip Harakat ( all, except Shadda, tatweel, last_haraka)
+4. Sperate and join Letters and Harakat
+5. Reduce tashkeel
+6. Mesure tashkeel similarity ( Harakats, fully or partially vocalized, similarity with a template)
+7. Letters normalization ( Ligatures and Hamza)
+8. Numbers to words
+9. Extract numerical phrases
+10. Pre-vocalization of numerical phrases
+11. Unshiping texts
+
+1.2. Applications
+-----------------
+- Arabic text processing
+
+1.3. Usage
+----------
+
+.. code-block:: python
+
+    In [1] from cltk.corpus.arabic.utils.pyarabic import araby
+
+    # Checks for Arabic Sukun Mark
+    In [3] char = 'ْ'
+    In [4] araby.is_sukun(char)
+    Out [4] True
+
+    # Checks for Arabic Shadda Mark
+    In [5] char = 'ّ'
+    In [6] araby.is_shadda(char)
+    Out [6] True
+
+    # Strip Harakat from arabic word except Shadda.
+    In [7] text = "الْعَرَبِيّةُ"
+    In [8] araby.strip_harakat(text)
+    Out [8] العربيّة
+
+    # Strip the last Haraka from arabic word except Shadda
+    In [9] text = "الْعَرَبِيّةُ"
+
+    In [10] araby.strip_lastharaka(text)
+    Out [10] الْعَرَبِيّة
+
+    # Strip vowels from a text,  include Shadda
+    In [11] text = "الْعَرَبِيّةُ"
+
+    In [12] araby.strip_tashkeel(text)
+    Out [12] العربية
+
+
 Stopword Filtering
 ==================
 To use the CLTK's built-in stopwords list:
@@ -147,10 +207,10 @@ Available Transliteration Systems
 
 .. code-block:: python
 
-    In [1] from cltk.phonology.arabic.romanization import *
+    In [1] from cltk.phonology.arabic.romanization import available_transliterate_systems
 
     In [2] available_transliterate_systems()
-    Out [2] ['iso233-2', 'buckwalter']
+    Out [2] ['buckwalter', 'iso233-2', 'asmo449']
 
 Usage
 `````
@@ -165,8 +225,8 @@ Usage
 
     In [4] ignore = '' # this is for ignore an arabic char from transliterate operation
 
-    In [5] revere = True # true means transliteration from arabic native script to roman script such as Buckwalter
+    In [5] reverse = True # true means transliteration from arabic native script to roman script such as Buckwalter
 
-    In [6] transliterate(mode, ar_string,ignore,reverse)
+    In [6] transliterate(mode, ar_string, ignore, reverse)
     Out[7] 'bisomi Allhi Alra~Hom`ni Alra~Hiyomi'
 
