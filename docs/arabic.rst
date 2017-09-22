@@ -1,7 +1,6 @@
 Arabic
 ******
-Arabic is the form of the Arabic language used in Umayyad and Abbasid literary texts from the 7th century AD to the 9th century AD.
-The orthography of the Qurʾān was not developed for the standardized form of Classical Arabic; rather, it shows the attempt on the part of writers to utilize a traditional writing system for recording a non-standardized form of Classical Arabic. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Classical_Arabic>`_)
+Classical Arabic is the form of the Arabic language used in Umayyad and Abbasid literary texts from the 7th century AD to the 9th century AD. The orthography of the Qurʾān was not developed for the standardized form of Classical Arabic; rather, it shows the attempt on the part of writers to utilize a traditional writing system for recording a non-standardized form of Classical Arabic. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Classical_Arabic>`_)
 
 Corpora
 =======
@@ -142,7 +141,7 @@ Specific Arabic language library for Python, provides basic functions to manipul
 
 .. code-block:: python
 
-    In [1] from cltk.corpus.arabic.utils.pyarabic import araby as araby
+    In [1] from cltk.corpus.arabic.utils.pyarabic import araby
 
     # Checks for Arabic Sukun Mark
     In [3] char = 'ْ'
@@ -168,8 +167,9 @@ Specific Arabic language library for Python, provides basic functions to manipul
     # Strip vowels from a text,  include Shadda
     In [11] text = "الْعَرَبِيّةُ"
 
-    In [12] strip_tashkeel(text)
+    In [12] araby.strip_tashkeel(text)
     Out [12] العربية
+
 
 Stopword Filtering
 ==================
@@ -206,10 +206,10 @@ Available Transliteration Systems
 
 .. code-block:: python
 
-    In [1] from cltk.phonology.arabic.romanization import *
+    In [1] from cltk.phonology.arabic.romanization import available_transliterate_systems
 
     In [2] available_transliterate_systems()
-    Out [2] ['iso233-2', 'buckwalter']
+    Out [2] ['buckwalter', 'iso233-2', 'asmo449']
 
 Usage
 `````
@@ -224,8 +224,8 @@ Usage
 
     In [4] ignore = '' # this is for ignore an arabic char from transliterate operation
 
-    In [5] revere = True # true means transliteration from arabic native script to roman script such as Buckwalter
+    In [5] reverse = True # true means transliteration from arabic native script to roman script such as Buckwalter
 
-    In [6] transliterate(mode, ar_string,ignore,reverse)
+    In [6] transliterate(mode, ar_string, ignore, reverse)
     Out[7] 'bisomi Allhi Alra~Hom`ni Alra~Hiyomi'
 
