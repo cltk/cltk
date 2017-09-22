@@ -11,19 +11,17 @@ Features:
     * Mesure tashkeel similarity ( Harakats, fully or partially vocalized, similarity with a template)
     * Letters normalization ( Ligatures and Hamza)
 
+
+Includes code written by 'Arabtechies',  'Arabeyes',   'Taha Zerrouki'.
+
 """
-from __future__ import absolute_import
 
 import re
 
-if __name__ == "__main__":
-    import stack
-else:
-    from cltk.corpus.arabic.utils.pyarabic import stack
+from cltk.corpus.arabic.utils.pyarabic import stack
 
-__author__ = 'Taha Zerrouki taha.zerrouki@gmail.com'
+__author__ = ['Taha Zerrouki taha.zerrouki@gmail.com']
 __license__ = 'GPL'
-__copyright__ = ['Arabtechies',  'Arabeyes',   'Taha Zerrouki']
 
 
 COMMA = '\u060C'
