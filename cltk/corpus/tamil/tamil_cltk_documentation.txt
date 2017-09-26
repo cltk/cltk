@@ -1,0 +1,41 @@
+Tamil
+****
+
+Tamil is the oldest of Dravidian languages. Along with Chinese, Greek, Sanskrit and others, it is one of the world's classical languages. 
+Tamil literature spans 3500 years. This language was the first to develop a distinct prose form of writing among the classical languages 
+of the world. Tamil is the only language among the old languages that has a history of 2000 or more years of existance. With slight variation 
+in scripts and usage, the language still thrives. The literatures written in 200 BC are still learnt and used in normal speeches. The Tamil 
+Thirukkural is second only to the Bible in number of published translations. Over the course of the language's development, many words from 
+other languages have been absorbed. For instance, Tamil spoken in Tamil Nadu has a significant number of words from Sanskrit, English, Dutch, 
+French and Urdu.
+=========
+
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.tamil.alphabet import VOWELS, CONSTANTS, GRANTHA_CONSONANTS
+
+   In [2]: print(VOWELS)
+   ['அ', 'ஆ', 'இ', 'ஈ', 'உ', 'ஊ',' எ', 'ஏ', 'ஐ', 'ஒ', 'ஓ', 'ஔ']
+   
+   In [3]: print(CONSONANTS)
+   ['க்', 'ங்', 'ச்', 'ஞ்', 'ட்', 'ண்', 'த்', 'ந்', 'ப்', 'ம்', 'ய்', 'ர்', 'ல்', 'வ்', 'ழ்', 'ள்', 'ற்', 'ன்']
+   
+   In [4]: print(GRANTHA_CONSONANTS)
+   ['ஜ்', 'ஶ்', 'ஷ்', 'ஸ்', 'ஹ்', 'க்ஷ்']
+
+
+
+Corpora
+=======
+
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``tamil_``) to discover available tamil corpora.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.utils.importer import CorpusImporter
+
+   In [2]: c = CorpusImporter('tamil')
+
+   In [3]: c.list_corpora
+Out[3]: ['tamil_text_ptr_tipitaka']
