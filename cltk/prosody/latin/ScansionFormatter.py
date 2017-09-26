@@ -1,6 +1,10 @@
 """Utility class for formatting scansion patterns"""
 
+import logging
 from cltk.prosody.latin.ScansionConstants import ScansionConstants
+
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -9,7 +13,6 @@ __license__ = 'MIT License'
 class ScansionFormatter:
     """Users can specify which scansion symbols to use in the formatting.
 
-    >>> from cltk.prosody.latin.ScansionConstants import ScansionConstants
     >>> print(ScansionFormatter().hexameter( "-UU-UU-UU---UU--"))
     -UU|-UU|-UU|--|-UU|--
     >>> constants = ScansionConstants(unstressed="˘", \
@@ -32,7 +35,6 @@ class ScansionFormatter:
         >>> print(ScansionFormatter().hexameter( "-UU-UU-UU---UU--"))
         -UU|-UU|-UU|--|-UU|--
         """
-
         mylist = list(line)
         items = len(mylist)
         idx_start = items - 2
@@ -52,7 +54,7 @@ class ScansionFormatter:
         return "".join(mylist)
 
     def merge_line_scansion(self, line: str, scansion: str) -> str:
-        """Merge a line of verse with its scansion string.
+        """Merge a line of verse with its scansion string. Do not accent dipthongs.
 
         >>> print(ScansionFormatter().merge_line_scansion(
         ... "Arma virumque cano, Troiae qui prīmus ab ōrīs",
@@ -63,8 +65,12 @@ class ScansionFormatter:
         ... "lītora, multum ille et terrīs iactātus et alto",
         ... " - U U   -     -    -   -  -   -  - U  U  -  U"))
         lītora, mūltum īlle ēt tērrīs iāctātus et ālto
-        """
 
+        >>> print(ScansionFormatter().merge_line_scansion(
+        ... 'aut facere, haec a te dictaque factaque sunt',
+        ... ' -   U U      -  -  -  -  U  U  -  U  U  -  '))
+        aut facere, haec ā tē dīctaque fāctaque sūnt
+        """
         letters = list(line)
         marks = list(scansion)
         if len(scansion) < len(line):
@@ -73,7 +79,7 @@ class ScansionFormatter:
             if marks[idx] == self.constants.STRESSED:
                 vowel = letters[idx]
                 if vowel not in self.stress_accent_dict:
-                    print("problem! vowel: %s not in dict for line %s" % (vowel, line))
+                    LOG.error("problem! vowel: {} not in dict for line {}".format(vowel, line))
                     pass
                 else:
                     if idx > 1:
@@ -81,11 +87,11 @@ class ScansionFormatter:
                             new_vowel = self.stress_accent_dict[vowel]
                             letters[idx] = new_vowel
                             continue
-                        if idx >0:
-                            if letters[idx - 1] + vowel in self.constants.DIPTHONGS:
-                                continue
-                            new_vowel = self.stress_accent_dict[vowel]
-                            letters[idx] = new_vowel
+                    if idx > 0:
+                        if letters[idx - 1] + vowel in self.constants.DIPTHONGS:
+                            continue
+                        new_vowel = self.stress_accent_dict[vowel]
+                        letters[idx] = new_vowel
                     else:
                         new_vowel = self.stress_accent_dict[vowel]
                         letters[idx] = new_vowel

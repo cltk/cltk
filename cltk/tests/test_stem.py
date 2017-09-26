@@ -10,7 +10,12 @@ from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stem.latin.declension import CollatinusDecliner
 from cltk.exceptions import UnknownLemma
 from cltk.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
+from cltk.stem.akkadian.bound_form import BoundForm as AkkadianBoundForm
+from cltk.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
+from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
+from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
 from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
+from cltk.stem.french.stem import stem
 
 import os
 import unittest
@@ -43,6 +48,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stemmed_text = stemmer.stem(sentence.lower())
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=line-too-long
         self.assertEqual(stemmed_text, target)
+
 
     def test_lemmatizer_inlist_latin(self):
         """Test the Latin lemmatizer.
@@ -216,6 +222,44 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         current = syllabifier.get_offset('न', 'hi')
         current1 = syllabifier.in_coordinated_range_offset(current)
         self.assertTrue(current1)
+
+    def test_akkadian_bound_form(self):
+        """Test Akkadian bound form method"""
+        bound_former = AkkadianBoundForm()
+        word = "awīlum"
+        bound_form = bound_former.get_bound_form(word, 'm')
+        target = "awīl"
+        self.assertEquals(bound_form, target)
+
+    def test_akkadian_cv_pattern(self):
+        """Test Akkadian CV pattern method"""
+        cv_patterner = AkkadianCVPattern()
+        word = "iparras"
+        cv_pattern = cv_patterner.get_cv_pattern(word, pprint=True)
+        target = "V₁C₁V₂C₂C₂V₂C₃"
+        self.assertEquals(cv_pattern, target)
+
+    def test_akkadian_declension(self):
+        """Test Akkadian noun declension"""
+        decliner = AkkadianNaiveDecliner()
+        word = "iltum"
+        declension = decliner.decline_noun(word, 'f')
+        target = [('iltim', {'case': 'genitive', 'number': 'singular'}),
+                  ('iltum', {'case': 'nominative', 'number': 'singular'}),
+                  ('iltam', {'case': 'accusative', 'number': 'singular'}),
+                  ('iltīn', {'case': 'oblique', 'number': 'dual'}),
+                  ('iltān', {'case': 'nominative', 'number': 'dual'}),
+                  ('ilātim', {'case': 'oblique', 'number': 'plural'}),
+                  ('ilātum', {'case': 'nominative', 'number': 'plural'})]
+        self.assertEquals(sorted(declension), sorted(target))
+
+    def test_akkadian_stemmer(self):
+        """Test Akkadian stemmer"""
+        stemmer = AkkadianStemmer()
+        word = "šarrū"
+        stem = stemmer.get_stem(word, 'm')
+        target = "šarr"
+        self.assertEquals(stem, target)
 
     def test_akkadian_syllabifier(self):
         """Test Akkadian syllabifier"""
@@ -485,6 +529,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             UnknownLemma, decline
         )
 
+    def french_stemmer_test(self):
+        sentence = "ja departissent a itant quant par la vile vint errant tut a cheval " \
+                    "une pucele en tut le siecle n'ot si bele un blanc palefrei chevalchot"
+        stemmed_text = stem(sentence)
+        target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
+                    " chevalcho "
+        self.assertEqual(stemmed_text, target)
 
 if __name__ == '__main__':
     unittest.main()

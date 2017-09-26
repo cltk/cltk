@@ -443,11 +443,10 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 Normalization
 =============
 
-Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications \
- issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
+Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
 
-One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents
- (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+
 
 .. code-block:: python
 
