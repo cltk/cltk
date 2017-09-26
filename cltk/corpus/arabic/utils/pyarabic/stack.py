@@ -1,9 +1,10 @@
+"""Stack module
+
+Includes code written by 'Arabtechies', 'Arabeyes', 'Taha Zerrouki'.
 """
-Stack module
-"""
-__author__ = 'Taha Zerrouki taha.zerrouki@gmail.com'
+
+__author__ = ['Taha Zerrouki taha.zerrouki@gmail.com']
 __license__ = 'GPL'
-__copyright__ = ['Arabtechies',  'Arabeyes',   'Taha Zerrouki']
 
 class Stack :
     """
