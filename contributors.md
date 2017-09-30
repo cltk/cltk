@@ -20,6 +20,9 @@ CLTK Core authors, ordered alphabetically by first name
 ## Bradley Baker <bradley.baker12@ncf.edu>
 * cltk/prosody/latin/scanner.py
 
+## Chandana K.G.D <GitHub:chandanakgd>
+* cltk/corpus/pali/alphabet.py
+
 ## Dilshan Abeysinghe
 * cltk/corpus/tamil/alphabet.py
 

@@ -1,4 +1,4 @@
-"""Available Hebrew corpora available for download."""
+"""Available Marathi corpora available for download."""
 
 MARATHI_CORPORA = [
     {'name': 'marathi_text_wikisource',
