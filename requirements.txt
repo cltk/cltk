@@ -6,11 +6,11 @@ cycler==0.10.0
 decorator==4.0.10
 entrypoints==0.2.2
 fuzzywuzzy==0.14.0
-gensim==0.13.3
+gensim==0.13.3 # for word2vec.py
 gitdb==0.6.4
 gitdb2==2.0.0
 GitPython==2.1.1
-greek-accentuation==1.0.5
+greek-accentuation==1.0.5 # for the phonetic transcriber
 ipykernel==4.5.2
 ipython==5.1.0
 ipython-genutils==0.1.0
@@ -30,7 +30,7 @@ nbformat==4.2.0
 nltk==3.2.1
 notebook==4.3.0
 numpy==1.11.2
-pandas==0.19.1
+pandas==0.19.1 # for the Indian syllabifier
 pexpect==4.2.1
 pickleshare==0.7.4
 prompt-toolkit==1.0.9

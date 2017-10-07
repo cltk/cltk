@@ -12,11 +12,6 @@ before_script:
 - pip install --upgrade pip
 - pip install codecov
 - pip install coveralls
-- pip install pandas  # for the Indian syllabifier
-- pip install greek-accentuation  # for the phonetic transcriber
-- pip install fuzzywuzzy
-- pip install python-Levenshtein
-- pip install gensim  # for word2vec.py
 
 script:
   # Notes on nose:
