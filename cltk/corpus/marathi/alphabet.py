@@ -30,17 +30,17 @@ IAST_REPRESENTATION_VOWELS = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'e', 'ai',
 # 4.Dental (e.g. Spanish t)
 # 5.Labial (e.g. p)
 
-VELAR_CONSONENTS = ['क', 'ख', 'ग', 'घ', 'ङ']
-PALATAL_CONSONENTS = ['च', 'छ', 'ज', 'झ', 'ञ']
-RETROFLEX_CONSONENTS = ['ट',,'ठ', 'ड', 'ढ', 'ण']
-DENTAL_CONSONENTS = ['त', 'थ', 'द', 'ध', 'न']
-LABIAL_CONSONENT = ['प', 'फ', 'ब', 'भ', 'म']
+VELAR_CONSONANTS = ['क', 'ख', 'ग', 'घ', 'ङ']
+PALATAL_CONSONANTS = ['च', 'छ', 'ज', 'झ', 'ञ']
+RETROFLEX_CONSONANTS = ['ट','ठ', 'ड', 'ढ', 'ण']
+DENTAL_CONSONANTS = ['त', 'थ', 'द', 'ध', 'न']
+LABIAL_CONSONANTS = ['प', 'फ', 'ब', 'भ', 'म']
 
-IAST_VELAR_CONSONENTS = ['k', 'kh', 'g', 'gh', 'ṅ']
-IAST_PALATAL_CONSONENTS = ['c', 'ch', 'j', 'jh', 'ñ']
-IAST_RETROFLEX_CONSONENTS = ['ṭ', 'ṭh', 'ḍ', 'ḍh', 'ṇ']
-IAST_DENTAL_CONSONENTS = ['t', 'th', 'd', 'dh', 'n']
-IAST_LABIAL_CONSONENTS = ['p', 'ph', 'b', 'bh', 'm']
+IAST_VELAR_CONSONANTS = ['k', 'kh', 'g', 'gh', 'ṅ']
+IAST_PALATAL_CONSONANTS = ['c', 'ch', 'j', 'jh', 'ñ']
+IAST_RETROFLEX_CONSONANTS = ['ṭ', 'ṭh', 'ḍ', 'ḍh', 'ṇ']
+IAST_DENTAL_CONSONANTS = ['t', 'th', 'd', 'dh', 'n']
+IAST_LABIAL_CONSONANTS = ['p', 'ph', 'b', 'bh', 'm']
 
 #SEMI_VOWELS
 #There are four semi vowels in marathi
@@ -57,11 +57,11 @@ IAST_SIBILANTS = ['ś', 'ṣ', 's']
 #FRIACTICE_CONSTANT
 #There is one fricative consonant in marathi
 
-FRIACTIVE_CONSTANT = ['ह']
-IAST_FRIACTIVE_CONSTANT = ['h']
+FRIACTIVE_CONSONANTS = ['ह']
+IAST_FRIACTIVE_CONSONANTS = ['h']
 
 #ADDITIONAL_CONSTANTS
 #There are three additional consonants:
 
-ADDITIONAL_CONSTANTS = ['ळ', 'क्ष', 'ज्ञ']
-IAST_ADDITIONAL_CONSTANTS = ['La', 'kSha', 'dnya']
+ADDITIONAL_CONSONANTS = ['ळ', 'क्ष', 'ज्ञ']
+IAST_ADDITIONAL_CONSONANTS = ['La', 'kSha', 'dnya']
