@@ -6,7 +6,7 @@ python:
 - '3.6'
 
 install:
-- python setup.py sdist install
+- python setup.py install
 
 before_script:
 - pip install --upgrade pip
