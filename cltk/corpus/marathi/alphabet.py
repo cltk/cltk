@@ -1,10 +1,11 @@
 """Data module for the Marathi languages alphabet and related characters.
 
 Marathi is written in Devnagari script
-
 """
+
 __author__ = ['Mahesh Bhosale <bhosalems24@gmail.com>']
-__license__ = ['Creative Commons Zero v1.0 Universal']
+__license__ = ['MIT License. See LICENSE.']
+
 
 #DIGITS
 #0 to 9
