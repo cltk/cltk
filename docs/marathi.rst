@@ -66,7 +66,7 @@ IAST_REPRESENTATION_VOWELS = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'e', 'ai',
 
     Out[2]: ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'अॅ', 'ऑ']
 
-    In [3]: from cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELS
+    In [3]: from cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELSfrom cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELS
 
     In [4]: IAST_REPRESENTATION_VOWELS
 
