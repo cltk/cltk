@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import unittest
 from cltk.vector.word2vec import get_sims
 
