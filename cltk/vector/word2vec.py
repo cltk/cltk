@@ -10,6 +10,11 @@ import os
 import sys
 import time
 
+try:
+    from gensim.models import Word2Vec
+except ImportError:
+    print('Gensim not installed.')
+    raise
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
@@ -167,10 +172,5 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
 
 
 if __name__ == '__main__':
-    try:
-        from gensim.models import Word2Vec
-    except ImportError:
-        print('Gensim not installed.')
-        raise
     similar_vectors = get_sims('ἄνδρες', 'greek', lemmatized=True, threshold=0)
     print(similar_vectors)
