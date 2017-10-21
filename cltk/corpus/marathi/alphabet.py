@@ -9,7 +9,7 @@ __license__ = ['MIT License. See LICENSE.']
 
 #DIGITS
 #0 to 9
-DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
+    DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
 
 #VOWELS
 #There are 13 vowels in Marathi,
