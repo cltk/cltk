@@ -44,6 +44,7 @@ DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
 
     Out[2]: '५'
 
+
 There are 13 vowels in Marathi,
 All vowels have their indepenedent form and a matra form, which are used for modifying consonents
 
@@ -66,7 +67,7 @@ IAST_REPRESENTATION_VOWELS = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'e', 'ai',
 
     Out[2]: ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'अॅ', 'ऑ']
 
-    In [3]: from cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELSfrom cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELS
+    In [3]: from cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELS
 
     In [4]: IAST_REPRESENTATION_VOWELS
 
@@ -77,13 +78,18 @@ Similarly we can import others vowels and consonants. There are 25 regular conso
 are organized into groups (vargas) of five. The vargas are ordered according to where the tongue is in the mouth.
 Each successive varga refers to a successively forward position of the tongue. The vargas are ordered and named thus
 (with an example of a corresponding consonant):
+
  1.Velar: A velar consonant is a consonant that is pronounced with the back part of the tongue against the soft palate,
-   also known as the velum, which is the back part of the roof of the mouth(e.g. k)
+    also known as the velum, which is the back part of the roof of the mouth(e.g. k)
+
  2.Palatal: A palatal consonant is a consonant that is pronounced with the body (the middle part) of the tongue against
-   the hard palate (which is the middle part of the roof of the mouth) (e.g. j)
+    the hard palate (which is the middle part of the roof of the mouth) (e.g. j)
+
  3.Retroflex: A retroflex consonant is a coronal consonant where the tongue has a flat, concave, or even curled shape,
-   and is articulated between the alveolar ridge and the hard palate.(e.g. English t)
+    and is articulated between the alveolar ridge and the hard palate.(e.g. English t)
+
  4.Dental: A dental consonant is a consonant articulated with the tongue against the upper teeth (e.g. Spanish t)
+
  5.Labial: Labials or labial consonants are articulated or made with the lips.  (e.g. p)
 
 VELAR_CONSONANTS = ['क', 'ख', 'ग', 'घ', 'ङ']
