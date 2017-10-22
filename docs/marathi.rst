@@ -80,18 +80,18 @@ are organized into groups (vargas) of five. The vargas are ordered according to 
 Each successive varga refers to a successively forward position of the tongue. The vargas are ordered and named thus
 (with an example of a corresponding consonant):
 
-1.Velar: A velar consonant is a consonant that is pronounced with the back part of the tongue against the soft palate,
+1.Velar- A velar consonant is a consonant that is pronounced with the back part of the tongue against the soft palate,
   also known as the velum, which is the back part of the roof of the mouth(e.g. k)
 
-2.Palatal: A palatal consonant is a consonant that is pronounced with the body (the middle part) of the tongue against
+2.Palatal- A palatal consonant is a consonant that is pronounced with the body (the middle part) of the tongue against
   the hard palate (which is the middle part of the roof of the mouth) (e.g. j)
 
-3.Retroflex: A retroflex consonant is a coronal consonant where the tongue has a flat, concave, or even curled shape,
+3.Retroflex- A retroflex consonant is a coronal consonant where the tongue has a flat, concave, or even curled shape,
   and is articulated between the alveolar ridge and the hard palate.(e.g. English t)
 
-4.Dental: A dental consonant is a consonant articulated with the tongue against the upper teeth (e.g. Spanish t)
+4.Dental- A dental consonant is a consonant articulated with the tongue against the upper teeth (e.g. Spanish t)
 
-5.Labial: Labials or labial consonants are articulated or made with the lips.  (e.g. p)
+5.Labial- Labials or labial consonants are articulated or made with the lips.  (e.g. p)
 
 VELAR_CONSONANTS = ['क', 'ख', 'ग', 'घ', 'ङ']
 PALATAL_CONSONANTS = ['च', 'छ', 'ज', 'झ', 'ञ']
