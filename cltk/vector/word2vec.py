@@ -165,12 +165,3 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
         print("Matches found, but below the threshold of 'threshold={}'. Lower it to see these results.".format(threshold))
     return returned_sims
 
-
-if __name__ == '__main__':
-    try:
-        from gensim.models import Word2Vec
-    except ImportError:
-        print('Gensim not installed.')
-        raise
-    similar_vectors = get_sims('ἄνδρες', 'greek', lemmatized=True, threshold=0)
-    print(similar_vectors)
