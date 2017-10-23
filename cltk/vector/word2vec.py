@@ -10,7 +10,15 @@ import os
 import sys
 import time
 
-from gensim.models import Word2Vec
+from cltk.utils.cltk_logger import logger
+
+# TODO: Fix this
+# KJ added this to fix failing build on Travis CI. Gensim seems to load boto, which in turn causes an error.
+try:
+    from gensim.models import Word2Vec
+except AttributeError:
+    logger.error('Command `from gensim.models import Word2Vec` failed with AttributeError.')
+
 
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
