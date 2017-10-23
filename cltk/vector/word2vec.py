@@ -10,6 +10,8 @@ import os
 import sys
 import time
 
+from gensim.models import Word2Vec
+
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
@@ -20,7 +22,6 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
-
 
 
 def gen_docs(corpus, lemmatize, rm_stops):
@@ -140,9 +141,8 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
     model_name = '{0}_s100_w30_min5_sg{1}.model'.format(language, lemma_str)
     model_dir_abs = os.path.expanduser(model_dirs[language])
     model_path = os.path.join(model_dir_abs, model_name)
-    w2v = Word2Vec()
     try:
-        model = w2v.load(model_path)
+        model = Word2Vec.load(model_path)
     except FileNotFoundError as fnf_error:
         print(fnf_error)
         print("CLTK's Word2Vec models cannot be found. Please import '{}_word2vec_cltk'.".format(language))
