@@ -7,5 +7,6 @@ CLASSICAL_HINDI_CORPORA = [
     {'encoding': 'utf-8',
      'location': 'remote',
      'type': 'text',
+     'origin': 'https://github.com/cltk/hindi_text_ltrc.git',
      'name': 'hindi_text_ltrc'}
 ]

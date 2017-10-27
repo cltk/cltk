@@ -69,7 +69,7 @@ The resulting concordance looks like:
 Corpora
 =======
 
-The CLTK uses languages in its organization of data, however some good corpora do not and cannot be easily broken apart. Furthermore, some, such as parallel text corpora, are inherently multilingual. Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``multilingual_``) to discover available multilingual corpora.
+The CLTK uses languages in its organization of data, however some good corpora do not and cannot be easily broken apart. Furthermore, some, such as parallel text corpora, are inherently multilingual. Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``multilingual_``) to discover available multilingual corpora.
 
 .. code-block:: python
 
@@ -320,6 +320,10 @@ This module is under active development, so if you experience a bug or have a su
 Levenshtein distance calculation
 --------------------------------
 
++.. note::
++
++   You will need to install two packages to use Levenshtein measures. Install them with `pip install fuzzywuzzy python-Levenshtein`. `python-Levenshtein` is optional but gives speed improvements.
+
 The Levenshtein distance comparison is a commonly-used method for fuzzy string comparison.  The CLTK Levenshtein class offers a few helps for getting started with creating comparisons from document.
 
 This simple example compares a line from Vergil's Georgics with a line from Propertius (Elegies III.13.41):
@@ -334,6 +338,54 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
    Out[3]: 0.71
 
 
+Damerau-Levenshtein algorithm
+-----------------------------
+
+.. note::
+
+   You will need to install `pyxDamerauLevenshtein <https://github.com/gfairchild/pyxDamerauLevenshtein>`_ to use these features.
+   
+The Damerau-Levenshtein algorithm is used for finding the distance metric between any two strings i.e., finite number of symbols or letters between any two strings. The Damerau-Levenshtein algorithm is an enhancement over Levenshtein algorithm in the sense that it allows for transposition operations.
+
+This simple example compares a two Latin words to find the distance between them:
+
+.. code-block:: python
+
+   In [1]: from from pyxdameraulevenshtein import damerau_levenshtein_distance
+
+   In [2]: damerau_levenshtein_distance("deaeque", "deaque")
+   Out[2]: 1
+   
+
+Longest Common Substring
+------------------------
+
+Longest Common Substring takes two strings as an argument to the function and returns a substring which is common between both the 
+strings. The example below compares a line from Vergil's Georgics with a line from Propertius (Elegies III.13.41):
+
+.. code-block:: python
+
+   In [1]: from cltk.text_reuse.comparison import long_substring
+
+   In [2]: print(long_substring("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,"))
+   Out[2]: dique deaque omnes,
+
+
+MinHash
+-------
+The MinHash algorithm  generates a score based on the similarity of the two strings. It takes two strings as a parameter to the  function and returns a float.
+
+.. code-block:: python
+
+   In [1]: from cltk.text_reuse.comparison import minhash
+   
+   In [2]: a = 'dique deaeque omnes, studium quibus arua tueri,'
+   
+   In [3]: b = 'dique deaeque omnes, quibus est tutela per agros,'
+   
+   In[3]: print(minhash(a,b))
+   Out[3]:0.171631205673
+   
 Word count
 ==========
 

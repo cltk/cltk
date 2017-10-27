@@ -18,7 +18,7 @@ Known bugs:
 
 from cltk.utils.cltk_logger import logger
 
-__author__ = 'Tyler Kirby <joseph.kirby12@ncf.edu>'
+__author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>']
 __license__ = 'MIT License'
 
 

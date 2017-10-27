@@ -5,8 +5,7 @@ import pickle
 
 from cltk.utils.cltk_logger import logger
 
-__author__ = ['Andreas Grivas <andreasgrv@gmail.com>',
-              'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__author__ = ['Andreas Grivas <andreasgrv@gmail.com>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -48,4 +47,7 @@ def open_pickle(path: str):
         raise
     except EOFError as eof_error:
         logger.error(eof_error)
+        raise
+    except pickle.UnpicklingError as unp_error:
+        logger.error(unp_error)
         raise

@@ -7,10 +7,9 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
-# from cltk.tag.lapos import Lapos
+from cltk.tag.ner import NamedEntityReplacer
 from cltk.tag.pos import POSTag
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -31,6 +30,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+        corpus_importer = CorpusImporter('french')
+        corpus_importer.import_corpus('french_data_cltk')
+        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -93,6 +99,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test tagging Latin POS with TnT tagger."""
         tagger = POSTag('latin')
         tagged = tagger.tag_tnt('Gallia est omnis divisa in partes tres')
+        self.assertTrue(tagged)
+
+    def test_pos_crf_tagger_latin(self):
+        """Test tagging Latin POS with CRF tagger."""
+        tagger = POSTag('latin')
+        tagged = tagger.tag_crf('Gallia est omnis divisa in partes tres')
         self.assertTrue(tagged)
 
     def test_check_latest_latin(self):
@@ -176,38 +188,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' τὰ Σίλαριν/Entity Σιννᾶν/Entity Κάππαρος/Entity Πρωτογενείας/Entity Διονυσιάδες/Entity τὴν'
         self.assertEqual(text, target)
 
-    '''
-    def test_lapos_what_os(self):
-        """Test os."""
-        lapos_tagger = Lapos('latin')
-        response = lapos_tagger._what_os()
-        print('Current OS is: {}'.format(response))
-        self.assertIn(response, ['mac', 'linux', 'windows'])
-
-    def test_lapos_is_cloned_get_make(self):
-        """Test download_install."""
-        lapos_tagger = Lapos('latin')
-        response = lapos_tagger._is_cloned_get_make()
-        self.assertTrue(response)
-
-    def test_make(self):
-        """Test Lapos make."""
-        lapos_tagger = Lapos('latin')
-        fp = os.path.expanduser('~/cltk_data/multilingual/software/lapos/crf.o')
-        is_file = os.path.isfile(fp)
-        self.assertTrue(is_file)
-
-    def test_lapos_tag(self):
-        """Test install and tagging of Lapos in Latin."""
-        lapos_tagger = Lapos('latin')
-        sentence = 'Gallia est omnis divisa in partes tres'
-        tagged = lapos_tagger.tag_sentence(sentence)
-        tagged_target = [('Gallia', 'n-p---nn-'), ('est', 'v3spia---'),
-                         ('omnis', 'n-p---fa-'), ('divisa', 't-prppnn-'),
-                         ('in', 'p-p---fd-'), ('partes', 'n-p---fa-'),
-                         ('tres', 'a-p---nbc')]
-        self.assertEqual(tagged, tagged_target)
-    '''
+    def test_tag_ner_str_list_french(self):
+        """Test make_ner(), str, list."""
+        text_str = """Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."""
+        ner_replacer = NamedEntityReplacer()
+        tokens = ner_replacer.tag_ner_fr(input_text=text_str, output_type=list)
+        target = [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',),
+                  ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
+        self.assertEqual(tokens, target)
 
 if __name__ == '__main__':
     unittest.main()

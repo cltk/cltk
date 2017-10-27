@@ -15,14 +15,29 @@ Contents
    citation
    installation
    importing_corpora
+   akkadian
+   arabic
+   bengali
    chinese
    coptic
+   ancient_egyptian
+   old_english
+   middle_english
+   french
    greek
+   hebrew
+   hindi
+   javanese
    latin
+   malayalam
+   marathi
    multilingual
+   old_norse
    pali
+   persian
+   prakrit
    punjabi
    sanskrit
    telugu
    tibetan
-
+   urdu

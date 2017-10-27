@@ -1,10 +1,13 @@
 Sanskrit
 ********
 
+Sanskrit is the primary liturgical language of Hinduism, a philosophical language of Hinduism, Jainism, Buddhism and Sikhism, and a literary language of ancient and medieval South Asia that also served as a lingua franca. It is a standardised dialect of Old Indo-Aryan, originating as Vedic Sanskrit and tracing its linguistic ancestry back to Proto-Indo-Iranian and Proto-Indo-European. As one of the oldest Indo-European languages for which substantial written documentation exists, Sanskrit holds a prominent position in Indo-European studies. (Source: `Wikipedia <https:// https://en.m.wikipedia.org/wiki/Sanskrit>`_)
+
+
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub repository <https://github.com/cltk>`_ (anything beginning with ``sanskrit_``) to discover available Sanskrit corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``sanskrit_``) to discover available Sanskrit corpora.
 
 .. code-block:: python
 
@@ -145,7 +148,7 @@ Tokenizer
 =========
 
 This tool has also been derived from the `IndicNLP Project <https://github.com/anoopkunchukuttan/indic_nlp_library>`_ courtesy of `anoopkunchukuttan <https://github.com/anoopkunchukuttan/>`_
-This tool can break a sentence into into its constituent words. It works on the basis of filtering out punctuations and spaces.
+This tool can break a sentence into its constituent words. It works on the basis of filtering out punctuations and spaces.
 
 .. code-block:: python
 
@@ -155,3 +158,49 @@ This tool can break a sentence into into its constituent words. It works on the 
 
    In [31]: x = indian_punctuation_tokenize_regex(input_text)
    Out[31]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
+
+
+Stopword Filtering
+==================
+
+To use the CLTK's built-in stopwords list:
+
+.. code-block:: python
+
+   In [1]: from cltk.stop.sanskrit.stops import STOPS_LIST
+
+   In [2]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+
+   In [3]: s = "हमने पिछले पाठ मे सीखा था कि “अहम् गच्छामि” का मतलब “मै जाता हूँ” है। आप ऊपर
+      ...:  की तालिकाँओ "
+
+   In [4]: tokens = indian_punctuation_tokenize_regex(s)
+
+   In [5]: len(tokens)
+   Out[5]: 20
+
+   In [6]: no_stops = [w for w in tokens if w not in STOPS_LIST]
+
+   In [7]: len(no_stops)
+   Out[7]: 18
+
+   In [8]: no_stops
+   Out[8]: 
+   ['हमने',
+    'पिछले',
+    'पाठ',
+    'सीखा',
+    'था',
+    'कि',
+    '“अहम्',
+    'गच्छामि”',
+    'मतलब',
+    '“मै',
+    'जाता',
+    'हूँ”',
+    'है',
+    '।',
+    'आप',
+    'ऊपर',
+    'की',
+    'तालिकाँओ']

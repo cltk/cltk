@@ -15,7 +15,7 @@ from cltk.corpus.latin.phi5_index import PHI5_INDEX as PHI5_AUTHOR_MAP
 from cltk.utils.cltk_logger import logger
 
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -38,13 +38,13 @@ class CLTKIndex:
 
         TLG takes almost 13 min; PHI5 1.5 min.
         To setup index parameters
-        >>> cltk_index = CLTKIndex('latin', 'phi5')  # 1.5 min, 363 docs
-        >>> cltk_index = CLTKIndex('latin', 'phi5', chunk='work')  # 2 min, 837 docs
-        >>> cltk_index = CLTKIndex('greek', 'tlg')  # 13 min, 1823 docs
-        >>> cltk_index = CLTKIndex('greek', 'tlg', chunk='work')  #15.5 min, 6625 docs
+        >>> # cltk_index = CLTKIndex('latin', 'phi5')  # 1.5 min, 363 docs
+        >>> # cltk_index = CLTKIndex('latin', 'phi5', chunk='work')  # 2 min, 837 docs
+        >>> # cltk_index = CLTKIndex('greek', 'tlg')  # 13 min, 1823 docs
+        >>> # cltk_index = CLTKIndex('greek', 'tlg', chunk='work')  #15.5 min, 6625 docs
 
         # And to start indexing:
-        >>> cltk_index.index_corpus()
+        >>> # cltk_index.index_corpus()
 
         TODO: Prevent overwriting. Ask user to rm old dir before re-indexing.
         TODO: Add option for lemmatizing.
@@ -146,10 +146,11 @@ class CLTKIndex:
 
     def corpus_query(self, query, save_file=None, window_size=300, surround_size=50):
         """Send query to a corpus's index. `save_file` is a filename.
-
-        >>> cltk_index = CLTKIndex('latin', 'phi5')
-        >>> results = cltk_index.corpus_query('amicitia')
         :type save_file: str
+
+        >>> # cltk_index = CLTKIndex('latin', 'latin_text_latin_library')
+        >>> # results = cltk_index.corpus_query('amicitia')
+
         """
         _index = open_dir(self.index_path)
 
