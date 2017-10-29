@@ -1,6 +1,272 @@
 Greek
 *****
-For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
+Greek is an independent branch of the Indo-European family of languages, native to Greece and other parts of the Eastern Mediterranean. It has the longest documented history of any living language, spanning 34 centuries of written records. Its writing system has been the Greek alphabet for the major part of its history; other systems, such as Linear B and the Cypriot syllabary, were used previously. The alphabet arose from the Phoenician script and was in turn the basis of the Latin, Cyrillic, Armenian, Coptic, Gothic and many other writing systems. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Greek_language>`_)
+
+
+.. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
+
+
+Accentuation and diacritics
+===========================
+
+`James Tauber <https://github.com/jtauber/>`_ has created a Python 3 based `library  <https://github.com/jtauber/greek-accentuation>`_  to enable working with the accentuation of Ancient Greek words. Installing it is optional for working with CLTK.
+
+For further information please see `the original docs <https://github.com/jtauber/greek-accentuation/blob/master/docs.rst>`_, as this is just an abridged version.
+
+The library can be installed with ``pip``:
+
+.. code-block:: python
+
+    pip install greek-accentuation
+
+Contrary to the original docs to use the functions from this module it is necessary to *explicitly* import every function you need as opposed to
+
+
+**The Characters Module:**
+
+``base`` returns a given character without diacritics. For example:
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.characters import base
+
+   In[2]: base('ᾳ')
+   Out[2]: 'α'
+
+``add_diacritic`` and ``add_breathing`` add diacritics (accents, diaresis, macrons, breves) and breathing symbols to the given character. ``add_diacritic`` is stackable, for example:
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.characters import add_diacritic
+
+   In[2]: add_diacritic(add_diacritic('ο', ROUGH), ACUTE)
+   Out[2]: 'ὅ'
+
+``accent`` and ``strip_accent`` return the accent of a character as an Unicode escape and the character stripped of its accent respectively. ``breathing``, ``strip_breathing``, ``length`` and ``strip_length`` work analogously, for example:
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.characters import length, strip_length
+
+   In[2]: length('ῠ') == SHORT
+   Out[2]: True
+
+   In[3]: strip_length('ῡ')
+   Out[3]: 'υ'
+
+If a length diacritic becomes redundant because of a circumflex it can be stripped with ``remove_redundant_macron`` just like ``strip_length`` above.
+
+
+**The Syllabify Module:**
+
+``syllabify`` splits the given word in syllables, which are returned as a list of strings. Words without vowels are syllabified as a single syllable. The syllabification can also be displayed as a word with the syllablles separated by periods with ``display_word``.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.syllabify import syllabify, display_word
+
+   In[2]: syllabify('γυναικός')
+   Out[2]: ['γυ', 'ναι', 'κός']
+
+   In[3]: syllabify('γγγ')
+   Out[3]: ['γγγ']
+
+   In[4]: display_word(syllabify('καταλλάσσω'))
+   Out[4]: 'κα.ταλ.λάσ.σω'
+
+``is_vowel`` and ``is_diphthong`` return a boolean value to determine whether a given character is a vowel or two given characters are a diphthong.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.syllabify import is_diphthong
+
+   In[2]: is_diphthong('αι')
+   Out[2]: True
+
+``ultima``, ``antepenult`` and ``penult`` return the ultima, antepenult or penult (i.e. the last, next-to-last or third-from-last syllables) of the given word. A syllable can also be further broken down into its onset, nucleus and coda (i.e. the starting consonant, middle part and ending consonant) with the functions named accordingly. ``rime`` returns the sequence of a syllable's nucleus and coda and ``body`` returns the sequence of a syllable's onset and nucleus.
+
+
+  ``onset_nucleus_coda`` returns a syllable's onset, nucleus and coda all at once as a triple.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.syllabify import ultima, rime, onset_nucleus_coda
+
+   In[2]: ultima('γυναικός')
+   Out[2]: 'κός'
+
+   In[3]: rime('κός')
+   Out[3]: 'ός'
+
+   In[4]: onset_nucleus_coda('ναι')
+   Out[4]: ('ν', 'αι', '')
+
+``debreath`` returns a word with the smooth breathing removed and the rough breathing replaced with an h. ``rebreath`` reverses ``debreath``.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.syllabify import debreath, rebreath
+
+   In[2]: debreath('οἰκία')
+   Out[2]: 'οικία'
+
+   In[3]: rebreath('οικία')
+   Out[3]: 'οἰκία'
+
+   In[3]: debreath('ἑξεῖ')
+   Out[3]: 'hεξεῖ'
+
+   In[4]: rebreath('hεξεῖ')
+   Out[4]: 'ἑξεῖ'
+
+
+``syllable_length`` returns the length of a syllable (in the linguistic sense) and ``syllable_accent`` extracts a syllable's accent.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.syllabify import syllable_length, syllable_accent
+
+   In[2]: syllable_length('σω') == LONG
+   Out[2]: True
+
+   In[3]: syllable_accent('ναι') is None
+   Out[3]: True
+
+The accentuation class of a word such as oxytone, paroxytone, proparoxytone, perispomenon, properispomenon or barytone can be tested with the functions named accordingly.
+
+``add_necessary_breathing`` adds smooth breathing to a word if necessary.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.syllabify import add_necessary_breathing
+
+   In[2]: add_necessary_breathing('οι')
+   Out[2]: 'οἰ'
+
+   In[3]: add_necessary_breathing('οἰ')
+   Out[3]: 'οἰ'
+
+**The Accentuation Module:**
+
+``get_accent_type`` returns the accent type of a word as a tuple of the syllable number and accent, which is comparable to the constants provided. The accent type can also be displayed as a string with ``display_accent_type``.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.accentuation import get_accent_type, display_accent_type
+
+   In[2]: get_accent_type('ἀγαθοῦ') == PERISPOMENON
+   Out[2]: True
+
+   In[3]: display_accent_type(get_accent_type('ψυχή'))
+   Out[3]: 'oxytone'
+
+``syllable_add_accent(syllable, accent)`` adds the given accent to a syllable. It is also possible to add an accent class to a syllable, for example:
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.accentuation import syllable_add_accent, make_paroxytone
+
+   In[2]: syllable_add_accent('ου', CIRCUMFLEX)
+   Out[2]: 'οῦ'
+
+   In[3]: make_paroxytone('λογος')
+   Out[3]: 'λόγος'
+
+``possible_accentuations`` returns all possible accentuations of a given syllabification according to Ancient Greek accentuation rules. To treat vowels of unmarked length as short vowels set ``default_short = True`` in the function parameters.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.accentuation import possible_accentuations
+
+   In[2]: s = syllabify('εγινωσκου')
+
+   In[3]: for accent_class in possible_accentuations(s):
+
+   In[4]:     print(add_accent(s, accent_class))
+   Out[4]: εγινώσκου
+   Out[4]: εγινωσκού
+   Out[4]: εγινωσκοῦ
+
+   In[5]: s = syllabify('κυριος')
+
+   In[6]: for accent_class in possible_accentuations(s, default_short=True):
+
+   In[7]:     print(add_accent(s, accent_class))
+   Out[7]: κύριος
+   Out[7]: κυρίος
+   Out[7]: κυριός
+
+``recessive`` finds the most recessive (i.e. as far away from the end of the word as possible) accent and returns the given word with that accent. A ``|`` can be placed to set a point past which the accent will not recede. ``on_penult`` places the accent on the penult (third-from-last syllable).
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.accentuation import recessive, on_penult
+
+   In[2]: recessive('εἰσηλθον')
+   Out[2]: 'εἴσηλθον'
+
+   In[3]: recessive('εἰσ|ηλθον')
+   Out[3]: 'εἰσῆλθον'
+
+   In[4]: on_penult('φωνησαι')
+   Out[4]: 'φωνῆσαι'
+
+``persistent`` gets passed a word and a lemma (i.e. the canonical form of a set of words) and derives the accent from these two words.
+
+.. code-block:: python
+
+   In[1]: from greek_accentuation.accentuation import persistent
+
+   In[2]: persistent('ἀνθρωπου', 'ἄνθρωπος')
+   Out[2]: 'ἀνθρώπου'
+
+
+
+**Expand iota subscript:**
+
+The CLTK offers one transformation that can be useful in certain types of processing: Expanding the iota subsctipt from a unicode point and placing beside, to the right, of the character.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.alphabet import expand_iota_subscript
+
+   In [2]: s = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+
+   In [3]: expand_iota_subscript(s)
+   Out[3]: 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+
+   In [4]: expand_iota_subscript(s, lowercase=True)
+   Out[4]: 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+
+
+
+
+Alphabet
+========
+
+The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
+
+Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
+
+In `alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_ the vowels and consonants are grouped by upper or lower case, accent, breathing, a diaresis and possible combinations thereof.
+These groupings are stored in lists or, in case of a single letter like ρ, as strings with descriptive names structured like ``CASE_SPECIFIERS``, e.g. ``LOWER_DIARESIS_CIRCUMFLEX``.
+
+For example to use upper case vowels with rough breathing and an acute accent:
+
+.. code-block:: python
+
+   In[1]: from cltk.corpus.greek.alphabet import UPPER_ROUGH_ACUTE
+   In[2]: print(UPPER_ROUGH_ACUTE)
+   Out[2]: ['Ἅ', 'Ἕ', 'Ἥ', 'Ἵ', 'Ὅ', 'Ὕ', 'Ὥ', 'ᾍ', 'ᾝ', 'ᾭ']
+
+
+Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
+
+Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
+
+Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
+
+For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
 
 Converting Beta Code to Unicode
 ===============================
@@ -72,6 +338,10 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 Concerning text normalization: Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some helpful code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
+
+Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
+
+See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
 
 
 
@@ -173,11 +443,10 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 Normalization
 =============
 
-Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications \
- issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
+Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
 
-One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents
- (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+
 
 .. code-block:: python
 
@@ -372,6 +641,30 @@ To use the CLTK's built-in stopwords list:
     'αἰολέας.']
 
 
+TEI XML
+=======
+
+There are several rudimentary corpus converters for the "First 1K Years of Greek" project (download the corpus ``'greek_text_first1kgreek'``). Both write files to `` ~/cltk_data/greek/text/greek_text_first1kgreek_plaintext``.
+
+This one is built upon the ``MyCapytain`` library (``pip install lxml MyCapytain``), which has the ability for very precise chunking of TEI xml. The following function only preserves numbers:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tei import onekgreek_tei_xml_to_text_capitains
+
+   In [2]: onekgreek_tei_xml_to_text_capitains()
+
+
+
+For the following, install the ``BeautifulSoup`` library (``pip install bs4``). Note that this will just dump all text not contained within a node's bracket (including sometimes metadata).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tei import onekgreek_tei_xml_to_text
+
+   In [2]: onekgreek_tei_xml_to_text()
+
+
 Text Cleanup
 ============
 
@@ -403,7 +696,7 @@ The TLG comes with some old, difficult-to-parse index files which have been made
 
 .. tip::
 
-   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.4/library/stdtypes.html?highlight=set#set>`_).
+   Python sets are like lists, but contain only unique values. Multiple sets can be conveniently combined (`see docs here <https://docs.python.org/3.5/library/stdtypes.html?highlight=set#set>`_).
 
 .. code-block:: python
 
@@ -542,6 +835,25 @@ In addition to these indices there are several helper functions which will build
     ...]
 
 These two functions are useful when, for example, needing to process all authors of the TLG corpus, all works of the corpus, or all works of one particular author.
+
+
+
+Transliteration
+===============
+
+The CLTK provides `IPA phonetic transliteration <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ for \
+the Greek language. Currently, the only available dialect is Attic as reconstructed by Philomen Probert \
+(taken from `A Companion to the Ancient Greek Language <https://books.google.com/books?id=oa42E3DP3icC&printsec=frontcover#v=onepage&q&f=false>`_, \
+85-103). Example:
+
+.. code-block:: python
+
+   In [1]: from cltk.phonology.greek.transcription import Transcriber
+
+   In [2]: transcriber = Transcriber(dialect="Attic", reconstruction="Probert")
+
+   In [3]: transcriber.transcribe("Διόθεν καὶ δισκήπτρου τιμῆς ὀχυρὸν ζεῦγος Ἀτρειδᾶν στόλον Ἀργείων")
+   Out[3]: '[di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn]'
 
 
 

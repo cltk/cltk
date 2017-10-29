@@ -1,6 +1,6 @@
 """Tokenize sentences."""
 
-__author__ = 'Kyle P. Johnson <kyle@kyle-p-johnson.com>'
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -15,7 +15,7 @@ PUNCTUATION = {'greek':
                     'internal': (',', '·'),
                     'file': 'greek.pickle', },
                'latin':
-                   {'external': ('.', '?', ':'),
+                   {'external': ('.', '?', '!', ':'),
                     'internal': (',', ';'),
                     'file': 'latin.pickle', }}
 
@@ -88,3 +88,9 @@ class TokenizeSentence():  # pylint: disable=R0903
         for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
             tokenized_sentences.append(sentence)
         return tokenized_sentences
+        
+    def tokenize(self: object, untokenized_string: str):
+        # NLTK's PlaintextCorpusReader needs a function called tokenize
+        # in functions used as a parameter for sentence tokenization.
+        # So this is an alias for tokenize_sentences().
+        return self.tokenize_sentences(untokenized_string)

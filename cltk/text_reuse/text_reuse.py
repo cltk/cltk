@@ -11,7 +11,7 @@ from cltk.text_reuse.comparison import Comparison
 from cltk.stem.latin.stem import Stemmer
 
 
-__author__ = 'Luke Hollis <lukehollis@gmail.com>'
+__author__ = ['Luke Hollis <lukehollis@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
