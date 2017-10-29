@@ -3,6 +3,7 @@
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.corpus.utils.importer import CorpusImporter
+from cltk.stop.stop import StringStoplist
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
 from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
