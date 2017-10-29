@@ -92,6 +92,7 @@ Each successive ``varga`` refers to a successively forward position of the tongu
 4.Dental- A dental consonant is a consonant articulated with the tongue against the upper teeth (e.g. Spanish t)
 
 5.Labial- Labials or labial consonants are articulated or made with the lips.  (e.g. p)
+
 .. code-block:: python
 
     VELAR_CONSONANTS = ['क', 'ख', 'ग', 'घ', 'ङ']
@@ -139,6 +140,7 @@ There is one fricative consonant in marathi
     IAST_FRIACTIVE_CONSONANTS = ['h']
 
 There are three additional consonants:
+
 .. code-block:: python
 
     ADDITIONAL_CONSONANTS = ['ळ', 'क्ष', 'ज्ञ']
