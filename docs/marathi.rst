@@ -92,13 +92,13 @@ Each successive ``varga`` refers to a successively forward position of the tongu
 4.Dental- A dental consonant is a consonant articulated with the tongue against the upper teeth (e.g. Spanish t)
 
 5.Labial- Labials or labial consonants are articulated or made with the lips.  (e.g. p)
+.. code-block:: python
 
 ``VELAR_CONSONANTS = ['क', 'ख', 'ग', 'घ', 'ङ']``
 ``PALATAL_CONSONANTS = ['च', 'छ', 'ज', 'झ', 'ञ']``
 ``RETROFLEX_CONSONANTS = ['ट','ठ', 'ड', 'ढ', 'ण']``
 ``DENTAL_CONSONANTS = ['त', 'थ', 'द', 'ध', 'न']``
 ``LABIAL_CONSONANTS = ['प', 'फ', 'ब', 'भ', 'म']``
-
 ``IAST_VELAR_CONSONANTS = ['k', 'kh', 'g', 'gh', 'ṅ']``
 ``IAST_PALATAL_CONSONANTS = ['c', 'ch', 'j', 'jh', 'ñ']``
 ``IAST_RETROFLEX_CONSONANTS = ['ṭ', 'ṭh', 'ḍ', 'ḍh', 'ṇ']``
@@ -107,20 +107,27 @@ Each successive ``varga`` refers to a successively forward position of the tongu
 
 There are four semi vowels in marathi
 
+.. code-block:: python
+
 ``SEMI_VOWELS = ['य', 'र', 'ल', 'व']``
 ``IAST_SEMI_VOWELS = ['y', 'r', 'l', 'w']``
 
 There are three sibilants in marathi
+
+.. code-block:: python
 
 ``SIBILANTS = ['श', 'ष', 'स']``
 ``IAST_SIBILANTS = ['ś', 'ṣ', 's']``
 
 There is one fricative consonant in marathi
 
+.. code-block:: python
+
 ``FRIACTIVE_CONSONANTS = ['ह']``
 ``IAST_FRIACTIVE_CONSONANTS = ['h']``
 
 There are three additional consonants:
+.. code-block:: python
 
 ``ADDITIONAL_CONSONANTS = ['ळ', 'क्ष', 'ज्ञ']``
 ``IAST_ADDITIONAL_CONSONANTS = ['La', 'kSha', 'dnya']``
