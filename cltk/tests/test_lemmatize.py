@@ -26,6 +26,14 @@ __license__ = 'MIT License. See LICENSE.'
 class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
 
+    def setUp(self):
+        corpus_importer = CorpusImporter('french')
+        corpus_importer.import_corpus('french_data_cltk')
+        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
     def test_default_lemmatizer(self):
         """Test default_lemmatizer()"""
         lemmatizer = DefaultLemmatizer('UNK')
@@ -164,14 +172,6 @@ class TestSequenceFunctions(unittest.TestCase):
         tokens = tokenizer.tokenize(test_str)
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
-
-    def setUp(self):
-        corpus_importer = CorpusImporter('french')
-        corpus_importer.import_corpus('french_data_cltk')
-        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
 
     def test_french_lemmatizer(self):
         text = "Li rois pense que par folie, Sire Tristran, vos aie amé ; Mais Dé plevis ma loiauté, Qui sor mon cors mete flaele, S'onques fors cil qui m’ot pucele Out m'amistié encor nul jor !"
