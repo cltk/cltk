@@ -7,6 +7,7 @@ from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
 from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
+from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
 from nltk.tokenize.punkt import PunktLanguageVars
 import os
 import unittest
@@ -57,6 +58,7 @@ class TestSequenceFunctions(unittest.TestCase):
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)
+
     def test_arabic_stopwords(self):
         """Test filtering arabic stopwords."""
         sentence = 'سُئِل بعض الكُتَّاب عن الخَط، متى يَسْتحِقُ أن يُوصَف بِالجَودةِ؟'
@@ -74,6 +76,21 @@ class TestSequenceFunctions(unittest.TestCase):
         target_list = ['pensé', 'talant', 'd', '’', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes',
                        'mere','.']
         self.assertEqual(no_stops, target_list)
+
+    def test_old_norse_stopwords(self):
+        """
+        Test filtering Old Norse stopwords
+        Sentence extracted from Eiríks saga rauða (http://www.heimskringla.no/wiki/Eir%C3%ADks_saga_rau%C3%B0a)
+        """
+        sentence = 'Þat var einn morgin, er þeir Karlsefni sá fyrir ofan rjóðrit flekk nökkurn, sem glitraði við þeim'
+        lowered = sentence.lower()
+        punkt = PunktLanguageVars()
+        tokens = punkt.word_tokenize(lowered)
+        no_stops = [w for w in tokens if w not in OLD_NORSE_STOPS]
+        print(no_stops)
+        target_list = ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
+        self.assertEqual(no_stops, target_list)
+
 
 if __name__ == '__main__':
     unittest.main()
