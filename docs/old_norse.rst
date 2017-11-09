@@ -21,8 +21,8 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 Stopword Filtering
 ==================
 
-To use the CLTK's built-in stopwords list, We use an example from Eiríks saga rauða
-(http://www.heimskringla.no/wiki/Eir%C3%ADks_saga_rau%C3%B0a):
+To use the CLTK's built-in stopwords list, We use an example from `Eiríks saga rauða
+<http://www.heimskringla.no/wiki/Eir%C3%ADks_saga_rau%C3%B0a>`_:
 
 .. code-block:: python
 
