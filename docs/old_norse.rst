@@ -144,3 +144,21 @@ The oldest runic inscriptions found are from 200 AC. They have always denoted Ge
 
     Out [4]: "᛫kurmR᛫kunukR᛫k(ar)þi᛫kubl᛫þusi᛫a(ft)᛫þurui᛫kunu᛫sina᛫tanmarkaR᛫but᛫"
 
+
+POS tagging
+===========
+
+Thanks to TnT implemented in NLTK, you can get the POS tags of Old Norse texts. The model, first import the ``old_norse_models_cltk`` corpus.
+Taggers are trained from an annotated corpus. You can find it at http://www.linguist.is/icelandic_treebank/Download and it is Icelandic Parsed Historical Corpus (IcePaHC) version 0.9.
+TnT tagger
+The following sentence is extracted from the first verse of Völuspá (poem describing destiny of Agards gods).
+``````````
+.. code-block:: python
+
+   In [1]: tagger.tag_tnt('Hlióðs bið ek allar.')
+   Out[1]:
+   [('Hlióðs', 'Unk'),
+   ('bið', 'VBPI'),
+   ('ek', 'PRO-N'),
+   ('allar', 'Q-A'),
+   ('.', '.')]
