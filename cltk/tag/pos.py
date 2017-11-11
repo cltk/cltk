@@ -12,7 +12,6 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
-
 TAGGERS = {'greek':
                {'unigram': 'unigram.pickle',
                 'bigram': 'bigram.pickle',
@@ -27,10 +26,15 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
-                'crf': 'crf.pickle',}}
+                'crf': 'crf.pickle',
+                },
+           'old_norse':
+               {'tnt': 'tnt.pickle'
+               }
+           }
 
 
-class POSTag():
+class POSTag:
     """Tag words' parts-of-speech."""
 
     def __init__(self, language: str):
@@ -49,6 +53,7 @@ class POSTag():
         rel_path = os.path.join('~/cltk_data',
                                 lang,
                                 'model/' + lang + '_models_cltk/taggers/pos')  # pylint: disable=C0301
+        rel_path = "C:\\Users\\Clément\\PycharmProjects\\old_norse_models_cltk\\taggers\\pos"
         path = os.path.expanduser(rel_path)
         tagger_paths = {}
         for tagger_key, tagger_val in TAGGERS[lang].items():

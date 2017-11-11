@@ -40,3 +40,21 @@ To use the CLTK's built-in stopwords list, We use an example from Eiríks saga r
    Out[6]:   ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
 
 
+
+POS tagging
+===========
+
+Thanks to TnT implemented in NLTK, you can get the POS tags of Old Norse texts. The model, first import the ``old_norse_models_cltk`` corpus.
+Taggers are trained from an annotated corpus. You can find it at http://www.linguist.is/icelandic_treebank/Download and it is Icelandic Parsed Historical Corpus (IcePaHC) version 0.9.
+TnT tagger
+The following sentence is extracted from the first verse of Völuspá (poem describing destiny of Agards gods).
+``````````
+.. code-block:: python
+
+   In [1]: tagger.tag_tnt('Hlióðs bið ek allar.')
+   Out[1]:
+   [('Hlióðs', 'Unk'),
+   ('bið', 'VBPI'),
+   ('ek', 'PRO-N'),
+   ('allar', 'Q-A'),
+   ('.', '.')]
