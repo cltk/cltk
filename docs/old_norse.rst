@@ -21,9 +21,8 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 Stopword Filtering
 ==================
 
-To use the CLTK's built-in stopwords list, We use an example from Eiríks saga rauða
-(http://www.heimskringla.no/wiki/Eir%C3%ADks_saga_rau%C3%B0a):
-
+To use the CLTK's built-in stopwords list, We use an example from `Eiríks saga rauða
+<http://www.heimskringla.no/wiki/Eir%C3%ADks_saga_rau%C3%B0a>`_:
 .. code-block:: python
 
    In [1]: from nltk.tokenize.punkt import PunktLanguageVars
@@ -38,7 +37,6 @@ To use the CLTK's built-in stopwords list, We use an example from Eiríks saga r
 
    In [6]: [w for w in tokens if not w in STOPS_LIST]
    Out[6]:   ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
-
 
 
 POS tagging
