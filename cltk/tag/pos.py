@@ -53,7 +53,6 @@ class POSTag:
         rel_path = os.path.join('~/cltk_data',
                                 lang,
                                 'model/' + lang + '_models_cltk/taggers/pos')  # pylint: disable=C0301
-        rel_path = "C:\\Users\\Clément\\PycharmProjects\\old_norse_models_cltk\\taggers\\pos"
         path = os.path.expanduser(rel_path)
         tagger_paths = {}
         for tagger_key, tagger_val in TAGGERS[lang].items():
