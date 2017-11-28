@@ -41,6 +41,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+        corpus_importer = CorpusImporter("old_norse")
+        corpus_importer.import_corpus("old_norse_models_cltk")
+        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag('greek')
@@ -196,6 +203,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',),
                   ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
         self.assertEqual(tokens, target)
+
+    def test_pos_tnt_tagger_old_norse(self):
+        """Test tagging Old Norse POS with TnT tagger."""
+        tagger = POSTag('old_norse')
+        tagged = tagger.tag_tnt('Hlióðs bið ek allar.')
+        print(tagged)
+        self.assertTrue(tagged)
 
 if __name__ == '__main__':
     unittest.main()
