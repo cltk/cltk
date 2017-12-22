@@ -2,6 +2,7 @@ Marathi
 *******
 Marathi is an Indian language spoken predominantly by the Marathi people of Maharashtra. Marathi has some of the oldest literature of all modern Indo-Aryan languages, dating from about 900 AD. Early Marathi literature written during the Yadava (850-1312 CE) was mostly religious and philosophical in nature. Dnyaneshwar (1275–1296) was the first Marathi literary figure who had wide readership and profound influence. His major works are Amrutanubhav and Bhavarth Deepika (popularly known as Dnyaneshwari), a 9000-couplet long commentary on the Bhagavad Gita. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Marathi_language>`_)
 
+
 Corpora
 =======
 Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``Marathi_``) to discover available Marathi corpora.
@@ -16,6 +17,7 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
    Out[3]:
    ['Marathi_text_wikisource']
 
+
 Tokenizer
 =========
 
@@ -25,43 +27,38 @@ Tokenizer
 
    In [2]: sentence = "आतां विश्वात्मके देवे, येणे वाग्यज्ञे तोषावे, तोषोनि मज द्यावे, पसायदान हे"
 
-   In [3]: Marathi_text_tokenize = i_word(sentence)
-
-   In [4]: Marathi_text_tokenize
-   ['आतां', 'विश्वात्मके', 'देवे,', 'येणे', 'वाग्यज्ञे', 'तोषावे,', 'तोषोनि', 'मज', 'द्यावे,', 'पसायदान', 'हे']
+   In [3]: print(i_word(sentence))
+   ['आतां', 'विश्वात्मके', 'देवे', ',', 'येणे', 'वाग्यज्ञे', 'तोषावे', ',', 'तोषोनि', 'मज', 'द्यावे', ',', 'पसायदान', 'हे']
 
 
-Alphabets
+Alphabet
 =========
-Alphabets of Marathi language are placed in cltk/corpus/Marathi/alphabet.py.
-``DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']``
+
+The alphabet of Marathi language are placed in cltk/corpus/Marathi/alphabet.py.
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.Marathi.alphabet import DIGITS
+   In [1]: from cltk.corpus.marathi.alphabet import DIGITS
 
-   In [2]: DIGITS[5]
+   In [2]: print(DIGITS)
+   ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
 
-   Out[2]: '५'
 
+There are 13 vowels in Marathi. All vowels have their independent form and a matra form, which are used for modifying consonants: ``VOWELS = ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'अॅ', 'ऑ']``.
 
-There are 13 vowels in Marathi. All vowels have their indepenedent form and a matra form, which are used for modifying consonents: ``VOWELS = ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'अॅ', 'ऑ']``.
-
-The International Alphabet of Sanskrit Transliteration (I.A.S.T.) is a transliteration scheme that allows the lossless
-romanization of Indic scripts as employed by Sanskrit and related Indic languages. It is based on a scheme that emerged
-during the nineteenth century from suggestions by Charles Trevelyan, William Jones, Monier Monier-Williams and
-other scholars, and formalised by the Transliteration Committee of the Geneva Oriental Congress, in September 1894.
+The International Alphabet of Sanskrit Transliteration (I.A.S.T.) is a transliteration scheme that allows the lossless \
+romanization of Indic scripts as employed by Sanskrit and related Indic languages. \
 IAST makes it possible for the reader to read the Indic text unambiguously, exactly as if it were in the original Indic script. The vowels would be represented thus: ``IAST_REPRESENTATION_VOWELS = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'e', 'ai', 'o', 'au', 'ae', 'ao']``.
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.Marathi.alphabet import VOWELS
+   In [1]: from cltk.corpus.marathi.alphabet import VOWELS
 
    In [2]: VOWELS
 
    Out[2]: ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'अॅ', 'ऑ']
 
-   In [3]: from cltk.corpus.Marathi.alphabet import IAST_REPRESENTATION_VOWELS
+   In [3]: from cltk.corpus.marathi.alphabet import IAST_REPRESENTATION_VOWELS
 
    In [4]: IAST_REPRESENTATION_VOWELS
 
