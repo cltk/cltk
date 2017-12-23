@@ -31,10 +31,22 @@ Tokenizer
    ['आतां', 'विश्वात्मके', 'देवे', ',', 'येणे', 'वाग्यज्ञे', 'तोषावे', ',', 'तोषोनि', 'मज', 'द्यावे', ',', 'पसायदान', 'हे']
 
 
+Stopwords
+=========
+Stop words of classical marathi calculated from "dnyaneshwari" and "Haripath".
+
+.. code-block:: python
+
+    In [1]: from cltk.stop.marathi.stops import STOP_LIST
+
+    In [2]: print(STOP_LIST[1])
+    "तरी"
+
+
 Alphabet
 =========
 
-The alphabet of Marathi language are placed in cltk/corpus/Marathi/alphabet.py.
+The alphabets of Marathi language are placed in cltk/corpus/Marathi/alphabet.py.
 
 .. code-block:: python
 
