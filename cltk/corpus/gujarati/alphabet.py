@@ -1,15 +1,13 @@
-""" GUJARATI is an INDO-ARYAN language native to the state of Gujarat. It is spoken in the state of Gujarat in addition to the
-union territories of Daman & Diu and Dadra & Nagar Haveli.
-
-The Gujarati language has 44 letters 11 VOWELS and 33 CONSONANTS.
+"""
+The Gujarati language has 46 letters 13 VOWELS and 33 CONSONANTS.
 """
 
 __author__ = ['Dhruv Apte']
 __license__ = 'MIT License.See LICENSE.'
 
-DIGITS = ['૧','૨','૩','૪','૫','૬','૭','૮','૯','૧૦']
+DIGITS = ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯','૧૦']
 
-VOWELS = [ 'અ' , 'આ' , 'ઇ' , 'ઈ' , 'ઉ' , 'ઊ' , 'ઋ' , 'એ' , 'ઐ' , 'ઓ' , 'ઔ' ] 
+VOWELS = [ 'અ' , 'આ' , 'ઇ' , 'ઈ' , 'ઉ' , 'ઊ' , 'ઋ' , 'એ' , 'ઐ' , 'ઓ' , 'ઔ' , 'અં' , 'અઃ' , 'ઋ' ] 
 
 DEPENDENT_VOWELS = [ 'ા ' ,  'િ' ,  'ી' , 'ો' , 'ૌ' ]
 
