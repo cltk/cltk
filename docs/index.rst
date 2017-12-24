@@ -24,6 +24,7 @@ Contents
    old_english
    middle_english
    french
+   gujarati
    greek
    hebrew
    hindi
