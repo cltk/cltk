@@ -45,58 +45,93 @@ upper teeth (e.g., Spanish ``t``).
 
 .. code-block:: python
 
-   VELAR_CONSONANTS = [ 'ક' , 'ખ' , 'ગ' , 'ઘ' , 'ઙ' ]
+   # Digits 
 
-   PALATAL_CONSONANTS = ['ચ' , 'છ' , 'જ' , 'ઝ' , 'ઞ' ]
+   In[1]: from cltk.corpus.gujarati.alphabet import DIGITS
 
-   RETROFLEX_CONSONANTS = ['ટ' , 'ઠ' , 'ડ' , 'ઢ' , 'ણ']
-
-   DENTAL_CONSONANTS = ['ત' , 'થ' , 'દ' , 'ધ' , 'ન' ]
-
-   LABIAL_CONSONANTS = ['પ' , 'ફ' , 'બ' , 'ભ' , 'મ']
+   In[2]: print(DIGITS)
+   Out[2]:  ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯','૧૦']
    
-   IAST_VELAR_CONSONANTS = ['k', 'kh', 'g', 'gh', 'ṅ']
+   # Velar consonants
    
-   IAST_PALATAL_CONSONANTS = ['ch', 'chh', 'j', 'jh', 'ñ']
+   In[3]: from cltk.corpus.gujarati.alphabet import VELAR_CONSONANTS
    
-   IAST_RETROFLEX_CONSOnANTS = ['ṭ', 'ṭh', 'ḍ', 'ḍh', 'ṇ']
+   In[4]: print(VELAR_CONSONANTS)
+   Out[4]: [ 'ક' , 'ખ' , 'ગ' , 'ઘ' , 'ઙ' ]
    
-   IAST_DENTAL_CONSONANTS = ['t', 'th', 'd', 'dh', 'n']
+   # Palatal consonants
    
-   IAST_LABIAL_CONSONANTS = ['p', 'ph', 'b', 'bh', 'm']
+   In[5]: from cltk.corpus.gujarati.alphabet import PALATAL_CONSONANTS
    
+   In[6]: print(PALATAL_CONSONANTS)
+   Out[6]: ['ચ' , 'છ' , 'જ' , 'ઝ' , 'ઞ' ]
+   
+   # Retroflex consonants
+   
+   In[7]: from cltk.corpus.gujarati.alphabet import RETROFLEX_CONSONANTS
+   
+   In[8]: print(RETROFLEX_CONSONANTS)
+   Out[8]: ['ટ' , 'ઠ' , 'ડ' , 'ઢ' , 'ણ']
+   
+   # Dental consonants
+   
+   In[9]: from cltk.corpus.gujarati.alphabet import DENTAL_CONSONANTS
+   
+   In[10]: print(DENTAL_CONSONANTS)
+   Out[10]: ['ત' , 'થ' , 'દ' , 'ધ' , 'ન' ]
+   
+   # Labial consonants
+   
+   In[11]: from cltk.corpus.gujarati.alphabet import LABIAL_CONSONANTS
+   
+   In[12]: print(LABIAL_CONSONANTS)
+   Out[12]: ['પ' , 'ફ' , 'બ' , 'ભ' , 'મ']
+  
 There are 4 sonorant consonants in Gujarati:
 
 .. code-block:: python
 
-   SONORANT_CONSONANTS = ['ય' , 'ર' , 'લ' , 'વ']
+   # Sonorant consonants
    
-   IAST_SONORANT_CONSONANTS = ['y', 'r', 'l', 'v']
+   In[1]: from cltk.corpus.gujarati.alphabet import SONORANT_CONSONANTS
+
+   In[2]: print(SONORANT_CONSONANTS)
+   Out[2]: ['ય' , 'ર' , 'લ' , 'વ']
    
 There are 3 sibilants in Gujarati: 
 
 .. code-block:: python
 
-   SIBILANT_CONSONANTS = ['શ' , 'ષ' , 'સ']
+   # Sibilant consonants
    
-   IAST_SIBILANT_CONSONANTS = ['ś', 'ṣ', 's']
+   In[1]: from cltk.corpus.gujarati.alphabet import SIBILANT_CONSONANTS 
+   
+   In[2]: print(SIBILANT_CONSONANTS)
+   Out[2]: ['શ' , 'ષ' , 'સ']
    
 There is one guttural consonant also:
 
 .. code-block:: python
 
-   GUTTURAL_CONSONANT = ['હ']
+   # Guttural consonant
    
-   IAST_GUTTURAL_CONSONANT = ['h']
+   In[1]: from cltk.corpus.gujarati.alphabet import GUTTURAL_CONSONANT 
+   
+   In[2]: print(GUTTURAL_CONSONANTS)
+   Out[2]:['હ']
    
 There are also three additional consonants in Gujarati: 
 
 .. code-block:: python
 
-   ADDITIONAL_CONSONANTS = ['ળ' , 'ક્ષ' , 'જ્ઞ']
+   # Additional consonants
    
-   IAST_ADDITIONAL_CONSONANTS = ['ḷ' , 'kṣ' , 'gñ']
+   In[1]: from cltk.corpus.gujarati.alphabet import ADDITIONAL_CONSONANTS
 
+   In[2]: print(ADDITIONAL_CONSONANTS)
+   Out[2]: ['ળ' , 'ક્ષ' , 'જ્ઞ']
+   
+  
 
 
 
