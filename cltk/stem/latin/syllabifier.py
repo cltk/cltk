@@ -27,6 +27,7 @@ LATIN = {'diphthongs': ["ae", "au", "ei", "eu", "oe"],
          'vowels': [
              "a", "e", "i", "o", "u",
              "á", "é", "í", "ó", "ú",
+             "ā", "ē", "ī", "ō", "ū",
              "æ", "œ",
              "ǽ",  # no accented œ in unicode?
              "y"

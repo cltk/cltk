@@ -10,6 +10,16 @@ import os
 import sys
 import time
 
+from cltk.utils.cltk_logger import logger
+
+# TODO: Fix this
+# KJ added this to fix failing build on Travis CI. Gensim seems to load boto, which in turn causes an error.
+try:
+    from gensim.models import Word2Vec
+except AttributeError:
+    logger.error('Command `from gensim.models import Word2Vec` failed with AttributeError.')
+
+
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
@@ -20,7 +30,6 @@ from cltk.stop.latin.stops import STOPS_LIST as latin_stops
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
-
 
 
 def gen_docs(corpus, lemmatize, rm_stops):
@@ -140,9 +149,8 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
     model_name = '{0}_s100_w30_min5_sg{1}.model'.format(language, lemma_str)
     model_dir_abs = os.path.expanduser(model_dirs[language])
     model_path = os.path.join(model_dir_abs, model_name)
-    w2v = Word2Vec()
     try:
-        model = w2v.load(model_path)
+        model = Word2Vec.load(model_path)
     except FileNotFoundError as fnf_error:
         print(fnf_error)
         print("CLTK's Word2Vec models cannot be found. Please import '{}_word2vec_cltk'.".format(language))
@@ -165,12 +173,3 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
         print("Matches found, but below the threshold of 'threshold={}'. Lower it to see these results.".format(threshold))
     return returned_sims
 
-
-if __name__ == '__main__':
-    try:
-        from gensim.models import Word2Vec
-    except ImportError:
-        print('Gensim not installed.')
-        raise
-    similar_vectors = get_sims('ἄνδρες', 'greek', lemmatized=True, threshold=0)
-    print(similar_vectors)

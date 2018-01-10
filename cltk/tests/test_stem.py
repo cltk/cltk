@@ -15,6 +15,7 @@ from cltk.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
 from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
 from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
 from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
+from cltk.stem.french.stem import stem
 
 import os
 import unittest
@@ -47,6 +48,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stemmed_text = stemmer.stem(sentence.lower())
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=line-too-long
         self.assertEqual(stemmed_text, target)
+
 
     def test_lemmatizer_inlist_latin(self):
         """Test the Latin lemmatizer.
@@ -199,6 +201,19 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         syllables = syllabifier.syllabify(word)
         target = ['si', 'de', 're']
         self.assertEqual(syllables, target)
+        # tests for macronized words
+        macronized_word = 'audītū'
+        macronized_syllables = syllabifier.syllabify(macronized_word)
+        macronized_target = ['au', 'dī', 'tū']
+        self.assertEqual(macronized_syllables, macronized_target)
+        macronized_word2 = 'conjiciō'
+        macronized_syllables2 = syllabifier.syllabify(macronized_word2)
+        macronized_target2 = ['con', 'ji', 'ci', 'ō']
+        self.assertEqual(macronized_syllables2, macronized_target2)
+        macronized_word3 = 'ā'
+        macronized_syllables3 = syllabifier.syllabify(macronized_word3)
+        macronized_target3 = ['ā']
+        self.assertEqual(macronized_syllables3, macronized_target3)
 
     def test_syllabify(self):
         """Test Indic Syllabifier method"""
@@ -527,6 +542,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             UnknownLemma, decline
         )
 
+    def french_stemmer_test(self):
+        sentence = "ja departissent a itant quant par la vile vint errant tut a cheval " \
+                    "une pucele en tut le siecle n'ot si bele un blanc palefrei chevalchot"
+        stemmed_text = stem(sentence)
+        target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
+                    " chevalcho "
+        self.assertEqual(stemmed_text, target)
 
 if __name__ == '__main__':
     unittest.main()
