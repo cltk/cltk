@@ -83,6 +83,18 @@ Here is a sentence extracted from *Gylfaginning* in the *Edda* by Snorri Sturlus
     Out[3]:['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.']
 
 
+Word Tokenizing
+===============
+A very simple tokenizer is available for Old Norse. For now, it does not take into account specific Old Norse constructions like the merge of conjugated verbs with þú and with sik.
+Here is a sentence extracted from Gylfaginning.
+.. code-block:: python
+
+   In [1]: word_tokenizer = WordTokenizer('old_norse')
+   In [2]: sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr."
+   In [3]: result = word_tokenizer.tokenize(sentence)
+   In [4]: result
+   Out[4]: ['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.']
+
 POS tagging
 ===========
 
