@@ -48,6 +48,18 @@ To use the CLTK's built-in stopwords list, We use an example from `Eiríks saga 
     ',',
     'glitraði']
 
+Word Tokenizing
+===============
+A very simple tokenizer is available for Old Norse. For now, it does not take into account specific Old Norse constructions like the merge of conjugated verbs with þú and with sik.
+Here is a sentence extracted from Gylfaginning.
+.. code-block:: python
+
+   >>> word_tokenizer = WordTokenizer('old_norse')
+   >>> sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr."
+   >>> result = word_tokenizer.tokenize(sentence)
+   >>> result
+   ['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.']
+
 
 POS tagging
 ===========
@@ -66,7 +78,6 @@ The following sentence is from the first verse of Völuspá (a poem describing d
    >>> tagger = POSTag('old_norse')
 
    >> sent = 'Hlióðs bið ek allar.'
-
    >>> tagger.tag_tnt(sent)
    [('Hlióðs', 'Unk'),
     ('bið', 'VBPI'),
