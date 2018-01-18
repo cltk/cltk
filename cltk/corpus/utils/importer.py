@@ -45,7 +45,7 @@ __license__ = 'MIT License. See LICENSE.'
 AVAILABLE_LANGUAGES = ['arabic','chinese', 'coptic', 'greek', 'hebrew', 'latin', 'multilingual',
                        'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
                        'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
-                       'malayalam', 'marathi', 'javanese','old_norse','telugu','classical_hindi',
+                       'malayalam', 'marathi', 'javanese', 'old_norse', 'telugu', 'classical_hindi',
                        'french']
 
 
@@ -69,10 +69,10 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'malayalam': MALAYALAM_CORPORA,
                     'marathi': MARATHI_CORPORA,
                     'javanese': JAVANESE_CORPORA,
-                    'old_norse':OLD_NORSE_CORPORA,
-                    'telugu':TELUGU_CORPORA,
-                    'classical_hindi':CLASSICAL_HINDI_CORPORA,
-                    'french':FRENCH_CORPORA,
+                    'old_norse':  OLD_NORSE_CORPORA,
+                    'telugu': TELUGU_CORPORA,
+                    'classical_hindi': CLASSICAL_HINDI_CORPORA,
+                    'french': FRENCH_CORPORA,
                     }
 
 
