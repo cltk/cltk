@@ -69,7 +69,7 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'malayalam': MALAYALAM_CORPORA,
                     'marathi': MARATHI_CORPORA,
                     'javanese': JAVANESE_CORPORA,
-                    'old_norse':  OLD_NORSE_CORPORA,
+                    'old_norse': OLD_NORSE_CORPORA,
                     'telugu': TELUGU_CORPORA,
                     'classical_hindi': CLASSICAL_HINDI_CORPORA,
                     'french': FRENCH_CORPORA,
@@ -89,7 +89,7 @@ class ProgressPrinter(RemoteProgress):
             sys.stdout.write('Downloaded %s%% %s \r' % (percentage, message))
 
 
-class CorpusImporter():
+class CorpusImporter:
     """Import CLTK corpora."""
 
     def __init__(self, language, testing=False):
@@ -117,8 +117,8 @@ class CorpusImporter():
                     self.all_corpora.append(corpus)
             except KeyError:
                 logger.debug('Nothing in the official repos '
-                            'for "{}" language. Make the all_corpora solely '
-                            'from the .yaml'.format(self.language))
+                             'for "{}" language. Make the all_corpora solely '
+                             'from the .yaml'.format(self.language))
                 self.all_corpora = []
                 for corpus in self.user_defined_corpora:
                     self.all_corpora.append(corpus)
@@ -243,7 +243,7 @@ class CorpusImporter():
         logger.error(msg)
         raise CorpusImportError(msg)
 
-    def _git_user_defined_corpus(self, corpus_name, corpus_type, uri:str, branch='master'):
+    def _git_user_defined_corpus(self, corpus_name, corpus_type, uri: str, branch='master'):
         """Clone or update a git repo defined by user.
         TODO: This code is very redundant with what's in import_corpus(),
         could be refactored.
