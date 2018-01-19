@@ -201,6 +201,19 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         syllables = syllabifier.syllabify(word)
         target = ['si', 'de', 're']
         self.assertEqual(syllables, target)
+        # tests for macronized words
+        macronized_word = 'audītū'
+        macronized_syllables = syllabifier.syllabify(macronized_word)
+        macronized_target = ['au', 'dī', 'tū']
+        self.assertEqual(macronized_syllables, macronized_target)
+        macronized_word2 = 'conjiciō'
+        macronized_syllables2 = syllabifier.syllabify(macronized_word2)
+        macronized_target2 = ['con', 'ji', 'ci', 'ō']
+        self.assertEqual(macronized_syllables2, macronized_target2)
+        macronized_word3 = 'ā'
+        macronized_syllables3 = syllabifier.syllabify(macronized_word3)
+        macronized_target3 = ['ā']
+        self.assertEqual(macronized_syllables3, macronized_target3)
 
     def test_syllabify(self):
         """Test Indic Syllabifier method"""
