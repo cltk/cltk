@@ -301,6 +301,24 @@ The line tokenizer by default removes multiple line breaks. If you wish to retai
    In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
 
    Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+   
+
+Load sample texts
+=================
+Following the example of Chapter 1 from the NLTK Book, CLTK includes a module for loading sample Latin texts and sentences with a single command. Note that this module requires the Latin Library corpus to work.
+
+.. code-block:: python
+
+   In [1]: from cltk.book.latin import Latin
+   
+   Out[1]: *** Introductory Examples for testing CLTK Latin ***
+Loading text1, ..., text3 and sent1, ..., sent3
+Type the name of the text or sentence to view it, e.g. Latin.text1 or Latin.sent2.
+Type: 'Latin.texts()' or 'Latin.sents()' to list the materials.
+Latin.text1: Cicero, In Catilinam
+Latin.text2: Seneca, Epistulae Morales
+Latin.text3: Biblia Sacra, Genesis
+
 
 Macronizer
 ==========
