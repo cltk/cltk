@@ -43,7 +43,7 @@ except IOError as e:
     try:
         # Necessary for Travis tests to pass?
         ll_path_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library')
-        ll_path = os.path.expanduser(file_rel)
+        ll_path = os.path.expanduser(ll_path_rel)
         latinlibrary = PlaintextCorpusReader(ll_path, 
     '.*\.txt',
     word_tokenizer=word_tokenizer, 
