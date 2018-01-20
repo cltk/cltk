@@ -40,5 +40,15 @@ try:
     encoding='utf-8')    
     pass
 except IOError as e:
-    pass
-    # print("Corpus not found. Please check that the Latin Library is installed in CLTK_DATA.")
+    try:
+        # Necessary for Travis tests to pass?
+        ll_path_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library')
+        ll_path = os.path.expanduser(file_rel)
+        latinlibrary = PlaintextCorpusReader(ll_path, 
+    '.*\.txt',
+    word_tokenizer=word_tokenizer, 
+    sent_tokenizer=sent_tokenizer, 
+    encoding='utf-8')
+    except IOError as e:
+        pass
+        # print("Corpus not found. Please check that the Latin Library is installed in CLTK_DATA.")
