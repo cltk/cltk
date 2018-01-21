@@ -4,19 +4,8 @@ __author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
 __license__ = 'MIT License. See LICENSE.'
 
 import os
-
 from nltk.text import Text
-#from nltk.probability import FreqDist
 
-ll_path = "~/cltk_data/latin/text/latin_text_latin_library"
-ll_path = os.path.expanduser(ll_path)
-
-if os.path.isdir(ll_path) == False:
-    print('The Latin Library corpus is not available in cltk_data. Please download the latin_text_latin_library corpus from https://github.com/cltk/cltk and add to cltk_data directory to use this feature.')
-else:
-    from cltk.corpus.latin import (latinlibrary)
-
-    
 class LatinSetup(object):    
     
     def __init__(self):
@@ -57,4 +46,10 @@ class LatinSetup(object):
         print("Latin.sent3:", " ".join(self.sent3))
     #    print("sent4:", " ".join(self.sent4))
     
-Latin = LatinSetup()
+    
+try:
+    from cltk.corpus.latin import (latinlibrary)
+    Latin = LatinSetup()
+except:
+    print("""The Latin Library corpus is not available in cltk_data. Please download the latin_text_latin_library corpus from https://github.com/cltk/cltk and add to cltk_data directory to use this feature.""")
+    Latin = None

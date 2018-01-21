@@ -22,6 +22,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         from cltk.book.latin import Latin
         self.text1 = Latin.text1
         
+        
     def test_book_latin(self):
         """Test importing Latin Book code""" 
         test_name = self.text1.name
