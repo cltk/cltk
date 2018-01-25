@@ -42,3 +42,4 @@ Contents
    telugu
    tibetan
    urdu
+   odia
