@@ -1,4 +1,4 @@
-"""This list is composed from 100 most frequently occuring words in mrathi corpus in CLTK.
+"""This list is composed from 100 most frequently occuring words in marathi corpus in CLTK.
 """
 
 STOP_LIST =["न",
