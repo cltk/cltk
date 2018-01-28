@@ -7,27 +7,27 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
 import re
 
-# Cleanup these imports—most are not used!
-from nltk.data              import load
-from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
-from nltk.tokenize.mwe      import MWETokenizer
-from nltk.tokenize.punkt    import PunktSentenceTokenizer
-from nltk.tokenize.regexp   import (RegexpTokenizer, WhitespaceTokenizer,
-                                    BlanklineTokenizer, WordPunctTokenizer,
-                                    wordpunct_tokenize, regexp_tokenize,
-                                    blankline_tokenize)
-#from nltk.tokenize.repp     import ReppTokenizer
-from nltk.tokenize.sexpr    import SExprTokenizer, sexpr_tokenize
-from nltk.tokenize.simple   import (SpaceTokenizer, TabTokenizer, LineTokenizer,
-                                    line_tokenize)
-from nltk.tokenize.stanford import StanfordTokenizer
-from nltk.tokenize.texttiling import TextTilingTokenizer
-#from nltk.tokenize.toktok   import ToktokTokenizer
-from nltk.tokenize.treebank import TreebankWordTokenizer
-from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
-from nltk.tokenize.stanford_segmenter import StanfordSegmenter
-
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
+
+# Cleanup these imports—most are not used!
+# DELETE from nltk.data              import load
+# DELETE from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
+# DELETE from nltk.tokenize.mwe      import MWETokenizer
+# DELETE from nltk.tokenize.punkt    import PunktSentenceTokenizer #REDUNDANT
+# DELETE from nltk.tokenize.regexp   import (RegexpTokenizer, WhitespaceTokenizer,
+# DELETE                                     BlanklineTokenizer, WordPunctTokenizer,
+# DELETE                                     wordpunct_tokenize, regexp_tokenize,
+# DELETE                                     blankline_tokenize)
+# DELETE #from nltk.tokenize.repp     import ReppTokenizer
+# DELETE from nltk.tokenize.sexpr    import SExprTokenizer, sexpr_tokenize
+# DELETE from nltk.tokenize.simple   import (SpaceTokenizer, TabTokenizer, LineTokenizer,
+# DELETE                                     line_tokenize)
+# DELETE from nltk.tokenize.stanford import StanfordTokenizer
+# DELETE from nltk.tokenize.texttiling import TextTilingTokenizer
+# DELETE #from nltk.tokenize.toktok   import ToktokTokenizer
+# DELETE from nltk.tokenize.treebank import TreebankWordTokenizer
+# DELETE from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
+# DELETE from nltk.tokenize.stanford_segmenter import StanfordSegmenter
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Natasha Voake <natashavoake@gmail.com>']
