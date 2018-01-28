@@ -48,7 +48,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
     def tokenize(self, string):
         """Tokenize incoming string."""
-
+        
         if self.language == 'latin':
             tokens = tokenize_latin_words(string)
         elif self.language == 'french':
@@ -57,6 +57,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokens = tokenize_arabic_words(string)
         elif self.language == 'old_norse':
             tokens = tokenize_old_norse_words(string)
+        elif self.language == 'greek':
+            tokens = tokenize_greek_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -262,3 +264,17 @@ def tokenize_old_norse_words(text):
 
     results = str.split(text)
     return results
+    
+
+def tokenize_greek_words(text):
+    """
+    Tokenizer divides the string into a list of substrings
+    >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+    >>> tokenize_greek_words(text)
+    >>> [OUTPUT]
+      
+    :param string: This accepts the string value that needs to be tokenized
+    :returns: A list of substrings extracted from the string
+    """
+    
+    return nltk_tokenize_words(text) # Simplest implementation to start
