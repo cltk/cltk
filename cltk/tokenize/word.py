@@ -16,26 +16,6 @@ import re
 
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
 
-# Cleanup these imports—most are not used!
-# DELETE from nltk.data              import load
-# DELETE from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
-# DELETE from nltk.tokenize.mwe      import MWETokenizer
-# DELETE from nltk.tokenize.punkt    import PunktSentenceTokenizer #REDUNDANT
-# DELETE from nltk.tokenize.regexp   import (RegexpTokenizer, WhitespaceTokenizer,
-# DELETE                                     BlanklineTokenizer, WordPunctTokenizer,
-# DELETE                                     wordpunct_tokenize, regexp_tokenize,
-# DELETE                                     blankline_tokenize)
-# DELETE #from nltk.tokenize.repp     import ReppTokenizer
-# DELETE from nltk.tokenize.sexpr    import SExprTokenizer, sexpr_tokenize
-# DELETE from nltk.tokenize.simple   import (SpaceTokenizer, TabTokenizer, LineTokenizer,
-# DELETE                                     line_tokenize)
-# DELETE from nltk.tokenize.stanford import StanfordTokenizer
-# DELETE from nltk.tokenize.texttiling import TextTilingTokenizer
-# DELETE #from nltk.tokenize.toktok   import ToktokTokenizer
-# DELETE from nltk.tokenize.treebank import TreebankWordTokenizer
-# DELETE from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
-# DELETE from nltk.tokenize.stanford_segmenter import StanfordSegmenter
-
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
 
