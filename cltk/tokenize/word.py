@@ -12,8 +12,6 @@ import re
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
-import re
-
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
