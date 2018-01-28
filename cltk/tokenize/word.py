@@ -56,16 +56,16 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
     def tokenize(self, string):
         """Tokenize incoming string."""
         
-        if self.language == 'latin':
-            tokens = tokenize_latin_words(string)
+        if self.language == 'arabic':
+            tokens = tokenize_arabic_words(string)
         elif self.language == 'french':
             tokens = tokenize_french_words(string)
-        elif self.language == 'arabic':
-            tokens = tokenize_arabic_words(string)
-        elif self.language == 'old_norse':
-            tokens = tokenize_old_norse_words(string)
         elif self.language == 'greek':
             tokens = tokenize_greek_words(string)
+        elif self.language == 'latin':
+            tokens = tokenize_latin_words(string)
+        elif self.language == 'old_norse':
+            tokens = tokenize_old_norse_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -109,6 +109,56 @@ def nltk_tokenize_words(string, attached_period=False, language=None):
             new_tokens.append(word)
     return new_tokens
 
+
+def tokenize_arabic_words(text):
+
+    """
+        Tokenize text into words
+        @param text: the input text.
+        @type text: unicode.
+        @return: list of words.
+        @rtype: list.
+    """
+    specific_tokens = []
+    if not text:
+        return specific_tokens
+    else:
+        specific_tokens = araby.tokenize(text)
+        return specific_tokens
+        
+
+def tokenize_french_words(string):
+    assert isinstance(string, str), "Incoming string must be type str."
+
+    # normalize apostrophes
+
+    text = re.sub(r"’", r"'", string)
+
+    # Dealing with punctuation
+    text = re.sub(r"\'", r"' ", text)
+    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
+
+    results = str.split(text)
+    return (results)
+    
+    
+def tokenize_greek_words(text):
+    """
+    Tokenizer divides the string into a list of substrings. This is a placeholder
+    function that returns the default NLTK word tokenizer until
+    Greek-specific options are added.
+    
+    Example:
+    >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+    >>> tokenize_greek_words(text)
+    ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
+      
+    :param string: This accepts the string value that needs to be tokenized
+    :returns: A list of substrings extracted from the string
+    """
+    
+    return nltk_tokenize_words(text) # Simplest implementation to start
+        
 
 def tokenize_latin_words(string):
     """
@@ -220,38 +270,6 @@ def tokenize_latin_words(string):
     return specific_tokens
 
 
-def tokenize_french_words(string):
-    assert isinstance(string, str), "Incoming string must be type str."
-
-    # normalize apostrophes
-
-    text = re.sub(r"’", r"'", string)
-
-    # Dealing with punctuation
-    text = re.sub(r"\'", r"' ", text)
-    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
-
-    results = str.split(text)
-    return (results)
-
-
-def tokenize_arabic_words(text):
-
-    """
-        Tokenize text into words
-        @param text: the input text.
-        @type text: unicode.
-        @return: list of words.
-        @rtype: list.
-    """
-    specific_tokens = []
-    if not text:
-        return specific_tokens
-    else:
-        specific_tokens = araby.tokenize(text)
-        return specific_tokens
-
-
 def tokenize_old_norse_words(text):
     """
 
@@ -271,21 +289,3 @@ def tokenize_old_norse_words(text):
 
     results = str.split(text)
     return results
-    
-
-def tokenize_greek_words(text):
-    """
-    Tokenizer divides the string into a list of substrings. This is a placeholder
-    function that returns the default NLTK word tokenizer until
-    Greek-specific options are added.
-    
-    Example:
-    >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
-    >>> tokenize_greek_words(text)
-    ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
-      
-    :param string: This accepts the string value that needs to be tokenized
-    :returns: A list of substrings extracted from the string
-    """
-    
-    return nltk_tokenize_words(text) # Simplest implementation to start
