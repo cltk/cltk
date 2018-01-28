@@ -1,5 +1,10 @@
 """Language-specific word tokenizers. Primary purpose is to handle enclitics."""
 
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
+              'Natasha Voake <natashavoake@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
+
 import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -28,11 +33,6 @@ import cltk.corpus.arabic.utils.pyarabic.araby as araby
 # DELETE from nltk.tokenize.treebank import TreebankWordTokenizer
 # DELETE from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
 # DELETE from nltk.tokenize.stanford_segmenter import StanfordSegmenter
-
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Natasha Voake <natashavoake@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
-
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
