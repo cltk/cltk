@@ -8,6 +8,7 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
 import re
 
+# Cleanup these imports—most are not used!
 from nltk.data              import load
 from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
 from nltk.tokenize.mwe      import MWETokenizer
@@ -41,10 +42,16 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
-        self.available_languages = ['arabic', 'latin', 'french', 'old_norse']
+        self.available_languages = ['arabic', 
+                                    'french',
+                                    'greek',
+                                    'latin',
+                                    'old_norse']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
-                                                                                            self.available_languages)  # pylint: disable=line-too-long
+            self.available_languages)  # pylint: disable=line-too-long
+        # ^^^ Necessary? since we have an 'else' in `tokenize`
+        
 
     def tokenize(self, string):
         """Tokenize incoming string."""
@@ -268,10 +275,14 @@ def tokenize_old_norse_words(text):
 
 def tokenize_greek_words(text):
     """
-    Tokenizer divides the string into a list of substrings
+    Tokenizer divides the string into a list of substrings. This is a placeholder
+    function that returns the default NLTK word tokenizer until
+    Greek-specific options are added.
+    
+    Example:
     >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
     >>> tokenize_greek_words(text)
-    >>> [OUTPUT]
+    ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
       
     :param string: This accepts the string value that needs to be tokenized
     :returns: A list of substrings extracted from the string
