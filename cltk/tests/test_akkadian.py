@@ -24,6 +24,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = [['[a]', 'bum'], ['[ā]', 'lum'], ['[am]', 'tum'], ['[bē]', 'lum'], ['ḫu', '[rā]', 'ṣum'],
                   ['[il]', 'tum'], ['[i]', 'lum'], ['[kas]', 'pum'], ['[mār]', 'tum'], ['[mā]', 'rum'],
                   ['[qaq]', 'qa', 'dum'], ['[ṣā]', 'bum'], ['[šar]', 'ra', 'tum'], ['[šar]', 'rum'], ['[war]', 'dum']]
+
         self.assertEqual(stress, target)
 
     def test_lesson_1_exercise_e(self):
@@ -37,6 +38,19 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   ['tab', 'ni', '[an]', 'ni'], ['ni', '[qī]', 'aš'], ['e', '[pē]', 'šum'], ['[kul]', 'lu', 'mum'],
                   ['tab', '[nû]'], ['iš', 'ši', '[ak]', 'kum'], ['rē', '[dûm]'], ['[iq]', 'bi'], ['[pa]', 'ris'],
                   ['iš', 'me', '[ā]', 'nim'], ['[pe]', 'te'], ['šū', '[ṣû]']]
+
+        self.assertEqual(stress, target)
+
+    def test_lesson_2_exercise_b(self):
+        nouns = ['aššatum', 'bītum', 'emūqum', 'īnum', 'išdum', 'libbum', 'mutum', 'nārum', 'šīpātum', 'ṭuppum',
+                 'ummum', 'uznum']
+        stresser = StressFinder()
+        stress = []
+        for noun in nouns:
+            stress.append(stresser.find_stress(noun))
+        target = [['[aš]', 'ša', 'tum'], ['[bī]', 'tum'], ['e', '[mū]', 'qum'], ['[ī]', 'num'], ['[iš]', 'dum'],
+                  ['[lib]', 'bum'], ['[mu]', 'tum'], ['[nā]', 'rum'], ['šī', '[pā]', 'tum'], ['[ṭup]', 'pum'],
+                  ['[um]', 'mum'], ['[uz]', 'num']]
 
         self.assertEqual(stress, target)
 
