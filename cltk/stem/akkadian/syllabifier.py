@@ -31,8 +31,8 @@ class Syllabifier(object):
 
     def _is_vowel(self, char):
         return char in self.language['short_vowels'] + \
-                       self.language['macron_vowels'] + \
-                       self.language['circumflex_vowels']
+               self.language['macron_vowels'] + \
+               self.language['circumflex_vowels']
 
     def syllabify(self, word):
         syllables = []
@@ -64,8 +64,13 @@ class Syllabifier(object):
 
             # CV:
             if self._is_vowel(char):
-                syllables_reverse.append(word[i + 1] + word[i])
-                i += 2
+                if self._is_vowel(word[i + 1]):
+                    # Next char is a vowel so cut off syllable here
+                    syllables_reverse.append(word[i])
+                    i += 1
+                else:
+                    syllables_reverse.append(word[i + 1] + word[i])
+                    i += 2
 
             # CVC and VC:
             elif self._is_consonant(char):

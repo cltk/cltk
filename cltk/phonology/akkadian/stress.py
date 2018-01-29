@@ -3,8 +3,6 @@ Given an Akkadian word, either normalized or as a list of syllables, return a li
 syllable surounded by square brackets.
 """
 
-#TODO: fails on: ['hammurabi', 'išmeānim']
-
 from cltk.stem.akkadian.syllabifier import Syllabifier
 
 __author__ = ['M. Willis Monroe <willismonroe@gmail.com>']
@@ -34,8 +32,8 @@ class StressFinder(object):
 
     def _is_vowel(self, char):
         return char in self.language['short_vowels'] + \
-                       self.language['macron_vowels'] + \
-                       self.language['circumflex_vowels']
+               self.language['macron_vowels'] + \
+               self.language['circumflex_vowels']
 
     def _is_short_vowel(self, char):
         return char in self.language['short_vowels']

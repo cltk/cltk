@@ -32,9 +32,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stresser = StressFinder()
         stress = []
         for noun in nouns:
-            print(noun)
             stress.append(stresser.find_stress(noun))
-        print(stress)
+        target = [['mu', '[šal]', 'li', 'mum'], ['i', '[šāl]'], ['[i]', 'din'], ['id', 'di', 'nū', '[niš]', 'šum'],
+                  ['tab', 'ni', '[an]', 'ni'], ['ni', '[qī]', 'aš'], ['e', '[pē]', 'šum'], ['[kul]', 'lu', 'mum'],
+                  ['tab', '[nû]'], ['iš', 'ši', '[ak]', 'kum'], ['rē', '[dûm]'], ['[iq]', 'bi'], ['[pa]', 'ris'],
+                  ['iš', 'me', '[ā]', 'nim'], ['[pe]', 'te'], ['šū', '[ṣû]']]
+
+        self.assertEqual(stress, target)
 
 
 if __name__ == '__main__':
