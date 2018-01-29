@@ -24,6 +24,7 @@ Contents
    old_english
    middle_english
    french
+   gujarati
    greek
    hebrew
    hindi
@@ -32,6 +33,7 @@ Contents
    malayalam
    marathi
    multilingual
+   odia
    old_norse
    pali
    persian
