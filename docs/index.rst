@@ -29,10 +29,12 @@ Contents
    hebrew
    hindi
    javanese
+   kannada
    latin
    malayalam
    marathi
    multilingual
+   odia
    old_norse
    pali
    persian
@@ -42,4 +44,3 @@ Contents
    telugu
    tibetan
    urdu
-   odia
