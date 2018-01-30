@@ -24,4 +24,4 @@ The vowels are places in a list ``VOWELS`` and can be accessed in this manner :
    In [2]: VOWELS
    Out[2]: ['ଅ', 'ଆ', 'ଇ', 'ଈ', 'ଉ', 'ଊ', 'ଋ', 'ୠ', 'ଌ', 'ୡ', 'ଏ', 'ଐ', 'ଓ', 'ଔ']
 
-The rest of the alphabet are ``UNSTRUCTURED_CONSONANTS`` and ``STRUCTURED_CONSONANTS`` that can be accessed in a similar way.
+The rest of the alphabets are ``UNSTRUCTURED_CONSONANTS`` and ``STRUCTURED_CONSONANTS`` that can be accessed in a similar way.

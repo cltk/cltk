@@ -29,6 +29,7 @@ Contents
    hebrew
    hindi
    javanese
+   kannada
    latin
    malayalam
    marathi
