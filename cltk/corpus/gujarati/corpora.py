@@ -4,7 +4,7 @@ All remote corpora hosted by github on the cltk organization account, eg:
 """
 GUJARATI_CORPORA = [
  {'name': 'gujarati_text_wikisource',
-     'origin': 'https://github.com/the-ethan-hunt/gujarati_text_wikisource.git',
+     'origin': 'https://github.com/cltk/gujarati_text_wikisource.git',
      'location': 'remote',
      'type': 'text'},
    ]
