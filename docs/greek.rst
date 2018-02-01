@@ -641,6 +641,20 @@ To use the CLTK's built-in stopwords list:
     'αἰολέας.']
 
 
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Greek.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('gr')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ἐγώ', 'σύ', 'αὐτός, οὗ, ὅς, ὁ, οὗτος', 'ἡμεῖς', 'ὑμεῖς', 'αὐτοί', 'ὅδε', 'ἐκεῖνος', 'ἔνθα, ἐνθάδε, ἐνταῦθα', 'ἐκεῖ']
+   
+
 TEI XML
 =======
 
