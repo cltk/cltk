@@ -61,6 +61,23 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(len(tokenized_sentences), len(good_tokenized_sentences))
     '''
 
+
+    def test_greek_word_tokenizer(self):
+        """Test Latin-specific word tokenizer."""
+        word_tokenizer = WordTokenizer('greek')
+        
+        # Test sources:
+        # - Thuc. 1.1.1       
+        
+        test = "Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων, ὡς ἐπολέμησαν πρὸς ἀλλήλους, ἀρξάμενος εὐθὺς καθισταμένου καὶ ἐλπίσας μέγαν τε ἔσεσθαι καὶ ἀξιολογώτατον τῶν προγεγενημένων, τεκμαιρόμενος ὅτι ἀκμάζοντές τε ᾖσαν ἐς αὐτὸν ἀμφότεροι παρασκευῇ τῇ πάσῃ καὶ τὸ ἄλλο Ἑλληνικὸν ὁρῶν ξυνιστάμενον πρὸς ἑκατέρους, τὸ μὲν εὐθύς, τὸ δὲ καὶ διανοούμενον."
+
+        target = ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',', 'ὡς', 'ἐπολέμησαν', 'πρὸς', 'ἀλλήλους', ',', 'ἀρξάμενος', 'εὐθὺς', 'καθισταμένου', 'καὶ', 'ἐλπίσας', 'μέγαν', 'τε', 'ἔσεσθαι', 'καὶ', 'ἀξιολογώτατον', 'τῶν', 'προγεγενημένων', ',', 'τεκμαιρόμενος', 'ὅτι', 'ἀκμάζοντές', 'τε', 'ᾖσαν', 'ἐς', 'αὐτὸν', 'ἀμφότεροι', 'παρασκευῇ', 'τῇ', 'πάσῃ', 'καὶ', 'τὸ', 'ἄλλο', 'Ἑλληνικὸν', 'ὁρῶν', 'ξυνιστάμενον', 'πρὸς', 'ἑκατέρους', ',', 'τὸ', 'μὲν', 'εὐθύς', ',', 'τὸ', 'δὲ', 'καὶ', 'διανοούμενον', '.']
+
+        result = word_tokenizer.tokenize(test)
+
+        self.assertEqual(result, target)
+
+        
     def test_latin_word_tokenizer(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
@@ -213,7 +230,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   'vilja', 'þeira', '.']
         word_tokenizer = WordTokenizer('old_norse')
         result = word_tokenizer.tokenize(text)
-        print(result)
+        #print(result)
         self.assertTrue(result == target)
 
 if __name__ == '__main__':
