@@ -786,6 +786,20 @@ To use the CLTK's built-in stopwords list:
     '?']
 
 
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Latin.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('la')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ego', 'tū', 'is, ea, id', 'nōs', 'vōs', 'eī, iī, eae, ea', 'hic, haec, ho', 'ille, illa, illud', 'hīc', 'illic, ibi']
+
+
 Syllabifier
 ===========
 The syllabifier splits a given input Latin word into a list of syllables based on an algorithm and set of syllable specifications for Latin.
