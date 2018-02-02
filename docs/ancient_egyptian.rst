@@ -14,6 +14,7 @@ Transliteration conventions proposed by MdC are widely accepted though. Since at
 
 Here are the unicode equivalents of MdC transliteration scheme as it is represented in `transliterate_mdc`:
 
+
 +----------------------------+-----------------------------+
 | MdC                        | Unicode                     |
 +============================+=============================+
@@ -72,10 +73,6 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 | U+002b         | +         |                 |           |
 +----------------+-----------+-----------------+-----------+
 | U+0043         | C         | U+015a          | Ś         |
-+----------------+-----------+-----------------+-----------+
-|                |           |                 |           |
-+----------------+-----------+-----------------+-----------+
-|                |           |                 |           |
 +----------------+-----------+-----------------+-----------+
 
 
