@@ -18,8 +18,8 @@ from cltk.tokenize.word import WordTokenizer
 # Better to use something like make_cltk_path in cltk.utils.file_operations?
 home = os.path.expanduser('~')
 cltk_path = os.path.join(home, 'cltk_data')
-if not os.path.isdir(cltk_path):
-    os.makedirs(cltk_path)
+#if not os.path.isdir(cltk_path):
+#    os.makedirs(cltk_path)
 
 word_tokenizer = WordTokenizer('latin')
 
@@ -41,4 +41,16 @@ try:
     pass
 except IOError as e:
     pass
-    # print("Corpus not found. Please check that the Latin Library is installed in CLTK_DATA.")
+
+#    try:
+#        # Necessary for Travis tests to pass?
+#        ll_path_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library')
+#        ll_path = os.path.expanduser(ll_path_rel)
+#        latinlibrary = PlaintextCorpusReader(ll_path, 
+#    '.*\.txt',
+#    word_tokenizer=word_tokenizer, 
+#    sent_tokenizer=sent_tokenizer, 
+#    encoding='utf-8')
+#    except IOError as e:
+#        pass
+#        # print("Corpus not found. Please check that the Latin Library is installed in CLTK_DATA.")
