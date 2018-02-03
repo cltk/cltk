@@ -79,6 +79,23 @@ Once these files are created, see `PHI Indices <http://docs.cltk.org/en/latest/l
 See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>`_ for removing extraneous non-textual characters from these files.
 
 
+
+Corpus Readers
+==============
+
+Corpus readers for Latin corpora can be found in cltk.corpus.latin.readers. (At the moment only a PlaintextCorpusReader version of the Latin Library corpus is available. See here for PlaintextCorpusReader methods: http://www.nltk.org/_modules/nltk/corpus/reader/plaintext.html)
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.latin.readers import latinlibrary
+
+   In [2]: latinlibrary.fileids()[:5]
+   out [2]: ['12tables.txt', '1644.txt', 'abbofloracensis.txt', 'abelard/dialogus.txt', 'abelard/epistola.txt']
+   
+   In [3]: latinlibrary.raw()[:25]
+   Out [3]: 'DUODECIM TABULARUM LEGES\n'
+
+
 Information Retrieval
 =====================
 
