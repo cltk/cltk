@@ -48,8 +48,7 @@ class LatinSetup(object):
     
     
 try:
-    from cltk.corpus.latin import (latinlibrary)
+    from cltk.corpus.latin.readers import latinlibrary
     Latin = LatinSetup()
 except:
     print("""The Latin Library corpus is not available in cltk_data. Please download the latin_text_latin_library corpus from https://github.com/cltk/cltk and add to cltk_data directory to use this feature.""")
-    Latin = None
