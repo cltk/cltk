@@ -44,6 +44,8 @@ from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 from cltk.corpus.utils.formatter import normalize_fr
+from cltk.corpus.swadesh import Swadesh
+
 from unicodedata import normalize
 import os
 import unittest
@@ -727,6 +729,19 @@ class TestScriptInformation(unittest.TestCase):
 
     def test_is_indiclang_char(self):
         self.assertTrue(is_indiclang_char('क', 'hi'))
+        
+    def test_swadesh_greek(self):
+        swadesh = Swadesh('gr')
+        first_word = 'ἐγώ'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+
+    def test_swadesh_latin(self):
+        swadesh = Swadesh('la')
+        first_word = 'ego'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
 
 
 if __name__ == '__main__':
