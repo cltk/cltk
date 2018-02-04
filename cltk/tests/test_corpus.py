@@ -743,6 +743,12 @@ class TestScriptInformation(unittest.TestCase):
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
+    def test_swadesh_tocharianB(self):
+        swadesh = Swadesh('txb')
+        first_word = 'ñäś'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
 
 if __name__ == '__main__':
     unittest.main()
