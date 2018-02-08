@@ -522,8 +522,8 @@ class BackoffLatinLemmatizer(object):
         backoff1 = IdentityLemmatizer()
         backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
         backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=backoff2)                 
-        backoff4 = UnigramLemmatizer(self.train_sents, backoff=backoff3)        
-        backoff5 = RegexpLemmatizer(self.latin_sub_patterns, backoff=backoff4)
+        backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=backoff3)
+        backoff5 = UnigramLemmatizer(self.train_sents, backoff=backoff4)        
         backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)        
         #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         #lemmatizer = backoff7
