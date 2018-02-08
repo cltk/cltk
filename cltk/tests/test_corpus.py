@@ -24,6 +24,7 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
 from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
 from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
 from cltk.corpus.greek.tlgu import TLGU
+from cltk.corpus.latin.readers import latinlibrary
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
@@ -255,7 +256,8 @@ argenteo polubro, aureo eclutro. """
         non_latin_str = remove_non_latin(latin_str, also_keep=['.', ','])
         valid = ' Dices   pulchrum esse inimicos ulcisci.'
         self.assertEqual(non_latin_str, valid)
-
+        
+    ## Move corpus import to a setup function???
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
@@ -264,6 +266,16 @@ argenteo polubro, aureo eclutro. """
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
+        
+    
+    def test_load_latin_library_reader(self):
+        """Test cloning the Latin Library text corpus."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        from cltk.corpus.latin.readers import latinlibrary
+        fileids_exist = len(latinlibrary.fileids()) > 0
+        self.assertTrue(fileids_exist)
+        
 
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
