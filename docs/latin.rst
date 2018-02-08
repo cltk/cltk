@@ -79,6 +79,23 @@ Once these files are created, see `PHI Indices <http://docs.cltk.org/en/latest/l
 See also `Text Cleanup <http://docs.cltk.org/en/latest/latin.html#text-cleanup>`_ for removing extraneous non-textual characters from these files.
 
 
+
+Corpus Readers
+==============
+
+Corpus readers for Latin corpora can be found in cltk.corpus.latin.readers. (At the moment only a PlaintextCorpusReader version of the Latin Library corpus is available. See here for PlaintextCorpusReader methods: http://www.nltk.org/_modules/nltk/corpus/reader/plaintext.html)
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.latin.readers import latinlibrary
+
+   In [2]: latinlibrary.fileids()[:5]
+   out [2]: ['12tables.txt', '1644.txt', 'abbofloracensis.txt', 'abelard/dialogus.txt', 'abelard/epistola.txt']
+   
+   In [3]: latinlibrary.raw()[:25]
+   Out [3]: 'DUODECIM TABULARUM LEGES\n'
+
+
 Information Retrieval
 =====================
 
@@ -301,6 +318,24 @@ The line tokenizer by default removes multiple line breaks. If you wish to retai
    In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
 
    Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
+   
+
+Load sample texts
+=================
+Following the example of Chapter 1 from the NLTK Book, CLTK includes a module for loading sample Latin texts and sentences with a single command. Note that this module requires the Latin Library corpus to work.
+
+.. code-block:: python
+
+   In [1]: from cltk.book.latin import Latin
+   
+   Out[1]: *** Introductory Examples for testing CLTK Latin ***
+Loading text1, ..., text3 and sent1, ..., sent3
+Type the name of the text or sentence to view it, e.g. Latin.text1 or Latin.sent2.
+Type: 'Latin.texts()' or 'Latin.sents()' to list the materials.
+Latin.text1: Cicero, In Catilinam
+Latin.text2: Seneca, Epistulae Morales
+Latin.text3: Biblia Sacra, Genesis
+
 
 Macronizer
 ==========
