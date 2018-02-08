@@ -1,10 +1,14 @@
 """Test cltk.book"""
-from unicodedata import normalize
-import os
+
+# import os
+# import importlib
+# from unicodedata import normalize
 import unittest
+
 from cltk.corpus.utils.importer import CorpusImporter
-from cltk.utils.file_operations import make_cltk_path
-import importlib
+# from cltk.utils.file_operations import make_cltk_path
+from cltk.book.latin import LatinSetup
+
 
 __author__ = 'Patrick J. Burns <patrick@diyclassics.org>'
 __license__ = 'MIT License. See LICENSE.'
@@ -19,10 +23,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_latin_library')
-        from cltk.book.latin import Latin
-        self.text1 = Latin.text1
-        
-        
+        latin_library = LatinSetup()
+        self.text1 = latin_library.text1
+
     def test_book_latin(self):
         """Test importing Latin Book code""" 
         test_name = self.text1.name
