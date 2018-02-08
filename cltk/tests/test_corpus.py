@@ -750,5 +750,11 @@ class TestScriptInformation(unittest.TestCase):
         self.assertEqual(first_word, match)
 
 
+    def test_swadesh_old_portuguese(self):
+        swadesh = Swadesh('pt_old')
+        first_word = 'eu'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
 if __name__ == '__main__':
     unittest.main()
