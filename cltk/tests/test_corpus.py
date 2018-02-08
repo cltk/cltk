@@ -741,7 +741,7 @@ class TestScriptInformation(unittest.TestCase):
 
     def test_is_indiclang_char(self):
         self.assertTrue(is_indiclang_char('क', 'hi'))
-        
+
     def test_swadesh_greek(self):
         swadesh = Swadesh('gr')
         first_word = 'ἐγώ'
@@ -755,6 +755,18 @@ class TestScriptInformation(unittest.TestCase):
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
+    def test_swadesh_tocharianB(self):
+        swadesh = Swadesh('txb')
+        first_word = 'ñäś'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+
+    def test_swadesh_old_portuguese(self):
+        swadesh = Swadesh('pt_old')
+        first_word = 'eu'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
 
 if __name__ == '__main__':
     unittest.main()
