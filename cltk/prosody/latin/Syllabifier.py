@@ -89,6 +89,8 @@ class Syllabifier:
         ['un', 'guen', 'tum']
         >>> print(syllabifier.syllabify("lingua"))
         ['lin', 'gua']
+        >>> print(syllabifier.syllabify("linguā"))
+        ['lin', 'guā']
         >>> print(syllabifier.syllabify("languidus"))
         ['lan', 'gui', 'dus']
         """
@@ -105,6 +107,16 @@ class Syllabifier:
         cleaned = cleaned.replace("Guo", "Gwo")
         cleaned = cleaned.replace("guu", "gwu")
         cleaned = cleaned.replace("Guu", "Gwu")
+        cleaned = cleaned.replace("guā", "gwā")
+        cleaned = cleaned.replace("Guā", "Gwā")
+        cleaned = cleaned.replace("guē", "gwē")
+        cleaned = cleaned.replace("Guē", "Gwē")
+        cleaned = cleaned.replace("guī", "gwī")
+        cleaned = cleaned.replace("Guī", "Gwī")
+        cleaned = cleaned.replace("guō", "gwō")
+        cleaned = cleaned.replace("Guō", "Gwō")
+        cleaned = cleaned.replace("guū", "gwū")
+        cleaned = cleaned.replace("Guū", "Gwū")
         items = cleaned.strip().split(" ")
         for char in cleaned:
             if not char in self.ACCEPTABLE_CHARS:

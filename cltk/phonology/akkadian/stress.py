@@ -1,7 +1,9 @@
 """
 Given an Akkadian word, either normalized or as a list of syllables, return a list of syllables with the stressed
-syllable surounded by square brackets.
+syllable surrounded by square brackets.
 """
+
+#TODO: fails on: ['hammurabi', 'u', 'išmeānim']
 
 from cltk.stem.akkadian.syllabifier import Syllabifier
 
@@ -32,8 +34,8 @@ class StressFinder(object):
 
     def _is_vowel(self, char):
         return char in self.language['short_vowels'] + \
-                       self.language['macron_vowels'] + \
-                       self.language['circumflex_vowels']
+               self.language['macron_vowels'] + \
+               self.language['circumflex_vowels']
 
     def _is_short_vowel(self, char):
         return char in self.language['short_vowels']
