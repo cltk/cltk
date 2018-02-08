@@ -729,7 +729,7 @@ class TestScriptInformation(unittest.TestCase):
 
     def test_is_indiclang_char(self):
         self.assertTrue(is_indiclang_char('क', 'hi'))
-        
+
     def test_swadesh_greek(self):
         swadesh = Swadesh('gr')
         first_word = 'ἐγώ'
