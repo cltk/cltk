@@ -31,3 +31,5 @@ class Swadesh():
             return swadesh_pt_old
         elif self.language == 'eng_old':
             return swadesh_eng_old
+        elif self.language == 'old_norse':
+            return swadesh_old_norse
