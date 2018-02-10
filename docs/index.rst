@@ -44,4 +44,5 @@ Contents
    sanskrit
    telugu
    tibetan
+   tocharian_b
    urdu
