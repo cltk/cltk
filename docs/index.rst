@@ -36,6 +36,7 @@ Contents
    multilingual
    odia
    old_norse
+   old_portuguese
    pali
    persian
    prakrit
