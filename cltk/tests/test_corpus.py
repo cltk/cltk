@@ -49,16 +49,17 @@ from cltk.corpus.swadesh import Swadesh
 from unicodedata import normalize
 import os
 import unittest
+from unittest.mock import patch
 
 __license__ = 'MIT License. See LICENSE.'
 
 DISTRIBUTED_CORPUS_PATH_REL = '~/cltk_data/test_distributed_corpora.yaml'
 DISTRIBUTED_CORPUS_PATH = os.path.expanduser(DISTRIBUTED_CORPUS_PATH_REL)
 
-def setUpModule():
-    corpus_importer = CorpusImporter('latin')
-    corpus_importer.import_corpus('latin_text_latin_library')
-    corpus_importer.import_corpus('latin_models_cltk')    
+#def setUpModule():
+#    corpus_importer = CorpusImporter('latin')
+#    corpus_importer.import_corpus('latin_text_latin_library')
+#    corpus_importer.import_corpus('latin_models_cltk')    
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
@@ -261,8 +262,20 @@ argenteo polubro, aureo eclutro. """
         non_latin_str = remove_non_latin(latin_str, also_keep=['.', ','])
         valid = ' Dices   pulchrum esse inimicos ulcisci.'
         self.assertEqual(non_latin_str, valid)
+
         
-    
+    # Needs to precede (for now) the next two tests which load the corpus
+    # Fix—move to new class and write setup/teardown as necessary
+    def test_latin_library_reader_missing_corpus(self):
+        corpus_importer = CorpusImporter('latin')
+        #corpus_importer.import_corpus('latin_text_latin_library')
+        corpus_importer.import_corpus('latin_models_cltk')
+        def _import():
+            with patch('builtins.input', return_value='n'):
+                from cltk.corpus.latin.readers import latinlibrary
+                self.assertRaises(OSError, _import)
+
+     
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
@@ -272,14 +285,17 @@ argenteo polubro, aureo eclutro. """
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
         
-        
+         
     def test_latin_library_reader(self):
         """Test using the Latin Library reader"""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        corpus_importer.import_corpus('latin_models_cltk')    
         from cltk.corpus.latin.readers import latinlibrary # has to be loaded after setUpModule
         ll_files = latinlibrary.fileids()[:3]
         match = ['12tables.txt', '1644.txt', 'abbofloracensis.txt']
         self.assertEqual(ll_files, match)
-
+        
         
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
