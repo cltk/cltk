@@ -22,10 +22,12 @@ before_script:
 - pip install gensim  # for word2vec.py
 
 script:
-  # Notes on nose:
-  # Travis CI pre-installs `nose`
-  # https://github.com/coagulant/coveralls-python#nosetests
-  # http://nose.readthedocs.org/en/latest/plugins/skip.html
+#  # Notes on nose:
+#  # Travis CI pre-installs `nose`
+#  # https://github.com/coagulant/coveralls-python#nosetests
+#  # http://nose.readthedocs.org/en/latest/plugins/skip.html
+# Running nose twice; first pass establishes fixtures necessary for doctests to pass on second pass
+- nosetests
 - nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
 
 after_success:
