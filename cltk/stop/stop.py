@@ -244,8 +244,6 @@ class CorpusStoplist(Stoplist):
         if include:
             stops.extend(item for item in include if item not in stops)
             
-            stops = stops.union(include)
-            
         if sort_words:
             return sorted(stops)
         else:
