@@ -203,26 +203,23 @@ class CorpusStoplist(Stoplist):
         # Calculate probabilities
         raw_lengths = self._get_raw_lengths(texts)
         l = self._get_length_array(raw_lengths)
-        P = dtm / l
-        
-        print('Yes')
+        P = self._get_probabilities(dtm, l)
         
         if basis == 'frequency':
             # Calculate plain frequencies
             freq = self.np.ravel(dtm.sum(axis=0))
             freq_list = self._combine_vocabulary(vocab, freq)[:size]
-            print(freq_list)
-            stops = set(freq_list)
+            stops = freq_list
         elif basis == 'mean':
             # Calculate mean probabilities
             MP = self._get_mean_probabilities(P, N)
             mp_list = self._combine_vocabulary(vocab, MP)[:size]
-            stops = set(mp_list)
+            stops = mp_list
         elif basis == 'variance':
             bP = dtm / sum(raw_lengths)        
             VP = self._get_variance_probabilities(bP, P, N)
             vp_list = self._combine_vocabulary(vocab, VP)[:size]
-            stops = set(vp_list)
+            stops = vp_list
         elif basis == 'entropy':
             ent = self._get_entropies(P)
             ent_list = self._combine_vocabulary(vocab, ent)[:size]
@@ -239,12 +236,14 @@ class CorpusStoplist(Stoplist):
             ent_list = self._combine_vocabulary(vocab, ent)[:size]
             
             lists = [mp_list, vp_list, ent_list]
-            stops = set(self._borda_sort(lists))
+            stops = self._borda_sort(lists)
         
         if exclude:
-            stops = stops - set(exclude)
+            stops = [item for item in stops if item not in exclude]
             
         if include:
+            stops.extend(item for item in include if item not in stops)
+            
             stops = stops.union(include)
             
         if sort_words:
@@ -269,4 +268,4 @@ if __name__ == "__main__":
     #    test_corpus = [text.replace(word,' ') for text in test_corpus]
     
     S = CorpusStoplist('latin')
-    print(S.build_stoplist(test_corpus, size=10,basis='frequency'))
+    print(S.build_stoplist(test_corpus, size=10,basis='zou'))
