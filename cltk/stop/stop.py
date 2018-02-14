@@ -206,7 +206,9 @@ class CorpusStoplist(Stoplist):
         P = dtm / l
     
         if basis == 'frequency':
-            pass
+            freq = self.np.ravel(dtm.sum(axis=0))
+            freq_list = self._combine_vocabulary(vocab, freq)[:size]
+            stops = set(freq_list)
         elif basis == 'mean':
             # Calculate mean probabilities
             MP = self._get_mean_probabilities(P, N)
@@ -263,4 +265,4 @@ if __name__ == "__main__":
     #    test_corpus = [text.replace(word,' ') for text in test_corpus]
     
     S = CorpusStoplist('latin')
-    print(S.build_stoplist(test_corpus, size=10,basis='entropy'))
+    print(S.build_stoplist(test_corpus, size=10,basis='frequency'))
