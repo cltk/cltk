@@ -204,10 +204,14 @@ class CorpusStoplist(Stoplist):
         raw_lengths = self._get_raw_lengths(texts)
         l = self._get_length_array(raw_lengths)
         P = dtm / l
-    
+        
+        print('Yes')
+        
         if basis == 'frequency':
+            # Calculate plain frequencies
             freq = self.np.ravel(dtm.sum(axis=0))
             freq_list = self._combine_vocabulary(vocab, freq)[:size]
+            print(freq_list)
             stops = set(freq_list)
         elif basis == 'mean':
             # Calculate mean probabilities
