@@ -57,12 +57,31 @@ class StringStoplist(Stoplist):
         Stoplist.__init__(self, language)      
         self.language = language
         
-    def build_stoplist(self, text, size=100, inc_counts=False, lower=True, sort_words=True, remove_punctuation = True, remove_numbers=True):
+    def build_stoplist(self, text, size=100, sort_words=True, inc_counts=False, lower=True, remove_punctuation = True, remove_numbers=True, include=[], exclude=[]):
         """
-        :type language: int
-        :param language : size of the output list
-        :type language: str
-        :param language : language in case of language-specific considerations
+        :param text: strings used for extracting stopwords
+        :param size: Set the size of the output list
+        :param sort_words: Sort output list alphabetically? (Otherwise return is descending by basis value)        
+        :param inc_counts: Include word counts
+        :param lower: Lowercase corpus or no?
+        :param remove_punctuation: Remove punctuation from corpus or no?
+        :param remove_numbers: Remove numbers from corpus or no?
+        :param include: List of words in addition to stopwords that are extracted from the document collection
+                        to be added to the final list  
+        :param exclude: List of words in addition to stopwords that are extracted from the document collection
+                        to be removed from the final list 
+        :type texts: list
+        :type basis: str
+        :type size: int
+        :type sort_words: bool
+        :type inc_counts: bool
+        :type lower: bool
+        :type remove_punctuation: bool
+        :type remove_numbers: bool
+        :type include: list
+        :type exclude: list
+        :return: a list of stopwords extracted from the corpus; if 'inc_counts=True', output is a list of tuples
+        :rtype: list
         """
         
         # Move all of this preprocessing code outside 'build_stoplist'
@@ -87,17 +106,28 @@ class StringStoplist(Stoplist):
         text = text.split() # Load real tokenizer
         c = Counter(text)
         
-        stoplist = c.most_common(size)
+        stops = c.most_common(size)
         
         if sort_words:
-            stoplist.sort()
+            stops.sort(key=lambda x: x[0])
         
+        if exclude:
+            stops = [item for item in stops if item[0] not in exclude]
+            
+        if include:
+            for item in include:
+                if item in stops.keys():
+                    include_counts = stops[item]
+                else:
+                    include_counts = 0
+                stops.extend((item, include_counts))
+            
         if inc_counts:
-            return stoplist
-        
-        return [item[0] for item in stoplist]
+            return stops
+        else:
+            return [item[0] for item in stops]
 
-## Write subclass designed to make stoplist from a list of strings
+
 class CorpusStoplist(Stoplist):
 
     def __init__(self, language=None):
@@ -167,7 +197,7 @@ class CorpusStoplist(Stoplist):
         return sorted(scores.keys(), key=lambda elem: scores[elem], reverse=True)    
     
     
-    def build_stoplist(self, texts, basis='zou', size=100, inc_counts=False, lower=True, sort_words=True, remove_punctuation = True, remove_numbers=True, include =[], exclude=[]):
+    def build_stoplist(self, texts, basis='zou', size=100, sort_words=True, inc_counts=False, lower=True, remove_punctuation = True, remove_numbers=True, include =[], exclude=[]):
         """
         :param texts: list of strings used as document collection for extracting stopwords
         :param basis: Define the basis for extracting stopwords from the corpus. Available methods are:
@@ -178,9 +208,9 @@ class CorpusStoplist(Stoplist):
                       - 'zou', composite measure as defined in the following paper
                         Zou, F., Wang, F.L., Deng, X., Han, S., and Wang, L.S. 2006. “Automatic Construction of Chinese Stop Word List.” In Proceedings of the 5th WSEAS International Conference on Applied Computer Science, 1010–1015. https://pdfs.semanticscholar.org/c543/8e216071f6180c228cc557fb1d3c77edb3a3.pdf.
         :param size: Set the size of the output list
+        :param sort_words: Sort output list alphabetically? (Otherwise return is descending by basis value)        
         :param inc_counts: Include basis value; e.g. word counts for 'frequency', mean probabilities for 'mean'
         :param lower: Lowercase corpus or no?
-        :param sort_words: Sort output list alphabetically? (Otherwise return is descending by basis value)
         :param remove_punctuation: Remove punctuation from corpus or no?
         :param remove_numbers: Remove numbers from corpus or no?
         :param include: List of words in addition to stopwords that are extracted from the document collection
@@ -190,9 +220,9 @@ class CorpusStoplist(Stoplist):
         :type texts: list
         :type basis: str
         :type size: int
+        :type sort_words: bool
         :type inc_counts: bool
         :type lower: bool
-        :type sort_words: bool
         :type remove_punctuation: bool
         :type remove_numbers: bool
         :type include: list
