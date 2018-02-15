@@ -361,12 +361,12 @@ Other parameters for both ``StringStoplist`` and ``CorpusStoplist`` include bool
    
 .. code-block:: python
 
-    In [14]: stops = stoplist.build_stoplist(self.test_corpus, size=10, basis='frequency', exclude=['ad'])
+    In [14]: stops = stoplist.build_stoplist(corpus, size=10, basis='frequency', exclude=['ad'])
     
     In [15]: print(stops)
     Out [15]: ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
     
-    In [16]: stops = stoplist.build_stoplist(self.test_corpus, size=10, basis='frequency', include=['est'])
+    In [16]: stops = stoplist.build_stoplist(corpus, size=10, basis='frequency', include=['est'])
     
     In [17]: print(stops)
     Out [17]: ['ac', 'ad', 'atque', 'cum', 'est', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
