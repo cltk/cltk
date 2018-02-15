@@ -9,7 +9,7 @@ from collections import Counter
 from cltk.utils.cltk_logger import logger
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
-__license__ = 'GPL License.'
+__license__ = 'MIT License. See LICENSE.'
 
 
 class Stoplist():
