@@ -21,7 +21,8 @@ class Stoplist():
         :type language: str
         :param language : text from which to build the stoplist
         """
-        self.language = language.lower()
+        if language:
+            self.language = language.lower()
         self.numpy_installed = True ## Write utility for common import traps?
         self.sklearn_installed = True
         
