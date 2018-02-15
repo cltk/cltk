@@ -238,6 +238,8 @@ class CorpusStoplist(Stoplist):
             
             lists = [mp_list, vp_list, ent_list]
             stops = self._borda_sort(lists)
+        else:
+            raise ValueError("Basis '{}' not supported.".format(basis))
         
         if exclude:
             stops = [item for item in stops if item not in exclude]
@@ -267,4 +269,4 @@ if __name__ == "__main__":
     #    test_corpus = [text.replace(word,' ') for text in test_corpus]
     
     S = CorpusStoplist('latin')
-    print(S.build_stoplist(test_corpus, size=10,basis='zou'))
+    print(S.build_stoplist(test_corpus, size=10,basis='a'))
