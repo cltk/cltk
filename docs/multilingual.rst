@@ -332,13 +332,17 @@ The ``Stop`` module offers two classes for constructing stoplists: ``StringStopl
     Out [5]: ['a', 'ab', 'ac', 'ad', 'aetatis', 'ambitionis', 'animum', 'arbitrarer', 'atque', 'casus', 'cogitanti', 'cogitationum', 'communium', 'concessum', 'consiliorum', 'constitisset', 'cum', 'cursum', 'decursu', 'dignitate', 'eo', 'esse', 'et', 'etiam', 'eum', 'fefellerunt', 'flexu', 'florerent', 'fore', 'forensium', 'frater', 'fuisse', 'fuit', 'gestarum', 'gloria', 'graves', 'honoribus', 'honorum', 'illi', 'in', 'infinitus', 'initium', 'iustum', 'labor', 'locus', 'maximae', 'memoria', 'meorum', 'mihi', 'moles', 'molestiarum', 'nam', 'negotio', 'neque', 'nostri', 'nostrum', 'numero', 'occupatio', 'omnibus', 'optima', 'oti', 'otio', 'perbeati', 'periculo', 'plenissimus', 'possent', 'potuerunt', 'praeclara', 'prope', 'publica', 'quam', 'qui', 'quietis', 'quinte', 'quoque', 're', 'referendi', 'repetenti', 'requiescendi', 'rerum', 'saepe', 'si', 'sine', 'solent', 'spem', 'studia', 'temporum', 'tenere', 'tranquillitatis', 'tum', 'turbulentissimae', 'ut', 'utriusque', 'varii', 'vel', 'vero', 'vetera', 'videbatur', 'videri', 'vitae']
 
 You can include the counts with the ``inc_counts`` parameter:
-    
+   
+.. code-block:: python
+
     In [6]: stops = stoplist.build_stoplist(para, size=100)
     
     In [7]: print(stops)
     Out [7]: [('a', 2), ('ab', 1), ('ac', 1), ('ad', 3), ('aetatis', 1), ('ambitionis', 1), ('animum', 1), ('arbitrarer', 1), ('atque', 3), ('casus', 1), ('cogitanti', 1), ('cogitationum', 1), ('communium', 1), ('concessum', 1), ('consiliorum', 1), ('constitisset', 1), ('cum', 4), ('cursum', 1), ('decursu', 1), ('dignitate', 1), ('eo', 1), ('esse', 1), ('et', 11), ('etiam', 1), ('eum', 1), ('fefellerunt', 1), ('flexu', 1), ('florerent', 1), ('fore', 2), ('forensium', 1), ('frater', 2), ('fuisse', 1), ('fuit', 1), ('gestarum', 1), ('gloria', 1), ('graves', 1), ('honoribus', 1), ('honorum', 1), ('illi', 1), ('in', 8), ('infinitus', 1), ('initium', 1), ('iustum', 1), ('labor', 1), ('locus', 1), ('maximae', 1), ('memoria', 1), ('meorum', 1), ('mihi', 3), ('moles', 1), ('molestiarum', 1), ('nam', 3), ('negotio', 1), ('neque', 5), ('nostri', 1), ('nostrum', 1), ('numero', 1), ('occupatio', 1), ('omnibus', 1), ('optima', 1), ('oti', 2), ('otio', 1), ('perbeati', 1), ('periculo', 1), ('plenissimus', 1), ('possent', 1), ('potuerunt', 1), ('praeclara', 1), ('prope', 1), ('publica', 2), ('quam', 1), ('qui', 3), ('quietis', 1), ('quinte', 1), ('quoque', 1), ('re', 1), ('referendi', 1), ('repetenti', 1), ('requiescendi', 1), ('rerum', 4), ('saepe', 1), ('si', 1), ('sine', 1), ('solent', 1), ('spem', 1), ('studia', 1), ('temporum', 1), ('tenere', 1), ('tranquillitatis', 1), ('tum', 1), ('turbulentissimae', 1), ('ut', 1), ('utriusque', 1), ('varii', 1), ('vel', 7), ('vero', 2), ('vetera', 1), ('videbatur', 1), ('videri', 1), ('vitae', 1)]
     
 ``CorpusStoplist`` outputs a list of stopwords from a collection of documents based, with a parameter (``basis``) for weighting words within the collection using different measures. The bases currently available are: ``frequency``, ``mean`` (mean probability), ``variance`` (variance probability), ``entropy`` (entropy), and ``zou`` (a composite measure based on mean, variance, and entropy as described in [Zou 2006]).
+   
+.. code-block:: python
 
     In [8]: from cltk.stop.stop import CorpusStoplist
     
@@ -354,6 +358,8 @@ You can include the counts with the ``inc_counts`` parameter:
     Out [13]: ['ac', 'ad', 'atque', 'cum', 'et', 'in', 'mihi', 'qui', 'rerum', 'vel']
     
 Other parameters for both ``StringStoplist`` and ``CorpusStoplist`` include boolean preprocessing options (``lower``, ``remove_numbers``, ``remove_punctuation``) and override lists of words to add or subtract from stoplists (``include``, ``exclude``).
+   
+.. code-block:: python
 
     In [14]: stops = stoplist.build_stoplist(self.test_corpus, size=10, basis='frequency', exclude=['ad'])
     
