@@ -166,12 +166,39 @@ class CorpusStoplist(Stoplist):
                 scores[elem] += idx
         return sorted(scores.keys(), key=lambda elem: scores[elem], reverse=True)    
     
+    
     def build_stoplist(self, texts, basis='zou', size=100, inc_counts=False, lower=True, sort_words=True, remove_punctuation = True, remove_numbers=True, include =[], exclude=[]):
         """
-        :type language: int
-        :param language : size of the output list
-        :type language: str
-        :param language : language in case of language-specific considerations
+        :param texts: list of strings used as document collection for extracting stopwords
+        :param basis: Define the basis for extracting stopwords from the corpus. Available methods are:
+                      - 'frequency', word counts
+                      - 'mean', mean probabilities
+                      - 'variance', variance probabilities
+                      - 'entropy', entropy
+                      - 'zou', composite measure as defined in the following paper
+                        Zou, F., Wang, F.L., Deng, X., Han, S., and Wang, L.S. 2006. “Automatic Construction of Chinese Stop Word List.” In Proceedings of the 5th WSEAS International Conference on Applied Computer Science, 1010–1015. https://pdfs.semanticscholar.org/c543/8e216071f6180c228cc557fb1d3c77edb3a3.pdf.
+        :param size: Set the size of the output list
+        :param inc_counts: Include basis value; e.g. word counts for 'frequency', mean probabilities for 'mean'
+        :param lower: Lowercase corpus or no?
+        :param sort_words: Sort output list alphabetically? (Otherwise return is descending by basis value)
+        :param remove_punctuation: Remove punctuation from corpus or no?
+        :param remove_numbers: Remove numbers from corpus or no?
+        :param include: List of words in addition to stopwords that are extracted from the document collection
+                        to be added to the final list  
+        :param exclude: List of words in addition to stopwords that are extracted from the document collection
+                        to be removed from the final list 
+        :type texts: list
+        :type basis: str
+        :type size: int
+        :type inc_counts: bool
+        :type lower: bool
+        :type sort_words: bool
+        :type remove_punctuation: bool
+        :type remove_numbers: bool
+        :type include: list
+        :type exclude: list
+        :return: a list of stopwords extracted from the corpus
+        :rtype: list
         """
         
         
@@ -251,22 +278,3 @@ class CorpusStoplist(Stoplist):
             return sorted(stops)
         else:
             return stops
-        
-
-
-if __name__ == "__main__":
-    test_1 = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
-    
-    test_2 = """ac mihi repetenda est veteris cuiusdam memoriae non sane satis explicata recordatio, sed, ut arbitror, apta ad id, quod requiris, ut cognoscas quae viri omnium eloquentissimi clarissimique senserint de omni ratione dicendi. vis enim, ut mihi saepe dixisti, quoniam, quae pueris aut adulescentulis nobis ex commentariolis nostris incohata ac rudia exciderunt, vix sunt hac aetate digna et hoc usu, quem ex causis, quas diximus, tot tantisque consecuti sumus, aliquid eisdem de rebus politius a nobis perfectiusque proferri; solesque non numquam hac de re a me in disputationibus nostris dissentire, quod ego eruditissimorum hominum artibus eloquentiam contineri statuam, tu autem illam ab elegantia doctrinae segregandam putes et in quodam ingeni atque exercitationis genere ponendam. ac mihi quidem saepe numero in summos homines ac summis ingeniis praeditos intuenti quaerendum esse visum est quid esset cur plures in omnibus rebus quam in dicendo admirabiles exstitissent; nam quocumque te animo et cogitatione converteris, permultos excellentis in quoque genere videbis non mediocrium artium, sed prope maximarum. quis enim est qui, si clarorum hominum scientiam rerum gestarum vel utilitate vel magnitudine metiri velit, non anteponat oratori imperatorem? quis autem dubitet quin belli duces ex hac una civitate praestantissimos paene innumerabilis, in dicendo autem excellentis vix paucos proferre possimus? iam vero consilio ac sapientia qui regere ac gubernare rem publicam possint, multi nostra, plures patrum memoria atque etiam maiorum exstiterunt, cum boni perdiu nulli, vix autem singulis aetatibus singuli tolerabiles oratores invenirentur. ac ne qui forte cum aliis studiis, quae reconditis in artibus atque in quadam varietate litterarum versentur, magis hanc dicendi rationem, quam cum imperatoris laude aut cum boni senatoris prudentia comparandam putet, convertat animum ad ea ipsa artium genera circumspiciatque, qui in eis floruerint quamque multi sint; sic facillime, quanta oratorum sit et semper fuerit paucitas, iudicabit."""
-    
-    test_corpus = [test_1, test_2]
-    
-    #from cltk.corpus.latin.readers import latinlibrary
-    #test_corpus = [latinlibrary.raw(file) for file in latinlibrary.fileids() if 'cicero/' in file]
-    
-    #remove = ['Cicero', "The Latin Library", "The Classics Page"]
-    #for word in remove:
-    #    test_corpus = [text.replace(word,' ') for text in test_corpus]
-    
-    S = CorpusStoplist('latin')
-    print(S.build_stoplist(test_corpus, size=10,basis='a'))
