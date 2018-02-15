@@ -366,7 +366,7 @@ Other parameters for both ``StringStoplist`` and ``CorpusStoplist`` include bool
     In [15]: print(stops)
     Out [15]: ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
     
-    In [16]: stops = stoplist.build_stoplist(self.test_corpus, size=10, basis='frequency', exclude=['est'])
+    In [16]: stops = stoplist.build_stoplist(self.test_corpus, size=10, basis='frequency', include=['est'])
     
     In [17]: print(stops)
     Out [17]: ['ac', 'ad', 'atque', 'cum', 'est', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
