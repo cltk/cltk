@@ -1,15 +1,13 @@
 """ Code for building and working with stoplists
 """
 
-## Goal: to build a stop list of from top 100 count using Counter
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
+__license__ = 'MIT License. See LICENSE.'
 
 from abc import abstractmethod
 from collections import Counter
 
 from cltk.utils.cltk_logger import logger
-
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
-__license__ = 'MIT License. See LICENSE.'
 
 
 class Stoplist():
@@ -149,6 +147,7 @@ class CorpusStoplist(Stoplist):
     
     def _get_raw_lengths(self, texts):
         return [len(tokens.split()) for tokens in texts] # Use tokenizer rather than split?
+    
     
     def _get_length_array(self, raw_lengths):
         length_array = self.np.array(raw_lengths)
