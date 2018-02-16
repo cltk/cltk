@@ -273,15 +273,15 @@ def tokenize_old_norse_words(text):
     return results
   
 def tokenize_middle_high_german(text):
-    """parametarizes MHG text"""
+    """Tokenizes MHG text"""
 
-    assert isinstance(text,str)
-    #As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
+    assert isinstance(text, str)
+    # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
     text = re.sub(r'-\n',r'-', text)
-    text = re.sub(r'\n', r' ',text)
-    text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ',text)
-    text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ',text)
-    text = re.sub(r'\s+',r' ',text)
+    text = re.sub(r'\n', r' ', text)
+    text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ', text)
+    text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+    text = re.sub(r'\s+',r' ', text)
     text = str.split(text)
 
     return text
