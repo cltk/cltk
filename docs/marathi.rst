@@ -142,3 +142,17 @@ There are three additional consonants:
    ADDITIONAL_CONSONANTS = ['ळ', 'क्ष', 'ज्ञ']
 
    IAST_ADDITIONAL_CONSONANTS = ['La', 'kSha', 'dnya']
+   
+Swadesh
+=======
+
+The corpus module has a class for generating a Swadesh list for Marathi
+
+
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('mr')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['मी, आम्ही', 'तू, तुम्ही, आपण', 'हा, तो', 'आम्ही, आपण', 'तुम्ही, आपण', 'हे, ते', 'हा, ही, हे', 'तो, ती, ते', 'इथे, इकडे', 'तिथे, तिकडे']
