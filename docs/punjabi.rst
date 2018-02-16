@@ -15,7 +15,7 @@ Use ``CorpusImporter`` or browse the `CLTK Github repository <http://github.com/
    In [2]: c = CorpusImporter('punjabi')
    In [3]: c.list_corpora
    Out[3]:
-   ['punjabi_text_gurban']
+   ['punjabi_text_gurban', 'punjabi_text_wikisource']
 
 Now from the list of available corpora import any one you like.
 
@@ -43,6 +43,20 @@ For example, to use Punjabi's independent vowels in each script:
 
 
 Similarly there are lists for ``DIGITS``, ``DEPENDENT_VOWELS``, ``CONSONANTS``, ``BINDI_CONSONANTS`` (nasal pronunciation) and some ``OTHER_SYMBOLS`` (mostly for pronunciation).
+
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Punjabi.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('pnb')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ਮੈਂ', 'ਤੂੰ', 'ਉਹ', 'ਅਸੀਂ', 'ਤੁਸੀਂ', 'ਉਹ', 'ਇਹ', 'ਉਹ', 'ਇੱਥੇ', 'ਉੱਥੇ']
 
 
 Numerifier
