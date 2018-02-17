@@ -110,7 +110,7 @@ class TestSequenceFunctions(unittest.TestCase):
         punkt = PunktLanguageVars()
         tokens = punkt.word_tokenize(lowered)
         no_stops = [w for w in tokens if w not in MHG_STOPS]
-        target_list = ['bêârosche', 'komn', ',', 'gâwân', 'genomn', 'prîs', 'bêder', 'sît', 'dervor', 'schein', ',', 'rôtem', 'wâpen', 'unrekant', ',', 'prîs', 'hœhe', 'bant', '.']
+        target_list = ['swer', 'bêârosche', 'komn', ',', 'gâwân', 'genomn', 'prîs', 'bêder', 'sît', 'dervor', 'ritter', 'schein', ',', 'rôtem', 'wâpen', 'unrekant', ',', 'prîs', 'hœhe', 'bant', '.']
         self.assertEqual(no_stops,target_list)
 
 
