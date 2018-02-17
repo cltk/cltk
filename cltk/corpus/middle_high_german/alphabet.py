@@ -9,7 +9,7 @@
 
 # schl, schm, schn, schw are written in MHG as sw, sl, sm, sn
 
-ALPHABET = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "ô", "û", "æ", "œ", "iu", "b", "d", "g", "h", "f", "c", "j", "k", "l", "m", "n", "s", "t", "u", "v", "w", "z"]
+ALPHABET = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "ô", "û", "æ", "œ", "iu", "b", "d", "g", "h", "f", "c", "j", "k", "l", "m", "n", "s", "t", "u", "v", "w", "z","ȥ"]
 
 # The consonants of Middle High German are categorized as:
 # Stops: ⟨p t k/c/q b d g⟩
@@ -32,3 +32,25 @@ LONG_VOWELS = ["â", "ê", "î", "ô", "û", "æ", "œ", "iu"]
 DIPTHONGS = ["ei", "ie", "ou", "öu", "uo", "üe"]
 
 # ȥ or ʒ is used in modern handbooks and grammars to indicate the s or s-like sound which arose from Germanic t in the High German consonant shift. 
+
+import re
+
+def normalize_middle_high_german(text, to_lower = True, alpha_conv = True, punct = True):
+    """
+       to_lower: convert text to lowercase
+       alpha_conv: convert alphabet to canonical form
+       punct: remove punctuation
+    """
+ 
+    if to_lower:
+        text = text.lower()
+	
+    if alpha_conv:
+        text = text.replace("ē","ê").replace("ī","î").replace("ā","â").replace("ō","ô").replace("ū","û")
+        text = text.replace("ae","â").replace("oe","œ")
+        text = text.replace("ʒ","ȥ")
+
+    if punct:
+        text = re.sub(r"[\.\";\,\:\[\]\(\)!&?]","",text)
+    
+    return text
