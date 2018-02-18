@@ -2,6 +2,8 @@ from cltk.tokenize.word import WordTokenizer
 from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
 from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
 
+__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
 
 """
 The biggest challenge when it comes to noun and adjective stemming is that -similarly to MG- MHG suffixes are based on gender,
