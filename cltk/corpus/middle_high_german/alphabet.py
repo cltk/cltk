@@ -9,7 +9,7 @@
 
 # schl, schm, schn, schw are written in MHG as sw, sl, sm, sn
 
-ALPHABET = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "ô", "û", "æ", "œ", "iu", "b", "d", "g", "h", "f", "c", "j", "k", "l", "m", "n", "s", "t", "u", "v", "w", "z","ȥ"]
+ALPHABET = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "ô", "û", "æ", "œ", "iu", "b", "d", "g", "h", "f", "c", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "z","ȥ"]
 
 # The consonants of Middle High German are categorized as:
 # Stops: ⟨p t k/c/q b d g⟩
@@ -19,7 +19,7 @@ ALPHABET = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "
 # Liquids: ⟨l r⟩
 # Semivowels: ⟨w j⟩
 
-CONSONANTS = ["b", "d", "g", "h", "f", "c", "j", "k", "l", "m", "n", "s", "t", "u", "v", "w", "z"]
+CONSONANTS = ["b", "d", "g", "h", "f", "c", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "z"]
 
 VOWELS = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "ô", "û", "æ", "œ", "iu"]
 
