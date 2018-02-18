@@ -42,11 +42,11 @@ def normalize_middle_high_german(text, to_lower_all = True, to_lower_beginning =
        punct: remove punctuation
     """
  
-    if to_lower:
+    if to_lower_all:
         text = text.lower()
    
     if to_lower_beginning:
-	text = re.sub(r"(?<=[\.\?\!]?\s)(\w)",lambda x: x.group(1).lower(),text)
+        text = re.sub(r"(?<=[\.\?\!]\s)(\w)",lambda x: x.group(1).lower(),text)
 
     if alpha_conv:
         text = text.replace("ē","ê").replace("ī","î").replace("ā","â").replace("ō","ô").replace("ū","û")
