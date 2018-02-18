@@ -35,16 +35,19 @@ DIPTHONGS = ["ei", "ie", "ou", "öu", "uo", "üe"]
 
 import re
 
-def normalize_middle_high_german(text, to_lower = True, alpha_conv = True, punct = True):
+def normalize_middle_high_german(text, to_lower_all = True, to_lower_beginning = False, alpha_conv = True, punct = True):
     """
-       to_lower: convert text to lowercase
+       to_lower_all: convert whole text to lowercase
        alpha_conv: convert alphabet to canonical form
        punct: remove punctuation
     """
  
     if to_lower:
         text = text.lower()
-	
+   
+    if to_lower_beginning:
+	text = re.sub(r"(?<=[\.\?\!]?\s)(\w)",lambda x: x.group(1).lower(),text)
+
     if alpha_conv:
         text = text.replace("ē","ê").replace("ī","î").replace("ā","â").replace("ō","ô").replace("ū","û")
         text = text.replace("ae","â").replace("oe","œ")
