@@ -52,7 +52,7 @@ def stem_helper(word, rem_umlaut = True):
 			R1 = len(word)
 	
 	if rem_umlaut:
-		remove_umlaut(text)
+		word = remove_umlaut(word)
 	
 	word = word[:R1] + re.sub(r'(wes|wen|est|ern|em|en|er|es|eȥ(?=[klmrt])s|(?=[lr])n|e)$',"",word[R1:])
 	word = word[:R1] + re.sub(r'(est|er|en|re|in|iu|(?=.{3})st,word[R1:])$',"",word[R1:])
@@ -62,7 +62,7 @@ def stem_helper(word, rem_umlaut = True):
 
 
 def remove_umlaut(text):
-	return [umlaut_dict.get(l,l) for l in word for word in text]
+	return "".join([umlaut_dict.get(l,l) for word in text for l in word])
 
 	
 def stemmer_middle_high_german(text_l, exceptions = exc_dict):
