@@ -17,7 +17,7 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
    In [3]: c.list_corpora
    Out[3]:
-           ['hindi_text_ltrc']
+   ['hindi_text_ltrc']
 
 
 Tokenizer
