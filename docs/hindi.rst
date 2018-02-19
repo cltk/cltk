@@ -16,8 +16,37 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
    In [2]: c = CorpusImporter('hindi')
 
    In [3]: c.list_corpora
-   Out[3]: 
-           ['hindi_text_ltrc']
+   Out[3]:
+   ['hindi_text_ltrc']
+
+
+Stopword Filtering
+==================
+
+To use the CLTK's built-in stopwords list:
+
+.. code-block:: python
+
+In [1]: from cltk.stop.classical_hindi.stops import STOPS_LIST
+
+In [2]: print(STOPS_LIST[:5])
+Out[2]: ["हें", "है", "हैं", "हि", "ही"]
+
+
+Swadesh
+=======
+
+The corpus module has a class for generating a Swadesh list for classical hindi.
+
+.. code-block:: python
+
+In [1]: from cltk.corpus.swadesh import Swadesh
+
+In [2]: swadesh = Swadesh('hi')
+
+In [3]: swadesh.words()[:10]
+
+Out[3]: ['मैं', 'तू', 'वह', 'हम', 'तुम', 'वे', 'यह', 'वह', 'यहाँ', 'वहाँ' ]
 
 
 Tokenizer
@@ -38,7 +67,7 @@ This tool can break a sentence into its constituent words. It simply splits the 
    In [5]: hindi_text_path = os.path.join(hindi_corpus, 'miscellaneous/gandhi/main.txt')
 
    In [6]: hindi_text = open(hindi_text_path,'r').read()
-   
+
    In [7]: hindi_text_tokenize = i_word(hindi_text)
 
    In [8]: print(hindi_text_tokenize[0:100])
