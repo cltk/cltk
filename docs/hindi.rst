@@ -55,12 +55,11 @@ To use the CLTK's built-in stopwords list:
 In [1]: from cltk.stop.classical_hindi.stops import STOP_LIST
 
 In [2]: print(STOP_LIST[:5])
-
-Out[2]: ["हें","है","हैं","हि", "ही"]
+Out[2]: ["हें", "है", "हैं", "हि", "ही"]
 
 
 Swadesh
-=========
+=======
 
 The corpus module has a class for generating a Swadesh list for classical hindi.
 
