@@ -272,7 +272,7 @@ def tokenize_old_norse_words(text):
     results = str.split(text)
     return results
   
-def tokenize_middle_high_german(text):
+def tokenize_middle_high_german_words(text):
     """Tokenizes MHG text"""
 
     assert isinstance(text, str)
