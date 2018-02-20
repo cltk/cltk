@@ -13,7 +13,7 @@ ALPHABET = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü", "â", "ê", "î", "
 
 # The consonants of Middle High German are categorized as:
 # Stops: ⟨p t k/c/q b d g⟩
-# Affricates: ⟨pf/ph tz/z⟩
+# Affricates: ⟨pf/ph tz/z⟩ 
 # Fricatives: ⟨v f s ȥ sch ch h⟩
 # Nasals: ⟨m n⟩
 # Liquids: ⟨l r⟩
@@ -54,6 +54,6 @@ def normalize_middle_high_german(text, to_lower_all = True, to_lower_beginning =
         text = text.replace("ae","â").replace("oe","œ")
 
     if punct:
-        text = re.sub(r"[\.\";\,\:\[\]\(\)!&?]","",text)
+        text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]","",text)
     
     return text

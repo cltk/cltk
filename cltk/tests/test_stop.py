@@ -106,6 +106,7 @@ class TestSequenceFunctions(unittest.TestCase):
         
      def test_middle_high_german_stopwords(self):
         """Test filtering  Middle High German stopwords."""
+        
         sentence = "Swer was ze Bêârosche komn, doch hete Gâwân dâ genomn den prîs ze bêder sît al ein wan daz dervor ein ritter schein, bî rôtem wâpen unrekant, des prîs man in die hœhe bant."
         lowered = sentence.lower()
         punkt = PunktLanguageVars()
