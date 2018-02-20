@@ -13,6 +13,7 @@ from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_fil
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
 from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
 from nltk.tokenize.punkt import PunktLanguageVars
+from cltk.tokenize.word import WordTokenizer
 import os
 import unittest
 
