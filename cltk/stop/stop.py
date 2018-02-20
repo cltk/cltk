@@ -31,8 +31,9 @@ class Stoplist():
             self.numpy_installed = False        
         
         try:
-            from sklearn.feature_extraction.text import CountVectorizer
+            from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
             self.vectorizer = CountVectorizer(input='content') # Set df?
+            self.tfidf_vectorizer = TfidfVectorizer()
         except ImportError:
             self.sklearn_installed = False
             
@@ -143,6 +144,14 @@ class CorpusStoplist(Stoplist):
         vocab = self.vectorizer.get_feature_names()
         vocab = self.np.array(vocab)
         return dtm, vocab
+    
+    
+    def _make_tfidf_vocab(self, texts):
+        tfidf = self.tfidf_vectorizer.fit_transform(texts)
+        tfidf = tfidf.toarray()
+        vocab = self.tfidf_vectorizer.get_feature_names()
+        vocab = self.np.array(vocab)
+        return tfidf, vocab
             
     
     def _get_raw_lengths(self, texts):
@@ -252,7 +261,8 @@ class CorpusStoplist(Stoplist):
 
 
         # Get DTM and basic descriptive info
-        dtm, vocab = self._make_dtm_vocab(texts)  
+        dtm, vocab = self._make_dtm_vocab(texts)
+        tfidf, _ = self._make_tfidf_vocab(texts)
         
         M = len(vocab)
         N = len(texts)
@@ -267,6 +277,11 @@ class CorpusStoplist(Stoplist):
             freq = self.np.ravel(dtm.sum(axis=0))
             freq_list = self._combine_vocabulary(vocab, freq)[:size]
             stops = freq_list
+        elif basis == 'tfidf':
+            # Calculate tfidf
+            tfidf = self.np.ravel(tfidf.sum(axis=0))
+            tfidf_list = self._combine_vocabulary(vocab, tfidf)[:size]
+            stops = tfidf_list
         elif basis == 'mean':
             # Calculate mean probabilities
             MP = self._get_mean_probabilities(P, N)
@@ -283,17 +298,17 @@ class CorpusStoplist(Stoplist):
             stops = set(ent_list)
         elif basis == 'zou':
             MP = self._get_mean_probabilities(P, N)
-            mp_list = self._combine_vocabulary(vocab, MP)[:size]
+            mp_list = self._combine_vocabulary(vocab, MP)
             
             bP = dtm / sum(raw_lengths)        
             VP = self._get_variance_probabilities(bP, P, N)
-            vp_list = self._combine_vocabulary(vocab, VP)[:size]
+            vp_list = self._combine_vocabulary(vocab, VP)
 
             ent = self._get_entropies(P)
-            ent_list = self._combine_vocabulary(vocab, ent)[:size]
+            ent_list = self._combine_vocabulary(vocab, ent)
             
             lists = [mp_list, vp_list, ent_list]
-            stops = self._borda_sort(lists)
+            stops = self._borda_sort(lists)[:size]
         else:
             raise ValueError("Basis '{}' not supported.".format(basis))
         
@@ -307,3 +322,20 @@ class CorpusStoplist(Stoplist):
             return sorted(stops)
         else:
             return stops
+
+if __name__ == "__main__":
+    test_1 = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
+    
+    test_2 = """ac mihi repetenda est veteris cuiusdam memoriae non sane satis explicata recordatio, sed, ut arbitror, apta ad id, quod requiris, ut cognoscas quae viri omnium eloquentissimi clarissimique senserint de omni ratione dicendi. vis enim, ut mihi saepe dixisti, quoniam, quae pueris aut adulescentulis nobis ex commentariolis nostris incohata ac rudia exciderunt, vix sunt hac aetate digna et hoc usu, quem ex causis, quas diximus, tot tantisque consecuti sumus, aliquid eisdem de rebus politius a nobis perfectiusque proferri; solesque non numquam hac de re a me in disputationibus nostris dissentire, quod ego eruditissimorum hominum artibus eloquentiam contineri statuam, tu autem illam ab elegantia doctrinae segregandam putes et in quodam ingeni atque exercitationis genere ponendam. ac mihi quidem saepe numero in summos homines ac summis ingeniis praeditos intuenti quaerendum esse visum est quid esset cur plures in omnibus rebus quam in dicendo admirabiles exstitissent; nam quocumque te animo et cogitatione converteris, permultos excellentis in quoque genere videbis non mediocrium artium, sed prope maximarum. quis enim est qui, si clarorum hominum scientiam rerum gestarum vel utilitate vel magnitudine metiri velit, non anteponat oratori imperatorem? quis autem dubitet quin belli duces ex hac una civitate praestantissimos paene innumerabilis, in dicendo autem excellentis vix paucos proferre possimus? iam vero consilio ac sapientia qui regere ac gubernare rem publicam possint, multi nostra, plures patrum memoria atque etiam maiorum exstiterunt, cum boni perdiu nulli, vix autem singulis aetatibus singuli tolerabiles oratores invenirentur. ac ne qui forte cum aliis studiis, quae reconditis in artibus atque in quadam varietate litterarum versentur, magis hanc dicendi rationem, quam cum imperatoris laude aut cum boni senatoris prudentia comparandam putet, convertat animum ad ea ipsa artium genera circumspiciatque, qui in eis floruerint quamque multi sint; sic facillime, quanta oratorum sit et semper fuerit paucitas, iudicabit."""
+    
+    test_corpus = [test_1, test_2]
+    
+    #from cltk.corpus.latin.readers import latinlibrary
+    #test_corpus = [latinlibrary.raw(file) for file in latinlibrary.fileids() if 'cicero/' in file]
+    
+    #remove = ['Cicero', "The Latin Library", "The Classics Page"]
+    #for word in remove:
+    #    test_corpus = [text.replace(word,' ') for text in test_corpus]
+    
+    S = CorpusStoplist('latin')
+    print(S.build_stoplist(test_corpus, size=10,basis='tfidf'))
