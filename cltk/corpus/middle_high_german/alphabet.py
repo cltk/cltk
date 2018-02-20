@@ -46,6 +46,7 @@ def normalize_middle_high_german(text, to_lower_all = True, to_lower_beginning =
         text = text.lower()
    
     if to_lower_beginning:
+        text = text[0].lower() + text[1:]
         text = re.sub(r"(?<=[\.\?\!]\s)(\w)",lambda x: x.group(1).lower(),text)
 
     if alpha_conv:
