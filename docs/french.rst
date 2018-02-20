@@ -163,6 +163,9 @@ SWADESH
 ==================
 
 The corpus module has a class for generating Swadesh list for Old French
+=======
+
+
 
 .. code-block:: python
  In [1]: from cltk.corpus.swadesh import Swadesh

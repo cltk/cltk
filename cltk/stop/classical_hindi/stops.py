@@ -4,7 +4,7 @@ source code : <https://gist.github.com/inishchith/ad4bc0da200110de638f5408c64bb1
 """
 __author__ = 'Nishchith Shetty <inishchith[at]gmail[.]com>'
 
-STOP_LIST = ["हें", # yes
+STOPS_LIST = ["हें", # yes
               "है", # is
               "हैं", # there
               "हि", # this
