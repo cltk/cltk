@@ -1,6 +1,7 @@
 from cltk.tokenize.word import WordTokenizer
 from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
 from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
+import re
 
 __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
@@ -65,8 +66,9 @@ def remove_umlaut(text):
 	return "".join([umlaut_dict.get(l,l) for word in text for l in word])
 
 	
-def stemmer_middle_high_german(text_l, exceptions = exc_dict):
+def stemmer_middle_high_german(text_l, rem_umlauts = True, exceptions = exc_dict):
 	"""text_l: text in string format
+	   rem_umlauts: choose whether to remove umlauts from string
 	   exc_dict: hard-coded dictionary for the cases the algorithm fails"""
 	
 	#Normalize text
@@ -82,7 +84,7 @@ def stemmer_middle_high_german(text_l, exceptions = exc_dict):
 	
 	for word in text_l:
 		try:
-			text.append(exc_dict[word]) #test if word in exception dictionary
+			text.append(exceptions[word]) #test if word in exception dictionary
 			
 		except:
 			if word[0].isupper():
@@ -91,5 +93,5 @@ def stemmer_middle_high_german(text_l, exceptions = exc_dict):
 				text.append(word)
 
 			else:
-				text.append(stem_helper(word)) 
+				text.append(stem_helper(word, rem_umlaut = rem_umlauts))
 	return text
