@@ -109,8 +109,8 @@ class TestSequenceFunctions(unittest.TestCase):
         
         sentence = "Swer was ze Bêârosche komn, doch hete Gâwân dâ genomn den prîs ze bêder sît al ein wan daz dervor ein ritter schein, bî rôtem wâpen unrekant, des prîs man in die hœhe bant."
         lowered = sentence.lower()
-        punkt = PunktLanguageVars()
-        tokens = punkt.word_tokenize(lowered)
+        tokenizer = WordTokenizer('middle_high_german')
+        tokens = tokenizer.tokenize(lowered)
         no_stops = [w for w in tokens if w not in MHG_STOPS]
         target_list = ['swer', 'bêârosche', 'komn', ',', 'gâwân', 'genomn', 'prîs', 'bêder', 'sît', 'dervor', 'ritter', 'schein', ',', 'rôtem', 'wâpen', 'unrekant', ',', 'prîs', 'hœhe', 'bant', '.']
         self.assertEqual(no_stops,target_list)
