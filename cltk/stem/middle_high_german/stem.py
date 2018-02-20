@@ -69,7 +69,7 @@ def remove_umlaut(text):
 def stemmer_middle_high_german(text_l, rem_umlauts = True, exceptions = exc_dict):
 	"""text_l: text in string format
 	   rem_umlauts: choose whether to remove umlauts from string
-	   exc_dict: hard-coded dictionary for the cases the algorithm fails"""
+	   exceptions: hard-coded dictionary for the cases the algorithm fails"""
 	
 	#Normalize text
 	text_l = normalize_middle_high_german(text_l, to_lower_all = False, to_lower_beginning = True)
@@ -78,9 +78,7 @@ def stemmer_middle_high_german(text_l, rem_umlauts = True, exceptions = exc_dict
 	word_tokenizer = WordTokenizer("middle_high_german")
 	text_l = word_tokenizer.tokenize(text_l)
 	text = []
-	
-	#Filter stop words
-	text_l = [word for word in text_l if word not in MHG_STOPS]
+
 	
 	for word in text_l:
 		try:
@@ -91,7 +89,10 @@ def stemmer_middle_high_german(text_l, rem_umlauts = True, exceptions = exc_dict
 				#MHG only uses upper case for locations, people, etc. So any word that starts with a capital
 				#letter while not being at the start of a sentence will automatically be excluded.
 				text.append(word)
-
+				
+			elif word in MHG_STOPS: 
+				text.append(word) #Filter stop words
+				
 			else:
 				text.append(stem_helper(word, rem_umlaut = rem_umlauts))
 	return text
