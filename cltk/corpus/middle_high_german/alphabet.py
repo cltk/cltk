@@ -51,7 +51,7 @@ def normalize_middle_high_german(text, to_lower_all = True, to_lower_beginning =
 
     if alpha_conv:
         text = text.replace("ē","ê").replace("ī","î").replace("ā","â").replace("ō","ô").replace("ū","û")
-        text = text.replace("ae","â").replace("oe","œ")
+        text = text.replace("ae","æ").replace("oe","œ")
 
     if punct:
         text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]","",text)

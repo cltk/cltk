@@ -85,8 +85,8 @@ sentence.
 
 Alphabet Conversion
 -------------------
-Various online corpora use the characters *ā*, *ō*, *ū*, *ē*, *ī*, *oe* to represent *â*, *ô*, *û*, *ê*, *î* and *œ* respectively.
-Sometimes, *ae* is also used instead of *â*. By default, the normalizer converts the text to the canonical form.
+Various online corpora use the characters *ā*, *ō*, *ū*, *ē*, *ī* to represent *â*, *ô*, *û*, *ê* and *î* respectively.
+Sometimes, *ae* and *oe* are also  used instead of *æ* and *œ*. By default, the normalizer converts the text to the canonical form.
 
 .. code-block:: python
   
