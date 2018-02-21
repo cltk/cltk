@@ -2,7 +2,8 @@
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
-              'Natasha Voake <natashavoake@gmail.com>']
+              'Natasha Voake <natashavoake@gmail.com>',
+              'Dhruv Apte <dhruvgirishapte@gmail.com>']
 # Author info for Arabic, Old Norse?
 
 __license__ = 'MIT License. See LICENSE.'
@@ -25,7 +26,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'french',
                                     'greek',
                                     'latin',
-                                    'old_norse']
+                                    'old_norse',
+                                    'old_english']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
             self.available_languages)  # pylint: disable=line-too-long
@@ -45,6 +47,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokens = tokenize_latin_words(string)
         elif self.language == 'old_norse':
             tokens = tokenize_old_norse_words(string)
+        elif self.language == 'old_english':
+            tokens = tokenize_old_eng_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -268,3 +272,23 @@ def tokenize_old_norse_words(text):
 
     results = str.split(text)
     return results
+  
+  
+def tokenize_old_eng_words(text):
+    assert isinstance(string, str), "Incoming string must be type str."
+    """
+    A tokenizer for Old English
+    Example:
+    >>> text='Hƿæt! ƿē Gār-Dena in ġeār-dagum,'
+    >>> tokenize_old_eng_words(text)
+    ['Hƿæt', '!', 'ƿē', 'Gār', '-', 'Dena', 'in', 'ġeār', '-', 'dagum', ',']
+    """
+    
+	  # normalising apostrophes and punctuation
+
+	  text = re.sub(r"’", r"'", string)
+	  text = re.sub(r"\'", r"' ", text)
+	  text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
+
+	  results = str.split(text)
+	  return (results)	
