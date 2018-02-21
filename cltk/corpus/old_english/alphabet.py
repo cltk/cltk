@@ -4,5 +4,5 @@ inflected language with a Germanic vocabulary, very different from modern Englis
 """
 
 # Digits [1-10]
-DIGITS = ["Ān","Tƿeġen","Þrēo","fēoƿer","fīf","seox","seofon","eahta","nigon","tīen"]
+DIGITS = ["Ān", "Tƿeġen", "Þrēo", "fēoƿer", "fīf", "seox", "seofon", "eahta", "nigon", "tīen"]
 
