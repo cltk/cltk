@@ -44,12 +44,9 @@ class Swadesh():
             return swadesh_eng_old
         elif self.language == 'old_norse':
             return swadesh_old_norse
-<<<<<<< 685709a22aa9de728927412b7d928cb9cb1f21c9
         elif self.language == 'syc':
             return swadesh_syc
         elif self.language == 'hi':
             return swadesh_hi
-=======
         elif self.language == 'nl':
-            return swadesh_nl    
->>>>>>> Add dutch corpora and swadesh list
+            return swadesh_nl
