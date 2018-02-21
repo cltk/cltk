@@ -761,6 +761,12 @@ class TestScriptInformation(unittest.TestCase):
         first_word = 'अहम्'
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
+    
+    def test_swadesh_hindi(self):
+        swadesh = Swadesh('hi')
+        first_word = 'मैं'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
 
 if __name__ == '__main__':
     unittest.main()
