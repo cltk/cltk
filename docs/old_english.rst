@@ -44,3 +44,19 @@ The corpus module has a class for generating a Swadesh list for Old English.
 
    In [3]: swadesh.words()[:10]
    Out[3]: ['ic, iċċ, ih', 'þū', 'hē', 'wē', 'ġē', 'hīe', 'þēs, þēos, þis', 'sē, sēo, þæt', 'hēr', 'þār, þāra, þǣr, þēr']
+   
+   
+Word Tokenization
+=======
+Apostrophes are considered part of the first word of the two they separate. Apostrophes are also normalized from “’” to “'“.
+
+.. code_block:: python
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+   
+   In [2]: word_tokenizer = WordTokenizer('old_english')
+   
+   In [3]: text= 'Hƿæt! ƿē Gār-Dena in ġeār-dagum,'
+   
+   In [4]: word_tokenizer.tokenize(text)
+   Out [4]:  ['Hƿæt', '!', 'ƿē', 'Gār', '-', 'Dena', 'in', 'ġeār', '-', 'dagum', ',']
