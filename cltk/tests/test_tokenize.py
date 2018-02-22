@@ -232,6 +232,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         result = word_tokenizer.tokenize(text)
         #print(result)
         self.assertTrue(result == target)
+        
+    def test_middle_high_german_tokenizer(self):
+        text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
+        target = ['Gâwân', 'het', 'êre', 'unde', 'heil', ',', 'ieweders', 'volleclîchen', 'teil', ':', 'nu', 'nâht', 'och', 'sînes', 'kampfes', 'zît', '.']
+        tokenizer = WordTokenizer('middle_high_german')
+        tokenized_lines = tokenizer.tokenize(text)
+        self.assertTrue(tokenized_lines == target)
 
 if __name__ == '__main__':
     unittest.main()

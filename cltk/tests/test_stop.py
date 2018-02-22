@@ -7,9 +7,13 @@ from cltk.stop.stop import StringStoplist
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
 from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
+from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
+from cltk.stop.classical_hindi.stops import STOPS_LIST as HINDI_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
+from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
 from nltk.tokenize.punkt import PunktLanguageVars
+from cltk.tokenize.word import WordTokenizer
 import os
 import unittest
 
@@ -77,7 +81,6 @@ class TestSequenceFunctions(unittest.TestCase):
         target_list = ['pensé', 'talant', 'd', '’', 'yonec', 'die', 'avant', 'dunt', 'nez', ',', 'pere', 'cum', 'primes',
                        'mere','.']
         self.assertEqual(no_stops, target_list)
-        
 
     def test_string_stop_list(self):
         """Test production of stoplists from a given string"""
@@ -101,7 +104,28 @@ class TestSequenceFunctions(unittest.TestCase):
         print(no_stops)
         target_list = ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
         self.assertEqual(no_stops, target_list)
+        
+    def test_middle_high_german_stopwords(self):
+        """Test filtering  Middle High German stopwords."""
+        
+        sentence = "Swer was ze Bêârosche komn, doch hete Gâwân dâ genomn den prîs ze bêder sît al ein wan daz dervor ein ritter schein, bî rôtem wâpen unrekant, des prîs man in die hœhe bant."
+        lowered = sentence.lower()
+        tokenizer = WordTokenizer('middle_high_german')
+        tokens = tokenizer.tokenize(lowered)
+        no_stops = [w for w in tokens if w not in MHG_STOPS]
+        target_list = ['swer', 'bêârosche', 'komn', ',', 'gâwân', 'genomn', 'prîs', 'bêder', 'sît', 'dervor', 'ritter', 'schein', ',', 'rôtem', 'wâpen', 'unrekant', ',', 'prîs', 'hœhe', 'bant', '.']
+        self.assertEqual(no_stops,target_list)
 
+    def test_classical_hindi_stops(self):
+        """
+        Test filtering classical hindi stopwords
+        Sentence extracted from (https://github.com/cltk/hindi_text_ltrc/blob/master/miscellaneous/gandhi/main.txt)
+        """
+        sentence = " वह काबुली फिर वहां आकर खडा हो गया है  "
+        tokens = indian_punctuation_tokenize_regex(sentence)
+        no_stops = [word for word in tokens if word not in HINDI_STOPS]
+        target_list = ['काबुली', 'फिर', 'वहां', 'आकर', 'खडा', 'गया']
+        self.assertEqual(no_stops, target_list)
 
 if __name__ == '__main__':
     unittest.main()
