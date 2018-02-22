@@ -159,3 +159,14 @@ WORD TOKENIZATION
 
 Apostrophes are considered part of the first word of the two they separate. Apostrophes are also normalized from “’” to “'“.
 
+
+Swadesh
+=======
+
+.. code-block:: python
+ In [1]: from cltk.corpus.swadesh import Swadesh
+ 
+ In [2]: swadesh = Swadesh('fr_old')
+ 
+ In [3]: swadesh.words()[:10]
+ Out[3]: ['jo, jou, je, ge', 'tu', 'il', 'nos, nous', 'vos, vous', 'il, eles', 'cist, cest, cestui', 'ci', 'la']

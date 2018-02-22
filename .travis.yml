@@ -35,6 +35,8 @@ after_success:
 deploy:
   provider: pypi
   user: kyle_johnson
+  edge:
+    branch: v1.8.45
   on:
     branch: master
   password:

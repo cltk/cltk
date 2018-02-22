@@ -166,12 +166,14 @@ This tool can break a sentence into its constituent words. It works on the basis
 
 .. code-block:: python
 
-   In [29]: from cltk.tokenize.indian_tokenizer import *
+   In [29]: from cltk.tokenize.sentence import TokenizeSentence
 
-   In [30]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है"
+   In [30]: tokenizer = TokenizeSentence('sanskrit') 
 
-   In [31]: x = indian_punctuation_tokenize_regex(input_text)
-   Out[31]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
+   In [31]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है"
+
+   In [32]: x = tokenizer.tokenize(input_text)
+   Out[32]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
 
 
 Stopword Filtering
