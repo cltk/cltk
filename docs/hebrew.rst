@@ -17,3 +17,35 @@ Use ``CorpusImporter`` or browse the `CLTK Github repository <http://github.com/
    Out[3]:
    ['hebrew_text_sefaria']
 
+
+Alphabet
+========
+
+The Hebrew alphabet and digits are placed in `cltk/corpus/hebrew/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/hebrew/alphabet.py>`_.
+
+The digits are placed in a list ``DIGITS`` with the digit in the following order (None,1,...18,19,20,30,40,50,60......90,100,200,300.....900,1000,2000,5000,10000,100000,1000000).There is no alphabet for digit 0. For example, the hebrew digit for 4 can be accessed in this manner:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.hebrew.alphabet import DIGITS
+   In [2]: DIGITS[4]
+   Out[2]: 'ד'
+
+The entire list of alphabets can be accessed in this manner:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.hebrew.alphabet import ALPHABET
+   In [2]: ALPHABET
+   Out[2]: ['ז', 'ו', 'ה', 'ד', 'ג', 'בּ/ב', 'א', 'מ', 'ל', 'ך', 'כּ/כ', 'י', 'ט', 'ח', 'ף', 'פּ/פ', 'ע', 'ס', 'ן', 'נ', 'ם', 'ת', 'שׁ/שׂ', 'ר', 'ק', 'ץ', 'צ', "'ת", "'צ", "'ע", "'ח", "'ז", "'ד", "'ג"] 
+
+The list of vowels can be accessed in this manner:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.hebrew.alphabet import VOWELS
+   In [2]: VOWELS
+   Out[2]: ['אְ', 'אִ', 'אֵ', 'אֶ', 'אָ', 'אַ', 'ׂא', 'וֹ', 'אֻ', 'וּ', 'תּ', 'שׁ', 'שׂ', 'אֱ', 'אֲ', "אֳ"]
+
+
+
