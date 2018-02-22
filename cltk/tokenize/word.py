@@ -1,19 +1,18 @@
 """Language-specific word tokenizers. Primary purpose is to handle enclitics."""
 
+# Author info for Arabic, Old Norse?
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
               'Natasha Voake <natashavoake@gmail.com>',
               'Dhruv Apte <dhruvgirishapte@gmail.com>']
-# Author info for Arabic, Old Norse?
 
 __license__ = 'MIT License. See LICENSE.'
 
 import re
-
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
-
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
+
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
@@ -29,15 +28,11 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'old_norse',
                                     'old_english']
                                     'middle_high_german']
-        assert self.language in self.available_languages, \
-            "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
-            self.available_languages)  # pylint: disable=line-too-long
-        # ^^^ Necessary? since we have an 'else' in `tokenize`
-        
+        assert self.language in self.available_languages, "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language, self.available_languages)  # pylint: disable=line-too-long
+
 
     def tokenize(self, string):
-        """Tokenize incoming string."""
-        
+    """Tokenize incoming string."""    
         if self.language == 'arabic':
             tokens = tokenize_arabic_words(string)
         elif self.language == 'french':
