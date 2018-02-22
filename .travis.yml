@@ -20,6 +20,7 @@ before_script:
 - pip install fuzzywuzzy
 - pip install python-Levenshtein
 - pip install gensim  # for word2vec.py
+- pip install numpy scipy scikit-learn
 
 script:
   # Notes on nose:
