@@ -767,6 +767,21 @@ class TestScriptInformation(unittest.TestCase):
         self.assertEqual(first_word, match)
 
 
+<<<<<<< HEAD
+    def test_swadesh_old_egyptian(self):
+        swadesh = Swadesh('egy_old')
+        first_word = 'jnk'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_middle_egyptian(self):
+        swadesh = Swadesh('egy_middle')
+        first_word = 'jnk'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+
+=======
     def test_swadesh_old_english(self):
         swadesh = Swadesh('eng_old')
         first_word = 'ic, iċċ, ih'
@@ -779,5 +794,6 @@ class TestScriptInformation(unittest.TestCase):
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
+>>>>>>> upstream/master
 if __name__ == '__main__':
     unittest.main()
