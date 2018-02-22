@@ -1,6 +1,6 @@
 """Tokenize sentences."""
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -8,6 +8,8 @@ from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
+import re
+import string
 
 
 PUNCTUATION = {'greek':
@@ -19,6 +21,7 @@ PUNCTUATION = {'greek':
                     'internal': (',', ';'),
                     'file': 'latin.pickle', }}
 
+INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
 class TokenizeSentence():  # pylint: disable=R0903
     """Tokenize sentences for the language given as argument, e.g.,
@@ -31,8 +34,10 @@ class TokenizeSentence():  # pylint: disable=R0903
         :param language : Language for sentence tokenization.
         """
         self.language = language.lower()
-        self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
-            self._setup_language_variables(self.language)
+
+        if self.language not in INDIAN_LANGUAGES :
+            self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
+                self._setup_language_variables(self.language)
 
     def _setup_language_variables(self, lang: str):
         """Check for language availability and presence of tokenizer file,
@@ -88,9 +93,26 @@ class TokenizeSentence():  # pylint: disable=R0903
         for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
             tokenized_sentences.append(sentence)
         return tokenized_sentences
-        
+
+    def indian_punctuation_tokenize_regex(self: object, untokenized_string: str):
+        """A trivial tokenizer which just tokenizes on the punctuation boundaries.
+        This also includes punctuation, namely the the purna virama ("|") and
+        deergha virama ("॥"), for Indian language scripts.
+
+        :type untokenized_string: str
+        :param untokenized_string: A string containing one of more sentences.
+        :rtype : list of strings
+        """
+        modified_punctuations = string.punctuation.replace("|","") # The replace , deletes the ' | ' from the punctuation string provided by the library
+        indian_punctuation_pattern = re.compile('(['+modified_punctuations+'\u0964\u0965'+']|\|+)')
+        tok_str = indian_punctuation_pattern.sub(r' \1 ',untokenized_string.replace('\t',' '))
+        return re.sub(r'[ ]+',u' ',tok_str).strip(' ').split(' ')
+
     def tokenize(self: object, untokenized_string: str):
         # NLTK's PlaintextCorpusReader needs a function called tokenize
         # in functions used as a parameter for sentence tokenization.
         # So this is an alias for tokenize_sentences().
-        return self.tokenize_sentences(untokenized_string)
+        if self.language in INDIAN_LANGUAGES:
+            return self.indian_punctuation_tokenize_regex(untokenized_string)
+        else:
+            return self.tokenize_sentences(untokenized_string)

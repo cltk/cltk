@@ -11,7 +11,7 @@ from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
 from cltk.stop.classical_hindi.stops import STOPS_LIST as HINDI_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
-from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.tokenize.word import WordTokenizer
 import os
@@ -122,7 +122,8 @@ class TestSequenceFunctions(unittest.TestCase):
         Sentence extracted from (https://github.com/cltk/hindi_text_ltrc/blob/master/miscellaneous/gandhi/main.txt)
         """
         sentence = " वह काबुली फिर वहां आकर खडा हो गया है  "
-        tokens = indian_punctuation_tokenize_regex(sentence)
+        tokenizer = TokenizeSentence('hindi')
+        tokens = tokenizer.tokenize(sentence)
         no_stops = [word for word in tokens if word not in HINDI_STOPS]
         target_list = ['काबुली', 'फिर', 'वहां', 'आकर', 'खडा', 'गया']
         self.assertEqual(no_stops, target_list)
