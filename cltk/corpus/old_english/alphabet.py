@@ -1,4 +1,3 @@
-
 """Old English alphabet."""
 
 # digits [1-10]
