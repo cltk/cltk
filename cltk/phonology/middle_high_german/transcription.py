@@ -85,18 +85,19 @@ class Transcriber:
 		"""Accepts a word and returns a string of an approximate pronounciation (IPA)"""
 		
 		if not punctuation:
-			self.text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]","",text)
+			text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]","",text)
 		
-		self.text = re.sub(r'sch','ʃ',text)
-		self.text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])h','χ',text) 
-		self.text = re.sub(r'h(?=[aeiouäëöüâæœêîôû])','χ',text)
-		self.text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])s(?=[aeiouäëöüâæœêîôû])','z̥',text)
-		self.text = re.sub(r'^s(?=[aeiouäëöüâæœêîôû])','z̥',text)
+		text = re.sub(r'sch','ʃ',text)
+		text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])h','χ',text) 
+		text = re.sub(r'h(?=[aeiouäëöüâæœêîôû])','χ',text)
+		text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])s(?=[aeiouäëöüâæœêîôû])','z̥',text)
+		text = re.sub(r'^s(?=[aeiouäëöüâæœêîôû])','z̥',text)
 		
 		for w,val in zip(Dipthongs_IPA.keys(), Dipthongs_IPA.values()):
-			self.text = self.text.replace(w, val)
+			text = text.replace(w, val)
 			
 		for w,val in zip(IPA.keys(), IPA.values()):
-			self.text = self.text.replace(w, val)
+			text = text.replace(w, val)
 			
-		return "[" + self.text + "]"
+		return "[" + text + "]"
+
