@@ -242,7 +242,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         
     def test_sanskirt_tokenizer(self):
         text = "यद्यप्येते न पश्यन्ति लोभोपहतचेतसः । कुलक्षयकृतं दोषं मित्रद्रोहे च पातकम् ॥"
-        target = ['"यद्यप्येते', 'न', 'पश्यन्ति', 'लोभोपहतचेतसः', '।', 'कुलक्षयकृतं', 'दोषं', 'मित्रद्रोहे', 'च', 'पातकम्', '॥']
+        target = ['यद्यप्येते', 'न', 'पश्यन्ति', 'लोभोपहतचेतसः', '।', 'कुलक्षयकृतं', 'दोषं', 'मित्रद्रोहे', 'च', 'पातकम्', '॥']
         tokenizer = WordTokenizer('sanskrit')
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)     
