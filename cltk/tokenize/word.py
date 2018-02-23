@@ -49,7 +49,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         elif self.language == 'middle_high_german':
             tokens = tokenize_middle_high_german_words(string)
         elif self.language == 'sanskrit':
-            tokens = tokenizer_sanskrit_words(string)
+            tokens = tokenize_sanskrit_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -293,4 +293,4 @@ def tokenize_sanskrit_words(text):
      
     # no problems in sanskrit
     results = str.split(text)
-    return (results)
+    return results
