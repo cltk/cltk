@@ -136,8 +136,8 @@ The corpus module has a class for generating a Swadesh list for Sanskrit.
 
    In [3]: swadesh.words()[:10]
    Out[3]: ['अहम्' , 'त्वम्', 'स', 'वयम्, नस्', 'यूयम्, वस्', 'ते', 'इदम्', 'तत्', 'अत्र', 'तत्र']
-
-
+   
+   
 Syllabifier
 ===========
 
@@ -156,25 +156,44 @@ This tool can break a word into its syllables, this can be applied across 17 Ind
 
    In [28]: current = x.orthographic_syllabify(input_text)
    Out[28]: ['न', 'म','स्ते']
-
-
-Tokenizer
+   
+   
+LINE TOKENIZATION
 =========
 
-This tool has also been derived from the `IndicNLP Project <https://github.com/anoopkunchukuttan/indic_nlp_library>`_ courtesy of `anoopkunchukuttan <https://github.com/anoopkunchukuttan/>`_
-This tool can break a sentence into its constituent words. It works on the basis of filtering out punctuations and spaces.
+The line tokenizer takes a string as its input and returns a list of strings.
 
 .. code-block:: python
 
-   In [29]: from cltk.tokenize.sentence import TokenizeSentence
+   In [1]: from cltk.tokenize.line import LineTokenizer
 
-   In [30]: tokenizer = TokenizeSentence('sanskrit') 
+   In [2]: tokenizer = LineTokenizer('sanskrit')
 
-   In [31]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है"
+   In [3]: input_text = 'यद्यप्येते न पश्यन्ति लोभोपहतचेतसः । कुलक्षयकृतं दोषं मित्रद्रोहे च पातकम् ॥ \nकथं न ज्ञेयमस्माभिः पापादस्मान्निवर्तितुम् । कुलक्षयकृतं दोषं प्रपश्यद्भिर्जनार्दन ॥ \nकुलक्षये प्रणश्यन्ति कुलधर्माः सनातनाः । धर्मे नष्टे कुलं कृत्स्नमधर्मोऽभिभवत्युत ॥'
 
-   In [32]: x = tokenizer.tokenize(input_text)
-   Out[32]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
+   In [4]: tokenizer.tokenize(input_text)
+   Out[5]: ['यद्यप्येते न पश्यन्ति लोभोपहतचेतसः । कुलक्षयकृतं दोषं मित्रद्रोहे च पातकम् ॥ ',
+            'कथं न ज्ञेयमस्माभिः पापादस्मान्निवर्तितुम् । कुलक्षयकृतं दोषं प्रपश्यद्भिर्जनार्दन ॥ ',
+            'कुलक्षये प्रणश्यन्ति कुलधर्माः सनातनाः । धर्मे नष्टे कुलं कृत्स्नमधर्मोऽभिभवत्युत ॥']
+            
+            
+WORD TOKENIZER
+=========
 
+A very simple tokenizer is available for Sanskrit.
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+
+   In [2]: tokenizer = WordTokenizer('sanskrit')
+
+   In [3]: input_text = "यद्यप्येते न पश्यन्ति लोभोपहतचेतसः । कुलक्षयकृतं दोषं मित्रद्रोहे च पातकम् ॥"
+
+   In [4]: tokenizer.tokenize(input_text)
+   Out[5]: ['यद्यप्येते','न','पश्यन्ति','लोभोपहतचेतसः','।','कुलक्षयकृतं','दोषं','मित्रद्रोहे','च','पातकम्','॥']
+   
+   
 
 Stopword Filtering
 ==================
@@ -187,8 +206,7 @@ To use the CLTK's built-in stopwords list:
 
    In [2]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
 
-   In [3]: s = "हमने पिछले पाठ मे सीखा था कि “अहम् गच्छामि” का मतलब “मै जाता हूँ” है। आप ऊपर
-      ...:  की तालिकाँओ "
+   In [3]: s = "हमने पिछले पाठ मे सीखा था कि “अहम् गच्छामि” का मतलब “मै जाता हूँ” है। आप ऊपर की तालिकाँओ "
 
    In [4]: tokens = indian_punctuation_tokenize_regex(s)
 
@@ -201,22 +219,21 @@ To use the CLTK's built-in stopwords list:
    Out[7]: 18
 
    In [8]: no_stops
-   Out[8]: 
-   ['हमने',
-    'पिछले',
-    'पाठ',
-    'सीखा',
-    'था',
-    'कि',
-    '“अहम्',
-    'गच्छामि”',
-    'मतलब',
-    '“मै',
-    'जाता',
-    'हूँ”',
-    'है',
-    '।',
-    'आप',
-    'ऊपर',
-    'की',
-    'तालिकाँओ']
+   Out[8]: ['हमने',
+           'पिछले',
+           'पाठ',
+           'सीखा',
+           'था',
+           'कि',
+           '“अहम्',
+           'गच्छामि”',
+           'मतलब',
+           '“मै',
+           'जाता',
+           'हूँ”',
+           'है',
+           '।',
+           'आप',
+           'ऊपर',
+           'की',
+           'तालिकाँओ']
