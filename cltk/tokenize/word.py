@@ -2,7 +2,8 @@
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
-              'Natasha Voake <natashavoake@gmail.com>']
+              'Natasha Voake <natashavoake@gmail.com>',
+              'Harsh Kotta <harshkotta@gmail.com>']
 # Author info for Arabic, Old Norse?
 
 __license__ = 'MIT License. See LICENSE.'
@@ -26,10 +27,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'greek',
                                     'latin',
                                     'old_norse',
-                                    'middle_high_german']
-        assert self.language in self.available_languages, \
-            "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
-            self.available_languages)  # pylint: disable=line-too-long
+                                    'middle_high_german',
+                                    'sanskrit']
+        assert self.language in self.available_languages, "Specific tokenizer not available for '{0}'. Only available for:'{1}'.".format(self.language,self.available_languages)  # pylint: disable=line-too-long
         # ^^^ Necessary? since we have an 'else' in `tokenize`
         
 
@@ -48,6 +48,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokens = tokenize_old_norse_words(string)
         elif self.language == 'middle_high_german':
             tokens = tokenize_middle_high_german_words(string)
+        elif self.language == 'sanskrit':
+            tokens = tokenizer_sanskrit_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -285,3 +287,10 @@ def tokenize_middle_high_german_words(text):
     text = str.split(text)
 
     return text
+
+def tokenize_sanskrit_words(text):
+    assert isinstance(text, str), "Incoming string must be type str."
+     
+    # no problems in sanskrit
+    results = str.split(text)
+    return (results)
