@@ -81,8 +81,11 @@ class Transcriber:
 	def __init__(self):
 		pass #To-do: Add different dialects and/or notations
 				
-	def transcribe(self, text):
+	def transcribe(self, text, punctuation = True):
 		"""Accepts a word and returns a string of an approximate pronounciation (IPA)"""
+		
+		if not punctuation:
+			self.text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]","",text)
 		
 		self.text = re.sub(r'sch','ʃ',text)
 		self.text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])h','χ',text) 
