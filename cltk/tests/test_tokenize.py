@@ -234,8 +234,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(result == target)
         
     def test_old_eng_word_tokenizer(self):
-        text = "Hƿæt! ƿē Gār-Dena in ġeār-dagum, 
-               "þēod-cyninga, þrym ġefrūnon,hū ðā æþelingas ellen fremedon."
+        text = "Hƿæt! ƿē Gār-Dena in ġeār-dagum, þēod-cyninga, þrym ġefrūnon,hū ðā æþelingas ellen fremedon."
         target= ['Hƿæt', '!', 'ƿē', 'Gār', '-', 'Dena', 'in', 'ġeār', '-', 'dagum', ',' 
                  'þēod', '-', 'cyninga', ',', 'þrym', 'ġefrūnon', ',', 'hū', 'ðā', 'æþelingas', 'ellen', 'fremedon', '.'
         word_tokenizer =WordTokenizer('old_eng')
