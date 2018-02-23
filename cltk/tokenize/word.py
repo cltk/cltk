@@ -26,7 +26,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'greek',
                                     'latin',
                                     'old_norse',
-                                    'old_english'
+                                    'old_english',
                                     'middle_high_german']
         assert self.language in self.available_languages, "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language, self.available_languages)  # pylint: disable=line-too-long
 
