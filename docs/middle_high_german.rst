@@ -99,6 +99,25 @@ Punctuation is also handled by the normalizer.
   In [5]: normalize_middle_high_german("Si sprach: ‘herre Sigemunt, ir sult iȥ lāȥen stān", punct = True)
   Out[5]: 'si sprach herre sigemunt ir sult iȥ lâȥen stân'
 
+Transliteration
+===============
+
+.. note::
+  As of this version, the Transcribe class doesn't support any specific dialects and serves as a superset encompassing various regional accents at the expense of accuracy.
+  
+  CLTK's transcriber attempts to transcribe a word into the International Phonetical Alphabet (IPA).
+  
+.. code-block:: python
+
+  In[1]: from cltk.phonology.middle_high_german.transcription import Transcriber
+  
+  In[2]: tr = Transcriber()
+  
+  In[3]: tr.transcribe("Slâfest du, friedel ziere?", punctuation = True)
+  Out[3]: '[Slɑːfest d̥ʊ, frɪ͡əd̥el t͡sɪ͡əre?]'
+  
+  In[4]: tr.transcribe("Slâfest du, friedel ziere?", punctuation = False)
+  Out[4]: '[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre]'
 
   
 Word Tokenization
@@ -116,4 +135,5 @@ The WordTokenizer class takes a string as input and returns a list of tokens.
   
   In[4]: word_tokenizer.tokenize(text)
   Out[4]: ['Mīn', 'ougen', 'wurden', 'liebes', 'alsō', 'vol', ',', 'dō', 'ich', 'die', 'minneclīchen', 'ērst', 'gesach', ',', 'daȥ', 'eȥ', 'mir', 'hiute', 'und', 'iemer', 'mē', 'tuot', 'wol', '.']
+  
 
