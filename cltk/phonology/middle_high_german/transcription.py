@@ -96,4 +96,4 @@ class Transcriber:
 		for w,val in zip(IPA.keys(), IPA.values()):
 			self.text = self.text.replace(w, val)
 			
-		return self.text
+		return "[" + self.text + "]"
