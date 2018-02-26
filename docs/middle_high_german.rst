@@ -102,9 +102,7 @@ Punctuation is also handled by the normalizer.
 Transliteration
 ===============
 
-CLTK's transcriber attempts to transcribe a word into the International Phonetical Alphabet (IPA).
- 
-As of this version, the Transcribe class doesn't support any specific dialects and serves as a superset encompassing various regional accents at the expense of accuracy.
+CLTK's transcriber rewrites a word into the International Phonetical Alphabet (IPA). As of this version, the Transcribe class doesn't support any specific dialects and serves as a superset encompassing various regional accents.
 
 
 .. code-block:: python
