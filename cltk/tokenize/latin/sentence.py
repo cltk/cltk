@@ -24,6 +24,7 @@ class SentenceTokenizer(BaseSentenceTokenizer):
         BaseSentenceTokenizer.__init__(self, 'latin')
         self.model = self._get_model()
     
+        
              
     def tokenize(self, text, model=None):
         """
@@ -45,10 +46,10 @@ class SentenceTokenizer(BaseSentenceTokenizer):
                                 self.language,
                                 'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
         model_path = os.path.expanduser(model_path)
-        model = os.path.join(model_path, model_file)
-        assert os.path.isfile(model), \
+        model_path = os.path.join(model_path, model_file)
+        assert os.path.isfile(model_path), \
             'Please download sentence tokenization model for {}.'.format(self.language)
-        return model
+        return model_path
             
         
 if __name__ == "__main__":
@@ -61,4 +62,4 @@ if __name__ == "__main__":
     import nltk.data
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     tokenizer.tokenize(text)
-    print(type(tokenizer), dir(tokenizer))
+print(type(tokenizer), dir(tokenizer))
