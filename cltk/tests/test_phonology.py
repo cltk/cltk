@@ -7,6 +7,7 @@ import unicodedata
 from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.latin import transcription as lat
+from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.akkadian import stress as AkkadianStress
 import unittest
 
@@ -425,6 +426,16 @@ class TestSequenceFunctions(unittest.TestCase):
         # from iso233-2 to arabic native script
         reverse = False
         assert AarabicTransliterate(mode,iso2332_string,ignore,reverse) == 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ'
+        
+    def test_middle_high_german_transcriber(self):
+        """
+        Test MHG IPA transcriber
+        """
+        inputs = "Slâfest du friedel ziere?"
+        transcriber = mhg.Transcriber().transcribe
+        transcription = [unicodedata.normalize('NFC',x) for x in transcriber(inputs)]
+        target = [unicodedata.normalize('NFC',x) for x in '[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre?]']
+        self.assertEqual(target,transcription)
 
 if __name__ == '__main__':
     unittest.main()
