@@ -554,10 +554,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         
      def test_marathi_stemmer(self):
         """ Test Marathi Stemmer"""
-		sentence = "मी वाचत आहे"
-		stemmed_text=stem(sentence)
-		target = "मी वाच आहे "
-		self.assetEqual(stemmed_text,target)
+	sentence = "मी वाचत आहे"
+	stemmed_text=stem(sentence)
+	target = "मी वाच आहे "
+	self.assetEqual(stemmed_text,target)
 
 
 if __name__ == '__main__':
