@@ -552,7 +552,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     " chevalcho "
         self.assertEqual(stemmed_text, target)
         
-     def test_marathi_stemmer(self):
+    def test_marathi_stemmer(self):
         """ Test Marathi Stemmer"""
 	sentence = "मी वाचत आहे"
 	stemmed_text=stem(sentence)
