@@ -551,13 +551,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
                     " chevalcho "
         self.assertEqual(stemmed_text, target)
-        
-    def test_marathi_stemmer(self):
-        """ Test Marathi Stemmer"""
-	sentence = "मी वाचत आहे"
-	stemmed_text=stem(sentence)
-	target = "मी वाच आहे "
-	self.assetEqual(stemmed_text,target)
+	
+    def marathi_stemmer_test(self):
+        """Test Marathi stemmer"""
+        sentence="मी वाचत आहे"
+        stemmed_text=stem(sentence)
+        target="मी वाच आहे"
+        self.assertEqual(stemmed_text,target)
+
+	
 
 
 if __name__ == '__main__':
