@@ -142,3 +142,18 @@ There are three additional consonants:
    ADDITIONAL_CONSONANTS = ['ळ', 'क्ष', 'ज्ञ']
 
    IAST_ADDITIONAL_CONSONANTS = ['La', 'kSha', 'dnya']
+   
+Stemmer
+=========
+
+A stemmer strips suffixes via an algorithm. Though faster than a lemmatizer, it is less accurate than the latter.
+
+.. code-block:: python
+
+ In[1]: from cltk.marathi.stem import stem
+ 
+ In[2]: text= "हरि बॊला हरि बॊला नातरी अबॊला . व्यर्थ गलबला करूं नका"
+ 
+ In[3]: stem(text)
+ 
+ Out[3]: "हरि बॊा हरि बॊ नातरी अबॊा . व्यर्थ गलब करूं न"
