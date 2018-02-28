@@ -24,7 +24,6 @@ def matchremove_verb_endings(word):
 		if word.endswith(ending):
 			word = re.sub(r'{0}$'.format(ending), '', word)
 		break
-
 		return word
 
 
