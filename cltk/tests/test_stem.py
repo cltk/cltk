@@ -18,7 +18,6 @@ from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
 from cltk.stem.french.stem import stem
 from cltk.stem.marathi.stem import stem
 
-
 import os
 import unittest
 
@@ -558,9 +557,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stemmed_text=stem(sentence)
         target="मी वाच आहे"
         self.assertEqual(stemmed_text,target)
-
 	
-
-
 if __name__ == '__main__':
     unittest.main()
