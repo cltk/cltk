@@ -764,7 +764,7 @@ class TestScriptInformation(unittest.TestCase):
 
     def test_swadesh_arabic(self):
         swadesh = Swadesh('ar')
-        first_word = '  أنا‎'
+        first_word = ' أنا‎'
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)    
 
