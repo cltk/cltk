@@ -99,6 +99,29 @@ Punctuation is also handled by the normalizer.
   In [5]: normalize_middle_high_german("Si sprach: ‘herre Sigemunt, ir sult iȥ lāȥen stān", punct = True)
   Out[5]: 'si sprach herre sigemunt ir sult iȥ lâȥen stân'
 
+Phonetic Indexing
+=================
+
+Phonetic Indexing helps identifying and processing homophones.
+
+Soundex
+-------
+The ``Word`` class provides a modified Soundex algorithm modified for MHG.
+
+.. code-block:: python
+
+ In [1]: from cltk.phonology.middle_high_german.transcription import Word
+ 
+ In [2]: w1 = Word("krippe")
+ 
+ In[3]: w1.phonetic_index(p = "SE")
+ Out[3]: 'K510'
+ 
+ In[4]: w2 = Word("krîbbe")
+ 
+ In[5]: w2.phonetic_indexing(p = "SE")
+ Out[5]: 'K510'
+
 Transliteration
 ===============
 
@@ -121,7 +144,7 @@ CLTK's transcriber rewrites a word into the International Phonetical Alphabet (I
 Word Tokenization
 =================
 
-The WordTokenizer class takes a string as input and returns a list of tokens.
+The ``WordTokenizer`` class takes a string as input and returns a list of tokens.
 
 .. code-block:: python
 

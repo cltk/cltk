@@ -436,6 +436,16 @@ class TestSequenceFunctions(unittest.TestCase):
         transcription = [unicodedata.normalize('NFC',x) for x in transcriber(inputs)]
         target = [unicodedata.normalize('NFC',x) for x in '[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre?]']
         self.assertEqual(target,transcription)
+        
+    def test_middle_high_german_soundex(self):
+        """
+        Test MHG Soundex Phonetic Index
+        """
+        w1 = mhg.Word("krêatiure").phonetic_indexing(p="SE")
+        w2 = mhg.Word("kreatur").phonetic_indexing(p="SE")
+        target = ['K535','K535']
+        
+        self.assertEqual([w1,w2], target)
 
 if __name__ == '__main__':
     unittest.main()
