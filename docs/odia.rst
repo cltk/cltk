@@ -25,3 +25,18 @@ The vowels are places in a list ``VOWELS`` and can be accessed in this manner :
    Out[2]: ['ଅ', 'ଆ', 'ଇ', 'ଈ', 'ଉ', 'ଊ', 'ଋ', 'ୠ', 'ଌ', 'ୡ', 'ଏ', 'ଐ', 'ଓ', 'ଔ']
 
 The rest of the alphabets are ``UNSTRUCTURED_CONSONANTS`` and ``STRUCTURED_CONSONANTS`` that can be accessed in a similar way.
+
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Odia.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('or')
+
+   In [3]: swadesh.words()[:10]
+
+   Out[3]: ['ମୁଁ', 'ତୁ, ତୁମେ, ଆପଣ', 'ସେ', 'ଆମେ', 'ତୁମେମାନେ, ଆପଣମାନେ', 'ସେମାନେ', 'ଏହା', 'ତାହା ', 'ଏଠାରେ, ଏଠି', 'ସେଠାରେ, ସେଠି']
