@@ -167,7 +167,7 @@ class Word():
 			print("Parameter value not supported")
 		
 	def _Soundex(self):
-		t_word = remove_umlaut(self.word[0].lower()).upper() + self.word[1:].lower()
+		t_word = remove_umlaut(self.word[0].lower()).upper() + remove_umlaut(self.word[1:]).lower()
 		
 		for w,val in zip(dict_dipth_SE.keys(), dict_dipth_SE.values()):
 			t_word = t_word.replace(w,val)
@@ -179,6 +179,6 @@ class Word():
 		t_word = re.sub(r"(\d)\1+",r"\1" ,t_word)
 		
 		#Strip remaining letters
-		t_word = re.sub(r"[a-z]+","",t_word)
+		t_word = re.sub(r"[a-zæœ]+","",t_word)
 		
 		return (t_word + "0"*3) [:4] #Add trailing zeroes
