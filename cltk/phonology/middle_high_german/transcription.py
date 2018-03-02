@@ -152,7 +152,7 @@ Replacement Rules:
 -Retain first 3 numbers (add 0 if less than 3)
 """
 
-class Word():
+class Word:
 
 	def __init__(self,word):
 		self.word = word
