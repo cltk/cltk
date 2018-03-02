@@ -759,7 +759,7 @@ class TestScriptInformation(unittest.TestCase):
         first_word = 'अहम्'
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
-    
+
     def test_swadesh_hindi(self):
         swadesh = Swadesh('hi')
         first_word = 'मैं'
@@ -776,6 +776,12 @@ class TestScriptInformation(unittest.TestCase):
     def test_swadesh_old_norse(self):
         swadesh = Swadesh('old_norse')
         first_word = 'ek'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_hebrew(self):
+        swadesh = Swadesh('hbo')
+        first_word = '\'anî, \'ānokî '
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
