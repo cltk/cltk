@@ -1,5 +1,5 @@
 import re
-from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex as i_word
+from cltk.tokenize.sentence import TokenizeSentence
 
 def stem(text):
 	text=text.lower()
