@@ -49,6 +49,21 @@ To use the CLTK's built-in stopwords list, We use an example from `Eiríks saga 
     ',',
     'glitraði']
 
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Old Norse.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('old_norse')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ek', 'þú', 'hann', 'vér', 'þér', 'þeir', 'sjá, þessi', 'sá', 'hér', 'þar']
+
+
 Word Tokenizing
 ===============
 A very simple tokenizer is available for Old Norse. For now, it does not take into account specific Old Norse constructions like the merge of conjugated verbs with þú and with sik.
