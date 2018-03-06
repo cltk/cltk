@@ -26,7 +26,7 @@ from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
 from cltk.corpus.french.corpora import FRENCH_CORPORA
 from cltk.corpus.marathi.corpora import MARATHI_CORPORA
 from cltk.corpus.gujarati.corpora import GUJARATI_CORPORA
-
+from cltk.corpus.ottoman_turkish.corpora import OTTOMAN_TURKISH_CORPORA
 
 from cltk.utils.cltk_logger import logger
 
@@ -48,7 +48,7 @@ AVAILABLE_LANGUAGES = ['arabic', 'chinese', 'coptic', 'greek', 'hebrew', 'latin'
                        'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
                        'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
                        'malayalam', 'marathi', 'javanese','old_norse','telugu','classical_hindi',
-                       'french', 'gujarati', 'middle_high_german']
+                       'french', 'gujarati', 'middle_high_german','ottoman-turkish_corpora']
 
 
 CLTK_DATA_DIR = '~/cltk_data'
@@ -75,8 +75,8 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'telugu':TELUGU_CORPORA,
                     'classical_hindi':CLASSICAL_HINDI_CORPORA,
                     'french':FRENCH_CORPORA,
-                    'gujarati': GUJARATI_CORPORA,
-
+                    'gujarati': GUJARATI_CORPORA, 
+                    'ottoman-turkish_corpora':OTTOMAN_TURKISH_CORPORA
                     }
 
 
