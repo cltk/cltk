@@ -24,6 +24,7 @@ Stopword Filtering
 
 To use the CLTK's built-in stopwords list, We use an example from `Eiríks saga rauða
 <http://www.heimskringla.no/wiki/Eir%C3%ADks_saga_rau%C3%B0a>`_:
+
 .. code-block:: python
 
    >>> from nltk.tokenize.punkt import PunktLanguageVars
@@ -67,6 +68,7 @@ Word Tokenizing
 ===============
 A very simple tokenizer is available for Old Norse. For now, it does not take into account specific Old Norse constructions like the merge of conjugated verbs with þú and with sik.
 Here is a sentence extracted from Gylfaginning.
+
 .. code-block:: python
 
    >>> word_tokenizer = WordTokenizer('old_norse')
