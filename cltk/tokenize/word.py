@@ -3,7 +3,7 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
               'Natasha Voake <natashavoake@gmail.com>',
-              'Harsh Kotta <harshkotta@gmail.com>']
+              'Harsh Kotta <harshkotta@gmail.com>',
               'Clément Besnier <clemsciences@gmail.com>']
 # Author info for Arabic?
 
