@@ -23,13 +23,13 @@ Alphabet
 
 The Hebrew alphabet and digits are placed in `cltk/corpus/hebrew/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/hebrew/alphabet.py>`_.
 
-The digits are placed in a list ``DIGITS`` with the digit in the following order (None,1,...18,19,20,30,40,50,60......90,100,200,300.....900,1000,2000,5000,10000,100000,1000000).There is no alphabet for digit 0. For example, the hebrew digit for 4 can be accessed in this manner:
+The digits are placed in a list ``DIGITS`` with the digit in the following order (1,2...18,19,20,30,40,50,60......90,100,200,300.....900,1000,2000,5000,10000,100000,1000000).There is no alphabet for digit 0. For example, the hebrew digit for 5 can be accessed in this manner:
 
 .. code-block:: python
 
    In [1]: from cltk.corpus.hebrew.alphabet import DIGITS
    In [2]: DIGITS[4]
-   Out[2]: 'ד'
+   Out[2]: 'ה'
 
 The entire list of alphabets can be accessed in this manner:
 
