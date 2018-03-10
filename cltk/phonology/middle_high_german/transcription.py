@@ -186,6 +186,7 @@ class Word:
 	
 	def ASCII_encoding(self):
 		"""Returns the ASCII encoding of a string"""
+		
 		w = unicodedata.normalize('NFKD', self.word).encode('ASCII','ignore') #Encode into ASCII, returns a bytestring
 		w = w.decode('utf-8') #Convert back to string
 		
