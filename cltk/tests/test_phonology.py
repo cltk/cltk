@@ -446,6 +446,17 @@ class TestSequenceFunctions(unittest.TestCase):
         target = ['K535','K535']
         
         self.assertEqual([w1,w2], target)
+        
+    def test_middle_high_german_ascii_encoding(self):
+        """
+        Test MHG ASCII encoder
+        """
+        s1 = mhg.Word("vogellîn").ASCII_encoding()
+        s2 = mhg.Word("vogellīn").ASCII_encoding()
+        target = ['vogellin','vogellin']
+        
+        self.assertEqual([s1,s2], target)
+        
 
 if __name__ == '__main__':
     unittest.main()

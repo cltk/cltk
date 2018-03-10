@@ -3,6 +3,20 @@ Middle High German
 
 Middle High German (abbreviated MHG, German: Mittelhochdeutsch, abbr. Mhd.) is the term for the form of German spoken in the High Middle Ages. It is conventionally dated between 1050 and 1350, developing from Old High German and into Early New High German. High German is defined as those varieties of German which were affected by the Second Sound Shift; the Middle Low German and Middle Dutch languages spoken to the North and North West, which did not participate in this sound change, are not part of MHG. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Middle_High_German>`_)
 
+ASCII Encoding
+==============
+
+Using the ``Word`` class, you can easily convert a string to its ASCII encoding, essentialy striping it of its diacritics.
+
+ .. code-block:: python
+  
+  In[1]: from cltk.phonology.middle_high_german.transcription import Word
+    
+  In[2]: w = Word("vogellîn")
+    
+  In[3]: w.ASCII_encoding()
+  Out[3]: 'vogellin'
+
 Stemming
 ========
  

@@ -8,6 +8,7 @@
 """
 
 import re
+import unicodedata
 from cltk.stem.middle_high_german.stem import remove_umlaut
 
 #IPA Dictionary
@@ -154,10 +155,10 @@ Replacement Rules:
 
 class Word:
 
-	def __init__(self,word):
+	def __init__(self, word):
 		self.word = word
 	
-	def phonetic_indexing(self,p = "SE"):
+	def phonetic_indexing(self, p = "SE"):
 		"""Specifies the phonetic indexing method.
 		SE: Soundex variant for MHG"""
 		
@@ -182,3 +183,11 @@ class Word:
 		t_word = re.sub(r"[a-zæœ]+","",t_word)
 		
 		return (t_word + "0"*3) [:4] #Add trailing zeroes
+	
+	def ASCII_encoding(self):
+		"""Returns the ASCII encoding of a string"""
+		
+		w = unicodedata.normalize('NFKD', self.word).encode('ASCII','ignore') #Encode into ASCII, returns a bytestring
+		w = w.decode('utf-8') #Convert back to string
+		
+		return w
