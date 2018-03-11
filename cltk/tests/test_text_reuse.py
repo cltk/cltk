@@ -49,6 +49,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         l = Levenshtein()
         ratio = l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
         self.assertEqual(ratio, 0.71)
+        
+    def test_levenshtein_distance(self):
+        """Test for Levehnstein Distance between two words""" 
+        l = Levenshtein()
+        dist = l.Levehnstein_Distance("pace","peccatum")
+        self.assertEqual(dist, 4)
 
 #    Test causing lemmatizer Travis build to fail—figure out what is wrong and restore.
 #    def test_distance_sentences(self):
