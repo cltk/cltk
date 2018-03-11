@@ -2,8 +2,9 @@
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
-              'Natasha Voake <natashavoake@gmail.com>']
-# Author info for Arabic, Old Norse?
+              'Natasha Voake <natashavoake@gmail.com>',
+              'Clément Besnier <clemsciences@gmail.com>']
+# Author info for Arabic?
 
 __license__ = 'MIT License. See LICENSE.'
 
