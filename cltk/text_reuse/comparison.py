@@ -6,7 +6,7 @@ A comparison class to help with tracking string comparison values
 from cltk.utils.cltk_logger import logger
 
 
-__author__ = ['Luke Hollis <lukehollis@gmail.com>']
+__author__ = ['Luke Hollis <lukehollis@gmail.com>', 'Eleftheria Chatziargyriou ele.hatzy@gmail.com']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -137,3 +137,58 @@ def minhash(str_a, str_b):
             return score
         except ZeroDivisionError: return score
 
+def Default_Matrix(n, match, substitution):return [[match if i==j else substitution for i in range(n)] for j in range(n)]
+
+def Needleman_Wunsch(w1, w2, d=-1, alphabet = "abcdefghijklmnopqrstuvwxyz", S = Default_Matrix(26, 1, -1) ):
+    """
+    Computes allignment using Needleman-Wunsch algorithm. The alphabet parameter is used for specifying the alphabetical order
+    of the similarity matrix. Similarity matrix is initialized to an unweighted matrix that returns 1 for match and -1 for 
+    substitution. 
+    """
+    
+    #S must be a square matrix matching the length of your alphabet
+    if len(S) != len(alphabet) or len(S[0])!=len(alphabet):
+        raise AssertionError("Unexpected dimensions of Similarity matrix, S. S must be a n by n square matrix, where n is the length of your predefined alphabet")
+        
+    m,n = len(w1), len(w2)
+    F = [[0 for i in range(n+1)] for j in range(m+1)]
+    
+    for i in range(m+1):
+        F[i][0] = d*i
+       
+    for i in range(n+1):
+        F[0][i] = d*i
+    
+    #F[i][j] is given by the reccurence relation F[i][j] = max(F[i-1][j-1] + S(A[i],B[i]), F[i][j-1] + d, F[i-1][j] + d)
+    #Where S the similarity matrix and d the gap penalty
+    
+    for i in range(1,m+1):
+        for j in range(1,n+1):
+            F[i][j] = max(F[i-1][j-1] + S[alphabet.index(w1[i-1])][alphabet.index(w2[j-1])], F[i-1][j] + d,F[i][j-1] + d)
+    
+    A1, A2 = "", ""
+    i, j = m, n
+    
+    #Since F[n][m] gives the maximum score, we can now reconstruct the alignment by determining whether the optimal move
+    #is a match, insertion or deletion
+    
+    while i>0 or j>0:
+        
+        if i>0 and j>0 and F[i][j] == F[i-1][j-1] + S[alphabet.index(w1[i-1])][alphabet.index(w2[j-1])]:
+            A1 = w1[i-1] + A1
+            A2 = w2[j-1] + A2
+            i -= 1
+            j -= 1
+        
+        elif i>0 and F[i][j] == F[i-1][j] + d:
+            A1 = w1[i-1] + A1
+            A2 = "-" + A2
+            i -= 1
+        
+        else:
+            A1 = "-" + A1
+            A2 = w2[j-1] + A2
+            j -= 1
+            
+    return (A1, A2)
+    
