@@ -8,6 +8,7 @@ from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
 from cltk.text_reuse.comparison import long_substring
 from cltk.text_reuse.comparison import minhash
+from cltk.text_reuse.comparison import Needleman_Wunsch
 
 
 demo_verg = """
@@ -78,6 +79,12 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test for finding the similarity between two sentences using Minhash"""
         score = minhash(demo_verg, demo_prop)
         self.assertEqual(score, 0.17163120567375886)
+   
+    def test_Needleman_Wunsch(self)
+        """Test for finding the optimal alignment by the Needleman-Wunsch algorithm"""
+        w1, w2 = "michtis","myht"
+        al = Needleman_Wunsch(w1, w2)
+        self.assertEqual(al,('michtis', 'm-yht--'))
 
 
 if __name__ == '__main__':
