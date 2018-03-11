@@ -144,6 +144,13 @@ def Needleman_Wunsch(w1, w2, d=-1, alphabet = "abcdefghijklmnopqrstuvwxyz", S = 
     Computes allignment using Needleman-Wunsch algorithm. The alphabet parameter is used for specifying the alphabetical order
     of the similarity matrix. Similarity matrix is initialized to an unweighted matrix that returns 1 for match and -1 for 
     substitution. 
+    
+    :param w1: str
+    :param w2: str
+    :param d: int/float
+    :param alphabet: str
+    :param S: list
+    :return: str tuple
     """
     
     #S must be a square matrix matching the length of your alphabet
