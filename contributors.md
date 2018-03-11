@@ -86,6 +86,10 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/punjabi/numerifier.py
 * cltk/stop/punjabi/stops.py
 
+## Nishchith Shetty <inishchith@gmail.com>
+* cltk/corpus/odia/alphabet.py
+* cltk/stop/classical_hindi/stops.py
+
 ## Nurendra Choudhary <nurendrachoudhary31@gmail.com>
 * cltk/corpus/sanskrit/itrans/itrans_transliterator.py
 * cltk/corpus/sanskrit/itrans/langinfo.py

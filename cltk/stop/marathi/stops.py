@@ -1,4 +1,4 @@
-"""This list is composed from 100 most frequently occuring words in mrathi corpus in CLTK.
+"""This list is composed from 100 most frequently occuring words in Marathi corpus in CLTK.
 """
 
 __author__ = ['Mahesh S. Bhosale <bhosalems24@gmail.com>']
