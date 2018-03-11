@@ -80,7 +80,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         score = minhash(demo_verg, demo_prop)
         self.assertEqual(score, 0.17163120567375886)
    
-    def test_Needleman_Wunsch(self)
+    def test_Needleman_Wunsch(self):
         """Test for finding the optimal alignment by the Needleman-Wunsch algorithm"""
         w1, w2 = "michtis","myht"
         al = Needleman_Wunsch(w1, w2)
