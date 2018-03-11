@@ -4,7 +4,8 @@ from cltk.tokenize.sentence import TokenizeSentence
 def stem(text):
 	text=text.lower()
 	stemmed_text=''
-	tokenized_text=i_word(text)
+	tokenizer=TokenizeSentence('marathi')
+	tokenized_text=tokenizer.tokenize(text)
 	for word in tokenized_text:
 		word = matchremove_verb_endings(word)
 		stemmed_text += word + ' '
