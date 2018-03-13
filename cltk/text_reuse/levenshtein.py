@@ -13,9 +13,9 @@ class Levenshtein:
         return
 
     @staticmethod
-    def Levehnstein_Distance(w1, w2):
+    def Levenshtein_Distance(w1, w2):
         """
-        Computes Levehnstein Distance between two words
+        Computes Levenshtein Distance between two words
         
         :param w1: str
         :param w2: str
