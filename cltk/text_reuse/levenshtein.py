@@ -53,7 +53,7 @@ class Levenshtein:
         try: 
             from fuzzywuzzy import fuzz
         
-        except ImportError as imp_err:
+        except ImportError as imp_err: # pragma: no cover
             message = "'fuzzywuzzy' library required for this module: %s. Install with `pip install fuzzywuzzy python-Levenshtein`" % imp_err
             logger.error(message)
             print(message)
