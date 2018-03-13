@@ -9,6 +9,7 @@ from cltk.text_reuse.text_reuse import TextReuse
 from cltk.text_reuse.comparison import long_substring
 from cltk.text_reuse.comparison import minhash
 from cltk.text_reuse.comparison import Needleman_Wunsch
+from cltk.text_reuse.comparison import Default_Matrix
 
 
 demo_verg = """
@@ -85,7 +86,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         w1, w2 = "michtis","myht"
         al = Needleman_Wunsch(w1, w2)
         self.assertEqual(al,('michtis', 'm-yht--'))
-
+    
+    def test_Default_Matrix(self):
+        """Test for the default similarity matrix"""
+        A = Default_Matrix(3, 1, -1)
+        self.assertEqual(A, [[1, -1, -1], [-1, 1, -1], [-1, -1, 1]])
 
 if __name__ == '__main__':
     unittest.main()
