@@ -40,11 +40,11 @@ class Levenshtein:
             v1,v2 = v2,v1
                 
         return v1[n]
-    
+
     @staticmethod
-    def Damerau_Levehnstein_Distance(w1, w2):
+    def Damerau_Levenshtein_Distance(w1, w2):
         """
-        Computes Damerau-Levehnstein Distance between two words
+        Computes Damerau-Levenshtein Distance between two words
 
         :param w1: str
         :param w2: str
@@ -84,7 +84,7 @@ class Levenshtein:
                 else:
                     cost = 1
                 
-                #The reccurence relation of DL is identical to that of Levehnstein with the addition of transposition
+                #The reccurence relation of DL is identical to that of Levenshtein with the addition of transposition
                 mat[i][j] = min(mat[i-1][j-1]+cost, mat[i][j-1]+1, mat[i-1][j]+1, mat[k-1][l-1] + i + j - k - l - 1)
 
             dam_ar[alph.index(w1[i-2])] = i - 2
