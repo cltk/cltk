@@ -22,11 +22,11 @@ class Levenshtein:
         :return: int
         """
         m,n = len(w1), len(w2)
-        v1 = [i for i in range(n)]+[0]
+        v1 = [i for i in range(n+1)]
         v2 = [0 for i in range(n+1)]
         
         for i in range(m):
-            v2[0]+=1
+            v2[0] = i + 1
             
             for j in range(n):
                 delCost = v1[j+1] + 1
