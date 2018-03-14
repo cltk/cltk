@@ -42,6 +42,56 @@ class Levenshtein:
         return v1[n]
     
     @staticmethod
+    def Damerau_Levehnstein_Distance(w1, w2):
+        """
+        Computes Damerau-Levehnstein Distance between two words
+
+        :param w1: str
+        :param w2: str
+        :return int:
+        """
+        #Define alphabet
+        alph = sorted(list(set(w1+w2)))
+        # Calculate alphabet size
+        alph_s = len(alph)
+        dam_ar = [0 for _ in range(alph_s)]
+        mat =[[0 for _ in range(len(w2)+2)] for _ in range(len(w1)+2)]
+
+        max_dist = len(w1) + len(w2)
+        mat[0][0] = max_dist
+
+        #Initialize matrix margin to the maximum possible distance (essentially inf) for ease of calculations (avoiding try blocks)
+
+        for i in range(1, len(w1)+2):
+            mat[i][0] = max_dist 
+            mat[i][1] = i - 1
+
+        for i in range(1, len(w2)+2):
+            mat[0][i] = max_dist
+            mat[1][i] = i - 1
+
+        for i in range(2, len(w1)+2):
+            tem = 0
+
+            for j in range(2, len(w2)+2):
+
+                k = dam_ar[alph.index(w2[j-2])]
+                l = tem
+
+                if w1[i-2] == w2[j-2]:
+                    cost = 0
+                    tem = j - 2
+                else:
+                    cost = 1
+                
+                #The reccurence relation of DL is identical to that of Levehnstein with the addition of transposition
+                mat[i][j] = min(mat[i-1][j-1]+cost, mat[i][j-1]+1, mat[i-1][j]+1, mat[k-1][l-1] + i + j - k - l - 1)
+
+            dam_ar[alph.index(w1[i-2])] = i - 2
+
+        return mat[-1][-1]
+    
+    @staticmethod
     def ratio(string_a, string_b):
         """At the most basic level, return a Levenshtein distance ratio via
         fuzzywuzzy.
