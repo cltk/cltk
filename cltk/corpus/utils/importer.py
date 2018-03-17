@@ -49,7 +49,7 @@ AVAILABLE_LANGUAGES = ['arabic', 'chinese', 'coptic', 'greek', 'hebrew', 'latin'
                        'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english','medieval',
                        'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
                        'malayalam', 'marathi', 'javanese','old_norse','telugu','classical_hindi',
-                       'french', 'gujarati', 'middle_high_german',]
+                       'french', 'gujarati', 'middle_high_german']
 
 
 CLTK_DATA_DIR = '~/cltk_data'
