@@ -14,7 +14,6 @@ from cltk.corpus.pali.corpora import PALI_CORPORA
 from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
 from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.corpus.old_english.corpora import OLD_ENGLISH_CORPORA
-from cltk.corpus.medieval.corpora import MEDIEVAL_CORPORA
 from cltk.corpus.bengali.corpora import BENGALI_CORPORA
 from cltk.corpus.old_church_slavonic.corpora import OCS_CORPORA
 from cltk.corpus.prakrit.corpora import PRAKRIT_CORPORA
@@ -27,6 +26,7 @@ from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
 from cltk.corpus.french.corpora import FRENCH_CORPORA
 from cltk.corpus.marathi.corpora import MARATHI_CORPORA
 from cltk.corpus.gujarati.corpora import GUJARATI_CORPORA
+from cltk.corpus.medieval.corpora import MEDIEVAL_CORPORA
 
 
 from cltk.utils.cltk_logger import logger
@@ -46,10 +46,10 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 AVAILABLE_LANGUAGES = ['arabic', 'chinese', 'coptic', 'greek', 'hebrew', 'latin', 'multilingual',
-                       'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english','medieval',
+                       'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
                        'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
                        'malayalam', 'marathi', 'javanese','old_norse','telugu','classical_hindi',
-                       'french', 'gujarati', 'middle_high_german']
+                       'french', 'gujarati', 'middle_high_german','medieval']
 
 
 CLTK_DATA_DIR = '~/cltk_data'
@@ -64,8 +64,7 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'punjabi': PUNJABI_CORPORA,
                     'tibetan': TIBETAN_CORPORA,
                     'sanskrit': SANSKRIT_CORPORA,
-                    'old_english': OLD_ENGLISH_CORPORA,
-		    'medieval': MEDIEVAL_CORPORA,
+                    'old_english': OLD_ENGLISH,
                     'bengali': BENGALI_CORPORA,
                     'old_church_slavonic': OCS_CORPORA,
                     'prakrit': PRAKRIT_CORPORA,
@@ -78,7 +77,7 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'classical_hindi':CLASSICAL_HINDI_CORPORA,
                     'french':FRENCH_CORPORA,
                     'gujarati': GUJARATI_CORPORA,
-
+                    'medieval': MEDIEVAL_CORPORA,
                     }
 
 
