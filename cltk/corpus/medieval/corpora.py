@@ -8,6 +8,4 @@ MEDIEVAL_CORPORA = [
      'origin': 'https://github.com/cltk/medieval_text_wikisource.git',
      'location': 'remote',
      'type': 'text'},
-    
 ]
-
