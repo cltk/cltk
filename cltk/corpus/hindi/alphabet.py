@@ -21,7 +21,7 @@ Modified_constants = ['क़', 'ग़', 'ख़', 'ज़', 'ड़', 'ढ़'
 
 
 #the Semivowels are also in the script of hindi
-SEMIVOWELS = ['य ','र','ल' ,'व']    
+SEMIVOWELS = ['य','र','ल' ,'व']    
 
 #There are three sibilants:
 SIBILANTS = ['श','ष','स']
