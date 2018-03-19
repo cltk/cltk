@@ -12,12 +12,12 @@ DIGITS = ['०','१','२','३','४','५','६','७','८','९']
 
 VOWELS = ['अ','आ','इ','ई','उ','ऊ','ऋ','ए','ऐ','ओ','औ']
 
-DEPENDENT_VOWELS = ['◌া','ি','◌ী','◌ু','◌ূ','◌ৃ','ে','ৈ','ো','ৌ']
+DEPENDENT_VOWELS = ['ऺ','ऻ' ,'़' ,'ऽ' ,'ा' ,'ि', 'ी','ु' ,'ू' ,'.ृ' ,'ॄ','ॅ', 'ॆ', 'े','ै' ,'ॉ' ,' ॊ', 'ो' ,'ौ' ,'्' ,'ॏ']
 #following are the general consonants
 CONSONANTS = ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द', 'ध', 'न', 'प','फ','ब','भ','म']
 
 #following are modified constants
-Modified_constants = ['क़', 'ग़', 'ख़', 'ज़', 'ड़', 'ढ़', 'फ़']
+Modified_constants = ['क़', 'ग़', 'ख़', 'ज़', 'ड़', 'ढ़', 'फ़','य़','ऱ','ळ','ऴ']
 
 
 #the Semivowels are also in the script of hindi
@@ -31,3 +31,6 @@ FRICATIVE = ['ह']
 # Anusvara is used for final velar nasal sound, Visarga adds voiceless breath after vowel and Candrabindu is used to nasalize vowels 
 
 MODIFIERS = ['◌্','◌ঁ','◌ং','◌ঃ']
+
+#Om is part of the iconography found in ancient and medieval era manuscripts, temples, monasteries and spiritual retreats in Hinduism, Buddhism, and Jainism.The symbol has a spiritual meaning in all Indian dharmas, but the meaning and connotations of Om vary between the diverse schools within and across the various traditions.
+SIGNS= ['ॐ']
