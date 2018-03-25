@@ -51,8 +51,3 @@ SIBILANT_CONSONANTS = ['श' , 'ष' , 'स']
 GUTTURAL_CONSONANT = ['ह']
 
 SIGNS= ['ॐ']
-
-
-
-
-
