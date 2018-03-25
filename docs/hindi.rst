@@ -18,6 +18,62 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
    In [3]: c.list_corpora
    Out[3]:
    ['hindi_text_ltrc']
+   
+   
+Alphabet
+========
+
+HINDI is an Indic language which uses **Devanagari** script derived from Brahmi script. The Devanagari script is used for over 120 languages, making it one of the most used and `adopted writing systems <https://en.wikipedia.org/wiki/List_of_writing_systems_by_adoption>`_ in the world.
+
+Devanagari script has forty-seven primary characters, of which fourteen are vowels and thirty-three are consonants.
+The script has no distinction similar to the capital and small letters of the Latin alphabet. Generally the orthography of the script reflects the pronunciation of the language.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.hindi.alphabet import *
+   #Listing Numerals used in Hindi.
+   In [11]: DIGITS
+   Out[11]: ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
+
+   #Listing primary vowels.
+   In [12]: VOWELS
+   Out[12]: ['अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ']
+
+   #Listing dependent vowels (मात्रा).
+   In [13]: DEPENDENT_VOWELS
+   Out[13]: ['ऺ','ऻ' ,'़' ,'ऽ' ,'ा' ,'ि', 'ी','ु' ,'ू' ,'.ृ' ,'ॄ','ॅ', 'ॆ', 'े','ै' ,'ॉ' ,' ॊ', 'ो' 
+            ,'ौ' ,'्' ,'ॏ']
+   
+   #Listing of primary consonants.
+   In [14]: CONSONANTS
+   Out[14]: ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द', 'ध', 
+            'न', 'प','फ','ब','भ','म']
+ 
+   
+   #Listing of modified consonants.
+   In [15]: MODIFIED_CONSONANTS
+   Out[15]: ['क़', 'ग़', 'ख़', 'ज़', 'ड़', 'ढ़', 'फ़', 'य़', 'ऱ', 'ळ', 'ऴ']
+   
+   #Listing of semivowels.
+   In [16]: SEMIVOWELS
+   Out[16]: ['य ', 'र ', 'ल', 'व']
+   
+   #Listing of sibilants and fricative
+   In [17]: SIBILANTS
+   Out[17]: ['श', 'ष', 'स']
+
+   In [18]: FRICATIVE
+   Out[18]: ['ह']
+
+   #Listing of modifiers
+   # Anusvara is used for final velar nasal sound, Visarga adds voiceless breath after vowel and Candrabindu is used to nasalize vowels.
+   In [19]: MODIFIERS
+   Out[19]: ['◌্', '◌ঁ', '◌ং', '◌ঃ']
+
+   #Listing of sign.
+   # About Om:- Om is part of the iconography found in ancient and medieval era manuscripts, temples, monasteries and spiritual retreats in Hinduism, Buddhism, and Jainism.The symbol has a spiritual meaning in all Indian dharmas, but the meaning and connotations of Om vary between the diverse schools within and across the various traditions.
+   In [20]: SIGNS
+   Out[20]: ['ॐ']
 
 
 Stopword Filtering
