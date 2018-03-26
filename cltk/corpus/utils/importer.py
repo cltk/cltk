@@ -25,6 +25,8 @@ from cltk.corpus.telugu.corpora import TELUGU_CORPORA
 from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
 from cltk.corpus.french.corpora import FRENCH_CORPORA
 from cltk.corpus.marathi.corpora import MARATHI_CORPORA
+from cltk.corpus.gujarati.corpora import GUJARATI_CORPORA
+
 
 from cltk.utils.cltk_logger import logger
 
@@ -42,11 +44,11 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <st
 __license__ = 'MIT License. See LICENSE.'
 
 
-AVAILABLE_LANGUAGES = ['arabic','chinese', 'coptic', 'greek', 'hebrew', 'latin', 'multilingual',
+AVAILABLE_LANGUAGES = ['arabic', 'chinese', 'coptic', 'greek', 'hebrew', 'latin', 'multilingual',
                        'pali', 'punjabi', 'tibetan', 'sanskrit', 'old_english',
                        'bengali', 'prakrit', 'hindi', 'old_church_slavonic',
                        'malayalam', 'marathi', 'javanese','old_norse','telugu','classical_hindi',
-                       'french']
+                       'french', 'gujarati', 'middle_high_german']
 
 
 CLTK_DATA_DIR = '~/cltk_data'
@@ -73,6 +75,8 @@ LANGUAGE_CORPORA = {'arabic': ARABIC_CORPORA,
                     'telugu':TELUGU_CORPORA,
                     'classical_hindi':CLASSICAL_HINDI_CORPORA,
                     'french':FRENCH_CORPORA,
+                    'gujarati': GUJARATI_CORPORA,
+
                     }
 
 
@@ -89,7 +93,7 @@ class ProgressPrinter(RemoteProgress):
             sys.stdout.write('Downloaded %s%% %s \r' % (percentage, message))
 
 
-class CorpusImporter():
+class CorpusImporter:
     """Import CLTK corpora."""
 
     def __init__(self, language, testing=False):
@@ -117,8 +121,8 @@ class CorpusImporter():
                     self.all_corpora.append(corpus)
             except KeyError:
                 logger.debug('Nothing in the official repos '
-                            'for "{}" language. Make the all_corpora solely '
-                            'from the .yaml'.format(self.language))
+                             'for "{}" language. Make the all_corpora solely '
+                             'from the .yaml'.format(self.language))
                 self.all_corpora = []
                 for corpus in self.user_defined_corpora:
                     self.all_corpora.append(corpus)
@@ -148,7 +152,7 @@ class CorpusImporter():
             with open(distributed_corpora_fp) as file_open:
                 corpora_dict = yaml.safe_load(file_open)
         except FileNotFoundError:
-            logger.info('Distributed_corpora.yaml file not found.')
+            logger.info('`~/cltk_data/distributed_corpora.yaml` file not found.')
             return []
         except yaml.parser.ParserError as parse_err:
             logger.debug('Yaml parsing error: %s' % parse_err)
@@ -243,7 +247,7 @@ class CorpusImporter():
         logger.error(msg)
         raise CorpusImportError(msg)
 
-    def _git_user_defined_corpus(self, corpus_name, corpus_type, uri:str, branch='master'):
+    def _git_user_defined_corpus(self, corpus_name, corpus_type, uri: str, branch='master'):
         """Clone or update a git repo defined by user.
         TODO: This code is very redundant with what's in import_corpus(),
         could be refactored.

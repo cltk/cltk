@@ -235,7 +235,7 @@ The backoff module also offers IdentityLemmatizer which returns the given token 
 With the TrainLemmatizer, the backoff module allows you to provide a dictionary of the form {'TOKEN1': 'LEMMA1', 'TOKEN2': 'LEMMA2'} for lemmatization.
 
 .. code-block:: python
-   
+
    In [10]: tokens = ['arma', 'uirum', '-que', 'cano', ',', 'troiae', 'qui', 'primus', 'ab', 'oris']
 
    In [11]: dict = {'arma': 'arma', 'uirum': 'uir', 'troiae': 'troia', 'oris': 'ora'}
@@ -243,7 +243,7 @@ With the TrainLemmatizer, the backoff module allows you to provide a dictionary 
    In [12]: from cltk.lemmatize.latin.backoff import TrainLemmatizer
 
    In [13]: lemmatizer = TrainLemmatizer(dict)
-   
+
    In [14]: lemmatizer.lemmatize(tokens)
    Out[14]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', None), ('cano', None), (',', None), ('troiae', 'troia'), ('qui', None), ('primus', None), ('ab', None), ('oris', 'ora')]
 
@@ -252,7 +252,7 @@ The TrainLemmatizer—like all of the lemmatizers in this module—can take a se
 .. code-block:: python
 
    In [15]: default = DefaultLemmatizer('UNK')
-   
+
    In [16]: lemmatizer = TrainLemmatizer(dict, backoff=default)
 
    In [17]: lemmatizer.lemmatize(tokens)
@@ -263,22 +263,22 @@ With the ContextLemmatizer, the backoff module allows you to provide a list of l
 There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer():
 
 .. code-block:: python
-    
+
    In [18]: train_data = [[('cum', 'cum2'), ('esset', 'sum'), ('caesar', 'caesar'), ('in', 'in'), ('citeriore', 'citer'), ('gallia', 'gallia'), ('in', 'in'), ('hibernis', 'hibernus'), (',', 'punc'), ('ita', 'ita'), ('uti', 'ut'), ('supra', 'supra'), ('demonstrauimus', 'demonstro'), (',', 'punc'), ('crebri', 'creber'), ('ad', 'ad'), ('eum', 'is'), ('rumores', 'rumor'), ('adferebantur', 'affero'), ('litteris', 'littera'), ('-que', '-que'), ('item', 'item'), ('labieni', 'labienus'), ('certior', 'certus'), ('fiebat', 'fio'), ('omnes', 'omnis'), ('belgas', 'belgae'), (',', 'punc'), ('quam', 'qui'), ('tertiam', 'tertius'), ('esse', 'sum'), ('galliae', 'gallia'), ('partem', 'pars'), ('dixeramus', 'dico'), (',', 'punc'), ('contra', 'contra'), ('populum', 'populus'), ('romanum', 'romanus'), ('coniurare', 'coniuro'), ('obsides', 'obses'), ('-que', '-que'), ('inter', 'inter'), ('se', 'sui'), ('dare', 'do'), ('.', 'punc')], [('coniurandi', 'coniuro'), ('has', 'hic'), ('esse', 'sum'), ('causas', 'causa'), ('primum', 'primus'), ('quod', 'quod'), ('uererentur', 'uereor'), ('ne', 'ne'), (',', 'punc'), ('omni', 'omnis'), ('pacata', 'paco'), ('gallia', 'gallia'), (',', 'punc'), ('ad', 'ad'), ('eos', 'is'), ('exercitus', 'exercitus'), ('noster', 'noster'), ('adduceretur', 'adduco'), (';', 'punc')]]
-   
+
    In [19]: default = DefaultLemmatizer('UNK')
-    
+
    In [20]: lemmatizer = UnigramLemmatizer(train_sents, backoff=default)
    In [21]: lemmatizer.lemmatize(tokens)
-   
+
    Out[21]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
-    
+
 NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer(), and ContextPOSLemmatizer().
 
 
 Line Tokenization
 =================
-The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
+The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings.
 
 .. code-block:: python
 
@@ -289,7 +289,7 @@ The line tokenizer takes a string input into ``tokenize()`` and returns a list o
    In [3]: untokenized_text = """49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
 
    In [4]: tokenizer.tokenize(untokenized_text)
-   
+
    Out[4]: ['49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 The line tokenizer by default removes multiple line breaks. If you wish to retain blank lines in the returned list, set the ``include_blanks`` to ``True``.
@@ -299,7 +299,7 @@ The line tokenizer by default removes multiple line breaks. If you wish to retai
    In [5]: untokenized_text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
 
    In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
-   
+
    Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 Macronizer
@@ -784,6 +784,20 @@ To use the CLTK's built-in stopwords list:
     'patientia',
     'nostra',
     '?']
+
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Latin.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('la')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ego', 'tū', 'is, ea, id', 'nōs', 'vōs', 'eī, iī, eae, ea', 'hic, haec, ho', 'ille, illa, illud', 'hīc', 'illic, ibi']
 
 
 Syllabifier

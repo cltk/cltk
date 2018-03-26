@@ -26,13 +26,15 @@ This tool can help break up a sentence into smaller constituents.
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex as i_word
+   In [1]: from cltk.tokenize.sentence import TokenizeSentence
 
    In [2]: sentence = "রাজপণ্ডিত হব মনে আশা করে | সপ্তশ্লোক ভেটিলাম রাজা গৌড়েশ্বরে ||"
 
-   In [3]: bengali_text_tokenize = i_word(sentence)
+   In [3]: tokenizer = TokenizeSentence('bengali')
 
-   In [4]: bengali_text_tokenize
+   In [4]: bengali_text_tokenize = tokenizer.tokenize(sentence)
+
+   In [5]: bengali_text_tokenize
    ['রাজপণ্ডিত', 'হব', 'মনে', 'আশা', 'করে', '|', 'সপ্তশ্লোক', 'ভেটিলাম', 'রাজা', 'গৌড়েশ্বরে', '|', '|']
 
 

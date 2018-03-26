@@ -83,10 +83,40 @@ class Syllabifier:
         ['ru', 'ptus']
         >>> print(syllabifier.syllabify("Bīthÿnus"))
         ['Bī', 'thÿ', 'nus']
+        >>> print(syllabifier.syllabify("sanguen"))
+        ['san', 'guen']
+        >>> print(syllabifier.syllabify("unguentum"))
+        ['un', 'guen', 'tum']
+        >>> print(syllabifier.syllabify("lingua"))
+        ['lin', 'gua']
+        >>> print(syllabifier.syllabify("linguā"))
+        ['lin', 'guā']
+        >>> print(syllabifier.syllabify("languidus"))
+        ['lan', 'gui', 'dus']
         """
         cleaned = words.translate(self.remove_punct_map)
         cleaned = cleaned.replace("qu", "kw")
         cleaned = cleaned.replace("Qu", "Kw")
+        cleaned = cleaned.replace("gua", "gwa")
+        cleaned = cleaned.replace("Gua", "Gwa")
+        cleaned = cleaned.replace("gue", "gwe")
+        cleaned = cleaned.replace("Gue", "Gwe")
+        cleaned = cleaned.replace("gui", "gwi")
+        cleaned = cleaned.replace("Gui", "Gwi")
+        cleaned = cleaned.replace("guo", "gwo")
+        cleaned = cleaned.replace("Guo", "Gwo")
+        cleaned = cleaned.replace("guu", "gwu")
+        cleaned = cleaned.replace("Guu", "Gwu")
+        cleaned = cleaned.replace("guā", "gwā")
+        cleaned = cleaned.replace("Guā", "Gwā")
+        cleaned = cleaned.replace("guē", "gwē")
+        cleaned = cleaned.replace("Guē", "Gwē")
+        cleaned = cleaned.replace("guī", "gwī")
+        cleaned = cleaned.replace("Guī", "Gwī")
+        cleaned = cleaned.replace("guō", "gwō")
+        cleaned = cleaned.replace("Guō", "Gwō")
+        cleaned = cleaned.replace("guū", "gwū")
+        cleaned = cleaned.replace("Guū", "Gwū")
         items = cleaned.strip().split(" ")
         for char in cleaned:
             if not char in self.ACCEPTABLE_CHARS:
@@ -101,6 +131,12 @@ class Syllabifier:
                 syllables[idx] = syl
             if "Kw" in syl:
                 syl = syl.replace("Kw", "Qu")
+                syllables[idx] = syl
+            if "gw" in syl:
+                syl = syl.replace("gw", "gu")
+                syllables[idx] = syl
+            if "Gw" in syl:
+                syl = syl.replace("Gw", "Gu")
                 syllables[idx] = syl
 
         return StringUtils.remove_blank_spaces(syllables)

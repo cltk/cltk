@@ -5,6 +5,9 @@ language: python
 python:
 - '3.6'
 
+before_install:
+- sudo rm -f /etc/boto.cfg
+
 install:
 - python setup.py install
 
@@ -17,6 +20,7 @@ before_script:
 - pip install fuzzywuzzy
 - pip install python-Levenshtein
 - pip install gensim  # for word2vec.py
+- pip install numpy scipy scikit-learn
 
 script:
   # Notes on nose:
@@ -31,6 +35,8 @@ after_success:
 deploy:
   provider: pypi
   user: kyle_johnson
+  edge:
+    branch: v1.8.45
   on:
     branch: master
   password:

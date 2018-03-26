@@ -641,6 +641,20 @@ To use the CLTK's built-in stopwords list:
     'αἰολέας.']
 
 
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Greek.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('gr')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ἐγώ', 'σύ', 'αὐτός, οὗ, ὅς, ὁ, οὗτος', 'ἡμεῖς', 'ὑμεῖς', 'αὐτοί', 'ὅδε', 'ἐκεῖνος', 'ἔνθα, ἐνθάδε, ἐνταῦθα', 'ἐκεῖ']
+   
+
 TEI XML
 =======
 
@@ -856,6 +870,20 @@ the Greek language. Currently, the only available dialect is Attic as reconstruc
    Out[3]: '[di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn]'
 
 
+Word Tokenization
+=================
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+
+   In [2]: word_tokenizer = WordTokenizer('greek')
+
+   In [3]: text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+
+   In [4]: word_tokenizer.tokenize(text)
+   Out[4]: ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
+   
 
 Word2Vec
 ========

@@ -44,6 +44,8 @@ from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 from cltk.corpus.utils.formatter import normalize_fr
+from cltk.corpus.swadesh import Swadesh
+
 from unicodedata import normalize
 import os
 import unittest
@@ -728,6 +730,54 @@ class TestScriptInformation(unittest.TestCase):
     def test_is_indiclang_char(self):
         self.assertTrue(is_indiclang_char('क', 'hi'))
 
+    def test_swadesh_greek(self):
+        swadesh = Swadesh('gr')
+        first_word = 'ἐγώ'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_latin(self):
+        swadesh = Swadesh('la')
+        first_word = 'ego'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_tocharianB(self):
+        swadesh = Swadesh('txb')
+        first_word = 'ñäś'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_old_portuguese(self):
+        swadesh = Swadesh('pt_old')
+        first_word = 'eu'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_sanskrit(self):
+        swadesh = Swadesh('sa')
+        first_word = 'अहम्'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+    
+    def test_swadesh_hindi(self):
+        swadesh = Swadesh('hi')
+        first_word = 'मैं'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+
+    def test_swadesh_old_english(self):
+        swadesh = Swadesh('eng_old')
+        first_word = 'ic, iċċ, ih'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_old_norse(self):
+        swadesh = Swadesh('old_norse')
+        first_word = 'ek'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
 
 if __name__ == '__main__':
     unittest.main()

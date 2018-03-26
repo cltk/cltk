@@ -14,7 +14,7 @@ AKKADIAN = {
     'macron_vowels': ['ā', 'ē', 'ī', 'ū'],
     'circumflex_vowels': ['â', 'ê', 'î', 'û'],
 
-    'consonants': ['b', 'd', 'g', 'ḫ', 'k', 'l', 'm',
+    'consonants': ['b', 'd', 'g', 'h', 'ḫ', 'k', 'l', 'm',
                    'n', 'p', 'q', 'r', 's', 'ṣ', 'š',
                    't', 'ṭ', 'w', 'y', 'z', 'ʾ']
 }
@@ -31,11 +31,15 @@ class Syllabifier(object):
 
     def _is_vowel(self, char):
         return char in self.language['short_vowels'] + \
-                       self.language['macron_vowels'] + \
-                       self.language['circumflex_vowels']
+               self.language['macron_vowels'] + \
+               self.language['circumflex_vowels']
 
     def syllabify(self, word):
         syllables = []
+
+        # catch single character words
+        if len(word) == 1:
+            return [word]
 
         # If there's an initial vowel and the word is longer than 2 letters,
         # and the third syllable is a not consonant (easy way to check for VCC pattern),
@@ -60,8 +64,13 @@ class Syllabifier(object):
 
             # CV:
             if self._is_vowel(char):
-                syllables_reverse.append(word[i + 1] + word[i])
-                i += 2
+                if self._is_vowel(word[i + 1]):
+                    # Next char is a vowel so cut off syllable here
+                    syllables_reverse.append(word[i])
+                    i += 1
+                else:
+                    syllables_reverse.append(word[i + 1] + word[i])
+                    i += 2
 
             # CVC and VC:
             elif self._is_consonant(char):
