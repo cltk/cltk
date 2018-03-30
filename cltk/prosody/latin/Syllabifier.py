@@ -31,6 +31,7 @@ class Syllabifier:
         self.kw_matcher = re.compile("[kK][w]")
         self.ACCEPTABLE_CHARS = constants.ACCENTED_VOWELS + constants.VOWELS + ' ' \
                                 + constants.CONSONANTS
+        self.diphthongs = [d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]]
 
     def syllabify(self, words: str) -> list:
         """Parse a Latin word into a list of syllable strings.
@@ -203,7 +204,7 @@ class Syllabifier:
         my_word = " " + word + " "
         letters = list(my_word)
         positions = []
-        for dipth in self.constants.DIPTHONGS:
+        for dipth in self.diphthongs:
             if dipth in my_word:
                 dipth_matcher = re.compile("{}".format(dipth))
                 matches = dipth_matcher.finditer(my_word)

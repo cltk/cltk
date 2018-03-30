@@ -50,7 +50,7 @@ class ScansionConstants:
         self.VOWELS_TO_ACCENTS = dict(zip(list(self.VOWELS), list(self.ACCENTED_VOWELS)))
         self.ACCENTS_TO_VOWELS = dict(zip(list(self.ACCENTED_VOWELS), list(self.VOWELS)))
 
-        self.DIPTHONGS = ["ae", "au", "ei", "eu", "oe",
+        self.DIPTHONGS = ["ae", "au", "ei", "eu", "oe", "ui", "Ui", "uī",
                           # because the last vowel can be accented by position: potuisse
                           "Ae", "Au", "Ei", "Eu", "Oe"]
         self.UI_EXCEPTIONS = { "cui": ["cui"], "Cui": ["Cui"], "hui": ["hui"], "Hui": ["Hui"], "huic": ["huic"],
