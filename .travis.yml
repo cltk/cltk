@@ -21,6 +21,10 @@ before_script:
 - pip install python-Levenshtein
 - pip install gensim  # for word2vec.py
 - pip install numpy scipy scikit-learn
+- python cltk/utils/contributors.py
+- git add -A
+- git commit -m "contributors updated"
+- git push origin master
 
 script:
   # Notes on nose:
@@ -31,6 +35,7 @@ script:
 
 after_success:
 - codecov
+- python cltk/utils/contributors.py
 
 deploy:
   provider: pypi
