@@ -4,6 +4,44 @@ Middle English
 Middle English is collectively the varieties of the English language spoken after the Norman Conquest (1066) until the late 15th century; scholarly opinion varies but the Oxford English Dictionary specifies the period of 1150 to 1500.
 (Source: `Wikipedia <https://en.wikipedia.org/wiki/Middle_English>`_)
 
+Text Normalization
+==================
+
+CLTK's normalizer attempts to clean the given text, converting it into a canonical form.
+
+Lowercase Conversion
+--------------------
+
+The ``to_lower`` parameter converts the string into lowercase.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.middle_english.alphabet import normalize_middle_english
+   
+   In [2]: normalize_middle_english("Whan Phebus in the Crabbe had nere hys cours ronne And toward the leon his journé gan take", to_lower=True)
+   Out [2]: 'whan phebus in the crabbe had nere hys cours ronne and toward the leon his journé gan take'
+
+Punctuation Removal
+-------------------
+``punct`` is responsible for punctuation removal
+
+.. code-block:: python
+
+   In [3]: normalize_middle_english("Thus he hath me dryven agen myn entent, And contrary to my course naturall.", punct=True)
+   Out [3]: 'thus he hath me dryven agen myn entent and contrary to my course naturall'
+
+Canonical Form
+--------------
+
+The ``alpha_conv`` follows the established spelling conventions developed thorughout the last last century.
+`þ` and `ð` are both converted to `th` while `3` is converted to y at the start of the word and to `gh` otherwise.
+
+.. code-block:: python
+
+   In [4]: normalize_middle_english("as 3e lykeþ best", alpha_conv=True)
+   Out [4]: 'as ye liketh best'
+
+
 Stopword Filtering
 ==================
 
