@@ -24,8 +24,9 @@ Contents
    old_english
    middle_english
    french
-   gujarati
+   middle_high_german.rst
    greek
+   gujarati
    hebrew
    hindi
    javanese
