@@ -1,3 +1,4 @@
+import re
 """
 Sources:
         From Old English to Standard English: A Course Book in Language Variation Across Time, Dennis Freeborn
@@ -41,3 +42,27 @@ following aims to compile a list of the most commonly-used dipthongs.
 """
 
 DIPTHONGS = ['ai', 'au', 'aw', 'ay', 'ei', 'eu', 'ew', 'ey', 'iu', 'iw', 'o', 'oi', 'ou', 'ow', 'oy', 'uw']
+
+
+def normalize_middle_english(text, to_lower=True, alpha_conv=True, punct=True):
+    """
+    :param text: str text to be normalized
+    :param to_lower: bool convert text to lower text
+    :param alpha_conv: bool convert text to canonical form
+    :param punct: remove punctuation
+    :return:
+    """
+
+    if to_lower:
+        text = text.lower()
+
+    if alpha_conv:
+        text = text.replace("æ", "ae").replace("þ", "th").replace("ð", "th")
+        text = re.sub(r'(?<!\w)(?=\w)3', 'y', text)
+        text = text.replace("3", "gh")
+
+    if punct:
+        text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
+
+    return text
+
