@@ -554,7 +554,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     'his', 'hondis', 'and', 'his', 'hed', 'heldis']
         stemmed = MiddleEnglishAffixStemmer(sentence)
         target = 'the spek the henm kyng in the hill he behold he lok vnd his hond and his hed held'
-        self.assertEqual(stemmed, sentence)
+        self.assertEqual(stemmed, target)
         
 if __name__ == '__main__':
     unittest.main()
