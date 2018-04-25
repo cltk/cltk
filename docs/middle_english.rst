@@ -41,7 +41,23 @@ The ``alpha_conv`` follows the established spelling conventions developed thorug
    In [4]: normalize_middle_english("as 3e lykeþ best", alpha_conv=True)
    Out [4]: 'as ye liketh best'
 
+Stemming
+========
+CLTK supports a rule-based affix stemmer for ME.
 
+Keep in mind, that while Middle English is considered a weakly inflected language with a grammatical structure resembling that of Modern English, its lack of orthographical conventions presents a difficulty when accounting for various affixes.
+
+.. code-block:: python
+
+   In [1]: from cltk.stem.middle_english import affix_stemmer
+   
+   In [2]: from cltk.corpus.middle_english.alphabet import normalize_middle_english
+   
+   In [3]: text = normalize_middle_english('The speke the henmest kyng, in the hillis he beholdis.').split(" ")
+   
+   In [4]: affix_stemmer(text)
+   Out [4]: 'the spek the henm kyng in the hill he behold'
+   
 Stopword Filtering
 ==================
 
