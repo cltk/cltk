@@ -58,6 +58,17 @@ Keep in mind, that while Middle English is considered a weakly inflected languag
    In [4]: affix_stemmer(text)
    Out [4]: 'the spek the henm kyng in the hill he behold'
    
+The stemmer can also take an additional parameter of a hard-coded exception dictionary. An example follows utilizing the compiled stopwords list.
+
+.. code-block:: python
+
+   In[7]: from cltk.stop.middle_english.stops import STOPS_LIST
+   
+   In[8]: exceptions = dict(zip(STOPS_LIST, STOPS_LIST))
+   
+   In[9]: affix_stemer('byfore him'.split(" "), exception_list = exceptions)
+   Out[9]: 'byfore him'
+
 Stopword Filtering
 ==================
 
