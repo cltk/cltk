@@ -33,7 +33,7 @@ exceptions = dict()
 def affix_stemmer(words, exception_list = exceptions):
     """
     :param words: string list
-    :return: string list
+    :return: string
     """
 
     for i, w in enumerate(words):
@@ -72,5 +72,5 @@ def affix_stemmer(words, exception_list = exceptions):
 
             words[i] = word
 
-    return words
+    return " ".join(words)
     
