@@ -27,6 +27,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'greek',
                                     'latin',
                                     'old_norse',
+                                    'middle_english',
                                     'middle_high_german']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
@@ -47,6 +48,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokens = tokenize_latin_words(string)
         elif self.language == 'old_norse':
             tokens = tokenize_old_norse_words(string)
+        elif self.language == 'middle_english':
+            tokens = tokenize_middle_english_words(string)
         elif self.language == 'middle_high_german':
             tokens = tokenize_middle_high_german_words(string)
         else:
@@ -272,6 +275,19 @@ def tokenize_old_norse_words(text):
 
     results = str.split(text)
     return results
+
+def tokenize_middle_english_words(text):
+    """Tokenizes ME text"""
+    
+    assert isinstance(text, str)
+    
+    text = re.sub(r'\n', r' ', text)
+    text = re.sub(r'(?<=.)(?=[\.\";\,\:\-\[\]\(\)!&?])',r' ', text)
+    text = re.sub(r'(?<=[\.\";\-\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+    text = re.sub(r'\s+',r' ', text)
+    text = str.split(text)
+
+    return text
   
 def tokenize_middle_high_german_words(text):
     """Tokenizes MHG text"""
