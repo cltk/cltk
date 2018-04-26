@@ -48,8 +48,21 @@ def normalize_middle_english(text, to_lower=True, alpha_conv=True, punct=True):
     """
     :param text: str text to be normalized
     :param to_lower: bool convert text to lower text
-    :param alpha_conv: bool convert text to canonical form
+
+    >>> normalize_middle_english('Whan Phebus in the CraBbe had neRe hys cours ronne', to_lower = True)
+    'whan phebus in the crabbe had nere hys cours ronne'
+
+    :param alpha_conv: bool convert text to canonical form æ -> ae, þ -> th, ð -> th, ȝ -> y if at beginning,
+     gh otherwise
+
+    >>> normalize_middle_english('I pray ȝow þat ȝe woll', alpha_conv = True)
+    'i pray yow that ye woll'
+
     :param punct: remove punctuation
+
+    >>> normalize_middle_english("furst, to begynne:...", punct = True)
+    'furst to begynne'
+
     :return:
     """
 
@@ -65,4 +78,3 @@ def normalize_middle_english(text, to_lower=True, alpha_conv=True, punct=True):
         text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
 
     return text
-
