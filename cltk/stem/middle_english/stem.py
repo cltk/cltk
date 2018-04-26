@@ -54,7 +54,7 @@ def affix_stemmer(words, exception_list = exceptions):
     
     The stemmer also accepts a user-defined dictionary, that essentially serves the function of a dictionary look-up stemmer
     
-    >> affix_stemmer(['arisnesse'], exception_list = {'arisnesse':'rise'})
+    >>> affix_stemmer(['arisnesse'], exception_list = {'arisnesse':'rise'})
     'rise'
     
     :exception_list:
