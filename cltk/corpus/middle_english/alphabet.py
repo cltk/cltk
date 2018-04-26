@@ -58,8 +58,8 @@ def normalize_middle_english(text, to_lower=True, alpha_conv=True, punct=True):
 
     if alpha_conv:
         text = text.replace("æ", "ae").replace("þ", "th").replace("ð", "th")
-        text = re.sub(r'(?<!\w)(?=\w)3', 'y', text)
-        text = text.replace("3", "gh")
+        text = re.sub(r'(?<!\w)(?=\w)ȝ', 'y', text)
+        text = text.replace("ȝ ", "gh")
 
     if punct:
         text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
