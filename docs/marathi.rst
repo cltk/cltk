@@ -23,11 +23,15 @@ Tokenizer
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex as i_word
+   In [1]: from cltk.tokenize.sentence import TokenizeSentence
 
-   In [2]: sentence = "आतां विश्वात्मके देवे, येणे वाग्यज्ञे तोषावे, तोषोनि मज द्यावे, पसायदान हे"
+   In [2]: tokenizer = TokenizeSentence('marathi')
 
-   In [3]: print(i_word(sentence))
+   In [3]: sentence = "आतां विश्वात्मके देवे, येणे वाग्यज्ञे तोषावे, तोषोनि मज द्यावे, पसायदान हे"
+
+   In [4]: tokenized_sentence = tokenizer.tokenize(sentence)
+
+   In [5]: print(tokenized_sentence)
    ['आतां', 'विश्वात्मके', 'देवे', ',', 'येणे', 'वाग्यज्ञे', 'तोषावे', ',', 'तोषोनि', 'मज', 'द्यावे', ',', 'पसायदान', 'हे']
 
 
