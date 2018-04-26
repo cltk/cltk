@@ -277,7 +277,12 @@ def tokenize_old_norse_words(text):
     return results
 
 def tokenize_middle_english_words(text):
-    """Tokenizes ME text"""
+    """Tokenizes ME text:
+    
+    >>> tokenize_middle_english_words("And then,   went   I  fastyr!")
+    ['And', 'then', ',', 'went', 'I', 'fastyr', '!']
+    
+    """
     
     assert isinstance(text, str)
     
