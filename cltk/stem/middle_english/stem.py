@@ -22,10 +22,13 @@ SUFFIXES = ['rightes', 'eresse', 'kinnes', 'lechen', 'licher', 'linges', 'lokest
             'ier', 'ild', 'ing', 'ise', 'ish', 'ist', 'ith', 'kin', 'lac', 'les', 'leu', 'lez', 'læs', 'mel', 'mor',
             'nes', 'nez', 'oir', 'orn', 'oun', 'our', 'ous', 'som', 'ure', 'wil', 'al', 'an', 'ar', 'at', 'ed', 'el',
             'en', 'er', 'es', 'et', 'fi', 'if', 'ik', 'il', 'in', 'ir', 'it', 'li', 'ok', 'om', 'on', 'ot', 're', 'se',
-            'te', 'th', 'ti', 'ur', 'e', 'i', 'k', 'n', 't']
+            'te', 'th', 'ti', 'ur']
 
 PREFIXES = ['yester', 'yister', 'yistyr', 'yistyr', 'yuster', 'forth', 'yond', 'eth', 'toe', 'too', 'tou', 'tow', 'tuo',
-            'two', 'at', 'ef', 'et', 'ex', 'ta', 'te', 'th', 'to', 'tu', 'i', 'y']
+            'two', 'at', 'ef', 'et', 'ex', 'ta', 'te', 'th', 'to', 'tu']
+
+#Used for attaching endings to suffixes, catches more orthographical variations (e.g 'ir', 'ire')
+ENDS = ['', 's', 'e', 'en', 'es']
 
 #User-defined exception dictionary
 exceptions = dict()
@@ -33,6 +36,28 @@ exceptions = dict()
 def affix_stemmer(words, exception_list = exceptions):
     """
     :param words: string list
+    
+    The affix stemmer works by rule-based stripping. It can work on prefixes,
+    
+    >>> affix_stemmer(['yesterday', 'yesterdom', 'yisterweek'])
+    'day dom week'
+    
+    suffixes,
+    
+    >>> affix_stemmer(['likingnes', 'armlich', 'heighli'])
+    'liking arm heigh'
+    
+    or both
+    
+    >>> affix_stemmer(['yisterdayes'])
+    'day'
+    
+    The stemmer also accepts a user-defined dictionary, that essentially serves the function of a dictionary look-up stemmer
+    
+    >>> affix_stemmer(['arisnesse'], exception_list = {'arisnesse':'rise'})
+    'rise'
+    
+    :exception_list:
     :return: string
     """
 
@@ -42,7 +67,7 @@ def affix_stemmer(words, exception_list = exceptions):
             words[i] = exception_list[w]
 
         except:
-            if len(w) <=4:
+            if len(w) <= 4:
                 continue
 
             word = w
@@ -52,7 +77,7 @@ def affix_stemmer(words, exception_list = exceptions):
                     word = word[len(prefix):]
                     break
 
-            for en in ['', 's', 'e', 'en', 'es']:
+            for en in ENDS:
 
                 if len(word) <= 4:
                     break

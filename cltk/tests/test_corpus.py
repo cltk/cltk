@@ -612,7 +612,7 @@ example_distributed_fake_language_corpus:
     
     def test_normalize_middle_english(self):
         """Tests ME normalizer"""
-        in_test = "'Madame,' quod he, 'reule me As 3,e ly:k?eþ best.'"
+        in_test = "'Madame,' quod he, 'reule me As ȝ,e ly:k?eþ best.'"
         target = "'madame' quod he 'reule me as ye lyketh best'"
         test = normalize_middle_english(in_test)
         self.assertEqual(target, test)
