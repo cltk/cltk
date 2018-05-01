@@ -13,7 +13,9 @@ SHORT_VOWELS = ['a', 'e', 'i', 'o', 'u', 'y', 'æ']
 
 LONG_VOWELS = ['aa', 'ee', 'oo', 'ou', 'ow', 'ae']
 
-DIPHTHONGS = ['ai', 'au', 'aw', 'ay', 'ei', 'eu', 'ew', 'ey', 'iu', 'iw', 'oi', 'ow', 'oy', 'uw']
+DIPHTHONGS = ['th', 'gh', 'ht', 'ch']
+
+TRIPHTHONGS = ['ght']
 
 CONSONANTS = ['b', 'c', 'd', 'f', 'g', 'h', 'l', 'm', 'n', 'p', 'r', 's', 't', 'x', 'ð', 'þ', 'ƿ']
 
@@ -50,21 +52,21 @@ class Word:
                     # syllable and onset of the other
 
                     if self.word[i] == self.word[i + 1]:
-                       ind.append(i)
-                       i+=2
-                       continue
+                         ind.append(i)
+                         i+=2
+                         continue
 
                     #Vowels were shortened before clusters of three consonants
                     elif sum(c not in CONSONANTS for c in self.word[i:i+3]) == 0:
-                       ind.append(i)
-                       i += 3
-                       continue
+                        ind.append(i - 1 if self.word[i:i+3] in TRIPHTHONGS else i)
+                        i += 3
+                        continue
 
                 except IndexError:
                     pass
 
                 if nucleus in SHORT_VOWELS:
-                    ind.append(i)
+                    ind.append(i - 1 if self.word[i:i + 2] in DIPHTHONGS else i)
                     continue
 
                 else:
@@ -73,20 +75,31 @@ class Word:
 
             i += 1
 
-        #Check whether the last nucleus should be merged with the previous syllable
-        if ind[-1] in [len(self.word), len(self.word) - 1]:
-            ind = ind[:-(1 + (ind[-2] == len(self.word) - 1))]
+        #Check whether the last syllable should be merged with the previous one
+        try:
+            if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
+                ind = ind[:-(1 + (ind[-2] == len(self.word) - 2))]
+
+        except IndexError:
+            pass
 
         self.syllabified = self.word
 
         for n, k in enumerate(ind):
             self.syllabified = self.syllabified[:k + n + 1] + "." + self.syllabified[k + n + 1:]
 
+        # Check whether the last syllable is lacks a vowel nucleus
+
         self.syllabified = self.syllabified.split(".")
+
+        if sum(map(lambda x: x in SHORT_VOWELS, self.syllabified[-1])) == 0:
+            self.syllabified[-2] += self.syllabified[-1]
+            self.syllabified = self.syllabified[:-1]
+
         return self.syllabified
 
     def syllabified_str(self):
 
         return ".".join(self.syllabified if self.syllabified else self.syllabify())
-
+    
     
