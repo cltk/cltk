@@ -7,7 +7,7 @@ import unicodedata
 from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.latin import transcription as lat
-from cltk.phonology.midde_english.transcription import Word as word_me
+from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 import unittest
 
