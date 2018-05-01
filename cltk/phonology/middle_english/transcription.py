@@ -81,3 +81,5 @@ class Word:
 
         for n, k in enumerate(ind):
             self.word = self.word[:k + n + 1] + "." + self.word[k + n + 1:]
+            
+  
