@@ -1,14 +1,14 @@
 __author__ = ['Chatziargyriou Eleftheria <ele.hatzy@gmail.com>']
 __license__ = 'MIT License'
-
 """
 The hyphenation/syllabification algorithm is based on the typical syllable structure model of onset/nucleus/coda.
+"""
 
 
+"""
 An additional problem arises with the distinction between long and short vowels, since many use identical graphemes for
 both long and short vowels. The great vowel shift that dates back to the early stages of ME poses an additional problem
 """
-
 SHORT_VOWELS = ['a', 'e', 'i', 'o', 'u', 'y', 'æ']
 
 LONG_VOWELS = ['aa', 'ee', 'oo', 'ou', 'ow', 'ae']
@@ -81,7 +81,8 @@ class Word:
                 ind = ind[:-(1 + (ind[-2] == len(self.word) - 2))]
 
         except IndexError:
-            pass
+            if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
+                ind = ind[:-1]
 
         self.syllabified = self.word
 
@@ -101,5 +102,3 @@ class Word:
     def syllabified_str(self):
 
         return ".".join(self.syllabified if self.syllabified else self.syllabify())
-    
-    
