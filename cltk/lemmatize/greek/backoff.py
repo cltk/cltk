@@ -58,37 +58,36 @@ from cltk.utils.file_operations import open_pickle
 #        return self.tag(tokens)
 #
 #                
-#class BackoffLemmatizer(object):
-#    """Suggested backoff chain; includes at least on of each
-#    type of major sequential backoff class from backoff.py
-#
-#    ### Putting it all together
-#    ### BETA Version of the Backoff Lemmatizer
-#    """
-#    pass
-#    
-#    
-#    def __init__(self, train=None):
-#        self.rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-#        self.path = os.path.expanduser(self.rel_path)
+class BackoffLemmatizer(object):
+    """Suggested backoff chain; includes at least on of each
+    type of major sequential backoff class from backoff.py
+
+    ### Putting it all together
+    ### BETA Version of the Backoff Lemmatizer
+    """
+    pass
+    
+    
+    def __init__(self, train=None):
+        self.rel_path = os.path.join('~/cltk_data/greek/model/greek_models_cltk/lemmata/backoff')
+        self.path = os.path.expanduser(self.rel_path)
 #
 #        if train:
 #            self.pos_train_sents = train
 #        else:
 #            self.pos_train_sents = self._get_training_data()
-#        self.train_sents = [[(item[0], item[1]) for item in sent] for sent in self.pos_train_sents]
-#        #self.seed = seed        
-#
-#        # Check for presence of LATIN_OLD_MODEL
-#        file = 'latin_lemmata_cltk.pickle'      
-#
-#        old_model_path = os.path.join(self.path, file)
-#        if os.path.isfile(old_model_path):
-#            self.LATIN_OLD_MODEL = open_pickle(old_model_path)
-#        else:
-#            self.LATIN_OLD_MODEL = {}
-#            print('The file %s is not available in cltk_data' % file)  
-#        
+#        self.train_sents = [[(item[0], item[1]) for item in sent] for sent in self.pos_train_sents]     
+
+        # Check for presence of LATIN_OLD_MODEL
+        file = 'greek_lemmata_cltk.pickle'      
+
+        old_model_path = os.path.join(self.path, file)
+        if os.path.isfile(old_model_path):
+            self.GREEK_OLD_MODEL = open_pickle(old_model_path)
+        else:
+            self.GREEK_OLD_MODEL = {}
+            print('The file %s is not available in cltk_data' % file)  
+        
 #        # Check for presence of LATIN_MODEL
 #        file = 'latin_model.pickle'      
 #
@@ -98,14 +97,14 @@ from cltk.utils.file_operations import open_pickle
 #        else:
 #            self.LATIN_MODEL = {}
 #            print('The file %s is not available in cltk_data' % file)  
-#        
+        
 #        self.latin_sub_patterns = latin_sub_patterns
 #        self.latin_verb_patterns = latin_verb_patterns
 #        self.latin_pps = latin_pps
-#
-#        self._define_lemmatizer()
-#
-#    
+
+        self._define_lemmatizer()
+
+    
 #    def _get_training_data(self):
 #        # Set up training sentences
 #        path = os.path.expanduser(self.rel_path)
@@ -119,23 +118,23 @@ from cltk.utils.file_operations import open_pickle
 #            latin_pos_lemmatized_sents = []
 #            print('The file %s is not available in cltk_data' % file)
 #        return latin_pos_lemmatized_sents
-#        
-#        
-#    def _define_lemmatizer(self):
-        # Suggested backoff chain--should be tested for optimal order
-#        backoff0 = None
-#        backoff1 = IdentityLemmatizer()
-#        backoff2 = UnigramLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
+        
+        
+    def _define_lemmatizer(self):
+        #Suggested backoff chain--should be tested for optimal order
+        backoff0 = None
+        backoff1 = IdentityLemmatizer()
+        backoff2 = UnigramLemmatizer(model=self.GREEK_OLD_MODEL, backoff=backoff1)
 #        backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=backoff2)                 
 #        backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=backoff3)
 #        backoff5 = UnigramLemmatizer(self.train_sents, backoff=backoff4)
 #        backoff6 = UnigramLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)
-#        self.lemmatizer = backoff6
+        self.lemmatizer = backoff2
 
-#
-#    def lemmatize(self, tokens):
-#        lemmas = self.lemmatizer.lemmatize(tokens)
-#        return lemmas
+
+    def lemmatize(self, tokens):
+        lemmas = self.lemmatizer.lemmatize(tokens)
+        return lemmas
 
     
 #if __name__ == "__main__":
