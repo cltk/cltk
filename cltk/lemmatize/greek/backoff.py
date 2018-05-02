@@ -10,6 +10,7 @@ import re
 
 from cltk.lemmatize.backoff import DefaultLemmatizer, IdentityLemmatizer, UnigramLemmatizer, RegexpLemmatizer
 from cltk.lemmatize.greek.greek import greek_sub_patterns, greek_pps
+from cltk.lemmatize.greek.greek_model import GREEK_MODEL
 from cltk.utils.file_operations import open_pickle
 
 
@@ -69,6 +70,7 @@ class BackoffLemmatizer(object):
     
     
     def __init__(self, train=None):
+        self.GREEK_MODEL = GREEK_MODEL
         self.rel_path = os.path.join('~/cltk_data/greek/model/greek_models_cltk/lemmata/backoff')
         self.path = os.path.expanduser(self.rel_path)
 #
@@ -128,8 +130,8 @@ class BackoffLemmatizer(object):
 #        backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=backoff2)                 
 #        backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=backoff3)
 #        backoff5 = UnigramLemmatizer(self.train_sents, backoff=backoff4)
-#        backoff6 = UnigramLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)
-        self.lemmatizer = backoff2
+        backoff6 = UnigramLemmatizer(model=self.GREEK_MODEL, backoff=None)
+        self.lemmatizer = backoff6
 
 
     def lemmatize(self, tokens):
@@ -137,7 +139,7 @@ class BackoffLemmatizer(object):
         return lemmas
 
     
-#if __name__ == "__main__":
-#    l = BackoffLemmatizer()    
-#    test = "arma virum que cano aviatrices habuit xxii".split()
-#    print(l.lemmatize(test))
+if __name__ == "__main__":
+    l = BackoffLemmatizer()    
+    test = "περὶ πολλοῦ ἂν ποιησαίμην, ὦ ἄνδρες, τὸ τοιούτους ὑμᾶς ἐμοὶ δικαστὰς περὶ τούτου τοῦ πράγματος γενέσθαι, οἷοίπερ ἂν ὑμῖν αὐτοῖς εἴητε τοιαῦτα πεπονθότες: εὖ γὰρ οἶδ᾽ ὅτι, εἰ τὴν αὐτὴν γνώμην περὶ τῶν ἄλλων ἔχοιτε, ἥνπερ περὶ ὑμῶν αὐτῶν, οὐκ ἂν εἴη: ὅστις οὐκ ἐπὶ τοῖς γεγενημένοις ἀγανακτοίη, ἀλλὰ πάντες ἂν περὶ τῶν τὰ τοιαῦτα ἐπιτηδευόντων τὰς ζημίας μικρὰς ἡγοῖσθε.".split()
+    print(l.lemmatize(test))
