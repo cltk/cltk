@@ -1,23 +1,23 @@
 __author__ = ['Chatziargyriou Eleftheria <ele.hatzy@gmail.com>']
 __license__ = 'MIT License'
+
 """
 The hyphenation/syllabification algorithm is based on the typical syllable structure model of onset/nucleus/coda.
-"""
 
-
-"""
 An additional problem arises with the distinction between long and short vowels, since many use identical graphemes for
 both long and short vowels. The great vowel shift that dates back to the early stages of ME poses an additional problem
 """
+
 SHORT_VOWELS = ['a', 'e', 'i', 'o', 'u', 'y', 'æ']
 
 LONG_VOWELS = ['aa', 'ee', 'oo', 'ou', 'ow', 'ae']
 
 DIPHTHONGS = ['th', 'gh', 'ht', 'ch']
 
-TRIPHTHONGS = ['ght']
+TRIPHTHONGS = ['ght', 'ghl']
 
 CONSONANTS = ['b', 'c', 'd', 'f', 'g', 'h', 'l', 'm', 'n', 'p', 'r', 's', 't', 'x', 'ð', 'þ', 'ƿ']
+
 
 class Word:
 
@@ -26,39 +26,62 @@ class Word:
         self.syllabified = ''
 
     def syllabify(self):
+        """
+        Syllabification module for Middle English.
 
-        #Array holding the index of each given syllable
+         Throughout the early 11th-14th century, ME went through a process of loss of gemination. Originally, the syllable
+         preceding a geminate was a closed one. The method assumes any occurring geminates will be separated like in Modern
+         English (working both as coda of first syllable and onset of the other.
+
+         Returns:
+             list: string list containing the syllables of the given word
+
+        Examples:
+
+            >>> Word('heldis').syllabify()
+            ['hel', 'dis']
+
+            >>> Word('greef').syllabify()
+            ['greef']
+
+            Once you syllabify the word, the result will be saved as a class variable
+            >>> word = Word('commaundyd')
+
+            >>> word.syllabify()
+            ['com', 'mau', 'ndyd']
+
+            >>> word.syllabified
+            ['com', 'mau', 'ndyd']
+
+        """
+
+        # Array holding the index of each given syllable
         ind = []
 
         i = 0
-        #Iterate through letters of word searching for the nuclei
+        # Iterate through letters of word searching for the nuclei
         while i < len(self.word) - 1:
 
             if self.word[i] in SHORT_VOWELS:
 
                 nucleus = ''
 
-                #Find cluster of vowels
+                # Find cluster of vowels
                 while self.word[i] in SHORT_VOWELS and i < len(self.word) - 1:
                     nucleus += self.word[i]
                     i += 1
 
                 try:
-                    #Check whether it is suceeded by a geminant
-
-                    # Throught the early 11th-14th century, ME went through a process of loss of gemination (double
-                    # consonants. Originally, the syllable preceding a geminate was a closed one. The following assumes
-                    # any occuring geminates will be separated like in Modern English (working both as coda of first
-                    # syllable and onset of the other
+                    # Check whether it is suceeded by a geminant
 
                     if self.word[i] == self.word[i + 1]:
-                         ind.append(i)
-                         i+=2
-                         continue
+                        ind.append(i)
+                        i += 2
+                        continue
 
-                    #Vowels were shortened before clusters of three consonants
-                    elif sum(c not in CONSONANTS for c in self.word[i:i+3]) == 0:
-                        ind.append(i - 1 if self.word[i:i+3] in TRIPHTHONGS else i)
+                    # Vowels were shortened before clusters of three consonants
+                    elif sum(c not in CONSONANTS for c in self.word[i:i + 3]) == 0:
+                        ind.append(i - 1 if self.word[i:i + 3] in TRIPHTHONGS else i)
                         i += 3
                         continue
 
@@ -75,7 +98,7 @@ class Word:
 
             i += 1
 
-        #Check whether the last syllable should be merged with the previous one
+        # Check whether the last syllable should be merged with the previous one
         try:
             if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
                 ind = ind[:-(1 + (ind[-2] == len(self.word) - 2))]
@@ -99,6 +122,21 @@ class Word:
 
         return self.syllabified
 
-    def syllabified_str(self):
+    def syllabified_str(self, separator = "."):
+        """
+        Returns:
+             str: Syllabified word in string format
 
-        return ".".join(self.syllabified if self.syllabified else self.syllabify())
+        Examples:
+
+            >>> Word('conseil').syllabified_str()
+            'con.seil'
+
+            You can also specify the separator('.' by default)
+
+            >>> Word('sikerly').syllabified_str(separator = '-')
+            'sik-er-ly'
+
+        """
+        return separator.join(self.syllabified if self.syllabified else self.syllabify())
+    
