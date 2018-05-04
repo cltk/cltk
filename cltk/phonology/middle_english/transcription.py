@@ -31,7 +31,8 @@ class Word:
 
          Throughout the early 11th-14th century, ME went through a process of loss of gemination. Originally, the syllable
          preceding a geminate was a closed one. The method assumes any occurring geminates will be separated like in Modern
-         English (working both as coda of first syllable and onset of the other.
+         English (working both as coda of first syllable and onset of the other). The algorithm also takes into account the
+         shortening of vowels before a cluster of consonants which took place at the earlier stages of the language. 
 
          Returns:
              list: string list containing the syllables of the given word
@@ -78,8 +79,7 @@ class Word:
                         ind.append(i)
                         i += 2
                         continue
-
-                    # Vowels were shortened before clusters of three consonants
+                    
                     elif sum(c not in CONSONANTS for c in self.word[i:i + 3]) == 0:
                         ind.append(i - 1 if self.word[i:i + 3] in TRIPHTHONGS else i)
                         i += 3
@@ -112,7 +112,7 @@ class Word:
         for n, k in enumerate(ind):
             self.syllabified = self.syllabified[:k + n + 1] + "." + self.syllabified[k + n + 1:]
 
-        # Check whether the last syllable is lacks a vowel nucleus
+        # Check whether the last syllable lacks a vowel nucleus
 
         self.syllabified = self.syllabified.split(".")
 
