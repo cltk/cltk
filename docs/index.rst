@@ -24,8 +24,9 @@ Contents
    old_english
    middle_english
    french
-   gujarati
+   middle_high_german.rst
    greek
+   gujarati
    hebrew
    hindi
    javanese
@@ -36,6 +37,7 @@ Contents
    multilingual
    odia
    old_norse
+   old_portuguese
    pali
    persian
    prakrit
@@ -43,4 +45,5 @@ Contents
    sanskrit
    telugu
    tibetan
+   tocharian_b
    urdu

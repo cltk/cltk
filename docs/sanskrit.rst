@@ -124,6 +124,20 @@ Other similar functions are here,
    ['APPROXIMANT_LIST', 'ASPIRATED_LIST', 'AUM_OFFSET', 'COORDINATED_RANGE_END_INCLUSIVE', 'COORDINATED_RANGE_START_INCLUSIVE', 'DANDA', 'DENTAL_RANGE', 'DOUBLE_DANDA', 'FRICATIVE_LIST', 'HALANTA_OFFSET', 'LABIAL_RANGE', 'LC_TA', 'NASAL_LIST', 'NUKTA_OFFSET', 'NUMERIC_OFFSET_END', 'NUMERIC_OFFSET_START', 'PALATAL_RANGE', 'RETROFLEX_RANGE', 'RUPEE_SIGN', 'SCRIPT_RANGES', 'UNASPIRATED_LIST', 'UNVOICED_LIST', 'URDU_RANGES', 'VELAR_RANGE', 'VOICED_LIST', '__author__', '__builtins__', '__cached__', '__doc__', '__file__', '__license__', '__loader__', '__name__', '__package__', '__spec__', 'get_offset', 'in_coordinated_range', 'is_approximant', 'is_aspirated', 'is_aum', 'is_consonant', 'is_dental', 'is_fricative', 'is_halanta', 'is_indiclang_char', 'is_labial', 'is_nasal', 'is_nukta', 'is_number', 'is_palatal', 'is_retroflex', 'is_unaspirated', 'is_unvoiced', 'is_velar', 'is_voiced', 'is_vowel', 'is_vowel_sign', 'offset_to_char']
 
 
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Sanskrit.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('sa')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['अहम्' , 'त्वम्', 'स', 'वयम्, नस्', 'यूयम्, वस्', 'ते', 'इदम्', 'तत्', 'अत्र', 'तत्र']
+
+
 Syllabifier
 ===========
 
@@ -152,12 +166,14 @@ This tool can break a sentence into its constituent words. It works on the basis
 
 .. code-block:: python
 
-   In [29]: from cltk.tokenize.indian_tokenizer import *
+   In [29]: from cltk.tokenize.sentence import TokenizeSentence
 
-   In [30]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है"
+   In [30]: tokenizer = TokenizeSentence('sanskrit') 
 
-   In [31]: x = indian_punctuation_tokenize_regex(input_text)
-   Out[31]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
+   In [31]: input_text = "हिन्दी भारत की सबसे अधिक बोली और समझी जाने वाली भाषा है"
+
+   In [32]: x = tokenizer.tokenize(input_text)
+   Out[32]: ['हिन्दी', 'भारत', 'की', 'सबसे', 'अधिक', 'बोली', 'और', 'समझी', 'जाने', 'वाली', 'भाषा', 'है']
 
 
 Stopword Filtering

@@ -1,39 +1,19 @@
-# -*-coding:utf-8-*-
 """Language-specific word tokenizers. Primary purpose is to handle enclitics."""
+
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
+              'Natasha Voake <natashavoake@gmail.com>',
+              'Clément Besnier <clemsciences@gmail.com>']
+# Author info for Arabic?
+
+__license__ = 'MIT License. See LICENSE.'
 
 import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
-import re
-
-# Cleanup these imports—most are not used!
-from nltk.data              import load
-from nltk.tokenize.casual   import (TweetTokenizer, casual_tokenize)
-from nltk.tokenize.mwe      import MWETokenizer
-from nltk.tokenize.punkt    import PunktSentenceTokenizer
-from nltk.tokenize.regexp   import (RegexpTokenizer, WhitespaceTokenizer,
-                                    BlanklineTokenizer, WordPunctTokenizer,
-                                    wordpunct_tokenize, regexp_tokenize,
-                                    blankline_tokenize)
-#from nltk.tokenize.repp     import ReppTokenizer
-from nltk.tokenize.sexpr    import SExprTokenizer, sexpr_tokenize
-from nltk.tokenize.simple   import (SpaceTokenizer, TabTokenizer, LineTokenizer,
-                                    line_tokenize)
-from nltk.tokenize.stanford import StanfordTokenizer
-from nltk.tokenize.texttiling import TextTilingTokenizer
-#from nltk.tokenize.toktok   import ToktokTokenizer
-from nltk.tokenize.treebank import TreebankWordTokenizer
-from nltk.tokenize.util     import string_span_tokenize, regexp_span_tokenize
-from nltk.tokenize.stanford_segmenter import StanfordSegmenter
-
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
-
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>',
-              'Natasha Voake <natashavoake@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
-
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
@@ -46,7 +26,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'french',
                                     'greek',
                                     'latin',
-                                    'old_norse']
+                                    'old_norse',
+                                    'middle_english',
+                                    'middle_high_german']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
             self.available_languages)  # pylint: disable=line-too-long
@@ -66,6 +48,10 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokens = tokenize_latin_words(string)
         elif self.language == 'old_norse':
             tokens = tokenize_old_norse_words(string)
+        elif self.language == 'middle_english':
+            tokens = tokenize_middle_english_words(string)
+        elif self.language == 'middle_high_german':
+            tokens = tokenize_middle_high_german_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -289,3 +275,35 @@ def tokenize_old_norse_words(text):
 
     results = str.split(text)
     return results
+
+def tokenize_middle_english_words(text):
+    """Tokenizes ME text:
+    
+    >>> tokenize_middle_english_words("And then,   went   I  fastyr!")
+    ['And', 'then', ',', 'went', 'I', 'fastyr', '!']
+    
+    """
+    
+    assert isinstance(text, str)
+    
+    text = re.sub(r'\n', r' ', text)
+    text = re.sub(r'(?<=.)(?=[\.\";\,\:\-\[\]\(\)!&?])',r' ', text)
+    text = re.sub(r'(?<=[\.\";\-\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+    text = re.sub(r'\s+',r' ', text)
+    text = str.split(text)
+
+    return text
+  
+def tokenize_middle_high_german_words(text):
+    """Tokenizes MHG text"""
+
+    assert isinstance(text, str)
+    # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
+    text = re.sub(r'-\n',r'-', text)
+    text = re.sub(r'\n', r' ', text)
+    text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ', text)
+    text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+    text = re.sub(r'\s+',r' ', text)
+    text = str.split(text)
+
+    return text
