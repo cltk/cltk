@@ -93,3 +93,20 @@ To use the CLTK's built-in stopwords list, We use an example from Chaucer's "The
     'knoweth',
     'helle',
     '.']
+
+Syllabify
+=========
+
+The ``Word`` class provides a syllabification module for ME words.
+
+.. code-block:: python
+   
+   In [1]: from cltk.phonology.middle_english.transcription import Word
+   
+   In [2]: w = Word("hymsylf")
+   
+   In [3]: w.syllabify()
+   Out [3]: ['hym', 'sylf']
+   
+   In [4]: w.syllabified_str()
+   Out[4]: 'hym.sylf'
