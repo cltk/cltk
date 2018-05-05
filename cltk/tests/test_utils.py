@@ -95,28 +95,28 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_concordance_from_file(self):
         """Test ``write_concordance_from_file()`` for file writing completion
         of concordance builder. Doesn't test quality of output."""
-        file = 'cltk/tests/bad_pickle.pickle'
-        philology.write_concordance_from_file(file, 'test_file')
-        file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
-        is_file = os.path.isfile(file)
+        text_file = 'cltk/tests/text-file.txt'
+        philology.write_concordance_from_file(text_file, 'test_file')
+        file_conc = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
+        is_file = os.path.isfile(file_conc)
         self.assertTrue(is_file)
 
     def test_concordance_from_file_ioerror(self):
         """Test ``write_concordance_from_file()`` for file writing completion
         of concordance builder, with IOError. Doesn't test quality of output."""
-        bad_path = '/cltk_data/user_data/concordance_test_file.txt'
+        non_existent_file = '/not-there.txt'
         with self.assertRaises(IOError):
-            philology.write_concordance_from_file(bad_path, 'test_file')
+            philology.write_concordance_from_file(non_existent_file, 'test_file')
 
     def test_contribs_find_write_contribs(self):
         """Test contrib writing function."""
-        file = 'contributors.md'
+        file_contribs = 'contributors.md'
         try:
-            os.remove(file)
+            os.remove(file_contribs)
         except FileNotFoundError:
-            logger.info("No file to remove at '%s'. Continuing.", file)
+            logger.info("No file to remove at '%s'. Continuing.", file_contribs)
         find_write_contribs()
-        contribs_file = os.path.isfile(file)
+        contribs_file = os.path.isfile(file_contribs)
         self.assertTrue(contribs_file)
 
     def test_get_authors(self):
@@ -128,7 +128,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test treescan for contribs module."""
         a_generator = scantree('cltk')
         self.assertEqual(str(type(a_generator)), "<class 'generator'>")
-
 
     def test_write_contribs(self):
         """Test file writer for contribs module."""

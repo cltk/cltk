@@ -22,19 +22,16 @@ __license__ = 'MIT License. See LICENSE.'  # type: str
 
 def eval_str_to_list(input_str: str) -> List[str]:
     """Turn str into str or tuple."""
-    inner_cast = ast.literal_eval(input_str)  # type: Union[str, Tuple]
-    if isinstance(inner_cast, str):
-        inner_list = [inner_cast]  # type List[str]
-    elif isinstance(inner_cast, tuple):
-        inner_list = list(inner_cast)
+    inner_cast = ast.literal_eval(input_str)  # type: List[str]
+    if isinstance(inner_cast, list):
+        return inner_cast
     else:
         raise ValueError
-    return inner_list
 
 
 def get_authors(filepath: str) -> List[str]:
     """Open file and check for author info."""
-    str_oneline = r'(^__author__ = \[)(.*)(\])'  # type" str
+    str_oneline = r'(^__author__ = )(\[.*?\])'  # type" str
     comp_oneline = re.compile(str_oneline, re.MULTILINE)  # type: Pattern[str]
     with open(filepath) as file_open:
         file_read = file_open.read()  # type: str
