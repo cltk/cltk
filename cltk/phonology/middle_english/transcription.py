@@ -174,22 +174,22 @@ class Word:
         Examples:
 
             >>> Word('beren').stresser(stress_rule = "FSR")
-            ["ber", "'en"]
+            ['ber', "'en"]
 
             >>> Word('prendre').stresser(stress_rule = "FSR")
-            ["'pren", "dre"]
+            ["'pren", 'dre']
 
             >>> Word('yisterday').stresser(stress_rule = "GSR")
-            ["yi", "ster", "'day"]
+            ['yi', 'ster', "'day"]
 
             >>> Word('day').stresser(stress_rule = "GSR")
-            ["day"]
+            ['day']
 
             >>> Word('mervelus').stresser(stress_rule = "LSR")
-            ["'mer", "vel", "us"]
+            ["'mer", 'vel', 'us']
 
             >>> Word('verbum').stresser(stress_rule = "LSR")
-            ["ver", "'bum"]
+            ['ver', "'bum"]
         """
 
         #Syllabify word
