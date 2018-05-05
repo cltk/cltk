@@ -16,7 +16,7 @@ from typing import IO  # pylint: disable=unused-import
 
 from cltk.utils.cltk_logger import logger
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']  # type: list
+__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']  # type: List[str]
 __license__ = 'MIT License. See LICENSE.'  # type: str
 
 

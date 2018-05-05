@@ -15,7 +15,7 @@ from cltk.utils.contributors import get_authors
 from cltk.utils.file_operations import make_cltk_path
 from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
-from cltk.utils.philology import Philology
+from cltk.utils import philology
 
 
 __license__ = 'MIT License. See LICENSE.'
@@ -86,7 +86,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_concordance_from_string(self):
         """Test ``write_concordance_from_string()`` for file writing completion
         of concordance builder. Doesn't test quality of output."""
-        philology = Philology()
         text = 'felices cantus ore sonante dedit'
         philology.write_concordance_from_string(text, 'test_string')
         file = os.path.expanduser('~/cltk_data/user_data/concordance_test_string.txt')
@@ -96,7 +95,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_concordance_from_file(self):
         """Test ``write_concordance_from_file()`` for file writing completion
         of concordance builder. Doesn't test quality of output."""
-        philology = Philology()
         file = 'cltk/tests/bad_pickle.pickle'
         philology.write_concordance_from_file(file, 'test_file')
         file = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
@@ -106,7 +104,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_concordance_from_file_ioerror(self):
         """Test ``write_concordance_from_file()`` for file writing completion
         of concordance builder, with IOError. Doesn't test quality of output."""
-        philology = Philology()
         bad_path = '/cltk_data/user_data/concordance_test_file.txt'
         with self.assertRaises(IOError):
             philology.write_concordance_from_file(bad_path, 'test_file')
