@@ -4,11 +4,13 @@ __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 """
-Stemming present a significant challenge in ME, as it is exceptionally difficult to account for the orthographical
- variations sometimes even occurring within a single text. The affix algorithm attempts to account for variations in
- spelling, but still Mostly relies on a relatively narrow hard-coded list (Middle English Dictionary(MED)
- https://quod.lib.umich.edu/m/med/).
-  TODO: Improve on the affix stemmer by implementing an accurate spell checker (Levenshtein Automata?)
+Stemming present a significant challenge in ME, as it is exceptionally
+difficult to account for the orthographical variations sometimes even
+occurring within a single text. The affix algorithm attempts to account
+for variations in spelling, but still Mostly relies on a relatively narrow
+hard-coded list (Middle English Dictionary(MED) https://quod.lib.umich.edu/m/med/)
+
+  TODO: Improve on the affix stemmer by implementing an accurate spell checker
   TODO: Implement a stochastic algorithm/Implement overarching stemmer class
 """
 
@@ -63,7 +65,8 @@ def affix_stemmer(words, exception_list=exceptions, strip_pref = True, strip_suf
     >>> affix_stemmer(['yisterdayes'], strip_pref = False)
     'yisterday'
 
-    The stemmer also accepts a user-defined dictionary, that essentially serves the function of a dictionary look-up stemmer
+    The stemmer also accepts a user-defined dictionary, that essentially serves
+    the function of a dictionary look-up stemmer
 
     >>> affix_stemmer(['arisnesse'], exception_list = {'arisnesse':'rise'})
     'rise'
