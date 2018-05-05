@@ -12,7 +12,6 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
-
 TAGGERS = {'greek':
                {'unigram': 'unigram.pickle',
                 'bigram': 'bigram.pickle',
@@ -27,10 +26,15 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
-                'crf': 'crf.pickle',}}
+                'crf': 'crf.pickle',
+                },
+           'old_norse':
+               {'tnt': 'tnt.pickle'
+               }
+           }
 
 
-class POSTag():
+class POSTag:
     """Tag words' parts-of-speech."""
 
     def __init__(self, language: str):

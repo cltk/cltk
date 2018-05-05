@@ -10,8 +10,13 @@ from cltk.stem.latin.syllabifier import Syllabifier
 from cltk.stem.latin.declension import CollatinusDecliner
 from cltk.exceptions import UnknownLemma
 from cltk.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
+from cltk.stem.akkadian.bound_form import BoundForm as AkkadianBoundForm
+from cltk.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
+from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
+from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
 from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
-
+from cltk.stem.french.stem import stem
+from cltk.stem.middle_english.stem import affix_stemmer as MiddleEnglishAffixStemmer
 import os
 import unittest
 
@@ -195,6 +200,19 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         syllables = syllabifier.syllabify(word)
         target = ['si', 'de', 're']
         self.assertEqual(syllables, target)
+        # tests for macronized words
+        macronized_word = 'audītū'
+        macronized_syllables = syllabifier.syllabify(macronized_word)
+        macronized_target = ['au', 'dī', 'tū']
+        self.assertEqual(macronized_syllables, macronized_target)
+        macronized_word2 = 'conjiciō'
+        macronized_syllables2 = syllabifier.syllabify(macronized_word2)
+        macronized_target2 = ['con', 'ji', 'ci', 'ō']
+        self.assertEqual(macronized_syllables2, macronized_target2)
+        macronized_word3 = 'ā'
+        macronized_syllables3 = syllabifier.syllabify(macronized_word3)
+        macronized_target3 = ['ā']
+        self.assertEqual(macronized_syllables3, macronized_target3)
 
     def test_syllabify(self):
         """Test Indic Syllabifier method"""
@@ -216,6 +234,44 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         current = syllabifier.get_offset('न', 'hi')
         current1 = syllabifier.in_coordinated_range_offset(current)
         self.assertTrue(current1)
+
+    def test_akkadian_bound_form(self):
+        """Test Akkadian bound form method"""
+        bound_former = AkkadianBoundForm()
+        word = "awīlum"
+        bound_form = bound_former.get_bound_form(word, 'm')
+        target = "awīl"
+        self.assertEquals(bound_form, target)
+
+    def test_akkadian_cv_pattern(self):
+        """Test Akkadian CV pattern method"""
+        cv_patterner = AkkadianCVPattern()
+        word = "iparras"
+        cv_pattern = cv_patterner.get_cv_pattern(word, pprint=True)
+        target = "V₁C₁V₂C₂C₂V₂C₃"
+        self.assertEquals(cv_pattern, target)
+
+    def test_akkadian_declension(self):
+        """Test Akkadian noun declension"""
+        decliner = AkkadianNaiveDecliner()
+        word = "iltum"
+        declension = decliner.decline_noun(word, 'f')
+        target = [('iltim', {'case': 'genitive', 'number': 'singular'}),
+                  ('iltum', {'case': 'nominative', 'number': 'singular'}),
+                  ('iltam', {'case': 'accusative', 'number': 'singular'}),
+                  ('iltīn', {'case': 'oblique', 'number': 'dual'}),
+                  ('iltān', {'case': 'nominative', 'number': 'dual'}),
+                  ('ilātim', {'case': 'oblique', 'number': 'plural'}),
+                  ('ilātum', {'case': 'nominative', 'number': 'plural'})]
+        self.assertEquals(sorted(declension), sorted(target))
+
+    def test_akkadian_stemmer(self):
+        """Test Akkadian stemmer"""
+        stemmer = AkkadianStemmer()
+        word = "šarrū"
+        stem = stemmer.get_stem(word, 'm')
+        target = "šarr"
+        self.assertEquals(stem, target)
 
     def test_akkadian_syllabifier(self):
         """Test Akkadian syllabifier"""
@@ -485,6 +541,20 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             UnknownLemma, decline
         )
 
-
+    def french_stemmer_test(self):
+        sentence = "ja departissent a itant quant par la vile vint errant tut a cheval " \
+                    "une pucele en tut le siecle n'ot si bele un blanc palefrei chevalchot"
+        stemmed_text = stem(sentence)
+        target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
+                    " chevalcho "
+        self.assertEqual(stemmed_text, target)
+    
+    def test_middle_english_stemmer(self):
+        sentence = ['the', 'speke', 'the', 'henmest', 'kyng', 'in', 'the', 'hillis', 'he', 'beholdis','he', 'lokis', 'vnder',
+                    'his', 'hondis', 'and', 'his', 'hed', 'heldis']
+        stemmed = MiddleEnglishAffixStemmer(sentence)
+        target = 'the spek the henm kyng in the hill he behold he lok vnd his hond and his hed held'
+        self.assertEqual(stemmed, target)
+        
 if __name__ == '__main__':
     unittest.main()

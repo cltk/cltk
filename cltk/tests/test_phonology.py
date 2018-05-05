@@ -4,8 +4,10 @@ __author__ = ['Jack Duff <jmunroeduff@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import unicodedata
+from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.latin import transcription as lat
+from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 import unittest
 
@@ -398,6 +400,48 @@ class TestSequenceFunctions(unittest.TestCase):
         stress = stresser.find_stress(word)
         self.assertEqual(target, stress)
 
+    def test_arabic_transliterate(self):
+        """
+         arabic transliterate: Roman <-> Arabic
+        :return:
+        """
+        ar_string = 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ'
+        buckwalter_string = 'bisomi Allhi Alra~Hom`ni Alra~Hiyomi'
+        iso2332_string = 'bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi'
+        mode = "buckwalter"
+        ignore = ''
+        reverse = True
+
+        # from arabic native script to buckwalter
+        assert AarabicTransliterate(mode,ar_string,ignore,reverse) == 'bisomi Allhi Alra~Hom`ni Alra~Hiyomi'
+        # from buckwalter to arabic native script
+        reverse = False
+        assert AarabicTransliterate(mode,buckwalter_string,ignore,reverse) == 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ'
+
+        # from arabic native script to ISO233-2
+        mode = 'iso233-2'
+        reverse = True
+        assert AarabicTransliterate(mode, ar_string, ignore, reverse) == 'bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi'
+
+        # from iso233-2 to arabic native script
+        reverse = False
+        assert AarabicTransliterate(mode,iso2332_string,ignore,reverse) == 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ'
+        
+    def test_middle_english_syllabify(self):
+        """Test syllabification for middle english"""
+        
+        words = ['marchall', 'content', 'thyne', 'greef', 'commaundyd']
+
+        syllabified = [word_me(w).syllabify() for w in words]
+        target_syllabified = [['mar', 'chall'], ['con', 'tent'], ['thyne'], ['greef'], ['com', 'mau', 'ndyd']]
+
+        assert syllabified == target_syllabified
+
+        syllabified_str = [word_me(w).syllabified_str() for w in words]
+        target_syllabified_str = ['mar.chall', 'con.tent', 'thyne', 'greef', 'com.mau.ndyd']
+
+        assert syllabified_str == target_syllabified_str
+        
 if __name__ == '__main__':
     unittest.main()
 

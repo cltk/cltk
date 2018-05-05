@@ -16,8 +16,9 @@ try:
     # James Tauber's greek_accentuation package
     from greek_accentuation import characters as chars
 except ImportError as import_error:
-    print('Missing "greek_accentuation" package. Install with '  
-        + '`pip install greek-accentuation`.')
+    message = 'Missing "greek_accentuation" package. Install with ' \
+              '`pip install greek-accentuation`.'
+    logger.error(message)
     logger.error(import_error)
     raise
 

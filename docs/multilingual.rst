@@ -309,6 +309,67 @@ The NLTK's ``skipgrams()`` produces a generator whose values can be turned into 
     …
     ('equestrem', 'dignitatem', '.'),
     ('obtinuit', 'dignitatem', '.')]
+    
+
+Stoplist Construction
+=====================
+
+The ``Stop`` module offers two classes for constructing stoplists: ``StringStoplist`` and ``CorpusStoplist``.
+
+``StringStoplist`` outputs a list of high frequency words from a string. The default size is 100 and can be set with the parameter ``size``.
+
+.. code-block:: python
+
+    In [1]: from cltk.stop.stop import StringStoplist
+    
+    In [2]: para = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
+    
+    In [3]: stoplist = StringStoplist()
+    
+    In [4]: stops = stoplist.build_stoplist(para, size=100)
+    
+    In [5]: print(stops)
+    Out [5]: ['a', 'ab', 'ac', 'ad', 'aetatis', 'ambitionis', 'animum', 'arbitrarer', 'atque', 'casus', 'cogitanti', 'cogitationum', 'communium', 'concessum', 'consiliorum', 'constitisset', 'cum', 'cursum', 'decursu', 'dignitate', 'eo', 'esse', 'et', 'etiam', 'eum', 'fefellerunt', 'flexu', 'florerent', 'fore', 'forensium', 'frater', 'fuisse', 'fuit', 'gestarum', 'gloria', 'graves', 'honoribus', 'honorum', 'illi', 'in', 'infinitus', 'initium', 'iustum', 'labor', 'locus', 'maximae', 'memoria', 'meorum', 'mihi', 'moles', 'molestiarum', 'nam', 'negotio', 'neque', 'nostri', 'nostrum', 'numero', 'occupatio', 'omnibus', 'optima', 'oti', 'otio', 'perbeati', 'periculo', 'plenissimus', 'possent', 'potuerunt', 'praeclara', 'prope', 'publica', 'quam', 'qui', 'quietis', 'quinte', 'quoque', 're', 'referendi', 'repetenti', 'requiescendi', 'rerum', 'saepe', 'si', 'sine', 'solent', 'spem', 'studia', 'temporum', 'tenere', 'tranquillitatis', 'tum', 'turbulentissimae', 'ut', 'utriusque', 'varii', 'vel', 'vero', 'vetera', 'videbatur', 'videri', 'vitae']
+
+You can include the counts with the ``inc_counts`` parameter:
+   
+.. code-block:: python
+
+    In [6]: stops = stoplist.build_stoplist(para, size=100)
+    
+    In [7]: print(stops)
+    Out [7]: [('a', 2), ('ab', 1), ('ac', 1), ('ad', 3), ('aetatis', 1), ('ambitionis', 1), ('animum', 1), ('arbitrarer', 1), ('atque', 3), ('casus', 1), ('cogitanti', 1), ('cogitationum', 1), ('communium', 1), ('concessum', 1), ('consiliorum', 1), ('constitisset', 1), ('cum', 4), ('cursum', 1), ('decursu', 1), ('dignitate', 1), ('eo', 1), ('esse', 1), ('et', 11), ('etiam', 1), ('eum', 1), ('fefellerunt', 1), ('flexu', 1), ('florerent', 1), ('fore', 2), ('forensium', 1), ('frater', 2), ('fuisse', 1), ('fuit', 1), ('gestarum', 1), ('gloria', 1), ('graves', 1), ('honoribus', 1), ('honorum', 1), ('illi', 1), ('in', 8), ('infinitus', 1), ('initium', 1), ('iustum', 1), ('labor', 1), ('locus', 1), ('maximae', 1), ('memoria', 1), ('meorum', 1), ('mihi', 3), ('moles', 1), ('molestiarum', 1), ('nam', 3), ('negotio', 1), ('neque', 5), ('nostri', 1), ('nostrum', 1), ('numero', 1), ('occupatio', 1), ('omnibus', 1), ('optima', 1), ('oti', 2), ('otio', 1), ('perbeati', 1), ('periculo', 1), ('plenissimus', 1), ('possent', 1), ('potuerunt', 1), ('praeclara', 1), ('prope', 1), ('publica', 2), ('quam', 1), ('qui', 3), ('quietis', 1), ('quinte', 1), ('quoque', 1), ('re', 1), ('referendi', 1), ('repetenti', 1), ('requiescendi', 1), ('rerum', 4), ('saepe', 1), ('si', 1), ('sine', 1), ('solent', 1), ('spem', 1), ('studia', 1), ('temporum', 1), ('tenere', 1), ('tranquillitatis', 1), ('tum', 1), ('turbulentissimae', 1), ('ut', 1), ('utriusque', 1), ('varii', 1), ('vel', 7), ('vero', 2), ('vetera', 1), ('videbatur', 1), ('videri', 1), ('vitae', 1)]
+    
+``CorpusStoplist`` outputs a list of stopwords from a collection of documents based, with a parameter (``basis``) for weighting words within the collection using different measures. The bases currently available are: ``frequency``, ``mean`` (mean probability), ``variance`` (variance probability), ``entropy`` (entropy), and ``zou`` (a composite measure based on mean, variance, and entropy as described in [Zou 2006]).
+   
+.. code-block:: python
+
+    In [8]: from cltk.stop.stop import CorpusStoplist
+    
+    In [9]: stoplist = CorpusStoplist()
+    
+    In [10]: para_2 = """ac mihi repetenda est veteris cuiusdam memoriae non sane satis explicata recordatio, sed, ut arbitror, apta ad id, quod requiris, ut cognoscas quae viri omnium eloquentissimi clarissimique senserint de omni ratione dicendi. vis enim, ut mihi saepe dixisti, quoniam, quae pueris aut adulescentulis nobis ex commentariolis nostris incohata ac rudia exciderunt, vix sunt hac aetate digna et hoc usu, quem ex causis, quas diximus, tot tantisque consecuti sumus, aliquid eisdem de rebus politius a nobis perfectiusque proferri; solesque non numquam hac de re a me in disputationibus nostris dissentire, quod ego eruditissimorum hominum artibus eloquentiam contineri statuam, tu autem illam ab elegantia doctrinae segregandam putes et in quodam ingeni atque exercitationis genere ponendam. ac mihi quidem saepe numero in summos homines ac summis ingeniis praeditos intuenti quaerendum esse visum est quid esset cur plures in omnibus rebus quam in dicendo admirabiles exstitissent; nam quocumque te animo et cogitatione converteris, permultos excellentis in quoque genere videbis non mediocrium artium, sed prope maximarum. quis enim est qui, si clarorum hominum scientiam rerum gestarum vel utilitate vel magnitudine metiri velit, non anteponat oratori imperatorem? quis autem dubitet quin belli duces ex hac una civitate praestantissimos paene innumerabilis, in dicendo autem excellentis vix paucos proferre possimus? iam vero consilio ac sapientia qui regere ac gubernare rem publicam possint, multi nostra, plures patrum memoria atque etiam maiorum exstiterunt, cum boni perdiu nulli, vix autem singulis aetatibus singuli tolerabiles oratores invenirentur. ac ne qui forte cum aliis studiis, quae reconditis in artibus atque in quadam varietate litterarum versentur, magis hanc dicendi rationem, quam cum imperatoris laude aut cum boni senatoris prudentia comparandam putet, convertat animum ad ea ipsa artium genera circumspiciatque, qui in eis floruerint quamque multi sint; sic facillime, quanta oratorum sit et semper fuerit paucitas, iudicabit."""
+    
+    In [11]: corpus = [para, para2]
+    
+    In [12]: stops = stoplist.build_stoplist(corpus, basis='entropy', size=10)
+    
+    In [13]: print(stops)
+    Out [13]: ['ac', 'ad', 'atque', 'cum', 'et', 'in', 'mihi', 'qui', 'rerum', 'vel']
+    
+Other parameters for both ``StringStoplist`` and ``CorpusStoplist`` include boolean preprocessing options (``lower``, ``remove_numbers``, ``remove_punctuation``) and override lists of words to add or subtract from stoplists (``include``, ``exclude``).
+   
+.. code-block:: python
+
+    In [14]: stops = stoplist.build_stoplist(corpus, size=10, basis='frequency', exclude=['ad'])
+    
+    In [15]: print(stops)
+    Out [15]: ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
+    
+    In [16]: stops = stoplist.build_stoplist(corpus, size=10, basis='frequency', include=['est'])
+    
+    In [17]: print(stops)
+    Out [17]: ['ac', 'ad', 'atque', 'cum', 'est', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
 
 
 Text Reuse

@@ -6,8 +6,8 @@ Greek is an independent branch of the Indo-European family of languages, native 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
-Accentuation
-============
+Accentuation and diacritics
+===========================
 
 `James Tauber <https://github.com/jtauber/>`_ has created a Python 3 based `library  <https://github.com/jtauber/greek-accentuation>`_  to enable working with the accentuation of Ancient Greek words. Installing it is optional for working with CLTK.
 
@@ -113,6 +113,13 @@ If a length diacritic becomes redundant because of a circumflex it can be stripp
    In[3]: rebreath('οικία')
    Out[3]: 'οἰκία'
 
+   In[3]: debreath('ἑξεῖ')
+   Out[3]: 'hεξεῖ'
+
+   In[4]: rebreath('hεξεῖ')
+   Out[4]: 'ἑξεῖ'
+
+
 ``syllable_length`` returns the length of a syllable (in the linguistic sense) and ``syllable_accent`` extracts a syllable's accent.
 
 .. code-block:: python
@@ -212,6 +219,26 @@ The accentuation class of a word such as oxytone, paroxytone, proparoxytone, per
 
    In[2]: persistent('ἀνθρωπου', 'ἄνθρωπος')
    Out[2]: 'ἀνθρώπου'
+
+
+
+**Expand iota subscript:**
+
+The CLTK offers one transformation that can be useful in certain types of processing: Expanding the iota subsctipt from a unicode point and placing beside, to the right, of the character.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.alphabet import expand_iota_subscript
+
+   In [2]: s = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+
+   In [3]: expand_iota_subscript(s)
+   Out[3]: 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+
+   In [4]: expand_iota_subscript(s, lowercase=True)
+   Out[4]: 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+
+
 
 
 Alphabet
@@ -416,11 +443,10 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 Normalization
 =============
 
-Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications \
- issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
+Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
 
-One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents
- (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+
 
 .. code-block:: python
 
@@ -615,6 +641,44 @@ To use the CLTK's built-in stopwords list:
     'αἰολέας.']
 
 
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Greek.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('gr')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ἐγώ', 'σύ', 'αὐτός, οὗ, ὅς, ὁ, οὗτος', 'ἡμεῖς', 'ὑμεῖς', 'αὐτοί', 'ὅδε', 'ἐκεῖνος', 'ἔνθα, ἐνθάδε, ἐνταῦθα', 'ἐκεῖ']
+   
+
+TEI XML
+=======
+
+There are several rudimentary corpus converters for the "First 1K Years of Greek" project (download the corpus ``'greek_text_first1kgreek'``). Both write files to `` ~/cltk_data/greek/text/greek_text_first1kgreek_plaintext``.
+
+This one is built upon the ``MyCapytain`` library (``pip install lxml MyCapytain``), which has the ability for very precise chunking of TEI xml. The following function only preserves numbers:
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tei import onekgreek_tei_xml_to_text_capitains
+
+   In [2]: onekgreek_tei_xml_to_text_capitains()
+
+
+
+For the following, install the ``BeautifulSoup`` library (``pip install bs4``). Note that this will just dump all text not contained within a node's bracket (including sometimes metadata).
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.greek.tei import onekgreek_tei_xml_to_text
+
+   In [2]: onekgreek_tei_xml_to_text()
+
+
 Text Cleanup
 ============
 
@@ -806,6 +870,20 @@ the Greek language. Currently, the only available dialect is Attic as reconstruc
    Out[3]: '[di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn]'
 
 
+Word Tokenization
+=================
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+
+   In [2]: word_tokenizer = WordTokenizer('greek')
+
+   In [3]: text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+
+   In [4]: word_tokenizer.tokenize(text)
+   Out[4]: ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
+   
 
 Word2Vec
 ========

@@ -1,5 +1,7 @@
 """Test cltk.corpus."""
 
+from cltk.corpus.greek.alphabet import expand_iota_subscript
+from cltk.corpus.greek.alphabet import filter_non_greek
 from cltk.corpus.greek.beta_to_unicode import Replacer
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_female_authors
 from cltk.corpus.greek.tlg.parse_tlg_indices import get_epithet_index
@@ -22,12 +24,14 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
 from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
 from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
 from cltk.corpus.greek.tlgu import TLGU
+from cltk.corpus.middle_english.alphabet import normalize_middle_english
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_works_filepaths
 from cltk.corpus.utils.formatter import phi5_plaintext_cleanup
 from cltk.corpus.utils.formatter import remove_non_ascii
+from cltk.corpus.utils.formatter import remove_non_latin
 from cltk.corpus.utils.formatter import tonos_oxia_converter
 from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import cltk_normalize
@@ -40,6 +44,9 @@ from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagari
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
+from cltk.corpus.utils.formatter import normalize_fr
+from cltk.corpus.swadesh import Swadesh
+
 from unicodedata import normalize
 import os
 import unittest
@@ -180,7 +187,7 @@ argenteo polubro, aureo eclutro. """
         normalized_text = cltk_normalize(s1, compatibility=False)
         target = normalize('NFC', s2)
         self.assertEqual(normalized_text, target)
-
+    
     def test_assemble_tlg_author(self):
         """Test building absolute filepaths from TLG index."""
         paths = assemble_tlg_author_filepaths()
@@ -233,6 +240,22 @@ argenteo polubro, aureo eclutro. """
         ascii_str = remove_non_ascii(non_ascii_str)
         valid = 'Ascii and some non-ascii:     '
         self.assertEqual(ascii_str, valid)
+
+    def test_remove_non_latin(self):
+        """Test removing all non-Latin characters from a string."""
+        latin_str = '(1) Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'  # pylint: disable=line-too-long
+        non_latin_str = remove_non_latin(latin_str)
+        valid = ' Dices   pulchrum esse inimicos ulcisci'
+        self.assertEqual(non_latin_str, valid)
+
+    def test_remove_non_latin_opt(self):
+        """Test removing all non-Latin characters from a string, with
+        `also_keep` parameter.
+        """
+        latin_str = '(1) Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'  # pylint: disable=line-too-long
+        non_latin_str = remove_non_latin(latin_str, also_keep=['.', ','])
+        valid = ' Dices   pulchrum esse inimicos ulcisci.'
+        self.assertEqual(non_latin_str, valid)
 
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
@@ -554,6 +577,45 @@ example_distributed_fake_language_corpus:
         #
         self.assertEqual(test_result_string, comparison_string)
 
+    def test_expand_iota_subscript(self):
+        """Test subscript expander."""
+        unexpanded = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+        expanded = expand_iota_subscript(unexpanded)
+        target = 'εἰ δὲ καὶ τῶΙ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῶΙ'
+        self.assertEqual(expanded, target)
+
+    def test_expand_iota_subscript_lower(self):
+        """Test subscript expander."""
+        unexpanded = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ'
+        expanded = expand_iota_subscript(unexpanded, lowercase=True)
+        target = 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
+        self.assertEqual(expanded, target)
+    #
+    def test_filter_non_greek(self):
+        """
+        Test filter non greek characters in a mixed string.
+        """
+        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]" # PH247029, line 2
+        comparison_string = "Ἑκατμανδρος Αἰσχρωνος  Ἀριστεδη"
+        test_result_string = filter_non_greek(test_input_string)
+        #
+        self.assertEqual(test_result_string, comparison_string)
+
+    def test_normalize(self):
+        """
+        Test french normalizer
+        """
+        text = "viw"
+        normalized = normalize_fr(text)
+        target = ['vieux']
+        self.assertEqual(normalized, target)
+    
+    def test_normalize_middle_english(self):
+        """Tests ME normalizer"""
+        in_test = "'Madame,' quod he, 'reule me As ȝ,e ly:k?eþ best.'"
+        target = "'madame' quod he 'reule me as ye lyketh best'"
+        test = normalize_middle_english(in_test)
+        self.assertEqual(target, test)
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
@@ -675,6 +737,54 @@ class TestScriptInformation(unittest.TestCase):
     def test_is_indiclang_char(self):
         self.assertTrue(is_indiclang_char('क', 'hi'))
 
+    def test_swadesh_greek(self):
+        swadesh = Swadesh('gr')
+        first_word = 'ἐγώ'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_latin(self):
+        swadesh = Swadesh('la')
+        first_word = 'ego'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_tocharianB(self):
+        swadesh = Swadesh('txb')
+        first_word = 'ñäś'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_old_portuguese(self):
+        swadesh = Swadesh('pt_old')
+        first_word = 'eu'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_sanskrit(self):
+        swadesh = Swadesh('sa')
+        first_word = 'अहम्'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+    
+    def test_swadesh_hindi(self):
+        swadesh = Swadesh('hi')
+        first_word = 'मैं'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+
+    def test_swadesh_old_english(self):
+        swadesh = Swadesh('eng_old')
+        first_word = 'ic, iċċ, ih'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_old_norse(self):
+        swadesh = Swadesh('old_norse')
+        first_word = 'ek'
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
 
 if __name__ == '__main__':
     unittest.main()

@@ -30,3 +30,17 @@ To use the CLTK's built-in stopwords list, We use an example from Beowulf:
     'lange',
     'hwile',
     '.']
+
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Old English.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('eng_old')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ic, iċċ, ih', 'þū', 'hē', 'wē', 'ġē', 'hīe', 'þēs, þēos, þis', 'sē, sēo, þæt', 'hēr', 'þār, þāra, þǣr, þēr']

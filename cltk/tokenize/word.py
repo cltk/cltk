@@ -1,14 +1,19 @@
-"""Language-specific word tokenizers. Primary purpose is to handle enclitics.
-"""
+"""Language-specific word tokenizers. Primary purpose is to handle enclitics."""
+
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 
+              'Natasha Voake <natashavoake@gmail.com>',
+              'Clément Besnier <clemsciences@gmail.com>']
+# Author info for Arabic?
+
+__license__ = 'MIT License. See LICENSE.'
 
 import re
 
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
-
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
-__license__ = 'MIT License. See LICENSE.'
+import cltk.corpus.arabic.utils.pyarabic.araby as araby
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
@@ -17,17 +22,36 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         """Take language as argument to the class. Check availability and
         setup class variables."""
         self.language = language
-        self.available_languages = ['latin']
+        self.available_languages = ['arabic', 
+                                    'french',
+                                    'greek',
+                                    'latin',
+                                    'old_norse',
+                                    'middle_english',
+                                    'middle_high_german']
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
-                                                                                            self.available_languages)  # pylint: disable=line-too-long
-
+            self.available_languages)  # pylint: disable=line-too-long
+        # ^^^ Necessary? since we have an 'else' in `tokenize`
+        
 
     def tokenize(self, string):
         """Tokenize incoming string."""
-
-        if self.language == 'latin':
+        
+        if self.language == 'arabic':
+            tokens = tokenize_arabic_words(string)
+        elif self.language == 'french':
+            tokens = tokenize_french_words(string)
+        elif self.language == 'greek':
+            tokens = tokenize_greek_words(string)
+        elif self.language == 'latin':
             tokens = tokenize_latin_words(string)
+        elif self.language == 'old_norse':
+            tokens = tokenize_old_norse_words(string)
+        elif self.language == 'middle_english':
+            tokens = tokenize_middle_english_words(string)
+        elif self.language == 'middle_high_german':
+            tokens = tokenize_middle_high_german_words(string)
         else:
             tokens = nltk_tokenize_words(string)
 
@@ -37,18 +61,22 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 def nltk_tokenize_words(string, attached_period=False, language=None):
     """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
     its own token.
-    >>> nltk_punkt("Sentence 1. Sentence 2.")
-    >>> ['Sentence', 'one', '.', 'Sentence', 'two', '.']
-    Optionally keep the NLTK's output:
-    >>> nltk_punkt("Sentence 1. Sentence 2.", attached_period=True)
-    >>> ['Sentence', 'one.', 'Sentence', 'two.']
+
+    >>> nltk_tokenize_words("Sentence 1. Sentence 2.")
+    ['Sentence', '1', '.', 'Sentence', '2', '.']
+
+    >>> #Optionally keep the NLTK's output:
+
+    >>> nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=True)
+    ['Sentence', '1.', 'Sentence', '2.']
+
     TODO: Run some tests to determine whether there is a large penalty for
     re-calling PunktLanguageVars() for each use of this function. If so, this
     will need to become a class, perhaps inheriting from the PunktLanguageVars
     object. Maybe integrate with WordTokenizer.
     """
     assert isinstance(string, str), "Incoming string must be type str."
-    if language=='sanskrit':
+    if language == 'sanskrit':
         periods = ['.', '।','॥']
     else:
         periods = ['.']
@@ -67,14 +95,65 @@ def nltk_tokenize_words(string, attached_period=False, language=None):
             new_tokens.append(word)
     return new_tokens
 
+
+def tokenize_arabic_words(text):
+
+    """
+        Tokenize text into words
+        @param text: the input text.
+        @type text: unicode.
+        @return: list of words.
+        @rtype: list.
+    """
+    specific_tokens = []
+    if not text:
+        return specific_tokens
+    else:
+        specific_tokens = araby.tokenize(text)
+        return specific_tokens
+        
+
+def tokenize_french_words(string):
+    assert isinstance(string, str), "Incoming string must be type str."
+
+    # normalize apostrophes
+
+    text = re.sub(r"’", r"'", string)
+
+    # Dealing with punctuation
+    text = re.sub(r"\'", r"' ", text)
+    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
+
+    results = str.split(text)
+    return (results)
+    
+    
+def tokenize_greek_words(text):
+    """
+    Tokenizer divides the string into a list of substrings. This is a placeholder
+    function that returns the default NLTK word tokenizer until
+    Greek-specific options are added.
+    
+    Example:
+    >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+    >>> tokenize_greek_words(text)
+    ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
+      
+    :param string: This accepts the string value that needs to be tokenized
+    :returns: A list of substrings extracted from the string
+    """
+    
+    return nltk_tokenize_words(text) # Simplest implementation to start
+        
+
 def tokenize_latin_words(string):
     """
     Tokenizer divides the string into a list of substrings
   
     >>> from cltk.corpus.utils.formatter import remove_non_ascii
     >>> text =  'Dices ἐστιν ἐμός pulchrum esse inimicos ulcisci.'
-    >>> remove_non_ascii(text)
-    >>> 'Dices   pulchrum esse inimicos ulcisci.
+    >>> tokenize_latin_words(text)
+    ['Dices', 'ἐστιν', 'ἐμός', 'pulchrum', 'esse', 'inimicos', 'ulcisci', '.']
   
     :param string: This accepts the string value that needs to be tokenized
     :returns: A list of substrings extracted from the string
@@ -118,9 +197,9 @@ def tokenize_latin_words(string):
     for replacement in replacements:
         string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
 
-
     punkt_param = PunktParameters()
-    abbreviations = ['c', 'l', 'm', 'p', 'q', 't', 'ti', 'sex', 'a', 'd', 'cn', 'sp', "m'", 'ser', 'ap', 'n', 'v', 'k', 'mam', 'post', 'f', 'oct', 'opet', 'paul', 'pro', 'sert', 'st', 'sta', 'v', 'vol', 'vop']
+    abbreviations = ['c', 'l', 'm', 'p', 'q', 't', 'ti', 'sex', 'a', 'd', 'cn', 'sp', "m'", 'ser', 'ap', 'n',
+                     'v', 'k', 'mam', 'post', 'f', 'oct', 'opet', 'paul', 'pro', 'sert', 'st', 'sta', 'v', 'vol', 'vop']
     punkt_param.abbrev_types = set(abbreviations)
     sent_tokenizer = PunktSentenceTokenizer(punkt_param)
 
@@ -135,7 +214,8 @@ def tokenize_latin_words(string):
 
     for sent in sents:
         temp_tokens = word_tokenizer.word_tokenize(sent)
-        # Need to check that tokens exist before handling them; needed to make stream.readlines work in PlaintextCorpusReader
+        # Need to check that tokens exist before handling them;
+        # needed to make stream.readlines work in PlaintextCorpusReader
         
         if temp_tokens:
             if temp_tokens[0].endswith('ne'):
@@ -174,3 +254,56 @@ def tokenize_latin_words(string):
             specific_tokens.append(token)
 
     return specific_tokens
+
+
+def tokenize_old_norse_words(text):
+    """
+
+    :param text: a text or a sentence
+    :return:
+    """
+    assert isinstance(text, str)
+
+    # punctuation
+    text = re.sub(r"\'", r"' ", text)
+    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
+
+    # TODO dealing with merges between verbs at the second person of the present tense and þú
+    # -> -tu, -ðu, -du, -u : question
+
+    # TODO dealing with merges between verbs and sik -> st : middle voice
+
+    results = str.split(text)
+    return results
+
+def tokenize_middle_english_words(text):
+    """Tokenizes ME text:
+    
+    >>> tokenize_middle_english_words("And then,   went   I  fastyr!")
+    ['And', 'then', ',', 'went', 'I', 'fastyr', '!']
+    
+    """
+    
+    assert isinstance(text, str)
+    
+    text = re.sub(r'\n', r' ', text)
+    text = re.sub(r'(?<=.)(?=[\.\";\,\:\-\[\]\(\)!&?])',r' ', text)
+    text = re.sub(r'(?<=[\.\";\-\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+    text = re.sub(r'\s+',r' ', text)
+    text = str.split(text)
+
+    return text
+  
+def tokenize_middle_high_german_words(text):
+    """Tokenizes MHG text"""
+
+    assert isinstance(text, str)
+    # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
+    text = re.sub(r'-\n',r'-', text)
+    text = re.sub(r'\n', r' ', text)
+    text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ', text)
+    text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+    text = re.sub(r'\s+',r' ', text)
+    text = str.split(text)
+
+    return text

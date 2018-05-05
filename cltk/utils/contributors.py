@@ -41,7 +41,7 @@ def scantree(path):
     """Recursively yield DirEntry objects for given directory."""
     for entry in os.scandir(path):
         if entry.is_dir(follow_symlinks=False):
-            yield from scantree(entry.path)  # see below for Python 2.x
+            yield from scantree(entry.path)
         else:
             if entry.name.endswith('.py'):
                 yield entry
@@ -63,6 +63,13 @@ def write_contribs(def_dict_list):
     logger.info('Wrote contribs file at "%s".', file_name)
 
 
+def sort_def_dict_value_list_def_dict(def_dict):
+    """Sort values of the lists of a defaultdict(list)."""
+    for dd_key, dd_list in def_dict.items():
+        dd_list.sort()
+    return def_dict
+
+
 def find_write_contribs():
     """Look for files, find authors, sort, write file."""
     map_file_auth = {}
@@ -76,6 +83,8 @@ def find_write_contribs():
     for file, authors_file in map_file_auth.items():
         for author in authors_file:
             map_auth_file[author].append(file)
+    # now sort the str contents of the list value
+    map_auth_file = sort_def_dict_value_list_def_dict(map_auth_file)
     map_auth_file_alpha = OrderedDict(sorted(map_auth_file.items()))
 
     write_contribs(map_auth_file_alpha)

@@ -6,7 +6,6 @@ cltk/phonology/latin/transcription.py
 """
 from cltk.utils.cltk_logger import logger
 from cltk.prosody.latin import macronizer as m 
-macronizer = m.Macronizer("tag_ngram_123_backoff")
 
 from nltk.tokenize import wordpunct_tokenize
 
@@ -17,8 +16,9 @@ try:
     # James Tauber's greek_accentuation package
     from greek_accentuation import characters as chars
 except ImportError as import_error:
-    print('Missing "greek_accentuation" package. Install with '
-        + '`pip install greek-accentuation`.')
+    message = 'Missing "greek_accentuation" package. Install with ' \
+              '`pip install greek-accentuation`.'
+    logger.error(message)
     logger.error(import_error)
     raise
 
@@ -532,6 +532,7 @@ class Transcriber:
         self.table = self.root["correspondence"]
         self.diphs = self.root["diphthongs"]
         self.punc = self.root["punctuation"]
+        self.macronizer = m.Macronizer("tag_ngram_123_backoff")
 
     def _parse_diacritics(self, ch):
         # Returns a string with seperated and organized diacritics
@@ -581,7 +582,7 @@ class Transcriber:
         # if macronize, will first use the tagger to macronize input
         # otherwise, input will be the raw input string
         if macronize:
-            text = macronizer.macronize_text(text)
+            text = self.macronizer.macronize_text(text)
         # input is word-tokenized, stripped of non-diacritic punctuation, 
         # and diphthongs and diacritics are handled
         inp = [self._prep_text(w) for w in wordpunct_tokenize(text) 

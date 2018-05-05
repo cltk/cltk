@@ -7,6 +7,7 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tag import ner
+from cltk.tag.ner import NamedEntityReplacer
 from cltk.tag.pos import POSTag
 
 __license__ = 'MIT License. See LICENSE.'
@@ -29,6 +30,20 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+        corpus_importer = CorpusImporter('french')
+        corpus_importer.import_corpus('french_data_cltk')
+        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
+        corpus_importer = CorpusImporter("old_norse")
+        corpus_importer.import_corpus("old_norse_models_cltk")
+        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -180,6 +195,21 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ' τὰ Σίλαριν/Entity Σιννᾶν/Entity Κάππαρος/Entity Πρωτογενείας/Entity Διονυσιάδες/Entity τὴν'
         self.assertEqual(text, target)
 
+    def test_tag_ner_str_list_french(self):
+        """Test make_ner(), str, list."""
+        text_str = """Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."""
+        ner_replacer = NamedEntityReplacer()
+        tokens = ner_replacer.tag_ner_fr(input_text=text_str, output_type=list)
+        target = [[('Berte', 'entity', 'CHI')], ('fu',), ('mere',), [('Charlemaine', 'entity', 'CHI')], (',',), ('qui',), ('pukis',),
+                  ('tint',), [('France', 'entity', 'LOC')], ('et',), ('tot',), ('le',), [('Maine', 'entity', 'LOC')], ('.',)]
+        self.assertEqual(tokens, target)
+
+    def test_pos_tnt_tagger_old_norse(self):
+        """Test tagging Old Norse POS with TnT tagger."""
+        tagger = POSTag('old_norse')
+        tagged = tagger.tag_tnt('Hlióðs bið ek allar.')
+        print(tagged)
+        self.assertTrue(tagged)
 
 if __name__ == '__main__':
     unittest.main()
