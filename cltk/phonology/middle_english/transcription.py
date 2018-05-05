@@ -1,11 +1,15 @@
+
 __author__ = ['Chatziargyriou Eleftheria <ele.hatzy@gmail.com>']
 __license__ = 'MIT License'
 
-"""
-The hyphenation/syllabification algorithm is based on the typical syllable structure model of onset/nucleus/coda.
+from cltk.stem.middle_english.stem import affix_stemmer
 
-An additional problem arises with the distinction between long and short vowels, since many use identical graphemes for
-both long and short vowels. The great vowel shift that dates back to the early stages of ME poses an additional problem
+"""
+The hyphenation/syllabification algorithm is based on the typical syllable 
+structure model of onset/nucleus/coda. An additional problem arises with the
+distinction between long and short vowels, since many use identical graphemes 
+for both long and short vowels. The great vowel shift that dates back to the
+early stages of ME poses an additional problem.
 """
 
 SHORT_VOWELS = ['a', 'e', 'i', 'o', 'u', 'y', 'æ']
@@ -23,29 +27,35 @@ class Word:
 
     def __init__(self, word):
         self.word = word
-        self.syllabified = ''
+        self.syllabified = None
+        self.stressed = None
 
     def syllabify(self):
         """
         Syllabification module for Middle English.
 
-         Throughout the early 11th-14th century, ME went through a process of loss of gemination. Originally, the syllable
-         preceding a geminate was a closed one. The method assumes any occurring geminates will be separated like in Modern
-         English (working both as coda of first syllable and onset of the other). The algorithm also takes into account the
-         shortening of vowels before a cluster of consonants which took place at the earlier stages of the language. 
+        Throughout the early 11th-14th century, ME went through a process of
+        loss of gemination. Originally, the syllable preceding a geminate was
+        a closed one. The method assumes any occurring geminates will be
+        separated like in Modern English (working both as coda of first syllable
+        and onset of the other).
+
+        The algorithm also takes into account the shortening of vowels before a
+        cluster of consonants which took place at the earlier stages of the
+        language.
 
          Returns:
              list: string list containing the syllables of the given word
-
+        
         Examples:
-
             >>> Word('heldis').syllabify()
             ['hel', 'dis']
-
             >>> Word('greef').syllabify()
             ['greef']
 
-            Once you syllabify the word, the result will be saved as a class variable
+            Once you syllabify the word, the result will be saved as a class
+            variable
+
             >>> word = Word('commaundyd')
 
             >>> word.syllabify()
@@ -53,7 +63,6 @@ class Word:
 
             >>> word.syllabified
             ['com', 'mau', 'ndyd']
-
         """
 
         # Array holding the index of each given syllable
@@ -79,7 +88,7 @@ class Word:
                         ind.append(i)
                         i += 2
                         continue
-                    
+
                     elif sum(c not in CONSONANTS for c in self.word[i:i + 3]) == 0:
                         ind.append(i - 1 if self.word[i:i + 3] in TRIPHTHONGS else i)
                         i += 3
@@ -98,7 +107,7 @@ class Word:
 
             i += 1
 
-        # Check whether the last syllable should be merged with the previous one
+        #Check whether the last syllable should be merged with the previous one
         try:
             if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
                 ind = ind[:-(1 + (ind[-2] == len(self.word) - 2))]
@@ -122,21 +131,110 @@ class Word:
 
         return self.syllabified
 
-    def syllabified_str(self, separator = "."):
+    def syllabified_str(self, separator="."):
         """
         Returns:
              str: Syllabified word in string format
+        
+        Examples:
+            >>> Word('conseil').syllabified_str()
+            'con.seil'
+            
+            You can also specify the separator('.' by default)
+            
+            >>> Word('sikerly').syllabified_str(separator = '-')
+            'sik-er-ly'
+        """
+        return separator.join(self.syllabified if self.syllabified else self.syllabify())
+
+    def stresser(self, stress_rule = 'FSR'):
+        """
+        Args:
+        
+            :param stress_rule: Stress Rule, valid options:
+
+                'FSR': French Stress Rule, stress falls on the ultima, unless
+                 it contains schwa (ends with e), in which case the penult is
+                stressed
+
+                'GSR': Germanic Stress Rule, stress falls on the first syllable
+                of the stemm. Note that the accuracy of the function directly
+                depends on that of the stemmer.
+
+                'LSR': Latin Stress Rule, stress falls on the penult if its 
+                heavy, else, if it has more than two syllables on the 
+                antepenult, else on the ultima.
+
+        Returns:
+        
+            list: A list containing the separate syllable, where the stressed
+            syllable is prefixed by ' . Monosyllabic words are left unchanged,
+            since stress indicates relative emphasis.
 
         Examples:
 
-            >>> Word('conseil').syllabified_str()
-            'con.seil'
+            >>> Word('beren').stresser(stress_rule = "FSR")
+            ["ber", "'en"]
 
-            You can also specify the separator('.' by default)
+            >>> Word('prendre').stresser(stress_rule = "FSR")
+            ["'pren", "dre"]
 
-            >>> Word('sikerly').syllabified_str(separator = '-')
-            'sik-er-ly'
+            >>> Word('yisterday').stresser(stress_rule = "GSR")
+            ["yi", "ster", "'day"]
 
+            >>> Word('day').stresser(stress_rule = "GSR")
+            ["day"]
+
+            >>> Word('mervelus').stresser(stress_rule = "LSR")
+            ["'mer", "vel", "us"]
+
+            >>> Word('verbum').stresser(stress_rule = "LSR")
+            ["ver", "'bum"]
         """
-        return separator.join(self.syllabified if self.syllabified else self.syllabify())
-    
+
+        #Syllabify word
+        if not self.syllabified:
+            self.syllabify()
+
+        #Check whether word is monosyllabic
+        if len(self.syllabified) == 1:
+            return self.syllabified
+
+        if stress_rule == 'FSR':
+            #Check whether ultima ends in e
+            if self.syllabified[-1][-1] == 'e':
+                return self.syllabified[:-2] + ['\'{0}'.format(self.syllabified[-2])] + self.syllabified[-1:]
+
+            else:
+                return self.syllabified[:-1] + ['\'{0}'.format(self.syllabified[-1])]
+
+        elif stress_rule == 'GSR':
+            #The word striped of suffixes
+            st_word = affix_stemmer([self.word], strip_suf = False)
+            affix = self.word[:len(self.word) - len(st_word)]
+
+            #Syllabify stripped word and affix
+
+            syl_word = Word(st_word).syllabify()
+
+            #Add stress
+            syl_word = ['\'{0}'.format(syl_word[0])] + syl_word[1:]
+
+            if affix:
+                affix = Word(affix).syllabify()
+                syl_word = affix + syl_word
+
+            return syl_word
+
+        elif stress_rule == 'LSR':
+            #Check whether penult is heavy (contains more than one mora)
+            if sum(map(lambda x: x in SHORT_VOWELS, self.syllabified[-1])) > 1:
+                return self.syllabified[:-2] + ['\'{0}'.format(self.syllabified[-2])] + self.syllabified[-1:]
+
+            elif len(self.syllabified) > 2:
+                return self.syllabified[:-3] + ['\'{0}'.format(self.syllabified[-3])] + self.syllabified[-2:]
+
+            else:
+                return self.syllabified[:-1] + ['\'{0}'.format(self.syllabified[-1])]
+            
+ 
