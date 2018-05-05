@@ -4,12 +4,15 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
 __license__ = 'MIT License. See LICENSE.'
 
 
-from cltk.utils.file_operations import open_pickle
-from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
 import re
 import string
+
+from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktSentenceTokenizer
+from typing import List, Set, Dict, Tuple, Text, Optional, AnyStr
+
+from cltk.utils.file_operations import open_pickle
 
 
 PUNCTUATION = {'greek':
@@ -23,39 +26,37 @@ PUNCTUATION = {'greek':
 
 INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
-class TokenizeSentence():  # pylint: disable=R0903
+
+class TokenizeSentence:  # pylint: disable=R0903
     """Tokenize sentences for the language given as argument, e.g.,
     ``TokenizeSentence('greek')``.
     """
 
-    def __init__(self: object, language: str):
+    def __init__(self, language: str) -> None:
         """Lower incoming language name and assemble variables.
         :type language: str
         :param language : Language for sentence tokenization.
         """
         self.language = language.lower()
 
-        if self.language not in INDIAN_LANGUAGES :
+        if self.language not in INDIAN_LANGUAGES:
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
 
-    def _setup_language_variables(self, lang: str):
+    def _setup_language_variables(self, lang: str) -> Tuple[List, List, str]:
         """Check for language availability and presence of tokenizer file,
         then read punctuation characters for language and build tokenizer file
         path.
-        :param lang: The language argument given to the class.
-        :type lang: str
-        :rtype (str, str, str)
         """
         assert lang in PUNCTUATION.keys(), \
             'Sentence tokenizer not available for {0} language.'.format(lang)
-        internal_punctuation = PUNCTUATION[lang]['internal']
-        external_punctuation = PUNCTUATION[lang]['external']
-        file = PUNCTUATION[lang]['file']
+        internal_punctuation = PUNCTUATION[lang]['internal']  # type: Tuple[str]
+        external_punctuation = PUNCTUATION[lang]['external']  # type: Tuple[str]
+        file = PUNCTUATION[lang]['file']  # type: str
         rel_path = os.path.join('~/cltk_data',
                                 lang,
-                                'model/' + lang + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-        path = os.path.expanduser(rel_path)
+                                'model/' + lang + '_models_cltk/tokenizers/sentence')  # type: str pylint: disable=C0301
+        path = os.path.expanduser(rel_path)  # type: str
         tokenizer_path = os.path.join(path, file)
         assert os.path.isfile(tokenizer_path), \
             'CLTK linguistics data not found for language {0}'.format(lang)
