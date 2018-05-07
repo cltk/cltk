@@ -23,7 +23,7 @@ def make_cltk_path(fp_list: List[str] = None) -> str:
         fp_list = ['']
     fp_joined = '/'.join(fp_list)  # type: str
     home = os.path.expanduser('~')  # type: str
-    return os.path.join(home, 'cltk_data', fp_joined)
+    return os.path.join(home, 'cltk_data', fp_joined).rstrip('/')
 
 
 def open_pickle(path: str) -> Any:

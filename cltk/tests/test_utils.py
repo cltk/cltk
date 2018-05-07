@@ -17,7 +17,6 @@ from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
 from cltk.utils import philology
 
-
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -157,7 +156,7 @@ class TestPathCreation(unittest.TestCase):
 
     def test_path(self):
         """Test empty_path() with argument."""
-        self.assertEqual(make_cltk_path(['greek', 'perseus_corpus']),
+        self.assertEqual(make_cltk_path('greek', 'perseus_corpus'),
                          os.path.expanduser(os.path.join('~', 'cltk_data', 'greek', 'perseus_corpus')))
 
 
