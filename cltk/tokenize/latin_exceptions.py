@@ -5,12 +5,14 @@ Starter lists have been included to handle the Latin enclitics
  comprehensive. Additions to the exceptions list are welcome. PJB
 """
 
-que_exceptions = []
-n_exceptions = []
-ne_exceptions = []
-ue_exceptions = []
-ve_exceptions = []
-st_exceptions = []
+from typing import List
+
+que_exceptions = []  # type: List[str]
+n_exceptions = []  # type: List[str]
+ne_exceptions = []  # type: List[str]
+ue_exceptions = []  # type: List[str]
+ve_exceptions = []  # type: List[str]
+st_exceptions = []  # type: List[str]
 
 # quisque
 que_exceptions += ['quisque', 'quidque', 'quicque', 'quodque', 'cuiusque', 'cuique', 'quemque', 'quoque', 'quique', 'quaeque', 'quorumque', 'quarumque', 'quibusque', 'quosque', 'quasque']
