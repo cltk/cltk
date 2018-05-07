@@ -157,7 +157,7 @@ class TestPathCreation(unittest.TestCase):
 
     def test_path(self):
         """Test empty_path() with argument."""
-        self.assertEqual(make_cltk_path('greek', 'perseus_corpus'),
+        self.assertEqual(make_cltk_path(['greek', 'perseus_corpus']),
                          os.path.expanduser(os.path.join('~', 'cltk_data', 'greek', 'perseus_corpus')))
 
 
