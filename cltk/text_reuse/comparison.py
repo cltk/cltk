@@ -183,9 +183,9 @@ def Needleman_Wunsch(w1, w2, d=-1, alphabet = "abcdefghijklmnopqrstuvwxyz", S = 
 
         We know want to increase the score for matching a to i.
 
-        >>> M[0][4] = 0.8
+        >>> M[0][3] = 0.8
 
-        >>> M[4][0] = 0.8
+        >>> M[3][0] = 0.8
 
         >>> Needleman_Wunsch('pescare', 'piscia', alphabet = "aceiprs", S = M)
         ('pescare', 'pisci-a')
