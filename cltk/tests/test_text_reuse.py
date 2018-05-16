@@ -62,7 +62,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test for Damerau-Levenshtein Distance between two words"""
         l = Levenshtein()
         dist = l.Damerau_Levenshtein_Distance("all haile whose solempne glorious concepcioun","fresche floure in quhom the hevinlie dewe doun fell")
-        self.assertEqual(dist,37)
+        self.assertEqual(dist,35)
 
 #    Test causing lemmatizer Travis build to fail—figure out what is wrong and restore.
 #    def test_distance_sentences(self):
