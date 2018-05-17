@@ -12,16 +12,14 @@ The ``philology`` module can produce a concordance. Currently there are two meth
 
 .. code-block:: python
 
-   In [1]: from cltk.utils.philology import Philology
+   In [1]: from cltk.utils import philology
 
-   In [2]: p = Philology()
+   In [2]: iliad = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-001.txt'
 
-   In [3]: iliad = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-001.txt'
-
-   In [4]: p.write_concordance_from_file(iliad, 'iliad')
+   In [3]: philology.write_concordance_from_file(iliad, 'iliad')
 
 
-This will print a traditional, human–readable, 120,000–line concordance at ``~/cltk_data/user_data/concordance_iliad.txt``.
+This will print a traditional, human–readable 120,000–line concordance at ``~/cltk_data/user_data/concordance_iliad.txt``.
 
 Multiple files can be passed as a list into this method.
 
@@ -29,7 +27,7 @@ Multiple files can be passed as a list into this method.
 
    In [5]: odyssey = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-002.txt'
 
-   In [6]: p.write_concordance_from_file([iliad, odyssey], 'homer')
+   In [6]: philology.write_concordance_from_file([iliad, odyssey], 'homer')
 
 This creates the file ``~/cltk_data/user_data/concordance_homer.txt``.
 
@@ -49,7 +47,7 @@ This creates the file ``~/cltk_data/user_data/concordance_homer.txt``.
 
    In [10]: tib_clean = phi5_plaintext_cleanup(tib_read).lower()
 
-   In [11]: p.write_concordance_from_string(tib_clean, 'tibullus')
+   In [11]: philology.write_concordance_from_string(tib_clean, 'tibullus')
 
 The resulting concordance looks like:
 
