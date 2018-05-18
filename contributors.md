@@ -9,7 +9,7 @@ CLTK Core authors, ordered alphabetically by first name
 
 ## Anoop Kunchukuttan
 * cltk/stem/sanskrit/indian_syllabifier.py
-* cltk/tokenize/indian_tokenizer.py
+* cltk/tokenize/sentence.py
 
 ## Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>
 * cltk/corpus/sanskrit/itrans/itrans_transliterator.py
@@ -23,11 +23,25 @@ CLTK Core authors, ordered alphabetically by first name
 ## Chandana K.G.D <GitHub:chandanakgd>
 * cltk/corpus/pali/alphabet.py
 
+## Chatziargyriou Eleftheria <ele.hatzy@gmail.com>
+* cltk/phonology/middle_english/transcription.py
+* cltk/stop/middle_high_german/stops.py
+
+## Clément Besnier <clemsciences@aol.com>
+* cltk/stop/old_norse/stops.py
+
+## Dhruv Apte
+* cltk/corpus/gujarati/alphabet.py
+
 ## Dilshan Abeysinghe
 * cltk/corpus/tamil/alphabet.py
 
 ## Doğu Kaan Eraslan <kaaneraslan@gmail.com>
 * cltk/corpus/egyptian/transliterate_mdc.py
+
+## Eleftheria Chatziargyriou <ele.hatzy@gmail.com>
+* cltk/stem/middle_english/stem.py
+* cltk/stem/middle_high_german/stem.py
 
 ## Jack Duff <jmunroeduff@gmail.com>
 * cltk/phonology/greek/transcription.py
@@ -71,6 +85,10 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/stem/akkadian/declension.py
 * cltk/stem/akkadian/stem.py
 * cltk/stem/akkadian/syllabifier.py
+* cltk/tests/test_akkadian.py
+
+## Mahesh Bhosale <bhosalems24@gmail.com>
+* cltk/corpus/marathi/alphabet.py
 
 ## Martín Pozzi <marpozzi@gmail.com>
 * cltk/corpus/greek/tlg/parse_tlg_indices.py
@@ -86,10 +104,6 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/punjabi/numerifier.py
 * cltk/stop/punjabi/stops.py
 
-## Nishchith Shetty <inishchith@gmail.com>
-* cltk/corpus/odia/alphabet.py
-* cltk/stop/classical_hindi/stops.py
-
 ## Nurendra Choudhary <nurendrachoudhary31@gmail.com>
 * cltk/corpus/sanskrit/itrans/itrans_transliterator.py
 * cltk/corpus/sanskrit/itrans/langinfo.py
@@ -99,7 +113,9 @@ CLTK Core authors, ordered alphabetically by first name
 ## Patrick J. Burns <patrick@diyclassics.org>
 * cltk/corpus/greek/beta_to_unicode.py
 * cltk/corpus/latin/__init__.py
+* cltk/corpus/swadesh.py
 * cltk/lemmatize/latin/backoff.py
+* cltk/stop/stop.py
 * cltk/tests/test_lemmatize.py
 * cltk/tokenize/line.py
 
@@ -111,6 +127,10 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/greek/tlgu.py
 * cltk/corpus/utils/importer.py
 * cltk/utils/cltk_logger.py
+
+## Taha Zerrouki taha.zerrouki@gmail.com
+* cltk/corpus/arabic/utils/pyarabic/araby.py
+* cltk/corpus/arabic/utils/pyarabic/stack.py
 
 ## Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk
 * cltk/corpus/punjabi/alphabet.py
