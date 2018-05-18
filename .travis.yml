@@ -20,6 +20,10 @@ before_script:
 - pip install fuzzywuzzy
 - pip install python-Levenshtein
 - pip install gensim  # for word2vec.py
+- pip install Sphinx
+- pip install numpy
+- pip install scipy 
+- pip install scikit-learn
 
 script:
 #  # Notes on nose:
@@ -29,6 +33,7 @@ script:
 # Running nose twice; first pass establishes fixtures necessary for doctests to pass on second pass
 - nosetests
 - nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
+- ( cd docs && make doctest; )
 
 after_success:
 - codecov
@@ -36,6 +41,8 @@ after_success:
 deploy:
   provider: pypi
   user: kyle_johnson
+  edge:
+    branch: v1.8.45
   on:
     branch: master
   password:
