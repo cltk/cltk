@@ -82,7 +82,7 @@ class DFA:
             The method returns null if the transition is not defined
 
             >>> A.transition_function('q1', '1')
-            None
+            
 
         Accepted input strings:
             Determining whether an input belongs to the language
