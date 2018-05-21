@@ -1,5 +1,5 @@
 """
-Constructs NF and DF Automata
+Constructs Levenshtein automata
 
 At first, both the NFA and DFA classes inherited from a common Automaton class.
 I found that treating the two as separate entities, results in more comprehensive
@@ -24,19 +24,86 @@ with the subject matter.
 __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-import itertools
-
-def powerset(S):
-    """
-    Constructs the powerset of a list
-
-    >>> powerset([1, 2, 3])
-    {(1, 2), (1, 3), (1,), (2,), (3,), (1, 2, 3), (), (2, 3)}
-    """
-
-    return set([k for i in range(len(S) + 1) for k in list(itertools.combinations(S, i))])
 
 class DFA:
+
+    """
+        Define Deterministic finite automaton
+
+        Explanation:
+
+            A DFA is a finite state machine (note that it is not
+            Turing equivalent) represented by a 5-tuple (Q, Σ, δ, s, F)
+
+            Q: Finite set of states (the nodes of the DFA)
+
+            Σ: Finite set of input symbols (the alphabet of the automaton)
+
+            δ: Transition function δ: QxS -> Q
+
+            s: Start state, s ∈ Q
+
+            f: Finite set of final states  F ⊆ Q
+
+        Initialization:
+            A deterministic automaton is defined in a way closely related
+            to its mathematical notation.
+
+            >>> A = DFA({'q1', 'q2'}, ['0', '1'], 'q1', set())
+
+        Adding final states:
+            States can be added to F even after initializing
+
+            >>> A.add_final_state('q1')
+
+        Adding transitions:
+            You can either define the transition table by assigning
+            a nested dic (see further down for example) to the delta
+            parameter at initialization, or manually define each
+            transition
+
+            >>> A.add_transition('q1', '0', 'q2')
+
+            >>> A.add_transition('q2', '1', 'q2')
+
+            >>> A.add_transition('q2', '0', 'q1')
+
+            The equivalent transition trie will be this:
+
+            >>> A.transition
+            {'q1': {0: 'q2'}, 'q2': {1: 'q2', 0: 'q1'}}
+
+        Calling the transition function:
+            To call δ(qi, u), simply call transition_function:
+
+            >>> A.transition_function('q1', '0')
+            'q2'
+
+            The method returns null if the transition is not defined
+
+            >>> A.transition_function('q1', '1')
+            None
+
+        Accepted input strings:
+            Determining whether an input belongs to the language
+            recognized by a DFA A only is O(|w|) time, in contrast
+            to the exponential solution of the equivalnet problem
+            using a nondeterministic automaton.
+
+            Since the automaton is simple, we can deduce its language
+            without the need for any calculations: (01*0)*
+
+            Now on to testing
+
+            >>> A.accepted('01000')
+            True
+
+            >>> A.accepted('010011001110')
+            True
+
+            >>> A.accepted('100100')
+            False
+    """
 
     def __init__(self, Q, S, s, F, delta = False):
         """
@@ -98,6 +165,7 @@ class DFA:
             self.transition[qi] = dict()
             self.transition[qi][u] = qj
 
+
     def transition_function(self, qi, u):
         """
         :param qi: int: current state, qi ∈ Q
@@ -122,6 +190,87 @@ class DFA:
         return bool(active_state in self.F)
 
 class NFA():
+    """
+            Define Nondeterministic finite automaton
+
+                Explanation:
+
+                    A NFA is a finite state machine (note that it is not
+                    Turing equivalent) represented by a 5-tuple (Q, Σ, δ, s, F)
+
+                    Q: Finite set of states (the nodes of the DFA)
+
+                    Σ: Finite set of input symbols (the alphabet of the automaton)
+
+                    δ: Transition function δ: QxS -> P(Q)
+
+                    s: Start state, s ∈ Q
+
+                    f: Finite set of final states  F ⊆ Q
+
+                    As you can probably see, NFAs are nearly identical to DFAs. The difference
+                    lies in the transition function, which maps to the powerset of Q instead of
+                    Q itself. This is where its more important properties derive from, namely
+                    nondeterminism (essentially being able to simultaneously "process" different
+                    states)
+
+                    A generalization of NFA allows ε-moves, allowing for empty strings to be
+                    considered as valid input of the transition function (δ(q, ε) can be defined).
+                    While this remains equivalent to both its specialized form and the viscerally
+                    simpler DFA, it poses some additional problems when converting it to a strictly
+                    deterministic form.
+
+                Initialization:
+                    NFA initialization is nearly identical to that of a DFA, with two key
+                    differences:
+                      - the transition function maps to a set rather than a value q⊆Q
+                      - an additional parameter isEpsilon (defaults to False) is defined
+                        indicating whether the instanced NFA allows for ε-moves
+
+                    >>> B = NFA({'q1', 'q2'}, {'0', '1'}, 'q1', set(), isEpsilon = True)
+
+                Adding final states:
+                    States can be added to F after initializing
+
+                    >>> B.add_final_state('q1')
+
+                Adding transitions:
+                    You can either define the transition table by assigning
+                    a nested dic to delta at initialization, or manually define
+                    each transition
+
+                    >>> B.add_transition('q1', '0', 'q2')
+
+                    >>> B.add_transition('q1', '0', 'q1')
+
+                    >>> B.add_transition('q2', '1', 'q1')
+
+                    >>> B.add_transition('q2', B.epsilon, 'q1')
+
+                    Its transition trie will be:
+
+                    >>> B.transition
+
+                    {'q1': {'0': {'q2', 'q1'}}, 'q2': {'1': {'q1'}, <object object at 0x0000026E598BC0C0>: {'q1'}}}
+
+                    The object() is a convenient way to define ε in a computationally easy way.
+
+                Converting to DFA:
+                    As you probably realized, because of the recursive nature of the
+                    automaton, figuring out whether a given input string is accepted
+                    can result into an exponential worst-case, which is downright
+                    unacceptable for larger applications. If you recall, we already
+                    mentioned that any given NFA has an equivalent DFA, which
+                    fortunately offers a quick way for determining its language. This comes
+                    at the cost of O(2^n) space, which is still managable for smaller
+                    automata.
+
+                    >>> C = B.to_DFA
+
+                    >>> C.accepted("000")
+                    True
+
+    """
 
     def __init__(self, Q, S, s, F, delta = False, isEpsilon = False):
         """
@@ -261,4 +410,44 @@ class NFA():
                     active_states.append(states)
 
         return DFA(transition.keys(), self.S, " ".join(starting_state), final_states, delta = transition)
+
+
+def levenshtein_automata(word, depth):
+
+    """
+    Constructs the levenshtein DFA of a given word. The automata accepts all words
+    with levenshtein_distance(word) <= depth
+
+    >>> D = levenshtein_automata("canis", 2)
+
+    >>> D = D.to_DFA()
+
+    >>> D.accepted("ca*s")
+    True
+
+    >>> D.accepted("ca***s")
+    False
+    """
+
+    D = NFA(["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in range(len(word) + 1)], set(word + "*"),
+            "q0", set(["q" + str((i + 1) * (len(word) + 1) - 1) for i in range(depth + 1)]), isEpsilon=True)
+
+    for i in range(depth):
+        for j in range(len(word)):
+
+            # Correct character
+            D.add_transition(("q" + str((len(word) + 1) * i + j)), word[j],"q" + str((len(word) + 1) * i + j + 1))
+
+            # Insertion
+            D.add_transition(("q" + str((len(word) + 1) * i + j)), D.epsilon, "q" + str((len(word) + 1) * (i + 1) + j + 1))
+
+            # Substitution
+            D.add_transition("q" + str((len(word) + 1) * i + j), "*", "q" + str((len(word) + 1) * (i + 1) + j + 1))
+
+            # Deletion
+            D.add_transition("q" + str((len(word) + 1) * i + j), "*", "q" + str((len(word) + 1) * (i + 1) + j))
+
+    for j in range(len(word)):
+        D.add_transition("q" + str((len(word) + 1) * depth + j), word[j], "q" + str((len(word) + 1) * depth + j + 1))
+    return D
 
