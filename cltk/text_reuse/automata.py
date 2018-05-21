@@ -249,10 +249,9 @@ class NFA():
 
                     Its transition trie will be:
 
-                    >>> B.transition
-
-                    {'q1': {'0': {'q2', 'q1'}}, 'q2': {'1': {'q1'}, <object object at 0x0000026E598BC0C0>: {'q1'}}}
-
+                    >>> B.transition == {'q1': {'0': {'q2', 'q1'}}, 'q2': {'1': {'q1'}, B.epsilon : {'q1'}}}
+                    True
+                    
                     The object() is a convenient way to define ε in a computationally easy way.
 
                 Converting to DFA:
