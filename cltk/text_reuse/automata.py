@@ -264,7 +264,7 @@ class NFA():
                     at the cost of O(2^n) space, which is still managable for smaller
                     automata.
 
-                    >>> C = B.to_DFA
+                    >>> C = B.to_DFA()
 
                     >>> C.accepted("000")
                     True
