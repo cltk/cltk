@@ -71,7 +71,7 @@ class DFA:
             The equivalent transition trie will be this:
 
             >>> A.transition
-            {'q1': {0: 'q2'}, 'q2': {1: 'q2', 0: 'q1'}}
+            {'q1': {'0': 'q2'}, 'q2': {'1': 'q2', '0': 'q1'}}
 
         Calling the transition function:
             To call δ(qi, u), simply call transition_function:
