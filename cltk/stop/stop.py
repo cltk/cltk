@@ -301,16 +301,20 @@ class CorpusStoplist(Stoplist):
         elif basis == 'zou':
             MP = self._get_mean_probabilities(P, N)
             mp_list = self._combine_vocabulary(vocab, MP)
+            mp_list = [item[0] for item in mp_list]
 
             bP = dtm / sum(raw_lengths)
             VP = self._get_variance_probabilities(bP, P, N)
             vp_list = self._combine_vocabulary(vocab, VP)
+            vp_list = [item[0] for item in vp_list]
 
             ent = self._get_entropies(P)
             ent_list = self._combine_vocabulary(vocab, ent)
+            ent_list = [item[0] for item in ent_list]
 
             lists = [mp_list, vp_list, ent_list]
             stops = self._borda_sort(lists)[:size]
+            stops = [(item, None) for item in stops]
         else:
             raise ValueError("Basis '{}' not supported.".format(basis))
 
@@ -343,4 +347,5 @@ if __name__ == "__main__":
     #    test_corpus = [text.replace(word,' ') for text in test_corpus]
 
     S = CorpusStoplist('latin')
-    print(S.build_stoplist(test_corpus, size=10, basis='frequency', inc_values=True, sort_words=False, include=['patrick'], exclude=['in']))
+    print(S.build_stoplist(test_corpus, size=10,
+                    basis='zou', inc_values=False))
