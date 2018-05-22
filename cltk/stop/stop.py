@@ -135,7 +135,7 @@ class CorpusStoplist(Stoplist):
             print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
             raise ImportError
         else:
-            from sklearn.feature_extraction.text import CountVectorizer
+            pass
 
 
     def _make_dtm_vocab(self, texts):
@@ -217,7 +217,9 @@ class CorpusStoplist(Stoplist):
                         Zou, F., Wang, F.L., Deng, X., Han, S., and Wang, L.S. 2006. “Automatic Construction of Chinese Stop Word List.” In Proceedings of the 5th WSEAS International Conference on Applied Computer Science, 1010–1015. https://pdfs.semanticscholar.org/c543/8e216071f6180c228cc557fb1d3c77edb3a3.pdf.
         :param size: Set the size of the output list
         :param sort_words: Sort output list alphabetically? (Otherwise return is descending by basis value)
-        :param inc_values: Include basis value; e.g. word counts for 'frequency', mean probabilities for 'mean'
+        :param inc_values: Include basis value; e.g. word counts for
+            'frequency', mean probabilities for 'mean'; for 'zou', the basis
+            value is the word's rank after the Borda sort
         :param lower: Lowercase corpus or no?
         :param remove_punctuation: Remove punctuation from corpus or no?
         :param remove_numbers: Remove numbers from corpus or no?
@@ -314,7 +316,7 @@ class CorpusStoplist(Stoplist):
 
             lists = [mp_list, vp_list, ent_list]
             stops = self._borda_sort(lists)[:size]
-            stops = [(item, None) for item in stops]
+            stops = [(stop, rank) for rank, stop in enumerate(stops)]
         else:
             raise ValueError("Basis '{}' not supported.".format(basis))
 
@@ -348,4 +350,4 @@ if __name__ == "__main__":
 
     S = CorpusStoplist('latin')
     print(S.build_stoplist(test_corpus, size=10,
-                    basis='zou', inc_values=False))
+                    basis='zou', inc_values=True))
