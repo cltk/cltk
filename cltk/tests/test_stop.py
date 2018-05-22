@@ -144,10 +144,11 @@ class TestStop_General(unittest.TestCase):
         self.assertEqual(stoplist, target_list)
 
     def test_corpus_stop_list_freq_inc_values(self):
-        """Test production of stoplists from a corpus, using basis: frequency"""
-        target_list = [('in', 18), ('et', 15), ('vel', 9), ('ac', 8),
-                        ('cum', 8), ('qui', 7), ('atque', 6), ('mihi', 6),
-                        ('ad', 5), ('neque', 5)]
+        """Test production of stoplists from a corpus with values,
+        using basis: frequency"""
+        target_list = [('ac', 8), ('ad', 5), ('atque', 6), ('cum', 8),
+                        ('et', 15), ('in', 18), ('mihi', 6), ('neque', 5),
+                        ('qui', 7), ('vel', 9)]
         S = CorpusStoplist('latin')
         stoplist = S.build_stoplist(self.test_corpus, size=10,
                     basis='frequency', inc_values=True)
@@ -210,19 +211,13 @@ class TestStop_General(unittest.TestCase):
 
     def test_corpus_stop_list_zou(self):
         """Test production of stoplists from a corpus, using basis: zou"""
-        target_list = ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'rerum', 'vel']
+        target_list = ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque',
+                        'qui', 'rerum', 'vel']
         S = CorpusStoplist('latin')
         stoplist = S.build_stoplist(self.test_corpus, size=10,
                     basis='zou', inc_values=False)
         self.assertEqual(stoplist, target_list)
 
-    def test_corpus_stop_list_zou(self):
-        """Test production of stoplists from a corpus, using basis: zou"""
-        target_list = ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'rerum', 'vel']
-        S = CorpusStoplist('latin')
-        stoplist = S.build_stoplist(self.test_corpus, size=10,
-                    basis='zou', inc_values=False)
-        self.assertEqual(stoplist, target_list)
 
 class TestPackageImports(unittest.TestCase):
 
