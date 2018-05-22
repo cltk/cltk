@@ -131,6 +131,7 @@ class CorpusStoplist(Stoplist):
 
     def __init__(self, language=None):
         Stoplist.__init__(self, language)
+        self.punctuation = None
         if not self.numpy_installed or not self.sklearn_installed:
             print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
             raise ImportError
@@ -205,7 +206,9 @@ class CorpusStoplist(Stoplist):
         return sorted(scores.keys(), key=lambda elem: scores[elem], reverse=True)
 
 
-    def build_stoplist(self, texts, basis='zou', size=100, sort_words=True, inc_values=False, lower=True, remove_punctuation = True, remove_numbers=True, include =[], exclude=[]):
+    def build_stoplist(self, texts, basis='zou', size=100, sort_words=True,
+                        inc_values=False, lower=True, remove_punctuation = True,
+                        remove_numbers=True, include =[], exclude=[]):
         """
         :param texts: list of strings used as document collection for extracting stopwords
         :param basis: Define the basis for extracting stopwords from the corpus. Available methods are:
@@ -255,8 +258,9 @@ class CorpusStoplist(Stoplist):
             texts = [text.lower() for text in texts]
 
         if remove_punctuation:
-            punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
-            translator = str.maketrans({key: " " for key in punctuation})
+            if not self.punctuation:
+                self.punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
+            translator = str.maketrans({key: " " for key in self.punctuation})
             texts = [text.translate(translator) for text in texts]
 
         if remove_numbers:
