@@ -60,6 +60,19 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
+    def test_multi_lemmatizer(self):
+        """Test identity_lemmatizer()"""
+        lemmatizer = MultiLemmatizer()
+        test_str = 'Ceterum antequam destinata componam'
+        target = [('ceterum', [('ceterus', 1)]), ('antequam', [('antequam', 1)]), ('destinata', [('destinatus', .25), ('destinatum', .25), ('destinata', .25), ('destino', .25)]), ('componam', [('compono', 1)])]  # pylint: disable=line-too-long
+        jv_replacer = JVReplacer()
+        tokenizer = WordTokenizer('latin')
+        test_str = test_str.lower()
+        test_str = jv_replacer.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        self.assertEqual(lemmas, target)
+
     def test_model_lemmatizer(self):
         """Test model_lemmatizer()"""
         model = {'ceterum': 'ceterus', 'antequam': 'antequam', 'destinata': 'destino', 'componam': 'compono'}  # pylint: disable=line-too-long
