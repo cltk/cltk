@@ -11,7 +11,7 @@ class ClassicalChineseCorpusStoplist(CorpusStoplist):
 
     def __init__(self, language='classical_chinese'):
         CorpusStoplist.__init__(self, language)
-        self.punctuation = '。，；？：！、' # Based on regex tutorials at https://digitalsinology.org/
+        self.punctuation = '。，；？：！、《》'
         if not self.numpy_installed or not self.sklearn_installed:
             print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
             raise ImportError

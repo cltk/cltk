@@ -44,7 +44,14 @@ class Stoplist():
         Build a stoplist based on string or list of strings. This method
         should be overridden by subclasses of Stoplist.
         """
-
+        
+    def _remove_punctuation(self, texts, punctuation):
+        if not punctuation:
+            punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
+        translator = str.maketrans({key: " " for key in punctuation})
+        texts = [text.translate(translator) for text in texts] 
+        return texts
+        
 
 ## Write subclass designed to make a stoplist from a single string.
 class StringStoplist(Stoplist):
@@ -241,16 +248,22 @@ class CorpusStoplist(Stoplist):
         :rtype: list
         """
 
+        # Check 'texts' type for string
+        if isinstance(texts, str):
+            texts = [texts]
 
         # Move all of this preprocessing code outside 'build_stoplist'
         if lower:
             texts = [text.lower() for text in texts]
 
+#        if remove_punctuation:
+#            if not self.punctuation:
+#                self.punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
+#            translator = str.maketrans({key: " " for key in self.punctuation})
+#            texts = [text.translate(translator) for text in texts]
+
         if remove_punctuation:
-            if not self.punctuation:
-                self.punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
-            translator = str.maketrans({key: " " for key in self.punctuation})
-            texts = [text.translate(translator) for text in texts]
+            texts = self._remove_punctuation(texts, self.punctuation)
 
         if remove_numbers:
             translator = str.maketrans({key: " " for key in '0123456789'})

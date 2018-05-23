@@ -31,4 +31,4 @@ if __name__ == "__main__":
 
     S = LatinCorpusStoplist()
     print(S.build_stoplist(test_corpus, size=10,
-                    basis='zou', inc_values=True))
+                    basis='tfidf', inc_values=True))
