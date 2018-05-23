@@ -3,6 +3,7 @@
 import unittest
 
 from cltk.lemmatize.latin.backoff import DefaultLemmatizer
+from cltk.lemmatize.latin.backoff import MultiLemmatizer
 from cltk.lemmatize.latin.backoff import IdentityLemmatizer
 from cltk.lemmatize.latin.backoff import TrainLemmatizer
 from cltk.lemmatize.latin.backoff import PPLemmatizer
@@ -52,19 +53,6 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmatizer = IdentityLemmatizer()
         test_str = 'Ceterum antequam destinata componam'
         target = [('ceterum', 'ceterum'), ('antequam', 'antequam'), ('destinata', 'destinata'), ('componam', 'componam')]  # pylint: disable=line-too-long
-        jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer('latin')
-        test_str = test_str.lower()
-        test_str = jv_replacer.replace(test_str)
-        tokens = tokenizer.tokenize(test_str)
-        lemmas = lemmatizer.lemmatize(tokens)
-        self.assertEqual(lemmas, target)
-
-    def test_multi_lemmatizer(self):
-        """Test identity_lemmatizer()"""
-        lemmatizer = MultiLemmatizer()
-        test_str = 'Ceterum antequam destinata componam'
-        target = [('ceterum', [('ceterus', 1)]), ('antequam', [('antequam', 1)]), ('destinata', [('destinatus', .25), ('destinatum', .25), ('destinata', .25), ('destino', .25)]), ('componam', [('compono', 1)])]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
         tokenizer = WordTokenizer('latin')
         test_str = test_str.lower()
