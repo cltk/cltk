@@ -7,10 +7,10 @@ __license__ = 'MIT License. See LICENSE.'
 
 from cltk.stop.stop import BaseCorpusStoplist
 
-class CorpusStoplist(CorpusStoplist):
+class CorpusStoplist(BaseCorpusStoplist):
 
     def __init__(self, language='classical_chinese'):
-        CorpusStoplist.__init__(self, language)
+        BaseCorpusStoplist.__init__(self, language)
         self.punctuation = '。，；？：！、《》'
         if not self.numpy_installed or not self.sklearn_installed:
             print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
@@ -34,6 +34,6 @@ if __name__ == "__main__":
 
     test_corpus = [test_1, test_2]
 
-    S = ClassicalChineseCorpusStoplist()
+    S = CorpusStoplist()
     print(S.build_stoplist(test_corpus, size=10,
                     basis='zou', inc_values=True))
