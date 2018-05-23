@@ -32,8 +32,8 @@ class Stoplist():
 
         try:
             from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-            self.vectorizer = CountVectorizer(input='content') # Set df?
-            self.tfidf_vectorizer = TfidfVectorizer()
+#            self.vectorizer = CountVectorizer(input='content') # Set df?
+#            self.tfidf_vectorizer = TfidfVectorizer()
         except ImportError:
             self.sklearn_installed = False
 
@@ -54,6 +54,7 @@ class StringStoplist(Stoplist):
 
     def __init__(self, language=None):
         Stoplist.__init__(self, language)
+        self.punctuation = None
         self.language = language
 
     def build_stoplist(self, text, size=100, sort_words=True, inc_counts=False, lower=True, remove_punctuation = True, remove_numbers=True, include=[], exclude=[]):
@@ -84,12 +85,6 @@ class StringStoplist(Stoplist):
         """
 
         # Move all of this preprocessing code outside 'build_stoplist'
-        if self.language == 'latin':
-            pass
-            # set preprocessing
-        else:
-            pass
-
         if lower:
             text = text.lower()
 
