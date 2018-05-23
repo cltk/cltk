@@ -29,6 +29,6 @@ if __name__ == "__main__":
 
     test_corpus = [test_1, test_2]
 
-    S = CorpusStoplist('latin')
+    S = LatinCorpusStoplist()
     print(S.build_stoplist(test_corpus, size=10,
                     basis='zou', inc_values=True))
