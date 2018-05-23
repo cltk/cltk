@@ -7,8 +7,8 @@ from cltk.stop.stop import Stoplist, StringStoplist, CorpusStoplist
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
 from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
 from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
-#from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
-#from cltk.stop.classical_hindi.stops import STOPS_LIST as HINDI_STOPS
+from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
+from cltk.stop.classical_hindi.stops import STOPS_LIST as HINDI_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
 from cltk.stop.latin.stop import LatinCorpusStoplist
@@ -260,7 +260,6 @@ class TestPackageImports(unittest.TestCase):
     def test_sklearn_installed(self):
         self.assertFalse(self.S.sklearn_installed)
 
-    @unittest.skip("skipping")
     def test_middle_high_german_stopwords(self):
         """Test filtering  Middle High German stopwords."""
 
@@ -272,7 +271,6 @@ class TestPackageImports(unittest.TestCase):
         target_list = ['swer', 'bêârosche', 'komn', ',', 'gâwân', 'genomn', 'prîs', 'bêder', 'sît', 'dervor', 'ritter', 'schein', ',', 'rôtem', 'wâpen', 'unrekant', ',', 'prîs', 'hœhe', 'bant', '.']
         self.assertEqual(no_stops,target_list)
         
-    @unittest.skip("skipping")
     def test_classical_hindi_stops(self):
         """
         Test filtering classical hindi stopwords
