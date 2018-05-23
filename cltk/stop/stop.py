@@ -51,82 +51,6 @@ class Stoplist():
         translator = str.maketrans({key: " " for key in punctuation})
         texts = [text.translate(translator) for text in texts] 
         return texts
-        
-
-## Write subclass designed to make a stoplist from a single string.
-class StringStoplist(Stoplist):
-    """ Creates a stoplist based on the input of a single string of text.
-    """
-
-
-    def __init__(self, language=None):
-        Stoplist.__init__(self, language)
-        self.punctuation = None
-        self.language = language
-
-    def build_stoplist(self, text, size=100, sort_words=True, inc_counts=False, lower=True, remove_punctuation = True, remove_numbers=True, include=[], exclude=[]):
-        """
-        :param text: strings used for extracting stopwords
-        :param size: Set the size of the output list
-        :param sort_words: Sort output list alphabetically? (Otherwise return is descending by basis value)
-        :param inc_counts: Include word counts
-        :param lower: Lowercase corpus or no?
-        :param remove_punctuation: Remove punctuation from corpus or no?
-        :param remove_numbers: Remove numbers from corpus or no?
-        :param include: List of words in addition to stopwords that are extracted from the document collection
-                        to be added to the final list
-        :param exclude: List of words in addition to stopwords that are extracted from the document collection
-                        to be removed from the final list
-        :type texts: list
-        :type basis: str
-        :type size: int
-        :type sort_words: bool
-        :type inc_counts: bool
-        :type lower: bool
-        :type remove_punctuation: bool
-        :type remove_numbers: bool
-        :type include: list
-        :type exclude: list
-        :return: a list of stopwords extracted from the corpus; if 'inc_counts=True', output is a list of tuples
-        :rtype: list
-        """
-
-        # Move all of this preprocessing code outside 'build_stoplist'
-        if lower:
-            text = text.lower()
-
-        if remove_punctuation:
-            punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
-            translator = str.maketrans({key: " " for key in punctuation})
-            text = text.translate(translator)
-
-        if remove_numbers:
-            translator = str.maketrans({key: " " for key in '0123456789'})
-            text = text.translate(translator)
-
-        text = text.split() # Load real tokenizer
-        c = Counter(text)
-
-        stops = c.most_common(size)
-
-        if sort_words:
-            stops.sort(key=lambda x: x[0])
-
-        if exclude:
-            stops = [item for item in stops if item[0] not in exclude]
-
-        if include:
-            for item in include:
-                if item in stops.keys():
-                    include_counts = stops[item]
-                else:
-                    include_counts = 0
-                stops.extend((item, include_counts))
-
-        if inc_counts:
-            return stops
-        else:
-            return [item[0] for item in stops]
 
 
 class CorpusStoplist(Stoplist):
@@ -268,7 +192,6 @@ class CorpusStoplist(Stoplist):
         if remove_numbers:
             translator = str.maketrans({key: " " for key in '0123456789'})
             texts = [text.translate(translator) for text in texts]
-
 
         # Get DTM and basic descriptive info
         dtm, vocab = self._make_dtm_vocab(texts)
