@@ -6,9 +6,9 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>'] # Update author list
 __license__ = 'MIT License. See LICENSE.'
 
 from string import punctuation
-from cltk.stop.stop import CorpusStoplist
+from cltk.stop.stop import BaseCorpusStoplist
 
-class LatinCorpusStoplist(CorpusStoplist):
+class CorpusStoplist(CorpusStoplist):
 
     def __init__(self, language='latin'):
         CorpusStoplist.__init__(self, language)
@@ -31,4 +31,4 @@ if __name__ == "__main__":
 
     S = LatinCorpusStoplist()
     print(S.build_stoplist(test_corpus, size=10,
-                    basis='tfidf', inc_values=True))
+                    basis='zou', inc_values=True))

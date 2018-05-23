@@ -53,7 +53,7 @@ class Stoplist():
         return texts
 
 
-class CorpusStoplist(Stoplist):
+class BaseCorpusStoplist(Stoplist):
 
     def __init__(self, language=None):
         Stoplist.__init__(self, language)
@@ -179,12 +179,6 @@ class CorpusStoplist(Stoplist):
         # Move all of this preprocessing code outside 'build_stoplist'
         if lower:
             texts = [text.lower() for text in texts]
-
-#        if remove_punctuation:
-#            if not self.punctuation:
-#                self.punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
-#            translator = str.maketrans({key: " " for key in self.punctuation})
-#            texts = [text.translate(translator) for text in texts]
 
         if remove_punctuation:
             texts = self._remove_punctuation(texts, self.punctuation)

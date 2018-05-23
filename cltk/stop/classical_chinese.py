@@ -5,9 +5,9 @@ Code for building and working with stoplists for Classical Chinese
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>'] # Update author list
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.stop.stop import CorpusStoplist
+from cltk.stop.stop import BaseCorpusStoplist
 
-class ClassicalChineseCorpusStoplist(CorpusStoplist):
+class CorpusStoplist(CorpusStoplist):
 
     def __init__(self, language='classical_chinese'):
         CorpusStoplist.__init__(self, language)
@@ -36,4 +36,4 @@ if __name__ == "__main__":
 
     S = ClassicalChineseCorpusStoplist()
     print(S.build_stoplist(test_corpus, size=10,
-                    basis='frequency', inc_values=True))
+                    basis='zou', inc_values=True))
