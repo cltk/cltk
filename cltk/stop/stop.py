@@ -242,13 +242,7 @@ class CorpusStoplist(Stoplist):
         """
 
 
-        # Preprocessing
-        if self.language == 'latin':
-            pass
-            # set preprocessing
-        else:
-            pass
-
+        # Move all of this preprocessing code outside 'build_stoplist'
         if lower:
             texts = [text.lower() for text in texts]
 
