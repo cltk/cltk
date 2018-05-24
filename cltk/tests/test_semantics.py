@@ -20,6 +20,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_lemmatize(self):
         """Test Lemmatizer()"""
         lemmatizer = Lemmatize('multiple_lemmata')
+        lemmatizer.load_replacement_patterns()
         test_str = 'Ceterum antequam destinata componam'
         target = [('ceterum', [('ceterus', 1.0)]), ('antequam', [('antequam', 1.0)]), ('destinata', [('destinatus', 0.25), ('destinatum', 0.25), ('destinata', 0.25), ('destino', 0.25)]), ('componam', [('compono', 1.0)])]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
@@ -34,19 +35,3 @@ class TestSequenceFunctions(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-'''
-from cltk.semantics.latin.semantics import Lemmatize
-lemmatizer = Lemmatize('multiple_lemmata')
-lemmatizer.load_replacement_patterns()
-from cltk.stem.latin.j_v import JVReplacer
-from cltk.tokenize.word import WordTokenizer
-from cltk.corpus.utils.importer import CorpusImporter
-from cltk.lemmatize.french.lemma import LemmaReplacer
-test_str = 'Ceterum antequam destinata componam'
-jv_replacer = JVReplacer()
-tokenizer = WordTokenizer('latin')
-test_str = test_str.lower()
-test_str = jv_replacer.replace(test_str)
-tokens = tokenizer.tokenize(test_str)
-lemmatizer.lemmatize(tokens)
-'''
