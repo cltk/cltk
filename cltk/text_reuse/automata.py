@@ -24,8 +24,12 @@ with the subject matter.
 __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
+import logging
 
-class DFA:
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
+
+class DeterministicFiniteAutomaton:
 
     """
         Define Deterministic finite automaton
@@ -49,7 +53,7 @@ class DFA:
             A deterministic automaton is defined in a way closely related
             to its mathematical notation.
 
-            >>> A = DFA({'q1', 'q2'}, ['0', '1'], 'q1', set())
+            >>> A = DeterministicFiniteAutomaton({'q1', 'q2'}, ['0', '1'], 'q1', set())
 
         Adding final states:
             States can be added to F even after initializing
@@ -82,7 +86,7 @@ class DFA:
             The method returns null if the transition is not defined
 
             >>> A.transition_function('q1', '1')
-            
+
 
         Accepted input strings:
             Determining whether an input belongs to the language
@@ -118,13 +122,13 @@ class DFA:
         self.S = S
 
         if s not in self.Q:
-            print("The specified value is invalid, s must be a member of Q")
+            LOG.info("The specified value is invalid, s must be a member of Q")
             raise ValueError
         else:
             self.s = s
 
         if sum([f not in self.Q for f in F]) != 0:
-            print("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
+            LOG.info("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
             raise ValueError
         else:
             self.F = F
@@ -140,8 +144,8 @@ class DFA:
         :param f: int , the state qi to be added to F, epsilon is
         conventionally defined as the last node (q_|S|)
         """
-        if f not in  self.Q:
-            print("The specified value is invalid, f must be a member of Q")
+        if f not in self.Q:
+            LOG.info("The specified value is invalid, f must be a member of Q")
             raise ValueError
 
         self.F.add(f)
@@ -156,7 +160,7 @@ class DFA:
         already existent transition to qj.
         """
         if u not in self.S:
-            print("The specified value is invalid, f must be a member of S")
+            LOG.info("The specified value is invalid, f must be a member of S")
             raise ValueError
 
         try:
@@ -189,7 +193,7 @@ class DFA:
 
         return bool(active_state in self.F)
 
-class NFA():
+class NondeterministicFiniteAutomaton():
     """
             Define Nondeterministic finite automaton
 
@@ -227,7 +231,7 @@ class NFA():
                       - an additional parameter isEpsilon (defaults to False) is defined
                         indicating whether the instanced NFA allows for ε-moves
 
-                    >>> B = NFA({'q1', 'q2'}, {'0', '1'}, 'q1', set(), isEpsilon = True)
+                    >>> B = NondeterministicFiniteAutomaton({'q1', 'q2'}, {'0', '1'}, 'q1', set(), isEpsilon = True)
 
                 Adding final states:
                     States can be added to F after initializing
@@ -251,7 +255,7 @@ class NFA():
 
                     >>> B.transition == {'q1': {'0': {'q2', 'q1'}}, 'q2': {'1': {'q1'}, B.epsilon : {'q1'}}}
                     True
-                    
+
                     The object() is a convenient way to define ε in a computationally easy way.
 
                 Converting to DFA:
@@ -264,7 +268,7 @@ class NFA():
                     at the cost of O(2^n) space, which is still managable for smaller
                     automata.
 
-                    >>> C = B.to_DFA()
+                    >>> C = B.ConvertToDeterministic()
 
                     >>> C.accepted("000")
                     True
@@ -288,13 +292,13 @@ class NFA():
         if self.isEpsilon: self.S.add(self.epsilon)
 
         if s not in self.Q:
-            print("The specified value is invalid, s must be a member of Q")
+            LOG.info("The specified value is invalid, s must be a member of Q")
             raise ValueError
         else:
             self.s = s
 
         if sum([f not in self.Q for f in F]) != 0:
-            print("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
+            LOG.info("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
             raise ValueError
         else:
             self.F = F
@@ -310,8 +314,8 @@ class NFA():
         :param f: int , the state qi to be added to F, epsilon is
         conventionally defined as the last node (q_|S|)
         """
-        if f not in  self.Q:
-            print("The specified value is invalid, f must be a member of Q")
+        if f not in self.Q:
+            LOG.info("The specified value is invalid, f must be a member of Q")
             raise ValueError
 
         self.F.add(f)
@@ -326,7 +330,7 @@ class NFA():
         already existent transition to qj.
         """
         if u not in self.S:
-            print("The specified value is invalid, f must be a member of S")
+            LOG.info("The specified value is invalid, f must be a member of S")
             raise ValueError
 
         try:
@@ -350,7 +354,7 @@ class NFA():
         except KeyError:
             return None
 
-    def to_DFA(self):
+    def ConvertToDeterministic(self):
 
         starting_state = tuple([self.s])
 
@@ -408,7 +412,7 @@ class NFA():
                     visited_states.append(states)
                     active_states.append(states)
 
-        return DFA(transition.keys(), self.S, " ".join(starting_state), final_states, delta = transition)
+        return DeterministicFiniteAutomaton(transition.keys(), self.S, " ".join(starting_state), final_states, delta = transition)
 
 
 def levenshtein_automata(word, depth):
@@ -419,7 +423,7 @@ def levenshtein_automata(word, depth):
 
     >>> D = levenshtein_automata("canis", 2)
 
-    >>> D = D.to_DFA()
+    >>> D = D.ConvertToDeterministic()
 
     >>> D.accepted("ca*s")
     True
@@ -428,8 +432,9 @@ def levenshtein_automata(word, depth):
     False
     """
 
-    D = NFA(["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in range(len(word) + 1)], set(word + "*"),
-            "q0", set(["q" + str((i + 1) * (len(word) + 1) - 1) for i in range(depth + 1)]), isEpsilon=True)
+    D = NondeterministicFiniteAutomaton(["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in \
+                                        range(len(word) + 1)], set(word + "*"), "q0", set(["q" + str((i + 1) * \
+                                        (len(word) + 1) - 1) for i in range(depth + 1)]), isEpsilon=True)
 
     for i in range(depth):
         for j in range(len(word)):
