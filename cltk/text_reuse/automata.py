@@ -122,13 +122,13 @@ class DeterministicFiniteAutomaton:
         self.S = S
 
         if s not in self.Q:
-            LOG.info("The specified value is invalid, s must be a member of Q")
+            LOG.error("The specified value is invalid, s must be a member of Q")
             raise ValueError
         else:
             self.s = s
 
         if sum([f not in self.Q for f in F]) != 0:
-            LOG.info("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
+            LOG.error("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
             raise ValueError
         else:
             self.F = F
@@ -145,7 +145,7 @@ class DeterministicFiniteAutomaton:
         conventionally defined as the last node (q_|S|)
         """
         if f not in self.Q:
-            LOG.info("The specified value is invalid, f must be a member of Q")
+            LOG.error("The specified value is invalid, f must be a member of Q")
             raise ValueError
 
         self.F.add(f)
@@ -160,7 +160,7 @@ class DeterministicFiniteAutomaton:
         already existent transition to qj.
         """
         if u not in self.S:
-            LOG.info("The specified value is invalid, f must be a member of S")
+            LOG.error("The specified value is invalid, f must be a member of S")
             raise ValueError
 
         try:
@@ -268,7 +268,7 @@ class NondeterministicFiniteAutomaton():
                     at the cost of O(2^n) space, which is still managable for smaller
                     automata.
 
-                    >>> C = B.ConvertToDeterministic()
+                    >>> C = B.convert_to_deterministic()()
 
                     >>> C.accepted("000")
                     True
@@ -292,13 +292,13 @@ class NondeterministicFiniteAutomaton():
         if self.isEpsilon: self.S.add(self.epsilon)
 
         if s not in self.Q:
-            LOG.info("The specified value is invalid, s must be a member of Q")
+            LOG.error("The specified value is invalid, s must be a member of Q")
             raise ValueError
         else:
             self.s = s
 
         if sum([f not in self.Q for f in F]) != 0:
-            LOG.info("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
+            LOG.error("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
             raise ValueError
         else:
             self.F = F
@@ -315,7 +315,7 @@ class NondeterministicFiniteAutomaton():
         conventionally defined as the last node (q_|S|)
         """
         if f not in self.Q:
-            LOG.info("The specified value is invalid, f must be a member of Q")
+            LOG.error("The specified value is invalid, f must be a member of Q")
             raise ValueError
 
         self.F.add(f)
@@ -330,7 +330,7 @@ class NondeterministicFiniteAutomaton():
         already existent transition to qj.
         """
         if u not in self.S:
-            LOG.info("The specified value is invalid, f must be a member of S")
+            LOG.error("The specified value is invalid, f must be a member of S")
             raise ValueError
 
         try:
@@ -354,7 +354,7 @@ class NondeterministicFiniteAutomaton():
         except KeyError:
             return None
 
-    def ConvertToDeterministic(self):
+    def convert_to_deterministic(self):
 
         starting_state = tuple([self.s])
 
@@ -423,7 +423,7 @@ def levenshtein_automata(word, depth):
 
     >>> D = levenshtein_automata("canis", 2)
 
-    >>> D = D.ConvertToDeterministic()
+    >>> D = D.convert_to_deterministic()
 
     >>> D.accepted("ca*s")
     True
