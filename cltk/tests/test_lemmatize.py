@@ -3,7 +3,6 @@
 import unittest
 
 from cltk.lemmatize.latin.backoff import DefaultLemmatizer
-from cltk.lemmatize.latin.backoff import MultiLemmatizer
 from cltk.lemmatize.latin.backoff import IdentityLemmatizer
 from cltk.lemmatize.latin.backoff import TrainLemmatizer
 from cltk.lemmatize.latin.backoff import PPLemmatizer

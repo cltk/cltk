@@ -27,12 +27,12 @@ class Lemmatize:
                 lemmas = self.lemmata[token.lower()]
                 lemmalist = []
                 for lemma in lemmas:
-                    lemmalist.append(tuple(lemma, 1/len(lemmas)))
-                lemmaobj = tuple(token, lemmalist)                
+                    lemmalist.append((lemma, 1/len(lemmas)))
+                lemmaobj = (token, lemmalist)                
             else:
             # if token not found in lemma-headword list, return the token itself
                 lemmalist = []
-                lemmalist.append(tuple(token, 1))
-                lemmaobj = tuple(token, lemmalist)
-            lemmatized_tokens.append(lemmalist)                        
-        return lemmatized_tokens
+                lemmalist.append((token, 1))
+                lemmaobj = (token, lemmalist)
+            self.lemmatized_tokens.append(lemmaobj)                        
+        return self.lemmatized_tokens
