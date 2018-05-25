@@ -6,7 +6,7 @@ I found that treating the two as separate entities, results in more comprehensiv
 documentation in the price of succinctness.
 
 This is the third iteration of the algorithm, the first one used transition
-matrices for representing automata but this proved to be a massive waste
+matrices for representing automata but this proved to be a massive wasteA
 of space for anything non-trivial. In addition, instead of the usual
 intuitiveness that accompanies such approaches, I had to deal with
 countless of indexing errors and even the slightest of optimizations
@@ -268,7 +268,7 @@ class NondeterministicFiniteAutomaton():
                     at the cost of O(2^n) space, which is still managable for smaller
                     automata.
 
-                    >>> C = B.convert_to_deterministic()()
+                    >>> C = B.convert_to_deterministic()
 
                     >>> C.accepted("000")
                     True
