@@ -268,7 +268,7 @@ class NondeterministicFiniteAutomaton():
                     at the cost of O(2^n) space, which is still managable for smaller
                     automata.
 
-                    >>> C = B.convert_to_deterministic()()
+                    >>> C = B.convert_to_deterministic()
 
                     >>> C.accepted("000")
                     True
