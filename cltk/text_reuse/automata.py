@@ -107,6 +107,26 @@ class DeterministicFiniteAutomaton:
 
             >>> A.accepted('100100')
             False
+
+        Complete automaton:
+            A complete automaton is well defined for any state and
+            input symbol. By calling complete_automaton you are
+            essentially creating a new terminating state.
+
+            >>> A.complete_automaton()
+
+            Any undefined transition ends up to the newly defined
+            state:
+
+            >>> A.transition_function('q1', '1') == A.term_state
+            True
+
+            Every transition from the terminating state, reffers
+            back to itself such that δ(term, u) = term
+
+            >>> A.transition_function(A.term_state, '0') == A.term_state
+            True
+
     """
 
     def __init__(self, Q, S, s, F, delta = False):
@@ -193,7 +213,27 @@ class DeterministicFiniteAutomaton:
 
         return bool(active_state in self.F)
 
-class NondeterministicFiniteAutomaton():
+    def complete_automaton(self):
+        """
+        Adds missing transition states such that δ(q, u) is defined
+        for every state q and any u ∈ S
+        """
+        self.term_state = object()
+
+        self.Q.add(self.term_state)
+
+        for tv in self.Q:
+            for u in self.S:
+                try:
+                    self.transition[tv][u]
+                except:
+                    self.add_transition(tv, u, self.term_state)
+
+        for u in self.S:
+            self.add_transition(self.term_state, u, self.term_state)
+
+
+class NondeterministicFiniteAutomaton:
     """
             Define Nondeterministic finite automaton
 
@@ -272,7 +312,6 @@ class NondeterministicFiniteAutomaton():
 
                     >>> C.accepted("000")
                     True
-
     """
 
     def __init__(self, Q, S, s, F, delta = False, isEpsilon = False):
@@ -415,13 +454,13 @@ class NondeterministicFiniteAutomaton():
         return DeterministicFiniteAutomaton(transition.keys(), self.S, " ".join(starting_state), final_states, delta = transition)
 
 
-def levenshtein_automata(word, depth):
-
+class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
     """
-    Constructs the levenshtein DFA of a given word. The automata accepts all words
+
+    Constructs the levenshtein DFA of a given word. The automaton accepts all words
     with levenshtein_distance(word) <= depth
 
-    >>> D = levenshtein_automata("canis", 2)
+    >>> D = LevenshteinAutomaton("canis", 2)
 
     >>> D = D.convert_to_deterministic()
 
@@ -430,28 +469,37 @@ def levenshtein_automata(word, depth):
 
     >>> D.accepted("ca***s")
     False
+
     """
 
-    D = NondeterministicFiniteAutomaton(["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in \
-                                        range(len(word) + 1)], set(word + "*"), "q0", set(["q" + str((i + 1) * \
-                                        (len(word) + 1) - 1) for i in range(depth + 1)]), isEpsilon=True)
+    def __init__(self, word, depth):
 
-    for i in range(depth):
+        self.Q = ["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in range(len(word) + 1)]
+        self.S = set(word + "*")
+        self.s = "q0"
+        self.F = set(["q" + str((i + 1)*(len(word) + 1) - 1) for i in range(depth + 1)])
+        self.isEpsilon = True
+        self.epsilon = object()
+        self.transition = dict()
+        self.S.add(self.epsilon)
+
+        for i in range(depth):
+            for j in range(len(word)):
+
+                # Correct character
+                self.add_transition(("q" + str((len(word) + 1) * i + j)), word[j], "q" + str((len(word) + 1) *
+                                                                                             i + j + 1))
+
+                # Insertion
+                self.add_transition(("q" + str((len(word) + 1) * i + j)), self.epsilon, "q" + str((len(word) + 1) * (i + 1) + j + 1))
+
+                # Substitution
+                self.add_transition("q" + str((len(word) + 1) * i + j), "*", "q" + str((len(word) + 1) *
+                                                                                       (i + 1) + j + 1))
+
+                # Deletion
+                self.add_transition("q" + str((len(word) + 1) * i + j), "*", "q" + str((len(word) + 1) * (i + 1) + j))
+
         for j in range(len(word)):
-
-            # Correct character
-            D.add_transition(("q" + str((len(word) + 1) * i + j)), word[j],"q" + str((len(word) + 1) * i + j + 1))
-
-            # Insertion
-            D.add_transition(("q" + str((len(word) + 1) * i + j)), D.epsilon, "q" + str((len(word) + 1) * (i + 1) + j + 1))
-
-            # Substitution
-            D.add_transition("q" + str((len(word) + 1) * i + j), "*", "q" + str((len(word) + 1) * (i + 1) + j + 1))
-
-            # Deletion
-            D.add_transition("q" + str((len(word) + 1) * i + j), "*", "q" + str((len(word) + 1) * (i + 1) + j))
-
-    for j in range(len(word)):
-        D.add_transition("q" + str((len(word) + 1) * depth + j), word[j], "q" + str((len(word) + 1) * depth + j + 1))
-    return D
-
+            self.add_transition("q" + str((len(word) + 1) * depth + j), word[j], "q" + str((len(word) + 1) *
+                                                                                           depth + j + 1))
