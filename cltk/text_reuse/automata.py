@@ -55,10 +55,28 @@ class DeterministicFiniteAutomaton:
 
             >>> A = DeterministicFiniteAutomaton({'q1', 'q2'}, ['0', '1'], 'q1', set())
 
+            Keep in mind that both the starting and final states have to belong
+            to Q:
+
+            >>> W = DeterministicFiniteAutomaton({'q1', 'q2'}, ['0', '1'], 'q0', set())
+            Traceback (most recent call last):
+                ...
+            ValueError
+
+            >>> W = DeterministicFiniteAutomaton({'q1', 'q2'}, ['0', '1'], 'q1', {'q3'})
+            Traceback (most recent call last):
+                ...
+            ValueError
+
         Adding final states:
             States can be added to F even after initializing
 
             >>> A.add_final_state('q1')
+
+            >>> A.add_final_state('q3')
+            Traceback (most recent call last):
+                ...
+            ValueError
 
         Adding transitions:
             You can either define the transition table by assigning
@@ -77,6 +95,13 @@ class DeterministicFiniteAutomaton:
             >>> A.transition
             {'q1': {'0': 'q2'}, 'q2': {'1': 'q2', '0': 'q1'}}
 
+            You can not define a transition of unrecognized symbols
+
+            >>> A.add_transition('q1', '2', 'q2')
+            Traceback (most recent call last):
+                ...
+            ValueError
+
         Calling the transition function:
             To call δ(qi, u), simply call transition_function:
 
@@ -86,7 +111,6 @@ class DeterministicFiniteAutomaton:
             The method returns null if the transition is not defined
 
             >>> A.transition_function('q1', '1')
-
 
         Accepted input strings:
             Determining whether an input belongs to the language
@@ -189,7 +213,6 @@ class DeterministicFiniteAutomaton:
             self.transition[qi] = dict()
             self.transition[qi][u] = qj
 
-
     def transition_function(self, qi, u):
         """
         :param qi: int: current state, qi ∈ Q
@@ -208,7 +231,7 @@ class DeterministicFiniteAutomaton:
         for k in w:
             active_state = self.transition_function(active_state, k)
 
-            if active_state == None:
+            if active_state is None:
                 return False
 
         return bool(active_state in self.F)
@@ -273,10 +296,28 @@ class NondeterministicFiniteAutomaton:
 
                     >>> B = NondeterministicFiniteAutomaton({'q1', 'q2'}, {'0', '1'}, 'q1', set(), isEpsilon = True)
 
+                    Similarly to the initialization of Deterministic Automata, it is
+                    compulsory for both the starting and final states to belong to Q.
+
+                    >>> W = NondeterministicFiniteAutomaton({'q1', 'q2'}, {'0', '1'}, 'q3', set())
+                    Traceback (most recent call last):
+                        ...
+                    ValueError
+
+                    >>> W = NondeterministicFiniteAutomaton({'q1', 'q2'}, {'0', '1'}, 'q1', {'q3'})
+                    Traceback (most recent call last):
+                        ...
+                    ValueError
+
                 Adding final states:
                     States can be added to F after initializing
 
                     >>> B.add_final_state('q1')
+
+                    >>> B.add_final_state('q3')
+                    Traceback (most recent call last):
+                        ...
+                    ValueError
 
                 Adding transitions:
                     You can either define the transition table by assigning
@@ -305,7 +346,7 @@ class NondeterministicFiniteAutomaton:
                     unacceptable for larger applications. If you recall, we already
                     mentioned that any given NFA has an equivalent DFA, which
                     fortunately offers a quick way for determining its language. This comes
-                    at the cost of O(2^n) space, which is still managable for smaller
+                    at the cost of O(2^n) space, which is still manageable for smaller
                     automata.
 
                     >>> C = B.convert_to_deterministic()
@@ -503,3 +544,6 @@ class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
         for j in range(len(word)):
             self.add_transition("q" + str((len(word) + 1) * depth + j), word[j], "q" + str((len(word) + 1) *
                                                                                            depth + j + 1))
+
+
+ 
