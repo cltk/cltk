@@ -502,7 +502,10 @@ class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
     Constructs the levenshtein DFA of a given word. The automaton accepts all words
     with levenshtein_distance(word) <= depth
 
-    >>> D = LevenshteinAutomaton("canis", 2)
+    You can define the alphabet of a Levenshtein automaton, allowing the automaton
+    to recognize regular words.
+
+    >>> D = LevenshteinAutomaton("canis", 2, alphabet = 'abcdefghijklmnopqrstuvwxyz')
 
     >>> D = D.convert_to_deterministic()
 
@@ -512,18 +515,24 @@ class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
     >>> D.accepted("ca***s")
     False
 
+    >>> D.accepted("canem")
+    True
+    
+    Note that the automaton is case-sensitive:
+    
+    >>> D.accepted("Canes")
+    False
+    
     """
 
-    def __init__(self, word, depth):
+    def __init__(self, word, depth, alphabet = 'abcdefghijklmnopqrstuvwxyz'):
 
-        self.Q = ["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in range(len(word) + 1)]
-        self.S = set(word + "*")
-        self.s = "q0"
-        self.F = set(["q" + str((i + 1)*(len(word) + 1) - 1) for i in range(depth + 1)])
-        self.isEpsilon = True
-        self.epsilon = object()
-        self.transition = dict()
+        super().__init__(["q" + str(i * (len(word) + 1) + j) for i in range(depth + 1) for j in range(len(word) + 1)],
+                         set(word + "*"), "q0", set(["q" + str((i + 1)*(len(word) + 1) - 1) for i in range(depth + 1)]),
+                         isEpsilon = True)
+
         self.S.add(self.epsilon)
+        self.alphabet = alphabet
 
         for i in range(depth):
             for j in range(len(word)):
@@ -545,5 +554,32 @@ class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
         for j in range(len(word)):
             self.add_transition("q" + str((len(word) + 1) * depth + j), word[j], "q" + str((len(word) + 1) *
                                                                                            depth + j + 1))
+    def convert_to_deterministic(self):
+        A = super(LevenshteinAutomaton, self).convert_to_deterministic()
+        return LevenshteinDeterministic(A.Q, A.S, A.s, A.F, A.transition, self.alphabet)
 
-            
+
+class LevenshteinDeterministic(DeterministicFiniteAutomaton):
+    """
+    Deterministic Levenshtein Automaton.
+    """
+    def __init__(self, Q, S, s, F, transition, alphabet):
+        super().__init__(Q, S, s, F, transition)
+        self.alphabet = alphabet
+
+    def transition_function(self, qi, u):
+        """
+        :param qi: int: current state, qi ∈ Q
+        :param u:str: transition character u ∈ S
+        :returns Q': int :  δ(qi, u) = q
+        """
+        try:
+            return self.transition[qi][u]
+        except KeyError:
+            if u in self.alphabet:
+                try:
+                    return self.transition[qi]['*']
+                except KeyError:
+                    return None
+            return None
+
