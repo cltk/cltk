@@ -62,12 +62,12 @@ class DeterministicFiniteAutomaton:
             >>> W = DeterministicFiniteAutomaton({'q1', 'q2'}, ['0', '1'], 'q0', set())
             Traceback (most recent call last):
                 ...
-            cltk.exceptions.InputError
+            cltk.exceptions.InputError: The specified value is invalid, s must be a member of Q
 
             >>> W = DeterministicFiniteAutomaton({'q1', 'q2'}, ['0', '1'], 'q1', {'q3'})
             Traceback (most recent call last):
                 ...
-            cltk.exceptions.InputError
+            cltk.exceptions.InputError: The specified value is invalid, F must be a subset of Q (F∩Q≠∅)
 
         Adding final states:
             States can be added to F even after initializing
@@ -77,7 +77,7 @@ class DeterministicFiniteAutomaton:
             >>> A.add_final_state('q3')
             Traceback (most recent call last):
                 ...
-            cltk.exceptions.InputError
+            cltk.exceptions.InputError: The specified value is invalid, f must be a member of Q
 
         Adding transitions:
             You can either define the transition table by assigning
@@ -101,7 +101,7 @@ class DeterministicFiniteAutomaton:
             >>> A.add_transition('q1', '2', 'q2')
             Traceback (most recent call last):
                 ...
-            cltk.exceptions.InputError
+            cltk.exceptions.InputError: The specified value is invalid, f must be a member of S
 
         Calling the transition function:
             To call δ(qi, u), simply call transition_function:
@@ -168,13 +168,13 @@ class DeterministicFiniteAutomaton:
 
         if s not in self.Q:
             LOG.error("The specified value is invalid, s must be a member of Q")
-            raise InputError
+            raise InputError("The specified value is invalid, s must be a member of Q")
         else:
             self.s = s
 
         if sum([f not in self.Q for f in F]) != 0:
             LOG.error("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
-            raise InputError
+            raise InputError("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
         else:
             self.F = F
 
@@ -191,7 +191,7 @@ class DeterministicFiniteAutomaton:
         """
         if f not in self.Q:
             LOG.error("The specified value is invalid, f must be a member of Q")
-            raise InputError
+            raise InputError("The specified value is invalid, f must be a member of Q")
 
         self.F.add(f)
 
@@ -206,7 +206,7 @@ class DeterministicFiniteAutomaton:
         """
         if u not in self.S:
             LOG.error("The specified value is invalid, f must be a member of S")
-            raise InputError
+            raise InputError("The specified value is invalid, f must be a member of S")
 
         try:
             self.transition[qi][u] = qj
@@ -303,12 +303,13 @@ class NondeterministicFiniteAutomaton:
                     >>> W = NondeterministicFiniteAutomaton({'q1', 'q2'}, {'0', '1'}, 'q3', set())
                     Traceback (most recent call last):
                         ...
-                    cltk.exceptions.InputError
+                    cltk.exceptions.InputError: The specified value is invalid, s must be a member of Q
+
 
                     >>> W = NondeterministicFiniteAutomaton({'q1', 'q2'}, {'0', '1'}, 'q1', {'q3'})
                     Traceback (most recent call last):
                         ...
-                    cltk.exceptions.InputError
+                    cltk.exceptions.InputError: The specified value is invalid, F must be a subset of Q (F∩Q≠∅)
 
                 Adding final states:
                     States can be added to F after initializing
@@ -318,7 +319,7 @@ class NondeterministicFiniteAutomaton:
                     >>> B.add_final_state('q3')
                     Traceback (most recent call last):
                         ...
-                    cltk.exceptions.InputError
+                    cltk.exceptions.InputError: The specified value is invalid, f must be a member of Q
 
                 Adding transitions:
                     You can either define the transition table by assigning
@@ -374,13 +375,13 @@ class NondeterministicFiniteAutomaton:
 
         if s not in self.Q:
             LOG.error("The specified value is invalid, s must be a member of Q")
-            raise InputError
+            raise InputError("The specified value is invalid, s must be a member of Q")
         else:
             self.s = s
 
         if sum([f not in self.Q for f in F]) != 0:
             LOG.error("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
-            raise InputError
+            raise InputError("The specified value is invalid, F must be a subset of Q (F∩Q≠∅)")
         else:
             self.F = F
 
@@ -397,7 +398,7 @@ class NondeterministicFiniteAutomaton:
         """
         if f not in self.Q:
             LOG.error("The specified value is invalid, f must be a member of Q")
-            raise InputError
+            raise InputError("The specified value is invalid, f must be a member of Q")
 
         self.F.add(f)
 
@@ -412,7 +413,7 @@ class NondeterministicFiniteAutomaton:
         """
         if u not in self.S:
             LOG.error("The specified value is invalid, f must be a member of S")
-            raise InputError
+            raise InputError("The specified value is invalid, f must be a member of S")
 
         try:
             self.transition[qi][u].add(qj)
@@ -517,12 +518,12 @@ class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
 
     >>> D.accepted("canem")
     True
-    
+
     Note that the automaton is case-sensitive:
-    
+
     >>> D.accepted("Canes")
     False
-    
+
     """
 
     def __init__(self, word, depth, alphabet = 'abcdefghijklmnopqrstuvwxyz'):
