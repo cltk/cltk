@@ -555,6 +555,10 @@ class LevenshteinAutomaton(NondeterministicFiniteAutomaton):
         for j in range(len(word)):
             self.add_transition("q" + str((len(word) + 1) * depth + j), word[j], "q" + str((len(word) + 1) *
                                                                                            depth + j + 1))
+        for j in range(depth):
+            self.add_transition("q" + str((len(word) + 1) * j + len(word)), "*", "q" + str((len(word) + 1) * (j + 1)
+                                                                                               + len(word)))
+
     def convert_to_deterministic(self):
         A = super(LevenshteinAutomaton, self).convert_to_deterministic()
         return LevenshteinDeterministic(A.Q, A.S, A.s, A.F, A.transition, self.alphabet)
@@ -583,4 +587,73 @@ class LevenshteinDeterministic(DeterministicFiniteAutomaton):
                 except KeyError:
                     return None
             return None
+
+
+def make_worlist_trie(wordlist):
+    """
+    Creates a nested dictionary representing the trie created
+    by the given word list.
+
+    :param wordlist: str list:
+    :return: nested dictionary
+
+    >>> make_worlist_trie(['einander', 'einen', 'neben'])
+    {'e': {'i': {'n': {'a': {'n': {'d': {'e': {'r': {'__end__': '__end__'}}}}}, 'e': {'n': {'__end__': '__end__'}}}}},\
+'n': {'e': {'b': {'e': {'n': {'__end__': '__end__'}}}}}}
+
+    """
+    dicts = dict()
+
+    for w in wordlist:
+        curr = dicts
+        for l in w:
+            curr = curr.setdefault(l, {})
+        curr['__end__'] = '__end__'
+
+    return dicts
+
+def walk_trie(dicts, w, q, A):
+    """
+    Helper function for traversing the word trie. It simultaneously keeps
+    track of the active Automaton state, producing the intersection of the
+    given Automaton and the trie (which is equivalent to a DFA). Once an 
+    invalid "terminating" state is reached, the children nodes are immediately
+    dismissed from the recursive stack
+    """
+    
+    if q in A.F and '__end__' in dicts:
+        yield w
+
+    for key in dicts.keys():
+        if key == '__end__':
+            continue
+
+        if A.transition_function(q, key) is None:
+            return
+
+        try:
+            yield from walk_trie(dicts[key], w + key, A.transition_function(q, key), A)
+        except:
+            return
+
+
+def spellcheck(word, wordlist, depth = 2):
+    """
+    Given a word list and a depth parameter, return all words w' in the wordlist
+    with LevenshteinDistance(word, w') <= depth
+
+    :param word:
+    :param wordlist:
+
+    >>> Dic = ['pes', 'pesse', 'pease', 'peis', 'peisse', 'pise', 'peose', 'poese', 'poisen']
+    >>> spellcheck('pece', Dic, depth = 2)
+    ['pease', 'peis', 'peose', 'pes', 'pesse', 'pise', 'poese']
+
+    >>> spellcheck('pece', Dic, depth = 3)
+    ['pease', 'peis', 'peisse', 'peose', 'pes', 'pesse', 'pise', 'poese']
+    """
+    Aut = LevenshteinAutomaton(word, depth = depth).convert_to_deterministic()
+    W = make_worlist_trie(wordlist)
+
+    return sorted(list(walk_trie(W, '', Aut.s, Aut)))
 
