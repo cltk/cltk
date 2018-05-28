@@ -598,8 +598,7 @@ def make_worlist_trie(wordlist):
     :return: nested dictionary
 
     >>> make_worlist_trie(['einander', 'einen', 'neben'])
-    {'e': {'i': {'n': {'a': {'n': {'d': {'e': {'r': {'__end__': '__end__'}}}}}, 'e': {'n': {'__end__': '__end__'}}}}},\
-'n': {'e': {'b': {'e': {'n': {'__end__': '__end__'}}}}}}
+    {'e': {'i': {'n': {'a': {'n': {'d': {'e': {'r': {'__end__': '__end__'}}}}}, 'e': {'n': {'__end__': '__end__'}}}}}, 'n': {'e': {'b': {'e': {'n': {'__end__': '__end__'}}}}}}
 
     """
     dicts = dict()
