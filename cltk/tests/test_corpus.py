@@ -24,6 +24,7 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
 from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
 from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
 from cltk.corpus.greek.tlgu import TLGU
+from cltk.corpus.middle_english.alphabet import normalize_middle_english
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
@@ -186,7 +187,7 @@ argenteo polubro, aureo eclutro. """
         normalized_text = cltk_normalize(s1, compatibility=False)
         target = normalize('NFC', s2)
         self.assertEqual(normalized_text, target)
-
+    
     def test_assemble_tlg_author(self):
         """Test building absolute filepaths from TLG index."""
         paths = assemble_tlg_author_filepaths()
@@ -608,7 +609,13 @@ example_distributed_fake_language_corpus:
         normalized = normalize_fr(text)
         target = ['vieux']
         self.assertEqual(normalized, target)
-
+    
+    def test_normalize_middle_english(self):
+        """Tests ME normalizer"""
+        in_test = "'Madame,' quod he, 'reule me As ȝ,e ly:k?eþ best.'"
+        target = "'madame' quod he 'reule me as ye lyketh best'"
+        test = normalize_middle_english(in_test)
+        self.assertEqual(target, test)
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
