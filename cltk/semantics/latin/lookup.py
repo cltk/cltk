@@ -2,22 +2,24 @@ from cltk.utils.cltk_logger import logger
 import importlib.machinery
 import os
 
-class Lemmatize:
+class Lookup:
     """Example class for all semantic 'lemmatizers'"""
-    def __init__(self, dictionary):
+    def __init__(self, dictionary, language):
         self.dictionary = dictionary
-        self.lemmatized_tokens = []
+        self.language = language
     def load_replacement_patterns(self):
         """Check for availability of the specified dictionary."""
         filename = self.dictionary + '.py'
-        rel_path = os.path.join('~','cltk_data','latin','model','latin_models_cltk','semantics',filename)
+        models = self.language + '_models_cltk'
+        rel_path = os.path.join('~','cltk_data', self.language,'model', models,'semantics',filename)
         path = os.path.expanduser(rel_path)
         #logger.info('Loading lemmata. This may take a minute.')
         loader = importlib.machinery.SourceFileLoader(filename, path)
         module = loader.load_module()
-        self.lemmata = module.LEMMATA    
-    def lemmatize(self, tokens):
+        self.lemmata = module.DICTIONARY    
+    def lookup(self, tokens):
         """Return a list of possible lemmata and their probabilities for each token"""
+        lemmatized_tokens = []
         for token in tokens:
             # look for token in lemma dict keys
             if token.lower() in self.lemmata.keys():
@@ -34,5 +36,5 @@ class Lemmatize:
                 lemmalist = []
                 lemmalist.append((token, 1))
                 lemmaobj = (token, lemmalist)
-            self.lemmatized_tokens.append(lemmaobj)                        
-        return self.lemmatized_tokens
+            lemmatized_tokens.append(lemmaobj)                        
+        return lemmatized_tokens

@@ -2,7 +2,7 @@
 
 import unittest
 
-from cltk.semantics.latin.semantics import Lemmatize
+from cltk.semantics.latin.lookup import Lookup
 #from cltk.lemmatize.latin.regexp_patterns import rn_patterns
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
@@ -17,9 +17,9 @@ __license__ = 'MIT License. See LICENSE.'
 class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
 
-    def test_lemmatize(self):
-        """Test Lemmatizer()"""
-        lemmatizer = Lemmatize('multiple_lemmata')
+    def test_lookup_latin(self):
+        """Test Lookup()"""
+        lemmatizer = Lookup(dictionary = 'lemmata', language = 'latin')
         lemmatizer.load_replacement_patterns()
         test_str = 'Ceterum antequam destinata componam'
         target = [('ceterum', [('ceterus', 1.0)]), ('antequam', [('antequam', 1.0)]), ('destinata', [('destinatus', 0.25), ('destinatum', 0.25), ('destinata', 0.25), ('destino', 0.25)]), ('componam', [('compono', 1.0)])]  # pylint: disable=line-too-long
@@ -28,7 +28,7 @@ class TestSequenceFunctions(unittest.TestCase):
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
-        lemmas = lemmatizer.lemmatize(tokens)
+        lemmas = lemmatizer.lookup(tokens)
         self.assertEqual(lemmas, target)
 
 
