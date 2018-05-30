@@ -379,7 +379,7 @@ argenteo polubro, aureo eclutro. """
         valid = "Epictetus Phil."
         self.assertEqual(author, valid)
 
-    # ! Figure out why this test stopped working (actual function runs fine)
+    # #! Figure out why this test stopped working (actual function runs fine)
     # def test_get_date_author(self):
     #     """Test get_date_author()."""
     #     dates = get_date_author()
@@ -460,7 +460,7 @@ argenteo polubro, aureo eclutro. """
         """Setup for some cloning tests, make file at
         '~/cltk_data/test_distributed_corpora.yaml'.
         """
-        # ! Don't format this literal string, must be YAML-ish
+        #! Don't format this literal string, must be YAML-ish
         yaml_str_to_write = """example_distributed_latin_corpus:
         git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
         language: latin
