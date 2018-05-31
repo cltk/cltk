@@ -8,6 +8,8 @@ from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.text_reuse.text_reuse import TextReuse
 from cltk.text_reuse.comparison import long_substring
 from cltk.text_reuse.comparison import minhash
+from cltk.text_reuse.comparison import Needleman_Wunsch
+from cltk.text_reuse.comparison import Default_Matrix
 
 
 demo_verg = """
@@ -49,6 +51,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         l = Levenshtein()
         ratio = l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
         self.assertEqual(ratio, 0.71)
+        
+    def test_levenshtein_distance(self):
+        """Test for Levenshtein Distance between two words""" 
+        l = Levenshtein()
+        dist = l.Levenshtein_Distance("now grete glorious god through grace of himselven","and the precious prayer of his pris moder")
+        self.assertEqual(dist, 36)
+        
+    def test_damerau_levenshtein_distance(self):
+        """Test for Damerau-Levenshtein Distance between two words"""
+        l = Levenshtein()
+        dist = l.Damerau_Levenshtein_Distance("all haile whose solempne glorious concepcioun","fresche floure in quhom the hevinlie dewe doun fell")
+        self.assertEqual(dist,35)
 
 #    Test causing lemmatizer Travis build to fail—figure out what is wrong and restore.
 #    def test_distance_sentences(self):
@@ -72,7 +86,17 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test for finding the similarity between two sentences using Minhash"""
         score = minhash(demo_verg, demo_prop)
         self.assertEqual(score, 0.17163120567375886)
-
+   
+    def test_Needleman_Wunsch(self):
+        """Test for finding the optimal alignment by the Needleman-Wunsch algorithm"""
+        w1, w2 = "michtis","myht"
+        al = Needleman_Wunsch(w1, w2)
+        self.assertEqual(al,('michtis', 'm-yht--'))
+    
+    def test_Default_Matrix(self):
+        """Test for the default similarity matrix"""
+        A = Default_Matrix(3, 1, -1)
+        self.assertEqual(A, [[1, -1, -1], [-1, 1, -1], [-1, -1, 1]])
 
 if __name__ == '__main__':
     unittest.main()
