@@ -516,24 +516,24 @@ class BackoffLatinLemmatizer(object):
             return pos_train_sents, train_sents, test_sents
 
         self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train, self.seed)
+        self._define_lemmatizer()
 
     def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
-        backoff0 = None
-        backoff1 = IdentityLemmatizer()
-        backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=backoff1)
-        backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=backoff2)                 
-        backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=backoff3)
-        backoff5 = UnigramLemmatizer(self.train_sents, backoff=backoff4)
-        backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=backoff5)      
+        self.backoff0 = None
+        self.backoff1 = IdentityLemmatizer()
+        self.backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=self.backoff1)
+        self.backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=self.backoff2)                 
+        self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff3)
+        self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff4)
+        self.backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)      
         #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         #lemmatizer = backoff7
-        lemmatizer = backoff6
-        return lemmatizer
+        self.lemmatizer = self.backoff6
 
     def lemmatize(self, tokens):
-        lemmatizer = self._define_lemmatizer()
-        lemmas = lemmatizer.lemmatize(tokens)
+        #lemmatizer = self._define_lemmatizer()
+        lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
     def evaluate(self):
