@@ -1,3 +1,9 @@
+"""
+Sources:
+    https://en.wikipedia.org/wiki/Old_English_phonology
+    Hogg, Richard M. (1992). The Cambridge History of the English Language. Chapter 3
+"""
+
 import re
 
 IPA_rules ={
