@@ -8,6 +8,7 @@ from cltk.phonology.arabic.romanization import transliterate as AarabicTranslite
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.latin import transcription as lat
 from cltk.phonology.middle_high_german import transcription as mhg
+from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 import unittest
 
@@ -457,7 +458,21 @@ class TestSequenceFunctions(unittest.TestCase):
         
         self.assertEqual([s1,s2], target)
         
+    def test_middle_english_syllabify(self):
+        """Test syllabification for middle english"""
+        
+        words = ['marchall', 'content', 'thyne', 'greef', 'commaundyd']
 
+        syllabified = [word_me(w).syllabify() for w in words]
+        target_syllabified = [['mar', 'chall'], ['con', 'tent'], ['thyne'], ['greef'], ['com', 'mau', 'ndyd']]
+
+        assert syllabified == target_syllabified
+
+        syllabified_str = [word_me(w).syllabified_str() for w in words]
+        target_syllabified_str = ['mar.chall', 'con.tent', 'thyne', 'greef', 'com.mau.ndyd']
+
+        assert syllabified_str == target_syllabified_str
+        
 if __name__ == '__main__':
     unittest.main()
 
