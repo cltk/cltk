@@ -3,11 +3,12 @@
 __author__ = "Iman Nazari"
 
 # HAMZEH Family
-ALEF_WITH_HAMZEH_ABOVE = '\u0623'
-ALEF_WITH_HAMZEH_BELOW = '\u0625'
-
-# Extensions
+HAMZEH = '\u0621'
 ALEF_WITH_MAD = '\u0622'
+ALEF_WITH_HAMZEH_ABOVE = '\u0623'
+VE_WITH_HAMZA_ABOVE = '\u0624'
+ALEF_WITH_HAMZEH_BELOW = '\u0625'
+YE_WITH_HAMZA_ABOVE = '\u0626'
 
 # Alphabet
 ALEF = '\u0627'
@@ -42,3 +43,29 @@ NOON = '\u0646'
 VAV = '\u0648'
 HE2 = '\u0647'
 YE = '\u06cc'
+
+# Punctuation marks
+COMMA = '\u060C'
+SEMICOLON = '\u061B'
+QUESTION = '\u061F'
+
+# Other symbols
+PERCENT = '\u066a'
+DECIMAL = '\u066b'
+THOUSANDS = '\u066c'
+
+# Necessary for writing
+KESHIDEGI = '\u0640'
+ZERO_WIDTH_NONE_JOINER = '\u200c'
+ZERO_WIDTH_JOINER = '\u200d'
+
+# Diacritics
+TANVIN_FATHE = '\u064b'
+TANVIN_ZAMME = '\u064c'
+TANVIN_KASRE = '\u064d'
+FATHE = '\u064e'
+ZAMME = '\u064f'
+KASRE = '\u0650'
+TASHDID = '\u0651'
+SOKUN = '\u0652'
+MAD = '\u0653'
