@@ -3,6 +3,20 @@ Middle High German
 
 Middle High German (abbreviated MHG, German: Mittelhochdeutsch, abbr. Mhd.) is the term for the form of German spoken in the High Middle Ages. It is conventionally dated between 1050 and 1350, developing from Old High German and into Early New High German. High German is defined as those varieties of German which were affected by the Second Sound Shift; the Middle Low German and Middle Dutch languages spoken to the North and North West, which did not participate in this sound change, are not part of MHG. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Middle_High_German>`_)
 
+ASCII Encoding
+==============
+
+Using the ``Word`` class, you can easily convert a string to its ASCII encoding, essentialy striping it of its diacritics.
+
+ .. code-block:: python
+  
+  In[1]: from cltk.phonology.middle_high_german.transcription import Word
+    
+  In[2]: w = Word("vogellîn")
+    
+  In[3]: w.ASCII_encoding()
+  Out[3]: 'vogellin'
+
 Stemming
 ========
  
@@ -97,11 +111,52 @@ Punctuation is also handled by the normalizer.
    In [5]: normalize_middle_high_german("Si sprach: ‘herre Sigemunt, ir sult iȥ lāȥen stān", punct = True)
    Out[5]: 'si sprach herre sigemunt ir sult iȥ lâȥen stân'
 
+Phonetic Indexing
+=================
+
+Phonetic Indexing helps identifying and processing homophones.
+
+Soundex
+-------
+The ``Word`` class provides a modified Soundex algorithm modified for MHG.
+
+.. code-block:: python
+
+   In [1]: from cltk.phonology.middle_high_german.transcription import Word
+ 
+   In [2]: w1 = Word("krippe")
+ 
+   In[3]: w1.phonetic_index(p = "SE")
+   Out[3]: 'K510'
+ 
+   In[4]: w2 = Word("krîbbe")
+ 
+   In[5]: w2.phonetic_indexing(p = "SE")
+   Out[5]: 'K510'
+
+Transliteration
+===============
+
+CLTK's transcriber rewrites a word into the International Phonetical Alphabet (IPA). As of this version, the Transcribe class doesn't support any specific dialects and serves as a superset encompassing various regional accents.
+
+
+.. code-block:: python
+
+   In[1]: from cltk.phonology.middle_high_german.transcription import Transcriber
+  
+   In[2]: tr = Transcriber()
+  
+   In[3]: tr.transcribe("Slâfest du, friedel ziere?", punctuation = True)
+   Out[3]: '[Slɑːfest d̥ʊ, frɪ͡əd̥el t͡sɪ͡əre?]'
+  
+   In[4]: tr.transcribe("Slâfest du, friedel ziere?", punctuation = False)
+   Out[4]: '[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre]'
+
   
 Word Tokenization
 =================
 
-The WordTokenizer class takes a string as input and returns a list of tokens.
+The ``WordTokenizer`` class takes a string as input and returns a list of tokens.
 
 .. code-block:: python
 
