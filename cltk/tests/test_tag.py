@@ -50,7 +50,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         
         corpus_importer = CorpusImporter('middle_low_german')
         corpus_importer.import_corpus('middle_low_german_models_cltk')
-        file_rel = os.path.join('~/cltk_data/low_middle_german/model/low_middle_german_models_cltk/README.md')
+        file_rel = os.path.join('~/cltk_data/middle_low_german/model/middle_low_german_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
