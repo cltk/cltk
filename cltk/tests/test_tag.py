@@ -218,9 +218,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         print(tagged)
         self.assertTrue(tagged)
         
-    def test_pos_ngram12_tagger_middle_old_german(self):
+    def test_pos_ngram12_tagger_middle_low_german(self):
         """ Test MOG POS 12-backoff tagger"""
-        tagger = POSTag('middle_old_german')
+        tagger = POSTag('middle_low_german')
         tagged = tagger.tag_ngram_12_backoff('Jck Johannes preister verwarer vnde voirs tender des Juncfrouwen kloisters to Mariendale')
         self.assertTrue(tagged)
 
