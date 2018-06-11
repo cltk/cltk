@@ -1,7 +1,8 @@
-"""Module for discovering same-language synonyms and Latin-to-Greek
-translations of individual words.
-
-@James improve this description. Give important info about the data source
+"""This module is designed around looking up synonyms for Latin and Greek words.
+The synonym and translation dictionaries used by this module were originally 
+developed by Chris Forstall and James Gawley of the Tesserae Project (http://github.com/tesserae).
+In addition to looking up alternate words, this module is designed to assign probabilities to each possible synonym.
+As of June 11, 2018, probability distributions are simply split evenly between possibilities. This will be changed soon.
 """
 
 import importlib.machinery
@@ -74,7 +75,11 @@ class Lemmata:
 
 
 class Synonyms(Lemmata):
-    """@James put a description in here."""
+    """This sub-class is used to lookup syonyms or translations for a list of lemmata. 
+    Because the synonym and translation dictionaries are keyed by lemma, not inflected word-form,
+    it is necessary to lemmatize first. This class takes a dictionary variable (translation, synonym) 
+    and a language variable (latin, greek). 
+    """
 
     def __init__(self, *args, **kwargs):
         """Setup class."""
