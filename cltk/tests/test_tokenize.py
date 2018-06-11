@@ -1,7 +1,7 @@
 # -*-coding:utf-8-*-
 """Test cltk.tokenize.
 
-TODO: Add tests for the Indian lang tokenizers: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+TODO: Add tests for the Indian lang tokenizers: from cltk.tokenize.indian_tokenizer import indian_punct_tokenize_regex
 """
 
 from cltk.corpus.utils.importer import CorpusImporter

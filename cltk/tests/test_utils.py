@@ -17,7 +17,6 @@ from cltk.utils.file_operations import open_pickle
 from cltk.utils.frequency import Frequency
 from cltk.utils import philology
 
-
 __license__ = 'MIT License. See LICENSE.'
 
 

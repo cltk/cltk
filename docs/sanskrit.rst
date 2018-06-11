@@ -185,12 +185,12 @@ To use the CLTK's built-in stopwords list:
 
    In [1]: from cltk.stop.sanskrit.stops import STOPS_LIST
 
-   In [2]: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
+   In [2]: from cltk.tokenize.indian_tokenizer import indian_punct_tokenize_regex
 
    In [3]: s = "हमने पिछले पाठ मे सीखा था कि “अहम् गच्छामि” का मतलब “मै जाता हूँ” है। आप ऊपर
       ...:  की तालिकाँओ "
 
-   In [4]: tokens = indian_punctuation_tokenize_regex(s)
+   In [4]: tokens = indian_punct_tokenize_regex(s)
 
    In [5]: len(tokens)
    Out[5]: 20
