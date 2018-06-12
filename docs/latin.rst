@@ -725,6 +725,8 @@ Semantics
 =========
 The Semantics module allows for the lookup of Latin lemmata, synonyms, and translations into Greek. Lemma, synonym, and translation dictionaries are drawn from the open-source `Tesserae Project<http://github.com/tesserae/tesserae>`
 
+The dictionaries used by this module are stored in https://github.com/cltk/latin_models_cltk/tree/master/semantics and https://github.com/cltk/greek_models_cltk/tree/master/semantics for Greek and Latin, respectively. In order to use the Semantics module, it is necessary to `import those repos first<http://docs.cltk.org/en/latest/importing_corpora.html#importing-a-corpus>`.
+
 .. tip:: When lemmatizing ambiguous forms, the Semantics module is designed to return all possibilities. A probability distribution is included with the list of results, but as of June 8, 2018 the total probability is evenly distributed over all possibilities. Future updates will include a more intelligent system for determining the most likely lemma, synonym, or translation._.
 
 The Lemmata class includes two relevant methods: lookup() takes a list of tokens standardized for spelling and returns a complex object which includes a probability distribution; isolate() takes the object returned by lookup() and discards everything but the lemmata.
@@ -733,7 +735,7 @@ The Lemmata class includes two relevant methods: lookup() takes a list of tokens
 
    In [1]: from cltk.semantics.latin.lookup import Lemmata
 
-   In [2]: lemmatizer = Lemmata(dictionary = 'lemmata', language = 'latin')
+   In [2]: lemmatizer = Lemmata(dictionary='lemmata', language='latin')
 
    In [3]: tokens = ['ceterum', 'antequam', 'destinata', 'componam']
 
@@ -741,7 +743,7 @@ The Lemmata class includes two relevant methods: lookup() takes a list of tokens
    Out[4]:
    [('ceterum', [('ceterus', 1.0)]), ('antequam', [('antequam', 1.0)]), ('destinata', [('destinatus', 0.25), ('destinatum', 0.25), ('destinata', 0.25), ('destino', 0.25)]), ('componam', [('compono', 1.0)])]
 
-   In [5]: justlemmas = lemmatizer.isolate(lemmas)
+   In [5]: just_lemmas = Lemmata.isolate(lemmas)
    Out[5]:['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
 
 The Synonym class can be initialized to lookup either synonyms or translations. It expects a list of lemmata, not inflected forms. Only successful 'lookups' will return results.
@@ -750,12 +752,15 @@ The Synonym class can be initialized to lookup either synonyms or translations. 
 
    In [1]: from cltk.semantics.latin.lookup import Synonyms
 
-   In [2]: translator = Synonyms(dictionary = 'translations', language = 'latin')
+   In [2]: translator = Synonyms(dictionary='translations', language='latin')
 
    In [3]: lemmas = ['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
 
    In [4]: translations = translator.lookup(lemmas)
    Out[4]:[('destino', [('σκοπός', 1.0)]), ('compono', [('συντίθημι', 1.0)])]
+
+   In [5]: just_translations = Lemmata.isolate(translations)
+   Out[5]:['σκοπός', 'συντίθημι']
 
 A raw list of translations can be obtained from the translation object using Lemmata.isolate().
 
