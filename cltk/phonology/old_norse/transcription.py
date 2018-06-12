@@ -28,15 +28,6 @@ class AbstractConsonant:
             raise TypeError
         self.ipar = ipar
 
-    def match(self, other_consonant):
-
-        # TODO
-        if isinstance(other_consonant, AbstractConsonant):
-            # TODO what is a match?
-            return True
-        else:
-            return False
-
 
 class Consonant(AbstractConsonant):
     def __init__(self, place, manner, voiced, ipar):
@@ -46,10 +37,26 @@ class Consonant(AbstractConsonant):
         assert ipar is not None
         AbstractConsonant.__init__(self, place, manner, voiced, ipar)
 
+    def match(self, abstract_consonant) -> bool:
+        if isinstance(abstract_consonant, AbstractConsonant):
+            res = True
+            if abstract_consonant.place is not None:
+                res = res and abstract_consonant.place == self.place
+            if abstract_consonant.manner is not None:
+                res = res and abstract_consonant.manner == self.manner
+            if abstract_consonant.voiced is not None:
+                res = res and abstract_consonant.voiced == self.voiced
+            return res
+        elif abstract_consonant is None:
+            return True
+
+        else:
+            return False
+
 
 # Vowels
-HEIGHT = ["front", "central", "back"]
-BACKNESS = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
+HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
+BACKNESS = ["front", "central", "back"]
 LENGTHS = ["short", "long", "overlong"]
 
 
@@ -92,6 +99,23 @@ class Vowel(AbstractVowel):
             length = "short"
         return Vowel(self.height, self.backness, self.rounded, length, ipar)
 
+    def match(self, abstract_vowel):
+        if isinstance(abstract_vowel, AbstractVowel):
+            res = True
+            if abstract_vowel.height is not None:
+                res = res and abstract_vowel.height == self.height
+            if abstract_vowel.backness is not None:
+                res = res and abstract_vowel.backness == self.backness
+            if abstract_vowel.rounded is not None:
+                res = res and abstract_vowel.rounded == self.rounded
+            if abstract_vowel.length is not None:
+                res = res and abstract_vowel.length == self.length
+            return res
+        elif abstract_vowel is None:
+            return True
+        else:
+            return False
+
     # def overlengthen(self):
     #     self.length = "overlong"
 
@@ -118,6 +142,7 @@ b = Consonant("bilabial", "stop", True, "b")
 d = Consonant("alveolar", "stop", True, "d")
 f = Consonant("labio-dental", "frictative", False, "f")
 g = Consonant("velar", "stop", True, "g")
+gh = Consonant("velar", "frictative", True, "Ɣ")
 h = Consonant("glottal", "frictative", False, "h")
 k = Consonant("velar", "stop", False, "k")
 l = Consonant("alveolar", "lateral", True, "l")
@@ -147,21 +172,15 @@ class Position:
         self.before = before
         self.after = after
 
-    def match(self, other_pos):
+    def real_sound_match_abstract_sound(self, abstract_pos) -> bool:
         """
         Problem !
-        :param other_pos:
+        :param abstract_pos:
         :return:
         """
-        if self.position == other_pos.position:
-            # TODO what is a match?
-            if isinstance(self.before, AbstractConsonant):
-                if isinstance(other_pos.before, AbstractConsonant):
-                    return  True
-                else:
-                    return False
-            return False
-
+        assert isinstance(abstract_pos, Position)
+        return self.position == abstract_pos.position and self.before.match(abstract_pos.before) and \
+               self.after.match(abstract_pos.after)
 
 
 class Rule:
@@ -174,11 +193,7 @@ class Rule:
         self.estimated_sound = estimated_sound
 
     def apply(self, character, current_position: Position):
-        if current_position.match(self.position):
-            return ""
-        else:
-            return character
-
+        return current_position.real_sound_match_abstract_sound(self.position)
 
 
 # IPA Dictionary
@@ -188,8 +203,6 @@ DIPHTONGS_IPA = {
     "øy": "ɐy",
     "ei": "ei",
 }
-
-
 
 IPA = {
     "a": "a",  # Short vowels
@@ -226,7 +239,6 @@ IPA = {
     "þ": "θ",
     "ð": "ð",
 }
-
 
 IPA_class = {
     "a": a,  # Short vowels
@@ -279,6 +291,24 @@ GEMINATE_CONSONANTS = {
     "vv": "v:",
 }
 
+# The first rule which matches is retained
+rule_th = [Rule(Position("first", None, None), th, th),
+           Rule(Position("inner", None, AbstractConsonant(voiced=True)), th, th),
+           Rule(Position("inner", AbstractConsonant(voiced=True), None), th, th),
+           Rule(Position("inner", None, None), th, dh),
+           Rule(Position("last", None, None), th, dh)]
+
+rule_f = [Rule(Position("first", None, None), f, f),
+          Rule(Position("inner", None, AbstractConsonant(voiced=True)), f, f),
+          Rule(Position("inner", AbstractConsonant(voiced=True), None), f, f),
+          Rule(Position("inner", None, None), f, v),
+          Rule(Position("last", None, None), f, v)]
+rule_g = [Rule(Position("first", None, None), g, g),
+          Rule(Position("inner", n, None), g, g),
+          Rule(Position("inner", None, AbstractConsonant(voiced=False)), g, k),
+          Rule(Position("inner", None, None), g, gh),
+          Rule(Position("last", None, None), g, gh)]
+
 
 class Transcriber:
 
@@ -305,6 +335,7 @@ class Transcriber:
                 first_res.append(DIPHTONGS_IPA[word[i]+word[i+1]])
             else:
                 first_res.append(IPA_class[word[i]])
+        return first_res
 
     def second_process(self, first_result, rules):
         """
@@ -317,15 +348,21 @@ class Transcriber:
         res = []
         for i in range(len(first_result)):
             if i == 0:
-                pos = Position("first", None, first_result[i])
-            elif i == len(first_result)-1:
-                pos = Position("inner", first_result[i-1], first_result[i+1])
+                current_pos = Position("first", None, first_result[i])
+            elif i < len(first_result)-1:
+                current_pos = Position("inner", first_result[i-1], first_result[i+1])
             else:
-                pos = Position("last", first_result[i-1], None)
-
+                current_pos = Position("last", first_result[i-1], None)
+            found = False
             for rule in rules:
-                rule.apply(first_result[i], pos)
+                if rule.temp_sound.ipar == first_result[i]:
+                    if rule.apply(first_result[i], current_pos):
+                        res.append(rule.estimated_sound.ipar)
+                        found = True
+                        break
 
+            if not found:
+                res.append(first_result[i].ipar)
         return "[" + "".join(res) + "]"
 
     def transcribe(self, text: str, punctuation=True):
@@ -349,5 +386,14 @@ class Transcriber:
 
 
 if __name__ == "__main__":
-    # Word()
-    pass
+    # Word()lpp
+    sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
+    word = "gylfi"
+    rules = []
+    rules.extend(rule_f)
+    rules.extend(rule_g)
+    rules.extend(rule_th)
+    tr = Transcriber()
+    first_res = tr.first_process(word)
+    second_res = tr.second_process(first_res, rules)
+    print(second_res)
