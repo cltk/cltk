@@ -123,3 +123,36 @@ It's useful to be able to parse Akkadian words as sequences of consonants and vo
    In[6]: cv_patterner.get_cv_pattern(word, pprint=True)
 
    Out[6]: 'V₁C₁V₂C₂C₂V₂C₃'
+
+Stopword Filtering
+==================
+
+To use the CLTK's built-in stopwords list for Akkadian:
+
+.. code-block:: python
+
+    In[2]: from nltk.tokenize.punkt import PunktLanguageVars
+
+    In[3]: from cltk.stop.akkadian.stops import STOP_LIST
+
+    In[4]: sentence = "šumma awīlum ina dīnim ana šībūt sarrātim ūṣiamma awat iqbû la uktīn šumma dīnum šû dīn napištim awīlum šû iddâk"
+
+    In[5]: p = PunktLanguageVars()
+
+    In[6]: tokens = p.word_tokenize(sentence.lower())
+
+    In[7]: [w for w in tokens if not w in STOP_LIST]
+    Out[7]:
+    ['awīlum',
+     'dīnim',
+     'šībūt',
+     'sarrātim',
+     'ūṣiamma',
+     'awat',
+     'iqbû',
+     'uktīn',
+     'dīnum',
+     'dīn',
+     'napištim',
+     'awīlum',
+     'iddâk']
