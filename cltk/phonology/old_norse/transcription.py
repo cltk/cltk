@@ -299,8 +299,8 @@ rule_th = [Rule(Position("first", None, None), th, th),
            Rule(Position("last", None, None), th, dh)]
 
 rule_f = [Rule(Position("first", None, None), f, f),
-          Rule(Position("inner", None, AbstractConsonant(voiced=True)), f, f),
-          Rule(Position("inner", AbstractConsonant(voiced=True), None), f, f),
+          Rule(Position("inner", None, AbstractConsonant(voiced=False)), f, f),
+          Rule(Position("inner", AbstractConsonant(voiced=False), None), f, f),
           Rule(Position("inner", None, None), f, v),
           Rule(Position("last", None, None), f, v)]
 rule_g = [Rule(Position("first", None, None), g, g),
@@ -388,7 +388,7 @@ class Transcriber:
 if __name__ == "__main__":
     # Word()lpp
     sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
-    word = "gylfi"
+    word = "vagfa"
     rules = []
     rules.extend(rule_f)
     rules.extend(rule_g)
