@@ -7,7 +7,6 @@ import unicodedata
 from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.latin import transcription as lat
-from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 import unittest
@@ -427,36 +426,6 @@ class TestSequenceFunctions(unittest.TestCase):
         # from iso233-2 to arabic native script
         reverse = False
         assert AarabicTransliterate(mode,iso2332_string,ignore,reverse) == 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ'
-        
-    def test_middle_high_german_transcriber(self):
-        """
-        Test MHG IPA transcriber
-        """
-        inputs = "Slâfest du friedel ziere?"
-        transcriber = mhg.Transcriber().transcribe
-        transcription = [unicodedata.normalize('NFC',x) for x in transcriber(inputs)]
-        target = [unicodedata.normalize('NFC',x) for x in '[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre?]']
-        self.assertEqual(target,transcription)
-        
-    def test_middle_high_german_soundex(self):
-        """
-        Test MHG Soundex Phonetic Index
-        """
-        w1 = mhg.Word("krêatiure").phonetic_indexing(p="SE")
-        w2 = mhg.Word("kreatur").phonetic_indexing(p="SE")
-        target = ['K535','K535']
-        
-        self.assertEqual([w1,w2], target)
-        
-    def test_middle_high_german_ascii_encoding(self):
-        """
-        Test MHG ASCII encoder
-        """
-        s1 = mhg.Word("vogellîn").ASCII_encoding()
-        s2 = mhg.Word("vogellīn").ASCII_encoding()
-        target = ['vogellin','vogellin']
-        
-        self.assertEqual([s1,s2], target)
         
     def test_middle_english_syllabify(self):
         """Test syllabification for middle english"""

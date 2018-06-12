@@ -395,13 +395,6 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
 
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
-   
-You can also calculate the Levenshtein distance of two words, defined as the minimum number of single word edits (insertions, deletions, substitutions) required to transform a word into another.
-
-.. code-block:: python
-   
-   In [4]: l.Levenshtein_Distance("deaeque", "deaeuqe")
-   Out[4]: 2
 
 
 Damerau-Levenshtein algorithm
@@ -417,47 +410,11 @@ This simple example compares a two Latin words to find the distance between them
 
 .. code-block:: python
 
-   In [1]: from pyxdameraulevenshtein import damerau_levenshtein_distance
+   In [1]: from from pyxdameraulevenshtein import damerau_levenshtein_distance
 
    In [2]: damerau_levenshtein_distance("deaeque", "deaque")
    Out[2]: 1
    
-Alternatively, you can also use CLTK's native ``Levenshtein`` class:
-
-.. code-block:: python
-   
-   In [3]: from cltk.text_reuse.levenshtein import Levenshtein
-   
-   In [4]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaque")
-   Out[4]: 1
-   
-   In [5]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaeuqe")
-   Out[5]: 1
-   
-Needleman-Wunsch Algorithm
---------------------------
-
-The Needleman-Wunsch Algorithm, calculates the optimal global alignment between two strings given a scoring matrix.
-
-There are two optional parameters: ``S`` specifying a weighted similarity square matrix, and ``alphabet`` (where ``|alphabet| = rows(S) = cols(S)``). By default, the algorithm assumes the latin alphabet and a default matrix (1 for match, -1 for substitution)
-
-.. code-block:: python
-   
-   In [1]: from cltk.text_reuse.comparison import Needleman_Wunsch as NW
-   
-   In [2]: NW("abba", "ababa", alphabet = "ab", S = [[1, -3],[-3, 1]])
-   Out[2]: ('ab-ba', 'ababa')
-   
-In this case, the similarity matrix will be:
-
-+---+---+---+
-|   | a | b |
-+---+---+---+
-| a | 1 |-3 |
-+---+---+---+
-| b |-3 | 1 |
-+---+---+---+
-
 
 Longest Common Substring
 ------------------------

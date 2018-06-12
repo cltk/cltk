@@ -5,9 +5,3 @@
 
 class UnknownLemma(Exception):
     """ Exception raised on unknown lemma """
-    
-
-class InputError(Exception):
-    """ Improper input from the user """
-
-    

@@ -93,26 +93,6 @@ To use the CLTK's built-in stopwords list, We use an example from Chaucer's "The
     'knoweth',
     'helle',
     '.']
-    
-Stresser
-========
-
-The historical events of early 11th century Britain were intertwined with its phonological development. The Norman Conquest in 1066 is mainly responsible for the influx of both Francien and Latin words and by extension for the highly variable spelling and phonology of ME.
-
-While the Stresser provided by CLTK is unable to recognize the stressing of a given word, it does accept some of the most common stressing rules as parameters (Latin/Germanic/French)
-
-.. code-block:: python
-   
-   In [1]: from cltk.phonology.middle_english.transcription import Word
-   
-   In [2]: ".".join(Word('beren').stresser(stress_rule = "FSR"))
-   Out[2]: "ber.'en"
-   
-   In [3]: ".".join(Word('yisterday').stresser(stress_rule = "GSR"))
-   Out [3]: "yi.ster.'day"
-   
-   In [4]: ".".join(Word('verbum').stresser(stress_rule = "LSR"))
-   Out [4]: "ver.'bum"
 
 Syllabify
 =========
