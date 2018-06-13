@@ -6,7 +6,7 @@ Middle Low German or Middle Saxon is a language that is the descendant of Old Sa
 POS Tagging
 ===========
 
-The POS taggers were trained by NLTK's models.
+The POS taggers were trained by NLTK's models on the `ReN <https://corpora.uni-hamburg.de/hzsk/de/islandora/object/text-corpus:ren-0.6>`_ training set.
 
 1–2–gram backoff tagger
 -----------------------
