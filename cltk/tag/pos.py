@@ -30,7 +30,10 @@ TAGGERS = {'greek':
                 },
            'old_norse':
                {'tnt': 'tnt.pickle'
-               }
+               },
+           'middle_low_german':
+              {'ngram_12_backoff': 'backoff_tagger.pickle'
+              }
            }
 
 
@@ -109,7 +112,19 @@ class POSTag:
         tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
-
+    
+    def tag_ngram_12_backoff(self, untagged_string: str):
+        """Tag POS with 1-, 2-gram tagger.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['ngram_12_backoff']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text     
+    
     def tag_tnt(self, untagged_string: str):
         """Tag POS with TnT tagger.
         :type untagged_string: str

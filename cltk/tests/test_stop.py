@@ -11,6 +11,7 @@ from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
 from cltk.stop.classical_hindi.stops import STOPS_LIST as HINDI_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
+from cltk.stop.akkadian.stops import STOP_LIST as AKKADIAN_STOPS
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.tokenize.word import WordTokenizer
@@ -106,6 +107,20 @@ class TestSequenceFunctions(unittest.TestCase):
         target_list = ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
         self.assertEqual(no_stops, target_list)
 
+    def test_akkadian_stopwords(self):
+        """
+        Test filtering Akkadian stopwrods
+        Sentence extracted from the law code of Hammurabi, law 3 (Martha Roth 2nd Edition 1997, Law Collections from
+        Mesopotamia and Asia Minor).
+        """
+        sentence = "šumma awīlum ina dīnim ana šībūt sarrātim ūṣiamma awat iqbû la uktīn šumma dīnum šû dīn napištim awīlum šû iddâk"
+        lowered = sentence.lower()
+        punkt = PunktLanguageVars()
+        tokens = punkt.word_tokenize(lowered)
+        no_stops = [w for w in tokens if w not in AKKADIAN_STOPS]
+        target_list = ['awīlum', 'dīnim', 'šībūt', 'sarrātim', 'ūṣiamma', 'awat', 'iqbû', 'uktīn', 'dīnum',
+                       'dīn', 'napištim', 'awīlum', 'iddâk']
+        self.assertEqual(no_stops, target_list)
 
 class TestStop_General(unittest.TestCase):
     """
