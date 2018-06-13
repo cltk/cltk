@@ -209,6 +209,7 @@ DIPHTONGS_IPA = {
     "øy": "ɐy",
     "ei": "ei",
 }
+# Wrong diphtongs implementation
 DIPHTONGS_IPA_class = {
     "ey": Vowel("open", "front", True, "short", "ɐy"),
     "au": Vowel("open", "back", True, "short", "ɒu"),
