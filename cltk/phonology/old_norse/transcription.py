@@ -3,7 +3,6 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
-import re
 
 # Consonants
 PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular",
@@ -199,7 +198,7 @@ class Rule:
         assert isinstance(estimated_sound, AbstractVowel) or isinstance(estimated_sound, AbstractConsonant)
         self.estimated_sound = estimated_sound
 
-    def apply(self, character, current_position: Position):
+    def apply(self, current_position: Position):
         return current_position.real_sound_match_abstract_sound(self.position)
 
 
@@ -329,7 +328,7 @@ rule_g = [Rule(Position("first", None, None), g, g),
 class Transcriber:
 
     def __init__(self):
-        pass  # To-do: Add different dialects and/or notations
+        pass
 
     def first_process(self, word: str):
         """
@@ -376,7 +375,7 @@ class Transcriber:
                 found = False
                 for rule in rules:
                     if rule.temp_sound.ipar == first_result[i].ipar:
-                        if rule.apply(first_result[i], current_pos):
+                        if rule.apply(current_pos):
                             res.append(rule.estimated_sound.ipar)
                             found = True
                             break
