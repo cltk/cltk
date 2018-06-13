@@ -6,9 +6,9 @@ Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 import re
 import unicodedata
 
-
 # Consonants
-PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular", "glottal"]
+PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular",
+          "glottal"]
 MANNERS = ["nasal", "stop", "lateral", "frictative", "trill"]
 
 
@@ -144,6 +144,7 @@ f = Consonant("labio-dental", "frictative", False, "f")
 g = Consonant("velar", "stop", True, "g")
 gh = Consonant("velar", "frictative", True, "Ɣ")
 h = Consonant("glottal", "frictative", False, "h")
+j = Consonant("palatal", "frictative", True, "j")
 k = Consonant("velar", "stop", False, "k")
 l = Consonant("alveolar", "lateral", True, "l")
 m = Consonant("bilabial", "nasal", True, "m")
@@ -179,9 +180,15 @@ class Position:
         :return:
         """
         assert isinstance(abstract_pos, Position)
-        return self.position == abstract_pos.position and self.before.match(abstract_pos.before) and \
+        if self.before is not None and self.after is not None:
+            return self.position == abstract_pos.position and self.before.match(abstract_pos.before) and \
                self.after.match(abstract_pos.after)
-
+        elif self.before is None and self.after is None:
+                return self.position == abstract_pos.position
+        elif self.before is None:
+            return self.position == abstract_pos.position and self.after.match(abstract_pos.after)
+        else:
+            return self.position == abstract_pos.position and self.before.match(abstract_pos.before)
 
 class Rule:
     def __init__(self, position, temp_sound, estimated_sound):
@@ -203,13 +210,19 @@ DIPHTONGS_IPA = {
     "øy": "ɐy",
     "ei": "ei",
 }
-
+DIPHTONGS_IPA_class = {
+    "ey": Vowel("open", "front", True, "short", "ɐy"),
+    "au": Vowel("open", "back", True, "short", "ɒu"),
+    "øy": Vowel("open", "front", True, "short", "ɐy"),
+    "ei": Vowel("open", "front", True, "short", "ɛi"),
+}
 IPA = {
     "a": "a",  # Short vowels
     "e": "ɛ",
     "i": "i",
     "o": "ɔ",
     "ǫ": "ɒ",
+    "ö": "ø",
     "ø": "ø",
     "u": "u",
     "y": "y",
@@ -227,6 +240,7 @@ IPA = {
     "f": "f",
     "g": "g",
     "h": "h",
+    "j": "j",
     "k": "k",
     "l": "l",
     "m": "m",
@@ -251,6 +265,7 @@ IPA_class = {
     "y": y,
     "á": a.lengthen(),  # Long vowels
     "æ": ee.lengthen(),
+    "ö": oe,
     "œ": oe.lengthen(),
     "é": e.lengthen(),
     "í": i.lengthen(),
@@ -263,6 +278,7 @@ IPA_class = {
     "f": f,
     "g": g,
     "h": h,
+    "j": j,
     "k": k,
     "l": l,
     "m": m,
@@ -298,6 +314,7 @@ rule_th = [Rule(Position("first", None, None), th, th),
            Rule(Position("inner", None, None), th, dh),
            Rule(Position("last", None, None), th, dh)]
 
+
 rule_f = [Rule(Position("first", None, None), f, f),
           Rule(Position("inner", None, AbstractConsonant(voiced=False)), f, f),
           Rule(Position("inner", AbstractConsonant(voiced=False), None), f, f),
@@ -323,18 +340,22 @@ class Transcriber:
         """
         first_res = []
         # to_avoid = False
-
-        for i in range(len(word)-1):
-            # if to_avoid:
-            #     to_avoid = False
-            #     continue
-            # elif word[i] == word[i+1]:  # geminate consonants
-            #     first_res.append(word[i])
-            #     to_avoid = True
-            if word[i:i+2] in DIPHTONGS_IPA:  # diphtongs
-                first_res.append(DIPHTONGS_IPA[word[i]+word[i+1]])
-            else:
-                first_res.append(IPA_class[word[i]])
+        if len(word) >= 2:
+            for i in range(len(word) - 1):
+                # if to_avoid:
+                #     to_avoid = False
+                #     continue
+                # elif word[i] == word[i+1]:  # geminate consonants
+                #     first_res.append(word[i])
+                #     to_avoid = True
+                if word[i:i + 2] in DIPHTONGS_IPA:  # diphtongs
+                    first_res.append(DIPHTONGS_IPA_class[word[i] + word[i + 1]])
+                else:
+                    first_res.append(IPA_class[word[i]])
+                    if i == len(word) - 2:
+                        first_res.append(IPA_class[word[i + 1]])
+        else:
+            first_res.append(IPA_class[word[0]])
         return first_res
 
     def second_process(self, first_result, rules):
@@ -344,26 +365,28 @@ class Transcriber:
         :param rules:
         :return:
         """
-        assert len(first_result) >= 2
         res = []
-        for i in range(len(first_result)):
-            if i == 0:
-                current_pos = Position("first", None, first_result[i])
-            elif i < len(first_result)-1:
-                current_pos = Position("inner", first_result[i-1], first_result[i+1])
-            else:
-                current_pos = Position("last", first_result[i-1], None)
-            found = False
-            for rule in rules:
-                if rule.temp_sound.ipar == first_result[i]:
-                    if rule.apply(first_result[i], current_pos):
-                        res.append(rule.estimated_sound.ipar)
-                        found = True
-                        break
-
-            if not found:
-                res.append(first_result[i].ipar)
-        return "[" + "".join(res) + "]"
+        if len(first_result) >= 2:
+            for i in range(len(first_result)):
+                if i == 0:
+                    current_pos = Position("first", None, first_result[i])
+                elif i < len(first_result) - 1:
+                    current_pos = Position("inner", first_result[i - 1], first_result[i + 1])
+                else:
+                    current_pos = Position("last", first_result[i - 1], None)
+                found = False
+                for rule in rules:
+                    if rule.temp_sound.ipar == first_result[i].ipar:
+                        if rule.apply(first_result[i], current_pos):
+                            res.append(rule.estimated_sound.ipar)
+                            found = True
+                            break
+                if not found:
+                    res.append(first_result[i].ipar)
+        else:
+            res.append(first_result[0].ipar)
+        # return "[" + "".join(res) + "]"
+        return "".join(res)
 
     def transcribe(self, text: str, punctuation=True):
         """
@@ -388,12 +411,26 @@ class Transcriber:
 if __name__ == "__main__":
     # Word()lpp
     sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
-    word = "vagfa"
-    rules = []
-    rules.extend(rule_f)
-    rules.extend(rule_g)
-    rules.extend(rule_th)
-    tr = Transcriber()
-    first_res = tr.first_process(word)
-    second_res = tr.second_process(first_res, rules)
-    print(second_res)
+    s1 = "almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og síðast menn tvá, " \
+         "er ættir eru frá komnar, adam ok evu, ok fjölgaðist þeira kynslóð ok dreifðist um heim allan."
+    s1 = s1.replace(",", "")
+    s1 = s1.replace(".", "")
+    print(s1)
+    translitterated = []
+    for w in s1.split(" "):
+        # word = "vagfa"
+        word = w
+        print(word)
+        rules = []
+        rules.extend(rule_f)
+        rules.extend(rule_g)
+        rules.extend(rule_th)
+        tr = Transcriber()
+        first_res = tr.first_process(word)
+        print([type(c) for c in first_res])
+        print([c.ipar for c in first_res])
+        second_res = tr.second_process(first_res, rules)
+        print(second_res)
+        translitterated.append(second_res)
+    print(s1)
+    print("["+" ".join(translitterated)+"]")
