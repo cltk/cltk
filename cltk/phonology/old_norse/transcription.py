@@ -4,7 +4,6 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 import re
-import unicodedata
 
 # Consonants
 PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular",
@@ -190,6 +189,7 @@ class Position:
         else:
             return self.position == abstract_pos.position and self.before.match(abstract_pos.before)
 
+
 class Rule:
     def __init__(self, position, temp_sound, estimated_sound):
         assert isinstance(position, Position)
@@ -253,7 +253,6 @@ IPA = {
     "þ": "θ",
     "ð": "ð",
 }
-
 IPA_class = {
     "a": a,  # Short vowels
     "e": ee,
@@ -388,28 +387,8 @@ class Transcriber:
         # return "[" + "".join(res) + "]"
         return "".join(res)
 
-    def transcribe(self, text: str, punctuation=True):
-        """
-        Accepts a word and returns a string of an approximate pronounciation (IPA)
-        :param text: str
-        :param punctuation: boolean
-        :return:
-        """
-
-        if not punctuation:
-            text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
-
-        for w, val in DIPHTONGS_IPA:
-            text = text.replace(w, val)
-
-        for w, val in IPA:
-            text = text.replace(w, val)
-
-        return "[" + text + "]"
-
 
 if __name__ == "__main__":
-    # Word()lpp
     sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
     s1 = "almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og síðast menn tvá, " \
          "er ættir eru frá komnar, adam ok evu, ok fjölgaðist þeira kynslóð ok dreifðist um heim allan."
