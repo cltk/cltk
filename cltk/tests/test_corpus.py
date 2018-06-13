@@ -194,7 +194,7 @@ argenteo polubro, aureo eclutro. """
         normalized_text = cltk_normalize(s1, compatibility=False)
         target = normalize('NFC', s2)
         self.assertEqual(normalized_text, target)
-    
+
     def test_assemble_tlg_author(self):
         """Test building absolute filepaths from TLG index."""
         paths = assemble_tlg_author_filepaths()
@@ -412,7 +412,7 @@ argenteo polubro, aureo eclutro. """
         valid = "Epictetus Phil."
         self.assertEqual(author, valid)
 
-    #! Figure out why this test stopped working (actual function runs fine)
+    # #! Figure out why this test stopped working (actual function runs fine)
     # def test_get_date_author(self):
     #     """Test get_date_author()."""
     #     dates = get_date_author()
@@ -556,6 +556,7 @@ example_distributed_fake_language_corpus:
         with self.assertRaises(CorpusImportError):
             CorpusImporter('fake_language_nowhere')
         self.remove_distributed_corpora_testing_file()
+
     #
     # def test_import_punjabi_punjabi_text_gurban(self):
     #     pun_import = CorpusImporter('punjabi')
@@ -582,7 +583,7 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string)
         #
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
+        comparison_string = """i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
         qꜣ-nfrw nfrw nbt i҆mꜣḫ"""
@@ -603,7 +604,7 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string, q_kopf=False)
         #
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
+        comparison_string = """i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
         ḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
@@ -623,12 +624,13 @@ example_distributed_fake_language_corpus:
         expanded = expand_iota_subscript(unexpanded, lowercase=True)
         target = 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
         self.assertEqual(expanded, target)
+
     #
     def test_filter_non_greek(self):
         """
         Test filter non greek characters in a mixed string.
         """
-        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]" # PH247029, line 2
+        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]"  # PH247029, line 2
         comparison_string = "Ἑκατμανδρος Αἰσχρωνος  Ἀριστεδη"
         test_result_string = filter_non_greek(test_input_string)
         #
@@ -642,13 +644,14 @@ example_distributed_fake_language_corpus:
         normalized = normalize_fr(text)
         target = ['vieux']
         self.assertEqual(normalized, target)
-    
+
     def test_normalize_middle_english(self):
         """Tests ME normalizer"""
         in_test = "'Madame,' quod he, 'reule me As ȝ,e ly:k?eþ best.'"
         target = "'madame' quod he 'reule me as ye lyketh best'"
         test = normalize_middle_english(in_test)
         self.assertEqual(target, test)
+
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
@@ -799,7 +802,7 @@ class TestScriptInformation(unittest.TestCase):
         first_word = 'अहम्'
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
-    
+
     def test_swadesh_hindi(self):
         swadesh = Swadesh('hi')
         first_word = 'मैं'
@@ -817,6 +820,13 @@ class TestScriptInformation(unittest.TestCase):
         first_word = 'ek'
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
+
+    def test_swadesh_arabic(self):
+        swadesh = Swadesh('ar')
+        first_word = "أنا"
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
 
 if __name__ == '__main__':
     unittest.main()

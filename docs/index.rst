@@ -46,4 +46,5 @@ Contents
    telugu
    tibetan
    tocharian_b
+   tutorials.rst
    urdu
