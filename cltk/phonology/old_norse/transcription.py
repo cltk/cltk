@@ -11,7 +11,7 @@ MANNERS = ["nasal", "stop", "lateral", "frictative", "trill"]
 
 
 class AbstractConsonant:
-    def __init__(self, place=None, manner=None, voiced=None, ipar=None):
+    def __init__(self, place=None, manner=None, voiced=None, ipar=None, geminate=None):
         if place in PLACES or place is None:
             self.place = place
         else:
@@ -24,16 +24,21 @@ class AbstractConsonant:
             self.voiced = voiced
         else:
             raise TypeError
+        if type(geminate) == bool or geminate is None:
+            self.geminate = geminate
+        else:
+            raise TypeError
         self.ipar = ipar
 
 
 class Consonant(AbstractConsonant):
-    def __init__(self, place, manner, voiced, ipar):
+    def __init__(self, place, manner, voiced, ipar, geminate):
         assert place is not None
         assert manner is not None
         assert voiced is not None
         assert ipar is not None
-        AbstractConsonant.__init__(self, place, manner, voiced, ipar)
+        assert geminate is not None
+        AbstractConsonant.__init__(self, place, manner, voiced, ipar, geminate)
 
     def match(self, abstract_consonant) -> bool:
         if isinstance(abstract_consonant, AbstractConsonant):
@@ -44,12 +49,22 @@ class Consonant(AbstractConsonant):
                 res = res and abstract_consonant.manner == self.manner
             if abstract_consonant.voiced is not None:
                 res = res and abstract_consonant.voiced == self.voiced
+            if abstract_consonant.geminate is not None:
+                res = res and abstract_consonant.geminate == self.geminate
             return res
         elif abstract_consonant is None:
             return True
-
         else:
             return False
+
+    def lengthen(self):
+        geminate = True
+        if not self.geminate:
+            ipar = self.ipar + ":"
+        else:
+            ipar = self.ipar
+
+        return Consonant(self.place, self.manner, self.voiced, ipar, geminate)
 
 
 # Vowels
@@ -136,26 +151,26 @@ oo = Vowel("open-mid", "back", True, "short", "ɔ")
 o = Vowel("close-mid", "back", True, "short", "o")
 u = Vowel("close", "back", True, "short", "u")
 
-b = Consonant("bilabial", "stop", True, "b")
-d = Consonant("alveolar", "stop", True, "d")
-f = Consonant("labio-dental", "frictative", False, "f")
-g = Consonant("velar", "stop", True, "g")
-gh = Consonant("velar", "frictative", True, "Ɣ")
-h = Consonant("glottal", "frictative", False, "h")
-j = Consonant("palatal", "frictative", True, "j")
-k = Consonant("velar", "stop", False, "k")
-l = Consonant("alveolar", "lateral", True, "l")
-m = Consonant("bilabial", "nasal", True, "m")
-n = Consonant("labio-dental", "nasal", True, "n")
-p = Consonant("bilabial", "stop", False, "p")
-r = Consonant("alveolar", "trill", False, "r")
-s = Consonant("alveolar", "frictative", False, "s")
-t = Consonant("alveolar", "stop", False, "t")
-v = Consonant("labio-dental", "frictative", True, "v")
+b = Consonant("bilabial", "stop", True, "b", False)
+d = Consonant("alveolar", "stop", True, "d", False)
+f = Consonant("labio-dental", "frictative", False, "f", False)
+g = Consonant("velar", "stop", True, "g", False)
+gh = Consonant("velar", "frictative", True, "Ɣ", False)
+h = Consonant("glottal", "frictative", False, "h", False)
+j = Consonant("palatal", "frictative", True, "j", False)
+k = Consonant("velar", "stop", False, "k", False)
+l = Consonant("alveolar", "lateral", True, "l", False)
+m = Consonant("bilabial", "nasal", True, "m", False)
+n = Consonant("labio-dental", "nasal", True, "n", False)
+p = Consonant("bilabial", "stop", False, "p", False)
+r = Consonant("alveolar", "trill", False, "r", False)
+s = Consonant("alveolar", "frictative", False, "s", False)
+t = Consonant("alveolar", "stop", False, "t", False)
+v = Consonant("labio-dental", "frictative", True, "v", False)
 # θ = Consonant("dental", "frictative", False, "θ")
-th = Consonant("dental", "frictative", False, "θ")
+th = Consonant("dental", "frictative", False, "θ", False)
 # ð = Consonant("dental", "frictative", True, "ð")
-dh = Consonant("dental", "frictative", True, "ð")
+dh = Consonant("dental", "frictative", True, "ð", False)
 
 OLD_NORSE8_PHONOLOGY = [
     a, ee, e, oe, i, y, ao, oo, u, a.lengthen(),
@@ -338,21 +353,22 @@ class Transcriber:
         :return:
         """
         first_res = []
-        # to_avoid = False
+        is_repeted = False
         if len(word) >= 2:
             for i in range(len(word) - 1):
-                # if to_avoid:
-                #     to_avoid = False
-                #     continue
-                # elif word[i] == word[i+1]:  # geminate consonants
-                #     first_res.append(word[i])
-                #     to_avoid = True
+                if is_repeted:
+                    is_repeted = False
+                    continue
                 if word[i:i + 2] in DIPHTONGS_IPA:  # diphtongs
                     first_res.append(DIPHTONGS_IPA_class[word[i] + word[i + 1]])
+                    is_repeted = True
+                elif word[i] == word[i+1]:
+                    first_res.append(IPA_class[word[i]].lengthen())
+                    is_repeted = True
                 else:
                     first_res.append(IPA_class[word[i]])
-                    if i == len(word) - 2:
-                        first_res.append(IPA_class[word[i + 1]])
+            if not is_repeted:
+                first_res.append(IPA_class[word[len(word) - 1]])
         else:
             first_res.append(IPA_class[word[0]])
         return first_res
