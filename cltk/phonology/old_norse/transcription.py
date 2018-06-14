@@ -6,7 +6,7 @@ Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 
 import re
 
-__author__ = "Clément Besnier <clemsciences@gmail.com>"
+__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
 # Definition of consonants
 PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular",
