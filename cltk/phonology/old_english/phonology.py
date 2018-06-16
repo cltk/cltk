@@ -168,7 +168,7 @@ class Transliterate:
         :param mode: Specifies transliteration mode, options:
 
             Latin (default): Transliterates Anglo-Saxon runes into the latin
-            alphabet, using the Dickens-Page system
+            alphabet, using the Dickins system
 
             Anglo-Saxon/Anglo-Frisian : Transliterates Latin text into Anglo-Saxon runes
 
