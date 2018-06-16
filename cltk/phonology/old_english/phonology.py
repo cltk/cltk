@@ -22,8 +22,6 @@ IPA_rules = {
     'hl': 'l',
     'hn': 'n̥',
     'hr': 'r̥',
-    'ēa': 'æːɑ̯',
-    'ea': 'æ',
     'sċ': 'ʃ'
 }
 
@@ -232,7 +230,7 @@ class Transcriber:
             '[fæder uːre θuː θe eːɑrˠt on heovonum,]'
 
             >>> Transcriber().transcribe('Hwæt! wē Gār-Dena in ġēar-dagum', punctuation = False)
-            '[ʍæt weː gɑːrdenɑ in jæːɑ̯rdɑgum]'
+            '[ʍæt weː gɑːrdenɑ in jæːɑrdɑgum]'
         """
 
         if not punctuation:
@@ -292,7 +290,7 @@ class Word:
 
         Examples:
 
-            >>> Word('ġelǣd ').ascii_encoding()
+            >>> Word('ġelǣd').ascii_encoding()
             'gelaed'
 
             >>> Word('ƿeorðunga').ascii_encoding()
