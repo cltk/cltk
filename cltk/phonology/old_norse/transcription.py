@@ -5,6 +5,7 @@ Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
 import re
+from cltk.utils.cltk_logger import logger
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
@@ -22,18 +23,21 @@ class AbstractConsonant:
         if place in PLACES or place is None:
             self.place = place
         else:
-            raise ValueError
+            logger.error("Unconrrect argument")
         if manner in MANNERS or manner is None:
             self.manner = manner
         else:
+            logger.error("Unconrrect argument")
             raise ValueError
         if type(voiced) == bool or voiced is None:
             self.voiced = voiced
         else:
+            logger.error("Unconrrect argument")
             raise TypeError
         if type(geminate) == bool or geminate is None:
             self.geminate = geminate
         else:
+            logger.error("Unconrrect argument")
             raise TypeError
         self.ipar = ipar
 
@@ -84,7 +88,7 @@ class Consonant(AbstractConsonant):
         """
         geminate = True
         if not self.geminate:
-            ipar = self.ipar + ":"
+            ipar = self.ipar + "ː"
         else:
             ipar = self.ipar
 
@@ -105,18 +109,22 @@ class AbstractVowel:
         if height in HEIGHT or height is None:
             self.height = height
         else:
+            logger.error("Unconrrect argument")
             raise ValueError
         if backness in BACKNESS or backness is None:
             self.backness = backness
         else:
+            logger.error("Unconrrect argument")
             raise ValueError
         if type(rounded) == bool or rounded is None:
             self.rounded = rounded
         else:
+            logger.error("Unconrrect argument")
             raise TypeError
         if length in LENGTHS or length is None:
             self.length = length
         else:
+            logger.error("Unconrrect argument")
             raise ValueError
         self.ipar = ipar
 
@@ -141,7 +149,7 @@ class Vowel(AbstractVowel):
         """
         if self.length == "short":
             length = "long"
-            ipar = self.ipar + ":"
+            ipar = self.ipar + "ː"
         else:
             ipar = self.ipar
             length = "short"
@@ -190,7 +198,7 @@ b = Consonant("bilabial", "stop", True, "b", False)
 d = Consonant("alveolar", "stop", True, "d", False)
 f = Consonant("labio-dental", "frictative", False, "f", False)
 g = Consonant("velar", "stop", True, "g", False)
-gh = Consonant("velar", "frictative", True, "Ɣ", False)
+gh = Consonant("velar", "frictative", True, "ɣ", False)
 h = Consonant("glottal", "frictative", False, "h", False)
 j = Consonant("palatal", "frictative", True, "j", False)
 k = Consonant("velar", "stop", False, "k", False)
@@ -198,7 +206,7 @@ l = Consonant("alveolar", "lateral", True, "l", False)
 m = Consonant("bilabial", "nasal", True, "m", False)
 n = Consonant("labio-dental", "nasal", True, "n", False)
 p = Consonant("bilabial", "stop", False, "p", False)
-r = Consonant("alveolar", "trill", False, "r", False)
+r = Consonant("alveolar", "trill", True, "r", False)
 s = Consonant("alveolar", "frictative", False, "s", False)
 t = Consonant("alveolar", "stop", False, "t", False)
 v = Consonant("labio-dental", "frictative", True, "v", False)
@@ -377,19 +385,19 @@ IPA_class = {
     "ð": dh,
 }
 GEMINATE_CONSONANTS = {
-    "bb": "b:",
-    "dd": "d:",
-    "ff": "f:",
-    "gg": "g:",
-    "kk": "k:",
-    "ll": "l:",
-    "mm": "m:",
-    "nn": "n:",
-    "pp": "p:",
-    "rr": "r:",
-    "ss": "s:",
-    "tt": "t:",
-    "vv": "v:",
+    "bb": "bː",
+    "dd": "dː",
+    "ff": "fː",
+    "gg": "gː",
+    "kk": "kː",
+    "ll": "lː",
+    "mm": "mː",
+    "nn": "nː",
+    "pp": "pː",
+    "rr": "rː",
+    "ss": "sː",
+    "tt": "tː",
+    "vv": "vː",
 }
 
 # Some Old Norse rules
@@ -412,6 +420,11 @@ rule_g = [Rule(AbstractPosition("first", None, None), g, g),
           Rule(AbstractPosition("inner", None, None), g, gh),
           Rule(AbstractPosition("last", None, None), g, gh)]
 
+old_norse_rules = []
+old_norse_rules.extend(rule_f)
+old_norse_rules.extend(rule_g)
+old_norse_rules.extend(rule_th)
+
 
 class Transcriber:
     """
@@ -424,16 +437,12 @@ class Transcriber:
 
     def main(self, sentence: str, rules) -> str:
         translitterated = []
+        sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            print(word)
             first_res = self.first_process(word)
-            print([type(c) for c in first_res])
-            print([c.ipar for c in first_res])
             second_res = self.second_process(first_res, rules)
-            print(second_res)
             translitterated.append(second_res)
-        print(sentence)
         return "[" + " ".join(translitterated) + "]"
 
     @staticmethod
@@ -496,16 +505,13 @@ class Transcriber:
 
 
 if __name__ == "__main__":
-    # sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
-    example_sentence = "almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og síðast " \
-                       "menn tvá, er ættir eru frá komnar, adam ok evu, ok fjölgaðist þeira kynslóð ok dreifðist um " \
-                       "heim allan."
-
-    old_norse_rules = []
-    old_norse_rules.extend(rule_f)
-    old_norse_rules.extend(rule_g)
-    old_norse_rules.extend(rule_th)
-
+    example_sentence = "Almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og " \
+                       "síðast menn tvá, er ættir eru frá komnar, Adam ok Evu, ok fjölgaðist þeira kynslóð ok " \
+                       "dreifðist um heim allan."
+    sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
     tr = Transcriber()
-    ipa_sentence = tr.main(example_sentence, old_norse_rules)
-    print(ipa_sentence)
+    transcribed_sentence = tr.main(example_sentence, old_norse_rules)
+    print(transcribed_sentence)
+    transcribed_sentence = tr.main(sentence, old_norse_rules)
+    print(transcribed_sentence)
+
