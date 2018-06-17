@@ -23,21 +23,21 @@ class AbstractConsonant:
         if place in PLACES or place is None:
             self.place = place
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
         if manner in MANNERS or manner is None:
             self.manner = manner
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         if type(voiced) == bool or voiced is None:
             self.voiced = voiced
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise TypeError
         if type(geminate) == bool or geminate is None:
             self.geminate = geminate
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise TypeError
         self.ipar = ipar
 
@@ -109,22 +109,22 @@ class AbstractVowel:
         if height in HEIGHT or height is None:
             self.height = height
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         if backness in BACKNESS or backness is None:
             self.backness = backness
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         if type(rounded) == bool or rounded is None:
             self.rounded = rounded
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise TypeError
         if length in LENGTHS or length is None:
             self.length = length
         else:
-            logger.error("Unconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         self.ipar = ipar
 
