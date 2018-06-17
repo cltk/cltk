@@ -1,6 +1,8 @@
 """
 Sources:
--
+- https://en.wikipedia.org/wiki/Gothic_language
+- Gotische Grammatik by W. Braune and K. Helm (Max Niemeyer Verlag 1952)
+- Grammaire explicative du gotique by André Rousseau (L'Harmattan 2012)
 """
 
 import re
@@ -11,7 +13,7 @@ __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 # Definition of consonants
 PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular",
           "glottal"]
-MANNERS = ["nasal", "stop", "lateral", "frictative", "trill"]
+MANNERS = ["nasal", "stop", "lateral", "frictative", "trill", "spirant"]
 
 
 class AbstractConsonant:
@@ -22,21 +24,21 @@ class AbstractConsonant:
         if place in PLACES or place is None:
             self.place = place
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
         if manner in MANNERS or manner is None:
             self.manner = manner
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         if type(voiced) == bool or voiced is None:
             self.voiced = voiced
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
             raise TypeError
         if type(geminate) == bool or geminate is None:
             self.geminate = geminate
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
             raise TypeError
         self.ipar = ipar
 
@@ -93,6 +95,9 @@ class Consonant(AbstractConsonant):
 
         return Consonant(self.place, self.manner, self.voiced, ipar, geminate)
 
+    def __add__(self, other):
+        return Consonant(self.place, self.manner, self.voiced, self.ipar+other.ipar, False)
+
 
 # Vowels
 HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
@@ -113,17 +118,17 @@ class AbstractVowel:
         if backness in BACKNESS or backness is None:
             self.backness = backness
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         if type(rounded) == bool or rounded is None:
             self.rounded = rounded
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
             raise TypeError
         if length in LENGTHS or length is None:
             self.length = length
         else:
-            logger.error("Inconrrect argument")
+            logger.error("Incorrect argument")
             raise ValueError
         self.ipar = ipar
 
@@ -213,6 +218,8 @@ r = Consonant("alveolar", "trill", False, "r", False)
 s = Consonant("alveolar", "frictative", False, "s", False)
 t = Consonant("alveolar", "stop", False, "t", False)
 v = Consonant("labio-dental", "frictative", True, "v", False)
+w = Consonant("bilabial", "spirant", True, "w", False)
+x = k + s
 # θ = Consonant("dental", "frictative", False, "θ")
 th = Consonant("dental", "frictative", False, "θ", False)
 # ð = Consonant("dental", "frictative", True, "ð")
@@ -299,19 +306,17 @@ class Rule:
 
 
 # IPA Dictionary
-# DIPHTHONGS_IPA = {
-#     "iu": "ɐy",  # Diphthongs
-#     "ai": "ɒu",
-#     "øy": "ɐy",
-#     "ei": "ei",
-# }
+DIPHTHONGS_IPA = {
+    "iu": "iu",  # Diphthongs
+    "ai": "ai",
+    "ei": "ei",
+}
 # Wrong diphthongs implementation but not that bad for now
-# DIPHTHONGS_IPA_class = {
-#     "ey": Vowel("open", "front", True, "short", "ɐy"),
-#     "au": Vowel("open", "back", True, "short", "ɒu"),
-#     "øy": Vowel("open", "front", True, "short", "ɐy"),
-#     "ei": Vowel("open", "front", True, "short", "ɛi"),
-# }
+DIPHTHONGS_IPA_class = {
+    "iu": Vowel("open", "front", True, "short", "iu"),
+    "ai": Vowel("open", "front", True, "long", "ai"),
+    "ei": Vowel("open", "front", True, "short", "ɛi"),
+}
 
 ORIGINAL_IPA = {
     "𐌰": "a",
@@ -349,19 +354,8 @@ IPA = {
     "e": "ɛ",
     "i": "i",
     "o": "ɔ",
-    "ǫ": "ɒ",
-    "ö": "ø",
-    "ø": "ø",
     "u": "u",
     "y": "y",
-    "á": "aː",  # Long vowels
-    "æ": "ɛː",
-    "œ": "œ:",
-    "é": "eː",
-    "í": "iː",
-    "ó": "oː",
-    "ú": "uː",
-    "ý": "y:",
     # Consonants
     "b": "b",
     "d": "d",
@@ -408,6 +402,8 @@ IPA_class = {
     "s": s,
     "t": t,
     "v": v,
+    "w": w,
+    "x": x,
     "þ": th,
     "ð": dh,
 }
@@ -439,16 +435,12 @@ class Transcriber:
 
     def main(self, sentence: str, rules) -> str:
         translitterated = []
+        sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            print(word)
             first_res = self.first_process(word)
-            print([type(c) for c in first_res])
-            print([c.ipar for c in first_res])
             second_res = self.second_process(first_res, rules)
-            print(second_res)
             translitterated.append(second_res)
-        print(sentence)
         return "[" + " ".join(translitterated) + "]"
 
     @staticmethod
@@ -465,9 +457,9 @@ class Transcriber:
                 if is_repeted:
                     is_repeted = False
                     continue
-                # if word[index:index + 2] in DIPHTHONGS_IPA:  # diphthongs
-                #     first_res.append(DIPHTHONGS_IPA_class[word[index] + word[index + 1]])
-                #     is_repeted = True
+                if word[index:index + 2] in DIPHTHONGS_IPA:  # diphthongs
+                    first_res.append(DIPHTHONGS_IPA_class[word[index] + word[index + 1]])
+                    is_repeted = True
                 elif word[index] == word[index+1]:
                     first_res.append(IPA_class[word[index]].lengthen())
                     is_repeted = True
@@ -511,7 +503,7 @@ class Transcriber:
 
 
 if __name__ == "__main__":
-    example_sentence = ""
+    example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
 
     gothic_rules = []
 
