@@ -4,6 +4,7 @@ Sources:
 """
 
 import re
+from cltk.utils.cltk_logger import logger
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
@@ -21,18 +22,21 @@ class AbstractConsonant:
         if place in PLACES or place is None:
             self.place = place
         else:
-            raise ValueError
+            logger.error("Inconrrect argument")
         if manner in MANNERS or manner is None:
             self.manner = manner
         else:
+            logger.error("Inconrrect argument")
             raise ValueError
         if type(voiced) == bool or voiced is None:
             self.voiced = voiced
         else:
+            logger.error("Inconrrect argument")
             raise TypeError
         if type(geminate) == bool or geminate is None:
             self.geminate = geminate
         else:
+            logger.error("Inconrrect argument")
             raise TypeError
         self.ipar = ipar
 
@@ -83,7 +87,7 @@ class Consonant(AbstractConsonant):
         """
         geminate = True
         if not self.geminate:
-            ipar = self.ipar + ":"
+            ipar = self.ipar + "ː"
         else:
             ipar = self.ipar
 
@@ -104,18 +108,22 @@ class AbstractVowel:
         if height in HEIGHT or height is None:
             self.height = height
         else:
+            logger.error("Incorrect argument")
             raise ValueError
         if backness in BACKNESS or backness is None:
             self.backness = backness
         else:
+            logger.error("Inconrrect argument")
             raise ValueError
         if type(rounded) == bool or rounded is None:
             self.rounded = rounded
         else:
+            logger.error("Inconrrect argument")
             raise TypeError
         if length in LENGTHS or length is None:
             self.length = length
         else:
+            logger.error("Inconrrect argument")
             raise ValueError
         self.ipar = ipar
 
@@ -140,7 +148,7 @@ class Vowel(AbstractVowel):
         """
         if self.length == "short":
             length = "long"
-            ipar = self.ipar + ":"
+            ipar = self.ipar + "ː"
         else:
             ipar = self.ipar
             length = "short"
@@ -304,6 +312,38 @@ class Rule:
 #     "øy": Vowel("open", "front", True, "short", "ɐy"),
 #     "ei": Vowel("open", "front", True, "short", "ɛi"),
 # }
+
+ORIGINAL_IPA = {
+    "𐌰": "a",
+    "𐌱": "b",
+    "𐌲": "g",
+    "𐌳": "d",
+    "𐌴": "ē",
+    "𐌵": "q",
+    "𐌶": "z",
+    "𐌷": "h",
+    "𐌸": "þ",
+    "𐌹": "i",
+    "𐌺": "k",
+    "𐌻": "l",
+    "𐌼": "m",
+    "𐌽": "n",
+    "𐌾": "j",
+    "𐌿": "u",
+    "𐍀": "p",
+    "𐍂": "r",
+    "𐍃": "s",
+    "𐍄": "t",
+    "𐍅": "w",
+    "𐍆": "f",
+    "𐍇": "x",
+    "𐍈": "ƕ",
+    "𐍉": "ō",
+    "𐍊": "/",
+    "𐍁": "/",
+}
+
+
 IPA = {
     "a": "a",  # Short vowels
     "e": "ɛ",
@@ -325,7 +365,7 @@ IPA = {
     # Consonants
     "b": "b",
     "d": "d",
-    "f": "f",
+    "f": "ɸ",
     "g": "g",
     "h": "h",
     "j": "j",
@@ -334,12 +374,16 @@ IPA = {
     "m": "m",
     "n": "n",
     "p": "p",
+    "q": "kʷ",
     "r": "r",
     "s": "s",
     "t": "t",
     "v": "v",
+    "w": "w",
+    "z": "z",
     "þ": "θ",
-    "ð": "ð",
+    "ƕ": "hʷ",
+
 }
 IPA_class = {
     "a": a,  # Short vowels
@@ -467,10 +511,7 @@ class Transcriber:
 
 
 if __name__ == "__main__":
-    # sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
-    example_sentence = "almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og síðast " \
-                       "menn tvá, er ættir eru frá komnar, adam ok evu, ok fjölgaðist þeira kynslóð ok dreifðist um " \
-                       "heim allan."
+    example_sentence = ""
 
     gothic_rules = []
 
