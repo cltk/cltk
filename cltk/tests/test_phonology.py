@@ -10,7 +10,9 @@ from cltk.phonology.latin import transcription as lat
 from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
+from cltk.phonology.old_swedish import transcription as old_swedish_transcription
 import unittest
+
 
 class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
@@ -472,7 +474,16 @@ class TestSequenceFunctions(unittest.TestCase):
         target_syllabified_str = ['mar.chall', 'con.tent', 'thyne', 'greef', 'com.mau.ndyd']
 
         assert syllabified_str == target_syllabified_str
-        
+
+    def test_old_norse_transcriber(self):
+        example_sentence = ""
+
+        tr = old_swedish_transcription.Transcriber()
+        transcribed_sentence = tr.main(example_sentence, old_swedish_transcription.old_norse_rules)
+        target = ""
+        self.assertEqual(target, transcribed_sentence)
+
+
 if __name__ == '__main__':
     unittest.main()
 
