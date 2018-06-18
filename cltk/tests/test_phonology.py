@@ -475,7 +475,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         assert syllabified_str == target_syllabified_str
 
-    def test_old_norse_transcriber(self):
+    def test_old_swedish_transcriber(self):
         example_sentence = ""
 
         tr = old_swedish_transcription.Transcriber()
