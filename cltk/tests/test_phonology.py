@@ -480,7 +480,6 @@ class TestSequenceFunctions(unittest.TestCase):
         example_sentence = "Almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og " \
                            "síðast menn tvá, er ættir eru frá komnar, Adam ok Evu, ok fjölgaðist þeira kynslóð ok " \
                            "dreifðist um heim allan."
-
         tr = ont.Transcriber()
         transcribed_sentence = tr.main(example_sentence, ont.old_norse_rules)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
@@ -489,12 +488,11 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_gothic_transcriber(self):
         example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
-
         tr = gothic_transcription.Transcriber()
         transcribed_sentence = tr.main(example_sentence, gothic_transcription.gothic_rules)
         target = "[anastɔdɛins aiwagːɛljɔns iɛsuis ksristaus sunaus gudis]"
         self.assertEqual(target, transcribed_sentence)
-
+        
 
 if __name__ == '__main__':
     unittest.main()
