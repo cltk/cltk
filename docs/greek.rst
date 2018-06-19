@@ -283,6 +283,11 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    In [4]: r.beta_code(BETA_EXAMPLE)
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
+The beta code converter can also handle lowercase notation:
+
+    In [5]: BETA_EXAMPLE_2 = r"""me/xri me\n w)/n tou/tou a(rpaga/s mou/nas ei)=nai par' a)llh/lwn, to\ de\ a)po\ tou/tou *(/ellhnas dh\ mega/lws ai)ti/ous gene/sqai: prote/rous ga\r a)/rcai strateu/esqai e)s th\n *)asi/hn h)\ sfe/as e)s th\n *eu)rw/phn. """
+    Out[5]: 'μέχρι μὲν ὤν τούτου ἁρπαγάς μούνας εἶναι παρ’ ἀλλήλων, τὸ δὲ ἀπὸ τούτου Ἕλληνας δὴ μεγάλως αἰτίους γενέσθαι· προτέρους γὰρ ἄρξαι στρατεύεσθαι ἐς τὴν Ἀσίην ἢ σφέας ἐς τὴν Εὐρώπην.'
+
 
 Converting TLG texts with TLGU
 ======================================
