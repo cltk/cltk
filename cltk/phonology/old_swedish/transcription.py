@@ -410,8 +410,8 @@ rule_th = [Rule(AbstractPosition("inner", AbstractVowel(), AbstractVowel()), th,
            Rule(AbstractPosition("last", r, None), th, dh)]
 
 
-old_norse_rules = []
-old_norse_rules.extend(rule_th)
+old_swedish_rules = []
+old_swedish_rules.extend(rule_th)
 
 
 class Transcriber:
@@ -496,7 +496,7 @@ if __name__ == "__main__":
     example_sentence = ""
     sentence = ""
     tr = Transcriber()
-    transcribed_sentence = tr.main(example_sentence, old_norse_rules)
+    transcribed_sentence = tr.main(example_sentence, old_swedish_rules)
     print(transcribed_sentence)
-    transcribed_sentence = tr.main(sentence, old_norse_rules)
+    transcribed_sentence = tr.main(sentence, old_swedish_rules)
     print(transcribed_sentence)
