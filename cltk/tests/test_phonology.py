@@ -476,7 +476,6 @@ class TestSequenceFunctions(unittest.TestCase):
 
         assert syllabified_str == target_syllabified_str
 
-
     def test_old_norse_transcriber(self):
         example_sentence = "Almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og " \
                            "síðast menn tvá, er ættir eru frá komnar, Adam ok Evu, ok fjölgaðist þeira kynslóð ok " \
