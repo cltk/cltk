@@ -11,6 +11,7 @@ from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.old_swedish import transcription as old_swedish_transcription
 import unittest
 
 
@@ -475,6 +476,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         assert syllabified_str == target_syllabified_str
 
+
     def test_old_norse_transcriber(self):
         example_sentence = "Almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og " \
                            "síðast menn tvá, er ættir eru frá komnar, Adam ok Evu, ok fjölgaðist þeira kynslóð ok " \
@@ -484,6 +486,14 @@ class TestSequenceFunctions(unittest.TestCase):
         transcribed_sentence = tr.main(example_sentence, ont.old_norse_rules)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
+        self.assertEqual(target, transcribed_sentence)
+
+    def test_old_swedish_transcriber(self):
+        example_sentence = ""
+
+        tr = old_swedish_transcription.Transcriber()
+        transcribed_sentence = tr.main(example_sentence, old_swedish_transcription.old_swedish_rules)
+        target = ""
         self.assertEqual(target, transcribed_sentence)
 
 
