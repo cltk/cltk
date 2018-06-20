@@ -385,7 +385,7 @@ class Replacer(object):  # pylint: disable=R0903
         """Replace method. Note: regex.subn() returns a tuple (new_string,
         number_of_subs_made).
         """
-        text = text.replace('-', '')
+        text = text.upper().replace('-', '')
         for (pattern, repl) in self.pattern1:
             text = pattern.subn(repl, text)[0]
         for (pattern, repl) in self.pattern2:

@@ -1,13 +1,13 @@
 Old Swedish
 *********
 
- (Source: `Wikipedia <https://en.wikipedia.org/wiki/Old_Norse>`_)
+Old Swedish (fornsvenska) is a language spoken in Sweden between (Source: `Wikipedia <https://en.wikipedia.org/wiki/Old_Swedish>`_)
 
 
 Phonology transcription
 =======================
 
-According to phonological rules (available at `Wikipedia - Old Norse orthography <https://en.wikipedia.org/wiki/Old_Norse_orthography>`_  and *Altnordisches Elementarbuch* by Friedrich Ranke and Dietrich Hofmann), a reconstructed pronunciation of Old Norse words is implemented.
+According to phonological rules a reconstructed phonology/pronunciation of Old Norse words is implemented.
 
 .. code-block:: python
 

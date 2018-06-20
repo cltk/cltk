@@ -81,6 +81,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         unicode_3 = replacer.beta_code(beta_3)
         target_3 = 'προϋποτεταγμένων'
         self.assertEqual(unicode_3, target_3)
+        # Test for lowercase
+        beta_4 = r"""proi+sxome/nwn"""
+        unicode_4 = replacer.beta_code(beta_4)
+        target_4 = 'προϊσχομένων'
+        self.assertEqual(unicode_4, target_4)
 
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
