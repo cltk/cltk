@@ -488,7 +488,6 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(target, transcribed_sentence)
 
     def test_utils(self):
-        ut.AbstractConsonant()
         a = ut.Vowel("open", "front", False, "short", "a")
         self.assertEqual(a.ipar, "a")
         self.assertEqual(a.backness, "front")
