@@ -7,8 +7,6 @@ Gothic
 Phonology transcription
 =======================
 
-According to phonological rules (available at `Wikipedia - Old Norse orthography <https://en.wikipedia.org/wiki/Old_Norse_orthography>`_  and *Altnordisches Elementarbuch* by Friedrich Ranke and Dietrich Hofmann), a reconstructed pronunciation of Old Norse words is implemented.
-
 .. code-block:: python
 
     In [1]: from cltk.phonology.gothic import transcription as gt

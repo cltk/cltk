@@ -171,6 +171,7 @@ GEMINATE_CONSONANTS = {
     "vv": "v:",
 }
 
+<<<<<<< HEAD
 
 if __name__ == "__main__":
     example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
@@ -178,5 +179,91 @@ if __name__ == "__main__":
     gothic_rules = []
 
     tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class)
+=======
+gothic_rules = []
+
+
+class Transcriber:
+    """
+    There are two steps to transcribe words:
+        - firstly, a greedy approximation of the pronunciation of word
+        - then, use of rules to precise pronunciation of a preprocessed list of transcribed words
+    """
+    def __init__(self):
+        pass
+
+    def main(self, sentence: str, rules) -> str:
+        translitterated = []
+        sentence = sentence.lower()
+        sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
+        for word in sentence.split(" "):
+            first_res = self.first_process(word)
+            second_res = self.second_process(first_res, rules)
+            translitterated.append(second_res)
+        return "[" + " ".join(translitterated) + "]"
+
+    @staticmethod
+    def first_process(word: str):
+        """
+        Give a greedy approximation of the pronunciation of word
+        :param word:
+        :return:
+        """
+        first_res = []
+        is_repeted = False
+        if len(word) >= 2:
+            for index in range(len(word) - 1):
+                if is_repeted:
+                    is_repeted = False
+                    continue
+                if word[index:index + 2] in DIPHTHONGS_IPA:  # diphthongs
+                    first_res.append(DIPHTHONGS_IPA_class[word[index] + word[index + 1]])
+                    is_repeted = True
+                elif word[index] == word[index+1]:
+                    first_res.append(IPA_class[word[index]].lengthen())
+                    is_repeted = True
+                else:
+                    first_res.append(IPA_class[word[index]])
+            if not is_repeted:
+                first_res.append(IPA_class[word[len(word) - 1]])
+        else:
+            first_res.append(IPA_class[word[0]])
+        return first_res
+
+    @staticmethod
+    def second_process(first_result, rules) -> str:
+        """
+        Use of rules to precise pronunciation of a preprocessed list of transcribed words
+        :param first_result: list(Vowel or Consonant)
+        :param rules: list(Rule)
+        :return: str
+        """
+        res = []
+        if len(first_result) >= 2:
+            for i in range(len(first_result)):
+                if i == 0:
+                    current_pos = Position("first", None, first_result[i])
+                elif i < len(first_result) - 1:
+                    current_pos = Position("inner", first_result[i - 1], first_result[i + 1])
+                else:
+                    current_pos = Position("last", first_result[i - 1], None)
+                found = False
+                for rule in rules:
+                    if rule.temp_sound.ipar == first_result[i].ipar:
+                        if rule.apply(current_pos):
+                            res.append(rule.estimated_sound.ipar)
+                            found = True
+                            break
+                if not found:
+                    res.append(first_result[i].ipar)
+        else:
+            res.append(first_result[0].ipar)
+        return "".join(res)
+
+
+if __name__ == "__main__":
+    example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
+    tr = Transcriber()
+>>>>>>> origin/gothic
     ipa_sentence = tr.main(example_sentence, gothic_rules)
     print(ipa_sentence)
