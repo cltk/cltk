@@ -11,6 +11,7 @@ from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.gothic import transcription as gothic_transcription
 import unittest
 
 
@@ -484,6 +485,15 @@ class TestSequenceFunctions(unittest.TestCase):
         transcribed_sentence = tr.main(example_sentence, ont.old_norse_rules)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
+        self.assertEqual(target, transcribed_sentence)
+
+    def test_gothic_transcriber(self):
+        example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
+
+        tr = gothic_transcription.Transcriber(gothic_transcription.DIPHTHONGS_IPA,
+                                              gothic_transcription.DIPHTHONGS_IPA_class, gothic_transcription.IPA_class)
+        transcribed_sentence = tr.main(example_sentence, gothic_transcription.gothic_rules)
+        target = "[anastɔdɛins aiwagːɛljɔns iɛsuis ksristaus sunaus gudis]"
         self.assertEqual(target, transcribed_sentence)
 
 
