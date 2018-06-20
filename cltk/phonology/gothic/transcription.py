@@ -170,10 +170,11 @@ GEMINATE_CONSONANTS = {
     "tt": "t:",
     "vv": "v:",
 }
+gothic_rules = []
 
 if __name__ == "__main__":
     example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
-    gothic_rules = []
+
     tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class)
     ipa_sentence = tr.main(example_sentence, gothic_rules)
     print(ipa_sentence)
