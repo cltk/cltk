@@ -39,6 +39,9 @@ class AbstractConsonant:
             raise TypeError
         self.ipar = ipar
 
+    def __str__(self):
+        return self.ipar
+
 
 class Consonant(AbstractConsonant):
     """
@@ -92,6 +95,12 @@ class Consonant(AbstractConsonant):
 
         return Consonant(self.place, self.manner, self.voiced, ipar, geminate)
 
+    def __add__(self, other):
+        return Consonant(self.place, self.manner, self.voiced, self.ipar + other.ipar, False)
+
+    def __str__(self):
+        return self.ipar
+
 
 # Vowels
 HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
@@ -125,6 +134,9 @@ class AbstractVowel:
             logger.error("Incorrect argument")
             raise ValueError
         self.ipar = ipar
+
+    def __str__(self):
+        return self.ipar
 
 
 class Vowel(AbstractVowel):
@@ -178,6 +190,9 @@ class Vowel(AbstractVowel):
 
     def u_umlaut(self):
         pass
+
+    def __str__(self):
+        return self.ipar
 
 
 POSITIONS = ["first", "inner", "last"]
