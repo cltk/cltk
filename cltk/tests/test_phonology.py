@@ -11,6 +11,8 @@ from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.old_swedish import transcription as old_swedish
+from cltk.phonology.utils import *
 import unittest
 
 
@@ -485,6 +487,13 @@ class TestSequenceFunctions(unittest.TestCase):
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
+
+    def test_old_swedish(self):
+        sentence = "a"
+        tr = Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
+                         old_swedish.old_swedish_rules)
+        transcribed_sentence = tr.main(sentence)
+        self.assertEqual("[a]", transcribed_sentence)
 
 
 if __name__ == '__main__':
