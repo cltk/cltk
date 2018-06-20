@@ -11,6 +11,7 @@ from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology import utils as ut
 import unittest
 
 
@@ -485,6 +486,55 @@ class TestSequenceFunctions(unittest.TestCase):
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
+
+    def test_utils(self):
+        a = ut.Vowel("open", "front", False, "short", "a")
+        self.assertEqual(a.ipar, "a")
+        self.assertEqual(a.backness, "front")
+        self.assertEqual(a.height, "open")
+        self.assertEqual(a.length, "short")
+        self.assertEqual(a.rounded, False)
+
+        aa = a.lengthen()
+        self.assertEqual(aa.ipar, "aː")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        self.assertEqual(b.ipar, "b")
+        self.assertEqual(b.manner, "stop")
+        self.assertEqual(b.place, "bilabial")
+        self.assertEqual(b.voiced, True)
+        self.assertEqual(b.geminate, False)
+
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        x = k+s
+        self.assertEqual(x.ipar, "ks")
+
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule1 = ut.Rule(ut.AbstractPosition("inner", ut.AbstractVowel(), ut.AbstractVowel()), th, dh)
+
+        pos1 = ut.Position("inner", a, a)
+        self.assertEqual(rule1.apply(pos1), True)
+
+        pos2 = ut.Position("inner", k, a)
+        self.assertEqual(rule1.apply(pos2), False)
+
+        pos3 = ut.Position("inner", a, s)
+        self.assertEqual(rule1.apply(pos3), False)
+
+        rule2 = ut.Rule(ut.AbstractPosition("inner", ut.AbstractConsonant(voiced=True), ut.AbstractConsonant(voiced=True)), th, dh)
+        pos1 = ut.Position("inner", a, a)
+        self.assertEqual(rule2.apply(pos1), False)
+
+        pos2 = ut.Position("inner", k, a)
+        self.assertEqual(rule2.apply(pos2), False)
+
+        pos3 = ut.Position("inner", a, s)
+        self.assertEqual(rule2.apply(pos3), False)
+
+        pos4 = ut.Position("inner", b, b)
+        self.assertEqual(rule2.apply(pos4), True)
 
 
 if __name__ == '__main__':
