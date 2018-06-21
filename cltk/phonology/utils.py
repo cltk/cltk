@@ -270,6 +270,30 @@ class Rule:
         """
         return current_position.real_sound_match_abstract_sound(self.position)
 
+    def ipa_to_regular_expression(self, phonology):
+        if self.position.position == "first":
+            re_before = r"^"
+        elif self.position.before is None:
+            re_before = r""
+        else:
+            re_before = r"(?<="
+            for phoneme in phonology:
+                if phoneme.match(self.position.before):
+                    re_before += phoneme.ipar
+            re_before += r")"
+
+        if self.position.position == "last":
+            re_after = r"$"
+        elif self.position.after is None:
+            re_after = r""
+        else:
+            re_after = r"(?="
+            for phoneme in phonology:
+                if phoneme.match(self.position.after):
+                    re_after += phoneme.ipar
+            re_after += ")"
+        return re_before+self.temp_sound.ipar+re_after
+
 
 class Transcriber:
     """

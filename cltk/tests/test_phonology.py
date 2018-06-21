@@ -536,6 +536,38 @@ class TestSequenceFunctions(unittest.TestCase):
         pos4 = ut.Position("inner", b, b)
         self.assertEqual(rule2.apply(pos4), True)
 
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        ru1 = ut.Rule(ut.AbstractPosition("inner", ut.AbstractConsonant(voiced=False),
+                                          ut.AbstractConsonant(voiced=True)), th, th)
+        self.assertEqual(ru1.ipa_to_regular_expression(PHONOLOGY), "(?<=fkpstθ)θ(?=bdgvð)")
+
+        ru2 = ut.Rule(ut.AbstractPosition("first", None, ut.AbstractConsonant(place="velar")), p, k)
+        self.assertEqual(ru2.ipa_to_regular_expression(PHONOLOGY), "^p(?=gk)")
+
+        ru3 = ut.Rule(ut.AbstractPosition("last", ut.AbstractConsonant(manner="stop"), None), dh, th)
+        self.assertEqual(ru3.ipa_to_regular_expression(PHONOLOGY), "(?<=bdgkpt)ð$")
+
 
 if __name__ == '__main__':
     unittest.main()
