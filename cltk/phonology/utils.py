@@ -108,6 +108,9 @@ class Consonant(AbstractConsonant):
 
         return Consonant(self.place, self.manner, self.voiced, ipar, geminate)
 
+    def to_abstract(self):
+        return AbstractConsonant(self.place, self.manner, self.voiced, self.ipar, self.geminate)
+
     def __add__(self, other):
         return Consonant(self.place, self.manner, self.voiced, self.ipar + other.ipar, False)
 
@@ -207,6 +210,9 @@ class Vowel(AbstractVowel):
                 return res
         else:
             return False
+
+    def to_abstract(self):
+        return AbstractVowel(self.height, self.backness, self.rounded, self.length, self.ipar)
 
     # def overlengthen(self):
     #     self.length = "overlong"
@@ -330,35 +336,72 @@ class Rule:
         return current_position.real_sound_match_abstract_sound(self.position)
 
     def ipa_to_regular_expression(self, phonology):
+        """
+
+        :param phonology: list of Vowel or Consonant instances
+        :return: pattern which can be the first argument of re.sub
+        """
         if self.position.position == "first":
             re_before = r"^"
         elif self.position.before is None:
             re_before = r""
         else:
-            re_before = r"(?<="
+            re_before = r"(?<=["
             for phoneme in phonology:
                 if phoneme.match_list(self.position.before):
                     re_before += phoneme.ipar
-            re_before += r")"
+            re_before += r"])"
 
         if self.position.position == "last":
             re_after = r"$"
         elif self.position.after is None:
             re_after = r""
         else:
-            re_after = r"(?="
+            re_after = r"(?=["
             for phoneme in phonology:
                 if phoneme.match_list(self.position.after):
                     re_after += phoneme.ipar
-            re_after += ")"
+            re_after += "])"
         return re_before+self.temp_sound.ipar+re_after
 
-    # def from_regular_expression(self, re_rule, phonology):
-    #     re.findall(r"")
-    #     # TODO check if re_rule is well made
-    #     # TODO retrieve the before, the main character and the after.
-    #
-    #     pass
+    @staticmethod
+    def from_regular_expression(re_rule, estimated_sound, ipa_class):
+        """
+
+        :param re_rule: pattern (first argument of re.sub)
+        :param estimated_sound: an IPA character (second argument of re.sub)
+        :param ipa_class: dict whose keys are IPA characters and values are Vowel or Consonant instances
+        :return: corresponding Rule instance
+        """
+        assert len(re_rule) > 0
+        if re_rule[0] == "^":
+            place = "first"
+        elif re_rule[-1] == "$":
+            place = "last"
+        else:
+            place = "inner"
+
+        before_pattern = r"(?<=\(\?\<\=\[)\w*"
+        core_pattern = r"(?<=\))\w(?=\(\?\=)|(?<=\^)\w(?=\(\?\=)|(?<=\))\w(?=\$)"
+        after_pattern = r"(?<=\(\?\=\[)\w*"
+        before_search = re.search(before_pattern, re_rule)
+        core_search = re.search(core_pattern, re_rule)
+        after_search = re.search(after_pattern, re_rule)
+        if before_search is None:
+            before = None
+        else:
+            before = [ipa_class[ipar].to_abstract() for ipar in before_search.group(0)]
+        if core_search is not None:
+            core = ipa_class[core_search.group(0)]
+        else:
+            logger.error("No core")
+            raise ValueError
+        if after_search is None:
+            after = None
+        else:
+            after = [ipa_class[ipar].to_abstract() for ipar in after_search.group(0)]
+        abstract_position = AbstractPosition(place, before, after)
+        return Rule(abstract_position, core, ipa_class[estimated_sound])
 
     def __add__(self, other):
         assert isinstance(other, Rule)
