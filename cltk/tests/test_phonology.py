@@ -512,29 +512,29 @@ class TestSequenceFunctions(unittest.TestCase):
 
         th = ut.Consonant("dental", "frictative", False, "θ", False)
         dh = ut.Consonant("dental", "frictative", True, "ð", False)
-        rule1 = ut.Rule(ut.AbstractPosition("inner", ut.AbstractVowel(), ut.AbstractVowel()), th, dh)
+        rule1 = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
 
         pos1 = ut.Position("inner", a, a)
-        self.assertEqual(rule1.apply(pos1), True)
+        self.assertEqual(rule1.can_apply(pos1), True)
 
         pos2 = ut.Position("inner", k, a)
-        self.assertEqual(rule1.apply(pos2), False)
+        self.assertEqual(rule1.can_apply(pos2), False)
 
         pos3 = ut.Position("inner", a, s)
-        self.assertEqual(rule1.apply(pos3), False)
+        self.assertEqual(rule1.can_apply(pos3), False)
 
-        rule2 = ut.Rule(ut.AbstractPosition("inner", ut.AbstractConsonant(voiced=True), ut.AbstractConsonant(voiced=True)), th, dh)
+        rule2 = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)], [ut.AbstractConsonant(voiced=True)]), th, dh)
         pos1 = ut.Position("inner", a, a)
-        self.assertEqual(rule2.apply(pos1), False)
+        self.assertEqual(rule2.can_apply(pos1), False)
 
         pos2 = ut.Position("inner", k, a)
-        self.assertEqual(rule2.apply(pos2), False)
+        self.assertEqual(rule2.can_apply(pos2), False)
 
         pos3 = ut.Position("inner", a, s)
-        self.assertEqual(rule2.apply(pos3), False)
+        self.assertEqual(rule2.can_apply(pos3), False)
 
         pos4 = ut.Position("inner", b, b)
-        self.assertEqual(rule2.apply(pos4), True)
+        self.assertEqual(rule2.can_apply(pos4), True)
 
         a = ut.Vowel("open", "front", False, "short", "a")
         e = ut.Vowel("close-mid", "front", False, "short", "e")
@@ -558,14 +558,14 @@ class TestSequenceFunctions(unittest.TestCase):
             a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
         ]
 
-        ru1 = ut.Rule(ut.AbstractPosition("inner", ut.AbstractConsonant(voiced=False),
-                                          ut.AbstractConsonant(voiced=True)), th, th)
+        ru1 = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=False)],
+                                          [ut.AbstractConsonant(voiced=True)]), th, th)
         self.assertEqual(ru1.ipa_to_regular_expression(PHONOLOGY), "(?<=fkpstθ)θ(?=bdgvð)")
 
-        ru2 = ut.Rule(ut.AbstractPosition("first", None, ut.AbstractConsonant(place="velar")), p, k)
+        ru2 = ut.Rule(ut.AbstractPosition("first", None, [ut.AbstractConsonant(place="velar")]), p, k)
         self.assertEqual(ru2.ipa_to_regular_expression(PHONOLOGY), "^p(?=gk)")
 
-        ru3 = ut.Rule(ut.AbstractPosition("last", ut.AbstractConsonant(manner="stop"), None), dh, th)
+        ru3 = ut.Rule(ut.AbstractPosition("last", [ut.AbstractConsonant(manner="stop")], None), dh, th)
         self.assertEqual(ru3.ipa_to_regular_expression(PHONOLOGY), "(?<=bdgkpt)ð$")
 
 

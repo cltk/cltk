@@ -82,6 +82,19 @@ class Consonant(AbstractConsonant):
         else:
             return False
 
+    def match_list(self, abstract_consonant_list):
+        if type(abstract_consonant_list) == list:
+            if len(abstract_consonant_list) == 0:
+                return True
+            else:
+                res = False
+                for ac in abstract_consonant_list:
+                    if isinstance(ac, AbstractConsonant):
+                        res = self.match(ac) or res
+                return res
+        else:
+            return False
+
     def lengthen(self):
         """
 
@@ -182,6 +195,19 @@ class Vowel(AbstractVowel):
         else:
             return False
 
+    def match_list(self, abstract_vowel_list):
+        if type(abstract_vowel_list) == list:
+            if len(abstract_vowel_list) == 0:
+                return True
+            else:
+                res = False
+                for av in abstract_vowel_list:
+                    if isinstance(av, AbstractVowel):
+                        res = self.match(av) or res
+                return res
+        else:
+            return False
+
     # def overlengthen(self):
     #     self.length = "overlong"
 
@@ -205,11 +231,44 @@ class AbstractPosition:
     """
     def __init__(self, position, before, after):
         assert position in POSITIONS
+
         self.position = position
         # assert isinstance(before, AbstractConsonant) or isinstance(before, AbstractVowel)
         self.before = before
         # assert isinstance(after, AbstractConsonant) or isinstance(after, AbstractVowel)
         self.after = after
+
+    def __eq__(self, other):
+        assert isinstance(other, AbstractPosition)
+        return self.position == other.position and self.before == other.before and self.after == other.after
+
+    def same_place(self, other):
+        assert isinstance(other, AbstractPosition)
+        return self.position == other.position
+
+    def __add__(self, other):
+        assert self.position == other.position
+        if self.before is None and other.before:
+            before = None
+        elif self.before is None:
+            before = other.before
+        elif other.before is None:
+            before = self.before
+        else:
+            before = []
+            before.extend(self.before)
+            before.extend(other.before)
+        if self.after is None and other.after is None:
+            after = None
+        elif self.after is None:
+            after = other.after
+        elif other.after is None:
+            after = self.after
+        else:
+            after = []
+            after.extend(self.after)
+            after.extend(other.after)
+        return AbstractPosition(self.position, before, after)
 
 
 class Position:
@@ -232,14 +291,14 @@ class Position:
         """
         assert isinstance(abstract_pos, AbstractPosition)
         if self.before is not None and self.after is not None:
-            return self.position == abstract_pos.position and self.before.match(abstract_pos.before) and \
-               self.after.match(abstract_pos.after)
+            return self.position == abstract_pos.position and self.before.match_list(abstract_pos.before) and \
+               self.after.match_list(abstract_pos.after)
         elif self.before is None and self.after is None:
                 return self.position == abstract_pos.position
         elif self.before is None:
-            return self.position == abstract_pos.position and self.after.match(abstract_pos.after)
+            return self.position == abstract_pos.position and self.after.match_list(abstract_pos.after)
         else:
-            return self.position == abstract_pos.position and self.before.match(abstract_pos.before)
+            return self.position == abstract_pos.position and self.before.match_list(abstract_pos.before)
 
 
 class Rule:
@@ -261,7 +320,7 @@ class Rule:
         assert isinstance(estimated_sound, Vowel) or isinstance(estimated_sound, Consonant)
         self.estimated_sound = estimated_sound
 
-    def apply(self, current_position: Position) -> bool:
+    def can_apply(self, current_position: Position) -> bool:
         """
         A Rule is applied if and only if a letter has a direct environment (the sound just before and the sound just
         after) which matches the environment of Rule
@@ -278,7 +337,7 @@ class Rule:
         else:
             re_before = r"(?<="
             for phoneme in phonology:
-                if phoneme.match(self.position.before):
+                if phoneme.match_list(self.position.before):
                     re_before += phoneme.ipar
             re_before += r")"
 
@@ -289,10 +348,25 @@ class Rule:
         else:
             re_after = r"(?="
             for phoneme in phonology:
-                if phoneme.match(self.position.after):
+                if phoneme.match_list(self.position.after):
                     re_after += phoneme.ipar
             re_after += ")"
         return re_before+self.temp_sound.ipar+re_after
+
+    # def from_regular_expression(self, re_rule, phonology):
+    #     re.findall(r"")
+    #     # TODO check if re_rule is well made
+    #     # TODO retrieve the before, the main character and the after.
+    #
+    #     pass
+
+    def __add__(self, other):
+        assert isinstance(other, Rule)
+        assert self.position.same_place(other.position)
+        assert self.temp_sound.ipar == other.temp_sound.ipar
+        assert self.estimated_sound.ipar == other.estimated_sound.ipar
+        position = self.position + other.position
+        return Rule(position, self.temp_sound, self.estimated_sound)
 
 
 class Transcriber:
@@ -369,7 +443,7 @@ class Transcriber:
                 found = False
                 for rule in self.rules:
                     if rule.temp_sound.ipar == first_result[i].ipar:
-                        if rule.apply(current_pos):
+                        if rule.can_apply(current_pos):
                             res.append(rule.estimated_sound.ipar)
                             found = True
                             break
