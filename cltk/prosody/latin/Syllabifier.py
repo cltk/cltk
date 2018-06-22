@@ -31,6 +31,7 @@ class Syllabifier:
         self.kw_matcher = re.compile("[kK][w]")
         self.ACCEPTABLE_CHARS = constants.ACCENTED_VOWELS + constants.VOWELS + ' ' \
                                 + constants.CONSONANTS
+        self.diphthongs = [d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]]
 
     def syllabify(self, words: str) -> list:
         """Parse a Latin word into a list of syllable strings.
@@ -38,6 +39,8 @@ class Syllabifier:
         :return: list of string, each representing a syllable.
 
         >>> syllabifier = Syllabifier()
+        >>> print(syllabifier.syllabify("fuit"))
+        ['fu', 'it']
         >>> print(syllabifier.syllabify("libri"))
         ['li', 'bri']
         >>> print(syllabifier.syllabify("contra"))
@@ -93,6 +96,23 @@ class Syllabifier:
         ['lin', 'guā']
         >>> print(syllabifier.syllabify("languidus"))
         ['lan', 'gui', 'dus']
+
+        >>> print(syllabifier.syllabify("suis"))
+        ['su', 'is']
+        >>> print(syllabifier.syllabify("habui"))
+        ['ha', 'bu', 'i']
+        >>> print(syllabifier.syllabify("habuit"))
+        ['ha', 'bu', 'it']
+        >>> print(syllabifier.syllabify("qui"))
+        ['qui']
+        >>> print(syllabifier.syllabify("quibus"))
+        ['qui', 'bus']
+        >>> print(syllabifier.syllabify("hui"))
+        ['hui']
+        >>> print(syllabifier.syllabify("cui"))
+        ['cui']
+        >>> print(syllabifier.syllabify("huic"))
+        ['huic']
         """
         cleaned = words.translate(self.remove_punct_map)
         cleaned = cleaned.replace("qu", "kw")
@@ -118,6 +138,7 @@ class Syllabifier:
         cleaned = cleaned.replace("guū", "gwū")
         cleaned = cleaned.replace("Guū", "Gwū")
         items = cleaned.strip().split(" ")
+
         for char in cleaned:
             if not char in self.ACCEPTABLE_CHARS:
                 LOG.error("Unsupported character found in %s " % cleaned)
@@ -156,6 +177,10 @@ class Syllabifier:
                         self._process(first) + self._process(rest))
                 # a word like pror can happen from ellision
                 return StringUtils.remove_blank_spaces(self._process(word))
+        if word in self.constants.UI_EXCEPTIONS.keys():
+            return self.constants.UI_EXCEPTIONS[word]
+
+
         return StringUtils.remove_blank_spaces(self._process(word))
 
     def convert_consonantal_i(self, word) -> str:
@@ -179,7 +204,7 @@ class Syllabifier:
         my_word = " " + word + " "
         letters = list(my_word)
         positions = []
-        for dipth in self.constants.DIPTHONGS:
+        for dipth in self.diphthongs:
             if dipth in my_word:
                 dipth_matcher = re.compile("{}".format(dipth))
                 matches = dipth_matcher.finditer(my_word)
@@ -322,3 +347,4 @@ class Syllabifier:
         return len(StringUtils.remove_blank_spaces(
             StringUtils.move_consonant_right(tmp_syllables,
                                              self._find_solo_consonant(tmp_syllables))))
+

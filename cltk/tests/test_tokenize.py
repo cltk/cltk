@@ -91,6 +91,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         # - Lucr. DRN. 5.1351-53
         # - Plaut. Bacch. 837-38
         # - Plaut. Amph. 823
+        # - Caes. Bel. 6.29.2
 
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
@@ -99,8 +100,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     'Quid opust verbis? lingua nullast qua negem quidquid roges.',
                     'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',  # pylint: disable=line-too-long
                     'Dic sodes mihi, bellan videtur specie mulier?',
-                    'Cenavin ego heri in navi in portu Persico?'
-                    ]
+                    'Cenavin ego heri in navi in portu Persico?',
+                    'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit']
 
         results = []
 
@@ -115,7 +116,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges', '.'],  # pylint: disable=line-too-long
                   ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.'],  # pylint: disable=line-too-long
                   ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?'],
-                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
+                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
+                  ['quae', "ripas", "Ubiorum", "contingebat", "in", "longitudinem", "pedum", "ducentorum", "rescindit"]
                   ]
 
         self.assertEqual(results, target)
@@ -233,6 +235,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         #print(result)
         self.assertTrue(result == target)
         
+    def test_middle_english_tokenizer(self):
+        text = "    Fers am I ferd of oure fare;\n Fle we ful fast þer-fore. \n Can Y no cownsel bot care.\n\n"
+        target = ['Fers', 'am', 'I', 'ferd', 'of', 'oure', 'fare', ';', 'Fle', 'we', 'ful', 'fast', 'þer', '-', 'fore', '.',
+                  'Can', 'Y', 'no', 'cownsel', 'bot', 'care', '.']
+        tokenizer = WordTokenizer('middle_english')
+        tokenized = tokenizer.tokenize(text)
+        self.assertTrue(tokenized == target)
+    
     def test_middle_high_german_tokenizer(self):
         text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
         target = ['Gâwân', 'het', 'êre', 'unde', 'heil', ',', 'ieweders', 'volleclîchen', 'teil', ':', 'nu', 'nâht', 'och', 'sînes', 'kampfes', 'zît', '.']
