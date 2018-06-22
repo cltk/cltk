@@ -16,7 +16,7 @@ from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
 from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
 from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
 from cltk.stem.french.stem import stem
-
+from cltk.stem.middle_english.stem import affix_stemmer as MiddleEnglishAffixStemmer
 import os
 import unittest
 
@@ -48,7 +48,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         stemmed_text = stemmer.stem(sentence.lower())
         target = 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. '  # pylint: disable=line-too-long
         self.assertEqual(stemmed_text, target)
-
 
     def test_lemmatizer_inlist_latin(self):
         """Test the Latin lemmatizer.
@@ -549,6 +548,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
                     " chevalcho "
         self.assertEqual(stemmed_text, target)
-
+    
+    def test_middle_english_stemmer(self):
+        sentence = ['the', 'speke', 'the', 'henmest', 'kyng', 'in', 'the', 'hillis', 'he', 'beholdis','he', 'lokis', 'vnder',
+                    'his', 'hondis', 'and', 'his', 'hed', 'heldis']
+        stemmed = MiddleEnglishAffixStemmer(sentence)
+        target = 'the spek the henm kyng in the hill he behold he lok vnd his hond and his hed held'
+        self.assertEqual(stemmed, target)
+        
 if __name__ == '__main__':
     unittest.main()

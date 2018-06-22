@@ -24,6 +24,7 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import _get_epoch
 from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
 from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
 from cltk.corpus.greek.tlgu import TLGU
+from cltk.corpus.middle_english.alphabet import normalize_middle_english
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
@@ -80,6 +81,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         unicode_3 = replacer.beta_code(beta_3)
         target_3 = 'προϋποτεταγμένων'
         self.assertEqual(unicode_3, target_3)
+        # Test for lowercase
+        beta_4 = r"""proi+sxome/nwn"""
+        unicode_4 = replacer.beta_code(beta_4)
+        target_4 = 'προϊσχομένων'
+        self.assertEqual(unicode_4, target_4)
 
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
@@ -378,7 +384,7 @@ argenteo polubro, aureo eclutro. """
         valid = "Epictetus Phil."
         self.assertEqual(author, valid)
 
-    #! Figure out why this test stopped working (actual function runs fine)
+    # #! Figure out why this test stopped working (actual function runs fine)
     # def test_get_date_author(self):
     #     """Test get_date_author()."""
     #     dates = get_date_author()
@@ -522,6 +528,7 @@ example_distributed_fake_language_corpus:
         with self.assertRaises(CorpusImportError):
             CorpusImporter('fake_language_nowhere')
         self.remove_distributed_corpora_testing_file()
+
     #
     # def test_import_punjabi_punjabi_text_gurban(self):
     #     pun_import = CorpusImporter('punjabi')
@@ -548,7 +555,7 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string)
         #
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
+        comparison_string = """i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
         qꜣ-nfrw nfrw nbt i҆mꜣḫ"""
@@ -569,7 +576,7 @@ example_distributed_fake_language_corpus:
         #
         test_result_string = mdc_unicode(mdc_string, q_kopf=False)
         #
-        comparison_string ="""i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
+        comparison_string = """i҆nk šmsw šms nb⸗f bꜣk n i҆pt nswt
         i҆rt pꜥt wrt 〈ḥswt〉 ḥmt [nswt] snwsrt m ẖnm-swt
         sꜣt nswt i҆mn-m-ḥꜣt m
         ḳꜣ-nfrw nfrw nbt i҆mꜣḫ"""
@@ -589,12 +596,13 @@ example_distributed_fake_language_corpus:
         expanded = expand_iota_subscript(unexpanded, lowercase=True)
         target = 'εἰ δὲ καὶ τῶι ἡγεμόνι πιστεύσομεν ὃν ἂν κῦρος διδῶι'
         self.assertEqual(expanded, target)
+
     #
     def test_filter_non_greek(self):
         """
         Test filter non greek characters in a mixed string.
         """
-        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]" # PH247029, line 2
+        test_input_string = "[Ἑκα]τόμανδ[ρος Αἰσχ]ρίωνος ⋮ Ἀρ[ιστείδη..c5..]"  # PH247029, line 2
         comparison_string = "Ἑκατμανδρος Αἰσχρωνος  Ἀριστεδη"
         test_result_string = filter_non_greek(test_input_string)
         #
@@ -608,6 +616,13 @@ example_distributed_fake_language_corpus:
         normalized = normalize_fr(text)
         target = ['vieux']
         self.assertEqual(normalized, target)
+
+    def test_normalize_middle_english(self):
+        """Tests ME normalizer"""
+        in_test = "'Madame,' quod he, 'reule me As ȝ,e ly:k?eþ best.'"
+        target = "'madame' quod he 'reule me as ye lyketh best'"
+        test = normalize_middle_english(in_test)
+        self.assertEqual(target, test)
 
 
 class TestUnicode(unittest.TestCase):
@@ -766,7 +781,6 @@ class TestScriptInformation(unittest.TestCase):
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
-
     def test_swadesh_old_english(self):
         swadesh = Swadesh('eng_old')
         first_word = 'ic, iċċ, ih'
@@ -782,6 +796,12 @@ class TestScriptInformation(unittest.TestCase):
     def test_swadesh_hebrew(self):
         swadesh = Swadesh('hbo')
         first_word = '\'anî, \'ānokî '
+        match = swadesh.words()[0]
+        self.assertEqual(first_word, match)
+
+    def test_swadesh_arabic(self):
+        swadesh = Swadesh('ar')
+        first_word = "أنا"
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
