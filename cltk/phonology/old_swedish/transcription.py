@@ -47,7 +47,6 @@ OLD_NORSE8_PHONOLOGY = [
     a, ee, i, oee, y, u, o, a.lengthen(), ee.lengthen(), e.lengthen(), oee.lengthen(),
     i.lengthen(), y.lengthen(), u.lengthen(), o.lengthen(),
     p, b, t, d, k, g, f, v, th, dh, s, gh, h, j, l, r, n
-
 ]
 
 # IPA Dictionary
@@ -69,6 +68,7 @@ IPA = {
     "e": "ɛ",
     "i": "i",
     "o": "o",
+    "ö": "ø",
     "ø": "ø",
     "u": "u",
     "y": "y",
@@ -99,14 +99,17 @@ IPA = {
 }
 IPA_class = {
     "a": a,  # Short vowels
+    "æ": ee,
     "e": ee,
     "i": i,
     "o": o,
     "ø": oee,
+    "ö": oee,
     "u": u,
     "y": y,
     # Consonants
     "b": b,
+    "c": k,
     "d": d,
     "f": f,
     "g": g,
@@ -117,6 +120,7 @@ IPA_class = {
     "m": m,
     "n": n,
     "p": p,
+    "q": k,
     "r": r,
     "s": s,
     "t": t,
@@ -127,11 +131,14 @@ IPA_class = {
     "þ": th,
     "ð": dh,
 }
+
 GEMINATE_CONSONANTS = {
     "bb": "bː",
     "dd": "dː",
+    "dh": "ð",
     "ff": "fː",
     "gg": "gː",
+    "gh": "ɣ",
     "kk": "kː",
     "ll": "lː",
     "mm": "mː",
@@ -139,17 +146,40 @@ GEMINATE_CONSONANTS = {
     "pp": "pː",
     "rr": "rː",
     "ss": "sː",
+    "th": "θ",
     "tt": "tː",
     "vv": "vː",
 }
 
+GEMINATE_CONSONANTS_class = {
+    "bb": b.lengthen(),
+    "dd": d.lengthen(),
+    "dh": dh,
+    "ff": f.lengthen(),
+    "gg": g.lengthen(),
+    "gh": gh,
+    "kk": k.lengthen(),
+    "ll": l.lengthen(),
+    "mm": m.lengthen(),
+    "nn": n.lengthen(),
+    "pp": p.lengthen(),
+    "rr": r.lengthen(),
+    "ss": s.lengthen(),
+    "th": th,
+    "tt": t.lengthen(),
+    "vv": v.lengthen(),
+}
+
+DIPHTHONGS_IPA.update(GEMINATE_CONSONANTS)
+DIPHTHONGS_IPA_class.update(GEMINATE_CONSONANTS_class)
+
 # Some Old Norse rules
 # The first rule which matches is retained
 
-rule_th = [Rule(AbstractPosition("inner", AbstractVowel(), AbstractVowel()), th, dh),
-           Rule(AbstractPosition("last", AbstractConsonant(), None), th, dh),
+rule_th = [Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), th, dh),
+           Rule(AbstractPosition("last", [AbstractConsonant()], None), th, dh),
            Rule(AbstractPosition("first", None, None), th, th),
-           Rule(AbstractPosition("last", r, None), th, dh)]
+           Rule(AbstractPosition("last", [r.to_abstract()], None), th, dh)]
 
 
 old_swedish_rules = []
@@ -157,7 +187,11 @@ old_swedish_rules.extend(rule_th)
 
 
 if __name__ == "__main__":
-    example_sentence = "þa"
+    example_sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær. " \
+                       "at hun ær mæth barnæ. tha skal hun sitiæ j eghen bægiæ thera uskifti tiuku uku " \
+                       "oc til se mæth sinæ wæriande. ær hun ej mæth barne. oc ær thær gothæ quinnæ witni til." \
+                       " tha skiftæs eghn theræ. hus oc bolfæ oc köpæ iorth. halft hænnæ. oc halft bondæns arwm. " \
+                       "annær gangæ til rættæ aruæ."
     tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_swedish_rules)
     transcribed_sentence = tr.main(example_sentence)
     print(transcribed_sentence)

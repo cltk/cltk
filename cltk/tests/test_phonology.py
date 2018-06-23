@@ -490,8 +490,8 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_old_swedish(self):
         sentence = "a"
-        tr = Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
-                         old_swedish.old_swedish_rules)
+        tr = ut.Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
+                            old_swedish.old_swedish_rules)
         transcribed_sentence = tr.main(sentence)
         self.assertEqual("[a]", transcribed_sentence)
         

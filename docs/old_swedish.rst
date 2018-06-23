@@ -9,6 +9,7 @@ Phonology transcription
 
 According to phonological rules a reconstructed phonology/pronunciation of Old Norse words is implemented.
 
+<http://project2.sol.lu.se/fornsvenska/index.html>
 .. code-block:: python
 
     In [1]: from cltk.phonology.old_swedish import transcription as old_swedish_transcription
