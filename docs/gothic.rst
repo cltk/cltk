@@ -4,7 +4,7 @@ Gothic
  Gothic is an extinct East Germanic language that was spoken by the Goths. It is known primarily from the Codex Argenteus, a 6th-century copy of a 4th-century Bible translation, and is the only East Germanic language with a sizable text corpus. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Gothic_language>`_)
 
 
-Phonology transcription
+Phonological transcription
 =======================
 
 .. code-block:: python
@@ -18,4 +18,4 @@ Phonology transcription
     In [4]: tr.main(sentence, ont.gothic_rules)
 
     Out [4]:
-        "[anastɔdɛins aiwagːɛljɔns iɛsuis ksristaus sunaus gudis]"
+        "[anastoːdiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs gudis]"
