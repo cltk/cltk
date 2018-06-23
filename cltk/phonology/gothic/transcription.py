@@ -236,7 +236,7 @@ gothic_rules_b = [
     Rule(AbstractPosition("first", None, None), b, b),
     Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], None), b, b),
     Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], None), b, b),
-    Rule(AbstractPosition("inner", AbstractVowel(), AbstractVowel()), b, bh),
+    Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), b, bh),
     Rule(AbstractPosition("last", None, None), b, ph)
 ]
 
@@ -244,7 +244,7 @@ gothic_rules_d = [
     Rule(AbstractPosition("first", None, None), d, d),
     Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], None), d, d),
     Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], None), d, d),
-    Rule(AbstractPosition("inner", AbstractVowel(), AbstractVowel()), d, dh),
+    Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), d, dh),
     Rule(AbstractPosition("last", None, None), b, th)
 ]
 
@@ -252,7 +252,7 @@ gothic_rules_g = [
     Rule(AbstractPosition("first", None, None), g, g),
     Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], None), g, g),
     Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], None), g, g),
-    Rule(AbstractPosition("inner", AbstractVowel(), AbstractVowel()), g, gh),
+    Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), g, gh),
     Rule(AbstractPosition("last", None, None), b, kh)
 ]
 gothic_rules_s = [
