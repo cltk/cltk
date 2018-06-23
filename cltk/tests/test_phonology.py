@@ -494,7 +494,7 @@ class TestSequenceFunctions(unittest.TestCase):
         tr = ut.Transcriber(gothic.DIPHTHONGS_IPA,
                             gothic.DIPHTHONGS_IPA_class, gothic.IPA_class, gothic.gothic_rules)
         transcribed_sentence = tr.main(example_sentence)
-        target = "[anastoːdiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs gudis]"
+        target = "[anastoːðiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs guðis]"
         self.assertEqual(target, transcribed_sentence)
         
     def test_utils(self):
