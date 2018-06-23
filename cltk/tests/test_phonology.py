@@ -523,6 +523,8 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_rule2_utils(self):
         k = ut.Consonant("velar", "stop", False, "k", False)
         a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
         rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
         pos = ut.Position("inner", k, a)
         self.assertEqual(rule.can_apply(pos), False)
@@ -530,6 +532,8 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_rule33_utils(self):
         s = ut.Consonant("alveolar", "frictative", False, "s", False)
         a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
         rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
         pos = ut.Position("inner", a, s)
         self.assertEqual(rule.can_apply(pos), False)
