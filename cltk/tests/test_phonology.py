@@ -11,6 +11,7 @@ from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology import utils as ut
 import unittest
 
 
@@ -485,6 +486,231 @@ class TestSequenceFunctions(unittest.TestCase):
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
+
+    def test_utils(self):
+        # definition of a Vowel
+        a = ut.Vowel("open", "front", False, "short", "a")
+        self.assertListEqual([a.ipar, a.backness, a.height, a.length, a.rounded],
+                             ["a", "front", "open", "short", False])
+
+    def test_vowel_lengthening_utils(self):
+        # how lengthen works
+        a = ut.Vowel("open", "front", False, "short", "a")
+        aa = a.lengthen()
+        self.assertEqual(aa.ipar, "aː")
+
+    def test_consonant_utils(self):
+        # example of a Consonant
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        self.assertListEqual([b.ipar, b.manner, b.place, b.voiced, b.geminate], ["b", "stop", "bilabial", True, False])
+
+    def test_add_consonants_utils(self):
+        # This is how Consonant instances can be added to each other
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        x = k+s
+        self.assertEqual(x.ipar, "ks")
+
+    def test_rule1_utils(self):
+        # examples of Rule instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
+        pos = ut.Position("inner", a, a)
+        self.assertEqual(rule.can_apply(pos), True)
+
+    def test_rule2_utils(self):
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
+        pos = ut.Position("inner", k, a)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule33_utils(self):
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
+        pos = ut.Position("inner", a, s)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule4_utils(self):
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                            [ut.AbstractConsonant(voiced=True)]), th, dh)
+        pos = ut.Position("inner", a, a)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule5_utils(self):
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
+        pos = ut.Position("inner", k, a)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule6_utils(self):
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        pos = ut.Position("inner", a, s)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule7_utils(self):
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
+        pos = ut.Position("inner", b, b)
+        self.assertEqual(rule.can_apply(pos), True)
+
+    def test_rule_conversion1(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        # examples of ipa_to_regular_expression and from_regular_expression methods
+        ru1 = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=False)],
+                                          [ut.AbstractConsonant(voiced=True)]), th, th)
+        self.assertEqual(ru1.ipa_to_regular_expression(PHONOLOGY), "(?<=[fkpstθ])θ(?=[bdgvð])")
+
+    def test_rule_conversion2(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+        ru2 = ut.Rule(ut.AbstractPosition("first", None, [ut.AbstractConsonant(place="velar")]), p, k)
+        self.assertEqual(ru2.ipa_to_regular_expression(PHONOLOGY), "^p(?=[gk])")
+
+    def test_rule_conversion3(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        ru3 = ut.Rule(ut.AbstractPosition("last", [ut.AbstractConsonant(manner="stop")], None), dh, th)
+        self.assertEqual(ru3.ipa_to_regular_expression(PHONOLOGY), "(?<=[bdgkpt])ð$")
+
+    def test_rule_conversion4(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        IPA_class = {
+            "a": a,
+            "e": e,
+            "i": i,
+            "o": o,
+            "u": u,
+            "b": b,
+            "d": d,
+            "f": f,
+            "g": g,
+            "k": k,
+            "p": p,
+            "s": s,
+            "t": t,
+            "v": v,
+            "þ": th,
+            "ð": dh,
+        }
+        # from regular expression to Rule
+        example = r'(?<=[aeiou])f(?=[aeiou])'
+        ru4 = ut.Rule.from_regular_expression(example, "v", IPA_class)
+        self.assertEqual(ru4.ipa_to_regular_expression(PHONOLOGY), example)
+
+        # pattern3 = ru3.ipa_to_regular_expression(PHONOLOGY)
+        # print(ut.Rule.from_regular_expression(pattern3, ru3.temp_sound.ipar, IPA_class))
 
 
 if __name__ == '__main__':
