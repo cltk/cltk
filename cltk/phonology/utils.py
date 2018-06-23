@@ -1,5 +1,5 @@
 """
-Class which would eventually be used by old_norse.transcription.py, gothic.transcription.py, old_swedish.transciption.py
+Factorize code
 """
 
 import re
@@ -82,6 +82,19 @@ class Consonant(AbstractConsonant):
         else:
             return False
 
+    def match_list(self, abstract_consonant_list):
+        if type(abstract_consonant_list) == list:
+            if len(abstract_consonant_list) == 0:
+                return True
+            else:
+                res = False
+                for ac in abstract_consonant_list:
+                    if isinstance(ac, AbstractConsonant):
+                        res = self.match(ac) or res
+                return res
+        else:
+            return False
+
     def lengthen(self):
         """
 
@@ -95,8 +108,14 @@ class Consonant(AbstractConsonant):
 
         return Consonant(self.place, self.manner, self.voiced, ipar, geminate)
 
+    def to_abstract(self):
+        return AbstractConsonant(self.place, self.manner, self.voiced, self.ipar, self.geminate)
+
     def __add__(self, other):
         return Consonant(self.place, self.manner, self.voiced, self.ipar + other.ipar, False)
+
+    def __str__(self):
+        return self.ipar
 
 
 # Vowels
@@ -179,6 +198,22 @@ class Vowel(AbstractVowel):
         else:
             return False
 
+    def match_list(self, abstract_vowel_list):
+        if type(abstract_vowel_list) == list:
+            if len(abstract_vowel_list) == 0:
+                return True
+            else:
+                res = False
+                for av in abstract_vowel_list:
+                    if isinstance(av, AbstractVowel):
+                        res = self.match(av) or res
+                return res
+        else:
+            return False
+
+    def to_abstract(self):
+        return AbstractVowel(self.height, self.backness, self.rounded, self.length, self.ipar)
+
     # def overlengthen(self):
     #     self.length = "overlong"
 
@@ -187,6 +222,9 @@ class Vowel(AbstractVowel):
 
     def u_umlaut(self):
         pass
+
+    def __str__(self):
+        return self.ipar
 
 
 POSITIONS = ["first", "inner", "last"]
@@ -199,12 +237,45 @@ class AbstractPosition:
     """
     def __init__(self, position, before, after):
         assert position in POSITIONS
+        
         self.position = position
         # assert isinstance(before, AbstractConsonant) or isinstance(before, AbstractVowel)
         self.before = before
         # assert isinstance(after, AbstractConsonant) or isinstance(after, AbstractVowel)
         self.after = after
 
+    def __eq__(self, other):
+        assert isinstance(other, AbstractPosition)
+        return self.position == other.position and self.before == other.before and self.after == other.after
+
+    def same_place(self, other):
+        assert isinstance(other, AbstractPosition)
+        return self.position == other.position
+
+    def __add__(self, other):
+        assert self.position == other.position
+        if self.before is None and other.before:
+            before = None
+        elif self.before is None:
+            before = other.before
+        elif other.before is None:
+            before = self.before
+        else:
+            before = []
+            before.extend(self.before)
+            before.extend(other.before)
+        if self.after is None and other.after is None:
+            after = None
+        elif self.after is None:
+            after = other.after
+        elif other.after is None:
+            after = self.after
+        else:
+            after = []
+            after.extend(self.after)
+            after.extend(other.after)
+        return AbstractPosition(self.position, before, after)
+      
 
 class Position:
     """
@@ -226,14 +297,14 @@ class Position:
         """
         assert isinstance(abstract_pos, AbstractPosition)
         if self.before is not None and self.after is not None:
-            return self.position == abstract_pos.position and self.before.match(abstract_pos.before) and \
-               self.after.match(abstract_pos.after)
+            return self.position == abstract_pos.position and self.before.match_list(abstract_pos.before) and \
+               self.after.match_list(abstract_pos.after)
         elif self.before is None and self.after is None:
                 return self.position == abstract_pos.position
         elif self.before is None:
-            return self.position == abstract_pos.position and self.after.match(abstract_pos.after)
+            return self.position == abstract_pos.position and self.after.match_list(abstract_pos.after)
         else:
-            return self.position == abstract_pos.position and self.before.match(abstract_pos.before)
+            return self.position == abstract_pos.position and self.before.match_list(abstract_pos.before)
 
 
 class Rule:
@@ -255,7 +326,7 @@ class Rule:
         assert isinstance(estimated_sound, Vowel) or isinstance(estimated_sound, Consonant)
         self.estimated_sound = estimated_sound
 
-    def apply(self, current_position: Position) -> bool:
+    def can_apply(self, current_position: Position) -> bool:
         """
         A Rule is applied if and only if a letter has a direct environment (the sound just before and the sound just
         after) which matches the environment of Rule
@@ -264,6 +335,82 @@ class Rule:
         """
         return current_position.real_sound_match_abstract_sound(self.position)
 
+    def ipa_to_regular_expression(self, phonology):
+        """
+
+        :param phonology: list of Vowel or Consonant instances
+        :return: pattern which can be the first argument of re.sub
+        """
+        if self.position.position == "first":
+            re_before = r"^"
+        elif self.position.before is None:
+            re_before = r""
+        else:
+            re_before = r"(?<=["
+            for phoneme in phonology:
+                if phoneme.match_list(self.position.before):
+                    re_before += phoneme.ipar
+            re_before += r"])"
+
+        if self.position.position == "last":
+            re_after = r"$"
+        elif self.position.after is None:
+            re_after = r""
+        else:
+            re_after = r"(?=["
+            for phoneme in phonology:
+                if phoneme.match_list(self.position.after):
+                    re_after += phoneme.ipar
+            re_after += "])"
+        return re_before+self.temp_sound.ipar+re_after
+
+    @staticmethod
+    def from_regular_expression(re_rule, estimated_sound, ipa_class):
+        """
+
+        :param re_rule: pattern (first argument of re.sub)
+        :param estimated_sound: an IPA character (second argument of re.sub)
+        :param ipa_class: dict whose keys are IPA characters and values are Vowel or Consonant instances
+        :return: corresponding Rule instance
+        """
+        assert len(re_rule) > 0
+        if re_rule[0] == "^":
+            place = "first"
+        elif re_rule[-1] == "$":
+            place = "last"
+        else:
+            place = "inner"
+
+        before_pattern = r"(?<=\(\?\<\=\[)\w*"
+        core_pattern = r"(?<=\))\w(?=\(\?\=)|(?<=\^)\w(?=\(\?\=)|(?<=\))\w(?=\$)"
+        after_pattern = r"(?<=\(\?\=\[)\w*"
+        before_search = re.search(before_pattern, re_rule)
+        core_search = re.search(core_pattern, re_rule)
+        after_search = re.search(after_pattern, re_rule)
+        if before_search is None:
+            before = None
+        else:
+            before = [ipa_class[ipar].to_abstract() for ipar in before_search.group(0)]
+        if core_search is not None:
+            core = ipa_class[core_search.group(0)]
+        else:
+            logger.error("No core")
+            raise ValueError
+        if after_search is None:
+            after = None
+        else:
+            after = [ipa_class[ipar].to_abstract() for ipar in after_search.group(0)]
+        abstract_position = AbstractPosition(place, before, after)
+        return Rule(abstract_position, core, ipa_class[estimated_sound])
+
+    def __add__(self, other):
+        assert isinstance(other, Rule)
+        assert self.position.same_place(other.position)
+        assert self.temp_sound.ipar == other.temp_sound.ipar
+        assert self.estimated_sound.ipar == other.estimated_sound.ipar
+        position = self.position + other.position
+        return Rule(position, self.temp_sound, self.estimated_sound)
+      
 
 class Transcriber:
     """
@@ -339,7 +486,7 @@ class Transcriber:
                 found = False
                 for rule in self.rules:
                     if rule.temp_sound.ipar == first_result[i].ipar:
-                        if rule.apply(current_pos):
+                        if rule.can_apply(current_pos):
                             res.append(rule.estimated_sound.ipar)
                             found = True
                             break
