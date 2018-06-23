@@ -8,7 +8,7 @@ ASCII Encoding
 
 Using the ``Word`` class, you can easily convert a string to its ASCII encoding, essentialy striping it of its diacritics.
 
- .. code-block:: python
+.. code-block:: python
   
   In[1]: from cltk.phonology.middle_high_german.transcription import Word
     
@@ -50,6 +50,25 @@ The stemmer can also take an user-defined dictionary as an optional parameter.
    Out[5]: ['swaȥ', 'kriuchet', 'unde', 'fliuget', 'und', 'bein', 'zer', 'erden', 'biegen']
 
 
+Syllabification
+===============
+
+A syllabifier is contained in the ``Word`` module:
+
+.. code-block:: python
+
+    In [1]: from cltk.phonology.middle_high_gemran import Word
+    
+    In [2]: Word('entslâfen').syllabify()
+    Out[2]: ['ent', 'slâ', 'fen']
+
+Note that the syllabifier is case-insensitive:
+
+.. code-block:: python
+
+    In [3]: Word('Fröude').syllabify()
+    Out[3]: ['fröu', 'de']
+    
 Stopword Filtering
 ==================
 
