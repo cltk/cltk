@@ -4,7 +4,7 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
-from cltk.phonology.utils import Vowel, Consonant, Rule, AbstractPosition, AbstractVowel, AbstractConsonant
+from cltk.phonology.utils import *
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
@@ -154,25 +154,34 @@ GEMINATE_CONSONANTS = {
 
 # Some Old Norse rules
 # The first rule which matches is retained
-rule_th = [Rule(AbstractPosition("first", None, None), th, th),
-           Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=True)]), th, th),
-           Rule(AbstractPosition("inner", [AbstractConsonant(voiced=True)], None), th, th),
-           Rule(AbstractPosition("inner", None, None), th, dh),
-           Rule(AbstractPosition("last", None, None), th, dh)]
+rule_th = [Rule(AbstractPosition("first", None, []), th, th),
+           Rule(AbstractPosition("inner", [], [AbstractConsonant(voiced=True)]), th, th),
+           Rule(AbstractPosition("inner", [AbstractConsonant(voiced=True)], []), th, th),
+           Rule(AbstractPosition("inner", [], []), th, dh),
+           Rule(AbstractPosition("last", [], None), th, dh)]
 
-rule_f = [Rule(AbstractPosition("first", None, None), f, f),
-          Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=False)]), f, f),
-          Rule(AbstractPosition("inner", [AbstractConsonant(voiced=False)], None), f, f),
-          Rule(AbstractPosition("inner", None, None), f, v),
-          Rule(AbstractPosition("last", None, None), f, v)]
+rule_f = [Rule(AbstractPosition("first", None, []), f, f),
+          Rule(AbstractPosition("inner", [], [AbstractConsonant(voiced=False)]), f, f),
+          Rule(AbstractPosition("inner", [AbstractConsonant(voiced=False)], []), f, f),
+          Rule(AbstractPosition("inner", [], []), f, v),
+          Rule(AbstractPosition("last", [], None), f, v)]
 
 rule_g = [Rule(AbstractPosition("first", None, None), g, g),
           Rule(AbstractPosition("inner", [n.to_abstract()], None), g, g),
           Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=False)]), g, k),
-          Rule(AbstractPosition("inner", None, None), g, gh),
-          Rule(AbstractPosition("last", None, None), g, gh)]
+          Rule(AbstractPosition("inner", [], []), g, gh),
+          Rule(AbstractPosition("last", [], None), g, gh)]
 
 old_norse_rules = []
 old_norse_rules.extend(rule_f)
 old_norse_rules.extend(rule_g)
 old_norse_rules.extend(rule_th)
+
+if __name__ == "__main__":
+    example_sentence = "aga."
+
+    tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
+    transcribed_sentence = tr.main(example_sentence)
+    print(transcribed_sentence)
+    # target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
+    #          "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
