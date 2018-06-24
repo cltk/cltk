@@ -184,14 +184,3 @@ rule_th = [Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]),
 
 old_swedish_rules = []
 old_swedish_rules.extend(rule_th)
-
-
-if __name__ == "__main__":
-    example_sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær. " \
-                       "at hun ær mæth barnæ. tha skal hun sitiæ j eghen bægiæ thera uskifti tiuku uku " \
-                       "oc til se mæth sinæ wæriande. ær hun ej mæth barne. oc ær thær gothæ quinnæ witni til." \
-                       " tha skiftæs eghn theræ. hus oc bolfæ oc köpæ iorth. halft hænnæ. oc halft bondæns arwm. " \
-                       "annær gangæ til rættæ aruæ."
-    tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_swedish_rules)
-    transcribed_sentence = tr.main(example_sentence)
-    print(transcribed_sentence)
