@@ -489,11 +489,12 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(target, transcribed_sentence)
 
     def test_old_swedish(self):
-        sentence = "a"
+        sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
         tr = ut.Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
                             old_swedish.old_swedish_rules)
         transcribed_sentence = tr.main(sentence)
-        self.assertEqual("[a]", transcribed_sentence)
+        self.assertEqual("[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
+                         transcribed_sentence)
         
     def test_utils(self):
         # definition of a Vowel
@@ -719,6 +720,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         # pattern3 = ru3.ipa_to_regular_expression(PHONOLOGY)
         # print(ut.Rule.from_regular_expression(pattern3, ru3.temp_sound.ipar, IPA_class))
+
 
 if __name__ == '__main__':
     unittest.main()
