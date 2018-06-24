@@ -11,6 +11,7 @@ from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology import utils as ut
 import unittest
 
@@ -487,6 +488,14 @@ class TestSequenceFunctions(unittest.TestCase):
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
 
+    def test_old_swedish(self):
+        sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
+        tr = ut.Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
+                            old_swedish.old_swedish_rules)
+        transcribed_sentence = tr.main(sentence)
+        self.assertEqual("[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
+                         transcribed_sentence)
+        
     def test_utils(self):
         # definition of a Vowel
         a = ut.Vowel("open", "front", False, "short", "a")
