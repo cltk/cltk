@@ -81,7 +81,7 @@ class Consonant(AbstractConsonant):
             return True
         else:
             return False
-
+          
     def match_list(self, abstract_consonant_list):
         if type(abstract_consonant_list) == list:
             if len(abstract_consonant_list) == 0:
@@ -116,7 +116,7 @@ class Consonant(AbstractConsonant):
 
     def __str__(self):
         return self.ipar
-
+      
 
 # Vowels
 HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
