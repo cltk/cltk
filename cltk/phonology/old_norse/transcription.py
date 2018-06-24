@@ -176,12 +176,3 @@ old_norse_rules = []
 old_norse_rules.extend(rule_f)
 old_norse_rules.extend(rule_g)
 old_norse_rules.extend(rule_th)
-
-if __name__ == "__main__":
-    example_sentence = "aga."
-
-    tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
-    transcribed_sentence = tr.main(example_sentence)
-    print(transcribed_sentence)
-    # target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
-    #          "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
