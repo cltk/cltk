@@ -275,7 +275,7 @@ class AbstractPosition:
             after.extend(self.after)
             after.extend(other.after)
         return AbstractPosition(self.position, before, after)
-
+      
 
 class Position:
     """
@@ -410,7 +410,7 @@ class Rule:
         assert self.estimated_sound.ipar == other.estimated_sound.ipar
         position = self.position + other.position
         return Rule(position, self.temp_sound, self.estimated_sound)
-
+      
 
 class Transcriber:
     """
