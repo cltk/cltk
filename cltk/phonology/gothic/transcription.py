@@ -35,6 +35,7 @@ etc
 
 from cltk.phonology.utils import *
 
+__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
 a = Vowel("open", "front", False, "short", "a")
 long_a = a.lengthen()
