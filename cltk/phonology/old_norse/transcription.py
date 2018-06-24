@@ -4,7 +4,7 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
-from cltk.phonology.utils import Vowel, Consonant, Rule, AbstractPosition, AbstractVowel, AbstractConsonant, Transcriber
+from cltk.phonology.utils import Vowel, Consonant, Rule, AbstractPosition, AbstractVowel, AbstractConsonant
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
@@ -155,20 +155,20 @@ GEMINATE_CONSONANTS = {
 # Some Old Norse rules
 # The first rule which matches is retained
 rule_th = [Rule(AbstractPosition("first", None, None), th, th),
-           Rule(AbstractPosition("inner", None, AbstractConsonant(voiced=True)), th, th),
-           Rule(AbstractPosition("inner", AbstractConsonant(voiced=True), None), th, th),
+           Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=True)]), th, th),
+           Rule(AbstractPosition("inner", [AbstractConsonant(voiced=True)], None), th, th),
            Rule(AbstractPosition("inner", None, None), th, dh),
            Rule(AbstractPosition("last", None, None), th, dh)]
 
-
 rule_f = [Rule(AbstractPosition("first", None, None), f, f),
-          Rule(AbstractPosition("inner", None, AbstractConsonant(voiced=False)), f, f),
-          Rule(AbstractPosition("inner", AbstractConsonant(voiced=False), None), f, f),
+          Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=False)]), f, f),
+          Rule(AbstractPosition("inner", [AbstractConsonant(voiced=False)], None), f, f),
           Rule(AbstractPosition("inner", None, None), f, v),
           Rule(AbstractPosition("last", None, None), f, v)]
+
 rule_g = [Rule(AbstractPosition("first", None, None), g, g),
-          Rule(AbstractPosition("inner", n, None), g, g),
-          Rule(AbstractPosition("inner", None, AbstractConsonant(voiced=False)), g, k),
+          Rule(AbstractPosition("inner", [n.to_abstract()], None), g, g),
+          Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=False)]), g, k),
           Rule(AbstractPosition("inner", None, None), g, gh),
           Rule(AbstractPosition("last", None, None), g, gh)]
 
