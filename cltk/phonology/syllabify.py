@@ -10,7 +10,7 @@ LOG.addHandler(logging.NullHandler())
 
 class Syllabifier:
 
-    def __init__(self, low_vowels='', mid_vowels='', high_vowels='', flaps='', laterals='', nasals='', fricatives='', plosives=''):
+    def __init__(self, low_vowels=[], mid_vowels=[], high_vowels=[], flaps=[], laterals=[], nasals=[], fricatives=[], plosives=[]):
 
         self.low_vowels = low_vowels
         self.mid_vowels = mid_vowels
@@ -59,7 +59,7 @@ class Syllabifier:
 
             >>> fricatives = ['f']
 
-            >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives = fricatives)
+            >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives=fricatives)
 
             >>> s.syllabify("feminarum")
             ['fe', 'mi', 'na', 'rum']
