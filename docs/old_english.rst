@@ -78,6 +78,28 @@ For converting to ASCII, you can call ``ascii_encoding``
    In [4]: Word('ƿeorðunga').ascii_encoding()
    Out[4]: 'weordunga'
 
+Transliteration
+===============
+
+Anglo-Saxon runic transliteration
+---------------------------------
+
+You can call the runic transliteration module for converting runic script into latin characters:
+
+.. code-block:: python
+   
+   In [1]: from cltk.phonology.old_english.phonology import Transliterate as t
+   
+   In [2]: t.transliterate('ᚩᚠᛏ ᛋᚳᚣᛚᛞ ᛋᚳᛖᚠᛁᛝ ᛋᚳᛠᚦᛖᚾᚪ ᚦᚱᛠᛏᚢᛗ', 'Latin')
+   Out[2]: 'oft scyld scefin sceathena threatum'
+
+The reverse process is also possible:
+
+.. code-block:: python
+   
+   In [3]: t.transliterate('Hƿæt Ƿe Gardena in geardagum', 'Anglo-Saxon')
+   Out[3]: 'ᚻᚹᚫᛏ ᚹᛖ ᚷᚪᚱᛞᛖᚾᚪ ᛁᚾ ᚷᛠᚱᛞᚪᚷᚢᛗ'
+
 Swadesh
 =======
 The corpus module has a class for generating a Swadesh list for Old English.

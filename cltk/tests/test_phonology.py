@@ -10,7 +10,12 @@ from cltk.phonology.latin import transcription as lat
 from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.akkadian import stress as AkkadianStress
+from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.gothic import transcription as gothic
+from cltk.phonology.old_swedish import transcription as old_swedish
+from cltk.phonology import utils as ut
 import unittest
+
 
 class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
@@ -20,10 +25,10 @@ class TestSequenceFunctions(unittest.TestCase):
         """Test the Word class's `_refresh` method in Greek."""
         test_word = grc.Word("pʰór.miŋks", grc.GREEK["Attic"]["Probert"])
         test_word._refresh()
-        contexts = [test_word.phones[0].left.ipa, 
+        contexts = [test_word.phones[0].left.ipa,
             test_word.phones[1].left.ipa, test_word.phones[1].right.ipa,
             test_word.phones[-1].right.ipa]
-        target = [grc.Phone("#").ipa, grc.Phone("pʰ").ipa, 
+        target = [grc.Phone("#").ipa, grc.Phone("pʰ").ipa,
             grc.Phone("r").ipa, grc.Phone("#").ipa]
         self.assertEqual(contexts, target)
 
@@ -35,7 +40,7 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = grc.Word("syrrɑ́ptɔː", grc.GREEK["Attic"]["Probert"])
         condition_2._refresh()
         condition_2._r_devoice()
-        outputs = [''.join(p.ipa for p in condition_1.phones), 
+        outputs = [''.join(p.ipa for p in condition_1.phones),
                     ''.join(p.ipa for p in condition_2.phones)]
         target = [unicodedata.normalize('NFC', y) for y in
                     ["r̥ɑ́ks", "syrr̥ɑ́ptɔː"]]
@@ -58,9 +63,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = grc.Word("ɑ́ggelos", grc.GREEK["Attic"]["Probert"])
         condition_2._refresh()
         condition_2._nasal_place_assimilation()
-        outputs = [''.join([p.ipa for p in condition_1.phones]), 
+        outputs = [''.join([p.ipa for p in condition_1.phones]),
                     ''.join([p.ipa for p in condition_2.phones])]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["pʰórmiŋks", "ɑ́ŋgelos"]]
         self.assertEqual(outputs, target)
 
@@ -75,15 +80,15 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_greek_alternate(self):
         """Test the Word class's `_alternate` in Greek."""
-        raw_inputs = ["rɑ́ks", "syrrɑ́ptɔː", "ẹːrgɑsménon", 
+        raw_inputs = ["rɑ́ks", "syrrɑ́ptɔː", "ẹːrgɑsménon",
                         "pʰórmigks", "ɑ́ggelos", "gignɔ́ːskɔː"]
         outputs = []
         for i in raw_inputs:
             w = grc.Word(i, grc.GREEK["Attic"]["Probert"])
             w._alternate()
             outputs.append(''.join([p.ipa for p in w.phones]))
-        target = [unicodedata.normalize('NFC', y) for y in ["r̥ɑ́ks", 
-                    "syrr̥ɑ́ptɔː", "ẹːrgɑzménon", 
+        target = [unicodedata.normalize('NFC', y) for y in ["r̥ɑ́ks",
+                    "syrr̥ɑ́ptɔː", "ẹːrgɑzménon",
                     "pʰórmiŋks", "ɑ́ŋgelos", "giŋnɔ́ːskɔː"]]
         self.assertEqual(outputs, target)
 
@@ -94,10 +99,10 @@ class TestSequenceFunctions(unittest.TestCase):
         for i in raw_inputs:
             w = grc.Word(i, grc.GREEK["Attic"]["Probert"])
             w._alternate()
-            outputs.append([''.join([p.ipa for l in n for p in l]) 
+            outputs.append([''.join([p.ipa for l in n for p in l])
                 for n in w._syllabify()])
-        target = [[unicodedata.normalize('NFC', s) for s in y] for y in 
-            [["lẹ́ː", "pẹː"], ["píp", "tɔː"], 
+        target = [[unicodedata.normalize('NFC', s) for s in y] for y in
+            [["lẹ́ː", "pẹː"], ["píp", "tɔː"],
             ["té", "knọː"], ["skɛ̂ːp", "tron"]]]
         self.assertEqual(outputs, target)
 
@@ -114,10 +119,10 @@ class TestSequenceFunctions(unittest.TestCase):
         inputs = ["ἄ", "Φ", "ῷ", "ὑ", "ϊ", "ῑ"]
         transcriber = grc.Transcriber("Attic", "Probert")
         outputs = [transcriber._parse_diacritics(char) for char in inputs]
-        target = [unicodedata.normalize('NFC', c) for c in 
-            ["α/" + grc.chars.ACUTE + "//", 
-            "φ///", "ω/" + grc.chars.CIRCUMFLEX + "/" 
-            + grc.chars.IOTA_SUBSCRIPT + "/", "h///υ///", 
+        target = [unicodedata.normalize('NFC', c) for c in
+            ["α/" + grc.chars.ACUTE + "//",
+            "φ///", "ω/" + grc.chars.CIRCUMFLEX + "/"
+            + grc.chars.IOTA_SUBSCRIPT + "/", "h///υ///",
             "ι//" + grc.chars.DIAERESIS + "/", "ι//" + grc.chars.LONG + "/"]]
         self.assertEqual(outputs, target)
 
@@ -126,19 +131,19 @@ class TestSequenceFunctions(unittest.TestCase):
         inputs = ["λείπειν", "ὕπνῳ"]
         transcriber = grc.Transcriber("Attic", "Probert")
         outputs = [transcriber._prep_text(w) for w in inputs]
-        target = [[('λ', '', ''), ('ει', '́', ''), ('π', '', ''), 
-                        ('ει', '', ''), ('ν', '', '')], 
-                    [('h', '', ''), ('υ', '́', ''), ('π', '', ''), 
+        target = [[('λ', '', ''), ('ει', '́', ''), ('π', '', ''),
+                        ('ει', '', ''), ('ν', '', '')],
+                    [('h', '', ''), ('υ', '́', ''), ('π', '', ''),
                         ('ν', '', ''), ('ωι', '', '̄')]]
         self.assertEqual(outputs, target)
 
     def test_transcriber_probert(self):
         """Test Attic Greek IPA transcription via Probert reconstruction."""
         transcriber = grc.Transcriber("Attic", "Probert").transcribe
-        transcription = [transcriber(x) for x in 
-            [unicodedata.normalize('NFC', y) for y in 
+        transcription = [transcriber(x) for x in
+            [unicodedata.normalize('NFC', y) for y in
             ["ῥάξ", "εἰργασμένον", "φόρμιγξ", "γιγνώσκω"]]]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
             ["[r̥ɑ́ks]", "[ẹːr.gɑz.mé.non]", "[pʰór.miŋks]", "[giŋ.nɔ́ːs.kɔː]"]]
         self.assertEqual(transcription, target)
 
@@ -148,10 +153,10 @@ class TestSequenceFunctions(unittest.TestCase):
         """Test the Word class's `_refresh` method in Latin."""
         test_word = lat.Word("ɔmn̪ɪs", lat.LATIN["Classical"]["Allen"])
         test_word._refresh()
-        contexts = [test_word.phones[0].left.ipa, 
+        contexts = [test_word.phones[0].left.ipa,
             test_word.phones[1].left.ipa, test_word.phones[1].right.ipa,
             test_word.phones[-1].right.ipa]
-        target = [grc.Phone("#").ipa, grc.Phone("ɔ").ipa, 
+        target = [grc.Phone("#").ipa, grc.Phone("ɔ").ipa,
             grc.Phone("n̪").ipa, grc.Phone("#").ipa]
         self.assertEqual(contexts, target)
 
@@ -199,9 +204,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = lat.Word("sʊbt̪ʊs", lat.LATIN["Classical"]["Allen"])
         condition_2._refresh()
         condition_2._b_devoice()
-        outputs = [''.join([p.ipa for p in condition_1.phones]), 
+        outputs = [''.join([p.ipa for p in condition_1.phones]),
                     ''.join([p.ipa for p in condition_2.phones])]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["aps", "sʊpt̪ʊs"]]
         self.assertEqual(outputs, target)
 
@@ -240,9 +245,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = lat.Word("kɔn̪fɛkiː", lat.LATIN["Classical"]["Allen"])
         condition_2._refresh()
         condition_2._ns_nf_lengthening()
-        outputs = [''.join([p.ipa for p in condition_1.phones]), 
+        outputs = [''.join([p.ipa for p in condition_1.phones]),
                     ''.join([p.ipa for p in condition_2.phones])]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["kɔːn̪sɔl", "kɔːn̪fɛkiː"]]
         self.assertEqual(outputs, target)
 
@@ -254,9 +259,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = lat.Word("kɔːn̪sɔl", lat.LATIN["Classical"]["Allen"])
         condition_2._refresh()
         condition_2._l_darken()
-        outputs = [''.join([p.ipa for p in condition_1.phones]), 
+        outputs = [''.join([p.ipa for p in condition_1.phones]),
                     ''.join([p.ipa for p in condition_2.phones])]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["bɛɫgaj", "kɔːn̪sɔɫ"]]
         self.assertEqual(outputs, target)
 
@@ -268,9 +273,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = lat.Word("amaːzɔn", lat.LATIN["Classical"]["Allen"])
         condition_2._refresh()
         condition_2._j_z_doubling()
-        outputs = [''.join([p.ipa for p in condition_1.phones]), 
+        outputs = [''.join([p.ipa for p in condition_1.phones]),
                     ''.join([p.ipa for p in condition_2.phones])]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["t̪roːjjaj", "amaːzzɔn"]]
         self.assertEqual(outputs, target)
 
@@ -281,7 +286,7 @@ class TestSequenceFunctions(unittest.TestCase):
         for w in conditions:
             w._long_vowel_catcher()
         outputs = [''.join([p.ipa for p in c.phones]) for c in conditions]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["iː", 'uː', 'eː', 'ĩː', 'ũː', 'ẽː']]
         self.assertEqual(outputs, target)
 
@@ -293,9 +298,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2 = lat.Word("mɛa", lat.LATIN["Classical"]["Allen"])
         condition_2._refresh()
         condition_2._e_i_closer_before_vowel()
-        outputs = [''.join([p.ipa for p in condition_1.phones]), 
+        outputs = [''.join([p.ipa for p in condition_1.phones]),
                     ''.join([p.ipa for p in condition_2.phones])]
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["gaɫlɪ̣a", "mɛ̣a"]]
         self.assertEqual(outputs, target)
 
@@ -316,7 +321,7 @@ class TestSequenceFunctions(unittest.TestCase):
             w = lat.Word(i, lat.LATIN["Classical"]["Allen"])
             w._alternate()
             outputs.append(''.join([p.ipa for p in w.phones]))
-        target = [unicodedata.normalize('NFC', y) for y in 
+        target = [unicodedata.normalize('NFC', y) for y in
                     ["gaɫlɪ̣ja", "d̪iːwiːsa", "kʷaːrũː"]]
         self.assertEqual(outputs, target)
 
@@ -327,24 +332,24 @@ class TestSequenceFunctions(unittest.TestCase):
         for i in raw_inputs:
             w = lat.Word(i, lat.LATIN["Classical"]["Allen"])
             w._syllabify()
-            outputs.append([''.join([p.ipa for l in n for p in l]) 
+            outputs.append([''.join([p.ipa for l in n for p in l])
                 for n in w._syllabify()])
-        target = [[unicodedata.normalize('NFC', s) for s in y] for y in 
-            [["ar", "ma"], ["ka", "n̪oː"], 
+        target = [[unicodedata.normalize('NFC', s) for s in y] for y in
+            [["ar", "ma"], ["ka", "n̪oː"],
             ["t̪roːj", "jaj"], ["gaɫ", "lɪ̣", "ja"]]]
         self.assertEqual(outputs, target)
 
     def test_latin_print_ipa(self):
         """Test the Word class's method `_print_ipa` in Latin."""
-        inputs = [lat.Word(w, lat.LATIN["Classical"]["Allen"]) for w in 
+        inputs = [lat.Word(w, lat.LATIN["Classical"]["Allen"]) for w in
                     ["gaɫlɪ̣ja", "d̪iːwiːsa"]]
         output = [[w._print_ipa(syllabify=False, accentuate=False),
-                    w._print_ipa(syllabify=True, accentuate=False), 
+                    w._print_ipa(syllabify=True, accentuate=False),
                     w._print_ipa(syllabify=True, accentuate=True)]
                      for w in inputs]
-        target = [[unicodedata.normalize('NFC', x) for x in 
+        target = [[unicodedata.normalize('NFC', x) for x in
                         ["gaɫlɪ̣ja", "gaɫ.lɪ̣.ja", "'gaɫ.lɪ̣.ja"]],
-                    [unicodedata.normalize('NFC', x) for x in 
+                    [unicodedata.normalize('NFC', x) for x in
                         ["d̪iːwiːsa", "d̪iː.wiː.sa", "d̪iː.'wiː.sa"]]]
         self.assertEqual(output, target)
 
@@ -353,8 +358,8 @@ class TestSequenceFunctions(unittest.TestCase):
         inputs = ["a", "ū", "ï"]
         transcriber = lat.Transcriber("Classical", "Allen")
         outputs = [transcriber._parse_diacritics(char) for char in inputs]
-        target = [unicodedata.normalize('NFC', c) for c in 
-            ["a///", "u/" + lat.chars.LONG + "//", 
+        target = [unicodedata.normalize('NFC', c) for c in
+            ["a///", "u/" + lat.chars.LONG + "//",
                 "i//" + lat.chars.DIAERESIS + "/"]]
         self.assertEqual(outputs, target)
 
@@ -363,22 +368,22 @@ class TestSequenceFunctions(unittest.TestCase):
         inputs = ["ūnam", "qui", "Belgae"]
         transcriber = lat.Transcriber("Classical", "Allen")
         outputs = [transcriber._prep_text(w) for w in inputs]
-        target = [[('u', '̄', ''), ('n', '', ''), ('a', '', ''), 
-                        ('m', '', '')], 
+        target = [[('u', '̄', ''), ('n', '', ''), ('a', '', ''),
+                        ('m', '', '')],
                     [('qu', '', ''), ('i', '', '')],
                     [('b', '', ''), ('e', '', ''), ('l', '', ''),
                     ('g', '', ''), ("ae", '', '')]]
         self.assertEqual(outputs, target)
 
     def test_transcriber_allen_without_macronizer(self):
-        """Test Classical Latin IPA transcription via Allen reconstruction,\ 
+        """Test Classical Latin IPA transcription via Allen reconstruction,\
          input pre-macronized."""
         transcriber = lat.Transcriber("Classical", "Allen").transcribe
-        transcription = [transcriber(x, macronize=False) for x in 
-            [unicodedata.normalize('NFC', y) for y in 
+        transcription = [transcriber(x, macronize=False) for x in
+            [unicodedata.normalize('NFC', y) for y in
             ["Trōiae", "Gallia", "dīuīsa", "ūnam", "incolunt", "Belgae"]]]
-        target = [unicodedata.normalize('NFC', y) for y in 
-            ["['t̪roːj.jaj]", "['gaɫ.lɪ̣.ja]", "[d̪iː.'wiː.sa]", 
+        target = [unicodedata.normalize('NFC', y) for y in
+            ["['t̪roːj.jaj]", "['gaɫ.lɪ̣.ja]", "[d̪iː.'wiː.sa]",
             "['uː.n̪ãː]", "['ɪŋ.kɔ.lʊn̪t̪]", "['bɛɫ.gaj]"]]
         self.assertEqual(transcription, target)
 
@@ -387,9 +392,9 @@ class TestSequenceFunctions(unittest.TestCase):
          with automatic macronization."""
         transcriber = lat.Transcriber("Classical", "Allen").transcribe
         transcription = transcriber(
-            "Quo usque tandem, O Catilina, abutere nostra patientia?", 
+            "Quo usque tandem, O Catilina, abutere nostra patientia?",
             macronize=True)
-        target = ("['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ" 
+        target = ("['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ"
             + " 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]")
         self.assertEqual(transcription, target)
 
@@ -427,7 +432,7 @@ class TestSequenceFunctions(unittest.TestCase):
         # from iso233-2 to arabic native script
         reverse = False
         assert AarabicTransliterate(mode,iso2332_string,ignore,reverse) == 'بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ'
-        
+
     def test_middle_high_german_transcriber(self):
         """
         Test MHG IPA transcriber
@@ -437,7 +442,7 @@ class TestSequenceFunctions(unittest.TestCase):
         transcription = [unicodedata.normalize('NFC',x) for x in transcriber(inputs)]
         target = [unicodedata.normalize('NFC',x) for x in '[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre?]']
         self.assertEqual(target,transcription)
-        
+
     def test_middle_high_german_soundex(self):
         """
         Test MHG Soundex Phonetic Index
@@ -445,9 +450,9 @@ class TestSequenceFunctions(unittest.TestCase):
         w1 = mhg.Word("krêatiure").phonetic_indexing(p="SE")
         w2 = mhg.Word("kreatur").phonetic_indexing(p="SE")
         target = ['K535','K535']
-        
+
         self.assertEqual([w1,w2], target)
-        
+
     def test_middle_high_german_ascii_encoding(self):
         """
         Test MHG ASCII encoder
@@ -455,12 +460,12 @@ class TestSequenceFunctions(unittest.TestCase):
         s1 = mhg.Word("vogellîn").ASCII_encoding()
         s2 = mhg.Word("vogellīn").ASCII_encoding()
         target = ['vogellin','vogellin']
-        
+
         self.assertEqual([s1,s2], target)
-        
+
     def test_middle_english_syllabify(self):
         """Test syllabification for middle english"""
-        
+
         words = ['marchall', 'content', 'thyne', 'greef', 'commaundyd']
 
         syllabified = [word_me(w).syllabify() for w in words]
@@ -472,8 +477,260 @@ class TestSequenceFunctions(unittest.TestCase):
         target_syllabified_str = ['mar.chall', 'con.tent', 'thyne', 'greef', 'com.mau.ndyd']
 
         assert syllabified_str == target_syllabified_str
+
+    def test_old_norse_transcriber(self):
+        example_sentence = "Almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og " \
+                           "síðast menn tvá, er ættir eru frá komnar, Adam ok Evu, ok fjölgaðist þeira kynslóð ok " \
+                           "dreifðist um heim allan."
+
+        tr = ont.Transcriber()
+        transcribed_sentence = tr.main(example_sentence, ont.old_norse_rules)
+        target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
+                 "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
+        self.assertEqual(target, transcribed_sentence)
+
+    def test_gothic_transcriber(self):
+        example_sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
+
+        tr = ut.Transcriber(gothic.DIPHTHONGS_IPA,
+                            gothic.DIPHTHONGS_IPA_class, gothic.IPA_class, gothic.gothic_rules)
+        transcribed_sentence = tr.main(example_sentence)
+        target = "[anastoːðiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs guðis]"
+        self.assertEqual(target, transcribed_sentence)
+
+    def test_old_swedish(self):
+        sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
+        tr = ut.Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
+                            old_swedish.old_swedish_rules)
+        transcribed_sentence = tr.main(sentence)
+        self.assertEqual("[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
+                         transcribed_sentence)
         
+    def test_utils(self):
+        # definition of a Vowel
+        a = ut.Vowel("open", "front", False, "short", "a")
+        self.assertListEqual([a.ipar, a.backness, a.height, a.length, a.rounded],
+                             ["a", "front", "open", "short", False])
+
+    def test_vowel_lengthening_utils(self):
+        # how lengthen works
+        a = ut.Vowel("open", "front", False, "short", "a")
+        aa = a.lengthen()
+        self.assertEqual(aa.ipar, "aː")
+
+    def test_consonant_utils(self):
+        # example of a Consonant
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        self.assertListEqual([b.ipar, b.manner, b.place, b.voiced, b.geminate], ["b", "stop", "bilabial", True, False])
+
+    def test_add_consonants_utils(self):
+        # This is how Consonant instances can be added to each other
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        x = k+s
+        self.assertEqual(x.ipar, "ks")
+
+    def test_rule1_utils(self):
+        # examples of Rule instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
+        pos = ut.Position("inner", a, a)
+        self.assertEqual(rule.can_apply(pos), True)
+
+    def test_rule2_utils(self):
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
+        pos = ut.Position("inner", k, a)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule33_utils(self):
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractVowel()], [ut.AbstractVowel()]), th, dh)
+        pos = ut.Position("inner", a, s)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule4_utils(self):
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                            [ut.AbstractConsonant(voiced=True)]), th, dh)
+        pos = ut.Position("inner", a, a)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule5_utils(self):
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
+        pos = ut.Position("inner", k, a)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule6_utils(self):
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        a = ut.Vowel("open", "front", False, "short", "a")
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        pos = ut.Position("inner", a, s)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
+        self.assertEqual(rule.can_apply(pos), False)
+
+    def test_rule7_utils(self):
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+        rule = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=True)],
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
+        pos = ut.Position("inner", b, b)
+        self.assertEqual(rule.can_apply(pos), True)
+
+    def test_rule_conversion1(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        # examples of ipa_to_regular_expression and from_regular_expression methods
+        ru1 = ut.Rule(ut.AbstractPosition("inner", [ut.AbstractConsonant(voiced=False)],
+                                          [ut.AbstractConsonant(voiced=True)]), th, th)
+        self.assertEqual(ru1.ipa_to_regular_expression(PHONOLOGY), "(?<=[fkpstθ])θ(?=[bdgvð])")
+
+    def test_rule_conversion2(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+        ru2 = ut.Rule(ut.AbstractPosition("first", None, [ut.AbstractConsonant(place="velar")]), p, k)
+        self.assertEqual(ru2.ipa_to_regular_expression(PHONOLOGY), "^p(?=[gk])")
+
+    def test_rule_conversion3(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        ru3 = ut.Rule(ut.AbstractPosition("last", [ut.AbstractConsonant(manner="stop")], None), dh, th)
+        self.assertEqual(ru3.ipa_to_regular_expression(PHONOLOGY), "(?<=[bdgkpt])ð$")
+
+    def test_rule_conversion4(self):
+        # Definition of real Vowel and Consonant instances
+        a = ut.Vowel("open", "front", False, "short", "a")
+        e = ut.Vowel("close-mid", "front", False, "short", "e")
+        i = ut.Vowel("close", "front", False, "short", "i")
+        o = ut.Vowel("close-mid", "back", True, "short", "o")
+        u = ut.Vowel("close", "back", True, "short", "u")
+
+        b = ut.Consonant("bilabial", "stop", True, "b", False)
+        d = ut.Consonant("alveolar", "stop", True, "d", False)
+        f = ut.Consonant("labio-dental", "frictative", False, "f", False)
+        g = ut.Consonant("velar", "stop", True, "g", False)
+        k = ut.Consonant("velar", "stop", False, "k", False)
+        p = ut.Consonant("bilabial", "stop", False, "p", False)
+        s = ut.Consonant("alveolar", "frictative", False, "s", False)
+        t = ut.Consonant("alveolar", "stop", False, "t", False)
+        v = ut.Consonant("labio-dental", "frictative", True, "v", False)
+        th = ut.Consonant("dental", "frictative", False, "θ", False)
+        dh = ut.Consonant("dental", "frictative", True, "ð", False)
+
+        # examples of phonology and ipa_class
+        PHONOLOGY = [
+            a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
+        ]
+
+        IPA_class = {
+            "a": a,
+            "e": e,
+            "i": i,
+            "o": o,
+            "u": u,
+            "b": b,
+            "d": d,
+            "f": f,
+            "g": g,
+            "k": k,
+            "p": p,
+            "s": s,
+            "t": t,
+            "v": v,
+            "þ": th,
+            "ð": dh,
+        }
+        # from regular expression to Rule
+        example = r'(?<=[aeiou])f(?=[aeiou])'
+        ru4 = ut.Rule.from_regular_expression(example, "v", IPA_class)
+        self.assertEqual(ru4.ipa_to_regular_expression(PHONOLOGY), example)
+
+        # pattern3 = ru3.ipa_to_regular_expression(PHONOLOGY)
+        # print(ut.Rule.from_regular_expression(pattern3, ru3.temp_sound.ipar, IPA_class))
+
+
 if __name__ == '__main__':
     unittest.main()
-
-
