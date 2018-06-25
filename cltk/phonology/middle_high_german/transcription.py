@@ -7,6 +7,7 @@
  Sources:
 * https://www.germanistik.uni-bonn.de/institut/abteilungen/germanistische-mediavistik/studium/leitfaeden-reader-links/b1-reader-oktober-2009-endversion.pdf
 * [A Middle High German Primer - Joseph Wright](http://www.minnesang.com/Themen/Ulrich%20Mueller%20zur%20Aussprache.pdf)
+* Clements, George N. "The role of the sonority cycle in core syllabification." Papers in laboratory phonology 1 (1990): 283-333.
 """
 
 import re
