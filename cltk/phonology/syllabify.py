@@ -59,8 +59,7 @@ class Syllabifier:
 
             >>> fricatives = ['f']
 
-            >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps,\\
-            nasals=nasals, fricatives = fricatives)
+            >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives = fricatives)
 
             >>> s.syllabify("feminarum")
             ['fe', 'mi', 'na', 'rum']
