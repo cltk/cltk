@@ -178,7 +178,7 @@ DIPHTHONGS_IPA_class.update(GEMINATE_CONSONANTS_class)
 
 rule_th = [Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), th, dh),
            Rule(AbstractPosition("last", [AbstractConsonant()], None), th, dh),
-           Rule(AbstractPosition("first", None, None), th, th),
+           Rule(AbstractPosition("first", None, []), th, th),
            Rule(AbstractPosition("last", [r.to_abstract()], None), th, dh)]
 
 

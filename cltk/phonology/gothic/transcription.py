@@ -35,6 +35,7 @@ etc
 
 from cltk.phonology.utils import *
 
+__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
 a = Vowel("open", "front", False, "short", "a")
 long_a = a.lengthen()
@@ -233,19 +234,19 @@ gothic_rules_i = [
 
 
 gothic_rules_b = [
-    Rule(AbstractPosition("first", None, None), b, b),
-    Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], None), b, b),
-    Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], None), b, b),
+    Rule(AbstractPosition("first", None, []), b, b),
+    Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], []), b, b),
+    Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], []), b, b),
     Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), b, bh),
-    Rule(AbstractPosition("last", None, None), b, ph)
+    Rule(AbstractPosition("last", [], None), b, ph)
 ]
 
 gothic_rules_d = [
-    Rule(AbstractPosition("first", None, None), d, d),
-    Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], None), d, d),
-    Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], None), d, d),
+    Rule(AbstractPosition("first", None, []), d, d),
+    Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], []), d, d),
+    Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], []), d, d),
     Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), d, dh),
-    Rule(AbstractPosition("last", None, None), b, th)
+    Rule(AbstractPosition("last", [], None), b, th)
 ]
 
 gothic_rules_g = [
@@ -253,21 +254,21 @@ gothic_rules_g = [
     Rule(AbstractPosition("inner", [n.to_abstract(), m.to_abstract()], None), g, g),
     Rule(AbstractPosition("inner", [r.to_abstract(), l.to_abstract()], None), g, g),
     Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), g, gh),
-    Rule(AbstractPosition("last", None, None), b, kh)
+    Rule(AbstractPosition("last", [], None), b, kh)
 ]
 gothic_rules_s = [
     Rule(AbstractPosition("first", None, None), s, z),
 ]
 gothic_rules_ks = [
     Rule(AbstractPosition("first", None, [AbstractConsonant()]), x, k),
-    Rule(AbstractPosition("inner", None, [AbstractConsonant()]), x, k),
+    Rule(AbstractPosition("inner", [], [AbstractConsonant()]), x, k),
 ]
 
 
 gothic_rules_h = [
     Rule(AbstractPosition("first", None, [AbstractVowel()]), h, h),
     Rule(AbstractPosition("first", None, [AbstractConsonant()]), h, kh),
-    Rule(AbstractPosition("inner", None, [s.to_abstract(), t.to_abstract()]), h, h),
+    Rule(AbstractPosition("inner", [], [s.to_abstract(), t.to_abstract()]), h, h),
 
 ]
 
