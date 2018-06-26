@@ -120,8 +120,8 @@ According to phonological rules (available at `Wikipedia - Old Norse orthography
 
     In [2]: sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
 
-    In [3]: tr = ont.Transcriber()
+    In [3]: tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
 
-    In [4]: tr.main(sentence, ont.old_norse_rules)
+    In [4]: tr.main(sentence)
 
     Out [4]: "[gylvi kɔnungr var maðr vitr ɔk fjœlkunːiɣr]"
