@@ -30,7 +30,7 @@ setup(
                       'pyyaml',
                       'regex',
                       'whoosh'],
-    keywords=['nlp', 'nltk', 'greek', 'latin', 'chinese', 'sanskrit', 'pali', 'tibetan', 'arabic'],
+    keywords=['nlp', 'nltk', 'greek', 'latin', 'chinese', 'sanskrit', 'pali', 'tibetan', 'arabic', "germanic"],
     license='MIT',
     long_description='The Classical Language Toolkit (CLTK) is a framework for natural language processing for Classical languages.',  # pylint: disable=C0301,
     name='cltk',
