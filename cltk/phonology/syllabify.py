@@ -63,6 +63,13 @@ class Syllabifier:
 
             >>> s.syllabify("feminarum")
             ['fe', 'mi', 'na', 'rum']
+            
+            Not specifying your alphabet results in an error:
+            
+            >>> s.syllabify("foemina")
+            Traceback (most recent call last):
+                ...
+            cltk.exceptions.InputError: The given string contains invalid characters. Make sure to define the mater of articulation for each phoneme.
         """
 
         #List indicating the syllable indices
@@ -78,8 +85,7 @@ class Syllabifier:
             encoded = list(map(lambda x: self.hierarchy[x], word))
 
         except KeyError:
-            LOG.error("The given string contains invalid characters. Make sure to define the mater of articulation\\"
-                      "for each phoneme.")
+            LOG.error("The given string contains invalid characters. Make sure to define the mater of articulation for each phoneme.")
             raise InputError
 
         while i < len(word) - 1:
