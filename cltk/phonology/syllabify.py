@@ -69,7 +69,7 @@ class Syllabifier:
             >>> s.syllabify("foemina")
             Traceback (most recent call last):
                 ...
-            KeyError: 'o'
+            cltk.exceptions.InputError
         """
 
         #List indicating the syllable indices
