@@ -69,7 +69,7 @@ class Syllabifier:
             >>> s.syllabify("foemina")
             Traceback (most recent call last):
                 ...
-            cltk.exceptions.InputError: The given string contains invalid characters. Make sure to define the mater of articulation for each phoneme.
+            KeyError: 'o'
         """
 
         #List indicating the syllable indices
