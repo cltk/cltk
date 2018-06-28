@@ -45,7 +45,7 @@ class TestSequenceFunctions(unittest.TestCase):
         #now isolate the list of lemmas
         lemmas = lemmatizer.isolate(lemmas)
         synonyms = Synonyms(dictionary = 'synonyms', language = 'latin')
-        syns = synonyms.lookup(lemmas)
+        syns = synonyms.lookup_synonyms(lemmas)
         target = [('ceterus', [('ceteroqui', 0.5), ('perquiesco', 0.5)]), ('compono', [('struo', 0.5), ('condo', 0.5)])]
         self.assertEqual(syns, target)
 
@@ -63,7 +63,7 @@ class TestSequenceFunctions(unittest.TestCase):
         #now isolate the list of lemmas
         lemmas = lemmatizer.isolate(lemmas)
         translations = Synonyms(dictionary = 'translations', language = 'latin')
-        translations = translations.lookup(lemmas)
+        translations = translations.lookup_synonyms(lemmas)
         target = [('destino', [('σκοπός', 1.0)]), ('compono', [('συντίθημι', 1.0)])]
         self.assertEqual(translations, target)
 
