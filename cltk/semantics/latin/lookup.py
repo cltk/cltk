@@ -1,3 +1,4 @@
+
 """This module is designed around looking up synonyms for Latin and Greek words.
 The synonym and translation dictionaries used by this module were originally 
 developed by Chris Forstall and James Gawley of the Tesserae Project (http://github.com/tesserae).
@@ -72,7 +73,6 @@ class Lemmata:
             for pair in lemmata:
                 answers.append(pair[0])
         return answers
-
 
 class Synonyms(Lemmata):
     """This sub-class is used to lookup syonyms or translations for a list of lemmata. 
