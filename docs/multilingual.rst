@@ -12,16 +12,14 @@ The ``philology`` module can produce a concordance. Currently there are two meth
 
 .. code-block:: python
 
-   In [1]: from cltk.utils.philology import Philology
+   In [1]: from cltk.utils import philology
 
-   In [2]: p = Philology()
+   In [2]: iliad = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-001.txt'
 
-   In [3]: iliad = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-001.txt'
-
-   In [4]: p.write_concordance_from_file(iliad, 'iliad')
+   In [3]: philology.write_concordance_from_file(iliad, 'iliad')
 
 
-This will print a traditional, human–readable, 120,000–line concordance at ``~/cltk_data/user_data/concordance_iliad.txt``.
+This will print a traditional, human–readable 120,000–line concordance at ``~/cltk_data/user_data/concordance_iliad.txt``.
 
 Multiple files can be passed as a list into this method.
 
@@ -29,7 +27,7 @@ Multiple files can be passed as a list into this method.
 
    In [5]: odyssey = '~/cltk_data/greek/text/tlg/individual_works/TLG0012.TXT-002.txt'
 
-   In [6]: p.write_concordance_from_file([iliad, odyssey], 'homer')
+   In [6]: philology.write_concordance_from_file([iliad, odyssey], 'homer')
 
 This creates the file ``~/cltk_data/user_data/concordance_homer.txt``.
 
@@ -49,7 +47,7 @@ This creates the file ``~/cltk_data/user_data/concordance_homer.txt``.
 
    In [10]: tib_clean = phi5_plaintext_cleanup(tib_read).lower()
 
-   In [11]: p.write_concordance_from_string(tib_clean, 'tibullus')
+   In [11]: philology.write_concordance_from_string(tib_clean, 'tibullus')
 
 The resulting concordance looks like:
 
@@ -397,6 +395,13 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
 
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
+   
+You can also calculate the Levenshtein distance of two words, defined as the minimum number of single word edits (insertions, deletions, substitutions) required to transform a word into another.
+
+.. code-block:: python
+   
+   In [4]: l.Levenshtein_Distance("deaeque", "deaeuqe")
+   Out[4]: 2
 
 
 Damerau-Levenshtein algorithm
@@ -412,11 +417,47 @@ This simple example compares a two Latin words to find the distance between them
 
 .. code-block:: python
 
-   In [1]: from from pyxdameraulevenshtein import damerau_levenshtein_distance
+   In [1]: from pyxdameraulevenshtein import damerau_levenshtein_distance
 
    In [2]: damerau_levenshtein_distance("deaeque", "deaque")
    Out[2]: 1
    
+Alternatively, you can also use CLTK's native ``Levenshtein`` class:
+
+.. code-block:: python
+   
+   In [3]: from cltk.text_reuse.levenshtein import Levenshtein
+   
+   In [4]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaque")
+   Out[4]: 1
+   
+   In [5]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaeuqe")
+   Out[5]: 1
+   
+Needleman-Wunsch Algorithm
+--------------------------
+
+The Needleman-Wunsch Algorithm, calculates the optimal global alignment between two strings given a scoring matrix.
+
+There are two optional parameters: ``S`` specifying a weighted similarity square matrix, and ``alphabet`` (where ``|alphabet| = rows(S) = cols(S)``). By default, the algorithm assumes the latin alphabet and a default matrix (1 for match, -1 for substitution)
+
+.. code-block:: python
+   
+   In [1]: from cltk.text_reuse.comparison import Needleman_Wunsch as NW
+   
+   In [2]: NW("abba", "ababa", alphabet = "ab", S = [[1, -3],[-3, 1]])
+   Out[2]: ('ab-ba', 'ababa')
+   
+In this case, the similarity matrix will be:
+
++---+---+---+
+|   | a | b |
++---+---+---+
+| a | 1 |-3 |
++---+---+---+
+| b |-3 | 1 |
++---+---+---+
+
 
 Longest Common Substring
 ------------------------
