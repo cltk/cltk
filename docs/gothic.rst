@@ -9,13 +9,15 @@ Phonological transcription
 
 .. code-block:: python
 
+
+
     In [1]: from cltk.phonology.gothic import transcription as gt
 
     In [2]: sentence = "Anastodeins aiwaggeljons Iesuis Xristaus sunaus gudis."
 
-    In [3]: tr = ont.Transcriber()
+    In [3]: tr = ut.Transcriber(gt.DIPHTHONGS_IPA, gt.DIPHTHONGS_IPA_class, gt.IPA_class, gt.gothic_rules)
 
-    In [4]: tr.main(sentence, ont.gothic_rules)
+    In [4]: tr.main(sentence, gt.gothic_rules)
 
     Out [4]:
-        "[anastoːdiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs gudis]"
+        "[anastoːðiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs guðis]"
