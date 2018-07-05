@@ -10,20 +10,20 @@ LOG.addHandler(logging.NullHandler())
 
 class Syllabifier:
 
-    def __init__(self, low_vowels=[], mid_vowels=[], high_vowels=[], flaps=[], laterals=[], nasals=[], fricatives=[],
-                 plosives=[]):
+    def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
+                 fricatives=None, plosives=None):
 
-        self.low_vowels = low_vowels
-        self.mid_vowels = mid_vowels
-        self.high_vowels = high_vowels
-        self.vowels = low_vowels + mid_vowels + high_vowels
+        self.low_vowels = [] if low_vowels is None else low_vowels
+        self.mid_vowels = [] if mid_vowels is None else mid_vowels
+        self.high_vowels = [] if high_vowels is None else high_vowels
+        self.vowels = self.low_vowels + self.mid_vowels + self.high_vowels
 
-        self.flaps = flaps
-        self.laterals = laterals
-        self.nasals = nasals
-        self.fricatives = fricatives
-        self.plosives = plosives
-        self.consonants = flaps + laterals + fricatives + plosives
+        self.flaps = [] if flaps is None else flaps
+        self.laterals = [] if laterals is None else laterals
+        self.nasals = [] if nasals is None else nasals
+        self.fricatives = [] if fricatives is None else fricatives
+        self.plosives = [] if plosives is None else plosives
+        self.consonants = self.flaps + self.laterals + self.fricatives + self.plosives
 
         # Dictionary indicating sonority hierarchy
         self.hierarchy = {key: 0 for key in self.low_vowels}
@@ -63,8 +63,6 @@ class Syllabifier:
             >>> s = Syllabifier()
 
             >>> s.set_vowels(['i', 'u', 'e', 'a'])
-            
-            >>> s.vowels
             ['i', 'u', 'e', 'a']
         """
         self.vowels = vowels
@@ -158,11 +156,10 @@ class Syllabifier:
 
         # Check if last syllable has a nucleus
 
-        if sum(map(lambda x: x in self.vowels, word[-1])) == 0:
+        if sum([x in self.vowels for x in word[-1]]) == 0:
             word[-2] += word[-1]
             word = word[:-1]
 
         return word
-
-
-
+    
+    
