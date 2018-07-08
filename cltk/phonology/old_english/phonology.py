@@ -7,15 +7,21 @@ Sources:
 import re
 import unicodedata
 
+import logging
+from cltk.exceptions import InputError
+
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
+
 IPA_rules = {
+    'ea': 'æːɑ',
+    'ēa': 'æːɑ',
     'nk': 'ŋk',
     'ng': 'ŋg',
     'hw': 'ʍ',
     'hl': 'l',
     'hn': 'n̥',
     'hr': 'r̥',
-    'ēa': 'æːɑ̯',
-    'ea': 'æːɑ',
     'sċ': 'ʃ'
 }
 
@@ -67,6 +73,130 @@ Normalize = {
     'ð': 'd',
 }
 
+L_Transliteration = Transliteration = {
+    'ᚪ': 'a',
+    'ᚫ': 'æ',
+    'ᛒ': 'b',
+    'ᚳ': 'c',
+    'ᛞ': 'd',
+    'ᛖ': 'e',
+    'ᛠ': 'ea',
+    'ᚠ': 'f',
+    'ᚷ': 'g',
+    'ᚸ': 'g',
+    'ᚻ': 'h',
+    'ᛁ': 'i',
+    'ᛇ': 'i',
+    'ᛄ': 'j',
+    'ᛣ': 'k',
+    'ᛤ': 'k',
+    'ᛚ': 'l',
+    'ᛗ': 'm',
+    'ᚾ': 'n',
+    'ᛝ': 'n',
+    'ᚩ': 'o',
+    'ᛟ': 'oe',
+    'ᛈ': 'p',
+    'ᚱ': 'r',
+    'ᛋ': 's',
+    'ᛏ': 't',
+    'ᚦ': 'th',
+    'ᚢ': 'u',
+    'ᚹ': 'w',
+    'ᛉ': 'x',
+    'ᚣ': 'y',
+}
+
+R_Transliteration = {
+    'ae': 'ᚫ',
+    'ea': 'ᛠ',
+    'eo': 'ᛇ',
+    'oe': 'ᛟ',
+    'ia': 'ᛡ',
+    'io': 'ᛡ',
+    'a': 'ᚪ',
+    'æ': 'ᚫ',
+    'b': 'ᛒ',
+    'c': 'ᚳ',
+    'd': 'ᛞ',
+    'e': 'ᛖ',
+    'f': 'ᚠ',
+    'g': 'ᚷ',
+    'h': 'ᚻ',
+    'i': 'ᛁ',
+    'j': 'ᛄ',
+    'k': 'ᛣ',
+    'l': 'ᛚ',
+    'm': 'ᛗ',
+    'n': 'ᚾ',
+    'ŋ': 'ᛝ',
+    'o': 'ᚩ',
+    'œ': 'ᛟ',
+    'p': 'ᛈ',
+    'þ': 'ᚦ',
+    'ð': 'ᚦ',
+    'ƿ': 'ᚹ',
+    'q': 'ᛤ',
+    'r': 'ᚱ',
+    's': 'ᛋ',
+    't': 'ᛏ',
+    'u': 'ᚢ',
+    'v': 'ᚹ',
+    'w': 'ᚹ',
+    'x': 'ᛉ',
+    'y': 'ᚣ',
+    'z': 'ᛉ'
+}
+
+
+class Transliterate:
+
+    def __init__(self):
+        pass
+
+    def transliterate(self, text, mode='Latin'):
+        """
+        Transliterates Anglo-Saxon runes into latin and vice versa.
+
+        Sources:
+            http://www.arild-hauge.com/eanglor.htm
+            https://en.wikipedia.org/wiki/Anglo-Saxon_runes
+
+        :param text: str: The text to be transcribed
+        :param mode: Specifies transliteration mode, options:
+
+            Latin (default): Transliterates Anglo-Saxon runes into the latin
+            alphabet, using the Dickins system
+
+            Anglo-Saxon/Anglo-Frisian : Transliterates Latin text into Anglo-Saxon runes
+
+        Examples:
+            >>> Transliterate().transliterate("Hƿæt Ƿe Gardena in geardagum", "Anglo-Saxon")
+            'ᚻᚹᚫᛏ ᚹᛖ ᚷᚪᚱᛞᛖᚾᚪ ᛁᚾ ᚷᛠᚱᛞᚪᚷᚢᛗ'
+
+            >>> Transliterate().transliterate("ᚩᚠᛏ ᛋᚳᚣᛚᛞ ᛋᚳᛖᚠᛁᛝ ᛋᚳᛠᚦᛖᚾᚪ ᚦᚱᛠᛏᚢᛗ", "Latin")
+            'oft scyld scefin sceathena threatum'
+        """
+        if mode == 'Latin':
+            return Transliterate.__transliterate_helper(text, L_Transliteration)
+
+        elif mode in ['Anglo-Saxon', 'Anglo-Frisian']:
+            return Transliterate.__transliterate_helper(text, R_Transliteration)
+
+        else:
+            LOG.error("The specified mode is currently not supported")
+            raise InputError("The specified mode is currently not supported")
+
+    @staticmethod
+    def __transliterate_helper(text, dicts):
+
+        text = text.lower()
+        for w, val in zip(dicts.keys(), dicts.values()):
+            text = text.replace(w, val)
+
+        return text
+
+
 class Transcriber:
 
     def __init__(self):
@@ -100,7 +230,7 @@ class Transcriber:
             '[fæder uːre θuː θe eːɑrˠt on heovonum,]'
 
             >>> Transcriber().transcribe('Hwæt! wē Gār-Dena in ġēar-dagum', punctuation = False)
-            '[ʍæt weː gɑːrdenɑ in jæːɑ̯rdɑgum]'
+            '[ʍæt weː gɑːrdenɑ in jæːɑrdɑgum]'
         """
 
         if not punctuation:
@@ -175,4 +305,4 @@ class Word:
 
         return w
 
-
+    
