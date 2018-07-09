@@ -25,6 +25,7 @@ from cltk.corpus.greek.tlg.parse_tlg_indices import _check_number
 from cltk.corpus.greek.tlg.parse_tlg_indices import _handle_splits
 from cltk.corpus.greek.tlgu import TLGU
 from cltk.corpus.middle_english.alphabet import normalize_middle_english
+from cltk.corpus.old_norse import runes
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_phi5_works_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
@@ -799,6 +800,16 @@ class TestScriptInformation(unittest.TestCase):
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
 
+
+class TestRunes(unittest.TestCase):
+    def test_runic_transcription(self):
+        self.assertEqual(runes.RunicAlphabetName.elder_futhark.value, "elder_futhark")
+
+    def test_rune_definition(self):
+        haglaz = runes.Rune(runes.RunicAlphabetName.elder_futhark, "\u16BA", "h", "h", "haglaz")
+        self.assertEqual(haglaz.form, "ᚺ")
+
+    def test_t
 
 if __name__ == '__main__':
     unittest.main()

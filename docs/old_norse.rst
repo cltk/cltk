@@ -125,3 +125,21 @@ According to phonological rules (available at `Wikipedia - Old Norse orthography
     In [4]: tr.main(sentence)
 
     Out [4]: "[gylvi kɔnungr var maðr vitr ɔk fjœlkunːiɣr]"
+
+Runes
+=====
+
+.. code-block:: python
+
+    In [1]: from cltk.corpus.old_norse import runes
+
+    In [2]: " ".join(Rune.display_runes(ELDER_FUTHARK))
+
+    Out[2]: ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ ᛇ ᛈ ᛉ ᛊ ᛏ ᛒ ᛖ ᛗ ᛚ ᛜ ᛟ ᛞ
+
+    In [3]: little_jelling_stone = "᛬ᚴᚢᚱᛘᛦ᛬ᚴᚢᚾᚢᚴᛦ᛬ᚴ(ᛅᚱ)ᚦᛁ᛬ᚴᚢᛒᛚ᛬ᚦᚢᛋᛁ᛬ᛅ(ᚠᛏ)᛬ᚦᚢᚱᚢᛁ᛬ᚴᚢᚾᚢ᛬ᛋᛁᚾᛅ᛬ᛏᛅᚾᛘᛅᚱᚴᛅᛦ᛬ᛒᚢᛏ᛬"
+
+    In [4]: Transcriber.transcribe(little_jelling_stone, YOUNGER_FUTHARK)
+
+    Out [4]: "᛫kurmR᛫kunukR᛫k(ar)þi᛫kubl᛫þusi᛫a(ft)᛫þurui᛫kunu᛫sina᛫tanmarkaR᛫but᛫"
+
