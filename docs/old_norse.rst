@@ -7,7 +7,7 @@ Old Norse was a North Germanic language that was spoken by inhabitants of Scandi
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old_norse corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old Norse corpora.
 
 .. code-block:: python
 
