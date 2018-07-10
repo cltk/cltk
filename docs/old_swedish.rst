@@ -24,3 +24,18 @@ According to phonological rules, a reconstructed phonology/pronunciation of Old 
 
     Out [5]: "[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]"
 
+
+Corpora
+=======
+
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_swedish_``) to discover available Old Swedish corpora.
+
+.. code-block:: python
+
+    In [1]: from cltk.corpus.utils.importer import CorpusImporter
+
+    In [2]: corpus_importer = CorpusImporter("old_swedish")
+
+    In [3]: corpus_importer.list_corpora
+
+    Out [3]: ['old_swedish_texts', ]
