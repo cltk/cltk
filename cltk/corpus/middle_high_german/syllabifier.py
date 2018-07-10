@@ -4,8 +4,7 @@ Sonority phoneme hierarchy for MHG
 Source: Resonances in Middle High German: New Methodologies in Prosody, Christopher Leo Hench, 2017
 
 """
-
-Syllabifier ={
+Syllabifier = {
     'a': 1,
     'e': 1,
     'i': 1,
@@ -30,11 +29,13 @@ Syllabifier ={
     'b': 3,
     'c': 3,
     'd': 3,
+    'f': 3,
     'g': 3,
     'h': 3,
     'k': 3,
     'p': 3,
     'q': 3,
     'v': 3,
-    't': 3
+    't': 3,
+    'z': 3
 }
