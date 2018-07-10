@@ -236,7 +236,7 @@ class AbstractPosition:
     This is a position (at the beginning, inside or at the end) that a rule can be applied at,
      a sound or a set of sounds before and a sound or a set of sounds after
     """
-    def __init__(self, position, before: list, after: list):
+    def __init__(self, position, before, after):
         assert position in POSITIONS
 
         self.position = position
