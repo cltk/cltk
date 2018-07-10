@@ -1,279 +1,192 @@
-"""
-  Note: there are no definite MHG  phonological rules, so this module serves
- as an approximate reconstruction of the original. As of this version, the Transcribe
- class doesn't support any specific dialects and serves as a superset encompassing
- various regional accents.
+__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
+__license__ = 'MIT License. See LICENSE.'
 
- Sources:
-* https://www.germanistik.uni-bonn.de/institut/abteilungen/germanistische-mediavistik/studium/leitfaeden-reader-links/b1-reader-oktober-2009-endversion.pdf
-* [A Middle High German Primer - Joseph Wright](http://www.minnesang.com/Themen/Ulrich%20Mueller%20zur%20Aussprache.pdf)
-* Clements, George N. "The role of the sonority cycle in core syllabification." Papers in laboratory phonology 1 (1990): 283-333.
-"""
-
-import re
+import logging
 import unicodedata
-from cltk.stem.middle_high_german.stem import remove_umlaut
 
-SHORT_VOWELS = ['a', 'e', 'i', 'o', 'u', 'ä', 'ü', 'ö']
-LONG_VOWELS = ['â', 'ê', 'î', 'ô', 'û', 'œ', 'iu']
-
-DIPHTHONGS = ['ch', 'ng', 'nt']
-TRIPHTHONGS = ['sch']
-
-# IPA Dictionary
-Dipthongs_IPA = {
-    "ei": "ɛ͡ɪ",  # Dipthongs
-    "ie": "i͡ə",
-    "üe": "y͡ə",
-    "uo": "u͡ə",
-    "iu": "yː",
-    "öu": "ø͡u",
-    "ou": "ɔ͡ʊ",
-    "ch": "χ",
-    "qu": "k",
-    "tt": "t·t",
-    "bb": "b·b",
-    "gg": "g·g",
-    "pp": "p·p",
-    "tt": "t·t",
-    "ck": "k·k",
-# c and k indicate the same sound and while c was most oftenly used at the beginning of a word, k was usually used at the end of a syllable
-    "ff": "f·f",
-    "ss": "s·s",
-    "mm": "m·m",
-    "nn": "n·n",
-    "ll": "l·l",
-    "rr": "r·r"
-}
-
-IPA = {
-    "a": "a",  # Short vowels
-    "ä": "æ",
-    "e": "e",
-    "ë": "e",
-    "i": "ɪ",
-    "o": "ɒ",
-    "ö": "ọ̈",
-    "u": "ʊ",
-    "ü": "ʏ",
-    "â": "ɑː",  # Long vowels
-    "æ": "ɛ",
-    "œ": "iu",
-    "ê": "eː",
-    "î": "iː",
-    "ô": "oː",
-    "û": "uː",
-    "k": "k",  # Consonants
-    "l": "l",
-    "m": "m",
-    "n": "n",
-    "p": "p",
-    "t": "t",
-    "w": "w",
-    "b": "b̥",
-# Ιn MHG. the consonants b, d, g were not voiced explosives like English b, d, g, but were voiceless lenes,
-    "d": "d̥",  # and only differed from the fortes p, t, k in being produced with less intensity or force
-    "g": "ɡ̊",  # - A Middle High German Primer, Joseph Wright
-    "c": "k",
-    "f": "f",  # Only accounts for labiodental form of latter HG
-    "v": "f",
-    "j": "j",
-    "r": "r",  # Alveolar trilled r in all positions
-    "w": "w",
-    "z": "t͡s",
-    "ȥ": "t͡s"
-}
-
-# Soundex Dictionary
-dict_dipth_SE = {
-    "ng": "2",
-    "ch": "2",
-    "pf": "4",
-    "ts": "4",
-}
-
-dict_SE = {
-    "f": "1",
-    "b": "1",
-    "p": "1",
-    "v": "1",
-    "w": "1",
-    "m": "2",
-    "n": "2",
-    "t": "3",
-    "d": "3",
-    "r": "3",
-    "l": "3",
-    "k": "3",
-    "c": "3",
-    "g": "3",
-    "s": "3",
-    "z": "4",
-    "ȥ": "4",
-    "s": "4",
-    "r": "5",
-    "l": "5",
-    "j": "6"
-}
+from cltk.exceptions import InputError
+from cltk.corpus.middle_high_german.Syllabifier import Syllabifier as MHG_Syllabifier
 
 
-class Transcriber:
-
-    def __init__(self):
-        pass  # To-do: Add different dialects and/or notations
-
-    def transcribe(self, text, punctuation=True):
-        """Accepts a word and returns a string of an approximate pronounciation (IPA)"""
-
-        if not punctuation:
-            text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
-
-        text = re.sub(r'sch', 'ʃ', text)
-        text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])h', 'χ', text)
-        text = re.sub(r'h(?=[aeiouäëöüâæœêîôû])', 'χ', text)
-        text = re.sub(r'(?<=[aeiouäëöüâæœêîôû])s(?=[aeiouäëöüâæœêîôû])', 'z̥', text)
-        text = re.sub(r'^s(?=[aeiouäëöüâæœêîôû])', 'z̥', text)
-
-        for w, val in zip(Dipthongs_IPA.keys(), Dipthongs_IPA.values()):
-            text = text.replace(w, val)
-
-        for w, val in zip(IPA.keys(), IPA.values()):
-            text = text.replace(w, val)
-
-        return "[" + text + "]"
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
 
 
-class Word:
+class Syllabifier:
 
-    def __init__(self, word):
-        self.word = word.lower()
+    def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
+                 fricatives=None, plosives=None, language=None):
 
-    def syllabify(self):
+        if language == 'middle high german':
+            hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
+
+            for k in MHG_Syllabifier:
+                hierarchy[MHG_Syllabifier[k]-1].append(k)
+
+            self.set_hierarchy(hierarchy)
+            self.set_vowels(hierarchy[0])
+
+        else:
+
+            self.low_vowels = [] if low_vowels is None else low_vowels
+            self.mid_vowels = [] if mid_vowels is None else mid_vowels
+            self.high_vowels = [] if high_vowels is None else high_vowels
+            self.vowels = self.low_vowels + self.mid_vowels + self.high_vowels
+
+            self.flaps = [] if flaps is None else flaps
+            self.laterals = [] if laterals is None else laterals
+            self.nasals = [] if nasals is None else nasals
+            self.fricatives = [] if fricatives is None else fricatives
+            self.plosives = [] if plosives is None else plosives
+            self.consonants = self.flaps + self.laterals + self.fricatives + self.plosives
+
+            # Dictionary indicating sonority hierarchy
+            self.hierarchy = {key: 0 for key in self.low_vowels}
+            self.hierarchy.update({key: 1 for key in self.mid_vowels})
+            self.hierarchy.update({key: 2 for key in self.high_vowels})
+            self.hierarchy.update({key: 3 for key in self.flaps})
+            self.hierarchy.update({key: 4 for key in self.laterals})
+            self.hierarchy.update({key: 5 for key in self.nasals})
+            self.hierarchy.update({key: 6 for key in self.fricatives})
+            self.hierarchy.update({key: 7 for key in self.plosives})
+
+    def set_hierarchy(self, hierarchy):
         """
-        Syllabifier module for Middle High German
+        Sets an alternative sonority hierarchy, note that you will also need
+        to specify the vowelset with the set_vowels, in order for the module
+        to correctly identify each nucleus.
 
-        The algorithm works by applying the MOP(Maximal Onset Principle)
-        on open syllables. For closed syllables, the legal partitions
-        are checked and applied. The word is always returned in lowercase.
+        The order of the phonemes defined is by decreased consonantality
 
-        Examples:
-            >>> Word('entslâfen').syllabify()
-            ['ent', 'slâ', 'fen']
+        Example:
+            >>> s = Syllabifier()
 
-            >>> Word('fröude').syllabify()
-            ['fröu', 'de']
+            >>> s.set_hierarchy([['i', 'u'], ['e'], ['a'], ['r'], ['m', 'n'], ['f']])
 
-            >>> Word('füerest').syllabify()
-	    ['füe', 'rest']
+            >>> s.set_vowels(['i', 'u', 'e', 'a'])
+
+            >>> s.syllabify('feminarum')
+            ['fe', 'mi', 'na', 'rum']
+        """
+        self.hierarchy = dict([(k, i) for i, j in enumerate(hierarchy) for k in j])
+
+    def set_vowels(self, vowels):
+        """
+        Define the vowel set of the syllabifier module
+
+        Example:
+            >>> s = Syllabifier()
+
+            >>> s.set_vowels(['i', 'u', 'e', 'a'])
+            ['i', 'u', 'e', 'a']
+        """
+        self.vowels = vowels
+
+    def syllabify(self, word, mode='SSP'):
+        if mode == 'SSP':
+            return self.syllabify_SSP(word)
+
+    def syllabify_SSP(self, word):
+        """
+        Syllabifies a word according to the Sonority Sequencing Principle
+
+        :param word: Word to be syllabified
+        :return: List consisting of syllables
+
+        Example:
+            First you need to define the matters of articulation
+            >>> high_vowels = ['a']
+
+            >>> mid_vowels = ['e']
+
+            >>> low_vowels = ['i', 'u']
+
+            >>> flaps = ['r']
+
+            >>> nasals = ['m', 'n']
+
+            >>> fricatives = ['f']
+
+            >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives=fricatives)
+
+            >>> s.syllabify("feminarum")
+            ['fe', 'mi', 'na', 'rum']
+
+            Not specifying your alphabet results in an error:
+
+            >>> s.syllabify("foemina")
+            Traceback (most recent call last):
+                ...
+            cltk.exceptions.InputError
         """
 
-        # Array holding the index of each given syllable
-        ind = []
+        # List indicating the syllable indices
+        syllables = []
 
-        i = 0
-        # Iterate through letters of word searching for the nuclei
+        find_nucleus = True
 
-        while i < len(self.word) - 1:
+        i = 1
 
-            if self.word[i] in SHORT_VOWELS + LONG_VOWELS:
+        try:
+            # Replace each letter occurence with its corresponding number
+            # indicating its position in the sonority hierarchy
+            encoded = list(map(lambda x: self.hierarchy[x], word))
 
-                nucleus = ''
+        except KeyError:
+            LOG.error(
+                "The given string contains invalid characters. Make sure to define the mater of articulation for each phoneme.")
+            raise InputError
 
-                # Find cluster of vowels
-                while self.word[i] in SHORT_VOWELS + LONG_VOWELS and i < len(self.word) - 1:
-                    nucleus += self.word[i]
-                    i += 1
+        while i < len(word) - 1:
+            # Search for nucleus
+            while word[i] not in self.vowels and i < len(word) - 1 and find_nucleus:
+                i += 1
 
-                try:
-                    # Check whether it is suceeded by a geminant
+            if i >= len(word) - 1:
+                break
 
-                    if self.word[i] == self.word[i + 1]:
-                        ind.append(i)
-                        i += 2
-                        continue
+            else:
+                # If a cluster of three phonemes with the same values exist, break syllable
+                if encoded[i - 1] == encoded[i] == encoded[i + 1]:
+                    syllables.append(i)
+                    find_nucleus = True
 
-                except IndexError:
-                    pass
+                elif encoded[i] > encoded[i - 1] and encoded[i] > encoded[i + 1]:
+                    syllables.append(i)
+                    find_nucleus = True
 
-                if nucleus in SHORT_VOWELS:
-                    ind.append(i + 2 if self.word[i:i+3] in TRIPHTHONGS else i + 1 if self.word[i:i + 2] in DIPHTHONGS else i)
-                    continue
+                elif encoded[i] < encoded[i - 1] and encoded[i] < encoded[i + 1]:
+                    syllables.append(i)
+                    find_nucleus = True
 
                 else:
-                    ind.append(i - 1)
-                    continue
+                    find_nucleus = False
 
-            i += 1
+                i += 1
 
-        self.syllabified = self.word
+        for n, k in enumerate(syllables):
+            word = word[:k + n + 1] + "." + word[k + n + 1:]
 
-        for n, k in enumerate(ind):
-            self.syllabified = self.syllabified[:k + n + 1] + "." + self.syllabified[k + n + 1:]
+        word = word.split('.')
 
-        # Check whether the last syllable lacks a vowel nucleus
+        # Check if last syllable has a nucleus
 
-        self.syllabified = self.syllabified.split(".")
+        if sum([x in self.vowels for x in word[-1]]) == 0:
+            word[-2] += word[-1]
+            word = word[:-1]
 
-        if sum(map(lambda x: x in SHORT_VOWELS, self.syllabified[-1])) == 0:
-            self.syllabified[-2] += self.syllabified[-1]
-            self.syllabified = self.syllabified[:-1]
+        return word
 
-        return self.syllabified
 
-    def phonetic_indexing(self, p="SE"):
-        """Specifies the phonetic indexing method.
-        SE: Soundex variant for MHG"""
-
-        if p == "SE":
-            return self._Soundex()
-        else:
-            print("Parameter value not supported")
-
-    def _Soundex(self):
+    def syllabify_IPA(self, word):
         """
-        Soundex variant was based on the original American Soundex  developed by Russel
-        and King, altered to better fit Middle High German morphology. The replacement
-        rules were based on matching places and manners of articulation between the
-        two languages (AE and MHG).
-
-        Algorithm:
-
-        -Normalize word and convert the first letter to uppercase
-        -Remove other vowels
-
-        Replacement Rules:
-        - f,v,b,p,w -> 1 Labiodental fricatives [f,v] and bilabial plosives [p,b], approximant [w]
-        - m,n,ng -> 2 Nasals
-        - t,d,r,l,k,c,g,ch,s -> 3 [non-nasal velars/alveolars]
-        - pf, ts, z, s -> 4  Affricates and alveolar fricatives
-        - r,l -> 5 Liquids
-        - j -> 6 Palatal Approximant
-
-        -Remove double numbers
-        -Remove remaining letters
-        -Retain first 3 numbers (add 0 if less than 3)
+        Parses IPA string
+        :param word: word to be syllabified
         """
-        t_word = remove_umlaut(self.word[0].lower()).upper() + remove_umlaut(self.word[1:]).lower()
+        word = word[1:-1]
+        word = ''.join(l for l in unicodedata.normalize('NFD', word)
+                                if unicodedata.category(l) != 'Mn')
 
-        for w, val in zip(dict_dipth_SE.keys(), dict_dipth_SE.values()):
-            t_word = t_word.replace(w, val)
+        print(word)
+        return self.syllabify_SSP(word)
 
-        for w, val in zip(dict_SE.keys(), dict_SE.values()):
-            t_word = t_word.replace(w, val)
-
-        # Remove adjacent duplicate numbers
-        t_word = re.sub(r"(\d)\1+", r"\1", t_word)
-
-        # Strip remaining letters
-        t_word = re.sub(r"[a-zæœ]+", "", t_word)
-
-        return (t_word + "0" * 3)[:4]  # Add trailing zeroes
-
-    def ASCII_encoding(self):
-        """Returns the ASCII encoding of a string"""
-
-        w = unicodedata.normalize('NFKD', self.word).encode('ASCII',
-                                                            'ignore')  # Encode into ASCII, returns a bytestring
-        w = w.decode('utf-8')  # Convert back to string
-
-        return w
