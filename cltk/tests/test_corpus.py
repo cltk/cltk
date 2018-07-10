@@ -802,14 +802,18 @@ class TestScriptInformation(unittest.TestCase):
 
 
 class TestRunes(unittest.TestCase):
-    def test_runic_transcription(self):
+    def test_rune_alphabet_name(self):
         self.assertEqual(runes.RunicAlphabetName.elder_futhark.value, "elder_futhark")
 
     def test_rune_definition(self):
         haglaz = runes.Rune(runes.RunicAlphabetName.elder_futhark, "\u16BA", "h", "h", "haglaz")
         self.assertEqual(haglaz.form, "ᚺ")
 
-    def test_t
+    def test_runic_transcription_definition(self):
+        inscription = "ᚦᛁᛅᚴᚾ᛫ᛅᚢᚴ᛫ᚴᚢᚾᛅᚱ᛫ᚱᛅᛁᛋᛏᚢ᛫ᛋᛏᛅᛁᚾᛅ ᛅᚠᛏᛁᛦ᛫ᚢᛅᚱ᛫ᛒᚱᚢᚦᚢᚱ᛫ᛋᛁᚾ"
+        transcription = runes.Transcriber.transcribe(inscription, runes.YOUNGER_FUTHARK)
+        self.assertEqual(transcription, "þiakn᛫auk᛫kunar᛫raistu᛫staina᛫aftiR᛫uar᛫bruþur᛫sin")
+
 
 if __name__ == '__main__':
     unittest.main()

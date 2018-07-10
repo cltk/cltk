@@ -6,7 +6,6 @@ Sources:
 Unicode: 16A0–16FF
 """
 
-import json
 from enum import Enum, auto
 
 
@@ -28,11 +27,11 @@ class RunicAlphabetName(AutoName):
 
 
 class Rune:
-    """
+    u"""
     >>> Rune(RunicAlphabetName.elder_futhark, "\u16BA", "h", "h", "haglaz")
     ᚺ
     >>> Rune.display_runes(ELDER_FUTHARK)
-
+    ['ᚠ', 'ᚢ', 'ᚦ', 'ᚨ', 'ᚱ', 'ᚲ', 'ᚷ', 'ᚹ', 'ᚺ', 'ᚾ', 'ᛁ', 'ᛃ', 'ᛇ', 'ᛈ', 'ᛉ', 'ᛊ', 'ᛏ', 'ᛒ', 'ᛖ', 'ᛗ', 'ᛚ', 'ᛜ', 'ᛟ', 'ᛞ']
     """
     def __init__(self, runic_alphabet: RunicAlphabetName, form: str, sound: str, transcription: str, name: str):
         """
@@ -52,7 +51,7 @@ class Rune:
     @staticmethod
     def display_runes(runic_alphabet: list):
         """
-
+        Displays the given runic alphabet.
         :param runic_alphabet: list
         :return: list
         """
@@ -64,7 +63,7 @@ class Rune:
 
         :param form:
         :param runic_alphabet:
-        :return:
+        :return: conventional transcription of the rune
         """
         d_form_transcription = {rune.form: rune.transcription for rune in runic_alphabet}
         return d_form_transcription[form]
@@ -81,10 +80,9 @@ class Rune:
 
 class Transcriber:
     """
-    >>> big_jelling_stone = "ᚼᛅᚱᛅᛚᛏᚱ᛬ᚴᚢᚾᚢᚴᛦ᛬ᛒᛅᚦ᛬ᚴᛅᚢᚱᚢᛅ ᚴᚢᛒᛚ᛬ᚦᛅᚢᛋᛁ᛬ᛅᚠᛏ᛬ᚴᚢᚱᛘ ᚠᛅᚦᚢᚱ ᛋᛁᚾ ᛅᚢᚴ ᛅᚠᛏ᛬ᚦᚭᚢᚱᚢᛁ᛬ᛘᚢᚦᚢᚱ᛬ᛋᛁᚾᛅ᛬ᛋᛅ" \
-    "ᚼᛅᚱᛅᛚᛏᚱ(᛬)ᛁᛅᛋ᛬ᛋᚭᛦ᛫ᚢᛅᚾ᛫ᛏᛅᚾᛘᛅᚢᚱᚴ\nᛅᛚᛅ᛫ᛅᚢᚴ᛫ᚾᚢᚱᚢᛁᚴ\n᛫ᛅᚢᚴ᛫ᛏ(ᛅ)ᚾᛁ(᛫ᚴᛅᚱᚦᛁ᛫)ᚴᚱᛁᛋᛏᚾᚭ"
-    >>> Transcriber.transcribe(big_jelling_stone, YOUNGER_FUTHARK)
-    haraltr᛫kunukR᛫baþ᛫kaurua᛫kubl᛫þausi᛫aft᛫kurm᛫faþur᛫sin᛫auk᛫aft᛫þaurui᛫muþur᛫sina᛫sa᛫haraltr(᛫)ias᛫saR᛫uan᛫tanmaurk᛫ala᛫auk᛫nuruik᛫᛫auk᛫t(a)ni(᛫karþi᛫)kristna
+    >>> little_jelling_stone = "᛬ᚴᚢᚱᛘᛦ᛬ᚴᚢᚾᚢᚴᛦ᛬ᚴ(ᛅᚱ)ᚦᛁ᛬ᚴᚢᛒᛚ᛬ᚦᚢᛋᛁ᛬ᛅ(ᚠᛏ)᛬ᚦᚢᚱᚢᛁ᛬ᚴᚢᚾᚢ᛬ᛋᛁᚾᛅ᛬ᛏᛅᚾᛘᛅᚱᚴᛅᛦ᛬ᛒᚢᛏ᛬"
+    >>> Transcriber.transcribe(little_jelling_stone, YOUNGER_FUTHARK)
+    '᛫kurmR᛫kunukR᛫k(ar)þi᛫kubl᛫þusi᛫a(ft)᛫þurui᛫kunu᛫sina᛫tanmarkaR᛫but᛫'
     """
     def __init__(self):
         pass
@@ -92,7 +90,8 @@ class Transcriber:
     @staticmethod
     def from_form_to_transcription(runic_alphabet: list):
         """
-        Make a dictionary whose keys are forms of runes and values their transcriptions
+        Make a dictionary whose keys are forms of runes and values their transcriptions.
+        Used by transcribe method.
         :param runic_alphabet:
         :return: dict
         """
@@ -101,9 +100,9 @@ class Transcriber:
     @staticmethod
     def transcribe(rune_sentence: str, runic_alphabet: list):
         """
-
-        :param rune_sentence:
-        :param runic_alphabet:
+        From a runic inscription, the transcribe method gives a conventional transcription.
+        :param rune_sentence: str, elements of this are from runic_alphabet or are punctuations
+        :param runic_alphabet: list
         :return:
         """
         res = []
@@ -183,7 +182,7 @@ SHORT_TWIG_YOUNGER_FUTHARK = [
     Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16BD", "h", "h", "haglaz"),
     Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16BF", "n", "n", "naudiz"),
     Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16C1", "i", "i", "isaz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16C5", "a", "a", "jeran"),  # not good
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16C5", "a", "a", "jeran"),
     Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16CC", "s", "s", "sowilo"),
 
     Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16D0", "t", "t", "tiwaz"),
