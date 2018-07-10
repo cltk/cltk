@@ -2,7 +2,11 @@ __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import logging
+import unicodedata
+
 from cltk.exceptions import InputError
+from cltk.corpus.middle_high_german.Syllabifier import Syllabifier as MHG_Syllabifier
+
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -11,29 +15,40 @@ LOG.addHandler(logging.NullHandler())
 class Syllabifier:
 
     def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
-                 fricatives=None, plosives=None):
+                 fricatives=None, plosives=None, language=None):
 
-        self.low_vowels = [] if low_vowels is None else low_vowels
-        self.mid_vowels = [] if mid_vowels is None else mid_vowels
-        self.high_vowels = [] if high_vowels is None else high_vowels
-        self.vowels = self.low_vowels + self.mid_vowels + self.high_vowels
+        if language == 'middle high german':
+            hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
-        self.flaps = [] if flaps is None else flaps
-        self.laterals = [] if laterals is None else laterals
-        self.nasals = [] if nasals is None else nasals
-        self.fricatives = [] if fricatives is None else fricatives
-        self.plosives = [] if plosives is None else plosives
-        self.consonants = self.flaps + self.laterals + self.fricatives + self.plosives
+            for k in MHG_Syllabifier:
+                hierarchy[MHG_Syllabifier[k]-1].append(k)
 
-        # Dictionary indicating sonority hierarchy
-        self.hierarchy = {key: 0 for key in self.low_vowels}
-        self.hierarchy.update({key: 1 for key in self.mid_vowels})
-        self.hierarchy.update({key: 2 for key in self.high_vowels})
-        self.hierarchy.update({key: 3 for key in self.flaps})
-        self.hierarchy.update({key: 4 for key in self.laterals})
-        self.hierarchy.update({key: 5 for key in self.nasals})
-        self.hierarchy.update({key: 6 for key in self.fricatives})
-        self.hierarchy.update({key: 7 for key in self.plosives})
+            self.set_hierarchy(hierarchy)
+            self.set_vowels(hierarchy[0])
+
+        else:
+
+            self.low_vowels = [] if low_vowels is None else low_vowels
+            self.mid_vowels = [] if mid_vowels is None else mid_vowels
+            self.high_vowels = [] if high_vowels is None else high_vowels
+            self.vowels = self.low_vowels + self.mid_vowels + self.high_vowels
+
+            self.flaps = [] if flaps is None else flaps
+            self.laterals = [] if laterals is None else laterals
+            self.nasals = [] if nasals is None else nasals
+            self.fricatives = [] if fricatives is None else fricatives
+            self.plosives = [] if plosives is None else plosives
+            self.consonants = self.flaps + self.laterals + self.fricatives + self.plosives
+
+            # Dictionary indicating sonority hierarchy
+            self.hierarchy = {key: 0 for key in self.low_vowels}
+            self.hierarchy.update({key: 1 for key in self.mid_vowels})
+            self.hierarchy.update({key: 2 for key in self.high_vowels})
+            self.hierarchy.update({key: 3 for key in self.flaps})
+            self.hierarchy.update({key: 4 for key in self.laterals})
+            self.hierarchy.update({key: 5 for key in self.nasals})
+            self.hierarchy.update({key: 6 for key in self.fricatives})
+            self.hierarchy.update({key: 7 for key in self.plosives})
 
     def set_hierarchy(self, hierarchy):
         """
@@ -63,8 +78,6 @@ class Syllabifier:
             >>> s = Syllabifier()
 
             >>> s.set_vowels(['i', 'u', 'e', 'a'])
-            
-            >>> s.vowels
             ['i', 'u', 'e', 'a']
         """
         self.vowels = vowels
@@ -163,5 +176,17 @@ class Syllabifier:
             word = word[:-1]
 
         return word
-    
-    
+
+
+    def syllabify_IPA(self, word):
+        """
+        Parses IPA string
+        :param word: word to be syllabified
+        """
+        word = word[1:-1]
+        word = ''.join(l for l in unicodedata.normalize('NFD', word)
+                                if unicodedata.category(l) != 'Mn')
+
+        print(word)
+        return self.syllabify_SSP(word)
+
