@@ -362,11 +362,7 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 Named Entity Recognition
 ========================
 
-.. tip::
-
-   NER is new functionality. Please report any errors you observe.
-
-There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_ (see repo for how it the list was created). By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
 
 .. code-block:: python
 
@@ -738,6 +734,49 @@ The sentence tokenizer takes a string input into ``tokenize_sentences()`` and re
    Out[4]:
    ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.',
     'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']
+
+Semantics
+=========
+The Semantics module allows for the lookup of Latin lemmata, synonyms, and translations into Greek. Lemma, synonym, and translation dictionaries are drawn from the open-source `Tesserae Project<http://github.com/tesserae/tesserae>`
+
+The dictionaries used by this module are stored in https://github.com/cltk/latin_models_cltk/tree/master/semantics and https://github.com/cltk/greek_models_cltk/tree/master/semantics for Greek and Latin, respectively. In order to use the Semantics module, it is necessary to `import those repos first<http://docs.cltk.org/en/latest/importing_corpora.html#importing-a-corpus>`.
+
+.. tip:: When lemmatizing ambiguous forms, the Semantics module is designed to return all possibilities. A probability distribution is included with the list of results, but as of June 8, 2018 the total probability is evenly distributed over all possibilities. Future updates will include a more intelligent system for determining the most likely lemma, synonym, or translation._.
+
+The Lemmata class includes two relevant methods: lookup() takes a list of tokens standardized for spelling and returns a complex object which includes a probability distribution; isolate() takes the object returned by lookup() and discards everything but the lemmata.
+
+.. code-block:: python
+
+   In [1]: from cltk.semantics.latin.lookup import Lemmata
+
+   In [2]: lemmatizer = Lemmata(dictionary='lemmata', language='latin')
+
+   In [3]: tokens = ['ceterum', 'antequam', 'destinata', 'componam']
+
+   In [4]: lemmas = lemmatizer.lookup(tokens)
+   Out[4]:
+   [('ceterum', [('ceterus', 1.0)]), ('antequam', [('antequam', 1.0)]), ('destinata', [('destinatus', 0.25), ('destinatum', 0.25), ('destinata', 0.25), ('destino', 0.25)]), ('componam', [('compono', 1.0)])]
+
+   In [5]: just_lemmas = Lemmata.isolate(lemmas)
+   Out[5]:['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
+
+The Synonym class can be initialized to lookup either synonyms or translations. It expects a list of lemmata, not inflected forms. Only successful 'lookups' will return results.
+
+.. code-block:: python
+
+   In [1]: from cltk.semantics.latin.lookup import Synonyms
+
+   In [2]: translator = Synonyms(dictionary='translations', language='latin')
+
+   In [3]: lemmas = ['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
+
+   In [4]: translations = translator.lookup(lemmas)
+   Out[4]:[('destino', [('σκοπός', 1.0)]), ('compono', [('συντίθημι', 1.0)])]
+
+   In [5]: just_translations = Lemmata.isolate(translations)
+   Out[5]:['σκοπός', 'συντίθημι']
+
+A raw list of translations can be obtained from the translation object using Lemmata.isolate().
 
 
 Stemming
