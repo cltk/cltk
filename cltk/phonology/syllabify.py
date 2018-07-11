@@ -120,6 +120,14 @@ class Syllabifier:
             Traceback (most recent call last):
                 ...
             cltk.exceptions.InputError
+            
+            Additionally, you can utilize the language parameter:
+            
+            >>> s = Syllabifier(language='middle high german')
+            
+            >>> s.syllabify('lobebæren')
+            ['lo', 'be', 'bæ', 'ren']
+            
         """
 
         # List indicating the syllable indices
