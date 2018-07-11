@@ -78,6 +78,8 @@ class Syllabifier:
             >>> s = Syllabifier()
 
             >>> s.set_vowels(['i', 'u', 'e', 'a'])
+            
+            >>> s.vowels
             ['i', 'u', 'e', 'a']
         """
         self.vowels = vowels
