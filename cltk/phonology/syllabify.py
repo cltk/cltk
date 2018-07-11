@@ -127,7 +127,7 @@ class Syllabifier:
 
         find_nucleus = True
 
-        i = 1
+        i = 0
 
         try:
             # Replace each letter occurence with its corresponding number
