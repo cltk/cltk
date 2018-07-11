@@ -5,7 +5,7 @@ import logging
 import unicodedata
 
 from cltk.exceptions import InputError
-from cltk.corpus.middle_high_german.Syllabifier import Syllabifier as MHG_Syllabifier
+from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 
 
 LOG = logging.getLogger(__name__)
