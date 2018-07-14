@@ -4,6 +4,7 @@ __license__ = 'MIT License. See LICENSE.'
 import logging
 import unicodedata
 
+from collections import defaultdict
 from cltk.exceptions import InputError
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 
