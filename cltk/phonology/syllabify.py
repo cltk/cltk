@@ -12,6 +12,60 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 
+def get_onsets(text, vowels="aeiou", threshold=0.0002):
+    """
+    Source: Resonances in Middle High German: New Methodologies in Prosody,
+    2017, C. L. Hench
+
+    :param text: str list: text to be analysed
+
+    :param vowels: str: valid vowels constituting the syllable
+
+    :param threshold: minimum frequency count for valid onset, C. Hench noted
+    that the algorithm produces the best result for an untagged wordset of MHG,
+    when retaining onsets which appear in at least 0.02% of the words
+
+    Example:
+        Let's test it on the opening lines of Nibelungenlied
+
+        >>> text = ['uns', 'ist', 'in', 'alten', 'mæren', 'wunders', 'vil', 'geseit', 'von', 'helden', 'lobebæren',\\
+        'von', 'grôzer', 'arebeit', 'von', 'fröuden', 'hôchgezîten', 'von', 'weinen', 'und', 'von', 'klagen', 'von',\\
+        'küener', 'recken', 'strîten', 'muget', 'ir', 'nu', 'wunder', 'hœren', 'sagen']
+
+        >>> vowels = "aeiouæœôîöü"
+
+        >>> get_onsets(text, vowels=vowels)
+        ['lt', 'm', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'ld', 'l', 'b', 'gr', 'z', 'fr', 'd', 'chg', 't', 'n', 'kl', 'k', 'ck', 'str']
+
+         Of course, this is an insignificant sample, but we could try and see
+         how modifying the threshold affects the returned onset:
+
+        >>> get_onsets(text, threshold = 0.05, vowels=vowels)
+        ['m', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'b', 'z', 't', 'n']
+    """
+    onset_dict = defaultdict(lambda: 0)
+    n = len(text)
+
+    for word in text:
+        onset = ''
+        candidates = []
+
+        for l in word:
+
+            if l not in vowels:
+                onset += l
+
+            else:
+                if onset != '':
+                    candidates.append(onset)
+                    onset = ''
+
+        for c in candidates:
+            onset_dict[c] += 1
+
+    return [onset for onset, i in zip(onset_dict.keys(), onset_dict.values()) if i/n > threshold]
+
+
 class Syllabifier:
 
     def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
