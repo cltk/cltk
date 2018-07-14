@@ -62,7 +62,7 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
         for c in candidates:
             onset_dict[c] += 1
 
-    return return [onset for onset, i in onset_dict.items() if i/n > threshold]
+    return [onset for onset, i in onset_dict.items() if i/n > threshold]
 
 
 class Syllabifier:
