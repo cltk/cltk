@@ -239,7 +239,40 @@ class Syllabifier:
             word = word[:-1]
 
         return word
+    
+    def legal_onsets(self, syllables, invalid_onsets):
+        """
+        Filters syllable respecting the legality principle
+        :param syllables: str list
+        :param invalid_onsets: str list
 
+        Example:
+            >>> s = Syllabifier(["i", "u", "y"], ["o", "ø", "e"], ["a"], ["r"], ["l"], ["m", "n"], ["f", "v", "s", "h"], ["k", "g", "b", "p", "t", "d"])
+
+            >>> s.legal_onsets(s.syllabify_SSP("almatigr"), ['lm']
+            ['al', 'ma', 'tigr']
+        """
+
+        vowels = self.vowels
+
+        for i in range(1, len(syllables)):
+            onset = ""
+            
+            for letter in syllables[i]:
+
+                if letter in vowels:
+                    break
+
+                onset += letter
+
+            for j in range(len(onset)):
+                #Check whether the given onset is valid
+                if onset[j:] not in invalid_onsets:
+                    syllables[i - 1] += onset[:j]
+                    syllables[i] = syllables[i][j:]
+                    break
+        
+        return syllables
 
     def syllabify_IPA(self, word):
         """
