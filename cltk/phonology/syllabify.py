@@ -249,7 +249,7 @@ class Syllabifier:
         Example:
             >>> s = Syllabifier(["i", "u", "y"], ["o", "ø", "e"], ["a"], ["r"], ["l"], ["m", "n"], ["f", "v", "s", "h"], ["k", "g", "b", "p", "t", "d"])
 
-            >>> s.legal_onsets(s.syllabify_SSP("almatigr"), ['lm']
+            >>> s.legal_onsets(s.syllabify_SSP("almatigr"), ['lm'])
             ['al', 'ma', 'tigr']
         """
 
