@@ -86,10 +86,11 @@ ne_exceptions += ['absone', 'acharne', 'acrisione', 'acumine', 'adhucine', 'adsu
                   'turbine', 'turne', 'tyrrhene', 'uane', 'uelamine', 'uertigine', 'uesane', 'uimine', 'uirgine',
                   'umbone', 'unguine', 'uolumine', 'uoragine', 'urbane', 'uulcane', 'zone']
 
-n_exceptions += ['aenean', 'agmen', 'alioquin', 'an', 'attamen', 'carmen', 'certamen', 'cognomen', 'crimen', 'dein',
-                 'discrimen', 'en', 'epitheton', 'exin', 'flumen', 'forsan', 'forsitan', 'fulmen', 'hymen', 'iason',
-                 'in', 'limen', 'liquamen', 'lumen', 'nomen', 'non', 'numen', 'omen', 'orion', 'quin', 'semen', 'sin',
-                 'specimen', 'tamen', 'titan']
+n_exceptions += ['aenean', 'agmen', 'alioquin', 'an', 'attamen', 'cacumen', 'carmen', 'certamen', 'clymenen', 'cognomen', 
+                 'crimen', 'culmen', 'dein', 'deucalion', 'discrimen', 'en', 'epitheton', 'erinyn', 'exin', 'flumen', 
+                 'forsan', 'forsitan', 'fulmen', 'gramen', 'hymen', 'iason', 'in', 'limen', 'liquamen', 'lumen', 'nomen', 
+                 'non', 'numen', 'omen', 'orion', 'paean', 'pan', 'pelion', 'phaethon', 'python', 'quin', 'semen', 'sin',
+                 'specimen', 'tamen', 'themin', 'titan']
 
 # English words; this list added to better handle English header, navigation, etc. in plaintext files of the Latin Library corpus.
 n_exceptions += ['alcuin', 'caen', 'christian', 'chronicon', 'châtillon', 'claudian', 'john', 'justin', 'latin',
