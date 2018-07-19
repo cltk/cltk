@@ -412,6 +412,15 @@ vowel list for the nuclei to be correctly identified.
    In [13]: s.syllabify('feminarum')
    Out[13]: ['fe', 'mi', 'na', 'rum']
    
+For a language-dependent approach, you can call the predefined sonority dictionary by toogling the ``language`` parameter:
+
+.. code-block:: python
+   
+   In [14]: s = Syllabifier(language='middle high german')
+   
+   In [15]: s.syllabify('lobebæren')
+   Out[15]: ['lo', 'be', 'bæ', 'ren']
+   
 Text Reuse
 ==========
 The text reuse module offers a few tools to get started with studying text reuse (i.e., allusion and intertext). The major goals of this module are to leverage conventional text reuse strategies and to create comparison methods designed specifically for the languages of the corpora included in the CLTK.
