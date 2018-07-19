@@ -6,8 +6,8 @@ import unicodedata
 
 from collections import defaultdict
 from cltk.exceptions import InputError
+from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
-
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -69,8 +69,18 @@ class Syllabifier:
 
     def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
                  fricatives=None, plosives=None, language=None):
+        
+        if language == 'middle english':
+            hierarchy = [[] for _ in range(len(set(ME_Syllabifier.values())))]
 
-        if language == 'middle high german':
+            for k in ME_Syllabifier:
+                hierarchy[ME_Syllabifier[k] - 1].append(k)
+
+            self.set_hierarchy(hierarchy)
+            self.set_vowels(hierarchy[0])
+        
+        
+        elif language == 'middle high german':
             hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
             for k in MHG_Syllabifier:
@@ -181,6 +191,11 @@ class Syllabifier:
             >>> s.syllabify('lobebæren')
             ['lo', 'be', 'bæ', 'ren']
             
+            >>> s = Syllabifier(language='middle english')
+            
+            >>> s.syllabify("huntyng")
+            ['hun', 'tyng']
+            
         """
 
         # List indicating the syllable indices
@@ -204,7 +219,10 @@ class Syllabifier:
             # Search for nucleus
             while word[i] not in self.vowels and i < len(word) - 1 and find_nucleus:
                 i += 1
-
+            
+            if find_nucleus is True:
+                i += 1
+            
             if i >= len(word) - 1:
                 break
 
@@ -238,7 +256,19 @@ class Syllabifier:
             word[-2] += word[-1]
             word = word[:-1]
 
-        return word
+        return self.onset_maximization(word)
+
+    
+    def onset_maximization(self, syllables):
+
+        for i, syl in enumerate(syllables):
+            if i != len(syllables) - 1:
+                if syllables[i+1][0] in self.vowels and syllables[i+1][-1] not in self.vowels:
+                    syllables[i+1] = syllables[i][-1] + syllables[i+1]
+                    syllables[i] = syllables[i][:-1]
+
+        return syllables
+    
     
     def legal_onsets(self, syllables, invalid_onsets):
         """
