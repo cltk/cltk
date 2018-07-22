@@ -8,6 +8,8 @@ from collections import defaultdict
 from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
+from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
+from cltk.tokenize.word import tokenize_old_norse_words
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -66,7 +68,6 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
 
 
 class Syllabifier:
-
     def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
                  fricatives=None, plosives=None, language=None):
         
@@ -78,8 +79,7 @@ class Syllabifier:
 
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
-        
-        
+
         elif language == 'middle high german':
             hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
@@ -88,6 +88,10 @@ class Syllabifier:
 
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
+
+        elif language == "old_norse":
+            self.set_hierarchy(OLD_NORSE_HIERARCHY)
+            self.set_vowels(OLD_NORSE_HIERARCHY[0])
 
         else:
 
@@ -258,7 +262,6 @@ class Syllabifier:
 
         return self.onset_maximization(word)
 
-    
     def onset_maximization(self, syllables):
 
         for i, syl in enumerate(syllables):
@@ -268,8 +271,7 @@ class Syllabifier:
                     syllables[i] = syllables[i][:-1]
 
         return syllables
-    
-    
+
     def legal_onsets(self, syllables, invalid_onsets):
         """
         Filters syllable respecting the legality principle
@@ -296,7 +298,7 @@ class Syllabifier:
                 onset += letter
 
             for j in range(len(onset)):
-                #Check whether the given onset is valid
+                # Check whether the given onset is valid
                 if onset[j:] not in invalid_onsets:
                     syllables[i - 1] += onset[:j]
                     syllables[i] = syllables[i][j:]
@@ -316,3 +318,12 @@ class Syllabifier:
         print(word)
         return self.syllabify_SSP(word)
 
+
+if __name__ == "__main__":
+    s = Syllabifier(language="old_norse")
+    text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok átta" \
+           " ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
+    l = tokenize_old_norse_words(text)
+    for word in l:
+        if word not in ",.":
+            print(s.legal_onsets(s.syllabify_SSP(word.lower()), ['lm', "fj", "nm", "rk", "nn", "tt", "ðr"]))
