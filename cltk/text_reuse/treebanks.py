@@ -8,40 +8,33 @@ def set_path(dicts, keys, v):
 
 
 def get_paths(src):
-
-    """
-    Generates root-to-leaf paths, given a treebank in string format
+    """Generates root-to-leaf paths, given a treebank in string format
 
     :param src: str: treebank
     """
     st = list()
     tmp = ''
-
     for let in src:
         if let == '(':
             if tmp != '':
                 st.append(tmp)
                 tmp = ''
-
         elif let == ')':
             if tmp != '':
                 st.append(tmp)
                 yield st
             st = st[:-1 - (tmp != '')]
             tmp = ''
-
         elif let == ' ':
             if tmp != '':
                 st.append(tmp)
                 tmp = ''
-
         else:
             tmp += let
 
 
 def parse_treebanks(st):
-    """
-    Returns the corresponding tree of the treebank, in the form of
+    """Returns the corresponding tree of the treebank, in the form of
     a nested dictionary
     :param st: str: treebank using Penn notation
 
@@ -57,4 +50,3 @@ def parse_treebanks(st):
     for path in get_paths(st):
         set_path(d, path[:-1], path[-1])
     return d
-
