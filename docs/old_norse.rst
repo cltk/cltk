@@ -7,7 +7,7 @@ Old Norse was a North Germanic language that was spoken by inhabitants of Scandi
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old Norse corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old_norse corpora.
 
 .. code-block:: python
 
@@ -83,18 +83,6 @@ Here is a sentence extracted from *Gylfaginning* in the *Edda* by Snorri Sturlus
     Out[3]:['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.']
 
 
-Word Tokenizing
-===============
-A very simple tokenizer is available for Old Norse. For now, it does not take into account specific Old Norse constructions like the merge of conjugated verbs with þú and with sik.
-Here is a sentence extracted from Gylfaginning.
-.. code-block:: python
-
-   In [1]: word_tokenizer = WordTokenizer('old_norse')
-   In [2]: sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr."
-   In [3]: result = word_tokenizer.tokenize(sentence)
-   In [4]: result
-   Out[4]: ['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.']
-
 POS tagging
 ===========
 
@@ -132,57 +120,8 @@ According to phonological rules (available at `Wikipedia - Old Norse orthography
 
     In [2]: sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
 
-    In [3]: tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
+    In [3]: tr = ont.Transcriber()
 
-    In [4]: tr.main(sentence)
+    In [4]: tr.main(sentence, ont.old_norse_rules)
 
     Out [4]: "[gylvi kɔnungr var maðr vitr ɔk fjœlkunːiɣr]"
-
-Runes
-=====
-The oldest runic inscriptions found are from 200 AC. They have always denoted Germanic languages. Until the 8th century, the elder *futhark* alphabet was used. It was compouned with 24 characters: ᚠ, ᚢ, ᚦ, ᚨ, ᚱ, ᚲ, ᚷ, ᚹ, ᚺ, ᚾ, ᛁ, ᛃ, ᛇ, ᛈ, ᛉ, ᛊ, ᛏ, ᛒ, ᛖ, ᛗ, ᛚ, ᛜ, ᛟ, ᛞ. The word *Futhark* comes from the 6 first characters of the alphabet: ᚠ (f), ᚢ (u), ᚦ (th), ᚨ (a), ᚱ (r), ᚲ (k). Later, this alphabet was reduced to 16 runes, the *younger futhark* ᚠ, ᚢ, ᚦ, ᚭ, ᚱ, ᚴ, ᚼ, ᚾ, ᛁ, ᛅ, ᛋ, ᛏ, ᛒ, ᛖ, ᛘ, ᛚ, ᛦ, with more ambiguity on sounds. Shapes of runes may vary according to which matter they are carved on, that is why there is a variant of the *younger futhark* like this: ᚠ, ᚢ, ᚦ, ᚭ, ᚱ, ᚴ, ᚽ, ᚿ, ᛁ, ᛅ, ᛌ, ᛐ, ᛓ, ᛖ, ᛙ, ᛚ, ᛧ.
-
-.. code-block:: python
-
-    In [1]: from cltk.corpus.old_norse import runes
-
-    In [2]: " ".join(Rune.display_runes(ELDER_FUTHARK))
-
-    Out[2]: ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ ᛇ ᛈ ᛉ ᛊ ᛏ ᛒ ᛖ ᛗ ᛚ ᛜ ᛟ ᛞ
-
-    In [3]: little_jelling_stone = "᛬ᚴᚢᚱᛘᛦ᛬ᚴᚢᚾᚢᚴᛦ᛬ᚴ(ᛅᚱ)ᚦᛁ᛬ᚴᚢᛒᛚ᛬ᚦᚢᛋᛁ᛬ᛅ(ᚠᛏ)᛬ᚦᚢᚱᚢᛁ᛬ᚴᚢᚾᚢ᛬ᛋᛁᚾᛅ᛬ᛏᛅᚾᛘᛅᚱᚴᛅᛦ᛬ᛒᚢᛏ᛬"
-
-    In [4]: Transcriber.transcribe(little_jelling_stone, YOUNGER_FUTHARK)
-
-    Out [4]: "᛫kurmR᛫kunukR᛫k(ar)þi᛫kubl᛫þusi᛫a(ft)᛫þurui᛫kunu᛫sina᛫tanmarkaR᛫but᛫"
-
-
-Word Tokenizing
-===============
-A very simple tokenizer is available for Old Norse. For now, it does not take into account specific Old Norse constructions like the merge of conjugated verbs with þú and with sik.
-Here is a sentence extracted from Gylfaginning.
-.. code-block:: python
-
-   In [1]: word_tokenizer = WordTokenizer('old_norse')
-   In [2]: sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr."
-   In [3]: result = word_tokenizer.tokenize(sentence)
-   In [4]: result
-   Out[4]: ['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.']
-
-POS tagging
-===========
-
-Thanks to TnT implemented in NLTK, you can get the POS tags of Old Norse texts. The model, first import the ``old_norse_models_cltk`` corpus.
-Taggers are trained from an annotated corpus. You can find it at ` <http://www.linguist.is/icelandic_treebank/Download>` and it is Icelandic Parsed Historical Corpus (IcePaHC) version 0.9.
-TnT tagger
-The following sentence is extracted from the first verse of Völuspá (poem describing destiny of Agards gods).
-``````````
-.. code-block:: python
-
-   In [1]: tagger.tag_tnt('Hlióðs bið ek allar.')
-   Out[1]:
-   [('Hlióðs', 'Unk'),
-   ('bið', 'VBPI'),
-   ('ek', 'PRO-N'),
-   ('allar', 'Q-A'),
-   ('.', '.')]
