@@ -1,5 +1,5 @@
 import re
-import alphabet
+import cltk.corpus.persian.alphabet as alphabet
 from cltk.corpus.arabic.alphabet import *
 
 toReform = [
