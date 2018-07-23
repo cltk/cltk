@@ -2,7 +2,7 @@ import re
 import cltk.corpus.persian.alphabet as alphabet
 from cltk.corpus.arabic.alphabet import *
 
-toReform = [
+to_reform = [
     {
         "characters": [
             HAMZA,
@@ -27,7 +27,7 @@ toReform = [
             alphabet.THOUSANDS,
             alphabet.DECIMAL
         ],
-        "toBe": ""
+        "to_be": ""
     },
     {
         "characters": [
@@ -36,18 +36,18 @@ toReform = [
             HAMZA_BELOW_ALEF,
             HAMZA_ABOVE_ALEF,
         ],
-        "toBe": alphabet.ALEF
+        "to_be": alphabet.ALEF
     },
     {
         "characters": [
             ALEF_MAKSURA,
             YEH,
         ],
-        "toBe": alphabet.YE
+        "to_be": alphabet.YE
     },
     {
         "characters": [KAF],
-        "toBe": alphabet.KAF
+        "to_be": alphabet.KAF
     },
     {
         "characters": [
@@ -56,18 +56,18 @@ toReform = [
             LAM_ALEF_HAMZA_BELOW,
             LAM_ALEF_MADDA_ABOVE,
         ],
-        "toBe": alphabet.LAM + alphabet.ALEF
+        "to_be": alphabet.LAM + alphabet.ALEF
     },
     {
         "characters": [TEH_MARBUTA],
-        "toBe": alphabet.HE2
+        "to_be": alphabet.HE2
     },
 ]
 
 replacementDict = {}
 for rule in toReform:
     for character in rule["characters"]:
-        replacementDict[character] = rule["toBe"]
+        replacementDict[character] = rule["to_be"]
 
 for originalForm, shapedForms in SHAPED_FORMS.items():
     for form in shapedForms:
