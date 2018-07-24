@@ -362,11 +362,7 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 Named Entity Recognition
 ========================
 
-.. tip::
-
-   NER is new functionality. Please report any errors you observe.
-
-There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_ (see repo for how it the list was created). By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
 
 .. code-block:: python
 
