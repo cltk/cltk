@@ -8,7 +8,7 @@ def set_path(dicts, keys, v):
     :param v: str: value to be added
 
     Example:
-        >>> d = dicts()
+        >>> d = dict()
 
         >>> set_path(d, ['a', 'b', 'c'],  'd')
 
