@@ -11,6 +11,7 @@ from cltk.lemmatize.backoff import UnigramLemmatizer
 #from cltk.lemmatize.latin.backoff import NgramPOSLemmatizer
 #from cltk.lemmatize.latin.backoff import BigramPOSLemmatizer
 from cltk.lemmatize.latin.backoff import BackoffLemmatizer as LatinBackoffLemmatizer
+from cltk.lemmatize.greek.backoff import BackoffLemmatizer as GreekBackoffLemmatizer
 #from cltk.lemmatize.latin.regexp_patterns import rn_patterns
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
@@ -143,7 +144,7 @@ class TestSequenceFunctions(unittest.TestCase):
         tokens = tokenizer.tokenize(test_str)
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
-        
+
 
 #    def test_bigram_pos_lemmatizer(self):
 #        train = [[('dixissem', 'dico', 'v')], [('de', 'de', 'r'), ('te', 'tu', 'p'), ('autem', 'autem', 'c'), (',', 'punc', 'u'), ('catilina', 'catilina', 'n'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('quiescunt', 'quiesco', 'v'), (',', 'punc', 'u'), ('probant', 'probo', 'v'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('patiuntur', 'patior', 'v'), (',', 'punc', 'u'), ('decernunt', 'decerno', 'v'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('tacent', 'taceo', 'v'), (',', 'punc', 'u'), ('clamant', 'clamo', 'v'), (',', 'punc', 'u'), ('neque', 'neque', 'c'), ('hi', 'hic', 'p'), ('solum', 'solus', 'd'), ('quorum', 'qui', 'p'), ('tibi', 'tu', 'p'), ('auctoritas', 'auctoritas', 'n'), ('est', 'sum', 'v'), ('uidelicet', 'uidelicet', 'd'), ('cara', 'carus', 'a'), (',', 'punc', 'u'), ('uita', 'uita', 'n'), ('uilissima', 'uilis', 'a'), (',', 'punc', 'u'), ('sed', 'sed', 'c'), ('etiam', 'etiam', 'c'), ('illi', 'ille', 'p'), ('equites', 'eques', 'n'), ('romani', 'romanus', 'a'), (',', 'punc', 'u'), ('honestissimi', 'honestus', 'a'), ('atque', 'atque', 'c'), ('optimi', 'bonus', 'a'), ('uiri', 'uir', 'n'), (',', 'punc', 'u'), ('ceteri', 'ceterus', 'a'), ('-que', '-que', 'c'), ('fortissimi', 'fortis', 'a'), ('ciues', 'ciuis', 'n'), ('qui', 'qui', 'p'), ('circumstant', 'circumsto', 'v'), ('senatum', 'senatus', 'n'), (',', 'punc', 'u'), ('quorum', 'qui', 'p'), ('tu', 'tu', 'p'), ('et', 'et', 'c'), ('frequentiam', 'frequentia', 'n'), ('uidere', 'uideo', 'v'), ('et', 'et', 'c'), ('studia', 'studium', 'n'), ('perspicere', 'perspicio', 'v'), ('et', 'et', 'c'), ('uoces', 'uox', 'n'), ('paulo', 'paulus', 'd'), ('ante', 'ante', 'd'), ('exaudire', 'exaudio', 'v'), ('potuisti', 'possum', 'v'), ('.', 'punc', 'u')]]
@@ -157,7 +158,7 @@ class TestSequenceFunctions(unittest.TestCase):
 #        tokens = tokenizer.tokenize(test_str)
 #        lemmas = lemmatizer.lemmatize(tokens)
 #        self.assertEqual(lemmas, target)
-        
+
     def test_backoff_latin_lemmatizer(self):
         """Test backoffLatinLemmatizer"""
         train = [[('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]]  # pylint: disable=line-too-long
@@ -169,6 +170,17 @@ class TestSequenceFunctions(unittest.TestCase):
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        self.assertEqual(lemmas, target)
+
+    def test_backoff_greek_lemmatizer(self):
+        """Test backoffGreekLemmatizer"""
+        train = [[('περὶ', 'περί'), ('πολλοῦ', 'πολύς'), ('ἂν', 'ἄν'), ('ποιησαίμην', 'ποιέω')]]
+        # train = [[('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]]  # pylint: disable=line-too-long
+        lemmatizer = GreekBackoffLemmatizer(train=train)
+        test_str = """περὶ πολλοῦ ἂν ποιησαίμην"""
+        target = [('περὶ', 'περί'), ('πολλοῦ', 'πολύς'), ('ἂν', 'ἄν'), ('ποιησαίμην', 'ποιέω')]  # pylint: disable=line-too-long
+        tokens = test_str.split() # Replace with tokenizer eventually
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
