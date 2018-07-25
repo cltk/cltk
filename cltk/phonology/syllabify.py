@@ -317,13 +317,3 @@ class Syllabifier:
 
         print(word)
         return self.syllabify_SSP(word)
-
-
-if __name__ == "__main__":
-    s = Syllabifier(language="old_norse")
-    text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok átta" \
-           " ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
-    l = tokenize_old_norse_words(text)
-    for word in l:
-        if word not in ",.":
-            print(s.legal_onsets(s.syllabify_SSP(word.lower()), ['lm', "fj", "nm", "rk", "nn", "tt", "ðr"]))
