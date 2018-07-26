@@ -9,7 +9,6 @@ from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
-from cltk.tokenize.word import tokenize_old_norse_words
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())

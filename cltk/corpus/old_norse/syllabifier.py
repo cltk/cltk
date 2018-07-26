@@ -17,4 +17,4 @@ hierarchy = [
     ["l"]
 ]
 
-# invalid_onsets = []
+invalid_onsets = ['lm', "fj", "nm", "rk", "nn", "tt", "ðr"]

@@ -16,6 +16,7 @@ from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology import utils as ut
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
+from cltk.corpus.old_norse.syllabifier import invalid_onsets
 import unittest
 
 
@@ -735,16 +736,16 @@ class TestSequenceFunctions(unittest.TestCase):
         # print(ut.Rule.from_regular_expression(pattern3, ru3.temp_sound.ipar, IPA_class))
 
     def test_syllabification_old_norse(self):
-        s = Syllabifier(language="old_norse")
+        s = Syllabifier(language="old_norse", break_geminants=True)
         text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok átta" \
                " ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
         words = tokenize_old_norse_words(text)
-        syllabified_words = [s.legal_onsets(s.syllabify_SSP(word.lower()), ['lm', "fj", "nm", "rk", "nn", "tt", "ðr"])
+        syllabified_words = [s.legal_onsets(s.syllabify_SSP(word.lower()), invalid_onsets)
                              for word in words if word not in ",."]
-        # Not all syllabifications are correct
+
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],
-                  ['svá'], ['at'], ['af'], ['renni', 'rauk', 'num'], ['rauk'], ['dan', 'mar', 'kar'], ['auk', 'a'],
-                  ['bár', 'u'], ['öxn'], ['ok'], ['átta'], ['enni', 'tungl'], ['þars'], ['geng', 'u'],  ['fy', 'rir'],
+                  ['svá'], ['at'], ['af'], ['ren', 'ni', 'rauk', 'num'], ['rauk'], ['dan', 'mar', 'kar'], ['auk', 'a'],
+                  ['bár', 'u'], ['öxn'], ['ok'], ['át', 'ta'], ['en', 'ni', 'tungl'], ['þars'], ['geng', 'u'],  ['fy', 'rir'],
                   ['vi', 'ney', 'jar'], ['víðr', 'i'], ['val', 'rauf'], ['fjö', 'gur'], ['hö', 'fuð']]
         self.assertListEqual(syllabified_words, target)
 
