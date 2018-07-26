@@ -244,7 +244,7 @@ class Syllabifier:
 
             else:
                 #If the break_geminants parameter is set to True, prioritize geminants
-                if self.break_geminants and encoded[i-1] == encoded[i]:
+                if self.break_geminants and word[i-1] == word[i]:
                     syllables.append(i-1)
                     find_nucleus = True 
                     
