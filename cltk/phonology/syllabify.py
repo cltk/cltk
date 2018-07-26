@@ -204,11 +204,11 @@ class Syllabifier:
             
             >>> hierarchy = [["a", "á", "æ", "e", "é", "i", "í", "o", "ǫ", "ø", "ö", "œ", "ó", "u", "ú", "y", "ý"], ["j"], ["m"], ["n"], ["p", "b", "d", "g", "t", "k"], ["c", "f", "s", "h", "v", "x", "þ", "ð"], ["r"], ["l"]]
             
-            >>> s.set_hierarchy(hierarchy)
+            >>> geminant_s.set_hierarchy(hierarchy)
             
-            >>> s.set_vowels(hierarchy[0])
+            >>> geminant_s.set_vowels(hierarchy[0])
             
-            >>> s.syllabify("ennitungl")
+            >>> geminant_s.syllabify("ennitungl")
             ['en', 'ni', 'tungl']
 
             
