@@ -9,6 +9,132 @@ mythological narrative, legal texts, scientific works, correspondence, political
 By the second millennium BC, two variant forms of the language were in use in Assyria and Babylonia, known as Assyrian and \
 Babylonian respectively. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Akkadian>`_)
 
+Workflow Sample Model
+=====================
+A sample workflow model of utilizing the tools in Akkadian is shown below. In this example, we are taking a text file
+downloaded from CDLI, import it, have it be read and ingested. From here, we will look at the table of contents,
+select a text, convert the text into Unicode and PrettyPrint its result.
+
+.. code-block:: python
+
+   In[1]: from Importer.file_importer import FileImport
+
+   In[2]: from Importer.cdli_corpus import CDLICorpus
+
+   In[3]: from ATFConverter.tokenizer import Tokenizer
+
+   In[4]: from ATFConverter.atf_converter import ATFConverter
+
+   In[5]: from PrettyPrint.pretty_print import PrettyPrint
+
+   In[6]: import os
+
+   # import a text and read it
+   In[7]: fi = FileImport('texts/two_text.txt')
+
+   In[8]: fi.read_file()
+
+   # output = fi.raw_file or fi.file_lines; for folder catalog = fi.file_catalog()
+   # ingest your file lines
+   In[9]: cc = CDLICorpus()
+
+   In[10]: cc.ingest_text_file(fi.file_lines)
+
+   # this creates disparate sections of the text ingested (edition, metadata, etc)
+   In[11]: transliteration = [text['transliteration'] for text in cc.texts][0]
+
+   # access the data through cc.texts (e.g. above) or initial prints (e.g. below):
+   # look through the file's contents
+   In[12]: print(cc.table_of_contents())
+   Out[12]: ["edition: ['ARM 01, 001']; cdli number: ['&P254202']",
+             "edition: ['ARM 01, 002']; cdli number: ['&P254203']"]
+
+   # select a text through edition or cdli number (there's also .print_metadata):
+   In[13]: selected_text = cc.print_text('&P254203')
+
+   # otherwise use the above 'transliteration'; same thing:
+   In[14]: print(selected_text)
+   Out[14]: ['&P254202 = ARM 01, 001', '#atf: lang akk', '@tablet', '@obverse', '1. a-na ia-ah-du-li-[im]',
+             '2. qi2-bi2-[ma]', '3. um-ma a-bi-sa-mar#-[ma]', '4. sa-li-ma-am e-pu-[usz]',
+             '5. asz-szum mu-sze-zi-ba-am# [la i-szu]', '6. [sa]-li#-ma-am sza e-[pu-szu]',
+             '7. [u2-ul] e-pu-usz sa#-[li-mu-um]', '8. [u2-ul] sa-[li-mu-um-ma]', '$ rest broken', '@reverse',
+             '$ beginning broken', "1'. isz#-tu mu#-[sze-zi-ba-am la i-szu]", "2'. a-la-nu-ia sza la is,-s,a-ab#-[tu]",
+             "3'. i-na-an-na is,-s,a-ab-[tu]", "4'. i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]",
+             "5'. ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]", "6'. u3 ia-am-ha-ad[{ki}]",
+             "7'. a-la-nu an-nu-tum u2-ul ih-li-qu2#", "8'. i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma",
+             "9'. ih-ta-al-qu2", "10'. u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#",
+             "11'. u3 na-pa-asz2-ti u2-ba-li-it,", "12'. pi2-qa-at ha-s,e-ra#-at", "13'. asz-szum a-la-nu-ka",
+             "14'. u3 ma-ru-ka sza-al#-[mu]", "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"]
+
+   In[15]: print(transliteration)
+   Out[15]: ['&P254202 = ARM 01, 001', '#atf: lang akk', '@tablet', '@obverse', '1. a-na ia-ah-du-li-[im]',
+             '2. qi2-bi2-[ma]', '3. um-ma a-bi-sa-mar#-[ma]', '4. sa-li-ma-am e-pu-[usz]',
+             '5. asz-szum mu-sze-zi-ba-am# [la i-szu]', '6. [sa]-li#-ma-am sza e-[pu-szu]',
+             '7. [u2-ul] e-pu-usz sa#-[li-mu-um]', '8. [u2-ul] sa-[li-mu-um-ma]', '$ rest broken', '@reverse',
+             '$ beginning broken', "1'. isz#-tu mu#-[sze-zi-ba-am la i-szu]", "2'. a-la-nu-ia sza la is,-s,a-ab#-[tu]",
+             "3'. i-na-an-na is,-s,a-ab-[tu]", "4'. i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]",
+             "5'. ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]", "6'. u3 ia-am-ha-ad[{ki}]",
+             "7'. a-la-nu an-nu-tum u2-ul ih-li-qu2#", "8'. i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma",
+             "9'. ih-ta-al-qu2", "10'. u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#",
+             "11'. u3 na-pa-asz2-ti u2-ba-li-it,", "12'. pi2-qa-at ha-s,e-ra#-at", "13'. asz-szum a-la-nu-ka",
+             "14'. u3 ma-ru-ka sza-al#-[mu]", "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"]
+
+   # tokenize by word or sign
+   In[16]: atf = ATFConverter()
+
+   In[17]: tk = Tokenizer()
+
+   In[18]: lines = [tk.string_tokenizer(text, include_blanks=False)
+                    for text in atf.process(selected_text)]
+
+   In[19]: words = [tk.word_tokenizer(line[0]) for line in lines]
+
+   # taking off first four lines to focus on the text with [4:]
+   In[20]: print(lines[4:])
+   In[20]: [['1. a-na ia-ah-du-li-im'], ['2. qi2-bi2-ma'], ['3. um-ma a-bi-sa-mar-ma'], ['4. sa-li-ma-am e-pu-uš'],
+            ['5. aš-šum mu-še-zi-ba-am la i-šu'], ['6. sa-li-ma-am ša e-pu-šu'], ['7. u2-ul e-pu-uš sa-li-mu-um'],
+            ['8. u2-ul sa-li-mu-um-ma'], ['$ rest broken'], ['@reverse'], ['$ beginning broken'],
+            ['1ʾ. iš-tu mu-še-zi-ba-am la i-šu'], ['2ʾ. a-la-nu-ia ša la iṣ-ṣa-ab-tu'], ['3ʾ. i-na-an-na iṣ-ṣa-ab-tu'],
+            ['4ʾ. i-na ne2-kur-ti _lu2_ ha-ši-im{ki}'], ['5ʾ. ur-si-im{ki} _lu2_ ka-ar-ka-mi-is{ki}'],
+            ['6ʾ. u3 ia-am-ha-ad{ki}'], ['7ʾ. a-la-nu an-nu-tum u2-ul ih-li-qu2'],
+            '8ʾ. i-na ne2-kur-ti {diš}sa-am-si-{d}iškur-ma'], ['9ʾ. ih-ta-al-qu₂'],
+            ['1₀ʾ. u3 a-la-nu ša ki-ma u2-hu-ru u2-še-zi-ib'], ['11ʾ. u3 na-pa-aš2-ti u2-ba-li-iṭ'],
+            ['12ʾ. pi2-qa-at ha-ṣe-ra-at'], ['13ʾ. aš-šum a-la-nu-ka'], ['14ʾ. u3 ma-ru-ka ša-al-mu'],
+            ['15ʾ. a-na na-pa-aš2-ti-ia i-tu-ur']]
+   In[21]: print(words[4:])
+   In[21]: [[('a-na', 'akkadian'), ('ia-ah-du-li-im', 'akkadian')], [('qi2-bi2-ma', 'akkadian')],
+            [('um-ma', 'akkadian'), ('a-bi-sa-mar-ma', 'akkadian')], [('sa-li-ma-am', 'akkadian'),
+             ('e-pu-uš', 'akkadian')], [('aš-šum', 'akkadian'), ('mu-še-zi-ba-am', 'akkadian'), ('la', 'akkadian'),
+             ('i-šu', 'akkadian')], [('sa-li-ma-am', 'akkadian'), ('ša', 'akkadian'), ('e-pu-šu', 'akkadian')],
+            [('u2-ul', 'akkadian'), ('e-pu-uš', 'akkadian'), ('sa-li-mu-um', 'akkadian')], [('u2-ul', 'akkadian'),
+             ('sa-li-mu-um-ma', 'akkadian')], [('rest', 'akkadian'), ('broken', 'akkadian')], [],
+            [('beginning', 'akkadian'), ('broken', 'akkadian')], [('iš-tu', 'akkadian'), ('mu-še-zi-ba-am', 'akkadian'),
+             ('la', 'akkadian'), ('i-šu', 'akkadian')], [('a-la-nu-ia', 'akkadian'), ('ša', 'akkadian'),
+             ('la', 'akkadian'), ('iṣ-ṣa-ab-tu', 'akkadian')], [('i-na-an-na', 'akkadian'), ('iṣ-ṣa-ab-tu', 'akkadian')],
+            [('i-na', 'akkadian'), ('ne2-kur-ti', 'akkadian'), ('_lu2_', 'sumerian'), ('ha-ši-im{ki}', 'akkadian')],
+            [('ur-si-im{ki}', 'akkadian'), ('_lu2_', 'sumerian'), ('ka-ar-ka-mi-is{ki}', 'akkadian')],
+            [('u3', 'akkadian'), ('ia-am-ha-ad{ki}', 'akkadian')], [('a-la-nu', 'akkadian'), ('an-nu-tum', 'akkadian'),
+             ('u2-ul', 'akkadian'), ('ih-li-qu2', 'akkadian')], [('i-na', 'akkadian'), ('ne2-kur-ti', 'akkadian'),
+             ('{diš}sa-am-si-{d}iškur-ma', 'akkadian')], [('ih-ta-al-qu₂', 'akkadian')], [('u3', 'akkadian'),
+             ('a-la-nu', 'akkadian'), ('ša', 'akkadian'), ('ki-ma', 'akkadian'), ('u2-hu-ru', 'akkadian'),
+             ('u2-še-zi-ib', 'akkadian')], [('u3', 'akkadian'), ('na-pa-aš2-ti', 'akkadian'),
+             ('u2-ba-li-iṭ', 'akkadian')], [('pi2-qa-at', 'akkadian'), ('ha-ṣe-ra-at', 'akkadian')],
+            [('aš-šum', 'akkadian'), ('a-la-nu-ka', 'akkadian')], [('u3', 'akkadian'), ('ma-ru-ka', 'akkadian'),
+             ('ša-al-mu', 'akkadian')], [('a-na', 'akkadian'), ('na-pa-aš2-ti-ia', 'akkadian'),
+             ('i-tu-ur', 'akkadian')]]
+
+   In[22]: for word in words[4:]:
+   In[23]:      signs = [tk.sign_tokenizer(x) for x in word]
+   # Note: Not printing 'signs' due to legnth. Try it!
+
+   # Pretty printing:
+   In[25]: pp = PrettyPrint()
+
+   In[26]: destination = os.path.join('tests', 'tutorial_html.html')
+
+   In[27]: pp.html_print_single_text(cc.texts, '&P254202', destination)
+
+   # ISSUES: When can I process the text in Pretty Printing without embedding it?
 
 Read File
 =========
@@ -78,7 +204,7 @@ To access the text, use `.texts`.
 
    In[8]: print(cdli.texts)
    Out[8]: [{'text edition': ['ARM 01, 001'], 'cdli number': ['&P254202'], 'metadata':
-   [['Primary publication: ARM 01, 001', 'Author(s): Dossin, Georges', 'Publication date: 1946',
+   ['Primary publication: ARM 01, 001', 'Author(s): Dossin, Georges', 'Publication date: 1946',
    'Secondary publication(s): Durand, Jean-Marie, LAPO 16, 0305',
    'Collection: National Museum of Syria, Damascus, Syria', 'Museum no.: NMSD —',
    'Accession no.:', 'Provenience: Mari (mod. Tell Hariri)', 'Excavation no.:',
@@ -86,8 +212,8 @@ To access the text, use `.texts`.
    'Remarks:', 'Material: clay', 'Language: Akkadian', 'Genre: Letter', 'Sub-genre:',
    'CDLI comments:', 'Catalogue source: 20050104 cdliadmin', 'ATF source: cdlistaff',
    'Translation: Durand, Jean-Marie (fr); Guerra, Dylan M. (en)',
-   'UCLA Library ARK: 21198/zz001rsp8x', 'Composite no.:', 'Seal no.:', 'CDLI no.: P254202']],
-   'transliteration': [['&P254202 = ARM 01, 001', '#atf: lang akk', '@tablet', '@obverse',
+   'UCLA Library ARK: 21198/zz001rsp8x', 'Composite no.:', 'Seal no.:', 'CDLI no.: P254202'],
+   'transliteration': ['&P254202 = ARM 01, 001', '#atf: lang akk', '@tablet', '@obverse',
    '1. a-na ia-ah-du-li-[im]', '2. qi2-bi2-[ma]', '3. um-ma a-bi-sa-mar#-[ma]',
    '4. sa-li-ma-am e-pu-[usz]', '5. asz-szum mu-sze-zi-ba-am# [la i-szu]',
    '6. [sa]-li#-ma-am sza e-[pu-szu]', '7. [u2-ul] e-pu-usz sa#-[li-mu-um]',
@@ -99,7 +225,7 @@ To access the text, use `.texts`.
    "9'. ih-ta-al-qu2", "10'. u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#",
    "11'. u3 na-pa-asz2-ti u2-ba-li-it,", "12'. pi2-qa-at ha-s,e-ra#-at",
    "13'. asz-szum a-la-nu-ka", "14'. u3 ma-ru-ka sza-al#-[mu]",
-   "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"]]}]
+   "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"]}]
 
 Table of Contents
 =================

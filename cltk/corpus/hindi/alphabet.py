@@ -1,7 +1,7 @@
 
 """HINDI is an Indic language which uses DEVNAGRI scriptderiving from Brahmi script.
 script is also used to write other languages, including
-Hindi is directly derived from sanskrit and is common language of medivieal texts from north India. The vowels
+Hindi is directly derived from sanskrit and is common language of medivieal Akkadian_test_texts from north India. The vowels
 themselves can be divided into dependent and independent vowels"""
 
 

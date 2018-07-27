@@ -1,6 +1,6 @@
 """
 The Importer feature sets up the ability to work with cuneiform text(s)
-one-on-one, whether it is the Code of Hammurabi, a collection of texts such as
+one-on-one, whether it is the Code of Hammurabi, a collection of Akkadian_test_texts such as
 ARM01, or whatever your research desires.
 
 This cdli_corpus module is for working with text files having already been read
@@ -9,7 +9,7 @@ use of FileImport(text_file).read_file().
 
 e.g.:
     # FileImport takes a txt file and reads it; this becomes file_lines.
-        text_path = os.path.join('texts', 'ARM01_texts.txt')
+        text_path = os.path.join('Akkadian_test_texts', 'ARM01_texts.txt')
         f_i = FileImport(text_path)
         f_i.read_file()
         ARM01 = f_i.file_lines
@@ -43,7 +43,7 @@ class CDLICorpus(object):
     def _chunk_text(self, file_lines):     # pylint: disable =no-self-use
         """
         Splits up a text whenever a break is found in file_lines.
-        :return: Disparate texts.
+        :return: Disparate Akkadian_test_texts.
         """
         chunk_text, text = [], []
         for line in file_lines:
@@ -141,7 +141,8 @@ class CDLICorpus(object):
         metadata = self._find_metadata(file_lines)
         transliteration = self._find_transliteration(file_lines)
         new_text = {'text edition': edition, 'cdli number': cdli_number,
-                    'metadata': metadata, 'transliteration': transliteration}
+                    'metadata': metadata[0],
+                    'transliteration': transliteration[0]}
         self.text = new_text  # pylint: disable= attribute-defined-outside-init
 
     def ingest_text_file(self, file_lines):
@@ -182,7 +183,7 @@ class CDLICorpus(object):
         for text in self.texts:
             if edition_or_cdli_number in text['text edition'] or \
                     text['cdli number']:
-                return text['transliteration'][0]
+                return text['transliteration']
 
     def print_metadata(self, edition_or_cdli_number):  # pylint: disable=inconsistent-return-statements
         """

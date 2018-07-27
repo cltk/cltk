@@ -229,7 +229,7 @@ class VerseScanner:
 
     def produce_scansion(self, stresses: list, syllables_wspaces: list, offset_map: dict) -> str:
         """Create a scansion string that has stressed and unstressed syllable positions in locations
-        that correspond with the original texts syllable vowels.
+        that correspond with the original Akkadian_test_texts syllable vowels.
          :param stresses list of syllable positions
          :param syllables_wspaces list of syllables with spaces escaped for punctuation or elision
          :param offset_map dictionary of syllable positions, and an offset amount which is the

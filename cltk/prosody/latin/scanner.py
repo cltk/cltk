@@ -1,5 +1,5 @@
 """
-This program returns the prosimetric scansion of Latin texts. A user is first
+This program returns the prosimetric scansion of Latin Akkadian_test_texts. A user is first
 prompted to supply the file path of the text they wish to scan.
 Note that this text must be a relatively 'clean' text, as the opening function
 (i.e., tokenize) will only remove numbers, abbreviations, and all punctuation
@@ -29,7 +29,7 @@ __license__ = 'MIT License'
 
 
 class Scansion:
-    """Scan Latin texts which already have macrons over vowels long by nature."""
+    """Scan Latin Akkadian_test_texts which already have macrons over vowels long by nature."""
     def __init__(self):
         """Setup class variables."""
 

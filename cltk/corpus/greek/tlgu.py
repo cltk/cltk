@@ -115,8 +115,8 @@ class TLGU(object):
         :param divide_works: Each work (book) is output as a separate file in
         the form output_file-xxx.txt; if an output file is not specified, this
          option has no effect.
-        :param latin: Primarily Latin text (PHI). Some TLG texts, notably
-        doccan1.txt and doccan2.txt are mostly roman texts lacking explicit
+        :param latin: Primarily Latin text (PHI). Some TLG Akkadian_test_texts, notably
+        doccan1.txt and doccan2.txt are mostly roman Akkadian_test_texts lacking explicit
         language change codes. Setting this option will force a change to
         Latin text after each citation block is encountered.
         :param extra_args: Any other tlgu args to be passed, in list form and

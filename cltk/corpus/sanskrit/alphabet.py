@@ -64,7 +64,7 @@ SONANT_ASPIRATE = ['ह']
 
 # These are the other alphabets which are used in Sanskrit language.
 # At Index 0, The alphabet is called Om symbol.At Index 1, we have the Virama Symbol(also called halant)
-# which is used in sacred texts for supressing inherent vowels in the consonant letter.
+# which is used in sacred Akkadian_test_texts for supressing inherent vowels in the consonant letter.
 # At Index 3 we have chandrabindu used for nasalization of vowel.
 # At Index 4 we have the letter called avagraha, 5th Index symbol is called as the nukta
 # At index 6 and 7 we have the danda and double-danda used for ending shlokas in Sanskrit

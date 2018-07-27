@@ -169,7 +169,6 @@ def tokenize_akkadian_signs(word):
     word, word_language = word
     signs_output = []
 
-
     if word[0] == "{":
         # Take care of initial determinative
         determinative = re.search("{(.+)}", word)

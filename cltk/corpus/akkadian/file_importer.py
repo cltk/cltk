@@ -1,6 +1,6 @@
 """
 The Importer feature sets up the ability to work with cuneiform text(s)
-one-on-one, whether it is the Code of Hammurabi, a collection of texts such as
+one-on-one, whether it is the Code of Hammurabi, a collection of Akkadian_test_texts such as
 ARM01, or whatever your research desires.
 
 This file_importer module is for importing text files. Currently, this is
@@ -9,7 +9,7 @@ option: (https://cdli.ucla.edu/search/download_data_new.php?data_type=all).
 
 From this link, one has produced either one text (e.g. Code of Hammurabi:
 https://cdli.ucla.edu/search/search_results.php?ObjectID=P249253)
-or a variety of texts through a search function (e.g. ARM 01 publication:
+or a variety of Akkadian_test_texts through a search function (e.g. ARM 01 publication:
 https://cdli.ucla.edu/search/search_results.php?PrimaryPublication=ARM+01).
 """
 
