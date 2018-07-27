@@ -545,7 +545,7 @@ example_distributed_fake_language_corpus:
     def test_egyptian_transliterate_mdc_to_unicode_q_kopf_True(self):
         """
         test to transliterate mdc to unicode
-        for ancient egyptian Akkadian_test_texts.
+        for ancient egyptian texts.
         q_kopf option True
         """
         #
@@ -566,7 +566,7 @@ example_distributed_fake_language_corpus:
     def test_egyptian_transliterate_mdc_to_unicode_q_kopf_False(self):
         """
         test to transliterate mdc to unicode
-        for ancient egyptian Akkadian_test_texts.
+        for ancient egyptian texts.
         q_kopf option False
         """
         #
