@@ -1,8 +1,8 @@
 __author__ = ["Nurendra Choudhary <nurendrachoudhary31@gmail.com>", "Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>"]
 __license__ = "GPLv3"
-""" Transliterate Akkadian_test_texts between unicode and standard transliteration schemes.
+""" Transliterate texts between unicode and standard transliteration schemes.
 
-Transliterate Akkadian_test_texts between non-latin scripts and commonly-used latin
+Transliterate texts between non-latin scripts and commonly-used latin
 transliteration schemes. Uses standard Unicode character blocks -- 
 e.g. DEVANAGARI U+0900 ... U+097F -- and transliteration schemes -- 
 e.g. the IAST convention for transliteration of Sanskrit to latin-with-dots.
@@ -833,7 +833,7 @@ ITRANS = { \
     '7': 0x096D,
     '8': 0x096E,
     '9': 0x096F,
-    # non-standard/obsolete iTrans variants still used in Akkadian_test_texts from
+    # non-standard/obsolete iTrans variants still used in texts from
     # http://sanskrit.gde.to/
     '.h': 0x903,
     'N^': 0x919,

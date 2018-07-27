@@ -1,5 +1,5 @@
 """
-This program returns the prosimetric scansion of Greek Akkadian_test_texts.
+This program returns the prosimetric scansion of Greek texts.
 
 A user is first prompted to supply the file path of the text they wish to scan.
 Note that this text must be a relatively 'clean' text, as the opening function
@@ -24,7 +24,7 @@ __license__ = 'MIT License'
 
 class Scansion:
 
-    """Scans Greek Akkadian_test_texts, but does not macronize the text."""
+    """Scans Greek texts, but does not macronize the text."""
 
     def __init__(self):
         """Setup class variables."""

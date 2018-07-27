@@ -69,7 +69,7 @@ class StringStoplist(Stoplist):
                         to be added to the final list  
         :param exclude: List of words in addition to stopwords that are extracted from the document collection
                         to be removed from the final list 
-        :type Akkadian_test_texts: list
+        :type texts: list
         :type basis: str
         :type size: int
         :type sort_words: bool

@@ -3,7 +3,7 @@
 TODO: Add CLTK logging.
 TODO: Make different functions for regex versus plaintext query.
 TODO: Make public function for searching string.
-TODO: Make public function for searching specific Akkadian_test_texts (passing list of eg, author names, ids, and/or filepaths.)
+TODO: Make public function for searching specific texts (passing list of eg, author names, ids, and/or filepaths.)
 TODO: Add option of outputting to plaintext file.
 TODO: For whatever output, generate statistics on # of matches found, # docs searched.
 """

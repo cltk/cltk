@@ -130,7 +130,7 @@ def minhash(str_a, str_b):
 
         Thanks to Pulkit Kathuria(@kevincobain2000) for the definition of the
         function. The function makes use of minhash for estimation of similarity
-         between two strings or Akkadian_test_texts.
+         between two strings or texts.
         """
         score = 0.0
         tok_sent_1 = str_a
