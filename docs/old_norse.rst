@@ -125,3 +125,14 @@ According to phonological rules (available at `Wikipedia - Old Norse orthography
     In [4]: tr.main(sentence)
 
     Out [4]: "[gylvi kɔnungr var maðr vitr ɔk fjœlkunːiɣr]"
+
+Old Norse prosody
+=================
+
+  * Fornyrðislag
+
+  * Ljóðaháttr
+
+  * Dróttkvætt
+
+  * Hrynhenda
