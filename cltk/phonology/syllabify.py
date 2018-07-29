@@ -8,7 +8,7 @@ from collections import defaultdict
 from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
-from cltk.corpus.old_english.syllabigier import Syllabifier as OE_Syllabifier
+from cltk.corpus.old_english.syllabifier import Syllabifier as OE_Syllabifier
 from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
 
 LOG = logging.getLogger(__name__)
