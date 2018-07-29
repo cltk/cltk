@@ -8,6 +8,7 @@ from collections import defaultdict
 from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
+from cltk.corpus.old_english.syllabigier import Syllabifier as OE_Syllabifier
 from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
 
 LOG = logging.getLogger(__name__)
@@ -77,6 +78,15 @@ class Syllabifier:
 
             for k in ME_Syllabifier:
                 hierarchy[ME_Syllabifier[k] - 1].append(k)
+
+            self.set_hierarchy(hierarchy)
+            self.set_vowels(hierarchy[0])
+        
+        elif language == 'old english':
+            hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
+
+            for k in OE_Syllabifier:
+                hierarchy[OE_Syllabifier[k] - 1].append(k)
 
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
@@ -200,6 +210,11 @@ class Syllabifier:
             
             >>> s.syllabify("huntyng")
             ['hun', 'tyng']
+            
+            >>> s = Syllabifier(language='old english')
+            
+            >>> s.syllabify("arcebiscop")
+            ['ar', 'ce', 'bis', 'cop']
             
             The break_geminants parameter ensures a breakpoint is placed between geminants:
             
