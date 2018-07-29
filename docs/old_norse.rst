@@ -158,3 +158,13 @@ For a language-dependent approach, you can call the predefined sonority dictiona
    Out[2]: ['dan', 'mar', 'kar']
 
 
+Old Norse prosody
+=================
+
+  * Fornyrðislag
+
+  * Ljóðaháttr
+
+  * Dróttkvætt
+
+  * Hrynhenda
