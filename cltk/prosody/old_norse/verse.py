@@ -2,6 +2,8 @@
 
 from math import floor
 
+import re
+
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.utils.cltk_logger import logger
@@ -86,6 +88,7 @@ class Ljoodhhaatr:
         self.text = ""
         self.long_lines = []
         self.short_lines = []
+        self.syllabified_text = []
 
     def from_short_lines_text(self, text: str):
         """
@@ -113,6 +116,7 @@ class Ljoodhhaatr:
         >>> lj.from_short_lines_text(text)
         >>> lj.syllabify()
         >>> lj.syllabified_text
+        [[[[['deyr'], ['fé']]], [[['deyj', 'a'], ['frændr']]]], [[[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]]], [[[['ek'], ['veit'], ['einn']]], [[['at'], ['al', 'drei'], ['deyr']]]], [[[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]]
 
         """
         if len(self.long_lines) == 0:
@@ -127,8 +131,15 @@ class Ljoodhhaatr:
                     syllabified_text[i].append([])
                     words = []
                     for word in tokenize_old_norse_words(viisuordh):
+                        word = word.replace(",", "")
+                        word = word.replace(".", "")
+                        word = word.replace(";", "")
+                        word = word.replace("!", "")
+                        word = word.replace("?", "")
+                        word = word.replace("-", "")
+                        word = word.replace(":", "")
                         if word != '':
-                            words.append(syllabifier.syllabify(word))
+                            words.append(syllabifier.syllabify(word.lower()))
                     syllabified_text[i][j].append(words)
             self.syllabified_text = syllabified_text
 
