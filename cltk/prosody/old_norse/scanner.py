@@ -1,5 +1,5 @@
 """
-Alliteration is the first kind of figure of speech
+Alliteration is the first kind of speech device
 
 """
 
