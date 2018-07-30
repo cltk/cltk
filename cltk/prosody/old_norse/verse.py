@@ -2,6 +2,10 @@
 
 from math import floor
 
+from cltk.phonology.syllabify import Syllabifier
+from cltk.tokenize.word import tokenize_old_norse_words
+from cltk.utils.cltk_logger import logger
+
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 
@@ -100,3 +104,33 @@ class Ljoodhhaatr:
         self.text = text
         self.short_lines = [line for line in text.split("\n") if line != ""]
         self.long_lines = [self.short_lines[0:2], [self.short_lines[2]], self.short_lines[3:5], [self.short_lines[5]]]
+    
+    def syllabify(self):
+        """
+        >>> lj = Ljoodhhaatr()
+        >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+
+        >>> lj.from_short_lines_text(text)
+        >>> lj.syllabify()
+        >>> lj.syllabified_text
+
+        """
+        if len(self.long_lines) == 0:
+            logger.error("No text was imported")
+            self.syllabified_text = []
+        else:
+            syllabifier = Syllabifier(language="old_norse", break_geminants=True)
+            syllabified_text = []
+            for i, line in enumerate(self.long_lines):
+                syllabified_text.append([])
+                for j, viisuordh in enumerate(line):
+                    syllabified_text[i].append([])
+                    words = []
+                    for word in tokenize_old_norse_words(viisuordh):
+                        if word != '':
+                            words.append(syllabifier.syllabify(word))
+                    syllabified_text[i][j].append(words)
+            self.syllabified_text = syllabified_text
+
+
+
