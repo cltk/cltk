@@ -7,7 +7,7 @@ Old Norse was a North Germanic language that was spoken by inhabitants of Scandi
 Corpora
 =======
 
-Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old_norse corpora.
+Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github.com/cltk>`_ (anything beginning with ``old_norse_``) to discover available Old Norse corpora.
 
 .. code-block:: python
 
@@ -120,8 +120,41 @@ According to phonological rules (available at `Wikipedia - Old Norse orthography
 
     In [2]: sentence = "Gylfi konungr var maðr vitr ok fjölkunnigr"
 
-    In [3]: tr = ont.Transcriber()
+    In [3]: tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
 
-    In [4]: tr.main(sentence, ont.old_norse_rules)
+    In [4]: tr.main(sentence)
 
     Out [4]: "[gylvi kɔnungr var maðr vitr ɔk fjœlkunːiɣr]"
+
+Runes
+=====
+The oldest runic inscriptions found are from 200 AC. They have always denoted Germanic languages. Until the 8th century, the elder *futhark* alphabet was used. It was compouned with 24 characters: ᚠ, ᚢ, ᚦ, ᚨ, ᚱ, ᚲ, ᚷ, ᚹ, ᚺ, ᚾ, ᛁ, ᛃ, ᛇ, ᛈ, ᛉ, ᛊ, ᛏ, ᛒ, ᛖ, ᛗ, ᛚ, ᛜ, ᛟ, ᛞ. The word *Futhark* comes from the 6 first characters of the alphabet: ᚠ (f), ᚢ (u), ᚦ (th), ᚨ (a), ᚱ (r), ᚲ (k). Later, this alphabet was reduced to 16 runes, the *younger futhark* ᚠ, ᚢ, ᚦ, ᚭ, ᚱ, ᚴ, ᚼ, ᚾ, ᛁ, ᛅ, ᛋ, ᛏ, ᛒ, ᛖ, ᛘ, ᛚ, ᛦ, with more ambiguity on sounds. Shapes of runes may vary according to which matter they are carved on, that is why there is a variant of the *younger futhark* like this: ᚠ, ᚢ, ᚦ, ᚭ, ᚱ, ᚴ, ᚽ, ᚿ, ᛁ, ᛅ, ᛌ, ᛐ, ᛓ, ᛖ, ᛙ, ᛚ, ᛧ.
+
+.. code-block:: python
+
+    In [1]: from cltk.corpus.old_norse import runes
+
+    In [2]: " ".join(Rune.display_runes(ELDER_FUTHARK))
+
+    Out[2]: ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ ᛇ ᛈ ᛉ ᛊ ᛏ ᛒ ᛖ ᛗ ᛚ ᛜ ᛟ ᛞ
+
+    In [3]: little_jelling_stone = "᛬ᚴᚢᚱᛘᛦ᛬ᚴᚢᚾᚢᚴᛦ᛬ᚴ(ᛅᚱ)ᚦᛁ᛬ᚴᚢᛒᛚ᛬ᚦᚢᛋᛁ᛬ᛅ(ᚠᛏ)᛬ᚦᚢᚱᚢᛁ᛬ᚴᚢᚾᚢ᛬ᛋᛁᚾᛅ᛬ᛏᛅᚾᛘᛅᚱᚴᛅᛦ᛬ᛒᚢᛏ᛬"
+
+    In [4]: Transcriber.transcribe(little_jelling_stone, YOUNGER_FUTHARK)
+
+    Out [4]: "᛫kurmR᛫kunukR᛫k(ar)þi᛫kubl᛫þusi᛫a(ft)᛫þurui᛫kunu᛫sina᛫tanmarkaR᛫but᛫"
+
+Syllabification
+===============
+
+For a language-dependent approach, you can call the predefined sonority dictionary by toogling the ``language`` parameter:
+
+.. code-block:: python
+
+   In [1]: s = Syllabifier(language='old_norse')
+
+   In [2]: s.syllabify("danmarkar")
+
+   Out[2]: ['dan', 'mar', 'kar']
+
+
