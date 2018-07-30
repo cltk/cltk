@@ -161,9 +161,10 @@ For a language-dependent approach, you can call the predefined sonority dictiona
 Old Norse prosody
 =================
 
-  * Fornyrðislag
+* Fornyrðislag
 
 .. code-block:: python
+
     In[1]: text1 = "Hljóðs bið ek allar\nhelgar kindir,\nmeiri ok minni\nmögu Heimdallar;\nviltu at ek, Valföðr,\nvel fyr telja\nforn spjöll fira,\nþau er fremst of man."
 
     In[2]: VerseManager.is_fornyrdhislag(text1)
@@ -182,10 +183,24 @@ Old Norse prosody
 
     Out[6]: [['Hljóðs bið ek allar', 'helgar kindir,'], ['meiri ok minni', 'mögu Heimdallar;'], ['viltu at ek, Valföðr,', 'vel fyr telja'], ['forn spjöll fira,', 'þau er fremst of man.']]
 
-  * Ljóðaháttr
+    In[7]: fo.syllabify()
+
+    In[8]: fo.syllabified_text
+
+    Out[8]: [[[[['hljóðs'], ['bið'], ['ek'], ['al', 'lar']]], [[['hel', 'gar'], ['kin', 'dir']]]], [[[['meir', 'i'], ['ok'], ['min', 'ni']]], [[['mög', 'u'], ['heim', 'dal', 'lar']]]], [[[['vil', 'tu'], ['at'], ['ek'], ['val', 'föðr']]], [[['vel'], ['fyr'], ['tel', 'ja']]]], [[[['forn'], ['spjöll'], ['fir', 'a']]], [[['þau'], ['er'], ['fremst'], ['of'], ['man']]]]]
+
+    In[9]: fo.to_phonetics()
+
+    In[10]: fo.transcribed_text
+
+    Out[10]: [['[dɐyr feː]', '[dɐyja frɛːndr]'], ['[dɐyr sjalvr it sama]', '[ɛk vɛit ɛinː]'], ['[at aldrɛi dɐyr]', '[doːmr um dɒuðan hvɛrn]']]
+
+
+* Ljóðaháttr
 
 .. code-block:: python
-    In[1]: text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+
+    In[1]: text2 = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
 
     In[2]: VerseManager.is_ljoodhhaattr(text2)
 
@@ -203,8 +218,12 @@ Old Norse prosody
 
     Out[6]: [['Deyr fé,', 'deyja frændr,'], ['deyr sjalfr it sama,'], ['ek veit einn,', 'at aldrei deyr:'], ['dómr um dauðan hvern.']]
 
+    In[7]: lj.syllabify()
 
+    In[8]: lj.syllabified_text
 
-  * Dróttkvætt
+    Out[8]: [[[[['deyr'], ['fé']]], [[['deyj', 'a'], ['frændr']]]], [[[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]]], [[[['ek'], ['veit'], ['einn']]], [[['at'], ['al', 'drei'], ['deyr']]]], [[[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]]
 
-  * Hrynhenda
+* Dróttkvætt
+
+* Hrynhenda
