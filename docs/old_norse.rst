@@ -144,3 +144,17 @@ The oldest runic inscriptions found are from 200 AC. They have always denoted Ge
 
     Out [4]: "᛫kurmR᛫kunukR᛫k(ar)þi᛫kubl᛫þusi᛫a(ft)᛫þurui᛫kunu᛫sina᛫tanmarkaR᛫but᛫"
 
+Syllabification
+===============
+
+For a language-dependent approach, you can call the predefined sonority dictionary by toogling the ``language`` parameter:
+
+.. code-block:: python
+
+   In [1]: s = Syllabifier(language='old_norse')
+
+   In [2]: s.syllabify("danmarkar")
+
+   Out[2]: ['dan', 'mar', 'kar']
+
+
