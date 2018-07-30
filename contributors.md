@@ -33,6 +33,7 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/phonology/old_norse/transcription.py
 * cltk/phonology/old_swedish/transcription.py
 * cltk/phonology/gothic/transcription.py
+* cltk/prosody/old_norse/verse.py
 
 ## Dhruv Apte
 * cltk/corpus/gujarati/alphabet.py
