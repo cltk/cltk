@@ -8,6 +8,7 @@ from collections import defaultdict
 from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
+from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -66,9 +67,10 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
 
 
 class Syllabifier:
-
     def __init__(self, low_vowels=None, mid_vowels=None, high_vowels=None, flaps=None, laterals=None, nasals=None,
-                 fricatives=None, plosives=None, language=None):
+                 fricatives=None, plosives=None, language=None, break_geminants=False):
+        
+        self.break_geminants = break_geminants
         
         if language == 'middle english':
             hierarchy = [[] for _ in range(len(set(ME_Syllabifier.values())))]
@@ -78,8 +80,7 @@ class Syllabifier:
 
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
-        
-        
+
         elif language == 'middle high german':
             hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
@@ -88,6 +89,10 @@ class Syllabifier:
 
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
+
+        elif language == "old_norse":
+            self.set_hierarchy(OLD_NORSE_HIERARCHY)
+            self.set_vowels(OLD_NORSE_HIERARCHY[0])
 
         else:
 
@@ -196,6 +201,20 @@ class Syllabifier:
             >>> s.syllabify("huntyng")
             ['hun', 'tyng']
             
+            The break_geminants parameter ensures a breakpoint is placed between geminants:
+            
+            >>> geminant_s = Syllabifier(break_geminants=True)
+            
+            >>> hierarchy = [["a", "á", "æ", "e", "é", "i", "í", "o", "ǫ", "ø", "ö", "œ", "ó", "u", "ú", "y", "ý"], ["j"], ["m"], ["n"], ["p", "b", "d", "g", "t", "k"], ["c", "f", "s", "h", "v", "x", "þ", "ð"], ["r"], ["l"]]
+            
+            >>> geminant_s.set_hierarchy(hierarchy)
+            
+            >>> geminant_s.set_vowels(hierarchy[0])
+            
+            >>> geminant_s.syllabify("ennitungl")
+            ['en', 'ni', 'tungl']
+
+            
         """
 
         # List indicating the syllable indices
@@ -227,8 +246,13 @@ class Syllabifier:
                 break
 
             else:
+                #If the break_geminants parameter is set to True, prioritize geminants
+                if self.break_geminants and word[i-1] == word[i]:
+                    syllables.append(i-1)
+                    find_nucleus = True 
+                    
                 # If a cluster of three phonemes with the same values exist, break syllable
-                if encoded[i - 1] == encoded[i] == encoded[i + 1]:
+                elif encoded[i - 1] == encoded[i] == encoded[i + 1]:
                     syllables.append(i)
                     find_nucleus = True
 
@@ -258,7 +282,6 @@ class Syllabifier:
 
         return self.onset_maximization(word)
 
-    
     def onset_maximization(self, syllables):
 
         for i, syl in enumerate(syllables):
@@ -268,8 +291,7 @@ class Syllabifier:
                     syllables[i] = syllables[i][:-1]
 
         return syllables
-    
-    
+
     def legal_onsets(self, syllables, invalid_onsets):
         """
         Filters syllable respecting the legality principle
@@ -296,7 +318,7 @@ class Syllabifier:
                 onset += letter
 
             for j in range(len(onset)):
-                #Check whether the given onset is valid
+                # Check whether the given onset is valid
                 if onset[j:] not in invalid_onsets:
                     syllables[i - 1] += onset[:j]
                     syllables[i] = syllables[i][j:]
@@ -315,4 +337,3 @@ class Syllabifier:
 
         print(word)
         return self.syllabify_SSP(word)
-
