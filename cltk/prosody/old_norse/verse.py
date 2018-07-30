@@ -87,11 +87,11 @@ class Ljoodhhaatr:
         """
         Famous example from Hávamál 77
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-        >>> fo = Ljoodhhaatr()
-        >>> fo.from_short_lines_text(text)
-        >>> fo.short_lines
+        >>> lj = Ljoodhhaatr()
+        >>> lj.from_short_lines_text(text)
+        >>> lj.short_lines
         ['Deyr fé,', 'deyja frændr,', 'deyr sjalfr it sama,', 'ek veit einn,', 'at aldrei deyr:', 'dómr um dauðan hvern.']
-        >>> fo.long_lines
+        >>> lj.long_lines
         [['Deyr fé,', 'deyja frændr,'], ['deyr sjalfr it sama,'], ['ek veit einn,', 'at aldrei deyr:'], ['dómr um dauðan hvern.']]
 
         :param text:
