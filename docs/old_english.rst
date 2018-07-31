@@ -155,7 +155,7 @@ The following sentence is from the beginning of Beowulf:
 
     In [4]: tagger.tag_crf(sent)
 
-    Out[4]:[('Hwæt', 'PI'), ('!', 'V-'), ('We', 'NE'), ('Gardena', 'NE'), ('in', 'DF'), ('geardagum', 'NB'), (',', 'NE'), ('þeodcyninga', 'NB'), (',', 'NE'), ('þrym', 'PY'), ('gefrunon', 'V-'), (',', 'PY'), ('hu', 'DU'), ('ða', 'PD'), ('æþelingas', 'NB'), ('ellen', 'DF'), ('fremedon', 'V-'), ('.', 'NE')]
+    Out[4]:[('Hwæt', 'I-'), ('!', 'C-'), ('We', 'NE'), ('Gardena', 'NE'), ('in', 'R-'), ('geardagum', 'NB'), (',', 'C-'), ('þeodcyninga', 'NB'), (',', 'C-'), ('þrym', 'PY'), ('gefrunon', 'NB'), (',', 'C-'), ('hu', 'DU'), ('ða', 'PD'), ('æþelingas', 'NB'), ('ellen', 'V-'), ('fremedon', 'V-'), ('.', 'C-')]
 
 Swadesh
 =======
