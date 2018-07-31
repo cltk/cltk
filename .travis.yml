@@ -20,7 +20,10 @@ before_script:
 - pip install fuzzywuzzy
 - pip install python-Levenshtein
 - pip install gensim  # for word2vec.py
-- pip install numpy scipy scikit-learn
+- pip install Sphinx
+- pip install numpy
+- pip install scipy 
+- pip install scikit-learn
 
 script:
   # Notes on nose:
@@ -28,6 +31,7 @@ script:
   # https://github.com/coagulant/coveralls-python#nosetests
   # http://nose.readthedocs.org/en/latest/plugins/skip.html
 - nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
+- ( cd docs && make doctest; )
 
 after_success:
 - codecov
