@@ -103,7 +103,7 @@ The following sentence is from the first verse of *Völuspá* (a poem describing
 
     In[4]: tagger.tag_tnt(sent)
 
-    Out[4]:[('Hlióðs', 'Unk'),
+    Out[4]: [('Hlióðs', 'Unk'),
     ('bið', 'VBPI'),
     ('ek', 'PRO-N'),
     ('allar', 'Q-A'),

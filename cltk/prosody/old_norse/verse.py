@@ -162,7 +162,7 @@ class Fornyrdhislag(Verse):
         Verse.to_phonetics(self)
 
 
-class Ljoodhhaatr(Verse):
+class Ljoodhhaattr(Verse):
     """
     Ljóðaháttr
     """
@@ -177,7 +177,7 @@ class Ljoodhhaatr(Verse):
         """
         Famous example from Hávamál 77
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-        >>> lj = Ljoodhhaatr()
+        >>> lj = Ljoodhhaattr()
         >>> lj.from_short_lines_text(text)
         >>> lj.short_lines
         ['Deyr fé,', 'deyja frændr,', 'deyr sjalfr it sama,', 'ek veit einn,', 'at aldrei deyr:', 'dómr um dauðan hvern.']
@@ -193,7 +193,7 @@ class Ljoodhhaatr(Verse):
 
     def syllabify(self):
         """
-        >>> lj = Ljoodhhaatr()
+        >>> lj = Ljoodhhaattr()
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
 
         >>> lj.from_short_lines_text(text)
@@ -212,3 +212,4 @@ class Ljoodhhaatr(Verse):
         :return:
         """
         Verse.to_phonetics(self)
+
