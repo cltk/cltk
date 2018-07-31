@@ -540,10 +540,10 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
    Out[3]:0.171631205673
  
  
-Treebanks
-=========
+Treebank label dict
+===================
 
-You can generate the nested dictionary corresponding to a treebank in string format. As of this version, only treebanks following the Penn notation are supported.
+You can generate nested Python dict from a treebank in string format. Currently, only treebanks following the Penn notation are supported.
 
 .. code-block:: python
 
@@ -558,6 +558,7 @@ You can generate the nested dictionary corresponding to a treebank in string for
    
    In [5]: treebank
    Out[5]: {'IP-MAT-SPE': {"'": ["'", "'", "'"], 'INTJ': ['Yes'], ',': [',', ','], 'IP-MAT-PRN': {'NP-SBJ': {'PRO': ['he']}, 'VBD': ['seyde']}, 'NP-SBJ': {'PRO': ['I']}, 'MD': ['shall'], '\t': {'VB': ['promyse'], 'NP-OB2': {'PRO': ['you']}, 'IP-INF': {'TO': ['to'], '\t': {'VB': ['fullfylle'], 'NP-OB1': {'PRO$': ['youre'], 'N': ['desyre']}}, '.': ['.'], "'": ["'"]}}}}
+
 
 Word count
 ==========
