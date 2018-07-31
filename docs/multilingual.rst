@@ -538,7 +538,28 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
    
    In[3]: print(minhash(a,b))
    Out[3]:0.171631205673
+ 
+ 
+Treebank label dict
+===================
+
+You can generate nested Python dict from a treebank in string format. Currently, only treebanks following the Penn notation are supported.
+
+.. code-block:: python
+
+   In [1]: from  cltk.tags.treebanks import parse_treebanks
    
+   In [2]: st = "((IP-MAT-SPE (' ') (INTJ Yes) (, ,) (' ') (IP-MAT-PRN (NP-SBJ (PRO he)) (VBD seyde)) (, ,) (' ') (NP-SBJ (PRO I)) (MD shall)	(VB promyse) (NP-OB2 (PRO you)) (IP-INF (TO to)	(VB fullfylle) (NP-OB1 (PRO$ youre) (N desyre))) (. .) (' '))"
+   
+   In [3]: treebank = parse_treebanks(st)
+
+   In [4]: treebank['IP-MAT-SPE']['INTJ']
+   Out[4]: ['Yes']
+   
+   In [5]: treebank
+   Out[5]: {'IP-MAT-SPE': {"'": ["'", "'", "'"], 'INTJ': ['Yes'], ',': [',', ','], 'IP-MAT-PRN': {'NP-SBJ': {'PRO': ['he']}, 'VBD': ['seyde']}, 'NP-SBJ': {'PRO': ['I']}, 'MD': ['shall'], '\t': {'VB': ['promyse'], 'NP-OB2': {'PRO': ['you']}, 'IP-INF': {'TO': ['to'], '\t': {'VB': ['fullfylle'], 'NP-OB1': {'PRO$': ['youre'], 'N': ['desyre']}}, '.': ['.'], "'": ["'"]}}}}
+
+
 Word count
 ==========
 
