@@ -54,6 +54,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
+
+        corpus_importer = CorpusImporter('old_english')
+        corpus_importer.import_corpus('old_english_models_cltk')
+        file_rel = os.path.join('~/cltk_data/old_english/model/old_english_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
         
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
@@ -222,6 +229,42 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """ Test MOG POS 12-backoff tagger"""
         tagger = POSTag('middle_low_german')
         tagged = tagger.tag_ngram_12_backoff('Jck Johannes preister verwarer vnde voirs tender des Juncfrouwen kloisters to Mariendale')
+        self.assertTrue(tagged)
+
+    def test_pos_unigram_old_english(self):
+        """Test tagging Old English POS with unigram tagger."""
+        tagger = POSTag('old_english')
+        tagged = tagger.tag_unigram('Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon.')
+        self.assertTrue(tagged)
+
+    def test_pos_bigram_old_english(self):
+        """Test tagging Old English POS with bigram tagger."""
+        tagger = POSTag('old_english')
+        tagged = tagger.tag_bigram('Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon.')
+        self.assertTrue(tagged)
+
+    def test_pos_trigram_old_english(self):
+        """Test tagging old_english POS with trigram tagger."""
+        tagger = POSTag('old_english')
+        tagged = tagger.tag_trigram('Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon.')
+        self.assertTrue(tagged)
+
+    def test_pos_ngram123_tagger_old_english(self):
+        """Test tagging Old English POS with a 1-, 2-, and 3-gram backoff tagger."""
+        tagger = POSTag('old_english')
+        tagged = tagger.tag_ngram_123_backoff('Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon.')  # pylint: disable=line-too-long
+        self.assertTrue(tagged)
+
+    def test_pos_crf_tagger_old_english(self):
+        """Test tagging Old English POS with CRF tagger."""
+        tagger = POSTag('old_english')
+        tagged = tagger.tag_crf('Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon.')
+        self.assertTrue(tagged)
+
+    def test_pos_perceptron_tagger_old_english(self):
+        """Test tagging Old English POS with Perceptron tagger."""
+        tagger = POSTag('old_english')
+        tagged = tagger.tag_perceptron('Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon.')
         self.assertTrue(tagged)
 
 if __name__ == '__main__':
