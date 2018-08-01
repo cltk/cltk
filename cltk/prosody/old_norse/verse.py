@@ -51,23 +51,22 @@ class VerseManager:
         l = [line for line in text.split("\n") if line != ""]
         return len(l) == 6
     
-    @staticmethod
-    def extractVerse(text):
-        """
-        From text to the corresponding verse structure
-        :return : verse or None
-        """
-        if Verse.is_fornyrdhislag(text):            
-            fo = Fornyrdhislag()
-            fo.from_short_lines_text(text)
-            return fo
-        elif Verse.is_ljoodhhaattr(text):
-            lj = Ljoodhhaattr()
-            lj.from_short_lines_text(text)
-            return lj
-
-        else:
-            return None
+    # @staticmethod
+    # def extract_verse(text: str):
+    #    """
+    #    From text to the corresponding verse structure
+    #    :return : verse or None
+    #    """
+    #    if Verse.is_fornyrdhislag(text):            
+    #        fo = Fornyrdhislag()
+    #        fo.from_short_lines_text(text)
+    #        return fo
+    #    elif Verse.is_ljoodhhaattr(text):
+    #        lj = Ljoodhhaattr()
+    #        lj.from_short_lines_text(text)
+    #        return lj
+    #    else:
+    #        return None
 
 
 class Verse:
