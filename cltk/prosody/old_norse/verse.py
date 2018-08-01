@@ -18,7 +18,8 @@ class VerseManager:
     @staticmethod
     def is_fornyrdhislag(text: str):
         """
-        Basic check
+        Basic check, only the number of lines matters: 8 for fornyrðislag.
+
         >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> VerseManager.is_fornyrdhislag(text1)
@@ -35,7 +36,7 @@ class VerseManager:
     @staticmethod
     def is_ljoodhhaattr(text: str):
         """
-        Basic check*
+        Basic check, only the number of lines matters: 6 for ljóðaháttr
 
         >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
@@ -49,21 +50,48 @@ class VerseManager:
         """
         l = [line for line in text.split("\n") if line != ""]
         return len(l) == 6
+    
+    @staticmethod
+    def extractVerse(text):
+        """
+        From text to the corresponding verse structure
+        """
+        if Verse.is_fornyrdhislag(text):            
+            fo = Fornyrdhislag()
+            fo.from_short_lines_text(text)
+            return fo
+        if Verse.is_ljoodhhaattr(text):
+            lj = Ljoodhhaattr()
+            lj.from_short_lines_text(text)
+            return lj
+
+        else:
+            return None
 
 
 class Verse:
+    """
+    Verse, strophe or stanza. This is here a regular set of meters.
+    'Abstract' class which implements global methods on verse.
+    """
     def __init__(self):
-        self.short_lines = []
-        self.long_lines = []
-        self.syllabified_text = []
-        self.transcribed_text = []
+        """
+
+        """
+        self.short_lines = []  # list of minimal lines
+        self.long_lines = []  # list of long lines  
+        self.syllabified_text = []  # each word is replaced by a list of its syllables
+        self.transcribed_text = []  # each line is replaced by its phonetical transcription
 
     def from_short_lines_text(self, text: str):
+        """
+        Only implemented in daughter classes.
+        """
         pass
 
     def syllabify(self):
         """
-
+        Syllables may play a role in verse classification.
         """
         if len(self.long_lines) == 0:
             logger.error("No text was imported")
@@ -77,6 +105,7 @@ class Verse:
                     syllabified_text[i].append([])
                     words = []
                     for word in tokenize_old_norse_words(viisuordh):
+                        # punctuation is not necessary here
                         word = word.replace(",", "")
                         word = word.replace(".", "")
                         word = word.replace(";", "")
@@ -91,8 +120,7 @@ class Verse:
 
     def to_phonetics(self):
         """
-
-        :return:
+        Transcribing words in verse helps find alliteration.
         """
         if len(self.long_lines) == 0:
             logger.error("No text was imported")
@@ -109,7 +137,23 @@ class Verse:
 
 class Fornyrdhislag(Verse):
     """
-    Fornyrðislag
+    # Fornyrðislag :
+
+    short lines:
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+
+    long lines:
+    -------- --------
+    -------- --------
+    -------- --------
+    -------- --------
+
     """
     def __init__(self):
         Verse.__init__(self)
@@ -208,8 +252,13 @@ class Ljoodhhaattr(Verse):
 
     def to_phonetics(self):
         """
+        >>> lj = Ljoodhhaattr()
+        >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> lj.from_short_lines_text(text)
+        >>> lj.to_phonetics()
+        >>> lj.transcribed_text
+        [['[dɐyr feː]', '[dɐyja frɛːndr]'], ['[dɐyr sjalvr it sama]'], ['[ɛk vɛit ɛinː]', '[at aldrɛi dɐyr]'], ['[doːmr um dɒuðan hvɛrn]']]
 
-        :return:
         """
         Verse.to_phonetics(self)
 
