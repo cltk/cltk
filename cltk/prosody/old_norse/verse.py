@@ -55,12 +55,13 @@ class VerseManager:
     def extractVerse(text):
         """
         From text to the corresponding verse structure
+        :return : verse or None
         """
         if Verse.is_fornyrdhislag(text):            
             fo = Fornyrdhislag()
             fo.from_short_lines_text(text)
             return fo
-        if Verse.is_ljoodhhaattr(text):
+        elif Verse.is_ljoodhhaattr(text):
             lj = Ljoodhhaattr()
             lj.from_short_lines_text(text)
             return lj
