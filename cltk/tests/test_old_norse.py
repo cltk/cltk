@@ -1,5 +1,6 @@
 """Test for Old Norse"""
 
+import os
 import unittest
 
 from cltk.corpus.swadesh import Swadesh
@@ -10,6 +11,7 @@ from cltk.phonology import utils as ut
 from cltk.tokenize.word import WordTokenizer
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tag.pos import POSTag
+from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 
@@ -18,6 +20,14 @@ __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 class TestOldNorse(unittest.TestCase):
     """Class for unittest"""
+    def setUp(self):
+        corpus_importer = CorpusImporter("old_norse")
+        corpus_importer.import_corpus("old_norse_models_cltk")
+        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
+
     # Swadesh list
     def test_swadesh_old_norse(self):
         swadesh = Swadesh('old_norse')
