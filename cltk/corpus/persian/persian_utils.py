@@ -96,4 +96,4 @@ def standardize(text):
     return replacementRegex.sub(lambda mo: replacementDict[mo.string[mo.start():mo.end()]], text)
 
 def standardize4Word2vec(text):
-    return replacementRegex.sub(lambda mo: replacementDict4Word2vec[mo.string[mo.start():mo.end()]], text)
+    return replacementRegex4Word2vec.sub(lambda mo: replacementDict4Word2vec[mo.string[mo.start():mo.end()]], text)
