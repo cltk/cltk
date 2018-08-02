@@ -72,20 +72,28 @@ for rule in toReform:
 for originalForm, shapedForms in SHAPED_FORMS.items():
     for form in shapedForms:
         replacementDict[form] = replacementDict.get(originalForm, originalForm)
+        
+replacementDict4Word2vec = replacementDict.copy()
 
 for i in range(10):
     replacementDict[EASTERN_ARABIC_NUMERALS[i]] = alphabet.NUMERALS[i]
     replacementDict[WESTERN_ARABIC_NUMERALS[i]] = alphabet.NUMERALS[i]
-    # Use the commented parts for Word2Vec embeddings
-    # replacementDict[alphabet.NUMERALS[i]] = " %s " % alphabet.NUMERALS_WRITINGS[i]
 
+for i in range(10):
+    replacementDict4Word2vec[EASTERN_ARABIC_NUMERALS[i]] = " %s " % alphabet.NUMERALS_WRITINGS[i]
+    replacementDict4Word2vec[WESTERN_ARABIC_NUMERALS[i]] = " %s " % alphabet.NUMERALS_WRITINGS[i]
+    replacementDict4Word2vec[alphabet.NUMERALS[i]] = " %s " % alphabet.NUMERALS_WRITINGS[i]
 
-# for char in '[!"#%\'()*+,-./:;<=>?@\[\]^_`{|}~’”“′‘\\\]؟؛«»،٪':
-#     replacementDict[char] = " "
-#
-# replacementDict[" +"] = " "
+for char in '[!"#%\'()*+,-./:;<=>?@\[\]^_`{|}~’”“′‘\\\]؟؛«»،٪':
+    replacementDict4Word2vec[char] = " "
 
+replacementDict4Word2vec[" +"] = " "
+
+replacementRegex4Word2vec = re.compile("(%s)" % "|".join(map(re.escape, replacementDict4Word2vec.keys())))
 replacementRegex = re.compile("(%s)" % "|".join(map(re.escape, replacementDict.keys())))
 
 def standardize(text):
     return replacementRegex.sub(lambda mo: replacementDict[mo.string[mo.start():mo.end()]], text)
+
+def standardize4Word2vec(text):
+    return replacementRegex.sub(lambda mo: replacementDict4Word2vec[mo.string[mo.start():mo.end()]], text)
