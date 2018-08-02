@@ -422,11 +422,7 @@ These two arguments can be combined, as well.
 Named Entity Recognition
 ========================
 
-.. tip::
-
-   NER is new functionality. Please report any errors you observe.
-
-There is available a simple interface to `a list of Greek proper nouns <https://github.com/cltk/greek_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+There is available a simple interface to `a list of Greek proper nouns <https://github.com/cltk/greek_proper_names_cltk>`_ (see repo for how it the list was created). By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
 
 .. code-block:: python
 
