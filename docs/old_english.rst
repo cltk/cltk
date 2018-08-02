@@ -141,7 +141,7 @@ The POS tag scheme is explained here: https://proiel.github.io/handbook/develope
 ``Bech, Kristin and Kristine Eide. 2014. The ISWOC corpus. Department of Literature, Area Studies and European Languages, University of Oslo. http://iswoc.github.com.``
 
 Example: Tagging with the CRF tagger
-````````````````````````````````````
+------------------------------------
 
 The following sentence is from the beginning of Beowulf:
 
