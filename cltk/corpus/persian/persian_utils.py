@@ -65,7 +65,7 @@ to_reform = [
 ]
 
 replacementDict = {}
-for rule in toReform:
+for rule in to_reform:
     for character in rule["characters"]:
         replacementDict[character] = rule["to_be"]
 
