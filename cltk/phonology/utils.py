@@ -1,17 +1,38 @@
-"""
-Factorize code
-"""
+"""To define sounds, phonetic rules for transcription"""
 
 import re
+from enum import Enum, auto
 from cltk.utils.cltk_logger import logger
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
+__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
+
+
+class AutoName(Enum):
+    def _generate_next_value_(name, a, b, d):
+        return name
+
 
 # Definition of consonants
-PLACES = ["bilabial", "labio-dental", "dental", "alveolar", "post-alveolar", "retroflex", "palatal", "velar", "uvular",
-          "glottal"]
-MANNERS = ["nasal", "stop", "lateral", "frictative", "trill", "spirant"]
+class Manner(AutoName):
+    nasal = auto()
+    stop = auto()
+    lateral = auto()
+    frictative = auto()
+    trill = auto()
+    spirant = auto()
 
+
+class Place(AutoName):
+    bilabial = auto()
+    labio_dental = auto()
+    dental = auto()
+    alveolar = auto()
+    post_alveolar = auto()
+    retroflex = auto()
+    palatal = auto()
+    velar = auto()
+    uvular = auto()
+    glottal = auto()
 
 
 class AbstractConsonant:
@@ -19,11 +40,11 @@ class AbstractConsonant:
     Used with AbstractPosition to define an environment of a sound
     """
     def __init__(self, place=None, manner=None, voiced=None, ipar=None, geminate=None):
-        if place in PLACES or place is None:
+        if isinstance(place, Place) or place is None:
             self.place = place
         else:
             logger.error("Incorrect argument")
-        if manner in MANNERS or manner is None:
+        if isinstance(manner, Manner) or manner is None:
             self.manner = manner
         else:
             logger.error("Incorrect argument")
@@ -120,9 +141,30 @@ class Consonant(AbstractConsonant):
 
 
 # Vowels
-HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
-BACKNESS = ["front", "central", "back"]
-LENGTHS = ["short", "long", "overlong"]
+# HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
+# LENGTHS = ["short", "long", "overlong"]
+# BACKNESS = ["front", "central", "back"]
+
+class Height(AutoName):
+    open = auto()
+    near_open = auto()
+    open_mid = auto()
+    mid = auto()
+    close_mid = auto()
+    near_close = auto()
+    close = auto()
+
+
+class Backness(AutoName):
+    front = auto()
+    central = auto()
+    back = auto()
+
+
+class Length(AutoName):
+    short = auto()
+    long = auto()
+    overlong = auto()
 
 
 class AbstractVowel:
@@ -130,12 +172,12 @@ class AbstractVowel:
     Used with AbstractPosition to define an environment of a sound
     """
     def __init__(self, height=None, backness=None, rounded=None, length=None, ipar=None):
-        if height in HEIGHT or height is None:
+        if isinstance(height, Height) or height is None:
             self.height = height
         else:
             logger.error("Incorrect argument")
             raise ValueError
-        if backness in BACKNESS or backness is None:
+        if isinstance(backness, Backness) or backness is None:
             self.backness = backness
         else:
             logger.error("Incorrect argument")
@@ -145,7 +187,7 @@ class AbstractVowel:
         else:
             logger.error("Incorrect argument")
             raise TypeError
-        if length in LENGTHS or length is None:
+        if isinstance(length, Length) or length is None:
             self.length = length
         else:
             logger.error("Incorrect argument")
@@ -228,7 +270,10 @@ class Vowel(AbstractVowel):
         return self.ipar
 
 
-POSITIONS = ["first", "inner", "last"]
+class Rank(AutoName):
+    first = auto()
+    inner = auto()
+    last = auto()
 
 
 class AbstractPosition:
@@ -237,7 +282,7 @@ class AbstractPosition:
      a sound or a set of sounds before and a sound or a set of sounds after
     """
     def __init__(self, position, before: list, after: list):
-        assert position in POSITIONS
+        assert isinstance(position, Rank)
 
         self.position = position
         # assert isinstance(before, AbstractConsonant) or isinstance(before, AbstractVowel)
@@ -283,7 +328,7 @@ class Position:
     This is a position (at the beginning, inside or at the end) of a an observed word, a sound before and a sound after
     """
     def __init__(self, position, before, after):
-        assert position in POSITIONS
+        assert isinstance(position, Rank)
         self.position = position
         assert isinstance(before, Consonant) or isinstance(before, Vowel) or before is None
         self.before = before
