@@ -17,7 +17,7 @@ class Manner(AutoName):
     nasal = auto()
     stop = auto()
     lateral = auto()
-    frictative = auto()
+    fricative = auto()
     trill = auto()
     spirant = auto()
 
