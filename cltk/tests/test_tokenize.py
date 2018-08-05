@@ -232,7 +232,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   'vilja', 'þeira', '.']
         word_tokenizer = WordTokenizer('old_norse')
         result = word_tokenizer.tokenize(text)
-        #print(result)
         self.assertTrue(result == target)
         
     def test_middle_english_tokenizer(self):
