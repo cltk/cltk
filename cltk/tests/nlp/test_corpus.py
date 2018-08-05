@@ -108,7 +108,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         converts it.
         Note: assertEquals fails on some accented characters ('ή', 'ί').
         """
-        in_test = os.path.abspath('cltk/tests/tlgu_test_text_beta_code.txt')
+        in_test = os.path.abspath('cltk/tests/nlp/tlgu_test_text_beta_code.txt')
         out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
         tlgu = TLGU(testing=True)
         tlgu.convert(in_test, out_test)

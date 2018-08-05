@@ -134,11 +134,13 @@ There are a number of different pre-trained models available for POS tagging of 
 
 (Bigram and trigram models are also available, but unsuitable due to low accuracy.)
 
-The taggers were trained from annotated data from the `The ISWOC Treebank <http://iswoc.github.io/>`_ (version 0.9, license: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License). 
+The taggers were trained from annotated data from the `The ISWOC Treebank <http://iswoc.github.io/>`_ (license: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License). 
 
 The POS tag scheme is explained here: https://proiel.github.io/handbook/developer/
 
-``Bech, Kristin and Kristine Eide. 2014. The ISWOC corpus. Department of Literature, Area Studies and European Languages, University of Oslo. http://iswoc.github.com.``
+``Bech, Kristin and Kristine Eide. 2014. The ISWOC corpus. 
+Department of Literature, Area Studies and European Languages, 
+University of Oslo. http://iswoc.github.com.``
 
 Example: Tagging with the CRF tagger
 ------------------------------------
