@@ -7,7 +7,7 @@ from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
 from cltk.stem.middle_high_german.stem import stemmer_middle_high_german as middle_high_german_stemmer
 from cltk.stop.middle_high_german.stops import STOPS_LIST as MIDDLE_HIGH_GERMAN_STOPS
 from cltk.phonology.middle_high_german import transcription as mhg
-from cltk.phonology import syllabify
+from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import WordTokenizer
 
 __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
