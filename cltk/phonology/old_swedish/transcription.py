@@ -58,10 +58,10 @@ DIPHTHONGS_IPA = {
 }
 # Wrong diphthongs implementation but not that bad for now
 DIPHTHONGS_IPA_class = {
-    "ey": Vowel("open", "front", True, "short", "ɐy"),
-    "au": Vowel("open", "back", True, "short", "ɒu"),
-    "øy": Vowel("open", "front", True, "short", "ɐy"),
-    "ei": Vowel("open", "front", True, "short", "ɛi"),
+    "ey": Vowel(Rank.open, Backness.front, True, Length.short, "ɐy"),
+    "au": Vowel(Rank.open, Backness.back, True, Length.short, "ɒu"),
+    "øy": Vowel(Rank.open, Backness.front, True, Length.short, "ɐy"),
+    "ei": Vowel(Rank.open, Backness.front, True, Length.short, "ɛi"),
 }
 IPA = {
     "a": "a",  # Short vowels
@@ -176,10 +176,10 @@ DIPHTHONGS_IPA_class.update(GEMINATE_CONSONANTS_class)
 # Some Old Norse rules
 # The first rule which matches is retained
 
-rule_th = [Rule(AbstractPosition("inner", [AbstractVowel()], [AbstractVowel()]), th, dh),
-           Rule(AbstractPosition("last", [AbstractConsonant()], None), th, dh),
-           Rule(AbstractPosition("first", None, []), th, th),
-           Rule(AbstractPosition("last", [r.to_abstract()], None), th, dh)]
+rule_th = [Rule(AbstractPosition(Rank.inner, [AbstractVowel()], [AbstractVowel()]), th, dh),
+           Rule(AbstractPosition(Rank.last, [AbstractConsonant()], None), th, dh),
+           Rule(AbstractPosition(Rank.first, None, []), th, th),
+           Rule(AbstractPosition(Rank.last, [r.to_abstract()], None), th, dh)]
 
 
 old_swedish_rules = []

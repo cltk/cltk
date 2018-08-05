@@ -57,10 +57,10 @@ DIPHTHONGS_IPA = {
 }
 # Wrong diphthongs implementation but not that bad for now
 DIPHTHONGS_IPA_class = {
-    "ey": Vowel("open", "front", True, "short", "ɐy"),
-    "au": Vowel("open", "back", True, "short", "ɒu"),
-    "øy": Vowel("open", "front", True, "short", "ɐy"),
-    "ei": Vowel("open", "front", True, "short", "ɛi"),
+    "ey": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
+    "au": Vowel(Height.open, Backness.back, True, Length.short, "ɒu"),
+    "øy": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
+    "ei": Vowel(Height.open, Backness.front, True, Length.short, "ɛi"),
 }
 IPA = {
     "a": "a",  # Short vowels
@@ -156,23 +156,23 @@ GEMINATE_CONSONANTS = {
 
 # Some Old Norse rules
 # The first rule which matches is retained
-rule_th = [Rule(AbstractPosition("first", None, []), th, th),
-           Rule(AbstractPosition("inner", [], [AbstractConsonant(voiced=True)]), th, th),
-           Rule(AbstractPosition("inner", [AbstractConsonant(voiced=True)], []), th, th),
-           Rule(AbstractPosition("inner", [], []), th, dh),
-           Rule(AbstractPosition("last", [], None), th, dh)]
+rule_th = [Rule(AbstractPosition(Rank.first, None, []), th, th),
+           Rule(AbstractPosition(Rank.inner, [], [AbstractConsonant(voiced=True)]), th, th),
+           Rule(AbstractPosition(Rank.inner, [AbstractConsonant(voiced=True)], []), th, th),
+           Rule(AbstractPosition(Rank.inner, [], []), th, dh),
+           Rule(AbstractPosition(Rank.last, [], None), th, dh)]
 
-rule_f = [Rule(AbstractPosition("first", None, []), f, f),
-          Rule(AbstractPosition("inner", [], [AbstractConsonant(voiced=False)]), f, f),
-          Rule(AbstractPosition("inner", [AbstractConsonant(voiced=False)], []), f, f),
-          Rule(AbstractPosition("inner", [], []), f, v),
-          Rule(AbstractPosition("last", [], None), f, v)]
+rule_f = [Rule(AbstractPosition(Rank.first, None, []), f, f),
+          Rule(AbstractPosition(Rank.inner, [], [AbstractConsonant(voiced=False)]), f, f),
+          Rule(AbstractPosition(Rank.inner, [AbstractConsonant(voiced=False)], []), f, f),
+          Rule(AbstractPosition(Rank.inner, [], []), f, v),
+          Rule(AbstractPosition(Rank.last, [], None), f, v)]
 
-rule_g = [Rule(AbstractPosition("first", None, None), g, g),
-          Rule(AbstractPosition("inner", [n.to_abstract()], None), g, g),
-          Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=False)]), g, k),
-          Rule(AbstractPosition("inner", [], []), g, gh),
-          Rule(AbstractPosition("last", [], None), g, gh)]
+rule_g = [Rule(AbstractPosition(Rank.first, None, None), g, g),
+          Rule(AbstractPosition(Rank.inner, [n.to_abstract()], None), g, g),
+          Rule(AbstractPosition(Rank.inner, None, [AbstractConsonant(voiced=False)]), g, k),
+          Rule(AbstractPosition(Rank.inner, [], []), g, gh),
+          Rule(AbstractPosition(Rank.last, [], None), g, gh)]
 
 old_norse_rules = []
 old_norse_rules.extend(rule_f)
