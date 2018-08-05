@@ -216,12 +216,12 @@ class Vowel(AbstractVowel):
 
         :return: a new lengthened Vowel
         """
-        if self.length == "short":
-            length = "long"
+        if self.length == Length.short:
+            length = Length.long
             ipar = self.ipar + "ː"
         else:
             ipar = self.ipar
-            length = "short"
+            length = Length.short
         return Vowel(self.height, self.backness, self.rounded, length, ipar)
 
     def match(self, abstract_vowel):
@@ -387,7 +387,7 @@ class Rule:
         :param phonology: list of Vowel or Consonant instances
         :return: pattern which can be the first argument of re.sub
         """
-        if self.position.position == "first":
+        if self.position.position == Rank.first:
             re_before = r"^"
         elif self.position.before is None:
             re_before = r""
@@ -398,7 +398,7 @@ class Rule:
                     re_before += phoneme.ipar
             re_before += r"])"
 
-        if self.position.position == "last":
+        if self.position.position == Rank.last:
             re_after = r"$"
         elif self.position.after is None:
             re_after = r""
@@ -421,11 +421,11 @@ class Rule:
         """
         assert len(re_rule) > 0
         if re_rule[0] == "^":
-            place = "first"
+            place = Rank.first
         elif re_rule[-1] == "$":
-            place = "last"
+            place = Rank.last
         else:
-            place = "inner"
+            place = Rank.inner
 
         before_pattern = r"(?<=\(\?\<\=\[)\w*"
         core_pattern = r"(?<=\))\w(?=\(\?\=)|(?<=\^)\w(?=\(\?\=)|(?<=\))\w(?=\$)"
@@ -524,11 +524,11 @@ class Transcriber:
         if len(first_result) >= 2:
             for i in range(len(first_result)):
                 if i == 0:
-                    current_pos = Position("first", None, first_result[i])
+                    current_pos = Position(Rank.first, None, first_result[i])
                 elif i < len(first_result) - 1:
-                    current_pos = Position("inner", first_result[i - 1], first_result[i + 1])
+                    current_pos = Position(Rank.inner, first_result[i - 1], first_result[i + 1])
                 else:
-                    current_pos = Position("last", first_result[i - 1], None)
+                    current_pos = Position(Rank.last, first_result[i - 1], None)
                 found = False
                 for rule in self.rules:
                     if rule.temp_sound.ipar == first_result[i].ipar:

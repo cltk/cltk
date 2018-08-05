@@ -229,7 +229,7 @@ DIPHTHONGS_IPA_class.update(GEMINATE_CONSONANTS_class)
 gothic_rules = []
 
 gothic_rules_i = [
-    Rule(AbstractPosition("first", None, [AbstractVowel()]), i, j),
+    Rule(AbstractPosition(Rank.first, None, [AbstractVowel()]), i, j),
 ]
 
 

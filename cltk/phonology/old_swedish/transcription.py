@@ -10,38 +10,38 @@ from cltk.phonology.utils import *
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
-a = Vowel(Height.open, Backness.front, False, "short", "a")
-ee = Vowel(Height.open_mid, Backness.front, False, "short", "ɛ")
-e = Vowel(Height.close_mid, Backness.front, False, "short", "e")
-oee = Vowel(Height.close_mid, Backness.front, True, "short", "ø")
-i = Vowel(Height.close, Backness.front, False, "short", "i")
-y = Vowel(Height.close, Backness.front, True, "short", "y")
-o = Vowel(Height.close_mid, Backness.back, True, "short", "o")
-u = Vowel(Height.close, Backness.back, True, "short", "u")
+a = Vowel(Height.open, Backness.front, False, Length.short, "a")
+ee = Vowel(Height.open_mid, Backness.front, False, Length.short, "ɛ")
+e = Vowel(Height.close_mid, Backness.front, False, Length.short, "e")
+oee = Vowel(Height.close_mid, Backness.front, True, Length.short, "ø")
+i = Vowel(Height.close, Backness.front, False, Length.short, "i")
+y = Vowel(Height.close, Backness.front, True, Length.short, "y")
+o = Vowel(Height.close_mid, Backness.back, True, Length.short, "o")
+u = Vowel(Height.close, Backness.back, True, Length.short, "u")
 
 b = Consonant(Place.bilabial, Manner.stop, True, "b", False)
 d = Consonant(Place.alveolar, Manner.stop, True, "d", False)
-f = Consonant(Place.labio_dental, Manner.frictative, False, "f", False)
+f = Consonant(Place.labio_dental, Manner.fricative, False, "f", False)
 g = Consonant(Place.velar, Manner.stop, True, "g", False)
-gh = Consonant(Place.velar, Manner.frictative, True, "ɣ", False)
-h = Consonant(Place.glottal, Manner.frictative, False, "h", False)
-j = Consonant(Place.palatal, Manner.frictative, True, "j", False)
+gh = Consonant(Place.velar, Manner.fricative, True, "ɣ", False)
+h = Consonant(Place.glottal, Manner.fricative, False, "h", False)
+j = Consonant(Place.palatal, Manner.fricative, True, "j", False)
 k = Consonant(Place.velar, Manner.stop, False, "k", False)
 l = Consonant(Place.alveolar, Manner.lateral, True, "l", False)
 m = Consonant(Place.bilabial, Manner.nasal, True, "m", False)
 n = Consonant(Place.labio_dental, Manner.nasal, True, "n", False)
 p = Consonant(Place.bilabial, Manner.stop, False, "p", False)
 r = Consonant(Place.alveolar, Manner.trill, True, "r", False)
-s = Consonant(Place.alveolar, Manner.frictative, False, "s", False)
+s = Consonant(Place.alveolar, Manner.fricative, False, "s", False)
 t = Consonant(Place.alveolar, Manner.stop, False, "t", False)
-v = Consonant(Place.labio_dental, Manner.frictative, True, "v", False)
+v = Consonant(Place.labio_dental, Manner.fricative, True, "v", False)
 w = v
 x = k+s
 z = t+s
 # θ = Consonant(Place.dental, Manner.frictative, False, "θ")
-th = Consonant(Place.dental, Manner.frictative, False, "θ", False)
+th = Consonant(Place.dental, Manner.fricative, False, "θ", False)
 # ð = Consonant(Place.dental, Manner.frictative, True, "ð")
-dh = Consonant(Place.dental, Manner.frictative, True, "ð", False)
+dh = Consonant(Place.dental, Manner.fricative, True, "ð", False)
 
 OLD_NORSE8_PHONOLOGY = [
     a, ee, i, oee, y, u, o, a.lengthen(), ee.lengthen(), e.lengthen(), oee.lengthen(),
@@ -58,10 +58,10 @@ DIPHTHONGS_IPA = {
 }
 # Wrong diphthongs implementation but not that bad for now
 DIPHTHONGS_IPA_class = {
-    "ey": Vowel(Rank.open, Backness.front, True, Length.short, "ɐy"),
-    "au": Vowel(Rank.open, Backness.back, True, Length.short, "ɒu"),
-    "øy": Vowel(Rank.open, Backness.front, True, Length.short, "ɐy"),
-    "ei": Vowel(Rank.open, Backness.front, True, Length.short, "ɛi"),
+    "ey": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
+    "au": Vowel(Height.open, Backness.back, True, Length.short, "ɒu"),
+    "øy": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
+    "ei": Vowel(Height.open, Backness.front, True, Length.short, "ɛi"),
 }
 IPA = {
     "a": "a",  # Short vowels

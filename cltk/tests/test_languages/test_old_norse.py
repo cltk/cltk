@@ -20,13 +20,13 @@ __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 class TestOldNorse(unittest.TestCase):
     """Class for unittest"""
-    def setUp(self):
-        corpus_importer = CorpusImporter("old_norse")
-        corpus_importer.import_corpus("old_norse_models_cltk")
-        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
+    # def setUp(self):
+    #     corpus_importer = CorpusImporter("old_norse")
+    #     corpus_importer.import_corpus("old_norse_models_cltk")
+    #     file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
+    #     file = os.path.expanduser(file_rel)
+    #     file_exists = os.path.isfile(file)
+    #     self.assertTrue(file_exists)
 
     # Swadesh list
     def test_swadesh_old_norse(self):
@@ -62,13 +62,13 @@ class TestOldNorse(unittest.TestCase):
         target_list = ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
         self.assertEqual(no_stops, target_list)
 
-    # POS tagging
-    def test_pos_tnt_tagger_old_norse(self):
-        """Test tagging Old Norse POS with TnT tagger."""
-        tagger = POSTag('old_norse')
-        tagged = tagger.tag_tnt('Hlióðs bið ek allar.')
-        print(tagged)
-        self.assertTrue(tagged)
+    # # POS tagging
+    # def test_pos_tnt_tagger_old_norse(self):
+    #     """Test tagging Old Norse POS with TnT tagger."""
+    #     tagger = POSTag('old_norse')
+    #     tagged = tagger.tag_tnt('Hlióðs bið ek allar.')
+    #     print(tagged)
+    #     self.assertTrue(tagged)
 
     # Word tokenization
     def test_old_norse_word_tokenizer(self):
