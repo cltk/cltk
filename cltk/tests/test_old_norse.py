@@ -62,7 +62,7 @@ class TestOldNorse(unittest.TestCase):
         target_list = ['var', 'einn', 'morgin', ',', 'karlsefni', 'rjóðrit', 'flekk', 'nökkurn', ',', 'glitraði']
         self.assertEqual(no_stops, target_list)
 
-    # # POS tagging
+    # POS tagging
     def test_pos_tnt_tagger_old_norse(self):
         """Test tagging Old Norse POS with TnT tagger."""
         tagger = POSTag('old_norse')
