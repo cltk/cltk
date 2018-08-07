@@ -14,7 +14,7 @@ from cltk.tag.pos import POSTag
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
-from cltk.declension.old_norse import utils as decl_utils
+from cltk.inflection.old_norse import pronouns as decl_utils
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
