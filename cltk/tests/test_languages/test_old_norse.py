@@ -14,7 +14,9 @@ from cltk.tag.pos import POSTag
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
-from cltk.inflection.old_norse import pronouns as decl_utils
+from cltk.inflection.old_norse import pronouns
+from cltk.inflection.old_norse import nouns
+import cltk.inflection.utils as decl_utils
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -98,13 +100,18 @@ class TestOldNorse(unittest.TestCase):
                   ['fy', 'rir'], ['vi', 'ney', 'jar'], ['víðr', 'i'], ['val', 'rauf'], ['fjö', 'gur'], ['hö', 'fuð']]
         self.assertListEqual(syllabified_words, target)
 
-    def test_declensions(self):
+    def test_declension_pronouns(self):
         thessi_declension = [
             [["þessi", "þenna", "þessum", "þessa"], ["þessir", "þessa", "þessum", "þessa"]],
             [["þessi", "þessa", "þessi", "þessar"], ["þessar", "þessar", "þessum", "þessa"]],
             [["þetta", "þetta", "þessu", "þessa"], ["þessi", "þessi", "þessum", "þessa"]]
         ]
-        self.assertListEqual(decl_utils.pro_demonstrative_pronouns_this.declension, thessi_declension)
+        self.assertListEqual(pronouns.pro_demonstrative_pronouns_this.declension, thessi_declension)
+
+    def test_declension_nouns(self):
+        noun_sumar = decl_utils.DeclinableOneGender("sumar", decl_utils.Gender.neuter)
+        noun_sumar.set_declension(nouns.sumar)
+        self.assertEqual(noun_sumar.get_declined(decl_utils.Case.nominative, decl_utils.Number.plural), "sumur")
 
 
 if __name__ == '__main__':
