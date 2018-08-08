@@ -1,5 +1,5 @@
 Old Swedish
-*********
+***********
 
 Old Swedish (fornsvenska) is a language spoken in Sweden between (Source: `Wikipedia <https://en.wikipedia.org/wiki/Old_Swedish>`_)
 
