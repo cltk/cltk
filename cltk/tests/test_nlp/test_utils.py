@@ -50,7 +50,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_open_pickle_fail_corrupt(self):
         """Test failure to open corrupted pickle."""
-        bad_file = 'cltk/tests/nlp/bad_pickle.pickle'
+        bad_file = 'cltk/tests/test_nlp/bad_pickle.pickle'
         with self.assertRaises(UnpicklingError):
             open_pickle(bad_file)
 
@@ -95,7 +95,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_concordance_from_file(self):
         """Test ``write_concordance_from_file()`` for file writing completion
         of concordance builder. Doesn't test quality of output."""
-        text_file = 'cltk/tests/nlp/text-file.txt'
+        text_file = 'cltk/tests/test_nlp/text-file.txt'
         philology.write_concordance_from_file(text_file, 'test_file')
         file_conc = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
         is_file = os.path.isfile(file_conc)
