@@ -5,7 +5,7 @@ Old Swedish (fornsvenska) is a language spoken in Sweden between (Source: `Wikip
 
 
 Phonological transcription
-=======================
+==========================
 
 According to phonological rules, a reconstructed phonology/pronunciation of Old Swedish words is implemented.
 
