@@ -183,15 +183,6 @@ class Syllabifier:
 
         return StringUtils.remove_blank_spaces(self._process(word))
 
-    def convert_consonantal_i(self, word) -> str:
-        """Convert i to j when at the start of a word."""
-        match = list(self.consonantal_i_matcher.finditer(word))
-        if match:
-            if word[0].isupper():
-                return "J" + word[1:]
-            return "j" + word[1:]
-        return word
-
     def _process(self, word: str) -> list:
         """Process a word into a list of strings representing the syllables of the word. This
         method describes rules for consonant grouping behaviors and then iteratively applies those
@@ -200,7 +191,6 @@ class Syllabifier:
         #   if a blank arrives from splitting, just return an empty list
         if len(word.strip()) == 0:
             return []
-        word = self.convert_consonantal_i(word)
         my_word = " " + word + " "
         letters = list(my_word)
         positions = []
