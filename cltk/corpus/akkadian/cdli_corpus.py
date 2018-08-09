@@ -1,7 +1,7 @@
 """
 The Importer feature sets up the ability to work with cuneiform text(s)
-one-on-one, whether it is the Code of Hammurabi, a collection of Akkadian_test_texts such as
-ARM01, or whatever your research desires.
+one-on-one, whether it is the Code of Hammurabi, a collection of Akkadian texts
+such as ARM01, or whatever your research desires.
 
 This cdli_corpus module is for working with text files having already been read
 by file_importer. The file_lines required by CDLICorpus are taken from prior
@@ -40,21 +40,43 @@ class CDLICorpus(object):
         """
         self.texts = []
 
-    def _chunk_text(self, file_lines):     # pylint: disable =no-self-use
+    def _chunk_text(self, file_lines, only_normalization=False):
         """
         Splits up a text whenever a break is found in file_lines.
-        :return: Disparate Akkadian_test_texts.
+        :return: Disparate texts.
         """
-        chunk_text, text = [], []
-        for line in file_lines:
-            if line.strip() == '':
-                if len(text) > 0:   # pylint: disable =len-as-condition
-                    chunk_text.append(text)
-                text = []
-            else:
-                text.append(line.rstrip())
-        chunk_text.append(text)
-        return chunk_text
+        texts, text = [], []
+        if re.match('Primary publication:', file_lines[0]):
+            for line in file_lines:
+                if line.strip() == '':
+                    if len(text) > 0:   # pylint: disable =len-as-condition
+                        texts.append(text)
+                    text = []
+                else:
+                    text.append(line.rstrip())
+            texts.append(text)
+        else:
+            for line in file_lines:
+                if re.match(r'&?P\d{6}', line):
+                    if len(text) > 0:  # pylint: disable =len-as-condition
+                        texts.append(text)
+                    text = [line]
+                else:
+                    text.append(line)
+            texts.append(text)
+        if only_normalization:
+            norm_texts = []
+            for text in texts:
+                norm = False
+                norm_text = [text[0]]
+                for line in text[1:]:
+                    if line.startswith('#tr.ts'):
+                        norm = True
+                        norm_text.append(line)
+                if norm:
+                    norm_texts.append(norm_text)
+            texts = norm_texts
+        return texts
 
     def _find_cdli_number(self, file_lines):
         """
@@ -70,14 +92,9 @@ class CDLICorpus(object):
                     header.append(lines)
         for string in header:
             if len(string) > 1:
-                splitstring = string.split('=')
-                cdli_num = splitstring[0].rstrip()
+                split_string = string.split('=')
+                cdli_num = split_string[0].rstrip()
                 output.append(cdli_num)
-            elif len(string) > 1 and not re.match('=', string):
-                cdli_num = header[0].rstrip()
-                output.append(cdli_num)
-            else:
-                output.append('No cdli number found in text!'.format())
         return output
 
     def _find_edition(self, file_lines):
@@ -94,11 +111,9 @@ class CDLICorpus(object):
                     header.append(lines)
         for string in header:
             if len(string) > 1:
-                splitstring = string.split('=')
-                edition = splitstring[1].lstrip()
-                output.append(edition)  # pylint: disable =expression-not-assigned
-            else:
-                output.append('No edition information in text!'.format())
+                split_string = string.split('=')
+                edition = split_string[1].lstrip()
+                output.append(edition)
         return output
 
     def _find_metadata(self, file_lines):
@@ -115,7 +130,7 @@ class CDLICorpus(object):
         final.append(lines)
         return lines
 
-    def _find_transliteration(self, file_lines):  # broken
+    def _find_transliteration(self, file_lines):
         """
         Finds any transliteration in file_lines and lists it.
         :return: List of transliterations found in file_lines.
@@ -168,29 +183,25 @@ class CDLICorpus(object):
         """
         table = []
         for toc in self.texts:
-            edition = toc['text edition']
-            num = toc['cdli number']
-            text = '{} {}{} {} {}'.format('edition:', edition, ';',
-                                          'cdli number:', num)
+            text = '{} {}{} {} {}'.format('edition:', toc['text edition'], ';',
+                                          'cdli number:', toc['cdli number'])
             table.append(text)
         return table
 
-    def print_text(self, edition_or_cdli_number):  # pylint: disable=inconsistent-return-statements
+    def call_text(self, cdli_number):
         """
-        Prints transliteration with either text edition or cdli number.
+        Prints transliteration with cdli number.
         :return: transliteration
         """
-        for text in self.texts:
-            if edition_or_cdli_number in text['text edition'] or \
-                    text['cdli number']:
-                return text['transliteration']
+        text = next((item for item in self.texts if
+                     item['cdli number'] == [cdli_number]), None)
+        return text['transliteration']
 
-    def print_metadata(self, edition_or_cdli_number):  # pylint: disable=inconsistent-return-statements
+    def call_metadata(self, cdli_number):
         """
-        Prints metadata with either text edition or cdli number.
+        Prints metadata with cdli number.
         :return: metadata
         """
-        for text in self.texts:
-            if edition_or_cdli_number in text['text edition'] or \
-                    text['cdli number']:
-                return text['metadata']
+        my_item = next((item for item in self.texts if
+                        item['cdli number'] == [cdli_number]), None)
+        return my_item['metadata']

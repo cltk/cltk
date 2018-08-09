@@ -1,5 +1,5 @@
 """
-This module is for printing Akkadian_test_texts in Markdown or HTML.
+This module is for printing texts in Markdown or HTML.
 """
 
 __author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
@@ -8,7 +8,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 class PrettyPrint(object):
     """
-    Prints Akkadian_test_texts in markdown or in HTML.
+    Prints texts in markdown or in HTML.
     """
     def __init__(self):
         """
@@ -27,8 +27,7 @@ class PrettyPrint(object):
             if cdli_number in cdli:
                 edition = text['text edition'][0]
                 metadata = '\n \t'.join(text['metadata']).rstrip()
-                transliteration = '\n \t'.join(
-                    text['transliteration']).rstrip()
+                transliteration = '\n \t'.join(text['transliteration']).rstrip()
                 m_d = """{edition}
 ---
 ### metadata
@@ -36,7 +35,7 @@ class PrettyPrint(object):
 ### transliteration
     {transliteration}  
 """.format(edition=edition, metadata=metadata, transliteration=transliteration)
-                self.markdown_text = m_d
+                self.markdown_text = m_d  # pylint: disable=attribute-defined-outside-init
 
     def html_print_file(self, ingested_file, destination):
         """
@@ -47,9 +46,9 @@ class PrettyPrint(object):
         """
         with open(destination, mode='r+', encoding='utf8') as t_f:
             for text in ingested_file:
-                edition = text['text edition'][0]
-                metadata = '<br> \n'.join(text['metadata'])
-                transliteration = '<br> \n'.join(text['transliteration'])
+                edition = '<br>\n'.join(text['text edition']).rstrip()
+                metadata = '<br>\n'.join(text['metadata']).rstrip()
+                transliteration = '<br>\n'.join(text['transliteration']).rstrip()
                 self.html_file = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +64,7 @@ class PrettyPrint(object):
 <h3>transliteration</h3>
 </th></tr><tr><td></td><td>
 <font size='2'>
-    {metadata}     
+    {metadata}
 </font></td><td>
 <p>{trans}
 </td></tr></table>
@@ -77,7 +76,7 @@ class PrettyPrint(object):
     def html_print_single_text(self, ingested_file, cdli_number, destination):
         """
         Prints text_file in html.
-        :param ingested_file: CDLICorpus().Akkadian_test_texts after ingestion
+        :param ingested_file: CDLICorpus().texts after ingestion
         :param cdli_number: which text you want printed
         :param destination: where you wish to save the HTML data
         :return: output in html_file.html.
@@ -85,9 +84,9 @@ class PrettyPrint(object):
         for text in ingested_file:
             cdli = text['cdli number'][0]
             if cdli_number in cdli:
-                edition = text['text edition'][0]
-                metadata = '<br> \n'.join(text['metadata']).rstrip()
-                transliteration = '<br> \n'.join(
+                edition = '<br>\n'.join(text['text edition']).rstrip()
+                metadata = '<br>\n'.join(text['metadata']).rstrip()
+                transliteration = '<br>\n'.join(
                     text['transliteration']).rstrip()
                 with open(destination, mode='r+', encoding='utf8') as t_f:
                     self.html_single = """<!DOCTYPE html>
@@ -105,7 +104,7 @@ class PrettyPrint(object):
 <h3>transliteration</h3>
 </th></tr><tr><td></td><td>
 <font size='2'>
-    {metadata}     
+    {metadata}
 </font></td><td>
 <p>{trans}
 </td></tr></table>

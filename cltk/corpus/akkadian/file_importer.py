@@ -1,6 +1,6 @@
 """
 The Importer feature sets up the ability to work with cuneiform text(s)
-one-on-one, whether it is the Code of Hammurabi, a collection of Akkadian_test_texts such as
+one-on-one, whether it is the Code of Hammurabi, a collection of texts such as
 ARM01, or whatever your research desires.
 
 This file_importer module is for importing text files. Currently, this is
@@ -9,7 +9,7 @@ option: (https://cdli.ucla.edu/search/download_data_new.php?data_type=all).
 
 From this link, one has produced either one text (e.g. Code of Hammurabi:
 https://cdli.ucla.edu/search/search_results.php?ObjectID=P249253)
-or a variety of Akkadian_test_texts through a search function (e.g. ARM 01 publication:
+or a variety of texts through a search function (e.g. ARM 01 publication:
 https://cdli.ucla.edu/search/search_results.php?PrimaryPublication=ARM+01).
 """
 
@@ -45,5 +45,5 @@ class FileImport(object):
         Looks at the folder filename is in and lists other files in the folder.
         :return: list of files.
         """
-        ex = os.path.split(self.filename)
-        print(os.listdir(ex[0]))
+        pathway = os.path.split(self.filename)
+        self.catalog = sorted(os.listdir(pathway[0]))  # pylint: disable= attribute-defined-outside-init

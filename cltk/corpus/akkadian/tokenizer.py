@@ -13,11 +13,11 @@ cltk/cltk/tree/master/cltk/tokenize).
 
 import re
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.edu>']
+__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
-class LineTokenizer(object):
+class Tokenizer(object):
     """
     The tokenizer has the option of preserving damage marked by CDLI.
     ATF-format signs denoting damage and their meaning:
@@ -102,3 +102,69 @@ class LineTokenizer(object):
                 re.match(r'^\d*\.|\d\'\.', line)
                 line_output.append(line.rstrip())
         return line_output
+
+    @staticmethod
+    def sign_tokenizer(word):
+        word_signs = []
+        sign = ''
+        language = word[1]
+        determinative = False
+        for char in word[0]:
+            if determinative is True:
+                if char == '}':
+                    determinative = False
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, 'determinative'))
+                    sign = ''
+                    language = word[1]
+                    continue
+                else:
+                    sign += char
+                    continue
+            else:
+                if language == 'akkadian':
+                    if char == '{':
+                        if len(sign) > 0:  # pylint: disable =len-as-condition
+                            word_signs.append((sign, language))
+                        sign = ''
+                        determinative = True
+                        continue
+                    elif char == '_':
+                        if len(sign) > 0:  # pylint: disable =len-as-condition
+                            word_signs.append((sign, language))
+                        sign = ''
+                        language = 'sumerian'
+                        continue
+                    elif char == '-':
+                        if len(sign) > 0:  # pylint: disable =len-as-condition
+                            word_signs.append((sign, language))
+                        sign = ''
+                        language = word[1]  # or default word[1]?
+                        continue
+                    else:
+                        sign += char
+                elif language == 'sumerian':
+                    if char == '{':
+                        if len(sign) > 0:  # pylint: disable =len-as-condition
+                            word_signs.append((sign, language))
+                        sign = ''
+                        determinative = True
+                        continue
+                    elif char == '_':
+                        if len(sign) > 0:  # pylint: disable =len-as-condition
+                            word_signs.append((sign, language))
+                        sign = ''
+                        language = word[1]
+                        continue
+                    elif char == '-':
+                        if len(sign) > 0:  # pylint: disable =len-as-condition
+                            word_signs.append((sign, language))
+                        sign = ''
+                        language = word[1]
+                        continue
+                    else:
+                        sign += char
+        if len(sign) > 0:
+            word_signs.append((sign, language))
+
+        return word_signs

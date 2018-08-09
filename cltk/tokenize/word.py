@@ -109,15 +109,15 @@ def nltk_tokenize_words(string, attached_period=False, language=None):
 
 def tokenize_akkadian_words(line):
     """
-    Operates on a single line of text, returns all words in the line as a
-    tuple in a list.
+        Operates on a single line of text, returns all words in the line as a
+        tuple in a list.
 
-    input: "1. isz-pur-ram a-na"
-    output: [("isz-pur-ram", "akkadian"), ("a-na", "akkadian")]
+        input: "1. isz-pur-ram a-na"
+        output: [("isz-pur-ram", "akkadian"), ("a-na", "akkadian")]
 
-    :param: line: text string
-    :return: list of tuples: (word, language)
-    """
+        :param: line: text string
+        :return: list of tuples: (word, language)
+        """
     beginning_underscore = "_[^_]+(?!_)$"
     # only match a string if it has a beginning underscore anywhere
     ending_underscore = "^(?<!_)[^_]+_"
@@ -166,41 +166,69 @@ def tokenize_akkadian_signs(word):
         :param: tuple created by word_tokenizer2
         :return: list of tuples: (sign, function or language)
         """
-    word, word_language = word
-    signs_output = []
-
-    if word[0] == "{":
-        # Take care of initial determinative
-        determinative = re.search("{(.+)}", word)
-        signs_output.append((determinative[1], "determinative"))
-        # Take match out of word
-        word = word[determinative.end():]
-
-    # Akkadian is easy...
-    if word_language == "akkadian":
-        for sign in word.split('-'):
-            signs_output.append((sign, "akkadian"))
-
-    # Sumerian and mixed words are harder...
-    elif word_language == "sumerian":
-        language = "sumerian"
-        for sign in word.split('-'):
-            if sign[-1] == "_":
-                # We've reached the last Sumerian sign, the rest is a
-                # phonetic compliment in Akkadian.
-                signs_output.append((sign[:-1], "sumerian"))
-                language = "akkadian"
+    word_signs = []
+    sign = ''
+    language = word[1]
+    determinative = False
+    for char in word[0]:
+        if determinative is True:
+            if char == '}':
+                determinative = False
+                if len(sign) > 0:  # pylint: disable =len-as-condition
+                    word_signs.append((sign, 'determinative'))
+                sign = ''
+                language = word[1]
+                continue
             else:
-                signs_output.append((sign, language))
+                sign += char
+                continue
+        else:
+            if language == 'akkadian':
+                if char == '{':
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, language))
+                    sign = ''
+                    determinative = True
+                    continue
+                elif char == '_':
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, language))
+                    sign = ''
+                    language = 'sumerian'
+                    continue
+                elif char == '-':
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, language))
+                    sign = ''
+                    language = word[1]  # or default word[1]?
+                    continue
+                else:
+                    sign += char
+            elif language == 'sumerian':
+                if char == '{':
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, language))
+                    sign = ''
+                    determinative = True
+                    continue
+                elif char == '_':
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, language))
+                    sign = ''
+                    language = word[1]
+                    continue
+                elif char == '-':
+                    if len(sign) > 0:  # pylint: disable =len-as-condition
+                        word_signs.append((sign, language))
+                    sign = ''
+                    language = word[1]
+                    continue
+                else:
+                    sign += char
+    if len(sign) > 0:
+        word_signs.append((sign, language))
 
-    if signs_output[-1][0][-1] == "}":
-        # Take care of final determinative
-        determinative = re.search("{(.+)}", signs_output[-1][0])
-        signs_output[-1] = (signs_output[-1][0][:determinative.start()],
-                            signs_output[-1][1])
-        signs_output.append((determinative[1], "determinative"))
-
-    return signs_output
+    return word_signs
 
 
 def tokenize_arabic_words(text):

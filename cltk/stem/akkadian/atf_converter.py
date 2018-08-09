@@ -22,7 +22,7 @@ TITTLES = {r's,': chr(0x1E63), r'sz': chr(0x0161), r't,': chr(0x1E6D),
 
 
 # noinspection PyUnboundLocalVariable
-class ATFConverter(object):
+class ATFConverter(object):  # pylint: disable=too-few-public-methods
     """
     Transliterates ATF data from CDLI into readable unicode.
         sz = š
@@ -109,15 +109,13 @@ class ATFConverter(object):
         """
         # Check if there's a number at the end
         new_sign, num = self._get_number_from_sign(sign)
-        if num == '-':
-            return new_sign
         if num < 2:  # "ab" -> "ab"
             return new_sign.replace(str(num),
                                     self._convert_number_to_subscript(num))
         if num > 3:  # "buru14" -> "buru₁₄"
             return new_sign.replace(str(num),
                                     self._convert_number_to_subscript(num))
-        if self.two_three:
+        if self.two_three:   # pylint: disable=no-else-return
             return new_sign.replace(str(num),
                                     self._convert_number_to_subscript(num))
         else:
@@ -132,7 +130,7 @@ class ATFConverter(object):
                         new_vowel = character + chr(0x0300)
                     break
             return new_sign[:i] + normalize('NFC', new_vowel) + \
-                new_sign[i+1:].replace(str(num), '')
+                   new_sign[i+1:].replace(str(num), '')
 
     def process(self, text_string):
         """

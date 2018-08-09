@@ -12,7 +12,7 @@ Babylonian respectively. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Akka
 Workflow Sample Model
 =====================
 A sample workflow model of utilizing the tools in Akkadian is shown below. In this example, we are taking a text file
-downloaded from CDLI, import it, have it be read and ingested. From here, we will look at the table of contents,
+downloaded from CDLI, importing it, and have it be read and ingested. From here, we will look at the table of contents,
 select a text, convert the text into Unicode and PrettyPrint its result.
 
 .. code-block:: python
@@ -134,11 +134,10 @@ select a text, convert the text into Unicode and PrettyPrint its result.
    # Pretty printing:
    In[25]: pp = PrettyPrint()
 
-   In[26]: destination = os.path.join('tests', 'tutorial_html.html')
+   In[26]: destination = os.path.join('Akkadian_test_texts', 'tutorial_html.html')
 
    In[27]: pp.html_print_single_text(cc.texts, '&P254202', destination)
 
-   # ISSUES: When can I process the text in Pretty Printing without embedding it?
 
 Read File
 =========
