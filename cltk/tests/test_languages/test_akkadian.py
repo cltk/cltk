@@ -1,8 +1,9 @@
 '''
-An experiment to use Huehnergard's grammar and key to test the functions in the cltk.
+Various test cases for akkadian functions in the CLTK
 '''
 
-__author__ = ['M. Willis Monroe <willismonroe@gmail.com>']
+__author__ = ['M. Willis Monroe <willismonroe@gmail.com>',
+              'Andrew Deloucas <adeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.phonology.akkadian.stress import StressFinder
@@ -18,7 +19,10 @@ TOKENIZER = Tokenizer(preserve_damage=False)
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
-    """Class for unittest"""
+    '''
+    An experiment to use Huehnergard's grammar and key to test the functions
+    in the cltk.
+    '''
 
     def test_lesson_1_exercise_d(self):
         nouns = ['abum', 'ālum', 'amtum', 'bēlum', 'ḫurāṣum', 'iltum', 'ilum', 'kaspum', 'mārtum', 'mārum', 'qaqqadum',
@@ -60,6 +64,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
         self.assertEqual(stress, target)
 
+class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
+    """Class for unittest"""
+
     def test_read_file(self):
         """
         Tests read_file.
@@ -91,8 +98,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         final = os.listdir(ex[0])
         goal = ['Akkadian.txt', 'ARM1Akkadian.txt', 'cdli_corpus.txt',
                 'html_file.html', 'html_single_text.html', 'single_text.txt',
-                'two_text.txt', 'two_text_abnormalities.txt',
-                'two_text_no_metadata.txt']
+                'tutorial_html.html', 'two_text.txt',
+                'two_text_abnormalities.txt', 'two_text_no_metadata.txt']
         self.assertEqual(final, goal)
 
     def test_chunk_text(self):
@@ -228,7 +235,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_chunk_text_norm(self):
         """
-        Tests _chunk_text.
+        Tests chunk_text normalized text finding and collating.
         """
         path = os.path.join('..', 'Akkadian_test_texts', 'cdli_corpus.txt')
         f_i = FileImport(path)
@@ -507,7 +514,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_ingest_text_file(self):
         """
-        Tests ingest_text_file
+        Tests ingest_text_file.
         """
         path = os.path.join('..', 'Akkadian_test_texts', 'two_text.txt')
         f_i = FileImport(path)

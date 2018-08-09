@@ -5,15 +5,13 @@ tokens. The string tokenizer is used for any string-based input (e.g.
 copy-and-paste lines from a document) and line tokenizer is for any .txt
 document that is downloaded from CDLI pages.
 
-The ATFConverter depends upon the word and sign tokenizer outputs.
-
 The logic for this module is based off CLTK's Tokenizer (https://github.com/
 cltk/cltk/tree/master/cltk/tokenize).
 """
 
 import re
 
-__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -28,9 +26,6 @@ class Tokenizer(object):
         ! = Indicates uncertainty of reading
         ? = Indicates correction
         * = Indicates a collated reading
-
-    Likewise, the tokenizer has the option of preserving metadata stored in
-    the ATF file.
 
     For in depth reading on ATF-formatting for CDLI and ORACC:
         Oracc ATF Primer = http://oracc.museum.upenn.edu/doc/help/editinginatf/
@@ -102,69 +97,3 @@ class Tokenizer(object):
                 re.match(r'^\d*\.|\d\'\.', line)
                 line_output.append(line.rstrip())
         return line_output
-
-    @staticmethod
-    def sign_tokenizer(word):
-        word_signs = []
-        sign = ''
-        language = word[1]
-        determinative = False
-        for char in word[0]:
-            if determinative is True:
-                if char == '}':
-                    determinative = False
-                    if len(sign) > 0:  # pylint: disable =len-as-condition
-                        word_signs.append((sign, 'determinative'))
-                    sign = ''
-                    language = word[1]
-                    continue
-                else:
-                    sign += char
-                    continue
-            else:
-                if language == 'akkadian':
-                    if char == '{':
-                        if len(sign) > 0:  # pylint: disable =len-as-condition
-                            word_signs.append((sign, language))
-                        sign = ''
-                        determinative = True
-                        continue
-                    elif char == '_':
-                        if len(sign) > 0:  # pylint: disable =len-as-condition
-                            word_signs.append((sign, language))
-                        sign = ''
-                        language = 'sumerian'
-                        continue
-                    elif char == '-':
-                        if len(sign) > 0:  # pylint: disable =len-as-condition
-                            word_signs.append((sign, language))
-                        sign = ''
-                        language = word[1]  # or default word[1]?
-                        continue
-                    else:
-                        sign += char
-                elif language == 'sumerian':
-                    if char == '{':
-                        if len(sign) > 0:  # pylint: disable =len-as-condition
-                            word_signs.append((sign, language))
-                        sign = ''
-                        determinative = True
-                        continue
-                    elif char == '_':
-                        if len(sign) > 0:  # pylint: disable =len-as-condition
-                            word_signs.append((sign, language))
-                        sign = ''
-                        language = word[1]
-                        continue
-                    elif char == '-':
-                        if len(sign) > 0:  # pylint: disable =len-as-condition
-                            word_signs.append((sign, language))
-                        sign = ''
-                        language = word[1]
-                        continue
-                    else:
-                        sign += char
-        if len(sign) > 0:
-            word_signs.append((sign, language))
-
-        return word_signs

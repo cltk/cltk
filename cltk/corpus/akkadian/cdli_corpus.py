@@ -21,12 +21,12 @@ e.g.:
 
 The output of CDLICorpus will be able to further utilized by the feature
 ATFConverter and its subsequent classes: Tokenizer, ATFConverter, Lemmatizer,
-and PPrint.
+and Pretty Print.
 """
 
 import re
 
-__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -42,7 +42,9 @@ class CDLICorpus(object):
 
     def _chunk_text(self, file_lines, only_normalization=False):
         """
-        Splits up a text whenever a break is found in file_lines.
+        Splits up a text whenever a break is found in file_lines. Only
+        Normalization separates out texts that contain normalized lines in
+        the CDLI corpus.
         :return: Disparate texts.
         """
         texts, text = [], []
@@ -179,7 +181,7 @@ class CDLICorpus(object):
         Prints a table of contents from which one use can identify the edition
         and cdli number for printing purposes, as well as whether or not the
         text has metadata.
-        :return: string of edition, number, and metadata.
+        :return: string of edition and number.
         """
         table = []
         for toc in self.texts:

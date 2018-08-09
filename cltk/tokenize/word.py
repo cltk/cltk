@@ -61,6 +61,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         return tokens
 
     def tokenize_sign(self, word):
+        """This is for tokenizing cuneiform signs."""
         if self.language == 'akkadian':
             sign_tokens = tokenize_akkadian_signs(word)
         else:

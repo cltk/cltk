@@ -1,8 +1,8 @@
 """
-This module is for printing texts in Markdown or HTML.
+This module is for printing texts in HTML.
 """
 
-__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -18,10 +18,10 @@ class PrettyPrint(object):
     def markdown_single_text(self, ingest_text, cdli_number):
         """
         Prints single text in file in markdown.
-       :param ingest_text: text ingested by cdli_corpus
-       :param cdli_number: text you wish to print
-       :return: output in filename.md
-       """
+        :param ingest_text: text ingested by cdli_corpus
+        :param cdli_number: text you wish to print
+        :return: output in filename.md
+        """
         for text in ingest_text:
             cdli = text['cdli number'][0]
             if cdli_number in cdli:

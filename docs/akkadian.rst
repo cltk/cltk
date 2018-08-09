@@ -52,7 +52,7 @@ select a text, convert the text into Unicode and PrettyPrint its result.
              "edition: ['ARM 01, 002']; cdli number: ['&P254203']"]
 
    # select a text through edition or cdli number (there's also .print_metadata):
-   In[14]: selected_text = cc.print_text('&P254203')
+   In[14]: selected_text = cc.call_text('&P254202')
 
    # otherwise use the above 'transliteration'; same thing:
    In[15]: print(selected_text)
@@ -134,7 +134,7 @@ select a text, convert the text into Unicode and PrettyPrint its result.
    # Pretty printing:
    In[25]: pp = PrettyPrint()
 
-   In[26]: destination = os.path.join('Akkadian_test_texts', 'tutorial_html.html')
+   In[26]: destination = os.path.join('..', 'Akkadian_test_texts', 'tutorial_html.html')
 
    In[27]: pp.html_print_single_text(cc.texts, '&P254202', destination)
 
@@ -151,7 +151,7 @@ These two instance attributes are used for the ATFConverter.
 
    In[2]: from cltk.corpus.akkadian.file_importer import FileImport
 
-   In[3]: text_location = os.path.join('..', 'texts', 'Akkadian.txt')
+   In[3]: text_location = os.path.join('..', 'Akadian_test_texts', 'Akkadian.txt')
 
    In[4]: text = FileImport(text_location)
 
@@ -171,13 +171,14 @@ This function looks at the folder storing a file and outputs its contents.
 
    In[2]: from cltk.corpus.akkadian.file_importer import FileImport
 
-   In[3]: text_location = os.path.join('..', 'texts', 'Akkadian.txt')
+   In[3]: text_location = os.path.join('..', 'Akkadian_test_texts', 'Akkadian.txt')
 
    In[4]: folder = FileImport(text_location)
 
    In[5]: folder.file_catalog()
 
-   Out[5]: ['Akkadian.txt', 'ARM1texts.txt', 'cdli_corpus.txt', 'Hammurabi.txt']
+   Out[5]: ['Akkadian.txt', 'ARM1Akkadian.txt', 'cdli_corpus.txt', 'html_file.html', 'html_single_text.html',
+            'single_text.txt', 'two_text.txt', 'two_text_abnormalities.txt', 'two_text_no_metadata.txt']
 
 Ingest Text File
 ================
@@ -193,15 +194,13 @@ It saves to memory a list of dictionaries that splits up texts by text edition, 
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: f_i = FileImport(os.path.join('..','texts', 'single_text.txt'))
+   In[4]: f_i = FileImport(os.path.join('..', 'Akkadian_test_texts', 'single_text.txt'))
 
    In[5]: f_i.read_file()
 
-   In[6]: text_file = f_i.file_lines
+   In[6]: cdli.ingest_text_file(f_i.file_lines)
 
-   In[7]: cdli.ingest_text_file(text_file)
-
-To access the text, use `.texts`.
+To access the text, use `.texts`. This will be especially necessary for Pretty Printing. .texts looks like this:
 
 .. code-block:: python
 
@@ -243,30 +242,32 @@ Prints a table of contents from which one can identify the edition and cdli numb
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: f_i = FileImport(path)
+   In[4]: path = FileImport(os.path.join('..', 'Akkadian_test_texts', 'single_text.txt'))
 
-   In[5]: f_i.read_file()
+   In[5]: f_i = FileImport(path)
+
+   In[6]: f_i.read_file()
 
    In[6]: cdli.table_of_contents()
    Out[6]: ["edition: ['ARM 01, 001']; cdli number: ['&P254202']"]
 
 Tokenization
-======
+============
 
 The Akkadian tokenizer reads ATF material and converts the data into readable, mutable tokens.
-There is an option whether or not to include damage in the text.
+There is an option whether or not to `preserve damage` in the text.
 
 The ATFConverter depends upon the word and sign tokenizer outputs.
 
 **String Tokenization:**
 
-This function is based off CLTK's line tokenizer. Use this for strings (e.g. copy-and-paste lines from a document) rather than .txt files.
+This function is based off CLTK's line tokenizer. Use this for strings (e.g. copy-and-pasinge lines from a document) rather than .txt files.
 
 .. code-block:: python
 
-   In[1]: from cltk.tokenize.line import  Akkadian_LineTokenizer
+   In[1]: from cltk.akkadian.Tokenizer import  Tokenizer
 
-   In[2]: line_tokenizer = Akkadian_LineTokenizer('akkadian', preserve_damage=False)
+   In[2]: line_tokenizer = Tokenizer(preserve_damage=False)
 
    In[3]: text = '20. u2-sza-bi-la-kum\n1. a-na ia-as2-ma-ah-{d}iszkur#\n' \
                '2. qi2-bi2-ma\n3. um-ma {d}utu-szi-{d}iszkur\n' \
@@ -292,11 +293,11 @@ Line Tokenization is for any text, from `FileImport.raw_text` to `.CDLICorpus.te
 
    In[1]: import os
 
-   In[2]: from cltk.tokenize.line import  Akkadian_LineTokenizer
+   In[2]: from cltk.akkadian.tokenizer import  Tokenizer
 
-   In[3]: line_tokenizer = Akkadian_LineTokenizer('akkadian', preserve_damage=False)
+   In[3]: line_tokenizer = Tokenizer(preserve_damage=False)
 
-   In[4]: text = os.path.join('..', 'texts', 'Hammurabi.txt')
+   In[4]: text = os.path.join('..', 'Akkadian_test_texts', 'Hammurabi.txt')
 
    In[5]: line_tokenizer.line_token(text[3042:3054])
    Out[5]: ['20. u2-sza-bi-la-kum',
@@ -346,7 +347,7 @@ Sign Tokenization takes a tuple (word, language) and splits the word up into ind
             ("pur", "akkadian"), ("ram", "akkadian")]
 
 Unicode Conversion
-=================
+==================
 
 From a list of tokens, this module will return the list converted from CDLI standards to print publication standards.
 `two_three` is a function allows the user to turn on and off accent marking for signs (`a₂` versus `á`).
@@ -364,7 +365,7 @@ From a list of tokens, this module will return the list converted from CDLI stan
    Out[4]: ['aṣ', 'ṢATU', 'teṭ', 'Ṭet', 'ša', 'AŠ', "a", "á", "à", "bé", "bàd", "buru₁₄"]
 
 Pretty Printing
-==================
+===============
 
 Pretty Print allows an individual to take a `.txt` file and populate it into an html file.
 
@@ -374,11 +375,9 @@ Pretty Print allows an individual to take a `.txt` file and populate it into an 
 
    In[2]: from cltk.corpus.akkadian.pretty_print import  PrettyPrint
 
-   In[3]: from cltk.
+   In[3]: origin = os.path.join('..', 'Akkadian_test_text', 'Akkadian.txt')
 
-   In[3]: origin = os.path.join('..', 'text', 'Akkadian.txt')
-
-   In[4]: destination = os.path.join('..', 'PrettyPrint', 'html_file.html')
+   In[4]: destination = os.path.join('..', 'Akkadian_test_text', 'html_file.html')
 
    In[5]: f_i = FileImport(path)
         f_i.read_file()
@@ -390,7 +389,7 @@ Pretty Print allows an individual to take a `.txt` file and populate it into an 
         output = f_o.raw_file
 
 Syllabifier
-=========
+===========
 
 Syllabify Akkadian words.
 
@@ -406,7 +405,7 @@ Syllabify Akkadian words.
    ['e', 'piš', 'ta', 'šu']
 
 Stress
-=====
+======
 
 This function identifies the stress on an Akkadian word.
 
@@ -423,7 +422,7 @@ This function identifies the stress on an Akkadian word.
    Out[5]: ['šar', '[rā]', 'tim']
 
 Decliner
-=========
+========
 
 This method outputs a list of tuples the first element being a declined noun, the second a dictionary containing its attributes.
 
@@ -447,7 +446,7 @@ This method outputs a list of tuples the first element being a declined noun, th
     ('ilū', {'case': 'nominative', 'number': 'plural'})]
 
 Stems and Bound Forms
-=========
+=====================
 
 These two methods reduce a noun to its stem or bound form.
 
@@ -476,7 +475,7 @@ These two methods reduce a noun to its stem or bound form.
    Out[5]: 'kalab'
 
 Consonant and Vowel patterns
-======
+============================
 
 It's useful to be able to parse Akkadian words as sequences of consonants and vowels.
 
