@@ -227,3 +227,26 @@ Old Norse prosody
 * Dróttkvætt
 
 * Hrynhenda
+
+
+Old Norse pronouns declension
+=============================
+
+Old Norse, like other ancient Germanic languages, is highly inflected. With the **declension module**, you can get a declined form of a pronoun already stored.
+
+.. code-block:: python
+
+    In[1]: from cltk.declension import utils as decl_utils
+
+    In[2]: from cltk.declension.old_norse import pronouns
+
+    In[3]: pro_demonstrative_pronouns_this = decl_utils.Pronoun("demonstrative pronouns this")
+
+    In[4]: demonstrative_pronouns_this = [[["þessi", "þenna", "þessum", "þessa"], ["þessir", "þessa", "þessum", "þessa"]], [["þessi", "þessa", "þessi", "þessar"], ["þessar", "þessar", "þessum", "þessa"]], [["þetta", "þetta", "þessu", "þessa"], ["þessi", "þessi", "þessum", "þessa"]]]
+
+    In[5]: pro_demonstrative_pronouns_this.set_declension(demonstrative_pronouns_this)
+
+    In[6]: pro_demonstrative_pronouns_this.get_declined(decl_utils.Case.accusative, decl_utils.Number.singular, decl_utils.Gender.feminine)
+
+    Out[6]: 'þessa'
+
