@@ -2,8 +2,14 @@
 Code for building and working with stoplists for Latin
 """
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>'] # Update author list
-__license__ = 'MIT License. See LICENSE.'
+# Multiple licenses from consolidating code—how to handle?
+# Here they are in parallel lists:
+# - PJB: CorpusStoplist code
+# - KPJ: Perseus list
+
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__license__ = ['MIT License. See LICENSE.', 'GPL License.']
 
 from string import punctuation
 from cltk.stop.stop import BaseCorpusStoplist
@@ -21,6 +27,19 @@ class CorpusStoplist(BaseCorpusStoplist):
             self.vectorizer = CountVectorizer(input='content') # Set df?
             self.tfidf_vectorizer = TfidfVectorizer(input='content')
 
+# Reference lists
+
+PERSEUS_STOPS = 'ab ac ad adhic aliqui aliquis an ante apud at atque aut ' \
+                'autem cum cur de deinde dum ego enim ergo es est et etiam ' \
+                'etsi ex fio haud hic iam idem igitur ille in infra inter ' \
+                'interim ipse is ita magis modo mox nam ne nec necque neque ' \
+                'nisi non nos o ob per possum post pro quae quam quare qui ' \
+                'quia quicumque quidem quilibet quis quisnam quisquam ' \
+                'quisque quisquis quo quoniam sed si sic sive sub sui sum ' \
+                'super suus tam tamen trans tu tum ubi uel uero unus ut'.split()
+
+# For consistency between releases; should be deprecated
+STOPS_LIST = PERSEUS_STOPS
 
 if __name__ == "__main__":
     test_1 = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
