@@ -4,28 +4,25 @@ one-on-one, whether it is the Code of Hammurabi, a collection of texts such as
 ARM01, or whatever your research desires.
 
 This file_importer module is for importing text files. Currently, this is
-made for the purpose of reading from one of the CDLI's "download all text"
+made for the purpose of reading from one of the CDLI's "download all  text"
 option: (https://cdli.ucla.edu/search/download_data_new.php?data_type=all).
 
 From this link, one has produced either one text (e.g. Code of Hammurabi:
 https://cdli.ucla.edu/search/search_results.php?ObjectID=P249253)
 or a variety of texts through a search function (e.g. ARM 01 publication:
 https://cdli.ucla.edu/search/search_results.php?PrimaryPublication=ARM+01).
-
-You may be able to download the CDLI's most recent back-up of the library
-through CLTK.corpus.akkadian.corpora.
 """
 
 import os
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
 class FileImport(object):
     """
     Takes a text file and prepares it in two ways: as a whole (raw_file) and as
-    a list of strings denoting the text line by line (file_lines).
+    a list of strings denoting the text line by line.
     """
     def __init__(self, filename):
         """

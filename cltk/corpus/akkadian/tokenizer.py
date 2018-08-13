@@ -5,13 +5,15 @@ tokens. The string tokenizer is used for any string-based input (e.g.
 copy-and-paste lines from a document) and line tokenizer is for any .txt
 document that is downloaded from CDLI pages.
 
+The ATFConverter depends upon the word and sign tokenizer outputs.
+
 The logic for this module is based off CLTK's Tokenizer (https://github.com/
 cltk/cltk/tree/master/cltk/tokenize).
 """
 
 import re
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -26,6 +28,9 @@ class Tokenizer(object):
         ! = Indicates uncertainty of reading
         ? = Indicates correction
         * = Indicates a collated reading
+
+    Likewise, the tokenizer has the option of preserving metadata stored in
+    the ATF file.
 
     For in depth reading on ATF-formatting for CDLI and ORACC:
         Oracc ATF Primer = http://oracc.museum.upenn.edu/doc/help/editinginatf/

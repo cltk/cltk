@@ -1,10 +1,9 @@
 """
-This module is for printing texts in HTML.
+This module is for printing texts in Markdown or HTML.
 """
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
-
 
 class PrettyPrint(object):
     """
@@ -15,40 +14,51 @@ class PrettyPrint(object):
         Empty.
         """
 
-    def markdown_single_text(self, ingest_text, cdli_number):
+    def markdown_single_text(self, catalog, cdli_number):
         """
         Prints single text in file in markdown.
-        :param ingest_text: text ingested by cdli_corpus
-        :param cdli_number: text you wish to print
-        :return: output in filename.md
-        """
-        for text in ingest_text:
-            cdli = text['cdli number'][0]
-            if cdli_number in cdli:
-                edition = text['text edition'][0]
-                metadata = '\n \t'.join(text['metadata']).rstrip()
-                transliteration = '\n \t'.join(text['transliteration']).rstrip()
-                m_d = """{edition}
+       :param catalog: text ingested by cdli_corpus
+       :param cdli_number: text you wish to print
+       :return: output in filename.md
+       """
+        if cdli_number in catalog:
+            pnum = catalog[cdli_number]['pnum']
+            edition = catalog[cdli_number]['edition']
+            metadata = '\n\t'.join(catalog[cdli_number]['metadata'])
+            transliteration = '\n\t'.join(catalog[cdli_number]['transliteration'])
+            normalization = '\n\t'.join(catalog[cdli_number]['normalization'])
+            translation = '\n\t'.join(catalog[cdli_number]['translation'])
+            m_d = """{edition}
+{pnum}
 ---
 ### metadata
     {metadata}
 ### transliteration
-    {transliteration}  
-""".format(edition=edition, metadata=metadata, transliteration=transliteration)
-                self.markdown_text = m_d  # pylint: disable=attribute-defined-outside-init
+    {trans}
+### normalization
+    {norm}
+### translation
+    {translation}  
+""".format(pnum=pnum, edition=edition, metadata=metadata,
+           trans=transliteration, norm=normalization,
+           translation=translation)
+            self.markdown_text = m_d  # pylint: disable=attribute-defined-outside-init
 
-    def html_print_file(self, ingested_file, destination):
+    def html_print_file(self, catalog, destination):
         """
         Prints text_file in html.
-        :param ingested_file: text file you wish to pretty print
+        :param catalog: text file you wish to pretty print
         :param destination: where you wish to save the HTML data
         :return: output in html_file.html.
         """
         with open(destination, mode='r+', encoding='utf8') as t_f:
-            for text in ingested_file:
-                edition = '<br>\n'.join(text['text edition']).rstrip()
-                metadata = '<br>\n'.join(text['metadata']).rstrip()
-                transliteration = '<br>\n'.join(text['transliteration']).rstrip()
+            for text in catalog:
+                pnum = catalog[text]['pnum']
+                edition = catalog[text]['edition']
+                metadata = '<br>\n'.join(catalog[text]['metadata'])
+                transliteration = '<br>\n'.join(catalog[text]['transliteration'])
+                normalization = '<br>\n'.join(catalog[text]['normalization'])
+                translation = '<br>\n'.join(catalog[text]['translation'])
                 self.html_file = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,39 +67,48 @@ class PrettyPrint(object):
 </head>
 <body><table cellpadding="10"; border="1">
 <tr><th>
-<h2>{edition}</h2>
-</th><th>
-<h3>metadata</h3>
+<h2>{edition}<br>{pnum}</h2>
 </th><th>
 <h3>transliteration</h3>
-</th></tr><tr><td></td><td>
-<font size='2'>
-    {metadata}
-</font></td><td>
+</th><th>
+<h3>normalization</h3>
+</th><th>
+<h3>translation</h3>
+</tr><tr><td>
+{metadata}</td><td>
 <p>{trans}
-</td></tr></table>
+</td><td>
+<p>{norm}
+</td><td>
+<font size='2'>
+{translation}
+</font></td></tr>
+
+</table>
 <br>
 </body>
-</html>""".format(edition=edition, metadata=metadata, trans=transliteration)
+</html>""".format(
+                    pnum=pnum, edition=edition, metadata=metadata,
+                    trans=transliteration, norm=normalization,
+                    translation=translation)
                 t_f.write(self.html_file)
 
-    def html_print_single_text(self, ingested_file, cdli_number, destination):
+    def html_print_single_text(self, catalog, cdli_number, destination):
         """
         Prints text_file in html.
-        :param ingested_file: CDLICorpus().texts after ingestion
+        :param catalog: CDLICorpus().catalog
         :param cdli_number: which text you want printed
         :param destination: where you wish to save the HTML data
         :return: output in html_file.html.
         """
-        for text in ingested_file:
-            cdli = text['cdli number'][0]
-            if cdli_number in cdli:
-                edition = '<br>\n'.join(text['text edition']).rstrip()
-                metadata = '<br>\n'.join(text['metadata']).rstrip()
-                transliteration = '<br>\n'.join(
-                    text['transliteration']).rstrip()
-                with open(destination, mode='r+', encoding='utf8') as t_f:
-                    self.html_single = """<!DOCTYPE html>
+        if cdli_number in catalog:
+            pnum = catalog[cdli_number]['pnum']
+            edition = catalog[cdli_number]['edition']
+            metadata = '<br>\n'.join(catalog[cdli_number]['metadata'])
+            transliteration = '<br>\n'.join(catalog[cdli_number]['transliteration'])
+            normalization = '<br>\n'.join(catalog[cdli_number]['normalization'])
+            translation = '<br>\n'.join(catalog[cdli_number]['translation'])
+            self.html_single = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -97,18 +116,29 @@ class PrettyPrint(object):
 </head>
 <body><table cellpadding="10"; border="1">
 <tr><th>
-<h2>{edition}</h2>
-</th><th>
-<h3>metadata</h3>
+<h2>{edition}<br>{pnum}</h2>
 </th><th>
 <h3>transliteration</h3>
-</th></tr><tr><td></td><td>
-<font size='2'>
-    {metadata}
-</font></td><td>
+</th><th>
+<h3>normalization</h3>
+</th><th>
+<h3>translation</h3>
+</tr><tr><td>
+{metadata}</td><td>
 <p>{trans}
-</td></tr></table>
+</td><td>
+<p>{norm}
+</td><td>
+<font size='2'>
+{translation}
+</font></td></tr>
+
+</table>
 <br>
 </body>
-</html>""".format(edition=edition, metadata=metadata, trans=transliteration)
-                    t_f.write(self.html_single)
+</html>""".format(
+                pnum=pnum, edition=edition, metadata=metadata,
+                trans=transliteration, norm=normalization,
+                translation=translation)
+            with open(destination, mode='r+', encoding='utf8') as t_f:
+                t_f.write(self.html_single)
