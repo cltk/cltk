@@ -32,7 +32,7 @@ select a text, convert the text into Unicode and PrettyPrint its result.
    In[7]: import os
 
    # import a text and read it
-   In[8]: fi = FileImport('texts/two_text.txt')
+   In[8]: fi = FileImport(os.path.join('Akkadian_test_texts', 'two_text.txt')
 
    In[9]: fi.read_file()
 
