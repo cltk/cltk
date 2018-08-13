@@ -1,4 +1,3 @@
-
 """This module is designed around looking up synonyms for Latin and Greek words.
 The synonym and translation dictionaries used by this module were originally 
 developed by Chris Forstall and James Gawley of the Tesserae Project (http://github.com/tesserae).
