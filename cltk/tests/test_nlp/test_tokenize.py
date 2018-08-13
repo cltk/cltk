@@ -254,7 +254,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         Tests word_tokenizer.
         """
         tokenizer = WordTokenizer('akkadian')
-        line = '21. u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
+        line = 'u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
         output = tokenizer.tokenize(line)
         goal = [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'),
                 ('e2-kal2-la-ka', 'akkadian'),
