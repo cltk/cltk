@@ -1,7 +1,7 @@
 """
 The Importer feature sets up the ability to work with cuneiform text(s)
-one-on-one, whether it is the Code of Hammurabi, a collection of Akkadian texts
-such as ARM01, or whatever your research desires.
+one-on-one, whether it is the Code of Hammurabi, a collection of texts such as
+ARM01, or whatever your research desires.
 
 This cdli_corpus module is for working with text files having already been read
 by file_importer. The file_lines required by CDLICorpus are taken from prior
@@ -9,24 +9,23 @@ use of FileImport(text_file).read_file().
 
 e.g.:
     # FileImport takes a txt file and reads it; this becomes file_lines.
-        text_path = os.path.join('Akkadian_test_texts', 'ARM01_texts.txt')
+        text_path = os.path.join('texts', 'ARM01_texts.txt')
         f_i = FileImport(text_path)
         f_i.read_file()
         ARM01 = f_i.file_lines
     # CDLICorpus takes file_lines and uses it to work:
-        cdli = CDLICorpus(ARM01)
-        cdli.chunk_text()
-        cdli.ingest()
-        cdli.print_text_by_cdli_number('&P254202')
+        cdli = CDLICorpus()
+        cdli.parse_file(ARM01)
+        cdli.print_catalog()
 
 The output of CDLICorpus will be able to further utilized by the feature
 ATFConverter and its subsequent classes: Tokenizer, ATFConverter, Lemmatizer,
-and Pretty Print.
+and PPrint.
 """
 
 import re
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
@@ -34,176 +33,119 @@ class CDLICorpus(object):
     """
     Takes file_lines, prepares and organizes data.
     """
+
     def __init__(self):
         """
         Empty.
         """
-        self.texts = []
+        self.chunks = []
+        self.catalog = {}
 
-    def _chunk_text(self, file_lines, only_normalization=False):
+    def parse_file(self, file_lines):
         """
-        Splits up a text whenever a break is found in file_lines. Only
-        Normalization separates out texts that contain normalized lines in
-        the CDLI corpus.
-        :return: Disparate texts.
+        Parses lines of file into a dictionary of texts.
+        :param file_lines: file_importer.file_lines
+        :return: Each text as the form:
+            Pnum: {'metadata': List of lines of metadata,
+                   'pnum': P-number,
+                   'edition': Bibliographic edition,
+                   'raw_text': Raw lines of ATF text,
+                   'transliteration': lines of transliteration,
+                   'normalization': lines of normalization (if present),
+                   'translation': lines of translation (if present)}
         """
-        texts, text = [], []
+        # separate the file into chunks of text
+        chunks, chunk = [], []
+        # check to see what format the corpus is in, we assume that the headers are the same for all
+        # texts in the file... (maybe not safe?)
         if re.match('Primary publication:', file_lines[0]):
-            for line in file_lines:
-                if line.strip() == '':
-                    if len(text) > 0:   # pylint: disable =len-as-condition
-                        texts.append(text)
-                    text = []
-                else:
-                    text.append(line.rstrip())
-            texts.append(text)
+            header = re.compile('Primary publication:')
         else:
-            for line in file_lines:
-                if re.match(r'&?P\d{6}', line):
-                    if len(text) > 0:  # pylint: disable =len-as-condition
-                        texts.append(text)
-                    text = [line]
-                else:
-                    text.append(line)
-            texts.append(text)
-        if only_normalization:
-            norm_texts = []
-            for text in texts:
-                norm = False
-                norm_text = [text[0]]
-                for line in text[1:]:
-                    if line.startswith('#tr.ts'):
-                        norm = True
-                        norm_text.append(line)
-                if norm:
-                    norm_texts.append(norm_text)
-            texts = norm_texts
-        return texts
-
-    def _find_cdli_number(self, file_lines):
-        """
-        Finds CDLI Number (ex: &P254202, P254203) in file_lines & lists it.
-        :return: List of CDLI Numbers found in file_lines.
-        """
-        header, output = [], []
-        for text in self._chunk_text(file_lines):
-            for lines in text:
-                if re.match(r'^&P\d.*$', lines):
-                    header.append(lines)
-                elif re.match(r'^P\d.*$', lines):
-                    header.append(lines)
-        for string in header:
-            if len(string) > 1:
-                split_string = string.split('=')
-                cdli_num = split_string[0].rstrip()
-                output.append(cdli_num)
-        return output
-
-    def _find_edition(self, file_lines):
-        """
-        Finds edition info (ex: ARM 01, 001) in file_lines and lists it.
-        :return: List of editions found in file_lines.
-        """
-        header, output = [], []
-        for text in self._chunk_text(file_lines):
-            for lines in text:
-                if re.match(r'^&P\d.*$', lines):
-                    header.append(lines)
-                elif re.match(r'^P\d.*$', lines):
-                    header.append(lines)
-        for string in header:
-            if len(string) > 1:
-                split_string = string.split('=')
-                edition = split_string[1].lstrip()
-                output.append(edition)
-        return output
-
-    def _find_metadata(self, file_lines):
-        """
-        Finds metadata in file_lines and lists it.
-        :return: List of metadata found in file_lines.
-        """
-        final, lines = [], []
-        for text in self._chunk_text(file_lines):
-            if text[0].startswith('Primary publication:'):
-                lines.append(text[0:25])
+            header = re.compile(r'&?P\d{6}')
+        for line in file_lines:
+            if header.match(line):
+                if len(chunk) > 0:  # pylint: disable=len-as-condition
+                    chunks.append(chunk)
+                chunk = [line]
             else:
-                lines.append('None found.')
-        final.append(lines)
-        return lines
+                if len(line) > 0:  # pylint: disable=len-as-condition
+                    chunk.append(line)
+        chunks.append(chunk)
+        self.chunks = chunks
+        # create a rich catalog from the chunks
+        re_translit = re.compile(r'(\d+\'?\.) ?(.*)')
+        re_normaliz = re.compile(r'(#tr\.ts:) ?(.*)')
+        re_translat = re.compile(r'(#tr\.en:) ?(.*)')
+        for chunk in self.chunks:
+            text = chunk
+            if chunk[0].startswith('Primary publication:'):
+                # we've got full metadata, add additional parsing later
+                metadata = chunk[:25]
+                text = chunk[26:]
+            else:  # no metadata
+                metadata = []
+            pnum = ''.join([c for c in text[0].split('=')[0] if c != '&']).rstrip()
+            edition = text[0].split('=')[1].lstrip()
+            text = text[3:]
+            translit = []
+            normaliz = []
+            translat = []
+            for line in text:
+                if re.match(r'\d+\'?\.', line):
+                    translit.append(re_translit.match(line).groups()[1])
+                if line.startswith('#tr.ts:'):
+                    normaliz.append(re_normaliz.match(line).groups()[1])
+                if line.startswith('#tr.en:'):
+                    translat.append(re_translat.match(line).groups()[1])
+            self.catalog[pnum] = {'metadata': metadata,
+                                  'pnum': pnum,
+                                  'edition': edition,
+                                  'raw_text': text,
+                                  'transliteration': translit,
+                                  'normalization': normaliz,
+                                  'translation': translat}
 
-    def _find_transliteration(self, file_lines):
+    def toc(self):
         """
-        Finds any transliteration in file_lines and lists it.
-        :return: List of transliterations found in file_lines.
+        Returns a rich list of texts in the catalog.
         """
-        final, lines = [], []
-        for text in self._chunk_text(file_lines):
-            if text[0].startswith('Primary publication:'):
-                lines.append(text[26:])
-            else:
-                lines.append(text)
-        final.append(lines)
-        return lines
+        return [
+            f"Pnum: {key}, Edition: {self.catalog[key]['edition']}, "
+            f"length: {len(self.catalog[key]['transliteration'])} line(s)"
+            for key in sorted(self.catalog.keys())]
 
-    def _ingest(self, file_lines):
+    def list_pnums(self):
         """
-        Captures all listed information above and formats it in a clear, and
-        disparate manner.
-        :return: Dictionary composed of information gathered in above
-        functions.
+        Lists all Pnums in the catalog.
         """
-        cdli_number = self._find_cdli_number(file_lines)
-        edition = self._find_edition(file_lines)
-        metadata = self._find_metadata(file_lines)
-        transliteration = self._find_transliteration(file_lines)
-        new_text = {'text edition': edition, 'cdli number': cdli_number,
-                    'metadata': metadata[0],
-                    'transliteration': transliteration[0]}
-        self.text = new_text  # pylint: disable= attribute-defined-outside-init
+        return sorted([key for key in self.catalog])
 
-    def ingest_text_file(self, file_lines):
+    def list_editions(self):
         """
-        Captures all listed information above and formats it in a clear, and
-        disparate manner for every text found in a text file.
-        :return: List of dictionaries composed of information gathered in above
-        functions.
+        Lists all text editions in the catalog.
         """
-        for text_lines in self._chunk_text(file_lines):
-            self._ingest(text_lines)
-            texts = self.text
-            self.texts.append(dict(texts))
+        return sorted([self.catalog[key]['edition'] for key in self.catalog])
 
-    # Should here on out be in new method called pretty print?
-
-    def table_of_contents(self):
+    def print_catalog(self, catalog_filter=[]):
         """
-        Prints a table of contents from which one use can identify the edition
-        and cdli number for printing purposes, as well as whether or not the
-        text has metadata.
-        :return: string of edition and number.
+        Prints out a catalog of all the texts in the corpus.  Can be filtered by passing
+        a list of keys you want present in the texts.
+        :param: catalog_filter = If you wish to sort the list, use the keys pnum,
+        edition, metadata, transliteration, normalization, or translation.
         """
-        table = []
-        for toc in self.texts:
-            text = '{} {}{} {} {}'.format('edition:', toc['text edition'], ';',
-                                          'cdli number:', toc['cdli number'])
-            table.append(text)
-        return table
-
-    def call_text(self, cdli_number):
-        """
-        Prints transliteration with cdli number.
-        :return: transliteration
-        """
-        text = next((item for item in self.texts if
-                     item['cdli number'] == [cdli_number]), None)
-        return text['transliteration']
-
-    def call_metadata(self, cdli_number):
-        """
-        Prints metadata with cdli number.
-        :return: metadata
-        """
-        my_item = next((item for item in self.texts if
-                        item['cdli number'] == [cdli_number]), None)
-        return my_item['metadata']
+        keys = sorted(self.catalog.keys())
+        if len(catalog_filter) > 0:  # pylint: disable=len-as-condition
+            valid = []
+            for key in keys:
+                for f in catalog_filter:
+                    if len(self.catalog[key][f]) > 0:  # pylint: disable=len-as-condition
+                        valid.append(key)
+            keys = valid
+        for key in keys:
+            print(f"Pnum: {self.catalog[key]['pnum']}")
+            print(f"Edition: {self.catalog[key]['edition']}")
+            print(f"Metadata: {len(self.catalog[key]['metadata']) > 0}")
+            print(f"Transliteration: {len(self.catalog[key]['transliteration']) > 0}")
+            print(f"Normalization: {len(self.catalog[key]['normalization']) > 0}")
+            print(f"Translation: {len(self.catalog[key]['translation']) > 0}")
+            print()

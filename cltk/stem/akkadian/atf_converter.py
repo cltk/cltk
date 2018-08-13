@@ -1,13 +1,18 @@
 """
-This module is for converting tokens made from tokenize.word into unicode.
+This module is for converting tokens made from tokenizer.py into unicode.
 
-The atf_converter depends upon the word and sign tokenizer outputs.
+The atf_converter depends upon the word and sign tokenizer outputs. There are
+two sets of functions:
+1) __convert_consonant__ through process: this function set is for both
+   Tokenizer sets.
+2) language reader through reader reconstruction: for Tokenizer2 functions
+   only.
 """
 
 import re
 from unicodedata import normalize
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.com>']
+__author__ = ['Andrew Deloucas <ADeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 VOWELS = 'aeiouAEIOU'
