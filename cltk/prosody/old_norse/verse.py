@@ -14,6 +14,10 @@ from cltk.utils.cltk_logger import logger
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
+stops_for_poetry = ["ek",
+                    "it"]  # to be completed
+STOPS_LIST.extend(stops_for_poetry)
+
 
 def normalize(text):
     # for punctuation in "-:?":
@@ -21,6 +25,7 @@ def normalize(text):
     res = text.lower()
     res = re.sub("[\-:\?;,]", "", res)
     return res
+
 
 class VerseManager:
     """
