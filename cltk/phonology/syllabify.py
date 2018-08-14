@@ -365,12 +365,13 @@ class Syllabifier:
             phoneme_lengths.append(len(phoneme.ipar))
             l_transcribed_word.append(phoneme.ipar)
         transcribed_word = "".join(l_transcribed_word)
+        print(phoneme_lengths)
+        print(l_transcribed_word)
+        print(transcribed_word)
         syllabified_transcribed_word = self.syllabify_SSP(transcribed_word)
 
         syllabified_phonological_word = []
-
         counter = 0  # number of IPA character processed
-
         for i, sts in enumerate(syllabified_transcribed_word):
             syllabified_phonological_word.append([])
             syllable_len = len(sts)
@@ -379,3 +380,5 @@ class Syllabifier:
                 somme += phoneme_lengths[counter]
                 syllabified_phonological_word[i].append(phonological_word[counter])
                 counter += 1
+
+        return syllabified_phonological_word

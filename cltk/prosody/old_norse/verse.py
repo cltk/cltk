@@ -23,7 +23,7 @@ STOPS_LIST.extend(stops_for_poetry)
 
 def normalize(text):
     res = text.lower()
-    res = re.sub("[\-:?;.,]", "", res)
+    res = re.sub(r"[\-:?;.,]", "", res)
     return res
 
 
@@ -47,8 +47,8 @@ class VerseManager:
         :param text:
         :return:
         """
-        l = [line for line in text.split("\n") if line != ""]
-        return len(l) == 8
+        lines = [line for line in text.split("\n") if line != ""]
+        return len(lines) == 8
 
     @staticmethod
     def is_ljoodhhaattr(text: str):
@@ -65,13 +65,14 @@ class VerseManager:
         :param text:
         :return:
         """
-        l = [line for line in text.split("\n") if line != ""]
-        return len(l) == 6
+        lines = [line for line in text.split("\n") if line != ""]
+        return len(lines) == 6
 
 
 class ShortLine:
     def __init__(self, text):
         self.text = text
+        self.tokenized_text = tokenize_old_norse_words(text)
         self.first_sounds = []
         self.syllabified = []
         self.transcribed = []
@@ -88,7 +89,7 @@ class ShortLine:
         :param syllabifier:
         :return:
         """
-        for viisuordh in tokenize_old_norse_words(self.text):
+        for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
             if word != "":
                 self.syllabified.append(syllabifier.syllabify(word))
@@ -99,7 +100,7 @@ class ShortLine:
         :param transcriber:
         :return:
         """
-        for viisuordh in tokenize_old_norse_words(self.text):
+        for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
             if word != "":
                 transcribed_word = transcriber.main(word)
@@ -129,9 +130,9 @@ class ShortLine:
         self.n_alliterations = 0
         self.alliterations = []
         for j, sound1 in enumerate(self.first_sounds):
-            word1 = normalize(tokenize_old_norse_words(self.text)[j])
+            word1 = normalize(self.tokenized_text[j])
             for k, sound2 in enumerate(other_short_line.first_sounds):
-                word2 = normalize(tokenize_old_norse_words(other_short_line.text)[k])
+                word2 = normalize(other_short_line.tokenized_text[k])
                 if word1 not in STOPS_LIST and word2 not in STOPS_LIST:
                     if isinstance(sound1, Consonant) and isinstance(sound2, Consonant) and \
                             sound1.ipar == sound2.ipar:
@@ -223,6 +224,7 @@ class Verse:
         """
 
         """
+        self.text = ""
         self.short_lines = []  # list of minimal lines
         self.long_lines = []  # list of long lines  
         self.syllabified_text = []  # each word is replaced by a list of its syllables
@@ -235,7 +237,7 @@ class Verse:
         Only implemented in daughter classes.
         :type text: str
         """
-        pass
+        self.text = text
 
     def syllabify(self, hierarchy):
         """
@@ -335,9 +337,9 @@ class Fornyrdhislag(Verse):
     """
     def __init__(self):
         Verse.__init__(self)
-        self.text = ""
-        self.long_lines = []
-        self.short_lines = []
+        # self.text = ""
+        # self.long_lines = []
+        # self.short_lines = []
 
     def from_short_lines_text(self, text: str):
         """
@@ -372,12 +374,12 @@ class Fornyrdhislag(Verse):
 
     def to_phonetics(self):
         """
-        >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
         >>> fo.from_short_lines_text(text)
         >>> fo.to_phonetics()
         >>> fo.transcribed_text
-        [[['[dɐyr]', '[feː]'], ['[dɐyja]', '[frɛːndr]']], [['[dɐyr]', '[sjalvr]', '[it]', '[sama]'], ['[ɛk]', '[vɛit]', '[ɛinː]']], [['[at]', '[aldrɛi]', '[dɐyr]'], ['[doːmr]', '[um]', '[dɒuðan]', '[hvɛrn]']]]
+        [[['[hljoːðs]', '[bið]', '[ɛk]', '[alːar]'], ['[hɛlɣar]', '[kindir]']], [['[mɛiri]', '[ɔk]', '[minːi]'], ['[mœɣu]', '[hɛimdalːar]']], [['[viltu]', '[at]', '[ɛk]', '[valvœðr]'], ['[vɛl]', '[fyr]', '[tɛlja]']], [['[fɔrn]', '[spjœlː]', '[fira]'], ['[θɒu]', '[ɛr]', '[frɛmst]', '[ɔv]', '[man]']]]
 
         :return:
         """
@@ -417,10 +419,10 @@ class Ljoodhhaattr(Verse):
     """
     def __init__(self):
         Verse.__init__(self)
-        self.text = ""
-        self.long_lines = []
-        self.short_lines = []
-        self.syllabified_text = []
+        # self.text = ""
+        # self.long_lines = []
+        # self.short_lines = []
+        # self.syllabified_text = []
 
     def from_short_lines_text(self, text: str):
         """
@@ -436,9 +438,8 @@ class Ljoodhhaattr(Verse):
         :param text:
         :return:
         """
-        self.text = text
+        Verse.from_short_lines_text(self, text)
         lines = [line for line in text.split("\n") if line != ""]
-
         self.short_lines = [ShortLine(lines[0]), ShortLine(lines[1]), LongLine(lines[2]), ShortLine(lines[3]),
                             ShortLine(lines[4]), LongLine(lines[5])]
         self.long_lines = [self.short_lines[0:2], [self.short_lines[2]], self.short_lines[3:5], [self.short_lines[5]]]
@@ -474,12 +475,15 @@ class Ljoodhhaattr(Verse):
         >>> lj = Ljoodhhaattr()
         >>> lj.from_short_lines_text(poem)
         >>> lj.to_phonetics()
-        >>> lj.syllabify(old_norse_syllabifier.hierarchy)
-        >>> lj.find_alliteration()
+        >>> verse_alliterations, n_alliterations_lines = lj.find_alliteration()
+        >>> verse_alliterations
+        [[('deyr', 'deyja'), ('fé', 'frændr')], [('sjalfr', 'sjalfr')], [('einn', 'aldrei')], [('dómr', 'um')]]
+        >>> n_alliterations_lines
+        [2, 1, 1, 1]
 
         :return:
         """
-        Verse.find_alliteration(self)
+        return Verse.find_alliteration(self)
 
 
 if __name__ == "__main__":
