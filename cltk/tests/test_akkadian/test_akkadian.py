@@ -187,15 +187,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
 class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
-
     def test_read_file(self):
         """
         Tests read_file.
         """
-        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                            'cltk', 'tests', 'test_akkadian', 'single_text.txt')
-        f = os.path.expanduser(path)
-        cdli = FileImport(f)
+        cdli = FileImport(os.path.join(os.path.dirname(__file__), 'single_text.txt'))
         cdli.read_file()
         final = cdli.file_lines
         goal = ['Primary publication: ARM 01, 001',
@@ -261,15 +257,12 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests file_catalog.
         """
-        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                            'cltk', 'tests', 'test_akkadian', 'single_text.txt')
-        f = os.path.expanduser(path)
-        cdli = FileImport(f)
+        cdli = FileImport(os.path.join(os.path.dirname(__file__), 'single_text.txt'))
         cdli.file_catalog()
         final = cdli.catalog
         goal = ['html_file.html', 'html_single_text.html',
-                'single_text.txt', 'test_akkadian.py', 'test_cdli_corpus.txt',
-                'tutorial_html.html', 'two_text.txt', 'two_text_abnormalities.txt']
+                'single_text.txt', 'test_akkadian.py',
+                'two_text_abnormalities.txt']
         self.assertEqual(final, goal)
 
     def test_parse_file(self):
@@ -594,9 +587,7 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
 
     def test_abnormalities(self):
         """Tests lines 83, 102, 121-2"""
-        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                            'cltk', 'tests', 'test_akkadian', 'two_text_abnormalities.txt')
-        f_i = FileImport(path)
+        f_i = FileImport(os.path.join(os.path.dirname(__file__), 'two_text_abnormalities.txt'))
         f_i.read_file()
         text_file = f_i.file_lines
         cdli = CDLICorpus()
@@ -758,9 +749,7 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests line_tokenizer.
         """
-        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                            'cltk', 'tests', 'test_akkadian', 'single_text.txt')
-        output = TOKENIZER.line_tokenizer(path)
+        output = TOKENIZER.line_tokenizer(os.path.join(os.path.dirname(__file__), 'single_text.txt'))
         goal = ['1. a-na ia-ah-du-li-im',
                 '2. qi2-bi2-ma',
                 '3. um-ma a-bi-sa-mar-ma',
@@ -854,10 +843,8 @@ P254203
         cdli = CDLICorpus()
         cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
-        p_p.html_print_file(cdli.catalog, os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                                                       'cltk', 'tests', 'test_akkadian', 'html_file.html'))
-        f_o = FileImport(os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                                      'cltk', 'tests', 'test_akkadian', 'html_file.html'))
+        p_p.html_print_file(cdli.catalog, os.path.join(os.path.dirname(__file__), 'html_file.html'))
+        f_o = FileImport(os.path.join(os.path.dirname(__file__), 'html_file.html'))
         f_o.read_file()
         output = f_o.raw_file
         goal = \
@@ -1024,12 +1011,9 @@ bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]
         cdli = CDLICorpus()
         cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
-        p_p.html_print_single_text(cdli.catalog, 'P500444', os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                                                                         'cltk', 'tests', 'test_akkadian',
+        p_p.html_print_single_text(cdli.catalog, 'P500444', os.path.join(os.path.dirname(__file__),
                                                                          'html_single_text.html'))
-        f_o = FileImport(os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
-                                      'cltk', 'tests', 'test_akkadian',
-                                      'html_single_text.html'))
+        f_o = FileImport(os.path.join(os.path.dirname(__file__), 'html_single_text.html'))
         f_o.read_file()
         output = f_o.raw_file
         goal = \
