@@ -16,7 +16,127 @@ import unittest
 import os
 
 TOKENIZER = Tokenizer(preserve_damage=False)
-
+SAMPLE_TEXT = \
+['Primary publication: ARM 01, 001',
+ 'Author(s): Dossin, Georges',
+ 'Publication date: 1946',
+ 'Secondary publication(s): Durand, Jean-Marie, LAPO 16, 0305',
+ 'Collection: National Museum of Syria, Damascus, Syria',
+ 'Museum no.: NMSD —',
+ 'Accession no.:',
+ 'Provenience: Mari (mod. Tell Hariri)',
+ 'Excavation no.:',
+ 'Period: Old Babylonian (ca. 1900-1600 BC)',
+ 'Dates referenced:',
+ 'Object type: tablet',
+ 'Remarks:',
+ 'Material: clay',
+ 'Language: Akkadian',
+ 'Genre: Letter',
+ 'Sub-genre:',
+ 'CDLI comments:',
+ 'Catalogue source: 20050104 cdliadmin',
+ 'ATF source: cdlistaff',
+ 'Translation: Durand, Jean-Marie (fr); Guerra, Dylan M. (en)',
+ 'UCLA Library ARK: 21198/zz001rsp8x',
+ 'Composite no.:',
+ 'Seal no.:',
+ 'CDLI no.: P254202',
+ 'Transliteration:',
+ '&P254202 = ARM 01, 001',
+ '#atf: lang akk',
+ '@tablet',
+ '@obverse',
+ '1. a-na ia-ah-du-li-[im]',
+ '2. qi2-bi2-[ma]',
+ '3. um-ma a-bi-sa-mar#-[ma]',
+ '4. sa-li-ma-am e-pu-[usz]',
+ '5. asz-szum mu-sze-zi-ba-am# [la i-szu]',
+ '6. [sa]-li#-ma-am sza e-[pu-szu]',
+ '7. [u2-ul] e-pu-usz sa#-[li-mu-um]',
+ '8. [u2-ul] sa-[li-mu-um-ma]',
+ '$ rest broken',
+ '@reverse',
+ '$ beginning broken',
+ "1'. isz#-tu mu#-[sze-zi-ba-am la i-szu]",
+ "2'. a-la-nu-ia sza la is,-s,a-ab#-[tu]",
+ "3'. i-na-an-na is,-s,a-ab-[tu]",
+ "4'. i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]",
+ "5'. ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]",
+ "6'. u3 ia-am-ha-ad[{ki}]",
+ "7'. a-la-nu an-nu-tum u2-ul ih-li-qu2#",
+ "8'. i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma",
+ "9'. ih-ta-al-qu2",
+ "10'. u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#",
+ "11'. u3 na-pa-asz2-ti u2-ba-li-it,",
+ "12'. pi2-qa-at ha-s,e-ra#-at",
+ "13'. asz-szum a-la-nu-ka",
+ "14'. u3 ma-ru-ka sza-al#-[mu]",
+ "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur",
+ '',
+ '',
+ 'Primary publication: ARM 01, 002',
+ 'Author(s): Dossin, Georges',
+ 'Publication date: 1946',
+ 'Secondary publication(s): Durand, Jean-Marie, LAPO 16, 0306',
+ 'Collection: National Museum of Syria, Damascus, Syria',
+ 'Museum no.: NMSD —',
+ 'Accession no.:',
+ 'Provenience: Mari (mod. Tell Hariri)',
+ 'Excavation no.:',
+ 'Period: Old Babylonian (ca. 1900-1600 BC)',
+ 'Dates referenced:',
+ 'Object type: tablet',
+ 'Remarks:',
+ 'Material: clay',
+ 'Language: Akkadian',
+ 'Genre: Letter',
+ 'Sub-genre:',
+ 'CDLI comments:',
+ 'Catalogue source: 20050104 cdliadmin',
+ 'ATF source: cdlistaff',
+ 'Translation:',
+ 'UCLA Library ARK: 21198/zz001rsp9f',
+ 'Composite no.:',
+ 'Seal no.:',
+ 'CDLI no.: P254203',
+ 'Transliteration:',
+ '&P254203 = ARM 01, 002',
+ '#atf: lang akk',
+ '@tablet',
+ '@obverse',
+ '1. a-na ia-ah-du-[li-im]',
+ '2. qi2-bi2-[ma]',
+ '3. um-ma a-bi-sa-mar-[ma]',
+ '4. asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
+ '5. a-na ma-ni-im lu-ud-bu-ub',
+ '6. szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
+ '7. szum-ma a-bi-sa-mar te-zi-ir#',
+ '8. u3 a-la#-ni#-ka te-zi-ir-ma#',
+ '9. i-na an-ni-a-tim sza a-da-bu-[bu]',
+ '10. a-na-ku mi-im-ma u2-ul e-le#-[i]',
+ '11. sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
+ '12. u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
+ '13. u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
+ '14. u3 lu ma-at ia-ma-ha-ad#{ki}',
+ '15. u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
+ '$ rest broken',
+ '@reverse',
+ '$ beginning broken',
+ "1'. um#-[...]",
+ "2'. lu#-[...]",
+ "3'. a-[...]",
+ "4'. szum#-[...]",
+ "5'. a-na# [...]",
+ "6'. ma-li# [...]",
+ "7'. u3 u2-hu-ur# [...]",
+ "8'. a-su2-ur-ri [...]",
+ "9'. szu-zi-ba-an#-[ni ...]",
+ "10'. a-na [...]",
+ "11'. pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]",
+ '@left',
+ '1. {disz}a-bi-sa-mar u2-ul ma-ri u3 bi-ti a-na la bi-tu#-[tu-ur2-ma]',
+ '2. bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]']
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     '''
@@ -72,7 +192,9 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests read_file.
         """
-        cdli = FileImport('single_text.txt')
+        path = os.path.join('~\PycharmProjects', 'cltk', 'cltk', 'tests', 'test_akkadian', 'single_text.txt')
+        f = os.path.expanduser(path)
+        cdli = FileImport(f)
         cdli.read_file()
         final = cdli.file_lines
         goal = ['Primary publication: ARM 01, 001',
@@ -131,14 +253,16 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
                 "13'. asz-szum a-la-nu-ka",
                 "14'. u3 ma-ru-ka sza-al#-[mu]",
                 "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"]
+        print(os.getcwd())
         self.assertEqual(final, goal)
 
     def test_file_catalog(self):
         """
         Tests file_catalog.
         """
-        path = os.path.join('..', 'test_akkadian', 'two_text.txt')
-        cdli = FileImport(path)
+        path = os.path.join('~\PycharmProjects', 'cltk', 'cltk', 'tests', 'test_akkadian', 'single_text.txt')
+        f = os.path.expanduser(path)
+        cdli = FileImport(f)
         cdli.file_catalog()
         final = cdli.catalog
         goal = ['html_file.html', 'html_single_text.html',
@@ -150,10 +274,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests parse_file.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = cdli.chunks
         goal = [['Primary publication: ARM 01, 001',
                  'Author(s): Dossin, Georges',
@@ -280,10 +402,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests calling a text.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = cdli.catalog['P254203']['raw_text']
         goal = ['@obverse',
                  '1. a-na ia-ah-du-[li-im]',
@@ -324,10 +444,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests list_pnums.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = cdli.list_pnums()
         goal = ['P254202', 'P254203']
         self.assertEqual(output, goal)
@@ -336,10 +454,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests list_editions.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = cdli.list_editions()
         goal = ['ARM 01, 001', 'ARM 01, 002']
         self.assertEqual(output, goal)
@@ -348,10 +464,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests calling metadata in a file.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = [cdli.catalog[text]['metadata'] for text in cdli.catalog]
         goal = [['Primary publication: ARM 01, 001',
                  'Author(s): Dossin, Georges',
@@ -409,10 +523,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests calling transliteration in a file.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = [cdli.catalog[text]['transliteration'] for text in cdli.catalog]
         goal = [['a-na ia-ah-du-li-[im]',
                  'qi2-bi2-[ma]',
@@ -471,10 +583,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests toc.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = cdli.toc()
         goal = ['Pnum: P254202, Edition: ARM 01, 001, length: 23 line(s)',
                 'Pnum: P254203, Edition: ARM 01, 002, length: 28 line(s)']
@@ -482,7 +592,9 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
 
     def test_abnormalities(self):
         """Tests lines 83, 102, 121-2"""
-        f_i = FileImport('two_text_abnormalities.txt')
+        path = os.path.join('~\PycharmProjects', 'cltk', 'cltk', 'tests', 'test_akkadian', 'two_text_abnormalities.txt')
+        f = os.path.expanduser(path)
+        f_i = FileImport(f)
         f_i.read_file()
         text_file = f_i.file_lines
         cdli = CDLICorpus()
@@ -614,10 +726,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests _chunk_text.
         """
-        f_i = FileImport('single_text.txt')
-        f_i.read_file()
         cdli = CDLICorpus()
-        cdli.parse_file(f_i.file_lines)
+        cdli.parse_file(SAMPLE_TEXT)
         output = cdli.print_catalog(catalog_filter=['transliteration'])
         goal = print(output)
         self.assertEqual(output, goal)
@@ -663,11 +773,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests markdown_single_text.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
-        text_file = f_i.file_lines
         cdli = CDLICorpus()
-        cdli.parse_file(text_file)
+        cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
         p_p.markdown_single_text(cdli.catalog, 'P254203')
         output = p_p.markdown_text
@@ -740,11 +847,8 @@ P254203
         """
         Tests html_print_file.
         """
-        f_i = FileImport('two_text.txt')
-        f_i.read_file()
-        text_file = f_i.file_lines
         cdli = CDLICorpus()
-        cdli.parse_file(text_file)
+        cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
         p_p.html_print_file(cdli.catalog, 'html_file.html')
         f_o = FileImport('html_file.html')
@@ -911,11 +1015,8 @@ bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]
         """
         Tests html_print_single_text.
         """
-        f_i = FileImport('test_cdli_corpus.txt')
-        f_i.read_file()
-        text_file = f_i.file_lines
         cdli = CDLICorpus()
-        cdli.parse_file(text_file)
+        cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
         p_p.html_print_single_text(cdli.catalog, 'P500444', 'html_single_text.html')
         f_o = FileImport('html_single_text.html')
