@@ -88,9 +88,9 @@ class PrettyPrint(object):
 <br>
 </body>
 </html>""".format(
-                    pnum=pnum, edition=edition, metadata=metadata,
-                    trans=transliteration, norm=normalization,
-                    translation=translation)
+    pnum=pnum, edition=edition, metadata=metadata,
+    trans=transliteration, norm=normalization,
+    translation=translation)
                 t_f.write(self.html_file)
 
     def html_print_single_text(self, catalog, cdli_number, destination):
@@ -137,8 +137,8 @@ class PrettyPrint(object):
 <br>
 </body>
 </html>""".format(
-                pnum=pnum, edition=edition, metadata=metadata,
-                trans=transliteration, norm=normalization,
-                translation=translation)
+    pnum=pnum, edition=edition, metadata=metadata,
+    trans=transliteration, norm=normalization,
+    translation=translation)
             with open(destination, mode='r+', encoding='utf8') as t_f:
                 t_f.write(self.html_single)

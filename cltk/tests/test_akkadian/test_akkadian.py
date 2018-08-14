@@ -6,11 +6,11 @@ __author__ = ['M. Willis Monroe <willismonroe@gmail.com>',
               'Andrew Deloucas <adeloucas@g.harvard.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.phonology.akkadian.stress import StressFinder
-from cltk.corpus.akkadian.cdli_corpus import CDLICorpus
-from cltk.corpus.akkadian.pretty_print import PrettyPrint
-from cltk.corpus.akkadian.file_importer import FileImport
-from cltk.corpus.akkadian.tokenizer import Tokenizer
+from cltk.phonology.akkadian.stress import StressFinder  # pylint: disable=import-error
+from cltk.corpus.akkadian.cdli_corpus import CDLICorpus  # pylint: disable=import-error
+from cltk.corpus.akkadian.pretty_print import PrettyPrint  # pylint: disable=import-error
+from cltk.corpus.akkadian.file_importer import FileImport  # pylint: disable=import-error
+from cltk.corpus.akkadian.tokenizer import Tokenizer  # pylint: disable=import-error
 
 import unittest
 import os
@@ -145,41 +145,57 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     '''
 
     def test_lesson_1_exercise_d(self):
-        nouns = ['abum', 'ālum', 'amtum', 'bēlum', 'ḫurāṣum', 'iltum', 'ilum', 'kaspum', 'mārtum', 'mārum', 'qaqqadum',
+        """Tests stresser"""
+        nouns = ['abum', 'ālum', 'amtum', 'bēlum', 'ḫurāṣum', 'iltum',
+                 'ilum', 'kaspum', 'mārtum', 'mārum', 'qaqqadum',
                  'ṣābum', 'šarratum', 'šarrum', 'wardum']
         stresser = StressFinder()
         stress = []
         for noun in nouns:
             stress.append(stresser.find_stress(noun))
-        target = [['[a]', 'bum'], ['[ā]', 'lum'], ['[am]', 'tum'], ['[bē]', 'lum'], ['ḫu', '[rā]', 'ṣum'],
-                  ['[il]', 'tum'], ['[i]', 'lum'], ['[kas]', 'pum'], ['[mār]', 'tum'], ['[mā]', 'rum'],
-                  ['[qaq]', 'qa', 'dum'], ['[ṣā]', 'bum'], ['[šar]', 'ra', 'tum'], ['[šar]', 'rum'], ['[war]', 'dum']]
+        target = [['[a]', 'bum'], ['[ā]', 'lum'], ['[am]', 'tum'],
+                  ['[bē]', 'lum'], ['ḫu', '[rā]', 'ṣum'],
+                  ['[il]', 'tum'], ['[i]', 'lum'], ['[kas]', 'pum'],
+                  ['[mār]', 'tum'], ['[mā]', 'rum'],
+                  ['[qaq]', 'qa', 'dum'], ['[ṣā]', 'bum'],
+                  ['[šar]', 'ra', 'tum'], ['[šar]', 'rum'],
+                  ['[war]', 'dum']]
 
         self.assertEqual(stress, target)
 
     def test_lesson_1_exercise_e(self):
-        nouns = ['mušallimum', 'išāl', 'idin', 'iddinūniššum', 'tabnianni', 'niqīaš', 'epēšum', 'kullumum', 'tabnû',
-                 'iššiakkum', 'rēdûm', 'iqbi', 'paris', 'išmeānim', 'pete', 'šūṣû']
+        """Tests Stresser"""
+        nouns = ['mušallimum', 'išāl', 'idin', 'iddinūniššum',
+                 'tabnianni', 'niqīaš', 'epēšum', 'kullumum', 'tabnû',
+                 'iššiakkum', 'rēdûm', 'iqbi', 'paris', 'išmeānim',
+                 'pete', 'šūṣû']
         stresser = StressFinder()
         stress = []
         for noun in nouns:
             stress.append(stresser.find_stress(noun))
-        target = [['mu', '[šal]', 'li', 'mum'], ['i', '[šāl]'], ['[i]', 'din'], ['id', 'di', 'nū', '[niš]', 'šum'],
-                  ['tab', 'ni', '[an]', 'ni'], ['ni', '[qī]', 'aš'], ['e', '[pē]', 'šum'], ['[kul]', 'lu', 'mum'],
-                  ['tab', '[nû]'], ['iš', 'ši', '[ak]', 'kum'], ['rē', '[dûm]'], ['[iq]', 'bi'], ['[pa]', 'ris'],
+        target = [['mu', '[šal]', 'li', 'mum'], ['i', '[šāl]'],
+                  ['[i]', 'din'], ['id', 'di', 'nū', '[niš]', 'šum'],
+                  ['tab', 'ni', '[an]', 'ni'], ['ni', '[qī]', 'aš'],
+                  ['e', '[pē]', 'šum'], ['[kul]', 'lu', 'mum'],
+                  ['tab', '[nû]'], ['iš', 'ši', '[ak]', 'kum'],
+                  ['rē', '[dûm]'], ['[iq]', 'bi'], ['[pa]', 'ris'],
                   ['iš', 'me', '[ā]', 'nim'], ['[pe]', 'te'], ['šū', '[ṣû]']]
 
         self.assertEqual(stress, target)
 
     def test_lesson_2_exercise_b(self):
-        nouns = ['aššatum', 'bītum', 'emūqum', 'īnum', 'išdum', 'libbum', 'mutum', 'nārum', 'šīpātum', 'ṭuppum',
+        """Tests Stresser"""
+        nouns = ['aššatum', 'bītum', 'emūqum', 'īnum', 'išdum',
+                 'libbum', 'mutum', 'nārum', 'šīpātum', 'ṭuppum',
                  'ummum', 'uznum']
         stresser = StressFinder()
         stress = []
         for noun in nouns:
             stress.append(stresser.find_stress(noun))
-        target = [['[aš]', 'ša', 'tum'], ['[bī]', 'tum'], ['e', '[mū]', 'qum'], ['[ī]', 'num'], ['[iš]', 'dum'],
-                  ['[lib]', 'bum'], ['[mu]', 'tum'], ['[nā]', 'rum'], ['šī', '[pā]', 'tum'], ['[ṭup]', 'pum'],
+        target = [['[aš]', 'ša', 'tum'], ['[bī]', 'tum'],
+                  ['e', '[mū]', 'qum'], ['[ī]', 'num'], ['[iš]', 'dum'],
+                  ['[lib]', 'bum'], ['[mu]', 'tum'],
+                  ['[nā]', 'rum'], ['šī', '[pā]', 'tum'], ['[ṭup]', 'pum'],
                   ['[um]', 'mum'], ['[uz]', 'num']]
 
         self.assertEqual(stress, target)
@@ -260,7 +276,7 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         cdli = FileImport(os.path.join(os.path.dirname(__file__), 'single_text.txt'))
         cdli.file_catalog()
         final = cdli.catalog
-        goal = ['html_file.html', 'html_single_text.html',
+        goal = ['__pycache__', 'html_file.html', 'html_single_text.html',
                 'single_text.txt', 'test_akkadian.py',
                 'two_text_abnormalities.txt']
         self.assertEqual(final, goal)
@@ -401,38 +417,38 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         cdli.parse_file(SAMPLE_TEXT)
         output = cdli.catalog['P254203']['raw_text']
         goal = ['@obverse',
-                 '1. a-na ia-ah-du-[li-im]',
-                 '2. qi2-bi2-[ma]',
-                 '3. um-ma a-bi-sa-mar-[ma]',
-                 '4. asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
-                 '5. a-na ma-ni-im lu-ud-bu-ub',
-                 '6. szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
-                 '7. szum-ma a-bi-sa-mar te-zi-ir#',
-                 '8. u3 a-la#-ni#-ka te-zi-ir-ma#',
-                 '9. i-na an-ni-a-tim sza a-da-bu-[bu]',
-                 '10. a-na-ku mi-im-ma u2-ul e-le#-[i]',
-                 '11. sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
-                 '12. u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
-                 '13. u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
-                 '14. u3 lu ma-at ia-ma-ha-ad#{ki}',
-                 '15. u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
-                 '$ rest broken',
-                 '@reverse',
-                 '$ beginning broken',
-                 "1'. um#-[...]",
-                 "2'. lu#-[...]",
-                 "3'. a-[...]",
-                 "4'. szum#-[...]",
-                 "5'. a-na# [...]",
-                 "6'. ma-li# [...]",
-                 "7'. u3 u2-hu-ur# [...]",
-                 "8'. a-su2-ur-ri [...]",
-                 "9'. szu-zi-ba-an#-[ni ...]",
-                 "10'. a-na [...]",
-                 "11'. pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]",
-                 '@left',
-                 '1. {disz}a-bi-sa-mar u2-ul ma-ri u3 bi-ti a-na la bi-tu#-[tu-ur2-ma]',
-                 '2. bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]']
+                '1. a-na ia-ah-du-[li-im]',
+                '2. qi2-bi2-[ma]',
+                '3. um-ma a-bi-sa-mar-[ma]',
+                '4. asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
+                '5. a-na ma-ni-im lu-ud-bu-ub',
+                '6. szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
+                '7. szum-ma a-bi-sa-mar te-zi-ir#',
+                '8. u3 a-la#-ni#-ka te-zi-ir-ma#',
+                '9. i-na an-ni-a-tim sza a-da-bu-[bu]',
+                '10. a-na-ku mi-im-ma u2-ul e-le#-[i]',
+                '11. sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
+                '12. u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
+                '13. u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
+                '14. u3 lu ma-at ia-ma-ha-ad#{ki}',
+                '15. u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
+                '$ rest broken',
+                '@reverse',
+                '$ beginning broken',
+                "1'. um#-[...]",
+                "2'. lu#-[...]",
+                "3'. a-[...]",
+                "4'. szum#-[...]",
+                "5'. a-na# [...]",
+                "6'. ma-li# [...]",
+                "7'. u3 u2-hu-ur# [...]",
+                "8'. a-su2-ur-ri [...]",
+                "9'. szu-zi-ba-an#-[ni ...]",
+                "10'. a-na [...]",
+                "11'. pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]",
+                '@left',
+                '1. {disz}a-bi-sa-mar u2-ul ma-ri u3 bi-ti a-na la bi-tu#-[tu-ur2-ma]',
+                '2. bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]']
         self.assertEqual(output, goal)
 
     def test_find_cdli_number(self):
@@ -592,127 +608,132 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         text_file = f_i.file_lines
         cdli = CDLICorpus()
         cdli.parse_file(text_file)
-        goal = {'P254202': {'edition': 'ARM 01, 001',
-                            'metadata': [],
-                            'normalization': [],
-                            'pnum': 'P254202',
-                            'raw_text': ['@obverse',
-                                         '1. a-na ia-ah-du-li-[im]',
-                                         '2. qi2-bi2-[ma]',
-                                         '3. um-ma a-bi-sa-mar#-[ma]',
-                                         '4. sa-li-ma-am e-pu-[usz]',
-                                         '5. asz-szum mu-sze-zi-ba-am# [la i-szu]',
-                                         '6. [sa]-li#-ma-am sza e-[pu-szu]',
-                                         '7. [u2-ul] e-pu-usz sa#-[li-mu-um]',
-                                         '8. [u2-ul] sa-[li-mu-um-ma]',
-                                         '$ rest broken',
-                                         '@reverse',
-                                         '$ beginning broken',
-                                         "1'. isz#-tu mu#-[sze-zi-ba-am la i-szu]",
-                                         "2'. a-la-nu-ia sza la is,-s,a-ab#-[tu]",
-                                         "3'. i-na-an-na is,-s,a-ab-[tu]",
-                                         "4'. i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]",
-                                         "5'. ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]",
-                                         "6'. u3 ia-am-ha-ad[{ki}]",
-                                         "7'. a-la-nu an-nu-tum u2-ul ih-li-qu2#",
-                                         "8'. i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma",
-                                         "9'. ih-ta-al-qu2",
-                                         "10'. u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#",
-                                         "11'. u3 na-pa-asz2-ti u2-ba-li-it,",
-                                         "12'. pi2-qa-at ha-s,e-ra#-at",
-                                         "13'. asz-szum a-la-nu-ka",
-                                         "14'. u3 ma-ru-ka sza-al#-[mu]",
-                                         "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"],
-                            'translation': [],
-                            'transliteration': ['a-na ia-ah-du-li-[im]',
-                                                'qi2-bi2-[ma]',
-                                                'um-ma a-bi-sa-mar#-[ma]',
-                                                'sa-li-ma-am e-pu-[usz]',
-                                                'asz-szum mu-sze-zi-ba-am# [la i-szu]',
-                                                '[sa]-li#-ma-am sza e-[pu-szu]',
-                                                '[u2-ul] e-pu-usz sa#-[li-mu-um]',
-                                                '[u2-ul] sa-[li-mu-um-ma]',
-                                                'isz#-tu mu#-[sze-zi-ba-am la i-szu]',
-                                                'a-la-nu-ia sza la is,-s,a-ab#-[tu]',
-                                                'i-na-an-na is,-s,a-ab-[tu]',
-                                                'i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]',
-                                                'ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]',
-                                                'u3 ia-am-ha-ad[{ki}]',
-                                                'a-la-nu an-nu-tum u2-ul ih-li-qu2#',
-                                                'i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma',
-                                                'ih-ta-al-qu2',
-                                                'u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#',
-                                                'u3 na-pa-asz2-ti u2-ba-li-it,',
-                                                'pi2-qa-at ha-s,e-ra#-at',
-                                                'asz-szum a-la-nu-ka',
-                                                'u3 ma-ru-ka sza-al#-[mu]',
-                                                '[a-na na-pa]-asz2#-ti-ia i-tu-ur']},
-                'P254203': {'edition': '',
-                            'metadata': [],
-                            'normalization': [],
-                            'pnum': 'P254203',
-                            'raw_text': ['@obverse',
-                                         '1. a-na ia-ah-du-[li-im]',
-                                         '2. qi2-bi2-[ma]',
-                                         '3. um-ma a-bi-sa-mar-[ma]',
-                                         '4. asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
-                                         '5. a-na ma-ni-im lu-ud-bu-ub',
-                                         '6. szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
-                                         '7. szum-ma a-bi-sa-mar te-zi-ir#',
-                                         '8. u3 a-la#-ni#-ka te-zi-ir-ma#',
-                                         '9. i-na an-ni-a-tim sza a-da-bu-[bu]',
-                                         '10. a-na-ku mi-im-ma u2-ul e-le#-[i]',
-                                         '11. sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
-                                         '12. u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
-                                         '13. u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
-                                         '14. u3 lu ma-at ia-ma-ha-ad#{ki}',
-                                         '15. u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
-                                         '$ rest broken',
-                                         '@reverse',
-                                         '$ beginning broken',
-                                         "1'. um#-[...]",
-                                         "2'. lu#-[...]",
-                                         "3'. a-[...]",
-                                         "4'. szum#-[...]",
-                                         "5'. a-na# [...]",
-                                         "6'. ma-li# [...]",
-                                         "7'. u3 u2-hu-ur# [...]",
-                                         "8'. a-su2-ur-ri [...]",
-                                         "9'. szu-zi-ba-an#-[ni ...]",
-                                         "10'. a-na [...]",
-                                         "11'. pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]",
-                                         '@left',
-                                         '1. {disz}a-bi-sa-mar u2-ul ma-ri u3 bi-ti a-na la bi-tu#-[tu-ur2-ma]',
-                                         '2. bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]'],
-                            'translation': [],
-                            'transliteration': ['a-na ia-ah-du-[li-im]',
-                                                'qi2-bi2-[ma]',
-                                                'um-ma a-bi-sa-mar-[ma]',
-                                                'asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
-                                                'a-na ma-ni-im lu-ud-bu-ub',
-                                                'szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
-                                                'szum-ma a-bi-sa-mar te-zi-ir#',
-                                                'u3 a-la#-ni#-ka te-zi-ir-ma#',
-                                                'i-na an-ni-a-tim sza a-da-bu-[bu]',
-                                                'a-na-ku mi-im-ma u2-ul e-le#-[i]',
-                                                'sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
-                                                'u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
-                                                'u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
-                                                'u3 lu ma-at ia-ma-ha-ad#{ki}',
-                                                'u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
-                                                'um#-[...]',
-                                                'lu#-[...]',
-                                                'a-[...]',
-                                                'szum#-[...]',
-                                                'a-na# [...]',
-                                                'ma-li# [...]',
-                                                'u3 u2-hu-ur# [...]',
-                                                'a-su2-ur-ri [...]',
-                                                'szu-zi-ba-an#-[ni ...]',
-                                                'a-na [...]',
-                                                'pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]',
-                                                '{disz}a-bi-sa-mar u2-ul ma-ri u3 bi-ti a-na la bi-tu#-[tu-ur2-ma]',
-                                                'bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]']}}
+        goal = \
+            {'P254202':
+                 {'edition': 'ARM 01, 001',
+                  'metadata': [],
+                  'normalization': [],
+                  'pnum': 'P254202',
+                  'raw_text': ['@obverse',
+                               '1. a-na ia-ah-du-li-[im]',
+                               '2. qi2-bi2-[ma]',
+                               '3. um-ma a-bi-sa-mar#-[ma]',
+                               '4. sa-li-ma-am e-pu-[usz]',
+                               '5. asz-szum mu-sze-zi-ba-am# [la i-szu]',
+                               '6. [sa]-li#-ma-am sza e-[pu-szu]',
+                               '7. [u2-ul] e-pu-usz sa#-[li-mu-um]',
+                               '8. [u2-ul] sa-[li-mu-um-ma]',
+                               '$ rest broken',
+                               '@reverse',
+                               '$ beginning broken',
+                               "1'. isz#-tu mu#-[sze-zi-ba-am la i-szu]",
+                               "2'. a-la-nu-ia sza la is,-s,a-ab#-[tu]",
+                               "3'. i-na-an-na is,-s,a-ab-[tu]",
+                               "4'. i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]",
+                               "5'. ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]",
+                               "6'. u3 ia-am-ha-ad[{ki}]",
+                               "7'. a-la-nu an-nu-tum u2-ul ih-li-qu2#",
+                               "8'. i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma",
+                               "9'. ih-ta-al-qu2",
+                               "10'. u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#",
+                               "11'. u3 na-pa-asz2-ti u2-ba-li-it,",
+                               "12'. pi2-qa-at ha-s,e-ra#-at",
+                               "13'. asz-szum a-la-nu-ka",
+                               "14'. u3 ma-ru-ka sza-al#-[mu]",
+                               "15'. [a-na na-pa]-asz2#-ti-ia i-tu-ur"],
+                  'translation': [],
+                  'transliteration': ['a-na ia-ah-du-li-[im]',
+                                      'qi2-bi2-[ma]',
+                                      'um-ma a-bi-sa-mar#-[ma]',
+                                      'sa-li-ma-am e-pu-[usz]',
+                                      'asz-szum mu-sze-zi-ba-am# [la i-szu]',
+                                      '[sa]-li#-ma-am sza e-[pu-szu]',
+                                      '[u2-ul] e-pu-usz sa#-[li-mu-um]',
+                                      '[u2-ul] sa-[li-mu-um-ma]',
+                                      'isz#-tu mu#-[sze-zi-ba-am la i-szu]',
+                                      'a-la-nu-ia sza la is,-s,a-ab#-[tu]',
+                                      'i-na-an-na is,-s,a-ab-[tu]',
+                                      'i-na ne2-kur-ti _lu2_ ha-szi-[im{ki}]',
+                                      'ur-si-im{ki} _lu2_ ka-ar-ka#-[mi-is{ki}]',
+                                      'u3 ia-am-ha-ad[{ki}]',
+                                      'a-la-nu an-nu-tum u2-ul ih-li-qu2#',
+                                      'i-na ne2-kur-ti {disz}sa-am-si-{d}iszkur#-ma',
+                                      'ih-ta-al-qu2',
+                                      'u3 a-la-nu sza ki-ma u2-hu-ru u2-sze-zi-ib#',
+                                      'u3 na-pa-asz2-ti u2-ba-li-it,',
+                                      'pi2-qa-at ha-s,e-ra#-at',
+                                      'asz-szum a-la-nu-ka',
+                                      'u3 ma-ru-ka sza-al#-[mu]',
+                                      '[a-na na-pa]-asz2#-ti-ia i-tu-ur']},
+             'P254203': {'edition': '',
+                         'metadata': [],
+                         'normalization': [],
+                         'pnum': 'P254203',
+                         'raw_text': ['@obverse',
+                                      '1. a-na ia-ah-du-[li-im]',
+                                      '2. qi2-bi2-[ma]',
+                                      '3. um-ma a-bi-sa-mar-[ma]',
+                                      '4. asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
+                                      '5. a-na ma-ni-im lu-ud-bu-ub',
+                                      '6. szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
+                                      '7. szum-ma a-bi-sa-mar te-zi-ir#',
+                                      '8. u3 a-la#-ni#-ka te-zi-ir-ma#',
+                                      '9. i-na an-ni-a-tim sza a-da-bu-[bu]',
+                                      '10. a-na-ku mi-im-ma u2-ul e-le#-[i]',
+                                      '11. sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
+                                      '12. u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
+                                      '13. u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
+                                      '14. u3 lu ma-at ia-ma-ha-ad#{ki}',
+                                      '15. u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
+                                      '$ rest broken',
+                                      '@reverse',
+                                      '$ beginning broken',
+                                      "1'. um#-[...]",
+                                      "2'. lu#-[...]",
+                                      "3'. a-[...]",
+                                      "4'. szum#-[...]",
+                                      "5'. a-na# [...]",
+                                      "6'. ma-li# [...]",
+                                      "7'. u3 u2-hu-ur# [...]",
+                                      "8'. a-su2-ur-ri [...]",
+                                      "9'. szu-zi-ba-an#-[ni ...]",
+                                      "10'. a-na [...]",
+                                      "11'. pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]",
+                                      '@left',
+                                      '1. {disz}a-bi-sa-mar u2-ul ma-ri u3 '
+                                      'bi-ti a-na la bi-tu#-[tu-ur2-ma]',
+                                      '2. bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]'],
+                         'translation': [],
+                         'transliteration': ['a-na ia-ah-du-[li-im]',
+                                             'qi2-bi2-[ma]',
+                                             'um-ma a-bi-sa-mar-[ma]',
+                                             'asz-szum sza a-qa-bi-kum la ta-ha-asz2#',
+                                             'a-na ma-ni-im lu-ud-bu-ub',
+                                             'szum-ma a-na?-<ku> a-na a-bi-ia la ad#-[bu-ub]',
+                                             'szum-ma a-bi-sa-mar te-zi-ir#',
+                                             'u3 a-la#-ni#-ka te-zi-ir-ma#',
+                                             'i-na an-ni-a-tim sza a-da-bu-[bu]',
+                                             'a-na-ku mi-im-ma u2-ul e-le#-[i]',
+                                             'sza sza-ru-ti-ka u3 sza ra-pa#-[szi-ka e-pu-usz]',
+                                             'u3 lu-u2 sza sza-ru-ut-ka u2-ul te-le#-[i]',
+                                             'u3 lu-u2 sza ra-pa-szi-ka [te-ep-pe2-esz]',
+                                             'u3 lu ma-at ia-ma-ha-ad#{ki}',
+                                             'u3# lu# _u4 8(disz)-kam_ isz-tu [i-na-an-na]',
+                                             'um#-[...]',
+                                             'lu#-[...]',
+                                             'a-[...]',
+                                             'szum#-[...]',
+                                             'a-na# [...]',
+                                             'ma-li# [...]',
+                                             'u3 u2-hu-ur# [...]',
+                                             'a-su2-ur-ri [...]',
+                                             'szu-zi-ba-an#-[ni ...]',
+                                             'a-na [...]',
+                                             'pi2-qa-at ta-qa-ab#-[bi um-ma at-ta-a-ma]',
+                                             '{disz}a-bi-sa-mar u2-ul ma-ri u3 '
+                                             'bi-ti a-na la bi-tu#-[tu-ur2-ma]',
+                                             'bi-tum bi-it-ka u3 '
+                                             '{disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]']}}
         self.assertEqual(cdli.catalog, goal)
 
     def test_print_catalog(self):
@@ -749,7 +770,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests line_tokenizer.
         """
-        output = TOKENIZER.line_tokenizer(os.path.join(os.path.dirname(__file__), 'single_text.txt'))
+        output = TOKENIZER.line_tokenizer(os.path.join(
+            os.path.dirname(__file__), 'single_text.txt'))
         goal = ['1. a-na ia-ah-du-li-im',
                 '2. qi2-bi2-ma',
                 '3. um-ma a-bi-sa-mar-ma',
