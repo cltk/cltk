@@ -1,13 +1,30 @@
 """Verse structures of Old Norse poetry"""
 
+
+import re
 from math import floor
-from cltk.phonology.old_norse.transcription import Transcriber,  old_norse_rules, IPA_class, DIPHTHONGS_IPA_class, \
-    DIPHTHONGS_IPA
+
+from cltk.phonology.old_norse.transcription import Consonant, Vowel, Transcriber, old_norse_rules, IPA_class, \
+    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
+# import cltk.corpus.old_norse.syllabifier as old_norse_syllabifier
+from cltk.stop.old_norse.stops import STOPS_LIST
 from cltk.utils.cltk_logger import logger
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
+
+stops_for_poetry = ["ek",
+                    "it"]  # to be completed
+STOPS_LIST.extend(stops_for_poetry)
+
+
+def normalize(text):
+    # for punctuation in "-:?":
+    #    res = "".join(res.split(punctuation))
+    res = text.lower()
+    res = re.sub("[\-:\?;,]", "", res)
+    return res
 
 
 class VerseManager:
@@ -69,6 +86,11 @@ class VerseManager:
     #        return None
 
 
+class ShortLine:
+    def __init__(self):
+        pass
+
+
 class Verse:
     """
     Verse, strophe or stanza. This is here a regular set of meters.
@@ -82,6 +104,9 @@ class Verse:
         self.long_lines = []  # list of long lines  
         self.syllabified_text = []  # each word is replaced by a list of its syllables
         self.transcribed_text = []  # each line is replaced by its phonetical transcription
+        self.phonological_features_text = []
+        self.syllabified_transcribed_text = []
+        self.syllabified_phonological_features_text = []
 
     def from_short_lines_text(self, text: str):
         """
@@ -89,7 +114,7 @@ class Verse:
         """
         pass
 
-    def syllabify(self):
+    def syllabify(self, hierarchy):
         """
         Syllables may play a role in verse classification.
         """
@@ -98,6 +123,7 @@ class Verse:
             self.syllabified_text = []
         else:
             syllabifier = Syllabifier(language="old_norse", break_geminants=True)
+            syllabifier.set_hierarchy(hierarchy)
             syllabified_text = []
             for i, line in enumerate(self.long_lines):
                 syllabified_text.append([])
@@ -122,17 +148,122 @@ class Verse:
         """
         Transcribing words in verse helps find alliteration.
         """
+        print("Long lines : ", self.long_lines)
         if len(self.long_lines) == 0:
             logger.error("No text was imported")
             self.syllabified_text = []
         else:
             transcriber = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
             transcribed_text = []
+            phonological_features_text = []
             for i, line in enumerate(self.long_lines):
                 transcribed_text.append([])
-                for viisuordh in line:
-                    transcribed_text[i].append(transcriber.main(viisuordh))
+                phonological_features_text.append([])
+                for j, short_line in enumerate(line):
+                    transcribed_text[i].append([])
+                    phonological_features_text[i].append([])
+                    for viisuordh in short_line.split(" "):
+                        transcribed_word = transcriber.main(viisuordh)
+                        # phonological features list, result of Transcriber.first_process()
+                        word = viisuordh.lower()
+                        word = re.sub(r"[.\";,:\[\]()!&?‘]", "", word)
+                        pfl = transcriber.first_process(word)
+
+                        transcribed_text[i][j].append(transcribed_word)  #
+                        phonological_features_text[i][j].append(pfl)
             self.transcribed_text = transcribed_text
+            self.phonological_features_text = phonological_features_text
+
+            print("Phonetic transcription : ", self.transcribed_text)
+
+    def to_syllabified_phonetics(self, hierarchy):
+        """
+        Transcribing words in verse helps find alliteration.
+        """
+        print(self.long_lines)
+        if len(self.long_lines) == 0:
+            logger.error("No text was imported")
+            self.syllabified_text = []
+        else:
+            ipa_syllabifier = Syllabifier()
+            ipa_syllabifier.set_hierarchy(hierarchy)
+            transcriber = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
+            transcribed_text = []
+            syllabified_transcribed_text = []
+            phonological_features_text = []
+            syllabified_phonological_features_text = []
+
+            for i, line in enumerate(self.long_lines):
+                transcribed_text.append([])
+                phonological_features_text.append([])
+
+                syllabified_transcribed_text.append([])
+                syllabified_phonological_features_text.append([])
+                print(line)
+                for j, short_line in enumerate(line):
+                    transcribed_text[i].append([])
+                    phonological_features_text[i].append([])
+
+                    syllabified_transcribed_text[i].append([])
+                    syllabified_phonological_features_text[i].append([])
+                    print(line)
+                    for viisuordh in short_line:
+                        transcribed_word = transcriber.main(viisuordh)
+                        print(transcribed_word)
+                        # phonological features list, result of Transcriber.first_process()
+                        word = viisuordh.lower()
+                        word = re.sub(r"[.\";,:\[\]()!&?‘]", "", word)
+                        pfl = transcriber.first_process(word)
+                        print(pfl)
+
+                        transcribed_text[i][j].append(transcribed_word)  #
+                        phonological_features_text[i][j].append(pfl)
+
+                        syllabified_transcribed_text[i][j].append(ipa_syllabifier.syllabify_IPA(transcribed_word))
+                        syllabified_phonological_features_text[i][j].append(ipa_syllabifier.syllabify_phonemes(pfl))
+            self.transcribed_text = transcribed_text
+            self.phonological_features_text = phonological_features_text
+
+            self.syllabified_transcribed_text = syllabified_transcribed_text
+            self.syllabified_phonological_features_text = syllabified_phonological_features_text
+
+            print(self.syllabified_phonological_features_text)
+            print(self.syllabified_transcribed_text)
+
+    def find_alliteration(self):
+        """
+
+        :return:
+        """
+        if len(self.phonological_features_text) == 0:
+            logger.error("No phonological transcription found")
+            raise ValueError
+        else:
+            first_sounds = []
+            for i, line in enumerate(self.phonological_features_text):
+                first_sounds.append([])
+                for j, short_line in enumerate(line):
+                    first_sounds[i].append([])
+                    for viisuord in short_line:
+                        first_sounds[i][j].append(viisuord[0])
+            n_alliterations_lines = []
+            alliterations = []
+            for i, first_sound_line in enumerate(first_sounds):
+                counter = 0
+                for j, sound1 in enumerate(first_sound_line[0]):
+                    word1 = normalize(self.long_lines[i][0].split(" ")[j])
+                    for k, sound2 in enumerate(first_sound_line[1]):
+                        word2 = normalize(self.long_lines[i][1].split(" ")[k])
+                        if word1 not in STOPS_LIST and word2 not in STOPS_LIST:
+                            if isinstance(sound1, Consonant) and isinstance(sound2, Consonant) and\
+                                    sound1.ipar == sound2.ipar:
+                                alliterations.append((word1, word2))
+                                counter += 1
+                            elif isinstance(sound1, Vowel) and isinstance(sound2, Vowel):
+                                alliterations.append((word1, word2))
+                                counter += 1
+                n_alliterations_lines.append(counter)
+            return alliterations, n_alliterations_lines
 
 
 class Fornyrdhislag(Verse):
@@ -178,8 +309,10 @@ class Fornyrdhislag(Verse):
         self.text = text
         self.short_lines = [line for line in text.split("\n") if line != ""]
         self.long_lines = [self.short_lines[2*i:2*i+2] for i in range(int(floor(len(self.short_lines)/2)))]
+        # print(self.short_lines)
+        # print(self.long_lines)
 
-    def syllabify(self):
+    def syllabify(self, hierarchy):
         """
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
@@ -190,7 +323,7 @@ class Fornyrdhislag(Verse):
 
         :return:
         """
-        Verse.syllabify(self)
+        Verse.syllabify(self, hierarchy)
 
     def to_phonetics(self):
         """
@@ -204,6 +337,19 @@ class Fornyrdhislag(Verse):
         :return:
         """
         Verse.to_phonetics(self)
+
+    def to_syllabified_phonetics(self, hierarchy):
+        """
+        >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> fo = Fornyrdhislag()
+        >>> fo.from_short_lines_text(text)
+        >>> fo.to_phonetics()
+        >>> fo.transcribed_text
+        [['[dɐyr feː]', '[dɐyja frɛːndr]'], ['[dɐyr sjalvr it sama]', '[ɛk vɛit ɛinː]'], ['[at aldrɛi dɐyr]', '[doːmr um dɒuðan hvɛrn]']]
+
+        :return:
+        """
+        Verse.to_syllabified_phonetics(self, hierarchy)
 
 
 class Ljoodhhaattr(Verse):
@@ -235,7 +381,7 @@ class Ljoodhhaattr(Verse):
         self.short_lines = [line for line in text.split("\n") if line != ""]
         self.long_lines = [self.short_lines[0:2], [self.short_lines[2]], self.short_lines[3:5], [self.short_lines[5]]]
 
-    def syllabify(self):
+    def syllabify(self, hierarchy):
         """
         >>> lj = Ljoodhhaattr()
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
@@ -248,7 +394,7 @@ class Ljoodhhaattr(Verse):
 
         :return:
         """
-        Verse.syllabify(self)
+        Verse.syllabify(self, hierarchy)
 
     def to_phonetics(self):
         """
@@ -262,3 +408,28 @@ class Ljoodhhaattr(Verse):
         """
         Verse.to_phonetics(self)
 
+    def to_syllabified_phonetics(self, hierarchy):
+        """
+        >>> lj = Ljoodhhaattr()
+        >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> lj.from_short_lines_text(text)
+        >>> lj.to_phonetics()
+        >>> lj.transcribed_text
+        [['[dɐyr feː]', '[dɐyja frɛːndr]'], ['[dɐyr sjalvr it sama]'], ['[ɛk vɛit ɛinː]', '[at aldrɛi dɐyr]'], ['[doːmr um dɒuðan hvɛrn]']]
+
+        """
+        Verse.to_syllabified_phonetics(self, hierarchy)
+
+
+def worth_alliteration(word):
+    pass
+
+
+if __name__ == "__main__":
+    text = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
+    fo = Fornyrdhislag()
+    fo.from_short_lines_text(text)
+    fo.to_phonetics()
+    # fo.syllabify(old_norse_syllabifier.hierarchy)
+    res_alliterations, res_n_alliterations_lines = fo.find_alliteration()
+    print("Alliterations : "+str(res_alliterations), "number : ", res_n_alliterations_lines)
