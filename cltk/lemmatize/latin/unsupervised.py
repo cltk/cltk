@@ -1,93 +1,182 @@
 '''Scan the entire Tesserae corpus of Latin and build frequency data
 for each possible lemma in the corpus. This results in a simple, unsupervised language model
-of frequency data. Use the unsupervised language model created by lemma_frequency.py in order to lemmatize
-Latin words. Picking the most common lemma, as in this module tests out at > 90% accurate.
-Contributors: James Gawley, Jeff Kinnison.
+of frequency data. Use the unsupervised language model created by lemma_frequency.py in order
+to lemmatize Latin words. Picking the most common lemma, as in this module tests out at > 90%
+accurate. Contributors: James Gawley, Jeff Kinnison.
 '''
 
-from os import listdir, chdir
+import os
+from os import listdir
 from os.path import isfile, join, expanduser
+import pickle
+from operator import itemgetter
 from cltk.tokenize.word import WordTokenizer
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.semantics.latin.lookup import Lemmata
-from cltk.utils.file_operations import open_pickle
-import pickle
 
-#Global objects
-lemmatizer = Lemmata(dictionary = 'lemmata', language = 'latin')
-jv = JVReplacer()
-word_tokenizer = WordTokenizer('latin')
-COUNT_LIBRARY = dict()
+class FrequencyModel(language='latin'):
+    '''Generate unsupervised count of lemma frequencies in the Tesserae Latin text corpus.'''
 
-def read_files_count(filepath):
-    '''Reads the corpus and builds the COUNT_LIBRARY dictionary object by calling
-    the countgram() method on individual tokens. 
-    Dependencies
-    ------------
-    TessFile class from tesserae.utils
-    Lemmata class from cltk.semantics.latin.lookup
-    JVReplacer class from cltk.stem.latin.j_v
-    WordTokenizer class from cltk.tokenize.word
-    Parameters
-    ----------
-    filepath: a file in .tess format
-    Results
-    -------
-    Updates COUNT_LIBRARY
-    Returns
-    -------
-    none'''
-    tessobj = TessFile(filepath)
-    tokengenerator = iter(tessobj.read_tokens())
-    stop = 0
-    while stop != 1:
-        try:
-            rawtoken = next(tokengenerator)
-            cleantoken_list = token_cleanup(rawtoken) 
-            token = cleantoken_list[0]
-            countgram(token)
-        except StopIteration:
-            stop = 1
+    def __init__(self, language):
+        self.lemmatizer = Lemmata(dictionary='lemmata', language=language)
+        self.jv = JVReplacer()
+        self.word_tokenizer = WordTokenizer('latin')
+        self.count_dictionary = dict()
+        self.punctuation_list = ['!', ';', ':', '?', '-', '–', '&', '*',
+                                 '(', ')', '[', ']', ',', '"', '\'']
 
-def token_cleanup(rawtoken):
-    '''Standardize tokens by replaceing j with i and v with u, and
-    split into multiple tokens as needed with tokenize() method of word_tokenizer class
-    parameters
-    ----------
-    rawtoken: the token as drawn from the text
-    return
-    ------
-    tokenlist: a list of possible word or punctuation tokens
-    '''
-    rawtoken = jv.replace(rawtoken)
-    rawtoken = rawtoken.lower()
-    tokenlist = word_tokenizer.tokenize(rawtoken)
-    #sometimes words are split into enclitics and punctuation.
-    return tokenlist
+    def read_files(self, filepath):
+        '''Reads the corpus and builds the self.count_dictionary dictionary object by calling
+        the countgram() method on individual tokens.
+        Dependencies
+        ------------
+        TessFile class from tesserae.utils
+        Lemmata class from cltk.semantics.latin.lookup
+        JVReplacer class from cltk.stem.latin.j_v
+        WordTokenizer class from cltk.tokenize.word
+        Parameters
+        ----------
+        filepath: a file in .tess format
+        Results
+        -------
+        Updates self.count_dictionary
+        Returns
+        -------
+        none'''
+        tessobj = TessFile(filepath)
+        tokengenerator = iter(tessobj.read_tokens())
+        stop = 0
+        while stop != 1:
+            try:
+                rawtoken = next(tokengenerator)
+                cleantoken_list = self.token_cleanup(rawtoken)
+                token = cleantoken_list[0]
+                self.countgram(token)
+            except StopIteration:
+                stop = 1
 
-#open all the tesserae files
-relativepath = join('~', 'cltk_data',
-                    'latin', 'text',
-                    'latin_text_tesserae_collection')
-path = expanduser(relativepath)
-onlyfiles = [f for f in listdir(path) if isfile(join(path, f)) and 'augustine' not in f and 'ambrose' not in f and 'jerome' not in f and 'tertullian' not in f and 'eugippius' not in f and 'hilary' not in f]
-onlyfiles = [join(path, f) for f in onlyfiles]
-for filename in onlyfiles:
-    if '.tess' in filename:
-        read_files(filename)
+    def countgram(self, targettoken):
+        '''Update the frequency model with a new token from the corpus.'''
+        lemmas = self.lemmatizer.lookup([targettoken])
+        lemmas = self.lemmatizer.isolate(lemmas)
+        if len(lemmas) == 1:
+            self.count_dictionary[lemmas[0]] += 1
 
-def save_pickle(filename):
-    '''Saves the COUNT_LIBRARY object for later reuse.
-    dependencies
-    ------------
-    os package
-    parameters
-    ----------
-    filename: name for the pickle file'''
-    relativepath = join('~/latin_lemma_disambiguation_models')
-    os.path = expanduser(relativepath)
-    pickle_file = join(path, filename)
-    pickle.dump( COUNT_LIBRARY, open( pickle_file, "wb" ) )
+    def lemmatize(self, target):
+        '''Use the unsupervised count of lemma frequencies generated by read_files()
+        to assign probabilities in the case of an ambiguous lemmatization.
+        parameters
+        ----------
+        target: a token to be lemmatized
+        results
+        -------
+        a list of tuples of the form [(lemma, probability)]
+        '''
+        if target in self.punctuation_list:
+            lemmalist = [('punc', 1)]
+            return lemmalist
+        if target == 'ne':
+            lemmalist = [('ne', 1)]
+            return lemmalist
+        lemmalist = self.lemmatizer.lookup([target])
+        lemmas = self.lemmatizer.isolate(lemmalist)
+        if len(lemmas) > 1:
+            all_lemmas_total = sum([self.count_dictionary[l] for l in lemmas])
+            try:
+                lemmalist = [(l, (self.count_dictionary[l] / all_lemmas_total)) for l in lemmas]
+            except ZeroDivisionError:
+                print([(self.count_dictionary[l], l) for l in lemmas])
+            return lemmalist
+        lemmalist = []
+        lemmaobj = (lemmas[0], 1)
+        lemmalist.append(lemmaobj)
+        return lemmalist
+
+    def token_cleanup(self, rawtoken):
+        '''Standardize tokens by replaceing j with i and v with u, and
+        split into multiple tokens as needed with tokenize() method of word_tokenizer class
+        parameters
+        ----------
+        rawtoken: the token as drawn from the text
+        return
+        ------
+        tokenlist: a list of possible word or punctuation tokens
+        '''
+        rawtoken = self.jv.replace(rawtoken)
+        rawtoken = rawtoken.lower()
+        tokenlist = self.word_tokenizer.tokenize(rawtoken)
+        #sometimes words are split into enclitics and punctuation.
+        return tokenlist
+
+    def save_pickle(self, filename):
+        '''Saves the self.count_dictionary object for later reuse.
+        dependencies
+        ------------
+        os package
+        parameters
+        ----------
+        filename: name for the pickle file'''
+        relativepath = join('~', 'cltk_data', 'latin', 'model', 'latin_model_cltk', 'frequency')
+        path = expanduser(relativepath)
+        pickle_file = join(path, filename)
+        pickle.dump(self.count_dictionary, open(pickle_file, "wb"))
+
+    def train_model(self):
+        '''open all the tesserae files and call read_files() on each to build freq model'''
+        relativepath = join('~', 'cltk_data',
+                            'latin', 'text',
+                            'latin_text_tesserae_collection')
+        path = expanduser(relativepath)
+        onlyfiles = [f for f in listdir(path) if isfile(join(path, f)) and 'augustine' not in f and 'ambrose' not in f and 'jerome' not in f and 'tertullian' not in f and 'eugippius' not in f and 'hilary' not in f] # pylint: disable=line-too-long
+        onlyfiles = [join(path, f) for f in onlyfiles]
+        for filename in onlyfiles:
+            if '.tess' in filename:
+                self.read_files(filename)
+
+    def test_count_dictionary(self, token_list, lemma_list):
+        '''Test the ability of lemmatize(), (which uses the self.count_dictionary dictionary,
+        to predict the most likely lemmatization in ambiguous cases. Punctuation is
+        automatically counted as correct, because the 'punc' lemmatization usage is inconsistent
+        in the test corpus.
+        dependencies
+        ------------
+        itemgetter class from operator package
+        parameters
+        ----------
+        token_list: a list of tokens
+        lemma_list: a list of corresponding 'correct' lemmatizaitons
+        results
+        -------
+        prints four numbers: the number of correctly assigned lemmas in ambiguous cases;
+        the number of ambiguous cases in total; the number of tokens analyzed; and a
+        decimal between 0 and 1 representing the proportion of correct lemmatizations.
+        return
+        ------
+        a list object containing all incorrect lemmatizations for analysis. Format:
+        [(token, answer_given, correct_answer), (token...)]
+
+        NOTE: Initial tests show roughly 91% accuracy, identification of punctuation included.
+        '''
+        trials = 0
+        correct = 0
+        errors = []
+        for position in range(0, (len(token_list)-1)):
+            lemmalist = self.lemmatizer.lookup(token_list[position])
+            lemmalist = lemmalist[1]
+            lemma = max(lemmalist, key=itemgetter(1))
+            if len(lemmalist) > 1:
+                trials = trials + 1
+                if lemma[0] == lemma_list[position] or lemma[0] == 'punc':
+                    correct = correct + 1
+                else:
+                    errors.append((token_list[position], lemma[0], lemma_list[position]))
+        print(correct)
+        print(trials)
+        print(len(lemma_list))
+        rate = (len(lemma_list) - trials + correct) / len(lemma_list)
+        print(rate)
+        return errors
+
 
 class TessFile(object):
     """Buffered/non-buffered reader for .tess file I/O.
@@ -145,8 +234,7 @@ class TessFile(object):
             for _ in range(index + 1):
                 line = self.file.readline()
             return line
-        else:
-            return self.file[index]
+        return self.file[index]
 
     def __len__(self):
         if self.__len is None:
@@ -212,8 +300,7 @@ class TessFile(object):
 
         # Ensure that the file has the .tess extension
         if ext != '.tess':
-            msg = 'Bad filename {}. tess files must end in .tess'.format(
-                                                                    self.fname)
+            msg = 'Bad filename {}. tess files must end in .tess'.format(self.fname)
             warnings.warn(msg, warning.UserWarning)
 
         # Get the author and title from the filename
@@ -234,8 +321,7 @@ class TessFile(object):
                 i += 1
                 tag_end = line.find('>')
                 if tag_end < 0:
-                    msg = '{} may be malformed on line {}'.format(
-                                                            self.fname, line)
+                    msg = '{} may be malformed on line {}'.format(self.fname, line)
                     warnings.warn(msg, UserWarning)
 
                 tag = line[:tag_end + 1]
@@ -251,24 +337,20 @@ class TessFile(object):
 
                 # Ensure the tag author and title match the filename
                 if author.find(tag_author) < 0 or title.find(tag_title) < 0:
-                    msg = '{} may be malformed on line {}'.format(
-                                                            self.fname, line)
+                    msg = '{} may be malformed on line {}'.format(self.fname, line)
                     warnings.warn(msg, UserWarning)
 
                 # Ensure that the major part number is incrementing correctly
                 if int(tag_maj) not in [major, major + 1]:
-                    msg = '{} may be malformed on line {}'.format(
-                                                            self.fname, line)
+                    msg = '{} may be malformed on line {}'.format(self.fname, line)
                     warnings.warn(msg, UserWarning)
 
                 # Ensure that the minor part number is incrementing corectly
                 if tag_maj == major and tag_min != minor:
-                    msg = '{} may be malformed on line {}'.format(
-                                                            self.fname, line)
+                    msg = '{} may be malformed on line {}'.format(self.fname, line)
                     warnings.warn(msg, UserWarning)
                 elif tag_maj == major + 1 and tag_min != 1:
-                    msg = '{} may be malformed on line {}'.format(
-                                                            self.fname, line)
+                    msg = '{} may be malformed on line {}'.format(self.fname, line)
                     warnings.warn(msg, UserWarning)
 
                 if tag_maj == major:
@@ -276,80 +358,3 @@ class TessFile(object):
                 else:
                     major += 1
                     minor = 2
-
-punctuation_list = ['!', ';', ':', '?', '-', '–', '&', '*', '(', ')', '[', ']', ',', '"', '\'']
-
-def frequency_lemmatize(target):
-    '''Use the unsupervised count of lemma frequencies generated by read_files_count()
-    to assign probabilities in the case of an ambiguous lemmatization.
-    parameters
-    ----------
-    target: a token to be lemmatized
-    results
-    -------
-    a list of tuples of the form [(lemma, probability)]
-    '''
-    if target in punctuation_list:
-        lemmalist = [('punc', 1)]
-        return lemmalist
-    if target == 'ne':
-        lemmalist = [('ne', 1)]
-        return lemmalist
-    lemmalist = lemmatizer.lookup([target])
-    lemmas = lemmatizer.isolate(lemmalist)
-    if len(lemmas) > 1:
-        all_lemmas_total = sum([COUNT_LIBRARY[l] for l in lemmas])
-        try:
-            lemmalist = [(l, (COUNT_LIBRARY[l] / all_lemmas_total)) for l in lemmas]
-        except ZeroDivisionError:
-            print([(COUNT_LIBRARY[l], l) for l in lemmas])
-        return lemmalist
-    else:
-        lemmalist = []
-        lemmaobj = (lemmas[0], 1)
-        lemmalist.append(lemmaobj)
-        return lemmalist
-
-
-def test_count_library(token_list, lemma_list):
-    '''Test the ability of frequency_lemmatize(), (which uses the COUNT_LIBRARY dictionary,
-    to predict the most likely lemmatization in ambiguous cases. Punctuation is 
-    automatically counted as correct, because the 'punc' lemmatization usage is inconsistent
-    in the test corpus.
-    dependencies
-    ------------
-    itemgetter class from operator package
-    parameters
-    ----------
-    token_list: a list of tokens
-    lemma_list: a list of corresponding 'correct' lemmatizaitons
-    results
-    -------
-    prints four numbers: the number of correctly assigned lemmas in ambiguous cases;
-    the number of ambiguous cases in total; the number of tokens analyzed; and a
-    decimal between 0 and 1 representing the proportion of correct lemmatizations.
-    return
-    ------
-    a list object containing all incorrect lemmatizations for analysis. Format:
-    [(token, answer_given, correct_answer), (token...)]
-
-    NOTE: Initial tests show roughly 91% accuracy, identification of punctuation included.
-    '''
-    trials = 0
-    correct = 0
-    errors = []
-    for position in range(0, (len(token_list)-1)):
-        lemmalist = frequency_lemmatize(token_list[position])
-        lemma = max(lemmalist,key=itemgetter(1))
-        if len(lemmalist) > 1:
-            trials = trials + 1
-            if lemma[0] == lemma_list[position] or lemma[0] == 'punc':
-                correct = correct + 1
-            else:
-                errors.append((token_list[position], lemma[0], lemma_list[position]))
-    print(correct)
-    print(trials)
-    print(len(lemma_list))
-    rate = (len(lemma_list) - trials + correct) / len(lemma_list)
-    print(rate)
-    return errors
