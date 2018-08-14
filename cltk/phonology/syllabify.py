@@ -351,7 +351,6 @@ class Syllabifier:
         word = word[1:-1]
         word = ''.join(l for l in unicodedata.normalize('NFD', word) if unicodedata.category(l) != 'Mn')
 
-        print(word)
         return self.syllabify_SSP(word)
 
     def syllabify_phonemes(self, phonological_word):
