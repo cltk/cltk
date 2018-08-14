@@ -23,7 +23,7 @@ def normalize(text):
     # for punctuation in "-:?":
     #    res = "".join(res.split(punctuation))
     res = text.lower()
-    res = re.sub("[\-:\?;,]", "", res)
+    res = re.sub("[\-:\?;.,]", "", res)
     return res
 
 
@@ -87,8 +87,83 @@ class VerseManager:
 
 
 class ShortLine:
-    def __init__(self):
-        pass
+    def __init__(self, text):
+        self.text = text
+        self.first_sounds = []
+        self.syllabified = []
+        self.transcribed = []
+        self.alliterations = {}
+        self.phonological_features_text = []
+        self.n_alliterations = 0
+
+        self.syllabified_transcribed_text = []
+        self.syllabified_phonological_features_text = []
+
+    def syllabify(self, syllabifier):
+        for viisuordh in tokenize_old_norse_words(self.text):
+            # self.syllabified.append([])
+            # syllabifiedwords = []
+            # for word in (viisuordh):
+            if viisuordh != "":
+                self.syllabified.append(syllabifier.syllabify(normalize(viisuordh)))
+            # .append(words)
+
+    def to_phonetics(self, transcriber):
+        # for j, short_line in :
+        #     transcribed_text[i].append([])
+        #     self.phonological_features_text.append([])
+        for viisuordh in tokenize_old_norse_words(self.text):
+            print(viisuordh)
+            word = normalize(viisuordh)
+            if word != "":
+                transcribed_word = transcriber.main(word)
+                # phonological features list, result of Transcriber.first_process()
+                pfl = transcriber.first_process(word)
+
+                self.transcribed.append(transcribed_word)
+                self.phonological_features_text.append(pfl)
+
+    def to_syllabified_phonetics(self, syllabifier, transcriber):
+        for viisuordh in tokenize_old_norse_words(self.text):
+            transcribed_word = transcriber.main(viisuordh)
+            print(transcribed_word)
+            # phonological features list, result of Transcriber.first_process()
+            pfl = transcriber.first_process(normalize(viisuordh))
+            print(pfl)
+            self.syllabified_transcribed_text.append(syllabifier.syllabify_IPA(transcribed_word))
+            self.syllabified_phonological_features_text.append(syllabifier.syllabify_phonemes(pfl))
+
+    def get_first_sounds(self):
+        for viisuord in self.phonological_features_text:
+            self.first_sounds.append(viisuord[0])
+
+    def find_alliterations(self, other_short_line):
+        n_alliterations_lines = 0
+        alliterations = []
+        for j, sound1 in enumerate(self.first_sounds):
+            word1 = normalize(tokenize_old_norse_words(self.text)[j])
+            for k, sound2 in enumerate(other_short_line.first_sounds):
+                word2 = normalize(tokenize_old_norse_words(other_short_line.text)[k])
+                if word1 not in STOPS_LIST and word2 not in STOPS_LIST:
+                    if isinstance(sound1, Consonant) and isinstance(sound2, Consonant) and \
+                            sound1.ipar == sound2.ipar:
+                        self.alliterations[other_short_line.text] = (word1, word2)
+                        alliterations.append((word1, word2))
+                        self.n_alliterations += 1
+                    elif isinstance(sound1, Vowel) and isinstance(sound2, Vowel):
+                        self.alliterations[other_short_line.text] = (word1, word2)
+                        alliterations.append((word1, word2))
+                        self.n_alliterations += 1
+        return alliterations, self.n_alliterations
+
+
+class LongLine:
+    def __init__(self, text):
+        self.text = text
+        self.first_sounds = []
+        self.syllabified = []
+        self.alliterations = {}
+        self.n_alliterations = 0
 
 
 class Verse:
@@ -125,23 +200,27 @@ class Verse:
             syllabifier = Syllabifier(language="old_norse", break_geminants=True)
             syllabifier.set_hierarchy(hierarchy)
             syllabified_text = []
-            for i, line in enumerate(self.long_lines):
+            for i, long_line in enumerate(self.long_lines):
                 syllabified_text.append([])
-                for j, viisuordh in enumerate(line):
-                    syllabified_text[i].append([])
-                    words = []
-                    for word in tokenize_old_norse_words(viisuordh):
-                        # punctuation is not necessary here
-                        word = word.replace(",", "")
-                        word = word.replace(".", "")
-                        word = word.replace(";", "")
-                        word = word.replace("!", "")
-                        word = word.replace("?", "")
-                        word = word.replace("-", "")
-                        word = word.replace(":", "")
-                        if word != '':
-                            words.append(syllabifier.syllabify(word.lower()))
-                    syllabified_text[i][j].append(words)
+                for short_line in long_line:
+                    assert isinstance(short_line, ShortLine)
+                    short_line.syllabify(syllabifier)
+                    syllabified_text[i].append(short_line.syllabified)
+                # for j, viisuordh in enumerate(line):
+                #     syllabified_text[i].append([])
+                #     words = []
+                #     for word in tokenize_old_norse_words(viisuordh):
+                #         # punctuation is not necessary here
+                #         word = word.replace(",", "")
+                #         word = word.replace(".", "")
+                #         word = word.replace(";", "")
+                #         word = word.replace("!", "")
+                #         word = word.replace("?", "")
+                #         word = word.replace("-", "")
+                #         word = word.replace(":", "")
+                #         if word != '':
+                #             words.append(syllabifier.syllabify(word.lower()))
+                #     syllabified_text[i][j].append(words)
             self.syllabified_text = syllabified_text
 
     def to_phonetics(self):
@@ -156,21 +235,29 @@ class Verse:
             transcriber = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
             transcribed_text = []
             phonological_features_text = []
-            for i, line in enumerate(self.long_lines):
+            for i, long_line in enumerate(self.long_lines):
                 transcribed_text.append([])
                 phonological_features_text.append([])
-                for j, short_line in enumerate(line):
-                    transcribed_text[i].append([])
-                    phonological_features_text[i].append([])
-                    for viisuordh in short_line.split(" "):
-                        transcribed_word = transcriber.main(viisuordh)
-                        # phonological features list, result of Transcriber.first_process()
-                        word = viisuordh.lower()
-                        word = re.sub(r"[.\";,:\[\]()!&?‘]", "", word)
-                        pfl = transcriber.first_process(word)
+                for short_line in long_line:
+                    assert isinstance(short_line, ShortLine)
+                    short_line.to_phonetics(transcriber)
+                    transcribed_text[i].append(short_line.transcribed)
+                    phonological_features_text[i].append(short_line.phonological_features_text)
 
-                        transcribed_text[i][j].append(transcribed_word)  #
-                        phonological_features_text[i][j].append(pfl)
+            # # for i, line in enumerate(self.long_lines):
+            # #     transcribed_text.append([])
+            # #     phonological_features_text.append([])
+            #     # for j, short_line in enumerate(line):
+            #     #     transcribed_text[i].append([])
+            #     #     phonological_features_text[i].append([])
+            #     #     for viisuordh in short_line.split(" "):
+            #     #         transcribed_word = transcriber.main(viisuordh)
+            #             phonological features list, result of Transcriber.first_process()
+            #
+            #             pfl = transcriber.first_process(normalize(viisuordh))
+            #
+            #             transcribed_text[i][j].append(transcribed_word)  #
+            #             phonological_features_text[i][j].append(pfl)
             self.transcribed_text = transcribed_text
             self.phonological_features_text = phonological_features_text
 
@@ -188,41 +275,46 @@ class Verse:
             ipa_syllabifier = Syllabifier()
             ipa_syllabifier.set_hierarchy(hierarchy)
             transcriber = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
-            transcribed_text = []
+
+            # transcribed_text = []
             syllabified_transcribed_text = []
-            phonological_features_text = []
+            # phonological_features_text = []
             syllabified_phonological_features_text = []
 
-            for i, line in enumerate(self.long_lines):
-                transcribed_text.append([])
-                phonological_features_text.append([])
+            for i, long_line in enumerate(self.long_lines):
+                # transcribed_text.append([])
+                # phonological_features_text.append([])
 
                 syllabified_transcribed_text.append([])
                 syllabified_phonological_features_text.append([])
-                print(line)
-                for j, short_line in enumerate(line):
-                    transcribed_text[i].append([])
-                    phonological_features_text[i].append([])
+                print(long_line)
+                for short_line in long_line:
+                    assert isinstance(short_line, ShortLine)
+                    # transcribed_text[i].append([])
+                    # phonological_features_text[i].append([])
 
                     syllabified_transcribed_text[i].append([])
                     syllabified_phonological_features_text[i].append([])
-                    print(line)
-                    for viisuordh in short_line:
-                        transcribed_word = transcriber.main(viisuordh)
-                        print(transcribed_word)
-                        # phonological features list, result of Transcriber.first_process()
-                        word = viisuordh.lower()
-                        word = re.sub(r"[.\";,:\[\]()!&?‘]", "", word)
-                        pfl = transcriber.first_process(word)
-                        print(pfl)
-
-                        transcribed_text[i][j].append(transcribed_word)  #
-                        phonological_features_text[i][j].append(pfl)
-
-                        syllabified_transcribed_text[i][j].append(ipa_syllabifier.syllabify_IPA(transcribed_word))
-                        syllabified_phonological_features_text[i][j].append(ipa_syllabifier.syllabify_phonemes(pfl))
-            self.transcribed_text = transcribed_text
-            self.phonological_features_text = phonological_features_text
+                    print(short_line)
+                    short_line.to_syllabified_phonetics(ipa_syllabifier, transcriber)
+                    syllabified_transcribed_text.append(short_line.syllabified_transcribed_text)
+                    syllabified_phonological_features_text.append(short_line.syllabified_phonological_features_text)
+                    # for viisuordh in short_line:
+                    #     transcribed_word = transcriber.main(viisuordh)
+                    #     print(transcribed_word)
+                    #     # phonological features list, result of Transcriber.first_process()
+                    #     word = viisuordh.lower()
+                    #     word = re.sub(r"[.\";,:\[\]()!&?‘]", "", word)
+                    #     pfl = transcriber.first_process(word)
+                    #     print(pfl)
+                    #
+                    #     transcribed_text[i][j].append(transcribed_word)  #
+                    #     phonological_features_text[i][j].append(pfl)
+                    #
+                    #     syllabified_transcribed_text[i][j].append(ipa_syllabifier.syllabify_IPA(transcribed_word))
+                    #     syllabified_phonological_features_text[i][j].append(ipa_syllabifier.syllabify_phonemes(pfl))
+            # self.transcribed_text = transcribed_text
+            # self.phonological_features_text = phonological_features_text
 
             self.syllabified_transcribed_text = syllabified_transcribed_text
             self.syllabified_phonological_features_text = syllabified_phonological_features_text
@@ -246,23 +338,32 @@ class Verse:
                     first_sounds[i].append([])
                     for viisuord in short_line:
                         first_sounds[i][j].append(viisuord[0])
-            n_alliterations_lines = []
+
             alliterations = []
+            n_alliterations_lines = []
+            print("first_sound", first_sounds)
             for i, first_sound_line in enumerate(first_sounds):
-                counter = 0
-                for j, sound1 in enumerate(first_sound_line[0]):
-                    word1 = normalize(self.long_lines[i][0].split(" ")[j])
-                    for k, sound2 in enumerate(first_sound_line[1]):
-                        word2 = normalize(self.long_lines[i][1].split(" ")[k])
-                        if word1 not in STOPS_LIST and word2 not in STOPS_LIST:
-                            if isinstance(sound1, Consonant) and isinstance(sound2, Consonant) and\
-                                    sound1.ipar == sound2.ipar:
-                                alliterations.append((word1, word2))
-                                counter += 1
-                            elif isinstance(sound1, Vowel) and isinstance(sound2, Vowel):
-                                alliterations.append((word1, word2))
-                                counter += 1
+                print(self.long_lines[i][0].text, self.long_lines[i][1].text)
+                assert isinstance(self.long_lines[i][0], ShortLine) and isinstance(self.long_lines[i][1], ShortLine)
+                self.long_lines[i][0].get_first_sounds()
+                self.long_lines[i][1].get_first_sounds()
+                alli, counter = self.long_lines[i][0].find_alliterations(self.long_lines[i][1])
+                alliterations.append(alli)
                 n_alliterations_lines.append(counter)
+            #     counter = 0
+            #     for j, sound1 in enumerate(first_sound_line[0]):
+            #         word1 = normalize(self.long_lines[i][0].split(" ")[j])
+            #         for k, sound2 in enumerate(first_sound_line[1]):
+            #             word2 = normalize(self.long_lines[i][1].split(" ")[k])
+            #             if word1 not in STOPS_LIST and word2 not in STOPS_LIST:
+            #                 if isinstance(sound1, Consonant) and isinstance(sound2, Consonant) and\
+            #                         sound1.ipar == sound2.ipar:
+            #                     alliterations.append((word1, word2))
+            #                     counter += 1
+            #                 elif isinstance(sound1, Vowel) and isinstance(sound2, Vowel):
+            #                     alliterations.append((word1, word2))
+            #                     counter += 1
+            #     n_alliterations_lines.append(counter)
             return alliterations, n_alliterations_lines
 
 
@@ -307,7 +408,7 @@ class Fornyrdhislag(Verse):
         :return:
         """
         self.text = text
-        self.short_lines = [line for line in text.split("\n") if line != ""]
+        self.short_lines = [ShortLine(line) for line in text.split("\n") if line != ""]
         self.long_lines = [self.short_lines[2*i:2*i+2] for i in range(int(floor(len(self.short_lines)/2)))]
         # print(self.short_lines)
         # print(self.long_lines)
@@ -378,7 +479,7 @@ class Ljoodhhaattr(Verse):
         :return:
         """
         self.text = text
-        self.short_lines = [line for line in text.split("\n") if line != ""]
+        self.short_lines = [ShortLine(line) for line in text.split("\n") if line != ""]
         self.long_lines = [self.short_lines[0:2], [self.short_lines[2]], self.short_lines[3:5], [self.short_lines[5]]]
 
     def syllabify(self, hierarchy):
