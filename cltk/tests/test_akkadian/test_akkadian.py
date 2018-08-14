@@ -192,7 +192,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests read_file.
         """
-        path = os.path.join('~\PycharmProjects', 'cltk', 'cltk', 'tests', 'test_akkadian', 'single_text.txt')
+        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                            'cltk', 'tests', 'test_akkadian', 'single_text.txt')
         f = os.path.expanduser(path)
         cdli = FileImport(f)
         cdli.read_file()
@@ -260,7 +261,8 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests file_catalog.
         """
-        path = os.path.join('~\PycharmProjects', 'cltk', 'cltk', 'tests', 'test_akkadian', 'single_text.txt')
+        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                            'cltk', 'tests', 'test_akkadian', 'single_text.txt')
         f = os.path.expanduser(path)
         cdli = FileImport(f)
         cdli.file_catalog()
@@ -592,9 +594,9 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
 
     def test_abnormalities(self):
         """Tests lines 83, 102, 121-2"""
-        path = os.path.join('~\PycharmProjects', 'cltk', 'cltk', 'tests', 'test_akkadian', 'two_text_abnormalities.txt')
-        f = os.path.expanduser(path)
-        f_i = FileImport(f)
+        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                            'cltk', 'tests', 'test_akkadian', 'two_text_abnormalities.txt')
+        f_i = FileImport(path)
         f_i.read_file()
         text_file = f_i.file_lines
         cdli = CDLICorpus()
@@ -756,7 +758,9 @@ class TestcasesfromGSOC(unittest.TestCase):  # pylint: disable=R0904
         """
         Tests line_tokenizer.
         """
-        output = TOKENIZER.line_tokenizer('single_text.txt')
+        path = os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                            'cltk', 'tests', 'test_akkadian', 'single_text.txt')
+        output = TOKENIZER.line_tokenizer(path)
         goal = ['1. a-na ia-ah-du-li-im',
                 '2. qi2-bi2-ma',
                 '3. um-ma a-bi-sa-mar-ma',
@@ -850,8 +854,10 @@ P254203
         cdli = CDLICorpus()
         cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
-        p_p.html_print_file(cdli.catalog, 'html_file.html')
-        f_o = FileImport('html_file.html')
+        p_p.html_print_file(cdli.catalog, os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                                                       'cltk', 'tests', 'test_akkadian', 'html_file.html'))
+        f_o = FileImport(os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                                      'cltk', 'tests', 'test_akkadian', 'html_file.html'))
         f_o.read_file()
         output = f_o.raw_file
         goal = \
@@ -1018,8 +1024,12 @@ bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]
         cdli = CDLICorpus()
         cdli.parse_file(SAMPLE_TEXT)
         p_p = PrettyPrint()
-        p_p.html_print_single_text(cdli.catalog, 'P500444', 'html_single_text.html')
-        f_o = FileImport('html_single_text.html')
+        p_p.html_print_single_text(cdli.catalog, 'P500444', os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                                                                         'cltk', 'tests', 'test_akkadian',
+                                                                         'html_single_text.html'))
+        f_o = FileImport(os.path.join('home', 'travis', 'build', 'cltk', 'cltk',
+                                      'cltk', 'tests', 'test_akkadian',
+                                      'html_single_text.html'))
         f_o.read_file()
         output = f_o.raw_file
         goal = \
