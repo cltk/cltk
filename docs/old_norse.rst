@@ -193,13 +193,17 @@ Old Norse prosody
 
     In[10]: fo.transcribed_text
 
-    Out[10]: [['[dɐyr feː]', '[dɐyja frɛːndr]'], ['[dɐyr sjalvr it sama]', '[ɛk vɛit ɛinː]'], ['[at aldrɛi dɐyr]', '[doːmr um dɒuðan hvɛrn]']]
+    Out[10]: [[['[hljoːðs]', '[bið]', '[ɛk]', '[alːar]'], ['[hɛlɣar]', '[kindir]']], [['[mɛiri]', '[ɔk]', '[minːi]'], ['[mœɣu]', '[hɛimdalːar]']], [['[viltu]', '[at]', '[ɛk]', '[valvœðr]'], ['[vɛl]', '[fyr]', '[tɛlja]']], [['[fɔrn]', '[spjœlː]', '[fira]'], ['[θɒu]', '[ɛr]', '[frɛmst]', '[ɔv]', '[man]']]]
+
+    In[11]: fo.find_alliteration()
+
+    Out[11]: ([[('hljóðs', 'helgar')], [('meiri', 'mögu'), ('minni', 'mögu')], [], [('forn', 'fremst'), ('fira', 'fremst')]], [1, 2, 0, 2])
 
 
 * Ljóðaháttr
 
 .. code-block:: python
-
+        verse_alliterations, n_alliterations_lines = lj.find_alliteration()
     In[1]: text2 = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
 
     In[2]: VerseManager.is_ljoodhhaattr(text2)
@@ -222,7 +226,24 @@ Old Norse prosody
 
     In[8]: lj.syllabified_text
 
-    Out[8]: [[[[['deyr'], ['fé']]], [[['deyj', 'a'], ['frændr']]]], [[[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]]], [[[['ek'], ['veit'], ['einn']]], [[['at'], ['al', 'drei'], ['deyr']]]], [[[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]]
+    Out[8]: [[[['deyr'], ['fé']], [['deyj', 'a'], ['frændr']]], [[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]], [[['ek'], ['veit'], ['einn']], [['at'], ['al', 'drei'], ['deyr']]], [[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]
+
+    In[9]: lj.to_phonetics()
+
+    In[10]: lj.transcribed_text
+
+    Out[10]: [[['[dɐyr]', '[feː]'], ['[dɐyja]', '[frɛːndr]']], [['[dɐyr]', '[sjalvr]', '[it]', '[sama]']], [['[ɛk]', '[vɛit]', '[ɛinː]'], ['[at]', '[aldrɛi]', '[dɐyr]']], [['[doːmr]', '[um]', '[dɒuðan]', '[hvɛrn]']]]
+
+    In[11]: verse_alliterations, n_alliterations_lines = lj.find_alliteration()
+
+    In[12]: verse_alliterations
+
+    Out[12]: [[('deyr', 'deyja'), ('fé', 'frændr')], [('sjalfr', 'sjalfr')], [('einn', 'aldrei')], [('dómr', 'um')]]
+
+    In[13]: n_alliterations_lines
+
+    Out[13]: [2, 1, 1, 1]
+
 
 * Dróttkvætt
 
