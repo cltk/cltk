@@ -10,6 +10,7 @@ from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 from cltk.corpus.old_english.syllabifier import Syllabifier as OE_Syllabifier
 from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
+import cltk.phonology.utils as phut
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -246,7 +247,8 @@ class Syllabifier:
 
         except KeyError:
             LOG.error(
-                "The given string contains invalid characters. Make sure to define the mater of articulation for each phoneme.")
+                "The given string contains invalid characters. "
+                "Make sure to define the mater of articulation for each phoneme.")
             raise InputError
 
         while i < len(word) - 1:
@@ -261,7 +263,7 @@ class Syllabifier:
                 break
 
             else:
-                #If the break_geminants parameter is set to True, prioritize geminants
+                # If the break_geminants parameter is set to True, prioritize geminants
                 if self.break_geminants and word[i-1] == word[i]:
                     syllables.append(i-1)
                     find_nucleus = True 
@@ -347,8 +349,36 @@ class Syllabifier:
         :param word: word to be syllabified
         """
         word = word[1:-1]
-        word = ''.join(l for l in unicodedata.normalize('NFD', word)
-                                if unicodedata.category(l) != 'Mn')
+        word = ''.join(l for l in unicodedata.normalize('NFD', word) if unicodedata.category(l) != 'Mn')
 
-        print(word)
         return self.syllabify_SSP(word)
+
+    def syllabify_phonemes(self, phonological_word):
+        """
+
+        :param phonological_word: result of Transcriber().first_process in cltk.phonology.utils
+        :return:
+        """
+        phoneme_lengths = []
+        l_transcribed_word = []
+        for phoneme in phonological_word:
+            phoneme_lengths.append(len(phoneme.ipar))
+            l_transcribed_word.append(phoneme.ipar)
+        transcribed_word = "".join(l_transcribed_word)
+        print(phoneme_lengths)
+        print(l_transcribed_word)
+        print(transcribed_word)
+        syllabified_transcribed_word = self.syllabify_SSP(transcribed_word)
+
+        syllabified_phonological_word = []
+        counter = 0  # number of IPA character processed
+        for i, sts in enumerate(syllabified_transcribed_word):
+            syllabified_phonological_word.append([])
+            syllable_len = len(sts)
+            somme = 0
+            while somme < syllable_len:
+                somme += phoneme_lengths[counter]
+                syllabified_phonological_word[i].append(phonological_word[counter])
+                counter += 1
+
+        return syllabified_phonological_word
