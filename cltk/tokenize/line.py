@@ -1,13 +1,13 @@
 """Tokenize lines."""
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
+              'Andrew Deloucas <adeloucas@g.harvard.edu>']
 __license__ = 'MIT License. See LICENSE.'
 
 
 class LineTokenizer():
     """Tokenize text by line; designed for study of poetry."""
-    
-    
+
     def __init__(self, language):
         """Lower incoming language name and assemble variables.
         :type language: str

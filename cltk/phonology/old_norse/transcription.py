@@ -9,38 +9,38 @@ from cltk.phonology.utils import *
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 
 
-a = Vowel("open", "front", False, "short", "a")
-ee = Vowel("open-mid", "front", False, "short", "ɛ")
-e = Vowel("close-mid", "front", False, "short", "e")
-oee = Vowel("close-mid", "front", True, "short", "ø")
-oe = Vowel("open-mid", "front", True, "short", "œ")
-i = Vowel("close", "front", False, "short", "i")
-y = Vowel("close", "front", True, "short", "y")
-ao = Vowel("open", "back", True, "short", "ɒ")
-oo = Vowel("open-mid", "back", True, "short", "ɔ")
-o = Vowel("close-mid", "back", True, "short", "o")
-u = Vowel("close", "back", True, "short", "u")
+a = Vowel(Height.open, Backness.front, False, Length.short, "a")
+ee = Vowel(Height.open_mid, Backness.front, False, Length.short, "ɛ")
+e = Vowel(Height.close_mid, Backness.front, False, Length.short, "e")
+oee = Vowel(Height.close_mid, Backness.front, True, Length.short, "ø")
+oe = Vowel(Height.open_mid, Backness.front, True, Length.short, "œ")
+i = Vowel(Height.close, Backness.front, False, Length.short, "i")
+y = Vowel(Height.close, Backness.front, True, Length.short, "y")
+ao = Vowel(Height.open, Backness.back, True, Length.short, "ɒ")
+oo = Vowel(Height.open_mid, Backness.back, True, Length.short, "ɔ")
+o = Vowel(Height.close_mid, Backness.back, True, Length.short, "o")
+u = Vowel(Height.close, Backness.back, True, Length.short, "u")
 
-b = Consonant("bilabial", "stop", True, "b", False)
-d = Consonant("alveolar", "stop", True, "d", False)
-f = Consonant("labio-dental", "frictative", False, "f", False)
-g = Consonant("velar", "stop", True, "g", False)
-gh = Consonant("velar", "frictative", True, "ɣ", False)
-h = Consonant("glottal", "frictative", False, "h", False)
-j = Consonant("palatal", "frictative", True, "j", False)
-k = Consonant("velar", "stop", False, "k", False)
-l = Consonant("alveolar", "lateral", True, "l", False)
-m = Consonant("bilabial", "nasal", True, "m", False)
-n = Consonant("labio-dental", "nasal", True, "n", False)
-p = Consonant("bilabial", "stop", False, "p", False)
-r = Consonant("alveolar", "trill", True, "r", False)
-s = Consonant("alveolar", "frictative", False, "s", False)
-t = Consonant("alveolar", "stop", False, "t", False)
-v = Consonant("labio-dental", "frictative", True, "v", False)
-# θ = Consonant("dental", "frictative", False, "θ")
-th = Consonant("dental", "frictative", False, "θ", False)
-# ð = Consonant("dental", "frictative", True, "ð")
-dh = Consonant("dental", "frictative", True, "ð", False)
+b = Consonant(Place.bilabial, Manner.stop, True, "b", False)
+d = Consonant(Place.alveolar, Manner.stop, True, "d", False)
+f = Consonant(Place.labio_dental, Manner.fricative, False, "f", False)
+g = Consonant(Place.velar, Manner.stop, True, "g", False)
+gh = Consonant(Place.velar, Manner.fricative, True, "ɣ", False)
+h = Consonant(Place.glottal, Manner.fricative, False, "h", False)
+j = Consonant(Place.palatal, Manner.fricative, True, "j", False)
+k = Consonant(Place.velar, Manner.stop, False, "k", False)
+l = Consonant(Place.alveolar, Manner.lateral, True, "l", False)
+m = Consonant(Place.bilabial, Manner.nasal, True, "m", False)
+n = Consonant(Place.labio_dental, Manner.nasal, True, "n", False)
+p = Consonant(Place.bilabial, Manner.stop, False, "p", False)
+r = Consonant(Place.alveolar, Manner.trill, True, "r", False)
+s = Consonant(Place.alveolar, Manner.fricative, False, "s", False)
+t = Consonant(Place.alveolar, Manner.stop, False, "t", False)
+v = Consonant(Place.labio_dental, Manner.fricative, True, "v", False)
+# θ = Consonant(Place.dental, Manner.frictative, False, "θ")
+th = Consonant(Place.dental, Manner.fricative, False, "θ", False)
+# ð = Consonant(Place.dental, Manner.frictative, True, "ð")
+dh = Consonant(Place.dental, Manner.fricative, True, "ð", False)
 
 OLD_NORSE8_PHONOLOGY = [
     a, ee, e, oe, i, y, ao, oo, u, a.lengthen(),
@@ -57,10 +57,10 @@ DIPHTHONGS_IPA = {
 }
 # Wrong diphthongs implementation but not that bad for now
 DIPHTHONGS_IPA_class = {
-    "ey": Vowel("open", "front", True, "short", "ɐy"),
-    "au": Vowel("open", "back", True, "short", "ɒu"),
-    "øy": Vowel("open", "front", True, "short", "ɐy"),
-    "ei": Vowel("open", "front", True, "short", "ɛi"),
+    "ey": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
+    "au": Vowel(Height.open, Backness.back, True, Length.short, "ɒu"),
+    "øy": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
+    "ei": Vowel(Height.open, Backness.front, True, Length.short, "ɛi"),
 }
 IPA = {
     "a": "a",  # Short vowels
@@ -133,6 +133,8 @@ IPA_class = {
     "s": s,
     "t": t,
     "v": v,
+    "x": k+s,
+    "z": s,
     "þ": th,
     "ð": dh,
 }
@@ -154,23 +156,23 @@ GEMINATE_CONSONANTS = {
 
 # Some Old Norse rules
 # The first rule which matches is retained
-rule_th = [Rule(AbstractPosition("first", None, []), th, th),
-           Rule(AbstractPosition("inner", [], [AbstractConsonant(voiced=True)]), th, th),
-           Rule(AbstractPosition("inner", [AbstractConsonant(voiced=True)], []), th, th),
-           Rule(AbstractPosition("inner", [], []), th, dh),
-           Rule(AbstractPosition("last", [], None), th, dh)]
+rule_th = [Rule(AbstractPosition(Rank.first, None, []), th, th),
+           Rule(AbstractPosition(Rank.inner, [], [AbstractConsonant(voiced=True)]), th, th),
+           Rule(AbstractPosition(Rank.inner, [AbstractConsonant(voiced=True)], []), th, th),
+           Rule(AbstractPosition(Rank.inner, [], []), th, dh),
+           Rule(AbstractPosition(Rank.last, [], None), th, dh)]
 
-rule_f = [Rule(AbstractPosition("first", None, []), f, f),
-          Rule(AbstractPosition("inner", [], [AbstractConsonant(voiced=False)]), f, f),
-          Rule(AbstractPosition("inner", [AbstractConsonant(voiced=False)], []), f, f),
-          Rule(AbstractPosition("inner", [], []), f, v),
-          Rule(AbstractPosition("last", [], None), f, v)]
+rule_f = [Rule(AbstractPosition(Rank.first, None, []), f, f),
+          Rule(AbstractPosition(Rank.inner, [], [AbstractConsonant(voiced=False)]), f, f),
+          Rule(AbstractPosition(Rank.inner, [AbstractConsonant(voiced=False)], []), f, f),
+          Rule(AbstractPosition(Rank.inner, [], []), f, v),
+          Rule(AbstractPosition(Rank.last, [], None), f, v)]
 
-rule_g = [Rule(AbstractPosition("first", None, None), g, g),
-          Rule(AbstractPosition("inner", [n.to_abstract()], None), g, g),
-          Rule(AbstractPosition("inner", None, [AbstractConsonant(voiced=False)]), g, k),
-          Rule(AbstractPosition("inner", [], []), g, gh),
-          Rule(AbstractPosition("last", [], None), g, gh)]
+rule_g = [Rule(AbstractPosition(Rank.first, None, None), g, g),
+          Rule(AbstractPosition(Rank.inner, [n.to_abstract()], None), g, g),
+          Rule(AbstractPosition(Rank.inner, None, [AbstractConsonant(voiced=False)]), g, k),
+          Rule(AbstractPosition(Rank.inner, [], []), g, gh),
+          Rule(AbstractPosition(Rank.last, [], None), g, gh)]
 
 old_norse_rules = []
 old_norse_rules.extend(rule_f)

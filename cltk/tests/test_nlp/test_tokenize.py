@@ -9,11 +9,11 @@ from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
+
 import os
 import unittest
 
 __license__ = 'MIT License. See LICENSE.'
-
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
@@ -232,7 +232,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   'vilja', 'þeira', '.']
         word_tokenizer = WordTokenizer('old_norse')
         result = word_tokenizer.tokenize(text)
-        #print(result)
         self.assertTrue(result == target)
         
     def test_middle_english_tokenizer(self):
@@ -249,6 +248,30 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenizer = WordTokenizer('middle_high_german')
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
+
+    def test_akkadian_word_tokenizer(self):
+        """
+        Tests word_tokenizer.
+        """
+        tokenizer = WordTokenizer('akkadian')
+        line = 'u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
+        output = tokenizer.tokenize(line)
+        goal = [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'),
+                ('e2-kal2-la-ka', 'akkadian'),
+                ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
+        self.assertEqual(output, goal)
+
+    def test_akkadian_sign_tokenizer(self):
+        """
+        Tests sign_tokenizer.
+        """
+        tokenizer = WordTokenizer('akkadian')
+        word = ("{gisz}isz-pur-ram", "akkadian")
+        output = tokenizer.tokenize_sign(word)
+        goal = [("gisz", "determinative"), ("isz", "akkadian"),
+                ("pur", "akkadian"), ("ram", "akkadian")]
+        self.assertEqual(output, goal)
+
 
 if __name__ == '__main__':
     unittest.main()
