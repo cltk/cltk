@@ -147,7 +147,7 @@ These two instance attributes are used for the ATFConverter.
 
    In[2]: from cltk.corpus.akkadian.file_importer import FileImport
 
-   In[3]: text_location = os.path.join('..', 'Akadian_test_texts', 'Akkadian.txt')
+   In[3]: text_location = os.path.join('..', 'Akkadian_test_texts', 'Akkadian.txt')
 
    In[4]: text = FileImport(text_location)
 
