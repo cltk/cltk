@@ -12,6 +12,7 @@ from cltk.lemmatize.latin.backoff import UnigramLemmatizer
 from cltk.lemmatize.latin.backoff import NgramPOSLemmatizer
 from cltk.lemmatize.latin.backoff import BigramPOSLemmatizer
 from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
+from cltk.lemmatize.latin import unsupervised
 #from cltk.lemmatize.latin.regexp_patterns import rn_patterns
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
@@ -181,6 +182,13 @@ class TestSequenceFunctions(unittest.TestCase):
         tokens = tokenizer.tokenize(text)
         lemmas = lemmatizer.lemmatize(tokens)
         target = [('li', 'li'), ('rois', 'rois'), ('pense', 'pense'), ('que', 'que'), ('par', 'par'), ('folie', 'folie'), (',', ['PUNK']), ('sire', 'sire'), ('tristran', 'None'), (',', ['PUNK']), ('vos', 'vos'), ('aie', ['avoir']), ('amé', 'amer'), (';', ['PUNK']), ('mais', 'mais'), ('dé', 'dé'), ('plevis', 'plevir'), ('ma', 'ma'), ('loiauté', 'loiauté'), (',', ['PUNK']), ('qui', 'qui'), ('sor', 'sor'), ('mon', 'mon'), ('cors', 'cors'), ('mete', 'mete'), ('flaele', 'flaele'), (',', ['PUNK']), ("s'", "s'"), ('onques', 'onques'), ('fors', 'fors'), ('cil', 'cil'), ('qui', 'qui'), ("m'", "m'"), ('ot', 'ot'), ('pucele', 'pucele'), ('out', ['avoir']), ("m'", "m'"), ('amistié', 'amistié'), ('encor', 'encor'), ('nul', 'nul'), ('jor', 'jor'), ('!', ['PUNK'])]
+        self.assertEqual(lemmas, target)
+
+    def test_unsupervised_lemmatizer(self):
+        freqmodel = unsupervised.FrequencyModel()
+        freqmodel.train_model()
+        target = [('arma', 0.5337094769054223), ('armo', 0.4662905230945778)]
+        lemmas = freqmodel.lemmatize('arma')
         self.assertEqual(lemmas, target)
 
 

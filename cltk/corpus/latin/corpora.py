@@ -90,5 +90,5 @@ LATIN_CORPORA = [
     {'location': 'remote',
      'type': 'text',
      'name': 'latin_text_tesserae_collection',
-     'origin': 'https://github.com/jamesgawley/latin_text_tesserae_collection.git'}
+     'origin': 'https://github.com/cltk/latin_text_tesserae_collection.git'}
 ]
