@@ -9,11 +9,11 @@ from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
+
 import os
 import unittest
 
 __license__ = 'MIT License. See LICENSE.'
-
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
@@ -91,6 +91,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         # - Lucr. DRN. 5.1351-53
         # - Plaut. Bacch. 837-38
         # - Plaut. Amph. 823
+        # - Caes. Bel. 6.29.2
 
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
@@ -99,8 +100,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     'Quid opust verbis? lingua nullast qua negem quidquid roges.',
                     'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',  # pylint: disable=line-too-long
                     'Dic sodes mihi, bellan videtur specie mulier?',
-                    'Cenavin ego heri in navi in portu Persico?'
-                    ]
+                    'Cenavin ego heri in navi in portu Persico?',
+                    'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit']
 
         results = []
 
@@ -115,7 +116,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges', '.'],  # pylint: disable=line-too-long
                   ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.'],  # pylint: disable=line-too-long
                   ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?'],
-                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
+                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
+                  ['quae', "ripas", "Ubiorum", "contingebat", "in", "longitudinem", "pedum", "ducentorum", "rescindit"]
                   ]
 
         self.assertEqual(results, target)
@@ -230,15 +232,46 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   'vilja', 'þeira', '.']
         word_tokenizer = WordTokenizer('old_norse')
         result = word_tokenizer.tokenize(text)
-        #print(result)
         self.assertTrue(result == target)
         
+    def test_middle_english_tokenizer(self):
+        text = "    Fers am I ferd of oure fare;\n Fle we ful fast þer-fore. \n Can Y no cownsel bot care.\n\n"
+        target = ['Fers', 'am', 'I', 'ferd', 'of', 'oure', 'fare', ';', 'Fle', 'we', 'ful', 'fast', 'þer', '-', 'fore', '.',
+                  'Can', 'Y', 'no', 'cownsel', 'bot', 'care', '.']
+        tokenizer = WordTokenizer('middle_english')
+        tokenized = tokenizer.tokenize(text)
+        self.assertTrue(tokenized == target)
+    
     def test_middle_high_german_tokenizer(self):
         text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
         target = ['Gâwân', 'het', 'êre', 'unde', 'heil', ',', 'ieweders', 'volleclîchen', 'teil', ':', 'nu', 'nâht', 'och', 'sînes', 'kampfes', 'zît', '.']
         tokenizer = WordTokenizer('middle_high_german')
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
+
+    def test_akkadian_word_tokenizer(self):
+        """
+        Tests word_tokenizer.
+        """
+        tokenizer = WordTokenizer('akkadian')
+        line = 'u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
+        output = tokenizer.tokenize(line)
+        goal = [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'),
+                ('e2-kal2-la-ka', 'akkadian'),
+                ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
+        self.assertEqual(output, goal)
+
+    def test_akkadian_sign_tokenizer(self):
+        """
+        Tests sign_tokenizer.
+        """
+        tokenizer = WordTokenizer('akkadian')
+        word = ("{gisz}isz-pur-ram", "akkadian")
+        output = tokenizer.tokenize_sign(word)
+        goal = [("gisz", "determinative"), ("isz", "akkadian"),
+                ("pur", "akkadian"), ("ram", "akkadian")]
+        self.assertEqual(output, goal)
+
 
 if __name__ == '__main__':
     unittest.main()

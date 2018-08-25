@@ -172,4 +172,3 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
     if not returned_sims:
         print("Matches found, but below the threshold of 'threshold={}'. Lower it to see these results.".format(threshold))
     return returned_sims
-
