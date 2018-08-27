@@ -503,13 +503,3 @@ class Ljoodhhaattr(Verse):
         :return:
         """
         return Verse.find_alliteration(self)
-
-
-if __name__ == "__main__":
-    stanza = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
-    fo = Fornyrdhislag()
-    fo.from_short_lines_text(stanza)
-    fo.to_phonetics()
-    fo.syllabify(old_norse_syllabifier.hierarchy)
-    res_alliterations, res_n_alliterations_lines = fo.find_alliteration()
-    print("Alliterations : "+str(res_alliterations), "number : ", res_n_alliterations_lines)
