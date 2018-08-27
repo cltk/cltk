@@ -68,6 +68,25 @@ class VerseManager:
         lines = [line for line in text.split("\n") if line != ""]
         return len(lines) == 6
 
+    @staticmethod
+    def from_paragraphs(paragraphs):
+        """
+
+        :param paragraphs: list of stanzas (list of strings)
+        :return: list of Fornyrdhislag or Ljoodhhaattr instances
+        """
+        poem = []
+        for paragraph in paragraphs:
+            if VerseManager.is_fornyrdhislag(paragraph):
+                fnl = Fornyrdhislag()
+                fnl.from_short_lines_text(paragraph)
+                poem.append(fnl)
+            elif VerseManager.is_ljoodhhaattr(paragraph):
+                lh = Ljoodhhaattr()
+                lh.from_short_lines_text(paragraph)
+                poem.append(lh)
+        return poem
+
 
 class ShortLine:
     def __init__(self, text):
@@ -487,9 +506,9 @@ class Ljoodhhaattr(Verse):
 
 
 if __name__ == "__main__":
-    poem = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
+    stanza = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
     fo = Fornyrdhislag()
-    fo.from_short_lines_text(poem)
+    fo.from_short_lines_text(stanza)
     fo.to_phonetics()
     fo.syllabify(old_norse_syllabifier.hierarchy)
     res_alliterations, res_n_alliterations_lines = fo.find_alliteration()
