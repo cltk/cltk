@@ -69,7 +69,7 @@ class VerseManager:
         return len(lines) == 6
 
     @staticmethod
-    def from_paragraphs(paragraphs):
+    def load_poem_from_paragraphs(paragraphs):
         """
 
         :param paragraphs: list of stanzas (list of strings)
@@ -80,10 +80,14 @@ class VerseManager:
             if VerseManager.is_fornyrdhislag(paragraph):
                 fnl = Fornyrdhislag()
                 fnl.from_short_lines_text(paragraph)
+                fnl.syllabify(old_norse_syllabifier.hierarchy)
+                fnl.to_phonetics()
                 poem.append(fnl)
             elif VerseManager.is_ljoodhhaattr(paragraph):
                 lh = Ljoodhhaattr()
                 lh.from_short_lines_text(paragraph)
+                lh.syllabify(old_norse_syllabifier.hierarchy)
+                lh.to_phonetics()
                 poem.append(lh)
         return poem
 
@@ -356,9 +360,6 @@ class Fornyrdhislag(Verse):
     """
     def __init__(self):
         Verse.__init__(self)
-        # self.text = ""
-        # self.long_lines = []
-        # self.short_lines = []
 
     def from_short_lines_text(self, text: str):
         """

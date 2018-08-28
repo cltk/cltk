@@ -138,7 +138,7 @@ class TestOldNorse(unittest.TestCase):
                             "viltu at ek, Valföðr,\nvel fyr telja\nforn spjöll fira,\nþau er fremst of man.",
                             "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\n"
                             "dómr um dauðan hvern."]
-        fake_poem = VerseManager.from_paragraphs(fake_poetic_text)
+        fake_poem = VerseManager.load_poem_from_paragraphs(fake_poetic_text)
         self.assertIsInstance(fake_poem[0], Fornyrdhislag)
         self.assertIsInstance(fake_poem[1], Ljoodhhaattr)
 
