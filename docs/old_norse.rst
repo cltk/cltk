@@ -165,7 +165,7 @@ Edda poetry is traditionally composed of the skaldic poetry and the eddic poetry
 
 
 Eddic poetry
-************
+``````````
 
 Eddic poems designate the poems of the **Poetic Edda**. Stanza, line and verse are the three levels that characterize eddic poetry.
 The poetic Edda are mainly composed of three kinds of poetic meters: *fornyrðislag*, *ljóðaháttr* and *málaháttr*.
@@ -264,7 +264,7 @@ A stanza of *ljóðaháttr* has 6 short lines (or verses), 4 long-lines (or line
 *Málaháttr* is very similar to *ljóðaháttr*, except that verses are longer. No special code has been written for this.
 
 Skaldic poetry
-**************
+``````````
 
 *Dróttkvætt* and *hrynhenda* are examples of skaldic poetic meters.
 
