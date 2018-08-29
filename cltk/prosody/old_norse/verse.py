@@ -415,6 +415,13 @@ class UnspecifiedStanza(Metre):
     def find_alliteration(self):
         """
         Alliterations in short lines make no sense.
+        >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
+        >>> us = UnspecifiedStanza()
+        >>> us.from_short_lines_text(stanza)
+        >>> us.to_phonetics()
+        >>> us.find_alliteration()
+        ([], 0)
+
         :return:
         """
         return [], 0
