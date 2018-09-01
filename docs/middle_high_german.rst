@@ -69,6 +69,17 @@ Note that the syllabifier is case-insensitive:
     In [3]: Word('Fröude').syllabify()
     Out[3]: ['fröu', 'de']
     
+You can also load the sonority of MHG phonemes to the ``phonology`` syllabifier:
+
+.. code-block:: python
+  
+  In [4]: from cltk.phonology.syllabify import Syllabifier
+  
+  In [5]: s = Syllabifier(language='middle high german')
+  
+  In [6]: s.syllabify('lobebæren')
+  Out[6]: ['lo', 'be', 'bæ', 'ren']
+
 Stopword Filtering
 ==================
 
