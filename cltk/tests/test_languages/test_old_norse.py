@@ -14,9 +14,9 @@ from cltk.tag.pos import POSTag
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
-from cltk.inflection.old_norse import pronouns
-from cltk.inflection.old_norse import nouns
+from cltk.inflection.old_norse import pronouns, nouns
 import cltk.inflection.utils as decl_utils
+from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr, MetreManager, UnspecifiedStanza
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -47,7 +47,6 @@ class TestOldNorse(unittest.TestCase):
 
         tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
         transcribed_sentence = tr.main(example_sentence)
-        print(transcribed_sentence)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
@@ -112,6 +111,41 @@ class TestOldNorse(unittest.TestCase):
         noun_sumar = decl_utils.DeclinableOneGender("sumar", decl_utils.Gender.neuter)
         noun_sumar.set_declension(nouns.sumar)
         self.assertEqual(noun_sumar.get_declined(decl_utils.Case.nominative, decl_utils.Number.plural), "sumur")
+
+    def test_prosody_fornyrdhislag(self):
+        poem = "Hljóðs bið ek allar\nhelgar kindir,\nmeiri ok minni\nmögu Heimdallar;\nviltu at ek, Valföðr,\n" \
+               "vel fyr telja\nforn spjöll fira,\nþau er fremst of man."
+        fo = Fornyrdhislag()
+        fo.from_short_lines_text(poem)
+        fo.to_phonetics()
+        res_alliterations, res_n_alliterations_lines = fo.find_alliteration()
+        self.assertEqual(res_alliterations, [[('hljóðs', 'helgar')], [('meiri', 'mögu'), ('minni', 'mögu')], [],
+                                             [('forn', 'fremst'), ('fira', 'fremst')]])
+
+    def test_prosody_ljoodhhaattr(self):
+        poem = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\n" \
+               "dómr um dauðan hvern."
+        lj = Ljoodhhaattr()
+        lj.from_short_lines_text(poem)
+        lj.to_phonetics()
+        verse_alliterations, n_alliterations_lines = lj.find_alliteration()
+        self.assertEqual(verse_alliterations,
+                         [[('deyr', 'deyja'), ('fé', 'frændr')], [('sjalfr', 'sjalfr')], [('einn', 'aldrei')],
+                          [('dómr', 'um')]])
+
+    def test_poem(self):
+        fake_poetic_text = ["Hljóðs bið ek allar\nhelgar kindir,\nmeiri ok minni\nmögu Heimdallar;\n"
+                            "viltu at ek, Valföðr,\nvel fyr telja\nforn spjöll fira,\nþau er fremst of man.",
+                            "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\n"
+                            "dómr um dauðan hvern.",
+                            "Ein sat hon úti,\nþá er inn aldni kom\nyggjungr ása\nok í augu leit.\n"
+                            "Hvers fregnið mik?\nHví freistið mín?\nAllt veit ek, Óðinn,\nhvar þú auga falt,\n"
+                            "í inum mæra\nMímisbrunni.\nDrekkr mjöð Mímir\nmorgun hverjan\naf veði Valföðrs.\n"
+                            "Vituð ér enn - eða hvat?"]
+        fake_poem = MetreManager.load_poem_from_paragraphs(fake_poetic_text)
+        self.assertIsInstance(fake_poem[0], Fornyrdhislag)
+        self.assertIsInstance(fake_poem[1], Ljoodhhaattr)
+        self.assertIsInstance(fake_poem[2], UnspecifiedStanza)
 
 
 if __name__ == '__main__':
