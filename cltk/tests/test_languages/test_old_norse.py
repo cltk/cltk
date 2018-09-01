@@ -16,7 +16,7 @@ from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 from cltk.inflection.old_norse import pronouns, nouns
 import cltk.inflection.utils as decl_utils
-from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr
+from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr, MetreManager, UnspecifiedStanza
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -132,6 +132,20 @@ class TestOldNorse(unittest.TestCase):
         self.assertEqual(verse_alliterations,
                          [[('deyr', 'deyja'), ('fé', 'frændr')], [('sjalfr', 'sjalfr')], [('einn', 'aldrei')],
                           [('dómr', 'um')]])
+
+    def test_poem(self):
+        fake_poetic_text = ["Hljóðs bið ek allar\nhelgar kindir,\nmeiri ok minni\nmögu Heimdallar;\n"
+                            "viltu at ek, Valföðr,\nvel fyr telja\nforn spjöll fira,\nþau er fremst of man.",
+                            "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\n"
+                            "dómr um dauðan hvern.",
+                            "Ein sat hon úti,\nþá er inn aldni kom\nyggjungr ása\nok í augu leit.\n"
+                            "Hvers fregnið mik?\nHví freistið mín?\nAllt veit ek, Óðinn,\nhvar þú auga falt,\n"
+                            "í inum mæra\nMímisbrunni.\nDrekkr mjöð Mímir\nmorgun hverjan\naf veði Valföðrs.\n"
+                            "Vituð ér enn - eða hvat?"]
+        fake_poem = MetreManager.load_poem_from_paragraphs(fake_poetic_text)
+        self.assertIsInstance(fake_poem[0], Fornyrdhislag)
+        self.assertIsInstance(fake_poem[1], Ljoodhhaattr)
+        self.assertIsInstance(fake_poem[2], UnspecifiedStanza)
 
 
 if __name__ == '__main__':
