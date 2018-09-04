@@ -540,6 +540,7 @@ class BackoffLatinLemmatizer(object):
         lemmatizer = self._define_lemmatizer()
         return lemmatizer.evaluate(self.test_sents)
 
+
 # Accuracty test available below——keep? delete?
 #if __name__ == "__main__":
 #
