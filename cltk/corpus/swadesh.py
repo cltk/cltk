@@ -76,6 +76,7 @@ swadesh_hi = ['मैं', 'तू', 'वह', 'हम', 'तुम', 'वे', 
               'अच्छा', 'बुरा', 'सड़ा', 'गन्दा', 'सीधा', 'गोल', 'तीखा', 'कुंद', 'चिकना', 'गीला', 'सूखा', 'सही', 'नज़दीक',
               'दूर', 'दायाँ', 'बायाँ', 'पे', 'में', 'के साथ', 'और', 'अगर', 'क्योंकि', 'नाम']
 
+
 swadesh_la = ['ego', 'tū', 'is, ea, id', 'nōs', 'vōs', 'eī, iī, eae, ea', 'hic, haec, hoc', 'ille, illa, illud', 'hīc',
               'illic, ibi', 'quis, quae', 'quid', 'ubi', 'cum', 'quōmodō', 'nōn, nē', 'omnēs, omnia',
               'multī, multae, multa', 'aliquī, aliqua, aliquod', 'paucī, paucae, pauca', 'alter, alius', 'ūnus', 'duō',
@@ -99,6 +100,7 @@ swadesh_la = ['ego', 'tū', 'is, ea, id', 'nōs', 'vōs', 'eī, iī, eae, ea', '
               'vetus', 'bonus', 'malus', 'putridus', 'immundus', 'rectus', 'rotundus', 'acūtus', 'hebes', 'suāvis',
               'humidus, aqueus', 'siccus', 'rectus', 'propinquus, proximus', 'longus', 'dexter', 'laevus, sinister',
               'ad, in', 'in', 'cum', 'et, -que', 'si', 'quod', 'nōmen']
+
 
 swadesh_old_norse = ["ek", "þú", "hann", "vér", "þér", "þeir", "sjá, þessi", "sá", "hér", "þar", "hvar", "hvat", "hvar",
                      "hvenær", "hvé", "eigi", "allr", "margr", "nǫkkurr", "fár", "annarr", "einn", "tveir", "þrír",
