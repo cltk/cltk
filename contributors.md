@@ -27,8 +27,13 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/phonology/middle_english/transcription.py
 * cltk/stop/middle_high_german/stops.py
 
-## Clément Besnier <clemsciences@aol.com>
+## Clément Besnier <clemsciences@aol.com> <GitHub:clemsciences>
 * cltk/stop/old_norse/stops.py
+* cltk/phonology/utils.py
+* cltk/phonology/old_norse/transcription.py
+* cltk/phonology/old_swedish/transcription.py
+* cltk/phonology/gothic/transcription.py
+* cltk/prosody/old_norse/verse.py
 
 ## Dhruv Apte
 * cltk/corpus/gujarati/alphabet.py

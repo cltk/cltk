@@ -1,7 +1,6 @@
 # -*-coding:utf-8-*-
 """Test cltk.tokenize.
 
-TODO: Add tests for the Indian lang tokenizers: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
 """
 
 from cltk.corpus.utils.importer import CorpusImporter
@@ -9,11 +8,11 @@ from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
+
 import os
 import unittest
 
 __license__ = 'MIT License. See LICENSE.'
-
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
@@ -91,6 +90,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         # - Lucr. DRN. 5.1351-53
         # - Plaut. Bacch. 837-38
         # - Plaut. Amph. 823
+        # - Caes. Bel. 6.29.2
 
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
@@ -99,8 +99,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                     'Quid opust verbis? lingua nullast qua negem quidquid roges.',
                     'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',  # pylint: disable=line-too-long
                     'Dic sodes mihi, bellan videtur specie mulier?',
-                    'Cenavin ego heri in navi in portu Persico?'
-                    ]
+                    'Cenavin ego heri in navi in portu Persico?',
+                    'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit']
 
         results = []
 
@@ -115,7 +115,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges', '.'],  # pylint: disable=line-too-long
                   ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.'],  # pylint: disable=line-too-long
                   ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?'],
-                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
+                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
+                  ['quae', "ripas", "Ubiorum", "contingebat", "in", "longitudinem", "pedum", "ducentorum", "rescindit"]
                   ]
 
         self.assertEqual(results, target)
@@ -230,7 +231,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   'vilja', 'þeira', '.']
         word_tokenizer = WordTokenizer('old_norse')
         result = word_tokenizer.tokenize(text)
-        #print(result)
         self.assertTrue(result == target)
         
     def test_middle_english_tokenizer(self):
@@ -247,6 +247,69 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenizer = WordTokenizer('middle_high_german')
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
+
+    def test_sentence_tokenizer_bengali(self):
+        """Test tokenizing bengali sentences."""
+        text = "দুর্ব্বাসার শাপে রাজা শকুন্তলাকে একেবারে ভুলে বেশ সুখে আছেন।"
+        target = ['দুর্ব্বাসার', 'শাপে', 'রাজা', 'শকুন্তলাকে', 'একেবারে', 'ভুলে', 'বেশ', 'সুখে', 'আছেন', '।']
+        tokenizer = TokenizeSentence('bengali')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_classical_hindi(self):
+        """Test tokenizing classical_hindi sentences."""
+        text = "जलर्  चिकित्सा से उन्हें कोई लाभ नहीं हुआ।"
+        target = ['जलर्', 'चिकित्सा', 'से', 'उन्हें', 'कोई', 'लाभ', 'नहीं', 'हुआ', '।']
+        tokenizer = TokenizeSentence('hindi')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_marathi(self):
+        """Test tokenizing marathi sentences."""
+        text = "अर्जुन उवाच । एवं सतत युक्ता ये भक्तास्त्वां पर्युपासते । ये चाप्यक्षरमव्यक्तं तेषां के योगवित्तमाः ॥"
+        target = ['अर्जुन', 'उवाच', '।', 'एवं', 'सतत', 'युक्ता', 'ये', 'भक्तास्त्वां', 'पर्युपासते', '।', 'ये', 'चाप्यक्षरमव्यक्तं', 'तेषां', 'के', 'योगवित्तमाः', '॥']
+        tokenizer = TokenizeSentence('marathi')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_sanskrit(self):
+        """Test tokenizing sanskrit sentences."""
+        text = "श्री भगवानुवाच पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः। नानाविधानि दिव्यानि नानावर्णाकृतीनि च।।"
+        target = ['श्री', 'भगवानुवाच', 'पश्य', 'मे', 'पार्थ', 'रूपाणि', 'शतशोऽथ', 'सहस्रशः', '।', 'नानाविधानि', 'दिव्यानि', 'नानावर्णाकृतीनि', 'च', '।', '।']
+        tokenizer = TokenizeSentence('sanskrit')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_telugu(self):
+        """Test tokenizing telugu sentences."""
+        text = "తా. ఎక్కడెక్కడ బుట్టిన నదులును రత్నాకరుడను నాశతో సముద్రుని చేరువిధముగా నెన్నియిక్కట్టులకైన నోర్చి ప్రజలు దమంతట దామె ప్రియముం జూపుచు ధనికుని యింటికేతెంచుచుందురు."
+        target = ['తా', '.', 'ఎక్కడెక్కడ', 'బుట్టిన', 'నదులును', 'రత్నాకరుడను', 'నాశతో', 'సముద్రుని', 'చేరువిధముగా', 'నెన్నియిక్కట్టులకైన', 'నోర్చి', 'ప్రజలు', 'దమంతట', 'దామె', 'ప్రియముం', 'జూపుచు', 'ధనికుని', 'యింటికేతెంచుచుందురు', '.']
+        tokenizer = TokenizeSentence('telugu')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+    def test_akkadian_word_tokenizer(self):
+        """
+        Tests word_tokenizer.
+        """
+        tokenizer = WordTokenizer('akkadian')
+        line = 'u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
+        output = tokenizer.tokenize(line)
+        goal = [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'),
+                ('e2-kal2-la-ka', 'akkadian'),
+                ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
+        self.assertEqual(output, goal)
+
+    def test_akkadian_sign_tokenizer(self):
+        """
+        Tests sign_tokenizer.
+        """
+        tokenizer = WordTokenizer('akkadian')
+        word = ("{gisz}isz-pur-ram", "akkadian")
+        output = tokenizer.tokenize_sign(word)
+        goal = [("gisz", "determinative"), ("isz", "akkadian"),
+                ("pur", "akkadian"), ("ram", "akkadian")]
+        self.assertEqual(output, goal)
+
 
 if __name__ == '__main__':
     unittest.main()
