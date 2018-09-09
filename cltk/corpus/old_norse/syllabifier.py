@@ -18,3 +18,8 @@ hierarchy = [
 ]
 
 invalid_onsets = ['lm', "fj", "nm", "rk", "nn", "tt", "ðr"]
+
+# for old_norse_ipa
+ipa_vowels = ["a", "ɛ", "i", "ɔ", "ɒ", "ø", "u", "y", "œ", "e", "o", "j"]
+
+ipa_hierarchy = [ipa_vowels, ["r"], ["l"], ["m", "n"], ["f", "v", "θ", "ð", "s", "h"], ["b", "d", "g", "k", "p", "t"]]
