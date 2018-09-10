@@ -149,7 +149,7 @@ class TestOldNorse(unittest.TestCase):
 
     def test_syllable_length_1(self):
         syllabifier = Syllabifier(language="old_norse_ipa")
-        word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
+        word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]  # asgarðr (normally it is ásgarðr)
         syllabified_word = syllabifier.syllabify_phonemes(word)
         lengths = []
         for syllable in syllabified_word:
