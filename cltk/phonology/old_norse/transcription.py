@@ -194,7 +194,6 @@ def measure_old_norse_syllable(syllable: list):
         geminated_consonant_number = 0
         simple_consonant_number = 0
         for c in syllable[i:]:
-            assert isinstance(c, Vowel)
             if isinstance(c, Vowel):
                 if c.length == Length.long:
                     long_vowel_number += 1
@@ -205,10 +204,13 @@ def measure_old_norse_syllable(syllable: list):
                     geminated_consonant_number += 1
                 else:
                     simple_consonant_number += 1
-        if long_vowel_number == 0 and short_vowel_number == 1 and simple_consonant_number <= 1 and geminated_consonant_number == 0:
+        if long_vowel_number == 0 and short_vowel_number == 1 and simple_consonant_number <= 1 and\
+                geminated_consonant_number == 0:
             return Length.short
-        elif (short_vowel_number == 1 and (simple_consonant_number > 1 and geminated_consonant_number > 0)) or \
+        elif (short_vowel_number == 1 and (simple_consonant_number > 1 or geminated_consonant_number > 0)) or \
                 long_vowel_number > 0 and simple_consonant_number <= 1 and geminated_consonant_number == 0:
             return Length.long
         elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
-            return Length.long
+            return Length.overlong
+        else:
+            print(long_vowel_number, short_vowel_number, geminated_consonant_number, simple_consonant_number)

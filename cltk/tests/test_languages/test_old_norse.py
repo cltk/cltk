@@ -4,7 +4,7 @@ import os
 import unittest
 
 from cltk.corpus.swadesh import Swadesh
-from cltk.phonology.old_norse import transcription as ont
+import cltk.phonology.old_norse.transcription as ont
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
 from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.phonology import utils as ut
@@ -146,6 +146,25 @@ class TestOldNorse(unittest.TestCase):
         self.assertIsInstance(fake_poem[0], Fornyrdhislag)
         self.assertIsInstance(fake_poem[1], Ljoodhhaattr)
         self.assertIsInstance(fake_poem[2], UnspecifiedStanza)
+
+    def test_syllable_length_1(self):
+        syllabifier = Syllabifier(language="old_norse_ipa")
+        word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
+        syllabified_word = syllabifier.syllabify_phonemes(word)
+        lengths = []
+        for syllable in syllabified_word:
+            lengths.append(ont.measure_old_norse_syllable(syllable))
+        self.assertListEqual(lengths, [ut.Length.short, ut.Length.long])
+
+    def test_syllable_length_2(self):
+        syllabifier = Syllabifier(language="old_norse_ipa")
+        ont.o.length = ont.Length.long
+        word = [ont.n, ont.o, ont.t, ont.t]  # nótt
+        syllabified_word = syllabifier.syllabify_phonemes(word)
+        lengths = []
+        for syllable in syllabified_word:
+            lengths.append(ont.measure_old_norse_syllable(syllable))
+        self.assertListEqual(lengths, [ut.Length.overlong])
 
 
 if __name__ == '__main__':
