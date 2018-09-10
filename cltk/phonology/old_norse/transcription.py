@@ -184,7 +184,7 @@ old_norse_rules.extend(rule_th)
 
 def measure_old_norse_syllable(syllable: list):
     i = 0
-    while not isinstance(syllable[i], Vowel):
+    while i < len(syllable) and not isinstance(syllable[i], Vowel):
         i += 1
     if i == len(syllable):
         return None
@@ -212,5 +212,3 @@ def measure_old_norse_syllable(syllable: list):
             return Length.long
         elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
             return Length.overlong
-        else:
-            print(long_vowel_number, short_vowel_number, geminated_consonant_number, simple_consonant_number)

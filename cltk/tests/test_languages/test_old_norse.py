@@ -157,14 +157,21 @@ class TestOldNorse(unittest.TestCase):
         self.assertListEqual(lengths, [ut.Length.short, ut.Length.long])
 
     def test_syllable_length_2(self):
-        syllabifier = Syllabifier(language="old_norse_ipa")
         ont.o.length = ont.Length.long
-        word = [ont.n, ont.o, ont.t, ont.t]  # nótt
-        syllabified_word = syllabifier.syllabify_phonemes(word)
+        word = [ont.n, ont.o, ont.t.lengthen()]  # nótt
+        syllabified_word = [word]
         lengths = []
         for syllable in syllabified_word:
             lengths.append(ont.measure_old_norse_syllable(syllable))
         self.assertListEqual(lengths, [ut.Length.overlong])
+
+    def test_syllable_length_3(self):
+        ont.o.length = ont.Length.long
+        word = [ont.t, ont.t]  # tt
+        lengths = []
+        for syllable in [word]:
+            lengths.append(ont.measure_old_norse_syllable(syllable))
+        self.assertListEqual(lengths, [None])
 
 
 if __name__ == '__main__':
