@@ -159,7 +159,7 @@ For a language-dependent approach, you can call the predefined sonority dictiona
 
 Length of syllables in Old Norse poems plays a great role. To measure this, words have first to be phonetically transcribed. This is why "old_norse_ipa" language is used
 
-.. code-block::python
+.. code-block:: python
 
     In[1]: s = Syllabifier(language="old_norse_ipa")
 
