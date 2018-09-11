@@ -166,7 +166,6 @@ class TestOldNorse(unittest.TestCase):
         self.assertListEqual(lengths, [ut.Length.overlong])
 
     def test_syllable_length_3(self):
-        ont.o.length = ont.Length.long
         word = [ont.t, ont.t]  # tt
         lengths = []
         for syllable in [word]:
