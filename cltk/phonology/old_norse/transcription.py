@@ -57,10 +57,10 @@ DIPHTHONGS_IPA = {
 }
 # Wrong diphthongs implementation but not that bad for now
 DIPHTHONGS_IPA_class = {
-    "ey": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
-    "au": Vowel(Height.open, Backness.back, True, Length.short, "ɒu"),
-    "øy": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
-    "ei": Vowel(Height.open, Backness.front, True, Length.short, "ɛi"),
+    "ey": Vowel(Height.open, Backness.front, True, Length.long, "ɐy"),
+    "au": Vowel(Height.open, Backness.back, True, Length.long, "ɒu"),
+    "øy": Vowel(Height.open, Backness.front, True, Length.long, "ɐy"),
+    "ei": Vowel(Height.open, Backness.front, True, Length.long, "ɛi"),
 }
 IPA = {
     "a": "a",  # Short vowels
@@ -96,6 +96,8 @@ IPA = {
     "s": "s",
     "t": "t",
     "v": "v",
+    "x": "ks",
+    "z": "ts",
     "þ": "θ",
     "ð": "ð",
 }
@@ -134,7 +136,7 @@ IPA_class = {
     "t": t,
     "v": v,
     "x": k+s,
-    "z": s,
+    "z": t+s,
     "þ": th,
     "ð": dh,
 }
@@ -178,3 +180,35 @@ old_norse_rules = []
 old_norse_rules.extend(rule_f)
 old_norse_rules.extend(rule_g)
 old_norse_rules.extend(rule_th)
+
+
+def measure_old_norse_syllable(syllable: list):
+    i = 0
+    while i < len(syllable) and not isinstance(syllable[i], Vowel):
+        i += 1
+    if i == len(syllable):
+        return None
+    else:
+        long_vowel_number = 0
+        short_vowel_number = 0
+        geminated_consonant_number = 0
+        simple_consonant_number = 0
+        for c in syllable[i:]:
+            if isinstance(c, Vowel):
+                if c.length == Length.long:
+                    long_vowel_number += 1
+                elif c.length == Length.short:
+                    short_vowel_number += 1
+            elif isinstance(c, Consonant):
+                if c.geminate:
+                    geminated_consonant_number += 1
+                else:
+                    simple_consonant_number += 1
+        if long_vowel_number == 0 and short_vowel_number == 1 and simple_consonant_number <= 1 and\
+                geminated_consonant_number == 0:
+            return Length.short
+        elif (short_vowel_number == 1 and (simple_consonant_number > 1 or geminated_consonant_number > 0)) or \
+                long_vowel_number > 0 and simple_consonant_number <= 1 and geminated_consonant_number == 0:
+            return Length.long
+        elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
+            return Length.overlong
