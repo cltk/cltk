@@ -1,7 +1,4 @@
-# -*-coding:utf-8-*-
-"""Test cltk.tokenize.
-
-"""
+"""Test cltk.tokenize."""
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence

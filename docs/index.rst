@@ -40,7 +40,7 @@ Contents
    odia
    pali
    persian
-   phonology
+   phoenician
    old_portuguese
    prakrit
    punjabi
