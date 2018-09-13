@@ -6,4 +6,10 @@ The corpus module has a class for generating a Swadesh list for Latin.
 
 .. code-block:: python
 
-swadesh_phn
+   In [1]: from cltk.corpus.swadesh import swadesh_phn
+
+   In [2]: print(swadesh_phn[:10])
+   ['‘l', '‘ḥr', 'kl', 'mzbḥ', 'w', 'mšḥ', '‘ny', 'qrb?', 'zr’', 'ṣb’']
+
+   In [3]: print(len(swadesh_phn))
+   320
