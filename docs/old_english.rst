@@ -120,6 +120,17 @@ The reverse process is also possible:
    In [3]: t.transliterate('Hƿæt Ƿe Gardena in geardagum', 'Anglo-Saxon')
    Out[3]: 'ᚻᚹᚫᛏ ᚹᛖ ᚷᚪᚱᛞᛖᚾᚪ ᛁᚾ ᚷᛠᚱᛞᚪᚷᚢᛗ'
 
+Syllabification
+===============
+
+There is a facility for using the pre-specified sonoroty hierarchy for Old English to syllabify words.
+
+.. code-block:: python
+  In [1]: from cltk.phonology.syllabify import Syllabifier
+  In [2]: s = Syllabifier(language='old english')
+  In [3]: s.syllabify('geardagum')
+  Out [3]:['gear', 'da', 'gum']
+
 POS tagging
 ===========
 
@@ -132,7 +143,7 @@ There are a number of different pre-trained models available for POS tagging of 
 * Conditional Random Field (CRF) model
 * Perceptron model
 
-(Bigram and trigram models are also available, but unsuitable due to low accuracy.)
+(Bigram and trigram models are also available, but unsuitable due to low recall.)
 
 The taggers were trained from annotated data from the `The ISWOC Treebank <http://iswoc.github.io/>`_ (license: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License). 
 
