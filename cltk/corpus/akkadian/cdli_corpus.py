@@ -109,10 +109,14 @@ class CDLICorpus(object):
         """
         Returns a rich list of texts in the catalog.
         """
-        return [
-            f"Pnum: {key}, Edition: {self.catalog[key]['edition']}, "
-            f"length: {len(self.catalog[key]['transliteration'])} line(s)"
-            for key in sorted(self.catalog.keys())]
+        output = []
+        for key in sorted(self.catalog.keys()):
+            edition = self.catalog[key]['edition']
+            length = len(self.catalog[key]['transliteration'])
+            output.append(
+                "Pnum: {key}, Edition: {edition}, length: {length} line(s)".format(
+                    key=key, edition=edition, length=length))
+        return output
 
     def list_pnums(self):
         """

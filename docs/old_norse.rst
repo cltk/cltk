@@ -151,17 +151,48 @@ For a language-dependent approach, you can call the predefined sonority dictiona
 
 .. code-block:: python
 
-    In[1]: s = Syllabifier(language='old_norse')
+    In[1]: from cltk.phonology.syllabify import Syllabifier
 
-    In[2]: s.syllabify("danmarkar")
+    In[2]: s = Syllabifier(language='old_norse')
 
-    Out[2]: ['dan', 'mar', 'kar']
+    In[3]: s.syllabify("danmarkar")
 
+    Out[3]: ['dan', 'mar', 'kar']
+
+Length of syllables in Old Norse poems plays a great role. To measure this, words have first to be phonetically transcribed. This is why "old_norse_ipa" language is used
+
+.. code-block:: python
+
+    In[1]: import cltk.phonology.old_norse.transcription as ont
+
+    In[2]: from cltk.phonology.syllabify import Syllabifier
+
+    In[3]: syllabifier = Syllabifier(language="old_norse_ipa")
+
+    In[4]: word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
+
+    In[5]: syllabified_word = syllabifier.syllabify_phonemes(word)
+
+    In[6]: [ont.measure_old_norse_syllable(syllable) for syllable in syllabified_word]
+
+    Out[6]: [<Length.short: 'short'>, <Length.long: 'long'>]
 
 Old Norse prosody
 =================
 
-* Fornyrðislag
+Edda poetry is traditionally composed of the skaldic poetry and the eddic poetry.
+
+
+Eddic poetry
+````````````
+
+Eddic poems designate the poems of the **Poetic Edda**. Stanza, line and verse are the three levels that characterize eddic poetry.
+The poetic Edda are mainly composed of three kinds of poetic meters: *fornyrðislag*, *ljóðaháttr* and *málaháttr*.
+
+* *Fornyrðislag*
+
+A stanza of *fornyrðislag* has 8 short lines (or verses), 4 long-lines (or lines). Each long line has two short lines. The first verse of a line usually has an alliteration with the second verse of a line.
+
 
 .. code-block:: python
 
@@ -200,10 +231,13 @@ Old Norse prosody
     Out[11]: ([[('hljóðs', 'helgar')], [('meiri', 'mögu'), ('minni', 'mögu')], [], [('forn', 'fremst'), ('fira', 'fremst')]], [1, 2, 0, 2])
 
 
-* Ljóðaháttr
+* *Ljóðaháttr*
+
+A stanza of *ljóðaháttr* has 6 short lines (or verses), 4 long-lines (or lines). The first and the third lines have two verses, while the second and the fourth lines have only one (longer) verse. The first verse of the first and third lines alliterates with the second verse of these lines. The second and the fourth lines contain alliterations.
+
 
 .. code-block:: python
-        verse_alliterations, n_alliterations_lines = lj.find_alliteration()
+
     In[1]: text2 = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
 
     In[2]: VerseManager.is_ljoodhhaattr(text2)
@@ -244,10 +278,14 @@ Old Norse prosody
 
     Out[13]: [2, 1, 1, 1]
 
+* *Málaháttr*
 
-* Dróttkvætt
+*Málaháttr* is very similar to *ljóðaháttr*, except that verses are longer. No special code has been written for this.
 
-* Hrynhenda
+Skaldic poetry
+``````````````
+
+*Dróttkvætt* and *hrynhenda* are examples of skaldic poetic meters.
 
 
 Old Norse pronouns declension
