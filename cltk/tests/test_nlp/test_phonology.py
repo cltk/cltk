@@ -732,7 +732,7 @@ class TestSequenceFunctions(unittest.TestCase):
         ru4 = ut.Rule.from_regular_expression(example, "v", ipa_class)
         self.assertEqual(ru4.ipa_to_regular_expression(phonology), example)
 
-        def test_syllabification_old_norse(self):
+    def test_syllabification_old_norse(self):
         old_norse_syllabifier = Syllabifier(language="old_norse", break_geminants=True)
         text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok " \
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
