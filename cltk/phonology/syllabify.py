@@ -9,8 +9,8 @@ from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 from cltk.corpus.old_english.syllabifier import Syllabifier as OE_Syllabifier
-from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
-
+from cltk.corpus.old_norse.syllabifier import hierarchy as old_norse_hierarchy
+from cltk.corpus.old_norse.syllabifier import ipa_hierarchy as ipa_old_norse_hierarchy 
 import cltk.phonology.utils as phut
 
 LOG = logging.getLogger(__name__)
@@ -106,11 +106,13 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-
         elif language == "old_norse":
-
-            self.set_hierarchy(OLD_NORSE_HIERARCHY)
-            self.set_vowels(OLD_NORSE_HIERARCHY[0])
+            self.set_hierarchy(old_norse_hierarchy)
+            self.set_vowels(old_norse_hierarchy[0])
+            
+        elif language == "old_norse_ipa":
+            self.set_hierarchy(ipa_old_norse_hierarchy)
+            self.set_vowels(ipa_old_norse_hierarchy[0])
 
         else:
 
