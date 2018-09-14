@@ -86,7 +86,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-            self.invalid_ultima['a','ae', 'æ', 'e', 'ea', 'eo', 'i', 'o', 'y']
+            self.invalid_ultima = ['a', 'ae', 'æ', 'e', 'ea', 'eo', 'i', 'o', 'u', 'y']
         
         elif language == 'old english':
             hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
@@ -409,5 +409,4 @@ class Syllabifier:
                 counter += 1
 
         return syllabified_phonological_word
-    
     
