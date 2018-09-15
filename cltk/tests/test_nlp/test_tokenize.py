@@ -1,7 +1,6 @@
 # -*-coding:utf-8-*-
 """Test cltk.tokenize.
 
-TODO: Add tests for the Indian lang tokenizers: from cltk.tokenize.indian_tokenizer import indian_punctuation_tokenize_regex
 """
 
 from cltk.corpus.utils.importer import CorpusImporter
@@ -249,6 +248,45 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
 
+    def test_sentence_tokenizer_bengali(self):
+        """Test tokenizing bengali sentences."""
+        text = "দুর্ব্বাসার শাপে রাজা শকুন্তলাকে একেবারে ভুলে বেশ সুখে আছেন।"
+        target = ['দুর্ব্বাসার', 'শাপে', 'রাজা', 'শকুন্তলাকে', 'একেবারে', 'ভুলে', 'বেশ', 'সুখে', 'আছেন', '।']
+        tokenizer = TokenizeSentence('bengali')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_classical_hindi(self):
+        """Test tokenizing classical_hindi sentences."""
+        text = "जलर्  चिकित्सा से उन्हें कोई लाभ नहीं हुआ।"
+        target = ['जलर्', 'चिकित्सा', 'से', 'उन्हें', 'कोई', 'लाभ', 'नहीं', 'हुआ', '।']
+        tokenizer = TokenizeSentence('hindi')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_marathi(self):
+        """Test tokenizing marathi sentences."""
+        text = "अर्जुन उवाच । एवं सतत युक्ता ये भक्तास्त्वां पर्युपासते । ये चाप्यक्षरमव्यक्तं तेषां के योगवित्तमाः ॥"
+        target = ['अर्जुन', 'उवाच', '।', 'एवं', 'सतत', 'युक्ता', 'ये', 'भक्तास्त्वां', 'पर्युपासते', '।', 'ये', 'चाप्यक्षरमव्यक्तं', 'तेषां', 'के', 'योगवित्तमाः', '॥']
+        tokenizer = TokenizeSentence('marathi')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_sanskrit(self):
+        """Test tokenizing sanskrit sentences."""
+        text = "श्री भगवानुवाच पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः। नानाविधानि दिव्यानि नानावर्णाकृतीनि च।।"
+        target = ['श्री', 'भगवानुवाच', 'पश्य', 'मे', 'पार्थ', 'रूपाणि', 'शतशोऽथ', 'सहस्रशः', '।', 'नानाविधानि', 'दिव्यानि', 'नानावर्णाकृतीनि', 'च', '।', '।']
+        tokenizer = TokenizeSentence('sanskrit')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_telugu(self):
+        """Test tokenizing telugu sentences."""
+        text = "తా. ఎక్కడెక్కడ బుట్టిన నదులును రత్నాకరుడను నాశతో సముద్రుని చేరువిధముగా నెన్నియిక్కట్టులకైన నోర్చి ప్రజలు దమంతట దామె ప్రియముం జూపుచు ధనికుని యింటికేతెంచుచుందురు."
+        target = ['తా', '.', 'ఎక్కడెక్కడ', 'బుట్టిన', 'నదులును', 'రత్నాకరుడను', 'నాశతో', 'సముద్రుని', 'చేరువిధముగా', 'నెన్నియిక్కట్టులకైన', 'నోర్చి', 'ప్రజలు', 'దమంతట', 'దామె', 'ప్రియముం', 'జూపుచు', 'ధనికుని', 'యింటికేతెంచుచుందురు', '.']
+        tokenizer = TokenizeSentence('telugu')
+        tokenized_sentences = tokenizer.tokenize(text)
+        self.assertEqual(tokenized_sentences, target)
     def test_akkadian_word_tokenizer(self):
         """
         Tests word_tokenizer.

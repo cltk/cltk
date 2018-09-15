@@ -127,7 +127,7 @@ There is a facility for using the pre-specified sonoroty hierarchy for Old Engli
 
 .. code-block:: python
   In [1]: from cltk.phonology.syllabify import Syllabifier
-  In [2]: s = Syllabifier(language='old english')
+  In [2]: s = Syllabifier(language='old_english')
   In [3]: s.syllabify('geardagum')
   Out [3]:['gear', 'da', 'gum']
 
