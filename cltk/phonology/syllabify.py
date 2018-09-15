@@ -202,7 +202,7 @@ class Syllabifier:
             
             Additionally, you can utilize the language parameter:
             
-            >>> s = Syllabifier(language='middle high german')
+            >>> s = Syllabifier(language='middle_high_german')
             
             >>> s.syllabify('lobebæren')
             ['lo', 'be', 'bæ', 'ren']
