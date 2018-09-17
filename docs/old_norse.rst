@@ -17,7 +17,13 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
     In[3]: corpus_importer.list_corpora
 
-    Out[3]: ['old_norse_text_perseus', 'old_norse_models_cltk']
+    Out[3]: ['old_norse_text_perseus', 'old_norse_models_cltk', 'old_norse_texts_heimskringla', 'old_norse_runic_transcriptions', 'old_norse_dictionary_zoega']
+
+
+
+Zoëga's dictionary
+``````````````````
+This dictionary was made in the last century. It contains Old Norse entries in which a description is given in English. Each entry have possible POS tags for its word and the translations/meanings.
 
 
 Stopword Filtering
