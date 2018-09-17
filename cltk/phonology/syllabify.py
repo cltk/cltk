@@ -75,7 +75,7 @@ class Syllabifier:
         
         self.break_geminants = break_geminants
         
-        if language == 'middle english':
+        if language == 'middle_english':
             hierarchy = [[] for _ in range(len(set(ME_Syllabifier.values())))]
 
             for k in ME_Syllabifier:
@@ -84,7 +84,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
         
-        elif language == 'old english':
+        elif language == 'old_english':
             hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
 
             for k in OE_Syllabifier:
@@ -93,7 +93,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-        elif language == 'middle high german':
+        elif language == 'middle_high_german':
             hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
             for k in MHG_Syllabifier:
@@ -207,17 +207,17 @@ class Syllabifier:
             
             Additionally, you can utilize the language parameter:
             
-            >>> s = Syllabifier(language='middle high german')
+            >>> s = Syllabifier(language='middle_high_german')
             
             >>> s.syllabify('lobebæren')
             ['lo', 'be', 'bæ', 'ren']
             
-            >>> s = Syllabifier(language='middle english')
+            >>> s = Syllabifier(language='middle_english')
             
             >>> s.syllabify("huntyng")
             ['hun', 'tyng']
             
-            >>> s = Syllabifier(language='old english')
+            >>> s = Syllabifier(language='old_english')
             
             >>> s.syllabify("arcebiscop")
             ['ar', 'ce', 'bis', 'cop']

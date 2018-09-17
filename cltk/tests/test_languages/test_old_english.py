@@ -6,6 +6,7 @@ import unittest
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.corpus.swadesh import Swadesh
 from cltk.tag.pos import POSTag
+from cltk.phonology.syllabify import Syllabifier
 
 __author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
 
@@ -26,6 +27,10 @@ class TestOldEnglish(unittest.TestCase):
         first_word = 'ic, iċċ, ih'
         match = swadesh.words()[0]
         self.assertEqual(first_word, match)
+
+    def test_syllabification_old_english(self):
+        s = Syllabifier(language='old_english')
+        self.assertEqual(s.syllabify('geardagum'), ['gear', 'da', 'gum'])
 
     def test_pos_unigram_old_english(self):
         """Test tagging Old English POS with unigram tagger."""
