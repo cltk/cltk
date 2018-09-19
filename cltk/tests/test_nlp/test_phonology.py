@@ -739,8 +739,7 @@ class TestSequenceFunctions(unittest.TestCase):
         words = tokenize_old_norse_words(text)
         old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
         
-        syllabified_words = [old_norse_syllabifier.legal_onsets(old_norse_syllabifier.syllabify_SSP(word.lower()))
-                             for word in words if word not in ",."]
+        syllabified_words = [old_norse_syllabifier.legal_onsets(old_norse_syllabifier.syllabify_SSP(word.lower())) for word in words if word not in ",."]
 
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],
                   ['svá'], ['at'], ['af'], ['ren', 'ni', 'rauk', 'num'], ['rauk'], ['dan', 'mar', 'kar'], ['auk', 'a'],
