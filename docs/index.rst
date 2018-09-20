@@ -20,7 +20,6 @@ Contents
    bengali
    chinese
    coptic
-   egyptian
    ancient_egyptian
    old_english
    middle_english
