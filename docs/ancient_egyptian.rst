@@ -20,7 +20,7 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 
 
 .. note::
-   reStructuredText tables cannot display all characters in the Character column. The several that cannot be displayed are: `U+0056`: ``; `U+003c`: `〈`; `U+003e`: `〉`; `U+0024, U+00a3`; `H̱`;
+   reStructuredText tables cannot display all characters in the Character column. The several that cannot be displayed are: `U+0056`: ``; `U+003c`: `〈`; `U+003e`: `〉`; `U+0024, U+00a3`: `H̱`.
 
 +----------------------------+-----------------------------+
 | MdC                        | Unicode                     |
