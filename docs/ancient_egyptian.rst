@@ -11,7 +11,7 @@ Transliterate MdC
 =================
 
 MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceived as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
-<https://en.wikipedia.org/wiki/Manuel_de_Codage>`_ and `here <http://www.catchpenny.org/codage/#trans>`_
+<https://en.wikipedia.org/wiki/Manuel_de_Codage>`__ and `here <http://www.catchpenny.org/codage/#trans>`__
 
 Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`_
 
@@ -33,7 +33,7 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 +----------------+-----------+-----------------+-----------+
 | U+0058         | X         | U+1e96          | ẖ         |
 +----------------+-----------+-----------------+-----------+
-| U+0056         | V         | U+0068+U+032d   |          |
+| U+0056         | V         | U+0068+U+032d   |         |
 +----------------+-----------+-----------------+-----------+
 | U+0053         | S         | U+0161          | š         |
 +----------------+-----------+-----------------+-----------+
@@ -45,13 +45,13 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 +----------------+-----------+-----------------+-----------+
 | U+0044         | D         | U+1e0f          | ḏ         |
 +----------------+-----------+-----------------+-----------+
-| U+0069         | i         | U+0069+U+0486   | i҆         |
+| U+0069         | i         | U+0069+U+0486   | i҆        |
 +----------------+-----------+-----------------+-----------+
 | U+003d         | =         | U+2e17          | ⸗         |
 +----------------+-----------+-----------------+-----------+
-| U+003c         | <         | U+2329          | 〈        |
+| U+003c         | <         | U+2329          | 〈         |
 +----------------+-----------+-----------------+-----------+
-| U+003e         | >         | U+232a          | 〉        |
+| U+003e         | >         | U+232a          | 〉         |
 +----------------+-----------+-----------------+-----------+
 | U+0071         | q         | U+1e33          | ḳ         |
 +----------------+-----------+-----------------+-----------+

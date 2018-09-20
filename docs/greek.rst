@@ -285,6 +285,8 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
 
 The beta code converter can also handle lowercase notation:
 
+.. code-block:: python
+
     In [5]: BETA_EXAMPLE_2 = r"""me/xri me\n w)/n tou/tou a(rpaga/s mou/nas ei)=nai par' a)llh/lwn, to\ de\ a)po\ tou/tou *(/ellhnas dh\ mega/lws ai)ti/ous gene/sqai: prote/rous ga\r a)/rcai strateu/esqai e)s th\n *)asi/hn h)\ sfe/as e)s th\n *eu)rw/phn. """
     Out[5]: 'μέχρι μὲν ὤν τούτου ἁρπαγάς μούνας εἶναι παρ’ ἀλλήλων, τὸ δὲ ἀπὸ τούτου Ἕλληνας δὴ μεγάλως αἰτίους γενέσθαι· προτέρους γὰρ ἄρξαι στρατεύεσθαι ἐς τὴν Ἀσίην ἢ σφέας ἐς τὴν Εὐρώπην.'
 
