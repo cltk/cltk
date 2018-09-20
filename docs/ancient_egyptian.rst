@@ -3,6 +3,9 @@ Ancient Egyptian
 
 The language spoken in ancient Egypt was a branch of the Afroasiatic language family. The earliest known complete written sentence in the Egyptian language has been dated to about 2690 BCE, making it one of the oldest recorded languages known, along with Sumerian. Egyptian was spoken until the late seventeenth century in the form of Coptic. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Egyptian_language>`_)
 
+.. important::
+   For correct visualisation of transliterated Unicode text you will probably need a special font. We recommend either `egyptoserif <http://jsesh.qenherkhopeshef.org/en/node/1416>`_ (handles the yod better) or `noto <https://www.google.com/get/noto/>`_.
+
 
 Transliterate MdC
 =================
