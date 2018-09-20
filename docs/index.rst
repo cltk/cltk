@@ -20,11 +20,13 @@ Contents
    bengali
    chinese
    coptic
+   egyptian
    ancient_egyptian
    old_english
    middle_english
    french
    middle_high_german.rst
+   middle_low_german
    gothic
    greek
    gujarati

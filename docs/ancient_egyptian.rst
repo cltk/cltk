@@ -8,7 +8,7 @@ Transliterate MdC
 =================
 
 MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceived as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
-<https://en.wikipedia.org/wiki/Manuel_de_Codage>`_ and `here <http://www.catchpenny.org/codage/#trans>`_
+<https://en.wikipedia.org/wiki/Manuel_de_Codage>`__ and `here <http://www.catchpenny.org/codage/#trans>`__
 
 Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`_
 
@@ -20,9 +20,9 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 +============================+=============================+
 | Unicode Number | Character | Unicode Number  | Character |
 +----------------+-----------+-----------------+-----------+
-| U+0041         | A         | U+a723          | ꜣ         |
+| U+0041         | A         | U+a723          | ꜣ          |
 +----------------+-----------+-----------------+-----------+
-| U+0061         | a         | U+a725          | ꜥ         |
+| U+0061         | a         | U+a725          | ꜥ          |
 +----------------+-----------+-----------------+-----------+
 | U+0048         | H         | U+1e25          | ḥ         |
 +----------------+-----------+-----------------+-----------+
@@ -30,7 +30,7 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 +----------------+-----------+-----------------+-----------+
 | U+0058         | X         | U+1e96          | ẖ         |
 +----------------+-----------+-----------------+-----------+
-| U+0056         | V         | U+0068+U+032d   |          |
+| U+0056         | V         | U+0068+U+032d   |         |
 +----------------+-----------+-----------------+-----------+
 | U+0053         | S         | U+0161          | š         |
 +----------------+-----------+-----------------+-----------+
@@ -60,7 +60,7 @@ Here are the unicode equivalents of MdC transliteration scheme as it is represen
 | U+0023         | #         | U+1e2a          | Ḫ         |
 | U+00a2         | ¢         |                 |           |
 +----------------+-----------+-----------------+-----------+
-| U+0024         | $         | U+0048 + U+0331 | H̱        |
+| U+0024         | $         | U+0048 + U+0331 | H̱         |
 | U+00a3         | £         |                 |           |
 +----------------+-----------+-----------------+-----------+
 | U+00a5         | ¥         | U+0160          | Š         |
