@@ -1,5 +1,5 @@
 Gujarati
-******
+********
 
 Gujarati is an Indo-Aryan language native to the Indian state of Gujarat. It
 is part of the greater Indo-European language family. Gujarati is descended from Old
