@@ -12,7 +12,6 @@ __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
-
 TAGGERS = {'greek':
                {'unigram': 'unigram.pickle',
                 'bigram': 'bigram.pickle',
@@ -27,10 +26,25 @@ TAGGERS = {'greek':
                 'trigram': 'trigram.pickle',
                 'ngram_123_backoff': '123grambackoff.pickle',
                 'tnt': 'tnt.pickle',
-                'crf': 'crf.pickle',}}
+                'crf': 'crf.pickle',
+                },
+           'old_norse':
+               {'tnt': 'tnt.pickle'
+               },
+           'middle_low_german':
+              {'ngram_12_backoff': 'backoff_tagger.pickle'
+              },
+            'old_english':
+               {'unigram': 'unigram.pickle',
+                'bigram': 'bigram.pickle',
+                'trigram': 'trigram.pickle',
+                'ngram_123_backoff': 'backoff.pickle',
+                'crf': 'crf.pickle',
+                'perceptron' : 'perceptron.pickle'
+           }}
 
 
-class POSTag():
+class POSTag:
     """Tag words' parts-of-speech."""
 
     def __init__(self, language: str):
@@ -54,7 +68,7 @@ class POSTag():
         for tagger_key, tagger_val in TAGGERS[lang].items():
             tagger_path = os.path.join(path, tagger_val)
             assert os.path.isfile(tagger_path), \
-                'CLTK linguistics models not available for {0}.'.format(tagger_val)
+                'CLTK linguistics models not available for {0}, looking for .'.format([tagger_val, tagger_path])
             tagger_paths[tagger_key] = tagger_path
         return tagger_paths
 
@@ -105,7 +119,19 @@ class POSTag():
         tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
-
+    
+    def tag_ngram_12_backoff(self, untagged_string: str):
+        """Tag POS with 1-, 2-gram tagger.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['ngram_12_backoff']
+        tagger = open_pickle(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text     
+    
     def tag_tnt(self, untagged_string: str):
         """Tag POS with TnT tagger.
         :type untagged_string: str
@@ -128,5 +154,17 @@ class POSTag():
         pickle_path = self.available_taggers['crf']
         tagger = CRFTagger()
         tagger.set_model_file(pickle_path)
+        tagged_text = tagger.tag(untagged_tokens)
+        return tagged_text
+
+    def tag_perceptron(self, untagged_string: str):
+        """Tag POS with Perceptron tagger.
+        :type untagged_string: str
+        :param : An untagged, untokenized string of text.
+        :rtype tagged_text: str
+        """
+        untagged_tokens = wordpunct_tokenize(untagged_string)
+        pickle_path = self.available_taggers['perceptron']
+        tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text

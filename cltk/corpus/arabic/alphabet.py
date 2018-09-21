@@ -8,258 +8,258 @@ __author__ = 'Lakhdar Benzahia <lakhdar[.]benzahia[at]gmail[.]com>'
 # Arabic letters
 
 # Hamza letter
-HAMZA = u'\u0621'
-HAMZA_ABOVE_ALEF = u'\u0623'
-HAMZA_BELOW_ALEF = u'\u0625'
-ALEF_MADDA = u'\u0622'
-HAMZA_ABOVE_WAW = u'\u0624'
-HAMZA_ABOVE_YEH = u'\u0624'
+HAMZA = '\u0621'
+HAMZA_ABOVE_ALEF = '\u0623'
+HAMZA_BELOW_ALEF = '\u0625'
+ALEF_MADDA = '\u0622'
+HAMZA_ABOVE_WAW = '\u0624'
+HAMZA_ABOVE_YEH = '\u0626'
 
-ALEF = u'\u0627'
-ALEF_MAKSURA = u'\u0649'
-BEH = u'\u0628'
-TEH_MARBUTA = u'\u0629'
-TEH = u'\u062a'
-THEH = u'\u062b'
-JEEM = u'\u062c'
-HAH = u'\u062d'
-KHAH = u'\u062e'
-DAL = u'\u062f'
-THEL = u'\u0630'
-REH = u'\u0631'
-ZAIN = u'\u0632'
-SEEN = u'\u0633'
-SHEEN = u'\u0634'
-SAD = u'\u0635'
-DAD = u'\u0636'
-TAH = u'\u0637'
-ZAH = u'\u0638'
-AIN = u'\u0639'
-GHAIN = u'\u063a'
-FEH = u'\u0641'
-QAF = u'\u0642'
-KAF = u'\u0643'
-LAM = u'\u0644'
-MEEM = u'\u0645'
-NOON = u'\u0646'
-HEH = u'\u0647'
-WAW =  u'\u0648'
-YEH =  u'\u064a'
+ALEF = '\u0627'
+ALEF_MAKSURA = '\u0649'
+BEH = '\u0628'
+TEH_MARBUTA = '\u0629'
+TEH = '\u062a'
+THEH = '\u062b'
+JEEM = '\u062c'
+HAH = '\u062d'
+KHAH = '\u062e'
+DAL = '\u062f'
+THEL = '\u0630'
+REH = '\u0631'
+ZAIN = '\u0632'
+SEEN = '\u0633'
+SHEEN = '\u0634'
+SAD = '\u0635'
+DAD = '\u0636'
+TAH = '\u0637'
+ZAH = '\u0638'
+AIN = '\u0639'
+GHAIN = '\u063a'
+FEH = '\u0641'
+QAF = '\u0642'
+KAF = '\u0643'
+LAM = '\u0644'
+MEEM = '\u0645'
+NOON = '\u0646'
+HEH = '\u0647'
+WAW =  '\u0648'
+YEH =  '\u064a'
 
-MINI_ALEF = u'\u0670'
-ALEF_WASLA  = u'\u0671'
-MADDA_ABOVE = u'\u0653'
-HAMZA_ABOVE = u'\u0654'
-HAMZA_BELOW = u'\u0655'
+MINI_ALEF = '\u0670'
+ALEF_WASLA  = '\u0671'
+MADDA_ABOVE = '\u0653'
+HAMZA_ABOVE = '\u0654'
+HAMZA_BELOW = '\u0655'
 
 # Small Letters
-SMALL_ALEF = u"\u0670"
-SMALL_WAW = u"\u06E5"
-SMALL_YEH  = u"\u06E6"
+SMALL_ALEF = "\u0670"
+SMALL_WAW = "\u06E5"
+SMALL_YEH  = "\u06E6"
 
 # Ligatures Lam-Alef
-LAM_ALEF = u'\ufefb'
-LAM_ALEF_HAMZA_ABOVE = u'\ufef7'
-LAM_ALEF_HAMZA_BELOW = u'\ufef9'
-LAM_ALEF_MADDA_ABOVE = u'\ufef5'
+LAM_ALEF = '\ufefb'
+LAM_ALEF_HAMZA_ABOVE = '\ufef7'
+LAM_ALEF_HAMZA_BELOW = '\ufef9'
+LAM_ALEF_MADDA_ABOVE = '\ufef5'
 
 
-SIMPLE_LAM_ALEF = u'\u0644\u0627'
-SIMPLE_LAM_ALEF_HAMZA_ABOVE = u'\u0644\u0623'
-SIMPLE_LAM_ALEF_HAMZA_BELOW = u'\u0644\u0625'
-SIMPLE_LAM_ALEF_MADDA_ABOVE = u'\u0644\u0622'
+SIMPLE_LAM_ALEF = '\u0644\u0627'
+SIMPLE_LAM_ALEF_HAMZA_ABOVE = '\u0644\u0623'
+SIMPLE_LAM_ALEF_HAMZA_BELOW = '\u0644\u0625'
+SIMPLE_LAM_ALEF_MADDA_ABOVE = '\u0644\u0622'
 
 # shaped forms
-LAM_ALEF_ISOLATED = u'\ufefb'
-LAM_ALEF_FINAL = u'\ufefc'
+LAM_ALEF_ISOLATED = '\ufefb'
+LAM_ALEF_FINAL = '\ufefc'
 
-LAM_ALEF_HAMZA_ABOVE_ISOLATED = u'\ufef7'
-LAM_ALEF_HAMZA_ABOVE_FINAL = u'\ufef8'
+LAM_ALEF_HAMZA_ABOVE_ISOLATED = '\ufef7'
+LAM_ALEF_HAMZA_ABOVE_FINAL = '\ufef8'
 
-LAM_ALEF_HAMZA_BELOW_ISOLATED = u'\ufef9'
-LAM_ALEF_HAMZA_BELOW_FINAL = u'\ufefa'
+LAM_ALEF_HAMZA_BELOW_ISOLATED = '\ufef9'
+LAM_ALEF_HAMZA_BELOW_FINAL = '\ufefa'
 
-LAM_ALEF_MADDA_ABOVE_ISOLATED = u'\ufef5'
-LAM_ALEF_MADDA_ABOVE_FINAL = u'\ufef6'
+LAM_ALEF_MADDA_ABOVE_ISOLATED = '\ufef5'
+LAM_ALEF_MADDA_ABOVE_FINAL = '\ufef6'
 
-HAMZA_ISOLATED = u'\ufe80'
+HAMZA_ISOLATED = '\ufe80'
 
-ALEF_HAMZA_ABOVE_ISOLATED = u'\ufe83'
-ALEF_HAMZA_ABOVE_FINAL = u'\ufe84'
+ALEF_HAMZA_ABOVE_ISOLATED = '\ufe83'
+ALEF_HAMZA_ABOVE_FINAL = '\ufe84'
 
-ALEF_HAMZA_BELOW_ISOLATED = u'\ufe87'
-ALEF_HAMZA_BELOW_FINAL = u'\ufe88'
+ALEF_HAMZA_BELOW_ISOLATED = '\ufe87'
+ALEF_HAMZA_BELOW_FINAL = '\ufe88'
 
-YEH_HAMZA_INITIAL = u'\ufe8b'
-YEH_HAMZA_MEDIAL = u'\ufe8c'
-YEH_HAMZA_ISOLATED = u'\ufe89'
-YEH_HAMZA_FINAL = u'\ufe8a'
+YEH_HAMZA_INITIAL = '\ufe8b'
+YEH_HAMZA_MEDIAL = '\ufe8c'
+YEH_HAMZA_ISOLATED = '\ufe89'
+YEH_HAMZA_FINAL = '\ufe8a'
 
-ALEF_MADDA_ISOLATED = u'\ufe81'
-ALEF_MADDA_FINAL = u'\ufe82'
+ALEF_MADDA_ISOLATED = '\ufe81'
+ALEF_MADDA_FINAL = '\ufe82'
 
-WAW_HAMZA_ISOLATED = u'\ufe85'
-WAW_HAMZA_FINAL = u'\ufe86'
+WAW_HAMZA_ISOLATED = '\ufe85'
+WAW_HAMZA_FINAL = '\ufe86'
 
-ALEF_ISOLATED = u'\ufe8d'
-ALEF_FINAL = u'\ufe8e'
+ALEF_ISOLATED = '\ufe8d'
+ALEF_FINAL = '\ufe8e'
 
-BEH_ISOLATED = u'\ufe8f'
-BEH_FINAL = u'\ufe90'
-BEH_INITIAL = u'\ufe91'
-BEH_MEDIAL = u'\ufe92'
+BEH_ISOLATED = '\ufe8f'
+BEH_FINAL = '\ufe90'
+BEH_INITIAL = '\ufe91'
+BEH_MEDIAL = '\ufe92'
 
-TEH_MARBUTA_ISOLATED = u'\ufe93'
-TEH_MARBUTA_FINAL = u'\ufe94'
+TEH_MARBUTA_ISOLATED = '\ufe93'
+TEH_MARBUTA_FINAL = '\ufe94'
 
-TEH_INITIAL = u'\ufe97'
-TEH_MEDIAL = u'\ufe98'
-TEH_ISOLATED = u'\ufe95'
-TEH_FINAL = u'\ufe96'
+TEH_INITIAL = '\ufe97'
+TEH_MEDIAL = '\ufe98'
+TEH_ISOLATED = '\ufe95'
+TEH_FINAL = '\ufe96'
 
-THEH_INITIAL = u'\ufe9b'
-THEH_MEDIAL = u'\ufe9c'
-THEH_FINAL = u'\ufe9a'
-THEH_ISOLATED = u'\ufe99'
+THEH_INITIAL = '\ufe9b'
+THEH_MEDIAL = '\ufe9c'
+THEH_FINAL = '\ufe9a'
+THEH_ISOLATED = '\ufe99'
 
-JEEM_INITIAL = u'\ufe9f'
-JEEM_MEDIAL = u'\ufea0'
-JEEM_ISOLATED = u'\ufe9d'
-JEEM_FINAL = u'\ufe9e'
+JEEM_INITIAL = '\ufe9f'
+JEEM_MEDIAL = '\ufea0'
+JEEM_ISOLATED = '\ufe9d'
+JEEM_FINAL = '\ufe9e'
 
-HAH_INITIAL = u'\ufea3'
-HAH_MEDIAL = u'\ufea4'
-HAH_ISOLATED = u'\ufea1'
-HAH_FINAL = u'\ufea2'
+HAH_INITIAL = '\ufea3'
+HAH_MEDIAL = '\ufea4'
+HAH_ISOLATED = '\ufea1'
+HAH_FINAL = '\ufea2'
 
-KHAH_INITIAL = u'\ufea7'
-KHAH_MEDIAL = u'\ufea8'
-KHAH_ISOLATED = u'\ufea5'
-KHAH_FINAL = u'\ufea6'
+KHAH_INITIAL = '\ufea7'
+KHAH_MEDIAL = '\ufea8'
+KHAH_ISOLATED = '\ufea5'
+KHAH_FINAL = '\ufea6'
 
-DAL_ISOLATED = u'\ufea9'
-DAL_FINAL = u'\ufeaa'
+DAL_ISOLATED = '\ufea9'
+DAL_FINAL = '\ufeaa'
 
-THEL_ISOLATED = u'\ufeab'
-THEL_FINAL = u'\ufeac'
+THEL_ISOLATED = '\ufeab'
+THEL_FINAL = '\ufeac'
 
-REH_ISOLATED = u'\ufead'
-REH_FINAL = u'\ufeae'
+REH_ISOLATED = '\ufead'
+REH_FINAL = '\ufeae'
 
-ZAIN_ISOLATED = u'\ufeaf'
-ZAIN_FINAL = u'\ufeb0'
+ZAIN_ISOLATED = '\ufeaf'
+ZAIN_FINAL = '\ufeb0'
 
-SEEN_INITIAL = u'\ufeb3'
-SEEN_MEDIAL = u'\ufeb4'
-SEEN_ISOLATED = u'\ufeb1'
-SEEN_FINAL = u'\ufeb2'
+SEEN_INITIAL = '\ufeb3'
+SEEN_MEDIAL = '\ufeb4'
+SEEN_ISOLATED = '\ufeb1'
+SEEN_FINAL = '\ufeb2'
 
-SHEEN_INITIAL = u'\ufeb7'
-SHEEN_MEDIAL = u'\ufeb8'
-SHEEN_ISOLATED = u'\ufeb5'
-SHEEN_FINAL = u'\ufeb6'
+SHEEN_INITIAL = '\ufeb7'
+SHEEN_MEDIAL = '\ufeb8'
+SHEEN_ISOLATED = '\ufeb5'
+SHEEN_FINAL = '\ufeb6'
 
-SAD_INITIAL = u'\ufebb'
-SAD_MEDIAL = u'\ufebc'
-SAD_ISOLATED = u'\ufeb9'
-SAD_FINAL = u'\ufeba'
+SAD_INITIAL = '\ufebb'
+SAD_MEDIAL = '\ufebc'
+SAD_ISOLATED = '\ufeb9'
+SAD_FINAL = '\ufeba'
 
-DAD_INITIAL = u'\ufebf'
-DAD_MEDIAL = u'\ufec0'
-DAD_ISOLATED = u'\ufebd'
-DAD_FINAL = u'\ufebe'
+DAD_INITIAL = '\ufebf'
+DAD_MEDIAL = '\ufec0'
+DAD_ISOLATED = '\ufebd'
+DAD_FINAL = '\ufebe'
 
-TAH_INITIAL = u'\ufec3'
-TAH_MEDIAL = u'\ufec4'
-TAH_ISOLATED = u'\ufec1'
-TAH_FINAL = u'\ufec2'
+TAH_INITIAL = '\ufec3'
+TAH_MEDIAL = '\ufec4'
+TAH_ISOLATED = '\ufec1'
+TAH_FINAL = '\ufec2'
 
-ZAH_INITIAL = u'\ufec7'
-ZAH_MEDIAL = u'\ufec8'
-ZAH_ISOLATED = u'\ufec5'
-ZAH_FINAL = u'\ufec6'
+ZAH_INITIAL = '\ufec7'
+ZAH_MEDIAL = '\ufec8'
+ZAH_ISOLATED = '\ufec5'
+ZAH_FINAL = '\ufec6'
 
-AIN_INITIAL = u'\ufecb'
-AIN_MEDIAL = u'\ufecc'
-AIN_ISOLATED = u'\ufec9'
-AIN_FINAL = u'\ufeca'
+AIN_INITIAL = '\ufecb'
+AIN_MEDIAL = '\ufecc'
+AIN_ISOLATED = '\ufec9'
+AIN_FINAL = '\ufeca'
 
-GHAIN_INITIAL = u'\ufecf'
-GHAIN_MEDIAL = u'\ufed0'
-GHAIN_ISOLATED = u'\ufecd'
-GHAIN_FINAL = u'\ufece'
+GHAIN_INITIAL = '\ufecf'
+GHAIN_MEDIAL = '\ufed0'
+GHAIN_ISOLATED = '\ufecd'
+GHAIN_FINAL = '\ufece'
 
-FEH_INITIAL = u'\ufed3'
-FEH_MEDIAL = u'\ufed4'
-FEH_ISOLATED = u'\ufed1'
-FEH_FINAL = u'\ufed2'
+FEH_INITIAL = '\ufed3'
+FEH_MEDIAL = '\ufed4'
+FEH_ISOLATED = '\ufed1'
+FEH_FINAL = '\ufed2'
 
-QAF_INITIAL = u'\ufed7'
-QAF_MEDIAL = u'\ufed8'
-QAF_ISOLATED = u'\ufed5'
-QAF_FINAL = u'\ufed6'
+QAF_INITIAL = '\ufed7'
+QAF_MEDIAL = '\ufed8'
+QAF_ISOLATED = '\ufed5'
+QAF_FINAL = '\ufed6'
 
-KAF_INITIAL = u'\ufedb'
-KAF_MEDIAL = u'\ufedC'
-KAF_ISOLATED = u'\ufed9'
-KAF_FINAL = u'\ufeda'
+KAF_INITIAL = '\ufedb'
+KAF_MEDIAL = '\ufedC'
+KAF_ISOLATED = '\ufed9'
+KAF_FINAL = '\ufeda'
 
-LAM_INITIAL = u'\ufedf'
-LAM_MEDIAL = u'\ufed0'
-LAM_ISOLATED = u'\ufedd'
-LAM_FINAL = u'\ufede'
+LAM_INITIAL = '\ufedf'
+LAM_MEDIAL = '\ufed0'
+LAM_ISOLATED = '\ufedd'
+LAM_FINAL = '\ufede'
 
-MEEM_INITIAL = u'\ufee3'
-MEEM_MEDIAL = u'\ufee4'
-MEEM_ISOLATED = u'\ufee1'
-MEEM_FINAL = u'\ufee2'
+MEEM_INITIAL = '\ufee3'
+MEEM_MEDIAL = '\ufee4'
+MEEM_ISOLATED = '\ufee1'
+MEEM_FINAL = '\ufee2'
 
-NOON_INITIAL = u'\ufee7'
-NOON_MEDIAL = u'\ufee8'
-NOON_ISOLATED = u'\ufee5'
-NOON_FINAL = u'\ufee6'
+NOON_INITIAL = '\ufee7'
+NOON_MEDIAL = '\ufee8'
+NOON_ISOLATED = '\ufee5'
+NOON_FINAL = '\ufee6'
 
-HEH_INITIAL = u'\ufeeb'
-HEH_MEDIAL = u'\ufeec'
-HEH_ISOLATED = u'\ufee9'
-HEH_FINAL = u'\ufeea'
+HEH_INITIAL = '\ufeeb'
+HEH_MEDIAL = '\ufeec'
+HEH_ISOLATED = '\ufee9'
+HEH_FINAL = '\ufeea'
 
-WAW_ISOLATED = u'\ufeed'
-WAW_FINAL = u'\ufeee'
+WAW_ISOLATED = '\ufeed'
+WAW_FINAL = '\ufeee'
 
-ALEF_MAKSURA_ISOLATED = u'\ufeef'
-ALEF_MAKSURA_FINAL = u'\ufef0'
+ALEF_MAKSURA_ISOLATED = '\ufeef'
+ALEF_MAKSURA_FINAL = '\ufef0'
 
-YEH_INITIAL = u'\ufef3'
-YEH_MEDIAL = u'\ufef4'
-YEH_ISOLATED = u'\ufef1'
-YEH_FINAL = u'\ufef2'
+YEH_INITIAL = '\ufef3'
+YEH_MEDIAL = '\ufef4'
+YEH_ISOLATED = '\ufef1'
+YEH_FINAL = '\ufef2'
 
 # Punctuation marks
-COMMA = u'\u060C'
-SEMICOLON = u'\u061B'
-QUESTION = u'\u061F'
+COMMA = '\u060C'
+SEMICOLON = '\u061B'
+QUESTION = '\u061F'
 
 # Kasheeda, Tatweel
-KASHEEDA = u'\u0640'
+KASHEEDA = '\u0640'
 
 # Other symbols
-PERCENT = u'\u066a'
-DECIMAL = u'\u066b'
-THOUSANDS = u'\u066c'
-STAR = u'\u066d'
-FULL_STOP = u'\u06d4'
-BYTE_ORDER_MARK = u'\ufeff'
+PERCENT = '\u066a'
+DECIMAL = '\u066b'
+THOUSANDS = '\u066c'
+STAR = '\u066d'
+FULL_STOP = '\u06d4'
+BYTE_ORDER_MARK = '\ufeff'
 
 #Diacritics
-FATHATAN = u'\u064b'
-DAMMATAN = u'\u064c'
-KASRATAN = u'\u064d'
-FATHA = u'\u064e'
-DAMMA = u'\u064f'
-KASRA = u'\u0650'
-SHADDA = u'\u0651'
-SUKUN = u'\u0652'
+FATHATAN = '\u064b'
+DAMMATAN = '\u064c'
+KASRATAN = '\u064d'
+FATHA = '\u064e'
+DAMMA = '\u064f'
+KASRA = '\u0650'
+SHADDA = '\u0651'
+SUKUN = '\u0652'
 
 # groups
 
@@ -294,13 +294,13 @@ TEHLIKE = (TEH, TEH_MARBUTA)
 SMALL = (SMALL_ALEF, SMALL_WAW, SMALL_YEH)
 
 
-LETTERS = u''.join([
+LETTERS = (
         ALEF,  BEH,  TEH,  TEH_MARBUTA,  THEH,  JEEM,  HAH,  KHAH,
         DAL, THEL, REH,  ZAIN,  SEEN,  SHEEN,  SAD,  DAD,  TAH,  ZAH,
         AIN,  GHAIN,  FEH,  QAF,  KAF,  LAM,  MEEM,  NOON,  HEH,  WAW,  YEH,
         HAMZA,   ALEF_MADDA,  HAMZA_ABOVE_ALEF,  HAMZA_ABOVE_WAW,  HAMZA_BELOW_ALEF,
         HAMZA_ABOVE_YEH,
-        ])
+        )
 
 TASHKEEL = (FATHATAN, DAMMATAN, KASRATAN,
             FATHA, DAMMA, KASRA,
@@ -362,57 +362,53 @@ ALPHABETIC_ORDER = {
                 }
 
 NAMES = {
-                ALEF:  u"ألف",
-                BEH: u"باء",
-                TEH: u'تاء',
-                TEH_MARBUTA: u'تاء مربوطة',
-                THEH: u'ثاء',
-                JEEM: u'جيم',
-                HAH: u'حاء',
-                KHAH: u'خاء',
-                DAL: u'دال',
-                THEL: u'ذال',
-                REH: u'راء',
-                ZAIN: u'زاي',
-                SEEN: u'سين',
-                SHEEN: u'شين',
-                SAD: u'صاد',
-                DAD: u'ضاد',
-                TAH: u'طاء',
-                ZAH: u'ظاء',
-                AIN: u'عين',
-                GHAIN: u'غين',
-                FEH: u'فاء',
-                QAF: u'قاف',
-                KAF: u'كاف',
-                LAM: u'لام',
-                MEEM: u'ميم',
-                NOON: u'نون',
-                HEH: u'هاء',
-                WAW: u'واو',
-                YEH: u'ياء',
-                HAMZA: u'همزة',
+                ALEF:  "ألف",
+                BEH: "باء",
+                TEH: 'تاء',
+                TEH_MARBUTA: 'تاء مربوطة',
+                THEH: 'ثاء',
+                JEEM: 'جيم',
+                HAH: 'حاء',
+                KHAH: 'خاء',
+                DAL: 'دال',
+                THEL: 'ذال',
+                REH: 'راء',
+                ZAIN: 'زاي',
+                SEEN: 'سين',
+                SHEEN: 'شين',
+                SAD: 'صاد',
+                DAD: 'ضاد',
+                TAH: 'طاء',
+                ZAH: 'ظاء',
+                AIN: 'عين',
+                GHAIN: 'غين',
+                FEH: 'فاء',
+                QAF: 'قاف',
+                KAF: 'كاف',
+                LAM: 'لام',
+                MEEM: 'ميم',
+                NOON: 'نون',
+                HEH: 'هاء',
+                WAW: 'واو',
+                YEH: 'ياء',
+                HAMZA: 'همزة',
 
-                KASHEEDA: u'تطويل',
-                ALEF_MADDA: u'ألف ممدودة',
-                ALEF_MAKSURA: u'ألف مقصورة',
-                HAMZA_ABOVE_ALEF: u'همزة على الألف',
-                HAMZA_ABOVE_WAW: u'همزة على الواو',
-                HAMZA_BELOW_ALEF: u'همزة تحت الألف',
-                HAMZA_ABOVE_YEH: u'همزة على الياء',
-                FATHATAN: u'فتحتان',
-                DAMMATAN: u'ضمتان',
-                KASRATAN: u'كسرتان',
-                FATHA: u'فتحة',
-                DAMMA: u'ضمة',
-                KASRA: u'كسرة',
-                SHADDA: u'شدة',
-                SUKUN: u'سكون',
+                KASHEEDA: 'تطويل',
+                ALEF_MADDA: 'ألف ممدودة',
+                ALEF_MAKSURA: 'ألف مقصورة',
+                HAMZA_ABOVE_ALEF: 'همزة على الألف',
+                HAMZA_ABOVE_WAW: 'همزة على الواو',
+                HAMZA_BELOW_ALEF: 'همزة تحت الألف',
+                HAMZA_ABOVE_YEH: 'همزة على الياء',
+                FATHATAN: 'فتحتان',
+                DAMMATAN: 'ضمتان',
+                KASRATAN: 'كسرتان',
+                FATHA: 'فتحة',
+                DAMMA: 'ضمة',
+                KASRA: 'كسرة',
+                SHADDA: 'شدة',
+                SUKUN: 'سكون',
                 }
-
-HAMZAT_STRING = u"".join(HAMZAT)
-
-HARAKAT_STRING = u"".join(HARAKAT)
 
 SHAPED_FORMS = {
                 HAMZA: HAMZA_ISOLATED,

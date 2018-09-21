@@ -1,6 +1,6 @@
 # The Classical Language Toolkit
 
-[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.583327.svg)](https://doi.org/10.5281/zenodo.583327)
+[![PyPi downloads](http://img.shields.io/pypi/v/cltk.svg?style=flat)](https://pypi.python.org/pypi/cltk/) [![Documentation Status](https://readthedocs.org/projects/cltk/badge/?version=latest)](http://docs.cltk.org/en/latest/?badge=latest) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.593336.svg)](https://doi.org/10.5281/zenodo.593336)
 
 [![Build Status](https://travis-ci.org/cltk/cltk.svg?branch=master)](https://travis-ci.org/cltk/cltk) [![codecov.io](http://codecov.io/github/cltk/cltk/coverage.svg?branch=master)](http://codecov.io/github/cltk/cltk?branch=master)
 
@@ -32,6 +32,11 @@ $ pip install cltk
 See docs for [complete installation instructions](http://docs.cltk.org/en/latest/installation.html).
 
 The [CLTK organization curates corpora](https://github.com/cltk) which can be downloaded directly or, better, [imported by the toolkit](http://docs.cltk.org/en/latest/importing_corpora.html).
+
+
+### Tutorials
+
+For interactive tutorials, in the form of Jupyter Notebooks, see <https://github.com/cltk/tutorials>.
 
 
 ## Contributing
