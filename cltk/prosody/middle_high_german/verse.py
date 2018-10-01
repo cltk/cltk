@@ -35,7 +35,6 @@ class Verse:
         for line in self.syllabified:
 
             w = line[-1][-1][-3:]
-            print(w)
 
             for r in rhymes.keys():
                 if r.endswith(w) or w.endswith(r):
