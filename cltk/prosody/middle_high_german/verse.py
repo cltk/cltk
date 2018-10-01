@@ -26,7 +26,7 @@ class Verse:
             >>> S = Verse(stanza)
             
             >>> S.rhyme_scheme()
-            "AABB"
+            'AABB'
         """
         rhymes = dict()
         i = 64
