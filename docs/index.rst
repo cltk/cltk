@@ -25,6 +25,7 @@ Contents
    middle_english
    french
    middle_high_german.rst
+   middle_low_german
    gothic
    greek
    gujarati
