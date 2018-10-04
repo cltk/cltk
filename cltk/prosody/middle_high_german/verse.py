@@ -1,17 +1,19 @@
+"""Module for calculating rhyme scheme for a MHG stanza."""
+
 from cltk.phonology.middle_high_german.transcription import Word
 from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german as normalizer
 from cltk.phonology.middle_high_german.transcription import Transcriber
 
+
 class Verse:
-
+    """Calculate rhyme scheme for a MHG stanza."""
     def __init__(self, text):
-
         self.text = [normalizer(line, to_lower_all=True, punct=True, alpha_conv=True).split(" ") for line in text]
         self.syllabified = [[Word(w).syllabify() for w in line] for line in self.text]
         self.transcribed_phonetics = None
 
     def to_phonetics(self):
-
+        """Transcribe phonetics."""
         tr = Transcriber()
         self.transcribed_phonetics = [tr.transcribe(line) for line in self.text]
 
@@ -43,12 +45,9 @@ class Verse:
 
             if w in rhymes:
                 strs += rhymes[w]
-
             else:
                 i += 1
                 rhymes[w] = chr(i)
                 strs += chr(i)
 
         return strs
-
-
