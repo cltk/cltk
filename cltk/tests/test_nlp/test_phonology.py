@@ -737,8 +737,9 @@ class TestSequenceFunctions(unittest.TestCase):
         text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok " \
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
         words = tokenize_old_norse_words(text)
-        syllabified_words = [old_norse_syllabifier.legal_onsets(old_norse_syllabifier.syllabify_SSP(word.lower()),
-                                                                invalid_onsets)
+        old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
+        
+        syllabified_words = [old_norse_syllabifier.syllabify_SSP(word.lower())
                              for word in words if word not in ",."]
 
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],

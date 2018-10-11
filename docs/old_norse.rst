@@ -17,7 +17,13 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
     In[3]: corpus_importer.list_corpora
 
-    Out[3]: ['old_norse_text_perseus', 'old_norse_models_cltk']
+    Out[3]: ['old_norse_text_perseus', 'old_norse_models_cltk', 'old_norse_texts_heimskringla', 'old_norse_runic_transcriptions', 'old_norse_dictionary_zoega']
+
+
+
+Zoëga's dictionary
+``````````````````
+This dictionary was made in the last century. It contains Old Norse entries in which a description is given in English. Each entry have possible POS tags for its word and the translations/meanings.
 
 
 Stopword Filtering
@@ -151,12 +157,31 @@ For a language-dependent approach, you can call the predefined sonority dictiona
 
 .. code-block:: python
 
-    In[1]: s = Syllabifier(language='old_norse')
+    In[1]: from cltk.phonology.syllabify import Syllabifier
 
-    In[2]: s.syllabify("danmarkar")
+    In[2]: s = Syllabifier(language='old_norse')
 
-    Out[2]: ['dan', 'mar', 'kar']
+    In[3]: s.syllabify("danmarkar")
 
+    Out[3]: ['dan', 'mar', 'kar']
+
+Length of syllables in Old Norse poems plays a great role. To measure this, words have first to be phonetically transcribed. This is why "old_norse_ipa" language is used
+
+.. code-block:: python
+
+    In[1]: import cltk.phonology.old_norse.transcription as ont
+
+    In[2]: from cltk.phonology.syllabify import Syllabifier
+
+    In[3]: syllabifier = Syllabifier(language="old_norse_ipa")
+
+    In[4]: word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
+
+    In[5]: syllabified_word = syllabifier.syllabify_phonemes(word)
+
+    In[6]: [ont.measure_old_norse_syllable(syllable) for syllable in syllabified_word]
+
+    Out[6]: [<Length.short: 'short'>, <Length.long: 'long'>]
 
 Old Norse prosody
 =================

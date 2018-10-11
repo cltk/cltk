@@ -107,10 +107,11 @@ The `CLTK source is available at GitHub <https://github.com/cltk/cltk>`_. To bui
 
 .. code-block:: shell
 
+   $ pip install -U -r requirements.txt 
    $ python setup.py install
 
-If you have modified the CLTK source, rebuild the project with this same command. If you make any changes, it is a good idea to run the test suite to ensure you did not introduce any breakage. Test with ``nose`` (obtained with ``pip install nose``):
+If you have modified the CLTK source, rebuild the project with this same command. If you make any changes, it is a good idea to run the test suite to ensure you did not introduce any breakage. Test with ``nose``:
 
 .. code-block:: shell
 
-   $ nosetests
+   $ nosetests --with-doctest
