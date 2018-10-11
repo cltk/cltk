@@ -25,6 +25,8 @@ Contents
    middle_english
    french
    middle_high_german.rst
+   middle_low_german
+   gothic
    greek
    gujarati
    hebrew
@@ -35,15 +37,18 @@ Contents
    malayalam
    marathi
    multilingual
-   odia
    old_norse
-   old_portuguese
+   odia
    pali
    persian
+   phonology
+   old_portuguese
    prakrit
    punjabi
    sanskrit
+   old_swedish
    telugu
    tibetan
    tocharian_b
+   tutorials.rst
    urdu

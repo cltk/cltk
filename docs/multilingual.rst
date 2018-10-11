@@ -1,5 +1,5 @@
 Multilingual
-*************
+************
 
 Some functions in the CLTK are language independent.
 
@@ -80,7 +80,7 @@ The CLTK uses languages in its organization of data, however some good corpora d
 
 
 Information Retrieval (regex, keyword expansion)
-=============================
+================================================
 
 .. tip::
 
@@ -369,7 +369,58 @@ Other parameters for both ``StringStoplist`` and ``CorpusStoplist`` include bool
     In [17]: print(stops)
     Out [17]: ['ac', 'ad', 'atque', 'cum', 'est', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
 
+Syllabification
+===============
 
+CLTK provides a language-agnostic syllabifier module as part of ``phonology``. The syllabifier works by following the Sonority Sequencing Principle. The default phonetic scale (from most to least sonorous):
+
+**low vowels > mid vowels > high vowels > flaps > laterals > nasals > fricatives > plosives**
+
+
+.. code-block:: python
+   
+   In [1]: from cltk.phonology import syllabify
+   
+   In [2]: high_vowels = ['a']
+
+   In [3]: mid_vowels = ['e']
+
+   In [4]: low_vowels = ['i', 'u']
+
+   In [5]: flaps = ['r']
+
+   In [6]: nasals = ['m', 'n']
+
+   In [7]: fricatives = ['f']
+   
+   In [8]: s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives=fricatives)
+
+   In [9]: s.syllabify("feminarum")
+   Out[9]: ['fe', 'mi', 'na', 'rum']
+   
+Additionally, you can override the default sonority hierarchy by calling ``set_hierarchy``. However, you must also re-define the 
+vowel list for the nuclei to be correctly identified.
+
+.. code-block:: python
+   
+   In [10]: s = Syllabifier()
+   
+   In [11]: s.set_hierarchy([['i', 'u'], ['e'], ['a'], ['r'], ['m', 'n'], ['f']])
+   
+   In [12]: s.set_vowels(['i', 'u', 'e', 'a'])
+   
+   In [13]: s.syllabify('feminarum')
+   Out[13]: ['fe', 'mi', 'na', 'rum']
+   
+For a language-dependent approach, you can call the predefined sonority dictionary by toogling the ``language`` parameter:
+
+.. code-block:: python
+   
+   In [14]: s = Syllabifier(language='middle high german')
+   
+   In [15]: s.syllabify('lobebæren')
+   Out[15]: ['lo', 'be', 'bæ', 'ren']
+   
 Text Reuse
 ==========
 The text reuse module offers a few tools to get started with studying text reuse (i.e., allusion and intertext). The major goals of this module are to leverage conventional text reuse strategies and to create comparison methods designed specifically for the languages of the corpora included in the CLTK.
@@ -395,6 +446,13 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
 
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
+   
+You can also calculate the Levenshtein distance of two words, defined as the minimum number of single word edits (insertions, deletions, substitutions) required to transform a word into another.
+
+.. code-block:: python
+   
+   In [4]: l.Levenshtein_Distance("deaeque", "deaeuqe")
+   Out[4]: 2
 
 
 Damerau-Levenshtein algorithm
@@ -410,11 +468,47 @@ This simple example compares a two Latin words to find the distance between them
 
 .. code-block:: python
 
-   In [1]: from from pyxdameraulevenshtein import damerau_levenshtein_distance
+   In [1]: from pyxdameraulevenshtein import damerau_levenshtein_distance
 
    In [2]: damerau_levenshtein_distance("deaeque", "deaque")
    Out[2]: 1
    
+Alternatively, you can also use CLTK's native ``Levenshtein`` class:
+
+.. code-block:: python
+   
+   In [3]: from cltk.text_reuse.levenshtein import Levenshtein
+   
+   In [4]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaque")
+   Out[4]: 1
+   
+   In [5]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaeuqe")
+   Out[5]: 1
+   
+Needleman-Wunsch Algorithm
+--------------------------
+
+The Needleman-Wunsch Algorithm, calculates the optimal global alignment between two strings given a scoring matrix.
+
+There are two optional parameters: ``S`` specifying a weighted similarity square matrix, and ``alphabet`` (where ``|alphabet| = rows(S) = cols(S)``). By default, the algorithm assumes the latin alphabet and a default matrix (1 for match, -1 for substitution)
+
+.. code-block:: python
+   
+   In [1]: from cltk.text_reuse.comparison import Needleman_Wunsch as NW
+   
+   In [2]: NW("abba", "ababa", alphabet = "ab", S = [[1, -3],[-3, 1]])
+   Out[2]: ('ab-ba', 'ababa')
+   
+In this case, the similarity matrix will be:
+
++---+---+---+
+|   | a | b |
++---+---+---+
+| a | 1 |-3 |
++---+---+---+
+| b |-3 | 1 |
++---+---+---+
+
 
 Longest Common Substring
 ------------------------
@@ -444,7 +538,28 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
    
    In[3]: print(minhash(a,b))
    Out[3]:0.171631205673
+ 
+ 
+Treebank label dict
+===================
+
+You can generate nested Python dict from a treebank in string format. Currently, only treebanks following the Penn notation are supported.
+
+.. code-block:: python
+
+   In [1]: from  cltk.tags.treebanks import parse_treebanks
    
+   In [2]: st = "((IP-MAT-SPE (' ') (INTJ Yes) (, ,) (' ') (IP-MAT-PRN (NP-SBJ (PRO he)) (VBD seyde)) (, ,) (' ') (NP-SBJ (PRO I)) (MD shall)	(VB promyse) (NP-OB2 (PRO you)) (IP-INF (TO to)	(VB fullfylle) (NP-OB1 (PRO$ youre) (N desyre))) (. .) (' '))"
+   
+   In [3]: treebank = parse_treebanks(st)
+
+   In [4]: treebank['IP-MAT-SPE']['INTJ']
+   Out[4]: ['Yes']
+   
+   In [5]: treebank
+   Out[5]: {'IP-MAT-SPE': {"'": ["'", "'", "'"], 'INTJ': ['Yes'], ',': [',', ','], 'IP-MAT-PRN': {'NP-SBJ': {'PRO': ['he']}, 'VBD': ['seyde']}, 'NP-SBJ': {'PRO': ['I']}, 'MD': ['shall'], '\t': {'VB': ['promyse'], 'NP-OB2': {'PRO': ['you']}, 'IP-INF': {'TO': ['to'], '\t': {'VB': ['fullfylle'], 'NP-OB1': {'PRO$': ['youre'], 'N': ['desyre']}}, '.': ['.'], "'": ["'"]}}}}
+
+
 Word count
 ==========
 

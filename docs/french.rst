@@ -1,5 +1,5 @@
 French
-*****
+******
 
 Old French (franceis, françois, romanz; Modern French ancien français) was the language spoken in Northern France from the 8th century to the 14th century. In the 14th century, these dialects came to be collectively known as the langue d'oïl, contrasting with the langue d'oc or Occitan language in the south of France. The mid-14th century is taken as the transitional period to Middle French, the language of the French Renaissance, specifically based on the dialect of the Île-de-France region. The place and area where Old French was spoken natively roughly extended to the historical Kingdom of France and its vassals, but the influence of Old French was much wider, as it was carried to England, Sicily and the Crusader states as the language of a feudal elite and of commerce.
 
@@ -53,7 +53,7 @@ The line tokenizer takes a string as its input and returns a list of strings.
 
 
 NAMED ENTITY RECOGNITION
-==================
+========================
 The named entity recognizer for French takes as its input a string and returns a list of tuples. It tags named entities from a list, and also displays the category to which this named entity belongs.
 
 Categories are modeled on those found in (`Moisan, 1986 <https://books.google.fr/books/about/Répertoire_des_noms_propres_de_personne.html?id=C9ng9q6pQHwC&redir_esc=y>`_) and include:
@@ -164,6 +164,7 @@ Swadesh
 =======
 
 .. code-block:: python
+
  In [1]: from cltk.corpus.swadesh import Swadesh
  
  In [2]: swadesh = Swadesh('fr_old')
