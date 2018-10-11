@@ -5,14 +5,14 @@ __license__ = 'MIT License. See LICENSE.'
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.stop.stop import Stoplist, BaseCorpusStoplist
 from cltk.stop.greek.stops import STOPS_LIST as GREEK_STOPS
-from cltk.stop.latin.stops import STOPS_LIST as LATIN_STOPS
+from cltk.stop.latin import STOPS_LIST as LATIN_STOPS
 from cltk.stop.french.stops import STOPS_LIST as FRENCH_STOPS
 from cltk.stop.middle_high_german.stops import STOPS_LIST as MHG_STOPS
 from cltk.stop.classical_hindi.stops import STOPS_LIST as HINDI_STOPS
 from cltk.stop.arabic.stopword_filter import stopwords_filter as arabic_stop_filter
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
 from cltk.stop.classical_chinese import CorpusStoplist as ClassicalChineseCorpusStoplist
-from cltk.stop.latin_ import CorpusStoplist as LatinCorpusStoplist
+from cltk.stop.latin import CorpusStoplist as LatinCorpusStoplist
 from cltk.stop.akkadian.stops import STOP_LIST as AKKADIAN_STOPS
 from cltk.tokenize.sentence import TokenizeSentence
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -67,6 +67,7 @@ class TestSequenceFunctions(unittest.TestCase):
         target_list = ['usque', 'tandem', 'abutere', ',', 'catilina', ',',
                        'patientia', 'nostra', '?']
         self.assertEqual(no_stops, target_list)
+
     def test_arabic_stopwords(self):
         """Test filtering arabic stopwords."""
         sentence = 'سُئِل بعض الكُتَّاب عن الخَط، متى يَسْتحِقُ أن يُوصَف بِالجَودةِ؟'
@@ -129,18 +130,6 @@ class TestStop_General(unittest.TestCase):
 
         self.test_corpus = [self.test_1, self.test_2]
 
-    def test_string_stop_list(self):
-        """Test production of stoplists from a given string"""
-        target_list = ['a', 'ab', 'ac', 'ad', 'aetatis', 'ambitionis', 'animum', 'arbitrarer', 'atque', 'casus', 'cogitanti', 'cogitationum', 'communium', 'concessum', 'consiliorum', 'constitisset', 'cum', 'cursum', 'decursu', 'dignitate', 'eo', 'esse', 'et', 'etiam', 'eum', 'fefellerunt', 'flexu', 'florerent', 'fore', 'forensium', 'frater', 'fuisse', 'fuit', 'gestarum', 'gloria', 'graves', 'honoribus', 'honorum', 'illi', 'in', 'infinitus', 'initium', 'iustum', 'labor', 'locus', 'maximae', 'memoria', 'meorum', 'mihi', 'moles', 'molestiarum', 'nam', 'negotio', 'neque', 'nostri', 'nostrum', 'numero', 'occupatio', 'omnibus', 'optima', 'oti', 'otio', 'perbeati', 'periculo', 'plenissimus', 'possent', 'potuerunt', 'praeclara', 'prope', 'publica', 'quam', 'qui', 'quietis', 'quinte', 'quoque', 're', 'referendi', 'repetenti', 'requiescendi', 'rerum', 'saepe', 'si', 'sine', 'solent', 'spem', 'studia', 'temporum', 'tenere', 'tranquillitatis', 'tum', 'turbulentissimae', 'ut', 'utriusque', 'varii', 'vel', 'vero', 'vetera', 'videbatur', 'videri', 'vitae']
-        stoplist = StringStoplist('latin').build_stoplist(self.test_1)
-        self.assertEqual(stoplist, target_list)
-
-    def test_string_stop_list_inc_counts(self):
-        """Test production of stoplists from a given string"""
-        target_list = [('a', 2), ('ab', 1), ('ac', 1), ('ad', 3), ('aetatis', 1), ('ambitionis', 1), ('animum', 1), ('arbitrarer', 1), ('atque', 3), ('casus', 1), ('cogitanti', 1), ('cogitationum', 1), ('communium', 1), ('concessum', 1), ('consiliorum', 1), ('constitisset', 1), ('cum', 4), ('cursum', 1), ('decursu', 1), ('dignitate', 1), ('eo', 1), ('esse', 1), ('et', 11), ('etiam', 1), ('eum', 1), ('fefellerunt', 1), ('flexu', 1), ('florerent', 1), ('fore', 2), ('forensium', 1), ('frater', 2), ('fuisse', 1), ('fuit', 1), ('gestarum', 1), ('gloria', 1), ('graves', 1), ('honoribus', 1), ('honorum', 1), ('illi', 1), ('in', 8), ('infinitus', 1), ('initium', 1), ('iustum', 1), ('labor', 1), ('locus', 1), ('maximae', 1), ('memoria', 1), ('meorum', 1), ('mihi', 3), ('moles', 1), ('molestiarum', 1), ('nam', 3), ('negotio', 1), ('neque', 5), ('nostri', 1), ('nostrum', 1), ('numero', 1), ('occupatio', 1), ('omnibus', 1), ('optima', 1), ('oti', 2), ('otio', 1), ('perbeati', 1), ('periculo', 1), ('plenissimus', 1), ('possent', 1), ('potuerunt', 1), ('praeclara', 1), ('prope', 1), ('publica', 2), ('quam', 1), ('qui', 3), ('quietis', 1), ('quinte', 1), ('quoque', 1), ('re', 1), ('referendi', 1), ('repetenti', 1), ('requiescendi', 1), ('rerum', 4), ('saepe', 1), ('si', 1), ('sine', 1), ('solent', 1), ('spem', 1), ('studia', 1), ('temporum', 1), ('tenere', 1), ('tranquillitatis', 1), ('tum', 1), ('turbulentissimae', 1), ('ut', 1), ('utriusque', 1), ('varii', 1), ('vel', 7), ('vero', 2), ('vetera', 1), ('videbatur', 1), ('videri', 1), ('vitae', 1)]
-        stoplist = StringStoplist('latin').build_stoplist(self.test_1, inc_counts=True)
-        self.assertEqual(stoplist, target_list)
-
     def test_corpus_stop_list_freq(self):
         """Test production of stoplists from a corpus, using basis: frequency"""
         target_list = ['ac', 'ad', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
@@ -186,10 +175,6 @@ class TestStop_General(unittest.TestCase):
         stoplist = S.build_stoplist(self.test_corpus, size=10, basis='frequency', include=['est'])
         self.assertEqual(stoplist, target_list)
 
-        S = CorpusStoplist('latin')
-        stoplist = S.build_stoplist(self.test_corpus, size=10, basis='frequency', exclude=['ad'])
-        self.assertEqual(stoplist, target_list)
-
     def test_corpus_stop_list_freq_sort_words(self):
         """Test production of stoplists from a corpus, using basis: frequency"""
         target_list = ['in', 'et', 'vel', 'ac', 'cum', 'qui', 'atque', 'mihi', 'ad', 'neque']
@@ -219,7 +204,7 @@ class TestStop_General(unittest.TestCase):
     def test_corpus_stop_list_variance(self):
         """Test production of stoplists from a corpus, using basis: variance"""
         target_list = ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'rerum', 'vel']
-        S = CorpusStoplist('latin')
+        S = LatinCorpusStoplist()
         stoplist = S.build_stoplist(self.test_corpus, size=10,basis='variance')
         self.assertEqual(stoplist, target_list)
 
