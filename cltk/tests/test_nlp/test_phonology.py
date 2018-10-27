@@ -566,7 +566,7 @@ class TestSequenceFunctions(unittest.TestCase):
         th = ut.Consonant(ut.Place.dental, ut.Manner.fricative, False, "θ", False)
         dh = ut.Consonant(ut.Place.dental, ut.Manner.fricative, True, "ð", False)
         rule = ut.Rule(ut.AbstractPosition(ut.Rank.inner, [ut.AbstractConsonant(voiced=True)],
-                                            [ut.AbstractConsonant(voiced=True)]), th, dh)
+                                           [ut.AbstractConsonant(voiced=True)]), th, dh)
         pos = ut.Position(ut.Rank.inner, a, a)
         self.assertEqual(rule.can_apply(pos), False)
 
@@ -620,14 +620,14 @@ class TestSequenceFunctions(unittest.TestCase):
         dh = ut.Consonant(ut.Place.dental, ut.Manner.fricative, True, "ð", False)
 
         # examples of phonology and ipa_class
-        PHONOLOGY = [
+        phonology = [
             a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
         ]
 
         # examples of ipa_to_regular_expression and from_regular_expression methods
         ru1 = ut.Rule(ut.AbstractPosition(ut.Rank.inner, [ut.AbstractConsonant(voiced=False)],
                                           [ut.AbstractConsonant(voiced=True)]), th, th)
-        self.assertEqual(ru1.ipa_to_regular_expression(PHONOLOGY), "(?<=[fkpstθ])θ(?=[bdgvð])")
+        self.assertEqual(ru1.ipa_to_regular_expression(phonology), "(?<=[fkpstθ])θ(?=[bdgvð])")
 
     def test_rule_conversion2(self):
         # Definition of real Vowel and Consonant instances
@@ -650,11 +650,11 @@ class TestSequenceFunctions(unittest.TestCase):
         dh = ut.Consonant(ut.Place.dental, ut.Manner.fricative, True, "ð", False)
 
         # examples of phonology and ipa_class
-        PHONOLOGY = [
+        phonology = [
             a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
         ]
         ru2 = ut.Rule(ut.AbstractPosition(ut.Rank.first, None, [ut.AbstractConsonant(place=ut.Place.velar)]), p, k)
-        self.assertEqual(ru2.ipa_to_regular_expression(PHONOLOGY), "^p(?=[gk])")
+        self.assertEqual(ru2.ipa_to_regular_expression(phonology), "^p(?=[gk])")
 
     def test_rule_conversion3(self):
         # Definition of real Vowel and Consonant instances
@@ -677,12 +677,12 @@ class TestSequenceFunctions(unittest.TestCase):
         dh = ut.Consonant(ut.Place.dental, ut.Manner.fricative, True, "ð", False)
 
         # examples of phonology and ipa_class
-        PHONOLOGY = [
+        phonology = [
             a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
         ]
 
         ru3 = ut.Rule(ut.AbstractPosition(ut.Rank.last, [ut.AbstractConsonant(manner=ut.Manner.stop)], None), dh, th)
-        self.assertEqual(ru3.ipa_to_regular_expression(PHONOLOGY), "(?<=[bdgkpt])ð$")
+        self.assertEqual(ru3.ipa_to_regular_expression(phonology), "(?<=[bdgkpt])ð$")
 
     def test_rule_conversion4(self):
         # Definition of real Vowel and Consonant instances
@@ -705,11 +705,11 @@ class TestSequenceFunctions(unittest.TestCase):
         dh = ut.Consonant(ut.Place.dental, ut.Manner.fricative, True, "ð", False)
 
         # examples of phonology and ipa_class
-        PHONOLOGY = [
+        phonology = [
             a, e, i, o, u, b, d, f, g, k, p, s, t, v, th, dh
         ]
 
-        IPA_class = {
+        ipa_class = {
             "a": a,
             "e": e,
             "i": i,
@@ -729,25 +729,35 @@ class TestSequenceFunctions(unittest.TestCase):
         }
         # from regular expression to Rule
         example = r'(?<=[aeiou])f(?=[aeiou])'
-        ru4 = ut.Rule.from_regular_expression(example, "v", IPA_class)
-        self.assertEqual(ru4.ipa_to_regular_expression(PHONOLOGY), example)
-
-        # pattern3 = ru3.ipa_to_regular_expression(PHONOLOGY)
-        # print(ut.Rule.from_regular_expression(pattern3, ru3.temp_sound.ipar, IPA_class))
+        ru4 = ut.Rule.from_regular_expression(example, "v", ipa_class)
+        self.assertEqual(ru4.ipa_to_regular_expression(phonology), example)
 
     def test_syllabification_old_norse(self):
         old_norse_syllabifier = Syllabifier(language="old_norse", break_geminants=True)
-        text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok átta" \
-               " ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
+        text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok " \
+               "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
         words = tokenize_old_norse_words(text)
-        syllabified_words = [old_norse_syllabifier.legal_onsets(old_norse_syllabifier.syllabify_SSP(word.lower()), invalid_onsets)
+        old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
+        
+        syllabified_words = [old_norse_syllabifier.syllabify_SSP(word.lower())
                              for word in words if word not in ",."]
 
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],
                   ['svá'], ['at'], ['af'], ['ren', 'ni', 'rauk', 'num'], ['rauk'], ['dan', 'mar', 'kar'], ['auk', 'a'],
-                  ['bár', 'u'], ['öxn'], ['ok'], ['át', 'ta'], ['en', 'ni', 'tungl'], ['þars'], ['geng', 'u'],  ['fy', 'rir'],
-                  ['vi', 'ney', 'jar'], ['víðr', 'i'], ['val', 'rauf'], ['fjö', 'gur'], ['hö', 'fuð']]
+                  ['bár', 'u'], ['öxn'], ['ok'], ['át', 'ta'], ['en', 'ni', 'tungl'], ['þars'], ['geng', 'u'],
+                  ['fy', 'rir'], ['vi', 'ney', 'jar'], ['víðr', 'i'], ['val', 'rauf'], ['fjö', 'gur'], ['hö', 'fuð']]
         self.assertListEqual(syllabified_words, target)
+
+    def test_syllabify_phonemes(self):
+        vowels = ["a", "ɛ", "i", "ɔ", "ɒ", "ø", "u", "y", "œ", "e", "o", "j"]
+        ipa_hierarchy = [vowels, ["r"], ["l"], ["m", "n"], ["f", "v", "θ", "ð", "s", "h"],
+                         ["b", "d", "g", "k", "p", "t"]]
+        syllabifier = Syllabifier()
+        syllabifier.set_hierarchy(ipa_hierarchy)
+        syllabifier.set_vowels(vowels)
+        word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
+        syllabified_word = syllabifier.syllabify_phonemes(word)
+        self.assertListEqual(syllabified_word, [[ont.a, ont.s], [ont.g, ont.a, ont.r, ont.dh, ont.r]])
 
 
 if __name__ == '__main__':

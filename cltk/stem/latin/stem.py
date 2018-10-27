@@ -9,7 +9,7 @@ __author__ = ['Luke Hollis <lukehollis@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import re
-from cltk.stop.latin.stops import STOPS_LIST
+from cltk.stop.latin import STOPS_LIST
 
 
 class Stemmer(object):
