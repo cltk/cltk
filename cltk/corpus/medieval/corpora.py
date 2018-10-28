@@ -7,7 +7,7 @@ All remote corpora hosted by github on the cltk organization account, eg:
 MEDIEVAL_CORPORA = [
 	{
   		'name': 'medieval_text_wikisource',
-		'origin': 'https://github.com/mynkdhmn/medieval_text_wikisource.git',
+		'origin': 'https://github.com/cltk/medieval_text_wikisource.git',
 		'location': 'remote',
 		'type': 'text'},
 ]
