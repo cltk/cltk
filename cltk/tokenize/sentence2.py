@@ -8,7 +8,6 @@ __license__ = 'MIT License.'
 from abc import abstractmethod
 
 #from nltk.metrics.scores import accuracy, precision, recall, f-score
-
 #from cltk.utils.cltk_logger import logger
 
 class BaseSentenceTokenizer():
@@ -21,16 +20,16 @@ class BaseSentenceTokenizer():
         :type language: str
         """
         if language:
-            self.language = language.lower()            
+            self.language = language.lower()
         
-        
-    @abstractmethod        
+
+    @abstractmethod
     def tokenize(self, text):
         """
-        Method for tokenizing sentences. This method 
+        Method for tokenizing sentences. This method
         should be overridden by subclasses of SentenceTokenizer.
         """
-        
+
 ## Think more about how this will work
 #    def evaluate(self, gold):
 #        """
@@ -47,4 +46,4 @@ class BaseSentenceTokenizer():
 #        tokenized_sents = self.tag_sents(untag(sent) for sent in gold)
 #        gold_tokens = list(chain(*gold))
 #        test_tokens = list(chain(*tagged_sents))
-#        return accuracy(gold_tokens, test_tokens)        
+#        return accuracy(gold_tokens, test_tokens)
