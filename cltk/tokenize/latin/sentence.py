@@ -46,7 +46,7 @@ class SentenceTokenizer(BaseSentenceTokenizer):
 
 
     def _get_model(self):
-        model_file = '{}.pickle'.format(self.language)
+        model_file = '{}_punkt.pickle'.format(self.language)
         model_path = os.path.join('~/cltk_data',
                                 self.language,
                                 'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
