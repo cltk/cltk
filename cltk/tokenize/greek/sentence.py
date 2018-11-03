@@ -1,4 +1,4 @@
-""" Code for sentence tokenization: Latin
+""" Code for sentence tokenization: Greek
 """
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
@@ -11,9 +11,9 @@ from nltk.tokenize.punkt import PunktLanguageVars
 #from nltk.metrics.scores import accuracy, precision, recall, f-score
 
 
-class LatinLanguageVars(PunktLanguageVars):
-    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
-
+class GreekLanguageVars(PunktLanguageVars):
+    # _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
+    pass
 
 class SentenceTokenizer(BaseSentenceTokenizer):
     """ Base class for sentence tokenization
@@ -24,7 +24,7 @@ class SentenceTokenizer(BaseSentenceTokenizer):
         :param language : language for sentence tokenization
         :type language: str
         """
-        BaseSentenceTokenizer.__init__(self, 'latin')
+        BaseSentenceTokenizer.__init__(self, 'greek')
         self.model = self._get_model()
 
 
@@ -56,7 +56,7 @@ class SentenceTokenizer(BaseSentenceTokenizer):
 
 
 if __name__ == "__main__":
-    sentences = """Sed hoc primum sentio, nisi in bonis amicitiam esse non posse; neque id ad vivum reseco, ut illi qui haec subtilius disserunt, fortasse vere, sed ad communem utilitatem parum; negant enim quemquam esse virum bonum nisi sapientem. Sit ita sane; sed eam sapientiam interpretantur quam adhuc mortalis nemo est consecutus, nos autem ea quae sunt in usu vitaque communi, non ea quae finguntur aut optantur, spectare debemus. Numquam ego dicam C. Fabricium, M'. Curium, Ti. Coruncanium, quos sapientes nostri maiores iudicabant, ad istorum normam fuisse sapientes. Quare sibi habeant sapientiae nomen et invidiosum et obscurum; concedant ut viri boni fuerint. Ne id quidem facient, negabunt id nisi sapienti posse concedi."""
+    sentences = """ὅτι μὲν τοίνυν εἰσὶ φύσει τινὲς οἱ μὲν ἐλεύθεροι οἱ δὲ δοῦλοι, φανερόν, οἷς καὶ συμφέρει τὸ δουλεύειν καὶ δίκαιόν ἐστιν."""
     tokenizer = SentenceTokenizer()
     sents = tokenizer.tokenize(sentences)
     print(sents)
