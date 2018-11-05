@@ -5,6 +5,7 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
 import os.path
+import re
 from cltk.tokenize.sentence import BaseSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -13,9 +14,10 @@ from nltk.tokenize.punkt import PunktLanguageVars
 
 class GreekLanguageVars(PunktLanguageVars):
     # _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
-    pass
+    sent_end_chars = ('.', ';', '·')
 
-class SentenceTokenizer(BaseSentenceTokenizer):
+
+class GreekPunktSentenceTokenizer(BaseSentenceTokenizer):
     """ Base class for sentence tokenization
     """
 
@@ -37,7 +39,8 @@ class SentenceTokenizer(BaseSentenceTokenizer):
             model = self.model
 
         tokenizer = open_pickle(self.model)
-        tokenizer._lang_vars = LatinLanguageVars()
+        tokenizer._lang_vars = GreekLanguageVars()
+        print(tokenizer._lang_vars.sent_end_chars)
 
         return tokenizer.tokenize(text)
 
@@ -55,8 +58,32 @@ class SentenceTokenizer(BaseSentenceTokenizer):
         return model_path
 
 
+class RegexSentenceTokenizer(BaseSentenceTokenizer):
+    """ Base class for sentence tokenization
+    """
+
+    def __init__(self):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        BaseSentenceTokenizer.__init__(self, 'greek')
+        # self.model = self._get_model()
+
+
+    def tokenize(self, text, model=None):
+        """
+        Method for tokenizing Greek sentences with regular expressions.
+        """
+        sent_end_chars = " ".join(GreekLanguageVars.sent_end_chars)
+        sentences = re.split(r'(?<=['+sent_end_chars+'])\s+?(?=\w)', text)
+        return sentences
+
+
 if __name__ == "__main__":
-    sentences = """ὅτι μὲν τοίνυν εἰσὶ φύσει τινὲς οἱ μὲν ἐλεύθεροι οἱ δὲ δοῦλοι, φανερόν, οἷς καὶ συμφέρει τὸ δουλεύειν καὶ δίκαιόν ἐστιν."""
-    tokenizer = SentenceTokenizer()
+    from pprint import pprint
+    sentences = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""
+    tokenizer = RegexSentenceTokenizer()
     sents = tokenizer.tokenize(sentences)
-    print(sents)
+    for i, sent in enumerate(sents, 1):
+        print(f'{i}: {sent}')
