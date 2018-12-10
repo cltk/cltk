@@ -97,8 +97,8 @@ class Syllabifier:
         tamil_csv = os.path.join(csv_dir_path, 'tamil_script_phonetic_data.csv')
         tamil_phonetic_data = pd.read_csv(tamil_csv, encoding='utf-8')
 
-        all_phonetic_vectors = all_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].as_matrix()
-        tamil_phonetic_vectors = tamil_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].as_matrix()
+        all_phonetic_vectors = all_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
+        tamil_phonetic_vectors = tamil_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
 
         phonetic_vector_length = all_phonetic_vectors.shape[1]
 

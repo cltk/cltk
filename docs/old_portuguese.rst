@@ -1,5 +1,5 @@
 Old Portuguese
-***********
+**************
 
 Galician-Portuguese, also known as Old Portuguese or Medieval Galician, was a West Iberian Romance language spoken in the Middle Ages, in the northwest area of the Iberian Peninsula. Alternatively, it can be considered a historical period of the Galician and Portuguese languages. The language was used for literary purposes from the final years of the 12th century to roughly the middle of the 14th century in what are now Spain and Portugal and was, almost without exception, the only language used for the composition of lyric poetry. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Galician-Portuguese>`_)
 

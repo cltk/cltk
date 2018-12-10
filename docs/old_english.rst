@@ -29,17 +29,18 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
 .. code-block:: python
 
-   >>> from cltk.corpus.utils.importer import CorpusImporter
+   In [1]: from cltk.corpus.utils.importer import CorpusImporter
 
-   >>> corpus_importer = CorpusImporter("old_english")
+   In [2]: corpus_importer = CorpusImporter("old_english")
 
-   >>> corpus_importer.list_corpora
+   In [3]: corpus_importer.list_corpora
    ['old_english_text_sacred_texts', 'old_english_models_cltk']
 
 To download a corpus, use the `import_corpus` method.  The following will download pre-trained POS models for Old English:
 
 .. code-block:: python
-  >>> corpus_importer.import_corpus('old_english_models_cltk')
+
+  In [4]: corpus_importer.import_corpus('old_english_models_cltk')
 
 
 Stopword Filtering
@@ -120,6 +121,20 @@ The reverse process is also possible:
    In [3]: t.transliterate('Hƿæt Ƿe Gardena in geardagum', 'Anglo-Saxon')
    Out[3]: 'ᚻᚹᚫᛏ ᚹᛖ ᚷᚪᚱᛞᛖᚾᚪ ᛁᚾ ᚷᛠᚱᛞᚪᚷᚢᛗ'
 
+Syllabification
+===============
+
+There is a facility for using the pre-specified sonoroty hierarchy for Old English to syllabify words.
+
+.. code-block:: python
+
+  In [1]: from cltk.phonology.syllabify import Syllabifier
+
+  In [2]: s = Syllabifier(language='old_english')
+
+  In [3]: s.syllabify('geardagum')
+  Out [3]:['gear', 'da', 'gum']
+
 POS tagging
 ===========
 
@@ -132,7 +147,7 @@ There are a number of different pre-trained models available for POS tagging of 
 * Conditional Random Field (CRF) model
 * Perceptron model
 
-(Bigram and trigram models are also available, but unsuitable due to low accuracy.)
+(Bigram and trigram models are also available, but unsuitable due to low recall.)
 
 The taggers were trained from annotated data from the `The ISWOC Treebank <http://iswoc.github.io/>`_ (license: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License). 
 
