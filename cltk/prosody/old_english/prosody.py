@@ -104,9 +104,12 @@ def stress_pos(text):
         else:
             syl_token[0] = '\'' + syl_token[0]
 
-        # finally formatting
-        syl_token = '.'.join(syl_token)
-        f_text.append(syl_token)
+        # monosyllabic words aren't stressed
+        if len(syl_token) == 1:
+            f_text.append(token.lower())
+        else:
+            # finally formatting
+            syl_token = '.'.join(syl_token)
+            f_text.append(syl_token)
 
-    print(f_text)
-
+    return f_text
