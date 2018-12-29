@@ -3,22 +3,89 @@ Ancient Egyptian
 
 The language spoken in ancient Egypt was a branch of the Afroasiatic language family. The earliest known complete written sentence in the Egyptian language has been dated to about 2690 BCE, making it one of the oldest recorded languages known, along with Sumerian. Egyptian was spoken until the late seventeenth century in the form of Coptic. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Egyptian_language>`_)
 
+.. important::
+   For correct visualisation of transliterated Unicode text you will probably need a special font. We recommend either `egyptoserif <http://jsesh.qenherkhopeshef.org/en/node/1416>`_ (handles the yod better) or `noto <https://www.google.com/get/noto/>`_.
+
 
 Transliterate MdC
 =================
 
 MdC (Manuel de Codage) is the standard encoding scheme and a series of conventions for transliterating egyptian texts. At first it was also conceived as a system to represent positional relations between hieroglyphic signs. However it was soon realised that the scheme used by MdC was not really appropriate for this last task. Hence the current softwares for hieroglyphic typesetting use often slightly different schemes than MdC. For more on MdC, see `here
-<https://en.wikipedia.org/wiki/Manuel_de_Codage>`_ and `here <http://www.catchpenny.org/codage/#trans>`_
+<https://en.wikipedia.org/wiki/Manuel_de_Codage>`__ and `here <http://www.catchpenny.org/codage/#trans>`__
 
-Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`_
+Transliteration conventions proposed by MdC are widely accepted though. Since at that time the transliteration conventions of the egyptology were not covered by the Unicode, MdC's all-ascii proposition made it possible to exchange at least transliterations in digital environement. It is the de facto transliteration system used by Thesaurus Linguae Aegyptiae which includes transliterations from several different scripts used in Ancient Egypt: a good discussion can be found `here <http://jsesh.qenherkhopeshef.org/fr/node/434>`_
 
-The unicode still doesn't cover all of the transliteration conventions used within the egyptology, but there has been a lot of progress. Only three characters are now problematic and are not covered by precomposed characters of the Unicode Consortium.
+Here are the unicode equivalents of MdC transliteration scheme as it is represented in `transliterate_mdc`:
+
+
+
+.. note::
+   reStructuredText tables cannot display all characters in the Character column. The several that cannot be displayed are: `U+0056`: ``; `U+003c`: `〈`; `U+003e`: `〉`; `U+0024, U+00a3`: `H̱`.
+
++----------------------------+-----------------------------+
+| MdC                        | Unicode                     |
++============================+=============================+
+| Unicode Number | Character | Unicode Number  | Character |
++----------------+-----------+-----------------+-----------+
+| U+0041         | A         | U+a723          | ꜣ         |
++----------------+-----------+-----------------+-----------+
+| U+0061         | a         | U+a725          | ꜥ         |
++----------------+-----------+-----------------+-----------+
+| U+0048         | H         | U+1e25          | ḥ         |
++----------------+-----------+-----------------+-----------+
+| U+0078         | x         | U+1e2b          | ḫ         |
++----------------+-----------+-----------------+-----------+
+| U+0058         | X         | U+1e96          | ẖ         |
++----------------+-----------+-----------------+-----------+
+| U+0056         | V         | U+0068+U+032d   | See note  |
++----------------+-----------+-----------------+-----------+
+| U+0053         | S         | U+0161          | š         |
++----------------+-----------+-----------------+-----------+
+| U+0063         | c         | U+015b          | ś         |
++----------------+-----------+-----------------+-----------+
+| U+0054         | T         | U+1e6f          | ṯ         |
++----------------+-----------+-----------------+-----------+
+| U+0076         | v         | U+1e71          | ṱ         |
++----------------+-----------+-----------------+-----------+
+| U+0044         | D         | U+1e0f          | ḏ         |
++----------------+-----------+-----------------+-----------+
+| U+0069         | i         | U+0069+U+0486   | i҆        |
++----------------+-----------+-----------------+-----------+
+| U+003d         | =         | U+2e17          | ⸗         |
++----------------+-----------+-----------------+-----------+
+| U+003c         | <         | U+2329          | See note  |
++----------------+-----------+-----------------+-----------+
+| U+003e         | >         | U+232a          | See note  |
++----------------+-----------+-----------------+-----------+
+| U+0071         | q         | U+1e33          | ḳ         |
++----------------+-----------+-----------------+-----------+
+| U+0051         | Q         | U+1e32          | Ḳ         |
++----------------+-----------+-----------------+-----------+
+| U+00a1, U+0040 | ¡, @      | U+1e24          | Ḥ         |
++----------------+-----------+-----------------+-----------+
+| U+0023, U+00a2 | #, ¢      | U+1e2a          | Ḫ         |
++----------------+-----------+-----------------+-----------+
+| U+0024, U+00a3 | $, £      | U+0048 + U+0331 | See note  |
++----------------+-----------+-----------------+-----------+
+| U+00a5, U+005e | ¥, ^      | U+0160          | Š         |
++----------------+-----------+-----------------+-----------+
+| U+00a9, U+002b | ©, +      | U+1e0e          | Ḏ         |
++----------------+-----------+-----------------+-----------+
+| U+0043         | C         | U+015a          | Ś         |
++----------------+-----------+-----------------+-----------+
+| U+002a, U+00a7 | \*, \§    | U+1e6e          | Ṯ         |
++----------------+-----------+-----------------+-----------+
+
+
+
+The Unicode still doesn't cover all of the transliteration conventions used within the egyptology, but there has been a lot of progress. Only three characters are now problematic and are not covered by precomposed characters of the Unicode Consortium.
 
 * Egyptological Yod       
 
 * Capital H4       
 
 * Small and Capital H5: almost exclusively used for transliterating demotic script.
+
 
 The function is created in the view of transliteration `font <http://www.yare.org/egypt/fonts.htm>`_ provided by CCER which maps couple of extra characters to transliterated equivalents such as '¡' or '@' for Ḥ.
 
@@ -41,7 +108,7 @@ Take a MdC encoded string (P.Berlin 3022:28-31):
     ir.n.i rnpt wa gs im in wi amw-nnSi
     HqA pw n rtnw Hrt"""
 
-Ensure that `mdc_string` is encoded in unicode characters (this is mostly unnecessary):
+Ensure that `mdc_string` is encoded in Unicode characters (this is mostly unnecessary):
 
 .. code-block:: python
 
@@ -49,7 +116,7 @@ Ensure that `mdc_string` is encoded in unicode characters (this is mostly unnece
  Out[6]: 
  ''rdi.n wi xAst n xAst\nfx.n.i r kpny Hs.n.i r qdmi\nir.n.i rnpt wa gs im in wi amw-nnSi\nHqA pw n rtnw Hrt''
 
-Apply the function to obtain the unicode map result:
+Apply the function to obtain the Unicode map result:
 
 .. code-block:: python
 

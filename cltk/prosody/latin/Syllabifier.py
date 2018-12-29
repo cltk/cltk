@@ -4,9 +4,14 @@ Consonantal I is transformed into a J at the start of a word as necessary.
 Tuned for poetry and verse, this class is tolerant of isolated single character consonants that
 may appear due to elision."""
 
+import copy
 import re
+import logging
 from cltk.prosody.latin.ScansionConstants import ScansionConstants
 import cltk.prosody.latin.StringUtils as StringUtils
+
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -17,13 +22,16 @@ class Syllabifier:
 
     def __init__(self, constants=ScansionConstants()):
         self.constants = constants
-        self.consonant_matcher = re.compile("[{}]".format(self.constants.CONSONANTS))
+        self.consonant_matcher = re.compile("[{}]".format(constants.CONSONANTS))
         self.vowel_matcher = re.compile(
-            "[{}]".format(self.constants.VOWELS + self.constants.ACCENTED_VOWELS))
+            "[{}]".format(constants.VOWELS + constants.ACCENTED_VOWELS))
         self.consonantal_i_matcher = re.compile(
-            r"\b[iIīĪ][{}]".format(self.constants.VOWELS + self.constants.ACCENTED_VOWELS))
+            r"\b[iIīĪ][{}]".format(constants.VOWELS + constants.ACCENTED_VOWELS))
         self.remove_punct_map = StringUtils.remove_punctuation_dict()
         self.kw_matcher = re.compile("[kK][w]")
+        self.ACCEPTABLE_CHARS = constants.ACCENTED_VOWELS + constants.VOWELS + ' ' \
+                                + constants.CONSONANTS
+        self.diphthongs = [d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]]
 
     def syllabify(self, words: str) -> list:
         """Parse a Latin word into a list of syllable strings.
@@ -31,6 +39,8 @@ class Syllabifier:
         :return: list of string, each representing a syllable.
 
         >>> syllabifier = Syllabifier()
+        >>> print(syllabifier.syllabify("fuit"))
+        ['fu', 'it']
         >>> print(syllabifier.syllabify("libri"))
         ['li', 'bri']
         >>> print(syllabifier.syllabify("contra"))
@@ -74,11 +84,65 @@ class Syllabifier:
         ['pul', 'cher']
         >>> print(syllabifier.syllabify("ruptus"))
         ['ru', 'ptus']
-    """
+        >>> print(syllabifier.syllabify("Bīthÿnus"))
+        ['Bī', 'thÿ', 'nus']
+        >>> print(syllabifier.syllabify("sanguen"))
+        ['san', 'guen']
+        >>> print(syllabifier.syllabify("unguentum"))
+        ['un', 'guen', 'tum']
+        >>> print(syllabifier.syllabify("lingua"))
+        ['lin', 'gua']
+        >>> print(syllabifier.syllabify("linguā"))
+        ['lin', 'guā']
+        >>> print(syllabifier.syllabify("languidus"))
+        ['lan', 'gui', 'dus']
+
+        >>> print(syllabifier.syllabify("suis"))
+        ['su', 'is']
+        >>> print(syllabifier.syllabify("habui"))
+        ['ha', 'bu', 'i']
+        >>> print(syllabifier.syllabify("habuit"))
+        ['ha', 'bu', 'it']
+        >>> print(syllabifier.syllabify("qui"))
+        ['qui']
+        >>> print(syllabifier.syllabify("quibus"))
+        ['qui', 'bus']
+        >>> print(syllabifier.syllabify("hui"))
+        ['hui']
+        >>> print(syllabifier.syllabify("cui"))
+        ['cui']
+        >>> print(syllabifier.syllabify("huic"))
+        ['huic']
+        """
         cleaned = words.translate(self.remove_punct_map)
         cleaned = cleaned.replace("qu", "kw")
         cleaned = cleaned.replace("Qu", "Kw")
+        cleaned = cleaned.replace("gua", "gwa")
+        cleaned = cleaned.replace("Gua", "Gwa")
+        cleaned = cleaned.replace("gue", "gwe")
+        cleaned = cleaned.replace("Gue", "Gwe")
+        cleaned = cleaned.replace("gui", "gwi")
+        cleaned = cleaned.replace("Gui", "Gwi")
+        cleaned = cleaned.replace("guo", "gwo")
+        cleaned = cleaned.replace("Guo", "Gwo")
+        cleaned = cleaned.replace("guu", "gwu")
+        cleaned = cleaned.replace("Guu", "Gwu")
+        cleaned = cleaned.replace("guā", "gwā")
+        cleaned = cleaned.replace("Guā", "Gwā")
+        cleaned = cleaned.replace("guē", "gwē")
+        cleaned = cleaned.replace("Guē", "Gwē")
+        cleaned = cleaned.replace("guī", "gwī")
+        cleaned = cleaned.replace("Guī", "Gwī")
+        cleaned = cleaned.replace("guō", "gwō")
+        cleaned = cleaned.replace("Guō", "Gwō")
+        cleaned = cleaned.replace("guū", "gwū")
+        cleaned = cleaned.replace("Guū", "Gwū")
         items = cleaned.strip().split(" ")
+
+        for char in cleaned:
+            if not char in self.ACCEPTABLE_CHARS:
+                LOG.error("Unsupported character found in %s " % cleaned)
+                return items
         syllables: list = []
         for item in items:
             syllables += self._setup(item)
@@ -89,11 +153,20 @@ class Syllabifier:
             if "Kw" in syl:
                 syl = syl.replace("Kw", "Qu")
                 syllables[idx] = syl
-        return syllables
+            if "gw" in syl:
+                syl = syl.replace("gw", "gu")
+                syllables[idx] = syl
+            if "Gw" in syl:
+                syl = syl.replace("Gw", "Gu")
+                syllables[idx] = syl
+
+        return StringUtils.remove_blank_spaces(syllables)
 
     def _setup(self, word) -> list:
-        """Prepares a word for syllable processing. If the word starts with a prefix, process it
-        separately."""
+        """Prepares a word for syllable processing.
+
+        If the word starts with a prefix, process it separately.
+        """
         if len(word) == 1:
             return [word]
         for prefix in self.constants.PREFIXES:
@@ -104,6 +177,10 @@ class Syllabifier:
                         self._process(first) + self._process(rest))
                 # a word like pror can happen from ellision
                 return StringUtils.remove_blank_spaces(self._process(word))
+        if word in self.constants.UI_EXCEPTIONS.keys():
+            return self.constants.UI_EXCEPTIONS[word]
+
+
         return StringUtils.remove_blank_spaces(self._process(word))
 
     def convert_consonantal_i(self, word) -> str:
@@ -127,7 +204,7 @@ class Syllabifier:
         my_word = " " + word + " "
         letters = list(my_word)
         positions = []
-        for dipth in self.constants.DIPTHONGS:
+        for dipth in self.diphthongs:
             if dipth in my_word:
                 dipth_matcher = re.compile("{}".format(dipth))
                 matches = dipth_matcher.finditer(my_word)
@@ -244,7 +321,7 @@ class Syllabifier:
                 return StringUtils.move_consonant_left(letters, [pos])
             if consonant in self.constants.MUTES and next_letter[0] in self.constants.LIQUIDS:
                 return StringUtils.move_consonant_right(letters, [pos])
-            if consonant in ['k', 'K'] and next_letter[0] in ['w','W']:
+            if consonant in ['k', 'K'] and next_letter[0] in ['w', 'W']:
                 return StringUtils.move_consonant_right(letters, [pos])
             if self._contains_consonants(next_letter[0]) and self._starts_with_vowel(
                     previous_letter[-1]):
@@ -253,3 +330,21 @@ class Syllabifier:
             if self._contains_consonants(next_letter[0]):
                 return StringUtils.move_consonant_right(letters, [pos])
         return letters
+
+    def get_syllable_count(self, syllables: list) -> int:
+        """Counts the number of syllable groups that would occur after ellision.
+
+        Often we will want preserve the position and separation of syllables so that they
+        can be used to reconstitute a line, and apply stresses to the original word positions.
+        However, we also want to be able to count the number of syllables accurately.
+
+        >>> syllabifier = Syllabifier()
+        >>> print(syllabifier.get_syllable_count([
+        ... 'Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum']))
+        11
+        """
+        tmp_syllables = copy.deepcopy(syllables)
+        return len(StringUtils.remove_blank_spaces(
+            StringUtils.move_consonant_right(tmp_syllables,
+                                             self._find_solo_consonant(tmp_syllables))))
+

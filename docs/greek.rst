@@ -283,6 +283,13 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    In [4]: r.beta_code(BETA_EXAMPLE)
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
+The beta code converter can also handle lowercase notation:
+
+.. code-block:: python
+
+    In [5]: BETA_EXAMPLE_2 = r"""me/xri me\n w)/n tou/tou a(rpaga/s mou/nas ei)=nai par' a)llh/lwn, to\ de\ a)po\ tou/tou *(/ellhnas dh\ mega/lws ai)ti/ous gene/sqai: prote/rous ga\r a)/rcai strateu/esqai e)s th\n *)asi/hn h)\ sfe/as e)s th\n *eu)rw/phn. """
+    Out[5]: 'μέχρι μὲν ὤν τούτου ἁρπαγάς μούνας εἶναι παρ’ ἀλλήλων, τὸ δὲ ἀπὸ τούτου Ἕλληνας δὴ μεγάλως αἰτίους γενέσθαι· προτέρους γὰρ ἄρξαι στρατεύεσθαι ἐς τὴν Ἀσίην ἢ σφέας ἐς τὴν Εὐρώπην.'
+
 
 Converting TLG texts with TLGU
 ======================================
@@ -417,11 +424,7 @@ These two arguments can be combined, as well.
 Named Entity Recognition
 ========================
 
-.. tip::
-
-   NER is new functionality. Please report any errors you observe.
-
-There is available a simple interface to `a list of Greek proper nouns <https://github.com/cltk/greek_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+There is available a simple interface to `a list of Greek proper nouns <https://github.com/cltk/greek_proper_names_cltk>`_ (see repo for how it the list was created). By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
 
 .. code-block:: python
 
@@ -443,11 +446,10 @@ There is available a simple interface to `a list of Greek proper nouns <https://
 Normalization
 =============
 
-Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications \
- issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
+Normalizing polytonic Greek is a problem that has been mostly solved, however when working with legacy applications issues still arise. We recommend normalizing Greek vowels in order to ensure string matching.
 
-One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents
- (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+One type of normalization issue comes from tonos accents (intended for Modern Greek) being used instead of the oxia accents (for Ancient Greek). Here is an example of two characters appearing identical but being in fact dissimilar:
+
 
 .. code-block:: python
 
@@ -641,6 +643,20 @@ To use the CLTK's built-in stopwords list:
     'ἴωνας',
     'αἰολέας.']
 
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Greek.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('gr')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ἐγώ', 'σύ', 'αὐτός, οὗ, ὅς, ὁ, οὗτος', 'ἡμεῖς', 'ὑμεῖς', 'αὐτοί', 'ὅδε', 'ἐκεῖνος', 'ἔνθα, ἐνθάδε, ἐνταῦθα', 'ἐκεῖ']
+   
 
 TEI XML
 =======
@@ -857,6 +873,20 @@ the Greek language. Currently, the only available dialect is Attic as reconstruc
    Out[3]: '[di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn]'
 
 
+Word Tokenization
+=================
+
+.. code-block:: python
+
+   In [1]: from cltk.tokenize.word import WordTokenizer
+
+   In [2]: word_tokenizer = WordTokenizer('greek')
+
+   In [3]: text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+
+   In [4]: word_tokenizer.tokenize(text)
+   Out[4]: ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
+   
 
 Word2Vec
 ========

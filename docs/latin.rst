@@ -26,7 +26,7 @@ The list of rhythms which the module tallies is drawn from John Ramsey's list of
    In [4]: s = Scansion()
 
    In [5]: c = Clausulae()
- 
+
    In [6]: prosody = s.scan_text(text)
    Out[6]: ['¯˘¯˘¯¯˘˘˘¯˘˘˘¯˘¯¯x', '¯˘¯˘¯˘˘¯˘˘¯¯¯¯x']
 
@@ -97,16 +97,36 @@ Example use, assuming you have already imported the `latin_models_cltk`:
    In [1]: from cltk.stem.latin.declension import CollatinusDecliner
 
    In [2]: decliner = CollatinusDecliner()
-   
-   In [3]: print(decliner.decline("via"))
-   Out[3]: [
-        ('via', '--s----n-'), ('via', '--s----v-'), ('viam', '--s----a-'), ('viae', '--s----g-'),
-        ('viae', '--s----d-'), ('via', '--s----b-'), ('viae', '--p----n-'), ('viae', '--p----v-'),
-        ('vias', '--p----a-'), ('viarum', '--p----g-'), ('viis', '--p----d-'), ('viis', '--p----b-')
-    ]
 
-    In [4]: print(decliner.decline("via", flatten=True))
-    Out[4]: ['via', 'via', 'viam', 'viae', 'viae', 'via', 'viae', 'viae', 'vias', 'viarum', 'viis', 'viis']
+   In [3]: print(decliner.decline("via"))
+   Out[3]:
+    [('via', '--s----n-'),
+     ('via', '--s----v-'),
+     ('viam', '--s----a-'),
+     ('viae', '--s----g-'),
+     ('viae', '--s----d-'),
+     ('via', '--s----b-'),
+     ('viae', '--p----n-'),
+     ('viae', '--p----v-'),
+     ('vias', '--p----a-'),
+     ('viarum', '--p----g-'),
+     ('viis', '--p----d-'),
+     ('viis', '--p----b-')]
+
+    In [4]: decliner.decline("via", flatten=True)
+    Out[4]:
+    ['via',
+     'via',
+     'viam',
+     'viae',
+     'viae',
+     'via',
+     'viae',
+     'viae',
+     'vias',
+     'viarum',
+     'viis',
+     'viis']
 
 
 Lemmatization
@@ -215,7 +235,7 @@ The backoff module also offers IdentityLemmatizer which returns the given token 
 With the TrainLemmatizer, the backoff module allows you to provide a dictionary of the form {'TOKEN1': 'LEMMA1', 'TOKEN2': 'LEMMA2'} for lemmatization.
 
 .. code-block:: python
-   
+
    In [10]: tokens = ['arma', 'uirum', '-que', 'cano', ',', 'troiae', 'qui', 'primus', 'ab', 'oris']
 
    In [11]: dict = {'arma': 'arma', 'uirum': 'uir', 'troiae': 'troia', 'oris': 'ora'}
@@ -223,7 +243,7 @@ With the TrainLemmatizer, the backoff module allows you to provide a dictionary 
    In [12]: from cltk.lemmatize.latin.backoff import TrainLemmatizer
 
    In [13]: lemmatizer = TrainLemmatizer(dict)
-   
+
    In [14]: lemmatizer.lemmatize(tokens)
    Out[14]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', None), ('cano', None), (',', None), ('troiae', 'troia'), ('qui', None), ('primus', None), ('ab', None), ('oris', 'ora')]
 
@@ -232,7 +252,7 @@ The TrainLemmatizer—like all of the lemmatizers in this module—can take a se
 .. code-block:: python
 
    In [15]: default = DefaultLemmatizer('UNK')
-   
+
    In [16]: lemmatizer = TrainLemmatizer(dict, backoff=default)
 
    In [17]: lemmatizer.lemmatize(tokens)
@@ -243,22 +263,22 @@ With the ContextLemmatizer, the backoff module allows you to provide a list of l
 There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer():
 
 .. code-block:: python
-    
+
    In [18]: train_data = [[('cum', 'cum2'), ('esset', 'sum'), ('caesar', 'caesar'), ('in', 'in'), ('citeriore', 'citer'), ('gallia', 'gallia'), ('in', 'in'), ('hibernis', 'hibernus'), (',', 'punc'), ('ita', 'ita'), ('uti', 'ut'), ('supra', 'supra'), ('demonstrauimus', 'demonstro'), (',', 'punc'), ('crebri', 'creber'), ('ad', 'ad'), ('eum', 'is'), ('rumores', 'rumor'), ('adferebantur', 'affero'), ('litteris', 'littera'), ('-que', '-que'), ('item', 'item'), ('labieni', 'labienus'), ('certior', 'certus'), ('fiebat', 'fio'), ('omnes', 'omnis'), ('belgas', 'belgae'), (',', 'punc'), ('quam', 'qui'), ('tertiam', 'tertius'), ('esse', 'sum'), ('galliae', 'gallia'), ('partem', 'pars'), ('dixeramus', 'dico'), (',', 'punc'), ('contra', 'contra'), ('populum', 'populus'), ('romanum', 'romanus'), ('coniurare', 'coniuro'), ('obsides', 'obses'), ('-que', '-que'), ('inter', 'inter'), ('se', 'sui'), ('dare', 'do'), ('.', 'punc')], [('coniurandi', 'coniuro'), ('has', 'hic'), ('esse', 'sum'), ('causas', 'causa'), ('primum', 'primus'), ('quod', 'quod'), ('uererentur', 'uereor'), ('ne', 'ne'), (',', 'punc'), ('omni', 'omnis'), ('pacata', 'paco'), ('gallia', 'gallia'), (',', 'punc'), ('ad', 'ad'), ('eos', 'is'), ('exercitus', 'exercitus'), ('noster', 'noster'), ('adduceretur', 'adduco'), (';', 'punc')]]
-   
+
    In [19]: default = DefaultLemmatizer('UNK')
-    
+
    In [20]: lemmatizer = UnigramLemmatizer(train_sents, backoff=default)
    In [21]: lemmatizer.lemmatize(tokens)
-   
+
    Out[21]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
-    
+
 NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer(), and ContextPOSLemmatizer().
 
 
 Line Tokenization
 =================
-The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings. 
+The line tokenizer takes a string input into ``tokenize()`` and returns a list of strings.
 
 .. code-block:: python
 
@@ -269,7 +289,7 @@ The line tokenizer takes a string input into ``tokenize()`` and returns a list o
    In [3]: untokenized_text = """49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
 
    In [4]: tokenizer.tokenize(untokenized_text)
-   
+
    Out[4]: ['49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 The line tokenizer by default removes multiple line breaks. If you wish to retain blank lines in the returned list, set the ``include_blanks`` to ``True``.
@@ -279,7 +299,7 @@ The line tokenizer by default removes multiple line breaks. If you wish to retai
    In [5]: untokenized_text = """48. Cum tibi contigerit studio cognoscere multa,\nFac discas multa, vita nil discere velle.\n\n49. Miraris verbis nudis me scribere versus?\nHoc brevitas fecit, sensus coniungere binos."""
 
    In [6]: tokenizer.tokenize(untokenized_text, include_blanks=True)
-   
+
    Out[6]: ['48. Cum tibi contigerit studio cognoscere multa,','Fac discas multa, vita nil discere velle.','','49. Miraris verbis nudis me scribere versus?','Hoc brevitas fecit, sensus coniungere binos.']
 
 Macronizer
@@ -342,11 +362,7 @@ If you wish to edit the POS dictionary creator, see ``cltk_latin_pos_dict.txt``.
 Named Entity Recognition
 ========================
 
-.. tip::
-
-   NER is new functionality. Please report any errors you observe.
-
-There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_. By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
+There is available a simple interface to `a list of Latin proper nouns <https://github.com/cltk/latin_proper_names_cltk>`_ (see repo for how it the list was created). By default ``tag_ner()`` takes a string input and returns a list of tuples. However it can also take pre-tokenized forms and return a string.
 
 .. code-block:: python
 
@@ -543,30 +559,73 @@ If the line is not properly macronized to scan, the scanner tries to determine w
 2. Syllabifies according to the common rules.
 3. Is complete (e.g. some hexameter lines are partial).
 
-The scanner also determines which syllables would have to be made long to make the line scan as a valid hexameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HexameterScanner's scan method returns a Hexameter class object.
+The scanner also determines which syllables would have to be made long to make the line scan as a valid hexameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HexameterScanner's scan method returns a Verse class object.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import HexameterScanner
+   In [1]: from cltk.prosody.latin.HexameterScanner import HexameterScanner
 
    In [2]: scanner = HexameterScanner()
 
-   In [3]: print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
-   Out[3]: [Hexameter( original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm, pu, le, rīt, Tān, taen, a, ni, mīs, cae, lēs, ti, bus, i, rae'])]
+   In [3]: scanner.scan("impulerit. Tantaene animis caelestibus irae?")
+   Out[3]: Verse(original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', meter='hexameter', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm', 'pu', 'le', 'rīt', 'Tān', 'taen', 'a', 'ni', 'mīs', 'cae', 'lēs', 'ti', 'bus', 'i', 'rae'])
 
 
-Hexameter
-``````````
+PentameterScanner
+`````````````````
+The PentameterScanner class scans lines of Latin pentameter (with or without macrons) and determines if the line is a valid pentameter and what its scansion pattern is.
 
-The Hexameter class object returned by the HexameterScanner provides slots for:
+If the line is not properly macronized to scan, the scanner tries to determine whether the line:
+
+1. Scans merely by position.
+2. Syllabifies according to the common rules.
+
+The scanner also determines which syllables would have to be made long to make the line scan as a valid pentameter. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The PentameterScanner's scan method returns a Verse class object.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin.PentameterScanner import PentameterScanner
+
+   In [2]: scanner = PentameterScanner()
+
+   In [3]: scanner.scan("ex hoc ingrato gaudia amore tibi.")
+   Out[3]: Verse(original='ex hoc ingrato gaudia amore tibi.', scansion='-   -  -   - -   - U  U - U  U U ', meter='pentameter', valid=True, syllable_count=12, accented='ēx hōc īngrātō gaudia amōre tibi.', scansion_notes=['Spondaic pentameter'], syllables = ['ēx', 'hoc', 'īn', 'gra', 'to', 'gau', 'di', 'a', 'mo', 're', 'ti', 'bi'])
+
+
+HendecasyllableScanner
+``````````````````````
+The HendecasyllableScanner class scans lines of Latin hendecasyllables (with or without macrons) and determines if the line is a valid example of the hendecasyllablic meter and what its scansion pattern is.
+
+If the line is not properly macronized to scan, the scanner tries to determine whether the line:
+
+1. Scans merely by position.
+2. Syllabifies according to the common rules.
+
+The scanner also determines which syllables would have to be made long to make the line scan as a valid hendecasyllables. The scanner records scansion_notes about which transformations had to be made to the line of verse to get it to scan. The HendecasyllableScanner's scan method returns a Verse class object.
+
+.. code-block:: python
+
+   In [1]: from cltk.prosody.latin.HendecasyllableScanner import HendecasyllableScanner
+
+   In [2]: scanner = HendecasyllableScanner()
+
+   In [3]: scanner.scan("Iam tum, cum ausus es unus Italorum")
+   Out[3]: Verse(original='Iam tum, cum ausus es unus Italorum', scansion=' -   -        - U  U  - U  - U - U ', meter='hendecasyllable', valid=True, syllable_count=11, accented='Iām tūm, cum ausus es ūnus Ītalōrum', scansion_notes=['antepenult foot onward normalized.'], syllables = ['Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum'])
+
+
+Verse
+``````
+
+The Verse class object returned by the HexameterScanner, PentameterScanner, and HendecasyllableScanner provides slots for:
 
 1. original - original line of verse
 2. scansion - the scansion pattern
-3. valid - whether or not the hexameter is valid
-4. syllable_count - number of syllables according to common syllabification rules
-5. accented - if the hexameter is valid, a version of the line with accented vowels
-6. scansion_notes - a list recording characteristics and transformations made to the original line
-7. syllables - a list of syllables of which the line is divided into
+3. meter - the meter of the verse
+4. valid - whether or not the hexameter is valid
+5. syllable_count - number of syllables according to common syllabification rules
+6. accented - if the hexameter is valid, a version of the line with accented vowels (dipthongs are not accented)
+7. scansion_notes - a list recording the characteristics of the transformations made to the original line
+8. syllables - a list of syllables of which the line is divided into at the scansion level; elided syllables are not provided.
 
 The Scansion notes are defined in a NOTE_MAP dictionary object contained in the ScansionConstants class.
 
@@ -577,17 +636,17 @@ The ScansionConstants class is a configuration class for specifying scansion con
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import ScansionConstants
+   In [1]: from cltk.prosody.latin.ScansionConstants import ScansionConstants
 
    In [2]: constants = ScansionConstants(unstressed="U",stressed= "-", optional_terminal_ending="X")
 
-   In [3]: print(constants.DACTYL)
-   Out[3]: ['-UU']
+   In [3]: constants.DACTYL
+   Out[3]: '-UU'
 
    In [4]: smaller_constants = ScansionConstants(unstressed="˘",stressed= "¯", optional_terminal_ending="x")
 
-   In [5]: print(smaller_constants.DACTYL)
-   Out[5]: ['¯˘˘']
+   In [5]: smaller_constants.DACTYL
+   Out[5]: '¯˘˘'
 
 
 Constants containing strings have characters in upper and lower case since they will often be used in regular expressions, and used to preserve/a verse's original case.
@@ -599,15 +658,16 @@ The Syllabifier class is a Latin language syllabifier. It parses a Latin word or
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import Syllabifier
+   In [1]: from cltk.prosody.latin.Syllabifier import Syllabifier
 
    In [1]: syllabifier = Syllabifier()
 
-   In [2]: print(syllabifier.syllabify("libri"))
+   In [2]: syllabifier.syllabify("libri")
    Out[2]: ['li', 'bri']
 
-   In [3]: print(syllabifier.syllabify("contra"))
+   In [3]: syllabifier.syllabify("contra")
    Out[3]: ['con', 'tra']
+
 
 
 Metrical Validator
@@ -618,10 +678,10 @@ The MetricalValidator class is a utility class for validating scansion patterns.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import MetricalValidator
+   In [1]: from cltk.prosody.latin.MetricalValidator import MetricalValidator
 
-   In [2]: print(MetricalValidator().is_valid_hexameter("-UU---UU---UU-U"))
-   Out[2]: ['True']
+   In [2]: MetricalValidator().is_valid_hexameter("-UU---UU---UU-U")
+   Out[2]: 'True'
 
 
 ScansionFormatter
@@ -631,17 +691,17 @@ The ScansionFormatter class is a utility class for formatting scansion patterns.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin import ScansionFormatter
+   In [1]: from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
 
-   In [2]: print(ScansionFormatter().hexameter("-UU-UU-UU---UU--"))
-   Out[2]: ['-UU|-UU|-UU|--|-UU|--']
+   In [2]: ScansionFormatter().hexameter("-UU-UU-UU---UU--")
+   Out[2]: '-UU|-UU|-UU|--|-UU|--'
 
    In [3]: constants = ScansionConstants(unstressed="˘", stressed= "¯", optional_terminal_ending="x")
 
    In [4]: formatter = ScansionFormatter(constants)
 
-   In [5]: print(formatter.hexameter( "¯˘˘¯˘˘¯˘˘¯¯¯˘˘¯¯"))
-   Out[5]: ['¯˘˘|¯˘˘|¯˘˘|¯¯|¯˘˘|¯¯']
+   In [5]: formatter.hexameter( "¯˘˘¯˘˘¯˘˘¯¯¯˘˘¯¯")
+   Out[5]: '¯˘˘|¯˘˘|¯˘˘|¯¯|¯˘˘|¯¯'
 
 
 StringUtils module
@@ -653,8 +713,47 @@ The StringUtils module contains utility methods for processing scansion and text
 
    In [1]: from cltk.prosody.latin import StringUtils
 
-   In [2]: print("I'm ok! Oh #%&*()[]{}!? Fine!".translate(punctuation_for_spaces_dict()).strip())
-   Out[2]: ['I m ok  Oh              Fine']
+   In [2]: "I'm ok! Oh #%&*()[]{}!? Fine!".translate(StringUtils.punctuation_for_spaces_dict()).strip()
+   Out[2]: 'I m ok  Oh              Fine'
+
+
+Semantics
+=========
+The Semantics module allows for the lookup of Latin lemmata, synonyms, and translations into Greek. Lemma, synonym, and translation dictionaries are drawn from the open-source `Tesserae Project<http://github.com/tesserae/tesserae>`
+
+.. tip:: When lemmatizing ambiguous forms, the Semantics module is designed to return all possibilities. A probability distribution is included with the list of results, but as of June 8, 2018 the total probability is evenly distributed over all possibilities. Future updates will include a more intelligent system for determining the most likely lemma, synonym, or translation._.
+
+The Lemmata class includes two relevant methods: lookup() takes a list of tokens standardized for spelling and returns a complex object which includes a probability distribution; isolate() takes the object returned by lookup() and discards everything but the lemmata.
+
+.. code-block:: python
+
+   In [1]: from cltk.semantics.latin.lookup import Lemmata
+
+   In [2]: lemmatizer = Lemmata(dictionary = 'lemmata', language = 'latin')
+
+   In [3]: tokens = ['ceterum', 'antequam', 'destinata', 'componam']
+
+   In [4]: lemmas = lemmatizer.lookup(tokens)
+   Out[4]:
+   [('ceterum', [('ceterus', 1.0)]), ('antequam', [('antequam', 1.0)]), ('destinata', [('destinatus', 0.25), ('destinatum', 0.25), ('destinata', 0.25), ('destino', 0.25)]), ('componam', [('compono', 1.0)])]
+
+   In [5]: justlemmas = lemmatizer.isolate(lemmas)
+   Out[5]:['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
+
+The Synonym class can be initialized to lookup either synonyms or translations. It expects a list of lemmata, not inflected forms. Only successful 'lookups' will return results.
+
+.. code-block:: python
+
+   In [1]: from cltk.semantics.latin.lookup import Synonyms
+
+   In [2]: translator = Synonyms(dictionary = 'translations', language = 'latin')
+
+   In [3]: lemmas = ['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
+
+   In [4]: translations = translator.lookup(lemmas)
+   Out[4]:[('destino', [('σκοπός', 1.0)]), ('compono', [('συντίθημι', 1.0)])]
+
+A raw list of translations can be obtained from the translation object using Lemmata.isolate().
 
 
 Sentence Tokenization
@@ -674,6 +773,50 @@ The sentence tokenizer takes a string input into ``tokenize_sentences()`` and re
    ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.',
     'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']
 
+Semantics
+=========
+The Semantics module allows for the lookup of Latin lemmata, synonyms, and translations into Greek. Lemma, synonym, and translation dictionaries are drawn from the open-source `Tesserae Project<http://github.com/tesserae/tesserae>`
+
+The dictionaries used by this module are stored in https://github.com/cltk/latin_models_cltk/tree/master/semantics and https://github.com/cltk/greek_models_cltk/tree/master/semantics for Greek and Latin, respectively. In order to use the Semantics module, it is necessary to `import those repos first<http://docs.cltk.org/en/latest/importing_corpora.html#importing-a-corpus>`.
+
+.. tip:: When lemmatizing ambiguous forms, the Semantics module is designed to return all possibilities. A probability distribution is included with the list of results, but as of June 8, 2018 the total probability is evenly distributed over all possibilities. Future updates will include a more intelligent system for determining the most likely lemma, synonym, or translation._.
+
+The Lemmata class includes two relevant methods: lookup() takes a list of tokens standardized for spelling and returns a complex object which includes a probability distribution; isolate() takes the object returned by lookup() and discards everything but the lemmata.
+
+.. code-block:: python
+
+   In [1]: from cltk.semantics.latin.lookup import Lemmata
+
+   In [2]: lemmatizer = Lemmata(dictionary='lemmata', language='latin')
+
+   In [3]: tokens = ['ceterum', 'antequam', 'destinata', 'componam']
+
+   In [4]: lemmas = lemmatizer.lookup(tokens)
+   Out[4]:
+   [('ceterum', [('ceterus', 1.0)]), ('antequam', [('antequam', 1.0)]), ('destinata', [('destinatus', 0.25), ('destinatum', 0.25), ('destinata', 0.25), ('destino', 0.25)]), ('componam', [('compono', 1.0)])]
+
+   In [5]: just_lemmas = Lemmata.isolate(lemmas)
+   Out[5]:['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
+
+The Synonym class can be initialized to lookup either synonyms or translations. It expects a list of lemmata, not inflected forms. Only successful 'lookups' will return results.
+
+.. code-block:: python
+
+   In [1]: from cltk.semantics.latin.lookup import Synonyms
+
+   In [2]: translator = Synonyms(dictionary='translations', language='latin')
+
+   In [3]: lemmas = ['ceterus', 'antequam', 'destinatus', 'destinatum', 'destinata', 'destino', 'compono']
+
+   In [4]: translations = translator.lookup(lemmas)
+   Out[4]:[('destino', [('σκοπός', 1.0)]), ('compono', [('συντίθημι', 1.0)])]
+
+   In [5]: just_translations = Lemmata.isolate(translations)
+   Out[5]:['σκοπός', 'συντίθημι']
+
+A raw list of translations can be obtained from the translation object using Lemmata.isolate().
+
+
 Stemming
 ========
 The stemmer strips suffixes via an algorithm. It is much faster than the lemmatizer, which uses a replacement list.
@@ -685,15 +828,36 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
    In [2]: sentence = 'Est interdum praestare mercaturis rem quaerere, nisi tam periculosum sit, et item foenerari, si tam honestum. Maiores nostri sic habuerunt et ita in legibus posiuerunt: furem dupli condemnari, foeneratorem quadrupli. Quanto peiorem ciuem existimarint foeneratorem quam furem, hinc licet existimare. Et uirum bonum quom laudabant, ita laudabant: bonum agricolam bonumque colonum; amplissime laudari existimabatur qui ita laudabatur. Mercatorem autem strenuum studiosumque rei quaerendae existimo, uerum, ut supra dixi, periculosum et calamitosum. At ex agricolis et uiri fortissimi et milites strenuissimi gignuntur, maximeque pius quaestus stabilissimusque consequitur minimeque inuidiosus, minimeque male cogitantes sunt qui in eo studio occupati sunt. Nunc, ut ad rem redeam, quod promisi institutum principium hoc erit.'
 
    In [3]: stemmer = Stemmer()
-   
+
    In [4]: stemmer.stem(sentence.lower())
    Out[4]: 'est interd praestar mercatur r quaerere, nisi tam periculos sit, et it foenerari, si tam honestum. maior nostr sic habueru et ita in leg posiuerunt: fur dupl condemnari, foenerator quadrupli. quant peior ciu existimari foenerator quam furem, hinc lice existimare. et uir bon quo laudabant, ita laudabant: bon agricol bon colonum; amplissim laudar existimaba qui ita laudabatur. mercator autem strenu studios re quaerend existimo, uerum, ut supr dixi, periculos et calamitosum. at ex agricol et uir fortissim et milit strenuissim gignuntur, maxim p quaest stabilissim consequi minim inuidiosus, minim mal cogitant su qui in e studi occupat sunt. nunc, ut ad r redeam, quod promis institut principi hoc erit. '
 
 
+Stoplist Construction
+==================
+
+To extract a stoplist from a collection of documents:
+
+.. code-block:: python
+
+    In [1]: test_1 = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
+
+    In [2] test_2 = """ac mihi repetenda est veteris cuiusdam memoriae non sane satis explicata recordatio, sed, ut arbitror, apta ad id, quod requiris, ut cognoscas quae viri omnium eloquentissimi clarissimique senserint de omni ratione dicendi. vis enim, ut mihi saepe dixisti, quoniam, quae pueris aut adulescentulis nobis ex commentariolis nostris incohata ac rudia exciderunt, vix sunt hac aetate digna et hoc usu, quem ex causis, quas diximus, tot tantisque consecuti sumus, aliquid eisdem de rebus politius a nobis perfectiusque proferri; solesque non numquam hac de re a me in disputationibus nostris dissentire, quod ego eruditissimorum hominum artibus eloquentiam contineri statuam, tu autem illam ab elegantia doctrinae segregandam putes et in quodam ingeni atque exercitationis genere ponendam. ac mihi quidem saepe numero in summos homines ac summis ingeniis praeditos intuenti quaerendum esse visum est quid esset cur plures in omnibus rebus quam in dicendo admirabiles exstitissent; nam quocumque te animo et cogitatione converteris, permultos excellentis in quoque genere videbis non mediocrium artium, sed prope maximarum. quis enim est qui, si clarorum hominum scientiam rerum gestarum vel utilitate vel magnitudine metiri velit, non anteponat oratori imperatorem? quis autem dubitet quin belli duces ex hac una civitate praestantissimos paene innumerabilis, in dicendo autem excellentis vix paucos proferre possimus? iam vero consilio ac sapientia qui regere ac gubernare rem publicam possint, multi nostra, plures patrum memoria atque etiam maiorum exstiterunt, cum boni perdiu nulli, vix autem singulis aetatibus singuli tolerabiles oratores invenirentur. ac ne qui forte cum aliis studiis, quae reconditis in artibus atque in quadam varietate litterarum versentur, magis hanc dicendi rationem, quam cum imperatoris laude aut cum boni senatoris prudentia comparandam putet, convertat animum ad ea ipsa artium genera circumspiciatque, qui in eis floruerint quamque multi sint; sic facillime, quanta oratorum sit et semper fuerit paucitas, iudicabit."""
+
+    In [3]: test_corpus = [test_1, test_2]
+
+    In [4]: from cltk.stop.latin import CorpusStoplist
+
+    In [5]: S = CorpusStoplist()
+
+    In [6]: print(S.build_stoplist(test_corpus, size=10))
+
+    Out [6]: ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'rerum', 'vel']
+
 Stopword Filtering
 ==================
 
-To use the CLTK's built-in stopwords list:
+To use a pre-built stoplist (created originally by the Perseus Project):
 
 .. code-block:: python
 
@@ -718,6 +882,20 @@ To use the CLTK's built-in stopwords list:
     'patientia',
     'nostra',
     '?']
+    
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Latin.
+
+.. code-block:: python
+
+   In [1]: from cltk.corpus.swadesh import Swadesh
+
+   In [2]: swadesh = Swadesh('la')
+
+   In [3]: swadesh.words()[:10]
+   Out[3]: ['ego', 'tū', 'is, ea, id', 'nōs', 'vōs', 'eī, iī, eae, ea', 'hic, haec, ho', 'ille, illa, illud', 'hīc', 'illic, ibi']
 
 
 Syllabifier
