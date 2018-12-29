@@ -127,20 +127,32 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         return self.tag(tokens)
 
 
-class DefaultLemmatizer(SequentialBackoffLemmatizer, DefaultTagger):
-    """"""
-    def __init__(self, lemma=None):
-        """Setup for DefaultLemmatizer().
+class DefaultLemmatizer(SequentialBackoffLemmatizer):
+    """
+    Lemmatizer that assigns the same lemma to every token.
 
-        :param lemma: String with default lemma to be assigned for all tokens;
-        set to None if no parameter is assigned.
-        """
-        self._lemma = lemma
-        SequentialBackoffLemmatizer.__init__(self, None)
-        DefaultTagger.__init__(self, self._lemma)
+        >>> from cltk.lemmatize.latin.backoff import DefaultLemmatizer
+        >>> default_lemmatizer = DefaultLemmatizer('UNK')
+        >>> list(default_lemmatizer.lemmatize('arma virumque cano'.split()))
+        [('arma', 'UNK'), ('virumque', 'UNK'), ('cano', 'UNK')]
 
-    def choose_lemma(self, tokens, index, history):
-        return DefaultTagger.choose_tag(self, tokens, index, history)
+    Useful as the final tagger in a chain, e.g. to assign 'UNK' to all
+    remaining unlemmatized tokens.
+
+    :type lemma: str
+    :param lemma: Lemma to assign to each token
+    """
+    def __init__(self, lemma=None, backoff=None, VERBOSE=False):
+        self.lemma = lemma
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
+
+
+    def choose_tag(self, tokens, index, history):
+        return self.lemma
+
+
+    def __repr__(self):
+        return f'<DefaultLemmatizer: lemma={self.lemma}>'
 
 
 class IdentityLemmatizer(SequentialBackoffLemmatizer):
