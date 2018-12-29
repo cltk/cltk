@@ -30,34 +30,101 @@ from cltk.lemmatize.latin.latin import latin_sub_patterns, latin_verb_patterns, 
 #        backoff = cls(train_sents, backoff=backoff)
 #    return backoff
 
-    def __init__(self, backoff=None):
-        """Setup for SequentialBackoffLemmatizer()
+class SequentialBackoffLemmatizer(SequentialBackoffTagger):
+    """
+    Abstract base class for lemmatizers created as a subclass of
+    NLTK's SequentialBackoffTagger. Lemmatizers in this class "[tag]
+    words sequentially, left to right. Tagging of individual words is
+    performed by the ``choose_tag()`` method, which should be defined
+    by subclasses.  If a tagger is unable to determine a tag for the
+    specified token, then its backoff tagger is consulted."
 
-        :param backoff: Next lemmatizer in backoff chain.
+    See: https://www.nltk.org/_modules/nltk/tag/sequential.html#SequentialBackoffTagger
+
+    :type _taggers: list
+    :ivar _taggers: A list of all the taggers in the backoff chain,
+        inc. self.
+    :type _repr: Repr object
+    :ivar _repr: An instance of Repr() from reprlib to handle list
+        and dict length in subclass __repr__'s
+    """
+
+    def __init__(self, backoff, VERBOSE=False):
         """
-        LemmatizerI.__init__(self)
-        SequentialBackoffTagger.__init__(self, backoff)
+        Setup for SequentialBackoffLemmatizer
+        :param backoff: Next lemmatizer in backoff chain
+        :type VERBOSE: bool
+        :param VERBOSE: Flag to include which lemmatizer assigned in
+            a given tag in the return tuple
+        """
+        SequentialBackoffTagger.__init__(self, backoff=None)
+
+        # Setup backoff chain
+        if backoff is None:
+            self._taggers = [self]
+        else:
+            self._taggers = [self] + backoff._taggers
+
+        self.VERBOSE = VERBOSE
+        self.repr = reprlib.Repr()
+        self.repr.maxlist = 1
+        self.repr.maxdict = 1
+
+
+    def tag(self, tokens):
+        # Docs (mostly) inherited from TaggerI
+        # Cf. https://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.tag
+        #
+        # Two tweaks:
+        # 1. Properly handle 'verbose' listing of current tagger in
+        # the case of None (i.e. ``if tag: etc.``)
+        # 2. Keep track of taggers and change return depending on
+        # 'verbose' flag
+        tags = []
+        taggers = []
+        for i in range(len(tokens)):
+            tag, tagger = self.tag_one(tokens, i, tags)
+            tags.append(tag)
+            if tag:
+                taggers.append(tagger)
+            else:
+                taggers.append(None)
+
+        if self.VERBOSE:
+            return(list(zip(tokens, tags, taggers)))
+        else:
+            return list(zip(tokens, tags))
+
+
+    def tag_one(self, tokens, index, history):
+        """
+        Determine an appropriate tag for the specified token, and
+        return that tag.  If this tagger is unable to determine a tag
+        for the specified token, then its backoff tagger is consulted.
+
+        :rtype: tuple
+        :type tokens: list
+        :param tokens: The list of words that are being tagged.
+        :type index: int
+        :param index: The index of the word whose tag should be
+            returned.
+        :type history: list(str)
+        :param history: A list of the tags for all words before index.
+        """
+        lemma = None
+        for tagger in self._taggers:
+            lemma = tagger.choose_tag(tokens, index, history)
+            if lemma is not None:
+                break
+        return lemma, tagger
+
 
     def lemmatize(self, tokens):
-        """Transform tag method into custom method for lemmatizing tasks. Can
-        be overwritten by specific instances where list of tokens should
-        be handled in a different manner. (Cf. IdentityLemmatizer)
-
-        :param tokens: List of tokens to be lemmatized
-        :return: Tuple of the form (TOKEN, LEMMA)
         """
-        return SequentialBackoffLemmatizer.tag(self, tokens)
-
-    def choose_tag(self, tokens, index, history):
-        """Override choose_tag with lemmatizer-specific method for various
-        methods that expect a method with this name.
-
-        :param tokens: List of tokens to be lemmatized
-        :param index: Int with current token
-        :param history: List with tokens that have already been lemmatized
-        :return: String with lemma, if found; otherwise NONE
+        Transform tag method into custom method for lemmatizing
+        tasks. Cf. ``tag`` method above.
         """
-        return self.choose_lemma(tokens, index, history)
+        return self.tag(tokens)
 
 
 class DefaultLemmatizer(SequentialBackoffLemmatizer, DefaultTagger):
