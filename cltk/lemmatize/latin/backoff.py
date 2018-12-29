@@ -1,6 +1,6 @@
 """Module for lemmatizing Latin—includes several classes for different
 lemmatizing approaches--based on training data, regex pattern matching,
-etc. These can be chained together using the backoff parameter. Also, 
+etc. These can be chained together using the backoff parameter. Also,
 includes a pre-built chain that uses models in latin_models_cltk repo
 called BackoffLatinLemmatizer.
 
@@ -30,16 +30,6 @@ from cltk.lemmatize.latin.latin import latin_sub_patterns, latin_verb_patterns, 
 #        backoff = cls(train_sents, backoff=backoff)
 #    return backoff
 
-
-class LemmatizerI(TaggerI):
-    """Inherit base tagging class for Latin lemmatizer."""
-   # def __init__(self):
-   #     TaggerI.__init__(self)
-    pass
-
-
-class SequentialBackoffLemmatizer(LemmatizerI, SequentialBackoffTagger):
-    """"""
     def __init__(self, backoff=None):
         """Setup for SequentialBackoffLemmatizer()
 
@@ -152,7 +142,7 @@ class ContextLemmatizer(SequentialBackoffLemmatizer, ContextTagger):
         """Setup for ContextLemmatizer().
 
         :param context_to_lemmatize: List of tuples of the form (TOKEN, LEMMA);
-        this should be 'gold standard' data that can be used to train on a 
+        this should be 'gold standard' data that can be used to train on a
         given context, e.g. unigrams, bigrams, etc.
         :param backoff: Next lemmatizer in backoff chain.
         """
@@ -242,12 +232,12 @@ class PPLemmatizer(RegexpLemmatizer):
         # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
         self._regexs = latin_verb_patterns
         self.pps = latin_pps
-        
+
 
     def choose_lemma(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on
-        principal parts stems. Tokens are matched for patterns with 
-        the ending kept as a group; the stem is looked up in a dictionary 
+        principal parts stems. Tokens are matched for patterns with
+        the ending kept as a group; the stem is looked up in a dictionary
         by PP number (see above) and ending is discarded.
 
         :param tokens: List of tokens to be lemmatized
@@ -264,8 +254,8 @@ class PPLemmatizer(RegexpLemmatizer):
                     pass
                 else:
                     return match[0] # Lemma is indexed at zero in PP dictionary
-                
-                
+
+
 class RomanNumeralLemmatizer(RegexpLemmatizer):
     """"""
     def __init__(self, regexps=rn_patterns, default=None, backoff=None):
@@ -295,36 +285,36 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
 class ContextPOSLemmatizer(ContextLemmatizer):
     """Lemmatizer that combines context with POS-tagging based on
         training data. Subclasses define context.
-        
+
         The code for _train closely follows ContextTagger in
         https://github.com/nltk/nltk/blob/develop/nltk/tag/sequential.py
-        
-        This lemmatizer is included here as proof of concept that 
+
+        This lemmatizer is included here as proof of concept that
         lemma disambiguation can be made based on the pattern:
         LEMMA & POS of following word.
-        
+
         Should be rewritten to give more flexibility to the kinds
         of context that a free word order language demand. I.e. to
         study patterns such as:
         POS of preceding word & LEMMA
         LEMMA & POS of following two words
         LEMMA & POS of n-skipgrams
-        etc.            
+        etc.
         """
 
     def __init__(self, context_to_lemmatize, include=None, backoff=None):
         """Setup ContextPOSLemmatizer().
 
         :param context_to_lemmatize: List of tuples of the form (TOKEN, LEMMA);
-        this should be 'gold standard' data that can be used to train on a 
+        this should be 'gold standard' data that can be used to train on a
         given context, e.g. unigrams, bigrams, etc.
         :param include: List of tokens to include, all other tokens return None
         from choose_lemma--runs VERY SLOW if no list is given as a parameter
         since every token gets POS-tagged. Only tested so far on 'cum'
-        --also, test data only distinguishes 'cum1'/'cum2'. Further 
+        --also, test data only distinguishes 'cum1'/'cum2'. Further
         testing should be done with ambiguous lemmas using Morpheus numbers.
         :param backoff: Next lemmatizer in backoff chain.
-        :param include: List of tokens to consider        
+        :param include: List of tokens to consider
         """
         # SequentialBackoffLemmatizer.__init__(self, backoff)
         ContextLemmatizer.__init__(self, context_to_lemmatize, backoff)
@@ -338,7 +328,7 @@ class ContextPOSLemmatizer(ContextLemmatizer):
         :param tokens: List of tokens to be POS-tagged
         :return: List with POS-tag for each token
         """
-        # Import (and define tagger) with other imports?    
+        # Import (and define tagger) with other imports?
         from cltk.tag.pos import POSTag
         tagger = POSTag('latin')
         tokens = " ".join(tokens)
@@ -354,7 +344,7 @@ class ContextPOSLemmatizer(ContextLemmatizer):
         :param history: List with POS-tags of tokens that have already
         been lemmatized.
         :return: String with suggested lemma
-        """        
+        """
         if self.include:
             if tokens[index] not in self.include:
                 return None
@@ -471,30 +461,30 @@ class BackoffLatinLemmatizer(object):
     def __init__(self, train, seed=3):
         self.train = train
         self.seed = seed
-        
+
         rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
         path = os.path.expanduser(rel_path)
 
         # Check for presence of LATIN_OLD_MODEL
-        file = 'latin_lemmata_cltk.pickle'      
+        file = 'latin_lemmata_cltk.pickle'
 
         old_model_path = os.path.join(path, file)
         if os.path.isfile(old_model_path):
             self.LATIN_OLD_MODEL = open_pickle(old_model_path)
         else:
             self.LATIN_OLD_MODEL = {}
-            print('The file %s is not available in cltk_data' % file)  
-        
+            print('The file %s is not available in cltk_data' % file)
+
         # Check for presence of LATIN_MODEL
-        file = 'latin_model.pickle'      
+        file = 'latin_model.pickle'
 
         model_path = os.path.join(path, file)
         if os.path.isfile(model_path):
             self.LATIN_MODEL = open_pickle(model_path)
         else:
             self.LATIN_MODEL = {}
-            print('The file %s is not available in cltk_data' % file)  
-        
+            print('The file %s is not available in cltk_data' % file)
+
         # Check for presence of misc_patterns
         self.latin_sub_patterns = latin_sub_patterns
 
@@ -523,10 +513,10 @@ class BackoffLatinLemmatizer(object):
         self.backoff0 = None
         self.backoff1 = IdentityLemmatizer()
         self.backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=self.backoff1)
-        self.backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=self.backoff2)                 
+        self.backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=self.backoff2)
         self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff3)
         self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff4)
-        self.backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)      
+        self.backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)
         #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         #lemmatizer = backoff7
         self.lemmatizer = self.backoff6
@@ -549,15 +539,15 @@ class BackoffLatinLemmatizer(object):
 #    path = os.path.expanduser(rel_path)
 #
 #    # Check for presence of latin_pos_lemmatized_sents
-#    file = 'latin_pos_lemmatized_sents.pickle'      
+#    file = 'latin_pos_lemmatized_sents.pickle'
 #
 #    latin_pos_lemmatized_sents_path = os.path.join(path, file)
 #    if os.path.isfile(latin_pos_lemmatized_sents_path):
 #        latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
 #    else:
 #        latin_pos_lemmatized_sents = []
-#        print('The file %s is not available in cltk_data' % file)  
-#  
+#        print('The file %s is not available in cltk_data' % file)
+#
 #
 #    RUN = 10
 #    ACCURACIES = []
