@@ -3,6 +3,7 @@
 import unicodedata
 import sys
 import re
+from typing import Dict, List, Tuple
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -11,7 +12,7 @@ __license__ = 'MIT License'
 qu_matcher = re.compile("[qQ][uU]")
 
 
-def remove_punctuation_dict() -> dict:
+def remove_punctuation_dict() -> Dict[int, None]:
     """Provide a dictionary for removing punctuation, swallowing spaces.
     :return dict with punctuation from the unicode table
 
@@ -24,7 +25,7 @@ def remove_punctuation_dict() -> dict:
     return tmp
 
 
-def punctuation_for_spaces_dict() -> dict:
+def punctuation_for_spaces_dict() -> Dict[int, str]:
     """Provide a dictionary for removing punctuation, keeping spaces. Essential for scansion
     to keep stress patterns in alignment with original vowel positions in the verse.
     :return dict with punctuation from the unicode table
@@ -37,7 +38,7 @@ def punctuation_for_spaces_dict() -> dict:
                 if unicodedata.category(chr(i)).startswith('P'))
 
 
-def differences(scansion: str, candidate: str) -> list:
+def differences(scansion: str, candidate: str) -> List[int]:
     """"Given two strings, return a list of index positions where the contents differ.
     >>> differences("abc", "abz")
     [2]
@@ -51,7 +52,7 @@ def differences(scansion: str, candidate: str) -> list:
     return diffs
 
 
-def mark_list(line: str) -> list:
+def mark_list(line: str) -> List[int]:
     """"Given a string, return a list of index positions where a character/non blank space exists.
     >>> mark_list(" a b c")
     [1, 3, 5]
@@ -63,7 +64,7 @@ def mark_list(line: str) -> list:
     return marks
 
 
-def space_list(line: str) -> list:
+def space_list(line: str) -> List[int]:
     """"Given a string, return a list of index positions where a blank space occurs.
     >>> space_list("    abc ")
     [0, 1, 2, 3, 7]
@@ -75,7 +76,7 @@ def space_list(line: str) -> list:
     return spaces
 
 
-def flatten(list_of_lists: list) -> list:
+def flatten(list_of_lists):
     """Given a list of lists, flatten all the items into one list.
     >>> flatten([ [1, 2, 3], [4, 5, 6]])
     [1, 2, 3, 4, 5, 6]
@@ -83,7 +84,7 @@ def flatten(list_of_lists: list) -> list:
     return [val for sublist in list_of_lists for val in sublist]
 
 
-def to_syllables_with_trailing_spaces(line: str, syllables: list) -> list:
+def to_syllables_with_trailing_spaces(line: str, syllables: List[str]) -> List[str]:
     """Given a line of syllables and spaces, and a list of syllables, produce a list of the
     syllables with trailing spaces attached as approriate.
     >>> to_syllables_with_trailing_spaces(' arma virumque cano ',
@@ -119,7 +120,7 @@ def to_syllables_with_trailing_spaces(line: str, syllables: list) -> list:
     return syllabs_spaces
 
 
-def join_syllables_spaces(syllables: list, spaces: list) -> str:
+def join_syllables_spaces(syllables: List[str], spaces: List[int]) -> str:
     """Given a list of syllables, and a list of integers indicating the position of spaces, return
     a string that has a space inserted at the designated points.
     >>> join_syllables_spaces(["won", "to", "tree", "dun"], [3, 6, 11])
@@ -141,7 +142,7 @@ def starts_with_qu(word) -> bool:
     return qu_matcher.search(word) is not None
 
 
-def stress_positions(stress: str, scansion: str) -> list:
+def stress_positions(stress: str, scansion: str) -> List[int]:
     """Given a stress value and a scansion line, return the index positions of the stresses.
     >>> stress_positions("-", "    -  U   U - UU    - U U")
     [0, 3, 6]
@@ -154,7 +155,7 @@ def stress_positions(stress: str, scansion: str) -> list:
     return stresses
 
 
-def merge_elisions(elided: list) -> str:
+def merge_elisions(elided: List[str]) -> str:
     """Given a list of strings with different space swapping elisions applied, merge the elisions,
      taking the most without compounding the omissions.
     >>> merge_elisions([
@@ -169,7 +170,7 @@ def merge_elisions(elided: list) -> str:
     return "".join(results)
 
 
-def move_consonant_right(letters: list, positions: list) -> list:
+def move_consonant_right(letters: list, positions: list) -> List[str]:
     """Given a list of letters, and a list of consonant positions, move the consonant positions to
      the right, merging strings as necessary.
      >>> move_consonant_right(list("abbra"), [ 2, 3])
@@ -181,7 +182,7 @@ def move_consonant_right(letters: list, positions: list) -> list:
     return letters
 
 
-def move_consonant_left(letters: list, positions: list) -> list:
+def move_consonant_left(letters: list, positions: list) -> List[str]:
     """Given a list of letters, and a list of consonant positions, move the consonant positions to
      the left, merging strings as necessary.
      >>> move_consonant_left(['a', 'b', '', '', 'bra'], [1])
@@ -192,7 +193,7 @@ def move_consonant_left(letters: list, positions: list) -> list:
     return letters
 
 
-def merge_next(letters: list, positions: list) -> list:
+def merge_next(letters: list, positions: list) -> List[str]:
     """Given a list of letter positions, merge each letter with its next neighbor.
     >>> merge_next(['a', 'b', 'o', 'v', 'o' ], [0, 2])
     ['ab', '', 'ov', '', 'o']
@@ -206,7 +207,7 @@ def merge_next(letters: list, positions: list) -> list:
     return letters
 
 
-def remove_blanks(letters: list):
+def remove_blanks(letters: List[str]):
     """Given a list of letters, remove any empty strings.
     >>> remove_blanks(['a', '', 'b', '', 'c'])
     ['a', 'b', 'c']
@@ -218,7 +219,7 @@ def remove_blanks(letters: list):
     return cleaned
 
 
-def split_on(word: str, section: str) -> tuple:
+def split_on(word: str, section: str) -> Tuple[str, str]:
     """Given a string, split on a section, and return the two sections as a tuple.
     >>> split_on('hamrye', 'ham')
     ('ham', 'rye')
@@ -226,7 +227,7 @@ def split_on(word: str, section: str) -> tuple:
     return word[:word.index(section)] + section, word[word.index(section) + len(section):]
 
 
-def remove_blank_spaces(syllables) -> list:
+def remove_blank_spaces(syllables) -> List[str]:
     """Given a list of letters, remove any blank spaces or empty strings.
     >>> remove_blank_spaces(['', 'a', ' ', 'b', ' ', 'c', ''])
     ['a', 'b', 'c']
@@ -240,7 +241,7 @@ def remove_blank_spaces(syllables) -> list:
     return cleaned
 
 
-def overwrite(char_list: list, regexp: str, quality: str, offset: 'int >=0' = 0) -> list:
+def overwrite(char_list: List[str], regexp: str, quality: str, offset: int = 0) -> List[str]:
     """Given a list of characters and spaces, a matching regular expression, and a quality or
      character, replace the matching character with a space, overwriting with an offset and
      a multiplier if provided.
@@ -256,7 +257,7 @@ def overwrite(char_list: list, regexp: str, quality: str, offset: 'int >=0' = 0)
     return char_list
 
 
-def overwrite_dipthong(char_list: list, regexp: str, quality: str) -> list:
+def overwrite_dipthong(char_list: List[str], regexp: str, quality: str) -> List[str]:
     """Given a list of characters and spaces, a matching regular expression, and a quality or
      character, replace the matching character with a space, overwriting with an offset and
      a multiplier if provided.
@@ -273,7 +274,7 @@ def overwrite_dipthong(char_list: list, regexp: str, quality: str) -> list:
     return char_list
 
 
-def get_unstresses(stresses: list, count: int) -> list:
+def get_unstresses(stresses: List[int], count: int) -> List[int]:
     """Given a list of stressed positions, and count of possible positions, return a list of
     the unstressed positions.
     >>> get_unstresses([0, 3, 6, 9, 12, 15], 17)
