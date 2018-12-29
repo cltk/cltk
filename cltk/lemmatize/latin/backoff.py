@@ -156,35 +156,29 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
 
 
 class IdentityLemmatizer(SequentialBackoffLemmatizer):
-    """"""
-    def __init__(self, backoff=None):
-        """Setup for IdentityLemmatizer()."""
-        SequentialBackoffLemmatizer.__init__(self, backoff)
+    """
+    Lemmatizer that returns a given token as its lemma.
 
-    def lemmatize(self, tokens):
-        """
-        Custom lemmatize method for working with identity. No need to
-        call tagger because token is return as lemma.
-        :param tokens: List of tokens to be lemmatized
-        :return: Tuple of the form (TOKEN, LEMMA)
+        >>> from cltk.lemmatize.latin.backoff import IdentityLemmatizer
+        >>> identity_lemmatizer = IdentityLemmatizer()
+        >>> list(identity_lemmatizer.lemmatize('arma virumque cano'.split()))
+        [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]
 
-        Note: "enumerate" may be better way of handling this loop in general;
-        compare "range(len(tokens))" in nltk.tag.sequential.
-        """
-        lemmas = []
-        for i in enumerate(tokens):
-            lemmas.append(i[1])
-        return list(zip(tokens, lemmas))
+    Like DefaultLemmatizer, useful as the final tagger in a chain,
+    e.g. to assign a possible form to all remaining unlemmatized
+    tokens, increasing the chance of a successful match.
+    """
 
-    def choose_lemma(self, tokens, index, history):
-        """Returns the given token as the lemma.
+    def __init__(self, backoff=None, VERBOSE=False):
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
 
-        :param tokens: List of tokens to be lemmatized
-        :param index: Int with current token
-        :param history: List with tokens that have already been lemmatized
-        :return: String, spec. the token found at the current index.
-        """
+
+    def choose_tag(self, tokens, index, history):
         return tokens[index]
+
+
+    def __repr__(self):
+        return f'<IdentityLemmatizer>'
 
 
 class TrainLemmatizer(SequentialBackoffLemmatizer):
