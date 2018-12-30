@@ -259,11 +259,11 @@ class VerseScanner:
         unstresses = StringUtils.get_unstresses(stresses, len(syllables_wspaces))
         try:
             for idx in unstresses:
-                location = offset_map[idx]
+                location = offset_map.get(idx)
                 if location is not None:
                     scansion[location] = self.constants.UNSTRESSED
             for idx in stresses:
-                location = offset_map[idx]
+                location = offset_map.get(idx)
                 if location is not None:
                     scansion[location] = self.constants.STRESSED
         except Exception as e:

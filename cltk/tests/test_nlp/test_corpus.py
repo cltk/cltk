@@ -284,18 +284,8 @@ argenteo polubro, aureo eclutro. """
         ALL_FILE_IDS = list(reader.fileids())
         self.assertTrue(len(ALL_FILE_IDS) > 2100)
 
-    def test_import_latin_library_corpus_reader_by_dir(self):
-        """Test the Latin Library corpus reader."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_latin_library')
-        reader = get_corpus_reader('latin_text_latin_library')
-        ALL_FILE_IDS = list(reader.fileids())
-        self.assertTrue(len(ALL_FILE_IDS) > 2100)
-
     def test_import_latin_library_corpus_filter_by_file(self):
         """Test the Latin Library corpus reader filter by files."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_latin_library')
         reader = get_corpus_reader('latin_text_latin_library')
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'], None,
                                                                    corpus_texts_by_type)
@@ -304,8 +294,6 @@ argenteo polubro, aureo eclutro. """
 
     def test_import_latin_library_corpus_filter_by_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
-        corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_latin_library')
         reader = get_corpus_reader('latin_text_latin_library')
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
                                                                    corpus_directories_by_type,
