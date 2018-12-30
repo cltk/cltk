@@ -1,4 +1,7 @@
 """Test cltk.corpus."""
+from unicodedata import normalize
+import os
+import unittest
 
 from cltk.corpus.greek.alphabet import expand_iota_subscript
 from cltk.corpus.greek.alphabet import filter_non_greek
@@ -41,16 +44,17 @@ from cltk.corpus.utils.importer import CorpusImportError
 from cltk.corpus.sanskrit.itrans.itrans_transliterator import *
 from cltk.corpus.sanskrit.itrans.unicode_transliterate import *
 from cltk.corpus.sanskrit.itrans.langinfo import *
-from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagariTransliterator  as sdt
+from cltk.corpus.sanskrit.itrans.sinhala_transliterator import \
+    SinhalaDevanagariTransliterator  as sdt
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 from cltk.corpus.utils.formatter import normalize_fr
 from cltk.corpus.swadesh import Swadesh
-
-from unicodedata import normalize
-import os
-import unittest
+from cltk.corpus.readers import assemble_corpus, FilteredPlaintextCorpusReader
+from cltk.corpus.latin import get_corpus_reader
+from cltk.corpus.latin.latin_library_corpus_types import corpus_texts_by_type, \
+    corpus_directories_by_type
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -272,6 +276,43 @@ argenteo polubro, aureo eclutro. """
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
 
+    def test_import_latin_library_corpus_reader(self):
+        """Test the Latin Library corpus reader."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        reader = get_corpus_reader('latin_text_latin_library')
+        ALL_FILE_IDS = list(reader.fileids())
+        self.assertTrue(len(ALL_FILE_IDS) > 2100)
+
+    def test_import_latin_library_corpus_reader_by_dir(self):
+        """Test the Latin Library corpus reader."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        reader = get_corpus_reader('latin_text_latin_library')
+        ALL_FILE_IDS = list(reader.fileids())
+        self.assertTrue(len(ALL_FILE_IDS) > 2100)
+
+    def test_import_latin_library_corpus_filter_by_file(self):
+        """Test the Latin Library corpus reader filter by files."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        reader = get_corpus_reader('latin_text_latin_library')
+        filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'], None,
+                                                                   corpus_texts_by_type)
+        self.assertTrue(len(list(filtered_reader.fileids())) < len(list(reader.fileids())))
+        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+    def test_import_latin_library_corpus_filter_by_dir(self):
+        """Test the Latin Library corpus reader filter by directories."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        reader = get_corpus_reader('latin_text_latin_library')
+        filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
+                                                                   corpus_directories_by_type,
+                                                                   None)
+        self.assertTrue(len(list(filtered_reader.fileids())) < len(list(reader.fileids())))
+        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
         corpus_importer = CorpusImporter('latin')
@@ -456,17 +497,11 @@ argenteo polubro, aureo eclutro. """
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(str_test, englishToPun_number(1234567890))
 
-    def test_corpora_import_list_greek(self):
-        """Test listing of available corpora."""
-        corpus_importer = CorpusImporter('greek', testing=True)
-        available_corpora = corpus_importer.list_corpora
-        self.assertTrue(available_corpora)
-
     def make_distributed_corpora_testing_file(self):
         """Setup for some cloning tests, make file at
         '~/cltk_data/test_distributed_corpora.yaml'.
         """
-        #! Don't format this literal string, must be YAML-ish
+        # ! Don't format this literal string, must be YAML-ish
         yaml_str_to_write = """example_distributed_latin_corpus:
         git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
         language: latin
@@ -645,7 +680,8 @@ class TestTransliteration(unittest.TestCase):
         self.assertEqual(y, 'योगश्चित्तव्ऱ्त्तिनिरोधः')
         self.assertEqual(z, 'yogazcittavRttinirodhaH')
 
-    def test_ScriptConversion(self):  # Test UnicodeIndicTransliterator - Convert between various scripts
+    def test_ScriptConversion(
+            self):  # Test UnicodeIndicTransliterator - Convert between various scripts
         x = UnicodeIndicTransliterator.transliterate('राजस्थान', "hi", "pa")
         self.assertEqual(x, 'ਰਾਜਸ੍ਥਾਨ')
         y = UnicodeIndicTransliterator.transliterate('සිංහල අක්ෂර මාලාව', "si", "hi")

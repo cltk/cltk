@@ -1,6 +1,7 @@
 """Miscellaneous file operations used by various parts of the CLTK."""
 
 import os.path
+import hashlib
 import pickle
 
 from cltk.utils.cltk_logger import logger
@@ -51,3 +52,14 @@ def open_pickle(path: str):
     except pickle.UnpicklingError as unp_error:
         logger.error(unp_error)
         raise
+
+
+def md5(filename:str)->str:
+    """
+    Given a filename produce an md5 hash of the contents.
+    """
+    hash_md5 = hashlib.md5()
+    with open(filename, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
