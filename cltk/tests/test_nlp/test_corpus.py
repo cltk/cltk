@@ -2,6 +2,7 @@
 from unicodedata import normalize
 import os
 import unittest
+from unittest.mock import patch
 
 from cltk.corpus.greek.alphabet import expand_iota_subscript
 from cltk.corpus.greek.alphabet import filter_non_greek
@@ -267,6 +268,20 @@ argenteo polubro, aureo eclutro. """
         valid = ' Dices   pulchrum esse inimicos ulcisci.'
         self.assertEqual(non_latin_str, valid)
 
+    def test_latin_library_reader_missing_corpus(self):
+        """
+        Needs to precede (for now) the next two tests which load the corpus
+        Provided by Patrick Burns
+        """
+        corpus_importer = CorpusImporter('latin')
+        # corpus_importer.import_corpus('latin_text_latin_library')
+        corpus_importer.import_corpus('latin_models_cltk')
+
+        def _import():
+            with patch('builtins.input', return_value='n'):
+                from cltk.corpus.latin.readers import latinlibrary
+                self.assertRaises(OSError, _import)
+
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
@@ -289,7 +304,6 @@ argenteo polubro, aureo eclutro. """
         reader = get_corpus_reader('latin_text_latin_library')
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'], None,
                                                                    corpus_texts_by_type)
-        self.assertTrue(len(list(filtered_reader.fileids())) < len(list(reader.fileids())))
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
     def test_import_latin_library_corpus_filter_by_dir(self):
@@ -298,7 +312,6 @@ argenteo polubro, aureo eclutro. """
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
                                                                    corpus_directories_by_type,
                                                                    None)
-        self.assertTrue(len(list(filtered_reader.fileids())) < len(list(reader.fileids())))
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
     def test_import_latin_models_cltk(self):
