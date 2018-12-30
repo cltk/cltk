@@ -24,6 +24,7 @@ before_script:
 - pip install numpy
 - pip install scipy 
 - pip install scikit-learn
+- python cltk/tests/download_test_corpora.py
 
 script:
   # Notes on nose:

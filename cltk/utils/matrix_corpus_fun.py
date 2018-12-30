@@ -14,6 +14,9 @@ from cltk.stem.latin.j_v import JVReplacer
 from cltk.prosody.latin.string_utils import punctuation_for_spaces_dict, remove_punctuation_dict
 from cltk.prosody.latin.scansion_constants import ScansionConstants
 
+__author__ = ['Todd Cook <todd.g.cook@gmail.com>']
+__license__ = 'MIT License'
+
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
