@@ -56,6 +56,7 @@ from cltk.corpus.readers import assemble_corpus, FilteredPlaintextCorpusReader
 from cltk.corpus.latin import get_corpus_reader
 from cltk.corpus.latin.latin_library_corpus_types import corpus_texts_by_type, \
     corpus_directories_by_type
+from cltk.utils.matrix_corpus_fun import distinct_words
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -314,7 +315,6 @@ argenteo polubro, aureo eclutro. """
                                                                    None)
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
-
     def test_import_latin_library_corpus_filter_by_file_and_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
         reader = get_corpus_reader('latin_text_latin_library')
@@ -327,25 +327,52 @@ argenteo polubro, aureo eclutro. """
         """Test filtered corpus sents method."""
         reader = get_corpus_reader('latin_text_latin_library')
         reader._fileids = ['catullus.txt']
-        self.assertTrue(len(list(reader.sents())) > 0)
+        sents = list(reader.sents())
+        uniq_words = distinct_words(sents)
+        if 'Latin' in uniq_words:
+            self.fail('Filtered word present!')
+        if 'Library' in uniq_words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(sents) > 0)
 
     def test_filtered_corpus_reader_paras(self):
         """Test filtered corpus paras method."""
         reader = get_corpus_reader('latin_text_latin_library')
         reader._fileids = ['catullus.txt']
-        self.assertTrue(len(list(reader.paras())) > 0)
+        paras = list(reader.paras())
+        sents = [sent
+                 for para in paras
+                 for sent in para]
+        uniq_words = distinct_words(sents)
+        if 'Latin' in uniq_words:
+            self.fail('Filtered word present!')
+        if 'Library' in uniq_words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(paras) > 0)
 
     def test_filtered_corpus_reader_words(self):
         """Test filtered corpus words method."""
         reader = get_corpus_reader('latin_text_latin_library')
         reader._fileids = ['catullus.txt']
-        self.assertTrue(len(list(reader.words())) > 0)
+        words = list(reader.words())
+        uniq_words = distinct_words(words)
+        if 'Latin' in uniq_words:
+            self.fail('Filtered word present!')
+        if 'Library' in uniq_words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(words) > 0)
 
     def test_filtered_corpus_reader_docs(self):
         """Test filtered corpus docs method."""
         reader = get_corpus_reader('latin_text_latin_library')
         reader._fileids = ['catullus.txt']
-        self.assertTrue(len(list(reader.docs())) > 0)
+        docs = list(reader.docs())
+        words = distinct_words(docs)
+        if 'Latin' in words:
+            self.fail('Filtered word present!')
+        if 'Library' in words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(docs) > 0)
 
     def test_filtered_corpus_reader_sizes(self):
         """Test filtered corpus sizes method."""
