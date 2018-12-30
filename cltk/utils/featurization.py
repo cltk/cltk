@@ -14,8 +14,10 @@ def word_to_features(word: str, max_word_length: int = 20) -> List[int]:
     :param max_word_length: the maximum word length for the feature array
     :return: A list of ordinal integers mapped to each character and padded to the max word length.
 
-    >>> word_to_features('far', 20)
+    >>> word_to_features('far')
     [114, 97, 102, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32]
+    >>> word_to_features('far', 5)
+    [114, 97, 102, 32, 32]
     """
     if len(word) > max_word_length:
         LOG.warning('Excessive word length {} for {}, truncating to {}'.format(len(word), word,

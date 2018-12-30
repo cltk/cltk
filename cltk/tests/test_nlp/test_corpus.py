@@ -314,6 +314,45 @@ argenteo polubro, aureo eclutro. """
                                                                    None)
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
+
+    def test_import_latin_library_corpus_filter_by_file_and_dir(self):
+        """Test the Latin Library corpus reader filter by directories."""
+        reader = get_corpus_reader('latin_text_latin_library')
+        filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
+                                                                   corpus_directories_by_type,
+                                                                   corpus_texts_by_type)
+        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+    def test_filtered_corpus_reader_sents(self):
+        """Test filtered corpus sents method."""
+        reader = get_corpus_reader('latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        self.assertTrue(len(list(reader.sents())) > 0)
+
+    def test_filtered_corpus_reader_paras(self):
+        """Test filtered corpus paras method."""
+        reader = get_corpus_reader('latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        self.assertTrue(len(list(reader.paras())) > 0)
+
+    def test_filtered_corpus_reader_words(self):
+        """Test filtered corpus words method."""
+        reader = get_corpus_reader('latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        self.assertTrue(len(list(reader.words())) > 0)
+
+    def test_filtered_corpus_reader_docs(self):
+        """Test filtered corpus docs method."""
+        reader = get_corpus_reader('latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        self.assertTrue(len(list(reader.docs())) > 0)
+
+    def test_filtered_corpus_reader_sizes(self):
+        """Test filtered corpus sizes method."""
+        reader = get_corpus_reader('latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        self.assertTrue(len(list(reader.sizes())) > 0)
+
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
         corpus_importer = CorpusImporter('latin')
