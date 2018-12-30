@@ -1,6 +1,5 @@
 """`download_test_corpora.py` - helper class to download test corpora."""
 import logging
-import os
 
 from cltk.corpus.utils.importer import CorpusImporter
 

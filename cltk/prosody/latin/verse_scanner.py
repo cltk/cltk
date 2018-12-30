@@ -10,7 +10,6 @@ Some useful methods
 
 import re
 import logging
-from collections import defaultdict
 from typing import List, Dict, Any
 
 from cltk.prosody.latin.verse import Verse
