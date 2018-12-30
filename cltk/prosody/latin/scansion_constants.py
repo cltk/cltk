@@ -5,8 +5,9 @@ __license__ = 'MIT License'
 
 
 class ScansionConstants:
-    """Constants containing strings have characters in upper and lower case since they will
-     often be used in regular expressions, and used to preserve/a verse's original case.
+    """
+    Constants containing strings have characters in upper and lower case since they will
+    often be used in regular expressions, and used to preserve/a verse's original case.
 
     This class also allows users to customizing scansion constants and scanner behavior.
 
@@ -19,7 +20,6 @@ class ScansionConstants:
     >>> print(smaller_constants.DACTYL)
     ¯˘˘
     """
-
     # pylint: disable=invalid-name
     # pylint: disable=too-many-instance-attributes
     # pylint: disable=too-few-public-methods

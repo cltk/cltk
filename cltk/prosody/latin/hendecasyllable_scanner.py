@@ -9,13 +9,13 @@ import re
 
 from Levenshtein import distance
 
-from cltk.prosody.latin.Verse import Verse
-from cltk.prosody.latin.MetricalValidator import MetricalValidator
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
-from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
-from cltk.prosody.latin.Syllabifier import Syllabifier
-import cltk.prosody.latin.StringUtils as StringUtils
-from cltk.prosody.latin.VerseScanner import VerseScanner
+import cltk.prosody.latin.string_utils as StringUtils
+from cltk.prosody.latin.verse import Verse
+from cltk.prosody.latin.metrical_validator import MetricalValidator
+from cltk.prosody.latin.scansion_constants import ScansionConstants
+from cltk.prosody.latin.scansion_formatter import ScansionFormatter
+from cltk.prosody.latin.syllabifier import Syllabifier
+from cltk.prosody.latin.verse_scanner import VerseScanner
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -45,8 +45,11 @@ class HendecasyllableScanner(VerseScanner):
         self.optional_transform = optional_tranform
 
     def scan(self, original_line: str, optional_transform: bool = False) -> Verse:
-        """Scan a line of Latin hendecasyllables and produce a scansion pattern, and other data.
+        """
+        Scan a line of Latin hendecasyllables and produce a scansion pattern, and other data.
 
+        :param original_line: the original line of Latin verse
+        :param optional_transform: whether or not to perform i to j transform for syllabification
         :return: a Verse object
 
         >>> scanner = HendecasyllableScanner()
@@ -82,7 +85,6 @@ class HendecasyllableScanner(VerseScanner):
             verse.valid = False
             verse.scansion_notes += [self.constants.NOTE_MAP["< 11"]]
             return verse
-
 
         stresses = self.flag_dipthongs(syllables)
         syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
@@ -148,10 +150,12 @@ class HendecasyllableScanner(VerseScanner):
         return verse
 
     def correct_invalid_start(self, scansion: str) -> str:
-        """The third syllable of a hendecasyllabic line is long, so we will convert it
+        """
+        The third syllable of a hendecasyllabic line is long, so we will convert it.
 
-        :param scansion:
+        :param scansion: scansion string
         :return: scansion string with corrected start
+
         >>> print(HendecasyllableScanner().correct_invalid_start(
         ... "- U U  U U  - U   -  U - U").strip())
         - U -  U U  - U   -  U - U
@@ -165,7 +169,8 @@ class HendecasyllableScanner(VerseScanner):
         return "".join(new_line)
 
     def correct_antepenult_chain(self, scansion: str) -> str:
-        """For hendecasyllables the last three feet of the verse are predictable
+        """
+        For hendecasyllables the last three feet of the verse are predictable
         and do not regularly allow substitutions.
 
         :param scansion: scansion line thus far

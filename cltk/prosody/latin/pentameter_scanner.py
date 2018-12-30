@@ -9,13 +9,13 @@ import re
 
 from Levenshtein import distance
 
-from cltk.prosody.latin.Verse import Verse
-from cltk.prosody.latin.MetricalValidator import MetricalValidator
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
-from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
-from cltk.prosody.latin.Syllabifier import Syllabifier
-import cltk.prosody.latin.StringUtils as StringUtils
-from cltk.prosody.latin.VerseScanner import VerseScanner
+from cltk.prosody.latin.verse import Verse
+from cltk.prosody.latin.metrical_validator import MetricalValidator
+from cltk.prosody.latin.scansion_constants import ScansionConstants
+from cltk.prosody.latin.scansion_formatter import ScansionFormatter
+from cltk.prosody.latin.syllabifier import Syllabifier
+import cltk.prosody.latin.string_utils as StringUtils
+from cltk.prosody.latin.verse_scanner import VerseScanner
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -52,7 +52,12 @@ class PentameterScanner(VerseScanner):
                                    self.constants.DACTYL + self.constants.OPTIONAL_ENDING
 
     def scan(self, original_line: str, optional_transform: bool = False) -> Verse:
-        """Scan a line of Latin pentameter and produce a scansion pattern, and other data.
+        """
+        Scan a line of Latin pentameter and produce a scansion pattern, and other data.
+
+        :param original_line: the original line of Latin verse
+        :param optional_transform: whether or not to perform i to j transform for syllabification
+        :return: a Verse object
 
         >>> scanner = PentameterScanner()
         >>> print(scanner.scan('ex hoc ingrato gaudia amore tibi.'))
@@ -162,7 +167,11 @@ class PentameterScanner(VerseScanner):
         return verse
 
     def make_spondaic(self, scansion: str) -> str:
-        """If a pentameter line has 12 syllables, then it must start with double spondees.
+        """
+        If a pentameter line has 12 syllables, then it must start with double spondees.
+
+        :param scansion: a string of scansion patterns
+        :return: a scansion pattern string starting with two spondees
 
         >>> print(PentameterScanner().make_spondaic("U  U  U  U  U  U  U  U  U  U  U  U"))
         -  -  -  -  -  -  U  U  -  U  U  U
@@ -177,7 +186,11 @@ class PentameterScanner(VerseScanner):
         return "".join(new_line)
 
     def make_dactyls(self, scansion: str) -> str:
-        """If a pentameter line has 14 syllables, it starts and ends with double dactyls.
+        """
+        If a pentameter line has 14 syllables, it starts and ends with double dactyls.
+
+        :param scansion: a string of scansion patterns
+        :return: a scansion pattern string starting and ending with double dactyls
 
         >>> print(PentameterScanner().make_dactyls("U  U  U  U  U  U  U  U  U  U  U  U  U  U"))
         -  U  U  -  U  U  -  -  U  U  -  U  U  U
@@ -192,8 +205,10 @@ class PentameterScanner(VerseScanner):
         return "".join(new_line)
 
     def correct_penultimate_dactyl_chain(self, scansion: str) -> str:
-        """For pentameter the last two feet of the verse are predictable dactyls,
+        """
+        For pentameter the last two feet of the verse are predictable dactyls,
         and do not regularly allow substitutions.
+
         :param scansion: scansion line thus far
         :return: corrected line of scansion
 
