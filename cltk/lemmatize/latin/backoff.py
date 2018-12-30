@@ -267,32 +267,38 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
         return f'<UnigramLemmatizer: {self.repr.repr(self.train)}>'
 
 
-class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
+class RegexpLemmatizer(SequentialBackoffLemmatizer):
     """"""
 
-    def __init__(self, regexps=None, backoff=None):
+    def __init__(self, regexps=None, backoff=None, VERBOSE=False):
         """Setup for RegexpLemmatizer()
-
+        :type regexps: list
         :param regexps: List of tuples of form (PATTERN, REPLACEMENT)
         :param backoff: Next lemmatizer in backoff chain.
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff)
-        RegexpTagger.__init__(self, regexps, backoff)
+        SequentialBackoffLemmatizer.__init__(self, backoff, VERBOSE=VERBOSE)
         self._regexs = regexps
 
-    def choose_lemma(self, tokens, index, history):
+
+    def choose_tag(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on word endings;
         tokens are matched for patterns with the base kept as a group; an word ending
         replacement is added to the (base) group.
+        :rtype: str
+        :type tokens: list
         :param tokens: List of tokens to be lemmatized
+        :type index: int
         :param index: Int with current token
-        :param history: List with tokens that have already been lemmatized
-        :return: Str with concatenated lemma
+        :type history: list
+        :param history: List with tokens that have already been lemmatized; NOT USED
         """
         for pattern, replace in self._regexs:
             if re.search(pattern, tokens[index]):
                 return re.sub(pattern, replace, tokens[index])
-                break # pragma: no cover
+
+
+    def __repr__(self):
+        return f'<RegexpLemmatizer: {self.repr.repr(self._regexs)}>'
 
 
 class PPLemmatizer(RegexpLemmatizer):
@@ -361,172 +367,163 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
                     return replace
                 break # pragma: no cover
 
-
-class ContextPOSLemmatizer(ContextLemmatizer):
-    """Lemmatizer that combines context with POS-tagging based on
-        training data. Subclasses define context.
-
-        The code for _train closely follows ContextTagger in
-        https://github.com/nltk/nltk/blob/develop/nltk/tag/sequential.py
-
-        This lemmatizer is included here as proof of concept that
-        lemma disambiguation can be made based on the pattern:
-        LEMMA & POS of following word.
-
-        Should be rewritten to give more flexibility to the kinds
-        of context that a free word order language demand. I.e. to
-        study patterns such as:
-        POS of preceding word & LEMMA
-        LEMMA & POS of following two words
-        LEMMA & POS of n-skipgrams
-        etc.
-        """
-
-    def __init__(self, context_to_lemmatize, include=None, backoff=None):
-        """Setup ContextPOSLemmatizer().
-
-        :param context_to_lemmatize: List of tuples of the form (TOKEN, LEMMA);
-        this should be 'gold standard' data that can be used to train on a
-        given context, e.g. unigrams, bigrams, etc.
-        :param include: List of tokens to include, all other tokens return None
-        from choose_lemma--runs VERY SLOW if no list is given as a parameter
-        since every token gets POS-tagged. Only tested so far on 'cum'
-        --also, test data only distinguishes 'cum1'/'cum2'. Further
-        testing should be done with ambiguous lemmas using Morpheus numbers.
-        :param backoff: Next lemmatizer in backoff chain.
-        :param include: List of tokens to consider
-        """
-        # SequentialBackoffLemmatizer.__init__(self, backoff)
-        ContextLemmatizer.__init__(self, context_to_lemmatize, backoff)
-        self.include = include
-        self._context_to_tag = (context_to_lemmatize if context_to_lemmatize else {})
-
-    def _get_pos_tags(self, tokens):
-        """Iterate through list of tokens and use POS tagger to build
-        a corresponding list of tags.
-
-        :param tokens: List of tokens to be POS-tagged
-        :return: List with POS-tag for each token
-        """
-        # Import (and define tagger) with other imports?
-        from cltk.tag.pos import POSTag
-        tagger = POSTag('latin')
-        tokens = " ".join(tokens)
-        tags = tagger.tag_ngram_123_backoff(tokens)
-        tags = [tag[1][0].lower() if tag[1] else tag[1] for tag in tags]
-        return tags
-
-    def choose_lemma(self, tokens, index, history):
-        """Choose lemma based on POS-tag defined by context.
-
-        :param tokens: List of tokens to be lemmatized
-        :param index: Int with current token
-        :param history: List with POS-tags of tokens that have already
-        been lemmatized.
-        :return: String with suggested lemma
-        """
-        if self.include:
-            if tokens[index] not in self.include:
-                return None
-        history = self._get_pos_tags(tokens)
-        context = self.context(tokens, index, history)
-        suggested_lemma = self._context_to_tag.get(context)
-        return suggested_lemma
-
-    def _train(self, lemma_pos_corpus, cutoff=0):
-        """Override method for _train from ContextTagger in
-        nltk.tag.sequential. Original _train method expects
-        tagged corpus of form (TOKEN, LEMMA); this expects in
-        addition POS-tagging information.
-
-        :param lemma_pos_corpus: List of tuples of form (TOKEN, LEMMA, POSTAG)
-        :param cutoff: Int with minimum number of matches to choose lemma
-        """
-        token_count = hit_count = 0
-
-        # A context is considered 'useful' if it's not already lemmatized
-        # perfectly by the backoff lemmatizer.
-        useful_contexts = set()
-
-        # Count how many times each tag occurs in each context.
-        fd = ConditionalFreqDist()
-        for sentence in lemma_pos_corpus:
-            tokens, lemmas, poss = zip(*sentence)
-            for index, (token, lemma, pos) in enumerate(sentence):
-                # Record the event.
-                token_count += 1
-
-                context = self.context(tokens, index, poss)
-                if context is None: continue
-                fd[context][lemma] += 1
-
-                # If the backoff got it wrong, this context is useful:
-                if (self.backoff is None or lemma != self.backoff.tag_one(tokens, index, lemmas[:index])):  # pylint: disable=line-too-long
-                    useful_contexts.add(context)
-
-        # Build the context_to_lemmatize table -- for each context, figure
-        # out what the most likely lemma is. Only include contexts that
-        # we've seen at least `cutoff` times.
-        for context in useful_contexts:
-            best_lemma = fd[context].max()
-            hits = fd[context][best_lemma]
-            if hits > cutoff:
-                self._context_to_tag[context] = best_lemma
-                hit_count += hits
-
-
-class NgramPOSLemmatizer(ContextPOSLemmatizer):
-    """"""
-    def __init__(self, n, train=None, model=None, include=None,
-                 backoff=None, cutoff=0):
-        """Setup for NgramPOSLemmatizer
-
-        :param n: Int with length of 'n'-gram
-        :param train: List of tuples of the form (TOKEN, LEMMA, POS)
-        :param model: Dict; DEPRECATED
-        :param include: List of tokens to consider
-        :param backoff: Next lemmatizer in backoff chain.
-        :param cutoff: Int with minimum number of matches to choose lemma
-        """
-        self._n = n
-        self._check_params(train, model)
-        ContextPOSLemmatizer.__init__(self, model, include, backoff)
-
-        if train:
-            self._train(train, cutoff)
-
-    def context(self, tokens, index, history):
-        """Redefines context with look-ahead of length n (not look behind
-        as in original method).
-
-        :param tokens: List of tokens to be lemmatized
-        :param index: Int with current token
-        :param history: List with tokens that have already been
-        tagged/lemmatized
-        :return: Tuple of the form (TOKEN, (CONTEXT)); CONTEXT will
-        depend on ngram value, e.g. for bigram ('cum', ('n',)) but
-        for trigram ('cum', ('n', 'n', ))
-        """
-        lemma_context = tuple(history[index + 1: index + self._n])
-        return tokens[index], lemma_context
-
-
-class BigramPOSLemmatizer(NgramPOSLemmatizer):
-    """"""
-    def __init__(self, train=None, model=None, include=None,
-                 backoff=None, cutoff=0):
-        """Setup for BigramPOSLemmatizer()"""
-        NgramPOSLemmatizer.__init__(self, 2, train, model,
-                                    include, backoff, cutoff)
-
-
-#class TrigramPOSLemmatizer(NgramPOSLemmatizer):
-#    """"""
-#    def __init__(self, train=None, model=None, include=None,
-#                 backoff=None, cutoff=0):
-#        """Setup for TrigramPOSLemmatizer()"""
-#        NgramPOSLemmatizer.__init__(self, 3, train, model, include,
-#                                    backoff, cutoff)
+# EXPERIMENTAL—NEEDS REVIEW
+# class ContextPOSLemmatizer(ContextLemmatizer):
+#     """Lemmatizer that combines context with POS-tagging based on
+#         training data. Subclasses define context.
+#
+#         The code for _train closely follows ContextTagger in
+#         https://github.com/nltk/nltk/blob/develop/nltk/tag/sequential.py
+#
+#         This lemmatizer is included here as proof of concept that
+#         lemma disambiguation can be made based on the pattern:
+#         LEMMA & POS of following word.
+#
+#         Should be rewritten to give more flexibility to the kinds
+#         of context that a free word order language demand. I.e. to
+#         study patterns such as:
+#         POS of preceding word & LEMMA
+#         LEMMA & POS of following two words
+#         LEMMA & POS of n-skipgrams
+#         etc.
+#         """
+#
+#     def __init__(self, context_to_lemmatize, include=None, backoff=None):
+#         """Setup ContextPOSLemmatizer().
+#
+#         :param context_to_lemmatize: List of tuples of the form (TOKEN, LEMMA);
+#         this should be 'gold standard' data that can be used to train on a
+#         given context, e.g. unigrams, bigrams, etc.
+#         :param include: List of tokens to include, all other tokens return None
+#         from choose_lemma--runs VERY SLOW if no list is given as a parameter
+#         since every token gets POS-tagged. Only tested so far on 'cum'
+#         --also, test data only distinguishes 'cum1'/'cum2'. Further
+#         testing should be done with ambiguous lemmas using Morpheus numbers.
+#         :param backoff: Next lemmatizer in backoff chain.
+#         :param include: List of tokens to consider
+#         """
+#         # SequentialBackoffLemmatizer.__init__(self, backoff)
+#         ContextLemmatizer.__init__(self, context_to_lemmatize, backoff)
+#         self.include = include
+#         self._context_to_tag = (context_to_lemmatize if context_to_lemmatize else {})
+#
+#     def _get_pos_tags(self, tokens):
+#         """Iterate through list of tokens and use POS tagger to build
+#         a corresponding list of tags.
+#
+#         :param tokens: List of tokens to be POS-tagged
+#         :return: List with POS-tag for each token
+#         """
+#         # Import (and define tagger) with other imports?
+#         from cltk.tag.pos import POSTag
+#         tagger = POSTag('latin')
+#         tokens = " ".join(tokens)
+#         tags = tagger.tag_ngram_123_backoff(tokens)
+#         tags = [tag[1][0].lower() if tag[1] else tag[1] for tag in tags]
+#         return tags
+#
+#     def choose_lemma(self, tokens, index, history):
+#         """Choose lemma based on POS-tag defined by context.
+#
+#         :param tokens: List of tokens to be lemmatized
+#         :param index: Int with current token
+#         :param history: List with POS-tags of tokens that have already
+#         been lemmatized.
+#         :return: String with suggested lemma
+#         """
+#         if self.include:
+#             if tokens[index] not in self.include:
+#                 return None
+#         history = self._get_pos_tags(tokens)
+#         context = self.context(tokens, index, history)
+#         suggested_lemma = self._context_to_tag.get(context)
+#         return suggested_lemma
+#
+#     def _train(self, lemma_pos_corpus, cutoff=0):
+#         """Override method for _train from ContextTagger in
+#         nltk.tag.sequential. Original _train method expects
+#         tagged corpus of form (TOKEN, LEMMA); this expects in
+#         addition POS-tagging information.
+#
+#         :param lemma_pos_corpus: List of tuples of form (TOKEN, LEMMA, POSTAG)
+#         :param cutoff: Int with minimum number of matches to choose lemma
+#         """
+#         token_count = hit_count = 0
+#
+#         # A context is considered 'useful' if it's not already lemmatized
+#         # perfectly by the backoff lemmatizer.
+#         useful_contexts = set()
+#
+#         # Count how many times each tag occurs in each context.
+#         fd = ConditionalFreqDist()
+#         for sentence in lemma_pos_corpus:
+#             tokens, lemmas, poss = zip(*sentence)
+#             for index, (token, lemma, pos) in enumerate(sentence):
+#                 # Record the event.
+#                 token_count += 1
+#
+#                 context = self.context(tokens, index, poss)
+#                 if context is None: continue
+#                 fd[context][lemma] += 1
+#
+#                 # If the backoff got it wrong, this context is useful:
+#                 if (self.backoff is None or lemma != self.backoff.tag_one(tokens, index, lemmas[:index])):  # pylint: disable=line-too-long
+#                     useful_contexts.add(context)
+#
+#         # Build the context_to_lemmatize table -- for each context, figure
+#         # out what the most likely lemma is. Only include contexts that
+#         # we've seen at least `cutoff` times.
+#         for context in useful_contexts:
+#             best_lemma = fd[context].max()
+#             hits = fd[context][best_lemma]
+#             if hits > cutoff:
+#                 self._context_to_tag[context] = best_lemma
+#                 hit_count += hits
+# 
+#
+# class NgramPOSLemmatizer(ContextPOSLemmatizer):
+#     """"""
+#     def __init__(self, n, train=None, model=None, include=None,
+#                  backoff=None, cutoff=0):
+#         """Setup for NgramPOSLemmatizer
+#
+#         :param n: Int with length of 'n'-gram
+#         :param train: List of tuples of the form (TOKEN, LEMMA, POS)
+#         :param model: Dict; DEPRECATED
+#         :param include: List of tokens to consider
+#         :param backoff: Next lemmatizer in backoff chain.
+#         :param cutoff: Int with minimum number of matches to choose lemma
+#         """
+#         self._n = n
+#         self._check_params(train, model)
+#         ContextPOSLemmatizer.__init__(self, model, include, backoff)
+#
+#         if train:
+#             self._train(train, cutoff)
+#
+#     def context(self, tokens, index, history):
+#         """Redefines context with look-ahead of length n (not look behind
+#         as in original method).
+#
+#         :param tokens: List of tokens to be lemmatized
+#         :param index: Int with current token
+#         :param history: List with tokens that have already been
+#         tagged/lemmatized
+#         :return: Tuple of the form (TOKEN, (CONTEXT)); CONTEXT will
+#         depend on ngram value, e.g. for bigram ('cum', ('n',)) but
+#         for trigram ('cum', ('n', 'n', ))
+#         """
+#         lemma_context = tuple(history[index + 1: index + self._n])
+#         return tokens[index], lemma_context
+#
+#
+# class BigramPOSLemmatizer(NgramPOSLemmatizer):
+#     """"""
+#     def __init__(self, train=None, model=None, include=None,
+#                  backoff=None, cutoff=0):
+#         """Setup for BigramPOSLemmatizer()"""
+#         NgramPOSLemmatizer.__init__(self, 2, train, model,
+#                                     include, backoff, cutoff)
 
 
 class BackoffLatinLemmatizer(object):
