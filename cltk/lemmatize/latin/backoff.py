@@ -180,84 +180,91 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
     def __repr__(self):
         return f'<IdentityLemmatizer>'
 
+# REFACTORED AS DictLemmatizer below
+# class TrainLemmatizer(SequentialBackoffLemmatizer):
+#     """Standalone version of 'model' function found in UnigramTagger; by
+#     defining as its own class, it is clearer that this lemmatizer is
+#     based on dictionary lookup and does not use training data."""
+#
+#     def __init__(self, model, backoff=None):
+#         """Setup for TrainLemmatizer().
+#
+#         :param model: Dictionary with form {TOKEN: LEMMA}
+#         :param backoff: Next lemmatizer in backoff chain.
+#         """
+#         SequentialBackoffLemmatizer.__init__(self, backoff)
+#         self.model = model
+#
+#
+#     def choose_lemma(self, tokens, index, history):
+#         """Returns the given token as the lemma.
+#
+#         :param tokens: List of tokens to be lemmatized
+#         :param index: Int with current token
+#         :param history: List with tokens that have already been lemmatized; NOT USED
+#         :return: String, spec. the dictionary value found with token as key.
+#         """
+#         keys = self.model.keys()
+#         if tokens[index] in keys:
+#             return self.model[tokens[index]]
 
-class TrainLemmatizer(SequentialBackoffLemmatizer):
+
+class DictLemmatizer(SequentialBackoffLemmatizer):
     """Standalone version of 'model' function found in UnigramTagger; by
     defining as its own class, it is clearer that this lemmatizer is
     based on dictionary lookup and does not use training data."""
 
-    def __init__(self, model, backoff=None):
-        """Setup for TrainLemmatizer().
-
-        :param model: Dictionary with form {TOKEN: LEMMA}
+    def __init__(self, lemmas, backoff=None, VERBOSE=False):
+        """
+        Setup for DictLemmatizer().
+        :type lemmas: dict
+        :param lemmas: Dictionary with form {TOKEN: LEMMA} to be used
+            as foor 'lookup'-style lemmatization
         :param backoff: Next lemmatizer in backoff chain.
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff)
-        self.model = model
+        SequentialBackoffLemmatizer.__init__(self, backoff, VERBOSE=VERBOSE)
+        self.lemmas = lemmas
 
 
-    def choose_lemma(self, tokens, index, history):
-        """Returns the given token as the lemma.
-
+    def choose_tag(self, tokens, index, history):
+        """
+        Looks up token in ``lemmas`` dict and returns the corresponding
+        value as lemma.
+        :rtype: str
+        :type tokens: list
         :param tokens: List of tokens to be lemmatized
+        :type index: int
         :param index: Int with current token
+        :type history: list
         :param history: List with tokens that have already been lemmatized; NOT USED
-        :return: String, spec. the dictionary value found with token as key.
         """
-        keys = self.model.keys()
+        keys = self.lemmas.keys()
         if tokens[index] in keys:
-            return self.model[tokens[index]]
+            return self.lemmas[tokens[index]]
 
 
-class ContextLemmatizer(SequentialBackoffLemmatizer, ContextTagger):
-    """"""
-    def __init__(self, context_to_lemmatize, backoff=None):
-        """Setup for ContextLemmatizer().
+    def __repr__(self):
+        return f'<DictLemmatizer: {self.repr.repr(self.lemmas)}>'
 
-        :param context_to_lemmatize: List of tuples of the form (TOKEN, LEMMA);
-        this should be 'gold standard' data that can be used to train on a
-        given context, e.g. unigrams, bigrams, etc.
-        :param backoff: Next lemmatizer in backoff chain.
+
+class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
+    """
+    Standalone version of 'train' function found in UnigramTagger; by
+    defining as its own class, it is clearer that this lemmatizer is
+    based on training data and not on dictionary.
+    """
+
+    def __init__(self, train=None, model=None, backoff=None, cutoff=0, VERBOSE=False):
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff)
-        self._context_to_lemmatize = (context_to_lemmatize if context_to_lemmatize else {})
-        ContextTagger.__init__(self, self._context_to_lemmatize, backoff)
-
-    def choose_lemma(self, tokens, index, history):
-        return ContextTagger.choose_tag(self, tokens, index, history)
-
-
-class NgramLemmatizer(ContextLemmatizer, NgramTagger):
-    """"""
-    def __init__(self, n, train=None, model=None, backoff=None, cutoff=0):
-        """Setup for NgramLemmatizer()
-
-        :param n: Int with length of 'n'-gram
-        :param train: List of tuples of the form (TOKEN, LEMMA)
-        :param model: Dict; DEPRECATED, use TrainLemmatizer
-        :param backoff: Next lemmatizer in backoff chain.
-        :param cutoff: Int with minimum number of matches to choose lemma
+        Setup for UnigramLemmatizer()
         """
-        self._n = n
-        self._check_params(train, model)
-        ContextLemmatizer.__init__(self, model, backoff)
-        NgramTagger.__init__(self, self._n, train, model, backoff, cutoff)
-
-        if train:
-            # Refactor to remove model? Always train?
-            self._train(train, cutoff)
-
-    def context(self, tokens, index, history):
-        """"""
-        return NgramTagger.context(self, tokens, index, history)
-
-
-class UnigramLemmatizer(NgramLemmatizer, UnigramTagger):
-    """Setup for UnigramLemmatizer()"""
-    def __init__(self, train=None, model=None, backoff=None, cutoff=0):
-        """"""
-        NgramLemmatizer.__init__(self, 1, train, model, backoff, cutoff) # Note 1 for unigram
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
         UnigramTagger.__init__(self, train, model, backoff, cutoff)
+        self.train = train
+
+
+    def __repr__(self):
+        return f'<UnigramLemmatizer: {self.repr.repr(self.train)}>'
 
 
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
@@ -585,11 +592,11 @@ class BackoffLatinLemmatizer(object):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
         self.backoff1 = IdentityLemmatizer()
-        self.backoff2 = TrainLemmatizer(model=self.LATIN_OLD_MODEL, backoff=self.backoff1)
+        self.backoff2 = DictLemmatizer(model=self.LATIN_OLD_MODEL, backoff=self.backoff1)
         self.backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=self.backoff2)
         self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff3)
         self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff4)
-        self.backoff6 = TrainLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)
+        self.backoff6 = DictLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)
         #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
         #lemmatizer = backoff7
         self.lemmatizer = self.backoff6
