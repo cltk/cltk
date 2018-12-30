@@ -7,7 +7,7 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 
-def word_to_features(word :str, max_word_length=20)->List[:int]:
+def word_to_features(word: str, max_word_length: int = 20) -> List[int]:
     """
 
     :param word: a single word
@@ -21,6 +21,6 @@ def word_to_features(word :str, max_word_length=20)->List[:int]:
         LOG.warning('Excessive word length {} for {}, truncating to {}'.format(len(word), word,
                                                                                max_word_length))
         word = word[:max_word_length]
-    word = list(word)
-    word.reverse()
-    return [ord(c) for c in "".join(word).ljust(max_word_length, ' ')]
+    wordlist = list(word)
+    wordlist.reverse()
+    return [ord(c) for c in "".join(wordlist).ljust(max_word_length, ' ')]
