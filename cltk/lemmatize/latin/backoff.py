@@ -479,7 +479,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
 #             if hits > cutoff:
 #                 self._context_to_tag[context] = best_lemma
 #                 hit_count += hits
-# 
+#
 #
 # class NgramPOSLemmatizer(ContextPOSLemmatizer):
 #     """"""
@@ -594,46 +594,11 @@ class BackoffLatinLemmatizer(object):
         self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff3)
         self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff4)
         self.backoff6 = DictLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)
-        #backoff7 = BigramPOSLemmatizer(self.pos_train_sents, include=['cum'], backoff=backoff6)
-        #lemmatizer = backoff7
         self.lemmatizer = self.backoff6
 
     def lemmatize(self, tokens):
-        #lemmatizer = self._define_lemmatizer()
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
     def evaluate(self):
-        #lemmatizer = self._define_lemmatizer()
         return lemmatizer.evaluate(self.test_sents)
-
-
-# Accuracty test available below——keep? delete?
-#if __name__ == "__main__":
-#
-#    # Set up training sentences
-#    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-#    path = os.path.expanduser(rel_path)
-#
-#    # Check for presence of latin_pos_lemmatized_sents
-#    file = 'latin_pos_lemmatized_sents.pickle'
-#
-#    latin_pos_lemmatized_sents_path = os.path.join(path, file)
-#    if os.path.isfile(latin_pos_lemmatized_sents_path):
-#        latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
-#    else:
-#        latin_pos_lemmatized_sents = []
-#        print('The file %s is not available in cltk_data' % file)
-#
-#
-#    RUN = 10
-#    ACCURACIES = []
-#
-#    for I in range(RUN):
-#        LEMMATIZER = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
-#        ACC = LEMMATIZER.evaluate()
-#        ACCURACIES.append(ACC)
-#        print('{:.2%}'.format(ACC))
-#
-#    print('\nTOTAL (Run %d) times' % RUN)
-#    print('{:.2%}'.format(sum(ACCURACIES) / RUN))
