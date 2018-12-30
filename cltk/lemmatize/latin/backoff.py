@@ -16,6 +16,8 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 import re
 
+import reprlib
+
 from nltk.probability import ConditionalFreqDist
 from nltk.tag.api import TaggerI
 from nltk.tag.sequential import SequentialBackoffTagger, ContextTagger, DefaultTagger, NgramTagger, UnigramTagger, RegexpTagger
@@ -320,7 +322,7 @@ class PPLemmatizer(RegexpLemmatizer):
         self.pps = latin_pps
 
 
-    def choose_lemma(self, tokens, index, history):
+    def choose_tag(self, tokens, index, history):
         """Use regular expressions for rules-based lemmatizing based on
         principal parts stems. Tokens are matched for patterns with
         the ending kept as a group; the stem is looked up in a dictionary
@@ -589,11 +591,11 @@ class BackoffLatinLemmatizer(object):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
         self.backoff1 = IdentityLemmatizer()
-        self.backoff2 = DictLemmatizer(model=self.LATIN_OLD_MODEL, backoff=self.backoff1)
+        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, backoff=self.backoff1)
         self.backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=self.backoff2)
-        self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff3)
-        self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff4)
-        self.backoff6 = DictLemmatizer(model=self.LATIN_MODEL, backoff=self.backoff5)
+        self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff2)
+        self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff3)
+        self.backoff6 = DictLemmatizer(lemmas=self.LATIN_MODEL, backoff=self.backoff5)
         self.lemmatizer = self.backoff6
 
     def lemmatize(self, tokens):
@@ -604,18 +606,19 @@ class BackoffLatinLemmatizer(object):
         return lemmatizer.evaluate(self.test_sents)
 
 if __name__ == '__main__':
-       # Set up training sentences
-       rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-       path = os.path.expanduser(rel_path)
 
-       # Check for presence of latin_pos_lemmatized_sents
-       file = 'latin_pos_lemmatized_sents.pickle'
+    # Set up training sentences
+    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+    path = os.path.expanduser(rel_path)
 
-       latin_pos_lemmatized_sents_path = os.path.join(path, file)
-       if os.path.isfile(latin_pos_lemmatized_sents_path):
-           latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
-       else:
-           latin_pos_lemmatized_sents = []
-           print('The file %s is not available in cltk_data' % file)
+    # Check for presence of latin_pos_lemmatized_sents
+    file = 'latin_pos_lemmatized_sents.pickle'
+
+    latin_pos_lemmatized_sents_path = os.path.join(path, file)
+    if os.path.isfile(latin_pos_lemmatized_sents_path):
+       latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
+    else:
+       latin_pos_lemmatized_sents = []
+       print('The file %s is not available in cltk_data' % file)
 
     l = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
