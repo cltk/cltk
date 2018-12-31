@@ -1,21 +1,62 @@
 """`reader.py` - Corpus reader utility objects."""
 import os
+import os.path
 import codecs
 import logging
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Set
 
 from nltk.corpus.reader.api import CorpusReader
 from nltk.corpus.reader import PlaintextCorpusReader
 from cltk.prosody.latin.string_utils import flatten
+from cltk.tokenize.sentence import TokenizeSentence
+from cltk.tokenize.word import WordTokenizer
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
+
+# TODO add your corpus here:
+SUPPORTED_CORPORA = {'latin': ['latin_text_latin_library']}  # type: Dict[str, List[str]]
+
+
+def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusReader:
+    """
+    Corpus reader factory method
+    :param corpus_name: the name of the supported corpus, available as: [package].SUPPORTED_CORPORA
+    :param langugage: the language for search in
+    :return: NLTK compatible corpus reader
+    """
+    BASE = '~/cltk_data/{}/text'.format(language)
+    root = os.path.join(os.path.expanduser(BASE), corpus_name)
+
+    if not os.path.exists(root) or corpus_name not in SUPPORTED_CORPORA.get(language):
+        raise ValueError(
+            'Specified corpus data not found, please install {} for language: {}'.format(
+                corpus_name, language))
+
+    sentence_tokenizer = TokenizeSentence(language)
+    the_word_tokenizer = WordTokenizer(language)
+
+    DOC_PATTERN = r'.*\.txt'  #: Generic file ending, override below in your own CorpusReader implementation
+
+    if language == 'latin':
+        if corpus_name == 'latin_text_latin_library':
+            skip_keywords = ['Latin', 'Library']
+            return FilteredPlaintextCorpusReader(root=root, fileids=DOC_PATTERN,
+                                                 sent_tokenizer=sentence_tokenizer,
+                                                 word_tokenizer=the_word_tokenizer,
+                                                 skip_keywords=skip_keywords)
+        if corpus_name == 'latin_text_perseus':
+            pass
+            # TODO and add:  ['latin_text_perseus', 'latin_treebank_perseus', 'latin_text_latin_library', 'phi5', 'phi7', 'latin_proper_names_cltk', 'latin_models_cltk', 'latin_pos_lemmata_cltk', 'latin_treebank_index_thomisticus', 'latin_lexica_perseus', 'latin_training_set_sentence_cltk', 'latin_word2vec_cltk', 'latin_text_antique_digiliblt', 'latin_text_corpus_grammaticorum_latinorum', 'latin_text_poeti_ditalia']
+
+    # TODO add other languages and write tests for each corpus
 
 
 def assemble_corpus(corpus_reader: CorpusReader,
                     types_requested: List[str],
                     type_dirs: Dict[str, List[str]] = None,
-                    type_files: Dict[str, List[str]] = None) -> Tuple[CorpusReader, List[str], List[str]]:
+                    type_files: Dict[str, List[str]] = None) -> Tuple[
+    CorpusReader, List[str], Set[str]]:
     """
     Create a filtered corpus.
     :param corpus_reader: This get mutated
@@ -23,13 +64,15 @@ def assemble_corpus(corpus_reader: CorpusReader,
     type_files mappings
     :param type_dirs: a dict of corpus types to directories
     :param type_files: a dict of corpus types to files
-    :return: a corpusreader object containing only the mappings desired
+    :return: a Tuple(CorpusReader object containing only the mappings desired,
+    fileid_names: A list of file ids of the matching corpus files, and
+    categories_found: a set of word categories used to build the reader
     """
     fileid_names = []  # type: List[str]
-    categories = []  # type: List[str]
+    categories_found = set()  # type: Set[str]
     try:
         ALL_FILE_IDS = list(corpus_reader.fileids())
-        CLEAN_IDS_TYPES = [] # type: List[Tuple[str, str]]
+        CLEAN_IDS_TYPES = []  # type: List[Tuple[str, str]]
         if type_files:
             for key, valuelist in type_files.items():
                 if key in types_requested:
@@ -47,12 +90,13 @@ def assemble_corpus(corpus_reader: CorpusReader,
                             if name and name.startswith(corrected_dir):
                                 CLEAN_IDS_TYPES.append((name, key))
         CLEAN_IDS_TYPES.sort(key=lambda x: x[0])
-        fileid_names, categories = zip(*CLEAN_IDS_TYPES)
+        fileid_names, categories = zip(*CLEAN_IDS_TYPES)  # type: ignore
+        categories_found = set(categories)  # type: Set[str]
         corpus_reader._fileids = fileid_names
     except Exception:
         LOG.exception('failure in corpus building')
 
-    return corpus_reader, fileid_names, categories
+    return (corpus_reader, fileid_names, categories_found)
 
 
 class FilteredPlaintextCorpusReader(PlaintextCorpusReader, CorpusReader):

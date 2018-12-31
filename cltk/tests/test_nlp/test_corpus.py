@@ -52,8 +52,7 @@ from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 from cltk.corpus.utils.formatter import normalize_fr
 from cltk.corpus.swadesh import Swadesh
-from cltk.corpus.readers import assemble_corpus, FilteredPlaintextCorpusReader
-from cltk.corpus.latin import get_corpus_reader
+from cltk.corpus.readers import assemble_corpus, FilteredPlaintextCorpusReader, get_corpus_reader
 from cltk.corpus.latin.latin_library_corpus_types import corpus_texts_by_type, \
     corpus_directories_by_type
 from cltk.utils.matrix_corpus_fun import distinct_words
@@ -280,7 +279,7 @@ argenteo polubro, aureo eclutro. """
 
         def _import():
             with patch('builtins.input', return_value='n'):
-                from cltk.corpus.latin.readers import latinlibrary
+                from cltk.corpus.readers import latinlibrary
                 self.assertRaises(OSError, _import)
 
     def test_import_lat_text_lat_lib(self):
@@ -296,20 +295,20 @@ argenteo polubro, aureo eclutro. """
         """Test the Latin Library corpus reader."""
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_latin_library')
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         ALL_FILE_IDS = list(reader.fileids())
         self.assertTrue(len(ALL_FILE_IDS) > 2100)
 
     def test_import_latin_library_corpus_filter_by_file(self):
         """Test the Latin Library corpus reader filter by files."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'], None,
                                                                    corpus_texts_by_type)
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
     def test_import_latin_library_corpus_filter_by_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
                                                                    corpus_directories_by_type,
                                                                    None)
@@ -317,7 +316,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_import_latin_library_corpus_filter_by_file_and_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
                                                                    corpus_directories_by_type,
                                                                    corpus_texts_by_type)
@@ -325,7 +324,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_filtered_corpus_reader_sents(self):
         """Test filtered corpus sents method."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         reader._fileids = ['catullus.txt']
         sents = list(reader.sents())
         uniq_words = distinct_words(sents)
@@ -337,7 +336,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_filtered_corpus_reader_paras(self):
         """Test filtered corpus paras method."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         reader._fileids = ['catullus.txt']
         paras = list(reader.paras())
         sents = [sent
@@ -352,7 +351,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_filtered_corpus_reader_words(self):
         """Test filtered corpus words method."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         reader._fileids = ['catullus.txt']
         words = list(reader.words())
         uniq_words = distinct_words(words)
@@ -364,7 +363,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_filtered_corpus_reader_docs(self):
         """Test filtered corpus docs method."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         reader._fileids = ['catullus.txt']
         docs = list(reader.docs())
         words = distinct_words(docs)
@@ -376,7 +375,7 @@ argenteo polubro, aureo eclutro. """
 
     def test_filtered_corpus_reader_sizes(self):
         """Test filtered corpus sizes method."""
-        reader = get_corpus_reader('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         reader._fileids = ['catullus.txt']
         self.assertTrue(len(list(reader.sizes())) > 0)
 
