@@ -393,3 +393,7 @@ if __name__ == '__main__':
     c = CorpusImporter('latin')
     # print(c.list_corpora)
     c.import_corpus('latin_training_set_sentence_cltk')
+    
+    
+
+
