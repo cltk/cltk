@@ -8,7 +8,7 @@ HINDI_CORPORA = [
 
      {'name':'hindi_classical_text',
      'location':'remote',
-     'origin': 'https://github.com/sainimohit23/hindi_text-corpus.git',
+     'origin': 'https://github.com/cltk/hindi_text-corpus.git',
      'type':'text',
      'encoding':'utf-8',
      'markup':'plaintext'}
