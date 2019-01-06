@@ -9,27 +9,28 @@ Some useful methods
 """
 
 import re
-from collections import defaultdict
 import logging
+from typing import List, Dict, Any
 
-from cltk.prosody.latin.Verse import Verse
-from cltk.prosody.latin.MetricalValidator import MetricalValidator
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
-from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
-from cltk.prosody.latin.Syllabifier import Syllabifier
-import cltk.prosody.latin.StringUtils as StringUtils
+from cltk.prosody.latin.verse import Verse
+from cltk.prosody.latin.metrical_validator import MetricalValidator
+from cltk.prosody.latin.scansion_constants import ScansionConstants
+from cltk.prosody.latin.scansion_formatter import ScansionFormatter
+from cltk.prosody.latin.syllabifier import Syllabifier
+import cltk.prosody.latin.string_utils as StringUtils
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
-
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
 
 
 class VerseScanner:
-    """The scansion symbols used can be configured by passing a suitable constants class to
-    the constructor."""
+    """
+    The scansion symbols used can be configured by passing a suitable constants class to
+    the constructor.
+    """
 
     def __init__(self, constants=ScansionConstants(), syllabifier=Syllabifier(), **kwargs):
         self.constants = constants
@@ -48,7 +49,8 @@ class VerseScanner:
                                                           self.constants.MUTES))
 
     def transform_i_to_j(self, line: str) -> str:
-        """Transform instances of consonantal i to j
+        """
+        Transform instances of consonantal i to j
         :param line:
         :return:
 
@@ -86,7 +88,9 @@ class VerseScanner:
         return "".join(char_list)
 
     def transform_i_to_j_optional(self, line: str) -> str:
-        """Sometimes for the demands of meter a more permissive i to j transformation is warranted.
+        """
+        Sometimes for the demands of meter a more permissive i to j transformation is warranted.
+
         :param line:
         :return:
 
@@ -124,9 +128,10 @@ class VerseScanner:
         return "".join(char_list)
 
     def accent_by_position(self, verse_line: str) -> str:
-        """Accent vowels according to the rules of scansion.
+        """
+        Accent vowels according to the rules of scansion.
 
-        :param verse: a line of unaccented verse
+        :param verse_line: a line of unaccented verse
         :return: the same line with vowels accented by position
 
         >>> print(VerseScanner().accent_by_position(
@@ -187,8 +192,13 @@ class VerseScanner:
         return "".join(original_verse)
 
     def elide_all(self, line: str) -> str:
-        """Given a string of space separated syllables, erase with spaces the syllable portions
-        that would disappear according to the rules of elision."""
+        """
+        Given a string of space separated syllables, erase with spaces the syllable portions
+        that would disappear according to the rules of elision.
+
+        :param line:
+        :return:
+        """
         marks = list(line.translate(self.remove_punct_map))
         all_vowels = self.constants.VOWELS + self.constants.ACCENTED_VOWELS
         tmp = "".join(marks)
@@ -205,10 +215,16 @@ class VerseScanner:
         results = StringUtils.merge_elisions(candidates)
         return results
 
-    def calc_offset(self, syllables_spaces: list) -> dict:
-        """Calculate a dictionary of accent positions from a list of syllables with spaces."""
+    def calc_offset(self, syllables_spaces: List[str]) -> Dict[int, int]:
+        """
+        Calculate a dictionary of accent positions from a list of syllables with spaces.
+
+        :param syllables_spaces:
+        :return:
+        """
         line = StringUtils.flatten(syllables_spaces)
-        mydict = defaultdict(lambda: None)
+        mydict = {} # type: Dict[int, int]
+        # #defaultdict(int) #type: Dict[int, int]
         for idx, syl in enumerate(syllables_spaces):
             target_syllable = syllables_spaces[idx]
             skip_qu = StringUtils.starts_with_qu(target_syllable)
@@ -219,7 +235,7 @@ class VerseScanner:
                     continue
                 (start, end) = possible.span()
                 if target_syllable[start:end] in \
-                                self.constants.VOWELS + self.constants.ACCENTED_VOWELS:
+                        self.constants.VOWELS + self.constants.ACCENTED_VOWELS:
                     part = line[:len("".join(syllables_spaces[:idx]))]
                     offset = len(part) + start
                     if line[offset] not in self.constants.VOWELS + self.constants.ACCENTED_VOWELS:
@@ -227,23 +243,26 @@ class VerseScanner:
                     mydict[idx] = offset
         return mydict
 
-    def produce_scansion(self, stresses: list, syllables_wspaces: list, offset_map: dict) -> str:
-        """Create a scansion string that has stressed and unstressed syllable positions in locations
+    def produce_scansion(self, stresses: list, syllables_wspaces: List[str],
+                         offset_map: Dict[int, int]) -> str:
+        """
+        Create a scansion string that has stressed and unstressed syllable positions in locations
         that correspond with the original texts syllable vowels.
-         :param stresses list of syllable positions
-         :param syllables_wspaces list of syllables with spaces escaped for punctuation or elision
-         :param offset_map dictionary of syllable positions, and an offset amount which is the
-          number of spaces to skip in the original line before inserting the accent.
-         """
+
+        :param stresses list of syllable positions
+        :param syllables_wspaces list of syllables with spaces escaped for punctuation or elision
+        :param offset_map dictionary of syllable positions, and an offset amount which is the
+        number of spaces to skip in the original line before inserting the accent.
+        """
         scansion = list(" " * len(StringUtils.flatten(syllables_wspaces)))
         unstresses = StringUtils.get_unstresses(stresses, len(syllables_wspaces))
         try:
             for idx in unstresses:
-                location = offset_map[idx]
+                location = offset_map.get(idx)
                 if location is not None:
                     scansion[location] = self.constants.UNSTRESSED
             for idx in stresses:
-                location = offset_map[idx]
+                location = offset_map.get(idx)
                 if location is not None:
                     scansion[location] = self.constants.STRESSED
         except Exception as e:
@@ -251,8 +270,13 @@ class VerseScanner:
                 syllables_wspaces, e))
         return "".join(scansion)
 
-    def flag_dipthongs(self, syllables: list) -> list:
-        """Return a list of syllables that contain a dipthong"""
+    def flag_dipthongs(self, syllables: List[str]) -> List[int]:
+        """
+        Return a list of syllables that contain a dipthong
+
+        :param syllables:
+        :return:
+        """
         long_positions = []
         for idx, syl in enumerate(syllables):
             for dipthong in self.constants.DIPTHONGS:
@@ -261,10 +285,17 @@ class VerseScanner:
                         long_positions.append(idx)
         return long_positions
 
-    def elide(self, line: str, regexp: str, quantity: 'int' = 1, offset: 'int >=0 ' = 0) -> str:
-        """Erase a section of a line, matching on a regex, pushing in a quantity of blank spaces,
+    def elide(self, line: str, regexp: str, quantity: int = 1, offset: int = 0) -> str:
+        """
+        Erase a section of a line, matching on a regex, pushing in a quantity of blank spaces,
         and jumping forward with an offset if necessary.
         If the elided vowel was strong, the vowel merged with takes on the stress.
+
+        :param line:
+        :param regexp:
+        :param quantity:
+        :param offset:
+        :return:
 
         >>> print(VerseScanner().elide("uvae avaritia", r"[e]\s*[a]"))
         uv   āvaritia
@@ -286,11 +317,14 @@ class VerseScanner:
         return new_line
 
     def correct_invalid_start(self, scansion: str) -> str:
-        """If a hexameter, hendecasyllables, or pentameter scansion starts with spondee,
+        """
+        If a hexameter, hendecasyllables, or pentameter scansion starts with spondee,
         an unstressed syllable in the third position must actually be stressed,
         so we will convert it: - - | U    ->  - - | -
+
         :param scansion:
         :return:
+
         >>> print(VerseScanner().correct_invalid_start(
         ... " -   - U   U -  -  U U U U  U U  - -").strip())
         -   - -   - -  -  U U U U  U U  - -
@@ -307,13 +341,16 @@ class VerseScanner:
         return scansion
 
     def correct_first_two_dactyls(self, scansion: str) -> str:
-        """If a hexameter or pentameter starts with spondee,
+        """
+        If a hexameter or pentameter starts with spondee,
         an unstressed syllable in the third position must actually be stressed,
         so we will convert it: - - | U    ->  - - | -
         And/or if the starting pattern is spondee + trochee + stressed, then the unstressed
         trochee can be corrected: - - | - u | -   ->  - - | - -| -
+
         :param scansion:
         :return:
+
         >>> print(VerseScanner().correct_first_two_dactyls(
         ... " -   - U   U -  -  U U U U  U U  - -")) # doctest: +NORMALIZE_WHITESPACE
          -   - -   - -  -  U U U U  U U  - -
@@ -322,7 +359,7 @@ class VerseScanner:
         new_line = self.correct_invalid_start(scansion)
         raw_scansion = new_line.replace(" ", "")
         if raw_scansion.startswith(self.constants.SPONDEE + self.constants.TROCHEE +
-                                           self.constants.STRESSED):
+                                   self.constants.STRESSED):
             new_scansion = list(self.constants.SPONDEE + self.constants.SPONDEE
                                 + self.constants.STRESSED + raw_scansion[5:])
             corrected = "".join(new_scansion)
@@ -333,7 +370,13 @@ class VerseScanner:
         return new_line
 
     def assign_candidate(self, verse: Verse, candidate: str) -> Verse:
-        """Helper method; make sure that the verse object is properly packaged."""
+        """
+        Helper method; make sure that the verse object is properly packaged.
+
+        :param verse:
+        :param candidate:
+        :return:
+        """
         verse.scansion = candidate
         verse.valid = True
         verse.accented = self.formatter.merge_line_scansion(
