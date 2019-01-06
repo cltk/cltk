@@ -7,8 +7,10 @@ may appear due to elision."""
 import copy
 import re
 import logging
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
-import cltk.prosody.latin.StringUtils as StringUtils
+from typing import List
+
+from cltk.prosody.latin.scansion_constants import ScansionConstants
+import cltk.prosody.latin.string_utils as StringUtils
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -33,8 +35,10 @@ class Syllabifier:
                                 + constants.CONSONANTS
         self.diphthongs = [d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]]
 
-    def syllabify(self, words: str) -> list:
-        """Parse a Latin word into a list of syllable strings.
+    def syllabify(self, words: str) -> List[str]:
+        """
+        Parse a Latin word into a list of syllable strings.
+
         :param words: a string containing one latin word or many words separated by spaces.
         :return: list of string, each representing a syllable.
 
@@ -96,7 +100,6 @@ class Syllabifier:
         ['lin', 'guā']
         >>> print(syllabifier.syllabify("languidus"))
         ['lan', 'gui', 'dus']
-
         >>> print(syllabifier.syllabify("suis"))
         ['su', 'is']
         >>> print(syllabifier.syllabify("habui"))
@@ -162,10 +165,13 @@ class Syllabifier:
 
         return StringUtils.remove_blank_spaces(syllables)
 
-    def _setup(self, word) -> list:
-        """Prepares a word for syllable processing.
+    def _setup(self, word) -> List[str]:
+        """
+        Prepares a word for syllable processing.
 
         If the word starts with a prefix, process it separately.
+        :param word:
+        :return:
         """
         if len(word) == 1:
             return [word]
@@ -179,8 +185,6 @@ class Syllabifier:
                 return StringUtils.remove_blank_spaces(self._process(word))
         if word in self.constants.UI_EXCEPTIONS.keys():
             return self.constants.UI_EXCEPTIONS[word]
-
-
         return StringUtils.remove_blank_spaces(self._process(word))
 
     def convert_consonantal_i(self, word) -> str:
@@ -192,11 +196,16 @@ class Syllabifier:
             return "j" + word[1:]
         return word
 
-    def _process(self, word: str) -> list:
-        """Process a word into a list of strings representing the syllables of the word. This
+    def _process(self, word: str) -> List[str]:
+        """
+        Process a word into a list of strings representing the syllables of the word. This
         method describes rules for consonant grouping behaviors and then iteratively applies those
         rules the list of letters that comprise the word, until all the letters are grouped into
-        appropriate syllable groups."""
+        appropriate syllable groups.
+
+        :param word:
+        :return:
+        """
         #   if a blank arrives from splitting, just return an empty list
         if len(word.strip()) == 0:
             return []
@@ -273,7 +282,7 @@ class Syllabifier:
                 return []
         return []
 
-    def _ending_consonants_only(self, letters: list) -> list:
+    def _ending_consonants_only(self, letters: List[str]) -> List[int]:
         """Return a list of positions for ending consonants."""
         reversed_letters = list(reversed(letters))
         length = len(letters)
@@ -286,7 +295,7 @@ class Syllabifier:
                 return []
         return []
 
-    def _find_solo_consonant(self, letters: list) -> list:
+    def _find_solo_consonant(self, letters: List[str]) -> List[int]:
         """Find the positions of any solo consonants that are not yet paired with a vowel."""
         solos = []
         for idx, letter in enumerate(letters):
@@ -294,16 +303,26 @@ class Syllabifier:
                 solos.append(idx)
         return solos
 
-    def _find_consonant_cluster(self, letters: list) -> list:
-        """Find clusters of consonants that do not contain a vowel."""
+    def _find_consonant_cluster(self, letters: List[str]) -> List[int]:
+        """
+        Find clusters of consonants that do not contain a vowel.
+        :param letters:
+        :return:
+        """
         for idx, letter_group in enumerate(letters):
             if self._contains_consonants(letter_group) and not self._contains_vowels(letter_group):
                 return [idx]
         return []
 
-    def _move_consonant(self, letters: list, positions: list) -> list:
-        """Given a list of consonant positions, move the consonants according to certain
-        consonant syllable behavioral rules for gathering and grouping."""
+    def _move_consonant(self, letters: list, positions: List[int]) -> List[str]:
+        """
+        Given a list of consonant positions, move the consonants according to certain
+        consonant syllable behavioral rules for gathering and grouping.
+
+        :param letters:
+        :param positions:
+        :return:
+        """
         for pos in positions:
             previous_letter = letters[pos - 1]
             consonant = letters[pos]
@@ -331,12 +350,16 @@ class Syllabifier:
                 return StringUtils.move_consonant_right(letters, [pos])
         return letters
 
-    def get_syllable_count(self, syllables: list) -> int:
-        """Counts the number of syllable groups that would occur after ellision.
+    def get_syllable_count(self, syllables: List[str]) -> int:
+        """
+        Counts the number of syllable groups that would occur after ellision.
 
         Often we will want preserve the position and separation of syllables so that they
         can be used to reconstitute a line, and apply stresses to the original word positions.
         However, we also want to be able to count the number of syllables accurately.
+
+        :param syllables:
+        :return:
 
         >>> syllabifier = Syllabifier()
         >>> print(syllabifier.get_syllable_count([
