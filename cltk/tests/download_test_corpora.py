@@ -12,6 +12,7 @@ logging.basicConfig(level=logging.INFO)
 try:
     corpus_importer = CorpusImporter('latin')
     corpus_importer.import_corpus('latin_text_latin_library')
+    corpus_importer.import_corpus('latin_text_perseus')
     corpus_importer = CorpusImporter('greek')
     corpus_importer.import_corpus('greek_text_perseus')
 except:

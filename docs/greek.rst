@@ -14,39 +14,32 @@ Most users will want to access words, sentences, paragraphs and even whole docum
 
 
     In [1]: from cltk.corpus.readers import get_corpus_reader
-       ...: reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
-       ...: reader._fileids = ['cicero__on-behalf-of-aulus-caecina__latin.json']
-       ...: sentences = list(reader.sents())
-       ...: len(sentences)
-       ...:
-    Out[1]: 25435
-
-    In [2]: sentences[0]
-    Out[2]: '\n\t\t\t si , quantum in agro locisque desertis audacia potest, tantum in foro atque\n\t\t\t\tin iudiciis impudentia valeret, non minus nunc in causa cederet A. Caecina Sex.'
-
-    In [3]: doc = list(reader.docs())[0]
-       ...: doc.keys()
-       ...:
-    Out[3]: dict_keys(['meta', 'author', 'text', 'edition', 'englishTitle', 'source', 'originalTitle', 'original-urn', 'language', 'sourceLink', 'urn', 'filename'])
-
-
-    In [1]: from cltk.corpus.readers import get_corpus_reader
        ...: reader = get_corpus_reader( corpus_name = 'greek_text_perseus', language = 'greek')
+       ...: # get all the docs
+       ...: docs = list(reader.docs())
+       ...: len(docs)
+       ...:
+    Out[1]: 222
+
+    In [2]: # or set just one
        ...: reader._fileids = ['plato__apology__grc.json']
-       ...: sentences = list(reader.sents())
+
+    In [3]: # get all the sentences
+    In [4]: sentences = list(reader.sents())
        ...: len(sentences)
        ...:
-    Out[1]: 4983
+    Out[4]: 4983
 
-    In [2]: sentences[0]
-    Out[2]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
+    In [5]: # Or just one
 
-    In [3]: doc = list(reader.docs())[0]
+    In [6]: sentences[0]
+    Out[6]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
+
+    In [7]: # access an individual doc as a dictionary of dictionaries
+       ...: doc = list(reader.docs())[0]
        ...: doc.keys()
        ...:
-    Out[3]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
-
-
+    Out[7]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
 
 
 Accentuation and diacritics

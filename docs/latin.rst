@@ -19,19 +19,32 @@ Most users will want to access words, sentences, paragraphs and even whole docum
 
     In [1]: from cltk.corpus.readers import get_corpus_reader
        ...: reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+       ...: # get all the docs
+       ...: docs = list(reader.docs())
+       ...: len(docs)
+       ...:
+    Out[1]: 293
+
+    In [2]: # or set just one
        ...: reader._fileids = ['cicero__on-behalf-of-aulus-caecina__latin.json']
+       ...:
+
+    In [3]: # get all the sentences
        ...: sentences = list(reader.sents())
        ...: len(sentences)
        ...:
-    Out[1]: 25435
+    Out[3]: 25435
 
-    In [2]: sentences[0]
-    Out[2]: '\n\t\t\t si , quantum in agro locisque desertis audacia potest, tantum in foro atque\n\t\t\t\tin iudiciis impudentia valeret, non minus nunc in causa cederet A. Caecina Sex.'
+    In [4]: # or one at a time
+       ...: sentences[0]
+       ...:
+    Out[4]: '\n\t\t\t si , quantum in agro locisque desertis audacia potest, tantum in foro atque\n\t\t\t\tin iudiciis impudentia valeret, non minus nunc in causa cederet A. Caecina Sex.'
 
-    In [3]: doc = list(reader.docs())[0]
+    In [5]: # access an individual doc as a dictionary of dictionaries
+       ...: doc = list(reader.docs())[0]
        ...: doc.keys()
        ...:
-    Out[3]: dict_keys(['meta', 'author', 'text', 'edition', 'englishTitle', 'source', 'originalTitle', 'original-urn', 'language', 'sourceLink', 'urn', 'filename'])
+    Out[5]: dict_keys(['meta', 'author', 'text', 'edition', 'englishTitle', 'source', 'originalTitle', 'original-urn', 'language', 'sourceLink', 'urn', 'filename'])
 
 
 Clausulae Analysis
