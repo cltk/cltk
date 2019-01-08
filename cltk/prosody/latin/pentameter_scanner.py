@@ -14,7 +14,7 @@ from cltk.prosody.latin.metrical_validator import MetricalValidator
 from cltk.prosody.latin.scansion_constants import ScansionConstants
 from cltk.prosody.latin.scansion_formatter import ScansionFormatter
 from cltk.prosody.latin.syllabifier import Syllabifier
-import cltk.prosody.latin.string_utils as StringUtils
+import cltk.prosody.latin.string_utils as string_utils
 from cltk.prosody.latin.verse_scanner import VerseScanner
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
@@ -29,8 +29,8 @@ class PentameterScanner(VerseScanner):
                  optional_transform: bool = False, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.constants = constants
-        self.remove_punct_map = StringUtils.remove_punctuation_dict()
-        self.punctuation_substitutions = StringUtils.punctuation_for_spaces_dict()
+        self.remove_punct_map = string_utils.remove_punctuation_dict()
+        self.punctuation_substitutions = string_utils.punctuation_for_spaces_dict()
         self.metrical_validator = MetricalValidator(constants)
         self.formatter = ScansionFormatter(constants)
         self.syllabifier = syllabifier
@@ -88,7 +88,7 @@ class PentameterScanner(VerseScanner):
             verse.scansion_notes += [self.constants.NOTE_MAP["< 12p"]]
             return verse
         stresses = self.flag_dipthongs(syllables)
-        syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
+        syllables_wspaces = string_utils.to_syllables_with_trailing_spaces(working_line, syllables)
         offset_map = self.calc_offset(syllables_wspaces)
         for idx, syl in enumerate(syllables):
             for accented in self.constants.ACCENTED_VOWELS:
@@ -101,7 +101,7 @@ class PentameterScanner(VerseScanner):
 
         verse.scansion = self.produce_scansion(stresses,
                                                syllables_wspaces, offset_map)
-        if len(StringUtils.stress_positions(self.constants.STRESSED, verse.scansion)) != \
+        if len(string_utils.stress_positions(self.constants.STRESSED, verse.scansion)) != \
                 len(set(stresses)):
             verse.valid = False
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid syllables"]]
@@ -130,7 +130,7 @@ class PentameterScanner(VerseScanner):
         if distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
-            stresses += StringUtils.differences(verse.scansion, smoothed)
+            stresses += string_utils.differences(verse.scansion, smoothed)
 
         if self.metrical_validator.is_valid_pentameter(verse.scansion):
             return self.assign_candidate(verse, verse.scansion)
@@ -140,7 +140,7 @@ class PentameterScanner(VerseScanner):
         if distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["penultimate dactyl chain"]]
             verse.scansion = smoothed
-            stresses += StringUtils.differences(verse.scansion, smoothed)
+            stresses += string_utils.differences(verse.scansion, smoothed)
 
         if self.metrical_validator.is_valid_pentameter(verse.scansion):
             return self.assign_candidate(verse, verse.scansion)
@@ -149,9 +149,9 @@ class PentameterScanner(VerseScanner):
         if candidates is not None:
             if len(candidates) == 1 \
                     and len(verse.scansion.replace(" ", "")) == len(candidates[0]) \
-                    and len(StringUtils.differences(verse.scansion, candidates[0])) == 1:
+                    and len(string_utils.differences(verse.scansion, candidates[0])) == 1:
                 tmp_scansion = self.produce_scansion(
-                    StringUtils.differences(verse.scansion, candidates[0]),
+                    string_utils.differences(verse.scansion, candidates[0]),
                     syllables_wspaces, offset_map)
 
                 if self.metrical_validator.is_valid_pentameter(tmp_scansion):
@@ -176,7 +176,7 @@ class PentameterScanner(VerseScanner):
         >>> print(PentameterScanner().make_spondaic("U  U  U  U  U  U  U  U  U  U  U  U"))
         -  -  -  -  -  -  U  U  -  U  U  U
         """
-        mark_list = StringUtils.mark_list(scansion)
+        mark_list = string_utils.mark_list(scansion)
         vals = list(scansion.replace(" ", ""))
         new_vals = self.SPONDAIC_PENTAMETER[:-1] + vals[-1]
         corrected = "".join(new_vals)
@@ -195,7 +195,7 @@ class PentameterScanner(VerseScanner):
         >>> print(PentameterScanner().make_dactyls("U  U  U  U  U  U  U  U  U  U  U  U  U  U"))
         -  U  U  -  U  U  -  -  U  U  -  U  U  U
         """
-        mark_list = StringUtils.mark_list(scansion)
+        mark_list = string_utils.mark_list(scansion)
         vals = list(scansion.replace(" ", ""))
         new_vals = self.DACTYLIC_PENTAMETER[:-1] + vals[-1]
         corrected = "".join(new_vals)
@@ -216,7 +216,7 @@ class PentameterScanner(VerseScanner):
         ... "U  U  U  U  U  U  U  U  U  U  U  U  U  U"))
         U  U  U  U  U  U  U  -  U  U  -  U  U  U
         """
-        mark_list = StringUtils.mark_list(scansion)
+        mark_list = string_utils.mark_list(scansion)
         vals = list(scansion.replace(" ", ""))
         n_vals = vals[:-7] + [self.constants.DACTYL + self.constants.DACTYL] + [vals[-1]]
         corrected = "".join(n_vals)

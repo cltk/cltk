@@ -5,6 +5,49 @@ Greek is an independent branch of the Indo-European family of languages, native 
 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
+Corpus Readers
+==============
+
+Most users will want to access words, sentences, paragraphs and even whole documents via a CorpusReader object. All Corpus contributors should provide a suitable reader. There is one for Perseus Greek, and others will be made available. The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
+
+.. code-block:: python
+
+
+    In [1]: from cltk.corpus.readers import get_corpus_reader
+       ...: reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+       ...: reader._fileids = ['cicero__on-behalf-of-aulus-caecina__latin.json']
+       ...: sentences = list(reader.sents())
+       ...: len(sentences)
+       ...:
+    Out[1]: 25435
+
+    In [2]: sentences[0]
+    Out[2]: '\n\t\t\t si , quantum in agro locisque desertis audacia potest, tantum in foro atque\n\t\t\t\tin iudiciis impudentia valeret, non minus nunc in causa cederet A. Caecina Sex.'
+
+    In [3]: doc = list(reader.docs())[0]
+       ...: doc.keys()
+       ...:
+    Out[3]: dict_keys(['meta', 'author', 'text', 'edition', 'englishTitle', 'source', 'originalTitle', 'original-urn', 'language', 'sourceLink', 'urn', 'filename'])
+
+
+    In [1]: from cltk.corpus.readers import get_corpus_reader
+       ...: reader = get_corpus_reader( corpus_name = 'greek_text_perseus', language = 'greek')
+       ...: reader._fileids = ['plato__apology__grc.json']
+       ...: sentences = list(reader.sents())
+       ...: len(sentences)
+       ...:
+    Out[1]: 4983
+
+    In [2]: sentences[0]
+    Out[2]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
+
+    In [3]: doc = list(reader.docs())[0]
+       ...: doc.keys()
+       ...:
+    Out[3]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
+
+
+
 
 Accentuation and diacritics
 ===========================

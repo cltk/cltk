@@ -379,6 +379,33 @@ argenteo polubro, aureo eclutro. """
         reader._fileids = ['catullus.txt']
         self.assertTrue(len(list(reader.sizes())) > 0)
 
+    def test_json_corpus_reader(self):
+        """Test filtered corpus sents method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+        # this has simple sections
+        reader._fileids = ['cicero__on-behalf-of-aulus-caecina__latin.json']
+        self.assertTrue(len(list(reader.paras())) > 1)
+        self.assertTrue(len(list(reader.sents())) > 400)
+        self.assertTrue(len(list(reader.words())) > 12200)
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+        # this example has subsections
+        reader._fileids = ['ausonius-decimus-magnus__eclogarum-liber__latin.json']
+        self.assertTrue(len(list(reader.docs())) == 1)
+        self.assertTrue(len(list(reader.paras())) >= 1)
+        self.assertTrue(len(list(reader.sents())) > 70)
+        self.assertTrue(len(list(reader.words())) > 2750)
+        reader = get_corpus_reader(corpus_name='greek_text_perseus', language='greek')
+        reader._fileids = ['plato__apology__grc.json']
+        self.assertTrue(len(list(reader.docs())) == 1)
+        self.assertTrue(len(list(reader.paras())) > 1)
+        self.assertTrue(len(list(reader.sents())) > 260)
+        self.assertTrue(len(list(reader.words())) > 9800)
+
+    def test_json_corpus_reader_sizes(self):
+        """Test filtered corpus sizes method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+        self.assertTrue(len(list(reader.sizes())) > 290)
+
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
         corpus_importer = CorpusImporter('latin')

@@ -12,6 +12,8 @@ logging.basicConfig(level=logging.INFO)
 try:
     corpus_importer = CorpusImporter('latin')
     corpus_importer.import_corpus('latin_text_latin_library')
+    corpus_importer = CorpusImporter('greek')
+    corpus_importer.import_corpus('greek_text_perseus')
 except:
     LOG.exception('Failure to download test corpus')
 
