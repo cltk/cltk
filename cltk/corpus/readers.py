@@ -334,7 +334,7 @@ class JsonfileCorpusReader(CorpusReader):
                     if not skip:
                         text_sections.append(text_part)
                 if isinstance(text_sections, dict):
-                    print('error', doc['filename'])
+                    LOG.error('Unexpected nested dict', doc['filename'])
                 paras = (''.join(text_sections)).split(self.paragraph_separator)
                 for para in paras:
                     yield para
