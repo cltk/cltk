@@ -563,7 +563,7 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.HexameterScanner import HexameterScanner
+   In [1]: from cltk.prosody.latin.hexameter_scanner import HexameterScanner
 
    In [2]: scanner = HexameterScanner()
 
@@ -584,7 +584,7 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.PentameterScanner import PentameterScanner
+   In [1]: from cltk.prosody.latin.pentameter_scanner import PentameterScanner
 
    In [2]: scanner = PentameterScanner()
 
@@ -605,7 +605,7 @@ The scanner also determines which syllables would have to be made long to make t
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.HendecasyllableScanner import HendecasyllableScanner
+   In [1]: from cltk.prosody.latin.hendecasyllable_scanner import HendecasyllableScanner
 
    In [2]: scanner = HendecasyllableScanner()
 
@@ -636,7 +636,7 @@ The ScansionConstants class is a configuration class for specifying scansion con
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.ScansionConstants import ScansionConstants
+   In [1]: from cltk.prosody.latin.scansion_constants import ScansionConstants
 
    In [2]: constants = ScansionConstants(unstressed="U",stressed= "-", optional_terminal_ending="X")
 
@@ -658,7 +658,7 @@ The Syllabifier class is a Latin language syllabifier. It parses a Latin word or
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.Syllabifier import Syllabifier
+   In [1]: from cltk.prosody.latin.syllabifier import Syllabifier
 
    In [1]: syllabifier = Syllabifier()
 
@@ -678,7 +678,7 @@ The MetricalValidator class is a utility class for validating scansion patterns.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.MetricalValidator import MetricalValidator
+   In [1]: from cltk.prosody.latin.metrical_validator import MetricalValidator
 
    In [2]: MetricalValidator().is_valid_hexameter("-UU---UU---UU-U")
    Out[2]: 'True'
@@ -691,7 +691,7 @@ The ScansionFormatter class is a utility class for formatting scansion patterns.
 
 .. code-block:: python
 
-   In [1]: from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
+   In [1]: from cltk.prosody.latin.scansion_formatter import ScansionFormatter
 
    In [2]: ScansionFormatter().hexameter("-UU-UU-UU---UU--")
    Out[2]: '-UU|-UU|-UU|--|-UU|--'
