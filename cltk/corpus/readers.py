@@ -309,14 +309,14 @@ class JsonfileCorpusReader(CorpusReader):
         """
         text_sections = []
         for doc in self.docs(fileids):
-            sections = [int(tmp) for tmp in doc['text'].keys()]
-            sorted(sections)
+            sections = list(doc['text'].keys())
+            sections = sorted(sections)
             for section in sections:
-                if isinstance(doc['text'][str(section)], dict):
-                    subsections = [int(tmp) for tmp in doc['text'][str(section)] if tmp.isnumeric()]
-                    sorted(subsections)
+                if isinstance(doc['text'][section], dict):
+                    subsections = list(doc['text'][section])
+                    subsections = sorted(subsections)
                     for subsection in subsections:
-                        text_part = doc['text'][str(section)][str(subsection)]
+                        text_part = doc['text'][section][subsection]
                         skip = False
                         if self.skip_keywords:
                             for keyword in self.skip_keywords:
@@ -325,7 +325,7 @@ class JsonfileCorpusReader(CorpusReader):
                         if not skip:
                             text_sections.append(text_part)
                 else:
-                    text_part = doc['text'][str(section)]
+                    text_part = doc['text'][section]
                     skip = False
                     if self.skip_keywords:
                         for keyword in self.skip_keywords:
