@@ -384,7 +384,7 @@ argenteo polubro, aureo eclutro. """
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
         # this has simple sections
         reader._fileids = ['cicero__on-behalf-of-aulus-caecina__latin.json']
-        self.assertTrue(len(list(reader.paras())) > 1)
+        self.assertTrue(len(list(reader.paras())) >= 1)
         self.assertTrue(len(list(reader.sents())) > 400)
         self.assertTrue(len(list(reader.words())) > 12200)
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')

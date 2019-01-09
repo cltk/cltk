@@ -307,37 +307,32 @@ class JsonfileCorpusReader(CorpusReader):
         and section subkey
         :return: a generator of paragraphs
         """
-        text_sections = []
-        for doc in self.docs(fileids):
-            sections = list(doc['text'].keys())
-            sections = sorted(sections)
-            for section in sections:
-                if isinstance(doc['text'][section], dict):
-                    subsections = list(doc['text'][section])
-                    subsections = sorted(subsections)
-                    for subsection in subsections:
-                        text_part = doc['text'][section][subsection]
-                        skip = False
-                        if self.skip_keywords:
-                            for keyword in self.skip_keywords:
-                                if keyword in text_part:
-                                    skip = True
-                        if not skip:
-                            text_sections.append(text_part)
+
+        def _recurse_to_strings(my_dict: Dict[str, Any]) -> List[str]:
+            """Internal accumulator method."""
+            vals = []  # type: List[str]
+            m_keys = sorted(list(my_dict.keys()))
+            for mkey in m_keys:
+                if isinstance(my_dict[mkey], dict):
+                    vals += _recurse_to_strings(my_dict[mkey])
                 else:
-                    text_part = doc['text'][section]
-                    skip = False
-                    if self.skip_keywords:
-                        for keyword in self.skip_keywords:
-                            if keyword in text_part:
-                                skip = True
-                    if not skip:
-                        text_sections.append(text_part)
-                if isinstance(text_sections, dict):
-                    LOG.error('Unexpected nested dict', doc['filename'])
-                paras = (''.join(text_sections)).split(self.paragraph_separator)
-                for para in paras:
-                    yield para
+                    vals += [my_dict[mkey]]
+            return vals
+
+        text_sections = []  # type: List[str]
+        for doc in self.docs(fileids):
+            text_data = _recurse_to_strings(doc['text'])
+            for text_part in text_data:
+                skip = False
+                if self.skip_keywords:
+                    for keyword in self.skip_keywords:
+                        if keyword in text_part:
+                            skip = True
+                if not skip:
+                    text_sections.append(text_part)
+            paras = (''.join(text_sections)).split(self.paragraph_separator)
+            for para in paras:
+                yield para
 
     def docs(self, fileids=None) -> Generator[Dict[str, Any], Dict[str, Any], None]:
         """
