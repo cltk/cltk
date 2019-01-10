@@ -38,7 +38,6 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
 
     sentence_tokenizer = TokenizeSentence(language)
     the_word_tokenizer = WordTokenizer(language)
-
     doc_pattern = r'.*\.txt'  #: Generic file ending, override below in your own CorpusReader implementation
 
     if language == 'latin':
@@ -50,7 +49,6 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
                                                  skip_keywords=skip_keywords)
         if corpus_name == 'latin_text_perseus':
             valid_json_root = os.path.join(root, 'cltk_json')  #: we only support this subsection
-
             return JsonfileCorpusReader(root=valid_json_root,
                                         sent_tokenizer=sentence_tokenizer,
                                         word_tokenizer=the_word_tokenizer,
@@ -58,8 +56,7 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
 
     if language == 'greek':
         if corpus_name == 'greek_text_perseus':
-            valid_json_root = os.path.join(root,
-                                           'cltk_json')  #: we only support this subsection
+            valid_json_root = os.path.join(root, 'cltk_json')  #: we only support this subsection
             return JsonfileCorpusReader(root=valid_json_root,
                                         sent_tokenizer=sentence_tokenizer,
                                         word_tokenizer=the_word_tokenizer,
@@ -71,8 +68,7 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
 def assemble_corpus(corpus_reader: CorpusReader,
                     types_requested: List[str],
                     type_dirs: Dict[str, List[str]] = None,
-                    type_files: Dict[str, List[str]] = None) -> Tuple[
-    CorpusReader, List[str], Set[str]]:
+                    type_files: Dict[str, List[str]] = None) -> CorpusReader:
     """
     Create a filtered corpus.
     :param corpus_reader: This get mutated
@@ -80,9 +76,7 @@ def assemble_corpus(corpus_reader: CorpusReader,
     type_files mappings
     :param type_dirs: a dict of corpus types to directories
     :param type_files: a dict of corpus types to files
-    :return: a Tuple(CorpusReader object containing only the mappings desired,
-    fileid_names: A list of file ids of the matching corpus files, and
-    categories_found: a set of word categories used to build the reader
+    :return: a CorpusReader object containing only the mappings desired
     """
     fileid_names = []  # type: List[str]
     try:
@@ -107,7 +101,7 @@ def assemble_corpus(corpus_reader: CorpusReader,
         clean_ids_types.sort(key=lambda x: x[0])
         fileid_names, categories = zip(*clean_ids_types)  # type: ignore
         corpus_reader._fileids = fileid_names
-        return corpus_reader, fileid_names, set(categories)
+        return corpus_reader
     except Exception:
         LOG.exception('failure in corpus building')
 
@@ -240,7 +234,10 @@ class FilteredPlaintextCorpusReader(PlaintextCorpusReader, CorpusReader):
 class JsonfileCorpusReader(CorpusReader):
     """
     A corpus reader for Json documents where contents are stored in a dictionary.
-    Supports documents that are either:
+    Supports any documents stored under a text key.
+    A document may have any number of subsections as nested dictionaries, as long as their keys
+    are sortable; they will be traversed and only strings datatypes will be collected as the text.
+    E.g.:
 
     doc['text']['1'] = "some text"
     doc['text']['2'] = "more text"

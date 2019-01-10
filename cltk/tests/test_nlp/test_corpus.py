@@ -52,7 +52,7 @@ from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 from cltk.corpus.utils.formatter import normalize_fr
 from cltk.corpus.swadesh import Swadesh
-from cltk.corpus.readers import assemble_corpus, FilteredPlaintextCorpusReader, get_corpus_reader
+from cltk.corpus.readers import assemble_corpus, get_corpus_reader
 from cltk.corpus.latin.latin_library_corpus_types import corpus_texts_by_type, \
     corpus_directories_by_type
 from cltk.utils.matrix_corpus_fun import distinct_words
@@ -65,6 +65,17 @@ DISTRIBUTED_CORPUS_PATH = os.path.expanduser(DISTRIBUTED_CORPUS_PATH_REL)
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            corpus_importer = CorpusImporter('latin')
+            corpus_importer.import_corpus('latin_text_latin_library')
+            corpus_importer.import_corpus('latin_text_perseus')
+            corpus_importer = CorpusImporter('greek')
+            corpus_importer.import_corpus('greek_text_perseus')
+        except:
+            raise Exception('Failure to download test corpus')
 
     def test_greek_betacode_to_unicode(self):
         """Test converting Beta Code to Unicode.
@@ -302,24 +313,23 @@ argenteo polubro, aureo eclutro. """
     def test_import_latin_library_corpus_filter_by_file(self):
         """Test the Latin Library corpus reader filter by files."""
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'], None,
-                                                                   corpus_texts_by_type)
+        filtered_reader = assemble_corpus(reader, types_requested=['old'],
+                                          type_files=corpus_texts_by_type)
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
     def test_import_latin_library_corpus_filter_by_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
-                                                                   corpus_directories_by_type,
-                                                                   None)
+        filtered_reader = assemble_corpus(reader, types_requested=['old'],
+                                          type_dirs=corpus_directories_by_type)
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
     def test_import_latin_library_corpus_filter_by_file_and_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        filtered_reader, files_found, dirs_found = assemble_corpus(reader, ['old'],
-                                                                   corpus_directories_by_type,
-                                                                   corpus_texts_by_type)
+        filtered_reader = assemble_corpus(reader, types_requested=['old'],
+                                          type_dirs=corpus_directories_by_type,
+                                          type_files=corpus_texts_by_type)
         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
     def test_filtered_corpus_reader_sents(self):
@@ -392,7 +402,7 @@ argenteo polubro, aureo eclutro. """
         reader._fileids = ['ausonius-decimus-magnus__eclogarum-liber__latin.json']
         self.assertTrue(len(list(reader.docs())) == 1)
         self.assertTrue(len(list(reader.paras())) >= 1)
-        self.assertTrue(len(list(reader.sents())) > 70)
+        self.assertTrue(len(list(reader.sents())) > 50)
         self.assertTrue(len(list(reader.words())) > 2750)
         reader = get_corpus_reader(corpus_name='greek_text_perseus', language='greek')
         reader._fileids = ['plato__apology__grc.json']
