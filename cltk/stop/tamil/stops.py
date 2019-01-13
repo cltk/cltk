@@ -1,10 +1,10 @@
-"""This stopword list was compiled by SeenivasanSeeni
+"""This stopword list was compiled by SeenivasanSeeni. The sources of stop words include- 1. https://github.com/AshokR/TamilNLP/blob/master/Resources/TamilStopWords.txt
+
 """
 
 __author__ = ['SeenivasanSeeni <seeni0424@gmail.com>']
 __license__ = 'GPL License.'
 
-#main source of stop words is in https://github.com/AshokR/TamilNLP/blob/master/Resources/TamilStopWords.txt
 STOP_LIST = ['ஒரு',
     'என்று',
     'மற்றும்',
