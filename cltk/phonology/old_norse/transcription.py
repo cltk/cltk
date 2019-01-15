@@ -309,3 +309,8 @@ def measure_old_norse_syllable(syllable: list):
             return Length.long
         elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
             return Length.overlong
+
+
+def normalize_for_syllabifier(text):
+    text = text.replace("ː", "")
+    return text

@@ -16,7 +16,7 @@ from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 from cltk.inflection.old_norse import pronouns, nouns
 import cltk.inflection.utils as decl_utils
-from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr, MetreManager, UnspecifiedStanza
+from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr, MetreManager, UnspecifiedStanza, ProsodyTools, PoeticWord
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -172,6 +172,12 @@ class TestOldNorse(unittest.TestCase):
         for syllable in [word]:
             lengths.append(ont.measure_old_norse_syllable(syllable))
         self.assertListEqual(lengths, [None])
+
+    def test_prosody_tools_1(self):
+        old_norse_poetic_tool = ProsodyTools(True)
+        a = PoeticWord("dagr")
+        a.apply_poetic_tool(old_norse_poetic_tool)
+        a.print()
 
 
 if __name__ == '__main__':
