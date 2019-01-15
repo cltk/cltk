@@ -3,9 +3,9 @@
 
 import re
 from math import floor
-from cltk.phonology.utils import Transcriber
+from cltk.phonology.utils import Transcriber, transcribe_length
 from cltk.phonology.old_norse.transcription import Consonant, Vowel, old_norse_rules, IPA_class, \
-    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA
+    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA, measure_old_norse_syllable
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
 import cltk.corpus.old_norse.syllabifier as old_norse_syllabifier
