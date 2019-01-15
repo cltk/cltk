@@ -411,4 +411,3 @@ class Syllabifier:
                 counter += 1
 
         return syllabified_phonological_word
-    

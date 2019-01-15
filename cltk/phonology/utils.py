@@ -541,3 +541,12 @@ class Transcriber:
         else:
             res.append(first_result[0].ipar)
         return "".join(res)
+
+
+def transcribe_length(length):
+    if length == "short":
+        return "1"
+    elif length == "long":
+        return "2"
+    elif length == "overlong":
+        return "3"
