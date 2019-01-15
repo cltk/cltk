@@ -42,7 +42,7 @@ th = Consonant(Place.dental, Manner.fricative, False, "θ", False)
 # ð = Consonant(Place.dental, Manner.frictative, True, "ð")
 dh = Consonant(Place.dental, Manner.fricative, True, "ð", False)
 
-OLD_NORSE8_PHONOLOGY = [
+OLD_NORSE_PHONOLOGY = [
     a, ee, e, oe, i, y, ao, oo, u, a.lengthen(),
     e.lengthen(), i.lengthen(), o.lengthen(), u.lengthen(),
     y.lengthen(), b, d, f, g, h, k, l, m, n, p, r, s, t, v, th, dh
@@ -183,17 +183,26 @@ old_norse_rules.extend(rule_th)
 
 
 def measure_old_norse_syllable(syllable: list):
-    i = 0
-    while i < len(syllable) and not isinstance(syllable[i], Vowel):
-        i += 1
-    if i == len(syllable):
+    """
+    Old Norse syllables are considered as:
+    - short if
+    - long if
+    - overlong if
+
+    :param syllable: list of Vowel and Consonant instances
+    :return: instance of Length (short, long or overlong)
+    """
+    index = 0
+    while index < len(syllable) and not isinstance(syllable[index], Vowel):
+        index += 1
+    if index == len(syllable):
         return None
     else:
         long_vowel_number = 0
         short_vowel_number = 0
         geminated_consonant_number = 0
         simple_consonant_number = 0
-        for c in syllable[i:]:
+        for c in syllable[index:]:
             if isinstance(c, Vowel):
                 if c.length == Length.long:
                     long_vowel_number += 1
@@ -212,3 +221,8 @@ def measure_old_norse_syllable(syllable: list):
             return Length.long
         elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
             return Length.overlong
+
+
+def normalize_for_syllabifier(text):
+    text = text.replace("ː", "")
+    return text

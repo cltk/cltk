@@ -5,12 +5,13 @@ import re
 from math import floor
 
 from cltk.phonology.old_norse.transcription import Consonant, Vowel, Transcriber, old_norse_rules, IPA_class, \
-    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA
+    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA, normalize_for_syllabifier, transcribe_length, measure_old_norse_syllable
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
 import cltk.corpus.old_norse.syllabifier as old_norse_syllabifier
 from cltk.stop.old_norse.stops import STOPS_LIST
 from cltk.utils.cltk_logger import logger
+from cltk.tag.pos import POSTag
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
@@ -24,6 +25,7 @@ STOPS_LIST.extend(stops_for_poetry)
 def normalize(text):
     res = text.lower()
     res = re.sub(r"[\-:?;.,]", "", res)
+    res = re.sub(r" +", " ", res)
     return res
 
 
@@ -589,3 +591,76 @@ class Ljoodhhaattr(Metre):
         :return:
         """
         return Metre.find_alliteration(self)
+
+
+class ProsodyTools:
+    def __init__(self, basic=False):
+        if basic:
+            self.syllabifier = Syllabifier(language="old_norse_ipa")
+            self.tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
+            self.tagger = POSTag('old_norse')
+        else:
+            self.syllabifier = None
+            self.phonetic_transcriber = None
+            self.tagger = None
+
+
+        def set_syllabifier(self, syllabifier):
+            self.syllabifier = syllabifier
+
+        def set_transcriber(self, transcriber):
+            self.tr = transcriber
+
+        def set_pos_tagger(self, pos_tagger):
+            self.tagger = pos_tagger
+
+
+class PoeticWord:
+    def __init__(self, text):
+        self.text = text
+        self.syl = []
+        self.length = []
+        self.stress = []
+        self.ipa_transcription = []
+
+    def apply_poetic_tool(self, poetic_tool):
+        """
+        Compute the phonetic transcription of the word with IPA representation
+        Compute the syllables of the word
+        Compute the lentgh of each syllable
+        Compute if a syllable is stress of noe
+        Compute the POS category the word is in
+        :param poetic_tool:
+        :return:
+        """
+        self.ipa_transcription = poetic_tool.tr.first_process(self.text)
+        self.syl = poetic_tool.syllabifier.syllabify_phonemes(self.ipa_transcription)
+        for i, syllable in enumerate(self.syl):
+            self.ipa_transcription.append([])
+            syl_len = transcribe_length(measure_old_norse_syllable(syllable).name)
+            syl_stress = 1 if i == 0 else 0
+
+            self.length.append(syl_len)
+            self.stress.append(syl_stress)
+            for c in syllable:
+                self.ipa_transcription[i].append(c.ipar)
+
+    def print(self):
+        print(self.text)
+        print(self.syl)
+        print(self.ipa_transcription)
+        print(self.length)
+        print(self.stress)
+
+    def compute_poetic_features(self):
+        """
+        P: primary-stressed long syllable
+        p: primary-stressed short syllable
+
+        x: unstressed syllable
+        :return:
+        """
+        return None
+
+
+
