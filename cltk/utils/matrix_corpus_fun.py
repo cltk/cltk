@@ -9,6 +9,7 @@ that is: a list wrapping a list of strings, with each sublist being a sentence. 
 import logging
 import re
 from collections import Counter
+from typing import Any, Dict, List, Set
 
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.prosody.latin.string_utils import punctuation_for_spaces_dict, remove_punctuation_dict
@@ -21,10 +22,10 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 
-def drop_all_caps(X):
+def drop_all_caps(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> drop_all_caps(drop_arabic_numeric ([['Catullus'], ['C.', 'VALERIVS', 'CATVLLVS'],['1','2', '2b', '3' ],['I.', 'ad', 'Cornelium'],['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']]))
     [['Catullus'], [], [], ['ad', 'Cornelium'], ['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum']]
@@ -32,13 +33,13 @@ def drop_all_caps(X):
     return [[word
              for word in sentence
              if re.match('.[a-z]', word)]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_arabic_numeric(X):
+def drop_arabic_numeric(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
 
     >>> drop_arabic_numeric([['Catullus'], ['C.', 'VALERIVS', 'CATVLLVS'],['1','2', '2b', '3' ],['I.', 'ad', 'Cornelium'],['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']])
@@ -47,25 +48,25 @@ def drop_arabic_numeric(X):
     return [[word
              for word in sentence
              if not re.match('[0-9]+([a-z]+)?', word)]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_empty_lists(X):
+def drop_empty_lists(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
 
     >>> drop_empty_lists([['Catullus'], [], [], ['I.', 'ad', 'Cornelium'], ['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']])
     [['Catullus'], ['I.', 'ad', 'Cornelium'], ['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']]
     """
-    return [sentence for sentence in X if sentence]
+    return [sentence for sentence in string_matrix if sentence]
 
 
-def drop_non_lower(X):
+def drop_non_lower(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
 
     >>> drop_non_lower([['Catullus'], ['C.', 'VALERIVS', 'CATVLLVS'],['1','2', '2b', '3' ],['I.', 'ad', 'Cornelium'],['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']])
@@ -74,25 +75,25 @@ def drop_non_lower(X):
     return [[word
              for word in sentence
              if word.upper() != word]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def clean_latin_text(X):
+def clean_latin_text(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> clean_latin_text([['Catullus'], ['C.', 'VALERIVS', 'CATVLLVS'],['1','2', '2b', '3' ],['I.', 'ad', 'Cornelium'],['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']])
     [['ad'], ['dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum']]
     """
     return drop_empty_lists(drop_probable_entities(
-        drop_all_caps(drop_arabic_numeric(drop_non_lower((X))))))
+        drop_all_caps(drop_arabic_numeric(drop_non_lower((string_matrix))))))
 
 
-def drop_probable_entities(X):
+def drop_probable_entities(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> drop_empty_lists(drop_arabic_numeric(drop_probable_entities([['Catullus'], ['C.', 'VALERIVS', 'CATVLLVS'],['1','2', '2b', '3' ],['I.', 'ad', 'Cornelium'],['Cui', 'dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']])))
     [['ad'], ['dono', 'lepidum', 'novum', 'libellum', 'arida', 'modo', 'pumice', 'expolitum', '?']]
@@ -100,26 +101,26 @@ def drop_probable_entities(X):
     return [[word
              for word in sentence
              if word[0].lower() == word[0]]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def jv_transform(X):
+def jv_transform(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     >>> jv_transform([['venio', 'jacet'], ['julius', 'caesar']])
     [['uenio', 'iacet'], ['iulius', 'caesar']]
     """
     jvreplacer = JVReplacer()
     return [[jvreplacer.replace(word)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_enclitics(X):
+def drop_enclitics(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return: The matrix cleaned of enclitics
     >>> drop_enclitics([['arma', 'virum', '-que', 'cano']])
     [['arma', 'virum', 'cano']]
@@ -127,24 +128,24 @@ def drop_enclitics(X):
     return [[word
              for word in sentence
              if not word.startswith('-')]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_short_sentences(X, min_len=2):
+def drop_short_sentences(string_matrix: List[List[str]], min_len: int = 2) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> drop_short_sentences([['ita', 'vero'], ['quid', 'est', 'veritas'], ['vir', 'qui', 'adest']])
     [['quid', 'est', 'veritas'], ['vir', 'qui', 'adest']]
     """
-    return [sentence for sentence in X if len(sentence) > min_len]
+    return [sentence for sentence in string_matrix if len(sentence) > min_len]
 
 
-def drop_empty_strings(X):
+def drop_empty_strings(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> drop_empty_strings([['', '', 'quid', 'est', 'veritas'], ['vir', 'qui', 'adest']])
     [['quid', 'est', 'veritas'], ['vir', 'qui', 'adest']]
@@ -152,10 +153,10 @@ def drop_empty_strings(X):
     return [[word
              for word in sentence
              if len(word) > 0]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_edge_punct(word):
+def drop_edge_punct(word: str) -> str:
     """
     Remove edge punctuation.
     :param word: a single string
@@ -176,25 +177,25 @@ def drop_edge_punct(word):
     return word
 
 
-def profile_chars(X):
+def profile_chars(string_matrix: List[List[str]]) -> Dict[str, int]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return: A Counter dictionary of character frequencies
     >>> from collections import Counter
     >>> result = profile_chars([['the', 'quick', 'brown'],['how', 'now', 'cow']])
     >>> result == Counter({'o': 4, 'w': 4, 'h': 2, 'c': 2, 'n': 2, 't': 1, 'e': 1, 'q': 1, 'u': 1, 'i': 1, 'k': 1, 'b': 1, 'r': 1})
     True
     """
-    char_counter = Counter()
-    for sentence in X:
+    char_counter = Counter()  # type: Dict[str,int]
+    for sentence in string_matrix:
         for word in sentence:
             for car in word:
                 char_counter.update({car: 1})
     return char_counter
 
 
-def split_camel(word):
+def split_camel(word: str) -> str:
     """
     Separate any words joined in Camel case fashion using a single space.
     >>> split_camel('esseCarthaginienses')
@@ -209,24 +210,24 @@ def split_camel(word):
     return word
 
 
-def separate_camel_cases(X):
+def separate_camel_cases(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> separate_camel_cases([['amo', 'urbemRomam']])
     [['amo', 'urbem Romam']]
     """
     return [[split_camel(word)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def demacronize(X):
+def demacronize(string_matrix: List[List[str]]) -> List[List[str]]:
     """
     Transform macronized vowels into normal vowels
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
-    :return: X
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :return: string_matrix
     >>> demacronize([['ōdī', 'et', 'amō',]])
     [['odi', 'et', 'amo']]
     """
@@ -234,13 +235,13 @@ def demacronize(X):
     accent_dropper = str.maketrans(scansion.ACCENTED_VOWELS, scansion.VOWELS)
     return [[word.translate(accent_dropper)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_all_punctuation(X):
+def drop_all_punctuation(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> drop_all_punctuation ([["I'm","ok!","Oh","%&*()[]{}!? Fine!"]])
     [['Im', 'ok', 'Oh', 'Fine']]
@@ -248,10 +249,10 @@ def drop_all_punctuation(X):
     punct_spaces = remove_punctuation_dict()
     return [[drop_punctuation(word, transformation_table=punct_spaces)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def splice_hyphenated_word(word):
+def splice_hyphenated_word(word: str) -> str:
     """
 
     :param word:
@@ -267,10 +268,10 @@ def splice_hyphenated_word(word):
     return re.sub('[{}]'.format(''.join(hyphens)), ' ', word)
 
 
-def splice_hyphens(X):
+def splice_hyphens(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
 
     >>> splice_hyphens([['iam', 'fortis-eum'], ['ita', 'vero']])
@@ -278,10 +279,10 @@ def splice_hyphens(X):
     """
     return [[splice_hyphenated_word(word)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_punctuation(word, transformation_table=None):
+def drop_punctuation(word: str, transformation_table: Dict[int, Any] = None) -> str:
     """
 
     :param word:
@@ -297,17 +298,17 @@ def drop_punctuation(word, transformation_table=None):
     return word
 
 
-def divide_separate_words(X):
+def divide_separate_words(string_matrix: List[List[str]]) -> List[List[str]]:
     """
     As part of processing, some words obviously need to be separated.
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> divide_separate_words([['ita vero'], ['quid', 'est', 'veritas']])
     [['ita', 'vero'], ['quid', 'est', 'veritas']]
     """
     new_X = []
-    for sentence in X:
-        data_row = []
+    for sentence in string_matrix:
+        data_row = []  # type: List[str]
         for word in sentence:
             if ' ' in word:
                 data_row += word.split()
@@ -317,22 +318,22 @@ def divide_separate_words(X):
     return new_X
 
 
-def drop_fringe_punctuation(X):
+def drop_fringe_punctuation(string_matrix: List[List[str]]) -> List[List[str]]:
     """
     Drop punctuation that occurs on the edges of words.
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     >>> drop_fringe_punctuation([['this' , 'is', 'cool!'], ["'But", 'so', 'is', 'this'] ])
     [['this', 'is', 'cool'], ['But', 'so', 'is', 'this']]
     """
     return [[drop_edge_punct(word)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def drop_editorial(X):
+def drop_editorial(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return: matrix cleaned of individual strings with \<[A-Za-z]+\>
 
     >>> drop_editorial([['quid','est', 'ver<it>as'], ['vir', 'qui', 'adest']])
@@ -340,13 +341,13 @@ def drop_editorial(X):
     """
     return [[re.sub("\<[A-Za-z]+\>", '', word)
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def accept_editorial(X):
+def accept_editorial(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return: matrix with editorial suggestions accepted
 
     >>> accept_editorial([['quid','est', 'ver<it>as'], ['vir', 'qui', 'adest']])
@@ -354,48 +355,48 @@ def accept_editorial(X):
     """
     return [[re.sub('\>', '', re.sub('\<', '', word))
              for word in sentence]
-            for sentence in X]
+            for sentence in string_matrix]
 
 
-def distinct_words(X):
+def distinct_words(string_matrix: List[List[str]]) -> Set[str]:
     """
     Diagnostic function
-    :param X:
+    :param string_matrix:
     :return:
     >>> dl = distinct_words([['the', 'quick', 'brown'], ['here', 'lies', 'the', 'fox']])
     >>> sorted(dl)
     ['brown', 'fox', 'here', 'lies', 'quick', 'the']
     """
     return set([word
-                for sentence in X
+                for sentence in string_matrix
                 for word in sentence])
 
 
-def distinct_letters(X):
+def distinct_letters(string_matrix: List[List[str]]) -> Set[str]:
     """
     Diagnostic function
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :return:
     >>> dl = distinct_letters([['the', 'quick', 'brown'],['how', 'now', 'cow']])
     >>> sorted(dl)
     ['b', 'c', 'e', 'h', 'i', 'k', 'n', 'o', 'q', 'r', 't', 'u', 'w']
     """
     return set([letter
-                for sentence in X
+                for sentence in string_matrix
                 for word in sentence
                 for letter in word])
 
 
-def word_for_char(X, character):
+def word_for_char(string_matrix: List[List[str]], character: str) -> List[str]:
     """
     Diagnostic function, collect the words where a character appears
-    :param X: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
+    :param string_matrix: a data matrix: a list wrapping a list of strings, with each sublist being a sentence.
     :param character:
     :return:
     >>> word_for_char( [['the', 'quick', 'brown'],['how', 'now', 'cow']], 'n')
     ['brown', 'now']
     """
     return [word
-            for sentence in X
+            for sentence in string_matrix
             for word in sentence
             if character in word]
