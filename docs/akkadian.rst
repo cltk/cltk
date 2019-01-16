@@ -206,6 +206,7 @@ all of which are callable.
 To access the text, use `.catalog`.
 
 .. code-block:: python
+
    In[7]: print(cc.catalog)
    Out[7]: {'P254202': {'metadata': ['Primary publication: ARM 01, 001', 'Author(s): Dossin, Georges',
                                      'Publication date: 1946',

@@ -5,6 +5,42 @@ Greek is an independent branch of the Indo-European family of languages, native 
 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
+Corpus Readers
+==============
+
+Most users will want to access words, sentences, paragraphs and even whole documents via a CorpusReader object. All Corpus contributors should provide a suitable reader. There is one for Perseus Greek, and others will be made available. The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
+
+.. code-block:: python
+
+
+    In [1]: from cltk.corpus.readers import get_corpus_reader
+       ...: reader = get_corpus_reader( corpus_name = 'greek_text_perseus', language = 'greek')
+       ...: # get all the docs
+       ...: docs = list(reader.docs())
+       ...: len(docs)
+       ...:
+    Out[1]: 222
+
+    In [2]: # or set just one
+       ...: reader._fileids = ['plato__apology__grc.json']
+
+    In [3]: # get all the sentences
+    In [4]: sentences = list(reader.sents())
+       ...: len(sentences)
+       ...:
+    Out[4]: 4983
+
+    In [5]: # Or just one
+
+    In [6]: sentences[0]
+    Out[6]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
+
+    In [7]: # access an individual doc as a dictionary of dictionaries
+       ...: doc = list(reader.docs())[0]
+       ...: doc.keys()
+       ...:
+    Out[7]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
+
 
 Accentuation and diacritics
 ===========================
@@ -284,6 +320,8 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
 The beta code converter can also handle lowercase notation:
+
+.. code-block:: python
 
     In [5]: BETA_EXAMPLE_2 = r"""me/xri me\n w)/n tou/tou a(rpaga/s mou/nas ei)=nai par' a)llh/lwn, to\ de\ a)po\ tou/tou *(/ellhnas dh\ mega/lws ai)ti/ous gene/sqai: prote/rous ga\r a)/rcai strateu/esqai e)s th\n *)asi/hn h)\ sfe/as e)s th\n *eu)rw/phn. """
     Out[5]: 'μέχρι μὲν ὤν τούτου ἁρπαγάς μούνας εἶναι παρ’ ἀλλήλων, τὸ δὲ ἀπὸ τούτου Ἕλληνας δὴ μεγάλως αἰτίους γενέσθαι· προτέρους γὰρ ἄρξαι στρατεύεσθαι ἐς τὴν Ἀσίην ἢ σφέας ἐς τὴν Εὐρώπην.'
