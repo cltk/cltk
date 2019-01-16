@@ -78,7 +78,6 @@ class OldEnglishDictioraryLemmatizer(object):
 				lemma = token
 			elif len(lemmas) > 1:
 				counts = [self.type_counts[word] for word in lemmas]
-				print(counts)
 				lemma = lemmas[argmax(counts)]
 			else:
 				lemma = lemmas[0]

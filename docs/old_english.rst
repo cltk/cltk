@@ -131,6 +131,28 @@ There is a facility for using the pre-specified sonoroty hierarchy for Old Engli
   In [3]: s.syllabify('geardagum')
   Out [3]:['gear', 'da', 'gum']
 
+
+Lemmatization
+=============
+
+A basic lemmatizer is provided, based on a hand-built dictionary of word forms.
+
+.. code-block:: python
+  In [1]: import cltk.lemmatize.old_english.lemma as oe_l
+  In [2]: lemmatizer = oe_l.OldEnglishDictioraryLemmatizer()
+  In [3]: lemmatizer.lemmatize('Næs him fruma æfre, or geworden, ne nu ende cymþ ecean')
+  Out [3]: [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'), (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'), ('nu', 'nu'), ('ende', 'ende'), ('cymþ', 'cuman'), ('ecean', 'ecean')]
+
+If an input word form has multiple possible lemmatizations, the system will select the lemma that occurs most 
+frequently in a large corpus of Old English texts.  If an input word form is not found in the dictionary, then 
+it is simply returned.
+
+Note, hovewer, that by passing in an extra parameter to the lemmatize function, one gains access to the 
+underlying dictionary.  In this case, a *list* is returned for each token.  The list will contain:
+* Nothing, if the word form is not found;
+* A single string if the form maps to a unique lemma (the usual case);
+* Multiple strings if the form maps to several lemmas.
+
 POS tagging
 ===========
 
