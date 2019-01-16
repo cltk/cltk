@@ -7,6 +7,7 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.corpus.swadesh import Swadesh
 from cltk.tag.pos import POSTag
 from cltk.phonology.syllabify import Syllabifier
+from cltk.lemmatize.old_english.lemma import OldEnglishDictioraryLemmatizer
 
 __author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
 
@@ -32,6 +33,24 @@ class TestOldEnglish(unittest.TestCase):
         s = Syllabifier(language='old_english')
         self.assertEqual(s.syllabify('geardagum'), ['gear', 'da', 'gum'])
 
+    # Lemmatizer
+    def test_dictionary_lemmatizer(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Næs him fruma æfre, or geworden, ne nu ende cymþ ecean'
+        target = [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'), 
+            (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'), 
+            ('nu', 'nu'), ('ende', 'ende'), ('cymþ', 'cuman'), ('ecean', 'ecean')]
+        self.assertEqual(lemmatizer.lemmatize(test_sentence), target)
+
+    def test_dictionary_lemmatizer_no_guess(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Næs him fruma æfre, or geworden, ne nu ende cymþ ecean'
+        lemmatized_sentence = lemmatizer.lemmatize(test_sentence, best_guess=False)
+        self.assertCountEqual(lemmatized_sentence[0][1], ['nesan', 'næs'])
+        self.assertEqual(lemmatized_sentence[-1], ('ecean', []))
+
+
+    # POS Taggers
     def test_pos_unigram_old_english(self):
         """Test tagging Old English POS with unigram tagger."""
         tagger = POSTag('old_english')
