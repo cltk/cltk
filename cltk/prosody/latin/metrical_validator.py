@@ -3,7 +3,9 @@ Allows users to configure the scansion symbols internally via a constructor argu
 a suitable default is provided."""
 
 import logging
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
+from typing import List
+
+from cltk.prosody.latin.scansion_constants import ScansionConstants
 from Levenshtein import distance
 
 LOG = logging.getLogger(__name__)
@@ -51,7 +53,7 @@ class MetricalValidator:
         """Determine if a scansion pattern is one of the valid Pentameter metrical patterns
 
              :param scanned_line: a line containing a sequence of stressed and unstressed syllables
-             :return bool
+             :return bool: whether or not the scansion is a valid pentameter
 
              >>> print(MetricalValidator().is_valid_pentameter('-UU-UU--UU-UUX'))
              True
@@ -69,8 +71,9 @@ class MetricalValidator:
         self.VALID_HENDECASYLLABLES = self._build_hendecasyllable_templates()
         self.VALID_PENTAMETERS = self._build_pentameter_templates()
 
-    def hexameter_feet(self, scansion: str) -> list:
-        """Produces a list of hexameter feet, stressed and unstressed syllables with spaces intact.
+    def hexameter_feet(self, scansion: str) -> List[str]:
+        """
+        Produces a list of hexameter feet, stressed and unstressed syllables with spaces intact.
         If the scansion line is not entirely correct, it will attempt to corral one or more improper
         patterns into one or more feet.
 
@@ -136,19 +139,25 @@ class MetricalValidator:
         return feet[::-1]
 
     @staticmethod
-    def hexameter_known_stresses() -> list:
+    def hexameter_known_stresses() -> List[int]:
         """Provide a list of known stress positions for a hexameter.
-        :return: a zero based list enumerating which syllables are known to be stressed."""
+
+        :return: a zero based list enumerating which syllables are known to be stressed.
+        """
         return list(range(17)[::3])
 
     @staticmethod
-    def hexameter_possible_unstresses() -> list:
-        """Provide a list of possible positions which may be unstressed syllables in a hexameter.
-        :return: a zero based list enumerating which syllables are known to be unstressed."""
+    def hexameter_possible_unstresses() -> List[int]:
+        """
+        Provide a list of possible positions which may be unstressed syllables in a hexameter.
+        :return: a zero based list enumerating which syllables are known to be unstressed.
+        """
         return list(set(range(17)) - set(range(17)[::3]))
 
-    def closest_hexameter_patterns(self, scansion: str) -> list:
-        """Find the closest group of matching valid hexameter patterns.
+    def closest_hexameter_patterns(self, scansion: str) -> List[str]:
+        """
+        Find the closest group of matching valid hexameter patterns.
+
         :return: list of the closest valid hexameter patterns; only candidates with a matching
         length/number of syllables are considered.
 
@@ -158,13 +167,17 @@ class MetricalValidator:
         return self._closest_patterns(self.VALID_HEXAMETERS, scansion)
 
     @staticmethod
-    def pentameter_possible_stresses() -> list:
-        """Provide a list of possible stress positions for a hexameter.
-        :return: a zero based list enumerating which syllables are known to be stressed."""
+    def pentameter_possible_stresses() -> List[int]:
+        """
+        Provide a list of possible stress positions for a hexameter.
+
+        :return: a zero based list enumerating which syllables are known to be stressed.
+        """
         return list(range(0, 6)) + [8]
 
-    def closest_pentameter_patterns(self, scansion: str) -> list:
-        """Find the closest group of matching valid pentameter patterns.
+    def closest_pentameter_patterns(self, scansion: str) -> List[str]:
+        """
+        Find the closest group of matching valid pentameter patterns.
 
         :return: list of the closest valid pentameter patterns; only candidates with a matching
         length/number of syllables are considered.
@@ -174,8 +187,9 @@ class MetricalValidator:
         """
         return self._closest_patterns(self.VALID_PENTAMETERS, scansion)
 
-    def closest_hendecasyllable_patterns(self, scansion: str) -> list:
-        """Find the closest group of matching valid hendecasyllable patterns.
+    def closest_hendecasyllable_patterns(self, scansion: str) -> List[str]:
+        """
+        Find the closest group of matching valid hendecasyllable patterns.
 
         :return: list of the closest valid hendecasyllable patterns; only candidates with a matching
         length/number of syllables are considered.
@@ -185,13 +199,15 @@ class MetricalValidator:
         """
         return self._closest_patterns(self.VALID_HENDECASYLLABLES, scansion)
 
-    def _closest_patterns(self, patterns: list, scansion: str) -> list:
-        """Find the closest group of matching valid patterns.
+    def _closest_patterns(self, patterns: List[str], scansion: str) -> List[str]:
+        """
+        Find the closest group of matching valid patterns.
 
         :patterns: a list of patterns
         :scansion: the scansion pattern thus far
         :return: list of the closest valid patterns; only candidates with a matching
-        length/number of syllables are considered."""
+        length/number of syllables are considered.
+        """
         pattern = scansion.replace(" ", "")
         pattern = pattern.replace(self.constants.FOOT_SEPARATOR, "")
         ending = pattern[-1]
@@ -205,9 +221,11 @@ class MetricalValidator:
         return []
 
     def _build_hexameter_template(self, stress_positions: str) -> str:
-        """Build a hexameter scansion template from string of 5 binary numbers;
+        """
+        Build a hexameter scansion template from string of 5 binary numbers;
         NOTE: Traditionally the fifth foot is dactyl and spondee substitution is rare,
-         however since it *is* a possible combination, we include it here.
+        however since it *is* a possible combination, we include it here.
+
         :param stress_positions: 5 binary integers, indicating whether foot is dactyl or spondee
         :return: a valid hexameter scansion template, a string representing stressed and
         unstresssed syllables with the optional terminal ending.
@@ -224,7 +242,7 @@ class MetricalValidator:
         hexameter.append(self.constants.HEXAMETER_ENDING)
         return "".join(hexameter)
 
-    def _build_hendecasyllable_templates(self) -> list:
+    def _build_hendecasyllable_templates(self) -> List[str]:
         return [
             #     -U  - U   U -  U -  U - X
             self.constants.TROCHEE + self.constants.TROCHEE +
@@ -239,7 +257,7 @@ class MetricalValidator:
             self.constants.IAMB + self.constants.IAMB + self.constants.IAMB
             + self.constants.OPTIONAL_ENDING]
 
-    def _build_pentameter_templates(self) -> list:
+    def _build_pentameter_templates(self) -> List[str]:
         """Create pentameter templates."""
         return [  # '-UU|-UU|-|-UU|-UU|X'
             self.constants.DACTYL + self.constants.DACTYL +

@@ -8,13 +8,13 @@ With Pip
 
 .. note::
 
-   The CLTK is only officially supported with Python 3.6 on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
+   The CLTK is only officially supported with Python 3.7 on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
 
-First, you'll need a working installation of `Python 3.6 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
+First, you'll need a working installation of `Python 3.7 <https://www.python.org/downloads/>`_, which now includes Pip. Create a virtual environment and activate it as follows:
 
 .. code-block:: shell
 
-   $ python3.6 -m venv venv
+   $ python3.7 -m venv venv
 
    $ source venv/bin/activate
 
