@@ -633,7 +633,7 @@ class PoeticWord:
         :param poetic_tool:
         :return:
         """
-        self.ipa_transcription = poetic_tool.tr.first_process(self.text)
+        self.ipa_transcription = poetic_tool.tr.text_to_phonetic_representation(self.text)
         self.syl = poetic_tool.syllabifier.syllabify_phonemes(self.ipa_transcription)
         for i, syllable in enumerate(self.syl):
             self.ipa_transcription.append([])
