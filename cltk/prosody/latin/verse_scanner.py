@@ -17,7 +17,7 @@ from cltk.prosody.latin.metrical_validator import MetricalValidator
 from cltk.prosody.latin.scansion_constants import ScansionConstants
 from cltk.prosody.latin.scansion_formatter import ScansionFormatter
 from cltk.prosody.latin.syllabifier import Syllabifier
-import cltk.prosody.latin.string_utils as StringUtils
+import cltk.prosody.latin.string_utils as string_utils
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -34,8 +34,8 @@ class VerseScanner:
 
     def __init__(self, constants=ScansionConstants(), syllabifier=Syllabifier(), **kwargs):
         self.constants = constants
-        self.remove_punct_map = StringUtils.remove_punctuation_dict()
-        self.punctuation_substitutions = StringUtils.punctuation_for_spaces_dict()
+        self.remove_punct_map = string_utils.remove_punctuation_dict()
+        self.punctuation_substitutions = string_utils.punctuation_for_spaces_dict()
         self.metrical_validator = MetricalValidator(constants)
         self.formatter = ScansionFormatter(constants)
         self.syllabifier = syllabifier
@@ -61,7 +61,7 @@ class VerseScanner:
         """
 
         words = line.split(" ")
-        space_list = StringUtils.space_list(line)
+        space_list = string_utils.space_list(line)
         corrected_words = []
         for word in words:
             found = False
@@ -74,15 +74,15 @@ class VerseScanner:
                     break
             if not found:
                 corrected_words.append(self.syllabifier.convert_consonantal_i(word))
-        new_line = StringUtils.join_syllables_spaces(corrected_words, space_list)
-        char_list = StringUtils.overwrite(list(new_line),
+        new_line = string_utils.join_syllables_spaces(corrected_words, space_list)
+        char_list = string_utils.overwrite(list(new_line),
                                           r"\b[iī][{}]".format(
                                               self.constants.VOWELS + self.constants.ACCENTED_VOWELS),
                                           "j")
-        char_list = StringUtils.overwrite(char_list,
+        char_list = string_utils.overwrite(char_list,
                                           r"\b[I][{}]".format(self.constants.VOWELS_WO_I),
                                           "J")
-        char_list = StringUtils.overwrite(char_list, r"[{}][i][{}]".format(
+        char_list = string_utils.overwrite(char_list, r"[{}][i][{}]".format(
             self.constants.VOWELS_WO_I, self.constants.VOWELS),
                                           "j", 1)
         return "".join(char_list)
@@ -102,7 +102,7 @@ class VerseScanner:
         omnjum
         """
         words = line.split(" ")
-        space_list = StringUtils.space_list(line)
+        space_list = string_utils.space_list(line)
         corrected_words = []
         for word in words:
             found = False
@@ -115,13 +115,13 @@ class VerseScanner:
                     break
             if not found:
                 corrected_words.append(self.syllabifier.convert_consonantal_i(word))
-        new_line = StringUtils.join_syllables_spaces(corrected_words, space_list)
+        new_line = string_utils.join_syllables_spaces(corrected_words, space_list)
         #  the following two may be tunable and subject to improvement
-        char_list = StringUtils.overwrite(list(new_line),
+        char_list = string_utils.overwrite(list(new_line),
                                           "[bcdfgjkmpqrstvwxzBCDFGHJKMPQRSTVWXZ][i][{}]".format(
                                               self.constants.VOWELS_WO_I),
                                           "j", 1)
-        char_list = StringUtils.overwrite(char_list,
+        char_list = string_utils.overwrite(char_list,
                                           "[{}][iI][{}]".format(self.constants.LIQUIDS,
                                                                 self.constants.VOWELS_WO_I),
                                           "j", 1)
@@ -151,13 +151,13 @@ class VerseScanner:
         # Vowels followed by 2 consonants
         # The digraphs ch, ph, th, qu and sometimes gu and su count as single consonants.
         # see http://people.virginia.edu/~jdk3t/epicintrog/scansion.htm
-        marks = StringUtils.overwrite(marks, "[{}][{}][{}]".format(
+        marks = string_utils.overwrite(marks, "[{}][{}][{}]".format(
             self.constants.VOWELS,
             self.constants.CONSONANTS,
             self.constants.CONSONANTS_WO_H),
                                       self.constants.STRESSED)
         # one space (or more for 'dropped' punctuation may intervene)
-        marks = StringUtils.overwrite(marks,
+        marks = string_utils.overwrite(marks,
                                       r"[{}][{}]\s*[{}]".format(
                                           self.constants.VOWELS,
                                           self.constants.CONSONANTS,
@@ -166,18 +166,18 @@ class VerseScanner:
         # ... if both consonants are in the next word, the vowel may be long
         # .... but it could be short if the vowel is not on the thesis/emphatic part of the foot
         # ... see Gildersleeve and Lodge p.446
-        marks = StringUtils.overwrite(marks,
+        marks = string_utils.overwrite(marks,
                                       r"[{}]\s*[{}][{}]".format(
                                           self.constants.VOWELS,
                                           self.constants.CONSONANTS,
                                           self.constants.CONSONANTS_WO_H),
                                       self.constants.STRESSED)
         #  x is considered as two letters
-        marks = StringUtils.overwrite(marks,
+        marks = string_utils.overwrite(marks,
                                       "[{}][xX]".format(self.constants.VOWELS),
                                       self.constants.STRESSED)
         #  z is considered as two letters
-        marks = StringUtils.overwrite(marks,
+        marks = string_utils.overwrite(marks,
                                       r"[{}][zZ]".format(self.constants.VOWELS),
                                       self.constants.STRESSED)
         original_verse = list(line)
@@ -212,7 +212,7 @@ class VerseScanner:
                       self.elide(tmp, r"ae\s+[{}]".format(all_vowels), 2),
                       self.elide(tmp, r"[{}]\s+[{}]".format(all_vowels, all_vowels), 1),
                       self.elide(tmp, r"[uū]m\s+h", 2)]
-        results = StringUtils.merge_elisions(candidates)
+        results = string_utils.merge_elisions(candidates)
         return results
 
     def calc_offset(self, syllables_spaces: List[str]) -> Dict[int, int]:
@@ -222,12 +222,12 @@ class VerseScanner:
         :param syllables_spaces:
         :return:
         """
-        line = StringUtils.flatten(syllables_spaces)
+        line = string_utils.flatten(syllables_spaces)
         mydict = {} # type: Dict[int, int]
         # #defaultdict(int) #type: Dict[int, int]
         for idx, syl in enumerate(syllables_spaces):
             target_syllable = syllables_spaces[idx]
-            skip_qu = StringUtils.starts_with_qu(target_syllable)
+            skip_qu = string_utils.starts_with_qu(target_syllable)
             matches = list(self.syllable_matcher.finditer(target_syllable))
             for position, possible in enumerate(matches):
                 if skip_qu:
@@ -254,8 +254,8 @@ class VerseScanner:
         :param offset_map dictionary of syllable positions, and an offset amount which is the
         number of spaces to skip in the original line before inserting the accent.
         """
-        scansion = list(" " * len(StringUtils.flatten(syllables_wspaces)))
-        unstresses = StringUtils.get_unstresses(stresses, len(syllables_wspaces))
+        scansion = list(" " * len(string_utils.flatten(syllables_wspaces)))
+        unstresses = string_utils.get_unstresses(stresses, len(syllables_wspaces))
         try:
             for idx in unstresses:
                 location = offset_map.get(idx)
@@ -281,7 +281,7 @@ class VerseScanner:
         for idx, syl in enumerate(syllables):
             for dipthong in self.constants.DIPTHONGS:
                 if dipthong in syllables[idx]:
-                    if not StringUtils.starts_with_qu(syllables[idx]):
+                    if not string_utils.starts_with_qu(syllables[idx]):
                         long_positions.append(idx)
         return long_positions
 
@@ -329,7 +329,7 @@ class VerseScanner:
         ... " -   - U   U -  -  U U U U  U U  - -").strip())
         -   - -   - -  -  U U U U  U U  - -
         """
-        mark_list = StringUtils.mark_list(scansion)
+        mark_list = string_utils.mark_list(scansion)
         raw_scansion = scansion.replace(" ", "")
         if raw_scansion.startswith(self.constants.SPONDEE + self.constants.UNSTRESSED):
             new_scansion = list(self.constants.SPONDEE + self.constants.SPONDEE + raw_scansion[4:])
@@ -355,7 +355,7 @@ class VerseScanner:
         ... " -   - U   U -  -  U U U U  U U  - -")) # doctest: +NORMALIZE_WHITESPACE
          -   - -   - -  -  U U U U  U U  - -
         """
-        mark_list = StringUtils.mark_list(scansion)
+        mark_list = string_utils.mark_list(scansion)
         new_line = self.correct_invalid_start(scansion)
         raw_scansion = new_line.replace(" ", "")
         if raw_scansion.startswith(self.constants.SPONDEE + self.constants.TROCHEE +

@@ -13,7 +13,6 @@ texts_to_remove_from_fileids = [
 # ontology map directories
 
 corpus_directories_by_type = {
-
     'republican': [
         './caesar',
         './lucretius',
@@ -25,7 +24,7 @@ corpus_directories_by_type = {
         './ovid',
         './horace',
         './vergil',
-        './hyginus',
+        './hyginus'
     ],
     'early_silver': [
         './martial',
@@ -41,11 +40,11 @@ corpus_directories_by_type = {
     'late_silver': [
         './suetonius',
         './gellius',
-        './apuleius'
+        './apuleius',
         './justin',
         './apicius',
         './fulgentius',
-        './orosius',
+        './orosius'
     ],
     'old': [
         './plautus'
@@ -66,11 +65,11 @@ corpus_directories_by_type = {
         './prudentius',
         './tertullian',
         './kempis',
-        './leothegreat',
+        './leothegreat'
     ],
     'medieval': [
         './boethiusdacia',
-        './dante',
+        './dante'
     ],
     'renaissance': [
     ],
@@ -85,36 +84,35 @@ corpus_directories_by_type = {
         './may',
         './melanchthon',
         './xylander',
-        './campion',
+        './campion'
     ],
     #: uncategorized
     'misc':
-        [
-            './alanus',
-            './albertanus',
-            './albertofaix',
-            './aquinas',
-            './ammianus',
-            './arnobius',
-            './capellanus',
-            './cato',
-            './claudian',
-            './curtius',
-            './eutropius',
-            './frontinus',
-            './gestafrancorum',
-            './justinian',
-            './lactantius',
-            './martinbraga',
-            './mirandola',
-            './ottofreising',
-            './pauldeacon',
-            './sha',
-            './theodosius',
-            './voragine',
-            './walter',
-            './williamtyre'
-        ],
+        ['./alanus',
+         './albertanus',
+         './albertofaix',
+         './aquinas',
+         './ammianus',
+         './arnobius',
+         './capellanus',
+         './cato',
+         './claudian',
+         './curtius',
+         './eutropius',
+         './frontinus',
+         './gestafrancorum',
+         './justinian',
+         './lactantius',
+         './martinbraga',
+         './mirandola',
+         './ottofreising',
+         './pauldeacon',
+         './sha',
+         './theodosius',
+         './voragine',
+         './walter',
+         './williamtyre'
+         ],
     'early': []
 }
 
@@ -145,7 +143,7 @@ corpus_texts_by_type = {
         'varro.rr1.txt',
         'varro.rr2.txt',
         'varro.rr3.txt',
-        'sulpicia.txt',
+        'sulpicia.txt'
     ],
     'augustan': [
         'resgestae.txt',
@@ -169,7 +167,7 @@ corpus_texts_by_type = {
         'propertius1.txt',
         'tibullus1.txt',
         'tibullus2.txt',
-        'tibullus3.txt',
+        'tibullus3.txt'
     ],
     'early_silver': [
         'pliny.ep1.txt',
@@ -228,7 +226,7 @@ corpus_texts_by_type = {
         'valmax8.txt',
         'valmax9.txt',
         'vell1.txt',
-        'vell2.txt',
+        'vell2.txt'
     ],
     'late_silver': [
     ],
@@ -240,7 +238,7 @@ corpus_texts_by_type = {
         'ter.hecyra.txt',
         'ter.phormio.txt',
         'andronicus.txt',
-        'enn.txt',
+        'enn.txt'
     ],
     'early': [
         '12tables.txt'
@@ -248,7 +246,7 @@ corpus_texts_by_type = {
     'medieval': [
         'anselmepistula.txt',
         'anselmproslogion.txt',
-        'carm.bur.txt',
+        'carm.bur.txt'
     ],
     'christian': [
         'anon.martyrio.txt',
@@ -285,12 +283,12 @@ corpus_texts_by_type = {
         'regula.txt',
         'sedulius.txt',
         'sulpiciusseverus.txt',
-        'vorag.txt',
+        'vorag.txt'
     ],
     'renaissance': [
         'petrarch.ep1.txt',
         'petrarch.numa.txt',
-        'petrarch.rom.txt',
+        'petrarch.rom.txt'
     ],
     'neo_latin': [
         'spinoza.ethica1.txt',
@@ -299,5 +297,5 @@ corpus_texts_by_type = {
         'spinoza.ethica4.txt',
         'spinoza.ethica5.txt'
     ],
-    'misc':[]
+    'misc': []
 }
