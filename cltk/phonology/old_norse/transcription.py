@@ -4,9 +4,72 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
-from cltk.phonology.utils import *
+from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Place, Manner, AbstractConsonant, Rule, \
+    AbstractPosition, Rank
+
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
+
+
+class OldNorsePhonology(Vowel):
+
+    @staticmethod
+    def phonetic_i_umlaut(sound: Vowel):
+        if sound.is_equal(a):
+            return ee
+        elif sound.is_equal(a.lengthen()):
+            return ee.lengthen()
+        elif sound.is_equal(o):
+            return oee
+        elif sound.is_equal(o.lengthen()):
+            return oee.lengthen()
+        elif sound.is_equal(u):
+            return y
+        elif sound.is_equal(u.lengthen()):
+            return y.lengthen()
+        if sound.is_equal(DIPHTHONGS_IPA_class["au"]):
+            return DIPHTHONGS_IPA_class["ey"]
+
+    @staticmethod
+    def orthographic_i_umlaut(sound: str):
+        if sound == "a":
+            return "e"
+        elif sound == "á":
+            return "æ"
+        elif sound == "o":
+            return "ö"
+        elif sound == "ó":
+            return "ø"
+        elif sound == "u":
+            return "y"
+        elif sound == "ú":
+            return "ý"
+        elif sound == "au":
+            return "ey"
+        else:
+            return sound
+
+    @staticmethod
+    def phonetic_u_umlaut(sound: Vowel):
+        if sound.is_equal(a):
+            return oee # or oe
+        elif sound.is_equal(a.lengthen()):
+            return a.lengthen()
+        elif sound.is_equal(o):
+            return u
+        else:
+            return sound
+
+    @staticmethod
+    def orthographic_u_umlaut(sound: str):
+        if sound == "a":
+            return "ö"
+        elif sound == "á":
+            return "á"
+        elif sound == "ö":
+            return "u"
+        else:
+            return sound
 
 
 a = Vowel(Height.open, Backness.front, False, Length.short, "a")

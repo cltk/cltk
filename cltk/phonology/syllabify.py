@@ -388,7 +388,7 @@ class Syllabifier:
     def syllabify_phonemes(self, phonological_word):
         """
 
-        :param phonological_word: result of Transcriber().first_process in cltk.phonology.utils
+        :param phonological_word: result of Transcriber().to_phonemes in cltk.phonology.utils
         :return:
         """
         phoneme_lengths = []
