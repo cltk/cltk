@@ -15,6 +15,7 @@ Contents
    citation
    installation
    importing_corpora
+   corpus_readers
    akkadian
    arabic
    bengali

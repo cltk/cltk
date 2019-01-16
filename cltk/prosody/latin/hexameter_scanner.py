@@ -16,13 +16,13 @@ import re
 
 from Levenshtein import distance
 
-from cltk.prosody.latin.Verse import Verse
-from cltk.prosody.latin.MetricalValidator import MetricalValidator
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
-from cltk.prosody.latin.ScansionFormatter import ScansionFormatter
-from cltk.prosody.latin.Syllabifier import Syllabifier
-import cltk.prosody.latin.StringUtils as StringUtils
-from cltk.prosody.latin.VerseScanner import VerseScanner
+from cltk.prosody.latin.verse import Verse
+from cltk.prosody.latin.metrical_validator import MetricalValidator
+from cltk.prosody.latin.scansion_constants import ScansionConstants
+from cltk.prosody.latin.scansion_formatter import ScansionFormatter
+from cltk.prosody.latin.syllabifier import Syllabifier
+import cltk.prosody.latin.string_utils as string_utils
+from cltk.prosody.latin.verse_scanner import VerseScanner
 
 __author__ = ['Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License'
@@ -36,8 +36,8 @@ class HexameterScanner(VerseScanner):
                  optional_transform=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.constants = constants
-        self.remove_punct_map = StringUtils.remove_punctuation_dict()
-        self.punctuation_substitutions = StringUtils.punctuation_for_spaces_dict()
+        self.remove_punct_map = string_utils.remove_punctuation_dict()
+        self.punctuation_substitutions = string_utils.punctuation_for_spaces_dict()
         self.metrical_validator = MetricalValidator(constants)
         self.formatter = ScansionFormatter(constants)
         self.syllabifier = syllabifier
@@ -53,7 +53,13 @@ class HexameterScanner(VerseScanner):
 
     def scan(self, original_line: str, optional_transform: bool = False,
              dactyl_smoothing: bool = False) -> Verse:
-        """Scan a line of Latin hexameter and produce a scansion pattern, and other data.
+        """
+        Scan a line of Latin hexameter and produce a scansion pattern, and other data.
+
+        :param original_line: the original line of Latin verse
+        :param optional_transform: whether or not to perform i to j transform for syllabification
+        :param dactyl_smoothing: whether or not to perform dactyl smoothing
+        :return: a Verse object
 
         >>> scanner = HexameterScanner()
         >>> print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
@@ -120,7 +126,7 @@ class HexameterScanner(VerseScanner):
             verse.scansion_notes += [self.constants.NOTE_MAP["< 12"]]
             return verse
         stresses = self.flag_dipthongs(syllables)
-        syllables_wspaces = StringUtils.to_syllables_with_trailing_spaces(working_line, syllables)
+        syllables_wspaces = string_utils.to_syllables_with_trailing_spaces(working_line, syllables)
         offset_map = self.calc_offset(syllables_wspaces)
         for idx, syl in enumerate(syllables):
             for accented in self.constants.ACCENTED_VOWELS:
@@ -133,7 +139,7 @@ class HexameterScanner(VerseScanner):
 
         verse.scansion = self.produce_scansion(stresses,
                                                syllables_wspaces, offset_map)
-        if len(StringUtils.stress_positions(self.constants.STRESSED, verse.scansion)) != \
+        if len(string_utils.stress_positions(self.constants.STRESSED, verse.scansion)) != \
                 len(set(stresses)):
             verse.valid = False
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid syllables"]]
@@ -180,7 +186,7 @@ class HexameterScanner(VerseScanner):
         if distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
-            stresses += StringUtils.differences(verse.scansion, smoothed)
+            stresses += string_utils.differences(verse.scansion, smoothed)
 
         if self.metrical_validator.is_valid_hexameter(verse.scansion):
             return self.assign_candidate(verse, verse.scansion)
@@ -189,7 +195,7 @@ class HexameterScanner(VerseScanner):
         if distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
-            stresses += StringUtils.differences(verse.scansion, smoothed)
+            stresses += string_utils.differences(verse.scansion, smoothed)
 
         if self.metrical_validator.is_valid_hexameter(verse.scansion):
             return self.assign_candidate(verse, verse.scansion)
@@ -198,7 +204,7 @@ class HexameterScanner(VerseScanner):
         if distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid 5th"]]
             verse.scansion = smoothed
-            stresses += StringUtils.differences(verse.scansion, smoothed)
+            stresses += string_utils.differences(verse.scansion, smoothed)
 
         if self.metrical_validator.is_valid_hexameter(verse.scansion):
             return self.assign_candidate(verse, verse.scansion)
@@ -216,7 +222,7 @@ class HexameterScanner(VerseScanner):
                     scanned_line = scanned_line + ending
                 current_foot += 1
             smoothed = self.produce_scansion(stresses +
-                                             StringUtils.stress_positions(
+                                             string_utils.stress_positions(
                                                  self.constants.STRESSED, scanned_line),
                                              syllables_wspaces, offset_map)
 
@@ -229,7 +235,7 @@ class HexameterScanner(VerseScanner):
         if distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
-            stresses += StringUtils.differences(verse.scansion, smoothed)
+            stresses += string_utils.differences(verse.scansion, smoothed)
 
         if self.metrical_validator.is_valid_hexameter(verse.scansion):
             return self.assign_candidate(verse, verse.scansion)
@@ -238,9 +244,9 @@ class HexameterScanner(VerseScanner):
         if candidates is not None:
             if len(candidates) == 1 \
                     and len(verse.scansion.replace(" ", "")) == len(candidates[0]) \
-                    and len(StringUtils.differences(verse.scansion, candidates[0])) == 1:
+                    and len(string_utils.differences(verse.scansion, candidates[0])) == 1:
                 tmp_scansion = self.produce_scansion(
-                    StringUtils.differences(verse.scansion, candidates[0]),
+                    string_utils.differences(verse.scansion, candidates[0]),
                     syllables_wspaces, offset_map)
                 if self.metrical_validator.is_valid_hexameter(tmp_scansion):
                     verse.scansion_notes += [self.constants.NOTE_MAP["closest match"]]
@@ -267,19 +273,21 @@ class HexameterScanner(VerseScanner):
         return verse
 
     def correct_invalid_fifth_foot(self, scansion: str) -> str:
-        """The 'inverted amphibrach': stressed_unstressed_stressed syllable pattern is invalid
-               in hexameters, so here we coerce it to stressed when it occurs at the end of a line
+        """
+        The 'inverted amphibrach': stressed_unstressed_stressed syllable pattern is invalid
+        in hexameters, so here we coerce it to stressed when it occurs at the end of a line
 
-               :param: scansion
-               :return: corrected scansion
+        :param scansion: the scansion pattern
+        :return corrected scansion: the corrected scansion pattern
+
         >>> print(HexameterScanner().correct_invalid_fifth_foot(
         ... " -   - -   U U  -  U U U -  - U U U  - x")) # doctest: +NORMALIZE_WHITESPACE
         -   - -   U U  -  U U U -  - - U U  - x
         """
         scansion_wo_spaces = scansion.replace(" ", "")[:-1] + self.constants.OPTIONAL_ENDING
         if scansion_wo_spaces.endswith(self.constants.DACTYL +
-                                               self.constants.IAMB +
-                                               self.constants.OPTIONAL_ENDING):
+                                       self.constants.IAMB +
+                                       self.constants.OPTIONAL_ENDING):
             matches = list(re.compile
                                (r"{}\s*{}\s*{}\s*{}\s*{}".format(
                                self.constants.STRESSED,
@@ -295,13 +303,14 @@ class HexameterScanner(VerseScanner):
         return scansion
 
     def invalid_foot_to_spondee(self, feet: list, foot: str, idx: int) -> str:
-        """In hexameters, a single foot that is a  unstressed_stressed syllable pattern is often
+        """
+        In hexameters, a single foot that is a  unstressed_stressed syllable pattern is often
         just a double spondee, so here we coerce it to stressed.
 
-               :param feet: list of string representations of meterical feet
-               :param foot: the bad foot to correct
-               :param idx: the index of the foot to correct
-               :return: corrected scansion
+        :param feet: list of string representations of meterical feet
+        :param foot: the bad foot to correct
+        :param idx: the index of the foot to correct
+        :return: corrected scansion
 
         >>> print(HexameterScanner().invalid_foot_to_spondee(
         ... ['-UU', '--', '-U', 'U-', '--', '-UU'],'-U', 2))  # doctest: +NORMALIZE_WHITESPACE
@@ -312,13 +321,15 @@ class HexameterScanner(VerseScanner):
         return "".join(feet)
 
     def correct_dactyl_chain(self, scansion: str) -> str:
-        """Three or more unstressed accents in a row is a broken dactyl chain,
-         best detected and processed backwards.
+        """
+        Three or more unstressed accents in a row is a broken dactyl chain, best detected and
+        processed backwards.
 
-         Since this method takes a Procrustean approach to modifying the scansion pattern,
-         it is not used by default in the scan method; however, it is available as an optional
-         keyword parameter, and users looking to further automate the generation of scansion
-         candidates should consider using this as a fall back.
+        Since this method takes a Procrustean approach to modifying the scansion pattern,
+        it is not used by default in the scan method; however, it is available as an optional
+        keyword parameter, and users looking to further automate the generation of scansion
+        candidates should consider using this as a fall back.
+
         :param scansion: scansion with broken dactyl chain; inverted amphibrachs not allowed
         :return: corrected line of scansion
 
@@ -329,7 +340,7 @@ class HexameterScanner(VerseScanner):
         ... "-   U  U U  U -     -   -   -  -   U  U -   U")) # doctest: +NORMALIZE_WHITESPACE
         -   -  - U  U -     -   -   -  -   U  U -   U
         """
-        mark_list = StringUtils.mark_list(scansion)
+        mark_list = string_utils.mark_list(scansion)
         vals = list(scansion.replace(" ", ""))
         #  ignore last two positions, save them
         feet = [vals.pop(), vals.pop()]
@@ -344,8 +355,8 @@ class HexameterScanner(VerseScanner):
                 three = ""
             # Dactyl foot is okay, no corrections
             if one == self.constants.UNSTRESSED and \
-                            two == self.constants.UNSTRESSED and \
-                            three == self.constants.STRESSED:
+                    two == self.constants.UNSTRESSED and \
+                    three == self.constants.STRESSED:
                 feet += [one]
                 feet += [two]
                 feet += [three]
@@ -353,15 +364,15 @@ class HexameterScanner(VerseScanner):
                 continue
             # Spondee foot is okay, no corrections
             if one == self.constants.STRESSED and \
-                            two == self.constants.STRESSED:
+                    two == self.constants.STRESSED:
                 feet += [one]
                 feet += [two]
                 idx -= 2
                 continue
             # handle "U U U" foot as "- U U"
             if one == self.constants.UNSTRESSED and \
-                            two == self.constants.UNSTRESSED and \
-                            three == self.constants.UNSTRESSED:
+                    two == self.constants.UNSTRESSED and \
+                    three == self.constants.UNSTRESSED:
                 feet += [one]
                 feet += [two]
                 feet += [self.constants.STRESSED]
@@ -369,15 +380,15 @@ class HexameterScanner(VerseScanner):
                 continue
             # handle "U U -" foot as "- -"
             if one == self.constants.STRESSED and \
-                            two == self.constants.UNSTRESSED and \
-                            three == self.constants.UNSTRESSED:
+                    two == self.constants.UNSTRESSED and \
+                    three == self.constants.UNSTRESSED:
                 feet += [self.constants.STRESSED]
                 feet += [self.constants.STRESSED]
                 idx -= 2
                 continue
             # handle "-  U" foot as "- -"
             if one == self.constants.UNSTRESSED and \
-                            two == self.constants.STRESSED:
+                    two == self.constants.STRESSED:
                 feet += [self.constants.STRESSED]
                 feet += [two]
                 idx -= 2
@@ -389,10 +400,11 @@ class HexameterScanner(VerseScanner):
         return "".join(new_line)
 
     def correct_inverted_amphibrachs(self, scansion: str) -> str:
-        """The 'inverted amphibrach': stressed_unstressed_stressed syllable pattern is invalid
+        """
+        The 'inverted amphibrach': stressed_unstressed_stressed syllable pattern is invalid
         in hexameters, so here we coerce it to stressed:  - U - -> - - -
 
-        :param scansion:
+        :param scansion: the scansion stress pattern
         :return: a string with the corrected scansion pattern
 
         >>> print(HexameterScanner().correct_inverted_amphibrachs(
