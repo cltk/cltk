@@ -135,8 +135,8 @@ class ShortLine:
             word = normalize(viisuordh)
             if word != "":
                 transcribed_word = transcriber.main(word)
-                # phonological features list, result of Transcriber.first_process()
-                pfl = transcriber.first_process(word)
+                # phonological features list, result of Transcriber.to_phonemes()
+                pfl = transcriber.to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
@@ -209,7 +209,7 @@ class LongLine:
             word = normalize(viisuordh)
             if word != "":
                 transcribed_word = transcriber.main(word)
-                pfl = transcriber.first_process(word)
+                pfl = transcriber.to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
@@ -633,7 +633,7 @@ class PoeticWord:
         :param poetic_tool:
         :return:
         """
-        self.ipa_transcription = poetic_tool.tr.first_process(self.text)
+        self.ipa_transcription = poetic_tool.tr.to_phonemes(self.text)
         self.syl = poetic_tool.syllabifier.syllabify_phonemes(self.ipa_transcription)
         for i, syllable in enumerate(self.syl):
             self.ipa_transcription.append([])
