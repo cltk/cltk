@@ -65,7 +65,7 @@ class OldEnglishDictioraryLemmatizer(object):
 				self.type_counts[word] = count
 
 
-	def lemmatize_token(self, token, best_guess=True):
+	def _lemmatize_token(self, token, best_guess=True):
 		"""Lemmatize a single token.  If best_guess is true, then take the most frequent lemma when a form 
 		has multiple possible lemmatizations.  If the form is not found, just return it.
 		If best_guess is false, then always return the full set of possible lemmas, or None if none found.
@@ -97,7 +97,7 @@ class OldEnglishDictioraryLemmatizer(object):
 		else:
 			raise TypeError("lemmatize only works with strings or lists of string tokens.")
 
-		return [self.lemmatize_token(token, best_guess) for token in tokens]
+		return [self._lemmatize_token(token, best_guess) for token in tokens]
 
 	def evaluate(self, filename):
 		"""Runs the lemmatize over the contents of the file, counting the proportion of unfound lemmas."""
