@@ -49,6 +49,24 @@ class TestOldEnglish(unittest.TestCase):
         self.assertCountEqual(lemmatized_sentence[0][1], ['nesan', 'næs'])
         self.assertEqual(lemmatized_sentence[-1], ('ecean', []))
 
+    def test_dictionary_lemmatizer_list(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Him ða Scyld gewat to gescæphwile'
+        target = [('Him', 'he'), ('ða', 'þa'), ('Scyld', 'scyld'), 
+        ('gewat', 'gewitan'), ('to', 'to'), ('gescæphwile', 'gescæphwile')]
+        self.assertEqual(lemmatizer.lemmatize(test_sentence.split()), target)
+
+    def test_dictionary_lemmatizer_invalid_input(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        with self.assertRaises(TypeError):
+            lemmatizer.lemmatize(1)
+
+    def test_dictionary_lemmatizer_evaluate(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_file = os.path.expanduser('~/cltk_data/old_english/model/old_english_models_cltk/texts/oe/beowulf.txt')
+        coverage = lemmatizer.evaluate(test_file)
+        self.assertTrue(coverage > 0.5)
+
 
     # POS Taggers
     def test_pos_unigram_old_english(self):
