@@ -17,6 +17,28 @@ hierarchy = [
     ["l"]
 ]
 
+VOWELS = ["a", "e", "i", "o", "ǫ", "ö", "ø", "u", "y", "á", "æ", "œ", "é", "í", "ó", "ú", "ý"]
+CONSONANTS = [
+    "b",
+    "d",
+    "f",
+    "g",
+    "h",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "p",
+    "r",
+    "s",
+    "t",
+    "v",
+    "x",
+    "z",
+    "þ",
+    "ð"]
+
 invalid_onsets = ['lm', "fj", "nm", "rk", "nn", "tt", "ðr"]
 
 # for old_norse_ipa
