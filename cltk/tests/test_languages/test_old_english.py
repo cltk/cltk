@@ -67,6 +67,19 @@ class TestOldEnglish(unittest.TestCase):
         coverage = lemmatizer.evaluate(test_file)
         self.assertTrue(coverage > 0.5)
 
+    def test_dictionary_lemmatizer_frequencies(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Him ða Scyld gewat to gescæphwile'
+        lemmas = lemmatizer.lemmatize(test_sentence, return_frequencies=True)
+        # log relative frequenties always less than zero
+        self.assertTrue(lemmas[0][1][1] < 0)
+
+    def test_dictionary_lemmatizer_frequencies_no_guess(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Him ða Scyld gewat to gescæphwile'
+        lemmas = lemmatizer.lemmatize(test_sentence, return_frequencies=True, best_guess=False)
+        # log relative frequenties always less than zero
+        self.assertTrue(lemmas[0][1][0][1] < 0)
 
     # POS Taggers
     def test_pos_unigram_old_english(self):
