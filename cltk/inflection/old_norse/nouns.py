@@ -2,7 +2,7 @@
 
 import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier
-from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS
+from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 sumar = [["sumar", "sumar", "sumri", "sumars"], ["sumur", "sumur", "sumrum", "sumra"]]
@@ -176,3 +176,61 @@ def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     :return:
     """
     pass
+
+
+def add_r(stem):
+    """
+
+    >>> add_r("arm")
+    'armr'
+    >>> add_r("ás")
+    'áss'
+    >>> add_r("stól")
+    'stóll'
+
+    :param stem:
+    :return:
+    """
+    if len(stem) >= 2:
+        if stem[-2] in CONSONANTS:
+            if stem[-1] == "l":
+                return stem + "l"
+            elif stem[-1] == "s":
+                return stem + "s"
+            elif stem[-1] == "n":
+                return stem + "n"
+            return stem + "r"
+
+    if len(stem) > 1:
+        if stem[-1] == "l":
+            return stem + "l"
+        elif stem[-1] == "s":
+            return stem + "s"
+        elif stem[-1] == "n":
+            return stem + "n"
+        return stem + "r"
+
+    else:
+        return stem + "r"
+
+
+
+
+# def apply_r_assimilation(stem):
+#     s_stem = s.syllabify_SSP(stem)
+#     n_stem = len(s_stem)
+#     last_syllable = Syllable(s_stem[-1], VOWELS, CONSONANTS)
+#     if n_stem == 1:
+#         if "".join(last_syllable.nucleus) in DIPHTHONGS:
+#             return stem +
+#         elif "".join(last_syllable.nucleus) in SHORT_VOWELS:
+#
+#         elif "".join(last_syllable.nucleus) in LONG_VOWELS:
+#
+#     else:
+#         if "".join(last_syllable.nucleus) in DIPHTHONGS:
+#
+#         elif "".join(last_syllable.nucleus) in SHORT_VOWELS:
+#
+#         elif "".join(last_syllable.nucleus) in LONG_VOWELS:
+
