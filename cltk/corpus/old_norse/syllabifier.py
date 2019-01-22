@@ -18,6 +18,9 @@ hierarchy = [
 ]
 
 VOWELS = ["a", "e", "i", "o", "ǫ", "ö", "ø", "u", "y", "á", "æ", "œ", "é", "í", "ó", "ú", "ý"]
+LONG_VOWELS = ["ö", "ø", "á", "æ", "œ", "é", "í", "ó", "ú", "ý"]
+SHORT_VOWELS = ["a", "e", "i", "o", "u", "y", "ǫ"]
+DIPHTHONGS = ["ey", "au", "ei"]
 CONSONANTS = [
     "b",
     "d",
