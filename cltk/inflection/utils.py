@@ -80,6 +80,13 @@ class DeclinableOneGender:
         self.name = name
         self.gender = gender
 
+    def set_void_declension(self, number_type, case_type):
+        self.declension = []
+        for i, a_number in enumerate(number_type):
+            self.declension.append([])
+            for a_case in case_type:
+                self.declension[i].append("")
+
     def set_declension(self, declension):
         self.declension = declension
 
