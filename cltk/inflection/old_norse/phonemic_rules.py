@@ -6,7 +6,7 @@ import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier
 from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS
 
-import numpy as np
+import numpy
 
 s = Syllabifier(language="old_norse", break_geminants=True)
 s.set_invalid_onsets(invalid_onsets)
@@ -32,17 +32,12 @@ def extract_common_stem(*args):
     :return:
     """
     # return os.path.commonprefix(args)
-    smallest = np.argmin([len(s) for s in args])
+    smallest = numpy.argmin([len(s) for s in args])
     for i, c in enumerate(args[smallest]):
         for other_word in args:
             if c != other_word[i]:
                 return args[smallest][:i]
     return args[smallest]
-
-
-
-
-
 
 
 def apply_raw_r_assimilation(last_syllable):
@@ -234,3 +229,5 @@ def add_r_ending(stem):
     n_stem = len(s_stem)
     last_syllable = decl_utils.Syllable(s_stem[-1], VOWELS, CONSONANTS)
     return "".join(s_stem[:-1]) + add_r_ending_to_syllable(last_syllable.text, n_stem == 1)
+
+

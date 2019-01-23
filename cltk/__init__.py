@@ -17,7 +17,7 @@ __license__ = 'MIT'
 
 __url__ = 'http://cltk.org'
 
-__version__ = get_distribution('cltk').version  # pylint: disable=no-member
+# __version__ = get_distribution('cltk').version  # pylint: disable=no-member
 
 # rm these namespaces from memory, or these show up in dir(cltk)
 del get_distribution
