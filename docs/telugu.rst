@@ -1,7 +1,7 @@
 Telugu
 ********
 
-Telugu is a Dravidian language native to India. Inscriptions with Telugu words dating back to 400 BC to 100 BC have been discovered in Bhattiprolu in the Guntur district of Andhra Pradesh. Telugu literature can be traced back to the early 11th century period when Mahabharata was first translated to Telugu from Sanskrit by Nannaya. It flourished under the rule of the Vijayanagar empire, where Telugu was one of the empire's official languages. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Telugu_language>`_)
+Telugu is a Dravidian language native to India. Inscriptions with Telugu words dating back to 400 BC to 100 BC have been discovered in Bhattiprolu in the Guntur district of Andhra Pradesh. Telugu literature can be traced back to the early 11th century period when Mahabharata was first translated to Telugu from Sanskrit by Nannaya. It flourished under the rule of the Vijayanagar empire, where Telugu was one of the empire's official languages. Fun fact is it is the fastest growing language in the United States of America. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Telugu_language>`_)
 
 
 Corpora
