@@ -72,6 +72,5 @@ def add_t_ending_to_syllable(last_syllable):
 
 def add_t_ending(stem: str):
     s_stem = s.syllabify_SSP(stem.lower())
-    n_stem = len(s_stem)
     last_syllable = decl_utils.Syllable(s_stem[-1], VOWELS, CONSONANTS)
-    return "".join(s_stem[:-1]) + add_t_ending_to_syllable(last_syllable.text, n_stem == 1)
+    return "".join(s_stem[:-1]) + add_t_ending_to_syllable(last_syllable.text)
