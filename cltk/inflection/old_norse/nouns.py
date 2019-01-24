@@ -104,14 +104,20 @@ def ns_has_i_umlaut(ns: str, gs: str, np: str):
 ns_has_i_umlaut("ketill", "ketils", "katlar")
 
 
-def ns_has_u_umlaut(ns: str, gs: str, np: str):
+def has_u_umlaut(word):
     """
 
-    :param ns:
-    :param gs:
-    :param np:
+    :param word:
     :return:
     """
+    word_syl = s.syllabify_SSP(word)
+    s_word_syl = [decl_utils.Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in word_syl]
+
+    if len(s_word_syl) == 1 and s_word_syl[-1].nucleus[0] in ["ö", "ǫ"]:
+        return True
+    elif len(s_word_syl) >= 2 and s_word_syl[-1].nucleus[0] == "u":
+        return s_word_syl[-2].nucleus[0] in ["ö", "ǫ"]
+    return False
 
 
 def decline_strong_masculine_noun(ns: str, gs: str, np: str):
