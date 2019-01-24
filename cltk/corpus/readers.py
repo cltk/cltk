@@ -203,8 +203,8 @@ class FilteredPlaintextCorpusReader(PlaintextCorpusReader, CorpusReader):
             with codecs.open(path, 'r', encoding=encoding) as reader:
                 if self.skip_keywords:
                     tmp_data = []
-                    skip = False
                     for line in reader:
+                        skip = False
                         for keyword in self.skip_keywords:
                             if keyword in line:
                                 skip = True
