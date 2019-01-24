@@ -7,6 +7,7 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.corpus.swadesh import Swadesh
 from cltk.tag.pos import POSTag
 from cltk.phonology.syllabify import Syllabifier
+from cltk.lemmatize.old_english.lemma import OldEnglishDictioraryLemmatizer
 
 __author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
 
@@ -32,6 +33,55 @@ class TestOldEnglish(unittest.TestCase):
         s = Syllabifier(language='old_english')
         self.assertEqual(s.syllabify('geardagum'), ['gear', 'da', 'gum'])
 
+    # Lemmatizer
+    def test_dictionary_lemmatizer(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Næs him fruma æfre, or geworden, ne nu ende cymþ ecean'
+        target = [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'), 
+            (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'), 
+            ('nu', 'nu'), ('ende', 'ende'), ('cymþ', 'cuman'), ('ecean', 'ecean')]
+        self.assertEqual(lemmatizer.lemmatize(test_sentence), target)
+
+    def test_dictionary_lemmatizer_no_guess(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Næs him fruma æfre, or geworden, ne nu ende cymþ ecean'
+        lemmatized_sentence = lemmatizer.lemmatize(test_sentence, best_guess=False)
+        self.assertCountEqual(lemmatized_sentence[0][1], ['nesan', 'næs'])
+        self.assertEqual(lemmatized_sentence[-1], ('ecean', []))
+
+    def test_dictionary_lemmatizer_list(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Him ða Scyld gewat to gescæphwile'
+        target = [('Him', 'he'), ('ða', 'þa'), ('Scyld', 'scyld'), 
+        ('gewat', 'gewitan'), ('to', 'to'), ('gescæphwile', 'gescæphwile')]
+        self.assertEqual(lemmatizer.lemmatize(test_sentence.split()), target)
+
+    def test_dictionary_lemmatizer_invalid_input(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        with self.assertRaises(TypeError):
+            lemmatizer.lemmatize(1)
+
+    def test_dictionary_lemmatizer_evaluate(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_file = os.path.expanduser('~/cltk_data/old_english/model/old_english_models_cltk/texts/oe/beowulf.txt')
+        coverage = lemmatizer.evaluate(test_file)
+        self.assertTrue(coverage > 0.5)
+
+    def test_dictionary_lemmatizer_frequencies(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Him ða Scyld gewat to gescæphwile'
+        lemmas = lemmatizer.lemmatize(test_sentence, return_frequencies=True)
+        # log relative frequenties always less than zero
+        self.assertTrue(lemmas[0][1][1] < 0)
+
+    def test_dictionary_lemmatizer_frequencies_no_guess(self):
+        lemmatizer = OldEnglishDictioraryLemmatizer()
+        test_sentence = 'Him ða Scyld gewat to gescæphwile'
+        lemmas = lemmatizer.lemmatize(test_sentence, return_frequencies=True, best_guess=False)
+        # log relative frequenties always less than zero
+        self.assertTrue(lemmas[0][1][0][1] < 0)
+
+    # POS Taggers
     def test_pos_unigram_old_english(self):
         """Test tagging Old English POS with unigram tagger."""
         tagger = POSTag('old_english')

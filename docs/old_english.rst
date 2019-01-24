@@ -135,6 +135,44 @@ There is a facility for using the pre-specified sonoroty hierarchy for Old Engli
   In [3]: s.syllabify('geardagum')
   Out [3]:['gear', 'da', 'gum']
 
+
+Lemmatization
+=============
+
+A basic lemmatizer is provided, based on a hand-built dictionary of word forms.
+
+.. code-block:: python
+
+   In [1]: import cltk.lemmatize.old_english.lemma as oe_l
+   In [2]: lemmatizer = oe_l.OldEnglishDictioraryLemmatizer()
+   In [3]: lemmatizer.lemmatize('Næs him fruma æfre, or geworden, ne nu ende cymþ ecean')
+   Out [3]: [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'), (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'), ('nu', 'nu'), ('ende', 'ende'), ('cymþ', 'cuman'), ('ecean', 'ecean')]
+
+If an input word form has multiple possible lemmatizations, the system will select the lemma that occurs most 
+frequently in a large corpus of Old English texts. If an input word form is not found in the dictionary, then 
+it is simply returned.
+
+Note, hovewer, that by passing in an extra parameter ``best_guess=False`` to the lemmatize function, 
+one gains access to the underlying dictionary. In this case, a *list* is returned for each token. The list will contain:
+
+* Nothing, if the word form is not found;
+* A single string if the form maps to a unique lemma (the usual case);
+* Multiple strings if the form maps to several lemmatas.
+
+.. code-block:: python
+
+   In [1]: lemmatizer.lemmatize('Næs him fruma æfre, or geworden, ne nu ende cymþ ecean', best_guess=False)
+   Out [1]: [('Næs', ['nesan', 'næs']), ('him', ['him', 'he', 'hi']), ('fruma', ['fruma']), ('æfre', ['æfre']), (',', []), ('or', []), ('geworden', ['weorþan', 'geweorþan']), (',', []), ('ne', ['ne']), ('nu', ['nu']), ('ende', ['ende']), ('cymþ', ['cuman']), ('ecean', [])]
+
+By specifying ``return_frequencies=True`` the log of the relative frequencies of the *lemmata* is also returned:
+
+..code-block:: python
+
+   In [1]: lemmatizer.lemmatize('Næs him fruma æfre, or geworden, ne nu ende cymþ ecean', best_guess=False, return_frequencies=True)
+   
+   Out [1]: [('Næs', [('nesan', -11.498420778767347), ('næs', -5.340383031833549)]), ('him', [('him', -2.1288142618657147), ('he', -1.4098446677862744), ('hi', -2.3713533259849857)]), ('fruma', [('fruma', -7.3395376954076745)]), ('æfre', [('æfre', -4.570372796517447)]), (',', []), ('or', []), ('geworden', [('weorþan', -8.608049020871182), ('geweorþan', -9.100525505968976)]), (',', []), ('ne', [('ne', -1.9050995182359884)]), ('nu', [('nu', -3.393566264402446)]), ('ende', [('ende', -5.038516324389812)]), ('cymþ', [('cuman', -5.943525084818863)]), ('ecean', [])]
+
+
 POS tagging
 ===========
 
