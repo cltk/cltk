@@ -282,10 +282,119 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
 def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     """
     o macron-stem
+    Most of strong feminine nouns follows the declension of rún and för.
+    >>> decline_strong_feminine_noun("rún", "rúnar", "rúnar")
+    'rún'
+    'rún'
+    'rún'
+    'rúnar'
+    'rúnar'
+    'rúnar'
+    'rúnum'
+    'rúna'
 
+    >>> decline_strong_feminine_noun("för", "farar", "farar")
+    'för'
+    'för'
+    'för'
+    'farar'
+    'farar'
+    'farar'
+    'förum'
+    'fara'
 
+    >>> decline_strong_feminine_noun("kerling", "kerlingar", "kerlingar")
+    'kerling'
+    'kerling'
+    'kerlingu'
+    'kerlingar'
+    'kerlingar'
+    'kerlingar'
+    'kerlingum'
+    'kerlinga'
+
+    >>> decline_strong_feminine_noun("skel", "skeljar", "skeljar")
+    'skel'
+    'skel'
+    'skel'
+    'skeljar'
+    'skeljar'
+    'skeljar'
+    'skeljum'
+    'skelja'
+
+    >>> decline_strong_feminine_noun("ör", "örvar", "örvar")
+    'ör'
+    'ör'
+    'ör'
+    'örvar'
+    'örvar'
+    'örvar'
+    'örum'
+    'örva'
+
+    >>> decline_strong_feminine_noun("heiðr", "heiðar", "heiðar")
+    'heiðr'
+    'heiði'
+    'heiði'
+    'heiðar'
+    'heiðar'
+    'heiðar'
+    'heiðum'
+    'heiða'
 
     i-stem
+
+    >>> decline_strong_feminine_noun("öxl", "axlar", "axlir")
+    'öxl'
+    'öxl'
+    'öxl'
+    'axlar'
+    'axlir'
+    'axlir'
+    'öxlum'
+    'axla'
+
+    >>> decline_strong_feminine_noun("höfn", "hafnar", "hafnir")
+    'höfn'
+    'höfn'
+    'höfn'
+    'hafnar'
+    'hafnir'
+    'hafnir'
+    'höfnul'
+    'hafna'
+
+    >>> decline_strong_feminine_noun("norn", "nornar", "nornir")
+    'norn'
+    'norn'
+    'norn'
+    'nornar'
+    'nornir'
+    'nornir'
+    'nornum'
+    'norna'
+
+    >>> decline_strong_feminine_noun("jörð", "jarðar", "jarðir")
+    'jörð'
+    'jörð'
+    'jörð'
+    'jarðar'
+    'jarðir'
+    'jarðir'
+    'jörðum'
+    'jarða'
+
+    >>> decline_strong_feminine_noun("borg", "borgar", "borgir")
+    'borg'
+    'borg'
+    'borgu'
+    'borgar'
+    'borgir'
+    'borgir'
+    'borgum'
+    'borga'
+
 
 
     :param ns: nominative singular
@@ -298,7 +407,68 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
 
 def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     """
+
     a-stem
+    Most of strong neuter nouns follow the declensions of skip, land and herað.
+
+    >>> decline_strong_neuter_noun("skip", "skips", "skip")
+    'skip'
+    'skip'
+    'skipi'
+    'skips'
+    'skip'
+    'skipum'
+    'skipa'
+
+    >>> decline_strong_neuter_noun("land", "lands", "lönd")
+    'land'
+    'land'
+    'landi'
+    'lands'
+    'lönd'
+    'lönd'
+    'löndum'
+    'landa'
+
+    >>> decline_strong_neuter_noun("herað", "heraðs", "heruð")
+    'herað'
+    'herað'
+    'heraði'
+    'heraðs'
+    'heruð'
+    'heruð'
+    'heruðum'
+    'heraða'
+
+    >>> decline_strong_neuter_noun("kyn", "kyns", "kyn")
+    'kyn'
+    'kyn'
+    'kyni'
+    'kyns'
+    'kyn'
+    'kyn'
+    'kynjum'
+    'kynja'
+
+    >>> decline_strong_neuter_noun("högg", "höggs", "högg")
+    'högg'
+    'högg'
+    'höggvi'
+    'höggs'
+    'högg'
+    'högg'
+    'höggum'
+    'höggva'
+
+    >>> decline_strong_neuter_noun("kvæði", "kvæðis", "kvæði")
+    'kvæði'
+    'kvæði'
+    'kvæði'
+    'kvæðis'
+    'kvæði'
+    'kvæði'
+    'kvæðum'
+    'kvæða'
 
     :param ns: nominative singular
     :param gs: genitive singular
@@ -310,6 +480,56 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
 
 def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     """
+
+    >>> decline_weak_masculine_noun("goði", "goða", "goðar")
+    'goði'
+    'goða'
+    'goða'
+    'goða'
+    'goðar'
+    'goða'
+    'goðum'
+    'goða'
+
+    >>> decline_weak_masculine_noun("hluti", "hluta", "hlutar")
+    'hluti'
+    'hluta'
+    'hluta'
+    'hluta'
+    'hlutar'
+    'hluta'
+    'hlutum'
+    'hluta'
+
+    >>> decline_weak_masculine_noun("arfi", "arfa", "arfar")
+    'arfi'
+    'arfa'
+    'arfa'
+    'arfa'
+    'arfar'
+    'arfa'
+    'örfum'
+    'arfa'
+
+    >>> decline_weak_masculine_noun("bryti", "brytja", "brytjar")
+    'bryti'
+    'bryta'
+    'bryta'
+    'bryta'
+    'brytjar'
+    'brytja'
+    'brytjum'
+    'brytja'
+
+    >>> decline_weak_masculine_noun("vöðvi", "vöðva", "vöðvar")
+    'vöðvi'
+    'vöðva'
+    'vöðva'
+    'vöðva'
+    'vöðvar'
+    'vöðva'
+    'vöðum'
+    'vöðva'
 
     :param ns:
     :param gs:
