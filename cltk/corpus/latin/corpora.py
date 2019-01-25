@@ -24,7 +24,6 @@ LATIN_CORPORA = [
      'type': 'text'},
     {'encoding': 'latin-1',
      'markup': 'beta_code',
-     'name': '',
      'location': 'local',
      'name': 'phi5',
      'origin': None,
