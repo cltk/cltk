@@ -772,13 +772,13 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertLessEqual(sylla2.coda, ['n', 'g', 'r'])
 
     def test_syllable3(self):
-        self.assertRaises(ValueError, Syllable, ("r", [], ["r"]))
+        self.assertRaises(ValueError, Syllable, "r", [], ["r"])
 
     def test_syllable4(self):
-        self.assertRaises(ValueError, Syllable, ("", [], []))
+        self.assertRaises(ValueError, Syllable, "", [], [])
 
     def test_syllable5(self):
-        self.assertRaises(ValueError, Syllable, ("e", ["a"], ["r"]))
+        self.assertRaises(ValueError, Syllable, "e", ["a"], ["r"])
 
 
 if __name__ == '__main__':
