@@ -2,6 +2,8 @@
 
 from enum import Enum, auto
 
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
+
 
 class Number(Enum):
     singular = auto()
@@ -79,6 +81,18 @@ class DeclinableOneGender:
         self.gender = gender
 
     def set_void_declension(self, number_type, case_type):
+        """
+        >>> decl = DeclinableOneGender("armr", Gender.masculine)
+        >>> decl.declension
+        []
+        >>> decl.set_void_declension(Number, Case)
+        >>> decl.declension
+        [['', '', '', ''], ['', '', '', '']]
+
+        :param number_type:
+        :param case_type:
+        :return:
+        """
         self.declension = []
         for i, a_number in enumerate(number_type):
             self.declension.append([])

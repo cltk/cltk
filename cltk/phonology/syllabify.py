@@ -1,6 +1,6 @@
 from typing import List
 
-__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
+__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>', "Clément Besnier <clemsciences@aol.com>"]
 __license__ = 'MIT License. See LICENSE.'
 
 import logging

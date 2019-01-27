@@ -8,13 +8,30 @@ from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Pla
     AbstractPosition, Rank
 
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
+__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
 
 
 class OldNorsePhonology(Vowel):
+    I_UMLAUT = {'a': 'e',
+                'á': 'æ',
+                'o': 'ö',
+                'ó': 'ø',
+                'u': 'y',
+                'ú': 'ý',
+                'au': 'ey'}
+    U_UMLAUT = {'a': 'ö',
+                'ö': 'u'}
 
     @staticmethod
     def phonetic_i_umlaut(sound: Vowel):
+        """
+        >>> umlaut_a = OldNorsePhonology.phonetic_i_umlaut(a)
+        >>> umlaut_a.ipar
+        'ɛ'
+
+        :param sound:
+        :return:
+        """
         if sound.is_equal(a):
             return ee
         elif sound.is_equal(a.lengthen()):
@@ -32,27 +49,24 @@ class OldNorsePhonology(Vowel):
 
     @staticmethod
     def orthographic_i_umlaut(sound: str):
-        if sound == "a":
-            return "e"
-        elif sound == "á":
-            return "æ"
-        elif sound == "o":
-            return "ö"
-        elif sound == "ó":
-            return "ø"
-        elif sound == "u":
-            return "y"
-        elif sound == "ú":
-            return "ý"
-        elif sound == "au":
-            return "ey"
+        """
+        >>> OldNorsePhonology.orthographic_i_umlaut("a")
+        'e'
+        >>> OldNorsePhonology.orthographic_i_umlaut("ý")
+        'ý'
+
+        :param sound:
+        :return:
+        """
+        if sound in OldNorsePhonology.I_UMLAUT:
+            return OldNorsePhonology.I_UMLAUT[sound]
         else:
             return sound
 
     @staticmethod
     def phonetic_u_umlaut(sound: Vowel):
         if sound.is_equal(a):
-            return oee # or oe
+            return oee  # or oe
         elif sound.is_equal(a.lengthen()):
             return a.lengthen()
         elif sound.is_equal(o):
@@ -62,12 +76,16 @@ class OldNorsePhonology(Vowel):
 
     @staticmethod
     def orthographic_u_umlaut(sound: str):
-        if sound == "a":
-            return "ö"
-        elif sound == "á":
-            return "á"
-        elif sound == "ö":
-            return "u"
+        """
+        >>> OldNorsePhonology.orthographic_u_umlaut("a")
+        'ö'
+        >>> OldNorsePhonology.orthographic_u_umlaut("e")
+        'e'
+        :param sound:
+        :return:
+        """
+        if sound in OldNorsePhonology.U_UMLAUT:
+            return OldNorsePhonology.U_UMLAUT[sound]
         else:
             return sound
 
