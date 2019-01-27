@@ -1,3 +1,5 @@
+from typing import List
+
 __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
@@ -421,7 +423,13 @@ class Syllable:
 
     Source: https://en.wikipedia.org/wiki/Syllable
     """
-    def __init__(self, text, vowels, consonants):
+    def __init__(self, text: str, vowels: List[str], consonants: List[str]):
+        """
+
+        :param text:  a syllable
+        :param vowels: list of characters
+        :param consonants: list of characters
+        """
         self.onset = []
         self.nucleus = []
         self.coda = []
@@ -433,15 +441,24 @@ class Syllable:
 
     def _compute_syllable(self, text):
         """
-        >>> sylla = Syllable("armr", ["a"], ["r", "m"])
-        >>> sylla.onset
+        >>> sylla1 = Syllable("armr", ["a"], ["r", "m"])
+        >>> sylla1.onset
         []
-        >>> sylla.nucleus
+        >>> sylla1.nucleus
         ['a']
-        >>> sylla.coda
+        >>> sylla1.coda
         ['r', 'm', 'r']
 
-        :param text:
+        >>> sylla2 = Syllable("gangr", ["a"], ["g", "n", "r"])
+        >>> sylla2.onset
+        ['g']
+        >>> sylla2.nucleus
+        ['a']
+        >>> sylla2.coda
+        ['n', 'g', 'r']
+
+
+        :param text: a syllable
         :return:
         """
         is_in_onset = True

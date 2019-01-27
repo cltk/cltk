@@ -145,9 +145,6 @@ class Consonant(AbstractConsonant):
 
 
 # Vowels
-# HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
-# LENGTHS = ["short", "long", "overlong"]
-# BACKNESS = ["front", "central", "back"]
 
 class Height(AutoName):
     open = auto()
