@@ -81,6 +81,7 @@ class OldNorsePhonology(Vowel):
         'ö'
         >>> OldNorsePhonology.orthographic_u_umlaut("e")
         'e'
+
         :param sound:
         :return:
         """
