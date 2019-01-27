@@ -3,8 +3,8 @@
 
 import re
 from math import floor
-
-from cltk.phonology.old_norse.transcription import Consonant, Vowel, Transcriber, old_norse_rules, IPA_class, \
+from cltk.phonology.utils import Transcriber
+from cltk.phonology.old_norse.transcription import Consonant, Vowel, old_norse_rules, IPA_class, \
     DIPHTHONGS_IPA_class, DIPHTHONGS_IPA
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
@@ -132,7 +132,7 @@ class ShortLine:
         for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
             if word != "":
-                transcribed_word = transcriber.main(word)
+                transcribed_word = transcriber.text_to_phonetic_representation(word)
                 # phonological features list, result of Transcriber.first_process()
                 pfl = transcriber.first_process(word)
 
@@ -206,7 +206,7 @@ class LongLine:
         for viisuordh in tokenize_old_norse_words(self.text):
             word = normalize(viisuordh)
             if word != "":
-                transcribed_word = transcriber.main(word)
+                transcribed_word = transcriber.text_to_phonetic_representation(word)
                 pfl = transcriber.first_process(word)
 
                 self.transcribed.append(transcribed_word)

@@ -487,7 +487,7 @@ class TestSequenceFunctions(unittest.TestCase):
                            "dreifðist um heim allan."
 
         tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
-        transcribed_sentence = tr.main(example_sentence)
+        transcribed_sentence = tr.text_to_phonetic_representation(example_sentence)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
@@ -497,7 +497,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         tr = ut.Transcriber(gothic.DIPHTHONGS_IPA,
                             gothic.DIPHTHONGS_IPA_class, gothic.IPA_class, gothic.gothic_rules)
-        transcribed_sentence = tr.main(example_sentence)
+        transcribed_sentence = tr.text_to_phonetic_representation(example_sentence)
         target = "[anastoːðiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs guðis]"
         self.assertEqual(target, transcribed_sentence)
 
@@ -505,7 +505,7 @@ class TestSequenceFunctions(unittest.TestCase):
         sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
         tr = ut.Transcriber(old_swedish.DIPHTHONGS_IPA, old_swedish.DIPHTHONGS_IPA_class, old_swedish.IPA_class,
                             old_swedish.old_swedish_rules)
-        transcribed_sentence = tr.main(sentence)
+        transcribed_sentence = tr.text_to_phonetic_representation(sentence)
         self.assertEqual("[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
                          transcribed_sentence)
 
@@ -739,7 +739,7 @@ class TestSequenceFunctions(unittest.TestCase):
         words = tokenize_old_norse_words(text)
         old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
         
-        syllabified_words = [old_norse_syllabifier.syllabify_SSP(word.lower())
+        syllabified_words = [old_norse_syllabifier.syllabify_ssp(word.lower())
                              for word in words if word not in ",."]
 
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],

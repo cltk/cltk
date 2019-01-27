@@ -485,17 +485,17 @@ class Transcriber:
         self.ipa_class = ipa_class
         self.rules = rules
 
-    def main(self, sentence: str) -> str:
+    def text_to_phonetic_representation(self, sentence: str) -> str:
         translitterated = []
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            first_res = self.to_phonemes(word)
+            first_res = self.text_to_phonemes(word)
             second_res = self.phonemes_to_phonetic_representation(first_res)
             translitterated.append(second_res)
         return "[" + " ".join(translitterated) + "]"
 
-    def to_phonemes(self, word: str):
+    def text_to_phonemes(self, word: str):
         """
         Give a greedy approximation of the pronunciation of word
         :param word:

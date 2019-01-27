@@ -179,9 +179,9 @@ class Syllabifier:
 
     def syllabify(self, word, mode='SSP'):
         if mode == 'SSP':
-            return self.syllabify_SSP(word)
+            return self.syllabify_ssp(word)
 
-    def syllabify_SSP(self, word):
+    def syllabify_ssp(self, word):
         """
         Syllabifies a word according to the Sonority Sequencing Principle
 
@@ -374,7 +374,7 @@ class Syllabifier:
 
         return syllables
 
-    def syllabify_IPA(self, word):
+    def syllabify_ipa(self, word):
         """
         Parses IPA string
         :param word: word to be syllabified
@@ -382,12 +382,12 @@ class Syllabifier:
         word = word[1:-1]
         word = ''.join(l for l in unicodedata.normalize('NFD', word) if unicodedata.category(l) != 'Mn')
 
-        return self.syllabify_SSP(word)
+        return self.syllabify_ssp(word)
 
     def syllabify_phonemes(self, phonological_word):
         """
 
-        :param phonological_word: result of Transcriber().to_phonemes in cltk.phonology.utils
+        :param phonological_word: result of Transcriber().text_to_phonemes in cltk.phonology.utils
         :return:
         """
         phoneme_lengths = []
@@ -396,7 +396,7 @@ class Syllabifier:
             phoneme_lengths.append(len(phoneme.ipar))
             l_transcribed_word.append(phoneme.ipar)
         transcribed_word = "".join(l_transcribed_word)
-        syllabified_transcribed_word = self.syllabify_SSP(transcribed_word)
+        syllabified_transcribed_word = self.syllabify_ssp(transcribed_word)
 
         syllabified_phonological_word = []
         counter = 0  # number of IPA character processed
