@@ -29,6 +29,10 @@ class OldNorsePhonology(Vowel):
         >>> umlaut_a.ipar
         'ɛ'
 
+        >>> umlaut_au = OldNorsePhonology.phonetic_i_umlaut(DIPHTHONGS_IPA_class["au"])
+        >>> umlaut_au.ipar
+        'ɐy'
+
         :param sound:
         :return:
         """
@@ -65,6 +69,14 @@ class OldNorsePhonology(Vowel):
 
     @staticmethod
     def phonetic_u_umlaut(sound: Vowel):
+        """
+        >>> umlaut_a = OldNorsePhonology.phonetic_u_umlaut(a)
+        >>> umlaut_a.ipar
+        'ø'
+
+        :param sound:
+        :return:
+        """
         if sound.is_equal(a):
             return oee  # or oe
         elif sound.is_equal(a.lengthen()):
@@ -303,8 +315,3 @@ def measure_old_norse_syllable(syllable: list):
             return Length.long
         elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
             return Length.overlong
-
-
-def normalize_for_syllabifier(text):
-    text = text.replace("ː", "")
-    return text

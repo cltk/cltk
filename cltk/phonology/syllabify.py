@@ -458,6 +458,13 @@ class Syllable:
         ['n', 'g', 'r']
 
 
+        >>> sylla3 = Syllable("aurr", ["a", "u"], ["r"])
+        >>> sylla3.nucleus
+        ['a', 'u']
+        >>> sylla3.coda
+        ['r', 'r']
+
+
         :param text: a syllable
         :return:
         """

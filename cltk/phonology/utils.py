@@ -140,8 +140,17 @@ class Consonant(AbstractConsonant):
         return self.ipar
 
     def is_equal(self, other_consonnant):
+        """
+        >>> v_consonant = Consonant(Place.labio_dental, Manner.fricative, True, "v", False)
+        >>> f_consonant = Consonant(Place.labio_dental, Manner.fricative, False, "f", False)
+        >>> v_consonant.is_equal(f_consonant)
+        False
+
+        :param other_consonnant:
+        :return:
+        """
         return self.place == other_consonnant.place and self.manner == other_consonnant.manner and \
-               self.voiced == other_consonnant.voiced and self.geminate == other_consonnant.germinate
+               self.voiced == other_consonnant.voiced and self.geminate == other_consonnant.geminate
 
 
 # Vowels
@@ -271,6 +280,11 @@ class Vowel(AbstractVowel):
         return self.ipar
 
     def is_equal(self, other_sound):
+        """
+
+        :param other_sound:
+        :return:
+        """
         return self.height == other_sound.height and self.backness == other_sound.backness and \
                self.rounded == other_sound.rounded and self.length == other_sound.length
 
