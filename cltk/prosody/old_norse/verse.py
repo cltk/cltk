@@ -133,8 +133,8 @@ class ShortLine:
             word = normalize(viisuordh)
             if word != "":
                 transcribed_word = transcriber.text_to_phonetic_representation(word)
-                # phonological features list, result of Transcriber.first_process()
-                pfl = transcriber.first_process(word)
+                # phonological features list, result of Transcriber.text_to_phonemes()
+                pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
@@ -207,7 +207,7 @@ class LongLine:
             word = normalize(viisuordh)
             if word != "":
                 transcribed_word = transcriber.text_to_phonetic_representation(word)
-                pfl = transcriber.first_process(word)
+                pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
