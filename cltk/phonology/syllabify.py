@@ -490,5 +490,8 @@ class Syllable:
 
                 else:
                     raise ValueError("{} is an unknown character".format(c))
+
+            if len(self.nucleus) == 0:
+                raise ValueError("This is not a correct syllable")
         else:
             raise ValueError("A syllable can't be void")

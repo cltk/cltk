@@ -780,6 +780,9 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_syllable5(self):
         self.assertRaises(ValueError, Syllable, "e", ["a"], ["r"])
 
+    def test_syllable6(self):
+        self.assertRaises(ValueError, Syllable, "armar", ["a"], ["r", "m"])
+
 
 if __name__ == '__main__':
     unittest.main()
