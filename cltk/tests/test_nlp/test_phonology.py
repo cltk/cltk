@@ -14,7 +14,7 @@ from cltk.phonology.old_norse import transcription as ont
 from cltk.phonology.gothic import transcription as gothic
 from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology import utils as ut
-from cltk.phonology.syllabify import Syllabifier
+from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.tokenize.word import tokenize_old_norse_words
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 import unittest
@@ -29,10 +29,10 @@ class TestSequenceFunctions(unittest.TestCase):
         test_word = grc.Word("pʰór.miŋks", grc.GREEK["Attic"]["Probert"])
         test_word._refresh()
         contexts = [test_word.phones[0].left.ipa,
-            test_word.phones[1].left.ipa, test_word.phones[1].right.ipa,
-            test_word.phones[-1].right.ipa]
+                    test_word.phones[1].left.ipa, test_word.phones[1].right.ipa,
+                    test_word.phones[-1].right.ipa]
         target = [grc.Phone("#").ipa, grc.Phone("pʰ").ipa,
-            grc.Phone("r").ipa, grc.Phone("#").ipa]
+                  grc.Phone("r").ipa, grc.Phone("#").ipa]
         self.assertEqual(contexts, target)
 
     def test_greek_r_devoice(self):
@@ -44,9 +44,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._r_devoice()
         outputs = [''.join(p.ipa for p in condition_1.phones),
-                    ''.join(p.ipa for p in condition_2.phones)]
+                   ''.join(p.ipa for p in condition_2.phones)]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["r̥ɑ́ks", "syrr̥ɑ́ptɔː"]]
+                  ["r̥ɑ́ks", "syrr̥ɑ́ptɔː"]]
         self.assertEqual(outputs, target)
 
     def test_greek_s_voice_assimilation(self):
@@ -67,9 +67,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._nasal_place_assimilation()
         outputs = [''.join([p.ipa for p in condition_1.phones]),
-                    ''.join([p.ipa for p in condition_2.phones])]
+                   ''.join([p.ipa for p in condition_2.phones])]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["pʰórmiŋks", "ɑ́ŋgelos"]]
+                  ["pʰórmiŋks", "ɑ́ŋgelos"]]
         self.assertEqual(outputs, target)
 
     def test_greek_g_nasality_assimilation(self):
@@ -84,15 +84,15 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_greek_alternate(self):
         """Test the Word class's `_alternate` in Greek."""
         raw_inputs = ["rɑ́ks", "syrrɑ́ptɔː", "ẹːrgɑsménon",
-                        "pʰórmigks", "ɑ́ggelos", "gignɔ́ːskɔː"]
+                      "pʰórmigks", "ɑ́ggelos", "gignɔ́ːskɔː"]
         outputs = []
         for i in raw_inputs:
             w = grc.Word(i, grc.GREEK["Attic"]["Probert"])
             w._alternate()
             outputs.append(''.join([p.ipa for p in w.phones]))
         target = [unicodedata.normalize('NFC', y) for y in ["r̥ɑ́ks",
-                    "syrr̥ɑ́ptɔː", "ẹːrgɑzménon",
-                    "pʰórmiŋks", "ɑ́ŋgelos", "giŋnɔ́ːskɔː"]]
+                                                            "syrr̥ɑ́ptɔː", "ẹːrgɑzménon",
+                                                            "pʰórmiŋks", "ɑ́ŋgelos", "giŋnɔ́ːskɔː"]]
         self.assertEqual(outputs, target)
 
     def test_greek_syllabify(self):
@@ -103,10 +103,10 @@ class TestSequenceFunctions(unittest.TestCase):
             w = grc.Word(i, grc.GREEK["Attic"]["Probert"])
             w._alternate()
             outputs.append([''.join([p.ipa for l in n for p in l])
-                for n in w._syllabify()])
+                            for n in w._syllabify()])
         target = [[unicodedata.normalize('NFC', s) for s in y] for y in
-            [["lẹ́ː", "pẹː"], ["píp", "tɔː"],
-            ["té", "knọː"], ["skɛ̂ːp", "tron"]]]
+                  [["lẹ́ː", "pẹː"], ["píp", "tɔː"],
+                   ["té", "knọː"], ["skɛ̂ːp", "tron"]]]
         self.assertEqual(outputs, target)
 
     def test_greek_print_ipa(self):
@@ -114,7 +114,7 @@ class TestSequenceFunctions(unittest.TestCase):
         w = grc.Word("élipe", grc.GREEK["Attic"]["Probert"])
         output = [w._print_ipa(True), w._print_ipa(False)]
         target = [unicodedata.normalize('NFC', "é.li.pe"),
-                    unicodedata.normalize('NFC', "élipe")]
+                  unicodedata.normalize('NFC', "élipe")]
         self.assertEqual(output, target)
 
     def test_greek_parse_diacritics(self):
@@ -123,10 +123,10 @@ class TestSequenceFunctions(unittest.TestCase):
         transcriber = grc.Transcriber("Attic", "Probert")
         outputs = [transcriber._parse_diacritics(char) for char in inputs]
         target = [unicodedata.normalize('NFC', c) for c in
-            ["α/" + grc.chars.ACUTE + "//",
-            "φ///", "ω/" + grc.chars.CIRCUMFLEX + "/"
-            + grc.chars.IOTA_SUBSCRIPT + "/", "h///υ///",
-            "ι//" + grc.chars.DIAERESIS + "/", "ι//" + grc.chars.LONG + "/"]]
+                  ["α/" + grc.chars.ACUTE + "//",
+                   "φ///", "ω/" + grc.chars.CIRCUMFLEX + "/"
+                   + grc.chars.IOTA_SUBSCRIPT + "/", "h///υ///",
+                   "ι//" + grc.chars.DIAERESIS + "/", "ι//" + grc.chars.LONG + "/"]]
         self.assertEqual(outputs, target)
 
     def test_greek_prep_text(self):
@@ -135,19 +135,19 @@ class TestSequenceFunctions(unittest.TestCase):
         transcriber = grc.Transcriber("Attic", "Probert")
         outputs = [transcriber._prep_text(w) for w in inputs]
         target = [[('λ', '', ''), ('ει', '́', ''), ('π', '', ''),
-                        ('ει', '', ''), ('ν', '', '')],
-                    [('h', '', ''), ('υ', '́', ''), ('π', '', ''),
-                        ('ν', '', ''), ('ωι', '', '̄')]]
+                   ('ει', '', ''), ('ν', '', '')],
+                  [('h', '', ''), ('υ', '́', ''), ('π', '', ''),
+                   ('ν', '', ''), ('ωι', '', '̄')]]
         self.assertEqual(outputs, target)
 
     def test_transcriber_probert(self):
         """Test Attic Greek IPA transcription via Probert reconstruction."""
         transcriber = grc.Transcriber("Attic", "Probert").transcribe
         transcription = [transcriber(x) for x in
-            [unicodedata.normalize('NFC', y) for y in
-            ["ῥάξ", "εἰργασμένον", "φόρμιγξ", "γιγνώσκω"]]]
+                         [unicodedata.normalize('NFC', y) for y in
+                          ["ῥάξ", "εἰργασμένον", "φόρμιγξ", "γιγνώσκω"]]]
         target = [unicodedata.normalize('NFC', y) for y in
-            ["[r̥ɑ́ks]", "[ẹːr.gɑz.mé.non]", "[pʰór.miŋks]", "[giŋ.nɔ́ːs.kɔː]"]]
+                  ["[r̥ɑ́ks]", "[ẹːr.gɑz.mé.non]", "[pʰór.miŋks]", "[giŋ.nɔ́ːs.kɔː]"]]
         self.assertEqual(transcription, target)
 
 
@@ -157,10 +157,10 @@ class TestSequenceFunctions(unittest.TestCase):
         test_word = lat.Word("ɔmn̪ɪs", lat.LATIN["Classical"]["Allen"])
         test_word._refresh()
         contexts = [test_word.phones[0].left.ipa,
-            test_word.phones[1].left.ipa, test_word.phones[1].right.ipa,
-            test_word.phones[-1].right.ipa]
+                    test_word.phones[1].left.ipa, test_word.phones[1].right.ipa,
+                    test_word.phones[-1].right.ipa]
         target = [grc.Phone("#").ipa, grc.Phone("ɔ").ipa,
-            grc.Phone("n̪").ipa, grc.Phone("#").ipa]
+                  grc.Phone("n̪").ipa, grc.Phone("#").ipa]
         self.assertEqual(contexts, target)
 
     def test_latin_j_maker(self):
@@ -208,9 +208,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._b_devoice()
         outputs = [''.join([p.ipa for p in condition_1.phones]),
-                    ''.join([p.ipa for p in condition_2.phones])]
+                   ''.join([p.ipa for p in condition_2.phones])]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["aps", "sʊpt̪ʊs"]]
+                  ["aps", "sʊpt̪ʊs"]]
         self.assertEqual(outputs, target)
 
     def test_latin_final_m_drop(self):
@@ -249,9 +249,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._ns_nf_lengthening()
         outputs = [''.join([p.ipa for p in condition_1.phones]),
-                    ''.join([p.ipa for p in condition_2.phones])]
+                   ''.join([p.ipa for p in condition_2.phones])]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["kɔːn̪sɔl", "kɔːn̪fɛkiː"]]
+                  ["kɔːn̪sɔl", "kɔːn̪fɛkiː"]]
         self.assertEqual(outputs, target)
 
     def test_latin_l_darken(self):
@@ -263,9 +263,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._l_darken()
         outputs = [''.join([p.ipa for p in condition_1.phones]),
-                    ''.join([p.ipa for p in condition_2.phones])]
+                   ''.join([p.ipa for p in condition_2.phones])]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["bɛɫgaj", "kɔːn̪sɔɫ"]]
+                  ["bɛɫgaj", "kɔːn̪sɔɫ"]]
         self.assertEqual(outputs, target)
 
     def test_latin_j_z_doubling(self):
@@ -277,20 +277,20 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._j_z_doubling()
         outputs = [''.join([p.ipa for p in condition_1.phones]),
-                    ''.join([p.ipa for p in condition_2.phones])]
+                   ''.join([p.ipa for p in condition_2.phones])]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["t̪roːjjaj", "amaːzzɔn"]]
+                  ["t̪roːjjaj", "amaːzzɔn"]]
         self.assertEqual(outputs, target)
 
     def test_latin_long_vowel_catcher(self):
         """Test the Word class's method `_long_vowel_catcher` in Latin."""
         conditions = [lat.Word(s, lat.LATIN["Classical"]["Allen"]) for s in
-                        ["ɪː", 'ʊː', 'ɛː', 'ɪ̃ː', 'ʊ̃ː', 'ɛ̃ː']]
+                      ["ɪː", 'ʊː', 'ɛː', 'ɪ̃ː', 'ʊ̃ː', 'ɛ̃ː']]
         for w in conditions:
             w._long_vowel_catcher()
         outputs = [''.join([p.ipa for p in c.phones]) for c in conditions]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["iː", 'uː', 'eː', 'ĩː', 'ũː', 'ẽː']]
+                  ["iː", 'uː', 'eː', 'ĩː', 'ũː', 'ẽː']]
         self.assertEqual(outputs, target)
 
     def test_latin_e_i_closer_before_vowel(self):
@@ -302,9 +302,9 @@ class TestSequenceFunctions(unittest.TestCase):
         condition_2._refresh()
         condition_2._e_i_closer_before_vowel()
         outputs = [''.join([p.ipa for p in condition_1.phones]),
-                    ''.join([p.ipa for p in condition_2.phones])]
+                   ''.join([p.ipa for p in condition_2.phones])]
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["gaɫlɪ̣a", "mɛ̣a"]]
+                  ["gaɫlɪ̣a", "mɛ̣a"]]
         self.assertEqual(outputs, target)
 
     def test_latin_intervocalic_j(self):
@@ -325,7 +325,7 @@ class TestSequenceFunctions(unittest.TestCase):
             w._alternate()
             outputs.append(''.join([p.ipa for p in w.phones]))
         target = [unicodedata.normalize('NFC', y) for y in
-                    ["gaɫlɪ̣ja", "d̪iːwiːsa", "kʷaːrũː"]]
+                  ["gaɫlɪ̣ja", "d̪iːwiːsa", "kʷaːrũː"]]
         self.assertEqual(outputs, target)
 
     def test_latin_syllabify(self):
@@ -336,24 +336,24 @@ class TestSequenceFunctions(unittest.TestCase):
             w = lat.Word(i, lat.LATIN["Classical"]["Allen"])
             w._syllabify()
             outputs.append([''.join([p.ipa for l in n for p in l])
-                for n in w._syllabify()])
+                            for n in w._syllabify()])
         target = [[unicodedata.normalize('NFC', s) for s in y] for y in
-            [["ar", "ma"], ["ka", "n̪oː"],
-            ["t̪roːj", "jaj"], ["gaɫ", "lɪ̣", "ja"]]]
+                  [["ar", "ma"], ["ka", "n̪oː"],
+                   ["t̪roːj", "jaj"], ["gaɫ", "lɪ̣", "ja"]]]
         self.assertEqual(outputs, target)
 
     def test_latin_print_ipa(self):
         """Test the Word class's method `_print_ipa` in Latin."""
         inputs = [lat.Word(w, lat.LATIN["Classical"]["Allen"]) for w in
-                    ["gaɫlɪ̣ja", "d̪iːwiːsa"]]
+                  ["gaɫlɪ̣ja", "d̪iːwiːsa"]]
         output = [[w._print_ipa(syllabify=False, accentuate=False),
-                    w._print_ipa(syllabify=True, accentuate=False),
-                    w._print_ipa(syllabify=True, accentuate=True)]
-                     for w in inputs]
+                   w._print_ipa(syllabify=True, accentuate=False),
+                   w._print_ipa(syllabify=True, accentuate=True)]
+                  for w in inputs]
         target = [[unicodedata.normalize('NFC', x) for x in
-                        ["gaɫlɪ̣ja", "gaɫ.lɪ̣.ja", "'gaɫ.lɪ̣.ja"]],
-                    [unicodedata.normalize('NFC', x) for x in
-                        ["d̪iːwiːsa", "d̪iː.wiː.sa", "d̪iː.'wiː.sa"]]]
+                   ["gaɫlɪ̣ja", "gaɫ.lɪ̣.ja", "'gaɫ.lɪ̣.ja"]],
+                  [unicodedata.normalize('NFC', x) for x in
+                   ["d̪iːwiːsa", "d̪iː.wiː.sa", "d̪iː.'wiː.sa"]]]
         self.assertEqual(output, target)
 
     def test_latin_parse_diacritics(self):
@@ -362,8 +362,8 @@ class TestSequenceFunctions(unittest.TestCase):
         transcriber = lat.Transcriber("Classical", "Allen")
         outputs = [transcriber._parse_diacritics(char) for char in inputs]
         target = [unicodedata.normalize('NFC', c) for c in
-            ["a///", "u/" + lat.chars.LONG + "//",
-                "i//" + lat.chars.DIAERESIS + "/"]]
+                  ["a///", "u/" + lat.chars.LONG + "//",
+                   "i//" + lat.chars.DIAERESIS + "/"]]
         self.assertEqual(outputs, target)
 
     def test_latin_prep_text(self):
@@ -372,10 +372,10 @@ class TestSequenceFunctions(unittest.TestCase):
         transcriber = lat.Transcriber("Classical", "Allen")
         outputs = [transcriber._prep_text(w) for w in inputs]
         target = [[('u', '̄', ''), ('n', '', ''), ('a', '', ''),
-                        ('m', '', '')],
-                    [('qu', '', ''), ('i', '', '')],
-                    [('b', '', ''), ('e', '', ''), ('l', '', ''),
-                    ('g', '', ''), ("ae", '', '')]]
+                   ('m', '', '')],
+                  [('qu', '', ''), ('i', '', '')],
+                  [('b', '', ''), ('e', '', ''), ('l', '', ''),
+                   ('g', '', ''), ("ae", '', '')]]
         self.assertEqual(outputs, target)
 
     def test_transcriber_allen_without_macronizer(self):
@@ -383,11 +383,11 @@ class TestSequenceFunctions(unittest.TestCase):
          input pre-macronized."""
         transcriber = lat.Transcriber("Classical", "Allen").transcribe
         transcription = [transcriber(x, macronize=False) for x in
-            [unicodedata.normalize('NFC', y) for y in
-            ["Trōiae", "Gallia", "dīuīsa", "ūnam", "incolunt", "Belgae"]]]
+                         [unicodedata.normalize('NFC', y) for y in
+                          ["Trōiae", "Gallia", "dīuīsa", "ūnam", "incolunt", "Belgae"]]]
         target = [unicodedata.normalize('NFC', y) for y in
-            ["['t̪roːj.jaj]", "['gaɫ.lɪ̣.ja]", "[d̪iː.'wiː.sa]",
-            "['uː.n̪ãː]", "['ɪŋ.kɔ.lʊn̪t̪]", "['bɛɫ.gaj]"]]
+                  ["['t̪roːj.jaj]", "['gaɫ.lɪ̣.ja]", "[d̪iː.'wiː.sa]",
+                   "['uː.n̪ãː]", "['ɪŋ.kɔ.lʊn̪t̪]", "['bɛɫ.gaj]"]]
         self.assertEqual(transcription, target)
 
     def test_transcriber_allen_with_macronizer(self):
@@ -398,7 +398,7 @@ class TestSequenceFunctions(unittest.TestCase):
             "Quo usque tandem, O Catilina, abutere nostra patientia?",
             macronize=True)
         target = ("['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ"
-            + " 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]")
+                  + " 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]")
         self.assertEqual(transcription, target)
 
     def test_akkadian_stress(self):
@@ -738,7 +738,7 @@ class TestSequenceFunctions(unittest.TestCase):
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
         words = tokenize_old_norse_words(text)
         old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
-        
+
         syllabified_words = [old_norse_syllabifier.syllabify_ssp(word.lower())
                              for word in words if word not in ",."]
 
@@ -758,6 +758,27 @@ class TestSequenceFunctions(unittest.TestCase):
         word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
         syllabified_word = syllabifier.syllabify_phonemes(word)
         self.assertListEqual(syllabified_word, [[ont.a, ont.s], [ont.g, ont.a, ont.r, ont.dh, ont.r]])
+
+    def test_syllable1(self):
+        sylla1 = Syllable("armr", ["a"], ["r", "m"])
+        self.assertListEqual(sylla1.nucleus, ['a'])
+        self.assertLessEqual(sylla1.onset, [])
+        self.assertLessEqual(sylla1.coda, ['r', 'm', 'r'])
+
+    def test_syllable2(self):
+        sylla2 = Syllable("gangr", ["a"], ["g", "n", "r"])
+        self.assertLessEqual(sylla2.onset, ['g'])
+        self.assertLessEqual(sylla2.nucleus, ['a'])
+        self.assertLessEqual(sylla2.coda, ['n', 'g', 'r'])
+
+    def test_syllable3(self):
+        self.assertRaises(ValueError, Syllable, ("r", [], ["r"]))
+
+    def test_syllable4(self):
+        self.assertRaises(ValueError, Syllable, ("", [], []))
+
+    def test_syllable5(self):
+        self.assertRaises(ValueError, Syllable, ("e", ["a"], ["r"]))
 
 
 if __name__ == '__main__':
