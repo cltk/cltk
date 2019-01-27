@@ -10,8 +10,7 @@ from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 from cltk.corpus.old_english.syllabifier import Syllabifier as OE_Syllabifier
 from cltk.corpus.old_norse.syllabifier import hierarchy as old_norse_hierarchy
-from cltk.corpus.old_norse.syllabifier import ipa_hierarchy as ipa_old_norse_hierarchy 
-import cltk.phonology.utils as phut
+from cltk.corpus.old_norse.syllabifier import ipa_hierarchy as ipa_old_norse_hierarchy
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -388,7 +387,7 @@ class Syllabifier:
     def syllabify_phonemes(self, phonological_word):
         """
 
-        :param phonological_word: result of Transcriber().first_process in cltk.phonology.utils
+        :param phonological_word: result of Transcriber().to_phonemes in cltk.phonology.utils
         :return:
         """
         phoneme_lengths = []
@@ -411,4 +410,68 @@ class Syllabifier:
                 counter += 1
 
         return syllabified_phonological_word
-    
+
+
+class Syllable:
+    """
+    A syllable has three main constituents:
+    - onset
+    - nucleus
+    - coda
+
+    Source: https://en.wikipedia.org/wiki/Syllable
+    """
+    def __init__(self, text, vowels, consonants):
+        self.onset = []
+        self.nucleus = []
+        self.coda = []
+        self.text = text
+        self.consonants = consonants
+        self.vowels = vowels
+
+        self._compute_syllable(text)
+
+    def _compute_syllable(self, text):
+        """
+        >>> sylla = Syllable("armr", ["a"], ["r", "m"])
+        >>> sylla.onset
+        []
+        >>> sylla.nucleus
+        ['a']
+        >>> sylla.coda
+        ['r', 'm', 'r']
+
+        :param text:
+        :return:
+        """
+        is_in_onset = True
+        is_in_nucleus = False
+        is_in_coda = False
+        if len(text) > 0:
+            for c in text:
+                if is_in_onset and c in self.consonants:
+                    self.onset.append(c)
+
+                elif is_in_onset and c in self.vowels:
+                    is_in_onset = False
+                    is_in_nucleus = True
+                    self.nucleus.append(c)
+
+                elif is_in_nucleus and c in self.vowels:
+                    self.nucleus.append(c)
+
+                elif is_in_nucleus and c in self.consonants:
+                    is_in_nucleus = False
+                    is_in_coda = True
+                    self.coda.append(c)
+
+                elif is_in_coda and c in self.consonants:
+                    self.coda.append(c)
+
+                elif is_in_coda and c in self.vowels:
+                    raise ValueError("This is not a correct syllable")
+
+                else:
+                    raise ValueError("{} is an unknown character".format(c))
+        else:
+            raise ValueError("A syllable can't be void")
