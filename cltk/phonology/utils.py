@@ -139,6 +139,10 @@ class Consonant(AbstractConsonant):
     def __str__(self):
         return self.ipar
 
+    def is_equal(self, other_consonnant):
+        return self.place == other_consonnant.place and self.manner == other_consonnant.manner and \
+               self.voiced == other_consonnant.voiced and self.geminate == other_consonnant.germinate
+
 
 # Vowels
 # HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
@@ -268,6 +272,10 @@ class Vowel(AbstractVowel):
 
     def __str__(self):
         return self.ipar
+
+    def is_equal(self, other_sound):
+        return self.height == other_sound.height and self.backness == other_sound.backness and \
+               self.rounded == other_sound.rounded and self.length == other_sound.length
 
 
 class Rank(AutoName):
@@ -482,12 +490,12 @@ class Transcriber:
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            first_res = self.first_process(word)
-            second_res = self.second_process(first_res)
+            first_res = self.to_phonemes(word)
+            second_res = self.phonemes_to_phonetic_representation(first_res)
             translitterated.append(second_res)
         return "[" + " ".join(translitterated) + "]"
 
-    def first_process(self, word: str):
+    def to_phonemes(self, word: str):
         """
         Give a greedy approximation of the pronunciation of word
         :param word:
@@ -514,7 +522,7 @@ class Transcriber:
             first_res.append(self.ipa_class[word[0]])
         return first_res
 
-    def second_process(self, first_result) -> str:
+    def phonemes_to_phonetic_representation(self, first_result) -> str:
         """
         Use of rules to precise pronunciation of a preprocessed list of transcribed words
         :param first_result: list(Vowel or Consonant)
