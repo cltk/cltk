@@ -6,19 +6,13 @@ Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 
 from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Place, Manner, AbstractConsonant, Rule, \
     AbstractPosition, Rank
+from cltk.corpus.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
 
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
 
 
 class OldNorsePhonology(Vowel):
-    I_UMLAUT = {'a': 'e',
-                'á': 'æ',
-                'o': 'ö',
-                'ó': 'ø',
-                'u': 'y',
-                'ú': 'ý',
-                'au': 'ey'}
     U_UMLAUT = {'a': 'ö',
                 'ö': 'u'}
 
@@ -62,8 +56,8 @@ class OldNorsePhonology(Vowel):
         :param sound:
         :return:
         """
-        if sound in OldNorsePhonology.I_UMLAUT:
-            return OldNorsePhonology.I_UMLAUT[sound]
+        if sound in BACK_TO_FRONT_VOWELS:
+            return BACK_TO_FRONT_VOWELS[sound]
         else:
             return sound
 
