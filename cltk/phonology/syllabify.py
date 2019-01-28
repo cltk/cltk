@@ -493,7 +493,8 @@ class Syllable:
                     self.coda.append(c)
 
                 elif is_in_coda and c in self.vowels:
-                    raise ValueError("This is not a correct syllable")
+                    raise ValueError("This is not a correct syllable "
+                                     "(a vowel '{}' cannot be inserted in coda)".format(c))
 
                 else:
                     raise ValueError("{} is an unknown character".format(c))
