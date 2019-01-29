@@ -5,6 +5,9 @@
 from cltk.inflection.utils import *
 
 
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
+
+
 # Demonstrative pronouns
 demonstrative_pronouns_this = [
     [["þessi", "þenna", "þessum", "þessa"], ["þessir", "þessa", "þessum", "þessa"]],

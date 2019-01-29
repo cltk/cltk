@@ -3,8 +3,8 @@
 
 import re
 from math import floor
-
-from cltk.phonology.old_norse.transcription import Consonant, Vowel, Transcriber, old_norse_rules, IPA_class, \
+from cltk.phonology.utils import Transcriber
+from cltk.phonology.old_norse.transcription import Consonant, Vowel, old_norse_rules, IPA_class, \
     DIPHTHONGS_IPA_class, DIPHTHONGS_IPA
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
@@ -47,7 +47,7 @@ class MetreManager:
         :param text:
         :return:
         """
-        lines = [line for line in text.split("\n") if line != ""]
+        lines = [line for line in text.split("\n") if line]
         return len(lines) == 8
 
     @staticmethod
@@ -65,7 +65,7 @@ class MetreManager:
         :param text:
         :return:
         """
-        lines = [line for line in text.split("\n") if line != ""]
+        lines = [line for line in text.split("\n") if line]
         return len(lines) == 6
 
     @staticmethod
@@ -120,7 +120,7 @@ class ShortLine:
         """
         for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
-            if word != "":
+            if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
     def to_phonetics(self, transcriber):
@@ -131,10 +131,10 @@ class ShortLine:
         """
         for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
-            if word != "":
-                transcribed_word = transcriber.main(word)
-                # phonological features list, result of Transcriber.first_process()
-                pfl = transcriber.first_process(word)
+            if word:
+                transcribed_word = transcriber.text_to_phonetic_representation(word)
+                # phonological features list, result of Transcriber.text_to_phonemes()
+                pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
@@ -194,7 +194,7 @@ class LongLine:
         """
         for viisuordh in tokenize_old_norse_words(self.text):
             word = normalize(viisuordh)
-            if word != "":
+            if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
     def to_phonetics(self, transcriber):
@@ -205,9 +205,9 @@ class LongLine:
         """
         for viisuordh in tokenize_old_norse_words(self.text):
             word = normalize(viisuordh)
-            if word != "":
-                transcribed_word = transcriber.main(word)
-                pfl = transcriber.first_process(word)
+            if word:
+                transcribed_word = transcriber.text_to_phonetic_representation(word)
+                pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
@@ -366,7 +366,7 @@ class UnspecifiedStanza(Metre):
         :return:
         """
         Metre.from_short_lines_text(self, text)
-        self.short_lines = [ShortLine(line) for line in text.split("\n") if line != ""]
+        self.short_lines = [ShortLine(line) for line in text.split("\n") if line]
         self.long_lines = None
 
     def syllabify(self, hierarchy):
@@ -465,7 +465,7 @@ class Fornyrdhislag(Metre):
         :return:
         """
         self.text = text
-        self.short_lines = [ShortLine(line) for line in text.split("\n") if line != ""]
+        self.short_lines = [ShortLine(line) for line in text.split("\n") if line]
         self.long_lines = [self.short_lines[2*i:2*i+2] for i in range(int(floor(len(self.short_lines)/2)))]
 
     def syllabify(self, hierarchy):
@@ -544,7 +544,7 @@ class Ljoodhhaattr(Metre):
         :return:
         """
         Metre.from_short_lines_text(self, text)
-        lines = [line for line in text.split("\n") if line != ""]
+        lines = [line for line in text.split("\n") if line]
         self.short_lines = [ShortLine(lines[0]), ShortLine(lines[1]), LongLine(lines[2]), ShortLine(lines[3]),
                             ShortLine(lines[4]), LongLine(lines[5])]
         self.long_lines = [self.short_lines[0:2], [self.short_lines[2]], self.short_lines[3:5], [self.short_lines[5]]]
