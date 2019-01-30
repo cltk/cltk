@@ -2,7 +2,7 @@
 
 import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier, Syllable
-from cltk.corpus.old_norse.syllabifier import invalid_onsets, BACK_TO_FRONT_VOWELS
+from cltk.corpus.old_norse.syllabifier import invalid_onsets, BACK_TO_FRONT_VOWELS, VOWELS, CONSONANTS
 from cltk.inflection.old_norse.phonemic_rules import extract_common_stem
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -81,22 +81,22 @@ def ns_has_i_umlaut(ns: str, gs: str, np: str):
     ns_syl = s.syllabify_ssp(ns)
     gs_syl = s.syllabify_ssp(gs)
     np_syl = s.syllabify_ssp(np)
-    s_ns_syl = [Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in ns_syl]
-    s_gs_syl = [Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in gs_syl]
-    s_np_syl = [Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in np_syl]
+    s_ns_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in ns_syl]
+    s_gs_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in gs_syl]
+    s_np_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in np_syl]
     if len(gs_syl) >= 2 and s_gs_syl[-1].nucleus[0] == "i":
         if len(ns_syl) >= 2:
             vowel = s_ns_syl[-2].nucleus[0]
         else:
             vowel = s_ns_syl[-1].nucleus[0]
-        return s_gs_syl[-2].nucleus[0] == BACK_TO_FRONT_VOWELS[vowel]
+        return vowel in BACK_TO_FRONT_VOWELS and s_gs_syl[-2].nucleus[0] == BACK_TO_FRONT_VOWELS[vowel]
 
     if len(np_syl) >= 2 and s_np_syl[-1].nucleus[0] == "i":
         if len(ns_syl) >= 2:
             vowel = s_ns_syl[-2].nucleus[0]
         else:
             vowel = s_ns_syl[-1].nucleus[0]
-        return s_np_syl[-2].nucleus[0] in BACK_TO_FRONT_VOWELS[vowel]
+        return vowel in BACK_TO_FRONT_VOWELS and s_np_syl[-2].nucleus[0] in BACK_TO_FRONT_VOWELS[vowel]
 
     return False
 
@@ -111,7 +111,7 @@ def has_u_umlaut(word):
     :return:
     """
     word_syl = s.syllabify_ssp(word)
-    s_word_syl = [decl_utils.Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in word_syl]
+    s_word_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in word_syl]
 
     if len(s_word_syl) == 1 and s_word_syl[-1].nucleus[0] in ["ö", "ǫ"]:
         return True

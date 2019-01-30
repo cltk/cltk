@@ -2,8 +2,6 @@
 
 from enum import Enum, auto
 
-from cltk.corpus.old_norse.syllabifier import VOWELS, CONSONANTS
-
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 

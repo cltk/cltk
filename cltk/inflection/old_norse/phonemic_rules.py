@@ -1,12 +1,11 @@
 
-from typing import List
-import os
 
-import cltk.inflection.utils as decl_utils
-from cltk.phonology.syllabify import Syllabifier
+from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS
 
 import numpy
+
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 s = Syllabifier(language="old_norse", break_geminants=True)
 s.set_invalid_onsets(invalid_onsets)
@@ -225,9 +224,7 @@ def add_r_ending(stem):
     :param stem:
     :return:
     """
-    s_stem = s.syllabify_SSP(stem.lower())
+    s_stem = s.syllabify_ssp(stem.lower())
     n_stem = len(s_stem)
-    last_syllable = decl_utils.Syllable(s_stem[-1], VOWELS, CONSONANTS)
+    last_syllable = Syllable(s_stem[-1], VOWELS, CONSONANTS)
     return "".join(s_stem[:-1]) + add_r_ending_to_syllable(last_syllable.text, n_stem == 1)
-
-

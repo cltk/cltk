@@ -1,8 +1,7 @@
 """Verb inflection"""
 
-import cltk.inflection.utils as decl_utils
-from cltk.phonology.syllabify import Syllabifier
-from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS
+from cltk.phonology.syllabify import Syllabifier, Syllable
+from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, LONG_VOWELS
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -71,6 +70,6 @@ def add_t_ending_to_syllable(last_syllable):
 
 
 def add_t_ending(stem: str):
-    s_stem = s.syllabify_SSP(stem.lower())
-    last_syllable = decl_utils.Syllable(s_stem[-1], VOWELS, CONSONANTS)
+    s_stem = s.syllabify_ssp(stem.lower())
+    last_syllable = Syllable(s_stem[-1], VOWELS, CONSONANTS)
     return "".join(s_stem[:-1]) + add_t_ending_to_syllable(last_syllable.text)
