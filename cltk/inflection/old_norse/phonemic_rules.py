@@ -11,6 +11,15 @@ s = Syllabifier(language="old_norse", break_geminants=True)
 s.set_invalid_onsets(invalid_onsets)
 
 
+class OldNorseSyllable(Syllable):
+
+    def apply_u_umlaut(self):
+        if "".join(self.nucleus) == "a":
+            self.nucleus = ["ö"]
+        # elif "".join(self.nucleus) == "ö":
+        #     self.nucleus = ["u"]
+
+
 def extract_common_stem(*args):
     """
 
@@ -228,3 +237,23 @@ def add_r_ending(stem):
     n_stem = len(s_stem)
     last_syllable = Syllable(s_stem[-1], VOWELS, CONSONANTS)
     return "".join(s_stem[:-1]) + add_r_ending_to_syllable(last_syllable.text, n_stem == 1)
+
+
+def apply_u_umlaut(stem: str):
+    """
+    >>> apply_u_umlaut("far")
+    'för'
+    >>> apply_u_umlaut("ör")
+    'ör'
+    >>> apply_u_umlaut("axl")
+    'öxl'
+    >>> apply_u_umlaut("hafn")
+    'höfn'
+
+    :param stem:
+    :return:
+    """
+    s_stem = s.syllabify_ssp(stem.lower())
+    last_syllable = OldNorseSyllable(s_stem[-1], VOWELS, CONSONANTS)
+    last_syllable.apply_u_umlaut()
+    return "".join(s_stem[:-1]) + str(last_syllable)

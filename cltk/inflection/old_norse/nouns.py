@@ -3,7 +3,7 @@
 import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.corpus.old_norse.syllabifier import invalid_onsets, BACK_TO_FRONT_VOWELS, VOWELS, CONSONANTS
-from cltk.inflection.old_norse.phonemic_rules import extract_common_stem
+from cltk.inflection.old_norse.phonemic_rules import extract_common_stem, apply_u_umlaut
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
@@ -132,7 +132,7 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     örmum
     arma
 
-    >>> decline_strong_masculine_noun("ketill", "ketils", "katlar")
+    # >>> decline_strong_masculine_noun("ketill", "ketils", "katlar")
     ketill
     ketil
     katli
@@ -189,7 +189,7 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     staðar
     staðir
     staði
-    staðum
+    stöðum
     staða
 
     a-stem
@@ -262,12 +262,12 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
 
     # dative plural
     if np[len(common_stem):][0] == "v":
-        print(common_stem+"vum")
+        print(apply_u_umlaut(common_stem)+"vum")
 
     elif np[len(common_stem):][0] == "j":
-        print(common_stem+"jum")
+        print(apply_u_umlaut(common_stem)+"jum")
     else:
-        print(common_stem + "um")
+        print(apply_u_umlaut(common_stem)+"um")
 
     # genitive plural
 
@@ -284,125 +284,155 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     o macron-stem
     Most of strong feminine nouns follows the declension of rún and för.
     >>> decline_strong_feminine_noun("rún", "rúnar", "rúnar")
-    'rún'
-    'rún'
-    'rún'
-    'rúnar'
-    'rúnar'
-    'rúnar'
-    'rúnum'
-    'rúna'
+    rún
+    rún
+    rún
+    rúnar
+    rúnar
+    rúnar
+    rúnum
+    rúna
 
     >>> decline_strong_feminine_noun("för", "farar", "farar")
-    'för'
-    'för'
-    'för'
-    'farar'
-    'farar'
-    'farar'
-    'förum'
-    'fara'
+    för
+    för
+    för
+    farar
+    farar
+    farar
+    förum
+    fara
 
     >>> decline_strong_feminine_noun("kerling", "kerlingar", "kerlingar")
-    'kerling'
-    'kerling'
-    'kerlingu'
-    'kerlingar'
-    'kerlingar'
-    'kerlingar'
-    'kerlingum'
-    'kerlinga'
+    kerling
+    kerling
+    kerlingu
+    kerlingar
+    kerlingar
+    kerlingar
+    kerlingum
+    kerlinga
 
     >>> decline_strong_feminine_noun("skel", "skeljar", "skeljar")
-    'skel'
-    'skel'
-    'skel'
-    'skeljar'
-    'skeljar'
-    'skeljar'
-    'skeljum'
-    'skelja'
+    skel
+    skel
+    skel
+    skeljar
+    skeljar
+    skeljar
+    skeljum
+    skelja
 
     >>> decline_strong_feminine_noun("ör", "örvar", "örvar")
-    'ör'
-    'ör'
-    'ör'
-    'örvar'
-    'örvar'
-    'örvar'
-    'örum'
-    'örva'
+    ör
+    ör
+    ör
+    örvar
+    örvar
+    örvar
+    örum
+    örva
 
     >>> decline_strong_feminine_noun("heiðr", "heiðar", "heiðar")
-    'heiðr'
-    'heiði'
-    'heiði'
-    'heiðar'
-    'heiðar'
-    'heiðar'
-    'heiðum'
-    'heiða'
+    heiðr
+    heiði
+    heiði
+    heiðar
+    heiðar
+    heiðar
+    heiðum
+    heiða
 
     i-stem
 
     >>> decline_strong_feminine_noun("öxl", "axlar", "axlir")
-    'öxl'
-    'öxl'
-    'öxl'
-    'axlar'
-    'axlir'
-    'axlir'
-    'öxlum'
-    'axla'
+    öxl
+    öxl
+    öxl
+    axlar
+    axlir
+    axlir
+    öxlum
+    axla
 
     >>> decline_strong_feminine_noun("höfn", "hafnar", "hafnir")
-    'höfn'
-    'höfn'
-    'höfn'
-    'hafnar'
-    'hafnir'
-    'hafnir'
-    'höfnul'
-    'hafna'
+    höfn
+    höfn
+    höfn
+    hafnar
+    hafnir
+    hafnir
+    höfnum
+    hafna
 
     >>> decline_strong_feminine_noun("norn", "nornar", "nornir")
-    'norn'
-    'norn'
-    'norn'
-    'nornar'
-    'nornir'
-    'nornir'
-    'nornum'
-    'norna'
+    norn
+    norn
+    norn
+    nornar
+    nornir
+    nornir
+    nornum
+    norna
 
     >>> decline_strong_feminine_noun("jörð", "jarðar", "jarðir")
-    'jörð'
-    'jörð'
-    'jörð'
-    'jarðar'
-    'jarðir'
-    'jarðir'
-    'jörðum'
-    'jarða'
+    jörð
+    jörð
+    jörð
+    jarðar
+    jarðir
+    jarðir
+    jörðum
+    jarða
 
     >>> decline_strong_feminine_noun("borg", "borgar", "borgir")
-    'borg'
-    'borg'
-    'borgu'
-    'borgar'
-    'borgir'
-    'borgir'
-    'borgum'
-    'borga'
-
-
+    borg
+    borg
+    borgu
+    borgar
+    borgir
+    borgir
+    borgum
+    borga
 
     :param ns: nominative singular
     :param gs: genitive singular
     :param np: nominative plural
     :return:
     """
-    return ns
+
+    # nominative singular
+    print(ns)
+
+    # accusative singular
+    if len(ns) < 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
+        print(ns[:-1]+"i")
+
+    else:
+        print(ns)
+
+    # dative singular
+    if len(ns) < 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
+        print(ns[:-1])
+    elif ns.endswith("ing") or ns.endswith("rg"):
+        print(ns + "u")
+    else:
+        print(ns)
+
+    # genitive singular
+    print(gs)
+
+    # nominative plural
+    print(np)
+
+    # accusative plural
+    print(np)
+
+    # dative plural
+    print(apply_u_umlaut(np[:-2])+"um")
+
+    # genitive plural
+    print(np[:-2]+"a")
 
 
 def decline_strong_neuter_noun(ns: str, gs: str, np: str):
@@ -475,7 +505,26 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     :param np: nominative plural
     :return:
     """
-    return ns
+
+    # nominative singular
+    print(ns)
+
+    # accusative singular
+    print(ns)
+
+    # dative singular
+
+    # genitive singular
+    print(gs)
+
+    # nominative plural
+    print(np)
+
+    # accusative plural
+
+    # dative plural
+
+    # genitive plural
 
 
 def decline_weak_masculine_noun(ns: str, gs: str, np: str):
@@ -536,7 +585,25 @@ def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     :param np:
     :return:
     """
-    return ns
+    # nominative singular
+    print(ns)
+
+    # accusative singular
+    print(ns)
+
+    # dative singular
+
+    # genitive singular
+    print(gs)
+
+    # nominative plural
+    print(np)
+
+    # accusative plural
+
+    # dative plural
+
+    # genitive plural
 
 
 def decline_weak_feminine_noun(ns: str, gs: str, np: str):
@@ -547,7 +614,26 @@ def decline_weak_feminine_noun(ns: str, gs: str, np: str):
     :param np:
     :return:
     """
-    return ns
+
+    # nominative singular
+    print(ns)
+
+    # accusative singular
+    print(ns)
+
+    # dative singular
+
+    # genitive singular
+    print(gs)
+
+    # nominative plural
+    print(np)
+
+    # accusative plural
+
+    # dative plural
+
+    # genitive plural
 
 
 def decline_weak_neuter_noun(ns: str, gs: str, np: str):
@@ -558,5 +644,22 @@ def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     :param np:
     :return:
     """
-    return ns
+    # nominative singular
+    print(ns)
 
+    # accusative singular
+    print(ns)
+
+    # dative singular
+
+    # genitive singular
+    print(gs)
+
+    # nominative plural
+    print(np)
+
+    # accusative plural
+
+    # dative plural
+
+    # genitive plural
