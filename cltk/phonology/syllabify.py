@@ -505,3 +505,6 @@ class Syllable:
                 raise ValueError("This is not a correct syllable")
         else:
             raise ValueError("A syllable can't be void")
+
+    def __str__(self):
+        return "".join(self.onset)+"".join(self.nucleus)+"".join(self.coda)

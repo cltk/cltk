@@ -630,10 +630,11 @@ class PoeticWord:
         Compute the lentgh of each syllable
         Compute if a syllable is stress of noe
         Compute the POS category the word is in
+
         :param poetic_tool:
         :return:
         """
-        self.ipa_transcription = poetic_tool.tr.text_to_phonetic_representation(self.text)
+        self.ipa_transcription = poetic_tool.tr.text_to_phonemes(self.text)
         self.syl = poetic_tool.syllabifier.syllabify_phonemes(self.ipa_transcription)
         for i, syllable in enumerate(self.syl):
             self.ipa_transcription.append([])
