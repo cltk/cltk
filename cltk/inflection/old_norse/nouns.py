@@ -405,15 +405,15 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     print(ns)
 
     # accusative singular
-    if len(ns) < 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
+    if len(ns) > 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
         print(ns[:-1]+"i")
 
     else:
         print(ns)
 
     # dative singular
-    if len(ns) < 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
-        print(ns[:-1])
+    if len(ns) > 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
+        print(ns[:-1]+"i")
     elif ns.endswith("ing") or ns.endswith("rg"):
         print(ns + "u")
     else:
@@ -429,7 +429,14 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     print(np)
 
     # dative plural
-    print(apply_u_umlaut(np[:-2])+"um")
+    # print("dative plural "+np[len(np[:-3]):][0])
+    if np[len(np[:-3]):][0] == "v":
+        print(apply_u_umlaut(np[:-2])[:-1]+"um")
+
+    elif np[len(np[:-3]):][0] == "j":
+        print(apply_u_umlaut(np[:-2])+"um")
+    else:
+        print(apply_u_umlaut(np[:-2])+"um")
 
     # genitive plural
     print(np[:-2]+"a")
@@ -521,8 +528,10 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     print(np)
 
     # accusative plural
+    print(np)
 
     # dative plural
+    print(np)
 
     # genitive plural
 
