@@ -1,4 +1,9 @@
-"""Noun declensions"""
+"""Noun declensions
+
+This module intends to
+
+
+"""
 
 import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier, Syllable
@@ -8,7 +13,7 @@ from cltk.inflection.old_norse.phonemic_rules import extract_common_stem, apply_
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 sumar = [["sumar", "sumar", "sumri", "sumars"], ["sumur", "sumur", "sumrum", "sumra"]]
-noun_sumar = decl_utils.DeclinableOneGender("sumar", decl_utils.Gender.neuter)
+noun_sumar = decl_utils.Noun("sumar", decl_utils.Gender.neuter)
 noun_sumar.set_declension(sumar)
 
 s = Syllabifier(language="old_norse", break_geminants=True)
@@ -102,22 +107,6 @@ def ns_has_i_umlaut(ns: str, gs: str, np: str):
 
 
 ns_has_i_umlaut("ketill", "ketils", "katlar")
-
-
-def has_u_umlaut(word):
-    """
-
-    :param word:
-    :return:
-    """
-    word_syl = s.syllabify_ssp(word)
-    s_word_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in word_syl]
-
-    if len(s_word_syl) == 1 and s_word_syl[-1].nucleus[0] in ["ö", "ǫ"]:
-        return True
-    elif len(s_word_syl) >= 2 and s_word_syl[-1].nucleus[0] == "u":
-        return s_word_syl[-2].nucleus[0] in ["ö", "ǫ"]
-    return False
 
 
 def decline_strong_masculine_noun(ns: str, gs: str, np: str):
@@ -407,7 +396,6 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     # accusative singular
     if len(ns) > 2 and ns[-1] == "r" and ns[-2] in CONSONANTS:
         print(ns[:-1]+"i")
-
     else:
         print(ns)
 
@@ -432,7 +420,6 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     # print("dative plural "+np[len(np[:-3]):][0])
     if np[len(np[:-3]):][0] == "v":
         print(apply_u_umlaut(np[:-2])[:-1]+"um")
-
     elif np[len(np[:-3]):][0] == "j":
         print(apply_u_umlaut(np[:-2])+"um")
     else:
@@ -449,63 +436,63 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     Most of strong neuter nouns follow the declensions of skip, land and herað.
 
     >>> decline_strong_neuter_noun("skip", "skips", "skip")
-    'skip'
-    'skip'
-    'skipi'
-    'skips'
-    'skip'
-    'skipum'
-    'skipa'
+    skip
+    skip
+    skipi
+    skips
+    skip
+    skipum
+    skipa
 
     >>> decline_strong_neuter_noun("land", "lands", "lönd")
-    'land'
-    'land'
-    'landi'
-    'lands'
-    'lönd'
-    'lönd'
-    'löndum'
-    'landa'
+    land
+    land
+    landi
+    lands
+    lönd
+    lönd
+    löndum
+    landa
 
     >>> decline_strong_neuter_noun("herað", "heraðs", "heruð")
-    'herað'
-    'herað'
-    'heraði'
-    'heraðs'
-    'heruð'
-    'heruð'
-    'heruðum'
-    'heraða'
+    herað
+    herað
+    heraði
+    heraðs
+    heruð
+    heruð
+    heruðum
+    heraða
 
     >>> decline_strong_neuter_noun("kyn", "kyns", "kyn")
-    'kyn'
-    'kyn'
-    'kyni'
-    'kyns'
-    'kyn'
-    'kyn'
-    'kynjum'
-    'kynja'
+    kyn
+    kyn
+    kyni
+    kyns
+    kyn
+    kyn
+    kynjum
+    kynja
 
     >>> decline_strong_neuter_noun("högg", "höggs", "högg")
-    'högg'
-    'högg'
-    'höggvi'
-    'höggs'
-    'högg'
-    'högg'
-    'höggum'
-    'höggva'
+    högg
+    högg
+    höggvi
+    höggs
+    högg
+    högg
+    höggum
+    höggva
 
     >>> decline_strong_neuter_noun("kvæði", "kvæðis", "kvæði")
-    'kvæði'
-    'kvæði'
-    'kvæði'
-    'kvæðis'
-    'kvæði'
-    'kvæði'
-    'kvæðum'
-    'kvæða'
+    kvæði
+    kvæði
+    kvæði
+    kvæðis
+    kvæði
+    kvæði
+    kvæðum
+    kvæða
 
     :param ns: nominative singular
     :param gs: genitive singular
@@ -520,6 +507,11 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     print(ns)
 
     # dative singular
+    if ns[-1] == "i":
+        print(ns)
+    # TODO  +"vi"
+    else:
+        print(ns+"i")
 
     # genitive singular
     print(gs)
@@ -531,63 +523,73 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     print(np)
 
     # dative plural
-    print(np)
+
+    print(apply_u_umlaut(np)+"um")
+    # TODO +"vum"
 
     # genitive plural
+    print(np)
+    if np[-1] in CONSONANTS:
+        print(np+"a")
+    # TODO + "va"
+    else:
+        print(np[:-1]+"a")
 
 
 def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     """
 
     >>> decline_weak_masculine_noun("goði", "goða", "goðar")
-    'goði'
-    'goða'
-    'goða'
-    'goða'
-    'goðar'
-    'goða'
-    'goðum'
-    'goða'
+    goði
+    goða
+    goða
+    goða
+    goðar
+    goða
+    goðum
+    goða
 
     >>> decline_weak_masculine_noun("hluti", "hluta", "hlutar")
-    'hluti'
-    'hluta'
-    'hluta'
-    'hluta'
-    'hlutar'
-    'hluta'
-    'hlutum'
-    'hluta'
+    hluti
+    hluta
+    hluta
+    hluta
+    hlutar
+    hluta
+    hlutum
+    hluta
 
     >>> decline_weak_masculine_noun("arfi", "arfa", "arfar")
-    'arfi'
-    'arfa'
-    'arfa'
-    'arfa'
-    'arfar'
-    'arfa'
-    'örfum'
-    'arfa'
+    arfi
+    arfa
+    arfa
+    arfa
+    arfar
+    arfa
+    örfum
+    arfa
 
-    >>> decline_weak_masculine_noun("bryti", "brytja", "brytjar")
-    'bryti'
-    'bryta'
-    'bryta'
-    'bryta'
-    'brytjar'
-    'brytja'
-    'brytjum'
-    'brytja'
+    >>> decline_weak_masculine_noun("bryti", "bryta", "brytjar")
+    bryti
+    bryta
+    bryta
+    bryta
+    brytjar
+    brytja
+    brytjum
+    brytja
 
     >>> decline_weak_masculine_noun("vöðvi", "vöðva", "vöðvar")
-    'vöðvi'
-    'vöðva'
-    'vöðva'
-    'vöðva'
-    'vöðvar'
-    'vöðva'
-    'vöðum'
-    'vöðva'
+    vöðvi
+    vöðva
+    vöðva
+    vöðva
+    vöðvar
+    vöðva
+    vöðum
+    vöðva
+
+    The main pattern is:
 
     :param ns:
     :param gs:
@@ -598,9 +600,10 @@ def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     print(ns)
 
     # accusative singular
-    print(ns)
+    print(gs)
 
     # dative singular
+    print(gs)
 
     # genitive singular
     print(gs)
@@ -609,45 +612,194 @@ def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     print(np)
 
     # accusative plural
+    print(np[:-1])
 
     # dative plural
+    if len(np) > 3 and np[-3] == "v":
+        print(apply_u_umlaut(np[:-3]) + "um")
+    else:
+        print(apply_u_umlaut(np[:-2]) + "um")
 
     # genitive plural
+    print(np[:-1])
 
 
 def decline_weak_feminine_noun(ns: str, gs: str, np: str):
     """
 
+    >>> decline_weak_feminine_noun("saga", "sögu", "sögur")
+    saga
+    sögu
+    sögu
+    sögu
+    sögur
+    sögur
+    sögum
+    sagna
+
+    >>> decline_weak_feminine_noun("kona", "konu", "konur")
+    kona
+    konu
+    konu
+    konu
+    konur
+    konur
+    konum
+    kvenna
+
+    >>> decline_weak_feminine_noun("kirkja", "kirkju", "kirkjur")
+    kirkja
+    kirkju
+    kirkju
+    kirkju
+    kirkjur
+    kirkjur
+    kirkjum
+    kirkna
+
+
+    >>> decline_weak_feminine_noun("völva", "völu", "völur")
+    völva
+    völu
+    völu
+    völu
+    völur
+    völur
+    völum
+    völna
+
+    >>> decline_weak_feminine_noun("speki", "speki", "")
+    speki
+    speki
+    speki
+    speki
+
+    >>> decline_weak_feminine_noun("reiði", "reiði", "")
+    reiði
+    reiði
+    reiði
+    reiði
+
+    >>> decline_weak_feminine_noun("elli", "elli", "")
+    elli
+    elli
+    elli
+    elli
+
+    >>> decline_weak_feminine_noun("frœði", "frœði", "")
+    frœði
+    frœði
+    frœði
+    frœði
+
+    It is to note that the genitive plural of völva is not attested so the given form is analogously reconstructed
+
+    The main pattern:
+    -a
+    -u
+    -u
+    -u
+    -ur
+    -ur
+    -um
+    -na
+
     :param ns:
     :param gs:
     :param np:
     :return:
     """
 
-    # nominative singular
-    print(ns)
+    if ns[-1] == "i" and gs[-1] == "i" and not np:
+        print(ns)
+        print(ns)
+        print(ns)
+        print(ns)
+    else:
 
-    # accusative singular
-    print(ns)
+        # nominative singular
+        print(ns)
 
-    # dative singular
+        # accusative singular
+        print(gs)
 
-    # genitive singular
-    print(gs)
+        # dative singular
+        print(gs)
 
-    # nominative plural
-    print(np)
+        # genitive singular
+        print(gs)
 
-    # accusative plural
+        # nominative plural
+        print(np)
 
-    # dative plural
+        # accusative plural
+        print(np)
 
-    # genitive plural
+        # dative plural
+        print(np[:-1]+"m")
+
+        # genitive plural
+        if ns == "kona":
+            print("kvenna")
+        elif ns[-2] == "v" or ns[-2] == "j":
+            print(ns[:-2]+"na")
+        else:
+            print(ns[:-1]+"na")
 
 
 def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     """
 
+    >>> decline_weak_neuter_noun("auga", "auga", "augu")
+    auga
+    auga
+    auga
+    auga
+    augu
+    augu
+    augum
+    augna
+
+    >>> decline_weak_neuter_noun("hjarta", "hjarta", "hjörtu")
+    hjarta
+    hjarta
+    hjarta
+    hjarta
+    hjörtu
+    hjörtu
+    hjörtum
+    hjartna
+
+    >>> decline_weak_neuter_noun("lunga", "lunga", "lungu")
+    lunga
+    lunga
+    lunga
+    lunga
+    lungu
+    lungu
+    lungum
+    lungna
+
+    >>> decline_weak_neuter_noun("eyra", "eyra", "eyru")
+    eyra
+    eyra
+    eyra
+    eyra
+    eyru
+    eyru
+    eyrum
+    eyrna
+
+    The main pattern is:
+    -a
+    -a
+    -a
+    -a
+    -u
+    -u
+    -um
+    -na
+
     :param ns:
     :param gs:
     :param np:
@@ -660,6 +812,7 @@ def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     print(ns)
 
     # dative singular
+    print(ns)
 
     # genitive singular
     print(gs)
@@ -668,7 +821,10 @@ def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     print(np)
 
     # accusative plural
+    print(np)
 
     # dative plural
+    print(np+"m")
 
     # genitive plural
+    print(ns[:-1]+"na")
