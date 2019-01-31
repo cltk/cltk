@@ -441,6 +441,7 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     skipi
     skips
     skip
+    skip
     skipum
     skipa
 
@@ -523,12 +524,10 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     print(np)
 
     # dative plural
-
     print(apply_u_umlaut(np)+"um")
     # TODO +"vum"
 
     # genitive plural
-    print(np)
     if np[-1] in CONSONANTS:
         print(np+"a")
     # TODO + "va"

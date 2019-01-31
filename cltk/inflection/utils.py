@@ -115,15 +115,12 @@ class DeclinableOneGender:
 
 class Noun(DeclinableOneGender):
     def __init__(self, name: str, gender: Gender):
-        DeclinableOneGender.__init__(self, name, gender)
-        self.gender = gender
-        self.name = name
-        self.declension = []
+        super().__init__(name, gender)
 
 
 class DeclensionPattern(Declinable):
     def __init__(self, name: str):
-        Declinable.__init__(self, name)
+        super().__init__(name)
 
     def apply(self, word: str, gender: Gender, number: Number, case: Case):
         return word + self.declension[gender.value-1][number.value-1][case.value-1]

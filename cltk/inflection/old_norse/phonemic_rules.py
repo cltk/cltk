@@ -1,5 +1,8 @@
 
+from typing import List
+import os
 
+import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS
 
@@ -237,6 +240,22 @@ def add_r_ending(stem):
     n_stem = len(s_stem)
     last_syllable = Syllable(s_stem[-1], VOWELS, CONSONANTS)
     return "".join(s_stem[:-1]) + add_r_ending_to_syllable(last_syllable.text, n_stem == 1)
+
+
+def has_u_umlaut(word):
+    """
+
+    :param word:
+    :return:
+    """
+    word_syl = s.syllabify_ssp(word)
+    s_word_syl = [Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in word_syl]
+
+    if len(s_word_syl) == 1 and s_word_syl[-1].nucleus[0] in ["ö", "ǫ"]:
+        return True
+    elif len(s_word_syl) >= 2 and s_word_syl[-1].nucleus[0] == "u":
+        return s_word_syl[-2].nucleus[0] in ["ö", "ǫ"]
+    return False
 
 
 def apply_u_umlaut(stem: str):
