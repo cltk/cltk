@@ -1,7 +1,14 @@
 """Noun declensions
 
 This module intends to
+- set inflected forms of Old Norse nouns,
+- guess declined forms just with the nominative singular, the genitive singular and the nominative plural.
 
+Old Norse nouns vary according to gender (masculine, feminine and neuter), the number (singular and plural) and the case
+(nominative, accusative, dative and genitive). They are classified into the strong and the weak nouns.
+
+All dative plural nouns finish with -um ending.
+All genitive plural nouns finish with -a ending.
 
 """
 
@@ -111,6 +118,7 @@ ns_has_i_umlaut("ketill", "ketils", "katlar")
 
 def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     """
+
     >>> decline_strong_masculine_noun("armr", "arms", "armar")
     armr
     arm
@@ -590,9 +598,9 @@ def decline_weak_masculine_noun(ns: str, gs: str, np: str):
 
     The main pattern is:
 
-    :param ns:
-    :param gs:
-    :param np:
+    :param ns: nominative singular
+    :param gs: genitive singular
+    :param np: nominative plural
     :return:
     """
     # nominative singular
@@ -703,9 +711,9 @@ def decline_weak_feminine_noun(ns: str, gs: str, np: str):
     -um
     -na
 
-    :param ns:
-    :param gs:
-    :param np:
+    :param ns: nominative singular
+    :param gs: genitive singular
+    :param np: nominative plural
     :return:
     """
 
@@ -799,9 +807,9 @@ def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     -um
     -na
 
-    :param ns:
-    :param gs:
-    :param np:
+    :param ns: nominative singular
+    :param gs: genitive singular
+    :param np: nominative plural
     :return:
     """
     # nominative singular

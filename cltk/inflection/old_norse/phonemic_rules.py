@@ -1,7 +1,19 @@
+"""Old Norse phonemic rules
 
-from typing import List
-import os
+Old Norse words encounter many sound changes which occur mainly according to endings.
+Some sound changes may be explained by disappeared or transformed endings.
 
+The i ending lead to an i-umlaut (sound transformation) which made the previous vowel more alike the sound i.
+The u ending lead to an u-umlaut (sound transformation) which made the previous vowel more alike the sound u.
+The r ending is sometimes assimilated depending on the previous adjacent consonant.
+
+These sound transformations were active at an earlier stage of "classical" Old Norse, i.e. conditions in which such
+transformations occurred may be not encountered in "classical" Old Norse, nevertheless their results were still visible
+in "classical" Old Norse.
+
+Source: (in German)
+
+"""
 import cltk.inflection.utils as decl_utils
 from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS

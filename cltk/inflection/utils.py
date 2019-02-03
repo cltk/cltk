@@ -1,4 +1,7 @@
-"""Declensions of pronouns, nouns, adjectives"""
+"""Declensions of pronouns, nouns, adjectives
+
+This module seems not to be general enough.
+"""
 
 from enum import Enum, auto
 
