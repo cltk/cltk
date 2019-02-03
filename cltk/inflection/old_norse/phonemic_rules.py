@@ -11,12 +11,15 @@ These sound transformations were active at an earlier stage of "classical" Old N
 transformations occurred may be not encountered in "classical" Old Norse, nevertheless their results were still visible
 in "classical" Old Norse.
 
-Source: (in German)
+Sources:
+- Kleine Grammatik des Altisländischen by Robert Nedoma (in German)
+- https://en.wikipedia.org/wiki/Proto-Norse_language#Proto-Norse_to_Old_Norse
 
 """
-import cltk.inflection.utils as decl_utils
+
 from cltk.phonology.syllabify import Syllabifier, Syllable
-from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS
+from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, \
+    DIPHTHONGS, BACK_TO_FRONT_VOWELS
 
 import numpy
 
@@ -37,12 +40,16 @@ class OldNorseSyllable(Syllable):
 
 def extract_common_stem(*args):
     """
+    Function which extract the longest common substring in a list of strings.
+    This is a very basic function because it does not deal correctly with sound shifts (like u-umlaut and i-umlaut).
 
     >>> extract_common_stem("armr", "arms", "armar")
     'arm'
 
     >>> extract_common_stem("ketill", "ketils", "katlar")
     'k'
+
+    # the given result is 'k', but the expected result should be 'katil'
 
     >>> extract_common_stem("mór", "mós", "móar")
     'mó'
@@ -63,8 +70,9 @@ def extract_common_stem(*args):
     return args[smallest]
 
 
-def apply_raw_r_assimilation(last_syllable):
+def apply_raw_r_assimilation(last_syllable: str) -> str:
     """
+    -r preceded by an -s-, -l- or -n- becomes respectively en -s, -l or -n.
 
     >>> apply_raw_r_assimilation("arm")
     'armr'
@@ -78,7 +86,7 @@ def apply_raw_r_assimilation(last_syllable):
     'vinn'
 
 
-    :param last_syllable:
+    :param last_syllable: last syllable of an Old Norse word
     :return:
     """
 
@@ -92,8 +100,11 @@ def apply_raw_r_assimilation(last_syllable):
     return last_syllable + "r"
 
 
-def add_r_ending_to_syllable(last_syllable, is_first=True):
+def add_r_ending_to_syllable(last_syllable: str, is_first=True) -> str:
     """
+    Adds an the -r ending to the last syllable of an Old Norse word.
+    In some cases, it really adds an -r. In other cases, it on doubles the last character or left the syllable
+    unchanged.
 
     >>> add_r_ending_to_syllable("arm", True)
     'armr'
@@ -157,7 +168,7 @@ def add_r_ending_to_syllable(last_syllable, is_first=True):
 
     :param last_syllable: last syllable of the word
     :param is_first: is it the first syllable of the word?
-    :return:
+    :return: inflected syllable
     """
     if len(last_syllable) >= 2:
         if last_syllable[-1] in ['l', 'n', 's', 'r']:
@@ -183,8 +194,10 @@ def add_r_ending_to_syllable(last_syllable, is_first=True):
         return last_syllable + "r"
 
 
-def add_r_ending(stem):
+def add_r_ending(stem: str) -> str:
     """
+    Adds an -r ending to an Old Norse noun.
+
     >>> add_r_ending("arm")
     'armr'
 
@@ -254,14 +267,15 @@ def add_r_ending(stem):
     return "".join(s_stem[:-1]) + add_r_ending_to_syllable(last_syllable.text, n_stem == 1)
 
 
-def has_u_umlaut(word):
+def has_u_umlaut(word: str) -> bool:
     """
+    Does the word have an u-umlaut?
 
-    :param word:
-    :return:
+    :param word: Old Norse word
+    :return: has an u-umlaut occurred?
     """
     word_syl = s.syllabify_ssp(word)
-    s_word_syl = [Syllable(syl, decl_utils.VOWELS, decl_utils.CONSONANTS) for syl in word_syl]
+    s_word_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in word_syl]
 
     if len(s_word_syl) == 1 and s_word_syl[-1].nucleus[0] in ["ö", "ǫ"]:
         return True
@@ -272,6 +286,7 @@ def has_u_umlaut(word):
 
 def apply_u_umlaut(stem: str):
     """
+    Changes the vowel of the last syllable of the given stem if the vowel is affected by an u-umlaut;
     >>> apply_u_umlaut("far")
     'för'
     >>> apply_u_umlaut("ör")
@@ -288,3 +303,56 @@ def apply_u_umlaut(stem: str):
     last_syllable = OldNorseSyllable(s_stem[-1], VOWELS, CONSONANTS)
     last_syllable.apply_u_umlaut()
     return "".join(s_stem[:-1]) + str(last_syllable)
+
+
+def ns_has_i_umlaut(ns: str, gs: str, np: str):
+    """
+    Checks if the nominative singular has an i-umlaut
+    >>> ns_has_i_umlaut("ketill", "ketils", "katlar")
+    True
+
+    >>> ns_has_i_umlaut("armr", "arms", "armar")
+    False
+
+    >>> ns_has_i_umlaut("mór", "mós", "móar")
+    False
+
+    >>> ns_has_i_umlaut("hirðir", "hirðis", "hirðar")
+    False
+
+    >>> ns_has_i_umlaut("söngr", "söngs", "söngvar")
+    False
+
+    >>> ns_has_i_umlaut("gestr", "gests", "gestir")
+    False
+
+
+    >>> ns_has_i_umlaut("staðr", "staðar", "staðir")
+
+    :param ns:
+    :param gs:
+    :param np:
+    :return:
+    """
+
+    ns_syl = s.syllabify_ssp(ns)
+    gs_syl = s.syllabify_ssp(gs)
+    np_syl = s.syllabify_ssp(np)
+    s_ns_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in ns_syl]
+    s_gs_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in gs_syl]
+    s_np_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in np_syl]
+    if len(gs_syl) >= 2 and s_gs_syl[-1].nucleus[0] == "i":
+        if len(ns_syl) >= 2:
+            vowel = s_ns_syl[-2].nucleus[0]
+        else:
+            vowel = s_ns_syl[-1].nucleus[0]
+        return vowel in BACK_TO_FRONT_VOWELS and s_gs_syl[-2].nucleus[0] == BACK_TO_FRONT_VOWELS[vowel]
+
+    if len(np_syl) >= 2 and s_np_syl[-1].nucleus[0] == "i":
+        if len(ns_syl) >= 2:
+            vowel = s_ns_syl[-2].nucleus[0]
+        else:
+            vowel = s_ns_syl[-1].nucleus[0]
+        return vowel in BACK_TO_FRONT_VOWELS and s_np_syl[-2].nucleus[0] in BACK_TO_FRONT_VOWELS[vowel]
+
+    return False

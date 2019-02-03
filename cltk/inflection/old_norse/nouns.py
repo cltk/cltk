@@ -62,62 +62,9 @@ class OldNorseNoun(decl_utils.Noun):
                 self.get_declined(decl_utils.Case.nominative, decl_utils.Number.plural))
 
 
-def ns_has_i_umlaut(ns: str, gs: str, np: str):
-    """
-    >>> ns_has_i_umlaut("ketill", "ketils", "katlar")
-    True
-    >>> ns_has_i_umlaut("armr", "arms", "armar")
-    False
-
-    >>> ns_has_i_umlaut("mór", "mós", "móar")
-    False
-
-    >>> ns_has_i_umlaut("hirðir", "hirðis", "hirðar")
-    False
-
-    >>> ns_has_i_umlaut("söngr", "söngs", "söngvar")
-    False
-
-    >>> ns_has_i_umlaut("gestr", "gests", "gestir")
-    False
-
-
-    >>> ns_has_i_umlaut("staðr", "staðar", "staðir")
-
-    :param ns:
-    :param gs:
-    :param np:
-    :return:
-    """
-
-    ns_syl = s.syllabify_ssp(ns)
-    gs_syl = s.syllabify_ssp(gs)
-    np_syl = s.syllabify_ssp(np)
-    s_ns_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in ns_syl]
-    s_gs_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in gs_syl]
-    s_np_syl = [Syllable(syl, VOWELS, CONSONANTS) for syl in np_syl]
-    if len(gs_syl) >= 2 and s_gs_syl[-1].nucleus[0] == "i":
-        if len(ns_syl) >= 2:
-            vowel = s_ns_syl[-2].nucleus[0]
-        else:
-            vowel = s_ns_syl[-1].nucleus[0]
-        return vowel in BACK_TO_FRONT_VOWELS and s_gs_syl[-2].nucleus[0] == BACK_TO_FRONT_VOWELS[vowel]
-
-    if len(np_syl) >= 2 and s_np_syl[-1].nucleus[0] == "i":
-        if len(ns_syl) >= 2:
-            vowel = s_ns_syl[-2].nucleus[0]
-        else:
-            vowel = s_ns_syl[-1].nucleus[0]
-        return vowel in BACK_TO_FRONT_VOWELS and s_np_syl[-2].nucleus[0] in BACK_TO_FRONT_VOWELS[vowel]
-
-    return False
-
-
-ns_has_i_umlaut("ketill", "ketils", "katlar")
-
-
 def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     """
+    Gives the full declension of strong masculine nouns.
 
     >>> decline_strong_masculine_noun("armr", "arms", "armar")
     armr
@@ -215,11 +162,8 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     :param np: nominative plural
     :return:
     """
-    ns_syl = s.syllabify_ssp(ns)
-    gs_syl = s.syllabify_ssp(gs)
     np_syl = s.syllabify_ssp(np)
-    last_ns_syl = ns_syl[-1]
-    last_gs_syl = gs_syl[-1]
+
     last_np_syl = np_syl[-1]
     common_stem = extract_common_stem(ns, gs, np)
 
@@ -242,19 +186,13 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     print(np)
 
     # accusative plural
-    # if np[len(common_stem):][0] in ["v", "j"]:
-    #     print(gs)
-
     if last_np_syl.endswith("ar"):
-        # print("a-stem")
         print(np[:-1])
 
     elif last_np_syl.endswith("ir"):
-        # print("i-stem")
         print(np[:-1])
 
     elif last_np_syl.endswith("ur"):
-        # print("u-stem")
         print(np[:-1])
 
     # dative plural
@@ -278,6 +216,8 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
 
 def decline_strong_feminine_noun(ns: str, gs: str, np: str):
     """
+    Gives the full declension of strong feminine nouns.
+
     o macron-stem
     Most of strong feminine nouns follows the declension of rún and för.
     >>> decline_strong_feminine_noun("rún", "rúnar", "rúnar")
@@ -439,6 +379,7 @@ def decline_strong_feminine_noun(ns: str, gs: str, np: str):
 
 def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     """
+    Gives the full declension of strong neuter nouns.
 
     a-stem
     Most of strong neuter nouns follow the declensions of skip, land and herað.
@@ -545,6 +486,7 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
 
 def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     """
+    Gives the full declension of weak masculine nouns.
 
     >>> decline_weak_masculine_noun("goði", "goða", "goðar")
     goði
@@ -633,6 +575,7 @@ def decline_weak_masculine_noun(ns: str, gs: str, np: str):
 
 def decline_weak_feminine_noun(ns: str, gs: str, np: str):
     """
+    Gives the full declension of weak feminine nouns.
 
     >>> decline_weak_feminine_noun("saga", "sögu", "sögur")
     saga
@@ -699,9 +642,9 @@ def decline_weak_feminine_noun(ns: str, gs: str, np: str):
     frœði
     frœði
 
-    It is to note that the genitive plural of völva is not attested so the given form is analogously reconstructed
+    It is to note that the genitive plural of völva is not attested so the given form is analogously reconstructed.
 
-    The main pattern:
+    The main pattern is:
     -a
     -u
     -u
@@ -756,6 +699,7 @@ def decline_weak_feminine_noun(ns: str, gs: str, np: str):
 
 def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     """
+    Gives the full declension of weak neuter nouns.
 
     >>> decline_weak_neuter_noun("auga", "auga", "augu")
     auga
