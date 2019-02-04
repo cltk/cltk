@@ -314,7 +314,8 @@ def measure_old_norse_syllable(syllable: list) -> Union[Length, None]:
 
 def normalize_for_syllabifier(text: str) -> str:
     """
-    >>> normalize_for_syllabifier()
+    >>> normalize_for_syllabifier("almaːtːiɣr")
+    'almatiɣr'
 
     :param text:
     :return:
