@@ -31,11 +31,11 @@ s.set_invalid_onsets(invalid_onsets)
 
 class OldNorseSyllable(Syllable):
 
-    def apply_u_umlaut(self):
+    def apply_u_umlaut(self, is_second=False):
         if "".join(self.nucleus) == "a":
             self.nucleus = ["ö"]
-        # elif "".join(self.nucleus) == "ö":
-        #     self.nucleus = ["u"]
+        elif "".join(self.nucleus) == "ö" and is_second:
+            self.nucleus = ["u"]
 
 
 def extract_common_stem(*args):
@@ -61,13 +61,27 @@ def extract_common_stem(*args):
     :param args:
     :return:
     """
-    # return os.path.commonprefix(args)
+    l_s = [[OldNorseSyllable(syllable, VOWELS, CONSONANTS) for syllable in s.syllabify_ssp(word)] for word in args]
+
+    nuclei = ["".join(syllables[0].nucleus) for syllables in l_s]
+
+    # all_equal = True
+    # if len(nuclei) > 1:
+    #     for nucleus in nuclei:
+    #         all_equal = nuclei[0] == nucleus and all_equal
+    #         if not all_equal:
+    #             break
+    # if all_equal:
+        # return os.path.commonprefix(args)
     smallest = numpy.argmin([len(s) for s in args])
     for i, c in enumerate(args[smallest]):
         for other_word in args:
             if c != other_word[i]:
                 return args[smallest][:i]
     return args[smallest]
+    # else:
+    #     print(nuclei)
+    #     return ""
 
 
 def apply_raw_r_assimilation(last_syllable: str) -> str:
@@ -308,10 +322,20 @@ def apply_u_umlaut(stem: str):
     :param stem:
     :return:
     """
+    assert len(stem) > 0
     s_stem = s.syllabify_ssp(stem.lower())
-    last_syllable = OldNorseSyllable(s_stem[-1], VOWELS, CONSONANTS)
-    last_syllable.apply_u_umlaut()
-    return "".join(s_stem[:-1]) + str(last_syllable)
+    if len(s_stem) == 1:
+        last_syllable = OldNorseSyllable(s_stem[-1], VOWELS, CONSONANTS)
+        last_syllable.apply_u_umlaut()
+        return "".join(s_stem[:-1]) + str(last_syllable)
+
+    else:
+        penultimate_syllable = OldNorseSyllable(s_stem[-2], VOWELS, CONSONANTS)
+        last_syllable = OldNorseSyllable(s_stem[-1], VOWELS, CONSONANTS)
+        penultimate_syllable.apply_u_umlaut()
+        last_syllable.apply_u_umlaut(True)
+        last_syllable.apply_u_umlaut(True)
+        return "".join(s_stem[:-2]) + str(penultimate_syllable) + str(last_syllable)
 
 
 def ns_has_i_umlaut(ns: str, gs: str, np: str):

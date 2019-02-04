@@ -69,13 +69,20 @@ class OldNorsePhonology(Vowel):
         >>> umlaut_a.ipar
         'ø'
 
-        :param sound:
+        >>> umlaut_o = OldNorsePhonology.phonetic_u_umlaut(o)
+        >>> umlaut_o.ipar
+        'u'
+
+        >>> umlaut_e = OldNorsePhonology.phonetic_u_umlaut(e)
+        >>> umlaut_e.ipar
+        'e'
+
+
+        :param sound: instance of Vowel
         :return:
         """
         if sound.is_equal(a):
             return oee  # or oe
-        elif sound.is_equal(a.lengthen()):
-            return a.lengthen()
         elif sound.is_equal(o):
             return u
         else:

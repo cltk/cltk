@@ -4,6 +4,7 @@ This module seems not to be general enough.
 """
 
 from enum import Enum, auto
+from typing import Union
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
@@ -27,9 +28,9 @@ class Case(Enum):
 
 
 class Declinable:
-    def __init__(self, name: str):
+    def __init__(self, root: str):
         self.declension = []
-        self.name = name
+        self.root = root
 
     def set_declension(self, declension):
         self.declension = declension
@@ -50,8 +51,8 @@ class Declinable:
 
 
 class Pronoun(Declinable):
-    def __init__(self, name: str):
-        Declinable.__init__(self, name)
+    def __init__(self, root: str):
+        Declinable.__init__(self, root)
 
 
 class Adjective:
@@ -122,8 +123,33 @@ class Noun(DeclinableOneGender):
 
 
 class DeclensionPattern(Declinable):
-    def __init__(self, name: str):
-        super().__init__(name)
+    def __init__(self, root: str):
+        super().__init__(root)
 
-    def apply(self, word: str, gender: Gender, number: Number, case: Case):
-        return word + self.declension[gender.value-1][number.value-1][case.value-1]
+    def apply(self, root: str, gender: Union[Gender, None], number: Number, case: Case):
+        """
+        >>> armr = DeclensionPattern("arm")
+        >>> armr.set_declension([["armr", "arm", "armi", "arms"], ["armar", "arma", "örmum", "arma"]])
+        >>> armr.get_declined(Case.accusative, Number.singular, None)
+        'arm'
+
+        >>> armr.apply("hest", None, Number.singular, Case.dative)
+        'hesti'
+
+        >>> armr.apply("hest", None, Number.plural, Case.dative)
+        'hestum'
+
+        >>> armr.apply("hest", None, Number.singular, Case.genitive)
+        'hests'
+
+        :param root: root of the word to decline
+        :param gender: instance of Gender of the word to decline (nouns have only one gender so the gender is not mentioned
+        in the declension: the value of gender must be None)
+        :param number: instance of Number
+        :param case: instance of Case
+        :return: word declined the same way as the the attribute root of the DeclensionPattern instance.
+        """
+        if gender is None:
+            return root + self.declension[number.value - 1][case.value - 1][len(self.root):]
+        else:
+            return root + self.declension[gender.value - 1][number.value - 1][case.value - 1][len(self.root):]
