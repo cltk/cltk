@@ -491,7 +491,7 @@ class Transcriber:
         - then, use of rules to precise pronunciation of a preprocessed list of transcribed words
     """
 
-    def __init__(self, diphthongs_ipa, diphthongs_ipa_class, ipa_class, rules):
+    def __init__(self, diphthongs_ipa: dict, diphthongs_ipa_class: dict, ipa_class: dict, rules: list):
         """
 
         :param diphthongs_ipa: dict whose keys are written diphthongs and and values IPA trasncription of them
@@ -505,22 +505,22 @@ class Transcriber:
         self.rules = rules
 
     def text_to_phonetic_representation(self, sentence: str) -> str:
-        translitterated = []
+        transliterated = []
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            first_res = self.text_to_phonemes(word)
-            second_res = self.phonemes_to_phonetic_representation(first_res)
-            translitterated.append(second_res)
-        return "[" + " ".join(translitterated) + "]"
+            phonemes = self.text_to_phonemes(word)
+            phonetic_representation = self.phonemes_to_phonetic_representation(phonemes)
+            transliterated.append(phonetic_representation)
+        return "[" + " ".join(transliterated) + "]"
 
-    def text_to_phonemes(self, word: str):
+    def text_to_phonemes(self, word: str) -> str:
         """
         Give a greedy approximation of the pronunciation of word
         :param word:
         :return:
         """
-        first_res = []
+        phonemes = []
         is_repeted = False
         if len(word) >= 2:
             for index in range(len(word) - 1):
@@ -528,46 +528,46 @@ class Transcriber:
                     is_repeted = False
                     continue
                 if word[index:index + 2] in self.diphthongs_ipa:  # diphthongs
-                    first_res.append(self.diphthongs_ipa_class[word[index] + word[index + 1]])
+                    phonemes.append(self.diphthongs_ipa_class[word[index] + word[index + 1]])
                     is_repeted = True
                 elif word[index] == word[index + 1]:
-                    first_res.append(self.ipa_class[word[index]].lengthen())
+                    phonemes.append(self.ipa_class[word[index]].lengthen())
                     is_repeted = True
                 else:
-                    first_res.append(self.ipa_class[word[index]])
+                    phonemes.append(self.ipa_class[word[index]])
             if not is_repeted:
-                first_res.append(self.ipa_class[word[len(word) - 1]])
+                phonemes.append(self.ipa_class[word[len(word) - 1]])
         else:
-            first_res.append(self.ipa_class[word[0]])
-        return first_res
+            phonemes.append(self.ipa_class[word[0]])
+        return phonemes
 
-    def phonemes_to_phonetic_representation(self, first_result) -> str:
+    def phonemes_to_phonetic_representation(self, phonemes) -> str:
         """
         Use of rules to precise pronunciation of a preprocessed list of transcribed words
-        :param first_result: list(Vowel or Consonant)
+        :param phonemes: list(Vowel or Consonant)
         :return: str
         """
-        res = []
-        if len(first_result) >= 2:
-            for i in range(len(first_result)):
+        phonetic_representation = []
+        if len(phonemes) >= 2:
+            for i in range(len(phonemes)):
                 if i == 0:
-                    current_pos = Position(Rank.first, None, first_result[i])
-                elif i < len(first_result) - 1:
-                    current_pos = Position(Rank.inner, first_result[i - 1], first_result[i + 1])
+                    current_pos = Position(Rank.first, None, phonemes[i])
+                elif i < len(phonemes) - 1:
+                    current_pos = Position(Rank.inner, phonemes[i - 1], phonemes[i + 1])
                 else:
-                    current_pos = Position(Rank.last, first_result[i - 1], None)
+                    current_pos = Position(Rank.last, phonemes[i - 1], None)
                 found = False
                 for rule in self.rules:
-                    if rule.temp_sound.ipar == first_result[i].ipar:
+                    if rule.temp_sound.ipar == phonemes[i].ipar:
                         if rule.can_apply(current_pos):
-                            res.append(rule.estimated_sound.ipar)
+                            phonetic_representation.append(rule.estimated_sound.ipar)
                             found = True
                             break
                 if not found:
-                    res.append(first_result[i].ipar)
+                    phonetic_representation.append(phonemes[i].ipar)
         else:
-            res.append(first_result[0].ipar)
-        return "".join(res)
+            phonetic_representation.append(phonemes[0].ipar)
+        return "".join(phonetic_representation)
 
 
 def transcribe_length(length):

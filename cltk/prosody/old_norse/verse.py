@@ -604,15 +604,14 @@ class ProsodyTools:
             self.phonetic_transcriber = None
             self.tagger = None
 
+    def set_syllabifier(self, syllabifier):
+        self.syllabifier = syllabifier
 
-        def set_syllabifier(self, syllabifier):
-            self.syllabifier = syllabifier
+    def set_transcriber(self, transcriber):
+        self.tr = transcriber
 
-        def set_transcriber(self, transcriber):
-            self.tr = transcriber
-
-        def set_pos_tagger(self, pos_tagger):
-            self.tagger = pos_tagger
+    def set_pos_tagger(self, pos_tagger):
+        self.tagger = pos_tagger
 
 
 class PoeticWord:
@@ -634,8 +633,8 @@ class PoeticWord:
         :param poetic_tool:
         :return:
         """
-        self.ipa_transcription = poetic_tool.tr.text_to_phonemes(self.text)
-        self.syl = poetic_tool.syllabifier.syllabify_phonemes(self.ipa_transcription)
+        phonemes = poetic_tool.tr.text_to_phonemes(self.text)
+        self.syl = poetic_tool.syllabifier.syllabify_phonemes(phonemes)
         for i, syllable in enumerate(self.syl):
             self.ipa_transcription.append([])
             syl_len = transcribe_length(measure_old_norse_syllable(syllable).name)
