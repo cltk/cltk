@@ -10,17 +10,6 @@ s = Syllabifier(language="old_norse", break_geminants=True)
 s.set_invalid_onsets(invalid_onsets)
 
 
-class OldNorseVerb:
-    def __init__(self, inifinitive_form: str):
-        self.inifinitive_form = inifinitive_form
-        self.sfg3en = ""  # name of the variables come from the POS tag names
-        self.sfg3fn = ""
-        pass
-
-    def set_basic_forms(self):
-        pass
-
-
 def add_t_ending_to_syllable(last_syllable):
     """
 
@@ -69,7 +58,27 @@ def add_t_ending_to_syllable(last_syllable):
         return last_syllable + "t"
 
 
-def add_t_ending(stem: str):
+def add_t_ending(stem: str) -> str:
+    """
+
+    >>> add_t_ending("batt")
+    'bazt'
+    >>> add_t_ending("gat")
+    'gazt'
+    >>> add_t_ending("varð")
+    'vart'
+    >>> add_t_ending("hélt")
+    'hélt'
+    >>> add_t_ending("réð")
+    'rétt'
+    >>> add_t_ending("laust")
+    'laust'
+    >>> add_t_ending("sá")
+    'sátt'
+
+    :param stem:
+    :return:
+    """
     s_stem = s.syllabify_ssp(stem.lower())
     last_syllable = Syllable(s_stem[-1], VOWELS, CONSONANTS)
     return "".join(s_stem[:-1]) + add_t_ending_to_syllable(last_syllable.text)

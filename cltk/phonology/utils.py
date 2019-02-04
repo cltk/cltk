@@ -514,7 +514,7 @@ class Transcriber:
             transliterated.append(phonetic_representation)
         return "[" + " ".join(transliterated) + "]"
 
-    def text_to_phonemes(self, word: str) -> str:
+    def text_to_phonemes(self, word: str) -> list:
         """
         Give a greedy approximation of the pronunciation of word
         :param word:
@@ -541,7 +541,7 @@ class Transcriber:
             phonemes.append(self.ipa_class[word[0]])
         return phonemes
 
-    def phonemes_to_phonetic_representation(self, phonemes) -> str:
+    def phonemes_to_phonetic_representation(self, phonemes: list) -> str:
         """
         Use of rules to precise pronunciation of a preprocessed list of transcribed words
         :param phonemes: list(Vowel or Consonant)
@@ -568,12 +568,3 @@ class Transcriber:
         else:
             phonetic_representation.append(phonemes[0].ipar)
         return "".join(phonetic_representation)
-
-
-def transcribe_length(length):
-    if length == "short":
-        return "1"
-    elif length == "long":
-        return "2"
-    elif length == "overlong":
-        return "3"

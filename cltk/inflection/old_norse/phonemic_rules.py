@@ -271,6 +271,15 @@ def has_u_umlaut(word: str) -> bool:
     """
     Does the word have an u-umlaut?
 
+    >>> has_u_umlaut("höfn")
+    True
+
+    >>> has_u_umlaut("börnum")
+    True
+
+    >>> has_u_umlaut("barn")
+    False
+
     :param word: Old Norse word
     :return: has an u-umlaut occurred?
     """

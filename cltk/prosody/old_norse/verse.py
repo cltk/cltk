@@ -3,7 +3,7 @@
 
 import re
 from math import floor
-from cltk.phonology.utils import Transcriber, transcribe_length
+from cltk.phonology.utils import Transcriber
 from cltk.phonology.old_norse.transcription import Consonant, Vowel, old_norse_rules, IPA_class, \
     DIPHTHONGS_IPA_class, DIPHTHONGS_IPA, measure_old_norse_syllable
 from cltk.phonology.syllabify import Syllabifier
@@ -637,7 +637,7 @@ class PoeticWord:
         self.syl = poetic_tool.syllabifier.syllabify_phonemes(phonemes)
         for i, syllable in enumerate(self.syl):
             self.ipa_transcription.append([])
-            syl_len = transcribe_length(measure_old_norse_syllable(syllable).name)
+            syl_len = measure_old_norse_syllable(syllable).value
             syl_stress = 1 if i == 0 else 0
 
             self.length.append(syl_len)
