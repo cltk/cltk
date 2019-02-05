@@ -593,8 +593,8 @@ class Ljoodhhaattr(Metre):
         return Metre.find_alliteration(self)
 
 
-class ProsodyTools:
-    def __init__(self, basic=False):
+class PoetryTools:
+    def __init__(self, basic=True):
         if basic:
             self.syllabifier = Syllabifier(language="old_norse_ipa")
             self.tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
@@ -603,15 +603,6 @@ class ProsodyTools:
             self.syllabifier = None
             self.phonetic_transcriber = None
             self.tagger = None
-
-    def set_syllabifier(self, syllabifier):
-        self.syllabifier = syllabifier
-
-    def set_transcriber(self, transcriber):
-        self.tr = transcriber
-
-    def set_pos_tagger(self, pos_tagger):
-        self.tagger = pos_tagger
 
 
 class PoeticWord:
@@ -622,7 +613,7 @@ class PoeticWord:
         self.stress = []
         self.ipa_transcription = []
 
-    def apply_poetic_tool(self, poetic_tool):
+    def apply_poetic_tool(self, poetry_tools: PoetryTools):
         """
         Compute the phonetic transcription of the word with IPA representation
         Compute the syllables of the word
@@ -630,11 +621,11 @@ class PoeticWord:
         Compute if a syllable is stress of noe
         Compute the POS category the word is in
 
-        :param poetic_tool:
+        :param poetry_tools:
         :return:
         """
-        phonemes = poetic_tool.tr.text_to_phonemes(self.text)
-        self.syl = poetic_tool.syllabifier.syllabify_phonemes(phonemes)
+        phonemes = poetry_tools.tr.text_to_phonemes(self.text)
+        self.syl = poetry_tools.syllabifier.syllabify_phonemes(phonemes)
         for i, syllable in enumerate(self.syl):
             self.ipa_transcription.append([])
             syl_len = measure_old_norse_syllable(syllable).value
@@ -646,21 +637,19 @@ class PoeticWord:
                 self.ipa_transcription[i].append(c.ipar)
 
     def print(self):
+        """
+        >>> pt = PoetryTools()
+        >>> helgar = PoeticWord("helgar")
+        >>> helgar.apply_poetic_tool(pt)
+        >>> helgar.print()
+        helgar
+        [['h', 'ɛ', 'l'], ['g', 'a', 'r']]
+        ['short', 'short']
+        [1, 0]
+
+        :return:
+        """
         print(self.text)
-        print(self.syl)
         print(self.ipa_transcription)
         print(self.length)
         print(self.stress)
-
-    def compute_poetic_features(self):
-        """
-        P: primary-stressed long syllable
-        p: primary-stressed short syllable
-
-        x: unstressed syllable
-        :return:
-        """
-        return None
-
-
-

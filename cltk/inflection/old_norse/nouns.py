@@ -240,93 +240,94 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
             print(common_stem + "a")
 
     elif last_np_syl.endswith("ir"):
-        if has_u_umlaut(ns):
-            # u-stem
-            common_stem = ns[:-1]
+        # if has_u_umlaut(ns):
+        #     # u-stem
+        #     common_stem = ns[:-1]
+        #
+        #     # nominative singular
+        #     print(ns)
+        #
+        #     # accusative singular
+        #     print(common_stem)
+        #
+        #     # dative singular
+        #     if np[len(common_stem):][0] == "v":
+        #         print(common_stem + "vi")
+        #     else:
+        #         print(common_stem + "i")
+        #
+        #     # genitive singular
+        #     print(gs)
+        #
+        #     common_stem_p = np[:-2]
+        #     # nominative plural
+        #     print(np)
+        #
+        #     # accusative plural
+        #     print(apply_u_umlaut(common_stem_p)+"u")
+        #
+        #     # dative plural
+        #     if np[len(common_stem):][0] == "v":
+        #         print(apply_u_umlaut(common_stem_p) + "vum")
+        #
+        #     elif np[len(common_stem):][0] == "j":
+        #         print(apply_u_umlaut(common_stem_p) + "jum")
+        #     else:
+        #         print(apply_u_umlaut(common_stem_p) + "um")
+        #
+        #     # genitive plural
+        #     if np[len(common_stem):][0] == "v":
+        #         print(common_stem_p + "va")
+        #     elif np[len(common_stem):][0] == "j":
+        #         print(common_stem_p + "ja")
+        #     else:
+        #         print(common_stem_p + "a")
+        # else:
 
-            # nominative singular
-            print(ns)
+        # i-stem
+        common_stem = extract_common_stem(ns, gs, np)
 
-            # accusative singular
-            print(common_stem)
+        # nominative singular
+        print(ns)
 
-            # dative singular
-            if np[len(common_stem):][0] == "v":
-                print(common_stem + "vi")
-            else:
-                print(common_stem + "i")
+        # accusative singular
+        print(common_stem)
 
-            # genitive singular
-            print(gs)
-
-            common_stem_p = np[:-2]
-            # nominative plural
-            print(np)
-
-            # accusative plural
-            print(apply_u_umlaut(common_stem_p)+"u")
-
-            # dative plural
-            if np[len(common_stem):][0] == "v":
-                print(apply_u_umlaut(common_stem_p) + "vum")
-
-            elif np[len(common_stem):][0] == "j":
-                print(apply_u_umlaut(common_stem_p) + "jum")
-            else:
-                print(apply_u_umlaut(common_stem_p) + "um")
-
-            # genitive plural
-            if np[len(common_stem):][0] == "v":
-                print(common_stem_p + "va")
-            elif np[len(common_stem):][0] == "j":
-                print(common_stem_p + "ja")
-            else:
-                print(common_stem_p + "a")
+        # dative singular
+        if np[len(common_stem):][0] == "v":
+            print(common_stem + "vi")
         else:
-            # i-stem
-            common_stem = extract_common_stem(ns, gs, np)
+            print(common_stem + "i")
 
-            # nominative singular
-            print(ns)
+        # genitive singular
+        print(gs)
 
-            # accusative singular
-            print(common_stem)
+        # nominative plural
+        print(np)
 
-            # dative singular
-            if np[len(common_stem):][0] == "v":
-                print(common_stem + "vi")
-            else:
-                print(common_stem + "i")
+        # accusative plural
+        if last_np_syl.endswith("ar"):
+            print(np[:-1])
 
-            # genitive singular
-            print(gs)
+        elif last_np_syl.endswith("ir"):
+            print(np[:-1])
 
-            # nominative plural
-            print(np)
+        # dative plural
+        if np[len(common_stem):][0] == "v":
+            print(apply_u_umlaut(common_stem) + "vum")
 
-            # accusative plural
-            if last_np_syl.endswith("ar"):
-                print(np[:-1])
+        elif np[len(common_stem):][0] == "j":
+            print(apply_u_umlaut(common_stem) + "jum")
+        else:
+            print(apply_u_umlaut(common_stem) + "um")
 
-            elif last_np_syl.endswith("ir"):
-                print(np[:-1])
-
-            # dative plural
-            if np[len(common_stem):][0] == "v":
-                print(apply_u_umlaut(common_stem) + "vum")
-
-            elif np[len(common_stem):][0] == "j":
-                print(apply_u_umlaut(common_stem) + "jum")
-            else:
-                print(apply_u_umlaut(common_stem) + "um")
-
-            # genitive plural
-            if np[len(common_stem):][0] == "v":
-                print(common_stem + "va")
-            elif np[len(common_stem):][0] == "j":
-                print(common_stem + "ja")
-            else:
-                print(common_stem + "a")
+        # genitive plural
+        if np[len(common_stem):][0] == "v":
+            print(common_stem + "va")
+        elif np[len(common_stem):][0] == "j":
+            print(common_stem + "ja")
+        else:
+            print(common_stem + "a")
 
 
 def decline_strong_feminine_noun(ns: str, gs: str, np: str):
