@@ -638,14 +638,6 @@ class PoeticWord:
 
     def print(self):
         """
-        >>> pt = PoetryTools()
-        >>> helgar = PoeticWord("helgar")
-        >>> helgar.apply_poetic_tool(pt)
-        >>> helgar.print()
-        helgar
-        [['h', 'ɛ', 'l'], ['g', 'a', 'r']]
-        ['short', 'short']
-        [1, 0]
 
         :return:
         """

@@ -174,10 +174,15 @@ class TestOldNorse(unittest.TestCase):
         self.assertListEqual(lengths, [None])
 
     def test_prosody_tools_1(self):
-        old_norse_poetic_tool = PoetryTools(True)
-        a = PoeticWord("dagr")
-        a.apply_poetic_tool(old_norse_poetic_tool)
-        a.print()
+        pt = PoetryTools()
+        helgar = PoeticWord("helgar")
+        helgar.apply_poetic_tool(pt)
+        helgar.print()
+
+        self.assertEqual("helgar", helgar.text)
+        self.assertListEqual(helgar.ipa_transcription, [['h', 'ɛ', 'l'], ['g', 'a', 'r']])
+        self.assertListEqual(helgar.length, ['short', 'short'])
+        self.assertListEqual(helgar.stress, [1, 0])
 
 
 if __name__ == '__main__':
