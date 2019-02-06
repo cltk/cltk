@@ -4,6 +4,7 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
+from typing import Union
 from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Place, Manner, AbstractConsonant, Rule, \
     AbstractPosition, Rank
 from cltk.corpus.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
