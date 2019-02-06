@@ -138,7 +138,7 @@ class Scansion:
             print
             if char in self.long_vowels:
                 return True
-            elif char not in self.sing_cons:
+            elif char not in self.sing_cons and char not in self.doub_cons:
                 vowel_group += char
 
         if ''.join(vowel_group) in self.diphthongs:
