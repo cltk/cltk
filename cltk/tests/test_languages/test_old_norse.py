@@ -46,7 +46,7 @@ class TestOldNorse(unittest.TestCase):
                            "dreifðist um heim allan."
 
         tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
-        transcribed_sentence = tr.main(example_sentence)
+        transcribed_sentence = tr.text_to_phonetic_representation(example_sentence)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
@@ -91,7 +91,7 @@ class TestOldNorse(unittest.TestCase):
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
         words = tokenize_old_norse_words(text)
         s.set_invalid_onsets(invalid_onsets)
-        syllabified_words = [s.syllabify_SSP(word.lower())
+        syllabified_words = [s.syllabify_ssp(word.lower())
                              for word in words if word not in ",."]
 
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],
