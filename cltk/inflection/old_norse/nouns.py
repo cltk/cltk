@@ -308,11 +308,7 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
         print(np)
 
         # accusative plural
-        if last_np_syl.endswith("ar"):
-            print(np[:-1])
-
-        elif last_np_syl.endswith("ir"):
-            print(np[:-1])
+        print(np[:-1])
 
         # dative plural
         if np[len(common_stem):][0] == "v":
