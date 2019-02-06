@@ -333,17 +333,18 @@ If you want a simple way to define the inflection of an Old Norse noun, you can 
     In[4]: noun_sumar.set_declension(sumar)
 
 
-If you know the category of the wo
+To decline a noun and if you know its nominative singular, genitive singular and nominative plural forms, you can use the following functions.
+
++--------+-------------------------------+------------------------------+----------------------------+
+|        | masculine                     | feminine                     | neuter                     |
++--------+-------------------------------+------------------------------+----------------------------+
+| strong | decline_strong_masculine_noun | decline_strong_feminine_noun | decline_strong_neuter_noun |
++--------+-------------------------------+------------------------------+----------------------------+
+| weak   | decline_weak_masculine_noun   | decline_weak_feminine_noun   | decline_weak_neuter_noun   |
++--------+-------------------------------+------------------------------+----------------------------+
 
 
-Old Norse verb conjugation
-==========================
 
-Old Norse verbs vary according to person, number, tense, mood.
-
-.. code-block:: python
-
-    In[1]:
 
 
 

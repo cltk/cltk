@@ -38,8 +38,6 @@ class OldNorseNoun(decl_utils.Noun):
         """
         >>> armr = OldNorseNoun("armr", decl_utils.Gender.masculine)
         >>> armr.set_representative_cases("armr", "arms", "armar")
-        >>> armr.get_representative_cases()
-        ('armr', 'arms', 'armar')
 
         >>> armr.declension
         [['armr', '', '', 'arms'], ['armar', '', '', '']]
@@ -56,6 +54,10 @@ class OldNorseNoun(decl_utils.Noun):
 
     def get_representative_cases(self):
         """
+        >>> armr = OldNorseNoun("armr", decl_utils.Gender.masculine)
+        >>> armr.set_representative_cases("armr", "arms", "armar")
+        >>> armr.get_representative_cases()
+        ('armr', 'arms', 'armar')
 
         :return: nominative singular, genetive singular, nominative plural
         """
