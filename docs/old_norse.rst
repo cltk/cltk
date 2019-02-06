@@ -315,31 +315,13 @@ Old Norse, like other ancient Germanic languages, is highly inflected. With the 
 
     Out[6]: 'þessa'
 
-Old Norse noun declension
-=========================
 
-Old Norse nouns vary according to case (nominative, accusative, dative, genitive), gender (masculine, feminine, neuter) and number (singular, plural). Nouns are considered either weak or strong.
-Weak nouns have a simpler declension than strong ones.
-
-If you want a simple way to define the inflection of an Old Norse noun, you can do as follows:
-.. code-block:: python
-
-    In[1]: from cltk.inflection.utils import Noun, Gender
-
-    In[2]: sumar = [["sumar", "sumar", "sumri", "sumars"], ["sumur", "sumur", "sumrum", "sumra"]]
-
-    In[3]: noun_sumar = Noun("sumar", Gender.neuter)
-
-    In[4]: noun_sumar.set_declension(sumar)
-
-
-If you know the category of the wo
 
 
 Old Norse verb conjugation
 ==========================
 
-Old Norse verbs vary according to person, number, tense, mood.
+Old Norse verbs vary according to person (first, second, third), number(singular, plural), tense, mood.
 
 .. code-block:: python
 

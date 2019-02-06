@@ -1,10 +1,6 @@
-"""Declensions of pronouns, nouns, adjectives
-
-This module seems not to be general enough.
-"""
+"""Declensions of pronouns, nouns, adjectives"""
 
 from enum import Enum, auto
-from typing import Union
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
@@ -28,9 +24,9 @@ class Case(Enum):
 
 
 class Declinable:
-    def __init__(self, root: str):
+    def __init__(self, name: str):
         self.declension = []
-        self.root = root
+        self.name = name
 
     def set_declension(self, declension):
         self.declension = declension
@@ -51,8 +47,8 @@ class Declinable:
 
 
 class Pronoun(Declinable):
-    def __init__(self, root: str):
-        Declinable.__init__(self, root)
+    def __init__(self, name: str):
+        Declinable.__init__(self, name)
 
 
 class Adjective:
@@ -119,37 +115,15 @@ class DeclinableOneGender:
 
 class Noun(DeclinableOneGender):
     def __init__(self, name: str, gender: Gender):
-        super().__init__(name, gender)
+        DeclinableOneGender.__init__(self, name, gender)
+        self.gender = gender
+        self.name = name
+        self.declension = []
 
 
 class DeclensionPattern(Declinable):
-    def __init__(self, root: str):
-        super().__init__(root)
+    def __init__(self, name: str):
+        Declinable.__init__(self, name)
 
-    def apply(self, root: str, gender: Union[Gender, None], number: Number, case: Case):
-        """
-        >>> armr = DeclensionPattern("arm")
-        >>> armr.set_declension([["armr", "arm", "armi", "arms"], ["armar", "arma", "örmum", "arma"]])
-        >>> armr.get_declined(Case.accusative, Number.singular, None)
-        'arm'
-
-        >>> armr.apply("hest", None, Number.singular, Case.dative)
-        'hesti'
-
-        >>> armr.apply("hest", None, Number.plural, Case.dative)
-        'hestum'
-
-        >>> armr.apply("hest", None, Number.singular, Case.genitive)
-        'hests'
-
-        :param root: root of the word to decline
-        :param gender: instance of Gender of the word to decline (nouns have only one gender so the gender is not mentioned
-        in the declension: the value of gender must be None)
-        :param number: instance of Number
-        :param case: instance of Case
-        :return: word declined the same way as the the attribute root of the DeclensionPattern instance.
-        """
-        if gender is None:
-            return root + self.declension[number.value - 1][case.value - 1][len(self.root):]
-        else:
-            return root + self.declension[gender.value - 1][number.value - 1][case.value - 1][len(self.root):]
+    def apply(self, word: str, gender: Gender, number: Number, case: Case):
+        return word + self.declension[gender.value-1][number.value-1][case.value-1]
