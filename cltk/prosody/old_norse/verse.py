@@ -594,18 +594,29 @@ class Ljoodhhaattr(Metre):
 
 
 class PoetryTools:
-    def __init__(self, basic=True):
-        if basic:
-            self.syllabifier = Syllabifier(language="old_norse_ipa")
-            self.tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
-            self.tagger = POSTag('old_norse')
-        else:
-            self.syllabifier = None
-            self.phonetic_transcriber = None
-            self.tagger = None
+    """
+    Class which gathers tools necessary for poem analysis:
+    * a syllabifier
+    * a phonetic transcriber
+    * a parts-of-speech tagger
+    """
+    def __init__(self):
+        self.syllabifier = Syllabifier(language="old_norse_ipa")
+        self.tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
+        self.tagger = POSTag('old_norse')
 
 
 class PoeticWord:
+    """
+    This class helps extract all relevant features of a poem word at once.
+    Features are:
+    * the raw text
+    * the syllabified word
+    * the syllable length of the word
+    * stress of syllables
+    * the parts-of-speech of the word
+
+    """
     def __init__(self, text):
         self.text = text
         self.syl = []
@@ -613,15 +624,15 @@ class PoeticWord:
         self.stress = []
         self.ipa_transcription = []
 
-    def apply_poetic_tool(self, poetry_tools: PoetryTools):
+    def parse_word_with(self, poetry_tools: PoetryTools):
         """
         Compute the phonetic transcription of the word with IPA representation
         Compute the syllables of the word
-        Compute the lentgh of each syllable
+        Compute the length of each syllable
         Compute if a syllable is stress of noe
         Compute the POS category the word is in
 
-        :param poetry_tools:
+        :param poetry_tools: instance of PoetryTools
         :return:
         """
         phonemes = poetry_tools.tr.text_to_phonemes(self.text)
@@ -635,13 +646,3 @@ class PoeticWord:
             self.stress.append(syl_stress)
             for c in syllable:
                 self.ipa_transcription[i].append(c.ipar)
-
-    def print(self):
-        """
-
-        :return:
-        """
-        print(self.text)
-        print(self.ipa_transcription)
-        print(self.length)
-        print(self.stress)

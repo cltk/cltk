@@ -176,8 +176,7 @@ class TestOldNorse(unittest.TestCase):
     def test_prosody_tools_1(self):
         pt = PoetryTools()
         helgar = PoeticWord("helgar")
-        helgar.apply_poetic_tool(pt)
-        helgar.print()
+        helgar.parse_word_with(pt)
 
         self.assertEqual("helgar", helgar.text)
         self.assertListEqual(helgar.ipa_transcription, [['h', 'ɛ', 'l'], ['g', 'a', 'r']])
