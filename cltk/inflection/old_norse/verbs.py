@@ -1,9 +1,14 @@
 """Verb inflection"""
 
-from cltk.phonology.syllabify import Syllabifier, Syllable
-from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, LONG_VOWELS
-from cltk.inflection.utils import Number
 from enum import Enum, auto
+from typing import List
+
+from cltk.phonology.old_norse.transcription import measure_old_norse_syllable
+
+from cltk.phonology.syllabify import Syllabifier, Syllable
+from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, LONG_VOWELS, BACK_TO_FRONT_VOWELS
+from cltk.inflection.utils import Number
+from cltk.phonology.utils import Length
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
@@ -50,61 +55,15 @@ class OldNorseVerb:
         self.category = None
         self.forms = {}
 
-    def set_canonic_forms(self, canonic_forms):
+    def set_canonic_forms(self, canonic_forms: List[str]):
         """
-        >>> verb = OldNorseVerb()
-
-        Weak verbs
-        I
-        >>> verb.set_canonic_forms()
-
-        II
-        >>> verb.set_canonic_forms()
-
-        III
-        >>> verb.set_canonic_forms()
-
-        IV
-        >>> verb.set_canonic_forms()
-
-        Strong verbs
-        I
-        >>> verb.set_canonic_forms()
-
-        II
-        >>> verb.set_canonic_forms()
-
-        III
-        >>> verb.set_canonic_forms()
-
-        IV
-        >>> verb.set_canonic_forms()
-
-        V
-        >>> verb.set_canonic_forms()
-
-        VI
-        >>> verb.set_canonic_forms()
-
-        VII
-        >>> verb.set_canonic_forms()
-
 
         :param canonic_forms: 3-tuple or 5-tuple
         :return:
         """
-        if len(canonic_forms) == 3:
-            sng, sfg3et, stgken = canonic_forms
-            self.category = VerbCategory.weak
-            self.name = sng
-        elif len(canonic_forms) == 5:
-            sng, sfg3en, sfg3et, sfg3ft, stgken = canonic_forms
-            self.category = VerbCategory.strong
-            self.name = sng
-        else:
-            raise ValueError("Not a correct argument")
+        pass
 
-    def get_form(self, *args):
+    def get_form(self, *args: List[str]):
         """
 
         :param args:
@@ -127,7 +86,10 @@ class OldNorseVerb:
 
         return self.forms
 
-    def _present__active_weak(self):
+    def _present_active_weak(self):
+        print()
+        l = []
+
         pass
 
     def _past_active_weak(self):
@@ -150,6 +112,210 @@ class OldNorseVerb:
 
     def _past_mediopassive_strong(self):
         pass
+
+
+class StrongOldNorseVerb(OldNorseVerb):
+    def __init__(self):
+        super().__init__()
+
+    def set_canonic_forms(self, canonic_forms: List[str]):
+        """
+
+        >>> verb = OldNorseVerb()
+        Strong verbs
+        I
+        >>> verb.set_canonic_forms()
+
+        II
+        >>> verb.set_canonic_forms()
+
+        III
+        >>> verb.set_canonic_forms()
+
+        IV
+        >>> verb.set_canonic_forms()
+
+        V
+        >>> verb.set_canonic_forms()
+
+        VI
+        >>> verb.set_canonic_forms()
+
+        VII
+        >>> verb.set_canonic_forms()
+
+        :param canonic_forms:
+        :return:
+        """
+        if len(canonic_forms) == 5:
+            sng, sfg3en, sfg3et, sfg3ft, stgken = canonic_forms
+            self.category = VerbCategory.strong
+            self.name = sng
+        else:
+            raise ValueError("Not a correct argument")
+
+    def _present_active_weak(self):
+        print()
+        l = []
+
+        pass
+
+    def _past_active_weak(self):
+        pass
+
+    def _present_active_strong(self):
+        pass
+
+    def _past_active_strong(self):
+        pass
+
+    def _present_mediopassive_weak(self):
+        pass
+
+    def _past_mediopassive_weak(self):
+        pass
+
+    def _present_mediopassive_strong(self):
+        pass
+
+    def _past_mediopassive_strong(self):
+        pass
+
+
+class WeakOldNorseVerb(OldNorseVerb):
+
+    def __init__(self):
+        super().__init__()
+        self.sng = ""
+        self.s_sng = None
+
+        self.sfg3et = ""
+        self.s_sfg3et = None
+
+        self.stgken = ""
+        self.s_stgken = None
+
+        self.subclass = 0
+        self.syllabified = []
+
+    def set_canonic_forms(self, canonic_forms: List[str]):
+        """
+
+        >>> verb = WeakOldNorseVerb()
+
+        Weak verbs
+        I
+        >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðinn"])
+        >>> verb.subclass
+        1
+
+        II
+        >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
+        >>> verb.subclass
+        2
+
+        III
+        >>> verb.set_canonic_forms(["teja", "taldi", "talinn"])
+        >>> verb.subclass
+        3
+
+        IV
+        >>> verb.set_canonic_forms(["vaka", "vakta", "vakat"])
+        >>> verb.subclass
+        4
+
+
+        :param canonic_forms:
+        :return:
+        """
+        if len(canonic_forms) == 3:
+            self.sng, self.sfg3et, self.stgken = canonic_forms
+            self.category = VerbCategory.weak
+            self.name = self.sng
+            self.s_sng = s.syllabify_ssp(self.sng)
+            self.s_sfg3et = s.syllabify_ssp(self.sfg3et)
+            self.s_stgken = s.syllabify_ssp(self.stgken)
+            self.classify()
+        else:
+            raise ValueError("Not a correct argument")
+
+    def _present_active_weak(self):
+        if self.subclass == 1:
+            print(self.sng)
+            print(self.sng+"r")
+            print(self.sng+"r")
+            print(self.sng[:-1]+"um")  # apply u umlaut
+            print(self.sng[:-1]+"ið")
+            print(self.sng)
+
+        elif self.subclass == 2:
+            print(self.sng[:-1]+"i")
+            print(self.sng[:-1] + "ir")
+            print(self.sng[:-1] + "ir")
+            print(self.sng[:-1] + "um")  # apply u umlaut
+            print(self.sng[:-1] + "ið")
+            print(self.sng)
+
+        elif self.subclass == 3:
+            print(self.sng[:-1])
+            print(self.sng[:-1] + "r")
+            print(self.sng[:-1] + "r")
+            print(self.sng[:-1] + "um")  # apply u umlaut
+            print(self.sng[:-1] + "ið")
+            print(self.sng)
+
+        elif self.subclass == 4:
+            print(self.sng[:-1]+"i")
+            print(self.sng[:-1] + "ir")
+            print(self.sng[:-1] + "ir")
+            print(self.sng[:-1] + "um")  # apply u umlaut
+            print(self.sng[:-1] + "ið")
+            print(self.sng)
+
+    def _past_active_weak(self):
+        pass
+
+    def _present_active_strong(self):
+        pass
+
+    def _past_active_strong(self):
+        pass
+
+    def _present_mediopassive_weak(self):
+        pass
+
+    def _past_mediopassive_weak(self):
+        pass
+
+    def _present_mediopassive_strong(self):
+        pass
+
+    def _past_mediopassive_strong(self):
+        pass
+
+    def classify(self):
+        if self.sng in ["segja", "þegja"]:
+            self.subclass = 4
+        elif self.sng in ["vilja", "gera"]:
+            self.subclass = 3
+        elif self.sng in ["spá"]:
+            self.subclass = 2
+        elif self.sng and self.sfg3et and self.stgken:
+            if self.sfg3et.endswith("aði"):
+                self.subclass = 1
+            elif not "".join(Syllable(self.s_sng[0], CONSONANTS, VOWELS).nucleus) in BACK_TO_FRONT_VOWELS.values():
+                self.subclass = 4
+            else:
+                stem_length = measure_old_norse_syllable(self.s_sng[0])
+                if stem_length == Length.long or stem_length == Length.overlong:
+                    self.subclass = 2
+                elif stem_length == Length.short:
+                    self.subclass = 3
+
+
+
+
+
 
 
 def add_t_ending_to_syllable(last_syllable):
