@@ -16,6 +16,9 @@ __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 s = Syllabifier(language="old_norse", break_geminants=True)
 s.set_invalid_onsets(invalid_onsets)
 
+s_ipa = Syllabifier(language="old_norse_ipa", break_geminants=True)
+s_ipa.set_invalid_onsets(invalid_onsets)
+
 transcriber = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
 
 
@@ -234,8 +237,8 @@ class WeakOldNorseVerb(OldNorseVerb):
         >>> verb.subclass
         4
 
-
-        :param canonic_forms:
+        :param canonic_forms: (infinitive, third person singular past indicative,
+        past participle masculine singular nominative)
         :return:
         """
         if len(canonic_forms) == 3:
@@ -244,13 +247,13 @@ class WeakOldNorseVerb(OldNorseVerb):
             self.name = self.sng
 
             self.s_sng = s.syllabify_ssp(self.sng)
-            self.sp_sng = s.syllabify_phonemes(transcriber.text_to_phonemes(self.sng))
+            self.sp_sng = s_ipa.syllabify_phonemes(transcriber.text_to_phonemes(self.sng))
 
             self.s_sfg3et = s.syllabify_ssp(self.sfg3et)
-            self.sp_sfg3et = s.syllabify_phonemes(transcriber.text_to_phonemes(self.sfg3et))
+            self.sp_sfg3et = s_ipa.syllabify_phonemes(transcriber.text_to_phonemes(self.sfg3et))
 
             self.s_stgken = s.syllabify_ssp(self.stgken)
-            self.sp_stgken = s.syllabify_phonemes(transcriber.text_to_phonemes(self.stgken))
+            self.sp_stgken = s_ipa.syllabify_phonemes(transcriber.text_to_phonemes(self.stgken))
             self.classify()
         else:
             raise ValueError("Not a correct argument")
@@ -317,21 +320,18 @@ class WeakOldNorseVerb(OldNorseVerb):
         elif self.sng in ["spá"]:
             self.subclass = 2
         elif self.sng and self.sfg3et and self.stgken:
-            # print(self.s_sng)
             if self.sfg3et.endswith("aði"):
                 self.subclass = 1
 
             elif not "".join(Syllable(self.s_sng[0], VOWELS, CONSONANTS).nucleus) in BACK_TO_FRONT_VOWELS.values():
                 self.subclass = 4
             else:
-                print(self.s_sng[0])
-                stem_length = measure_old_norse_syllable(self.s_sng[0])
+                stem_length = measure_old_norse_syllable(self.sp_sng[0])
                 if stem_length == Length.long or stem_length == Length.overlong:
                     self.subclass = 2
                 elif stem_length == Length.short:
                     self.subclass = 3
                 else:
-                    print(stem_length)
                     self.subclass = 5
 
 
