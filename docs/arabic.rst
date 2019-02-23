@@ -109,7 +109,7 @@ Specific Arabic language library for Python, provides basic functions to manipul
 3. Strip Harakat ( all, except Shadda, tatweel, last_haraka)
 4. Sperate and join Letters and Harakat
 5. Reduce tashkeel
-6. Mesure tashkeel similarity ( Harakats, fully or partially vocalized, similarity with a template)
+6. Measure tashkeel similarity ( Harakat, fully or partially vocalized, similarity with a template)
 7. Letters normalization ( Ligatures and Hamza)
 8. Numbers to words
 9. Extract numerical phrases
