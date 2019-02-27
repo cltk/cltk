@@ -1,5 +1,5 @@
 Multilingual
-*************
+************
 
 Some functions in the CLTK are language independent.
 
@@ -80,7 +80,7 @@ The CLTK uses languages in its organization of data, however some good corpora d
 
 
 Information Retrieval (regex, keyword expansion)
-=============================
+================================================
 
 .. tip::
 

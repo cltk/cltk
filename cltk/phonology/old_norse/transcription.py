@@ -4,9 +4,97 @@ https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
-from cltk.phonology.utils import *
+from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Place, Manner, AbstractConsonant, Rule, \
+    AbstractPosition, Rank
+from cltk.corpus.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
+
+__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
+
+
+class OldNorsePhonology(Vowel):
+    U_UMLAUT = {'a': 'ö',
+                'ö': 'u'}
+
+    @staticmethod
+    def phonetic_i_umlaut(sound: Vowel):
+        """
+        >>> umlaut_a = OldNorsePhonology.phonetic_i_umlaut(a)
+        >>> umlaut_a.ipar
+        'ɛ'
+
+        >>> umlaut_au = OldNorsePhonology.phonetic_i_umlaut(DIPHTHONGS_IPA_class["au"])
+        >>> umlaut_au.ipar
+        'ɐy'
+
+        :param sound:
+        :return:
+        """
+        if sound.is_equal(a):
+            return ee
+        elif sound.is_equal(a.lengthen()):
+            return ee.lengthen()
+        elif sound.is_equal(o):
+            return oee
+        elif sound.is_equal(o.lengthen()):
+            return oee.lengthen()
+        elif sound.is_equal(u):
+            return y
+        elif sound.is_equal(u.lengthen()):
+            return y.lengthen()
+        if sound.is_equal(DIPHTHONGS_IPA_class["au"]):
+            return DIPHTHONGS_IPA_class["ey"]
+
+    @staticmethod
+    def orthographic_i_umlaut(sound: str):
+        """
+        >>> OldNorsePhonology.orthographic_i_umlaut("a")
+        'e'
+        >>> OldNorsePhonology.orthographic_i_umlaut("ý")
+        'ý'
+
+        :param sound:
+        :return:
+        """
+        if sound in BACK_TO_FRONT_VOWELS:
+            return BACK_TO_FRONT_VOWELS[sound]
+        else:
+            return sound
+
+    @staticmethod
+    def phonetic_u_umlaut(sound: Vowel):
+        """
+        >>> umlaut_a = OldNorsePhonology.phonetic_u_umlaut(a)
+        >>> umlaut_a.ipar
+        'ø'
+
+        :param sound:
+        :return:
+        """
+        if sound.is_equal(a):
+            return oee  # or oe
+        elif sound.is_equal(a.lengthen()):
+            return a.lengthen()
+        elif sound.is_equal(o):
+            return u
+        else:
+            return sound
+
+    @staticmethod
+    def orthographic_u_umlaut(sound: str):
+        """
+        >>> OldNorsePhonology.orthographic_u_umlaut("a")
+        'ö'
+        >>> OldNorsePhonology.orthographic_u_umlaut("e")
+        'e'
+
+        :param sound:
+        :return:
+        """
+        if sound in OldNorsePhonology.U_UMLAUT:
+            return OldNorsePhonology.U_UMLAUT[sound]
+        else:
+            return sound
 
 
 a = Vowel(Height.open, Backness.front, False, Length.short, "a")
@@ -42,7 +130,7 @@ th = Consonant(Place.dental, Manner.fricative, False, "θ", False)
 # ð = Consonant(Place.dental, Manner.frictative, True, "ð")
 dh = Consonant(Place.dental, Manner.fricative, True, "ð", False)
 
-OLD_NORSE8_PHONOLOGY = [
+OLD_NORSE_PHONOLOGY = [
     a, ee, e, oe, i, y, ao, oo, u, a.lengthen(),
     e.lengthen(), i.lengthen(), o.lengthen(), u.lengthen(),
     y.lengthen(), b, d, f, g, h, k, l, m, n, p, r, s, t, v, th, dh
@@ -57,10 +145,10 @@ DIPHTHONGS_IPA = {
 }
 # Wrong diphthongs implementation but not that bad for now
 DIPHTHONGS_IPA_class = {
-    "ey": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
-    "au": Vowel(Height.open, Backness.back, True, Length.short, "ɒu"),
-    "øy": Vowel(Height.open, Backness.front, True, Length.short, "ɐy"),
-    "ei": Vowel(Height.open, Backness.front, True, Length.short, "ɛi"),
+    "ey": Vowel(Height.open, Backness.front, True, Length.long, "ɐy"),
+    "au": Vowel(Height.open, Backness.back, True, Length.long, "ɒu"),
+    "øy": Vowel(Height.open, Backness.front, True, Length.long, "ɐy"),
+    "ei": Vowel(Height.open, Backness.front, True, Length.long, "ɛi"),
 }
 IPA = {
     "a": "a",  # Short vowels
@@ -96,6 +184,8 @@ IPA = {
     "s": "s",
     "t": "t",
     "v": "v",
+    "x": "ks",
+    "z": "ts",
     "þ": "θ",
     "ð": "ð",
 }
@@ -134,7 +224,7 @@ IPA_class = {
     "t": t,
     "v": v,
     "x": k+s,
-    "z": s,
+    "z": t+s,
     "þ": th,
     "ð": dh,
 }
@@ -178,3 +268,44 @@ old_norse_rules = []
 old_norse_rules.extend(rule_f)
 old_norse_rules.extend(rule_g)
 old_norse_rules.extend(rule_th)
+
+
+def measure_old_norse_syllable(syllable: list):
+    """
+    Old Norse syllables are considered as:
+    - short if
+    - long if
+    - overlong if
+
+    :param syllable: list of Vowel and Consonant instances
+    :return: instance of Length (short, long or overlong)
+    """
+    index = 0
+    while index < len(syllable) and not isinstance(syllable[index], Vowel):
+        index += 1
+    if index == len(syllable):
+        return None
+    else:
+        long_vowel_number = 0
+        short_vowel_number = 0
+        geminated_consonant_number = 0
+        simple_consonant_number = 0
+        for c in syllable[index:]:
+            if isinstance(c, Vowel):
+                if c.length == Length.long:
+                    long_vowel_number += 1
+                elif c.length == Length.short:
+                    short_vowel_number += 1
+            elif isinstance(c, Consonant):
+                if c.geminate:
+                    geminated_consonant_number += 1
+                else:
+                    simple_consonant_number += 1
+        if long_vowel_number == 0 and short_vowel_number == 1 and simple_consonant_number <= 1 and\
+                geminated_consonant_number == 0:
+            return Length.short
+        elif (short_vowel_number == 1 and (simple_consonant_number > 1 or geminated_consonant_number > 0)) or \
+                long_vowel_number > 0 and simple_consonant_number <= 1 and geminated_consonant_number == 0:
+            return Length.long
+        elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
+            return Length.overlong

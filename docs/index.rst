@@ -15,6 +15,7 @@ Contents
    citation
    installation
    importing_corpora
+   corpus_readers
    akkadian
    arabic
    bengali
@@ -25,6 +26,7 @@ Contents
    middle_english
    french
    middle_high_german.rst
+   middle_low_german
    gothic
    greek
    gujarati

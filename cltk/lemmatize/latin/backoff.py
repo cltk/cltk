@@ -537,7 +537,7 @@ class BackoffLatinLemmatizer(object):
         return lemmas
 
     def evaluate(self):
-        lemmatizer = self._define_lemmatizer()
+        #lemmatizer = self._define_lemmatizer()
         return lemmatizer.evaluate(self.test_sents)
 
 

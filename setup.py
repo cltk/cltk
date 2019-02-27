@@ -16,7 +16,7 @@ setup(
         'Natural Language :: Greek',
         'Natural Language :: Latin',
         'Operating System :: POSIX',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
         'Topic :: Text Processing',
         'Topic :: Text Processing :: General',
@@ -36,7 +36,7 @@ setup(
     name='cltk',
     packages=find_packages(),
     url='https://github.com/cltk/cltk',
-    version='0.1.98',
+    version='0.1.104',
     zip_safe=True,
     test_suite='cltk.tests.test_cltk',
 )

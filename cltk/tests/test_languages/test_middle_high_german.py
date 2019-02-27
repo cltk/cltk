@@ -124,7 +124,7 @@ class TestMiddleHighGerman(unittest.TestCase):
         """
         Test Middle High German syllabification
         """
-        mhg_syllabifier = Syllabifier(language='middle high german')
+        mhg_syllabifier = Syllabifier(language='middle_high_german')
         syllabified = mhg_syllabifier.syllabify('lobebæren')
         target = ['lo', 'be', 'bæ', 'ren']
 
