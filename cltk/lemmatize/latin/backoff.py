@@ -381,13 +381,31 @@ if __name__ == '__main__':
     lemmas = l4.lemmatize('arma uirum -que cano nobilitatis .'.split())
     pprint(lemmas)
 
+# [('arma', 'arma', <UnigramLemmatizer: [[('res', 'res'), ...], ...]>),
+# ('uirum', 'uir', <UnigramLemmatizer: [[('res', 'res'), ...], ...]>),
+# ('-que', '-que', <DictLemmatizer: {'!': 'punc', ...}>),
+# ('cano', 'cano', <DictLemmatizer: {'-nam': 'nam', ...}>),
+# ('nobilitatis',
+# 'nobilitas',
+# <RegexpLemmatizer: [('(bil)(is|i|e...es|ium|ibus)$', '\\1is'), ...]>),
+# ('.', 'punc', <DictLemmatizer: {'!': 'punc', ...}>)]
+
     print('\n')
 
     bll = BackoffLatinLemmatizer(latin_pos_lemmatized_sents, VERBOSE=False)
     lemmas = bll.lemmatize('arma uirum -que cano nobilitatis .'.split())
     pprint(lemmas)
 
+# [('arma', 'arma', <UnigramLemmatizer: CLTK Sentence Training Data>),
+# ('uirum', 'uir', <UnigramLemmatizer: CLTK Sentence Training Data>),
+# ('-que', '-que', <DictLemmatizer: Latin Model>),
+# ('cano', 'cano', <DictLemmatizer: Morpheus Lemmas>),
+# ('nobilitatis', 'nobilitas', <RegexpLemmatizer: CLTK Latin Regex Patterns>),
+# ('.', 'punc', <DictLemmatizer: Latin Model>)]
+
     print(f'Accuracy: {bll.evaluate()}')
+
+# Accuracy: 0.899449857493206    
 
     # import pickle
     # pickle.dump(bll, open( "bll.p", "wb" ) )
