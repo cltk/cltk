@@ -158,7 +158,7 @@ class Syllabifier:
         phonetic_data, phonetic_vectors = self.get_phonetic_info(lang)
 
         # 'Valid Vector Representation' is the [5] column
-        if phonetic_data[offset, 5] == 0:
+        if phonetic_data[offset][5] == 0:
             return self.invalid_vector()
 
         return phonetic_vectors[offset]
