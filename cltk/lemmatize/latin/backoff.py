@@ -605,20 +605,26 @@ class BackoffLatinLemmatizer(object):
     def evaluate(self):
         return lemmatizer.evaluate(self.test_sents)
 
+    def __repr__(self):
+        return f'<BackoffLatinLemmatizer>'
+
 if __name__ == '__main__':
-
-    # Set up training sentences
-    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-    path = os.path.expanduser(rel_path)
-
-    # Check for presence of latin_pos_lemmatized_sents
-    file = 'latin_pos_lemmatized_sents.pickle'
-
-    latin_pos_lemmatized_sents_path = os.path.join(path, file)
-    if os.path.isfile(latin_pos_lemmatized_sents_path):
-       latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
-    else:
-       latin_pos_lemmatized_sents = []
-       print('The file %s is not available in cltk_data' % file)
-
-    l = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
+    pass
+    # # Set up training sentences
+    # rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+    # path = os.path.expanduser(rel_path)
+    #
+    # # Check for presence of latin_pos_lemmatized_sents
+    # file = 'latin_pos_lemmatized_sents.pickle'
+    #
+    # latin_pos_lemmatized_sents_path = os.path.join(path, file)
+    # if os.path.isfile(latin_pos_lemmatized_sents_path):
+    #    latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
+    # else:
+    #    latin_pos_lemmatized_sents = []
+    #    print('The file %s is not available in cltk_data' % file)
+    #
+    # l = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
+    #
+    # import pickle
+    # pickle.dump(l, open( "backofflatinlemmatizer.p", "wb" ) )
