@@ -382,6 +382,13 @@ argenteo polubro, aureo eclutro. """
         if 'Library' in words:
             self.fail('Filtered word present!')
         self.assertTrue(len(docs) > 0)
+        problem_files = ['caesar/bc3.txt', 'hymni.txt', 'varro.frag.txt', 'varro.ll10.txt',
+                     'varro.ll5.txt', 'varro.ll6.txt', 'varro.ll7.txt', 'varro.ll8.txt',
+                     'varro.ll9.txt']
+        for filename in problem_files:
+            doc = list(reader.docs([filename]))
+            assert(doc)
+            assert(len(doc[0]) > 100)
 
     def test_filtered_corpus_reader_sizes(self):
         """Test filtered corpus sizes method."""
