@@ -1,7 +1,7 @@
 """Utility class for formatting scansion patterns"""
 
 import logging
-from cltk.prosody.latin.ScansionConstants import ScansionConstants
+from cltk.prosody.latin.scansion_constants import ScansionConstants
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -11,7 +11,8 @@ __license__ = 'MIT License'
 
 
 class ScansionFormatter:
-    """Users can specify which scansion symbols to use in the formatting.
+    """
+    Users can specify which scansion symbols to use in the formatting.
 
     >>> print(ScansionFormatter().hexameter( "-UU-UU-UU---UU--"))
     -UU|-UU|-UU|--|-UU|--
@@ -30,7 +31,11 @@ class ScansionFormatter:
                                                 self.constants.ACCENTED_VOWELS)))
 
     def hexameter(self, line: str) -> str:
-        """Format a string of hexameter metrical stress patterns into foot divisions
+        """
+        Format a string of hexameter metrical stress patterns into foot divisions
+
+        :param line: the scansion pattern
+        :return: the scansion string formatted with foot breaks
 
         >>> print(ScansionFormatter().hexameter( "-UU-UU-UU---UU--"))
         -UU|-UU|-UU|--|-UU|--
@@ -54,7 +59,12 @@ class ScansionFormatter:
         return "".join(mylist)
 
     def merge_line_scansion(self, line: str, scansion: str) -> str:
-        """Merge a line of verse with its scansion string. Do not accent dipthongs.
+        """
+        Merge a line of verse with its scansion string. Do not accent dipthongs.
+
+        :param line: the original Latin verse line
+        :param scansion: the scansion pattern
+        :return: the original line with the scansion pattern applied via macrons
 
         >>> print(ScansionFormatter().merge_line_scansion(
         ... "Arma virumque cano, Troiae qui prīmus ab ōrīs",

@@ -1,4 +1,8 @@
 """Test cltk.corpus."""
+from unicodedata import normalize
+import os
+import unittest
+from unittest.mock import patch
 
 from cltk.corpus.greek.alphabet import expand_iota_subscript
 from cltk.corpus.greek.alphabet import filter_non_greek
@@ -41,16 +45,17 @@ from cltk.corpus.utils.importer import CorpusImportError
 from cltk.corpus.sanskrit.itrans.itrans_transliterator import *
 from cltk.corpus.sanskrit.itrans.unicode_transliterate import *
 from cltk.corpus.sanskrit.itrans.langinfo import *
-from cltk.corpus.sanskrit.itrans.sinhala_transliterator import SinhalaDevanagariTransliterator  as sdt
+from cltk.corpus.sanskrit.itrans.sinhala_transliterator import \
+    SinhalaDevanagariTransliterator  as sdt
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
 from cltk.corpus.utils.formatter import normalize_fr
 from cltk.corpus.swadesh import Swadesh
-
-from unicodedata import normalize
-import os
-import unittest
+from cltk.corpus.readers import assemble_corpus, get_corpus_reader
+from cltk.corpus.latin.latin_library_corpus_types import corpus_texts_by_type, \
+    corpus_directories_by_type
+from cltk.utils.matrix_corpus_fun import distinct_words
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -60,6 +65,17 @@ DISTRIBUTED_CORPUS_PATH = os.path.expanduser(DISTRIBUTED_CORPUS_PATH_REL)
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            corpus_importer = CorpusImporter('latin')
+            corpus_importer.import_corpus('latin_text_latin_library')
+            corpus_importer.import_corpus('latin_text_perseus')
+            corpus_importer = CorpusImporter('greek')
+            corpus_importer.import_corpus('greek_text_perseus')
+        except:
+            raise Exception('Failure to download test corpus')
 
     def test_greek_betacode_to_unicode(self):
         """Test converting Beta Code to Unicode.
@@ -263,6 +279,20 @@ argenteo polubro, aureo eclutro. """
         valid = ' Dices   pulchrum esse inimicos ulcisci.'
         self.assertEqual(non_latin_str, valid)
 
+    def test_latin_library_reader_missing_corpus(self):
+        """
+        Needs to precede (for now) the next two tests which load the corpus
+        Provided by Patrick Burns
+        """
+        corpus_importer = CorpusImporter('latin')
+        # corpus_importer.import_corpus('latin_text_latin_library')
+        corpus_importer.import_corpus('latin_models_cltk')
+
+        def _import():
+            with patch('builtins.input', return_value='n'):
+                from cltk.corpus.readers import latinlibrary
+                self.assertRaises(OSError, _import)
+
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
@@ -271,6 +301,127 @@ argenteo polubro, aureo eclutro. """
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
+
+    def test_import_latin_library_corpus_reader(self):
+        """Test the Latin Library corpus reader."""
+        corpus_importer = CorpusImporter('latin')
+        corpus_importer.import_corpus('latin_text_latin_library')
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        ALL_FILE_IDS = list(reader.fileids())
+        self.assertTrue(len(ALL_FILE_IDS) > 2100)
+
+    def test_import_latin_library_corpus_filter_by_file(self):
+        """Test the Latin Library corpus reader filter by files."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        filtered_reader = assemble_corpus(reader, types_requested=['old'],
+                                          type_files=corpus_texts_by_type)
+        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+    def test_import_latin_library_corpus_filter_by_dir(self):
+        """Test the Latin Library corpus reader filter by directories."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        filtered_reader = assemble_corpus(reader, types_requested=['old'],
+                                          type_dirs=corpus_directories_by_type)
+        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+    def test_import_latin_library_corpus_filter_by_file_and_dir(self):
+        """Test the Latin Library corpus reader filter by directories."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        filtered_reader = assemble_corpus(reader, types_requested=['old'],
+                                          type_dirs=corpus_directories_by_type,
+                                          type_files=corpus_texts_by_type)
+        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+    def test_filtered_corpus_reader_sents(self):
+        """Test filtered corpus sents method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        sents = list(reader.sents())
+        uniq_words = distinct_words(sents)
+        if 'Latin' in uniq_words:
+            self.fail('Filtered word present!')
+        if 'Library' in uniq_words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(sents) > 0)
+
+    def test_filtered_corpus_reader_paras(self):
+        """Test filtered corpus paras method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        paras = list(reader.paras())
+        sents = [sent
+                 for para in paras
+                 for sent in para]
+        uniq_words = distinct_words(sents)
+        if 'Latin' in uniq_words:
+            self.fail('Filtered word present!')
+        if 'Library' in uniq_words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(paras) > 0)
+
+    def test_filtered_corpus_reader_words(self):
+        """Test filtered corpus words method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        words = list(reader.words())
+        uniq_words = distinct_words(words)
+        if 'Latin' in uniq_words:
+            self.fail('Filtered word present!')
+        if 'Library' in uniq_words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(words) > 0)
+
+    def test_filtered_corpus_reader_docs(self):
+        """Test filtered corpus docs method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        docs = list(reader.docs())
+        words = distinct_words(docs)
+        if 'Latin' in words:
+            self.fail('Filtered word present!')
+        if 'Library' in words:
+            self.fail('Filtered word present!')
+        self.assertTrue(len(docs) > 0)
+        problem_files = ['caesar/bc3.txt', 'hymni.txt', 'varro.frag.txt', 'varro.ll10.txt',
+                     'varro.ll5.txt', 'varro.ll6.txt', 'varro.ll7.txt', 'varro.ll8.txt',
+                     'varro.ll9.txt']
+        for filename in problem_files:
+            doc = list(reader.docs([filename]))
+            assert(doc)
+            assert(len(doc[0]) > 100)
+
+    def test_filtered_corpus_reader_sizes(self):
+        """Test filtered corpus sizes method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+        reader._fileids = ['catullus.txt']
+        self.assertTrue(len(list(reader.sizes())) > 0)
+
+    def test_json_corpus_reader(self):
+        """Test filtered corpus sents method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+        # this has simple sections
+        reader._fileids = ['cicero__on-behalf-of-aulus-caecina__latin.json']
+        self.assertTrue(len(list(reader.paras())) >= 1)
+        self.assertTrue(len(list(reader.sents())) > 400)
+        self.assertTrue(len(list(reader.words())) > 12200)
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+        # this example has subsections
+        reader._fileids = ['ausonius-decimus-magnus__eclogarum-liber__latin.json']
+        self.assertTrue(len(list(reader.docs())) == 1)
+        self.assertTrue(len(list(reader.paras())) >= 1)
+        self.assertTrue(len(list(reader.sents())) > 50)
+        self.assertTrue(len(list(reader.words())) > 2750)
+        reader = get_corpus_reader(corpus_name='greek_text_perseus', language='greek')
+        reader._fileids = ['plato__apology__grc.json']
+        self.assertTrue(len(list(reader.docs())) == 1)
+        self.assertTrue(len(list(reader.paras())) > 1)
+        self.assertTrue(len(list(reader.sents())) > 260)
+        self.assertTrue(len(list(reader.words())) > 9800)
+
+    def test_json_corpus_reader_sizes(self):
+        """Test filtered corpus sizes method."""
+        reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
+        self.assertTrue(len(list(reader.sizes())) > 290)
 
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
@@ -456,17 +607,11 @@ argenteo polubro, aureo eclutro. """
         str_test = '੧੨੩੪੫੬੭੮੯੦'
         self.assertEqual(str_test, englishToPun_number(1234567890))
 
-    def test_corpora_import_list_greek(self):
-        """Test listing of available corpora."""
-        corpus_importer = CorpusImporter('greek', testing=True)
-        available_corpora = corpus_importer.list_corpora
-        self.assertTrue(available_corpora)
-
     def make_distributed_corpora_testing_file(self):
         """Setup for some cloning tests, make file at
         '~/cltk_data/test_distributed_corpora.yaml'.
         """
-        #! Don't format this literal string, must be YAML-ish
+        # ! Don't format this literal string, must be YAML-ish
         yaml_str_to_write = """example_distributed_latin_corpus:
         git_remote: git@github.com:kylepjohnson/latin_corpus_newton_example.git
         language: latin
@@ -645,7 +790,8 @@ class TestTransliteration(unittest.TestCase):
         self.assertEqual(y, 'योगश्चित्तव्ऱ्त्तिनिरोधः')
         self.assertEqual(z, 'yogazcittavRttinirodhaH')
 
-    def test_ScriptConversion(self):  # Test UnicodeIndicTransliterator - Convert between various scripts
+    def test_ScriptConversion(
+            self):  # Test UnicodeIndicTransliterator - Convert between various scripts
         x = UnicodeIndicTransliterator.transliterate('राजस्थान', "hi", "pa")
         self.assertEqual(x, 'ਰਾਜਸ੍ਥਾਨ')
         y = UnicodeIndicTransliterator.transliterate('සිංහල අක්ෂර මාලාව', "si", "hi")

@@ -4,10 +4,10 @@ __license__ = 'MIT License. See LICENSE.'
 
 import unittest
 
-from cltk.prosody.latin.HexameterScanner import HexameterScanner
-from cltk.prosody.latin.PentameterScanner import PentameterScanner
-from cltk.prosody.latin.HendecasyllableScanner import HendecasyllableScanner
-from cltk.prosody.latin.Syllabifier import Syllabifier
+from cltk.prosody.latin.hexameter_scanner import HexameterScanner
+from cltk.prosody.latin.pentameter_scanner import PentameterScanner
+from cltk.prosody.latin.hendecasyllable_scanner import HendecasyllableScanner
+from cltk.prosody.latin.syllabifier import Syllabifier
 
 class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
