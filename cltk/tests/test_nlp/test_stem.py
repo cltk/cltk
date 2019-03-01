@@ -242,7 +242,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word = "awīlum"
         bound_form = bound_former.get_bound_form(word, 'm')
         target = "awīl"
-        self.assertEquals(bound_form, target)
+        self.assertEqual(bound_form, target)
 
     def test_akkadian_cv_pattern(self):
         """Test Akkadian CV pattern method"""
@@ -250,7 +250,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word = "iparras"
         cv_pattern = cv_patterner.get_cv_pattern(word, pprint=True)
         target = "V₁C₁V₂C₂C₂V₂C₃"
-        self.assertEquals(cv_pattern, target)
+        self.assertEqual(cv_pattern, target)
 
     def test_akkadian_declension(self):
         """Test Akkadian noun declension"""
@@ -264,7 +264,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   ('iltān', {'case': 'nominative', 'number': 'dual'}),
                   ('ilātim', {'case': 'oblique', 'number': 'plural'}),
                   ('ilātum', {'case': 'nominative', 'number': 'plural'})]
-        self.assertEquals(sorted(declension), sorted(target))
+        self.assertEqual(sorted(declension), sorted(target))
 
     def test_akkadian_stemmer(self):
         """Test Akkadian stemmer"""
@@ -272,7 +272,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word = "šarrū"
         stem = stemmer.get_stem(word, 'm')
         target = "šarr"
-        self.assertEquals(stem, target)
+        self.assertEqual(stem, target)
 
     def test_akkadian_syllabifier(self):
         """Test Akkadian syllabifier"""
@@ -549,7 +549,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
                     " chevalcho "
         self.assertEqual(stemmed_text, target)
-    
+
     def test_middle_english_stemmer(self):
         sentence = ['the', 'speke', 'the', 'henmest', 'kyng', 'in', 'the', 'hillis', 'he', 'beholdis','he', 'lokis', 'vnder',
                     'his', 'hondis', 'and', 'his', 'hed', 'heldis']
