@@ -314,10 +314,7 @@ class BackoffLatinLemmatizer(object):
             self.train = open_pickle(train_path)
         else:
             self.train = [[]]
-            print('The file %s is not available in cltk_data' % file)
-            print('This file is necessary for the use of the BackoffLatinLemmatizer.')
-            print('Please load the ```latin_models_cltk``` file from the cltk corpora.')
-            break
+            raise Exception(f"\nThe file {file} is not available in cltk_data. This file is necessary for the use of the BackoffLatinLemmatizer. Please load the ```latin_models_cltk``` file from the cltk corpora.")
 
         # Check for presence of LATIN_OLD_MODEL
         file = 'latin_lemmata_cltk.pickle'
@@ -406,7 +403,7 @@ if __name__ == '__main__':
 
     print('\n')
 
-    bll = BackoffLatinLemmatizer(latin_pos_lemmatized_sents, VERBOSE=False)
+    bll = BackoffLatinLemmatizer(seed=5, VERBOSE=False)
     lemmas = bll.lemmatize('arma uirum -que cano nobilitatis .'.split())
     pprint(lemmas)
 
