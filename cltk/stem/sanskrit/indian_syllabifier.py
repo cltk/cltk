@@ -7,12 +7,13 @@ Source: https://github.com/anoopkunchukuttan/indic_nlp_library/blob/master/src/i
 """
 
 import os
+import csv
 
 try:
     import numpy as np
-    import pandas as pd
+    # import pandas as pd
 except ImportError:
-    print('"pandas" and "numpy" libraries not installed.')
+    print('"numpy" is not installed.')
     raise
 
 __author__ = ['Anoop Kunchukuttan']
@@ -93,12 +94,26 @@ class Syllabifier:
         csv_dir_path = os.path.join(root, 'cltk_data/sanskrit/model/sanskrit_models_cltk/phonetics')
 
         all_phonetic_csv = os.path.join(csv_dir_path, 'all_script_phonetic_data.csv')
-        all_phonetic_data = pd.read_csv(all_phonetic_csv, encoding='utf-8')
+        # all_phonetic_data = pd.read_csv(all_phonetic_csv, encoding='utf-8')
         tamil_csv = os.path.join(csv_dir_path, 'tamil_script_phonetic_data.csv')
-        tamil_phonetic_data = pd.read_csv(tamil_csv, encoding='utf-8')
+        # tamil_phonetic_data = pd.read_csv(tamil_csv, encoding='utf-8')
 
-        all_phonetic_vectors = all_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
-        tamil_phonetic_vectors = tamil_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
+        # Make helper function for this
+        with open(all_phonetic_csv,'r') as f:
+            reader = csv.reader(f, delimiter = delimiter, quotechar = '"')
+            next(reader, None) # Skip headers
+            all_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
+
+        with open(tamil_csv,'r') as f:
+            reader = csv.reader(f, delimiter = delimiter, quotechar = '"')
+            next(reader, None) # Skip headers
+            tamil_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
+
+        # all_phonetic_vectors = all_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
+        # tamil_phonetic_vectors = tamil_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
+
+        all_phonetic_vectors = np.array(all_phonetic_data)
+        tamil_phonetic_vectors = np.array(tamil_phonetic_data)
 
         phonetic_vector_length = all_phonetic_vectors.shape[1]
 
@@ -106,7 +121,7 @@ class Syllabifier:
 
     @staticmethod
     def in_coordinated_range_offset(c_offset):
-        """Applicable to Brahmi derived Indic scripts. Used to determine 
+        """Applicable to Brahmi derived Indic scripts. Used to determine
         whether offset is of a  alphabetic character or not.
         """
         return COORDINATED_RANGE_START_INCLUSIVE <= c_offset <= COORDINATED_RANGE_END_INCLUSIVE
