@@ -297,13 +297,27 @@ class BackoffLatinLemmatizer(object):
     ### For comparison, there is also a TrainLemmatizer that replicates the
     ###    original Latin lemmatizer from cltk.stem
     """
-    def __init__(self, train, seed=3, VERBOSE=False):
-        self.train = train
+    def __init__(self, train=None, seed=3, VERBOSE=False):
+        # self.train = train
         self.seed = seed
         self.VERBOSE=VERBOSE
 
         rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
         path = os.path.expanduser(rel_path)
+
+        # Check for presence of LATIN_OLD_MODEL
+        file = 'latin_pos_lemmatized_sents.pickle'
+
+        train_path = os.path.join(path, file)
+
+        if os.path.isfile(train_path):
+            self.train = open_pickle(train_path)
+        else:
+            self.train = [[]]
+            print('The file %s is not available in cltk_data' % file)
+            print('This file is necessary for the use of the BackoffLatinLemmatizer.')
+            print('Please load the ```latin_models_cltk``` file from the cltk corpora.')
+            break
 
         # Check for presence of LATIN_OLD_MODEL
         file = 'latin_lemmata_cltk.pickle'
@@ -405,7 +419,7 @@ if __name__ == '__main__':
 
     print(f'Accuracy: {bll.evaluate()}')
 
-# Accuracy: 0.899449857493206    
+# Accuracy: 0.899449857493206
 
     # import pickle
     # pickle.dump(bll, open( "bll.p", "wb" ) )
