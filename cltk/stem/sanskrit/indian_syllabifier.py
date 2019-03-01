@@ -102,18 +102,20 @@ class Syllabifier:
         with open(all_phonetic_csv,'r') as f:
             reader = csv.reader(f, delimiter = ',', quotechar = '"')
             next(reader, None) # Skip headers
-            all_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
+            # all_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
+            all_phonetic_data = [row for row in reader]
 
         with open(tamil_csv,'r') as f:
             reader = csv.reader(f, delimiter = ',', quotechar = '"')
             next(reader, None) # Skip headers
-            tamil_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
+            # tamil_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
+            tamil_phonetic_data = [row for row in reader]
 
         # all_phonetic_vectors = all_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
         # tamil_phonetic_vectors = tamil_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
 
-        all_phonetic_vectors = np.array(all_phonetic_data)
-        tamil_phonetic_vectors = np.array(tamil_phonetic_data)
+        all_phonetic_vectors = np.array([row[PHONETIC_VECTOR_START_OFFSET:] for row in all_phonetic_data])
+        tamil_phonetic_vectors = np.array([row[PHONETIC_VECTOR_START_OFFSET:] for row in tamil_phonetic_data])
 
         phonetic_vector_length = all_phonetic_vectors.shape[1]
 
@@ -155,7 +157,8 @@ class Syllabifier:
 
         phonetic_data, phonetic_vectors = self.get_phonetic_info(lang)
 
-        if phonetic_data.ix[offset, 'Valid Vector Representation'] == 0:
+        # 'Valid Vector Representation' is the [5] column
+        if phonetic_data[offset, 5] == 0:
             return self.invalid_vector()
 
         return phonetic_vectors[offset]
