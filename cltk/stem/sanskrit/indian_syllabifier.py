@@ -100,12 +100,12 @@ class Syllabifier:
 
         # Make helper function for this
         with open(all_phonetic_csv,'r') as f:
-            reader = csv.reader(f, delimiter = delimiter, quotechar = '"')
+            reader = csv.reader(f, delimiter = ',', quotechar = '"')
             next(reader, None) # Skip headers
             all_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
 
         with open(tamil_csv,'r') as f:
-            reader = csv.reader(f, delimiter = delimiter, quotechar = '"')
+            reader = csv.reader(f, delimiter = ',', quotechar = '"')
             next(reader, None) # Skip headers
             tamil_phonetic_data = [row[PHONETIC_VECTOR_START_OFFSET:] for row in reader]
 
