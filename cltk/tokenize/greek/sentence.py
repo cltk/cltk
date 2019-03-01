@@ -17,6 +17,11 @@ class GreekLanguageVars(PunktLanguageVars):
     sent_end_chars = ('.', ';', '·')
 
 
+def SentenceTokenizer(tokenizer='regex'):
+    if tokenizer='punkt':
+        return GreekPunktSentenceTokenizer()
+    if tokenizer='regex':
+
 class GreekPunktSentenceTokenizer(BaseSentenceTokenizer):
     """ Base class for sentence tokenization
     """
