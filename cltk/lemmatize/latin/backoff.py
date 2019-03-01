@@ -88,7 +88,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
             tag, tagger = self.tag_one(tokens, i, tags)
             tags.append(tag)
             if tag:
-                taggers.append(tagger)
+                taggers.append(str(tagger))
             else:
                 taggers.append(None)
 
@@ -298,7 +298,6 @@ class BackoffLatinLemmatizer(object):
     ###    original Latin lemmatizer from cltk.stem
     """
     def __init__(self, train=None, seed=3, VERBOSE=False):
-        # self.train = train
         self.seed = seed
         self.VERBOSE=VERBOSE
 
