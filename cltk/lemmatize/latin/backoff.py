@@ -216,7 +216,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
     defining as its own class, it is clearer that this lemmatizer is
     based on dictionary lookup and does not use training data."""
 
-    def __init__(self, lemmas, backoff=None, VERBOSE=False):
+    def __init__(self, lemmas, backoff=None, source=None, VERBOSE=False):
         """
         Setup for DictLemmatizer().
         :type lemmas: dict
@@ -226,6 +226,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
         """
         SequentialBackoffLemmatizer.__init__(self, backoff, VERBOSE=VERBOSE)
         self.lemmas = lemmas
+        self.source = source
 
 
     def choose_tag(self, tokens, index, history):
@@ -246,7 +247,10 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
 
 
     def __repr__(self):
-        return f'<DictLemmatizer: {self.repr.repr(self.lemmas)}>'
+        if self.source:
+            return f'<DictLemmatizer: {self.source}>'
+        else:
+            return f'<DictLemmatizer: {self.repr.repr(self.lemmas)}>'
 
 
 class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
@@ -256,30 +260,36 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
     based on training data and not on dictionary.
     """
 
-    def __init__(self, train=None, model=None, backoff=None, cutoff=0, VERBOSE=False):
+    def __init__(self, train=None, model=None, backoff=None, source=None, cutoff=0, VERBOSE=False):
         """
         Setup for UnigramLemmatizer()
         """
         SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
         UnigramTagger.__init__(self, train, model, backoff, cutoff)
         self.train = train
+        self.source = source
 
 
     def __repr__(self):
-        return f'<UnigramLemmatizer: {self.repr.repr(self.train)}>'
+        if self.source:
+            return f'<UnigramLemmatizer: {self.source}>'
+        else:
+            return f'<UnigramLemmatizer: {self.repr.repr(self.train)}>'
 
 
-class RegexpLemmatizer(SequentialBackoffLemmatizer):
+class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
     """"""
 
-    def __init__(self, regexps=None, backoff=None, VERBOSE=False):
+    def __init__(self, regexps=None, source=None, backoff=None, VERBOSE=False):
         """Setup for RegexpLemmatizer()
         :type regexps: list
         :param regexps: List of tuples of form (PATTERN, REPLACEMENT)
         :param backoff: Next lemmatizer in backoff chain.
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff, VERBOSE=VERBOSE)
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
+        RegexpTagger.__init__(self, regexps, backoff)
         self._regexs = regexps
+        self.source = source
 
 
     def choose_tag(self, tokens, index, history):
@@ -300,74 +310,77 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer):
 
 
     def __repr__(self):
-        return f'<RegexpLemmatizer: {self.repr.repr(self._regexs)}>'
+        if self.source:
+            return f'<RegexpLemmatizer: {self.source}>'
+        else:
+            return f'<RegexpLemmatizer: {self.repr.repr(self._regexs)}>'
 
-
-class PPLemmatizer(RegexpLemmatizer):
-    """Customization of the RegexpLemmatizer for Latin. The RegexpLemmatizer is
-        used as a stemmer; the stem is then applied to a dictionary lookup of
-        principal parts."""
-    def __init__(self, regexps=None, pps=None, backoff=None):
-        """Setup PPLemmatizer().
-
-        :param regexps: List of tuples of form (PATTERN, INT) where INT is
-        the principal part number needed to lookup the correct stem.
-        :param backoff: Next lemmatizer in backoff chain.
-        """
-        RegexpLemmatizer.__init__(self, regexps, backoff)
-        # Note different compile to make use of principal parts dictionary structure; also, note
-        # that the PP dictionary has been set up so that principal parts match their traditional
-        # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
-        self._regexs = latin_verb_patterns
-        self.pps = latin_pps
-
-
-    def choose_tag(self, tokens, index, history):
-        """Use regular expressions for rules-based lemmatizing based on
-        principal parts stems. Tokens are matched for patterns with
-        the ending kept as a group; the stem is looked up in a dictionary
-        by PP number (see above) and ending is discarded.
-
-        :param tokens: List of tokens to be lemmatized
-        :param index: Int with current token
-        :param history: List with tokens that have already been lemmatized
-        :return: Str with index[0] from the dictionary value, see above about '0 index'
-        """
-        for regexp in self._regexs:
-            m = re.match(regexp[0], tokens[index])
-            if m:
-                root = m.group(1)
-                match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
-                if not match:
-                    pass
-                else:
-                    return match[0] # Lemma is indexed at zero in PP dictionary
-
-
-class RomanNumeralLemmatizer(RegexpLemmatizer):
-    """"""
-    def __init__(self, regexps=rn_patterns, default=None, backoff=None):
-        """RomanNumeralLemmatizer"""
-        RegexpLemmatizer.__init__(self, regexps, backoff)
-        self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
-        self.default = default
-
-    def choose_lemma(self, tokens, index, history):
-        """Test case for customized rules-based improvements to lemmatizer using regex; differs
-        from base RegexpLemmatizer in that it returns the given pattern without stemming,
-        concatenating, etc.
-        :param tokens: List of tokens to be lemmatized
-        :param index: Int with current token
-        :param history: List with tokens that have already been lemmatized
-        :return: Str with replacement from pattern
-        """
-        for pattern, replace in self._regexs:
-            if re.search(pattern, tokens[index]):
-                if self.default:
-                    return self.default
-                else:
-                    return replace
-                break # pragma: no cover
+# EXPERIMENTAL—NEEDS REVIEW
+# class PPLemmatizer(RegexpLemmatizer):
+#     """Customization of the RegexpLemmatizer for Latin. The RegexpLemmatizer is
+#         used as a stemmer; the stem is then applied to a dictionary lookup of
+#         principal parts."""
+#     def __init__(self, regexps=None, pps=None, backoff=None):
+#         """Setup PPLemmatizer().
+#
+#         :param regexps: List of tuples of form (PATTERN, INT) where INT is
+#         the principal part number needed to lookup the correct stem.
+#         :param backoff: Next lemmatizer in backoff chain.
+#         """
+#         RegexpLemmatizer.__init__(self, regexps, backoff)
+#         # Note different compile to make use of principal parts dictionary structure; also, note
+#         # that the PP dictionary has been set up so that principal parts match their traditional
+#         # numbering, i.e. present stem is indexed as 1. The 0 index is used for the lemma.
+#         self._regexs = latin_verb_patterns
+#         self.pps = latin_pps
+#
+#
+#     def choose_tag(self, tokens, index, history):
+#         """Use regular expressions for rules-based lemmatizing based on
+#         principal parts stems. Tokens are matched for patterns with
+#         the ending kept as a group; the stem is looked up in a dictionary
+#         by PP number (see above) and ending is discarded.
+#
+#         :param tokens: List of tokens to be lemmatized
+#         :param index: Int with current token
+#         :param history: List with tokens that have already been lemmatized
+#         :return: Str with index[0] from the dictionary value, see above about '0 index'
+#         """
+#         for regexp in self._regexs:
+#             m = re.match(regexp[0], tokens[index])
+#             if m:
+#                 root = m.group(1)
+#                 match = [lemma for (lemma, pp) in self.pps.items() if root == pp[regexp[1]]]
+#                 if not match:
+#                     pass
+#                 else:
+#                     return match[0] # Lemma is indexed at zero in PP dictionary
+#
+#
+# class RomanNumeralLemmatizer(RegexpLemmatizer):
+#     """"""
+#     def __init__(self, regexps=rn_patterns, default=None, backoff=None):
+#         """RomanNumeralLemmatizer"""
+#         RegexpLemmatizer.__init__(self, regexps, backoff)
+#         self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
+#         self.default = default
+#
+#     def choose_lemma(self, tokens, index, history):
+#         """Test case for customized rules-based improvements to lemmatizer using regex; differs
+#         from base RegexpLemmatizer in that it returns the given pattern without stemming,
+#         concatenating, etc.
+#         :param tokens: List of tokens to be lemmatized
+#         :param index: Int with current token
+#         :param history: List with tokens that have already been lemmatized
+#         :return: Str with replacement from pattern
+#         """
+#         for pattern, replace in self._regexs:
+#             if re.search(pattern, tokens[index]):
+#                 if self.default:
+#                     return self.default
+#                 else:
+#                     return replace
+#                 break # pragma: no cover
 
 # EXPERIMENTAL—NEEDS REVIEW
 # class ContextPOSLemmatizer(ContextLemmatizer):
@@ -537,9 +550,10 @@ class BackoffLatinLemmatizer(object):
     ### For comparison, there is also a TrainLemmatizer that replicates the
     ###    original Latin lemmatizer from cltk.stem
     """
-    def __init__(self, train, seed=3):
+    def __init__(self, train, seed=3, VERBOSE=False):
         self.train = train
         self.seed = seed
+        self.VERBOSE=VERBOSE
 
         rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
         path = os.path.expanduser(rel_path)
@@ -590,26 +604,52 @@ class BackoffLatinLemmatizer(object):
     def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
-        self.backoff1 = IdentityLemmatizer()
-        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, backoff=self.backoff1)
-        self.backoff3 = PPLemmatizer(regexps=self.latin_verb_patterns, pps=self.latin_pps, backoff=self.backoff2)
-        self.backoff4 = RegexpLemmatizer(self.latin_sub_patterns, backoff=self.backoff2)
-        self.backoff5 = UnigramLemmatizer(self.train_sents, backoff=self.backoff3)
-        self.backoff6 = DictLemmatizer(lemmas=self.LATIN_MODEL, backoff=self.backoff5)
-        self.lemmatizer = self.backoff6
+        self.backoff1 = IdentityLemmatizer(VERBOSE=self.VERBOSE)
+        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, source='Morpheus Lemmas', backoff=self.backoff1, VERBOSE=self.VERBOSE)
+        self.backoff3 = RegexpLemmatizer(self.latin_sub_patterns, source='CLTK Latin Regex Patterns', backoff=self.backoff2, VERBOSE=self.VERBOSE)
+        self.backoff4 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff3, VERBOSE=self.VERBOSE)
+        self.backoff5 = DictLemmatizer(lemmas=self.LATIN_MODEL, source='Latin Model', backoff=self.backoff4, VERBOSE=self.VERBOSE)
+        self.lemmatizer = self.backoff5
 
     def lemmatize(self, tokens):
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
     def evaluate(self):
-        return lemmatizer.evaluate(self.test_sents)
+        if self.VERBOSE:
+            print('Evaluate only works when VERBOSE=False')
+        return self.lemmatizer.evaluate(self.test_sents)
 
     def __repr__(self):
-        return f'<BackoffLatinLemmatizer>'
+        return f'<BackoffLatinLemmatizer v0.2>'
+
+#####
+
+rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+path = os.path.expanduser(rel_path)
+
+# Check for presence of LATIN_OLD_MODEL
+file = 'bll.p'
+
+bll_path = os.path.join(path, file)
+if os.path.isfile(bll_path):
+    _bll = open_pickle(bll_path)
+else:
+    _bll = None
+    print('The file %s is not available in cltk_data' % file)
+
+Backoff = _bll
 
 if __name__ == '__main__':
-    pass
+    l4 = Backoff
+    from pprint import pprint
+    # # l1 = DefaultLemmatizer('UNK', VERBOSE=True)
+    # # l2 = DictLemmatizer(lemmas={'arma': 'arma', 'uirum': 'uir'}, backoff=l1, VERBOSE=True)
+    # # l3 = UnigramLemmatizer(train=[[('cano', 'cano'), ('.', 'punc')],], backoff=l2, VERBOSE=True)
+    # # l4 = RegexpLemmatizer(regexps=[('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),], backoff=l3, VERBOSE=True)
+    lemmas = l4.lemmatize('arma uirum -que cano nobilitatis .'.split())
+    pprint(lemmas)
+    #
     # # Set up training sentences
     # rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
     # path = os.path.expanduser(rel_path)
@@ -624,7 +664,12 @@ if __name__ == '__main__':
     #    latin_pos_lemmatized_sents = []
     #    print('The file %s is not available in cltk_data' % file)
     #
-    # l = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
+    # bll = BackoffLatinLemmatizer(latin_pos_lemmatized_sents, VERBOSE=False)
+    # lemmas = bll.lemmatize('arma uirum -que cano nobilitatis .'.split())
+    # pprint(lemmas)
+    #
+    # print(bll.evaluate())
+    #
     #
     # import pickle
-    # pickle.dump(l, open( "backofflatinlemmatizer.p", "wb" ) )
+    # pickle.dump(bll, open( "bll.p", "wb" ) )
