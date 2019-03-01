@@ -115,8 +115,8 @@ class Syllabifier:
         # tamil_phonetic_vectors = tamil_phonetic_data.ix[:, PHONETIC_VECTOR_START_OFFSET:].values
 
         # Handle better?
-        all_phonetic_data = [int(cell) if cell=='0' or cell=='1' else cell for row in all_phonetic_data for cell in row]
-        tamil_phonetic_data = [int(cell) if cell=='0' or cell=='1' else cell for row in tamil_phonetic_data for cell in row]
+        all_phonetic_data = [[int(cell) if cell=='0' or cell=='1' else cell for cell in row] for row in all_phonetic_data]
+        tamil_phonetic_data = [[int(cell) if cell=='0' or cell=='1' else cell for cell in row] for row in tamil_phonetic_data]
 
         all_phonetic_vectors = np.array([row[PHONETIC_VECTOR_START_OFFSET:] for row in all_phonetic_data])
         tamil_phonetic_vectors = np.array([row[PHONETIC_VECTOR_START_OFFSET:] for row in tamil_phonetic_data])
