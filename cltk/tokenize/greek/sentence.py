@@ -6,7 +6,7 @@ __license__ = 'MIT License.'
 
 import os.path
 import re
-from cltk.tokenize.sentence import BaseSentenceTokenizer
+from cltk.tokenize.sentence import BaseSentenceTokenizer, RegexSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 #from nltk.metrics.scores import accuracy, precision, recall, f-score
@@ -18,9 +18,10 @@ class GreekLanguageVars(PunktLanguageVars):
 
 
 def SentenceTokenizer(tokenizer='regex'):
-    if tokenizer='punkt':
+    if tokenizer=='punkt':
         return GreekPunktSentenceTokenizer()
-    if tokenizer='regex':
+    if tokenizer=='regex':
+        return GreekRegexSentenceTokenizer()
 
 class GreekPunktSentenceTokenizer(BaseSentenceTokenizer):
     """ Base class for sentence tokenization
@@ -63,32 +64,36 @@ class GreekPunktSentenceTokenizer(BaseSentenceTokenizer):
         return model_path
 
 
-class RegexSentenceTokenizer(BaseSentenceTokenizer):
-    """ Base class for sentence tokenization
-    """
+# class GreekRegexSentenceTokenizer(BaseSentenceTokenizer):
+#     """ Base class for sentence tokenization
+#     """
+#
+#     def __init__(self):
+#         """
+#         :param language : language for sentence tokenization
+#         :type language: str
+#         """
+#         BaseSentenceTokenizer.__init__(self, 'greek')
+#         # self.model = self._get_model()
+#
+#
+#     def tokenize(self, text, model=None):
+#         """
+#         Method for tokenizing Greek sentences with regular expressions.
+#         """
+#         sent_end_chars = '\\'+'|\\'.join(GreekLanguageVars.sent_end_chars)
+#         sentences = re.split(rf'(?<!\w\.\w.)(?<!\w\w\.)(?<={sent_end_chars})\s', text)
+#         return sentences
 
+class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
     def __init__(self):
-        """
-        :param language : language for sentence tokenization
-        :type language: str
-        """
-        BaseSentenceTokenizer.__init__(self, 'greek')
-        # self.model = self._get_model()
-
-
-    def tokenize(self, text, model=None):
-        """
-        Method for tokenizing Greek sentences with regular expressions.
-        """
-        sent_end_chars = " ".join(GreekLanguageVars.sent_end_chars)
-        sentences = re.split(r'(?<=['+sent_end_chars+'])\s+?(?=\w)', text)
-        return sentences
+        RegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
 
 
 if __name__ == "__main__":
     from pprint import pprint
     sentences = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""
-    tokenizer = RegexSentenceTokenizer()
+    tokenizer = SentenceTokenizer(tokenizer='regex')
     sents = tokenizer.tokenize(sentences)
     for i, sent in enumerate(sents, 1):
         print(f'{i}: {sent}')

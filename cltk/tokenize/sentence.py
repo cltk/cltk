@@ -131,7 +131,7 @@ from abc import abstractmethod
 #from nltk.metrics.scores import accuracy, precision, recall, f-score
 #from cltk.utils.cltk_logger import logger
 
-class BaseSentenceTokenizer():
+class BaseSentenceTokenizer(object):
     """ Base class for sentence tokenization
     """
 
@@ -150,6 +150,33 @@ class BaseSentenceTokenizer():
         Method for tokenizing sentences. This method
         should be overridden by subclasses of SentenceTokenizer.
         """
+
+class RegexSentenceTokenizer(BaseSentenceTokenizer):
+    """ Base class for regex sentence tokenization
+    """
+
+    def __init__(self, language=None, sent_end_chars=[]):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        BaseSentenceTokenizer.__init__(self, language)
+        # self.model = self._get_model()
+        if sent_end_chars:
+            self.sent_end_chars = '\\'+'|\\'.join(sent_end_chars)
+            self.pattern = rf'(?<!\w\.\w.)(?<!\w\w\.)(?<={self.sent_end_chars})\s'
+        else:
+            raise Exception
+
+
+    def tokenize(self, text):
+        """
+        Method for tokenizing Greek sentences with regular expressions.
+        """
+        sentences = re.split(self.pattern, text)
+        return sentences
+
+
 
 ## Think more about how this will work
 #    def evaluate(self, gold):
