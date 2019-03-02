@@ -373,8 +373,9 @@ class BackoffLatinLemmatizer(object):
         return lemmas
 
     def evaluate(self):
+
         if self.VERBOSE:
-            print('Evaluate only works when VERBOSE=False')
+            raise AssertionError("evaluate() method only works when VERBOSE=False")
         return self.lemmatizer.evaluate(self.test_sents)
 
     def __repr__(self):
@@ -402,7 +403,7 @@ if __name__ == '__main__':
 
     print('\n')
 
-    bll = BackoffLatinLemmatizer(seed=5, VERBOSE=False)
+    bll = BackoffLatinLemmatizer(seed=5, VERBOSE=True)
     lemmas = bll.lemmatize('arma uirum -que cano nobilitatis .'.split())
     pprint(lemmas)
 

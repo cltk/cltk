@@ -203,8 +203,9 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_backoff_latin_lemmatizer_evaluate_verbose(self):
         """Test backoffLatinLemmatizer evaluate method"""
         lemmatizer = BackoffLatinLemmatizer(VERBOSE=True)
-        accuracy = lemmatizer.evaluate()
-        self.assertTrue(accuracy == 0)
+        with self.assertRaises(AssertionError):
+            accuracy = lemmatizer.evaluate()
+        # self.assertTrue(accuracy == 0)
 
 
     def test_french_lemmatizer(self):
