@@ -35,9 +35,9 @@ class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
         self.lang_vars = LatinLanguageVars()
 
 
-class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
-    def __init__(self):
-        RegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
+# class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
+#     def __init__(self):
+#         RegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
 
 
     # def tokenize(self, text, model=None, lang_vars=self.lang_vars):

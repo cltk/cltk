@@ -188,8 +188,8 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
             model = self.model
 
         tokenizer = open_pickle(self.model)
-        if lang_vars:
-            tokenizer._lang_vars = lang_vars
+        if self.lang_vars:
+            tokenizer._lang_vars = self.lang_vars
 
         return tokenizer.tokenize(text)
 
