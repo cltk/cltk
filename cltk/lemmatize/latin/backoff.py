@@ -298,8 +298,10 @@ class BackoffLatinLemmatizer(object):
     ###    original Latin lemmatizer from cltk.stem
     """
 
+    models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+
     def __init__(self, train=None, seed=3, VERBOSE=False):
-        self.models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+        self.models_path = BackoffLatinLemmatizer.models_path
 
         missing_models_message = "BackoffLatinLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
