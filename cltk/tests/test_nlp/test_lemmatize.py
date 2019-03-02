@@ -193,6 +193,20 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(lemmas, target)
 
 
+    def test_backoff_latin_lemmatizer_evaluate(self):
+        """Test backoffLatinLemmatizer evaluate method"""
+        lemmatizer = BackoffLatinLemmatizer(VERBOSE=False)
+        accuracy = lemmatizer.evaluate()
+        self.assertTrue(.85 <= accuracy <= 1)
+
+# Perhaps should be an assertion about raising an exception
+    def test_backoff_latin_lemmatizer_evaluate_verbose(self):
+        """Test backoffLatinLemmatizer evaluate method"""
+        lemmatizer = BackoffLatinLemmatizer(VERBOSE=True)
+        accuracy = lemmatizer.evaluate()
+        self.assertTrue(accuracy == 0)
+
+
     def test_french_lemmatizer(self):
         text = "Li rois pense que par folie, Sire Tristran, vos aie amé ; Mais Dé plevis ma loiauté, Qui sor mon cors mete flaele, S'onques fors cil qui m’ot pucele Out m'amistié encor nul jor !"
         text = str.lower(text)
