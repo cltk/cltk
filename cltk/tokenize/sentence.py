@@ -159,7 +159,8 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         :param language : language for sentence tokenization
         :type language: str
         """
-        BaseSentenceTokenizer.__init__(self, language=None)
+        self.language=language
+        BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
             self.model = self._get_model()
 
