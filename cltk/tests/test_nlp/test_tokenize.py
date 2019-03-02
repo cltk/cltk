@@ -8,7 +8,7 @@ from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
-from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer, LatinRegexSentenceTokenizer
+from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekPunktSentenceTokenizer, GreekRegexSentenceTokenizer
 
 import os
@@ -41,13 +41,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer.import_corpus('latin_models_cltk')
         self.assertTrue(file_exists)
 
-    def test_sentence_tokenizer_latin(self):
-        """Test tokenizing Latin sentences."""
-        text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
-        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
-        tokenizer = TokenizeSentence('latin')
-        tokenized_sentences = tokenizer.tokenize_sentences(text)
-        self.assertEqual(tokenized_sentences, target)
+# Deprecated use cltk.tokenize.latin.sentence
+    # def test_sentence_tokenizer_latin(self):
+    #     """Test tokenizing Latin sentences."""
+    #     text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+    #     target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
+    #     tokenizer = TokenizeSentence('latin')
+    #     tokenized_sentences = tokenizer.tokenize_sentences(text)
+    #     self.assertEqual(tokenized_sentences, target)
 
 
     def test_sentence_tokenizer_latin_punkt(self):

@@ -19,7 +19,7 @@ PUNCTUATION = {'greek':
                'latin':
                    {'external': ('.', '?', '!', ':'),
                     'internal': (',', ';'),
-                    'file': 'latin.pickle', }}
+                    'file': 'latin_old.pickle', }}
 
 INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
