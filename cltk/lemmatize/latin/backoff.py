@@ -297,52 +297,25 @@ class BackoffLatinLemmatizer(object):
     ### For comparison, there is also a TrainLemmatizer that replicates the
     ###    original Latin lemmatizer from cltk.stem
     """
+
     def __init__(self, train=None, seed=3, VERBOSE=False):
+        self.models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
+
+        missing_models_message = "BackoffLatinLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
+
+        try:
+            self.train =  open_pickle(os.path.join(self.models_path, 'latin_pos_lemmatized_sents.pickle'))
+            self.LATIN_OLD_MODEL =  open_pickle(os.path.join(self.models_path, 'latin_lemmata_cltk.pickle'))
+            self.LATIN_MODEL =  open_pickle(os.path.join(self.models_path, 'latin_model.pickle'))
+        except FileNotFoundError as err:
+            raise type(err)(missing_models_message)
+
+        self.latin_sub_patterns = latin_sub_patterns # Move to latin_models_cltk
+        self.latin_verb_patterns = latin_verb_patterns # Move to latin_models_cltk
+        # self.latin_pps = latin_pps # Move to latin_models_cltk
+
         self.seed = seed
         self.VERBOSE=VERBOSE
-
-        rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-        path = os.path.expanduser(rel_path)
-
-        # Check for presence of LATIN_OLD_MODEL
-        file = 'latin_pos_lemmatized_sents.pickle'
-
-        train_path = os.path.join(path, file)
-
-        if os.path.isfile(train_path):
-            self.train = open_pickle(train_path)
-        else:
-            self.train = [[]]
-            raise Exception(f"\nThe file {file} is not available in cltk_data. This file is necessary for the use of the BackoffLatinLemmatizer. Please load the ```latin_models_cltk``` file from the cltk corpora.")
-
-        # Check for presence of LATIN_OLD_MODEL
-        file = 'latin_lemmata_cltk.pickle'
-
-        old_model_path = os.path.join(path, file)
-        if os.path.isfile(old_model_path):
-            self.LATIN_OLD_MODEL = open_pickle(old_model_path)
-        else:
-            self.LATIN_OLD_MODEL = {}
-            print('The file %s is not available in cltk_data' % file)
-
-        # Check for presence of LATIN_MODEL
-        file = 'latin_model.pickle'
-
-        model_path = os.path.join(path, file)
-        if os.path.isfile(model_path):
-            self.LATIN_MODEL = open_pickle(model_path)
-        else:
-            self.LATIN_MODEL = {}
-            print('The file %s is not available in cltk_data' % file)
-
-        # Check for presence of misc_patterns
-        self.latin_sub_patterns = latin_sub_patterns
-
-        # Check for presence of verb_patterns
-        self.latin_verb_patterns = latin_verb_patterns
-
-        # Check for presence of latin_pps
-        self.latin_pps = latin_pps
 
         def _randomize_data(train, seed):
             import random
@@ -357,6 +330,7 @@ class BackoffLatinLemmatizer(object):
 
         self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train, self.seed)
         self._define_lemmatizer()
+
 
     def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
@@ -385,12 +359,12 @@ class BackoffLatinLemmatizer(object):
 if __name__ == '__main__':
 
     from pprint import pprint
-    l1 = DefaultLemmatizer('UNK', VERBOSE=True)
-    l2 = DictLemmatizer(lemmas={'arma': 'arma', 'uirum': 'uir'}, backoff=l1, VERBOSE=True)
-    l3 = UnigramLemmatizer(train=[[('cano', 'cano'), ('.', 'punc')],], backoff=l2, VERBOSE=True)
-    l4 = RegexpLemmatizer(regexps=[('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),], backoff=l3, VERBOSE=True)
-    lemmas = l4.lemmatize('arma uirum -que cano nobilitatis .'.split())
-    pprint(lemmas)
+    # l1 = DefaultLemmatizer('UNK', VERBOSE=True)
+    # l2 = DictLemmatizer(lemmas={'arma': 'arma', 'uirum': 'uir'}, backoff=l1, VERBOSE=True)
+    # l3 = UnigramLemmatizer(train=[[('cano', 'cano'), ('.', 'punc')],], backoff=l2, VERBOSE=True)
+    # l4 = RegexpLemmatizer(regexps=[('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),], backoff=l3, VERBOSE=True)
+    # lemmas = l4.lemmatize('arma uirum -que cano nobilitatis .'.split())
+    # pprint(lemmas)
 
 # [('arma', 'arma', <UnigramLemmatizer: [[('res', 'res'), ...], ...]>),
 # ('uirum', 'uir', <UnigramLemmatizer: [[('res', 'res'), ...], ...]>),
@@ -403,7 +377,7 @@ if __name__ == '__main__':
 
     print('\n')
 
-    bll = BackoffLatinLemmatizer(seed=5, VERBOSE=True)
+    bll = BackoffLatinLemmatizer(seed=5, VERBOSE=False)
     lemmas = bll.lemmatize('arma uirum -que cano nobilitatis .'.split())
     pprint(lemmas)
 
