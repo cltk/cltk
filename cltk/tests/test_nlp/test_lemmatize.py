@@ -1,6 +1,7 @@
 """Test cltk.lemmatize."""
 import os
 import unittest
+from unittest.mock import patch
 
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
@@ -199,13 +200,19 @@ class TestSequenceFunctions(unittest.TestCase):
         accuracy = lemmatizer.evaluate()
         self.assertTrue(.85 <= accuracy <= 1)
 
-# Perhaps should be an assertion about raising an exception
+
     def test_backoff_latin_lemmatizer_evaluate_verbose(self):
         """Test backoffLatinLemmatizer evaluate method"""
         lemmatizer = BackoffLatinLemmatizer(VERBOSE=True)
         with self.assertRaises(AssertionError):
             accuracy = lemmatizer.evaluate()
-        # self.assertTrue(accuracy == 0)
+
+
+    def test_backoff_latin_lemmatizer_models_not_present(self):
+        """Test whether models are present for BackoffLatinLemmatizer"""
+        with patch.object(BackoffLatinLemmatizer,'models_path',''):
+            with self.assertRaises(FileNotFoundError):
+                lemmatizer = BackoffLatinLemmatizer()
 
 
     def test_french_lemmatizer(self):
