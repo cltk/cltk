@@ -151,6 +151,49 @@ class BaseSentenceTokenizer(object):
         should be overridden by subclasses of SentenceTokenizer.
         """
 
+class PunktSentenceTokenizer(BaseSentenceTokenizer):
+    """Base class for punkt sentence tokenization
+    """
+    def __init__(self, language=None):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        BaseSentenceTokenizer.__init__(self, language)
+        if language:
+            self.model = self._get_model()
+        # if lang_vars:
+        #     self.lang_vars = lang_vars
+
+
+    def _get_model(self):
+        # Can this be simplified?
+        model_file = '{}_punkt.pickle'.format(self.language)
+        model_path = os.path.join('~/cltk_data',
+                                self.language,
+                                'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
+        model_path = os.path.expanduser(model_path)
+        model_path = os.path.join(model_path, model_file)
+        assert os.path.isfile(model_path), \
+            'Please download sentence tokenization model for {}.'.format(self.language)
+        return model_path
+
+
+    def tokenize(self, text, model=None, lang_vars=None):
+        """
+        Method for tokenizing sentences. This method
+        should be overridden by subclasses of SentenceTokenizer.
+        """
+        if not self.model:
+            model = self.model
+
+        tokenizer = open_pickle(self.model)
+        if lang_vars:
+            tokenizer._lang_vars = lang_vars
+
+        return tokenizer.tokenize(text)
+
+
 class RegexSentenceTokenizer(BaseSentenceTokenizer):
     """ Base class for regex sentence tokenization
     """

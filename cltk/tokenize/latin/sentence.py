@@ -5,7 +5,7 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
 import os.path
-from cltk.tokenize.sentence import BaseSentenceTokenizer
+from cltk.tokenize.sentence import BaseSentenceTokenizer, PunktSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 
@@ -21,44 +21,50 @@ def SentenceTokenizer(tokenizer='punkt'):
         return LatinPunktSentenceTokenizer()
 
 
-class LatinPunktSentenceTokenizer(BaseSentenceTokenizer):
+class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
     """ Base class for sentence tokenization
     """
 
-    def __init__(self):
+    def __init__(self, language='latin'):
         """
         :param language : language for sentence tokenization
         :type language: str
         """
-        BaseSentenceTokenizer.__init__(self, 'latin')
+        PunktSentenceTokenizer.__init__(self, language='latin')
         self.model = self._get_model()
+        self.lang_vars = LatinLanguageVars()
 
 
-    def tokenize(self, text, model=None):
-        """
-        Method for tokenizing sentences. This method
-        should be overridden by subclasses of SentenceTokenizer.
-        """
-        if not self.model:
-            model = self.model
-
-        tokenizer = open_pickle(self.model)
-        tokenizer._lang_vars = LatinLanguageVars()
-
-        return tokenizer.tokenize(text)
+class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
+    def __init__(self):
+        RegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
 
 
-    def _get_model(self):
-        # Can this be simplified?
-        model_file = '{}_punkt.pickle'.format(self.language)
-        model_path = os.path.join('~/cltk_data',
-                                self.language,
-                                'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-        model_path = os.path.expanduser(model_path)
-        model_path = os.path.join(model_path, model_file)
-        assert os.path.isfile(model_path), \
-            'Please download sentence tokenization model for {}.'.format(self.language)
-        return model_path
+    # def tokenize(self, text, model=None, lang_vars=self.lang_vars):
+    #     """
+    #     Method for tokenizing sentences. This method
+    #     should be overridden by subclasses of SentenceTokenizer.
+    #     """
+    #     if not self.model:
+    #         model = self.model
+    #
+    #     tokenizer = open_pickle(self.model)
+    #     tokenizer._lang_vars = LatinLanguageVars()
+    #
+    #     return tokenizer.tokenize(text)
+
+
+    # def _get_model(self):
+    #     # Can this be simplified?
+    #     model_file = '{}_punkt.pickle'.format(self.language)
+    #     model_path = os.path.join('~/cltk_data',
+    #                             self.language,
+    #                             'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
+    #     model_path = os.path.expanduser(model_path)
+    #     model_path = os.path.join(model_path, model_file)
+    #     assert os.path.isfile(model_path), \
+    #         'Please download sentence tokenization model for {}.'.format(self.language)
+    #     return model_path
 
 
 if __name__ == "__main__":
