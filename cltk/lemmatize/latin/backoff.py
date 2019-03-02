@@ -87,10 +87,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         for i in range(len(tokens)):
             tag, tagger = self.tag_one(tokens, i, tags)
             tags.append(tag)
-            if tag:
-                taggers.append(str(tagger))
-            else:
-                taggers.append(None)
+            taggers.append(str(tagger)) if tag else taggers.append(None)
 
         if self.VERBOSE:
             return(list(zip(tokens, tags, taggers)))
