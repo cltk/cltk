@@ -122,7 +122,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test TLGU convert. This reads the file
         ``tlgu_test_text_beta_code.txt``, which mimics a TLG file, and
         converts it.
-        Note: assertEquals fails on some accented characters ('ή', 'ί').
+        Note: assertEqual fails on some accented characters ('ή', 'ί').
         """
         in_test = os.path.abspath('cltk/tests/test_nlp/tlgu_test_text_beta_code.txt')
         out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
