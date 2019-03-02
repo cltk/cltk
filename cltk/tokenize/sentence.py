@@ -162,8 +162,6 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         BaseSentenceTokenizer.__init__(self, language)
         if language:
             self.model = self._get_model()
-        # if lang_vars:
-        #     self.lang_vars = lang_vars
 
 
     def _get_model(self):
@@ -218,8 +216,6 @@ class RegexSentenceTokenizer(BaseSentenceTokenizer):
         """
         sentences = re.split(self.pattern, text)
         return sentences
-
-
 
 ## Think more about how this will work
 #    def evaluate(self, gold):
