@@ -1,6 +1,6 @@
 """Tokenize sentences."""
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
 __license__ = 'MIT License. See LICENSE.'
 
 import os
@@ -20,10 +20,11 @@ PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
                     'internal': (',', '·'),
                     'file': 'greek.pickle', },
-               'latin':
-                   {'external': ('.', '?', '!', ':'),
-                    'internal': (',', ';'),
-                    'file': 'latin.pickle', }}
+               # 'latin':
+               #     {'external': ('.', '?', '!', ':'),
+               #      'internal': (',', ';'),
+               #      'file': 'latin.pickle', }
+                    }
 
 INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
@@ -47,7 +48,6 @@ class TokenizeSentence():  # pylint: disable=R0903
         elif self.language not in INDIAN_LANGUAGES :
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
-
 
     def _setup_language_variables(self, lang: str):
         """Check for language availability and presence of tokenizer file,
@@ -96,7 +96,6 @@ class TokenizeSentence():  # pylint: disable=R0903
         assert isinstance(untokenized_string, str), \
             'Incoming argument must be a string.'
 
-
         if self.language=='latin':
             tokenizer = open_pickle(self.model)
             if self.lang_vars:
@@ -139,17 +138,8 @@ class TokenizeSentence():  # pylint: disable=R0903
 
 ### Code below for consideration as new structure for modules; code above legacy?
 
-# """ Code for sentence tokenization
-# """
-#
-# __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
-# __license__ = 'MIT License.'
-
-
 from abc import abstractmethod
 
-#from nltk.metrics.scores import accuracy, precision, recall, f-score
-#from cltk.utils.cltk_logger import logger
 
 class BaseSentenceTokenizer(object):
     """ Base class for sentence tokenization
@@ -163,13 +153,13 @@ class BaseSentenceTokenizer(object):
         if language:
             self.language = language.lower()
 
-
     @abstractmethod
     def tokenize(self, text):
         """
         Method for tokenizing sentences. This method
         should be overridden by subclasses of SentenceTokenizer.
         """
+
 
 class PunktSentenceTokenizer(BaseSentenceTokenizer):
     """Base class for punkt sentence tokenization
@@ -184,7 +174,6 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         if language:
             self.model = PunktSentenceTokenizer._get_model(self)
 
-
     def _get_model(self):
         # Can this be simplified?
         model_file = '{}_punkt.pickle'.format(self.language)
@@ -196,7 +185,6 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         assert os.path.isfile(model_path), \
             'Please download sentence tokenization model for {}.'.format(self.language)
         return model_path
-
 
     def tokenize(self, text, model=None, lang_vars=None):
         """
@@ -230,7 +218,6 @@ class RegexSentenceTokenizer(BaseSentenceTokenizer):
         else:
             raise Exception
 
-
     def tokenize(self, text):
         """
         Method for tokenizing Greek sentences with regular expressions.
@@ -239,6 +226,8 @@ class RegexSentenceTokenizer(BaseSentenceTokenizer):
         return sentences
 
 ## Think more about how this will work
+#from nltk.metrics.scores import accuracy, precision, recall, f-score
+#
 #    def evaluate(self, gold):
 #        """
 #        following http://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.evaluate
