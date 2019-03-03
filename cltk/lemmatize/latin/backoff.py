@@ -152,7 +152,7 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
         return self.lemma
 
     def __repr__(self):
-        return f'<{type(self).name}: lemma={self.lemma}>'
+        return f'<{type(self).__name__}: lemma={self.lemma}>'
 
 
 class IdentityLemmatizer(SequentialBackoffLemmatizer):
@@ -175,7 +175,7 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
         return tokens[index]
 
     def __repr__(self):
-        return f'<{type(self).name}>'
+        return f'<{type(self).__name__}>'
 
 
 class DictLemmatizer(SequentialBackoffLemmatizer):
@@ -215,9 +215,9 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
 
     def __repr__(self):
         if self.source:
-            return f'<{type(self).name}: {self.source}>'
+            return f'<{type(self).__name__}: {self.source}>'
         else:
-            return f'<{type(self).name}: {self.repr.repr(self.lemmas)}>'
+            return f'<{type(self).__name__}: {self.repr.repr(self.lemmas)}>'
 
 
 class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
@@ -239,9 +239,9 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
 
     def __repr__(self):
         if self.source:
-            return f'<{type(self).name}: {self.source}>'
+            return f'<{type(self).__name__}: {self.source}>'
         else:
-            return f'<{type(self).name}: {self.repr.repr(self.train)}>'
+            return f'<{type(self).__name__}: {self.repr.repr(self.train)}>'
 
 
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
@@ -278,10 +278,50 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
 
     def __repr__(self):
         if self.source:
-            return f'<{type(self).name}: {self.source}>'
+            return f'<{type(self).__name__}: {self.source}>'
         else:
-            return f'<{type(self).name}: {self.repr.repr(self._regexs)}>'
+            return f'<{type(self).__name__}: {self.repr.repr(self._regexs)}>'
 
+
+class RomanNumeralLemmatizer(RegexpLemmatizer):
+    """
+
+    """
+    def __init__(self, default=None, backoff=None):
+        """
+        RomanNumeralLemmatizer
+        :type default: str
+        :param default: Default replacement for lemma; 'NUM' in given pattern
+        """
+        regexps = [
+            (r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'),
+            (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')
+            ]
+        RegexpLemmatizer.__init__(self, regexps, backoff)
+        self._regexs = [(re.compile(regexp), pattern,) for regexp, pattern in regexps]
+        self.default = default
+
+    def choose_tag(self, tokens, index, history):
+        """Use regular expressions for rules-based lemmatizing based on word endings;
+        tokens are matched for patterns with the base kept as a group; an word ending
+        replacement is added to the (base) group.
+        :rtype: str
+        :type tokens: list
+        :param tokens: List of tokens to be lemmatized
+        :type index: int
+        :param index: Int with current token
+        :type history: list
+        :param history: List with tokens that have already been lemmatized; NOT USED
+        """
+        for pattern, replace in self._regexs:
+            if re.search(pattern, tokens[index]):
+                if self.default:
+                    return self.default
+                else:
+                    return replace
+
+    def __repr__(self):
+        return f'<{type(self).__name__}: CLTK Roman Numeral Patterns>'
 
 class BackoffLatinLemmatizer(object):
     """Suggested backoff chain; includes at least on of each
@@ -384,3 +424,6 @@ if __name__ == '__main__':
     # ('cano', 'cano', <DictLemmatizer: Morpheus Lemmas>),
     # ('nobilitatis', 'nobilitas', <RegexpLemmatizer: CLTK Latin Regex Patterns>),
     # ('.', 'punc', <DictLemmatizer: Latin Model>)]
+
+    rn = RomanNumeralLemmatizer()
+    print(rn.lemmatize(['MMCI']))

@@ -102,15 +102,22 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_roman_numeral_lemmatizer(self):
         """Test roman_numeral_lemmatizer()"""
-        rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'), (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
-        lemmatizer = RomanNumeralLemmatizer(rn_patterns)
+        lemmatizer = RomanNumeralLemmatizer()
         test_str = 'i ii iii iv v vi vii vii ix x xx xxx xl l lx c cc'
         target = [('i', 'NUM'), ('ii', 'NUM'), ('iii', 'NUM'), ('iu', 'NUM'), ('u', 'NUM'), ('ui', 'NUM'), ('uii', 'NUM'), ('uii', 'NUM'), ('ix', 'NUM'), ('x', 'NUM'), ('xx', 'NUM'), ('xxx', 'NUM'), ('xl', 'NUM'), ('l', 'NUM'), ('lx', 'NUM'), ('c', 'NUM'), ('cc', 'NUM')]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer('latin')
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        self.assertEqual(lemmas, target)
+
+    def test_roman_numeral_lemmatizer_default(self):
+        """Test roman_numeral_lemmatizer()"""
+        lemmatizer = RomanNumeralLemmatizer(default="RN")
+        test_str = 'i ii iii'
+        target = [('i', 'RN'), ('ii', 'RN'), ('iii', 'RN')]
+        tokens = test_str.split()
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
