@@ -67,7 +67,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         else:
             self._taggers = [self] + backoff._taggers
 
-        self.verbose = verbose
+        self.VERBOSE = verbose
         self.repr = reprlib.Repr()
         self.repr.maxlist = 1
         self.repr.maxdict = 1
@@ -94,7 +94,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
             tags.append(tag)
             taggers.append(str(tagger)) if tag else taggers.append(None)
 
-        if self.verbose:
+        if self.VERBOSE:
             return(list(zip(tokens, tags, taggers)))
         else:
             return list(zip(tokens, tags))
@@ -319,7 +319,7 @@ class BackoffLatinLemmatizer(object):
         # self.latin_pps = latin_pps # Move to latin_models_cltk
 
         self.seed = seed
-        self.verbose=verbose
+        self.VERBOSE=verbose
 
         def _randomize_data(train, seed):
             import random
@@ -339,11 +339,11 @@ class BackoffLatinLemmatizer(object):
     def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
-        self.backoff1 = IdentityLemmatizer(verbose=self.verbose)
-        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, source='Morpheus Lemmas', backoff=self.backoff1, verbose=self.verbose)
-        self.backoff3 = RegexpLemmatizer(self.latin_sub_patterns, source='CLTK Latin Regex Patterns', backoff=self.backoff2, verbose=self.verbose)
-        self.backoff4 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff3, verbose=self.verbose)
-        self.backoff5 = DictLemmatizer(lemmas=self.LATIN_MODEL, source='Latin Model', backoff=self.backoff4, verbose=self.verbose)
+        self.backoff1 = IdentityLemmatizer(verbose=self.VERBOSE)
+        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, source='Morpheus Lemmas', backoff=self.backoff1, verbose=self.VERBOSE)
+        self.backoff3 = RegexpLemmatizer(self.latin_sub_patterns, source='CLTK Latin Regex Patterns', backoff=self.backoff2, verbose=self.VERBOSE)
+        self.backoff4 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff3, verbose=self.VERBOSE)
+        self.backoff5 = DictLemmatizer(lemmas=self.LATIN_MODEL, source='Latin Model', backoff=self.backoff4, verbose=self.VERBOSE)
         self.lemmatizer = self.backoff5
 
     def lemmatize(self, tokens):
@@ -352,7 +352,7 @@ class BackoffLatinLemmatizer(object):
 
     def evaluate(self):
 
-        if self.verbose:
+        if self.VERBOSE:
             raise AssertionError("evaluate() method only works when verbose=False")
         return self.lemmatizer.evaluate(self.test_sents)
 
