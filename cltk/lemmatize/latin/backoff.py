@@ -152,7 +152,7 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
         return self.lemma
 
     def __repr__(self):
-        return f'<DefaultLemmatizer: lemma={self.lemma}>'
+        return f'<{type(self).name}: lemma={self.lemma}>'
 
 
 class IdentityLemmatizer(SequentialBackoffLemmatizer):
@@ -175,7 +175,7 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
         return tokens[index]
 
     def __repr__(self):
-        return f'<IdentityLemmatizer>'
+        return f'<{type(self).name}>'
 
 
 class DictLemmatizer(SequentialBackoffLemmatizer):
@@ -215,9 +215,9 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
 
     def __repr__(self):
         if self.source:
-            return f'<DictLemmatizer: {self.source}>'
+            return f'<{type(self).name}: {self.source}>'
         else:
-            return f'<DictLemmatizer: {self.repr.repr(self.lemmas)}>'
+            return f'<{type(self).name}: {self.repr.repr(self.lemmas)}>'
 
 
 class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
@@ -239,9 +239,9 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
 
     def __repr__(self):
         if self.source:
-            return f'<UnigramLemmatizer: {self.source}>'
+            return f'<{type(self).name}: {self.source}>'
         else:
-            return f'<UnigramLemmatizer: {self.repr.repr(self.train)}>'
+            return f'<{type(self).name}: {self.repr.repr(self.train)}>'
 
 
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
@@ -278,9 +278,9 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
 
     def __repr__(self):
         if self.source:
-            return f'<RegexpLemmatizer: {self.source}>'
+            return f'<{type(self).name}: {self.source}>'
         else:
-            return f'<RegexpLemmatizer: {self.repr.repr(self._regexs)}>'
+            return f'<{type(self).name}: {self.repr.repr(self._regexs)}>'
 
 
 class BackoffLatinLemmatizer(object):
