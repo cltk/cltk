@@ -74,14 +74,19 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
 
 
     def tag(self, tokens):
-        # Docs (mostly) inherited from TaggerI
-        # Cf. https://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.tag
-        #
-        # Two tweaks:
-        # 1. Properly handle 'verbose' listing of current tagger in
-        # the case of None (i.e. ``if tag: etc.``)
-        # 2. Keep track of taggers and change return depending on
-        # 'verbose' flag
+        """ Docs (mostly) inherited from TaggerI; cf.
+        https://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.tag
+
+        Two tweaks:
+        1. Properly handle 'verbose' listing of current tagger in
+        the case of None (i.e. ``if tag: etc.``)
+        2. Keep track of taggers and change return depending on
+        'verbose' flag
+
+        :rtype list
+        :type tokens: list
+        :param tokens: List of tokens to tag
+        """
         tags = []
         taggers = []
         for i in range(len(tokens)):
