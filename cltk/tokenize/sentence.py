@@ -3,14 +3,15 @@
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
 __license__ = 'MIT License. See LICENSE.'
 
-
-from cltk.utils.file_operations import open_pickle
-from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
 import re
 import string
 
+from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktSentenceTokenizer
+
+from cltk.utils.file_operations import open_pickle
+from cltk.tokenize.latin.sentence import LatinLanguageVars
 
 PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
@@ -19,7 +20,7 @@ PUNCTUATION = {'greek':
                'latin':
                    {'external': ('.', '?', '!', ':'),
                     'internal': (',', ';'),
-                    'file': 'latin_old.pickle', }}
+                    'file': 'latin.pickle', }}
 
 INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
@@ -35,9 +36,15 @@ class TokenizeSentence():  # pylint: disable=R0903
         """
         self.language = language.lower()
 
-        if self.language not in INDIAN_LANGUAGES :
+        # Workaround for Latin—use old API syntax to load new sent tokenizer
+        if self.language == 'latin':
+            PunktSentenceTokenizer.__init__(self, language='latin')
+            self.model = PunktSentenceTokenizer._get_model(self)
+            self.lang_vars = LatinLanguageVars()
+        elif self.language not in INDIAN_LANGUAGES :
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
+
 
     def _setup_language_variables(self, lang: str):
         """Check for language availability and presence of tokenizer file,
@@ -85,14 +92,24 @@ class TokenizeSentence():  # pylint: disable=R0903
         # load tokenizer
         assert isinstance(untokenized_string, str), \
             'Incoming argument must be a string.'
-        tokenizer = open_pickle(self.tokenizer_path)
-        tokenizer = self._setup_tokenizer(tokenizer)
+
+
+        if self.language=='latin':
+            tokenizer = open_pickle(self.model)
+            if self.lang_vars:
+                tokenizer._lang_vars = self.lang_vars
+        else:
+            tokenizer = open_pickle(self.tokenizer_path)
+            tokenizer = self._setup_tokenizer(tokenizer)
 
         # mk list of tokenized sentences
-        tokenized_sentences = []
-        for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
-            tokenized_sentences.append(sentence)
-        return tokenized_sentences
+        if self.language=='latin':
+            return tokenizer.tokenize(sentences)
+        else:
+            tokenized_sentences = []
+            for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
+                tokenized_sentences.append(sentence)
+            return tokenized_sentences
 
     def indian_punctuation_tokenize_regex(self: object, untokenized_string: str):
         """A trivial tokenizer which just tokenizes on the punctuation boundaries.
@@ -162,7 +179,7 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language=language
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
-            self.model = self._get_model()
+            self.model = PunktSentenceTokenizer._get_model(self)
 
 
     def _get_model(self):
@@ -235,3 +252,12 @@ class RegexSentenceTokenizer(BaseSentenceTokenizer):
 #        gold_tokens = list(chain(*gold))
 #        test_tokens = list(chain(*tagged_sents))
 #        return accuracy(gold_tokens, test_tokens)
+
+
+if __name__ == "__main__":
+    sentences = """Sed hoc primum sentio, nisi in bonis amicitiam esse non posse; neque id ad vivum reseco, ut illi qui haec subtilius disserunt, fortasse vere, sed ad communem utilitatem parum; negant enim quemquam esse virum bonum nisi sapientem. Sit ita sane; sed eam sapientiam interpretantur quam adhuc mortalis nemo est consecutus, nos autem ea quae sunt in usu vitaque communi, non ea quae finguntur aut optantur, spectare debemus. Numquam ego dicam C. Fabricium, M'. Curium, Ti. Coruncanium, quos sapientes nostri maiores iudicabant, ad istorum normam fuisse sapientes. Quare sibi habeant sapientiae nomen et invidiosum et obscurum; concedant ut viri boni fuerint. Ne id quidem facient, negabunt id nisi sapienti posse concedi."""
+
+    tokenizer = TokenizeSentence('latin')
+    sents = tokenizer.tokenize(sentences)
+    for i, sent in enumerate(sents, 1):
+        print(f'{i}: {sent}')
