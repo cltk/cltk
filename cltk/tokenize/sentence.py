@@ -11,7 +11,10 @@ from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.utils.file_operations import open_pickle
-from cltk.tokenize.latin.sentence import LatinLanguageVars
+
+# Part of Latin workaround
+class LatinLanguageVars(PunktLanguageVars):
+    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
