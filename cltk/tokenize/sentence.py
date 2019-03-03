@@ -107,7 +107,7 @@ class TokenizeSentence():  # pylint: disable=R0903
 
         # mk list of tokenized sentences
         if self.language=='latin':
-            return tokenizer.tokenize(sentences)
+            return tokenizer.tokenize(untokenized_string)
         else:
             tokenized_sentences = []
             for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
