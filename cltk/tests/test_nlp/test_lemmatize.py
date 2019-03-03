@@ -108,7 +108,7 @@ class TestSequenceFunctions(unittest.TestCase):
         jv_replacer = JVReplacer()
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
-        tokens = tokenizer.tokenize(test_str)
+        tokens = test_str.split()
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
