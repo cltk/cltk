@@ -13,12 +13,7 @@ from cltk.lemmatize.latin.backoff import UnigramLemmatizer
 from cltk.lemmatize.latin.backoff import DictLemmatizer
 from cltk.lemmatize.latin.backoff import RegexpLemmatizer
 from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
-
-# from cltk.lemmatize.latin.backoff import PPLemmatizer # Removed temporarily
-# from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer # Removed temporarily
-# from cltk.lemmatize.latin.backoff import NgramPOSLemmatizer # Removed temporarily
-# from cltk.lemmatize.latin.backoff import BigramPOSLemmatizer # Removed temporarily
-#from cltk.lemmatize.latin.regexp_patterns import rn_patterns
+from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer # Removed temporarily
 
 from cltk.lemmatize.french.lemma import LemmaReplacer
 
@@ -105,64 +100,19 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
-# Removed temporarily
-    # def test_latin_pp_lemmatizer(self):
-    #     """Test latin_pp_lemmatizer()"""
-    #     pattern = [(r'(\w*)[a|ie]bimus\b', 1)]
-    #     pps = { 'amo': [1, 'am', 'amare', 'amau', 'amat'] }
-    #     lemmatizer = PPLemmatizer(pattern, pps=pps)
-    #     test_str = 'amabimus'
-    #     target = [('amabimus', 'amo')]
-    #     jv_replacer = JVReplacer()
-    #     tokenizer = WordTokenizer('latin')
-    #     test_str = test_str.lower()
-    #     test_str = jv_replacer.replace(test_str)
-    #     tokens = tokenizer.tokenize(test_str)
-    #     lemmas = lemmatizer.lemmatize(tokens)
-    #     self.assertEqual(lemmas, target)
-
-# Removed temporarily
-    # def test_roman_numeral_lemmatizer(self):
-    #     """Test roman_numeral_lemmatizer()"""
-    #     rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'), (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
-    #     lemmatizer = RomanNumeralLemmatizer(rn_patterns)
-    #     test_str = 'i ii iii iv v vi vii vii ix x xx xxx xl l lx c cc'
-    #     target = [('i', 'NUM'), ('ii', 'NUM'), ('iii', 'NUM'), ('iu', 'NUM'), ('u', 'NUM'), ('ui', 'NUM'), ('uii', 'NUM'), ('uii', 'NUM'), ('ix', 'NUM'), ('x', 'NUM'), ('xx', 'NUM'), ('xxx', 'NUM'), ('xl', 'NUM'), ('l', 'NUM'), ('lx', 'NUM'), ('c', 'NUM'), ('cc', 'NUM')]  # pylint: disable=line-too-long
-    #     jv_replacer = JVReplacer()
-    #     tokenizer = WordTokenizer('latin')
-    #     test_str = test_str.lower()
-    #     test_str = jv_replacer.replace(test_str)
-    #     tokens = tokenizer.tokenize(test_str)
-    #     lemmas = lemmatizer.lemmatize(tokens)
-    #     self.assertEqual(lemmas, target)
-    #
-    # def test_roman_numeral_lemmatizer_with_default(self):
-    #     """Test roman_numeral_lemmatizer()"""
-    #     rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'), (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
-    #     lemmatizer = RomanNumeralLemmatizer(rn_patterns, default="RN")
-    #     test_str = 'i ii'
-    #     target = [('i', 'RN'), ('ii', 'RN')]  # pylint: disable=line-too-long
-    #     jv_replacer = JVReplacer()
-    #     tokenizer = WordTokenizer('latin')
-    #     test_str = test_str.lower()
-    #     test_str = jv_replacer.replace(test_str)
-    #     tokens = tokenizer.tokenize(test_str)
-    #     lemmas = lemmatizer.lemmatize(tokens)
-    #     self.assertEqual(lemmas, target)
-
-# Removed temporarily
-    # def test_bigram_pos_lemmatizer(self):
-    #     train = [[('dixissem', 'dico', 'v')], [('de', 'de', 'r'), ('te', 'tu', 'p'), ('autem', 'autem', 'c'), (',', 'punc', 'u'), ('catilina', 'catilina', 'n'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('quiescunt', 'quiesco', 'v'), (',', 'punc', 'u'), ('probant', 'probo', 'v'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('patiuntur', 'patior', 'v'), (',', 'punc', 'u'), ('decernunt', 'decerno', 'v'), (',', 'punc', 'u'), ('cum', 'cum2', 'c'), ('tacent', 'taceo', 'v'), (',', 'punc', 'u'), ('clamant', 'clamo', 'v'), (',', 'punc', 'u'), ('neque', 'neque', 'c'), ('hi', 'hic', 'p'), ('solum', 'solus', 'd'), ('quorum', 'qui', 'p'), ('tibi', 'tu', 'p'), ('auctoritas', 'auctoritas', 'n'), ('est', 'sum', 'v'), ('uidelicet', 'uidelicet', 'd'), ('cara', 'carus', 'a'), (',', 'punc', 'u'), ('uita', 'uita', 'n'), ('uilissima', 'uilis', 'a'), (',', 'punc', 'u'), ('sed', 'sed', 'c'), ('etiam', 'etiam', 'c'), ('illi', 'ille', 'p'), ('equites', 'eques', 'n'), ('romani', 'romanus', 'a'), (',', 'punc', 'u'), ('honestissimi', 'honestus', 'a'), ('atque', 'atque', 'c'), ('optimi', 'bonus', 'a'), ('uiri', 'uir', 'n'), (',', 'punc', 'u'), ('ceteri', 'ceterus', 'a'), ('-que', '-que', 'c'), ('fortissimi', 'fortis', 'a'), ('ciues', 'ciuis', 'n'), ('qui', 'qui', 'p'), ('circumstant', 'circumsto', 'v'), ('senatum', 'senatus', 'n'), (',', 'punc', 'u'), ('quorum', 'qui', 'p'), ('tu', 'tu', 'p'), ('et', 'et', 'c'), ('frequentiam', 'frequentia', 'n'), ('uidere', 'uideo', 'v'), ('et', 'et', 'c'), ('studia', 'studium', 'n'), ('perspicere', 'perspicio', 'v'), ('et', 'et', 'c'), ('uoces', 'uox', 'n'), ('paulo', 'paulus', 'd'), ('ante', 'ante', 'd'), ('exaudire', 'exaudio', 'v'), ('potuisti', 'possum', 'v'), ('.', 'punc', 'u')]]
-    #     lemmatizer = BigramPOSLemmatizer(train=train, include=['cum'])
-    #     test_str = """Quod cum esset intellectum et animadversum fecit animo libentissimo populus Romanus"""
-    #     target = [('quod', None), ('cum', 'cum2'), ('esset', None), ('intellectum', None), ('et', None), ('animaduersum', None), ('fecit', None), ('animo', None), ('libentissimo', None), ('populus', None), ('romanus', None)]  # pylint: disable=line-too-long
-    #     jv_replacer = JVReplacer()
-    #     tokenizer = WordTokenizer('latin')
-    #     test_str = test_str.lower()
-    #     test_str = jv_replacer.replace(test_str)
-    #     tokens = tokenizer.tokenize(test_str)
-    #     lemmas = lemmatizer.lemmatize(tokens)
-    #     self.assertEqual(lemmas, target)
+    def test_roman_numeral_lemmatizer(self):
+        """Test roman_numeral_lemmatizer()"""
+        rn_patterns = [(r'(?=^[MDCLXVUI]+$)(?=^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|IU|V?I{0,3}|U?I{0,3})$)', 'NUM'), (r'(?=^[mdclxvui]+$)(?=^m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|iu|v?i{0,3}|u?i{0,3})$)', 'NUM')]
+        lemmatizer = RomanNumeralLemmatizer(rn_patterns)
+        test_str = 'i ii iii iv v vi vii vii ix x xx xxx xl l lx c cc'
+        target = [('i', 'NUM'), ('ii', 'NUM'), ('iii', 'NUM'), ('iu', 'NUM'), ('u', 'NUM'), ('ui', 'NUM'), ('uii', 'NUM'), ('uii', 'NUM'), ('ix', 'NUM'), ('x', 'NUM'), ('xx', 'NUM'), ('xxx', 'NUM'), ('xl', 'NUM'), ('l', 'NUM'), ('lx', 'NUM'), ('c', 'NUM'), ('cc', 'NUM')]  # pylint: disable=line-too-long
+        jv_replacer = JVReplacer()
+        tokenizer = WordTokenizer('latin')
+        test_str = test_str.lower()
+        test_str = jv_replacer.replace(test_str)
+        tokens = tokenizer.tokenize(test_str)
+        lemmas = lemmatizer.lemmatize(tokens)
+        self.assertEqual(lemmas, target)
 
     def test_backoff_latin_lemmatizer(self):
         """Test backoffLatinLemmatizer"""
@@ -178,7 +128,6 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
-
     def test_backoff_latin_lemmatizer_verbose(self):
         """Test backoffLatinLemmatizer"""
         train = [[('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]]  # pylint: disable=line-too-long
@@ -193,13 +142,11 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
-
     def test_backoff_latin_lemmatizer_evaluate(self):
         """Test backoffLatinLemmatizer evaluate method"""
         lemmatizer = BackoffLatinLemmatizer(verbose=False)
         accuracy = lemmatizer.evaluate()
         self.assertTrue(.85 <= accuracy <= 1)
-
 
     def test_backoff_latin_lemmatizer_evaluate_verbose(self):
         """Test backoffLatinLemmatizer evaluate method"""
@@ -207,13 +154,11 @@ class TestSequenceFunctions(unittest.TestCase):
         with self.assertRaises(AssertionError):
             accuracy = lemmatizer.evaluate()
 
-
     def test_backoff_latin_lemmatizer_models_not_present(self):
         """Test whether models are present for BackoffLatinLemmatizer"""
         with patch.object(BackoffLatinLemmatizer,'models_path',''):
             with self.assertRaises(FileNotFoundError):
                 lemmatizer = BackoffLatinLemmatizer()
-
 
     def test_french_lemmatizer(self):
         text = "Li rois pense que par folie, Sire Tristran, vos aie amé ; Mais Dé plevis ma loiauté, Qui sor mon cors mete flaele, S'onques fors cil qui m’ot pucele Out m'amistié encor nul jor !"
@@ -224,7 +169,6 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmas = lemmatizer.lemmatize(tokens)
         target = [('li', 'li'), ('rois', 'rois'), ('pense', 'pense'), ('que', 'que'), ('par', 'par'), ('folie', 'folie'), (',', ['PUNK']), ('sire', 'sire'), ('tristran', 'None'), (',', ['PUNK']), ('vos', 'vos'), ('aie', ['avoir']), ('amé', 'amer'), (';', ['PUNK']), ('mais', 'mais'), ('dé', 'dé'), ('plevis', 'plevir'), ('ma', 'ma'), ('loiauté', 'loiauté'), (',', ['PUNK']), ('qui', 'qui'), ('sor', 'sor'), ('mon', 'mon'), ('cors', 'cors'), ('mete', 'mete'), ('flaele', 'flaele'), (',', ['PUNK']), ("s'", "s'"), ('onques', 'onques'), ('fors', 'fors'), ('cil', 'cil'), ('qui', 'qui'), ("m'", "m'"), ('ot', 'ot'), ('pucele', 'pucele'), ('out', ['avoir']), ("m'", "m'"), ('amistié', 'amistié'), ('encor', 'encor'), ('nul', 'nul'), ('jor', 'jor'), ('!', ['PUNK'])]
         self.assertEqual(lemmas, target)
-
 
 if __name__ == '__main__':
     unittest.main()
