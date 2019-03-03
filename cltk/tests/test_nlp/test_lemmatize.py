@@ -182,7 +182,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_backoff_latin_lemmatizer_verbose(self):
         """Test backoffLatinLemmatizer"""
         train = [[('ceterum', 'ceterus'), ('antequam', 'antequam'), ('destinata', 'destino'), ('componam', 'compono')]]  # pylint: disable=line-too-long
-        lemmatizer = BackoffLatinLemmatizer(VERBOSE=True)
+        lemmatizer = BackoffLatinLemmatizer(verbose=True)
         test_str = """Ceterum antequam destinata componam"""
         target = [('ceterum', 'ceterum', '<UnigramLemmatizer: CLTK Sentence Training Data>'), ('antequam', 'antequam', '<UnigramLemmatizer: CLTK Sentence Training Data>'), ('destinata', 'destino', '<UnigramLemmatizer: CLTK Sentence Training Data>'), ('componam', 'compono', '<DictLemmatizer: Morpheus Lemmas>')]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
@@ -196,14 +196,14 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_backoff_latin_lemmatizer_evaluate(self):
         """Test backoffLatinLemmatizer evaluate method"""
-        lemmatizer = BackoffLatinLemmatizer(VERBOSE=False)
+        lemmatizer = BackoffLatinLemmatizer(verbose=False)
         accuracy = lemmatizer.evaluate()
         self.assertTrue(.85 <= accuracy <= 1)
 
 
     def test_backoff_latin_lemmatizer_evaluate_verbose(self):
         """Test backoffLatinLemmatizer evaluate method"""
-        lemmatizer = BackoffLatinLemmatizer(VERBOSE=True)
+        lemmatizer = BackoffLatinLemmatizer(verbose=True)
         with self.assertRaises(AssertionError):
             accuracy = lemmatizer.evaluate()
 

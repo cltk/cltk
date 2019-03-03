@@ -51,12 +51,12 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         and dict length in subclass __repr__'s
     """
 
-    def __init__(self, backoff, VERBOSE=False):
+    def __init__(self, backoff, verbose=False):
         """
         Setup for SequentialBackoffLemmatizer
         :param backoff: Next lemmatizer in backoff chain
-        :type VERBOSE: bool
-        :param VERBOSE: Flag to include which lemmatizer assigned in
+        :type verbose: bool
+        :param verbose: Flag to include which lemmatizer assigned in
             a given tag in the return tuple
         """
         SequentialBackoffTagger.__init__(self, backoff=None)
@@ -67,7 +67,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         else:
             self._taggers = [self] + backoff._taggers
 
-        self.VERBOSE = VERBOSE
+        self.verbose = verbose
         self.repr = reprlib.Repr()
         self.repr.maxlist = 1
         self.repr.maxdict = 1
@@ -89,7 +89,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
             tags.append(tag)
             taggers.append(str(tagger)) if tag else taggers.append(None)
 
-        if self.VERBOSE:
+        if self.verbose:
             return(list(zip(tokens, tags, taggers)))
         else:
             return list(zip(tokens, tags))
@@ -141,9 +141,9 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
     :type lemma: str
     :param lemma: Lemma to assign to each token
     """
-    def __init__(self, lemma=None, backoff=None, VERBOSE=False):
+    def __init__(self, lemma=None, backoff=None, verbose=False):
         self.lemma = lemma
-        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
 
     def choose_tag(self, tokens, index, history):
@@ -168,8 +168,8 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
     tokens, increasing the chance of a successful match.
     """
 
-    def __init__(self, backoff=None, VERBOSE=False):
-        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
+    def __init__(self, backoff=None, verbose=False):
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
 
     def choose_tag(self, tokens, index, history):
@@ -185,7 +185,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
     defining as its own class, it is clearer that this lemmatizer is
     based on dictionary lookup and does not use training data."""
 
-    def __init__(self, lemmas, backoff=None, source=None, VERBOSE=False):
+    def __init__(self, lemmas, backoff=None, source=None, verbose=False):
         """
         Setup for DictLemmatizer().
         :type lemmas: dict
@@ -193,7 +193,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
             as foor 'lookup'-style lemmatization
         :param backoff: Next lemmatizer in backoff chain.
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff, VERBOSE=VERBOSE)
+        SequentialBackoffLemmatizer.__init__(self, backoff, verbose=verbose)
         self.lemmas = lemmas
         self.source = source
 
@@ -229,11 +229,11 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
     based on training data and not on dictionary.
     """
 
-    def __init__(self, train=None, model=None, backoff=None, source=None, cutoff=0, VERBOSE=False):
+    def __init__(self, train=None, model=None, backoff=None, source=None, cutoff=0, verbose=False):
         """
         Setup for UnigramLemmatizer()
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
         UnigramTagger.__init__(self, train, model, backoff, cutoff)
         self.train = train
         self.source = source
@@ -249,13 +249,13 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
     """"""
 
-    def __init__(self, regexps=None, source=None, backoff=None, VERBOSE=False):
+    def __init__(self, regexps=None, source=None, backoff=None, verbose=False):
         """Setup for RegexpLemmatizer()
         :type regexps: list
         :param regexps: List of tuples of form (PATTERN, REPLACEMENT)
         :param backoff: Next lemmatizer in backoff chain.
         """
-        SequentialBackoffLemmatizer.__init__(self, backoff=None, VERBOSE=VERBOSE)
+        SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
         RegexpTagger.__init__(self, regexps, backoff)
         self._regexs = regexps
         self.source = source
@@ -297,7 +297,7 @@ class BackoffLatinLemmatizer(object):
 
     models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
 
-    def __init__(self, train=None, seed=3, VERBOSE=False):
+    def __init__(self, train=None, seed=3, verbose=False):
         self.models_path = BackoffLatinLemmatizer.models_path
 
         missing_models_message = "BackoffLatinLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
@@ -314,7 +314,7 @@ class BackoffLatinLemmatizer(object):
         # self.latin_pps = latin_pps # Move to latin_models_cltk
 
         self.seed = seed
-        self.VERBOSE=VERBOSE
+        self.verbose=verbose
 
         def _randomize_data(train, seed):
             import random
@@ -334,11 +334,11 @@ class BackoffLatinLemmatizer(object):
     def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
-        self.backoff1 = IdentityLemmatizer(VERBOSE=self.VERBOSE)
-        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, source='Morpheus Lemmas', backoff=self.backoff1, VERBOSE=self.VERBOSE)
-        self.backoff3 = RegexpLemmatizer(self.latin_sub_patterns, source='CLTK Latin Regex Patterns', backoff=self.backoff2, VERBOSE=self.VERBOSE)
-        self.backoff4 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff3, VERBOSE=self.VERBOSE)
-        self.backoff5 = DictLemmatizer(lemmas=self.LATIN_MODEL, source='Latin Model', backoff=self.backoff4, VERBOSE=self.VERBOSE)
+        self.backoff1 = IdentityLemmatizer(verbose=self.verbose)
+        self.backoff2 = DictLemmatizer(lemmas=self.LATIN_OLD_MODEL, source='Morpheus Lemmas', backoff=self.backoff1, verbose=self.verbose)
+        self.backoff3 = RegexpLemmatizer(self.latin_sub_patterns, source='CLTK Latin Regex Patterns', backoff=self.backoff2, verbose=self.verbose)
+        self.backoff4 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff3, verbose=self.verbose)
+        self.backoff5 = DictLemmatizer(lemmas=self.LATIN_MODEL, source='Latin Model', backoff=self.backoff4, verbose=self.verbose)
         self.lemmatizer = self.backoff5
 
     def lemmatize(self, tokens):
@@ -347,8 +347,8 @@ class BackoffLatinLemmatizer(object):
 
     def evaluate(self):
 
-        if self.VERBOSE:
-            raise AssertionError("evaluate() method only works when VERBOSE=False")
+        if self.verbose:
+            raise AssertionError("evaluate() method only works when verbose=False")
         return self.lemmatizer.evaluate(self.test_sents)
 
     def __repr__(self):
@@ -358,10 +358,10 @@ class BackoffLatinLemmatizer(object):
 if __name__ == '__main__':
 
     from pprint import pprint
-    # l1 = DefaultLemmatizer('UNK', VERBOSE=True)
-    # l2 = DictLemmatizer(lemmas={'arma': 'arma', 'uirum': 'uir'}, backoff=l1, VERBOSE=True)
-    # l3 = UnigramLemmatizer(train=[[('cano', 'cano'), ('.', 'punc')],], backoff=l2, VERBOSE=True)
-    # l4 = RegexpLemmatizer(regexps=[('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),], backoff=l3, VERBOSE=True)
+    # l1 = DefaultLemmatizer('UNK', verbose=True)
+    # l2 = DictLemmatizer(lemmas={'arma': 'arma', 'uirum': 'uir'}, backoff=l1, verbose=True)
+    # l3 = UnigramLemmatizer(train=[[('cano', 'cano'), ('.', 'punc')],], backoff=l2, verbose=True)
+    # l4 = RegexpLemmatizer(regexps=[('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),], backoff=l3, verbose=True)
     # lemmas = l4.lemmatize('arma uirum -que cano nobilitatis .'.split())
     # pprint(lemmas)
 
@@ -376,7 +376,7 @@ if __name__ == '__main__':
 
     print('\n')
 
-    bll = BackoffLatinLemmatizer(seed=5, VERBOSE=False)
+    bll = BackoffLatinLemmatizer(seed=5, verbose=False)
     lemmas = bll.lemmatize('arma uirum -que cano nobilitatis .'.split())
     pprint(lemmas)
 

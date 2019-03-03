@@ -316,20 +316,20 @@ These lemmatizers also have a verbose mode that returns the specific tagger used
 
 .. code-block:: python
 
-   In [22]: default = DefaultLemmatizer('UNK', VERBOSE=True)
+   In [22]: default = DefaultLemmatizer('UNK', verbose=True)
 
-   In [23]: lemmatizer =DictLemmatizer(lemmas=lemmas, backoff=default, VERBOSE=True)
+   In [23]: lemmatizer =DictLemmatizer(lemmas=lemmas, backoff=default, verbose=True)
 
    In [24]: lemmatizer.lemmatize(tokens)
    Out[24]: [('arma', 'arma', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('uirum', 'uir', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('-que', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('cano', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), (',', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('troiae', 'troia', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('qui', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('primus', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('ab', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('oris', 'ora', "<DictLemmatizer: {'arma': 'arma', ...}>")]
 
-You can provide a name for the data source to make the VERBOSE output clearer:
+You can provide a name for the data source to make the verbose output clearer:
 
 .. code-block:: python
 
    In [25]: default = DefaultLemmatizer('UNK')
 
-   In [26]: lemmatizer =DictLemmatizer(lemmas=lemmas, source="CLTK Docs Example", backoff=default, VERBOSE=True)
+   In [26]: lemmatizer =DictLemmatizer(lemmas=lemmas, source="CLTK Docs Example", backoff=default, verbose=True)
 
    In [27]: lemmatizer.lemmatize(tokens)
    Out[27]: [('arma', 'arma', '<DictLemmatizer: CLTK Docs Example>'), ('uirum', 'uir', '<DictLemmatizer: CLTK Docs Example>'), ('-que', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('cano', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), (',', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('troiae', 'troia', '<DictLemmatizer: CLTK Docs Example>'), ('qui', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('primus', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('ab', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('oris', 'ora', '<DictLemmatizer: CLTK Docs Example>')]
