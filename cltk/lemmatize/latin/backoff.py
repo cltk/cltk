@@ -133,27 +133,23 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
 
 class DefaultLemmatizer(SequentialBackoffLemmatizer):
     """
-    Lemmatizer that assigns the same lemma to every token.
+    Lemmatizer that assigns the same lemma to every token. Useful as the final
+    tagger in chain, e.g. to assign 'UNK' to all remaining unlemmatized tokens.
+    :type lemma: str
+    :param lemma: Lemma to assign to each token
 
         >>> from cltk.lemmatize.latin.backoff import DefaultLemmatizer
         >>> default_lemmatizer = DefaultLemmatizer('UNK')
         >>> list(default_lemmatizer.lemmatize('arma virumque cano'.split()))
         [('arma', 'UNK'), ('virumque', 'UNK'), ('cano', 'UNK')]
 
-    Useful as the final tagger in a chain, e.g. to assign 'UNK' to all
-    remaining unlemmatized tokens.
-
-    :type lemma: str
-    :param lemma: Lemma to assign to each token
     """
     def __init__(self, lemma=None, backoff=None, verbose=False):
         self.lemma = lemma
         SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
-
     def choose_tag(self, tokens, index, history):
         return self.lemma
-
 
     def __repr__(self):
         return f'<DefaultLemmatizer: lemma={self.lemma}>'
@@ -161,25 +157,22 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
 
 class IdentityLemmatizer(SequentialBackoffLemmatizer):
     """
-    Lemmatizer that returns a given token as its lemma.
+    Lemmatizer that returns a given token as its lemma. Like DefaultLemmatizer,
+    useful as the final tagger in a chain, e.g. to assign a possible form to
+    all remaining unlemmatized tokens, increasing the chance of a successful
+    match.
 
         >>> from cltk.lemmatize.latin.backoff import IdentityLemmatizer
         >>> identity_lemmatizer = IdentityLemmatizer()
         >>> list(identity_lemmatizer.lemmatize('arma virumque cano'.split()))
         [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]
 
-    Like DefaultLemmatizer, useful as the final tagger in a chain,
-    e.g. to assign a possible form to all remaining unlemmatized
-    tokens, increasing the chance of a successful match.
     """
-
     def __init__(self, backoff=None, verbose=False):
         SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
-
     def choose_tag(self, tokens, index, history):
         return tokens[index]
-
 
     def __repr__(self):
         return f'<IdentityLemmatizer>'
