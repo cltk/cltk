@@ -7,13 +7,15 @@ from cltk.stem.latin.j_v import JVReplacer
 from cltk.tokenize.word import WordTokenizer
 from cltk.corpus.utils.importer import CorpusImporter
 
-from cltk.lemmatize.latin.backoff import DefaultLemmatizer
-from cltk.lemmatize.latin.backoff import IdentityLemmatizer
-from cltk.lemmatize.latin.backoff import UnigramLemmatizer
-from cltk.lemmatize.latin.backoff import DictLemmatizer
-from cltk.lemmatize.latin.backoff import RegexpLemmatizer
+from cltk.lemmatize.backoff import DefaultLemmatizer
+from cltk.lemmatize.backoff import IdentityLemmatizer
+from cltk.lemmatize.backoff import UnigramLemmatizer
+from cltk.lemmatize.backoff import DictLemmatizer
+from cltk.lemmatize.backoff import RegexpLemmatizer
+from cltk.lemmatize.backoff import RomanNumeralLemmatizer # Removed temporarily
+
 from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
-from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer # Removed temporarily
+from cltk.lemmatize.greek.backoff import BackoffGreekLemmatizer
 
 from cltk.lemmatize.french.lemma import LemmaReplacer
 
@@ -166,6 +168,22 @@ class TestSequenceFunctions(unittest.TestCase):
         with patch.object(BackoffLatinLemmatizer,'models_path',''):
             with self.assertRaises(FileNotFoundError):
                 lemmatizer = BackoffLatinLemmatizer()
+
+    def test_backoff_greek_lemmatizer(self):
+        """Test backoffLatinLemmatizer"""
+        train = [[('χθὲς', 'χθές'), ('εἰς', 'εἰς'), ('μετὰ', 'μετά'), ('τοῦ', 'ὁ')]]  # pylint: disable=line-too-long
+        lemmatizer = BackoffGreekLemmatizer()
+        test_str = """κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος"""
+        target = [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθές'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιᾶ'), ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]  # pylint: disable=line-too-long
+        tokens = test_str.split()
+        lemmas = lemmatizer.lemmatize(tokens)
+        self.assertEqual(lemmas, target)
+
+    def test_backoff_greek_lemmatizer_models_not_present(self):
+        """Test whether models are present for BackoffGreekLemmatizer"""
+        with patch.object(BackoffGreekLemmatizer,'models_path',''):
+            with self.assertRaises(FileNotFoundError):
+                lemmatizer = BackoffGreekLemmatizer()        
 
     def test_french_lemmatizer(self):
         text = "Li rois pense que par folie, Sire Tristran, vos aie amé ; Mais Dé plevis ma loiauté, Qui sor mon cors mete flaele, S'onques fors cil qui m’ot pucele Out m'amistié encor nul jor !"

@@ -75,9 +75,9 @@ class BackoffGreekLemmatizer(object):
 
 if __name__ == '__main__':
     from pprint import pprint
-    bgl = BackoffGreekLemmatizer(seed=5, verbose=True)
+    bgl = BackoffGreekLemmatizer(seed=5, verbose=False)
     lemmas = bgl.lemmatize('κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος'.split())
-    pprint(lemmas)
+    print(lemmas)
 
     # [('arma', 'arma', <UnigramLemmatizer: CLTK Sentence Training Data>),
     # ('uirum', 'uir', <UnigramLemmatizer: CLTK Sentence Training Data>),

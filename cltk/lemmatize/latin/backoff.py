@@ -4,8 +4,15 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
-from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer, RegexpLemmatizer, UnigramLemmatizer
+import os
+import re
+from typing import List, Dict, Tuple, Set, Any, Generator
+import reprlib
+
+from cltk.lemmatize.backoff import DefaultLemmatizer, IdentityLemmatizer, DictLemmatizer, RegexpLemmatizer, UnigramLemmatizer
 from cltk.lemmatize.latin.latin import latin_sub_patterns, latin_pps, rn_patterns
+
+from cltk.utils.file_operations import open_pickle
 
 
 class RomanNumeralLemmatizer(RegexpLemmatizer):
