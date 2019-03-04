@@ -396,6 +396,7 @@ argenteo polubro, aureo eclutro. """
         reader._fileids = ['catullus.txt']
         self.assertTrue(len(list(reader.sizes())) > 0)
 
+
     def test_json_corpus_reader(self):
         """Test filtered corpus sents method."""
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
@@ -417,6 +418,18 @@ argenteo polubro, aureo eclutro. """
         self.assertTrue(len(list(reader.paras())) > 1)
         self.assertTrue(len(list(reader.sents())) > 260)
         self.assertTrue(len(list(reader.words())) > 9800)
+
+    def test_tesserae_corpus_reader(self):
+        """Test Tesserae corpus methods."""
+        reader = get_corpus_reader(language='greek', corpus_name='greek_text_tesserae')
+        reader._fileids = ['sample.tess']
+        self.assertTrue(len(list(reader.docs())) >= 1)
+        self.assertTrue(len(list(reader.texts())) >= 1)
+        self.assertTrue(len(list(reader.paras())) >= 1)
+        self.assertTrue(len(list(reader.sents())) >= 1)
+        self.assertTrue(len(list(reader.words())) >= 1)
+        self.assertTrue(len(list(reader.lines())) >= 1)
+        self.assertTrue(len(list(reader.pos_tokenize())) >= 1)
 
     def test_json_corpus_reader_sizes(self):
         """Test filtered corpus sizes method."""
