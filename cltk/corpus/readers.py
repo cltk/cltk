@@ -518,22 +518,3 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             'sppar':round((counts['sents'] / counts['paras']), 3),
             'secs': round((time.time()-started), 3),
         }
-
-
-if __name__ == "__main__":
-
-    from pprint import pprint
-    corpus = get_corpus_reader('greek_text_tesserae', 'greek')
-    sample = corpus.fileids()[0]
-    s = corpus.pos_tokenize(sample)
-    print(next(s))
-
-    pprint(corpus.describe(sample))
-    # line = corpus.lines(sample, plaintext=False)
-
-    # Results:
-    #
-    # - Input
-    # <Ach. Tat.  1.1.0> Σιδὼν ἐπὶ θαλάττῃ πόλις, ̓Ασσυρίων ἡ θάλασσα, μήτηρ Φοινίκων ἡ πόλις, Θηβαίων ὁ δῆμος πατήρ: δίδυμος λιμὴν ἐν κόλπῳ πλατύς, ἠρέμα κλείων τὸ πέλαγος. ̔͂Ηι γὰρ ὁ κόλπος κατὰ πλευρὰν ἐπὶ δεξιὰ κοιλαίνεται, στόμα δεύτερον ὀρώρυκται, καὶ τὸ ὕδωρ αὖθις εἰσρεῖ, καὶ γίνεται τοῦ λιμένος ἄλλος λιμήν, ὡς χειμάζειν μὲν ταύτῃ τὰς ὁλκάδας ἐν γαλήνῃ, θερίζειν δὲ τοῦ λιμένος ἐς τὸ προκόλπιον.
-    # - Output
-    # [('Σιδὼν', 'JJ'), ('ἐπὶ', 'NNP'), ('θαλάττῃ', 'NNP'), ('πόλις', 'NNP'), (',', ','), ('̓Ασσυρίων', 'NNP'), ('ἡ', 'NNP'), ('θάλασσα', 'NNP'), (',', ','), ('μήτηρ', 'NNP') etc...]
