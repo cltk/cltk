@@ -4,6 +4,8 @@ import os
 import unittest
 from unittest.mock import patch
 
+import nltk
+
 from cltk.corpus.greek.alphabet import expand_iota_subscript
 from cltk.corpus.greek.alphabet import filter_non_greek
 from cltk.corpus.greek.beta_to_unicode import Replacer
@@ -75,6 +77,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('greek_text_perseus')
             corpus_importer.import_corpus('greek_text_tesserae')
+            nltk.download('punkt')
         except:
             raise Exception('Failure to download test corpus')
 
