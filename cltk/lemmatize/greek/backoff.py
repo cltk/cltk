@@ -80,6 +80,3 @@ if __name__ == '__main__':
     # ('cano', 'cano', <DictLemmatizer: Morpheus Lemmas>),
     # ('nobilitatis', 'nobilitas', <RegexpLemmatizer: CLTK Latin Regex Patterns>),
     # ('.', 'punc', <DictLemmatizer: Latin Model>)]
-
-    rn = RomanNumeralLemmatizer()
-    print(rn.lemmatize(['MMCI']))
