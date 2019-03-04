@@ -4,9 +4,14 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
+import os
+from typing import List, Dict, Tuple, Set, Any, Generator
+import reprlib
+
 from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer, RegexpLemmatizer, UnigramLemmatizer
 from cltk.lemmatize.greek.greek import greek_sub_patterns
 
+from cltk.utils.file_operations import open_pickle
 
 class BackoffGreekLemmatizer(object):
     """Suggested backoff chain; includes at least on of each
@@ -16,18 +21,18 @@ class BackoffGreekLemmatizer(object):
     models_path = os.path.expanduser('~/cltk_data/greek/model/greek_models_cltk/lemmata/backoff')
 
     def __init__(self: object, train: List[list] = None, seed: int = 3, verbose: bool = False):
-        self.models_path = BackoffLatinLemmatizer.models_path
+        self.models_path = BackoffGreekLemmatizer.models_path
 
-        missing_models_message = "BackoffLatinLemmatizer requires the ```greek_models_cltk``` to be in cltk_data. Please load this corpus."
+        missing_models_message = "BackoffGreekLemmatizer requires the ```greek_models_cltk``` to be in cltk_data. Please load this corpus."
 
         try:
-            self.train =  open_pickle(os.path.join(self.models_path, 'greek_pos_lemmatized_sents.pickle'))
+            self.train =  open_pickle(os.path.join(self.models_path, 'greek_lemmatized_sents.pickle'))
             self.GREEK_OLD_MODEL =  open_pickle(os.path.join(self.models_path, 'greek_lemmata_cltk.pickle'))
             self.GREEK_MODEL =  open_pickle(os.path.join(self.models_path, 'greek_model.pickle'))
         except FileNotFoundError as err:
             raise type(err)(missing_models_message)
 
-        self.greek_sub_patterns = greek_sub_patterns # Move to latin_models_cltk
+        self.greek_sub_patterns = greek_sub_patterns # Move to greek_models_cltk
 
         self.seed = seed
         self.VERBOSE=verbose
@@ -51,7 +56,7 @@ class BackoffGreekLemmatizer(object):
         self.backoff0 = None
         self.backoff1 = IdentityLemmatizer(verbose=self.VERBOSE)
         self.backoff2 = DictLemmatizer(lemmas=self.GREEK_OLD_MODEL, source='Morpheus Lemmas', backoff=self.backoff1, verbose=self.VERBOSE)
-        self.backoff3 = RegexpLemmatizer(self.latin_sub_patterns, source='CLTK Greek Regex Patterns', backoff=self.backoff2, verbose=self.VERBOSE)
+        self.backoff3 = RegexpLemmatizer(self.greek_sub_patterns, source='CLTK Greek Regex Patterns', backoff=self.backoff2, verbose=self.VERBOSE)
         self.backoff4 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff3, verbose=self.VERBOSE)
         self.backoff5 = DictLemmatizer(lemmas=self.GREEK_MODEL, source='Greek Model', backoff=self.backoff4, verbose=self.VERBOSE)
         self.lemmatizer = self.backoff5
@@ -69,8 +74,8 @@ class BackoffGreekLemmatizer(object):
         return f'<BackoffGreekLemmatizer v0.1>'
 
 if __name__ == '__main__':
-
-    bgl = BackoffGreekLemmatizer(seed=5, verbose=False)
+    from pprint import pprint
+    bgl = BackoffGreekLemmatizer(seed=5, verbose=True)
     lemmas = bgl.lemmatize('κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος'.split())
     pprint(lemmas)
 
