@@ -466,7 +466,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             for token in word_tokenize(sent):
                 yield token
 
-    def pos_tokenize(self: object, fileids: str)):
+    def pos_tokenize(self: object, fileids: str):
         """
         Segments, tokenizes, and POS tag a document in the corpus.
         """
