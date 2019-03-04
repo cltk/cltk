@@ -1,12 +1,17 @@
 """`reader.py` - Corpus reader utility objects."""
 import json
 import os
+import re
 import codecs
 import logging
 from typing import List, Dict, Tuple, Set, Any, Generator
 
 from nltk.corpus.reader.api import CorpusReader
 from nltk.corpus.reader import PlaintextCorpusReader
+
+from nltk.tokenize import sent_tokenize, word_tokenize # Replace with CLTK
+from nltk import pos_tag # Replace with CLTK
+
 from cltk.prosody.latin.string_utils import flatten
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
@@ -64,9 +69,12 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
                                         target_language='grc')  #: this abbreviation is required
 
         if corpus_name == 'greek_text_tesserae':
-            return JsonfileCorpusReader(root=valid_json_root,
-                                        sent_tokenizer=sentence_tokenizer,
-                                        word_tokenizer=the_word_tokenizer,
+            # tokenizers/taggers need to be replaced with CLTK version
+            # most obv. for POS tagging!
+            return TesseraeCorpusReader(root=root, fileids=r'.*\.tess',
+                                        sent_tokenizer=sent_tokenize,
+                                        word_tokenizer=word_tokenize,
+                                        pos_tagger=pos_tag,
                                         target_language='grc')  #: this abbreviation is required
 
     # TODO add other languages and write tests for each corpus
@@ -375,7 +383,29 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
     """
     """
 
-    def docs(self, fileids):
+    def __init__(self, root, fileids=None, encoding='utf8', skip_keywords=None,
+                 **kwargs):
+        """
+        :param root: The file root of the corpus directory
+        :param fileids: the list of file ids to consider, or wildcard expression
+        :param skip_keywords: a list of words which indicate whole paragraphs that should
+        be skipped by the paras and words methods()
+        :param encoding: utf8
+        :param kwargs: Any values to be passed to NLTK super classes, such as sent_tokenizer,
+        word_tokenizer.
+        """
+        # Initialize the NLTK corpus reader objects
+        PlaintextCorpusReader.__init__(self, root, fileids, encoding)
+        # CorpusReader.__init__(self, root, fileids, encoding)
+        if 'sent_tokenizer' in kwargs:
+            self._sent_tokenizer = kwargs['sent_tokenizer']
+        if 'word_tokenizer' in kwargs:
+            self._word_tokenizer = kwargs['word_tokenizer']
+        if 'pos_tagger' in kwargs:
+            self.pos_tagger = kwargs['pos_tagger']
+
+
+    def docs(self: object, fileids:str):
         """
         Returns the complete text of a .tess file, closing the document after
         we are done reading it and yielding it in a memory-safe fashion.
@@ -385,8 +415,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             with codecs.open(path, 'r', encoding=encoding) as f:
                 yield f.read()
 
-
-    def text(self, fileids, plaintext=True):
+    def text(self: object, fileids: str, plaintext: bool = True):
         """
         Returns the text content of a .tess file, i.e. removing the bracketed
         citation info (e.g. "<Ach. Tat.  1.1.0>")
@@ -399,7 +428,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             yield doc
 
 
-    def paras(self, fileids):
+    def paras(self: object, fileids: str):
         """
         Returns paragraphs in a .tess file, as defined by two \n characters.
         NB: Most .tess files do not have this feature; only the Homeric poems
@@ -410,10 +439,9 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             for para in text.split('\n\n'):
                 yield para
 
-
-    ### WRITE DOCSTRING
-    def lines(self, fileids, plaintext=True):
+    def lines(self: object, fileids: str, plaintext: bool = True):
         """
+        Tokenizes documents in the corpus by line
         """
 
         for text in self.text(fileids, plaintext):
@@ -421,46 +449,42 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             for line in text.split('\n'):
                 yield line
 
-
-    ### WRITE DOCSTRING
-    def sents(self, fileids):
+    def sents(self: object, fileids: str):
         """
+        Tokenizes documents in the corpus by sentence
         """
 
         for para in self.paras(fileids):
-            for sent in SENT_TOKENIZER(para):
+            for sent in sent_tokenize(para):
                 yield sent
 
-
-    ### WRITE DOCSTRING
-    def words(self, fileids):
+    def words(self: object, fileids: str):
         """
+        Tokenizes documents in the corpus by word
         """
         for sent in self.sents(fileids):
-            for token in WORD_TOKENIZER(sent):
+            for token in word_tokenize(sent):
                 yield token
 
-
-    def pos_tokenize(self, fileids):
+    def pos_tokenize(self: object, fileids: str)):
         """
         Segments, tokenizes, and POS tag a document in the corpus.
         """
-
         for para in self.paras(fileids):
             yield [
-                POS_TAGGER(WORD_TOKENIZER(sent))
-                for sent in SENT_TOKENIZER(para)
+                self.pos_tagger(word_tokenize(sent))
+                for sent in sent_tokenize(para)
             ]
-            
+
 
 if __name__ == "__main__":
-    # sample = corpus.fileids()[0]
-    sample = tess_greek.fileids()[0]
-    s = tess_greek.pos_tokenize(sample)
-    print(next(s)[0][:10])
-    line = tess_greek.lines(sample, plaintext=False)
-    print(next(line))
-    print(next(line))
+
+    corpus = get_corpus_reader('greek_text_tesserae', 'greek')
+    sample = corpus.fileids()[0]
+    s = corpus.pos_tokenize(sample)
+    print(next(s))
+    # line = corpus.lines(sample, plaintext=False)
+
     # Results:
     #
     # - Input
