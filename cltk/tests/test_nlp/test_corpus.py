@@ -421,15 +421,16 @@ argenteo polubro, aureo eclutro. """
 
     def test_tesserae_corpus_reader(self):
         """Test Tesserae corpus methods."""
+        # Update when corpus is add to CLTK
         reader = get_corpus_reader(language='greek', corpus_name='greek_text_tesserae')
-        reader._fileids = ['sample.tess']
-        self.assertTrue(len(list(reader.docs())) >= 1)
-        self.assertTrue(len(list(reader.texts())) >= 1)
-        self.assertTrue(len(list(reader.paras())) >= 1)
-        self.assertTrue(len(list(reader.sents())) >= 1)
-        self.assertTrue(len(list(reader.words())) >= 1)
-        self.assertTrue(len(list(reader.lines())) >= 1)
-        self.assertTrue(len(list(reader.pos_tokenize())) >= 1)
+        sample = reader.fileids()[0]
+        self.assertTrue(len(list(reader.docs(sample))) >= 1)
+        self.assertTrue(len(list(reader.texts(sample))) >= 1)
+        self.assertTrue(len(list(reader.paras(sample))) >= 1)
+        self.assertTrue(len(list(reader.sents(sample))) >= 1)
+        self.assertTrue(len(list(reader.words(sample))) >= 1)
+        self.assertTrue(len(list(reader.lines(sample))) >= 1)
+        self.assertTrue(len(list(reader.pos_tokenize(sample))) >= 1)
 
     def test_json_corpus_reader_sizes(self):
         """Test filtered corpus sizes method."""

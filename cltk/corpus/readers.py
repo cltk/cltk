@@ -415,7 +415,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             with codecs.open(path, 'r', encoding=encoding) as f:
                 yield f.read()
 
-    def text(self: object, fileids: str, plaintext: bool = True):
+    def texts(self: object, fileids: str, plaintext: bool = True):
         """
         Returns the text content of a .tess file, i.e. removing the bracketed
         citation info (e.g. "<Ach. Tat.  1.1.0>")
