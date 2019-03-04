@@ -435,7 +435,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
         from what I have noticed so far. Perhaps a feature worth looking into.
         """
 
-        for text in self.text(fileids):
+        for text in self.texts(fileids):
             for para in text.split('\n\n'):
                 yield para
 
@@ -444,7 +444,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
         Tokenizes documents in the corpus by line
         """
 
-        for text in self.text(fileids, plaintext):
+        for text in self.texts(fileids, plaintext):
             text = re.sub(r'\n\s*\n', '\n', text, re.MULTILINE) # Remove blank lines
             for line in text.split('\n'):
                 yield line
