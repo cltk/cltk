@@ -434,6 +434,7 @@ argenteo polubro, aureo eclutro. """
         self.assertTrue(len(list(reader.sents(sample))) >= 1)
         self.assertTrue(len(list(reader.words(sample))) >= 1)
         self.assertTrue(len(list(reader.lines(sample))) >= 1)
+        self.assertTrue(reader.describe())
         self.assertTrue(len(list(reader.pos_tokenize(sample))) >= 1)
 
     def test_json_corpus_reader_sizes(self):

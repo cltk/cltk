@@ -3,12 +3,14 @@ import json
 import os
 import re
 import codecs
+import time
+
 import logging
 from typing import List, Dict, Tuple, Set, Any, Generator
 
 from nltk.corpus.reader.api import CorpusReader
 from nltk.corpus.reader import PlaintextCorpusReader
-
+from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize # Replace with CLTK
 from nltk import pos_tag # Replace with CLTK
 
@@ -476,13 +478,57 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
                 for sent in sent_tokenize(para)
             ]
 
+    def describe(self: object, fileids: str = None):
+        """
+        Performs a single pass of the corpus and returns a dictionary with a
+        variety of metrics concerning the state of the corpus.
+
+        based on (Bengfort et al, 2018: 46)
+        """
+        started = time.time()
+
+        # Structures to perform counting
+        counts = FreqDist()
+        tokens = FreqDist()
+
+        # Perform a single pass over paragraphs, tokenize, and counts
+        for para in self.paras(fileids):
+            counts['paras'] += 1
+
+            for sent in para:
+                counts['sents'] += 1
+
+                # Include POS at some point
+                for word in sent:
+                    counts['words'] += 1
+                    tokens[word] += 1
+
+        # Compute the number of files in the corpus
+        n_fileids = len(self.fileids())
+
+        # Return data structure with information
+        return {
+            'files': n_fileids,
+            'paras': counts['paras'],
+            'sents': counts['sents'],
+            'words': counts['words'],
+            'vocab': len(tokens),
+            'lexdiv': round((counts['words'] / len(tokens)), 3),
+            'ppdoc': round((counts['paras'] / n_fileids), 3),
+            'sppar':round((counts['sents'] / counts['paras']), 3),
+            'secs': round((time.time()-started), 3),
+        }
+
 
 if __name__ == "__main__":
 
+    from pprint import pprint
     corpus = get_corpus_reader('greek_text_tesserae', 'greek')
     sample = corpus.fileids()[0]
     s = corpus.pos_tokenize(sample)
     print(next(s))
+
+    pprint(corpus.describe(sample))
     # line = corpus.lines(sample, plaintext=False)
 
     # Results:
