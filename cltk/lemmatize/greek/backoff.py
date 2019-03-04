@@ -5,7 +5,7 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License. See LICENSE.'
 
 from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer, RegexpLemmatizer, UnigramLemmatizer
-from cltk.lemmatize.latin.latin import greek_sub_patterns
+from cltk.lemmatize.greek.greek import greek_sub_patterns
 
 
 class BackoffGreekLemmatizer(object):
