@@ -78,6 +78,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer.import_corpus('greek_text_perseus')
             corpus_importer.import_corpus('greek_text_tesserae')
             nltk.download('punkt')
+            nltk.download('averaged_perceptron_tagger')                
         except:
             raise Exception('Failure to download test corpus')
 
