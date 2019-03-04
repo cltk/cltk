@@ -170,6 +170,8 @@ Example use, assuming you have already imported the `latin_models_cltk`:
 Lemmatization
 =============
 
+***This lemmatizer is deprecated. It is recommended that you use the Backoff Lemmatizer described below.***
+
 .. tip:: For ambiguous forms, which could belong to several headwords, the current lemmatizer chooses the more commonly occurring headword (`code here <https://github.com/cltk/latin_pos_lemmata_cltk/blob/master/transform_lemmata.py>`_). For any errors that you spot, please `open a ticket <https://github.com/cltk/cltk/issues>`_.
 
 The CLTK's lemmatizer is based on a key-value store, whose code is available at the `CLTK's Latin lemma/POS repository <https://github.com/cltk/latin_pos_lemmata_cltk>`_.
@@ -232,86 +234,24 @@ These two arguments can be combined, as well.
 Lemmatization, backoff method
 =============================
 
-The CLTK offers a series of lemmatizers that can be combined in a backoff sequence, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
+The CLTK offers a series of lemmatizers that can be combined in a backoff chain, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
 
-There is a generic version of the backoff latin lemmatizer which requires data from `the CLTK latin models data found here <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>`_. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+There is a generic version of the backoff Latin lemmatizer which requires data from `the CLTK latin models data found here <https://github.com/cltk/latin_models_cltk/tree/master/lemmata/backoff>`_. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
 
-The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
+To use the generic version of the backoff Latin Lemmatizer:
 
 .. code-block:: python
 
-   In [1]: from cltk.lemmatize.latin.backoff import DefaultLemmatizer
+   In [1]: from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
 
-   In [2]: lemmatizer = DefaultLemmatizer()
+   In [2]: lemmatizer = BackoffLatinLemmatizer()
 
    In [3]: tokens = ['Quo', 'usque', 'tandem', 'abutere', ',', 'Catilina', ',', 'patientia', 'nostra', '?']
 
    In [4]: lemmatizer.lemmatize(tokens)
-   Out[4]: [('Quo', None), ('usque', None), ('tandem', None), ('abutere', None), (',', None), ('Catilina', None), (',', None), ('patientia', None), ('nostra', None), ('?', None)]
+   Out[4]: [('Quo', 'Quo'), ('usque', 'usque'), ('tandem', 'tandem'), ('abutere', 'abutor'), (',', 'punc'), ('Catilina', 'Catilina'), (',', 'punc'), ('patientia', 'patientia'), ('nostra', 'noster'), ('?', 'punc')]
 
-DefaultLemmatizer can take as a parameter what "lemma" should be returned:
-
-.. code-block:: python
-
-   In [5]: lemmatizer = DefaultLemmatizer('UNK')
-
-   In [6]: lemmatizer.lemmatize(tokens)
-   Out[6]: [('Quo', 'UNK'), ('usque', 'UNK'), ('tandem', 'UNK'), ('abutere', 'UNK'), (',', 'UNK'), ('Catilina', 'UNK'), (',', 'UNK'), ('patientia', 'UNK'), ('nostra', 'UNK'), ('?', 'UNK')]
-
-The backoff module also offers IdentityLemmatizer which returns the given token as the lemma:
-
-.. code-block:: python
-
-   In [7]: from cltk.lemmatize.latin.backoff import IdentityLemmatizer
-
-   In [8]: lemmatizer = IdentityLemmatizer()
-
-   In [9]: lemmatizer.lemmatize(tokens)
-
-   Out[9]: [('Quo', 'Quo'), ('usque', 'usque'), ('tandem', 'tandem'), ('abutere', 'abutere'), (',', ','), ('Catilina', 'Catilina'), (',', ','), ('patientia', 'patientia'), ('nostra', 'nostra'), ('?', '?')]
-
-With the TrainLemmatizer, the backoff module allows you to provide a dictionary of the form {'TOKEN1': 'LEMMA1', 'TOKEN2': 'LEMMA2'} for lemmatization.
-
-.. code-block:: python
-
-   In [10]: tokens = ['arma', 'uirum', '-que', 'cano', ',', 'troiae', 'qui', 'primus', 'ab', 'oris']
-
-   In [11]: dict = {'arma': 'arma', 'uirum': 'uir', 'troiae': 'troia', 'oris': 'ora'}
-
-   In [12]: from cltk.lemmatize.latin.backoff import TrainLemmatizer
-
-   In [13]: lemmatizer = TrainLemmatizer(dict)
-
-   In [14]: lemmatizer.lemmatize(tokens)
-   Out[14]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', None), ('cano', None), (',', None), ('troiae', 'troia'), ('qui', None), ('primus', None), ('ab', None), ('oris', 'ora')]
-
-The TrainLemmatizer—like all of the lemmatizers in this module—can take a second lemmatizer (or backoff lemmatizer) for any of the tokens that return 'None'. This is done with a 'backoff' parameter:
-
-.. code-block:: python
-
-   In [15]: default = DefaultLemmatizer('UNK')
-
-   In [16]: lemmatizer = TrainLemmatizer(dict, backoff=default)
-
-   In [17]: lemmatizer.lemmatize(tokens)
-   Out[17]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', 'UNK'), ('cano', 'UNK'), (',', 'UNK'), ('troiae', 'troia'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'ora')]
-
-With the ContextLemmatizer, the backoff module allows you to provide a list of lists of sentences of the form `[[('TOKEN1', 'LEMMA1'), ('TOKEN2', 'LEMMA2')], [('TOKEN3', 'LEMMA3'), ('TOKEN4', 'LEMMA4')], ... ]` for lemmatization. The lemmatizer returns the the lemma that has the highest frequency based on the provided context (i.e. unigram, bigram, etc.). So, for example, with unigram context and the token 'est', if the tuple ('est', 'sum') appears in the training sents 99 times and ('est', 'comedo') appears 1 time, the lemmatizer would return the lemma 'sum'. The ContextLemmatizer and its subclasses can take a 'backoff' parameter. (There is a model available in CLTK Data that can be used for this purpose with slight modification: `~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff/latin_pos_lemmatized_sents.pickle`. This model has the form `[[('TOKEN1', 'LEMMA1', 'POS1'), ('TOKEN2', 'LEMMA2', 'POS2')], ... ]`. A list comprehension can get you the model you need for the ContextLemmatizer, e.g. `[[(item[0], item[1]) for item in sent] for sent in train_data]`)
-
-There are subclasses included in the backoff lemmatizer for unigram and bigram context. Here is an example of the UnigramLemmatizer():
-
-.. code-block:: python
-
-   In [18]: train_data = [[('cum', 'cum2'), ('esset', 'sum'), ('caesar', 'caesar'), ('in', 'in'), ('citeriore', 'citer'), ('gallia', 'gallia'), ('in', 'in'), ('hibernis', 'hibernus'), (',', 'punc'), ('ita', 'ita'), ('uti', 'ut'), ('supra', 'supra'), ('demonstrauimus', 'demonstro'), (',', 'punc'), ('crebri', 'creber'), ('ad', 'ad'), ('eum', 'is'), ('rumores', 'rumor'), ('adferebantur', 'affero'), ('litteris', 'littera'), ('-que', '-que'), ('item', 'item'), ('labieni', 'labienus'), ('certior', 'certus'), ('fiebat', 'fio'), ('omnes', 'omnis'), ('belgas', 'belgae'), (',', 'punc'), ('quam', 'qui'), ('tertiam', 'tertius'), ('esse', 'sum'), ('galliae', 'gallia'), ('partem', 'pars'), ('dixeramus', 'dico'), (',', 'punc'), ('contra', 'contra'), ('populum', 'populus'), ('romanum', 'romanus'), ('coniurare', 'coniuro'), ('obsides', 'obses'), ('-que', '-que'), ('inter', 'inter'), ('se', 'sui'), ('dare', 'do'), ('.', 'punc')], [('coniurandi', 'coniuro'), ('has', 'hic'), ('esse', 'sum'), ('causas', 'causa'), ('primum', 'primus'), ('quod', 'quod'), ('uererentur', 'uereor'), ('ne', 'ne'), (',', 'punc'), ('omni', 'omnis'), ('pacata', 'paco'), ('gallia', 'gallia'), (',', 'punc'), ('ad', 'ad'), ('eos', 'is'), ('exercitus', 'exercitus'), ('noster', 'noster'), ('adduceretur', 'adduco'), (';', 'punc')]]
-
-   In [19]: default = DefaultLemmatizer('UNK')
-
-   In [20]: lemmatizer = UnigramLemmatizer(train_sents, backoff=default)
-   In [21]: lemmatizer.lemmatize(tokens)
-
-   Out[21]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
-
-NB: Documentation is still be written for the remaining backoff lemmatizers, i.e.  RegexpLemmatizer(), and ContextPOSLemmatizer().
+NB: The backoff chain for this lemmatizer is defined as follows: 1. a dictionary-based lemmatizer with high-frequency, unambiguous forms; 2. a training-data-based lemmatizer based on 4,000 sentences from the [Perseus Latin Dependency Treebanks](https://perseusdl.github.io/treebank_data/); 3. a regular-expression-based lemmatizer transforming unambiguous endings; 4. a dictionary-based lemmatizer with the complete set of Morpheus lemmas; 5. an 'identity' lemmatizer returning the token as the lemma. Each of these sub-lemmatizers is explained in the documents for "Multilingual".
 
 
 Line Tokenization
@@ -920,7 +860,7 @@ To use a pre-built stoplist (created originally by the Perseus Project):
     'patientia',
     'nostra',
     '?']
-    
+
 
 Swadesh
 =======
