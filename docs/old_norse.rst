@@ -241,7 +241,6 @@ A stanza of *fornyrðislag* has 8 short lines (or verses), 4 long-lines (or line
 
 A stanza of *ljóðaháttr* has 6 short lines (or verses), 4 long-lines (or lines). The first and the third lines have two verses, while the second and the fourth lines have only one (longer) verse. The first verse of the first and third lines alliterates with the second verse of these lines. The second and the fourth lines contain alliterations.
 
-
 .. code-block:: python
 
     In[1]: text2 = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
@@ -322,6 +321,7 @@ Old Norse nouns vary according to case (nominative, accusative, dative, genitive
 Weak nouns have a simpler declension than strong ones.
 
 If you want a simple way to define the inflection of an Old Norse noun, you can do as follows:
+
 .. code-block:: python
 
     In[1]: from cltk.inflection.utils import Noun, Gender
