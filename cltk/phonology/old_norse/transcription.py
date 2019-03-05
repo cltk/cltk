@@ -1,9 +1,10 @@
 """
-https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
-
-Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
+Sources:
+- https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
+- Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
 """
 
+from typing import Union
 from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Place, Manner, AbstractConsonant, Rule, \
     AbstractPosition, Rank
 from cltk.corpus.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
@@ -17,7 +18,7 @@ class OldNorsePhonology(Vowel):
                 'ö': 'u'}
 
     @staticmethod
-    def phonetic_i_umlaut(sound: Vowel):
+    def phonetic_i_umlaut(sound: Vowel) -> Vowel:
         """
         >>> umlaut_a = OldNorsePhonology.phonetic_i_umlaut(a)
         >>> umlaut_a.ipar
@@ -46,7 +47,7 @@ class OldNorsePhonology(Vowel):
             return DIPHTHONGS_IPA_class["ey"]
 
     @staticmethod
-    def orthographic_i_umlaut(sound: str):
+    def orthographic_i_umlaut(sound: str) -> str:
         """
         >>> OldNorsePhonology.orthographic_i_umlaut("a")
         'e'
@@ -62,26 +63,33 @@ class OldNorsePhonology(Vowel):
             return sound
 
     @staticmethod
-    def phonetic_u_umlaut(sound: Vowel):
+    def phonetic_u_umlaut(sound: Vowel) -> Vowel:
         """
         >>> umlaut_a = OldNorsePhonology.phonetic_u_umlaut(a)
         >>> umlaut_a.ipar
         'ø'
 
-        :param sound:
+        >>> umlaut_o = OldNorsePhonology.phonetic_u_umlaut(o)
+        >>> umlaut_o.ipar
+        'u'
+
+        >>> umlaut_e = OldNorsePhonology.phonetic_u_umlaut(e)
+        >>> umlaut_e.ipar
+        'e'
+
+
+        :param sound: instance of Vowel
         :return:
         """
         if sound.is_equal(a):
             return oee  # or oe
-        elif sound.is_equal(a.lengthen()):
-            return a.lengthen()
         elif sound.is_equal(o):
             return u
         else:
             return sound
 
     @staticmethod
-    def orthographic_u_umlaut(sound: str):
+    def orthographic_u_umlaut(sound: str) -> str:
         """
         >>> OldNorsePhonology.orthographic_u_umlaut("a")
         'ö'
@@ -270,7 +278,7 @@ old_norse_rules.extend(rule_g)
 old_norse_rules.extend(rule_th)
 
 
-def measure_old_norse_syllable(syllable: list):
+def measure_old_norse_syllable(syllable: list) -> Union[Length, None]:
     """
     Old Norse syllables are considered as:
     - short if
@@ -309,3 +317,15 @@ def measure_old_norse_syllable(syllable: list):
             return Length.long
         elif long_vowel_number > 0 and (simple_consonant_number > 1 or geminated_consonant_number > 0):
             return Length.overlong
+
+
+def normalize_for_syllabifier(text: str) -> str:
+    """
+    >>> normalize_for_syllabifier("almaːtːiɣr")
+    'almatiɣr'
+
+    :param text:
+    :return:
+    """
+    text = text.replace("ː", "")
+    return text
