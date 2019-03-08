@@ -140,12 +140,11 @@ class TokenizeSentence():  # pylint: disable=R0903
 
 from abc import abstractmethod
 
-
 class BaseSentenceTokenizer(object):
     """ Base class for sentence tokenization
     """
 
-    def __init__(self, language=None):
+    def __init__(self: object, language: str = None):
         """ Initialize stoplist builder with option for language specific parameters
         :param language : language for sentence tokenization
         :type language: str
@@ -154,7 +153,7 @@ class BaseSentenceTokenizer(object):
             self.language = language.lower()
 
     @abstractmethod
-    def tokenize(self, text):
+    def tokenize(self: object, text: str):
         """
         Method for tokenizing sentences. This method
         should be overridden by subclasses of SentenceTokenizer.
@@ -194,7 +193,7 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         if not self.model:
             model = self.model
 
-        tokenizer = open_pickle(self.model)
+        tokenizer = self.model
         if self.lang_vars:
             tokenizer._lang_vars = self.lang_vars
 

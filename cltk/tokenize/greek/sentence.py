@@ -44,18 +44,6 @@ class GreekPunktSentenceTokenizer(PunktSentenceTokenizer):
         # self.model = self._get_model()
         self.lang_vars = GreekLanguageVars()
 
-    # def _get_model(self):
-    #     # Can this be simplified?
-    #     model_file = '{}_punkt.pickle'.format(self.language)
-    #     model_path = os.path.join('~/cltk_data',
-    #                             self.language,
-    #                             'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-    #     model_path = os.path.expanduser(model_path)
-    #     model_path = os.path.join(model_path, model_file)
-    #     assert os.path.isfile(model_path), \
-    #         'Please download sentence tokenization model for {}.'.format(self.language)
-    #     return model_path
-
 
 class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
     def __init__(self):
