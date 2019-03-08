@@ -9,12 +9,6 @@ import re
 from cltk.tokenize.sentence import BaseSentenceTokenizer, RegexSentenceTokenizer, PunktSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
-#from nltk.metrics.scores import accuracy, precision, recall, f-score
-
-class GreekLanguageVars(PunktLanguageVars):
-    # _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
-    sent_end_chars = ('.', ';', '·')
-
 
 def SentenceTokenizer(tokenizer='regex'):
     if tokenizer=='punkt':
@@ -22,10 +16,17 @@ def SentenceTokenizer(tokenizer='regex'):
     if tokenizer=='regex':
         return GreekRegexSentenceTokenizer()
 
+class GreekLanguageVars(PunktLanguageVars):
+    # _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
+    sent_end_chars = ('.', ';', '·')
+
 
 class GreekPunktSentenceTokenizer(PunktSentenceTokenizer):
-    """ Base class for sentence tokenization
+    """ PunktSentenceTokenizer trained on Ancient Greek
     """
+
+    models_path = os.path.expanduser('~/cltk_data/greek/model/greek_models_cltk//tokenizers/sentence')
+    missing_models_message = "BackoffLatinLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
     def __init__(self, language='latin'):
         """
@@ -33,8 +34,27 @@ class GreekPunktSentenceTokenizer(PunktSentenceTokenizer):
         :type language: str
         """
         PunktSentenceTokenizer.__init__(self, language='greek')
-        self.model = self._get_model()
+        self.models_path = GreekPunktSentenceTokenizer.models_path
+
+        try:
+            self.model =  open_pickle(os.path.join(self.models_path, 'greek_punkt.pickle'))
+        except FileNotFoundError as err:
+            raise type(err)(GreekPunktSentenceTokenizer.missing_models_message)
+
+        # self.model = self._get_model()
         self.lang_vars = GreekLanguageVars()
+
+    # def _get_model(self):
+    #     # Can this be simplified?
+    #     model_file = '{}_punkt.pickle'.format(self.language)
+    #     model_path = os.path.join('~/cltk_data',
+    #                             self.language,
+    #                             'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
+    #     model_path = os.path.expanduser(model_path)
+    #     model_path = os.path.join(model_path, model_file)
+    #     assert os.path.isfile(model_path), \
+    #         'Please download sentence tokenization model for {}.'.format(self.language)
+    #     return model_path
 
 
 class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
