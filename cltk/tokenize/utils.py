@@ -6,6 +6,7 @@ __license__ = 'MIT License.'
 
 import pickle
 from abc import abstractmethod
+from typing import List, Dict, Tuple, Set, Any, Generator
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -14,42 +15,53 @@ class BaseSentenceTokenizerTrainer(object):
     """ Train sentence tokenizer
     """
 
-    def __init__(self, language=None, punctuation=None, strict=None, abbreviations=None):
+    def __init__(self: object, language: str = None,
+                    punctuation: List[str] = None,
+                    strict = False,
+                    strict_punctation: List[str] = None,
+                    abbreviations: List[str] = None):
         """ Initialize stoplist builder with option for language specific parameters
         :type language: str
-        :param language : text from which to build the stoplist
+        :param language: text from which to build the stoplist
+        :type punctuation: list
+        :param punctuation: list of punctuation used to train sentence tokenizer
+        :type strict: bool
+        :param strict: option for including additional punctuation for tokenizer
+        :type strict: list
+        :param strict: list of additional punctuation used to train sentence tokenizer if strict is used
+        :type abbreviations: list
+        :param abbreviations: list of abbreviations used to train sentence tokenizer
         """
         if language:
             self.language = language.lower()
 
         self.punctuation = punctuation
-        self.strict = strict
+        if strict:
+            self.punctuation.extend(strict_punctuation)
+
         self.abbreviations = abbreviations
 
     def train_sentence_tokenizer(self, text):
         """
         Train sentence tokenizer.
         """
-        print(self.punctuation)
-        return None
+        # Set punctuation
+        language_punkt_vars = PunktLanguageVars
 
-        # # Set punctuation
-        # language_punkt_vars = PunktLanguageVars
-        #
-        # if self.punctuation or self.strict:
-        #     language_punkt_vars.sent_end_chars = self.punctuation+self.strict
-        #
-        # # Set abbreviations
-        # trainer = PunktTrainer(text, language_punkt_vars)
-        # trainer.INCLUDE_ALL_COLLOCS = True
-        # trainer.INCLUDE_ABBREV_COLLOCS = True
-        #
-        # tokenizer = PunktSentenceTokenizer(trainer.get_params())
-        #
-        # for abbreviation in self.abbreviations:
-        #     tokenizer._params.abbrev_types.add(abbreviation)
-        #
-        # return tokenizer
+        if self.punctuation or self.strict:
+            language_punkt_vars.sent_end_chars = self.punctuation
+
+        # Set abbreviations
+        trainer = PunktTrainer(text, language_punkt_vars)
+        trainer.INCLUDE_ALL_COLLOCS = True
+        trainer.INCLUDE_ABBREV_COLLOCS = True
+
+        tokenizer = PunktSentenceTokenizer(trainer.get_params())
+
+        for abbreviation in self.abbreviations:
+            tokenizer._params.abbrev_types.add(abbreviation)
+
+        return tokenizer
 
     def pickle_sentence_tokenizer(self, filename, tokenizer):
         # Dump pickled tokenizer

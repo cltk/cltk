@@ -16,14 +16,16 @@ from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 
 class SentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
     """ """
-    def __init__(self: object):
+    def __init__(self: object, strict=False):
+        self.strict = strict
         self.punctuation = ['.', '?', '!']
-        self.strict = [';', ':', '—']
+        self.strict_punctation = [';', ':', '—']
         self.abbreviations = ABBREVIATIONS
 
         BaseSentenceTokenizerTrainer.__init__(self, language='latin',
                                                 punctuation=self.punctuation,
                                                 strict=self.strict,
+                                                strict_punctuation=self.strict_punctuation,
                                                 abbreviations=self.abbreviations)
 
 if __name__ == "__main__":
