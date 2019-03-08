@@ -5,6 +5,7 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
 import pickle
+from typing import List, Dict, Tuple, Set, Any, Generator
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -19,7 +20,7 @@ class SentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
     def __init__(self: object, strict=False):
         self.strict = strict
         self.punctuation = ['.', '?', '!']
-        self.strict_punctation = [';', ':', '—']
+        self.strict_punctuation = [';', ':', '—']
         self.abbreviations = ABBREVIATIONS
 
         BaseSentenceTokenizerTrainer.__init__(self, language='latin',
