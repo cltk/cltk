@@ -10,10 +10,6 @@ from abc import abstractmethod
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.tokenize.punkt import PunktLanguageVars
 
-# from cltk.corpus.latin.readers import latinlibrary # Fix when readers is adopted
-from cltk.corpus.latin import latinlibrary
-from cltk.tokenize.latin.params import ABBREVIATIONS
-
 class BaseSentenceTokenizerTrainer(object):
     """ Train sentence tokenizer
     """
