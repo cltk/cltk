@@ -17,12 +17,14 @@ from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 class SentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
     """ """
     def __init__(self: object):
-        BaseSentenceTokenizerTrainer.__init__(self, language='latin')
-
-    def _tokenizer_setup(self: object):
         self.punctuation = ['.', '?', '!']
         self.strict = [';', ':', '—']
+        self.abbreviations = ABBREVIATIONS
 
+        BaseSentenceTokenizerTrainer.__init__(self, language='latin',
+                                                punctuation=self.punctuation,
+                                                strict=self.strict,
+                                                abbreviations=self.abbreviations)
 
 if __name__ == "__main__":
     latinlibrary = get_corpus_reader(corpus_name='latin_text_latin_library', language="latin")

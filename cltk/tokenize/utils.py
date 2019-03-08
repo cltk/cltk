@@ -22,9 +22,9 @@ class BaseSentenceTokenizerTrainer(object):
         if language:
             self.language = language.lower()
 
-        self.punctuation = []
-        self.strict = []
-        self.abbreviations = []
+        self.punctuation = punctuation
+        self.strict = strict
+        self.abbreviations = abbreviations
 
     def train_sentence_tokenizer(self, text):
         """
