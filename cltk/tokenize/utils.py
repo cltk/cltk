@@ -17,7 +17,7 @@ class BaseSentenceTokenizerTrainer(object):
 
     def __init__(self: object, language: str = None,
                     punctuation: List[str] = None,
-                    strict = False,
+                    strict: bool = False,
                     strict_punctuation: List[str] = None,
                     abbreviations: List[str] = None):
         """ Initialize stoplist builder with option for language specific parameters
