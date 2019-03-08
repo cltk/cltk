@@ -14,7 +14,7 @@ class BaseSentenceTokenizerTrainer(object):
     """ Train sentence tokenizer
     """
 
-    def __init__(self, language=None):
+    def __init__(self, language=None, punctuation=None, strict=None, abbreviations=None):
         """ Initialize stoplist builder with option for language specific parameters
         :type language: str
         :param language : text from which to build the stoplist
@@ -22,34 +22,20 @@ class BaseSentenceTokenizerTrainer(object):
         if language:
             self.language = language.lower()
 
-
-    def _tokenizer_setup(self):
         self.punctuation = []
         self.strict = []
+        self.abbreviations = []
 
-
-    def pickle_sentence_tokenizer(self, filename, tokenizer):
-        # Dump pickled tokenizer
-        with open(filename, 'wb') as f:
-            pickle.dump(tokenizer, f)
-
-
-    def train_sentence_tokenizer(self, text, punctuation=[], strict=[]):
+    def train_sentence_tokenizer(self, text):
         """
         Train sentence tokenizer.
         """
 
-        self._tokenizer_setup()
-
-        if punctuation:
-            self.punctuation = punctuation
-
-        if strict:
-            self.strict = strict
-
         # Set punctuation
         language_punkt_vars = PunktLanguageVars
-        language_punkt_vars.sent_end_chars = self.punctuation+self.strict
+
+        if self.punctuation or self.strict:
+            language_punkt_vars.sent_end_chars = self.punctuation+self.strict
 
         # Set abbreviations
         trainer = PunktTrainer(text, language_punkt_vars)
@@ -58,7 +44,12 @@ class BaseSentenceTokenizerTrainer(object):
 
         tokenizer = PunktSentenceTokenizer(trainer.get_params())
 
-        for abbreviation in ABBREVIATIONS:
+        for abbreviation in self.abbreviations:
             tokenizer._params.abbrev_types.add(abbreviation)
 
         return tokenizer
+
+    def pickle_sentence_tokenizer(self, filename, tokenizer):
+        # Dump pickled tokenizer
+        with open(filename, 'wb') as f:
+            pickle.dump(tokenizer, f)
