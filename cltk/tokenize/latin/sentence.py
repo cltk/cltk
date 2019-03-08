@@ -9,29 +9,34 @@ from cltk.tokenize.sentence import BaseSentenceTokenizer, PunktSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 
-# Need to think about the best way to evaluate sentence tokenizers
-#from nltk.metrics.scores import accuracy, precision, recall, f-score
+def SentenceTokenizer(tokenize:str = 'punkt'):
+    if tokenizer=='punkt':
+        return LatinPunktSentenceTokenizer()
+
 
 class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 
-def SentenceTokenizer(tokenizer='punkt'):
-    if tokenizer=='punkt':
-        return LatinPunktSentenceTokenizer()
-
-
 class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
-    """ Base class for sentence tokenization
+    """ PunktSentenceTokenizer trained on Latin
     """
+    models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/tokenizers/sentence')
+    missing_models_message = "BackoffLatinLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
-    def __init__(self, language='latin'):
+    def __init__(self: object, language:str = 'latin'):
         """
         :param language : language for sentence tokenization
         :type language: str
         """
         PunktSentenceTokenizer.__init__(self, language='latin')
-        self.model = self._get_model()
+        self.model = LatinPunktSentenceTokenizer.models_path
+
+        try:
+            self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
+        except FileNotFoundError as err:
+            raise type(err)(LatinPunktSentenceTokenizer.missing_models_message)
+
         self.lang_vars = LatinLanguageVars()
 
 
