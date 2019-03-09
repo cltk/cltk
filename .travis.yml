@@ -11,11 +11,15 @@ before_install:
 cache:
     directories:
         - $HOME/.cache/pip
+        # - $HOME/cltk_data
 
 install:
 - pip install -U pip wheel
 - pip install --requirement=$TRAVIS_BUILD_DIR/requirements.txt
 - python setup.py install
+
+before_script:
+- python install_corpora.py
 
 script:
   # Notes on nose:

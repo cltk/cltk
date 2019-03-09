@@ -70,7 +70,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def setUpClass(cls):
         try:
             corpus_importer = CorpusImporter('latin')
-            corpus_importer.import_corpus('latin_text_latin_library')
+            # corpus_importer.import_corpus('latin_text_latin_library')
             corpus_importer.import_corpus('latin_text_perseus')
             corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('greek_text_perseus')
@@ -286,7 +286,7 @@ argenteo polubro, aureo eclutro. """
         """
         corpus_importer = CorpusImporter('latin')
         # corpus_importer.import_corpus('latin_text_latin_library')
-        corpus_importer.import_corpus('latin_models_cltk')
+        # corpus_importer.import_corpus('latin_models_cltk')
 
         def _import():
             with patch('builtins.input', return_value='n'):
@@ -296,7 +296,7 @@ argenteo polubro, aureo eclutro. """
     def test_import_lat_text_lat_lib(self):
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_latin_library')
+        # corpus_importer.import_corpus('latin_text_latin_library')
         file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -305,7 +305,7 @@ argenteo polubro, aureo eclutro. """
     def test_import_latin_library_corpus_reader(self):
         """Test the Latin Library corpus reader."""
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_text_latin_library')
+        # corpus_importer.import_corpus('latin_text_latin_library')
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         ALL_FILE_IDS = list(reader.fileids())
         self.assertTrue(len(ALL_FILE_IDS) > 2100)
@@ -426,7 +426,7 @@ argenteo polubro, aureo eclutro. """
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_models_cltk')
+        # corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -437,7 +437,7 @@ argenteo polubro, aureo eclutro. """
         ``setUp()``.
         """
         corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_models_cltk')
+        # corpus_importer.import_corpus('greek_models_cltk')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)

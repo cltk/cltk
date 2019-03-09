@@ -21,14 +21,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tests later.
         """
         corpus_importer = CorpusImporter('greek')
-        corpus_importer.import_corpus('greek_models_cltk')
+        # corpus_importer.import_corpus('greek_models_cltk')
         file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('latin')
-        corpus_importer.import_corpus('latin_models_cltk')
+        # corpus_importer.import_corpus('latin_models_cltk')
         file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
@@ -47,7 +47,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-        
+
         corpus_importer = CorpusImporter('middle_low_german')
         corpus_importer.import_corpus('middle_low_german_models_cltk')
         file_rel = os.path.join('~/cltk_data/middle_low_german/model/middle_low_german_models_cltk/README.md')
@@ -61,7 +61,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
-        
+
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag('greek')
@@ -224,7 +224,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         tagged = tagger.tag_tnt('Hlióðs bið ek allar.')
         print(tagged)
         self.assertTrue(tagged)
-        
+
     def test_pos_ngram12_tagger_middle_low_german(self):
         """ Test MOG POS 12-backoff tagger"""
         tagger = POSTag('middle_low_german')
