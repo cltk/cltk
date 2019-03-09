@@ -29,12 +29,11 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         :param language : language for sentence tokenization
         :type language: str
         """
-        BasePunktSentenceTokenizer.__init__(self, language='latin')
-        self.model = LatinPunktSentenceTokenizer.models_path
+        self.lang_vars = LatinLanguageVars()
+        BasePunktSentenceTokenizer.__init__(self, language='latin', lang_vars=self.lang_vars)
+        self.models_path = LatinPunktSentenceTokenizer.models_path
 
         try:
             self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
         except FileNotFoundError as err:
             raise type(err)(LatinPunktSentenceTokenizer.missing_models_message)
-
-        self.lang_vars = LatinLanguageVars()

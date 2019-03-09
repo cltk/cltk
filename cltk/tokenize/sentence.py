@@ -30,6 +30,8 @@ class TokenizeSentence():  # pylint: disable=R0903
     ``TokenizeSentence('greek')``.
     """
 
+    missing_models_message = "TokenizeSentence requires the models to be installed in cltk_data. Please load the correct models."
+
     def __init__(self: object, language: str):
         """Lower incoming language name and assemble variables.
         :type language: str
@@ -39,9 +41,15 @@ class TokenizeSentence():  # pylint: disable=R0903
 
         # Workaround for Latin—use old API syntax to load new sent tokenizer
         if self.language == 'latin':
-            BasePunktSentenceTokenizer.__init__(self, language='latin')
-            self.model = BasePunktSentenceTokenizer._get_model(self)
             self.lang_vars = LatinLanguageVars()
+            BasePunktSentenceTokenizer.__init__(self, language='latin', lang_vars=self.lang_vars)
+            self.models_path = LatinPunktSentenceTokenizer.models_path
+
+            try:
+                self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
+            except FileNotFoundError as err:
+                raise type(err)(TokenizeSentence.missing_models_message)
+
         elif self.language not in INDIAN_LANGUAGES :
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
@@ -94,7 +102,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             'Incoming argument must be a string.'
 
         if self.language=='latin':
-            tokenizer = open_pickle(self.model)
+            tokenizer = self.model
             if self.lang_vars:
                 tokenizer._lang_vars = self.lang_vars
         else:
@@ -167,15 +175,17 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
 
     missing_models_message = "BasePunktSentenceTokenizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
-    def __init__(self: object, language: str = None):
+    def __init__(self: object, language: str = None, lang_vars: object = None):
         """
         :param language : language for sentence tokenization
         :type language: str
         """
-        self.language=language
+        self.language = language
+        self.lang_vars = lang_vars
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
             self.models_path = self._get_models_path()
+            print(self.models_path)
             try:
                 self.model =  open_pickle(os.path.join(self.models_path, f'{self.language}_punkt.pickle'))
             except FileNotFoundError as err:
@@ -184,24 +194,8 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
     def _get_models_path(self: object):
         return os.path.expanduser(f'~/cltk_data/{self.language}/model/{self.language}_models_cltk/tokenizers/sentence')
 
-    # def _get_model(self: object):
-    #     # Can this be simplified?
-    #
-    #     # try:
-    #     #     self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
-    #     # except FileNotFoundError as err:
-    #     #     raise type(err)(LatinPunktSentenceTokenizer.missing_models_message)
-    #     model_file = '{}_punkt.pickle'.format(self.language)
-    #     model_path = os.path.join('~/cltk_data',
-    #                             self.language,
-    #                             'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-    #     model_path = os.path.expanduser(model_path)
-    #     model_path = os.path.join(model_path, model_file)
-    #     assert os.path.isfile(model_path), \
-    #         'Please download sentence tokenization model for {}.'.format(self.language)
-    #     return model_path
 
-    def tokenize(self: object, text: str, model: object = None, lang_vars: object = None):
+    def tokenize(self: object, text: str, model: object = None):
         """
         Method for tokenizing sentences with pretrained punkt models; can
         be overridden by language-specific tokenizers.
@@ -211,8 +205,6 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         :type text: str
         :param model: tokenizer object to used # Should be in init?
         :type model: object
-        :param lang_vars: NLTK lang_vars class to used with this tokenizer
-        :type text: object
         """
         if not self.model:
             model = self.model
@@ -272,3 +264,10 @@ class BaseRegexSentenceTokenizer(BaseSentenceTokenizer):
 #        gold_tokens = list(chain(*gold))
 #        test_tokens = list(chain(*tagged_sents))
 #        return accuracy(gold_tokens, test_tokens)
+
+if __name__ == '__main__':
+    text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+    target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
+    tokenizer = BasePunktSentenceTokenizer(language="latin")
+    tokenized_sentences = tokenizer.tokenize(text)
+    print(tokenized_sentences)
