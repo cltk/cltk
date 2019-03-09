@@ -15,7 +15,7 @@ from cltk.tokenize.latin.params import ABBREVIATIONS
 
 from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 
-class SentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
+class LatinSentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
     """ """
     def __init__(self: object, strict: bool = False):
         self.strict = strict
