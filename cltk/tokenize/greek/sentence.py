@@ -26,8 +26,8 @@ class GreekLanguageVars(PunktLanguageVars):
 class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
     """ PunktSentenceTokenizer trained on Ancient Greek
     """
-    models_path = os.path.expanduser('~/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence')
-    missing_models_message = "BackoffLatinLemmatizer requires the ```greek_models_cltk``` to be in cltk_data. Please load this corpus."
+    models_path = '~/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence'
+    missing_models_message = "GreekPunktSentenceTokenizer requires the ```greek_models_cltk``` to be in cltk_data. Please load this corpus."
 
     def __init__(self: object, language: str = 'greek'):
         """
@@ -38,7 +38,7 @@ class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         self.models_path = GreekPunktSentenceTokenizer.models_path
 
         try:
-            self.model =  open_pickle(os.path.join(self.models_path, 'greek_punkt.pickle'))
+            self.model =  open_pickle(os.path.join(os.path.expanduser(self.models_path), 'greek_punkt.pickle'))
         except FileNotFoundError as err:
             raise type(err)(GreekPunktSentenceTokenizer.missing_models_message)
 

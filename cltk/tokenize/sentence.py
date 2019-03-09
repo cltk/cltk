@@ -104,8 +104,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             except FileNotFoundError as err:
                 raise type(err)(TokenizeSentence.missing_models_message)
             tokenizer = self.model
-            if self.lang_vars:
-                tokenizer._lang_vars = self.lang_vars
+            tokenizer._lang_vars = self.lang_vars
         else:
             tokenizer = open_pickle(self.tokenizer_path)
             tokenizer = self._setup_tokenizer(tokenizer)
@@ -186,14 +185,13 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if self.language:
             self.models_path = self._get_models_path(self.language)
-            print(self.models_path)
             try:
-                self.model =  open_pickle(os.path.join(self.models_path, f'{self.language}_punkt.pickle'))
+                self.model =  open_pickle(os.path.join(os.path.expanduser(self.models_path), f'{self.language}_punkt.pickle'))
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
     def _get_models_path(self: object, language):
-        return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
+        return f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence'
 
     def tokenize(self: object, text: str, model: object = None):
         """
@@ -244,30 +242,3 @@ class BaseRegexSentenceTokenizer(BaseSentenceTokenizer):
         """
         sentences = re.split(self.pattern, text)
         return sentences
-
-## Think more about how this will work
-#from nltk.metrics.scores import accuracy, precision, recall, f-score
-#
-#    def evaluate(self, gold):
-#        """
-#        following http://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.evaluate
-#        Score the accuracy of the tokenizer against the gold standard.
-#        Strip the tags from the gold standard text, retokenize it using
-#        the tokenizer, then compute the accuracy, precision, recall, and f-score.
-#
-#        :type gold: list(list(tuple(str, str)))
-#        :param gold: The list of tagged sentences to score the tagger on.
-#        :rtype: float
-#        """
-#
-#        tokenized_sents = self.tag_sents(untag(sent) for sent in gold)
-#        gold_tokens = list(chain(*gold))
-#        test_tokens = list(chain(*tagged_sents))
-#        return accuracy(gold_tokens, test_tokens)
-
-if __name__ == '__main__':
-    text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
-    target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
-    tokenizer = BasePunktSentenceTokenizer(language="latin")
-    tokenized_sentences = tokenizer.tokenize(text)
-    print(tokenized_sentences)
