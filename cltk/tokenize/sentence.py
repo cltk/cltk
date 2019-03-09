@@ -1,25 +1,27 @@
 """Tokenize sentences."""
 
-__author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>','Anoop Kunchukuttan']
 __license__ = 'MIT License. See LICENSE.'
 
-
-from cltk.utils.file_operations import open_pickle
-from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktSentenceTokenizer
 import os
 import re
 import string
+from typing import List, Dict, Tuple, Set, Any, Generator
 
+from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktSentenceTokenizer
+
+from cltk.utils.file_operations import open_pickle
+
+# Part of Latin workaround
+class LatinLanguageVars(PunktLanguageVars):
+    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
                     'internal': (',', '·'),
                     'file': 'greek.pickle', },
-               'latin':
-                   {'external': ('.', '?', '!', ':'),
-                    'internal': (',', ';'),
-                    'file': 'latin.pickle', }}
+              }
 
 INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
@@ -28,6 +30,8 @@ class TokenizeSentence():  # pylint: disable=R0903
     ``TokenizeSentence('greek')``.
     """
 
+    missing_models_message = "TokenizeSentence requires the models to be installed in cltk_data. Please load the correct models."
+
     def __init__(self: object, language: str):
         """Lower incoming language name and assemble variables.
         :type language: str
@@ -35,7 +39,11 @@ class TokenizeSentence():  # pylint: disable=R0903
         """
         self.language = language.lower()
 
-        if self.language not in INDIAN_LANGUAGES :
+        # Workaround for Latin—use old API syntax to load new sent tokenizer
+        if self.language == 'latin':
+            self.lang_vars = LatinLanguageVars()
+            BasePunktSentenceTokenizer.__init__(self, language='latin', lang_vars=self.lang_vars)
+        elif self.language not in INDIAN_LANGUAGES :
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
 
@@ -75,6 +83,9 @@ class TokenizeSentence():  # pylint: disable=R0903
         params = tokenizer.get_params()
         return PunktSentenceTokenizer(params)
 
+    def _get_models_path(self: object, language):
+        return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
+
     def tokenize_sentences(self: object, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
         ``PunktSentenceTokenizer()``.
@@ -85,14 +96,27 @@ class TokenizeSentence():  # pylint: disable=R0903
         # load tokenizer
         assert isinstance(untokenized_string, str), \
             'Incoming argument must be a string.'
-        tokenizer = open_pickle(self.tokenizer_path)
-        tokenizer = self._setup_tokenizer(tokenizer)
+
+        if self.language=='latin':
+            self.models_path = self._get_models_path(self.language)
+            try:
+                self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
+            except FileNotFoundError as err:
+                raise type(err)(TokenizeSentence.missing_models_message)
+            tokenizer = self.model
+            tokenizer._lang_vars = self.lang_vars
+        else:
+            tokenizer = open_pickle(self.tokenizer_path)
+            tokenizer = self._setup_tokenizer(tokenizer)
 
         # mk list of tokenized sentences
-        tokenized_sentences = []
-        for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
-            tokenized_sentences.append(sentence)
-        return tokenized_sentences
+        if self.language=='latin':
+            return tokenizer.tokenize(untokenized_string)
+        else:
+            tokenized_sentences = []
+            for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
+                tokenized_sentences.append(sentence)
+            return tokenized_sentences
 
     def indian_punctuation_tokenize_regex(self: object, untokenized_string: str):
         """A trivial tokenizer which just tokenizes on the punctuation boundaries.
@@ -109,10 +133,112 @@ class TokenizeSentence():  # pylint: disable=R0903
         return re.sub(r'[ ]+',u' ',tok_str).strip(' ').split(' ')
 
     def tokenize(self: object, untokenized_string: str):
-        # NLTK's PlaintextCorpusReader needs a function called tokenize
-        # in functions used as a parameter for sentence tokenization.
-        # So this is an alias for tokenize_sentences().
+        """Alias for tokenize_sentences()—NLTK's PlaintextCorpusReader needs a
+        function called tokenize in functions used as a parameter for sentence
+        tokenization.
+
+        :type untokenized_string: str
+        :param untokenized_string: A string containing one of more sentences.
+        """
         if self.language in INDIAN_LANGUAGES:
             return self.indian_punctuation_tokenize_regex(untokenized_string)
         else:
             return self.tokenize_sentences(untokenized_string)
+
+### Code below for consideration as new structure for modules; code above legacy?
+
+from abc import abstractmethod
+
+class BaseSentenceTokenizer(object):
+    """ Base class for sentence tokenization
+    """
+
+    def __init__(self: object, language: str = None):
+        """ Initialize stoplist builder with option for language specific parameters
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        if language:
+            self.language = language.lower()
+
+    @abstractmethod
+    def tokenize(self: object, text: str):
+        """
+        Method for tokenizing sentences. This method
+        should be overridden by subclasses of SentenceTokenizer.
+        """
+
+
+class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
+    """Base class for punkt sentence tokenization
+    """
+
+    missing_models_message = "BasePunktSentenceTokenizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
+
+    def __init__(self: object, language: str = None, lang_vars: object = None):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        self.language = language
+        self.lang_vars = lang_vars
+        BaseSentenceTokenizer.__init__(self, language=self.language)
+        if self.language:
+            self.models_path = self._get_models_path(self.language)
+            try:
+                self.model =  open_pickle(os.path.join(os.path.expanduser(self.models_path), f'{self.language}_punkt.pickle'))
+            except FileNotFoundError as err:
+                raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
+
+    def _get_models_path(self: object, language):
+        return f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence'
+
+    def tokenize(self: object, text: str, model: object = None):
+        """
+        Method for tokenizing sentences with pretrained punkt models; can
+        be overridden by language-specific tokenizers.
+
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        :param model: tokenizer object to used # Should be in init?
+        :type model: object
+        """
+        if not self.model:
+            model = self.model
+
+        tokenizer = self.model
+        if self.lang_vars:
+            tokenizer._lang_vars = self.lang_vars
+
+        return tokenizer.tokenize(text)
+
+
+class BaseRegexSentenceTokenizer(BaseSentenceTokenizer):
+    """ Base class for regex sentence tokenization
+    """
+
+    def __init__(self: object, language: str = None, sent_end_chars: List[str] = []):
+        """
+        :param language: language for sentence tokenization
+        :type language: str
+        :param sent_end_chars: list of sentence-ending punctuation marks
+        :type sent_end_chars: list
+        """
+        BaseSentenceTokenizer.__init__(self, language)
+        if sent_end_chars:
+            self.sent_end_chars = '\\'+'|\\'.join(sent_end_chars)
+            self.pattern = rf'(?<!\w\.\w.)(?<!\w\w\.)(?<={self.sent_end_chars})\s'
+        else:
+            raise Exception
+
+    def tokenize(self: object, text: str):
+        """
+        Method for tokenizing sentences with regular expressions.
+
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        """
+        sentences = re.split(self.pattern, text)
+        return sentences
