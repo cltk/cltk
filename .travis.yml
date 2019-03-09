@@ -11,7 +11,7 @@ before_install:
 cache:
     directories:
         - $HOME/.cache/pip
-        # - $HOME/cltk_data
+        - /home/travis/cltk_data
 
 install:
 - pip install -U pip wheel
