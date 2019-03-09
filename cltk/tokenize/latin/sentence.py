@@ -29,7 +29,7 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         :param language : language for sentence tokenization
         :type language: str
         """
-        PunktSentenceTokenizer.__init__(self, language='latin')
+        BasePunktSentenceTokenizer.__init__(self, language='latin')
         self.model = LatinPunktSentenceTokenizer.models_path
 
         try:

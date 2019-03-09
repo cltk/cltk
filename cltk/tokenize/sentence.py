@@ -150,7 +150,6 @@ class BaseSentenceTokenizer(object):
         :param language : language for sentence tokenization
         :type language: str
         """
-        print(language)
         if language:
             self.language = language.lower()
 
