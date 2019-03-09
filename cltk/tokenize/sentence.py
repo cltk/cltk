@@ -43,13 +43,6 @@ class TokenizeSentence():  # pylint: disable=R0903
         if self.language == 'latin':
             self.lang_vars = LatinLanguageVars()
             BasePunktSentenceTokenizer.__init__(self, language='latin', lang_vars=self.lang_vars)
-            self.models_path = LatinPunktSentenceTokenizer.models_path
-
-            try:
-                self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
-            except FileNotFoundError as err:
-                raise type(err)(TokenizeSentence.missing_models_message)
-
         elif self.language not in INDIAN_LANGUAGES :
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
@@ -90,6 +83,9 @@ class TokenizeSentence():  # pylint: disable=R0903
         params = tokenizer.get_params()
         return PunktSentenceTokenizer(params)
 
+    def _get_models_path(self: object, language):
+        return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
+
     def tokenize_sentences(self: object, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
         ``PunktSentenceTokenizer()``.
@@ -102,6 +98,11 @@ class TokenizeSentence():  # pylint: disable=R0903
             'Incoming argument must be a string.'
 
         if self.language=='latin':
+            self.models_path = self._get_models_path(self.language)
+            try:
+                self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
+            except FileNotFoundError as err:
+                raise type(err)(TokenizeSentence.missing_models_message)
             tokenizer = self.model
             if self.lang_vars:
                 tokenizer._lang_vars = self.lang_vars
@@ -183,17 +184,16 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language = language
         self.lang_vars = lang_vars
         BaseSentenceTokenizer.__init__(self, language=self.language)
-        if language:
-            self.models_path = self._get_models_path()
+        if self.language:
+            self.models_path = self._get_models_path(self.language)
             print(self.models_path)
             try:
                 self.model =  open_pickle(os.path.join(self.models_path, f'{self.language}_punkt.pickle'))
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
-    def _get_models_path(self: object):
-        return os.path.expanduser(f'~/cltk_data/{self.language}/model/{self.language}_models_cltk/tokenizers/sentence')
-
+    def _get_models_path(self: object, language):
+        return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
 
     def tokenize(self: object, text: str, model: object = None):
         """
