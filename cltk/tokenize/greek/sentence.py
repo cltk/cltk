@@ -34,7 +34,7 @@ class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         :param language : language for sentence tokenization
         :type language: str
         """
-        PunktSentenceTokenizer.__init__(self, language='greek')
+        BasePunktSentenceTokenizer.__init__(self, language='greek')
         self.models_path = GreekPunktSentenceTokenizer.models_path
 
         try:
@@ -49,4 +49,4 @@ class GreekRegexSentenceTokenizer(BaseRegexSentenceTokenizer):
     """ RegexSentenceTokenizer for Ancient Greek
     """
     def __init__(self: object):
-        RegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
+        BaseRegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
