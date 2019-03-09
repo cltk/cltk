@@ -41,7 +41,7 @@ class BaseSentenceTokenizerTrainer(object):
 
         self.abbreviations = abbreviations
 
-    def train_sentence_tokenizer(self, text):
+    def train_sentence_tokenizer(self: object, text: str):
         """
         Train sentence tokenizer.
         """
@@ -63,7 +63,7 @@ class BaseSentenceTokenizerTrainer(object):
 
         return tokenizer
 
-    def pickle_sentence_tokenizer(self, filename, tokenizer):
+    def pickle_sentence_tokenizer(self: object, filename: str, tokenizer: object):
         # Dump pickled tokenizer
         with open(filename, 'wb') as f:
             pickle.dump(tokenizer, f)

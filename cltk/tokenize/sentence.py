@@ -20,11 +20,7 @@ PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
                     'internal': (',', '·'),
                     'file': 'greek.pickle', },
-               # 'latin':
-               #     {'external': ('.', '?', '!', ':'),
-               #      'internal': (',', ';'),
-               #      'file': 'latin.pickle', }
-                    }
+              }
 
 INDIAN_LANGUAGES = ['bengali','hindi','marathi','sanskrit','telugu']
 
