@@ -5,9 +5,10 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
 import os.path
+
+from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.tokenize.sentence import BaseSentenceTokenizer, BasePunktSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
-from nltk.tokenize.punkt import PunktLanguageVars
 
 def SentenceTokenizer(tokenizer:str = 'punkt'):
     if tokenizer=='punkt':
