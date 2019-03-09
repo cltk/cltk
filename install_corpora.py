@@ -8,6 +8,8 @@ corpora = [
 ]
 
 for lang, type, corpus in corpora:
+    print(os.path.expanduser(f'~/cltk_data/{lang}/{type}/{corpus}/'))
+    print(os.path.isdir(os.path.expanduser(f'~/cltk_data/{lang}/{type}/{corpus}/')))
     if os.path.isdir(os.path.expanduser(f'~/cltk_data/{lang}/{type}/{corpus}/')):
         print(f'{corpus} is already installed.')
     else:
