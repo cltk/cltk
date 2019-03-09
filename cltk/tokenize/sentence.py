@@ -177,7 +177,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         if language:
             self.models_path = self._get_models_path()
             try:
-                self.model =  open_pickle(os.path.join(self.models_path, f'{language}_punkt.pickle'))
+                self.model =  open_pickle(os.path.join(self.models_path, f'{self.language}_punkt.pickle'))
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
