@@ -72,16 +72,3 @@ class BackoffGreekLemmatizer(object):
 
     def __repr__(self: object):
         return f'<BackoffGreekLemmatizer v0.1>'
-
-if __name__ == '__main__':
-    from pprint import pprint
-    bgl = BackoffGreekLemmatizer(seed=5, verbose=False)
-    lemmas = bgl.lemmatize('κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος'.split())
-    print(lemmas)
-
-    # [('arma', 'arma', <UnigramLemmatizer: CLTK Sentence Training Data>),
-    # ('uirum', 'uir', <UnigramLemmatizer: CLTK Sentence Training Data>),
-    # ('-que', '-que', <DictLemmatizer: Latin Model>),
-    # ('cano', 'cano', <DictLemmatizer: Morpheus Lemmas>),
-    # ('nobilitatis', 'nobilitas', <RegexpLemmatizer: CLTK Latin Regex Patterns>),
-    # ('.', 'punc', <DictLemmatizer: Latin Model>)]
