@@ -175,14 +175,14 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language=language
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
-            self.models_path = self._get_models_path(self, language=self.language)
+            self.models_path = self._get_models_path()
             try:
                 self.model =  open_pickle(os.path.join(self.models_path, f'{language}_punkt.pickle'))
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
-    def _get_models_path(self: object, language: str):
-        return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
+    def _get_models_path(self: object):
+        return os.path.expanduser(f'~/cltk_data/{self.language}/model/{self.language}_models_cltk/tokenizers/sentence')
 
     # def _get_model(self: object):
     #     # Can this be simplified?
