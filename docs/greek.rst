@@ -456,6 +456,28 @@ And ``return string`` wraps the list in ``' '.join()``:
 These two arguments can be combined, as well.
 
 
+Lemmatization, backoff method
+=============================
+
+The CLTK offers a series of lemmatizers that can be combined in a backoff chain, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
+
+There is a generic version of the backoff Greek lemmatizer which requires data from the CLTK greek models data found here <https://github.com/cltk/greek_models_cltk/tree/master/lemmata/backoff>. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+
+To use the generic version of the backoff Greek Lemmatizer:
+
+.. code-block:: python
+
+   In [1]: from cltk.lemmatize.greek.backoff import BackoffGreekLemmatizer
+
+   In [2]: lemmatizer = BackoffGreekLemmatizer()
+
+   In [3]: tokens = 'κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος'.split()
+
+   In [4]: lemmatizer.lemmatize(tokens)
+   Out[4]: [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθές'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιᾶ'), ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
+
+NB: The backoff chain for this lemmatizer is defined as follows: 1. a dictionary-based lemmatizer with high-frequency, unambiguous forms; 2. a training-data-based lemmatizer based on sentences from the [Perseus Latin Dependency Treebanks](https://perseusdl.github.io/treebank_data/); 3. a regular-expression-based lemmatizer transforming unambiguous endings (currently very limited); 4. a dictionary-based lemmatizer with the complete set of Morpheus lemmas; 5. an 'identity' lemmatizer returning the token as the lemma. Each of these sub-lemmatizers is explained in the documents for "Multilingual".
+
 
 Named Entity Recognition
 ========================
@@ -692,7 +714,7 @@ The corpus module has a class for generating a Swadesh list for Greek.
 
    In [3]: swadesh.words()[:10]
    Out[3]: ['ἐγώ', 'σύ', 'αὐτός, οὗ, ὅς, ὁ, οὗτος', 'ἡμεῖς', 'ὑμεῖς', 'αὐτοί', 'ὅδε', 'ἐκεῖνος', 'ἔνθα, ἐνθάδε, ἐνταῦθα', 'ἐκεῖ']
-   
+
 
 TEI XML
 =======
@@ -922,7 +944,7 @@ Word Tokenization
 
    In [4]: word_tokenizer.tokenize(text)
    Out[4]: ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
-   
+
 
 Word2Vec
 ========

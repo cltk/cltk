@@ -1,8 +1,5 @@
+
 from typing import List
-
-__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>', "Clément Besnier <clemsciences@aol.com>"]
-__license__ = 'MIT License. See LICENSE.'
-
 import logging
 import unicodedata
 
@@ -13,6 +10,11 @@ from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllab
 from cltk.corpus.old_english.syllabifier import Syllabifier as OE_Syllabifier
 from cltk.corpus.old_norse.syllabifier import hierarchy as old_norse_hierarchy
 from cltk.corpus.old_norse.syllabifier import ipa_hierarchy as ipa_old_norse_hierarchy
+
+
+__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>', "Clément Besnier <clemsciences@aol.com>"]
+__license__ = 'MIT License. See LICENSE.'
+
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -503,3 +505,6 @@ class Syllable:
                 raise ValueError("This is not a correct syllable")
         else:
             raise ValueError("A syllable can't be void")
+
+    def __str__(self):
+        return "".join(self.onset)+"".join(self.nucleus)+"".join(self.coda)
