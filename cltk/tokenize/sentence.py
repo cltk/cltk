@@ -165,7 +165,6 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
     """Base class for punkt sentence tokenization
     """
 
-    # models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/tokenizers/sentence')
     missing_models_message = "BasePunktSentenceTokenizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
     def __init__(self: object, language: str = None):
@@ -176,12 +175,11 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language=language
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
-            self.models_path = BasePunktSentenceTokenizer._get_models_path(self)
+            self.models_path = self._get_models_path(self, language=self.language)
             try:
                 self.model =  open_pickle(os.path.join(self.models_path, f'{language}_punkt.pickle'))
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
-        # self.model = LatinPunktSentenceTokenizer.models_path
 
     def _get_models_path(self: object, language: str):
         return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
