@@ -164,6 +164,10 @@ class BaseSentenceTokenizer(object):
 class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
     """Base class for punkt sentence tokenization
     """
+
+    # models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/tokenizers/sentence')
+    missing_models_message = "BasePunktSentenceTokenizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
+
     def __init__(self: object, language: str = None):
         """
         :param language : language for sentence tokenization
@@ -172,19 +176,32 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language=language
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
-            self.model = BasePunktSentenceTokenizer._get_model(self)
+            self.models_path = BasePunktSentenceTokenizer._get_models_path(self)
+            try:
+                self.model =  open_pickle(os.path.join(self.models_path, f'{language}_punkt.pickle'))
+            except FileNotFoundError as err:
+                raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
+        # self.model = LatinPunktSentenceTokenizer.models_path
 
-    def _get_model(self: object):
-        # Can this be simplified?
-        model_file = '{}_punkt.pickle'.format(self.language)
-        model_path = os.path.join('~/cltk_data',
-                                self.language,
-                                'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
-        model_path = os.path.expanduser(model_path)
-        model_path = os.path.join(model_path, model_file)
-        assert os.path.isfile(model_path), \
-            'Please download sentence tokenization model for {}.'.format(self.language)
-        return model_path
+    def _get_models_path(self: object, language: str):
+        return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
+
+    # def _get_model(self: object):
+    #     # Can this be simplified?
+    #
+    #     # try:
+    #     #     self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
+    #     # except FileNotFoundError as err:
+    #     #     raise type(err)(LatinPunktSentenceTokenizer.missing_models_message)
+    #     model_file = '{}_punkt.pickle'.format(self.language)
+    #     model_path = os.path.join('~/cltk_data',
+    #                             self.language,
+    #                             'model/' + self.language + '_models_cltk/tokenizers/sentence')  # pylint: disable=C0301
+    #     model_path = os.path.expanduser(model_path)
+    #     model_path = os.path.join(model_path, model_file)
+    #     assert os.path.isfile(model_path), \
+    #         'Please download sentence tokenization model for {}.'.format(self.language)
+    #     return model_path
 
     def tokenize(self: object, text: str, model: object = None, lang_vars: object = None):
         """
