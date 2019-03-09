@@ -7,7 +7,7 @@ __license__ = 'MIT License.'
 import os.path
 import re
 
-from cltk.tokenize.sentence import BaseSentenceTokenizer, RegexSentenceTokenizer, PunktSentenceTokenizer
+from cltk.tokenize.sentence import BaseSentenceTokenizer, BaseRegexSentenceTokenizer, BasePunktSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -23,7 +23,7 @@ class GreekLanguageVars(PunktLanguageVars):
     sent_end_chars = ('.', ';', '·')
 
 
-class GreekPunktSentenceTokenizer(PunktSentenceTokenizer):
+class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
     """ PunktSentenceTokenizer trained on Ancient Greek
     """
     models_path = os.path.expanduser('~/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence')
@@ -45,6 +45,8 @@ class GreekPunktSentenceTokenizer(PunktSentenceTokenizer):
         self.lang_vars = GreekLanguageVars()
 
 
-class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
+class GreekRegexSentenceTokenizer(BaseRegexSentenceTokenizer):
+    """ RegexSentenceTokenizer for Ancient Greek
+    """
     def __init__(self: object):
         RegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)

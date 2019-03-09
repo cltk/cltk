@@ -5,7 +5,7 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
 import os.path
-from cltk.tokenize.sentence import BaseSentenceTokenizer, PunktSentenceTokenizer
+from cltk.tokenize.sentence import BaseSentenceTokenizer, BasePunktSentenceTokenizer
 from cltk.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 
@@ -18,7 +18,7 @@ class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 
-class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
+class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
     """ PunktSentenceTokenizer trained on Latin
     """
     models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/tokenizers/sentence')

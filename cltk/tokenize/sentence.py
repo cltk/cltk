@@ -6,6 +6,7 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 import re
 import string
+from typing import List, Dict, Tuple, Set, Any, Generator
 
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
@@ -38,8 +39,8 @@ class TokenizeSentence():  # pylint: disable=R0903
 
         # Workaround for Latin—use old API syntax to load new sent tokenizer
         if self.language == 'latin':
-            PunktSentenceTokenizer.__init__(self, language='latin')
-            self.model = PunktSentenceTokenizer._get_model(self)
+            BasePunktSentenceTokenizer.__init__(self, language='latin')
+            self.model = BasePunktSentenceTokenizer._get_model(self)
             self.lang_vars = LatinLanguageVars()
         elif self.language not in INDIAN_LANGUAGES :
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
@@ -124,9 +125,13 @@ class TokenizeSentence():  # pylint: disable=R0903
         return re.sub(r'[ ]+',u' ',tok_str).strip(' ').split(' ')
 
     def tokenize(self: object, untokenized_string: str):
-        # NLTK's PlaintextCorpusReader needs a function called tokenize
-        # in functions used as a parameter for sentence tokenization.
-        # So this is an alias for tokenize_sentences().
+        """Alias for tokenize_sentences()—NLTK's PlaintextCorpusReader needs a
+        function called tokenize in functions used as a parameter for sentence
+        tokenization.
+
+        :type untokenized_string: str
+        :param untokenized_string: A string containing one of more sentences.
+        """
         if self.language in INDIAN_LANGUAGES:
             return self.indian_punctuation_tokenize_regex(untokenized_string)
         else:
@@ -145,6 +150,7 @@ class BaseSentenceTokenizer(object):
         :param language : language for sentence tokenization
         :type language: str
         """
+        print(language)
         if language:
             self.language = language.lower()
 
@@ -156,10 +162,10 @@ class BaseSentenceTokenizer(object):
         """
 
 
-class PunktSentenceTokenizer(BaseSentenceTokenizer):
+class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
     """Base class for punkt sentence tokenization
     """
-    def __init__(self, language=None):
+    def __init__(self: object, language: str = None):
         """
         :param language : language for sentence tokenization
         :type language: str
@@ -167,9 +173,9 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language=language
         BaseSentenceTokenizer.__init__(self, language=self.language)
         if language:
-            self.model = PunktSentenceTokenizer._get_model(self)
+            self.model = BasePunktSentenceTokenizer._get_model(self)
 
-    def _get_model(self):
+    def _get_model(self: object):
         # Can this be simplified?
         model_file = '{}_punkt.pickle'.format(self.language)
         model_path = os.path.join('~/cltk_data',
@@ -181,10 +187,18 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
             'Please download sentence tokenization model for {}.'.format(self.language)
         return model_path
 
-    def tokenize(self, text, model=None, lang_vars=None):
+    def tokenize(self: object, text: str, model: object = None, lang_vars: object = None):
         """
-        Method for tokenizing sentences. This method
-        should be overridden by subclasses of SentenceTokenizer.
+        Method for tokenizing sentences with pretrained punkt models; can
+        be overridden by language-specific tokenizers.
+
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        :param model: tokenizer object to used # Should be in init?
+        :type model: object
+        :param lang_vars: NLTK lang_vars class to used with this tokenizer
+        :type text: object
         """
         if not self.model:
             model = self.model
@@ -196,26 +210,31 @@ class PunktSentenceTokenizer(BaseSentenceTokenizer):
         return tokenizer.tokenize(text)
 
 
-class RegexSentenceTokenizer(BaseSentenceTokenizer):
+class BaseRegexSentenceTokenizer(BaseSentenceTokenizer):
     """ Base class for regex sentence tokenization
     """
 
-    def __init__(self, language=None, sent_end_chars=[]):
+    def __init__(self: object, language: str = None, sent_end_chars: List[str] = []):
         """
-        :param language : language for sentence tokenization
+        :param language: language for sentence tokenization
         :type language: str
+        :param sent_end_chars: list of sentence-ending punctuation marks
+        :type sent_end_chars: list
         """
         BaseSentenceTokenizer.__init__(self, language)
-        # self.model = self._get_model()
         if sent_end_chars:
             self.sent_end_chars = '\\'+'|\\'.join(sent_end_chars)
             self.pattern = rf'(?<!\w\.\w.)(?<!\w\w\.)(?<={self.sent_end_chars})\s'
         else:
             raise Exception
 
-    def tokenize(self, text):
+    def tokenize(self: object, text: str):
         """
-        Method for tokenizing Greek sentences with regular expressions.
+        Method for tokenizing sentences with regular expressions.
+
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
         """
         sentences = re.split(self.pattern, text)
         return sentences
@@ -239,12 +258,3 @@ class RegexSentenceTokenizer(BaseSentenceTokenizer):
 #        gold_tokens = list(chain(*gold))
 #        test_tokens = list(chain(*tagged_sents))
 #        return accuracy(gold_tokens, test_tokens)
-
-
-if __name__ == "__main__":
-    sentences = """Sed hoc primum sentio, nisi in bonis amicitiam esse non posse; neque id ad vivum reseco, ut illi qui haec subtilius disserunt, fortasse vere, sed ad communem utilitatem parum; negant enim quemquam esse virum bonum nisi sapientem. Sit ita sane; sed eam sapientiam interpretantur quam adhuc mortalis nemo est consecutus, nos autem ea quae sunt in usu vitaque communi, non ea quae finguntur aut optantur, spectare debemus. Numquam ego dicam C. Fabricium, M'. Curium, Ti. Coruncanium, quos sapientes nostri maiores iudicabant, ad istorum normam fuisse sapientes. Quare sibi habeant sapientiae nomen et invidiosum et obscurum; concedant ut viri boni fuerint. Ne id quidem facient, negabunt id nisi sapienti posse concedi."""
-
-    tokenizer = TokenizeSentence('latin')
-    sents = tokenizer.tokenize(sentences)
-    for i, sent in enumerate(sents, 1):
-        print(f'{i}: {sent}')
