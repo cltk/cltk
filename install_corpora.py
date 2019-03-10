@@ -1,7 +1,7 @@
 import os.path
 from cltk.corpus.utils.importer import CorpusImporter
 
-print(f'Travis directory for cltk_data is {os.path.expanduser(f'~/cltk_data/')}')
+print(f'Travis directory for cltk_data is {os.path.expanduser("~/cltk_data/")}')
 
 corpora = [
     ('latin', 'model', 'latin_models_cltk'),
