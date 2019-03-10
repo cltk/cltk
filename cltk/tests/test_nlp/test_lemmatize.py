@@ -27,13 +27,19 @@ __license__ = 'MIT License. See LICENSE.'
 class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
 
-    def setUp(self):
-        corpus_importer = CorpusImporter('french')
-        corpus_importer.import_corpus('french_data_cltk')
-        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
+    @classmethod
+    def setUpClass(cls):
+        corpora = [
+            ('french', 'text', 'french_data_cltk'), # Fix this naming
+        ]
+
+        for lang, type, corpus in corpora:
+            if not os.path.isdir(os.path.expanduser(f'~/cltk_data/{lang}/{type}/{corpus}/')):
+                try:
+                    corpus_importer = CorpusImporter(lang)
+                    corpus_importer.import_corpus(corpus)
+                except:
+                    raise Exception(f'Failure to download {corpus}')
 
     def test_default_lemmatizer(self):
         """Test default_lemmatizer()"""

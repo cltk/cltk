@@ -36,8 +36,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                 try:
                     corpus_importer = CorpusImporter(lang)
                     corpus_importer.import_corpus(corpus)
-            except:
-                raise Exception(f'Failure to download {corpus}')
+                except:
+                    raise Exception(f'Failure to download {corpus}')
 
     def test_open_pickle_fail_missing(self):
         """Test failure to unpickle a file that doesn't exist"""

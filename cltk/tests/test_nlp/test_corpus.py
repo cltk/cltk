@@ -79,8 +79,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                 try:
                     corpus_importer = CorpusImporter(lang)
                     corpus_importer.import_corpus(corpus)
-            except:
-                raise Exception(f'Failure to download {corpus}')
+                except:
+                    raise Exception(f'Failure to download {corpus}')
 
     def test_greek_betacode_to_unicode(self):
         """Test converting Beta Code to Unicode.

@@ -9,6 +9,10 @@ corpora = [
     ('latin', 'text', 'latin_text_perseus'),
     ('greek', 'model', 'greek_models_cltk'),
     ('greek', 'text', 'greek_text_perseus'),
+    ('french', 'text', 'french_data_cltk'), # Fix this naming
+    ('old_norse', 'model', 'old_norse_models_cltk'),
+    ('middle_low_german', 'model', 'middle_low_german_models_cltk'),
+    ('old_english', 'model', 'old_english_models_cltk'),
 ]
 
 for lang, type, corpus in corpora:

@@ -29,8 +29,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                 try:
                     corpus_importer = CorpusImporter(lang)
                     corpus_importer.import_corpus(corpus)
-            except:
-                raise Exception(f'Failure to download {corpus}')
+                except:
+                    raise Exception(f'Failure to download {corpus}')
 
     def test_sentence_tokenizer_latin(self):
         """Test tokenizing Latin sentences."""
