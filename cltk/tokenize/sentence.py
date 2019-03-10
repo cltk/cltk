@@ -227,8 +227,9 @@ class BaseRegexSentenceTokenizer(BaseSentenceTokenizer):
         """
         BaseSentenceTokenizer.__init__(self, language)
         if sent_end_chars:
-            self.sent_end_chars = '\\'+'|\\'.join(sent_end_chars)
-            self.pattern = rf'(?<!\w\.\w.)(?<!\w\w\.)(?<={self.sent_end_chars})\s'
+            self.sent_end_chars = sent_end_chars
+            self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
+            self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
         else:
             raise Exception
 

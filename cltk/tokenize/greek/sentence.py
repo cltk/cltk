@@ -20,7 +20,7 @@ def SentenceTokenizer(tokenizer: str = 'regex'):
 
 
 class GreekLanguageVars(PunktLanguageVars):
-    sent_end_chars = ('.', ';', '·')
+    sent_end_chars = ['.', ';', '·']
 
 
 class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
