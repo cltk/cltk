@@ -17,6 +17,7 @@ for lang, type, corpus in corpora:
         print(f'{corpus} is already installed.')
     else:
         corpus_importer = CorpusImporter(lang)
+        corpus_importer.import_corpus(corpus)
         print(f'Installing {corpus}.')
     if os.path.isdir(os.path.expanduser(f'~/cltk_data/{lang}/{type}/{corpus}/')):
         print(f'{corpus} is now installed.')
