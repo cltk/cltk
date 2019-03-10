@@ -16,51 +16,24 @@ __license__ = 'MIT License. See LICENSE.'
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    def setUp(self):
-        """Clone Greek models in order to test pull function and other model
-        tests later.
-        """
-        corpus_importer = CorpusImporter('greek')
-        # corpus_importer.import_corpus('greek_models_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
+    @classmethod
+    def setUpClass(cls):
+        corpora = [
+            ('latin', 'model', 'latin_models_cltk'),
+            ('greek', 'model', 'greek_models_cltk'),
+            ('french', 'text', 'french_data_cltk'), # Fix this naming
+            ('old_norse', 'model', 'old_norse_models_cltk'),
+            ('middle_low_german', 'model', 'middle_low_german_models_cltk'),
+            ('old_english', 'model', 'old_english_models_cltk'),
+        ]
 
-        corpus_importer = CorpusImporter('latin')
-        # corpus_importer.import_corpus('latin_models_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
-        corpus_importer = CorpusImporter('french')
-        corpus_importer.import_corpus('french_data_cltk')
-        file_rel = os.path.join('~/cltk_data/french/text/french_data_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
-        corpus_importer = CorpusImporter("old_norse")
-        corpus_importer.import_corpus("old_norse_models_cltk")
-        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
-        corpus_importer = CorpusImporter('middle_low_german')
-        corpus_importer.import_corpus('middle_low_german_models_cltk')
-        file_rel = os.path.join('~/cltk_data/middle_low_german/model/middle_low_german_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
-
-        corpus_importer = CorpusImporter('old_english')
-        corpus_importer.import_corpus('old_english_models_cltk')
-        file_rel = os.path.join('~/cltk_data/old_english/model/old_english_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
+        for lang, type, corpus in corpora:
+            if not os.path.isdir(os.path.expanduser(f'~/cltk_data/{lang}/{type}/{corpus}/')):
+                try:
+                    corpus_importer = CorpusImporter(lang)
+                    corpus_importer.import_corpus(corpus)
+            except:
+                raise Exception(f'Failure to download {corpus}')
 
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
