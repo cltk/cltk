@@ -318,6 +318,9 @@ class CorpusImporter:
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
             target_file = os.path.join(type_dir, corpus_name, 'README.md')
+
+            print(f'CLTK_DATA_DIR is {target_dir}')
+
             # check if corpus already present
             # if not, clone
             if not os.path.isfile(target_file):
