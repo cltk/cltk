@@ -27,7 +27,7 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         :type language: str
         """
         self.lang_vars = LatinLanguageVars()
-        BasePunktSentenceTokenizer.__init__(self, language='latin', lang_vars=self.lang_vars)
+        super().__init__(language='latin', lang_vars=self.lang_vars)
         self.models_path = LatinPunktSentenceTokenizer.models_path
 
         try:

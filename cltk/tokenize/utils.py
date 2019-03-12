@@ -12,7 +12,7 @@ import inspect
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.tokenize.punkt import PunktLanguageVars
 
-class BaseSentenceTokenizerTrainer(object):
+class BaseSentenceTokenizerTrainer():
     """ Train sentence tokenizer
     """
 

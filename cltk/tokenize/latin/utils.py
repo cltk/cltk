@@ -23,8 +23,8 @@ class LatinSentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
         self.strict_punctuation = [';', ':', '—']
         self.abbreviations = ABBREVIATIONS
 
-        BaseSentenceTokenizerTrainer.__init__(self, language='latin',
-                                                punctuation=self.punctuation,
-                                                strict=self.strict,
-                                                strict_punctuation=self.strict_punctuation,
-                                                abbreviations=self.abbreviations)
+        super().__init__(language='latin',
+                        punctuation=self.punctuation,
+                        strict=self.strict,
+                        strict_punctuation=self.strict_punctuation,
+                        abbreviations=self.abbreviations)

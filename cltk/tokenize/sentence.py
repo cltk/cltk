@@ -185,6 +185,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language = language
         self.lang_vars = lang_vars
         BaseSentenceTokenizer.__init__(self, language=self.language)
+        # super().__init(language=self.language)
         if self.language:
             self.models_path = self._get_models_path(self.language)
             try:
