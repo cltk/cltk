@@ -7,6 +7,7 @@ __license__ = 'MIT License.'
 import pickle
 from abc import abstractmethod
 from typing import List, Dict, Tuple, Set, Any, Generator
+import inspect
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -35,21 +36,23 @@ class BaseSentenceTokenizerTrainer(object):
         if language:
             self.language = language.lower()
 
+        self.strict = strict
         self.punctuation = punctuation
-        if strict:
-            self.punctuation.extend(strict_punctuation)
-
+        self.strict_punctuation = strict_punctuation
         self.abbreviations = abbreviations
 
     def train_sentence_tokenizer(self: object, text: str):
         """
         Train sentence tokenizer.
         """
-        # Set punctuation
         language_punkt_vars = PunktLanguageVars
 
-        if self.punctuation or self.strict:
-            language_punkt_vars.sent_end_chars = self.punctuation
+        # Set punctuation
+        if self.punctuation:
+            if self.strict:
+                language_punkt_vars.sent_end_chars = self.punctuation.extend(self.strict_punctuation)
+            else:
+                language_punkt_vars.sent_end_chars = self.punctuation
 
         # Set abbreviations
         trainer = PunktTrainer(text, language_punkt_vars)
@@ -58,8 +61,9 @@ class BaseSentenceTokenizerTrainer(object):
 
         tokenizer = PunktSentenceTokenizer(trainer.get_params())
 
-        for abbreviation in self.abbreviations:
-            tokenizer._params.abbrev_types.add(abbreviation)
+        if self.abbreviations:
+            for abbreviation in self.abbreviations:
+                tokenizer._params.abbrev_types.add(abbreviation)
 
         return tokenizer
 
@@ -67,3 +71,9 @@ class BaseSentenceTokenizerTrainer(object):
         # Dump pickled tokenizer
         with open(filename, 'wb') as f:
             pickle.dump(tokenizer, f)
+
+if __name__ == '__main__':
+    latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+    trainer = BaseSentenceTokenizerTrainer('latin')
+    print(type(trainer.train_sentence_tokenizer(latin_text)))
+    print(isinstance(trainer.train_sentence_tokenizer(latin_text), object))
