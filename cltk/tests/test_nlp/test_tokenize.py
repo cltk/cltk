@@ -7,7 +7,9 @@ from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
 from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
+from cltk.tokenize.latin.sentence import SentenceTokenizer as LatinSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekPunktSentenceTokenizer, GreekRegexSentenceTokenizer
+from cltk.tokenize.greek.sentence import SentenceTokenizer as GreekSentenceTokenizer
 
 import os
 import unittest
@@ -223,6 +225,13 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = tokenizer.tokenize_sentences(self.latin_text)
         self.assertEqual(tokenized_sentences, target)
 
+    def test_sentence_tokenizer_latin_punkt_switch(self):
+        """Test tokenizing Latin sentences."""
+        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
+        tokenizer = LatinSentenceTokenizer(tokenizer='punkt')
+        tokenized_sentences = tokenizer.tokenize(self.latin_text)
+        self.assertEqual(tokenized_sentences, target)
+
     def test_sentence_tokenizer_greek_regex(self):
         """Test tokenizing Greek sentences with regex."""
         target = ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν·', 'τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι·', 'εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.'] # pylint: disable=line-too-long
@@ -236,6 +245,23 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
         tokenizer = GreekPunktSentenceTokenizer()
         tokenized_sentences = tokenizer.tokenize(self.greek_text)
         self.assertEqual(tokenized_sentences, target)
+
+    # Simplify, just checking if/else really
+    def test_sentence_tokenizer_greek_regex_switch(self):
+        """Test tokenizing Greek sentences with regex."""
+        target = ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν·', 'τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι·', 'εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.'] # pylint: disable=line-too-long
+        tokenizer = GreekSentenceTokenizer(tokenizer='regex')
+        tokenized_sentences = tokenizer.tokenize(self.greek_text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_greek_punkt_switch(self):
+        """Test tokenizing Greek sentences with punkt."""
+        target = ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.'] # pylint: disable=line-too-long
+        tokenizer = GreekSentenceTokenizer(tokenizer='punkt')
+        tokenized_sentences = tokenizer.tokenize(self.greek_text)
+        self.assertEqual(tokenized_sentences, target)
+
+
 
     def test_sentence_tokenizer_bengali(self):
         """Test tokenizing bengali sentences."""
