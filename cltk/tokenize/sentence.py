@@ -49,7 +49,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
 
-    def _setup_language_variables(self, lang: str):
+    def _setup_language_variables(self, lang: str): # pragma: no cover
         """Check for language availability and presence of tokenizer file,
         then read punctuation characters for language and build tokenizer file
         path.
@@ -71,7 +71,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             'CLTK linguistics data not found for language {0}'.format(lang)
         return internal_punctuation, external_punctuation, tokenizer_path
 
-    def _setup_tokenizer(self, tokenizer: object):
+    def _setup_tokenizer(self, tokenizer: object): # pragma: no cover
         """Add tokenizer and punctuation variables.
         :type tokenizer: object
         :param tokenizer : Unpickled tokenizer object.
@@ -85,7 +85,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         params = tokenizer.get_params()
         return PunktSentenceTokenizer(params)
 
-    def _get_models_path(self: object, language):
+    def _get_models_path(self: object, language): # pragma: no cover
         return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
 
     def tokenize_sentences(self: object, untokenized_string: str):
@@ -192,7 +192,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
-    def _get_models_path(self: object, language):
+    def _get_models_path(self: object, language): # pragma: no cover
         return f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence'
 
     def tokenize(self: object, text: str, model: object = None):
