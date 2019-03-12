@@ -49,7 +49,7 @@ j  = Consonant(Place.palatal, Manner.approximant, Voiced.pos, 'j')
 w  = Consonant(Place.velar, Manner.approximant, Voiced.pos, 'w')
 w0 = Consonant(Place.velar, Manner.approximant, Voiced.neg, 'w')
 
-# rhotics
+# rhotics-s
 r  = Consonant(Place.alveolar, Manner.approximant, Voiced.pos, 'r')
 r0 = Consonant(Place.alveolar, Manner.approximant, Voiced.neg, 'r̥')	
 
@@ -163,4 +163,5 @@ oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 oe.add_rule(InnerPhonologicalRule(
 	lambda before, target, after: 
 		isinstance(before, Vowel) and target[Manner] == Manner.fricative and isinstance(after, Vowel),
-	lambda target: oe.voice(target)))
+	lambda target: 
+		oe.voice(target)))
