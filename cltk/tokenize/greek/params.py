@@ -4,4 +4,7 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
-# placeholder
+from nltk.tokenize.punkt import PunktLanguageVars
+
+class GreekLanguageVars(PunktLanguageVars):
+    sent_end_chars = ['.', ';', '·']

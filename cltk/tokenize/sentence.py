@@ -11,11 +11,13 @@ from typing import List, Dict, Tuple, Set, Any, Generator
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
+from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.utils.file_operations import open_pickle
 
+
 # Part of Latin workaround
-class LatinLanguageVars(PunktLanguageVars):
-    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
+# class LatinLanguageVars(PunktLanguageVars):
+#     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
@@ -173,7 +175,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
     """Base class for punkt sentence tokenization
     """
 
-    missing_models_message = "BasePunktSentenceTokenizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
+    missing_models_message = "BasePunktSentenceTokenizer requires a language model."
 
     def __init__(self: object, language: str = None, lang_vars: object = None):
         """

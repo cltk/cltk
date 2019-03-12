@@ -8,6 +8,7 @@ import os.path
 import re
 
 from cltk.tokenize.sentence import BaseSentenceTokenizer, BaseRegexSentenceTokenizer, BasePunktSentenceTokenizer
+from cltk.tokenize.greek.params import GreekLanguageVars
 from cltk.utils.file_operations import open_pickle
 
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -17,10 +18,6 @@ def SentenceTokenizer(tokenizer: str = 'regex'):
         return GreekPunktSentenceTokenizer()
     if tokenizer=='regex':
         return GreekRegexSentenceTokenizer()
-
-
-class GreekLanguageVars(PunktLanguageVars):
-    sent_end_chars = ['.', ';', '·']
 
 
 class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):

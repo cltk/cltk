@@ -6,17 +6,13 @@ __license__ = 'MIT License.'
 
 import os.path
 
-from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.tokenize.sentence import BaseSentenceTokenizer, BasePunktSentenceTokenizer
+from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.utils.file_operations import open_pickle
 
 def SentenceTokenizer(tokenizer:str = 'punkt'):
     if tokenizer=='punkt':
         return LatinPunktSentenceTokenizer()
-
-
-class LatinLanguageVars(PunktLanguageVars):
-    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 
 class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
