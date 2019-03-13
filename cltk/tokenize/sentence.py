@@ -115,9 +115,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         if self.language=='latin':
             return tokenizer.tokenize(untokenized_string)
         else:
-            tokenized_sentences = []
-            for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
-                tokenized_sentences.append(sentence)
+            tokenized_sentences = [sentence for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True)]
             return tokenized_sentences
 
     def indian_punctuation_tokenize_regex(self: object, untokenized_string: str):
