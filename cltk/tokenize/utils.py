@@ -50,7 +50,7 @@ class BaseSentenceTokenizerTrainer():
         # Set punctuation
         if self.punctuation:
             if self.strict:
-                language_punkt_vars.sent_end_chars = self.punctuation.extend(self.strict_punctuation)
+                language_punkt_vars.sent_end_chars = self.punctuation + self.strict_punctuation
             else:
                 language_punkt_vars.sent_end_chars = self.punctuation
 
@@ -71,9 +71,3 @@ class BaseSentenceTokenizerTrainer():
         # Dump pickled tokenizer
         with open(filename, 'wb') as f:
             pickle.dump(tokenizer, f)
-
-if __name__ == '__main__':
-    latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
-    trainer = BaseSentenceTokenizerTrainer('latin')
-    print(type(trainer.train_sentence_tokenizer(latin_text)))
-    print(isinstance(trainer.train_sentence_tokenizer(latin_text), object))

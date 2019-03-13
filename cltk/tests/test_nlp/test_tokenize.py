@@ -366,6 +366,28 @@ class TestSentenceTokenizeUtils(unittest.TestCase):  # pylint: disable=R0904
         self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
                               PunktSentenceTokenizer)
 
+    def test_sentence_tokenizer_utils_with_punctuation(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin', punctuation=['.', '?', '!'])
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
+    def test_sentence_tokenizer_utils_with_abbreviations(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin', abbreviations=['Kal.'])
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
+
+    def test_sentence_tokenizer_utils_with_strict(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin',
+                        strict=True,
+                        punctuation=['.', '?', '!'],
+                        strict_punctuation=[','])
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
     def test_sentence_tokenizer_trainer_pickle(self):
         with patch.object(BaseSentenceTokenizerTrainer, 'pickle_sentence_tokenizer') as mock:
             trainer = BaseSentenceTokenizerTrainer('latin')
