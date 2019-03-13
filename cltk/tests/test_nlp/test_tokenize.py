@@ -16,6 +16,7 @@ from cltk.tokenize.latin.sentence import SentenceTokenizer as LatinSentenceToken
 from cltk.tokenize.greek.sentence import GreekPunktSentenceTokenizer, GreekRegexSentenceTokenizer
 from cltk.tokenize.greek.sentence import SentenceTokenizer as GreekSentenceTokenizer
 from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
+from cltk.tokenize.latin.utils import LatinSentenceTokenizerTrainer
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -370,6 +371,12 @@ class TestSentenceTokenizeUtils(unittest.TestCase):  # pylint: disable=R0904
             trainer = BaseSentenceTokenizerTrainer('latin')
             trainer.pickle_sentence_tokenizer('mock.p', trainer)
         mock.assert_called_once_with('mock.p', trainer)
+
+    def test_sentence_tokenizer_utils_latin(self):
+        """Test sentence tokenization trainer"""
+        trainer = LatinSentenceTokenizerTrainer()
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
 
 if __name__ == '__main__':
     unittest.main()
