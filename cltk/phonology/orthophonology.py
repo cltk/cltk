@@ -7,6 +7,10 @@ import re
 class PhonologicalFeature(IntEnum):
 	pass
 
+class Consonantal(PhonologicalFeature):
+	neg = auto()
+	pos = auto()
+
 class Voiced(PhonologicalFeature):
 	neg = auto()
 	pos = auto()
@@ -116,10 +120,11 @@ class Consonant(AbstractPhoneme):
 		assert ipa is not None
 
 		AbstractPhoneme.__init__(self, {
-			Place    : place,
-			Manner   : manner,
-			Voiced   : voiced,
-			Geminate : geminate}, 
+			Consonantal : Consonantal.pos,
+			Place       : place,
+			Manner      : manner,
+			Voiced      : voiced,
+			Geminate    : geminate}, 
 			ipa)
 
 	def is_more_sonorous(self, other):
@@ -134,6 +139,7 @@ class Vowel(AbstractPhoneme):
 		assert ipa is not None
 
 		AbstractPhoneme.__init__(self, {
+			Consonantal : Consonantal.neg,
 			Height      : height, 
 			Backness    : backness, 
 			Roundedness : rounded, 
@@ -249,7 +255,9 @@ class Orthophonology:
 		return phonemes
 
 	def transcribe(self, text):
-		return [self.transcribe_word(word) for word in self.tokenize(text)]
+		phoneme_words = [self.transcribe_word(word) for word in self.tokenize(text)]
+		words = [''.join([phoneme.ipa for phoneme in word]) for word in phoneme_words]
+		return ' '.join(words)
 
 	def find_sound(self, phoneme) :
 		for sound in self.sound_inventory:

@@ -160,8 +160,18 @@ digraphs_ipa = {
 
 oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 
+# intervocalic fricatives are voiced
 oe.add_rule(InnerPhonologicalRule(
-	lambda before, target, after: 
+	condition = lambda before, target, after: 
 		isinstance(before, Vowel) and target[Manner] == Manner.fricative and isinstance(after, Vowel),
-	lambda target: 
+	action = lambda target: 
 		oe.voice(target)))
+
+# /k/ is palatized in specific environments
+oe.add_rule(PhonologicalRule(
+	condition = lambda before, target, after:
+		target == k and
+		((isinstance(after, Vowel) and after[Backness] == Backness.front) or
+		(before is not None and before == i and 
+			(after is None or (isinstance(after, Vowel) and after[Backness] != Backness.back)))),
+	action = lambda _: tsh))
