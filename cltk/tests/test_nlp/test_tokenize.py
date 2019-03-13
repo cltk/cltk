@@ -1,5 +1,10 @@
 """Test cltk.tokenize.
 """
+import os
+import unittest
+from unittest.mock import patch
+
+from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence
@@ -7,10 +12,11 @@ from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
 from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
+from cltk.tokenize.latin.sentence import SentenceTokenizer as LatinSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekPunktSentenceTokenizer, GreekRegexSentenceTokenizer
-
-import os
-import unittest
+from cltk.tokenize.greek.sentence import SentenceTokenizer as GreekSentenceTokenizer
+from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
+from cltk.tokenize.latin.utils import LatinSentenceTokenizerTrainer
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -207,6 +213,35 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
         self.greek_text = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""  # pylint: disable=line-too-long
         self.latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
 
+    def test_sentence_tokenizer_latin_punkt(self):
+        """Test tokenizing Latin sentences."""
+        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
+        tokenizer = LatinPunktSentenceTokenizer()
+        print(tokenizer.models_path)
+        tokenized_sentences = tokenizer.tokenize(self.latin_text)
+        self.assertEqual(tokenized_sentences, target)
+
+    # Deprecated use cltk.tokenize.latin.sentence
+    def test_sentence_tokenizer_latin(self):
+        """Test tokenizing Latin sentences."""
+        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
+        tokenizer = TokenizeSentence('latin')
+        tokenized_sentences = tokenizer.tokenize_sentences(self.latin_text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_latin_punkt_switch(self):
+        """Test tokenizing Latin sentences."""
+        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
+        tokenizer = LatinSentenceTokenizer(tokenizer='punkt')
+        tokenized_sentences = tokenizer.tokenize(self.latin_text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_latin_punkt_missing(self):
+        """Test whether models are present"""
+        with patch.object(LatinPunktSentenceTokenizer,'models_path',''):
+            with self.assertRaises(FileNotFoundError):
+                tokenizer = LatinPunktSentenceTokenizer()
+
     def test_sentence_tokenizer_greek_regex(self):
         """Test tokenizing Greek sentences with regex."""
         target = ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν·', 'τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι·', 'εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.'] # pylint: disable=line-too-long
@@ -221,20 +256,26 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
         tokenized_sentences = tokenizer.tokenize(self.greek_text)
         self.assertEqual(tokenized_sentences, target)
 
-    def test_sentence_tokenizer_latin_punkt(self):
-        """Test tokenizing Latin sentences."""
-        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
-        tokenizer = LatinPunktSentenceTokenizer()
-        tokenized_sentences = tokenizer.tokenize(self.latin_text)
+    # Simplify, just checking if/else really
+    def test_sentence_tokenizer_greek_regex_switch(self):
+        """Test tokenizing Greek sentences with regex."""
+        target = ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν·', 'τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι·', 'εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.'] # pylint: disable=line-too-long
+        tokenizer = GreekSentenceTokenizer(tokenizer='regex')
+        tokenized_sentences = tokenizer.tokenize(self.greek_text)
         self.assertEqual(tokenized_sentences, target)
 
-    # Deprecated use cltk.tokenize.latin.sentence
-    def test_sentence_tokenizer_latin(self):
-        """Test tokenizing Latin sentences."""
-        target = ['O di inmortales!', 'ubinam gentium sumus?', 'in qua urbe vivimus?', 'quam rem publicam habemus?', 'Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent!', 'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!', 'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
-        tokenizer = TokenizeSentence('latin')
-        tokenized_sentences = tokenizer.tokenize_sentences(self.latin_text)
+    def test_sentence_tokenizer_greek_punkt_switch(self):
+        """Test tokenizing Greek sentences with punkt."""
+        target = ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.'] # pylint: disable=line-too-long
+        tokenizer = GreekSentenceTokenizer(tokenizer='punkt')
+        tokenized_sentences = tokenizer.tokenize(self.greek_text)
         self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_greek_punkt_missing(self):
+        """Test whether models are present for BackoffLatinLemmatizer"""
+        with patch.object(GreekPunktSentenceTokenizer,'models_path',''):
+            with self.assertRaises(FileNotFoundError):
+                tokenizer = GreekPunktSentenceTokenizer()
 
     def test_sentence_tokenizer_bengali(self):
         """Test tokenizing bengali sentences."""
@@ -310,6 +351,54 @@ class TestLineTokenize(unittest.TestCase):  # pylint: disable=R0904
         tokenizer = LineTokenizer('french')
         tokenized_lines = tokenizer.tokenize(text, include_blanks=True)
         self.assertTrue(tokenized_lines == target)
+
+
+class TestSentenceTokenizeUtils(unittest.TestCase):  # pylint: disable=R0904
+    """Class for unittest"""
+
+    @classmethod
+    def setUpClass(self):
+        self.latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+
+    def test_sentence_tokenizer_utils(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin')
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
+    def test_sentence_tokenizer_utils_with_punctuation(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin', punctuation=['.', '?', '!'])
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
+    def test_sentence_tokenizer_utils_with_abbreviations(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin', abbreviations=['Kal.'])
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
+
+    def test_sentence_tokenizer_utils_with_strict(self):
+        """Test sentence tokenization trainer"""
+        trainer = BaseSentenceTokenizerTrainer('latin',
+                        strict=True,
+                        punctuation=['.', '?', '!'],
+                        strict_punctuation=[','])
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
+
+    def test_sentence_tokenizer_trainer_pickle(self):
+        with patch.object(BaseSentenceTokenizerTrainer, 'pickle_sentence_tokenizer') as mock:
+            trainer = BaseSentenceTokenizerTrainer('latin')
+            trainer.pickle_sentence_tokenizer('mock.p', trainer)
+        mock.assert_called_once_with('mock.p', trainer)
+
+    def test_sentence_tokenizer_utils_latin(self):
+        """Test sentence tokenization trainer"""
+        trainer = LatinSentenceTokenizerTrainer()
+        self.assertIsInstance(trainer.train_sentence_tokenizer(self.latin_text),
+                              PunktSentenceTokenizer)
 
 if __name__ == '__main__':
     unittest.main()
