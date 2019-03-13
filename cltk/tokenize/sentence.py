@@ -11,11 +11,13 @@ from typing import List, Dict, Tuple, Set, Any, Generator
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
+from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.utils.file_operations import open_pickle
 
+
 # Part of Latin workaround
-class LatinLanguageVars(PunktLanguageVars):
-    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
+# class LatinLanguageVars(PunktLanguageVars):
+#     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
 
 PUNCTUATION = {'greek':
                    {'external': ('.', ';'),
@@ -47,7 +49,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
 
-    def _setup_language_variables(self, lang: str):
+    def _setup_language_variables(self, lang: str): # pragma: no cover
         """Check for language availability and presence of tokenizer file,
         then read punctuation characters for language and build tokenizer file
         path.
@@ -69,7 +71,7 @@ class TokenizeSentence():  # pylint: disable=R0903
             'CLTK linguistics data not found for language {0}'.format(lang)
         return internal_punctuation, external_punctuation, tokenizer_path
 
-    def _setup_tokenizer(self, tokenizer: object):
+    def _setup_tokenizer(self, tokenizer: object): # pragma: no cover
         """Add tokenizer and punctuation variables.
         :type tokenizer: object
         :param tokenizer : Unpickled tokenizer object.
@@ -83,7 +85,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         params = tokenizer.get_params()
         return PunktSentenceTokenizer(params)
 
-    def _get_models_path(self: object, language):
+    def _get_models_path(self: object, language): # pragma: no cover
         return os.path.expanduser(f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence')
 
     def tokenize_sentences(self: object, untokenized_string: str):
@@ -113,9 +115,7 @@ class TokenizeSentence():  # pylint: disable=R0903
         if self.language=='latin':
             return tokenizer.tokenize(untokenized_string)
         else:
-            tokenized_sentences = []
-            for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True):  # pylint: disable=C0301
-                tokenized_sentences.append(sentence)
+            tokenized_sentences = [sentence for sentence in tokenizer.sentences_from_text(untokenized_string, realign_boundaries=True)]
             return tokenized_sentences
 
     def indian_punctuation_tokenize_regex(self: object, untokenized_string: str):
@@ -173,7 +173,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
     """Base class for punkt sentence tokenization
     """
 
-    missing_models_message = "BasePunktSentenceTokenizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
+    missing_models_message = "BasePunktSentenceTokenizer requires a language model."
 
     def __init__(self: object, language: str = None, lang_vars: object = None):
         """
@@ -183,6 +183,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         self.language = language
         self.lang_vars = lang_vars
         BaseSentenceTokenizer.__init__(self, language=self.language)
+        # super().__init(language=self.language)
         if self.language:
             self.models_path = self._get_models_path(self.language)
             try:
@@ -190,7 +191,7 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
-    def _get_models_path(self: object, language):
+    def _get_models_path(self: object, language): # pragma: no cover
         return f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence'
 
     def tokenize(self: object, text: str, model: object = None):

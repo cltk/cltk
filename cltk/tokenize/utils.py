@@ -7,11 +7,12 @@ __license__ = 'MIT License.'
 import pickle
 from abc import abstractmethod
 from typing import List, Dict, Tuple, Set, Any, Generator
+import inspect
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.tokenize.punkt import PunktLanguageVars
 
-class BaseSentenceTokenizerTrainer(object):
+class BaseSentenceTokenizerTrainer():
     """ Train sentence tokenizer
     """
 
@@ -35,21 +36,23 @@ class BaseSentenceTokenizerTrainer(object):
         if language:
             self.language = language.lower()
 
+        self.strict = strict
         self.punctuation = punctuation
-        if strict:
-            self.punctuation.extend(strict_punctuation)
-
+        self.strict_punctuation = strict_punctuation
         self.abbreviations = abbreviations
 
     def train_sentence_tokenizer(self: object, text: str):
         """
         Train sentence tokenizer.
         """
-        # Set punctuation
         language_punkt_vars = PunktLanguageVars
 
-        if self.punctuation or self.strict:
-            language_punkt_vars.sent_end_chars = self.punctuation
+        # Set punctuation
+        if self.punctuation:
+            if self.strict:
+                language_punkt_vars.sent_end_chars = self.punctuation + self.strict_punctuation
+            else:
+                language_punkt_vars.sent_end_chars = self.punctuation
 
         # Set abbreviations
         trainer = PunktTrainer(text, language_punkt_vars)
@@ -58,8 +61,9 @@ class BaseSentenceTokenizerTrainer(object):
 
         tokenizer = PunktSentenceTokenizer(trainer.get_params())
 
-        for abbreviation in self.abbreviations:
-            tokenizer._params.abbrev_types.add(abbreviation)
+        if self.abbreviations:
+            for abbreviation in self.abbreviations:
+                tokenizer._params.abbrev_types.add(abbreviation)
 
         return tokenizer
 

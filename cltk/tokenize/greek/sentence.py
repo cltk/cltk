@@ -8,6 +8,7 @@ import os.path
 import re
 
 from cltk.tokenize.sentence import BaseSentenceTokenizer, BaseRegexSentenceTokenizer, BasePunktSentenceTokenizer
+from cltk.tokenize.greek.params import GreekLanguageVars
 from cltk.utils.file_operations import open_pickle
 
 from nltk.tokenize.punkt import PunktLanguageVars
@@ -17,10 +18,6 @@ def SentenceTokenizer(tokenizer: str = 'regex'):
         return GreekPunktSentenceTokenizer()
     if tokenizer=='regex':
         return GreekRegexSentenceTokenizer()
-
-
-class GreekLanguageVars(PunktLanguageVars):
-    sent_end_chars = ['.', ';', '·']
 
 
 class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
@@ -34,7 +31,7 @@ class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         :param language : language for sentence tokenization
         :type language: str
         """
-        BasePunktSentenceTokenizer.__init__(self, language='greek')
+        super().__init__(language='greek')
         self.models_path = GreekPunktSentenceTokenizer.models_path
 
         try:
@@ -49,4 +46,5 @@ class GreekRegexSentenceTokenizer(BaseRegexSentenceTokenizer):
     """ RegexSentenceTokenizer for Ancient Greek
     """
     def __init__(self: object):
-        BaseRegexSentenceTokenizer.__init__(self, language='greek', sent_end_chars=GreekLanguageVars.sent_end_chars)
+        super().__init__(language='greek',
+            sent_end_chars=GreekLanguageVars.sent_end_chars)
