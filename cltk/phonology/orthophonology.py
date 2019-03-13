@@ -235,6 +235,7 @@ class Orthophonology:
 		self.alphabet = alphabet
 		self.diphthongs = diphthongs
 		self.digraphs = digraphs
+		self.di = {**self.diphthongs, **self.digraphs}
 		self.rules = []
 
 	def add_rule(self, rule):
@@ -247,17 +248,32 @@ class Orthophonology:
 		return text.split(' ')
 
 	def transcribe_word(self, word):
-		phonemes = [self.alphabet[letter] for letter in word]
+		phonemes = []
+
+		i = 0
+		while i < len(word):
+			# check for digraphs and dipththongs
+			if i < len(word) - 1 and word[i:i + 2] in self.di:
+				phonemes.append(self.di[word[i:i + 2]])
+				i += 2
+			else:
+				phonemes.append(self.alphabet[word[i]])
+				i += 1
+
+		# apply phonological rules.  Note: no restart!
 		for i in range(len(phonemes)):
 		    for rule in self.rules:
 		    	if rule.check_environment(phonemes, i):
 		    		phonemes[i] = rule(phonemes, i)
 		return phonemes
 
-	def transcribe(self, text):
+	def transcribe(self, text, as_phonemes = False):
 		phoneme_words = [self.transcribe_word(word) for word in self.tokenize(text)]
-		words = [''.join([phoneme.ipa for phoneme in word]) for word in phoneme_words]
-		return ' '.join(words)
+		if not as_phonemes:
+			words = [''.join([phoneme.ipa for phoneme in word]) for word in phoneme_words]
+			return ' '.join(words)
+		else:
+			return phoneme_words
 
 	def find_sound(self, phoneme) :
 		for sound in self.sound_inventory:

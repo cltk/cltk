@@ -163,7 +163,7 @@ oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 # intervocalic fricatives are voiced
 oe.add_rule(InnerPhonologicalRule(
 	condition = lambda before, target, after: 
-		isinstance(before, Vowel) and target[Manner] == Manner.fricative and isinstance(after, Vowel),
+		isinstance(before, Vowel) and target in [f, s, th] and isinstance(after, Vowel),
 	action = lambda target: 
 		oe.voice(target)))
 
@@ -175,3 +175,32 @@ oe.add_rule(PhonologicalRule(
 		(before is not None and before == i and 
 			(after is None or (isinstance(after, Vowel) and after[Backness] != Backness.back)))),
 	action = lambda _: tsh))
+
+# palatization of /g/
+oe.add_rule(InnerPhonologicalRule(
+	condition = lambda before, target, after:
+		target == g and
+		((isinstance(after, Vowel) and after[Backness] == Backness.front) or
+		((isinstance(before, Vowel) and before[Backness] == Backness.front) and
+			not(isinstance(after, Vowel) and after[Backness] == Backness.back))),
+	action = lambda _ : j))
+
+# /g/ is fricativized when intervocalic
+oe.add_rule(InnerPhonologicalRule(
+	condition = lambda before, target, after:
+		(isinstance(before, Vowel) or (isinstance(before, Consonant) and before[Voiced] == Voiced.pos)) and
+		target == g and
+		(isinstance(after, Vowel) or (isinstance(after, Consonant) and after[Voiced] == Voiced.pos)),
+	action = lambda _ : y))
+
+# /h/ is velarized after a back vowel
+oe.add_rule(PhonologicalRule(
+	condition = lambda before, target, _:
+		target == h and isinstance(before, Vowel) and before[Backness] == Backness.back,
+	action = lambda _ : x))
+
+# /h/ is palatized after a front vowel
+oe.add_rule(PhonologicalRule(
+	condition = lambda before, target, _:
+		target == h and isinstance(before, Vowel) and before[Backness] == Backness.front,
+	action = lambda _ : ch))
