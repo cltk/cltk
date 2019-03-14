@@ -226,6 +226,17 @@ class SyllableInitialPhonologicalRule(BasePhonologicalRule):
 		else:
 			return False
 
+def SimplePhonologicalRule(target, replacement, before=None, after=None):
+	if before is not None and after is None:
+		cond = lambda b, t, _: t == target and b[type(before)] == before 
+	if before is not None and after is not None:
+		cond = lambda b, t, a: t == target and b[type(before)] == before and a[type(after)] == after
+	if before is None and after is not None:
+		cond = lambda _, t, b: t == target and a[type(after)] == after 
+	if before is None and after is None:
+		cond = lambda _, t, __: t == target
+
+	return PhonologicalRule(cond, lambda _ : replacement)
 
 # ------------------- Orthophonology of a language -------------------#
 
