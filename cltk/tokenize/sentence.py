@@ -13,21 +13,12 @@ from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.tokenize.latin.params import LatinLanguageVars
+from cltk.tokenize.greek.params import GreekLanguageVars
+
 from cltk.utils.file_operations import open_pickle
 from abc import abstractmethod
 
-# Part of Latin workaround
-# class LatinLanguageVars(PunktLanguageVars):
-#     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
-
-PUNCTUATION = {'greek':
-                   {'external': ('.', ';'),
-                    'internal': (',', '·'),
-                    'file': 'greek.pickle', },
-               }
-
 INDIAN_LANGUAGES = ['bengali', 'hindi', 'marathi', 'sanskrit', 'telugu']
-
 
 class BaseSentenceTokenizer:
     """ Base class for sentence tokenization"""
@@ -132,6 +123,8 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         if self.language == 'latin':
             self.lang_vars = LatinLanguageVars()
             super().__init__(language='latin', lang_vars=self.lang_vars)
+        elif self.language == 'greek':
+            pass
         elif self.language not in INDIAN_LANGUAGES:
             self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
                 self._setup_language_variables(self.language)
@@ -189,6 +182,10 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
                 raise type(err)(TokenizeSentence.missing_models_message + self.models_path)
             tokenizer = self.model
             tokenizer._lang_vars = self.lang_vars
+        elif self.language == 'greek': # Workaround for regex tokenizer
+            self.sent_end_chars=GreekLanguageVars.sent_end_chars
+            self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
+            self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
         else:
             tokenizer = open_pickle(self.tokenizer_path)
             tokenizer = self._setup_tokenizer(tokenizer)
@@ -196,6 +193,8 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         # mk list of tokenized sentences
         if self.language == 'latin':
             return tokenizer.tokenize(untokenized_string)
+        elif self.language == 'greek':
+            return re.split(self.pattern, untokenized_string)
         else:
             tokenized_sentences = [sentence for sentence in
                                    tokenizer.sentences_from_text(untokenized_string,
