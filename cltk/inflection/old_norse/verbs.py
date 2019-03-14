@@ -99,11 +99,11 @@ class OldNorseVerb:
     def past_active(self):
         pass
 
-    def present_mediopassive(self):
-        pass
-
-    def past_mediopassive(self):
-        pass
+    # def present_mediopassive(self):
+    #     pass
+    #
+    # def past_mediopassive(self):
+    #     pass
 
     def present_active_subjunctive(self):
         pass
@@ -111,11 +111,11 @@ class OldNorseVerb:
     def past_active_subjunctive(self):
         pass
 
-    def present_mediopassive_subjunctive(self):
-        pass
-
-    def past_mediopassive_subjunctive(self):
-        pass
+    # def present_mediopassive_subjunctive(self):
+    #     pass
+    #
+    # def past_mediopassive_subjunctive(self):
+    #     pass
 
     def past_participle(self):
         pass
@@ -259,89 +259,56 @@ class StrongOldNorseVerb(OldNorseVerb):
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
         >>> verb.present_active()
-        lít
-        lítr
-        lítr
-        lítum
-        lítið
-        líta
+        ['lít', 'lítr', 'lítr', 'lítum', 'lítið', 'líta']
 
         II
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bjóða", "býðr", "bauð", "buðu", "boðinn"])
         >>> verb.present_active()
-        býð
-        býðr
-        býðr
-        bjóðum
-        bjóðið
-        bjóða
+        ['býð', 'býðr', 'býðr', 'bjóðum', 'bjóðið', 'bjóða']
 
         III
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["verða", "verðr", "varð", "urðu", "orðinn"])
         >>> verb.present_active()
-        verð
-        verðr
-        verðr
-        verðum
-        verðið
-        verða
+        ['verð', 'verðr', 'verðr', 'verðum', 'verðið', 'verða']
 
         IV
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
         >>> verb.present_active()
-        ber
-        berr
-        berr
-        berum
-        berið
-        bera
+       ['ber', 'berr', 'berr', 'berum', 'berið', 'bera']
 
         V
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["gefa", "gefr", "gaf", "gáfu", "gefinn"])
         >>> verb.present_active()
-        gef
-        gefr
-        gefr
-        gefum
-        gefið
-        gefa
+        ['gef', 'gefr', 'gefr', 'gefum', 'gefið', 'gefa']
 
         VI
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["fara", "ferr", "fór", "fóru", "farinn"])
         >>> verb.present_active()
-        fer
-        ferr
-        ferr
-        förum
-        farið
-        fara
+        ['fer', 'ferr', 'ferr', 'förum', 'farið', 'fara']
 
         VII
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["ráða", "ræðr", "réð", "réðu", "ráðinn"])
         >>> verb.present_active()
-        ræð
-        ræðr
-        ræðr
-        ráðum
-        ráðið
-        ráða
+        ['ræð', 'ræðr', 'ræðr', 'ráðum', 'ráðið', 'ráða']
 
         :return:
         """
+        forms = []
         singular_stem = self.sfg3en[:-1]
-        print(singular_stem)
-        print(self.sfg3en)
-        print(self.sfg3en)
+        forms.append(singular_stem)
+        forms.append(self.sfg3en)
+        forms.append(self.sfg3en)
         plural_stem = self.sng[:-1] if self.sng[-1] == "a" else self.sng
-        print(apply_u_umlaut(plural_stem)+"um")
-        print(plural_stem+"ið")
-        print(self.sng)
+        forms.append(apply_u_umlaut(plural_stem)+"um")
+        forms.append(plural_stem+"ið")
+        forms.append(self.sng)
+        return forms
 
     def past_active(self):
         """
@@ -351,94 +318,60 @@ class StrongOldNorseVerb(OldNorseVerb):
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
         >>> verb.past_active()
-        leit
-        leizt
-        leit
-        litum
-        lituð
-        litu
+        ['leit', 'leizt', 'leit', 'litum', 'lituð', 'litu']
 
         II
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bjóða", "býðr", "bauð", "buðu", "boðinn"])
         >>> verb.past_active()
-        bauð
-        bautt
-        bauð
-        buðum
-        buðuð
-        buðu
+        ['bauð', 'bautt', 'bauð', 'buðum', 'buðuð', 'buðu']
 
         III
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["verða", "verðr", "varð", "urðu", "orðinn"])
         >>> verb.past_active()
-        varð
-        vart
-        varð
-        urðum
-        urðuð
-        urðu
+        ['varð', 'vart', 'varð', 'urðum', 'urðuð', 'urðu']
 
         IV
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
         >>> verb.past_active()
-        bar
-        bart
-        bar
-        bárum
-        báruð
-        báru
+        ['bar', 'bart', 'bar', 'bárum', 'báruð', 'báru']
 
         V
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["gefa", "gefr", "gaf", "gáfu", "gefinn"])
         >>> verb.past_active()
-        gaf
-        gaft
-        gaf
-        gáfum
-        gáfuð
-        gáfu
+        ['gaf', 'gaft', 'gaf', 'gáfum', 'gáfuð', 'gáfu']
 
         VI
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["fara", "ferr", "fór", "fóru", "farinn"])
         >>> verb.past_active()
-        fór
-        fórt
-        fór
-        fórum
-        fóruð
-        fóru
+        ['fór', 'fórt', 'fór', 'fórum', 'fóruð', 'fóru']
 
         VII
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["ráða", "ræðr", "réð", "réðu", "ráðinn"])
         >>> verb.past_active()
-        réð
-        rétt
-        réð
-        réðum
-        réðuð
-        réðu
+        ['réð', 'rétt', 'réð', 'réðum', 'réðuð', 'réðu']
 
         :return:
         """
 
-        print(self.sfg3et)
-        print(add_t_ending(self.sfg3et))
-        print(self.sfg3et)
-        print(apply_u_umlaut(self.sfg3ft) + "m")
-        print(apply_u_umlaut(self.sfg3ft) + "ð")
-        print(self.sfg3ft)
+        forms = [self.sfg3et,
+                 add_t_ending(self.sfg3et),
+                 self.sfg3et,
+                 apply_u_umlaut(self.sfg3ft) + "m",
+                 apply_u_umlaut(self.sfg3ft) + "ð",
+                 self.sfg3ft]
+        return forms
 
-    def present_mediopassive(self):
-        pass
-
-    def past_mediopassive(self):
-        pass
+    # def present_mediopassive(self):
+    #     pass
+    #
+    # def past_mediopassive(self):
+    #     pass
 
     def present_active_subjunctive(self):
         """
@@ -448,105 +381,74 @@ class StrongOldNorseVerb(OldNorseVerb):
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
         >>> verb.present_active_subjunctive()
-        líta
-        lítir
-        líti
-        lítim
-        lítið
-        líti
+        ['líta', 'lítir', 'líti', 'lítim', 'lítið', 'líti']
 
         II
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bjóða", "býðr", "bauð", "buðu", "boðinn"])
         >>> verb.present_active_subjunctive()
-        bjóða
-        bjóðir
-        bjóði
-        bjóðim
-        bjóðið
-        bjóði
+        ['bjóða', 'bjóðir', 'bjóði', 'bjóðim', 'bjóðið', 'bjóði']
 
         III
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["verða", "verðr", "varð", "urðu", "orðinn"])
         >>> verb.present_active_subjunctive()
-        verða
-        verðir
-        verði
-        verðim
-        verðið
-        verði
+        ['verða', 'verðir', 'verði', 'verðim', 'verðið', 'verði']
 
         IV
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
         >>> verb.present_active_subjunctive()
-        bera
-        berir
-        beri
-        berim
-        berið
-        beri
+        ['bera', 'berir', 'beri', 'berim', 'berið', 'beri']
 
         V
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["gefa", "gefr", "gaf", "gáfu", "gefinn"])
         >>> verb.present_active_subjunctive()
-        gefa
-        gefir
-        gefi
-        gefim
-        gefið
-        gefi
+        ['gefa', 'gefir', 'gefi', 'gefim', 'gefið', 'gefi']
 
         VI
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["fara", "ferr", "fór", "fóru", "farinn"])
         >>> verb.present_active_subjunctive()
-        fara
-        farir
-        fari
-        farim
-        farið
-        fari
+        ['fara', 'farir', 'fari', 'farim', 'farið', 'fari']
 
         VII
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["ráða", "ræðr", "réð", "réðu", "ráðinn"])
         >>> verb.present_active_subjunctive()
-        ráða
-        ráðir
-        ráði
-        ráðim
-        ráðið
-        ráði
+        ['ráða', 'ráðir', 'ráði', 'ráðim', 'ráðið', 'ráði']
+
+        >>> verb = StrongOldNorseVerb()
+        >>> verb.set_canonic_forms(["vera", "a", "a", "a", "a"])
+        >>> verb.present_active_subjunctive()
+        ['sé', 'sér', 'sé', 'sém', 'séð', 'sé']
+
+        >>> verb = StrongOldNorseVerb()
+        >>> verb.set_canonic_forms(["sjá", "a", "a", "a", "a"])
+        >>> verb.present_active_subjunctive()
+        ['sjá', 'sér', 'sé', 'sém', 'séð', 'sé']
 
         :return:
         """
+
         if self.sng == "vera":
-            print("sé")
-            print("sér")
-            print("sé")
-            print("sém")
-            print("séð")
-            print("sé")
+            forms = ["sé", "sér", "sé", "sém", "séð", "sé"]
+            return forms
         elif self.sng == "sjá":
-            print("sjá")
-            print("sér")
-            print("sé")
-            print("sém")
-            print("séð")
-            print("sé")
+            forms = ["sjá", "sér", "sé", "sém", "séð", "sé"]
+            return forms
         else:
             subjunctive_root = self.sng[:-1] if self.sng[-1] == "a" else self.sng
 
-            print(subjunctive_root + "a")
+            forms = [subjunctive_root + "a"]
             subjunctive_root = subjunctive_root[:-1] if subjunctive_root[-1] == "j" else subjunctive_root
-            print(subjunctive_root + "ir")
-            print(subjunctive_root + "i")
-            print(subjunctive_root + "im")
-            print(subjunctive_root + "ið")
-            print(subjunctive_root + "i")
+            forms.append(subjunctive_root + "ir")
+            forms.append(subjunctive_root + "i")
+            forms.append(subjunctive_root + "im")
+            forms.append(subjunctive_root + "ið")
+            forms.append(subjunctive_root + "i")
+            return forms
 
     def past_active_subjunctive(self):
         """
@@ -556,98 +458,67 @@ class StrongOldNorseVerb(OldNorseVerb):
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
         >>> verb.past_active_subjunctive()
-        lita
-        litir
-        liti
-        litim
-        litið
-        liti
+        ['lita', 'litir', 'liti', 'litim', 'litið', 'liti']
 
         II
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bjóða", "býðr", "bauð", "buðu", "boðinn"])
         >>> verb.past_active_subjunctive()
-        byða
-        byðir
-        byði
-        byðim
-        byðið
-        byði
+        ['byða', 'byðir', 'byði', 'byðim', 'byðið', 'byði']
 
         III
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["verða", "verðr", "varð", "urðu", "orðinn"])
         >>> verb.past_active_subjunctive()
-        yrða
-        yrðir
-        yrði
-        yrðim
-        yrðið
-        yrði
+        ['yrða', 'yrðir', 'yrði', 'yrðim', 'yrðið', 'yrði']
 
         IV
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
         >>> verb.past_active_subjunctive()
-        bæra
-        bærir
-        bæri
-        bærim
-        bærið
-        bæri
+        ['bæra', 'bærir', 'bæri', 'bærim', 'bærið', 'bæri']
 
         V
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["gefa", "gefr", "gaf", "gáfu", "gefinn"])
         >>> verb.past_active_subjunctive()
-        gæfa
-        gæfir
-        gæfi
-        gæfim
-        gæfið
-        gæfi
+        ['gæfa', 'gæfir', 'gæfi', 'gæfim', 'gæfið', 'gæfi']
 
         VI
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["fara", "ferr", "fór", "fóru", "farinn"])
         >>> verb.past_active_subjunctive()
-        fœra
-        fœrir
-        fœri
-        fœrim
-        fœrið
-        fœri
+        ['fœra', 'fœrir', 'fœri', 'fœrim', 'fœrið', 'fœri']
 
         VII
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["ráða", "ræðr", "réð", "réðu", "ráðinn"])
         >>> verb.past_active_subjunctive()
-        réða
-        réðir
-        réði
-        réðim
-        réðið
-        réði
+        ['réða', 'réðir', 'réði', 'réðim', 'réðið', 'réði']
 
         :return:
         """
+
+        forms = []
         subjunctive_root = apply_i_umlaut(self.sfg3ft[:-1])
         if subjunctive_root[-1] in ['g', 'k']:
-            print(subjunctive_root + "ja")
+            forms.append(subjunctive_root + "ja")
         else:
-            print(subjunctive_root + "a")
+            forms.append(subjunctive_root + "a")
         subjunctive_root = subjunctive_root[:-1] if subjunctive_root[-1] == "j" else subjunctive_root
-        print(subjunctive_root + "ir")
-        print(subjunctive_root + "i")
-        print(subjunctive_root + "im")
-        print(subjunctive_root + "ið")
-        print(subjunctive_root + "i")
+        forms.append(subjunctive_root + "ir")
+        forms.append(subjunctive_root + "i")
+        forms.append(subjunctive_root + "im")
+        forms.append(subjunctive_root + "ið")
+        forms.append(subjunctive_root + "i")
 
-    def present_mediopassive_subjunctive(self):
-        pass
+        return forms
 
-    def past_mediopassive_subjunctive(self):
-        pass
+    # def present_mediopassive_subjunctive(self):
+    #     pass
+    #
+    # def past_mediopassive_subjunctive(self):
+    #     pass
 
     def past_participle(self):
         """
@@ -657,241 +528,85 @@ class StrongOldNorseVerb(OldNorseVerb):
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
         >>> verb.past_participle()
-        litinn
-        litinn
-        litnum
-        litins
-        litnir
-        litna
-        litnum
-        litinna
-        litin
-        litna
-        litinni
-        litinnar
-        litnar
-        litnar
-        litnum
-        litinna
-        litit
-        litit
-        litnu
-        litins
-        litit
-        litit
-        litnum
-        litinna
+        [['litinn', 'litinn', 'litnum', 'litins', 'litnir', 'litna', 'litnum', 'litinna'], ['litin', 'litna', 'litinni', 'litinnar', 'litnar', 'litnar', 'litnum', 'litinna'], ['litit', 'litit', 'litnu', 'litins', 'litit', 'litit', 'litnum', 'litinna']]
 
         II
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bjóða", "býðr", "bauð", "buðu", "boðinn"])
         >>> verb.past_participle()
-        boðinn
-        boðinn
-        boðnum
-        boðins
-        boðnir
-        boðna
-        boðnum
-        boðinna
-        boðin
-        boðna
-        boðinni
-        boðinnar
-        boðnar
-        boðnar
-        boðnum
-        boðinna
-        boðit
-        boðit
-        boðnu
-        boðins
-        boðit
-        boðit
-        boðnum
-        boðinna
+        [['boðinn', 'boðinn', 'boðnum', 'boðins', 'boðnir', 'boðna', 'boðnum', 'boðinna'], ['boðin', 'boðna', 'boðinni', 'boðinnar', 'boðnar', 'boðnar', 'boðnum', 'boðinna'], ['boðit', 'boðit', 'boðnu', 'boðins', 'boðit', 'boðit', 'boðnum', 'boðinna']]
 
         III
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["verða", "verðr", "varð", "urðu", "orðinn"])
         >>> verb.past_participle()
-        orðinn
-        orðinn
-        orðnum
-        orðins
-        orðnir
-        orðna
-        orðnum
-        orðinna
-        orðin
-        orðna
-        orðinni
-        orðinnar
-        orðnar
-        orðnar
-        orðnum
-        orðinna
-        orðit
-        orðit
-        orðnu
-        orðins
-        orðit
-        orðit
-        orðnum
-        orðinna
+        [['orðinn', 'orðinn', 'orðnum', 'orðins', 'orðnir', 'orðna', 'orðnum', 'orðinna'], ['orðin', 'orðna', 'orðinni', 'orðinnar', 'orðnar', 'orðnar', 'orðnum', 'orðinna'], ['orðit', 'orðit', 'orðnu', 'orðins', 'orðit', 'orðit', 'orðnum', 'orðinna']]
 
         IV
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
         >>> verb.past_participle()
-        borinn
-        borinn
-        bornum
-        borins
-        bornir
-        borna
-        bornum
-        borinna
-        borin
-        borna
-        borinni
-        borinnar
-        bornar
-        bornar
-        bornum
-        borinna
-        borit
-        borit
-        bornu
-        borins
-        borit
-        borit
-        bornum
-        borinna
+        [['borinn', 'borinn', 'bornum', 'borins', 'bornir', 'borna', 'bornum', 'borinna'], ['borin', 'borna', 'borinni', 'borinnar', 'bornar', 'bornar', 'bornum', 'borinna'], ['borit', 'borit', 'bornu', 'borins', 'borit', 'borit', 'bornum', 'borinna']]
 
         V
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["gefa", "gefr", "gaf", "gáfu", "gefinn"])
         >>> verb.past_participle()
-        gefinn
-        gefinn
-        gefnum
-        gefins
-        gefnir
-        gefna
-        gefnum
-        gefinna
-        gefin
-        gefna
-        gefinni
-        gefinnar
-        gefnar
-        gefnar
-        gefnum
-        gefinna
-        gefit
-        gefit
-        gefnu
-        gefins
-        gefit
-        gefit
-        gefnum
-        gefinna
+        [['gefinn', 'gefinn', 'gefnum', 'gefins', 'gefnir', 'gefna', 'gefnum', 'gefinna'], ['gefin', 'gefna', 'gefinni', 'gefinnar', 'gefnar', 'gefnar', 'gefnum', 'gefinna'], ['gefit', 'gefit', 'gefnu', 'gefins', 'gefit', 'gefit', 'gefnum', 'gefinna']]
 
         VI
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["fara", "ferr", "fór", "fóru", "farinn"])
         >>> verb.past_participle()
-        farinn
-        farinn
-        förnum
-        farins
-        farnir
-        farna
-        förnum
-        farinna
-        farin
-        farna
-        farinni
-        farinnar
-        farnar
-        farnar
-        förnum
-        farinna
-        farit
-        farit
-        förnu
-        farins
-        farit
-        farit
-        förnum
-        farinna
+        [['farinn', 'farinn', 'förnum', 'farins', 'farnir', 'farna', 'förnum', 'farinna'], ['farin', 'farna', 'farinni', 'farinnar', 'farnar', 'farnar', 'förnum', 'farinna'], ['farit', 'farit', 'förnu', 'farins', 'farit', 'farit', 'förnum', 'farinna']]
 
         VII
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["ráða", "ræðr", "réð", "réðu", "ráðinn"])
         >>> verb.past_participle()
-        ráðinn
-        ráðinn
-        ráðnum
-        ráðins
-        ráðnir
-        ráðna
-        ráðnum
-        ráðinna
-        ráðin
-        ráðna
-        ráðinni
-        ráðinnar
-        ráðnar
-        ráðnar
-        ráðnum
-        ráðinna
-        ráðit
-        ráðit
-        ráðnu
-        ráðins
-        ráðit
-        ráðit
-        ráðnum
-        ráðinna
+        [['ráðinn', 'ráðinn', 'ráðnum', 'ráðins', 'ráðnir', 'ráðna', 'ráðnum', 'ráðinna'], ['ráðin', 'ráðna', 'ráðinni', 'ráðinnar', 'ráðnar', 'ráðnar', 'ráðnum', 'ráðinna'], ['ráðit', 'ráðit', 'ráðnu', 'ráðins', 'ráðit', 'ráðit', 'ráðnum', 'ráðinna']]
 
         :return:
         """
-        pp_stem = self.stgken[:-3]  # past participle steù
-        pp_shortened_stem = self.stgken[:-1]  # past participle steù
-        # masculine
-        print(pp_stem+"inn")
-        print(pp_stem+"inn")
-        print(apply_u_umlaut(pp_stem) + "num")
-        print(pp_stem + "ins")
+        forms = []
+        pp_stem = self.stgken[:-3]  # past participle stem
+        pp_shortened_stem = self.stgken[:-1]  # past participle stem
 
-        print(pp_stem + "nir")
-        print(pp_stem + "na")
-        print(apply_u_umlaut(pp_stem) + "num")
-        print(pp_stem + "inna")
+        forms.append([])
+        # masculine
+        forms[0].append(pp_stem+"inn")
+        forms[0].append(pp_stem+"inn")
+        forms[0].append(apply_u_umlaut(pp_stem) + "num")
+        forms[0].append(pp_stem + "ins")
+
+        forms[0].append(pp_stem + "nir")
+        forms[0].append(pp_stem + "na")
+        forms[0].append(apply_u_umlaut(pp_stem) + "num")
+        forms[0].append(pp_stem + "inna")
 
         # feminine
-        print(pp_stem+"in")
-        print(pp_stem + "na")
-        print(pp_stem + "inni")
-        print(pp_stem + "innar")
+        forms.append([])
+        forms[1].append(pp_stem+"in")
+        forms[1].append(pp_stem + "na")
+        forms[1].append(pp_stem + "inni")
+        forms[1].append(pp_stem + "innar")
 
-        print(pp_stem + "nar")
-        print(pp_stem + "nar")
-        print(apply_u_umlaut(pp_stem) + "num")
-        print(pp_stem + "inna")
+        forms[1].append(pp_stem + "nar")
+        forms[1].append(pp_stem + "nar")
+        forms[1].append(apply_u_umlaut(pp_stem) + "num")
+        forms[1].append(pp_stem + "inna")
 
         # neuter
-        print(pp_stem+"it")
-        print(pp_stem+"it")
-        print(apply_u_umlaut(pp_stem) + "nu")
-        print(pp_stem + "ins")
+        forms.append([])
+        forms[2].append(pp_stem+"it")
+        forms[2].append(pp_stem+"it")
+        forms[2].append(apply_u_umlaut(pp_stem) + "nu")
+        forms[2].append(pp_stem + "ins")
 
-        print(pp_stem+"it")
-        print(pp_stem+"it")
-        print(apply_u_umlaut(pp_stem) + "num")
-        print(pp_stem + "inna")
+        forms[2].append(pp_stem+"it")
+        forms[2].append(pp_stem+"it")
+        forms[2].append(apply_u_umlaut(pp_stem) + "num")
+        forms[2].append(pp_stem + "inna")
         # pp_stem = self.stgken[:-1]  # past participle steù
         # pp_shortened_stem = self.stgken[:-1]  # past participle steù
         # # masculine
@@ -927,6 +642,8 @@ class StrongOldNorseVerb(OldNorseVerb):
         # print(apply_u_umlaut(pp_stem))
         # print(apply_u_umlaut(pp_stem) + "um")
         # print(pp_stem + "ra")
+
+        return forms
 
 
 class WeakOldNorseVerb(OldNorseVerb):
@@ -1006,48 +723,29 @@ class WeakOldNorseVerb(OldNorseVerb):
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðinn"])
         >>> verb.present_active()
-        kalla
-        kallar
-        kallar
-        köllum
-        kallið
-        kalla
+        ['kalla', 'kallar', 'kallar', 'köllum', 'kallið', 'kalla']
 
         II
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
         >>> verb.present_active()
-        mæli
-        mælir
-        mælir
-        mælum
-        mælið
-        mæla
+        ['mæli', 'mælir', 'mælir', 'mælum', 'mælið', 'mæla']
 
         III
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["telja", "taldi", "talinn"])
         >>> verb.present_active()
-        tel
-        telr
-        telr
-        teljum
-        telið
-        telja
+        ['tel', 'telr', 'telr', 'teljum', 'telið', 'telja']
 
         IV
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["vaka", "vakti", "vakat"])
         >>> verb.present_active()
-        vaki
-        vakir
-        vakir
-        vökum
-        vakið
-        vaka
+        ['vaki', 'vakir', 'vakir', 'vökum', 'vakið', 'vaka']
 
         :return:
         """
+        forms = []
         stem_ending_by_j = self.sng[-1] == "a" and self.sng[-2] == "j"
         stem_ending_by_v = self.sng[-1] == "a" and self.sng[-2] == "v"
         stem = self.sng[:-1] if self.sng[-1] == "a" else self.sng
@@ -1056,102 +754,103 @@ class WeakOldNorseVerb(OldNorseVerb):
 
         if self.subclass == 1:
             if stem_ending_by_v:
-                print(stem+"va")
-                print(stem + "r")
-                print(stem + "r")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "við")
-                print(stem+"va")
+                forms.append(stem+"va")
+                forms.append(stem + "r")
+                forms.append(stem + "r")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "við")
+                forms.append(stem+"va")
             elif stem_ending_by_j:
-                print(stem+"ja")
-                print(stem + "r")
-                print(stem + "r")
-                print(apply_u_umlaut(stem) + "jum")  # apply u umlaut
-                print(stem + "ið")
-                print(stem+"ja")
+                forms.append(stem+"ja")
+                forms.append(stem + "r")
+                forms.append(stem + "r")
+                forms.append(apply_u_umlaut(stem) + "jum")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(stem+"ja")
             else:
-                print(stem+"a")
-                print(stem + "ar")
-                print(stem + "ar")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem+"a")
+                forms.append(stem + "ar")
+                forms.append(stem + "ar")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
 
         elif self.subclass == 2:
             if stem_ending_by_v:
-                print(stem + "vi")
-                print(stem + "vir")
-                print(stem + "vir")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "við")
-                print(self.sng)
+                forms.append(stem + "vi")
+                forms.append(stem + "vir")
+                forms.append(stem + "vir")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "við")
+                forms.append(self.sng)
 
             elif stem_ending_by_j:
-                print(stem + "i")
-                print(stem + "ir")
-                print(stem + "ir")
-                print(apply_u_umlaut(stem) + "jum")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem + "i")
+                forms.append(stem + "ir")
+                forms.append(stem + "ir")
+                forms.append(apply_u_umlaut(stem) + "jum")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
 
             else:
-                print(stem + "i")
-                print(stem + "ir")
-                print(stem + "ir")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem + "i")
+                forms.append(stem + "ir")
+                forms.append(stem + "ir")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
 
         elif self.subclass == 3:
             if stem_ending_by_v:
-                print(stem)
-                print(stem + "r")
-                print(stem + "r")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "við")
-                print(self.sng)
+                forms.append(stem)
+                forms.append(stem + "r")
+                forms.append(stem + "r")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "við")
+                forms.append(self.sng)
 
             elif stem_ending_by_j:
-                print(stem)
-                print(stem + "r")
-                print(stem + "r")
-                print(apply_u_umlaut(stem) + "jum")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem)
+                forms.append(stem + "r")
+                forms.append(stem + "r")
+                forms.append(apply_u_umlaut(stem) + "jum")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
 
             else:
-                print(stem)
-                print(stem + "r")
-                print(stem + "r")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem)
+                forms.append(stem + "r")
+                forms.append(stem + "r")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
 
         elif self.subclass == 4:
 
             if stem_ending_by_v:
-                print(stem + "vi")
-                print(stem + "vir")
-                print(stem + "vir")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "við")
-                print(self.sng)
+                forms.append(stem + "vi")
+                forms.append(stem + "vir")
+                forms.append(stem + "vir")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "við")
+                forms.append(self.sng)
 
             elif stem_ending_by_j:
-                print(stem + "i")
-                print(stem + "ir")
-                print(stem + "ir")
-                print(apply_u_umlaut(stem) + "jum")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem + "i")
+                forms.append(stem + "ir")
+                forms.append(stem + "ir")
+                forms.append(apply_u_umlaut(stem) + "jum")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
 
             else:
-                print(stem + "i")
-                print(stem + "ir")
-                print(stem + "ir")
-                print(apply_u_umlaut(stem) + "um")  # apply u umlaut
-                print(stem + "ið")
-                print(self.sng)
+                forms.append(stem + "i")
+                forms.append(stem + "ir")
+                forms.append(stem + "ir")
+                forms.append(apply_u_umlaut(stem) + "um")  # apply u umlaut
+                forms.append(stem + "ið")
+                forms.append(self.sng)
+        return forms
 
     def past_active(self):
         """
@@ -1160,61 +859,43 @@ class WeakOldNorseVerb(OldNorseVerb):
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðinn"])
         >>> verb.past_active()
-        kallaða
-        kallaðir
-        kallaði
-        kölluðum
-        kölluðuð
-        kölluðu
+        ['kallaða', 'kallaðir', 'kallaði', 'kölluðum', 'kölluðuð', 'kölluðu']
 
         II
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
         >>> verb.past_active()
-        mælta
-        mæltir
-        mælti
-        mæltum
-        mæltuð
-        mæltu
+        ['mælta', 'mæltir', 'mælti', 'mæltum', 'mæltuð', 'mæltu']
 
         III
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["telja", "taldi", "talinn"])
         >>> verb.past_active()
-        talda
-        taldir
-        taldi
-        töldum
-        tölduð
-        töldu
+        ['talda', 'taldir', 'taldi', 'töldum', 'tölduð', 'töldu']
 
         IV
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["vaka", "vakti", "vakat"])
         >>> verb.past_active()
-        vakta
-        vaktir
-        vakti
-        vöktum
-        vöktuð
-        vöktu
+        ['vakta', 'vaktir', 'vakti', 'vöktum', 'vöktuð', 'vöktu']
 
         :return:
         """
+        forms = []
         stem = self.sfg3et[:-1]
-        print(stem+"a")
-        print(self.sfg3et+"r")
-        print(self.sfg3et)
-        print(apply_u_umlaut(stem)+"um")
-        print(apply_u_umlaut(stem)+"uð")
-        print(apply_u_umlaut(stem)+"u")
+        forms.append(stem+"a")
+        forms.append(self.sfg3et+"r")
+        forms.append(self.sfg3et)
+        forms.append(apply_u_umlaut(stem)+"um")
+        forms.append(apply_u_umlaut(stem)+"uð")
+        forms.append(apply_u_umlaut(stem)+"u")
+        return forms
 
-    def present_mediopassive(self):
-        pass
-
-    def past_mediopassive(self):
-        pass
+    # def present_mediopassive(self):
+    #     pass
+    #
+    # def past_mediopassive(self):
+    #     pass
 
     def present_active_subjunctive(self):
         """
@@ -1223,59 +904,39 @@ class WeakOldNorseVerb(OldNorseVerb):
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðinn"])
         >>> verb.present_active_subjunctive()
-        kalla
-        kallir
-        kalli
-        kallim
-        kallið
-        kalli
-
+        ['kalla', 'kallir', 'kalli', 'kallim', 'kallið', 'kalli']
 
         II
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
         >>> verb.present_active_subjunctive()
-        mæla
-        mælir
-        mæli
-        mælim
-        mælið
-        mæli
+        ['mæla', 'mælir', 'mæli', 'mælim', 'mælið', 'mæli']
 
         III
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["telja", "taldi", "talinn"])
         >>> verb.present_active_subjunctive()
-        telja
-        telir
-        teli
-        telim
-        telið
-        teli
+        ['telja', 'telir', 'teli', 'telim', 'telið', 'teli']
 
         IV
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["vaka", "vakta", "vakat"])
         >>> verb.present_active_subjunctive()
-        vaka
-        vakir
-        vaki
-        vakim
-        vakið
-        vaki
-
+        ['vaka', 'vakir', 'vaki', 'vakim', 'vakið', 'vaki']
 
         :return:
         """
         subjunctive_root = self.sng[:-1] if self.sng[-1] == "a" else self.sng
+        forms = []
 
-        print(subjunctive_root+"a")
+        forms.append(subjunctive_root+"a")
         subjunctive_root = subjunctive_root[:-1] if subjunctive_root[-1] == "j" else subjunctive_root
-        print(subjunctive_root+"ir")
-        print(subjunctive_root+"i")
-        print(subjunctive_root+"im")
-        print(subjunctive_root+"ið")
-        print(subjunctive_root+"i")
+        forms.append(subjunctive_root+"ir")
+        forms.append(subjunctive_root+"i")
+        forms.append(subjunctive_root+"im")
+        forms.append(subjunctive_root+"ið")
+        forms.append(subjunctive_root+"i")
+        return forms
 
     def past_active_subjunctive(self):
         """
@@ -1284,76 +945,56 @@ class WeakOldNorseVerb(OldNorseVerb):
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðinn"])
         >>> verb.past_active_subjunctive()
-        kallaða
-        kallaðir
-        kallaði
-        kallaðim
-        kallaðið
-        kallaði
+        ['kallaða', 'kallaðir', 'kallaði', 'kallaðim', 'kallaðið', 'kallaði']
 
         II
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
         >>> verb.past_active_subjunctive()
-        mælta
-        mæltir
-        mælti
-        mæltim
-        mæltið
-        mælti
+        ['mælta', 'mæltir', 'mælti', 'mæltim', 'mæltið', 'mælti']
 
         III
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["telja", "taldi", "talinn"])
         >>> verb.past_active_subjunctive()
-        telda
-        teldir
-        teldi
-        teldim
-        teldið
-        teldi
-
+        ['telda', 'teldir', 'teldi', 'teldim', 'teldið', 'teldi']
 
         IV
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["vaka", "vakti", "vakat"])
         >>> verb.past_active_subjunctive()
-        vekta
-        vektir
-        vekti
-        vektim
-        vektið
-        vekti
-
+        ['vekta', 'vektir', 'vekti', 'vektim', 'vektið', 'vekti']
 
         :return:
         """
         subjunctive_root = self.sfg3et[:-1] if self.sng[-1] == "a" else self.sfg3et
+        forms = []
 
         if self.subclass in [1, 2]:
-            print(subjunctive_root + "a")
+            forms.append(subjunctive_root + "a")
             subjunctive_root = subjunctive_root[:-1] if subjunctive_root[-1] == "j" else subjunctive_root
-            print(subjunctive_root + "ir")
-            print(subjunctive_root + "i")
-            print(subjunctive_root + "im")
-            print(subjunctive_root + "ið")
-            print(subjunctive_root + "i")
+            forms.append(subjunctive_root + "ir")
+            forms.append(subjunctive_root + "i")
+            forms.append(subjunctive_root + "im")
+            forms.append(subjunctive_root + "ið")
+            forms.append(subjunctive_root + "i")
 
         elif self.subclass in [3, 4]:
             subjunctive_root = apply_i_umlaut(subjunctive_root)
-            print(subjunctive_root + "a")
+            forms.append(subjunctive_root + "a")
             subjunctive_root = subjunctive_root[:-1] if subjunctive_root[-1] == "j" else subjunctive_root
-            print(subjunctive_root + "ir")
-            print(subjunctive_root + "i")
-            print(subjunctive_root + "im")
-            print(subjunctive_root + "ið")
-            print(subjunctive_root + "i")
+            forms.append(subjunctive_root + "ir")
+            forms.append(subjunctive_root + "i")
+            forms.append(subjunctive_root + "im")
+            forms.append(subjunctive_root + "ið")
+            forms.append(subjunctive_root + "i")
+        return forms
 
-    def present_mediopassive_subjunctive(self):
-        pass
-
-    def past_mediopassive_subjunctive(self):
-        pass
+    # def present_mediopassive_subjunctive(self):
+    #     pass
+    #
+    # def past_mediopassive_subjunctive(self):
+    #     pass
 
     def past_participle(self):
         """
@@ -1363,59 +1004,13 @@ class WeakOldNorseVerb(OldNorseVerb):
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðr"])
         >>> verb.past_participle()
-        kallaðr
-        kallaðan
-        kölluðum
-        kallaðs
-        kallaðir
-        kallaða
-        kölluðum
-        kallaðra
-        kölluð
-        kallaða
-        kallaðri
-        kallaðrar
-        kallaðar
-        kallaðar
-        kölluðum
-        kallaðra
-        kallatt
-        kallatt
-        kölluðu
-        kallaðs
-        kölluð
-        kölluð
-        kölluðum
-        kallaðra
+        [['kallaðr', 'kallaðan', 'kölluðum', 'kallaðs', 'kallaðir', 'kallaða', 'kölluðum', 'kallaðra'], ['kölluð', 'kallaða', 'kallaðri', 'kallaðrar', 'kallaðar', 'kallaðar', 'kölluðum', 'kallaðra'], ['kallatt', 'kallatt', 'kölluðu', 'kallaðs', 'kölluð', 'kölluð', 'kölluðum', 'kallaðra']]
 
         II
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
         >>> verb.past_participle()
-        mæltr
-        mæltan
-        mæltum
-        mælts
-        mæltir
-        mælta
-        mæltum
-        mæltra
-        mælt
-        mælta
-        mæltri
-        mæltrar
-        mæltar
-        mæltar
-        mæltum
-        mæltra
-        mælt
-        mælt
-        mæltu
-        mælts
-        mælt
-        mælt
-        mæltum
-        mæltra
+        [['mæltr', 'mæltan', 'mæltum', 'mælts', 'mæltir', 'mælta', 'mæltum', 'mæltra'], ['mælt', 'mælta', 'mæltri', 'mæltrar', 'mæltar', 'mæltar', 'mæltum', 'mæltra'], ['mælt', 'mælt', 'mæltu', 'mælts', 'mælt', 'mælt', 'mæltum', 'mæltra']]
 
         III
         # >>> verb = WeakOldNorseVerb()
@@ -1429,74 +1024,84 @@ class WeakOldNorseVerb(OldNorseVerb):
 
         :return:
         """
+        forms = []
         if self.subclass in [1, 2]:
             pp_stem = self.stgken[:-1]  # past participle stem
-            # masculine
-            print(add_r_ending(pp_stem))
-            print(pp_stem+"an")
-            print(apply_u_umlaut(pp_stem)+"um")
-            print(pp_stem+"s")
 
-            print(pp_stem+"ir")
-            print(pp_stem+"a")
-            print(apply_u_umlaut(pp_stem)+"um")
-            print(pp_stem+"ra")
+            # masculine
+            forms.append([])
+
+            forms[0].append(add_r_ending(pp_stem))
+            forms[0].append(pp_stem+"an")
+            forms[0].append(apply_u_umlaut(pp_stem)+"um")
+            forms[0].append(pp_stem+"s")
+
+            forms[0].append(pp_stem+"ir")
+            forms[0].append(pp_stem+"a")
+            forms[0].append(apply_u_umlaut(pp_stem)+"um")
+            forms[0].append(pp_stem+"ra")
 
             # feminine
-            print(apply_u_umlaut(pp_stem))
-            print(pp_stem+"a")
-            print(pp_stem+"ri")
-            print(pp_stem+"rar")
+            forms.append([])
 
-            print(pp_stem+"ar")
-            print(pp_stem+"ar")
-            print(apply_u_umlaut(pp_stem)+"um")
-            print(pp_stem+"ra")
+            forms[1].append(apply_u_umlaut(pp_stem))
+            forms[1].append(pp_stem+"a")
+            forms[1].append(pp_stem+"ri")
+            forms[1].append(pp_stem+"rar")
+
+            forms[1].append(pp_stem+"ar")
+            forms[1].append(pp_stem+"ar")
+            forms[1].append(apply_u_umlaut(pp_stem)+"um")
+            forms[1].append(pp_stem+"ra")
 
             # neuter
-            print(add_t_ending(pp_stem))
-            print(add_t_ending(pp_stem))
-            print(apply_u_umlaut(pp_stem)+"u")
-            print(pp_stem+"s")
+            forms.append([])
 
-            print(apply_u_umlaut(pp_stem))
-            print(apply_u_umlaut(pp_stem))
-            print(apply_u_umlaut(pp_stem)+"um")
-            print(pp_stem+"ra")
+            forms[2].append(add_t_ending(pp_stem))
+            forms[2].append(add_t_ending(pp_stem))
+            forms[2].append(apply_u_umlaut(pp_stem)+"u")
+            forms[2].append(pp_stem+"s")
+
+            forms[2].append(apply_u_umlaut(pp_stem))
+            forms[2].append(apply_u_umlaut(pp_stem))
+            forms[2].append(apply_u_umlaut(pp_stem)+"um")
+            forms[2].append(pp_stem+"ra")
         elif self.subclass in [3, 4]:
             pp_stem = self.stgken[:-1]  # past participle stem
             # masculine
-            print(add_r_ending(pp_stem))
-            print(pp_stem + "an")
-            print(apply_u_umlaut(pp_stem) + "um")
-            print(pp_stem + "s")
+            forms[0].append(add_r_ending(pp_stem))
+            forms[0].append(pp_stem + "an")
+            forms[0].append(apply_u_umlaut(pp_stem) + "um")
+            forms[0].append(pp_stem + "s")
 
-            print(pp_stem + "ir")
-            print(pp_stem + "a")
-            print(apply_u_umlaut(pp_stem) + "um")
-            print(pp_stem + "ra")
+            forms[0].append(pp_stem + "ir")
+            forms[0].append(pp_stem + "a")
+            forms[0].append(apply_u_umlaut(pp_stem) + "um")
+            forms[0].append(pp_stem + "ra")
 
             # feminine
-            print(apply_u_umlaut(pp_stem))
-            print(pp_stem + "a")
-            print(pp_stem + "ri")
-            print(pp_stem + "rar")
+            forms[1].append(apply_u_umlaut(pp_stem))
+            forms[1].append(pp_stem + "a")
+            forms[1].append(pp_stem + "ri")
+            forms[1].append(pp_stem + "rar")
 
-            print(pp_stem + "ar")
-            print(pp_stem + "ar")
-            print(apply_u_umlaut(pp_stem) + "um")
-            print(pp_stem + "ra")
+            forms[1].append(pp_stem + "ar")
+            forms[1].append(pp_stem + "ar")
+            forms[1].append(apply_u_umlaut(pp_stem) + "um")
+            forms[1].append(pp_stem + "ra")
 
             # neuter
-            print(add_t_ending(pp_stem))
-            print(add_t_ending(pp_stem))
-            print(apply_u_umlaut(pp_stem) + "u")
-            print(pp_stem + "s")
+            forms[2].append(add_t_ending(pp_stem))
+            forms[2].append(add_t_ending(pp_stem))
+            forms[2].append(apply_u_umlaut(pp_stem) + "u")
+            forms[2].append(pp_stem + "s")
 
-            print(apply_u_umlaut(pp_stem))
-            print(apply_u_umlaut(pp_stem))
-            print(apply_u_umlaut(pp_stem) + "um")
-            print(pp_stem + "ra")
+            forms[2].append(apply_u_umlaut(pp_stem))
+            forms[2].append(apply_u_umlaut(pp_stem))
+            forms[2].append(apply_u_umlaut(pp_stem) + "um")
+            forms[2].append(pp_stem + "ra")
+
+        return forms
 
     def classify(self):
         if self.sng in ["segja", "þegja"]:

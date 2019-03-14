@@ -346,12 +346,6 @@ To decline a noun and if you know its nominative singular, genitive singular and
 
 
 
-
-
-
-
-
-
 Old Norse verb conjugation
 ==========================
 
