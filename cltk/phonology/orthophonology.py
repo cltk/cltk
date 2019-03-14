@@ -1,5 +1,6 @@
 from enum import IntEnum, auto
 from copy import deepcopy
+from functools import reduce
 import re
 
 # ------------------- Phonological Features -------------------
@@ -226,13 +227,16 @@ class SyllableInitialPhonologicalRule(BasePhonologicalRule):
 		else:
 			return False
 
+def check_features(phoneme, feature_values):
+	return reduce(lambda a, b: a or b, [phoneme[type(f)] == f for f in feature_values])
+
 def SimplePhonologicalRule(target, replacement, before=None, after=None):
 	if before is not None and after is None:
-		cond = lambda b, t, _: t == target and b[type(before)] == before 
+		cond = lambda b, t, _: t == target and check_features(b, before) 
 	if before is not None and after is not None:
-		cond = lambda b, t, a: t == target and b[type(before)] == before and a[type(after)] == after
+		cond = lambda b, t, a: t == target and check_features(b, before) and check_features(a, after)
 	if before is None and after is not None:
-		cond = lambda _, t, b: t == target and a[type(after)] == after 
+		cond = lambda _, t, b: t == target and check_features(a, after) 
 	if before is None and after is None:
 		cond = lambda _, t, __: t == target
 

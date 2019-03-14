@@ -194,15 +194,7 @@ oe.add_rule(InnerPhonologicalRule(
 	action = lambda _ : y))
 
 # /h/ is velarized after a back vowel
-#oe.add_rule(PhonologicalRule(
-#	condition = lambda before, target, _:
-#		target == h and isinstance(before, Vowel) and before[Backness] == Backness.back,
-#	action = lambda _ : x))
-oe.add_rule(SimplePhonologicalRule(h, x, before = Backness.back))
+oe.add_rule(SimplePhonologicalRule(h, x, before = [Backness.back]))
 
 # /h/ is palatized after a front vowel
-#oe.add_rule(PhonologicalRule(
-#	condition = lambda before, target, _:
-#		target == h and isinstance(before, Vowel) and before[Backness] == Backness.front,
-#	action = lambda _ : ch))
-oe.add_rule(SimplePhonologicalRule(h, ch, before = Backness.front))
+oe.add_rule(SimplePhonologicalRule(h, ch, before = [Backness.front]))
