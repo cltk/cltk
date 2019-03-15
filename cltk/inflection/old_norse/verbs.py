@@ -277,7 +277,7 @@ class StrongOldNorseVerb(OldNorseVerb):
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
         >>> verb.present_active()
-       ['ber', 'berr', 'berr', 'berum', 'berið', 'bera']
+        ['ber', 'berr', 'berr', 'berum', 'berið', 'bera']
 
         V
         >>> verb = StrongOldNorseVerb()
