@@ -16,7 +16,6 @@ from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.tokenize.greek.params import GreekLanguageVars
 
 from cltk.utils.file_operations import open_pickle
-from abc import abstractmethod
 
 INDIAN_LANGUAGES = ['bengali', 'hindi', 'marathi', 'sanskrit', 'telugu']
 
