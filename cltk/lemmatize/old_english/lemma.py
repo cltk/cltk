@@ -7,7 +7,7 @@ from nltk.tokenize import wordpunct_tokenize
 
 from cltk.corpus.utils.importer import CLTK_DATA_DIR
 
-class OldEnglishDictioraryLemmatizer(object):
+class OldEnglishDictionaryLemmatizer(object):
 	"""Implementation of a lemmatizer for Old English based on a dictionary of lemmas and forms.
 	Since a given form may map to multiple lemmas, a corpus-based frequency disambiguator is employed."""
 

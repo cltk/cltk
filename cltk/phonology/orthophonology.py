@@ -91,8 +91,8 @@ class AbstractPhoneme:
 	def __getitem__(self, feature_name):
 		if not issubclass(feature_name, PhonologicalFeature):
 			raise TypeError(str(feature_name) + ' is not a phonological feature')
-		return self.features[feature_name]
-
+		return self.features.get(feature_name, None)
+		
 	def __setitem__(self, feature_name, feature_value):
 		if not issubclass(feature_name, PhonologicalFeature):
 			raise TypeError(str(feature_name) + ' is not a phonological feature')
@@ -289,7 +289,7 @@ class Orthophonology:
 		    		replacement = rule(phonemes, i)
 		    		replacement = [replacement] if not isinstance(replacement, list) else replacement
 		    		phonemes[i:i + 1] = replacement
-		    		i += len(replacement)
+		    		i += len(replacement) - 1
 		    		break
 		    i += 1
 		    		
