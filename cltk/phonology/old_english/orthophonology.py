@@ -138,7 +138,7 @@ alphabet = {
 	'x' : x,
 	'y' : y,
 	'ȳ' : y_long,
-	'þ' : th,
+	'þ' : th
 }
 
 diphthongs_ipa = {
@@ -198,3 +198,6 @@ oe.add_rule(SimplePhonologicalRule(h, x, before = [Backness.back]))
 
 # /h/ is palatized after a front vowel
 oe.add_rule(SimplePhonologicalRule(h, ch, before = [Backness.front]))
+
+oe.add_rule(SimplePhonologicalRule(sh, [s, k], before = [Backness.back]))
+

@@ -3,6 +3,8 @@ from copy import deepcopy
 from functools import reduce
 import re
 
+__author__ = ["John Stewart <johnstewart@aya.yale.edu>"]
+
 # ------------------- Phonological Features -------------------
 
 class PhonologicalFeature(IntEnum):
@@ -131,6 +133,7 @@ class Consonant(AbstractPhoneme):
 	def is_more_sonorous(self, other):
 		return True if isinstance(other, Consonant) and self[Manner] > other[Manner] else False
 
+
 class Vowel(AbstractPhoneme):
 	def __init__(self, height, backness, rounded, length, ipa):
 		assert height is not None
@@ -232,17 +235,18 @@ def check_features(phoneme, feature_values):
 
 def SimplePhonologicalRule(target, replacement, before=None, after=None):
 	if before is not None and after is None:
-		cond = lambda b, t, _: t == target and check_features(b, before) 
+		cond = lambda b, t, _: t == target and b is not None and check_features(b, before) 
 	if before is not None and after is not None:
-		cond = lambda b, t, a: t == target and check_features(b, before) and check_features(a, after)
+		cond = lambda b, t, a: t == target and b is not None and check_features(b, before) and a is not None and check_features(a, after)
 	if before is None and after is not None:
-		cond = lambda _, t, b: t == target and check_features(a, after) 
+		cond = lambda _, t, a: t == target and a is not None and check_features(a, after) 
 	if before is None and after is None:
 		cond = lambda _, t, __: t == target
 
 	return PhonologicalRule(cond, lambda _ : replacement)
 
-# ------------------- Orthophonology of a language -------------------#
+
+# ------------------- The orthophonology of a language -------------------#
 
 class Orthophonology:
 	def __init__(self, sound_inventory, alphabet, diphthongs, digraphs):
@@ -269,17 +273,26 @@ class Orthophonology:
 		while i < len(word):
 			# check for digraphs and dipththongs
 			if i < len(word) - 1 and word[i:i + 2] in self.di:
-				phonemes.append(self.di[word[i:i + 2]])
+				letter_pair = word[i:i + 2]
+				replacement = self.di[letter_pair]
+				phonemes.append(replacement)
 				i += 2
 			else:
 				phonemes.append(self.alphabet[word[i]])
 				i += 1
 
 		# apply phonological rules.  Note: no restart!
-		for i in range(len(phonemes)):
+		i = 0
+		while i < len(phonemes):
 		    for rule in self.rules:
 		    	if rule.check_environment(phonemes, i):
-		    		phonemes[i] = rule(phonemes, i)
+		    		replacement = rule(phonemes, i)
+		    		replacement = [replacement] if not isinstance(replacement, list) else replacement
+		    		phonemes[i:i + 1] = replacement
+		    		i += len(replacement)
+		    		break
+		    i += 1
+		    		
 		return phonemes
 
 	def transcribe(self, text, as_phonemes = False):
