@@ -194,10 +194,11 @@ oe.add_rule(InnerPhonologicalRule(
 	action = lambda _ : y))
 
 # /h/ is velarized after a back vowel
-oe.add_rule(SimplePhonologicalRule(h, x, before = [Backness.back]))
+oe.add_rule(SimplePhonologicalRule(h, x, before = [Backness.back, Consonantal.pos]))
 
 # /h/ is palatized after a front vowel
 oe.add_rule(SimplePhonologicalRule(h, ch, before = [Backness.front]))
 
+# 'sc' is *not* a digraph after a back consonant
 oe.add_rule(SimplePhonologicalRule(sh, [s, k], before = [Backness.back]))
 

@@ -1,3 +1,10 @@
+'''
+A module for representing the orthophonology of a language: 
+the mapping from orthographic representations to IPA symbols.
+
+Based on many ideas in cltk.phonology.utils by Clément Besnier <clemsciences@gmail.com>.
+'''
+
 from enum import IntEnum, auto
 from copy import deepcopy
 from functools import reduce
@@ -6,6 +13,9 @@ import re
 __author__ = ["John Stewart <johnstewart@aya.yale.edu>"]
 
 # ------------------- Phonological Features -------------------
+
+# The list of features and their values are from the IPA charts.
+# Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
 
 class PhonologicalFeature(IntEnum):
 	pass
@@ -73,12 +83,17 @@ class Place(PhonologicalFeature):
 # ------------------- Phonemes -------------------
 
 class AbstractPhoneme:
+	'''
+	An abstract phoneme is just a bundle of phonological features.
+	'''
+
 	def __init__(self, features, ipa = None):
 		# ensure unique features
 		if len(set(features.keys())) != len(features.keys()):
 			raise ValueError('non-unique features')
 
 		# ensure feature values correctly match their types
+		# this is a barbaric bit of type checking that the language should provide
 		for feature_name, feature_value in features.items():
 			if not issubclass(feature_name, PhonologicalFeature):
 				raise TypeError(str(feature_name) + ' is not a phonological feature')
@@ -89,10 +104,14 @@ class AbstractPhoneme:
 		self.ipa = ipa
 
 	def __getitem__(self, feature_name):
+		'''
+		Use dict-type syntax for accessing the values of features.
+		'''
+
 		if not issubclass(feature_name, PhonologicalFeature):
 			raise TypeError(str(feature_name) + ' is not a phonological feature')
 		return self.features.get(feature_name, None)
-		
+
 	def __setitem__(self, feature_name, feature_value):
 		if not issubclass(feature_name, PhonologicalFeature):
 			raise TypeError(str(feature_name) + ' is not a phonological feature')
@@ -115,6 +134,13 @@ class AbstractPhoneme:
 
 
 class Consonant(AbstractPhoneme):
+	'''
+	Based on cltk.phonology.utils by @clemsciences.
+	A consonant is a phoneme that is specified for the features listed in the IPA chart for consonants:
+	Place, Manner, Voicing.  These may be read directly off the IPA chart, which also gives the IPA symbol.
+	See http://www.ipachart.com/
+	'''
+
 	def __init__(self, place, manner, voiced, ipa, geminate = Geminate.neg):
 		assert place is not None
 		assert manner is not None
@@ -131,10 +157,19 @@ class Consonant(AbstractPhoneme):
 			ipa)
 
 	def is_more_sonorous(self, other):
+		'''
+		compare this phoneme to another for sonority.
+		Used for SSP considerations.
+		'''
 		return True if isinstance(other, Consonant) and self[Manner] > other[Manner] else False
 
 
 class Vowel(AbstractPhoneme):
+	'''
+	The representation of vowel by its features, as given in the IPA chart for vowels.
+	See http://www.ipachart.com/
+	'''
+
 	def __init__(self, height, backness, rounded, length, ipa):
 		assert height is not None
 		assert backness is not None
@@ -150,13 +185,21 @@ class Vowel(AbstractPhoneme):
 			Length      : length},
 			ipa)
 
-	# for diphthongs
 	def __add__(self, other):
+		'''
+		Summed vowels produce diphthongs, returning a copy of the first vowel
+		and the concatenation of the IPA symbols.
+		A hack because the features of the second vowel are lost.
+		'''
 		diphthong = deepcopy(self)
 		diphthong.ipa += other.ipa
 		return diphthong
 
 	def lengthen(self):
+		'''
+		Returns a new Vowel with its Length lengthened, 
+		and ":" appended to its IPA symbol.
+		'''
 		vowel = deepcopy(self)
 
 		if vowel[Length] == Length.short:
@@ -168,6 +211,10 @@ class Vowel(AbstractPhoneme):
 		return vowel
 
 	def is_more_sonorous(self, other):
+		'''
+		compare this phoneme to another for sonority.
+		Used for SSP considerations.
+		'''
 		if isinstance(other, Consonant):
 			return True
 		elif self[Height] > other[Height]:
@@ -181,44 +228,78 @@ class Vowel(AbstractPhoneme):
 # ------------------- Phonological Rule Templates -------------------
 
 class BasePhonologicalRule:
-    def __init__(self, condition, action):
-        self.condition = condition
-        self.action = action
+	'''
+	Base class for conditional phonological rules.
+	A phonological rule relates an item (a phoneme) to its environment to define a transformation.
+	Specifically, a rule specifies a condition and and action.
 
-    def perform_action(self, phonemes, pos):
-        return self.action(phonemes[pos])
+	* The condition characterizes the phonological environment of a phoneme in terms of the 
+	characteristics of the phomeme before it (if any), and after it (if any).
+	In general it is a function taking three arguments: before, target, after, the phonemes in the environment,
+	an returning a boolean for whether the rule should fire.
 
-    def __call__(self, phonemes, pos):
-        return self.perform_action(phonemes, pos)
+	* The action defines a transformation of the target phoneme, e.g. its vocalization.
+	It is a function taking only the action, which returns the replacement phoneme OR a *list* of phonemes.
+	'''
+	def __init__(self, condition, action):
+		self.condition = condition
+		self.action = action
+
+	def perform_action(self, phonemes, pos):
+		return self.action(phonemes[pos])
+
+	def __call__(self, phonemes, pos):
+		return self.perform_action(phonemes, pos)
 
 class PhonologicalRule(BasePhonologicalRule):
-    def check_environment(self, phonemes, pos):
-        before = phonemes[pos - 1] if pos > 0 else None
-        after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
-        return self.condition(before, phonemes[pos], after)
+	'''
+	The most general phonological rule can apply anywhere in the word.
+	before and after phonemes may therefore be null when calling the condition.
+	'''
+	def check_environment(self, phonemes, pos):
+	    before = phonemes[pos - 1] if pos > 0 else None
+	    after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
+	    return self.condition(before, phonemes[pos], after)
 
 class WordInitialPhonologicalRule(BasePhonologicalRule):
-    def check_environment(self, phonemes, pos):
-        return self.condition(phonemes[0], phonemes[1]) if pos == 0 and len(phonemes) > 1 else False
+	'''
+	A rule applying to the first phoneme in the word.
+	The condition only takes two arguments: target and after.
+	'''
+	def check_environment(self, phonemes, pos):
+	    return self.condition(phonemes[0], phonemes[1]) if pos == 0 and len(phonemes) > 1 else False
 
-    def perform_action(self, phonemes, _):
-        return self.action(phonemes[0])
+	def perform_action(self, phonemes, _):
+	    return self.action(phonemes[0])
 
 class WordFinalPhonologicalRule(BasePhonologicalRule):
-    def check_environment(self, phonemes, pos):
-        last = len(phonemes) - 1
-        return self.condition(phonemes[last - 1], phonemes[last]) if pos == last and len(phonemes) > 1 else False
+	'''
+	A rule applying to the last phoneme in the word.
+	The condition only takes two arguments: before and target.
+	'''
+	def check_environment(self, phonemes, pos):
+	    last = len(phonemes) - 1
+	    return self.condition(phonemes[last - 1], phonemes[last]) if pos == last and len(phonemes) > 1 else False
 
-    def perform_action(self, phonemes, _):
-        return self.action(phonemes[len(phonemes) - 2])
+	def perform_action(self, phonemes, _):
+	    return self.action(phonemes[len(phonemes) - 2])
 
 class InnerPhonologicalRule(BasePhonologicalRule):
+	'''
+	A rule applying to a position inside a word.
+	The before and after arguments to the condition will always be actual phonemes (not None).
+	'''
 	def check_environment(self, phonemes, pos):
 		if pos == 0 or pos == len(phonemes) - 1:
 			return False
 		return self.condition(phonemes[pos - 1], phonemes[pos], phonemes[pos + 1])
 
 class SyllableInitialPhonologicalRule(BasePhonologicalRule):
+	'''
+	A rule applying to the first phoneme in a syllable.
+	Syllable breaks are determined by a simple, language-independent SSP heuristic.
+	The condition only takes two arguments: target and after.
+	'''
 	def check_environment(self, phonemes, pos):
 		if pos == 0 and len(phonemes) > 0:
 			return self.condition(phonemes[pos], phonemes[1]) 
@@ -230,16 +311,24 @@ class SyllableInitialPhonologicalRule(BasePhonologicalRule):
 		else:
 			return False
 
-def check_features(phoneme, feature_values):
+def _check_features(phoneme, feature_values):
 	return reduce(lambda a, b: a or b, [phoneme[type(f)] == f for f in feature_values])
 
 def SimplePhonologicalRule(target, replacement, before=None, after=None):
+	'''
+	Systactic sugar for simple item-specific rules.
+	* target and replacement are phonemes.
+	* before and after, optionally specified, are disjunctive lists of *phonological features*.
+	That is, the rule will fire if ANY of the features listed in e.g. before is present in the preceding phoneme.
+	If neither before nor after are specified, then the rule is UNconditional.  Useful for elsewhere conditions.
+	''' 
 	if before is not None and after is None:
-		cond = lambda b, t, _: t == target and b is not None and check_features(b, before) 
+		cond = lambda b, t, _: t == target and b is not None and _check_features(b, before) 
 	if before is not None and after is not None:
-		cond = lambda b, t, a: t == target and b is not None and check_features(b, before) and a is not None and check_features(a, after)
+		cond = lambda b, t, a: t == target and b is not None and _check_features(b, before) and \
+		a is not None and _check_features(a, after)
 	if before is None and after is not None:
-		cond = lambda _, t, a: t == target and a is not None and check_features(a, after) 
+		cond = lambda _, t, a: t == target and a is not None and _check_features(a, after) 
 	if before is None and after is None:
 		cond = lambda _, t, __: t == target
 
@@ -249,6 +338,18 @@ def SimplePhonologicalRule(target, replacement, before=None, after=None):
 # ------------------- The orthophonology of a language -------------------#
 
 class Orthophonology:
+	'''
+	The orthophonology of a language is described by:
+	* The inventory of all the phonemes of the language.
+	* A mapping of orthographic symbols to phonemes.
+	* mappings of orthographic symbols pairs to:
+	    * diphthongs
+	    * phonemes (i.e. digraphs)
+	* phonological rules for the contexutal transformation of phonological representations.
+
+	The class is very clearly aimed at alphabetic orthographies.  
+	Its usefulness for e.g. pictographic orthographies is questionable.
+	'''
 	def __init__(self, sound_inventory, alphabet, diphthongs, digraphs):
 		self.sound_inventory = sound_inventory
 		self.alphabet = alphabet
@@ -258,15 +359,28 @@ class Orthophonology:
 		self.rules = []
 
 	def add_rule(self, rule):
+		'''
+		Adds a rule to the orthophonology.
+		The *order* in which rules are added is critcial, since the first rule that matches fires.'''
 		self.rules.append(rule)
 
 	@staticmethod
-	def tokenize(text):
+	def _tokenize(text):
 		text = text.lower()
 		text = re.sub(r"[.\";,:\[\]()!&?‘]", "", text)
 		return text.split(' ')
 
 	def transcribe_word(self, word):
+		'''
+		The heart of the transcription process.
+		Similar to the system in in cltk.phonology.utils, the algorithm:
+		1) Applies digraphs and diphthongs to the text of the word.
+		2) Carries out a naive ("greedy", per @clemsciences) substitution of letters to phonemes,
+		according to the alphabet.
+		3) Applies the conditions of the rules to the environment of each phoneme in turn.
+		The first rule matched is fired.  There is no restart and the later rules are not tested.
+		Also, if a rule returns multiple phonemes, these are never re-tested by the rule set.
+		'''
 		phonemes = []
 
 		i = 0
@@ -296,24 +410,36 @@ class Orthophonology:
 		return phonemes
 
 	def transcribe(self, text, as_phonemes = False):
-		phoneme_words = [self.transcribe_word(word) for word in self.tokenize(text)]
+		'''
+		Trascribes a text, which is first tokenized for words, then each word is transcribed.
+		If as_phonemes is true, returns a list of list of phoneme objects,
+		else returns a string concatenation of the IPA symbols of the phonemes.
+		'''
+		phoneme_words = [self.transcribe_word(word) for word in self._tokenize(text)]
 		if not as_phonemes:
 			words = [''.join([phoneme.ipa for phoneme in word]) for word in phoneme_words]
 			return ' '.join(words)
 		else:
 			return phoneme_words
 
-	def find_sound(self, phoneme) :
+	def _find_sound(self, phoneme) :
 		for sound in self.sound_inventory:
 			if sound.is_equal(phoneme):
 				return sound
 		return None
 
 	def voice(self, consonant) :
+		'''
+		Voices a consonant, by searching the sound inventory for a consonant having the same
+		features as the argument, but +voice.
+		'''
 		voiced_consonant = deepcopy(consonant)
 		voiced_consonant[Voiced] = Voiced.pos
-		return self.find_sound(voiced_consonant)
+		return self._find_sound(voiced_consonant)
 
 	@staticmethod
 	def lengthen(vowel):
+		'''
+		Returns a lengthened copy of the vowel argument.
+		'''
 		return vowel.lengthen()
