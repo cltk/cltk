@@ -163,7 +163,7 @@ oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 # intervocalic fricatives are voiced
 oe.add_rule(InnerPhonologicalRule(
 	condition = lambda before, target, after: 
-		isinstance(before, Vowel) and target in [f, s, th] and isinstance(after, Vowel),
+		before.is_vowel() and target in [f, s, th] and after.is_vowel(),
 	action = lambda target: 
 		oe.voice(target)))
 
@@ -171,7 +171,7 @@ oe.add_rule(InnerPhonologicalRule(
 oe.add_rule(PhonologicalRule(
 	condition = lambda before, target, after:
 		target == k and
-		((isinstance(after, Vowel) and after[Backness] == Backness.front) or
+		(after is not None and after[Backness] == Backness.front or
 		(before is not None and before == i and 
 			(after is None or (isinstance(after, Vowel) and after[Backness] != Backness.back)))),
 	action = lambda _: tsh))
@@ -187,9 +187,9 @@ oe.add_rule(InnerPhonologicalRule(
 # /g/ is fricativized when intervocalic
 oe.add_rule(InnerPhonologicalRule(
 	condition = lambda before, target, after:
-		(isinstance(before, Vowel) or before[Voiced] == Voiced.pos) and
+		(before.is_vowel() or before[Voiced] == Voiced.pos) and
 		target == g and
-		(isinstance(after, Vowel) or after[Voiced] == Voiced.pos),
+		(after.is_vowel() or after[Voiced] == Voiced.pos),
 	action = lambda _ : y))
 
 # /h/ is velarized after a back vowel

@@ -107,6 +107,9 @@ class AbstractPhoneme:
 		self.features = features
 		self.ipa = ipa
 
+	def is_vowel(self):
+		return self[Consonantal] == Consonantal.neg
+
 	def __getitem__(self, feature_name):
 		'''
 		Use dict-type syntax for accessing the values of features.
