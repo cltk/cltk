@@ -28,6 +28,10 @@ class Voiced(PhonologicalFeature):
 	neg = auto()
 	pos = auto()
 
+class Aspirated(PhonologicalFeature):
+	neg = auto()
+	pos = auto()
+
 class Geminate(PhonologicalFeature):
 	neg = auto()
 	pos = auto()
@@ -138,10 +142,11 @@ class Consonant(AbstractPhoneme):
 	Based on cltk.phonology.utils by @clemsciences.
 	A consonant is a phoneme that is specified for the features listed in the IPA chart for consonants:
 	Place, Manner, Voicing.  These may be read directly off the IPA chart, which also gives the IPA symbol.
+	The Consonantal feature is set to positive, and the aspirated is defaulted to negative.
 	See http://www.ipachart.com/
 	'''
 
-	def __init__(self, place, manner, voiced, ipa, geminate = Geminate.neg):
+	def __init__(self, place, manner, voiced, ipa, geminate = Geminate.neg, aspirated = Aspirated.neg):
 		assert place is not None
 		assert manner is not None
 		assert voiced is not None
@@ -153,6 +158,7 @@ class Consonant(AbstractPhoneme):
 			Place       : place,
 			Manner      : manner,
 			Voiced      : voiced,
+			Aspirated   : aspirated,
 			Geminate    : geminate}, 
 			ipa)
 
@@ -257,9 +263,11 @@ class PhonologicalRule(BasePhonologicalRule):
 	before and after phonemes may therefore be null when calling the condition.
 	'''
 	def check_environment(self, phonemes, pos):
-	    before = phonemes[pos - 1] if pos > 0 else None
-	    after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
-	    return self.condition(before, phonemes[pos], after)
+		if pos >= len(phonemes):
+			return False
+		before = phonemes[pos - 1] if pos > 0 else None
+		after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
+		return self.condition(before, phonemes[pos], after)
 
 class WordInitialPhonologicalRule(BasePhonologicalRule):
 	'''
@@ -282,7 +290,7 @@ class WordFinalPhonologicalRule(BasePhonologicalRule):
 	    return self.condition(phonemes[last - 1], phonemes[last]) if pos == last and len(phonemes) > 1 else False
 
 	def perform_action(self, phonemes, _):
-	    return self.action(phonemes[len(phonemes) - 2])
+	    return self.action(phonemes[len(phonemes) - 1])
 
 class InnerPhonologicalRule(BasePhonologicalRule):
 	'''
@@ -307,7 +315,7 @@ class SyllableInitialPhonologicalRule(BasePhonologicalRule):
 			return False
 		# apply simple SSP heuristic to determine if we're at a syllable start
 		elif phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]):
-			return self.condition(phonemes[pos], phonemes[1]) 
+			return self.condition(phonemes[pos], phonemes[pos + 1]) 
 		else:
 			return False
 
@@ -392,7 +400,7 @@ class Orthophonology:
 				phonemes.append(replacement)
 				i += 2
 			else:
-				phonemes.append(self.alphabet[word[i]])
+				phonemes.append(self[word[i]])
 				i += 1
 
 		# apply phonological rules.  Note: no restart!
@@ -437,9 +445,30 @@ class Orthophonology:
 		voiced_consonant[Voiced] = Voiced.pos
 		return self._find_sound(voiced_consonant)
 
+	def aspirate(self, consonant) :
+		'''
+		Aspirates a consonant, by searching the sound inventory for a consonant having the same
+		features as the argument, but +aspirated.
+		'''
+		aspirated_consonant = deepcopy(consonant)
+		aspirated_consonant[Aspirated] = Aspirated.pos
+		return self._find_sound(aspirated_consonant)
+
 	@staticmethod
 	def lengthen(vowel):
 		'''
 		Returns a lengthened copy of the vowel argument.
 		'''
 		return vowel.lengthen()
+
+	def __call__(self, text, as_phonemes = False):
+		'''
+		syntactic sugar for call the transcribe method
+		'''
+		return self.transcribe(text, as_phonemes)
+
+	def __getitem__(self, letter):
+		'''
+		Returns the phoneme associated with a letter, or None.
+		'''
+		return self.alphabet.get(letter, None)

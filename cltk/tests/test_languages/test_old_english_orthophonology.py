@@ -29,6 +29,15 @@ class TestOldEnglish(unittest.TestCase):
     def test_transcriber_hamsteall(self):
         self.assertEqual(oe.transcribe('hamsteall'), 'hɑmstæɑll')
 
+    def test_transcriber_fricativization(self):
+        self.assertEqual(oe.transcribe('arstafas'), 'ɑrstɑvɑs')
+        self.assertEqual(oe.transcribe('sceaft'), 'ʃæɑft')
+
+    def test_trascriber_g(self):
+        self.assertEqual(oe.transcribe('ige'), 'ije')
+        self.assertEqual(oe.transcribe('itgu'), 'itgu')
+        self.assertEqual(oe.transcribe('igu'), 'iyu')
+
 
 
 

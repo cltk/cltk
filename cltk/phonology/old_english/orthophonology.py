@@ -180,17 +180,16 @@ oe.add_rule(PhonologicalRule(
 oe.add_rule(InnerPhonologicalRule(
 	condition = lambda before, target, after:
 		target == g and
-		((isinstance(after, Vowel) and after[Backness] == Backness.front) or
-		((isinstance(before, Vowel) and before[Backness] == Backness.front) and
-			not(isinstance(after, Vowel) and after[Backness] == Backness.back))),
+		(after[Backness] == Backness.front or
+		(before[Backness] == Backness.front and not(after[Backness] == Backness.back))),
 	action = lambda _ : j))
 
 # /g/ is fricativized when intervocalic
 oe.add_rule(InnerPhonologicalRule(
 	condition = lambda before, target, after:
-		(isinstance(before, Vowel) or (isinstance(before, Consonant) and before[Voiced] == Voiced.pos)) and
+		(isinstance(before, Vowel) or before[Voiced] == Voiced.pos) and
 		target == g and
-		(isinstance(after, Vowel) or (isinstance(after, Consonant) and after[Voiced] == Voiced.pos)),
+		(isinstance(after, Vowel) or after[Voiced] == Voiced.pos),
 	action = lambda _ : y))
 
 # /h/ is velarized after a back vowel
@@ -201,4 +200,6 @@ oe.add_rule(SimplePhonologicalRule(h, ch, before = [Backness.front]))
 
 # 'sc' is *not* a digraph after a back consonant
 oe.add_rule(SimplePhonologicalRule(sh, [s, k], before = [Backness.back]))
+
+OldEnglishOrthophonology = oe
 
