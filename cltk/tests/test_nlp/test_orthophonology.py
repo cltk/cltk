@@ -138,6 +138,10 @@ class TestOrthophonology(unittest.TestCase):
 		self.assertTrue(a.is_more_sonorous(i))
 		self.assertFalse(i.is_more_sonorous(e))
 
+	def test_is_vowel(self):
+		self.assertTrue(a.is_vowel())
+		self.assertFalse(f.is_vowel())
+
 	# Rule tests
 	rule1 = BasePhonologicalRule(
 		lambda before, target, after: target == a and before is not None and before[Consonantal] == Consonantal.pos\

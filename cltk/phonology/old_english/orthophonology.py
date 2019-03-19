@@ -74,7 +74,7 @@ ae_long = ae.lengthen()
 a  = Vowel(Height.open, Backness.back, Roundedness.neg, Length.short, 'ɑ')
 a_long = a.lengthen()
 
-# dipthongs
+# diphthongs
 aea = ae + a
 ae_long_a = ae_long + a
 eo = e + o
