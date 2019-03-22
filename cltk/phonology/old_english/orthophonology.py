@@ -161,45 +161,51 @@ digraphs_ipa = {
 oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 
 # intervocalic fricatives are voiced
-oe.add_rule(InnerPhonologicalRule(
+oe << InnerPhonologicalRule(
 	condition = lambda before, target, after: 
 		before.is_vowel() and target in [f, s, th] and after.is_vowel(),
 	action = lambda target: 
-		oe.voice(target)))
+		oe.voice(target))
+
+# could also be:
+# Manner.fricative >> Voiced.pos | Consonantal.neg - Consonantal.neg
+# or
+# [Manner.fricative] >> [Voiced.pos] | [Consonantal.neg] - [Consonantal.neg]
 
 # /k/ is palatized in specific environments
-oe.add_rule(PhonologicalRule(
+oe << PhonologicalRule(
 	condition = lambda before, target, after:
 		target == k and
 		(after is not None and after[Backness] == Backness.front or
 		(before is not None and before == i and 
 			(after is None or (isinstance(after, Vowel) and after[Backness] != Backness.back)))),
-	action = lambda _: tsh))
+	action = lambda _: tsh)
 
 # palatization of /g/
-oe.add_rule(InnerPhonologicalRule(
+oe << InnerPhonologicalRule(
 	condition = lambda before, target, after:
 		target == g and
 		(after[Backness] == Backness.front or
 		(before[Backness] == Backness.front and not(after[Backness] == Backness.back))),
-	action = lambda _ : j))
+	action = lambda _ : j)
 
 # /g/ is fricativized when intervocalic
-oe.add_rule(InnerPhonologicalRule(
+oe << InnerPhonologicalRule(
 	condition = lambda before, target, after:
 		(before.is_vowel() or before[Voiced] == Voiced.pos) and
 		target == g and
 		(after.is_vowel() or after[Voiced] == Voiced.pos),
-	action = lambda _ : y))
+	action = lambda _ : y)
 
-# /h/ is velarized after a back vowel
-oe.add_rule(SimplePhonologicalRule(h, x, before = [Backness.back, Consonantal.pos]))
 
-# /h/ is palatized after a front vowel
-oe.add_rule(SimplePhonologicalRule(h, ch, before = [Backness.front]))
+oe.add_rule(h >> x | Backness.back - ANY )
+
+oe.add_rule(h >> ch | Backness.front - ANY)
 
 # 'sc' is *not* a digraph after a back consonant
-oe.add_rule(SimplePhonologicalRule(sh, [s, k], before = [Backness.back]))
+oe << PhonologicalRule(
+	condition = lambda before, target, _ : target == sh and Backness.back in before,
+	action = lambda _ : [s, k])
 
 OldEnglishOrthophonology = oe
 

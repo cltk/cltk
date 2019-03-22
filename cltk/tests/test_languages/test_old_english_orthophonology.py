@@ -39,7 +39,5 @@ class TestOldEnglish(unittest.TestCase):
         self.assertEqual(oe.transcribe('igu'), 'iyu')
 
 
-
-
 if __name__ == '__main__':
     unittest.main()

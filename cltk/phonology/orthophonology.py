@@ -18,7 +18,11 @@ __author__ = ["John Stewart <johnstewart@aya.yale.edu>"]
 # Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
 
 class PhonologicalFeature(IntEnum):
-	pass
+	def __sub__(self, other):
+		return ph(self) - other
+
+	def __rshift__(self, other):
+		return ph(self) >> other
 
 class Consonantal(PhonologicalFeature):
 	neg = auto()
@@ -110,11 +114,49 @@ class AbstractPhoneme:
 	def is_vowel(self):
 		return self[Consonantal] == Consonantal.neg
 
+	def _check_disjunctive_features(self, feature_values):
+		return reduce(lambda a, b: a or b, [self[type(f)] == f for f in feature_values])
+
+	def merge(self, other):
+		phoneme = deepcopy(self)
+
+		# special case for list of phonemes
+		if type(other) == list and len(other) > 0 and issubclass(type(other[0]), AbstractPhoneme):
+			return other
+
+		if issubclass(type(other), AbstractPhoneme):
+			feature_values = other.features.values()
+		elif type(other) != list and type(other) != tuple:
+			feature_values = [other]
+		else:
+			feature_values = other
+
+		for f in feature_values:
+			if type(f) == list:
+				for inner_f in f:
+					phoneme[type(inner_f)] = inner_f
+			else:
+				phoneme[type(f)] = f
+
+		if issubclass(type(other), AbstractPhoneme) and other.ipa is not None:
+			phoneme.ipa = other.ipa
+
+		return phoneme
+
+	def is_equal(self, other):
+		return self.features == other.features
+
+	def matches(self, other):
+		if other is None:
+			return False
+		if type(other) == list or issubclass(type(other), PhonologicalFeature):
+			other = ph(other)
+		return other.features.items() >= self.features.items()
+
 	def __getitem__(self, feature_name):
 		'''
 		Use dict-type syntax for accessing the values of features.
 		'''
-
 		if not issubclass(feature_name, PhonologicalFeature):
 			raise TypeError(str(feature_name) + ' is not a phonological feature')
 		return self.features.get(feature_name, None)
@@ -133,11 +175,51 @@ class AbstractPhoneme:
 
 	__repr__ = __str__
 
-	def is_equal(self, other):
-		return self.features == other.features
-
 	def __eq__(self, other):
 		return self.is_equal(other)
+
+	def __le__ (self, other):
+		return self.matches(other)
+
+	def __ge__ (self, other):
+		return other.matches(self)
+
+	def __lt__ (self, other):
+		return other.is_more_sonorous(self)
+
+	def __gt__ (self, other):
+		return self.is_more_sonorous(other)
+
+	def __rshift__(self, other):
+		return PhonologicalRule(
+			condition = lambda _, target, __: self <= target,
+			action = lambda target : target << other)
+
+	def __lshift__(self, other):
+		return self.merge(other)
+
+	def __sub__(self, other):
+		other = ph(other) if not issubclass(type(other), AbstractPhoneme) else other
+		return lambda before, _, after : self <= before and other <= after
+
+def ph(*feature_values):
+	phoneme = AbstractPhoneme({})
+	phoneme = phoneme << feature_values
+	return phoneme
+
+class AlwaysMatchingPhoneme(AbstractPhoneme):
+	def matches(self, other):
+		return True
+
+ANY = AlwaysMatchingPhoneme({})
+
+class WordBoundary(AbstractPhoneme):
+	def __init__(self):
+		AbstractPhoneme.__init__(self, {})
+
+	def __sub__(self, other):
+		return lambda _, after: other in after
+		
 
 
 class Consonant(AbstractPhoneme):
@@ -175,7 +257,7 @@ class Consonant(AbstractPhoneme):
 
 class Vowel(AbstractPhoneme):
 	'''
-	The representation of vowel by its features, as given in the IPA chart for vowels.
+	The representation of a vowel by its features, as given in the IPA chart for vowels.
 	See http://www.ipachart.com/
 	'''
 
@@ -236,11 +318,15 @@ class Vowel(AbstractPhoneme):
 
 # ------------------- Phonological Rule Templates -------------------
 
+def _wrapped_print(x):
+	print(x)
+	return True
+
 class BasePhonologicalRule:
 	'''
 	Base class for conditional phonological rules.
 	A phonological rule relates an item (a phoneme) to its environment to define a transformation.
-	Specifically, a rule specifies a condition and and action.
+	Specifically, a rule specifies a condition and an action.
 
 	* The condition characterizes the phonological environment of a phoneme in terms of the 
 	characteristics of the phomeme before it (if any), and after it (if any).
@@ -260,6 +346,14 @@ class BasePhonologicalRule:
 	def __call__(self, phonemes, pos):
 		return self.perform_action(phonemes, pos)
 
+	def __or__(self, other_condition):
+		prev_function = self.condition
+		self.condition = lambda before, target, after: prev_function(before, target, after) and \
+		other_condition(before, target, after)
+		return self
+
+
+
 class PhonologicalRule(BasePhonologicalRule):
 	'''
 	The most general phonological rule can apply anywhere in the word.
@@ -270,7 +364,8 @@ class PhonologicalRule(BasePhonologicalRule):
 			return False
 		before = phonemes[pos - 1] if pos > 0 else None
 		after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
-		return self.condition(before, phonemes[pos], after)
+		fire = self.condition(before, phonemes[pos], after)
+		return fire
 
 class WordInitialPhonologicalRule(BasePhonologicalRule):
 	'''
@@ -322,8 +417,6 @@ class SyllableInitialPhonologicalRule(BasePhonologicalRule):
 		else:
 			return False
 
-def _check_features(phoneme, feature_values):
-	return reduce(lambda a, b: a or b, [phoneme[type(f)] == f for f in feature_values])
 
 def SimplePhonologicalRule(target, replacement, before=None, after=None):
 	'''
@@ -334,23 +427,22 @@ def SimplePhonologicalRule(target, replacement, before=None, after=None):
 	If neither before nor after are specified, then the rule is UNconditional.  Useful for elsewhere conditions.
 	''' 
 	if before is not None and after is None:
-		cond = lambda b, t, _: t == target and b is not None and _check_features(b, before) 
+		cond = lambda b, t, _: t in target and b is not None and b & before
 	if before is not None and after is not None:
-		cond = lambda b, t, a: t == target and b is not None and _check_features(b, before) and \
-		a is not None and _check_features(a, after)
+		cond = lambda b, t, a: t in target and b is not None and b & before and a is not None and a & after
 	if before is None and after is not None:
-		cond = lambda _, t, a: t == target and a is not None and _check_features(a, after) 
+		cond = lambda _, t, a: t in target and a is not None and a & after
 	if before is None and after is None:
-		cond = lambda _, t, __: t == target
+		cond = lambda _, t, __: t in target
 
-	return PhonologicalRule(cond, lambda _ : replacement)
+	return PhonologicalRule(cond, lambda _ : replacement if _wrapped_print(replacement) else replacement)
 
 
-# ------------------- The orthophonology of a language -------------------#
+# ------------------- The ortho-phonology of a language -------------------#
 
 class Orthophonology:
 	'''
-	The orthophonology of a language is described by:
+	The ortho-phonology of a language is described by:
 	* The inventory of all the phonemes of the language.
 	* A mapping of orthographic symbols to phonemes.
 	* mappings of orthographic symbols pairs to:
@@ -389,7 +481,7 @@ class Orthophonology:
 		2) Carries out a naive ("greedy", per @clemsciences) substitution of letters to phonemes,
 		according to the alphabet.
 		3) Applies the conditions of the rules to the environment of each phoneme in turn.
-		The first rule matched is fired.  There is no restart and the later rules are not tested.
+		The first rule matched fires.  There is no restart and later rules are not tested.
 		Also, if a rule returns multiple phonemes, these are never re-tested by the rule set.
 		'''
 		phonemes = []
@@ -413,6 +505,7 @@ class Orthophonology:
 		    	if rule.check_environment(phonemes, i):
 		    		replacement = rule(phonemes, i)
 		    		replacement = [replacement] if not isinstance(replacement, list) else replacement
+		    		replacement = [self._find_sound(p) for p in replacement]
 		    		phonemes[i:i + 1] = replacement
 		    		i += len(replacement) - 1
 		    		break
@@ -475,3 +568,9 @@ class Orthophonology:
 		Returns the phoneme associated with a letter, or None.
 		'''
 		return self.alphabet.get(letter, None)
+
+	def __lshift__(self, rule):
+		'''
+		Syntactic sugar for adding a rule
+		'''
+		self.add_rule(rule)

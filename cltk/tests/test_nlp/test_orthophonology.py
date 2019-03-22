@@ -162,8 +162,9 @@ class TestOrthophonology(unittest.TestCase):
 	rule6 = SyllableInitialPhonologicalRule(
 		lambda target, after: isinstance(target, Consonant) and after[Height] == Height.close,
 		lambda target: etruscan.aspirate(target))
-	rule7 = SimplePhonologicalRule(k, sh, after = [Backness.central, Backness.back])
-	rule8 = SimplePhonologicalRule(k, [k, a], after = [Backness.central, Backness.back])
+	rule7_1 = k >> sh | ANY - Backness.central
+	rule7_2 = k >> sh | ANY - Backness.back
+	rule8 = k >> [k, a] | ANY - Backness.back 
 
 	def test_base_phonological_rule(self):
 		self.assertTrue(self.rule1.condition(p, a, t))
@@ -212,12 +213,12 @@ class TestOrthophonology(unittest.TestCase):
 		self.assertEqual(self.rule6([a, k, e, t, i, n], 3), th)
 
 	def test_simple_phonological_rule(self):
-		self.assertTrue(self.rule7.check_environment([k, a], 0))
-		self.assertFalse(self.rule7.check_environment([k, a], 1))
-		self.assertTrue(self.rule7.check_environment([e, k, a], 1))
-		self.assertFalse(self.rule7.check_environment([k], 0))
-		self.assertFalse(self.rule7.check_environment([], 1))
-		self.assertEqual(self.rule7([k, a], 0), sh)
+		self.assertTrue(self.rule7_2.check_environment([k, a], 0))
+		self.assertFalse(self.rule7_2.check_environment([k, a], 1))
+		self.assertTrue(self.rule7_2.check_environment([e, k, a], 1))
+		self.assertFalse(self.rule7_1.check_environment([k], 0))
+		self.assertFalse(self.rule7_1.check_environment([], 1))
+		self.assertEqual(self.rule7_2([k, a], 0), sh)
 
 	# Test the transcription system
 	def test_transcription_letter(self):
@@ -238,27 +239,39 @@ class TestOrthophonology(unittest.TestCase):
 		self.etruscan2 = deepcopy(etruscan)
 
 	def test_add_rule(self):
-		self.etruscan2.add_rule(self.rule7)
+		self.etruscan2.add_rule(self.rule7_1)
+		self.assertEqual(len(self.etruscan2.rules), 1)
+
+	def test_add_rule(self):
+		self.etruscan2 << self.rule3
 		self.assertEqual(len(self.etruscan2.rules), 1)
 
 	def test_rule_application(self):
-		self.etruscan2.add_rule(self.rule7)
+		self.etruscan2.add_rule(self.rule7_1)
+		self.etruscan2.add_rule(self.rule7_2)
 		self.assertEqual(self.etruscan2('qutum'), 'ʃutum')
 
 	def test_rule_ordering1(self):
-		self.etruscan2.add_rule(self.rule7)
+		self.etruscan2.add_rule(self.rule7_1)
+		self.etruscan2.add_rule(self.rule7_2)
 		self.etruscan2.add_rule(self.rule3)
 		self.assertEqual(self.etruscan2('qutum'), 'ʃutum')
 
 	def test_rule_ordering2(self):
 		self.etruscan2.add_rule(self.rule3)
-		self.etruscan2.add_rule(self.rule7)
+		self.etruscan2.add_rule(self.rule7_1)
+		self.etruscan2.add_rule(self.rule7_2)
 		self.assertEqual(self.etruscan2('qutum'), kh.ipa + 'utum')
 
 	def test_rule_multiple_phonemes_ordering(self):
 		self.etruscan2.add_rule(self.rule8)
-		self.etruscan2.add_rule(self.rule7)
+		self.etruscan2.add_rule(self.rule7_1)
+		self.etruscan2.add_rule(self.rule7_2)
 		self.assertEqual(self.etruscan2('qutum'), 'k' + a.ipa + 'utum')
+
+	def test_rule_syntax1(self):
+		self.etruscan2.add_rule(Consonantal.neg >> [Backness.back, Roundedness.pos] | Consonantal.pos - Consonantal.pos)
+		self.assertEqual(self.etruscan2('kip'), 'k' + u.ipa + 'p')
 
 
 

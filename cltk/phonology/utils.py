@@ -20,6 +20,8 @@ class Manner(AutoName):
     fricative = auto()
     trill = auto()
     spirant = auto()
+    affricate = auto()
+    approximant = auto()
 
 
 class Place(AutoName):
@@ -141,6 +143,8 @@ class Consonant(AbstractConsonant):
     def __str__(self):
         return self.ipar
 
+    __repr__ = __str__
+
     def is_equal(self, other_consonnant):
         """
         >>> v_consonant = Consonant(Place.labio_dental, Manner.fricative, True, "v", False)
@@ -171,7 +175,6 @@ class Backness(AutoName):
     front = auto()
     central = auto()
     back = auto()
-
 
 class Length(AutoName):
     short = auto()
@@ -283,6 +286,8 @@ class Vowel(AbstractVowel):
     def __str__(self):
         return self.ipar
 
+    __repr__ = __str__
+
     def is_equal(self, other_sound):
         """
 
@@ -291,6 +296,9 @@ class Vowel(AbstractVowel):
         """
         return self.height == other_sound.height and self.backness == other_sound.backness and \
                self.rounded == other_sound.rounded and self.length == other_sound.length
+
+    def __add__(self, other):
+        return Vowel(self.height, self.backness, self.rounded, self.length, self.ipar + other.ipar)
 
 
 class Rank(AutoName):
@@ -380,13 +388,12 @@ class Position:
 
 class Rule:
     """
-    A Rule iz used to transform one sound to another according to its direct environment
+    A Rule is used to transform one sound to another according to its direct environment
     (the letter before and the letter after). If a rule is applicable, then it is applied.
     """
 
     def __init__(self, position, temp_sound, estimated_sound):
         """
-
         :param position: AbstractPosition
         :param temp_sound: Vowel or Consonant
         :param estimated_sound: Vowel or Consonant
@@ -568,3 +575,63 @@ class Transcriber:
         else:
             phonetic_representation.append(phonemes[0].ipar)
         return "".join(phonetic_representation)
+
+class BasePhonologicalRule:
+    def __init__(self, condition, action):
+        self.condition = condition
+        self.action = action
+
+    def perform_action(self, phonemes, pos):
+        return self.action(phonemes[pos])
+
+    def __call__(self, phonemes, pos):
+        return self.perform_action(phonemes, pos)
+
+class PhonologicalRule(BasePhonologicalRule):
+    def check_environment(self, phonemes, pos):
+        before = phonemes[pos - 1] if pos > 0 else None
+        after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
+        return self.condition(before, phonemes[pos], after)
+
+class WordInitialPhonologicalRule(BasePhonologicalRule):
+    def check_environment(self, phonemes, pos):
+        return self.condition(phonemes[0], phonemes[1]) if pos == 0 and len(phonemes) > 1 else False
+
+    def perform_action(self, phonemes, _):
+        return self.action(phonemes[0])
+
+class WordFinalPhonologicalRule(BasePhonologicalRule):
+    def check_environment(self, phonemes, pos):
+        last = len(phonemes) - 1
+        return self.condition(phonemes[last - 1], phonemes[last]) if pos == last and len(phonemes) > 1 else False
+
+    def perform_action(self, phonemes, _):
+        return self.action(phonemes[len(phonemes) - 2])
+
+
+class IPATranscriber:
+    def __init__(self, digraphs: dict, dipthongs: dict, alphabet: dict, rules: list):
+        self.digraphs = digraphs
+        self.dipthongs = dipthongs
+        self.alphabet = alphabet
+        self.rules = rules
+
+    @staticmethod
+    def tokenize(text):
+        text = text.lower()
+        text = re.sub(r"[.\";,:\[\]()!&?‘]", "", text)
+        return text.split(' ')
+
+    def transcribe_word(self, word):
+        phonemes = [self.alphabet[letter] for letter in word]
+        for i in range(len(phonemes)):
+            for rule in self.rules:
+                if rule.check_environment(phonemes, i):
+                    phonemes[i] = rule(phonemes, i)
+        return phonemes
+
+
+    def transcribe(self, text):
+        return [self.transcribe_word(word) for word in self.tokenize(text)]
+
+
