@@ -19,10 +19,10 @@ __author__ = ["John Stewart <johnstewart@aya.yale.edu>"]
 
 class PhonologicalFeature(IntEnum):
 	def __sub__(self, other):
-		return ph(self) - other
+		return phoneme(self) - other
 
 	def __rshift__(self, other):
-		return ph(self) >> other
+		return phoneme(self) >> other
 
 class Consonantal(PhonologicalFeature):
 	neg = auto()
@@ -119,7 +119,7 @@ class AbstractPhoneme:
 
 	def merge(self, other):
 		phoneme = deepcopy(self)
-
+		
 		# special case for list of phonemes
 		if type(other) == list and len(other) > 0 and issubclass(type(other[0]), AbstractPhoneme):
 			return other
@@ -135,6 +135,8 @@ class AbstractPhoneme:
 			if type(f) == list:
 				for inner_f in f:
 					phoneme[type(inner_f)] = inner_f
+			elif issubclass(type(f), AbstractPhoneme):
+				phoneme = phoneme << f
 			else:
 				phoneme[type(f)] = f
 
@@ -150,7 +152,7 @@ class AbstractPhoneme:
 		if other is None:
 			return False
 		if type(other) == list or issubclass(type(other), PhonologicalFeature):
-			other = ph(other)
+			other = phoneme(other)
 		return other.features.items() >= self.features.items()
 
 	def __getitem__(self, feature_name):
@@ -199,10 +201,10 @@ class AbstractPhoneme:
 		return self.merge(other)
 
 	def __sub__(self, other):
-		other = ph(other) if not issubclass(type(other), AbstractPhoneme) else other
+		other = phoneme(other) if not issubclass(type(other), AbstractPhoneme) else other
 		return lambda before, _, after : self <= before and other <= after
 
-def ph(*feature_values):
+def phoneme(*feature_values):
 	phoneme = AbstractPhoneme({})
 	phoneme = phoneme << feature_values
 	return phoneme
