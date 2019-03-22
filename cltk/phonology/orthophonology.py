@@ -24,6 +24,15 @@ class PhonologicalFeature(IntEnum):
 	def __rshift__(self, other):
 		return phoneme(self) >> other
 
+	def __le__(self, other):
+		return phoneme(self) <= other
+
+	def __ge__(self, other):
+		return phoneme(self) >= other
+
+	def matches(self, other):
+		return phoneme(self).matches(other)
+
 class Consonantal(PhonologicalFeature):
 	neg = auto()
 	pos = auto()
@@ -119,7 +128,7 @@ class AbstractPhoneme:
 
 	def merge(self, other):
 		phoneme = deepcopy(self)
-		
+
 		# special case for list of phonemes
 		if type(other) == list and len(other) > 0 and issubclass(type(other[0]), AbstractPhoneme):
 			return other
@@ -219,8 +228,10 @@ class WordBoundary(AbstractPhoneme):
 	def __init__(self):
 		AbstractPhoneme.__init__(self, {})
 
-	def __sub__(self, other):
-		return lambda _, after: other in after
+	def matches(self, other):
+		return other is None
+
+W = WordBoundary()
 		
 
 

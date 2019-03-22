@@ -176,36 +176,39 @@ oe << InnerPhonologicalRule(
 oe << PhonologicalRule(
 	condition = lambda before, target, after:
 		target == k and
-		(after is not None and after[Backness] == Backness.front or
+		(after is not None and after >= Backness.front or
 		(before is not None and before == i and 
-			(after is None or (isinstance(after, Vowel) and after[Backness] != Backness.back)))),
+			(after is None or (isinstance(after, Vowel) and not (after >= Backness.back))))),
 	action = lambda _: tsh)
 
 # palatization of /g/
 oe << InnerPhonologicalRule(
 	condition = lambda before, target, after:
 		target == g and
-		(after[Backness] == Backness.front or
-		(before[Backness] == Backness.front and not(after[Backness] == Backness.back))),
+		(after >= Backness.front or
+		(before >= Backness.front and not(after >= Backness.back))),
 	action = lambda _ : j)
 
 # /g/ is fricativized when intervocalic
 oe << InnerPhonologicalRule(
 	condition = lambda before, target, after:
-		(before.is_vowel() or before[Voiced] == Voiced.pos) and
+		(before.is_vowel() or before >= Voiced.pos) and
 		target == g and
-		(after.is_vowel() or after[Voiced] == Voiced.pos),
+		(after.is_vowel() or after >= Voiced.pos),
 	action = lambda _ : y)
 
+oe.rules.extend([
+	# /h/ is velarized after a back vowel
+	h >> x | Backness.back - ANY,
 
-oe.add_rule(h >> x | Backness.back - ANY )
+	# /h/ is palatized after a front vowel
+	h >> ch | Backness.front - ANY,
 
-oe.add_rule(h >> ch | Backness.front - ANY)
+	# 'sc' is *not* a digraph after a back consonant
+	sh >> [s, k] | Backness.back - ANY
+	])
 
-# 'sc' is *not* a digraph after a back consonant
-oe << PhonologicalRule(
-	condition = lambda before, target, _ : target == sh and Backness.back in before,
-	action = lambda _ : [s, k])
+
 
 OldEnglishOrthophonology = oe
 
