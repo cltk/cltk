@@ -233,22 +233,17 @@ ANY = AlwaysMatchingPhoneme()
 W = NeverMatchingPhoneme(ipa = '#')
 S = NeverMatchingPhoneme(ipa = '$')
 
+def is_syllable_initial(phonemes, pos):
+	if pos == len(phonemes) - 1:
+		return False
+	return pos == 0 or \
+	(phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]))
 
-class PositionedPhoneme(AbstractPhoneme):
-	def __init__(self, from_phoneme, 
-		word_initial = False, word_final = False, 
-		syllable_initial = False, syllable_final = False,
-		env_start = False, env_end = False):
-
-		self.word_initial = word_initial
-		self.word_final = word_final
-		self.syllable_initial = syllable_initial
-		self.syllable_final = syllable_final
-		self.env_start = env_start
-		self.env_end = env_end
-
-		AbstractPhoneme.__init__(self, from_phoneme.features)
-		
+def is_syllable_final(phonemes, pos):
+	if pos == 0:
+		return False
+	return pos == len(phonemes) -1  or \
+	(phonemes[pos + 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos - 1]))
 
 
 class Consonant(AbstractPhoneme):
