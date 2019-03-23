@@ -104,7 +104,7 @@ class AbstractPhoneme:
 	An abstract phoneme is just a bundle of phonological features.
 	'''
 
-	def __init__(self, features, ipa = None):
+	def __init__(self, features = {}, ipa = None):
 		# ensure unique features
 		if len(set(features.keys())) != len(features.keys()):
 			raise ValueError('non-unique features')
@@ -222,16 +222,32 @@ class AlwaysMatchingPhoneme(AbstractPhoneme):
 	def matches(self, other):
 		return True
 
-ANY = AlwaysMatchingPhoneme({})
-
-class WordBoundary(AbstractPhoneme):
-	def __init__(self):
-		AbstractPhoneme.__init__(self, {})
-
+class NeverMatchingPhoneme(AbstractPhoneme):
 	def matches(self, other):
-		return other is None
+		return False
+	
+	def is_equal(self, other):
+		return self is other
 
-W = WordBoundary()
+ANY = AlwaysMatchingPhoneme()
+W = NeverMatchingPhoneme(ipa = '#')
+S = NeverMatchingPhoneme(ipa = '$')
+
+
+class PositionedPhoneme(AbstractPhoneme):
+	def __init__(self, from_phoneme, 
+		word_initial = False, word_final = False, 
+		syllable_initial = False, syllable_final = False,
+		env_start = False, env_end = False):
+
+		self.word_initial = word_initial
+		self.word_final = word_final
+		self.syllable_initial = syllable_initial
+		self.syllable_final = syllable_final
+		self.env_start = env_start
+		self.env_end = env_end
+
+		AbstractPhoneme.__init__(self, from_phoneme.features)
 		
 
 
