@@ -211,39 +211,62 @@ class AbstractPhoneme:
 
 	def __sub__(self, other):
 		other = phoneme(other) if not issubclass(type(other), AbstractPhoneme) else other
-		return lambda before, _, after : self <= before and other <= after
+		env_start = PositionedPhoneme(self, env_start = True)
+		env_end = PositionedPhoneme(self, env_end = True)
+		return lambda before, _, after : env_start <= before and env_end <= after
 
 def phoneme(*feature_values):
 	phoneme = AbstractPhoneme({})
 	phoneme = phoneme << feature_values
 	return phoneme
 
-class AlwaysMatchingPhoneme(AbstractPhoneme):
+def PositionedPhoneme(phoneme, 
+	word_initial = False, word_final = False, 
+	syllable_initial = False, syllable_final = False,
+	env_start = False, env_end = False):
+	
+	pos_phoneme = deepcopy(phoneme)
+	pos_phoneme.word_initial = word_initial
+	pos_phoneme.word_final = word_final
+	pos_phoneme.syllable_initial = syllable_initial
+	pos_phoneme.syllable_final = syllable_final
+	pos_phoneme.env_start = env_start
+	pos_phoneme.env_end = env_end
+
+	return pos_phoneme
+
+class AlwaysMatchingPseudoPhoneme(AbstractPhoneme):
 	def matches(self, other):
 		return True
 
-class NeverMatchingPhoneme(AbstractPhoneme):
+class WordBoundaryPseudoPhoneme(AbstractPhoneme):
+	def __init__(self):
+		AbstractPhoneme.__init__(self, ipa = '#')
+
 	def matches(self, other):
-		return False
+		return other is None
 	
 	def is_equal(self, other):
 		return self is other
 
-ANY = AlwaysMatchingPhoneme()
-W = NeverMatchingPhoneme(ipa = '#')
-S = NeverMatchingPhoneme(ipa = '$')
+class SyllableBoundaryPseudoPhoneme(AbstractPhoneme):
+	def __init__(self):
+		AbstractPhoneme.__init__(self, ipa = '$')
 
-def is_syllable_initial(phonemes, pos):
-	if pos == len(phonemes) - 1:
-		return False
-	return pos == 0 or \
-	(phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]))
+	def matches(self, other):
+		if other is None:
+			return True
+		elif getattr(self, 'env_start', False) and getattr(other, 'syllable_final', False):
+			return True
+		elif getattr(self, 'env_end', False) and getattr(other, 'syllable_initial', False):
+			return True
+		else:
+			return False
 
-def is_syllable_final(phonemes, pos):
-	if pos == 0:
-		return False
-	return pos == len(phonemes) -1  or \
-	(phonemes[pos + 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos - 1]))
+
+ANY = AlwaysMatchingPseudoPhoneme()
+W = WordBoundaryPseudoPhoneme()
+S = SyllableBoundaryPseudoPhoneme()
 
 
 class Consonant(AbstractPhoneme):
@@ -376,6 +399,17 @@ class BasePhonologicalRule:
 		other_condition(before, target, after)
 		return self
 
+def is_syllable_initial(phonemes, pos):
+	if pos == len(phonemes) - 1:
+		return False
+	return pos == 0 or \
+	(phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]))
+
+def is_syllable_final(phonemes, pos):
+	if pos == 0:
+		return False
+	return pos == len(phonemes) -1  or \
+	(phonemes[pos + 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos - 1]))
 
 
 class PhonologicalRule(BasePhonologicalRule):
@@ -386,10 +420,10 @@ class PhonologicalRule(BasePhonologicalRule):
 	def check_environment(self, phonemes, pos):
 		if pos >= len(phonemes):
 			return False
-		before = phonemes[pos - 1] if pos > 0 else None
-		after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
-		fire = self.condition(before, phonemes[pos], after)
-		return fire
+
+		before = None if pos == 0 else phonemes[pos - 1]
+		after = None if pos == len(phonemes) - 1 else phonemes[pos + 1]
+		return self.condition(before, phonemes[pos], after)
 
 class WordInitialPhonologicalRule(BasePhonologicalRule):
 	'''
@@ -521,6 +555,12 @@ class Orthophonology:
 			else:
 				phonemes.append(self[word[i]])
 				i += 1
+
+		# mark syllable boundaries, and, in future, other positional features
+		for i in range(len(phonemes)):
+			phonemes[i] = PositionedPhoneme(phonemes[i])
+			phonemes[i].is_syllable_initial = is_syllable_initial(phonemes, i)
+			phonemes[i].is_syllable_final = is_syllable_final(phonemes, i)
 
 		# apply phonological rules.  Note: no restart!
 		i = 0
