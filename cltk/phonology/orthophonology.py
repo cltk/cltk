@@ -212,7 +212,7 @@ class AbstractPhoneme:
 	def __sub__(self, other):
 		other = phoneme(other) if not issubclass(type(other), AbstractPhoneme) else other
 		env_start = PositionedPhoneme(self, env_start = True)
-		env_end = PositionedPhoneme(self, env_end = True)
+		env_end = PositionedPhoneme(other, env_end = True)
 		return lambda before, _, after : env_start <= before and env_end <= after
 
 def phoneme(*feature_values):
@@ -236,6 +236,9 @@ def PositionedPhoneme(phoneme,
 	return pos_phoneme
 
 class AlwaysMatchingPseudoPhoneme(AbstractPhoneme):
+	def __init__(self):
+		AbstractPhoneme.__init__(self, ipa = '*')
+		
 	def matches(self, other):
 		return True
 
