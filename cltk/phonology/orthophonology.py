@@ -33,6 +33,9 @@ class PhonologicalFeature(IntEnum):
 	def matches(self, other):
 		return phoneme(self).matches(other)
 
+	def __eq__(self, other):
+		return False if type(self) != type(other) else IntEnum.__eq__(self, other)
+
 class Consonantal(PhonologicalFeature):
 	neg = auto()
 	pos = auto()
@@ -155,7 +158,7 @@ class AbstractPhoneme:
 		return phoneme
 
 	def is_equal(self, other):
-		return self.features == other.features
+		return other is not None and self.features == other.features
 
 	def matches(self, other):
 		if other is None:
@@ -193,6 +196,8 @@ class AbstractPhoneme:
 		return self.matches(other)
 
 	def __ge__ (self, other):
+		if type(other) == list:
+			other = phoneme(other)
 		return other.matches(self)
 
 	def __lt__ (self, other):
@@ -238,7 +243,7 @@ def PositionedPhoneme(phoneme,
 class AlwaysMatchingPseudoPhoneme(AbstractPhoneme):
 	def __init__(self):
 		AbstractPhoneme.__init__(self, ipa = '*')
-		
+
 	def matches(self, other):
 		return True
 
@@ -304,6 +309,12 @@ class Consonant(AbstractPhoneme):
 		'''
 		return True if isinstance(other, Consonant) and self[Manner] > other[Manner] else False
 
+	def merge(self, other):
+		if isinstance(other, Vowel):
+			return other
+		else:
+			return AbstractPhoneme.merge(self, other)
+
 
 class Vowel(AbstractPhoneme):
 	'''
@@ -365,12 +376,14 @@ class Vowel(AbstractPhoneme):
 		else:
 			return False
 
+	def merge(self, other):
+		if isinstance(other, Consonant):
+			return other
+		else:
+			return AbstractPhoneme.merge(self, other)
+
 
 # ------------------- Phonological Rule Templates -------------------
-
-def _wrapped_print(x):
-	print(x)
-	return True
 
 class BasePhonologicalRule:
 	'''
@@ -402,18 +415,6 @@ class BasePhonologicalRule:
 		other_condition(before, target, after)
 		return self
 
-def is_syllable_initial(phonemes, pos):
-	if pos == len(phonemes) - 1:
-		return False
-	return pos == 0 or \
-	(phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]))
-
-def is_syllable_final(phonemes, pos):
-	if pos == 0:
-		return False
-	return pos == len(phonemes) -1  or \
-	(phonemes[pos + 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos - 1]))
-
 
 class PhonologicalRule(BasePhonologicalRule):
 	'''
@@ -428,78 +429,16 @@ class PhonologicalRule(BasePhonologicalRule):
 		after = None if pos == len(phonemes) - 1 else phonemes[pos + 1]
 		return self.condition(before, phonemes[pos], after)
 
-class WordInitialPhonologicalRule(BasePhonologicalRule):
-	'''
-	A rule applying to the first phoneme in the word.
-	The condition only takes two arguments: target and after.
-	'''
-	def check_environment(self, phonemes, pos):
-	    return self.condition(phonemes[0], phonemes[1]) if pos == 0 and len(phonemes) > 1 else False
-
-	def perform_action(self, phonemes, _):
-	    return self.action(phonemes[0])
-
-class WordFinalPhonologicalRule(BasePhonologicalRule):
-	'''
-	A rule applying to the last phoneme in the word.
-	The condition only takes two arguments: before and target.
-	'''
-	def check_environment(self, phonemes, pos):
-	    last = len(phonemes) - 1
-	    return self.condition(phonemes[last - 1], phonemes[last]) if pos == last and len(phonemes) > 1 else False
-
-	def perform_action(self, phonemes, _):
-	    return self.action(phonemes[len(phonemes) - 1])
-
-class InnerPhonologicalRule(BasePhonologicalRule):
-	'''
-	A rule applying to a position inside a word.
-	The before and after arguments to the condition will always be actual phonemes (not None).
-	'''
-	def check_environment(self, phonemes, pos):
-		if pos == 0 or pos == len(phonemes) - 1:
-			return False
-		return self.condition(phonemes[pos - 1], phonemes[pos], phonemes[pos + 1])
-
-class SyllableInitialPhonologicalRule(BasePhonologicalRule):
-	'''
-	A rule applying to the first phoneme in a syllable.
-	Syllable breaks are determined by a simple, language-independent SSP heuristic.
-	The condition only takes two arguments: target and after.
-	'''
-	def check_environment(self, phonemes, pos):
-		if pos == 0 and len(phonemes) > 0:
-			return self.condition(phonemes[pos], phonemes[1]) 
-		elif pos == len(phonemes) - 1:
-			return False
-		# apply simple SSP heuristic to determine if we're at a syllable start
-		elif phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]):
-			return self.condition(phonemes[pos], phonemes[pos + 1]) 
-		else:
-			return False
-
-
-def SimplePhonologicalRule(target, replacement, before=None, after=None):
-	'''
-	Systactic sugar for simple item-specific rules.
-	* target and replacement are phonemes.
-	* before and after, optionally specified, are disjunctive lists of *phonological features*.
-	That is, the rule will fire if ANY of the features listed in e.g. before is present in the preceding phoneme.
-	If neither before nor after are specified, then the rule is UNconditional.  Useful for elsewhere conditions.
-	''' 
-	if before is not None and after is None:
-		cond = lambda b, t, _: t in target and b is not None and b & before
-	if before is not None and after is not None:
-		cond = lambda b, t, a: t in target and b is not None and b & before and a is not None and a & after
-	if before is None and after is not None:
-		cond = lambda _, t, a: t in target and a is not None and a & after
-	if before is None and after is None:
-		cond = lambda _, t, __: t in target
-
-	return PhonologicalRule(cond, lambda _ : replacement if _wrapped_print(replacement) else replacement)
-
 
 # ------------------- The ortho-phonology of a language -------------------#
+
+class PhonemeNotFound(Exception):
+	'''
+	Exception raised when a search for a phoneme in the investory fails.
+	'''
+	def __init__(self, phoneme):
+		self.unfound_phoneme = phoneme
+
 
 class Orthophonology:
 	'''
@@ -528,11 +467,42 @@ class Orthophonology:
 		The *order* in which rules are added is critcial, since the first rule that matches fires.'''
 		self.rules.append(rule)
 
+
+	# these are not static because language-specific subclasses probably need access to the sound inventory
+	def is_syllable_initial(self, phonemes, pos):
+		if pos == len(phonemes) - 1:
+			return False
+		# start of word is always syllable-initial, otherwise use SSP
+		return pos == 0 or \
+		(phonemes[pos - 1].is_more_sonorous(phonemes[pos]) and not phonemes[pos].is_more_sonorous(phonemes[pos + 1]))
+
+	def is_syllable_final(self, phonemes, pos):
+		# end of word is always syllable-final, otherwise use SSP
+		return pos == len(phonemes) - 1  or self.is_syllable_initial(phonemes, pos + 1)
+
 	@staticmethod
 	def _tokenize(text):
 		text = text.lower()
 		text = re.sub(r"[.\";,:\[\]()!&?‘]", "", text)
 		return text.split(' ')
+
+	def _position_phonemes(self, phonemes):
+		'''
+		Mark syllable boundaries, and, in future, other positional/suprasegmental features?
+		'''
+		for i in range(len(phonemes)):
+			phonemes[i] = PositionedPhoneme(phonemes[i])
+			phonemes[i].syllable_initial = self.is_syllable_initial(phonemes, i)
+			phonemes[i].syllable_final = self.is_syllable_final(phonemes, i)
+
+		return phonemes
+
+	def _find_sound(self, phoneme) :
+		for sound in self.sound_inventory:
+			if sound.is_equal(phoneme):
+				return sound
+		raise PhonemeNotFound(phoneme)
+
 
 	def transcribe_word(self, word):
 		'''
@@ -558,22 +528,18 @@ class Orthophonology:
 			else:
 				phonemes.append(self[word[i]])
 				i += 1
-
-		# mark syllable boundaries, and, in future, other positional features
-		for i in range(len(phonemes)):
-			phonemes[i] = PositionedPhoneme(phonemes[i])
-			phonemes[i].is_syllable_initial = is_syllable_initial(phonemes, i)
-			phonemes[i].is_syllable_final = is_syllable_final(phonemes, i)
-
+		
 		# apply phonological rules.  Note: no restart!
 		i = 0
 		while i < len(phonemes):
 		    for rule in self.rules:
+		    	phonemes = self._position_phonemes(phonemes)
+
 		    	if rule.check_environment(phonemes, i):
 		    		replacement = rule(phonemes, i)
 		    		replacement = [replacement] if not isinstance(replacement, list) else replacement
-		    		replacement = [self._find_sound(p) for p in replacement]
-		    		phonemes[i:i + 1] = replacement
+		    		new_phonemes = [self._find_sound(p) for p in replacement]
+		    		phonemes[i:i + 1] = new_phonemes
 		    		i += len(replacement) - 1
 		    		break
 		    i += 1
@@ -592,12 +558,6 @@ class Orthophonology:
 			return ' '.join(words)
 		else:
 			return phoneme_words
-
-	def _find_sound(self, phoneme) :
-		for sound in self.sound_inventory:
-			if sound.is_equal(phoneme):
-				return sound
-		return None
 
 	def voice(self, consonant) :
 		'''

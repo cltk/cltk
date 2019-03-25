@@ -161,50 +161,42 @@ digraphs_ipa = {
 oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 
 # intervocalic fricatives are voiced
-oe << InnerPhonologicalRule(
-	condition = lambda before, target, after: 
-		before.is_vowel() and target in [f, s, th] and after.is_vowel(),
-	action = lambda target: 
-		oe.voice(target))
-
-# could also be:
-# Manner.fricative >> Voiced.pos | Consonantal.neg - Consonantal.neg
-# or
-# [Manner.fricative] >> [Voiced.pos] | [Consonantal.neg] - [Consonantal.neg]
+oe.add_rule(f >> Voiced.pos | Consonantal.neg - Consonantal.neg)
+oe.add_rule(s >> Voiced.pos | Consonantal.neg - Consonantal.neg)
+oe.add_rule(th >> Voiced.pos | Consonantal.neg - Consonantal.neg)
 
 # /k/ is palatized in specific environments
 oe << PhonologicalRule(
 	condition = lambda before, target, after:
 		target == k and
-		(after is not None and after >= Backness.front or
-		(before is not None and before == i and 
-			(after is None or (isinstance(after, Vowel) and not (after >= Backness.back))))),
+		(Backness.front <= after or \
+			(i == before and (after is None or not Backness.back <= after))),
 	action = lambda _: tsh)
 
 # palatization of /g/
-oe << InnerPhonologicalRule(
+oe << PhonologicalRule(
 	condition = lambda before, target, after:
-		target == g and
-		(after >= Backness.front or
-		(before >= Backness.front and not(after >= Backness.back))),
+		g == target and
+		(Backness.front <= after or (Backness.front <= before and not (Backness.back <= after))),
 	action = lambda _ : j)
 
-# /g/ is fricativized when intervocalic
-oe << InnerPhonologicalRule(
-	condition = lambda before, target, after:
-		(before.is_vowel() or before >= Voiced.pos) and
-		target == g and
-		(after.is_vowel() or after >= Voiced.pos),
-	action = lambda _ : y)
-
 oe.rules.extend([
-	# /h/ is velarized after a back vowel
-	h >> x | Backness.back - ANY,
+	# /g/ is fricativized when intervocalic
+	g >> y | Consonantal.neg - Consonantal.neg,
+	g >> y | Voiced.pos - Voiced.pos,
+
+
+	# word-initial h is just /h/
+	h >> h | W - ANY,
 
 	# /h/ is palatized after a front vowel
 	h >> ch | Backness.front - ANY,
 
-	# 'sc' is *not* a digraph after a back consonant
+	# elsewhere for h
+	h >> x,
+
+	# 'sc' is *not* a digraph after a back vowel
+	#sh >> [s, k] | Backness.back - ANY
 	sh >> [s, k] | Backness.back - ANY
 	])
 

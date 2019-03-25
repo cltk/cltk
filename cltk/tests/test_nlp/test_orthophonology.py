@@ -150,18 +150,12 @@ class TestOrthophonology(unittest.TestCase):
 	rule2 = PhonologicalRule(
 		lambda before, target, after: isinstance(target, Consonant) and isinstance(before, Vowel),
 		lambda target: etruscan.aspirate(target))
-	rule3 = WordInitialPhonologicalRule(
-		lambda target, after: isinstance(target, Consonant) and after[Backness] == Backness.back,
-		lambda target: etruscan.aspirate(target))
-	rule4 = WordFinalPhonologicalRule(
-		lambda before, target: isinstance(target, Vowel) and before[Manner] == Manner.fricative,
-		lambda target: etruscan.lengthen(target))
-	rule5 = InnerPhonologicalRule(
-		lambda before, target, after: target[Manner] == Manner.stop and isinstance(before, Vowel) and isinstance(after, Vowel),
-		lambda target: sh)
-	rule6 = SyllableInitialPhonologicalRule(
-		lambda target, after: isinstance(target, Consonant) and after[Height] == Height.close,
-		lambda target: etruscan.aspirate(target))
+
+	# phonological rules using the DSL
+	rule3 = Consonantal.pos >> Aspirated.pos | W - Backness.back
+	rule4 = Consonantal.neg >> Length.long | Manner.fricative - W
+	rule5 = Manner.stop >> sh | Consonantal.neg - Consonantal.neg
+	rule6 = Consonantal.pos >> Aspirated.pos | S - Height.close
 	rule7_1 = k >> sh | ANY - Backness.central
 	rule7_2 = k >> sh | ANY - Backness.back
 	rule8 = k >> [k, a] | ANY - Backness.back 
@@ -204,8 +198,8 @@ class TestOrthophonology(unittest.TestCase):
 
 	def test_syllable_initial_phonological_rule(self):
 		self.assertTrue(self.rule6.check_environment([t, i, n], 0))
-		self.assertTrue(self.rule6.check_environment([a, k, e, t, i, n], 3))
-		self.assertFalse(self.rule6.check_environment([a, k, e, t, s, i, n], 3))
+		self.assertTrue(self.rule6.check_environment(etruscan._position_phonemes([a, k, e, t, i, n]), 3))
+		self.assertFalse(self.rule6.check_environment([a, k, e, t, s, i, n], 4))
 		self.assertFalse(self.rule6.check_environment([a, k, e, t, i, n], 0))
 		self.assertFalse(self.rule6.check_environment([a, k, e, t, i, n], 2))
 		self.assertFalse(self.rule6.check_environment([a, k, e, t, i, n], 4))
@@ -272,6 +266,20 @@ class TestOrthophonology(unittest.TestCase):
 	def test_rule_syntax1(self):
 		self.etruscan2.add_rule(Consonantal.neg >> [Backness.back, Roundedness.pos] | Consonantal.pos - Consonantal.pos)
 		self.assertEqual(self.etruscan2('kip'), 'k' + u.ipa + 'p')
+
+	def test_is_syllable_initial(self):
+		self.assertTrue(etruscan.is_syllable_initial([t, r, i], 0))
+		self.assertTrue(etruscan.is_syllable_initial([a, k, u, p], 1))
+		self.assertTrue(etruscan.is_syllable_initial([a, k, s, u], 1))
+		self.assertFalse(etruscan.is_syllable_initial([a, k, u, p], 2))
+		self.assertFalse(etruscan.is_syllable_initial([t, r, i], 2))
+
+	def test_is_syllable_final(self):
+		self.assertTrue(etruscan.is_syllable_final([t, r, i], 2))
+		self.assertTrue(etruscan.is_syllable_final([a, k, u, p], 0))
+		self.assertTrue(etruscan.is_syllable_final([a, k, s, u, r, t, i], 4))
+		self.assertFalse(etruscan.is_syllable_final([a, k, u, p], 2))
+		self.assertFalse(etruscan.is_syllable_final([t, r, i], 0))
 
 
 
