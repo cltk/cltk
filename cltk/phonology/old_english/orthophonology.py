@@ -161,9 +161,9 @@ digraphs_ipa = {
 oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 
 # intervocalic fricatives are voiced
-oe.add_rule(f >> Voiced.pos | Consonantal.neg - Consonantal.neg)
-oe.add_rule(s >> Voiced.pos | Consonantal.neg - Consonantal.neg)
-oe.add_rule(th >> Voiced.pos | Consonantal.neg - Consonantal.neg)
+oe.add_rule(f // s // th >> Voiced.pos | Consonantal.neg - Consonantal.neg)
+
+oe.add_rule( k >> k | ANY - ae)
 
 # /k/ is palatized in specific environments
 oe << PhonologicalRule(
@@ -185,7 +185,6 @@ oe.rules.extend([
 	g >> y | Consonantal.neg - Consonantal.neg,
 	g >> y | Voiced.pos - Voiced.pos,
 
-
 	# word-initial h is just /h/
 	h >> h | W - ANY,
 
@@ -196,8 +195,10 @@ oe.rules.extend([
 	h >> x,
 
 	# 'sc' is *not* a digraph after a back vowel
-	#sh >> [s, k] | Backness.back - ANY
-	sh >> [s, k] | Backness.back - ANY
+	sh >> [s, k] | Backness.back - ANY,
+
+	# certain dipthongs are digraphs marking palatization after palatized consonants
+	aea // eo // iu >> e | Place.palatal - ANY
 	])
 
 

@@ -133,10 +133,10 @@ class AbstractPhoneme:
 		phoneme = deepcopy(self)
 
 		# special case for list of phonemes
-		if type(other) == list and len(other) > 0 and issubclass(type(other[0]), AbstractPhoneme):
+		if isinstance(other, list) and len(other) > 0 and isinstance(other[0], AbstractPhoneme):
 			return other
 
-		if issubclass(type(other), AbstractPhoneme):
+		if isinstance(other, AbstractPhoneme):
 			feature_values = other.features.values()
 		elif type(other) != list and type(other) != tuple:
 			feature_values = [other]
@@ -147,12 +147,12 @@ class AbstractPhoneme:
 			if type(f) == list:
 				for inner_f in f:
 					phoneme[type(inner_f)] = inner_f
-			elif issubclass(type(f), AbstractPhoneme):
+			elif isinstance(f, AbstractPhoneme):
 				phoneme = phoneme << f
 			else:
 				phoneme[type(f)] = f
 
-		if issubclass(type(other), AbstractPhoneme) and other.ipa is not None:
+		if isinstance(other, AbstractPhoneme) and other.ipa is not None:
 			phoneme.ipa = other.ipa
 
 		return phoneme
@@ -163,7 +163,7 @@ class AbstractPhoneme:
 	def matches(self, other):
 		if other is None:
 			return False
-		if type(other) == list or issubclass(type(other), PhonologicalFeature):
+		if type(other) == list or isinstance(other, PhonologicalFeature):
 			other = phoneme(other)
 		return other.features.items() >= self.features.items()
 
@@ -215,10 +215,16 @@ class AbstractPhoneme:
 		return self.merge(other)
 
 	def __sub__(self, other):
-		other = phoneme(other) if not issubclass(type(other), AbstractPhoneme) else other
+		other = phoneme(other) if not isinstance(other, AbstractPhoneme) else other
 		env_start = PositionedPhoneme(self, env_start = True)
 		env_end = PositionedPhoneme(other, env_end = True)
 		return lambda before, _, after : env_start <= before and env_end <= after
+
+	def __floordiv__(self, other):
+		if isinstance(other, AbstractPhoneme):
+			return PhonemeDisjunction(self, other)
+		else:
+			raise TypeError(other)
 
 def phoneme(*feature_values):
 	phoneme = AbstractPhoneme({})
@@ -275,6 +281,22 @@ class SyllableBoundaryPseudoPhoneme(AbstractPhoneme):
 ANY = AlwaysMatchingPseudoPhoneme()
 W = WordBoundaryPseudoPhoneme()
 S = SyllableBoundaryPseudoPhoneme()
+
+class PhonemeDisjunction(list):
+	def __init__(self, *phonemes):
+		self.extend(phonemes)
+
+	def __floordiv__(self, other):
+		if isinstance(other, AbstractPhoneme):
+			self.append(other)
+			return self
+		else:
+			raise TypeError(other)
+
+	def __rshift__(self, other):
+		return PhonologicalRule(
+			condition = lambda _, target, __: any([phoneme <= target for phoneme in self]),
+			action = lambda target : target << other)
 
 
 class Consonant(AbstractPhoneme):
@@ -439,6 +461,13 @@ class PhonemeNotFound(Exception):
 	def __init__(self, phoneme):
 		self.unfound_phoneme = phoneme
 
+class LetterNotFound(Exception):
+	'''
+	Exception raised when a search for a letter in the alphabet fails.
+	'''
+	def __init__(self, letter):
+		self.unfound_letter = letter
+
 
 class Orthophonology:
 	'''
@@ -594,7 +623,11 @@ class Orthophonology:
 		'''
 		Returns the phoneme associated with a letter, or None.
 		'''
-		return self.alphabet.get(letter, None)
+		phoneme =  self.alphabet.get(letter, None)
+		if phoneme is not None:
+			return phoneme
+		else:
+			raise LetterNotFound(letter)
 
 	def __lshift__(self, rule):
 		'''

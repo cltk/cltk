@@ -159,6 +159,7 @@ class TestOrthophonology(unittest.TestCase):
 	rule7_1 = k >> sh | ANY - Backness.central
 	rule7_2 = k >> sh | ANY - Backness.back
 	rule8 = k >> [k, a] | ANY - Backness.back 
+	rule9 = i // u >> a // e | W - ANY
 
 	def test_base_phonological_rule(self):
 		self.assertTrue(self.rule1.condition(p, a, t))
@@ -281,7 +282,11 @@ class TestOrthophonology(unittest.TestCase):
 		self.assertFalse(etruscan.is_syllable_final([a, k, u, p], 2))
 		self.assertFalse(etruscan.is_syllable_final([t, r, i], 0))
 
-
+	def test_disjunctive_phoneme_list(self):
+		self.etruscan2.add_rule(self.rule9)
+		self.assertEqual(self.etruscan2('iqut'), a.ipa + e.ipa + 'kut')
+		self.assertEqual(self.etruscan2('uqut'), a.ipa + e.ipa + 'kut')
+		self.assertNotEqual(self.etruscan2('equt'), a.ipa + e.ipa + 'kut')
 
 
 
