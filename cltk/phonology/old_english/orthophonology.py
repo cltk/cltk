@@ -160,12 +160,13 @@ digraphs_ipa = {
 
 oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 
-# intervocalic fricatives are voiced
+# Some intervocalic fricatives are voiced
 oe.add_rule(f // s // th >> Voiced.pos | Consonantal.neg - Consonantal.neg)
 
+# /k/ is palatized in specific environments
+# but not before /ae/
 oe.add_rule( k >> k | ANY - ae)
 
-# /k/ is palatized in specific environments
 oe << PhonologicalRule(
 	condition = lambda before, target, after:
 		target == k and
