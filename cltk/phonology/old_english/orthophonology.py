@@ -167,7 +167,8 @@ oe.add_rule( f // s // th >> Voiced.pos | Consonantal.neg - Consonantal.neg )
 # /k/ is palatized in specific environments
 # but not in front of /ae/
 
-#oe.add_rule( k >> k | ANY - ae )
+oe.add_rule( k >> k | ANY - ae )
+
 oe << PhonologicalRule(
 	condition = lambda before, target, after:
 		target == k and
