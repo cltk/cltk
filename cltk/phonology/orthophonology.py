@@ -468,6 +468,64 @@ class LetterNotFound(Exception):
 	def __init__(self, letter):
 		self.unfound_letter = letter
 
+ipa_to_mde = {
+	'm' : 'm', 
+	'n' : 'n',
+	'n̥' : 'ng', 
+	'ŋ' : 'ng',
+	'p' : 'p', 
+	'b' : 'b',
+	't' : 't',
+	'd' : 'd',
+	'k' : 'k',
+	'g' : 'g',
+	't͡ʃ': 'ch',
+	'd͡ʒ': 'ge',
+	'f' : 'f',
+	'v' : 'v',
+	'θ' : 'th',
+	'ð' : 'th',
+	's' : 's',
+	'z' : 'z',
+	'ʃ' : 'sh',
+	'ç' : 'ch',
+	'x' : 'ch', # tough one -- like in Scottish loch
+	'y' : 'y',
+	'h' : 'h', 
+	'l' : 'l',
+	'l̥' : 'l',
+	'j' : 'y',
+	'w' : 'w',
+	'r' : 'r',
+	'r̥' : 'r',
+	'i' : 'i',
+	'i:': 'ee',
+	'y:': 'y',
+	'u' : 'u',
+	'u:': 'oo',
+	'e' : 'e',
+	'e:': 'ee',
+	'ø' : 'e',
+	'ø:': 'ee',
+	'o' : 'o',
+	'o:': 'oo',
+	'æ' : 'a',
+	'æ:': 'aa',
+	'ɑ' : 'o',
+	'ɑ:': 'oo',
+	'æɑ': 'ao',
+	'æ:ɑ': 'ao',
+	'eo': 'eo',
+	'e:o': 'eeo',
+	'iu': 'iu',
+	'i:u': 'iiu'
+}
+
+mde_phonotactics = [
+	(r'(^|(?<= ))hw', 'wh'),
+	(r'oo(.)(^|(?= ))', 'o\\1e')
+]
+
 
 class Orthophonology:
 	'''
@@ -482,13 +540,14 @@ class Orthophonology:
 	The class is very clearly aimed at alphabetic orthographies.  
 	Its usefulness for e.g. pictographic orthographies is questionable.
 	'''
-	def __init__(self, sound_inventory, alphabet, diphthongs, digraphs):
+	def __init__(self, sound_inventory, alphabet, diphthongs, digraphs, to_modern = (ipa_to_mde, mde_phonotactics)):
 		self.sound_inventory = sound_inventory
 		self.alphabet = alphabet
 		self.diphthongs = diphthongs
 		self.digraphs = digraphs
 		self.di = {**self.diphthongs, **self.digraphs}
 		self.rules = []
+		self.to_modern = to_modern
 
 	def add_rule(self, rule):
 		'''
@@ -587,6 +646,20 @@ class Orthophonology:
 			return ' '.join(words)
 		else:
 			return phoneme_words
+
+	def transcribe_to_modern(self, text) :
+		# first transcribe letter by letter
+		phoneme_words = self.transcribe(text, as_phonemes = True)
+		words = [''.join([self.to_modern[0][phoneme.ipa] for phoneme in word]) for word in phoneme_words]
+		modern_text =  ' '.join(words)
+
+		# then apply phonotactic fixes
+		for regexp, replacement in self.to_modern[1]:
+			modern_text = re.sub(regexp, replacement, modern_text)
+
+		return modern_text
+
+		
 
 	def voice(self, consonant) :
 		'''
