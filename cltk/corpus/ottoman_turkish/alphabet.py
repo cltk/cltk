@@ -1,10 +1,14 @@
-"""Ottoman alphabet"""
+"""Ottoman alphabet
 
-__author__ = "Leonidas Mylonakis"
-# Based off Persian Alphabet Transliteration in CLTK by Iman Nazar
-# Uses UTF-8 Encoding for Ottoman/Persian Letters
-# Printing Note: When printing Arabic letters, they appear in the console from left to right and inconsistently linked, but
-#                correctly link and flow right to left when inputted into a word processor. The problems only exist in the terminal
+Based off Persian Alphabet Transliteration in CLTK by Iman Nazar
+Uses UTF-8 Encoding for Ottoman/Persian Letters
+Printing Note: When printing Arabic letters, they appear in the console from left to right and 
+inconsistently linked, but correctly link and flow right to left when inputted into a word 
+processor. The problems only exist in the terminal.
+
+"""
+
+__author__ = ["Leonidas Mylonakis <>"]
 
 # HEMZE Family
 HEMZE = '\u0621'  # indicates initial vowel
