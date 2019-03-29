@@ -927,9 +927,8 @@ class WeakOldNorseVerb(OldNorseVerb):
         :return:
         """
         subjunctive_root = self.sng[:-1] if self.sng[-1] == "a" else self.sng
-        forms = []
+        forms = [subjunctive_root + "a"]
 
-        forms.append(subjunctive_root+"a")
         subjunctive_root = subjunctive_root[:-1] if subjunctive_root[-1] == "j" else subjunctive_root
         forms.append(subjunctive_root+"ir")
         forms.append(subjunctive_root+"i")
