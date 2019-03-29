@@ -41,6 +41,12 @@ class TestOldEnglish(unittest.TestCase):
     def test_transcriber_cæg(self):
         self.assertEqual(oe.transcribe('cæg'), 'kæj')
 
+    def test_wynn(self):
+        self.assertEqual(oe('tƿirædness'), 'twirædness')
+
+    def test_ng(self):
+        self.assertEqual(oe('singan'), 'siŋgɑn')
+
 
 if __name__ == '__main__':
     unittest.main()

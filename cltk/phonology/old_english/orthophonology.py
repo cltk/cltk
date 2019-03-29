@@ -138,7 +138,8 @@ alphabet = {
 	'x' : x,
 	'y' : y,
 	'ȳ' : y_long,
-	'þ' : th
+	'þ' : th,
+	'ƿ' : w
 }
 
 diphthongs_ipa = {
@@ -154,20 +155,24 @@ diphthongs_ipa = {
 
 digraphs_ipa = {
 	'cg' : dsh,
-	'ng' : ng,
+	#'ng' : [ng, g],
 	'sc' : sh
 }
 
 oe = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
 
-# intervocalic fricatives are voiced
-oe.add_rule( f // s // th >> Voiced.pos | Consonantal.neg - Consonantal.neg )
 
+oe.rules = [
+	# some intervocalic fricatives are voiced
+	f // s // th >> Voiced.pos | Consonantal.neg - Consonantal.neg,
 
-# /k/ is palatized in specific environments
-# but not in front of /ae/
+	# /k/ is palatized in specific environments
+	# but not in front of /ae/
+ 	k >> k | ANY - ae,
 
-oe.add_rule( k >> k | ANY - ae )
+ 	# /n/ velarizes ahead of /g/
+ 	n >> Place.velar | ANY - g
+ 	]
 
 oe << PhonologicalRule(
 	condition = lambda before, target, after:

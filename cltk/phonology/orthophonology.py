@@ -611,7 +611,8 @@ class Orthophonology:
 			if i < len(word) - 1 and word[i:i + 2] in self.di:
 				letter_pair = word[i:i + 2]
 				replacement = self.di[letter_pair]
-				phonemes.append(replacement)
+				replacement = replacement if isinstance(replacement, list) else [replacement]
+				phonemes.extend(replacement)
 				i += 2
 			else:
 				phonemes.append(self[word[i]])
