@@ -39,7 +39,7 @@ z  = Consonant(Place.alveolar, Manner.fricative, Voiced.pos, 'z')
 sh = Consonant(Place.post_alveolar, Manner.fricative, Voiced.neg, 'ʃ')
 ch = Consonant(Place.palatal, Manner.fricative, Voiced.neg, 'ç')
 x  = Consonant(Place.velar, Manner.fricative, Voiced.neg, 'x')
-y  = Consonant(Place.velar, Manner.fricative, Voiced.pos, 'ɣ')
+xh  = Consonant(Place.velar, Manner.fricative, Voiced.pos, 'ɣ')
 h  = Consonant(Place.glottal, Manner.fricative, Voiced.neg, 'h')
 
 # approximants
@@ -87,7 +87,7 @@ consonants = [
 	m, n, n0, ng,
 	p, b, t, d, k, g,
 	tsh, dsh,
-	f, v, th, dh, s, z, sh, ch, x, y, h,
+	f, v, th, dh, s, z, sh, ch, x, xh, h,
 	l, l0, j, w, w0,
 	r, r0
 ]
@@ -155,7 +155,6 @@ diphthongs_ipa = {
 
 digraphs_ipa = {
 	'cg' : dsh,
-	#'ng' : [ng, g],
 	'sc' : sh
 }
 
@@ -170,8 +169,8 @@ oe.rules = [
 	# but not in front of /ae/
  	k >> k | ANY - ae,
 
- 	# /n/ velarizes ahead of /g/
- 	n >> Place.velar | ANY - g
+ 	# /n/ velarizes ahead of /g/ and /k/
+ 	n >> Place.velar | ANY - g // k
  	]
 
 oe << PhonologicalRule(
@@ -191,8 +190,8 @@ oe << PhonologicalRule(
 
 oe.rules.extend([
 	# /g/ is fricativized when intervocalic
-	g >> y | Consonantal.neg - Consonantal.neg,
-	g >> y | Voiced.pos - Voiced.pos,
+	g >> xh | Consonantal.neg - Consonantal.neg,
+	g >> xh | Voiced.pos - Voiced.pos,
 
 	# word-initial h is just /h/
 	h >> h | W - ANY,

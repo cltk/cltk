@@ -36,6 +36,9 @@ class PhonologicalFeature(IntEnum):
 	def __eq__(self, other):
 		return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
+	def __floordiv__(self, other):
+		return phoneme(self) // other
+
 class Consonantal(PhonologicalFeature):
 	neg = auto()
 	pos = auto()
@@ -163,7 +166,9 @@ class AbstractPhoneme:
 	def matches(self, other):
 		if other is None:
 			return False
-		if type(other) == list or isinstance(other, PhonologicalFeature):
+		if isinstance(other, PhonemeDisjunction):
+			return any([self <= phoneme for phoneme in other])
+		if isinstance(other, list) or isinstance(other, PhonologicalFeature):
 			other = phoneme(other)
 		return other.features.items() >= self.features.items()
 
@@ -215,16 +220,14 @@ class AbstractPhoneme:
 		return self.merge(other)
 
 	def __sub__(self, other):
-		other = phoneme(other) if not isinstance(other, AbstractPhoneme) else other
+		other = phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
+		else other
 		env_start = PositionedPhoneme(self, env_start = True)
 		env_end = PositionedPhoneme(other, env_end = True)
 		return lambda before, _, after : env_start <= before and env_end <= after
 
 	def __floordiv__(self, other):
-		if isinstance(other, AbstractPhoneme):
-			return PhonemeDisjunction(self, other)
-		else:
-			raise TypeError(other)
+		return PhonemeDisjunction(self, other)
 
 def phoneme(*feature_values):
 	phoneme = AbstractPhoneme({})
@@ -284,9 +287,13 @@ S = SyllableBoundaryPseudoPhoneme()
 
 class PhonemeDisjunction(list):
 	def __init__(self, *phonemes):
-		self.extend(phonemes)
+		if any([not isinstance(p, AbstractPhoneme) and not isinstance(p, PhonologicalFeature) for p in phonemes]):
+			raise TypeError(phonemes)
+		true_phonemes = [phoneme(p) if not isinstance(p, AbstractPhoneme) else p for p in phonemes]
+		self.extend(true_phonemes)
 
 	def __floordiv__(self, other):
+		other = phoneme(other) if isinstance(other, PhonologicalFeature) else other
 		if isinstance(other, AbstractPhoneme):
 			self.append(other)
 			return self
@@ -297,6 +304,28 @@ class PhonemeDisjunction(list):
 		return PhonologicalRule(
 			condition = lambda _, target, __: any([phoneme <= target for phoneme in self]),
 			action = lambda target : target << other)
+
+	def matches(self, other):
+		if other is None:
+			return False
+		if isinstance(other, PhonemeDisjunction):
+			return any([phoneme in other for phoneme in self])
+		if isinstance(other, list) or isinstance(other, PhonologicalFeature):
+			other = phoneme(other)
+		return any([phoneme <= other for phoneme in self])
+
+	def __sub__(self, other):
+		other = phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
+		else other
+		env_start = [PositionedPhoneme(phoneme, env_start = True) for phoneme in self]
+		env_end = PositionedPhoneme(other, env_end = True)
+		return lambda before, _, after : any([phoneme <= before for phoneme in env_start]) and env_end <= after
+
+	def __le__ (self, other):
+		return False if other is None else self.matches(other)
+
+	def __ge__ (self, other):
+		return False if other is None else other.matches(self)
 
 
 class Consonant(AbstractPhoneme):

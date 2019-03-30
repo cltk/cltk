@@ -151,6 +151,35 @@ class TestOrthophonology(unittest.TestCase):
 		lambda before, target, after: isinstance(target, Consonant) and isinstance(before, Vowel),
 		lambda target: etruscan.aspirate(target))
 
+	# Phoneme disjunction tests
+	def test_phoneme_disjunction(self):
+		self.assertTrue(a // e // u >= a)
+		self.assertTrue(a // e // u <= a)
+		self.assertFalse(a // e // u <= f)
+		self.assertTrue(a <= a // e // u)
+		self.assertTrue(a >= a // e // u)
+		self.assertFalse(f >= a // e // u)
+
+		self.assertTrue(a // e //u >= a // u)
+		self.assertTrue(a // u >= a // e // u)
+		self.assertTrue(a // f >= a // e // u)
+		self.assertFalse(p // f <= a // e // u)
+
+		self.assertTrue(Manner.stop <= p // t)
+		self.assertTrue(p // t >= Manner.stop)
+		self.assertFalse(a // e >= Manner.stop)
+		self.assertFalse(Manner.stop <= a // e)
+
+	def test_phonological_feature_disjunction(self):
+		self.assertTrue(Manner.stop // Manner.fricative <= f)
+		self.assertFalse(Manner.stop // Manner.fricative >= f)
+		self.assertTrue(Manner.stop // Manner.fricative <= Manner.stop)
+		self.assertFalse(Manner.stop // Manner.fricative >= Manner.affricate)
+		self.assertTrue(Manner.stop // Manner.fricative <= Manner.stop // Manner.affricate)
+		self.assertTrue(Manner.stop // Manner.fricative >= Manner.stop // Manner.affricate)
+		self.assertFalse(Manner.stop // Manner.fricative >= Manner.affricate // Manner.approximant)
+
+
 	# phonological rules using the DSL
 	rule3 = Consonantal.pos >> Aspirated.pos | W - Backness.back
 	rule4 = Consonantal.neg >> Length.long | Manner.fricative - W
@@ -160,6 +189,9 @@ class TestOrthophonology(unittest.TestCase):
 	rule7_2 = k >> sh | ANY - Backness.back
 	rule8 = k >> [k, a] | ANY - Backness.back 
 	rule9 = i // u >> a // e | W - ANY
+	rule10 = p >> ph | ANY - a // e
+	rule11 = p >> ph | a // e - ANY
+
 
 	def test_base_phonological_rule(self):
 		self.assertTrue(self.rule1.condition(p, a, t))
@@ -288,5 +320,16 @@ class TestOrthophonology(unittest.TestCase):
 		self.assertEqual(self.etruscan2('uqut'), a.ipa + e.ipa + 'kut')
 		self.assertNotEqual(self.etruscan2('equt'), a.ipa + e.ipa + 'kut')
 
+	def test_disjunctive_phoneme_list_rule1(self):
+		self.etruscan2.add_rule(self.rule10)
+		self.assertEqual(self.etruscan2('epa'), e.ipa + ph.ipa + a.ipa)
+		self.assertEqual(self.etruscan2('epe'), e.ipa + ph.ipa + e.ipa)
+		self.assertEqual(self.etruscan2('epu'), 'epu')
+
+	def test_disjunctive_phoneme_list_rule2(self):
+		self.etruscan2.add_rule(self.rule11)
+		self.assertEqual(self.etruscan2('ep'), e.ipa + ph.ipa)
+		self.assertEqual(self.etruscan2('ap'), a.ipa + ph.ipa)
+		self.assertEqual(self.etruscan2('up'), 'up')
 
 

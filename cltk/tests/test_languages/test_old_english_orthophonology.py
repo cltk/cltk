@@ -36,7 +36,8 @@ class TestOldEnglish(unittest.TestCase):
     def test_trascriber_g(self):
         self.assertEqual(oe.transcribe('ige'), 'ije')
         self.assertEqual(oe.transcribe('itgu'), 'itgu')
-        self.assertEqual(oe.transcribe('igu'), 'iyu')
+        self.assertEqual(oe.transcribe('igu'), 'iɣu')
+        self.assertEqual(oe('dagas'), 'dɑɣɑs')
 
     def test_transcriber_cæg(self):
         self.assertEqual(oe.transcribe('cæg'), 'kæj')
@@ -46,6 +47,13 @@ class TestOldEnglish(unittest.TestCase):
 
     def test_ng(self):
         self.assertEqual(oe('singan'), 'siŋgɑn')
+        self.assertEqual(oe('panc'), 'pɑŋk')
+
+    def test_cyrice(self):
+        self.assertEqual(oe('cyrice'), 't͡ʃyrit͡ʃe')
+
+    def test_ecg(self):
+        self.assertEqual(oe('ecg'), 'ed͡ʒ')
 
 
 if __name__ == '__main__':
