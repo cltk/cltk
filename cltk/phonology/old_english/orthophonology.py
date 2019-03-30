@@ -39,7 +39,7 @@ z  = Consonant(Place.alveolar, Manner.fricative, Voiced.pos, 'z')
 sh = Consonant(Place.post_alveolar, Manner.fricative, Voiced.neg, 'ʃ')
 ch = Consonant(Place.palatal, Manner.fricative, Voiced.neg, 'ç')
 x  = Consonant(Place.velar, Manner.fricative, Voiced.neg, 'x')
-xh  = Consonant(Place.velar, Manner.fricative, Voiced.pos, 'ɣ')
+gh  = Consonant(Place.velar, Manner.fricative, Voiced.pos, 'ɣ')
 h  = Consonant(Place.glottal, Manner.fricative, Voiced.neg, 'h')
 
 # approximants
@@ -87,7 +87,7 @@ consonants = [
 	m, n, n0, ng,
 	p, b, t, d, k, g,
 	tsh, dsh,
-	f, v, th, dh, s, z, sh, ch, x, xh, h,
+	f, v, th, dh, s, z, sh, ch, x, gh, h,
 	l, l0, j, w, w0,
 	r, r0
 ]
@@ -190,8 +190,8 @@ oe << PhonologicalRule(
 
 oe.rules.extend([
 	# /g/ is fricativized when intervocalic
-	g >> xh | Consonantal.neg - Consonantal.neg,
-	g >> xh | Voiced.pos - Voiced.pos,
+	g >> gh | Consonantal.neg - Consonantal.neg,
+	g >> gh | Voiced.pos - Voiced.pos,
 
 	# word-initial h is just /h/
 	h >> h | W - ANY,

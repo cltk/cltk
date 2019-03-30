@@ -110,7 +110,9 @@ class AbstractPhoneme:
 	An abstract phoneme is just a bundle of phonological features.
 	'''
 
-	def __init__(self, features = {}, ipa = None):
+	def __init__(self, features = None, ipa = None):
+		features = {} if features is None else features
+
 		# ensure unique features
 		if len(set(features.keys())) != len(features.keys()):
 			raise ValueError('non-unique features')
