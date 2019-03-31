@@ -173,6 +173,8 @@ class TestOrthophonology(unittest.TestCase):
 	def test_phonological_feature_disjunction(self):
 		self.assertTrue(Manner.stop // Manner.fricative <= f)
 		self.assertFalse(Manner.stop // Manner.fricative >= f)
+		self.assertTrue(Manner.stop // Consonantal.pos // [Place.bilabial, Voiced.neg] <= p )
+		self.assertTrue(Manner.stop // [Place.bilabial, Voiced.neg] <= p )
 		self.assertTrue(Manner.stop // Manner.fricative <= Manner.stop)
 		self.assertFalse(Manner.stop // Manner.fricative >= Manner.affricate)
 		self.assertTrue(Manner.stop // Manner.fricative <= Manner.stop // Manner.affricate)

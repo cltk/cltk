@@ -109,7 +109,6 @@ class AbstractPhoneme:
 	'''
 	An abstract phoneme is just a bundle of phonological features.
 	'''
-
 	def __init__(self, features = None, ipa = None):
 		features = {} if features is None else features
 
@@ -131,10 +130,12 @@ class AbstractPhoneme:
 	def is_vowel(self):
 		return self[Consonantal] == Consonantal.neg
 
-	def _check_disjunctive_features(self, feature_values):
-		return reduce(lambda a, b: a or b, [self[type(f)] == f for f in feature_values])
-
 	def merge(self, other):
+		'''
+		Returns a *copy* of this phoneme, with the features of other merged into this feature bundle.
+		Other can be a list of phonemes, in which case the list is returned (for technical reasons).
+		Other may also be a single feature value or a list of feature values.
+		'''
 		phoneme = deepcopy(self)
 
 		# special case for list of phonemes
@@ -163,9 +164,19 @@ class AbstractPhoneme:
 		return phoneme
 
 	def is_equal(self, other):
+		'''
+		Phonemes are equal if they share the same features.  
+		Note that the IPA symbol is *not* taken into account.
+		'''
 		return other is not None and self.features == other.features
 
 	def matches(self, other):
+		'''
+		This phoneme matches other if other contains all the features of this phoneme,
+		i.e. if this phoneme has an improper subset of other's.
+		If other is a disjunctive list, then a match is sought for any of the list.
+		If other is a feature value or list of feature values, it is promoted to a phoneme first.
+		'''
 		if other is None:
 			return False
 		if isinstance(other, PhonemeDisjunction):
@@ -183,6 +194,9 @@ class AbstractPhoneme:
 		return self.features.get(feature_name, None)
 
 	def __setitem__(self, feature_name, feature_value):
+		'''
+		Use dict-type syntax to set the value of features.
+		'''
 		if not issubclass(feature_name, PhonologicalFeature):
 			raise TypeError(str(feature_name) + ' is not a phonological feature')
 		if type(feature_value) != feature_name:
@@ -214,6 +228,10 @@ class AbstractPhoneme:
 		return self.is_more_sonorous(other)
 
 	def __rshift__(self, other):
+		'''
+		Creates a phonological rule, merging other with self when applied 
+		to phonemes matching self.
+		'''
 		return PhonologicalRule(
 			condition = lambda _, target, __: self <= target,
 			action = lambda target : target << other)
@@ -222,6 +240,9 @@ class AbstractPhoneme:
 		return self.merge(other)
 
 	def __sub__(self, other):
+		'''
+		Creates environment functions: boolean functions of the position before and after the target.
+		'''
 		other = phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
 		else other
 		env_start = PositionedPhoneme(self, env_start = True)
@@ -229,9 +250,15 @@ class AbstractPhoneme:
 		return lambda before, _, after : env_start <= before and env_end <= after
 
 	def __floordiv__(self, other):
+		'''
+		Creates disjunctive lists of phonemes.
+		'''
 		return PhonemeDisjunction(self, other)
 
 def phoneme(*feature_values):
+	'''
+	Creates an abstract phoneme made of the feature specifications given in the vararg.
+	'''
 	phoneme = AbstractPhoneme({})
 	phoneme = phoneme << feature_values
 	return phoneme
@@ -240,6 +267,12 @@ def PositionedPhoneme(phoneme,
 	word_initial = False, word_final = False, 
 	syllable_initial = False, syllable_final = False,
 	env_start = False, env_end = False):
+	'''
+	A decorator for phonemes, used in applying rules over words.
+	Returns a copy of the input phoneme, with additional attributes,
+	specifying whether the phoneme occurs at a word or syllable boundary,
+	or its position in an environment.
+	'''
 	
 	pos_phoneme = deepcopy(phoneme)
 	pos_phoneme.word_initial = word_initial
@@ -252,6 +285,9 @@ def PositionedPhoneme(phoneme,
 	return pos_phoneme
 
 class AlwaysMatchingPseudoPhoneme(AbstractPhoneme):
+	'''
+	A pseudo-phoneme that matches all other phonemes.
+	'''
 	def __init__(self):
 		AbstractPhoneme.__init__(self, ipa = '*')
 
@@ -259,6 +295,9 @@ class AlwaysMatchingPseudoPhoneme(AbstractPhoneme):
 		return True
 
 class WordBoundaryPseudoPhoneme(AbstractPhoneme):
+	'''
+	A pseudo-phoneme that only matches at the start or end of a word.
+	'''
 	def __init__(self):
 		AbstractPhoneme.__init__(self, ipa = '#')
 
@@ -269,6 +308,10 @@ class WordBoundaryPseudoPhoneme(AbstractPhoneme):
 		return self is other
 
 class SyllableBoundaryPseudoPhoneme(AbstractPhoneme):
+	'''
+	A pseudo-phoneme that matches at word boundaries 
+	and matches positioned phonemes that are at syllable boundaries.
+	'''
 	def __init__(self):
 		AbstractPhoneme.__init__(self, ipa = '$')
 
@@ -282,20 +325,28 @@ class SyllableBoundaryPseudoPhoneme(AbstractPhoneme):
 		else:
 			return False
 
-
 ANY = AlwaysMatchingPseudoPhoneme()
 W = WordBoundaryPseudoPhoneme()
 S = SyllableBoundaryPseudoPhoneme()
 
 class PhonemeDisjunction(list):
+	'''
+	A list of phonemes, with special properties for disjunctive ("or") matching.
+	'''
 	def __init__(self, *phonemes):
-		if any([not isinstance(p, AbstractPhoneme) and not isinstance(p, PhonologicalFeature) for p in phonemes]):
+		if any([not isinstance(p, AbstractPhoneme) and \
+			not isinstance(p, PhonologicalFeature) and \
+			not isinstance(p, list) for p in phonemes]):
 			raise TypeError(phonemes)
 		true_phonemes = [phoneme(p) if not isinstance(p, AbstractPhoneme) else p for p in phonemes]
 		self.extend(true_phonemes)
 
 	def __floordiv__(self, other):
-		other = phoneme(other) if isinstance(other, PhonologicalFeature) else other
+		'''
+		Adds other to this list of phonemes.
+		If other is a feature or list of features it is promoted to a phoneme.
+		'''
+		other = phoneme(other) if (isinstance(other, PhonologicalFeature) or isinstance(other, list)) else other
 		if isinstance(other, AbstractPhoneme):
 			self.append(other)
 			return self
@@ -303,20 +354,30 @@ class PhonemeDisjunction(list):
 			raise TypeError(other)
 
 	def __rshift__(self, other):
+		'''
+		Creates a phonological rule that fires when any member of the list matches the target.
+		'''
 		return PhonologicalRule(
 			condition = lambda _, target, __: any([phoneme <= target for phoneme in self]),
 			action = lambda target : target << other)
 
 	def matches(self, other):
+		'''
+		A disjunctive list matches a phoneme if any of its members matches the phoneme.
+		If other is also a disjunctive list, any match between this list and the other returns true.
+		'''
 		if other is None:
 			return False
 		if isinstance(other, PhonemeDisjunction):
-			return any([phoneme in other for phoneme in self])
+			return any([phoneme.matches(other) for phoneme in self])
 		if isinstance(other, list) or isinstance(other, PhonologicalFeature):
 			other = phoneme(other)
 		return any([phoneme <= other for phoneme in self])
 
 	def __sub__(self, other):
+		'''
+		Creates a boolean environmental function whose before is this list of phonemes.
+		'''
 		other = phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
 		else other
 		env_start = [PositionedPhoneme(phoneme, env_start = True) for phoneme in self]
@@ -499,7 +560,9 @@ class LetterNotFound(Exception):
 	def __init__(self, letter):
 		self.unfound_letter = letter
 
-ipa_to_mde = {
+# A mapping of IPA symbols to English orthographic approximations.
+# Thousands of problems here.
+ipa_to_pde = {
 	'm' : 'm', 
 	'n' : 'n',
 	'n̥' : 'ng', 
@@ -552,7 +615,8 @@ ipa_to_mde = {
 	'i:u': 'iiu'
 }
 
-mde_phonotactics = [
+# this is just the barest of beginnings!
+pde_phonotactics = [
 	(r'(^|(?<= ))hw', 'wh'),
 	(r'oo(.)(^|(?= ))', 'o\\1e')
 ]
@@ -571,7 +635,7 @@ class Orthophonology:
 	The class is very clearly aimed at alphabetic orthographies.  
 	Its usefulness for e.g. pictographic orthographies is questionable.
 	'''
-	def __init__(self, sound_inventory, alphabet, diphthongs, digraphs, to_modern = (ipa_to_mde, mde_phonotactics)):
+	def __init__(self, sound_inventory, alphabet, diphthongs, digraphs, to_modern = (ipa_to_pde, pde_phonotactics)):
 		self.sound_inventory = sound_inventory
 		self.alphabet = alphabet
 		self.diphthongs = diphthongs
@@ -680,6 +744,10 @@ class Orthophonology:
 			return phoneme_words
 
 	def transcribe_to_modern(self, text) :
+		'''
+		A very first attempt at trancribing from IPA to some modern orthography.
+		The method is intended to provide the student with clues to the pronounciation of old orthographies.
+		'''
 		# first transcribe letter by letter
 		phoneme_words = self.transcribe(text, as_phonemes = True)
 		words = [''.join([self.to_modern[0][phoneme.ipa] for phoneme in word]) for word in phoneme_words]

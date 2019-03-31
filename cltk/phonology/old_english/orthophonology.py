@@ -47,7 +47,7 @@ l  = Consonant(Place.alveolar, Manner.approximant, Voiced.pos, 'l')
 l0 = Consonant(Place.alveolar, Manner.approximant, Voiced.neg, 'l̥')
 j  = Consonant(Place.palatal, Manner.approximant, Voiced.pos, 'j')
 w  = Consonant(Place.velar, Manner.approximant, Voiced.pos, 'w')
-w0 = Consonant(Place.velar, Manner.approximant, Voiced.neg, 'w')
+w0 = Consonant(Place.velar, Manner.approximant, Voiced.neg, 'ʍ')
 
 # rhotics
 r  = Consonant(Place.alveolar, Manner.approximant, Voiced.pos, 'r')
