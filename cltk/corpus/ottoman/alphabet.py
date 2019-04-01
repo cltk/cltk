@@ -98,7 +98,37 @@ ALPHABET_BASIC = [
     YE
 ]
 
-STABLE_NOUNS = ALPHABET_BASIC.pop(ELIF, YE, HE, VAV)
+STABLE_NOUNS = [
+    BE,
+    PE,
+    TE,
+    SE,
+    CIM,
+    CHIM,
+    HA,
+    HI,
+    DAL,
+    ZEL,
+    RE,
+    ZE,
+    JE,
+    SIN,
+    SHIN,
+    SAD,
+    DAD,
+    TI,
+    ZI,
+    AYN,
+    GAYN,
+    FE,
+    KAF,
+    KEF,
+    GEF,
+    NEF,
+    LAM,
+    MIM,
+    NUN
+]
 
 # Punctuation marks
 COMMA = '\u060C'
