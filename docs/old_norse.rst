@@ -241,7 +241,6 @@ A stanza of *fornyrðislag* has 8 short lines (or verses), 4 long-lines (or line
 
 A stanza of *ljóðaháttr* has 6 short lines (or verses), 4 long-lines (or lines). The first and the third lines have two verses, while the second and the fourth lines have only one (longer) verse. The first verse of the first and third lines alliterates with the second verse of these lines. The second and the fourth lines contain alliterations.
 
-
 .. code-block:: python
 
     In[1]: text2 = "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\ndómr um dauðan hvern."
@@ -314,4 +313,39 @@ Old Norse, like other ancient Germanic languages, is highly inflected. With the 
     In[6]: pro_demonstrative_pronouns_this.get_declined(decl_utils.Case.accusative, decl_utils.Number.singular, decl_utils.Gender.feminine)
 
     Out[6]: 'þessa'
+
+Old Norse noun declension
+=========================
+
+Old Norse nouns vary according to case (nominative, accusative, dative, genitive), gender (masculine, feminine, neuter) and number (singular, plural). Nouns are considered either weak or strong.
+Weak nouns have a simpler declension than strong ones.
+
+If you want a simple way to define the inflection of an Old Norse noun, you can do as follows:
+
+.. code-block:: python
+
+    In[1]: from cltk.inflection.utils import Noun, Gender
+
+    In[2]: sumar = [["sumar", "sumar", "sumri", "sumars"], ["sumur", "sumur", "sumrum", "sumra"]]
+
+    In[3]: noun_sumar = Noun("sumar", Gender.neuter)
+
+    In[4]: noun_sumar.set_declension(sumar)
+
+
+To decline a noun and if you know its nominative singular, genitive singular and nominative plural forms, you can use the following functions.
+
++--------+-------------------------------+------------------------------+----------------------------+
+|        | masculine                     | feminine                     | neuter                     |
++--------+-------------------------------+------------------------------+----------------------------+
+| strong | decline_strong_masculine_noun | decline_strong_feminine_noun | decline_strong_neuter_noun |
++--------+-------------------------------+------------------------------+----------------------------+
+| weak   | decline_weak_masculine_noun   | decline_weak_feminine_noun   | decline_weak_neuter_noun   |
++--------+-------------------------------+------------------------------+----------------------------+
+
+
+
+
+
+
 

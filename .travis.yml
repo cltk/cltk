@@ -15,14 +15,13 @@ before_script:
 - pip install --upgrade pip
 - pip install codecov
 - pip install coveralls
-- pip install pandas  # for the Indian syllabifier
 - pip install greek-accentuation  # for the phonetic transcriber
 - pip install fuzzywuzzy
 - pip install python-Levenshtein
 - pip install gensim  # for word2vec.py
 - pip install Sphinx
 - pip install numpy
-- pip install scipy 
+- pip install scipy
 - pip install scikit-learn
 
 script:

@@ -25,7 +25,7 @@ from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 from cltk.corpus.utils.formatter import assemble_phi5_author_filepaths
 from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.stem.latin.j_v import JVReplacer
-from cltk.stem.lemma import LemmaReplacer
+from cltk.stem.lemma import LemmaReplacer # Change lemmatizer
 from cltk.stop.latin import STOPS_LIST as latin_stops
 from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.sentence import TokenizeSentence
