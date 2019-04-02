@@ -25,16 +25,26 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    def setUp(self):
-        """Import sanskrit models first, some CSV files necessary for the
-        Indian lang tokenizers.
-        """
-        corpus_importer = CorpusImporter('sanskrit')
-        corpus_importer.import_corpus('sanskrit_models_cltk')
-        file_rel = os.path.join('~/cltk_data/sanskrit/model/sanskrit_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
+    # def setUp(self):
+    #     """Import sanskrit models first, some CSV files necessary for the
+    #     Indian lang tokenizers.
+    #     """
+    #     corpus_importer = CorpusImporter('sanskrit')
+    #     corpus_importer.import_corpus('sanskrit_models_cltk')
+    #     file_rel = os.path.join('~/cltk_data/sanskrit/model/sanskrit_models_cltk/README.md')
+    #     file = os.path.expanduser(file_rel)
+    #     file_exists = os.path.isfile(file)
+    #     self.assertTrue(file_exists)
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            corpus_importer = CorpusImporter('sanskrit')
+            corpus_importer.import_corpus('sanskrit_models_cltk')
+            corpus_importer = CorpusImporter('greek')
+            corpus_importer.import_corpus('greek_models_cltk')
+        except:
+            raise Exception('Failure to download test corpus')
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
