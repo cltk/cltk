@@ -5,41 +5,34 @@ Greek is an independent branch of the Indo-European family of languages, native 
 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
-Corpus Readers
-==============
 
-Most users will want to access words, sentences, paragraphs and even whole documents via a CorpusReader object. All Corpus contributors should provide a suitable reader. There is one for Perseus Greek, and others will be made available. The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
+
+Alphabet
+========
+
+The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
+
+Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
+
+In `alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_ the vowels and consonants are grouped by upper or lower case, accent, breathing, a diaresis and possible combinations thereof.
+These groupings are stored in lists or, in case of a single letter like ρ, as strings with descriptive names structured like ``CASE_SPECIFIERS``, e.g. ``LOWER_DIARESIS_CIRCUMFLEX``.
+
+For example to use upper case vowels with rough breathing and an acute accent:
 
 .. code-block:: python
 
+   In[1]: from cltk.corpus.greek.alphabet import UPPER_ROUGH_ACUTE
+   In[2]: print(UPPER_ROUGH_ACUTE)
+   Out[2]: ['Ἅ', 'Ἕ', 'Ἥ', 'Ἵ', 'Ὅ', 'Ὕ', 'Ὥ', 'ᾍ', 'ᾝ', 'ᾭ']
 
-    In [1]: from cltk.corpus.readers import get_corpus_reader
-       ...: reader = get_corpus_reader( corpus_name = 'greek_text_perseus', language = 'greek')
-       ...: # get all the docs
-       ...: docs = list(reader.docs())
-       ...: len(docs)
-       ...:
-    Out[1]: 222
 
-    In [2]: # or set just one
-       ...: reader._fileids = ['plato__apology__grc.json']
+Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
 
-    In [3]: # get all the sentences
-    In [4]: sentences = list(reader.sents())
-       ...: len(sentences)
-       ...:
-    Out[4]: 4983
+Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
 
-    In [5]: # Or just one
+Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
 
-    In [6]: sentences[0]
-    Out[6]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
-
-    In [7]: # access an individual doc as a dictionary of dictionaries
-       ...: doc = list(reader.docs())[0]
-       ...: doc.keys()
-       ...:
-    Out[7]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
+For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
 
 
 Accentuation and diacritics
@@ -276,34 +269,6 @@ The CLTK offers one transformation that can be useful in certain types of proces
 
 
 
-
-Alphabet
-========
-
-The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
-
-Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
-
-In `alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_ the vowels and consonants are grouped by upper or lower case, accent, breathing, a diaresis and possible combinations thereof.
-These groupings are stored in lists or, in case of a single letter like ρ, as strings with descriptive names structured like ``CASE_SPECIFIERS``, e.g. ``LOWER_DIARESIS_CIRCUMFLEX``.
-
-For example to use upper case vowels with rough breathing and an acute accent:
-
-.. code-block:: python
-
-   In[1]: from cltk.corpus.greek.alphabet import UPPER_ROUGH_ACUTE
-   In[2]: print(UPPER_ROUGH_ACUTE)
-   Out[2]: ['Ἅ', 'Ἕ', 'Ἥ', 'Ἵ', 'Ὅ', 'Ὕ', 'Ὥ', 'ᾍ', 'ᾝ', 'ᾭ']
-
-
-Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
-
-Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
-
-Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
-
-For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
-
 Converting Beta Code to Unicode
 ===============================
 Note that incoming strings need to begin with an ``r`` and that the Beta Code must follow immediately after the initial ``"""``, as in input line 2, below.
@@ -385,6 +350,46 @@ You may read about these arguments in `the TLGU manual <https://github.com/cltk/
 Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
 
 See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
+
+
+
+
+Corpus Readers
+==============
+
+Most users will want to access words, sentences, paragraphs and even whole documents via a CorpusReader object. All Corpus contributors should provide a suitable reader. There is one for Perseus Greek, and others will be made available. The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
+
+.. code-block:: python
+
+
+    In [1]: from cltk.corpus.readers import get_corpus_reader
+       ...: reader = get_corpus_reader( corpus_name = 'greek_text_perseus', language = 'greek')
+       ...: # get all the docs
+       ...: docs = list(reader.docs())
+       ...: len(docs)
+       ...:
+    Out[1]: 222
+
+    In [2]: # or set just one
+       ...: reader._fileids = ['plato__apology__grc.json']
+
+    In [3]: # get all the sentences
+    In [4]: sentences = list(reader.sents())
+       ...: len(sentences)
+       ...:
+    Out[4]: 4983
+
+    In [5]: # Or just one
+
+    In [6]: sentences[0]
+    Out[6]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
+
+    In [7]: # access an individual doc as a dictionary of dictionaries
+       ...: doc = list(reader.docs())[0]
+       ...: doc.keys()
+       ...:
+    Out[7]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
+
 
 
 
