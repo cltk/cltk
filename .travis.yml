@@ -9,9 +9,10 @@ python:
 - '3.7'
 
 cache:
-  directories:
-    - ~/.cache/pip
-    - ~/cltk_data
+  pip: true  # ~/.cache/pip
+#  directories:
+#    - pip
+#    - ~/cltk_data
 
 before_install:
 - sudo rm -f /etc/boto.cfg
