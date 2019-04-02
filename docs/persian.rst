@@ -8,31 +8,20 @@ Alphabet
 
 The Persian digits and alphabet are placed in `cltk/corpus/persian/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/persian/alphabet.py>`_.
 
-The digits are placed in a list ``DIGITS`` with the digit the same as the list index (0-9). For example, the persian digit for 5 can be accessed in this manner:
+The digits are placed in a dict ``NUMERALS`` with the digit the same as the index (0-9). There is a dictionary named NUMERALS_WRITINGS for their writing also. For example, the persian digit for 5 can be accessed in this manner:
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.persian.alphabet import DIGITS
-   In [2]: DIGITS[5]
+   In [1]: from cltk.corpus.persian.alphabet import NUMERALS, NUMERALS_WRITINGS
+   In [2]: NUMERALS[5]
    Out[2]: '۵'
+   In [3]: NUMERALS_WRITINGS[5]
+   Out[3]: 'پنج'
 
-Persian has three ``SHORT_VOWELS`` that are essentially diacritics used in the script. It also has three ``LONG_VOWELS`` that are actually part of the alphabet. The corresponding lists can be imported:
-
-.. code-block:: python
-
-   In [1]: from cltk.corpus.persian.alphabet import SHORT_VOWELS
-   In [2]: SHORT_VOWELS
-   Out[2]: ['َ', 'ِ', 'ُ']
-   In [3]: from cltk.corpus.persian.alphabet import LONG_VOWELS
-   In [4]: LONG_VOWELS
-   Out[4]: ['ا', 'و', 'ی']
-
-The rest of the alphabet are ``CONSONANTS`` that can be accessed in a similar way.
-
-There are three ``SPECIAL`` characters that are ligatures or different orthographical shapes of the alphabet.
+One can also have the alphabetic orders of the charachters form ALPHABETIC_ORDER dictionary. The keys are the characters and the values are their order. The corresponding dictionary can be imported:
 
 .. code-block:: python
 
-   In [1]: from cltk.corpus.persian.alphabet import SPECIAL
-   In [2]: SPECIAL
-   Out[2]: ['ﺁ', 'ۀ', 'ﻻ']
+   In [1]: from cltk.corpus.persian.alphabet import ALPHABETIC_ORDER, JIM
+   In [2]: ALPHABETIC_ORDER[JIM]
+   Out[2]: 6
