@@ -736,20 +736,30 @@ A raw list of translations can be obtained from the translation object using Lem
 
 Sentence Tokenization
 =====================
-The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings. For more on the tokenizer, or to make your own, see `the CLTK's Latin sentence tokenizer training set repository <https://github.com/cltk/latin_training_set_sentence>`_.
+Sentence tokenization for Latin is available using a [Punkt](https://www.nltk.org/_modules/nltk/tokenize/punkt.html) tokenizer trained on the Latin Library. The model for this tokenizer can be found in the CLTK corpora under latin_model_cltk/tokenizers/sentence/latin_punkt. The training process considers Latin punctuation patterns as well as common abbreviations (e.g. nomina). To tokenize a Latin text by sentences...
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenize.sentence import TokenizeSentence
+   In [1]: from cltk.tokenize.latin.sentence import SentenceTokenizer
 
-   In [2]: tokenizer = TokenizeSentence('latin')
+   In [2]: sent_tokenizer = SentenceTokenizer()
 
-   In [3]: untokenized_text = 'Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti. Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.'
+   In [3]: untokenized_text = 'Meministine me ante diem XII Kalendas Novembris dicere in senatu fore in armis certo die, qui dies futurus esset ante diem VI Kal. Novembris, C. Manlium, audaciae satellitem atque administrum tuae? Num me fefellit, Catilina, non modo res tanta, tam atrox tamque incredibilis, verum, id quod multo magis est admirandum, dies? Dixi ego idem in senatu caedem te optumatium contulisse in ante diem V Kalendas Novembris, tum cum multi principes civitatis Roma non tam sui conservandi quam tuorum consiliorum reprimendorum causa profugerunt.'
 
-   In [4]: tokenizer.tokenize_sentences(untokenized_text)
-   Out[4]:
-   ['Itaque cum M. Aurelio et P. Minidio et Cn. Cornelio ad apparationem balistarum et scorpionem reliquorumque tormentorum refectionem fui praesto et cum eis commoda accepi, quae cum primo mihi tribuisiti recognitionem, per sorosis commendationem servasti.',
-    'Cum ergo eo beneficio essem obligatus, ut ad exitum vitae non haberem inopiae timorem, haec tibi scribere coepi, quod animadverti multa te aedificavisse et nunc aedificare, reliquo quoque tempore et publicorum et privatorum aedificiorum, pro amplitudine rerum gestarum ut posteris memoriae traderentur curam habiturum.']
+   In [4]: sent_tokenizer.tokenize(untokenized_text)
+   Out[4]: ['Meministine me ante diem XII Kalendas Novembris dicere in senatu fore in armis certo die, qui dies futurus esset ante diem VI Kal. Novembris, C. Manlium, audaciae satellitem atque administrum tuae?', 'Num me fefellit, Catilina, non modo res tanta, tam atrox tamque incredibilis, verum, id quod multo magis est admirandum, dies?', 'Dixi ego idem in senatu caedem te optumatium contulisse in ante diem V Kalendas Novembris, tum cum multi principes civitatis Roma non tam sui conservandi quam tuorum consiliorum reprimendorum causa profugerunt.']
+
+Note that the Latin sentence tokenizer takes account of abbreviations like 'Kal.' and 'C.' and does not split sentences at these points.
+
+NB: The old method for sentence tokenizer, i.e. TokenizeSentence, is still available, but now calls the tokenizer described above.
+
+.. code-block:: python
+
+   In [5]: from cltk.tokenize.sentence import TokenizeSentence
+
+   In [6]: tokenizer = TokenizeSentence('latin')
+
+   etc.
 
 Semantics
 =========
