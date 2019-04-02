@@ -1,5 +1,6 @@
 """Odia alphabet"""
-__author__ = 'Nishchith Shetty <inishchith[at]gmail[.]com>'
+__author__ = ['Nishchith Shetty <inishchith@gmail.com>']
+
 
 # Oriya Unicode Standard
 
