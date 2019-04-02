@@ -8,6 +8,11 @@ python:
 - '3.6'
 - '3.7'
 
+cache:
+  directories:
+    - ~/.cache/pip
+    - ~/cltk_data
+
 before_install:
 - sudo rm -f /etc/boto.cfg
 
