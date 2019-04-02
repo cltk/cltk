@@ -7,7 +7,7 @@ from nltk.tokenize import wordpunct_tokenize
 
 from cltk.corpus.utils.importer import CLTK_DATA_DIR
 
-class OldEnglishDictioraryLemmatizer(object):
+class OldEnglishDictionaryLemmatizer:
 	"""Implementation of a lemmatizer for Old English based on a dictionary of lemmas and forms.
 	Since a given form may map to multiple lemmas, a corpus-based frequency disambiguator is employed."""
 
@@ -111,7 +111,7 @@ class OldEnglishDictioraryLemmatizer(object):
 		return [self._lemmatize_token(token, best_guess, return_frequencies) for token in tokens]
 
 	def evaluate(self, filename):
-		"""Runs the lemmatize over the contents of the file, counting the proportion of unfound lemmas."""
+		"""Runs the lemmatize function over the contents of the file, counting the proportion of unfound lemmas."""
 		with open(filename, 'r') as infile:
 			lines = infile.read().splitlines()
 
