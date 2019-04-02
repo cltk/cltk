@@ -21,7 +21,7 @@ Modified_constants = ['क़', 'ग़', 'ख़', 'ज़', 'ड़', 'ढ़'
 
 
 #the Semivowels are also in the script of hindi
-SEMIVOWELS = ['य ','र ','ल' ,'व']    
+SEMIVOWELS = ['य','र','ल' ,'व']    
 
 #There are three sibilants:
 SIBILANTS = ['श','ष','स']
@@ -31,3 +31,23 @@ FRICATIVE = ['ह']
 # Anusvara is used for final velar nasal sound, Visarga adds voiceless breath after vowel and Candrabindu is used to nasalize vowels 
 
 MODIFIERS = ['◌্','◌ঁ','◌ং','◌ঃ']
+
+# classification of alphabets according to how their sound is produced
+
+VELAR_CONSONANTS = [ 'क' , 'ख' , 'ग' , 'घ' , 'ङ' ]
+
+PALATAL_CONSONANTS = ['च' , 'छ' , 'ज' , 'झ' , 'ञ' ]
+
+RETROFLEX_CONSONANTS = ['ट' , 'ठ' , 'ड' , 'ढ' , 'ण']
+
+DENTAL_CONSONANTS = ['त' , 'थ' , 'द' , 'ध' , 'न' ]
+
+LABIAL_CONSONANTS = ['प' , 'फ' , 'ब' , 'भ' , 'म']
+   
+SONORANT_CONSONANTS = ['य' , 'र' , 'ल' , 'व']
+
+SIBILANT_CONSONANTS = ['श' , 'ष' , 'स']
+
+GUTTURAL_CONSONANT = ['ह']
+
+SIGNS= ['ॐ']
