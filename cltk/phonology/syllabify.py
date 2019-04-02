@@ -2,8 +2,8 @@
 from typing import List
 import logging
 import unicodedata
-
 from collections import defaultdict
+
 from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
@@ -400,6 +400,7 @@ class Syllabifier:
             phoneme_lengths.append(len(phoneme.ipar))
             l_transcribed_word.append(phoneme.ipar)
         transcribed_word = "".join(l_transcribed_word)
+        transcribed_word = transcribed_word.replace("ː", "")
         syllabified_transcribed_word = self.syllabify_ssp(transcribed_word)
 
         syllabified_phonological_word = []

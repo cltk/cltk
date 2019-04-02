@@ -346,6 +346,74 @@ To decline a noun and if you know its nominative singular, genitive singular and
 
 
 
+Old Norse verb conjugation
+==========================
+
+Old Norse verbs vary according to:
+
+* person (first, second, third),
+* number (singular, plural),
+* tense (past, present),
+* voice (active and medio-passive),
+* mood (indicative, subjunctive, imperative, infinitive, past participle and present participle).
+
+They may be classified into three categories:
+
+* strong verbs, they form their past root with a stem vowel change,
+* weak verbs, they form their past root by adding a dental consonant,
+* preterito-present verbs, their present conjugates like verbs in past but have present meanings.
+
+Two examples are given below: one strong verb and one weak verb.
+
+.. code-block:: python
+
+    In[1]: from cltk.inflection.old_norse.verbs import StrongOldNorseVerb
+
+    In[2]: lita = StrongOldNorseVerb()
+
+    In[3]: lita.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
+
+    In[4]: lita.subclass
+    Out[4]: 1
+
+    In[5]: lita.present_active()
+    Out[5]: ['lít', 'lítr', 'lítr', 'lítum', 'lítið', 'líta']
+
+    In[6]: lita.past_active()
+    Out[6]: ['leit', 'leizt', 'leit', 'litum', 'lituð', 'litu']
+
+    In[7]: lita.present_active_subjunctive()
+    Out[7]: ['líta', 'lítir', 'líti', 'lítim', 'lítið', 'líti']
+
+    In[8]: lita.past_active_subjunctive()
+    Out[9]: ['lita', 'litir', 'liti', 'litim', 'litið', 'liti']
+
+    In[9]: lita.past_participle()
+    Out[9]: [['litinn', 'litinn', 'litnum', 'litins', 'litnir', 'litna', 'litnum', 'litinna'], ['litin', 'litna', 'litinni', 'litinnar', 'litnar', 'litnar', 'litnum', 'litinna'], ['litit', 'litit', 'litnu', 'litins', 'litit', 'litit', 'litnum', 'litinna']]
 
 
+.. code-block:: python
 
+    In[1]: from cltk.inflection.old_norse.verbs import WeakOldNorseVerb
+
+    In[2]: kalla = WeakOldNorseVerb()
+
+    In[3]: kalla.set_canonic_forms([["kalla", "kallaði", "kallaðinn"])
+
+    In[4]: kalla.subclass
+    Out[4]: 1
+
+    In[5]: kalla.present_active()
+    Out[5]: ['kalla', 'kallar', 'kallar', 'köllum', 'kallið', 'kalla']
+
+    In[6]: kalla.past_active()
+    Out[6]: ['kallaða', 'kallaðir', 'kallaði', 'kölluðum', 'kölluðuð', 'kölluðu']
+
+    In[7]: kalla.present_active_subjunctive()
+    Out[7]: ['kalla', 'kallir', 'kalli', 'kallim', 'kallið', 'kalli']
+
+    In[8]: kalla.past_active_subjunctive()
+    Out[9]: ['kallaða', 'kallaðir', 'kallaði', 'kallaðim', 'kallaðið', 'kallaði']
+
+    In[9]: kalla.past_participle()
+    Out[9]: [['kallaðr', 'kallaðan', 'kölluðum', 'kallaðs', 'kallaðir', 'kallaða', 'kölluðum', 'kallaðra'], ['kölluð', 'kallaða', 'kallaðri', 'kallaðrar', 'kallaðar', 'kallaðar', 'kölluðum', 'kallaðra'], ['kallatt', 'kallatt', 'kölluðu', 'kallaðs', 'kölluð', 'kölluð', 'kölluðum', 'kallaðra']]
