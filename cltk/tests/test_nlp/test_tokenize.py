@@ -277,45 +277,57 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
             with self.assertRaises(FileNotFoundError):
                 tokenizer = GreekPunktSentenceTokenizer()
 
-    def test_sentence_tokenizer_bengali(self):
-        """Test tokenizing bengali sentences."""
-        text = "দুর্ব্বাসার শাপে রাজা শকুন্তলাকে একেবারে ভুলে বেশ সুখে আছেন।"
-        target = ['দুর্ব্বাসার', 'শাপে', 'রাজা', 'শকুন্তলাকে', 'একেবারে', 'ভুলে', 'বেশ', 'সুখে', 'আছেন', '।']
-        tokenizer = TokenizeSentence('bengali')
-        tokenized_sentences = tokenizer.tokenize(text)
-        self.assertEqual(tokenized_sentences, target)
-
-    def test_sentence_tokenizer_classical_hindi(self):
-        """Test tokenizing classical_hindi sentences."""
-        text = "जलर्  चिकित्सा से उन्हें कोई लाभ नहीं हुआ।"
-        target = ['जलर्', 'चिकित्सा', 'से', 'उन्हें', 'कोई', 'लाभ', 'नहीं', 'हुआ', '।']
-        tokenizer = TokenizeSentence('hindi')
-        tokenized_sentences = tokenizer.tokenize(text)
-        self.assertEqual(tokenized_sentences, target)
-
-    def test_sentence_tokenizer_marathi(self):
-        """Test tokenizing marathi sentences."""
-        text = "अर्जुन उवाच । एवं सतत युक्ता ये भक्तास्त्वां पर्युपासते । ये चाप्यक्षरमव्यक्तं तेषां के योगवित्तमाः ॥"
-        target = ['अर्जुन', 'उवाच', '।', 'एवं', 'सतत', 'युक्ता', 'ये', 'भक्तास्त्वां', 'पर्युपासते', '।', 'ये', 'चाप्यक्षरमव्यक्तं', 'तेषां', 'के', 'योगवित्तमाः', '॥']
-        tokenizer = TokenizeSentence('marathi')
-        tokenized_sentences = tokenizer.tokenize(text)
-        self.assertEqual(tokenized_sentences, target)
-
     def test_sentence_tokenizer_sanskrit(self):
-        """Test tokenizing sanskrit sentences."""
-        text = "श्री भगवानुवाच पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः। नानाविधानि दिव्यानि नानावर्णाकृतीनि च।।"
-        target = ['श्री', 'भगवानुवाच', 'पश्य', 'मे', 'पार्थ', 'रूपाणि', 'शतशोऽथ', 'सहस्रशः', '।', 'नानाविधानि', 'दिव्यानि', 'नानावर्णाकृतीनि', 'च', '।', '।']
+        """Test tokenizing Sanksrit sentences."""
+        text = """श्री भगवानुवाच भूय एव महाबाहो श्रृणु मे परमं वचः। यत्तेऽहं प्रीयमाणाय वक्ष्यामि हितकाम्यया।।
+न मे विदुः सुरगणाः प्रभवं न महर्षयः। अहमादिर्हि देवानां महर्षीणां च सर्वशः।।"""
+        target = ['श्री भगवानुवाच भूय एव महाबाहो श्रृणु मे परमं वचः।','यत्तेऽहं प्रीयमाणाय वक्ष्यामि हितकाम्यया।।', 'न मे विदुः सुरगणाः प्रभवं न महर्षयः।', 'अहमादिर्हि देवानां महर्षीणां च सर्वशः।।']
         tokenizer = TokenizeSentence('sanskrit')
         tokenized_sentences = tokenizer.tokenize(text)
         self.assertEqual(tokenized_sentences, target)
 
-    def test_sentence_tokenizer_telugu(self):
-        """Test tokenizing telugu sentences."""
-        text = "తా. ఎక్కడెక్కడ బుట్టిన నదులును రత్నాకరుడను నాశతో సముద్రుని చేరువిధముగా నెన్నియిక్కట్టులకైన నోర్చి ప్రజలు దమంతట దామె ప్రియముం జూపుచు ధనికుని యింటికేతెంచుచుందురు."
-        target = ['తా', '.', 'ఎక్కడెక్కడ', 'బుట్టిన', 'నదులును', 'రత్నాకరుడను', 'నాశతో', 'సముద్రుని', 'చేరువిధముగా', 'నెన్నియిక్కట్టులకైన', 'నోర్చి', 'ప్రజలు', 'దమంతట', 'దామె', 'ప్రియముం', 'జూపుచు', 'ధనికుని', 'యింటికేతెంచుచుందురు', '.']
-        tokenizer = TokenizeSentence('telugu')
-        tokenized_sentences = tokenizer.tokenize(text)
-        self.assertEqual(tokenized_sentences, target)
+    # These are word tokenizers; the code that generates these results needs
+    # to be moved to the appropriate word.py modules
+    
+    # def test_sentence_tokenizer_bengali(self):
+    #     """Test tokenizing bengali sentences."""
+    #     text = "দুর্ব্বাসার শাপে রাজা শকুন্তলাকে একেবারে ভুলে বেশ সুখে আছেন।"
+    #     target = ['দুর্ব্বাসার', 'শাপে', 'রাজা', 'শকুন্তলাকে', 'একেবারে', 'ভুলে', 'বেশ', 'সুখে', 'আছেন', '।']
+    #     tokenizer = TokenizeSentence('bengali')
+    #     tokenized_sentences = tokenizer.tokenize(text)
+    #     self.assertEqual(tokenized_sentences, target)
+    #
+    # def test_sentence_tokenizer_classical_hindi(self):
+    #     """Test tokenizing classical_hindi sentences."""
+    #     text = "जलर्  चिकित्सा से उन्हें कोई लाभ नहीं हुआ।"
+    #     target = ['जलर्', 'चिकित्सा', 'से', 'उन्हें', 'कोई', 'लाभ', 'नहीं', 'हुआ', '।']
+    #     tokenizer = TokenizeSentence('hindi')
+    #     tokenized_sentences = tokenizer.tokenize(text)
+    #     self.assertEqual(tokenized_sentences, target)
+    #
+    # def test_sentence_tokenizer_marathi(self):
+    #     """Test tokenizing marathi sentences."""
+    #     text = "अर्जुन उवाच । एवं सतत युक्ता ये भक्तास्त्वां पर्युपासते । ये चाप्यक्षरमव्यक्तं तेषां के योगवित्तमाः ॥"
+    #     target = ['अर्जुन', 'उवाच', '।', 'एवं', 'सतत', 'युक्ता', 'ये', 'भक्तास्त्वां', 'पर्युपासते', '।', 'ये', 'चाप्यक्षरमव्यक्तं', 'तेषां', 'के', 'योगवित्तमाः', '॥']
+    #     tokenizer = TokenizeSentence('marathi')
+    #     tokenized_sentences = tokenizer.tokenize(text)
+    #     self.assertEqual(tokenized_sentences, target)
+    #
+    # def test_sentence_tokenizer_sanskrit(self):
+    #     """Test tokenizing sanskrit sentences."""
+    #     text = "श्री भगवानुवाच पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः। नानाविधानि दिव्यानि नानावर्णाकृतीनि च।।"
+    #     target = ['श्री', 'भगवानुवाच', 'पश्य', 'मे', 'पार्थ', 'रूपाणि', 'शतशोऽथ', 'सहस्रशः', '।', 'नानाविधानि', 'दिव्यानि', 'नानावर्णाकृतीनि', 'च', '।', '।']
+    #     tokenizer = TokenizeSentence('sanskrit')
+    #     tokenized_sentences = tokenizer.tokenize(text)
+    #     self.assertEqual(tokenized_sentences, target)
+    #
+    # def test_sentence_tokenizer_telugu(self):
+    #     """Test tokenizing telugu sentences."""
+    #     text = "తా. ఎక్కడెక్కడ బుట్టిన నదులును రత్నాకరుడను నాశతో సముద్రుని చేరువిధముగా నెన్నియిక్కట్టులకైన నోర్చి ప్రజలు దమంతట దామె ప్రియముం జూపుచు ధనికుని యింటికేతెంచుచుందురు."
+    #     target = ['తా', '.', 'ఎక్కడెక్కడ', 'బుట్టిన', 'నదులును', 'రత్నాకరుడను', 'నాశతో', 'సముద్రుని', 'చేరువిధముగా', 'నెన్నియిక్కట్టులకైన', 'నోర్చి', 'ప్రజలు', 'దమంతట', 'దామె', 'ప్రియముం', 'జూపుచు', 'ధనికుని', 'యింటికేతెంచుచుందురు', '.']
+    #     tokenizer = TokenizeSentence('telugu')
+    #     tokenized_sentences = tokenizer.tokenize(text)
+    #     self.assertEqual(tokenized_sentences, target)
 
 class TestLineTokenize(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
