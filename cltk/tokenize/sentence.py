@@ -136,14 +136,7 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
             'Incoming argument must be a string.'
 
         if self.language == 'latin':
-            self.models_path = self._get_models_path(self.language)
-            try:
-                self.model = open_pickle(
-                    os.path.expanduser(os.path.join(self.models_path, 'latin_punkt.pickle')))
-            except FileNotFoundError as err:
-                raise type(err)(TokenizeSentence.missing_models_message + self.models_path)
-            tokenizer = self.model
-            tokenizer._lang_vars = self.lang_vars
+            tokenizer = super()
         elif self.language == 'greek': # Workaround for regex tokenizer
             self.sent_end_chars=GreekLanguageVars.sent_end_chars
             self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
@@ -157,9 +150,7 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
             tokenizer = PunktSentenceTokenizer()
 
         # mk list of tokenized sentences
-        if self.language == 'latin':
-            return tokenizer.tokenize(untokenized_string)
-        elif self.language == 'greek' or self.language in INDIAN_LANGUAGES:
+        if self.language == 'greek' or self.language in INDIAN_LANGUAGES:
             return re.split(self.pattern, untokenized_string)
         else:
             return tokenizer.tokenize(untokenized_string)
@@ -173,10 +164,3 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         :param untokenized_string: A string containing one of more sentences.
         """
         return self.tokenize_sentences(untokenized_string)
-
-if __name__ == "__main__":
-    text = """ Ἀντὶ πολλῶν ἄν, ὦ ἄνδρες Ἀθηναῖοι, χρημάτων ὑμᾶς ἑλέσθαι νομίζω, εἰ φανερὸν γένοιτο τὸ μέλλον συνοίσειν τῇ πόλει περὶ ὧν νυνὶ σκοπεῖτε. Ὅτε τοίνυν τοῦθ' οὕτως ἔχει, προσήκει προθύμως ἐθέλειν ἀκούειν τῶν βουλομένων συμβουλεύειν· οὐ γὰρ μόνον εἴ τι χρήσιμον ἐσκεμμένος ἥκει τις, τοῦτ' ἂν ἀκούσαντες λάβοιτε, ἀλλὰ καὶ τῆς ὑμετέρας τύχης ὑπολαμβάνω πολλὰ τῶν δεόντων ἐκ τοῦ παραχρῆμ' ἐνίοις ἂν ἐπελθεῖν εἰπεῖν, ὥστ' ἐξ ἁπάντων ῥᾳδίαν τὴν τοῦ συμφέροντος ὑμῖν αἵρεσιν γενέσθαι."""
-    tokenizer = TokenizeSentence("greek")
-    sents = tokenizer.tokenize(text)
-    for i, sent in enumerate(sents, 1):
-        print(f'{i}: {sent}')
