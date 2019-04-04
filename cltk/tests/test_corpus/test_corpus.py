@@ -315,7 +315,8 @@ argenteo polubro, aureo eclutro. """
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
         filtered_reader = assemble_corpus(reader, types_requested=['old'],
                                           type_files=corpus_texts_by_type)
-        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+        # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+        self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
 
     def test_import_latin_library_corpus_filter_by_dir(self):
         """Test the Latin Library corpus reader filter by directories."""
@@ -335,14 +336,12 @@ argenteo polubro, aureo eclutro. """
     def test_filtered_corpus_reader_sents(self):
         """Test filtered corpus sents method."""
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        reader._fileids = ['catullus.txt']
-        sents = list(reader.sents())
+        reader._fileids = ['pervig.txt']
+        sents = reader.sents()
         uniq_words = distinct_words(sents)
-        if 'Latin' in uniq_words:
+        if 'Latin' in uniq_words or 'Library' in uniq_words:
             self.fail('Filtered word present!')
-        if 'Library' in uniq_words:
-            self.fail('Filtered word present!')
-        self.assertTrue(len(sents) > 0)
+        self.assertTrue(sum(1 for _ in reader.sents()) > 0)
 
     def test_filtered_corpus_reader_paras(self):
         """Test filtered corpus paras method."""
