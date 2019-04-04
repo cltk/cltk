@@ -15,7 +15,7 @@ from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
-from cltk.tokenize.latin.word import *
+# from cltk.tokenize.latin.word import *
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
@@ -47,10 +47,11 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         elif self.language == 'french':
             tokens = tokenize_french_words(string)
         elif self.language == 'greek':
-            tokens = tokenize_greek_words(string)
+            # Add deprecation warning
+            tokens = nltk_tokenize_words(string)
         elif self.language == 'latin':
-            tokenizer = LatinPunktWordTokenizer()
-            tokens = tokenizer.tokenize(string)
+            # Add deprecation warning
+            tokens = nltk_tokenize_words(string)
         elif self.language == 'old_norse':
             tokens = tokenize_old_norse_words(string)
         elif self.language == 'middle_english':
@@ -266,22 +267,22 @@ def tokenize_french_words(string):
     return (results)
 
 
-def tokenize_greek_words(text):
-    """
-    Tokenizer divides the string into a list of substrings. This is a placeholder
-    function that returns the default NLTK word tokenizer until
-    Greek-specific options are added.
-
-    Example:
-    >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
-    >>> tokenize_greek_words(text)
-    ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
-
-    :param string: This accepts the string value that needs to be tokenized
-    :returns: A list of substrings extracted from the string
-    """
-
-    return nltk_tokenize_words(text) # Simplest implementation to start
+# def tokenize_greek_words(text):
+#     """
+#     Tokenizer divides the string into a list of substrings. This is a placeholder
+#     function that returns the default NLTK word tokenizer until
+#     Greek-specific options are added.
+#
+#     Example:
+#     >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
+#     >>> tokenize_greek_words(text)
+#     ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
+#
+#     :param string: This accepts the string value that needs to be tokenized
+#     :returns: A list of substrings extracted from the string
+#     """
+#
+#     return nltk_tokenize_words(text) # Simplest implementation to start
 
 
 def tokenize_old_norse_words(text):
@@ -354,17 +355,14 @@ class BaseWordTokenizer:
         pass
 
 class BasePunktWordTokenizer(BaseWordTokenizer):
-    """Base class for punkt sentence tokenization"""
+    """Base class for punkt word tokenization"""
 
-    missing_models_message = "BasePunktWordTokenizer requires a language model."
-
-    def __init__(self, language: str = None, sent_tokenizer:object = None, lang_vars: object = None):
+    def __init__(self, language: str = None, sent_tokenizer:object = None):
         """
         :param language : language for sentence tokenization
         :type language: str
         """
         self.language = language
-        # self.lang_vars = lang_vars
         super().__init__(language=self.language)
         if sent_tokenizer:
             self.sent_tokenizer = sent_tokenizer
@@ -372,7 +370,7 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
             punkt_param = PunktParameters()
             self.sent_tokenizer = PunktSentenceTokenizer(punkt_param)
 
-    def tokenize(self, text: str, model: object = None):
+    def tokenize(self, text: str):
         """
         :rtype: list
         :param text: text to be tokenized into sentences
@@ -383,8 +381,51 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
         tokenizer = PunktLanguageVars()
         return tokenizer.word_tokenize(text)
 
+
+class BaseRegexWordTokenizer(BaseWordTokenizer):
+    """Base class for punkt word tokenization"""
+
+    def __init__(self, language:str = None, patterns:list = []):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        self.language = language
+        self.patterns = patterns
+        super().__init__(language=self.language)
+
+    def tokenize(self, text: str):
+        """
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        :param model: tokenizer object to used # Should be in init?
+        :type model: object
+        """
+        for pattern in patterns:
+            text = re.sub(pattern[0], pattern[1], text)
+        return text.split()
+
+
+# def tokenize_middle_high_german_words(text):
+#     """Tokenizes MHG text"""
+#
+#     assert isinstance(text, str)
+#     # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
+#     text = re.sub(, text)
+#     text = re.sub(r'\n', r' ', text)
+#     text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ', text)
+#     text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ', text)
+#     text = re.sub(r'\s+',r' ', text)
+#     text = str.split(text)
+#
+#     return text
+
+
 if __name__ == '__main__':
-    w = WordTokenizer('latin')
-    tokens = w.tokenize('arma virumque cano')
+    text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
+    patterns = [(r'-\n',r'-'), (r'\n', r' '), (r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])', r' '), (r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)', r' '), (r'\s+', r' ')]
+    w = BaseRegexWordTokenizer('middle_high_german', patterns)
+    tokens = w.tokenize(text)
     print(tokens)
     pass
