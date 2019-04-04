@@ -696,10 +696,12 @@ class TestFilteredCorpus(unittest.TestCase):
             except:
                 raise Exception('Failure to download test corpus')
             cls.reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            cls.reader._fileids = ['pervig.txt']
             # Need a additional instance because tests below change internals #TO-DO Fix
             cls.reader_2 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
             cls.reader_3 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
             cls.reader_4 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+
 
         def test_import_latin_library_corpus_filter_by_file(self):
             """Test the Latin Library corpus reader filter by files."""
@@ -723,7 +725,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_sents(self):
             """Test filtered corpus sents method."""
-            self.reader._fileids = ['pervig.txt']
+            # self.reader._fileids = ['pervig.txt']
             sents = self.reader.sents()
             uniq_words = distinct_words(sents)
             if 'Latin' in uniq_words or 'Library' in uniq_words:
@@ -732,7 +734,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_paras(self):
             """Test filtered corpus paras method."""
-            self.reader._fileids = ['pervig.txt']
+            # self.reader._fileids = ['pervig.txt']
             paras = list(self.reader.paras())
             sents = [sent
                      for para in paras
@@ -746,7 +748,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_words(self):
             """Test filtered corpus words method."""
-            self.reader._fileids = ['pervig.txt']
+            # self.reader._fileids = ['pervig.txt']
             words = list(self.reader.words())
             uniq_words = distinct_words(words)
             if 'Latin' in uniq_words:
@@ -757,7 +759,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_docs(self):
             """Test filtered corpus docs method."""
-            self.reader._fileids = ['pervig.txt']
+            # self.reader._fileids = ['pervig.txt']
             docs = list(self.reader.docs())
             words = distinct_words(docs)
             if 'Latin' in words:
@@ -775,7 +777,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_sizes(self):
             """Test filtered corpus sizes method."""
-            self.reader._fileids = ['pervig.txt']
+            # self.reader._fileids = ['pervig.txt']
             self.assertTrue(len(list(self.reader.sizes())) > 0)
 
 class TestUnicode(unittest.TestCase):
