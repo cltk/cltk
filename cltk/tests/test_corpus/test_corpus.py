@@ -310,90 +310,6 @@ argenteo polubro, aureo eclutro. """
         ALL_FILE_IDS = list(reader.fileids())
         self.assertTrue(len(ALL_FILE_IDS) > 2100)
 
-    def test_import_latin_library_corpus_filter_by_file(self):
-        """Test the Latin Library corpus reader filter by files."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        filtered_reader = assemble_corpus(reader, types_requested=['old'],
-                                          type_files=corpus_texts_by_type)
-        # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-        self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
-
-    def test_import_latin_library_corpus_filter_by_dir(self):
-        """Test the Latin Library corpus reader filter by directories."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        filtered_reader = assemble_corpus(reader, types_requested=['old'],
-                                          type_dirs=corpus_directories_by_type)
-        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-
-    def test_import_latin_library_corpus_filter_by_file_and_dir(self):
-        """Test the Latin Library corpus reader filter by directories."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        filtered_reader = assemble_corpus(reader, types_requested=['old'],
-                                          type_dirs=corpus_directories_by_type,
-                                          type_files=corpus_texts_by_type)
-        self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-
-    def test_filtered_corpus_reader_sents(self):
-        """Test filtered corpus sents method."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        reader._fileids = ['pervig.txt']
-        sents = reader.sents()
-        uniq_words = distinct_words(sents)
-        if 'Latin' in uniq_words or 'Library' in uniq_words:
-            self.fail('Filtered word present!')
-        self.assertTrue(sum(1 for _ in reader.sents()) > 0)
-
-    def test_filtered_corpus_reader_paras(self):
-        """Test filtered corpus paras method."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        reader._fileids = ['catullus.txt']
-        paras = list(reader.paras())
-        sents = [sent
-                 for para in paras
-                 for sent in para]
-        uniq_words = distinct_words(sents)
-        if 'Latin' in uniq_words:
-            self.fail('Filtered word present!')
-        if 'Library' in uniq_words:
-            self.fail('Filtered word present!')
-        self.assertTrue(len(paras) > 0)
-
-    def test_filtered_corpus_reader_words(self):
-        """Test filtered corpus words method."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        reader._fileids = ['catullus.txt']
-        words = list(reader.words())
-        uniq_words = distinct_words(words)
-        if 'Latin' in uniq_words:
-            self.fail('Filtered word present!')
-        if 'Library' in uniq_words:
-            self.fail('Filtered word present!')
-        self.assertTrue(len(words) > 0)
-
-    def test_filtered_corpus_reader_docs(self):
-        """Test filtered corpus docs method."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        reader._fileids = ['catullus.txt']
-        docs = list(reader.docs())
-        words = distinct_words(docs)
-        if 'Latin' in words:
-            self.fail('Filtered word present!')
-        if 'Library' in words:
-            self.fail('Filtered word present!')
-        self.assertTrue(len(docs) > 0)
-        problem_files = ['caesar/bc3.txt', 'hymni.txt', 'varro.frag.txt', 'varro.ll10.txt',
-                     'varro.ll5.txt', 'varro.ll6.txt', 'varro.ll7.txt', 'varro.ll8.txt',
-                     'varro.ll9.txt']
-        for filename in problem_files:
-            doc = list(reader.docs([filename]))
-            assert(doc)
-            assert(len(doc[0]) > 100)
-
-    def test_filtered_corpus_reader_sizes(self):
-        """Test filtered corpus sizes method."""
-        reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-        reader._fileids = ['catullus.txt']
-        self.assertTrue(len(list(reader.sizes())) > 0)
 
 # Causes tokenizer test to fail
     def test_json_corpus_reader(self):
@@ -770,6 +686,101 @@ example_distributed_fake_language_corpus:
         test = normalize_middle_english(in_test)
         self.assertEqual(target, test)
 
+class TestFilteredCorpus(unittest.TestCase):
+        """Test the Latin Library corpus reader filter"""
+        @classmethod
+        def setUpClass(cls):
+            try:
+                corpus_importer = CorpusImporter('latin')
+                corpus_importer.import_corpus('latin_text_latin_library')
+            except:
+                raise Exception('Failure to download test corpus')
+            cls.reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+
+        def test_import_latin_library_corpus_filter_by_file(self):
+            """Test the Latin Library corpus reader filter by files."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            filtered_reader = assemble_corpus(self.reader, types_requested=['old'],
+                                              type_files=corpus_texts_by_type)
+            # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+            self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
+
+        def test_import_latin_library_corpus_filter_by_dir(self):
+            """Test the Latin Library corpus reader filter by directories."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            filtered_reader = assemble_corpus(self.reader, types_requested=['old'],
+                                              type_dirs=corpus_directories_by_type)
+            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+        def test_import_latin_library_corpus_filter_by_file_and_dir(self):
+            """Test the Latin Library corpus reader filter by directories."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            filtered_reader = assemble_corpus(self.reader, types_requested=['old'],
+                                              type_dirs=corpus_directories_by_type,
+                                              type_files=corpus_texts_by_type)
+            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+
+        def test_filtered_corpus_reader_sents(self):
+            """Test filtered corpus sents method."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader._fileids = ['pervig.txt']
+            sents = self.reader.sents()
+            uniq_words = distinct_words(sents)
+            if 'Latin' in uniq_words or 'Library' in uniq_words:
+                self.fail('Filtered word present!')
+            self.assertTrue(sum(1 for _ in self.reader.sents()) > 0)
+
+        def test_filtered_corpus_reader_paras(self):
+            """Test filtered corpus paras method."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader._fileids = ['catullus.txt']
+            paras = list(self.reader.paras())
+            sents = [sent
+                     for para in paras
+                     for sent in para]
+            uniq_words = distinct_words(sents)
+            if 'Latin' in uniq_words:
+                self.fail('Filtered word present!')
+            if 'Library' in uniq_words:
+                self.fail('Filtered word present!')
+            self.assertTrue(len(paras) > 0)
+
+        def test_filtered_corpus_reader_words(self):
+            """Test filtered corpus words method."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader._fileids = ['catullus.txt']
+            words = list(self.reader.words())
+            uniq_words = distinct_words(words)
+            if 'Latin' in uniq_words:
+                self.fail('Filtered word present!')
+            if 'Library' in uniq_words:
+                self.fail('Filtered word present!')
+            self.assertTrue(len(words) > 0)
+
+        def test_filtered_corpus_reader_docs(self):
+            """Test filtered corpus docs method."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader._fileids = ['catullus.txt']
+            docs = list(self.reader.docs())
+            words = distinct_words(docs)
+            if 'Latin' in words:
+                self.fail('Filtered word present!')
+            if 'Library' in words:
+                self.fail('Filtered word present!')
+            self.assertTrue(len(docs) > 0)
+            problem_files = ['caesar/bc3.txt', 'hymni.txt', 'varro.frag.txt', 'varro.ll10.txt',
+                         'varro.ll5.txt', 'varro.ll6.txt', 'varro.ll7.txt', 'varro.ll8.txt',
+                         'varro.ll9.txt']
+            for filename in problem_files:
+                doc = list(self.reader.docs([filename]))
+                assert(doc)
+                assert(len(doc[0]) > 100)
+
+        def test_filtered_corpus_reader_sizes(self):
+            """Test filtered corpus sizes method."""
+            # reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader._fileids = ['catullus.txt']
+            self.assertTrue(len(list(self.reader.sizes())) > 0)
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
