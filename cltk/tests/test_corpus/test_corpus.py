@@ -706,23 +706,20 @@ class TestFilteredCorpus(unittest.TestCase):
             """Test the Latin Library corpus reader filter by files."""
             filtered_reader = assemble_corpus(self.reader_2, types_requested=['old'],
                                               type_files=corpus_texts_by_type)
-            # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-            self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
+            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
         def test_import_latin_library_corpus_filter_by_dir(self):
             """Test the Latin Library corpus reader filter by directories."""
             filtered_reader = assemble_corpus(self.reader_3, types_requested=['old'],
                                               type_dirs=corpus_directories_by_type)
-            # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-            self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
+            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
         def test_import_latin_library_corpus_filter_by_file_and_dir(self):
             """Test the Latin Library corpus reader filter by directories."""
             filtered_reader = assemble_corpus(self.reader_4, types_requested=['old'],
                                               type_dirs=corpus_directories_by_type,
                                               type_files=corpus_texts_by_type)
-            # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-            self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
+            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
 
         def test_filtered_corpus_reader_sents(self):
             """Test filtered corpus sents method."""
@@ -732,7 +729,6 @@ class TestFilteredCorpus(unittest.TestCase):
             if 'Library' in uniq_words:
                 self.fail('Filtered word present!')
             # You can check for uniq_words because it implies that sents had content
-            uniq_words = set()
             self.assertTrue(uniq_words)
 
         def test_filtered_corpus_reader_paras(self):
@@ -744,8 +740,7 @@ class TestFilteredCorpus(unittest.TestCase):
             uniq_words = distinct_words(sents)
             if 'Library' in uniq_words:
                 self.fail('Filtered word present!')
-            # self.assertTrue(len(paras) > 0)
-            self.assertTrue(sum(1 for _ in self.reader.paras()) > 0)
+            self.assertTrue(uniq_words)
 
         def test_filtered_corpus_reader_words(self):
             """Test filtered corpus words method."""
@@ -753,8 +748,7 @@ class TestFilteredCorpus(unittest.TestCase):
             uniq_words = distinct_words(words)
             if 'Library' in uniq_words:
                 self.fail('Filtered word present!')
-            # self.assertTrue(len(words) > 0)
-            self.assertTrue(sum(1 for _ in self.reader.words()) > 0)
+            self.assertTrue(uniq_words)
 
         def test_filtered_corpus_reader_docs(self):
             """Test filtered corpus docs method."""
@@ -773,8 +767,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_sizes(self):
             """Test filtered corpus sizes method."""
-            # self.assertTrue(len(list(self.reader.sizes())) > 0)
-            self.assertTrue(sum(1 for _ in self.reader.sizes()) > 0)
+            self.assertTrue(len(list(self.reader.sizes())) > 0)
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
