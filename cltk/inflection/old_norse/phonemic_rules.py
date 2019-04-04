@@ -37,6 +37,11 @@ class OldNorseSyllable(Syllable):
         elif "".join(self.nucleus) == "ö" and is_second:
             self.nucleus = ["u"]
 
+    def apply_i_umlaut(self):
+        nucleus = "".join(self.nucleus)
+        if nucleus in BACK_TO_FRONT_VOWELS:
+            self.nucleus = [BACK_TO_FRONT_VOWELS[nucleus]]
+
 
 def extract_common_stem(*args):
     """
@@ -72,7 +77,7 @@ def extract_common_stem(*args):
     #         if not all_equal:
     #             break
     # if all_equal:
-        # return os.path.commonprefix(args)
+    #      return os.path.commonprefix(args)
     smallest = numpy.argmin([len(s) for s in args])
     for i, c in enumerate(args[smallest]):
         for other_word in args:
@@ -307,9 +312,40 @@ def has_u_umlaut(word: str) -> bool:
     return False
 
 
+def apply_i_umlaut(stem: str):
+    """
+    Changes the vowel of the last syllable of the given stem according to an i-umlaut.
+
+    >>> apply_i_umlaut("mæl")
+    'mæl'
+    >>> apply_i_umlaut("lagð")
+    'legð'
+    >>> apply_i_umlaut("vak")
+    'vek'
+    >>> apply_i_umlaut("haf")
+    'hef'
+    >>> apply_i_umlaut("buð")
+    'byð'
+    >>> apply_i_umlaut("bár")
+    'bær'
+    >>> apply_i_umlaut("réð")
+    'réð'
+    >>> apply_i_umlaut("fór")
+    'fœr'
+
+    :param stem:
+    :return:
+    """
+    assert len(stem) > 0
+    s_stem = s.syllabify_ssp(stem.lower())
+    last_syllable = OldNorseSyllable(s_stem[-1], VOWELS, CONSONANTS)
+    last_syllable.apply_i_umlaut()
+    return "".join(s_stem[:-1]) + str(last_syllable)
+
+
 def apply_u_umlaut(stem: str):
     """
-    Changes the vowel of the last syllable of the given stem if the vowel is affected by an u-umlaut;
+    Changes the vowel of the last syllable of the given stem if the vowel is affected by an u-umlaut.
     >>> apply_u_umlaut("far")
     'för'
     >>> apply_u_umlaut("ör")

@@ -4,6 +4,8 @@ import os
 import unittest
 from unittest.mock import patch
 
+import nltk
+
 from cltk.corpus.greek.alphabet import expand_iota_subscript
 from cltk.corpus.greek.alphabet import filter_non_greek
 from cltk.corpus.greek.beta_to_unicode import Replacer
@@ -74,6 +76,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             corpus_importer.import_corpus('latin_text_perseus')
             corpus_importer = CorpusImporter('greek')
             corpus_importer.import_corpus('greek_text_perseus')
+            corpus_importer.import_corpus('greek_text_tesserae')
+            nltk.download('punkt')
+            nltk.download('averaged_perceptron_tagger')
         except:
             raise Exception('Failure to download test corpus')
 
@@ -311,7 +316,6 @@ argenteo polubro, aureo eclutro. """
         self.assertTrue(len(ALL_FILE_IDS) > 2100)
 
 
-# Causes tokenizer test to fail
     def test_json_corpus_reader(self):
         """Test filtered corpus sents method."""
         reader = get_corpus_reader(language='latin', corpus_name='latin_text_perseus')
@@ -333,6 +337,20 @@ argenteo polubro, aureo eclutro. """
         # self.assertTrue(len(list(reader.paras())) > 1)
         # self.assertTrue(len(list(reader.sents())) > 260)
         # self.assertTrue(len(list(reader.words())) > 9800)
+
+    def test_tesserae_corpus_reader(self):
+        """Test Tesserae corpus methods."""
+        # Update when corpus is add to CLTK
+        reader = get_corpus_reader(language='greek', corpus_name='greek_text_tesserae')
+        sample = reader.fileids()[0]
+        self.assertTrue(len(list(reader.docs(sample))) >= 1)
+        self.assertTrue(len(list(reader.texts(sample))) >= 1)
+        self.assertTrue(len(list(reader.paras(sample))) >= 1)
+        self.assertTrue(len(list(reader.sents(sample))) >= 1)
+        self.assertTrue(len(list(reader.words(sample))) >= 1)
+        self.assertTrue(len(list(reader.lines(sample))) >= 1)
+        self.assertTrue(reader.describe())
+        self.assertTrue(len(list(reader.pos_tokenize(sample))) >= 1)
 
     def test_json_corpus_reader_sizes(self):
         """Test filtered corpus sizes method."""
