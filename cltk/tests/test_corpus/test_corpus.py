@@ -731,8 +731,9 @@ class TestFilteredCorpus(unittest.TestCase):
             # Curious—why the original test checked for two different words?
             if 'Library' in uniq_words:
                 self.fail('Filtered word present!')
-            # self.assertTrue(len(sents) > 0)
-            self.assertTrue(sum(1 for _ in self.reader.sents()) > 0)
+            # You can check for uniq_words because it implies that sents had content
+            uniq_words = set()
+            self.assertTrue(uniq_words)
 
         def test_filtered_corpus_reader_paras(self):
             """Test filtered corpus paras method."""
