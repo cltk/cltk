@@ -37,13 +37,6 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         :param model: tokenizer object to used # Should be in init?
         :type model: object
         """
-        # print(text)
-        # if split_enclitics:
-        #     text = self._split_que(text)
-        #     text = self._split_ne(text)
-        #     text = self._split_n(text)
-        #     text = self._split_ve(text)
-        #     text = self._split_st(text)
         if split_words:
             text = self._replace_patterns(text, latin_replacements)
         sents = self.sent_tokenizer.tokenize(text)
@@ -59,17 +52,17 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
             sent_tokens = sent.split()
             tokens_ = []
             if sent_tokens[0].endswith('ne') and sent_tokens[0] not in latin_exceptions:
-                tokens_.extend([sent_tokens[0][:-2], 'ne'])
+                tokens_.extend([sent_tokens[0][:-2], '-ne'])
             elif sent_tokens[0].endswith('n') and sent_tokens[0] not in latin_exceptions:
-                tokens_.extend([sent_tokens[0][:-1], 'ne'])
+                tokens_.extend([sent_tokens[0][:-1], '-ne'])
             else:
                 for token in sent_tokens:
                     if token.endswith('que') and token not in latin_exceptions:
-                        tokens_.extend([token[:-3], 'que'])
+                        tokens_.extend([token[:-3], '-que'])
                     elif token.endswith('ve') and token not in latin_exceptions:
-                        tokens_.extend([token[:-2], 've'])
+                        tokens_.extend([token[:-2], '-ve'])
                     elif token.endswith('ue') and token not in latin_exceptions:
-                        tokens_.extend([token[:-2], 'ue'])
+                        tokens_.extend([token[:-2], '-ue'])
                     elif token.endswith('ust') and token not in latin_exceptions:
                         tokens_.extend([token[:-1], 'est'])
                     elif token.endswith('st') and token not in latin_exceptions:
