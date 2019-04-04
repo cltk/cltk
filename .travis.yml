@@ -1,9 +1,12 @@
 sudo: required
 
+dist: xenial
+
 language: python
 
 python:
 - '3.6'
+- '3.7'
 
 before_install:
 - sudo rm -f /etc/boto.cfg
@@ -23,13 +26,14 @@ before_script:
 - pip install numpy
 - pip install scipy
 - pip install scikit-learn
+- pip install nose-timer
 
 script:
   # Notes on nose:
   # Travis CI pre-installs `nose`
   # https://github.com/coagulant/coveralls-python#nosetests
   # http://nose.readthedocs.org/en/latest/plugins/skip.html
-- nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
+- nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest --with-timer
 - ( cd docs && make doctest; )
 
 after_success:

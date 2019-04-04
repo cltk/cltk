@@ -5,12 +5,13 @@ import re
 from math import floor
 from cltk.phonology.utils import Transcriber
 from cltk.phonology.old_norse.transcription import Consonant, Vowel, old_norse_rules, IPA_class, \
-    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA
+    DIPHTHONGS_IPA_class, DIPHTHONGS_IPA, measure_old_norse_syllable
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tokenize.word import tokenize_old_norse_words
 import cltk.corpus.old_norse.syllabifier as old_norse_syllabifier
 from cltk.stop.old_norse.stops import STOPS_LIST
 from cltk.utils.cltk_logger import logger
+from cltk.tag.pos import POSTag
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
@@ -24,6 +25,7 @@ STOPS_LIST.extend(stops_for_poetry)
 def normalize(text):
     res = text.lower()
     res = re.sub(r"[\-:?;.,]", "", res)
+    res = re.sub(r" +", " ", res)
     return res
 
 
@@ -589,3 +591,58 @@ class Ljoodhhaattr(Metre):
         :return:
         """
         return Metre.find_alliteration(self)
+
+
+class PoetryTools:
+    """
+    Class which gathers tools necessary for poem analysis:
+    * a syllabifier
+    * a phonetic transcriber
+    * a parts-of-speech tagger
+    """
+    def __init__(self):
+        self.syllabifier = Syllabifier(language="old_norse_ipa")
+        self.tr = Transcriber(DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules)
+        self.tagger = POSTag('old_norse')
+
+
+class PoeticWord:
+    """
+    This class helps extract all relevant features of a poem word at once.
+    Features are:
+    * the raw text
+    * the syllabified word
+    * the syllable length of the word
+    * stress of syllables
+    * the parts-of-speech of the word
+
+    """
+    def __init__(self, text):
+        self.text = text
+        self.syl = []
+        self.length = []
+        self.stress = []
+        self.ipa_transcription = []
+
+    def parse_word_with(self, poetry_tools: PoetryTools):
+        """
+        Compute the phonetic transcription of the word with IPA representation
+        Compute the syllables of the word
+        Compute the length of each syllable
+        Compute if a syllable is stress of noe
+        Compute the POS category the word is in
+
+        :param poetry_tools: instance of PoetryTools
+        :return:
+        """
+        phonemes = poetry_tools.tr.text_to_phonemes(self.text)
+        self.syl = poetry_tools.syllabifier.syllabify_phonemes(phonemes)
+        for i, syllable in enumerate(self.syl):
+            self.ipa_transcription.append([])
+            syl_len = measure_old_norse_syllable(syllable).value
+            syl_stress = 1 if i == 0 else 0
+
+            self.length.append(syl_len)
+            self.stress.append(syl_stress)
+            for c in syllable:
+                self.ipa_transcription[i].append(c.ipar)
