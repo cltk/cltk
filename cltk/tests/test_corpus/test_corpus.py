@@ -702,7 +702,6 @@ class TestFilteredCorpus(unittest.TestCase):
             cls.reader_3 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
             cls.reader_4 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
 
-
         def test_import_latin_library_corpus_filter_by_file(self):
             """Test the Latin Library corpus reader filter by files."""
             filtered_reader = assemble_corpus(self.reader_2, types_requested=['old'],
@@ -714,18 +713,19 @@ class TestFilteredCorpus(unittest.TestCase):
             """Test the Latin Library corpus reader filter by directories."""
             filtered_reader = assemble_corpus(self.reader_3, types_requested=['old'],
                                               type_dirs=corpus_directories_by_type)
-            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+            # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+            self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
 
         def test_import_latin_library_corpus_filter_by_file_and_dir(self):
             """Test the Latin Library corpus reader filter by directories."""
             filtered_reader = assemble_corpus(self.reader_4, types_requested=['old'],
                                               type_dirs=corpus_directories_by_type,
                                               type_files=corpus_texts_by_type)
-            self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+            # self.assertTrue(len(list(filtered_reader.fileids())) > 0)
+            self.assertTrue(sum(1 for _ in filtered_reader.fileids()) > 0)
 
         def test_filtered_corpus_reader_sents(self):
             """Test filtered corpus sents method."""
-            # self.reader._fileids = ['pervig.txt']
             sents = self.reader.sents()
             uniq_words = distinct_words(sents)
             if 'Latin' in uniq_words or 'Library' in uniq_words:
@@ -734,8 +734,7 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_paras(self):
             """Test filtered corpus paras method."""
-            # self.reader._fileids = ['pervig.txt']
-            paras = list(self.reader.paras())
+            paras = self.reader.paras()
             sents = [sent
                      for para in paras
                      for sent in para]
@@ -744,22 +743,22 @@ class TestFilteredCorpus(unittest.TestCase):
                 self.fail('Filtered word present!')
             if 'Library' in uniq_words:
                 self.fail('Filtered word present!')
-            self.assertTrue(len(paras) > 0)
+            # self.assertTrue(len(paras) > 0)
+            self.assertTrue(sum(1 for _ in self.reader.paras()) > 0)
 
         def test_filtered_corpus_reader_words(self):
             """Test filtered corpus words method."""
-            # self.reader._fileids = ['pervig.txt']
-            words = list(self.reader.words())
+            words = self.reader.words()
             uniq_words = distinct_words(words)
             if 'Latin' in uniq_words:
                 self.fail('Filtered word present!')
             if 'Library' in uniq_words:
                 self.fail('Filtered word present!')
-            self.assertTrue(len(words) > 0)
+            # self.assertTrue(len(words) > 0)
+            self.assertTrue(sum(1 for _ in self.reader.words()) > 0)
 
         def test_filtered_corpus_reader_docs(self):
             """Test filtered corpus docs method."""
-            # self.reader._fileids = ['pervig.txt']
             docs = list(self.reader.docs())
             words = distinct_words(docs)
             if 'Latin' in words:
@@ -777,8 +776,8 @@ class TestFilteredCorpus(unittest.TestCase):
 
         def test_filtered_corpus_reader_sizes(self):
             """Test filtered corpus sizes method."""
-            # self.reader._fileids = ['pervig.txt']
-            self.assertTrue(len(list(self.reader.sizes())) > 0)
+            # self.assertTrue(len(list(self.reader.sizes())) > 0)
+            self.assertTrue(sum(1 for _ in self.reader.sizes()) > 0)
 
 class TestUnicode(unittest.TestCase):
     "Test py23char"
