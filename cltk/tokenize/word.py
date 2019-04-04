@@ -14,6 +14,7 @@ import re
 from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
+
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
@@ -294,102 +295,103 @@ def tokenize_latin_words(string):
     :param string: This accepts the string value that needs to be tokenized
     :returns: A list of substrings extracted from the string
     """
-    from cltk.tokenize.latin_exceptions import latin_exceptions
-
-    assert isinstance(string, str), "Incoming string must be type str."
-
-    def matchcase(word):
-        # From Python Cookbook
-        def replace(m):
-            text = m.group()
-            if text.isupper():
-                return word.upper()
-            elif text.islower():
-                return word.lower()
-            elif text[0].isupper():
-                return word.capitalize()
-            else:
-                return word
-
-        return replace
-
-    replacements = [(r'\bmecum\b', 'cum me'),
-                    (r'\btecum\b', 'cum te'),
-                    (r'\bsecum\b', 'cum se'),
-                    (r'\bnobiscum\b', 'cum nobis'),
-                    (r'\bvobiscum\b', 'cum vobis'),
-                    (r'\bquocum\b', 'cum quo'),
-                    (r'\bquacum\b', 'cum qua'),
-                    (r'\bquicum\b', 'cum qui'),
-                    (r'\bquibuscum\b', 'cum quibus'),
-                    (r'\bsodes\b', 'si audes'),
-                    (r'\bsatin\b', 'satis ne'),
-                    (r'\bscin\b', 'scis ne'),
-                    (r'\bsultis\b', 'si vultis'),
-                    (r'\bsimilist\b', 'similis est'),
-                    (r'\bqualist\b', 'qualis est')
-                    ]
-
-    for replacement in replacements:
-        string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
-
-    punkt_param = PunktParameters()
-    abbreviations = ['c', 'l', 'm', 'p', 'q', 't', 'ti', 'sex', 'a', 'd', 'cn', 'sp', "m'", 'ser', 'ap', 'n',
-                     'v', 'k', 'mam', 'post', 'f', 'oct', 'opet', 'paul', 'pro', 'sert', 'st', 'sta', 'v', 'vol', 'vop']
-    punkt_param.abbrev_types = set(abbreviations)
-    sent_tokenizer = PunktSentenceTokenizer(punkt_param)
-
-    word_tokenizer = PunktLanguageVars()
-    sents = sent_tokenizer.tokenize(string)
-
-    enclitics = ['que', 'n', 'ue', 've', 'st']
-    exceptions = enclitics
-    exceptions = list(set(exceptions + latin_exceptions))
-
-    tokens = []
-
-    for sent in sents:
-        temp_tokens = word_tokenizer.word_tokenize(sent)
-        # Need to check that tokens exist before handling them;
-        # needed to make stream.readlines work in PlaintextCorpusReader
-
-        if temp_tokens:
-            if temp_tokens[0].endswith('ne') and len(temp_tokens[0]) > 2:
-                if temp_tokens[0].lower() not in exceptions:
-                    temp = [temp_tokens[0][:-2], '-ne']
-                    temp_tokens = temp + temp_tokens[1:]
-
-            if temp_tokens[-1].endswith('.'):
-                final_word = temp_tokens[-1][:-1]
-                del temp_tokens[-1]
-                temp_tokens += [final_word, '.']
-
-            for token in temp_tokens:
-                tokens.append(token)
-
-    # Break enclitic handling into own function?
-    specific_tokens = []
-
-    for token in tokens:
-        is_enclitic = False
-        if token.lower() not in exceptions:
-            for enclitic in enclitics:
-                if token.endswith(enclitic):
-                    if enclitic == 'n':
-                        specific_tokens += [token[:-len(enclitic)]] + ['-ne']
-                    elif enclitic == 'st':
-                        if token.endswith('ust'):
-                            specific_tokens += [token[:-len(enclitic) + 1]] + ['est']
-                        else:
-                            specific_tokens += [token[:-len(enclitic)]] + ['est']
-                    else:
-                        specific_tokens += [token[:-len(enclitic)]] + ['-' + enclitic]
-                    is_enclitic = True
-                    break
-        if not is_enclitic:
-            specific_tokens.append(token)
-
-    return specific_tokens
+    pass
+    # from cltk.tokenize.latin_exceptions import latin_exceptions
+    #
+    # assert isinstance(string, str), "Incoming string must be type str."
+    #
+    # def matchcase(word):
+    #     # From Python Cookbook
+    #     def replace(m):
+    #         text = m.group()
+    #         if text.isupper():
+    #             return word.upper()
+    #         elif text.islower():
+    #             return word.lower()
+    #         elif text[0].isupper():
+    #             return word.capitalize()
+    #         else:
+    #             return word
+    #
+    #     return replace
+    #
+    # replacements = [(r'\bmecum\b', 'cum me'),
+    #                 (r'\btecum\b', 'cum te'),
+    #                 (r'\bsecum\b', 'cum se'),
+    #                 (r'\bnobiscum\b', 'cum nobis'),
+    #                 (r'\bvobiscum\b', 'cum vobis'),
+    #                 (r'\bquocum\b', 'cum quo'),
+    #                 (r'\bquacum\b', 'cum qua'),
+    #                 (r'\bquicum\b', 'cum qui'),
+    #                 (r'\bquibuscum\b', 'cum quibus'),
+    #                 (r'\bsodes\b', 'si audes'),
+    #                 (r'\bsatin\b', 'satis ne'),
+    #                 (r'\bscin\b', 'scis ne'),
+    #                 (r'\bsultis\b', 'si vultis'),
+    #                 (r'\bsimilist\b', 'similis est'),
+    #                 (r'\bqualist\b', 'qualis est')
+    #                 ]
+    #
+    # for replacement in replacements:
+    #     string = re.sub(replacement[0], matchcase(replacement[1]), string, flags=re.IGNORECASE)
+    #
+    # punkt_param = PunktParameters()
+    # abbreviations = ['c', 'l', 'm', 'p', 'q', 't', 'ti', 'sex', 'a', 'd', 'cn', 'sp', "m'", 'ser', 'ap', 'n',
+    #                  'v', 'k', 'mam', 'post', 'f', 'oct', 'opet', 'paul', 'pro', 'sert', 'st', 'sta', 'v', 'vol', 'vop']
+    # punkt_param.abbrev_types = set(abbreviations)
+    # sent_tokenizer = PunktSentenceTokenizer(punkt_param)
+    #
+    # word_tokenizer = PunktLanguageVars()
+    # sents = sent_tokenizer.tokenize(string)
+    #
+    # enclitics = ['que', 'n', 'ue', 've', 'st']
+    # exceptions = enclitics
+    # exceptions = list(set(exceptions + latin_exceptions))
+    #
+    # tokens = []
+    #
+    # for sent in sents:
+    #     temp_tokens = word_tokenizer.word_tokenize(sent)
+    #     # Need to check that tokens exist before handling them;
+    #     # needed to make stream.readlines work in PlaintextCorpusReader
+    #
+    #     if temp_tokens:
+    #         if temp_tokens[0].endswith('ne') and len(temp_tokens[0]) > 2:
+    #             if temp_tokens[0].lower() not in exceptions:
+    #                 temp = [temp_tokens[0][:-2], '-ne']
+    #                 temp_tokens = temp + temp_tokens[1:]
+    #
+    #         if temp_tokens[-1].endswith('.'):
+    #             final_word = temp_tokens[-1][:-1]
+    #             del temp_tokens[-1]
+    #             temp_tokens += [final_word, '.']
+    #
+    #         for token in temp_tokens:
+    #             tokens.append(token)
+    #
+    # # Break enclitic handling into own function?
+    # specific_tokens = []
+    #
+    # for token in tokens:
+    #     is_enclitic = False
+    #     if token.lower() not in exceptions:
+    #         for enclitic in enclitics:
+    #             if token.endswith(enclitic):
+    #                 if enclitic == 'n':
+    #                     specific_tokens += [token[:-len(enclitic)]] + ['-ne']
+    #                 elif enclitic == 'st':
+    #                     if token.endswith('ust'):
+    #                         specific_tokens += [token[:-len(enclitic) + 1]] + ['est']
+    #                     else:
+    #                         specific_tokens += [token[:-len(enclitic)]] + ['est']
+    #                 else:
+    #                     specific_tokens += [token[:-len(enclitic)]] + ['-' + enclitic]
+    #                 is_enclitic = True
+    #                 break
+    #     if not is_enclitic:
+    #         specific_tokens.append(token)
+    #
+    # return specific_tokens
 
 
 def tokenize_old_norse_words(text):
@@ -443,3 +445,56 @@ def tokenize_middle_high_german_words(text):
     text = str.split(text)
 
     return text
+
+class BaseWordTokenizer:
+    """ Base class for word tokenization"""
+
+    def __init__(self, language: str = None):
+        """
+        :param language : language for word tokenization
+        :type language: str
+        """
+        if language:
+            self.language = language.lower()
+
+    def tokenize(self, text: str, model: object = None):
+        """
+        Replace in subclasses
+        """
+        pass
+
+class BasePunktWordTokenizer(BaseWordTokenizer):
+    """Base class for punkt sentence tokenization"""
+
+    missing_models_message = "BasePunktWordTokenizer requires a language model."
+
+    def __init__(self, language: str = None, sent_tokenizer:object = None, lang_vars: object = None):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        self.language = language
+        # self.lang_vars = lang_vars
+        super().__init__(language=self.language)
+        if sent_tokenizer:
+            self.sent_tokenizer = sent_tokenizer
+        else:
+            punkt_param = PunktParameters()
+            self.sent_tokenizer = PunktSentenceTokenizer(punkt_param)
+
+    def tokenize(self, text: str, model: object = None):
+        """
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        :param model: tokenizer object to used # Should be in init?
+        :type model: object
+        """
+        tokenizer = PunktLanguageVars()
+        return tokenizer.word_tokenize(text)
+
+if __name__ == '__main__':
+    w = BasePunktWordTokenizer('latin')
+    tokens = w.tokenize('arma virumque cano')
+    print(tokens)
+    pass
