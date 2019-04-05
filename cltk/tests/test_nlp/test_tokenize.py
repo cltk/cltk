@@ -8,13 +8,13 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.corpus.utils.importer import CorpusImporter
 from cltk.tokenize.sentence import TokenizeSentence
-from cltk.tokenize.word import nltk_tokenize_words
 from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.line import LineTokenizer
 from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
 from cltk.tokenize.latin.sentence import SentenceTokenizer as LatinSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekPunktSentenceTokenizer, GreekRegexSentenceTokenizer
 from cltk.tokenize.greek.sentence import SentenceTokenizer as GreekSentenceTokenizer
+from cltk.tokenize.sanskrit.word import WordTokenizer as SanskritWordTokenizer
 from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 from cltk.tokenize.latin.utils import LatinSentenceTokenizerTrainer
 
@@ -117,9 +117,10 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         # corpus_importer.import_corpus('latin_models_cltk')
         # self.greek_text = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""  # pylint: disable=line-too-long
         # self.latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
+        pass
 
     def test_greek_word_tokenizer(self):
-        """Test Latin-specific word tokenizer."""
+        """Test Greek-specific word tokenizer."""
         word_tokenizer = WordTokenizer('greek')
 
         # Test sources:
@@ -218,35 +219,6 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
 
         self.assertEqual(results, target)
 
-    def test_nltk_tokenize_words(self):
-        """Test wrapper for NLTK's PunktLanguageVars()"""
-        tokens = nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=False)
-        target = ['Sentence', '1', '.', 'Sentence', '2', '.']
-        self.assertEqual(tokens, target)
-
-    def test_nltk_tokenize_words_attached(self):
-        """Test wrapper for NLTK's PunktLanguageVars(), returning unaltered output."""
-        tokens = nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=True)
-        target = ['Sentence', '1.', 'Sentence', '2.']
-        self.assertEqual(tokens, target)
-
-    def test_sanskrit_nltk_tokenize_words(self):
-        """Test wrapper for NLTK's PunktLanguageVars()"""
-        tokens = nltk_tokenize_words("कृपया।", attached_period=False, language='sanskrit')
-        target = ['कृपया', '।']
-        self.assertEqual(tokens, target)
-
-    def test_sanskrit_nltk_tokenize_words_attached(self):
-        """Test wrapper for NLTK's PunktLanguageVars(), returning unaltered output."""
-        tokens = nltk_tokenize_words("कृपया।", attached_period=True, language='sanskrit')
-        target = ['कृपया।']
-        self.assertEqual(tokens, target)
-
-    def test_nltk_tokenize_words_assert(self):
-        """Test assert error for CLTK's word tokenizer."""
-        with self.assertRaises(AssertionError):
-            nltk_tokenize_words(['Sentence', '1.'])
-
     def test_old_norse_word_tokenizer(self):
         text = "Gylfi konungr var maðr vitr ok fjölkunnigr. " \
                "Hann undraðist þat mjök, er ásafólk var svá kunnigt, at allir hlutir gengu at vilja þeira."
@@ -322,13 +294,13 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
     #     tokenized_sentences = tokenizer.tokenize(text)
     #     self.assertEqual(tokenized_sentences, target)
     #
-    # def test_sanskrit_word_tokenizer(self):
-    #     """Test tokenizing sanskrit sentences."""
-    #     text = "श्री भगवानुवाच पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः। नानाविधानि दिव्यानि नानावर्णाकृतीनि च।।"
-    #     target = ['श्री', 'भगवानुवाच', 'पश्य', 'मे', 'पार्थ', 'रूपाणि', 'शतशोऽथ', 'सहस्रशः', '।', 'नानाविधानि', 'दिव्यानि', 'नानावर्णाकृतीनि', 'च', '।', '।']
-    #     tokenizer = TokenizeSentence('sanskrit')
-    #     tokenized_sentences = tokenizer.tokenize(text)
-    #     self.assertEqual(tokenized_sentences, target)
+    def test_sanskrit_word_tokenizer(self):
+        """Test tokenizing sanskrit sentences."""
+        text = "श्री भगवानुवाच पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः। नानाविधानि दिव्यानि नानावर्णाकृतीनि च।।"
+        target = ['श्री', 'भगवानुवाच', 'पश्य', 'मे', 'पार्थ', 'रूपाणि', 'शतशोऽथ', 'सहस्रशः', '।', 'नानाविधानि', 'दिव्यानि', 'नानावर्णाकृतीनि', 'च', '।', '।']
+        tokenizer = SanskritWordTokenizer()
+        tokens = tokenizer.tokenize(text)
+        self.assertEqual(tokens, target)
     #
     # def test_telugu_word_tokenizer(self):
     #     """Test tokenizing telugu sentences."""
