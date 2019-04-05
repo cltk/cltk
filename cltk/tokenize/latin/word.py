@@ -4,7 +4,6 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
-import os.path
 import re
 
 from nltk.tokenize.treebank import TreebankWordTokenizer

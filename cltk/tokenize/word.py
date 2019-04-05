@@ -11,11 +11,18 @@ __license__ = 'MIT License. See LICENSE.'
 
 import re
 
-from nltk.tokenize.punkt import PunktLanguageVars
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+
+from nltk.tokenize.treebank import TreebankWordTokenizer
 
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
 # from cltk.tokenize.latin.word import *
+
+from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
+from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
+from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
+from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
+from cltk.tokenize.old_french.params import OldFrenchTokenizerPatterns
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
@@ -26,12 +33,16 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         self.language = language
         self.available_languages = ['akkadian',
                                     'arabic',
-                                    'french',
+                                    'french', # deprecate
                                     'greek',
                                     'latin',
-                                    'old_norse',
                                     'middle_english',
-                                    'middle_high_german']
+                                    'middle_french',
+                                    'middle_high_german'
+                                    'old_french',
+                                    'old_norse',
+                                    'sanskrit'
+                                    ]
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
             self.available_languages)  # pylint: disable=line-too-long
@@ -39,28 +50,39 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
 
     def tokenize(self, string):
         """Tokenize incoming string."""
-
         if self.language == 'akkadian':
             tokens = tokenize_akkadian_words(string)
         elif self.language == 'arabic':
-            tokens = tokenize_arabic_words(string)
+            tokenizer = BaseArabyWordTokenizer('arabic')
+            tokens = tokenizer.tokenize(string)
         elif self.language == 'french':
-            tokens = tokenize_french_words(string)
+            tokenizer = BaseRegexWordTokenizer('old_french', OldFrenchTokenizerPatterns)
+            tokens = tokenizer.tokenize(string)
         elif self.language == 'greek':
-            # Add deprecation warning
-            tokens = nltk_tokenize_words(string)
+            tokenizer = BasePunktWordTokenizer('greek', GreekRegexSentenceTokenizer)
+            tokens = tokenizer.tokenize(string)
         elif self.language == 'latin':
             # Add deprecation warning
-            tokens = nltk_tokenize_words(string)
+            tokenizer = TreebankWordTokenizer()
+            tokens = tokenizer.tokenize(string)
         elif self.language == 'old_norse':
-            tokens = tokenize_old_norse_words(string)
+            tokenizer = BaseRegexWordTokenizer('old_norse', OldNorseTokenizerPatterns)
+            tokens = tokenizer.tokenize(string)
         elif self.language == 'middle_english':
-            tokens = tokenize_middle_english_words(string)
+            tokenizer = BaseRegexWordTokenizer('middle_english', MiddleEnglishTokenizerPatterns)
+            tokens = tokenizer.tokenize(string)
+        elif self.language == 'middle_french':
+            tokenizer = BaseRegexWordTokenizer('old_french', OldFrenchTokenizerPatterns)
+            tokens = tokenizer.tokenize(string)
         elif self.language == 'middle_high_german':
-            tokens = tokenize_middle_high_german_words(string)
+            tokenizer = BaseRegexWordTokenizer('middle_high_german', MiddleHighGermanTokenizerPatterns)
+            tokens = tokenizer.tokenize(string)
+        elif self.language == 'old_french':
+            tokenizer = BaseRegexWordTokenizer('old_french', OldFrenchTokenizerPatterns)
+            tokens = tokenizer.tokenize(string)
         else:
-            tokens = nltk_tokenize_words(string)
-
+            tokenizer = TreebankWordTokenizer
+            tokens = tokenizer.tokenize(string)
         return tokens
 
     def tokenize_sign(self, word):
@@ -71,45 +93,6 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             sign_tokens = 'Language must be written using cuneiform.'
 
         return sign_tokens
-
-
-def nltk_tokenize_words(string, attached_period=False, language=None):
-    """Wrap NLTK's tokenizer PunktLanguageVars(), but make final period
-    its own token.
-
-    >>> nltk_tokenize_words("Sentence 1. Sentence 2.")
-    ['Sentence', '1', '.', 'Sentence', '2', '.']
-
-    >>> #Optionally keep the NLTK's output:
-
-    >>> nltk_tokenize_words("Sentence 1. Sentence 2.", attached_period=True)
-    ['Sentence', '1.', 'Sentence', '2.']
-
-    TODO: Run some tests to determine whether there is a large penalty for
-    re-calling PunktLanguageVars() for each use of this function. If so, this
-    will need to become a class, perhaps inheriting from the PunktLanguageVars
-    object. Maybe integrate with WordTokenizer.
-    """
-    assert isinstance(string, str), "Incoming string must be type str."
-    if language == 'sanskrit':
-        periods = ['.', '।','॥']
-    else:
-        periods = ['.']
-    punkt = PunktLanguageVars()
-    tokens = punkt.word_tokenize(string)
-    if attached_period:
-        return tokens
-    new_tokens = []
-    for word in tokens:
-        for char in periods:
-            if word.endswith(char):
-                new_tokens.append(word[:-1])
-                new_tokens.append(char)
-                break
-        else:
-            new_tokens.append(word)
-    return new_tokens
-
 
 def tokenize_akkadian_words(line):
     """
@@ -235,108 +218,6 @@ def tokenize_akkadian_signs(word):
     return word_signs
 
 
-def tokenize_arabic_words(text):
-
-    """
-        Tokenize text into words
-        @param text: the input text.
-        @type text: unicode.
-        @return: list of words.
-        @rtype: list.
-    """
-    specific_tokens = []
-    if not text:
-        return specific_tokens
-    else:
-        specific_tokens = araby.tokenize(text)
-        return specific_tokens
-
-
-def tokenize_french_words(string):
-    assert isinstance(string, str), "Incoming string must be type str."
-
-    # normalize apostrophes
-
-    text = re.sub(r"’", r"'", string)
-
-    # Dealing with punctuation
-    text = re.sub(r"\'", r"' ", text)
-    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
-
-    results = str.split(text)
-    return (results)
-
-
-# def tokenize_greek_words(text):
-#     """
-#     Tokenizer divides the string into a list of substrings. This is a placeholder
-#     function that returns the default NLTK word tokenizer until
-#     Greek-specific options are added.
-#
-#     Example:
-#     >>> text = 'Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων,'
-#     >>> tokenize_greek_words(text)
-#     ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
-#
-#     :param string: This accepts the string value that needs to be tokenized
-#     :returns: A list of substrings extracted from the string
-#     """
-#
-#     return nltk_tokenize_words(text) # Simplest implementation to start
-
-
-def tokenize_old_norse_words(text):
-    """
-
-    :param text: a text or a sentence
-    :return:
-    """
-    assert isinstance(text, str)
-
-    # punctuation
-    text = re.sub(r"\'", r"' ", text)
-    text = re.sub("(?<=.)(?=[.!?)(\";:,«»\-])", " ", text)
-
-    # TODO dealing with merges between verbs at the second person of the present tense and þú
-    # -> -tu, -ðu, -du, -u : question
-
-    # TODO dealing with merges between verbs and sik -> st : middle voice
-
-    results = str.split(text)
-    return results
-
-def tokenize_middle_english_words(text):
-    """Tokenizes ME text:
-
-    >>> tokenize_middle_english_words("And then,   went   I  fastyr!")
-    ['And', 'then', ',', 'went', 'I', 'fastyr', '!']
-
-    """
-
-    assert isinstance(text, str)
-
-    text = re.sub(r'\n', r' ', text)
-    text = re.sub(r'(?<=.)(?=[\.\";\,\:\-\[\]\(\)!&?])',r' ', text)
-    text = re.sub(r'(?<=[\.\";\-\,\:\[\]\(\)!&?])(?=.)',r' ', text)
-    text = re.sub(r'\s+',r' ', text)
-    text = str.split(text)
-
-    return text
-
-def tokenize_middle_high_german_words(text):
-    """Tokenizes MHG text"""
-
-    assert isinstance(text, str)
-    # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
-    text = re.sub(r'-\n',r'-', text)
-    text = re.sub(r'\n', r' ', text)
-    text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ', text)
-    text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ', text)
-    text = re.sub(r'\s+',r' ', text)
-    text = str.split(text)
-
-    return text
-
 class BaseWordTokenizer:
     """ Base class for word tokenization"""
 
@@ -354,6 +235,7 @@ class BaseWordTokenizer:
         """
         pass
 
+
 class BasePunktWordTokenizer(BaseWordTokenizer):
     """Base class for punkt word tokenization"""
 
@@ -365,7 +247,7 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
         self.language = language
         super().__init__(language=self.language)
         if sent_tokenizer:
-            self.sent_tokenizer = sent_tokenizer
+            self.sent_tokenizer = sent_tokenizer()
         else:
             punkt_param = PunktParameters()
             self.sent_tokenizer = PunktSentenceTokenizer(punkt_param)
@@ -378,9 +260,9 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
         :param model: tokenizer object to used # Should be in init?
         :type model: object
         """
-        tokenizer = PunktLanguageVars()
-        return tokenizer.word_tokenize(text)
-
+        sents = self.sent_tokenizer.tokenize(text)
+        tokenizer = TreebankWordTokenizer()
+        return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
 
 class BaseRegexWordTokenizer(BaseWordTokenizer):
     """Base class for punkt word tokenization"""
@@ -402,30 +284,34 @@ class BaseRegexWordTokenizer(BaseWordTokenizer):
         :param model: tokenizer object to used # Should be in init?
         :type model: object
         """
-        for pattern in patterns:
+        for pattern in self.patterns:
             text = re.sub(pattern[0], pattern[1], text)
         return text.split()
 
+class BaseArabyWordTokenizer(BaseWordTokenizer):
+    """Base class for Araby word tokenization"""
 
-# def tokenize_middle_high_german_words(text):
-#     """Tokenizes MHG text"""
-#
-#     assert isinstance(text, str)
-#     # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
-#     text = re.sub(, text)
-#     text = re.sub(r'\n', r' ', text)
-#     text = re.sub(r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])',r' ', text)
-#     text = re.sub(r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)',r' ', text)
-#     text = re.sub(r'\s+',r' ', text)
-#     text = str.split(text)
-#
-#     return text
+    def __init__(self, language:str = None, patterns:list = []):
+        """
+        :param language : language for sentence tokenization
+        :type language: str
+        """
+        self.language = language
+        self.patterns = patterns
+        super().__init__(language=self.language)
 
+    def tokenize(self, text: str):
+        """
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        :param model: tokenizer object to used # Should be in init?
+        :type model: object
+        """
+        return araby.tokenize(text)
 
 if __name__ == '__main__':
-    text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
-    patterns = [(r'-\n',r'-'), (r'\n', r' '), (r'(?<=.)(?=[\.\";\,\:\[\]\(\)!&?])', r' '), (r'(?<=[\.\";\,\:\[\]\(\)!&?])(?=.)', r' '), (r'\s+', r' ')]
-    w = BaseRegexWordTokenizer('middle_high_german', patterns)
-    tokens = w.tokenize(text)
-    print(tokens)
-    pass
+    word_tokenizer = WordTokenizer('greek')
+    test = "Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων, ὡς ἐπολέμησαν πρὸς ἀλλήλους, ἀρξάμενος εὐθὺς καθισταμένου καὶ ἐλπίσας μέγαν τε ἔσεσθαι καὶ ἀξιολογώτατον τῶν προγεγενημένων, τεκμαιρόμενος ὅτι ἀκμάζοντές τε ᾖσαν ἐς αὐτὸν ἀμφότεροι παρασκευῇ τῇ πάσῃ καὶ τὸ ἄλλο Ἑλληνικὸν ὁρῶν ξυνιστάμενον πρὸς ἑκατέρους, τὸ μὲν εὐθύς, τὸ δὲ καὶ διανοούμενον."
+    result = word_tokenizer.tokenize(test)
+    print(result)

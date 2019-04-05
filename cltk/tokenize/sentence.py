@@ -164,3 +164,11 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         :param untokenized_string: A string containing one of more sentences.
         """
         return self.tokenize_sentences(untokenized_string)
+
+if __name__ == "__main__":
+    text = """श्री भगवानुवाच भूय एव महाबाहो श्रृणु मे परमं वचः। यत्तेऽहं प्रीयमाणाय वक्ष्यामि हितकाम्यया।।
+न मे विदुः सुरगणाः प्रभवं न महर्षयः। अहमादिर्हि देवानां महर्षीणां च सर्वशः।।"""
+    t = TokenizeSentence('sanskrit')
+    sents = t.tokenize(text)
+    for i, sent in enumerate(sents, 1):
+        print(f'{i}: {sent}')

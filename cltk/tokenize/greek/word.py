@@ -9,16 +9,16 @@ import re
 from nltk.tokenize.treebank import TreebankWordTokenizer
 
 from cltk.tokenize.word import BasePunktWordTokenizer
-from cltk.tokenize.greek.sentence import SentenceTokenizer
+from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
 
 def WordTokenizer():
-    return GreekPunktSentenceTokenizer()
+    return GreekPunktWordTokenizer()
 
 class GreekPunktWordTokenizer(BasePunktWordTokenizer):
     """
     """
 
-    def __init__(self: object, language:str = 'greek', sent_tokenizer=SentenceTokenizer):
+    def __init__(self: object, language:str = 'greek', sent_tokenizer=GreekRegexSentenceTokenizer):
         """
         :param language : language for sentence tokenization
         :type language: str
@@ -39,7 +39,7 @@ class GreekPunktWordTokenizer(BasePunktWordTokenizer):
         return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
 
 if __name__ == '__main__':
-    text = """ἀλλὰ τοὺς νόμους καὶ τὸν ὅρκον, ἐν ᾧ πρὸς ἅπασι τοῖς ἄλλοις δικαίοις καὶ τοῦτο γέγραπται, τὸ ὁμοίως ἀμφοῖν ἀκροάσασθαι. τοῦτο δ᾽ ἐστὶν οὐ μόνον τὸ μὴ προκατεγνωκέναι μηδέν, οὐδὲ τὸ τὴν εὔνοιαν ἴσην ἀποδοῦναι, ἀλλὰ τὸ καὶ τῇ τάξει καὶ τῇ ἀπολογίᾳ, ὡς βεβούληται καὶ προῄρηται τῶν ἀγωνιζομένων ἕκαστος, οὕτως ἐᾶσαι χρήσασθαι."""
+    text = "Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων, ὡς ἐπολέμησαν πρὸς ἀλλήλους, ἀρξάμενος εὐθὺς καθισταμένου καὶ ἐλπίσας μέγαν τε ἔσεσθαι καὶ ἀξιολογώτατον τῶν προγεγενημένων, τεκμαιρόμενος ὅτι ἀκμάζοντές τε ᾖσαν ἐς αὐτὸν ἀμφότεροι παρασκευῇ τῇ πάσῃ καὶ τὸ ἄλλο Ἑλληνικὸν ὁρῶν ξυνιστάμενον πρὸς ἑκατέρους, τὸ μὲν εὐθύς, τὸ δὲ καὶ διανοούμενον."
     w = GreekPunktWordTokenizer()
     tokens = w.tokenize(text)
     for i, token in enumerate(tokens, 1):
