@@ -46,7 +46,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'middle_high_german',
                                     'old_french',
                                     'old_norse',
-                                    'sanskrit'
+                                    'sanskrit',
+                                    'multilingual'
                                     ]
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
@@ -86,7 +87,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokenizer = BaseRegexWordTokenizer('old_french', OldFrenchTokenizerPatterns)
             tokens = tokenizer.tokenize(string)
         else:
-            tokenizer = TreebankWordTokenizer # Should else have warning that default is used?
+            tokenizer = TreebankWordTokenizer() # Should else have warning that default is used?
             tokens = tokenizer.tokenize(string)
         return tokens
 
