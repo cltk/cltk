@@ -10,6 +10,9 @@ check:
 develop:
 	python setup.py sdist develop
 
+docs:
+	sphinx-apidoc -o docs cltk
+
 install:
 	python setup.py install
 
