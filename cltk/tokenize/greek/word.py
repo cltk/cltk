@@ -16,11 +16,11 @@ def WordTokenizer():
 
 class GreekPunktWordTokenizer(BasePunktWordTokenizer):
     """
+    Greek word tokenizer using regex
     """
-
     def __init__(self: object, language:str = 'greek', sent_tokenizer=GreekRegexSentenceTokenizer):
         """
-        :param language : language for sentence tokenization
+        :param language : language for word tokenization
         :type language: str
         """
         super().__init__(language='greek')
