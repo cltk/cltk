@@ -16,8 +16,7 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 from nltk.tokenize.treebank import TreebankWordTokenizer
 
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
-# from cltk.tokenize.latin.word import *
-
+from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
 from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
 from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
@@ -38,7 +37,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
                                     'latin',
                                     'middle_english',
                                     'middle_french',
-                                    'middle_high_german'
+                                    'middle_high_german',
                                     'old_french',
                                     'old_norse',
                                     'sanskrit'
@@ -46,7 +45,6 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
         assert self.language in self.available_languages, \
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
             self.available_languages)  # pylint: disable=line-too-long
-        # ^^^ Necessary? since we have an 'else' in `tokenize`
 
     def tokenize(self, string):
         """Tokenize incoming string."""
@@ -62,7 +60,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokenizer = BasePunktWordTokenizer('greek', GreekRegexSentenceTokenizer)
             tokens = tokenizer.tokenize(string)
         elif self.language == 'latin':
-            # Add deprecation warning
+            # Add deprecation warning to use cltk.tokenize.latin.word
+            # Enclitic support removed from this tokenizer
             tokenizer = TreebankWordTokenizer()
             tokens = tokenizer.tokenize(string)
         elif self.language == 'old_norse':
@@ -264,6 +263,7 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
         tokenizer = TreebankWordTokenizer()
         return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
 
+
 class BaseRegexWordTokenizer(BaseWordTokenizer):
     """Base class for punkt word tokenization"""
 
@@ -288,6 +288,7 @@ class BaseRegexWordTokenizer(BaseWordTokenizer):
             text = re.sub(pattern[0], pattern[1], text)
         return text.split()
 
+
 class BaseArabyWordTokenizer(BaseWordTokenizer):
     """Base class for Araby word tokenization"""
 
@@ -309,9 +310,3 @@ class BaseArabyWordTokenizer(BaseWordTokenizer):
         :type model: object
         """
         return araby.tokenize(text)
-
-if __name__ == '__main__':
-    word_tokenizer = WordTokenizer('greek')
-    test = "Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων, ὡς ἐπολέμησαν πρὸς ἀλλήλους, ἀρξάμενος εὐθὺς καθισταμένου καὶ ἐλπίσας μέγαν τε ἔσεσθαι καὶ ἀξιολογώτατον τῶν προγεγενημένων, τεκμαιρόμενος ὅτι ἀκμάζοντές τε ᾖσαν ἐς αὐτὸν ἀμφότεροι παρασκευῇ τῇ πάσῃ καὶ τὸ ἄλλο Ἑλληνικὸν ὁρῶν ξυνιστάμενον πρὸς ἑκατέρους, τὸ μὲν εὐθύς, τὸ δὲ καὶ διανοούμενον."
-    result = word_tokenizer.tokenize(test)
-    print(result)

@@ -83,7 +83,7 @@ ne_exceptions += ['absone', 'acharne', 'acrisione', 'acumine', 'adhucine', 'adsu
                   'lacedaemone', 'lanugine', 'latine', 'legione', 'lene', 'lenone', 'libidine', 'limine', 'limone',
                   'lumine', 'magne', 'maligne', 'mane', 'margine', 'marone', 'masculine', 'matutine', 'medicamine',
                   'melpomene', 'memnone', 'mesene', 'messene', 'misene', 'mitylene', 'mnemosyne', 'moderamine', 'moene',
-                  'mone', 'mortaline', 'mucrone', 'munimine', 'myrmidone', 'mytilene', 'necne', 'neptune', 'nequene',
+                  'mone', 'mortaline', 'mucrone', 'munimine', 'myrmidone', 'mytilene', 'ne', 'necne', 'neptune', 'nequene',
                   'nerine', 'nocturne', 'nomine', 'nonne', 'nullane', 'numine', 'nuncine', 'nyctimene', 'obscene',
                   'obsidione', 'oenone', 'omine', 'omne', 'oppone', 'opportune', 'ordine', 'origine', 'orphne',
                   'oxymyrsine', 'paene', 'pallene', 'pane', 'paraetacene', 'patalene', 'pectine', 'pelagine', 'pellene',

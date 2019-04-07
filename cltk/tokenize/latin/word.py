@@ -26,8 +26,10 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         """
         super().__init__(language='latin')
         self.sent_tokenizer = sent_tokenizer()
+        self._latin_replacements = latin_replacements
 
-    def tokenize(self, text: str, split_enclitics:list = ['ne', 'n', 'que', 've', 'ue', 'st'], split_words:bool = True):
+    def tokenize(self, text: str, split_enclitics:list = ['ne', 'n', 'que', 've', 'ue', 'st'],
+                                  split_words:list = []):
         """
         :rtype: list
         :param text: text to be tokenized into sentences
@@ -35,12 +37,14 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         :param model: tokenizer object to used # Should be in init?
         :type model: object
         """
+        if self._latin_replacements:
+            split_words = self._latin_replacements
+
         if split_words:
-            text = self._replace_patterns(text, latin_replacements)
+            text = self._replace_patterns(text, split_words)
         sents = self.sent_tokenizer.tokenize(text)
         if split_enclitics:
             sents = self._split_enclitics(sents, split_enclitics)
-        # print(sents)
         tokenizer = TreebankWordTokenizer()
         return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
 
@@ -54,24 +58,31 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         elif 'n' in enclitics:
             ne_compile = re.compile(r'^\b(\w+?)(n)[%s]?\b'%re.escape(string.punctuation))
 
-        enclitics = [enc for enc in enclitics if enc is not 'ne' and enc is not 'n']
-        if len(enclitics) > 1:
-            if "que" in enclitics and 'ue' in enclitics:
-                enclitics.remove('que')
-                enclitics.remove('ue')
-                enclitics.append('q?ue')
-            enclitics_ = "|".join(enclitics)
-            print(enclitics_)
-            enc_compile = re.compile(r'[^%s]\b(\w+?)(%s)[%s]?\b'%(exclude_flag, enclitics_, re.escape(string.punctuation)))
+        enclitics_ = [enc for enc in enclitics if enc is not 'ne' and enc is not 'n']
+        if len(enclitics_) > 1:
+            if "que" in enclitics_ and 'ue' in enclitics_:
+                enclitics_.remove('que')
+                enclitics_.remove('ue')
+                enclitics_.append('q?ue')
+            enclitics_string = "|".join(enclitics_)
+            enc_compile = re.compile(r'[^%s]\b(\w+?)(%s)[%s]?\b'%(exclude_flag, enclitics_string, re.escape(string.punctuation)))
 
         sent_tokens_ = []
         for sent in sents:
             for word in latin_exceptions:
-                sent = sent.replace(f' {word} ', f' ~{word}~ ')
+                sent = re.sub(rf'\b{word}\b', rf'~{word}~', sent)
             sent = " ".join(filter(None, ne_compile.split(sent)))
             sent = " ".join(filter(None, enc_compile.split(sent)))
-            sent = sent.replace('~', '')
-            sent_tokens_.append(sent)
+            for enclitic in enclitics:
+                if enclitic == 'st':
+                    sent = sent.replace('u st ', 'us st ')
+                    sent = re.sub(rf'[^%s]\b{enclitic}\b'%(exclude_flag), f' e{enclitic}', sent)
+                elif enclitic == 'n':
+                    sent = re.sub(rf'[^%s]\b{enclitic}\b'%(exclude_flag), f' -{enclitic}e', sent)
+                else:
+                    sent = re.sub(rf'[^%s]\b{enclitic}\b'%(exclude_flag), f' -{enclitic}', sent)
+            sent = sent.replace('~','')
+            sent_tokens_.append(" ".join(sent.split()))
         return sent_tokens_
 
     def _matchcase(self, word):
@@ -92,11 +103,3 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         for pattern in patterns:
             text = re.sub(pattern[0], self._matchcase(pattern[1]), text, flags=re.IGNORECASE)
         return text
-
-if __name__ == '__main__':
-    text = """Hocne verumst, totane teque ferri, Cynthia, Roma, quoque et nonve ignotaue vivere nequitia?"""
-    w = LatinPunktWordTokenizer()
-    tokens = w.tokenize(text)
-    for i, token in enumerate(tokens, 1):
-        print(f'{i}: {token}')
-    pass
