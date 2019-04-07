@@ -13,11 +13,11 @@ def WordTokenizer():
 
 class OldFrenchRegexWordTokenizer(BaseRegexWordTokenizer):
     """
+    Old French word tokenizer using regex
     """
-
     def __init__(self: object, language:str = 'old_french', patterns=OldFrenchTokenizerPatterns):
         """
-        :param language : language for sentence tokenization
+        :param language : language for word tokenization
         :type language: str
         """
         self.patterns = patterns

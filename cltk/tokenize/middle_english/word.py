@@ -14,11 +14,11 @@ def WordTokenizer():
 
 class MiddleEnglishRegexWordTokenizer(BaseRegexWordTokenizer):
     """
+    Middle English word tokenizer using regex
     """
-
     def __init__(self: object, language:str = 'middle_english', patterns=MiddleEnglishTokenizerPatterns):
         """
-        :param language : language for sentence tokenization
+        :param language : language for word tokenization
         :type language: str
         """
         self.patterns = patterns

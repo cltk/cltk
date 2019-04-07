@@ -7,7 +7,7 @@ __license__ = 'MIT License.'
 
 import re
 
-def tokenize_akkadian_words(line):
+def tokenize_akkadian_words(line:str):
     """
     Operates on a single line of text, returns all words in the line as a
     tuple in a list.
@@ -54,7 +54,7 @@ def tokenize_akkadian_words(line):
     return output_words
 
 
-def tokenize_akkadian_signs(word):
+def tokenize_akkadian_signs(word:str):
     """
     Takes tuple (word, language) and splits the word up into individual
     sign tuples (sign, language) in a list.

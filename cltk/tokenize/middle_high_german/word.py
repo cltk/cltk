@@ -14,11 +14,11 @@ def WordTokenizer():
 
 class MiddleHighGermanRegexWordTokenizer(BaseRegexWordTokenizer):
     """
+    Middle High German word tokenizer using regex
     """
-
     def __init__(self: object, language:str = 'middle_high_german', patterns=MiddleHighGermanTokenizerPatterns):
         """
-        :param language : language for sentence tokenization
+        :param language : language for word tokenization
         :type language: str
         """
         self.patterns = patterns

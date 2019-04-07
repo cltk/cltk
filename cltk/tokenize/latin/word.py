@@ -16,12 +16,12 @@ def WordTokenizer():
     return LatinPunktWordTokenizer()
 
 class LatinPunktWordTokenizer(BasePunktWordTokenizer):
-    """ PunktSentenceTokenizer trained on Latin
     """
-
+    PunktSentenceTokenizer trained on Latin
+    """
     def __init__(self: object, language:str = 'latin', sent_tokenizer=SentenceTokenizer):
         """
-        :param language : language for sentence tokenization
+        :param language : language for word tokenization
         :type language: str
         """
         super().__init__(language='latin')

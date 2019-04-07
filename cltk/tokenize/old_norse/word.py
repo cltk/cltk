@@ -14,6 +14,7 @@ def WordTokenizer():
 
 class OldNorseRegexWordTokenizer(BaseRegexWordTokenizer):
     """
+    Old Norse word tokenizer using regex
     """
     #     # TODO dealing with merges between verbs at the second person of the present tense and þú
     #     # -> -tu, -ðu, -du, -u : question
@@ -22,7 +23,7 @@ class OldNorseRegexWordTokenizer(BaseRegexWordTokenizer):
 
     def __init__(self: object, language:str = 'old_norse', patterns=OldNorseTokenizerPatterns):
         """
-        :param language : language for sentence tokenization
+        :param language : language for word tokenization
         :type language: str
         """
         self.patterns = patterns

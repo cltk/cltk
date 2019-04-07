@@ -174,7 +174,10 @@ class BaseRegexWordTokenizer(BaseWordTokenizer):
 
 
 class BaseArabyWordTokenizer(BaseWordTokenizer):
-    """Base class for Araby word tokenization"""
+    """
+    Base class for word tokenizer using the pyarabic package:
+    https://pypi.org/project/PyArabic/
+    """
 
     def __init__(self, language:str = None):
         """
