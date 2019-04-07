@@ -7,7 +7,7 @@ class UnknownLanguageError(Exception):
     supported.
     """
 
-def tokenizer_latin(text: str) -> List:
+def tokenizer_latin(text: str) -> List[str]:
     """Latin word tokenizer.
 
     >>> catiline = 'Quo usque tandem abutere'
@@ -30,7 +30,7 @@ class Tokenize:
 
         >>> tokenize = Tokenize(language='id')
         Traceback (most recent call last):
-            ...
+          ...
         cltk.tokenize.tokenize.UnknownLanguageError
         """
         self.language = language
@@ -39,7 +39,7 @@ class Tokenize:
         else:
             raise UnknownLanguageError
 
-    def tokenize_text(self, text) -> List[str]:
+    def tokenize_text(self, text: str) -> List[str]:
         """Tokenize text with appropriate tokenizer."""
         tokens = self.tokenizer(text=text)
         return tokens

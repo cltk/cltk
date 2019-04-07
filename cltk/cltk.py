@@ -13,6 +13,7 @@ class CLTK:
         True
         """
         self.doc = doc
+        self.language = language
 
     @property
     def sentences(self) -> List[str]:

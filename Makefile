@@ -23,10 +23,10 @@ lint:
 	pylint --errors-only cltk
 
 test:
-	nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
+	nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltk --with-doctest
 
 typing:
-	mypy cltk
+	mypy --html-report .mypy_cache cltk
 
 uml:
 	cd docs && pyreverse -o png ../cltk
