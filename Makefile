@@ -20,7 +20,7 @@ installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ cltk
 
 lint:
-	pylint cltk
+	pylint --errors-only cltk
 
 test:
 	nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest
