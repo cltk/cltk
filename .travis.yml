@@ -11,7 +11,7 @@ python:
 install: make install
 
 before_script:
-- apt-get install -y graphviz
+- sudo apt-get install -y graphviz
 - pip install --upgrade pip
 - pip install -r requirements-dev.txt
 
