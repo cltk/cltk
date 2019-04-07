@@ -4,6 +4,7 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
+import string
 from nltk.tokenize.punkt import PunktLanguageVars
 
 class SanskritLanguageVars(PunktLanguageVars):
