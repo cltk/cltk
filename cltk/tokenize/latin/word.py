@@ -13,8 +13,7 @@ from cltk.tokenize.latin.params import ABBREVIATIONS, latin_exceptions, latin_re
 from cltk.tokenize.latin.sentence import SentenceTokenizer
 
 def WordTokenizer():
-    return LatinPunktSentenceTokenizer()
-
+    return LatinPunktWordTokenizer()
 
 class LatinPunktWordTokenizer(BasePunktWordTokenizer):
     """ PunktSentenceTokenizer trained on Latin
@@ -28,7 +27,7 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         super().__init__(language='latin')
         self.sent_tokenizer = sent_tokenizer()
 
-    def tokenize(self, text: str, split_enclitics:bool = True, split_words:bool = True):
+    def tokenize(self, text: str, split_enclitics:list = ['ne', 'n', 'que', 've', 'ue', 'st'], split_words:bool = True):
         """
         :rtype: list
         :param text: text to be tokenized into sentences
@@ -40,35 +39,39 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
             text = self._replace_patterns(text, latin_replacements)
         sents = self.sent_tokenizer.tokenize(text)
         if split_enclitics:
-            sents = self._split_enclitics(sents)
-        print(sents)
+            sents = self._split_enclitics(sents, split_enclitics)
+        # print(sents)
         tokenizer = TreebankWordTokenizer()
         return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
 
-    def _split_enclitics(self:object, sents:list):
+    def _split_enclitics(self:object, sents:list, enclitics: list):
+        import string
+        exclude_flag = '~'
+        if 'ne' in enclitics and 'n' in enclitics:
+            ne_compile = re.compile(r'^\b(\w+?)([n]e?)[%s]?\b'%re.escape(string.punctuation))
+        elif 'ne' in enclitics:
+            ne_compile = re.compile(r'^\b(\w+?)(ne)[%s]?\b'%re.escape(string.punctuation))
+        elif 'n' in enclitics:
+            ne_compile = re.compile(r'^\b(\w+?)(n)[%s]?\b'%re.escape(string.punctuation))
+
+        enclitics = [enc for enc in enclitics if enc is not 'ne' and enc is not 'n']
+        if len(enclitics) > 1:
+            if "que" in enclitics and 'ue' in enclitics:
+                enclitics.remove('que')
+                enclitics.remove('ue')
+                enclitics.append('q?ue')
+            enclitics_ = "|".join(enclitics)
+            print(enclitics_)
+            enc_compile = re.compile(r'[^%s]\b(\w+?)(%s)[%s]?\b'%(exclude_flag, enclitics_, re.escape(string.punctuation)))
+
         sent_tokens_ = []
         for sent in sents:
-            sent_tokens = sent.split()
-            tokens_ = []
-            if sent_tokens[0].endswith('ne') and sent_tokens[0] not in latin_exceptions:
-                tokens_.extend([sent_tokens[0][:-2], '-ne'])
-            elif sent_tokens[0].endswith('n') and sent_tokens[0] not in latin_exceptions:
-                tokens_.extend([sent_tokens[0][:-1], '-ne'])
-            else:
-                for token in sent_tokens:
-                    if token.endswith('que') and token not in latin_exceptions:
-                        tokens_.extend([token[:-3], '-que'])
-                    elif token.endswith('ve') and token not in latin_exceptions:
-                        tokens_.extend([token[:-2], '-ve'])
-                    elif token.endswith('ue') and token not in latin_exceptions:
-                        tokens_.extend([token[:-2], '-ue'])
-                    elif token.endswith('ust') and token not in latin_exceptions:
-                        tokens_.extend([token[:-1], 'est'])
-                    elif token.endswith('st') and token not in latin_exceptions:
-                        tokens_.extend([token[:-2], 'est'])
-                    else:
-                        tokens_.append(token)
-                sent_tokens_.append(" ".join(tokens_))
+            for word in latin_exceptions:
+                sent = sent.replace(f' {word} ', f' ~{word}~ ')
+            sent = " ".join(filter(None, ne_compile.split(sent)))
+            sent = " ".join(filter(None, enc_compile.split(sent)))
+            sent = sent.replace('~', '')
+            sent_tokens_.append(sent)
         return sent_tokens_
 
     def _matchcase(self, word):
@@ -91,7 +94,7 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         return text
 
 if __name__ == '__main__':
-    text = """Haec si tecum, ita verumst ut dixi, patria loquatur, nonne impetrare debeat, etiamsi vim adhibere non possit? Quid, quod tu te ipse in custodiam dedisti, quod vitandae suspicionis causa ad M'. Lepidum te habitare velle dixisti? A quo non receptus etiam ad me venire ausus es atque, ut domi meae te adservarem, rogasti. Cum a me quoque id responsum tulisses, me nullo modo posse isdem parietibus tuto esse tecum, qui magno in periculo essem, quod isdem moenibus contineremur, ad Q. Metellum praetorem venisti. A quo repudiatus ad sodalem tuum, virum optumum, M. Metellum, demigrasti; quem tu videlicet et ad custodiendum diligentissimum et ad suspicandum sagacissimum et ad vindicandum fortissimum fore putasti. Sed quam longe videtur a carcere atque a vinculis abesse debere, qui se ipse iam dignum custodia iudicarit! """
+    text = """Hocne verumst, totane teque ferri, Cynthia, Roma, quoque et nonve ignotaue vivere nequitia?"""
     w = LatinPunktWordTokenizer()
     tokens = w.tokenize(text)
     for i, token in enumerate(tokens, 1):
