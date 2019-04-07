@@ -17,6 +17,7 @@ from cltk.tokenize.greek.sentence import SentenceTokenizer as GreekSentenceToken
 from cltk.tokenize.sanskrit.word import WordTokenizer as SanskritWordTokenizer
 from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 from cltk.tokenize.latin.utils import LatinSentenceTokenizerTrainer
+from cltk.tokenize.latin.word import WordTokenizer as LatinWordTokenizer
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -134,7 +135,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
 
         self.assertEqual(result, target)
 
-    def test_latin_word_tokenizer(self):
+    def test_latin_word_tokenizer_old(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
 
@@ -148,6 +149,29 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         # - Plaut. Bacch. 837-38
         # - Plaut. Amph. 823
         # - Caes. Bel. 6.29.2
+
+        tests = ['Arma virumque cano, Troiae qui primus ab oris.',
+                    'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
+                    'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!',
+                    'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.',
+                    'Quid opust verbis? lingua nullast qua negem quidquid roges.',
+                    'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',  # pylint: disable=line-too-long
+                    'Dic sodes mihi, bellan videtur specie mulier?',
+                    'Cenavin ego heri in navi in portu Persico?',
+                    'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit']
+
+        results = []
+
+        for test in tests:
+            result = word_tokenizer.tokenize(test)
+            results.append(result)
+
+        target = [['Arma', 'virumque', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris', '.'], ['Hoc', 'verumst', ',', 'tota', 'te', 'ferri', ',', 'Cynthia', ',', 'Roma', ',', 'et', 'non', 'ignota', 'vivere', 'nequitia', '?'], ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae.', 'Tolle', 'tuos', 'tecum', ',', 'pauper', 'amator', ',', 'avos', '!'], ['Neque', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'nec', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur', '.'], ['Quid', 'opust', 'verbis', '?', 'lingua', 'nullast', 'qua', 'negem', 'quidquid', 'roges', '.'], ['Textile', 'post', 'ferrumst', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapique', 'sonantes', '.'], ['Dic', 'sodes', 'mihi', ',', 'bellan', 'videtur', 'specie', 'mulier', '?'], ['Cenavin', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'], ['quae', 'ripas', 'Ubiorum', 'contingebat', 'in', 'longitudinem', 'pedum', 'ducentorum', 'rescindit']]
+
+        self.assertEqual(results, target)
+
+    def test_tokenize_latin_words(self):
+        word_tokenizer = LatinWordTokenizer()
 
         tests = ['Arma virumque cano, Troiae qui primus ab oris.',
                     'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
