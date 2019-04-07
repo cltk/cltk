@@ -1,0 +1,21 @@
+sudo: required
+
+dist: xenial
+
+language: python
+
+python:
+- '3.6'
+- '3.7'
+
+install: make install
+
+before_script:
+- pip install --upgrade pip
+- pip install -r requirements-dev.txt
+
+script:
+- make test
+- make typing
+- make lint
+- make docs
