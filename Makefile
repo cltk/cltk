@@ -28,6 +28,9 @@ test:
 typing:
 	mypy cltk
 
+uml:
+	cd docs && pyreverse -o png ../cltk
+
 upload:
 	python setup.py upload
 
