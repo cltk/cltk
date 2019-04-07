@@ -19,7 +19,3 @@ class ArabicArabyWordTokenizer(BaseArabyWordTokenizer):
         :type language: str
         """
         super().__init__(language=language)
-
-if __name__=="__main__":
-    t = ArabicArabyWordTokenizer()
-    print(t.tokenize('انما الْمُؤْمِنُونَ اخوه فاصلحوا بَيْنَ اخويكم'))

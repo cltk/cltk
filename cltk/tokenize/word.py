@@ -9,6 +9,9 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
 
 __license__ = 'MIT License. See LICENSE.'
 
+from typing import List, Dict, Tuple, Set, Any, Generator
+from abc import abstractmethod
+
 import re
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
@@ -18,6 +21,9 @@ from nltk.tokenize.treebank import TreebankWordTokenizer
 import cltk.corpus.arabic.utils.pyarabic.araby as araby
 from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
+
+from cltk.tokenize.akkadian.word import tokenize_akkadian_words, tokenize_akkadian_signs
+
 from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
 from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
 from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
@@ -80,7 +86,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             tokenizer = BaseRegexWordTokenizer('old_french', OldFrenchTokenizerPatterns)
             tokens = tokenizer.tokenize(string)
         else:
-            tokenizer = TreebankWordTokenizer
+            tokenizer = TreebankWordTokenizer # Should else have warning that default is used?
             tokens = tokenizer.tokenize(string)
         return tokens
 
@@ -90,131 +96,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             sign_tokens = tokenize_akkadian_signs(word)
         else:
             sign_tokens = 'Language must be written using cuneiform.'
-
         return sign_tokens
-
-def tokenize_akkadian_words(line):
-    """
-    Operates on a single line of text, returns all words in the line as a
-    tuple in a list.
-
-    input: "1. isz-pur-ram a-na"
-    output: [("isz-pur-ram", "akkadian"), ("a-na", "akkadian")]
-
-    :param: line: text string
-    :return: list of tuples: (word, language)
-    """
-    beginning_underscore = "_[^_]+(?!_)$"
-    # only match a string if it has a beginning underscore anywhere
-    ending_underscore = "^(?<!_)[^_]+_"
-    # only match a string if it has an ending underscore anywhere
-    two_underscores = "_[^_]+_"
-    # only match a string if it has two underscores
-
-    words = line.split()
-    # split the line on spaces ignoring the first split (which is the
-    # line number)
-    language = "akkadian"
-    output_words = []
-    for word in words:
-        if re.search(two_underscores, word):
-            # If the string has two underscores in it then the word is
-            # in Sumerian while the neighboring words are in Akkadian.
-            output_words.append((word, "sumerian"))
-        elif re.search(beginning_underscore, word):
-            # If the word has an initial underscore somewhere
-            # but no other underscores than we're starting a block
-            # of Sumerian.
-            language = "sumerian"
-            output_words.append((word, language))
-        elif re.search(ending_underscore, word):
-            # If the word has an ending underscore somewhere
-            # but not other underscores than we're ending a block
-            # of Sumerian.
-            output_words.append((word, language))
-            language = "akkadian"
-        else:
-            # If there are no underscore than we are continuing
-            # whatever language we're currently in.
-            output_words.append((word, language))
-    return output_words
-
-
-def tokenize_akkadian_signs(word):
-    """
-    Takes tuple (word, language) and splits the word up into individual
-    sign tuples (sign, language) in a list.
-
-    input: ("{gisz}isz-pur-ram", "akkadian")
-    output: [("gisz", "determinative"), ("isz", "akkadian"),
-    ("pur", "akkadian"), ("ram", "akkadian")]
-
-    :param: tuple created by word_tokenizer2
-    :return: list of tuples: (sign, function or language)
-    """
-    word_signs = []
-    sign = ''
-    language = word[1]
-    determinative = False
-    for char in word[0]:
-        if determinative is True:
-            if char == '}':
-                determinative = False
-                if len(sign) > 0:  # pylint: disable=len-as-condition
-                    word_signs.append((sign, 'determinative'))
-                sign = ''
-                language = word[1]
-                continue
-            else:
-                sign += char
-                continue
-        else:
-            if language == 'akkadian':
-                if char == '{':
-                    if len(sign) > 0:  # pylint: disable=len-as-condition
-                        word_signs.append((sign, language))
-                    sign = ''
-                    determinative = True
-                    continue
-                elif char == '_':
-                    if len(sign) > 0:  # pylint: disable=len-as-condition
-                        word_signs.append((sign, language))
-                    sign = ''
-                    language = 'sumerian'
-                    continue
-                elif char == '-':
-                    if len(sign) > 0:  # pylint: disable=len-as-condition
-                        word_signs.append((sign, language))
-                    sign = ''
-                    language = word[1] # or default word[1]?
-                    continue
-                else:
-                    sign += char
-            elif language == 'sumerian':
-                if char == '{':
-                    if len(sign) > 0:  # pylint: disable=len-as-condition
-                        word_signs.append((sign, language))
-                    sign = ''
-                    determinative = True
-                    continue
-                elif char == '_':
-                    if len(sign) > 0:  # pylint: disable=len-as-condition
-                        word_signs.append((sign, language))
-                    sign = ''
-                    language = word[1]
-                    continue
-                elif char == '-':
-                    if len(sign) > 0:  # pylint: disable=len-as-condition
-                        word_signs.append((sign, language))
-                    sign = ''
-                    language = word[1]
-                    continue
-                else:
-                    sign += char
-    if len(sign) > 0:
-        word_signs.append((sign, language))
-
-    return word_signs
 
 
 class BaseWordTokenizer:
@@ -228,9 +110,11 @@ class BaseWordTokenizer:
         if language:
             self.language = language.lower()
 
+    @abstractmethod
     def tokenize(self, text: str, model: object = None):
         """
-        Replace in subclasses
+        Create a list of tokens from a string.
+        This method should be overridden by subclasses of BaseWordTokenizer.
         """
         pass
 
@@ -256,8 +140,6 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
         :rtype: list
         :param text: text to be tokenized into sentences
         :type text: str
-        :param model: tokenizer object to used # Should be in init?
-        :type model: object
         """
         sents = self.sent_tokenizer.tokenize(text)
         tokenizer = TreebankWordTokenizer()
@@ -265,12 +147,14 @@ class BasePunktWordTokenizer(BaseWordTokenizer):
 
 
 class BaseRegexWordTokenizer(BaseWordTokenizer):
-    """Base class for punkt word tokenization"""
+    """Base class for regex word tokenization"""
 
-    def __init__(self, language:str = None, patterns:list = []):
+    def __init__(self, language:str = None, patterns:List[str] = None):
         """
         :param language : language for sentence tokenization
         :type language: str
+        :param patterns: regex patterns for word tokenization
+        :type patterns: list of strings
         """
         self.language = language
         self.patterns = patterns
@@ -292,13 +176,12 @@ class BaseRegexWordTokenizer(BaseWordTokenizer):
 class BaseArabyWordTokenizer(BaseWordTokenizer):
     """Base class for Araby word tokenization"""
 
-    def __init__(self, language:str = None, patterns:list = []):
+    def __init__(self, language:str = None):
         """
         :param language : language for sentence tokenization
         :type language: str
         """
         self.language = language
-        self.patterns = patterns
         super().__init__(language=self.language)
 
     def tokenize(self, text: str):
@@ -306,7 +189,5 @@ class BaseArabyWordTokenizer(BaseWordTokenizer):
         :rtype: list
         :param text: text to be tokenized into sentences
         :type text: str
-        :param model: tokenizer object to used # Should be in init?
-        :type model: object
         """
         return araby.tokenize(text)
