@@ -11,7 +11,7 @@ develop:
 	python setup.py sdist develop
 
 docs:
-	sphinx-apidoc -o docs cltk
+	sphinx-apidoc -o docs cltk && cd docs && make html
 
 install:
 	python setup.py install
@@ -37,4 +37,4 @@ upload:
 uploadTest:
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
-.PHONY: build
+.PHONY: build docs
