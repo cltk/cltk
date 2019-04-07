@@ -17,5 +17,5 @@ before_script:
 script:
 - make test
 - make typing
-- make lint
+- make lint --errors-only
 - make docs
