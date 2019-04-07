@@ -2,10 +2,7 @@
 
 from typing import List
 
-class UnknownLanguageError(Exception):
-    """Exception for when a user requests an NLP method that is not
-    supported.
-    """
+from cltk.exceptions import UnknownLanguageError
 
 def tokenizer_latin(text: str) -> List[str]:
     """Latin word tokenizer.
@@ -31,7 +28,7 @@ class Tokenize:
         >>> tokenize = Tokenize(language='id')
         Traceback (most recent call last):
           ...
-        cltk.tokenize.tokenize.UnknownLanguageError
+        cltk.exceptions.exceptions.UnknownLanguageError
         """
         self.language = language
         if self.language == 'la':
