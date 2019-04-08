@@ -17,7 +17,15 @@ from cltk.tokenize.greek.sentence import SentenceTokenizer as GreekSentenceToken
 from cltk.tokenize.sanskrit.word import WordTokenizer as SanskritWordTokenizer
 from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 from cltk.tokenize.latin.utils import LatinSentenceTokenizerTrainer
+from cltk.tokenize.akkadian.word import tokenize_akkadian_words, tokenize_akkadian_signs
+from cltk.tokenize.arabic.word import WordTokenizer as ArabicWordTokenizer
+from cltk.tokenize.greek.word import WordTokenizer as GreekWordTokenizer
 from cltk.tokenize.latin.word import WordTokenizer as LatinWordTokenizer
+from cltk.tokenize.middle_english.word import WordTokenizer as MiddleEnglishWordTokenizer
+from cltk.tokenize.middle_high_german.word import WordTokenizer as MiddleHighGermanLatinWordTokenizer
+from cltk.tokenize.old_french.word import WordTokenizer as OldFrenchWordTokenizer
+from cltk.tokenize.old_norse.word import WordTokenizer as OldNorseWordTokenizer
+from cltk.tokenize.sanskrit.word import WordTokenizer as SanskritWordTokenizer
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -120,7 +128,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         # self.latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
         pass
 
-    def test_greek_word_tokenizer(self):
+    def test_greek_word_tokenizer_base(self):
         """Test Greek-specific word tokenizer."""
         word_tokenizer = WordTokenizer('greek')
 
@@ -135,7 +143,22 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
 
         self.assertEqual(result, target)
 
-    def test_latin_word_tokenizer_old(self):
+    def test_greek_word_tokenizer(self):
+        """Test Greek-specific word tokenizer."""
+        word_tokenizer = GreekWordTokenizer()
+
+        # Test sources:
+        # - Thuc. 1.1.1
+
+        test = "Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων, ὡς ἐπολέμησαν πρὸς ἀλλήλους, ἀρξάμενος εὐθὺς καθισταμένου καὶ ἐλπίσας μέγαν τε ἔσεσθαι καὶ ἀξιολογώτατον τῶν προγεγενημένων, τεκμαιρόμενος ὅτι ἀκμάζοντές τε ᾖσαν ἐς αὐτὸν ἀμφότεροι παρασκευῇ τῇ πάσῃ καὶ τὸ ἄλλο Ἑλληνικὸν ὁρῶν ξυνιστάμενον πρὸς ἑκατέρους, τὸ μὲν εὐθύς, τὸ δὲ καὶ διανοούμενον."
+
+        target = ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',', 'ὡς', 'ἐπολέμησαν', 'πρὸς', 'ἀλλήλους', ',', 'ἀρξάμενος', 'εὐθὺς', 'καθισταμένου', 'καὶ', 'ἐλπίσας', 'μέγαν', 'τε', 'ἔσεσθαι', 'καὶ', 'ἀξιολογώτατον', 'τῶν', 'προγεγενημένων', ',', 'τεκμαιρόμενος', 'ὅτι', 'ἀκμάζοντές', 'τε', 'ᾖσαν', 'ἐς', 'αὐτὸν', 'ἀμφότεροι', 'παρασκευῇ', 'τῇ', 'πάσῃ', 'καὶ', 'τὸ', 'ἄλλο', 'Ἑλληνικὸν', 'ὁρῶν', 'ξυνιστάμενον', 'πρὸς', 'ἑκατέρους', ',', 'τὸ', 'μὲν', 'εὐθύς', ',', 'τὸ', 'δὲ', 'καὶ', 'διανοούμενον', '.']
+
+        result = word_tokenizer.tokenize(test)
+
+        self.assertEqual(result, target)
+
+    def test_latin_word_tokenizer_base(self):
         """Test Latin-specific word tokenizer."""
         word_tokenizer = WordTokenizer('latin')
 
@@ -179,7 +202,6 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
                     'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.',
                     'Quid opust verbis? lingua nullast qua negem quidquid roges.',
                     'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',  # pylint: disable=line-too-long
-                    # 'Dic sodes mihi, bellan videtur specie mulier?', # having trouble
                     'Cenavin ego heri in navi in portu Persico?',
                     'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit']
 
@@ -195,14 +217,13 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
                   ['Neque', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'nec', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur', '.'],  # pylint: disable=line-too-long
                   ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges', '.'],  # pylint: disable=line-too-long
                   ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.'],  # pylint: disable=line-too-long
-                  # ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?'],
                   ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
                   ['quae', "ripas", "Ubiorum", "contingebat", "in", "longitudinem", "pedum", "ducentorum", "rescindit"]
                   ]
 
         self.assertEqual(results, target)
 
-    def test_tokenize_arabic_words(self):
+    def test_tokenize_arabic_words_base(self):
         word_tokenizer = WordTokenizer('arabic')
         tests = ['اللُّغَةُ الْعَرَبِيَّةُ جَمِيلَةٌ.',
                  'انما الْمُؤْمِنُونَ اخوه فاصلحوا بَيْنَ اخويكم',
@@ -228,7 +249,33 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
                  ]
         self.assertEqual(results, target)
 
-    def test_word_tokenizer_french(self):
+    def test_tokenize_arabic_words(self):
+        word_tokenizer = ArabicWordTokenizer()
+        tests = ['اللُّغَةُ الْعَرَبِيَّةُ جَمِيلَةٌ.',
+                 'انما الْمُؤْمِنُونَ اخوه فاصلحوا بَيْنَ اخويكم',
+                 'الْعَجُزُ عَنِ الْإِدْرَاكِ إِدْرَاكٌ، وَالْبَحْثَ فِي ذاتِ اللَّه اشراك.',
+                 'اللَّهُمُّ اُسْتُرْ عُيُوبَنَا وَأَحْسَنَ خَوَاتِيمَنَا الْكَاتِبِ: نَبِيلُ جلهوم',
+                 'الرَّأْي قَبْلَ شَجَاعَة الشّجعَانِ',
+                 'فَأَنْزَلْنَا مِنْ السَّمَاء مَاء فَأَسْقَيْنَاكُمُوهُ',
+                 'سُئِلَ بَعْضُ الْكُتَّابِ عَنِ الْخَطّ، مَتَى يَسْتَحِقُّ أَنْ يُوصَفَ بِالْجَوْدَةِ ؟'
+                ]
+
+        results = []
+        for test in tests:
+            result = word_tokenizer.tokenize(test)
+            results.append(result)
+
+        target = [['اللُّغَةُ', 'الْعَرَبِيَّةُ', 'جَمِيلَةٌ', '.'],
+                  ['انما', 'الْمُؤْمِنُونَ', 'اخوه', 'فاصلحوا', 'بَيْنَ', 'اخويكم'],
+                  ['الْعَجُزُ', 'عَنِ', 'الْإِدْرَاكِ', 'إِدْرَاكٌ', '،', 'وَالْبَحْثَ', 'فِي', 'ذاتِ', 'اللَّه', 'اشراك', '.'],  # pylint: disable=line-too-long
+                  ['اللَّهُمُّ', 'اُسْتُرْ', 'عُيُوبَنَا', 'وَأَحْسَنَ', 'خَوَاتِيمَنَا', 'الْكَاتِبِ', ':', 'نَبِيلُ', 'جلهوم'],  # pylint: disable=line-too-long
+                  ['الرَّأْي', 'قَبْلَ', 'شَجَاعَة', 'الشّجعَانِ'],
+                  ['فَأَنْزَلْنَا', 'مِنْ', 'السَّمَاء', 'مَاء', 'فَأَسْقَيْنَاكُمُوهُ'],
+                  ['سُئِلَ', 'بَعْضُ', 'الْكُتَّابِ', 'عَنِ', 'الْخَطّ', '،', 'مَتَى', 'يَسْتَحِقُّ', 'أَنْ', 'يُوصَفَ', 'بِالْجَوْدَةِ', '؟']  # pylint: disable=line-too-long
+                 ]
+        self.assertEqual(results, target)
+
+    def test_word_tokenizer_french_base(self):
         word_tokenizer = WordTokenizer('french')
 
         tests = ["S'a table te veulz maintenir, Honnestement te dois tenir Et garder les enseignemens Dont cilz vers sont commancemens."]  # pylint: disable=line-too-long
@@ -243,7 +290,22 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
 
         self.assertEqual(results, target)
 
-    def test_old_norse_word_tokenizer(self):
+    def test_word_tokenizer_french(self):
+        word_tokenizer = OldFrenchWordTokenizer()
+
+        tests = ["S'a table te veulz maintenir, Honnestement te dois tenir Et garder les enseignemens Dont cilz vers sont commancemens."]  # pylint: disable=line-too-long
+
+        results = []
+
+        for test in tests:
+            result = word_tokenizer.tokenize(test)
+            results.append(result)
+
+        target = [["S'", 'a', 'table', 'te', 'veulz', 'maintenir', ',', 'Honnestement', 'te', 'dois', 'tenir', 'Et', 'garder', 'les', 'enseignemens', 'Dont', 'cilz', 'vers', 'sont', 'commancemens', '.']]  # pylint: disable=line-too-long
+
+        self.assertEqual(results, target)
+
+    def test_old_norse_word_tokenizer_base(self):
         text = "Gylfi konungr var maðr vitr ok fjölkunnigr. " \
                "Hann undraðist þat mjök, er ásafólk var svá kunnigt, at allir hlutir gengu at vilja þeira."
         target = ['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.', 'Hann', 'undraðist', 'þat',
@@ -253,7 +315,17 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         result = word_tokenizer.tokenize(text)
         self.assertTrue(result == target)
 
-    def test_middle_english_tokenizer(self):
+    def test_old_norse_word_tokenizer(self):
+        text = "Gylfi konungr var maðr vitr ok fjölkunnigr. " \
+               "Hann undraðist þat mjök, er ásafólk var svá kunnigt, at allir hlutir gengu at vilja þeira."
+        target = ['Gylfi', 'konungr', 'var', 'maðr', 'vitr', 'ok', 'fjölkunnigr', '.', 'Hann', 'undraðist', 'þat',
+                  'mjök', ',', 'er', 'ásafólk', 'var', 'svá', 'kunnigt', ',', 'at', 'allir', 'hlutir', 'gengu', 'at',
+                  'vilja', 'þeira', '.']
+        word_tokenizer = OldNorseWordTokenizer()
+        result = word_tokenizer.tokenize(text)
+        self.assertTrue(result == target)
+
+    def test_middle_english_tokenizer_base(self):
         text = "    Fers am I ferd of oure fare;\n Fle we ful fast þer-fore. \n Can Y no cownsel bot care.\n\n"
         target = ['Fers', 'am', 'I', 'ferd', 'of', 'oure', 'fare', ';', 'Fle', 'we', 'ful', 'fast', 'þer', '-', 'fore', '.',
                   'Can', 'Y', 'no', 'cownsel', 'bot', 'care', '.']
@@ -261,10 +333,25 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         tokenized = tokenizer.tokenize(text)
         self.assertTrue(tokenized == target)
 
-    def test_middle_high_german_tokenizer(self):
+    def test_middle_english_tokenizer(self):
+        text = "    Fers am I ferd of oure fare;\n Fle we ful fast þer-fore. \n Can Y no cownsel bot care.\n\n"
+        target = ['Fers', 'am', 'I', 'ferd', 'of', 'oure', 'fare', ';', 'Fle', 'we', 'ful', 'fast', 'þer', '-', 'fore', '.',
+                  'Can', 'Y', 'no', 'cownsel', 'bot', 'care', '.']
+        tokenizer = MiddleEnglishWordTokenizer()
+        tokenized = tokenizer.tokenize(text)
+        self.assertTrue(tokenized == target)
+
+    def test_middle_high_german_tokenizer_base(self):
         text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
         target = ['Gâwân', 'het', 'êre', 'unde', 'heil', ',', 'ieweders', 'volleclîchen', 'teil', ':', 'nu', 'nâht', 'och', 'sînes', 'kampfes', 'zît', '.']
         tokenizer = WordTokenizer('middle_high_german')
+        tokenized_lines = tokenizer.tokenize(text)
+        self.assertTrue(tokenized_lines == target)
+
+    def test_middle_high_german_tokenizer(self):
+        text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
+        target = ['Gâwân', 'het', 'êre', 'unde', 'heil', ',', 'ieweders', 'volleclîchen', 'teil', ':', 'nu', 'nâht', 'och', 'sînes', 'kampfes', 'zît', '.']
+        tokenizer = MiddleHighGermanLatinWordTokenizer()
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
 

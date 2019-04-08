@@ -86,7 +86,7 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         return sent_tokens_
 
     def _matchcase(self, word):
-        # From Python Cookbook
+        # From Python Cookbook, p. 47
         def replace(m):
             text = m.group()
             if text.isupper():
