@@ -1,9 +1,26 @@
 """Module for commonly reused classes and functions."""
 
+import os
+
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Optional
+
+def file_exists(file_path: str, is_dir: bool = False) -> bool:
+    """Try to expand `~/` and check if a file or dir exists.
+    Optionally check if it's a dir.
+
+    >>> file_exists('~/fake_file')
+    False
+
+    >>> file_exists('~/', is_dir=True)
+    True
+    """
+    file_path_expanded = os.path.expanduser(file_path)  # type: str
+    if is_dir:
+        return os.path.isdir(file_path_expanded)
+    return os.path.isfile(file_path_expanded)
 
 def reverse_dict(input_dict: Dict[str, Any], ignore_keys: Optional[List[str]] = None) -> Dict[str, str]:
     """Take a dict and reverse its keys and values. Optional
@@ -42,3 +59,4 @@ def reverse_dict(input_dict: Dict[str, Any], ignore_keys: Optional[List[str]] = 
         except TypeError:
             raise TypeError('This function can only convert type str value to a key. Received value type `{0}` for key `{1}` instead. Consider using `ignore_keys` for this key-value pair to be skipped.'.format(type(val), key))
     return output_dict
+
