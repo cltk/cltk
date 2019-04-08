@@ -70,11 +70,9 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
         sent_tokens_ = []
         for sent in sents:
             for word in latin_exceptions:
-                sent = re.sub(rf'\b{word}\b', rf'~{word}~', sent)
+                sent = re.sub(rf'\b{word}\b', rf'~{word}~', sent, flags=re.IGNORECASE)
             sent = " ".join(filter(None, ne_compile.split(sent)))
-            print(sent)
             sent = " ".join(filter(None, enc_compile.split(sent)))
-            print(sent)
             for enclitic in enclitics:
                 if enclitic == 'st':
                     sent = sent.replace('u st ', 'us st ')
