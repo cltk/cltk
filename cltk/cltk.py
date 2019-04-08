@@ -45,7 +45,7 @@ class CLTK:
         >>> cltk = CLTK('Quo tibi, imperator.', language='id')
         >>> cltk.words
         Traceback (most recent call last):
-          ..
+          ...
         cltk.exceptions.exceptions.UnknownLanguageError
         """
         words = self.tokenize_word.tokenize_text(self.doc)
