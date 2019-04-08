@@ -7,9 +7,6 @@ from unittest.mock import patch
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.corpus.utils.importer import CorpusImporter
-from cltk.tokenize.sentence import TokenizeSentence
-from cltk.tokenize.word import WordTokenizer
-from cltk.tokenize.line import LineTokenizer
 from cltk.tokenize.latin.sentence import LatinPunktSentenceTokenizer
 from cltk.tokenize.latin.sentence import SentenceTokenizer as LatinSentenceTokenizer
 from cltk.tokenize.greek.sentence import GreekPunktSentenceTokenizer, GreekRegexSentenceTokenizer
@@ -22,10 +19,13 @@ from cltk.tokenize.arabic.word import WordTokenizer as ArabicWordTokenizer
 from cltk.tokenize.greek.word import WordTokenizer as GreekWordTokenizer
 from cltk.tokenize.latin.word import WordTokenizer as LatinWordTokenizer
 from cltk.tokenize.middle_english.word import WordTokenizer as MiddleEnglishWordTokenizer
-from cltk.tokenize.middle_high_german.word import WordTokenizer as MiddleHighGermanLatinWordTokenizer
+from cltk.tokenize.middle_high_german.word import WordTokenizer as MiddleHighGermanWordTokenizer
 from cltk.tokenize.old_french.word import WordTokenizer as OldFrenchWordTokenizer
 from cltk.tokenize.old_norse.word import WordTokenizer as OldNorseWordTokenizer
 from cltk.tokenize.sanskrit.word import WordTokenizer as SanskritWordTokenizer
+from cltk.tokenize.sentence import TokenizeSentence
+from cltk.tokenize.word import WordTokenizer
+from cltk.tokenize.line import LineTokenizer
 
 __license__ = 'MIT License. See LICENSE.'
 
@@ -196,32 +196,45 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
     def test_tokenize_latin_words(self):
         word_tokenizer = LatinWordTokenizer()
 
-        tests = ['Arma virumque cano, Troiae qui primus ab oris.',
-                    'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?',
-                    'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!',
-                    'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.',
-                    'Quid opust verbis? lingua nullast qua negem quidquid roges.',
-                    'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.',  # pylint: disable=line-too-long
-                    'Cenavin ego heri in navi in portu Persico?',
-                    'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit']
+        test = 'Arma virumque cano, Troiae qui primus ab oris.'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Arma', 'virum', '-que', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris', '.']
+        self.assertEqual(tokens, target)
 
-        results = []
+        test = 'Hoc verumst, tota te ferri, Cynthia, Roma, et non ignota vivere nequitia?'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Hoc', 'verum', 'est', ',', 'tota', 'te', 'ferri', ',', 'Cynthia', ',', 'Roma', ',', 'et', 'non', 'ignota', 'vivere', 'nequitia', '?']
+        self.assertEqual(tokens, target)
 
-        for test in tests:
-            result = word_tokenizer.tokenize(test)
-            results.append(result)
+        test = 'Nec te decipiant veteres circum atria cerae. Tolle tuos tecum, pauper amator, avos!'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae', '.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!']
+        self.assertEqual(tokens, target)
 
-        target = [['Arma', 'virum', '-que', 'cano', ',', 'Troiae', 'qui', 'primus', 'ab', 'oris', '.'],
-                  ['Hoc', 'verum', 'est', ',', 'tota', 'te', 'ferri', ',', 'Cynthia', ',', 'Roma', ',', 'et', 'non', 'ignota', 'vivere', 'nequitia', '?'],  # pylint: disable=line-too-long
-                  ['Nec', 'te', 'decipiant', 'veteres', 'circum', 'atria', 'cerae', '.', 'Tolle', 'tuos', 'cum', 'te', ',', 'pauper', 'amator', ',', 'avos', '!'],  # pylint: disable=line-too-long
-                  ['Neque', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'nec', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur', '.'],  # pylint: disable=line-too-long
-                  ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges', '.'],  # pylint: disable=line-too-long
-                  ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.'],  # pylint: disable=line-too-long
-                  ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
-                  ['quae', "ripas", "Ubiorum", "contingebat", "in", "longitudinem", "pedum", "ducentorum", "rescindit"]
-                  ]
+        test = 'Neque enim, quod quisque potest, id ei licet, nec, si non obstatur, propterea etiam permittitur.'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Neque', 'enim', ',', 'quod', 'quisque', 'potest', ',', 'id', 'ei', 'licet', ',', 'nec', ',', 'si', 'non', 'obstatur', ',', 'propterea', 'etiam', 'permittitur', '.']
+        self.assertEqual(tokens, target)
 
-        self.assertEqual(results, target)
+        test = 'Quid opust verbis? lingua nullast qua negem quidquid roges.'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Quid', 'opus', 'est', 'verbis', '?', 'lingua', 'nulla', 'est', 'qua', 'negem', 'quidquid', 'roges', '.']
+        self.assertEqual(tokens, target)
+
+        test = 'Textile post ferrumst, quia ferro tela paratur, nec ratione alia possunt tam levia gigni insilia ac fusi, radii, scapique sonantes.'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',', 'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi', ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.']
+        self.assertEqual(tokens, target)
+
+        test = 'Cenavin ego heri in navi in portu Persico?'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
+        self.assertEqual(tokens, target)
+
+        test = 'quae ripas Ubiorum contingebat in longitudinem pedum ducentorum rescindit'
+        tokens = word_tokenizer.tokenize(test)
+        target = ['quae', "ripas", "Ubiorum", "contingebat", "in", "longitudinem", "pedum", "ducentorum", "rescindit"]
+        self.assertEqual(tokens, target)
 
     def test_tokenize_arabic_words_base(self):
         word_tokenizer = WordTokenizer('arabic')
@@ -351,7 +364,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
     def test_middle_high_german_tokenizer(self):
         text = "Gâwân het êre unde heil,\nieweders volleclîchen teil:\nnu nâht och sînes kampfes zît."
         target = ['Gâwân', 'het', 'êre', 'unde', 'heil', ',', 'ieweders', 'volleclîchen', 'teil', ':', 'nu', 'nâht', 'och', 'sînes', 'kampfes', 'zît', '.']
-        tokenizer = MiddleHighGermanLatinWordTokenizer()
+        tokenizer = MiddleHighGermanWordTokenizer()
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
 
