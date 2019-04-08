@@ -2,20 +2,9 @@
 More here: <https://github.com/stanfordnlp/stanfordnlp>.
 """
 
-import os
-
 import stanfordnlp
 
-def file_exists(file_path, is_dir=False):
-    """Try to expand `~/` and check if a file or dir exists.
-    Optionally check if it's a dir.
-    """
-    file_path_expanded = os.path.expanduser(file_path)
-    if is_dir:
-        exists = os.path.isdir(file_path_expanded)
-    else:
-        exists = os.path.isfile(file_path_expanded)
-    return exists
+from cltk.utils import file_exists
 
 if __name__ == '__main__':
 
