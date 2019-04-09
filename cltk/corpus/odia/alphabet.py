@@ -25,7 +25,7 @@ STRUCTURED_CONSONANTS = {
     '0B15':'କ',
     '0B16':'ଖ',
     '0B17':'ଗ',
-    '0B18':'ଘ', 
+    '0B18':'ଘ',
     '0B19':'ଙ',
     '0B1A':'ଚ',
     '0B1B':'ଛ',
@@ -57,7 +57,7 @@ STRUCTURED_CONSONANTS = {
     '0B38':'ସ',
     '0B39':'ହ'
     }
-    
+
 # The structured consonants are classified according to where the tongue touches the palate of the mouth and are classified accordingly into five structured groups.
 # These consonants are shown here with their IAST transcriptions.
 
@@ -87,8 +87,8 @@ NUMERALS = [
 EXTRA_NUMERICAL_SYMBOLS = ['୵',	'୶', '୷','୲', '୳','୴']
 EXTRA_NUMERICAL_SYMBOLS_DESC = ['1/16', '1/8', '3/16', '1/4','1/2',	'3/4']
 
-# Anusvara is used for final velar nasal sound, 
+# Anusvara is used for final velar nasal sound,
 # Visarga adds voiceless breath after vowel
-# Candrabindu is used to nasalize vowels 
+# Candrabindu is used to nasalize vowels
 
 MODIFIERS = ['◌্','◌ঁ','◌ং','◌ঃ']
