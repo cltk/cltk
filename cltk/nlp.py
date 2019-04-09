@@ -2,6 +2,8 @@
 
 from typing import List
 
+from cltk.tokenize import Tokenize
+
 class NLP:
     """Primary class for NLP pipeline.
 
@@ -26,13 +28,16 @@ class NLP:
         self.doc = doc
         self.language = language
 
-        self.tokenize_word = self.get_word_tokenizer()
+        self.tokenize_word = self.get_word_tokenizer()  # type: Tokenize
 
-    def get_word_tokenizer(self):
-        """Fetches and returns callable tokenizer for appropriate language."""
-        from cltk.tokenize import Tokenize
-        tokenize = Tokenize(language=self.language)
-        return tokenize
+    def get_word_tokenizer(self) -> Tokenize:
+        """Fetches and returns callable tokenizer for appropriate language.
+
+        >>> cltk_nlp = NLP('Itaque metu.', language='la')
+        >>> isinstance(cltk_nlp.tokenize_word, Tokenize)
+        True
+        """
+        return Tokenize(language=self.language)
 
     @property
     def sentences(self) -> List[str]:
