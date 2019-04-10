@@ -4,6 +4,7 @@ from typing import List
 
 from cltk.exceptions import UnknownLanguageError
 
+
 def tokenizer_latin(text: str) -> List[str]:
     """Latin word tokenizer.
 
@@ -13,6 +14,7 @@ def tokenizer_latin(text: str) -> List[str]:
     """
     words = text.split(' ')
     return words
+
 
 class Tokenize:
     """Class for word tokenizing."""
