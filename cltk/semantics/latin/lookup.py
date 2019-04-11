@@ -38,7 +38,7 @@ class Lemmata:
         module = types.ModuleType(loader.name)
         loader.exec_module(module)
         return module.DICTIONARY
-
+    
     def lookup(self, tokens):
         """Return a list of possible lemmata and their probabilities for each token"""
         lemmatized_tokens = []
@@ -108,6 +108,7 @@ class Synonyms(Lemmata):
         """
         final_synonyms = []
         if type(lems) == list:
+            print('Type = list')
             for lemma in lems:
                 if lemma.lower() in self.synonyms.keys():
                     syns = self.synonyms[lemma.lower()]
