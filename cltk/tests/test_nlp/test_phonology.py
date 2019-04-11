@@ -23,6 +23,12 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):
     """Class for unittest"""
 
+    """Test the Latin Library corpus reader filter"""
+    @classmethod
+    def setUpClass(cls):
+        cls.greek_transcriber = grc.Transcriber("Attic", "Probert")
+        cls.latin_transcriber = lat.Transcriber("Classical", "Allen")
+
     """greek.transcription"""
     def test_greek_refresh(self):
         """Test the Word class's `_refresh` method in Greek."""
@@ -120,8 +126,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_greek_parse_diacritics(self):
         """Test the Transcriber class's `_parse_diacritics` in Greek."""
         inputs = ["ἄ", "Φ", "ῷ", "ὑ", "ϊ", "ῑ"]
-        transcriber = grc.Transcriber("Attic", "Probert")
-        outputs = [transcriber._parse_diacritics(char) for char in inputs]
+        outputs = [self.greek_transcriber._parse_diacritics(char) for char in inputs]
         target = [unicodedata.normalize('NFC', c) for c in
                   ["α/" + grc.chars.ACUTE + "//",
                    "φ///", "ω/" + grc.chars.CIRCUMFLEX + "/"
@@ -132,8 +137,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_greek_prep_text(self):
         """Test the Transcriber class's `_prep_text` in Greek."""
         inputs = ["λείπειν", "ὕπνῳ"]
-        transcriber = grc.Transcriber("Attic", "Probert")
-        outputs = [transcriber._prep_text(w) for w in inputs]
+        outputs = [self.greek_transcriber._prep_text(w) for w in inputs]
         target = [[('λ', '', ''), ('ει', '́', ''), ('π', '', ''),
                    ('ει', '', ''), ('ν', '', '')],
                   [('h', '', ''), ('υ', '́', ''), ('π', '', ''),
@@ -142,7 +146,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_transcriber_probert(self):
         """Test Attic Greek IPA transcription via Probert reconstruction."""
-        transcriber = grc.Transcriber("Attic", "Probert").transcribe
+        transcriber = self.greek_transcriber.transcribe
         transcription = [transcriber(x) for x in
                          [unicodedata.normalize('NFC', y) for y in
                           ["ῥάξ", "εἰργασμένον", "φόρμιγξ", "γιγνώσκω"]]]
@@ -359,8 +363,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_latin_parse_diacritics(self):
         """Test the Transcriber class's `_parse_diacritics` in Latin."""
         inputs = ["a", "ū", "ï"]
-        transcriber = lat.Transcriber("Classical", "Allen")
-        outputs = [transcriber._parse_diacritics(char) for char in inputs]
+        outputs = [self.latin_transcriber._parse_diacritics(char) for char in inputs]
         target = [unicodedata.normalize('NFC', c) for c in
                   ["a///", "u/" + lat.chars.LONG + "//",
                    "i//" + lat.chars.DIAERESIS + "/"]]
@@ -369,8 +372,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_latin_prep_text(self):
         """Test the Transcriber class's `_prep_text` in Latin."""
         inputs = ["ūnam", "qui", "Belgae"]
-        transcriber = lat.Transcriber("Classical", "Allen")
-        outputs = [transcriber._prep_text(w) for w in inputs]
+        outputs = [self.latin_transcriber._prep_text(w) for w in inputs]
         target = [[('u', '̄', ''), ('n', '', ''), ('a', '', ''),
                    ('m', '', '')],
                   [('qu', '', ''), ('i', '', '')],
@@ -381,7 +383,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_transcriber_allen_without_macronizer(self):
         """Test Classical Latin IPA transcription via Allen reconstruction,\
          input pre-macronized."""
-        transcriber = lat.Transcriber("Classical", "Allen").transcribe
+        transcriber = self.latin_transcriber.transcribe
         transcription = [transcriber(x, macronize=False) for x in
                          [unicodedata.normalize('NFC', y) for y in
                           ["Trōiae", "Gallia", "dīuīsa", "ūnam", "incolunt", "Belgae"]]]
@@ -393,7 +395,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_transcriber_allen_with_macronizer(self):
         """Test Classical Latin IPA transcription via Allen reconstruction,\
          with automatic macronization."""
-        transcriber = lat.Transcriber("Classical", "Allen").transcribe
+        transcriber = self.latin_transcriber.transcribe
         transcription = transcriber(
             "Quo usque tandem, O Catilina, abutere nostra patientia?",
             macronize=True)
