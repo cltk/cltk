@@ -2,7 +2,7 @@
 
 from typing import List
 
-from cltk.tokenize import Tokenize
+from cltk.tokenize import TokenizeWord
 from cltk.wrappers.stanford import StanfordNLPWrapper
 
 
@@ -29,28 +29,27 @@ class NLP:
         """
         self.doc = doc
         self.language = language
+        self.tokenizer_word = self.get_word_tokenizer()  # type: TokenizeWord
+        self.stanford_obj = self.get_stanford_model()
 
-        self.tokenize_word = self.get_word_tokenizer()  # type: Tokenize
-        # self.stanford_obj = self.get_stanford_model()
+        # StanfordNLPWrapper(language='greek', treebank='grc_proiel')
 
-    # def get_stanford_model(self):
-    #     """If available for a given language, get the entire
-    #     object returned by the `stanfordnlp` project.
-    #     >>> stanford_nlp_model = StanfordNLPWrapper(language=self.language)
-    #     >>> isinstance(stanford_nlp_model, StanfordNLPWrapper)
-    #     True
-    #     """
-    #     return StanfordNLPWrapper(language=self.language)
+    def get_stanford_model(self):
+        """If available for a given language, get the entire
+        object returned by the `stanfordnlp` project.
+        """
+        # return 'STAND IN FOR STANFORD OBJECT'
+        return StanfordNLPWrapper(language=self.language)
 
-    def get_word_tokenizer(self) -> Tokenize:
+    def get_word_tokenizer(self) -> TokenizeWord:
         """Fetches and returns callable tokenizer for
         appropriate language.
 
-        >>> cltk_nlp = NLP('Itaque metu.', language='la')
-        >>> isinstance(cltk_nlp.tokenize_word, Tokenize)
+        >>> cltk_nlp = NLP('Itaque metu.', language='latin')
+        >>> isinstance(cltk_nlp.tokenizer_word, TokenizeWord)
         True
         """
-        return Tokenize(language=self.language)
+        return TokenizeWord(language=self.language)
 
     @property
     def sentences(self) -> List[str]:
@@ -76,5 +75,17 @@ class NLP:
           ...
         cltk.exceptions.exceptions.UnknownLanguageError
         """
-        words = self.tokenize_word.tokenize_text(self.doc)
+        words = self.tokenizer_word.tokenize_text(self.doc)
         return words
+
+if __name__ == '__main__':
+
+    # stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_proiel')
+    cltk_nlp = NLP(doc="Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι.",
+                   language='greek')
+    print(dir(cltk_nlp))
+    print(cltk_nlp.words)
+    print(cltk_nlp.sentences)
+    print(cltk_nlp.language)
+    print(cltk_nlp.stanford_obj)
+    print(cltk_nlp)
