@@ -3,6 +3,8 @@
 from typing import List
 
 from cltk.tokenize import Tokenize
+from cltk.wrappers.stanford import StanfordNLPWrapper
+
 
 class NLP:
     """Primary class for NLP pipeline.
@@ -29,9 +31,20 @@ class NLP:
         self.language = language
 
         self.tokenize_word = self.get_word_tokenizer()  # type: Tokenize
+        # self.stanford_obj = self.get_stanford_model()
+
+    # def get_stanford_model(self):
+    #     """If available for a given language, get the entire
+    #     object returned by the `stanfordnlp` project.
+    #     >>> stanford_nlp_model = StanfordNLPWrapper(language=self.language)
+    #     >>> isinstance(stanford_nlp_model, StanfordNLPWrapper)
+    #     True
+    #     """
+    #     return StanfordNLPWrapper(language=self.language)
 
     def get_word_tokenizer(self) -> Tokenize:
-        """Fetches and returns callable tokenizer for appropriate language.
+        """Fetches and returns callable tokenizer for
+        appropriate language.
 
         >>> cltk_nlp = NLP('Itaque metu.', language='la')
         >>> isinstance(cltk_nlp.tokenize_word, Tokenize)
