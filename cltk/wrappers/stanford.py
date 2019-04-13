@@ -52,15 +52,25 @@ class StanfordNLPWrapper:
             self.treebank = self.get_default_treebank()
 
         # check if model present
+        # this fp is just to confirm that some model has already been downloaded. This is a weak check for the models actually being downloaded and valid
+        self.model_path = os.path.expanduser('~/stanfordnlp_resources/{0}_models/{0}_tokenizer.pt'.format(self.treebank))
         if not self.is_model_present():
             # download model if necessary
             self.download_model()
 
-        # # instantiate actual stanfordnlp class
-        # self.nlp = stanfordnlp.Pipeline(lang=self.stanford_code,
-        #                                 # models_dir=models_dir,
-        #                                 treebank=self.treebank)
-        # # from here, call self.parse(some_text)
+        # instantiate actual stanfordnlp class
+        self.nlp = self.load_pipeline()
+
+    def load_pipeline(self):
+        """Instantiate `stanfordnlp.Pipeline()`."""
+        models_dir = os.path.expanduser('~/stanfordnlp_resources/')
+        nlp = stanfordnlp.Pipeline(processors='tokenize,mwt,pos,lemma,depparse',  # these are the default processors
+                                        lang=self.stanford_code,
+                                        models_dir=models_dir,
+                                        treebank=self.treebank,
+                                        use_gpu=True,  # default, won't fail if GPU not present
+                                        )
+        return nlp
 
     def parse(self, text):
         """Run all stanfordnlp parsing."""
@@ -111,34 +121,30 @@ class StanfordNLPWrapper:
             print('xpos:', word_obj.xpos)
             print('')
 
-    def is_model_present(self):
-        """Checks if the model is already downloaded."""
-        # models_dir = os.path.expanduser('~/stanfordnlp_resources/')
-        # language = 'grc'  # type: str
-        # if language == 'grc':
-        #     res = int(input('Which models, (1) PROIEL or (2) Perseus? '))
-        #     assert res in [1, 2], "Invalid answer. Just 1 or 2."
-        #     if res == 1:
-        #         model = 'grc_proiel'  # type: str
-        #     else:
-        #         model = 'grc_perseus'
-        # else:
-        #     raise UnknownLanguageError('Either language not supported by the Stanford parser or wrapper unavailable for the CLTK.')
-        #
-        # model_path = os.path.expanduser('~/stanfordnlp_resources/{0}_models/{0}_tokenizer.pt'.format(language))
-        pass
+    def is_model_present(self) -> bool:
+        """Checks if the model is already downloaded.
+        """
+        if file_exists(self.model_path):
+            return True
+        else:
+            return False
 
     def download_model(self):
         """Interface with the `stanfordnlp` model downloader."""
-        # # prompt user to DL the stanford models
-        # print('')
-        # print(
-        #     'CLTK message: The part of the CLTK that you are using depends upon the `stanfordnlp` library. What follows are several question prompts coming from `stanfordnlp`. Answer with defaults.')
-        # print('')
-        # stanfordnlp.download(language)
-        # # if file model still not available after attempted DL, then raise error
-        # if not file_exists(model_path):
-        #     raise FileNotFoundError('Missing required models for `stanfordnlp` at `{0}`.'.format(model_path))
+        # prompt user to DL the stanford models
+        print('')
+        print('')
+        print('Α' * 80)
+        print('')
+        print('CLTK message: The part of the CLTK that you are using depends upon the Stanford NLP library (`stanfordnlp`). What follows are several question prompts coming from it. (More at: <https://github.com/stanfordnlp/stanfordnlp>.) Answer with defaults.')
+        print('')
+        print('Ω' * 80)
+        print('')
+        print('')
+        stanfordnlp.download(self.treebank)
+        # if file model still not available after attempted DL, then raise error
+        if not file_exists(self.model_path):
+            raise FileNotFoundError('Missing required models for `stanfordnlp` at `{0}`.'.format(self.model_path))
         pass
 
     def get_default_treebank(self) -> str:
@@ -202,5 +208,6 @@ class StanfordNLPWrapper:
 if __name__ == '__main__':
 
     stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_proiel')
+    # stanford_nlp_obj = StanfordNLPWrapper(language='latin', treebank=None)
     print('')
     print('stanford_nlp_obj:', stanford_nlp_obj)
