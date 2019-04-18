@@ -285,6 +285,18 @@ def measure_old_norse_syllable(syllable: list) -> Union[Length, None]:
     - long if
     - overlong if
 
+    >>> measure_old_norse_syllable([m, a.lengthen(), l]).name
+    'long'
+
+    >>> measure_old_norse_syllable([a, l]).name
+    'short'
+
+    >>> measure_old_norse_syllable([s, t, ee, r, k, r]).name
+    'long'
+
+    >>> measure_old_norse_syllable([m, o.lengthen()]).name
+    'long'
+
     :param syllable: list of Vowel and Consonant instances
     :return: instance of Length (short, long or overlong)
     """

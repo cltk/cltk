@@ -66,5 +66,10 @@ GREEK_CORPORA = [
      'origin': 'https://github.com/cltk/First1KGreek',
      'location': 'remote',
      'type': 'text'},
+    {'name': 'greek_text_tesserae',
+     'encoding': 'utf-8',
+     'markup': 'plaintext', #modified plaintext with Tesserae-style citations
+     'origin': 'https://github.com/cltk/greek_text_tesserae.git',
+     'location': 'remote',
+     'type': 'text'},
 ]
-

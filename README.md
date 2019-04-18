@@ -22,7 +22,7 @@ The docs are at [docs.cltk.org](http://docs.cltk.org).
 
 ### Installation
 
-CLTK supports Python version 3.6. The software only runs on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
+CLTK supports Python versions 3.6 and 3.7. The software only runs on POSIX–compliant operating systems (Linux, Mac OS X, FreeBSD, etc.).
 
 ``` bash
 $ pip install cltk

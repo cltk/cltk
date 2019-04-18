@@ -8,19 +8,25 @@ Old English is the earliest historical form of the English language, spoken in E
 IPA Transcription
 =================
 
-CLTK's IPA transcriber can be found under the ``Transcriber`` module.
+CLTK's IPA transcriber for OE can be found in OE's the ``orthophonology`` module.
 
 .. code-block:: python
    
-   In [1]: fron cltk.phonology.old_english.phonology import Transcriber
+   In [1]: from cltk.phonology.old_english.orthophonology import OldEnglishOrthophonology as oe
    
-   In [2]: t = Transcriber()
+   In [2]: oe('Fæder ūre þū þe eeart on heofonum') 
+   Out[2]: 'fæder u:re θu: θe eæɑrt on heovonum'
    
-   In [3]: t.transcribe('Fæder ūre þū þe eeart on heofonum,', punctuation = True) 
-   Out[3]: '[fæder uːre θuː θe eːɑrˠt on heovonum,]'
-   
-   In [4]: t.transcribe('Hwæt! wē Gār-Dena in ġēar-dagum', punctuation = False)
-   Out[4]: '[ʍæt weː gɑːrdenɑ in jæːɑ̯rdɑgum]'
+   In [3]: oe('Hwæt! wē Gārdena in ġēardagum')
+   Out[3]: 'hwæt we: gɑ:rdenɑ in jæ:ɑrdɑyum'
+
+The callable `OldEnglishOrthophonology` object can also return phonemes objects instead of IPA strings.
+The string representation of a phoneme object lists the distinctive features of the phoneme 
+and its IPA representation.
+
+.. code-block:: python
+  In [1]: oe('Fæder', as_phonemes = True)
+  Out[1]: [[IPA:f Consonantal.pos Place.bilabial Manner.fricative Voiced.neg Aspirated.neg Geminate.neg, IPA:æ Consonantal.neg Height.open Backness.front Roundedness.neg Length.short, IPA:d Consonantal.pos Place.alveolar Manner.stop Voiced.pos Aspirated.neg Geminate.neg, IPA:e Consonantal.neg Height.mid Backness.front Roundedness.neg Length.short, IPA:r Consonantal.pos Place.alveolar Manner.approximant Voiced.pos Aspirated.neg Geminate.neg]]
 
 Corpora
 =======
