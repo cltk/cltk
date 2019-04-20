@@ -1,13 +1,13 @@
-cltk.exceptions package
+cltk.tokenizers package
 =======================
 
 Submodules
 ----------
 
-cltk.exceptions.exceptions module
+cltk.tokenizers.tokenizers module
 ---------------------------------
 
-.. automodule:: cltk.exceptions.exceptions
+.. automodule:: cltk.tokenizers.tokenizers
     :members:
     :undoc-members:
     :show-inheritance:
@@ -16,7 +16,7 @@ cltk.exceptions.exceptions module
 Module contents
 ---------------
 
-.. automodule:: cltk.exceptions
+.. automodule:: cltk.tokenizers
     :members:
     :undoc-members:
     :show-inheritance:
