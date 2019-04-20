@@ -1,6 +1,8 @@
 """Module for commonly reused classes and functions."""
 
+from contextlib import contextmanager
 import os
+import sys
 
 from typing import Any
 from typing import Dict
@@ -60,3 +62,27 @@ def reverse_dict(input_dict: Dict[str, Any], ignore_keys: Optional[List[str]] = 
             raise TypeError('This function can only convert type str value to a key. Received value type `{0}` for key `{1}` instead. Consider using `ignore_keys` for this key-value pair to be skipped.'.format(type(val), key))
     return output_dict
 
+
+@contextmanager
+def suppress_stdout():
+    """Wrap a function with this to suppress
+    its printing to screen.
+
+    Source: https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/
+
+    >>> print("You can see this")
+    You can see this
+
+    >>> with suppress_stdout():
+    ...     print("YY")
+
+    >>> print("And you can see this again")
+    And you can see this again
+    """
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        sys.stdout = devnull
+        try:
+            yield
+        finally:
+            sys.stdout = old_stdout

@@ -8,9 +8,9 @@ import stanfordnlp  # type: ignore
 from typing import Dict
 from typing import Optional
 
-from cltk.exceptions import UnknownLanguageError
+from cltk.utils.exceptions import UnknownLanguageError
 from cltk.utils import file_exists
-
+from cltk.utils import suppress_stdout
 
 class StanfordNLPWrapper:
     """CLTK's wrapper for the `stanfordnlp` project."""
@@ -18,13 +18,29 @@ class StanfordNLPWrapper:
     def __init__(self, language: str, treebank: Optional[str] = None) -> None:
         """Constructor for StanfordNLP wrapper class.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='latin')
+        >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
         >>> isinstance(stanford_wrapper, StanfordNLPWrapper)
         True
+        >>> stanford_wrapper.language
+        'greek'
+        >>> stanford_wrapper.treebank
+        'grc_proiel'
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='greek', treebank='grc_perseus')
-        >>> isinstance(stanford_wrapper, StanfordNLPWrapper)
+        >>> stanford_wrapper_perseus = StanfordNLPWrapper(language='greek', treebank='grc_perseus')
+        >>> isinstance(stanford_wrapper_perseus, StanfordNLPWrapper)
         True
+        >>> stanford_wrapper_perseus.language
+        'greek'
+        >>> stanford_wrapper_perseus.treebank
+        'grc_perseus'
+
+        >>> xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
+        >>> xen_anab_nlp = stanford_wrapper.parse(xen_anab)
+
+        >>> stanford_nlp_obj_bad = StanfordNLPWrapper(language='BADLANG')
+        Traceback (most recent call last):
+          ...
+        cltk.utils.exceptions.UnknownLanguageError: Language 'BADLANG' either not in scope for CLTK or not supported by StanfordNLP.
         """
         self.language = language
         self.treebank = treebank
@@ -38,31 +54,79 @@ class StanfordNLPWrapper:
         self.wrapper_available = self.is_wrapper_available()  # type: bool
         if not self.wrapper_available:
             raise UnknownLanguageError("Language '{}' either not in scope for CLTK or not supported by StanfordNLP.".format(self.language))
-        self.stanford_code = self.get_stanford_code()
+        self.stanford_code = self._get_stanford_code()
 
         # Setup optional treebank if specified
         self.map_code_treebanks = dict(grc=['grc_proiel', 'grc_perseus'],
                                        la=['la_perseus', 'la_proiel'])
         # if not specified, will use the default treebank of stanfordnlp
         if self.treebank:
-            valid_treebank = self.is_valid_treebank()
+            valid_treebank = self._is_valid_treebank()
             if not valid_treebank:
                 raise UnknownLanguageError("Invalid treebank '{0}' for language '{1}'.".format(self.treebank, self.language))
         else:
-            self.treebank = self.get_default_treebank()
+            self.treebank = self._get_default_treebank()
 
         # check if model present
         # this fp is just to confirm that some model has already been downloaded. This is a weak check for the models actually being downloaded and valid
         self.model_path = os.path.expanduser('~/stanfordnlp_resources/{0}_models/{0}_tokenizer.pt'.format(self.treebank))
-        if not self.is_model_present():
+        if not self._is_model_present():
             # download model if necessary
-            self.download_model()
+            self._download_model()
 
         # instantiate actual stanfordnlp class
-        self.nlp = self.load_pipeline()
+        # Note: `suppress_stdout` is used to prevent `stanfordnlp`
+        # from printing a long log of its parameters to screen.
+        # Though we should capture these, within `_load_pipeline()`,
+        # for the log file.
+        with suppress_stdout():
+            self.nlp = self._load_pipeline()
 
-    def load_pipeline(self):
-        """Instantiate `stanfordnlp.Pipeline()`."""
+    def parse(self, text):
+        """Run all `stanfordnlp` parsing.
+
+        >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
+        >>> xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
+        >>> xen_anab_nlp = stanford_wrapper.parse(xen_anab)
+        >>> isinstance(xen_anab_nlp, stanfordnlp.pipeline.doc.Document)
+        True
+
+        >>> nlp_xen_anab_first_sent = xen_anab_nlp.sentences[0]
+        >>> nlp_xen_anab_first_sent.tokens[0].index
+        '1'
+        >>> nlp_xen_anab_first_sent.tokens[0].text
+        'Δαρείου'
+        >>> first_word = nlp_xen_anab_first_sent.tokens[0].words[0]
+        >>> first_word.dependency_relation
+        'iobj'
+        >>> first_word.feats
+        'Case=Gen|Gender=Masc|Number=Sing'
+        >>> first_word.governor
+        4
+        >>> first_word.index
+        '1'
+        >>> first_word.lemma
+        'Δαρεῖος'
+        >>> first_word.pos
+        'Ne'
+        >>> first_word.text
+        'Δαρείου'
+        >>> first_word.upos
+        'PROPN'
+        >>> first_word.xpos
+        'Ne'
+        """
+        parsed_text = self.nlp(text)
+        return parsed_text
+
+    def _load_pipeline(self):
+        """Instantiate `stanfordnlp.Pipeline()`.
+
+        >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
+        >>> with suppress_stdout():    nlp_obj = stanford_wrapper._load_pipeline()
+        >>> isinstance(nlp_obj, stanfordnlp.pipeline.core.Pipeline)
+        True
+        """
         models_dir = os.path.expanduser('~/stanfordnlp_resources/')
         nlp = stanfordnlp.Pipeline(processors='tokenize,mwt,pos,lemma,depparse',  # these are the default processors
                                         lang=self.stanford_code,
@@ -72,67 +136,27 @@ class StanfordNLPWrapper:
                                         )
         return nlp
 
-    def parse(self, text):
-        """Run all stanfordnlp parsing."""
-        parsed_text = self.nlp(text)
-
-        # doc.sentences[0].print_dependencies()
-        # '''
-        # ('Δαρείου', '4', 'iobj')
-        # ('καὶ', '1', 'cc')
-        # ('Παρυσάτιδος', '1', 'conj')
-        # ('γίγνονται', '0', 'root')
-        # ('παῖδες', '4', 'nsubj')
-        # ('δύο,', '5', 'nmod')
-        # ('πρεσβύτερος', '5', 'amod')
-        # ('μὲν', '7', 'discourse')
-        # ('Ἀρταξέρξης,', '7', 'nsubj')
-        # ('νεώτερος', '7', 'conj')
-        # ('δὲ', '10', 'discourse')
-        # ('Κῦρος:', '10', 'orphan')
-        # '''
-        # res = doc.sentences[0]
-        # print('dir:', dir(res))  # type: ignore
-        # # ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_dependencies', '_process_tokens', '_tokens', '_words', 'build_dependencies', 'dependencies', 'print_dependencies', 'print_tokens', 'print_words', 'tokens', 'words']
-        # print('type:', type(res))  # type: ignore
-        # # <class 'stanfordnlp.pipeline.doc.Sentence'>
-        # print('res:', res)  # type: ignore
-        # # <stanfordnlp.pipeline.doc.Sentence object at 0x1cf484ef0>
-        # print('words:', res.words)  # type: ignore
-        # # [<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>, <Word index=2;text=καὶ;lemma=καί;upos=CCONJ;xpos=C-;feats=_;governor=1;dependency_relation=cc>, <Word index=3;text=Παρυσάτιδος;lemma=Παρύσατις;upos=ADJ;xpos=A-;feats=Case=Gen|Degree=Pos|Gender=Masc|Number=Sing;governor=1;dependency_relation=conj>, <Word index=4;text=γίγνονται;lemma=γιγνώσκω;upos=VERB;xpos=V-;feats=Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Mid;governor=0;dependency_relation=root>, <Word index=5;text=παῖδες;lemma=παῖς;upos=NOUN;xpos=Nb;feats=Case=Nom|Gender=Masc|Number=Plur;governor=4;dependency_relation=nsubj>, <Word index=6;text=δύο,;lemma=δύο,;upos=NOUN;xpos=Nb;feats=Case=Nom|Gender=Masc|Number=Sing;governor=5;dependency_relation=nmod>, <Word index=7;text=πρεσβύτερος;lemma=πρέσβυς;upos=ADJ;xpos=A-;feats=Case=Nom|Degree=Cmp|Gender=Masc|Number=Sing;governor=5;dependency_relation=amod>, <Word index=8;text=μὲν;lemma=μέν;upos=ADV;xpos=Df;feats=_;governor=7;dependency_relation=discourse>, <Word index=9;text=Ἀρταξέρξης,;lemma=Ἀρταξέρξης;upos=PROPN;xpos=Ne;feats=Case=Nom|Gender=Masc|Number=Sing;governor=7;dependency_relation=nsubj>, <Word index=10;text=νεώτερος;lemma=νέος;upos=ADJ;xpos=A-;feats=Case=Nom|Degree=Cmp|Gender=Masc|Number=Sing;governor=7;dependency_relation=conj>, <Word index=11;text=δὲ;lemma=δέ;upos=ADV;xpos=Df;feats=_;governor=10;dependency_relation=discourse>, <Word index=12;text=Κῦρος:;lemma=Κῦρος:;upos=PROPN;xpos=Ne;feats=Case=Nom|Gender=Masc|Number=Sing;governor=10;dependency_relation=orphan>]
-        # print('tokens:', res.tokens)  # type: ignore
-        # # [<Token index=1;words=[<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>]>, <Token index=2;words=[<Word index=2;text=καὶ;lemma=καί;upos=CCONJ;xpos=C-;feats=_;governor=1;dependency_relation=cc>]>, <Token index=3;words=[<Word index=3;text=Παρυσάτιδος;lemma=Παρύσατις;upos=ADJ;xpos=A-;feats=Case=Gen|Degree=Pos|Gender=Masc|Number=Sing;governor=1;dependency_relation=conj>]>, <Token index=4;words=[<Word index=4;text=γίγνονται;lemma=γιγνώσκω;upos=VERB;xpos=V-;feats=Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Mid;governor=0;dependency_relation=root>]>, <Token index=5;words=[<Word index=5;text=παῖδες;lemma=παῖς;upos=NOUN;xpos=Nb;feats=Case=Nom|Gender=Masc|Number=Plur;governor=4;dependency_relation=nsubj>]>, <Token index=6;words=[<Word index=6;text=δύο,;lemma=δύο,;upos=NOUN;xpos=Nb;feats=Case=Nom|Gender=Masc|Number=Sing;governor=5;dependency_relation=nmod>]>, <Token index=7;words=[<Word index=7;text=πρεσβύτερος;lemma=πρέσβυς;upos=ADJ;xpos=A-;feats=Case=Nom|Degree=Cmp|Gender=Masc|Number=Sing;governor=5;dependency_relation=amod>]>, <Token index=8;words=[<Word index=8;text=μὲν;lemma=μέν;upos=ADV;xpos=Df;feats=_;governor=7;dependency_relation=discourse>]>, <Token index=9;words=[<Word index=9;text=Ἀρταξέρξης,;lemma=Ἀρταξέρξης;upos=PROPN;xpos=Ne;feats=Case=Nom|Gender=Masc|Number=Sing;governor=7;dependency_relation=nsubj>]>, <Token index=10;words=[<Word index=10;text=νεώτερος;lemma=νέος;upos=ADJ;xpos=A-;feats=Case=Nom|Degree=Cmp|Gender=Masc|Number=Sing;governor=7;dependency_relation=conj>]>, <Token index=11;words=[<Word index=11;text=δὲ;lemma=δέ;upos=ADV;xpos=Df;feats=_;governor=10;dependency_relation=discourse>]>, <Token index=12;words=[<Word index=12;text=Κῦρος:;lemma=Κῦρος:;upos=PROPN;xpos=Ne;feats=Case=Nom|Gender=Masc|Number=Sing;governor=10;dependency_relation=orphan>]>]
-        # print('dependencies:', res.dependencies)  # type: ignore
-        #
-        # for token in res.tokens:  # type: ignore
-        #     # print(type(token.words))
-        #     # print(dir(token.words))
-        #     word_obj = token.words[0]  # type: stanfordnlp.pipeline.doc.Word
-        #     # print(dir(word_obj))
-        #     print('index:', word_obj.index)
-        #     print('text:', word_obj.text)
-        #     print('lemma', word_obj.lemma)
-        #     print('feats:', word_obj.feats)
-        #     print('dependency_relation:', word_obj.dependency_relation)
-        #     print('governor:', word_obj.governor)
-        #     print('parent_token:', word_obj.parent_token)
-        #     print('pos:', word_obj.pos)
-        #     print('upos:', word_obj.upos)
-        #     print('xpos:', word_obj.xpos)
-        #     print('')
-
-        return parsed_text
-
-    def is_model_present(self) -> bool:
+    def _is_model_present(self) -> bool:
         """Checks if the model is already downloaded.
+
+        >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
+        >>> stanford_wrapper._is_model_present()
+        True
         """
         if file_exists(self.model_path):
             return True
         else:
             return False
 
-    def download_model(self):
-        """Interface with the `stanfordnlp` model downloader."""
+    def _download_model(self):
+        """Interface with the `stanfordnlp` model downloader.
+
+        TODO: Figure out why doctests here hang. Presumably because waiting for user input, but prompt shouldn't arise if models already present.
+
+        # >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
+        # >>> stanford_wrapper._download_model()
+        # True
+        """
         # prompt user to DL the stanford models
         print('')
         print('')
@@ -149,23 +173,23 @@ class StanfordNLPWrapper:
             raise FileNotFoundError('Missing required models for `stanfordnlp` at `{0}`.'.format(self.model_path))
         pass
 
-    def get_default_treebank(self) -> str:
+    def _get_default_treebank(self) -> str:
         """Return name of a language's default treebank if none
         supplied.
 
         >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
-        >>> stanford_wrapper.get_default_treebank()
+        >>> stanford_wrapper._get_default_treebank()
         'grc_proiel'
         """
         stanford_default_treebanks = stanfordnlp.utils.resources.default_treebanks  # type: Dict[str, str]
         return stanford_default_treebanks[self.stanford_code]
 
-    def is_valid_treebank(self) -> bool:
+    def _is_valid_treebank(self) -> bool:
         """Check whether for chosen language, optional
         treebank value is valid.
 
         >>> stanford_wrapper = StanfordNLPWrapper(language='greek', treebank='grc_proiel')
-        >>> stanford_wrapper.is_valid_treebank()
+        >>> stanford_wrapper._is_valid_treebank()
         True
         """
         possible_treebanks = self.map_code_treebanks[self.stanford_code]
@@ -188,13 +212,13 @@ class StanfordNLPWrapper:
         else:
             return False
 
-    def get_stanford_code(self) -> str:
+    def _get_stanford_code(self) -> str:
         """Using known-supported language, use the CLTK's
         internal code to look up the code used by StanfordNLP.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='latin')
-        >>> stanford_wrapper.get_stanford_code()
-        'la'
+        >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
+        >>> stanford_wrapper._get_stanford_code()
+        'grc'
         """
         try:
             stanford_lang_name = self.map_langs_cltk_stanford[self.language]
@@ -209,7 +233,44 @@ class StanfordNLPWrapper:
 
 if __name__ == '__main__':
 
-    stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_proiel')
-    # stanford_nlp_obj = StanfordNLPWrapper(language='latin', treebank=None)
-    print('')
-    print('stanford_nlp_obj:', stanford_nlp_obj)
+    stanford_nlp_obj = StanfordNLPWrapper(language='greek')
+    print(stanford_nlp_obj.language == 'greek')
+    print(stanford_nlp_obj.treebank == 'grc_proiel')
+    print(stanford_nlp_obj.wrapper_available == True)
+    fp_model = stanford_nlp_obj.model_path
+    print(os.path.split(fp_model)[1] == 'grc_proiel_tokenizer.pt')
+    print(isinstance(stanford_nlp_obj.nlp, stanfordnlp.pipeline.core.Pipeline))
+
+    # stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_perseus')
+    # print(stanford_nlp_obj.language == 'greek')
+    # print(stanford_nlp_obj.treebank == 'grc_perseus')
+    # print(stanford_nlp_obj.wrapper_available == True)
+
+    xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
+    xen_anab_nlp = stanford_nlp_obj.parse(xen_anab)
+
+    nlp_xen_anab_first_sent = xen_anab_nlp.sentences[0]
+    # print(dir(nlp_xen_anab_first_sent))  # build_dependencies', 'dependencies', 'print_dependencies', 'print_tokens', 'print_words', 'tokens', 'words'
+    print(nlp_xen_anab_first_sent.tokens[0].index == '1')
+    print(nlp_xen_anab_first_sent.tokens[0].text == 'Δαρείου')
+    first_word = nlp_xen_anab_first_sent.tokens[0].words[0]  # 'dependency_relation', 'feats', 'governor', 'index', 'lemma', 'parent_token', 'pos', 'text', 'upos', 'xpos'
+    print(first_word.dependency_relation == 'iobj')
+    print(first_word.feats == 'Case=Gen|Gender=Masc|Number=Sing')
+    print(first_word.governor == 4)
+    print(first_word.index == '1')
+    print(first_word.lemma == 'Δαρεῖος')
+    print(first_word.pos == 'Ne')
+    print(first_word.text == 'Δαρείου')
+    print(first_word.upos == 'PROPN')
+    print(first_word.xpos == 'Ne')
+    # print(first_word.parent_token)  # <Token index=1;words=[<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>]>
+
+    try:
+        stanford_nlp_obj_bad = StanfordNLPWrapper(language='FAKELANG')
+    except UnknownLanguageError as err:
+        print(isinstance(err, UnknownLanguageError))
+
+
+
+
+

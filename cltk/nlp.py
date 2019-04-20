@@ -9,24 +9,32 @@ from cltk.wrappers.stanford import StanfordNLPWrapper
 class NLP:
     """Primary class for NLP pipeline.
 
-    >>> import cltk
-    >>> nepos_hamilcar = 'At ille ut Carthaginem venit, multo aliter, ac sperarat, rem publicam se habentem cognovit. Namque diuturnitate externi mali tantum exarsit intestinum bellum, ut numquam in pari periculo fuerit Carthago, nisi cum deleta est. Primo mercennarii milites, qui adversus Romanos fuerant, desciverunt; quorum numerus erat XX milium.'
-    >>> cltk_nlp = cltk.NLP(nepos_hamilcar, language='la')
+    >>> cltk_nlp = NLP(language='greek')
+    Use ...
     >>> cltk_nlp.language
-    'la'
-    # >>> cltk_nlp.words
+    'greek'
+
+    #
+    # >>> xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
+    # >>> nlp_xen_anab = cltk_nlp.parse_stanford(xen_anab)
+    # >>> import stanfordnlp
+    # >>> isinstance(nlp_xen_anab , stanfordnlp.pipeline.doc.Document)
+    # True
+
+    # >>> nlp_xen_anab.words
     # ['At', 'ille', 'ut', 'Carthaginem', 'venit,', 'multo', 'aliter,', 'ac', 'sperarat,', 'rem', 'publicam', 'se', 'habentem', 'cognovit.', 'Namque', 'diuturnitate', 'externi', 'mali', 'tantum', 'exarsit', 'intestinum', 'bellum,', 'ut', 'numquam', 'in', 'pari', 'periculo', 'fuerit', 'Carthago,', 'nisi', 'cum', 'deleta', 'est.', 'Primo', 'mercennarii', 'milites,', 'qui', 'adversus', 'Romanos', 'fuerant,', 'desciverunt;', 'quorum', 'numerus', 'erat', 'XX', 'milium.']
-    # >>> cltk_nlp.sentences
+    # >>> nlp_xen_anab.sentences
     # ['At ille ut Carthaginem venit, multo aliter, ac sperarat, rem publicam se habentem cognovit', 'Namque diuturnitate externi mali tantum exarsit intestinum bellum, ut numquam in pari periculo fuerit Carthago, nisi cum deleta est', 'Primo mercennarii milites, qui adversus Romanos fuerant, desciverunt; quorum numerus erat XX milium.']
     """
 
     def __init__(self, language: str) -> None:
         """Constructor for CLTK class.
 
-        >>> cltk_nlp = NLP('Itaque metu.', language='la')
-        >>> isinstance(cltk_nlp, NLP)
-        True
+        # >>> cltk_nlp = NLP('Itaque metu.', language='la')
+        # >>> isinstance(cltk_nlp, NLP)
+        # True
         """
+
         self.language = language
         self.tokenizer_word = self._get_word_tokenizer()  # type: TokenizeWord
         self.stanford_obj = self._get_stanford_model()
@@ -46,9 +54,9 @@ class NLP:
         """Fetches and returns callable tokenizer for
         appropriate language.
 
-        >>> cltk_nlp = NLP('Itaque metu.', language='latin')
-        >>> isinstance(cltk_nlp.tokenizer_word, TokenizeWord)
-        True
+        # >>> cltk_nlp = NLP('Itaque metu.', language='latin')
+        # >>> isinstance(cltk_nlp.tokenizer_word, TokenizeWord)
+        # True
         """
         return TokenizeWord(language=self.language)
 
@@ -74,7 +82,7 @@ class NLP:
     #     >>> cltk_nlp = NLP('Quo tibi, imperator.', language='id')
     #     Traceback (most recent call last):
     #       ...
-    #     cltk.exceptions.exceptions.UnknownLanguageError
+    #     cltk.utils.exceptions.UnknownLanguageError
     #     """
     #     words = self.tokenizer_word.tokenize_text(self.doc)
     #     return words
@@ -83,9 +91,59 @@ class NLP:
 if __name__ == '__main__':
 
     # stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_proiel')
-    cltk_nlp = NLP(language='greek')
-    some_text = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
+    # nepos_hamilcar = 'At ille ut Carthaginem venit, multo aliter, ac sperarat, rem publicam se habentem cognovit. Namque diuturnitate externi mali tantum exarsit intestinum bellum, ut numquam in pari periculo fuerit Carthago, nisi cum deleta est. Primo mercennarii milites, qui adversus Romanos fuerant, desciverunt; quorum numerus erat XX milium.'
 
-    stanford_parses = cltk_nlp.parse_stanford(text=some_text)
-    print(dir(stanford_parses))  # 'conll_file', 'load_annotations', 'sentences', 'text', 'write_conll_to_file'
-    print(stanford_parses)
+
+    cltk_nlp = NLP(language='greek')
+    xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
+
+    nlp_xen_anab = cltk_nlp.parse_stanford(text=xen_anab)
+    import stanfordnlp
+    print(isinstance(nlp_xen_anab, stanfordnlp.pipeline.doc.Document) == True)  # True
+    # print(dir(nlp_xen_anab))
+    print(nlp_xen_anab.text == xen_anab)
+
+
+    # 'conll_file', 'load_annotations', 'sentences', 'text', 'write_conll_to_file'
+    # print(nlp_xen_anab.conll_file)
+    # print(nlp_xen_anab.load_annotations)
+    # print(nlp_xen_anab.write_conll_to_file)
+
+
+    # sentences
+    nlp_xen_anab_first_sent = nlp_xen_anab.sentences[0]
+    # print(dir(nlp_xen_anab_first_sent))  # build_dependencies', 'dependencies', 'print_dependencies', 'print_tokens', 'print_words', 'tokens', 'words'
+    print(nlp_xen_anab_first_sent.tokens[0].index == '1')
+    print(nlp_xen_anab_first_sent.tokens[0].text == 'Δαρείου')
+    first_word = nlp_xen_anab_first_sent.tokens[0].words[0]  # 'dependency_relation', 'feats', 'governor', 'index', 'lemma', 'parent_token', 'pos', 'text', 'upos', 'xpos'
+    print(first_word.dependency_relation == 'iobj')
+    print(first_word.feats == 'Case=Gen|Gender=Masc|Number=Sing')
+    print(first_word.governor == 4)
+    print(first_word.index == '1')
+    print(first_word.lemma == 'Δαρεῖος')
+    print(first_word.pos == 'Ne')
+    print(first_word.text == 'Δαρείου')
+    print(first_word.upos == 'PROPN')
+    print(first_word.xpos == 'Ne')
+    # print(first_word.parent_token)  # <Token index=1;words=[<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>]>
+
+    # print_dependencies
+    # nlp_xen_anab_first_sent.print_dependencies()
+    printed_dependencies = """('Δαρείου', '4', 'iobj')
+('καὶ', '1', 'cc')
+('Παρυσάτιδος', '1', 'conj')
+('γίγνονται', '0', 'root')
+('παῖδες', '4', 'nsubj')
+('δύο,', '5', 'nmod')
+('πρεσβύτερος', '5', 'amod')
+('μὲν', '7', 'discourse')
+('Ἀρταξέρξης,', '7', 'nsubj')
+('νεώτερος', '7', 'conj')
+('δὲ', '10', 'discourse')
+('Κῦρος:', '10', 'orphan')
+"""
+
+
+
+
+
