@@ -233,6 +233,11 @@ class StanfordNLPWrapper:
 
 if __name__ == '__main__':
 
+    stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_perseus')
+    print(stanford_nlp_obj.language == 'greek')
+    print(stanford_nlp_obj.treebank == 'grc_perseus')
+    print(stanford_nlp_obj.wrapper_available == True)
+
     stanford_nlp_obj = StanfordNLPWrapper(language='greek')
     print(stanford_nlp_obj.language == 'greek')
     print(stanford_nlp_obj.treebank == 'grc_proiel')
@@ -240,11 +245,6 @@ if __name__ == '__main__':
     fp_model = stanford_nlp_obj.model_path
     print(os.path.split(fp_model)[1] == 'grc_proiel_tokenizer.pt')
     print(isinstance(stanford_nlp_obj.nlp, stanfordnlp.pipeline.core.Pipeline))
-
-    # stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_perseus')
-    # print(stanford_nlp_obj.language == 'greek')
-    # print(stanford_nlp_obj.treebank == 'grc_perseus')
-    # print(stanford_nlp_obj.wrapper_available == True)
 
     xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
     xen_anab_nlp = stanford_nlp_obj.parse(xen_anab)
