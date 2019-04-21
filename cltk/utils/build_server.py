@@ -16,7 +16,7 @@ if __name__ == '__main__':
                           ]
 
     for model in ud_models_for_cltk:
-        download(download_label='grc_proiel',
+        download(download_label=model,
                  resource_dir=os.path.expanduser('~/stanfordnlp_resources/'),
                  confirm_if_exists=True,
                  force=True)
