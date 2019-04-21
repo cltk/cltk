@@ -5,7 +5,7 @@ Use: `$ python cltk/utils/build_server.py`
 
 import os
 
-from stanfordnlp.utils.resources import download
+from stanfordnlp.utils.resources import download  # type: ignore
 
 if __name__ == '__main__':
 
