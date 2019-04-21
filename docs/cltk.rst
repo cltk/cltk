@@ -6,18 +6,13 @@ Subpackages
 
 .. toctree::
 
-    cltk.tokenize
+    cltk.codes
+    cltk.tokenizers
+    cltk.utils
+    cltk.wrappers
 
 Submodules
 ----------
-
-cltk.cltk module
-----------------
-
-.. automodule:: cltk.cltk
-    :members:
-    :undoc-members:
-    :show-inheritance:
 
 
 Module contents
