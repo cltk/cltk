@@ -4,7 +4,9 @@ dist: xenial
 
 language: python
 
-cache: ~/stanfordnlp_resources/
+cache:
+- ~/stanfordnlp_resources/
+- pip
 
 python:
 - '3.6'
