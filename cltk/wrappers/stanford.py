@@ -233,6 +233,9 @@ class StanfordNLPWrapper:
 
 if __name__ == '__main__':
 
+    stanford_nlp_obj = StanfordNLPWrapper(language='latin')
+    print(stanford_nlp_obj.language == 'latin')
+
     stanford_nlp_obj = StanfordNLPWrapper(language='greek', treebank='grc_perseus')
     print(stanford_nlp_obj.language == 'greek')
     print(stanford_nlp_obj.treebank == 'grc_perseus')

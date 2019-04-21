@@ -4,6 +4,8 @@ dist: xenial
 
 language: python
 
+cache: ~/stanfordnlp_resources/
+
 python:
 - '3.6'
 - '3.7'
@@ -14,6 +16,7 @@ before_script:
 - sudo apt-get install -y graphviz
 - pip install --upgrade pip
 - pip install -r requirements-dev.txt
+- python cltk/utils/build_server.py
 
 script:
 - make test
