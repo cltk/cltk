@@ -85,5 +85,11 @@ LATIN_CORPORA = [
     {'location': 'remote',
      'type': 'text',
      'name': 'latin_text_poeti_ditalia',
-     'origin': 'https://github.com/cltk/latin_text_poeti_ditalia.git'}
+     'origin': 'https://github.com/cltk/latin_text_poeti_ditalia.git'},
+    {'name': 'latin_text_tesserae',
+     'encoding': 'utf-8',
+     'markup': 'plaintext', #modified plaintext with Tesserae-style citations
+     'origin': 'https://github.com/cltk/greek_text_tesserae.git',
+     'location': 'remote',
+     'type': 'text'},
 ]
