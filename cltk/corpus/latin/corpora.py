@@ -89,7 +89,7 @@ LATIN_CORPORA = [
     {'name': 'latin_text_tesserae',
      'encoding': 'utf-8',
      'markup': 'plaintext', #modified plaintext with Tesserae-style citations
-     'origin': 'https://github.com/cltk/greek_text_tesserae.git',
+     'origin': 'https://github.com/cltk/latin_text_tesserae.git',
      'location': 'remote',
      'type': 'text'},
 ]

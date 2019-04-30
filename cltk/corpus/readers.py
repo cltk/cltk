@@ -23,9 +23,13 @@ LOG.addHandler(logging.NullHandler())
 
 # TODO add your corpus here:
 SUPPORTED_CORPORA = {
-    'latin': ['latin_text_latin_library', 'latin_text_perseus'],
+    'latin': ['latin_text_latin_library',
+              'latin_text_perseus',
+              'latin_text_tesserae',
+              ],
     'greek': ['greek_text_perseus',
-              'greek_text_tesserae']
+              'greek_text_tesserae',
+              ]
 }  # type: Dict[str, List[str]]
 
 
