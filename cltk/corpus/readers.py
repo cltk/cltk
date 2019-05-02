@@ -23,9 +23,13 @@ LOG.addHandler(logging.NullHandler())
 
 # TODO add your corpus here:
 SUPPORTED_CORPORA = {
-    'latin': ['latin_text_latin_library', 'latin_text_perseus'],
+    'latin': ['latin_text_latin_library',
+              'latin_text_perseus',
+              'latin_text_tesserae',
+              ],
     'greek': ['greek_text_perseus',
-              'greek_text_tesserae']
+              'greek_text_tesserae',
+              ]
 }  # type: Dict[str, List[str]]
 
 
@@ -61,6 +65,12 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
                                         sent_tokenizer=sentence_tokenizer,
                                         word_tokenizer=the_word_tokenizer,
                                         target_language='latin')  # perseus also contains English
+
+        if corpus_name == 'latin_text_tesserae':
+            return TesseraeCorpusReader(root=root, fileids=r'.*\.tess',
+                                                 sent_tokenizer=sentence_tokenizer,
+                                                 word_tokenizer=the_word_tokenizer,
+                                                 )
 
     if language == 'greek':
         if corpus_name == 'greek_text_perseus':
