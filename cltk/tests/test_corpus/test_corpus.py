@@ -710,6 +710,7 @@ class TestFilteredCorpus(unittest.TestCase):
         def setUpClass(cls):
             try:
                 corpus_importer = CorpusImporter('latin')
+                corpus_importer.import_corpus('latin_models_cltk')
                 corpus_importer.import_corpus('latin_text_latin_library')
             except:
                 raise Exception('Failure to download test corpus')
