@@ -15,7 +15,7 @@ from cltk.phonology.gothic import transcription as gothic
 from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology import utils as ut
 from cltk.phonology.syllabify import Syllabifier, Syllable
-from cltk.tokenize.word import tokenize_old_norse_words
+from cltk.tokenize.word import WordTokenizer
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 import unittest
 
@@ -738,7 +738,8 @@ class TestSequenceFunctions(unittest.TestCase):
         old_norse_syllabifier = Syllabifier(language="old_norse", break_geminants=True)
         text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok " \
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
-        words = tokenize_old_norse_words(text)
+        tokenizer = WordTokenizer('old_norse')
+        words = tokenizer.tokenize(text)
         old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
 
         syllabified_words = [old_norse_syllabifier.syllabify_ssp(word.lower())
