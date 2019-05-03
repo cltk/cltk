@@ -35,6 +35,7 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(self.language,  # pylint: disable=line-too-long
             self.available_languages)  # pylint: disable=line-too-long
         # ^^^ Necessary? since we have an 'else' in `tokenize`
+        # Perhaps a warning that a default is being used in the else
 
     def tokenize(self, string):
         """Tokenize incoming string."""
