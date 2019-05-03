@@ -65,12 +65,12 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
                 enclitics_.remove('ue')
                 enclitics_.append('q?ue')
             enclitics_string = "|".join(enclitics_)
-            enc_compile = re.compile(r'([^~]\b\w+?)(%s)[%s]?\b'%(enclitics_string, re.escape(string.punctuation)))
+            enc_compile = re.compile(r'\b(?<!~)(\w+?)(%s)[%s]?\b'%(enclitics_string, re.escape(string.punctuation)))
 
         sent_tokens_ = []
         for sent in sents:
             for word in latin_exceptions:
-                sent = re.sub(rf'\b{word}\b', self._matchcase(rf'~{word}~'), sent)
+                sent = re.sub(rf'\b{word}\b', self._matchcase(rf'~{word}~'), sent, flags=re.IGNORECASE)
             sent = " ".join(filter(None, ne_compile.split(sent)))
             sent = " ".join(filter(None, enc_compile.split(sent)))
             for enclitic in enclitics:
@@ -94,7 +94,7 @@ class LatinPunktWordTokenizer(BasePunktWordTokenizer):
             elif text.islower():
                 return word.lower()
             elif text[0].isupper():
-                return word.capitalize()
+                return word.title()
             else:
                 return word
         return replace
