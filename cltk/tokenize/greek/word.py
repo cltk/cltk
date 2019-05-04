@@ -37,11 +37,3 @@ class GreekPunktWordTokenizer(BasePunktWordTokenizer):
         sents = self.sent_tokenizer.tokenize(text)
         tokenizer = TreebankWordTokenizer()
         return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
-
-if __name__ == '__main__':
-    text = "Θουκυδίδης Ἀθηναῖος ξυνέγραψε τὸν πόλεμον τῶν Πελοποννησίων καὶ Ἀθηναίων, ὡς ἐπολέμησαν πρὸς ἀλλήλους, ἀρξάμενος εὐθὺς καθισταμένου καὶ ἐλπίσας μέγαν τε ἔσεσθαι καὶ ἀξιολογώτατον τῶν προγεγενημένων, τεκμαιρόμενος ὅτι ἀκμάζοντές τε ᾖσαν ἐς αὐτὸν ἀμφότεροι παρασκευῇ τῇ πάσῃ καὶ τὸ ἄλλο Ἑλληνικὸν ὁρῶν ξυνιστάμενον πρὸς ἑκατέρους, τὸ μὲν εὐθύς, τὸ δὲ καὶ διανοούμενον."
-    w = GreekPunktWordTokenizer()
-    tokens = w.tokenize(text)
-    for i, token in enumerate(tokens, 1):
-        print(f'{i}: {token}')
-    pass
