@@ -56,7 +56,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         key-value list of lemmata-headword. If a string, tokenize with
         ``PunktLanguageVars()``. If a final period appears on a token, remove
         it, then re-add once replacement done.
-        TODO: rm check for final period, change PunktLanguageVars() to nltk_tokenize_words()
+        TODO: rm check for final period, change PunktLanguageVars()
         """
         assert type(input_text) in [list, str], \
             logger.error('Input must be a list or string.')

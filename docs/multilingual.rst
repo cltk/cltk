@@ -748,62 +748,19 @@ If you have access to the TLG or PHI5 disc, and have already imported it and con
 Word tokenization
 =================
 
-The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is its latest tokenizer.
+The NLTK offers several methods for word tokenization. The CLTK Tokenize module offers "TreebankWordTokenizer" as a default multilingual word tokenizer.
 
 .. code-block:: python
 
-   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
+   In [1]: from cltk.tokenze.word('multilingual')
 
    In [2]: s = """Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."""
 
-   In [3]: p = PunktLanguageVars()
+   In [3]: t = WordTokenizer('multilingual')
 
-   In [4]: p.word_tokenize(s)
+   In [4]: t.tokenize(s)
    Out[4]:
-   ['Anna',
-    'soror',
-    ',',
-    'quae',
-    'me',
-    'suspensam',
-    'insomnia',
-    'terrent',
-    '!',
-    'Quis',
-    'novus',
-    'hic',
-    'nostris',
-    'successit',
-    'sedibus',
-    'hospes.']
-
-This tokenizer works well, though has the particular feature that periods are fixed to the word preceding it. Notice the final token ``hospes.`` in the above. To get around this limitation, the CLTK offers ``nltk_tokenize_words()``, which is a simple wrapper for ``PunktLanguageVars.word_tokenize()``. It identifies final periods and turns them into their own item.
-
-.. code-block:: python
-
-   In [5]: from cltk.tokenize.word import nltk_tokenize_words
-
-   In [6]: nltk_tokenize_words(s)
-   Out[6]:
-   ['Anna',
-    'soror',
-    ',',
-    'quae',
-    'me',
-    'suspensam',
-    'insomnia',
-    'terrent',
-    '!',
-    'Quis',
-    'novus',
-    'hic',
-    'nostris',
-    'successit',
-    'sedibus',
-    'hospes',
-    '.']
-
-If, however, you want the default output of ``PunktLanguageVars.word_tokenize()``, use the argument ``attached_period=True``, as in ``nltk_tokenize_words(s, attached_period=True)``.
+   ['Anna', 'soror', ',', 'quae', 'me', 'suspensam', 'insomnia', 'terrent', '!', 'Quis', 'novus', 'hic', 'nostris', 'successit', 'sedibus', 'hospes', '.']
 
 If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another tokenizer from the NLTK, which breaks on any other regular expression pattern you choose. Here, for instance, on whitespace word breaks:
 
