@@ -12,7 +12,7 @@ from cltk.tokenize.word import WordTokenizer
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tag.pos import POSTag
 from cltk.corpus.utils.importer import CorpusImporter
-from cltk.tokenize.word import tokenize_old_norse_words
+from cltk.tokenize.word import WordTokenizer
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 from cltk.inflection.old_norse import pronouns, nouns
 import cltk.inflection.utils as decl_utils
@@ -89,7 +89,8 @@ class TestOldNorse(unittest.TestCase):
         s = Syllabifier(language="old_norse", break_geminants=True)
         text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok " \
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
-        words = tokenize_old_norse_words(text)
+        tokenizer = WordTokenizer('old_norse')
+        words = tokenizer.tokenize(text)
         s.set_invalid_onsets(invalid_onsets)
         syllabified_words = [s.syllabify_ssp(word.lower())
                              for word in words if word not in ",."]

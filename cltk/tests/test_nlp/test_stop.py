@@ -284,8 +284,7 @@ class TestPackageImports(unittest.TestCase):
         Sentence extracted from (https://github.com/cltk/hindi_text_ltrc/blob/master/miscellaneous/gandhi/main.txt)
         """
         sentence = " वह काबुली फिर वहां आकर खडा हो गया है  "
-        tokenizer = TokenizeSentence('hindi')
-        tokens = tokenizer.tokenize(sentence)
+        tokens = sentence.split()
         no_stops = [word for word in tokens if word not in HINDI_STOPS]
         target_list = ['काबुली', 'फिर', 'वहां', 'आकर', 'खडा', 'गया']
         self.assertEqual(no_stops, target_list)

@@ -7,7 +7,7 @@ from cltk.phonology.utils import Transcriber
 from cltk.phonology.old_norse.transcription import Consonant, Vowel, old_norse_rules, IPA_class, \
     DIPHTHONGS_IPA_class, DIPHTHONGS_IPA, measure_old_norse_syllable
 from cltk.phonology.syllabify import Syllabifier
-from cltk.tokenize.word import tokenize_old_norse_words
+from cltk.tokenize.word import WordTokenizer
 import cltk.corpus.old_norse.syllabifier as old_norse_syllabifier
 from cltk.stop.old_norse.stops import STOPS_LIST
 from cltk.utils.cltk_logger import logger
@@ -103,7 +103,8 @@ class MetreManager:
 class ShortLine:
     def __init__(self, text):
         self.text = text
-        self.tokenized_text = tokenize_old_norse_words(text)
+        self.tokenizer = WordTokenizer('old_norse')
+        self.tokenized_text = self.tokenizer.tokenize(text)
         self.first_sounds = []
         self.syllabified = []
         self.transcribed = []
@@ -178,7 +179,8 @@ class ShortLine:
 class LongLine:
     def __init__(self, text):
         self.text = text
-        self.tokenized_text = tokenize_old_norse_words(text)
+        self.tokenizer = WordTokenizer('old_norse')
+        self.tokenized_text = self.tokenizer.tokenize(text)
         self.short_lines = None
         self.first_sounds = []
         self.syllabified = []
@@ -194,7 +196,7 @@ class LongLine:
         :param syllabifier:
         :return:
         """
-        for viisuordh in tokenize_old_norse_words(self.text):
+        for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
@@ -205,7 +207,7 @@ class LongLine:
         :param transcriber:
         :return:
         """
-        for viisuordh in tokenize_old_norse_words(self.text):
+        for viisuordh in self.tokenized_text:
             word = normalize(viisuordh)
             if word:
                 transcribed_word = transcriber.text_to_phonetic_representation(word)
@@ -258,7 +260,7 @@ class Metre:
         """
         self.text = ""
         self.short_lines = []  # list of minimal lines
-        self.long_lines = []  # list of long lines  
+        self.long_lines = []  # list of long lines
         self.syllabified_text = []  # each word is replaced by a list of its syllables
         self.transcribed_text = []  # each line is replaced by its phonetic transcription
         self.phonological_features_text = []
