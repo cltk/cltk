@@ -1,6 +1,7 @@
 import os
 import re
 import math
+import codecs
 
 from numpy import argmax
 from nltk.tokenize import wordpunct_tokenize
@@ -28,7 +29,7 @@ class OldEnglishDictionaryLemmatizer:
 
 		self.lemma_dict = {}
 
-		with open(path, 'r') as infile:
+		with codecs.open(path, 'r', encoding="utf-8") as infile:
 			lines = infile.read().splitlines()
 			for line in lines:
 				forms = line.split('\t')
@@ -83,7 +84,7 @@ class OldEnglishDictionaryLemmatizer:
 			if lemmas == None:
 				lemma = token
 			elif len(lemmas) > 1:
-				counts = [self.type_counts[word] for word in lemmas]
+				counts = [self.type_counts.get(word,0) for word in lemmas]
 				lemma = lemmas[argmax(counts)]
 			else:
 				lemma = lemmas[0]
