@@ -4,6 +4,7 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>', ]
 __license__ = 'MIT License.'
 
+import re
 from cltk.tokenize.word import BaseRegexWordTokenizer
 from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
 
