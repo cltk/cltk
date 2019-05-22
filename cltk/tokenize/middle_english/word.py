@@ -1,16 +1,16 @@
 """ Code for word tokenization: Middle English
 """
 
-__author__ = ['Clément Besnier <clemsciences@gmail.com>',
-              'Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', ]
 __license__ = 'MIT License.'
 
-import re
 from cltk.tokenize.word import BaseRegexWordTokenizer
 from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
 
+
 def WordTokenizer():
     return MiddleEnglishRegexWordTokenizer()
+
 
 class MiddleEnglishRegexWordTokenizer(BaseRegexWordTokenizer):
     """

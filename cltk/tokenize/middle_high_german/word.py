@@ -1,16 +1,16 @@
 """ Code for word tokenization: Middle High German
 """
 
-__author__ = ['Clément Besnier <clemsciences@gmail.com>',
-              'Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', ]
 __license__ = 'MIT License.'
 
-import re
 from cltk.tokenize.word import BaseRegexWordTokenizer
 from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
 
+
 def WordTokenizer():
     return MiddleHighGermanRegexWordTokenizer()
+
 
 class MiddleHighGermanRegexWordTokenizer(BaseRegexWordTokenizer):
     """

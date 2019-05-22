@@ -1,6 +1,6 @@
 """Test cltk.phonology.orthophonology"""
 
-__author__ = ["John Stewart <johnstewart@aya.yale.edu"]
+__author__ = ["John Stewart <johnstewart@aya.yale.edu>"]
 
 import unittest
 from copy import deepcopy

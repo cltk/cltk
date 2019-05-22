@@ -1,6 +1,6 @@
-'''
+"""
 Various test cases for akkadian functions in the CLTK
-'''
+"""
 
 __author__ = ['M. Willis Monroe <willismonroe@gmail.com>',
               'Andrew Deloucas <adeloucas@g.harvard.com>']
@@ -139,10 +139,10 @@ SAMPLE_TEXT = \
  '2. bi-tum bi-it-ka u3 {disz}a-bi#-[sa]-mar# ma-ru-ka-[ma]']
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
-    '''
+    """
     An experiment to use Huehnergard's grammar and key to test the functions
     in the cltk.
-    '''
+    """
 
     def test_lesson_1_exercise_d(self):
         """Tests stresser"""

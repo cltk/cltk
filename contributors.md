@@ -15,14 +15,12 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/akkadian/tokenizer.py
 * cltk/stem/akkadian/atf_converter.py
 
-## Anoop Kunchukuttan
-* cltk/stem/sanskrit/indian_syllabifier.py
-
 ## Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>
 * cltk/corpus/sanskrit/itrans/itrans_transliterator.py
 * cltk/corpus/sanskrit/itrans/langinfo.py
 * cltk/corpus/sanskrit/itrans/sinhala_transliterator.py
 * cltk/corpus/sanskrit/itrans/unicode_transliterate.py
+* cltk/stem/sanskrit/indian_syllabifier.py
 
 ## Bradley Baker <bradley.baker12@ncf.edu>
 * cltk/prosody/latin/scanner.py
@@ -30,32 +28,24 @@ CLTK Core authors, ordered alphabetically by first name
 ## Chandana K.G.D <GitHub:chandanakgd>
 * cltk/corpus/pali/alphabet.py
 
-## Chatziargyriou Eleftheria <ele.hatzy@gmail.com>
-* cltk/phonology/middle_english/transcription.py
-* cltk/stop/middle_high_german/stops.py
-
 ## Clément Besnier <clemsciences@aol.com>
 * cltk/corpus/old_norse/runes.py
+* cltk/corpus/old_norse/syllabifier.py
 * cltk/inflection/old_norse/nouns.py
 * cltk/inflection/old_norse/phonemic_rules.py
 * cltk/inflection/old_norse/pronouns.py
 * cltk/inflection/old_norse/verbs.py
 * cltk/inflection/utils.py
+* cltk/phonology/gothic/transcription.py
+* cltk/phonology/old_norse/transcription.py
+* cltk/phonology/old_swedish/transcription.py
 * cltk/phonology/syllabify.py
+* cltk/phonology/utils.py
 * cltk/prosody/old_norse/verse.py
 * cltk/stop/old_norse/stops.py
 * cltk/tests/test_languages/test_old_norse.py
 * cltk/tests/test_nlp/test_inflection.py
 * cltk/tests/test_nlp/test_phonology.py
-
-## Clément Besnier <clemsciences@gmail.com>
-* cltk/phonology/gothic/transcription.py
-* cltk/phonology/old_norse/transcription.py
-* cltk/phonology/old_swedish/transcription.py
-* cltk/phonology/utils.py
-
-## Clément Besnier <clemsicences@aol.com>
-* cltk/corpus/old_norse/syllabifier.py
 
 ## Dhruv Apte
 * cltk/corpus/gujarati/alphabet.py
@@ -67,26 +57,23 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/egyptian/transliterate_mdc.py
 
 ## Eleftheria Chatziargyriou <ele.hatzy@gmail.com>
+* cltk/phonology/middle_english/transcription.py
 * cltk/phonology/syllabify.py
 * cltk/stem/middle_english/stem.py
 * cltk/stem/middle_high_german/stem.py
+* cltk/stop/middle_high_german/stops.py
 * cltk/tests/test_languages/test_middle_high_german.py
 * cltk/text_reuse/automata.py
-* cltk/text_reuse/levenshtein.py
-
-## Eleftheria Chatziargyriou ele.hatzy@gmail.com
 * cltk/text_reuse/comparison.py
+* cltk/text_reuse/levenshtein.py
 
 ## Jack Duff <jmunroeduff@gmail.com>
 * cltk/phonology/greek/transcription.py
 * cltk/phonology/latin/transcription.py
 * cltk/tests/test_nlp/test_phonology.py
 
-## James Gawley <james.gawley@gmail.com
+## James Gawley <james.gawley@gmail.com>
 * cltk/tests/test_nlp/test_semantics.py
-
-## John Stewart <johnstewart@aya.yale.edu
-* cltk/tests/test_nlp/test_orthophonology.py
 
 ## John Stewart <johnstewart@aya.yale.edu>
 * cltk/phonology/old_english/orthophonology.py
@@ -94,6 +81,7 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/tests/test_languages/test_middle_english.py
 * cltk/tests/test_languages/test_old_english.py
 * cltk/tests/test_languages/test_old_english_orthophonology.py
+* cltk/tests/test_nlp/test_orthophonology.py
 
 ## Kyle P. Johnson <kyle@kyle-p-johnson.com>
 * cltk/corpus/greek/beta_to_unicode.py
@@ -174,9 +162,17 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/tests/test_nlp/test_semantics.py
 * cltk/tokenize/greek/params.py
 * cltk/tokenize/greek/sentence.py
+* cltk/tokenize/greek/word.py
 * cltk/tokenize/latin/params.py
 * cltk/tokenize/latin/sentence.py
 * cltk/tokenize/latin/utils.py
+* cltk/tokenize/latin/word.py
+* cltk/tokenize/middle_english/params.py
+* cltk/tokenize/middle_english/word.py
+* cltk/tokenize/middle_high_german/params.py
+* cltk/tokenize/middle_high_german/word.py
+* cltk/tokenize/sanskrit/params.py
+* cltk/tokenize/sanskrit/sentence.py
 * cltk/tokenize/utils.py
 
 ## Sourav Singh <ssouravsingh12@gmail.com>
@@ -192,14 +188,11 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/corpus/arabic/utils/pyarabic/araby.py
 * cltk/corpus/arabic/utils/pyarabic/stack.py
 
-## Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk
+## Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk>
 * cltk/corpus/punjabi/alphabet.py
 
 ## Thibault Clerice
 * cltk/stem/latin/declension.py
-
-## Todd Cook <todd.g.cook@gmail.com
-* cltk/utils/file_operations.py
 
 ## Todd Cook <todd.g.cook@gmail.com>
 * cltk/corpus/latin/__init__.py
@@ -214,6 +207,7 @@ CLTK Core authors, ordered alphabetically by first name
 * cltk/prosody/latin/verse.py
 * cltk/prosody/latin/verse_scanner.py
 * cltk/utils/featurization.py
+* cltk/utils/file_operations.py
 * cltk/utils/matrix_corpus_fun.py
 
 ## Tyler Kirby <tyler.kirby9398@gmail.com>

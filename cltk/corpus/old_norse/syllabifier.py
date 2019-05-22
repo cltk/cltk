@@ -2,7 +2,7 @@
 Sonority hierarchy for Old Norse
 """
 
-__author__ = ["Clément Besnier <clemsicences@aol.com>", ]
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 __license__ = "MIT License"
 
 # Used according to sonority principle

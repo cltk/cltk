@@ -1,7 +1,7 @@
 """Tokenize sentences."""
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
-              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Anoop Kunchukuttan']
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import os
