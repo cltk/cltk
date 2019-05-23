@@ -7,7 +7,6 @@ Based on many ideas in cltk.phonology.utils by Clément Besnier <clemsciences@ao
 
 from enum import IntEnum, auto
 from copy import deepcopy
-from functools import reduce
 import re
 
 __author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
@@ -430,13 +429,13 @@ class Consonant(AbstractPhoneme):
         assert ipa is not None
 
         AbstractPhoneme.__init__(self, {
-			Consonantal : Consonantal.pos,
-			Place       : place,
-			Manner      : manner,
-			Voiced      : voiced,
-			Aspirated   : aspirated,
-			Geminate    : geminate},
-			ipa)
+            Consonantal : Consonantal.pos,
+            Place       : place,
+            Manner      : manner,
+            Voiced      : voiced,
+            Aspirated   : aspirated,
+            Geminate    : geminate},
+            ipa)
 
     def is_more_sonorous(self, other):
         """
@@ -466,12 +465,12 @@ class Vowel(AbstractPhoneme):
         assert ipa is not None
 
         AbstractPhoneme.__init__(self, {
-			Consonantal : Consonantal.neg,
-			Height      : height,
-			Backness    : backness,
-			Roundedness : rounded,
-			Length      : length},
-			ipa)
+            Consonantal : Consonantal.neg,
+            Height      : height,
+            Backness    : backness,
+            Roundedness : rounded,
+            Length      : length},
+            ipa)
 
     def __add__(self, other):
         """
