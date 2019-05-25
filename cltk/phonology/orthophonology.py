@@ -7,6 +7,7 @@ Based on many ideas in cltk.phonology.utils by Clément Besnier <clemsciences@ao
 
 from enum import IntEnum, auto
 from copy import deepcopy
+from functools import reduce
 import re
 
 __author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
