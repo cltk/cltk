@@ -292,7 +292,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ['e','piš','ta','šu']
         self.assertEqual(syllables, target)
 
-    '''
+    """
     #? Someone fix this; assertTrue() doesn't make sense here
     def test_phonetic_vector(self):
         cor = [0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0]
@@ -300,7 +300,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         syllabifier = IndianSyllabifier('hindi')
         current = syllabifier.get_phonetic_feature_vector('न', 'hi')
         # self.assertTrue(current, correct)
-    '''
+    """
 
     def test_is_misc(self):
         """Test Indic Syllabifier is_misc method"""

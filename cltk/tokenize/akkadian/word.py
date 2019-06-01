@@ -2,7 +2,7 @@
 """
 
 __author__ = ['Andrew Deloucas <adeloucas@g.harvard.edu>',
-              'Patrick J. Burns <patrick@diyclassics.org']
+              'Patrick J. Burns <patrick@diyclassics.org>']
 __license__ = 'MIT License.'
 
 import re

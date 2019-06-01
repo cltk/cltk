@@ -15,7 +15,7 @@ except ImportError:
     print('"numpy" is not installed.')
     raise
 
-__author__ = ['Anoop Kunchukuttan']
+__author__ = ['Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>']
 __license__ = 'GPLv3'
 
 

@@ -3,7 +3,7 @@
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
               'Kyle P. Johnson <kyle@kyle-p-johnson.com>',
               'Natasha Voake <natashavoake@gmail.com>',
-              'Clément Besnier <clemsciences@gmail.com>',
+              'Clément Besnier <clemsciences@aol.com>',
               'Andrew Deloucas <adeloucas@g.harvard.edu>']
 # Author info for Arabic?
 
@@ -28,6 +28,7 @@ from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
 from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
 from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
 from cltk.tokenize.old_french.params import OldFrenchTokenizerPatterns
+
 
 class WordTokenizer:  # pylint: disable=too-few-public-methods
     """Tokenize according to rules specific to a given language."""
