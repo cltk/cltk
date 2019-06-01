@@ -33,7 +33,7 @@ def get_authors(filepath: str) -> List[str]:
     """Open file and check for author info."""
     str_oneline = r'(^__author__ = )(\[.*?\])'  # type" str
     comp_oneline = re.compile(str_oneline, re.MULTILINE)  # type: Pattern[str]
-    with open(filepath, encoding="utf-8") as file_open:
+    with open(filepath) as file_open:
         file_read = file_open.read()  # type: str
     match = comp_oneline.findall(file_read)
     if match:
@@ -64,7 +64,7 @@ def write_contribs(def_dict_list: Dict[str, List[str]]) -> None:
             file_str += '* ' + module + '\n'
         file_str += '\n'
     file_name = 'contributors.md'  # type: str
-    with open(file_name, 'w', encoding="utf-8") as file_open:  # type: IO
+    with open(file_name, 'w') as file_open:  # type: IO
         file_open.write(file_str)
     logger.info('Wrote contribs file at "%s".', file_name)
 
