@@ -19,7 +19,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
     def _load_entries(self):
         """Check for availability of lemmatizer for French."""
 
-        rel_path = os.path.join('~','cltk_data',
+        rel_path = os.path.join(get_cltk_data_dir,
                                 'french',
                                 'text','french_data_cltk'
                                 ,'entries.py')
@@ -32,7 +32,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
 
     def _load_forms_and_lemmas(self):
 
-        rel_path = os.path.join('~', 'cltk_data',
+        rel_path = os.path.join(get_cltk_data_dir,
                                 'french',
                                 'text', 'french_data_cltk',
                                 'forms_and_lemmas.py')
@@ -72,4 +72,3 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                         lemmed = (token, "None")
                         lemmatized.append(lemmed)
         return lemmatized
-

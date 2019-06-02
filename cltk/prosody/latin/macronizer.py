@@ -39,7 +39,7 @@ class Macronizer:
             "Macronizer not available for '{0}' tagger.".format(self.tagger)
 
     def _setup_macrons_data(self):
-        rel_path = "~/cltk_data/latin/model/latin_models_cltk/taggers/macrons/macrons.py"
+        rel_path = get_cltk_data_dir + "/latin/model/latin_models_cltk/taggers/macrons/macrons.py"
         path = os.path.expanduser(rel_path)
         loader = importlib.machinery.SourceFileLoader("macrons", path)
         module = loader.load_module()

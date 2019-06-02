@@ -56,7 +56,7 @@ def build_concordance(text_str: str) -> List[List[str]]:
 def write_concordance_from_string(text: str, name: str) -> None:
     """A reworkinng of write_concordance_from_file(). Refactor these."""
     list_of_lists = build_concordance(text)  # type: List[List[str]]
-    user_data_rel = '~/cltk_data/user_data'  # type: str
+    user_data_rel = get_cltk_data_dir + '/user_data'  # type: str
     user_data = os.path.expanduser(user_data_rel)  # type: str
     if not os.path.isdir(user_data):
         os.makedirs(user_data)
@@ -76,7 +76,7 @@ def write_concordance_from_string(text: str, name: str) -> None:
 def write_concordance_from_file(filepaths: Union[str, List[str]], name: str) -> None:
     """This calls the modified ConcordanceIndex, taken and modified from
     the NLTK, and writes to disk a file named 'concordance_' + name at
-    '~/cltk_data/user_data/'.
+    get_cltk_data_dir + '/user_data/'.
 
     TODO: Add language (here or in class), lowercase option, stemming/
     lemmatization, else?
@@ -94,7 +94,7 @@ def write_concordance_from_file(filepaths: Union[str, List[str]], name: str) -> 
         for filepath in filepaths:
             text += read_file(filepath)
     list_of_lists = build_concordance(text)  # type: List[List[str]]
-    user_data_rel = '~/cltk_data/user_data'  # type: str
+    user_data_rel = get_cltk_data_dir + '/user_data'  # type: str
     user_data = os.path.expanduser(user_data_rel)  # type: str
     if not os.path.isdir(user_data):
         os.makedirs(user_data)

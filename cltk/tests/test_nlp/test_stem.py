@@ -31,7 +31,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #     """
     #     corpus_importer = CorpusImporter('sanskrit')
     #     corpus_importer.import_corpus('sanskrit_models_cltk')
-    #     file_rel = os.path.join('~/cltk_data/sanskrit/model/sanskrit_models_cltk/README.md')
+    #     file_rel = os.path.join(get_cltk_data_dir + '/sanskrit/model/sanskrit_models_cltk/README.md')
     #     file = os.path.expanduser(file_rel)
     #     file_exists = os.path.isfile(file)
     #     self.assertTrue(file_exists)

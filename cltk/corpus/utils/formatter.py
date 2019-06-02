@@ -164,7 +164,7 @@ def phi5_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
 
 def assemble_tlg_author_filepaths():
     """Reads TLG index and builds a list of absolute filepaths."""
-    plaintext_dir_rel = '~/cltk_data/greek/text/tlg/plaintext/'
+    plaintext_dir_rel = get_cltk_data_dir + '/greek/text/tlg/plaintext/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     filepaths = [os.path.join(plaintext_dir, x + '.TXT') for x in TLG_INDEX]
     return filepaths
@@ -173,7 +173,7 @@ def assemble_tlg_author_filepaths():
 def assemble_phi5_author_filepaths():
     """Reads PHI5 index and builds a list of absolute filepaths.
     """
-    plaintext_dir_rel = '~/cltk_data/latin/text/phi5/plaintext/'
+    plaintext_dir_rel = get_cltk_data_dir + '/latin/text/phi5/plaintext/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     filepaths = [os.path.join(plaintext_dir, x + '.TXT') for x in PHI5_INDEX]
     return filepaths
@@ -181,7 +181,7 @@ def assemble_phi5_author_filepaths():
 
 def assemble_tlg_works_filepaths():
     """Reads TLG index and builds a list of absolute filepaths."""
-    plaintext_dir_rel = '~/cltk_data/greek/text/tlg/individual_works/'
+    plaintext_dir_rel = get_cltk_data_dir + '/greek/text/tlg/individual_works/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     all_filepaths = []
     for author_code in TLG_WORKS_INDEX:
@@ -195,7 +195,7 @@ def assemble_tlg_works_filepaths():
 
 def assemble_phi5_works_filepaths():
     """Reads PHI5 index and builds a list of absolute filepaths."""
-    plaintext_dir_rel = '~/cltk_data/latin/text/phi5/individual_works/'
+    plaintext_dir_rel = get_cltk_data_dir + '/latin/text/phi5/individual_works/'
     plaintext_dir = os.path.expanduser(plaintext_dir_rel)
     all_filepaths = []
     for author_code in PHI5_WORKS_INDEX:

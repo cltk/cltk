@@ -61,7 +61,7 @@ from cltk.utils.matrix_corpus_fun import distinct_words
 
 __license__ = 'MIT License. See LICENSE.'
 
-DISTRIBUTED_CORPUS_PATH_REL = '~/cltk_data/test_distributed_corpora.yaml'
+DISTRIBUTED_CORPUS_PATH_REL = get_cltk_data_dir + '/test_distributed_corpora.yaml'
 DISTRIBUTED_CORPUS_PATH = os.path.expanduser(DISTRIBUTED_CORPUS_PATH_REL)
 
 
@@ -118,7 +118,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test cloning TLGU."""
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_software_tlgu')
-        file_rel = os.path.join('~/cltk_data/greek/software/greek_software_tlgu/README.md')
+        file_rel = os.path.join(get_cltk_data_dir + '/greek/software/greek_software_tlgu/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
@@ -130,7 +130,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         Note: assertEqual fails on some accented characters ('ή', 'ί').
         """
         in_test = os.path.abspath('cltk/tests/test_nlp/tlgu_test_text_beta_code.txt')
-        out_test = os.path.expanduser('~/cltk_data/tlgu_test_text_unicode.txt')
+        out_test = os.path.normpath(get_cltk_data_dir + '/tlgu_test_text_unicode.txt')
         tlgu = TLGU(testing=True)
         tlgu.convert(in_test, out_test)
         with open(out_test) as out_file:
@@ -302,7 +302,7 @@ argenteo polubro, aureo eclutro. """
         """Test cloning the Latin Library text corpus."""
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_latin_library')
-        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_latin_library/README.md')
+        file_rel = os.path.join(get_cltk_data_dir + '/latin/text/latin_text_latin_library/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
@@ -361,7 +361,7 @@ argenteo polubro, aureo eclutro. """
         """Test cloning the CLTK Latin models."""
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir + '/latin/model/latin_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
@@ -372,7 +372,7 @@ argenteo polubro, aureo eclutro. """
         """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_models_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir + '/greek/model/greek_models_cltk/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
@@ -394,7 +394,7 @@ argenteo polubro, aureo eclutro. """
         """Test cloning the Antique Latin from digilibLT."""
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_text_antique_digiliblt')
-        file_rel = os.path.join('~/cltk_data/latin/text/latin_text_antique_digiliblt/README.md')
+        file_rel = os.path.join(get_cltk_data_dir + '/latin/text/latin_text_antique_digiliblt/README.md')
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
         self.assertTrue(file_exists)
@@ -543,7 +543,7 @@ argenteo polubro, aureo eclutro. """
 
     def make_distributed_corpora_testing_file(self):
         """Setup for some cloning tests, make file at
-        '~/cltk_data/test_distributed_corpora.yaml'.
+        get_cltk_data_dir + '/test_distributed_corpora.yaml'.
         """
         # ! Don't format this literal string, must be YAML-ish
         yaml_str_to_write = """example_distributed_latin_corpus:
@@ -556,7 +556,7 @@ example_distributed_fake_language_corpus:
         language: fake_language
         type: treebank
     """
-        cltk_data_dir = os.path.expanduser('~/cltk_data')
+        cltk_data_dir = get_cltk_data_dir
         if not os.path.isdir(cltk_data_dir):
             os.mkdir(cltk_data_dir)
         with open(DISTRIBUTED_CORPUS_PATH, 'w') as file_open:
@@ -615,7 +615,7 @@ example_distributed_fake_language_corpus:
     #     corpora_list = pun_import.list_corpora
     #     self.assertTrue('punjabi_text_gurban' in corpora_list)
     #     pun_import.import_corpus('punjabi_text_gurban')
-    #     file_path = os.path.join('~/cltk_data/punjabi/text/punjabi_text_gurban/README.md')
+    #     file_path = os.path.join(get_cltk_data_dir + '/punjabi/text/punjabi_text_gurban/README.md')
     #     _file = os.path.expanduser(file_path)
     #     self.assertTrue(os.path.isfile(_file))
     #

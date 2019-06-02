@@ -47,7 +47,7 @@ class TLGU(object):
     @staticmethod
     def _check_import_source():
         """Check if tlgu imported, if not import it."""
-        path_rel = '~/cltk_data/greek/software/greek_software_tlgu/tlgu.h'
+        path_rel = get_cltk_data_dir + '/greek/software/greek_software_tlgu/tlgu.h'
         path = os.path.expanduser(path_rel)
         if not os.path.isfile(path):
             try:
@@ -67,7 +67,7 @@ class TLGU(object):
             if not subprocess.check_output(['which', 'gcc']):
                 logger.error('GCC seems not to be installed.')
             else:
-                tlgu_path_rel = '~/cltk_data/greek/software/greek_software_tlgu'
+                tlgu_path_rel = get_cltk_data_dir + '/greek/software/greek_software_tlgu'
                 tlgu_path = os.path.expanduser(tlgu_path_rel)
                 if not self.testing:
                     print('Do you want to install TLGU?')
@@ -181,9 +181,9 @@ class TLGU(object):
         TODO: Add markup options to input.
         TODO: Do something with break_lines, divide_works, and extra_args or rm them
         """
-        orig_path_rel = '~/cltk_data/originals'
+        orig_path_rel = get_cltk_data_dir + '/originals'
         orig_path = os.path.expanduser(orig_path_rel)
-        target_path_rel = '~/cltk_data'
+        target_path_rel = get_cltk_data_dir
         target_path = os.path.expanduser(target_path_rel)
         assert corpus in ['tlg', 'phi5', 'phi7'], "Corpus must be 'tlg', 'phi5', or 'phi7'"
         if corpus in ['tlg', 'phi5', 'phi7']:
@@ -229,13 +229,13 @@ class TLGU(object):
         TODO: Write test for this
         """
         if corpus == 'tlg':
-            orig_dir_rel = '~/cltk_data/originals/tlg'
-            works_dir_rel = '~/cltk_data/greek/text/tlg/individual_works'
+            orig_dir_rel = get_cltk_data_dir + '/originals/tlg'
+            works_dir_rel = get_cltk_data_dir + '/greek/text/tlg/individual_works'
             file_prefix = 'TLG'
             latin = False
         elif corpus == 'phi5':
-            orig_dir_rel = '~/cltk_data/originals/phi5'
-            works_dir_rel = '~/cltk_data/latin/text/phi5/individual_works'
+            orig_dir_rel = get_cltk_data_dir + '/originals/phi5'
+            works_dir_rel = get_cltk_data_dir + '/latin/text/phi5/individual_works'
             file_prefix = 'LAT'
             latin = True  # this is for the optional TLGU argument to convert()
 

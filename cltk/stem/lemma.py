@@ -31,7 +31,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
                         "LemmaReplacer is deprecated and will soon be removed from CLTK. Please use the BackoffLatinLemmatizer at cltk.lemmatize.latin.backoff.",
                         DeprecationWarning,
                         stacklevel=2)
-            rel_path = os.path.join('~','cltk_data',
+            rel_path = os.path.join(get_cltk_data_dir,
                                     self.language,
                                     'model','latin_models_cltk',
                                     'lemmata','latin_lemmata_cltk.py')
@@ -40,7 +40,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
             loader = importlib.machinery.SourceFileLoader('latin_lemmata_cltk', path)
 
         elif self.language == 'greek':
-            rel_path = os.path.join('~','cltk_data',
+            rel_path = os.path.join(get_cltk_data_dir,
                                     self.language,
                                     'model','greek_models_cltk',
                                     'lemmata','greek_lemmata_cltk.py')

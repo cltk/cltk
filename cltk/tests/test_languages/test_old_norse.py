@@ -27,7 +27,7 @@ class TestOldNorse(unittest.TestCase):
     def setUp(self):
         corpus_importer = CorpusImporter("old_norse")
         corpus_importer.import_corpus("old_norse_models_cltk")
-        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir + '/old_norse/model/old_norse_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)

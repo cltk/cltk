@@ -9,8 +9,8 @@ import importlib.machinery
 __author__ = ['Natasha Voake <natashavoake@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-NER_DICT = {'greek': '~/cltk_data/greek/model/greek_models_cltk/ner/proper_names.txt',
-            'latin': '~/cltk_data/latin/model/latin_models_cltk/ner/proper_names.txt'}
+NER_DICT = {'greek': get_cltk_data_dir + '/greek/model/greek_models_cltk/ner/proper_names.txt',
+            'latin': get_cltk_data_dir + '/latin/model/latin_models_cltk/ner/proper_names.txt'}
 
 
 class NamedEntityReplacer(object):
@@ -21,7 +21,7 @@ class NamedEntityReplacer(object):
 
 
     def _load_necessary_data(self):
-        rel_path = os.path.join('~', 'cltk_data',
+        rel_path = os.path.join(get_cltk_data_dir,
                                 'french',
                                 'text', 'french_data_cltk',
                                 'named_entities_fr.py')

@@ -12,7 +12,7 @@ __license__ = 'MIT License. See LICENSE.'
 
 def make_cltk_path(*fp_list):
     """Take arbitrary number of str arguments (not list) and return expanded,
-    absolute path to a user's cltk_data dir.
+    absolute path to a user's (or user-defined) cltk_data dir.
 
     Example:
     In [8]: make_cltk_path('greek', 'model', 'greek_models_cltk')
@@ -22,9 +22,8 @@ def make_cltk_path(*fp_list):
     :param: : fp_list tokens to join together beginning from cltk_root folder
     :rtype: str
     """
-    
-    home = os.path.expanduser('~')
-    return os.path.join(home, 'cltk_data', *fp_list)
+
+    return os.path.join(get_cltk_data_dir, *fp_list)
 
 
 def open_pickle(path: str):

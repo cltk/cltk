@@ -36,7 +36,7 @@ class CollatinusDecliner:
 
     """
     def __init__(self):
-        path = os.path.join('~', 'cltk_data',
+        path = os.path.join(get_cltk_data_dir,
                                 'latin', 'model', 'latin_models_cltk',
                                 'lemmata', 'collatinus', 'collected.json')
         path = os.path.expanduser(path)

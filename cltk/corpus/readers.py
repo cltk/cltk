@@ -40,7 +40,7 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
     :param langugage: the language for search in
     :return: NLTK compatible corpus reader
     """
-    BASE = '~/cltk_data/{}/text'.format(language)
+    BASE = get_cltk_data_dir + '/{}/text'.format(language)
     root = os.path.join(os.path.expanduser(BASE), corpus_name)
 
     if not os.path.exists(root) or corpus_name not in SUPPORTED_CORPORA.get(language):
