@@ -51,7 +51,7 @@ class BaseSentenceTokenizer:
         return tokenizer.tokenize(text)
 
     def _get_models_path(self, language):  # pragma: no cover
-        return get_cltk_data_dir + f'/{language}/model/{language}_models_cltk/tokenizers/sentence'
+        return get_cltk_data_dir() + f'/{language}/model/{language}_models_cltk/tokenizers/sentence'
 
 
 class BasePunktSentenceTokenizer(BaseSentenceTokenizer):

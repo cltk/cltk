@@ -23,7 +23,7 @@ def SentenceTokenizer(tokenizer: str = 'regex'):
 class GreekPunktSentenceTokenizer(BasePunktSentenceTokenizer):
     """ PunktSentenceTokenizer trained on Ancient Greek
     """
-    models_path = get_cltk_data_dir + '/greek/model/greek_models_cltk/tokenizers/sentence'
+    models_path = get_cltk_data_dir() + '/greek/model/greek_models_cltk/tokenizers/sentence'
     missing_models_message = "GreekPunktSentenceTokenizer requires the ```greek_models_cltk``` to be in cltk_data. Please load this corpus."
 
     def __init__(self: object, language: str = 'greek'):

@@ -23,7 +23,7 @@ def make_cltk_path(*fp_list):
     :rtype: str
     """
 
-    return os.path.join(get_cltk_data_dir, *fp_list)
+    return os.path.join(get_cltk_data_dir(), *fp_list)
 
 
 def open_pickle(path: str):

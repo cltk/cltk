@@ -60,7 +60,7 @@ class POSTag:
         """
         assert lang in TAGGERS.keys(), \
             'POS tagger not available for {0} language.'.format(lang)
-        rel_path = os.path.join(get_cltk_data_dir,
+        rel_path = os.path.join(get_cltk_data_dir(),
                                 lang,
                                 'model/' + lang + '_models_cltk/taggers/pos')  # pylint: disable=C0301
         path = os.path.expanduser(rel_path)

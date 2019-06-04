@@ -65,7 +65,7 @@ class BackoffLatinLemmatizer(object):
     ###    original Latin lemmatizer from cltk.stem
     """
 
-    models_path = os.path.normpath(get_cltk_data_dir + '/latin/model/latin_models_cltk/lemmata/backoff')
+    models_path = os.path.normpath(get_cltk_data_dir() + '/latin/model/latin_models_cltk/lemmata/backoff')
 
     def __init__(self: object, train: List[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = BackoffLatinLemmatizer.models_path

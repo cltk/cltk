@@ -52,7 +52,7 @@ AVAILABLE_LANGUAGES = ['akkadian', 'arabic', 'chinese', 'coptic', 'greek', 'hebr
                        'french', 'gujarati', 'middle_high_german', 'middle_low_german']
 
 
-CLTK_DATA_DIR = get_cltk_data_dir
+CLTK_DATA_DIR = get_cltk_data_dir()
 LANGUAGE_CORPORA = {'akkadian': AKKADIAN_CORPORA,
                     'arabic': ARABIC_CORPORA,
                     'chinese': CHINESE_CORPORA,
@@ -141,15 +141,15 @@ class CorpusImporter:
         return 'CorpusImporter for: {}'.format(self.language)
 
     def _check_distributed_corpora_file(self):
-        """Check get_cltk_data_dir + '/distributed_corpora.yaml' for any custom,
+        """Check get_cltk_data_dir() + '/distributed_corpora.yaml' for any custom,
         distributed corpora that the user wants to load locally.
 
         TODO: write check or try if `cltk_data` dir is not present
         """
         if self.testing:
-            distributed_corpora_fp = os.path.normpath(get_cltk_data_dir + '/test_distributed_corpora.yaml')
+            distributed_corpora_fp = os.path.normpath(get_cltk_data_dir() + '/test_distributed_corpora.yaml')
         else:
-            distributed_corpora_fp = os.path.normpath(get_cltk_data_dir + '/distributed_corpora.yaml')
+            distributed_corpora_fp = os.path.normpath(get_cltk_data_dir() + '/distributed_corpora.yaml')
 
         try:
             with open(distributed_corpora_fp) as file_open:

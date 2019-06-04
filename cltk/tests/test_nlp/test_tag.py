@@ -22,42 +22,42 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_models_cltk')
-        file_rel = os.path.join(get_cltk_data_dir + '/greek/model/greek_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
-        file_rel = os.path.join(get_cltk_data_dir + '/latin/model/latin_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('french')
         corpus_importer.import_corpus('french_data_cltk')
-        file_rel = os.path.join(get_cltk_data_dir + '/french/text/french_data_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/french/text/french_data_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter("old_norse")
         corpus_importer.import_corpus("old_norse_models_cltk")
-        file_rel = os.path.join(get_cltk_data_dir + '/old_norse/model/old_norse_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/old_norse/model/old_norse_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
         
         corpus_importer = CorpusImporter('middle_low_german')
         corpus_importer.import_corpus('middle_low_german_models_cltk')
-        file_rel = os.path.join(get_cltk_data_dir + '/middle_low_german/model/middle_low_german_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/middle_low_german/model/middle_low_german_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('old_english')
         corpus_importer.import_corpus('old_english_models_cltk')
-        file_rel = os.path.join(get_cltk_data_dir + '/old_english/model/old_english_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/old_english/model/old_english_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -131,13 +131,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_check_latest_latin(self):
         """Test _check_latest_data()"""
         ner._check_latest_data('latin')
-        names_path = os.path.normpath(get_cltk_data_dir + '/latin/model/latin_models_cltk/ner/proper_names.txt')
+        names_path = os.path.normpath(get_cltk_data_dir() + '/latin/model/latin_models_cltk/ner/proper_names.txt')
         self.assertTrue(os.path.isfile(names_path))
 
     def test_check_latest_latin(self):
         """Test _check_latest_data()"""
-        path = get_cltk_data_dir + '/latin/model/latin_models_cltk'
-        #p = get_cltk_data_dir + '/latin/model/latin_models_cltk/ner/proper_names.txt'
+        path = get_cltk_data_dir() + '/latin/model/latin_models_cltk'
+        #p = get_cltk_data_dir() + '/latin/model/latin_models_cltk/ner/proper_names.txt'
         names_dir = os.path.expanduser(path)
         shutil.rmtree(names_dir, ignore_errors=True)
         ner._check_latest_data('latin')

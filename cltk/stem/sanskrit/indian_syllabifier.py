@@ -89,7 +89,7 @@ class Syllabifier:
         variables which define the phonetic vectors.
         """
 
-        csv_dir_path = get_cltk_data_dir + '/sanskrit/model/sanskrit_models_cltk/phonetics'
+        csv_dir_path = get_cltk_data_dir() + '/sanskrit/model/sanskrit_models_cltk/phonetics'
 
         all_phonetic_csv = os.path.join(csv_dir_path, 'all_script_phonetic_data.csv')
         tamil_csv = os.path.join(csv_dir_path, 'tamil_script_phonetic_data.csv')

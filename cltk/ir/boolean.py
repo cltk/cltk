@@ -28,7 +28,7 @@ class CLTKIndex:
         chunks = ['author', 'work']
         assert self.chunk in chunks, 'Chunk must be one of the following: {}.'.format(chunks)
 
-        self.index_dir_base = get_cltk_data_dir
+        self.index_dir_base = get_cltk_data_dir()
         self.index_dir_base = os.path.join(self.index_dir_base, lang, 'index')
         self.index_path = os.path.join(self.index_dir_base, corpus, chunk)
 
@@ -68,13 +68,13 @@ class CLTKIndex:
 
         # Setup corpus to be indexed
         if self.lang == 'greek' and self.corpus == 'tlg':
-            corpus_path = os.path.normpath(get_cltk_data_dir + '/greek/text/tlg/plaintext/')
+            corpus_path = os.path.normpath(get_cltk_data_dir() + '/greek/text/tlg/plaintext/')
             if self.chunk == 'work':
-                corpus_path = os.path.normpath(get_cltk_data_dir + '/greek/text/tlg/individual_works/')
+                corpus_path = os.path.normpath(get_cltk_data_dir() + '/greek/text/tlg/individual_works/')
         elif self.lang == 'latin' and self.corpus == 'phi5':
-            corpus_path = os.path.normpath(get_cltk_data_dir + '/latin/text/phi5/plaintext/')
+            corpus_path = os.path.normpath(get_cltk_data_dir() + '/latin/text/phi5/plaintext/')
             if self.chunk == 'work':
-                corpus_path = os.path.normpath(get_cltk_data_dir + '/latin/text/phi5/individual_works/')
+                corpus_path = os.path.normpath(get_cltk_data_dir() + '/latin/text/phi5/individual_works/')
         assert os.path.isdir(corpus_path), 'Corpus does not exist in the following location: "%s". Use CLTK Corpus Importer and TLGU to create transformed corpus.' % corpus_path  # pylint: disable=line-too-long
 
         files = os.listdir(corpus_path)
@@ -189,7 +189,7 @@ class CLTKIndex:
                 output_str += lines_br + '</br></br>'
 
         if save_file:
-            user_dir = os.path.normpath(get_cltk_data_dir + '/user_data/search')
+            user_dir = os.path.normpath(get_cltk_data_dir() + '/user_data/search')
             output_path = os.path.join(user_dir, save_file + '.html')
 
             try:
@@ -213,7 +213,7 @@ if __name__ == '__main__':
     #_results = cltk_index.corpus_query('ἀνὴρ')
     #print(_results)
 
-    user_dir = os.path.normpath(get_cltk_data_dir + '/user_data/search')
+    user_dir = os.path.normpath(get_cltk_data_dir() + '/user_data/search')
     output_file = 'amicitia.html'
     output_path = os.path.join(user_dir, output_file)
 
