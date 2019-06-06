@@ -21,14 +21,11 @@ __url__ = 'http://cltk.org'
 
 __version__ = get_distribution('cltk').version  # pylint: disable=no-member
 
-# ADDED: almostearthling 20190601
-# provide a built-in variable containing the CLTK data directory instead of
-# using the default, cluttering and venv-fairly-incompatible ~/cltk_data: if
-# an environment variable named CLTK_DATA is available, use it to determine
-# where data have to be stored, otherwise fall back to the old solution and
-# use ~/cltk_data as usual; when a Python Virtual Environment is used the
-# CLTK_DATA variable can be set in the activation script
-if 'CLTK_DATA' in os.environ:
+
+# retrieve the data directory from environment, fall back if not found
+# WARNING: skip coverage test on unreachable branch (tip: change test
+# script to run tests with a defined CLTK_DATA environment variable)
+if 'CLTK_DATA' in os.environ:   # pragma: no cover
     __cltk_data_dir__ = os.path.expanduser(
         os.path.normpath(os.environ['CLTK_DATA']))
 else:
@@ -36,7 +33,7 @@ else:
         os.path.normpath("~/cltk_data"))
 
 
-# return the data directory instead of giving access to the variable directly
+# return the data directory instead of providing direct access to the variable
 def get_cltk_data_dir():
     return __cltk_data_dir__
 
