@@ -139,8 +139,8 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
         # for all languages, especially Greek.
         word = jv_replacer.replace(word).casefold()
 
-    model_dirs = {'greek': '~/cltk_data/greek/model/greek_word2vec_cltk',
-                  'latin': '~/cltk_data/latin/model/latin_word2vec_cltk'}
+    model_dirs = {'greek': get_cltk_data_dir() + '/greek/model/greek_word2vec_cltk',
+                  'latin': get_cltk_data_dir() + '/latin/model/latin_word2vec_cltk'}
     assert language in model_dirs.keys(), 'Langauges available with Word2Vec model: {}'.format(model_dirs.keys())
     if lemmatized:
         lemma_str = '_lemmed'

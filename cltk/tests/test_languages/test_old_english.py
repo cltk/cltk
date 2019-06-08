@@ -17,7 +17,7 @@ class TestOldEnglish(unittest.TestCase):
     def setUp(self):
         corpus_importer = CorpusImporter("old_english")
         corpus_importer.import_corpus("old_english_models_cltk")
-        file_rel = os.path.join('~/cltk_data/old_english/model/old_english_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/old_english/model/old_english_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -37,8 +37,8 @@ class TestOldEnglish(unittest.TestCase):
     def test_dictionary_lemmatizer(self):
         lemmatizer = OldEnglishDictionaryLemmatizer()
         test_sentence = 'Næs him fruma æfre, or geworden, ne nu ende cymþ ecean'
-        target = [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'), 
-            (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'), 
+        target = [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'),
+            (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'),
             ('nu', 'nu'), ('ende', 'ende'), ('cymþ', 'cuman'), ('ecean', 'ecean')]
         self.assertEqual(lemmatizer.lemmatize(test_sentence), target)
 
@@ -52,7 +52,7 @@ class TestOldEnglish(unittest.TestCase):
     def test_dictionary_lemmatizer_list(self):
         lemmatizer = OldEnglishDictionaryLemmatizer()
         test_sentence = 'Him ða Scyld gewat to gescæphwile'
-        target = [('Him', 'he'), ('ða', 'þa'), ('Scyld', 'scyld'), 
+        target = [('Him', 'he'), ('ða', 'þa'), ('Scyld', 'scyld'),
         ('gewat', 'gewitan'), ('to', 'to'), ('gescæphwile', 'gescæphwile')]
         self.assertEqual(lemmatizer.lemmatize(test_sentence.split()), target)
 
@@ -63,7 +63,7 @@ class TestOldEnglish(unittest.TestCase):
 
     def test_dictionary_lemmatizer_evaluate(self):
         lemmatizer = OldEnglishDictionaryLemmatizer()
-        test_file = os.path.expanduser('~/cltk_data/old_english/model/old_english_models_cltk/texts/oe/beowulf.txt')
+        test_file = os.path.normpath(get_cltk_data_dir() + '/old_english/model/old_english_models_cltk/texts/oe/beowulf.txt')
         coverage = lemmatizer.evaluate(test_file)
         self.assertTrue(coverage > 0.5)
 
