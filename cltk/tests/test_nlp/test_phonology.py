@@ -25,9 +25,9 @@ class TestSequenceFunctions(unittest.TestCase):
 
     """Test the Latin Library corpus reader filter"""
     @classmethod
-    def setUpClass(cls):
-        cls.greek_transcriber = grc.Transcriber("Attic", "Probert")
-        cls.latin_transcriber = lat.Transcriber("Classical", "Allen")
+    def setUpClass(self):
+        self.greek_transcriber = grc.Transcriber("Attic", "Probert")
+        self.latin_transcriber = lat.Transcriber("Classical", "Allen")
 
     """greek.transcription"""
     def test_greek_refresh(self):

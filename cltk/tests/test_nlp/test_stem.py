@@ -37,7 +37,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #     self.assertTrue(file_exists)
 
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(self):
         try:
             corpus_importer = CorpusImporter('sanskrit')
             corpus_importer.import_corpus('sanskrit_models_cltk')
