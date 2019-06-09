@@ -8,7 +8,7 @@ import os
 import builtins
 from pkg_resources import get_distribution
 
-if sys.version_info[0] != 3:
+if sys.version_info[0] != 3:  # pragma: no cover
     raise ImportError('Python Version 3 or above is required for cltk.')
 
 __copyright__ = 'Copyright (c) 2016 Kyle P. Johnson. Distributed and Licensed under the MIT License.'  # pylint: disable=line-too-long
@@ -21,7 +21,7 @@ __url__ = 'http://cltk.org'
 
 __version__ = get_distribution('cltk').version  # pylint: disable=no-member
 
-if 'CLTK_DATA' in os.environ:   # pragma: no cover
+if 'CLTK_DATA' in os.environ:  # pragma: no cover
     __cltk_data_dir__ = os.path.expanduser(
         os.path.normpath(os.environ['CLTK_DATA']))
     if not os.path.isdir(__cltk_data_dir__):
