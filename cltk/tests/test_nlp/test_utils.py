@@ -170,7 +170,7 @@ class TestPathCreation(unittest.TestCase):
             import cltk
             reload(cltk)
         # now reset so later tests run OK
-        os.environ['CLTK_DATA'] = '~/cltk_data'
+        del os.environ['CLTK_DATA']
         import cltk
         reload(cltk)
 
