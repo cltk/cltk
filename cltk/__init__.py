@@ -21,7 +21,7 @@ __url__ = 'http://cltk.org'
 
 __version__ = get_distribution('cltk').version  # pylint: disable=no-member
 
-if 'CLTK_DATA' in os.environ:  # pragma: no cover
+if 'CLTK_DATA' in os.environ:
     __cltk_data_dir__ = os.path.expanduser(
         os.path.normpath(os.environ['CLTK_DATA']))
     if not os.path.isdir(__cltk_data_dir__):
