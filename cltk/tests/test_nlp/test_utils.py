@@ -2,6 +2,7 @@
 
 from collections import Counter
 from collections import defaultdict
+from importlib import reload
 import os
 from pickle import UnpicklingError
 import unittest
@@ -158,6 +159,20 @@ class TestPathCreation(unittest.TestCase):
         """Test empty_path() with argument."""
         self.assertEqual(make_cltk_path('greek', 'perseus_corpus'),
                          os.path.expanduser(os.path.join(get_cltk_data_dir(), 'greek', 'perseus_corpus')))
+
+    def test_data_envvar(self):
+        os.environ['CLTK_DATA'] = '/var/non_existent_dir'
+        with self.assertRaises(FileNotFoundError):
+            import cltk
+            reload(cltk)
+        os.environ['CLTK_DATA'] = '/root'
+        with self.assertRaises(PermissionError):
+            import cltk
+            reload(cltk)
+        # now reset so later tests run OK
+        del os.environ['CLTK_DATA']
+        import cltk
+        reload(cltk)
 
 
 if __name__ == '__main__':

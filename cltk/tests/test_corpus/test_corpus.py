@@ -69,7 +69,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(self):
         try:
             corpus_importer = CorpusImporter('latin')
             corpus_importer.import_corpus('latin_text_latin_library')
@@ -707,19 +707,19 @@ example_distributed_fake_language_corpus:
 class TestFilteredCorpus(unittest.TestCase):
         """Test the Latin Library corpus reader filter"""
         @classmethod
-        def setUpClass(cls):
+        def setUpClass(self):
             try:
                 corpus_importer = CorpusImporter('latin')
                 corpus_importer.import_corpus('latin_models_cltk')
                 corpus_importer.import_corpus('latin_text_latin_library')
             except:
                 raise Exception('Failure to download test corpus')
-            cls.reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-            cls.reader._fileids = ['pervig.txt']
+            self.reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader._fileids = ['pervig.txt']
             # Need a additional instance because tests below change internals #TO-DO Fix
-            cls.reader_2 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-            cls.reader_3 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
-            cls.reader_4 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader_2 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader_3 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
+            self.reader_4 = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
 
         def test_import_latin_library_corpus_filter_by_file(self):
             """Test the Latin Library corpus reader filter by files."""
