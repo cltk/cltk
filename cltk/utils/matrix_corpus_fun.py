@@ -21,6 +21,8 @@ __license__ = 'MIT License'
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
+_lower_alpha_pattern = re.compile(r'.[a-z]')
+
 
 def drop_all_caps(string_matrix: List[List[str]]) -> List[List[str]]:
     """
@@ -32,8 +34,11 @@ def drop_all_caps(string_matrix: List[List[str]]) -> List[List[str]]:
      """
     return [[word
              for word in sentence
-             if re.match('.[a-z]', word)]
+             if _lower_alpha_pattern.match(word)]
             for sentence in string_matrix]
+
+
+_arabic_numeric_pattern = re.compile(r'[0-9]+([a-z]+)?')
 
 
 def drop_arabic_numeric(string_matrix: List[List[str]]) -> List[List[str]]:
@@ -47,7 +52,7 @@ def drop_arabic_numeric(string_matrix: List[List[str]]) -> List[List[str]]:
     """
     return [[word
              for word in sentence
-             if not re.match('[0-9]+([a-z]+)?', word)]
+             if not _arabic_numeric_pattern.match(word)]
             for sentence in string_matrix]
 
 
@@ -104,6 +109,9 @@ def drop_probable_entities(string_matrix: List[List[str]]) -> List[List[str]]:
             for sentence in string_matrix]
 
 
+_jvreplacer = JVReplacer()
+
+
 def jv_transform(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
@@ -111,8 +119,8 @@ def jv_transform(string_matrix: List[List[str]]) -> List[List[str]]:
     >>> jv_transform([['venio', 'jacet'], ['julius', 'caesar']])
     [['uenio', 'iacet'], ['iulius', 'caesar']]
     """
-    jvreplacer = JVReplacer()
-    return [[jvreplacer.replace(word)
+
+    return [[_jvreplacer.replace(word)
              for word in sentence]
             for sentence in string_matrix]
 
@@ -195,6 +203,9 @@ def profile_chars(string_matrix: List[List[str]]) -> Dict[str, int]:
     return char_counter
 
 
+_camel_pattern = re.compile(r'[a-z]+[A-Z][a-z]')
+
+
 def split_camel(word: str) -> str:
     """
     Separate any words joined in Camel case fashion using a single space.
@@ -203,7 +214,7 @@ def split_camel(word: str) -> str:
     >>> split_camel('urbemCertimam')
     'urbem Certimam'
     """
-    m = re.match('[a-z]+[A-Z][a-z]', word)
+    m = _camel_pattern.match(word)
     if m:
         _, end = m.span()
         return word[:end - 2] + ' ' + word[end - 2:]
@@ -262,7 +273,6 @@ def splice_hyphenated_word(word: str) -> str:
     >>> splice_hyphenated_word('prorogabatur—P')
     'prorogabatur P'
     """
-    # return word.replace('-', ' ')
     hyphen_codes = [45, 8212]
     hyphens = [chr(val) for val in hyphen_codes]
     return re.sub('[{}]'.format(''.join(hyphens)), ' ', word)
@@ -282,6 +292,10 @@ def splice_hyphens(string_matrix: List[List[str]]) -> List[List[str]]:
             for sentence in string_matrix]
 
 
+_plus_tilde_pattern = re.compile(r'[+~]')
+_multispaces_pattern = re.compile(r'\s+')
+
+
 def drop_punctuation(word: str, transformation_table: Dict[int, Any] = None) -> str:
     """
 
@@ -290,12 +304,10 @@ def drop_punctuation(word: str, transformation_table: Dict[int, Any] = None) -> 
     >>> drop_punctuation('~fudge')
     'fudge'
     """
-    word = re.sub('[+~]', ' ', word)
+    word = _plus_tilde_pattern.sub(' ', word)
     if transformation_table:
         word = word.translate(transformation_table)
-    word = re.sub('\s+', ' ', word)
-    word = word.strip()
-    return word
+    return _multispaces_pattern.sub(' ', word).strip()
 
 
 def divide_separate_words(string_matrix: List[List[str]]) -> List[List[str]]:
@@ -330,6 +342,9 @@ def drop_fringe_punctuation(string_matrix: List[List[str]]) -> List[List[str]]:
             for sentence in string_matrix]
 
 
+_editorial_pattern = re.compile(r'<[A-Za-z]+>')
+
+
 def drop_editorial(string_matrix: List[List[str]]) -> List[List[str]]:
     """
 
@@ -339,9 +354,13 @@ def drop_editorial(string_matrix: List[List[str]]) -> List[List[str]]:
     >>> drop_editorial([['quid','est', 'ver<it>as'], ['vir', 'qui', 'adest']])
     [['quid', 'est', 'veras'], ['vir', 'qui', 'adest']]
     """
-    return [[re.sub("\<[A-Za-z]+\>", '', word)
+    return [[_editorial_pattern.sub('', word)
              for word in sentence]
             for sentence in string_matrix]
+
+
+_editorial_start_pattern = re.compile(r'<')
+_editorial_end_pattern = re.compile(r'>')
 
 
 def accept_editorial(string_matrix: List[List[str]]) -> List[List[str]]:
@@ -353,7 +372,7 @@ def accept_editorial(string_matrix: List[List[str]]) -> List[List[str]]:
     >>> accept_editorial([['quid','est', 'ver<it>as'], ['vir', 'qui', 'adest']])
     [['quid', 'est', 'veritas'], ['vir', 'qui', 'adest']]
     """
-    return [[re.sub('\>', '', re.sub('\<', '', word))
+    return [[_editorial_end_pattern.sub('', _editorial_start_pattern.sub('', word))
              for word in sentence]
             for sentence in string_matrix]
 

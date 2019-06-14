@@ -126,6 +126,8 @@ def to_syllables_with_trailing_spaces(line: str, syllables: List[str]) -> List[s
     idx = 0
     linelen = len(line)
     for position, syl in enumerate(syllables):
+        if not syl in line and re.match('w', syl, flags=re.IGNORECASE):
+            syl = syl.replace('w', 'u').replace('W', 'U')
         start = line.index(syl, idx)
         idx = start + len(syl)
         if position == 0 and start > 0:  # line starts with punctuation, substituted w/ spaces
