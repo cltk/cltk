@@ -7,7 +7,7 @@ import os
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-home_dir = os.path.expanduser('~/cltk_data')  # pylint: disable=invalid-name
+home_dir = get_cltk_data_dir()  # pylint: disable=invalid-name
 log_path = os.path.join(home_dir, 'cltk.log')  # pylint: disable=invalid-name
 
 if not os.path.isdir(home_dir):

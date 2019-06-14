@@ -49,6 +49,7 @@ Contents
    punjabi
    sanskrit
    old_swedish
+   tamil
    telugu
    tibetan
    tocharian_b

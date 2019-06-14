@@ -3,7 +3,7 @@
 There are two scripts used in Punjabi: Gurmukhi (having its origins in the Brahmi) and Shahmukhi (which a Perso-Arabic script).
 """
 
-__author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>', 'Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk']
+__author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>', 'Talha Javed Mukhtar <tjaved.bscs15seecs@seecs.edu.pk>']
 __license__ = 'MIT License. See LICENSE.'
 
 

@@ -10,7 +10,7 @@ from cltk.phonology.utils import Vowel, Height, Backness, Length, Consonant, Pla
 from cltk.corpus.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
 
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 
 class OldNorsePhonology(Vowel):

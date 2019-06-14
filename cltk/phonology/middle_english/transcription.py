@@ -1,4 +1,4 @@
-__author__ = ['Chatziargyriou Eleftheria <ele.hatzy@gmail.com>']
+__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License'
 
 import re

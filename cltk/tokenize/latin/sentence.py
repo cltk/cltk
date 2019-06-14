@@ -18,7 +18,7 @@ def SentenceTokenizer(tokenizer:str = 'punkt'):
 class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
     """ PunktSentenceTokenizer trained on Latin
     """
-    models_path = os.path.expanduser('~/cltk_data/latin/model/latin_models_cltk/tokenizers/sentence')
+    models_path = os.path.normpath(get_cltk_data_dir() + '/latin/model/latin_models_cltk/tokenizers/sentence')
     missing_models_message = "BackoffLatinLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
     def __init__(self: object, language:str = 'latin'):

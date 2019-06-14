@@ -4,7 +4,7 @@ import re
 from enum import Enum, auto
 from cltk.utils.cltk_logger import logger
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 
 class AutoName(Enum):

@@ -27,7 +27,7 @@ from cltk.corpus.utils.formatter import assemble_tlg_author_filepaths
 from cltk.stem.latin.j_v import JVReplacer
 from cltk.stem.lemma import LemmaReplacer # Change lemmatizer
 from cltk.stop.latin import STOPS_LIST as latin_stops
-from cltk.tokenize.word import nltk_tokenize_words
+from cltk.tokenize.word import WordTokenizer
 from cltk.tokenize.sentence import TokenizeSentence
 from cltk.tokenize.word import WordTokenizer
 
@@ -44,7 +44,7 @@ def gen_docs(corpus, lemmatize, rm_stops):
         filepaths = assemble_phi5_author_filepaths()
         jv_replacer = JVReplacer()
         text_cleaner = phi5_plaintext_cleanup
-        word_tokenizer = nltk_tokenize_words
+        word_tokenizer = WordTokenizer('latin')
         if rm_stops:
             stops = latin_stops
         else:
@@ -53,7 +53,7 @@ def gen_docs(corpus, lemmatize, rm_stops):
         language = 'greek'
         filepaths = assemble_tlg_author_filepaths()
         text_cleaner = tlg_plaintext_cleanup
-        word_tokenizer = nltk_tokenize_words
+        word_tokenizer = WordTokenizer('greek')
 
         if rm_stops:
             stops = latin_stops
@@ -139,8 +139,8 @@ def get_sims(word, language, lemmatized=False, threshold=0.70):
         # for all languages, especially Greek.
         word = jv_replacer.replace(word).casefold()
 
-    model_dirs = {'greek': '~/cltk_data/greek/model/greek_word2vec_cltk',
-                  'latin': '~/cltk_data/latin/model/latin_word2vec_cltk'}
+    model_dirs = {'greek': get_cltk_data_dir() + '/greek/model/greek_word2vec_cltk',
+                  'latin': get_cltk_data_dir() + '/latin/model/latin_word2vec_cltk'}
     assert language in model_dirs.keys(), 'Langauges available with Word2Vec model: {}'.format(model_dirs.keys())
     if lemmatized:
         lemma_str = '_lemmed'

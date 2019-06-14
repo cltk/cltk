@@ -1,7 +1,7 @@
 """Tokenize sentences."""
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
-              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Anoop Kunchukuttan']
+              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 import os
@@ -14,6 +14,7 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.tokenize.greek.params import GreekLanguageVars
+from cltk.tokenize.sanskrit.params import SanskritLanguageVars
 
 from cltk.utils.file_operations import open_pickle
 
@@ -50,7 +51,7 @@ class BaseSentenceTokenizer:
         return tokenizer.tokenize(text)
 
     def _get_models_path(self, language):  # pragma: no cover
-        return f'~/cltk_data/{language}/model/{language}_models_cltk/tokenizers/sentence'
+        return get_cltk_data_dir() + f'/{language}/model/{language}_models_cltk/tokenizers/sentence'
 
 
 class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
@@ -122,44 +123,6 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         if self.language == 'latin':
             self.lang_vars = LatinLanguageVars()
             super().__init__(language='latin', lang_vars=self.lang_vars)
-        elif self.language == 'greek':
-            pass
-        elif self.language not in INDIAN_LANGUAGES:
-            self.internal_punctuation, self.external_punctuation, self.tokenizer_path = \
-                self._setup_language_variables(self.language)
-
-    def _setup_language_variables(self, lang: str):  # pragma: no cover
-        """Check for language availability and presence of tokenizer file,
-        then read punctuation characters for language and build tokenizer file
-        path.
-        :param lang: The language argument given to the class.
-        :type lang: str
-        :rtype (str, str, str)
-        """
-        assert lang in PUNCTUATION.keys(), \
-            'Sentence tokenizer not available for {0} language.'.format(lang)
-        internal_punctuation = PUNCTUATION[lang]['internal']
-        external_punctuation = PUNCTUATION[lang]['external']
-        file = PUNCTUATION[lang]['file']
-        tokenizer_path = os.path.join(os.path.expanduser(self._get_models_path(language=lang)),
-                                      file)
-        assert os.path.isfile(tokenizer_path), \
-            'CLTK linguistics data not found for language {0} {}'.format(lang)
-        return internal_punctuation, external_punctuation, tokenizer_path
-
-    def _setup_tokenizer(self, tokenizer: object):  # pragma: no cover
-        """Add tokenizer and punctuation variables.
-        :type tokenizer: object
-        :param tokenizer : Unpickled tokenizer object.
-        :rtype : object
-        """
-        language_punkt_vars = PunktLanguageVars
-        language_punkt_vars.sent_end_chars = self.external_punctuation
-        language_punkt_vars.internal_punctuation = self.internal_punctuation
-        tokenizer.INCLUDE_ALL_COLLOCS = True
-        tokenizer.INCLUDE_ABBREV_COLLOCS = True
-        params = tokenizer.get_params()
-        return PunktSentenceTokenizer(params)
 
     def tokenize_sentences(self, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
@@ -173,48 +136,24 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
             'Incoming argument must be a string.'
 
         if self.language == 'latin':
-            self.models_path = self._get_models_path(self.language)
-            try:
-                self.model = open_pickle(
-                    os.path.expanduser(os.path.join(self.models_path, 'latin_punkt.pickle')))
-            except FileNotFoundError as err:
-                raise type(err)(TokenizeSentence.missing_models_message + self.models_path)
-            tokenizer = self.model
-            tokenizer._lang_vars = self.lang_vars
+            tokenizer = super()
         elif self.language == 'greek': # Workaround for regex tokenizer
             self.sent_end_chars=GreekLanguageVars.sent_end_chars
             self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
             self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
+        elif self.language in INDIAN_LANGUAGES:
+            self.sent_end_chars=SanskritLanguageVars.sent_end_chars
+            self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
+            self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
         else:
-            tokenizer = open_pickle(self.tokenizer_path)
-            tokenizer = self._setup_tokenizer(tokenizer)
+            # Warn that NLTK Punkt is being used by default???
+            tokenizer = PunktSentenceTokenizer()
 
         # mk list of tokenized sentences
-        if self.language == 'latin':
-            return tokenizer.tokenize(untokenized_string)
-        elif self.language == 'greek':
+        if self.language == 'greek' or self.language in INDIAN_LANGUAGES:
             return re.split(self.pattern, untokenized_string)
         else:
-            tokenized_sentences = [sentence for sentence in
-                                   tokenizer.sentences_from_text(untokenized_string,
-                                                                 realign_boundaries=True)]
-            return tokenized_sentences
-
-    def indian_punctuation_tokenize_regex(self, untokenized_string: str):
-        """A trivial tokenizer which just tokenizes on the punctuation boundaries.
-        This also includes punctuation, namely the the purna virama ("|") and
-        deergha virama ("॥"), for Indian language scripts.
-
-        :type untokenized_string: str
-        :param untokenized_string: A string containing one of more sentences.
-        :rtype : list of strings
-        """
-        modified_punctuations = string.punctuation.replace("|",
-                                                           "")  # The replace , deletes the ' | ' from the punctuation string provided by the library
-        indian_punctuation_pattern = re.compile(
-            '([' + modified_punctuations + '\u0964\u0965' + ']|\|+)')
-        tok_str = indian_punctuation_pattern.sub(r' \1 ', untokenized_string.replace('\t', ' '))
-        return re.sub(r'[ ]+', u' ', tok_str).strip(' ').split(' ')
+            return tokenizer.tokenize(untokenized_string)
 
     def tokenize(self, untokenized_string: str, model=None):
         """Alias for tokenize_sentences()—NLTK's PlaintextCorpusReader needs a
@@ -224,7 +163,12 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         :type untokenized_string: str
         :param untokenized_string: A string containing one of more sentences.
         """
-        if self.language in INDIAN_LANGUAGES:
-            return self.indian_punctuation_tokenize_regex(untokenized_string)
-        else:
-            return self.tokenize_sentences(untokenized_string)
+        return self.tokenize_sentences(untokenized_string)
+
+if __name__ == "__main__":
+    text = """श्री भगवानुवाच भूय एव महाबाहो श्रृणु मे परमं वचः। यत्तेऽहं प्रीयमाणाय वक्ष्यामि हितकाम्यया।।
+न मे विदुः सुरगणाः प्रभवं न महर्षयः। अहमादिर्हि देवानां महर्षीणां च सर्वशः।।"""
+    t = TokenizeSentence('sanskrit')
+    sents = t.tokenize(text)
+    for i, sent in enumerate(sents, 1):
+        print(f'{i}: {sent}')

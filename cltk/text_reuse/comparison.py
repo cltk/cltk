@@ -6,7 +6,7 @@ A comparison class to help with tracking string comparison values
 from cltk.utils.cltk_logger import logger
 
 
-__author__ = ['Luke Hollis <lukehollis@gmail.com>', 'Eleftheria Chatziargyriou ele.hatzy@gmail.com']
+__author__ = ['Luke Hollis <lukehollis@gmail.com>', 'Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

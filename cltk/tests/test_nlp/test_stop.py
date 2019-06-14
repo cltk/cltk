@@ -31,14 +31,14 @@ class TestSequenceFunctions(unittest.TestCase):
         """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_models_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -284,8 +284,7 @@ class TestPackageImports(unittest.TestCase):
         Sentence extracted from (https://github.com/cltk/hindi_text_ltrc/blob/master/miscellaneous/gandhi/main.txt)
         """
         sentence = " वह काबुली फिर वहां आकर खडा हो गया है  "
-        tokenizer = TokenizeSentence('hindi')
-        tokens = tokenizer.tokenize(sentence)
+        tokens = sentence.split()
         no_stops = [word for word in tokens if word not in HINDI_STOPS]
         target_list = ['काबुली', 'फिर', 'वहां', 'आकर', 'खडा', 'गया']
         self.assertEqual(no_stops, target_list)

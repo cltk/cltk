@@ -18,7 +18,7 @@ class BackoffGreekLemmatizer(object):
     type of major sequential backoff class from backoff.py
     """
 
-    models_path = os.path.expanduser('~/cltk_data/greek/model/greek_models_cltk/lemmata/backoff')
+    models_path = os.path.normpath(get_cltk_data_dir() + '/greek/model/greek_models_cltk/lemmata/backoff')
 
     def __init__(self: object, train: List[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = BackoffGreekLemmatizer.models_path

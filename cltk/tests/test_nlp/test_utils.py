@@ -2,6 +2,7 @@
 
 from collections import Counter
 from collections import defaultdict
+from importlib import reload
 import os
 from pickle import UnpicklingError
 import unittest
@@ -30,14 +31,14 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         corpus_importer = CorpusImporter('greek')
         corpus_importer.import_corpus('greek_models_cltk')
-        file_rel = os.path.join('~/cltk_data/greek/model/greek_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/greek/model/greek_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('latin')
         corpus_importer.import_corpus('latin_models_cltk')
-        file_rel = os.path.join('~/cltk_data/latin/model/latin_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/latin/model/latin_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -56,7 +57,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_logger(self):
         """Test the CLTK logger."""
-        home_dir = os.path.expanduser('~/cltk_data')
+        home_dir = get_cltk_data_dir()
         log_path = os.path.join(home_dir, 'cltk.log')
         self.assertTrue(log_path)
 
@@ -64,7 +65,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test opening pickle. This requires ``greek_models_cltk``
         to have been run in ``setUp()``.
         """
-        pickle_path_rel = '~/cltk_data/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=line-too-long
+        pickle_path_rel = get_cltk_data_dir() + '/greek/model/greek_models_cltk/tokenizers/sentence/greek.pickle'  # pylint: disable=line-too-long
         pickle_path = os.path.expanduser(pickle_path_rel)
         a_pickle = open_pickle(pickle_path)
         self.assertTrue(a_pickle)
@@ -88,7 +89,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         of concordance builder. Doesn't test quality of output."""
         text = 'felices cantus ore sonante dedit'
         philology.write_concordance_from_string(text, 'test_string')
-        file = os.path.expanduser('~/cltk_data/user_data/concordance_test_string.txt')
+        file = os.path.normpath(get_cltk_data_dir() + '/user_data/concordance_test_string.txt')
         is_file = os.path.isfile(file)
         self.assertTrue(is_file)
 
@@ -97,7 +98,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         of concordance builder. Doesn't test quality of output."""
         text_file = 'cltk/tests/test_nlp/text-file.txt'
         philology.write_concordance_from_file(text_file, 'test_file')
-        file_conc = os.path.expanduser('~/cltk_data/user_data/concordance_test_file.txt')
+        file_conc = os.path.normpath(get_cltk_data_dir() + '/user_data/concordance_test_file.txt')
         is_file = os.path.isfile(file_conc)
         self.assertTrue(is_file)
 
@@ -152,13 +153,26 @@ class TestPathCreation(unittest.TestCase):
 
     def test_empty_path(self):
         """Test empty empty_path()"""
-        self.assertEqual(make_cltk_path(),
-                         os.path.expanduser(os.path.join('~', 'cltk_data')))
+        self.assertEqual(make_cltk_path(), get_cltk_data_dir())
 
     def test_path(self):
         """Test empty_path() with argument."""
         self.assertEqual(make_cltk_path('greek', 'perseus_corpus'),
-                         os.path.expanduser(os.path.join('~', 'cltk_data', 'greek', 'perseus_corpus')))
+                         os.path.expanduser(os.path.join(get_cltk_data_dir(), 'greek', 'perseus_corpus')))
+
+    def test_data_envvar(self):
+        os.environ['CLTK_DATA'] = '/var/non_existent_dir'
+        with self.assertRaises(FileNotFoundError):
+            import cltk
+            reload(cltk)
+        os.environ['CLTK_DATA'] = '/root'
+        with self.assertRaises(PermissionError):
+            import cltk
+            reload(cltk)
+        # now reset so later tests run OK
+        del os.environ['CLTK_DATA']
+        import cltk
+        reload(cltk)
 
 
 if __name__ == '__main__':

@@ -5,7 +5,7 @@ Source of texts: http://www.gutenberg.org/files/22636/22636-h/22636-h.htm
                  http://texte.mediaevum.de/12mhd.htm
 """
 
-__author__ = ["Chatziargyriou Eleftheria <ele.hatzy@gmail.com>"]
+__author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "GLP License"
 
 STOPS_LIST = ["abe",
