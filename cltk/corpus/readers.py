@@ -11,8 +11,8 @@ from typing import List, Dict, Tuple, Set, Any, Generator
 from nltk.corpus.reader.api import CorpusReader
 from nltk.corpus.reader import PlaintextCorpusReader
 from nltk.probability import FreqDist
-from nltk.tokenize import sent_tokenize, word_tokenize # Replace with CLTK
-from nltk import pos_tag # Replace with CLTK
+from nltk.tokenize import sent_tokenize, word_tokenize  # Replace with CLTK
+from nltk import pos_tag  # Replace with CLTK
 
 from cltk.prosody.latin.string_utils import flatten
 from cltk.tokenize.sentence import TokenizeSentence
@@ -68,9 +68,9 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
 
         if corpus_name == 'latin_text_tesserae':
             return TesseraeCorpusReader(root=root, fileids=r'.*\.tess',
-                                                 sent_tokenizer=sentence_tokenizer,
-                                                 word_tokenizer=the_word_tokenizer,
-                                                 )
+                                        sent_tokenizer=sentence_tokenizer,
+                                        word_tokenizer=the_word_tokenizer,
+                                        )
 
     if language == 'greek':
         if corpus_name == 'greek_text_perseus':
@@ -343,9 +343,9 @@ class JsonfileCorpusReader(CorpusReader):
                     vals += [my_dict[mkey]]
             return vals
 
-        text_sections = []  # type: List[str]
         for doc in self.docs(fileids):
-            text_data = _recurse_to_strings(doc['text'])
+            text_data = _recurse_to_strings(doc['text'])  # type: List[str]
+            text_sections = []  # type: List[str]
             for text_part in text_data:
                 skip = False
                 if self.skip_keywords:
@@ -354,9 +354,8 @@ class JsonfileCorpusReader(CorpusReader):
                             skip = True
                 if not skip:
                     text_sections.append(text_part)
-            paras = (''.join(text_sections)).split(self.paragraph_separator)
-            for para in paras:
-                yield para
+            for para in text_sections:
+                yield para.strip()
 
     def docs(self, fileids=None) -> Generator[Dict[str, Any], Dict[str, Any], None]:
         """
@@ -416,8 +415,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
         if 'pos_tagger' in kwargs:
             self.pos_tagger = kwargs['pos_tagger']
 
-
-    def docs(self: object, fileids:str):
+    def docs(self: object, fileids: str):
         """
         Returns the complete text of a .tess file, closing the document after
         we are done reading it and yielding it in a memory-safe fashion.
@@ -434,11 +432,10 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
         """
 
         for doc in self.docs(fileids):
-            if plaintext==True:
-                doc = re.sub(r'<.+?>\s', '', doc) # Remove citation info
-            doc = doc.rstrip() # Clean up final line breaks
+            if plaintext == True:
+                doc = re.sub(r'<.+?>\s', '', doc)  # Remove citation info
+            doc = doc.rstrip()  # Clean up final line breaks
             yield doc
-
 
     def paras(self: object, fileids: str):
         """
@@ -457,7 +454,7 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
         """
 
         for text in self.texts(fileids, plaintext):
-            text = re.sub(r'\n\s*\n', '\n', text, re.MULTILINE) # Remove blank lines
+            text = re.sub(r'\n\s*\n', '\n', text, re.MULTILINE)  # Remove blank lines
             for line in text.split('\n'):
                 yield line
 
@@ -525,6 +522,6 @@ class TesseraeCorpusReader(PlaintextCorpusReader):
             'vocab': len(tokens),
             'lexdiv': round((counts['words'] / len(tokens)), 3),
             'ppdoc': round((counts['paras'] / n_fileids), 3),
-            'sppar':round((counts['sents'] / counts['paras']), 3),
-            'secs': round((time.time()-started), 3),
+            'sppar': round((counts['sents'] / counts['paras']), 3),
+            'secs': round((time.time() - started), 3),
         }

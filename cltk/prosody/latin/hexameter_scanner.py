@@ -62,6 +62,10 @@ class HexameterScanner(VerseScanner):
         :return: a Verse object
 
         >>> scanner = HexameterScanner()
+
+        >>> print(HexameterScanner().scan(
+        ... "ēxiguām sedēm pariturae tērra negavit").scansion) # doctest: +NORMALIZE_WHITESPACE
+        - -  -   - -   U U -  -  -  U  U - U
         >>> print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
         Verse(original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', meter='hexameter', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm', 'pu', 'le', 'rīt', 'Tān', 'taen', 'a', 'ni', 'mīs', 'cae', 'lēs', 'ti', 'bus', 'i', 'rae'])
         >>> print(scanner.scan(
