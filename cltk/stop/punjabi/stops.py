@@ -1,9 +1,9 @@
-'''
+"""
 This list is taken from the words in the the document of Mr. Sahib Singh, from
 the site http://gurbanifiles.org/gurmukhi/index.htm, these words are the most
 frequent words in the Guru Granth Sahib, which is converted into the Unicode
 by Mr. Sahib Singh
-'''
+"""
 
 
 __author__ = ['Nimit Bhardwaj <nimitbhardwaj@gmail.com>']

@@ -6,6 +6,35 @@ Greek is an independent branch of the Indo-European family of languages, native 
 .. note:: For most of the following operations, you must first `import the CLTK Greek linguistic data <http://docs.cltk.org/en/latest/importing_corpora.html>`_ (named ``greek_models_cltk``).
 
 
+
+Alphabet
+========
+
+The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
+
+Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
+
+In `alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_ the vowels and consonants are grouped by upper or lower case, accent, breathing, a diaresis and possible combinations thereof.
+These groupings are stored in lists or, in case of a single letter like ρ, as strings with descriptive names structured like ``CASE_SPECIFIERS``, e.g. ``LOWER_DIARESIS_CIRCUMFLEX``.
+
+For example to use upper case vowels with rough breathing and an acute accent:
+
+.. code-block:: python
+
+   In[1]: from cltk.corpus.greek.alphabet import UPPER_ROUGH_ACUTE
+   In[2]: print(UPPER_ROUGH_ACUTE)
+   Out[2]: ['Ἅ', 'Ἕ', 'Ἥ', 'Ἵ', 'Ὅ', 'Ὕ', 'Ὥ', 'ᾍ', 'ᾝ', 'ᾭ']
+
+
+Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
+
+Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
+
+Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
+
+For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
+
+
 Accentuation and diacritics
 ===========================
 
@@ -240,34 +269,6 @@ The CLTK offers one transformation that can be useful in certain types of proces
 
 
 
-
-Alphabet
-========
-
-The Greek vowels and consonants in upper and lower case are placed in `cltk/corpus/greek/alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_.
-
-Greek vowels can occur without any breathing or accent, have rough or smooth breathing, different accents, diareses, macrons, breves and combinations thereof and Greek consonants have none of these features, except *ρ*, which can have rough or smooth breathing.
-
-In `alphabet.py <https://github.com/cltk/cltk/blob/master/cltk/corpus/greek/alphabet.py>`_ the vowels and consonants are grouped by upper or lower case, accent, breathing, a diaresis and possible combinations thereof.
-These groupings are stored in lists or, in case of a single letter like ρ, as strings with descriptive names structured like ``CASE_SPECIFIERS``, e.g. ``LOWER_DIARESIS_CIRCUMFLEX``.
-
-For example to use upper case vowels with rough breathing and an acute accent:
-
-.. code-block:: python
-
-   In[1]: from cltk.corpus.greek.alphabet import UPPER_ROUGH_ACUTE
-   In[2]: print(UPPER_ROUGH_ACUTE)
-   Out[2]: ['Ἅ', 'Ἕ', 'Ἥ', 'Ἵ', 'Ὅ', 'Ὕ', 'Ὥ', 'ᾍ', 'ᾝ', 'ᾭ']
-
-
-Accents indicate the pitch of vowels. An *acute accent* or *ὀξεῖα (oxeîa)* indicates a rising pitch on a long vowel or a high pitch on a short vowel, a *grave accent* or *βαρεῖα (bareîa)* indicates a normal or low pitch and a *circumflex* or *περισπωμένη (perispōménē)* indicates high or falling pitch within one syllable.
-
-Breathings, which are used not only on vowels, but also on *ρ*, indicate the presence or absence of a voiceless glottal fricative - rough breathing indicetes a voiceless glottal fricative before a vowel, like in *αἵρεσις (haíresis)* and smooth breathing indicates none.
-
-Diareses are placed on *ι* and *υ* to indicate two vowels not being a diphthong and macrons and breves are placed on *α, ι*, and *υ* to indicate the length of these vowels.
-
-For more information on Greek diacritics see the corresponding `wikipedia page <https://en.wikipedia.org/wiki/Greek_diacritics#Description>`_.
-
 Converting Beta Code to Unicode
 ===============================
 Note that incoming strings need to begin with an ``r`` and that the Beta Code must follow immediately after the initial ``"""``, as in input line 2, below.
@@ -284,6 +285,8 @@ Note that incoming strings need to begin with an ``r`` and that the Beta Code mu
    Out[4]: 'ὅπως οὖν μὴ ταὐτὸ πάθωμεν ἐκείνοις, ἐπὶ τὴν διάγνωσιν αὐτῶν ἔρχεσθαι δεῖ πρῶτον. τινὲς μὲν οὖν αὐτῶν εἰσιν ἀκριβεῖς, τινὲς δὲ οὐκ ἀκριβεῖς ὄντες μεταπίπτουσιν εἰς τοὺς ἐπὶ σήψει· οὕτω γὰρ καὶ λοῦσαι καὶ θρέψαι καλῶς καὶ μὴ λοῦσαι πάλιν, ὅτε μὴ ὀρθῶς δυνηθείημεν.'
 
 The beta code converter can also handle lowercase notation:
+
+.. code-block:: python
 
     In [5]: BETA_EXAMPLE_2 = r"""me/xri me\n w)/n tou/tou a(rpaga/s mou/nas ei)=nai par' a)llh/lwn, to\ de\ a)po\ tou/tou *(/ellhnas dh\ mega/lws ai)ti/ous gene/sqai: prote/rous ga\r a)/rcai strateu/esqai e)s th\n *)asi/hn h)\ sfe/as e)s th\n *eu)rw/phn. """
     Out[5]: 'μέχρι μὲν ὤν τούτου ἁρπαγάς μούνας εἶναι παρ’ ἀλλήλων, τὸ δὲ ἀπὸ τούτου Ἕλληνας δὴ μεγάλως αἰτίους γενέσθαι· προτέρους γὰρ ἄρξαι στρατεύεσθαι ἐς τὴν Ἀσίην ἢ σφέας ἐς τὴν Εὐρώπην.'
@@ -347,6 +350,46 @@ You may read about these arguments in `the TLGU manual <https://github.com/cltk/
 Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
 
 See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
+
+
+
+
+Corpus Readers
+==============
+
+Most users will want to access words, sentences, paragraphs and even whole documents via a CorpusReader object. All Corpus contributors should provide a suitable reader. There is one for Perseus Greek, and others will be made available. The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
+
+.. code-block:: python
+
+
+    In [1]: from cltk.corpus.readers import get_corpus_reader
+       ...: reader = get_corpus_reader( corpus_name = 'greek_text_perseus', language = 'greek')
+       ...: # get all the docs
+       ...: docs = list(reader.docs())
+       ...: len(docs)
+       ...:
+    Out[1]: 222
+
+    In [2]: # or set just one
+       ...: reader._fileids = ['plato__apology__grc.json']
+
+    In [3]: # get all the sentences
+    In [4]: sentences = list(reader.sents())
+       ...: len(sentences)
+       ...:
+    Out[4]: 4983
+
+    In [5]: # Or just one
+
+    In [6]: sentences[0]
+    Out[6]: '\n \n \n \n \n ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ\n τῶν ἐμῶν κατηγόρων, οὐκ οἶδα· ἐγὼ δʼ οὖν καὶ αὐτὸς ὑπʼ αὐτῶν ὀλίγου ἐμαυτοῦ\n ἐπελαθόμην, οὕτω πιθανῶς ἔλεγον.'
+
+    In [7]: # access an individual doc as a dictionary of dictionaries
+       ...: doc = list(reader.docs())[0]
+       ...: doc.keys()
+       ...:
+    Out[7]: dict_keys(['language', 'englishTitle', 'original-urn', 'author', 'urn', 'text', 'source', 'originalTitle', 'edition', 'sourceLink', 'meta', 'filename'])
+
 
 
 
@@ -417,6 +460,28 @@ And ``return string`` wraps the list in ``' '.join()``:
 
 These two arguments can be combined, as well.
 
+
+Lemmatization, backoff method
+=============================
+
+The CLTK offers a series of lemmatizers that can be combined in a backoff chain, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
+
+There is a generic version of the backoff Greek lemmatizer which requires data from the CLTK greek models data found here <https://github.com/cltk/greek_models_cltk/tree/master/lemmata/backoff>. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+
+To use the generic version of the backoff Greek Lemmatizer:
+
+.. code-block:: python
+
+   In [1]: from cltk.lemmatize.greek.backoff import BackoffGreekLemmatizer
+
+   In [2]: lemmatizer = BackoffGreekLemmatizer()
+
+   In [3]: tokens = 'κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος'.split()
+
+   In [4]: lemmatizer.lemmatize(tokens)
+   Out[4]: [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθές'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιᾶ'), ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
+
+NB: The backoff chain for this lemmatizer is defined as follows: 1. a dictionary-based lemmatizer with high-frequency, unambiguous forms; 2. a training-data-based lemmatizer based on sentences from the [Perseus Latin Dependency Treebanks](https://perseusdl.github.io/treebank_data/); 3. a regular-expression-based lemmatizer transforming unambiguous endings (currently very limited); 4. a dictionary-based lemmatizer with the complete set of Morpheus lemmas; 5. an 'identity' lemmatizer returning the token as the lemma. Each of these sub-lemmatizers is explained in the documents for "Multilingual".
 
 
 Named Entity Recognition
@@ -590,23 +655,40 @@ There is a prosody scanner for scanning rhythms in Greek texts. It returns a lis
 
 Sentence Tokenization
 =====================
-
-The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings.  For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
+Sentence tokenization for Ancient Greek is available using (by default) a regular-expression based tokenizer. To tokenize a Greek text by sentences...
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenize.sentence import TokenizeSentence
+   In [1]: from cltk.tokenize.greek.sentence import SentenceTokenizer
 
-   In [2]: tokenizer = TokenizeSentence('greek')
+   In [2]: sent_tokenizer = SentenceTokenizer()
 
-   In [2]: untokenized_text = 'εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν; ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν. ἀλλ᾽ ἐγώ φημι ταῦτα μὲν φλυαρίας εἶναι· δοκεῖ δέ μοι ἄνδρας ἐλθόντας πρὸς Κῦρον οἵτινες ἐπιτήδειοι σὺν Κλεάρχῳ ἐρωτᾶν ἐκεῖνον τί βούλεται ἡμῖν χρῆσθαι· καὶ ἐὰν μὲν ἡ πρᾶξις ᾖ παραπλησία οἵᾳπερ καὶ πρόσθεν ἐχρῆτο τοῖς ξένοις, ἕπεσθαι καὶ ἡμᾶς καὶ μὴ κακίους εἶναι τῶν πρόσθεν τούτῳ συναναβάντων· ἐὰν δὲ μείζων ἡ πρᾶξις τῆς πρόσθεν φαίνηται καὶ ἐπιπονωτέρα καὶ ἐπικινδυνοτέρα, ἀξιοῦν ἢ πείσαντα ἡμᾶς ἄγειν ἢ πεισθέντα πρὸς φιλίαν ἀφιέναι· οὕτω γὰρ καὶ ἑπόμενοι ἂν φίλοι αὐτῷ καὶ πρόθυμοι ἑποίμεθα καὶ ἀπιόντες ἀσφαλῶς ἂν ἀπίοιμεν· ὅ τι δ᾽ ἂν πρὸς ταῦτα λέγῃ ἀπαγγεῖλαι δεῦρο· ἡμᾶς δ᾽ ἀκούσαντας πρὸς ταῦτα βουλεύεσθαι.'
+   In [3]: untokenized_text = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""
 
-   In [4]: tokenizer.tokenize_sentences(untokenized_text)
-   Out[4]:
-   ['εἰ δὲ καὶ τῷ ἡγεμόνι πιστεύσομεν ὃν ἂν Κῦρος διδῷ, τί κωλύει καὶ τὰ ἄκρα ἡμῖν κελεύειν Κῦρον προκαταλαβεῖν;',
-    'ἐγὼ γὰρ ὀκνοίην μὲν ἂν εἰς τὰ πλοῖα ἐμβαίνειν ἃ ἡμῖν δοίη, μὴ ἡμᾶς ταῖς τριήρεσι καταδύσῃ, φοβοίμην δ᾽ ἂν τῷ ἡγεμόνι ὃν δοίη ἕπεσθαι, μὴ ἡμᾶς ἀγάγῃ ὅθεν οὐκ ἔσται ἐξελθεῖν· βουλοίμην δ᾽ ἂν ἄκοντος ἀπιὼν Κύρου λαθεῖν αὐτὸν ἀπελθών· ὃ οὐ δυνατόν ἐστιν.',
-    'ἀλλ᾽ ἐγώ φημι ταῦτα μὲν φλυαρίας εἶναι· δοκεῖ δέ μοι ἄνδρας ἐλθόντας πρὸς Κῦρον οἵτινες ἐπιτήδειοι σὺν Κλεάρχῳ ἐρωτᾶν ἐκεῖνον τί βούλεται ἡμῖν χρῆσθαι· καὶ ἐὰν μὲν ἡ πρᾶξις ᾖ παραπλησία οἵᾳπερ καὶ πρόσθεν ἐχρῆτο τοῖς ξένοις, ἕπεσθαι καὶ ἡμᾶς καὶ μὴ κακίους εἶναι τῶν πρόσθεν τούτῳ συναναβάντων· ἐὰν δὲ μείζων ἡ πρᾶξις τῆς πρόσθεν φαίνηται καὶ ἐπιπονωτέρα καὶ ἐπικινδυνοτέρα, ἀξιοῦν ἢ πείσαντα ἡμᾶς ἄγειν ἢ πεισθέντα πρὸς φιλίαν ἀφιέναι· οὕτω γὰρ καὶ ἑπόμενοι ἂν φίλοι αὐτῷ καὶ πρόθυμοι ἑποίμεθα καὶ ἀπιόντες ἀσφαλῶς ἂν ἀπίοιμεν· ὅ τι δ᾽ ἂν πρὸς ταῦτα λέγῃ ἀπαγγεῖλαι δεῦρο· ἡμᾶς δ᾽ ἀκούσαντας πρὸς ταῦτα βουλεύεσθαι.']
+   In [4]: sent_tokenizer.tokenize(untokenized_text)
+   Out[4]: ['ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν·', 'τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι·', 'εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας.']
 
+The sentence tokenizer takes a string input into ``tokenize_sentences()`` and returns a list of strings.  For more on the tokenizer, or to make your own, see `the CLTK's Greek sentence tokenizer training set repository <https://github.com/cltk/greek_training_set_sentence>`_.
+
+There is also an experimental [Punkt](https://www.nltk.org/_modules/nltk/tokenize/punkt.html) tokenizer trained on the Greek Tesserae texts. The model for this tokenizer can be found in the CLTK corpora under greek_model_cltk/tokenizers/sentence/greek_punkt.
+
+.. code-block:: python
+
+   In [5]: from cltk.tokenize.greek.sentence import SentenceTokenizer
+
+   In [6]: sent_tokenizer = SentenceTokenizer(tokenizer='punkt')
+
+   etc.
+
+NB: The old method for sentence tokenizer, i.e. TokenizeSentence, is still available, but will soon be replaced by the method above.
+
+.. code-block:: python
+
+   In [7]: from cltk.tokenize.sentence import TokenizeSentence
+
+   In [8]: tokenizer = TokenizeSentence('greek')
+
+   etc.
 
 Stopword Filtering
 ==================
@@ -654,7 +736,7 @@ The corpus module has a class for generating a Swadesh list for Greek.
 
    In [3]: swadesh.words()[:10]
    Out[3]: ['ἐγώ', 'σύ', 'αὐτός, οὗ, ὅς, ὁ, οὗτος', 'ἡμεῖς', 'ὑμεῖς', 'αὐτοί', 'ὅδε', 'ἐκεῖνος', 'ἔνθα, ἐνθάδε, ἐνταῦθα', 'ἐκεῖ']
-   
+
 
 TEI XML
 =======
@@ -884,7 +966,7 @@ Word Tokenization
 
    In [4]: word_tokenizer.tokenize(text)
    Out[4]: ['Θουκυδίδης', 'Ἀθηναῖος', 'ξυνέγραψε', 'τὸν', 'πόλεμον', 'τῶν', 'Πελοποννησίων', 'καὶ', 'Ἀθηναίων', ',']
-   
+
 
 Word2Vec
 ========

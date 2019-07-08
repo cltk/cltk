@@ -15,6 +15,7 @@ from cltk.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
 from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
 from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
 from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
+from cltk.stem.akkadian.atf_converter import ATFConverter
 from cltk.stem.french.stem import stem
 from cltk.stem.middle_english.stem import affix_stemmer as MiddleEnglishAffixStemmer
 import os
@@ -24,16 +25,26 @@ import unittest
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    def setUp(self):
-        """Import sanskrit models first, some CSV files necessary for the
-        Indian lang tokenizers.
-        """
-        corpus_importer = CorpusImporter('sanskrit')
-        corpus_importer.import_corpus('sanskrit_models_cltk')
-        file_rel = os.path.join('~/cltk_data/sanskrit/model/sanskrit_models_cltk/README.md')
-        file = os.path.expanduser(file_rel)
-        file_exists = os.path.isfile(file)
-        self.assertTrue(file_exists)
+    # def setUp(self):
+    #     """Import sanskrit models first, some CSV files necessary for the
+    #     Indian lang tokenizers.
+    #     """
+    #     corpus_importer = CorpusImporter('sanskrit')
+    #     corpus_importer.import_corpus('sanskrit_models_cltk')
+    #     file_rel = os.path.join(get_cltk_data_dir() + '/sanskrit/model/sanskrit_models_cltk/README.md')
+    #     file = os.path.expanduser(file_rel)
+    #     file_exists = os.path.isfile(file)
+    #     self.assertTrue(file_exists)
+
+    @classmethod
+    def setUpClass(self):
+        try:
+            corpus_importer = CorpusImporter('sanskrit')
+            corpus_importer.import_corpus('sanskrit_models_cltk')
+            corpus_importer = CorpusImporter('greek')
+            corpus_importer.import_corpus('greek_models_cltk')
+        except:
+            raise Exception('Failure to download test corpus')
 
     def test_latin_i_u_transform(self):
         """Test converting ``j`` to ``i`` and ``v`` to ``u``."""
@@ -241,7 +252,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word = "awīlum"
         bound_form = bound_former.get_bound_form(word, 'm')
         target = "awīl"
-        self.assertEquals(bound_form, target)
+        self.assertEqual(bound_form, target)
 
     def test_akkadian_cv_pattern(self):
         """Test Akkadian CV pattern method"""
@@ -249,7 +260,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word = "iparras"
         cv_pattern = cv_patterner.get_cv_pattern(word, pprint=True)
         target = "V₁C₁V₂C₂C₂V₂C₃"
-        self.assertEquals(cv_pattern, target)
+        self.assertEqual(cv_pattern, target)
 
     def test_akkadian_declension(self):
         """Test Akkadian noun declension"""
@@ -263,7 +274,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
                   ('iltān', {'case': 'nominative', 'number': 'dual'}),
                   ('ilātim', {'case': 'oblique', 'number': 'plural'}),
                   ('ilātum', {'case': 'nominative', 'number': 'plural'})]
-        self.assertEquals(sorted(declension), sorted(target))
+        self.assertEqual(sorted(declension), sorted(target))
 
     def test_akkadian_stemmer(self):
         """Test Akkadian stemmer"""
@@ -271,7 +282,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         word = "šarrū"
         stem = stemmer.get_stem(word, 'm')
         target = "šarr"
-        self.assertEquals(stem, target)
+        self.assertEqual(stem, target)
 
     def test_akkadian_syllabifier(self):
         """Test Akkadian syllabifier"""
@@ -281,7 +292,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = ['e','piš','ta','šu']
         self.assertEqual(syllables, target)
 
-    '''
+    """
     #? Someone fix this; assertTrue() doesn't make sense here
     def test_phonetic_vector(self):
         cor = [0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0]
@@ -289,7 +300,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         syllabifier = IndianSyllabifier('hindi')
         current = syllabifier.get_phonetic_feature_vector('न', 'hi')
         # self.assertTrue(current, correct)
-    '''
+    """
 
     def test_is_misc(self):
         """Test Indic Syllabifier is_misc method"""
@@ -548,13 +559,64 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = "j depart a it quant par la vil v err tut a cheval un pucel en tut le siecl n' o si bel un blanc palefre" \
                     " chevalcho "
         self.assertEqual(stemmed_text, target)
-    
+
     def test_middle_english_stemmer(self):
         sentence = ['the', 'speke', 'the', 'henmest', 'kyng', 'in', 'the', 'hillis', 'he', 'beholdis','he', 'lokis', 'vnder',
                     'his', 'hondis', 'and', 'his', 'hed', 'heldis']
         stemmed = MiddleEnglishAffixStemmer(sentence)
         target = 'the spek the henm kyng in the hill he behold he lok vnd his hond and his hed held'
         self.assertEqual(stemmed, target)
-        
+
+    def test_convert_consonant(self):
+        """
+        Tests convert_consonant.
+        """
+        atf = ATFConverter()
+        signs = ['as,', 'S,ATU', 'tet,', 'T,et', 'sza', 'ASZ']
+        target = ['aṣ', 'ṢATU', 'teṭ', 'Ṭet', 'ša', 'AŠ']
+        output = [atf._convert_consonant(s) for s in signs]
+        self.assertEqual(output, target)
+
+    def test_get_number_from_sign(self):
+        """
+        Tests get_number_from_sign.
+        """
+        atf = ATFConverter()
+        signs = ["a", "a1", "be2", "bad3", "buru14"]
+        target = [0, 1, 2, 3, 14]
+        output = [atf._get_number_from_sign(s)[1] for s in signs]
+        self.assertEqual(output, target)
+
+    def test_single_sign(self):
+        """
+        Tests process with two_three as active.
+        """
+        atf = ATFConverter(two_three=True)
+        signs = ["a", "a1", "a2", "a3", "be2", "be3", "bad2", "bad3"]
+        target = ["a", "a₁", "a₂", "a₃", "be₂", "be₃", "bad₂", "bad₃"]
+        output = atf.process(signs)
+        self.assertEqual(output, target)
+
+    def test_accents(self):
+        """
+        Tests process with two_three as inactive.
+        """
+        atf = ATFConverter(two_three=False)
+        signs = ["a", "a2", "a3", "be2", "bad3", "buru14"]
+        target = ["a", "á", "à", "bé", "bàd", "buru₁₄"]
+        output = atf.process(signs)
+        self.assertEqual(output, target)
+
+    def test_unknown_token(self):
+        """
+        Tests process with unrecognizable tokens.
+        """
+        atf = ATFConverter(two_three=True)
+        signs = ["a2", "☉", "be3"]
+        target = ["a₂", "☉", "be₃"]
+        output = atf.process(signs)
+        self.assertEqual(output, target)
+
+
 if __name__ == '__main__':
     unittest.main()

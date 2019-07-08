@@ -1,5 +1,5 @@
 Multilingual
-*************
+************
 
 Some functions in the CLTK are language independent.
 
@@ -80,7 +80,7 @@ The CLTK uses languages in its organization of data, however some good corpora d
 
 
 Information Retrieval (regex, keyword expansion)
-=============================
+================================================
 
 .. tip::
 
@@ -170,6 +170,125 @@ To save results, use the ``save_file`` parameter:
 
 This will save a file at ``~/cltk_data/user_data/search/2016_amicitia.html``, being a human-readable output \
 with word-matches highlighted, of all authors (or texts, if ``chunk='work'``).
+
+
+Lemmatization, backoff
+=======
+
+CLTK offers backoff lemmatizations, i.e. a series of lexicon-, rules-, or training data-based lemmatizers that can be chained together. The backoff lemmatizers are based on backoff POS tagging in NLTK. All of the examples below are in Latin, but these lemmatizers are language-independent (at least, where lemmatization is a meaningful NLP task) and can be made language-specific by providing different training sentences, regex patterns, etc.
+
+The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
+
+.. code-block:: python
+
+   In [1]: from cltk.lemmatize.backoff import DefaultLemmatizer
+
+   In [2]: lemmatizer = DefaultLemmatizer()
+
+   In [3]: tokens = ['Quo', 'usque', 'tandem', 'abutere', ',', 'Catilina', ',', 'patientia', 'nostra', '?']
+
+   In [4]: lemmatizer.lemmatize(tokens)
+   Out[4]: [('Quo', None), ('usque', None), ('tandem', None), ('abutere', None), (',', None), ('Catilina', None), (',', None), ('patientia', None), ('nostra', None), ('?', None)]
+
+DefaultLemmatizer can take as a parameter what "lemma" should be returned:
+
+.. code-block:: python
+
+   In [5]: lemmatizer = DefaultLemmatizer('UNK')
+
+   In [6]: lemmatizer.lemmatize(tokens)
+   Out[6]: [('Quo', 'UNK'), ('usque', 'UNK'), ('tandem', 'UNK'), ('abutere', 'UNK'), (',', 'UNK'), ('Catilina', 'UNK'), (',', 'UNK'), ('patientia', 'UNK'), ('nostra', 'UNK'), ('?', 'UNK')]
+
+The backoff module also offers IdentityLemmatizer which returns the given token as the lemma:
+
+.. code-block:: python
+
+   In [7]: from cltk.lemmatize.backoff import IdentityLemmatizer
+
+   In [8]: lemmatizer = IdentityLemmatizer()
+
+   In [9]: lemmatizer.lemmatize(tokens)
+   Out[9]: [('Quo', 'Quo'), ('usque', 'usque'), ('tandem', 'tandem'), ('abutere', 'abutere'), (',', ','), ('Catilina', 'Catilina'), (',', ','), ('patientia', 'patientia'), ('nostra', 'nostra'), ('?', '?')]
+
+With the DictLemmatizer, the backoff module allows you to provide a dictionary of the form {'TOKEN1': 'LEMMA1', 'TOKEN2': 'LEMMA2'} for lemmatization.
+
+.. code-block:: python
+
+   In [10]: tokens = ['arma', 'uirum', '-que', 'cano', ',', 'troiae', 'qui', 'primus', 'ab', 'oris']
+
+   In [11]: lemmas = {'arma': 'arma', 'uirum': 'uir', 'troiae': 'troia', 'oris': 'ora'}
+
+   In [12]: from cltk.lemmatize.backoff import DictLemmatizer
+
+   In [13]: lemmatizer = DictLemmatizer(lemmas=lemmas)
+
+   In [14]: lemmatizer.lemmatize(tokens)
+   Out[14]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', None), ('cano', None), (',', None), ('troiae', 'troia'), ('qui', None), ('primus', None), ('ab', None), ('oris', 'ora')]
+
+The DictLemmatizer—like all of the lemmatizers in this module—can take a second lemmatizer (or backoff lemmatizer) for any of the tokens that return 'None'. This is done with a 'backoff' parameter:
+
+.. code-block:: python
+
+   In [15]: default = DefaultLemmatizer('UNK')
+
+   In [16]: lemmatizer =DictLemmatizer(lemmas=lemmas, backoff=default)
+
+   In [17]: lemmatizer.lemmatize(tokens)
+   Out[17]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', 'UNK'), ('cano', 'UNK'), (',', 'UNK'), ('troiae', 'troia'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'ora')]
+
+These lemmatizers also have a verbose mode that returns the specific tagger used for each lemma returned.
+
+.. code-block:: python
+
+   In [18]: default = DefaultLemmatizer('UNK', verbose=True)
+
+   In [19]: lemmatizer =DictLemmatizer(lemmas=lemmas, backoff=default, verbose=True)
+
+   In [20]: lemmatizer.lemmatize(tokens)
+   Out[20]: [('arma', 'arma', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('uirum', 'uir', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('-que', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('cano', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), (',', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('troiae', 'troia', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('qui', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('primus', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('ab', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('oris', 'ora', "<DictLemmatizer: {'arma': 'arma', ...}>")]
+
+You can provide a name for the data source to make the verbose output clearer:
+
+.. code-block:: python
+
+   In [21]: default = DefaultLemmatizer('UNK')
+
+   In [22]: lemmatizer =DictLemmatizer(lemmas=lemmas, source="CLTK Docs Example", backoff=default, verbose=True)
+
+   In [23]: lemmatizer.lemmatize(tokens)
+   Out[23]: [('arma', 'arma', '<DictLemmatizer: CLTK Docs Example>'), ('uirum', 'uir', '<DictLemmatizer: CLTK Docs Example>'), ('-que', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('cano', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), (',', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('troiae', 'troia', '<DictLemmatizer: CLTK Docs Example>'), ('qui', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('primus', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('ab', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('oris', 'ora', '<DictLemmatizer: CLTK Docs Example>')]
+
+With the UnigramLemmatizer, the backoff module allows you to provide a list of lists of sentences of the form `[[('TOKEN1', 'LEMMA1'), ('TOKEN2', 'LEMMA2')], [('TOKEN3', 'LEMMA3'), ('TOKEN4', 'LEMMA4')], ... ]` for lemmatization. The lemmatizer returns the the lemma that has the highest frequency based on the training sentences. So, for example, if the tuple ('est', 'sum') appears in the training sentences 99 times and ('est', 'edo') appears 1 time, the lemmatizer would return the lemma 'sum'.
+
+Here is an example of the UnigramLemmatizer():
+
+.. code-block:: python
+
+   In [24]: train_data = [[('cum', 'cum2'), ('esset', 'sum'), ('caesar', 'caesar'), ('in', 'in'), ('citeriore', 'citer'), ('gallia', 'gallia'), ('in', 'in'), ('hibernis', 'hibernus'), (',', 'punc'), ('ita', 'ita'), ('uti', 'ut'), ('supra', 'supra'), ('demonstrauimus', 'demonstro'), (',', 'punc'), ('crebri', 'creber'), ('ad', 'ad'), ('eum', 'is'), ('rumores', 'rumor'), ('adferebantur', 'affero'), ('litteris', 'littera'), ('-que', '-que'), ('item', 'item'), ('labieni', 'labienus'), ('certior', 'certus'), ('fiebat', 'fio'), ('omnes', 'omnis'), ('belgas', 'belgae'), (',', 'punc'), ('quam', 'qui'), ('tertiam', 'tertius'), ('esse', 'sum'), ('galliae', 'gallia'), ('partem', 'pars'), ('dixeramus', 'dico'), (',', 'punc'), ('contra', 'contra'), ('populum', 'populus'), ('romanum', 'romanus'), ('coniurare', 'coniuro'), ('obsides', 'obses'), ('-que', '-que'), ('inter', 'inter'), ('se', 'sui'), ('dare', 'do'), ('.', 'punc')], [('coniurandi', 'coniuro'), ('has', 'hic'), ('esse', 'sum'), ('causas', 'causa'), ('primum', 'primus'), ('quod', 'quod'), ('uererentur', 'uereor'), ('ne', 'ne'), (',', 'punc'), ('omni', 'omnis'), ('pacata', 'paco'), ('gallia', 'gallia'), (',', 'punc'), ('ad', 'ad'), ('eos', 'is'), ('exercitus', 'exercitus'), ('noster', 'noster'), ('adduceretur', 'adduco'), (';', 'punc')]]
+
+   In [25]: default = DefaultLemmatizer('UNK')
+
+   In [26]: lemmatizer = UnigramLemmatizer(train_sents, backoff=default)
+
+   In [27]: lemmatizer.lemmatize(tokens)
+   Out[27]: [('arma', 'UNK'), ('uirum', 'UNK'), ('-que', '-que'), ('cano', 'UNK'), (',', 'punc'), ('troiae', 'UNK'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'UNK')]
+
+There is also a regular-expression based lemmatizer that uses a tuple with substitution patterns to return lemmas:
+
+  In [28]: regexps = [
+    ('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),
+    ('(.)ion(is|i|em|e|es|um|ibus)$', r'\1io'),
+    ('(.)av(i|isti|it|imus|istis|erunt|)$', r'\1o'),
+  ]
+
+  In [29]: tokens = "iam a principio nobilitatis factionem disturbavit".split()
+
+  In [30]: from cltk.lemmatize.backoff import RegexpLemmatizer
+
+  In [31]: lemmatizer = RegexpLemmatizer(regexps=regexps)
+
+  In [32]: lemmatizer.lemmatize(tokens)
+  Out[32]: [('iam', None), ('a', None), ('principio', None), ('nobilitatis', 'nobilitas'), ('factionem', 'factio'), ('disturbavit', 'disturbo')]
 
 
 N–grams
@@ -307,7 +426,7 @@ The NLTK's ``skipgrams()`` produces a generator whose values can be turned into 
     …
     ('equestrem', 'dignitatem', '.'),
     ('obtinuit', 'dignitatem', '.')]
-    
+
 
 Stoplist Construction
 =====================
@@ -319,53 +438,53 @@ The ``Stop`` module offers two classes for constructing stoplists: ``StringStopl
 .. code-block:: python
 
     In [1]: from cltk.stop.stop import StringStoplist
-    
+
     In [2]: para = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
-    
+
     In [3]: stoplist = StringStoplist()
-    
+
     In [4]: stops = stoplist.build_stoplist(para, size=100)
-    
+
     In [5]: print(stops)
     Out [5]: ['a', 'ab', 'ac', 'ad', 'aetatis', 'ambitionis', 'animum', 'arbitrarer', 'atque', 'casus', 'cogitanti', 'cogitationum', 'communium', 'concessum', 'consiliorum', 'constitisset', 'cum', 'cursum', 'decursu', 'dignitate', 'eo', 'esse', 'et', 'etiam', 'eum', 'fefellerunt', 'flexu', 'florerent', 'fore', 'forensium', 'frater', 'fuisse', 'fuit', 'gestarum', 'gloria', 'graves', 'honoribus', 'honorum', 'illi', 'in', 'infinitus', 'initium', 'iustum', 'labor', 'locus', 'maximae', 'memoria', 'meorum', 'mihi', 'moles', 'molestiarum', 'nam', 'negotio', 'neque', 'nostri', 'nostrum', 'numero', 'occupatio', 'omnibus', 'optima', 'oti', 'otio', 'perbeati', 'periculo', 'plenissimus', 'possent', 'potuerunt', 'praeclara', 'prope', 'publica', 'quam', 'qui', 'quietis', 'quinte', 'quoque', 're', 'referendi', 'repetenti', 'requiescendi', 'rerum', 'saepe', 'si', 'sine', 'solent', 'spem', 'studia', 'temporum', 'tenere', 'tranquillitatis', 'tum', 'turbulentissimae', 'ut', 'utriusque', 'varii', 'vel', 'vero', 'vetera', 'videbatur', 'videri', 'vitae']
 
 You can include the counts with the ``inc_counts`` parameter:
-   
+
 .. code-block:: python
 
     In [6]: stops = stoplist.build_stoplist(para, size=100)
-    
+
     In [7]: print(stops)
     Out [7]: [('a', 2), ('ab', 1), ('ac', 1), ('ad', 3), ('aetatis', 1), ('ambitionis', 1), ('animum', 1), ('arbitrarer', 1), ('atque', 3), ('casus', 1), ('cogitanti', 1), ('cogitationum', 1), ('communium', 1), ('concessum', 1), ('consiliorum', 1), ('constitisset', 1), ('cum', 4), ('cursum', 1), ('decursu', 1), ('dignitate', 1), ('eo', 1), ('esse', 1), ('et', 11), ('etiam', 1), ('eum', 1), ('fefellerunt', 1), ('flexu', 1), ('florerent', 1), ('fore', 2), ('forensium', 1), ('frater', 2), ('fuisse', 1), ('fuit', 1), ('gestarum', 1), ('gloria', 1), ('graves', 1), ('honoribus', 1), ('honorum', 1), ('illi', 1), ('in', 8), ('infinitus', 1), ('initium', 1), ('iustum', 1), ('labor', 1), ('locus', 1), ('maximae', 1), ('memoria', 1), ('meorum', 1), ('mihi', 3), ('moles', 1), ('molestiarum', 1), ('nam', 3), ('negotio', 1), ('neque', 5), ('nostri', 1), ('nostrum', 1), ('numero', 1), ('occupatio', 1), ('omnibus', 1), ('optima', 1), ('oti', 2), ('otio', 1), ('perbeati', 1), ('periculo', 1), ('plenissimus', 1), ('possent', 1), ('potuerunt', 1), ('praeclara', 1), ('prope', 1), ('publica', 2), ('quam', 1), ('qui', 3), ('quietis', 1), ('quinte', 1), ('quoque', 1), ('re', 1), ('referendi', 1), ('repetenti', 1), ('requiescendi', 1), ('rerum', 4), ('saepe', 1), ('si', 1), ('sine', 1), ('solent', 1), ('spem', 1), ('studia', 1), ('temporum', 1), ('tenere', 1), ('tranquillitatis', 1), ('tum', 1), ('turbulentissimae', 1), ('ut', 1), ('utriusque', 1), ('varii', 1), ('vel', 7), ('vero', 2), ('vetera', 1), ('videbatur', 1), ('videri', 1), ('vitae', 1)]
-    
+
 ``CorpusStoplist`` outputs a list of stopwords from a collection of documents based, with a parameter (``basis``) for weighting words within the collection using different measures. The bases currently available are: ``frequency``, ``mean`` (mean probability), ``variance`` (variance probability), ``entropy`` (entropy), and ``zou`` (a composite measure based on mean, variance, and entropy as described in [Zou 2006]).
-   
+
 .. code-block:: python
 
     In [8]: from cltk.stop.stop import CorpusStoplist
-    
+
     In [9]: stoplist = CorpusStoplist()
-    
+
     In [10]: para_2 = """ac mihi repetenda est veteris cuiusdam memoriae non sane satis explicata recordatio, sed, ut arbitror, apta ad id, quod requiris, ut cognoscas quae viri omnium eloquentissimi clarissimique senserint de omni ratione dicendi. vis enim, ut mihi saepe dixisti, quoniam, quae pueris aut adulescentulis nobis ex commentariolis nostris incohata ac rudia exciderunt, vix sunt hac aetate digna et hoc usu, quem ex causis, quas diximus, tot tantisque consecuti sumus, aliquid eisdem de rebus politius a nobis perfectiusque proferri; solesque non numquam hac de re a me in disputationibus nostris dissentire, quod ego eruditissimorum hominum artibus eloquentiam contineri statuam, tu autem illam ab elegantia doctrinae segregandam putes et in quodam ingeni atque exercitationis genere ponendam. ac mihi quidem saepe numero in summos homines ac summis ingeniis praeditos intuenti quaerendum esse visum est quid esset cur plures in omnibus rebus quam in dicendo admirabiles exstitissent; nam quocumque te animo et cogitatione converteris, permultos excellentis in quoque genere videbis non mediocrium artium, sed prope maximarum. quis enim est qui, si clarorum hominum scientiam rerum gestarum vel utilitate vel magnitudine metiri velit, non anteponat oratori imperatorem? quis autem dubitet quin belli duces ex hac una civitate praestantissimos paene innumerabilis, in dicendo autem excellentis vix paucos proferre possimus? iam vero consilio ac sapientia qui regere ac gubernare rem publicam possint, multi nostra, plures patrum memoria atque etiam maiorum exstiterunt, cum boni perdiu nulli, vix autem singulis aetatibus singuli tolerabiles oratores invenirentur. ac ne qui forte cum aliis studiis, quae reconditis in artibus atque in quadam varietate litterarum versentur, magis hanc dicendi rationem, quam cum imperatoris laude aut cum boni senatoris prudentia comparandam putet, convertat animum ad ea ipsa artium genera circumspiciatque, qui in eis floruerint quamque multi sint; sic facillime, quanta oratorum sit et semper fuerit paucitas, iudicabit."""
-    
+
     In [11]: corpus = [para, para2]
-    
+
     In [12]: stops = stoplist.build_stoplist(corpus, basis='entropy', size=10)
-    
+
     In [13]: print(stops)
     Out [13]: ['ac', 'ad', 'atque', 'cum', 'et', 'in', 'mihi', 'qui', 'rerum', 'vel']
-    
+
 Other parameters for both ``StringStoplist`` and ``CorpusStoplist`` include boolean preprocessing options (``lower``, ``remove_numbers``, ``remove_punctuation``) and override lists of words to add or subtract from stoplists (``include``, ``exclude``).
-   
+
 .. code-block:: python
 
     In [14]: stops = stoplist.build_stoplist(corpus, size=10, basis='frequency', exclude=['ad'])
-    
+
     In [15]: print(stops)
     Out [15]: ['ac', 'atque', 'cum', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
-    
+
     In [16]: stops = stoplist.build_stoplist(corpus, size=10, basis='frequency', include=['est'])
-    
+
     In [17]: print(stops)
     Out [17]: ['ac', 'ad', 'atque', 'cum', 'est', 'et', 'in', 'mihi', 'neque', 'qui', 'vel']
 
@@ -378,9 +497,9 @@ CLTK provides a language-agnostic syllabifier module as part of ``phonology``. T
 
 
 .. code-block:: python
-   
+
    In [1]: from cltk.phonology import syllabify
-   
+
    In [2]: high_vowels = ['a']
 
    In [3]: mid_vowels = ['e']
@@ -392,35 +511,35 @@ CLTK provides a language-agnostic syllabifier module as part of ``phonology``. T
    In [6]: nasals = ['m', 'n']
 
    In [7]: fricatives = ['f']
-   
+
    In [8]: s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives=fricatives)
 
    In [9]: s.syllabify("feminarum")
    Out[9]: ['fe', 'mi', 'na', 'rum']
-   
-Additionally, you can override the default sonority hierarchy by calling ``set_hierarchy``. However, you must also re-define the 
+
+Additionally, you can override the default sonority hierarchy by calling ``set_hierarchy``. However, you must also re-define the
 vowel list for the nuclei to be correctly identified.
 
 .. code-block:: python
-   
+
    In [10]: s = Syllabifier()
-   
+
    In [11]: s.set_hierarchy([['i', 'u'], ['e'], ['a'], ['r'], ['m', 'n'], ['f']])
-   
+
    In [12]: s.set_vowels(['i', 'u', 'e', 'a'])
-   
+
    In [13]: s.syllabify('feminarum')
    Out[13]: ['fe', 'mi', 'na', 'rum']
-   
+
 For a language-dependent approach, you can call the predefined sonority dictionary by toogling the ``language`` parameter:
 
 .. code-block:: python
-   
+
    In [14]: s = Syllabifier(language='middle high german')
-   
+
    In [15]: s.syllabify('lobebæren')
    Out[15]: ['lo', 'be', 'bæ', 'ren']
-   
+
 Text Reuse
 ==========
 The text reuse module offers a few tools to get started with studying text reuse (i.e., allusion and intertext). The major goals of this module are to leverage conventional text reuse strategies and to create comparison methods designed specifically for the languages of the corpora included in the CLTK.
@@ -446,11 +565,11 @@ This simple example compares a line from Vergil's Georgics with a line from Prop
 
    In [3]: l.ratio("dique deaeque omnes, studium quibus arua tueri,", "dique deaeque omnes, quibus est tutela per agros,")
    Out[3]: 0.71
-   
+
 You can also calculate the Levenshtein distance of two words, defined as the minimum number of single word edits (insertions, deletions, substitutions) required to transform a word into another.
 
 .. code-block:: python
-   
+
    In [4]: l.Levenshtein_Distance("deaeque", "deaeuqe")
    Out[4]: 2
 
@@ -461,7 +580,7 @@ Damerau-Levenshtein algorithm
 .. note::
 
    You will need to install `pyxDamerauLevenshtein <https://github.com/gfairchild/pyxDamerauLevenshtein>`_ to use these features.
-   
+
 The Damerau-Levenshtein algorithm is used for finding the distance metric between any two strings i.e., finite number of symbols or letters between any two strings. The Damerau-Levenshtein algorithm is an enhancement over Levenshtein algorithm in the sense that it allows for transposition operations.
 
 This simple example compares a two Latin words to find the distance between them:
@@ -472,19 +591,19 @@ This simple example compares a two Latin words to find the distance between them
 
    In [2]: damerau_levenshtein_distance("deaeque", "deaque")
    Out[2]: 1
-   
+
 Alternatively, you can also use CLTK's native ``Levenshtein`` class:
 
 .. code-block:: python
-   
+
    In [3]: from cltk.text_reuse.levenshtein import Levenshtein
-   
+
    In [4]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaque")
    Out[4]: 1
-   
+
    In [5]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaeuqe")
    Out[5]: 1
-   
+
 Needleman-Wunsch Algorithm
 --------------------------
 
@@ -493,12 +612,12 @@ The Needleman-Wunsch Algorithm, calculates the optimal global alignment between 
 There are two optional parameters: ``S`` specifying a weighted similarity square matrix, and ``alphabet`` (where ``|alphabet| = rows(S) = cols(S)``). By default, the algorithm assumes the latin alphabet and a default matrix (1 for match, -1 for substitution)
 
 .. code-block:: python
-   
+
    In [1]: from cltk.text_reuse.comparison import Needleman_Wunsch as NW
-   
+
    In [2]: NW("abba", "ababa", alphabet = "ab", S = [[1, -3],[-3, 1]])
    Out[2]: ('ab-ba', 'ababa')
-   
+
 In this case, the similarity matrix will be:
 
 +---+---+---+
@@ -513,7 +632,7 @@ In this case, the similarity matrix will be:
 Longest Common Substring
 ------------------------
 
-Longest Common Substring takes two strings as an argument to the function and returns a substring which is common between both the 
+Longest Common Substring takes two strings as an argument to the function and returns a substring which is common between both the
 strings. The example below compares a line from Vergil's Georgics with a line from Propertius (Elegies III.13.41):
 
 .. code-block:: python
@@ -531,15 +650,15 @@ The MinHash algorithm  generates a score based on the similarity of the two stri
 .. code-block:: python
 
    In [1]: from cltk.text_reuse.comparison import minhash
-   
+
    In [2]: a = 'dique deaeque omnes, studium quibus arua tueri,'
-   
+
    In [3]: b = 'dique deaeque omnes, quibus est tutela per agros,'
-   
+
    In[3]: print(minhash(a,b))
    Out[3]:0.171631205673
- 
- 
+
+
 Treebank label dict
 ===================
 
@@ -548,14 +667,14 @@ You can generate nested Python dict from a treebank in string format. Currently,
 .. code-block:: python
 
    In [1]: from  cltk.tags.treebanks import parse_treebanks
-   
+
    In [2]: st = "((IP-MAT-SPE (' ') (INTJ Yes) (, ,) (' ') (IP-MAT-PRN (NP-SBJ (PRO he)) (VBD seyde)) (, ,) (' ') (NP-SBJ (PRO I)) (MD shall)	(VB promyse) (NP-OB2 (PRO you)) (IP-INF (TO to)	(VB fullfylle) (NP-OB1 (PRO$ youre) (N desyre))) (. .) (' '))"
-   
+
    In [3]: treebank = parse_treebanks(st)
 
    In [4]: treebank['IP-MAT-SPE']['INTJ']
    Out[4]: ['Yes']
-   
+
    In [5]: treebank
    Out[5]: {'IP-MAT-SPE': {"'": ["'", "'", "'"], 'INTJ': ['Yes'], ',': [',', ','], 'IP-MAT-PRN': {'NP-SBJ': {'PRO': ['he']}, 'VBD': ['seyde']}, 'NP-SBJ': {'PRO': ['I']}, 'MD': ['shall'], '\t': {'VB': ['promyse'], 'NP-OB2': {'PRO': ['you']}, 'IP-INF': {'TO': ['to'], '\t': {'VB': ['fullfylle'], 'NP-OB1': {'PRO$': ['youre'], 'N': ['desyre']}}, '.': ['.'], "'": ["'"]}}}}
 
@@ -629,62 +748,19 @@ If you have access to the TLG or PHI5 disc, and have already imported it and con
 Word tokenization
 =================
 
-The NLTK offers several methods for word tokenization. The ``PunktLanguageVars`` is its latest tokenizer.
+The NLTK offers several methods for word tokenization. The CLTK Tokenize module offers "TreebankWordTokenizer" as a default multilingual word tokenizer.
 
 .. code-block:: python
 
-   In [1]: from nltk.tokenize.punkt import PunktLanguageVars
+   In [1]: from cltk.tokenze.word('multilingual')
 
    In [2]: s = """Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."""
 
-   In [3]: p = PunktLanguageVars()
+   In [3]: t = WordTokenizer('multilingual')
 
-   In [4]: p.word_tokenize(s)
+   In [4]: t.tokenize(s)
    Out[4]:
-   ['Anna',
-    'soror',
-    ',',
-    'quae',
-    'me',
-    'suspensam',
-    'insomnia',
-    'terrent',
-    '!',
-    'Quis',
-    'novus',
-    'hic',
-    'nostris',
-    'successit',
-    'sedibus',
-    'hospes.']
-
-This tokenizer works well, though has the particular feature that periods are fixed to the word preceding it. Notice the final token ``hospes.`` in the above. To get around this limitation, the CLTK offers ``nltk_tokenize_words()``, which is a simple wrapper for ``PunktLanguageVars.word_tokenize()``. It identifies final periods and turns them into their own item.
-
-.. code-block:: python
-
-   In [5]: from cltk.tokenize.word import nltk_tokenize_words
-
-   In [6]: nltk_tokenize_words(s)
-   Out[6]:
-   ['Anna',
-    'soror',
-    ',',
-    'quae',
-    'me',
-    'suspensam',
-    'insomnia',
-    'terrent',
-    '!',
-    'Quis',
-    'novus',
-    'hic',
-    'nostris',
-    'successit',
-    'sedibus',
-    'hospes',
-    '.']
-
-If, however, you want the default output of ``PunktLanguageVars.word_tokenize()``, use the argument ``attached_period=True``, as in ``nltk_tokenize_words(s, attached_period=True)``.
+   ['Anna', 'soror', ',', 'quae', 'me', 'suspensam', 'insomnia', 'terrent', '!', 'Quis', 'novus', 'hic', 'nostris', 'successit', 'sedibus', 'hospes', '.']
 
 If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another tokenizer from the NLTK, which breaks on any other regular expression pattern you choose. Here, for instance, on whitespace word breaks:
 
@@ -707,4 +783,3 @@ If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another 
     'oris',
     'Italiam',
     'fato']
-

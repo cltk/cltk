@@ -17,7 +17,13 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
     In[3]: corpus_importer.list_corpora
 
-    Out[3]: ['old_norse_text_perseus', 'old_norse_models_cltk']
+    Out[3]: ['old_norse_text_perseus', 'old_norse_models_cltk', 'old_norse_texts_heimskringla', 'old_norse_runic_transcriptions', 'old_norse_dictionary_zoega']
+
+
+
+Zoëga's dictionary
+``````````````````
+This dictionary was made in the last century. It contains Old Norse entries in which a description is given in English. Each entry have possible POS tags for its word and the translations/meanings.
 
 
 Stopword Filtering
@@ -151,17 +157,48 @@ For a language-dependent approach, you can call the predefined sonority dictiona
 
 .. code-block:: python
 
-    In[1]: s = Syllabifier(language='old_norse')
+    In[1]: from cltk.phonology.syllabify import Syllabifier
 
-    In[2]: s.syllabify("danmarkar")
+    In[2]: s = Syllabifier(language='old_norse')
 
-    Out[2]: ['dan', 'mar', 'kar']
+    In[3]: s.syllabify("danmarkar")
 
+    Out[3]: ['dan', 'mar', 'kar']
+
+Length of syllables in Old Norse poems plays a great role. To measure this, words have first to be phonetically transcribed. This is why "old_norse_ipa" language is used
+
+.. code-block:: python
+
+    In[1]: import cltk.phonology.old_norse.transcription as ont
+
+    In[2]: from cltk.phonology.syllabify import Syllabifier
+
+    In[3]: syllabifier = Syllabifier(language="old_norse_ipa")
+
+    In[4]: word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]
+
+    In[5]: syllabified_word = syllabifier.syllabify_phonemes(word)
+
+    In[6]: [ont.measure_old_norse_syllable(syllable) for syllable in syllabified_word]
+
+    Out[6]: [<Length.short: 'short'>, <Length.long: 'long'>]
 
 Old Norse prosody
 =================
 
-* Fornyrðislag
+Edda poetry is traditionally composed of the skaldic poetry and the eddic poetry.
+
+
+Eddic poetry
+````````````
+
+Eddic poems designate the poems of the **Poetic Edda**. Stanza, line and verse are the three levels that characterize eddic poetry.
+The poetic Edda are mainly composed of three kinds of poetic meters: *fornyrðislag*, *ljóðaháttr* and *málaháttr*.
+
+* *Fornyrðislag*
+
+A stanza of *fornyrðislag* has 8 short lines (or verses), 4 long-lines (or lines). Each long line has two short lines. The first verse of a line usually has an alliteration with the second verse of a line.
+
 
 .. code-block:: python
 
@@ -193,10 +230,16 @@ Old Norse prosody
 
     In[10]: fo.transcribed_text
 
-    Out[10]: [['[dɐyr feː]', '[dɐyja frɛːndr]'], ['[dɐyr sjalvr it sama]', '[ɛk vɛit ɛinː]'], ['[at aldrɛi dɐyr]', '[doːmr um dɒuðan hvɛrn]']]
+    Out[10]: [[['[hljoːðs]', '[bið]', '[ɛk]', '[alːar]'], ['[hɛlɣar]', '[kindir]']], [['[mɛiri]', '[ɔk]', '[minːi]'], ['[mœɣu]', '[hɛimdalːar]']], [['[viltu]', '[at]', '[ɛk]', '[valvœðr]'], ['[vɛl]', '[fyr]', '[tɛlja]']], [['[fɔrn]', '[spjœlː]', '[fira]'], ['[θɒu]', '[ɛr]', '[frɛmst]', '[ɔv]', '[man]']]]
+
+    In[11]: fo.find_alliteration()
+
+    Out[11]: ([[('hljóðs', 'helgar')], [('meiri', 'mögu'), ('minni', 'mögu')], [], [('forn', 'fremst'), ('fira', 'fremst')]], [1, 2, 0, 2])
 
 
-* Ljóðaháttr
+* *Ljóðaháttr*
+
+A stanza of *ljóðaháttr* has 6 short lines (or verses), 4 long-lines (or lines). The first and the third lines have two verses, while the second and the fourth lines have only one (longer) verse. The first verse of the first and third lines alliterates with the second verse of these lines. The second and the fourth lines contain alliterations.
 
 .. code-block:: python
 
@@ -222,11 +265,32 @@ Old Norse prosody
 
     In[8]: lj.syllabified_text
 
-    Out[8]: [[[[['deyr'], ['fé']]], [[['deyj', 'a'], ['frændr']]]], [[[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]]], [[[['ek'], ['veit'], ['einn']]], [[['at'], ['al', 'drei'], ['deyr']]]], [[[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]]
+    Out[8]: [[[['deyr'], ['fé']], [['deyj', 'a'], ['frændr']]], [[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]], [[['ek'], ['veit'], ['einn']], [['at'], ['al', 'drei'], ['deyr']]], [[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]
 
-* Dróttkvætt
+    In[9]: lj.to_phonetics()
 
-* Hrynhenda
+    In[10]: lj.transcribed_text
+
+    Out[10]: [[['[dɐyr]', '[feː]'], ['[dɐyja]', '[frɛːndr]']], [['[dɐyr]', '[sjalvr]', '[it]', '[sama]']], [['[ɛk]', '[vɛit]', '[ɛinː]'], ['[at]', '[aldrɛi]', '[dɐyr]']], [['[doːmr]', '[um]', '[dɒuðan]', '[hvɛrn]']]]
+
+    In[11]: verse_alliterations, n_alliterations_lines = lj.find_alliteration()
+
+    In[12]: verse_alliterations
+
+    Out[12]: [[('deyr', 'deyja'), ('fé', 'frændr')], [('sjalfr', 'sjalfr')], [('einn', 'aldrei')], [('dómr', 'um')]]
+
+    In[13]: n_alliterations_lines
+
+    Out[13]: [2, 1, 1, 1]
+
+* *Málaháttr*
+
+*Málaháttr* is very similar to *ljóðaháttr*, except that verses are longer. No special code has been written for this.
+
+Skaldic poetry
+``````````````
+
+*Dróttkvætt* and *hrynhenda* are examples of skaldic poetic meters.
 
 
 Old Norse pronouns declension
@@ -250,3 +314,106 @@ Old Norse, like other ancient Germanic languages, is highly inflected. With the 
 
     Out[6]: 'þessa'
 
+Old Norse noun declension
+=========================
+
+Old Norse nouns vary according to case (nominative, accusative, dative, genitive), gender (masculine, feminine, neuter) and number (singular, plural). Nouns are considered either weak or strong.
+Weak nouns have a simpler declension than strong ones.
+
+If you want a simple way to define the inflection of an Old Norse noun, you can do as follows:
+
+.. code-block:: python
+
+    In[1]: from cltk.inflection.utils import Noun, Gender
+
+    In[2]: sumar = [["sumar", "sumar", "sumri", "sumars"], ["sumur", "sumur", "sumrum", "sumra"]]
+
+    In[3]: noun_sumar = Noun("sumar", Gender.neuter)
+
+    In[4]: noun_sumar.set_declension(sumar)
+
+
+To decline a noun and if you know its nominative singular, genitive singular and nominative plural forms, you can use the following functions.
+
++--------+-------------------------------+------------------------------+----------------------------+
+|        | masculine                     | feminine                     | neuter                     |
++--------+-------------------------------+------------------------------+----------------------------+
+| strong | decline_strong_masculine_noun | decline_strong_feminine_noun | decline_strong_neuter_noun |
++--------+-------------------------------+------------------------------+----------------------------+
+| weak   | decline_weak_masculine_noun   | decline_weak_feminine_noun   | decline_weak_neuter_noun   |
++--------+-------------------------------+------------------------------+----------------------------+
+
+
+
+
+Old Norse verb conjugation
+==========================
+
+Old Norse verbs vary according to:
+
+* person (first, second, third),
+* number (singular, plural),
+* tense (past, present),
+* voice (active and medio-passive),
+* mood (indicative, subjunctive, imperative, infinitive, past participle and present participle).
+
+They may be classified into three categories:
+
+* strong verbs, they form their past root with a stem vowel change,
+* weak verbs, they form their past root by adding a dental consonant,
+* preterito-present verbs, their present conjugates like verbs in past but have present meanings.
+
+Two examples are given below: one strong verb and one weak verb.
+
+.. code-block:: python
+
+    In[1]: from cltk.inflection.old_norse.verbs import StrongOldNorseVerb
+
+    In[2]: lita = StrongOldNorseVerb()
+
+    In[3]: lita.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
+
+    In[4]: lita.subclass
+    Out[4]: 1
+
+    In[5]: lita.present_active()
+    Out[5]: ['lít', 'lítr', 'lítr', 'lítum', 'lítið', 'líta']
+
+    In[6]: lita.past_active()
+    Out[6]: ['leit', 'leizt', 'leit', 'litum', 'lituð', 'litu']
+
+    In[7]: lita.present_active_subjunctive()
+    Out[7]: ['líta', 'lítir', 'líti', 'lítim', 'lítið', 'líti']
+
+    In[8]: lita.past_active_subjunctive()
+    Out[9]: ['lita', 'litir', 'liti', 'litim', 'litið', 'liti']
+
+    In[9]: lita.past_participle()
+    Out[9]: [['litinn', 'litinn', 'litnum', 'litins', 'litnir', 'litna', 'litnum', 'litinna'], ['litin', 'litna', 'litinni', 'litinnar', 'litnar', 'litnar', 'litnum', 'litinna'], ['litit', 'litit', 'litnu', 'litins', 'litit', 'litit', 'litnum', 'litinna']]
+
+
+.. code-block:: python
+
+    In[1]: from cltk.inflection.old_norse.verbs import WeakOldNorseVerb
+
+    In[2]: kalla = WeakOldNorseVerb()
+
+    In[3]: kalla.set_canonic_forms([["kalla", "kallaði", "kallaðinn"])
+
+    In[4]: kalla.subclass
+    Out[4]: 1
+
+    In[5]: kalla.present_active()
+    Out[5]: ['kalla', 'kallar', 'kallar', 'köllum', 'kallið', 'kalla']
+
+    In[6]: kalla.past_active()
+    Out[6]: ['kallaða', 'kallaðir', 'kallaði', 'kölluðum', 'kölluðuð', 'kölluðu']
+
+    In[7]: kalla.present_active_subjunctive()
+    Out[7]: ['kalla', 'kallir', 'kalli', 'kallim', 'kallið', 'kalli']
+
+    In[8]: kalla.past_active_subjunctive()
+    Out[9]: ['kallaða', 'kallaðir', 'kallaði', 'kallaðim', 'kallaðið', 'kallaði']
+
+    In[9]: kalla.past_participle()
+    Out[9]: [['kallaðr', 'kallaðan', 'kölluðum', 'kallaðs', 'kallaðir', 'kallaða', 'kölluðum', 'kallaðra'], ['kölluð', 'kallaða', 'kallaðri', 'kallaðrar', 'kallaðar', 'kallaðar', 'kölluðum', 'kallaðra'], ['kallatt', 'kallatt', 'kölluðu', 'kallaðs', 'kölluð', 'kölluð', 'kölluðum', 'kallaðra']]

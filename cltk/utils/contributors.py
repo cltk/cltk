@@ -80,7 +80,7 @@ def find_write_contribs() -> None:
     """Look for files, find authors, sort, write file."""
     map_file_auth = {}  # type: Dict[str, List[str]]
     for filename in scantree('cltk'):
-        filepath = filename.path  # type: str
+        filepath = filename.path.replace("\\", "/")  # type: str
         authors_list = get_authors(filepath)  # type: List[str]
         if authors_list:
             map_file_auth[filepath] = authors_list

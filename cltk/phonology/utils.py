@@ -4,7 +4,7 @@ import re
 from enum import Enum, auto
 from cltk.utils.cltk_logger import logger
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
+__author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 
 class AutoName(Enum):
@@ -20,6 +20,8 @@ class Manner(AutoName):
     fricative = auto()
     trill = auto()
     spirant = auto()
+    affricate = auto()
+    approximant = auto()
 
 
 class Place(AutoName):
@@ -39,6 +41,7 @@ class AbstractConsonant:
     """
     Used with AbstractPosition to define an environment of a sound
     """
+
     def __init__(self, place=None, manner=None, voiced=None, ipar=None, geminate=None):
         if isinstance(place, Place) or place is None:
             self.place = place
@@ -73,6 +76,7 @@ class Consonant(AbstractConsonant):
     approximant (vowel-like) sound is made), by if it is voiced or not, its length (if it is geminate). An IPA
     transcription is given (https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)
     """
+
     def __init__(self, place, manner, voiced, ipar, geminate):
         assert place is not None
         assert manner is not None
@@ -139,11 +143,23 @@ class Consonant(AbstractConsonant):
     def __str__(self):
         return self.ipar
 
+    __repr__ = __str__
+
+    def is_equal(self, other_consonnant):
+        """
+        >>> v_consonant = Consonant(Place.labio_dental, Manner.fricative, True, "v", False)
+        >>> f_consonant = Consonant(Place.labio_dental, Manner.fricative, False, "f", False)
+        >>> v_consonant.is_equal(f_consonant)
+        False
+
+        :param other_consonnant:
+        :return:
+        """
+        return self.place == other_consonnant.place and self.manner == other_consonnant.manner and \
+               self.voiced == other_consonnant.voiced and self.geminate == other_consonnant.geminate
+
 
 # Vowels
-# HEIGHT = ["open", "near-open", "open-mid", "mid", "close-mid", "near-close", "close"]
-# LENGTHS = ["short", "long", "overlong"]
-# BACKNESS = ["front", "central", "back"]
 
 class Height(AutoName):
     open = auto()
@@ -160,7 +176,6 @@ class Backness(AutoName):
     central = auto()
     back = auto()
 
-
 class Length(AutoName):
     short = auto()
     long = auto()
@@ -171,6 +186,7 @@ class AbstractVowel:
     """
     Used with AbstractPosition to define an environment of a sound
     """
+
     def __init__(self, height=None, backness=None, rounded=None, length=None, ipar=None):
         if isinstance(height, Height) or height is None:
             self.height = height
@@ -203,6 +219,7 @@ class Vowel(AbstractVowel):
     https://en.wikipedia.org/wiki/Vowel
 
     """
+
     def __init__(self, height, backness, rounded, length, ipar):
         assert height is not None
         assert backness is not None
@@ -269,6 +286,20 @@ class Vowel(AbstractVowel):
     def __str__(self):
         return self.ipar
 
+    __repr__ = __str__
+
+    def is_equal(self, other_sound):
+        """
+
+        :param other_sound:
+        :return:
+        """
+        return self.height == other_sound.height and self.backness == other_sound.backness and \
+               self.rounded == other_sound.rounded and self.length == other_sound.length
+
+    def __add__(self, other):
+        return Vowel(self.height, self.backness, self.rounded, self.length, self.ipar + other.ipar)
+
 
 class Rank(AutoName):
     first = auto()
@@ -281,6 +312,7 @@ class AbstractPosition:
     This is a position (at the beginning, inside or at the end) that a rule can be applied at,
      a sound or a set of sounds before and a sound or a set of sounds after
     """
+
     def __init__(self, position, before, after):
         assert isinstance(position, Rank)
 
@@ -327,6 +359,7 @@ class Position:
     """
     This is a position (at the beginning, inside or at the end) of a an observed word, a sound before and a sound after
     """
+
     def __init__(self, position, before, after):
         assert isinstance(position, Rank)
         self.position = position
@@ -344,9 +377,9 @@ class Position:
         assert isinstance(abstract_pos, AbstractPosition)
         if self.before is not None and self.after is not None:
             return self.position == abstract_pos.position and self.before.match_list(abstract_pos.before) and \
-               self.after.match_list(abstract_pos.after)
+                   self.after.match_list(abstract_pos.after)
         elif self.before is None and self.after is None:
-                return self.position == abstract_pos.position
+            return self.position == abstract_pos.position
         elif self.before is None:
             return self.position == abstract_pos.position and self.after.match_list(abstract_pos.after)
         else:
@@ -355,12 +388,12 @@ class Position:
 
 class Rule:
     """
-    A Rule iz used to transform one sound to another according to its direct environment
+    A Rule is used to transform one sound to another according to its direct environment
     (the letter before and the letter after). If a rule is applicable, then it is applied.
     """
+
     def __init__(self, position, temp_sound, estimated_sound):
         """
-
         :param position: AbstractPosition
         :param temp_sound: Vowel or Consonant
         :param estimated_sound: Vowel or Consonant
@@ -408,7 +441,7 @@ class Rule:
                 if phoneme.match_list(self.position.after):
                     re_after += phoneme.ipar
             re_after += "])"
-        return re_before+self.temp_sound.ipar+re_after
+        return re_before + self.temp_sound.ipar + re_after
 
     @staticmethod
     def from_regular_expression(re_rule, estimated_sound, ipa_class):
@@ -464,7 +497,8 @@ class Transcriber:
         - firstly, a greedy approximation of the pronunciation of word
         - then, use of rules to precise pronunciation of a preprocessed list of transcribed words
     """
-    def __init__(self, diphthongs_ipa, diphthongs_ipa_class, ipa_class, rules):
+
+    def __init__(self, diphthongs_ipa: dict, diphthongs_ipa_class: dict, ipa_class: dict, rules: list):
         """
 
         :param diphthongs_ipa: dict whose keys are written diphthongs and and values IPA trasncription of them
@@ -477,23 +511,23 @@ class Transcriber:
         self.ipa_class = ipa_class
         self.rules = rules
 
-    def main(self, sentence: str) -> str:
-        translitterated = []
+    def text_to_phonetic_representation(self, sentence: str) -> str:
+        transliterated = []
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            first_res = self.first_process(word)
-            second_res = self.second_process(first_res)
-            translitterated.append(second_res)
-        return "[" + " ".join(translitterated) + "]"
+            phonemes = self.text_to_phonemes(word)
+            phonetic_representation = self.phonemes_to_phonetic_representation(phonemes)
+            transliterated.append(phonetic_representation)
+        return "[" + " ".join(transliterated) + "]"
 
-    def first_process(self, word: str):
+    def text_to_phonemes(self, word: str) -> list:
         """
         Give a greedy approximation of the pronunciation of word
         :param word:
         :return:
         """
-        first_res = []
+        phonemes = []
         is_repeted = False
         if len(word) >= 2:
             for index in range(len(word) - 1):
@@ -501,43 +535,103 @@ class Transcriber:
                     is_repeted = False
                     continue
                 if word[index:index + 2] in self.diphthongs_ipa:  # diphthongs
-                    first_res.append(self.diphthongs_ipa_class[word[index] + word[index + 1]])
+                    phonemes.append(self.diphthongs_ipa_class[word[index] + word[index + 1]])
                     is_repeted = True
-                elif word[index] == word[index+1]:
-                    first_res.append(self.ipa_class[word[index]].lengthen())
+                elif word[index] == word[index + 1]:
+                    phonemes.append(self.ipa_class[word[index]].lengthen())
                     is_repeted = True
                 else:
-                    first_res.append(self.ipa_class[word[index]])
+                    phonemes.append(self.ipa_class[word[index]])
             if not is_repeted:
-                first_res.append(self.ipa_class[word[len(word) - 1]])
+                phonemes.append(self.ipa_class[word[len(word) - 1]])
         else:
-            first_res.append(self.ipa_class[word[0]])
-        return first_res
+            phonemes.append(self.ipa_class[word[0]])
+        return phonemes
 
-    def second_process(self, first_result) -> str:
+    def phonemes_to_phonetic_representation(self, phonemes: list) -> str:
         """
         Use of rules to precise pronunciation of a preprocessed list of transcribed words
-        :param first_result: list(Vowel or Consonant)
+        :param phonemes: list(Vowel or Consonant)
         :return: str
         """
-        res = []
-        if len(first_result) >= 2:
-            for i in range(len(first_result)):
+        phonetic_representation = []
+        if len(phonemes) >= 2:
+            for i in range(len(phonemes)):
                 if i == 0:
-                    current_pos = Position(Rank.first, None, first_result[i])
-                elif i < len(first_result) - 1:
-                    current_pos = Position(Rank.inner, first_result[i - 1], first_result[i + 1])
+                    current_pos = Position(Rank.first, None, phonemes[i])
+                elif i < len(phonemes) - 1:
+                    current_pos = Position(Rank.inner, phonemes[i - 1], phonemes[i + 1])
                 else:
-                    current_pos = Position(Rank.last, first_result[i - 1], None)
+                    current_pos = Position(Rank.last, phonemes[i - 1], None)
                 found = False
                 for rule in self.rules:
-                    if rule.temp_sound.ipar == first_result[i].ipar:
+                    if rule.temp_sound.ipar == phonemes[i].ipar:
                         if rule.can_apply(current_pos):
-                            res.append(rule.estimated_sound.ipar)
+                            phonetic_representation.append(rule.estimated_sound.ipar)
                             found = True
                             break
                 if not found:
-                    res.append(first_result[i].ipar)
+                    phonetic_representation.append(phonemes[i].ipar)
         else:
-            res.append(first_result[0].ipar)
-        return "".join(res)
+            phonetic_representation.append(phonemes[0].ipar)
+        return "".join(phonetic_representation)
+
+class BasePhonologicalRule:
+    def __init__(self, condition, action):
+        self.condition = condition
+        self.action = action
+
+    def perform_action(self, phonemes, pos):
+        return self.action(phonemes[pos])
+
+    def __call__(self, phonemes, pos):
+        return self.perform_action(phonemes, pos)
+
+class PhonologicalRule(BasePhonologicalRule):
+    def check_environment(self, phonemes, pos):
+        before = phonemes[pos - 1] if pos > 0 else None
+        after  = phonemes[pos + 1] if pos < len(phonemes) - 1 else None
+        return self.condition(before, phonemes[pos], after)
+
+class WordInitialPhonologicalRule(BasePhonologicalRule):
+    def check_environment(self, phonemes, pos):
+        return self.condition(phonemes[0], phonemes[1]) if pos == 0 and len(phonemes) > 1 else False
+
+    def perform_action(self, phonemes, _):
+        return self.action(phonemes[0])
+
+class WordFinalPhonologicalRule(BasePhonologicalRule):
+    def check_environment(self, phonemes, pos):
+        last = len(phonemes) - 1
+        return self.condition(phonemes[last - 1], phonemes[last]) if pos == last and len(phonemes) > 1 else False
+
+    def perform_action(self, phonemes, _):
+        return self.action(phonemes[len(phonemes) - 2])
+
+
+class IPATranscriber:
+    def __init__(self, digraphs: dict, dipthongs: dict, alphabet: dict, rules: list):
+        self.digraphs = digraphs
+        self.dipthongs = dipthongs
+        self.alphabet = alphabet
+        self.rules = rules
+
+    @staticmethod
+    def tokenize(text):
+        text = text.lower()
+        text = re.sub(r"[.\";,:\[\]()!&?‘]", "", text)
+        return text.split(' ')
+
+    def transcribe_word(self, word):
+        phonemes = [self.alphabet[letter] for letter in word]
+        for i in range(len(phonemes)):
+            for rule in self.rules:
+                if rule.check_environment(phonemes, i):
+                    phonemes[i] = rule(phonemes, i)
+        return phonemes
+
+
+    def transcribe(self, text):
+        return [self.transcribe_word(word) for word in self.tokenize(text)]
+
+
