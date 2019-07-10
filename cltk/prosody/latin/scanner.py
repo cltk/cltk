@@ -1,7 +1,6 @@
 import regex as re
 
-from cltk.prosody.latin.Syllabifier import Syllabifier
-from prose_rhythm.normalizer import Normalizer
+from cltk.prosody.latin.syllabifier import Syllabifier
 
 class Scansion:
     """
@@ -24,10 +23,10 @@ class Scansion:
     NASALS = ["m", "n"]
     SESTS = ["sc", "sm", "sp", "st", "z"]
 
-    def __init__(self, punctuation=None):
-        self.punctuation = [".", "?", "!", ";", ":"] if punctuation is None else punctuation
+    def __init__(self, punctuation=[".", "?", "!", ";", ":"], clausula_length=13):
+        self.punctuation = punctuation
+        self.clausula_length = clausula_length
         self.syllabifier = Syllabifier()
-        self.normalizer = Normalizer()
 
 
     def _tokenize_syllables(self, word):
@@ -208,14 +207,10 @@ class Scansion:
         :return:
         """
         clausulae = []
-        abbrev_excluded = 0
-        bracket_excluded = 0
-        short_clausulae = 0
-        other_excluded = 0
-        for sentence in tokens['text']:
+        for sentence in tokens:
             sentence_clausula = []
             syllable_count = sum([word['syllables_count'] for word in sentence['structured_sentence']])
-            if not sentence['contains_abbrev'] and not sentence['contains_bracket_text'] and syllable_count > 3:
+            if syllable_count > 3:
                 syllables = [word['syllables'] for word in sentence['structured_sentence']]
                 flat_syllables = [syllable for word in syllables for syllable in word]
                 flat_syllables = self.process_syllables(flat_syllables)
@@ -225,15 +220,6 @@ class Scansion:
                             sentence_clausula.append('-')
                         else:
                             sentence_clausula.append('u')
-            else:
-                if sentence['contains_abbrev']:
-                    abbrev_excluded += 1
-                elif sentence['contains_bracket_text']:
-                    bracket_excluded += 1
-                elif syllable_count > 0 and syllable_count < 4:
-                    short_clausulae += 1
-                else:
-                    other_excluded += 1
             sentence_clausula = sentence_clausula[::-1]
             sentence_clausula.append('x')
             if include_sentence:
@@ -241,9 +227,10 @@ class Scansion:
             else:
                 clausulae.append(''.join(sentence_clausula))
         clausulae = clausulae[:-1]
-        clausulae.append(sum([abbrev_excluded, bracket_excluded, short_clausulae, other_excluded])-1)
-        clausulae.append(abbrev_excluded)
-        clausulae.append(bracket_excluded)
-        clausulae.append(short_clausulae)
-        clausulae.append(other_excluded)
         return clausulae
+
+if __name__ == '__main__':
+    text = 'etsī vereor jūdicēs nē turpe sit prō fortissimō virō.'
+    scanner = Scansion()
+    tokens = scanner.tokenize(text)
+    print(scanner.get_rhythms(tokens))
