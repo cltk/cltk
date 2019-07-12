@@ -5,6 +5,8 @@ __author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
 __license__ = 'MIT License.'
 
 import re
+from typing import List
+
 from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
 from cltk.tokenize.latin.params import ABBREVIATIONS
@@ -17,7 +19,7 @@ from cltk.tokenize.latin.params import LatinLanguageVars
 class WordTokenizer:
     """Tokenize according to rules specific to a given language."""
 
-    ENCLITICS = ['que', 'ne', 'ue', 've', 'st']
+    ENCLITICS = ['que', 'n', 'ne', 'ue', 've', 'st']
 
     EXCEPTIONS = list(set(ENCLITICS + latin_exceptions))
 
@@ -28,7 +30,7 @@ class WordTokenizer:
         self.sent_tokenizer = PunktSentenceTokenizer(self.punkt_param)
         self.word_tokenizer = LatinLanguageVars()
 
-    def tokenize(self, text):
+    def tokenize(self, text:str) ->List[str]:
         """
         Tokenizer divides the text into a list of substrings
 
@@ -42,6 +44,12 @@ class WordTokenizer:
 
         >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
         ['Cicero', 'dixit', 'orationem', 'pro', 'Sex.', 'Roscio']
+
+        >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
+        ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
+
+        >>> toker.tokenize('Dic si audes mihi, bellan videtur specie mulier?')
+        ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?']
 
         """
 
@@ -64,7 +72,7 @@ class WordTokenizer:
             text = re.sub(replacement[0], matchcase(replacement[1]), text, flags=re.IGNORECASE)
 
         sents = self.sent_tokenizer.tokenize(text)
-        tokens = []
+        tokens = [] # type: List[str]
 
         for sent in sents:
             temp_tokens = self.word_tokenizer.word_tokenize(sent)
@@ -84,7 +92,7 @@ class WordTokenizer:
                     tokens.append(token)
 
         # Break enclitic handling into own function?
-        specific_tokens = []
+        specific_tokens = [] # type: List[str]
 
         for token in tokens:
             is_enclitic = False

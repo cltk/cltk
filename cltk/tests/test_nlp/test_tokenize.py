@@ -238,8 +238,8 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
             ['Textile', 'post', 'ferrum', 'est', ',', 'quia', 'ferro', 'tela', 'paratur', ',',
              'nec', 'ratione', 'alia', 'possunt', 'tam', 'levia', 'gigni', 'insilia', 'ac', 'fusi',
              ',', 'radii', ',', 'scapi', '-que', 'sonantes', '.'],
-            ['Dic', 'si', 'audes', 'mihi', ',', 'bellan', 'videtur', 'specie', 'mulier', '?'],
-            ['Cenavin', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
+            ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?'],
+            ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?'],
             ['quae', 'ripas', 'Ubiorum', 'contingebat', 'in', 'longitudinem', 'pedum', 'ducentorum',
              'rescindit']]
 
