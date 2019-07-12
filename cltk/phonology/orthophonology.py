@@ -10,7 +10,7 @@ from copy import deepcopy
 from functools import reduce
 import re
 
-__author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
+__author__ = ["John Stewart <johnstewart@aya.yale.edu>", "Clément Besnier <clemsciences@aol.com>"]
 
 
 # ------------------- Phonological Features -------------------
@@ -20,25 +20,25 @@ __author__ = ["John Stewart <johnstewart@aya.yale.edu>", ]
 
 class PhonologicalFeature(IntEnum):
     def __sub__(self, other):
-        return phoneme(self) - other
+        return make_phoneme(self) - other
 
     def __rshift__(self, other):
-        return phoneme(self) >> other
+        return make_phoneme(self) >> other
 
     def __le__(self, other):
-        return phoneme(self) <= other
+        return make_phoneme(self) <= other
 
     def __ge__(self, other):
-        return phoneme(self) >= other
+        return make_phoneme(self) >= other
 
     def matches(self, other):
-        return phoneme(self).matches(other)
+        return make_phoneme(self).matches(other)
 
     def __eq__(self, other):
         return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
     def __floordiv__(self, other):
-        return phoneme(self) // other
+        return make_phoneme(self) // other
 
 
 class Consonantal(PhonologicalFeature):
@@ -120,6 +120,7 @@ class AbstractPhoneme:
     """
     An abstract phoneme is just a bundle of phonological features.
     """
+
     def __init__(self, features=None, ipa=None):
         features = {} if features is None else features
 
@@ -193,7 +194,7 @@ class AbstractPhoneme:
         if isinstance(other, PhonemeDisjunction):
             return any([self <= phoneme for phoneme in other])
         if isinstance(other, list) or isinstance(other, PhonologicalFeature):
-            other = phoneme(other)
+            other = make_phoneme(other)
         return other.features.items() >= self.features.items()
 
     def __getitem__(self, feature_name):
@@ -229,7 +230,7 @@ class AbstractPhoneme:
 
     def __ge__(self, other):
         if type(other) == list:
-            other = phoneme(other)
+            other = make_phoneme(other)
         return other.matches(self)
 
     def __lt__(self, other):
@@ -254,7 +255,7 @@ class AbstractPhoneme:
         """
         Creates environment functions: boolean functions of the position before and after the target.
         """
-        other = phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
+        other = make_phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
             else other
         env_start = PositionedPhoneme(self, env_start=True)
         env_end = PositionedPhoneme(other, env_end=True)
@@ -267,7 +268,7 @@ class AbstractPhoneme:
         return PhonemeDisjunction(self, other)
 
 
-def phoneme(*feature_values):
+def make_phoneme(*feature_values):
     """
     Creates an abstract phoneme made of the feature specifications given in the vararg.
     """
@@ -356,11 +357,12 @@ class PhonemeDisjunction(list):
     """
 
     def __init__(self, *phonemes):
-        if any([not isinstance(p, AbstractPhoneme) and \
-                not isinstance(p, PhonologicalFeature) and \
+        super().__init__(self)
+        if any([not isinstance(p, AbstractPhoneme) and
+                not isinstance(p, PhonologicalFeature) and
                 not isinstance(p, list) for p in phonemes]):
             raise TypeError(phonemes)
-        true_phonemes = [phoneme(p) if not isinstance(p, AbstractPhoneme) else p for p in phonemes]
+        true_phonemes = [make_phoneme(p) if not isinstance(p, AbstractPhoneme) else p for p in phonemes]
         self.extend(true_phonemes)
 
     def __floordiv__(self, other):
@@ -368,7 +370,7 @@ class PhonemeDisjunction(list):
         Adds other to this list of phonemes.
         If other is a feature or list of features it is promoted to a phoneme.
         """
-        other = phoneme(other) if (isinstance(other, PhonologicalFeature) or isinstance(other, list)) else other
+        other = make_phoneme(other) if (isinstance(other, PhonologicalFeature) or isinstance(other, list)) else other
         if isinstance(other, AbstractPhoneme):
             self.append(other)
             return self
@@ -393,14 +395,15 @@ class PhonemeDisjunction(list):
         if isinstance(other, PhonemeDisjunction):
             return any([phoneme.matches(other) for phoneme in self])
         if isinstance(other, list) or isinstance(other, PhonologicalFeature):
-            other = phoneme(other)
+            other = make_phoneme(other)
         return any([phoneme <= other for phoneme in self])
 
     def __sub__(self, other):
         """
         Creates a boolean environmental function whose before is this list of phonemes.
         """
-        other = phoneme(other) if not (isinstance(other, AbstractPhoneme) or isinstance(other, PhonemeDisjunction)) \
+        other = make_phoneme(other) if not (isinstance(other, AbstractPhoneme) or
+                                            isinstance(other, PhonemeDisjunction)) \
             else other
         env_start = [PositionedPhoneme(phoneme, env_start=True) for phoneme in self]
         env_end = PositionedPhoneme(other, env_end=True)
@@ -430,13 +433,13 @@ class Consonant(AbstractPhoneme):
         assert ipa is not None
 
         AbstractPhoneme.__init__(self, {
-            Consonantal : Consonantal.pos,
-            Place       : place,
-            Manner      : manner,
-            Voiced      : voiced,
-            Aspirated   : aspirated,
-            Geminate    : geminate},
-            ipa)
+            Consonantal: Consonantal.pos,
+            Place: place,
+            Manner: manner,
+            Voiced: voiced,
+            Aspirated: aspirated,
+            Geminate: geminate},
+                                 ipa)
 
     def is_more_sonorous(self, other):
         """
@@ -450,6 +453,18 @@ class Consonant(AbstractPhoneme):
             return other
         else:
             return AbstractPhoneme.merge(self, other)
+
+    def geminate(self):
+        """
+        Returns a new Consonant with its Geminate pos,
+        and "ː" appended to its IPA symbol.
+        """
+        consonant = deepcopy(self)
+
+        if consonant[Geminate] == Geminate.neg:
+            consonant[Geminate] = Geminate.pos
+            consonant.ipa += 'ː'
+        return consonant
 
 
 class Vowel(AbstractPhoneme):
@@ -466,12 +481,12 @@ class Vowel(AbstractPhoneme):
         assert ipa is not None
 
         AbstractPhoneme.__init__(self, {
-            Consonantal : Consonantal.neg,
-            Height      : height,
-            Backness    : backness,
-            Roundedness : rounded,
-            Length      : length},
-            ipa)
+            Consonantal: Consonantal.neg,
+            Height: height,
+            Backness: backness,
+            Roundedness: rounded,
+            Length: length},
+                                 ipa)
 
     def __add__(self, other):
         """
@@ -486,7 +501,7 @@ class Vowel(AbstractPhoneme):
     def lengthen(self):
         """
         Returns a new Vowel with its Length lengthened,
-        and ":" appended to its IPA symbol.
+        and "ː" appended to its IPA symbol.
         """
         vowel = deepcopy(self)
 
@@ -495,7 +510,7 @@ class Vowel(AbstractPhoneme):
         elif vowel[Length] == Length.long:
             vowel[Length] = Length.overlong
 
-        vowel.ipa += ':'
+        vowel.ipa += 'ː'
         return vowel
 
     def is_more_sonorous(self, other):
@@ -658,7 +673,7 @@ class Orthophonology:
     * mappings of orthographic symbols pairs to:
         * diphthongs
         * phonemes (i.e. digraphs)
-    * phonological rules for the contexutal transformation of phonological representations.
+    * phonological rules for the contextual transformation of phonological representations.
 
     The class is very clearly aimed at alphabetic orthographies.
     Its usefulness for e.g. pictographic orthographies is questionable.
@@ -804,6 +819,16 @@ class Orthophonology:
         aspirated_consonant = deepcopy(consonant)
         aspirated_consonant[Aspirated] = Aspirated.pos
         return self._find_sound(aspirated_consonant)
+
+    def geminate(self, consonant):
+        """
+
+        :param consonant:
+        :return:
+        """
+        geminate_consonant = deepcopy(consonant)
+        geminate_consonant[Geminate] = Geminate.pos
+        return self._find_sound(geminate_consonant)
 
     @staticmethod
     def lengthen(vowel):
