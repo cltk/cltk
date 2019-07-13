@@ -1,5 +1,3 @@
-import regex as re
-
 from cltk.prosody.latin.syllabifier import Syllabifier
 
 
@@ -32,9 +30,11 @@ class Scansion:
                 "!",
                 ";",
                 ":"],
-            clausula_length=13):
+            clausula_length=13,
+            elide=True):
         self.punctuation = punctuation
         self.clausula_length = clausula_length
+        self.elide = elide
         self.syllabifier = Syllabifier()
 
     def _tokenize_syllables(self, word):
@@ -113,7 +113,8 @@ class Scansion:
             elif len(syllables) == 2 and i == 0 or len(syllables) == 1:
                 syllable_dict["accented"] = True
 
-            syllable_dict["accented"] = False if "accented" not in syllable_dict else True
+            if "accented" not in syllable_dict: 
+                syllable_dict["accented"]
 
         return syllable_tokens
 
@@ -207,24 +208,14 @@ class Scansion:
 
         return tokenized_text
 
-    def process_syllables(self, flat_syllable_list):
-        """
-        Return flat list of syllables with final syllable
-        removed and list reversed. Elided syllables
-        are removed as well
-        """
-        remove_elided = [
-            syll for syll in flat_syllable_list if not syll['elide'][0]]
-        processed_sylls = remove_elided[:-1]
-        return processed_sylls[::-1]
-
-    def get_rhythms(self, tokens, include_sentence=True):
+    def scan_text(self, text):
         """
         Return a flat list of rhythms.
         Desired clausula length is passed as a parameter. Clausula shorter than the specified
         length can be exluded.
         :return:
         """
+        tokens = self.tokenize(text)
         clausulae = []
         for sentence in tokens:
             sentence_clausula = []
@@ -232,7 +223,9 @@ class Scansion:
                          for word in sentence['structured_sentence']]
             flat_syllables = [
                 syllable for word in syllables for syllable in word]
-            flat_syllables = self.process_syllables(flat_syllables)
+            if self.elide:
+                flat_syllables = [
+                    syll for syll in flat_syllables if not syll['elide'][0]][:-1][::-1]
             for syllable in flat_syllables:
                 if len(sentence_clausula) < self.clausula_length - 1:
                     if syllable['long_by_nature'] or syllable['long_by_position'][0]:
@@ -249,5 +242,4 @@ class Scansion:
 if __name__ == '__main__':
     text = 'etsī vereor jūdicēs nē turpe sit prō fortissimō virō. etsī vereor jūdicēs nē turpe sit prō fortissimō virō.'
     scanner = Scansion()
-    tokens = scanner.tokenize(text)
-    print(scanner.get_rhythms(tokens))
+    print(scanner.scan_text(text))
