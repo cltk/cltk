@@ -2,6 +2,7 @@ import regex as re
 
 from cltk.prosody.latin.syllabifier import Syllabifier
 
+
 class Scansion:
     """
     Prepossesses Latin text for prose rhythm analysis.
@@ -23,11 +24,18 @@ class Scansion:
     NASALS = ["m", "n"]
     SESTS = ["sc", "sm", "sp", "st", "z"]
 
-    def __init__(self, punctuation=[".", "?", "!", ";", ":"], clausula_length=13):
+    def __init__(
+            self,
+            punctuation=[
+                ".",
+                "?",
+                "!",
+                ";",
+                ":"],
+            clausula_length=13):
         self.punctuation = punctuation
         self.clausula_length = clausula_length
         self.syllabifier = Syllabifier()
-
 
     def _tokenize_syllables(self, word):
         """
@@ -49,7 +57,12 @@ class Scansion:
 
         for i, _ in enumerate(syllables):
             # basic properties
-            syllable_dict = {"syllable": syllables[i], "index": i, "elide": (False, None)}
+            syllable_dict = {
+                "syllable": syllables[i],
+                "index": i,
+                "elide": (
+                    False,
+                    None)}
 
             # is long by nature
             if any(long in syllables[i] for long in longs):
@@ -63,7 +76,8 @@ class Scansion:
             # long by position intra word
             if i < len(syllables) - 1 and \
                     syllable_dict["syllable"][-1] in self.CONSONANTS:
-                if syllable_dict["syllable"][-1] in self.MUTES and syllables[i + 1][0] in self.LIQUIDS and syllable_dict["syllable"][-1]+syllables[i + 1][0] not in self.MUTE_LIQUID_EXCEPTIONS:
+                if syllable_dict["syllable"][-1] in self.MUTES and syllables[i + \
+                    1][0] in self.LIQUIDS and syllable_dict["syllable"][-1] + syllables[i + 1][0] not in self.MUTE_LIQUID_EXCEPTIONS:
                     syllable_dict["long_by_position"] = \
                         (False, "mute+liquid")
                 elif syllable_dict["syllable"][-1] in self.DOUBLE_CONSONANTS or \
@@ -73,7 +87,8 @@ class Scansion:
                     syllable_dict["long_by_position"] = (False, None)
             elif i < len(syllables) - 1 and syllable_dict["syllable"][-1] in \
                     self.VOWELS and len(syllables[i + 1]) > 1:
-                if syllables[i + 1][0] in self.MUTES and syllables[i + 1][1] in self.LIQUIDS and syllables[i + 1][0]+syllables[i + 1][1] not in self.MUTE_LIQUID_EXCEPTIONS:
+                if syllables[i + 1][0] in self.MUTES and syllables[i + 1][1] in self.LIQUIDS and syllables[i + \
+                    1][0] + syllables[i + 1][1] not in self.MUTE_LIQUID_EXCEPTIONS:
                     syllable_dict["long_by_position"] = \
                         (False, "mute+liquid")
                 elif syllables[i + 1][0] in self.CONSONANTS and syllables[i + 1][1] in \
@@ -81,8 +96,8 @@ class Scansion:
                     syllable_dict["long_by_position"] = (True, None)
                 else:
                     syllable_dict["long_by_position"] = (False, None)
-            elif len(syllable_dict["syllable"]) > 2 and  syllable_dict["syllable"][-1] in self.CONSONANTS and \
-                syllable_dict["syllable"][-2] in self.CONSONANTS and syllable_dict["syllable"][-3] in self.VOWELS:
+            elif len(syllable_dict["syllable"]) > 2 and syllable_dict["syllable"][-1] in self.CONSONANTS and \
+                    syllable_dict["syllable"][-2] in self.CONSONANTS and syllable_dict["syllable"][-3] in self.VOWELS:
                 syllable_dict["long_by_position"] = (True, None)
             else:
                 syllable_dict["long_by_position"] = (False, None)
@@ -142,25 +157,31 @@ class Scansion:
             if i > 0 and tokens[i - 1]["syllables"][-1]["syllable"][-1] in \
                     self.CONSONANTS and \
                     word_dict["syllables"][0]["syllable"][0] in self.CONSONANTS:
-                # previous word ends in consonant and current word begins with consonant
-                tokens[i - 1]["syllables"][-1]["long_by_position"] = (True, None)
+                # previous word ends in consonant and current word begins with
+                # consonant
+                tokens[i -
+                       1]["syllables"][-1]["long_by_position"] = (True, None)
             elif i > 0 and tokens[i - 1]["syllables"][-1]["syllable"][-1] in \
                     self.VOWELS and \
                     word_dict["syllables"][0]["syllable"][0] in self.CONSONANTS:
-                # previous word ends in vowel and current word begins in consonant
+                # previous word ends in vowel and current word begins in
+                # consonant
                 if any(sest in word_dict["syllables"][0]["syllable"] for
                         sest in self.SESTS):
                     # current word begins with sest
-                    tokens[i - 1]["syllables"][-1]["long_by_position"] = (False, "sest")
+                    tokens[i - \
+                        1]["syllables"][-1]["long_by_position"] = (False, "sest")
                 elif word_dict["syllables"][0]["syllable"][0] in self.MUTES and \
                         word_dict["syllables"][0]["syllable"][1] in self.LIQUIDS:
                     # current word begins with mute + liquid
-                    tokens[i - 1]["syllables"][-1]["long_by_position"] = (False, "mute+liquid")
+                    tokens[i - \
+                        1]["syllables"][-1]["long_by_position"] = (False, "mute+liquid")
                 elif word_dict["syllables"][0]["syllable"][0] in \
                         self.DOUBLE_CONSONANTS or\
                         word_dict["syllables"][0]["syllable"][1] in self.CONSONANTS:
                     # current word begins 2 consonants
-                    tokens[i - 1]["syllables"][-1]["long_by_position"] = (True, None)
+                    tokens[i - \
+                        1]["syllables"][-1]["long_by_position"] = (True, None)
 
             tokens.append(word_dict)
 
@@ -180,7 +201,8 @@ class Scansion:
         for sentence in tokenized_sentences:
             sentence_dict = {}
             sentence_dict["plain_text_sentence"] = sentence
-            sentence_dict["structured_sentence"] = self._tokenize_words(sentence)
+            sentence_dict["structured_sentence"] = self._tokenize_words(
+                sentence)
             tokenized_text.append(sentence_dict)
 
         return tokenized_text
@@ -191,7 +213,8 @@ class Scansion:
         removed and list reversed. Elided syllables
         are removed as well
         """
-        remove_elided = [syll for syll in flat_syllable_list if not syll['elide'][0]]
+        remove_elided = [
+            syll for syll in flat_syllable_list if not syll['elide'][0]]
         processed_sylls = remove_elided[:-1]
         return processed_sylls[::-1]
 
@@ -205,8 +228,10 @@ class Scansion:
         clausulae = []
         for sentence in tokens:
             sentence_clausula = []
-            syllables = [word['syllables'] for word in sentence['structured_sentence']]
-            flat_syllables = [syllable for word in syllables for syllable in word]
+            syllables = [word['syllables']
+                         for word in sentence['structured_sentence']]
+            flat_syllables = [
+                syllable for word in syllables for syllable in word]
             flat_syllables = self.process_syllables(flat_syllables)
             for syllable in flat_syllables:
                 if len(sentence_clausula) < self.clausula_length - 1:
@@ -219,6 +244,7 @@ class Scansion:
             clausulae.append(''.join(sentence_clausula))
         clausulae = clausulae[:-1]
         return clausulae
+
 
 if __name__ == '__main__':
     text = 'etsī vereor jūdicēs nē turpe sit prō fortissimō virō. etsī vereor jūdicēs nē turpe sit prō fortissimō virō.'
