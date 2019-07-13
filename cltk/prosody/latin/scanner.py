@@ -1,3 +1,8 @@
+"""
+Scansion module for scanning Latin prose rhythms.
+"""
+from typing import List
+
 from cltk.prosody.latin.syllabifier import Syllabifier
 
 
@@ -37,7 +42,7 @@ class Scansion:
         self.elide = elide
         self.syllabifier = Syllabifier()
 
-    def _tokenize_syllables(self, word):
+    def _tokenize_syllables(self, word: str) -> List:
         """
         Tokenize syllables for word.
         "mihi" -> [{"syllable": "mi", index: 0, ... } ... ]
@@ -49,6 +54,19 @@ class Scansion:
             long_by_position: bool -> is syllable long by position
         :param word: string
         :return: list
+
+        >>> Scansion()._tokenize_syllables("mihi")
+        [{'syllable': 'mi', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'hi', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("ivi")
+        [{'syllable': 'i', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'vi', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("audītū")
+        [{'syllable': 'au', 'index': 0, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'dī', 'index': 1, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'tū', 'index': 2, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("ā")
+        [{'syllable': 'ā', 'index': 0, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}]
+        >>> Scansion()._tokenize_syllables("conjiciō")
+        [{'syllable': 'con', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}, {'syllable': 'ji', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'ci', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'ō', 'index': 3, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("lingua")
+        [{'syllable': 'lin', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'gua', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
         """
         syllable_tokens = []
         syllables = self.syllabifier.syllabify(word)
@@ -113,12 +131,11 @@ class Scansion:
             elif len(syllables) == 2 and i == 0 or len(syllables) == 1:
                 syllable_dict["accented"] = True
 
-            if "accented" not in syllable_dict: 
-                syllable_dict["accented"]
+            syllable_dict["accented"] = False if "accented" not in syllable_dict else True
 
         return syllable_tokens
 
-    def _tokenize_words(self, sentence):
+    def _tokenize_words(self, sentence: str) -> List:
         """
         Tokenize words for sentence.
         "Puella bona est" -> [{word: puella, index: 0, ... }, ... ]
@@ -129,6 +146,11 @@ class Scansion:
             syllables_count: int -> number of syllables in word
         :param sentence: string
         :return: list
+
+        >>> Scansion()._tokenize_words('dedērunt te miror antōnī quorum.')
+        [{'word': 'dedērunt', 'index': 0, 'syllables': [{'syllable': 'de', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'dē', 'index': 1, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'runt', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}], 'syllables_count': 3}, {'word': 'te', 'index': 1, 'syllables': [{'syllable': 'te', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}, {'word': 'miror', 'index': 2, 'syllables': [{'syllable': 'mi', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'ror', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'antōnī', 'index': 3, 'syllables': [{'syllable': 'an', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}, {'syllable': 'tō', 'index': 1, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'nī', 'index': 2, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 3}, {'word': 'quorum.', 'index': 4, 'syllables': [{'syllable': 'quo', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'rum', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}]
+        >>> Scansion()._tokenize_words('a spes co i no xe cta.')
+        [{'word': 'a', 'index': 0, 'syllables': [{'syllable': 'a', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, 'sest'), 'accented': True}], 'syllables_count': 1}, {'word': 'spes', 'index': 1, 'syllables': [{'syllable': 'spes', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'co', 'index': 2, 'syllables': [{'syllable': 'co', 'index': 0, 'elide': (True, 'weak'), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}, {'word': 'i', 'index': 3, 'syllables': [{'syllable': 'i', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}, {'word': 'no', 'index': 4, 'syllables': [{'syllable': 'no', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'xe', 'index': 5, 'syllables': [{'syllable': 'xe', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'cta.', 'index': 6, 'syllables': [{'syllable': 'cta', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}]
         """
         tokens = []
         split_sent = [word for word in sentence.split(" ") if word != '']
@@ -188,7 +210,7 @@ class Scansion:
 
         return tokens
 
-    def tokenize(self, text):
+    def tokenize(self, text: str) -> List:
         """
         Tokenize text on supplied characters.
         "Puella bona est. Puer malus est." ->
@@ -208,7 +230,7 @@ class Scansion:
 
         return tokenized_text
 
-    def scan_text(self, text):
+    def scan_text(self, text: str) -> List:
         """
         Return a flat list of rhythms.
         Desired clausula length is passed as a parameter. Clausula shorter than the specified
@@ -237,9 +259,3 @@ class Scansion:
             clausulae.append(''.join(sentence_clausula))
         clausulae = clausulae[:-1]
         return clausulae
-
-
-if __name__ == '__main__':
-    text = 'etsī vereor jūdicēs nē turpe sit prō fortissimō virō. etsī vereor jūdicēs nē turpe sit prō fortissimō virō.'
-    scanner = Scansion()
-    print(scanner.scan_text(text))
