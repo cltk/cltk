@@ -2,10 +2,9 @@
 Return dictionary of clausulae found in the prosody of Latin prose.
 
 The clausulae analysis function returns a dictionary in which the key is the type of clausula and the value is the number
-of times it occurs in the text. The list of clausulae used in the method is derived from the 'Prose Rhythm' section
-of John Ramsey's Cambridge commentary on Cicero's Philippics I-II, so it is mostly representative of Ciceronian
-clausulae. Because of the heavy Greek influence on Cicero's rhythms, however, the clausulae analysis may also be used
-on the prosody of Greek prose as well.
+of times it occurs in the text. The list of clausulae used in the method is derived from the 2019 Journal of Roman Studies
+paper "Auceps syllabarum: A Digital Analysis of Latin Prose Rhythm". The list of clausulae are mutually exclusive so no one
+rhythm will be counted in multiple categories.
 """
 
 __author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>']
@@ -23,6 +22,8 @@ class Clausulae:
         Return dictionary in which the key is a type of clausula and the value is its frequency.
         :param prosody: the prosody of a prose text (must be in the format of the scansion produced by the scanner classes.
         :return: dictionary of prosody
+        >>> Clausulae().clausulae_analysis(['-u--x', '-uuuux'])
+        {'cretic trochee': 1, 'cretic trochee resolved a': 0, 'cretic trochee resolved b': 0, 'cretic trochee resolbed c': 0, 'double cretic': 0, 'molossus cretic': 0, 'double/molossus cretic resolved a': 0, 'double/molossus cretic resolved b': 0, 'double/molossus cretic resolved c': 0, 'double/molossus cretic resolved d': 0, 'double/molossus cretic resolved e': 0, 'double/molossus cretic resolved f': 0, 'double/molossus cretic resolved g': 0, 'double/molossus cretic resolved h': 0, 'double trochee': 0, 'double trochee resolved a': 0, 'double trochee resolved b': 0, 'hypodochmiac': 0, 'hypodochmiac resolved a': 0, 'hypodochmiac resolved b': 1, 'spondaic': 0, 'heroic': 0}
         """
 
         prosody = ''.join(prosody)

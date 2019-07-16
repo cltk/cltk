@@ -49,32 +49,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         current = ScansionGreek().scan_text(self.test)
         self.assertEqual(current, correct)
 
-    """latin/clausulae_analysis.py"""
-    def test_clausulae_analysis(self):
-        """Test clausulae_analysis"""
-        correct = {
-            'cretic + double spondee': 0,
-            '1st paeon + anapest': 0,
-            'double cretic': 0,
-            'double trochee': 1,
-            'dactyl + double trochee': 0,
-            '4th paeon + cretic': 0,
-            'cretic + trochee': 0,
-            'molossus + iamb': 0,
-            'cretic + double trochee': 0,
-            'heroic': 0,
-            'double spondee': 0,
-            'molossus + double trochee': 0,
-            '1st paeon + trochee': 0,
-            'cretic + iamb': 0,
-            'substituted cretic + trochee': 0,
-            '4th paeon + trochee': 0,
-            'molossus + cretic': 0,
-            'choriamb + double trochee': 0
-        }
-        current = Clausulae().clausulae_analysis(['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x'])
-        self.assertEqual(current, correct)
-
     """latin/macronizer.py"""
     def test_retrieve_morpheus_entry(self):
         """ Text Macronizer()._retrieve_morpheus_tag()"""
