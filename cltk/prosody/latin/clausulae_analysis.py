@@ -6,6 +6,7 @@ of times it occurs in the text. The list of clausulae used in the method is deri
 paper "Auceps syllabarum: A Digital Analysis of Latin Prose Rhythm". The list of clausulae are mutually exclusive so no one
 rhythm will be counted in multiple categories.
 """
+from typing import List, Dict
 
 __author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>']
 __license__ = 'MIT License. See LICENSE'
@@ -17,7 +18,7 @@ class Clausulae:
         return
 
     @staticmethod
-    def clausulae_analysis(prosody):
+    def clausulae_analysis(prosody: List) -> Dict:
         """
         Return dictionary in which the key is a type of clausula and the value is its frequency.
         :param prosody: the prosody of a prose text (must be in the format of the scansion produced by the scanner classes.
