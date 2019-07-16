@@ -370,3 +370,4 @@ class Syllabifier:
         return len(string_utils.remove_blank_spaces(
             string_utils.move_consonant_right(tmp_syllables,
                                              self._find_solo_consonant(tmp_syllables))))
+
