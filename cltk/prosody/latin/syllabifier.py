@@ -209,6 +209,7 @@ class Syllabifier:
         #   if a blank arrives from splitting, just return an empty list
         if len(word.strip()) == 0:
             return []
+        word = self.convert_consonantal_i(word)
         my_word = " " + word + " "
         letters = list(my_word)
         positions = []
@@ -369,4 +370,3 @@ class Syllabifier:
         return len(string_utils.remove_blank_spaces(
             string_utils.move_consonant_right(tmp_syllables,
                                              self._find_solo_consonant(tmp_syllables))))
-
