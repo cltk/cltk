@@ -216,6 +216,9 @@ class Scansion:
         "Puella bona est. Puer malus est." ->
         [ [{word: puella, syllables: [...], index: 0}, ... ], ... ]
         :return:list
+
+        >>> Scansion().tokenize('puella bona est. puer malus est.')
+        [{'plain_text_sentence': 'puella bona est', 'structured_sentence': [{'word': 'puella', 'index': 0, 'syllables': [{'syllable': 'pu', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'el', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'la', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 3}, {'word': 'bona', 'index': 1, 'syllables': [{'syllable': 'bo', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'na', 'index': 1, 'elide': (True, 'weak'), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'est', 'index': 2, 'syllables': [{'syllable': 'est', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}]}, {'plain_text_sentence': ' puer malus est', 'structured_sentence': [{'word': 'puer', 'index': 0, 'syllables': [{'syllable': 'pu', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'er', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}], 'syllables_count': 2}, {'word': 'malus', 'index': 1, 'syllables': [{'syllable': 'ma', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'lus', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'est', 'index': 2, 'syllables': [{'syllable': 'est', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}]}, {'plain_text_sentence': '', 'structured_sentence': []}]
         """
 
         tokenized_sentences = text.split('.')
@@ -236,6 +239,9 @@ class Scansion:
         Desired clausula length is passed as a parameter. Clausula shorter than the specified
         length can be exluded.
         :return:
+
+        >>> Scansion().scan_text('dedērunt te miror antōnī quorum. sī quid est in mē ingenī jūdicēs quod sentiō.')
+        ['u--uuu---ux', 'u---u--u---ux']
         """
         tokens = self.tokenize(text)
         clausulae = []
