@@ -17,6 +17,7 @@ from cltk.corpus.old_norse.syllabifier import invalid_onsets
 from cltk.inflection.old_norse import pronouns, nouns
 import cltk.inflection.utils as decl_utils
 from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr, MetreManager, UnspecifiedStanza, PoetryTools, PoeticWord
+from cltk.phonology.old_norse.orthophonology import on
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -183,6 +184,17 @@ class TestOldNorse(unittest.TestCase):
         self.assertListEqual(helgar.ipa_transcription, [['h', 'ɛ', 'l'], ['g', 'a', 'r']])
         self.assertListEqual(helgar.length, ['short', 'short'])
         self.assertListEqual(helgar.stress, [1, 0])
+
+    def test_transcriber_edda_snorra(self):
+        example_sentence = "Almáttigr guð skapaði í upphafi himin ok jörð ok alla þá hluti, er þeim fylgja, og " \
+                           "síðast menn tvá, er ættir eru frá komnar, Adam ok Evu, ok fjölgaðist þeira kynslóð ok " \
+                           "dreifðist um heim allan."
+        res = on.transcribe(example_sentence.lower())
+
+        target = "almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
+                 "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan"
+
+        self.assertEqual(res, target)
 
 
 if __name__ == '__main__':
