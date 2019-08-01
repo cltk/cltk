@@ -1,349 +1,281 @@
 """
-This program returns the prosimetric scansion of Latin texts. A user is first
-prompted to supply the file path of the text they wish to scan.
-Note that this text must be a relatively 'clean' text, as the opening function
-(i.e., tokenize) will only remove numbers, abbreviations, and all punctuation
-that is not a period. The tokenizer will also force lover the text.
-The text will then be tokenized, syllabified, and all elidable syllables will
-be accounted for. Before the text undergoes the actual scansion functions, the
-text will be re-tokenized into a simple list of words and syllables.
-Finally, the simplified tokenized text will be scanned according to typical
-Latin scansion rules. The details of these rules are delineated in the
-docstrings of the specific scansion functions. The final output is the
-resulting scansion.
-Forthcoming features:
-1) A proper clean text function
-2) A classification function for the resulting scansion
-Known bugs:
-1) Reduplicated syllables in a single sentence are not scanned separately
+Scansion module for scanning Latin prose rhythms.
 """
+from typing import List, Dict
 
-from nltk.tokenize.punkt import PunktLanguageVars
-
-from cltk.tokenize.sentence import TokenizeSentence
-from cltk.utils.cltk_logger import logger
-
-
-__author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>', 'Bradley Baker <bradley.baker12@ncf.edu>']
-__license__ = 'MIT License'
+from cltk.prosody.latin.syllabifier import Syllabifier
 
 
 class Scansion:
-    """Scan Latin texts which already have macrons over vowels long by nature."""
-    def __init__(self):
-        """Setup class variables."""
+    """
+    Prepossesses Latin text for prose rhythm analysis.
+    """
 
-        self.punctuation = ['#', '$', '%', '^', '&', '*', '(', ')', "'",
-                            '_', '+', '=', '{', '}', '[', ']', '|', ':',
-                            ';', '"', "'", '/', '<', '>', '`', '~']
+    SHORT_VOWELS = ["a", "e", "i", "o", "u", "y"]
+    LONG_VOWELS = ["ā", "ē", "ī", "ō", "ū"]
+    VOWELS = SHORT_VOWELS + LONG_VOWELS
+    DIPHTHONGS = ["ae", "au", "ei", "oe", "ui"]
 
-        self.numbers = '1234567890'
+    SINGLE_CONSONANTS = ["b", "c", "d", "g", "k", "l", "m", "n", "p", "q", "r",
+                         "s", "t", "v", "f", "j"]
+    DOUBLE_CONSONANTS = ["x", "z"]
+    CONSONANTS = SINGLE_CONSONANTS + DOUBLE_CONSONANTS
+    DIGRAPHS = ["ch", "ph", "th", "qu"]
+    LIQUIDS = ["r", "l"]
+    MUTES = ["b", "p", "d", "t", "c", "g"]
+    MUTE_LIQUID_EXCEPTIONS = ["gl", "bl"]
+    NASALS = ["m", "n"]
+    SESTS = ["sc", "sm", "sp", "st", "z"]
 
-        self.abbreviations = ['Agr.', 'Ap.', 'A.', 'K.', 'D.', 'F.', 'C.',
-                              'Cn.', 'L.', 'Mam.', 'M\'', 'M.', 'N.', 'Oct.',
-                              'Opet.', 'Post.', 'Pro.', 'P.', 'Q.', 'Sert.',
-                              'Ser.', 'Sex.', 'S.', 'St.', 'Ti.', 'T.', 'V.',
-                              'Vol.', 'Vop.', 'Pl.']
-        self.vowels = ['a', 'e', 'i', 'o', 'u']
-        self.sing_cons = ['b', 'c', 'd', 'f', 'g', 'j', 'k', 'l', 'm', 'n',
-                          'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z']
-        self.doub_cons = ['x', 'z']
-        self.long_vowels = ['ā', 'ē', 'ī', 'ō', 'ū']
-        self.diphthongs = ['ae', 'au', 'eu', 'ei', 'oe', 'uī']
-        self.stops = ['t', 'p', 'd', 'k', 'b']
-        self.liquids = ['r', 'l']
+    def __init__(
+            self,
+            punctuation=[
+                ".",
+                "?",
+                "!",
+                ";",
+                ":"],
+            clausula_length=13,
+            elide=True):
+        self.punctuation = punctuation
+        self.clausula_length = clausula_length
+        self.elide = elide
+        self.syllabifier = Syllabifier()
 
-    def _tokenize(self, text):
+    def _tokenize_syllables(self, word: str) -> List[Dict]:
         """
-        Use NLTK's standard tokenizer, rm punctuation.
-        :param text: pre-processed text
-        :return: tokenized text
-        :rtype : list
+        Tokenize syllables for word.
+        "mihi" -> [{"syllable": "mi", index: 0, ... } ... ]
+        Syllable properties:
+            syllable: string -> syllable
+            index: int -> postion in word
+            long_by_nature: bool -> is syllable long by nature
+            accented: bool -> does receive accent
+            long_by_position: bool -> is syllable long by position
+        :param word: string
+        :return: list
+
+        >>> Scansion()._tokenize_syllables("mihi")
+        [{'syllable': 'mi', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'hi', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("ivi")
+        [{'syllable': 'i', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'vi', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("audītū")
+        [{'syllable': 'au', 'index': 0, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'dī', 'index': 1, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'tū', 'index': 2, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("ā")
+        [{'syllable': 'ā', 'index': 0, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}]
+        >>> Scansion()._tokenize_syllables("conjiciō")
+        [{'syllable': 'con', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}, {'syllable': 'ji', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'ci', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'ō', 'index': 3, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("lingua")
+        [{'syllable': 'lin', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'gua', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("abrante")
+        [{'syllable': 'ab', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, 'mute+liquid'), 'accented': False}, {'syllable': 'ran', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'te', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("redemptor")
+        [{'syllable': 'red', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'em', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'ptor', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
+        >>> Scansion()._tokenize_syllables("nagrante")
+        [{'syllable': 'na', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, 'mute+liquid'), 'accented': False}, {'syllable': 'gran', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'te', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}]
         """
-        sentence_tokenizer = TokenizeSentence('latin')
-        sentences = sentence_tokenizer.tokenize_sentences(text.lower())
+        syllable_tokens = []
+        syllables = self.syllabifier.syllabify(word)
 
-        sent_words = []
-        punkt = PunktLanguageVars()
-        for sentence in sentences:
-            words = punkt.word_tokenize(sentence)
+        longs = self.LONG_VOWELS + self.DIPHTHONGS
 
-            assert isinstance(words, list)
-            words_new = []
-            for word in words:
-                if word not in self.punctuation or self.abbreviations or self.numbers or self.abbreviations:  # pylint: disable=line-too-long
-                    words_new.append(word)
+        for i, _ in enumerate(syllables):
+            # basic properties
+            syllable_dict = {
+                "syllable": syllables[i],
+                "index": i,
+                "elide": (
+                    False,
+                    None)}
 
-            # rm all numbers here with: re.compose(r'[09]')
-            sent_words.append(words_new)
-
-        return sent_words
-
-    def _qu_fix(self, sents_syllables):
-        """
-        Ensure that 'qu' is not treated as its own syllable.
-        :param sents_syllables: Sentence of words of syllables.
-        :return: syllabified syllables with 'qu' counted as a single consonant
-        :rtype : list
-        """
-
-        for sentence in sents_syllables:
-            for word in sentence:
-                for syllable in word:
-                    if 'qu' in syllable:
-                        qu_syll_index = word.index(syllable)
-                        next_syll = qu_syll_index + 1
-                        fixed_syllable = [''.join(word[qu_syll_index:
-                                                       (next_syll + 1)])]
-                        word[qu_syll_index:(next_syll + 1)] = fixed_syllable
-
-        return sents_syllables
-
-    def _elidable_end(self, word):
-        """Check word ending to see if it is elidable. Elidable endings include:
-        1) A word ends with 'm'
-        2) A word ends with a vowel
-        3) A word ends with a diphthong
-        :param word: syllabified/'qu' fixed word
-        :return: True if the ending of the word is elidable, otherwise False
-        :rtype : bool
-        """
-        if str(word[-1]).endswith('m'):
-            return True
-        elif str(word[-1][-1]) in self.long_vowels:
-            return True
-        elif str(word[-1][-2] + word[-1][-1]) in self.diphthongs:
-            return True
-        elif str(word[-1][-1]) in self.vowels:
-            return True
-        else:
-            return False
-
-    def _elidable_begin(self, word):
-        """Check word beginning to see if it is elidable. Elidable beginnings include:
-        1) A word begins with 'h'
-        2) A word begins with a vowel
-        3) A word begins with a diphthong
-
-        :param word: syllabified/'qu' fixed word
-        :return: True if the beginning of a word is elidable, otherwise False
-        :rtype : bool
-        """
-        if str(word[0]).startswith('h'):
-            return True
-        elif str(word[0][0]) in self.long_vowels:
-            return True
-        elif str(word[0][0] + word[0][-1]) in self.diphthongs:
-            return True
-        elif str(word[0][0]) in self.vowels:
-            return True
-        else:
-            return False
-
-    def _elision_fixer(self, sent_syllables):
-        """
-        Elide words by combining the last syllable of a word with the first of
-        the next word if the words elide. E.g. [['quo'], [['us'], ['que']] =>
-        [[], ['quous', 'que']].
-        :param sent_syllables: A list of sentences of words of syllables
-        :return: elided syllables
-        :rtype : list
-        """
-        for sent in sent_syllables:
-            for word in sent:
-                try:
-                    next_word = sent[sent.index(word) + 1]
-                    if self._elidable_end(word) and \
-                            self._elidable_begin(next_word):
-                        # Adds syllable to elided syllable
-                        next_word[0] = str(str(word[-1]) + str(next_word[0]))
-                        word.pop(-1)  # Removes redundant syllable
-                    else:
-                        pass
-                except IndexError:
-                    break
-        return sent_syllables
-
-    def _syllable_condenser(self, words_syllables):
-        """Reduce a list of [sentence [word [syllable]]] to [sentence [syllable]].
-        :param syllables_words: Elided text
-        :return: Text tokenized only at the sentence and syllable level
-        :rtype : list
-        """
-
-        sentences_syllables = []
-        for sentence in words_syllables:
-            syllables_sentence = []
-            for word in sentence:
-                syllables_sentence += word
-            sentences_syllables.append(syllables_sentence)
-        return sentences_syllables
-
-    def _long_by_nature(self, syllable):
-        """Check if syllable is long by nature. Long by nature includes:
-        1) Syllable contains a diphthong
-        2) Syllable contains a long vowel
-        :param syllable: current syllable
-        :return: True if long by nature
-        :rtype : bool
-        """
-
-        # Find diphthongs
-        vowel_group = ''
-        for char in syllable:
-            if char in self.long_vowels:
-                return True
-            elif char not in self.sing_cons:
-                vowel_group += char
-
-        if vowel_group in self.diphthongs:
-            return True
-
-    def _long_by_position(self, syllable, sentence):
-        """Check if syllable is long by position. Long by position includes:
-        1) Next syllable begins with two consonants, unless those consonants
-        are a stop + liquid combination
-        2) Next syllable begins with a double consonant
-        3) Syllable ends with a consonant and the next syllable begins with a
-        consonant
-        :param syllable: Current syllable
-        :param sentence: Current sentence
-        :return: True if syllable is long by position
-        :rtype : bool
-        """
-
-        try:
-            next_syll = sentence[sentence.index(syllable) + 1]
-            # Long by postion by case 1
-            if (next_syll[0] in self.sing_cons and next_syll[1] in
-                self.sing_cons) and (next_syll[0] not in self.stops and next_syll[1] not in self.liquids):
-                return True
-            # Checks if next syllable begins with two liquids, if so, long by position by case 1
-            elif (next_syll[0] in self.sing_cons and next_syll[1] in
-                self.sing_cons) and (next_syll[0] in self.liquids and next_syll[1] in self.liquids):
-                return True
-            # Checks if next syllable begins with two stops, if so, long by position by case 1
-            elif (next_syll[0] in self.sing_cons and next_syll[1] in
-                self.sing_cons) and (next_syll[0] in self.stops and next_syll[1] in self.stops):
-                return True
-            # Long by position by case 2
-            elif syllable[-1] in self.vowels and next_syll[0] in \
-                    self.doub_cons:
-                return True
-            # Long by position by case 3
-            elif syllable[-1] in self.sing_cons and next_syll[0] in \
-                    self.sing_cons:
-                return True
-            else:
-                pass
-        except IndexError:
-            logger.info("IndexError while checking if syllable '%s' is long. Continuing.", syllable)
-
-    def _scansion(self, sentence_syllables):
-        """Replace long and short values for each input syllable.
-        :param sentence_syllables: A list of strings
-        :return : '˘' and '¯' to represent short and long syllables,
-        respectively
-        :rtype : list
-        """
-
-        scanned_text = []
-        for sentence in sentence_syllables:
-            scanned_sent = []
-            for syllable in sentence:
-                if self._long_by_position(syllable, sentence) or \
-                   self._long_by_nature(syllable):
-                    scanned_sent.append('¯')
+            # is long by nature
+            if any(long in syllables[i] for long in longs):
+                if syllables[i][:3] != "qui":
+                    syllable_dict["long_by_nature"] = True
                 else:
-                    scanned_sent.append('˘')
-            if len(scanned_sent) > 1:
-                del scanned_sent[-1]
-                scanned_sent.append('x')
-            scanned_text.append(''.join(scanned_sent))
-        return scanned_text
+                    syllable_dict["long_by_nature"] = False
+            else:
+                syllable_dict["long_by_nature"] = False
 
-    def make_syllables(self, sentences_words):
-        """Divide the word tokens into a list of syllables. Note that a syllable
-        in this instance is defined as a vocalic group (i.e., a vowel or a
-        diphthong). This means that all syllables which are not the last
-        syllable in the word will end with a vowel or diphthong.
+            # long by position intra word
+            if i < len(syllables) - 1 and \
+                    syllable_dict["syllable"][-1] in self.CONSONANTS:
+                if syllable_dict["syllable"][-1] in self.MUTES and syllables[i + \
+                    1][0] in self.LIQUIDS and syllable_dict["syllable"][-1] + syllables[i + 1][0] not in self.MUTE_LIQUID_EXCEPTIONS:
+                    syllable_dict["long_by_position"] = \
+                        (False, "mute+liquid")
+                elif syllable_dict["syllable"][-1] in self.DOUBLE_CONSONANTS or \
+                        syllables[i + 1][0] in self.CONSONANTS:
+                    syllable_dict["long_by_position"] = (True, None)
+                else:
+                    syllable_dict["long_by_position"] = (False, None)
+            elif i < len(syllables) - 1 and syllable_dict["syllable"][-1] in \
+                    self.VOWELS and len(syllables[i + 1]) > 1:
+                if syllables[i + 1][0] in self.MUTES and syllables[i + 1][1] in self.LIQUIDS and syllables[i + \
+                    1][0] + syllables[i + 1][1] not in self.MUTE_LIQUID_EXCEPTIONS:
+                    syllable_dict["long_by_position"] = \
+                        (False, "mute+liquid")
+                elif syllables[i + 1][0] in self.CONSONANTS and syllables[i + 1][1] in \
+                        self.CONSONANTS or syllables[i + 1][0] in self.DOUBLE_CONSONANTS:
+                    syllable_dict["long_by_position"] = (True, None)
+                else:
+                    syllable_dict["long_by_position"] = (False, None)
+            elif len(syllable_dict["syllable"]) > 2 and syllable_dict["syllable"][-1] in self.CONSONANTS and \
+                    syllable_dict["syllable"][-2] in self.CONSONANTS and syllable_dict["syllable"][-3] in self.VOWELS:
+                syllable_dict["long_by_position"] = (True, None)
+            else:
+                syllable_dict["long_by_position"] = (False, None)
 
-        TODO: Determine whether Luke Hollis's module at
-        `cltk.stem.latin.syllabifier could replace this method.`
+            syllable_tokens.append(syllable_dict)
 
-        :param sentences_words: A list of sentences with tokenized words.
-        :return: Syllabified words
-        :rtype : list
+            # is accented
+            if len(syllables) > 2 and i == len(syllables) - 2:
+                if syllable_dict["long_by_nature"] or syllable_dict["long_by_position"][0]:
+                    syllable_dict["accented"] = True
+                else:
+                    syllable_tokens[i - 1]["accented"] = True
+            elif len(syllables) == 2 and i == 0 or len(syllables) == 1:
+                syllable_dict["accented"] = True
+
+            syllable_dict["accented"] = False if "accented" not in syllable_dict else True
+
+        return syllable_tokens
+
+    def _tokenize_words(self, sentence: str) -> List[Dict]:
         """
-        all_syllables = []
-        for sentence in sentences_words:
-            syll_per_sent = []
-            for word in sentence:
-                syll_start = 0  # Begins syllable iterator
-                syll_per_word = []
-                cur_letter_in = 0  # Begins general iterator
-                while cur_letter_in < len(word):
-                    letter = word[cur_letter_in]
-                    if not cur_letter_in == len(word) - 1:
-                        if word[cur_letter_in] + word[cur_letter_in + 1] in self.diphthongs:
-                            cur_letter_in += 1
-                            # Syllable ends with a diphthong
-                            syll_per_word.append(
-                                word[syll_start:cur_letter_in + 1])
-                            syll_start = cur_letter_in + 1
-                        elif (letter in self.vowels) or \
-                             (letter in self.long_vowels):
-                            # Syllable ends with a vowel
-                            syll_per_word.append(
-                                word[syll_start:cur_letter_in + 1])
-                            syll_start = cur_letter_in + 1
-                    elif (letter in self.vowels) or \
-                         (letter in self.long_vowels):
-                        # Syllable ends with a vowel
-                        syll_per_word.append(
-                            word[syll_start:cur_letter_in + 1])
-                        syll_start = cur_letter_in + 1
-                    cur_letter_in += 1
-                try:
-                    last_vowel = syll_per_word[-1][-1]  # Last vowel of a word
-                    # Modifies general iterator for consonants after the last
-                    # syllable in a word.
-                    cur_letter_in = len(
-                        word) - 1
-                    # Contains all of the consonants after the last vowel in a
-                    # word
-                    leftovers = ''
-                    while word[cur_letter_in] != last_vowel:
-                        if word[cur_letter_in] != '.':
-                            # Adds consonants to leftovers
-                            leftovers = word[cur_letter_in] + leftovers
-                        cur_letter_in -= 1
-                    # Adds leftovers to last syllable in a word
-                    syll_per_word[-1] += leftovers
-                    syll_per_sent.append(syll_per_word)
-                except IndexError:
-                    logger.info("IndexError while making syllables of '%s'. Continuing.", word)
-            all_syllables.append(syll_per_sent)
-        return all_syllables
+        Tokenize words for sentence.
+        "Puella bona est" -> [{word: puella, index: 0, ... }, ... ]
+        Word properties:
+            word: string -> word
+            index: int -> position in sentence
+            syllables: list -> list of syllable objects
+            syllables_count: int -> number of syllables in word
+        :param sentence: string
+        :return: list
 
-    def syllabify(self, unsyllabified_tokens):
-        """Helper class for calling syllabification-related methods.
-        :param unsyllabified_tokens:
-        :return: List of syllables.
-        :rtype : list
+        >>> Scansion()._tokenize_words('dedērunt te miror antōnī quorum.')
+        [{'word': 'dedērunt', 'index': 0, 'syllables': [{'syllable': 'de', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'dē', 'index': 1, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'runt', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}], 'syllables_count': 3}, {'word': 'te', 'index': 1, 'syllables': [{'syllable': 'te', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}, {'word': 'miror', 'index': 2, 'syllables': [{'syllable': 'mi', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'ror', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'antōnī', 'index': 3, 'syllables': [{'syllable': 'an', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}, {'syllable': 'tō', 'index': 1, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'nī', 'index': 2, 'elide': (False, None), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 3}, {'word': 'quorum.', 'index': 4, 'syllables': [{'syllable': 'quo', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'rum', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}]
+        >>> Scansion()._tokenize_words('a spes co i no xe cta.')
+        [{'word': 'a', 'index': 0, 'syllables': [{'syllable': 'a', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, 'sest'), 'accented': True}], 'syllables_count': 1}, {'word': 'spes', 'index': 1, 'syllables': [{'syllable': 'spes', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'co', 'index': 2, 'syllables': [{'syllable': 'co', 'index': 0, 'elide': (True, 'weak'), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}, {'word': 'i', 'index': 3, 'syllables': [{'syllable': 'i', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}, {'word': 'no', 'index': 4, 'syllables': [{'syllable': 'no', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'xe', 'index': 5, 'syllables': [{'syllable': 'xe', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'cta.', 'index': 6, 'syllables': [{'syllable': 'cta', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}]
+        >>> Scansion()._tokenize_words('x')
+        []
+        >>> Scansion()._tokenize_words('atae amo.')
+        [{'word': 'atae', 'index': 0, 'syllables': [{'syllable': 'a', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'tae', 'index': 1, 'elide': (True, 'strong'), 'long_by_nature': True, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'amo.', 'index': 1, 'syllables': [{'syllable': 'a', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'mo', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}]
+        >>> Scansion()._tokenize_words('bar rid.')
+        [{'word': 'bar', 'index': 0, 'syllables': [{'syllable': 'bar', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}, {'word': 'rid.', 'index': 1, 'syllables': [{'syllable': 'rid', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}]
+        >>> Scansion()._tokenize_words('ba brid.')
+        [{'word': 'ba', 'index': 0, 'syllables': [{'syllable': 'ba', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, 'mute+liquid'), 'accented': True}], 'syllables_count': 1}, {'word': 'brid.', 'index': 1, 'syllables': [{'syllable': 'brid', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}], 'syllables_count': 1}]
         """
-        syllables = self.make_syllables(unsyllabified_tokens)
-        qu_fixed_syllables = self._qu_fix(syllables)
-        elision_fixed_syllables = self._elision_fixer(qu_fixed_syllables)
-        return elision_fixed_syllables
+        tokens = []
+        split_sent = [word for word in sentence.split(" ") if word != '']
+        for i, word in enumerate(split_sent):
+            if len(word) == 1 and word not in self.VOWELS:
+                break
+            # basic properties
+            word_dict = {"word": split_sent[i], "index": i}
 
-    def scan_text(self, input_string):
-        """The primary method of the class.
-        :param input_string: A string of macronized text.
-        :rtype : list
+            # syllables and syllables count
+            word_dict["syllables"] = self._tokenize_syllables(split_sent[i])
+            word_dict["syllables_count"] = len(word_dict["syllables"])
+            if i != 0 and word_dict["syllables"][0]["syllable"][0] in \
+                    self.VOWELS or i != 0 and \
+                    word_dict["syllables"][0]["syllable"][0] == "h":
+                last_syll_prev_word = tokens[i - 1]["syllables"][-1]
+                if last_syll_prev_word["syllable"][-1] in \
+                        self.LONG_VOWELS or \
+                        last_syll_prev_word["syllable"][-1] == "m":
+                    last_syll_prev_word["elide"] = (True, "strong")
+                elif len(last_syll_prev_word["syllable"]) > 1 and \
+                        last_syll_prev_word["syllable"][-2:] in self.DIPHTHONGS:
+                    last_syll_prev_word["elide"] = (True, "strong")
+                elif last_syll_prev_word["syllable"][-1] in self.SHORT_VOWELS:
+                    last_syll_prev_word["elide"] = (True, "weak")
+            # long by position inter word
+            if i > 0 and tokens[i - 1]["syllables"][-1]["syllable"][-1] in \
+                    self.CONSONANTS and \
+                    word_dict["syllables"][0]["syllable"][0] in self.CONSONANTS:
+                # previous word ends in consonant and current word begins with
+                # consonant
+                tokens[i -
+                       1]["syllables"][-1]["long_by_position"] = (True, None)
+            elif i > 0 and tokens[i - 1]["syllables"][-1]["syllable"][-1] in \
+                    self.VOWELS and \
+                    word_dict["syllables"][0]["syllable"][0] in self.CONSONANTS:
+                # previous word ends in vowel and current word begins in
+                # consonant
+                if any(sest in word_dict["syllables"][0]["syllable"] for
+                        sest in self.SESTS):
+                    # current word begins with sest
+                    tokens[i - \
+                        1]["syllables"][-1]["long_by_position"] = (False, "sest")
+                elif word_dict["syllables"][0]["syllable"][0] in self.MUTES and \
+                        word_dict["syllables"][0]["syllable"][1] in self.LIQUIDS:
+                    # current word begins with mute + liquid
+                    tokens[i - \
+                        1]["syllables"][-1]["long_by_position"] = (False, "mute+liquid")
+                elif word_dict["syllables"][0]["syllable"][0] in \
+                        self.DOUBLE_CONSONANTS or\
+                        word_dict["syllables"][0]["syllable"][1] in self.CONSONANTS:
+                    # current word begins 2 consonants
+                    tokens[i - \
+                        1]["syllables"][-1]["long_by_position"] = (True, None)
+
+            tokens.append(word_dict)
+
+        return tokens
+
+    def tokenize(self, text: str) -> List[Dict]:
         """
-        tokens = self._tokenize(input_string)
-        syllables = self.syllabify(tokens)
-        sentence_syllables = self._syllable_condenser(syllables)
-        meter = self._scansion(sentence_syllables)
-        return meter
+        Tokenize text on supplied characters.
+        "Puella bona est. Puer malus est." ->
+        [ [{word: puella, syllables: [...], index: 0}, ... ], ... ]
+        :return:list
+
+        >>> Scansion().tokenize('puella bona est. puer malus est.')
+        [{'plain_text_sentence': 'puella bona est', 'structured_sentence': [{'word': 'puella', 'index': 0, 'syllables': [{'syllable': 'pu', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}, {'syllable': 'el', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}, {'syllable': 'la', 'index': 2, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 3}, {'word': 'bona', 'index': 1, 'syllables': [{'syllable': 'bo', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'na', 'index': 1, 'elide': (True, 'weak'), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'est', 'index': 2, 'syllables': [{'syllable': 'est', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}]}, {'plain_text_sentence': ' puer malus est', 'structured_sentence': [{'word': 'puer', 'index': 0, 'syllables': [{'syllable': 'pu', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'er', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': False}], 'syllables_count': 2}, {'word': 'malus', 'index': 1, 'syllables': [{'syllable': 'ma', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': True}, {'syllable': 'lus', 'index': 1, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (False, None), 'accented': False}], 'syllables_count': 2}, {'word': 'est', 'index': 2, 'syllables': [{'syllable': 'est', 'index': 0, 'elide': (False, None), 'long_by_nature': False, 'long_by_position': (True, None), 'accented': True}], 'syllables_count': 1}]}, {'plain_text_sentence': '', 'structured_sentence': []}]
+        """
+
+        tokenized_sentences = text.split('.')
+
+        tokenized_text = []
+        for sentence in tokenized_sentences:
+            sentence_dict = {}
+            sentence_dict["plain_text_sentence"] = sentence
+            sentence_dict["structured_sentence"] = self._tokenize_words(
+                sentence)
+            tokenized_text.append(sentence_dict)
+
+        return tokenized_text
+
+    def scan_text(self, text: str) -> List[str]:
+        """
+        Return a flat list of rhythms.
+        Desired clausula length is passed as a parameter. Clausula shorter than the specified
+        length can be exluded.
+        :return:
+
+        >>> Scansion().scan_text('dedērunt te miror antōnī quorum. sī quid est in mē ingenī jūdicēs quod sentiō.')
+        ['u--uuu---ux', 'u---u--u---ux']
+        """
+        tokens = self.tokenize(text)
+        clausulae = []
+        for sentence in tokens:
+            sentence_clausula = []
+            syllables = [word['syllables']
+                         for word in sentence['structured_sentence']]
+            flat_syllables = [
+                syllable for word in syllables for syllable in word]
+            if self.elide:
+                flat_syllables = [
+                    syll for syll in flat_syllables if not syll['elide'][0]][:-1][::-1]
+            for syllable in flat_syllables:
+                if len(sentence_clausula) < self.clausula_length - 1:
+                    if syllable['long_by_nature'] or syllable['long_by_position'][0]:
+                        sentence_clausula.append('-')
+                    else:
+                        sentence_clausula.append('u')
+            sentence_clausula = sentence_clausula[::-1]
+            sentence_clausula.append('x')
+            clausulae.append(''.join(sentence_clausula))
+        clausulae = clausulae[:-1]
+        return clausulae
