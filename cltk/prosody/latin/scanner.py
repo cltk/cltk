@@ -1,7 +1,7 @@
 """
 Scansion module for scanning Latin prose rhythms.
 """
-from typing import List
+from typing import List, Dict
 
 from cltk.prosody.latin.syllabifier import Syllabifier
 
@@ -42,7 +42,7 @@ class Scansion:
         self.elide = elide
         self.syllabifier = Syllabifier()
 
-    def _tokenize_syllables(self, word: str) -> List:
+    def _tokenize_syllables(self, word: str) -> List[Dict]:
         """
         Tokenize syllables for word.
         "mihi" -> [{"syllable": "mi", index: 0, ... } ... ]
@@ -141,7 +141,7 @@ class Scansion:
 
         return syllable_tokens
 
-    def _tokenize_words(self, sentence: str) -> List:
+    def _tokenize_words(self, sentence: str) -> List[Dict]:
         """
         Tokenize words for sentence.
         "Puella bona est" -> [{word: puella, index: 0, ... }, ... ]
@@ -224,7 +224,7 @@ class Scansion:
 
         return tokens
 
-    def tokenize(self, text: str) -> List:
+    def tokenize(self, text: str) -> List[Dict]:
         """
         Tokenize text on supplied characters.
         "Puella bona est. Puer malus est." ->
@@ -247,7 +247,7 @@ class Scansion:
 
         return tokenized_text
 
-    def scan_text(self, text: str) -> List:
+    def scan_text(self, text: str) -> List[str]:
         """
         Return a flat list of rhythms.
         Desired clausula length is passed as a parameter. Clausula shorter than the specified

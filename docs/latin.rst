@@ -69,7 +69,7 @@ The list of rhythms which the module tallies is from the paper Keeline, T. and K
    Out[6]: ['-uuu-uuu-u--x', 'uu-uu-uu----x']
 
    In [7]: c.clausulae_analysis(prosody)
-   Out[7]: {'cretic trochee': 1, 'cretic trochee resolved a': 0, 'cretic trochee resolved b': 0, 'cretic trochee resolbed c': 0, 'double cretic': 0, 'molossus cretic': 0, 'double/molossus cretic resolved a': 0, 'double/molossus cretic resolved b': 0, 'double/molossus cretic resolved c': 0, 'double/molossus cretic resolved d': 0, 'double/molossus cretic resolved e': 0, 'double/molossus cretic resolved f': 0, 'double/molossus cretic resolved g': 0, 'double/molossus cretic resolved h': 0, 'double trochee': 0, 'double trochee resolved a': 0, 'double trochee resolved b': 0, 'hypodochmiac': 0, 'hypodochmiac resolved a': 0, 'hypodochmiac resolved b': 0, 'spondaic': 1, 'heroic': 0}
+   Out[7]: [{'cretic_trochee': 1}, {'cretic_trochee_resolved_a': 0}, {'cretic_trochee_resolved_b': 0}, {'cretic_trochee_resolved_c': 0}, {'double_cretic': 0}, {'molossus_cretic': 0}, {'double_molossus_cretic_resolved_a': 0}, {'double_molossus_cretic_resolved_b': 0}, {'double_molossus_cretic_resolved_c': 0}, {'double_molossus_cretic_resolved_d': 0}, {'double_molossus_cretic_resolved_e': 0}, {'double_molossus_cretic_resolved_f': 0}, {'double_molossus_cretic_resolved_g': 0}, {'double_molossus_cretic_resolved_h': 0}, {'double_trochee': 0}, {'double_trochee_resolved_a': 0}, {'double_trochee_resolved_b': 0}, {'hypodochmiac': 0}, {'hypodochmiac_resolved_a': 0}, {'hypodochmiac_resolved_b': 0}, {'spondaic': 1}, {'heroic': 0}]
 
 
 

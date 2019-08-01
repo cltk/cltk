@@ -7,49 +7,52 @@ paper "Auceps syllabarum: A Digital Analysis of Latin Prose Rhythm". The list of
 rhythm will be counted in multiple categories.
 """
 from typing import List, Dict
+from collections import namedtuple
 
 __author__ = ['Tyler Kirby <tyler.kirby9398@gmail.com>']
 __license__ = 'MIT License. See LICENSE'
 
+Clausula = namedtuple('Clausula', 'rhythm_name rhythm')
+
+standard_clausulae =[
+    Clausula('cretic_trochee', '-u--x'),
+    Clausula('cretic_trochee_resolved_a', 'uuu--x'),
+    Clausula('cretic_trochee_resolved_b', '-uuu-x'),
+    Clausula('cretic_trochee_resolved_c', '-u-uux'),
+    Clausula('double_cretic', '-u--ux'),
+    Clausula('molossus_cretic', '----ux'),
+    Clausula('double_molossus_cretic_resolved_a', 'uuu--ux'),
+    Clausula('double_molossus_cretic_resolved_b', '-uuu-ux'),
+    Clausula('double_molossus_cretic_resolved_c', '-u-uux'),
+    Clausula('double_molossus_cretic_resolved_d', 'uu---ux'),
+    Clausula('double_molossus_cretic_resolved_e', '-uu--ux'),
+    Clausula('double_molossus_cretic_resolved_f', '--uu-ux'),
+    Clausula('double_molossus_cretic_resolved_g', '---uuux'),
+    Clausula('double_molossus_cretic_resolved_h', '-u---ux'),
+    Clausula('double_trochee', '-u-x'),
+    Clausula('double_trochee_resolved_a', 'uuu-x'),
+    Clausula('double_trochee_resolved_b', '-uuux'),
+    Clausula('hypodochmiac', '-u-ux'),
+    Clausula('hypodochmiac_resolved_a', 'uuu-ux'),
+    Clausula('hypodochmiac_resolved_b', '-uuuux'),
+    Clausula('spondaic', '---x'),
+    Clausula('heroic', '-uu-x'),
+]
 
 class Clausulae:
-    def __init__(self):
+    def __init__(self, rhythms: List[Clausula]=standard_clausulae):
         """Initialize class."""
-        return
+        self.rhythms = rhythms
 
-    @staticmethod
-    def clausulae_analysis(prosody: List) -> Dict:
+
+    def clausulae_analysis(self, prosody: List) -> List[Dict[str, int]]:
         """
         Return dictionary in which the key is a type of clausula and the value is its frequency.
         :param prosody: the prosody of a prose text (must be in the format of the scansion produced by the scanner classes.
         :return: dictionary of prosody
-        >>> Clausulae().clausulae_analysis(['-u--x', '-uuuux'])
-        {'cretic trochee': 1, 'cretic trochee resolved a': 0, 'cretic trochee resolved b': 0, 'cretic trochee resolbed c': 0, 'double cretic': 0, 'molossus cretic': 0, 'double/molossus cretic resolved a': 0, 'double/molossus cretic resolved b': 0, 'double/molossus cretic resolved c': 0, 'double/molossus cretic resolved d': 0, 'double/molossus cretic resolved e': 0, 'double/molossus cretic resolved f': 0, 'double/molossus cretic resolved g': 0, 'double/molossus cretic resolved h': 0, 'double trochee': 0, 'double trochee resolved a': 0, 'double trochee resolved b': 0, 'hypodochmiac': 0, 'hypodochmiac resolved a': 0, 'hypodochmiac resolved b': 1, 'spondaic': 0, 'heroic': 0}
+        >>> Clausulae().clausulae_analysis(['-uuu-uuu-u--x', 'uu-uu-uu----x'])
+        [{'cretic_trochee': 1}, {'cretic_trochee_resolved_a': 0}, {'cretic_trochee_resolved_b': 0}, {'cretic_trochee_resolved_c': 0}, {'double_cretic': 0}, {'molossus_cretic': 0}, {'double_molossus_cretic_resolved_a': 0}, {'double_molossus_cretic_resolved_b': 0}, {'double_molossus_cretic_resolved_c': 0}, {'double_molossus_cretic_resolved_d': 0}, {'double_molossus_cretic_resolved_e': 0}, {'double_molossus_cretic_resolved_f': 0}, {'double_molossus_cretic_resolved_g': 0}, {'double_molossus_cretic_resolved_h': 0}, {'double_trochee': 0}, {'double_trochee_resolved_a': 0}, {'double_trochee_resolved_b': 0}, {'hypodochmiac': 0}, {'hypodochmiac_resolved_a': 0}, {'hypodochmiac_resolved_b': 0}, {'spondaic': 1}, {'heroic': 0}]
         """
+        prosody = ' '.join(prosody)
+        return [{r.rhythm_name: prosody.count(r.rhythm)} for r in self.rhythms]
 
-        prosody = ''.join(prosody)
-
-        return {
-            'cretic trochee': prosody.count('-u--x'),
-            'cretic trochee resolved a': prosody.count('uuu--x'),
-            'cretic trochee resolved b': prosody.count('-uuu-x'),
-            'cretic trochee resolbed c': prosody.count('-u-uux'),
-            'double cretic': prosody.count('-u--ux'),
-            'molossus cretic': prosody.count('----ux'),
-            'double/molossus cretic resolved a': prosody.count('uuu--ux'),
-            'double/molossus cretic resolved b': prosody.count('-uuu-ux'),
-            'double/molossus cretic resolved c': prosody.count('-u-uuux'),
-            'double/molossus cretic resolved d': prosody.count('uu---ux'),
-            'double/molossus cretic resolved e': prosody.count('-uu--ux'),
-            'double/molossus cretic resolved f': prosody.count('--uu-ux'),
-            'double/molossus cretic resolved g': prosody.count('---uuux'),
-            'double/molossus cretic resolved h': prosody.count('-u---ux'),
-            'double trochee': prosody.count('-u-x'),
-            'double trochee resolved a': prosody.count('uuu-x'),
-            'double trochee resolved b': prosody.count('-uuux'),
-            'hypodochmiac': prosody.count('-u-ux'),
-            'hypodochmiac resolved a': prosody.count('uuu-ux'),
-            'hypodochmiac resolved b': prosody.count('-uuuux'),
-            'spondaic': prosody.count('---x'),
-            'heroic': prosody.count('-uu-x')
-        }
