@@ -128,4 +128,29 @@ class OldEnglishDictionaryLemmatizer:
 
 			return lemma_count/token_count
 
+	def evaluate_conll(self, filename):
+		with open(filename, 'r') as infile:
+			lines = infile.read().splitlines()
+
+			tp, fp, fn = 0,0,0
+
+			for line in lines:
+				if line == '':
+					continue
+
+				word, true_lemma = line.split('\t')[1:3]
+				pred_lemma = self.lemmatize(word, best_guess=False)[0][1]
+
+				print(word, true_lemma, pred_lemma)
+
+				if pred_lemma == []:
+					fn += 1
+				elif true_lemma == pred_lemma[0]:
+					tp += 1
+				else:
+					fp += 1
+
+			return tp, fp, fn, tp/(tp + fp), tp/(tp + fn)
+
+
 

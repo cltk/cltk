@@ -150,7 +150,7 @@ A basic lemmatizer is provided, based on a hand-built dictionary of word forms.
 .. code-block:: python
 
    In [1]: import cltk.lemmatize.old_english.lemma as oe_l
-   In [2]: lemmatizer = oe_l.OldEnglishDictioraryLemmatizer()
+   In [2]: lemmatizer = oe_l.OldEnglishDictionaryLemmatizer()
    In [3]: lemmatizer.lemmatize('Næs him fruma æfre, or geworden, ne nu ende cymþ ecean')
    Out [3]: [('Næs', 'næs'), ('him', 'he'), ('fruma', 'fruma'), ('æfre', 'æfre'), (',', ','), ('or', 'or'), ('geworden', 'weorþan'), (',', ','), ('ne', 'ne'), ('nu', 'nu'), ('ende', 'ende'), ('cymþ', 'cuman'), ('ecean', 'ecean')]
 
