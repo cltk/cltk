@@ -978,7 +978,7 @@ Word Tokenization
    In [3]: text = 'atque haec abuterque puerve paterne nihil'
 
    In [4]: word_tokenizer.tokenize(text)
-   Out[4]: ['atque', 'haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
+   Out[4]: ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'pater', '-ne', 'nihil']
 
 
 
