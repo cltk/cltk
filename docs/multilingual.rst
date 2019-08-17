@@ -752,34 +752,53 @@ The NLTK offers several methods for word tokenization. The CLTK Tokenize module 
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenze.word('multilingual')
+   In [1]: from cltk.tokenize.word import WordTokenizer
 
-   In [2]: s = """Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."""
+   In [2]: dido = "Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."
 
-   In [3]: t = WordTokenizer('multilingual')
+   In [3]: tok = WordTokenizer(language='multilingual')
 
-   In [4]: t.tokenize(s)
+   In [4]: tok.tokenize(dido)
    Out[4]:
-   ['Anna', 'soror', ',', 'quae', 'me', 'suspensam', 'insomnia', 'terrent', '!', 'Quis', 'novus', 'hic', 'nostris', 'successit', 'sedibus', 'hospes', '.']
+   ['Anna',
+    'soror',
+    ',',
+    'quae',
+    'me',
+    'suspensam',
+    'insomnia',
+    'terrent',
+    '!',
+    'Quis',
+    'novus',
+    'hic',
+    'nostris',
+    'successit',
+    'sedibus',
+    'hospes',
+    '.']
 
-If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another tokenizer from the NLTK, which breaks on any other regular expression pattern you choose. Here, for instance, on whitespace word breaks:
+If this default does not work for your texts, consider the NLTK's ``RegexpTokenizer``, which splits on a regular expression patterns of your choosing. Here, for instance, on whitespace and punctuation:
 
 .. code-block:: python
 
-   In [7]: from nltk.tokenize import RegexpTokenizer
+   In [5]: from nltk.tokenize import RegexpTokenizer
 
-   In [8]: word_breaks = RegexpTokenizer(r'\w+')
+   In [6]: word_toker = RegexpTokenizer(r'\w+')
 
-   In [8]: tokens = word_breaks.tokenize(cleaned)
-
-   In [9]: tokens[:10]
-   Out[9]: ['Arma',
-    'uirumque',
-    'cano',
-    'Troiae',
-    'qui',
-    'primus',
-    'ab',
-    'oris',
-    'Italiam',
-    'fato']
+   In [7]: word_toker.tokenize(dido)
+   Out[7]:
+   ['Anna',
+    'soror',
+    'quae',
+    'me',
+    'suspensam',
+    'insomnia',
+    'terrent',
+    'Quis',
+    'novus',
+    'hic',
+    'nostris',
+    'successit',
+    'sedibus',
+    'hospes']
