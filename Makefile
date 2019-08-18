@@ -1,17 +1,14 @@
 build:
 	python setup.py sdist bdist_wheel
 
-buildDocs:
-	cd docs && make doctest
-
 check:
-	twine check dist
+	twine check dist/*
 
 develop:
 	python setup.py sdist develop
 
 docs:
-	sphinx-apidoc -o docs cltk && cd docs && make html
+	sphinx-apidoc -f -o docs cltk && cd docs && make html && cd ..
 
 install:
 	python setup.py install
@@ -20,6 +17,9 @@ installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ cltk
 
 lint:
+	pylint cltk
+
+lintErrors:
 	pylint --errors-only cltk
 
 test:
@@ -36,5 +36,8 @@ upload:
 
 uploadTest:
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+all:
+	ls -l
 
 .PHONY: build docs

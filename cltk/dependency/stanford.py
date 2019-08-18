@@ -115,10 +115,15 @@ class Form(Element):
     def to_form(word: stanfordnlp.pipeline.doc.Word) -> 'Form':
         """Converts a stanfordnlp Word object to a Form.
 
-        # doc.sentences[0].words[10])
-
+        >>> import io
+        >>> import sys
+        >>> output_default = sys.stdout
+        >>> output_suppressed = io.StringIO()
+        >>> sys.stdout = output_suppressed
         >>> import stanfordnlp
+        >>> # Note: `stanfordnlp.Pipeline` prints params to screen, must suppress
         >>> nlp = stanfordnlp.Pipeline(lang='la')
+        >>> sys.stdout = output_default
         >>> text = "Cui regi utraque unio quodammodo attribui possit."
         >>> doc = nlp(text)
         >>> stanford_word = doc.sentences[0].words[6]
