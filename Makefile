@@ -23,10 +23,7 @@ installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ cltk
 
 lint:
-	pylint cltk
-
-lintErrors:
-	pylint --errors-only cltk
+	pylint --output-format=json cltk > pylint.json || true && pylint-json2html pylint.json 1> pylint.html
 
 test:
 	nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltk --with-doctest
@@ -43,6 +40,6 @@ upload:
 uploadTest:
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
-all: black lintErrors typing test check uml docs
+all: black lint typing test check uml docs
 
 .PHONY: build docs
