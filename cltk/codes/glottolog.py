@@ -2,7 +2,7 @@
 
 Glottolog is a project run by the Max Planck Institute for the
 Science of Human History. The website contains codes for languages
-as well as reconstructions of language families: <http://glottolog.org/>.
+as well as reconstructions of language families: http://glottolog.org/.
 
 TODO: Consider whether this kind of module is necessary.
 

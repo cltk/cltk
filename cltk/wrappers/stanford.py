@@ -1,5 +1,5 @@
-"""Wrapper for the Python Stanford NLP package `stanfordnlp`.
-More here: <https://github.com/stanfordnlp/stanfordnlp>.
+"""Wrapper for the Python StanfordNLP package ``stanfordnlp``.
+About: https://github.com/stanfordnlp/stanfordnlp.
 """
 
 import os
@@ -14,10 +14,10 @@ from cltk.utils import suppress_stdout
 
 
 class StanfordNLPWrapper:
-    """CLTK's wrapper for the `stanfordnlp` project."""
+    """CLTK's wrapper for the StanfordNLP project."""
 
     def __init__(self, language: str, treebank: Optional[str] = None) -> None:
-        """Constructor for StanfordNLP wrapper class.
+        """Constructor for ``stanford`` wrapper class.
 
         >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
         >>> isinstance(stanford_wrapper, StanfordNLPWrapper)
@@ -96,8 +96,8 @@ class StanfordNLPWrapper:
         with suppress_stdout():
             self.nlp = self._load_pipeline()
 
-    def parse(self, text):
-        """Run all `stanfordnlp` parsing.
+    def parse(self, text: str):
+        """Run all ``stanfordnlp`` parsing on input text.
 
         >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
         >>> xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
@@ -222,9 +222,9 @@ class StanfordNLPWrapper:
             return False
 
     def is_wrapper_available(self) -> bool:
-        """Maps CLTK's internal language term (e.g., `latin`) to
-        that used by `stanfordnlp` (`la`); confirm that this is
-        a language the CLTK supports (i.e., is it Classical or not).
+        """Maps CLTK's internal language term (e.g., ``latin``) to
+        that used by ``stanfordnlp`` (``la``); confirms that this is
+        a language the CLTK supports (i.e., is it pre-modern or not).
 
         >>> stanford_wrapper = StanfordNLPWrapper(language='greek')
         >>> stanford_wrapper.is_wrapper_available()

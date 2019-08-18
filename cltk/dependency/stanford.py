@@ -126,7 +126,7 @@ class Form(Element):
 
     @staticmethod
     def to_form(word: stanfordnlp.pipeline.doc.Word) -> "Form":
-        """Converts a stanfordnlp Word object to a Form.
+        """Converts a ``stanfordnlp`` ``Word`` object to a ``Form``.
 
         >>> import io
         >>> import sys
