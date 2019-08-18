@@ -8,13 +8,13 @@ TODO: Consider whether this kind of module is necessary.
 TODO: Consider the other codes that users might want (ISO 639-1 639-2, ISO 639-3)
 """
 
-from typing import Any
 from typing import Dict
 from typing import List
+from typing import Union
 
-LANGUOID_NAME: Dict[str, Any] = dict(anci1242='Ancient Greek',
-                                     lati1261='Latin',
-                                     oldn1244='Old Norse',
-                                     olde1238='Old English',
-                                     unlabeled=['Ottoman'],
-                                     )
+LANGUOID_NAME: Dict[str, Union[str, List[str]]] = dict(anci1242='Ancient Greek',
+                                                       lati1261='Latin',
+                                                       oldn1244='Old Norse',
+                                                       olde1238='Old English',
+                                                       unlabeled=['Ottoman'],
+                                                       )

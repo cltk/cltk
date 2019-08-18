@@ -37,7 +37,6 @@ upload:
 uploadTest:
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
-all:
-	ls -l
+all: test lintErrors typing check uml docs
 
 .PHONY: build docs
