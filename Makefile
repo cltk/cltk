@@ -23,7 +23,7 @@ installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ cltk
 
 lint:
-	pylint --output-format=json cltk > pylint.json || true && pylint-json2html pylint.json 1> pylint.html
+	mkdir pylint && pylint --output-format=json cltk > pylint/pylint.json || true && pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
 test:
 	nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltk --with-doctest
