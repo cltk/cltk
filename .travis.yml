@@ -26,3 +26,9 @@ script:
 - make lint
 - make uml
 # - make docs
+
+deploy:
+  provider: pypi
+  user: ...
+  password: ...
+  server: https://mypackageindex.com/index
