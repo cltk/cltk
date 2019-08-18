@@ -1,3 +1,6 @@
+black:
+	black cltk
+
 build:
 	python setup.py sdist bdist_wheel
 
@@ -9,6 +12,9 @@ develop:
 
 docs:
 	sphinx-apidoc -f -o docs cltk && cd docs && make html && cd ..
+
+freeze:
+	pip uninstall -y cltk && pip freeze > requirements-dev.txt
 
 install:
 	python setup.py install
@@ -37,6 +43,6 @@ upload:
 uploadTest:
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
-all: test lintErrors typing check uml docs
+all: black lintErrors typing test check uml docs
 
 .PHONY: build docs

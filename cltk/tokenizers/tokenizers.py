@@ -2,6 +2,7 @@
 
 from typing import List
 
+
 def tokenizer_latin(text: str) -> List[str]:
     """Latin word tokenizer. Just for example.
 
@@ -9,7 +10,7 @@ def tokenizer_latin(text: str) -> List[str]:
     >>> tokenizer_latin(text=catiline)
     ['Quo', 'usque', 'tandem', 'abutere']
     """
-    words = text.split(' ')
+    words = text.split(" ")
     return words
 
 
@@ -20,7 +21,7 @@ def tokenizer_generic(text: str) -> List[str]:
     >>> tokenizer_latin(text=catiline)
     ['Quo', 'usque', 'tandem', 'abutere']
     """
-    words = text.split(' ')
+    words = text.split(" ")
     return words
 
 
@@ -44,7 +45,7 @@ class TokenizeWord:
         ['AAA', 'BBB', 'CCC', 'DDD']
         """
         self.language = language
-        if self.language == 'latin':
+        if self.language == "latin":
             self.tokenizer = tokenizer_latin
         else:
             self.tokenizer = tokenizer_generic
