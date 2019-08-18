@@ -85,12 +85,12 @@ class Form(Element):
         deps = self.findall('*[@relation="{}"]'.format(relation))
         return [Dependency(self, dep, relation) for dep in deps]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.tag + '_' + self('form_id') + (('/' + self('pos')) if self('pos') else '')
 
     __repr__ = __str__
 
-    def full_str(self, include_relation=True):
+    def full_str(self, include_relation=True) -> str:
         """Returns a string containing all features of the Form.
         The ID is attached to the text, and the relation is
         optionally suppressed.
@@ -159,7 +159,7 @@ class Dependency:
         self.dep = dep
         self.relation = relation
 
-    def __str__(self):
+    def __str__(self) -> str:
         return '{0}({1}, {2})'.format(self.relation if self.relation else '', self.head, self.dep)
 
     __repr__ = __str__
