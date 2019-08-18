@@ -1,0 +1,34 @@
+sudo: required
+
+dist: xenial
+
+language: python
+
+cache:
+- ~/stanfordnlp_resources/
+- pip
+
+python:
+- '3.6'
+- '3.7'
+
+install: make install
+
+before_script:
+- sudo apt-get install -y graphviz
+- pip install --upgrade pip
+- pip install -r requirements-dev.txt
+- python cltk/utils/build_server.py
+
+script:
+- make test
+- make typing
+- make lint
+- make uml
+- make docs
+
+deploy:
+  provider: pypi
+  user: ...
+  password: ...
+  server: https://mypackageindex.com/index
