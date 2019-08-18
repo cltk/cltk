@@ -12,9 +12,10 @@ from typing import Dict
 from typing import List
 from typing import Union
 
-LANGUOID_NAME: Dict[str, Union[str, List[str]]] = dict(anci1242='Ancient Greek',
-                                                       lati1261='Latin',
-                                                       oldn1244='Old Norse',
-                                                       olde1238='Old English',
-                                                       unlabeled=['Ottoman'],
-                                                       )
+LANGUOID_NAME: Dict[str, Union[str, List[str]]] = dict(
+    anci1242="Ancient Greek",
+    lati1261="Latin",
+    oldn1244="Old Norse",
+    olde1238="Old English",
+    unlabeled=["Ottoman"],
+)

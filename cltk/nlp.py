@@ -100,41 +100,42 @@ class NLP:
     #     return words
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # nepos_hamilcar = 'At ille ut Carthaginem venit, multo aliter, ac sperarat, rem publicam se habentem cognovit. Namque diuturnitate externi mali tantum exarsit intestinum bellum, ut numquam in pari periculo fuerit Carthago, nisi cum deleta est. Primo mercennarii milites, qui adversus Romanos fuerant, desciverunt; quorum numerus erat XX milium.'
 
-    cltk_nlp = NLP(language='greek')
+    cltk_nlp = NLP(language="greek")
     xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
 
     nlp_xen_anab = cltk_nlp._parse_stanford(text=xen_anab)
     import stanfordnlp  # type: ignore
+
     print(isinstance(nlp_xen_anab, stanfordnlp.pipeline.doc.Document) == True)  # True
     # print(dir(nlp_xen_anab))
     print(nlp_xen_anab.text == xen_anab)
-
 
     # 'conll_file', 'load_annotations', 'sentences', 'text', 'write_conll_to_file'
     # print(nlp_xen_anab.conll_file)
     # print(nlp_xen_anab.load_annotations)
     # print(nlp_xen_anab.write_conll_to_file)
 
-
     # sentences
     nlp_xen_anab_first_sent = nlp_xen_anab.sentences[0]
     # print(dir(nlp_xen_anab_first_sent))  # build_dependencies', 'dependencies', 'print_dependencies', 'print_tokens', 'print_words', 'tokens', 'words'
-    print(nlp_xen_anab_first_sent.tokens[0].index == '1')
-    print(nlp_xen_anab_first_sent.tokens[0].text == 'Δαρείου')
-    first_word = nlp_xen_anab_first_sent.tokens[0].words[0]  # 'dependency_relation', 'feats', 'governor', 'index', 'lemma', 'parent_token', 'pos', 'text', 'upos', 'xpos'
-    print(first_word.dependency_relation == 'iobj')
-    print(first_word.feats == 'Case=Gen|Gender=Masc|Number=Sing')
+    print(nlp_xen_anab_first_sent.tokens[0].index == "1")
+    print(nlp_xen_anab_first_sent.tokens[0].text == "Δαρείου")
+    first_word = nlp_xen_anab_first_sent.tokens[0].words[
+        0
+    ]  # 'dependency_relation', 'feats', 'governor', 'index', 'lemma', 'parent_token', 'pos', 'text', 'upos', 'xpos'
+    print(first_word.dependency_relation == "iobj")
+    print(first_word.feats == "Case=Gen|Gender=Masc|Number=Sing")
     print(first_word.governor == 4)
-    print(first_word.index == '1')
-    print(first_word.lemma == 'Δαρεῖος')
-    print(first_word.pos == 'Ne')
-    print(first_word.text == 'Δαρείου')
-    print(first_word.upos == 'PROPN')
-    print(first_word.xpos == 'Ne')
+    print(first_word.index == "1")
+    print(first_word.lemma == "Δαρεῖος")
+    print(first_word.pos == "Ne")
+    print(first_word.text == "Δαρείου")
+    print(first_word.upos == "PROPN")
+    print(first_word.xpos == "Ne")
     # print(first_word.parent_token)  # <Token index=1;words=[<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>]>
 
     # print_dependencies
@@ -152,8 +153,3 @@ if __name__ == '__main__':
 ('δὲ', '10', 'discourse')
 ('Κῦρος:', '10', 'orphan')
 """
-
-
-
-
-

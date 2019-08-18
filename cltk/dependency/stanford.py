@@ -1,9 +1,10 @@
 """Wrapper for the `stanfordnlp` project."""
 
-__author__ = ['John Stewart <free-variation>']
+__author__ = ["John Stewart <free-variation>"]
 
 from xml.etree.ElementTree import Element
 from xml.etree.ElementTree import ElementTree
+
 # from xml.etree.ElementTree import dump
 from typing import List
 from typing import Union
@@ -29,9 +30,9 @@ class Form(Element):
 
     def __init__(self, form: str, form_id: int = 0) -> None:
         """Constructor for the Form class."""
-        Element.__init__(self, form, attrib={'form_id': str(form_id)})
+        Element.__init__(self, form, attrib={"form_id": str(form_id)})
 
-    def __truediv__(self, pos_tag: str) -> 'Form':
+    def __truediv__(self, pos_tag: str) -> "Form":
         """Assigns the POS feature for current form. This is
         done by overloading `operator.truediv()` (`a / b`) to
         perform `.set()` upon and `Element` of the xml library.
@@ -44,10 +45,10 @@ class Form(Element):
         >>> operator.truediv(desc_form, 'VBN')
         described_0/VBN
         """
-        self.set('pos', pos_tag)
+        self.set("pos", pos_tag)
         return self
 
-    def __rshift__(self, other: Union['Form', str]) -> 'Dependency':
+    def __rshift__(self, other: Union["Form", str]) -> "Dependency":
         """Create a dependency between this form as governor, to
         the other as dependent. Adds the dependent to the children
         of this form. This is done by overloading `operator.rshift()`
@@ -68,7 +69,7 @@ class Form(Element):
         self.append(other)
         return Dependency(self, other)
 
-    def get_dependencies(self, relation: str) -> List['Dependency']:
+    def get_dependencies(self, relation: str) -> List["Dependency"]:
         """Extract dependents of this form for the specified
         dependency relation.
 
@@ -86,7 +87,12 @@ class Form(Element):
         return [Dependency(self, dep, relation) for dep in deps]
 
     def __str__(self) -> str:
-        return self.tag + '_' + self('form_id') + (('/' + self('pos')) if self('pos') else '')
+        return (
+            self.tag
+            + "_"
+            + self("form_id")
+            + (("/" + self("pos")) if self("pos") else "")
+        )
 
     __repr__ = __str__
 
@@ -102,17 +108,24 @@ class Form(Element):
         >>> type(desc_form.full_str())
         <class 'str'>
         """
-        excluded = ['form_id', 'relation'] if not include_relation else ['form_id']
-        return '{0}_{1} [{2}]'.format(self.tag,
-                                      self('form_id'),
-                                      ','.join([feature + '=' + self(feature) for feature in self.attrib.keys()
-                                                if feature not in excluded]))
+        excluded = ["form_id", "relation"] if not include_relation else ["form_id"]
+        return "{0}_{1} [{2}]".format(
+            self.tag,
+            self("form_id"),
+            ",".join(
+                [
+                    feature + "=" + self(feature)
+                    for feature in self.attrib.keys()
+                    if feature not in excluded
+                ]
+            ),
+        )
 
     def __call__(self, feature: str) -> str:
         return self.get(feature)
 
     @staticmethod
-    def to_form(word: stanfordnlp.pipeline.doc.Word) -> 'Form':
+    def to_form(word: stanfordnlp.pipeline.doc.Word) -> "Form":
         """Converts a stanfordnlp Word object to a Form.
 
         >>> import io
@@ -134,14 +147,14 @@ class Form(Element):
         <class 'cltk.dependency.stanford.Form'>
         """
         form = Form(word.text, form_id=word.index)
-        form.set('lemma', word.lemma)
-        form.set('pos', word.pos)
-        form.set('upos', word.upos)
-        form.set('xpos', word.xpos)
+        form.set("lemma", word.lemma)
+        form.set("pos", word.pos)
+        form.set("upos", word.upos)
+        form.set("xpos", word.xpos)
 
-        if word.feats != '_':
-            for f in word.feats.split('|'):
-                feature = f.split('=')
+        if word.feats != "_":
+            for f in word.feats.split("|"):
+                feature = f.split("=")
                 form.set(feature[0], feature[1])
 
         return form
@@ -160,13 +173,15 @@ class Dependency:
         self.relation = relation
 
     def __str__(self) -> str:
-        return '{0}({1}, {2})'.format(self.relation if self.relation else '', self.head, self.dep)
+        return "{0}({1}, {2})".format(
+            self.relation if self.relation else "", self.head, self.dep
+        )
 
     __repr__ = __str__
 
-    def __or__(self, relation: str) -> 'Dependency':
+    def __or__(self, relation: str) -> "Dependency":
         self.relation = relation
-        self.dep.set('relation', relation)
+        self.dep.set("relation", relation)
         return self
 
 
@@ -174,14 +189,14 @@ class DependencyTree(ElementTree):
     """The hierarchical tree representing the entirety of a parse."""
 
     def __init__(self, root: Form) -> None:
-        root.set('relation', 'root')
+        root.set("relation", "root")
 
         ElementTree.__init__(self, root)
 
     def _get_deps(self, node: Form, deps: List[Dependency]) -> List[Dependency]:
         for child_node in list(node):
             deps = self._get_deps(child_node, deps)
-            deps.extend(node.get_dependencies(child_node('relation')))
+            deps.extend(node.get_dependencies(child_node("relation")))
         return deps
 
     def get_dependencies(self) -> List[Dependency]:
@@ -189,13 +204,13 @@ class DependencyTree(ElementTree):
         generated by depth-first search.
         """
         deps = self._get_deps(self.getroot(), [])
-        deps.append(Dependency(None, self.getroot(), 'root'))
+        deps.append(Dependency(None, self.getroot(), "root"))
         return deps
 
     def _print_treelet(self, node: Form, indent: int, all_features: bool):
-        edge = '└─ ' if indent > 0 else ''
+        edge = "└─ " if indent > 0 else ""
         node_str = node.full_str(False) if all_features else str(node)
-        print(' ' * indent + edge + node('relation') + ' | ' + node_str)
+        print(" " * indent + edge + node("relation") + " | " + node_str)
 
         for child_node in list(node):
             self._print_treelet(child_node, indent + 4, all_features)
@@ -208,14 +223,14 @@ class DependencyTree(ElementTree):
         self._print_treelet(self.getroot(), indent=0, all_features=all_features)
 
     @staticmethod
-    def to_tree(sentence: stanfordnlp.pipeline.doc.Sentence) -> 'DependencyTree':
+    def to_tree(sentence: stanfordnlp.pipeline.doc.Sentence) -> "DependencyTree":
         """Factory method to create trees from stanfordnlp sentence parses."""
         forms = {}
         for word in sentence.words:
             forms[word.index] = Form.to_form(word)
 
         for word in sentence.words:
-            if word.dependency_relation == 'root':
+            if word.dependency_relation == "root":
                 root = forms[word.index]
             else:
                 gov = forms[str(word.governor)]
@@ -225,7 +240,7 @@ class DependencyTree(ElementTree):
         return DependencyTree(root)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # nlp = stanfordnlp.Pipeline()
     # doc = nlp(
     #     'In the summer of the Roman year 699, now described as the year '
@@ -235,7 +250,7 @@ if __name__ == '__main__':
     #
     # form
     f = Form
-    desc_form = f('described')
+    desc_form = f("described")
     print(type(desc_form))
     print(desc_form)
     # desc_form.set('Tense', 'Past')
@@ -273,7 +288,3 @@ if __name__ == '__main__':
     # t1.findall('.//*[@relation="obl"]')
     #
     # t1.findall('.//Gaul/*'), t1.find('.//Gaul/..'), t1.findall('.//*[@pos="NNP"]')
-
-
-
-
