@@ -25,7 +25,7 @@ script:
 - make typing
 - make lint
 - make uml
-# - make docs
+- make docs
 
 deploy:
   provider: pypi
