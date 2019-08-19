@@ -25,14 +25,15 @@ from collections import namedtuple
 import csv
 import os
 
-# Attributes come from Glottolog except type, which is from ISO 639-3 ("A": Ancient, "H": Historical)
+# Attributes come from Glottolog except type, which is from
+# ISO 639-3 ("A": Ancient, "H": Historical)
 Language = namedtuple(
     "Language", ["family_id", "parent_id", "name", "level", "iso639P3code", "type"]
 )
 
 # These are the Glottolog language descriptions which ISO calls Historical or Ancient.
 # This was produced by the script at the bottom of this file.
-iso_to_glottolog = {
+ISO_TO_GLOTTO = {
     "aghw1237": Language(
         family_id="nakh1245",
         parent_id="udia1235",
@@ -1695,8 +1696,6 @@ iso_to_glottolog = {
 def make_iso_glotto_map():
     """Generate above dict of ISO code to Glottolog data. Writes
     file to ``~/Downloads/cltk_langs.dict``.
-
-    >>> make_iso_glotto_map()
     """
     # Get ISO langs marked historical or ancient
     iso_fp = os.path.expanduser(
@@ -1723,7 +1722,10 @@ def make_iso_glotto_map():
     glottolog_csv = os.path.expanduser(
         "~/Downloads/glottolog_languoid.csv/languoid.csv"
     )
-    # ['id,family_id,parent_id,name,bookkeeping,level,latitude,longitude,iso639P3code,description,markup_description,child_family_count,child_language_count,child_dialect_count,country_ids']
+    # ['id,family_id,parent_id,name,bookkeeping,level,latitude,
+    # longitude,iso639P3code,description,markup_description,
+    # child_family_count,child_language_count,child_dialect_count,
+    # country_ids']
 
     glotto_dict = defaultdict(Language)
     with open(glottolog_csv) as file_open:
@@ -1774,4 +1776,4 @@ def make_iso_glotto_map():
 
 
 if __name__ == "__main__":
-    main()
+    make_iso_glotto_map()
