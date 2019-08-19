@@ -25,6 +25,9 @@ installPyPITest:
 lint:
 	mkdir pylint && pylint --output-format=json cltk > pylint/pylint.json || true && pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
+requirements:
+	pip install -r requirements-dev.txt
+
 test:
 	nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltk --with-doctest
 

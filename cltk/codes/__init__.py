@@ -1,1 +1,1 @@
-"""Init for `cltk.utils`."""
+"""Init for codes module."""
