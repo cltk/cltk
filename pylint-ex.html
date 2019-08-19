@@ -1,0 +1,1021 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Pylint report</title>
+        <meta charset="utf-8">
+        <meta name="description" content="auto generated pylint report from JSON">
+        <style type="text/css">
+        body {
+            padding: 1em;
+            margin: 0;
+            background-color: #fffffe;
+            font-family: sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.5em;
+            border: 1px solid #333333;
+        }
+        th {
+            background-color: #DCDCDC;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Pylint report</h1>
+
+        
+
+        <h2>Messages</h2>
+        
+        <h3>Module <code>cltk.codes.glottolog</code> (<code>cltk/codes/glottolog.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>duplicate-code</code></td>
+                <td>R0801</td>
+                <td></td>
+                <td>Similar lines in 2 files
+==cltk.nlp:124
+==cltk.wrappers.stanford:281
+    print(nlp_xen_anab_first_sent.tokens[0].index == &#34;1&#34;)
+    print(nlp_xen_anab_first_sent.tokens[0].text == &#34;Δαρείου&#34;)
+    first_word = nlp_xen_anab_first_sent.tokens[0].words[
+        0
+    ]  # &#39;dependency_relation&#39;, &#39;feats&#39;, &#39;governor&#39;, &#39;index&#39;, &#39;lemma&#39;, &#39;parent_token&#39;, &#39;pos&#39;, &#39;text&#39;, &#39;upos&#39;, &#39;xpos&#39;
+    print(first_word.dependency_relation == &#34;iobj&#34;)
+    print(first_word.feats == &#34;Case=Gen|Gender=Masc|Number=Sing&#34;)
+    print(first_word.governor == 4)
+    print(first_word.index == &#34;1&#34;)
+    print(first_word.lemma == &#34;Δαρεῖος&#34;)
+    print(first_word.pos == &#34;Ne&#34;)
+    print(first_word.text == &#34;Δαρείου&#34;)
+    print(first_word.upos == &#34;PROPN&#34;)
+    print(first_word.xpos == &#34;Ne&#34;)
+    # print(first_word.parent_token)  # &amp;lt;Token index=1;words=[&amp;lt;Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj&amp;gt;]&amp;gt;
+</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Module <code>cltk.dependency.stanford</code> (<code>cltk/dependency/stanford.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>104</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (109/100)</td>
+            </tr>
+            
+            <tr>
+                <td>156</td>
+                <td>16</td>
+                <td>warning</td>
+                <td><code>redefined-outer-name</code></td>
+                <td>W0621</td>
+                <td>Form.to_form</td>
+                <td>Redefining name &#39;f&#39; from outer scope (line 252)</td>
+            </tr>
+            
+            <tr>
+                <td>156</td>
+                <td>16</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td>Form.to_form</td>
+                <td>Variable name &#34;f&#34; doesn&#39;t conform to snake_case naming style</td>
+            </tr>
+            
+            <tr>
+                <td>203</td>
+                <td>70</td>
+                <td>convention</td>
+                <td><code>trailing-whitespace</code></td>
+                <td>C0303</td>
+                <td></td>
+                <td>Trailing whitespace</td>
+            </tr>
+            
+            <tr>
+                <td>219</td>
+                <td>59</td>
+                <td>convention</td>
+                <td><code>trailing-whitespace</code></td>
+                <td>C0303</td>
+                <td></td>
+                <td>Trailing whitespace</td>
+            </tr>
+            
+            <tr>
+                <td>220</td>
+                <td>61</td>
+                <td>convention</td>
+                <td><code>trailing-whitespace</code></td>
+                <td>C0303</td>
+                <td></td>
+                <td>Trailing whitespace</td>
+            </tr>
+            
+            <tr>
+                <td>238</td>
+                <td>16</td>
+                <td>warning</td>
+                <td><code>pointless-statement</code></td>
+                <td>W0104</td>
+                <td>DependencyTree.to_tree</td>
+                <td>Statement seems to have no effect</td>
+            </tr>
+            
+            <tr>
+                <td>252</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Class name &#34;f&#34; doesn&#39;t conform to PascalCase naming style</td>
+            </tr>
+            
+            <tr>
+                <td>253</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;desc_form&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Module <code>cltk.nlp</code> (<code>cltk/nlp.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+                <td>0</td>
+                <td>warning</td>
+                <td><code>unused-import</code></td>
+                <td>W0611</td>
+                <td></td>
+                <td>Unused List imported from typing</td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>too-few-public-methods</code></td>
+                <td>R0903</td>
+                <td>NLP</td>
+                <td>Too few public methods (0/2)</td>
+            </tr>
+            
+            <tr>
+                <td>35</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (210/100)</td>
+            </tr>
+            
+            <tr>
+                <td>105</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (350/100)</td>
+            </tr>
+            
+            <tr>
+                <td>107</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;cltk_nlp&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>108</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (202/100)</td>
+            </tr>
+            
+            <tr>
+                <td>108</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;xen_anab&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>110</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;nlp_xen_anab&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>110</td>
+                <td>19</td>
+                <td>warning</td>
+                <td><code>protected-access</code></td>
+                <td>W0212</td>
+                <td></td>
+                <td>Access to a protected member _parse_stanford of a client class</td>
+            </tr>
+            
+            <tr>
+                <td>113</td>
+                <td>10</td>
+                <td>convention</td>
+                <td><code>singleton-comparison</code></td>
+                <td>C0121</td>
+                <td></td>
+                <td>Comparison to True should be just &#39;expr&#39;</td>
+            </tr>
+            
+            <tr>
+                <td>123</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;nlp_xen_anab_first_sent&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>124</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (152/100)</td>
+            </tr>
+            
+            <tr>
+                <td>127</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;first_word&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>129</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (116/100)</td>
+            </tr>
+            
+            <tr>
+                <td>139</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (199/100)</td>
+            </tr>
+            
+            <tr>
+                <td>143</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;printed_dependencies&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Module <code>cltk.tokenizers.tokenizers</code> (<code>cltk/tokenizers/tokenizers.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>28</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>too-few-public-methods</code></td>
+                <td>R0903</td>
+                <td>TokenizeWord</td>
+                <td>Too few public methods (1/2)</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Module <code>cltk.utils.build_server</code> (<code>cltk/utils/build_server.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>12</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;ud_models_for_cltk&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Module <code>cltk.utils.utils</code> (<code>cltk/utils/utils.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>30</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>bad-continuation</code></td>
+                <td>C0330</td>
+                <td></td>
+                <td>Wrong hanging indentation before block (add 4 spaces).
+    input_dict: Dict[str, Any], ignore_keys: Optional[List[str]] = None
+    ^   |</td>
+            </tr>
+            
+            <tr>
+                <td>45</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (204/100)</td>
+            </tr>
+            
+            <tr>
+                <td>50</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (115/100)</td>
+            </tr>
+            
+            <tr>
+                <td>55</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (204/100)</td>
+            </tr>
+            
+            <tr>
+                <td>59</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (111/100)</td>
+            </tr>
+            
+            <tr>
+                <td>71</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (198/100)</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Module <code>cltk.wrappers.stanford</code> (<code>cltk/wrappers/stanford.py</code>)</h3>
+        <table>
+            <tr>
+                <th>Line</th>
+                <th>Col.</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>ID</th>
+                <th>Obj</th>
+                <th>Message</th>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>wrong-import-order</code></td>
+                <td>C0411</td>
+                <td></td>
+                <td>standard import &#34;from typing import Dict&#34; should be placed before &#34;import stanfordnlp&#34;</td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>wrong-import-order</code></td>
+                <td>C0411</td>
+                <td></td>
+                <td>standard import &#34;from typing import Optional&#34; should be placed before &#34;import stanfordnlp&#34;</td>
+            </tr>
+            
+            <tr>
+                <td>16</td>
+                <td>0</td>
+                <td>refactor</td>
+                <td><code>too-many-instance-attributes</code></td>
+                <td>R0902</td>
+                <td>StanfordNLPWrapper</td>
+                <td>Too many instance attributes (8/7)</td>
+            </tr>
+            
+            <tr>
+                <td>38</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (210/100)</td>
+            </tr>
+            
+            <tr>
+                <td>44</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (132/100)</td>
+            </tr>
+            
+            <tr>
+                <td>60</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (101/100)</td>
+            </tr>
+            
+            <tr>
+                <td>83</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (153/100)</td>
+            </tr>
+            
+            <tr>
+                <td>103</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (210/100)</td>
+            </tr>
+            
+            <tr>
+                <td>161</td>
+                <td>8</td>
+                <td>refactor</td>
+                <td><code>simplifiable-if-statement</code></td>
+                <td>R1703</td>
+                <td>StanfordNLPWrapper._is_model_present</td>
+                <td>The if statement can be replaced with &#39;return bool(test)&#39;</td>
+            </tr>
+            
+            <tr>
+                <td>161</td>
+                <td>8</td>
+                <td>refactor</td>
+                <td><code>no-else-return</code></td>
+                <td>R1705</td>
+                <td>StanfordNLPWrapper._is_model_present</td>
+                <td>Unnecessary &#34;else&#34; after &#34;return&#34;</td>
+            </tr>
+            
+            <tr>
+                <td>169</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (145/100)</td>
+            </tr>
+            
+            <tr>
+                <td>181</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (259/100)</td>
+            </tr>
+            
+            <tr>
+                <td>195</td>
+                <td>8</td>
+                <td>warning</td>
+                <td><code>unnecessary-pass</code></td>
+                <td>W0107</td>
+                <td>StanfordNLPWrapper._download_model</td>
+                <td>Unnecessary pass statement</td>
+            </tr>
+            
+            <tr>
+                <td>219</td>
+                <td>8</td>
+                <td>refactor</td>
+                <td><code>simplifiable-if-statement</code></td>
+                <td>R1703</td>
+                <td>StanfordNLPWrapper._is_valid_treebank</td>
+                <td>The if statement can be replaced with &#39;return bool(test)&#39;</td>
+            </tr>
+            
+            <tr>
+                <td>219</td>
+                <td>8</td>
+                <td>refactor</td>
+                <td><code>no-else-return</code></td>
+                <td>R1705</td>
+                <td>StanfordNLPWrapper._is_valid_treebank</td>
+                <td>Unnecessary &#34;else&#34; after &#34;return&#34;</td>
+            </tr>
+            
+            <tr>
+                <td>233</td>
+                <td>8</td>
+                <td>refactor</td>
+                <td><code>simplifiable-if-statement</code></td>
+                <td>R1703</td>
+                <td>StanfordNLPWrapper.is_wrapper_available</td>
+                <td>The if statement can be replaced with &#39;return bool(test)&#39;</td>
+            </tr>
+            
+            <tr>
+                <td>233</td>
+                <td>8</td>
+                <td>refactor</td>
+                <td><code>no-else-return</code></td>
+                <td>R1705</td>
+                <td>StanfordNLPWrapper.is_wrapper_available</td>
+                <td>Unnecessary &#34;else&#34; after &#34;return&#34;</td>
+            </tr>
+            
+            <tr>
+                <td>261</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;stanford_nlp_obj&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>264</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;stanford_nlp_obj&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>267</td>
+                <td>10</td>
+                <td>convention</td>
+                <td><code>singleton-comparison</code></td>
+                <td>C0121</td>
+                <td></td>
+                <td>Comparison to True should be just &#39;expr&#39;</td>
+            </tr>
+            
+            <tr>
+                <td>269</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;stanford_nlp_obj&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>272</td>
+                <td>10</td>
+                <td>convention</td>
+                <td><code>singleton-comparison</code></td>
+                <td>C0121</td>
+                <td></td>
+                <td>Comparison to True should be just &#39;expr&#39;</td>
+            </tr>
+            
+            <tr>
+                <td>273</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;fp_model&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>277</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (202/100)</td>
+            </tr>
+            
+            <tr>
+                <td>277</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;xen_anab&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>278</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;xen_anab_nlp&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>280</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;nlp_xen_anab_first_sent&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>281</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (152/100)</td>
+            </tr>
+            
+            <tr>
+                <td>284</td>
+                <td>4</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;first_word&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+            <tr>
+                <td>286</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (116/100)</td>
+            </tr>
+            
+            <tr>
+                <td>296</td>
+                <td>0</td>
+                <td>convention</td>
+                <td><code>line-too-long</code></td>
+                <td>C0301</td>
+                <td></td>
+                <td>Line too long (199/100)</td>
+            </tr>
+            
+            <tr>
+                <td>299</td>
+                <td>8</td>
+                <td>convention</td>
+                <td><code>invalid-name</code></td>
+                <td>C0103</td>
+                <td></td>
+                <td>Constant name &#34;stanford_nlp_obj_bad&#34; doesn&#39;t conform to UPPER_CASE naming style</td>
+            </tr>
+            
+        </table>
+        
+
+        <h2>Metrics</h2>
+        
+
+        <h3>Count per types</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+            
+            <tr>
+                <td>convention</td>
+                <td>51</td>
+            </tr>
+            
+            <tr>
+                <td>refactor</td>
+                <td>10</td>
+            </tr>
+            
+            <tr>
+                <td>warning</td>
+                <td>5</td>
+            </tr>
+            
+        </table>
+        
+
+        <h3>Count per messages</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+            
+            <tr>
+                <td>line-too-long</td>
+                <td>23</td>
+            </tr>
+            
+            <tr>
+                <td>too-few-public-methods</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>invalid-name</td>
+                <td>19</td>
+            </tr>
+            
+            <tr>
+                <td>protected-access</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>singleton-comparison</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>unused-import</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>too-many-instance-attributes</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>simplifiable-if-statement</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>no-else-return</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>unnecessary-pass</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>wrong-import-order</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>trailing-whitespace</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>redefined-outer-name</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>pointless-statement</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>bad-continuation</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>duplicate-code</td>
+                <td>1</td>
+            </tr>
+            
+        </table>
+        
+
+        <h3>Count per modules</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+            
+            <tr>
+                <td>cltk.nlp</td>
+                <td>16</td>
+            </tr>
+            
+            <tr>
+                <td>cltk.wrappers.stanford</td>
+                <td>32</td>
+            </tr>
+            
+            <tr>
+                <td>cltk.tokenizers.tokenizers</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>cltk.dependency.stanford</td>
+                <td>9</td>
+            </tr>
+            
+            <tr>
+                <td>cltk.utils.build_server</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>cltk.utils.utils</td>
+                <td>6</td>
+            </tr>
+            
+            <tr>
+                <td>cltk.codes.glottolog</td>
+                <td>1</td>
+            </tr>
+            
+        </table>
+        
+
+        <h3>Count per path</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+            
+            <tr>
+                <td>cltk/nlp.py</td>
+                <td>16</td>
+            </tr>
+            
+            <tr>
+                <td>cltk/wrappers/stanford.py</td>
+                <td>32</td>
+            </tr>
+            
+            <tr>
+                <td>cltk/tokenizers/tokenizers.py</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>cltk/dependency/stanford.py</td>
+                <td>9</td>
+            </tr>
+            
+            <tr>
+                <td>cltk/utils/build_server.py</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>cltk/utils/utils.py</td>
+                <td>6</td>
+            </tr>
+            
+            <tr>
+                <td>cltk/codes/glottolog.py</td>
+                <td>1</td>
+            </tr>
+            
+        </table>
+        
+
+    </body>
+</html>

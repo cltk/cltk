@@ -1,4 +1,4 @@
-black:
+format:
 	black cltk
 
 build:
