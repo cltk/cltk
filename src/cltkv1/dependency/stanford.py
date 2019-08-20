@@ -2,12 +2,9 @@
 
 __author__ = ["John Stewart <free-variation>"]
 
-from xml.etree.ElementTree import Element
-from xml.etree.ElementTree import ElementTree
-
 # from xml.etree.ElementTree import dump
-from typing import List
-from typing import Union
+from typing import List, Union
+from xml.etree.ElementTree import Element, ElementTree
 
 import stanfordnlp
 
@@ -144,7 +141,7 @@ class Form(Element):
         >>> xml_node
         possit_7/N3|modB|tem1|gen6|stAV
         >>> type(xml_node)
-        <class 'cltk.dependency.stanford.Form'>
+        <class 'cltkv1.dependency.stanford.Form'>
         """
         form = Form(word.text, form_id=word.index)
         form.set("lemma", word.lemma)

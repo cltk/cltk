@@ -3,14 +3,11 @@ About: https://github.com/stanfordnlp/stanfordnlp.
 """
 
 import os
+from typing import Dict, Optional
 
 import stanfordnlp  # type: ignore
-from typing import Dict
-from typing import Optional
 
-from cltk.utils.exceptions import UnknownLanguageError
-from cltk.utils import file_exists
-from cltk.utils import suppress_stdout
+from cltkv1.utils import UnknownLanguageError, file_exists, suppress_stdout
 
 
 class StanfordNLPWrapper:
@@ -41,7 +38,7 @@ class StanfordNLPWrapper:
         >>> stanford_nlp_obj_bad = StanfordNLPWrapper(language='BADLANG')
         Traceback (most recent call last):
           ...
-        cltk.utils.exceptions.UnknownLanguageError: Language 'BADLANG' either not in scope for CLTK or not supported by StanfordNLP.
+        cltkv1.utils.exceptions.UnknownLanguageError: Language 'BADLANG' either not in scope for CLTK or not supported by StanfordNLP.
         """
         self.language = language
         self.treebank = treebank

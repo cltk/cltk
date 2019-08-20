@@ -1,13 +1,9 @@
 """Module for commonly reused classes and functions."""
 
-from contextlib import contextmanager
 import os
 import sys
-
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
+from contextlib import contextmanager
+from typing import Any, Dict, List, Optional
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
