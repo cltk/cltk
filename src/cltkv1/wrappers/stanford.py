@@ -3,14 +3,11 @@ About: https://github.com/stanfordnlp/stanfordnlp.
 """
 
 import os
+from typing import Dict, Optional
 
 import stanfordnlp  # type: ignore
-from typing import Dict
-from typing import Optional
 
-from cltkv1.utils import UnknownLanguageError
-from cltkv1.utils import file_exists
-from cltkv1.utils import suppress_stdout
+from cltkv1.utils import UnknownLanguageError, file_exists, suppress_stdout
 
 
 class StanfordNLPWrapper:

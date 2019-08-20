@@ -2,12 +2,9 @@
 
 __author__ = ["John Stewart <free-variation>"]
 
-from xml.etree.ElementTree import Element
-from xml.etree.ElementTree import ElementTree
-
 # from xml.etree.ElementTree import dump
-from typing import List
-from typing import Union
+from typing import List, Union
+from xml.etree.ElementTree import Element, ElementTree
 
 import stanfordnlp
 

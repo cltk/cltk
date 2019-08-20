@@ -20,10 +20,9 @@ Jena: Max Planck Institute for the Science of Human History.
 (Available online at http://glottolog.org, Accessed on 2019-06-28.)
 """
 
-from collections import defaultdict
-from collections import namedtuple
 import csv
 import os
+from collections import defaultdict, namedtuple
 
 # Attributes come from Glottolog except type, which is from
 # ISO 639-3 ("A": Ancient, "H": Historical)
