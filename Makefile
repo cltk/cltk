@@ -28,7 +28,8 @@ requirements:
 	poetry update
 
 test:
-	poetry run nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltkv1 --with-doctest
+	# poetry run nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltkv1 --with-doctest
+	poetry run tox
 
 typing:
 	mypy --html-report .mypy_cache cltk

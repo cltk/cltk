@@ -152,6 +152,14 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "0.15.2"
 
 [[package]]
+category = "dev"
+description = "A platform independent file lock."
+name = "filelock"
+optional = false
+python-versions = "*"
+version = "3.0.12"
+
+[[package]]
 category = "main"
 description = "Clean single-source support for Python 3 and 2"
 name = "future"
@@ -626,6 +634,35 @@ future = "*"
 numpy = "*"
 
 [[package]]
+category = "dev"
+description = "tox is a generic virtualenv management and test command line tool"
+name = "tox"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.13.2"
+
+[package.dependencies]
+filelock = ">=3.0.0,<4"
+importlib-metadata = ">=0.12,<1"
+packaging = ">=14"
+pluggy = ">=0.12.0,<1"
+py = ">=1.4.17,<2"
+six = ">=1.0.0,<2"
+toml = ">=0.9.4"
+virtualenv = ">=14.0.0"
+
+[[package]]
+category = "dev"
+description = "tox plugin that makes tox use `pyenv which` to find python executables"
+name = "tox-pyenv"
+optional = false
+python-versions = "*"
+version = "1.1.0"
+
+[package.dependencies]
+tox = ">=2.0"
+
+[[package]]
 category = "main"
 description = "Fast, Extensible Progress Meter"
 name = "tqdm"
@@ -665,6 +702,14 @@ version = "1.25.3"
 
 [[package]]
 category = "dev"
+description = "Virtual Python Environment builder"
+name = "virtualenv"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "16.7.3"
+
+[[package]]
+category = "dev"
 description = "Measures number of Terminal column cells of wide-character codes"
 name = "wcwidth"
 optional = false
@@ -688,7 +733,7 @@ python-versions = ">=2.7"
 version = "0.5.2"
 
 [metadata]
-content-hash = "931f51f28a16299b1e497ad36ae20f97b9e972c2cd6530db280840a5e4ef12ea"
+content-hash = "6a2e48aa25a27decbc9d3ad525ee4f2c4de940ddfbb7df776ad1bbd4a3ddedc0"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -709,6 +754,7 @@ coverage = ["08907593569fe59baca0bf152c43f3863201efb6113ecb38ce7e97ce339805a6", 
 ddt = ["474546b4020ce8a2f9550ba8899c28aa2c284c7bbf175bddede98be949d1ca7c", "d13e6af8f36238e89d00f4ebccf2bda4f6d1878be560a6600689e42077e164e3"]
 decorator = ["86156361c50488b84a3f148056ea716ca587df2f0de1d34750d35c21312725de", "f069f3a01830ca754ba5258fde2278454a0b5b79e0d7f5c13b3b97e57d4acff6"]
 docutils = ["6c4f696463b79f1fb8ba0c594b63840ebd41f059e92b31957c46b74a4599b6d0", "9e4d7ecfc600058e07ba661411a2b7de2fd0fafa17d1a7f7361cd47b1175c827", "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"]
+filelock = ["18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59", "929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"]
 future = ["67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"]
 gitdb2 = ["83361131a1836661a155172932a13c08bda2db3674e4caa32368aa6eb02f38c2", "e3a0141c5f2a3f635c7209d56c496ebe1ad35da82fe4d3ec4aaa36278d70648a"]
 gitpython = ["259a8b6d6a4a118738c4a65fa990f8c8c91525bb43970aed2868952ebb86ceb8", "73aa7b59e58dd3435121421c33c284e5ef51bc7b2f4373e1a1e4cc06e9c928ec"]
@@ -755,10 +801,13 @@ sphinxcontrib-serializinghtml = ["c0efb33f8052c04fd7a26c0a07f1678e8512e0faec19f4
 stanfordnlp = ["66450f0b422e649e8b31f171260930b733324b000ebfe81c436328b424425902", "a8bd56dfef23cbb1e1c461469ac5bdd4563c24f360befe300a7d97cb51b49a49"]
 toml = ["229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c", "235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e", "f1db651f9657708513243e61e6cc67d101a39bad662eaa9b5546f789338e07a3"]
 torch = ["0698d0a48014b9b8f36d93e69901eca2e7ec712cd2033908f7a77e7d86a4f0d7", "2ac8e58b069232f079bd289aa160366a9367ae1a4616a2c1007dceed19ff9bfa", "43a0e28c448ddeea65fb9e956bc743389592afac824095bdbc08e8a87364c639", "661ad06b4616663149bd504e8c0271196d0386712e21a92619d95ba88138794a", "880a0c22692eaebbce808a5bf2255ab7d345ab43c40795be0a421c6250ba0fb4", "a13bf6f78a49d844b85c142b8cd62d2e1833a11ed21ea0bc6b1ac73d24c76415", "a8c21f82fd03b67927078ea917040478c3263753fe1906fc19d0f5f0c7d9aa10", "b87fd224a7de3bc01ce87eb947698797b4514e27115b0aa60a56991515dd9dd6", "f63d489c54b4f170ce8335727bbb196ceb9acd0e7805477bbef8fabc914bc0f9"]
+tox = ["dab0b0160dd187b654fc33d690ee1d7bf328bd5b8dc6ef3bb3cc468969c659ba", "ee35ffce74933a6c6ac10c9a0182e41763140a5a5070e21b114feca56eaccdcd"]
+tox-pyenv = ["916c2213577aec0b3b5452c5bfb32fd077f3a3196f50a81ad57d7ef3fc2599e4", "e470c18af115fe52eeff95e7e3cdd0793613eca19709966fc2724b79d55246cb"]
 tqdm = ["438d6a735167099d75e5fd9a55175c6727c4dbba345ae406b2886c2728fe3e80", "ebc205051d79b49989140f5f6c73ec23fce5f590cbc4d9cd6e4c47f168fa0f10"]
 traitlets = ["9c4bd2d267b7153df9152698efb1050a5d84982d3384a37b2c1f7723ba3e7835", "c6cb5e6f57c5a9bdaa40fa71ce7b4af30298fbab9ece9815b5d995ab6217c7d9"]
 typed-ast = ["18511a0b3e7922276346bcb47e2ef9f38fb90fd31cb9223eed42c85d1312344e", "262c247a82d005e43b5b7f69aff746370538e176131c32dda9cb0f324d27141e", "2b907eb046d049bcd9892e3076c7a6456c93a25bebfe554e931620c90e6a25b0", "354c16e5babd09f5cb0ee000d54cfa38401d8b8891eefa878ac772f827181a3c", "4e0b70c6fc4d010f8107726af5fd37921b666f5b31d9331f0bd24ad9a088e631", "630968c5cdee51a11c05a30453f8cd65e0cc1d2ad0d9192819df9978984529f4", "66480f95b8167c9c5c5c87f32cf437d585937970f3fc24386f313a4c97b44e34", "71211d26ffd12d63a83e079ff258ac9d56a1376a25bc80b1cdcdf601b855b90b", "95bd11af7eafc16e829af2d3df510cecfd4387f6453355188342c3e79a2ec87a", "bc6c7d3fa1325a0c6613512a093bc2a2a15aeec350451cbdf9e1d4bffe3e3233", "cc34a6f5b426748a507dd5d1de4c1978f2eb5626d51326e43280941206c209e1", "d755f03c1e4a51e9b24d899561fec4ccaf51f210d52abdf8c07ee2849b212a36", "d7c45933b1bdfaf9f36c579671fec15d25b06c8398f113dab64c18ed1adda01d", "d896919306dd0aa22d0132f62a1b78d11aaf4c9fc5b3410d3c666b818191630a", "ffde2fbfad571af120fcbfbbc61c72469e72f550d676c3342492a9dfdefb8f12"]
 urllib3 = ["b246607a25ac80bedac05c6f282e3cdaf3afb65420fd024ac94435cabe6e18d1", "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"]
+virtualenv = ["5e4d92f9a36359a745ddb113cabb662e6100e71072a1e566eb6ddfcc95fdb7ed", "b6711690882013bc79e0eac55889d901596f0967165d80adfa338c5729db1c71"]
 wcwidth = ["3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e", "f4ebe71925af7b40a864553f761ed559b43544f8f71746c2d756c7fe788ade7c"]
 wrapt = ["565a021fd19419476b9362b05eeaa094178de64f8361e44468f9e9d7843901e1"]
 zipp = ["4970c3758f4e89a7857a973b1e2a5d75bcdc47794442f2e2dd4fe8e0466e809a", "8a5712cfd3bb4248015eb3b0b3c54a5f6ee3f2425963ef2a0125b8bc40aafaec"]
