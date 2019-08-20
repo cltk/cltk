@@ -1776,4 +1776,4 @@ def make_iso_glotto_map():
 
 
 if __name__ == "__main__":
-    make_iso_glotto_map()
+    make_iso_glotto_map()  # pragma: no cover

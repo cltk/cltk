@@ -144,7 +144,7 @@ class Form(Element):
         >>> xml_node
         possit_7/N3|modB|tem1|gen6|stAV
         >>> type(xml_node)
-        <class 'cltk.dependency.stanford.Form'>
+        <class 'cltkv1.dependency.stanford.Form'>
         """
         form = Form(word.text, form_id=word.index)
         form.set("lemma", word.lemma)
