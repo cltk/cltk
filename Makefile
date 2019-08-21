@@ -10,11 +10,9 @@ develop:
 docs:
 	poetry run sphinx-apidoc -f -o docs src/cltkv1 && cd docs && poetry run make html && cd ..
 
-freeze:
-	# Equivalent of ``pip uninstall -y cltk && pip freeze > requirements-dev.txt``
-	poetry update
-
 install:
+	# Equivalent of ``python setup.py install``
+	# Equivalent of ``pip install -r requirements.txt``
 	poetry install
 
 installPyPITest:
@@ -23,16 +21,17 @@ installPyPITest:
 lint:
 	mkdir pylint && poetry run pylint --output-format=json cltkv1 > pylint/pylint.json || true && poetry run pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
-requirements:
-	# Equivalent of ``pip install -r requirements.txt``
-	poetry update
-
 test:
 	# poetry run nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --cover-package=cltkv1 --with-doctest
 	poetry run tox
 
 typing:
 	mypy --html-report .mypy_cache cltk
+
+updateDependencies:
+	# Installs the packages installed with ``poetry add <package-name>`` and entered into ``pyproject.toml``
+	# Equivalent of ``pip install -r requirements.txt``
+	poetry update
 
 uml:
 	cd docs && pyreverse -o png ../cltk
