@@ -748,38 +748,68 @@ If you have access to the TLG or PHI5 disc, and have already imported it and con
 Word tokenization
 =================
 
-The NLTK offers several methods for word tokenization. The CLTK Tokenize module offers "TreebankWordTokenizer" as a default multilingual word tokenizer.
+The CLTK wraps one of the NLTK's tokenizers (``TreebankWordTokenizer``), which with the ``multilingual`` parameter works for most languages that use Latin-style whitespace and punctuation to indicate word division. There are some language-specific tokenizers, too, which do extra work to subdivide words when they are combined into one string (e.g., "armaque" in Latin). See ``WordTokenizer.available_languages`` for supported languages for such sub-string tokenization.
 
 .. code-block:: python
 
-   In [1]: from cltk.tokenze.word('multilingual')
+   In [1]: from cltk.tokenize.word import WordTokenizer
 
-   In [2]: s = """Anna soror, quae me suspensam insomnia terrent! Quis novus hic nostris successit sedibus hospes."""
+   In [2]: tok.available_languages
+   Out[2]:
+   ['akkadian',
+    'arabic',
+    'french',
+    'greek',
+    'latin',
+    'middle_english',
+    'middle_french',
+    'middle_high_german',
+    'old_french',
+    'old_norse',
+    'sanskrit',
+    'multilingual']
 
-   In [3]: t = WordTokenizer('multilingual')
+   In [3]: luke_ocs = "рєчє жє притъчѫ к н҄имъ глагол҄ѧ чловѣкѹ єтєрѹ богатѹ ѹгобьѕи сѧ н҄ива"
 
-   In [4]: t.tokenize(s)
-   Out[4]:
-   ['Anna', 'soror', ',', 'quae', 'me', 'suspensam', 'insomnia', 'terrent', '!', 'Quis', 'novus', 'hic', 'nostris', 'successit', 'sedibus', 'hospes', '.']
+   In [4]: tok = WordTokenizer(language='multilingual')
 
-If ``PunktLanguageVars`` doesn't suit your tokenization needs, consider another tokenizer from the NLTK, which breaks on any other regular expression pattern you choose. Here, for instance, on whitespace word breaks:
+   In [5]: tok.tokenize(luke_ocs)
+   Out[5]:
+   ['рєчє',
+    'жє',
+    'притъчѫ',
+    'к',
+    'н҄имъ',
+    'глагол҄ѧ',
+    'чловѣкѹ',
+    'єтєрѹ',
+    'богатѹ',
+    'ѹгобьѕи',
+    'сѧ',
+    'н҄ива']
+
+If this default does not work for your texts, consider the NLTK's ``RegexpTokenizer``, which splits on a regular expression patterns of your choosing. Here, for instance, on whitespace and punctuation:
 
 .. code-block:: python
 
-   In [7]: from nltk.tokenize import RegexpTokenizer
+   In [6]: from nltk.tokenize import RegexpTokenizer
 
-   In [8]: word_breaks = RegexpTokenizer(r'\w+')
+   In [7]: word_toker = RegexpTokenizer(r'\w+')
 
-   In [8]: tokens = word_breaks.tokenize(cleaned)
-
-   In [9]: tokens[:10]
-   Out[9]: ['Arma',
-    'uirumque',
-    'cano',
-    'Troiae',
-    'qui',
-    'primus',
-    'ab',
-    'oris',
-    'Italiam',
-    'fato']
+   In [8]: word_toker.tokenize(luke_ocs)
+   Out[8]:
+   ['рєчє',
+    'жє',
+    'притъчѫ',
+    'к',
+    'н',
+    'имъ',
+    'глагол',
+    'ѧ',
+    'чловѣкѹ',
+    'єтєрѹ',
+    'богатѹ',
+    'ѹгобьѕи',
+    'сѧ',
+    'н',
+    'ива']
