@@ -30,7 +30,7 @@ include = []
 exclude = []
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 gitpython = "^3.0"
 stanfordnlp = "^0.2.0"
 
@@ -44,6 +44,8 @@ coverage = "^4.5"
 black = {version = "^18.3-alpha.0", allows-prereleases = true}
 pylint-json2html = "^0.1.0"
 isort = "^4.3"
+tox = "^3.13"
+tox-pyenv = "^1.1"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
