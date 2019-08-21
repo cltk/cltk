@@ -48,6 +48,5 @@ tox = "^3.13"
 tox-pyenv = "^1.1"
 pytest-cov = "^2.7"
 [build-system]
-requires = ["poetry>=0.12", "rtd-poetry"]
-build-backend = "rtd_poetry"
-#build-backend = "poetry.masonry.api"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
