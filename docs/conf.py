@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Classical Language Toolkit"
+project = "The Classical Language Toolkit"
 copyright = '2019, "Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
 author = '"Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
 
