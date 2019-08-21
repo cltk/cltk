@@ -29,8 +29,6 @@ typing:
 	mypy --html-report .mypy_cache cltk
 
 updateDependencies:
-	# Installs the packages installed with ``poetry add <package-name>`` and entered into ``pyproject.toml``
-	# Equivalent of ``pip install -r requirements.txt``
 	poetry update
 
 uml:
