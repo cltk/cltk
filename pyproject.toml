@@ -50,9 +50,5 @@ pytest-cov = "^2.7"
 rtd-poetry = "^0.1.0"
 
 [build-system]
-requires = ["poetry>=0.12", "rtd-poetry"]
-# ^ Temporary workaround because RTD doesn't support poetry builds yet
-# https://github.com/chrahunt/rtd-poetry/
-# default for build-backend is "poetry.masonry.api"
-#build-backend = "poetry.masonry.api"
-build-backend = "rtd_poetry"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
