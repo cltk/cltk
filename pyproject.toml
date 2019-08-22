@@ -47,6 +47,12 @@ isort = "^4.3"
 tox = "^3.13"
 tox-pyenv = "^1.1"
 pytest-cov = "^2.7"
+rtd-poetry = "^0.1.0"
+
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry>=0.12", "rtd-poetry"]
+# ^ Temporary workaround because RTD doesn't support poetry builds yet
+# https://github.com/chrahunt/rtd-poetry/
+# default for build-backend is "poetry.masonry.api"
+#build-backend = "poetry.masonry.api"
+build-backend = "rtd_poetry"
