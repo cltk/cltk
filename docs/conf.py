@@ -13,8 +13,8 @@
 import os
 import sys
 print('* ' * 88)
-print(os.path.abspath("../src/cltkv1"))
-sys.path.insert(0, os.path.abspath("../src/cltkv1"))
+print(os.path.abspath("../src/"))
+sys.path.insert(0, os.path.abspath("../src/"))
 print('* ' * 88)
 
 
