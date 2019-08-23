@@ -1,6 +1,3 @@
-format:
-	poetry run black src/cltkv1 tests docs
-
 build:
 	poetry build
 
@@ -9,6 +6,9 @@ develop:
 
 docs:
 	poetry run sphinx-apidoc -f -o docs src/cltkv1 && cd docs && poetry run make html && cd ..
+
+format:
+	isort --recursive . && poetry run black src/cltkv1 tests docs
 
 install:
 	# Equivalent of ``python setup.py install``
@@ -32,7 +32,7 @@ updateDependencies:
 	poetry update
 
 uml:
-	cd docs && pyreverse -o png ../cltk
+	cd docs && poetry run pyreverse -o png ..src/cltkv1
 
 upload:
 	poetry publish
