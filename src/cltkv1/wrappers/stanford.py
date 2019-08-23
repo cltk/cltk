@@ -6,7 +6,6 @@ import os
 from typing import Dict, Optional
 
 import stanfordnlp  # type: ignore
-
 from cltkv1.utils import UnknownLanguageError, file_exists, suppress_stdout
 
 
