@@ -8,8 +8,10 @@ python:
 script:
   - pip install --upgrade pip
   - pip install poetry
+  - poetry update
   - poetry install -v
   - pip install pre-commit
   - pre-commit install-hooks
   - pre-commit run --all-files
-  - make test
+#   - make test
+  - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests
