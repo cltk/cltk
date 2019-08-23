@@ -1,14 +1,14 @@
 """Script for provisioning build server.
 
-Use: `$ python cltk/utils/build_server.py`
+Use: `$ python cltk/utils/download.py`
 """
 
 import os
 
 from stanfordnlp.utils.resources import download  # type: ignore
 
-if __name__ == "__main__":
 
+def stanford():
     ud_models_for_cltk = [
         "grc_perseus",
         "grc_proiel",
@@ -26,3 +26,7 @@ if __name__ == "__main__":
             confirm_if_exists=True,
             force=True,
         )
+
+
+if __name__ == "__main__":
+    stanford()
