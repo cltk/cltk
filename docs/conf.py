@@ -30,6 +30,9 @@ release = "1.0.0a1"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+#
+# TODO: Decide which of these are necessary
+#
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
