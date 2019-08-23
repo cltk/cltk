@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert('src/cltkv1')
+sys.path.insert(0, 'src/cltkv1')
 # sys.path.insert(0, os.path.abspath('.'))
 
 
