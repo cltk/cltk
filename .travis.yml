@@ -1,18 +1,34 @@
 language: python
+
 python:
   - "3.6"
   - "3.7"
   - "3.8-dev"
 
-# command to install dependencies
-script:
+cache:
+  - pip
+  - /home/travis/stanfordnlp_resources/
+
+# TODO: Improve the order of these
+before_install:
   - pip install --upgrade pip
   - pip install poetry
-  - poetry update
-  - poetry install -v
   - pip install pre-commit
+  - poetry update
+  - poetry run python src/cltkv1/utils/build_server.py
+
+install:
+  - poetry install -v
+
+before_script:
   - pre-commit install-hooks
   - pre-commit run --all-files
-#   - make test
-  - poetry run python src/cltkv1/utils/build_server.py
+
+script:
   - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests
+
+after_success:
+  - echo Add later
+
+after_failure:
+  - echo Add later
