@@ -14,4 +14,5 @@ script:
   - pre-commit install-hooks
   - pre-commit run --all-files
 #   - make test
+  - poetry run python src/cltkv1/utils/build_server.py
   - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests
