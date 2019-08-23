@@ -107,12 +107,12 @@ class StanfordNLPWrapper:
         >>> nlp_xen_anab_first_sent.tokens[0].text
         'Δαρείου'
         >>> first_word = nlp_xen_anab_first_sent.tokens[0].words[0]
-        >>> first_word.dependency_relation
-        'iobj'
+        >>> first_word.dependency_relation  # was 'iobj' did the model change?
+        'nmod'
         >>> first_word.feats
         'Case=Gen|Gender=Masc|Number=Sing'
-        >>> first_word.governor
-        4
+        >>> first_word.governor  # was 4 on local, due to model update?
+        5
         >>> first_word.index
         '1'
         >>> first_word.lemma
