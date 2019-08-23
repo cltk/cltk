@@ -10,27 +10,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
-# sys.path.insert(0, os.path.abspath('.'))
-abs_path = os.path.abspath('../src')
-sys.path.insert(0, os.path.abspath('../src'))
-print('* ' * 88)
-print(os.listdir(abs_path))
-print('* ' * 88)
-
-# -- Project information -----------------------------------------------------
+# import os
 # import sys
-from unittest.mock import MagicMock
+# sys.path.insert(0, os.path.abspath('.'))
 
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-        return MagicMock()
-
-MOCK_MODULES = ['stanfordnlp', 'pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas']
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
-# -----------------------------------------------------------------------------
 
 # -- Project information -----------------------------------------------------
 
@@ -47,7 +30,18 @@ release = "1.0.0a1"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx.ext.autodoc"]
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.doctest",
+    "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon.
+    "sphinx.ext.autosummary",
+    "sphinx.ext.coverage",
+    "sphinx.ext.extlinks",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
