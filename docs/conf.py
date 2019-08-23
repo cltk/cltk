@@ -19,6 +19,18 @@ print('* ' * 88)
 print(os.listdir(abs_path))
 print('* ' * 88)
 
+# -- Project information -----------------------------------------------------
+# import sys
+from unittest.mock import MagicMock
+
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+        return MagicMock()
+
+MOCK_MODULES = ['stanfordnlp', 'pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas']
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+# -----------------------------------------------------------------------------
 
 # -- Project information -----------------------------------------------------
 
