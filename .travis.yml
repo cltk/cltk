@@ -3,9 +3,13 @@ python:
   - "3.6"
   - "3.7"
   - "3.8-dev"
+
 # command to install dependencies
-install:
-  - poetry build && poetry install
-# command to run tests
 script:
+  - pip install --upgrade pip
+  - pip install poetry
+  - poetry install -v
+  - pip install pre-commit
+  - pre-commit install-hooks
+  - pre-commit run --all-files
   - make test
