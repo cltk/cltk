@@ -111,8 +111,8 @@ class StanfordNLPWrapper:
         'nmod'
         >>> first_word.feats
         'Case=Gen|Gender=Masc|Number=Sing'
-        >>> first_word.governor
-        4
+        >>> first_word.governor  # was 4 on local, due to model update?
+        5
         >>> first_word.index
         '1'
         >>> first_word.lemma
