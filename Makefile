@@ -11,8 +11,7 @@ format:
 	isort --recursive . && poetry run black src/cltkv1 tests docs
 
 install:
-	# Equivalent of ``python setup.py install``
-	# Equivalent of ``pip install -r requirements.txt``
+	# Equivalent of ``pip install -r requirements.txt && python setup.py install``
 	poetry install
 
 installPyPITest:
@@ -32,6 +31,7 @@ typing:
 	poetry run mypy --html-report .mypy_cache src/cltkv1
 
 updateDependencies:
+	# Equivalent of ``pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U``
 	poetry update
 
 uml:
