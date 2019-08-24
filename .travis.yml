@@ -1,9 +1,9 @@
 language: python
 
 python:
-  - "3.6"
+#   - "3.6"
   - "3.7"
-  - "3.8-dev"
+#   - "3.8-dev"
 
 cache:
   - pip
@@ -13,7 +13,7 @@ cache:
 before_install:
   - pip install --upgrade pip
   - pip install poetry
-  - pip install pre-commit
+#   - pip install pre-commit
   - poetry update
   - poetry run python src/cltkv1/utils/download.py
 
@@ -21,9 +21,8 @@ install:
   - poetry install -v
 
 before_script:
-  - poetry run pre-commit install-hooks
-  - poetry run pre-commit run --all-files || true
-  - cat /home/travis/.cache/pre-commit/pre-commit.log
+#   - poetry run pre-commit install-hooks
+#   - poetry run pre-commit run --all-files
 
 script:
   - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests
