@@ -28,6 +28,22 @@ cltkv1.stopwords.chinese module
    :undoc-members:
    :show-inheritance:
 
+cltkv1.stopwords.create module
+------------------------------
+
+.. automodule:: cltkv1.stopwords.create
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltkv1.stopwords.filters module
+-------------------------------
+
+.. automodule:: cltkv1.stopwords.filters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltkv1.stopwords.french module
 ------------------------------
 

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "cltkv1"
-version = "1.0.0a2"
-description = "Classical Language Toolkit"
+version = "1.0.0a5"
+description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>"]
 readme = "README.rst"
@@ -26,8 +26,11 @@ classifiers = [
     'Topic :: Text Processing :: General',
     'Topic :: Text Processing :: Linguistic',
 ]
-include = []
-exclude = []
+#packages = [
+#    { include = "cltkv1", from = "src" },
+#]
+#include = []
+#exclude = []
 
 [tool.poetry.dependencies]
 python = "^3.6"

@@ -11,7 +11,7 @@ format:
 	isort --recursive . && poetry run black src/cltkv1 tests docs
 
 install:
-	# Equivalent of ``pip install -r requirements.txt && python setup.py install``
+	# Equivalent of ``python setup.py install``
 	poetry install
 
 installPyPITest:
