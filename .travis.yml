@@ -5,9 +5,6 @@ python:
   - "3.7"
   - "3.8-dev"
 
-allow_failures:
-  - python: "3.8-dev"
-
 cache:
   - pip
   - /home/travis/stanfordnlp_resources/
