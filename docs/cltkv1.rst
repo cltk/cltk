@@ -8,6 +8,7 @@ Subpackages
 
    cltkv1.codes
    cltkv1.dependency
+   cltkv1.stopwords
    cltkv1.tokenizers
    cltkv1.utils
    cltkv1.wrappers
