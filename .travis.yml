@@ -15,7 +15,7 @@ before_install:
   - pip install poetry
   - pip install pre-commit
   - poetry update
-  - poetry run python src/cltkv1/utils/build_server.py
+  - poetry run python src/cltkv1/utils/download.py
 
 install:
   - poetry install -v

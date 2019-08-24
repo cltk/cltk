@@ -4,10 +4,10 @@ cltkv1.utils package
 Submodules
 ----------
 
-cltkv1.utils.build\_server module
----------------------------------
+cltkv1.utils.download module
+----------------------------
 
-.. automodule:: cltkv1.utils.build_server
+.. automodule:: cltkv1.utils.download
    :members:
    :undoc-members:
    :show-inheritance:
