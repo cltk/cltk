@@ -24,8 +24,8 @@ install:
   - poetry install -v
 
 before_script:
-  - pre-commit install-hooks
-  - pre-commit run --all-files
+  - poetry run pre-commit install-hooks
+  - poetry run pre-commit run --all-files
 
 script:
   - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests
