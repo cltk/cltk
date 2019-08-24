@@ -4,12 +4,11 @@ Use: `$ python cltk/utils/download.py`
 """
 
 import os
-import sys
 
 from stanfordnlp.utils.resources import download  # type: ignore
 
 
-def stanford(force_update=False):
+def stanford(force_update=True):
     ud_models_for_cltk = [
         "grc_perseus",
         "grc_proiel",
@@ -33,8 +32,4 @@ def stanford(force_update=False):
 
 
 if __name__ == "__main__":
-    source = sys.argv[1]
-    if source == "stanford":
-        stanford()
-    else:
-        raise ValueError(f"Downloader unknown or not available for '{source}'.")
+    stanford()
