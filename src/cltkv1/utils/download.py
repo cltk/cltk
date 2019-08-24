@@ -4,11 +4,12 @@ Use: `$ python cltk/utils/download.py`
 """
 
 import os
+import sys
 
 from stanfordnlp.utils.resources import download  # type: ignore
 
 
-def stanford():
+def stanford(force_update=False):
     ud_models_for_cltk = [
         "grc_perseus",
         "grc_proiel",
@@ -19,14 +20,21 @@ def stanford():
         "fro_srcmf",  # Old French
     ]
 
+    stanford_dir = os.path.expanduser("~/stanfordnlp_resources/")
+    if os.path.isdir(stanford_dir) and not force_update:
+        return
     for model in ud_models_for_cltk:
         download(
             download_label=model,
-            resource_dir=os.path.expanduser("~/stanfordnlp_resources/"),
+            resource_dir=stanford_dir,
             confirm_if_exists=True,
-            force=True,
+            force=force_update,
         )
 
 
 if __name__ == "__main__":
-    stanford()
+    source = sys.argv[1]
+    if source == "stanford":
+        stanford()
+    else:
+        raise ValueError(f"Downloader unknown or not available for '{source}'.")
