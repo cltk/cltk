@@ -45,9 +45,6 @@ class NLP:
     [[103, 104], [154, 155]]
     >>> john_text_analyzed.indices_tokens[0:3]
     [[0, 5], [6, 11], [13, 20]]
-    >>> tokens = cltk_nlp.get_tokens(analyzed_text=john_text_analyzed)
-    >>> tokens[0:3]
-    ['Τοῦτο', 'εἰπὼν', 'ᾐνίξατο']
     """
 
     def __init__(self, language: str, pipeline: List[str] = None) -> None:
@@ -94,6 +91,10 @@ class NLP:
             idx_word_start, idx_word_stop = word_match.span()
             indices_words.append([idx_word_start, idx_word_stop])
 
+        # TODO: create and return list of tokens using Word
+
+        # TODO: Maybe delete _get_tokens()
+
         # Populate the main object returned by this class
         text = Text(
             indices_sentences=indices_sentences,
@@ -103,13 +104,13 @@ class NLP:
         )
         return text
 
-    def get_tokens(self, analyzed_text: Text):
+    def _get_tokens(self, analyzed_text: Text):
         """Using the pre-processed Text object, return list of token strings.
 
         >>> cltk_nlp = NLP(language='latin')
         >>> galileo_sidereus = "Preclarum sane atque humanitatis plenum eorum fuit institutum, qui excellentium virtute virorum res preclare gestas ab invidia tutari, eorumque immortalitate digna nomina ab oblivione atque interitu vindicare, conati sunt. Hinc ad memoriam posteritatis prodite imagines, vel marmore insculpte, vel ex ere ficte; hinc posite statue, tam pedestres, quam equestres; hinc columnarum atque pyramidum, ut inquit ille, sumptus ad sidera ducti; hinc denique urbes edificate, eorumque insignite nominibus, quos grata posteritas eternitati commendandos existimavit. Eiusmodi est enim humane mentis conditio, ut nisi assiduis rerum simulacris in eam extrinsecus irrumpentibus pulsetur, omnis ex illa recordatio facile effluat."
         >>> analyzed_text = cltk_nlp.analyze(galileo_sidereus)
-        >>> tokens = cltk_nlp.get_tokens(analyzed_text=analyzed_text)
+        >>> tokens = cltk_nlp._get_tokens(analyzed_text=analyzed_text)
         >>> tokens[0:3]
         ['Preclarum', 'sane', 'atque']
         """
