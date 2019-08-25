@@ -26,6 +26,7 @@ from collections import defaultdict, namedtuple
 
 # Attributes come from Glottolog except type, which is from
 # ISO 639-3 ("A": Ancient, "H": Historical)
+# TODO: Ch this to a dataclass
 Language = namedtuple(
     "Language", ["family_id", "parent_id", "name", "level", "iso639P3code", "type"]
 )
