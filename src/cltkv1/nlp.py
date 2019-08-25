@@ -1,52 +1,17 @@
 """Primary module for CLTK pipeline."""
 
 import re
-from dataclasses import dataclass, field
 from typing import List
 
-from cltkv1.tokenizers import TokenizeWord
-from cltkv1.wrappers import StanfordNLPWrapper
+from cltkv1.tokenizers.tokenizers import (
+    _dummy_get_sentence_indices,
+    _dummy_get_token,
+    _dummy_get_token_indices,
+)
+from cltkv1.utils.cltk_dataclasses import Text
+from cltkv1.utils.pipelines import GenericPipeline, LatinPipeline
 
-# The idea behind this namedtuple is that one of these will be implemented for each token in the NLP object.
-# It will be held in a list. From this,
-# TODO: Fill out more attributes to this
-
-
-@dataclass
-class Word:
-    """Contains attributes of each processed word in a list of tokens. To be used most often in the ``Text.tokens`` dataclass."""
-
-    index_char_start: int = None
-    index_char_stop: int = None
-    index_token: int = None
-    index_sentence: int = None
-    string: str = None
-    pos: str = None
-    scansion: str = None
-
-
-@dataclass
-class Text:
-    """The object returned to the user from the ``NLP()`` class. Contains overall attributes of submitted texts, plus (probably) most importantly the processed tokenized text ``tokens``, being a list of ``Word`` types.."""
-
-    indices_sentences: List[List[int]] = None
-    indices_tokens: List[List[int]] = None
-    language: str = None
-    tokens: List[Word] = None
-    pipeline: List[str] = None
-    raw: str = None
-
-    def get_raw_tokens(self):
-        """Return list of string tokens.
-
-        >>> cltk_nlp = NLP(language='greek')
-        >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας τοῦ τὰ ἐλάσσονα λαμβάνειν, καὶ κυρίους, εἰ βούλοιντο, τοῦ τὰ μείζονα. Ἔστι δὲ πολὺ μείζων ἡ ἀγάπη πάντων τῶν χαρισμάτων."
-        >>> john_text_analyzed = cltk_nlp.analyze(john_damascus_corinth)
-        >>> str_tokens = john_text_analyzed.get_raw_tokens()
-        >>> str_tokens[0:3]
-        ['Τοῦτο', 'εἰπὼν', 'ᾐνίξατο']
-        """
-        return [word.string for word in self.tokens]
+# from cltkv1.wrappers import StanfordNLPWrapper
 
 
 class NLP:
@@ -65,7 +30,7 @@ class NLP:
     [[0, 5], [6, 11], [13, 20]]
     """
 
-    def __init__(self, language: str, pipeline: List[str] = None) -> None:
+    def __init__(self, language: str, custom_pipeline: List[str] = None) -> None:
         """Constructor for CLTK class.
 
         >>> cltk_nlp = NLP(language='greek')
@@ -73,12 +38,22 @@ class NLP:
         True
         """
         self.language = language
-        if not pipeline:
+        self.custom_pipeline = custom_pipeline
+        self.pipeline = self._get_pipeline(self.custom_pipeline)
+
+    def _get_pipeline(self, custom_pipeline=None):
+        """Select appropriate pipeline for given language. If custom
+        processing is requested, ensure that user-selected choices
+        are valid, both in themselves and in unison.
+        """
+        if not custom_pipeline:
             # look up default pipeline for given language
-            self.pipeline = pipeline
+            if self.language == "latin":
+                self.pipeline = LatinPipeline
+            self.pipeline = GenericPipeline
         else:
             # confirm that user-defined pipeline is possible
-            self.pipeline = pipeline
+            raise NotImplementedError("Custom pipelines not implemented yet.")
 
     def analyze(self, text: str) -> Text:
         """The primary method for the NLP object, to which raw text strings are passed.
@@ -97,34 +72,10 @@ class NLP:
         >>> analyzed_text.tokens[0]
         Word(index_char_start=0, index_char_stop=9, index_token=0, index_sentence=None, string='Preclarum', pos=None, scansion=None)
         """
-        # Get the stops/start char indices of where sentences begin and end
-        indices_sentences = list()
-        pattern_sentence = re.compile(r"\.")
-        for sentence_match in pattern_sentence.finditer(string=text):
-            idx_sentence_start, idx_sentence_stop = sentence_match.span()
-            indices_sentences.append([idx_sentence_start, idx_sentence_stop])
 
-        # Get the start/stop char indices of word boundaries
-        indices_words = list()
-        pattern_word = re.compile(r"\w+")
-        for word_match in pattern_word.finditer(string=text):
-            idx_word_start, idx_word_stop = word_match.span()
-            indices_words.append([idx_word_start, idx_word_stop])
-
-        tokens = list()
-        indices_tokens = indices_words
-        for count, indices in enumerate(indices_tokens):
-            start, end = indices[0], indices[1]
-            token_str = text[start:end]
-            word = Word(
-                index_char_start=start,
-                index_char_stop=end,
-                index_token=count,
-                string=token_str,
-            )
-            tokens.append(word)
-
-        # Populate the tuple returned by this class
+        indices_sentences = _dummy_get_sentence_indices(text=text)
+        indices_words = _dummy_get_token_indices(text=text)
+        tokens = _dummy_get_token(indices_words, text)
         text = Text(
             indices_sentences=indices_sentences,
             indices_tokens=indices_words,
