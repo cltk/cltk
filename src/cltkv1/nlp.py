@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 from cltkv1.tokenizers import TokenizeWord
@@ -10,8 +10,6 @@ from cltkv1.wrappers import StanfordNLPWrapper
 # The idea behind this namedtuple is that one of these will be implemented for each token in the NLP object.
 # It will be held in a list. From this,
 # TODO: Fill out more attributes to this
-
-# TODO: Look into ``dataclasses.field(default_factory=some_function)`` to auto populate a field based upon another: https://realpython.com/python-data-classes/
 
 
 @dataclass
