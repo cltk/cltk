@@ -3,13 +3,10 @@
 import re
 from typing import List
 
-from cltkv1.tokenizers.tokenizers import (
-    _dummy_get_sentence_indices,
-    _dummy_get_token,
-    _dummy_get_token_indices,
-)
-from cltkv1.utils.cltk_dataclasses import Text
-from cltkv1.utils.pipelines import GenericPipeline, LatinPipeline
+from cltkv1.tokenizers.sentence import DefaultSplitter
+from cltkv1.tokenizers.word import Tokenizer, dummy_get_token
+from cltkv1.utils.data_types import Doc
+from cltkv1.utils.pipelines import DefaultPipeline, LatinPipeline
 
 # from cltkv1.wrappers import StanfordNLPWrapper
 
@@ -38,6 +35,7 @@ class NLP:
         True
         """
         self.language = language
+        self.toker = Tokenizer()
         self.custom_pipeline = custom_pipeline
         self.pipeline = self._get_pipeline(self.custom_pipeline)
 
@@ -50,12 +48,12 @@ class NLP:
             # look up default pipeline for given language
             if self.language == "latin":
                 self.pipeline = LatinPipeline
-            self.pipeline = GenericPipeline
+            self.pipeline = DefaultPipeline
         else:
             # confirm that user-defined pipeline is possible
             raise NotImplementedError("Custom pipelines not implemented yet.")
 
-    def analyze(self, text: str) -> Text:
+    def analyze(self, text: str) -> Doc:
         """The primary method for the NLP object, to which raw text strings are passed.
 
         >>> cltk_nlp = NLP(language='latin')
@@ -73,10 +71,11 @@ class NLP:
         Word(index_char_start=0, index_char_stop=9, index_token=0, index_sentence=None, string='Preclarum', pos=None, scansion=None)
         """
 
-        indices_sentences = _dummy_get_sentence_indices(text=text)
-        indices_words = _dummy_get_token_indices(text=text)
-        tokens = _dummy_get_token(indices_words, text)
-        text = Text(
+        sentence_splitter = DefaultSplitter()
+        indices_sentences = sentence_splitter.dummy_get_indices(text=text)
+        indices_words = self.toker.dummy_get_token_indices(text=text)
+        tokens = dummy_get_token(indices_words, text)
+        text = Doc(
             indices_sentences=indices_sentences,
             indices_tokens=indices_words,
             language=self.language,

@@ -9,7 +9,7 @@ from typing import List
 
 @dataclass
 class Word:
-    """Contains attributes of each processed word in a list of tokens. To be used most often in the ``Text.tokens``
+    """Contains attributes of each processed word in a list of tokens. To be used most often in the ``Doc.tokens``
     dataclass. """
 
     index_char_start: int = None
@@ -22,7 +22,7 @@ class Word:
 
 
 @dataclass
-class Text:
+class Doc:
     """The object returned to the user from the ``NLP()`` class. Contains overall attributes of submitted texts,
     plus most importantly the processed tokenized text ``tokens``, being a list of ``Word`` types.. """
 
