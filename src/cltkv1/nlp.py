@@ -1,155 +1,122 @@
 """Primary module for CLTK pipeline."""
 
+import re
+from collections import namedtuple
+from typing import List
+
 from cltkv1.tokenizers import TokenizeWord
 from cltkv1.wrappers import StanfordNLPWrapper
+
+# The idea behind this namedtuple is that one of these will be implemented for each token in the NLP object.
+# It will be held in a list. From this,
+# TODO: Fill out more attributes to this
+fields_text = [
+    "indices_sentences",
+    "indices_tokens",
+    "language",
+    "tokens",
+    "pipeline",
+    "raw",
+]
+Text = namedtuple("Text", fields_text, defaults=(None,) * len(fields_text))
+fields_word = [
+    "index_char_start",
+    "index_char_stop",
+    "index_token",
+    "index_sentence",
+    "string",
+    "pos",
+    "scansion",
+]
+Word = namedtuple("Word", fields_word, defaults=(None,) * len(fields_word))
 
 
 class NLP:
     """Primary class for NLP pipeline.
 
-    TODO: Give illustrative examples of expected use of this class.
-
     >>> cltk_nlp = NLP(language='greek')
     >>> cltk_nlp.language
     'greek'
+    >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας τοῦ τὰ ἐλάσσονα λαμβάνειν, καὶ κυρίους, εἰ βούλοιντο, τοῦ τὰ μείζονα. Ἔστι δὲ πολὺ μείζων ἡ ἀγάπη πάντων τῶν χαρισμάτων."
+    >>> john_text_analyzed = cltk_nlp.analyze(john_damascus_corinth)
+    >>> john_text_analyzed.language
+    'greek'
+    >>> john_text_analyzed.indices_sentences
+    [[103, 104], [154, 155]]
+    >>> john_text_analyzed.indices_tokens[0:3]
+    [[0, 5], [6, 11], [13, 20]]
+    >>> tokens = cltk_nlp.get_tokens(analyzed_text=john_text_analyzed)
+    >>> tokens[0:3]
+    ['Τοῦτο', 'εἰπὼν', 'ᾐνίξατο']
     """
 
-    def __init__(self, language: str) -> None:
+    def __init__(self, language: str, pipeline: List[str] = None) -> None:
         """Constructor for CLTK class.
 
         >>> cltk_nlp = NLP(language='greek')
         >>> isinstance(cltk_nlp, NLP)
         True
         """
-
         self.language = language
-        self.tokenizer_word = self._get_word_tokenizer()  # type: TokenizeWord
-        self.stanford_obj = self._get_stanford_model()
+        if not pipeline:
+            # look up default pipeline for given language
+            self.pipeline = pipeline
+        else:
+            # confirm that user-defined pipeline is possible
+            self.pipeline = pipeline
 
-    def _parse_stanford(self, text: str):
-        """Do the actual parsing of input text.
+    def analyze(self, text: str) -> Text:
+        """The primary method for the NLP object, to which raw text strings are passed.
 
-        >>> cltk_nlp = NLP(language='greek')
-        >>> xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
-        >>> nlp_xen_anab = cltk_nlp._parse_stanford(xen_anab)
-        >>> import stanfordnlp
-        >>> isinstance(nlp_xen_anab , stanfordnlp.pipeline.doc.Document)
+        >>> cltk_nlp = NLP(language='latin')
+        >>> isinstance(cltk_nlp, NLP)
         True
-        >>> hasattr(nlp_xen_anab, 'conll_file')
-        True
-        >>> hasattr(nlp_xen_anab, 'load_annotations')
-        True
-        >>> hasattr(nlp_xen_anab, 'sentences')
-        True
-        >>> hasattr(nlp_xen_anab, 'text')
-        True
-        >>> hasattr(nlp_xen_anab, 'write_conll_to_file')
-        True
+        >>> galileo_sidereus = "Preclarum sane atque humanitatis plenum eorum fuit institutum, qui excellentium virtute virorum res preclare gestas ab invidia tutari, eorumque immortalitate digna nomina ab oblivione atque interitu vindicare, conati sunt. Hinc ad memoriam posteritatis prodite imagines, vel marmore insculpte, vel ex ere ficte; hinc posite statue, tam pedestres, quam equestres; hinc columnarum atque pyramidum, ut inquit ille, sumptus ad sidera ducti; hinc denique urbes edificate, eorumque insignite nominibus, quos grata posteritas eternitati commendandos existimavit. Eiusmodi est enim humane mentis conditio, ut nisi assiduis rerum simulacris in eam extrinsecus irrumpentibus pulsetur, omnis ex illa recordatio facile effluat."
+        >>> analyzed_text = cltk_nlp.analyze(galileo_sidereus)
+        >>> analyzed_text.language
+        'latin'
+        >>> analyzed_text.indices_sentences
+        [[221, 222], [554, 555], [714, 715]]
+        >>> analyzed_text.indices_tokens[0:3]
+        [[0, 9], [10, 14], [15, 20]]
         """
-        return self.stanford_obj.parse(text=text)
+        # Get the stops/start char indices of where sentences begin and end
+        indices_sentences = list()
+        pattern_sentence = re.compile(r"\.")
+        for sentence_match in pattern_sentence.finditer(string=text):
+            idx_sentence_start, idx_sentence_stop = sentence_match.span()
+            indices_sentences.append([idx_sentence_start, idx_sentence_stop])
 
-    def _get_stanford_model(self):
-        """If available for a given language, get the entire
-        object returned by the `stanfordnlp` project.
+        # Get the start/stop char indices of word boundaries
+        indices_words = list()
+        pattern_word = re.compile(r"\w+")
+        for word_match in pattern_word.finditer(string=text):
+            idx_word_start, idx_word_stop = word_match.span()
+            indices_words.append([idx_word_start, idx_word_stop])
 
-        TODO: Make this doctest work again
+        # Populate the main object returned by this class
+        text = Text(
+            indices_sentences=indices_sentences,
+            indices_tokens=indices_words,
+            language=self.language,
+            raw=text,
+        )
+        return text
 
-        # >>> from cltkv1 import NLP
-        # >>> cltk_nlp = NLP(language='greek')
-        # >>> plain_stanford_obj = cltk_nlp._get_stanford_model()
-        # >>> isinstance(plain_stanford_obj, cltkv1.wrappers.stanford.StanfordNLPWrapper)
-        # True
+    def get_tokens(self, analyzed_text: Text):
+        """Using the pre-processed Text object, return list of token strings.
+
+        >>> cltk_nlp = NLP(language='latin')
+        >>> galileo_sidereus = "Preclarum sane atque humanitatis plenum eorum fuit institutum, qui excellentium virtute virorum res preclare gestas ab invidia tutari, eorumque immortalitate digna nomina ab oblivione atque interitu vindicare, conati sunt. Hinc ad memoriam posteritatis prodite imagines, vel marmore insculpte, vel ex ere ficte; hinc posite statue, tam pedestres, quam equestres; hinc columnarum atque pyramidum, ut inquit ille, sumptus ad sidera ducti; hinc denique urbes edificate, eorumque insignite nominibus, quos grata posteritas eternitati commendandos existimavit. Eiusmodi est enim humane mentis conditio, ut nisi assiduis rerum simulacris in eam extrinsecus irrumpentibus pulsetur, omnis ex illa recordatio facile effluat."
+        >>> analyzed_text = cltk_nlp.analyze(galileo_sidereus)
+        >>> tokens = cltk_nlp.get_tokens(analyzed_text=analyzed_text)
+        >>> tokens[0:3]
+        ['Preclarum', 'sane', 'atque']
         """
-        return StanfordNLPWrapper(language=self.language)
-
-    def _get_word_tokenizer(self) -> TokenizeWord:
-        """Fetches and returns callable tokenizer for
-        appropriate language.
-
-        >>> cltk_nlp = NLP(language='greek')
-        >>> isinstance(cltk_nlp.tokenizer_word, TokenizeWord)
-        True
-        """
-        return TokenizeWord(language=self.language)
-
-    # @property
-    # def sentences(self) -> List[str]:
-    #     """Split sentences.
-    #
-    #     >>> cltk_nlp = NLP('Itaque metu. Quo tibi, imperator.', language='la')
-    #     >>> cltk_nlp.sentences
-    #     ['Itaque metu', 'Quo tibi, imperator.']
-    #     """
-    #     sentences_split = self.doc.split('. ')
-    #     return sentences_split
-
-    # @property
-    # def words(self) -> List[str]:
-    #     """Split words into tokens.
-    #
-    #     >>> cltk_nlp = NLP('Quo tibi, imperator.', language='la')
-    #     >>> cltk_nlp.words
-    #     ['Quo', 'tibi,', 'imperator.']
-    #
-    #     >>> cltk_nlp = NLP('Quo tibi, imperator.', language='id')
-    #     Traceback (most recent call last):
-    #       ...
-    #     cltkv1.utils.exceptions.UnknownLanguageError
-    #     """
-    #     words = self.tokenizer_word.tokenize_text(self.doc)
-    #     return words
-
-
-if __name__ == "__main__":
-
-    # nepos_hamilcar = 'At ille ut Carthaginem venit, multo aliter, ac sperarat, rem publicam se habentem cognovit. Namque diuturnitate externi mali tantum exarsit intestinum bellum, ut numquam in pari periculo fuerit Carthago, nisi cum deleta est. Primo mercennarii milites, qui adversus Romanos fuerant, desciverunt; quorum numerus erat XX milium.'
-
-    cltk_nlp = NLP(language="greek")
-    xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
-
-    nlp_xen_anab = cltk_nlp._parse_stanford(text=xen_anab)
-    import stanfordnlp  # type: ignore
-
-    print(isinstance(nlp_xen_anab, stanfordnlp.pipeline.doc.Document) == True)  # True
-    # print(dir(nlp_xen_anab))
-    print(nlp_xen_anab.text == xen_anab)
-
-    # 'conll_file', 'load_annotations', 'sentences', 'text', 'write_conll_to_file'
-    # print(nlp_xen_anab.conll_file)
-    # print(nlp_xen_anab.load_annotations)
-    # print(nlp_xen_anab.write_conll_to_file)
-
-    # sentences
-    nlp_xen_anab_first_sent = nlp_xen_anab.sentences[0]
-    # print(dir(nlp_xen_anab_first_sent))  # build_dependencies', 'dependencies', 'print_dependencies', 'print_tokens', 'print_words', 'tokens', 'words'
-    print(nlp_xen_anab_first_sent.tokens[0].index == "1")
-    print(nlp_xen_anab_first_sent.tokens[0].text == "Δαρείου")
-    first_word = nlp_xen_anab_first_sent.tokens[0].words[
-        0
-    ]  # 'dependency_relation', 'feats', 'governor', 'index', 'lemma', 'parent_token', 'pos', 'text', 'upos', 'xpos'
-    print(first_word.dependency_relation == "iobj")
-    print(first_word.feats == "Case=Gen|Gender=Masc|Number=Sing")
-    print(first_word.governor == 4)
-    print(first_word.index == "1")
-    print(first_word.lemma == "Δαρεῖος")
-    print(first_word.pos == "Ne")
-    print(first_word.text == "Δαρείου")
-    print(first_word.upos == "PROPN")
-    print(first_word.xpos == "Ne")
-    # print(first_word.parent_token)  # <Token index=1;words=[<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>]>
-
-    # print_dependencies
-    # nlp_xen_anab_first_sent.print_dependencies()
-    printed_dependencies = """('Δαρείου', '4', 'iobj')
-('καὶ', '1', 'cc')
-('Παρυσάτιδος', '1', 'conj')
-('γίγνονται', '0', 'root')
-('παῖδες', '4', 'nsubj')
-('δύο,', '5', 'nmod')
-('πρεσβύτερος', '5', 'amod')
-('μὲν', '7', 'discourse')
-('Ἀρταξέρξης,', '7', 'nsubj')
-('νεώτερος', '7', 'conj')
-('δὲ', '10', 'discourse')
-('Κῦρος:', '10', 'orphan')
-"""
+        tokens = list()
+        indices_tokens = analyzed_text.indices_tokens
+        for indices in indices_tokens:
+            start, end = indices[0], indices[1]
+            token = analyzed_text.raw[start:end]
+            tokens.append(token)
+        return tokens
