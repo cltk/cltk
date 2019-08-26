@@ -17,7 +17,8 @@ TODO: Think about multiple inheritance using the Glottolog codes (changing these
 from dataclasses import dataclass
 from typing import Any, Callable, Generic, List
 
-from cltkv1.tokenizers.word import LatinTokenizer
+from cltkv1.tokenizers.sentence import DefaultSplitter, LatinSplitter
+from cltkv1.tokenizers.word import DefaultTokenizer, LatinTokenizer, dummy_get_token
 from cltkv1.utils.data_types import Word
 
 
@@ -36,7 +37,7 @@ class Language:
     type: str
 
 
-latin = Language(
+LATIN = Language(
     name="Latin",
     glossolog="lati1261",
     latitude=60.2,
@@ -49,7 +50,7 @@ latin = Language(
     type="a",
 )
 
-greek = Language(
+GREEK = Language(
     name="Ancient Greek",
     glossolog="anci1242",
     latitude=10.0,
@@ -98,8 +99,20 @@ class LatinTokenizationOperation(TokenizationOperation):
     description = "This is a simple regex which divides on word spaces (``r'\w+)`` for illustrative purposes."
     input = str
     output = List[List[int]]
-    algorithm = LatinTokenizer.tokenize_str
-    language = latin
+    algorithm = LatinTokenizer.dummy_get_token_indices
+    language = LATIN
+
+
+@dataclass
+class DefaultTokenizationOperation(TokenizationOperation):
+    """The default Latin tokenization algorithm"""
+
+    name = "CLTK Dummy Tokenizer for any language"
+    description = "This is a simple regex which divides on word spaces (``r'\w+)`` for illustrative purposes."
+    input = str
+    output = List[List[int]]
+    algorithm = DefaultTokenizer.dummy_get_token_indices
+    language = None
 
 
 if __name__ == "__main__":

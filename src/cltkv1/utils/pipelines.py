@@ -9,14 +9,18 @@ these dataclasses is to represent:
 from dataclasses import dataclass
 from typing import Callable, List
 
-from cltkv1.tokenizers.sentence import DefaultSplitter, LatinSplitter
-from cltkv1.tokenizers.word import DefaultTokenizer, LatinTokenizer, dummy_get_token
 from cltkv1.utils.data_types import Doc, Word
+from cltkv1.utils.operations import (
+    GREEK,
+    LATIN,
+    DefaultTokenizationOperation,
+    LatinTokenizationOperation,
+)
 
 
 @dataclass
 class Pipeline:
-    sentence_tokenizer: Callable[[str], List[List[int]]] = None
+    sentence_splitter: Callable[[str], List[List[int]]] = None
     word_tokenizer: Callable[[str], List[Word]] = None
     dependency: str = None
     pos: str = None
@@ -25,30 +29,37 @@ class Pipeline:
 
 @dataclass
 class DefaultPipeline(Pipeline):
-    sentence_tokenizer = DefaultSplitter().dummy_get_indices
-    word_tokenizer = DefaultTokenizer().dummy_get_token_indices
+    # sentence_splitter = DefaultSplitter().dummy_get_indices
+    # word_tokenizer =
+    pass
 
 
 @dataclass
 class LatinPipeline(Pipeline):
-    sentence_tokenizer = LatinSplitter().dummy_get_indices
-    word_tokenizer = LatinTokenizer().dummy_get_token_indices
+    # sentence_splitter = LatinSplitter().dummy_get_indices
+    word_tokenizer = LatinTokenizationOperation
+    language = LATIN
+
+
+@dataclass
+class GreekPipeline(Pipeline):
+    # sentence_splitter = DefaultSplitter().dummy_get_indices
+    word_tokenizer = DefaultTokenizationOperation
+    language = GREEK
 
 
 if __name__ == "__main__":
-    # pipeline = Pipeline
-    # print(pipeline.sentence_tokenizer)
 
-    gen_pipe = DefaultPipeline
-    fn_sent_tok = gen_pipe.sentence_tokenizer
-    fn_word_tok = gen_pipe.word_tokenizer
-
-    old_norse_volupsa = "Hljóðs bið ek allar helgar kindir, meiri ok minni mögu Heimdallar; viltu, at ek, Valföðr. vel framtelja forn spjöll fíra, þau er fremst um man."
-    sent_ind = fn_sent_tok(old_norse_volupsa)
-    print(sent_ind)
-
+    # latin
     gesta_danorum = (
         "Malo præterea virum regnare quam patrem. Malo regis coniunx quam nata censeri."
     )
-    tok_ind = fn_word_tok(gesta_danorum)
-    print(tok_ind)
+
+    lat_pipeline = LatinPipeline
+    lat_fn_word_tok = lat_pipeline.word_tokenizer
+    print("Algo:", lat_fn_word_tok.algorithm)
+    print("In:", lat_fn_word_tok.input)
+    print("Out:", lat_fn_word_tok.output)
+
+    idx_tokens = lat_fn_word_tok.algorithm(gesta_danorum)
+    print("Words:", idx_tokens)
