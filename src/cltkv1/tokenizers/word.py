@@ -46,7 +46,7 @@ class LatinTokenizer(Tokenizer):
 
 
 def dummy_get_token(indices_tokens: List[List[int]], text: str) -> List[Word]:
-    """Take indices and populate Word object.
+    """Take indices and raw string text, then return populated Word object.
 
     >>> from cltkv1 import NLP
     >>> cltk_nlp = NLP(language='greek')
@@ -69,24 +69,6 @@ def dummy_get_token(indices_tokens: List[List[int]], text: str) -> List[Word]:
         )
         tokens.append(word)
     return tokens
-
-
-def dummy_get_sentence_indices(text: str) -> List[List[int]]:
-    """Get the stops/start char indices of where sentences begin and end.
-
-    >>> from cltkv1 import NLP
-    >>> cltk_nlp = NLP(language='greek')
-    >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας τοῦ τὰ ἐλάσσονα λαμβάνειν, καὶ κυρίους, εἰ βούλοιντο, τοῦ τὰ μείζονα. Ἔστι δὲ πολὺ μείζων ἡ ἀγάπη πάντων τῶν χαρισμάτων."
-    >>> indices_sentences = dummy_get_sentence_indices(text=john_damascus_corinth)
-    >>> indices_sentences
-    [[103, 104], [154, 155]]
-    """
-    indices_sentences = list()
-    pattern_sentence = re.compile(r"\.")
-    for sentence_match in pattern_sentence.finditer(string=text):
-        idx_sentence_start, idx_sentence_stop = sentence_match.span()
-        indices_sentences.append([idx_sentence_start, idx_sentence_stop])
-    return indices_sentences
 
 
 if __name__ == "__main__":

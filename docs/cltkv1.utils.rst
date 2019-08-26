@@ -4,10 +4,10 @@ cltkv1.utils package
 Submodules
 ----------
 
-cltkv1.utils.cltk\_dataclasses module
--------------------------------------
+cltkv1.utils.data\_types module
+-------------------------------
 
-.. automodule:: cltkv1.utils.cltk_dataclasses
+.. automodule:: cltkv1.utils.data_types
    :members:
    :undoc-members:
    :show-inheritance:
