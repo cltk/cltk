@@ -8,60 +8,15 @@ the two most important attributes are:
 3. data type produced
 
 Inheritance example: ``Operation`` -> ``TokenizationOperation`` -> ``LatinTokenizationOperation``
-
-TODO: Consider creation ``operation.py`` files w/in each dir
-
-TODO: Think about multiple inheritance using the Glottolog codes (changing these from namedtuple to dataclass first)
 """
 
 from dataclasses import dataclass
 from typing import Any, Callable, Generic, List
 
+from cltkv1.languages.glottolog import GREEK, LATIN
 from cltkv1.tokenizers.sentence import DefaultSplitter, LatinSplitter
 from cltkv1.tokenizers.word import DefaultTokenizer, LatinTokenizer, dummy_get_token
 from cltkv1.utils.data_types import Word
-
-
-# TODO: Language dataclasses just for illustrating. Re-implement from the Glottolog module.
-@dataclass
-class Language:
-    name: str
-    glossolog: str
-    latitude: float
-    longitude: float
-    dates: List[float]
-    family_id: str
-    parent_id: str
-    level: str
-    iso639P3code: str
-    type: str
-
-
-LATIN = Language(
-    name="Latin",
-    glossolog="lati1261",
-    latitude=60.2,
-    longitude=50.5,
-    dates=[200, 400],
-    family_id="indo1319",
-    parent_id="impe1234",
-    level="language",
-    iso639P3code="lat",
-    type="a",
-)
-
-GREEK = Language(
-    name="Ancient Greek",
-    glossolog="anci1242",
-    latitude=10.0,
-    longitude=90.5,
-    dates=[-1000, 1141],
-    family_id="indo1319",
-    parent_id="east2798",
-    level="language",
-    iso639P3code="grc",
-    type="h",
-)
 
 
 @dataclass
@@ -123,4 +78,4 @@ if __name__ == "__main__":
     print(lto.language)
     print(lto.language.name)
     print(lto.language.latitude)
-    print(lto.language.glossolog)
+    print(lto.language.glottocode)

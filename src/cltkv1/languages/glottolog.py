@@ -1,13 +1,13 @@
-"""Module for mapping ISO 639-3 to Glottolog codes and language names.
+"""Module for mapping ISO 639-3 to Glottolog languages and language names.
 
-ISO 639-3 us an international standard for language codes with an
+ISO 639-3 us an international standard for language languages with an
 aim to cover all known natural languages. The extended language
-coverage was based primarily on the language codes published by
+coverage was based primarily on the language languages published by
 SIL International, which is now the registration authority for
 ISO 639-3. About: https://iso639-3.sil.org/
 
 Glottolog is a project run by the Max Planck Institute for the
-Science of Human History. The website contains codes for languages
+Science of Human History. The website contains languages for languages
 as well as reconstructions of language families. About: http://glottolog.org/.
 
 
@@ -23,6 +23,53 @@ Jena: Max Planck Institute for the Science of Human History.
 import csv
 import os
 from collections import defaultdict, namedtuple
+from dataclasses import dataclass
+from typing import List
+
+
+# TODO: Language dataclasses just for illustrating. Re-implement from the Glottolog module.
+@dataclass
+class Language:
+    name: str
+    glottocode: str
+    latitude: float
+    longitude: float
+    dates: List[float]
+    family_id: str
+    parent_id: str
+    level: str
+    iso639P3code: str
+    type: str
+
+
+LATIN = Language(
+    name="Latin",
+    glottocode="lati1261",
+    latitude=60.2,
+    longitude=50.5,
+    dates=[200, 400],
+    family_id="indo1319",
+    parent_id="impe1234",
+    level="language",
+    iso639P3code="lat",
+    type="a",
+)
+
+GREEK = Language(
+    name="Ancient Greek",
+    glottocode="anci1242",
+    latitude=10.0,
+    longitude=90.5,
+    dates=[-1000, 1141],
+    family_id="indo1319",
+    parent_id="east2798",
+    level="language",
+    iso639P3code="grc",
+    type="h",
+)
+
+
+########## All the following needs to be converted into a @dataclass as above two examples
 
 # Attributes come from Glottolog except type, which is from
 # ISO 639-3 ("A": Ancient, "H": Historical)

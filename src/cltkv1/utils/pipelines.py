@@ -9,10 +9,9 @@ these dataclasses is to represent:
 from dataclasses import dataclass
 from typing import Callable, List
 
+from cltkv1.languages.glottolog import GREEK, LATIN
 from cltkv1.utils.data_types import Doc, Word
 from cltkv1.utils.operations import (
-    GREEK,
-    LATIN,
     DefaultTokenizationOperation,
     LatinTokenizationOperation,
 )
@@ -50,16 +49,24 @@ class GreekPipeline(Pipeline):
 
 if __name__ == "__main__":
 
-    # latin
+    # example of Latin pipeline (here only word tokenizer implemented)
+    # other Operations need to be added
+    # complete example by writing to ``Doc`` dataclass
+    # think further about how to do this with stanfordnlp or other 3rd party
     gesta_danorum = (
         "Malo præterea virum regnare quam patrem. Malo regis coniunx quam nata censeri."
     )
 
     lat_pipeline = LatinPipeline
     lat_fn_word_tok = lat_pipeline.word_tokenizer
+
     print("Algo:", lat_fn_word_tok.algorithm)
     print("In:", lat_fn_word_tok.input)
     print("Out:", lat_fn_word_tok.output)
 
     idx_tokens = lat_fn_word_tok.algorithm(gesta_danorum)
-    print("Words:", idx_tokens)
+    print("Tokens:", idx_tokens)
+
+    # TODO: Populate the ``Word`` object with the above token idx
+
+    # TODO: Do checking of IO req'd by the fn and whether it's available in the current ``Word``
