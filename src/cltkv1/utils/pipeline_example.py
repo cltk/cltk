@@ -4,9 +4,9 @@
 
    2. users to override default pipeline
 
-   3. users to choose  alternative code (classes/methods/functions) w/in the CLTK
+   3. users to choose alternative code (classes/methods/functions) w/in the CLTK
 
-   4. users to use their ow custom code (inheriting or replacing those w/in CLTK)
+   4. users to use their own custom code (inheriting or replacing those w/in CLTK)
 
    5. flexibility for the I/O for custom code
 
@@ -17,19 +17,19 @@
 
 In the following, I propose these new data types:
 
-   - ``Language``: Simple, just a place to hold attributes about a language. Can be referenced within and
-   ``Operations`` or ``Pipeline`` (e.g., ``LatinPipeline.language == LatinLanguage == True``).
+   - ``Language``: Simple, just a place to hold attributes about a language. Can be referenced within
+   ``Operation`` or ``Pipeline`` (e.g., ``LatinPipeline.language == LatinLanguage == True``).
 
-   - ``Operations``: One for each type of NLP algo we cover (e.g., tokenization, sentence splitting, pos tagging,
+   - ``Operation``: One for each type of NLP algo we cover (e.g., tokenization, sentence splitting, pos tagging,
    dependency, phonetics, prosody, etc.). Each of these is the subclassed for each language (e.g,
-   ``TokenizationOperation`` <- ``LatinTokenizationOperation``). Here are defined the code to be used for a given
-   operation, plust documenting a bit more about it (I/O, name, description).
+   ``TokenizationOperation`` <- ``LatinTokenizationOperation``). Here is defined the code to be used for a given
+   operation, plus documenting a bit more about it (I/O, name, description).
 
    - ``Word``: This holds basic information for each token (start/end character indices, sentence index occurring
    within, raw string) and more advanced info if available (e.g., NER, POS tag, dependency relations).
 
    - ``Pipeline``: One for each language (e.g., ``Pipeline`` <- ``LatinPipeline``). A field in this is ``algo``,
-   which has as value a given value (e.g., ``LatinPipeline.algo == LatinTokenizationOperation == True``.
+   which has as value a given field (e.g., ``LatinPipeline.algo == LatinTokenizationOperation == True``.
 
    - ``Doc``: Similar to what spaCy returns, only more transparent (IMHO). To the field ``Doc.tokens`` will be a list
    of ``Word`` (``List[Word]``).
