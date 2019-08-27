@@ -31,7 +31,7 @@ In the following, I propose these new data types:
    - ``Pipeline``: One for each language (e.g., ``Pipeline`` <- ``LatinPipeline``). A field in this is ``algo``,
    which has as value a given field (e.g., ``LatinPipeline.algo == LatinTokenizationOperation == True``.
 
-   - ``Doc``: Similar to what spaCy returns, only more transparent (IMHO). To the field ``Doc.tokens`` will be a list
+   - ``Doc``: Returned by the ``NLP`` class (more specifically, by ``NLP().run_pipeline()``). Similar to what spaCy returns, only more transparent (IMHO). To the field ``Doc.tokens`` will be a list
    of ``Word`` (``List[Word]``).
 
 Notes:
