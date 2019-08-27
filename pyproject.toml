@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "cltkv1"
-version = "1.0.0a2"
-description = "Classical Language Toolkit"
+version = "1.0.0a5"
+description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>"]
 readme = "README.rst"
@@ -22,15 +22,18 @@ classifiers = [
     'Operating System :: POSIX',
     'Programming Language :: Python :: 3',
     'Topic :: Scientific/Engineering :: Artificial Intelligence',
-    'Topic :: Text Processing',
-    'Topic :: Text Processing :: General',
-    'Topic :: Text Processing :: Linguistic',
+    'Topic :: Doc Processing',
+    'Topic :: Doc Processing :: General',
+    'Topic :: Doc Processing :: Linguistic',
 ]
-include = []
-exclude = []
+#packages = [
+#    { include = "cltkv1", from = "src" },
+#]
+#include = []
+#exclude = []
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 gitpython = "^3.0"
 stanfordnlp = "^0.2.0"
 
@@ -51,6 +54,7 @@ rtd-poetry = "^0.1.0"
 sphinx-autodoc-typehints = "^1.7"
 pre-commit = "^1.18"
 mypy = "^0.720.0"
+lxml = "^4.4"
 
 [build-system]
 requires = ["poetry>=0.12"]

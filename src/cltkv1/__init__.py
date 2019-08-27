@@ -1,5 +1,29 @@
 """Init module for importing the CLTK class."""
 
-__version__ = "1.0.0a"
+# TODO: Figure out right way to do these init imports and in submodules
 
+from cltkv1.languages import *
+from cltkv1.dependency import *
+from cltkv1.stopwords import *
+from cltkv1.tokenizers import *
+from cltkv1.utils import *
+
+# modules
 from .nlp import NLP
+
+
+def get_pyproject():
+    import os
+    import toml
+
+    init_path = os.path.abspath(os.path.dirname(__file__))
+    pyproject_path = os.path.join(init_path, "../../pyproject.toml")
+
+    with open(pyproject_path, "r") as fopen:
+        pyproject = toml.load(fopen)
+
+    return pyproject["tool"]["poetry"]
+
+
+__version__ = get_pyproject()["version"]
+__doc__ = get_pyproject()["description"]
