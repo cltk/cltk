@@ -235,16 +235,39 @@ class NLP:
         """Take a raw unprocessed text string, then return a ``Doc`` object
         containing all available processed information.
         """
+        # Get token indices
         token_indices = self.pipeline.word_tokenizer.algorithm(text=text)
+
+        # Populate a ``Word`` object for each token in the submitted text
+        all_word_tokens = list()
+        for token_count, token_index in enumerate(token_indices):
+            token_start = token_index[0]
+            token_end = token_index[1]
+            token_str = text[token_start:token_end]
+
+            # index_char_start: int = None
+            # index_char_stop: int = None
+            # index_token: int = None
+            # index_sentence: int = None
+            # string: str = None
+            # pos: str = None
+            # scansion: str = None
+
+            word = Word(
+                index_char_start=token_start,
+                index_char_stop=token_end,
+                index_token=token_count,
+                string=token_str,
+            )
+            all_word_tokens.append(word)
 
         doc = Doc(
             indices_tokens=token_indices,
             language=self.language,
             pipeline=self.pipeline,
+            tokens=all_word_tokens,
             raw=text,
         )
-
-        # print(doc.pipeline.word_tokenizer)
 
         return doc
 
@@ -280,4 +303,8 @@ if __name__ == "__main__":
         "``Doc.pipeline.word_tokenizer.description``:",
         doc_germanica.pipeline.word_tokenizer.description,
     )
+    print("")
+    print("``Doc.pipeline.tokens[:10]``:", doc_germanica.tokens[:10])
+    print("")
+    print("``Doc.pipeline.indices_tokens[:10]``:", doc_germanica.indices_tokens[:10])
     print("")
