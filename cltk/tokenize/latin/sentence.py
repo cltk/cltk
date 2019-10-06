@@ -11,9 +11,9 @@ from cltk.tokenize.sentence import BaseSentenceTokenizer, BasePunktSentenceToken
 from cltk.tokenize.latin.params import LatinLanguageVars, PUNCTUATION, STRICT_PUNCTUATION
 from cltk.utils.file_operations import open_pickle
 
-def SentenceTokenizer(tokenizer:str = 'punkt'):
+def SentenceTokenizer(tokenizer:str = 'punkt', strict:bool = False):
     if tokenizer=='punkt':
-        return LatinPunktSentenceTokenizer()
+        return LatinPunktSentenceTokenizer(strict=strict)
 
 
 class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
@@ -43,4 +43,3 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
             PunktLanguageVars.sent_end_chars=STRICT_PUNCTUATION
         else:
             PunktLanguageVars.sent_end_chars=PUNCTUATION
-         
