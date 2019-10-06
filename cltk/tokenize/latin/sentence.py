@@ -31,8 +31,8 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         """
         self.lang_vars = LatinLanguageVars()
         self.strict = strict
-        self.models_path = LatinPunktSentenceTokenizer.models_path
         super().__init__(language='latin', lang_vars=self.lang_vars)
+        self.models_path = LatinPunktSentenceTokenizer.models_path
 
         try:
             self.model =  open_pickle(os.path.join(self.models_path, 'latin_punkt.pickle'))
@@ -43,10 +43,4 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
             PunktLanguageVars.sent_end_chars=STRICT_PUNCTUATION
         else:
             PunktLanguageVars.sent_end_chars=PUNCTUATION
-
-
-if __name__ == "__main__":
-    t = LatinPunktSentenceTokenizer(strict=True)
-    test = """in principio creavit Deus caelum et terram; terra autem erat inanis et vacua et tenebrae super faciem abyssi et spiritus Dei ferebatur super aquas; dixitque Deus fiat lux et facta est lux; et vidit Deus lucem quod esset bona et divisit lucem ac tenebras."""
-    sents = t.tokenize(test)
-    print(sents)
+         
