@@ -50,7 +50,7 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
                   'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!',
                   'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
         tokenizer = LatinPunktSentenceTokenizer()
-        print(tokenizer.models_path)
+        # print(tokenizer.models_path)
         tokenized_sentences = tokenizer.tokenize(self.latin_text)
         self.assertEqual(tokenized_sentences, target)
 
