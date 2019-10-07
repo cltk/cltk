@@ -154,3 +154,6 @@ latin_replacements = [
 
 class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'",'')
+
+PUNCTUATION = ('.', '?', '!')
+STRICT_PUNCTUATION = PUNCTUATION+('-', ':', ';')

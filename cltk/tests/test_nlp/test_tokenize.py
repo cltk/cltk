@@ -50,8 +50,14 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
                   'Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero!',
                   'Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem.']  # pylint: disable=line-too-long
         tokenizer = LatinPunktSentenceTokenizer()
-        print(tokenizer.models_path)
         tokenized_sentences = tokenizer.tokenize(self.latin_text)
+        self.assertEqual(tokenized_sentences, target)
+
+    def test_sentence_tokenizer_latin_punkt_strict(self):
+        """Test tokenizing Latin sentences with stricter punctuation."""
+        target = ['in principio creavit Deus caelum et terram;', 'terra autem erat inanis et vacua et tenebrae super faciem abyssi et spiritus Dei ferebatur super aquas;', 'dixitque Deus fiat lux et facta est lux;', 'et vidit Deus lucem quod esset bona et divisit lucem ac tenebras.']  # pylint: disable=line-too-long
+        tokenizer = LatinPunktSentenceTokenizer(strict=True)
+        tokenized_sentences = tokenizer.tokenize("""in principio creavit Deus caelum et terram; terra autem erat inanis et vacua et tenebrae super faciem abyssi et spiritus Dei ferebatur super aquas; dixitque Deus fiat lux et facta est lux; et vidit Deus lucem quod esset bona et divisit lucem ac tenebras.""")
         self.assertEqual(tokenized_sentences, target)
 
     # Deprecated use cltk.tokenize.latin.sentence
