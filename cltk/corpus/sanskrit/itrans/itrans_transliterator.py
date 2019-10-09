@@ -833,7 +833,7 @@ ITRANS = { \
     '7': 0x096D,
     '8': 0x096E,
     '9': 0x096F,
-    # non-standard/obsolete iTrans variants still used in texts from 
+    # non-standard/obsolete iTrans variants still used in texts from
     # http://sanskrit.gde.to/
     '.h': 0x903,
     'N^': 0x919,

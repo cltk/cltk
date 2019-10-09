@@ -5,7 +5,7 @@ Gothic
 
 
 Phonological transcription
-=======================
+==========================
 
 .. code-block:: python
 

@@ -42,6 +42,12 @@ GREEK_CORPORA = [
      'name': 'greek_treebank_perseus',
      'location': 'remote',
      'type': 'treebank'},
+    {'encoding': 'utf-8',
+     'markup': 'xml',
+     'origin': 'https://github.com/vgorman1/Greek-Dependency-Trees.git',
+     'name': 'greek_treebank_gorman',
+     'location': 'remote',
+     'type': 'treebank'},
     {'encoding': 'xml',
      'markup': 'plaintext',
      'origin': 'https://github.com/cltk/greek_lexica_perseus.git',
@@ -66,5 +72,10 @@ GREEK_CORPORA = [
      'origin': 'https://github.com/cltk/First1KGreek',
      'location': 'remote',
      'type': 'text'},
+    {'name': 'greek_text_tesserae',
+     'encoding': 'utf-8',
+     'markup': 'plaintext', #modified plaintext with Tesserae-style citations
+     'origin': 'https://github.com/cltk/greek_text_tesserae.git',
+     'location': 'remote',
+     'type': 'text'},
 ]
-
