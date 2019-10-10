@@ -5,21 +5,12 @@ __author__ = ['Clément Besnier <clemsciences@aol.com>', ]
 __license__ = 'MIT License. See LICENSE.'
 
 import os
-import re
-from typing import List, Dict, Tuple, Set, Any, Generator
-import reprlib
+from typing import List
 
 from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer, UnigramLemmatizer
 
 from cltk.utils.file_operations import open_pickle
 
-
-# Unused for now
-# def backoff_lemmatizer(train_sents, lemmatizer_classes, backoff=None):
-#    """From Python Text Processing with NLTK Cookbook."""
-#    for cls in lemmatizer_classes:
-#        backoff = cls(train_sents, backoff=backoff)
-#    return backoff
 
 def _randomize_data(train: List[list], seed: int):
     import random
