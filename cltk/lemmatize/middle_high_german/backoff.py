@@ -1,16 +1,7 @@
-"""Module for lemmatizing Middle High German—includes several classes for different
-lemmatizing approaches--based on training data, etc.
- These can be chained together using the backoff parameter. Also,
-includes a pre-built chain that uses models in latin_models_cltk repo
-called BackoffMHGLemmatizer.
-
-The logic behind the backoff lemmatizer is based on backoff POS-tagging in
-NLTK and repurposes several of the tagging classes for lemmatization
-tasks. See here for more info on sequential backoff tagging in NLTK:
-http://www.nltk.org/_modules/nltk/tag/sequential.html
+"""Module for lemmatizing Middle High German
 """
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Clément Besnier <clemsciences@aol.com>']
+__author__ = ['Clément Besnier <clemsciences@aol.com>', ]
 __license__ = 'MIT License. See LICENSE.'
 
 import os
@@ -54,40 +45,41 @@ class BackoffMHGLemmatizer:
     def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = BackoffMHGLemmatizer.models_path
 
-        missing_models_message = "BackoffLatinLemmatizer requires the ```middle_high_german_models_cltk``` " \
+        missing_models_message = "BackoffMHGLemmatizer requires the ```middle_high_german_models_cltk``` " \
                                  "to be in cltk_data. Please load this corpus."
         self.train = train
         self.seed = seed
-        self.VERBOSE = verbose
+        self.verbose = verbose
+
+        self.token_to_lemmata = []
+        self.lemma_to_tokens = []
+        self.sentences = []
 
         try:
-            self.train = open_pickle(os.path.join(self.models_path, 'middle_high_german_pos_lemmatized_sents.pickle'))
-            self.LATIN_OLD_MODEL = open_pickle(os.path.join(self.models_path, 'middle_high_german_lemmata_cltk.pickle'))
-            self.LATIN_MODEL = open_pickle(os.path.join(self.models_path, 'middle_high_german_model.pickle'))
+            self.lemma_to_tokens = open_pickle(os.path.join(self.models_path, "lemma_to_tokens.pickle"))
+            self.token_to_lemmata = open_pickle(os.path.join(self.models_path, "token_to_lemma.pickle"))
+            # self.sentences = open_pickle(os.path.join(self.models_path, "sentences.pickle"))
         except FileNotFoundError as err:
             raise type(err)(missing_models_message)
 
-        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.train, self.seed)
+        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.sentences, self.seed)
+
         self._define_lemmatizer()
 
     def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
-        self.backoff1 = IdentityLemmatizer(verbose=self.VERBOSE)
-        self.backoff2 = DictLemmatizer(lemmas=self.MHG_OLD_MODEL, source='ReferenzKorpus Mittelhochdeutsch Lemmata',
-                                       backoff=self.backoff1, verbose=self.VERBOSE)
-        self.backoff3 = UnigramLemmatizer(self.train_sents, source='CLTK Sentence Training Data', backoff=self.backoff2,
-                                          verbose=self.VERBOSE)
-        # self.backoff4 = DictLemmatizer(lemmas=self.MHG_MODEL, source='Latin Model', backoff=self.backoff3,
-        #                                verbose=self.VERBOSE)
-        self.lemmatizer = self.backoff3
+        self.backoff1 = IdentityLemmatizer(verbose=self.verbose)
+        self.backoff2 = DictLemmatizer(lemmas=self.token_to_lemmata, source='ReferenzKorpus Mittelhochdeutsch Lemmata',
+                                       backoff=self.backoff1, verbose=self.verbose)
+        self.lemmatizer = self.backoff2
 
     def lemmatize(self, tokens: List[str]):
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
     def evaluate(self):
-        if self.VERBOSE:
+        if self.verbose:
             raise AssertionError("evaluate() method only works when verbose: bool = False")
         return self.lemmatizer.evaluate(self.test_sents)
 
@@ -95,32 +87,7 @@ class BackoffMHGLemmatizer:
         return f'<BackoffMHGLemmatizer v0.1>'
 
 
-# Accuracty test available below——keep? delete?
-# if __name__ == "__main__":
-#
-#    # Set up training sentences
-#    rel_path = os.path.join('~/cltk_data/latin/model/latin_models_cltk/lemmata/backoff')
-#    path = os.path.expanduser(rel_path)
-#
-#    # Check for presence of latin_pos_lemmatized_sents
-#    file = 'latin_pos_lemmatized_sents.pickle'
-#
-#    latin_pos_lemmatized_sents_path = os.path.join(path, file)
-#    if os.path.isfile(latin_pos_lemmatized_sents_path):
-#        latin_pos_lemmatized_sents = open_pickle(latin_pos_lemmatized_sents_path)
-#    else:
-#        latin_pos_lemmatized_sents = []
-#        print('The file %s is not available in cltk_data' % file)
-#
-#
-#    RUN = 10
-#    ACCURACIES = []
-#
-#    for I in range(RUN):
-#        LEMMATIZER = BackoffLatinLemmatizer(latin_pos_lemmatized_sents)
-#        ACC = LEMMATIZER.evaluate()
-#        ACCURACIES.append(ACC)
-#        print('{:.2%}'.format(ACC))
-#
-#    print('\nTOTAL (Run %d) times' % RUN)
-#    print('{:.2%}'.format(sum(ACCURACIES) / RUN))
+if __name__ == "__main__":
+    mhg_lemmatizer = BackoffMHGLemmatizer()
+    res = mhg_lemmatizer.lemmatize("uns ist in alten mæren".split(" "))
+    print(res)

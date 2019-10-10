@@ -4,6 +4,7 @@ import os.path
 import hashlib
 import pickle
 
+from cltk import get_cltk_data_dir
 from cltk.utils.cltk_logger import logger
 
 __author__ = ['Andreas Grivas <andreasgrv@gmail.com>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Todd Cook <todd.g.cook@gmail.com>']
