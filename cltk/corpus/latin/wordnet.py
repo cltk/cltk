@@ -131,11 +131,19 @@ class Lemma(_WordNetObject):
     The lexical entry for a single morphological form of a
     sense-disambiguated word.
 
-    Create a Lemma from lemma, pos, morpho, uri parameters where:
+    Create a Lemma from lemma, pos, and morpho, or uri parameters where:
     <lemma> is the morphological form identifying the lemma
     <pos> is one of the module attributes 'n', 'v', 'a' or 'r'
     <morpho> is the morphological descriptor
     <uri> is the URI
+
+    >>> LWN = WordNetCorpusReader()
+    >>> animus = Lemma(LWN, lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046')
+    >>> print(animus)
+    Lemma(lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046')
+    >>> virtus = Lemma(LWN, lemma='uirtus', pos='n', morpho='n-s---fn3-', uri='u0800')
+    >>> print(virtus)
+    Lemma(lemma='uirtus', pos='n', morpho='n-s---fn3-', uri='u0800')
 
     Lemma attributes, accessible via methods with the same name:
 
@@ -146,6 +154,10 @@ class Lemma(_WordNetObject):
     - metaphoric: The synsets that this lemma belongs to in virtue of its metaphoric senses
     - count: The frequency of this lemma in the WordNet, i.e., the number of synsets
     (literal, metonymic, or metaphoric) to which it belongs
+
+    >>> synset = list(virtus.synsets())[0]
+    >>> print(synset.definition())
+    feeling no fear
 
     Lemma methods:
 
@@ -159,7 +171,6 @@ class Lemma(_WordNetObject):
     - hyponyms
     - member_holonyms, substance_holonyms, part_holonyms
     - member_meronyms, substance_meronyms, part_meronyms
-    - topic_domains, region_domains, usage_domains
     - attributes
     - derivationally_related_forms
     - entailments
@@ -168,6 +179,11 @@ class Lemma(_WordNetObject):
     - verb_groups
     - similar_tos
     - pertainyms
+
+    >>> metus = Lemma(LWN, lemma='metus', pos='n', morpho='n-s---mn4-', uri='m0918')
+    >>> print(metus in list(virtus.antonyms()))
+    True
+
     """
 
     __slots__ = [
@@ -349,6 +365,13 @@ class Semfield:
     """Create a Semfield from code and english parameters where:
     <code> is the semfield's DDCS code
     <english> is the semfield's DDCS descriptor
+
+    >>> LWN = WordNetCorpusReader()
+    >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+    >>> fat = LWN.synset('n#04089143')
+    >>> print(fat in list(anatomy.synsets()))
+    True
+
     """
     __slots__ = [
         '_wordnet_corpus_reader',
@@ -429,13 +452,28 @@ class Synset(_WordNetObject):
     <pos> is the synset's part of speech
     <offset> is the offset ID of the synset.
 
-    Synset attributes, accessible via methods with the same name:
+    >>> LWN = WordNetCorpusReader()
+    >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+    >>> print(list(s1.semfields()))
+    [Semfield(code='739.7', english='Arms And Armour')]
 
+    Synset attributes, accessible via methods with the same name:
 
     - pos: The synset's part of speech, 'n', 'v', 'a', or 'r'
     - offset: The unique offset ID of the synset
     - lemmas: A list of the Lemma objects for this synset
     - definition: The definition for this synset
+
+    >>> for lemma in s1.lemmas():
+    ...     print(lemma.lemma())
+    sica
+    clunaculum
+    gladiolus
+    parazonium
+    pugio
+    sicula
+    sicula
+    pugiunculus
 
     Synset methods:
 
@@ -456,12 +494,24 @@ class Synset(_WordNetObject):
     - similar_tos
     - nearest
 
+    >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+    >>> hyponym = list(s2.hyponyms())[0]
+    >>> print(hyponym.id(), hyponym.definition())
+    n#02235272 broad blade; used for cutting rather than stabbing
+
     Additionally, Synsets support the following methods specific to the
     hypernym relation:
 
     - root_hypernyms
     - common_hypernyms
     - lowest_common_hypernyms
+
+    >>> print(s1.root_hypernyms())
+    [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]
+    >>> print(s1.lowest_common_hypernyms(s2))
+    [Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting')]
+    >>> print(s1.shortest_path_distance(s2))
+    3
 
     Note that Synsets do not support the following relations because
     these are defined by WordNet as lexical relations:
@@ -495,7 +545,7 @@ class Synset(_WordNetObject):
         self._examples = None
         self._lemmas = None
         self.__related = None
-        self._semfield = None
+        self._semfields = None
         self._sentiment = None
         self._all_hypernyms = None
 
@@ -687,15 +737,6 @@ class Synset(_WordNetObject):
 
         However, if `use_min_depth == True` then the synset(s) which has/have
         the lowest minimum depth and appear(s) in both paths is/are returned.
-
-        By setting the use_min_depth flag to True, the behavior of NLTK2 can be
-        preserved. This was changed in NLTK3 to give more accurate results in a
-        small set of cases, generally with synsets concerning people. (eg:
-        'chef.n.01', 'fireman.n.01', etc.)
-
-        This method is an implementation of Ted Pedersen's "Lowest Common
-        Subsumer" method from the Perl Wordnet module. It can return either
-        "self" or "other" if they are a hypernym of the other.
 
         :type other: Synset
         :param other: other input synset
@@ -1122,7 +1163,27 @@ class Synset(_WordNetObject):
 ######################################################################
 class WordNetCorpusReader(CorpusReader):
     """
-    A corpus reader used to access the Latin WordNet 2.0.
+    A corpus reader used to access the Latin WordNet.
+
+    :param host: The Latin WordNet host address.
+
+    >>> LWN = WordNetCorpusReader()
+    >>> animus = LWN.lemma('animus', 'n', 'n-s---mn2-')
+    >>> print(animus)
+    Lemma(lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046')
+    >>> dico = LWN.lemmas('dico', 'v')
+    >>> print(list(dico))
+    [Lemma(lemma='dico', pos='v', morpho='v1spia--3-', uri='d1350'), Lemma(lemma='dico', pos='v', morpho='v1spia--1-', uri='d1349')]
+    >>> virtus = LWN.lemmas_from_uri('u0800')
+    >>> print(virtus)
+    [Lemma(lemma='uirtus', pos='n', morpho='n-s---fn3-', uri='u0800')]
+    >>> courage = LWN.synset('n#03805961')
+    >>> print(courage)
+    Synset(pos='n', offset='03805961', definition='a quality of spirit that enables you to face danger of pain without showing fear')
+    >>> adverbs = LWN.synsets('r')
+    >>> print(len(list(adverbs)) > 3600)
+    True
+
     """
 
     _ENCODING = 'utf8'
@@ -1350,23 +1411,8 @@ class WordNetCorpusReader(CorpusReader):
         )
 
     #############################################################
-    # Misc
+    # Similarity
     #############################################################
-    def lemma_count(self, lemma):
-        """Return the frequency count for this Lemma"""
-        # Currently, count is only work for English
-        if lemma._lang != 'eng':
-            return 0
-        # open the count file if we haven't already
-        if self._key_count_file is None:
-            self._key_count_file = self.open('cntlist.rev')
-        # find the key in the counts file and return the count
-        line = _binary_search_file(self._key_count_file, lemma._key)
-        if line:
-            return int(line.rsplit(' ', 1)[-1])
-        else:
-            return 0
-
     def path_similarity(self, synset1, synset2, verbose=False, simulate_root=True):
         return synset1.path_similarity(synset2, verbose, simulate_root)
 
@@ -1407,6 +1453,11 @@ class WordNetCorpusReader(CorpusReader):
         :param form: The form to lemmatize, as a string
         :param morpho: Optional 10-place morphological descriptor, used as a filter
         :return: A list of matching Lemma objects
+
+        >>> LWN = WordNetCorpusReader()
+        >>> print(list(LWN.lemmatize('pumice')))
+        [Lemma(lemma='pumex', pos='n', morpho='n-s---cn3-', uri='p4512')]
+
         """
 
         form = form.translate(punctuation)
@@ -1435,6 +1486,12 @@ class WordNetCorpusReader(CorpusReader):
         :param pos: Optionally, a part-of-speech ('n', 'v', 'a', 'r') indicator
         used as a filter
         :return: A list of Lemma objects
+
+        >>> LWN = WordNetCorpusReader()
+        >>> offspring_translations = list(LWN.translate('en', 'offspring'))
+        >>> print('pusio' in [lemma.lemma() for lemma in offspring_translations])
+        True
+
         """
         pos = f"{pos}/" if pos else ""
         results = requests.get(
@@ -1694,3 +1751,31 @@ relation_types = {
     '\\': 'derived-from',
     '/': 'related-to',
     }
+
+# Example usage
+if __name__ == "__main__":
+    LWN = WordNetCorpusReader()
+
+    lemmas = list(LWN.lemmatize('virtutem'))
+    print(lemmas)
+    virtus = LWN.lemma_from_uri('u0800')
+    print(virtus)
+    print(list(virtus.antonyms()))
+    print(list(virtus.hypernyms()))
+    animus = LWN.lemma('animus', 'n', 'n-s---mn2-')
+    print(animus)
+    for synset in set(virtus.synsets()).intersection(set(animus.synsets())):
+        print(list(synset.semfields()), '>>', list(synset.lemmas()))
+
+    courage = list(LWN.translate('en', 'courage', 'n'))
+    for lemma in courage:
+        print(lemma)
+
+    s1 = LWN.synset('n#02542418')
+    print(s1.id(), '=', s1.definition())
+    s2 = LWN.synset('n#03457380')
+    print(s2.id(), '=', s2.definition())
+
+    print('Common hypernyms:', list(s1.common_hypernyms(s2)))
+    print('Lowest common hypernyms:', list(s1.lowest_common_hypernyms(s2)))
+    print('Shortest path distance:', s1.shortest_path_distance(s2))
