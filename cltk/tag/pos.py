@@ -41,7 +41,13 @@ TAGGERS = {'greek':
                 'ngram_123_backoff': 'backoff.pickle',
                 'crf': 'crf.pickle',
                 'perceptron' : 'perceptron.pickle'
-           }}
+                },
+            'middle_high_german':
+               {
+                   'unigram': 'unigram.pickle',
+                   'tnt': 'tnt.pickle'
+               },
+           }
 
 
 class POSTag:
