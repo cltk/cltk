@@ -2,7 +2,7 @@
 TODO: Fix so ``import_corpora()`` can take relative path.
 TODO: Add https://github.com/cltk/pos_latin
 """
-from cltk import get_cltk_data_dir
+
 from cltk.corpus.akkadian.corpora import AKKADIAN_CORPORA
 from cltk.corpus.arabic.corpora import ARABIC_CORPORA
 from cltk.corpus.chinese.corpora import CHINESE_CORPORA
