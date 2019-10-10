@@ -2,7 +2,9 @@
 
 import unittest
 import unicodedata
+import os
 
+from cltk.corpus.utils.importer import CorpusImporter
 from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
 from cltk.lemmatize.middle_high_german.backoff import BackoffMHGLemmatizer
 from cltk.stem.middle_high_german.stem import stemmer_middle_high_german as middle_high_german_stemmer
@@ -17,6 +19,15 @@ __license__ = 'MIT License. See LICENSE.'
 
 class TestMiddleHighGerman(unittest.TestCase):
     """ Middle High German unit tests"""
+
+    def setUp(self):
+        corpus_importer = CorpusImporter("middle_high_german")
+        corpus_importer.import_corpus("middle_high_german_models_cltk")
+        file_rel = os.path.join(get_cltk_data_dir() +
+                                '/middle_high_german/model/middle_high_german_models_cltk/README.md')
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.isfile(file)
+        self.assertTrue(file_exists)
 
     def test_middle_high_german_tokenize(self):
         """
