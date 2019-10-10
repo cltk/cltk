@@ -9,7 +9,6 @@ import re
 from typing import List, Dict, Tuple, Set, Any, Generator
 import reprlib
 
-from cltk import get_cltk_data_dir
 from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer, UnigramLemmatizer
 
 from cltk.utils.file_operations import open_pickle
@@ -85,9 +84,3 @@ class BackoffMHGLemmatizer:
 
     def __repr__(self):
         return f'<BackoffMHGLemmatizer v0.1>'
-
-
-if __name__ == "__main__":
-    mhg_lemmatizer = BackoffMHGLemmatizer()
-    res = mhg_lemmatizer.lemmatize("uns ist in alten mæren".split(" "))
-    print(res)
