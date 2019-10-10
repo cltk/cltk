@@ -736,6 +736,82 @@ The Synonym class can be initialized to lookup either synonyms or translations. 
 A raw list of translations can be obtained from the translation object using Lemmata.isolate().
 
 
+Latin WordNet
+=============
+
+The Latin WordNet API provides rich semantic information and is backed by an on-line lexico-semantic database (https://latinwordnet.exeter.ac.uk) undergoing continual curation.
+It provides a nearly complete interface to the WordNet's RESTful API. The WordNet presently contains information for over 70,000 Latin words.
+
+The WordNetCorpusReader class is the main entry point for getting information about lemmas, synsets, and various lexical and semantic (conceptual) relationships between words
+such as hypernymy, hyponymy, synonymy, antonymy etc.
+
+.. code-block:: python
+
+    In [1]: from cltk.corpus.latin.wordnet import WordNetCorpusReader
+
+    In [2]: LWN = WordNetCorpusReader()
+
+    In [3]: uirtus = LWN.lemma('uirtus', 'n', 'n-s---fn3-')
+
+    In [4]: synsets = list(uirtus.synsets())
+
+    In [5]: print(synsets)
+    Out[5]: [Synset(pos='n', offset='05595229', definition='feeling no fear'), Synset(pos='n', offset='04504076', definition='a characteristic property that defines the apparent individual nature of something'), Synset(pos='n', offset='04349777', definition='possession of the qualities (especially mental qualities) required to do something or get something done; "danger heightened his powers of discrimination"'), Synset(pos='n', offset='04549901', definition='an ideal of personal excellence toward which a person strives'), Synset(pos='n', offset='03800378', definition='moral excellence or admirableness'), Synset(pos='n', offset='03800842', definition='morality with respect to sexual relations'), Synset(pos='n', offset='03805961', definition='a quality of spirit that enables you to face danger of pain without showing fear'), Synset(pos='n', offset='03929156', definition='strength of mind that enables one to endure adversity with courage'), Synset(pos='n', offset='03678310', definition='the trait of being manly; having the characteristics of an adult male'), Synset(pos='n', offset='03806773', definition='resolute courageousness'), Synset(pos='n', offset='04505328', definition='something in which something or some one excels'), Synset(pos='n', offset='03806965', definition='the trait of having a courageous spirit'), Synset(pos='n', offset='03655289', definition='courageous high-spiritedness'), Synset(pos='n', offset='03808136', definition='the trait of showing courage and determination in spite of possible loss or injury'), Synset(pos='n', offset='04003047', definition='the quality that renders something desirable or valuable or useful'), Synset(pos='n', offset='03717355', definition='a degree or grade of excellence or worth'), Synset(pos='n', offset='04003707', definition='any admirable quality or attribute'), Synset(pos='n', offset='03798920', definition='the quality of doing what is right and avoiding what is wrong'), Synset(pos='n', offset='03799068', definition='a particular moral excellence')]
+
+    In [6]: print(list(uirtus.derivationally_related_forms()))
+    Out[6]: [Lemma(lemma='uir', pos='n', morpho='n-s---mn2r', uri='u0750')]
+
+    In [7]: hirsutus = LWN.lemma('hirsutus', 'a', 'aps---mn1-')
+    
+    In [8]: print(list(hirsutus.antonyms()))
+    Out[8]: [Lemma(lemma='imberbus', pos='a', morpho='aps---mn1-', uri='i0305'), Lemma(lemma='caluus', pos='a', morpho='aps---mn1-', uri='c2611'), Lemma(lemma='imberbis', pos='a', morpho='aps---cn3i', uri='i0305'), Lemma(lemma='defloccatus', pos='a', morpho='aps---mn1-', uri='51689'), Lemma(lemma='glaber', pos='a', morpho='aps---mn1r', uri='g0314')]
+
+It is also possible to begin from the synset to find words that instantiate the relevant meaning in Latin, or related words.
+
+.. code-block:: python
+
+    In [1]: synset = LWN.synset('n#03457380')
+
+    In [2]: print(synset)
+    Out[2]: Synset(pos='n', offset='03457380', definition='a cutting or thrusting weapon with a long blade')
+
+    In [3]: print(list(synset.lemmas()))
+    Out[3]: [Lemma(lemma='cinctorium', pos='n', morpho='n-s---nn2-', uri='c1640'), Lemma(lemma='uirgula', pos='n', morpho='n-s---fn1-', uri='u0775'), Lemma(lemma='labecula', pos='n', morpho='n-s---fn1-', uri='l0006'), Lemma(lemma='rudis', pos='n', morpho='n-s---fn3i', uri='r0872'), Lemma(lemma='spatha', pos='n', morpho='n-s---fn1-', uri='s2083'), Lemma(lemma='rumpia', pos='n', morpho='n-s---fn1-', uri='r0783'), Lemma(lemma='anactorium', pos='n', morpho='n-s---nn2-', uri='a1840'), Lemma(lemma='baltearius', pos='n', morpho='n-s---mn2-', uri='b0093'), Lemma(lemma='cautroma', pos='n', morpho='n-s---nn3-', uri='c1026'), Lemma(lemma='phalarica', pos='n', morpho='n-s---fn1-', uri='51626'), Lemma(lemma='catillum', pos='n', morpho='n-s---nn2-', uri='97849'), Lemma(lemma='chalybs', pos='n', morpho='n-s---mn3-', uri='c1343'), Lemma(lemma='gladius', pos='n', morpho='n-s---mn2-', uri='g0332'), Lemma(lemma='cingula', pos='n', morpho='n-s---fn1-', uri='c1652'), Lemma(lemma='destinatum', pos='n', morpho='n-s---nn2-', uri='d0917'), Lemma(lemma='ferrum', pos='n', morpho='n-s---nn2-', uri='f0403'), Lemma(lemma='lamina', pos='n', morpho='n-s---fn1-', uri='l0169'), Lemma(lemma='palumbus', pos='n', morpho='n-s---mn2-', uri='p0174'), Lemma(lemma='cauteroma', pos='n', morpho='n-s---nn3-', uri='50707'), Lemma(lemma='mucro', pos='n', morpho='n-s---mn3-', uri='m1466'), Lemma(lemma='aestuarium', pos='n', morpho='n-s---nn2-', uri='a1032'), Lemma(lemma='Marca', pos='n', morpho='n-s---fn1-', uri='40590'), Lemma(lemma='uacerra', pos='n', morpho='n-s---fn1-', uri='u0007'), Lemma(lemma='machaera', pos='n', morpho='n-s---fn1-', uri='m0019'), Lemma(lemma='lampada', pos='n', morpho='n-s---fn1-', uri='l0181')]
+
+
+As it is backed by a lexical database, the WordNet API provides a lemmatization and translation service. The lemma translator can accommodate queries in English ('en'), French ('fr'), Spanish ('es') or Italian ('it'), to varying degrees of vocabulary coverage.
+
+.. code-block:: python
+
+    In [1]: print(list(LWN.lemmatize('pumice')))
+    Out[1]: [Lemma(lemma='pumex', pos='n', morpho='n-s---cn3-', uri='p4512')]
+
+    In [2]: courage = list(LWN.translate('en', 'courage', 'n'))
+
+    In [3]: print(courage)
+    Out[3]: [Lemma(lemma='audacia', pos='n', morpho='n-s---fn1-', uri='a3433'), Lemma(lemma='uirtus', pos='n', morpho='n-s---fn3-', uri='u0800'), Lemma(lemma='fortitudo', pos='n', morpho='n-s---fn3-', uri='f0891'), Lemma(lemma='audentia', pos='n', morpho='n-s---fn1-', uri='a3403'), Lemma(lemma='robor', pos='n', morpho='n-s---nn3-', uri='30311'), Lemma(lemma='festiuus', pos='n', morpho='n-s---mn2-', uri='49960'), Lemma(lemma='flagritriba', pos='n', morpho='n-s---mn1-', uri='f0612'), Lemma(lemma='mens', pos='n', morpho='n-s---fn3i', uri='m0733'), Lemma(lemma='animositas', pos='n', morpho='n-s---fn3-', uri='a2042'), Lemma(lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046'), Lemma(lemma='ferocitas', pos='n', morpho='n-s---fn3-', uri='f0385'), Lemma(lemma='fiducia', pos='n', morpho='n-s---fn1-', uri='f0503'), Lemma(lemma='iecur', pos='n', morpho='n-s---nn3-', uri='50231'), Lemma(lemma='ferocia', pos='n', morpho='n-s---fn1-', uri='f0383')]
+
+
+The API also includes functionality for computing similarity metrics between synsets, using various scoring algorithms (path-distance, Leacock-Chodorow, Wu-Palmer, and so on).
+
+.. code-block:: python
+
+    In [1]: from cltk.corpus.latin.wordnet import Synset
+
+    In [2]: s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+
+    In [3]: s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+
+    In [4]: s1.lowest_common_hypernyms(s2)
+    Out[5]: [Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting')]
+
+    In [5]: s1.shortest_path_distance(s2)
+    Out[5]: 3
+
+    In [5]: s1.wup_similarity(s2)
+    Out[5]: 0.8
+
+
 Sentence Tokenization
 =====================
 Sentence tokenization for Latin is available using a [Punkt](https://www.nltk.org/_modules/nltk/tokenize/punkt.html) tokenizer trained on the Latin Library. The model for this tokenizer can be found in the CLTK corpora under latin_model_cltk/tokenizers/sentence/latin_punkt. The training process considers Latin punctuation patterns as well as common abbreviations (e.g. nomina). To tokenize a Latin text by sentences...

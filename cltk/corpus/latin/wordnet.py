@@ -1261,7 +1261,7 @@ class WordNetCorpusReader(CorpusReader):
                     else:
                         raise WordNetError(f"can't disambiguate {lemma} ({morpho}): try {ambiguous}")
                 else:
-                    return self._lemma_cache[lemma][pos][morpho]
+                    return self._lemma_cache[lemma][pos][morpho].values()
 
         results = self.json = requests.get(
                 f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}"
@@ -1272,6 +1272,8 @@ class WordNetCorpusReader(CorpusReader):
             ambiguous = [f"{result['lemma']} ({result['morpho']})"
                          for result in results]
             raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
+        elif len(results) == 0:
+            raise WordNetError(f"'{lemma}'' ({pos}) not found")
         l = Lemma(self, **results[0])
         self._lemma_cache[lemma][pos][morpho][results[0]['uri']] = l
         return l
