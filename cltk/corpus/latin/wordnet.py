@@ -14,6 +14,7 @@ from __future__ import print_function, unicode_literals
 
 import codecs
 import math
+import os
 import re
 import string
 from collections import defaultdict, deque
@@ -25,8 +26,9 @@ import requests
 from nltk.compat import python_2_unicode_compatible
 from nltk.corpus.reader import CorpusReader
 from nltk.probability import FreqDist
-from nltk.util import binary_search_file as _binary_search_file
 from six import iteritems
+
+from cltk import get_cltk_data_dir
 
 
 nesteddict = lambda: defaultdict(nesteddict)
@@ -155,10 +157,6 @@ class Lemma(_WordNetObject):
     - count: The frequency of this lemma in the WordNet, i.e., the number of synsets
     (literal, metonymic, or metaphoric) to which it belongs
 
-    >>> synset = list(virtus.synsets())[0]
-    >>> print(synset.definition())
-    feeling no fear
-
     Lemma methods:
 
     Lemmas have the following methods for retrieving related Lemmas. They
@@ -286,30 +284,48 @@ class Lemma(_WordNetObject):
         return self.__synsets
 
     def synsets(self):
+        """
+        Retrieve all synsets for the lemma.
+
+        :return: A generator of Synset objects.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> virtus = LWN.lemmas_from_uri('u0800')[0]
+        >>> synset = list(virtus.synsets())[0]
+        >>> print(synset.definition())
+        feeling no fear
+
+        """
         return chain(self.literal(), self.metonymic(), self.metaphoric())
 
     def literal(self):
+        """ Retrieve all literal senses of the lemma. """
         return (
             Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
             for synset in self._synsets['literal']
         )
 
     def metonymic(self):
+        """ Retrieve all metonymic senses of the lemma. """
         return (
             Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
             for synset in self._synsets['metonymic']
         )
 
     def metaphoric(self):
+        """ Retrieve all metaphoric senses of the lemma. """
         return (
             Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
             for synset in self._synsets['metaphoric']
         )
 
-    def __repr__(self):
-        return "Lemma(lemma='{}', pos='{}', morpho='{}', uri='{}')".format(self.lemma(), self.pos(), self.morpho(), self.uri())
-
     def related(self, relation_symbol=None):
+        """
+        Retrieve lemmas having the given relation type to this lemma.
+
+        :param relation_symbol: Symbol for the lexical or semantic relation
+        :return: A list of Lemma objects/
+        """
         if relation_symbol and relation_types[relation_symbol] in self._related:
             return (
                 Lemma(self._wordnet_corpus_reader,
@@ -323,11 +339,6 @@ class Lemma(_WordNetObject):
                 for relation_symbol in self.__related
                 for lemma in self._related[relation_symbol]
             )
-
-    def count(self):
-        """Return the frequency count for this Lemma"""
-        return self._wordnet_corpus_reader.lemma_count(self)
-
 
     def derivationally_related_forms(self):
         return self.related('\\')
@@ -343,6 +354,9 @@ class Lemma(_WordNetObject):
 
     def composes(self):
         return self.related('-c')
+
+    def __repr__(self):
+        return "Lemma(lemma='{}', pos='{}', morpho='{}', uri='{}')".format(self.lemma(), self.pos(), self.morpho(), self.uri())
 
     def __hash__(self):
         return hash(self._lemma)
@@ -362,15 +376,19 @@ class Lemma(_WordNetObject):
 
 @python_2_unicode_compatible
 class Semfield:
-    """Create a Semfield from code and english parameters where:
+    """
+
+    Create a Semfield from code and english parameters where:
     <code> is the semfield's DDCS code
     <english> is the semfield's DDCS descriptor
 
+    A semfield (semantic field) defines a broad conceptual domain that includes
+    many synsets. The Latin WordNet uses the Dewey Decimal Classification System
+    as a topic index and hierarchy.
+
     >>> LWN = WordNetCorpusReader()
     >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
-    >>> fat = LWN.synset('n#04089143')
-    >>> print(fat in list(anatomy.synsets()))
-    True
+    >>>
 
     """
     __slots__ = [
@@ -390,6 +408,8 @@ class Semfield:
         self._english = english
         self._synsets = None
         self._lemmas = None
+        self._hypers = None
+        self._hypons = None
 
     def code(self):
         return self._code
@@ -410,6 +430,15 @@ class Semfield:
         return self._english
 
     def synsets(self):
+        """ Retrieve all synsets of the semfield.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+        >>> fat = LWN.synset('n#04089143')
+        >>> print(fat in list(anatomy.synsets()))
+        True
+        """
+
         if self._synsets is None:
             english = re.sub(' ', '_', self.english())
             results = requests.get(
@@ -426,6 +455,8 @@ class Semfield:
         return self._synsets
 
     def lemmas(self):
+        """ Retrieve all lemmas for all synsets of the semfield. """
+
         if self._lemmas is None:
             english = re.sub(' ', '_', self.english())
             results = requests.get(
@@ -441,6 +472,56 @@ class Semfield:
                 self._lemmas = []
         return self._lemmas
 
+    def hypers(self):
+        """ Retrieve all superordinate semfields of the semfield.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+        >>> print(list(anatomy.hypers()))
+        [Semfield(code='610', english='Medicine & Health')]
+
+        """
+
+        if self._hypers is None:
+            english = re.sub(' ', '_', self.english())
+            results = requests.get(
+                f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/{english}/?format=json",
+                timeout=(30.0, 90.0)
+            )
+            if results:
+                self._hypers = (
+                    Semfield(self._wordnet_corpus_reader, semfield['code'], semfield['english'])
+                    for semfield in results.json()[0]['hypers']
+            )
+            else:
+                self._hypers = []
+        return self._hypers
+
+    def hypons(self):
+        """ Retrieve all subordinate semfields of the semfield.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> medicine = Semfield(LWN, '610', "Medicine & Health")
+        >>> print(list(medicine.hypons()))
+        [Semfield(code='611', english='Human Anatomy, Cytology & Histology'), Semfield(code='612', english='Human Physiology'), Semfield(code='613', english='Personal Health & Safety'), Semfield(code='614', english='Incidence & Prevention Of Disease'), Semfield(code='615', english='Pharmacology & Therapeutics'), Semfield(code='616', english='Diseases'), Semfield(code='617', english='Surgery & Related Medical Specialties'), Semfield(code='618', english='Gynecology, Obstetrics, Pediatrics & Geriatrics'), Semfield(code='610', english='Medicine & health')]
+
+        """
+
+        if self._hypons is None:
+            english = re.sub(' ', '_', self.english())
+            results = requests.get(
+                f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/{english}/?format=json",
+                timeout=(30.0, 90.0)
+            )
+            if results:
+                self._hypons = (
+                    Semfield(self._wordnet_corpus_reader, semfield['code'], semfield['english'])
+                    for semfield in results.json()[0]['hypons']
+                )
+            else:
+                self._hypons = []
+        return self._hypons
+
     def __repr__(self):
         return "Semfield(code='{}', english='{}')".format(self.code(), self.english())
 
@@ -448,14 +529,15 @@ class Semfield:
 @total_ordering
 @python_2_unicode_compatible
 class Synset(_WordNetObject):
-    """Create a Synset from pos and offset parameters where:
+    """
+    Create a Synset from pos, offset and gloss parameters where:
     <pos> is the synset's part of speech
-    <offset> is the offset ID of the synset.
-
+    <offset> is the offset ID of the synset
+    <gloss> is the synset's definition
     >>> LWN = WordNetCorpusReader()
     >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-    >>> print(list(s1.semfields()))
-    [Semfield(code='739.7', english='Arms And Armour')]
+    >>> print(s1.id())
+    n#02542418
 
     Synset attributes, accessible via methods with the same name:
 
@@ -463,17 +545,6 @@ class Synset(_WordNetObject):
     - offset: The unique offset ID of the synset
     - lemmas: A list of the Lemma objects for this synset
     - definition: The definition for this synset
-
-    >>> for lemma in s1.lemmas():
-    ...     print(lemma.lemma())
-    sica
-    clunaculum
-    gladiolus
-    parazonium
-    pugio
-    sicula
-    sicula
-    pugiunculus
 
     Synset methods:
 
@@ -494,24 +565,12 @@ class Synset(_WordNetObject):
     - similar_tos
     - nearest
 
-    >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
-    >>> hyponym = list(s2.hyponyms())[0]
-    >>> print(hyponym.id(), hyponym.definition())
-    n#02235272 broad blade; used for cutting rather than stabbing
-
     Additionally, Synsets support the following methods specific to the
     hypernym relation:
 
     - root_hypernyms
     - common_hypernyms
     - lowest_common_hypernyms
-
-    >>> print(s1.root_hypernyms())
-    [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]
-    >>> print(s1.lowest_common_hypernyms(s2))
-    [Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting')]
-    >>> print(s1.shortest_path_distance(s2))
-    3
 
     Note that Synsets do not support the following relations because
     these are defined by WordNet as lexical relations:
@@ -553,6 +612,7 @@ class Synset(_WordNetObject):
         return "{}#{}".format(self.pos(), self.offset())
 
     def semfields(self):
+        """ Retrieve the synset's semfields. """
         if self._semfields is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/?format=json",
@@ -568,6 +628,11 @@ class Synset(_WordNetObject):
         )
 
     def sentiment(self):
+        """
+        Retrieve sentiment scores for the synset.
+
+        :return: A 3-uple representing the synset's positivity, negativity, and objectivity scores (-1 to 1).
+        """
         if self._sentiment is None:
             results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/sentiment/?format=json",
@@ -596,6 +661,15 @@ class Synset(_WordNetObject):
         return self._definition
 
     def examples(self):
+        """
+        Retrieve examples of any lemma instantiating this synset.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '04399253')
+        >>> print(s1.examples()[0])
+        {'lemma': {'lemma': 'baculum', 'pos': 'n', 'morpho': 'n-s---nn2-', 'uri': 'b0034', 'prosody': 'baculum'}, 'author_abbr': 'Vulg', 'work_abbr': 'Tob', 'reference': '10.4', 'text': 'baculum senectutis nostrae'}
+
+        """
         if self._examples is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/examples/?format=json",
@@ -609,7 +683,26 @@ class Synset(_WordNetObject):
         return self._pos == 'n' or self._pos == 'v'
 
     def lemmas(self):
-        '''Return all the lemma objects associated with the synset'''
+        """
+        Return all the Lemma objects associated with the synset.
+
+        :return: A generator of Lemma objects.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> for lemma in sorted(set(s1.lemmas())):
+        ...     print(lemma.lemma())
+        sica
+        clunaculum
+        gladiolus
+        parazonium
+        pugio
+        sicula
+        sicula
+        pugiunculus
+
+        """
+
         if self._lemmas is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/lemmas/?format=json",
@@ -625,7 +718,15 @@ class Synset(_WordNetObject):
         )
 
     def root_hypernyms(self):
-        """Get the topmost hypernyms of this synset in WordNet."""
+        """
+        Get the topmost hypernyms of this synset in WordNet.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1.root_hypernyms()
+        [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]
+
+        """
 
         result = []
         seen = set()
@@ -645,8 +746,15 @@ class Synset(_WordNetObject):
 
     def max_depth(self):
         """
-        :return: The length of the longest hypernym path from this
-        synset to the root.
+        Get the length of the longest hypernym path from this synset to the root.
+
+        :return: An integer value representing the maximum path length to the root.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1.max_depth()
+        7
+
         """
 
         if "_max_depth" not in self.__dict__:
@@ -661,6 +769,11 @@ class Synset(_WordNetObject):
         """
         :return: The length of the shortest hypernym path from this
         synset to the root.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1.min_depth()
+        7
         """
 
         if "_min_depth" not in self.__dict__:
@@ -672,8 +785,16 @@ class Synset(_WordNetObject):
         return self._min_depth
 
     def closure(self, rel, depth=-1):
-        """Return the transitive closure of source under the rel
-        relationship, breadth-first
+        """
+        Return the transitive closure of the synset under the rel
+        relationship, breadth-first.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> hypers = lambda s: s.hypernyms()
+        >>> list(s1.closure(hypers))
+        [Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), Synset(pos='n', offset='03601456', definition='weapons considered collectively'), Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), Synset(pos='n', offset='00011937', definition='a man-made object'), Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]
+
         """
         from nltk.util import breadth_first
 
@@ -691,6 +812,12 @@ class Synset(_WordNetObject):
 
         :return: A list of lists, where each list gives the node sequence
            connecting the initial ``Synset`` node and a root node.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1.hypernym_paths()
+        [[Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), Synset(pos='n', offset='00011937', definition='a man-made object'), Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), Synset(pos='n', offset='03601456', definition='weapons considered collectively'), Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), Synset(pos='n', offset='02542418', definition='a short stabbing weapon with a pointed blade')]]
+
         """
         paths = []
 
@@ -712,6 +839,13 @@ class Synset(_WordNetObject):
         :type other: Synset
         :param other: other input synset.
         :return: The synsets that are hypernyms of both synsets.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> sorted(s1.common_hypernyms(s2))
+        [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), Synset(pos='n', offset='00011937', definition='a man-made object'), Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), Synset(pos='n', offset='03601456', definition='weapons considered collectively')]
+
         """
         if not self._all_hypernyms:
             self._all_hypernyms = set(
@@ -757,6 +891,13 @@ class Synset(_WordNetObject):
             for backwards compatibility
         :return: The synsets that are the lowest common hypernyms of both
             synsets
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1.lowest_common_hypernyms(s2)
+        [Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting')]
+
         """
         synsets = self.common_hypernyms(other)
         if simulate_root:
@@ -785,15 +926,21 @@ class Synset(_WordNetObject):
             the original hypernym ``Synset`` on which this method was called.
         :return: A set of ``(Synset, int)`` tuples where each ``Synset`` is
            a hypernym of the first ``Synset``.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> sorted(s1.hypernym_distances())
+        [(Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), 2), (Synset(pos='n', offset='02542418', definition='a short stabbing weapon with a pointed blade'), 0), (Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), 4), (Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), 1), (Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), 7), (Synset(pos='n', offset='00011937', definition='a man-made object'), 5), (Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), 6), (Synset(pos='n', offset='03601456', definition='weapons considered collectively'), 3)]
+
         """
         distances = set([(self, distance)])
         for hypernym in self._hypernyms():
-            distances |= hypernym.hypernym_distances(distance + 1, simulate_root=False)
+            distances |= set(hypernym.hypernym_distances(distance + 1, simulate_root=False))
         if simulate_root:
             root = Synset(self._wordnet_corpus_reader, self.pos(), '00000000')
             root_distance = max(distances, key=itemgetter(1))[1]
             distances.add((root, root_distance + 1))
-        return distances
+        return list(distances)
 
     def _shortest_hypernym_paths(self, simulate_root):
         if self.offset == '00000000':
@@ -830,6 +977,13 @@ class Synset(_WordNetObject):
         :param other: The Synset to which the shortest path will be found.
         :return: The number of edges in the shortest path connecting the two
             nodes, or None if no path exists.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1.shortest_path_distance(s2)
+        3
+
         """
 
         if self == other:
@@ -851,20 +1005,29 @@ class Synset(_WordNetObject):
 
     def tree(self, rel, depth=-1, cut_mark=None):
         """
-        :param rel:
+        Generate a tree-like list structure for rel relationship of this synset.
+
+        :param rel: A function returning the relations of a certain kind of this synset.
         :param depth:
-        :param cut_mark:
-        :return:
+        :param cut_mark: An object used to indicate where a branch has been truncated.
+        :return: A list of lists.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset(pos='n', offset='01595188')
+        >>> hypers = lambda s: s.hypernyms()
+        >>> s1.tree(hypers)
+        [Synset(pos='n', offset='01595188', definition='a member of the genus Canis (probably descended from the common wolf) that has been domesticated by man since prehistoric times; occurs in many breeds; "the dog barked all night"'), [Synset(pos='n', offset='01594481', definition='any of various fissiped mammals with nonretractile claws and typically long muzzles'), [Synset(pos='n', offset='01586585', definition='terrestrial or aquatic flesh-eating mammal; terrestrial carnivores have four or five clawed digits on each limb'), [Synset(pos='n', offset='01402712', definition='mammals having a placenta; all mammals except monotremes and marsupials'), [Synset(pos='n', offset='01378363', definition='any warm-blooded vertebrate having the skin more or less covered with hair; young are born alive except for the small subclass of monotremes and nourished with milk'), [Synset(pos='n', offset='00995974', definition='animals having a bony or cartilaginous skeleton with a segmented spinal column and a large brain enclosed in a skull or cranium'), [Synset(pos='n', offset='00990770', definition='any animal of the phylum Chordata having a notochord or spinal column'), [Synset(pos='n', offset='00008019', definition='a living organism characterized by voluntary movement'), [Synset(pos='n', offset='00002086', definition='any living entity'), [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]]]]]]]]]]
+
         """
 
         tree = [self]
         if depth != 0:
-            tree += [x.tree(rel, depth - 1, cut_mark) for x in self.related(rel, sort=True)]
+            tree += [x.tree(rel, depth - 1, cut_mark) for x in rel(self)]
         elif cut_mark:
             tree += [cut_mark]
         return tree
 
-    # interface to similarity methods
+    # Similarity methods
     def path_similarity(self, other, verbose=False, simulate_root=True):
         """
         Path Distance Similarity:
@@ -890,6 +1053,13 @@ class Synset(_WordNetObject):
             normally between 0 and 1. None is returned if no connecting path
             could be found. 1 is returned if a ``Synset`` is compared with
             itself.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1.path_similarity(s2)
+        0.25
+
         """
 
         distance = self.shortest_path_distance(
@@ -899,6 +1069,44 @@ class Synset(_WordNetObject):
             return None
         return 1.0 / (distance + 1)
 
+    def _lcs_ic(self, other, icreader, verbose=False):
+        """
+        Get the information content of the least common subsumer that has
+        the highest information content value.  If two nodes have no
+        explicit common subsumer, assume that they share an artificial
+        root node that is the hypernym of all explicit roots.
+
+        :type synset1: Synset
+        :param synset1: First input synset.
+        :type synset2: Synset
+        :param synset2: Second input synset.  Must be the same part of
+        speech as the first synset.
+        :type  ic: WordNetICCorpusReader
+        :param ic: an information content reader object
+        :return: The information content of the two synsets and their most
+        informative subsumer
+        """
+
+        if self._pos != other._pos:
+            raise WordNetError(
+                'Computing the least common subsumer requires '
+                '%s and %s to have the same part of speech.' % (self, other)
+            )
+
+        ic1 = icreader.information_content(self)
+        ic2 = icreader.information_content(other)
+        subsumers = self.common_hypernyms(other)
+        if len(subsumers) == 0:
+            subsumer_ic = 0
+        else:
+            subsumer_ic = max(icreader.information_content(s) for s in subsumers)
+
+        if verbose:
+            print("> LCS Subsumer by content:", subsumer_ic)
+
+        return ic1, ic2, subsumer_ic
+
+
     def lch_similarity(self, other, verbose=False, simulate_root=True):
         """
         Leacock Chodorow Similarity:
@@ -906,7 +1114,8 @@ class Synset(_WordNetObject):
         shortest path that connects the senses (as above) and the maximum depth
         of the taxonomy in which the senses occur. The relationship is given as
         -log(p/2d) where p is the shortest path length and d is the taxonomy
-        depth.
+        depth. Because this metric must compute the max depth of the entire synset
+        taxonomy, it can be very slow!
 
         :type  other: Synset
         :param other: The ``Synset`` that this ``Synset`` is being compared to.
@@ -915,10 +1124,7 @@ class Synset(_WordNetObject):
             share a single root which disallows this metric from working for
             synsets that are not connected. This flag (True by default)
             creates a fake root that connects all the taxonomies. Set it
-            to false to disable this behavior. For the noun taxonomy,
-            there is usually a default root except for WordNet version 1.6.
-            If you are using wordnet 1.6, a fake root will be added for nouns
-            as well.
+            to false to disable this behavior.
         :return: A score denoting the similarity of the two ``Synset`` objects,
             normally greater than 0. None is returned if no connecting path
             could be found. If a ``Synset`` is compared with itself, the
@@ -973,14 +1179,17 @@ class Synset(_WordNetObject):
             share a single root which disallows this metric from working for
             synsets that are not connected. This flag (True by default)
             creates a fake root that connects all the taxonomies. Set it
-            to false to disable this behavior. For the noun taxonomy,
-            there is usually a default root except for WordNet version 1.6.
-            If you are using wordnet 1.6, a fake root will be added for nouns
-            as well.
+            to false to disable this behavior.
+
         :return: A float score denoting the similarity of the two ``Synset``
             objects, normally greater than zero. If no connecting path between
             the two senses can be found, None is returned.
 
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1.wup_similarity(s2)
+        0.8
         """
 
         need_root = self._needs_root()
@@ -1024,7 +1233,7 @@ class Synset(_WordNetObject):
         len2 += depth
         return (2.0 * depth) / (len1 + len2)
 
-    def res_similarity(self, other, ic, verbose=False):
+    def res_similarity(self, other, icreader, verbose=False):
         """
         Resnik Similarity:
         Return a score denoting how similar two word senses are, based on the
@@ -1033,18 +1242,25 @@ class Synset(_WordNetObject):
 
         :type  other: Synset
         :param other: The ``Synset`` that this ``Synset`` is being compared to.
-        :type ic: dict
-        :param ic: an information content object (as returned by
-            ``nltk.corpus.wordnet_ic.ic()``).
+        :type ic: WordNetICCorpusReader
+        :param ic: an information content reader
         :return: A float score denoting the similarity of the two ``Synset``
             objects. Synsets whose LCS is the root node of the taxonomy will
             have a score of 0 (e.g. N['dog'][0] and N['table'][0]).
+
+        >>> from cltk.corpus.latin.wordnet import WordNetCorpusReader, WordNetICCorpusReader
+        >>> LASLA_IC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '02542418')
+        >>> s2 = LWN.synset_from_pos_and_offset('n', '03457380')
+        >>> s1.res_similarity(s2, LASLA_IC)
+        6.056495670686355
         """
 
-        ic1, ic2, lcs_ic = _lcs_ic(self, other, ic)
+        ic1, ic2, lcs_ic = self._lcs_ic(other, icreader)
         return lcs_ic
 
-    def jcn_similarity(self, other, ic, verbose=False):
+    def jcn_similarity(self, other, icreader, verbose=False):
         """
         Jiang-Conrath Similarity:
         Return a score denoting how similar two word senses are, based on the
@@ -1054,17 +1270,25 @@ class Synset(_WordNetObject):
 
         :type  other: Synset
         :param other: The ``Synset`` that this ``Synset`` is being compared to.
-        :type  ic: dict
-        :param ic: an information content object (as returned by
-            ``nltk.corpus.wordnet_ic.ic()``).
+        :type  ic: WordNetICCorpusReader
+        :param ic: an information content reader
         :return: A float score denoting the similarity of the two ``Synset``
             objects.
+
+        >>> from cltk.corpus.latin.wordnet import WordNetCorpusReader, WordNetICCorpusReader
+        >>> LASLA_IC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '02542418')
+        >>> s2 = LWN.synset_from_pos_and_offset('n', '03457380')
+        >>> s1.jcn_similarity(s2, LASLA_IC)
+        0.23789011550933925
+
         """
 
         if self == other:
             return _INF
 
-        ic1, ic2, lcs_ic = _lcs_ic(self, other, ic)
+        ic1, ic2, lcs_ic = self._lcs_ic(other, icreader)
 
         # If either of the input synsets are the root synset, or have a
         # frequency of 0 (sparse data problem), return 0.
@@ -1078,7 +1302,7 @@ class Synset(_WordNetObject):
 
         return 1 / ic_difference
 
-    def lin_similarity(self, other, ic, verbose=False):
+    def lin_similarity(self, other, icreader, verbose=False):
         """
         Lin Similarity:
         Return a score denoting how similar two word senses are, based on the
@@ -1088,14 +1312,21 @@ class Synset(_WordNetObject):
 
         :type other: Synset
         :param other: The ``Synset`` that this ``Synset`` is being compared to.
-        :type ic: dict
-        :param ic: an information content object (as returned by
-            ``nltk.corpus.wordnet_ic.ic()``).
+        :type ic: WordNetICCorpusReader
+        :param ic: an information content reader
         :return: A float score denoting the similarity of the two ``Synset``
             objects, in the range 0 to 1.
+
+        >>> from cltk.corpus.latin.wordnet import WordNetCorpusReader, WordNetICCorpusReader
+        >>> LASLA_IC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '02542418')
+        >>> s2 = LWN.synset_from_pos_and_offset('n', '03457380')
+        >>> s1.lin_similarity(s2, LASLA_IC)
+        0.7423716841366877
         """
 
-        ic1, ic2, lcs_ic = _lcs_ic(self, other, ic)
+        ic1, ic2, lcs_ic = self._lcs_ic(other, icreader)
         return (2.0 * lcs_ic) / (ic1 + ic2)
 
     def _iter_hypernym_lists(self):
@@ -1413,39 +1644,6 @@ class WordNetCorpusReader(CorpusReader):
         )
 
     #############################################################
-    # Similarity
-    #############################################################
-    def path_similarity(self, synset1, synset2, verbose=False, simulate_root=True):
-        return synset1.path_similarity(synset2, verbose, simulate_root)
-
-    path_similarity.__doc__ = Synset.path_similarity.__doc__
-
-    def lch_similarity(self, synset1, synset2, verbose=False, simulate_root=True):
-        return synset1.lch_similarity(synset2, verbose, simulate_root)
-
-    lch_similarity.__doc__ = Synset.lch_similarity.__doc__
-
-    def wup_similarity(self, synset1, synset2, verbose=False, simulate_root=True):
-        return synset1.wup_similarity(synset2, verbose, simulate_root)
-
-    wup_similarity.__doc__ = Synset.wup_similarity.__doc__
-
-    def res_similarity(self, synset1, synset2, ic, verbose=False):
-        return synset1.res_similarity(synset2, ic, verbose)
-
-    res_similarity.__doc__ = Synset.res_similarity.__doc__
-
-    def jcn_similarity(self, synset1, synset2, ic, verbose=False):
-        return synset1.jcn_similarity(synset2, ic, verbose)
-
-    jcn_similarity.__doc__ = Synset.jcn_similarity.__doc__
-
-    def lin_similarity(self, synset1, synset2, ic, verbose=False):
-        return synset1.lin_similarity(synset2, ic, verbose)
-
-    lin_similarity.__doc__ = Synset.lin_similarity.__doc__
-
-    #############################################################
     # Lemmatizer
     #############################################################
     def lemmatize(self, form: str, morpho: str = None):
@@ -1506,10 +1704,36 @@ class WordNetCorpusReader(CorpusReader):
         )
 
 
+######################################################################
+# WordNet Information Content Corpus Reader
+######################################################################
+class WordNetICCorpusReader(CorpusReader):
+    """
+    A corpus reader for the WordNet information content corpus.
+
+    :param root: The root directory where the information content file is stored.
+    :param fileids: A list of file names, relative to the root directory, in this
+        case a single file containing information content for a corpus.
+
+    >>> from cltk.corpus.latin.wordnet import WordNetICCorpusReader
+    >>> LWNIC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
+    """
+
+    def __init__(self, root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/'),
+                 fileids=None):
+        CorpusReader.__init__(self, root, fileids, encoding='utf8')
+        if fileids is not None:
+            self.load_ic(fileids[0])
+        else:
+            self._ic = None
+
+    def ic(self):
+        return self._ic
+
     #############################################################
     # Create information content from corpus
     #############################################################
-    def ic(self, corpus, weight_senses_equally=False, smoothing=1.0):
+    def create_ic(self, corpus, weight_senses_equally=False, smoothing=1.0):
         """
         Creates an information content lookup dictionary from a corpus.
 
@@ -1525,10 +1749,20 @@ class WordNetCorpusReader(CorpusReader):
         :param smoothing: How much do we smooth synset counts (default is 1.0)
         :type smoothing: float
         :return: An information content dictionary
+
+        # >>> from cltk.corpus.latin.wordnet import WordNetICCorpusReader
+        # >>> LWNIC = WordNetICCorpusReader()
+        # >>> from cltk.corpus.readers import get_corpus_reader
+        # >>> latin_corpus = get_corpus_reader(corpus_name='latin_text_latin_library', language='latin')
+        # >>> LWNIC.create_ic(latin_corpus)
+
         """
+
+        LWN = WordNetCorpusReader()
+
         counts = FreqDist()
         for ww in corpus.words():
-            results = self.lemmatize(ww)
+            results = LWN.lemmatize(ww)
             for lemma in results:
                 counts[lemma] += 1
 
@@ -1538,7 +1772,7 @@ class WordNetCorpusReader(CorpusReader):
 
         # Initialize the counts with the smoothing value
         if smoothing > 0.0:
-            for ss in self.synsets():
+            for ss in LWN.synsets():
                 pos = ss._pos
                 ic[pos][ss._offset] = smoothing
 
@@ -1559,173 +1793,90 @@ class WordNetCorpusReader(CorpusReader):
                         ic[pos][hh._offset] += weight
                 # Add the weight to the root
                 ic[pos][0] += weight
-        return ic
+        self._ic = ic
 
-    def write_ic(self, corpus_name, ic):
+    def write_ic(self, corpus_name):
+        if self._ic is None:
+            raise WordNetError('No information content available')
+
         get_synset = self.synset_from_pos_and_offset
 
-        with codecs.open('ic-latin-{}.dat'.format(corpus_name), 'w', 'utf8') as fp:
+        path = os.path.join(self._root, 'ic-{}.dat'.format(corpus_name))
+        with codecs.open(path, 'w', 'utf8') as fp:
             fp.write('lwnver:{}\n'.format(self.get_status()['last_modified']))
             for pp in POS_LIST:
-                for offset in ic[pp]:
+                for offset in self._ic[pp]:
                     ss = get_synset(pp, offset)
                     if len(ss.hypernyms()) == 0:
-                        fp.write('{} {} ROOT\n'.format(ss.id(), ic[pp][offset]))
+                        fp.write('{} {} ROOT\n'.format(ss.id(), self._ic[pp][offset]))
                     else:
-                        fp.write('{} {}\n'.format(ss.id(), ic[pp][offset]))
+                        fp.write('{} {}\n'.format(ss.id(), self._ic[pp][offset]))
+        self._fileids = ['ic-{}.dat'.format(corpus_name),]
 
-
-######################################################################
-# WordNet Information Content Corpus Reader
-######################################################################
-class WordNetICCorpusReader(CorpusReader):
-    """
-    A corpus reader for the WordNet information content corpus.
-    """
-
-    def __init__(self, root='', fileids=None):
-        CorpusReader.__init__(self, root, fileids, encoding='utf8')
-
-    # this load function would be more efficient if the data was pickled
-    # Note that we can't use NLTK's frequency distributions because
-    # synsets are overlapping (each instance of a synset also counts
-    # as an instance of its hypernyms)
-    def ic(self, icfile):
+    def load_ic(self, icfile=None):
         """
-        Load an information content file from the wordnet_ic corpus
-        and return a dictionary.  This dictionary has just two keys,
-        NOUN and VERB, whose values are dictionaries that map from
-        synsets to information content values.
+        Load an information content file and return a dictionary
+        whose keys are POS types and whose values are dictionaries
+        that map from synsets to information content values.
 
         :type icfile: str
-        :param icfile: The name of the wordnet_ic file (e.g. "ic-latin-library.dat")
+        :param icfile: The name of the wordnet_ic file (e.g. "ic-latin_library.dat")
         :return: An information content dictionary
+
+        >>> from cltk.corpus.latin.wordnet import WordNetICCorpusReader
+        >>> LWNIC = WordNetICCorpusReader()
+        >>> LWNIC.load_ic('ic-lasla.dat')
         """
+
+        if not icfile:
+            if self._fileids:
+                icfile = self._fileids[0]
+            else:
+                raise WordNetError('No information content file specified')
+
         ic = {}
-        ic[NOUN] = defaultdict(float)
-        ic[VERB] = defaultdict(float)
-        for num, line in enumerate(self.open(icfile)):
+        for pos in POS_LIST:
+            ic[pos] = defaultdict(float)
+
+        path = os.path.join(self._root, icfile)
+        for num, line in enumerate(self.open(path)):
             if num == 0:  # skip the header
                 continue
             fields = line.split()
-            offset = int(fields[0][:-1])
+            pos, offset = fields[0].split('#')
             value = float(fields[1])
-            pos = _get_pos(fields[0])
             if len(fields) == 3 and fields[2] == "ROOT":
                 # Store root count.
                 ic[pos][0] += value
             if value != 0:
                 ic[pos][offset] = value
-        return ic
+        self._fileids = [icfile,]
+        self._ic = ic
 
+    def information_content(self, synset):
+        """ Retrieve the information content score for a synset.
 
-######################################################################
-# Similarity metrics
-######################################################################
-def path_similarity(synset1, synset2, verbose=False, simulate_root=True):
-    return synset1.path_similarity(synset2, verbose, simulate_root)
+        >>> from cltk.corpus.latin.wordnet import WordNetCorpusReader, WordNetICCorpusReader
+        >>> LWN = WordNetCorpusReader()
+        >>> LWNIC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
+        >>> s = LWN.synset_from_pos_and_offset('n', '02542418')
+        >>> LWNIC.information_content(s)
+        9.256474058450094
 
+        """
+        if not self._ic:
+            raise WordNetError('No information content file has been loaded')
+        try:
+            icpos = self._ic[synset._pos]
+        except KeyError:
+            msg = 'Information content file has no entries for part-of-speech: %s'
+            raise WordNetError(msg % synset._pos)
 
-def lch_similarity(synset1, synset2, verbose=False, simulate_root=True):
-    return synset1.lch_similarity(synset2, verbose, simulate_root)
-
-
-def wup_similarity(synset1, synset2, verbose=False, simulate_root=True):
-    return synset1.wup_similarity(synset2, verbose, simulate_root)
-
-
-def res_similarity(synset1, synset2, ic, verbose=False):
-    return synset1.res_similarity(synset2, ic, verbose)
-
-
-def jcn_similarity(synset1, synset2, ic, verbose=False):
-    return synset1.jcn_similarity(synset2, ic, verbose)
-
-
-def lin_similarity(synset1, synset2, ic, verbose=False):
-    return synset1.lin_similarity(synset2, ic, verbose)
-
-
-path_similarity.__doc__ = Synset.path_similarity.__doc__
-lch_similarity.__doc__ = Synset.lch_similarity.__doc__
-wup_similarity.__doc__ = Synset.wup_similarity.__doc__
-res_similarity.__doc__ = Synset.res_similarity.__doc__
-jcn_similarity.__doc__ = Synset.jcn_similarity.__doc__
-lin_similarity.__doc__ = Synset.lin_similarity.__doc__
-
-
-def _lcs_ic(synset1, synset2, ic, verbose=False):
-    """
-    Get the information content of the least common subsumer that has
-    the highest information content value.  If two nodes have no
-    explicit common subsumer, assume that they share an artificial
-    root node that is the hypernym of all explicit roots.
-
-    :type synset1: Synset
-    :param synset1: First input synset.
-    :type synset2: Synset
-    :param synset2: Second input synset.  Must be the same part of
-    speech as the first synset.
-    :type  ic: dict
-    :param ic: an information content object (as returned by ``load_ic()``).
-    :return: The information content of the two synsets and their most
-    informative subsumer
-    """
-    if synset1._pos != synset2._pos:
-        raise WordNetError(
-            'Computing the least common subsumer requires '
-            '%s and %s to have the same part of speech.' % (synset1, synset2)
-        )
-
-    ic1 = information_content(synset1, ic)
-    ic2 = information_content(synset2, ic)
-    subsumers = synset1.common_hypernyms(synset2)
-    if len(subsumers) == 0:
-        subsumer_ic = 0
-    else:
-        subsumer_ic = max(information_content(s, ic) for s in subsumers)
-
-    if verbose:
-        print("> LCS Subsumer by content:", subsumer_ic)
-
-    return ic1, ic2, subsumer_ic
-
-
-# Utility functions
-def information_content(synset, ic):
-    try:
-        icpos = ic[synset._pos]
-    except KeyError:
-        msg = 'Information content file has no entries for part-of-speech: %s'
-        raise WordNetError(msg % synset._pos)
-
-    counts = icpos[synset._offset]
-    if counts == 0:
-        return _INF
-    else:
-        return -math.log(counts / icpos[0])
-
-
-# get the part of speech (NOUN or VERB) from the information content record
-# (each identifier has a 'n' or 'v' suffix)
-def _get_pos(field):
-    if field[-1] == 'n':
-        return NOUN
-    elif field[-1] == 'v':
-        return VERB
-    else:
-        msg = (
-            "Unidentified part of speech in WordNet Information Content file "
-            "for field %s" % field
-        )
-        raise ValueError(msg)
-
-
-# unload corpus after tests
-def teardown_module(module=None):
-    from nltk.corpus import wordnet
-
-    wordnet._unload()
+        counts = icpos[synset._offset]
+        if counts == 0:
+            return _INF
+        else:
+            return -math.log(counts / icpos[0])
 
 
 relation_types = {
@@ -1753,6 +1904,7 @@ relation_types = {
     '\\': 'derived-from',
     '/': 'related-to',
     }
+
 
 # Example usage
 if __name__ == "__main__":
