@@ -431,13 +431,13 @@ The NLTK's ``skipgrams()`` produces a generator whose values can be turned into 
 Stoplist Construction
 =====================
 
-The ``Stop`` module offers two classes for constructing stoplists: ``StringStoplist`` and ``CorpusStoplist``.
+The ``Stop`` module offers an abstract class for constructing stoplists: ``BaseCorpusStoplist``.
 
-``StringStoplist`` outputs a list of high frequency words from a string. The default size is 100 and can be set with the parameter ``size``.
+Children class must implement ``vectorizer`` and ``tfidf_vectorizer``.
 
 .. code-block:: python
 
-    In [1]: from cltk.stop.stop import StringStoplist
+    In [1]: from cltk.stop.stop import BaseCorpusStoplist # TODO
 
     In [2]: para = """cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, quinte frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo vel in otio cum dignitate esse possent; ac fuit cum mihi quoque initium requiescendi atque animum ad utriusque nostrum praeclara studia referendi fore iustum et prope ab omnibus concessum arbitrarer, si infinitus forensium rerum labor et ambitionis occupatio decursu honorum, etiam aetatis flexu constitisset. quam spem cogitationum et consiliorum meorum cum graves communium temporum tum varii nostri casus fefellerunt; nam qui locus quietis et tranquillitatis plenissimus fore videbatur, in eo maximae moles molestiarum et turbulentissimae tempestates exstiterunt; neque vero nobis cupientibus atque exoptantibus fructus oti datus est ad eas artis, quibus a pueris dediti fuimus, celebrandas inter nosque recolendas. nam prima aetate incidimus in ipsam perturbationem disciplinae veteris, et consulatu devenimus in medium rerum omnium certamen atque discrimen, et hoc tempus omne post consulatum obiecimus eis fluctibus, qui per nos a communi peste depulsi in nosmet ipsos redundarent. sed tamen in his vel asperitatibus rerum vel angustiis temporis obsequar studiis nostris et quantum mihi vel fraus inimicorum vel causae amicorum vel res publica tribuet oti, ad scribendum potissimum conferam; tibi vero, frater, neque hortanti deero neque roganti, nam neque auctoritate quisquam apud me plus valere te potest neque voluntate."""
 
