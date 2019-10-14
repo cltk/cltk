@@ -1,15 +1,10 @@
 """ Code for building and working with stoplists
 """
-from tokenize import String
 from typing import List
-
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
-__license__ = 'MIT License. See LICENSE.'
-
 from abc import abstractmethod
-from collections import Counter
 
-from cltk.utils.cltk_logger import logger
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Clément Besnier <clemsciences@aol.com>']
+__license__ = 'MIT License. See LICENSE.'
 
 
 class Stoplist:
@@ -46,14 +41,14 @@ class Stoplist:
         should be overridden by subclasses of Stoplist.
         """
 
-    def _remove_punctuation(self, texts: List[String], punctuation):
+    def _remove_punctuation(self, texts: List[str], punctuation):
         """
         >>> sl = Stoplist()
         >>> sl._remove_punctuation(["Ave, amicus [meus]."], None)
 
-        :param texts:
-        :param punctuation:
-        :return:
+        :param texts: list of texts
+        :param punctuation: punctuation that should be removed
+        :return: the same text wher punctuation signs have been changed to a space
         """
         if not punctuation:
             punctuation = "\"#$%&\'()*+,-/:;<=>@[]\\^_`{|}~.?!«»"
@@ -68,8 +63,8 @@ class BaseCorpusStoplist(Stoplist):
         Stoplist.__init__(self, language)
         self.punctuation = None
         if not self.numpy_installed or not self.sklearn_installed:
-            print(
-                '\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
+            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. '
+                  'Try installing with `pip install numpy sklearn scipy`.\n\n')
             raise ImportError
         else:
             pass
@@ -128,7 +123,7 @@ class BaseCorpusStoplist(Stoplist):
         return temp
 
     def _borda_sort(self, lists):
-        ### From http://stackoverflow.com/a/30259368/1816347 ###
+        # From http://stackoverflow.com/a/30259368/1816347 ###
         scores = {}
         for l in lists:
             for idx, elem in enumerate(reversed(l)):
@@ -137,9 +132,9 @@ class BaseCorpusStoplist(Stoplist):
                 scores[elem] += idx
         return sorted(scores.keys(), key=lambda elem: scores[elem], reverse=True)
 
-    def build_stoplist(self, texts, basis='zou', size=100, sort_words=True,
+    def build_stoplist(self, texts: List[str], basis='zou', size=100, sort_words=True,
                        inc_values=False, lower=True, remove_punctuation=True,
-                       remove_numbers=True, include=[], exclude=[]):
+                       remove_numbers=True, include=None, exclude=None):
         """
         :param texts: list of strings used as document collection for extracting stopwords
         :param basis: Define the basis for extracting stopwords from the corpus. Available methods are:
@@ -261,7 +256,3 @@ class BaseCorpusStoplist(Stoplist):
             return stops
         else:
             return [item[0] for item in stops]
-
-
-if __name__ == "__main__":
-    pass
