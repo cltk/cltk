@@ -173,7 +173,7 @@ with word-matches highlighted, of all authors (or texts, if ``chunk='work'``).
 
 
 Lemmatization, backoff
-=======
+======================
 
 CLTK offers backoff lemmatizations, i.e. a series of lexicon-, rules-, or training data-based lemmatizers that can be chained together. The backoff lemmatizers are based on backoff POS tagging in NLTK. All of the examples below are in Latin, but these lemmatizers are language-independent (at least, where lemmatization is a meaningful NLP task) and can be made language-specific by providing different training sentences, regex patterns, etc.
 
