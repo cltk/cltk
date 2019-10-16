@@ -45,6 +45,7 @@ class Stoplist:
         """
         >>> sl = Stoplist()
         >>> sl._remove_punctuation(["Ave, amicus [meus]."], None)
+        ['Ave  amicus  meus  ']
 
         :param texts: list of texts
         :param punctuation: punctuation that should be removed
@@ -69,11 +70,11 @@ class BaseCorpusStoplist(Stoplist):
         else:
             pass
 
-        if not hasattr(self, "vectorizer"):
-            raise NotImplementedError("vectorizer")
-
-        if not hasattr(self, "tfidf_vectorizer"):
-            raise NotImplementedError("tfidf_vectorizer")
+        # if not hasattr(self, "vectorizer"):
+        #     raise NotImplemented("vectorizer")
+        #
+        # if not hasattr(self, "tfidf_vectorizer"):
+        #     raise NotImplementedError("tfidf_vectorizer")
 
     def _make_dtm_vocab(self, texts):
         dtm = self.vectorizer.fit_transform(texts)
