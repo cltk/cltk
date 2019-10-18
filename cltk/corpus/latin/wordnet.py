@@ -1839,8 +1839,7 @@ class WordNetICCorpusReader(CorpusReader):
         for pos in POS_LIST:
             ic[pos] = defaultdict(float)
 
-        path = os.path.join(self._root, icfile)
-        for num, line in enumerate(self.open(path)):
+        for num, line in enumerate(self.open(icfile)):
             if num == 0:  # skip the header
                 continue
             fields = line.split()
