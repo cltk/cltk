@@ -1432,7 +1432,7 @@ class WordNetCorpusReader(CorpusReader):
         Construct a new WordNet corpus reader, using the host address
         """
         super(WordNetCorpusReader, self).__init__(
-            encoding=self._ENCODING, root='corpus/latin/', fileids=None
+            encoding=self._ENCODING, root=None, fileids=None
         )
         self._host = host
         self._ignore_errors = ignore_errors
@@ -1719,7 +1719,6 @@ class WordNetICCorpusReader(CorpusReader):
 
     """
 
-    # root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/')
     def __init__(self, root='', fileids=None):
         CorpusReader.__init__(self, root, fileids, encoding='utf8')
         if fileids is not None:
