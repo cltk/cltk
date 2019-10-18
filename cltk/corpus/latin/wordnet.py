@@ -1432,7 +1432,7 @@ class WordNetCorpusReader(CorpusReader):
         Construct a new WordNet corpus reader, using the host address
         """
         super(WordNetCorpusReader, self).__init__(
-            encoding=self._ENCODING, root='', fileids=None
+            encoding=self._ENCODING, root='corpus/latin/', fileids=None
         )
         self._host = host
         self._ignore_errors = ignore_errors
