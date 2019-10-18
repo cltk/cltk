@@ -1720,7 +1720,7 @@ class WordNetICCorpusReader(CorpusReader):
     """
 
     # root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/')
-    def __init__(self, root='corpus/latin/', fileids=None):
+    def __init__(self, root='cltk/corpus/latin', fileids=None):
         CorpusReader.__init__(self, root, fileids, encoding='utf8')
         if fileids is not None:
             self.load_ic(fileids[0])
@@ -1777,7 +1777,7 @@ class WordNetICCorpusReader(CorpusReader):
                 ic[pos][ss._offset] = smoothing
 
         for ww in counts:
-            possible_synsets = ww.synsets()
+            possible_synsets = list(ww.synsets())
             if len(possible_synsets) == 0:
                 continue
 
