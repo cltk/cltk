@@ -692,14 +692,13 @@ class Synset(_WordNetObject):
         >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> for lemma in sorted(set(s1.lemmas())):
         ...     print(lemma.lemma())
-        sica
         clunaculum
         gladiolus
         parazonium
         pugio
-        sicula
-        sicula
         pugiunculus
+        sica
+        sicula
 
         """
 
@@ -930,7 +929,7 @@ class Synset(_WordNetObject):
         >>> LWN = WordNetCorpusReader()
         >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> sorted(s1.hypernym_distances())
-        [(Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), 2), (Synset(pos='n', offset='02542418', definition='a short stabbing weapon with a pointed blade'), 0), (Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), 4), (Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), 1), (Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), 7), (Synset(pos='n', offset='00011937', definition='a man-made object'), 5), (Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), 6), (Synset(pos='n', offset='03601456', definition='weapons considered collectively'), 3)]
+        [(Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), 7), (Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), 6), (Synset(pos='n', offset='00011937', definition='a man-made object'), 5), (Synset(pos='n', offset='02542418', definition='a short stabbing weapon with a pointed blade'), 0), (Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), 4), (Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), 1), (Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), 2), (Synset(pos='n', offset='03601456', definition='weapons considered collectively'), 3)]
 
         """
         distances = set([(self, distance)])
@@ -1717,10 +1716,11 @@ class WordNetICCorpusReader(CorpusReader):
 
     >>> from cltk.corpus.latin.wordnet import WordNetICCorpusReader
     >>> LWNIC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
+
     """
 
-    def __init__(self, root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/'),
-                 fileids=None):
+    # root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/')
+    def __init__(self, root='', fileids=None):
         CorpusReader.__init__(self, root, fileids, encoding='utf8')
         if fileids is not None:
             self.load_ic(fileids[0])
@@ -1826,6 +1826,7 @@ class WordNetICCorpusReader(CorpusReader):
         >>> from cltk.corpus.latin.wordnet import WordNetICCorpusReader
         >>> LWNIC = WordNetICCorpusReader()
         >>> LWNIC.load_ic('ic-lasla.dat')
+
         """
 
         if not icfile:
