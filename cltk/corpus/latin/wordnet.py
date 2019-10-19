@@ -108,13 +108,13 @@ class _WordNetObject(object):
         """
         return self.related("~")
 
-    def member_holonyms(self):
+    def member_holonyms(self):  # pragma: no cover
         return self.related("#m")
 
-    def substance_holonyms(self):
+    def substance_holonyms(self):  # pragma: no cover
         return self.related("#s")
 
-    def part_holonyms(self):
+    def part_holonyms(self):  # pragma: no cover
         return self.related("#p")
 
     def member_meronyms(self):
@@ -597,7 +597,7 @@ class Semfield:
         return self._code
 
     def english(self):
-        if self._english is None:
+        if self._english is None:  # pragma: no cover
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/?format=json",
                 timeout=(30.0, 90.0),
@@ -1366,7 +1366,7 @@ class Synset(_WordNetObject):
 
         return ic1, ic2, subsumer_ic
 
-    def lch_similarity(self, other, verbose=False, simulate_root=True):
+    def lch_similarity(self, other, verbose=False, simulate_root=True):    # pragma: no cover
         """
         Leacock Chodorow Similarity:
         Return a score denoting how similar two word senses are, based on the
@@ -1741,7 +1741,7 @@ class WordNetCorpusReader(CorpusReader):
             depth += 1
         self._max_depth[pos] = depth
 
-    def get_status(self):
+    def get_status(self):    # pragma: no cover
         results = requests.get(
             f"{self.host()}/api/status/?format=json", timeout=(30.0, 90.0)
         )
@@ -1960,7 +1960,7 @@ class WordNetCorpusReader(CorpusReader):
 
         """
         semfields_list = []
-        if code is None:
+        if code is None:  # pragma: no cover
             results = requests.get(
                 f"{self.host()}/api/semfields/?format=json", timeout=(30.0, 90.0)
             ).json()
