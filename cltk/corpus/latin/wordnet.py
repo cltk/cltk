@@ -1329,7 +1329,7 @@ class Synset(_WordNetObject):
             return None
         return 1.0 / (distance + 1)
 
-    def _lcs_ic(self, other, icreader, verbose=False):
+    def _lcs_ic(self, other, icreader, verbose=False):  # pragma: no cover
         """
         Get the information content of the least common subsumer that has
         the highest information content value.  If two nodes have no
@@ -1726,7 +1726,7 @@ class WordNetCorpusReader(CorpusReader):
     def host(self):
         return self._host
 
-    def _compute_max_depth(self, pos, simulate_root):
+    def _compute_max_depth(self, pos, simulate_root):  # pragma: no cover
         """
         Compute the max depth for the given part of speech.  This is
         used by the lch similarity metric.
@@ -1758,7 +1758,7 @@ class WordNetCorpusReader(CorpusReader):
         Lemma(lemma='baculum', pos='n', morpho='n-s---nn2-', uri='b0034')
 
         """
-        if pos in self._lemma_cache[lemma]:
+        if pos in self._lemma_cache[lemma]:  # pragma: no cover
             if morpho in self._lemma_cache[lemma][pos]:
                 if len(self._lemma_cache[lemma][pos][morpho]) > 1:
                     ambiguous = " or ".join(
@@ -2069,13 +2069,13 @@ class WordNetICCorpusReader(CorpusReader):
         else:
             self._ic = None
 
-    def ic(self):
+    def ic(self):  # pragma: no cover
         return self._ic
 
     #############################################################
     # Create information content from corpus
     #############################################################
-    def create_ic(self, corpus, weight_senses_equally=False, smoothing=1.0):
+    def create_ic(self, corpus, weight_senses_equally=False, smoothing=1.0):  # pragma: no cover
         """
         Creates an information content lookup dictionary from a corpus.
 
@@ -2091,12 +2091,6 @@ class WordNetICCorpusReader(CorpusReader):
         :param smoothing: How much do we smooth synset counts (default is 1.0)
         :type smoothing: float
         :return: An information content dictionary
-
-        # >>> from cltk.corpus.latin.wordnet import WordNetICCorpusReader
-        # >>> LWNIC = WordNetICCorpusReader()
-        # >>> from cltk.corpus.readers import get_corpus_reader
-        # >>> latin_corpus = get_corpus_reader(corpus_name='latin_text_latin_library', language='latin')
-        # >>> LWNIC.create_ic(latin_corpus)
 
         """
 
@@ -2137,7 +2131,7 @@ class WordNetICCorpusReader(CorpusReader):
                 ic[pos][0] += weight
         self._ic = ic
 
-    def write_ic(self, corpus_name):
+    def write_ic(self, corpus_name):  # pragma: no cover
         if self._ic is None:
             raise WordNetError("No information content available")
 
@@ -2155,7 +2149,7 @@ class WordNetICCorpusReader(CorpusReader):
                         fp.write("{} {}\n".format(ss.id(), self._ic[pp][offset]))
         self._fileids = ["ic-{}.dat".format(corpus_name)]
 
-    def load_ic(self, icfile=None):
+    def load_ic(self, icfile=None):  # pragma: no cover
         """
         Load an information content file and return a dictionary
         whose keys are POS types and whose values are dictionaries
@@ -2195,7 +2189,7 @@ class WordNetICCorpusReader(CorpusReader):
         self._fileids = [icfile]
         self._ic = ic
 
-    def information_content(self, synset):
+    def information_content(self, synset):  # pragma: no cover
         """ Retrieve the information content score for a synset.
 
         >>> from cltk.corpus.latin.wordnet import WordNetCorpusReader, WordNetICCorpusReader
