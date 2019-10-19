@@ -32,7 +32,7 @@ from cltk import get_cltk_data_dir
 
 
 nesteddict = lambda: defaultdict(nesteddict)
-punctuation = str.maketrans('', '', string.punctuation)
+punctuation = str.maketrans("", "", string.punctuation)
 
 ######################################################################
 # Table of Contents
@@ -55,12 +55,12 @@ punctuation = str.maketrans('', '', string.punctuation)
 _INF = 1e300
 
 # { Part-of-speech constants
-ADJ, ADV, NOUN, VERB, PREP = 'a', 'r', 'n', 'v', 'p'
+ADJ, ADV, NOUN, VERB, PREP = "a", "r", "n", "v", "p"
 # }
 
 POS_LIST = [NOUN, VERB, ADJ, ADV, PREP]
 
-SENSENUM_RE = re.compile(r'^([nvarp])#(\d+)$')
+SENSENUM_RE = re.compile(r"^([nvarp])#(\w+)$")
 
 
 ######################################################################
@@ -76,55 +76,56 @@ class _WordNetObject(object):
     """A common base class for lemmas and synsets."""
 
     def antonyms(self):
-        return self.related('!')
+        return self.related("!")
 
     def hypernyms(self):
-        return self.related('@')
+        return self.related("@")
 
     def _hypernyms(self):
-        return self.related('@')
+        return self.related("@")
 
     def hyponyms(self):
-        return self.related('~')
+        return self.related("~")
 
     def member_holonyms(self):
-        return self.related('#m')
+        return self.related("#m")
 
     def substance_holonyms(self):
-        return self.related('#s')
+        return self.related("#s")
 
     def part_holonyms(self):
-        return self.related('#p')
+        return self.related("#p")
 
     def member_meronyms(self):
-        return self.related('%m')
+        return self.related("%m")
 
     def substance_meronyms(self):
-        return self.related('%s')
+        return self.related("%s")
 
     def part_meronyms(self):
-        return self.related('%p')
+        return self.related("%p")
 
     def attributes(self):
-        return self.related('=')
+        return self.related("=")
 
     def entailments(self):
-        return self.related('*')
+        return self.related("*")
 
     def causes(self):
-        return self.related('>')
+        return self.related(">")
 
     def also_sees(self):
-        return self.related('^')
+        return self.related("^")
 
     def verb_groups(self):
-        return self.related('$')
+        return self.related("$")
 
     def similar_tos(self):
-        return self.related('&')
+        return self.related("&")
 
     def nearest(self):
-        return self.related('|')
+        return self.related("|")
+
 
 @total_ordering
 @python_2_unicode_compatible
@@ -185,28 +186,20 @@ class Lemma(_WordNetObject):
     """
 
     __slots__ = [
-        '_wordnet_corpus_reader',
-        '_lemma',
-        '_pos',
-        '_morpho',
-        '__synsets',
-        '__related',
-        '_literal',
-        '_metonymic',
-        '_metaphoric',
-        '_uri',
-        '_lang',
+        "_wordnet_corpus_reader",
+        "_lemma",
+        "_pos",
+        "_morpho",
+        "__synsets",
+        "__related",
+        "_literal",
+        "_metonymic",
+        "_metaphoric",
+        "_uri",
+        "_lang",
     ]
 
-    def __init__(
-        self,
-        wordnet_corpus_reader,
-        lemma,
-        pos,
-        morpho,
-        uri,
-        **kwargs
-    ):
+    def __init__(self, wordnet_corpus_reader, lemma, pos, morpho, uri, **kwargs):
         self._wordnet_corpus_reader = wordnet_corpus_reader
         self._lemma = lemma
         self._pos = pos
@@ -233,31 +226,33 @@ class Lemma(_WordNetObject):
             if not (self.lemma() and self.pos() and self.morpho()):
                 results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/uri/{self.uri()}/relations/?format=json",
-                    timeout=(30.0, 90.0)
+                    timeout=(30.0, 90.0),
                 ).json()
                 synsets_results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/uri/{self.uri()}/synsets/relations/?format=json",
-                    timeout=(30.0, 90.0)
+                    timeout=(30.0, 90.0),
                 ).json()
             else:
                 results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/lemmas/{self.lemma()}/{self.pos() if self.pos() else '*'}"
                     f"/{self.morpho() if self.morpho() else '*'}/relations/?format=json",
-                    timeout=(30.0, 90.0)
+                    timeout=(30.0, 90.0),
                 ).json()
                 synsets_results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/lemmas/{self.lemma()}/{self.pos() if self.pos() else '*'}"
                     f"/{self.morpho() if self.morpho() else '*'}/synsets/relations/?format=json",
-                    timeout=(30.0, 90.0)
+                    timeout=(30.0, 90.0),
                 ).json()
             if len(results) > 1:
                 if not self._wordnet_corpus_reader._ignore_errors:
-                    ambiguous = [f"{result['lemma']['lemma']} ({result['lemma']['morpho']})"
-                                 for result in results]
+                    ambiguous = [
+                        f"{result['lemma']['lemma']} ({result['lemma']['morpho']})"
+                        for result in results
+                    ]
                     raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
             else:
-                self.__related = results[0]['relations']
-                self.__related.update(synsets_results[0]['relations'])
+                self.__related = results[0]["relations"]
+                self.__related.update(synsets_results[0]["relations"])
         return self.__related
 
     @property
@@ -266,21 +261,22 @@ class Lemma(_WordNetObject):
             if not (self.lemma() and self.pos() and self.morpho()):
                 results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/uri/{self.uri()}/synsets/?format=json",
-                    timeout=(30.0, 90.0)
+                    timeout=(30.0, 90.0),
                 ).json()
             else:
                 results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/lemmas/{self.lemma()}/"
                     f"{self.pos() if self.pos() else '*'}/{self.morpho() if self.morpho() else '*'}/synsets/?format=json",
-                    timeout=(30.0, 90.0)
+                    timeout=(30.0, 90.0),
                 ).json()
             if len(results) > 1:
                 if not self._wordnet_corpus_reader._ignore_errors:
-                    ambiguous = [f"{result['lemma']} ({result['morpho']})"
-                                 for result in results]
+                    ambiguous = [
+                        f"{result['lemma']} ({result['morpho']})" for result in results
+                    ]
                     raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
             else:
-                self.__synsets = results[0]['synsets']
+                self.__synsets = results[0]["synsets"]
         return self.__synsets
 
     def synsets(self):
@@ -299,24 +295,60 @@ class Lemma(_WordNetObject):
         return chain(self.literal(), self.metonymic(), self.metaphoric())
 
     def literal(self):
-        """ Retrieve all literal senses of the lemma. """
+        """ Retrieve all literal senses of the lemma.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> virtus = LWN.lemmas_from_uri('u0800')[0]
+        >>> list(virtus.literal())
+        [Synset(pos='n', offset='05595229', definition='feeling no fear'), Synset(pos='n', offset='04504076', definition='a characteristic property that defines the apparent individual nature of something'), Synset(pos='n', offset='04349777', definition='possession of the qualities (especially mental qualities) required to do something or get something done; "danger heightened his powers of discrimination"'), Synset(pos='n', offset='04549901', definition='an ideal of personal excellence toward which a person strives'), Synset(pos='n', offset='03800378', definition='moral excellence or admirableness'), Synset(pos='n', offset='03800842', definition='morality with respect to sexual relations'), Synset(pos='n', offset='03805961', definition='a quality of spirit that enables you to face danger of pain without showing fear'), Synset(pos='n', offset='03929156', definition='strength of mind that enables one to endure adversity with courage'), Synset(pos='n', offset='03678310', definition='the trait of being manly; having the characteristics of an adult male'), Synset(pos='n', offset='03806773', definition='resolute courageousness'), Synset(pos='n', offset='04505328', definition='something in which something or some one excels'), Synset(pos='n', offset='03806965', definition='the trait of having a courageous spirit'), Synset(pos='n', offset='03655289', definition='courageous high-spiritedness'), Synset(pos='n', offset='03808136', definition='the trait of showing courage and determination in spite of possible loss or injury'), Synset(pos='n', offset='04003047', definition='the quality that renders something desirable or valuable or useful'), Synset(pos='n', offset='03717355', definition='a degree or grade of excellence or worth'), Synset(pos='n', offset='04003707', definition='any admirable quality or attribute'), Synset(pos='n', offset='03798920', definition='the quality of doing what is right and avoiding what is wrong'), Synset(pos='n', offset='03799068', definition='a particular moral excellence')]
+
+        """
         return (
-            Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
-            for synset in self._synsets['literal']
+            Synset(
+                self._wordnet_corpus_reader,
+                synset["pos"],
+                synset["offset"],
+                synset["gloss"],
+            )
+            for synset in self._synsets["literal"]
         )
 
     def metonymic(self):
-        """ Retrieve all metonymic senses of the lemma. """
+        """ Retrieve all metonymic senses of the lemma.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> baculum = LWN.lemma('baculum', 'n', 'n-s---nn2-')
+        >>> list(baculum.metonymic())
+        [Synset(pos='n', offset='02327416', definition='a support that steadies or strengthens something else'), Synset(pos='n', offset='02531456', definition='used as a weapon'), Synset(pos='n', offset='03444976', definition='any device that bears the weight of another thing')]
+
+        """
         return (
-            Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
-            for synset in self._synsets['metonymic']
+            Synset(
+                self._wordnet_corpus_reader,
+                synset["pos"],
+                synset["offset"],
+                synset["gloss"],
+            )
+            for synset in self._synsets["metonymic"]
         )
 
     def metaphoric(self):
-        """ Retrieve all metaphoric senses of the lemma. """
+        """ Retrieve all metaphoric senses of the lemma.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> baculum = LWN.lemma('baculum', 'n', 'n-s---nn2-')
+        >>> list(baculum.metaphoric())
+        [Synset(pos='n', offset='04399253', definition='something providing immaterial support or assistance to a person or cause or interest')]
+
+        """
         return (
-            Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
-            for synset in self._synsets['metaphoric']
+            Synset(
+                self._wordnet_corpus_reader,
+                synset["pos"],
+                synset["offset"],
+                synset["gloss"],
+            )
+            for synset in self._synsets["metaphoric"]
         )
 
     def related(self, relation_symbol=None):
@@ -324,48 +356,68 @@ class Lemma(_WordNetObject):
         Retrieve lemmas having the given relation type to this lemma.
 
         :param relation_symbol: Symbol for the lexical or semantic relation
-        :return: A list of Lemma objects/
+        :return: A list of Lemma objects
+
+        >>> LWN = WordNetCorpusReader()
+        >>> baculum = LWN.lemma('baculum', 'n', 'n-s---nn2-')
+        >>> list(baculum.related('/'))
+        [Lemma(lemma='bacillum', pos='n', morpho='n-s---nn2-', uri='b0028'), Lemma(lemma='imbecillus', pos='a', morpho='aps---mn1-', uri='i0301')]
+
         """
         if relation_symbol and relation_types[relation_symbol] in self._related:
             return (
-                Lemma(self._wordnet_corpus_reader,
-                      lemma['lemma'], lemma['pos'], lemma['morpho'], lemma['uri'])
+                Lemma(
+                    self._wordnet_corpus_reader,
+                    lemma["lemma"],
+                    lemma["pos"],
+                    lemma["morpho"],
+                    lemma["uri"],
+                )
                 for lemma in self._related[relation_types[relation_symbol]]
             )
         else:
             return (
-                Lemma(self._wordnet_corpus_reader,
-                      lemma['lemma'], lemma['pos'], lemma['morpho'], lemma['uri'])
+                Lemma(
+                    self._wordnet_corpus_reader,
+                    lemma["lemma"],
+                    lemma["pos"],
+                    lemma["morpho"],
+                    lemma["uri"],
+                )
                 for relation_symbol in self.__related
                 for lemma in self._related[relation_symbol]
             )
 
     def derivationally_related_forms(self):
-        return self.related('\\')
+        return self.related("\\")
 
     def pertainyms(self):
-        return self.related('/')
+        return self.related("/")
 
     def participle(self):
-        return self.related('<')
+        return self.related("<")
 
     def composed_of(self):
-        return self.related('+c')
+        return self.related("+c")
 
     def composes(self):
-        return self.related('-c')
+        return self.related("-c")
 
     def __repr__(self):
-        return "Lemma(lemma='{}', pos='{}', morpho='{}', uri='{}')".format(self.lemma(), self.pos(), self.morpho(), self.uri())
+        return "Lemma(lemma='{}', pos='{}', morpho='{}', uri='{}')".format(
+            self.lemma(), self.pos(), self.morpho(), self.uri()
+        )
 
     def __hash__(self):
         return hash(self._lemma)
 
     def __eq__(self, other):
-        return self._lemma == other._lemma and \
-                self._pos == other._pos and \
-                self._morpho == other._morpho and \
-                self._uri == other._uri
+        return (
+            self._lemma == other._lemma
+            and self._pos == other._pos
+            and self._morpho == other._morpho
+            and self._uri == other._uri
+        )
 
     def __ne__(self, other):
         return not self == other
@@ -391,14 +443,15 @@ class Semfield:
     >>>
 
     """
+
     __slots__ = [
-        '_wordnet_corpus_reader',
-        '_code',
-        '_english',
-        '_synsets',
-        '_lemmas',
-        '_hypers',
-        '_hypons',
+        "_wordnet_corpus_reader",
+        "_code",
+        "_english",
+        "_synsets",
+        "_lemmas",
+        "_hypers",
+        "_hypons",
     ]
 
     def __init__(self, wordnet_corpus_reader, code, english=None):
@@ -418,7 +471,7 @@ class Semfield:
         if self._english is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
                 if len(results.json()) > 1:
@@ -426,7 +479,7 @@ class Semfield:
                         ambiguous = [f"'{semfield['english']}'" for semfield in results]
                         raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
                 else:
-                    self._english = results.json()[0]['english']
+                    self._english = results.json()[0]["english"]
         return self._english
 
     def synsets(self):
@@ -440,33 +493,51 @@ class Semfield:
         """
 
         if self._synsets is None:
-            english = re.sub(' ', '_', self.english())
+            english = re.sub(" ", "_", self.english())
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/{english}/synsets/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
                 self._synsets = (
-                    Synset(self._wordnet_corpus_reader, synset['pos'], synset['offset'], synset['gloss'])
-                    for synset in results.json()[0]['synsets']
-            )
+                    Synset(
+                        self._wordnet_corpus_reader,
+                        synset["pos"],
+                        synset["offset"],
+                        synset["gloss"],
+                    )
+                    for synset in results.json()[0]["synsets"]
+                )
             else:
                 self._synsets = []
         return self._synsets
 
     def lemmas(self):
-        """ Retrieve all lemmas for all synsets of the semfield. """
+        """ Retrieve all lemmas for all synsets of the semfield.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+        >>> list(anatomy.lemmas())[0]
+        Lemma(lemma='autopsia', pos='n', morpho='n-s---fn1-', uri='50882')
+
+        """
 
         if self._lemmas is None:
-            english = re.sub(' ', '_', self.english())
+            english = re.sub(" ", "_", self.english())
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/{english}/lemmas/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
-                self._lemmas = (
-                    Lemma(self._wordnet_corpus_reader, lemma['lemma'], lemma['pos'], lemma['morpho'], lemma['uri'])
-                    for lemma in results.json()[0]['lemmas']
+                self._lemmas = list(
+                    Lemma(
+                        self._wordnet_corpus_reader,
+                        lemma["lemma"],
+                        lemma["pos"],
+                        lemma["morpho"],
+                        lemma["uri"],
+                    )
+                    for lemma in results.json()[0]["lemmas"]
                 )
             else:
                 self._lemmas = []
@@ -483,16 +554,20 @@ class Semfield:
         """
 
         if self._hypers is None:
-            english = re.sub(' ', '_', self.english())
+            english = re.sub(" ", "_", self.english())
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/{english}/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
                 self._hypers = (
-                    Semfield(self._wordnet_corpus_reader, semfield['code'], semfield['english'])
-                    for semfield in results.json()[0]['hypers']
-            )
+                    Semfield(
+                        self._wordnet_corpus_reader,
+                        semfield["code"],
+                        semfield["english"],
+                    )
+                    for semfield in results.json()[0]["hypers"]
+                )
             else:
                 self._hypers = []
         return self._hypers
@@ -508,15 +583,19 @@ class Semfield:
         """
 
         if self._hypons is None:
-            english = re.sub(' ', '_', self.english())
+            english = re.sub(" ", "_", self.english())
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/semfields/{self.code()}/{english}/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
                 self._hypons = (
-                    Semfield(self._wordnet_corpus_reader, semfield['code'], semfield['english'])
-                    for semfield in results.json()[0]['hypons']
+                    Semfield(
+                        self._wordnet_corpus_reader,
+                        semfield["code"],
+                        semfield["english"],
+                    )
+                    for semfield in results.json()[0]["hypons"]
                 )
             else:
                 self._hypons = []
@@ -583,16 +662,16 @@ class Synset(_WordNetObject):
     """
 
     __slots__ = [
-        '_pos',
-        '_offset',
-        '_lemmas',
-        '_definition',
-        '_semfields',
-        '_sentiment',
-        '__related',
-        '_max_depth',
-        '_min_depth',
-        '_all_hypernyms'
+        "_pos",
+        "_offset",
+        "_lemmas",
+        "_definition",
+        "_semfields",
+        "_sentiment",
+        "__related",
+        "_max_depth",
+        "_min_depth",
+        "_all_hypernyms",
     ]
 
     def __init__(self, wordnet_corpus_reader, pos, offset, gloss, semfield=None):
@@ -600,7 +679,7 @@ class Synset(_WordNetObject):
 
         self._pos = pos
         self._offset = offset
-        self._definition = gloss.split(':')[0]
+        self._definition = gloss.split(":")[0]
         self._examples = None
         self._lemmas = None
         self.__related = None
@@ -612,18 +691,26 @@ class Synset(_WordNetObject):
         return "{}#{}".format(self.pos(), self.offset())
 
     def semfields(self):
-        """ Retrieve the synset's semfields. """
+        """ Retrieve the synset's semfields.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', 'L6992236')
+        >>> list(s1.semfields())
+        [Semfield(code='150', english='Psychology')]
+
+        """
+
         if self._semfields is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
-                self._semfields = results.json()['semfield']
+                self._semfields = results.json()["semfield"]
             else:
                 self._semfields = []
         return (
-            Semfield(self._wordnet_corpus_reader, semfield['code'], semfield['english'])
+            Semfield(self._wordnet_corpus_reader, semfield["code"], semfield["english"])
             for semfield in self._semfields
         )
 
@@ -631,25 +718,64 @@ class Synset(_WordNetObject):
         """
         Retrieve sentiment scores for the synset.
 
-        :return: A 3-uple representing the synset's positivity, negativity, and objectivity scores (-1 to 1).
+        :return: A dict including the synset's positivity, negativity, and objectivity scores (-1 to 1).
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '01215448')
+        >>> s1.sentiment()
+        {'positivity': 0.0, 'negativity': 0.625, 'objectivity': 0.375}
+
         """
         if self._sentiment is None:
             results = requests.get(
-                    f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/sentiment/?format=json",
-                    timeout=(30.0, 90.0)
-                )
+                f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/sentiment/?format=json",
+                timeout=(30.0, 90.0),
+            )
             if results:
-                self._sentiment = results.json()['sentiment']
+                self._sentiment = results.json()["sentiment"]
         return self._sentiment
 
     def positivity(self):
-        return self._sentiment['positivity']
+        """
+        :return: An integer value representing the synset's positivity score.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '01215448')
+        >>> s1.positivity()
+        0.0
+
+        """
+        if self._sentiment is None:
+            self.sentiment()
+        return self._sentiment["positivity"]
 
     def negativity(self):
-        return self._sentiment['negativity']
+        """
+        :return: An integer value representing the synset's negativity score.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '01215448')
+        >>> s1.negativity()
+        0.625
+
+        """
+        if self._sentiment is None:
+            self.sentiment()
+        return self._sentiment["negativity"]
 
     def objectivity(self):
-        return self._sentiment['objectivity']
+        """
+        :return: An integer value representing the synset's objectivity score.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '01215448')
+        >>> s1.objectivity()
+        0.375
+
+        """
+        if self._sentiment is None:
+            self.sentiment()
+        return self._sentiment["objectivity"]
 
     def pos(self):
         return self._pos
@@ -673,14 +799,14 @@ class Synset(_WordNetObject):
         if self._examples is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/examples/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
-                self._examples = results.json()['examples']
+                self._examples = results.json()["examples"]
         return self._examples
 
     def _needs_root(self):
-        return self._pos == 'n' or self._pos == 'v'
+        return self._pos == "n" or self._pos == "v"
 
     def lemmas(self):
         """
@@ -705,14 +831,20 @@ class Synset(_WordNetObject):
         if self._lemmas is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/lemmas/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
-                self._lemmas = results.json()['lemmas']
+                self._lemmas = results.json()["lemmas"]
             else:
                 self._lemmas = []
         return (
-            Lemma(self._wordnet_corpus_reader, lemma['lemma'], lemma['pos'], lemma['morpho'], lemma['uri'])
+            Lemma(
+                self._wordnet_corpus_reader,
+                lemma["lemma"],
+                lemma["pos"],
+                lemma["morpho"],
+                lemma["uri"],
+            )
             for lemma in self._lemmas
         )
 
@@ -734,9 +866,7 @@ class Synset(_WordNetObject):
             next_synset = todo.pop()
             if next_synset not in seen:
                 seen.add(next_synset)
-                next_hypernyms = (
-                    next_synset.hypernyms()
-                )
+                next_hypernyms = next_synset.hypernyms()
                 if not next_hypernyms:
                     result.append(next_synset)
                 else:
@@ -900,7 +1030,7 @@ class Synset(_WordNetObject):
         """
         synsets = self.common_hypernyms(other)
         if simulate_root:
-            root = Synset(self._wordnet_corpus_reader, self.pos(), '00000000', '')
+            root = Synset(self._wordnet_corpus_reader, self.pos(), "00000000", "")
             synsets.append(root)
 
         try:
@@ -934,15 +1064,17 @@ class Synset(_WordNetObject):
         """
         distances = set([(self, distance)])
         for hypernym in self._hypernyms():
-            distances |= set(hypernym.hypernym_distances(distance + 1, simulate_root=False))
+            distances |= set(
+                hypernym.hypernym_distances(distance + 1, simulate_root=False)
+            )
         if simulate_root:
-            root = Synset(self._wordnet_corpus_reader, self.pos(), '00000000')
+            root = Synset(self._wordnet_corpus_reader, self.pos(), "00000000")
             root_distance = max(distances, key=itemgetter(1))[1]
             distances.add((root, root_distance + 1))
         return list(distances)
 
     def _shortest_hypernym_paths(self, simulate_root):
-        if self.offset == '00000000':
+        if self.offset == "00000000":
             return {self: 0}
 
         queue = deque([(self, 0)])
@@ -958,7 +1090,7 @@ class Synset(_WordNetObject):
             queue.extend((hyp, depth) for hyp in s._hypernyms())
 
         if simulate_root:
-            root = Synset(self._wordnet_corpus_reader, self.pos(), '00000000', "")
+            root = Synset(self._wordnet_corpus_reader, self.pos(), "00000000", "")
             path[root] = max(path.values()) + 1
 
         return path
@@ -994,7 +1126,7 @@ class Synset(_WordNetObject):
         # For each ancestor synset common to both subject synsets, find the
         # connecting path length. Return the shortest of these.
 
-        inf = float('inf')
+        inf = float("inf")
         path_distance = inf
         for synset, d1 in iteritems(dist_dict1):
             d2 = dist_dict2.get(synset, inf)
@@ -1088,8 +1220,8 @@ class Synset(_WordNetObject):
 
         if self._pos != other._pos:
             raise WordNetError(
-                'Computing the least common subsumer requires '
-                '%s and %s to have the same part of speech.' % (self, other)
+                "Computing the least common subsumer requires "
+                "%s and %s to have the same part of speech." % (self, other)
             )
 
         ic1 = icreader.information_content(self)
@@ -1104,7 +1236,6 @@ class Synset(_WordNetObject):
             print("> LCS Subsumer by content:", subsumer_ic)
 
         return ic1, ic2, subsumer_ic
-
 
     def lch_similarity(self, other, verbose=False, simulate_root=True):
         """
@@ -1133,8 +1264,8 @@ class Synset(_WordNetObject):
 
         if self._pos != other._pos:
             raise WordNetError(
-                'Computing the lch similarity requires '
-                '%s and %s to have the same part of speech.' % (self, other)
+                "Computing the lch similarity requires "
+                "%s and %s to have the same part of speech." % (self, other)
             )
 
         need_root = self._needs_root()
@@ -1347,12 +1478,25 @@ class Synset(_WordNetObject):
             ]
 
     def __repr__(self):
-        return "Synset(pos='{}', offset='{}', definition='{}')".format(self.pos(), self.offset(), self.definition())
+        return "Synset(pos='{}', offset='{}', definition='{}')".format(
+            self.pos(), self.offset(), self.definition()
+        )
 
     def related(self, relation_symbol=None, sort=True):
+        """
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '01215448')
+        >>> s1.related('~')
+        [Synset(pos='v', offset='01217265', definition='feel panic')]
+
+        """
         get_synset = self._wordnet_corpus_reader.synset_from_pos_and_offset
         if relation_symbol and relation_types[relation_symbol] in self._related:
-            r = [get_synset(synset['pos'], synset['offset']) for synset in self._related[relation_types[relation_symbol]]]
+            r = [
+                get_synset(synset["pos"], synset["offset"])
+                for synset in self._related[relation_types[relation_symbol]]
+            ]
             if sort:
                 r.sort()
         else:
@@ -1364,24 +1508,25 @@ class Synset(_WordNetObject):
         if self.__related is None:
             results = requests.get(
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/relations/?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results:
-                self.__related = results.json()['relations']
+                self.__related = results.json()["relations"]
             else:
                 self.__related = []
         return self.__related
 
     def __eq__(self, other):
-        return self._pos == other._pos and \
-                self._offset == other._offset
+        return self._pos == other._pos and self._offset == other._offset
 
     def __ne__(self, other):
         return not self == other
 
     def __lt__(self, other):
         if self._pos != other._pos:
-            raise WordNetError("operation undefined for '{}' and '{}'".format(self._pos, other._pos))
+            raise WordNetError(
+                "operation undefined for '{}' and '{}'".format(self._pos, other._pos)
+            )
         return self._offset < other._offset
 
     def __hash__(self):
@@ -1416,14 +1561,14 @@ class WordNetCorpusReader(CorpusReader):
 
     """
 
-    _ENCODING = 'utf8'
+    _ENCODING = "utf8"
 
     # { Part-of-speech constants
-    ADJ, ADV, NOUN, VERB = 'a', 'r', 'n', 'v'
+    ADJ, ADV, NOUN, VERB = "a", "r", "n", "v"
     # }
 
     # { Part of speech constants
-    _pos_numbers = {NOUN: 1, VERB: 2, ADJ: 3, ADV: 4, }
+    _pos_numbers = {NOUN: 1, VERB: 2, ADJ: 3, ADV: 4}
     _pos_names = dict(tup[::-1] for tup in _pos_numbers.items())
     # }
 
@@ -1432,7 +1577,7 @@ class WordNetCorpusReader(CorpusReader):
         Construct a new WordNet corpus reader, using the host address
         """
         super(WordNetCorpusReader, self).__init__(
-            encoding=self._ENCODING, root='', fileids=None
+            encoding=self._ENCODING, root="", fileids=None
         )
         self._host = host
         self._ignore_errors = ignore_errors
@@ -1469,77 +1614,114 @@ class WordNetCorpusReader(CorpusReader):
 
     def get_status(self):
         results = requests.get(
-            f"{self.host()}/api/status/?format=json",
-            timeout=(30.0, 90.0)
+            f"{self.host()}/api/status/?format=json", timeout=(30.0, 90.0)
         )
         return results
-
 
     #############################################################
     # Loading Lemmas
     #############################################################
     def lemma(self, lemma, pos, morpho):
-        '''Return lemma object that matches the lemma, pos, morpho'''
+        """Return lemma object that matches the lemma, pos, morpho
+
+        >>> LWN = WordNetCorpusReader()
+        >>> LWN.lemma('baculum', 'n', 'n-s---nn2-')
+        Lemma(lemma='baculum', pos='n', morpho='n-s---nn2-', uri='b0034')
+
+        """
         if pos in self._lemma_cache[lemma]:
             if morpho in self._lemma_cache[lemma][pos]:
                 if len(self._lemma_cache[lemma][pos][morpho]) > 1:
-                    ambiguous = " or ".join([f"lemma_by_uri({uri})"
-                                             for uri in self._lemma_cache[lemma][pos][morpho]
-                                             ])
+                    ambiguous = " or ".join(
+                        [
+                            f"lemma_by_uri({uri})"
+                            for uri in self._lemma_cache[lemma][pos][morpho]
+                        ]
+                    )
                     if self._ignore_errors:
                         print(f"can't disambiguate {lemma} ({morpho}): try {ambiguous}")
                     else:
-                        raise WordNetError(f"can't disambiguate {lemma} ({morpho}): try {ambiguous}")
+                        raise WordNetError(
+                            f"can't disambiguate {lemma} ({morpho}): try {ambiguous}"
+                        )
                 else:
-                    return self._lemma_cache[lemma][pos][morpho].values()
+                    return self._lemma_cache[lemma][pos][morpho]
 
         results = self.json = requests.get(
-                f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}"
-                f"/{morpho if morpho else '*'}?format=json",
-                timeout=(30.0, 90.0)
-            ).json()
+            f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}"
+            f"/{morpho if morpho else '*'}?format=json",
+            timeout=(30.0, 90.0),
+        ).json()
         if len(results) > 1:
-            ambiguous = [f"{result['lemma']} ({result['morpho']})"
-                         for result in results]
+            ambiguous = [
+                f"{result['lemma']} ({result['morpho']})" for result in results
+            ]
             raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
         elif len(results) == 0:
-            raise WordNetError(f"'{lemma}'' ({pos}) not found")
+            raise WordNetError(f"'{lemma}' ({pos}) not found")
         l = Lemma(self, **results[0])
-        self._lemma_cache[lemma][pos][morpho][results[0]['uri']] = l
+        self._lemma_cache[lemma][pos][morpho][results[0]["uri"]] = l
         return l
 
     def lemma_from_uri(self, uri):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> LWN.lemma_from_uri('b0034')
+        Lemma(lemma='baculum', pos='n', morpho='n-s---nn2-', uri='b0034')
+
+        """
         results = self.json = requests.get(
-            f"{self.host()}/api/uri/{uri}?format=json",
-            timeout=(30.0, 90.0)
+            f"{self.host()}/api/uri/{uri}?format=json", timeout=(30.0, 90.0)
         ).json()
         if len(results) > 1:
-            ambiguous = [f"{result['lemma']} ({result['morpho']})"
-                         for result in results]
+            ambiguous = [
+                f"{result['lemma']} ({result['morpho']})" for result in results
+            ]
             raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
         l = Lemma(self, **results[0])
-        self._lemma_cache[results[0]['lemma']][results[0]['pos']][results[0]['morpho']][results[0]['uri']] = l
+        self._lemma_cache[results[0]["lemma"]][results[0]["pos"]][results[0]["morpho"]][
+            results[0]["uri"]
+        ] = l
         return l
 
     def semfield(self, code, english):
-        english = re.sub(' ', '_', english)
+        """
+
+        >>> LWN = WordNetCorpusReader()
+        >>> LWN.semfield('910', 'Geography & travel')
+        Semfield(code='910', english='Geography & travel')
+
+        """
+        english = re.sub(" ", "_", english)
 
         # load semfield information
         results = self.json = requests.get(
             f"{self.host()}/api/semfields/{code}/{english}/?format=json",
-            timeout=(30.0, 90.0)
+            timeout=(30.0, 90.0),
         ).json()
 
         if len(results) == 0:
             raise WordNetError(f"semfield {code} '{english}' not found")
 
         # Return the semfield object.
-        return Semfield(self, results[0]['code'], results[0]['english'])
+        return Semfield(self, results[0]["code"], results[0]["english"])
 
     #############################################################
     # Loading Synsets
     #############################################################
     def synset(self, id):
+        """
+
+        :param id: Synset id, consisting of POS and offset separated by '#'
+        :return: Synset object
+
+        >>> LWN = WordNetCorpusReader()
+        >>> LWN.synset('r#L2556264')
+        Synset(pos='r', offset='L2556264', definition='in the manner of a woman')
+
+        """
+
+
         pos, offset = SENSENUM_RE.search(id).groups()
 
         # load synset information
@@ -1552,14 +1734,21 @@ class WordNetCorpusReader(CorpusReader):
         return synset
 
     def synset_from_pos_and_offset(self, pos, offset):
+        """
+
+        >>> LWN = WordNetCorpusReader()
+        >>> LWN.synset_from_pos_and_offset('r', 'L2556264')
+        Synset(pos='r', offset='L2556264', definition='in the manner of a woman')
+
+        """
         # Check to see if the synset is in the cache
         if offset in self._synset_cache[pos]:
             return self._synset_cache[pos][offset]
 
         results = requests.get(
-                f"{self.host()}/api/synsets/{pos}/{offset}?format=json",
-                timeout=(30.0, 90.0)
-            ).json()
+            f"{self.host()}/api/synsets/{pos}/{offset}?format=json",
+            timeout=(30.0, 90.0),
+        ).json()
         if len(results) != 0:
             synset = Synset(self, **results)
             self._synset_cache[pos][offset] = synset
@@ -1570,76 +1759,95 @@ class WordNetCorpusReader(CorpusReader):
     #############################################################
     def lemmas(self, lemma=None, pos=None, morpho=None):
         """Return all Lemma objects with a name matching the specified lemma
-        name, part of speech tag or morphological descriptor."""
+        name, part of speech tag or morphological descriptor.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> sorted(list(LWN.lemmas('dico', 'v')))
+        [Lemma(lemma='dico', pos='v', morpho='v1spia--1-', uri='d1349'), Lemma(lemma='dico', pos='v', morpho='v1spia--3-', uri='d1350')]
+
+        """
 
         results = requests.get(
-                    f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}/"
-                    f"{morpho if morpho else '*'}?format=json",
-                    timeout=(30.0, 90.0)
-                ).json()
+            f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}/"
+            f"{morpho if morpho else '*'}?format=json",
+            timeout=(30.0, 90.0),
+        ).json()
         return (
-            Lemma(self, lemma['lemma'], lemma['pos'], lemma['morpho'], lemma['uri'])
+            Lemma(self, lemma["lemma"], lemma["pos"], lemma["morpho"], lemma["uri"])
             for lemma in results
         )
 
     def lemmas_from_uri(self, uri):
+        """
+
+        >>> LWN = WordNetCorpusReader()
+        >>> list(LWN.lemmas_from_uri('f1052'))
+        [Lemma(lemma='frumentaria', pos='n', morpho='n-s---fn1-', uri='f1052'), Lemma(lemma='frumentarius', pos='a', morpho='aps---mn1-', uri='f1052'), Lemma(lemma='frumentarius', pos='n', morpho='n-s---mn2-', uri='f1052')]
+
+        """
         results = self.json = requests.get(
-            f"{self.host()}/api/uri/{uri}?format=json",
-            timeout=(30.0, 90.0)
+            f"{self.host()}/api/uri/{uri}?format=json", timeout=(30.0, 90.0)
         ).json()
         lemmas_list = []
         for result in results:
             l = Lemma(self, **result)
-            self._lemma_cache[result['lemma']][result['pos']][result['morpho']][result['uri']] = l
+            self._lemma_cache[result["lemma"]][result["pos"]][result["morpho"]][
+                result["uri"]
+            ] = l
             lemmas_list.append(l)
         return lemmas_list
 
-
     def synsets(self, pos=None):
         """Load all synsets for a given part of speech, if specified.
+
+        >>> LWN = WordNetCorpusReader()
+        >>> len(list(LWN.synsets('r'))) > 3000
+        True
 
         """
         synsets_list = []
 
         results = requests.get(
             f"{self.host()}/api/synsets/{pos if pos else '*'}/?format=json",
-            timeout=(30.0, 90.0)
+            timeout=(30.0, 90.0),
         ).json()
-        synsets_list.extend(results['results'])
+        synsets_list.extend(results["results"])
 
         while results["next"]:
             results = requests.get(results["next"], timeout=(30.0, 90.0)).json()
-            synsets_list.extend(results['results'])
+            synsets_list.extend(results["results"])
 
         return (
-            Synset(self, synset['pos'], synset['offset'], synset['gloss']) for synset in
-            synsets_list
+            Synset(self, synset["pos"], synset["offset"], synset["gloss"])
+            for synset in synsets_list
         )
 
     def semfields(self, code=None):
         """Load all semfields for a given code, if specified.
 
+        >>> LWN = WordNetCorpusReader()
+        >>> list(LWN.semfields('300'))
+        [Semfield(code='300', english='Social sciences'), Semfield(code='300', english='Social Sciences, Sociology & Anthropology'), Semfield(code='300', english='Social Sciences')]
+
         """
         semfields_list = []
         if code is None:
             results = requests.get(
-                f"{self.host()}/api/semfields/?format=json",
-                timeout=(30.0, 90.0)
+                f"{self.host()}/api/semfields/?format=json", timeout=(30.0, 90.0)
             ).json()
-            semfields_list.extend(results['results'])
+            semfields_list.extend(results["results"])
 
             while results["next"]:
                 results = requests.get(results["next"], timeout=(30.0, 90.0)).json()
-                semfields_list.extend(results['results'])
+                semfields_list.extend(results["results"])
         else:
             results = requests.get(
-                f"{self.host()}/api/semfields/{code}/?format=json",
-                timeout=(30.0, 90.0)
+                f"{self.host()}/api/semfields/{code}/?format=json", timeout=(30.0, 90.0)
             ).json()
             semfields_list.extend(results)
         return (
-            Semfield(self, semfield['code'], semfield['english']) for semfield in
-            semfields_list
+            Semfield(self, semfield["code"], semfield["english"])
+            for semfield in semfields_list
         )
 
     #############################################################
@@ -1663,13 +1871,18 @@ class WordNetCorpusReader(CorpusReader):
         if form:
             results = requests.get(
                 f"{self.host()}/lemmatize/{form}/{morpho if morpho else ''}?format=json",
-                timeout=(30.0, 90.0)
+                timeout=(30.0, 90.0),
             )
             if results and results.json():
                 return (
-                    Lemma(self, result['lemma']['lemma'], result['lemma']['morpho'][0], result['lemma']['morpho'],
-                              result['lemma']['uri'])
-                        for result in results.json()
+                    Lemma(
+                        self,
+                        result["lemma"]["lemma"],
+                        result["lemma"]["morpho"][0],
+                        result["lemma"]["morpho"],
+                        result["lemma"]["uri"],
+                    )
+                    for result in results.json()
                 )
         return []
 
@@ -1695,10 +1908,10 @@ class WordNetCorpusReader(CorpusReader):
         pos = f"{pos}/" if pos else ""
         results = requests.get(
             f"{self.host()}/translate/{language}/{form}/{pos}?format=json",
-            timeout=(30.0, 90.0)
+            timeout=(30.0, 90.0),
         ).json()
         return (
-            Lemma(self, lemma['lemma'], lemma['pos'], lemma['morpho'], lemma['uri'])
+            Lemma(self, lemma["lemma"], lemma["pos"], lemma["morpho"], lemma["uri"])
             for lemma in results
         )
 
@@ -1720,8 +1933,8 @@ class WordNetICCorpusReader(CorpusReader):
     """
 
     # root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/')
-    def __init__(self, root='cltk/corpus/latin', fileids=None):
-        CorpusReader.__init__(self, root, fileids, encoding='utf8')
+    def __init__(self, root="cltk/corpus/latin", fileids=None):
+        CorpusReader.__init__(self, root, fileids, encoding="utf8")
         if fileids is not None:
             self.load_ic(fileids[0])
         else:
@@ -1797,21 +2010,21 @@ class WordNetICCorpusReader(CorpusReader):
 
     def write_ic(self, corpus_name):
         if self._ic is None:
-            raise WordNetError('No information content available')
+            raise WordNetError("No information content available")
 
         get_synset = self.synset_from_pos_and_offset
 
-        path = os.path.join(self._root, 'ic-{}.dat'.format(corpus_name))
-        with codecs.open(path, 'w', 'utf8') as fp:
-            fp.write('lwnver:{}\n'.format(self.get_status()['last_modified']))
+        path = os.path.join(self._root, "ic-{}.dat".format(corpus_name))
+        with codecs.open(path, "w", "utf8") as fp:
+            fp.write("lwnver:{}\n".format(self.get_status()["last_modified"]))
             for pp in POS_LIST:
                 for offset in self._ic[pp]:
                     ss = get_synset(pp, offset)
                     if len(ss.hypernyms()) == 0:
-                        fp.write('{} {} ROOT\n'.format(ss.id(), self._ic[pp][offset]))
+                        fp.write("{} {} ROOT\n".format(ss.id(), self._ic[pp][offset]))
                     else:
-                        fp.write('{} {}\n'.format(ss.id(), self._ic[pp][offset]))
-        self._fileids = ['ic-{}.dat'.format(corpus_name),]
+                        fp.write("{} {}\n".format(ss.id(), self._ic[pp][offset]))
+        self._fileids = ["ic-{}.dat".format(corpus_name)]
 
     def load_ic(self, icfile=None):
         """
@@ -1833,7 +2046,7 @@ class WordNetICCorpusReader(CorpusReader):
             if self._fileids:
                 icfile = self._fileids[0]
             else:
-                raise WordNetError('No information content file specified')
+                raise WordNetError("No information content file specified")
 
         ic = {}
         for pos in POS_LIST:
@@ -1843,14 +2056,14 @@ class WordNetICCorpusReader(CorpusReader):
             if num == 0:  # skip the header
                 continue
             fields = line.split()
-            pos, offset = fields[0].split('#')
+            pos, offset = fields[0].split("#")
             value = float(fields[1])
             if len(fields) == 3 and fields[2] == "ROOT":
                 # Store root count.
                 ic[pos][0] += value
             if value != 0:
                 ic[pos][offset] = value
-        self._fileids = [icfile,]
+        self._fileids = [icfile]
         self._ic = ic
 
     def information_content(self, synset):
@@ -1865,11 +2078,11 @@ class WordNetICCorpusReader(CorpusReader):
 
         """
         if not self._ic:
-            raise WordNetError('No information content file has been loaded')
+            raise WordNetError("No information content file has been loaded")
         try:
             icpos = self._ic[synset._pos]
         except KeyError:
-            msg = 'Information content file has no entries for part-of-speech: %s'
+            msg = "Information content file has no entries for part-of-speech: %s"
             raise WordNetError(msg % synset._pos)
 
         counts = icpos[synset._offset]
@@ -1880,56 +2093,56 @@ class WordNetICCorpusReader(CorpusReader):
 
 
 relation_types = {
-    '!': 'antonyms',
-    '@': 'hypernyms',
-    '~': 'hyponyms',
-    '#m': 'member-of',
-    '#s': 'substance-of',
-    '#p': 'part-of',
-    '%m': 'has-member',
-    '%s': 'has-substance',
-    '%p': 'has-part',
-    '=': 'attribute-of',
-    '|': 'nearest',
-    '+r': 'has-role',
-    '-r': 'is-role-of',
-    '*': 'entails',
-    '>': 'causes',
-    '^': 'also-see',
-    '$': 'verb-group',
-    '&': 'similar-to',
-    '<': 'participle',
-    '+c': 'composed-of',
-    '-c': 'composes',
-    '\\': 'derived-from',
-    '/': 'related-to',
-    }
+    "!": "antonyms",
+    "@": "hypernyms",
+    "~": "hyponyms",
+    "#m": "member-of",
+    "#s": "substance-of",
+    "#p": "part-of",
+    "%m": "has-member",
+    "%s": "has-substance",
+    "%p": "has-part",
+    "=": "attribute-of",
+    "|": "nearest",
+    "+r": "has-role",
+    "-r": "is-role-of",
+    "*": "entails",
+    ">": "causes",
+    "^": "also-see",
+    "$": "verb-group",
+    "&": "similar-to",
+    "<": "participle",
+    "+c": "composed-of",
+    "-c": "composes",
+    "\\": "derived-from",
+    "/": "related-to",
+}
 
 
 # Example usage
 if __name__ == "__main__":
     LWN = WordNetCorpusReader()
 
-    lemmas = list(LWN.lemmatize('virtutem'))
+    lemmas = list(LWN.lemmatize("virtutem"))
     print(lemmas)
-    virtus = LWN.lemma_from_uri('u0800')
+    virtus = LWN.lemma_from_uri("u0800")
     print(virtus)
     print(list(virtus.antonyms()))
     print(list(virtus.hypernyms()))
-    animus = LWN.lemma('animus', 'n', 'n-s---mn2-')
+    animus = LWN.lemma("animus", "n", "n-s---mn2-")
     print(animus)
     for synset in set(virtus.synsets()).intersection(set(animus.synsets())):
-        print(list(synset.semfields()), '>>', list(synset.lemmas()))
+        print(list(synset.semfields()), ">>", list(synset.lemmas()))
 
-    courage = list(LWN.translate('en', 'courage', 'n'))
+    courage = list(LWN.translate("en", "courage", "n"))
     for lemma in courage:
         print(lemma)
 
-    s1 = LWN.synset('n#02542418')
-    print(s1.id(), '=', s1.definition())
-    s2 = LWN.synset('n#03457380')
-    print(s2.id(), '=', s2.definition())
+    s1 = LWN.synset("n#02542418")
+    print(s1.id(), "=", s1.definition())
+    s2 = LWN.synset("n#03457380")
+    print(s2.id(), "=", s2.definition())
 
-    print('Common hypernyms:', list(s1.common_hypernyms(s2)))
-    print('Lowest common hypernyms:', list(s1.lowest_common_hypernyms(s2)))
-    print('Shortest path distance:', s1.shortest_path_distance(s2))
+    print("Common hypernyms:", list(s1.common_hypernyms(s2)))
+    print("Lowest common hypernyms:", list(s1.lowest_common_hypernyms(s2)))
+    print("Shortest path distance:", s1.shortest_path_distance(s2))
