@@ -76,15 +76,36 @@ class _WordNetObject(object):
     """A common base class for lemmas and synsets."""
 
     def antonyms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> animus = Lemma(LWN, lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046')
+        >>> 'ignauia' in [lemma.lemma() for lemma in animus.antonyms()]
+        True
+        """
         return self.related("!")
 
     def hypernyms(self):
+        """
+
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1.hypernyms()
+        [Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point')]
+
+        """
         return self.related("@")
 
     def _hypernyms(self):
         return self.related("@")
 
     def hyponyms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1.hyponyms()
+        [Synset(pos='n', offset='02575932', definition='(Scottish) a long straight-bladed dagger'), Synset(pos='n', offset='03155758', definition='a dagger with a slender blade'), Synset(pos='n', offset='03413564', definition='a small dagger with a tapered blade')]
+
+        """
         return self.related("~")
 
     def member_holonyms(self):
@@ -97,33 +118,92 @@ class _WordNetObject(object):
         return self.related("#p")
 
     def member_meronyms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '00510771')
+        >>> s1.member_meronyms()
+        [Synset(pos='n', offset='07260585', definition='a supporter of feminism')]
+
+        """
         return self.related("%m")
 
     def substance_meronyms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '02335723')
+        >>> s1.substance_meronyms()
+        [Synset(pos='n', offset='10626993', definition='soil that is plastic when moist but hard when fired')]
+
+        """
         return self.related("%s")
 
     def part_meronyms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '00077986')
+        >>> s1.part_meronyms()
+        [Synset(pos='n', offset='00078772', definition='preparation for the delivery of shellfire on a target')]
+
+        """
         return self.related("%p")
 
     def attributes(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', '00541686')
+        >>> s1.attributes()
+        [Synset(pos='a', offset='01151057', definition='sexually attracted to members of the opposite sex'), Synset(pos='a', offset='01151299', definition='sexually attracted to members of your own sex')]
+
+        """
         return self.related("=")
 
     def entailments(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '00001740')
+        >>> s1.entailments()
+        [Synset(pos='v', offset='00003142', definition='expel air'), Synset(pos='v', offset='00003763', definition='draw in air')]
+
+        """
         return self.related("*")
 
     def causes(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '00014590')
+        >>> s1.causes()
+        [Synset(pos='v', offset='00009805', definition='be asleep')]
+        """
         return self.related(">")
 
     def also_sees(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '00107243')
+        >>> s1.also_sees()
+        [Synset(pos='v', offset='00293275', definition='become looser or slack')]
+        """
         return self.related("^")
 
     def verb_groups(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('v', '00051515')
+        >>> s1.verb_groups()
+        [Synset(pos='v', offset='00050470', definition='eliminate urine')]
+        """
         return self.related("$")
 
     def similar_tos(self):
         return self.related("&")
 
     def nearest(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> s1 = LWN.synset_from_pos_and_offset('n', 'L9083855')
+        >>> s1.nearest()
+        [Synset(pos='n', offset='03543592', definition='ship for transporting troops')]
+        """
         return self.related("|")
 
 
@@ -209,15 +289,39 @@ class Lemma(_WordNetObject):
         self.__related = None
 
     def uri(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> metus = Lemma(LWN, lemma='metus', pos='n', morpho='n-s---mn4-', uri='m0918')
+        >>> metus.uri()
+        'm0918'
+        """
         return self._uri
 
     def lemma(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> metus = Lemma(LWN, lemma='metus', pos='n', morpho='n-s---mn4-', uri='m0918')
+        >>> metus.lemma()
+        'metus'
+        """
         return self._lemma
 
     def pos(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> metus = Lemma(LWN, lemma='metus', pos='n', morpho='n-s---mn4-', uri='m0918')
+        >>> metus.pos()
+        'n'
+        """
         return self._pos
 
     def morpho(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> metus = Lemma(LWN, lemma='metus', pos='n', morpho='n-s---mn4-', uri='m0918')
+        >>> metus.morpho()
+        'n-s---mn4-'
+        """
         return self._morpho
 
     @property
@@ -389,18 +493,43 @@ class Lemma(_WordNetObject):
             )
 
     def derivationally_related_forms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> abalienatio = LWN.lemma('abalienatio', 'n', 'n-s---fn3-')
+        >>> list(abalienatio.derivationally_related_forms())
+        [Lemma(lemma='abalieno', pos='v', morpho='v1spia--1-', uri='a0015')]
+
+        """
         return self.related("\\")
 
     def pertainyms(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> abalienatio = LWN.lemma('abalienatio', 'n', 'n-s---fn3-')
+        >>> list(abalienatio.pertainyms())
+        [Lemma(lemma='abalienatus', pos='a', morpho='aps---mn1-', uri='53399')]
+        """
         return self.related("/")
 
     def participle(self):
         return self.related("<")
 
     def composed_of(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> evoco = LWN.lemma('euoco', 'v', 'v1spia--1-')
+        >>> list(evoco.composed_of())
+        [Lemma(lemma='uoco', pos='v', morpho='v1spia--1-', uri='u1152'), Lemma(lemma='ex', pos='p', morpho='p---------', uri='e1167')]
+        """
         return self.related("+c")
 
     def composes(self):
+        """
+        >>> LWN = WordNetCorpusReader()
+        >>> voco = LWN.lemma('uoco', 'v', 'v1spia--1-')
+        >>> list(voco.composes())
+        [Lemma(lemma='euoco', pos='v', morpho='v1spia--1-', uri='e1117'), Lemma(lemma='conuoco', pos='v', morpho='v1spia--1-', uri='c3931'), Lemma(lemma='prouoco', pos='v', morpho='v1spia--1-', uri='p4232'), Lemma(lemma='inuoco', pos='v', morpho='v1spia--1-', uri='i2733'), Lemma(lemma='reuoco', pos='v', morpho='v1spia--1-', uri='r1447')]
+       """
         return self.related("-c")
 
     def __repr__(self):
