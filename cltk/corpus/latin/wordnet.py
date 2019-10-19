@@ -1547,8 +1547,8 @@ class WordNetCorpusReader(CorpusReader):
     >>> print(animus)
     Lemma(lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046')
     >>> dico = LWN.lemmas('dico', 'v')
-    >>> print(list(dico))
-    [Lemma(lemma='dico', pos='v', morpho='v1spia--3-', uri='d1350'), Lemma(lemma='dico', pos='v', morpho='v1spia--1-', uri='d1349')]
+    >>> print(sorted(list(dico)))
+    [Lemma(lemma='dico', pos='v', morpho='v1spia--1-', uri='d1349'), Lemma(lemma='dico', pos='v', morpho='v1spia--3-', uri='d1350')]
     >>> virtus = LWN.lemmas_from_uri('u0800')
     >>> print(virtus)
     [Lemma(lemma='uirtus', pos='n', morpho='n-s---fn3-', uri='u0800')]
