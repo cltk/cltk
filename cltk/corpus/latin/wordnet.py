@@ -88,7 +88,7 @@ class _WordNetObject(object):
         """
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> s1.hypernyms()
         [Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point')]
 
@@ -101,7 +101,7 @@ class _WordNetObject(object):
     def hyponyms(self):
         """
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> s1.hyponyms()
         [Synset(pos='n', offset='02575932', definition='(Scottish) a long straight-bladed dagger'), Synset(pos='n', offset='03155758', definition='a dagger with a slender blade'), Synset(pos='n', offset='03413564', definition='a small dagger with a tapered blade')]
 
@@ -429,6 +429,7 @@ class Lemma(_WordNetObject):
         return (
             Synset(
                 self._wordnet_corpus_reader,
+                synset["language"],
                 synset["pos"],
                 synset["offset"],
                 synset["gloss"],
@@ -448,6 +449,7 @@ class Lemma(_WordNetObject):
         return (
             Synset(
                 self._wordnet_corpus_reader,
+                synset["language"],
                 synset["pos"],
                 synset["offset"],
                 synset["gloss"],
@@ -631,6 +633,7 @@ class Semfield:
                 self._synsets = (
                     Synset(
                         self._wordnet_corpus_reader,
+                        synset["language"],
                         synset["pos"],
                         synset["offset"],
                         synset["gloss"],
@@ -695,7 +698,7 @@ class Semfield:
                         semfield["code"],
                         semfield["english"],
                     )
-                    for semfield in results.json()[0]["hypers"]
+                    for semfield in results.json()['results'][0]["hypers"]
                 )
             else:
                 self._hypers = []
@@ -724,7 +727,7 @@ class Semfield:
                         semfield["code"],
                         semfield["english"],
                     )
-                    for semfield in results.json()[0]["hypons"]
+                    for semfield in results.json()['results'][0]["hypons"]
                 )
             else:
                 self._hypons = []
@@ -743,7 +746,7 @@ class Synset(_WordNetObject):
     <offset> is the offset ID of the synset
     <gloss> is the synset's definition
     >>> LWN = WordNetCorpusReader()
-    >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+    >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
     >>> print(s1.id())
     n#02542418
 
@@ -803,9 +806,10 @@ class Synset(_WordNetObject):
         "_all_hypernyms",
     ]
 
-    def __init__(self, wordnet_corpus_reader, pos, offset, gloss, semfield=None):
+    def __init__(self, wordnet_corpus_reader, language, pos, offset, gloss, semfield=None):
         self._wordnet_corpus_reader = wordnet_corpus_reader
 
+        self._language = language
         self._pos = pos
         self._offset = offset
         self._definition = gloss.split(":")[0]
@@ -835,7 +839,7 @@ class Synset(_WordNetObject):
                 timeout=(30.0, 90.0),
             )
             if results:
-                self._semfields = results.json()["semfield"]
+                self._semfields = results.json()["results"][0]["semfield"]
             else:
                 self._semfields = []
         return (
@@ -906,6 +910,9 @@ class Synset(_WordNetObject):
             self.sentiment()
         return self._sentiment["objectivity"]
 
+    def language(self):
+        return self._language
+
     def pos(self):
         return self._pos
 
@@ -944,7 +951,7 @@ class Synset(_WordNetObject):
         :return: A generator of Lemma objects.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> for lemma in sorted(set(s1.lemmas())):
         ...     print(lemma.lemma())
         clunaculum
@@ -982,7 +989,7 @@ class Synset(_WordNetObject):
         Get the topmost hypernyms of this synset in WordNet.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> s1.root_hypernyms()
         [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]
 
@@ -1009,7 +1016,7 @@ class Synset(_WordNetObject):
         :return: An integer value representing the maximum path length to the root.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> s1.max_depth()
         7
 
@@ -1029,7 +1036,7 @@ class Synset(_WordNetObject):
         synset to the root.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> s1.min_depth()
         7
         """
@@ -1048,7 +1055,7 @@ class Synset(_WordNetObject):
         relationship, breadth-first.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> hypers = lambda s: s.hypernyms()
         >>> list(s1.closure(hypers))
         [Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), Synset(pos='n', offset='03601456', definition='weapons considered collectively'), Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), Synset(pos='n', offset='00011937', definition='a man-made object'), Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)')]
@@ -1072,7 +1079,7 @@ class Synset(_WordNetObject):
            connecting the initial ``Synset`` node and a root node.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> s1.hypernym_paths()
         [[Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), Synset(pos='n', offset='00011937', definition='a man-made object'), Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), Synset(pos='n', offset='03601456', definition='weapons considered collectively'), Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), Synset(pos='n', offset='02542418', definition='a short stabbing weapon with a pointed blade')]]
 
@@ -1099,8 +1106,8 @@ class Synset(_WordNetObject):
         :return: The synsets that are hypernyms of both synsets.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, None, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
         >>> sorted(s1.common_hypernyms(s2))
         [Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), Synset(pos='n', offset='00011937', definition='a man-made object'), Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), Synset(pos='n', offset='03601456', definition='weapons considered collectively')]
 
@@ -1151,8 +1158,8 @@ class Synset(_WordNetObject):
             synsets
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, None, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
         >>> s1.lowest_common_hypernyms(s2)
         [Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting')]
 
@@ -1186,7 +1193,7 @@ class Synset(_WordNetObject):
            a hypernym of the first ``Synset``.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
         >>> sorted(s1.hypernym_distances())
         [(Synset(pos='n', offset='00001740', definition='anything having existence (living or nonliving)'), 7), (Synset(pos='n', offset='00009457', definition='a physical (tangible and visible) entity'), 6), (Synset(pos='n', offset='00011937', definition='a man-made object'), 5), (Synset(pos='n', offset='02542418', definition='a short stabbing weapon with a pointed blade'), 0), (Synset(pos='n', offset='02859872', definition='an artifact (or system of artifacts) that is instrumental in accomplishing some end'), 4), (Synset(pos='n', offset='02893681', definition='a weapon with a handle and blade with a sharp point'), 1), (Synset(pos='n', offset='03601056', definition='weaponry used in fighting or hunting'), 2), (Synset(pos='n', offset='03601456', definition='weapons considered collectively'), 3)]
 
@@ -1219,7 +1226,7 @@ class Synset(_WordNetObject):
             queue.extend((hyp, depth) for hyp in s._hypernyms())
 
         if simulate_root:
-            root = Synset(self._wordnet_corpus_reader, self.pos(), "00000000", "")
+            root = Synset(self._wordnet_corpus_reader, None, self.pos(), "00000000", "")
             path[root] = max(path.values()) + 1
 
         return path
@@ -1239,8 +1246,8 @@ class Synset(_WordNetObject):
             nodes, or None if no path exists.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, None, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
         >>> s1.shortest_path_distance(s2)
         3
 
@@ -1315,8 +1322,8 @@ class Synset(_WordNetObject):
             itself.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, None, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
         >>> s1.path_similarity(s2)
         0.25
 
@@ -1445,8 +1452,8 @@ class Synset(_WordNetObject):
             the two senses can be found, None is returned.
 
         >>> LWN = WordNetCorpusReader()
-        >>> s1 = Synset(LWN, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s2 = Synset(LWN, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
+        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+        >>> s2 = Synset(LWN, None, pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a long blade')
         >>> s1.wup_similarity(s2)
         0.8
         """
@@ -1780,17 +1787,20 @@ class WordNetCorpusReader(CorpusReader):
             f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}"
             f"/{morpho if morpho else '*'}?format=json",
             timeout=(30.0, 90.0),
-        ).json()
-        if len(results) > 1:
-            ambiguous = [
-                f"{result['lemma']} ({result['morpho']})" for result in results
-            ]
-            raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
-        elif len(results) == 0:
-            raise WordNetError(f"'{lemma}' ({pos}) not found")
-        l = Lemma(self, **results[0])
-        self._lemma_cache[lemma][pos][morpho][results[0]["uri"]] = l
-        return l
+        )
+        if results:
+            data = results.json()['results']
+
+            if len(data) > 1:
+                ambiguous = [
+                    f"{result['lemma']} ({result['morpho']})" for result in results
+                ]
+                raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
+            elif len(data) == 0:
+                raise WordNetError(f"'{lemma}' ({pos}) not found")
+            l = Lemma(self, **(data[0]))
+            self._lemma_cache[lemma][pos][morpho][data[0]["uri"]] = l
+            return l
 
     def lemma_from_uri(self, uri):
         """
@@ -1877,9 +1887,10 @@ class WordNetCorpusReader(CorpusReader):
         results = requests.get(
             f"{self.host()}/api/synsets/{pos}/{offset}?format=json",
             timeout=(30.0, 90.0),
-        ).json()
-        if len(results) != 0:
-            synset = Synset(self, **results)
+        )
+        if results:
+            data = results.json()['results'][0]
+            synset = Synset(self, **data)
             self._synset_cache[pos][offset] = synset
             return synset
 
@@ -1901,10 +1912,11 @@ class WordNetCorpusReader(CorpusReader):
             f"{morpho if morpho else '*'}?format=json",
             timeout=(30.0, 90.0),
         ).json()
-        return (
-            Lemma(self, lemma["lemma"], lemma["pos"], lemma["morpho"], lemma["uri"])
-            for lemma in results
-        )
+        if results:
+            return (
+                Lemma(self, lemma["lemma"], lemma["pos"], lemma["morpho"], lemma["uri"])
+                for lemma in results['results']
+            )
 
     def lemmas_from_uri(self, uri):
         """
@@ -1939,12 +1951,14 @@ class WordNetCorpusReader(CorpusReader):
         results = requests.get(
             f"{self.host()}/api/synsets/{pos if pos else '*'}/?format=json",
             timeout=(30.0, 90.0),
-        ).json()
-        synsets_list.extend(results["results"])
+        )
+        if results:
+            data = results.json()
+            synsets_list.extend(data["results"])
 
-        while results["next"]:
-            results = requests.get(results["next"], timeout=(30.0, 90.0)).json()
-            synsets_list.extend(results["results"])
+            while data["next"]:
+                data = requests.get(data["next"], timeout=(30.0, 90.0)).json()
+                synsets_list.extend(data["results"])
 
         return (
             Synset(self, synset["pos"], synset["offset"], synset["gloss"])
