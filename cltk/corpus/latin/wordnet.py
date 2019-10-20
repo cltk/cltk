@@ -410,6 +410,7 @@ class Lemma(_WordNetObject):
         return (
             Synset(
                 self._wordnet_corpus_reader,
+                synset["language"],
                 synset["pos"],
                 synset["offset"],
                 synset["gloss"],
@@ -1166,7 +1167,7 @@ class Synset(_WordNetObject):
         """
         synsets = self.common_hypernyms(other)
         if simulate_root:
-            root = Synset(self._wordnet_corpus_reader, self.pos(), "00000000", "")
+            root = Synset(self._wordnet_corpus_reader, None, self.pos(), "00000000", "")
             synsets.append(root)
 
         try:
@@ -1837,13 +1838,14 @@ class WordNetCorpusReader(CorpusReader):
         results = self.json = requests.get(
             f"{self.host()}/api/semfields/{code}/{english}/?format=json",
             timeout=(30.0, 90.0),
-        ).json()
-
-        if len(results) == 0:
+        )
+        if results:
+            data = results.json()['results']
+        if len(data) == 0:
             raise WordNetError(f"semfield {code} '{english}' not found")
 
         # Return the semfield object.
-        return Semfield(self, results[0]["code"], results[0]["english"])
+        return Semfield(self, data[0]["code"], data[0]["english"])
 
     #############################################################
     # Loading Synsets
@@ -1961,7 +1963,7 @@ class WordNetCorpusReader(CorpusReader):
                 synsets_list.extend(data["results"])
 
         return (
-            Synset(self, synset["pos"], synset["offset"], synset["gloss"])
+            Synset(self, synset["language"], synset["pos"], synset["offset"], synset["gloss"])
             for synset in synsets_list
         )
 
@@ -1986,8 +1988,10 @@ class WordNetCorpusReader(CorpusReader):
         else:
             results = requests.get(
                 f"{self.host()}/api/semfields/{code}/?format=json", timeout=(30.0, 90.0)
-            ).json()
-            semfields_list.extend(results)
+            )
+            if results:
+                data = results.json()['results']
+            semfields_list.extend(data)
         return (
             Semfield(self, semfield["code"], semfield["english"])
             for semfield in semfields_list
