@@ -146,7 +146,6 @@ class TestMiddleHighGerman(unittest.TestCase):
     def test_lemmatizer(self):
         mhg_lemmatizer = BackoffMHGLemmatizer()
         lemmatized_sentence = mhg_lemmatizer.lemmatize("uns ist in alten mæren".split(" "))
-        print(lemmatized_sentence)
         res = [lemmata[1] for lemmata in lemmatized_sentence]
         target = ["wir", "sîn", "in", "alt", "mære"]
         for lemma_target, lemma_estimated in zip(target, res):
