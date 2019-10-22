@@ -372,15 +372,18 @@ class Lemma(_WordNetObject):
                     f"{self._wordnet_corpus_reader.host()}/api/lemmas/{self.lemma()}/"
                     f"{self.pos() if self.pos() else '*'}/{self.morpho() if self.morpho() else '*'}/synsets/?format=json",
                     timeout=(30.0, 90.0),
-                ).json()
-            if len(results) > 1:
-                if not self._wordnet_corpus_reader._ignore_errors:
-                    ambiguous = [
-                        f"{result['lemma']} ({result['morpho']})" for result in results
-                    ]
-                    raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
-            else:
-                self.__synsets = results[0]["synsets"]
+                )
+                if results:
+                    data = results.json()['results']
+
+                    if len(data) > 1:
+                        if not self._wordnet_corpus_reader._ignore_errors:
+                            ambiguous = [
+                                f"{result['lemma']} ({result['morpho']})" for result in data
+                            ]
+                            raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
+                    else:
+                        self.__synsets = data[0]["synsets"]
         return self.__synsets
 
     def synsets(self):
@@ -631,6 +634,7 @@ class Semfield:
                 timeout=(30.0, 90.0),
             )
             if results:
+                data = results.json()['results']
                 self._synsets = (
                     Synset(
                         self._wordnet_corpus_reader,
@@ -639,7 +643,7 @@ class Semfield:
                         synset["offset"],
                         synset["gloss"],
                     )
-                    for synset in results.json()[0]["synsets"]
+                    for synset in data[0]["synsets"]
                 )
             else:
                 self._synsets = []
@@ -866,7 +870,8 @@ class Synset(_WordNetObject):
                 timeout=(30.0, 90.0),
             )
             if results:
-                self._sentiment = results.json()["sentiment"]
+                data = results.json()['results']
+                self._sentiment = data[0]["sentiment"]
         return self._sentiment
 
     def positivity(self):
@@ -939,7 +944,8 @@ class Synset(_WordNetObject):
                 timeout=(30.0, 90.0),
             )
             if results:
-                self._examples = results.json()["examples"]
+                data = results.json()["results"]
+                self._examples = data[0]["examples"]
         return self._examples
 
     def _needs_root(self):
@@ -971,7 +977,8 @@ class Synset(_WordNetObject):
                 timeout=(30.0, 90.0),
             )
             if results:
-                self._lemmas = results.json()["lemmas"]
+                data = results.json()['results']
+                self._lemmas = data[0]["lemmas"]
             else:
                 self._lemmas = []
         return (
@@ -982,7 +989,8 @@ class Synset(_WordNetObject):
                 lemma["morpho"],
                 lemma["uri"],
             )
-            for lemma in self._lemmas
+            for sense_type in self._lemmas
+            for lemma in self._lemmas[sense_type]
         )
 
     def root_hypernyms(self):
@@ -1812,17 +1820,19 @@ class WordNetCorpusReader(CorpusReader):
         """
         results = self.json = requests.get(
             f"{self.host()}/api/uri/{uri}?format=json", timeout=(30.0, 90.0)
-        ).json()
-        if len(results) > 1:
-            ambiguous = [
-                f"{result['lemma']} ({result['morpho']})" for result in results
-            ]
-            raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
-        l = Lemma(self, **results[0])
-        self._lemma_cache[results[0]["lemma"]][results[0]["pos"]][results[0]["morpho"]][
-            results[0]["uri"]
-        ] = l
-        return l
+        )
+        if results:
+            data = results.json()['results']
+            if len(data) > 1:
+                ambiguous = [
+                    f"{result['lemma']} ({result['morpho']})" for result in results
+                ]
+                raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
+            l = Lemma(self, **data[0])
+            self._lemma_cache[data[0]["lemma"]][data[0]["pos"]][data[0]["morpho"]][
+                data[0]["uri"]
+            ] = l
+            return l
 
     def semfield(self, code, english):
         """
@@ -1924,21 +1934,23 @@ class WordNetCorpusReader(CorpusReader):
         """
 
         >>> LWN = WordNetCorpusReader()
-        >>> list(LWN.lemmas_from_uri('f1052'))
-        [Lemma(lemma='frumentaria', pos='n', morpho='n-s---fn1-', uri='f1052'), Lemma(lemma='frumentarius', pos='a', morpho='aps---mn1-', uri='f1052'), Lemma(lemma='frumentarius', pos='n', morpho='n-s---mn2-', uri='f1052')]
+        >>> list(sorted(LWN.lemmas_from_uri('f1052')))
+        [Lemma(lemma='frumentaria', pos='n', morpho='n-s---fn1-', uri='f1052'), Lemma(lemma='frumentarius', pos='n', morpho='n-s---mn2-', uri='f1052'), Lemma(lemma='frumentarius', pos='a', morpho='aps---mn1-', uri='f1052')]
 
         """
         results = self.json = requests.get(
             f"{self.host()}/api/uri/{uri}?format=json", timeout=(30.0, 90.0)
-        ).json()
-        lemmas_list = []
-        for result in results:
-            l = Lemma(self, **result)
-            self._lemma_cache[result["lemma"]][result["pos"]][result["morpho"]][
-                result["uri"]
-            ] = l
-            lemmas_list.append(l)
-        return lemmas_list
+        )
+        if results:
+            data = results.json()['results']
+            lemmas_list = []
+            for result in data:
+                l = Lemma(self, **result)
+                self._lemma_cache[result["lemma"]][result["pos"]][result["morpho"]][
+                    result["uri"]
+                ] = l
+                lemmas_list.append(l)
+            return lemmas_list
 
     def synsets(self, pos=None):
         """Load all synsets for a given part of speech, if specified.
@@ -2056,10 +2068,12 @@ class WordNetCorpusReader(CorpusReader):
         results = requests.get(
             f"{self.host()}/translate/{language}/{form}/{pos}?format=json",
             timeout=(30.0, 90.0),
-        ).json()
+        )
+        if results:
+            data = results.json()['results']
         return (
             Lemma(self, lemma["lemma"], lemma["pos"], lemma["morpho"], lemma["uri"])
-            for lemma in results
+            for lemma in data
         )
 
 
