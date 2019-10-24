@@ -470,54 +470,19 @@ def decline_weak_masculine_noun(ns: str, gs: str, np: str):
     Gives the full declension of weak masculine nouns.
 
     >>> decline_weak_masculine_noun("goði", "goða", "goðar")
-    goði
-    goða
-    goða
-    goða
-    goðar
-    goða
-    goðum
-    goða
+    [['goði', 'goða', 'goða', 'goða'], ['goðar', 'goða', 'goðum', 'goða']]
 
     >>> decline_weak_masculine_noun("hluti", "hluta", "hlutar")
-    hluti
-    hluta
-    hluta
-    hluta
-    hlutar
-    hluta
-    hlutum
-    hluta
+    [['hluti', 'hluta', 'hluta', 'hluta'], ['hlutar', 'hluta', 'hlutum', 'hluta']]
 
     >>> decline_weak_masculine_noun("arfi", "arfa", "arfar")
-    arfi
-    arfa
-    arfa
-    arfa
-    arfar
-    arfa
-    örfum
-    arfa
+    [['arfi', 'arfa', 'arfa', 'arfa'], ['arfar', 'arfa', 'örfum', 'arfa']]
 
     >>> decline_weak_masculine_noun("bryti", "bryta", "brytjar")
-    bryti
-    bryta
-    bryta
-    bryta
-    brytjar
-    brytja
-    brytjum
-    brytja
+    [['bryti', 'bryta', 'bryta', 'bryta'], ['brytjar', 'brytja', 'brytjum', 'brytja']]
 
     >>> decline_weak_masculine_noun("vöðvi", "vöðva", "vöðvar")
-    vöðvi
-    vöðva
-    vöðva
-    vöðva
-    vöðvar
-    vöðva
-    vöðum
-    vöðva
+    [['vöðvi', 'vöðva', 'vöðva', 'vöðva'], ['vöðvar', 'vöðva', 'vöðum', 'vöðva']]
 
     The main pattern is:
 
@@ -562,69 +527,28 @@ def decline_weak_feminine_noun(ns: str, gs: str, np: str):
     Gives the full declension of weak feminine nouns.
 
     >>> decline_weak_feminine_noun("saga", "sögu", "sögur")
-    saga
-    sögu
-    sögu
-    sögu
-    sögur
-    sögur
-    sögum
-    sagna
+    [['saga', 'sögu', 'sögu', 'sögu'], ['sögur', 'sögur', 'sögum', 'sagna']]
 
     >>> decline_weak_feminine_noun("kona", "konu", "konur")
-    kona
-    konu
-    konu
-    konu
-    konur
-    konur
-    konum
-    kvenna
+    [['kona', 'konu', 'konu', 'konu'], ['konur', 'konur', 'konum', 'kvenna']]
 
     >>> decline_weak_feminine_noun("kirkja", "kirkju", "kirkjur")
-    kirkja
-    kirkju
-    kirkju
-    kirkju
-    kirkjur
-    kirkjur
-    kirkjum
-    kirkna
-
+    [['kirkja', 'kirkju', 'kirkju', 'kirkju'], ['kirkjur', 'kirkjur', 'kirkjum', 'kirkna']]
 
     >>> decline_weak_feminine_noun("völva", "völu", "völur")
-    völva
-    völu
-    völu
-    völu
-    völur
-    völur
-    völum
-    völna
+    [['völva', 'völu', 'völu', 'völu'], ['völur', 'völur', 'völum', 'völna']]
 
     >>> decline_weak_feminine_noun("speki", "speki", "")
-    speki
-    speki
-    speki
-    speki
+    [['speki', 'speki', 'speki', 'speki'], []]
 
     >>> decline_weak_feminine_noun("reiði", "reiði", "")
-    reiði
-    reiði
-    reiði
-    reiði
+    [['reiði', 'reiði', 'reiði', 'reiði'], []]
 
     >>> decline_weak_feminine_noun("elli", "elli", "")
-    elli
-    elli
-    elli
-    elli
+    [['elli', 'elli', 'elli', 'elli'], []]
 
     >>> decline_weak_feminine_noun("frœði", "frœði", "")
-    frœði
-    frœði
-    frœði
-    frœði
+    [['frœði', 'frœði', 'frœði', 'frœði'], []]
 
     It is to note that the genitive plural of völva is not attested so the given form is analogously reconstructed.
 
@@ -689,44 +613,16 @@ def decline_weak_neuter_noun(ns: str, gs: str, np: str):
     Gives the full declension of weak neuter nouns.
 
     >>> decline_weak_neuter_noun("auga", "auga", "augu")
-    auga
-    auga
-    auga
-    auga
-    augu
-    augu
-    augum
-    augna
+    [['auga', 'auga', 'auga', 'auga'], ['augu', 'augu', 'augum', 'augna']]
 
     >>> decline_weak_neuter_noun("hjarta", "hjarta", "hjörtu")
-    hjarta
-    hjarta
-    hjarta
-    hjarta
-    hjörtu
-    hjörtu
-    hjörtum
-    hjartna
+    [['hjarta', 'hjarta', 'hjarta', 'hjarta'], ['hjörtu', 'hjörtu', 'hjörtum', 'hjartna']]
 
     >>> decline_weak_neuter_noun("lunga", "lunga", "lungu")
-    lunga
-    lunga
-    lunga
-    lunga
-    lungu
-    lungu
-    lungum
-    lungna
+    [['lunga', 'lunga', 'lunga', 'lunga'], ['lungu', 'lungu', 'lungum', 'lungna']]
 
     >>> decline_weak_neuter_noun("eyra", "eyra", "eyru")
-    eyra
-    eyra
-    eyra
-    eyra
-    eyru
-    eyru
-    eyrum
-    eyrna
+    [['eyra', 'eyra', 'eyra', 'eyra'], ['eyru', 'eyru', 'eyrum', 'eyrna']]
 
     The main pattern is:
     -a

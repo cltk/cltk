@@ -527,50 +527,64 @@ class StrongOldNorseVerb(OldNorseVerb):
         I
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["líta", "lítr", "leit", "litu", "litinn"])
-        >>> verb.past_participle()
-        [['litinn', 'litinn', 'litnum', 'litins', 'litnir', 'litna', 'litnum', 'litinna'], ['litin', 'litna', 'litinni', 'litinnar', 'litnar', 'litnar', 'litnum', 'litinna'], ['litit', 'litit', 'litnu', 'litins', 'litit', 'litit', 'litnum', 'litinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['litinn', 'litinn', 'litnum', 'litins', 'litnir', 'litna', 'litnum', 'litinna'],
+        ['litin', 'litna', 'litinni', 'litinnar', 'litnar', 'litnar', 'litnum', 'litinna'],
+        ['litit', 'litit', 'litnu', 'litins', 'litit', 'litit', 'litnum', 'litinna']]
 
         II
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bjóða", "býðr", "bauð", "buðu", "boðinn"])
-        >>> verb.past_participle()
-        [['boðinn', 'boðinn', 'boðnum', 'boðins', 'boðnir', 'boðna', 'boðnum', 'boðinna'], ['boðin', 'boðna', 'boðinni', 'boðinnar', 'boðnar', 'boðnar', 'boðnum', 'boðinna'], ['boðit', 'boðit', 'boðnu', 'boðins', 'boðit', 'boðit', 'boðnum', 'boðinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['boðinn', 'boðinn', 'boðnum', 'boðins', 'boðnir', 'boðna', 'boðnum', 'boðinna'],
+        ['boðin', 'boðna', 'boðinni', 'boðinnar', 'boðnar', 'boðnar', 'boðnum', 'boðinna'],
+        ['boðit', 'boðit', 'boðnu', 'boðins', 'boðit', 'boðit', 'boðnum', 'boðinna']]
 
         III
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["verða", "verðr", "varð", "urðu", "orðinn"])
-        >>> verb.past_participle()
-        [['orðinn', 'orðinn', 'orðnum', 'orðins', 'orðnir', 'orðna', 'orðnum', 'orðinna'], ['orðin', 'orðna', 'orðinni', 'orðinnar', 'orðnar', 'orðnar', 'orðnum', 'orðinna'], ['orðit', 'orðit', 'orðnu', 'orðins', 'orðit', 'orðit', 'orðnum', 'orðinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['orðinn', 'orðinn', 'orðnum', 'orðins', 'orðnir', 'orðna', 'orðnum', 'orðinna'],
+        ['orðin', 'orðna', 'orðinni', 'orðinnar', 'orðnar', 'orðnar', 'orðnum', 'orðinna'],
+        ['orðit', 'orðit', 'orðnu', 'orðins', 'orðit', 'orðit', 'orðnum', 'orðinna']]
 
         IV
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["bera", "berr", "bar", "báru", "borinn"])
-        >>> verb.past_participle()
-        [['borinn', 'borinn', 'bornum', 'borins', 'bornir', 'borna', 'bornum', 'borinna'], ['borin', 'borna', 'borinni', 'borinnar', 'bornar', 'bornar', 'bornum', 'borinna'], ['borit', 'borit', 'bornu', 'borins', 'borit', 'borit', 'bornum', 'borinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['borinn', 'borinn', 'bornum', 'borins', 'bornir', 'borna', 'bornum', 'borinna'],
+        ['borin', 'borna', 'borinni', 'borinnar', 'bornar', 'bornar', 'bornum', 'borinna'],
+        ['borit', 'borit', 'bornu', 'borins', 'borit', 'borit', 'bornum', 'borinna']]
 
         V
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["gefa", "gefr", "gaf", "gáfu", "gefinn"])
-        >>> verb.past_participle()
-        [['gefinn', 'gefinn', 'gefnum', 'gefins', 'gefnir', 'gefna', 'gefnum', 'gefinna'], ['gefin', 'gefna', 'gefinni', 'gefinnar', 'gefnar', 'gefnar', 'gefnum', 'gefinna'], ['gefit', 'gefit', 'gefnu', 'gefins', 'gefit', 'gefit', 'gefnum', 'gefinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['gefinn', 'gefinn', 'gefnum', 'gefins', 'gefnir', 'gefna', 'gefnum', 'gefinna'],
+        ['gefin', 'gefna', 'gefinni', 'gefinnar', 'gefnar', 'gefnar', 'gefnum', 'gefinna'],
+        ['gefit', 'gefit', 'gefnu', 'gefins', 'gefit', 'gefit', 'gefnum', 'gefinna']]
 
         VI
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["fara", "ferr", "fór", "fóru", "farinn"])
-        >>> verb.past_participle()
-        [['farinn', 'farinn', 'förnum', 'farins', 'farnir', 'farna', 'förnum', 'farinna'], ['farin', 'farna', 'farinni', 'farinnar', 'farnar', 'farnar', 'förnum', 'farinna'], ['farit', 'farit', 'förnu', 'farins', 'farit', 'farit', 'förnum', 'farinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['farinn', 'farinn', 'förnum', 'farins', 'farnir', 'farna', 'förnum', 'farinna'],
+        ['farin', 'farna', 'farinni', 'farinnar', 'farnar', 'farnar', 'förnum', 'farinna'],
+        ['farit', 'farit', 'förnu', 'farins', 'farit', 'farit', 'förnum', 'farinna']]
 
         VII
         >>> verb = StrongOldNorseVerb()
         >>> verb.set_canonic_forms(["ráða", "ræðr", "réð", "réðu", "ráðinn"])
-        >>> verb.past_participle()
-        [['ráðinn', 'ráðinn', 'ráðnum', 'ráðins', 'ráðnir', 'ráðna', 'ráðnum', 'ráðinna'], ['ráðin', 'ráðna', 'ráðinni', 'ráðinnar', 'ráðnar', 'ráðnar', 'ráðnum', 'ráðinna'], ['ráðit', 'ráðit', 'ráðnu', 'ráðins', 'ráðit', 'ráðit', 'ráðnum', 'ráðinna']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['ráðinn', 'ráðinn', 'ráðnum', 'ráðins', 'ráðnir', 'ráðna', 'ráðnum', 'ráðinna'],
+        ['ráðin', 'ráðna', 'ráðinni', 'ráðinnar', 'ráðnar', 'ráðnar', 'ráðnum', 'ráðinna'],
+        ['ráðit', 'ráðit', 'ráðnu', 'ráðins', 'ráðit', 'ráðit', 'ráðnum', 'ráðinna']]
 
         :return:
         """
         forms = []
         pp_stem = self.stgken[:-3]  # past participle stem
-        pp_shortened_stem = self.stgken[:-1]  # past participle stem
+        # pp_shortened_stem = self.stgken[:-1]  # past participle stem
 
         forms.append([])
         # masculine
@@ -1002,14 +1016,18 @@ class WeakOldNorseVerb(OldNorseVerb):
         I
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["kalla", "kallaði", "kallaðr"])
-        >>> verb.past_participle()
-        [['kallaðr', 'kallaðan', 'kölluðum', 'kallaðs', 'kallaðir', 'kallaða', 'kölluðum', 'kallaðra'], ['kölluð', 'kallaða', 'kallaðri', 'kallaðrar', 'kallaðar', 'kallaðar', 'kölluðum', 'kallaðra'], ['kallatt', 'kallatt', 'kölluðu', 'kallaðs', 'kölluð', 'kölluð', 'kölluðum', 'kallaðra']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['kallaðr', 'kallaðan', 'kölluðum', 'kallaðs', 'kallaðir', 'kallaða', 'kölluðum', 'kallaðra'],
+        ['kölluð', 'kallaða', 'kallaðri', 'kallaðrar', 'kallaðar', 'kallaðar', 'kölluðum', 'kallaðra'],
+        ['kallatt', 'kallatt', 'kölluðu', 'kallaðs', 'kölluð', 'kölluð', 'kölluðum', 'kallaðra']]
 
         II
         >>> verb = WeakOldNorseVerb()
         >>> verb.set_canonic_forms(["mæla", "mælti", "mæltr"])
-        >>> verb.past_participle()
-        [['mæltr', 'mæltan', 'mæltum', 'mælts', 'mæltir', 'mælta', 'mæltum', 'mæltra'], ['mælt', 'mælta', 'mæltri', 'mæltrar', 'mæltar', 'mæltar', 'mæltum', 'mæltra'], ['mælt', 'mælt', 'mæltu', 'mælts', 'mælt', 'mælt', 'mæltum', 'mæltra']]
+        >>> verb.past_participle()  # doctest: +NORMALIZE_WHITESPACE
+        [['mæltr', 'mæltan', 'mæltum', 'mælts', 'mæltir', 'mælta', 'mæltum', 'mæltra'],
+         ['mælt', 'mælta', 'mæltri', 'mæltrar', 'mæltar', 'mæltar', 'mæltum', 'mæltra'],
+         ['mælt', 'mælt', 'mæltu', 'mælts', 'mælt', 'mælt', 'mæltum', 'mæltra']]
 
         III
         # >>> verb = WeakOldNorseVerb()
