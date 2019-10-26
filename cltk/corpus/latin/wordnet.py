@@ -78,8 +78,8 @@ class _WordNetObject(object):
     def antonyms(self):
         """
         >>> LWN = WordNetCorpusReader()
-        >>> animus = Lemma(LWN, lemma='animus', pos='n', morpho='n-s---mn2-', uri='a2046')
-        >>> 'ignauia' in [lemma.lemma() for lemma in animus.antonyms()]
+        >>> sub = Lemma(LWN, lemma='sub', pos='r', morpho='rp--------', uri='37096')
+        >>> 'super' in [lemma.lemma() for lemma in sub.antonyms()]
         True
         """
         return self.related("!")
@@ -259,10 +259,6 @@ class Lemma(_WordNetObject):
     - similar_tos
     - pertainyms
 
-    >>> metus = Lemma(LWN, lemma='metus', pos='n', morpho='n-s---mn4-', uri='m0918')
-    >>> print(metus in list(virtus.antonyms()))
-    True
-
     """
 
     __slots__ = [
@@ -331,22 +327,13 @@ class Lemma(_WordNetObject):
                 results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/uri/{self.uri()}/relations/?format=json",
                     timeout=(30.0, 90.0),
-                ).json()
-                synsets_results = requests.get(
-                    f"{self._wordnet_corpus_reader.host()}/api/uri/{self.uri()}/synsets/relations/?format=json",
-                    timeout=(30.0, 90.0),
-                ).json()
+                ).json()['results']
             else:
                 results = requests.get(
                     f"{self._wordnet_corpus_reader.host()}/api/lemmas/{self.lemma()}/{self.pos() if self.pos() else '*'}"
                     f"/{self.morpho() if self.morpho() else '*'}/relations/?format=json",
                     timeout=(30.0, 90.0),
-                ).json()
-                synsets_results = requests.get(
-                    f"{self._wordnet_corpus_reader.host()}/api/lemmas/{self.lemma()}/{self.pos() if self.pos() else '*'}"
-                    f"/{self.morpho() if self.morpho() else '*'}/synsets/relations/?format=json",
-                    timeout=(30.0, 90.0),
-                ).json()
+                ).json()['results']
             if len(results) > 1:
                 if not self._wordnet_corpus_reader._ignore_errors:
                     ambiguous = [
@@ -356,7 +343,6 @@ class Lemma(_WordNetObject):
                     raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
             else:
                 self.__related = results[0]["relations"]
-                self.__related.update(synsets_results[0]["relations"])
         return self.__related
 
     @property
@@ -373,17 +359,16 @@ class Lemma(_WordNetObject):
                     f"{self.pos() if self.pos() else '*'}/{self.morpho() if self.morpho() else '*'}/synsets/?format=json",
                     timeout=(30.0, 90.0),
                 )
-                if results:
-                    data = results.json()['results']
-
-                    if len(data) > 1:
-                        if not self._wordnet_corpus_reader._ignore_errors:
-                            ambiguous = [
-                                f"{result['lemma']} ({result['morpho']})" for result in data
-                            ]
-                            raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
-                    else:
-                        self.__synsets = data[0]["synsets"]
+            if results:
+                data = results.json()['results']
+                if len(data) > 1:
+                    if not self._wordnet_corpus_reader._ignore_errors:
+                        ambiguous = [
+                            f"{result['lemma']} ({result['morpho']})" for result in data
+                        ]
+                        raise WordNetError(f"can't disambiguate {', '.join(ambiguous)}")
+                else:
+                    self.__synsets = data[0]["synsets"]
         return self.__synsets
 
     def synsets(self):
@@ -474,7 +459,7 @@ class Lemma(_WordNetObject):
         [Lemma(lemma='bacillum', pos='n', morpho='n-s---nn2-', uri='b0028'), Lemma(lemma='imbecillus', pos='a', morpho='aps---mn1-', uri='i0301')]
 
         """
-        if relation_symbol and relation_types[relation_symbol] in self._related:
+        if relation_symbol and relation_symbol in self._related:
             return (
                 Lemma(
                     self._wordnet_corpus_reader,
@@ -483,7 +468,7 @@ class Lemma(_WordNetObject):
                     lemma["morpho"],
                     lemma["uri"],
                 )
-                for lemma in self._related[relation_types[relation_symbol]]
+                for lemma in self._related[relation_symbol]
             )
         else:
             return (
@@ -514,6 +499,7 @@ class Lemma(_WordNetObject):
         >>> abalienatio = LWN.lemma('abalienatio', 'n', 'n-s---fn3-')
         >>> list(abalienatio.pertainyms())
         [Lemma(lemma='abalienatus', pos='a', morpho='aps---mn1-', uri='53399')]
+
         """
         return self.related("/")
 
@@ -526,6 +512,7 @@ class Lemma(_WordNetObject):
         >>> evoco = LWN.lemma('euoco', 'v', 'v1spia--1-')
         >>> list(evoco.composed_of())
         [Lemma(lemma='uoco', pos='v', morpho='v1spia--1-', uri='u1152'), Lemma(lemma='ex', pos='p', morpho='p---------', uri='e1167')]
+
         """
         return self.related("+c")
 
@@ -674,7 +661,7 @@ class Semfield:
                         lemma["morpho"],
                         lemma["uri"],
                     )
-                    for lemma in results.json()[0]["lemmas"]
+                    for lemma in results.json()['results'][0]['lemmas']
                 )
             else:
                 self._lemmas = []
@@ -1637,10 +1624,10 @@ class Synset(_WordNetObject):
 
         """
         get_synset = self._wordnet_corpus_reader.synset_from_pos_and_offset
-        if relation_symbol and relation_types[relation_symbol] in self._related:
+        if relation_symbol and relation_symbol in self._related:
             r = [
                 get_synset(synset["pos"], synset["offset"])
-                for synset in self._related[relation_types[relation_symbol]]
+                for synset in self._related[relation_symbol]
             ]
             if sort:
                 r.sort()
@@ -1655,8 +1642,9 @@ class Synset(_WordNetObject):
                 f"{self._wordnet_corpus_reader.host()}/api/synsets/{self.pos()}/{self.offset()}/relations/?format=json",
                 timeout=(30.0, 90.0),
             )
-            if results:
-                self.__related = results.json()["relations"]
+
+            if results and len(results.json()["results"]) != 0:
+                self.__related = results.json()["results"][0]["relations"]
             else:
                 self.__related = []
         return self.__related
