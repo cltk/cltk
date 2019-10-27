@@ -2080,9 +2080,7 @@ class WordNetICCorpusReader(CorpusReader):
     >>> LWNIC = WordNetICCorpusReader(fileids=['ic-lasla.dat'])
 
     """
-
-    # root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/')
-    def __init__(self, root="cltk/corpus/latin", fileids=None):
+    def __init__(self, root=os.path.join(get_cltk_data_dir(), 'latin/model/latin_models_cltk/semantics/wordnet/'), fileids=None):
         CorpusReader.__init__(self, root, fileids, encoding="utf8")
         if fileids is not None:
             self.load_ic(fileids[0])
