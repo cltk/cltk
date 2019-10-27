@@ -2265,25 +2265,28 @@ if __name__ == "__main__":
     LWN = WordNetCorpusReader()
 
     lemmas = list(LWN.lemmatize("virtutem"))
-    print(lemmas)
+    print("Lemmatized 'virtutem':", lemmas)
     virtus = LWN.lemma_from_uri("u0800")
-    print(virtus)
-    print(list(virtus.antonyms()))
-    print(list(virtus.hypernyms()))
+    print("Fetched lemma by URI:", virtus)
+    print("...with synsets:")
+    for synset in virtus.synsets():
+        print('-', synset.definition())
     animus = LWN.lemma("animus", "n", "n-s---mn2-")
-    print(animus)
+    print("Fetched lemma by morphology:", animus)
+    print("'Virtus' and 'animus' share the following synsets:")
     for synset in set(virtus.synsets()).intersection(set(animus.synsets())):
-        print(list(synset.semfields()), ">>", list(synset.lemmas()))
-
+        print('-', synset.id(), "in semfields:", list(synset.semfields()))
+        print('...with synonyms:', ', '.join([lemma.lemma() for lemma in synset.lemmas()]))
+        print('...and antonyms:', ', '.join([lemma.lemma() for antonym in synset.antonyms()
+                                   for lemma in antonym.lemmas()]))
     courage = list(LWN.translate("en", "courage", "n"))
-    for lemma in courage:
-        print(lemma)
+    print("Translating 'courage':", courage)
 
     s1 = LWN.synset("n#02542418")
-    print(s1.id(), "=", s1.definition())
+    print("Fetched synset:", s1.id(), "=", s1.definition())
     s2 = LWN.synset("n#03457380")
-    print(s2.id(), "=", s2.definition())
+    print("Fetched synset:", s2.id(), "=", s2.definition())
 
-    print("Common hypernyms:", list(s1.common_hypernyms(s2)))
-    print("Lowest common hypernyms:", list(s1.lowest_common_hypernyms(s2)))
-    print("Shortest path distance:", s1.shortest_path_distance(s2))
+    print("Common hypernyms:")
+    for hypernym in sorted(s1.common_hypernyms(s2), key=lambda x: x.offset()):
+        print('-', hypernym.definition())
