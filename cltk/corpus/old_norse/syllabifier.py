@@ -36,6 +36,20 @@ BACK_TO_FRONT_VOWELS = {
     "au": "ey"
 }
 
+FRONT_TO_BACK_VOWELS = {
+    "e": "a",
+    "æ": "á",
+    # "ø": "ǫ",
+    # "ø": "o",
+    "œ": "ó",
+    "y": "u",
+    "ý": "ú",
+    # "jú": "ý",
+    # "jó": "ý",
+    "ø": "ö",
+    "ey": "au"
+}
+
 DIPHTHONGS = ["ey", "au", "ei"]
 CONSONANTS = [
     "b",

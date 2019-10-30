@@ -16,10 +16,11 @@ Sources:
 - https://en.wikipedia.org/wiki/Proto-Norse_language#Proto-Norse_to_Old_Norse
 
 """
+from typing import List
 
 from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.corpus.old_norse.syllabifier import invalid_onsets, VOWELS, CONSONANTS, SHORT_VOWELS, LONG_VOWELS, \
-    DIPHTHONGS, BACK_TO_FRONT_VOWELS
+    DIPHTHONGS, BACK_TO_FRONT_VOWELS, FRONT_TO_BACK_VOWELS
 
 import numpy
 
@@ -27,6 +28,35 @@ __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
 
 s = Syllabifier(language="old_norse", break_geminants=True)
 s.set_invalid_onsets(invalid_onsets)
+
+
+def all_equal(l: List):
+    """
+    >>> all_equal([])
+    False
+
+    >>> all_equal(['a'])
+    True
+
+    >>> all_equal(['a', 'a'])
+    True
+
+    >>> all_equal(['a', 'b'])
+    False
+
+    :param l:
+    :return: Are all values of argument equal?
+    """
+    if len(l) == 0:
+        return False
+    elif len(l) == 1:
+        return True
+    else:
+        x = l[0]
+        for i in range(1, len(l)):
+            if l[i] != x:
+                return False
+        return True
 
 
 class OldNorseSyllable(Syllable):
@@ -42,6 +72,17 @@ class OldNorseSyllable(Syllable):
         if nucleus in BACK_TO_FRONT_VOWELS:
             self.nucleus = [BACK_TO_FRONT_VOWELS[nucleus]]
 
+    def unapply_u_umlaut(self, is_second=False):
+        if "".join(self.nucleus) == "ö":
+            self.nucleus = ["a"]
+        elif "".join(self.nucleus) == "u" and is_second:
+            self.nucleus = ["ö"]
+
+    def unapply_i_umlaut(self):
+        nucleus = "".join(self.nucleus)
+        if nucleus in FRONT_TO_BACK_VOWELS:
+            self.nucleus = [FRONT_TO_BACK_VOWELS[nucleus]]
+
 
 def extract_common_stem(*args):
     """
@@ -52,9 +93,9 @@ def extract_common_stem(*args):
     'arm'
 
     >>> extract_common_stem("ketill", "ketils", "katlar")
-    'k'
+    'kat'
 
-    # the given result is 'k', but the expected result should be 'katil'
+    # the given result is 'kat', but the expected result should be 'katil'
 
     >>> extract_common_stem("mór", "mós", "móar")
     'mó'
@@ -62,31 +103,49 @@ def extract_common_stem(*args):
     >>> extract_common_stem("söngr", "söngs", "söngvar")
     'söng'
 
-
     :param args:
     :return:
     """
     l_s = [[OldNorseSyllable(syllable, VOWELS, CONSONANTS) for syllable in s.syllabify_ssp(word)] for word in args]
 
-    nuclei = ["".join(syllables[0].nucleus) for syllables in l_s]
+    nuclei = []
+    for syllables in l_s:
+        if len(syllables) > 1:
+            nuclei.append("".join(syllables[-2].nucleus))
+        else:
+            nuclei.append("".join(syllables[0].nucleus))
 
-    # all_equal = True
-    # if len(nuclei) > 1:
-    #     for nucleus in nuclei:
-    #         all_equal = nuclei[0] == nucleus and all_equal
-    #         if not all_equal:
-    #             break
-    # if all_equal:
-    #      return os.path.commonprefix(args)
-    smallest = numpy.argmin([len(s) for s in args])
-    for i, c in enumerate(args[smallest]):
-        for other_word in args:
+    back, front = "", ""
+    new_words = []
+    if not all_equal(nuclei):
+        s_nuclei = list(set(nuclei))
+        if len(s_nuclei) == 2:
+            if s_nuclei[0] in FRONT_TO_BACK_VOWELS.keys():
+                if FRONT_TO_BACK_VOWELS[s_nuclei[0]] == s_nuclei[1]:
+                    front, back = s_nuclei
+            elif s_nuclei[0] in BACK_TO_FRONT_VOWELS.keys():
+                if BACK_TO_FRONT_VOWELS[s_nuclei[0]] == s_nuclei[1]:
+                    back, front = s_nuclei
+
+            for syllables in l_s:
+                if len(syllables) > 1:
+                    penultimate_nucleus = "".join(syllables[-2].nucleus)
+                    last_nucleus = "".join(syllables[-1].nucleus)
+                    # print(front, back, penultimate_nucleus, last_nucleus)
+                    if penultimate_nucleus == front and last_nucleus == "i":
+                        syllables[-2].nucleus = [back]
+                new_words.append("".join([str(syllable) for syllable in syllables]))
+        else:
+            new_words = args
+    else:
+        new_words = args
+
+    smallest = numpy.argmin([len(word) for word in new_words])
+    for i, c in enumerate(new_words[smallest]):
+        for other_word in new_words:
             if c != other_word[i]:
-                return args[smallest][:i]
-    return args[smallest]
-    # else:
-    #     print(nuclei)
-    #     return ""
+                return new_words[smallest][:i]
+    return new_words[smallest]
 
 
 def apply_raw_r_assimilation(last_syllable: str) -> str:
@@ -103,7 +162,6 @@ def apply_raw_r_assimilation(last_syllable: str) -> str:
     'steinn'
     >>> apply_raw_r_assimilation("vin")
     'vinn'
-
 
     :param last_syllable: last syllable of an Old Norse word
     :return:
@@ -354,6 +412,9 @@ def apply_u_umlaut(stem: str):
     'öxl'
     >>> apply_u_umlaut("hafn")
     'höfn'
+
+    >>> apply_u_umlaut("ketil")
+    'ketil'
 
     :param stem:
     :return:

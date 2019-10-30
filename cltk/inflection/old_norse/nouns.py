@@ -108,7 +108,7 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     # skjöldu
     # skjöldum
     # skjalda
-    #
+
     # >>> decline_strong_masculine_noun("völlr", "vallar", "vellir")
     # völlr
     # völl
@@ -118,7 +118,7 @@ def decline_strong_masculine_noun(ns: str, gs: str, np: str):
     # völlu
     # völlum
     # valla
-    #
+
     # >>> decline_strong_masculine_noun("fögnuðr", "fagnaðar", "fagnaðir")
     # fögnuðr
     # fögnuð
@@ -405,7 +405,7 @@ def decline_strong_neuter_noun(ns: str, gs: str, np: str):
     # kyn
     # kynjum
     # kynja
-    #
+
     # >>> decline_strong_neuter_noun("högg", "höggs", "högg")
     # högg
     # högg
