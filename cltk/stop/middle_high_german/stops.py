@@ -5,6 +5,9 @@ Source of texts: http://www.gutenberg.org/files/22636/22636-h/22636-h.htm
                  http://texte.mediaevum.de/12mhd.htm
 """
 
+from string import punctuation
+from cltk.stop.stop import BaseCorpusStoplist
+
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "GLP License"
 
@@ -227,3 +230,18 @@ STOPS_LIST = ["abe",
     "zu",
     "zû",
     "zuo"]
+
+
+class CorpusStoplist(BaseCorpusStoplist):
+
+    def __init__(self,):
+        BaseCorpusStoplist.__init__(self)
+        self.punctuation = punctuation
+        if not self.numpy_installed or not self.sklearn_installed:
+            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. '
+                  'Try installing with `pip install numpy sklearn scipy`.\n\n')
+            raise ImportError
+        else:
+            from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+            self.vectorizer = CountVectorizer(input='content')  # Set df?
+            self.tfidf_vectorizer = TfidfVectorizer(input='content')
