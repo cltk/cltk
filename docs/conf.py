@@ -32,12 +32,13 @@ release = "1.0.0a1"
 # ones.
 #
 # TODO: Decide which of these are necessary
+# TODO: Re-enable "sphinx_autodoc_typehints", which fails on RTD builds
 #
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
-    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon.
+    # "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon.
     "sphinx.ext.autosummary",
     "sphinx.ext.coverage",
     "sphinx.ext.extlinks",
