@@ -6,6 +6,19 @@ About
 
 Experimental version of CLTK to incorporate stanfordnlp into an all-use ``NLP()`` class.
 
+Installation
+------------
+
+.. code-block:: bash
+
+   $ pip install cltkv1
+
+
+Documentation
+-------------
+
+https://cltkv1.readthedocs.io/en/latest/
+
 
 Development
 -----------
