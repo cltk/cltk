@@ -35,7 +35,7 @@ updateDependencies:
 	poetry update
 
 uml:
-	cd docs && poetry run pyreverse -o png ..src/cltkv1
+	cd docs/ && poetry run pyreverse -o png ../src/cltkv1/ && cd ../
 
 upload:
 	poetry publish

@@ -20,10 +20,34 @@ cltkv1.utils.download module
    :undoc-members:
    :show-inheritance:
 
+cltkv1.utils.example\_texts module
+----------------------------------
+
+.. automodule:: cltkv1.utils.example_texts
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltkv1.utils.exceptions module
 ------------------------------
 
 .. automodule:: cltkv1.utils.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltkv1.utils.operations module
+------------------------------
+
+.. automodule:: cltkv1.utils.operations
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltkv1.utils.pipeline\_example module
+-------------------------------------
+
+.. automodule:: cltkv1.utils.pipeline_example
    :members:
    :undoc-members:
    :show-inheritance:

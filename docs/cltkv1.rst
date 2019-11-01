@@ -6,8 +6,8 @@ Subpackages
 
 .. toctree::
 
-   cltkv1.codes
    cltkv1.dependency
+   cltkv1.languages
    cltkv1.stopwords
    cltkv1.tokenizers
    cltkv1.utils

@@ -2,8 +2,8 @@
 
 # TODO: Figure out right way to do these init imports and in submodules
 
-from cltkv1.languages import *
 from cltkv1.dependency import *
+from cltkv1.languages import *
 from cltkv1.stopwords import *
 from cltkv1.tokenizers import *
 from cltkv1.utils import *
