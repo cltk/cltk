@@ -46,7 +46,7 @@ extensions = [
     "sphinx.ext.viewcode",
 ]
 
-autodoc_mock_imports = ["torch", "gitpython", "stanfordnlp"]
+autodoc_mock_imports = ["torch", "gitpython", "stanfordnlp", "isort"]
 
 
 # Add any paths that contain templates here, relative to this directory.
