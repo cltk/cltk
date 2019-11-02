@@ -54,6 +54,7 @@ with open(os.path.join(os.path.dirname(os.path.dirname(
     autodoc_mock_imports = map(str.strip, re.findall(r'^\s*[a-zA-Z_]*',
                                f.read().lower().replace('-', '_'),
                                flags=re.MULTILINE))
+    autodoc_mock_imports.remove("sphinx_autodoc_typehints")
 
 
 autodoc_mock_imports = list(autodoc_mock_imports) + [
