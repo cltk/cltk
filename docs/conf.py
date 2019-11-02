@@ -47,7 +47,7 @@ extensions = [
 ]
 
 # autodoc_mock_imports = ["torch", "gitpython", "stanfordnlp", "isort"]
-autodoc_mock_imports = ["gitpython>=3.0,<4.0'"]
+autodoc_mock_imports = ["gitpython>=3.0,<4.0"]
 
 
 # Add any paths that contain templates here, relative to this directory.
