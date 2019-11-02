@@ -62,6 +62,7 @@ autodoc_mock_imports = list(autodoc_mock_imports) + [
 ]
 
 autodoc_mock_imports.remove("sphinx_autodoc_typehints")
+autodoc_mock_imports.remove("cltkv1")
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
