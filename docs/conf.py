@@ -46,8 +46,21 @@ extensions = [
     "sphinx.ext.viewcode",
 ]
 
-# autodoc_mock_imports = ["torch", "gitpython", "stanfordnlp", "isort"]
-autodoc_mock_imports = ["gitpython"]
+import os
+import re
+# Assuming package name is the same as the module name
+with open(os.path.join(os.path.dirname(os.path.dirname(
+        os.path.realpath(__file__))), 'requirements.txt')) as f:
+    autodoc_mock_imports = map(str.strip, re.findall(r'^\s*[a-zA-Z_]*',
+                               f.read().lower().replace('-', '_'),
+                               flags=re.MULTILINE))
+
+
+autodoc_mock_imports = list(autodoc_mock_imports) + [
+    "gitpython",
+    "isort",
+    "stanfordnlp"
+]
 
 
 # Add any paths that contain templates here, relative to this directory.
