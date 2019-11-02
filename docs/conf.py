@@ -62,6 +62,13 @@ autodoc_mock_imports = list(autodoc_mock_imports) + [
 ]
 
 autodoc_mock_imports.remove("sphinx_autodoc_typehints")
+autodoc_mock_imports.remove("sphinx-autodoc-typehints")
+autodoc_mock_imports.remove("sphinxcontrib-applehelp")
+autodoc_mock_imports.remove("sphinxcontrib-devhelp")
+autodoc_mock_imports.remove("sphinxcontrib-htmlhelp")
+autodoc_mock_imports.remove("sphinxcontrib-jsmath")
+autodoc_mock_imports.remove("sphinxcontrib-qthelp")
+autodoc_mock_imports.remove("sphinxcontrib-serializinghtml")
 
 
 # Add any paths that contain templates here, relative to this directory.
