@@ -62,7 +62,7 @@ autodoc_mock_imports = list(autodoc_mock_imports) + [
 ]
 
 autodoc_mock_imports.remove("sphinx_autodoc_typehints")
-autodoc_mock_imports.remove("cltkv1")
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -84,3 +84,6 @@ html_theme = "alabaster"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
+
+# The master toctree document.
+master_doc = "index"
