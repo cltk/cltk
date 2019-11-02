@@ -22,7 +22,8 @@ copyright = '2019, "Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
 author = '"Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
 
 # The full version, including alpha/beta/rc tags
-release = "1.0.0a1"
+# TODO: Figure out if it is possible to read this from ``pyproject.toml``
+# release = "1.0.0a1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,21 +47,6 @@ extensions = [
     "sphinx.ext.viewcode",
 ]
 
-import os
-import re
-# Assuming package name is the same as the module name
-with open(os.path.join(os.path.dirname(os.path.dirname(
-        os.path.realpath(__file__))), 'docs/requirements.txt')) as f:
-    autodoc_mock_imports = map(str.strip, re.findall(r'^\s*[a-zA-Z_]*',
-                               f.read().lower().replace('-', '_'),
-                               flags=re.MULTILINE))
-
-autodoc_mock_imports = list(autodoc_mock_imports) + [
-    "gitpython",
-    "isort",
-    "stanfordnlp"
-]
-
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -82,6 +68,3 @@ html_theme = "alabaster"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
-
-# The master toctree document.
-master_doc = "index"
