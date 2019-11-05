@@ -608,7 +608,7 @@ class Semfield:
         """ Retrieve all synsets of the semfield.
 
         >>> LWN = WordNetCorpusReader()
-        >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+        >>> anatomy = Semfield(LWN, '611', "Human anatomy, cytology & histology")
         >>> fat = LWN.synset('n#04089143')
         >>> print(fat in list(anatomy.synsets()))
         True
@@ -640,7 +640,7 @@ class Semfield:
         """ Retrieve all lemmas for all synsets of the semfield.
 
         >>> LWN = WordNetCorpusReader()
-        >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+        >>> anatomy = Semfield(LWN, '611', "Human anatomy, cytology & histology")
         >>> list(anatomy.lemmas())[0]
         Lemma(lemma='autopsia', pos='n', morpho='n-s---fn1-', uri='50882')
 
@@ -671,7 +671,7 @@ class Semfield:
         """ Retrieve all superordinate semfields of the semfield.
 
         >>> LWN = WordNetCorpusReader()
-        >>> anatomy = Semfield(LWN, '611', "Human Anatomy, Cytology & Histology")
+        >>> anatomy = Semfield(LWN, '611', "Human anatomy, cytology & histology")
         >>> print(list(anatomy.hypers()))
         [Semfield(code='610', english='Medicine & Health')]
 
@@ -702,7 +702,7 @@ class Semfield:
         >>> LWN = WordNetCorpusReader()
         >>> medicine = Semfield(LWN, '610', "Medicine & Health")
         >>> print(list(medicine.hypons()))
-        [Semfield(code='611', english='Human Anatomy, Cytology & Histology'), Semfield(code='612', english='Human Physiology'), Semfield(code='613', english='Personal Health & Safety'), Semfield(code='614', english='Incidence & Prevention Of Disease'), Semfield(code='615', english='Pharmacology & Therapeutics'), Semfield(code='616', english='Diseases'), Semfield(code='617', english='Surgery & Related Medical Specialties'), Semfield(code='618', english='Gynecology, Obstetrics, Pediatrics & Geriatrics'), Semfield(code='610', english='Medicine & health')]
+        [Semfield(code='610', english='Medicine & health'), Semfield(code='611', english='Human anatomy, cytology & histology'), Semfield(code='612', english='Human Physiology'), Semfield(code='613', english='Personal Health & Safety'), Semfield(code='614', english='Incidence & prevention of disease'), Semfield(code='615', english='Pharmacology & therapeutics'), Semfield(code='616', english='Diseases'), Semfield(code='617', english='Surgery & Related Medical Specialties'), Semfield(code='618', english='Gynecology, Obstetrics, Pediatrics & Geriatrics')]
 
         """
 
@@ -713,13 +713,14 @@ class Semfield:
                 timeout=(30.0, 90.0),
             )
             if results:
-                self._hypons = (
+                self._hypons = sorted([
                     Semfield(
                         self._wordnet_corpus_reader,
                         semfield["code"],
                         semfield["english"],
                     )
-                    for semfield in results.json()['results'][0]["hypons"]
+                    for semfield in results.json()['results'][0]["hypons"]],
+                    key=lambda x: x.code(),
                 )
             else:
                 self._hypons = []
@@ -1688,6 +1689,7 @@ class WordNetCorpusReader(CorpusReader):
     >>> courage = LWN.synset('n#03805961')
     >>> print(courage)
     Synset(pos='n', offset='03805961', definition='a quality of spirit that enables you to face danger of pain without showing fear')
+
     >>> adverbs = LWN.synsets('r')
     >>> print(len(list(adverbs)) > 3600)
     True
@@ -1972,7 +1974,7 @@ class WordNetCorpusReader(CorpusReader):
 
         >>> LWN = WordNetCorpusReader()
         >>> list(LWN.semfields('300'))
-        [Semfield(code='300', english='Social sciences'), Semfield(code='300', english='Social Sciences, Sociology & Anthropology'), Semfield(code='300', english='Social Sciences')]
+        [Semfield(code='300', english='Social Sciences'), Semfield(code='300', english='Social Sciences, Sociology & Anthropology'), Semfield(code='300', english='Social sciences')]
 
         """
         semfields_list = []
@@ -1992,9 +1994,9 @@ class WordNetCorpusReader(CorpusReader):
             if results:
                 data = results.json()['results']
             semfields_list.extend(data)
-        return (
+        return sorted([
             Semfield(self, semfield["code"], semfield["english"])
-            for semfield in semfields_list
+            for semfield in semfields_list], key=lambda x: (x.code(), x.english())
         )
 
     #############################################################
