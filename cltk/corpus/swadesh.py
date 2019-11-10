@@ -287,3 +287,5 @@ class Swadesh():
             return swadesh_hi
         elif self.language == 'ar':
             return swadesh_ar
+        elif self.language == 'cop':
+            return swadesh_cop
