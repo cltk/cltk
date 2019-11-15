@@ -22,8 +22,7 @@ class TestCoptic(unittest.TestCase):
         match = swadesh.words()[125]
         self.assertEqual(turn, match)
         match = len(swadesh.words())
-        length = len(Swadesh('la').words())
-        self.assertEqual(length, match)
+        self.assertEqual(match, 207)
 
 
 if __name__ == '__main__':
