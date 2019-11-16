@@ -166,6 +166,21 @@ To use the CLTK's built-in stopwords list:
    In [3]: ar_stop_filter(text)
    Out[3]: ['سئل', 'الكتاب', 'الخط', '،', 'يستحق', 'يوصف', 'بالجودة', '؟']
 
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Arabic.
+
+.. code-block:: python
+
+    In[1]: from cltk.corpus.swadesh import Swadesh
+
+    In[2]: swadesh = Swadesh('ar')
+
+    In[3]: swadesh.words()[:10]
+
+    Out[3]: ['أنا' ,'أنت‎, أنتِ‎', 'هو‎,هي' ,'نحن' ,'أنتم‎,‎ أنتن‎,‎ أنتما‎', 'هم‎,‎ هن‎,‎ هما' ,'هذا' ,'ذلك' ,'هنا‎']
+
 Word Tokenization
 =================
 .. code-block:: python
