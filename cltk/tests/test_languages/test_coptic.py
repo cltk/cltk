@@ -3,7 +3,6 @@
 import os
 import unittest
 
-from cltk.corpus.utils.importer import CorpusImporter
 from cltk.corpus.swadesh import Swadesh
 
 __author__ = ["Edward Nolan <nolanee@umich.edu>", ]

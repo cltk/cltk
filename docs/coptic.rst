@@ -17,3 +17,18 @@ Use ``CorpusImporter()`` or browse the `CLTK GitHub organization <https://github
 
    In [3]: c.list_corpora
    Out[3]: ['coptic_text_scriptorium']
+
+
+Swadesh
+=======
+The corpus module has a class for generating a Swadesh list for Coptic.
+
+.. code-block:: python
+
+    In[1]: from cltk.corpus.swadesh import Swadesh
+
+    In[2]: swadesh = Swadesh('cop')
+
+    In[3]: swadesh.words()[:10]
+
+    Out[3]: ['ⲁⲛⲟⲕ', 'ⲛⲧⲟⲕ, ⲛⲧⲟ', 'ⲛⲧⲟϥ, ⲛⲧⲟⲥ', 'ⲁⲛⲟⲛ', 'ⲛⲧⲟⲧⲛ', 'ⲛⲧⲟⲩ', '-ⲉⲓ', 'ⲡⲓ-, ϯ-, ⲛⲓ-', 'ⲡⲉⲓⲙⲁ', 'ⲙⲙⲁⲩ']
