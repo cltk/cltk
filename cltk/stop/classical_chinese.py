@@ -13,19 +13,15 @@ class CorpusStoplist(BaseCorpusStoplist):
     def __init__(self, language='classical_chinese'):
         BaseCorpusStoplist.__init__(self, language)
         self.punctuation = '。，；？：！、《》'
-        if not self.numpy_installed or not self.sklearn_installed:
-            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. '
-                  'Try installing with `pip install numpy sklearn scipy`.\n\n')
-            raise ImportError
-        else:
+        if self.numpy_installed and self.sklearn_installed:
             from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
             self.vectorizer = CountVectorizer(analyzer='char', input='content') # Set df?
             self.tfidf_vectorizer = TfidfVectorizer(analyzer='char', input='content')
 
     def _remove_punctuation(self, texts, punctuation):
         # Change replacement pattern for 'char' analyzer parameter
-        translator = str.maketrans({key: "" for key in punctuation}) 
-        texts = [text.translate(translator) for text in texts] 
+        translator = str.maketrans({key: "" for key in punctuation})
+        texts = [text.translate(translator) for text in texts]
         return texts
 
 

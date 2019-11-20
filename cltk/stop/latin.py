@@ -22,11 +22,7 @@ class CorpusStoplist(BaseCorpusStoplist):
     def __init__(self, language='latin'):
         BaseCorpusStoplist.__init__(self, language)
         self.punctuation = punctuation
-        if not self.numpy_installed or not self.sklearn_installed:
-            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. '
-                  'Try installing with `pip install numpy sklearn scipy`.\n\n')
-            raise ImportError
-        else:
+        if self.numpy_installed and self.sklearn_installed:
             from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
             self.vectorizer = CountVectorizer(input='content')  # Set df?
             self.tfidf_vectorizer = TfidfVectorizer(input='content')
