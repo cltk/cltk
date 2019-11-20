@@ -7,21 +7,9 @@ __license__ = 'MIT License. See LICENSE.'
 import os
 from typing import List
 
-from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer, UnigramLemmatizer
+from cltk.lemmatize.backoff import IdentityLemmatizer, DictLemmatizer
 
 from cltk.utils.file_operations import open_pickle
-
-
-def _randomize_data(train: List[list], seed: int):
-    import random
-    random.seed(seed)
-    random.shuffle(train)
-    pos_train_sents = train[:4000]
-    lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
-    train_sents = lem_train_sents[:4000]
-    test_sents = lem_train_sents[4000:5000]
-
-    return pos_train_sents, train_sents, test_sents
 
 
 class BackoffMHGLemmatizer:
@@ -43,16 +31,12 @@ class BackoffMHGLemmatizer:
 
         self.token_to_lemmata = []
         self.lemma_to_tokens = []
-        self.sentences = []
 
         try:
             self.lemma_to_tokens = open_pickle(os.path.join(self.models_path, "lemma_to_tokens.pickle"))
             self.token_to_lemmata = open_pickle(os.path.join(self.models_path, "token_to_lemma.pickle"))
-            # self.sentences = open_pickle(os.path.join(self.models_path, "sentences.pickle"))
         except FileNotFoundError as err:
             raise type(err)(missing_models_message)
-
-        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(self.sentences, self.seed)
 
         self._define_lemmatizer()
 
@@ -67,11 +51,6 @@ class BackoffMHGLemmatizer:
     def lemmatize(self, tokens: List[str]):
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
-
-    def evaluate(self):
-        if self.verbose:
-            raise AssertionError("evaluate() method only works when verbose: bool = False")
-        return self.lemmatizer.evaluate(self.test_sents)
 
     def __repr__(self):
         return f'<BackoffMHGLemmatizer v0.1>'
