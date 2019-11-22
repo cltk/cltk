@@ -17,7 +17,7 @@ Installation
 Documentation
 -------------
 
-https://cltkv1.readthedocs.io/en/latest/
+``$ make docs``
 
 
 Development
@@ -28,14 +28,21 @@ The following steps will give you a working development environment.
 Python setup
 ============
 
-Setup `pyenv` and `poetry` to manage Python versions.
+Use ``pyenv`` to manage Python versions and ``poetry`` for package builds.
 
-* Install ``pyenv``: `Managing Multiple Python Versions With pyenv <https://realpython.com/intro-to-pyenv/>`_
-* ``$ pyenv virtualenv 3.7.5 cltk``
-* ``$ pyenv local cltk``
-* Install ``poetry``: https://poetry.eustace.io/docs/
+* Install ``pyenv``:
+   - First time installation; ``curl https://pyenv.run | bash``
+   - To update ``pyenv``: ``pyenv update``
+   - Resource: `Managing Multiple Python Versions With pyenv <https://realpython.com/intro-to-pyenv/>`_
+* Install supported versions of the Python language through ``pyenv`` into a dedicated virtualenv:
+   - ``$ pyenv install --list | grep 3.7.5``
+   - ``$ pyenv install 3.7.5``
+   - ``$ pyenv virtualenv 3.7.5 cltkv1``
+   - ``$ pyenv local cltkv1``. Open a new window and this should be activated, with a ``(cltkv1) `` prepended to your Bash prompt.
+* Install ``poetry`` to support packaging: https://poetry.eustace.io/docs/
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
-* Install Graphiz (for building docs): https://graphviz.gitlab.io/download/
+* Install Graphiz (necessary for building docs): https://graphviz.gitlab.io/download/
+
 
 Packaging
 =========

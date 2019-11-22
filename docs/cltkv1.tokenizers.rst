@@ -4,14 +4,6 @@ cltkv1.tokenizers package
 Submodules
 ----------
 
-cltkv1.tokenizers.sentence module
----------------------------------
-
-.. automodule:: cltkv1.tokenizers.sentence
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cltkv1.tokenizers.word module
 -----------------------------
 

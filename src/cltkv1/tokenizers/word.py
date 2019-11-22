@@ -1,81 +1,228 @@
-"""Module for tokenizers."""
+"""Module for tokenizers.
 
-import re
-from typing import List
+TODO: Think about adding check somewhere if a contrib (not user) chooses an unavailable item
+"""
 
-from cltkv1.utils.data_types import Word
+from dataclasses import dataclass
+from typing import Callable
 
+from cltk.tokenize.word import WordTokenizer
 
-class Tokenizer:
-    def __init__(self):
-        pass
+from cltkv1.utils.data_types import Process
 
-    def tokenize_str(self, text: str) -> List[str]:
-        """Tokenize inputs and return list of str."""
-        return text.split(" ")
-
-    @staticmethod
-    def dummy_get_token_indices(text: str) -> List[List[int]]:
-        """Get the start/stop char indices of word boundaries.
-
-        >>> from cltkv1.tokenizers import Tokenizer
-        >>> generic_toker = Tokenizer()
-        >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας"
-        >>> indices_words = generic_toker.dummy_get_token_indices(text=john_damascus_corinth)
-        >>> indices_words[0:3]
-        [[0, 5], [6, 11], [13, 20]]
-        """
-        indices_words = list()
-        pattern_word = re.compile(r"\w+")
-        for word_match in pattern_word.finditer(string=text):
-            idx_word_start, idx_word_stop = word_match.span()
-            indices_words.append([idx_word_start, idx_word_stop])
-        return indices_words
+AKKADIAN_WORD_TOK = WordTokenizer(language="akkadian")
+ARABIC_WORD_TOK = WordTokenizer(language="arabic")
+GREEK_WORD_TOK = WordTokenizer(language="greek")
+LATIN_WORD_TOK = WordTokenizer(language="latin")
+MIDDLE_ENGLISH_WORD_TOK = WordTokenizer(language="middle_english")
+MIDDLE_FRENCH_WORD_TOK = WordTokenizer(language="middle_french")
+MIDDLE_HIGH_GERMAN_WORD_TOK = WordTokenizer(language="middle_high_german")
+MULTILINGUAL_WORD_TOK = WordTokenizer(language="multilingual")
+OLD_FRENCH_WORD_TOK = WordTokenizer(language="old_french")
+OLD_NORSE_WORD_TOK = WordTokenizer(language="old_norse")
+SANSKRIT_WORD_TOK = WordTokenizer(language="sanskrit")
 
 
-class DefaultTokenizer(Tokenizer):
-    """This tokenizer is for language for which there is no specially word tokenizer."""
+@dataclass
+class TokenizationProcess(Process):
+    """To be inherited for each language's tokenization declarations.
 
-    def __init__(self):
-        super().__init__()
+    Example: ``TokenizationProcess`` -> ``LatinTokenizationProcess``
 
-
-class LatinTokenizer(Tokenizer):
-    def __init__(self):
-        super().__init__()
-
-
-def dummy_get_token(indices_tokens: List[List[int]], text: str) -> List[Word]:
-    """Take indices and raw string text, then return populated Word object.
-
-    >>> from cltkv1 import NLP
-    >>> cltk_nlp = NLP(language='greek')
-    >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας τοῦ τὰ ἐλάσσονα λαμβάνειν, καὶ κυρίους, εἰ βούλοιντο, τοῦ τὰ μείζονα. Ἔστι δὲ πολὺ μείζων ἡ ἀγάπη πάντων τῶν χαρισμάτων."
-    >>> toker = Tokenizer()
-    >>> indices_words = toker.dummy_get_token_indices(text=john_damascus_corinth)
-    >>> tokens = dummy_get_token(indices_words, john_damascus_corinth)
-    >>> tokens[0]
-    Word(index_char_start=0, index_char_stop=5, index_token=0, index_sentence=None, string='Τοῦτο', pos=None, scansion=None)
+    >>> from cltkv1.tokenizers.word import TokenizationProcess
+    >>> from cltkv1.utils.data_types import Process
+    >>> issubclass(TokenizationProcess, Process)
+    True
+    >>> tok = TokenizationProcess(data_input="some input data")
     """
-    tokens = list()
-    for count, indices in enumerate(indices_tokens):
-        start, end = indices[0], indices[1]
-        token_str = text[start:end]
-        word = Word(
-            index_char_start=start,
-            index_char_stop=end,
-            index_token=count,
-            string=token_str,
-        )
-        tokens.append(word)
-    return tokens
+
+    language = None
 
 
-if __name__ == "__main__":
-    def_tok = DefaultTokenizer()
-    def_tokens = def_tok.tokenize("here ye here ye")
-    print(def_tokens)
+@dataclass
+class DefaultTokenizationProcess(TokenizationProcess):
+    """The default tokenization algorithm.
 
-    lat_tok = LatinTokenizer()
-    lat_tokens = lat_tok.tokenize("amo amas amat")
-    print(lat_tokens)
+    >>> from cltkv1.tokenizers.word import DefaultTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = DefaultTokenizationProcess(data_input=EXAMPLE_TEXTS["non"][:29])
+    >>> tok.description
+    'Whitespace tokenizer inheriting from the NLTK'
+    >>> tok.data_output
+    ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
+    """
+
+    data_input: str
+    algorithm = MULTILINGUAL_WORD_TOK.tokenize
+    description = "Whitespace tokenizer inheriting from the NLTK"
+    language = None
+
+
+@dataclass
+class LatinTokenizationProcess(TokenizationProcess):
+    """The default Latin tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import LatinTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = LatinTokenizationProcess(data_input=EXAMPLE_TEXTS["lat"][:23])
+    >>> tok.data_output
+    ['Gallia', 'est', 'omnis', 'divisa']
+    """
+
+    data_input: str
+    algorithm = LATIN_WORD_TOK.tokenize
+    description = "Default tokenizer for Latin"
+    language = "lat"
+
+
+@dataclass
+class GreekTokenizationProcess(TokenizationProcess):
+    """The default Greek tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import GreekTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = GreekTokenizationProcess(data_input=EXAMPLE_TEXTS["grc"][:23])
+    >>> tok.data_output
+    ['ὅτι', 'μὲν', 'ὑμεῖς', ',', 'ὦ', 'ἄνδρες']
+    """
+
+    data_input: str
+    algorithm = GREEK_WORD_TOK.tokenize
+    description = "Default Greek tokenizer"
+    language = "grc"
+
+
+@dataclass
+class AkkadianTokenizationProcess(TokenizationProcess):
+    """The default Akkadian tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import AkkadianTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = AkkadianTokenizationProcess(data_input=EXAMPLE_TEXTS["akk"])
+    >>> tok.data_output
+    [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'), ('e2-kal2-la-ka', 'akkadian'), ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
+    """
+
+    data_input: str
+    algorithm = AKKADIAN_WORD_TOK.tokenize
+    description = "Default Akkadian tokenizer"
+    language = "akk"
+
+
+@dataclass
+class OldNorseTokenizationProcess(TokenizationProcess):
+    """The default OldNorse tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import OldNorseTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = OldNorseTokenizationProcess(data_input=EXAMPLE_TEXTS["non"][:29])
+    >>> tok.data_output
+    ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
+    """
+
+    data_input: str
+    algorithm = OLD_NORSE_WORD_TOK.tokenize
+    description = "Default Old Norse tokenizer"
+    language = "non"
+
+
+@dataclass
+class MHGTokenizationProcess(TokenizationProcess):
+    """The default Middle High German tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import MHGTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = MHGTokenizationProcess(data_input=EXAMPLE_TEXTS["gmh"][:29])
+    >>> tok.data_output
+    ['Ik', 'gihorta', 'ðat', 'seggen', 'ðat', 'sih']
+    """
+
+    data_input: str
+    algorithm = MIDDLE_HIGH_GERMAN_WORD_TOK.tokenize
+    description = "The default Middle High German tokenizer"
+    language = "gmh"
+
+
+@dataclass
+class ArabicTokenizationProcess(TokenizationProcess):
+    """The default Arabic tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import ArabicTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = ArabicTokenizationProcess(data_input=EXAMPLE_TEXTS["arb"][:34])
+    >>> tok.data_output
+    ['كهيعص', '﴿', '١', '﴾', 'ذِكْرُ', 'رَحْمَتِ', 'رَبِّكَ']
+    """
+
+    data_input: str
+    algorithm = ARABIC_WORD_TOK.tokenize
+    description = "Default Arabic tokenizer"
+    language = "arb"
+
+
+@dataclass
+class OldFrenchTokenizationProcess(TokenizationProcess):
+    """The default Old French tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import OldFrenchTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = OldFrenchTokenizationProcess(data_input=EXAMPLE_TEXTS["fro"][:37])
+    >>> tok.data_output
+    ['Une', 'aventure', 'vos', 'voil', 'dire', 'Molt', 'bien']
+    """
+
+    data_input: str
+    algorithm = OLD_FRENCH_WORD_TOK.tokenize
+    description = "Default Old French tokenizer"
+    language = "fro"
+
+
+@dataclass
+class MiddleFrenchTokenizationProcess(TokenizationProcess):
+    """The default Middle French tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import MiddleFrenchTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = MiddleFrenchTokenizationProcess(data_input=EXAMPLE_TEXTS["frm"][:37])
+    >>> tok.data_output
+    ['Attilius', 'Regulus', ',', 'general', 'de', "l'", 'armée']
+    """
+
+    data_input: str
+    algorithm = MIDDLE_FRENCH_WORD_TOK.tokenize
+    description = "Default Middle French tokenizer"
+    language = "frm"
+
+
+@dataclass
+class MiddleEnglishTokenizationProcess(TokenizationProcess):
+    """The default Middle English tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import MiddleEnglishTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = MiddleEnglishTokenizationProcess(data_input=EXAMPLE_TEXTS["enm"][:31])
+    >>> tok.data_output
+    ['Whilom', ',', 'as', 'olde', 'stories', 'tellen']
+    """
+
+    data_input: str
+    algorithm = MIDDLE_ENGLISH_WORD_TOK.tokenize
+    description = "Default Middle English tokenizer"
+    language = "enm"
+
+
+@dataclass
+class SanskritTokenizationProcess(TokenizationProcess):
+    """The default Middle English tokenization algorithm.
+
+    >>> from cltkv1.tokenizers import SanskritTokenizationProcess
+    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+    >>> tok = SanskritTokenizationProcess(data_input=EXAMPLE_TEXTS["san"][:31])
+    >>> tok.data_output
+    ['ईशा', 'वास्यम्', 'इदं', 'सर्वं', 'यत्', 'किञ्च']
+    """
+
+    data_input: str
+    algorithm: Callable = SANSKRIT_WORD_TOK.tokenize
+    description = "The default Middle English tokenizer"
+    language = "san"

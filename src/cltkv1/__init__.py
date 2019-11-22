@@ -4,7 +4,6 @@
 
 from cltkv1.dependency import *
 from cltkv1.languages import *
-from cltkv1.stopwords import *
 from cltkv1.tokenizers import *
 from cltkv1.utils import *
 
@@ -13,6 +12,9 @@ from .nlp import NLP
 
 
 def get_pyproject():
+    """Read version and other info from the project's ``pyproject.toml``
+    file, located in the root of the source repo.
+    """
     import os
     import toml
 

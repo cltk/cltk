@@ -23,7 +23,8 @@ def file_exists(file_path: str, is_dir: bool = False) -> bool:
 
 
 def reverse_dict(
-    input_dict: Dict[str, Any], ignore_keys: Optional[List[str]] = None
+    input_dict: Dict[str, Any],  # pylint: disable=bad-continuation
+    ignore_keys: Optional[List[str]] = None,  # pylint: disable=bad-continuation
 ) -> Dict[str, str]:
     """Take a dict and reverse its keys and values. Optional
     parameter to ignore certain keys.
@@ -76,7 +77,7 @@ def suppress_stdout():
     """Wrap a function with this to suppress
     its printing to screen.
 
-    Source: https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/
+    Source: `<https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/>`_.
 
     >>> print("You can see this")
     You can see this

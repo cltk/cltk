@@ -1,4 +1,4 @@
-"""Wrapper for the `stanfordnlp` project."""
+"""Wrapper for the ``stanfordnlp`` project."""
 
 __author__ = ["John Stewart <free-variation>"]
 
@@ -6,12 +6,12 @@ __author__ = ["John Stewart <free-variation>"]
 from typing import List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
-import stanfordnlp
+import stanfordnlp  # type: ignore
 
 
 class Form(Element):
     """For the word (ie, node) of a dependency tree and its attributes. Inherits
-    from the `Element` class of Python's `xml.etree` library.
+    from the ``Element`` class of Python's ``xml.etree`` library.
 
     >>> desc_form = Form('described')
     >>> desc_form
@@ -31,8 +31,8 @@ class Form(Element):
 
     def __truediv__(self, pos_tag: str) -> "Form":
         """Assigns the POS feature for current form. This is
-        done by overloading `operator.truediv()` (`a / b`) to
-        perform `.set()` upon and `Element` of the xml library.
+        done by overloading ``operator.truediv()`` (``a / b``) to
+        perform ``.set()`` upon and ``Element`` of the xml library.
 
         >>> desc_form = Form('described')
         >>> desc_form / 'VBN'
@@ -48,9 +48,9 @@ class Form(Element):
     def __rshift__(self, other: Union["Form", str]) -> "Dependency":
         """Create a dependency between this form as governor, to
         the other as dependent. Adds the dependent to the children
-        of this form. This is done by overloading `operator.rshift()`
-        (`a >> b`) to perform `.append()` upon `Element` of the xml
-        library. Returns `Dependency` xxx
+        of this form. This is done by overloading ``operator.rshift()``
+        (``a >> b``) to perform ``.append()`` upon ``Element`` of the xml
+        library. Returns ``Dependency`` xxx
 
         >>> john = Form('John', 1) / 'NNP'
         >>> john
@@ -98,7 +98,7 @@ class Form(Element):
         The ID is attached to the text, and the relation is
         optionally suppressed.
 
-        TODO: Make this test more meaningful. KJ couldn't get the `desc_form.full_str()` to equal the target.
+        TODO: Make this test more meaningful. KJ couldn't get the ``desc_form.full_str()`` to equal the target.
 
         >>> f = Form
         >>> desc_form = f('described')
@@ -131,7 +131,7 @@ class Form(Element):
         >>> output_suppressed = io.StringIO()
         >>> sys.stdout = output_suppressed
         >>> import stanfordnlp
-        >>> # Note: `stanfordnlp.Pipeline` prints params to screen, must suppress
+        >>> # Note: ``stanfordnlp.Pipeline`` prints params to screen, must suppress
         >>> nlp = stanfordnlp.Pipeline(lang='la')
         >>> sys.stdout = output_default
         >>> text = "Cui regi utraque unio quodammodo attribui possit."
