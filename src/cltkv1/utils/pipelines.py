@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from typing import Callable, List, Type
 
 from cltkv1.tokenizers import DefaultTokenizationProcess, LatinTokenizationProcess
-from cltkv1.languages.glottolog import LANGUAGES
+from cltkv1.languages import get_lang
 from cltkv1.utils.data_types import Language, Pipeline, Process
 from cltkv1.wrappers import StanfordNLPProcess
 
@@ -21,7 +21,7 @@ class DefaultPipeline(Pipeline):
     or of which CLTK coverage is not know.
 
     >>> from cltkv1.utils.pipelines import DefaultPipeline
-    >>> a_pipeline = DefaultPipeline(description="Pipeline for some language", processes=[DefaultTokenizationProcess], language=LANGUAGES["ett"])
+    >>> a_pipeline = DefaultPipeline(description="Pipeline for some language", processes=[DefaultTokenizationProcess], language=get_lang("ett"))
     >>> a_pipeline.description
     'Pipeline for some language'
     >>> etruscan = "laris velkasnas mini muluvanice menervas"
@@ -47,7 +47,7 @@ class LatinPipeline(Pipeline):
     """
 
     description: str = "Pipeline for the Latin language"
-    language: Language = LANGUAGES["lat"]
+    language: Language = get_lang("lat")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
 
 
@@ -68,7 +68,7 @@ class GreekPipeline(Pipeline):
     """
 
     description: str = "Pipeline for the Greek language"
-    language: Language = LANGUAGES["grc"]
+    language: Language = get_lang("grc")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
 
 
@@ -89,7 +89,7 @@ class OCSPipeline(Pipeline):
     """
 
     description: str = "Pipeline for the Old Church Slavonic language"
-    language: Language = LANGUAGES["chu"]
+    language: Language = get_lang("chu")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
 
 
@@ -110,7 +110,7 @@ class OldFrenchPipeline(Pipeline):
     """
 
     description: str = "Pipeline for the Old French language"
-    language: Language = LANGUAGES["fro"]
+    language: Language = get_lang("fro")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
 
 
@@ -131,5 +131,5 @@ class GothicPipeline(Pipeline):
     """
 
     description: str = "Pipeline for the Gothic language"
-    language: Language = LANGUAGES["got"]
+    language: Language = get_lang("got")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])

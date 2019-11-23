@@ -22,8 +22,8 @@ class Language:
     user for dialects or languages not documented by ISO 639-3.
 
     >>> from cltkv1.utils.data_types import Language
-    >>> from cltkv1.languages.glottolog import LANGUAGES
-    >>> latin = LANGUAGES["lat"]
+    >>> from cltkv1.languages import get_lang
+    >>> latin = get_lang("lat")
     >>> isinstance(latin, Language)
     True
     >>> latin
@@ -51,8 +51,8 @@ class Word:
     >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
     >>> EXAMPLE_TEXTS["lat"][:25]
     'Gallia est omnis divisa i'
-    >>> from cltkv1.languages.glottolog import LANGUAGES
-    >>> latin = LANGUAGES["lat"]
+    >>> from cltkv1.languages import get_lang
+    >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=EXAMPLE_TEXTS["lat"][0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent_token=None, feats=None)
     """
@@ -142,9 +142,9 @@ class Pipeline:
     # TODO: Consider adding a Unicode normalization as a default first Process
 
     >>> from cltkv1.utils.data_types import Process, Pipeline
-    >>> from cltkv1.languages.glottolog import LANGUAGES
+    >>> from cltkv1.languages import get_lang
     >>> from cltkv1.tokenizers import LatinTokenizationProcess
-    >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=LANGUAGES["lat"])
+    >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
     >>> a_pipeline.description
     'A custom Latin pipeline'
     >>> issubclass(a_pipeline.processes[0], Process)

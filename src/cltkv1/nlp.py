@@ -31,8 +31,8 @@ class NLP:
         cltkv1.utils.exceptions.UnknownLanguageError: Unknown language 'xxx'. Use ISO 639-3 languages.
         >>> from cltkv1.utils.data_types import Pipeline
         >>> from cltkv1.tokenizers import LatinTokenizationProcess
-        >>> from cltkv1.languages.glottolog import LANGUAGES
-        >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=LANGUAGES["lat"])
+        >>> from cltkv1.languages import get_lang
+        >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
         >>> NLP(language="lat", custom_pipeline=a_pipeline)
         Traceback (most recent call last):
           ...
