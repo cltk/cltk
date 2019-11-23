@@ -3390,11 +3390,10 @@ def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
     >>> list(iso_dict_keys)[:10]
     ['xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna', 'xzp']
     """
-    alpha_sorted_langs = OrderedDict(
+    name_sorted_langs = OrderedDict(
         sorted(languages_list.items(), key=lambda x: x[1].name)
     )
-    languages_sorted = {iso_id: lang for iso_id, lang in alpha_sorted_langs.items()}
-    return languages_sorted
+    return name_sorted_langs
 
 
 LANGUAGES = _resort_languages_list(languages_list=LANGUAGES)
