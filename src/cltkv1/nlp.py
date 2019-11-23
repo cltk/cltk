@@ -2,7 +2,7 @@
 
 from typing import List
 
-from cltkv1.languages.glottolog import get_lang
+from cltkv1.languages import get_lang
 from cltkv1.utils.data_types import Doc, Language, Pipeline, Type
 from cltkv1.utils.exceptions import UnknownLanguageError
 from cltkv1.utils.pipelines import (

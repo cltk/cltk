@@ -9,7 +9,7 @@ these dataclasses is to represent:
 from dataclasses import dataclass, field
 from typing import Callable, List, Type
 
-from cltkv1 import DefaultTokenizationProcess, LatinTokenizationProcess
+from cltkv1.tokenizers import DefaultTokenizationProcess, LatinTokenizationProcess
 from cltkv1.languages.glottolog import LANGUAGES
 from cltkv1.utils.data_types import Language, Pipeline, Process
 from cltkv1.wrappers import StanfordNLPProcess
