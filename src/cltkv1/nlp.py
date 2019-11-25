@@ -86,7 +86,6 @@ class NLP:
 
         TODO: Run the OF example and then log the FileNotFoundError inside the `stanford.py` module
 
-        TODO: Add Gothic language ("got") to StanfordNLP
 
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS

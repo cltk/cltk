@@ -86,8 +86,9 @@ class StanfordNLPWrapper:
         self.stanford_code = self._get_stanford_code()
 
         # Setup optional treebank if specified
+        # TODO: Write tests for all treebanks
         self.map_code_treebanks = dict(
-            grc=["grc_proiel", "grc_perseus"], la=["la_perseus", "la_proiel"]
+            grc=["grc_proiel", "grc_perseus"], la=["la_perseus", "la_proiel", "la_ittb"]
         )
         # if not specified, will use the default treebank chosen by stanfordnlp
         if self.treebank:
