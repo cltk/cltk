@@ -20,8 +20,8 @@ Glottolog 4.0.
 Jena: Max Planck Institute for the Science of Human History.
 (Available online at `<http://glottolog.org>`_, Accessed on 2019-10-02.)
 
->>> from cltkv1.languages.glottolog import LANGUAGES
->>> akkadian = LANGUAGES["akk"]
+>>> from cltkv1.languages import get_lang
+>>> akkadian = get_lang("akk")
 >>> akkadian
 Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
 >>> akkadian.name
@@ -38,9 +38,7 @@ Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1
 'east2678'
 >>> len(LANGUAGES)
 208
->>> from collections import OrderedDict
->>> alpha_sorted_langs = OrderedDict(sorted(LANGUAGES.items(), key=lambda x: x[1].name))
->>> for iso_id, lang in alpha_sorted_langs.items():
+>>> for iso_id, lang in LANGUAGES.items():
 ...     print(iso_id, "\t", lang.name)
 xae   Aequian
 xag   Aghwan
@@ -253,28 +251,9 @@ xzh   Zhangzhung
 """
 
 from collections import OrderedDict
+from typing import List
 
 from cltkv1.utils.data_types import Language
-from cltkv1.utils.exceptions import UnknownLanguageError
-
-
-def get_lang(iso_code: str) -> Language:
-    """Take in search term of usual language name and find ISO code.
-
-    >>> from cltkv1.languages.glottolog import get_lang
-    >>> get_lang("akk")
-    Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
-    >>> from cltkv1.utils.exceptions import UnknownLanguageError
-    >>> get_lang("xxx")
-    Traceback (most recent call last):
-      ...
-    cltkv1.utils.exceptions.UnknownLanguageError
-    """
-    try:
-        return LANGUAGES[iso_code]
-    except KeyError:
-        raise UnknownLanguageError
-
 
 LANGUAGES = OrderedDict(
     [
@@ -3402,4 +3381,19 @@ LANGUAGES["arb"] = Language(
     type="",
 )
 
-# TODO: resort according to key
+
+def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
+    """Pick up the LANGUAGES global and return
+    alphabetized according to a language's common name.
+
+    >>> iso_dict_keys = _resort_languages_list(LANGUAGES)
+    >>> list(iso_dict_keys)[:10]
+    ['xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna', 'xzp']
+    """
+    name_sorted_langs = OrderedDict(
+        sorted(languages_list.items(), key=lambda x: x[1].name)
+    )
+    return name_sorted_langs
+
+
+LANGUAGES = _resort_languages_list(languages_list=LANGUAGES)
