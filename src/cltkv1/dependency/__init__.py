@@ -1,3 +1,3 @@
-"""Init for `cltkv1.tokenize`."""
+"""Init for ``cltkv1.dependency``."""
 
 from .stanford import *

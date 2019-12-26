@@ -1,155 +1,133 @@
 """Primary module for CLTK pipeline."""
 
-from cltkv1.tokenizers import TokenizeWord
-from cltkv1.wrappers import StanfordNLPWrapper
+from typing import List
+
+from cltkv1.languages import get_lang
+from cltkv1.utils.data_types import Doc, Language, Pipeline, Type
+from cltkv1.utils.exceptions import UnknownLanguageError
+from cltkv1.utils.pipelines import (
+    DefaultPipeline,
+    GothicPipeline,
+    GreekPipeline,
+    LatinPipeline,
+    OCSPipeline,
+    OldFrenchPipeline,
+)
 
 
 class NLP:
-    """Primary class for NLP pipeline.
+    """NLP class for default processing."""
 
-    TODO: Give illustrative examples of expected use of this class.
-
-    >>> cltk_nlp = NLP(language='greek')
-    >>> cltk_nlp.language
-    'greek'
-    """
-
-    def __init__(self, language: str) -> None:
+    def __init__(self, language: str, custom_pipeline: Pipeline = None) -> None:
         """Constructor for CLTK class.
 
-        >>> cltk_nlp = NLP(language='greek')
+        >>> from cltkv1 import NLP
+        >>> cltk_nlp = NLP(language="lat")
         >>> isinstance(cltk_nlp, NLP)
         True
+        >>> NLP(language="xxx")
+        Traceback (most recent call last):
+          ...
+        cltkv1.utils.exceptions.UnknownLanguageError: Unknown language 'xxx'. Use ISO 639-3 languages.
+        >>> from cltkv1.utils.data_types import Pipeline
+        >>> from cltkv1.tokenizers import LatinTokenizationProcess
+        >>> from cltkv1.languages import get_lang
+        >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
+        >>> NLP(language="lat", custom_pipeline=a_pipeline)
+        Traceback (most recent call last):
+          ...
+        NotImplementedError: Custom pipelines not implemented yet.
+        """
+        try:
+            self.language = get_lang(language)  # type: Language
+        except UnknownLanguageError:
+            raise UnknownLanguageError(
+                f"Unknown language '{language}'. Use ISO 639-3 languages."
+            )
+        if custom_pipeline:
+            raise NotImplementedError("Custom pipelines not implemented yet.")
+        self.pipeline = self._get_pipeline()  # type: Pipeline
+
+    def _get_pipeline(self) -> Type[Pipeline]:
+        """Select appropriate pipeline for given language. If custom
+        processing is requested, ensure that user-selected choices
+        are valid, both in themselves and in unison.
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.data_types import Pipeline
+        >>> cltk_nlp = NLP(language="lat")
+        >>> lat_pipeline = cltk_nlp._get_pipeline()
+        >>> issubclass(cltk_nlp.pipeline, Pipeline)
+        True
+        >>> issubclass(lat_pipeline, Pipeline)
+        True
+        >>> cltk_nlp = NLP(language="axm")
+        >>> from cltkv1.utils.pipelines import DefaultPipeline
+        >>> cltk_nlp.pipeline is DefaultPipeline
+        True
         """
 
-        self.language = language
-        self.tokenizer_word = self._get_word_tokenizer()  # type: TokenizeWord
-        self.stanford_obj = self._get_stanford_model()
+        if self.language.iso_639_3_code == "lat":
+            current_pipeline = LatinPipeline
+        elif self.language.iso_639_3_code == "grc":
+            current_pipeline = GreekPipeline
+        elif self.language.iso_639_3_code == "chu":
+            current_pipeline = OCSPipeline
+        elif self.language.iso_639_3_code == "fro":
+            current_pipeline = OldFrenchPipeline
+        elif self.language.iso_639_3_code == "got":
+            current_pipeline = GothicPipeline
+        else:
+            current_pipeline = DefaultPipeline
+        return current_pipeline
 
-    def _parse_stanford(self, text: str):
-        """Do the actual parsing of input text.
+    def analyze(self, text: str) -> Doc:
+        """The primary method for the NLP object, to which raw text strings are passed.
 
-        >>> cltk_nlp = NLP(language='greek')
-        >>> xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
-        >>> nlp_xen_anab = cltk_nlp._parse_stanford(xen_anab)
-        >>> import stanfordnlp
-        >>> isinstance(nlp_xen_anab , stanfordnlp.pipeline.doc.Document)
+        TODO: Run the OF example and then log the FileNotFoundError inside the `stanford.py` module
+
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+        >>> from cltkv1.utils.data_types import Doc
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_obj = cltk_nlp.analyze(text=EXAMPLE_TEXTS["lat"])
+        >>> isinstance(cltk_obj, Doc)
         True
-        >>> hasattr(nlp_xen_anab, 'conll_file')
-        True
-        >>> hasattr(nlp_xen_anab, 'load_annotations')
-        True
-        >>> hasattr(nlp_xen_anab, 'sentences')
-        True
-        >>> hasattr(nlp_xen_anab, 'text')
-        True
-        >>> hasattr(nlp_xen_anab, 'write_conll_to_file')
-        True
+        >>> cltk_obj.words[0]
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=4, parent_token=<Token index=1;words=[<Word index=1;text=Gallia;lemma=aallius;upos=NOUN;xpos=A1|grn1|casA|gen2|stAM;feats=Case=Nom|Degree=Pos|Gender=Fem|Number=Sing;governor=4;dependency_relation=nsubj>]>, feats='Case=Nom|Degree=Pos|Gender=Fem|Number=Sing')
+
+        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+        >>> cltk_nlp = NLP(language="grc")
+        >>> cltk_obj = cltk_nlp.analyze(text=EXAMPLE_TEXTS["grc"])
+        >>> cltk_obj.words[0]
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='ὅτι', pos='Df', lemma='ὅτι#1', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=13, parent_token=<Token index=1;words=[<Word index=1;text=ὅτι;lemma=ὅτι#1;upos=ADV;xpos=Df;feats=_;governor=13;dependency_relation=advmod>]>, feats='_')
+
+        >>> cltk_nlp = NLP(language="chu")
+        >>> cltk_obj = cltk_nlp.analyze(text=EXAMPLE_TEXTS["chu"])
+        >>> cltk_obj.words[0]
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='отьчє', pos='Nb', lemma='отьць', scansion=None, xpos='Nb', upos='NOUN', dependency_relation='nsubj', governor=6, parent_token=<Token index=1;words=[<Word index=1;text=отьчє;lemma=отьць;upos=NOUN;xpos=Nb;feats=Case=Nom|Gender=Masc|Number=Sing;governor=6;dependency_relation=nsubj>]>, feats='Case=Nom|Gender=Masc|Number=Sing')
+
+        >>> cltk_nlp = NLP(language="fro")
+        >>> cltk_obj = cltk_nlp.analyze(text=EXAMPLE_TEXTS["fro"])
+        >>> cltk_obj.words[0]
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Une', pos='DETndf', lemma='Une', scansion=None, xpos='DETndf', upos='DET', dependency_relation='det', governor=2, parent_token=<Token index=1;words=[<Word index=1;text=Une;lemma=Une;upos=DET;xpos=DETndf;feats=Definite=Ind|PronType=Art;governor=2;dependency_relation=det>]>, feats='Definite=Ind|PronType=Art')
+
+        >>> cltk_nlp = NLP(language="got")
+        >>> cltk_obj = cltk_nlp.analyze(text=EXAMPLE_TEXTS["got"])
+        >>> cltk_obj.words[0]
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='swa', pos='Df', lemma='swa', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=2, parent_token=<Token index=1;words=[<Word index=1;text=swa;lemma=swa;upos=ADV;xpos=Df;feats=_;governor=2;dependency_relation=advmod>]>, feats='_')
         """
-        return self.stanford_obj.parse(text=text)
+        # TODO: Figure out if I can avoid having to call the dataclass Pipeline
+        a_pipeline = self.pipeline()
+        doc = Doc(language=self.language.iso_639_3_code)
+        for process in a_pipeline.processes:
+            process_stanford = process(
+                data_input=text, language=self.language.iso_639_3_code
+            )
+            cltk_words = process_stanford.words
 
-    def _get_stanford_model(self):
-        """If available for a given language, get the entire
-        object returned by the `stanfordnlp` project.
+            # TODO: Write fn which annotates ``doc.words``, not just writing over what is in there
+            doc = Doc(language=self.language.iso_639_3_code, words=cltk_words)
 
-        TODO: Make this doctest work again
-
-        # >>> from cltkv1 import NLP
-        # >>> cltk_nlp = NLP(language='greek')
-        # >>> plain_stanford_obj = cltk_nlp._get_stanford_model()
-        # >>> isinstance(plain_stanford_obj, cltkv1.wrappers.stanford.StanfordNLPWrapper)
-        # True
-        """
-        return StanfordNLPWrapper(language=self.language)
-
-    def _get_word_tokenizer(self) -> TokenizeWord:
-        """Fetches and returns callable tokenizer for
-        appropriate language.
-
-        >>> cltk_nlp = NLP(language='greek')
-        >>> isinstance(cltk_nlp.tokenizer_word, TokenizeWord)
-        True
-        """
-        return TokenizeWord(language=self.language)
-
-    # @property
-    # def sentences(self) -> List[str]:
-    #     """Split sentences.
-    #
-    #     >>> cltk_nlp = NLP('Itaque metu. Quo tibi, imperator.', language='la')
-    #     >>> cltk_nlp.sentences
-    #     ['Itaque metu', 'Quo tibi, imperator.']
-    #     """
-    #     sentences_split = self.doc.split('. ')
-    #     return sentences_split
-
-    # @property
-    # def words(self) -> List[str]:
-    #     """Split words into tokens.
-    #
-    #     >>> cltk_nlp = NLP('Quo tibi, imperator.', language='la')
-    #     >>> cltk_nlp.words
-    #     ['Quo', 'tibi,', 'imperator.']
-    #
-    #     >>> cltk_nlp = NLP('Quo tibi, imperator.', language='id')
-    #     Traceback (most recent call last):
-    #       ...
-    #     cltkv1.utils.exceptions.UnknownLanguageError
-    #     """
-    #     words = self.tokenizer_word.tokenize_text(self.doc)
-    #     return words
-
-
-if __name__ == "__main__":
-
-    # nepos_hamilcar = 'At ille ut Carthaginem venit, multo aliter, ac sperarat, rem publicam se habentem cognovit. Namque diuturnitate externi mali tantum exarsit intestinum bellum, ut numquam in pari periculo fuerit Carthago, nisi cum deleta est. Primo mercennarii milites, qui adversus Romanos fuerant, desciverunt; quorum numerus erat XX milium.'
-
-    cltk_nlp = NLP(language="greek")
-    xen_anab = "Δαρείου καὶ Παρυσάτιδος γίγνονται παῖδες δύο, πρεσβύτερος μὲν Ἀρταξέρξης, νεώτερος δὲ Κῦρος: ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου, ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι."
-
-    nlp_xen_anab = cltk_nlp._parse_stanford(text=xen_anab)
-    import stanfordnlp  # type: ignore
-
-    print(isinstance(nlp_xen_anab, stanfordnlp.pipeline.doc.Document) == True)  # True
-    # print(dir(nlp_xen_anab))
-    print(nlp_xen_anab.text == xen_anab)
-
-    # 'conll_file', 'load_annotations', 'sentences', 'text', 'write_conll_to_file'
-    # print(nlp_xen_anab.conll_file)
-    # print(nlp_xen_anab.load_annotations)
-    # print(nlp_xen_anab.write_conll_to_file)
-
-    # sentences
-    nlp_xen_anab_first_sent = nlp_xen_anab.sentences[0]
-    # print(dir(nlp_xen_anab_first_sent))  # build_dependencies', 'dependencies', 'print_dependencies', 'print_tokens', 'print_words', 'tokens', 'words'
-    print(nlp_xen_anab_first_sent.tokens[0].index == "1")
-    print(nlp_xen_anab_first_sent.tokens[0].text == "Δαρείου")
-    first_word = nlp_xen_anab_first_sent.tokens[0].words[
-        0
-    ]  # 'dependency_relation', 'feats', 'governor', 'index', 'lemma', 'parent_token', 'pos', 'text', 'upos', 'xpos'
-    print(first_word.dependency_relation == "iobj")
-    print(first_word.feats == "Case=Gen|Gender=Masc|Number=Sing")
-    print(first_word.governor == 4)
-    print(first_word.index == "1")
-    print(first_word.lemma == "Δαρεῖος")
-    print(first_word.pos == "Ne")
-    print(first_word.text == "Δαρείου")
-    print(first_word.upos == "PROPN")
-    print(first_word.xpos == "Ne")
-    # print(first_word.parent_token)  # <Token index=1;words=[<Word index=1;text=Δαρείου;lemma=Δαρεῖος;upos=PROPN;xpos=Ne;feats=Case=Gen|Gender=Masc|Number=Sing;governor=4;dependency_relation=iobj>]>
-
-    # print_dependencies
-    # nlp_xen_anab_first_sent.print_dependencies()
-    printed_dependencies = """('Δαρείου', '4', 'iobj')
-('καὶ', '1', 'cc')
-('Παρυσάτιδος', '1', 'conj')
-('γίγνονται', '0', 'root')
-('παῖδες', '4', 'nsubj')
-('δύο,', '5', 'nmod')
-('πρεσβύτερος', '5', 'amod')
-('μὲν', '7', 'discourse')
-('Ἀρταξέρξης,', '7', 'nsubj')
-('νεώτερος', '7', 'conj')
-('δὲ', '10', 'discourse')
-('Κῦρος:', '10', 'orphan')
-"""
+        return doc
