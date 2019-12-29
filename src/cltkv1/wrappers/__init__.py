@@ -6,7 +6,7 @@ from .stanford import StanfordNLPWrapper
 
 
 class StanfordNLPProcess(MultiProcess):
-    """An ``Process`` type to capture everything
+    """A ``Process`` type to capture everything
     that the ``stanfordnlp`` project can do for a
     given language.
 
@@ -31,16 +31,14 @@ class StanfordNLPProcess(MultiProcess):
         """Constructor."""
         self.data_input = data_input
         self.language = language
-        self.nlp_doc_stanford = self._get_stanford_nlp_obj()
-        self.words = self.stanfordnlp_to_cltk_word_type()
+        self.stanfordnlp_wrapper = StanfordNLPWrapper(language=self.language)
 
-    def _get_stanford_nlp_obj(self):
-        """Call ``stanfordnlp`` and return original document object."""
-        nlp_obj_stanford = StanfordNLPWrapper(language=self.language)
-        return nlp_obj_stanford.parse(text=self.data_input)
+    def algorithm(self):
+        stanfordnlp_doc = self.stanfordnlp_wrapper.parse(self.data_input)
+        return = self.stanfordnlp_to_cltk_word_type(stanford_doc)
 
     def stanfordnlp_to_cltk_word_type(self):
-        """Take an entire ``stanfordnlp`` object, extract
+        """Take an entire ``stanfordnlp`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
 
