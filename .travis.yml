@@ -13,7 +13,7 @@ before_install:
   - pip install --upgrade pip
   - pip install poetry
   - pip install pre-commit
-  - poetry run python scipts/download_misc_dependencies.py
+  - poetry run python scripts/download_misc_dependencies.py
 
 install:
   - poetry install -v
