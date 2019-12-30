@@ -31,11 +31,11 @@ class StanfordNLPProcess(MultiProcess):
         """Constructor."""
         self.data_input = data_input
         self.language = language
-        self.stanfordnlp_wrapper = StanfordNLPWrapper(language=self.language)
+        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language = self.language) #StanfordNLPWrapper(language=self.language)
 
-    def algorithm(self):
-        stanfordnlp_doc = self.stanfordnlp_wrapper.parse(self.data_input)
-        return = self.stanfordnlp_to_cltk_word_type(stanford_doc)
+    def algorithm(self, text):
+        self.nlp_doc_stanford = self.stanfordnlp_wrapper.parse(text)
+        return self.stanfordnlp_to_cltk_word_type()
 
     def stanfordnlp_to_cltk_word_type(self):
         """Take an entire ``stanfordnlp`` document, extract

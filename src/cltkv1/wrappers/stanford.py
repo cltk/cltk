@@ -24,6 +24,8 @@ LOG.addHandler(logging.NullHandler())
 class StanfordNLPWrapper:
     """CLTK's wrapper for the StanfordNLP project."""
 
+    nlps = {}
+
     def __init__(self, language: str, treebank: Optional[str] = None) -> None:
         """Constructor for ``get_stanfordnlp_models`` wrapper class.
 
@@ -289,3 +291,12 @@ class StanfordNLPWrapper:
             return stanford_lang_code[stanford_lang_name]
         except KeyError:
             raise KeyError
+
+    @classmethod
+    def get_nlp(cls, language: str, treebank: Optional[str] = None) -> stanfordnlp.Pipeline:
+        if language in cls.nlps:
+            return cls.nlps[language]
+        else:
+            nlp = cls(language, treebank)
+            cls.nlps[language] = nlp
+            return nlp
