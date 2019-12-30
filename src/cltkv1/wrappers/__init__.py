@@ -6,7 +6,7 @@ from .stanford import StanfordNLPWrapper
 
 
 class StanfordNLPProcess(MultiProcess):
-    """An ``Process`` type to capture everything
+    """A ``Process`` type to capture everything
     that the ``stanfordnlp`` project can do for a
     given language.
 
@@ -18,12 +18,11 @@ class StanfordNLPProcess(MultiProcess):
     >>> from cltkv1.wrappers import StanfordNLPProcess
     >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
     >>> process_stanford = StanfordNLPProcess(data_input=EXAMPLE_TEXTS["lat"], language="lat")
-    >>> from cltkv1.wrappers import StanfordNLPProcess
     >>> isinstance(process_stanford, StanfordNLPProcess)
     True
-    >>> stanford_nlp_doc = process_stanford.nlp_doc_stanford
     >>> from stanfordnlp.pipeline.doc import Document
-    >>> isinstance(stanford_nlp_doc, Document)
+    >>> _ = process_stanford.data_output
+    >>> isinstance(process_stanford.stanfordnlp_doc, Document)
     True
     """
 
@@ -31,23 +30,22 @@ class StanfordNLPProcess(MultiProcess):
         """Constructor."""
         self.data_input = data_input
         self.language = language
-        self.nlp_doc_stanford = self._get_stanford_nlp_obj()
-        self.words = self.stanfordnlp_to_cltk_word_type()
+        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language=self.language)
+        self.stanfordnlp_doc = None
 
-    def _get_stanford_nlp_obj(self):
-        """Call ``stanfordnlp`` and return original document object."""
-        nlp_obj_stanford = StanfordNLPWrapper(language=self.language)
-        return nlp_obj_stanford.parse(text=self.data_input)
+    def algorithm(self, text):
+        self.stanfordnlp_doc = self.stanfordnlp_wrapper.parse(text)
+        return self.stanfordnlp_to_cltk_word_type()
 
     def stanfordnlp_to_cltk_word_type(self):
-        """Take an entire ``stanfordnlp`` object, extract
+        """Take an entire ``stanfordnlp`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
 
         >>> from cltkv1.wrappers import StanfordNLPProcess
         >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
         >>> process_stanford = StanfordNLPProcess(data_input=EXAMPLE_TEXTS["lat"], language="lat")
-        >>> cltk_words = process_stanford.words
+        >>> cltk_words = process_stanford.data_output
         >>> isinstance(cltk_words, list)
         True
         >>> isinstance(cltk_words[0], Word)
@@ -59,7 +57,7 @@ class StanfordNLPProcess(MultiProcess):
         # print('* * * ', dir(self.nlp_doc_stanford))  # .sentences, .text, .conll_file, .load_annotations, .write_conll_to_file
         # .text is the raw str
         # .sentences is list
-        for sentence_index, sentence in enumerate(self.nlp_doc_stanford.sentences):
+        for sentence_index, sentence in enumerate(self.stanfordnlp_doc.sentences):
             for token in sentence.tokens:
                 stanfordnlp_word = token.words[0]
                 cltk_word = Word(

@@ -122,10 +122,8 @@ class NLP:
         a_pipeline = self.pipeline()
         doc = Doc(language=self.language.iso_639_3_code)
         for process in a_pipeline.processes:
-            process_stanford = process(
-                data_input=text, language=self.language.iso_639_3_code
-            )
-            cltk_words = process_stanford.words
+            a_process = process(data_input=text, language=self.language.iso_639_3_code)
+            cltk_words = a_process.data_output
 
             # TODO: Write fn which annotates ``doc.words``, not just writing over what is in there
             doc = Doc(language=self.language.iso_639_3_code, words=cltk_words)

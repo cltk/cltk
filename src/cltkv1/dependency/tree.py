@@ -1,12 +1,11 @@
-"""Wrapper for the ``stanfordnlp`` project."""
+"""A data structure for representing dependency tree graphs."""
 
 __author__ = ["John Stewart <free-variation>"]
 
-# from xml.etree.ElementTree import dump
 from typing import List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
-import stanfordnlp  # type: ignore
+from cltkv1.utils.data_types import Word
 
 
 class Form(Element):
@@ -122,28 +121,19 @@ class Form(Element):
         return self.get(feature)
 
     @staticmethod
-    def to_form(word: stanfordnlp.pipeline.doc.Word) -> "Form":
-        """Converts a ``stanfordnlp`` ``Word`` object to a ``Form``.
+    def to_form(word: Word) -> "Form":
+        """Converts a ``CLTK`` ``Word`` object to a ``Form``.
 
-        >>> import io
-        >>> import sys
-        >>> output_default = sys.stdout
-        >>> output_suppressed = io.StringIO()
-        >>> sys.stdout = output_suppressed
-        >>> import stanfordnlp
-        >>> # Note: ``stanfordnlp.Pipeline`` prints params to screen, must suppress
-        >>> nlp = stanfordnlp.Pipeline(lang='la')
-        >>> sys.stdout = output_default
-        >>> text = "Cui regi utraque unio quodammodo attribui possit."
-        >>> doc = nlp(text)
-        >>> stanford_word = doc.sentences[0].words[6]
-        >>> xml_node = Form.to_form(stanford_word)
-        >>> xml_node
-        possit_7/N3|modB|tem1|gen6|stAV
-        >>> type(xml_node)
-        <class 'cltkv1.dependency.stanford.Form'>
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+        >>> cltk_nlp = NLP(language="lat")
+        >>> doc = cltk_nlp.analyze(text=EXAMPLE_TEXTS["lat"])
+        >>> f = Form.to_form(doc.words[0])
+        >>> f.full_str()
+        'Gallia_1 [lemma=aallius,pos=A1|grn1|casA|gen2|stAM,upos=NOUN,xpos=A1|grn1|casA|gen2|stAM,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
         """
-        form = Form(word.text, form_id=word.index)
+
+        form = Form(word.string, form_id=word.index_token)
         form.set("lemma", word.lemma)
         form.set("pos", word.pos)
         form.set("upos", word.upos)
@@ -213,75 +203,40 @@ class DependencyTree(ElementTree):
             self._print_treelet(child_node, indent + 4, all_features)
 
     def print_tree(self, all_features: bool = True):
-        """Prints a prety-printed (indented) representation
+        """Prints a pretty-printed (indented) representation
         of the dependency tree. If all_features is True, then
         each node is printed with its complete feature bundle.
         """
         self._print_treelet(self.getroot(), indent=0, all_features=all_features)
 
     @staticmethod
-    def to_tree(sentence: stanfordnlp.pipeline.doc.Sentence) -> "DependencyTree":
-        """Factory method to create trees from stanfordnlp sentence parses."""
-        forms = {}
-        for word in sentence.words:
-            forms[word.index] = Form.to_form(word)
+    def to_tree(sentence: List[Word]) -> "DependencyTree":
+        """Factory method to create trees from sentence parses, i.e. lists of words.
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+        >>> cltk_nlp = NLP(language="lat")
+        >>> doc = cltk_nlp.analyze(text=EXAMPLE_TEXTS["lat"])
+        >>> t = DependencyTree.to_tree(doc.words[:25])
+        >>> t.findall(".")
+        [divisa_4/L2]
+        """
 
-        for word in sentence.words:
+        forms = {}
+        for word in sentence:
+            forms[word.index_token] = Form.to_form(word)
+
+        for word in sentence:
             if word.dependency_relation == "root":
-                root = forms[word.index]
+                root = forms[word.index_token]
             else:
-                gov = forms[str(word.governor)]
-                dep = forms[word.index]
+                gov = forms[word.governor]
+                dep = forms[word.index_token]
                 gov >> dep | word.dependency_relation
 
         return DependencyTree(root)
 
 
 if __name__ == "__main__":
-    # nlp = stanfordnlp.Pipeline()
-    # doc = nlp(
-    #     'In the summer of the Roman year 699, now described as the year '
-    #     '55 before the birth of Christ, the Proconsul of Gaul, Gaius '
-    #     'Julius Caesar, turned his gaze upon Britain.')
-    # print(doc.sentences[0].print_dependencies())
-    #
-    # form
-    f = Form
-    desc_form = f("described")
-    print(type(desc_form))
-    print(desc_form)
-    # desc_form.set('Tense', 'Past')
-    # desc_form / 'VBN'
-    # desc_form.full_str()  # Form.full_str() pulls in all feature speficications
-    #
-    # desc_form = f.to_form(doc.sentences[0].words[10])
-    # print(desc_form)
-    # print(desc_form.full_str())
+    import doctest
 
-    # adep = f('wrote') / 'VBN' >> f('Caesar') / 'NNP' | 'nsubj'
-    # adep
-    #
-    # adep.head[0], adep.dep.get('relation')
-
-    # f = Form
-    # john, loves, mary = f('John', 1) / 'NNP', f('loves', 2) / 'VRB', f('Mary', 3) / 'NNP'
-    # print(john)
-    # print(type(john))
-
-    # loves >> john | 'nsubj'
-    # loves >> mary | 'obj'
-    #
-    #
-    # t = DependencyTree(loves)
-    # t.print_tree(False)
-    #
-    # t.findall('.//*[@relation="nsubj"]')
-    # t.findall('.//*[@relation="nsubj"]/..')
-
-    # t1 = DependencyTree.to_tree(doc.sentences[0])
-    #
-    # t1.print_tree()
-    #
-    # t1.findall('.//*[@relation="obl"]')
-    #
-    # t1.findall('.//Gaul/*'), t1.find('.//Gaul/..'), t1.findall('.//*[@pos="NNP"]')
+    doctest.testmod()
