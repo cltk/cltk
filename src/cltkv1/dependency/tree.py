@@ -7,6 +7,7 @@ from xml.etree.ElementTree import Element, ElementTree
 
 from cltkv1.utils.data_types import Word
 
+
 class Form(Element):
     """For the word (ie, node) of a dependency tree and its attributes. Inherits
     from the ``Element`` class of Python's ``xml.etree`` library.
@@ -237,4 +238,5 @@ class DependencyTree(ElementTree):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

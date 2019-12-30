@@ -30,7 +30,7 @@ class StanfordNLPProcess(MultiProcess):
         """Constructor."""
         self.data_input = data_input
         self.language = language
-        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language = self.language) 
+        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language=self.language)
         self.stanfordnlp_doc = None
 
     def algorithm(self, text):

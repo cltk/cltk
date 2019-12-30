@@ -293,7 +293,9 @@ class StanfordNLPWrapper:
             raise KeyError
 
     @classmethod
-    def get_nlp(cls, language: str, treebank: Optional[str] = None) -> stanfordnlp.Pipeline:
+    def get_nlp(
+        cls, language: str, treebank: Optional[str] = None
+    ) -> stanfordnlp.Pipeline:
         if language in cls.nlps:
             return cls.nlps[language]
         else:
