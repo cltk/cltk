@@ -505,6 +505,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             "Alternative desisences should be added, even with different root"
         )
 
+        self.assertEqual(
+            decliner.decline("aggero2")[0], ('aggero', 'v1spia---'),
+            "Lemma with disambiguation indexes should not fail their declension [aggero and not aggeroo]"
+        )
+
     def test_collatinus_flatten_decline(self):
         """ Ensure that flattening decline result is consistant"""
         decliner = CollatinusDecliner()
