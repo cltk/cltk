@@ -74,52 +74,6 @@ class Word:
 
 
 @dataclass
-class Process:
-    """For each type of NLP process there needs to be a definition.
-    It includes the type of data it expects (``str``, ``List[str]``,
-    ``Word``, etc.) and what field within ``Word`` it will populate.
-    This base class is intended to be inherited by NLP process
-    types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
-
-    >>> a_process = Process(data_input="input words here")
-    """
-
-    data_input: Union[str, List[str]]
-    algorithm = None
-    language = None
-
-    @property
-    def data_output(self) -> Any:
-        """Attribute for subclassed ``Process`` objects to return
-        ``data_input`` that has been processed by the ``algorithm``.
-
-        >>> a_process = Process(data_input="input words here")
-        >>> a_process.data_output
-        Traceback (most recent call last):
-          ...
-        NotImplementedError
-        """
-        if self.algorithm:
-            return self.algorithm(self.data_input)
-        raise NotImplementedError
-
-
-@dataclass
-class MultiProcess(Process):
-    """A class to be called directly or inherited from when
-    a particular NLP algo does more than one process, such
-    as tokenization and tagging together.
-
-    >>> def multi_fn(_str: str) -> List[str]:    return _str.upper().split()
-    >>> a_multi_process = MultiProcess(data_input="Some words for processing.", algorithm=multi_fn)
-    >>> a_multi_process.data_output
-    ['SOME', 'WORDS', 'FOR', 'PROCESSING.']
-    """
-
-    algorithm: Callable
-
-
-@dataclass
 class Doc:
     """The object returned to the user from the ``NLP()`` class.
     Contains overall attributes of submitted texts, plus most
@@ -131,8 +85,50 @@ class Doc:
     indices_tokens: List[List[int]] = None
     language: str = None
     words: List[Word] = None
-    pipeline: List[Process] = None
+    pipeline: List['Process'] = None
     raw: str = None
+
+    @property
+    def sentences(self):
+        return [[self.words[token_index] for token_index in sentence] for sentence in self.indices_tokens]
+    
+
+
+@dataclass
+class Process:
+    """For each type of NLP process there needs to be a definition.
+    It includes the type of data it expects (``str``, ``List[str]``,
+    ``Word``, etc.) and what field within ``Word`` it will populate.
+    This base class is intended to be inherited by NLP process
+    types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
+
+    >>> a_process = Process(data_input="input words here")
+    """
+
+    input_doc: Doc
+    output_doc: Doc = None
+    algorithm = None
+    language : str = None
+
+    def run(self) -> None:
+        """Method for subclassed ``Process`` Run ``algorithm`` on a  
+        ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
+
+        This method puts execution of the process into the hands of the client.
+        It must be called before reading the ``output_doc`` attribute.
+
+        >>> a_process = Process(input_doc = Doc(raw="input words here"))
+        >>> a_process.run()
+        Traceback (most recent call last):
+          ...
+        NotImplementedError
+        """
+        if self.algorithm:
+            self.output_doc = self.algorithm(self.input_doc)
+        else:
+            raise NotImplementedError
+
+
 
 
 @dataclass

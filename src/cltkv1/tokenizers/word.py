@@ -8,19 +8,29 @@ from typing import Callable
 
 from cltk.tokenize.word import WordTokenizer
 
-from cltkv1.utils.data_types import Process
+from cltkv1.utils.data_types import Process, Doc
 
-AKKADIAN_WORD_TOK = WordTokenizer(language="akkadian")
-ARABIC_WORD_TOK = WordTokenizer(language="arabic")
-GREEK_WORD_TOK = WordTokenizer(language="greek")
-LATIN_WORD_TOK = WordTokenizer(language="latin")
-MIDDLE_ENGLISH_WORD_TOK = WordTokenizer(language="middle_english")
-MIDDLE_FRENCH_WORD_TOK = WordTokenizer(language="middle_french")
-MIDDLE_HIGH_GERMAN_WORD_TOK = WordTokenizer(language="middle_high_german")
-MULTILINGUAL_WORD_TOK = WordTokenizer(language="multilingual")
-OLD_FRENCH_WORD_TOK = WordTokenizer(language="old_french")
-OLD_NORSE_WORD_TOK = WordTokenizer(language="old_norse")
-SANSKRIT_WORD_TOK = WordTokenizer(language="sanskrit")
+
+# a closure for marshalling Docs to CLTK tokenizers
+def make_tokenizer_algorithm(language : str) -> Callable[[Doc], Doc]:
+    tokenizer = WordTokenizer(language = language)
+
+    def algorithm(input_doc : Doc) -> Doc:
+        return tokenizer.tokenize(input_doc.raw)
+
+    return algorithm
+
+AKKADIAN_WORD_TOK = make_tokenizer_algorithm(language="akkadian")
+ARABIC_WORD_TOK = make_tokenizer_algorithm(language="arabic")
+GREEK_WORD_TOK = make_tokenizer_algorithm(language="greek")
+LATIN_WORD_TOK = make_tokenizer_algorithm(language="latin")
+MIDDLE_ENGLISH_WORD_TOK = make_tokenizer_algorithm(language="middle_english")
+MIDDLE_FRENCH_WORD_TOK = make_tokenizer_algorithm(language="middle_french")
+MIDDLE_HIGH_GERMAN_WORD_TOK = make_tokenizer_algorithm(language="middle_high_german")
+MULTILINGUAL_WORD_TOK = make_tokenizer_algorithm(language="multilingual")
+OLD_FRENCH_WORD_TOK = make_tokenizer_algorithm(language="old_french")
+OLD_NORSE_WORD_TOK = make_tokenizer_algorithm(language="old_norse")
+SANSKRIT_WORD_TOK = make_tokenizer_algorithm(language="sanskrit")
 
 
 @dataclass
@@ -52,8 +62,7 @@ class DefaultTokenizationProcess(TokenizationProcess):
     ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
     """
 
-    data_input: str
-    algorithm = MULTILINGUAL_WORD_TOK.tokenize
+    algorithm = MULTILINGUAL_WORD_TOK
     description = "Whitespace tokenizer inheriting from the NLTK"
     language = None
 
@@ -69,8 +78,7 @@ class LatinTokenizationProcess(TokenizationProcess):
     ['Gallia', 'est', 'omnis', 'divisa']
     """
 
-    data_input: str
-    algorithm = LATIN_WORD_TOK.tokenize
+    algorithm = LATIN_WORD_TOK
     description = "Default tokenizer for Latin"
     language = "lat"
 
@@ -86,8 +94,7 @@ class GreekTokenizationProcess(TokenizationProcess):
     ['ὅτι', 'μὲν', 'ὑμεῖς', ',', 'ὦ', 'ἄνδρες']
     """
 
-    data_input: str
-    algorithm = GREEK_WORD_TOK.tokenize
+    algorithm = GREEK_WORD_TOK
     description = "Default Greek tokenizer"
     language = "grc"
 
@@ -103,8 +110,7 @@ class AkkadianTokenizationProcess(TokenizationProcess):
     [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'), ('e2-kal2-la-ka', 'akkadian'), ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
     """
 
-    data_input: str
-    algorithm = AKKADIAN_WORD_TOK.tokenize
+    algorithm = AKKADIAN_WORD_TOK
     description = "Default Akkadian tokenizer"
     language = "akk"
 
@@ -120,8 +126,7 @@ class OldNorseTokenizationProcess(TokenizationProcess):
     ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
     """
 
-    data_input: str
-    algorithm = OLD_NORSE_WORD_TOK.tokenize
+    algorithm = OLD_NORSE_WORD_TOK
     description = "Default Old Norse tokenizer"
     language = "non"
 
@@ -137,8 +142,7 @@ class MHGTokenizationProcess(TokenizationProcess):
     ['Ik', 'gihorta', 'ðat', 'seggen', 'ðat', 'sih']
     """
 
-    data_input: str
-    algorithm = MIDDLE_HIGH_GERMAN_WORD_TOK.tokenize
+    algorithm = MIDDLE_HIGH_GERMAN_WORD_TOK
     description = "The default Middle High German tokenizer"
     language = "gmh"
 
@@ -154,8 +158,7 @@ class ArabicTokenizationProcess(TokenizationProcess):
     ['كهيعص', '﴿', '١', '﴾', 'ذِكْرُ', 'رَحْمَتِ', 'رَبِّكَ']
     """
 
-    data_input: str
-    algorithm = ARABIC_WORD_TOK.tokenize
+    algorithm = ARABIC_WORD_TOK
     description = "Default Arabic tokenizer"
     language = "arb"
 
@@ -171,8 +174,7 @@ class OldFrenchTokenizationProcess(TokenizationProcess):
     ['Une', 'aventure', 'vos', 'voil', 'dire', 'Molt', 'bien']
     """
 
-    data_input: str
-    algorithm = OLD_FRENCH_WORD_TOK.tokenize
+    algorithm = OLD_FRENCH_WORD_TOK
     description = "Default Old French tokenizer"
     language = "fro"
 
@@ -188,8 +190,7 @@ class MiddleFrenchTokenizationProcess(TokenizationProcess):
     ['Attilius', 'Regulus', ',', 'general', 'de', "l'", 'armée']
     """
 
-    data_input: str
-    algorithm = MIDDLE_FRENCH_WORD_TOK.tokenize
+    algorithm = MIDDLE_FRENCH_WORD_TOK
     description = "Default Middle French tokenizer"
     language = "frm"
 
@@ -205,8 +206,7 @@ class MiddleEnglishTokenizationProcess(TokenizationProcess):
     ['Whilom', ',', 'as', 'olde', 'stories', 'tellen']
     """
 
-    data_input: str
-    algorithm = MIDDLE_ENGLISH_WORD_TOK.tokenize
+    algorithm = MIDDLE_ENGLISH_WORD_TOK
     description = "Default Middle English tokenizer"
     language = "enm"
 
@@ -222,7 +222,6 @@ class SanskritTokenizationProcess(TokenizationProcess):
     ['ईशा', 'वास्यम्', 'इदं', 'सर्वं', 'यत्', 'किञ्च']
     """
 
-    data_input: str
-    algorithm: Callable = SANSKRIT_WORD_TOK.tokenize
+    algorithm: Callable = SANSKRIT_WORD_TOK
     description = "The default Middle English tokenizer"
     language = "san"

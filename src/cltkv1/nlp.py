@@ -120,12 +120,11 @@ class NLP:
         """
         # TODO: Figure out if I can avoid having to call the dataclass Pipeline
         a_pipeline = self.pipeline()
-        doc = Doc(language=self.language.iso_639_3_code)
-        for process in a_pipeline.processes:
-            a_process = process(data_input=text, language=self.language.iso_639_3_code)
-            cltk_words = a_process.data_output
+        doc = Doc(language=self.language.iso_639_3_code, raw = text)
 
-            # TODO: Write fn which annotates ``doc.words``, not just writing over what is in there
-            doc = Doc(language=self.language.iso_639_3_code, words=cltk_words)
+        for process in a_pipeline.processes:
+            a_process = process(input_doc = doc, language=self.language.iso_639_3_code)
+            a_process.run()
+            doc = a_process.output_doc
 
         return doc
