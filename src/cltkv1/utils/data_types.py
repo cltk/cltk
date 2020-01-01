@@ -5,7 +5,6 @@ of the NLP pipeline.
 >>> from cltkv1.utils.data_types import Language
 >>> from cltkv1.utils.data_types import Word
 >>> from cltkv1.utils.data_types import Process
->>> from cltkv1.utils.data_types import MultiProcess
 >>> from cltkv1.utils.data_types import Doc
 >>> from cltkv1.utils.data_types import Pipeline
 """
@@ -102,7 +101,7 @@ class Process:
     This base class is intended to be inherited by NLP process
     types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
 
-    >>> a_process = Process(data_input="input words here")
+    >>> a_process = Process(input_doc = Doc(raw="input words here"))
     """
 
     input_doc: Doc
@@ -150,3 +149,6 @@ class Pipeline:
     description: str
     processes: List[Type[Process]]
     language: Language
+
+    def add_process(self, process):
+        self.processes.append(process)
