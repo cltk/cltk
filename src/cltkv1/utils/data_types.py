@@ -112,7 +112,7 @@ class Process:
     language: str = None
 
     def run(self) -> None:
-        """Method for subclassed ``Process`` Run ``algorithm`` on a  
+        """Method for subclassed ``Process`` Run ``algorithm`` on a
         ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
 
         This method puts execution of the process into the hands of the client.
