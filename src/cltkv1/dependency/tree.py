@@ -5,7 +5,7 @@ __author__ = ["John Stewart <free-variation>"]
 from typing import List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
-from cltkv1.utils.data_types import Word, Doc, Process
+from cltkv1.utils.data_types import Doc, Process, Word
 
 
 class Form(Element):
@@ -234,6 +234,7 @@ class DependencyTree(ElementTree):
                 gov >> dep | word.dependency_relation
 
         return DependencyTree(root)
+
 
 class TreeBuilderProcess(Process):
     """A ``Process`` that takes a doc containing sentences of CLTK words

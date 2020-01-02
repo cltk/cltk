@@ -8,18 +8,19 @@ from typing import Callable
 
 from cltk.tokenize.word import WordTokenizer
 
-from cltkv1.utils.data_types import Process, Doc
+from cltkv1.utils.data_types import Doc, Process
 
 
 # a closure for marshalling Docs to CLTK tokenizers
-def make_tokenizer_algorithm(language : str) -> Callable[[Doc], Doc]:
-    tokenizer = WordTokenizer(language = language)
+def make_tokenizer_algorithm(language: str) -> Callable[[Doc], Doc]:
+    tokenizer = WordTokenizer(language=language)
 
-    def algorithm(self, doc : Doc) -> Doc:
+    def algorithm(self, doc: Doc) -> Doc:
         doc.tokens = tokenizer.tokenize(doc.raw)
         return doc
 
     return algorithm
+
 
 AKKADIAN_WORD_TOK = make_tokenizer_algorithm(language="akkadian")
 ARABIC_WORD_TOK = make_tokenizer_algorithm(language="arabic")

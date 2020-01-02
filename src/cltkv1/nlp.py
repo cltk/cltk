@@ -4,21 +4,21 @@ from typing import List
 
 from cltkv1.languages import get_lang
 from cltkv1.utils.data_types import Doc, Language, Pipeline, Type
-from cltkv1.utils.exceptions import UnknownLanguageError, UnimplementedLanguageError
+from cltkv1.utils.exceptions import UnimplementedLanguageError, UnknownLanguageError
 from cltkv1.utils.pipelines import (
     GothicPipeline,
     GreekPipeline,
     LatinPipeline,
     OCSPipeline,
-    OldFrenchPipeline
+    OldFrenchPipeline,
 )
 
 pipelines = {
-   "lat": LatinPipeline,
-   "grc": GreekPipeline,
-   "chu": OCSPipeline,
-   "fro": OldFrenchPipeline,
-   "got": GothicPipeline
+    "lat": LatinPipeline,
+    "grc": GreekPipeline,
+    "chu": OCSPipeline,
+    "fro": OldFrenchPipeline,
+    "got": GothicPipeline,
 }
 
 
@@ -114,11 +114,10 @@ class NLP:
         >>> len(cltk_obj.sentences)
         4
         """
-
-        doc = Doc(language=self.language.iso_639_3_code, raw = text)
+        doc = Doc(language=self.language.iso_639_3_code, raw=text)
 
         for process in self.pipeline.processes:
-            a_process = process(input_doc = doc, language=self.language.iso_639_3_code)
+            a_process = process(input_doc=doc, language=self.language.iso_639_3_code)
             a_process.run()
             doc = a_process.output_doc
 

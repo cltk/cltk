@@ -1,10 +1,11 @@
 """Init for `cltkv1.wrappers`."""
 
+import copy
+
 from cltkv1.utils.data_types import Doc, Process, Word
 
 from .stanford import StanfordNLPWrapper
 
-import copy
 
 class StanfordNLPProcess(Process):
     """A ``Process`` type to capture everything
@@ -29,12 +30,14 @@ class StanfordNLPProcess(Process):
 
     def __init__(self, input_doc, language):
         """Constructor."""
-        super().__init__(input_doc = input_doc, language = language)
-        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language = self.language)
-        
+        super().__init__(input_doc=input_doc, language=language)
+        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language=self.language)
+
     def algorithm(self, doc):
         stanfordnlp_doc = self.stanfordnlp_wrapper.parse(doc.raw)
-        (cltk_words, indices_tokens) = StanfordNLPProcess.stanfordnlp_to_cltk_word_type(stanfordnlp_doc)
+        (cltk_words, indices_tokens) = StanfordNLPProcess.stanfordnlp_to_cltk_word_type(
+            stanfordnlp_doc
+        )
         doc.words = cltk_words
         doc.indices_tokens = indices_tokens
         doc.stanfordnlp_doc = stanfordnlp_doc
@@ -61,7 +64,7 @@ class StanfordNLPProcess(Process):
         """
         words_list = list()
         sentence_list = list()
-       
+
         for sentence_index, sentence in enumerate(stanfordnlp_doc.sentences):
             token_indices = list()
 

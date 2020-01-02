@@ -84,13 +84,15 @@ class Doc:
     indices_tokens: List[List[int]] = None
     language: str = None
     words: List[Word] = None
-    pipeline: List['Process'] = None
+    pipeline: List["Process"] = None
     raw: str = None
 
     @property
     def sentences(self):
-        return [[self.words[token_index] for token_index in sentence] for sentence in self.indices_tokens]
-    
+        return [
+            [self.words[token_index] for token_index in sentence]
+            for sentence in self.indices_tokens
+        ]
 
 
 @dataclass
@@ -107,7 +109,7 @@ class Process:
     input_doc: Doc
     output_doc: Doc = None
     algorithm = None
-    language : str = None
+    language: str = None
 
     def run(self) -> None:
         """Method for subclassed ``Process`` Run ``algorithm`` on a  
@@ -126,8 +128,6 @@ class Process:
             self.output_doc = self.algorithm(self.input_doc)
         else:
             raise NotImplementedError
-
-
 
 
 @dataclass

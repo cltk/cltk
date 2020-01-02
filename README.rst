@@ -41,6 +41,7 @@ Use ``pyenv`` to manage Python versions and ``poetry`` for package builds.
    - ``$ pyenv local cltkv1``. Open a new window and this should be activated, with a ``(cltkv1) `` prepended to your Bash prompt.
 * Install ``poetry`` to support packaging: https://poetry.eustace.io/docs/
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
+* Install Stanford NLP models: ``$ poetry run python scripts/download_misc_dependencies.py``
 * Install Graphiz (necessary for building docs): https://graphviz.gitlab.io/download/
 
 
