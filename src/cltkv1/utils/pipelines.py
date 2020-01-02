@@ -9,25 +9,10 @@ these dataclasses is to represent:
 from dataclasses import dataclass, field
 from typing import Callable, List, Type
 
-from cltkv1.tokenizers import DefaultTokenizationProcess, LatinTokenizationProcess
 from cltkv1.languages import get_lang
+from cltkv1.tokenizers import DefaultTokenizationProcess, LatinTokenizationProcess
 from cltkv1.utils.data_types import Language, Pipeline, Process
 from cltkv1.wrappers import StanfordNLPProcess
-
-
-@dataclass
-class DefaultPipeline(Pipeline):
-    """Default ``Pipeline`` object to be run when language is unknown
-    or of which CLTK coverage is not know.
-
-    >>> from cltkv1.utils.pipelines import DefaultPipeline
-    >>> a_pipeline = DefaultPipeline(description="Pipeline for some language", processes=[DefaultTokenizationProcess], language=get_lang("ett"))
-    >>> a_pipeline.description
-    'Pipeline for some language'
-    >>> etruscan = "laris velkasnas mini muluvanice menervas"
-    >>> for process in a_pipeline.processes:    print(process.algorithm(etruscan))
-    ['laris', 'velkasnas', 'mini', 'muluvanice', 'menervas']
-    """
 
 
 @dataclass
