@@ -13,7 +13,7 @@ TODO: Get longer Akkadian text
 
 # pylint: disable=line-too-long
 
-from cltkv1.languages import get_lang
+from cltkv1.languages.utils import get_lang
 from cltkv1.utils.exceptions import UnimplementedLanguageError
 
 EXAMPLE_TEXTS = dict(

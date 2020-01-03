@@ -2,7 +2,7 @@
 
 from typing import List
 
-from cltkv1.languages import get_lang
+from cltkv1.languages.utils import get_lang
 from cltkv1.utils.data_types import Doc, Language, Pipeline, Type
 from cltkv1.utils.exceptions import UnimplementedLanguageError, UnknownLanguageError
 from cltkv1.utils.pipelines import (
@@ -38,7 +38,7 @@ class NLP:
         cltkv1.utils.exceptions.UnknownLanguageError: Unknown language 'xxx'. Use ISO 639-3 languages.
         >>> from cltkv1.utils.data_types import Pipeline
         >>> from cltkv1.tokenizers import LatinTokenizationProcess
-        >>> from cltkv1.languages import get_lang
+        >>> from cltkv1.languages.utils import get_lang
         >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
         >>> nlp = NLP(language="lat", custom_pipeline=a_pipeline)
         >>> nlp.pipeline is a_pipeline
