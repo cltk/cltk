@@ -20,7 +20,7 @@ Glottolog 4.0.
 Jena: Max Planck Institute for the Science of Human History.
 (Available online at `<http://glottolog.org>`_, Accessed on 2019-10-02.)
 
->>> from cltkv1.languages import get_lang
+>>> from cltkv1.languages.utils import get_lang
 >>> akkadian = get_lang("akk")
 >>> akkadian
 Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')

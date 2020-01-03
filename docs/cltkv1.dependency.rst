@@ -4,10 +4,10 @@ cltkv1.dependency package
 Submodules
 ----------
 
-cltkv1.dependency.stanford module
----------------------------------
+cltkv1.dependency.tree module
+-----------------------------
 
-.. automodule:: cltkv1.dependency.stanford
+.. automodule:: cltkv1.dependency.tree
    :members:
    :undoc-members:
    :show-inheritance:
