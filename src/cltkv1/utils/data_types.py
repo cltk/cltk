@@ -94,6 +94,21 @@ class Doc:
             for sentence in self.indices_tokens
         ]
 
+    @property
+    def tokens_list(self) -> List[str]:
+        """Returns a list of string word tokens.
+
+        TODO: Why does ``Doc.tokens`` fail?
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+        >>> cltk_doc.tokens_list[:10]
+        ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
+        """
+        return [word_obj.string for word_obj in self.words]
+
 
 @dataclass
 class Process:
