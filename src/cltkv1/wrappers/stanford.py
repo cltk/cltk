@@ -66,6 +66,11 @@ class StanfordNLPWrapper:
 
         >>> stanford_wrapper = StanfordNLPWrapper(language="chu")
         >>> snlp_doc = stanford_wrapper.parse(get_example_text("chu"))
+
+        >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="xxx")
+        Traceback (most recent call last):
+          ...
+        cltkv1.utils.exceptions.UnimplementedLanguageError: Invalid treebank 'xxx' for language 'lat'.
         """
         self.language = language
         self.treebank = treebank
@@ -254,7 +259,6 @@ class StanfordNLPWrapper:
         >>> stanford_wrapper._is_valid_treebank()
         True
         >>> stanford_wrapper.language = "xxx"
-        >>>
         """
         possible_treebanks = self.map_code_treebanks[self.stanford_code]
         if self.treebank in possible_treebanks:
@@ -281,18 +285,24 @@ class StanfordNLPWrapper:
         >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
         >>> stanford_wrapper._get_stanford_code()
         'grc'
+        >>> stanford_wrapper.language = "xxx"
+        >>> stanford_wrapper._get_stanford_code()
+        Traceback (most recent call last):
+          ...
+        KeyError: 'Somehow ``StanfordNLPWrapper.language`` got renamed to something invalid. This should never happen.'
         """
         try:
             stanford_lang_name = self.map_langs_cltk_stanford[self.language]
         except KeyError:
-            raise KeyError
+            raise KeyError("Somehow ``StanfordNLPWrapper.language`` got renamed to something invalid. This should never happen.")
+        # {'Afrikaans': 'af', 'Ancient_Greek': 'grc', ...}
         stanford_lang_code = (
             stanfordnlp.models.common.constant.lang2lcode
         )  # type: Dict[str, str]
         try:
             return stanford_lang_code[stanford_lang_name]
         except KeyError:
-            raise KeyError
+            raise KeyError("The CLTK's map of ISO-to-StanfordNLP is out of sync.")
 
     @classmethod
     def get_nlp(
