@@ -47,8 +47,8 @@ class StanfordNLPWrapper:
         'grc'
         >>> stanford_wrapper.treebank
         'grc_perseus'
-        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
-        >>> snlp_doc = stanford_wrapper.parse(EXAMPLE_TEXTS["grc"])
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> snlp_doc = stanford_wrapper.parse(get_example_text("grc"))
 
         >>> StanfordNLPWrapper(language="xxx")
         Traceback (most recent call last):
@@ -56,16 +56,16 @@ class StanfordNLPWrapper:
         cltkv1.utils.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by StanfordNLP.
 
         >>> stanford_wrapper = StanfordNLPWrapper(language="grc", treebank="grc_proiel")
-        >>> snlp_doc = stanford_wrapper.parse(EXAMPLE_TEXTS["grc"])
+        >>> snlp_doc = stanford_wrapper.parse(get_example_text("grc"))
 
         >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="la_perseus")
-        >>> snlp_doc = stanford_wrapper.parse(EXAMPLE_TEXTS["lat"])
+        >>> snlp_doc = stanford_wrapper.parse(get_example_text("lat"))
 
         >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="la_proiel")
-        >>> snlp_doc = stanford_wrapper.parse(EXAMPLE_TEXTS["lat"])
+        >>> snlp_doc = stanford_wrapper.parse(get_example_text("lat"))
 
         >>> stanford_wrapper = StanfordNLPWrapper(language="chu")
-        >>> snlp_doc = stanford_wrapper.parse(EXAMPLE_TEXTS["chu"])
+        >>> snlp_doc = stanford_wrapper.parse(get_example_text("chu"))
         """
         self.language = language
         self.treebank = treebank
@@ -127,8 +127,9 @@ class StanfordNLPWrapper:
     def parse(self, text: str):
         """Run all available ``stanfordnlp`` parsing on input text.
 
+        >>> from cltkv1.utils.example_texts import get_example_text
         >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> greek_nlp = stanford_wrapper.parse(EXAMPLE_TEXTS["grc"])
+        >>> greek_nlp = stanford_wrapper.parse(get_example_text("grc"))
         >>> isinstance(greek_nlp, stanfordnlp.pipeline.doc.Document)
         True
 
@@ -316,8 +317,8 @@ class StanfordNLPProcess(Process):
 
 
     >>> from cltkv1.wrappers.stanford import StanfordNLPProcess
-    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
-    >>> process_stanford = StanfordNLPProcess(input_doc = Doc(raw=EXAMPLE_TEXTS["lat"]), language="lat")
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
     >>> isinstance(process_stanford, StanfordNLPProcess)
     True
     >>> from stanfordnlp.pipeline.doc import Document
@@ -349,8 +350,8 @@ class StanfordNLPProcess(Process):
         the CLTK's ``Word`` type.
 
         >>> from cltkv1.wrappers.stanford import StanfordNLPProcess
-        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
-        >>> process_stanford = StanfordNLPProcess(input_doc = Doc(raw=EXAMPLE_TEXTS["lat"]), language="lat")
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
         >>> process_stanford.run()
         >>> cltk_words = process_stanford.output_doc.words
         >>> isinstance(cltk_words, list)

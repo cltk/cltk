@@ -125,9 +125,9 @@ class Form(Element):
         """Converts a ``CLTK`` ``Word`` object to a ``Form``.
 
         >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+        >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
-        >>> doc = cltk_nlp.analyze(text=EXAMPLE_TEXTS["lat"])
+        >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> f = Form.to_form(doc.words[0])
         >>> f.full_str()
         'Gallia_1 [lemma=aallius,pos=A1|grn1|casA|gen2|stAM,upos=NOUN,xpos=A1|grn1|casA|gen2|stAM,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
@@ -213,9 +213,9 @@ class DependencyTree(ElementTree):
     def to_tree(sentence: List[Word]) -> "DependencyTree":
         """Factory method to create trees from sentence parses, i.e. lists of words.
         >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
+        >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
-        >>> doc = cltk_nlp.analyze(text=EXAMPLE_TEXTS["lat"])
+        >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> t = DependencyTree.to_tree(doc.words[:25])
         >>> t.findall(".")
         [divisa_4/L2]
@@ -244,8 +244,8 @@ class TreeBuilderProcess(Process):
     >>> nlp = NLP(language='got')
     >>> from cltkv1.dependency.tree import TreeBuilderProcess
     >>> nlp.pipeline.add_process(TreeBuilderProcess)
-    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
-    >>> doc = nlp.analyze(text=EXAMPLE_TEXTS["got"])
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> doc = nlp.analyze(text=get_example_text("got"))
     >>> len(doc.trees)
     4
     """

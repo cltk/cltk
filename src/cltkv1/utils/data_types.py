@@ -47,12 +47,12 @@ class Word:
     words. Designed to be used in the ``Doc.words`` dataclass.
 
     >>> from cltkv1.utils.data_types import Word
-    >>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
-    >>> EXAMPLE_TEXTS["lat"][:25]
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> get_example_text("lat")[:25]
     'Gallia est omnis divisa i'
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
-    >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=EXAMPLE_TEXTS["lat"][0:6], pos="nom")
+    >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent_token=None, feats=None)
     """
 
@@ -78,6 +78,15 @@ class Doc:
     Contains overall attributes of submitted texts, plus most
     importantly the processed tokenized text ``words``,
     being a list of ``Word`` types.
+
+    >>> from cltkv1 import NLP
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> cltk_nlp = NLP(language="lat")
+    >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+    >>> cltk_doc.raw[:38]
+    'Gallia est omnis divisa in partes tres'
+    >>> isinstance(cltk_doc.raw, str)
+    True
     """
 
     indices_sentences: List[List[int]] = None
@@ -103,6 +112,10 @@ class Doc:
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_nlp.language.name
+        'Latin'
+        >>> isinstance(cltk_nlp.language, Language)
+        True
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> cltk_doc.tokens_list[:10]
         ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
@@ -118,7 +131,7 @@ class Process:
     This base class is intended to be inherited by NLP process
     types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
 
-    >>> a_process = Process(input_doc = Doc(raw="input words here"))
+    >>> a_process = Process(input_doc=Doc(raw="input words here"))
     """
 
     input_doc: Doc
@@ -133,7 +146,7 @@ class Process:
         This method puts execution of the process into the hands of the client.
         It must be called before reading the ``output_doc`` attribute.
 
-        >>> a_process = Process(input_doc = Doc(raw="input words here"))
+        >>> a_process = Process(input_doc=Doc(raw="input words here"))
         >>> a_process.run()
         Traceback (most recent call last):
           ...
