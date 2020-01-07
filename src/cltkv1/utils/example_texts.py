@@ -2,12 +2,12 @@
 
 TODO: Get longer Akkadian text
 
->>> from cltkv1.utils.example_texts import EXAMPLE_TEXTS
->>> EXAMPLE_TEXTS["grc"][:66]
+>>> from cltkv1.utils.example_texts import get_example_text
+>>> get_example_text("grc")[:66]
 'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων'
->>> EXAMPLE_TEXTS["lat"][:67]
+>>> get_example_text("lat")[:67]
 'Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae'
->>> EXAMPLE_TEXTS["non"][:50]
+>>> get_example_text("non")[:50]
 'Gylfi konungr réð þar löndum er nú heitir Svíþjóð.'
 """
 

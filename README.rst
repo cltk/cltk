@@ -63,6 +63,7 @@ Packaging
    - View docs at ``docs/_build/html/index.html``
 * Make UML diagrams: ``$ cd docs/ && poetry run pyreverse -o png ../src/cltkv1/ && cd ../``
    - View diagrams at ``docs/classes.png`` and ``docs/packages.png``
+* Run the above at each commit  with ``pre-commit``: ``$ poetry run pre-commit install`` (just once)
 * Run tests: ``$ tox``
 * Publish pre-release (permissions required): ``$ poetry publish --repository=testpypi``
 * Install from TestPyPI: ``$ pip install --pre --index-url https://test.pypi.org/simple/ cltkv1``
