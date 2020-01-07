@@ -294,7 +294,9 @@ class StanfordNLPWrapper:
         try:
             stanford_lang_name = self.map_langs_cltk_stanford[self.language]
         except KeyError:
-            raise KeyError("Somehow ``StanfordNLPWrapper.language`` got renamed to something invalid. This should never happen.")
+            raise KeyError(
+                "Somehow ``StanfordNLPWrapper.language`` got renamed to something invalid. This should never happen."
+            )
         # {'Afrikaans': 'af', 'Ancient_Greek': 'grc', ...}
         stanford_lang_code = (
             stanfordnlp.models.common.constant.lang2lcode
