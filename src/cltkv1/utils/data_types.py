@@ -137,7 +137,7 @@ class Doc:
 
     @property
     def features(self) -> Dict[str, str]:
-        """Returns a list of dictionaries containing the morphosyntactic features 
+        """Returns a list of dictionaries containing the morphosyntactic features
         of each word (when available).
         Each dictionary specifies feature names as keys and feature values as values.
 

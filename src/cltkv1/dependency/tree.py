@@ -156,14 +156,14 @@ class Dependency:
     """The asymmetric binary relationship (or edge) between a governing
     Form (the "head") and a subordinate Form (the "dependent").
 
-    In principle the relationship could capture any form-to-form relation 
+    In principle the relationship could capture any form-to-form relation
     that the systems deems of interest, be it syntactic, semantic, or discursive.
 
-    If the `relation` attribute is not speficied, then the dependency simply states 
-    that there's some asymmetric relationship between the head and the dependenent.  
+    If the `relation` attribute is not speficied, then the dependency simply states
+    that there's some asymmetric relationship between the head and the dependenent.
     This is an *untyped* dependency.
 
-    For a *typed* dependency, a string value is supplied for the `relation` attribute. 
+    For a *typed* dependency, a string value is supplied for the `relation` attribute.
     """
 
     def __init__(self, head: Form, dep: Form, relation: str = None) -> None:
