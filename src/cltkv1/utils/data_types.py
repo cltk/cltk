@@ -10,7 +10,7 @@ of the NLP pipeline.
 """
 
 from dataclasses import dataclass
-from typing import Any, Callable, List, Type, Union
+from typing import Any, Callable, Dict, List, Type, Union
 
 
 @dataclass
@@ -89,38 +89,73 @@ class Doc:
     True
     """
 
-    indices_sentences: List[List[int]] = None
-    indices_tokens: List[List[int]] = None
     language: str = None
     words: List[Word] = None
-    pipeline: List["Process"] = None
+    pipeline: "Pipeline" = None
     raw: str = None
 
     @property
-    def sentences(self):
-        return [
-            [self.words[token_index] for token_index in sentence]
-            for sentence in self.indices_tokens
-        ]
+    def sentences(self) -> List[List[Word]]:
+        sentences = {}
+        for word in self.words:
+            sentence = sentences.get(word.index_sentence, {})
+            sentence[word.index_token] = word
+            sentences[word.index_sentence] = sentence
+
+        sorted_values = lambda dict: [x[1] for x in sorted(dict.items())]
+
+        return [sorted_values(sentence) for sentence in sorted_values(sentences)]
+
+    def _get_words_attribute(self, attribute):
+        return [getattr(word, attribute) for word in self.words]
 
     @property
-    def tokens_list(self) -> List[str]:
-        """Returns a list of string word tokens.
-
-        TODO: Why does ``Doc.tokens`` fail?
+    def tokens(self) -> List[str]:
+        """Returns a list of string word tokens of all words in the doc.
 
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_nlp.language.name
-        'Latin'
-        >>> isinstance(cltk_nlp.language, Language)
-        True
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.tokens_list[:10]
+        >>> cltk_doc.tokens[:10]
         ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
         """
-        return [word_obj.string for word_obj in self.words]
+        return self._get_words_attribute("string")
+
+    @property
+    def pos(self) -> List[str]:
+        """Returns a list of the POS tags of all words in the doc.
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+        >>> cltk_doc.pos[:3]
+        ['A1|grn1|casA|gen2|stAM', 'N3|modA|tem1|gen6|stAV', 'C1|grn1|casA|gen2|stPV']
+        """
+        return self._get_words_attribute("pos")
+
+    @property
+    def features(self) -> Dict[str, str]:
+        """Returns a list of dictionaries containing the morphosyntactic features 
+        of each word (when available).
+        Each dictionary specifies feature names as keys and feature values as values.
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+        >>> cltk_doc.features[:3]
+        [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
+        """
+        all_feats = self._get_words_attribute("feats")
+
+        return [
+            {}
+            if feats == "_"
+            else dict([feature.split("=") for feature in feats.split("|")])
+            for feats in all_feats
+        ]
 
 
 @dataclass

@@ -346,11 +346,8 @@ class StanfordNLPProcess(Process):
 
     def algorithm(self, doc):
         stanfordnlp_doc = self.stanfordnlp_wrapper.parse(doc.raw)
-        (cltk_words, indices_tokens) = StanfordNLPProcess.stanfordnlp_to_cltk_word_type(
-            stanfordnlp_doc
-        )
+        cltk_words = StanfordNLPProcess.stanfordnlp_to_cltk_word_type(stanfordnlp_doc)
         doc.words = cltk_words
-        doc.indices_tokens = indices_tokens
         doc.stanfordnlp_doc = stanfordnlp_doc
 
         return doc
@@ -374,11 +371,8 @@ class StanfordNLPProcess(Process):
         Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=4, parent_token=<Token index=1;words=[<Word index=1;text=Gallia;lemma=aallius;upos=NOUN;xpos=A1|grn1|casA|gen2|stAM;feats=Case=Nom|Degree=Pos|Gender=Fem|Number=Sing;governor=4;dependency_relation=nsubj>]>, feats='Case=Nom|Degree=Pos|Gender=Fem|Number=Sing')
         """
         words_list = list()
-        sentence_list = list()
 
         for sentence_index, sentence in enumerate(stanfordnlp_doc.sentences):
-            token_indices = list()
-
             for token_index, token in enumerate(sentence.tokens):
                 stanfordnlp_word = token.words[0]
                 cltk_word = Word(
@@ -395,7 +389,5 @@ class StanfordNLPProcess(Process):
                     feats=stanfordnlp_word.feats,
                 )
                 words_list.append(cltk_word)
-                token_indices.append(token_index)
-            sentence_list.append(token_indices)
 
-        return (words_list, sentence_list)
+        return words_list

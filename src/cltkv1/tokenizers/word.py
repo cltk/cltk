@@ -8,7 +8,7 @@ from typing import Callable
 
 from cltk.tokenize.word import WordTokenizer
 
-from cltkv1.utils.data_types import Doc, Process
+from cltkv1.utils.data_types import Doc, Process, Word
 
 
 # a closure for marshalling Docs to CLTK tokenizers
@@ -16,7 +16,12 @@ def make_tokenizer_algorithm(language: str) -> Callable[[Doc], Doc]:
     tokenizer = WordTokenizer(language=language)
 
     def algorithm(self, doc: Doc) -> Doc:
-        doc.tokens = tokenizer.tokenize(doc.raw)
+        doc.words = []
+
+        for i, token in enumerate(tokenizer.tokenize(doc.raw)):
+            word = Word(string=token, index_token=i, feats="_")
+            doc.words.append(word)
+
         return doc
 
     return algorithm
