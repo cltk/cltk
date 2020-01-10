@@ -2,11 +2,11 @@
 of the NLP pipeline.
 
 
->>> from cltkv1.utils.data_types import Language
->>> from cltkv1.utils.data_types import Word
->>> from cltkv1.utils.data_types import Process
->>> from cltkv1.utils.data_types import Doc
->>> from cltkv1.utils.data_types import Pipeline
+>>> from cltkv1.core.data_types import Language
+>>> from cltkv1.core.data_types import Word
+>>> from cltkv1.core.data_types import Process
+>>> from cltkv1.core.data_types import Doc
+>>> from cltkv1.core.data_types import Pipeline
 """
 
 from dataclasses import dataclass
@@ -20,7 +20,7 @@ class Language:
     ``cltkv1.lagnuages.glottolog.LANGUAGES`` May be extended by
     user for dialects or languages not documented by ISO 639-3.
 
-    >>> from cltkv1.utils.data_types import Language
+    >>> from cltkv1.core.data_types import Language
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> isinstance(latin, Language)
@@ -46,14 +46,14 @@ class Word:
     """Contains attributes of each processed word in a list of
     words. Designed to be used in the ``Doc.words`` dataclass.
 
-    >>> from cltkv1.utils.data_types import Word
+    >>> from cltkv1.core.data_types import Word
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> get_example_text("lat")[:25]
     'Gallia est omnis divisa i'
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent_token=None, feats=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None)
     """
 
     index_char_start: int = None
@@ -67,9 +67,9 @@ class Word:
     xpos: str = None  # treebank-specific POS tag (from stanfordnlp)
     upos: str = None  # universal POS tag (from stanfordnlp)
     dependency_relation: str = None  # (from stanfordnlp)
-    governor: str = None  # (from stanfordnlp)
-    parent_token: str = None  # (from stanfordnlp)
-    feats: str = None  # morphological features (from stanfordnlp)
+    governor: "Word" = None
+    parent: "Word" = None
+    features: Dict[str, str] = None  # morphological features (from stanfordnlp)
 
 
 @dataclass
@@ -131,12 +131,12 @@ class Doc:
         >>> cltk_nlp = NLP(language="lat")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> cltk_doc.pos[:3]
-        ['A1|grn1|casA|gen2|stAM', 'N3|modA|tem1|gen6|stAV', 'C1|grn1|casA|gen2|stPV']
+        ['NOUN', 'AUX', 'DET']
         """
-        return self._get_words_attribute("pos")
+        return self._get_words_attribute("upos")
 
     @property
-    def features(self) -> Dict[str, str]:
+    def morphosyntactic_features(self) -> Dict[str, str]:
         """Returns a list of dictionaries containing the morphosyntactic features
         of each word (when available).
         Each dictionary specifies feature names as keys and feature values as values.
@@ -145,17 +145,10 @@ class Doc:
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.features[:3]
+        >>> cltk_doc.morphosyntactic_features[:3]
         [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
         """
-        all_feats = self._get_words_attribute("feats")
-
-        return [
-            {}
-            if feats == "_"
-            else dict([feature.split("=") for feature in feats.split("|")])
-            for feats in all_feats
-        ]
+        return self._get_words_attribute("features")
 
 
 @dataclass
@@ -199,7 +192,7 @@ class Pipeline:
 
     # TODO: Consider adding a Unicode normalization as a default first Process
 
-    >>> from cltkv1.utils.data_types import Process, Pipeline
+    >>> from cltkv1.core.data_types import Process, Pipeline
     >>> from cltkv1.languages.utils import get_lang
     >>> from cltkv1.tokenizers import LatinTokenizationProcess
     >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))

@@ -8,14 +8,9 @@ from typing import Dict, Optional
 
 import stanfordnlp  # type: ignore
 
-from cltkv1.utils import (
-    UnimplementedLanguageError,
-    UnknownLanguageError,
-    example_texts,
-    file_exists,
-    suppress_stdout,
-)
-from cltkv1.utils.data_types import Doc, Process, Word
+from cltkv1.core.data_types import Doc, Process, Word
+from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
+from cltkv1.utils import example_texts, file_exists, suppress_stdout
 from cltkv1.utils.example_texts import EXAMPLE_TEXTS
 
 LOG = logging.getLogger(__name__)
@@ -53,7 +48,7 @@ class StanfordNLPWrapper:
         >>> StanfordNLPWrapper(language="xxx")
         Traceback (most recent call last):
           ...
-        cltkv1.utils.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by StanfordNLP.
+        cltkv1.core.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by StanfordNLP.
 
         >>> stanford_wrapper = StanfordNLPWrapper(language="grc", treebank="grc_proiel")
         >>> snlp_doc = stanford_wrapper.parse(get_example_text("grc"))
@@ -70,7 +65,7 @@ class StanfordNLPWrapper:
         >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="xxx")
         Traceback (most recent call last):
           ...
-        cltkv1.utils.exceptions.UnimplementedLanguageError: Invalid treebank 'xxx' for language 'lat'.
+        cltkv1.core.exceptions.UnimplementedLanguageError: Invalid treebank 'xxx' for language 'lat'.
         """
         self.language = language
         self.treebank = treebank
@@ -354,6 +349,7 @@ class StanfordNLPProcess(Process):
 
     @staticmethod
     def stanfordnlp_to_cltk_word_type(stanfordnlp_doc):
+
         """Take an entire ``stanfordnlp`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
@@ -368,11 +364,14 @@ class StanfordNLPProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=4, parent_token=<Token index=1;words=[<Word index=1;text=Gallia;lemma=aallius;upos=NOUN;xpos=A1|grn1|casA|gen2|stAM;feats=Case=Nom|Degree=Pos|Gender=Fem|Number=Sing;governor=4;dependency_relation=nsubj>]>, feats='Case=Nom|Degree=Pos|Gender=Fem|Number=Sing')
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=Word(index_char_start=None, index_char_stop=None, index_token=4, index_sentence=0, string='divisa', pos='L2', lemma='divido', scansion=None, xpos='L2', upos='VERB', dependency_relation='root', governor=None, parent=..., features={'Aspect': 'Perf', 'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'Tense': 'Past', 'VerbForm': 'Part', 'Voice': 'Pass'}), parent=..., features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'})
         """
         words_list = list()
 
         for sentence_index, sentence in enumerate(stanfordnlp_doc.sentences):
+            sent_words = dict()
+            indices = list()
+
             for token_index, token in enumerate(sentence.tokens):
                 stanfordnlp_word = token.words[0]
                 cltk_word = Word(
@@ -384,10 +383,26 @@ class StanfordNLPProcess(Process):
                     upos=stanfordnlp_word.upos,
                     lemma=stanfordnlp_word.lemma,
                     dependency_relation=stanfordnlp_word.dependency_relation,
-                    governor=stanfordnlp_word.governor,
-                    parent_token=stanfordnlp_word.parent_token,
-                    feats=stanfordnlp_word.feats,
+                    features={}
+                    if stanfordnlp_word.feats == "_"
+                    else dict(
+                        [f.split("=") for f in stanfordnlp_word.feats.split("|")]
+                    ),
+                )
+                sent_words[cltk_word.index_token] = cltk_word
+                indices.append(
+                    (
+                        int(stanfordnlp_word.governor),
+                        int(stanfordnlp_word.parent_token.index),
+                    )
                 )
                 words_list.append(cltk_word)
+
+            for i, cltk_word in enumerate(sent_words.values()):
+                (governor_index, parent_index) = indices[i]
+                cltk_word.governor = (
+                    sent_words[governor_index] if governor_index > 0 else None
+                )
+                cltk_word.parent = sent_words[parent_index]
 
         return words_list

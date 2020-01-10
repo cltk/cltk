@@ -5,7 +5,7 @@ __author__ = ["John Stewart <free-variation>"]
 from typing import List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
-from cltkv1.utils.data_types import Doc, Process, Word
+from cltkv1.core.data_types import Doc, Process, Word
 
 
 class Form(Element):
@@ -144,10 +144,8 @@ class Form(Element):
         form.set("upos", word.upos)
         form.set("xpos", word.xpos)
 
-        if word.feats != "_":
-            for f in word.feats.split("|"):
-                feature = f.split("=")
-                form.set(feature[0], feature[1])
+        for (feature_name, feature_value) in word.features.items():
+            form.set(feature_name, feature_value)
 
         return form
 
@@ -251,7 +249,7 @@ class DependencyTree(ElementTree):
             if word.dependency_relation == "root":
                 root = forms[word.index_token]
             else:
-                gov = forms[word.governor]
+                gov = forms[word.governor.index_token]
                 dep = forms[word.index_token]
                 gov >> dep | word.dependency_relation
 

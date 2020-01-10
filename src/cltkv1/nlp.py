@@ -2,16 +2,16 @@
 
 from typing import List
 
-from cltkv1.languages.utils import get_lang
-from cltkv1.utils.data_types import Doc, Language, Pipeline, Type
-from cltkv1.utils.exceptions import UnimplementedLanguageError, UnknownLanguageError
-from cltkv1.utils.pipelines import (
+from cltkv1.core.data_types import Doc, Language, Pipeline, Type
+from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
+from cltkv1.languages.pipelines import (
     GothicPipeline,
     GreekPipeline,
     LatinPipeline,
     OCSPipeline,
     OldFrenchPipeline,
 )
+from cltkv1.languages.utils import get_lang
 
 pipelines = {
     "lat": LatinPipeline,
@@ -35,8 +35,8 @@ class NLP:
         >>> NLP(language="xxx")
         Traceback (most recent call last):
           ...
-        cltkv1.utils.exceptions.UnknownLanguageError: Unknown language 'xxx'. Use ISO 639-3 languages.
-        >>> from cltkv1.utils.data_types import Pipeline
+        cltkv1.core.exceptions.UnknownLanguageError: Unknown language 'xxx'. Use ISO 639-3 languages.
+        >>> from cltkv1.core.data_types import Pipeline
         >>> from cltkv1.tokenizers import LatinTokenizationProcess
         >>> from cltkv1.languages.utils import get_lang
         >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
@@ -58,7 +58,7 @@ class NLP:
         are valid, both in themselves and in unison.
 
         >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.data_types import Pipeline
+        >>> from cltkv1.core.data_types import Pipeline
         >>> cltk_nlp = NLP(language="lat")
         >>> lat_pipeline = cltk_nlp._get_pipeline()
         >>> isinstance(cltk_nlp.pipeline, Pipeline)
@@ -68,7 +68,7 @@ class NLP:
         >>> cltk_nlp = NLP(language="axm")
         Traceback (most recent call last):
           ...
-        cltkv1.utils.exceptions.UnimplementedLanguageError: axm
+        cltkv1.core.exceptions.UnimplementedLanguageError: axm
         """
         try:
             return pipelines[self.language.iso_639_3_code]()
@@ -83,34 +83,34 @@ class NLP:
 
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
-        >>> from cltkv1.utils.data_types import Doc
+        >>> from cltkv1.core.data_types import Doc
         >>> cltk_nlp = NLP(language="lat")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> isinstance(cltk_doc, Doc)
         True
-        >>> cltk_doc.words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=4, parent_token=<Token index=1;words=[<Word index=1;text=Gallia;lemma=aallius;upos=NOUN;xpos=A1|grn1|casA|gen2|stAM;feats=Case=Nom|Degree=Pos|Gender=Fem|Number=Sing;governor=4;dependency_relation=nsubj>]>, feats='Case=Nom|Degree=Pos|Gender=Fem|Number=Sing')
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=..., parent=..., features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'})
 
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="grc")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("grc"))
-        >>> cltk_doc.words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='ὅτι', pos='Df', lemma='ὅτι#1', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=13, parent_token=<Token index=1;words=[<Word index=1;text=ὅτι;lemma=ὅτι#1;upos=ADV;xpos=Df;feats=_;governor=13;dependency_relation=advmod>]>, feats='_')
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='ὅτι', pos='Df', lemma='ὅτι#1', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=..., parent=..., features={})
 
         >>> cltk_nlp = NLP(language="chu")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("chu"))
-        >>> cltk_doc.words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='отьчє', pos='Nb', lemma='отьць', scansion=None, xpos='Nb', upos='NOUN', dependency_relation='nsubj', governor=6, parent_token=<Token index=1;words=[<Word index=1;text=отьчє;lemma=отьць;upos=NOUN;xpos=Nb;feats=Case=Nom|Gender=Masc|Number=Sing;governor=6;dependency_relation=nsubj>]>, feats='Case=Nom|Gender=Masc|Number=Sing')
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='отьчє', pos='Nb', lemma='отьць', scansion=None, xpos='Nb', upos='NOUN', dependency_relation='nsubj', governor=..., parent=..., features={'Case': 'Nom', 'Gender': 'Masc', 'Number': 'Sing'})
 
         >>> cltk_nlp = NLP(language="fro")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("fro"))
-        >>> cltk_doc.words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Une', pos='DETndf', lemma='Une', scansion=None, xpos='DETndf', upos='DET', dependency_relation='det', governor=2, parent_token=<Token index=1;words=[<Word index=1;text=Une;lemma=Une;upos=DET;xpos=DETndf;feats=Definite=Ind|PronType=Art;governor=2;dependency_relation=det>]>, feats='Definite=Ind|PronType=Art')
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Une', pos='DETndf', lemma='Une', scansion=None, xpos='DETndf', upos='DET', dependency_relation='det', governor=..., parent=..., features={'Definite': 'Ind', 'PronType': 'Art'})
 
         >>> cltk_nlp = NLP(language="got")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("got"))
-        >>> cltk_doc.words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='swa', pos='Df', lemma='swa', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=2, parent_token=<Token index=1;words=[<Word index=1;text=swa;lemma=swa;upos=ADV;xpos=Df;feats=_;governor=2;dependency_relation=advmod>]>, feats='_')
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='swa', pos='Df', lemma='swa', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=..., parent=..., features={})
         >>> len(cltk_doc.sentences)
         4
         """
