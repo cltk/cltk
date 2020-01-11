@@ -4,7 +4,7 @@ from fastText, one being trained only on corpora taken from
 Wikipedia (249 languages, `here
 <https://fasttext.cc/docs/en/pretrained-vectors.html>`_) and
 the other being a combination of Wikipedia and Common Crawl
-(a subset of 157, `here
+(157 languages, a subset of the former, `here
 <https://fasttext.cc/docs/en/crawl-vectors.html>`_).
 """
 
