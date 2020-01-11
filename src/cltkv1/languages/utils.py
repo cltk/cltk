@@ -8,6 +8,8 @@ from cltkv1.languages.glottolog import LANGUAGES
 def get_lang(iso_code: str) -> Language:
     """Take in search term of usual language name and find ISO code.
 
+    TODO: Add explanation of error
+
     >>> from cltkv1.languages.utils import get_lang
     >>> get_lang("akk")
     Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
