@@ -5,6 +5,8 @@ import sys
 from contextlib import contextmanager
 from typing import Any, Dict, List, Optional
 
+# from cltkv1 import __cltk_data_dir__
+
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
     """Try to expand `~/` and check if a file or dir exists.
@@ -95,3 +97,25 @@ def suppress_stdout():
             yield
         finally:
             sys.stdout = old_stdout
+
+
+# def get_cltk_data_dir() -> str:
+#     """Defines where to look for the ``cltk_data`` dir.
+#     By default, this is located in a user's home directory
+#     and the directory is created there (``~/cltk_data``).
+#     However a user may customize where this goes with
+#     the OS environment variable ``$CLTK_DATA``. If the
+#     variable is found, then its value is used.
+#
+#     TODO: Run tests with a defined `$CLTK_DATA` environment variable)
+#
+#     >>> import os
+#     >>> del os.environ["CLTK_DATA"]
+#     >>> get_cltk_data_dir()
+#     abc
+#     >>> os.environ["CLTK_DATA"] = os.path.expanduser("~/cltk_data")
+#     abc
+#     >>>
+#     >>> os.environ["CLTK_DATA"] = os.path.expanduser("~/")
+#     """
+#     return __cltk_data_dir__

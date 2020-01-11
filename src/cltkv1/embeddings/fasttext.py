@@ -6,7 +6,13 @@ Wikipedia (249 languages, `here
 the other being a combination of Wikipedia and Common Crawl
 (157 languages, a subset of the former, `here
 <https://fasttext.cc/docs/en/crawl-vectors.html>`_).
+
+TODO: Consider whether to use Gensim for accessing fastText vectors instead.
 """
+
+import os
+
+import fasttext
 
 from cltkv1.core.exceptions import CLTKException
 from cltkv1.languages.utils import get_lang
@@ -102,11 +108,15 @@ def is_vector_for_lang(iso_code: str, vector_type: str) -> bool:
         return False
 
 
+def is_fasttext_model_available(iso_code, vector_type):
+    """Check ``.bin` and/or ``.vec`` is present on disk."""
+    fasttext_code = MAP_LANGS_CLTK_FASTTEXT[iso_code]
+
+
 def fasttext_example():
     """
     https://fasttext.cc/docs/en/python-module.html
     """
-    import fasttext
 
     la_bin = "/Users/kyle/Downloads/wiki.la/wiki.la.bin"
     la_vec = "/Users/kyle/Downloads/wiki.la/wiki.la.vec"
