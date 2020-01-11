@@ -1,8 +1,8 @@
 """Module for accessing pre-trained `fastText word embeddings
 <https://fasttext.cc/>`_. Models available from fastText
-languages are `<https://fasttext.cc/docs/en/pretrained-vectors.html>`_.
+languages are at `<https://fasttext.cc/docs/en/pretrained-vectors.html>`_.
 Besides those here, other modern language embeddings may in some cases
-work for historial forms.
+work for historical forms.
 """
 
 from cltkv1.languages.utils import get_lang
