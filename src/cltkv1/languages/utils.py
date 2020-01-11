@@ -1,8 +1,8 @@
 from typing import List
 
+from cltkv1.core.data_types import Language
+from cltkv1.core.exceptions import UnknownLanguageError
 from cltkv1.languages.glottolog import LANGUAGES
-from cltkv1.utils.data_types import Language
-from cltkv1.utils.exceptions import UnknownLanguageError
 
 
 def get_lang(iso_code: str) -> Language:
@@ -12,11 +12,11 @@ def get_lang(iso_code: str) -> Language:
     >>> from cltkv1.languages.utils import get_lang
     >>> get_lang("akk")
     Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
-    >>> from cltkv1.utils.exceptions import UnknownLanguageError
+    >>> from cltkv1.core.exceptions import UnknownLanguageError
     >>> get_lang("xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.utils.exceptions.UnknownLanguageError
+    cltkv1.core.exceptions.UnknownLanguageError
     """
     try:
         return LANGUAGES[iso_code]

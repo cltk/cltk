@@ -13,8 +13,8 @@ TODO: Get longer Akkadian text
 
 # pylint: disable=line-too-long
 
+from cltkv1.core.exceptions import UnimplementedLanguageError
 from cltkv1.languages.utils import get_lang
-from cltkv1.utils.exceptions import UnimplementedLanguageError
 
 EXAMPLE_TEXTS = dict(
     # Akkadian
@@ -134,11 +134,11 @@ def get_example_text(iso_code: str) -> str:
     >>> get_example_text("zkz")
     Traceback (most recent call last):
       ...
-    cltkv1.utils.exceptions.UnimplementedLanguageError: Example text unavailable for ISO 639-3 code 'zkz'.
+    cltkv1.core.exceptions.UnimplementedLanguageError: Example text unavailable for ISO 639-3 code 'zkz'.
     >>> get_example_text("xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.utils.exceptions.UnknownLanguageError
+    cltkv1.core.exceptions.UnknownLanguageError
     """
     get_lang(iso_code=iso_code)
     try:
