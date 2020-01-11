@@ -8,7 +8,6 @@ from cltkv1.languages.glottolog import LANGUAGES
 def get_lang(iso_code: str) -> Language:
     """Take in search term of usual language name and find ISO code.
 
-
     >>> from cltkv1.languages.utils import get_lang
     >>> get_lang("akk")
     Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
@@ -29,7 +28,6 @@ def find_iso_name(common_name: str) -> List[str]:
     inputting the common name (``Latin``). This function just
     does simple substring matching, with some normalization
     of case, on the ``name`` field of the ``Language`` object.
-
 
     >>> from cltkv1.languages.utils import find_iso_name
     >>> find_iso_name(common_name="Latin")
