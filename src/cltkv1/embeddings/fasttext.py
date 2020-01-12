@@ -78,23 +78,23 @@ def get_fasttext_lang_code(iso_code: str) -> str:
 
 def is_vector_for_lang(iso_code: str, vector_type: str) -> bool:
     """Check whether a embedding is available for a chosen
-    vector type, ``wiki`` or `` common_crawl``.
+    vector type, ``wiki`` or ``common_crawl``.
 
     >>> is_vector_for_lang(iso_code="lat", vector_type="wiki")
     True
-    >>> is_vector_for_lang(iso_code="got", vector_type=" common_crawl")
+    >>> is_vector_for_lang(iso_code="got", vector_type="common_crawl")
     False
-    >>> is_vector_for_lang(iso_code="xxx", vector_type=" common_crawl")
+    >>> is_vector_for_lang(iso_code="xxx", vector_type="common_crawl")
     Traceback (most recent call last):
       ...
     cltkv1.core.exceptions.UnknownLanguageError
     >>> is_vector_for_lang(iso_code="lat", vector_type="xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.core.exceptions.CLTKException: Invalid ``vector_type`` 'xxx'. Available: 'wiki', ' common_crawl'.
+    cltkv1.core.exceptions.CLTKException: Invalid ``vector_type`` 'xxx'. Available: 'wiki', 'common_crawl'.
     """
     get_fasttext_lang_code(iso_code=iso_code)  # does validation for language
-    vector_types = ["wiki", " common_crawl"]
+    vector_types = ["wiki", "common_crawl"]
     if vector_type not in vector_types:
         vector_types_str = "', '".join(vector_types)
         raise CLTKException(
@@ -103,7 +103,7 @@ def is_vector_for_lang(iso_code: str, vector_type: str) -> bool:
     available_vectors = list()
     if vector_type == "wiki":
         available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
-    elif vector_type == " common_crawl":
+    elif vector_type == "common_crawl":
         available_vectors = ["arb", "lat", "san"]
     if iso_code in available_vectors:
         return True
@@ -348,11 +348,28 @@ def _build_fasttext_url(iso_code: str, vector_type: str):
     return bin_url, vec_url
 
 
+def _mk_dirs_for_file(filepath):
+    """Make all dirs specified for final file.
+
+    >>> _mk_dirs_for_file("~/new-dir/some-file.txt")
+    """
+    dirs = os.path.split(filepath)[0]
+    try:
+        os.makedirs(dirs)
+    except FileExistsError:
+        # TODO: Logg INFO level
+        pass
+
+
 def _get_file_with_progress_bar(url: str, filepath: str):
     """Download file with a progress bar.
 
-    https://stackoverflow.com/a/37573701
+    Source: https://stackoverflow.com/a/37573701
+
+    TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
+    TODO: Confirm everything saves right
     """
+    _mk_dirs_for_file(filepath=filepath)
     req_obj = requests.get(url=url, stream=True)
     total_size = int(req_obj.headers.get("content-length", 0))
     block_size = 1024  # 1 Kibibyte
@@ -367,6 +384,9 @@ def _get_file_with_progress_bar(url: str, filepath: str):
 
 
 def download_fasttext_models(iso_code: str, vector_type: str, force=False):
+    """Perform complete download of fastText models and save
+    them in appropriate ``cltk_data`` dir.
+    """
     is_fasttext_lang_available(iso_code=iso_code)
     is_vector_for_lang(iso_code=iso_code, vector_type=vector_type)
     if (
@@ -387,5 +407,5 @@ def download_fasttext_models(iso_code: str, vector_type: str, force=False):
 
 if __name__ == "__main__":
     # are_fasttext_models_downloaded(iso_code="lat", vector_type="wiki")
-    _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
-    # download_fasttext_models(iso_code="lat", vector_type="wiki")
+    # _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
+    download_fasttext_models(iso_code="lat", vector_type="wiki")
