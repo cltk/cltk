@@ -13,7 +13,10 @@ TODO: Consider whether to use Gensim for accessing fastText vectors instead.
 import os
 
 import fasttext
+import requests
+from tqdm import tqdm
 
+from cltkv1 import __cltk_data_dir__
 from cltkv1.core.exceptions import CLTKException
 from cltkv1.languages.utils import get_lang
 
@@ -75,23 +78,23 @@ def get_fasttext_lang_code(iso_code: str) -> str:
 
 def is_vector_for_lang(iso_code: str, vector_type: str) -> bool:
     """Check whether a embedding is available for a chosen
-    vector type, ``wiki`` or ``wiki_common_crawl``.
+    vector type, ``wiki`` or `` common_crawl``.
 
     >>> is_vector_for_lang(iso_code="lat", vector_type="wiki")
     True
-    >>> is_vector_for_lang(iso_code="got", vector_type="wiki_common_crawl")
+    >>> is_vector_for_lang(iso_code="got", vector_type=" common_crawl")
     False
-    >>> is_vector_for_lang(iso_code="xxx", vector_type="wiki_common_crawl")
+    >>> is_vector_for_lang(iso_code="xxx", vector_type=" common_crawl")
     Traceback (most recent call last):
       ...
     cltkv1.core.exceptions.UnknownLanguageError
     >>> is_vector_for_lang(iso_code="lat", vector_type="xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.core.exceptions.CLTKException: Invalid ``vector_type`` 'xxx'. Available: 'wiki', 'wiki_common_crawl'.
+    cltkv1.core.exceptions.CLTKException: Invalid ``vector_type`` 'xxx'. Available: 'wiki', ' common_crawl'.
     """
     get_fasttext_lang_code(iso_code=iso_code)  # does validation for language
-    vector_types = ["wiki", "wiki_common_crawl"]
+    vector_types = ["wiki", " common_crawl"]
     if vector_type not in vector_types:
         vector_types_str = "', '".join(vector_types)
         raise CLTKException(
@@ -100,17 +103,12 @@ def is_vector_for_lang(iso_code: str, vector_type: str) -> bool:
     available_vectors = list()
     if vector_type == "wiki":
         available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
-    elif vector_type == "wiki_common_crawl":
+    elif vector_type == " common_crawl":
         available_vectors = ["arb", "lat", "san"]
     if iso_code in available_vectors:
         return True
     else:
         return False
-
-
-def is_fasttext_model_available(iso_code, vector_type):
-    """Check ``.bin` and/or ``.vec`` is present on disk."""
-    fasttext_code = MAP_LANGS_CLTK_FASTTEXT[iso_code]
 
 
 def fasttext_example():
@@ -248,3 +246,146 @@ def fasttext_example():
     # 1319379
 
     return
+
+
+def _build_fasttext_filepath(iso_code: str, vector_type: str):
+    """Create filepath at which to save a downloaded
+    fasttext model.
+
+    >>> bin_fp, vec_fp = _build_fasttext_filepath(iso_code="lat", vector_type="wiki")
+    >>> bin_fp
+    '/Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la.bin'
+    >>> vec_fp
+    '/Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la.vec'
+    >>> bin_fp, vec_fp = _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
+    >>> bin_fp
+    '/Users/kyle/cltk_data/lat/embeddings/fasttext/cc.la.300.bin'
+    >>> vec_fp
+    '/Users/kyle/cltk_data/lat/embeddings/fasttext/cc.la.300.vec'
+    """
+    fasttext_code = MAP_LANGS_CLTK_FASTTEXT[iso_code]
+    fp_model_bin = None
+    fp_model_vec = None
+    if vector_type == "wiki":
+        fp_model_bin = os.path.join(
+            __cltk_data_dir__,
+            iso_code,
+            "embeddings",
+            "fasttext",
+            f"wiki.{fasttext_code}.bin",
+        )
+        fp_model_vec = os.path.join(
+            __cltk_data_dir__,
+            iso_code,
+            "embeddings",
+            "fasttext",
+            f"wiki.{fasttext_code}.vec",
+        )
+    elif vector_type == "common_crawl":
+        fp_model_bin = os.path.join(
+            __cltk_data_dir__,
+            iso_code,
+            "embeddings",
+            "fasttext",
+            f"cc.{fasttext_code}.300.bin",
+        )
+        fp_model_vec = os.path.join(
+            __cltk_data_dir__,
+            iso_code,
+            "embeddings",
+            "fasttext",
+            f"cc.{fasttext_code}.300.vec",
+        )
+    return fp_model_bin, fp_model_vec
+
+
+def are_fasttext_models_downloaded(iso_code: str, vector_type: str):
+    """Check ``.bin` and/or ``.vec`` is present on disk.
+
+    /Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.bin
+    /Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.vec
+
+    >>> are_fasttext_models_downloaded(iso_code="lat", vector_type="wiki")
+    False
+    >>> are_fasttext_models_downloaded(iso_code="lat", vector_type="common_crawl")
+    False
+    """
+    is_fasttext_lang_available(iso_code=iso_code)
+    is_vector_for_lang(iso_code=iso_code, vector_type=vector_type)
+    fp_model_bin, fp_model_vec = _build_fasttext_filepath(
+        iso_code=iso_code, vector_type=vector_type
+    )
+    if os.path.isfile(fp_model_bin) and os.path.isfile(fp_model_vec):
+        return True
+    else:
+        return False
+
+
+def _build_fasttext_url(iso_code: str, vector_type: str):
+    """Make the URL at which the requested model may be
+    downloaded.
+
+    >>> bin_url, vec_url = _build_fasttext_url(iso_code="lat", vector_type="wiki")
+    >>> bin_url
+    'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.la.zip'
+    >>> vec_url
+    'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.la.vec'
+    >>> bin_url, vec_url = _build_fasttext_url(iso_code="lat", vector_type="common_crawl")
+    >>> bin_url
+    'https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.la.300.bin.gz'
+    >>> vec_url
+    'https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.la.300.vec.gz'
+    """
+    fasttext_code = get_fasttext_lang_code(iso_code=iso_code)
+    bin_url = None
+    vec_url = None
+    if vector_type == "wiki":
+        bin_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.zip"
+        vec_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.vec"
+    elif vector_type == "common_crawl":
+        bin_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.bin.gz"
+        vec_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.vec.gz"
+    return bin_url, vec_url
+
+
+def _get_file_with_progress_bar(url: str, filepath: str):
+    """Download file with a progress bar.
+
+    https://stackoverflow.com/a/37573701
+    """
+    req_obj = requests.get(url=url, stream=True)
+    total_size = int(req_obj.headers.get("content-length", 0))
+    block_size = 1024  # 1 Kibibyte
+    progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
+    with open(filepath, "wb") as file_open:
+        for data in req_obj.iter_content(block_size):
+            progress_bar.update(len(data))
+            file_open.write(data)
+    progress_bar.close()
+    if total_size != 0 and progress_bar.n != total_size:
+        print("ERROR, something went wrong")
+
+
+def download_fasttext_models(iso_code: str, vector_type: str, force=False):
+    is_fasttext_lang_available(iso_code=iso_code)
+    is_vector_for_lang(iso_code=iso_code, vector_type=vector_type)
+    if (
+        not are_fasttext_models_downloaded(iso_code=iso_code, vector_type=vector_type)
+        or force
+    ):
+        bin_url, vec_url = _build_fasttext_url(
+            iso_code=iso_code, vector_type=vector_type
+        )
+        bin_fp, vec_fp = _build_fasttext_filepath(
+            iso_code=iso_code, vector_type=vector_type
+        )
+        _get_file_with_progress_bar(url=bin_url, filepath=bin_fp)
+        _get_file_with_progress_bar(url=vec_url, filepath=vec_fp)
+    else:
+        return None
+
+
+if __name__ == "__main__":
+    # are_fasttext_models_downloaded(iso_code="lat", vector_type="wiki")
+    _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
+    # download_fasttext_models(iso_code="lat", vector_type="wiki")

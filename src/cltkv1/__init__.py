@@ -68,7 +68,3 @@ def get_cltk_data_dir():
 
 
 __cltk_data_dir__ = get_cltk_data_dir()
-
-
-if __name__ == "__main__":
-    get_cltk_data_dir()
