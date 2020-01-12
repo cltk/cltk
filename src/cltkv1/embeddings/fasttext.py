@@ -253,15 +253,15 @@ def _build_fasttext_filepath(iso_code: str, vector_type: str):
     fasttext model.
 
     >>> bin_fp, vec_fp = _build_fasttext_filepath(iso_code="lat", vector_type="wiki")
-    >>> bin_fp
-    '/Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la.bin'
-    >>> vec_fp
-    '/Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la.vec'
+    >>> os.path.split(bin_fp)[1]
+    'wiki.la.bin'
+    >>> os.path.split(vec_fp)[1]
+    'wiki.la.vec'
     >>> bin_fp, vec_fp = _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
-    >>> bin_fp
-    '/Users/kyle/cltk_data/lat/embeddings/fasttext/cc.la.300.bin'
-    >>> vec_fp
-    '/Users/kyle/cltk_data/lat/embeddings/fasttext/cc.la.300.vec'
+    >>> os.path.split(bin_fp)[1]
+    'cc.la.300.bin'
+    >>> os.path.split(vec_fp][1]
+    'cc.la.300.vec'
     """
     fasttext_code = MAP_LANGS_CLTK_FASTTEXT[iso_code]
     fp_model_bin = None
@@ -300,15 +300,14 @@ def _build_fasttext_filepath(iso_code: str, vector_type: str):
 
 
 def are_fasttext_models_downloaded(iso_code: str, vector_type: str):
-    """Check ``.bin` and/or ``.vec`` is present on disk.
-
-    /Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.bin
-    /Users/kyle/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.vec
+    """Check ``.bin` and/or ``.vec`` is present on disk at:
+    ``~/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.bin`` and
+    ``~/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.vec``.
 
     >>> are_fasttext_models_downloaded(iso_code="lat", vector_type="wiki")
-    False
+    True
     >>> are_fasttext_models_downloaded(iso_code="lat", vector_type="common_crawl")
-    False
+    True
     """
     is_fasttext_lang_available(iso_code=iso_code)
     is_vector_for_lang(iso_code=iso_code, vector_type=vector_type)
