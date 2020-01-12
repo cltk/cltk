@@ -8,6 +8,11 @@ from typing import Any, List
 
 from stanfordnlp.utils.resources import download
 
+from cltkv1.embeddings.fasttext import (
+    are_fasttext_models_downloaded,
+    download_fasttext_models,
+)
+
 
 def get_stanfordnlp_models(force_update: bool = True) -> None:
     """Download language models, from the ``stanfordnlp`` project,
@@ -37,5 +42,15 @@ def get_stanfordnlp_models(force_update: bool = True) -> None:
         )
 
 
+def get_fasttext_models(force: bool = True):
+    wiki_models = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
+    common_crawl_models = ["arb", "lat", "san"]
+    for lang in wiki_models:
+        download_fasttext_models(iso_code=lang, vector_type="common_crawl", force=force)
+    for lang in common_crawl_models:
+        download_fasttext_models(iso_code=lang, vector_type="common_crawl", force=force)
+
+
 if __name__ == "__main__":
     get_stanfordnlp_models(force_update=True)
+    get_fasttext_models(force=True)

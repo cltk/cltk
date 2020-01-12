@@ -357,7 +357,7 @@ def _mk_dirs_for_file(filepath):
     try:
         os.makedirs(dirs)
     except FileExistsError:
-        # TODO: Logg INFO level
+        # TODO: Log INFO level
         pass
 
 
@@ -368,6 +368,7 @@ def _get_file_with_progress_bar(url: str, filepath: str):
 
     TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
     TODO: Confirm everything saves right
+    TODO: Add tests
     """
     _mk_dirs_for_file(filepath=filepath)
     req_obj = requests.get(url=url, stream=True)
@@ -386,6 +387,8 @@ def _get_file_with_progress_bar(url: str, filepath: str):
 def download_fasttext_models(iso_code: str, vector_type: str, force=False):
     """Perform complete download of fastText models and save
     them in appropriate ``cltk_data`` dir.
+
+    TODO: Add tests
     """
     is_fasttext_lang_available(iso_code=iso_code)
     is_vector_for_lang(iso_code=iso_code, vector_type=vector_type)
