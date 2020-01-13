@@ -1,3 +1,3 @@
 """Init for ``cltkv1.embeddings``."""
 
-from .fasttext import *
+from .fasttext_module import *
