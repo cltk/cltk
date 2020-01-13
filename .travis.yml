@@ -18,6 +18,8 @@ before_install:
 install:
   - poetry install -v
   - poetry run python scripts/download_misc_dependencies.py
+  - ls ~/cltk_data/lat/embeddings/fasttext/wiki.la.bin
+  - ls ~/cltk_data/lat/embeddings/fasttext/wiki.la.vec
 
 before_script:
   - poetry run pre-commit install-hooks

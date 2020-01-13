@@ -252,6 +252,8 @@ def _build_fasttext_filepath(iso_code: str, vector_type: str):
     """Create filepath at which to save a downloaded
     fasttext model.
 
+    TODO: Do better than check for just name. Try trimming up to user home dir.
+
     >>> bin_fp, vec_fp = _build_fasttext_filepath(iso_code="lat", vector_type="wiki")
     >>> os.path.split(bin_fp)[1]
     'wiki.la.bin'
