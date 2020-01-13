@@ -8,6 +8,7 @@ Subpackages
 
    cltkv1.core
    cltkv1.dependency
+   cltkv1.embeddings
    cltkv1.languages
    cltkv1.tokenizers
    cltkv1.utils
