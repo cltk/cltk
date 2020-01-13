@@ -71,7 +71,7 @@ def get_fasttext_models(force: bool = True, lang: str = "all"):
         common_crawl_models.append(lang)
     for lang in wiki_models:
         print("Going to download the fastText 'wiki' models ...")
-        download_fasttext_models(iso_code=lang, vector_type="common_crawl", force=force)
+        download_fasttext_models(iso_code=lang, vector_type="wiki", force=force)
     for lang in common_crawl_models:
         print("Going to download the fastText 'common_crawl' models ...")
         download_fasttext_models(iso_code=lang, vector_type="common_crawl", force=force)
