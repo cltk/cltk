@@ -12,10 +12,10 @@ TODO: Consider whether to use Gensim for accessing fastText vectors instead.
 
 import os
 
+import fasttext
 import requests
 from tqdm import tqdm
 
-import fasttext
 from cltkv1 import __cltk_data_dir__
 from cltkv1.core.exceptions import CLTKException
 from cltkv1.languages.utils import get_lang
