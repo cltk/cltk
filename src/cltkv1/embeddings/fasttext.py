@@ -260,7 +260,7 @@ def _build_fasttext_filepath(iso_code: str, vector_type: str):
     >>> bin_fp, vec_fp = _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
     >>> os.path.split(bin_fp)[1]
     'cc.la.300.bin'
-    >>> os.path.split(vec_fp][1]
+    >>> os.path.split(vec_fp)[1]
     'cc.la.300.vec'
     """
     fasttext_code = MAP_LANGS_CLTK_FASTTEXT[iso_code]
