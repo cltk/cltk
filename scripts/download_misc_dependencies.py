@@ -14,12 +14,12 @@ from cltkv1.embeddings.fasttext import (
 )
 
 
-def get_stanfordnlp_models(force_update: bool = True) -> None:
+def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None:
     """Download language models, from the ``stanfordnlp`` project,
     that are supported by the CLTK or in scope. More here:
     `<https://stanfordnlp.github.io/stanfordnlp/models.html>_.
     """
-    ud_models_for_cltk = [
+    all_ud_models_for_cltk = [
         "grc_perseus",
         "grc_proiel",
         "la_ittb",
@@ -29,11 +29,25 @@ def get_stanfordnlp_models(force_update: bool = True) -> None:
         "fro_srcmf",  # Old French
         "got_proiel",
     ]  # type: List[str]
-
+    ud_models_for_dl = list()
+    if lang == "all":
+        ud_models_for_dl = all_ud_models_for_cltk
+    elif lang == "chu":
+        ud_models_for_dl = ud_models_for_dl.append(["cu_proiel"])
+    elif lang == "fro":
+        ud_models_for_dl = ud_models_for_dl.append(["fro_srcmf"])
+    elif lang == "got_proiel":
+        ud_models_for_dl = ud_models_for_dl.append(["got_proiel"])
+    elif lang == "grc":
+        ud_models_for_dl = ud_models_for_dl.append(["grc_perseus", "grc_proiel"])
+    elif lang == "lat":
+        ud_models_for_dl = ud_models_for_dl.append(["la_ittb", "la_perseus", "la_proiel"])
+    else:
+        raise ValueError(f"No models for lang  '{lang}'.")
     stanford_dir = os.path.expanduser("~/stanfordnlp_resources/")  # type: str
     if os.path.isdir(stanford_dir) and not force_update:
         return
-    for model in ud_models_for_cltk:
+    for model in ud_models_for_dl:
         download(
             download_label=model,
             resource_dir=stanford_dir,
