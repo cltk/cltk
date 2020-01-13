@@ -253,7 +253,7 @@ xzh   Zhangzhung
 from collections import OrderedDict
 from typing import List
 
-from cltkv1.utils.data_types import Language
+from cltkv1.core.data_types import Language
 
 LANGUAGES = OrderedDict(
     [

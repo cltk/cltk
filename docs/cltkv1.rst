@@ -6,6 +6,7 @@ Subpackages
 
 .. toctree::
 
+   cltkv1.core
    cltkv1.dependency
    cltkv1.languages
    cltkv1.tokenizers

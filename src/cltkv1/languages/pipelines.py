@@ -9,9 +9,9 @@ these dataclasses is to represent:
 from dataclasses import dataclass, field
 from typing import Callable, List, Type
 
+from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.languages.utils import get_lang
 from cltkv1.tokenizers import DefaultTokenizationProcess, LatinTokenizationProcess
-from cltkv1.utils.data_types import Language, Pipeline, Process
 from cltkv1.wrappers.stanford import StanfordNLPProcess
 
 
@@ -19,7 +19,7 @@ from cltkv1.wrappers.stanford import StanfordNLPProcess
 class LatinPipeline(Pipeline):
     """Default ``Pipeline`` for Latin.
 
-    >>> from cltkv1.utils.pipelines import LatinPipeline
+    >>> from cltkv1.languages.pipelines import LatinPipeline
     >>> a_pipeline = LatinPipeline()
     >>> a_pipeline.description
     'Pipeline for the Latin language'
@@ -40,7 +40,7 @@ class LatinPipeline(Pipeline):
 class GreekPipeline(Pipeline):
     """Default ``Pipeline`` for Ancient Greek.
 
-    >>> from cltkv1.utils.pipelines import GreekPipeline
+    >>> from cltkv1.languages.pipelines import GreekPipeline
     >>> a_pipeline = GreekPipeline()
     >>> a_pipeline.description
     'Pipeline for the Greek language'
@@ -61,7 +61,7 @@ class GreekPipeline(Pipeline):
 class OCSPipeline(Pipeline):
     """Default ``Pipeline`` for Old Church Slavonic.
 
-    >>> from cltkv1.utils.pipelines import OCSPipeline
+    >>> from cltkv1.languages.pipelines import OCSPipeline
     >>> a_pipeline = OCSPipeline()
     >>> a_pipeline.description
     'Pipeline for the Old Church Slavonic language'
@@ -82,7 +82,7 @@ class OCSPipeline(Pipeline):
 class OldFrenchPipeline(Pipeline):
     """Default ``Pipeline`` for Old French.
 
-    >>> from cltkv1.utils.pipelines import OldFrenchPipeline
+    >>> from cltkv1.languages.pipelines import OldFrenchPipeline
     >>> a_pipeline = OldFrenchPipeline()
     >>> a_pipeline.description
     'Pipeline for the Old French language'
@@ -103,7 +103,7 @@ class OldFrenchPipeline(Pipeline):
 class GothicPipeline(Pipeline):
     """Default ``Pipeline`` for Gothic.
 
-    >>> from cltkv1.utils.pipelines import GothicPipeline
+    >>> from cltkv1.languages.pipelines import GothicPipeline
     >>> a_pipeline = GothicPipeline()
     >>> a_pipeline.description
     'Pipeline for the Gothic language'
