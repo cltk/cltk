@@ -33,15 +33,15 @@ def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None
     if lang == "all":
         ud_models_for_dl = all_ud_models_for_cltk
     elif lang == "chu":
-        ud_models_for_dl = ud_models_for_dl.append(["cu_proiel"])
+        ud_models_for_dl = ud_models_for_dl + ["cu_proiel"]
     elif lang == "fro":
-        ud_models_for_dl = ud_models_for_dl.append(["fro_srcmf"])
+        ud_models_for_dl = ud_models_for_dl + ["fro_srcmf"]
     elif lang == "got_proiel":
-        ud_models_for_dl = ud_models_for_dl.append(["got_proiel"])
+        ud_models_for_dl = ud_models_for_dl + ["got_proiel"]
     elif lang == "grc":
-        ud_models_for_dl = ud_models_for_dl.append(["grc_perseus", "grc_proiel"])
+        ud_models_for_dl = ud_models_for_dl + ["grc_perseus", "grc_proiel"]
     elif lang == "lat":
-        ud_models_for_dl = ud_models_for_dl.append(["la_ittb", "la_perseus", "la_proiel"])
+        ud_models_for_dl = ud_models_for_dl + ["la_ittb", "la_perseus", "la_proiel"]
     else:
         raise ValueError(f"No models for lang  '{lang}'.")
     stanford_dir = os.path.expanduser("~/stanfordnlp_resources/")  # type: str
@@ -78,5 +78,5 @@ def get_fasttext_models(force: bool = True, lang: str = "all"):
 
 if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
-    get_stanfordnlp_models(force_update=False, lang="lat")
+    get_stanfordnlp_models(force_update=True, lang="lat")
     get_fasttext_models(force=False, lang="lat")
