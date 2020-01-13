@@ -301,8 +301,8 @@ def _build_fasttext_filepath(iso_code: str, vector_type: str):
 
 def are_fasttext_models_downloaded(iso_code: str, vector_type: str):
     """Check ``.bin` and/or ``.vec`` is present on disk at:
-    ``~/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.bin`` and
-    ``~/cltk_data/lat/embeddings/fasttext/wiki.la/wiki.la.vec``.
+    ``~/cltk_data/lat/embeddings/fasttext/wiki.la.bin`` and
+    ``~/cltk_data/lat/embeddings/fasttext/wiki.la.vec``.
 
     >>> are_fasttext_models_downloaded(iso_code="lat", vector_type="wiki")
     True
@@ -410,4 +410,5 @@ def download_fasttext_models(iso_code: str, vector_type: str, force=False):
 if __name__ == "__main__":
     # are_fasttext_models_downloaded(iso_code="lat", vector_type="wiki")
     # _build_fasttext_filepath(iso_code="lat", vector_type="common_crawl")
-    download_fasttext_models(iso_code="lat", vector_type="wiki")
+    # download_fasttext_models(iso_code="lat", vector_type="wiki")
+    download_fasttext_models(iso_code="lat", vector_type="common_crawl")
