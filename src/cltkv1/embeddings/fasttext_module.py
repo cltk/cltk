@@ -278,6 +278,9 @@ def load_fasttext_model(iso_code: str, training_set: str, model_type: str):
     to retrain (parameters and dictionary) while the ``.vec``
     is much smaller and only has the word vectors.
 
+    TODO: Add exceptions for loading problems due to FT not being installed
+    TODO: Check all 4 types of model reading on cpu w/ enough memory
+
     >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
     >>> type(ft_model)
     <class 'fasttext.FastText._FastText'>
@@ -310,6 +313,38 @@ def load_fasttext_model(iso_code: str, training_set: str, model_type: str):
     #     raise NotImplementedError("Cannot load bin files yet")
     # else:
     #     raise ValueError(f"Invalid '{model_type}'.")
+
+
+def get_fasttext_embedding(word: str, model: "fasttext.FastText._FastText"):
+    """Get embedding for a word.
+
+    >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
+    >>> ft_embedding = get_fasttext_embedding(word="arma", model=ft_model)
+    >>> type(ft_embedding)
+    <class 'numpy.ndarray'>
+    >>> type(ft_embedding[0])
+    <class 'numpy.float32'>
+    """
+    fasttext_vector = model.get_word_vector(word)
+    return fasttext_vector
+
+
+def get_fasttext_sentence_embedding(word: str, model: "fasttext.FastText._FastText"):
+    """Get embedding for a word.
+
+    >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> latin_text_str = get_example_text("lat")[:50]
+    >>> ft_sent_embedding = get_fasttext_sentence_embedding(word=latin_text_str, model=ft_model)
+    >>> type(ft_sent_embedding)
+    <class 'numpy.ndarray'>
+    >>> type(ft_sent_embedding[0])
+    <class 'numpy.float32'>
+    """
+    fasttext_vector = model.get_sentence_vector(word)
+    return fasttext_vector
 
 
 def fasttext_example():
