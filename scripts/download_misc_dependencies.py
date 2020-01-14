@@ -8,7 +8,7 @@ from typing import Any, List
 
 from stanfordnlp.utils.resources import download
 
-from cltkv1.embeddings.fasttext import (
+from cltkv1.embeddings.fasttext_module import (
     are_fasttext_models_downloaded,
     download_fasttext_models,
 )
