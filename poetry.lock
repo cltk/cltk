@@ -195,19 +195,6 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.16"
 
 [[package]]
-category = "main"
-description = "fasttext Python bindings"
-name = "fasttext"
-optional = false
-python-versions = "*"
-version = "0.9.1"
-
-[package.dependencies]
-numpy = "*"
-pybind11 = ">=2.2"
-setuptools = ">=0.7.0"
-
-[[package]]
 category = "dev"
 description = "A platform independent file lock."
 name = "filelock"
@@ -603,14 +590,6 @@ name = "py"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "1.8.1"
-
-[[package]]
-category = "main"
-description = "Seamless operability between C++11 and Python"
-name = "pybind11"
-optional = false
-python-versions = "*"
-version = "2.4.3"
 
 [[package]]
 category = "dev"
@@ -1074,7 +1053,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pathlib2", "contextlib2", "unittest2"]
 
 [metadata]
-content-hash = "44b85bc90eeb7522ffb71335854bbcd878ffaff49b8f8e1eb9cd3306dbcc8960"
+content-hash = "f3fad83b06fcbf836e0b4d1906d7e3a23b803ae01e084184fa3a4e7166a72952"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1182,10 +1161,6 @@ decorator = [
 docutils = [
     {file = "docutils-0.16-py2.py3-none-any.whl", hash = "sha256:0c5b78adfbf7762415433f5515cd5c9e762339e23369dbe8000d84a4bf4ab3af"},
     {file = "docutils-0.16.tar.gz", hash = "sha256:c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"},
-]
-fasttext = [
-    {file = "fasttext-0.9.1-cp27-cp27m-macosx_10_6_x86_64.whl", hash = "sha256:f79b3447b1612b9b1ad791d4be97db3fecb97762dba01e6fbec389d0d0874772"},
-    {file = "fasttext-0.9.1.tar.gz", hash = "sha256:6ead9c6aafe985472066e27c43e33f581b192befd136a84c3c2e8197e7e05be6"},
 ]
 filelock = [
     {file = "filelock-3.0.12-py3-none-any.whl", hash = "sha256:929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"},
@@ -1435,10 +1410,6 @@ ptyprocess = [
 py = [
     {file = "py-1.8.1-py2.py3-none-any.whl", hash = "sha256:c20fdd83a5dbc0af9efd622bee9a5564e278f6380fffcacc43ba6f43db2813b0"},
     {file = "py-1.8.1.tar.gz", hash = "sha256:5e27081401262157467ad6e7f851b7aa402c5852dbcb3dae06768434de5752aa"},
-]
-pybind11 = [
-    {file = "pybind11-2.4.3-py2.py3-none-any.whl", hash = "sha256:06398d054acd33d3b89d4b12000fadc36e946001438425a96c9e30048655ab96"},
-    {file = "pybind11-2.4.3.tar.gz", hash = "sha256:72e6def53fb491f7f4e92692029d2e7bb5a0783314f20d80222735ff10a75758"},
 ]
 pygments = [
     {file = "Pygments-2.5.2-py2.py3-none-any.whl", hash = "sha256:2a3fe295e54a20164a9df49c75fa58526d3be48e14aceba6d6b1e8ac0bfd6f1b"},

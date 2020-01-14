@@ -303,8 +303,13 @@ def fasttext_example():
     https://fasttext.cc/docs/en/python-module.html
     """
 
-    la_bin = _build_fasttext_filepath(iso_code="lat", training_set="wiki", model_type="vec")
-    print(la_bin)
+    la_bin = _build_fasttext_filepath(iso_code="lat", training_set="wiki", model_type="bin")
+    print(os.path.isfile(la_bin), la_bin)
+    la_vec = _build_fasttext_filepath(iso_code="lat", training_set="wiki", model_type="vec")
+    print(os.path.isfile(la_vec), la_vec)
+
+    fasttext.load_model(la_vec)
+
     # la_vec = "/Users/kyle/Downloads/wiki.la/wiki.la.vec"
     # print(dir(fasttext))
     # model = fasttext.load_model(la_bin)
