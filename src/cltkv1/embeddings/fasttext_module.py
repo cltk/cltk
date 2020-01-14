@@ -135,7 +135,9 @@ def _build_fasttext_filepath(iso_code: str, training_set: str, model_type: str):
     valid_model_types = ["bin", "vec"]
     if model_type not in valid_model_types:
         valid_model_types_str = "', '"
-        raise CLTKException(f"Invalid model type '{model_type}'. Choose: '{valid_model_types_str}'.")
+        raise CLTKException(
+            f"Invalid model type '{model_type}'. Choose: '{valid_model_types_str}'."
+        )
     fp_model = None
     if training_set == "wiki":
         fp_model = os.path.join(
@@ -270,15 +272,29 @@ def download_fasttext_models(iso_code: str, training_set: str, force=False):
         return None
 
 
-def load_ft_model(iso_code: str, training_set: str, model_type: str):
-    """Load fastText model from disk into memory. ``.bin`` models contain
-    all information necessary to retrain (parameters and dictionary) while
-    the ``.vec`` is much smaller and only has the word vectors.
+def load_fasttext_model(iso_code: str, training_set: str, model_type: str):
+    """Load fastText a model into memory and gracefully handle
+    failure. ``.bin`` models contain all information necessary
+    to retrain (parameters and dictionary) while the ``.vec``
+    is much smaller and only has the word vectors.
 
-    # >>> ft_model = load_ft_model(iso_code="lat", training_set="common_crawl", model_type="vec")
-    # >>> ft_model
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
+    >>> type(ft_model)
+    <class 'fasttext.FastText._FastText'>
     """
-    fp_model = _build_fasttext_filepath(iso_code=iso_code, training_set=training_set, model_type="vec")
+    is_fasttext_lang_available(iso_code=iso_code)
+    is_vector_for_lang(iso_code=iso_code, training_set=training_set)
+    fp_model = _build_fasttext_filepath(
+        iso_code=iso_code, training_set=training_set, model_type=model_type
+    )
+    if not os.path.isfile(fp_model):
+        # TODO: Give instructions how to install
+        raise FileNotFoundError(
+            f"``fastText`` model expected at ``{fp_model}`` and not found."
+        )
+    model = fasttext.load_model(fp_model)
+    return model
+
     # wv = "/Users/kyle.p.johnson/cltk_data/lat/embeddings/fasttext/wiki.la.vec"
     # print(fp_model == wv)
     # if model_type == "vec":
@@ -295,17 +311,19 @@ def load_ft_model(iso_code: str, training_set: str, model_type: str):
     # else:
     #     raise ValueError(f"Invalid '{model_type}'.")
 
-    return
-
 
 def fasttext_example():
     """
     https://fasttext.cc/docs/en/python-module.html
     """
 
-    la_bin = _build_fasttext_filepath(iso_code="lat", training_set="wiki", model_type="bin")
+    la_bin = _build_fasttext_filepath(
+        iso_code="lat", training_set="wiki", model_type="bin"
+    )
     print(os.path.isfile(la_bin), la_bin)
-    la_vec = _build_fasttext_filepath(iso_code="lat", training_set="wiki", model_type="vec")
+    la_vec = _build_fasttext_filepath(
+        iso_code="lat", training_set="wiki", model_type="vec"
+    )
     print(os.path.isfile(la_vec), la_vec)
 
     fasttext.load_model(la_vec)

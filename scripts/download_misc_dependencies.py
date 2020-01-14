@@ -74,7 +74,9 @@ def get_fasttext_models(force: bool = True, lang: str = "all"):
         download_fasttext_models(iso_code=lang, training_set="wiki", force=force)
     for lang in common_crawl_models:
         print("Going to download the fastText 'common_crawl' models ...")
-        download_fasttext_models(iso_code=lang, training_set="common_crawl", force=force)
+        download_fasttext_models(
+            iso_code=lang, training_set="common_crawl", force=force
+        )
 
 
 if __name__ == "__main__":
