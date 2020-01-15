@@ -281,8 +281,8 @@ def load_fasttext_model(iso_code: str, training_set: str, model_type: str):
     TODO: Add exceptions for loading problems due to FT not being installed
     TODO: Check all 4 types of model reading on cpu w/ enough memory
 
-    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
-    >>> type(ft_model)
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")  # doctest: +IGNORE_EXCEPTION_DETAIL
+    >>> type(ft_model)  # doctest: +IGNORE_EXCEPTION_DETAIL
     <class 'fasttext.FastText._FastText'>
     """
     is_fasttext_lang_available(iso_code=iso_code)
