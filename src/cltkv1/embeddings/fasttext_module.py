@@ -321,9 +321,9 @@ def get_fasttext_embedding(word: str, model: "fasttext.FastText._FastText"):
     >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
     >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
     >>> ft_embedding = get_fasttext_embedding(word="arma", model=ft_model)
-    >>> type(ft_embedding)
+    >>> type(ft_embedding) # doctest: +SKIP
     <class 'numpy.ndarray'>
-    >>> type(ft_embedding[0])
+    >>> type(ft_embedding[0]) # doctest: +SKIP
     <class 'numpy.float32'>
     """
     fasttext_vector = model.get_word_vector(word)
