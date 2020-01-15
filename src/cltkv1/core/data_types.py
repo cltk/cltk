@@ -164,6 +164,29 @@ class Doc:
         """
         return self._get_words_attribute("lemma")
 
+    @property
+    def embeddings(self):
+        """Returns an embedding for each word.
+
+        TODO: Consider option to use lemma
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+        >>> type(cltk_doc.embeddings[0])
+        <class 'numpy.ndarray'>
+        """
+        from cltkv1.embeddings.fasttext_module import load_fasttext_model
+        from cltkv1.embeddings.fasttext_module import get_fasttext_embedding
+
+        ft_model = load_fasttext_model(
+            iso_code="lat", training_set="wiki", model_type="bin"
+        )
+        return [
+            get_fasttext_embedding(word=token, model=ft_model) for token in self.tokens
+        ]
+
 
 @dataclass
 class Process:
