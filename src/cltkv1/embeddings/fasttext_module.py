@@ -8,6 +8,8 @@ the other being a combination of Wikipedia and Common Crawl
 <https://fasttext.cc/docs/en/crawl-vectors.html>`_).
 
 TODO: Consider whether to use Gensim for accessing fastText vectors instead.
+
+TODO: Figure out how to test fastText mdoels that (maybe) fail on build server due to insufficient memory.
 """
 
 import io
@@ -281,8 +283,8 @@ def load_fasttext_model(iso_code: str, training_set: str, model_type: str):
     TODO: Add exceptions for loading problems due to FT not being installed
     TODO: Check all 4 types of model reading on cpu w/ enough memory
 
-    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
-    >>> type(ft_model)
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin") # doctest: +SKIP
+    >>> type(ft_model) # doctest: +SKIP
     <class 'fasttext.FastText._FastText'>
     """
     is_fasttext_lang_available(iso_code=iso_code)
@@ -319,8 +321,8 @@ def get_fasttext_embedding(word: str, model: "fasttext.FastText._FastText"):
     """Get embedding for a word.
 
     >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
-    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
-    >>> ft_embedding = get_fasttext_embedding(word="arma", model=ft_model)
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin") # doctest: +SKIP
+    >>> ft_embedding = get_fasttext_embedding(word="arma", model=ft_model) # doctest: +SKIP
     >>> type(ft_embedding) # doctest: +SKIP
     <class 'numpy.ndarray'>
     >>> type(ft_embedding[0]) # doctest: +SKIP
@@ -334,13 +336,13 @@ def get_fasttext_sentence_embedding(word: str, model: "fasttext.FastText._FastTe
     """Get embedding for a word.
 
     >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
-    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin")
+    >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin") # doctest: +SKIP
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> latin_text_str = get_example_text("lat")[:50]
-    >>> ft_sent_embedding = get_fasttext_sentence_embedding(word=latin_text_str, model=ft_model)
-    >>> type(ft_sent_embedding)
+    >>> ft_sent_embedding = get_fasttext_sentence_embedding(word=latin_text_str, model=ft_model) # doctest: +SKIP
+    >>> type(ft_sent_embedding) # doctest: +SKIP
     <class 'numpy.ndarray'>
-    >>> type(ft_sent_embedding[0])
+    >>> type(ft_sent_embedding[0]) # doctest: +SKIP
     <class 'numpy.float32'>
     """
     fasttext_vector = model.get_sentence_vector(word)

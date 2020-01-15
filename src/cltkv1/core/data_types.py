@@ -174,7 +174,7 @@ class Doc:
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> type(cltk_doc.embeddings[0])
+        >>> type(cltk_doc.embeddings[0]) # doctest: +SKIP
         <class 'numpy.ndarray'>
         """
         from cltkv1.embeddings.fasttext_module import load_fasttext_model
