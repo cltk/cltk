@@ -16,6 +16,8 @@ import io
 import os
 
 import fasttext
+from gensim.models.wrappers import FastText  # for fastText's .bin format
+from gensim.models import KeyedVectors  # for word2vec-style embeddings (.vec for fastText)
 import requests
 from tqdm import tqdm
 
@@ -31,6 +33,8 @@ class Embeddings:
 
     >>> from cltkv1.embeddings.embeddings import Embeddings
     >>> embeddings_obj = Embeddings(iso_code="lat")
+    >>> embeddings_obj.get_sims(word="amicitia")[0][0]
+    'amicitiam'
     >>> embeddings_obj.get_word_vector("amicitia")
     [1, 2, 3]
     """
@@ -57,21 +61,38 @@ class Embeddings:
         if not self._is_fasttext_lang_available():
             available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
             raise UnimplementedLanguageError(f"No embedding available for language '{self.iso_code}'. Embeddings available for: {available_embeddings_str}.")
+        self.model = self._load_model()
+
+    def _load_model(self):
+        """Load model into memory.
+
+        TODO: Suppress Gensim info printout from screen
+        """
+        fp = "/Users/kyle.p.johnson/cltk_data/lat/embeddings/fasttext/wiki.la.vec"
+        return KeyedVectors.load_word2vec_format(fp)
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
         return [1, 2, 3]
+
+    def get_sims(self, word: str):
+        """Get similar words."""
+        return self.model.most_similar(word)
 
     def _is_fasttext_lang_available(self) -> bool:
         """Returns whether any vectors are available, for
         fastText, for the input language. This is not comprehensive
         of all fastText embeddings, only those added into the CLTK.
 
-        >>> is_fasttext_lang_available(iso_code="lat")
+        >>> from cltkv1.embeddings.embeddings import Embeddings
+        >>> embeddings_obj = Embeddings(iso_code="lat")
+        >>> embeddings_obj._is_fasttext_lang_available()
         True
-        >>> is_fasttext_lang_available(iso_code="ave")
-        False
-        >>> is_fasttext_lang_available(iso_code="xxx")
+        >>> embeddings_obj = Embeddings(iso_code="ave")
+        Traceback (most recent call last):
+          ..
+        cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. Embeddings available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
+        >>> embeddings_obj = Embeddings(iso_code="xxx")
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.UnknownLanguageError
@@ -82,51 +103,196 @@ class Embeddings:
         else:
             return True
 
-    def _build_fasttext_filepath(self, training_set: str, model_type: str = "vec"):
-        """Create filepath at which to save a downloaded
-        fasttext model.
-
-        TODO: Do better than test for just name. Try trimming up to user home dir.
-
-        >>> embeddings_obj = Embeddings(iso_code="lat")
-        >>> bin_fp = embeddings_obj._build_fasttext_filepath(training_set="wiki", model_type="bin")
-        >>> vec_fp = embeddings_obj._build_fasttext_filepath(training_set="wiki", model_type="vec")
-        >>> os.path.split(bin_fp)[1]
-        'wiki.la.bin'
-        >>> os.path.split(vec_fp)[1]
-        'wiki.la.vec'
-        >>> bin_fp = embeddings_obj._build_fasttext_filepath(training_set="common_crawl", model_type="bin")
-        >>> vec_fp = embeddings_obj._build_fasttext_filepath(training_set="common_crawl", model_type="vec")
-        >>> os.path.split(bin_fp)[1]
-        'cc.la.300.bin'
-        >>> os.path.split(vec_fp)[1]
-        'cc.la.300.vec'
-        """
-        fasttext_code = MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
-        valid_model_types = ["bin", "vec"]
-        if model_type not in valid_model_types:
-            valid_model_types_str = "', '"
-            raise CLTKException(
-                f"Invalid model type '{model_type}'. Choose: '{valid_model_types_str}'."
-            )
-        fp_model = None
-        if training_set == "wiki":
-            fp_model = os.path.join(
-                __cltk_data_dir__,
-                self.iso_code,
-                "embeddings",
-                "fasttext",
-                f"wiki.{fasttext_code}.{model_type}",
-            )
-        elif training_set == "common_crawl":
-            fp_model = os.path.join(
-                __cltk_data_dir__,
-                self.iso_code,
-                "embeddings",
-                "fasttext",
-                f"cc.{fasttext_code}.300.{model_type}",
-            )
-        return fp_model
+    # def _is_vector_for_lang(self, training_set: str) -> bool:
+    #     """Check whether a embedding is available for a chosen
+    #     vector type, ``wiki`` or ``common_crawl``.
+    #
+    #     >>> is_fasttext_lang_available(iso_code="lat")
+    #     >>> is_vector_for_lang(training_set="wiki")
+    #     True
+    #     >>> is_vector_for_lang(training_set="common_crawl")
+    #     False
+    #     >>> is_vector_for_lang(iso_code="xxx", training_set="common_crawl")
+    #     Traceback (most recent call last):
+    #       ...
+    #     cltkv1.core.exceptions.UnknownLanguageError
+    #     >>> is_vector_for_lang(iso_code="lat", training_set="xxx")
+    #     Traceback (most recent call last):
+    #       ...
+    #     cltkv1.core.exceptions.CLTKException: Invalid ``training_set`` 'xxx'. Available: 'wiki', 'common_crawl'.
+    #     """
+    #     get_fasttext_lang_code(iso_code=iso_code)  # does validation for language
+    #     training_sets = ["wiki", "common_crawl"]
+    #     if training_set not in training_sets:
+    #         training_sets_str = "', '".join(training_sets)
+    #         raise CLTKException(
+    #             f"Invalid ``training_set`` '{training_set}'. Available: '{training_sets_str}'."
+    #         )
+    #     available_vectors = list()
+    #     if training_set == "wiki":
+    #         available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
+    #     elif training_set == "common_crawl":
+    #         available_vectors = ["arb", "lat", "san"]
+    #     if iso_code in available_vectors:
+    #         return True
+    #     else:
+    #         return False
+    #
+    # def _build_fasttext_filepath(self, training_set: str, model_type: str = "vec"):
+    #     """Create filepath at which to save a downloaded
+    #     fasttext model.
+    #
+    #     TODO: Do better than test for just name. Try trimming up to user home dir.
+    #
+    #     >>> embeddings_obj = Embeddings(iso_code="lat")
+    #     >>> bin_fp = embeddings_obj._build_fasttext_filepath(training_set="wiki", model_type="bin")
+    #     >>> vec_fp = embeddings_obj._build_fasttext_filepath(training_set="wiki", model_type="vec")
+    #     >>> os.path.split(bin_fp)[1]
+    #     'wiki.la.bin'
+    #     >>> os.path.split(vec_fp)[1]
+    #     'wiki.la.vec'
+    #     >>> bin_fp = embeddings_obj._build_fasttext_filepath(training_set="common_crawl", model_type="bin")
+    #     >>> vec_fp = embeddings_obj._build_fasttext_filepath(training_set="common_crawl", model_type="vec")
+    #     >>> os.path.split(bin_fp)[1]
+    #     'cc.la.300.bin'
+    #     >>> os.path.split(vec_fp)[1]
+    #     'cc.la.300.vec'
+    #     """
+    #     fasttext_code = MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
+    #     valid_model_types = ["bin", "vec"]
+    #     if model_type not in valid_model_types:
+    #         valid_model_types_str = "', '"
+    #         raise CLTKException(
+    #             f"Invalid model type '{model_type}'. Choose: '{valid_model_types_str}'."
+    #         )
+    #     fp_model = None
+    #     if training_set == "wiki":
+    #         fp_model = os.path.join(
+    #             __cltk_data_dir__,
+    #             self.iso_code,
+    #             "embeddings",
+    #             "fasttext",
+    #             f"wiki.{fasttext_code}.{model_type}",
+    #         )
+    #     elif training_set == "common_crawl":
+    #         fp_model = os.path.join(
+    #             __cltk_data_dir__,
+    #             self.iso_code,
+    #             "embeddings",
+    #             "fasttext",
+    #             f"cc.{fasttext_code}.300.{model_type}",
+    #         )
+    #     return fp_model
+    #
+    # def _are_fasttext_models_downloaded(self, training_set: str):
+    #     """Check ``.bin` and/or ``.vec`` is present on disk at:
+    #     ``~/cltk_data/lat/embeddings/fasttext/wiki.la.bin`` and
+    #     ``~/cltk_data/lat/embeddings/fasttext/wiki.la.vec``.
+    #
+    #     >>> embeddings_obj = Embeddings(iso_code="lat")
+    #     >>> embeddings_obj.are_fasttext_models_downloaded(iso_code="lat", training_set="wiki")
+    #     True
+    #     >>> embeddings_obj.are_fasttext_models_downloaded(iso_code="lat", training_set="common_crawl")
+    #     True
+    #     """
+    #     self._is_fasttext_lang_available()
+    #     is_vector_for_lang(iso_code=iso_code, training_set=training_set)
+    #     fp_model_bin = _build_fasttext_filepath(
+    #         iso_code=iso_code, training_set=training_set, model_type="bin"
+    #     )
+    #     fp_model_vec = _build_fasttext_filepath(
+    #         iso_code=iso_code, training_set=training_set, model_type="vec"
+    #     )
+    #     if os.path.isfile(fp_model_bin) and os.path.isfile(fp_model_vec):
+    #         return True
+    #     else:
+    #         return False
+    #
+    # def _build_fasttext_url(iso_code: str, training_set: str):
+    #     """Make the URL at which the requested model may be
+    #     downloaded.
+    #
+    #     >>> bin_url, vec_url = _build_fasttext_url(iso_code="lat", training_set="wiki")
+    #     >>> bin_url
+    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.la.zip'
+    #     >>> vec_url
+    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.la.vec'
+    #     >>> bin_url, vec_url = _build_fasttext_url(iso_code="lat", training_set="common_crawl")
+    #     >>> bin_url
+    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.la.300.bin.gz'
+    #     >>> vec_url
+    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.la.300.vec.gz'
+    #     """
+    #     fasttext_code = get_fasttext_lang_code(iso_code=iso_code)
+    #     bin_url = None
+    #     vec_url = None
+    #     if training_set == "wiki":
+    #         bin_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.zip"
+    #         vec_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.vec"
+    #     elif training_set == "common_crawl":
+    #         bin_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.bin.gz"
+    #         vec_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.vec.gz"
+    #     return bin_url, vec_url
+    #
+    # def _mk_dirs_for_file(filepath):
+    #     """Make all dirs specified for final file.
+    #
+    #     >>> _mk_dirs_for_file("~/new-dir/some-file.txt")
+    #     """
+    #     dirs = os.path.split(filepath)[0]
+    #     try:
+    #         os.makedirs(dirs)
+    #     except FileExistsError:
+    #         # TODO: Log INFO level
+    #         pass
+    #
+    # def _get_file_with_progress_bar(url: str, filepath: str):
+    #     """Download file with a progress bar.
+    #
+    #     Source: https://stackoverflow.com/a/37573701
+    #
+    #     TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
+    #     TODO: Confirm everything saves right
+    #     TODO: Add tests
+    #     """
+    #     _mk_dirs_for_file(filepath=filepath)
+    #     req_obj = requests.get(url=url, stream=True)
+    #     total_size = int(req_obj.headers.get("content-length", 0))
+    #     block_size = 1024  # 1 Kibibyte
+    #     progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
+    #     with open(filepath, "wb") as file_open:
+    #         for data in req_obj.iter_content(block_size):
+    #             progress_bar.update(len(data))
+    #             file_open.write(data)
+    #     progress_bar.close()
+    #     if total_size != 0 and progress_bar.n != total_size:
+    #         print("ERROR, something went wrong")
+    #
+    # def download_fasttext_models(iso_code: str, training_set: str, force=False):
+    #     """Perform complete download of fastText models and save
+    #     them in appropriate ``cltk_data`` dir.
+    #
+    #     TODO: Add tests
+    #     """
+    #     is_fasttext_lang_available(iso_code=iso_code)
+    #     is_vector_for_lang(iso_code=iso_code, training_set=training_set)
+    #     if (
+    #             not are_fasttext_models_downloaded(iso_code=iso_code, training_set=training_set)
+    #             or force
+    #     ):
+    #         bin_url, vec_url = _build_fasttext_url(
+    #             iso_code=iso_code, training_set=training_set
+    #         )
+    #         bin_fp = _build_fasttext_filepath(
+    #             iso_code=iso_code, training_set=training_set, model_type="bin"
+    #         )
+    #         vec_fp = _build_fasttext_filepath(
+    #             iso_code=iso_code, training_set=training_set, model_type="vec"
+    #         )
+    #         _get_file_with_progress_bar(url=bin_url, filepath=bin_fp)
+    #         _get_file_with_progress_bar(url=vec_url, filepath=vec_fp)
+    #     else:
+    #         return None
 
 
 MAP_LANGS_CLTK_FASTTEXT = {
