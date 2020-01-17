@@ -323,7 +323,7 @@ class StanfordNLPProcess(Process):
         ``stanfordnlp`` has only partial functionality available for some languages.
 
 
-    >>> from cltkv1.wrappers.stanford import StanfordNLPProcess
+    >>> from cltkv1.dependency.stanford import StanfordNLPProcess
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
     >>> isinstance(process_stanford, StanfordNLPProcess)
@@ -354,7 +354,7 @@ class StanfordNLPProcess(Process):
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
 
-        >>> from cltkv1.wrappers.stanford import StanfordNLPProcess
+        >>> from cltkv1.dependency.stanford import StanfordNLPProcess
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
         >>> process_stanford.run()

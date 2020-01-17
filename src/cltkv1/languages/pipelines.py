@@ -7,12 +7,11 @@ these dataclasses is to represent:
 """
 
 from dataclasses import dataclass, field
-from typing import Callable, List, Type
+from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.languages.utils import get_lang
-from cltkv1.tokenizers import DefaultTokenizationProcess, LatinTokenizationProcess
-from cltkv1.wrappers.stanford import StanfordNLPProcess
+from cltkv1.dependency.stanford import StanfordNLPProcess
 
 
 @dataclass
@@ -28,7 +27,7 @@ class LatinPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Latin'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.wrappers.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
 
     description: str = "Pipeline for the Latin language"
@@ -49,7 +48,7 @@ class GreekPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Ancient Greek'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.wrappers.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
 
     description: str = "Pipeline for the Greek language"
@@ -70,7 +69,7 @@ class OCSPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Church Slavic'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.wrappers.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
 
     description: str = "Pipeline for the Old Church Slavonic language"
@@ -91,7 +90,7 @@ class OldFrenchPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Old French (842-ca. 1400)'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.wrappers.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
 
     description: str = "Pipeline for the Old French language"
@@ -112,7 +111,7 @@ class GothicPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Gothic'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.wrappers.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
 
     description: str = "Pipeline for the Gothic language"
