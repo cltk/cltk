@@ -20,8 +20,114 @@ import requests
 from tqdm import tqdm
 
 from cltkv1 import __cltk_data_dir__
-from cltkv1.core.exceptions import CLTKException
+from cltkv1.core.exceptions import CLTKException, UnimplementedLanguageError
 from cltkv1.languages.utils import get_lang
+
+
+class Embeddings:
+    """Wrapper for embeddings (word2Vec, fastText).
+
+    TODO: Find better names for this and the module.
+
+    >>> from cltkv1.embeddings.embeddings import Embeddings
+    >>> embeddings_obj = Embeddings(iso_code="lat")
+    >>> embeddings_obj.get_word_vector("amicitia")
+    [1, 2, 3]
+    """
+
+    def __init__(self, iso_code: str):
+        """Constructor for  ``Embeddings`` class.
+
+        >>> embeddings_obj = Embeddings(iso_code="xxx")
+        Traceback (most recent call last):
+          ..
+        cltkv1.core.exceptions.UnknownLanguageError
+        """
+
+        self.MAP_LANGS_CLTK_FASTTEXT = {
+            "arb": "ar",  # Arabic
+            "arc": "arc",  # Aramaic
+            "got": "got",  # Gothic
+            "lat": "la",  # Latin
+            "pli": "pi",  # Pali
+            "san": "sa",  # Sanskrit
+            "xno": "ang",  # Anglo-Saxon
+        }
+        self.iso_code = iso_code
+        if not self._is_fasttext_lang_available():
+            available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
+            raise UnimplementedLanguageError(f"No embedding available for language '{self.iso_code}'. Embeddings available for: {available_embeddings_str}.")
+
+    def get_word_vector(self, word: str):
+        """Return embedding array."""
+        return [1, 2, 3]
+
+    def _is_fasttext_lang_available(self) -> bool:
+        """Returns whether any vectors are available, for
+        fastText, for the input language. This is not comprehensive
+        of all fastText embeddings, only those added into the CLTK.
+
+        >>> is_fasttext_lang_available(iso_code="lat")
+        True
+        >>> is_fasttext_lang_available(iso_code="ave")
+        False
+        >>> is_fasttext_lang_available(iso_code="xxx")
+        Traceback (most recent call last):
+          ..
+        cltkv1.core.exceptions.UnknownLanguageError
+        """
+        get_lang(iso_code=self.iso_code)
+        if self.iso_code not in self.MAP_LANGS_CLTK_FASTTEXT:
+            return False
+        else:
+            return True
+
+    def _build_fasttext_filepath(self, training_set: str, model_type: str = "vec"):
+        """Create filepath at which to save a downloaded
+        fasttext model.
+
+        TODO: Do better than test for just name. Try trimming up to user home dir.
+
+        >>> embeddings_obj = Embeddings(iso_code="lat")
+        >>> bin_fp = embeddings_obj._build_fasttext_filepath(training_set="wiki", model_type="bin")
+        >>> vec_fp = embeddings_obj._build_fasttext_filepath(training_set="wiki", model_type="vec")
+        >>> os.path.split(bin_fp)[1]
+        'wiki.la.bin'
+        >>> os.path.split(vec_fp)[1]
+        'wiki.la.vec'
+        >>> bin_fp = embeddings_obj._build_fasttext_filepath(training_set="common_crawl", model_type="bin")
+        >>> vec_fp = embeddings_obj._build_fasttext_filepath(training_set="common_crawl", model_type="vec")
+        >>> os.path.split(bin_fp)[1]
+        'cc.la.300.bin'
+        >>> os.path.split(vec_fp)[1]
+        'cc.la.300.vec'
+        """
+        fasttext_code = MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
+        valid_model_types = ["bin", "vec"]
+        if model_type not in valid_model_types:
+            valid_model_types_str = "', '"
+            raise CLTKException(
+                f"Invalid model type '{model_type}'. Choose: '{valid_model_types_str}'."
+            )
+        fp_model = None
+        if training_set == "wiki":
+            fp_model = os.path.join(
+                __cltk_data_dir__,
+                self.iso_code,
+                "embeddings",
+                "fasttext",
+                f"wiki.{fasttext_code}.{model_type}",
+            )
+        elif training_set == "common_crawl":
+            fp_model = os.path.join(
+                __cltk_data_dir__,
+                self.iso_code,
+                "embeddings",
+                "fasttext",
+                f"cc.{fasttext_code}.300.{model_type}",
+            )
+        return fp_model
+
 
 MAP_LANGS_CLTK_FASTTEXT = {
     "arb": "ar",  # Arabic
@@ -32,7 +138,6 @@ MAP_LANGS_CLTK_FASTTEXT = {
     "san": "sa",  # Sanskrit
     "xno": "ang",  # Anglo-Saxon
 }
-
 
 def is_fasttext_lang_available(iso_code: str) -> bool:
     """Returns whether any vectors are available, for
@@ -59,7 +164,7 @@ def get_fasttext_lang_code(iso_code: str) -> str:
     """Input an ISO language code (used by the CLTK) and
     return the language code used by fastText.
 
-    >>> from cltkv1.embeddings.fasttext_module import get_fasttext_lang_code
+    >>> from cltkv1.embeddings.embeddings import get_fasttext_lang_code
     >>> get_fasttext_lang_code(iso_code="xno")
     'ang'
     >>> get_fasttext_lang_code(iso_code="ave")
@@ -320,7 +425,7 @@ def load_fasttext_model(iso_code: str, training_set: str, model_type: str):
 def get_fasttext_embedding(word: str, model: "fasttext.FastText._FastText"):
     """Get embedding for a word.
 
-    >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
+    >>> from cltkv1.embeddings.embeddings import load_fasttext_model
     >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin") # doctest: +SKIP
     >>> ft_embedding = get_fasttext_embedding(word="arma", model=ft_model) # doctest: +SKIP
     >>> type(ft_embedding) # doctest: +SKIP
@@ -335,7 +440,7 @@ def get_fasttext_embedding(word: str, model: "fasttext.FastText._FastText"):
 def get_fasttext_sentence_embedding(word: str, model: "fasttext.FastText._FastText"):
     """Get embedding for a word.
 
-    >>> from cltkv1.embeddings.fasttext_module import load_fasttext_model
+    >>> from cltkv1.embeddings.embeddings import load_fasttext_model
     >>> ft_model = load_fasttext_model(iso_code="lat", training_set="wiki", model_type="bin") # doctest: +SKIP
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> latin_text_str = get_example_text("lat")[:50]

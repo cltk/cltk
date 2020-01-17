@@ -177,8 +177,8 @@ class Doc:
         >>> type(cltk_doc.embeddings[0]) # doctest: +SKIP
         <class 'numpy.ndarray'>
         """
-        from cltkv1.embeddings.fasttext_module import load_fasttext_model
-        from cltkv1.embeddings.fasttext_module import get_fasttext_embedding
+        from cltkv1.embeddings.embeddings import load_fasttext_model
+        from cltkv1.embeddings.embeddings import get_fasttext_embedding
 
         ft_model = load_fasttext_model(
             iso_code="lat", training_set="wiki", model_type="bin"
