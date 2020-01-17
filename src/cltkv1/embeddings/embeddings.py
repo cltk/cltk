@@ -103,41 +103,43 @@ class Embeddings:
         else:
             return True
 
-    # def _is_vector_for_lang(self, training_set: str) -> bool:
-    #     """Check whether a embedding is available for a chosen
-    #     vector type, ``wiki`` or ``common_crawl``.
-    #
-    #     >>> is_fasttext_lang_available(iso_code="lat")
-    #     >>> is_vector_for_lang(training_set="wiki")
-    #     True
-    #     >>> is_vector_for_lang(training_set="common_crawl")
-    #     False
-    #     >>> is_vector_for_lang(iso_code="xxx", training_set="common_crawl")
-    #     Traceback (most recent call last):
-    #       ...
-    #     cltkv1.core.exceptions.UnknownLanguageError
-    #     >>> is_vector_for_lang(iso_code="lat", training_set="xxx")
-    #     Traceback (most recent call last):
-    #       ...
-    #     cltkv1.core.exceptions.CLTKException: Invalid ``training_set`` 'xxx'. Available: 'wiki', 'common_crawl'.
-    #     """
-    #     get_fasttext_lang_code(iso_code=iso_code)  # does validation for language
-    #     training_sets = ["wiki", "common_crawl"]
-    #     if training_set not in training_sets:
-    #         training_sets_str = "', '".join(training_sets)
-    #         raise CLTKException(
-    #             f"Invalid ``training_set`` '{training_set}'. Available: '{training_sets_str}'."
-    #         )
-    #     available_vectors = list()
-    #     if training_set == "wiki":
-    #         available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
-    #     elif training_set == "common_crawl":
-    #         available_vectors = ["arb", "lat", "san"]
-    #     if iso_code in available_vectors:
-    #         return True
-    #     else:
-    #         return False
-    #
+    def _is_vector_for_lang(self, training_set: str = "wiki") -> bool:
+        """Check whether a embedding is available for a chosen
+        vector type, ``wiki`` or ``common_crawl``.
+
+        >>> from cltkv1.embeddings.embeddings import Embeddings
+        >>> embeddings_obj = Embeddings(iso_code="lat")
+        >>> embeddings_obj._is_fasttext_lang_available()
+        True
+        >>> embeddings_obj._is_vector_for_lang(training_set="common_crawl")
+        True
+        >>> embeddings_obj = Embeddings(iso_code="pli")
+        >>> embeddings_obj._is_vector_for_lang(training_set="wiki")
+        True
+        >>> embeddings_obj._is_vector_for_lang(training_set="common_crawl")
+        False
+        >>> embeddings_obj._is_vector_for_lang(training_set="xxx")
+        Traceback (most recent call last):
+          ...
+        cltkv1.core.exceptions.CLTKException: Invalid ``training_set`` 'xxx'. Available: 'wiki', 'common_crawl'.
+        """
+        get_fasttext_lang_code(iso_code=self.iso_code)  # does validation for language
+        training_sets = ["wiki", "common_crawl"]
+        if training_set not in training_sets:
+            training_sets_str = "', '".join(training_sets)
+            raise CLTKException(
+                f"Invalid ``training_set`` '{training_set}'. Available: '{training_sets_str}'."
+            )
+        available_vectors = list()
+        if training_set == "wiki":
+            available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
+        elif training_set == "common_crawl":
+            available_vectors = ["arb", "lat", "san"]
+        if self.iso_code in available_vectors:
+            return True
+        else:
+            return False
+
     # def _build_fasttext_filepath(self, training_set: str, model_type: str = "vec"):
     #     """Create filepath at which to save a downloaded
     #     fasttext model.
