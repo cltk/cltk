@@ -8,10 +8,7 @@ from typing import Any, List
 
 from stanfordnlp.utils.resources import download
 
-from cltkv1.embeddings.embeddings import (
-    are_fasttext_models_downloaded,
-    download_fasttext_models,
-)
+from cltkv1.embeddings.embeddings import FastText
 
 
 def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None:
@@ -82,4 +79,5 @@ def get_fasttext_models(force: bool = True, lang: str = "all"):
 if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
     # get_stanfordnlp_models(force_update=True, lang="all")
-    get_fasttext_models(force=False, lang="lat")
+    # get_fasttext_models(force=False, lang="lat")
+    pass
