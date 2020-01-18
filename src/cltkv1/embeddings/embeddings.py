@@ -17,7 +17,9 @@ import os
 
 import fasttext
 from gensim.models.wrappers import FastText  # for fastText's .bin format
-from gensim.models import KeyedVectors  # for word2vec-style embeddings (.vec for fastText)
+from gensim.models import (
+    KeyedVectors,
+)  # for word2vec-style embeddings (.vec for fastText)
 import requests
 from tqdm import tqdm
 
@@ -26,27 +28,29 @@ from cltkv1.core.exceptions import CLTKException, UnimplementedLanguageError
 from cltkv1.languages.utils import get_lang
 
 
-class Embeddings:
+class FastText:
     """Wrapper for embeddings (word2Vec, fastText).
 
     TODO: Find better names for this and the module.
 
-    >>> from cltkv1.embeddings.embeddings import Embeddings
-    >>> embeddings_obj = Embeddings(iso_code="lat")
-    >>> embeddings_obj.get_sims(word="amicitia")[0][0]
-    'amicitiam'
-    >>> embeddings_obj.get_word_vector("amicitia")
-    [1, 2, 3]
+    # >>> from cltkv1.embeddings.embeddings import FastText
+    # >>> embeddings_obj = FastText(iso_code="lat")
+    # >>> embeddings_obj.get_sims(word="amicitia")[0][0]
+    # 'amicitiam'
+    # >>> embeddings_obj.get_word_vector("amicitia")
+    # [1, 2, 3]
     """
 
-    def __init__(self, iso_code: str, training_set: str = "wiki", model_type: str = "vec"):
-        """Constructor for  ``Embeddings`` class.
+    def __init__(
+        self, iso_code: str, training_set: str = "wiki", model_type: str = "vec"
+    ):
+        """Constructor for  ``FastText`` class.
 
-        >>> embeddings_obj = Embeddings(iso_code="lat")
+        >>> embeddings_obj = FastText(iso_code="lat")
         >>> type(embeddings_obj)
-        <class 'cltkv1.embeddings.embeddings.Embeddings'>
+        <class 'cltkv1.embeddings.embeddings.FastText'>
 
-        # >>> embeddings_obj = Embeddings(iso_code="xxx")
+        # >>> embeddings_obj = FastText(iso_code="xxx")
         # Traceback (most recent call last):
         #   ..
         # cltkv1.core.exceptions.UnknownLanguageError
@@ -69,7 +73,9 @@ class Embeddings:
         }
         if not self._is_fasttext_lang_available():
             available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
-            raise UnimplementedLanguageError(f"No embedding available for language '{self.iso_code}'. Embeddings available for: {available_embeddings_str}.")
+            raise UnimplementedLanguageError(
+                f"No embedding available for language '{self.iso_code}'. FastText available for: {available_embeddings_str}."
+            )
 
         # 3. check if requested model type is available for fasttext
         self.model_type = model_type
@@ -99,19 +105,20 @@ class Embeddings:
             pass
         else:
             available_vectors_str = "', '".join(available_vectors)
-            raise CLTKException(f"Training set '{self.training_set}' not available for language '{self.iso_code}'. Available for this combination: '{available_vectors_str}'.")
+            raise CLTKException(
+                f"Training set '{self.training_set}' not available for language '{self.iso_code}'. Available for this combination: '{available_vectors_str}'."
+            )
 
-        # 5. load model once all checks OK
-        # re-enable
-        self.model = self._load_model()
+        # load model once all checks OK
+        model_fp = self._build_fasttext_filepath()
+        self.model = self._load_model(model_fp=model_fp)
 
-    def _load_model(self):
+    def _load_model(self, model_fp):
         """Load model into memory.
 
         TODO: Suppress Gensim info printout from screen
         """
-        fp = "/Users/kyle.p.johnson/cltk_data/lat/embeddings/fasttext/wiki.la.vec"
-        return KeyedVectors.load_word2vec_format(fp)
+        return KeyedVectors.load_word2vec_format(model_fp)
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
@@ -126,15 +133,15 @@ class Embeddings:
         fastText, for the input language. This is not comprehensive
         of all fastText embeddings, only those added into the CLTK.
 
-        # >>> from cltkv1.embeddings.embeddings import Embeddings
-        # >>> embeddings_obj = Embeddings(iso_code="lat")
+        # >>> from cltkv1.embeddings.embeddings import FastText
+        # >>> embeddings_obj = FastText(iso_code="lat")
         # >>> embeddings_obj._is_fasttext_lang_available()
         # True
-        # >>> embeddings_obj = Embeddings(iso_code="ave")
+        # >>> embeddings_obj = FastText(iso_code="ave")
         # Traceback (most recent call last):
         #   ..
-        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. Embeddings available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
-        # >>> embeddings_obj = Embeddings(iso_code="xxx")
+        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastText available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
+        # >>> embeddings_obj = FastText(iso_code="xxx")
         # Traceback (most recent call last):
         #   ..
         # cltkv1.core.exceptions.UnknownLanguageError
@@ -144,22 +151,23 @@ class Embeddings:
             return False
         else:
             return True
+
     #
     # def _is_vector_for_lang(self) -> bool:
     #     """Check whether a embedding is available for a chosen
     #     vector type, ``wiki`` or ``common_crawl``.
     #
-    #     >>> from cltkv1.embeddings.embeddings import Embeddings
-    #     >>> embeddings_obj = Embeddings(iso_code="lat")
+    #     >>> from cltkv1.embeddings.embeddings import FastText
+    #     >>> embeddings_obj = FastText(iso_code="lat")
     #     >>> embeddings_obj._is_fasttext_lang_available()
     #     True
-    #     >>> embeddings_obj = Embeddings(iso_code="lat", training_set="common_crawl")
+    #     >>> embeddings_obj = FastText(iso_code="lat", training_set="common_crawl")
     #     >>> embeddings_obj._is_vector_for_lang()
     #     True
-    #     >>> embeddings_obj = Embeddings(iso_code="pli", training_set="wiki")
+    #     >>> embeddings_obj = FastText(iso_code="pli", training_set="wiki")
     #     >>> embeddings_obj._is_vector_for_lang()
     #     True
-    #     >>> embeddings_obj = Embeddings(iso_code="pli", training_set="common_crawl")
+    #     >>> embeddings_obj = FastText(iso_code="pli", training_set="common_crawl")
     #     >>> embeddings_obj._is_vector_for_lang()
     #     False
     #     """
@@ -185,19 +193,19 @@ class Embeddings:
 
         TODO: Do better than test for just name. Try trimming up to user home dir.
 
-        # >>> from cltkv1.embeddings.embeddings import Embeddings
-        # >>> embeddings_obj = Embeddings(iso_code="lat")
+        # >>> from cltkv1.embeddings.embeddings import FastText
+        # >>> embeddings_obj = FastText(iso_code="lat")
         # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(vec_fp)[1]
         # 'wiki.la.vec'
-        # >>> embeddings_obj = Embeddings(iso_code="lat", training_set="bin")
+        # >>> embeddings_obj = FastText(iso_code="lat", training_set="bin")
         # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(bin_fp)[1]
         # 'wiki.la.bin'
-        # >>> embeddings_obj = Embeddings(iso_code="lat", training_set="common_crawl", model_type="vec")
+        # >>> embeddings_obj = FastText(iso_code="lat", training_set="common_crawl", model_type="vec")
         # >>> os.path.split(vec_fp)[1]
         # 'cc.la.300.vec'
-        # >>> embeddings_obj = Embeddings(iso_code="lat", training_set="common_crawl", model_type="bin")
+        # >>> embeddings_obj = FastText(iso_code="lat", training_set="common_crawl", model_type="bin")
         # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
         # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(bin_fp)[1]
@@ -233,7 +241,7 @@ class Embeddings:
     #     ``~/cltk_data/lat/embeddings/fasttext/wiki.la.bin`` and
     #     ``~/cltk_data/lat/embeddings/fasttext/wiki.la.vec``.
     #
-    #     >>> embeddings_obj = Embeddings(iso_code="lat")
+    #     >>> embeddings_obj = FastText(iso_code="lat")
     #     >>> embeddings_obj.are_fasttext_models_downloaded(iso_code="lat", training_set="wiki")
     #     True
     #     >>> embeddings_obj.are_fasttext_models_downloaded(iso_code="lat", training_set="common_crawl")
@@ -824,47 +832,44 @@ if __name__ == "__main__":
 
     # fasttext_example()
 
-    # embeddings_obj = Embeddings(iso_code="lat")
+    # embeddings_obj = FastText(iso_code="lat")
     # model_fp = embeddings_obj._build_fasttext_filepath()
     # print(model_fp)
     # print(os.path.split(model_fp)[1])
     # print("")
     # # 'wiki.la.vec'
 
-    # embeddings_obj = Embeddings(iso_code="lat", training_set="common_crawl")
+    # embeddings_obj = FastText(iso_code="lat", training_set="common_crawl")
     # model_fp = embeddings_obj._build_fasttext_filepath()
     # print(model_fp)
     # print(os.path.split(model_fp)[1])
     # print("")
     # # 'cc.la.300.vec'
     #
-    # embeddings_obj = Embeddings(iso_code="lat", model_type="bin")
+    # embeddings_obj = FastText(iso_code="lat", model_type="bin")
     # model_fp = embeddings_obj._build_fasttext_filepath()
     # print(model_fp)
     # print(os.path.split(model_fp)[1])
     # print("")
     # # 'wiki.la.bin'
     #
-    # embeddings_obj = Embeddings(iso_code="lat", training_set="common_crawl", model_type="bin")
+    # embeddings_obj = FastText(iso_code="lat", training_set="common_crawl", model_type="bin")
     # model_fp = embeddings_obj._build_fasttext_filepath()
     # print(model_fp)
     # print(os.path.split(model_fp)[1])
     # print("")
     # # 'cc.la.300.bin'
     #
-    # embeddings_obj = Embeddings(iso_code="lat", training_set="xxx")
+    # embeddings_obj = FastText(iso_code="lat", training_set="xxx")
     # model_fp = embeddings_obj._build_fasttext_filepath()
     # print(model_fp)
     # print(os.path.split(model_fp)[1])
     # print("")
     # # 'cc.la.300.bin'
     #
-    # embeddings_obj = Embeddings(iso_code="lat", model_type="xxx")
+    # embeddings_obj = FastText(iso_code="lat", model_type="xxx")
     # model_fp = embeddings_obj._build_fasttext_filepath()
     # print(model_fp)
     # print(os.path.split(model_fp)[1])
     # print("")
     # # 'cc.la.300.bin'
-
-
-
