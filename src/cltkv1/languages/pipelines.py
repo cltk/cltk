@@ -10,8 +10,8 @@ from dataclasses import dataclass, field
 from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
-from cltkv1.languages.utils import get_lang
 from cltkv1.dependency.stanford import StanfordNLPProcess
+from cltkv1.languages.utils import get_lang
 
 
 @dataclass

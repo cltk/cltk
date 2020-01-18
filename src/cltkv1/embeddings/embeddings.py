@@ -16,11 +16,11 @@ import io
 import os
 
 import fasttext
-from gensim.models.wrappers import FastText  # for fastText's .bin format
+import requests
 from gensim.models import (
     KeyedVectors,
 )  # for word2vec-style embeddings (.vec for fastText)
-import requests
+from gensim.models.wrappers import FastText  # for fastText's .bin format
 from tqdm import tqdm
 
 from cltkv1 import __cltk_data_dir__
@@ -33,16 +33,21 @@ class FastText:
 
     TODO: Find better names for this and the module.
 
-    # >>> from cltkv1.embeddings.embeddings import FastText
-    # >>> embeddings_obj = FastText(iso_code="lat")
-    # >>> embeddings_obj.get_sims(word="amicitia")[0][0]
-    # 'amicitiam'
-    # >>> embeddings_obj.get_word_vector("amicitia")
-    # [1, 2, 3]
+    >>> from cltkv1.embeddings.embeddings import FastText
+    >>> embeddings_obj = FastText(iso_code="lat")
+    >>> embeddings_obj.get_sims(word="amicitia")[0][0]
+    'amicitiam'
+    >>> vector = embeddings_obj.get_word_vector("amicitia")
+    >>> type(vector)
+    <class 'numpy.ndarray'>
     """
 
     def __init__(
-        self, iso_code: str, training_set: str = "wiki", model_type: str = "vec"
+        self,
+        iso_code: str,
+        training_set: str = "wiki",
+        model_type: str = "vec",
+        interactive: bool = True,
     ):
         """Constructor for  ``FastText`` class.
 
@@ -55,13 +60,11 @@ class FastText:
         #   ..
         # cltkv1.core.exceptions.UnknownLanguageError
         """
-
-        # TODO: Replace all the up-front checks with one hidden method
-        # 1. check if lang valid
         self.iso_code = iso_code
-        get_lang(self.iso_code)  # check if iso_code valid
+        self.training_set = training_set
+        self.model_type = model_type
+        self.interactive = interactive
 
-        # 2. check if any fasttext embeddings for this lang
         self.MAP_LANGS_CLTK_FASTTEXT = {
             "arb": "ar",  # Arabic
             "arc": "arc",  # Aramaic
@@ -71,6 +74,56 @@ class FastText:
             "san": "sa",  # Sanskrit
             "xno": "ang",  # Anglo-Saxon
         }
+
+        self._check_input_params()
+
+        # load model once all checks OK
+        self.model_fp = self._build_fasttext_filepath()
+        if not self._is_model_present():
+            self.download_fasttext_models()
+        self.model = self._load_model()
+
+    def _is_model_present(self):
+        """Check if model in an otherwise valid filepath."""
+
+        if os.path.isfile(self.model_fp):
+            return True
+        else:
+            return False
+
+    def _check_input_params(self):
+        """Look at combination of parameters give to class
+        and determine if any invalid combination or missing
+        models.
+
+        >>> from cltkv1.embeddings.embeddings import FastText
+        >>> fasttext_model = FastText(iso_code="lat")
+        >>> type(fasttext_model)
+        <class 'cltkv1.embeddings.embeddings.FastText'>
+        >>> fasttext_model = FastText(iso_code="ave") # doctest: +ELLIPSIS
+        Traceback (most recent call last):
+          ..
+        cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastText available for: ...
+        >>> fasttext_model = FastText(iso_code="xxx")
+        Traceback (most recent call last):
+          ..
+        cltkv1.core.exceptions.UnknownLanguageError
+        >>> fasttext_model = FastText(iso_code="got", training_set="wiki", interactive=False) # doctest: +ELLIPSIS
+        >>> type(fasttext_model)
+        ...
+        <class 'cltkv1.embeddings.embeddings.FastText'>
+        >>> fasttext_model = FastText(iso_code="got", training_set="common_crawl", interactive=False) # doctest: +ELLIPSIS
+        Traceback (most recent call last):
+          ..
+        cltkv1.core.exceptions.CLTKException: Training set 'common_crawl' not available for language 'got'. Languages available for this training set: ...
+
+        TODO: Add tests for ``.bin`` files, too
+        """
+
+        # 1. check if lang valid
+        get_lang(self.iso_code)  # check if iso_code valid
+
+        # 2. check if any fasttext embeddings for this lang
         if not self._is_fasttext_lang_available():
             available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
             raise UnimplementedLanguageError(
@@ -78,7 +131,6 @@ class FastText:
             )
 
         # 3. check if requested model type is available for fasttext
-        self.model_type = model_type
         valid_model_types = ["bin", "vec"]
         if self.model_type not in valid_model_types:
             valid_model_types_str = "', '"
@@ -87,7 +139,6 @@ class FastText:
             )
 
         # 4. check if requested training set is available for language for fasttext
-        self.training_set = training_set
         training_sets = ["common_crawl", "wiki"]
         if self.training_set not in training_sets:
             training_sets_str = "', '".join(training_sets)
@@ -106,23 +157,20 @@ class FastText:
         else:
             available_vectors_str = "', '".join(available_vectors)
             raise CLTKException(
-                f"Training set '{self.training_set}' not available for language '{self.iso_code}'. Available for this combination: '{available_vectors_str}'."
+                f"Training set '{self.training_set}' not available for language '{self.iso_code}'. Languages available for this training set: '{available_vectors_str}'."
             )
 
-        # load model once all checks OK
-        model_fp = self._build_fasttext_filepath()
-        self.model = self._load_model(model_fp=model_fp)
-
-    def _load_model(self, model_fp):
+    def _load_model(self):
         """Load model into memory.
 
+        TODO: When testing show that this is a Gensim type
         TODO: Suppress Gensim info printout from screen
         """
-        return KeyedVectors.load_word2vec_format(model_fp)
+        return KeyedVectors.load_word2vec_format(self.model_fp)
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
-        return [1, 2, 3]
+        return self.model.get_vector(word)
 
     def get_sims(self, word: str):
         """Get similar words."""
@@ -259,33 +307,24 @@ class FastText:
     #         return True
     #     else:
     #         return False
-    #
-    # def _build_fasttext_url(iso_code: str, training_set: str):
-    #     """Make the URL at which the requested model may be
-    #     downloaded.
-    #
-    #     >>> bin_url, vec_url = _build_fasttext_url(iso_code="lat", training_set="wiki")
-    #     >>> bin_url
-    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.la.zip'
-    #     >>> vec_url
-    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.la.vec'
-    #     >>> bin_url, vec_url = _build_fasttext_url(iso_code="lat", training_set="common_crawl")
-    #     >>> bin_url
-    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.la.300.bin.gz'
-    #     >>> vec_url
-    #     'https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.la.300.vec.gz'
-    #     """
-    #     fasttext_code = get_fasttext_lang_code(iso_code=iso_code)
-    #     bin_url = None
-    #     vec_url = None
-    #     if training_set == "wiki":
-    #         bin_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.zip"
-    #         vec_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.vec"
-    #     elif training_set == "common_crawl":
-    #         bin_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.bin.gz"
-    #         vec_url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.vec.gz"
-    #     return bin_url, vec_url
-    #
+
+    def _build_fasttext_url(self):
+        """Make the URL at which the requested model may be
+        downloaded."""
+        fasttext_code = self.MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
+        if self.training_set == "wiki":
+            if self.model_type == "vec":
+                ending = "vec"
+            else:
+                # for .bin
+                ending = "zip"
+            url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.{fasttext_code}.{ending}"
+        elif self.training_set == "common_crawl":
+            url = f"https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.{fasttext_code}.300.{self.model_type}.gz"
+        else:
+            raise CLTKException("Unexpected exception.")
+        return url
+
     # def _mk_dirs_for_file(filepath):
     #     """Make all dirs specified for final file.
     #
@@ -297,54 +336,64 @@ class FastText:
     #     except FileExistsError:
     #         # TODO: Log INFO level
     #         pass
-    #
-    # def _get_file_with_progress_bar(url: str, filepath: str):
-    #     """Download file with a progress bar.
-    #
-    #     Source: https://stackoverflow.com/a/37573701
-    #
-    #     TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
-    #     TODO: Confirm everything saves right
-    #     TODO: Add tests
-    #     """
-    #     _mk_dirs_for_file(filepath=filepath)
-    #     req_obj = requests.get(url=url, stream=True)
-    #     total_size = int(req_obj.headers.get("content-length", 0))
-    #     block_size = 1024  # 1 Kibibyte
-    #     progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
-    #     with open(filepath, "wb") as file_open:
-    #         for data in req_obj.iter_content(block_size):
-    #             progress_bar.update(len(data))
-    #             file_open.write(data)
-    #     progress_bar.close()
-    #     if total_size != 0 and progress_bar.n != total_size:
-    #         print("ERROR, something went wrong")
-    #
-    # def download_fasttext_models(iso_code: str, training_set: str, force=False):
-    #     """Perform complete download of fastText models and save
-    #     them in appropriate ``cltk_data`` dir.
-    #
-    #     TODO: Add tests
-    #     """
-    #     is_fasttext_lang_available(iso_code=iso_code)
-    #     is_vector_for_lang(iso_code=iso_code, training_set=training_set)
-    #     if (
-    #             not are_fasttext_models_downloaded(iso_code=iso_code, training_set=training_set)
-    #             or force
-    #     ):
-    #         bin_url, vec_url = _build_fasttext_url(
-    #             iso_code=iso_code, training_set=training_set
-    #         )
-    #         bin_fp = _build_fasttext_filepath(
-    #             iso_code=iso_code, training_set=training_set, model_type="bin"
-    #         )
-    #         vec_fp = _build_fasttext_filepath(
-    #             iso_code=iso_code, training_set=training_set, model_type="vec"
-    #         )
-    #         _get_file_with_progress_bar(url=bin_url, filepath=bin_fp)
-    #         _get_file_with_progress_bar(url=vec_url, filepath=vec_fp)
-    #     else:
-    #         return None
+
+    def _get_file_with_progress_bar(self, model_url: str):
+        """Download file with a progress bar.
+
+        Source: https://stackoverflow.com/a/37573701
+
+        TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
+        TODO: Confirm everything saves right
+        TODO: Add tests
+        """
+        self._mk_dirs_for_file()
+        req_obj = requests.get(url=model_url, stream=True)
+        total_size = int(req_obj.headers.get("content-length", 0))
+        block_size = 1024  # 1 Kibibyte
+        progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
+        with open(self.model_fp, "wb") as file_open:
+            for data in req_obj.iter_content(block_size):
+                progress_bar.update(len(data))
+                file_open.write(data)
+        progress_bar.close()
+        if total_size != 0 and progress_bar.n != total_size:
+            print("ERROR, something went wrong")
+
+    def download_fasttext_models(self, force=False):
+        """Perform complete download of fastText models and save
+        them in appropriate ``cltk_data`` dir.
+
+        TODO: Add tests
+        TODO: Implement ``force``
+        TODO: error out better or continue to _load_model?
+        """
+        model_url = self._build_fasttext_url()
+        if not self.interactive:
+            print("Going to download file '{model_url}' to '{self.model_fp} ...")
+            self._get_file_with_progress_bar(model_url=model_url)
+        else:
+            res = input(
+                f"Do you want to download file '{model_url}' to '{self.model_fp}'? [y/n]"
+            )
+            if res.lower() == "y":
+                self._get_file_with_progress_bar(model_url=model_url)
+            elif res.lower() == "n":
+                # lot error here and below
+                return None
+            else:
+                return None
+
+    def _mk_dirs_for_file(self):
+        """Make all dirs specified for final file.
+
+        # >>> _mk_dirs_for_file("~/new-dir/some-file.txt")
+        """
+        dirs = os.path.split(self.model_fp)[0]
+        try:
+            os.makedirs(dirs)
+        except FileExistsError:
+            # TODO: Log INFO level; it's OK if dir already exists
+            pass
 
 
 # MAP_LANGS_CLTK_FASTTEXT = {
