@@ -369,7 +369,7 @@ class FastText:
         """
         model_url = self._build_fasttext_url()
         if not self.interactive:
-            print("Going to download file '{model_url}' to '{self.model_fp} ...")
+            print(f"Going to download file '{self.model_url}' to '{self.model_fp} ...")
             self._get_file_with_progress_bar(model_url=model_url)
         else:
             res = input(
