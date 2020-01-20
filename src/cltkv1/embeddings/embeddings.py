@@ -15,12 +15,12 @@ TODO: Figure out how to test fastText mdoels that (maybe) fail on build server d
 import io
 import os
 
-import fasttext
+# import fasttext
 import requests
-from gensim.models import (
-    KeyedVectors,
-)  # for word2vec-style embeddings (.vec for fastText)
-from gensim.models.wrappers import FastText  # for fastText's .bin format
+
+# ``models.KeyedVectors`` for word2vec-style embeddings (.vec for fastText)
+# ``models.wrappers`` for fastText's .bin format
+from gensim import models  # type: ignore
 from tqdm import tqdm
 
 from cltkv1 import __cltk_data_dir__
@@ -34,7 +34,7 @@ class FastText:
     TODO: Find better names for this and the module.
 
     >>> from cltkv1.embeddings.embeddings import FastText
-    >>> embeddings_obj = FastText(iso_code="lat")
+    >>> embeddings_obj = FastText(iso_code="lat", interactive=False, overwrite=False)
     >>> embeddings_obj.get_sims(word="amicitia")[0][0]
     'amicitiam'
     >>> vector = embeddings_obj.get_word_vector("amicitia")
@@ -48,11 +48,11 @@ class FastText:
         training_set: str = "wiki",
         model_type: str = "vec",
         interactive: bool = True,
-        overwrite: bool = True,
+        overwrite: bool = False,
     ):
         """Constructor for  ``FastText`` class.
 
-        >>> embeddings_obj = FastText(iso_code="lat")
+        >>> embeddings_obj = FastText(iso_code="lat", interactive=False, overwrite=False)
         >>> type(embeddings_obj)
         <class 'cltkv1.embeddings.embeddings.FastText'>
 
@@ -81,14 +81,11 @@ class FastText:
 
         # load model once all checks OK
         self.model_fp = self._build_fasttext_filepath()
-        if not self._is_model_present():
+        if not self._is_model_present() or self.overwrite:
             self.download_fasttext_models()
-        elif self._is_model_present() and self.overwrite:
-            self.download_fasttext_models()
-        else:
-            raise IOError(
-                f"Model for '{self.iso_code}' / '{self.training_set}' / '{self.model_type}' already present at '{self.model_fp}' and ``overwrite=False``. Set to ``True`` to download model again and overwrite the current."
-            )
+        elif self._is_model_present() and not self.overwrite:
+            message = f"Model for '{self.iso_code}' / '{self.training_set}' / '{self.model_type}' already present at '{self.model_fp}' and ``overwrite=False``."
+            # TODO: Log message
         self.model = self._load_model()
 
     def _is_model_present(self):
@@ -105,22 +102,22 @@ class FastText:
         models.
 
         >>> from cltkv1.embeddings.embeddings import FastText
-        >>> fasttext_model = FastText(iso_code="lat")
+        >>> fasttext_model = FastText(iso_code="lat", interactive=False, overwrite=False)
         >>> type(fasttext_model)
         <class 'cltkv1.embeddings.embeddings.FastText'>
-        >>> fasttext_model = FastText(iso_code="ave") # doctest: +ELLIPSIS
+        >>> fasttext_model = FastText(iso_code="ave", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastText available for: ...
-        >>> fasttext_model = FastText(iso_code="xxx")
+        >>> fasttext_model = FastText(iso_code="xxx", interactive=False, overwrite=False)
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.UnknownLanguageError
-        >>> fasttext_model = FastText(iso_code="got", training_set="wiki", interactive=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastText(iso_code="got", training_set="wiki", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         >>> type(fasttext_model)
         ...
         <class 'cltkv1.embeddings.embeddings.FastText'>
-        >>> fasttext_model = FastText(iso_code="got", training_set="common_crawl", interactive=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastText(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.CLTKException: Training set 'common_crawl' not available for language 'got'. Languages available for this training set: ...
@@ -174,7 +171,7 @@ class FastText:
         TODO: When testing show that this is a Gensim type
         TODO: Suppress Gensim info printout from screen
         """
-        return KeyedVectors.load_word2vec_format(self.model_fp)
+        return models.KeyedVectors.load_word2vec_format(self.model_fp)
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
@@ -369,7 +366,7 @@ class FastText:
                 f"Expected downloaded file to be of size '{total_size}' however it is in fact '{progress_bar.n}'."
             )
 
-    def download_fasttext_models(self, overwrite=False):
+    def download_fasttext_models(self):
         """Perform complete download of fastText models and save
         them in appropriate ``cltk_data`` dir.
 
@@ -379,6 +376,7 @@ class FastText:
         """
         model_url = self._build_fasttext_url()
         if not self.interactive:
+            # TODO: Add 10 sec wait to this, to give user time to cancel dl
             print(f"Going to download file '{self.model_url}' to '{self.model_fp} ...")
             self._get_file_with_progress_bar(model_url=model_url)
         else:
@@ -388,9 +386,10 @@ class FastText:
             if res.lower() == "y":
                 self._get_file_with_progress_bar(model_url=model_url)
             elif res.lower() == "n":
-                # lot error here and below
+                # log error here and below
                 return None
             else:
+                # TODO: mk this recursive fn
                 return None
 
     def _mk_dirs_for_file(self):
