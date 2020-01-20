@@ -7,12 +7,15 @@ the other being a combination of Wikipedia and Common Crawl
 (157 languages, a subset of the former, `here
 <https://fasttext.cc/docs/en/crawl-vectors.html>`_).
 
-TODO: Consider whether to use Gensim for accessing fastText vectors instead.
+TODO: Add embedding Processes for "arb", "arc", "got", "lat", "pli", "san", "xno"
 
-TODO: Figure out how to test fastText mdoels that (maybe) fail on build server due to insufficient memory.
+TODO: Make new class and processes for all models here: `<http://vectors.nlpl.eu/repository/>`_.
+TODO: Most are from the "Latin CoNLL17 corpus"
+TODO: Look at: "Arabic" ("arb"), "Old Church Slavonic" ("chu"), "Ancient Greek" ("grc"), "Latin" ("lat")
 """
 
 import os
+from dataclasses import dataclass
 
 import requests
 
@@ -22,17 +25,22 @@ from gensim import models  # type: ignore
 from tqdm import tqdm
 
 from cltkv1 import __cltk_data_dir__
-from cltkv1.core.exceptions import CLTKException, UnimplementedLanguageError
+from cltkv1.core.data_types import Process
+from cltkv1.core.exceptions import (
+    CLTKException,
+    UnimplementedLanguageError,
+    UnknownLanguageError,
+)
 from cltkv1.languages.utils import get_lang
 
 
-class FastText:
+class FastTextEmbeddings:
     """Wrapper for embeddings (word2Vec, fastText).
 
     TODO: Find better names for this and the module.
 
-    >>> from cltkv1.embeddings.embeddings import FastText
-    >>> embeddings_obj = FastText(iso_code="lat", interactive=False, overwrite=False)
+    >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
+    >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
     >>> embeddings_obj.get_sims(word="amicitia")[0][0]
     'amicitiam'
     >>> vector = embeddings_obj.get_word_vector("amicitia")
@@ -48,9 +56,9 @@ class FastText:
         interactive: bool = True,
         overwrite: bool = False,
     ):
-        """Constructor for  ``FastText`` class.
+        """Constructor for  ``FastTextEmbeddings`` class.
 
-        >>> embeddings_obj = FastText(iso_code="lat", interactive=False, overwrite=False)
+        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
         >>> type(embeddings_obj)
         <class 'cltkv1.embeddings.embeddings.FastText'>
 
@@ -99,23 +107,23 @@ class FastText:
         and determine if any invalid combination or missing
         models.
 
-        >>> from cltkv1.embeddings.embeddings import FastText
-        >>> fasttext_model = FastText(iso_code="lat", interactive=False, overwrite=False)
+        >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
+        >>> fasttext_model = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
         >>> type(fasttext_model)
         <class 'cltkv1.embeddings.embeddings.FastText'>
-        >>> fasttext_model = FastText(iso_code="ave", interactive=False, overwrite=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastTextEmbeddings(iso_code="ave", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
-        cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastText available for: ...
-        >>> fasttext_model = FastText(iso_code="xxx", interactive=False, overwrite=False)
+        cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: ...
+        >>> fasttext_model = FastTextEmbeddings(iso_code="xxx", interactive=False, overwrite=False)
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.UnknownLanguageError
-        >>> fasttext_model = FastText(iso_code="got", training_set="wiki", interactive=False, overwrite=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="wiki", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         >>> type(fasttext_model)
         ...
         <class 'cltkv1.embeddings.embeddings.FastText'>
-        >>> fasttext_model = FastText(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.CLTKException: Training set 'common_crawl' not available for language 'got'. Languages available for this training set: ...
@@ -130,7 +138,7 @@ class FastText:
         if not self._is_fasttext_lang_available():
             available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
             raise UnimplementedLanguageError(
-                f"No embedding available for language '{self.iso_code}'. FastText available for: {available_embeddings_str}."
+                f"No embedding available for language '{self.iso_code}'. FastTextEmbeddings available for: {available_embeddings_str}."
             )
 
         # 3. check if requested model type is available for fasttext
@@ -184,15 +192,15 @@ class FastText:
         fastText, for the input language. This is not comprehensive
         of all fastText embeddings, only those added into the CLTK.
 
-        # >>> from cltkv1.embeddings.embeddings import FastText
-        # >>> embeddings_obj = FastText(iso_code="lat")
+        # >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat")
         # >>> embeddings_obj._is_fasttext_lang_available()
         # True
-        # >>> embeddings_obj = FastText(iso_code="ave")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="ave")
         # Traceback (most recent call last):
         #   ..
-        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastText available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
-        # >>> embeddings_obj = FastText(iso_code="xxx")
+        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="xxx")
         # Traceback (most recent call last):
         #   ..
         # cltkv1.core.exceptions.UnknownLanguageError
@@ -209,19 +217,19 @@ class FastText:
 
         TODO: Do better than test for just name. Try trimming up to user home dir.
 
-        # >>> from cltkv1.embeddings.embeddings import FastText
-        # >>> embeddings_obj = FastText(iso_code="lat")
+        # >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat")
         # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(vec_fp)[1]
         # 'wiki.la.vec'
-        # >>> embeddings_obj = FastText(iso_code="lat", training_set="bin")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="bin")
         # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(bin_fp)[1]
         # 'wiki.la.bin'
-        # >>> embeddings_obj = FastText(iso_code="lat", training_set="common_crawl", model_type="vec")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="vec")
         # >>> os.path.split(vec_fp)[1]
         # 'cc.la.300.vec'
-        # >>> embeddings_obj = FastText(iso_code="lat", training_set="common_crawl", model_type="bin")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="bin")
         # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
         # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(bin_fp)[1]
@@ -336,3 +344,69 @@ class FastText:
         except FileExistsError:
             # TODO: Log INFO level; it's OK if dir already exists
             return None
+
+
+class CoNLLEmbeddings:
+    """Embeddings trained on CoNLL 2017 corpus. Fetched from:
+    `<http://vectors.nlpl.eu/repository/>`_.
+
+    TODO: Figure out how to combine this and ``FastTextEmbeddings`` class.
+    """
+
+    def __init__(
+        self, iso_code: str, interactive: bool = True, overwrite: bool = False
+    ):
+        self.iso_code = iso_code
+        self.interactive = interactive
+        self.overwrite = overwrite
+
+        available_lags = ["arb", "chu", "grc", "lat"]
+        # add assert
+        self.map_langs_cltk_file_codes = {
+            "arb": [31, 136],  # Arabic
+            "chu": [60, 140],  # Old Church Slavonic
+            "grc": [30, 153],  # Ancient Greek
+            "lat": [56, 162],  # Latin
+        }
+        if self.iso_code not in self.map_langs_cltk_file_codes.keys():
+            raise UnknownLanguageError(
+                f"CoNLL embedding for language '{self.iso_code}' not available."
+            )
+
+
+@dataclass
+class EmbeddingsProcess(Process):
+    """To be inherited for each language's embeddings declarations.
+
+    .. note::
+        There can be no ``DefaultEmbeddingsProcess`` because word embeddings are naturally language-specific
+
+    Example: ``EmbeddingsProcess`` -> ``LatinEmbeddingsProcess``
+
+    >>> from cltkv1.embeddings.embeddings import EmbeddingsProcess
+    >>> from cltkv1.core.data_types import Process
+    >>> issubclass(EmbeddingsProcess, Process)
+    True
+    >>> emb_proc = EmbeddingsProcess(input_doc=Doc(raw="some input data"))
+    """
+
+    language = None
+
+
+@dataclass
+class LatinTokenizationProcess(EmbeddingsProcess):
+    """The default Latin tokenization algorithm.
+
+    >>> from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> tok = LatinTokenizationProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
+    >>> tok.run()
+    >>> tok.output_doc.tokens
+    ['Gallia', 'est', 'omnis', 'divisa']
+    """
+
+    algorithm = FastTextEmbeddings(
+        iso_class="lat"
+    )  # TODO: Figure out how to pass var of Class + method
+    description = "Default embeddings for Latin"
+    language = "lat"

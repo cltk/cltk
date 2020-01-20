@@ -8,7 +8,7 @@ from typing import Any, List
 
 from stanfordnlp.utils.resources import download
 
-from cltkv1.embeddings.embeddings import FastText
+from cltkv1.embeddings.embeddings import FastTextEmbeddings
 
 
 def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None:
