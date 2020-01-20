@@ -390,23 +390,23 @@ class EmbeddingsProcess(Process):
     >>> emb_proc = EmbeddingsProcess(input_doc=Doc(raw="some input data"))
     """
 
-    language = None
+    language: str = None
 
 
 @dataclass
-class LatinTokenizationProcess(EmbeddingsProcess):
+class LatinEmbeddingsProcess(EmbeddingsProcess):
     """The default Latin tokenization algorithm.
 
     >>> from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = LatinTokenizationProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
+    >>> tok = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
     >>> tok.run()
     >>> tok.output_doc.tokens
     ['Gallia', 'est', 'omnis', 'divisa']
     """
 
-    algorithm = FastTextEmbeddings(
-        iso_class="lat"
-    )  # TODO: Figure out how to pass var of Class + method
+    algorithm = (
+        None
+    )  # FastTextEmbeddings(iso_class="lat")  # TODO: Figure out how to pass var of Class + method
     description = "Default embeddings for Latin"
     language = "lat"
