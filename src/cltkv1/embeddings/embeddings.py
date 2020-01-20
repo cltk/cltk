@@ -12,10 +12,8 @@ TODO: Consider whether to use Gensim for accessing fastText vectors instead.
 TODO: Figure out how to test fastText mdoels that (maybe) fail on build server due to insufficient memory.
 """
 
-import io
 import os
 
-# import fasttext
 import requests
 
 # ``models.KeyedVectors`` for word2vec-style embeddings (.vec for fastText)
@@ -205,41 +203,6 @@ class FastText:
         else:
             return True
 
-    #
-    # def _is_vector_for_lang(self) -> bool:
-    #     """Check whether a embedding is available for a chosen
-    #     vector type, ``wiki`` or ``common_crawl``.
-    #
-    #     >>> from cltkv1.embeddings.embeddings import FastText
-    #     >>> embeddings_obj = FastText(iso_code="lat")
-    #     >>> embeddings_obj._is_fasttext_lang_available()
-    #     True
-    #     >>> embeddings_obj = FastText(iso_code="lat", training_set="common_crawl")
-    #     >>> embeddings_obj._is_vector_for_lang()
-    #     True
-    #     >>> embeddings_obj = FastText(iso_code="pli", training_set="wiki")
-    #     >>> embeddings_obj._is_vector_for_lang()
-    #     True
-    #     >>> embeddings_obj = FastText(iso_code="pli", training_set="common_crawl")
-    #     >>> embeddings_obj._is_vector_for_lang()
-    #     False
-    #     """
-    #     training_sets = ["wiki", "common_crawl"]
-    #     if self.training_set not in training_sets:
-    #         training_sets_str = "', '".join(training_sets)
-    #         raise CLTKException(
-    #             f"Invalid ``training_set`` '{self.training_set}'. Available: '{training_sets_str}'."
-    #         )
-    #     available_vectors = list()
-    #     if self.training_set == "wiki":
-    #         available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
-    #     elif self.training_set == "common_crawl":
-    #         available_vectors = ["arb", "lat", "san"]
-    #     if self.iso_code in available_vectors:
-    #         return True
-    #     else:
-    #         return False
-    #
     def _build_fasttext_filepath(self):
         """Create filepath at which to save a downloaded
         fasttext model.
@@ -289,30 +252,6 @@ class FastText:
             print(fp_model)
         return fp_model
 
-    # def _are_fasttext_models_downloaded(self, training_set: str):
-    #     """Check ``.bin` and/or ``.vec`` is present on disk at:
-    #     ``~/cltk_data/lat/embeddings/fasttext/wiki.la.bin`` and
-    #     ``~/cltk_data/lat/embeddings/fasttext/wiki.la.vec``.
-    #
-    #     >>> embeddings_obj = FastText(iso_code="lat")
-    #     >>> embeddings_obj.are_fasttext_models_downloaded(iso_code="lat", training_set="wiki")
-    #     True
-    #     >>> embeddings_obj.are_fasttext_models_downloaded(iso_code="lat", training_set="common_crawl")
-    #     True
-    #     """
-    #     self._is_fasttext_lang_available()
-    #     is_vector_for_lang(iso_code=iso_code, training_set=training_set)
-    #     fp_model_bin = _build_fasttext_filepath(
-    #         iso_code=iso_code, training_set=training_set, model_type="bin"
-    #     )
-    #     fp_model_vec = _build_fasttext_filepath(
-    #         iso_code=iso_code, training_set=training_set, model_type="vec"
-    #     )
-    #     if os.path.isfile(fp_model_bin) and os.path.isfile(fp_model_vec):
-    #         return True
-    #     else:
-    #         return False
-
     def _build_fasttext_url(self):
         """Make the URL at which the requested model may be
         downloaded."""
@@ -329,18 +268,6 @@ class FastText:
         else:
             raise CLTKException("Unexpected exception.")
         return url
-
-    # def _mk_dirs_for_file(filepath):
-    #     """Make all dirs specified for final file.
-    #
-    #     >>> _mk_dirs_for_file("~/new-dir/some-file.txt")
-    #     """
-    #     dirs = os.path.split(filepath)[0]
-    #     try:
-    #         os.makedirs(dirs)
-    #     except FileExistsError:
-    #         # TODO: Log INFO level
-    #         pass
 
     def _get_file_with_progress_bar(self, model_url: str):
         """Download file with a progress bar.
@@ -393,9 +320,15 @@ class FastText:
                 return None
 
     def _mk_dirs_for_file(self):
-        """Make all dirs specified for final file.
+        """Make all dirs specified for final file. If dir already exists,
+        then silently continue.
 
-        # >>> _mk_dirs_for_file("~/new-dir/some-file.txt")
+        # >>> import os
+        # >>> import tempfile
+        # >>> tmp_dir = tempfile.mkdtemp("cltk-testing")
+        # >>> new_fp = os.path.join(tmp_dir, "new-dir", "some-file.txt")
+        # >>> _mk_dirs_for_file(new_fp)
+        # >>> _mk_dirs_for_file(new_fp)
         """
         dirs = os.path.split(self.model_fp)[0]
         try:
