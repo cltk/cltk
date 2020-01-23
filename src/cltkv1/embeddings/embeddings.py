@@ -60,7 +60,7 @@ class FastTextEmbeddings:
 
         >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
         >>> type(embeddings_obj)
-        <class 'cltkv1.embeddings.embeddings.FastText'>
+        <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
 
         # >>> embeddings_obj = FastText(iso_code="xxx")
         # Traceback (most recent call last):
@@ -110,7 +110,7 @@ class FastTextEmbeddings:
         >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
         >>> fasttext_model = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
         >>> type(fasttext_model)
-        <class 'cltkv1.embeddings.embeddings.FastText'>
+        <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
         >>> fasttext_model = FastTextEmbeddings(iso_code="ave", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
@@ -120,9 +120,9 @@ class FastTextEmbeddings:
           ..
         cltkv1.core.exceptions.UnknownLanguageError
         >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="wiki", interactive=False, overwrite=False) # doctest: +ELLIPSIS
+        Going to download file 'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.got.vec' to ...
         >>> type(fasttext_model)
-        ...
-        <class 'cltkv1.embeddings.embeddings.FastText'>
+        <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
         >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
@@ -312,7 +312,7 @@ class FastTextEmbeddings:
         model_url = self._build_fasttext_url()
         if not self.interactive:
             # TODO: Add 10 sec wait to this, to give user time to cancel dl
-            print(f"Going to download file '{self.model_url}' to '{self.model_fp} ...")
+            print(f"Going to download file '{model_url}' to '{self.model_fp} ...")
             self._get_file_with_progress_bar(model_url=model_url)
         else:
             res = input(
@@ -383,6 +383,7 @@ class EmbeddingsProcess(Process):
 
     Example: ``EmbeddingsProcess`` -> ``LatinEmbeddingsProcess``
 
+    >>> from cltkv1.core.data_types import Doc
     >>> from cltkv1.embeddings.embeddings import EmbeddingsProcess
     >>> from cltkv1.core.data_types import Process
     >>> issubclass(EmbeddingsProcess, Process)
@@ -397,12 +398,14 @@ class EmbeddingsProcess(Process):
 class LatinEmbeddingsProcess(EmbeddingsProcess):
     """The default Latin tokenization algorithm.
 
+    >>> from cltkv1.core.data_types import Doc
     >>> from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Gallia', 'est', 'omnis', 'divisa']
+    >>> embeddings = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
+
+    # >>> embeddings.run()
+    # >>> embeddings.output_doc.tokens
+    # ['Gallia', 'est', 'omnis', 'divisa']
     """
 
     algorithm = (
