@@ -16,6 +16,7 @@ TODO: Look at: "Arabic" ("arb"), "Old Church Slavonic" ("chu"), "Ancient Greek" 
 
 import os
 from dataclasses import dataclass
+from typing import Callable
 
 import requests
 
@@ -25,7 +26,7 @@ from gensim import models  # type: ignore
 from tqdm import tqdm
 
 from cltkv1 import __cltk_data_dir__
-from cltkv1.core.data_types import Process
+from cltkv1.core.data_types import Doc, Process, Word
 from cltkv1.core.exceptions import (
     CLTKException,
     UnimplementedLanguageError,
@@ -381,9 +382,9 @@ class EmbeddingsProcess(Process):
     """To be inherited for each language's embeddings declarations.
 
     .. note::
-        There can be no ``DefaultEmbeddingsProcess`` because word embeddings are naturally language-specific
+        There can be no ``DefaultEmbeddingsProcess`` because word embeddings are naturally language-specific.
 
-    Example: ``EmbeddingsProcess`` -> ``LatinEmbeddingsProcess``
+    Example: ``EmbeddingsProcess`` <- ``LatinEmbeddingsProcess``
 
     >>> from cltkv1.core.data_types import Doc
     >>> from cltkv1.embeddings.embeddings import EmbeddingsProcess
@@ -396,22 +397,55 @@ class EmbeddingsProcess(Process):
     language: str = None
 
 
+def make_fasttext_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
+    """A closure for marshalling Docs to CLTK tokenizers.
+
+    TODO: Figure out if this fn can be generalized for all ``Process``.
+    """
+    fasttext_model = FastTextEmbeddings(iso_code=iso_code)
+
+    def algorithm(self, doc: Doc) -> Doc:
+        # TODO: Do I need a new list or can I update ``Doc.words`` in-place?
+        word_embeddings = list()
+        Doc.words = [Word(string="arma"), Word(string="virum"), Word(string="cano")]
+        for word_obj in Doc.words:
+            word_obj.embedding = fasttext_model.get_word_vector(word_obj.string)
+            word_embeddings.append(word_obj)
+        doc.words = word_embeddings
+        return doc
+
+    return algorithm
+
+
+LATIN_WORD_EMBEDDING = make_fasttext_algorithm(iso_code="lat")
+
+
 @dataclass
 class LatinEmbeddingsProcess(EmbeddingsProcess):
-    """The default Latin tokenization algorithm.
+    """The default Latin embeddings algorithm.
 
     >>> from cltkv1.core.data_types import Doc
     >>> from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> embeddings = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
 
-    # >>> embeddings.run()
-    # >>> embeddings.output_doc.tokens
-    # ['Gallia', 'est', 'omnis', 'divisa']
+    >>> embeddings.run()
+    >>> embeddings.output_doc.embeddings
+    [1, 2, 3]
     """
 
-    algorithm = (
-        None
-    )  # FastTextEmbeddings(iso_class="lat")  # TODO: Figure out how to pass var of Class + method
+    algorithm = LATIN_WORD_EMBEDDING
     description = "Default embeddings for Latin"
     language = "lat"
+
+
+if __name__ == "__main__":
+    print("here 1")
+    from cltkv1.core.data_types import Doc
+    from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
+    print("here 2")
+    from cltkv1.utils.example_texts import get_example_text
+    print("here 3")
+    embeddings = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
+    embeddings.run()
+    print(embeddings.output_doc.embeddings)

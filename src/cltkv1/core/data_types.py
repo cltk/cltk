@@ -12,6 +12,8 @@ of the NLP pipeline.
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Type, Union
 
+import numpy
+
 
 @dataclass
 class Language:
@@ -53,7 +55,7 @@ class Word:
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None, embedding=None)
     """
 
     index_char_start: int = None
@@ -70,6 +72,7 @@ class Word:
     governor: "Word" = None
     parent: "Word" = None
     features: Dict[str, str] = None  # morphological features (from stanfordnlp)
+    embedding: numpy.ndarray = None
 
 
 @dataclass
@@ -177,14 +180,20 @@ class Doc:
         >>> type(cltk_doc.embeddings[0]) # doctest: +SKIP
         <class 'numpy.ndarray'>
         """
-        from cltkv1.embeddings.embeddings import load_fasttext_model
-        from cltkv1.embeddings.embeddings import get_fasttext_embedding
+        # from cltkv1.embeddings.embeddings import load_fasttext_model
+        # from cltkv1.embeddings.embeddings import get_fasttext_embedding
+        from cltkv1.embeddings.embeddings import FastTextEmbeddings
 
-        ft_model = load_fasttext_model(
-            iso_code="lat", training_set="wiki", model_type="bin"
-        )
+        # TODO: Check, this probably loads model a second time
+        from cltkv1.languages.utils import get_lang
+        print("*" * 88, self.language, type(self.language))
+        fasttext_model = FastTextEmbeddings(iso_code=self.language)
+
+        # ft_model = load_fasttext_model(
+        #     iso_code="lat", training_set="wiki", model_type="bin"
+        # )
         return [
-            get_fasttext_embedding(word=token, model=ft_model) for token in self.tokens
+            fasttext_model.get_word_vector(word=token) for token in self.tokens
         ]
 
 

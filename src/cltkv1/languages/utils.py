@@ -22,7 +22,7 @@ def get_lang(iso_code: str) -> Language:
     try:
         return LANGUAGES[iso_code]
     except KeyError:
-        raise UnknownLanguageError
+        raise UnknownLanguageError(f"Unknown ISO language code '{iso_code}'.")
 
 
 def find_iso_name(common_name: str) -> List[str]:
