@@ -40,7 +40,7 @@ class FastTextEmbeddings:
     TODO: Find better names for this and the module.
 
     >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-    >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
+    >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
     >>> embeddings_obj.get_sims(word="amicitia")[0][0]
     'amicitiam'
     >>> vector = embeddings_obj.get_word_vector("amicitia")
@@ -55,10 +55,11 @@ class FastTextEmbeddings:
         model_type: str = "vec",
         interactive: bool = True,
         overwrite: bool = False,
+        silent: bool = False,
     ):
         """Constructor for  ``FastTextEmbeddings`` class.
 
-        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
+        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
         >>> type(embeddings_obj)
         <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
 
@@ -72,6 +73,7 @@ class FastTextEmbeddings:
         self.model_type = model_type
         self.interactive = interactive
         self.overwrite = overwrite
+        self.silent = silent
 
         self.MAP_LANGS_CLTK_FASTTEXT = {
             "arb": "ar",  # Arabic
@@ -108,22 +110,21 @@ class FastTextEmbeddings:
         models.
 
         >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-        >>> fasttext_model = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False)
+        >>> fasttext_model = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
         >>> type(fasttext_model)
         <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
-        >>> fasttext_model = FastTextEmbeddings(iso_code="ave", interactive=False, overwrite=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastTextEmbeddings(iso_code="ave", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: ...
-        >>> fasttext_model = FastTextEmbeddings(iso_code="xxx", interactive=False, overwrite=False)
+        >>> fasttext_model = FastTextEmbeddings(iso_code="xxx", interactive=False, overwrite=False, silent=True)
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.UnknownLanguageError
-        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="wiki", interactive=False, overwrite=False) # doctest: +ELLIPSIS
-        Going to download file 'https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.got.vec' to ...
+        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="wiki", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
         >>> type(fasttext_model)
         <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
-        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False) # doctest: +ELLIPSIS
+        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
         cltkv1.core.exceptions.CLTKException: Training set 'common_crawl' not available for language 'got'. Languages available for this training set: ...
@@ -193,14 +194,14 @@ class FastTextEmbeddings:
         of all fastText embeddings, only those added into the CLTK.
 
         # >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", silent=True)
         # >>> embeddings_obj._is_fasttext_lang_available()
         # True
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="ave")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="ave, silent=True")
         # Traceback (most recent call last):
         #   ..
         # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="xxx")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="xxx", silent=True)
         # Traceback (most recent call last):
         #   ..
         # cltkv1.core.exceptions.UnknownLanguageError
@@ -218,18 +219,18 @@ class FastTextEmbeddings:
         TODO: Do better than test for just name. Try trimming up to user home dir.
 
         # >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", silent=True)
         # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(vec_fp)[1]
         # 'wiki.la.vec'
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="bin")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="bin", silent=True)
         # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(bin_fp)[1]
         # 'wiki.la.bin'
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="vec")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="vec", silent=True)
         # >>> os.path.split(vec_fp)[1]
         # 'cc.la.300.vec'
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="bin")
+        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="bin", silent=True)
         # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
         # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
         # >>> os.path.split(bin_fp)[1]
@@ -254,10 +255,10 @@ class FastTextEmbeddings:
                 "fasttext",
                 f"cc.{fasttext_code}.300.{self.model_type}",
             )
-        else:
-            print(self.training_set)
-            print(self.model_type)
-            print(fp_model)
+        # else:
+        #     print(self.training_set)
+        #     print(self.model_type)
+        #     print(fp_model)
         return fp_model
 
     def _build_fasttext_url(self):
@@ -312,7 +313,8 @@ class FastTextEmbeddings:
         model_url = self._build_fasttext_url()
         if not self.interactive:
             # TODO: Add 10 sec wait to this, to give user time to cancel dl
-            print(f"Going to download file '{model_url}' to '{self.model_fp} ...")
+            if not self.silent:
+                print(f"Going to download file '{model_url}' to '{self.model_fp} ...")
             self._get_file_with_progress_bar(model_url=model_url)
         else:
             res = input(
