@@ -4,34 +4,10 @@ cltkv1.utils package
 Submodules
 ----------
 
-cltkv1.utils.data\_types module
--------------------------------
-
-.. automodule:: cltkv1.utils.data_types
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cltkv1.utils.example\_texts module
 ----------------------------------
 
 .. automodule:: cltkv1.utils.example_texts
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cltkv1.utils.exceptions module
-------------------------------
-
-.. automodule:: cltkv1.utils.exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cltkv1.utils.pipelines module
------------------------------
-
-.. automodule:: cltkv1.utils.pipelines
    :members:
    :undoc-members:
    :show-inheritance:

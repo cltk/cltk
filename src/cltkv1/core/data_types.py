@@ -151,6 +151,27 @@ class Doc:
         return self._get_words_attribute("features")
 
 
+    @property
+    def lemmata(self) -> List[str]:
+        """Returns a list of lemmata, indexed to the word tokens
+        provided by `Doc.tokens`.
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+        >>> cltk_doc.lemmata[:5]
+        ['aallius', 'sum', 'omnis', 'divido', 'in']
+        """
+        return self._get_words_attribute("lemma")
+
+    def __getitem__(self, word_index : int) -> Word:
+        """Indexing operator overloaded to return the `Word` at index `word_index`.
+        """
+        return self.words[word_index]
+
+
+
 @dataclass
 class Process:
     """For each type of NLP process there needs to be a definition.

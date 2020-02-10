@@ -122,3 +122,6 @@ class NLP:
             doc = a_process.output_doc
 
         return doc
+
+    def __call__(self, text : str) -> Doc:
+        return self.analyze(text)
