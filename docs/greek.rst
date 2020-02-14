@@ -357,7 +357,11 @@ See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`
 Corpus Readers
 ==============
 
-Most users will want to access words, sentences, paragraphs and even whole documents via a CorpusReader object. All Corpus contributors should provide a suitable reader. There is one for Perseus Greek, and others will be made available. The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
+When using CLTK to work with text from a corpus, it is advantageous to have one's code read the text through a standardized interface, rather than cutting and pasting by hand or reading it by directly opening a file in python. Using the CorpusReader class for this purpose avoids having to hardcode snippets of text or path names of files in your code. A CorpusReader object also provides facilities for breaking the text up into chunks of various sizes: documents, paragraphs, sentences, and words. These chunks are read from the corpus and returned as arrays. Specifying indices in these arrays is somewhat similar to the traditional practice of referring to parts of a text by citation styles such as Iliad Δ.124, but avoids the nuances and inconsistencies that come up because of issues such as differences between editions.
+
+All corpus contributors should provide a suitable reader. Currently there is CorpusReader in the Latin and Greek Tesserae and Perseus corpora, and the Latin Library.
+
+The CorpusReader methods: ``paras()`` returns paragraphs, if possible; ``words()`` returns a generator of words; ``sentences`` returns a generator of sentences; ``docs`` returns a generator of Python dictionary objects representing each document.
 
 .. code-block:: python
 
