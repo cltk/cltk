@@ -12,7 +12,6 @@ Subpackages
    cltkv1.languages
    cltkv1.tokenizers
    cltkv1.utils
-   cltkv1.wrappers
 
 Submodules
 ----------

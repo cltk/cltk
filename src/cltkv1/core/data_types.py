@@ -96,6 +96,7 @@ class Doc:
     words: List[Word] = None
     pipeline: "Pipeline" = None
     raw: str = None
+    embeddings_model = None
 
     @property
     def sentences(self) -> List[List[Word]]:
@@ -172,29 +173,8 @@ class Doc:
         """Returns an embedding for each word.
 
         TODO: Consider option to use lemma
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> type(cltk_doc.embeddings[0]) # doctest: +SKIP
-        <class 'numpy.ndarray'>
         """
-        # from cltkv1.embeddings.embeddings import load_fasttext_model
-        # from cltkv1.embeddings.embeddings import get_fasttext_embedding
-        from cltkv1.embeddings.embeddings import FastTextEmbeddings
-
-        # TODO: Check, this probably loads model a second time
-        from cltkv1.languages.utils import get_lang
-        print("*" * 88, self.language, type(self.language))
-        fasttext_model = FastTextEmbeddings(iso_code=self.language)
-
-        # ft_model = load_fasttext_model(
-        #     iso_code="lat", training_set="wiki", model_type="bin"
-        # )
-        return [
-            fasttext_model.get_word_vector(word=token) for token in self.tokens
-        ]
+        return self._get_words_attribute("embedding")
 
 
 @dataclass
@@ -254,3 +234,9 @@ class Pipeline:
 
     def add_process(self, process):
         self.processes.append(process)
+
+
+if __name__ == "__main__":
+    doc = Doc(language="lat", words=["amo", "amas", "amat"], raw="amo amas amat")
+    print(doc)
+    print(doc.embeddings)

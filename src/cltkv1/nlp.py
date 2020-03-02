@@ -1,8 +1,6 @@
 """Primary module for CLTK pipeline."""
 
-from typing import List
-
-from cltkv1.core.data_types import Doc, Language, Pipeline, Type
+from cltkv1.core.data_types import Doc, Language, Pipeline
 from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
 from cltkv1.languages.pipelines import (
     GothicPipeline,
@@ -122,3 +120,12 @@ class NLP:
             doc = a_process.output_doc
 
         return doc
+
+
+if __name__ == "__main__":
+    cltk_nlp = NLP(language="lat")
+    cltk_doc = cltk_nlp.analyze("arma virumque cano")
+    w = cltk_doc.words[1]
+    print(w)
+    print(dir(w))
+

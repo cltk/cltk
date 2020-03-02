@@ -4,10 +4,10 @@ cltkv1.tokenizers package
 Submodules
 ----------
 
-cltkv1.tokenizers.word module
------------------------------
+cltkv1.tokenizers.processes module
+----------------------------------
 
-.. automodule:: cltkv1.tokenizers.word
+.. automodule:: cltkv1.tokenizers.processes
    :members:
    :undoc-members:
    :show-inheritance:

@@ -11,6 +11,7 @@ from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.stanford import StanfordNLPProcess
+from cltkv1.embeddings.processes import LatinEmbeddingsProcess
 from cltkv1.languages.utils import get_lang
 
 
@@ -32,7 +33,9 @@ class LatinPipeline(Pipeline):
 
     description: str = "Pipeline for the Latin language"
     language: Language = get_lang("lat")
-    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [StanfordNLPProcess, LatinEmbeddingsProcess]
+    )
 
 
 @dataclass

@@ -25,14 +25,15 @@ import requests
 from gensim import models  # type: ignore
 from tqdm import tqdm
 
-from cltkv1 import __cltk_data_dir__
-from cltkv1.core.data_types import Doc, Process, Word
 from cltkv1.core.exceptions import (
     CLTKException,
     UnimplementedLanguageError,
     UnknownLanguageError,
 )
 from cltkv1.languages.utils import get_lang
+
+# from cltkv1 import __cltk_data_dir__
+__cltk_data_dir__ = "/Users/kyle.p.johnson/cltk_data"
 
 
 class FastTextEmbeddings:
@@ -121,7 +122,7 @@ class FastTextEmbeddings:
         >>> fasttext_model = FastTextEmbeddings(iso_code="xxx", interactive=False, overwrite=False, silent=True)
         Traceback (most recent call last):
           ..
-        cltkv1.core.exceptions.UnknownLanguageError
+        cltkv1.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
         >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="wiki", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
         >>> type(fasttext_model)
         <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
@@ -183,7 +184,11 @@ class FastTextEmbeddings:
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
-        return self.model.get_vector(word)
+        try:
+            return self.model.get_vector(word)
+        except KeyError:
+            # TODO: To get an embedding from an OOV for sub-words, load the ``.bin`` file, too: `https://radimrehurek.com/gensim/models/fasttext.html#gensim.models.fasttext.load_facebook_model``_
+            return None
 
     def get_sims(self, word: str):
         """Get similar words."""
@@ -377,75 +382,5 @@ class CoNLLEmbeddings:
             )
 
 
-@dataclass
-class EmbeddingsProcess(Process):
-    """To be inherited for each language's embeddings declarations.
-
-    .. note::
-        There can be no ``DefaultEmbeddingsProcess`` because word embeddings are naturally language-specific.
-
-    Example: ``EmbeddingsProcess`` <- ``LatinEmbeddingsProcess``
-
-    >>> from cltkv1.core.data_types import Doc
-    >>> from cltkv1.embeddings.embeddings import EmbeddingsProcess
-    >>> from cltkv1.core.data_types import Process
-    >>> issubclass(EmbeddingsProcess, Process)
-    True
-    >>> emb_proc = EmbeddingsProcess(input_doc=Doc(raw="some input data"))
-    """
-
-    language: str = None
-
-
-def make_fasttext_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
-    """A closure for marshalling Docs to CLTK tokenizers.
-
-    TODO: Figure out if this fn can be generalized for all ``Process``.
-    """
-    fasttext_model = FastTextEmbeddings(iso_code=iso_code)
-
-    def algorithm(self, doc: Doc) -> Doc:
-        # TODO: Do I need a new list or can I update ``Doc.words`` in-place?
-        word_embeddings = list()
-        Doc.words = [Word(string="arma"), Word(string="virum"), Word(string="cano")]
-        for word_obj in Doc.words:
-            word_obj.embedding = fasttext_model.get_word_vector(word_obj.string)
-            word_embeddings.append(word_obj)
-        doc.words = word_embeddings
-        return doc
-
-    return algorithm
-
-
-LATIN_WORD_EMBEDDING = make_fasttext_algorithm(iso_code="lat")
-
-
-@dataclass
-class LatinEmbeddingsProcess(EmbeddingsProcess):
-    """The default Latin embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc
-    >>> from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> embeddings = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
-
-    >>> embeddings.run()
-    >>> embeddings.output_doc.embeddings
-    [1, 2, 3]
-    """
-
-    algorithm = LATIN_WORD_EMBEDDING
-    description = "Default embeddings for Latin"
-    language = "lat"
-
-
 if __name__ == "__main__":
-    print("here 1")
-    from cltkv1.core.data_types import Doc
-    from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
-    print("here 2")
-    from cltkv1.utils.example_texts import get_example_text
-    print("here 3")
-    embeddings = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
-    embeddings.run()
-    print(embeddings.output_doc.embeddings)
+    pass

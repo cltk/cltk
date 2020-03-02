@@ -12,10 +12,7 @@ from cltkv1.core.data_types import Doc, Process, Word
 
 
 def make_tokenizer_algorithm(language: str) -> Callable[[Doc], Doc]:
-    """A closure for marshalling Docs to CLTK tokenizers.
-
-    TODO: Figure out if this fn can be generalized for all ``Process``.
-    """
+    """A closure for marshalling Docs to CLTK tokenizers."""
     tokenizer = WordTokenizer(language=language)
 
     def algorithm(self, doc: Doc) -> Doc:
