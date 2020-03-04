@@ -23,6 +23,9 @@ lint:
 preCommitRun:
 	poetry run pre-commit autoupdate && poetry run pre-commit install && poetry run pre-commit autoupdate
 
+shell:
+	poetry run ipython --automagic --pdb
+
 test:
 	# poetry run nosetests --no-skip --with-coverage --cover-erase --cover-html-dir=htmlcov --cover-html --with-doctest --cover-package=cltkv1
 	poetry run tox

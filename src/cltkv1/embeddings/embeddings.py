@@ -7,7 +7,6 @@ the other being a combination of Wikipedia and Common Crawl
 (157 languages, a subset of the former, `here
 <https://fasttext.cc/docs/en/crawl-vectors.html>`_).
 
-TODO: Add embedding Processes for "arb", "arc", "got", "lat", "pli", "san", "xno"
 
 TODO: Make new class and processes for all models here: `<http://vectors.nlpl.eu/repository/>`_.
 TODO: Most are from the "Latin CoNLL17 corpus"
@@ -15,8 +14,6 @@ TODO: Look at: "Arabic" ("arb"), "Old Church Slavonic" ("chu"), "Ancient Greek" 
 """
 
 import os
-from dataclasses import dataclass
-from typing import Callable
 
 import requests
 
@@ -32,8 +29,7 @@ from cltkv1.core.exceptions import (
 )
 from cltkv1.languages.utils import get_lang
 
-# from cltkv1 import __cltk_data_dir__
-__cltk_data_dir__ = "/Users/kyle.p.johnson/cltk_data"
+from cltkv1.utils import CLTK_DATA_DIR
 
 
 class FastTextEmbeddings:
@@ -247,7 +243,7 @@ class FastTextEmbeddings:
         fp_model = None
         if self.training_set == "wiki":
             fp_model = os.path.join(
-                __cltk_data_dir__,
+                CLTK_DATA_DIR,
                 self.iso_code,
                 "embeddings",
                 "fasttext",
@@ -255,7 +251,7 @@ class FastTextEmbeddings:
             )
         elif self.training_set == "common_crawl":
             fp_model = os.path.join(
-                __cltk_data_dir__,
+                CLTK_DATA_DIR,
                 self.iso_code,
                 "embeddings",
                 "fasttext",

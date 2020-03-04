@@ -138,7 +138,7 @@ def get_example_text(iso_code: str) -> str:
     >>> get_example_text("xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.core.exceptions.UnknownLanguageError
+    cltkv1.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
     """
     get_lang(iso_code=iso_code)
     try:

@@ -17,7 +17,7 @@ def get_lang(iso_code: str) -> Language:
     >>> get_lang("xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.core.exceptions.UnknownLanguageError
+    cltkv1.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
     """
     try:
         return LANGUAGES[iso_code]

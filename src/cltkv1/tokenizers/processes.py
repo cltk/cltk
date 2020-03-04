@@ -46,7 +46,7 @@ class TokenizationProcess(Process):
 
     Example: ``TokenizationProcess`` -> ``LatinTokenizationProcess``
 
-    >>> from cltkv1.tokenizers.word import TokenizationProcess
+    >>> from cltkv1.tokenizers.processes import TokenizationProcess
     >>> from cltkv1.core.data_types import Process
     >>> issubclass(TokenizationProcess, Process)
     True
@@ -60,7 +60,7 @@ class TokenizationProcess(Process):
 class DefaultTokenizationProcess(TokenizationProcess):
     """The default tokenization algorithm.
 
-    >>> from cltkv1.tokenizers.word import DefaultTokenizationProcess
+    >>> from cltkv1.tokenizers.processes import DefaultTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> tok = DefaultTokenizationProcess(input_doc=Doc(raw=get_example_text("non")[:29]))
     >>> tok.description

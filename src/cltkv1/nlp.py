@@ -128,4 +128,3 @@ if __name__ == "__main__":
     w = cltk_doc.words[1]
     print(w)
     print(dir(w))
-

@@ -11,6 +11,7 @@ from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.stanford import StanfordNLPProcess
+from cltkv1.embeddings.processes import GothicEmbeddingsProcess
 from cltkv1.embeddings.processes import LatinEmbeddingsProcess
 from cltkv1.languages.utils import get_lang
 
@@ -115,8 +116,10 @@ class GothicPipeline(Pipeline):
     'Gothic'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltkv1.embeddings.processes.GothicEmbeddingsProcess'>
     """
 
     description: str = "Pipeline for the Gothic language"
     language: Language = get_lang("got")
-    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
+    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess, GothicEmbeddingsProcess])

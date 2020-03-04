@@ -1,5 +1,7 @@
 """This module holds the ``Process``es, related to embeddings,
 that are called by ``Pipeline``s.
+
+TODO: Add embedding Processes for "arb", "arc", [] "got", [x] "lat", "pli", "san", "xno"
 """
 
 from dataclasses import dataclass
@@ -26,6 +28,7 @@ def make_embedding_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
     return algorithm
 
 
+GOTHIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="got")
 LATIN_WORD_EMBEDDING = make_embedding_algorithm(iso_code="lat")
 
 
@@ -39,7 +42,7 @@ class EmbeddingsProcess(Process):
     Example: ``EmbeddingsProcess`` <- ``LatinEmbeddingsProcess``
 
     >>> from cltkv1.core.data_types import Doc
-    >>> from cltkv1.embeddings.embeddings import EmbeddingsProcess
+    >>> from cltkv1.embeddings.processes import EmbeddingsProcess
     >>> from cltkv1.core.data_types import Process
     >>> issubclass(EmbeddingsProcess, Process)
     True
@@ -53,14 +56,17 @@ class EmbeddingsProcess(Process):
 class LatinEmbeddingsProcess(EmbeddingsProcess):
     """The default Latin embeddings algorithm.
 
-    >>> from cltkv1.core.data_types import Doc
-    >>> from cltkv1.embeddings.embeddings import LatinEmbeddingsProcess
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import LatinEmbeddingsProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> embeddings = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
+    >>> tokens = [Word(string=token) for token in " ".split(get_example_text("lat"))]
+    >>> proc = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text("lat"), words=tokens))
 
-    >>> embeddings.run()
-    >>> embeddings.output_doc.embeddings
-    [1, 2, 3]
+    >>> proc.run()
+    >>> proc.output_doc
+
+    # >>> embeddings.output_doc.embeddings
+    # [1, 2, 3]
     """
 
     algorithm = LATIN_WORD_EMBEDDING
@@ -68,8 +74,20 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     language: str = "lat"
 
 
-if __name__ == "__main__":
-    x = make_embedding_algorithm(iso_code="lat")
-    print(x)
+@dataclass
+class GothicEmbeddingsProcess(EmbeddingsProcess):
+    """The default Latin embeddings algorithm.
 
-    LatinEmbeddingsProcess(language="lat")
+    # >>> from cltkv1.core.data_types import Doc
+    # >>> from cltkv1.embeddings.processes import GothicEmbeddingsProcess
+    # >>> from cltkv1.utils.example_texts import get_example_text
+    # >>> embeddings = GothicEmbeddingsProcess(input_doc=Doc(raw=get_example_text("got")[:23]))
+    #
+    # >>> embeddings.run()
+    # >>> embeddings.output_doc.embeddings
+    # [1, 2, 3]
+    """
+
+    algorithm = GOTHIC_WORD_EMBEDDING
+    description: str = "Default embeddings for Gothic."
+    language: str = "got"
