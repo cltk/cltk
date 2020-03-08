@@ -7,6 +7,8 @@ TODO: Add embedding Processes for "arb", "arc", [] "got", [x] "lat", "pli", "san
 from dataclasses import dataclass
 from typing import Callable
 
+import numpy as np
+
 from cltkv1.core.data_types import Doc, Process
 from cltkv1.embeddings.embeddings import FastTextEmbeddings
 
@@ -16,12 +18,15 @@ def make_embedding_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
     embeddings_obj = FastTextEmbeddings(iso_code=iso_code)
 
     def algorithm(self, doc: Doc) -> Doc:
-        # doc.embeddings = list()
 
+        embedding_length = None
         for word_obj in doc.words:
+            if not embedding_length:
+                embedding_length = embeddings_obj.get_embedding_length()
             word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
+            if not isinstance(word_embedding, np.ndarray):
+                word_embedding = np.zeros([embedding_length])
             word_obj.embedding = word_embedding
-            # doc.embeddings.append(word_obj)
 
         return doc
 

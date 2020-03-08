@@ -123,8 +123,12 @@ class NLP:
 
 
 if __name__ == "__main__":
-    cltk_nlp = NLP(language="lat")
-    cltk_doc = cltk_nlp.analyze("arma virumque cano")
-    w = cltk_doc.words[1]
-    print(w)
-    print(dir(w))
+    from cltkv1.utils.example_texts import get_example_text
+    lang = "lat"
+    # lang = "got"
+    cltk_nlp = NLP(language=lang)
+    cltk_doc = cltk_nlp.analyze(get_example_text(iso_code=lang))
+    print(cltk_doc.embeddings)
+    # a_word = cltk_doc.words[-5]
+    # print(a_word)
+    # print(a_word.embedding)

@@ -186,6 +186,10 @@ class FastTextEmbeddings:
             # TODO: To get an embedding from an OOV for sub-words, load the ``.bin`` file, too: `https://radimrehurek.com/gensim/models/fasttext.html#gensim.models.fasttext.load_facebook_model``_
             return None
 
+    def get_embedding_length(self) -> int:
+        """Return the embedding length for selected model."""
+        return self.model.vector_size
+
     def get_sims(self, word: str):
         """Get similar words."""
         return self.model.most_similar(word)
