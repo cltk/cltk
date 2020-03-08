@@ -137,7 +137,7 @@ class FastTextEmbeddings:
         if not self._is_fasttext_lang_available():
             available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
             raise UnimplementedLanguageError(
-                f"No embedding available for language '{self.iso_code}'. FastTextEmbeddings available for: {available_embeddings_str}."
+                f"No embedding available for language '{self.iso_code}'. FastTextEmbeddings available for: '{available_embeddings_str}'."
             )
 
         # 3. check if requested model type is available for fasttext
@@ -324,7 +324,7 @@ class FastTextEmbeddings:
             self._get_file_with_progress_bar(model_url=model_url)
         else:
             res = input(
-                f"Do you want to download file '{model_url}' to '{self.model_fp}'? [y/n]"
+                f"Do you want to download file '{model_url}' to '{self.model_fp}'? [y/n] "
             )
             if res.lower() == "y":
                 self._get_file_with_progress_bar(model_url=model_url)

@@ -54,30 +54,26 @@ def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None
 
 def get_fasttext_models(force: bool = True, lang: str = "all"):
     all_wiki_models = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
-    all_common_crawl_models = ["arb", "lat", "san"]
-    wiki_models = list()
-    common_crawl_models = list()
-    if lang == "all":
-        wiki_models = all_wiki_models
-        common_crawl_models = all_common_crawl_models
-    else:
-        assert (
-            lang in all_wiki_models or lang in all_common_crawl_models
-        ), f"ISO code '{lang}' either not among valid either 'wiki' or 'common_crawl' models."
-        wiki_models.append(lang)
-        common_crawl_models.append(lang)
-    for lang in wiki_models:
-        print("Going to download the fastText 'wiki' models ...")
-        download_fasttext_models(iso_code=lang, training_set="wiki", force=force)
-    for lang in common_crawl_models:
-        print("Going to download the fastText 'common_crawl' models ...")
-        download_fasttext_models(
-            iso_code=lang, training_set="common_crawl", force=force
-        )
+    # all_common_crawl_models = ["arb", "lat", "san"]
+    # wiki_models = list()
+    # common_crawl_models = list()
+    # if lang == "all":
+    #     wiki_models = all_wiki_models
+    #     common_crawl_models = all_common_crawl_models
+    # else:
+    #     assert (
+    #         lang in all_wiki_models or lang in all_common_crawl_models
+    #     ), f"ISO code '{lang}' either not among valid either 'wiki' or 'common_crawl' models."
+    #     wiki_models.append(lang)
+    #     common_crawl_models.append(lang)
+    for lang in all_wiki_models:
+        pass
+        # fasttext_class = FastTextEmbeddings(iso_code=lang)
+        # fasttext_class.download_fasttext_models()
 
 
 if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
     # get_stanfordnlp_models(force_update=True, lang="all")
     # get_fasttext_models(force=False, lang="lat")
-    pass
+    get_fasttext_models()

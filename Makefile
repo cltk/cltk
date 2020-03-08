@@ -24,6 +24,7 @@ preCommitRun:
 	poetry run pre-commit autoupdate && poetry run pre-commit install && poetry run pre-commit autoupdate
 
 shell:
+	# TODO: start w/ option ``doctest_mode``
 	poetry run ipython --automagic --pdb
 
 test:

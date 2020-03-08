@@ -17,26 +17,26 @@ from cltkv1.languages.utils import get_lang
 
 
 @dataclass
-class LatinPipeline(Pipeline):
-    """Default ``Pipeline`` for Latin.
+class GothicPipeline(Pipeline):
+    """Default ``Pipeline`` for Gothic.
 
-    >>> from cltkv1.languages.pipelines import LatinPipeline
-    >>> a_pipeline = LatinPipeline()
+    >>> from cltkv1.languages.pipelines import GothicPipeline
+    >>> a_pipeline = GothicPipeline()
     >>> a_pipeline.description
-    'Pipeline for the Latin language'
+    'Pipeline for the Gothic language'
     >>> a_pipeline.language
-    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, dates=[], family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a')
+    Language(name='Gothic', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
     >>> a_pipeline.language.name
-    'Latin'
+    'Gothic'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltkv1.embeddings.processes.GothicEmbeddingsProcess'>
     """
 
-    description: str = "Pipeline for the Latin language"
-    language: Language = get_lang("lat")
-    processes: List[Type[Process]] = field(
-        default_factory=lambda: [StanfordNLPProcess, LatinEmbeddingsProcess]
-    )
+    description: str = "Pipeline for the Gothic language"
+    language: Language = get_lang("got")
+    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess, GothicEmbeddingsProcess])
 
 
 @dataclass
@@ -61,24 +61,26 @@ class GreekPipeline(Pipeline):
 
 
 @dataclass
-class OCSPipeline(Pipeline):
-    """Default ``Pipeline`` for Old Church Slavonic.
+class LatinPipeline(Pipeline):
+    """Default ``Pipeline`` for Latin.
 
-    >>> from cltkv1.languages.pipelines import OCSPipeline
-    >>> a_pipeline = OCSPipeline()
+    >>> from cltkv1.languages.pipelines import LatinPipeline
+    >>> a_pipeline = LatinPipeline()
     >>> a_pipeline.description
-    'Pipeline for the Old Church Slavonic language'
+    'Pipeline for the Latin language'
     >>> a_pipeline.language
-    Language(name='Church Slavic', glottolog_id='chur1257', latitude=43.7171, longitude=22.8442, dates=[], family_id='indo1319', parent_id='east2269', level='language', iso_639_3_code='chu', type='a')
+    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, dates=[], family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a')
     >>> a_pipeline.language.name
-    'Church Slavic'
+    'Latin'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
 
-    description: str = "Pipeline for the Old Church Slavonic language"
-    language: Language = get_lang("chu")
-    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
+    description: str = "Pipeline for the Latin language"
+    language: Language = get_lang("lat")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [StanfordNLPProcess, LatinEmbeddingsProcess]
+    )
 
 
 @dataclass
@@ -103,23 +105,21 @@ class OldFrenchPipeline(Pipeline):
 
 
 @dataclass
-class GothicPipeline(Pipeline):
-    """Default ``Pipeline`` for Gothic.
+class OCSPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Church Slavonic.
 
-    >>> from cltkv1.languages.pipelines import GothicPipeline
-    >>> a_pipeline = GothicPipeline()
+    >>> from cltkv1.languages.pipelines import OCSPipeline
+    >>> a_pipeline = OCSPipeline()
     >>> a_pipeline.description
-    'Pipeline for the Gothic language'
+    'Pipeline for the Old Church Slavonic language'
     >>> a_pipeline.language
-    Language(name='Gothic', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
+    Language(name='Church Slavic', glottolog_id='chur1257', latitude=43.7171, longitude=22.8442, dates=[], family_id='indo1319', parent_id='east2269', level='language', iso_639_3_code='chu', type='a')
     >>> a_pipeline.language.name
-    'Gothic'
+    'Church Slavic'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
-    >>> a_pipeline.processes[1]
-    <class 'cltkv1.embeddings.processes.GothicEmbeddingsProcess'>
     """
 
-    description: str = "Pipeline for the Gothic language"
-    language: Language = get_lang("got")
-    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess, GothicEmbeddingsProcess])
+    description: str = "Pipeline for the Old Church Slavonic language"
+    language: Language = get_lang("chu")
+    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
