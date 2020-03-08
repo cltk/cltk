@@ -122,6 +122,9 @@ class CollatinusDecliner:
                     for lemma_root in lemma_roots
                 ]
 
+            if model_root_id in original_roots:
+                returned_roots[model_root_id].extend(original_roots[model_root_id])
+            returned_roots[model_root_id] = list(set(returned_roots[model_root_id]))
         original_roots.update(returned_roots)
 
         return original_roots
