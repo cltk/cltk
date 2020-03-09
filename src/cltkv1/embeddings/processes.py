@@ -33,7 +33,7 @@ def make_embedding_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
     return algorithm
 
 
-# ARABIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arb")
+ARABIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arb")
 GOTHIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="got")
 LATIN_WORD_EMBEDDING = make_embedding_algorithm(iso_code="lat")
 
@@ -58,24 +58,24 @@ class EmbeddingsProcess(Process):
     language: str = None
 
 
-# @dataclass
-# class ArabicEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Arabic embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import LatinEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "arb"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = ArabicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#     algorithm = ARABIC_WORD_EMBEDDING
-#     description: str = "Default embeddings for Arabic."
-#     language: str = "arb"
+@dataclass
+class ArabicEmbeddingsProcess(EmbeddingsProcess):
+    """The default Arabic embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import LatinEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "arb"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = ArabicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+    algorithm = ARABIC_WORD_EMBEDDING
+    description: str = "Default embeddings for Arabic."
+    language: str = "arb"
 
 
 @dataclass

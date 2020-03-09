@@ -3,6 +3,7 @@
 from cltkv1.core.data_types import Doc, Language, Pipeline
 from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
 from cltkv1.languages.pipelines import (
+    ArabicPipeline,
     GothicPipeline,
     GreekPipeline,
     LatinPipeline,
@@ -12,6 +13,7 @@ from cltkv1.languages.pipelines import (
 from cltkv1.languages.utils import get_lang
 
 pipelines = {
+    "arb": ArabicPipeline,
     "lat": LatinPipeline,
     "grc": GreekPipeline,
     "chu": OCSPipeline,
@@ -124,10 +126,13 @@ class NLP:
 
 if __name__ == "__main__":
     from cltkv1.utils.example_texts import get_example_text
-    lang = "lat"
+    # lang = "lat"
     # lang = "got"
+    lang = "arb"
     cltk_nlp = NLP(language=lang)
-    cltk_doc = cltk_nlp.analyze(get_example_text(iso_code=lang))
+    example_text = get_example_text(iso_code=lang)
+    print(example_text[:50])
+    cltk_doc = cltk_nlp.analyze(example_text)
     print(cltk_doc.embeddings)
     # a_word = cltk_doc.words[-5]
     # print(a_word)

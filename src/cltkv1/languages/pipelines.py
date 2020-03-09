@@ -11,9 +11,34 @@ from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.stanford import StanfordNLPProcess
+from cltkv1.embeddings.processes import ArabicEmbeddingsProcess
 from cltkv1.embeddings.processes import GothicEmbeddingsProcess
 from cltkv1.embeddings.processes import LatinEmbeddingsProcess
+from cltkv1.tokenizers.processes import ArabicTokenizationProcess
 from cltkv1.languages.utils import get_lang
+
+
+@dataclass
+class ArabicPipeline(Pipeline):
+    """Default ``Pipeline`` for Arabic.
+
+    >>> from cltkv1.languages.pipelines import ArabicPipeline
+    >>> a_pipeline = ArabicPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Arabic language'
+    >>> a_pipeline.language
+    Language(name='Standard Arabic', glottolog_id='stan1318', latitude=27.9625, longitude=43.8525, dates=[], family_id='afro1255', parent_id='arab1395', level='language', iso_639_3_code='arb', type='')
+    >>> a_pipeline.language.name
+    'Arabic'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    """
+
+    description: str = "Pipeline for the Arabic language"
+    language: Language = get_lang("arb")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [ArabicTokenizationProcess, ArabicEmbeddingsProcess]
+    )
 
 
 @dataclass
