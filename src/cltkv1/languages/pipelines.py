@@ -17,11 +17,13 @@ from cltkv1.embeddings.processes import (
     GothicEmbeddingsProcess,
     LatinEmbeddingsProcess,
     PaliEmbeddingsProcess,
+    SanskritEmbeddingsProcess,
 )
 from cltkv1.languages.utils import get_lang
 from cltkv1.tokenizers.processes import (
     ArabicTokenizationProcess,
     DefaultTokenizationProcess,
+    SanskritTokenizationProcess,
 )
 
 
@@ -38,7 +40,7 @@ class ArabicPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Standard Arabic'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.ArabicTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Arabic language"
@@ -62,7 +64,7 @@ class AramaicPipeline(Pipeline):
     >>> a_pipeline.language
     Language(name='Official Aramaic (700-300 BCE)', glottolog_id='', latitude=0.0, longitude=0.0, dates=[], family_id='', parent_id='', level='', iso_639_3_code='arc', type='a')
     >>> a_pipeline.language.name
-    'Aramaic'
+    'Official Aramaic (700-300 BCE)'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.tokenizers.processes.ArabicTokenizationProcess'>
     """
@@ -196,7 +198,7 @@ class PaliPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Pali language'
     >>> a_pipeline.language
-    XXX
+    Language(name='Pali', glottolog_id='pali1273', latitude=24.5271, longitude=82.251, dates=[], family_id='indo1319', parent_id='biha1245', level='language', iso_639_3_code='pli', type='a')
     >>> a_pipeline.language.name
     'Pali'
     >>> a_pipeline.processes[0]
@@ -207,4 +209,29 @@ class PaliPipeline(Pipeline):
     language: Language = get_lang("pli")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [DefaultTokenizationProcess, PaliEmbeddingsProcess]
+    )
+
+
+@dataclass
+class SanskritPipeline(Pipeline):
+    """Default ``Pipeline`` for Sanskrit.
+
+    TODO: Make better tokenizer for Sanskrit.
+
+    >>> from cltkv1.languages.pipelines import SanskritPipeline
+    >>> a_pipeline = SanskritPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Sanskrit language'
+    >>> a_pipeline.language
+    XXX
+    >>> a_pipeline.language.name
+    'Sanskrit'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    """
+
+    description: str = "Pipeline for the Sanskrit language"
+    language: Language = get_lang("san")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [SanskritTokenizationProcess, SanskritEmbeddingsProcess]
     )

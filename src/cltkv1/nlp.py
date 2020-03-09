@@ -11,10 +11,11 @@ from cltkv1.languages.pipelines import (
     OCSPipeline,
     OldFrenchPipeline,
     PaliPipeline,
+    SanskritPipeline,
 )
 from cltkv1.languages.utils import get_lang
 
-pipelines = {
+iso_to_pipeline = {
     "arb": ArabicPipeline,
     "arc": AramaicPipeline,
     "lat": LatinPipeline,
@@ -23,6 +24,7 @@ pipelines = {
     "fro": OldFrenchPipeline,
     "got": GothicPipeline,
     "pli": PaliPipeline,
+    "san": SanskritPipeline,
 }
 
 
@@ -75,7 +77,7 @@ class NLP:
         cltkv1.core.exceptions.UnimplementedLanguageError: axm
         """
         try:
-            return pipelines[self.language.iso_639_3_code]()
+            return iso_to_pipeline[self.language.iso_639_3_code]()
         except KeyError:
             raise UnimplementedLanguageError(self.language.iso_639_3_code)
 
@@ -135,7 +137,8 @@ if __name__ == "__main__":
     # lang = "got"
     # lang = "arb"
     # lang = "arc"
-    lang = "pli"
+    # lang = "pli"
+    lang = "san"
     cltk_nlp = NLP(language=lang)
     example_text = get_example_text(iso_code=lang)
     print(example_text[:50])

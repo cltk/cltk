@@ -39,6 +39,7 @@ ARAMAIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arc")
 GOTHIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="got")
 LATIN_WORD_EMBEDDING = make_embedding_algorithm(iso_code="lat")
 PALI_WORD_EMBEDDING = make_embedding_algorithm(iso_code="pli")
+SANSKRIT_WORD_EMBEDDING = make_embedding_algorithm(iso_code="san")
 
 
 @dataclass
@@ -164,3 +165,24 @@ class PaliEmbeddingsProcess(EmbeddingsProcess):
     algorithm = PALI_WORD_EMBEDDING
     description: str = "Default embeddings for Pali."
     language: str = "pli"
+
+
+@dataclass
+class SanskritEmbeddingsProcess(EmbeddingsProcess):
+    """The default Sanskrit embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import SanskritEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "san"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = SanskritEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    algorithm = SANSKRIT_WORD_EMBEDDING
+    description: str = "Default embeddings for Sanskrit."
+    language: str = "san"
