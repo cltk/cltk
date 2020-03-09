@@ -10,6 +10,7 @@ from cltkv1.languages.pipelines import (
     LatinPipeline,
     OCSPipeline,
     OldFrenchPipeline,
+    PaliPipeline,
 )
 from cltkv1.languages.utils import get_lang
 
@@ -21,6 +22,7 @@ pipelines = {
     "chu": OCSPipeline,
     "fro": OldFrenchPipeline,
     "got": GothicPipeline,
+    "pli": PaliPipeline,
 }
 
 
@@ -132,13 +134,13 @@ if __name__ == "__main__":
     # lang = "lat"
     # lang = "got"
     # lang = "arb"
-    lang = "arc"
-    # lang = "pli"
+    # lang = "arc"
+    lang = "pli"
     cltk_nlp = NLP(language=lang)
     example_text = get_example_text(iso_code=lang)
     print(example_text[:50])
     cltk_doc = cltk_nlp.analyze(example_text)
     print(cltk_doc.embeddings)
-    # a_word = cltk_doc.words[-5]
-    # print(a_word)
+    a_word = cltk_doc.words[-5]
+    print(a_word)
     # print(a_word.embedding)

@@ -16,6 +16,7 @@ from cltkv1.embeddings.processes import (
     AramaicEmbeddingsProcess,
     GothicEmbeddingsProcess,
     LatinEmbeddingsProcess,
+    PaliEmbeddingsProcess,
 )
 from cltkv1.languages.utils import get_lang
 from cltkv1.tokenizers.processes import (
@@ -51,6 +52,7 @@ class ArabicPipeline(Pipeline):
 class AramaicPipeline(Pipeline):
     """Default ``Pipeline`` for Aramaic.
 
+    TODO: Confirm with specialist what encodings should be expected.
     TODO: Replace ``ArabicTokenizationProcess`` with a multilingual one or a specific Aramaic.
 
     >>> from cltkv1.languages.pipelines import AramaicPipeline
@@ -181,3 +183,28 @@ class OCSPipeline(Pipeline):
     description: str = "Pipeline for the Old Church Slavonic language"
     language: Language = get_lang("chu")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
+
+
+@dataclass
+class PaliPipeline(Pipeline):
+    """Default ``Pipeline`` for Pali.
+
+    TODO: Make better tokenizer for Pali.
+
+    >>> from cltkv1.languages.pipelines import PaliPipeline
+    >>> a_pipeline = PaliPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Pali language'
+    >>> a_pipeline.language
+    XXX
+    >>> a_pipeline.language.name
+    'Pali'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    """
+
+    description: str = "Pipeline for the Pali language"
+    language: Language = get_lang("pli")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [DefaultTokenizationProcess, PaliEmbeddingsProcess]
+    )

@@ -38,6 +38,7 @@ ARABIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arb")
 ARAMAIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arc")
 GOTHIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="got")
 LATIN_WORD_EMBEDDING = make_embedding_algorithm(iso_code="lat")
+PALI_WORD_EMBEDDING = make_embedding_algorithm(iso_code="pli")
 
 
 @dataclass
@@ -142,3 +143,24 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     algorithm = LATIN_WORD_EMBEDDING
     description: str = "Default embeddings for Latin."
     language: str = "lat"
+
+
+@dataclass
+class PaliEmbeddingsProcess(EmbeddingsProcess):
+    """The default Pali embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import PaliEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "pli"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = PaliEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    algorithm = PALI_WORD_EMBEDDING
+    description: str = "Default embeddings for Pali."
+    language: str = "pli"
