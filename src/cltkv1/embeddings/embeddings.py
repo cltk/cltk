@@ -73,13 +73,13 @@ class FastTextEmbeddings:
         self.silent = silent
 
         self.MAP_LANGS_CLTK_FASTTEXT = {
+            "ang": "ang",  # Anglo-Saxon
             "arb": "ar",  # Arabic
             "arc": "arc",  # Aramaic
             "got": "got",  # Gothic
             "lat": "la",  # Latin
             "pli": "pi",  # Pali
             "san": "sa",  # Sanskrit
-            "xno": "ang",  # Anglo-Saxon
         }
 
         self._check_input_params()
@@ -156,7 +156,7 @@ class FastTextEmbeddings:
             )
         available_vectors = list()
         if self.training_set == "wiki":
-            available_vectors = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
+            available_vectors = ["ang", "arb", "arc", "got", "lat", "pli", "san"]
         elif self.training_set == "common_crawl":
             available_vectors = ["arb", "lat", "san"]
         else:
@@ -205,7 +205,7 @@ class FastTextEmbeddings:
         # >>> embeddings_obj = FastTextEmbeddings(iso_code="ave, silent=True")
         # Traceback (most recent call last):
         #   ..
-        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: arb', 'arc', 'got', 'lat', 'pli', 'san', 'xno.
+        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: 'ang', 'arb', 'arc', 'got', 'lat', 'pli', 'san'.
         # >>> embeddings_obj = FastTextEmbeddings(iso_code="xxx", silent=True)
         # Traceback (most recent call last):
         #   ..

@@ -16,6 +16,7 @@ from cltkv1.embeddings.processes import (
     AramaicEmbeddingsProcess,
     GothicEmbeddingsProcess,
     LatinEmbeddingsProcess,
+    OldEnglishEmbeddingsProcess,
     PaliEmbeddingsProcess,
     SanskritEmbeddingsProcess,
 )
@@ -185,6 +186,27 @@ class OCSPipeline(Pipeline):
     description: str = "Pipeline for the Old Church Slavonic language"
     language: Language = get_lang("chu")
     processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess])
+
+
+@dataclass
+class OldEnglishPipeline(Pipeline):
+    """Default ``Pipeline`` for Old English.
+
+    >>> from cltkv1.languages.pipelines import OldEnglishPipeline
+    >>> a_pipeline = OldEnglishPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Old English language'
+    >>> a_pipeline.language
+    xxx
+    >>> a_pipeline.language.name
+    'Old English (ca. 450-1100)'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    """
+
+    description: str = "Pipeline for the Old English language"
+    language: Language = get_lang("chu")
+    processes: List[Type[Process]] = field(default_factory=lambda: [DefaultTokenizationProcess, OldEnglishEmbeddingsProcess])
 
 
 @dataclass

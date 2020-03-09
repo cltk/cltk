@@ -19,6 +19,19 @@ from cltkv1.languages.utils import get_lang
 EXAMPLE_TEXTS = dict(
     # Akkadian
     akk="u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er",
+    # Old English, Beowulf
+    ang="""Hwæt. We Gardena in geardagum,
+þeodcyninga, þrym gefrunon,
+hu ða æþelingas ellen fremedon.
+Oft Scyld Scefing sceaþena þreatum,
+monegum mægþum, meodosetla ofteah,
+egsode eorlas. Syððan ærest wearð
+feasceaft funden, he þæs frofre gebad,
+weox under wolcnum, weorðmyndum þah,
+oðþæt him æghwylc þara ymbsittendra
+ofer hronrade hyran scolde,
+gomban gyldan. þæt wæs god cyning.
+""",
     # Arabic, Quran
     arb="كهيعص ﴿١﴾ ذِكْرُ رَحْمَتِ رَبِّكَ عَبْدَهُ زَكَرِيَّا ﴿٢﴾ إِذْ نَادَىٰ رَبَّهُ نِدَاءً خَفِيًّا ﴿٣﴾ قَالَ رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا ﴿٤﴾ وَإِنِّي خِفْتُ الْمَوَالِيَ مِن وَرَائِي وَكَانَتِ امْرَأَتِي عَاقِرًا فَهَبْ لِي مِن لَّدُنكَ وَلِيًّا ﴿٥﴾ يَرِثُنِي وَيَرِثُ مِنْ آلِ يَعْقُوبَ ۖ وَاجْعَلْهُ رَبِّ رَضِيًّا ﴿٦﴾ يَا زَكَرِيَّا إِنَّا نُبَشِّرُكَ بِغُلَامٍ اسْمُهُ يَحْيَىٰ لَمْ نَجْعَل لَّهُ مِن قَبْلُ سَمِيًّا ﴿٧﴾ قَالَ رَبِّ أَنَّىٰ يَكُونُ لِي غُلَامٌ وَكَانَتِ امْرَأَتِي عَاقِرًا وَقَدْ بَلَغْتُ مِنَ الْكِبَرِ عِتِيًّا ﴿٨﴾ قَالَ كَذَٰلِكَ قَالَ رَبُّكَ هُوَ عَلَيَّ هَيِّنٌ وَقَدْ خَلَقْتُكَ مِن قَبْلُ وَلَمْ تَكُ شَيْئًا ﴿٩﴾ قَالَ رَبِّ اجْعَل لِّي آيَةً ۚ قَالَ آيَتُكَ أَلَّا تُكَلِّمَ النَّاسَ ثَلَاثَ لَيَالٍ سَوِيًّا ﴿١٠﴾ فَخَرَجَ عَلَىٰ قَوْمِهِ مِنَ الْمِحْرَابِ فَأَوْحَىٰ إِلَيْهِمْ أَن سَبِّحُوا بُكْرَةً وَعَشِيًّا ﴿١١﴾",
     # Aramaic, John 1.1-4 with full western vocalization

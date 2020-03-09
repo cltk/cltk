@@ -9,6 +9,7 @@ from cltkv1.languages.pipelines import (
     GreekPipeline,
     LatinPipeline,
     OCSPipeline,
+    OldEnglishPipeline,
     OldFrenchPipeline,
     PaliPipeline,
     SanskritPipeline,
@@ -16,6 +17,7 @@ from cltkv1.languages.pipelines import (
 from cltkv1.languages.utils import get_lang
 
 iso_to_pipeline = {
+    "ang": OldEnglishPipeline,
     "arb": ArabicPipeline,
     "arc": AramaicPipeline,
     "lat": LatinPipeline,
@@ -138,7 +140,8 @@ if __name__ == "__main__":
     # lang = "arb"
     # lang = "arc"
     # lang = "pli"
-    lang = "san"
+    # lang = "san"
+    lang = "ang"
     cltk_nlp = NLP(language=lang)
     example_text = get_example_text(iso_code=lang)
     print(example_text[:50])
