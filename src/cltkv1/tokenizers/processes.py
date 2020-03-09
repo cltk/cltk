@@ -34,6 +34,7 @@ LATIN_WORD_TOK = make_tokenizer_algorithm(language="latin")
 MIDDLE_ENGLISH_WORD_TOK = make_tokenizer_algorithm(language="middle_english")
 MIDDLE_FRENCH_WORD_TOK = make_tokenizer_algorithm(language="middle_french")
 MIDDLE_HIGH_GERMAN_WORD_TOK = make_tokenizer_algorithm(language="middle_high_german")
+# TODO: Fix MULTILINGUAL_WORD_TOK, this might not work
 MULTILINGUAL_WORD_TOK = make_tokenizer_algorithm(language="multilingual")
 OLD_FRENCH_WORD_TOK = make_tokenizer_algorithm(language="old_french")
 OLD_NORSE_WORD_TOK = make_tokenizer_algorithm(language="old_norse")

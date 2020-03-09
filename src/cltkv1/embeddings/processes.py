@@ -1,7 +1,7 @@
 """This module holds the ``Process``es, related to embeddings,
 that are called by ``Pipeline``s.
 
-TODO: Add embedding FT Processes for [] "arb",[] "arc", [x] "got", [x] "lat", [] "pli", [] "san", [] "xno"
+TODO: Add embedding FT Processes for [x] "arb", [x] "arc", [x] "got", [x] "lat", [x] "pli", [] "san", [] "xno"
 """
 
 from dataclasses import dataclass
@@ -33,7 +33,9 @@ def make_embedding_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
     return algorithm
 
 
+# TODO: Move these to within respective class
 ARABIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arb")
+ARAMAIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arc")
 GOTHIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="got")
 LATIN_WORD_EMBEDDING = make_embedding_algorithm(iso_code="lat")
 
@@ -73,8 +75,30 @@ class ArabicEmbeddingsProcess(EmbeddingsProcess):
     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
     True
     """
+
     algorithm = ARABIC_WORD_EMBEDDING
     description: str = "Default embeddings for Arabic."
+    language: str = "arb"
+
+
+@dataclass
+class AramaicEmbeddingsProcess(EmbeddingsProcess):
+    """The default Aramaic embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import LatinEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "arc"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = AramaicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    algorithm = ARAMAIC_WORD_EMBEDDING
+    description: str = "Default embeddings for Aramaic."
     language: str = "arb"
 
 
@@ -93,6 +117,7 @@ class GothicEmbeddingsProcess(EmbeddingsProcess):
     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
     True
     """
+
     algorithm = GOTHIC_WORD_EMBEDDING
     description: str = "Default embeddings for Gothic."
     language: str = "got"
@@ -113,6 +138,7 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
     True
     """
+
     algorithm = LATIN_WORD_EMBEDDING
     description: str = "Default embeddings for Latin."
     language: str = "lat"

@@ -11,11 +11,17 @@ from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.stanford import StanfordNLPProcess
-from cltkv1.embeddings.processes import ArabicEmbeddingsProcess
-from cltkv1.embeddings.processes import GothicEmbeddingsProcess
-from cltkv1.embeddings.processes import LatinEmbeddingsProcess
-from cltkv1.tokenizers.processes import ArabicTokenizationProcess
+from cltkv1.embeddings.processes import (
+    ArabicEmbeddingsProcess,
+    AramaicEmbeddingsProcess,
+    GothicEmbeddingsProcess,
+    LatinEmbeddingsProcess,
+)
 from cltkv1.languages.utils import get_lang
+from cltkv1.tokenizers.processes import (
+    ArabicTokenizationProcess,
+    DefaultTokenizationProcess,
+)
 
 
 @dataclass
@@ -29,7 +35,7 @@ class ArabicPipeline(Pipeline):
     >>> a_pipeline.language
     Language(name='Standard Arabic', glottolog_id='stan1318', latitude=27.9625, longitude=43.8525, dates=[], family_id='afro1255', parent_id='arab1395', level='language', iso_639_3_code='arb', type='')
     >>> a_pipeline.language.name
-    'Arabic'
+    'Standard Arabic'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
     """
@@ -38,6 +44,31 @@ class ArabicPipeline(Pipeline):
     language: Language = get_lang("arb")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [ArabicTokenizationProcess, ArabicEmbeddingsProcess]
+    )
+
+
+@dataclass
+class AramaicPipeline(Pipeline):
+    """Default ``Pipeline`` for Aramaic.
+
+    TODO: Replace ``ArabicTokenizationProcess`` with a multilingual one or a specific Aramaic.
+
+    >>> from cltkv1.languages.pipelines import AramaicPipeline
+    >>> a_pipeline = AramaicPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Aramaic language'
+    >>> a_pipeline.language
+    Language(name='Official Aramaic (700-300 BCE)', glottolog_id='', latitude=0.0, longitude=0.0, dates=[], family_id='', parent_id='', level='', iso_639_3_code='arc', type='a')
+    >>> a_pipeline.language.name
+    'Aramaic'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.tokenizers.processes.ArabicTokenizationProcess'>
+    """
+
+    description: str = "Pipeline for the Aramaic language"
+    language: Language = get_lang("arc")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [ArabicTokenizationProcess, AramaicEmbeddingsProcess]
     )
 
 
@@ -61,7 +92,9 @@ class GothicPipeline(Pipeline):
 
     description: str = "Pipeline for the Gothic language"
     language: Language = get_lang("got")
-    processes: List[Type[Process]] = field(default_factory=lambda: [StanfordNLPProcess, GothicEmbeddingsProcess])
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [StanfordNLPProcess, GothicEmbeddingsProcess]
+    )
 
 
 @dataclass

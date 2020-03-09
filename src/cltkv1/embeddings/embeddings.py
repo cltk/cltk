@@ -28,7 +28,6 @@ from cltkv1.core.exceptions import (
     UnknownLanguageError,
 )
 from cltkv1.languages.utils import get_lang
-
 from cltkv1.utils import CLTK_DATA_DIR
 
 
