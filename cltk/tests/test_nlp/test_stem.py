@@ -353,6 +353,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_collatinus_decline(self):
         """ Ensure lemmatization works well """
         decliner = CollatinusDecliner()
+
+        def sort_result(result):
+            return {key: sorted(val) for key, val in result.items()}
+
         self.maxDiff = None
         self.assertEqual(
             decliner.decline("via", collatinus_dict=True),
@@ -375,6 +379,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
              69: ['doctiores'], 70: ['doctiorum'], 71: ['doctioribus'], 72: ['doctioribus'], 73: ['doctius'],
              74: ['doctius'], 75: ['doctius'], 76: ['doctioris'], 77: ['doctiori'], 78: ['doctiore'],
              79: ['doctiora'], 80: ['doctiora'], 81: ['doctiora'], 82: ['doctiorum'], 83: ['doctioribus'],
+             84: ['doctioribus'],
              85: ['doctissimus'], 86: ['doctissime'], 87: ['doctissimum'], 88: ['doctissimi'], 89: ['doctissimo'],
              90: ['doctissimo'], 91: ['doctissimi'], 92: ['doctissimi'], 93: ['doctissimos'], 94: ['doctissimorum'],
              95: ['doctissimis'], 96: ['doctissimis'], 97: ['doctissima'], 98: ['doctissima'], 99: ['doctissimam'],
@@ -387,7 +392,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             "Doctus has three radicals and lots of forms"
         )
         self.assertEqual(
-            {key: sorted(val) for key, val in decliner.decline("verbex", collatinus_dict=True).items()},
+            sort_result(decliner.decline("verbex", collatinus_dict=True)),
             {1: ['berbex', 'verbex', 'vervex'],
              2: ['berbex', 'verbex', 'vervex'],
              3: ['berbecem', 'verbecem', 'vervecem'],
@@ -402,9 +407,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
              12: ['berbecibus', 'verbecibus', 'vervecibus']}, # Missing 12 ?
             "Verbex has two different roots : checking they are taken into account"
         )
-        print({key: sorted(val) for key, val in decliner.decline("vendo", collatinus_dict=True).items()})
         self.assertEqual(
-            {key: sorted(val) for key, val in decliner.decline("vendo", collatinus_dict=True).items()},
+            sort_result(decliner.decline("vendo", collatinus_dict=True)),
             {121: ['vendo'], 122: ['vendis'], 123: ['vendit'], 124: ['vendimus'], 125: ['venditis'], 126: ['vendunt'],
              127: ['vendebam'], 128: ['vendebas'], 129: ['vendebat'], 130: ['vendebamus'], 131: ['vendebatis'],
              132: ['vendebant'], 133: ['vendam'], 134: ['vendes'], 135: ['vendet'], 136: ['vendemus'],
@@ -486,34 +490,56 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         )
 
         self.assertEqual(
-            decliner.decline("hic", collatinus_dict=True),
-            {13: ['hic', 'hice', 'hicine'], 15: ['hunc'], 16: ['hujus', 'hujusce'], 17: ['huic'],
-             18: ['hoc', 'hocine'], 19: ['hi'], 21: ['hos', 'hosce'], 22: ['horum'],
-             23: ['his', 'hisce'], 24: ['his', 'hisce'], 25: ['haec', 'haece', 'haecine', 'haeccine'],
-             27: ['hanc'], 28: ['hujus', 'hujusce'], 29: ['huic'], 30: ['hac'], 31: ['hae'],
-             33: ['has', 'hasce'], 34: ['harum'], 35: ['his', 'hisce'], 36: ['his', 'hisce'], 37: ['hoc', 'hocine'],
-             39: ['hoc', 'hocine'], 40: ['hujus', 'hujusce'], 41: ['huic'], 42: ['hoc', 'hocine'],
-             43: ['haec', 'haecine', 'haeccine'], 45: ['ha', 'haine', 'hacine'], 46: ['horum'],
-             47: ['his', 'hisce'], 48: ['his', 'hisce']},
+            sort_result(decliner.decline("hic", collatinus_dict=True)),
+            {13: ['hic', 'hice', 'hicine'],
+             15: ['hunc'],
+             16: ['hujus', 'hujusce'],
+             17: ['huic'],
+             18: ['hoc', 'hocine'],
+             19: ['hi'],
+             21: ['hos', 'hosce'],
+             22: ['horum'],
+             23: ['his', 'hisce'],
+             24: ['his', 'hisce'],
+             25: ['haec', 'haeccine', 'haece', 'haecine'],
+             27: ['hanc'],
+             28: ['hujus', 'hujusce'],
+             29: ['huic'],
+             30: ['hac'],
+             31: ['hae'],
+             33: ['has', 'hasce'],
+             34: ['harum'],
+             35: ['his', 'hisce'],
+             36: ['his', 'hisce'],
+             37: ['hoc', 'hocine'],
+             39: ['hoc', 'hocine'],
+             40: ['hujus', 'hujusce'],
+             41: ['huic'],
+             42: ['hoc', 'hocine'],
+             43: ['haec', 'haeccine', 'haecine'],
+             45: ['haec', 'haeccine', 'haecine'],
+             46: ['horum'],
+             47: ['his', 'hisce'],
+             48: ['his', 'hisce']},
             "Check that suffixes are well added"
         )
-
         self.assertEqual(
-            decliner.decline("quicumque", collatinus_dict=True),
+            sort_result(decliner.decline("quicumque", collatinus_dict=True)),
             {13: ['quicumque', 'quicunque'], 15: ['quemcumque', 'quemcunque'],
-             16: ['cujuscumque', 'quojuscumque', 'cujuscunque', 'quojuscunque'],
-             17: ['cuicumque', 'quoicumque', 'cuicunque', 'quoicunque'], 18: ['quocumque', 'quocunque'],
+             16: ['cujuscumque', 'cujuscunque', 'quojuscumque', 'quojuscunque'],
+             17: ['cuicumque', 'cuicunque', 'quoicumque', 'quoicunque'], 18: ['quocumque', 'quocunque'],
              19: ['quicumque', 'quicunque'], 21: ['quoscumque', 'quoscunque'], 22: ['quorumcumque', 'quorumcunque'],
-             23: ['quibuscumque', 'quibuscunque'], 25: ['quaecumque', 'quaecunque'],
-             27: ['quamcumque', 'quamcunque'], 28: ['cujuscumque', 'quojuscumque', 'cujuscunque', 'quojuscunque'],
-             29: ['cuicumque', 'quoicumque', 'cuicunque', 'quoicunque'], 30: ['quacumque', 'quacunque'],
-             31: ['quaecumque', 'quaecunque'], 33: ['quascumque', 'quascunque'],
-             34: ['quarumcumque', 'quarumcunque'], 35: ['quibuscumque', 'quibuscunque'],
+             23: ['quibuscumque', 'quibuscunque'], 24: ['quibuscumque', 'quibuscunque'],
+             25: ['quaecumque', 'quaecunque'], 27: ['quamcumque', 'quamcunque'],
+             28: ['cujuscumque', 'cujuscunque', 'quojuscumque', 'quojuscunque'],
+             29: ['cuicumque', 'cuicunque', 'quoicumque', 'quoicunque'], 30: ['quacumque', 'quacunque'],
+             31: ['quaecumque', 'quaecunque'], 33: ['quascumque', 'quascunque'], 34: ['quarumcumque', 'quarumcunque'],
+             35: ['quibuscumque', 'quibuscunque'], 36: ['quibuscumque', 'quibuscunque'],
              37: ['quodcumque', 'quodcunque'], 39: ['quodcumque', 'quodcunque'],
-             40: ['cujuscumque', 'quojuscumque', 'cujuscunque', 'quojuscunque'],
-             41: ['cuicumque', 'quoicumque', 'cuicunque', 'quoicunque'], 42: ['quocumque', 'quocunque'],
-             43: ['quaecumque', 'quaecunque'], 45: ['quaecumque', 'quaecunque'],
-             46: ['quorumcumque', 'quorumcunque'], 47: ['quibuscumque', 'quibuscunque']},
+             40: ['cujuscumque', 'cujuscunque', 'quojuscumque', 'quojuscunque'],
+             41: ['cuicumque', 'cuicunque', 'quoicumque', 'quoicunque'], 42: ['quocumque', 'quocunque'],
+             43: ['quaecumque', 'quaecunque'], 45: ['quaecumque', 'quaecunque'], 46: ['quorumcumque', 'quorumcunque'],
+             47: ['quibuscumque', 'quibuscunque'], 48: ['quibuscumque', 'quibuscunque']},
             "Constant suffix should be added"
         )
         self.assertEqual(
