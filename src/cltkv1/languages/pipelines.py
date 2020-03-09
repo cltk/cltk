@@ -197,7 +197,7 @@ class OldEnglishPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Old English language'
     >>> a_pipeline.language
-    xxx
+    Language(name='Church Slavic', glottolog_id='chur1257', latitude=43.7171, longitude=22.8442, dates=[], family_id='indo1319', parent_id='east2269', level='language', iso_639_3_code='chu', type='a')
     >>> a_pipeline.language.name
     'Old English (ca. 450-1100)'
     >>> a_pipeline.processes[0]
@@ -224,7 +224,7 @@ class PaliPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Pali'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.DefaultTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Pali language"
@@ -245,7 +245,7 @@ class SanskritPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Sanskrit language'
     >>> a_pipeline.language
-    XXX
+    Language(name='Sanskrit', glottolog_id='sans1269', latitude=20.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='indo1321', level='language', iso_639_3_code='san', type='a')
     >>> a_pipeline.language.name
     'Sanskrit'
     >>> a_pipeline.processes[0]
