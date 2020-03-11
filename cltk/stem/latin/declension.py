@@ -12,7 +12,9 @@ __license__ = "GPL v3"
 
 import os
 import json
+import re
 from cltk.exceptions import UnknownLemma
+
 
 
 class CollatinusDecliner:
@@ -35,16 +37,20 @@ class CollatinusDecliner:
 
 
     """
+
+    _dism = re.compile(r"(\d+)")
+
     def __init__(self):
         path = os.path.join(get_cltk_data_dir(),
                                 'latin', 'model', 'latin_models_cltk',
                                 'lemmata', 'collatinus', 'collected.json')
         path = os.path.expanduser(path)
         with open(path) as data_file:
-            self.__data__ = json.load(data_file)
+            self._data = json.load(data_file)
 
-        self.__models__ = self.__data__["models"]
-        self.__lemmas__ = self.__data__["lemmas"]
+        self._models = self._data["models"]
+        self._lemmas = self._data["lemmas"]
+        self._mapped = self._data["maps"]
 
     def __getPOS(self, key):
         """ Get POS tag for key
@@ -52,20 +58,28 @@ class CollatinusDecliner:
         :param key: Key Index of Collatinus Morphos
         :return: Part-Of-Speech tag
         """
-        return self.__data__["pos"][str(key)]
+        return self._data["pos"][str(key)]
 
-    def __getRoots(self, lemma, model=None):
+    def _remove_disambiguation(self, root):
+        """Remove disambiguation index from lemma root
+
+        :param root: Root in Collatinus
+        :return: Cleaned root
+        """
+        return CollatinusDecliner._dism.sub("", root)
+
+    def _getRoots(self, lemma, model=None):
         """ Retrieve the known roots of a lemma
 
         :param lemma: Canonical form of the word (lemma)
         :type lemma: str
-        :param model_roots: Model data from the loaded self.__data__. Can be passed by decline()
-        :type model_roots: dict
+        :param model: Model data from the loaded self.__data__. Can be passed by decline()
+        :type model: dict
         :return: Dictionary of roots with their root identifier as key
         :rtype: dict
         """
 
-        if lemma not in self.__lemmas__:
+        if lemma not in self._lemmas:
             raise UnknownLemma("%s is unknown" % lemma)
 
         ROOT_IDS = {
@@ -74,7 +88,12 @@ class CollatinusDecliner:
             "2": "perf"
         }
 
-        lemma_entry = self.__lemmas__[lemma]
+        lemma_entry = self._lemmas[lemma]
+        if "quantity" in lemma_entry and lemma_entry["quantity"]:
+            lemma_in_lemma_entry = lemma_entry["quantity"]
+        else:
+            lemma_in_lemma_entry = self._remove_disambiguation(lemma_entry["lemma"])
+
         original_roots = {
             root_id: lemma_entry[root_name].split(",")
             for root_id, root_name in ROOT_IDS.items()
@@ -83,14 +102,14 @@ class CollatinusDecliner:
         returned_roots = {}
 
         if not model:
-            model = self.__models__[lemma_entry["model"]]
+            model = self._models[lemma_entry["model"]]
 
         # For each registered root in the model,
         for model_root_id, model_root_data in model["R"].items():
 
             # If we have K, it's equivalent to canonical form
             if model_root_data[0] == "K":
-                returned_roots[model_root_id] = [lemma_entry["lemma"]]
+                returned_roots[model_root_id] = lemma_in_lemma_entry.split(",")
             # Otherwise we have deletion number and addition char
             else:
                 deletion, addition = int(model_root_data[0]), model_root_data[1] or ""
@@ -100,14 +119,18 @@ class CollatinusDecliner:
                 if model_root_id != "1" and model_root_id in returned_roots:
                     lemma_roots = returned_roots[model_root_id]
                 else:
-                    lemma_roots = lemma_entry["lemma"].split(",")
+                    lemma_roots = lemma_in_lemma_entry.split(",")
                 # We construct the roots
                 returned_roots[model_root_id] = [
                     lemma_root[:-deletion] + addition
                     for lemma_root in lemma_roots
                 ]
 
+            if model_root_id in original_roots:
+                returned_roots[model_root_id].extend(original_roots[model_root_id])
+            returned_roots[model_root_id] = list(set(returned_roots[model_root_id]))
         original_roots.update(returned_roots)
+
         return original_roots
 
     def decline(self, lemma, flatten=False, collatinus_dict=False):
@@ -126,18 +149,22 @@ class CollatinusDecliner:
         :type collatinus_dict: bool
         :return: List of tuple where first value is the form and second the pos, ie [("sum", "v1ppip---")]
         :rtype: list or dict
+
         """
 
-        if lemma not in self.__lemmas__:
+        if lemma in self._lemmas:
+            # Get data information
+            lemma_entry = self._lemmas[lemma]
+        elif lemma in self._mapped and self._mapped[lemma] in self._lemmas:
+            # Get data information
+            lemma = self._mapped[lemma]
+            lemma_entry = self._lemmas[self._mapped[lemma]]
+        else:
             raise UnknownLemma("%s is unknown" % lemma)
-
-        # Get data information
-        lemma_entry = self.__lemmas__[lemma]
-        model = self.__models__[lemma_entry["model"]]
+        model = self._models[lemma_entry["model"]]
 
         # Get the roots
-        roots = self.__getRoots(lemma, model=model)
-
+        roots = self._getRoots(lemma, model=model)
         # Get the known forms in order
         keys = sorted([int(key) for key in model["des"].keys()])
         forms_data = [(key, model["des"][str(key)]) for key in keys]
@@ -187,3 +214,7 @@ class CollatinusDecliner:
             return list(
                 [(form, self.__getPOS(key)) for key, case_forms in forms.items() for form in case_forms]
             )
+
+    @property
+    def lemmas(self):
+        return self._lemmas

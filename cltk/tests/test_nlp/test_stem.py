@@ -353,6 +353,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_collatinus_decline(self):
         """ Ensure lemmatization works well """
         decliner = CollatinusDecliner()
+
+        def sort_result(result):
+            return {key: sorted(val) for key, val in result.items()}
+
+        self.maxDiff = None
         self.assertEqual(
             decliner.decline("via", collatinus_dict=True),
             {1: ['via'], 2: ['via'], 3: ['viam'], 4: ['viae'], 5: ['viae'], 6: ['via'], 7: ['viae'],
@@ -374,6 +379,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
              69: ['doctiores'], 70: ['doctiorum'], 71: ['doctioribus'], 72: ['doctioribus'], 73: ['doctius'],
              74: ['doctius'], 75: ['doctius'], 76: ['doctioris'], 77: ['doctiori'], 78: ['doctiore'],
              79: ['doctiora'], 80: ['doctiora'], 81: ['doctiora'], 82: ['doctiorum'], 83: ['doctioribus'],
+             84: ['doctioribus'],
              85: ['doctissimus'], 86: ['doctissime'], 87: ['doctissimum'], 88: ['doctissimi'], 89: ['doctissimo'],
              90: ['doctissimo'], 91: ['doctissimi'], 92: ['doctissimi'], 93: ['doctissimos'], 94: ['doctissimorum'],
              95: ['doctissimis'], 96: ['doctissimis'], 97: ['doctissima'], 98: ['doctissima'], 99: ['doctissimam'],
@@ -386,62 +392,86 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             "Doctus has three radicals and lots of forms"
         )
         self.assertEqual(
-            decliner.decline("verbex", collatinus_dict=True),
-            {1: ['verbex'], 2: ['verbex'], 3: ['verbicem'], 4: ['verbicis'], 5: ['verbici'], 6: ['verbice'],
-             7: ['verbices'], 8: ['verbices'], 9: ['verbices'], 10: ['verbicum'], 11: ['verbicibus'],
-             12: ['verbicibus']},
+            sort_result(decliner.decline("verbex", collatinus_dict=True)),
+            {1: ['berbex', 'verbex', 'vervex'],
+             2: ['berbex', 'verbex', 'vervex'],
+             3: ['berbecem', 'verbecem', 'vervecem'],
+             4: ['berbecis', 'verbecis', 'vervecis'],
+             5: ['berbeci', 'verbeci', 'verveci'],
+             6: ['berbece', 'verbece', 'vervece'],
+             7: ['berbeces', 'verbeces', 'verveces'],
+             8: ['berbeces', 'verbeces', 'verveces'],
+             9: ['berbeces', 'verbeces', 'verveces'],
+             10: ['berbecum', 'verbecum', 'vervecum'],
+             11: ['berbecibus', 'verbecibus', 'vervecibus'],
+             12: ['berbecibus', 'verbecibus', 'vervecibus']}, # Missing 12 ?
             "Verbex has two different roots : checking they are taken into account"
         )
         self.assertEqual(
-            decliner.decline("vendo", collatinus_dict=True),
-            {121: ['vendo'], 122: ['vendis'], 123: ['vendit'], 124: ['vendimus'], 125: ['venditis'],
-             126: ['vendunt'], 127: ['vendebam'], 128: ['vendebas'], 129: ['vendebat'], 130: ['vendebamus'],
-             131: ['vendebatis'], 132: ['vendebant'], 133: ['vendam'], 134: ['vendes'], 135: ['vendet'],
-             136: ['vendemus'], 137: ['vendetis'], 138: ['vendent'], 139: ['vendavi'], 140: ['vendavisti'],
-             141: ['vendavit'], 142: ['vendavimus'], 143: ['vendavistis'], 144: ['vendaverunt', 'vendavere'],
-             145: ['vendaveram'], 146: ['vendaveras'], 147: ['vendaverat'], 148: ['vendaveramus'],
-             149: ['vendaveratis'], 150: ['vendaverant'], 151: ['vendavero'], 152: ['vendaveris'],
-             153: ['vendaverit'], 154: ['vendaverimus'], 155: ['vendaveritis'], 156: ['vendaverint'],
-             157: ['vendam'], 158: ['vendas'], 159: ['vendat'], 160: ['vendamus'], 161: ['vendatis'],
-             162: ['vendant'], 163: ['venderem'], 164: ['venderes'], 165: ['venderet'], 166: ['venderemus'],
-             167: ['venderetis'], 168: ['venderent'], 169: ['vendaverim'], 170: ['vendaveris'], 171: ['vendaverit'],
-             172: ['vendaverimus'], 173: ['vendaveritis'], 174: ['vendaverint'], 175: ['vendavissem'],
-             176: ['vendavisses'], 177: ['vendavisset'], 178: ['vendavissemus'], 179: ['vendavissetis'],
-             180: ['vendavissent'], 181: ['vende'], 182: ['vendite'], 183: ['vendito'], 184: ['vendito'],
-             185: ['venditote'], 186: ['vendunto'], 187: ['vendere'], 188: ['vendasse'], 189: ['vendens'],
-             190: ['vendens'], 191: ['vendentem'], 192: ['vendentis'], 193: ['vendenti'], 194: ['vendente'],
-             195: ['vendentes'], 196: ['vendentes'], 197: ['vendentes'], 198: ['vendentium', 'vendentum'],
-             199: ['vendentibus'], 200: ['vendentibus'], 201: ['vendens'], 202: ['vendens'], 203: ['vendentem'],
-             204: ['vendentis'], 205: ['vendenti'], 206: ['vendente'], 207: ['vendentes'], 208: ['vendentes'],
-             209: ['vendentes'], 210: ['vendentium', 'vendentum'], 211: ['vendentibus'], 212: ['vendentibus'],
-             213: ['vendens'], 214: ['vendens'], 215: ['vendens'], 216: ['vendentis'], 217: ['vendenti'],
-             218: ['vendente'], 219: ['vendentia'], 220: ['vendentia'], 221: ['vendentia'],
-             222: ['vendentium', 'vendentum'], 223: ['vendentibus'], 224: ['vendentibus'], 225: ['vendaturus'],
-             226: ['vendature'], 227: ['vendaturum'], 228: ['vendaturi'], 229: ['vendaturo'], 230: ['vendaturo'],
-             231: ['vendaturi'], 232: ['vendaturi'], 233: ['vendaturos'], 234: ['vendaturorum'],
-             235: ['vendaturis'], 236: ['vendaturis'], 237: ['vendatura'], 238: ['vendatura'], 239: ['vendaturam'],
-             240: ['vendaturae'], 241: ['vendaturae'], 242: ['vendatura'], 243: ['vendaturae'], 244: ['vendaturae'],
-             245: ['vendaturas'], 246: ['vendaturarum'], 247: ['vendaturis'], 248: ['vendaturis'],
-             249: ['vendaturum'], 250: ['vendaturum'], 251: ['vendaturum'], 252: ['vendaturi'], 253: ['vendaturo'],
-             254: ['vendaturo'], 255: ['vendatura'], 256: ['vendatura'], 257: ['vendatura'], 258: ['vendaturorum'],
-             259: ['vendaturis'], 260: ['vendaturis'], 261: ['vendendum'], 262: ['vendendi'], 263: ['vendendo'],
-             264: ['vendendo'], 265: ['vendatum'], 266: ['vendatu'], 267: ['vendor'], 268: ['venderis', 'vendere'],
-             269: ['venditur'], 270: ['vendimur'], 271: ['vendimini'], 272: ['venduntur'], 273: ['vendebar'],
-             274: ['vendebaris', 'vendebare'], 275: ['vendebatur'], 276: ['vendebamur'], 277: ['vendebamini'],
-             278: ['vendebantur'], 279: ['vendar'], 280: ['venderis', 'vendere'], 281: ['vendetur'],
-             282: ['vendemur'], 283: ['vendemini'], 284: ['vendentur'], 285: ['vendar'], 286: ['vendaris',
-                                                                                               'vendare'],
-             287: ['vendatur'], 288: ['vendamur'], 289: ['vendamini'], 290: ['vendantur'], 291: ['venderer'],
-             292: ['vendereris', "venderere"], 293: ['venderetur'], 294: ['venderemur'], 295: ['venderemini'],
-             296: ['venderentur'], 297: ['vendere'], 298: ['vendimini'], 299: ['venditor'], 300: ['venditor'],
-             301: ['venduntor'], 302: ['vendi'], 303: ['vendatus'], 304: ['vendate'], 305: ['vendatum'],
-             306: ['vendati'], 307: ['vendato'], 308: ['vendato'], 309: ['vendati'], 310: ['vendati'],
-             311: ['vendatos'], 312: ['vendatorum'], 313: ['vendatis'], 314: ['vendatis'], 315: ['vendata'],
-             316: ['vendata'], 317: ['vendatam'], 318: ['vendatae'], 319: ['vendatae'], 320: ['vendata'],
-             321: ['vendatae'], 322: ['vendatae'], 323: ['vendatas'], 324: ['vendatarum'], 325: ['vendatis'],
-             326: ['vendatis'], 327: ['vendatum'], 328: ['vendatum'], 329: ['vendatum'], 330: ['vendati'],
-             331: ['vendato'], 332: ['vendato'], 333: ['vendata'], 334: ['vendata'], 335: ['vendata'],
-             336: ['vendatorum'], 337: ['vendatis'], 338: ['vendatis'], 339: ['vendendus'], 340: ['vendende'],
+            sort_result(decliner.decline("vendo", collatinus_dict=True)),
+            {121: ['vendo'], 122: ['vendis'], 123: ['vendit'], 124: ['vendimus'], 125: ['venditis'], 126: ['vendunt'],
+             127: ['vendebam'], 128: ['vendebas'], 129: ['vendebat'], 130: ['vendebamus'], 131: ['vendebatis'],
+             132: ['vendebant'], 133: ['vendam'], 134: ['vendes'], 135: ['vendet'], 136: ['vendemus'],
+             137: ['vendetis'], 138: ['vendent'], 139: ['vendavi', 'vendidi'], 140: ['vendavisti', 'vendidisti'],
+             141: ['vendavit', 'vendidit'], 142: ['vendavimus', 'vendidimus'], 143: ['vendavistis', 'vendidistis'],
+             144: ['vendavere', 'vendaverunt', 'vendidere', 'vendiderunt'], 145: ['vendaveram', 'vendideram'],
+             146: ['vendaveras', 'vendideras'], 147: ['vendaverat', 'vendiderat'],
+             148: ['vendaveramus', 'vendideramus'], 149: ['vendaveratis', 'vendideratis'],
+             150: ['vendaverant', 'vendiderant'], 151: ['vendavero', 'vendidero'], 152: ['vendaveris', 'vendideris'],
+             153: ['vendaverit', 'vendiderit'], 154: ['vendaverimus', 'vendiderimus'],
+             155: ['vendaveritis', 'vendideritis'], 156: ['vendaverint', 'vendiderint'], 157: ['vendam'],
+             158: ['vendas'], 159: ['vendat'], 160: ['vendamus'], 161: ['vendatis'], 162: ['vendant'],
+             163: ['venderem'], 164: ['venderes'], 165: ['venderet'], 166: ['venderemus'], 167: ['venderetis'],
+             168: ['venderent'], 169: ['vendaverim', 'vendiderim'], 170: ['vendaveris', 'vendideris'],
+             171: ['vendaverit', 'vendiderit'], 172: ['vendaverimus', 'vendiderimus'],
+             173: ['vendaveritis', 'vendideritis'], 174: ['vendaverint', 'vendiderint'],
+             175: ['vendavissem', 'vendidissem'], 176: ['vendavisses', 'vendidisses'],
+             177: ['vendavisset', 'vendidisset'], 178: ['vendavissemus', 'vendidissemus'],
+             179: ['vendavissetis', 'vendidissetis'], 180: ['vendavissent', 'vendidissent'], 181: ['vende'],
+             182: ['vendite'], 183: ['vendito'], 184: ['vendito'], 185: ['venditote'], 186: ['vendunto'],
+             187: ['vendere'], 188: ['vendavisse', 'vendidisse'], 189: ['vendens'], 190: ['vendens'],
+             191: ['vendentem'], 192: ['vendentis'], 193: ['vendenti'], 194: ['vendente'], 195: ['vendentes'],
+             196: ['vendentes'], 197: ['vendentes'], 198: ['vendentium', 'vendentum'], 199: ['vendentibus'],
+             200: ['vendentibus'], 201: ['vendens'], 202: ['vendens'], 203: ['vendentem'], 204: ['vendentis'],
+             205: ['vendenti'], 206: ['vendente'], 207: ['vendentes'], 208: ['vendentes'], 209: ['vendentes'],
+             210: ['vendentium', 'vendentum'], 211: ['vendentibus'], 212: ['vendentibus'], 213: ['vendens'],
+             214: ['vendens'], 215: ['vendens'], 216: ['vendentis'], 217: ['vendenti'], 218: ['vendente'],
+             219: ['vendentia'], 220: ['vendentia'], 221: ['vendentia'], 222: ['vendentium', 'vendentum'],
+             223: ['vendentibus'], 224: ['vendentibus'], 225: ['vendaturus', 'venditurus'],
+             226: ['vendature', 'venditure'], 227: ['vendaturum', 'venditurum'], 228: ['vendaturi', 'vendituri'],
+             229: ['vendaturo', 'vendituro'], 230: ['vendaturo', 'vendituro'], 231: ['vendaturi', 'vendituri'],
+             232: ['vendaturi', 'vendituri'], 233: ['vendaturos', 'vendituros'], 234: ['vendaturorum', 'venditurorum'],
+             235: ['vendaturis', 'vendituris'], 236: ['vendaturis', 'vendituris'], 237: ['vendatura', 'venditura'],
+             238: ['vendatura', 'venditura'], 239: ['vendaturam', 'vendituram'], 240: ['vendaturae', 'venditurae'],
+             241: ['vendaturae', 'venditurae'], 242: ['vendatura', 'venditura'], 243: ['vendaturae', 'venditurae'],
+             244: ['vendaturae', 'venditurae'], 245: ['vendaturas', 'vendituras'],
+             246: ['vendaturarum', 'venditurarum'], 247: ['vendaturis', 'vendituris'],
+             248: ['vendaturis', 'vendituris'], 249: ['vendaturum', 'venditurum'], 250: ['vendaturum', 'venditurum'],
+             251: ['vendaturum', 'venditurum'], 252: ['vendaturi', 'vendituri'], 253: ['vendaturo', 'vendituro'],
+             254: ['vendaturo', 'vendituro'], 255: ['vendatura', 'venditura'], 256: ['vendatura', 'venditura'],
+             257: ['vendatura', 'venditura'], 258: ['vendaturorum', 'venditurorum'], 259: ['vendaturis', 'vendituris'],
+             260: ['vendaturis', 'vendituris'], 261: ['vendendum'], 262: ['vendendi'], 263: ['vendendo'],
+             264: ['vendendo'], 265: ['vendatum', 'venditum'], 266: ['vendatu', 'venditu'], 267: ['vendor'],
+             268: ['vendere', 'venderis'], 269: ['venditur'], 270: ['vendimur'], 271: ['vendimini'], 272: ['venduntur'],
+             273: ['vendebar'], 274: ['vendebare', 'vendebaris'], 275: ['vendebatur'], 276: ['vendebamur'],
+             277: ['vendebamini'], 278: ['vendebantur'], 279: ['vendar'], 280: ['vendere', 'venderis'],
+             281: ['vendetur'], 282: ['vendemur'], 283: ['vendemini'], 284: ['vendentur'], 285: ['vendar'],
+             286: ['vendare', 'vendaris'], 287: ['vendatur'], 288: ['vendamur'], 289: ['vendamini'], 290: ['vendantur'],
+             291: ['venderer'], 292: ['venderere', 'vendereris'], 293: ['venderetur'], 294: ['venderemur'],
+             295: ['venderemini'], 296: ['venderentur'], 297: ['vendere'], 298: ['vendimini'], 299: ['venditor'],
+             300: ['venditor'], 301: ['venduntor'], 302: ['vendi'], 303: ['vendatus', 'venditus'],
+             304: ['vendate', 'vendite'], 305: ['vendatum', 'venditum'], 306: ['vendati', 'venditi'],
+             307: ['vendato', 'vendito'], 308: ['vendato', 'vendito'], 309: ['vendati', 'venditi'],
+             310: ['vendati', 'venditi'], 311: ['vendatos', 'venditos'], 312: ['vendatorum', 'venditorum'],
+             313: ['vendatis', 'venditis'], 314: ['vendatis', 'venditis'], 315: ['vendata', 'vendita'],
+             316: ['vendata', 'vendita'], 317: ['vendatam', 'venditam'], 318: ['vendatae', 'venditae'],
+             319: ['vendatae', 'venditae'], 320: ['vendata', 'vendita'], 321: ['vendatae', 'venditae'],
+             322: ['vendatae', 'venditae'], 323: ['vendatas', 'venditas'], 324: ['vendatarum', 'venditarum'],
+             325: ['vendatis', 'venditis'], 326: ['vendatis', 'venditis'], 327: ['vendatum', 'venditum'],
+             328: ['vendatum', 'venditum'], 329: ['vendatum', 'venditum'], 330: ['vendati', 'venditi'],
+             331: ['vendato', 'vendito'], 332: ['vendato', 'vendito'], 333: ['vendata', 'vendita'],
+             334: ['vendata', 'vendita'], 335: ['vendata', 'vendita'], 336: ['vendatorum', 'venditorum'],
+             337: ['vendatis', 'venditis'], 338: ['vendatis', 'venditis'], 339: ['vendendus'], 340: ['vendende'],
              341: ['vendendum'], 342: ['vendendi'], 343: ['vendendo'], 344: ['vendendo'], 345: ['vendendi'],
              346: ['vendendi'], 347: ['vendendos'], 348: ['vendendorum'], 349: ['vendendis'], 350: ['vendendis'],
              351: ['vendenda'], 352: ['vendenda'], 353: ['vendendam'], 354: ['vendendae'], 355: ['vendendae'],
@@ -460,34 +490,56 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         )
 
         self.assertEqual(
-            decliner.decline("hic", collatinus_dict=True),
-            {13: ['hic', 'hice', 'hicine'], 15: ['hunc'], 16: ['hujus', 'hujusce'], 17: ['huic'],
-             18: ['hoc', 'hocine'], 19: ['hi'], 21: ['hos', 'hosce'], 22: ['horum'],
-             23: ['his', 'hisce'], 24: ['his', 'hisce'], 25: ['haec', 'haece', 'haecine', 'haeccine'],
-             27: ['hanc'], 28: ['hujus', 'hujusce'], 29: ['huic'], 30: ['hac'], 31: ['hae'],
-             33: ['has', 'hasce'], 34: ['harum'], 35: ['his', 'hisce'], 36: ['his', 'hisce'], 37: ['hoc', 'hocine'],
-             39: ['hoc', 'hocine'], 40: ['hujus', 'hujusce'], 41: ['huic'], 42: ['hoc', 'hocine'],
-             43: ['haec', 'haecine', 'haeccine'], 45: ['ha', 'haine', 'hacine'], 46: ['horum'],
-             47: ['his', 'hisce'], 48: ['his', 'hisce']},
+            sort_result(decliner.decline("hic", collatinus_dict=True)),
+            {13: ['hic', 'hice', 'hicine'],
+             15: ['hunc'],
+             16: ['hujus', 'hujusce'],
+             17: ['huic'],
+             18: ['hoc', 'hocine'],
+             19: ['hi'],
+             21: ['hos', 'hosce'],
+             22: ['horum'],
+             23: ['his', 'hisce'],
+             24: ['his', 'hisce'],
+             25: ['haec', 'haeccine', 'haece', 'haecine'],
+             27: ['hanc'],
+             28: ['hujus', 'hujusce'],
+             29: ['huic'],
+             30: ['hac'],
+             31: ['hae'],
+             33: ['has', 'hasce'],
+             34: ['harum'],
+             35: ['his', 'hisce'],
+             36: ['his', 'hisce'],
+             37: ['hoc', 'hocine'],
+             39: ['hoc', 'hocine'],
+             40: ['hujus', 'hujusce'],
+             41: ['huic'],
+             42: ['hoc', 'hocine'],
+             43: ['haec', 'haeccine', 'haecine'],
+             45: ['haec', 'haeccine', 'haecine'],
+             46: ['horum'],
+             47: ['his', 'hisce'],
+             48: ['his', 'hisce']},
             "Check that suffixes are well added"
         )
-
         self.assertEqual(
-            decliner.decline("quicumque", collatinus_dict=True),
+            sort_result(decliner.decline("quicumque", collatinus_dict=True)),
             {13: ['quicumque', 'quicunque'], 15: ['quemcumque', 'quemcunque'],
-             16: ['cujuscumque', 'quojuscumque', 'cujuscunque', 'quojuscunque'],
-             17: ['cuicumque', 'quoicumque', 'cuicunque', 'quoicunque'], 18: ['quocumque', 'quocunque'],
+             16: ['cujuscumque', 'cujuscunque', 'quojuscumque', 'quojuscunque'],
+             17: ['cuicumque', 'cuicunque', 'quoicumque', 'quoicunque'], 18: ['quocumque', 'quocunque'],
              19: ['quicumque', 'quicunque'], 21: ['quoscumque', 'quoscunque'], 22: ['quorumcumque', 'quorumcunque'],
-             23: ['quibuscumque', 'quibuscunque'], 25: ['quaecumque', 'quaecunque'],
-             27: ['quamcumque', 'quamcunque'], 28: ['cujuscumque', 'quojuscumque', 'cujuscunque', 'quojuscunque'],
-             29: ['cuicumque', 'quoicumque', 'cuicunque', 'quoicunque'], 30: ['quacumque', 'quacunque'],
-             31: ['quaecumque', 'quaecunque'], 33: ['quascumque', 'quascunque'],
-             34: ['quarumcumque', 'quarumcunque'], 35: ['quibuscumque', 'quibuscunque'],
+             23: ['quibuscumque', 'quibuscunque'], 24: ['quibuscumque', 'quibuscunque'],
+             25: ['quaecumque', 'quaecunque'], 27: ['quamcumque', 'quamcunque'],
+             28: ['cujuscumque', 'cujuscunque', 'quojuscumque', 'quojuscunque'],
+             29: ['cuicumque', 'cuicunque', 'quoicumque', 'quoicunque'], 30: ['quacumque', 'quacunque'],
+             31: ['quaecumque', 'quaecunque'], 33: ['quascumque', 'quascunque'], 34: ['quarumcumque', 'quarumcunque'],
+             35: ['quibuscumque', 'quibuscunque'], 36: ['quibuscumque', 'quibuscunque'],
              37: ['quodcumque', 'quodcunque'], 39: ['quodcumque', 'quodcunque'],
-             40: ['cujuscumque', 'quojuscumque', 'cujuscunque', 'quojuscunque'],
-             41: ['cuicumque', 'quoicumque', 'cuicunque', 'quoicunque'], 42: ['quocumque', 'quocunque'],
-             43: ['quaecumque', 'quaecunque'], 45: ['quaecumque', 'quaecunque'],
-             46: ['quorumcumque', 'quorumcunque'], 47: ['quibuscumque', 'quibuscunque']},
+             40: ['cujuscumque', 'cujuscunque', 'quojuscumque', 'quojuscunque'],
+             41: ['cuicumque', 'cuicunque', 'quoicumque', 'quoicunque'], 42: ['quocumque', 'quocunque'],
+             43: ['quaecumque', 'quaecunque'], 45: ['quaecumque', 'quaecunque'], 46: ['quorumcumque', 'quorumcunque'],
+             47: ['quibuscumque', 'quibuscunque'], 48: ['quibuscumque', 'quibuscunque']},
             "Constant suffix should be added"
         )
         self.assertEqual(
@@ -503,6 +555,11 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             decliner.decline("edo", collatinus_dict=True)[163],
             ["edis", "es"] + ['ederem', 'essem'],
             "Alternative desisences should be added, even with different root"
+        )
+
+        self.assertEqual(
+            decliner.decline("aggero2")[0], ('aggero', 'v1spia---'),
+            "Lemma with disambiguation indexes should not fail their declension [aggero and not aggeroo]"
         )
 
     def test_collatinus_flatten_decline(self):
@@ -541,6 +598,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             ,
             "Duplicity of forms should be accepted"
         )
+
+    def test_collatinus_multiple_radicals(self):
+        coll = CollatinusDecliner()
+        self.assertEqual(
+            sorted(coll.decline("sandaraca")[:3], key=lambda x: x[0]),
+            [('sandaraca', '--s----n-'), ('sandaracha', '--s----n-'), ('sanderaca', '--s----n-')]
+        )
+        jajunitas = [form for form, _ in coll.decline("jajunitas")]
+        self.assertIn("jajunitas", jajunitas)
+        self.assertIn("jejunitas", jajunitas)
+        self.assertIn("jajunitatem", jajunitas)
+        self.assertIn("jejunitatem", jajunitas)
 
     def test_collatinus_raise(self):
         """ Unknown lemma should raise exception """
