@@ -414,10 +414,14 @@ The lemmatizer offers several input and output options. For text input, it can t
 
    In [2]: sentence = 'τὰ γὰρ πρὸ αὐτῶν καὶ τὰ ἔτι παλαίτερα σαφῶς μὲν εὑρεῖν διὰ χρόνου πλῆθος ἀδύνατα ἦν'
 
-   In [3]: lemmatizer = LemmaReplacer('greek')
+   In [3]: from cltk.corpus.utils.formatter import cltk_normalize
+   
+   In [4]: sentence = cltk_normalize(sentence)  # can help when using certain texts
 
-   In [4]: lemmatizer.lemmatize(sentence)
-   Out[4]:
+   In [5]: lemmatizer = LemmaReplacer('greek')
+
+   In [6]: lemmatizer.lemmatize(sentence)
+   Out[6]:
    ['τὰ',
     'γὰρ',
     'πρὸ',
