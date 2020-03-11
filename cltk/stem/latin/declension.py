@@ -150,14 +150,6 @@ class CollatinusDecliner:
         :return: List of tuple where first value is the form and second the pos, ie [("sum", "v1ppip---")]
         :rtype: list or dict
 
-        >>> coll = CollatinusDecliner()
-        >>> sorted(coll.decline("sandaraca")[:3], key=lambda x: x[0]) # Ensure sorted for easier testing
-        [('sandaraca', '--s----n-'), ('sandaracha', '--s----n-'), ('sanderaca', '--s----n-')]
-        >>> jajunitas = [form for form, _ in coll.decline("jajunitas")]
-        >>> "jajunitas" in jajunitas and "jejunitas" in jajunitas
-        True
-        >>> "jajunitatem" in jajunitas and "jejunitatem" in jajunitas
-        True
         """
 
         if lemma in self._lemmas:

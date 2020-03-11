@@ -599,6 +599,18 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             "Duplicity of forms should be accepted"
         )
 
+    def test_collatinus_multiple_radicals(self):
+        coll = CollatinusDecliner()
+        self.assertEqual(
+            sorted(coll.decline("sandaraca")[:3], key=lambda x: x[0]),
+            [('sandaraca', '--s----n-'), ('sandaracha', '--s----n-'), ('sanderaca', '--s----n-')]
+        )
+        jajunitas = [form for form, _ in coll.decline("jajunitas")]
+        self.assertIn("jajunitas", jajunitas)
+        self.assertIn("jejunitas", jajunitas)
+        self.assertIn("jajunitatem", jajunitas)
+        self.assertIn("jejunitatem", jajunitas)
+
     def test_collatinus_raise(self):
         """ Unknown lemma should raise exception """
         def decline():
