@@ -10,7 +10,8 @@ from cltk.utils.file_operations import open_pickle
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-TAGGERS = {'greek':
+TAGGERS = {
+    'greek':
         {
             'unigram': 'unigram.pickle',
             'bigram': 'bigram.pickle',
@@ -44,7 +45,7 @@ TAGGERS = {'greek':
             'ngram_123_backoff': 'backoff.pickle',
             'crf': 'crf.pickle',
             'perceptron': 'perceptron.pickle'
-         },
+        },
     'middle_high_german':
         {
             'unigram': 'unigram.pickle',
