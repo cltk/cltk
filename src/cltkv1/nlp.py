@@ -141,12 +141,14 @@ if __name__ == "__main__":
     # lang = "arc"
     # lang = "pli"
     # lang = "san"
-    lang = "ang"
-    cltk_nlp = NLP(language=lang)
-    example_text = get_example_text(iso_code=lang)
-    print(example_text[:50])
-    cltk_doc = cltk_nlp.analyze(example_text)
-    print(cltk_doc.embeddings)
-    a_word = cltk_doc.words[-5]
-    print(a_word)
-    # print(a_word.embedding)
+    # lang = "ang"
+    langs = ["lat", "got", "arb", "arc", "pli", "san", "ang"]
+    for lang in langs:
+        cltk_nlp = NLP(language=lang)
+        example_text = get_example_text(iso_code=lang)
+        print(lang)
+        print(example_text[:50])
+        cltk_doc = cltk_nlp.analyze(example_text)
+        a_word = cltk_doc.words[5]
+        print(a_word.string, a_word.index_token, a_word.embedding[:5])
+        print("")
