@@ -3249,6 +3249,46 @@ LANGUAGES["pes"] = Language(
     type="",
 )
 
+LANGUAGES["tel"] = Language(
+    name="Telugu",
+    glottolog_id="telu1262",
+    latitude=16.4529,
+    longitude=78.7024,
+    dates=[],
+    family_id="drav1251",
+    parent_id="telu1265",
+    level="language",
+    iso_639_3_code="tel",
+    type="",
+)
+
+LANGUAGES["urd"] = Language(
+    name="Urdu",
+    glottolog_id="urdu1245",
+    latitude=25.0,
+    longitude=67.0,
+    dates=[],
+    family_id="indo1319",
+    parent_id="hind1270",
+    level="language",
+    iso_639_3_code="urd",
+    type="",
+)
+
+# Note: Using Eastern Panjabi as a stand-in for both it and Western Panjabi (``west2386``, ``pnb``)
+LANGUAGES["pan"] = Language(
+    name="Eastern Panjabi",
+    glottolog_id="panj125",
+    latitude=30.0368,
+    longitude=75.6702,
+    dates=[],
+    family_id="indo1319",
+    parent_id="east2727",
+    level="language",
+    iso_639_3_code="pan",
+    type="",
+)
+
 
 def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
     """Pick up the LANGUAGES global and return
