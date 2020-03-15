@@ -5,7 +5,7 @@ Misc. notes:
 - Based off Persian Alphabet Transliteration in CLTK by Iman Nazar
 - Uses UTF-8 Encoding for Ottoman/Persian Letters
 - When printing Arabic letters, they appear in the console from left to right and
-inconsistently linked, but correctly link and flow right to left when inputted into a word 
+inconsistently linked, but correctly link and flow right to left when inputted into a word
 processor. The problems only exist in the terminal.
 
 TODO: Add tests
