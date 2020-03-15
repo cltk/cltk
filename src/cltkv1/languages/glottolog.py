@@ -37,217 +37,7 @@ Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1
 >>> akkadian.parent_id
 'east2678'
 >>> len(LANGUAGES)
-208
->>> for iso_id, lang in LANGUAGES.items():
-...     print(iso_id, "\t", lang.name)
-xae   Aequian
-xag   Aghwan
-akk   Akkadian
-xln   Alanic
-grc   Ancient Greek
-hbo   Ancient Hebrew
-xlg   Ancient Ligurian
-xmk   Ancient Macedonian
-xna   Ancient North Arabian
-xzp   Ancient Zapotec
-xaa   Andalusian Arabic
-xno   Anglo-Norman
-xaq   Aquitanian
-pka   Ardhamāgadhī Prākrit
-xrm   Armazic
-ave   Avestan
-xbc   Bactrian
-xbo   Bolgarian
-pyx   Burma Pyu
-xcc   Camunic
-xcr   Carian
-xce   Celtiberian
-chu   Church Slavic
-xcg   Cisalpine Gaulish
-xcl   Classical Armenian
-myz   Classical Mandaic
-cmg   Classical Mongolian
-nci   Classical Nahuatl
-nwc   Classical Newari
-qwc   Classical Quechua
-syc   Classical Syriac
-xct   Classical Tibetan
-xcb   Cumbric
-xlu   Cuneiform Luwian
-xcu   Curonian
-xdc   Dacian
-sga   Early Irish
-xtr   Early Tripuri
-xeb   Eblaite
-xdm   Edomite
-egy   Egyptian (Ancient)
-elx   Elamite
-xly   Elymian
-xep   Epi-Olmec
-emy   Epigraphic Mayan
-ecr   Eteocretan
-ecy   Eteocypriot
-ett   Etruscan
-xfa   Faliscan
-xga   Galatian
-xgl   Galindan
-gez   Geez
-got   Gothic
-pgd   Gāndhārī
-xhd   Hadrami
-xha   Harami
-xiv   Harappan
-xht   Hattic
-xhr   Hernican
-ghc   Hiberno-Scottish Gaelic
-hlu   Hieroglyphic Luwian
-hit   Hittite
-xhc   Hunnic
-xhu   Hurrian
-xib   Iberian
-xil   Illyrian
-jut   Jutish
-kjv   Kajkavian
-zra   Kara (Korea)
-xqa   Karakhanid
-zsk   Kaskean
-kaw   Kawi
-zkz   Khazar
-zkh   Khorezmian
-kho   Khotanese
-xco   Khwarezmian
-zkt   Kitan
-zkg   Koguryo
-lng   Langobardic
-lat   Latin
-xle   Lemnian
-xlp   Lepontic
-xli   Liburnian
-lab   Linear A
-lzh   Literary Chinese
-xls   Lusitanian
-xlc   Lycian A
-xld   Lydian
-hmk   Maek
-pmh   Maharastri Prakrit
-xmn   Manichaean Middle Persian
-umc   Marrucinian
-ims   Marsian
-xme   Median
-xmr   Meroitic
-cms   Messapic
-axm   Middle Armenian
-xbm   Middle Breton
-ltc   Middle Chinese
-cnx   Middle Cornish
-dum   Middle Dutch
-enm   Middle English
-frm   Middle French
-gmh   Middle High German
-htx   Middle Hittite
-mga   Middle Irish (10-12th century)
-okm   Middle Korean (10th-16th cent.)
-gml   Middle Low German
-xng   Middle Mongol
-nwx   Middle Newar
-wlm   Middle Welsh
-imy   Milyan
-inm   Minaean
-omn   Minoan
-obm   Moabite
-mxi   Mozarabic
-gmy   Mycenaean Greek
-yms   Mysian
-ndf   Nadruvian
-nei   Neo-Hittite
-nrc   Noric
-nrp   North Picene
-nxm   Numidian
-arc   Official Aramaic (700-300 BCE)
-oar   Old Aramaic (up to 700 BCE)
-oav   Old Avar
-obt   Old Breton
-obr   Old Burmese
-och   Old Chinese
-oco   Old Cornish
-odt   Old Dutch-Old Frankish
-ang   Old English (ca. 450-1100)
-frk   Old Frankish
-fro   Old French (842-ca. 1400)
-ofs   Old Frisian
-oge   Old Georgian
-goh   Old High German (ca. 750-1050)
-oht   Old Hittite
-ohu   Old Hungarian
-ojp   Old Japanese
-oko   Old Korean (3rd-9th cent.)
-olt   Old Lithuanian
-omp   Old Manipuri
-omr   Old Marathi
-omx   Old Mon
-non   Old Norse
-onw   Old Nubian
-oos   Old Ossetic
-peo   Old Persian (ca. 600-400 B.C.)
-pro   Old Provençal
-orv   Old Russian
-osx   Old Saxon
-osp   Old Spanish
-oty   Old Tamil
-otb   Old Tibetan
-oui   Old Turkic
-otk   Old Turkish
-owl   Old-Middle Welsh
-osc   Oscan
-ota   Ottoman Turkish (1500-1928)
-pkc   Paekche
-pgn   Paelignian
-pal   Pahlavi
-plq   Palaic
-jpa   Palestinian Jewish Aramaic
-pli   Pali
-xpr   Parthian
-xpc   Pecheneg
-phn   Phoenician
-xpg   Phrygian
-xpi   Pictish
-xps   Pisidian
-pgl   Primitive Irish
-xpu   Punic
-xpy   Puyo
-xpp   Puyo-Paekche
-xqt   Qatabanian
-xrr   Raetic
-xsa   Sabaic
-sbv   Sabine
-san   Sanskrit
-psu   Sauraseni Prakrit
-xsc   Scythian
-sxc   Sicana
-scx   Sicula
-sqr   Siculo Arabic
-xsd   Sidetic
-svx   Skalvian
-sog   Sogdian
-sxo   Sorothaptic
-spx   South Picene
-arb   Standard Arabic
-sux   Sumerian
-txg   Tangut
-txr   Tartessian
-txh   Thracian
-xto   Tokharian A
-txb   Tokharian B
-xtg   Transalpine Gaulish
-xtq   Tumshuqese
-uga   Ugaritic
-xum   Umbrian
-xur   Urartian
-xvn   Vandalic
-xve   Venetic
-xvs   Vestinian
-xvo   Volscian
-xzh   Zhangzhung
+214
 """
 
 from collections import OrderedDict
@@ -3433,6 +3223,32 @@ LANGUAGES["kan"] = Language(
     type="",
 )
 
+LANGUAGES["ory"] = Language(
+    name="Odia",
+    glottolog_id="oriy1255",
+    latitude=21.0,
+    longitude=85.0,
+    dates=[],
+    family_id="indo1319",
+    parent_id="macr1269",
+    level="language",
+    iso_639_3_code="ory",
+    type="",
+)
+
+LANGUAGES["pes"] = Language(
+    name="	Western Farsi",
+    glottolog_id="west2369",
+    latitude=228.6593,
+    longitude=55.1586,
+    dates=[],
+    family_id="indo1319",
+    parent_id="fars1255",
+    level="language",
+    iso_639_3_code="pes",
+    type="",
+)
+
 
 def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
     """Pick up the LANGUAGES global and return
@@ -3440,7 +3256,7 @@ def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
 
     >>> iso_dict_keys = _resort_languages_list(LANGUAGES)
     >>> list(iso_dict_keys)[:10]
-    ['xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna', 'xzp']
+    ['pes', 'xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna']
     """
     name_sorted_langs = OrderedDict(
         sorted(languages_list.items(), key=lambda x: x[1].name)
