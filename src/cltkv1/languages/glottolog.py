@@ -3381,6 +3381,58 @@ LANGUAGES["arb"] = Language(
     type="",
 )
 
+LANGUAGES["ben"] = Language(
+    name="Bengali",
+    glottolog_id="beng1280",
+    latitude=24.0,
+    longitude=90.0,
+    dates=[],
+    family_id="indo1319",
+    parent_id="gaud1238",
+    level="language",
+    iso_639_3_code="ben",
+    type="",
+)
+
+LANGUAGES["guj"] = Language(
+    name="Gujarati",
+    glottolog_id="guja1252",
+    latitude=22.687,
+    longitude=71.0962,
+    dates=[],
+    family_id="indo1319",
+    parent_id="guja1256",
+    level="language",
+    iso_639_3_code="guj",
+    type="",
+)
+
+LANGUAGES["hin"] = Language(
+    name="Hindi",
+    glottolog_id="hind1269",
+    latitude=25.0,
+    longitude=77.0,
+    dates=[],
+    family_id="indo1319",
+    parent_id="hind1270",
+    level="language",
+    iso_639_3_code="hin",
+    type="",
+)
+
+LANGUAGES["kan"] = Language(
+    name="Kannada",
+    glottolog_id="nucl1305",
+    latitude=13.5878,
+    longitude=76.1198,
+    dates=[],
+    family_id="drav1251",
+    parent_id="kann1255",
+    level="language",
+    iso_639_3_code="kan",
+    type="",
+)
+
 
 def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
     """Pick up the LANGUAGES global and return
