@@ -1,6 +1,8 @@
 """Import CLTK corpora.
-TODO: Fix so ``import_corpora()`` can take relative path.
-TODO: Add https://github.com/cltk/pos_latin
+TODO: ? Fix so ``import_corpora()`` can take relative path.
+TODO: ? Add https://github.com/cltk/pos_latin
+
+TODO: Consider renaming all "import" to "clone"
 """
 import errno
 import os
@@ -9,108 +11,578 @@ import sys
 from urllib.parse import urljoin
 
 import yaml
-from cltk.corpus.akkadian.corpora import AKKADIAN_CORPORA
-from cltk.corpus.arabic.corpora import ARABIC_CORPORA
-from cltk.corpus.bengali.corpora import BENGALI_CORPORA
-from cltk.corpus.chinese.corpora import CHINESE_CORPORA
-from cltk.corpus.classical_hindi.corpora import CLASSICAL_HINDI_CORPORA
-from cltk.corpus.coptic.corpora import COPTIC_CORPORA
-from cltk.corpus.french.corpora import FRENCH_CORPORA
-from cltk.corpus.greek.corpora import GREEK_CORPORA
-from cltk.corpus.gujarati.corpora import GUJARATI_CORPORA
-from cltk.corpus.hebrew.corpora import HEBREW_CORPORA
-from cltk.corpus.hindi.corpora import HINDI_CORPORA
-from cltk.corpus.javanese.corpora import JAVANESE_CORPORA
-from cltk.corpus.latin.corpora import LATIN_CORPORA
-from cltk.corpus.malayalam.corpora import MALAYALAM_CORPORA
-from cltk.corpus.marathi.corpora import MARATHI_CORPORA
-from cltk.corpus.middle_low_german.corpora import MIDDLE_LOW_GERMAN_CORPORA
-from cltk.corpus.multilingual.corpora import MULTILINGUAL_CORPORA
-from cltk.corpus.old_church_slavonic.corpora import OCS_CORPORA
-from cltk.corpus.old_english.corpora import OLD_ENGLISH_CORPORA
-from cltk.corpus.old_norse.corpora import OLD_NORSE_CORPORA
-from cltk.corpus.pali.corpora import PALI_CORPORA
-from cltk.corpus.prakrit.corpora import PRAKRIT_CORPORA
-from cltk.corpus.punjabi.corpora import PUNJABI_CORPORA
-from cltk.corpus.sanskrit.corpora import SANSKRIT_CORPORA
-from cltk.corpus.telugu.corpora import TELUGU_CORPORA
-from cltk.corpus.tibetan.corpora import TIBETAN_CORPORA
 from cltk.utils.cltk_logger import logger
 from git import RemoteProgress, Repo
+
+from cltkv1.core.exceptions import CorpusImportError
+from cltkv1.languages.utils import get_lang
+from cltkv1.utils.utils import CLTK_DATA_DIR
 
 __author__ = [
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
     "Stephen Margheim <stephen.margheim@gmail.com>",
 ]
-__license__ = "MIT License. See LICENSE."
 
 
-AVAILABLE_LANGUAGES = [
-    "akkadian",
-    "arabic",
-    "chinese",
-    "coptic",
-    "greek",
-    "hebrew",
-    "latin",
-    "multilingual",
-    "pali",
-    "punjabi",
-    "tibetan",
-    "sanskrit",
-    "old_english",
-    "bengali",
-    "prakrit",
-    "hindi",
-    "old_church_slavonic",
-    "malayalam",
-    "marathi",
-    "javanese",
-    "old_norse",
-    "telugu",
-    "classical_hindi",
-    "french",
-    "gujarati",
-    "middle_high_german",
-    "middle_low_german",
-]
+# TODO: Decide whether to drop repos w/o models
+# langs_with_model_repo = ["grc", "lat", "ang", "gmh", "gml", "san", "non", "pli"]
 
 
-CLTK_DATA_DIR = get_cltk_data_dir()
 LANGUAGE_CORPORA = {
-    "akkadian": AKKADIAN_CORPORA,
-    "arabic": ARABIC_CORPORA,
-    "chinese": CHINESE_CORPORA,
-    "coptic": COPTIC_CORPORA,
-    "greek": GREEK_CORPORA,
-    "hebrew": HEBREW_CORPORA,
-    "latin": LATIN_CORPORA,
-    "multilingual": MULTILINGUAL_CORPORA,
-    "pali": PALI_CORPORA,
-    "punjabi": PUNJABI_CORPORA,
-    "tibetan": TIBETAN_CORPORA,
-    "sanskrit": SANSKRIT_CORPORA,
-    "old_english": OLD_ENGLISH_CORPORA,
-    "bengali": BENGALI_CORPORA,
-    "old_church_slavonic": OCS_CORPORA,
-    "prakrit": PRAKRIT_CORPORA,
-    "hindi": HINDI_CORPORA,
-    "malayalam": MALAYALAM_CORPORA,
-    "marathi": MARATHI_CORPORA,
-    "javanese": JAVANESE_CORPORA,
-    "old_norse": OLD_NORSE_CORPORA,
-    "telugu": TELUGU_CORPORA,
-    "classical_hindi": CLASSICAL_HINDI_CORPORA,
-    "french": FRENCH_CORPORA,
-    "gujarati": GUJARATI_CORPORA,
-    "middle_low_german": MIDDLE_LOW_GERMAN_CORPORA,
+    "akk": [
+        {
+            "name": "cdli_corpus",
+            "origin": "https://github.com/cdli-gh/data.git",
+            "location": "remote",
+            "type": "atf",
+        }
+    ],
+    "arb": [
+        {
+            "name": "arabic_text_perseus",
+            "origin": "https://github.com/cltk/arabic_text_perseus",
+            "location": "remote",
+            "type": "text",
+            "RomanizationType": "Buckwalter",
+        },
+        {
+            "name": "quranic-corpus",
+            "origin": "https://github.com/cltk/arabic_text_quranic_corpus",
+            "location": "remote",
+            "type": "text",
+            "RomanizationType": "none",
+        },
+        {
+            "name": "quranic-corpus-morphology",
+            "origin": "https://github.com/cltk/arabic_morphology_quranic-corpus",
+            "location": "remote",
+            "type": "text",
+            "RomanizationType": "Buckwalter",
+            "script": "Uthmani",
+        },
+    ],
+    "lzh": [
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/chinese_text_cbeta_01.git",
+            "name": "chinese_text_cbeta_01",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/chinese_text_cbeta_02.git",
+            "name": "chinese_text_cbeta_02",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/chinese_text_cbeta_indices.git",
+            "name": "chinese_text_cbeta_indices",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/chinese_text_cbeta_txt.git",
+            "name": "chinese_text_cbeta_txt",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/chinese_text_cbeta_taf_xml.git",
+            "name": "chinese_text_cbeta_taf_xml",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/chinese_text_cbeta_txt.git",
+            "name": "chinese_text_cbeta_txt",
+        },
+    ],
+    "cop": [
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/coptic_text_scriptorium.git",
+            "name": "coptic_text_scriptorium",
+        }
+    ],
+    "grc": [
+        {
+            "name": "greek_software_tlgu",
+            "origin": "https://github.com/cltk/greek_software_tlgu.git",
+            "location": "remote",
+            "type": "software",
+        },
+        {
+            "origin": "https://github.com/cltk/greek_text_perseus.git",
+            "name": "greek_text_perseus",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            
+            "origin": None,
+            "name": "phi7",
+            "location": "local",
+            "type": "text",
+        },
+        {
+            
+            "name": "tlg",
+            "origin": None,
+            "location": "local",
+            "type": "text",
+        },
+        {
+            
+            "name": "greek_proper_names_cltk",
+            "origin": "https://github.com/cltk/greek_proper_names_cltk.git",
+            "location": "remote",
+            "type": "lexicon",
+        },
+        {
+            "name": "greek_models_cltk",
+            "origin": "https://github.com/cltk/greek_models_cltk.git",
+            "location": "remote",
+            "type": "model",
+        },
+        {
+            "origin": "https://github.com/cltk/greek_treebank_perseus.git",
+            "name": "greek_treebank_perseus",
+            "location": "remote",
+            "type": "treebank",
+        },
+        {
+            "origin": "https://github.com/vgorman1/Greek-Dependency-Trees.git",
+            "name": "greek_treebank_gorman",
+            "location": "remote",
+            "type": "treebank",
+        },
+        {
+            
+            "origin": "https://github.com/cltk/greek_lexica_perseus.git",
+            "name": "greek_lexica_perseus",
+            "location": "remote",
+            "type": "lexicon",
+        },
+        {
+            
+            "origin": "https://github.com/cltk/greek_training_set_sentence_cltk.git",
+            "name": "greek_training_set_sentence_cltk",
+            "location": "remote",
+            "type": "training_set",
+        },
+        {
+            "name": "greek_word2vec_cltk",
+            "origin": "https://github.com/cltk/greek_word2vec_cltk.git",
+            "location": "remote",
+            "type": "model",
+        },
+        {
+            "name": "greek_text_lacus_curtius",
+            "origin": "https://github.com/cltk/greek_text_lacus_curtius.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "greek_text_first1kgreek",
+            "origin": "https://github.com/cltk/First1KGreek",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "greek_text_tesserae",
+              # modified plaintext with Tesserae-style citations
+            "origin": "https://github.com/cltk/greek_text_tesserae.git",
+            "location": "remote",
+            "type": "text",
+        },
+    ],
+    "hbo": [
+        {
+            "name": "hebrew_text_sefaria",
+            "origin": "https://github.com/cltk/hebrew_text_sefaria.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "lat": [
+        {
+            "location": "remote",
+            "type": "text",
+            "name": "latin_text_perseus",
+            "origin": "https://github.com/cltk/latin_text_perseus.git",
+        },
+        {
+            "name": "latin_treebank_perseus",
+            "origin": "https://github.com/cltk/latin_treebank_perseus.git",
+            "location": "remote",
+            "type": "treebank",
+        },
+        {
+            
+            "name": "latin_text_latin_library",
+            "origin": "https://github.com/cltk/latin_text_latin_library.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            
+            "location": "local",
+            "name": "phi5",
+            "origin": None,
+            "type": "text",
+        },
+        {
+            
+            "origin": None,
+            "name": "phi7",
+            "location": "local",
+            "type": "text",
+        },
+        {
+            
+            "name": "latin_proper_names_cltk",
+            "origin": "https://github.com/cltk/latin_proper_names_cltk.git",
+            "location": "remote",
+            "type": "lexicon",
+        },
+        {
+            "origin": "https://github.com/cltk/latin_models_cltk.git",
+            "name": "latin_models_cltk",
+            "location": "remote",
+            "type": "model",
+        },
+        {
+            
+            "name": "latin_pos_lemmata_cltk",
+            "origin": "https://github.com/cltk/latin_pos_lemmata_cltk.git",
+            "location": "remote",
+            "type": "lemma",
+        },
+        {
+            "name": "latin_treebank_index_thomisticus",
+            "origin": "https://github.com/cltk/latin_treebank_index_thomisticus.git",
+            "location": "remote",
+            "type": "treebank",
+        },
+        {
+            
+            "name": "latin_lexica_perseus",
+            "origin": "https://github.com/cltk/latin_lexica_perseus.git",
+            "location": "remote",
+            "type": "lexicon",
+        },
+        {
+            
+            "name": "latin_training_set_sentence_cltk",
+            "origin": "https://github.com/cltk/latin_training_set_sentence_cltk.git",
+            "location": "remote",
+            "type": "training_set",
+        },
+        {
+            "origin": "https://github.com/cltk/latin_word2vec_cltk.git",
+            "name": "latin_word2vec_cltk",
+            "location": "remote",
+            "type": "model",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "name": "latin_text_antique_digiliblt",
+            "origin": "https://github.com/cltk/latin_text_antique_digiliblt.git",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "name": "latin_text_corpus_grammaticorum_latinorum",
+            "origin": "https://github.com/cltk/latin_text_corpus_grammaticorum_latinorum.git",
+        },
+        {
+            "location": "remote",
+            "type": "text",
+            "name": "latin_text_poeti_ditalia",
+            "origin": "https://github.com/cltk/latin_text_poeti_ditalia.git",
+        },
+        {
+            "name": "latin_text_tesserae",
+              # modified plaintext with Tesserae-style citations
+            "origin": "https://github.com/cltk/latin_text_tesserae.git",
+            "location": "remote",
+            "type": "text",
+        },
+    ],
+    "multilingual": [
+        {
+            
+            "location": "remote",
+            "type": "treebank",
+            "origin": "https://github.com/cltk/multilingual_treebank_proiel.git",
+            "name": "multilingual_treebank_proiel",
+        },
+        {
+            
+            "location": "remote",
+            "type": "treebank",
+            "origin": "https://github.com/cltk/iswoc-treebank.git",
+            "name": "multilingual_treebank_iswoc",
+        },
+        {
+            
+            "location": "remote",
+            "type": "treebank",
+            "origin": "https://github.com/cltk/treebank-releases.git",
+            "name": "multilingual_treebank_torot",
+        },
+    ],
+    "pli": [
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/pali_text_ptr_tipitaka.git",
+            "name": "pali_text_ptr_tipitaka",
+        },
+        {
+            "name": "pali_texts_gretil",
+            "type": "text",
+            "location": "remote",
+            "origin": "https://github.com/cltk/pali_texts_gretil",
+        },
+    ],
+    "pan": [
+        {
+            "name": "punjabi_text_gurban",
+            "origin": "https://github.com/cltk/punjabi_text_gurban.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "xct": [
+        {
+            "location": "remote",
+            "type": "pos",
+            "origin": "https://github.com/cltk/tibetan_pos_tdc.git",
+            "name": "tibetan_pos_tdc",
+        },
+        {
+            "location": "remote",
+            "type": "lexicon",
+            "origin": "https://github.com/cltk/tibetan_lexica_tdc.git",
+            "name": "tibetan_lexica_tdc",
+        },
+    ],
+    "san": [
+        {
+            "name": "sanskrit_text_jnu",
+            "location": "remote",
+            "origin": "https://github.com/cltk/sanskrit_text_jnu.git",
+            "type": "text",
+        },
+        {
+            "name": "sanskrit_text_dcs",
+            "origin": "https://github.com/cltk/sanskrit_text_dcs.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "sanskrit_parallel_sacred_texts",
+            "origin": "https://github.com/cltk/sanskrit_parallel_sacred_texts.git",
+            "location": "remote",
+            "type": "parallel",
+        },
+        {
+            "name": "sanskrit_text_sacred_texts",
+            "location": "remote",
+            "origin": "https://github.com/cltk/sanskrit_text_sacred_texts.git",
+            "type": "text",
+        },
+        {
+            "name": "sanskrit_parallel_gitasupersite",
+            "origin": "https://github.com/cltk/sanskrit_parallel_gitasupersite.git",
+            "location": "remote",
+            "type": "parallel",
+        },
+        {
+            "name": "sanskrit_text_gitasupersite",
+            "origin": "https://github.com/cltk/sanskrit_text_gitasupersite.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "sanskrit_text_wikipedia",
+            "origin": "https://github.com/cltk/sanskrit_text_wikipedia.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "sanskrit_text_sanskrit_documents",
+            "origin": "https://github.com/cltk/sanskrit_text_sanskrit_documents.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "sanskrit_models_cltk",
+            "origin": "https://github.com/cltk/sanskrit_models_cltk.git",
+            "location": "remote",
+            "type": "model",
+        },
+    ],
+    "ang": [
+        {
+            "name": "old_english_text_sacred_texts",
+            "origin": "https://github.com/cltk/old_english_text_sacred_texts.git",
+            "location": "remote",
+            "type": "html",
+        },
+        {
+            "origin": "https://github.com/cltk/old_english_models_cltk.git",
+            "name": "old_english_models_cltk",
+            "location": "remote",
+            "type": "model",
+        },
+    ],
+    "ben": [
+        {
+            "name": "bengali_text_wikisource",
+            "origin": "https://github.com/cltk/bengali_text_wikisource.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "chu": [
+        {
+            "name": "old_church_slavonic_ccmh",
+            "origin": "https://github.com/cltk/old_church_slavonic_ccmh.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "pmh": [
+        {
+            "name": "prakrit_texts_gretil",
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/prakrit_texts_gretil.git",
+        }
+    ],
+    "mal": [
+        {
+            "name": "malayalam_text_gretil",
+            "origin": "https://github.com/cltk/malayalam_text_gretil.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "omr": [
+        {
+            "name": "marathi_text_wikisource",
+            "origin": "https://github.com/cltk/marathi_text_wikisource.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "kaw": [
+        {
+            "name": "javanese_text_gretil",
+            "origin": "https://github.com/cltk/javanese_text_gretil.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "non": [
+        {
+            "name": "old_norse_text_perseus",
+            "location": "remote",
+            "origin": "https://github.com/cltk/old_norse_text_perseus.git",
+            "type": "text",
+        },
+        {
+            "name": "old_norse_models_cltk",
+            "origin": "https://github.com/cltk/old_norse_models_cltk.git",
+            "location": "remote",
+            "type": "model",
+        },
+        {
+            "name": "old_norse_texts_heimskringla",
+            "location": "remote",
+            "origin": "https://github.com/cltk/old_norse_texts_heimskringla.git",
+            "type": "text",
+        },
+        {
+            "name": "old_norse_runic_transcriptions",
+            "location": "remote",
+            "origin": "https://github.com/cltk/old_norse_runes_corpus.git",
+            "type": "text",
+        },
+        {
+            "name": "old_norse_dictionary_zoega",
+            "location": "remote",
+            "origin": "https://github.com/cltk/old_norse_dictionary_zoega.git",
+            "type": "dictionary",
+        },
+    ],
+    "tel": [
+        {
+            "name": "telugu_text_wikisource",
+            "origin": "https://github.com/cltk/telugu_text_wikisource.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "hin": [
+        {
+            "location": "remote",
+            "type": "text",
+            "origin": "https://github.com/cltk/hindi_text_ltrc.git",
+            "name": "hindi_text_ltrc",
+        }
+    ],
+    "fro": [
+        {
+            "name": "french_text_wikisource",
+            "origin": "https://github.com/cltk/french_text_wikisource.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "french_lexicon_cltk",
+            "origin": "https://github.com/cltk/french_lexicon_cltk.git",
+            "location": "remote",
+            "type": "text",
+        },
+        {
+            "name": "french_data_cltk",
+            "origin": "https://github.com/cltk/french_data_cltk.git",
+            "location": "remote",
+            "type": "text",
+        },
+    ],
+    "guj": [
+        {
+            "name": "gujarati_text_wikisource",
+            "origin": "https://github.com/cltk/gujarati_text_wikisource.git",
+            "location": "remote",
+            "type": "text",
+        }
+    ],
+    "gml": [
+        {
+            "name": "middle_low_german_models_cltk",
+            "origin": "https://github.com/cltk/middle_low_german_models_cltk.git",
+            "location": "remote",
+            "type": "model",
+        }
+    ],
+    "gmh": [
+        {
+            "name": "middle_high_german_models_cltk",
+            "origin": "https://github.com/cltk/middle_high_german_models_cltk.git",
+            "location": "remote",
+            "type": "model",
+        }
+    ],
 }
-
-
-class CorpusImportError(Exception):
-    """CLTK exception to use when something goes wrong importing corpora"""
-
-    pass
 
 
 class ProgressPrinter(RemoteProgress):
@@ -131,9 +603,12 @@ class CorpusImporter:
         `testing` is a hack to check a tmp .yaml file to look at or local corpus. This keeps from overwriting
         local. A better idea is probably to refuse to overwrite the .yaml.
         """
-        self.language = language.lower()
 
-        assert isinstance(testing, bool), "`testing` parameter must be boolean type"
+        self.language = language.lower()
+        if self.language != "multilingual":
+            get_lang(iso_code=language)
+
+        assert isinstance(testing, bool), "``testing`` parameter must be boolean type"
         self.testing = testing
 
         self.user_defined_corpora = self._setup_language_variables()
@@ -193,12 +668,11 @@ class CorpusImporter:
             with open(distributed_corpora_fp) as file_open:
                 corpora_dict = yaml.safe_load(file_open)
         except FileNotFoundError:
-            logger.info("`~/cltk_data/distributed_corpora.yaml` file not found.")
+            logger.info("``~/cltk_data/distributed_corpora.yaml`` file not found.")
             return []
         except yaml.parser.ParserError as parse_err:
             logger.debug("Yaml parsing error: %s" % parse_err)
             return []
-
         user_defined_corpora = []
         for corpus_name in corpora_dict:
             about = corpora_dict[corpus_name]
@@ -215,10 +689,11 @@ class CorpusImporter:
 
     def _setup_language_variables(self):
         """Check for availability of corpora for a language.
-        TODO: Make the selection of available languages dynamic from dirs
         within ``corpora`` which contain a ``corpora.py`` file.
+
+        TODO: Make the selection of available languages dynamic from dirs
         """
-        if self.language not in AVAILABLE_LANGUAGES:
+        if self.language not in LANGUAGE_CORPORA:
             # If no official repos, check if user has custom
             user_defined_corpora = self._check_distributed_corpora_file()
             if user_defined_corpora:
@@ -448,6 +923,7 @@ class CorpusImporter:
 
 
 if __name__ == "__main__":
-    c = CorpusImporter("latin")
-    # print(c.list_corpora)
-    c.import_corpus("latin_training_set_sentence_cltk")
+    for lang in LANGUAGE_CORPORA:
+        c = CorpusImporter(language=lang)
+        print(c.list_corpora)
+        # c.import_corpus("latin_training_set_sentence_cltk")

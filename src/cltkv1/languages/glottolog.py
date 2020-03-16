@@ -620,7 +620,7 @@ LANGUAGES = OrderedDict(
         (
             "kaw",
             Language(
-                name="Kawi",
+                name="Kawi",  # Old Javanese
                 glottolog_id="kawi1241",
                 latitude=-7.0,
                 longitude=111.0,
@@ -725,7 +725,7 @@ LANGUAGES = OrderedDict(
         (
             "lzh",
             Language(
-                name="Literary Chinese",
+                name="Literary Chinese",  # or Classical Chinese
                 glottolog_id="lite1248",
                 latitude=0.0,
                 longitude=0.0,
@@ -3286,6 +3286,33 @@ LANGUAGES["pan"] = Language(
     parent_id="east2727",
     level="language",
     iso_639_3_code="pan",
+    type="",
+)
+
+# Note: Using Eastern Panjabi as a stand-in for both it and Western Panjabi (``west2386``, ``pnb``)
+LANGUAGES["mal"] = Language(
+    name="Malayalam",
+    glottolog_id="panj125",
+    latitude=9.59208,
+    longitude=76.7651,
+    dates=[],
+    family_id="drav1251",
+    parent_id="mala1541",
+    level="language",
+    iso_639_3_code="mal",
+    type="",
+)
+
+LANGUAGES["cop"] = Language(
+    name="Coptic",
+    glottolog_id="copt1239",
+    latitude=29.472,
+    longitude=31.2053,
+    dates=[],
+    family_id="afro1255",
+    parent_id="egyp1245",
+    level="language",
+    iso_639_3_code="cop",
     type="",
 )
 
