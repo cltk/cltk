@@ -156,10 +156,15 @@ class LatinEmbeddingsProcess:
 
     def run(self):
         tmp_doc = self.input_doc
-        # embeddings_obj = FastTextEmbeddings(iso_code=self.language)
+        embedding_length = None
         embeddings_obj = self.algorithm
         for index, word_obj in enumerate(tmp_doc.words):
-            word_obj.embedding = embeddings_obj.get_word_vector(word=word_obj.string)
+            if not embedding_length:
+                embedding_length = embeddings_obj.get_embedding_length()
+            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
+            if not isinstance(word_embedding, np.ndarray):
+                word_embedding = np.zeros([embedding_length])
+            word_obj.embedding = word_embedding
             tmp_doc.words[index] = word_obj
         self.output_doc = tmp_doc
 
@@ -188,6 +193,8 @@ if __name__ == "__main__":
     t2 = datetime.now()
     print("Finished processing doc 2, took another:", t2 - t1)
     print("Total time:", t2 - t0)
+    input()
+    print(second_doc.words)
 
     '''
     a_doc = Doc(raw=get_example_text("lat"), language="lat")
