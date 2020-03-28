@@ -12,13 +12,13 @@ from typing import List, Type
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.stanford import StanfordNLPProcess
 from cltkv1.embeddings.processes import (
-    # ArabicEmbeddingsProcess,
-    # AramaicEmbeddingsProcess,
-    # GothicEmbeddingsProcess,
+    ArabicEmbeddingsProcess,
+    AramaicEmbeddingsProcess,
+    GothicEmbeddingsProcess,
     LatinEmbeddingsProcess,
-    # OldEnglishEmbeddingsProcess,
-    # PaliEmbeddingsProcess,
-    # SanskritEmbeddingsProcess,
+    OldEnglishEmbeddingsProcess,
+    PaliEmbeddingsProcess,
+    SanskritEmbeddingsProcess,
 )
 from cltkv1.languages.utils import get_lang
 from cltkv1.tokenizers.processes import (
@@ -47,9 +47,10 @@ class ArabicPipeline(Pipeline):
     description: str = "Pipeline for the Arabic language"
     language: Language = get_lang("arb")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [ArabicTokenizationProcess,
-                                 # ArabicEmbeddingsProcess
-                                 ]
+        default_factory=lambda: [
+            ArabicTokenizationProcess,
+            ArabicEmbeddingsProcess,
+        ]
     )
 
 
@@ -75,9 +76,10 @@ class AramaicPipeline(Pipeline):
     description: str = "Pipeline for the Aramaic language"
     language: Language = get_lang("arc")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [ArabicTokenizationProcess,
-                                 # AramaicEmbeddingsProcess
-                                 ]
+        default_factory=lambda: [
+            ArabicTokenizationProcess,
+            AramaicEmbeddingsProcess,
+        ]
     )
 
 
@@ -102,9 +104,10 @@ class GothicPipeline(Pipeline):
     description: str = "Pipeline for the Gothic language"
     language: Language = get_lang("got")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [StanfordNLPProcess,
-                                 # GothicEmbeddingsProcess
-                                 ]
+        default_factory=lambda: [
+            StanfordNLPProcess,
+            GothicEmbeddingsProcess,
+        ]
     )
 
 
@@ -214,9 +217,12 @@ class OldEnglishPipeline(Pipeline):
 
     description: str = "Pipeline for the Old English language"
     language: Language = get_lang("chu")
-    processes: List[Type[Process]] = field(default_factory=lambda: [DefaultTokenizationProcess,
-                                                                    # OldEnglishEmbeddingsProcess
-                                                                    ])
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            DefaultTokenizationProcess,
+            OldEnglishEmbeddingsProcess,
+        ]
+    )
 
 
 @dataclass
@@ -240,9 +246,10 @@ class PaliPipeline(Pipeline):
     description: str = "Pipeline for the Pali language"
     language: Language = get_lang("pli")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [DefaultTokenizationProcess,
-                                 # PaliEmbeddingsProcess
-                                 ]
+        default_factory=lambda: [
+            DefaultTokenizationProcess,
+            PaliEmbeddingsProcess,
+        ]
     )
 
 
@@ -267,7 +274,8 @@ class SanskritPipeline(Pipeline):
     description: str = "Pipeline for the Sanskrit language"
     language: Language = get_lang("san")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [SanskritTokenizationProcess,
-                                 # SanskritEmbeddingsProcess
-                                 ]
+        default_factory=lambda: [
+            SanskritTokenizationProcess,
+            SanskritEmbeddingsProcess,
+        ]
     )

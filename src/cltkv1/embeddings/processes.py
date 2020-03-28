@@ -5,47 +5,16 @@ that are called by ``Pipeline``s.
 from dataclasses import dataclass
 from typing import Callable
 
-from boltons.cacheutils import cachedproperty
 import numpy as np
+from boltons.cacheutils import cachedproperty
 
 from cltkv1.core.data_types import Doc, Process
 from cltkv1.embeddings.embeddings import FastTextEmbeddings
 
-#
-# def make_embedding_algorithm(iso_code: str) -> Callable[[Doc], Doc]:
-#     """A closure for marshalling Docs to CLTK embedding methods."""
-#     print("Outer:", iso_code)
-#     embeddings_obj = FastTextEmbeddings(iso_code=iso_code)
-#
-#     def algorithm(self, doc: Doc) -> Doc:
-#         print("Inner:", iso_code)
-#
-#         embedding_length = None
-#         for word_obj in doc.words:
-#             if not embedding_length:
-#                 embedding_length = embeddings_obj.get_embedding_length()
-#             word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
-#             if not isinstance(word_embedding, np.ndarray):
-#                 word_embedding = np.zeros([embedding_length])
-#             word_obj.embedding = word_embedding
-#
-#         return doc
-#
-#     return algorithm
-
-
-# TODO: Move these to within respective class
-# ARABIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arb")
-# ARAMAIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="arc")
-# GOTHIC_WORD_EMBEDDING = make_embedding_algorithm(iso_code="got")
-# LATIN_WORD_EMBEDDING = make_embedding_algorithm(iso_code="lat")
-# OLDENGLISH_WORD_EMBEDDING = make_embedding_algorithm(iso_code="ang")
-# PALI_WORD_EMBEDDING = make_embedding_algorithm(iso_code="pli")
-# SANSKRIT_WORD_EMBEDDING = make_embedding_algorithm(iso_code="san")
-
 
 @dataclass
-class EmbeddingsProcess(Process):
+# class EmbeddingsProcess(Process):
+class EmbeddingsProcess:
     """To be inherited for each language's embeddings declarations.
 
     .. note::
@@ -61,75 +30,91 @@ class EmbeddingsProcess(Process):
     >>> emb_proc = EmbeddingsProcess(input_doc=Doc(raw="some input data"))
     """
 
+    input_doc: Doc
+    output_doc: Doc = None
     language: str = None
 
+    @cachedproperty
+    def algorithm(self):
+        return FastTextEmbeddings(iso_code=self.language)
 
-# @dataclass
-# class ArabicEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Arabic embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import ArabicEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "arb"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = ArabicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     algorithm = ARABIC_WORD_EMBEDDING
-#     description: str = "Default embeddings for Arabic."
-#     language: str = "arb"
-#
-#
-# @dataclass
-# class AramaicEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Aramaic embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import AramaicEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "arc"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = AramaicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     algorithm = ARAMAIC_WORD_EMBEDDING
-#     description: str = "Default embeddings for Aramaic."
-#     language: str = "arb"
-#
-#
-# @dataclass
-# class GothicEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Gothic embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import GothicEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "got"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = GothicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     algorithm = GOTHIC_WORD_EMBEDDING
-#     description: str = "Default embeddings for Gothic."
-#     language: str = "got"
+    def run(self):
+        tmp_doc = self.input_doc
+        embedding_length = None
+        embeddings_obj = self.algorithm
+        for index, word_obj in enumerate(tmp_doc.words):
+            if not embedding_length:
+                embedding_length = embeddings_obj.get_embedding_length()
+            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
+            if not isinstance(word_embedding, np.ndarray):
+                word_embedding = np.zeros([embedding_length])
+            word_obj.embedding = word_embedding
+            tmp_doc.words[index] = word_obj
+        self.output_doc = tmp_doc
 
 
 @dataclass
-# class LatinEmbeddingsProcess(EmbeddingsProcess):
-class LatinEmbeddingsProcess:
+class ArabicEmbeddingsProcess(EmbeddingsProcess):
+    """The default Arabic embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import ArabicEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "arb"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = ArabicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    description: str = "Default embeddings for Arabic."
+    language: str = "arb"
+
+
+@dataclass
+class AramaicEmbeddingsProcess(EmbeddingsProcess):
+    """The default Aramaic embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import AramaicEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "arc"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = AramaicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    description: str = "Default embeddings for Aramaic."
+    language: str = "arb"
+
+
+@dataclass
+class GothicEmbeddingsProcess(EmbeddingsProcess):
+    """The default Gothic embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import GothicEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "got"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = GothicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    description: str = "Default embeddings for Gothic."
+    language: str = "got"
+
+
+@dataclass
+class LatinEmbeddingsProcess(EmbeddingsProcess):
     """The default Latin embeddings algorithm.
 
     >>> from cltkv1.core.data_types import Doc, Word
@@ -144,33 +129,12 @@ class LatinEmbeddingsProcess:
     True
     """
 
-    input_doc: Doc
-    output_doc: Doc = None
     language: str = "lat"
     description: str = "Default embeddings for Latin."
 
-    @cachedproperty
-    def algorithm(self):
-        return FastTextEmbeddings(iso_code=self.language)
-
-    def run(self):
-        tmp_doc = self.input_doc
-        embedding_length = None
-        embeddings_obj = self.algorithm
-        for index, word_obj in enumerate(tmp_doc.words):
-            if not embedding_length:
-                embedding_length = embeddings_obj.get_embedding_length()
-            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
-            if not isinstance(word_embedding, np.ndarray):
-                word_embedding = np.zeros([embedding_length])
-            word_obj.embedding = word_embedding
-            tmp_doc.words[index] = word_obj
-        self.output_doc = tmp_doc
-
 
 @dataclass
-# class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
-class OldEnglishEmbeddingsProcess:
+class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
     """The default Old English embeddings algorithm.
 
     >>> from cltkv1.core.data_types import Doc, Word
@@ -185,78 +149,58 @@ class OldEnglishEmbeddingsProcess:
     True
     """
 
-    input_doc: Doc
-    output_doc: Doc = None
     description: str = "Default embeddings for Old English."
     language: str = "ang"
 
-    @cachedproperty
-    def algorithm(self):
-        return FastTextEmbeddings(iso_code=self.language)
 
-    def run(self):
-        tmp_doc = self.input_doc
-        embedding_length = None
-        embeddings_obj = self.algorithm
-        for index, word_obj in enumerate(tmp_doc.words):
-            if not embedding_length:
-                embedding_length = embeddings_obj.get_embedding_length()
-            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
-            if not isinstance(word_embedding, np.ndarray):
-                word_embedding = np.zeros([embedding_length])
-            word_obj.embedding = word_embedding
-            tmp_doc.words[index] = word_obj
-        self.output_doc = tmp_doc
+@dataclass
+class PaliEmbeddingsProcess(EmbeddingsProcess):
+    """The default Pali embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import PaliEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "pli"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = PaliEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    description: str = "Default embeddings for Pali."
+    language: str = "pli"
 
 
-# @dataclass
-# class PaliEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Pali embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import PaliEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "pli"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = PaliEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     algorithm = PALI_WORD_EMBEDDING
-#     description: str = "Default embeddings for Pali."
-#     language: str = "pli"
-#
-#
-# @dataclass
-# class SanskritEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Sanskrit embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import SanskritEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "san"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = SanskritEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     algorithm = SANSKRIT_WORD_EMBEDDING
-#     description: str = "Default embeddings for Sanskrit."
-#     language: str = "san"
+@dataclass
+class SanskritEmbeddingsProcess(EmbeddingsProcess):
+    """The default Sanskrit embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import SanskritEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "san"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = SanskritEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    description: str = "Default embeddings for Sanskrit."
+    language: str = "san"
 
 
 if __name__ == "__main__":
     from datetime import datetime
+
     t0 = datetime.now()
     from boltons.strutils import split_punct_ws
     from cltkv1.core.data_types import Word
     from cltkv1.utils.example_texts import get_example_text
+
     first_doc = Doc(raw=get_example_text("lat"), language="lat")
     first_doc.words = [Word(string=w) for w in split_punct_ws(first_doc.raw)]
     lat_emb_proc = LatinEmbeddingsProcess(input_doc=first_doc)

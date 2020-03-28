@@ -135,21 +135,21 @@ class NLP:
 if __name__ == "__main__":
     from cltkv1.utils.example_texts import get_example_text
 
-    # lang = "lat"
-    # lang = "got"
-    # lang = "arb"
-    # lang = "arc"
-    # lang = "pli"
-    # lang = "san"
-    # lang = "ang"
-    # langs = ["lat", "got", "arb", "arc", "pli", "san", "ang"]
-    langs = ["lat"]
+    # langs = ["lat"]
+    # langs = ["got"]
+    # langs = ["arb"]
+    # langs = ["arc"]
+    # langs = ["pli"]
+    # langs = ["san"]
+    # langs = ["ang"]
+    langs = ["lat", "got", "arb", "arc", "pli", "san", "ang"]
     for lang in langs:
         cltk_nlp = NLP(language=lang)
+        print(f"Did NLP() for {lang} load fast? It should.")
         example_text = get_example_text(iso_code=lang)
-        print(lang)
         print(example_text[:50])
         cltk_doc = cltk_nlp.analyze(example_text)
         a_word = cltk_doc.words[5]
         print(a_word.string, a_word.index_token, a_word.embedding[:5])
+        print(f"Done with {lang}.")
         print("")
