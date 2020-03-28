@@ -4,6 +4,7 @@ from boltons.cacheutils import cachedproperty
 
 from cltkv1.core.data_types import Doc, Process, Word
 from cltkv1.dependency.stanford import StanfordNLPWrapper
+from cltkv1.dependency.tree import DependencyTree
 
 
 @dataclass
@@ -133,3 +134,25 @@ class OldFrenchStanfordNLPProcess(StanfordNLPProcess):
 class GothicStanfordNLPProcess(StanfordNLPProcess):
     language: str = "got"
     description: str = "Default process for StanfordNLP for the Gothic language."
+
+
+class TreeBuilderProcess(Process):
+    """A ``Process`` that takes a doc containing sentences of CLTK words
+    and returns a dependency tree for each sentence.
+
+    TODO: JS help to make this work, illustrate better.
+
+    >>> from cltkv1 import NLP
+    >>> nlp = NLP(language="got")
+    >>> from cltkv1.dependency.processes import TreeBuilderProcess
+    
+    # >>> nlp.pipeline.add_process(TreeBuilderProcess)
+    # >>> from cltkv1.utils.example_texts import get_example_text
+    # >>> doc = nlp.analyze(text=get_example_text("got"))
+    # >>> len(doc.trees)
+    # 4
+    """
+
+    def algorithm(self, doc):
+        doc.trees = [DependencyTree.to_tree(sentence) for sentence in doc.sentences]
+        return doc

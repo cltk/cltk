@@ -254,22 +254,3 @@ class DependencyTree(ElementTree):
                 gov >> dep | word.dependency_relation
 
         return DependencyTree(root)
-
-
-class TreeBuilderProcess(Process):
-    """A ``Process`` that takes a doc containing sentences of CLTK words
-    and returns a dependency tree for each sentence.
-
-    >>> from cltkv1 import NLP
-    >>> nlp = NLP(language='got')
-    >>> from cltkv1.dependency.tree import TreeBuilderProcess
-    >>> nlp.pipeline.add_process(TreeBuilderProcess)
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> doc = nlp.analyze(text=get_example_text("got"))
-    >>> len(doc.trees)
-    4
-    """
-
-    def algorithm(self, doc):
-        doc.trees = [DependencyTree.to_tree(sentence) for sentence in doc.sentences]
-        return doc
