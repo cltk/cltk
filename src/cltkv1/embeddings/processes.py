@@ -147,7 +147,6 @@ class LatinEmbeddingsProcess:
     input_doc: Doc
     output_doc: Doc = None
     language: str = "lat"
-    # algorithm = LATIN_WORD_EMBEDDING
     description: str = "Default embeddings for Latin."
 
     @cachedproperty
@@ -169,65 +168,47 @@ class LatinEmbeddingsProcess:
         self.output_doc = tmp_doc
 
 
-if __name__ == "__main__":
-    from datetime import datetime
-    t0 = datetime.now()
-    from boltons.strutils import split_punct_ws
-    from cltkv1.core.data_types import Word
-    from cltkv1.utils.example_texts import get_example_text
-    first_doc = Doc(raw=get_example_text("lat"), language="lat")
-    first_doc.words = [Word(string=w) for w in split_punct_ws(first_doc.raw)]
-    lat_emb_proc = LatinEmbeddingsProcess(input_doc=first_doc)
-    # print(lat_emb_proc.output_doc)
-    lat_emb_proc.run()
-    # print(lat_emb_proc.output_doc)
-    t1 = datetime.now()
-    print("Finished processing doc 1, took:", t1 - t0)
-
-    second_text = "Dominus et magister noster Iesus Christus dicendo Penitentiam omnem vitam fidelium penitentiam esse voluit."
-    second_doc = Doc(raw=second_text, language="lat")
-    second_doc.words = [Word(string=w) for w in split_punct_ws(second_text)]
-    lat_emb_proc.input_doc = second_doc
-    lat_emb_proc.run()
-    # print(lat_emb_proc.output_doc)
-    t2 = datetime.now()
-    print("Finished processing doc 2, took another:", t2 - t1)
-    print("Total time:", t2 - t0)
-    input()
-    print(second_doc.words)
-
-    '''
-    a_doc = Doc(raw=get_example_text("lat"), language="lat")
-    a_doc.words = [Word(string=w) for w in split_punct_ws(a_doc.raw)]
-    embeddings_obj = FastTextEmbeddings(iso_code="lat")
-    for index, word_obj in enumerate(a_doc.words):
-        word_obj.embedding = embeddings_obj.get_word_vector(word=word_obj.string)
-        a_doc.words[index] = word_obj
-    print(a_doc)
-    '''
-
-
-# @dataclass
+@dataclass
 # class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Old English embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.embeddings.processes import OldEnglishEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "ang"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = OldEnglishEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     algorithm = OLDENGLISH_WORD_EMBEDDING
-#     description: str = "Default embeddings for Old English."
-#     language: str = "ang"
-#
-#
+class OldEnglishEmbeddingsProcess:
+    """The default Old English embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import OldEnglishEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "ang"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = OldEnglishEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    input_doc: Doc
+    output_doc: Doc = None
+    description: str = "Default embeddings for Old English."
+    language: str = "ang"
+
+    @cachedproperty
+    def algorithm(self):
+        return FastTextEmbeddings(iso_code=self.language)
+
+    def run(self):
+        tmp_doc = self.input_doc
+        embedding_length = None
+        embeddings_obj = self.algorithm
+        for index, word_obj in enumerate(tmp_doc.words):
+            if not embedding_length:
+                embedding_length = embeddings_obj.get_embedding_length()
+            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
+            if not isinstance(word_embedding, np.ndarray):
+                word_embedding = np.zeros([embedding_length])
+            word_obj.embedding = word_embedding
+            tmp_doc.words[index] = word_obj
+        self.output_doc = tmp_doc
+
+
 # @dataclass
 # class PaliEmbeddingsProcess(EmbeddingsProcess):
 #     """The default Pali embeddings algorithm.
@@ -268,3 +249,41 @@ if __name__ == "__main__":
 #     algorithm = SANSKRIT_WORD_EMBEDDING
 #     description: str = "Default embeddings for Sanskrit."
 #     language: str = "san"
+
+
+if __name__ == "__main__":
+    from datetime import datetime
+    t0 = datetime.now()
+    from boltons.strutils import split_punct_ws
+    from cltkv1.core.data_types import Word
+    from cltkv1.utils.example_texts import get_example_text
+    first_doc = Doc(raw=get_example_text("lat"), language="lat")
+    first_doc.words = [Word(string=w) for w in split_punct_ws(first_doc.raw)]
+    lat_emb_proc = LatinEmbeddingsProcess(input_doc=first_doc)
+    # print(lat_emb_proc.output_doc)
+    lat_emb_proc.run()
+    # print(lat_emb_proc.output_doc)
+    t1 = datetime.now()
+    print("Finished processing doc 1, took:", t1 - t0)
+
+    second_text = "Dominus et magister noster Iesus Christus dicendo Penitentiam omnem vitam fidelium penitentiam esse voluit."
+    second_doc = Doc(raw=second_text, language="lat")
+    second_doc.words = [Word(string=w) for w in split_punct_ws(second_text)]
+    lat_emb_proc.input_doc = second_doc
+    lat_emb_proc.run()
+    # print(lat_emb_proc.output_doc)
+    t2 = datetime.now()
+    print("Finished processing doc 2, took another:", t2 - t1)
+    print("Total time:", t2 - t0)
+    # input()
+    # print(second_doc.words)
+
+    print("Now going to do OE ...")
+    input()
+    lang = "ang"
+    first_doc = Doc(raw=get_example_text(lang), language=lang)
+    first_doc.words = [Word(string=w) for w in split_punct_ws(first_doc.raw)]
+    ang_emb_proc = OldEnglishEmbeddingsProcess(input_doc=first_doc)
+    print(ang_emb_proc.output_doc)
+    ang_emb_proc.run()
+    print(ang_emb_proc.output_doc)
