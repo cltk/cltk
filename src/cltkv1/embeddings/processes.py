@@ -13,8 +13,7 @@ from cltkv1.embeddings.embeddings import FastTextEmbeddings
 
 
 @dataclass
-# class EmbeddingsProcess(Process):
-class EmbeddingsProcess:
+class EmbeddingsProcess(Process):
     """To be inherited for each language's embeddings declarations.
 
     .. note::
@@ -30,8 +29,6 @@ class EmbeddingsProcess:
     >>> emb_proc = EmbeddingsProcess(input_doc=Doc(raw="some input data"))
     """
 
-    input_doc: Doc
-    output_doc: Doc = None
     language: str = None
 
     @cachedproperty

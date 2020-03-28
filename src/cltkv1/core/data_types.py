@@ -190,26 +190,24 @@ class Process:
 
     input_doc: Doc
     output_doc: Doc = None
-    algorithm = None
-    language: str = None
 
-    def run(self) -> None:
-        """Method for subclassed ``Process`` Run ``algorithm`` on a
-        ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
-
-        This method puts execution of the process into the hands of the client.
-        It must be called before reading the ``output_doc`` attribute.
-
-        >>> a_process = Process(input_doc=Doc(raw="input words here"))
-        >>> a_process.run()
-        Traceback (most recent call last):
-          ...
-        NotImplementedError
-        """
-        if self.algorithm:
-            self.output_doc = self.algorithm(self.input_doc)
-        else:
-            raise NotImplementedError
+    # def run(self) -> None:
+    #     """Method for subclassed ``Process`` Run ``algorithm`` on a
+    #     ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
+    #
+    #     This method puts execution of the process into the hands of the client.
+    #     It must be called before reading the ``output_doc`` attribute.
+    #
+    #     >>> a_process = Process(input_doc=Doc(raw="input words here"))
+    #     >>> a_process.run()
+    #     Traceback (most recent call last):
+    #       ...
+    #     NotImplementedError
+    #     """
+    #     if self.algorithm:
+    #         self.output_doc = self.algorithm(self.input_doc)
+    #     else:
+    #         raise NotImplementedError
 
 
 @dataclass

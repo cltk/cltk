@@ -3,28 +3,38 @@
 from cltkv1.core.data_types import Doc, Language, Pipeline
 from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
 from cltkv1.languages.pipelines import (
+    AkkadianPipeline,
     ArabicPipeline,
     AramaicPipeline,
     GothicPipeline,
     GreekPipeline,
     LatinPipeline,
+    MHGPipeline,
+    MiddleEnglishPipeline,
+    MiddleFrenchPipeline,
     OCSPipeline,
     OldEnglishPipeline,
     OldFrenchPipeline,
+    OldNorsePipeline,
     PaliPipeline,
     SanskritPipeline,
 )
 from cltkv1.languages.utils import get_lang
 
 iso_to_pipeline = {
+    "akk": AkkadianPipeline,
     "ang": OldEnglishPipeline,
     "arb": ArabicPipeline,
     "arc": AramaicPipeline,
-    "lat": LatinPipeline,
-    "grc": GreekPipeline,
     "chu": OCSPipeline,
+    "enm": MiddleEnglishPipeline,
+    "frm": MiddleFrenchPipeline,
     "fro": OldFrenchPipeline,
+    "gmh": MHGPipeline,
     "got": GothicPipeline,
+    "grc": GreekPipeline,
+    "lat": LatinPipeline,
+    "non": OldNorsePipeline,
     "pli": PaliPipeline,
     "san": SanskritPipeline,
 }
@@ -135,21 +145,31 @@ class NLP:
 if __name__ == "__main__":
     from cltkv1.utils.example_texts import get_example_text
 
-    # langs = ["lat"]
-    # langs = ["got"]
-    # langs = ["arb"]
-    # langs = ["arc"]
-    # langs = ["pli"]
-    # langs = ["san"]
-    # langs = ["ang"]
-    langs = ["lat", "got", "arb", "arc", "pli", "san", "ang"]
+    langs = [
+        # "lat",
+        # "grc",
+        # "got",
+        # "arb",
+        # "arc",
+        # "pli",
+        # "san",
+        # "ang",
+        # "akk",  # TODO: turn List[Tuple[str, str]] into List[str]
+        # "non",
+        # "gmh",
+        # "fro",
+        # "frm",
+        "enm",
+        "",
+    ]
     for lang in langs:
         cltk_nlp = NLP(language=lang)
         print(f"Did NLP() for {lang} load fast? It should.")
         example_text = get_example_text(iso_code=lang)
         print(example_text[:50])
         cltk_doc = cltk_nlp.analyze(example_text)
-        a_word = cltk_doc.words[5]
-        print(a_word.string, a_word.index_token, a_word.embedding[:5])
+        print(cltk_doc.tokens[:10])
+        a_word = cltk_doc.words[4]
+        print(a_word.string, a_word.index_token, a_word.embedding[0], a_word.pos)
         print(f"Done with {lang}.")
         print("")
