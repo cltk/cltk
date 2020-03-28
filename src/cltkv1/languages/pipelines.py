@@ -51,7 +51,7 @@ class AkkadianPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Akkadian language.'
     >>> a_pipeline.language
-    Language(name='Standard Arabic', glottolog_id='stan1318', latitude=27.9625, longitude=43.8525, dates=[], family_id='afro1255', parent_id='arab1395', level='language', iso_639_3_code='arb', type='')
+    Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
     >>> a_pipeline.language.name
     'Akkadian'
     >>> a_pipeline.processes[0]
@@ -59,7 +59,7 @@ class AkkadianPipeline(Pipeline):
     """
 
     description: str = "Pipeline for the Akkadian language."
-    language: Language = get_lang("arb")
+    language: Language = get_lang("akk")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [AkkadianTokenizationProcess]
     )
@@ -204,11 +204,11 @@ class MHGPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Middle High German language.'
     >>> a_pipeline.language
-    Language(name='Middle English', glottolog_id='midd1317', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='merc1242', level='language', iso_639_3_code='enm', type='h')
+    Language(name='Middle High German', glottolog_id='midd1343', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='midd1349', level='language', iso_639_3_code='gmh', type='h')
     >>> a_pipeline.language.name
     'Middle High German'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.MHGTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Middle High German language."
@@ -229,11 +229,11 @@ class MiddleEnglishPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Middle English language'
     >>> a_pipeline.language
-    Language(name='Middle English (842-ca. 1400)', glottolog_id='oldf1239', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='oila1234', level='language', iso_639_3_code='fro', type='h')
+    Language(name='Middle English', glottolog_id='midd1317', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='merc1242', level='language', iso_639_3_code='enm', type='h')
     >>> a_pipeline.language.name
-    'Middle English (842-ca. 1400)'
+    'Middle English'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.MiddleEnglishTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Middle English language"
@@ -256,9 +256,9 @@ class MiddleFrenchPipeline(Pipeline):
     >>> a_pipeline.language
     Language(name='Middle French', glottolog_id='midd1316', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='stan1290', level='dialect', iso_639_3_code='frm', type='h')
     >>> a_pipeline.language.name
-    'Middle French (842-ca. 1400)'
+    'Middle French'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.MiddleFrenchTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Middle French language"
@@ -305,9 +305,9 @@ class OldNorsePipeline(Pipeline):
     >>> a_pipeline.language
     Language(name='Old Norse', glottolog_id='oldn1244', latitude=63.42, longitude=10.38, dates=[], family_id='indo1319', parent_id='west2805', level='language', iso_639_3_code='non', type='h')
     >>> a_pipeline.language.name
-    'Old Norse (842-ca. 1400)'
+    'Old Norse'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.OldNorseTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Old Norse language"
@@ -353,7 +353,7 @@ class OldEnglishPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Old English (ca. 450-1100)'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.stanford.StanfordNLPProcess'>
+    <class 'cltkv1.tokenizers.processes.MultilingualTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Old English language"
