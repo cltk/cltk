@@ -145,7 +145,7 @@ class TreeBuilderProcess(Process):
     >>> from cltkv1 import NLP
     >>> nlp = NLP(language="got")
     >>> from cltkv1.dependency.processes import TreeBuilderProcess
-    
+
     # >>> nlp.pipeline.add_process(TreeBuilderProcess)
     # >>> from cltkv1.utils.example_texts import get_example_text
     # >>> doc = nlp.analyze(text=get_example_text("got"))

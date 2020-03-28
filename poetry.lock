@@ -111,6 +111,14 @@ d = ["aiohttp (>=3.3.2)"]
 
 [[package]]
 category = "main"
+description = "When they're not builtins, they're boltons."
+name = "boltons"
+optional = false
+python-versions = "*"
+version = "20.0.0"
+
+[[package]]
+category = "main"
 description = "Amazon Web Services Library"
 name = "boto"
 optional = false
@@ -1199,7 +1207,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "33da8bbbbc3b3b01fe31aafb64bfca64ee0c34fb554460912560a381caa3a5a7"
+content-hash = "0c01678d0d1db82d441daa4f4d9da4348c9c867a7a4a320776d529ef3da760a4"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1242,6 +1250,10 @@ backcall = [
 black = [
     {file = "black-18.9b0-py36-none-any.whl", hash = "sha256:817243426042db1d36617910df579a54f1afd659adb96fc5032fcf4b36209739"},
     {file = "black-18.9b0.tar.gz", hash = "sha256:e030a9a28f542debc08acceb273f228ac422798e5215ba2a791a6ddeaaca22a5"},
+]
+boltons = [
+    {file = "boltons-20.0.0-py2.py3-none-any.whl", hash = "sha256:83cff3975ea301144dc985395a7ea847c71d9641334b852595897a92a85e51af"},
+    {file = "boltons-20.0.0.tar.gz", hash = "sha256:e44ddbd10af0904147c194d2c9bd2affa6a3e5b2ebfb9d5547900d8931203953"},
 ]
 boto = [
     {file = "boto-2.49.0-py2.py3-none-any.whl", hash = "sha256:147758d41ae7240dc989f0039f27da8ca0d53734be0eb869ef16e3adcfa462e8"},
