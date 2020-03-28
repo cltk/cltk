@@ -142,7 +142,8 @@ if __name__ == "__main__":
     # lang = "pli"
     # lang = "san"
     # lang = "ang"
-    langs = ["lat", "got", "arb", "arc", "pli", "san", "ang"]
+    # langs = ["lat", "got", "arb", "arc", "pli", "san", "ang"]
+    langs = ["lat"]
     for lang in langs:
         cltk_nlp = NLP(language=lang)
         example_text = get_example_text(iso_code=lang)
