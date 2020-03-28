@@ -77,10 +77,10 @@ class AkkadianTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import AkkadianTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = AkkadianTokenizationProcess(input_doc=Doc(raw=get_example_text("akk")))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'), ('e2-kal2-la-ka', 'akkadian'), ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
+    >>> tokenizer_process = AkkadianTokenizationProcess(input_doc=Doc(raw=get_example_text("akk")))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
+    ['u2-wa-a-ru', 'at-ta', 'e2-kal2-la-ka', '_e2_-ka', 'wu-e-er']
     """
 
     language = "akk"
@@ -93,10 +93,10 @@ class ArabicTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import ArabicTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = ArabicTokenizationProcess(input_doc=Doc(raw=get_example_text("arb")[:34]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['كهيعص', '﴿', '١', '﴾', 'ذِكْرُ', 'رَحْمَتِ', 'رَبِّكَ']
+    >>> tokenizer_process = ArabicTokenizationProcess(input_doc=Doc(raw=get_example_text("arb")[:34]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
+    ['كهيعص', '﴿١﴾', 'ذِكْرُ', 'رَحْمَتِ', 'رَبِّكَ']
     """
 
     language = "arb"
@@ -109,9 +109,9 @@ class GreekTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import GreekTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = GreekTokenizationProcess(input_doc=Doc(raw=get_example_text("grc")[:23]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
+    >>> tokenizer_process = GreekTokenizationProcess(input_doc=Doc(raw=get_example_text("grc")[:23]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
     ['ὅτι', 'μὲν', 'ὑμεῖς', ',', 'ὦ', 'ἄνδρες']
     """
 
@@ -125,9 +125,9 @@ class LatinTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import LatinTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = LatinTokenizationProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
+    >>> tokenizer_process = LatinTokenizationProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
     ['Gallia', 'est', 'omnis', 'divisa']
     """
 
@@ -141,9 +141,9 @@ class MHGTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import MHGTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = MHGTokenizationProcess(input_doc=Doc(raw=get_example_text("gmh")[:29]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
+    >>> tokenizer_process = MHGTokenizationProcess(input_doc=Doc(raw=get_example_text("gmh")[:29]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
     ['Ik', 'gihorta', 'ðat', 'seggen', 'ðat', 'sih']
     """
 
@@ -157,9 +157,9 @@ class MiddleEnglishTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import MiddleEnglishTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = MiddleEnglishTokenizationProcess(input_doc=Doc(raw=get_example_text("enm")[:31]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
+    >>> tokenizer_process = MiddleEnglishTokenizationProcess(input_doc=Doc(raw=get_example_text("enm")[:31]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
     ['Whilom', ',', 'as', 'olde', 'stories', 'tellen']
     """
 
@@ -173,10 +173,10 @@ class MiddleFrenchTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers import MiddleFrenchTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = MiddleFrenchTokenizationProcess(input_doc=Doc(raw=get_example_text("frm")[:37]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Attilius', 'Regulus', ',', 'general', 'de', "l'", 'armée']
+    >>> tokenizer_process = MiddleFrenchTokenizationProcess(input_doc=Doc(raw=get_example_text("frm")[:37]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
+    ['Attilius', 'Regulus', ',', 'general', 'de', "l'armée"]
     """
 
     description = "Default tokenizer for the Middle French language."
@@ -189,11 +189,9 @@ class MultilingualTokenizationProcess(TokenizationProcess):
 
     >>> from cltkv1.tokenizers.processes import MultilingualTokenizationProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = DefaultTokenizationProcess(input_doc=Doc(raw=get_example_text("non")[:29]))
-    >>> tok.description
-    'Whitespace tokenizer inheriting from the NLTK'
-    >>> tok.run()
-    >>> tok.output_doc.tokens
+    >>> tokenizer_process = MultilingualTokenizationProcess(input_doc=Doc(raw=get_example_text("non")[:29]))
+    >>> tokenizer_process.run()
+    >>> tokenizer_process.output_doc.tokens
     ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
     """
 
