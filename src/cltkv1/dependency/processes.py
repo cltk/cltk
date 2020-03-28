@@ -17,7 +17,7 @@ class StanfordNLPProcess(Process):
         ``stanfordnlp`` has only partial functionality available for some languages.
 
 
-    >>> from cltkv1.dependency.stanford import StanfordNLPProcess
+    >>> from cltkv1.dependency.processes import StanfordNLPProcess
     >>> from cltkv1.utils.example_texts import get_example_text
     >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
     >>> isinstance(process_stanford, StanfordNLPProcess)
@@ -43,41 +43,6 @@ class StanfordNLPProcess(Process):
         tmp_doc.stanfordnlp_doc = stanfordnlp_doc
         self.output_doc = tmp_doc
 
-    """
-    @cachedproperty
-    def algorithm(self):
-        return FastTextEmbeddings(iso_code=self.language)
-
-    def run(self):
-        tmp_doc = self.input_doc
-        embedding_length = None
-        embeddings_obj = self.algorithm
-        for index, word_obj in enumerate(tmp_doc.words):
-            if not embedding_length:
-                embedding_length = embeddings_obj.get_embedding_length()
-            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
-            if not isinstance(word_embedding, np.ndarray):
-                word_embedding = np.zeros([embedding_length])
-            word_obj.embedding = word_embedding
-            tmp_doc.words[index] = word_obj
-        self.output_doc = tmp_doc
-    """
-
-    '''
-    def __init__(self, input_doc, language):
-        """Constructor."""
-        super().__init__(input_doc=input_doc, language=language)
-        self.stanfordnlp_wrapper = StanfordNLPWrapper.get_nlp(language=self.language)
-
-    def algorithm(self, doc):
-        stanfordnlp_doc = self.stanfordnlp_wrapper.parse(doc.raw)
-        cltk_words = StanfordNLPProcess.stanfordnlp_to_cltk_word_type(stanfordnlp_doc)
-        doc.words = cltk_words
-        doc.stanfordnlp_doc = stanfordnlp_doc
-
-        return doc
-    '''
-
     @staticmethod
     def stanfordnlp_to_cltk_word_type(stanfordnlp_doc):
 
@@ -85,7 +50,7 @@ class StanfordNLPProcess(Process):
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
 
-        >>> from cltkv1.dependency.stanford import StanfordNLPProcess
+        >>> from cltkv1.dependency.processes import StanfordNLPProcess
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
         >>> process_stanford.run()
