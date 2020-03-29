@@ -500,41 +500,9 @@ class CorpusImporter:
 
         self.user_defined_corpora = self._get_user_defined_corpora()
         self.library_defined_corpora = self._get_library_defined_corpora()
-        self.all_corpora_for_lang = self.user_defined_corpora + self.library_defined_corpora
-
-        #xxx
-
-
-        # if user_defined_corpora, then we need to add these to the corpus.py objects
-        # if self.user_defined_corpora:
-        #     logger.info(
-        #         'User-defined corpus found for "{}" language'.format(self.language)
-        #     )
-        #     try:
-        #         logger.debug(
-        #             'Core corpora also found for "{}" language'.format(self.language)
-        #         )
-        #         logger.debug("Combining the user-defined and the core corpora")
-        #         self.official_corpora = LANGUAGE_CORPORA[self.language]
-        #         self.all_corpora = self.official_corpora
-        #         for corpus in self.user_defined_corpora:
-        #             self.all_corpora.append(corpus)
-        #     except KeyError:
-        #         logger.debug(
-        #             "Nothing in the official repos "
-        #             'for "{}" language. Make the all_corpora solely '
-        #             "from the .yaml".format(self.language)
-        #         )
-        #         self.all_corpora = []
-        #         for corpus in self.user_defined_corpora:
-        #             self.all_corpora.append(corpus)
-        # else:
-        #     logger.info(
-        #         'No user-defined corpora found for "{}" language'.format(self.language)
-        #     )
-        #     # self.official_corpora = LANGUAGE_CORPORA[self.language]
-        #     self.all_corpora = LANGUAGE_CORPORA[self.language]
-
+        self.all_corpora_for_lang = (
+            self.user_defined_corpora + self.library_defined_corpora
+        )
 
     def __repr__(self):
         """Representation string for ipython
@@ -586,26 +554,6 @@ class CorpusImporter:
         except KeyError:
             return list()
 
-    # def _get_user_defined_corpora(self):
-    #     """Look for ``~/cltk_data/distributed_corpora.yaml`` and return
-    #     declared languages which are for an in-scope language.
-    #     """
-    #
-        # if self.language not in LANGUAGE_CORPORA:
-        #     # If no official repos, check if user has custom
-        #     user_defined_corpora = self._get_user_defined_corpora()
-        #     if user_defined_corpora:
-        #         return user_defined_corpora
-        #     else:
-        #         msg = 'Corpora not available (either core or user-defined) for the "{}" language.'.format(
-        #             self.language
-        #         )
-        #         logger.info(msg)
-        #         raise CorpusImportError(msg)
-        # else:
-        #     user_defined_corpora = self._get_user_defined_corpora()
-        #     return user_defined_corpora
-
     @property
     def list_corpora(self):
         """Show corpora available for the CLTK to download."""
@@ -640,7 +588,6 @@ class CorpusImporter:
         :rtype : str
         """
         try:
-            # corpora = LANGUAGE_CORPORA[self.language]
             corpora = self.all_corpora
         except NameError as name_error:
             msg = "Corpus not available for language " '"%s": %s' % (
@@ -666,8 +613,6 @@ class CorpusImporter:
         TODO: This code is very redundant with what's in import_corpus(),
         could be refactored.
         """
-        # git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
-        # self._download_corpus(corpus_type, corpus_name, path)
         type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
         type_dir = os.path.expanduser(type_dir_rel)
         repo_name = uri.split("/")[-1]  # eg, 'latin_corpus_newton_example.git'
@@ -702,7 +647,7 @@ class CorpusImporter:
                 logger.error(msg)
 
     def import_corpus(
-        self, corpus_name: str, local_path: str = None, branch: str ="master"
+        self, corpus_name: str, local_path: str = None, branch: str = "master"
     ):
         """Download a remote or load local corpus into dir ``~/cltk_data``.
         
@@ -713,32 +658,90 @@ class CorpusImporter:
         :param local_path: A filepath, required when importing local corpora.
         :param branch: What Git branch to clone.
         """
-        if corpus_name not in self.all_corpora_for_lang:
-            raise CorpusImportError(f"No corpus ``{corpus_name}`` for language ``{self.language}``.")
-        corpus_properties = None
-        for corpus in self.all_corpora_for_lang:
-            if corpus["name"] == corpus_name:
-                corpus_properties = corpus
-                break
-        if corpus_properties["location"] 
 
-
-        corpus_properties = self._get_corpus_properties(corpus_name)
-        try:
-            location = corpus_properties["location"]
-        except KeyError:
-            # git_uri = corpus_properties['git_remote']
-            git_name = corpus_properties[""]
-            git_uri = corpus_properties["origin"]
-            git_type = corpus_properties["type"]
-            # pass this off to a special downloader just for custom urls
-            self._git_user_defined_corpus(git_name, git_type, git_uri)
+        matching_corpus_list = [
+            _dict for _dict in self.all_corpora_for_lang if _dict["name"] == corpus_name
+        ]
+        if not matching_corpus_list:
+            raise CorpusImportError(
+                f"No corpus ``{corpus_name}`` for language ``{self.language}``."
+            )
+        if len(matching_corpus_list) > 1:
+            raise CorpusImportError(
+                f"Found more than one corpus with the name ``{corpus_name}``."
+            )
+        matching_corpus = matching_corpus_list[0]
+        if matching_corpus.get("user_defined"):
+            """{'origin': 'https://github.com/kylepjohnson/latin_corpus_newton_example.git',
+                'type': 'text',
+                'name': 'example_distributed_latin_corpus',
+                'user_defined': True}
+              """
+            self._git_user_defined_corpus(
+                matching_corpus["name"],
+                matching_corpus["type"],
+                matching_corpus["origin"],
+            )
             return
-        corpus_type = corpus_properties["type"]
-        if location == "remote":
-            # git_uri = urljoin('https://github.com/cltk/', corpus_name + '.git')
-            git_uri = corpus_properties["origin"]
-            type_dir_rel = os.path.join(CLTK_DATA_DIR, self.language, corpus_type)
+        elif matching_corpus.get("location") == "local":
+            # {'location': 'local', 'name': 'phi5', 'origin': None, 'type': 'text'}
+            msg = "Importing from local path: '{}'".format(local_path)
+            logger.info(msg)
+            if corpus_name not in ["phi5", "phi7", "tlg"]:
+                raise CorpusImportError(f"Unsupported local corpus ``{corpus_name}``.")
+            if corpus_name == "phi5":
+                # normalize path for checking dir
+                if local_path.endswith("/"):
+                    local_path = local_path[:-1]
+                # check for right corpus dir
+                if os.path.split(local_path)[1] != "PHI5":
+                    logger.info("Directory must be named 'PHI5'.")
+            if corpus_name == "phi7":
+                # normalize local_path for checking dir
+                if local_path.endswith("/"):
+                    local_path = local_path[:-1]
+                # check for right corpus dir
+                if os.path.split(local_path)[1] != "PHI7":
+                    logger.info("Directory must be named 'PHI7'.")
+            if corpus_name == "tlg":
+                # normalize path for checking dir
+                if local_path.endswith("/"):
+                    local_path = local_path[:-1]
+                # check for right corpus dir
+                if os.path.split(local_path)[1] != "TLG_E":
+                    logger.info("Directory must be named 'TLG_E'.")
+            # move the dir-checking commands into a function
+            data_dir = os.path.expanduser(CLTK_DATA_DIR)
+            originals_dir = os.path.join(data_dir, "originals")
+            # check for `originals` dir; if not present mkdir
+            if not os.path.isdir(originals_dir):
+                os.makedirs(originals_dir)
+                msg = "Wrote directory at '{}'.".format(originals_dir)
+                logger.info(msg)
+            tlg_originals_dir = os.path.join(data_dir, "originals", corpus_name)
+            # check for `originals/<corpus_name>`; if pres, delete
+            if os.path.isdir(tlg_originals_dir):
+                shutil.rmtree(tlg_originals_dir)
+                msg = "Removed directory at '{}'.".format(tlg_originals_dir)
+                logger.info(msg)
+            # copy_dir requires that target
+            if not os.path.isdir(tlg_originals_dir):
+                self._copy_dir_recursive(local_path, tlg_originals_dir)
+        else:
+            """{'type': 'text',
+                'name': 'latin_text_perseus',
+                'origin': 'https://github.com/cltk/latin_text_perseus.git'},
+            """
+            if (
+                not matching_corpus.get("type")
+                and not matching_corpus.get("name")
+                and not matching_corpus.get("origin")
+            ):
+                raise CorpusImporter(f"Malformed record for ``{corpus_name}``.")
+            git_uri = matching_corpus["origin"]
+            type_dir_rel = os.path.join(
+                CLTK_DATA_DIR, self.language, matching_corpus["type"]
+            )
             type_dir = os.path.expanduser(type_dir_rel)
             target_dir = os.path.join(type_dir, corpus_name)
             target_file = os.path.join(type_dir, corpus_name, "README.md")
@@ -776,54 +779,14 @@ class CorpusImporter:
                         git_uri, corpus_imp_err
                     )
                     logger.error(msg)
-        elif location == "local":
-            msg = "Importing from local path: '{}'".format(local_path)
-            logger.info(msg)
-            if corpus_name in ("phi5", "phi7", "tlg"):
-                if corpus_name == "phi5":
-                    # normalize path for checking dir
-                    if local_path.endswith("/"):
-                        local_path = local_path[:-1]
-                    # check for right corpus dir
-                    if os.path.split(local_path)[1] != "PHI5":
-                        logger.info("Directory must be named 'PHI5'.")
-                if corpus_name == "phi7":
-                    # normalize local_path for checking dir
-                    if local_path.endswith("/"):
-                        local_path = local_path[:-1]
-                    # check for right corpus dir
-                    if os.path.split(local_path)[1] != "PHI7":
-                        logger.info("Directory must be named 'PHI7'.")
-                if corpus_name == "tlg":
-                    # normalize path for checking dir
-                    if local_path.endswith("/"):
-                        local_path = local_path[:-1]
-                    # check for right corpus dir
-                    if os.path.split(local_path)[1] != "TLG_E":
-                        logger.info("Directory must be named 'TLG_E'.")
-                # move the dir-checking commands into a function
-                data_dir = os.path.expanduser(CLTK_DATA_DIR)
-                originals_dir = os.path.join(data_dir, "originals")
-                # check for `originals` dir; if not present mkdir
-                if not os.path.isdir(originals_dir):
-                    os.makedirs(originals_dir)
-                    msg = "Wrote directory at '{}'.".format(originals_dir)
-                    logger.info(msg)
-                tlg_originals_dir = os.path.join(data_dir, "originals", corpus_name)
-                # check for `originals/<corpus_name>`; if pres, delete
-                if os.path.isdir(tlg_originals_dir):
-                    shutil.rmtree(tlg_originals_dir)
-                    msg = "Removed directory at '{}'.".format(tlg_originals_dir)
-                    logger.info(msg)
-                # copy_dir requires that target
-                if not os.path.isdir(tlg_originals_dir):
-                    self._copy_dir_recursive(local_path, tlg_originals_dir)
 
 
 if __name__ == "__main__":
     # for lang in LANGUAGE_CORPORA:
     #     c = CorpusImporter(language=lang)
     #     print(c.list_corpora)
-    c = CorpusImporter(language="plq")
+    c = CorpusImporter(language="lat")
     print(c.list_corpora)
     # c.import_corpus("latin_training_set_sentence_cltk")
+    # c.import_corpus("example_distributed_latin_corpus")
+    c.import_corpus("phi5", local_path="~/Documents")

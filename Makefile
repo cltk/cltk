@@ -25,7 +25,7 @@ preCommitRun:
 
 shell:
 	# TODO: start w/ option ``doctest_mode``
-	poetry run ipython --automagic --pdb
+	poetry run ipython --automagic
 
 test:
 	poetry run tox
