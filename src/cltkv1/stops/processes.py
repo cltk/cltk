@@ -18,9 +18,9 @@ class StopsProcess(Process):
     >>> words = [Word(string=token) for token in split_punct_ws(get_example_text(lang))]
     >>> stops_process = StopsProcess(input_doc=Doc(raw=get_example_text(lang), words=words), language=lang)
     >>> stops_process.run()
-    >>> stops_process.output_doc.words[2].string
-    'omnis'
-    >>> stops_process.output_doc.words[2].stop
+    >>> stops_process.output_doc.words[1].string
+    'est'
+    >>> stops_process.output_doc.words[1].stop
     True
     """
 
