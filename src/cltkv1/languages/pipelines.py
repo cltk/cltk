@@ -174,7 +174,27 @@ class GreekPipeline(Pipeline):
     )
 
 
-# TODO: Add Hindi ("hin ")
+@dataclass
+class HindiPipeline(Pipeline):
+    """Default ``Pipeline`` for Hindi.
+
+    >>> from cltkv1.languages.pipelines import SanskritPipeline
+    >>> a_pipeline = HindiPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Hindi language.'
+    >>> a_pipeline.language
+    Language(name='Hindi', glottolog_id='hind1269', latitude=25.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='hind1270', level='language', iso_639_3_code='hin', type='')
+    >>> a_pipeline.language.name
+    'Hindi'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.tokenizers.processes.SanskritTokenizationProcess'>
+    """
+
+    description: str = "Pipeline for the Hindi language."
+    language: Language = get_lang("hin")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [SanskritTokenizationProcess, StopsProcess]
+    )
 
 
 @dataclass
@@ -421,7 +441,7 @@ class PanjabiPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Eastern Panjabi'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.tokenizers.processes.MultilingualTokenizationProcess'>
+    <class 'cltkv1.tokenizers.processes.SanskritTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Panjabi language."

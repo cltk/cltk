@@ -8,6 +8,7 @@ from cltkv1.languages.pipelines import (
     AramaicPipeline,
     GothicPipeline,
     GreekPipeline,
+    HindiPipeline,
     LatinPipeline,
     MHGPipeline,
     MiddleEnglishPipeline,
@@ -34,6 +35,7 @@ iso_to_pipeline = {
     "gmh": MHGPipeline,
     "got": GothicPipeline,
     "grc": GreekPipeline,
+    "hin": HindiPipeline,
     "lat": LatinPipeline,
     "non": OldNorsePipeline,
     "pan": PanjabiPipeline,
@@ -163,6 +165,7 @@ if __name__ == "__main__":
         # "frm",
         # "enm",
         # "pan",
+        # "hin",
     ]
     for lang in langs:
         cltk_nlp = NLP(language=lang)
