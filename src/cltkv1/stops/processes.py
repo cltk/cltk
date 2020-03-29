@@ -38,7 +38,7 @@ class StopsProcess(Process):
         tmp_doc = self.input_doc
         stops_list = self.algorithm
         for index, word_obj in enumerate(tmp_doc.words):
-            if word_obj.string or word_obj.lemma in stops_list:
+            if (word_obj.string in stops_list) or (word_obj.lemma in stops_list):
                 word_obj.stop = True
             tmp_doc.words[index] = word_obj
         self.output_doc = tmp_doc
