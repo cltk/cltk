@@ -174,6 +174,9 @@ class GreekPipeline(Pipeline):
     )
 
 
+# TODO: Add Hindi ("hin ")
+
+
 @dataclass
 class HindiPipeline(Pipeline):
     """Default ``Pipeline`` for Hindi.
@@ -426,6 +429,9 @@ class PaliPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
     )
+
+
+# TODO: Add Panjali ("pan")
 
 
 @dataclass

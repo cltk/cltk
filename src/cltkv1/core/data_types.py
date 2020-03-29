@@ -131,10 +131,7 @@ class Doc:
 
     @property
     def tokens(self) -> List[str]:
-        """Returns a list of string word tokens of all words in the doc.
-
-        TODO: Add option to filter stopwords.
-        """
+        """Returns a list of string word tokens of all words in the doc."""
         tokens = self._get_words_attribute("string")  # type: List[str]
         return tokens
 
