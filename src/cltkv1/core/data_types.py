@@ -55,7 +55,7 @@ class Word:
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None, embedding=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None, embedding=None, stop=None)
     """
 
     index_char_start: int = None
@@ -73,6 +73,7 @@ class Word:
     parent: "Word" = None
     features: Dict[str, str] = None  # morphological features (from stanfordnlp)
     embedding: numpy.ndarray = None
+    stop: bool = None
 
 
 @dataclass
@@ -116,6 +117,8 @@ class Doc:
     @property
     def tokens(self) -> List[str]:
         """Returns a list of string word tokens of all words in the doc.
+
+        TODO: Add option to filter stopwords.
 
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text

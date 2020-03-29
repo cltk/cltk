@@ -27,6 +27,7 @@ from cltkv1.embeddings.processes import (
     SanskritEmbeddingsProcess,
 )
 from cltkv1.languages.utils import get_lang
+from cltkv1.stops.processes import StopsProcess
 from cltkv1.tokenizers.processes import (
     AkkadianTokenizationProcess,
     ArabicTokenizationProcess,
@@ -61,7 +62,7 @@ class AkkadianPipeline(Pipeline):
     description: str = "Pipeline for the Akkadian language."
     language: Language = get_lang("akk")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [AkkadianTokenizationProcess]
+        default_factory=lambda: [AkkadianTokenizationProcess, StopsProcess]
     )
 
 
@@ -84,7 +85,11 @@ class ArabicPipeline(Pipeline):
     description: str = "Pipeline for the Arabic language"
     language: Language = get_lang("arb")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [ArabicTokenizationProcess, ArabicEmbeddingsProcess]
+        default_factory=lambda: [
+            ArabicTokenizationProcess,
+            ArabicEmbeddingsProcess,
+            StopsProcess,
+        ]
     )
 
 
@@ -163,14 +168,20 @@ class GreekPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
             # GreekTokenizationProcess,
-            GreekStanfordNLPProcess
+            GreekStanfordNLPProcess,
+            StopsProcess,
         ]
     )
+
+
+# TODO: Add Hindi ("hin ")
 
 
 @dataclass
 class LatinPipeline(Pipeline):
     """Default ``Pipeline`` for Latin.
+
+    TODO: Add stopword annotation for all relevant pipelines.
 
     >>> from cltkv1.languages.pipelines import LatinPipeline
     >>> a_pipeline = LatinPipeline()
@@ -191,6 +202,7 @@ class LatinPipeline(Pipeline):
             # LatinTokenizationProcess,
             LatinStanfordNLPProcess,
             LatinEmbeddingsProcess,
+            StopsProcess,
         ]
     )
 
@@ -214,7 +226,7 @@ class MHGPipeline(Pipeline):
     description: str = "Pipeline for the Middle High German language."
     language: Language = get_lang("gmh")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [MHGTokenizationProcess]
+        default_factory=lambda: [MHGTokenizationProcess, StopsProcess]
     )
 
 
@@ -239,7 +251,7 @@ class MiddleEnglishPipeline(Pipeline):
     description: str = "Pipeline for the Middle English language"
     language: Language = get_lang("enm")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [MiddleEnglishTokenizationProcess]
+        default_factory=lambda: [MiddleEnglishTokenizationProcess, StopsProcess]
     )
 
 
@@ -265,55 +277,6 @@ class MiddleFrenchPipeline(Pipeline):
     language: Language = get_lang("frm")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [MiddleFrenchTokenizationProcess]
-    )
-
-
-@dataclass
-class OldFrenchPipeline(Pipeline):
-    """Default ``Pipeline`` for Old French.
-
-    >>> from cltkv1.languages.pipelines import OldFrenchPipeline
-    >>> a_pipeline = OldFrenchPipeline()
-    >>> a_pipeline.description
-    'Pipeline for the Old French language'
-    >>> a_pipeline.language
-    Language(name='Old French (842-ca. 1400)', glottolog_id='oldf1239', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='oila1234', level='language', iso_639_3_code='fro', type='h')
-    >>> a_pipeline.language.name
-    'Old French (842-ca. 1400)'
-    >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.processes.OldFrenchStanfordNLPProcess'>
-    """
-
-    description: str = "Pipeline for the Old French language"
-    language: Language = get_lang("fro")
-    processes: List[Type[Process]] = field(
-        default_factory=lambda: [
-            # OldFrenchTokenizationProcess,
-            OldFrenchStanfordNLPProcess
-        ]
-    )
-
-
-@dataclass
-class OldNorsePipeline(Pipeline):
-    """Default ``Pipeline`` for Old Norse.
-
-    >>> from cltkv1.languages.pipelines import OldNorsePipeline
-    >>> a_pipeline = OldNorsePipeline()
-    >>> a_pipeline.description
-    'Pipeline for the Old Norse language'
-    >>> a_pipeline.language
-    Language(name='Old Norse', glottolog_id='oldn1244', latitude=63.42, longitude=10.38, dates=[], family_id='indo1319', parent_id='west2805', level='language', iso_639_3_code='non', type='h')
-    >>> a_pipeline.language.name
-    'Old Norse'
-    >>> a_pipeline.processes[0]
-    <class 'cltkv1.tokenizers.processes.OldNorseTokenizationProcess'>
-    """
-
-    description: str = "Pipeline for the Old Norse language"
-    language: Language = get_lang("non")
-    processes: List[Type[Process]] = field(
-        default_factory=lambda: [OldNorseTokenizationProcess]
     )
 
 
@@ -362,7 +325,61 @@ class OldEnglishPipeline(Pipeline):
         default_factory=lambda: [
             MultilingualTokenizationProcess,
             OldEnglishEmbeddingsProcess,
+            StopsProcess,
         ]
+    )
+
+
+@dataclass
+class OldFrenchPipeline(Pipeline):
+    """Default ``Pipeline`` for Old French.
+
+    >>> from cltkv1.languages.pipelines import OldFrenchPipeline
+    >>> a_pipeline = OldFrenchPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Old French language'
+    >>> a_pipeline.language
+    Language(name='Old French (842-ca. 1400)', glottolog_id='oldf1239', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='oila1234', level='language', iso_639_3_code='fro', type='h')
+    >>> a_pipeline.language.name
+    'Old French (842-ca. 1400)'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.processes.OldFrenchStanfordNLPProcess'>
+    """
+
+    description: str = "Pipeline for the Old French language"
+    language: Language = get_lang("fro")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            # OldFrenchTokenizationProcess,
+            OldFrenchStanfordNLPProcess,
+            StopsProcess,
+        ]
+    )
+
+
+# TODO: Add Old Marathi ("omr")
+
+
+@dataclass
+class OldNorsePipeline(Pipeline):
+    """Default ``Pipeline`` for Old Norse.
+
+    >>> from cltkv1.languages.pipelines import OldNorsePipeline
+    >>> a_pipeline = OldNorsePipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Old Norse language'
+    >>> a_pipeline.language
+    Language(name='Old Norse', glottolog_id='oldn1244', latitude=63.42, longitude=10.38, dates=[], family_id='indo1319', parent_id='west2805', level='language', iso_639_3_code='non', type='h')
+    >>> a_pipeline.language.name
+    'Old Norse'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.tokenizers.processes.OldNorseTokenizationProcess'>
+    """
+
+    description: str = "Pipeline for the Old Norse language"
+    language: Language = get_lang("non")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [OldNorseTokenizationProcess, StopsProcess]
     )
 
 
@@ -391,6 +408,9 @@ class PaliPipeline(Pipeline):
     )
 
 
+# TODO: Add Panjali ("pan")
+
+
 @dataclass
 class SanskritPipeline(Pipeline):
     """Default ``Pipeline`` for Sanskrit.
@@ -412,5 +432,9 @@ class SanskritPipeline(Pipeline):
     description: str = "Pipeline for the Sanskrit language"
     language: Language = get_lang("san")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [SanskritTokenizationProcess, SanskritEmbeddingsProcess]
+        default_factory=lambda: [
+            SanskritTokenizationProcess,
+            SanskritEmbeddingsProcess,
+            StopsProcess,
+        ]
     )
