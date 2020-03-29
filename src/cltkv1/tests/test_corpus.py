@@ -42,7 +42,7 @@
 # from cltk.corpus.utils.formatter import tonos_oxia_converter
 # from cltk.corpus.utils.formatter import tlg_plaintext_cleanup
 # from cltk.corpus.utils.formatter import cltk_normalize
-# from cltk.corpus.utils.importer import CorpusImporter
+# from cltk.corpus.utils.importer import FetchCorpus
 # from cltk.corpus.utils.importer import CorpusImportError
 # from cltk.corpus.sanskrit.itrans.itrans_transliterator import *
 # from cltk.corpus.sanskrit.itrans.unicode_transliterate import *
@@ -67,7 +67,7 @@ import nltk
 
 from cltkv1.alphabet.grc.beta_to_unicode import BetaCodeReplacer
 from cltkv1.core.exceptions import CorpusImportError, UnknownLanguageError
-from cltkv1.data.fetch import CorpusImporter
+from cltkv1.data.fetch import FetchCorpus
 from cltkv1.utils import get_cltk_data_dir
 
 __license__ = "MIT License. See LICENSE."
@@ -82,10 +82,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     @classmethod
     def setUpClass(self):
         pass
-        # corpus_importer = CorpusImporter('latin')
+        # corpus_importer = FetchCorpus('latin')
         # corpus_importer.import_corpus('latin_text_latin_library')
         # corpus_importer.import_corpus('latin_text_perseus')
-        # corpus_importer = CorpusImporter('greek')
+        # corpus_importer = FetchCorpus('greek')
         # corpus_importer.import_corpus('greek_text_perseus')
         # corpus_importer.import_corpus('greek_text_tesserae')
         # nltk.download('punkt')
@@ -125,7 +125,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #
     #     def test_import_greek_software_tlgu(self):
     #         """Test cloning TLGU."""
-    #         corpus_importer = CorpusImporter('greek')
+    #         corpus_importer = FetchCorpus('greek')
     #         corpus_importer.import_corpus('greek_software_tlgu')
     #         file_rel = os.path.join(get_cltk_data_dir() + '/greek/software/greek_software_tlgu/README.md')
     #         _file = os.path.expanduser(file_rel)
@@ -246,13 +246,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_corpora_import_list_greek(self):
         """Test listing of available corpora."""
-        corpus_importer = CorpusImporter("grc")
+        corpus_importer = FetchCorpus("grc")
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
     def test_corpora_import_list_latin(self):
         """Test listing of available corpora."""
-        corpus_importer = CorpusImporter("lat")
+        corpus_importer = FetchCorpus("lat")
         available_corpora = corpus_importer.list_corpora
         self.assertTrue(available_corpora)
 
@@ -298,7 +298,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #     Needs to precede (for now) the next two tests which load the corpus
     #     Provided by Patrick Burns
     #     """
-    #     corpus_importer = CorpusImporter('latin')
+    #     corpus_importer = FetchCorpus('latin')
     #     # corpus_importer.import_corpus('latin_text_latin_library')
     #     corpus_importer.import_corpus('latin_models_cltk')
     #
@@ -309,7 +309,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #
     # def test_import_lat_text_lat_lib(self):
     #     """Test cloning the Latin Library text corpus."""
-    #     corpus_importer = CorpusImporter('latin')
+    #     corpus_importer = FetchCorpus('latin')
     #     corpus_importer.import_corpus('latin_text_latin_library')
     #     file_rel = os.path.join(get_cltk_data_dir() + '/latin/text/latin_text_latin_library/README.md')
     #     _file = os.path.expanduser(file_rel)
@@ -318,7 +318,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #
     # def test_import_latin_library_corpus_reader(self):
     #     """Test the Latin Library corpus reader."""
-    #     corpus_importer = CorpusImporter('latin')
+    #     corpus_importer = FetchCorpus('latin')
     #     corpus_importer.import_corpus('latin_text_latin_library')
     #     reader = get_corpus_reader(language='latin', corpus_name='latin_text_latin_library')
     #     ALL_FILE_IDS = list(reader.fileids())
@@ -367,7 +367,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
-        corpus_importer = CorpusImporter("lat")
+        corpus_importer = FetchCorpus("lat")
         corpus_importer.import_corpus("latin_models_cltk")
         file_rel = os.path.join(
             get_cltk_data_dir() + "/lat/model/latin_models_cltk/README.md"
@@ -380,7 +380,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test pull (not clone) the CLTK Greek models. Import was run in
         ``setUp()``.
         """
-        corpus_importer = CorpusImporter("grc")
+        corpus_importer = FetchCorpus("grc")
         corpus_importer.import_corpus("greek_models_cltk")
         file_rel = os.path.join(
             get_cltk_data_dir() + "/grc/model/greek_models_cltk/README.md"
@@ -392,19 +392,19 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     # def test_show_corpora_bad_lang(self):
     #     """Test failure of importer upon selecting unsupported language."""
     #     with self.assertRaises(CorpusImportError):
-    #         CorpusImporter('bad_lang')
+    #         FetchCorpus('bad_lang')
     #
     # def test_import_nonexistant_corpus(self):
-    #     """Test that creating a CorpusImporter for a non existent lang
+    #     """Test that creating a FetchCorpus for a non existent lang
     #        fails smoothly
     #     """
     #     with self.assertRaises(CorpusImportError):
-    #         corpus_importer = CorpusImporter('greek')
+    #         corpus_importer = FetchCorpus('greek')
     #         corpus_importer.import_corpus('euclids_book_of_recipes')
 
     def test_import_latin_text_antique_digiliblt(self):
         """Test cloning the Antique Latin from digilibLT."""
-        corpus_importer = CorpusImporter("lat")
+        corpus_importer = FetchCorpus("lat")
         corpus_importer.import_corpus("latin_text_antique_digiliblt")
         file_rel = os.path.join(
             get_cltk_data_dir() + "/lat/text/latin_text_antique_digiliblt/README.md"
@@ -588,7 +588,7 @@ example_distributed_fake_language_corpus:
         not in core repos but not in user-defined.
         """
         self.make_distributed_corpora_testing_file()
-        corpus_importer = CorpusImporter("san", testing=True)
+        corpus_importer = FetchCorpus("san", testing=True)
         self.assertIn("sanskrit_models_cltk", corpus_importer.list_corpora)
         self.remove_distributed_corpora_testing_file()
 
@@ -598,7 +598,7 @@ example_distributed_fake_language_corpus:
     #     not in the core but in the user's custom file.
     #     """
     #     self.make_distributed_corpora_testing_file()
-    #     corpus_importer = CorpusImporter("fake_language", testing=True)
+    #     corpus_importer = FetchCorpus("fake_language", testing=True)
     #     corpus_name = corpus_importer.list_corpora
     #     target_name = "example_distributed_fake_language_corpus"
     #     self.assertEqual(corpus_name[0], target_name)
@@ -610,7 +610,7 @@ example_distributed_fake_language_corpus:
         in the core but not in the user's custom file.
         """
         self.make_distributed_corpora_testing_file()
-        corpus_importer = CorpusImporter("pli", testing=True)
+        corpus_importer = FetchCorpus("pli", testing=True)
         corpora = corpus_importer.list_corpora
         self.assertIn("pali_text_ptr_tipitaka", corpora)
         self.remove_distributed_corpora_testing_file()
@@ -622,7 +622,7 @@ example_distributed_fake_language_corpus:
         """
         self.make_distributed_corpora_testing_file()
         with self.assertRaises(UnknownLanguageError):
-            CorpusImporter("fake_language_nowhere")
+            FetchCorpus("fake_language_nowhere")
         self.remove_distributed_corpora_testing_file()
 
     # # Ancient Egyptian Stuff -----------------------------
@@ -715,7 +715,7 @@ example_distributed_fake_language_corpus:
 #         @classmethod
 #         def setUpClass(self):
 #             try:
-#                 corpus_importer = CorpusImporter('latin')
+#                 corpus_importer = FetchCorpus('latin')
 #                 corpus_importer.import_corpus('latin_models_cltk')
 #                 corpus_importer.import_corpus('latin_text_latin_library')
 #             except:

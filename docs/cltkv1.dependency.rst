@@ -4,6 +4,14 @@ cltkv1.dependency package
 Submodules
 ----------
 
+cltkv1.dependency.processes module
+----------------------------------
+
+.. automodule:: cltkv1.dependency.processes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltkv1.dependency.stanford module
 ---------------------------------
 

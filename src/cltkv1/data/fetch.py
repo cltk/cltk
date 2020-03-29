@@ -480,7 +480,7 @@ class ProgressPrinter(RemoteProgress):
             sys.stdout.write("Downloaded %s%% %s \r" % (percentage, message))
 
 
-class CorpusImporter:
+class FetchCorpus:
     """Import CLTK corpora."""
 
     def __init__(self, language: str, testing: bool = False):
@@ -508,7 +508,7 @@ class CorpusImporter:
         """Representation string for ipython
         :rtype : str
         """
-        return "CorpusImporter for: {}".format(self.language)
+        return "FetchCorpus for: {}".format(self.language)
 
     def _get_user_defined_corpora(self):
         """Check CLTK_DATA_DIR + '/distributed_corpora.yaml' for any custom,
@@ -737,7 +737,7 @@ class CorpusImporter:
                 and not matching_corpus.get("name")
                 and not matching_corpus.get("origin")
             ):
-                raise CorpusImporter(f"Malformed record for ``{corpus_name}``.")
+                raise FetchCorpus(f"Malformed record for ``{corpus_name}``.")
             git_uri = matching_corpus["origin"]
             type_dir_rel = os.path.join(
                 CLTK_DATA_DIR, self.language, matching_corpus["type"]
@@ -783,9 +783,9 @@ class CorpusImporter:
 
 if __name__ == "__main__":
     # for lang in LANGUAGE_CORPORA:
-    #     c = CorpusImporter(language=lang)
+    #     c = FetchCorpus(language=lang)
     #     print(c.list_corpora)
-    c = CorpusImporter(language="lat")
+    c = FetchCorpus(language="lat")
     print(c.list_corpora)
     # c.import_corpus("latin_training_set_sentence_cltk")
     # c.import_corpus("example_distributed_latin_corpus")

@@ -6,7 +6,9 @@ Subpackages
 
 .. toctree::
 
+   cltkv1.alphabet
    cltkv1.core
+   cltkv1.data
    cltkv1.dependency
    cltkv1.embeddings
    cltkv1.languages
