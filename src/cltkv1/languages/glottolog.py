@@ -37,11 +37,11 @@ Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1
 >>> akkadian.parent_id
 'east2678'
 >>> len(LANGUAGES)
-214
+217
 """
 
+import typing
 from collections import OrderedDict
-from typing import List
 
 from cltkv1.core.data_types import Language
 
@@ -3317,7 +3317,9 @@ LANGUAGES["cop"] = Language(
 )
 
 
-def _resort_languages_list(languages_list: List[Language]) -> List[Language]:
+def _resort_languages_list(
+    languages_list: typing.OrderedDict[str, Language]
+) -> typing.OrderedDict[str, Language]:
     """Pick up the LANGUAGES global and return
     alphabetized according to a language's common name.
 
