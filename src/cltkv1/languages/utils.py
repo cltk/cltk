@@ -8,6 +8,7 @@ from cltkv1.languages.glottolog import LANGUAGES
 def get_lang(iso_code: str) -> Language:
     """Take in search term of usual language name and find ISO code.
 
+    TODO: Add explanation of error
 
     >>> from cltkv1.languages.utils import get_lang
     >>> get_lang("akk")
@@ -16,12 +17,12 @@ def get_lang(iso_code: str) -> Language:
     >>> get_lang("xxx")
     Traceback (most recent call last):
       ...
-    cltkv1.core.exceptions.UnknownLanguageError
+    cltkv1.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
     """
     try:
         return LANGUAGES[iso_code]
     except KeyError:
-        raise UnknownLanguageError
+        raise UnknownLanguageError(f"Unknown ISO language code '{iso_code}'.")
 
 
 def find_iso_name(common_name: str) -> List[str]:
@@ -29,7 +30,6 @@ def find_iso_name(common_name: str) -> List[str]:
     inputting the common name (``Latin``). This function just
     does simple substring matching, with some normalization
     of case, on the ``name`` field of the ``Language`` object.
-
 
     >>> from cltkv1.languages.utils import find_iso_name
     >>> find_iso_name(common_name="Latin")

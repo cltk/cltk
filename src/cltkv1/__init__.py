@@ -1,19 +1,16 @@
 """Init module for importing the CLTK class."""
 
-# TODO: Figure out right way to do these init imports and in submodules
-
-# from cltkv1.dependency import *
-# from cltkv1.languages import *
-# from cltkv1.tokenizers import *
-# from cltkv1.utils import *
-
-# modules
 from .nlp import NLP
 
 
 def get_pyproject():
-    """Read version and other info from the project's ``pyproject.toml``
-    file, located in the root of the source repo.
+    """Read version and other info from the project's
+    ``pyproject.toml`` file, located in the root of the
+    source repo.
+
+    >>> pyproject_configs = get_pyproject()
+    >>> sorted(pyproject_configs.keys())
+    ['authors', 'classifiers', 'dependencies', 'description', 'dev-dependencies', 'documentation', 'homepage', 'keywords', 'license', 'name', 'readme', 'repository', 'version']
     """
     import os  # pylint: disable=import-outside-toplevel
     import toml  # pylint: disable=import-outside-toplevel

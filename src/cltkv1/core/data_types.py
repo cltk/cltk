@@ -12,6 +12,8 @@ of the NLP pipeline.
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Type, Union
 
+import numpy
+
 
 @dataclass
 class Language:
@@ -53,7 +55,7 @@ class Word:
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None, embedding=None)
     """
 
     index_char_start: int = None
@@ -70,6 +72,7 @@ class Word:
     governor: "Word" = None
     parent: "Word" = None
     features: Dict[str, str] = None  # morphological features (from stanfordnlp)
+    embedding: numpy.ndarray = None
 
 
 @dataclass
@@ -93,6 +96,7 @@ class Doc:
     words: List[Word] = None
     pipeline: "Pipeline" = None
     raw: str = None
+    embeddings_model = None
 
     @property
     def sentences(self) -> List[List[Word]]:
@@ -164,6 +168,14 @@ class Doc:
         """
         return self._get_words_attribute("lemma")
 
+    @property
+    def embeddings(self):
+        """Returns an embedding for each word.
+
+        TODO: Consider option to use lemma
+        """
+        return self._get_words_attribute("embedding")
+
 
 @dataclass
 class Process:
@@ -178,26 +190,24 @@ class Process:
 
     input_doc: Doc
     output_doc: Doc = None
-    algorithm = None
-    language: str = None
 
-    def run(self) -> None:
-        """Method for subclassed ``Process`` Run ``algorithm`` on a
-        ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
-
-        This method puts execution of the process into the hands of the client.
-        It must be called before reading the ``output_doc`` attribute.
-
-        >>> a_process = Process(input_doc=Doc(raw="input words here"))
-        >>> a_process.run()
-        Traceback (most recent call last):
-          ...
-        NotImplementedError
-        """
-        if self.algorithm:
-            self.output_doc = self.algorithm(self.input_doc)
-        else:
-            raise NotImplementedError
+    # def run(self) -> None:
+    #     """Method for subclassed ``Process`` Run ``algorithm`` on a
+    #     ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
+    #
+    #     This method puts execution of the process into the hands of the client.
+    #     It must be called before reading the ``output_doc`` attribute.
+    #
+    #     >>> a_process = Process(input_doc=Doc(raw="input words here"))
+    #     >>> a_process.run()
+    #     Traceback (most recent call last):
+    #       ...
+    #     NotImplementedError
+    #     """
+    #     if self.algorithm:
+    #         self.output_doc = self.algorithm(self.input_doc)
+    #     else:
+    #         raise NotImplementedError
 
 
 @dataclass
@@ -222,3 +232,9 @@ class Pipeline:
 
     def add_process(self, process):
         self.processes.append(process)
+
+
+if __name__ == "__main__":
+    doc = Doc(language="lat", words=["amo", "amas", "amat"], raw="amo amas amat")
+    print(doc)
+    print(doc.embeddings)
