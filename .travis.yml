@@ -5,11 +5,12 @@ python:
 #   - "3.8-dev"
 
 
+# TODO: Add pip back to this cache somehow, either `pip` or its dir
 cache:
-  - pip
   directories:
-    - /home/travis/stanfordnlp_resources/
-    - /home/travis/cltk_data/
+    - $HOME/stanfordnlp_resources/
+    - $HOME/cltk_data/
+#    - $HOME/.pyenv/
 
 
 before_install:
