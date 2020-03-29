@@ -8,6 +8,7 @@ from cltkv1.languages.pipelines import (
     AramaicPipeline,
     GothicPipeline,
     GreekPipeline,
+    HindiPipeline,
     LatinPipeline,
     MHGPipeline,
     MiddleEnglishPipeline,
@@ -17,6 +18,7 @@ from cltkv1.languages.pipelines import (
     OldFrenchPipeline,
     OldNorsePipeline,
     PaliPipeline,
+    PanjabiPipeline,
     SanskritPipeline,
 )
 from cltkv1.languages.utils import get_lang
@@ -33,8 +35,10 @@ iso_to_pipeline = {
     "gmh": MHGPipeline,
     "got": GothicPipeline,
     "grc": GreekPipeline,
+    "hin": HindiPipeline,
     "lat": LatinPipeline,
     "non": OldNorsePipeline,
+    "pan": PanjabiPipeline,
     "pli": PaliPipeline,
     "san": SanskritPipeline,
 }
@@ -160,6 +164,8 @@ if __name__ == "__main__":
         # "fro",
         # "frm",
         # "enm",
+        # "pan",
+        # "hin",
     ]
     for lang in langs:
         cltk_nlp = NLP(language=lang)
@@ -170,6 +176,8 @@ if __name__ == "__main__":
         print(cltk_doc.tokens[:10])
         a_word = cltk_doc.words[4]
         # print(a_word)
-        print(a_word.string, a_word.index_token, a_word.embedding[0], a_word.pos)
+        # input()
+        print(a_word.string, a_word.index_token, a_word.embedding, a_word.pos)
         print(f"Done with {lang}.")
+        # print(cltk_doc)
         print("")

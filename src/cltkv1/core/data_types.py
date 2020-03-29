@@ -91,6 +91,21 @@ class Doc:
     'Gallia est omnis divisa in partes tres'
     >>> isinstance(cltk_doc.raw, str)
     True
+
+    >>> cltk_doc.tokens[:10]
+    ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
+
+    >>> cltk_doc.tokens_stops_filtered[:10]
+    ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
+
+    >>> cltk_doc.pos[:3]
+    ['NOUN', 'AUX', 'DET']
+
+    >>> cltk_doc.morphosyntactic_features[:3]
+    [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
+
+    >>> cltk_doc.lemmata[:5]
+    ['aallius', 'sum', 'omnis', 'divido', 'in']
     """
 
     language: str = None
@@ -116,29 +131,27 @@ class Doc:
 
     @property
     def tokens(self) -> List[str]:
-        """Returns a list of string word tokens of all words in the doc.
+        """Returns a list of string word tokens of all words in the doc."""
+        tokens = self._get_words_attribute("string")  # type: List[str]
+        return tokens
 
-        TODO: Add option to filter stopwords.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.tokens[:10]
-        ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
+    @property
+    def tokens_stops_filtered(self,) -> List[str]:
+        """Returns a list of string word tokens of all words in the
+        doc, but with stopwords removed.
         """
-        return self._get_words_attribute("string")
+        tokens = self._get_words_attribute("string")  # type: List[str]
+        # create equal-length list of True & False/None values
+        is_token_stop = self._get_words_attribute("stop")  # type: List[bool]
+        # remove from the token list any who index in ``is_token_stop`` is True
+        tokens_no_stops = [
+            token for index, token in enumerate(tokens) if not is_token_stop[index]
+        ]  # type: List[str]
+        return tokens_no_stops
 
     @property
     def pos(self) -> List[str]:
         """Returns a list of the POS tags of all words in the doc.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.pos[:3]
-        ['NOUN', 'AUX', 'DET']
         """
         return self._get_words_attribute("upos")
 
@@ -147,13 +160,6 @@ class Doc:
         """Returns a list of dictionaries containing the morphosyntactic features
         of each word (when available).
         Each dictionary specifies feature names as keys and feature values as values.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.morphosyntactic_features[:3]
-        [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
         """
         return self._get_words_attribute("features")
 
@@ -161,13 +167,6 @@ class Doc:
     def lemmata(self) -> List[str]:
         """Returns a list of lemmata, indexed to the word tokens
         provided by `Doc.tokens`.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.lemmata[:5]
-        ['aallius', 'sum', 'omnis', 'divido', 'in']
         """
         return self._get_words_attribute("lemma")
 
@@ -235,9 +234,3 @@ class Pipeline:
 
     def add_process(self, process):
         self.processes.append(process)
-
-
-if __name__ == "__main__":
-    doc = Doc(language="lat", words=["amo", "amas", "amat"], raw="amo amas amat")
-    print(doc)
-    print(doc.embeddings)
