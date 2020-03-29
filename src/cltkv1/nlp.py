@@ -146,7 +146,7 @@ if __name__ == "__main__":
     from cltkv1.utils.example_texts import get_example_text
 
     langs = [
-        # "lat",
+        "lat",
         # "grc",
         # "got",
         # "arb",
@@ -159,8 +159,7 @@ if __name__ == "__main__":
         # "gmh",
         # "fro",
         # "frm",
-        "enm",
-        "",
+        # "enm",
     ]
     for lang in langs:
         cltk_nlp = NLP(language=lang)
@@ -170,6 +169,7 @@ if __name__ == "__main__":
         cltk_doc = cltk_nlp.analyze(example_text)
         print(cltk_doc.tokens[:10])
         a_word = cltk_doc.words[4]
+        # print(a_word)
         print(a_word.string, a_word.index_token, a_word.embedding[0], a_word.pos)
         print(f"Done with {lang}.")
         print("")

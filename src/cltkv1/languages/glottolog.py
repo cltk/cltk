@@ -3289,7 +3289,6 @@ LANGUAGES["pan"] = Language(
     type="",
 )
 
-# Note: Using Eastern Panjabi as a stand-in for both it and Western Panjabi (``west2386``, ``pnb``)
 LANGUAGES["mal"] = Language(
     name="Malayalam",
     glottolog_id="panj125",
