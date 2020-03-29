@@ -53,7 +53,7 @@ def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None
 
 
 def get_fasttext_models(interactive=True):
-    all_wiki_models = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
+    all_wiki_models = ["ang", "arb", "arc", "got", "lat", "pli", "san"]
     # all_common_crawl_models = ["arb", "lat", "san"]
     for lang in all_wiki_models:
         FastTextEmbeddings(
