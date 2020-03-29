@@ -37,7 +37,7 @@ Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1
 >>> akkadian.parent_id
 'east2678'
 >>> len(LANGUAGES)
-217
+219
 """
 
 import typing
