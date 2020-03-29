@@ -40,3 +40,9 @@ class UnknownLanguageError(CLTKException):
         raise UnknownLanguageError
     cltkv1.core.exceptions.UnknownLanguageError
     """
+
+
+class CorpusImportError(Exception):
+    """CLTK exception to use when something goes wrong importing corpora"""
+
+    pass
