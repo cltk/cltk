@@ -73,6 +73,7 @@ class Word:
     parent: "Word" = None
     features: Dict[str, str] = None  # morphological features (from stanfordnlp)
     embedding: numpy.ndarray = None
+    stop: bool = None
 
 
 @dataclass
@@ -116,6 +117,8 @@ class Doc:
     @property
     def tokens(self) -> List[str]:
         """Returns a list of string word tokens of all words in the doc.
+
+        TODO: Add option to filter stopwords.
 
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
