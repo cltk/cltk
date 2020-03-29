@@ -178,6 +178,29 @@ class GreekPipeline(Pipeline):
 
 
 @dataclass
+class HindiPipeline(Pipeline):
+    """Default ``Pipeline`` for Hindi.
+
+    >>> from cltkv1.languages.pipelines import SanskritPipeline
+    >>> a_pipeline = HindiPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Hindi language.'
+    >>> a_pipeline.language
+    Language(name='Hindi', glottolog_id='hind1269', latitude=25.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='hind1270', level='language', iso_639_3_code='hin', type='')
+    >>> a_pipeline.language.name
+    'Hindi'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.tokenizers.processes.SanskritTokenizationProcess'>
+    """
+
+    description: str = "Pipeline for the Hindi language."
+    language: Language = get_lang("hin")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [SanskritTokenizationProcess, StopsProcess]
+    )
+
+
+@dataclass
 class LatinPipeline(Pipeline):
     """Default ``Pipeline`` for Latin.
 
@@ -412,6 +435,29 @@ class PaliPipeline(Pipeline):
 
 
 @dataclass
+class PanjabiPipeline(Pipeline):
+    """Default ``Pipeline`` for Panjabi.
+
+    >>> from cltkv1.languages.pipelines import SanskritPipeline
+    >>> a_pipeline = PanjabiPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Panjabi language.'
+    >>> a_pipeline.language
+    Language(name='Eastern Panjabi', glottolog_id='panj125', latitude=30.0368, longitude=75.6702, dates=[], family_id='indo1319', parent_id='east2727', level='language', iso_639_3_code='pan', type='')
+    >>> a_pipeline.language.name
+    'Eastern Panjabi'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.tokenizers.processes.SanskritTokenizationProcess'>
+    """
+
+    description: str = "Pipeline for the Panjabi language."
+    language: Language = get_lang("pan")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [SanskritTokenizationProcess, StopsProcess]
+    )
+
+
+@dataclass
 class SanskritPipeline(Pipeline):
     """Default ``Pipeline`` for Sanskrit.
 
@@ -420,7 +466,7 @@ class SanskritPipeline(Pipeline):
     >>> from cltkv1.languages.pipelines import SanskritPipeline
     >>> a_pipeline = SanskritPipeline()
     >>> a_pipeline.description
-    'Pipeline for the Sanskrit language'
+    'Pipeline for the Sanskrit language.'
     >>> a_pipeline.language
     Language(name='Sanskrit', glottolog_id='sans1269', latitude=20.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='indo1321', level='language', iso_639_3_code='san', type='a')
     >>> a_pipeline.language.name
@@ -429,7 +475,7 @@ class SanskritPipeline(Pipeline):
     <class 'cltkv1.tokenizers.processes.SanskritTokenizationProcess'>
     """
 
-    description: str = "Pipeline for the Sanskrit language"
+    description: str = "Pipeline for the Sanskrit language."
     language: Language = get_lang("san")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [

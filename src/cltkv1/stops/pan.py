@@ -1,5 +1,7 @@
 """
 Panjabi: 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'. Sahib Singh, from the site http://gurbanifiles.org/gurmukhi/index.htm, these words are the most frequent words in the Guru Granth Sahib
+
+Note: This is in the `Gurmukhi alphabet <https://en.wikipedia.org/wiki/Gurmukhi>`_.
 """
 
 STOPS = [
