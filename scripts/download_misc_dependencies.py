@@ -52,28 +52,16 @@ def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None
         )
 
 
-def get_fasttext_models(force: bool = True, lang: str = "all"):
+def get_fasttext_models(interactive=True):
     all_wiki_models = ["arb", "arc", "got", "lat", "pli", "san", "xno"]
     # all_common_crawl_models = ["arb", "lat", "san"]
-    # wiki_models = list()
-    # common_crawl_models = list()
-    # if lang == "all":
-    #     wiki_models = all_wiki_models
-    #     common_crawl_models = all_common_crawl_models
-    # else:
-    #     assert (
-    #         lang in all_wiki_models or lang in all_common_crawl_models
-    #     ), f"ISO code '{lang}' either not among valid either 'wiki' or 'common_crawl' models."
-    #     wiki_models.append(lang)
-    #     common_crawl_models.append(lang)
     for lang in all_wiki_models:
-        pass
-        # fasttext_class = FastTextEmbeddings(iso_code=lang)
-        # fasttext_class.download_fasttext_models()
+        FastTextEmbeddings(
+            iso_code=lang, interactive=interactive, overwrite=False, silent=True
+        )
 
 
 if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
     get_stanfordnlp_models(force_update=True, lang="all")
-    # get_fasttext_models(force=False, lang="lat")
-    # get_fasttext_models()
+    get_fasttext_models(interactive=False)

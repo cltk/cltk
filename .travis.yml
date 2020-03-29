@@ -12,13 +12,12 @@ cache:
     - /home/travis/cltk_data/
 
 
-# TODO: Improve the order of these
 before_install:
   - pip install --upgrade pip
   - pip install poetry
 
 install:
-  - poetry install -v
+  - make install
   - poetry run python scripts/download_misc_dependencies.py
 
 
@@ -27,7 +26,7 @@ before_script:
 #  - poetry run pre-commit run --all-files
 
 script:
-  - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests/
+  - make test
 
 after_success:
   - echo Add later
