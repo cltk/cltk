@@ -231,7 +231,7 @@ class DependencyTree(ElementTree):
 
     @staticmethod
     def to_tree(sentence: List[Word]) -> "DependencyTree":
-        """Factory method to create trees from sentence parses, i.e. lists of words.
+        """Factory method to create trees from sentences parses, i.e. lists of words.
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")

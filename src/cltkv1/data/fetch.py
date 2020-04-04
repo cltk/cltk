@@ -189,8 +189,8 @@ LANGUAGE_CORPORA = {
             "type": "lexicon",
         },
         {
-            "origin": "https://github.com/cltk/latin_models_cltk.git",
-            "name": "latin_models_cltk",
+            "origin": "https://github.com/cltk/lat_models_cltk.git",
+            "name": "lat_models_cltk",
             "type": "model",
         },
         {

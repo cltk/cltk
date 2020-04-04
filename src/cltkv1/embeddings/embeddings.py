@@ -56,14 +56,11 @@ class FastTextEmbeddings:
     ):
         """Constructor for  ``FastTextEmbeddings`` class.
 
+
+
         >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
         >>> type(embeddings_obj)
         <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
-
-        # >>> embeddings_obj = FastText(iso_code="xxx")
-        # Traceback (most recent call last):
-        #   ..
-        # cltkv1.core.exceptions.UnknownLanguageError
         """
         self.iso_code = iso_code
         self.training_set = training_set
