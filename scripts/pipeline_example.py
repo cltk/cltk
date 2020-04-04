@@ -20,12 +20,12 @@ In the following, I propose these new data types:
    - ``Language``: Simple, just a place to hold attributes about a language. Can be referenced within
    ``Process`` or ``Pipeline`` (e.g., ``LatinPipeline.language == LatinLanguage == True``).
 
-   - ``Process``: One for each type of NLP algo we cover (e.g., tokenization, sentence splitting, pos tagging,
+   - ``Process``: One for each type of NLP algo we cover (e.g., tokenization, sentences splitting, pos tagging,
    dependency, phonetics, prosody, etc.). Each of these is the subclassed for each language (e.g,
    ``TokenizationProcess`` <- ``LatinTokenizationOperation``). Here is defined the code to be used for a given
    operation, plus documenting a bit more about it (I/O, description, description).
 
-   - ``Word``: This holds basic information for each token (start/end character indices, sentence index occurring
+   - ``Word``: This holds basic information for each token (start/end character indices, sentences index occurring
    within, raw string) and more advanced info if available (e.g., NER, POS tag, dependency relations).
 
    - ``Pipeline``: One for each language (e.g., ``Pipeline`` <- ``LatinPipeline``). A field in this is ``algo``,

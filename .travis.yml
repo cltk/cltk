@@ -4,14 +4,12 @@ python:
   - "3.7.5"
 #   - "3.8-dev"
 
-
 # TODO: Add pip back to this cache somehow, either `pip` or its dir
 cache:
   directories:
     - $HOME/stanfordnlp_resources/
     - $HOME/cltk_data/
     - $HOME/virtualenv/
-
 
 before_install:
   - pip install --upgrade pip
@@ -20,7 +18,6 @@ before_install:
 install:
   - make install
   - poetry run python scripts/download_misc_dependencies.py
-
 
 before_script:
   - poetry run pre-commit install-hooks

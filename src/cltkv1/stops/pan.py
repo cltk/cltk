@@ -9,8 +9,8 @@ STOPS = [
     "ਦੀ",  # used same as above but is just a feminine of above words
     "ਵਿਚ",  # used as preposition, for 'inside'
     "ਦਾ",  # again used as possession
-    "ਨੂੰ",  #  stop word has no meaning on its own, but used in sentence
-    "ਹੈ",  # usually used at the end of sentence, shows present tense
+    "ਨੂੰ",  #  stop word has no meaning on its own, but used in sentences
+    "ਹੈ",  # usually used at the end of sentences, shows present tense
     "ਹੀ",  # again a stop word without any meaning
     "ਹੇ",  # used in same sence as 'Oh' word
     "ਕੇ",  # same used as the for possession, but it is close to hindi
@@ -125,10 +125,10 @@ STOPS = [
     "ਤਦੋਂ",  # used like 'when' but after some event
     "ਕੋ",  # no meanings on its own
     "ਨਾ",  # used like denial or may be used 'name'
-    "ਹਾਂ",  # used for ending the sentence
+    "ਹਾਂ",  # used for ending the sentences
     "ਮੈ",  # means 'me'
     "ਨੰ:",  # no meaning on its own
-    "ਸੀ",  # used to end sentence but denote past tense
+    "ਸੀ",  # used to end sentences but denote past tense
     "ਨਾਹੀ",  # means no or denial
     "ਫਿਰ",  # means 'then' but this word is close to hindi
     "ਇਉਂ",  # old punjabi word close to meaning 'this way'

@@ -368,9 +368,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_import_latin_models_cltk(self):
         """Test cloning the CLTK Latin models."""
         corpus_importer = FetchCorpus("lat")
-        corpus_importer.import_corpus("latin_models_cltk")
+        corpus_importer.import_corpus("lat_models_cltk")
         file_rel = os.path.join(
-            get_cltk_data_dir() + "/lat/model/latin_models_cltk/README.md"
+            get_cltk_data_dir() + "/lat/model/lat_models_cltk/README.md"
         )
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
