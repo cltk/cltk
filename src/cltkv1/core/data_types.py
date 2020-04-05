@@ -91,21 +91,40 @@ class Doc:
     'Gallia est omnis divisa in partes tres'
     >>> isinstance(cltk_doc.raw, str)
     True
-
     >>> cltk_doc.tokens[:10]
     ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
-
     >>> cltk_doc.tokens_stops_filtered[:10]
     ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
-
     >>> cltk_doc.pos[:3]
     ['NOUN', 'AUX', 'DET']
-
     >>> cltk_doc.morphosyntactic_features[:3]
     [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
-
     >>> cltk_doc.lemmata[:5]
     ['aallius', 'sum', 'omnis', 'divido', 'in']
+    >>> len(cltk_doc.sentences)
+    9
+    >>> len(cltk_doc.sentences[0])
+    26
+    >>> isinstance(cltk_doc.sentences[0][2], Word)
+    True
+    >>> cltk_doc.sentences[0][2].string
+    'omnis'
+    >>> len(cltk_doc.sentences_tokens)
+    9
+    >>> len(cltk_doc.sentences_tokens[0])
+    26
+    >>> isinstance(cltk_doc.sentences_tokens[0][2], str)
+    True
+    >>> cltk_doc.sentences_tokens[0][2]
+    'omnis'
+    >>> len(cltk_doc.sentences_strings)
+    9
+    >>> len(cltk_doc.sentences_strings[0])
+    150
+    >>> isinstance(cltk_doc.sentences_strings[0], str)
+    True
+    >>> cltk_doc.sentences_strings[1]
+    'Hi omnes lingua , institutis , legibus inter se differunt .'
     """
 
     language: str = None
@@ -116,6 +135,9 @@ class Doc:
 
     @property
     def sentences(self) -> List[List[Word]]:
+        """Returns a list of lists, with the inner list being a
+         list of ``Word`` objects.
+        """
         sentences = {}
         for word in self.words:
             sentence = sentences.get(word.index_sentence, {})
@@ -125,6 +147,31 @@ class Doc:
         sorted_values = lambda dict: [x[1] for x in sorted(dict.items())]
 
         return [sorted_values(sentence) for sentence in sorted_values(sentences)]
+
+    @property
+    def sentences_tokens(self) -> List[List[str]]:
+        """Returns a list of lists, with the inner list being a
+        list of word token strings.
+        """
+        sentences_list = self.sentences  # type: List[List[Word]]
+        sentences_tokens = list()  # type: List[List[str]]
+        for sentence in sentences_list:
+            sentence_tokens = [word.string for word in sentence]  # type: List[str]
+            sentences_tokens.append(sentence_tokens)
+        return sentences_tokens
+
+    @property
+    def sentences_strings(self) -> List[str]:
+        """Returns a list of strings, with each string being
+        a sentence reconstructed from the word tokens.
+        """
+        sentences_list = self.sentences_tokens  # type: List[List[str]]
+        sentences_str = list()  # type: List[List[str]]
+        for sentence in sentences_list:
+            sentence_tokens = [token for token in sentence]  # type: List[str]
+            sentence_tokens_str = " ".join(sentence_tokens)
+            sentences_str.append(sentence_tokens_str)
+        return sentences_str
 
     def _get_words_attribute(self, attribute):
         return [getattr(word, attribute) for word in self.words]
@@ -151,12 +198,11 @@ class Doc:
 
     @property
     def pos(self) -> List[str]:
-        """Returns a list of the POS tags of all words in the doc.
-        """
+        """Returns a list of the POS tags of all words in the doc."""
         return self._get_words_attribute("upos")
 
     @property
-    def morphosyntactic_features(self) -> Dict[str, str]:
+    def morphosyntactic_features(self) -> List[Dict[str, str]]:
         """Returns a list of dictionaries containing the morphosyntactic features
         of each word (when available).
         Each dictionary specifies feature names as keys and feature values as values.
@@ -192,24 +238,6 @@ class Process:
 
     input_doc: Doc
     output_doc: Doc = None
-
-    # def run(self) -> None:
-    #     """Method for subclassed ``Process`` Run ``algorithm`` on a
-    #     ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
-    #
-    #     This method puts execution of the process into the hands of the client.
-    #     It must be called before reading the ``output_doc`` attribute.
-    #
-    #     >>> a_process = Process(input_doc=Doc(raw="input words here"))
-    #     >>> a_process.run()
-    #     Traceback (most recent call last):
-    #       ...
-    #     NotImplementedError
-    #     """
-    #     if self.algorithm:
-    #         self.output_doc = self.algorithm(self.input_doc)
-    #     else:
-    #         raise NotImplementedError
 
 
 @dataclass

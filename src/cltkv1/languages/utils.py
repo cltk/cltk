@@ -6,9 +6,9 @@ from cltkv1.languages.glottolog import LANGUAGES
 
 
 def get_lang(iso_code: str) -> Language:
-    """Take in search term of usual language name and find ISO code.
+    """Take ISO 639-3 code and return ``Language`` object for language.
 
-    TODO: Add explanation of error
+    TODO: Split this into another fn, ``check_language()``, which is how is usually used now.
 
     >>> from cltkv1.languages.utils import get_lang
     >>> get_lang("akk")

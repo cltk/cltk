@@ -138,7 +138,7 @@ class GothicStanfordNLPProcess(StanfordNLPProcess):
 
 class TreeBuilderProcess(Process):
     """A ``Process`` that takes a doc containing sentences of CLTK words
-    and returns a dependency tree for each sentence.
+    and returns a dependency tree for each sentences.
 
     TODO: JS help to make this work, illustrate better.
 
