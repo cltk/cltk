@@ -53,7 +53,7 @@ from cltk.corpus.sanskrit.itrans.sinhala_transliterator import (
 from cltk.corpus.punjabi.numerifier import punToEnglish_number
 from cltk.corpus.punjabi.numerifier import englishToPun_number
 from cltk.corpus.egyptian.transliterate_mdc import mdc_unicode
-from cltk.corpus.aramaic.modern_to_imperial import square_to_imperial
+from cltk.corpus.aramaic.transliterate import square_to_imperial
 from cltk.corpus.utils.formatter import normalize_fr
 from cltk.corpus.swadesh import Swadesh
 from cltk.corpus.readers import assemble_corpus, get_corpus_reader
@@ -703,7 +703,7 @@ example_distributed_fake_language_corpus:
     def test_square_to_imperial_(self):
         "test square_to_imperial function"
         square_script = "פדי בר דג[נ]מלך לאחא בר חפיו נתנת לך"
-        imperial_version = "'𐡐𐡃𐡉 𐡁𐡓 𐡃𐡂[𐡍]𐡌𐡋𐡊 𐡋𐡀𐡇𐡀 𐡁𐡓 𐡇𐡐𐡉𐡅 𐡍𐡕𐡍𐡕 𐡋𐡊'"
+        imperial_version = "𐡐𐡃𐡉 𐡁𐡓 𐡃𐡂[𐡍]𐡌𐡋𐡊 𐡋𐡀𐡇𐡀 𐡁𐡓 𐡇𐡐𐡉𐡅 𐡍𐡕𐡍𐡕 𐡋𐡊"
         result = square_to_imperial(square_script)
         self.assertEqual(imperial_version, result)
 
