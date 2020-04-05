@@ -54,10 +54,6 @@ class NLP:
         >>> cltk_nlp = NLP(language="lat")
         >>> isinstance(cltk_nlp, NLP)
         True
-        >>> NLP(language="xxx")
-        Traceback (most recent call last):
-          ...
-        cltkv1.core.exceptions.UnknownLanguageError: Unknown language 'xxx'. Use ISO 639-3 languages.
         >>> from cltkv1.core.data_types import Pipeline
         >>> from cltkv1.tokenizers import LatinTokenizationProcess
         >>> from cltkv1.languages.utils import get_lang
@@ -66,12 +62,7 @@ class NLP:
         >>> nlp.pipeline is a_pipeline
         True
         """
-        try:
-            self.language = get_lang(language)  # type: Language
-        except UnknownLanguageError:
-            raise UnknownLanguageError(
-                f"Unknown language '{language}'. Use ISO 639-3 languages."
-            )
+        self.language = get_lang(language)  # type: Language
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
 
     def _get_pipeline(self) -> Pipeline:
@@ -90,12 +81,14 @@ class NLP:
         >>> cltk_nlp = NLP(language="axm")
         Traceback (most recent call last):
           ...
-        cltkv1.core.exceptions.UnimplementedLanguageError: axm
+        cltkv1.core.exceptions.UnimplementedLanguageError: Valid ISO language code, however this algorithm is not available for ``axm``.
         """
         try:
             return iso_to_pipeline[self.language.iso_639_3_code]()
         except KeyError:
-            raise UnimplementedLanguageError(self.language.iso_639_3_code)
+            raise UnimplementedLanguageError(
+                f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
+            )
 
     def analyze(self, text: str) -> Doc:
         """The primary method for the NLP object, to which raw text strings are passed.

@@ -12,6 +12,7 @@ Subpackages
    cltkv1.dependency
    cltkv1.embeddings
    cltkv1.languages
+   cltkv1.stops
    cltkv1.tokenizers
    cltkv1.utils
 
