@@ -74,6 +74,7 @@ class Word:
     features: Dict[str, str] = None  # morphological features (from stanfordnlp)
     embedding: numpy.ndarray = None
     stop: bool = None
+    named_entity: str = None
 
 
 @dataclass
