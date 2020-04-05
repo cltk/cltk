@@ -24,39 +24,67 @@ class NERProcess(Process):
 
     @cachedproperty
     def algorithm(self):
-        return tag_ner(lang=self.language)
+        return tag_ner
 
-    # xxx
     def run(self):
         tmp_doc = self.input_doc
         ner_obj = self.algorithm
+        bool_entities = ner_obj(
+            iso_code=self.language, input_tokens=self.input_doc.tokens
+        )
         for index, word_obj in enumerate(tmp_doc.words):
-            word_ner = ner_obj.tag_ner(word=word_obj.string)
-            word_obj.named_entity = word_ner
+            word_obj.named_entity = bool_entities[index]
             tmp_doc.words[index] = word_obj
         self.output_doc = tmp_doc
 
 
-# @dataclass
-# class LatinEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Latin embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.ner.ner import LatinEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "lat"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     language: str = "lat"
-#     description: str = "Default embeddings for Latin."
-#
-#
+@dataclass
+class GreekNERProcess(NERProcess):
+    """The default Greek embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.ner.processes import GreekNERProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from boltons.strutils import split_punct_ws
+    >>> text = "ἐπὶ δ᾽ οὖν τοῖς πρώτοις τοῖσδε Περικλῆς ὁ Ξανθίππου ᾑρέθη λέγειν. καὶ ἐπειδὴ καιρὸς ἐλάμβανε, προελθὼν ἀπὸ τοῦ σήματος ἐπὶ βῆμα ὑψηλὸν πεποιημένον, ὅπως ἀκούοιτο ὡς ἐπὶ πλεῖστον τοῦ ὁμίλου, ἔλεγε τοιάδε."
+    >>> tokens = [Word(string=token) for token in split_punct_ws(text)]
+    >>> a_process = GreekNERProcess(input_doc=Doc(raw=text, words=tokens))
+    >>> a_process.run()
+    >>> a_process.output_doc.words[7].string
+    'ὁ'
+    >>> a_process.output_doc.words[7].named_entity
+    False
+    >>> a_process.output_doc.words[8].string
+    'Ξανθίππου'
+    >>> a_process.output_doc.words[8].named_entity
+    True
+    """
+
+    language: str = "grc"
+    description: str = "Default NER for Greek."
+
+
+@dataclass
+class LatinNERProcess(NERProcess):
+    """The default Latin embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.ner.processes import LatinNERProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from boltons.strutils import split_punct_ws
+    >>> tokens = [Word(string=token) for token in split_punct_ws(get_example_text("lat"))]
+    >>> a_process = LatinNERProcess(input_doc=Doc(raw=get_example_text("lat"), words=tokens))
+    >>> a_process.run()
+    >>> a_process.output_doc.words[0].named_entity
+    True
+    >>> a_process.output_doc.words[1].named_entity
+    False
+    """
+
+    language: str = "lat"
+    description: str = "Default NER for Latin."
+
+
 # @dataclass
 # class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
 #     """The default Old French embeddings algorithm.

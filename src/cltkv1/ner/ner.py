@@ -2,21 +2,23 @@
 
 import importlib.machinery
 import os
+from typing import List
 
 from cltk.tokenize.word import WordTokenizer
-from nltk.tokenize.punkt import PunktLanguageVars
 
+from cltkv1.core.exceptions import UnimplementedLanguageError
 from cltkv1.data.fetch import FetchCorpus
+from cltkv1.languages.utils import get_lang
 from cltkv1.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
 
 NER_DICT = {
     "grc": os.path.join(
-        CLTK_DATA_DIR, "/greek/model/greek_models_cltk/ner/proper_names.txt"
+        CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
     ),
     "lat": os.path.join(
-        CLTK_DATA_DIR + "/lat/model/lat_models_cltk/ner/proper_names.txt"
+        CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/proper_names.txt"
     ),
 }
 
@@ -63,80 +65,42 @@ class NamedEntityReplacer(object):
         return ner_tuple_list
 
 
-def _check_latest_data(lang):
-    """Check for presence of proper names dir, clone if not."""
-
-    assert lang in NER_DICT.keys(), "Invalid language. Choose from: {}".format(
-        ", ".join(NER_DICT.keys())
-    )
-
-    ner_file_path = os.path.expanduser(NER_DICT[lang])
-
-    if not os.path.isfile(ner_file_path):
-        corpus_importer = FetchCorpus(lang)
-        corpus_importer.import_corpus("{}_models_cltk".format(lang))
-
-
-def tag_ner(lang, input_text, output_type=list):
+def tag_ner(iso_code: str, input_tokens: List[str]) -> List[bool]:
     """Run NER for chosen language.
 
     >>> from cltkv1.ner.ner import tag_ner
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tag_ner(lang="lat", input_text=get_example_text(iso_code="lat"))
+    >>> from boltons.strutils import split_punct_ws
+    >>> tokens = split_punct_ws(get_example_text(iso_code="lat"))
+    >>> are_words_entities = tag_ner(iso_code="lat", input_tokens=tokens)
+    >>> tokens[:5]
+    ['Gallia', 'est', 'omnis', 'divisa', 'in']
+    >>> are_words_entities[:5]
+    [True, False, False, False, False]
+
+    >>> text = "ἐπὶ δ᾽ οὖν τοῖς πρώτοις τοῖσδε Περικλῆς ὁ Ξανθίππου ᾑρέθη λέγειν. καὶ ἐπειδὴ καιρὸς ἐλάμβανε, προελθὼν ἀπὸ τοῦ σήματος ἐπὶ βῆμα ὑψηλὸν πεποιημένον, ὅπως ἀκούοιτο ὡς ἐπὶ πλεῖστον τοῦ ὁμίλου, ἔλεγε τοιάδε."
+    >>> tokens = split_punct_ws(text)
+    >>> are_words_entities = tag_ner(iso_code="grc", input_tokens=tokens)
+    >>> tokens[:9]
+    ['ἐπὶ', 'δ᾽', 'οὖν', 'τοῖς', 'πρώτοις', 'τοῖσδε', 'Περικλῆς', 'ὁ', 'Ξανθίππου']
+    >>> are_words_entities[:9]
+    [False, False, False, False, False, False, True, False, True]
     """
 
-    _check_latest_data(lang)
+    get_lang(iso_code=iso_code)
+    if iso_code not in NER_DICT:
+        msg = f"NER unavailable for language ``{iso_code}``."
+        raise UnimplementedLanguageError(msg)
 
-    assert lang in NER_DICT.keys(), "Invalid language. Choose from: {}".format(
-        ", ".join(NER_DICT.keys())
-    )
-    types = [str, list]
-    assert type(input_text) in types, "Input must be: {}.".format(", ".join(types))
-    assert output_type in types, "Output must be a {}.".format(", ".join(types))
-
-    if type(input_text) == str:
-        punkt = PunktLanguageVars()
-        tokens = punkt.word_tokenize(input_text)
-        new_tokens = []
-        for word in tokens:
-            if word.endswith("."):
-                new_tokens.append(word[:-1])
-                new_tokens.append(".")
-            else:
-                new_tokens.append(word)
-        input_text = new_tokens
-
-    ner_file_path = os.path.expanduser(NER_DICT[lang])
+    ner_file_path = os.path.expanduser(NER_DICT[iso_code])
     with open(ner_file_path) as file_open:
         ner_str = file_open.read()
     ner_list = ner_str.split("\n")
 
-    ner_tuple_list = []
-    for count, word_token in enumerate(input_text):
-        match = False
-        for ner_word in ner_list:
-            # the replacer slows things down, but is necessary
-            if word_token == ner_word:
-                ner_tuple = (word_token, "Entity")
-                ner_tuple_list.append(ner_tuple)
-                match = True
-                break
-        if not match:
-            ner_tuple_list.append((word_token,))
-
-    if output_type is str:
-        string = ""
-        for tup in ner_tuple_list:
-            start_space = " "
-            final_space = ""
-            # this is some mediocre string reconstitution
-            # maybe not worth the effort
-            if tup[0] in [",", ".", ";", ":", "?", "!"]:
-                start_space = ""
-            if len(tup) == 2:
-                string += start_space + tup[0] + "/" + tup[1] + final_space
-            else:
-                string += start_space + tup[0] + final_space
-        return string
-
-    return ner_tuple_list
+    is_entity_list = []  # type: List[bool]
+    for word_token in input_tokens:
+        if word_token in ner_list:
+            is_entity_list.append(True)
+        else:
+            is_entity_list.append(False)
+    return is_entity_list
