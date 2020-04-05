@@ -2,18 +2,18 @@
 
 import importlib.machinery
 import os
-from typing import List
+from typing import List, Union
 
 from cltk.tokenize.word import WordTokenizer
 
 from cltkv1.core.exceptions import UnimplementedLanguageError
-from cltkv1.data.fetch import FetchCorpus
 from cltkv1.languages.utils import get_lang
 from cltkv1.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
 
 NER_DICT = {
+    "fro": os.path.join(CLTK_DATA_DIR, "fro/text/fro_data_cltk/named_entities_fr.py"),
     "grc": os.path.join(
         CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
     ),
@@ -23,50 +23,9 @@ NER_DICT = {
 }
 
 
-class NamedEntityReplacer(object):
-    def __init__(self):
-
-        self.entities = self._load_necessary_data()
-
-    def _load_necessary_data(self):
-        rel_path = os.path.join(
-            CLTK_DATA_DIR, "french", "text", "french_data_cltk", "named_entities_fr.py"
-        )
-        path = os.path.expanduser(rel_path)
-        # logger.info('Loading entries. This may take a minute.')
-        loader = importlib.machinery.SourceFileLoader("entities", path)
-        module = loader.load_module()
-        entities = module.entities
-        return entities
-
-    def tag_ner_fr(self, input_text, output_type=list):
-        """tags named entities in a string and outputs a list of tuples in the following format:
-        (name, "entity", kind_of_entity)"""
-
-        entities = self.entities
-
-        for entity in entities:
-            (name, kind) = entity
-
-        word_tokenizer = WordTokenizer("french")
-        tokenized_text = word_tokenizer.tokenize(input_text)
-        ner_tuple_list = []
-
-        match = False
-        for word in tokenized_text:
-            for name, kind in entities:
-                if word == name:
-                    named_things = [(name, "entity", kind)]
-                    ner_tuple_list.append(named_things)
-                    match = True
-                    break
-            else:
-                ner_tuple_list.append((word,))
-        return ner_tuple_list
-
-
-def tag_ner(iso_code: str, input_tokens: List[str]) -> List[bool]:
-    """Run NER for chosen language.
+def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
+    """Run NER for chosen language. Some languages return boolean True/False,
+    others give string of entity type (e.g., ``LOC``).
 
     >>> from cltkv1.ner.ner import tag_ner
     >>> from cltkv1.utils.example_texts import get_example_text
@@ -85,22 +44,42 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[bool]:
     ['ἐπὶ', 'δ᾽', 'οὖν', 'τοῖς', 'πρώτοις', 'τοῖσδε', 'Περικλῆς', 'ὁ', 'Ξανθίππου']
     >>> are_words_entities[:9]
     [False, False, False, False, False, False, True, False, True]
+
+    >>> tokens = split_punct_ws(get_example_text(iso_code="fro"))
+    >>> are_words_entities = tag_ner(iso_code="fro", input_tokens=tokens)
+    >>> tokens[30:50]
+    ['Bretaigne', 'A', 'I', 'molt', 'riche', 'chevalier', 'Hardi', 'et', 'coragous', 'et', 'fier', 'De', 'la', 'Table', 'Reonde', 'estoit', 'Le', 'roi', 'Artu', 'que']
+    >>> are_words_entities[30:50]
+    ['LOC', False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, 'CHI']
     """
 
     get_lang(iso_code=iso_code)
     if iso_code not in NER_DICT:
         msg = f"NER unavailable for language ``{iso_code}``."
         raise UnimplementedLanguageError(msg)
-
     ner_file_path = os.path.expanduser(NER_DICT[iso_code])
-    with open(ner_file_path) as file_open:
-        ner_str = file_open.read()
-    ner_list = ner_str.split("\n")
-
-    is_entity_list = []  # type: List[bool]
-    for word_token in input_tokens:
-        if word_token in ner_list:
-            is_entity_list.append(True)
-        else:
-            is_entity_list.append(False)
-    return is_entity_list
+    if iso_code == "fro":
+        loader = importlib.machinery.SourceFileLoader(
+            "entities", ner_file_path
+        )  # type:
+        module = loader.load_module()  # type: module
+        entities = module.entities  # type: Tuple(str, str)
+        entities_type_list = list()
+        for input_token in input_tokens:
+            for entity_token, kind in entities:
+                if input_token == entity_token:
+                    entities_type_list.append(kind)
+                    break
+            entities_type_list.append(False)
+        return entities_type_list
+    else:
+        with open(ner_file_path) as file_open:
+            ner_str = file_open.read()
+        ner_list = ner_str.split("\n")
+        is_entity_list = list()  # type: List[bool]
+        for word_token in input_tokens:
+            if word_token in ner_list:
+                is_entity_list.append(True)
+            else:
+                is_entity_list.append(False)
+        return is_entity_list

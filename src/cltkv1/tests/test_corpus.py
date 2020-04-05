@@ -381,9 +381,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         ``setUp()``.
         """
         corpus_importer = FetchCorpus("grc")
-        corpus_importer.import_corpus("greek_models_cltk")
+        corpus_importer.import_corpus("grc_models_cltk")
         file_rel = os.path.join(
-            get_cltk_data_dir() + "/grc/model/greek_models_cltk/README.md"
+            get_cltk_data_dir() + "/grc/model/grc_models_cltk/README.md"
         )
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)

@@ -66,7 +66,10 @@ def download_cltk_models(iso_code: str):
 
     corpus_downloader = FetchCorpus(language=iso_code)
     # print(corpus_downloader.list_corpora)
-    corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
+    if iso_code == "fro":
+        corpus_downloader.import_corpus(corpus_name=f"{iso_code}_data_cltk")
+    else:
+        corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
 
 
 if __name__ == "__main__":
@@ -75,3 +78,4 @@ if __name__ == "__main__":
     get_fasttext_models(interactive=False)
     download_cltk_models(iso_code="lat")
     download_cltk_models(iso_code="grc")
+    download_cltk_models(iso_code="fro")
