@@ -125,6 +125,9 @@ class Doc:
     True
     >>> cltk_doc.sentences_strings[1]
     'Hi omnes lingua , institutis , legibus inter se differunt .'
+    >>> import numpy
+    >>> isinstance(cltk_doc.embeddings[1], numpy.ndarray)
+    True
     """
 
     language: str = None

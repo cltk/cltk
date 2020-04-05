@@ -1,5 +1,9 @@
-from dataclasses import dataclass
+"""``Process`` classes for accessing the StanfordNLP project."""
 
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
+
+import stanfordnlp
 from boltons.cacheutils import cachedproperty
 
 from cltkv1.core.data_types import Doc, Process, Word
@@ -61,18 +65,19 @@ class StanfordNLPProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=1, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=Word(index_char_start=None, index_char_stop=None, index_token=4, index_sentence=0, string='divisa', pos='L2', lemma='divido', scansion=None, xpos='L2', upos='VERB', dependency_relation='root', governor=None, parent=None, features={'Aspect': 'Perf', 'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'Tense': 'Past', 'VerbForm': 'Part', 'Voice': 'Pass'}, embedding=None, stop=None), parent=None, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=3, parent=None, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None)
         """
-        words_list = list()
+        words_list = list()  # type: List[Word]
 
         for sentence_index, sentence in enumerate(stanfordnlp_doc.sentences):
-            sent_words = dict()
-            indices = list()
+            sent_words = dict()  # type: Dict[int, Word]
+            indices = list()  # type: List[Tuple[int, int]]
 
             for token_index, token in enumerate(sentence.tokens):
-                stanfordnlp_word = token.words[0]
+                stanfordnlp_word = token.words[0]  # type: stanfordnlp.pipeline.doc.Word
                 cltk_word = Word(
-                    index_token=int(stanfordnlp_word.index),  # same as ``token.index``
+                    index_token=int(stanfordnlp_word.index)
+                    - 1,  # subtract 1 from index b/c snpl starts their index at 1
                     index_sentence=sentence_index,
                     string=stanfordnlp_word.text,  # same as ``token.text``
                     pos=stanfordnlp_word.pos,
@@ -85,23 +90,24 @@ class StanfordNLPProcess(Process):
                     else dict(
                         [f.split("=") for f in stanfordnlp_word.feats.split("|")]
                     ),
-                )
+                )  # type: Word
                 sent_words[cltk_word.index_token] = cltk_word
                 indices.append(
                     (
-                        int(stanfordnlp_word.governor),
-                        int(stanfordnlp_word.parent_token.index),
+                        int(stanfordnlp_word.governor)
+                        - 1,  # -1 to match CLTK Word.index_token
+                        int(stanfordnlp_word.parent_token.index)
+                        - 1,  # -1 to match CLTK Word.index_token
                     )
                 )
                 words_list.append(cltk_word)
 
-            for i, cltk_word in enumerate(sent_words.values()):
-                (governor_index, parent_index) = indices[i]
-                cltk_word.governor = (
-                    sent_words[governor_index] if governor_index > 0 else None
-                )
+            # TODO: Confirm that cltk_word.parent is ever getting filled out. Only for some lang models?
+            for idx, cltk_word in enumerate(sent_words.values()):
+                governor_index, parent_index = indices[idx]  # type: int, int
+                cltk_word.governor = governor_index if governor_index >= 0 else None
                 if cltk_word.index_token != sent_words[parent_index].index_token:
-                    cltk_word.parent = sent_words[parent_index]
+                    cltk_word.parent = parent_index
 
         return words_list
 

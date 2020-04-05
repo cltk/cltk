@@ -2,7 +2,7 @@
 
 __author__ = ["John Stewart <free-variation>"]
 
-from typing import List, Union
+from typing import Dict, List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
 from cltkv1.core.data_types import Doc, Process, Word
@@ -135,7 +135,7 @@ class Form(Element):
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> f = Form.to_form(doc.words[0])
         >>> f.full_str()
-        'Gallia_1 [lemma=aallius,pos=A1|grn1|casA|gen2|stAM,upos=NOUN,xpos=A1|grn1|casA|gen2|stAM,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
+        'Gallia_0 [lemma=aallius,pos=A1|grn1|casA|gen2|stAM,upos=NOUN,xpos=A1|grn1|casA|gen2|stAM,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
         """
 
         form = Form(word.string, form_id=word.index_token)
@@ -232,16 +232,17 @@ class DependencyTree(ElementTree):
     @staticmethod
     def to_tree(sentence: List[Word]) -> "DependencyTree":
         """Factory method to create trees from sentences parses, i.e. lists of words.
+
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> t = DependencyTree.to_tree(doc.words[:25])
         >>> t.findall(".")
-        [divisa_4/L2]
+        [divisa_3/L2]
         """
 
-        forms = {}
+        forms = {}  # type: Dict[int, Form]
         for word in sentence:
             forms[word.index_token] = Form.to_form(word)
 
@@ -249,7 +250,7 @@ class DependencyTree(ElementTree):
             if word.dependency_relation == "root":
                 root = forms[word.index_token]
             else:
-                gov = forms[word.governor.index_token]
+                gov = forms[word.governor]
                 dep = forms[word.index_token]
                 gov >> dep | word.dependency_relation
 
