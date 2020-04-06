@@ -21,6 +21,7 @@ from cltkv1.embeddings.processes import (
     ArabicEmbeddingsProcess,
     AramaicEmbeddingsProcess,
     GothicEmbeddingsProcess,
+    GreekEmbeddingsProcess,
     LatinEmbeddingsProcess,
     OldEnglishEmbeddingsProcess,
     PaliEmbeddingsProcess,
@@ -170,6 +171,7 @@ class GreekPipeline(Pipeline):
         default_factory=lambda: [
             # GreekTokenizationProcess,
             GreekStanfordNLPProcess,
+            GreekEmbeddingsProcess,
             StopsProcess,
             GreekNERProcess,
         ]

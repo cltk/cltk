@@ -9,7 +9,8 @@ import numpy as np
 from boltons.cacheutils import cachedproperty
 
 from cltkv1.core.data_types import Doc, Process
-from cltkv1.embeddings.embeddings import FastTextEmbeddings
+from cltkv1.core.exceptions import CLTKException
+from cltkv1.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
 
 
 @dataclass
@@ -30,10 +31,20 @@ class EmbeddingsProcess(Process):
     """
 
     language: str = None
+    variant: str = "fasttext"
 
     @cachedproperty
     def algorithm(self):
-        return FastTextEmbeddings(iso_code=self.language)
+        valid_variants = ["fasttext", "nlpl"]
+        if self.variant == "fasttext":
+            return FastTextEmbeddings(iso_code=self.language)
+        elif self.variant == "nlpl":
+            return Word2VecEmbeddings(iso_code=self.language)
+        else:
+            valid_variants_str = "', '".join(valid_variants)
+            raise CLTKException(
+                f"Invalid embeddings ``variant`` ``{self.variant}``. Available: '{valid_variants_str}'."
+            )
 
     def run(self):
         tmp_doc = self.input_doc
@@ -108,6 +119,27 @@ class GothicEmbeddingsProcess(EmbeddingsProcess):
 
     description: str = "Default embeddings for Gothic."
     language: str = "got"
+
+
+@dataclass
+class GreekEmbeddingsProcess(EmbeddingsProcess):
+    """The default Ancient Greek embeddings algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.embeddings.processes import GreekEmbeddingsProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> language = "grc"
+    >>> example_text = get_example_text(language)
+    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
+    >>> a_process = GreekEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
+    >>> a_process.run()
+    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
+    True
+    """
+
+    language: str = "grc"
+    description: str = "Default embeddings for Ancient Greek."
+    variant: str = "nlpl"
 
 
 @dataclass
