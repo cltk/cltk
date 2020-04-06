@@ -120,7 +120,7 @@ class NLP:
         >>> cltk_nlp = NLP(language="fro")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("fro"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Une', pos='DETndf', lemma='Une', scansion=None, xpos='DETndf', upos='DET', dependency_relation='det', governor=1, parent=None, features={'Definite': 'Ind', 'PronType': 'Art'}, embedding=None, stop=False, named_entity=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Une', pos='DETndf', lemma='Une', scansion=None, xpos='DETndf', upos='DET', dependency_relation='det', governor=1, parent=None, features={'Definite': 'Ind', 'PronType': 'Art'}, embedding=None, stop=False, named_entity=False)
 
         >>> cltk_nlp = NLP(language="got")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("got"))
