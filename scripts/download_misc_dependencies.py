@@ -62,15 +62,20 @@ def get_fasttext_models(interactive=True):
         )
 
 
-def download_all_cltk_models(iso_code: str):
+def download_cltk_models(iso_code: str):
 
     corpus_downloader = FetchCorpus(language=iso_code)
     # print(corpus_downloader.list_corpora)
-    corpus_downloader.import_corpus(corpus_name="lat_models_cltk")
+    if iso_code == "fro":
+        corpus_downloader.import_corpus(corpus_name=f"{iso_code}_data_cltk")
+    else:
+        corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
 
 
 if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
     get_stanfordnlp_models(force_update=True, lang="all")
     get_fasttext_models(interactive=False)
-    download_all_cltk_models(iso_code="lat")
+    download_cltk_models(iso_code="lat")
+    download_cltk_models(iso_code="grc")
+    download_cltk_models(iso_code="fro")

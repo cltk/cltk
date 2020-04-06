@@ -112,8 +112,8 @@ LANGUAGE_CORPORA = {
             "type": "lexicon",
         },
         {
-            "name": "greek_models_cltk",
-            "origin": "https://github.com/cltk/greek_models_cltk.git",
+            "name": "grc_models_cltk",
+            "origin": "https://github.com/cltk/grc_models_cltk.git",
             "type": "model",
         },
         {
@@ -442,8 +442,8 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "french_data_cltk",
-            "origin": "https://github.com/cltk/french_data_cltk.git",
+            "name": "fro_data_cltk",
+            "origin": "https://github.com/cltk/fro_data_cltk.git",
             "type": "text",
         },
     ],

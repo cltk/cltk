@@ -27,6 +27,7 @@ from cltkv1.embeddings.processes import (
     SanskritEmbeddingsProcess,
 )
 from cltkv1.languages.utils import get_lang
+from cltkv1.ner.processes import GreekNERProcess, LatinNERProcess, OldFrenchNERProcess
 from cltkv1.stops.processes import StopsProcess
 from cltkv1.tokenizers.processes import (
     AkkadianTokenizationProcess,
@@ -170,6 +171,7 @@ class GreekPipeline(Pipeline):
             # GreekTokenizationProcess,
             GreekStanfordNLPProcess,
             StopsProcess,
+            GreekNERProcess,
         ]
     )
 
@@ -226,6 +228,7 @@ class LatinPipeline(Pipeline):
             LatinStanfordNLPProcess,
             LatinEmbeddingsProcess,
             StopsProcess,
+            LatinNERProcess,
         ]
     )
 
@@ -376,6 +379,7 @@ class OldFrenchPipeline(Pipeline):
             # OldFrenchTokenizationProcess,
             OldFrenchStanfordNLPProcess,
             StopsProcess,
+            OldFrenchNERProcess,
         ]
     )
 
