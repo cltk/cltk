@@ -330,8 +330,8 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "sanskrit_models_cltk",
-            "origin": "https://github.com/cltk/sanskrit_models_cltk.git",
+            "name": "san_models_cltk",
+            "origin": "https://github.com/cltk/san_models_cltk.git",
             "type": "model",
         },
     ],
