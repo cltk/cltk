@@ -4,8 +4,6 @@ import importlib.machinery
 import os
 from typing import List, Union
 
-from cltk.tokenize.word import WordTokenizer
-
 from cltkv1.core.exceptions import UnimplementedLanguageError
 from cltkv1.languages.utils import get_lang
 from cltkv1.utils import CLTK_DATA_DIR
@@ -59,9 +57,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
         raise UnimplementedLanguageError(msg)
     ner_file_path = os.path.expanduser(NER_DICT[iso_code])
     if iso_code == "fro":
-        loader = importlib.machinery.SourceFileLoader(
-            "entities", ner_file_path
-        )  # type:
+        loader = importlib.machinery.SourceFileLoader("entities", ner_file_path)
         module = loader.load_module()  # type: module
         entities = module.entities  # type: Tuple(str, str)
         entities_type_list = list()

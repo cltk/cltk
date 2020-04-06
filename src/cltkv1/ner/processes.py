@@ -40,7 +40,7 @@ class NERProcess(Process):
 
 @dataclass
 class GreekNERProcess(NERProcess):
-    """The default Greek embeddings algorithm.
+    """The default Greek NER algorithm.
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.ner.processes import GreekNERProcess
@@ -66,7 +66,7 @@ class GreekNERProcess(NERProcess):
 
 @dataclass
 class LatinNERProcess(NERProcess):
-    """The default Latin embeddings algorithm.
+    """The default Latin NER algorithm.
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.ner.processes import LatinNERProcess
@@ -85,21 +85,24 @@ class LatinNERProcess(NERProcess):
     description: str = "Default NER for Latin."
 
 
-# @dataclass
-# class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
-#     """The default Old French embeddings algorithm.
-#
-#     >>> from cltkv1.core.data_types import Doc, Word
-#     >>> from cltkv1.ner.ner import OldFrenchEmbeddingsProcess
-#     >>> from cltkv1.utils.example_texts import get_example_text
-#     >>> language = "fro"
-#     >>> example_text = get_example_text(language)
-#     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-#     >>> a_process = OldFrenchEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-#     >>> a_process.run()
-#     >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-#     True
-#     """
-#
-#     description: str = "Default embeddings for Old French."
-#     language: str = "ang"
+@dataclass
+class OldFrenchNERProcess(NERProcess):
+    """The default Old French NER algorithm.
+
+    >>> from cltkv1.core.data_types import Doc, Word
+    >>> from cltkv1.ner.processes import OldFrenchNERProcess
+    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from boltons.strutils import split_punct_ws
+    >>> tokens = [Word(string=token) for token in split_punct_ws(get_example_text("fro"))]
+    >>> a_process = OldFrenchNERProcess(input_doc=Doc(raw=get_example_text("fro"), words=tokens))
+    >>> a_process.run()
+    >>> a_process.output_doc.words[30].string
+    'Bretaigne'
+    >>> a_process.output_doc.words[30].named_entity
+    'LOC'
+    >>> a_process.output_doc.words[31].named_entity
+    False
+    """
+
+    language: str = "fro"
+    description: str = "Default NER for Old French."
