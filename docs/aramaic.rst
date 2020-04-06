@@ -1,14 +1,13 @@
 Aramaic
 ********
 
-Aramaic[2] (Arāmāyā; Old Aramaic: 𐤀𐤓𐤌𐤉𐤀; Imperial Aramaic: 𐡀𐡓𐡌𐡉𐡀; square
-script אַרָמָיָא, Classical Syriac: ܐܪܡܝܐ) is a language or group of languages
+Aramaic is a language or group of languages 
 belonging to the Semitic subfamily of the Afroasiatic language family. More
 specifically, it is part of the Northwest Semitic group, which also includes
 the Canaanite languages such as Hebrew and Phoenician. The Aramaic alphabet
 was widely adopted for other languages and is ancestral to the Hebrew, Syriac
 and Arabic alphabets. During its approximately 3,100 years of written
-history,[3] Aramaic has served variously as a language of administration of
+history, Aramaic has served variously as a language of administration of
 empires, as a language of divine worship and religious study, and as the
 spoken tongue of a number of Semitic peoples from the Near East. (Source:
 `Wikipedia <https://en.wikipedia.org/wiki/Aramaic>`_)
