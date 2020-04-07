@@ -9,7 +9,7 @@ from typing import Any, List
 from stanfordnlp.utils.resources import download
 
 from cltkv1.data.fetch import FetchCorpus
-from cltkv1.embeddings.embeddings import FastTextEmbeddings
+from cltkv1.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
 
 
 def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None:
@@ -53,7 +53,7 @@ def get_stanfordnlp_models(force_update: bool = True, lang: str = "all") -> None
         )
 
 
-def get_fasttext_models(interactive=True):
+def get_fasttext_models(interactive=True) -> None:
     all_wiki_models = ["ang", "arb", "arc", "got", "lat", "pli", "san"]
     # all_common_crawl_models = ["arb", "lat", "san"]
     for lang in all_wiki_models:
@@ -62,7 +62,7 @@ def get_fasttext_models(interactive=True):
         )
 
 
-def download_cltk_models(iso_code: str):
+def download_cltk_models(iso_code: str) -> None:
 
     corpus_downloader = FetchCorpus(language=iso_code)
     # print(corpus_downloader.list_corpora)
@@ -72,10 +72,17 @@ def download_cltk_models(iso_code: str):
         corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
 
 
+def download_nlpl_model(iso_code: str) -> None:
+    Word2VecEmbeddings(
+        iso_code=iso_code, interactive=False, overwrite=False, silent=True
+    )
+
+
 if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
     get_stanfordnlp_models(force_update=True, lang="all")
     get_fasttext_models(interactive=False)
+
     download_cltk_models(iso_code="lat")
     download_cltk_models(iso_code="grc")
     download_cltk_models(iso_code="fro")
