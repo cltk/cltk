@@ -9,11 +9,14 @@ Source: https://github.com/anoopkunchukuttan/indic_nlp_library/blob/master/src/i
 import csv
 import os
 
+from cltkv1.utils import CLTK_DATA_DIR
+
 try:
     import numpy as np
 except ImportError:
     print('"numpy" is not installed.')
     raise
+
 
 __author__ = ["Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>"]
 __license__ = "GPLv3"
@@ -115,8 +118,8 @@ class Syllabifier:
         variables which define the phonetic vectors.
         """
 
-        csv_dir_path = (
-            get_cltk_data_dir() + "/sanskrit/model/sanskrit_models_cltk/phonetics"
+        csv_dir_path = os.path.join(
+            CLTK_DATA_DIR, "san/model/san_models_cltk/phonetics"
         )
 
         all_phonetic_csv = os.path.join(csv_dir_path, "all_script_phonetic_data.csv")
