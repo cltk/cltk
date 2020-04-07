@@ -83,6 +83,8 @@ if __name__ == "__main__":
     get_stanfordnlp_models(force_update=True, lang="all")
     get_fasttext_models(interactive=False)
 
+    download_nlpl_model(iso_code="grc")
+
     download_cltk_models(iso_code="lat")
     download_cltk_models(iso_code="grc")
     download_cltk_models(iso_code="fro")
