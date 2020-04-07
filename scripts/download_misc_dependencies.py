@@ -79,3 +79,8 @@ if __name__ == "__main__":
     download_cltk_models(iso_code="lat")
     download_cltk_models(iso_code="grc")
     download_cltk_models(iso_code="fro")
+    download_cltk_models(iso_code="san")
+    download_cltk_models(iso_code="ang")
+    download_cltk_models(iso_code="non")
+    download_cltk_models(iso_code="gml")
+    download_cltk_models(iso_code="gmh")
