@@ -589,7 +589,7 @@ example_distributed_fake_language_corpus:
         """
         self.make_distributed_corpora_testing_file()
         corpus_importer = FetchCorpus("san", testing=True)
-        self.assertIn("sanskrit_models_cltk", corpus_importer.list_corpora)
+        self.assertIn("san_models_cltk", corpus_importer.list_corpora)
         self.remove_distributed_corpora_testing_file()
 
     # def test_corpus_importer_variables_user_but_not_core(self):

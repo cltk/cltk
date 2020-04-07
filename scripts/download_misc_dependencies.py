@@ -83,11 +83,13 @@ if __name__ == "__main__":
     get_stanfordnlp_models(force_update=True, lang="all")
     get_fasttext_models(interactive=False)
 
+    download_nlpl_model(iso_code="grc")
+
     download_cltk_models(iso_code="lat")
     download_cltk_models(iso_code="grc")
     download_cltk_models(iso_code="fro")
-
-    # download_nlpl_model(iso_code="arb")
-    # download_nlpl_model(iso_code="chu")
-    download_nlpl_model(iso_code="grc")
-    # download_nlpl_model(iso_code="lat")
+    download_cltk_models(iso_code="san")
+    download_cltk_models(iso_code="ang")
+    download_cltk_models(iso_code="non")
+    download_cltk_models(iso_code="gml")
+    download_cltk_models(iso_code="gmh")
