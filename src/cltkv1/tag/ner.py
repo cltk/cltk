@@ -15,11 +15,11 @@ __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
 NER_DICT = {
-    "greek": os.path.join(
-        CLTK_DATA_DIR, "greek/model/greek_models_cltk/ner/proper_names.txt"
+    "grc": os.path.join(
+        CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
     ),
-    "latin": os.path.join(
-        CLTK_DATA_DIR, "latin/model/latin_models_cltk/ner/proper_names.txt"
+    "lat": os.path.join(
+        CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/proper_names.txt"
     ),
 }
 
@@ -31,7 +31,7 @@ class NamedEntityReplacer(object):
 
     def _load_necessary_data(self):
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "french", "text", "french_data_cltk", "named_entities_fr.py"
+            CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "named_entities_fr.py"
         )
         path = os.path.expanduser(rel_path)
         # logger.info('Loading entries. This may take a minute.')

@@ -342,8 +342,8 @@ LANGUAGE_CORPORA = {
             "type": "html",
         },
         {
-            "origin": "https://github.com/cltk/old_english_models_cltk.git",
-            "name": "old_english_models_cltk",
+            "origin": "https://github.com/cltk/ang_models_cltk.git",
+            "name": "ang_models_cltk",
             "type": "model",
         },
     ],
@@ -396,8 +396,8 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "old_norse_models_cltk",
-            "origin": "https://github.com/cltk/old_norse_models_cltk.git",
+            "name": "non_models_cltk",
+            "origin": "https://github.com/cltk/non_models_cltk.git",
             "type": "model",
         },
         {
@@ -456,15 +456,15 @@ LANGUAGE_CORPORA = {
     ],
     "gml": [
         {
-            "name": "middle_low_german_models_cltk",
-            "origin": "https://github.com/cltk/middle_low_german_models_cltk.git",
+            "name": "gml_models_cltk",
+            "origin": "https://github.com/cltk/gml_models_cltk.git",
             "type": "model",
         }
     ],
     "gmh": [
         {
-            "name": "middle_high_german_models_cltk",
-            "origin": "https://github.com/cltk/middle_high_german_models_cltk.git",
+            "name": "gmh_models_cltk",
+            "origin": "https://github.com/cltk/gmh_models_cltk.git",
             "type": "model",
         }
     ],
