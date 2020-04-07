@@ -207,63 +207,43 @@ class Syllabifier:
         :param word: Word to be syllabified
         :return: List consisting of syllables
 
-        Example:
-            First you need to define the matters of articulation
-            >>> high_vowels = ['a']
+        First you need to define the matters of articulation
+        >>> high_vowels = ['a']
+        >>> mid_vowels = ['e']
+        >>> low_vowels = ['i', 'u']
+        >>> flaps = ['r']
+        >>> nasals = ['m', 'n']
+        >>> fricatives = ['f']
+        >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives=fricatives)
+        >>> s.syllabify("feminarum")
+        ['fe', 'mi', 'na', 'rum']
 
-            >>> mid_vowels = ['e']
+        Not specifying your alphabet results in an error:
+        >>> s.syllabify("foemina")
+        Traceback (most recent call last):
+            ...
+        cltkv1.core.exceptions.CLTKException
 
-            >>> low_vowels = ['i', 'u']
 
-            >>> flaps = ['r']
+        Additionally, you can utilize the language parameter:
+        >>> s = Syllabifier(language='middle_high_german')
+        >>> s.syllabify('lobebæren')
+        ['lo', 'be', 'bæ', 'ren']
+        >>> s = Syllabifier(language='middle_english')
+        >>> s.syllabify("huntyng")
+        ['hun', 'tyng']
+        >>> s = Syllabifier(language='old_english')
+        >>> s.syllabify("arcebiscop")
+        ['ar', 'ce', 'bis', 'cop']
 
-            >>> nasals = ['m', 'n']
 
-            >>> fricatives = ['f']
-
-            >>> s = Syllabifier(high_vowels=high_vowels, mid_vowels=mid_vowels, low_vowels=low_vowels, flaps=flaps, nasals=nasals, fricatives=fricatives)
-
-            >>> s.syllabify("feminarum")
-            ['fe', 'mi', 'na', 'rum']
-
-            Not specifying your alphabet results in an error:
-
-            >>> s.syllabify("foemina")
-            Traceback (most recent call last):
-                ...
-            cltk.exceptions.CLTKException
-            
-            Additionally, you can utilize the language parameter:
-            
-            >>> s = Syllabifier(language='middle_high_german')
-            
-            >>> s.syllabify('lobebæren')
-            ['lo', 'be', 'bæ', 'ren']
-            
-            >>> s = Syllabifier(language='middle_english')
-            
-            >>> s.syllabify("huntyng")
-            ['hun', 'tyng']
-            
-            >>> s = Syllabifier(language='old_english')
-            
-            >>> s.syllabify("arcebiscop")
-            ['ar', 'ce', 'bis', 'cop']
-            
-            The break_geminants parameter ensures a breakpoint is placed between geminants:
-            
-            >>> geminant_s = Syllabifier(break_geminants=True)
-            
-            >>> hierarchy = [["a", "á", "æ", "e", "é", "i", "í", "o", "ǫ", "ø", "ö", "œ", "ó", "u", "ú", "y", "ý"], ["j"], ["m"], ["n"], ["p", "b", "d", "g", "t", "k"], ["c", "f", "s", "h", "v", "x", "þ", "ð"], ["r"], ["l"]]
-            
-            >>> geminant_s.set_hierarchy(hierarchy)
-            
-            >>> geminant_s.set_vowels(hierarchy[0])
-            
-            >>> geminant_s.syllabify("ennitungl")
-            ['en', 'ni', 'tungl']
-
-            
+        The break_geminants parameter ensures a breakpoint is placed between geminants:
+        >>> geminant_s = Syllabifier(break_geminants=True)
+        >>> hierarchy = [["a", "á", "æ", "e", "é", "i", "í", "o", "ǫ", "ø", "ö", "œ", "ó", "u", "ú", "y", "ý"], ["j"], ["m"], ["n"], ["p", "b", "d", "g", "t", "k"], ["c", "f", "s", "h", "v", "x", "þ", "ð"], ["r"], ["l"]]
+        >>> geminant_s.set_hierarchy(hierarchy)
+        >>> geminant_s.set_vowels(hierarchy[0])
+        >>> geminant_s.syllabify("ennitungl")
+        ['en', 'ni', 'tungl']
         """
 
         # List indicating the syllable indices
