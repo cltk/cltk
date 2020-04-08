@@ -19,7 +19,7 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer
 from cltkv1.tokenizers.grc import GreekLanguageVars
 from cltkv1.tokenizers.lat import LatinLanguageVars
 from cltkv1.tokenizers.san import SanskritLanguageVars
-from cltkv1.utils import get_cltk_data_dir
+from cltkv1.utils import CLTK_DATA_DIR
 from cltkv1.utils.file_operations import open_pickle
 
 INDIAN_LANGUAGES = ["bengali", "hindi", "marathi", "sanskrit", "telugu"]
@@ -57,7 +57,7 @@ class BaseSentenceTokenizer:
 
     def _get_models_path(self, language):  # pragma: no cover
         return (
-            get_cltk_data_dir()
+            CLTK_DATA_DIR
             + f"/{language}/model/{language}_models_cltk/tokenizers/sentence"
         )
 
