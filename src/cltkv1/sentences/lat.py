@@ -18,13 +18,14 @@ import os
 from nltk.tokenize.punkt import PunktLanguageVars
 
 from cltkv1.sentences.sentence import BasePunktSentenceTokenizer
-from cltkv1.tokenizers.lat import PUNCTUATION, STRICT_PUNCTUATION, LatinLanguageVars
+from cltkv1.tokenizers.lat.lat import PUNCTUATION, STRICT_PUNCTUATION, LatinLanguageVars
 from cltkv1.utils import CLTK_DATA_DIR
 from cltkv1.utils.file_operations import open_pickle
 
-# def SentenceTokenizer(tokenizer: str = "punkt", strict: bool = False):
-#     if tokenizer == "punkt":
-#         return LatinPunktSentenceTokenizer(strict=strict)
+
+def SentenceTokenizer(tokenizer: str = "punkt", strict: bool = False):
+    if tokenizer == "punkt":
+        return LatinPunktSentenceTokenizer(strict=strict)
 
 
 class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):

@@ -17,7 +17,7 @@ from typing import List
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltkv1.tokenizers.grc import GreekLanguageVars
-from cltkv1.tokenizers.lat import LatinLanguageVars
+from cltkv1.tokenizers.lat.lat import LatinLanguageVars
 from cltkv1.tokenizers.san import SanskritLanguageVars
 from cltkv1.utils import CLTK_DATA_DIR
 from cltkv1.utils.file_operations import open_pickle
