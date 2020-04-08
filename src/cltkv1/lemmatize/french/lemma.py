@@ -24,7 +24,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
         """Check for availability of lemmatizer for French."""
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "french", "text", "fro_data_cltk", "entries.py"
+            CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "entries.py"
         )
         path = os.path.expanduser(rel_path)
         # logger.info('Loading entries. This may take a minute.')
@@ -36,7 +36,7 @@ class LemmaReplacer(object):  # pylint: disable=too-few-public-methods
     def _load_forms_and_lemmas(self):
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "french", "text", "fro_data_cltk", "forms_and_lemmas.py"
+            CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "forms_and_lemmas.py"
         )
         path = os.path.expanduser(rel_path)
         # logger.info('Loading forms and lemmas. This may take a minute.')
