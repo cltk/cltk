@@ -33,7 +33,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def setUp(self):
         corpus_importer = FetchCorpus("fro")
         corpus_importer.import_corpus("fro_data_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "french/text/french_data_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "fro/text/french_data_cltk/README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)

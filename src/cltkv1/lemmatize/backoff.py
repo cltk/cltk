@@ -7,32 +7,21 @@ The logic behind the backoff lemmatizer is based on backoff POS-tagging in
 NLTK and repurposes several of the tagging classes for lemmatization
 tasks. See here for more info on sequential backoff tagging in NLTK:
 http://www.nltk.org/_modules/nltk/tag/sequential.html
+
+PJB: The Latin lemmatizer modules were completed as part of Google Summer of Code
+2016. I have written up a detailed report of the summer work here:
+https://gist.github.com/diyclassics/fc80024d65cc237f185a9a061c5d4824.
 """
 
 import re
 import reprlib
 from typing import List
 
-from nltk.tag.sequential import (
-    ContextTagger,
-    DefaultTagger,
-    NgramTagger,
-    RegexpTagger,
-    SequentialBackoffTagger,
-    UnigramTagger,
-)
-
-# Unused for now
-# def backoff_lemmatizer(train_sents, lemmatizer_classes, backoff=None):
-#    """From Python Text Processing with NLTK Cookbook."""
-#    for cls in lemmatizer_classes:
-#        backoff = cls(train_sents, backoff=backoff)
-#    return backoff
+from nltk.tag.sequential import RegexpTagger, SequentialBackoffTagger, UnigramTagger
 
 
 class SequentialBackoffLemmatizer(SequentialBackoffTagger):
-    """
-    Abstract base class for lemmatizers created as a subclass of
+    """Abstract base class for lemmatizers created as a subclass of
     NLTK's SequentialBackoffTagger. Lemmatizers in this class "[tag]
     words sequentially, left to right. Tagging of individual words is
     performed by the ``choose_tag()`` method, which should be defined
@@ -50,8 +39,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
     """
 
     def __init__(self: object, backoff: object, verbose: bool = False):
-        """
-        Setup for SequentialBackoffLemmatizer
+        """Setup for SequentialBackoffLemmatizer
         :param backoff: Next lemmatizer in backoff chain
         :type verbose: bool
         :param verbose: Flag to include which lemmatizer assigned in
@@ -71,7 +59,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         self.repr.maxdict = 1
 
     def tag(self: object, tokens: List[str]):
-        """ Docs (mostly) inherited from TaggerI; cf.
+        """Docs (mostly) inherited from TaggerI; cf.
         https://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.tag
 
         Two tweaks:
@@ -97,8 +85,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
             return list(zip(tokens, tags))
 
     def tag_one(self: object, tokens: List[str], index: int, history: List[str]):
-        """
-        Determine an appropriate tag for the specified token, and
+        """Determine an appropriate tag for the specified token, and
         return that tag.  If this tagger is unable to determine a tag
         for the specified token, then its backoff tagger is consulted.
 
@@ -127,16 +114,15 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
 
 
 class DefaultLemmatizer(SequentialBackoffLemmatizer):
-    """
-    Lemmatizer that assigns the same lemma to every token. Useful as the final
+    """Lemmatizer that assigns the same lemma to every token. Useful as the final
     tagger in chain, e.g. to assign 'UNK' to all remaining unlemmatized tokens.
     :type lemma: str
     :param lemma: Lemma to assign to each token
 
-        >>> from cltk.lemmatize.latin.backoff import DefaultLemmatizer
-        >>> default_lemmatizer = DefaultLemmatizer('UNK')
-        >>> list(default_lemmatizer.lemmatize('arma virumque cano'.split()))
-        [('arma', 'UNK'), ('virumque', 'UNK'), ('cano', 'UNK')]
+    >>> from cltk.lemmatize.latin.backoff import DefaultLemmatizer
+    >>> default_lemmatizer = DefaultLemmatizer('UNK')
+    >>> list(default_lemmatizer.lemmatize('arma virumque cano'.split()))
+    [('arma', 'UNK'), ('virumque', 'UNK'), ('cano', 'UNK')]
 
     """
 
@@ -154,17 +140,15 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
 
 
 class IdentityLemmatizer(SequentialBackoffLemmatizer):
-    """
-    Lemmatizer that returns a given token as its lemma. Like DefaultLemmatizer,
+    """Lemmatizer that returns a given token as its lemma. Like DefaultLemmatizer,
     useful as the final tagger in a chain, e.g. to assign a possible form to
     all remaining unlemmatized tokens, increasing the chance of a successful
     match.
 
-        >>> from cltk.lemmatize.latin.backoff import IdentityLemmatizer
-        >>> identity_lemmatizer = IdentityLemmatizer()
-        >>> list(identity_lemmatizer.lemmatize('arma virumque cano'.split()))
-        [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]
-
+    >>> from cltk.lemmatize.latin.backoff import IdentityLemmatizer
+    >>> identity_lemmatizer = IdentityLemmatizer()
+    >>> list(identity_lemmatizer.lemmatize('arma virumque cano'.split()))
+    [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]
     """
 
     def __init__(self: object, backoff: object = None, verbose: bool = False):
@@ -224,8 +208,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
 
 
 class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
-    """
-    Standalone version of 'train' function found in UnigramTagger; by
+    """Standalone version of 'train' function found in UnigramTagger; by
     defining as its own class, it is clearer that this lemmatizer is
     based on training data and not on dictionary.
     """
@@ -255,7 +238,9 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
 
 
 class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
-    """"""
+    """Regular expression tagger, inheriting from
+    ``SequentialBackoffLemmatizer`` and ``RegexpTagger``.
+    """
 
     def __init__(
         self: object, regexps=None, source=None, backoff=None, verbose: bool = False
