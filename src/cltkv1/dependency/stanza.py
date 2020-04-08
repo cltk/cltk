@@ -1,12 +1,12 @@
-"""Wrapper for the Python StanfordNLP package.
-About: https://github.com/stanfordnlp/stanfordnlp.
+"""Wrapper for the Python Stanza package.
+About: https://github.com/stanza/stanza.
 """
 
 import logging
 import os
 from typing import Dict, Optional
 
-import stanfordnlp  # type: ignore
+import stanza  # type: ignore
 
 from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
 from cltkv1.utils import file_exists, suppress_stdout
@@ -15,52 +15,52 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 
-class StanfordNLPWrapper:
-    """CLTK's wrapper for the StanfordNLP project."""
+class StanzaWrapper:
+    """CLTK's wrapper for the Stanza project."""
 
     nlps = {}
 
     def __init__(self, language: str, treebank: Optional[str] = None) -> None:
-        """Constructor for ``get_stanfordnlp_models`` wrapper class.
+        """Constructor for ``get_stanza_models`` wrapper class.
 
         TODO: Do tests for all langs and available models for each
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> isinstance(stanford_wrapper, StanfordNLPWrapper)
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
-        >>> stanford_wrapper.language
+        >>> stanza_wrapper.language
         'grc'
-        >>> stanford_wrapper.treebank
+        >>> stanza_wrapper.treebank
         'grc_proiel'
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language="grc", treebank="grc_perseus")
-        >>> isinstance(stanford_wrapper, StanfordNLPWrapper)
+        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="grc_perseus")
+        >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
-        >>> stanford_wrapper.language
+        >>> stanza_wrapper.language
         'grc'
-        >>> stanford_wrapper.treebank
+        >>> stanza_wrapper.treebank
         'grc_perseus'
         >>> from cltkv1.utils.example_texts import get_example_text
-        >>> snlp_doc = stanford_wrapper.parse(get_example_text("grc"))
+        >>> snlp_doc = stanza_wrapper.parse(get_example_text("grc"))
 
-        >>> StanfordNLPWrapper(language="xxx")
+        >>> StanzaWrapper(language="xxx")
         Traceback (most recent call last):
           ...
-        cltkv1.core.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by StanfordNLP.
+        cltkv1.core.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by Stanza.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language="grc", treebank="grc_proiel")
-        >>> snlp_doc = stanford_wrapper.parse(get_example_text("grc"))
+        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="grc_proiel")
+        >>> snlp_doc = stanza_wrapper.parse(get_example_text("grc"))
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="la_perseus")
-        >>> snlp_doc = stanford_wrapper.parse(get_example_text("lat"))
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="la_perseus")
+        >>> snlp_doc = stanza_wrapper.parse(get_example_text("lat"))
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="la_proiel")
-        >>> snlp_doc = stanford_wrapper.parse(get_example_text("lat"))
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="la_proiel")
+        >>> snlp_doc = stanza_wrapper.parse(get_example_text("lat"))
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language="chu")
-        >>> snlp_doc = stanford_wrapper.parse(get_example_text("chu"))
+        >>> stanza_wrapper = StanzaWrapper(language="chu")
+        >>> snlp_doc = stanza_wrapper.parse(get_example_text("chu"))
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language="lat", treebank="xxx")
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx")
         Traceback (most recent call last):
           ...
         cltkv1.core.exceptions.UnimplementedLanguageError: Invalid treebank 'xxx' for language 'lat'.
@@ -69,7 +69,7 @@ class StanfordNLPWrapper:
         self.treebank = treebank
 
         # Setup language
-        self.map_langs_cltk_stanford = {
+        self.map_langs_cltk_stanza = {
             "grc": "Ancient_Greek",
             "lat": "Latin",
             "chu": "Old_Church_Slavonic",
@@ -80,18 +80,18 @@ class StanfordNLPWrapper:
         self.wrapper_available = self.is_wrapper_available()  # type: bool
         if not self.wrapper_available:
             raise UnknownLanguageError(
-                "Language '{}' either not in scope for CLTK or not supported by StanfordNLP.".format(
+                "Language '{}' either not in scope for CLTK or not supported by Stanza.".format(
                     self.language
                 )
             )
-        self.stanford_code = self._get_stanford_code()
+        self.stanza_code = self._get_stanza_code()
 
         # Setup optional treebank if specified
         # TODO: Write tests for all treebanks
         self.map_code_treebanks = dict(
             grc=["grc_proiel", "grc_perseus"], la=["la_perseus", "la_proiel", "la_ittb"]
         )
-        # if not specified, will use the default treebank chosen by stanfordnlp
+        # if not specified, will use the default treebank chosen by stanza
         if self.treebank:
             valid_treebank = self._is_valid_treebank()
             if not valid_treebank:
@@ -108,14 +108,14 @@ class StanfordNLPWrapper:
         # TODO: This is a weak check for the models actually being downloaded and valid
         # TODO: Use ``models_dir`` var from below and make self. or global to module
         self.model_path = os.path.expanduser(
-            "~/stanfordnlp_resources/{0}_models/{0}_tokenizer.pt".format(self.treebank)
+            "~/stanza_resources/{0}_models/{0}_tokenizer.pt".format(self.treebank)
         )
         if not self._is_model_present():
             # download model if necessary
             self._download_model()
 
-        # instantiate actual stanfordnlp class
-        # Note: `suppress_stdout` is used to prevent `stanfordnlp`
+        # instantiate actual stanza class
+        # Note: `suppress_stdout` is used to prevent `stanza`
         # from printing a long log of its parameters to screen.
         # Though we should capture these, within `_load_pipeline()`,
         # for the log file.
@@ -123,12 +123,12 @@ class StanfordNLPWrapper:
             self.nlp = self._load_pipeline()
 
     def parse(self, text: str):
-        """Run all available ``stanfordnlp`` parsing on input text.
+        """Run all available ``stanza`` parsing on input text.
 
         >>> from cltkv1.utils.example_texts import get_example_text
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> greek_nlp = stanford_wrapper.parse(get_example_text("grc"))
-        >>> isinstance(greek_nlp, stanfordnlp.pipeline.doc.Document)
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> greek_nlp = stanza_wrapper.parse(get_example_text("grc"))
+        >>> isinstance(greek_nlp, stanza.pipeline.doc.Document)
         True
 
         >>> nlp_greek_first_sent = greek_nlp.sentences[0]
@@ -160,29 +160,29 @@ class StanfordNLPWrapper:
         return parsed_text
 
     def _load_pipeline(self):
-        """Instantiate ``stanfordnlp.Pipeline()``.
+        """Instantiate ``stanza.Pipeline()``.
 
-        TODO: Make sure that logging captures what it should from the default stanfordnlp printout.
+        TODO: Make sure that logging captures what it should from the default stanza printout.
         TODO: Make note that full lemmatization is not possible for Old French
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> with suppress_stdout():    nlp_obj = stanford_wrapper._load_pipeline()
-        >>> isinstance(nlp_obj, stanfordnlp.pipeline.core.Pipeline)
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> with suppress_stdout():    nlp_obj = stanza_wrapper._load_pipeline()
+        >>> isinstance(nlp_obj, stanza.pipeline.core.Pipeline)
         True
-        >>> stanford_wrapper = StanfordNLPWrapper(language='fro')
-        >>> with suppress_stdout():    nlp_obj = stanford_wrapper._load_pipeline()
-        >>> isinstance(nlp_obj, stanfordnlp.pipeline.core.Pipeline)
+        >>> stanza_wrapper = StanzaWrapper(language='fro')
+        >>> with suppress_stdout():    nlp_obj = stanza_wrapper._load_pipeline()
+        >>> isinstance(nlp_obj, stanza.pipeline.core.Pipeline)
         True
         """
-        models_dir = os.path.expanduser("~/stanfordnlp_resources/")
-        # Note: To prevent FileNotFoundError (``~/stanfordnlp_resources/fro_srcmf_models/fro_srcmf_lemmatizer.pt``) for Old French
-        # Background: https://github.com/stanfordnlp/stanfordnlp/issues/157
+        models_dir = os.path.expanduser("~/stanza_resources/")
+        # Note: To prevent FileNotFoundError (``~/stanza_resources/fro_srcmf_models/fro_srcmf_lemmatizer.pt``) for Old French
+        # Background: https://github.com/stanza/stanza/issues/157
         lemma_use_identity = False
         if self.language == "fro":
             lemma_use_identity = True
-        nlp = stanfordnlp.Pipeline(
+        nlp = stanza.Pipeline(
             processors="tokenize,mwt,pos,lemma,depparse",  # these are the default processors
-            lang=self.stanford_code,
+            lang=self.stanza_code,
             models_dir=models_dir,
             treebank=self.treebank,
             use_gpu=True,  # default, won't fail if GPU not present
@@ -193,8 +193,8 @@ class StanfordNLPWrapper:
     def _is_model_present(self) -> bool:
         """Checks if the model is already downloaded.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> stanford_wrapper._is_model_present()
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> stanza_wrapper._is_model_present()
         True
         """
         if file_exists(self.model_path):
@@ -202,31 +202,31 @@ class StanfordNLPWrapper:
         return False
 
     def _download_model(self) -> None:
-        """Interface with the `stanfordnlp` model downloader.
+        """Interface with the `stanza` model downloader.
 
         TODO: (old) Figure out why doctests here hang. Presumably because waiting for user op_input, but prompt shouldn't arise if models already present.
 
-        # >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        # >>> stanford_wrapper._download_model()
+        # >>> stanza_wrapper = StanzaWrapper(language='grc')
+        # >>> stanza_wrapper._download_model()
         # True
         """
-        # prompt user to DL the get_stanfordnlp_models models
+        # prompt user to DL the get_stanza_models models
         print("")  # pragma: no cover
         print("")  # pragma: no cover
         print("Α" * 80)  # pragma: no cover
         print("")  # pragma: no cover
         print(  # pragma: no cover
-            "CLTK message: The part of the CLTK that you are using depends upon the Stanford NLP library (`stanfordnlp`). What follows are several question prompts coming from it. (More at: <https://github.com/stanfordnlp/stanfordnlp>.) Answer with defaults."
+            "CLTK message: The part of the CLTK that you are using depends upon the Stanza NLP library (`stanza`). What follows are several question prompts coming from it. (More at: <https://github.com/stanza/stanza>.) Answer with defaults."
         )  # pragma: no cover
         print("")  # pragma: no cover
         print("Ω" * 80)  # pragma: no cover
         print("")  # pragma: no cover
         print("")  # pragma: no cover
-        stanfordnlp.download(self.treebank)
+        stanza.download(self.treebank)
         # if file model still not available after attempted DL, then raise error
         if not file_exists(self.model_path):
             raise FileNotFoundError(
-                "Missing required models for ``stanfordnlp`` at ``{0}``.".format(
+                "Missing required models for ``stanza`` at ``{0}``.".format(
                     self.model_path
                 )
             )
@@ -235,74 +235,72 @@ class StanfordNLPWrapper:
         """Return description of a language's default treebank if none
         supplied.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> stanford_wrapper._get_default_treebank()
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> stanza_wrapper._get_default_treebank()
         'grc_proiel'
         """
-        stanford_default_treebanks = (
-            stanfordnlp.utils.resources.default_treebanks
+        stanza_default_treebanks = (
+            stanza.utils.resources.default_treebanks
         )  # type: Dict[str, str]
-        return stanford_default_treebanks[self.stanford_code]
+        return stanza_default_treebanks[self.stanza_code]
 
     def _is_valid_treebank(self) -> bool:
         """Check whether for chosen language, optional
         treebank value is valid.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc', treebank='grc_proiel')
-        >>> stanford_wrapper._is_valid_treebank()
+        >>> stanza_wrapper = StanzaWrapper(language='grc', treebank='grc_proiel')
+        >>> stanza_wrapper._is_valid_treebank()
         True
-        >>> stanford_wrapper.language = "xxx"
+        >>> stanza_wrapper.language = "xxx"
         """
-        possible_treebanks = self.map_code_treebanks[self.stanford_code]
+        possible_treebanks = self.map_code_treebanks[self.stanza_code]
         if self.treebank in possible_treebanks:
             return True
         return False
 
     def is_wrapper_available(self) -> bool:
         """Maps an ISO 639-3 language id (e.g., ``lat`` for Latin) to
-        that used by ``stanfordnlp`` (``la``); confirms that this is
+        that used by ``stanza`` (``la``); confirms that this is
         a language the CLTK supports (i.e., is it pre-modern or not).
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> stanford_wrapper.is_wrapper_available()
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> stanza_wrapper.is_wrapper_available()
         True
         """
-        if self.language in self.map_langs_cltk_stanford:
+        if self.language in self.map_langs_cltk_stanza:
             return True
         return False
 
-    def _get_stanford_code(self) -> str:
+    def _get_stanza_code(self) -> str:
         """Using known-supported language, use the CLTK's
-        internal code to look up the code used by StanfordNLP.
+        internal code to look up the code used by Stanza.
 
-        >>> stanford_wrapper = StanfordNLPWrapper(language='grc')
-        >>> stanford_wrapper._get_stanford_code()
+        >>> stanza_wrapper = StanzaWrapper(language='grc')
+        >>> stanza_wrapper._get_stanza_code()
         'grc'
-        >>> stanford_wrapper.language = "xxx"
-        >>> stanford_wrapper._get_stanford_code()
+        >>> stanza_wrapper.language = "xxx"
+        >>> stanza_wrapper._get_stanza_code()
         Traceback (most recent call last):
           ...
-        KeyError: 'Somehow ``StanfordNLPWrapper.language`` got renamed to something invalid. This should never happen.'
+        KeyError: 'Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen.'
         """
         try:
-            stanford_lang_name = self.map_langs_cltk_stanford[self.language]
+            stanza_lang_name = self.map_langs_cltk_stanza[self.language]
         except KeyError:
             raise KeyError(
-                "Somehow ``StanfordNLPWrapper.language`` got renamed to something invalid. This should never happen."
+                "Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen."
             )
         # {'Afrikaans': 'af', 'Ancient_Greek': 'grc', ...}
-        stanford_lang_code = (
-            stanfordnlp.models.common.constant.lang2lcode
+        stanza_lang_code = (
+            stanza.models.common.constant.lang2lcode
         )  # type: Dict[str, str]
         try:
-            return stanford_lang_code[stanford_lang_name]
+            return stanza_lang_code[stanza_lang_name]
         except KeyError:
-            raise KeyError("The CLTK's map of ISO-to-StanfordNLP is out of sync.")
+            raise KeyError("The CLTK's map of ISO-to-Stanza is out of sync.")
 
     @classmethod
-    def get_nlp(
-        cls, language: str, treebank: Optional[str] = None
-    ) -> stanfordnlp.Pipeline:
+    def get_nlp(cls, language: str, treebank: Optional[str] = None) -> stanza.Pipeline:
         if language in cls.nlps:
             return cls.nlps[language]
         else:

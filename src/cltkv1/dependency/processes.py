@@ -1,35 +1,35 @@
-"""``Process`` classes for accessing the StanfordNLP project."""
+"""``Process`` classes for accessing the Stanza project."""
 
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
 
-import stanfordnlp
+import stanza
 from boltons.cacheutils import cachedproperty
 
 from cltkv1.core.data_types import Doc, Process, Word
-from cltkv1.dependency.stanford import StanfordNLPWrapper
+from cltkv1.dependency.stanza import StanzaWrapper
 from cltkv1.dependency.tree import DependencyTree
 
 
 @dataclass
-class StanfordNLPProcess(Process):
+class StanzaProcess(Process):
     """A ``Process`` type to capture everything
-    that the ``stanfordnlp`` project can do for a
+    that the ``stanza`` project can do for a
     given language.
 
 
     .. note::
-        ``stanfordnlp`` has only partial functionality available for some languages.
+        ``stanza`` has only partial functionality available for some languages.
 
 
-    >>> from cltkv1.dependency.processes import StanfordNLPProcess
+    >>> from cltkv1.dependency.processes import StanzaProcess
     >>> from cltkv1.utils.example_texts import get_example_text
-    >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
-    >>> isinstance(process_stanford, StanfordNLPProcess)
+    >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
+    >>> isinstance(process_stanza, StanzaProcess)
     True
-    >>> from stanfordnlp.pipeline.doc import Document
-    >>> process_stanford.run()
-    >>> isinstance(process_stanford.output_doc.stanfordnlp_doc, Document)
+    >>> from stanza.pipeline.doc import Document
+    >>> process_stanza.run()
+    >>> isinstance(process_stanza.output_doc.stanza_doc, Document)
     True
     """
 
@@ -37,29 +37,29 @@ class StanfordNLPProcess(Process):
 
     @cachedproperty
     def algorithm(self):
-        return StanfordNLPWrapper.get_nlp(language=self.language)
+        return StanzaWrapper.get_nlp(language=self.language)
 
     def run(self):
         tmp_doc = self.input_doc
-        stanfordnlp_wrapper = self.algorithm
-        stanfordnlp_doc = stanfordnlp_wrapper.parse(tmp_doc.raw)
-        cltk_words = self.stanfordnlp_to_cltk_word_type(stanfordnlp_doc)
+        stanza_wrapper = self.algorithm
+        stanza_doc = stanza_wrapper.parse(tmp_doc.raw)
+        cltk_words = self.stanza_to_cltk_word_type(stanza_doc)
         tmp_doc.words = cltk_words
-        tmp_doc.stanfordnlp_doc = stanfordnlp_doc
+        tmp_doc.stanza_doc = stanza_doc
         self.output_doc = tmp_doc
 
     @staticmethod
-    def stanfordnlp_to_cltk_word_type(stanfordnlp_doc):
+    def stanza_to_cltk_word_type(stanza_doc):
 
-        """Take an entire ``stanfordnlp`` document, extract
+        """Take an entire ``stanza`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
 
-        >>> from cltkv1.dependency.processes import StanfordNLPProcess
+        >>> from cltkv1.dependency.processes import StanzaProcess
         >>> from cltkv1.utils.example_texts import get_example_text
-        >>> process_stanford = StanfordNLPProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
-        >>> process_stanford.run()
-        >>> cltk_words = process_stanford.output_doc.words
+        >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
+        >>> process_stanza.run()
+        >>> cltk_words = process_stanza.output_doc.words
         >>> isinstance(cltk_words, list)
         True
         >>> isinstance(cltk_words[0], Word)
@@ -69,34 +69,32 @@ class StanfordNLPProcess(Process):
         """
         words_list = list()  # type: List[Word]
 
-        for sentence_index, sentence in enumerate(stanfordnlp_doc.sentences):
+        for sentence_index, sentence in enumerate(stanza_doc.sentences):
             sent_words = dict()  # type: Dict[int, Word]
             indices = list()  # type: List[Tuple[int, int]]
 
             for token_index, token in enumerate(sentence.tokens):
-                stanfordnlp_word = token.words[0]  # type: stanfordnlp.pipeline.doc.Word
+                stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
                 cltk_word = Word(
-                    index_token=int(stanfordnlp_word.index)
+                    index_token=int(stanza_word.index)
                     - 1,  # subtract 1 from index b/c snpl starts their index at 1
                     index_sentence=sentence_index,
-                    string=stanfordnlp_word.text,  # same as ``token.text``
-                    pos=stanfordnlp_word.pos,
-                    xpos=stanfordnlp_word.xpos,
-                    upos=stanfordnlp_word.upos,
-                    lemma=stanfordnlp_word.lemma,
-                    dependency_relation=stanfordnlp_word.dependency_relation,
+                    string=stanza_word.text,  # same as ``token.text``
+                    pos=stanza_word.pos,
+                    xpos=stanza_word.xpos,
+                    upos=stanza_word.upos,
+                    lemma=stanza_word.lemma,
+                    dependency_relation=stanza_word.dependency_relation,
                     features={}
-                    if stanfordnlp_word.feats == "_"
-                    else dict(
-                        [f.split("=") for f in stanfordnlp_word.feats.split("|")]
-                    ),
+                    if stanza_word.feats == "_"
+                    else dict([f.split("=") for f in stanza_word.feats.split("|")]),
                 )  # type: Word
                 sent_words[cltk_word.index_token] = cltk_word
                 indices.append(
                     (
-                        int(stanfordnlp_word.governor)
+                        int(stanza_word.governor)
                         - 1,  # -1 to match CLTK Word.index_token
-                        int(stanfordnlp_word.parent_token.index)
+                        int(stanza_word.parent_token.index)
                         - 1,  # -1 to match CLTK Word.index_token
                     )
                 )
@@ -113,33 +111,33 @@ class StanfordNLPProcess(Process):
 
 
 @dataclass
-class GreekStanfordNLPProcess(StanfordNLPProcess):
+class GreekStanzaProcess(StanzaProcess):
     language: str = "grc"
-    description: str = "Default process for StanfordNLP for the Ancient Greek language."
+    description: str = "Default process for Stanza for the Ancient Greek language."
 
 
 @dataclass
-class LatinStanfordNLPProcess(StanfordNLPProcess):
+class LatinStanzaProcess(StanzaProcess):
     language: str = "lat"
-    description: str = "Default process for StanfordNLP for the Latin language."
+    description: str = "Default process for Stanza for the Latin language."
 
 
 @dataclass
-class OCSStanfordNLPProcess(StanfordNLPProcess):
+class OCSStanzaProcess(StanzaProcess):
     language: str = "chu"
-    description: str = "Default process for StanfordNLP for the Old Church Slavonic language."
+    description: str = "Default process for Stanza for the Old Church Slavonic language."
 
 
 @dataclass
-class OldFrenchStanfordNLPProcess(StanfordNLPProcess):
+class OldFrenchStanzaProcess(StanzaProcess):
     language: str = "fro"
-    description: str = "Default process for StanfordNLP for the Old French language."
+    description: str = "Default process for Stanza for the Old French language."
 
 
 @dataclass
-class GothicStanfordNLPProcess(StanfordNLPProcess):
+class GothicStanzaProcess(StanzaProcess):
     language: str = "got"
-    description: str = "Default process for StanfordNLP for the Gothic language."
+    description: str = "Default process for Stanza for the Gothic language."
 
 
 class TreeBuilderProcess(Process):

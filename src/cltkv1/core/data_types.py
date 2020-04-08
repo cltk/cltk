@@ -66,12 +66,12 @@ class Word:
     pos: str = None
     lemma: str = None
     scansion: str = None
-    xpos: str = None  # treebank-specific POS tag (from stanfordnlp)
-    upos: str = None  # universal POS tag (from stanfordnlp)
-    dependency_relation: str = None  # (from stanfordnlp)
+    xpos: str = None  # treebank-specific POS tag (from stanza)
+    upos: str = None  # universal POS tag (from stanza)
+    dependency_relation: str = None  # (from stanza)
     governor: "Word" = None
     parent: "Word" = None
-    features: Dict[str, str] = None  # morphological features (from stanfordnlp)
+    features: Dict[str, str] = None  # morphological features (from stanza)
     embedding: numpy.ndarray = None
     stop: bool = None
     named_entity: bool = None

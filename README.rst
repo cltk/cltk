@@ -4,7 +4,7 @@
 About
 -----
 
-Experimental version of CLTK to incorporate stanfordnlp into an all-use ``NLP()`` class.
+Experimental version of CLTK to incorporate stanza into an all-use ``NLP()`` class.
 
 Installation
 ------------
