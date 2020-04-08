@@ -105,7 +105,7 @@ def get_cltk_data_dir():
     the OS environment variable ``$CLTK_DATA``. If the
     variable is found, then its value is used.
 
-    >>> from cltkv1.utils import get_cltk_data_dir
+    >>> from cltkv1.utils import CLTK_DATA_DIR
     >>> import os
     >>> os.environ["CLTK_DATA"] = os.path.expanduser("~/cltk_data")
     >>> cltk_data_dir = get_cltk_data_dir()

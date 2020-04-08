@@ -19,7 +19,7 @@ from nltk.tokenize.punkt import PunktLanguageVars
 
 from cltkv1.sentences.sentence import BasePunktSentenceTokenizer
 from cltkv1.tokenizers.lat import PUNCTUATION, STRICT_PUNCTUATION, LatinLanguageVars
-from cltkv1.utils import get_cltk_data_dir
+from cltkv1.utils import CLTK_DATA_DIR
 from cltkv1.utils.file_operations import open_pickle
 
 # def SentenceTokenizer(tokenizer: str = "punkt", strict: bool = False):
@@ -41,7 +41,7 @@ class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
         super().__init__(language="lat", lang_vars=self.lang_vars)
 
         fp_sentence_tok_model_dir = "lat/model/lat_models_cltk/tokenizers/sentence/"
-        models_path = os.path.join(get_cltk_data_dir(), fp_sentence_tok_model_dir)
+        models_path = os.path.join(CLTK_DATA_DIR, fp_sentence_tok_model_dir)
         self.models_path = os.path.join(models_path, "latin_punkt.pickle")
 
         try:

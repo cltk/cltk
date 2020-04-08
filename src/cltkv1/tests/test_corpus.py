@@ -68,11 +68,13 @@ import nltk
 from cltkv1.alphabet.grc.beta_to_unicode import BetaCodeReplacer
 from cltkv1.core.exceptions import CorpusImportError, UnknownLanguageError
 from cltkv1.data.fetch import FetchCorpus
-from cltkv1.utils import get_cltk_data_dir
+from cltkv1.utils import CLTK_DATA_DIR
 
 __license__ = "MIT License. See LICENSE."
 
-DISTRIBUTED_CORPUS_PATH_REL = get_cltk_data_dir() + "/test_distributed_corpora.yaml"
+DISTRIBUTED_CORPUS_PATH_REL = os.path.join(
+    CLTK_DATA_DIR, "test_distributed_corpora.yaml"
+)
 DISTRIBUTED_CORPUS_PATH = os.path.expanduser(DISTRIBUTED_CORPUS_PATH_REL)
 
 
@@ -370,7 +372,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = FetchCorpus("lat")
         corpus_importer.import_corpus("lat_models_cltk")
         file_rel = os.path.join(
-            get_cltk_data_dir() + "/lat/model/lat_models_cltk/README.md"
+            os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk/README.md")
         )
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -383,7 +385,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = FetchCorpus("grc")
         corpus_importer.import_corpus("grc_models_cltk")
         file_rel = os.path.join(
-            get_cltk_data_dir() + "/grc/model/grc_models_cltk/README.md"
+            os.path.join(CLTK_DATA_DIR, "/grc/model/grc_models_cltk/README.md")
         )
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -407,7 +409,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = FetchCorpus("lat")
         corpus_importer.import_corpus("latin_text_antique_digiliblt")
         file_rel = os.path.join(
-            get_cltk_data_dir() + "/lat/text/latin_text_antique_digiliblt/README.md"
+            os.path.join(
+                CLTK_DATA_DIR, "lat/text/latin_text_antique_digiliblt/README.md"
+            )
         )
         _file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(_file)
@@ -559,7 +563,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def make_distributed_corpora_testing_file(self):
         """Setup for some cloning tests, make file at
-        get_cltk_data_dir() + '/test_distributed_corpora.yaml'.
+        os.path.join(CLTK_DATA_DIR, 'test_distributed_corpora.yaml').
         """
         # ! Don't format this literal string, must be YAML-ish
         yaml_str_to_write = """example_distributed_latin_corpus:

@@ -15,8 +15,10 @@ from cltkv1.lemmatize.backoff import (
 )
 from cltkv1.lemmatize.french.lemma import LemmaReplacer
 from cltkv1.lemmatize.greek.backoff import BackoffGreekLemmatizer
-from cltkv1.lemmatize.latin.backoff import RomanNumeralLemmatizer  # Removed temporarily
-from cltkv1.lemmatize.latin.backoff import BackoffLatinLemmatizer
+from cltkv1.lemmatize.latin.backoff import (
+    BackoffLatinLemmatizer,
+    RomanNumeralLemmatizer,
+)
 from cltkv1.stem.latin.j_v import JVReplacer
 from cltkv1.utils import CLTK_DATA_DIR
 
@@ -33,7 +35,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def setUp(self):
         corpus_importer = FetchCorpus("fro")
         corpus_importer.import_corpus("fro_data_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "fro/text/french_data_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "fro/text/fro_data_cltk/README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)

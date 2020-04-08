@@ -5,7 +5,7 @@ import os.path
 import pickle
 
 from cltkv1.core.cltk_logger import logger
-from cltkv1.utils import get_cltk_data_dir
+from cltkv1.utils import CLTK_DATA_DIR
 
 __author__ = [
     "Andreas Grivas <andreasgrv@gmail.com>",
@@ -28,7 +28,7 @@ def make_cltk_path(*fp_list):
     :rtype: str
     """
 
-    return os.path.join(get_cltk_data_dir(), *fp_list)
+    return os.path.join(CLTK_DATA_DIR, *fp_list)
 
 
 def open_pickle(path: str):
