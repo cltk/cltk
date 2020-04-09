@@ -74,6 +74,7 @@ class StanzaProcess(Process):
 
             for token_index, token in enumerate(sentence.tokens):
                 stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
+                # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
                     - 1,  # subtract 1 from id b/c snpl starts their index at 1
@@ -84,8 +85,9 @@ class StanzaProcess(Process):
                     upos=stanza_word.upos,
                     lemma=stanza_word.lemma,
                     dependency_relation=stanza_word.deprel,
-                    governor=stanza_word.head
-                    - 1,  # note: if val becomes ``-1`` then no governor, ie word is root
+                    governor=stanza_word.head - 1
+                    if stanza_word.head
+                    else -1,  # note: if val becomes ``-1`` then no governor, ie word is root; ``fro`` gives None sometimes, what does this mean?
                     features=dict()
                     if not stanza_word.feats
                     else dict([f.split("=") for f in stanza_word.feats.split("|")]),
