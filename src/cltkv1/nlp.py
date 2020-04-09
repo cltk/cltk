@@ -121,24 +121,24 @@ class NLP:
         >>> cltk_nlp = NLP(language="fro")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("fro"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Une', pos='DETndf', lemma='Une', scansion=None, xpos='DETndf', upos='DET', dependency_relation='det', governor=1, parent=None, features={'Definite': 'Ind', 'PronType': 'Art'}, embedding=None, stop=False, named_entity=False)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Une', pos='DET', lemma=None, scansion=None, xpos='DETndf', upos='DET', dependency_relation=None, governor=-1, features={'Definite': 'Ind', 'PronType': 'Art'}, embedding=None, stop=False, named_entity=False)
 
         >>> cltk_nlp = NLP(language="got")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("got"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='swa', pos='Df', lemma='swa', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=1, parent=None, features={}, embedding=..., stop=None, named_entity=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='swa', pos='ADV', lemma='swa', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=1, features={}, embedding=..., stop=None, named_entity=None)
         >>> len(cltk_doc.sentences)
-        4
+        3
 
         >>> cltk_nlp = NLP(language="cop")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("cop"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        '???
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='ⲧⲏⲛ', pos='VERB', lemma='ⲧⲏⲛ', scansion=None, xpos='VSTAT', upos='VERB', dependency_relation='root', governor=-1, features={'VerbForm': 'Fin'}, embedding=None, stop=None, named_entity=None)
 
         >>> cltk_nlp = NLP(language="lzh")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lzh"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        '???'
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='黃', pos='NOUN', lemma='黃', scansion=None, xpos='n,名詞,描写,形質', upos='NOUN', dependency_relation='nmod', governor=1, features={}, embedding=None, stop=None, named_entity=None)
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
 
