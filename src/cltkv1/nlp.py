@@ -6,6 +6,8 @@ from cltkv1.languages.pipelines import (
     AkkadianPipeline,
     ArabicPipeline,
     AramaicPipeline,
+    ChinesePipeline,
+    CopticPipeline,
     GothicPipeline,
     GreekPipeline,
     HindiPipeline,
@@ -29,6 +31,7 @@ iso_to_pipeline = {
     "arb": ArabicPipeline,
     "arc": AramaicPipeline,
     "chu": OCSPipeline,
+    "cop": CopticPipeline,
     "enm": MiddleEnglishPipeline,
     "frm": MiddleFrenchPipeline,
     "fro": OldFrenchPipeline,
@@ -37,6 +40,7 @@ iso_to_pipeline = {
     "grc": GreekPipeline,
     "hin": HindiPipeline,
     "lat": LatinPipeline,
+    "lzh": ChinesePipeline,
     "non": OldNorsePipeline,
     "pan": PanjabiPipeline,
     "pli": PaliPipeline,
@@ -125,6 +129,16 @@ class NLP:
         Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='swa', pos='Df', lemma='swa', scansion=None, xpos='Df', upos='ADV', dependency_relation='advmod', governor=1, parent=None, features={}, embedding=..., stop=None, named_entity=None)
         >>> len(cltk_doc.sentences)
         4
+
+        >>> cltk_nlp = NLP(language="cop")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("cop"))
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        '???
+
+        >>> cltk_nlp = NLP(language="lzh")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lzh"))
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        '???'
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
 

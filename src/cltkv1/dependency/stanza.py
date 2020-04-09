@@ -45,7 +45,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.treebank
         'perseus'
         >>> from cltkv1.utils.example_texts import get_example_text
-        >>> snlp_doc = stanza_wrapper.parse(get_example_text("grc"))
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
         >>> StanzaWrapper(language="xxx", stanza_debug_level="INFO")
         Traceback (most recent call last):
@@ -53,16 +53,22 @@ class StanzaWrapper:
         cltkv1.core.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by Stanza.
 
         >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="proiel", stanza_debug_level="INFO")
-        >>> snlp_doc = stanza_wrapper.parse(get_example_text("grc"))
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
         >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="perseus", stanza_debug_level="INFO")
-        >>> snlp_doc = stanza_wrapper.parse(get_example_text("lat"))
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("lat"))
 
         >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="proiel", stanza_debug_level="INFO")
-        >>> snlp_doc = stanza_wrapper.parse(get_example_text("lat"))
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("lat"))
 
         >>> stanza_wrapper = StanzaWrapper(language="chu", stanza_debug_level="INFO")
-        >>> snlp_doc = stanza_wrapper.parse(get_example_text("chu"))
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("chu"))
+
+        >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO")
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("cop"))
+
+        >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO")
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("lzh"))
 
         >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO")
         Traceback (most recent call last):
@@ -75,11 +81,13 @@ class StanzaWrapper:
 
         # Setup language
         self.map_langs_cltk_stanza = {
-            "grc": "Ancient_Greek",
-            "lat": "Latin",
             "chu": "Old_Church_Slavonic",
+            "cop": "Coptic",
             "fro": "Old_French",
+            "grc": "Ancient_Greek",
             "got": "Gothic",
+            "lat": "Latin",
+            "lzh": "Classical_Chinese",
         }
 
         self.wrapper_available = self.is_wrapper_available()  # type: bool

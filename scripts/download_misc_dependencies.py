@@ -18,13 +18,14 @@ def get_all_stanza_models() -> None:
     `<https://stanfordnlp.github.io/stanza/models.html>_.
     """
     all_ud_models_for_cltk = dict(
-        grc=["perseus", "proiel"],
-        la=["ittb", "proiel", "perseus"],
+        cop=["scriptorium"],
         cu=["proiel"],  # OCS
         fro=["srcmf"],  # Old French
+        grc=["perseus", "proiel"],
         got=["proiel"],
+        la=["ittb", "proiel", "perseus"],
+        lzh=["kyoto"],
     )  # type: Dict[str, List[str]]
-    # cltk_stanford_dir = os.path.expanduser("~/cltk_data/stanza_resources/")  # type: str
     stanford_dir = os.path.expanduser("~/stanza_resources/")  # type: str
     for lang_name, model_sources in all_ud_models_for_cltk.items():
         for model_source in model_sources:

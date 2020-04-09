@@ -11,6 +11,8 @@ from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.processes import (
+    ChineseStanzaProcess,
+    CopticStanzaProcess,
     GothicStanzaProcess,
     GreekStanzaProcess,
     LatinStanzaProcess,
@@ -121,6 +123,56 @@ class AramaicPipeline(Pipeline):
             ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
             AramaicEmbeddingsProcess,
         ]
+    )
+
+
+@dataclass
+class ChinesePipeline(Pipeline):
+    """Default ``Pipeline`` for Classical Chinese.
+
+    >>> from cltkv1.languages.pipelines import ChinesePipeline
+    >>> a_pipeline = ChinesePipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Classical Chinese language'
+    >>> a_pipeline.language
+    Language(name='Chinese', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
+    >>> a_pipeline.language.name
+    'Chinese'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.processes.ChineseStanzaProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltkv1.embeddings.processes.ChineseEmbeddingsProcess'>
+    """
+
+    description: str = "Pipeline for the Classical Chinese language"
+    language: Language = get_lang("lzh")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [ChineseStanzaProcess]
+    )
+
+
+@dataclass
+class CopticPipeline(Pipeline):
+    """Default ``Pipeline`` for Coptic.
+
+    >>> from cltkv1.languages.pipelines import CopticPipeline
+    >>> a_pipeline = CopticPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Coptic language'
+    >>> a_pipeline.language
+    Language(name='Coptic', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
+    >>> a_pipeline.language.name
+    'Coptic'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.processes.CopticStanzaProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltkv1.embeddings.processes.CopticEmbeddingsProcess'>
+    """
+
+    description: str = "Pipeline for the Coptic language"
+    language: Language = get_lang("cop")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [CopticStanzaProcess]
     )
 
 

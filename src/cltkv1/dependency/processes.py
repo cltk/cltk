@@ -142,6 +142,18 @@ class GothicStanzaProcess(StanzaProcess):
     description: str = "Default process for Stanza for the Gothic language."
 
 
+@dataclass
+class CopticStanzaProcess(StanzaProcess):
+    language: str = "cop"
+    description: str = "Default process for Stanza for the Coptic language."
+
+
+@dataclass
+class ChineseStanzaProcess(StanzaProcess):
+    language: str = "lzh"
+    description: str = "Default process for Stanza for the Classical Chinese language."
+
+
 class TreeBuilderProcess(Process):
     """A ``Process`` that takes a doc containing sentences of CLTK words
     and returns a dependency tree for each sentences.
