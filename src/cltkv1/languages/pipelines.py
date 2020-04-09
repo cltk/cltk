@@ -135,7 +135,7 @@ class ChinesePipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Classical Chinese language'
     >>> a_pipeline.language
-    Language(name='Chinese', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
+    Language(name='Literary Chinese', glottolog_id='lite1248', latitude=0.0, longitude=0.0, dates=[], family_id='sino1245', parent_id='clas1255', level='language', iso_639_3_code='lzh', type='h')
     >>> a_pipeline.language.name
     'Chinese'
     >>> a_pipeline.processes[0]
@@ -160,7 +160,7 @@ class CopticPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Coptic language'
     >>> a_pipeline.language
-    Language(name='Coptic', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
+    Language(name='Coptic', glottolog_id='copt1239', latitude=29.472, longitude=31.2053, dates=[], family_id='afro1255', parent_id='egyp1245', level='language', iso_639_3_code='cop', type='')
     >>> a_pipeline.language.name
     'Coptic'
     >>> a_pipeline.processes[0]
