@@ -342,7 +342,7 @@ class StanzaWrapper:
             raise KeyError("The CLTK's map of ISO-to-Stanza is out of sync.")
 
     @classmethod
-    def get_nlp(cls, language: str, treebank: Optional[str] = None) -> stanza.Pipeline:
+    def get_nlp(cls, language: str, treebank: Optional[str] = None):
         if language in cls.nlps:
             return cls.nlps[language]
         else:
