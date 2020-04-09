@@ -137,11 +137,9 @@ class ChinesePipeline(Pipeline):
     >>> a_pipeline.language
     Language(name='Literary Chinese', glottolog_id='lite1248', latitude=0.0, longitude=0.0, dates=[], family_id='sino1245', parent_id='clas1255', level='language', iso_639_3_code='lzh', type='h')
     >>> a_pipeline.language.name
-    'Chinese'
+    'Literary Chinese'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.processes.ChineseStanzaProcess'>
-    >>> a_pipeline.processes[1]
-    <class 'cltkv1.embeddings.processes.ChineseEmbeddingsProcess'>
     """
 
     description: str = "Pipeline for the Classical Chinese language"
@@ -165,8 +163,6 @@ class CopticPipeline(Pipeline):
     'Coptic'
     >>> a_pipeline.processes[0]
     <class 'cltkv1.dependency.processes.CopticStanzaProcess'>
-    >>> a_pipeline.processes[1]
-    <class 'cltkv1.embeddings.processes.CopticEmbeddingsProcess'>
     """
 
     description: str = "Pipeline for the Coptic language"
