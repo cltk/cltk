@@ -96,7 +96,7 @@ class Doc:
     >>> cltk_doc.tokens_stops_filtered[:10]
     ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
     >>> cltk_doc.pos[:3]
-    ['NOUN', 'AUX', 'DET']
+    ['NOUN', 'AUX', 'PRON']
     >>> cltk_doc.morphosyntactic_features[:3]
     [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
     >>> cltk_doc.lemmata[:5]

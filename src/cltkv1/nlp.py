@@ -93,9 +93,6 @@ class NLP:
     def analyze(self, text: str) -> Doc:
         """The primary method for the NLP object, to which raw text strings are passed.
 
-        TODO: Run the OF example and then log the FileNotFoundError inside the `stanford.py` module
-
-
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> from cltkv1.core.data_types import Doc
