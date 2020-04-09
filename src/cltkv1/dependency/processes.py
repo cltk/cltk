@@ -27,7 +27,7 @@ class StanzaProcess(Process):
     >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
     >>> isinstance(process_stanza, StanzaProcess)
     True
-    >>> from stanza.pipeline.doc import Document
+    >>> from stanza.models.common.doc import Document
     >>> process_stanza.run()
     >>> isinstance(process_stanza.output_doc.stanza_doc, Document)
     True
@@ -50,7 +50,6 @@ class StanzaProcess(Process):
 
     @staticmethod
     def stanza_to_cltk_word_type(stanza_doc):
-
         """Take an entire ``stanza`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
@@ -65,7 +64,7 @@ class StanzaProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='A1|grn1|casA|gen2|stAM', lemma='aallius', scansion=None, xpos='A1|grn1|casA|gen2|stAM', upos='NOUN', dependency_relation='nsubj', governor=3, parent=None, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None)
         """
         words_list = list()  # type: List[Word]
 
@@ -76,36 +75,39 @@ class StanzaProcess(Process):
             for token_index, token in enumerate(sentence.tokens):
                 stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
                 cltk_word = Word(
-                    index_token=int(stanza_word.index)
-                    - 1,  # subtract 1 from index b/c snpl starts their index at 1
+                    index_token=int(stanza_word.id)
+                    - 1,  # subtract 1 from id b/c snpl starts their index at 1
                     index_sentence=sentence_index,
                     string=stanza_word.text,  # same as ``token.text``
                     pos=stanza_word.pos,
                     xpos=stanza_word.xpos,
                     upos=stanza_word.upos,
                     lemma=stanza_word.lemma,
-                    dependency_relation=stanza_word.dependency_relation,
-                    features={}
-                    if stanza_word.feats == "_"
+                    dependency_relation=stanza_word.deprel,
+                    governor=stanza_word.head
+                    - 1,  # note: if val becomes ``-1`` then no governor, ie word is root
+                    features=dict()
+                    if not stanza_word.feats
                     else dict([f.split("=") for f in stanza_word.feats.split("|")]),
                 )  # type: Word
-                sent_words[cltk_word.index_token] = cltk_word
-                indices.append(
-                    (
-                        int(stanza_word.governor)
-                        - 1,  # -1 to match CLTK Word.index_token
-                        int(stanza_word.parent_token.index)
-                        - 1,  # -1 to match CLTK Word.index_token
-                    )
-                )
+                # sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
 
-            # TODO: Confirm that cltk_word.parent is ever getting filled out. Only for some lang models?
-            for idx, cltk_word in enumerate(sent_words.values()):
-                governor_index, parent_index = indices[idx]  # type: int, int
-                cltk_word.governor = governor_index if governor_index >= 0 else None
-                if cltk_word.index_token != sent_words[parent_index].index_token:
-                    cltk_word.parent = parent_index
+                # # TODO: Fix this, I forget what we were tracking in this
+                # indices.append(
+                #     (
+                #         int(stanza_word.governor)
+                #         - 1,  # -1 to match CLTK Word.index_token
+                #         int(stanza_word.parent_token.index)
+                #         - 1,  # -1 to match CLTK Word.index_token
+                #     )
+                # )
+            # # TODO: Confirm that cltk_word.parent is ever getting filled out. Only for some lang models?
+            # for idx, cltk_word in enumerate(sent_words.values()):
+            #     governor_index, parent_index = indices[idx]  # type: int, int
+            #     cltk_word.governor = governor_index if governor_index >= 0 else None
+            #     if cltk_word.index_token != sent_words[parent_index].index_token:
+            #         cltk_word.parent = parent_index
 
         return words_list
 

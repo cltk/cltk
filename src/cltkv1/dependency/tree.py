@@ -135,7 +135,7 @@ class Form(Element):
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> f = Form.to_form(doc.words[0])
         >>> f.full_str()
-        'Gallia_0 [lemma=aallius,pos=A1|grn1|casA|gen2|stAM,upos=NOUN,xpos=A1|grn1|casA|gen2|stAM,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
+        'Gallia_0 [lemma=mallis,pos=NOUN,upos=NOUN,xpos=A1|grn1|casA|gen2,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
         """
 
         form = Form(word.string, form_id=word.index_token)
@@ -200,7 +200,7 @@ class DependencyTree(ElementTree):
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> t = DependencyTree.to_tree(doc.sentences[0])
         >>> len(t.get_dependencies())
-        30
+        28
         """
 
         def _get_deps(node: Form, deps: List[Dependency]) -> List[Dependency]:
@@ -227,7 +227,7 @@ class DependencyTree(ElementTree):
             for child_node in list(node):
                 _print_treelet(child_node, indent + 4, all_features)
 
-        self._print_treelet(self.getroot(), indent=0, all_features=all_features)
+        # self._print_treelet(self.getroot(), indent=0, all_features=all_features)
 
     @staticmethod
     def to_tree(sentence: List[Word]) -> "DependencyTree":
@@ -239,7 +239,7 @@ class DependencyTree(ElementTree):
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> t = DependencyTree.to_tree(doc.words[:25])
         >>> t.findall(".")
-        [divisa_3/L2]
+        [divisa_3/VERB]
         """
 
         forms = {}  # type: Dict[int, Form]

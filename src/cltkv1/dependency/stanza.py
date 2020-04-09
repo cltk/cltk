@@ -176,6 +176,19 @@ class StanzaWrapper:
         >>> first_word.feats
         >>> first_word.head
         7
+        >>> first_word.parent
+        [
+          {
+            "id": "1",
+            "text": "ὅτι",
+            "lemma": "ὅτι",
+            "upos": "ADV",
+            "xpos": "Df",
+            "head": 7,
+            "deprel": "advmod",
+            "misc": "start_char=0|end_char=3"
+          }
+        ]
         >>> first_word.misc
         'start_char=0|end_char=3'
         >>> first_word.deprel
@@ -204,8 +217,10 @@ class StanzaWrapper:
         models_dir = os.path.expanduser(
             "~/stanza_resources/"
         )  # TODO: Mv this a self. var or maybe even global
+        lemma_use_identity = False
         if self.language == "fro":
             processors = "tokenize,pos,lemma"
+            lemma_use_identity = True
         else:
             processors = "tokenize,mwt,pos,lemma,depparse"
 
@@ -217,7 +232,7 @@ class StanzaWrapper:
             processors=processors,  # these are the default processors
             logging_level=self.stanza_debug_level,
             use_gpu=True,  # default, won't fail if GPU not present
-            lemma_use_identity=True,
+            lemma_use_identity=lemma_use_identity,
         )
         return nlp
 
