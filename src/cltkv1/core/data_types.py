@@ -100,7 +100,7 @@ class Doc:
     >>> cltk_doc.morphosyntactic_features[:3]
     [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
     >>> cltk_doc.lemmata[:5]
-    ['aallius', 'sum', 'omnis', 'divido', 'in']
+    ['mallis', 'sum', 'omnis', 'divido', 'in']
     >>> len(cltk_doc.sentences)
     9
     >>> len(cltk_doc.sentences[0])
