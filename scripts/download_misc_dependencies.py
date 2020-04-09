@@ -6,7 +6,8 @@ Use: `$ python cltk/utils/download_misc_dependencies.py`
 import os
 from typing import Any, Dict, List
 
-from stanza.utils.resources import download
+# from stanza.utils.resources import download
+import stanza
 
 from cltkv1.data.fetch import FetchCorpus
 from cltkv1.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
@@ -29,7 +30,11 @@ def get_all_stanza_models() -> None:
     stanford_dir = os.path.expanduser("~/stanza_resources/")  # type: str
     for lang_name, model_sources in all_ud_models_for_cltk.items():
         for model_source in model_sources:
-            download(lang=lang_name, dir=stanford_dir, package=model_source)
+            if lang_name == "cop":
+                # Coptic errors our, for some reason, if we pass the package name ``scriptorium``
+                stanza.download(lang=lang_name, dir=stanford_dir)
+            else:
+                stanza.download(lang=lang_name, dir=stanford_dir, package=model_source)
 
 
 def get_fasttext_models(interactive=True) -> None:

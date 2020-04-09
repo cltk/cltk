@@ -258,8 +258,6 @@ class StanzaWrapper:
     def _download_model(self) -> None:
         """Interface with the `stanza` model downloader.
 
-        TODO: (old) Figure out why doctests here hang. Presumably because waiting for user op_input, but prompt shouldn't arise if models already present.
-
         # >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
         # >>> stanza_wrapper._download_model()
         # True
@@ -271,7 +269,7 @@ class StanzaWrapper:
         print("Α" * 80)  # pragma: no cover
         print("")  # pragma: no cover
         print(  # pragma: no cover
-            "CLTK message: The part of the CLTK that you are using depends upon the Stanza NLP library (`stanza`). What follows are several question prompts coming from it. (More at: <https://github.com/stanza/stanza>.) Answer with defaults."
+            "CLTK message: The part of the CLTK that you are using depends upon the Stanza NLP library (`stanza`). What follows are several question prompts coming from it. (More at: <https://github.com/stanfordnlp/stanza>.) Answer with defaults."
         )  # pragma: no cover
         print("")  # pragma: no cover
         print("Ω" * 80)  # pragma: no cover
