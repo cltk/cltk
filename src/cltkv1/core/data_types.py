@@ -55,7 +55,7 @@ class Word:
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None, embedding=None, stop=None, named_entity=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, embedding=None, stop=None, named_entity=None)
     """
 
     index_char_start: int = None
@@ -66,12 +66,11 @@ class Word:
     pos: str = None
     lemma: str = None
     scansion: str = None
-    xpos: str = None  # treebank-specific POS tag (from stanfordnlp)
-    upos: str = None  # universal POS tag (from stanfordnlp)
-    dependency_relation: str = None  # (from stanfordnlp)
-    governor: "Word" = None
-    parent: "Word" = None
-    features: Dict[str, str] = None  # morphological features (from stanfordnlp)
+    xpos: str = None  # treebank-specific POS tag (from stanza)
+    upos: str = None  # universal POS tag (from stanza)
+    dependency_relation: str = None  # (from stanza)
+    governor: int = None
+    features: Dict[str, str] = None  # morphological features (from stanza)
     embedding: numpy.ndarray = None
     stop: bool = None
     named_entity: bool = None
@@ -97,11 +96,11 @@ class Doc:
     >>> cltk_doc.tokens_stops_filtered[:10]
     ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
     >>> cltk_doc.pos[:3]
-    ['NOUN', 'AUX', 'DET']
+    ['NOUN', 'AUX', 'PRON']
     >>> cltk_doc.morphosyntactic_features[:3]
     [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
     >>> cltk_doc.lemmata[:5]
-    ['aallius', 'sum', 'omnis', 'divido', 'in']
+    ['mallis', 'sum', 'omnis', 'divido', 'in']
     >>> len(cltk_doc.sentences)
     9
     >>> len(cltk_doc.sentences[0])

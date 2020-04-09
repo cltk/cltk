@@ -1149,17 +1149,17 @@ test = ["pytest"]
 
 [[package]]
 category = "main"
-description = "Official Stanford NLP Python Library"
-name = "stanfordnlp"
+description = "A Python NLP Library for Many Human Languages, by the Stanford NLP Group"
+name = "stanza"
 optional = false
-python-versions = "*"
-version = "0.2.0"
+python-versions = ">=3.6"
+version = "1.0.0"
 
 [package.dependencies]
 numpy = "*"
 protobuf = "*"
 requests = "*"
-torch = ">=1.0.0"
+torch = ">=1.2.0"
 tqdm = "*"
 
 [package.extras]
@@ -1335,7 +1335,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "5d5d8af0e88c8d116ad0a415bc0bcccfb02a957c92954d3b4615b25626ac04b9"
+content-hash = "29893df02968940c5912522bc533220eeabab39e7b71dadf8c692428be75e657"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -2004,9 +2004,9 @@ sphinxcontrib-serializinghtml = [
     {file = "sphinxcontrib-serializinghtml-1.1.4.tar.gz", hash = "sha256:eaa0eccc86e982a9b939b2b82d12cc5d013385ba5eadcc7e4fed23f4405f77bc"},
     {file = "sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl", hash = "sha256:f242a81d423f59617a8e5cf16f5d4d74e28ee9a66f9e5b637a18082991db5a9a"},
 ]
-stanfordnlp = [
-    {file = "stanfordnlp-0.2.0-py3-none-any.whl", hash = "sha256:66450f0b422e649e8b31f171260930b733324b000ebfe81c436328b424425902"},
-    {file = "stanfordnlp-0.2.0.tar.gz", hash = "sha256:a8bd56dfef23cbb1e1c461469ac5bdd4563c24f360befe300a7d97cb51b49a49"},
+stanza = [
+    {file = "stanza-1.0.0-py3-none-any.whl", hash = "sha256:78dd1a17df9add4ea15cb7bf132211bd93ac713dfe7a12c589f2152c2fe9e8c4"},
+    {file = "stanza-1.0.0.tar.gz", hash = "sha256:56be5f0f27c0ab19b3d82443b7a4ac993ad8123814702c1fd7a2492ce169986b"},
 ]
 toml = [
     {file = "toml-0.10.0-py2.7.egg", hash = "sha256:f1db651f9657708513243e61e6cc67d101a39bad662eaa9b5546f789338e07a3"},

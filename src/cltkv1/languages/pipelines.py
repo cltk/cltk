@@ -11,11 +11,13 @@ from typing import List, Type
 
 from cltkv1.core.data_types import Language, Pipeline, Process
 from cltkv1.dependency.processes import (
-    GothicStanfordNLPProcess,
-    GreekStanfordNLPProcess,
-    LatinStanfordNLPProcess,
-    OCSStanfordNLPProcess,
-    OldFrenchStanfordNLPProcess,
+    ChineseStanzaProcess,
+    CopticStanzaProcess,
+    GothicStanzaProcess,
+    GreekStanzaProcess,
+    LatinStanzaProcess,
+    OCSStanzaProcess,
+    OldFrenchStanzaProcess,
 )
 from cltkv1.embeddings.processes import (
     ArabicEmbeddingsProcess,
@@ -125,6 +127,52 @@ class AramaicPipeline(Pipeline):
 
 
 @dataclass
+class ChinesePipeline(Pipeline):
+    """Default ``Pipeline`` for Classical Chinese.
+
+    >>> from cltkv1.languages.pipelines import ChinesePipeline
+    >>> a_pipeline = ChinesePipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Classical Chinese language'
+    >>> a_pipeline.language
+    Language(name='Literary Chinese', glottolog_id='lite1248', latitude=0.0, longitude=0.0, dates=[], family_id='sino1245', parent_id='clas1255', level='language', iso_639_3_code='lzh', type='h')
+    >>> a_pipeline.language.name
+    'Literary Chinese'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.processes.ChineseStanzaProcess'>
+    """
+
+    description: str = "Pipeline for the Classical Chinese language"
+    language: Language = get_lang("lzh")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [ChineseStanzaProcess]
+    )
+
+
+@dataclass
+class CopticPipeline(Pipeline):
+    """Default ``Pipeline`` for Coptic.
+
+    >>> from cltkv1.languages.pipelines import CopticPipeline
+    >>> a_pipeline = CopticPipeline()
+    >>> a_pipeline.description
+    'Pipeline for the Coptic language'
+    >>> a_pipeline.language
+    Language(name='Coptic', glottolog_id='copt1239', latitude=29.472, longitude=31.2053, dates=[], family_id='afro1255', parent_id='egyp1245', level='language', iso_639_3_code='cop', type='')
+    >>> a_pipeline.language.name
+    'Coptic'
+    >>> a_pipeline.processes[0]
+    <class 'cltkv1.dependency.processes.CopticStanzaProcess'>
+    """
+
+    description: str = "Pipeline for the Coptic language"
+    language: Language = get_lang("cop")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [CopticStanzaProcess]
+    )
+
+
+@dataclass
 class GothicPipeline(Pipeline):
     """Default ``Pipeline`` for Gothic.
 
@@ -137,7 +185,7 @@ class GothicPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Gothic'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.processes.GothicStanfordNLPProcess'>
+    <class 'cltkv1.dependency.processes.GothicStanzaProcess'>
     >>> a_pipeline.processes[1]
     <class 'cltkv1.embeddings.processes.GothicEmbeddingsProcess'>
     """
@@ -145,7 +193,7 @@ class GothicPipeline(Pipeline):
     description: str = "Pipeline for the Gothic language"
     language: Language = get_lang("got")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [GothicStanfordNLPProcess, GothicEmbeddingsProcess]
+        default_factory=lambda: [GothicStanzaProcess, GothicEmbeddingsProcess]
     )
 
 
@@ -162,7 +210,7 @@ class GreekPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Ancient Greek'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.processes.GreekStanfordNLPProcess'>
+    <class 'cltkv1.dependency.processes.GreekStanzaProcess'>
     """
 
     description: str = "Pipeline for the Greek language"
@@ -170,7 +218,7 @@ class GreekPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
             # GreekTokenizationProcess,
-            GreekStanfordNLPProcess,
+            GreekStanzaProcess,
             GreekEmbeddingsProcess,
             StopsProcess,
             GreekNERProcess,
@@ -219,7 +267,7 @@ class LatinPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Latin'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.processes.LatinStanfordNLPProcess'>
+    <class 'cltkv1.dependency.processes.LatinStanzaProcess'>
     """
 
     description: str = "Pipeline for the Latin language"
@@ -227,7 +275,7 @@ class LatinPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
             # LatinTokenizationProcess,
-            LatinStanfordNLPProcess,
+            LatinStanzaProcess,
             LatinEmbeddingsProcess,
             StopsProcess,
             LatinNERProcess,
@@ -262,7 +310,7 @@ class MHGPipeline(Pipeline):
 class MiddleEnglishPipeline(Pipeline):
     """Default ``Pipeline`` for Middle English.
 
-    TODO: Figure out whether this the dedicated tokenizer is good enough or necessary; we have stanfordnlp for Old English, which might be able to tokenizer fine.
+    TODO: Figure out whether this the dedicated tokenizer is good enough or necessary; we have stanza for Old English, which might be able to tokenizer fine.
 
     >>> from cltkv1.languages.pipelines import MiddleEnglishPipeline
     >>> a_pipeline = MiddleEnglishPipeline()
@@ -287,7 +335,7 @@ class MiddleEnglishPipeline(Pipeline):
 class MiddleFrenchPipeline(Pipeline):
     """Default ``Pipeline`` for Middle French.
 
-    TODO: Figure out whether this the dedicated tokenizer is good enough or necessary; we have stanfordnlp for Old French, which might be able to tokenizer fine.
+    TODO: Figure out whether this the dedicated tokenizer is good enough or necessary; we have stanza for Old French, which might be able to tokenizer fine.
 
     >>> from cltkv1.languages.pipelines import MiddleFrenchPipeline
     >>> a_pipeline = MiddleFrenchPipeline()
@@ -321,14 +369,12 @@ class OCSPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Church Slavic'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.processes.OCSStanfordNLPProcess'>
+    <class 'cltkv1.dependency.processes.OCSStanzaProcess'>
     """
 
     description: str = "Pipeline for the Old Church Slavonic language"
     language: Language = get_lang("chu")
-    processes: List[Type[Process]] = field(
-        default_factory=lambda: [OCSStanfordNLPProcess]
-    )
+    processes: List[Type[Process]] = field(default_factory=lambda: [OCSStanzaProcess])
 
 
 @dataclass
@@ -371,7 +417,7 @@ class OldFrenchPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Old French (842-ca. 1400)'
     >>> a_pipeline.processes[0]
-    <class 'cltkv1.dependency.processes.OldFrenchStanfordNLPProcess'>
+    <class 'cltkv1.dependency.processes.OldFrenchStanzaProcess'>
     """
 
     description: str = "Pipeline for the Old French language"
@@ -379,7 +425,7 @@ class OldFrenchPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
             # OldFrenchTokenizationProcess,
-            OldFrenchStanfordNLPProcess,
+            OldFrenchStanzaProcess,
             StopsProcess,
             OldFrenchNERProcess,
         ]
