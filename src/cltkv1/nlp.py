@@ -112,7 +112,7 @@ class NLP:
         >>> cltk_nlp = NLP(language="chu")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("chu"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='отьчє', pos='Nb', lemma='отьць', scansion=None, xpos='Nb', upos='NOUN', dependency_relation='nsubj', governor=5, parent=None, features={'Case': 'Nom', 'Gender': 'Masc', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='отьчє', pos='NOUN', lemma='отьць', scansion=None, xpos='Nb', upos='NOUN', dependency_relation='vocative', governor=7, features={'Case': 'Voc', 'Gender': 'Masc', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None)
 
         >>> cltk_nlp = NLP(language="fro")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("fro"))
