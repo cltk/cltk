@@ -3,7 +3,6 @@ that are called by ``Pipeline``s.
 """
 
 from dataclasses import dataclass
-from typing import Callable
 
 import numpy as np
 from boltons.cacheutils import cachedproperty
@@ -67,7 +66,7 @@ class ArabicEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import ArabicEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "arb"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -87,7 +86,7 @@ class AramaicEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import AramaicEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "arc"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -107,7 +106,7 @@ class GothicEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import GothicEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "got"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -127,7 +126,7 @@ class GreekEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import GreekEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "grc"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -148,7 +147,7 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import LatinEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "lat"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -168,7 +167,7 @@ class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import OldEnglishEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "ang"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -188,7 +187,7 @@ class PaliEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import PaliEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "pli"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -208,7 +207,7 @@ class SanskritEmbeddingsProcess(EmbeddingsProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.embeddings.processes import SanskritEmbeddingsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> language = "san"
     >>> example_text = get_example_text(language)
     >>> tokens = [Word(string=token) for token in example_text.split(" ")]
@@ -228,7 +227,7 @@ if __name__ == "__main__":
     t0 = datetime.now()
     from boltons.strutils import split_punct_ws
     from cltkv1.core.data_types import Word
-    from cltkv1.utils.example_texts import get_example_text
+    from cltkv1.languages.example_texts import get_example_text
 
     first_doc = Doc(raw=get_example_text("lat"), language="lat")
     first_doc.words = [Word(string=w) for w in split_punct_ws(first_doc.raw)]

@@ -26,7 +26,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
     others give string of entity type (e.g., ``LOC``).
 
     >>> from cltkv1.ner.ner import tag_ner
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> tokens = split_punct_ws(get_example_text(iso_code="lat"))
     >>> are_words_entities = tag_ner(iso_code="lat", input_tokens=tokens)

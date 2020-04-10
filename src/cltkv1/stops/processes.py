@@ -13,7 +13,7 @@ class StopsProcess(Process):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.stops.processes import StopsProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> lang = "lat"
     >>> words = [Word(string=token) for token in split_punct_ws(get_example_text(lang))]
     >>> stops_process = StopsProcess(input_doc=Doc(raw=get_example_text(lang), words=words), language=lang)

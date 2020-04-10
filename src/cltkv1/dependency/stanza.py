@@ -44,7 +44,7 @@ class StanzaWrapper:
         'grc'
         >>> stanza_wrapper.treebank
         'perseus'
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
         >>> StanzaWrapper(language="xxx", stanza_debug_level="INFO")
@@ -136,7 +136,7 @@ class StanzaWrapper:
     def parse(self, text: str):
         """Run all available ``stanza`` parsing on input text.
 
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
         >>> greek_nlp = stanza_wrapper.parse(get_example_text("grc"))
         >>> from stanza.models.common.doc import Document, Token

@@ -49,7 +49,7 @@ class Word:
     words. Designed to be used in the ``Doc.words`` dataclass.
 
     >>> from cltkv1.core.data_types import Word
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> get_example_text("lat")[:25]
     'Gallia est omnis divisa i'
     >>> from cltkv1.languages.utils import get_lang
@@ -84,7 +84,7 @@ class Doc:
     being a list of ``Word`` types.
 
     >>> from cltkv1 import NLP
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> cltk_nlp = NLP(language="lat")
     >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
     >>> cltk_doc.raw[:38]

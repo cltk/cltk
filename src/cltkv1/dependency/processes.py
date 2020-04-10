@@ -23,7 +23,7 @@ class StanzaProcess(Process):
 
 
     >>> from cltkv1.dependency.processes import StanzaProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
     >>> isinstance(process_stanza, StanzaProcess)
     True
@@ -55,7 +55,7 @@ class StanzaProcess(Process):
         the CLTK's ``Word`` type.
 
         >>> from cltkv1.dependency.processes import StanzaProcess
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
         >>> process_stanza.run()
         >>> cltk_words = process_stanza.output_doc.words
@@ -167,7 +167,7 @@ class TreeBuilderProcess(Process):
     >>> from cltkv1.dependency.processes import TreeBuilderProcess
 
     # >>> nlp.pipeline.add_process(TreeBuilderProcess)
-    # >>> from cltkv1.utils.example_texts import get_example_text
+    # >>> from cltkv1.languages.example_texts import get_example_text
     # >>> doc = nlp.analyze(text=get_example_text("got"))
     # >>> len(doc.trees)
     # 4

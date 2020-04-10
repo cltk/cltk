@@ -2,7 +2,7 @@
 
 TODO: Get longer Akkadian text
 
->>> from cltkv1.utils.example_texts import get_example_text
+>>> from cltkv1.languages.example_texts import get_example_text
 >>> get_example_text("grc")[:66]
 'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων'
 >>> get_example_text("lat")[:67]
@@ -148,7 +148,7 @@ helidos ubar hringa do sie to dero hiltiu ritun""",
 def get_example_text(iso_code: str) -> str:
     """Take in search term of usual language name and find ISO code.
 
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> get_example_text("got")[:25]
     'swa liuhtjai liuhaþ izwar'
     >>> get_example_text("zkz")

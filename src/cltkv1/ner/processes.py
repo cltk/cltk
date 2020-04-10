@@ -44,7 +44,7 @@ class GreekNERProcess(NERProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.ner.processes import GreekNERProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> text = "ἐπὶ δ᾽ οὖν τοῖς πρώτοις τοῖσδε Περικλῆς ὁ Ξανθίππου ᾑρέθη λέγειν. καὶ ἐπειδὴ καιρὸς ἐλάμβανε, προελθὼν ἀπὸ τοῦ σήματος ἐπὶ βῆμα ὑψηλὸν πεποιημένον, ὅπως ἀκούοιτο ὡς ἐπὶ πλεῖστον τοῦ ὁμίλου, ἔλεγε τοιάδε."
     >>> tokens = [Word(string=token) for token in split_punct_ws(text)]
@@ -70,7 +70,7 @@ class LatinNERProcess(NERProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.ner.processes import LatinNERProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> tokens = [Word(string=token) for token in split_punct_ws(get_example_text("lat"))]
     >>> a_process = LatinNERProcess(input_doc=Doc(raw=get_example_text("lat"), words=tokens))
@@ -91,7 +91,7 @@ class OldFrenchNERProcess(NERProcess):
 
     >>> from cltkv1.core.data_types import Doc, Word
     >>> from cltkv1.ner.processes import OldFrenchNERProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> tokens = [Word(string=token) for token in split_punct_ws(get_example_text("fro"))]
     >>> a_process = OldFrenchNERProcess(input_doc=Doc(raw=get_example_text("fro"), words=tokens))

@@ -133,7 +133,7 @@ def normalize_middle_high_german(
     punct: remove punctuation
 
     >>> from cltkv1.alphabet import gmh
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> gmh.normalize_middle_high_german(get_example_text("gmh"))[:50]
     'ik gihorta ðat seggen\\nðat sih urhettun ænon muotin'
     """

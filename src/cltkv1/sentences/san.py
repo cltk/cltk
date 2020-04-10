@@ -1,7 +1,7 @@
 """Sentence tokenization for Sanskrit.
 
 >>> from cltkv1.sentences.san import SanskritRegexSentenceTokenizer
->>> from cltkv1.utils.example_texts import get_example_text
+>>> from cltkv1.languages.example_texts import get_example_text
 >>> splitter = SanskritRegexSentenceTokenizer()
 >>> sentences = splitter.tokenize(get_example_text("san"))
 >>> sentences[1]
