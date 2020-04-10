@@ -10,7 +10,7 @@ of the NLP pipeline.
 """
 
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Type, Union
+from typing import Dict, List, Type
 
 import numpy
 
@@ -170,9 +170,8 @@ class Doc:
         """
         sentences_list = self.sentences_tokens  # type: List[List[str]]
         sentences_str = list()  # type: List[List[str]]
-        for sentence in sentences_list:
-            sentence_tokens = [token for token in sentence]  # type: List[str]
-            sentence_tokens_str = " ".join(sentence_tokens)
+        for sentence_tokens in sentences_list:  # type: List[str]
+            sentence_tokens_str = " ".join(sentence_tokens)  # type: str
             sentences_str.append(sentence_tokens_str)
         return sentences_str
 

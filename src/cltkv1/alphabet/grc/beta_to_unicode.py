@@ -4,6 +4,8 @@ TODO: Rm regex dependency
 TODO: Add tests
 """
 
+# pylint: disable=anomalous-backslash-in-string
+
 import regex
 
 BETA_REPLACE_UPPER = [
@@ -365,13 +367,13 @@ BETA_REPLACE_PUNCT = [
 
 class BetaCodeReplacer:
     """Replace Beta Code with Unicode.
-    
+
     >>> from cltkv1.alphabet.grc.beta_to_unicode import BetaCodeReplacer
     >>> beta_code_replace = BetaCodeReplacer()
     >>> beta_code_str = "O(/PWS OU)=N MH\ TAU)TO\ "
     >>> beta_code_replace.replace_beta_code(beta_code_str)
     'ὅπως οὖν μὴ ταὐτὸ '
-    >>> beta_code_str = "PROU+POTETAGME/NWN"
+    >>> beta_code_str = r"PROU+POTETAGME/NWN"
     >>> beta_code_replace.replace_beta_code(beta_code_str)
     'προϋποτεταγμένων'
     """

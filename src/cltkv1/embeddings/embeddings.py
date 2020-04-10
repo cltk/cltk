@@ -134,7 +134,7 @@ class Word2VecEmbeddings:
         model_dir = os.path.join(
             CLTK_DATA_DIR, f"{self.iso_code}/embeddings/nlpl/"
         )  # type: str
-        return os.path.join(model_dir, f"model.{self.model_type}")  # type: str
+        return os.path.join(model_dir, f"model.{self.model_type}")
 
     def _is_nlpl_model_present(self) -> bool:
         """Check if model in an otherwise valid filepath."""

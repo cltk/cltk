@@ -157,7 +157,7 @@ NUMERALS_WRITINGS = {
 }
 
 
-to_reform = [
+TO_REFORM = [
     {
         "characters": [
             arb.HAMZA,
@@ -208,13 +208,13 @@ to_reform = [
 
 def mk_replacement_regex():
     replacement_dict = {}
-    for rule in to_reform:
+    for rule in TO_REFORM:
         for character in rule["characters"]:
             replacement_dict[character] = rule["to_be"]
 
-    for originalForm, shapedForms in arb.SHAPED_FORMS.items():
-        for form in shapedForms:
-            replacement_dict[form] = replacement_dict.get(originalForm, originalForm)
+    for original_form, shaped_forms in arb.SHAPED_FORMS.items():
+        for form in shaped_forms:
+            replacement_dict[form] = replacement_dict.get(original_form, original_form)
 
     for i in range(10):
         replacement_dict[arb.EASTERN_ARABIC_NUMERALS[i]] = NUMERALS[i]

@@ -116,42 +116,56 @@ class StanzaProcess(Process):
 
 @dataclass
 class GreekStanzaProcess(StanzaProcess):
+    """Stanza processor for Ancient Greek."""
+
     language: str = "grc"
     description: str = "Default process for Stanza for the Ancient Greek language."
 
 
 @dataclass
 class LatinStanzaProcess(StanzaProcess):
+    """Stanza processor for Latin."""
+
     language: str = "lat"
     description: str = "Default process for Stanza for the Latin language."
 
 
 @dataclass
 class OCSStanzaProcess(StanzaProcess):
+    """Stanza processor for Old Church Slavonic."""
+
     language: str = "chu"
     description: str = "Default process for Stanza for the Old Church Slavonic language."
 
 
 @dataclass
 class OldFrenchStanzaProcess(StanzaProcess):
+    """Stanza processor for Old French."""
+
     language: str = "fro"
     description: str = "Default process for Stanza for the Old French language."
 
 
 @dataclass
 class GothicStanzaProcess(StanzaProcess):
+    """Stanza processor for Gothic."""
+
     language: str = "got"
     description: str = "Default process for Stanza for the Gothic language."
 
 
 @dataclass
 class CopticStanzaProcess(StanzaProcess):
+    """Stanza processor for Coptic."""
+
     language: str = "cop"
     description: str = "Default process for Stanza for the Coptic language."
 
 
 @dataclass
 class ChineseStanzaProcess(StanzaProcess):
+    """Stanza processor for Classical Chinese."""
+
     language: str = "lzh"
     description: str = "Default process for Stanza for the Classical Chinese language."
 
