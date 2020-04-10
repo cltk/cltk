@@ -22,7 +22,7 @@ import requests
 from gensim import models  # type: ignore
 from tqdm import tqdm
 
-from cltkv1.core.exceptions import CLTKException, UnimplementedLanguageError
+from cltkv1.core.exceptions import CLTKException, UnimplementedAlgorithmError
 from cltkv1.languages.utils import get_lang
 from cltkv1.utils import CLTK_DATA_DIR
 
@@ -108,7 +108,7 @@ class Word2VecEmbeddings:
         # 2. check if any fasttext embeddings for this lang
         if self.iso_code not in self.MAP_LANG_TO_URL:
             available_embeddings_str = "', '".join(self.MAP_LANG_TO_URL.keys())
-            raise UnimplementedLanguageError(
+            raise UnimplementedAlgorithmError(
                 f"No embedding available for language '{self.iso_code}'. Word2Vec models available for: '{available_embeddings_str}'."
             )
 
@@ -344,7 +344,7 @@ class FastTextEmbeddings:
         >>> fasttext_model = FastTextEmbeddings(iso_code="ave", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
         Traceback (most recent call last):
           ..
-        cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: ...
+        cltkv1.core.exceptions.UnimplementedAlgorithmError: No embedding available for language 'ave'. FastTextEmbeddings available for: ...
         >>> fasttext_model = FastTextEmbeddings(iso_code="xxx", interactive=False, overwrite=False, silent=True)
         Traceback (most recent call last):
           ..
@@ -366,7 +366,7 @@ class FastTextEmbeddings:
         # 2. check if any fasttext embeddings for this lang
         if not self._is_fasttext_lang_available():
             available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
-            raise UnimplementedLanguageError(
+            raise UnimplementedAlgorithmError(
                 f"No embedding available for language '{self.iso_code}'. FastTextEmbeddings available for: '{available_embeddings_str}'."
             )
 
@@ -420,7 +420,7 @@ class FastTextEmbeddings:
         # >>> embeddings_obj = FastTextEmbeddings(iso_code="ave, silent=True")
         # Traceback (most recent call last):
         #   ..
-        # cltkv1.core.exceptions.UnimplementedLanguageError: No embedding available for language 'ave'. FastTextEmbeddings available for: 'ang', 'arb', 'arc', 'got', 'lat', 'pli', 'san'.
+        # cltkv1.core.exceptions.UnimplementedAlgorithmError: No embedding available for language 'ave'. FastTextEmbeddings available for: 'ang', 'arb', 'arc', 'got', 'lat', 'pli', 'san'.
         # >>> embeddings_obj = FastTextEmbeddings(iso_code="xxx", silent=True)
         # Traceback (most recent call last):
         #   ..

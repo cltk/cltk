@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
 from cltkv1.core.data_types import Doc, Language, Pipeline
-from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError, UnknownLanguageError
 from cltkv1.languages.pipelines import (
     AkkadianPipeline,
     ArabicPipeline,
@@ -85,12 +85,12 @@ class NLP:
         >>> cltk_nlp = NLP(language="axm")
         Traceback (most recent call last):
           ...
-        cltkv1.core.exceptions.UnimplementedLanguageError: Valid ISO language code, however this algorithm is not available for ``axm``.
+        cltkv1.core.exceptions.UnimplementedAlgorithmError: Valid ISO language code, however this algorithm is not available for ``axm``.
         """
         try:
             return iso_to_pipeline[self.language.iso_639_3_code]()
         except KeyError:
-            raise UnimplementedLanguageError(
+            raise UnimplementedAlgorithmError(
                 f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
             )
 
