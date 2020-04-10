@@ -2,7 +2,7 @@
 
 Sentence tokenization for Ancient Greek is available using a regular-expression based tokenizer.
 
->>> from cltkv1.sentences.grc import GreekRegexSentenceTokenizer
+>>> from cltkv1.sentence.grc import GreekRegexSentenceTokenizer
 >>> from cltkv1.languages.example_texts import get_example_text
 >>> splitter = GreekRegexSentenceTokenizer()
 >>> sentences = splitter.tokenize(get_example_text("grc"))
@@ -15,7 +15,7 @@ Sentence tokenization for Ancient Greek is available using a regular-expression 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 
 
-from cltkv1.sentences.sentence import BaseRegexSentenceTokenizer
+from cltkv1.sentence.sentence import BaseRegexSentenceTokenizer
 from cltkv1.tokenizers.grc import GreekLanguageVars
 
 
