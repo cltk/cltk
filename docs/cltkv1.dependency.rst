@@ -12,10 +12,10 @@ cltkv1.dependency.processes module
    :undoc-members:
    :show-inheritance:
 
-cltkv1.dependency.stanford module
----------------------------------
+cltkv1.dependency.stanza module
+-------------------------------
 
-.. automodule:: cltkv1.dependency.stanford
+.. automodule:: cltkv1.dependency.stanza
    :members:
    :undoc-members:
    :show-inheritance:

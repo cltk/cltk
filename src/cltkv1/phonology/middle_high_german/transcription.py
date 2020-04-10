@@ -143,22 +143,21 @@ class Word:
         self.word = word.lower()
 
     def syllabify(self):
-        """
-        Syllabifier module for Middle High German
+        """Syllabifier module for Middle High German
 
         The algorithm works by applying the MOP(Maximal Onset Principle)
         on open syllables. For closed syllables, the legal partitions
         are checked and applied. The word is always returned in lowercase.
 
         Examples:
-            >>> Word('entslâfen').syllabify()
-            ['ent', 'slâ', 'fen']
+        >>> Word('entslâfen').syllabify()
+        ['ent', 'slâ', 'fen']
 
-            >>> Word('fröude').syllabify()
-            ['fröu', 'de']
+        >>> Word('fröude').syllabify()
+        ['fröu', 'de']
 
-            >>> Word('füerest').syllabify()
-	    ['füe', 'rest']
+        >>> Word('füerest').syllabify()
+        ['füe', 'rest']
         """
 
         # Array holding the index of each given syllable

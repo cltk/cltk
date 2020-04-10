@@ -27,6 +27,14 @@ cltkv1.alphabet.arb module
    :undoc-members:
    :show-inheritance:
 
+cltkv1.alphabet.arc module
+--------------------------
+
+.. automodule:: cltkv1.alphabet.arc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltkv1.alphabet.ben module
 --------------------------
 

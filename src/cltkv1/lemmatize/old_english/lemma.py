@@ -3,14 +3,17 @@ import math
 import os
 import re
 
-from cltk.corpus.utils.importer import CLTK_DATA_DIR
 from nltk.tokenize import wordpunct_tokenize
 from numpy import argmax
 
+from cltkv1.utils import CLTK_DATA_DIR
+
 
 class OldEnglishDictionaryLemmatizer:
-    """Implementation of a lemmatizer for Old English based on a dictionary of lemmas and forms.
-	Since a given form may map to multiple lemmas, a corpus-based frequency disambiguator is employed."""
+    """Implementation of a lemmatizer for Old English based on a
+    dictionary of lemmas and forms. Since a given form may map to
+    multiple lemmas, a corpus-based frequency disambiguator is employed.
+    """
 
     def __init__(self):
         self._load_forms_and_lemmas()
@@ -20,12 +23,7 @@ class OldEnglishDictionaryLemmatizer:
         """Load the dictionary of lemmas and forms from the OE models repository."""
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR,
-            "old_english",
-            "model",
-            "old_english_models_cltk",
-            "data",
-            "oe.lemmas",
+            CLTK_DATA_DIR, "ang/model/ang_models_cltk/data/oe.lemmas"
         )
         path = os.path.expanduser(rel_path)
 
@@ -52,12 +50,7 @@ class OldEnglishDictionaryLemmatizer:
         """Load the table of frequency counts of word forms."""
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR,
-            "old_english",
-            "model",
-            "old_english_models_cltk",
-            "data",
-            "oe.counts",
+            CLTK_DATA_DIR, "ang/model/ang_models_cltk/data/oe.counts"
         )
         path = os.path.expanduser(rel_path)
 
@@ -76,15 +69,16 @@ class OldEnglishDictionaryLemmatizer:
         return math.log(count / len(self.type_counts)) if count > 0 else 0
 
     def _lemmatize_token(self, token, best_guess=True, return_frequencies=False):
-        """Lemmatize a single token.  If best_guess is true, then take the most frequent lemma when a form 
-		has multiple possible lemmatizations.  If the form is not found, just return it.
-		If best_guess is false, then always return the full set of possible lemmas, or None if none found.
-		"""
+        """Lemmatize a single token.  If best_guess is true, then take the most
+        frequent lemma when a form has multiple possible lemmatizations.  If
+        the form is not found, just return it. If best_guess is false, then
+        always return the full set of possible lemmas, or None if none found.
+        """
 
         lemmas = self.lemma_dict.get(token.lower(), None)
 
-        if best_guess == True:
-            if lemmas == None:
+        if best_guess:
+            if not lemmas:
                 lemma = token
             elif len(lemmas) > 1:
                 counts = [self.type_counts.get(word, 0) for word in lemmas]
@@ -92,19 +86,20 @@ class OldEnglishDictionaryLemmatizer:
             else:
                 lemma = lemmas[0]
 
-            if return_frequencies == True:
+            if return_frequencies:
                 lemma = (lemma, self._relative_frequency(lemma))
         else:
-            lemma = [] if lemmas == None else lemmas
-            if return_frequencies == True:
+            lemma = [] if not lemmas else lemmas
+            if return_frequencies:
                 lemma = [(word, self._relative_frequency(word)) for word in lemma]
 
-        return (token, lemma)
+        return token, lemma
 
     def lemmatize(self, text, best_guess=True, return_frequencies=False):
-        """Lemmatize all tokens in a string or a list.  A string is first tokenized using punkt.
-		Throw a type error if the input is neither a string nor a list.
-		"""
+        """Lemmatize all tokens in a string or a list.  A string is first
+        tokenized using punkt. Throw a type error if the input is neither
+        a string nor a list.
+        """
         if isinstance(text, str):
             tokens = wordpunct_tokenize(text)
         elif isinstance(text, list):
