@@ -71,8 +71,7 @@ class Word:
         self.stressed = None
 
     def syllabify(self):
-        """
-        Syllabification module for Middle English.
+        """Syllabification module for Middle English.
 
         Throughout the early 11th-14th century, ME went through a process of
         loss of gemination. Originally, the syllable preceding a geminate was
@@ -88,21 +87,21 @@ class Word:
              list: string list containing the syllables of the given word
 
         Examples:
-            >>> Word('heldis').syllabify()
-            ['hel', 'dis']
-            >>> Word('greef').syllabify()
-            ['greef']
+        >>> Word('heldis').syllabify()
+        ['hel', 'dis']
+        >>> Word('greef').syllabify()
+        ['greef']
 
-            Once you syllabify the word, the result will be saved as a class
-            variable
+        Once you syllabify the word, the result will be saved as a class
+        variable
 
-            >>> word = Word('commaundyd')
+        >>> word = Word('commaundyd')
 
-            >>> word.syllabify()
-            ['com', 'mau', 'ndyd']
+        >>> word.syllabify()
+        ['com', 'mau', 'ndyd']
 
-            >>> word.syllabified
-            ['com', 'mau', 'ndyd']
+        >>> word.syllabified
+        ['com', 'mau', 'ndyd']
         """
 
         # Array holding the index of each given syllable
