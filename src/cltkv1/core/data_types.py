@@ -12,6 +12,8 @@ of the NLP pipeline.
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Type, Union
 
+import numpy
+
 
 @dataclass
 class Language:
@@ -53,7 +55,7 @@ class Word:
     >>> from cltkv1.languages.utils import get_lang
     >>> latin = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, parent=None, features=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, embedding=None, stop=None, named_entity=None)
     """
 
     index_char_start: int = None
@@ -64,12 +66,14 @@ class Word:
     pos: str = None
     lemma: str = None
     scansion: str = None
-    xpos: str = None  # treebank-specific POS tag (from stanfordnlp)
-    upos: str = None  # universal POS tag (from stanfordnlp)
-    dependency_relation: str = None  # (from stanfordnlp)
-    governor: "Word" = None
-    parent: "Word" = None
-    features: Dict[str, str] = None  # morphological features (from stanfordnlp)
+    xpos: str = None  # treebank-specific POS tag (from stanza)
+    upos: str = None  # universal POS tag (from stanza)
+    dependency_relation: str = None  # (from stanza)
+    governor: int = None
+    features: Dict[str, str] = None  # morphological features (from stanza)
+    embedding: numpy.ndarray = None
+    stop: bool = None
+    named_entity: bool = None
 
 
 @dataclass
@@ -87,15 +91,56 @@ class Doc:
     'Gallia est omnis divisa in partes tres'
     >>> isinstance(cltk_doc.raw, str)
     True
+    >>> cltk_doc.tokens[:10]
+    ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
+    >>> cltk_doc.tokens_stops_filtered[:10]
+    ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
+    >>> cltk_doc.pos[:3]
+    ['NOUN', 'AUX', 'PRON']
+    >>> cltk_doc.morphosyntactic_features[:3]
+    [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
+    >>> cltk_doc.lemmata[:5]
+    ['mallis', 'sum', 'omnis', 'divido', 'in']
+    >>> len(cltk_doc.sentences)
+    9
+    >>> len(cltk_doc.sentences[0])
+    26
+    >>> isinstance(cltk_doc.sentences[0][2], Word)
+    True
+    >>> cltk_doc.sentences[0][2].string
+    'omnis'
+    >>> len(cltk_doc.sentences_tokens)
+    9
+    >>> len(cltk_doc.sentences_tokens[0])
+    26
+    >>> isinstance(cltk_doc.sentences_tokens[0][2], str)
+    True
+    >>> cltk_doc.sentences_tokens[0][2]
+    'omnis'
+    >>> len(cltk_doc.sentences_strings)
+    9
+    >>> len(cltk_doc.sentences_strings[0])
+    150
+    >>> isinstance(cltk_doc.sentences_strings[0], str)
+    True
+    >>> cltk_doc.sentences_strings[1]
+    'Hi omnes lingua , institutis , legibus inter se differunt .'
+    >>> import numpy
+    >>> isinstance(cltk_doc.embeddings[1], numpy.ndarray)
+    True
     """
 
     language: str = None
     words: List[Word] = None
     pipeline: "Pipeline" = None
     raw: str = None
+    embeddings_model = None
 
     @property
     def sentences(self) -> List[List[Word]]:
+        """Returns a list of lists, with the inner list being a
+         list of ``Word`` objects.
+        """
         sentences = {}
         for word in self.words:
             sentence = sentences.get(word.index_sentence, {})
@@ -106,47 +151,64 @@ class Doc:
 
         return [sorted_values(sentence) for sentence in sorted_values(sentences)]
 
+    @property
+    def sentences_tokens(self) -> List[List[str]]:
+        """Returns a list of lists, with the inner list being a
+        list of word token strings.
+        """
+        sentences_list = self.sentences  # type: List[List[Word]]
+        sentences_tokens = list()  # type: List[List[str]]
+        for sentence in sentences_list:
+            sentence_tokens = [word.string for word in sentence]  # type: List[str]
+            sentences_tokens.append(sentence_tokens)
+        return sentences_tokens
+
+    @property
+    def sentences_strings(self) -> List[str]:
+        """Returns a list of strings, with each string being
+        a sentence reconstructed from the word tokens.
+        """
+        sentences_list = self.sentences_tokens  # type: List[List[str]]
+        sentences_str = list()  # type: List[List[str]]
+        for sentence in sentences_list:
+            sentence_tokens = [token for token in sentence]  # type: List[str]
+            sentence_tokens_str = " ".join(sentence_tokens)
+            sentences_str.append(sentence_tokens_str)
+        return sentences_str
+
     def _get_words_attribute(self, attribute):
         return [getattr(word, attribute) for word in self.words]
 
     @property
     def tokens(self) -> List[str]:
-        """Returns a list of string word tokens of all words in the doc.
+        """Returns a list of string word tokens of all words in the doc."""
+        tokens = self._get_words_attribute("string")  # type: List[str]
+        return tokens
 
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.tokens[:10]
-        ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
+    @property
+    def tokens_stops_filtered(self,) -> List[str]:
+        """Returns a list of string word tokens of all words in the
+        doc, but with stopwords removed.
         """
-        return self._get_words_attribute("string")
+        tokens = self._get_words_attribute("string")  # type: List[str]
+        # create equal-length list of True & False/None values
+        is_token_stop = self._get_words_attribute("stop")  # type: List[bool]
+        # remove from the token list any who index in ``is_token_stop`` is True
+        tokens_no_stops = [
+            token for index, token in enumerate(tokens) if not is_token_stop[index]
+        ]  # type: List[str]
+        return tokens_no_stops
 
     @property
     def pos(self) -> List[str]:
-        """Returns a list of the POS tags of all words in the doc.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.pos[:3]
-        ['NOUN', 'AUX', 'DET']
-        """
+        """Returns a list of the POS tags of all words in the doc."""
         return self._get_words_attribute("upos")
 
     @property
-    def morphosyntactic_features(self) -> Dict[str, str]:
+    def morphosyntactic_features(self) -> List[Dict[str, str]]:
         """Returns a list of dictionaries containing the morphosyntactic features
         of each word (when available).
         Each dictionary specifies feature names as keys and feature values as values.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.morphosyntactic_features[:3]
-        [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
         """
         return self._get_words_attribute("features")
 
@@ -155,13 +217,6 @@ class Doc:
     def lemmata(self) -> List[str]:
         """Returns a list of lemmata, indexed to the word tokens
         provided by `Doc.tokens`.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> cltk_doc.lemmata[:5]
-        ['aallius', 'sum', 'omnis', 'divido', 'in']
         """
         return self._get_words_attribute("lemma")
 
@@ -170,6 +225,13 @@ class Doc:
         """
         return self.words[word_index]
 
+    @property
+    def embeddings(self):
+        """Returns an embedding for each word.
+
+        TODO: Consider option to use lemma
+        """
+        return self._get_words_attribute("embedding")
 
 
 @dataclass
@@ -185,26 +247,6 @@ class Process:
 
     input_doc: Doc
     output_doc: Doc = None
-    algorithm = None
-    language: str = None
-
-    def run(self) -> None:
-        """Method for subclassed ``Process`` Run ``algorithm`` on a
-        ``Doc`` object to set ``output_doc`` to the resulting ``Doc```.
-
-        This method puts execution of the process into the hands of the client.
-        It must be called before reading the ``output_doc`` attribute.
-
-        >>> a_process = Process(input_doc=Doc(raw="input words here"))
-        >>> a_process.run()
-        Traceback (most recent call last):
-          ...
-        NotImplementedError
-        """
-        if self.algorithm:
-            self.output_doc = self.algorithm(self.input_doc)
-        else:
-            raise NotImplementedError
 
 
 @dataclass

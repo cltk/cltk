@@ -2,7 +2,7 @@
 
 __author__ = ["John Stewart <free-variation>"]
 
-from typing import List, Union
+from typing import Dict, List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
 from cltkv1.core.data_types import Doc, Process, Word
@@ -135,7 +135,7 @@ class Form(Element):
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> f = Form.to_form(doc.words[0])
         >>> f.full_str()
-        'Gallia_1 [lemma=aallius,pos=A1|grn1|casA|gen2|stAM,upos=NOUN,xpos=A1|grn1|casA|gen2|stAM,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
+        'Gallia_0 [lemma=mallis,pos=NOUN,upos=NOUN,xpos=A1|grn1|casA|gen2,Case=Nom,Degree=Pos,Gender=Fem,Number=Sing]'
         """
 
         form = Form(word.string, form_id=word.index_token)
@@ -200,7 +200,7 @@ class DependencyTree(ElementTree):
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> t = DependencyTree.to_tree(doc.sentences[0])
         >>> len(t.get_dependencies())
-        30
+        28
         """
 
         def _get_deps(node: Form, deps: List[Dependency]) -> List[Dependency]:
@@ -227,21 +227,22 @@ class DependencyTree(ElementTree):
             for child_node in list(node):
                 _print_treelet(child_node, indent + 4, all_features)
 
-        self._print_treelet(self.getroot(), indent=0, all_features=all_features)
+        # self._print_treelet(self.getroot(), indent=0, all_features=all_features)
 
     @staticmethod
     def to_tree(sentence: List[Word]) -> "DependencyTree":
-        """Factory method to create trees from sentence parses, i.e. lists of words.
+        """Factory method to create trees from sentences parses, i.e. lists of words.
+
         >>> from cltkv1 import NLP
         >>> from cltkv1.utils.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="lat")
         >>> doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> t = DependencyTree.to_tree(doc.words[:25])
         >>> t.findall(".")
-        [divisa_4/L2]
+        [divisa_3/VERB]
         """
 
-        forms = {}
+        forms = {}  # type: Dict[int, Form]
         for word in sentence:
             forms[word.index_token] = Form.to_form(word)
 
@@ -249,27 +250,8 @@ class DependencyTree(ElementTree):
             if word.dependency_relation == "root":
                 root = forms[word.index_token]
             else:
-                gov = forms[word.governor.index_token]
+                gov = forms[word.governor]
                 dep = forms[word.index_token]
                 gov >> dep | word.dependency_relation
 
         return DependencyTree(root)
-
-
-class TreeBuilderProcess(Process):
-    """A ``Process`` that takes a doc containing sentences of CLTK words
-    and returns a dependency tree for each sentence.
-
-    >>> from cltkv1 import NLP
-    >>> nlp = NLP(language='got')
-    >>> from cltkv1.dependency.tree import TreeBuilderProcess
-    >>> nlp.pipeline.add_process(TreeBuilderProcess)
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> doc = nlp.analyze(text=get_example_text("got"))
-    >>> len(doc.trees)
-    4
-    """
-
-    def algorithm(self, doc):
-        doc.trees = [DependencyTree.to_tree(sentence) for sentence in doc.sentences]
-        return doc

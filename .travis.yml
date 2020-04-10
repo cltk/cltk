@@ -1,29 +1,30 @@
 language: python
 
 python:
-  - "3.7"
+  - "3.7.5"
 #   - "3.8-dev"
 
+# TODO: Add pip back to this cache somehow, either `pip` or its dir
 cache:
-  - pip
-  - /home/travis/stanfordnlp_resources/
+  directories:
+    - $HOME/stanza_resources/
+    - $HOME/cltk_data/
+    - $HOME/virtualenv/
 
-# TODO: Improve the order of these
 before_install:
   - pip install --upgrade pip
   - pip install poetry
-  - pip install pre-commit
 
 install:
-  - poetry install -v
+  - make install
   - poetry run python scripts/download_misc_dependencies.py
 
 before_script:
   - poetry run pre-commit install-hooks
-  - poetry run pre-commit run --all-files
+#  - poetry run pre-commit run --all-files
 
 script:
-  - poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ tests
+  - make test
 
 after_success:
   - echo Add later

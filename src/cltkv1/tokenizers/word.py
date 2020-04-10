@@ -1,245 +1,218 @@
-"""Module for tokenizers.
-
-TODO: Think about adding check somewhere if a contrib (not user) chooses an unavailable item
+"""Language-specific word tokenizers. Primary purpose is
+to handle enclitics.
 """
 
-from dataclasses import dataclass
-from typing import Callable
+__author__ = [
+    "Patrick J. Burns <patrick@diyclassics.org>",
+    "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
+    "Natasha Voake <natashavoake@gmail.com>",
+    "Clément Besnier <clemsciences@aol.com>",
+    "Andrew Deloucas <adeloucas@g.harvard.edu>",
+    "Todd Cook <todd.g.cook@gmail.com>",
+]
 
-from cltk.tokenize.word import WordTokenizer
+__license__ = "MIT License. See LICENSE."
 
-from cltkv1.core.data_types import Doc, Process, Word
+import logging
+import re
+from abc import abstractmethod
+from typing import List
 
+from cltk.corpus.arabic.utils.pyarabic import araby
+from cltk.tokenize.akkadian.word import tokenize_akkadian_signs, tokenize_akkadian_words
+from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
+from cltk.tokenize.latin.word import WordTokenizer as LatinWordTokenizer
+from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
+from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
+from cltk.tokenize.old_french.params import OldFrenchTokenizerPatterns
+from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
+from nltk.tokenize.punkt import PunktParameters, PunktSentenceTokenizer
+from nltk.tokenize.treebank import TreebankWordTokenizer
 
-# a closure for marshalling Docs to CLTK tokenizers
-def make_tokenizer_algorithm(language: str) -> Callable[[Doc], Doc]:
-    tokenizer = WordTokenizer(language=language)
-
-    def algorithm(self, doc: Doc) -> Doc:
-        doc.words = []
-
-        for i, token in enumerate(tokenizer.tokenize(doc.raw)):
-            word = Word(string=token, index_token=i)
-            doc.words.append(word)
-
-        return doc
-
-    return algorithm
-
-
-AKKADIAN_WORD_TOK = make_tokenizer_algorithm(language="akkadian")
-ARABIC_WORD_TOK = make_tokenizer_algorithm(language="arabic")
-GREEK_WORD_TOK = make_tokenizer_algorithm(language="greek")
-LATIN_WORD_TOK = make_tokenizer_algorithm(language="latin")
-MIDDLE_ENGLISH_WORD_TOK = make_tokenizer_algorithm(language="middle_english")
-MIDDLE_FRENCH_WORD_TOK = make_tokenizer_algorithm(language="middle_french")
-MIDDLE_HIGH_GERMAN_WORD_TOK = make_tokenizer_algorithm(language="middle_high_german")
-MULTILINGUAL_WORD_TOK = make_tokenizer_algorithm(language="multilingual")
-OLD_FRENCH_WORD_TOK = make_tokenizer_algorithm(language="old_french")
-OLD_NORSE_WORD_TOK = make_tokenizer_algorithm(language="old_norse")
-SANSKRIT_WORD_TOK = make_tokenizer_algorithm(language="sanskrit")
+LOG = logging.getLogger(__name__)
+LOG.addHandler(logging.NullHandler())
 
 
-@dataclass
-class TokenizationProcess(Process):
-    """To be inherited for each language's tokenization declarations.
+class WordTokenizer:  # pylint: disable=too-few-public-methods
+    """Tokenize according to rules specific to a given language.
 
-    Example: ``TokenizationProcess`` -> ``LatinTokenizationProcess``
-
-    >>> from cltkv1.tokenizers.word import TokenizationProcess
-    >>> from cltkv1.core.data_types import Process
-    >>> issubclass(TokenizationProcess, Process)
-    True
-    >>> tok = TokenizationProcess(input_doc=Doc(raw="some input data"))
+    TODO: KJ refactor as necessary, there are issues in it
+    TODO: PJB: (1) Recommends verbs as namespace, stressing the activity (eg, ``tokenize``); (2) sentences & word have different spaces and don't use tokenize; look at Jurafski 3rd ed, does he use segment
     """
 
-    language = None
+    def __init__(self, language):
+        """Take language as argument to the class. Check availability and
+        setup class variables."""
+        self.language = language
+        self.available_languages = [
+            "akkadian",
+            "arabic",
+            "french",  # defaults to old_french
+            "greek",
+            "latin",
+            "middle_english",
+            "middle_french",
+            "middle_high_german",
+            "old_french",
+            "old_norse",
+            "sanskrit",
+            "multilingual",
+        ]
+
+        assert (
+            self.language in self.available_languages
+        ), "Specific tokenizer not available for '{0}'. Only available for: '{1}'.".format(
+            self.language, self.available_languages
+        )
+
+        # raise languages-specific warnings
+        if self.language == "french":
+            self.language = "old_french"
+            LOG.warning(
+                "'french' defaults to 'old_french'. 'middle_french' also available."
+            )  # pylint: disable=line-too-long
+
+        if self.language == "arabic":
+            self.toker = BaseArabyWordTokenizer("arabic")
+        elif self.language == "french":
+            self.toker = BaseRegexWordTokenizer(
+                "old_french", OldFrenchTokenizerPatterns
+            )
+        elif self.language == "greek":
+            self.toker = BasePunktWordTokenizer("greek", GreekRegexSentenceTokenizer)
+        elif self.language == "latin":
+            self.toker = LatinWordTokenizer()
+        elif self.language == "old_norse":
+            self.toker = BaseRegexWordTokenizer("old_norse", OldNorseTokenizerPatterns)
+        elif self.language == "middle_english":
+            self.toker = BaseRegexWordTokenizer(
+                "middle_english", MiddleEnglishTokenizerPatterns
+            )
+        elif self.language == "middle_french":
+            self.toker = BaseRegexWordTokenizer(
+                "old_french", OldFrenchTokenizerPatterns
+            )
+        elif self.language == "middle_high_german":
+            self.toker = BaseRegexWordTokenizer(
+                "middle_high_german", MiddleHighGermanTokenizerPatterns
+            )
+        elif self.language == "old_french":
+            self.toker = BaseRegexWordTokenizer(
+                "old_french", OldFrenchTokenizerPatterns
+            )
+        else:
+            LOG.warning(
+                "Falling back to default tokenizer, the NLTK's `TreebankWordTokenizer()`."
+            )
+            self.toker = TreebankWordTokenizer()
+
+    def tokenize(self, text):
+        """Tokenize incoming string."""
+        if self.language == "akkadian":
+            return tokenize_akkadian_words(text)
+        return self.toker.tokenize(text)
+
+    def tokenize_sign(self, word):
+        """This is for tokenizing cuneiform signs."""
+        if self.language == "akkadian":
+            sign_tokens = tokenize_akkadian_signs(word)
+        else:
+            sign_tokens = "Language must be written using cuneiform."
+        return sign_tokens
 
 
-@dataclass
-class DefaultTokenizationProcess(TokenizationProcess):
-    """The default tokenization algorithm.
+class BaseWordTokenizer:
+    """ Base class for word tokenization"""
 
-    >>> from cltkv1.tokenizers.word import DefaultTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = DefaultTokenizationProcess(input_doc=Doc(raw=get_example_text("non")[:29]))
-    >>> tok.description
-    'Whitespace tokenizer inheriting from the NLTK'
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
+    def __init__(self, language: str = None):
+        """
+        :param language : language for word tokenization
+        :type language: str
+        """
+        if language:
+            self.language = language.lower()
+
+    @abstractmethod
+    def tokenize(self, text: str, model: object = None):
+        """
+        Create a list of tokens from a string.
+        This method should be overridden by subclasses of BaseWordTokenizer.
+        """
+        pass
+
+
+class BasePunktWordTokenizer(BaseWordTokenizer):
+    """Base class for punkt word tokenization"""
+
+    def __init__(self, language: str = None, sent_tokenizer: object = None):
+        """
+        :param language : language for sentences tokenization
+        :type language: str
+        """
+        self.language = language
+        super().__init__(language=self.language)
+        if sent_tokenizer:
+            self.sent_tokenizer = sent_tokenizer()
+        else:
+            punkt_param = PunktParameters()
+            self.sent_tokenizer = PunktSentenceTokenizer(punkt_param)
+
+    def tokenize(self, text: str):
+        """
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        """
+        sents = self.sent_tokenizer.tokenize(text)
+        tokenizer = TreebankWordTokenizer()
+        return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
+
+
+class BaseRegexWordTokenizer(BaseWordTokenizer):
+    """Base class for regex word tokenization"""
+
+    def __init__(self, language: str = None, patterns: List[str] = None):
+        """
+        :param language : language for sentences tokenization
+        :type language: str
+        :param patterns: regex patterns for word tokenization
+        :type patterns: list of strings
+        """
+        self.language = language
+        self.patterns = patterns
+        super().__init__(language=self.language)
+
+    def tokenize(self, text: str):
+        """
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        :param model: tokenizer object to used # Should be in init?
+        :type model: object
+        """
+        for pattern in self.patterns:
+            text = re.sub(pattern[0], pattern[1], text)
+        return text.split()
+
+
+class BaseArabyWordTokenizer(BaseWordTokenizer):
+    """
+    Base class for word tokenizer using the pyarabic package:
+    https://pypi.org/project/PyArabic/
     """
 
-    algorithm = MULTILINGUAL_WORD_TOK
-    description = "Whitespace tokenizer inheriting from the NLTK"
-    language = None
+    def __init__(self, language: str = None):
+        """
+        :param language : language for sentences tokenization
+        :type language: str
+        """
+        self.language = language
+        super().__init__(language=self.language)
 
-
-@dataclass
-class LatinTokenizationProcess(TokenizationProcess):
-    """The default Latin tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import LatinTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = LatinTokenizationProcess(input_doc=Doc(raw=get_example_text("lat")[:23]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Gallia', 'est', 'omnis', 'divisa']
-    """
-
-    algorithm = LATIN_WORD_TOK
-    description = "Default tokenizer for Latin"
-    language = "lat"
-
-
-@dataclass
-class GreekTokenizationProcess(TokenizationProcess):
-    """The default Greek tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import GreekTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = GreekTokenizationProcess(input_doc=Doc(raw=get_example_text("grc")[:23]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['ὅτι', 'μὲν', 'ὑμεῖς', ',', 'ὦ', 'ἄνδρες']
-    """
-
-    algorithm = GREEK_WORD_TOK
-    description = "Default Greek tokenizer"
-    language = "grc"
-
-
-@dataclass
-class AkkadianTokenizationProcess(TokenizationProcess):
-    """The default Akkadian tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import AkkadianTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = AkkadianTokenizationProcess(input_doc=Doc(raw=get_example_text("akk")))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'), ('e2-kal2-la-ka', 'akkadian'), ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
-    """
-
-    algorithm = AKKADIAN_WORD_TOK
-    description = "Default Akkadian tokenizer"
-    language = "akk"
-
-
-@dataclass
-class OldNorseTokenizationProcess(TokenizationProcess):
-    """The default OldNorse tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import OldNorseTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = OldNorseTokenizationProcess(input_doc=Doc(raw=get_example_text("non")[:29]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
-    """
-
-    algorithm = OLD_NORSE_WORD_TOK
-    description = "Default Old Norse tokenizer"
-    language = "non"
-
-
-@dataclass
-class MHGTokenizationProcess(TokenizationProcess):
-    """The default Middle High German tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import MHGTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = MHGTokenizationProcess(input_doc=Doc(raw=get_example_text("gmh")[:29]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Ik', 'gihorta', 'ðat', 'seggen', 'ðat', 'sih']
-    """
-
-    algorithm = MIDDLE_HIGH_GERMAN_WORD_TOK
-    description = "The default Middle High German tokenizer"
-    language = "gmh"
-
-
-@dataclass
-class ArabicTokenizationProcess(TokenizationProcess):
-    """The default Arabic tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import ArabicTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = ArabicTokenizationProcess(input_doc=Doc(raw=get_example_text("arb")[:34]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['كهيعص', '﴿', '١', '﴾', 'ذِكْرُ', 'رَحْمَتِ', 'رَبِّكَ']
-    """
-
-    algorithm = ARABIC_WORD_TOK
-    description = "Default Arabic tokenizer"
-    language = "arb"
-
-
-@dataclass
-class OldFrenchTokenizationProcess(TokenizationProcess):
-    """The default Old French tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import OldFrenchTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = OldFrenchTokenizationProcess(input_doc=Doc(raw=get_example_text("fro")[:37]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Une', 'aventure', 'vos', 'voil', 'dire', 'Molt', 'bien']
-    """
-
-    algorithm = OLD_FRENCH_WORD_TOK
-    description = "Default Old French tokenizer"
-    language = "fro"
-
-
-@dataclass
-class MiddleFrenchTokenizationProcess(TokenizationProcess):
-    """The default Middle French tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import MiddleFrenchTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = MiddleFrenchTokenizationProcess(input_doc=Doc(raw=get_example_text("frm")[:37]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Attilius', 'Regulus', ',', 'general', 'de', "l'", 'armée']
-    """
-
-    algorithm = MIDDLE_FRENCH_WORD_TOK
-    description = "Default Middle French tokenizer"
-    language = "frm"
-
-
-@dataclass
-class MiddleEnglishTokenizationProcess(TokenizationProcess):
-    """The default Middle English tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import MiddleEnglishTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = MiddleEnglishTokenizationProcess(input_doc=Doc(raw=get_example_text("enm")[:31]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['Whilom', ',', 'as', 'olde', 'stories', 'tellen']
-    """
-
-    algorithm = MIDDLE_ENGLISH_WORD_TOK
-    description = "Default Middle English tokenizer"
-    language = "enm"
-
-
-@dataclass
-class SanskritTokenizationProcess(TokenizationProcess):
-    """The default Middle English tokenization algorithm.
-
-    >>> from cltkv1.tokenizers import SanskritTokenizationProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
-    >>> tok = SanskritTokenizationProcess(input_doc=Doc(raw=get_example_text("san")[:31]))
-    >>> tok.run()
-    >>> tok.output_doc.tokens
-    ['ईशा', 'वास्यम्', 'इदं', 'सर्वं', 'यत्', 'किञ्च']
-    """
-
-    algorithm = SANSKRIT_WORD_TOK
-    description = "The default Middle English tokenizer"
-    language = "san"
+    def tokenize(self, text: str):
+        """
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
+        """
+        return araby.tokenize(text)
