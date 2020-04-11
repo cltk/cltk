@@ -10,7 +10,7 @@ of the NLP pipeline.
 """
 
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Type, Union
+from typing import Dict, List, Type
 
 import numpy
 
@@ -49,7 +49,7 @@ class Word:
     words. Designed to be used in the ``Doc.words`` dataclass.
 
     >>> from cltkv1.core.data_types import Word
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> get_example_text("lat")[:25]
     'Gallia est omnis divisa i'
     >>> from cltkv1.languages.utils import get_lang
@@ -84,7 +84,7 @@ class Doc:
     being a list of ``Word`` types.
 
     >>> from cltkv1 import NLP
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> cltk_nlp = NLP(language="lat")
     >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
     >>> cltk_doc.raw[:38]
@@ -170,9 +170,8 @@ class Doc:
         """
         sentences_list = self.sentences_tokens  # type: List[List[str]]
         sentences_str = list()  # type: List[List[str]]
-        for sentence in sentences_list:
-            sentence_tokens = [token for token in sentence]  # type: List[str]
-            sentence_tokens_str = " ".join(sentence_tokens)
+        for sentence_tokens in sentences_list:  # type: List[str]
+            sentence_tokens_str = " ".join(sentence_tokens)  # type: str
             sentences_str.append(sentence_tokens_str)
         return sentences_str
 

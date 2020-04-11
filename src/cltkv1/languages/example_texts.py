@@ -2,7 +2,7 @@
 
 TODO: Get longer Akkadian text
 
->>> from cltkv1.utils.example_texts import get_example_text
+>>> from cltkv1.languages.example_texts import get_example_text
 >>> get_example_text("grc")[:66]
 'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων'
 >>> get_example_text("lat")[:67]
@@ -13,7 +13,7 @@ TODO: Get longer Akkadian text
 
 # pylint: disable=line-too-long
 
-from cltkv1.core.exceptions import UnimplementedLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError
 from cltkv1.languages.utils import get_lang
 
 EXAMPLE_TEXTS = dict(
@@ -148,13 +148,13 @@ helidos ubar hringa do sie to dero hiltiu ritun""",
 def get_example_text(iso_code: str) -> str:
     """Take in search term of usual language name and find ISO code.
 
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> get_example_text("got")[:25]
     'swa liuhtjai liuhaþ izwar'
     >>> get_example_text("zkz")
     Traceback (most recent call last):
       ...
-    cltkv1.core.exceptions.UnimplementedLanguageError: Example text unavailable for ISO 639-3 code 'zkz'.
+    cltkv1.core.exceptions.UnimplementedAlgorithmError: Example text unavailable for ISO 639-3 code 'zkz'.
     >>> get_example_text("xxx")
     Traceback (most recent call last):
       ...
@@ -164,6 +164,6 @@ def get_example_text(iso_code: str) -> str:
     try:
         return EXAMPLE_TEXTS[iso_code]
     except KeyError:
-        raise UnimplementedLanguageError(
+        raise UnimplementedAlgorithmError(
             f"Example text unavailable for ISO 639-3 code '{iso_code}'."
         )

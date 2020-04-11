@@ -4,7 +4,7 @@ import importlib.machinery
 import os
 from typing import List, Union
 
-from cltkv1.core.exceptions import UnimplementedLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError
 from cltkv1.languages.utils import get_lang
 from cltkv1.utils import CLTK_DATA_DIR
 
@@ -26,7 +26,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
     others give string of entity type (e.g., ``LOC``).
 
     >>> from cltkv1.ner.ner import tag_ner
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> tokens = split_punct_ws(get_example_text(iso_code="lat"))
     >>> are_words_entities = tag_ner(iso_code="lat", input_tokens=tokens)
@@ -54,7 +54,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
     get_lang(iso_code=iso_code)
     if iso_code not in NER_DICT:
         msg = f"NER unavailable for language ``{iso_code}``."
-        raise UnimplementedLanguageError(msg)
+        raise UnimplementedAlgorithmError(msg)
     ner_file_path = os.path.expanduser(NER_DICT[iso_code])
     if iso_code == "fro":
         loader = importlib.machinery.SourceFileLoader("entities", ner_file_path)

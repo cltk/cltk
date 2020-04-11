@@ -14,23 +14,27 @@ class CLTKException(Exception):
     """
 
 
-class UnimplementedLanguageError(CLTKException):
+class UnimplementedAlgorithmError(CLTKException):
     """Exception for when a language is supported by the CLTK however
-    a particular process is not available for that language.
+    a particular algorithm is not available for that language.
 
-    >>> from cltkv1.core.exceptions import UnimplementedLanguageError
-    >>> raise UnimplementedLanguageError
+    >>> from cltkv1.core.exceptions import UnimplementedAlgorithmError
+    >>> raise UnimplementedAlgorithmError
     Traceback (most recent call last):
       ...
-      File "<doctest cltkv1.core.exceptions.UnimplementedLanguageError[1]>", line 1, in <module>
-        raise UnimplementedLanguageError
-    cltkv1.core.exceptions.UnimplementedLanguageError
+      File "<doctest cltkv1.core.exceptions.UnimplementedAlgorithmError[1]>", line 1, in <module>
+        raise UnimplementedAlgorithmError
+    cltkv1.core.exceptions.UnimplementedAlgorithmError
     """
 
 
 class UnknownLanguageError(CLTKException):
-    """Exception for when a user requests an NLP method that is not
-    supported.
+    """Exception for when a user requests a language either not
+    known to the CLTK or not yet implemented.
+
+    All known languages at ``cltkv1.languages.glottolog.py``. Implemented
+    languages include those at ``cltkv1.languages.pipelines`` and some
+    miscellaneously implemented throughout the library.
 
     >>> from cltkv1.core.exceptions import UnknownLanguageError
     >>> raise UnknownLanguageError
@@ -44,5 +48,3 @@ class UnknownLanguageError(CLTKException):
 
 class CorpusImportError(Exception):
     """CLTK exception to use when something goes wrong importing corpora"""
-
-    pass

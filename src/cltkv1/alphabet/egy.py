@@ -25,15 +25,15 @@ def mdc_unicode(string, q_kopf=True):
     # lettres miniscules/lower case letters/küçük harfler
     alef = string.replace("\u0041", "\ua723")  # A -> ꜣ
     ayin = alef.replace("\u0061", "\ua725")  # a -> ꜥ
-    h2 = ayin.replace("\u0048", "\u1e25")  # H -> ḥ
-    h3 = h2.replace("\u0078", "\u1e2b")  # x -> ḫ
-    h4 = h3.replace("\u0058", "\u1e96")  # X -> ẖ
-    h5 = h4.replace("\u0056", "\u0068" + "\u032d")  # V -> 
-    shin = h5.replace("\u0053", "\u0161")  # S -> š
+    h_dot = ayin.replace("\u0048", "\u1e25")  # H -> ḥ
+    h_breve = h_dot.replace("\u0078", "\u1e2b")  # x -> ḫ
+    h_line = h_breve.replace("\u0058", "\u1e96")  # X -> ẖ
+    h_circum_below = h_line.replace("\u0056", "\u0068" + "\u032d")  # V -> 
+    shin = h_circum_below.replace("\u0053", "\u0161")  # S -> š
     s_acute = shin.replace("\u0063", "\u015b")  # c -> ś
     tche = s_acute.replace("\u0054", "\u1e6f")  # T -> ṯ
-    tj = tche.replace("\u0076", "\u1e71")  # v -> ṱ
-    djed = tj.replace("\u0044", "\u1e0f")  # D -> ḏ
+    t_circum_below = tche.replace("\u0076", "\u1e71")  # v -> ṱ
+    djed = t_circum_below.replace("\u0044", "\u1e0f")  # D -> ḏ
     egy_yod = djed.replace("\u0069", "\u0069" + "\u0486")  # i -> i҆
     equal = egy_yod.replace("\u003d", "\u2e17")  # = -> ⸗
     left_brackets = equal.replace("\u003c", "\u2329")  # < -> 〈

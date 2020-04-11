@@ -94,21 +94,22 @@ TABLE = [
 
 def _imperial_to_square_table():
     new_table = []
-    for el in TABLE:
-        if len(el) > 2:
-            new_table.append((el[1], el[0]))
-            new_table.append((el[2], el[0]))
+    for _tuple in TABLE:
+        if len(_tuple) > 2:
+            new_table.append((_tuple[1], _tuple[0]))
+            new_table.append((_tuple[2], _tuple[0]))
         else:
-            new_table.append((el[1], el[0]))
+            new_table.append((_tuple[1], _tuple[0]))
     return new_table
 
 
 SQUARE_TO_IMPERIAL_TABLE = _imperial_to_square_table()
-SQUARE_TO_IMPERIAL = {k: v for k, v in SQUARE_TO_IMPERIAL_TABLE}
+# SQUARE_TO_IMPERIAL = {k: v for k, v in SQUARE_TO_IMPERIAL_TABLE}
+SQUARE_TO_IMPERIAL = dict(SQUARE_TO_IMPERIAL_TABLE)
 
 
-def _square_to_imperial_char(s: str) -> str:
-    return SQUARE_TO_IMPERIAL[s] if s in SQUARE_TO_IMPERIAL else s
+def _square_to_imperial_char(_str: str) -> str:
+    return SQUARE_TO_IMPERIAL[_str] if _str in SQUARE_TO_IMPERIAL else _str
 
 
 def square_to_imperial(square_script: str) -> str:

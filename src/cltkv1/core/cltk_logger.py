@@ -18,9 +18,9 @@ if not os.path.isdir(CLTK_DATA_DIR):
 
 logger = logging.getLogger("CLTK")  # pylint: disable=invalid-name
 handler = logging.FileHandler(log_path)  # pylint: disable=invalid-name
-formatter = logging.Formatter(
+formatter = logging.Formatter(  # pylint: disable=invalid-name
     "%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s"
-)  # pylint: disable=invalid-name
+)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)

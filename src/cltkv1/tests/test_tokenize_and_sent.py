@@ -9,9 +9,9 @@ from unittest.mock import patch
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 from cltkv1.data.fetch import FetchCorpus
-from cltkv1.sentences.lat import LatinPunktSentenceTokenizer
-from cltkv1.sentences.lat import SentenceTokenizer as LatinSentenceTokenizer
-from cltkv1.sentences.sentence import TokenizeSentence
+from cltkv1.sentence.lat import LatinPunktSentenceTokenizer
+from cltkv1.sentence.lat import SentenceTokenizer as LatinSentenceTokenizer
+from cltkv1.sentence.sentence import TokenizeSentence
 from cltkv1.tokenizers.arb import WordTokenizer as ArabicWordTokenizer
 from cltkv1.tokenizers.enm import WordTokenizer as MiddleEnglishWordTokenizer
 from cltkv1.tokenizers.fro import WordTokenizer as OldFrenchWordTokenizer

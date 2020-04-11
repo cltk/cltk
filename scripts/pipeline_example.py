@@ -45,11 +45,11 @@ Notes:
 
 import re
 from dataclasses import dataclass
-from typing import Any, Callable, List
+from typing import Callable, List
 
 from cltkv1.languages.glottolog import LANGUAGES
 from cltkv1.nlp import NLP
-from cltkv1.utils.data_types import Language, Word
+from cltkv1.utils.data_types import Word
 from cltkv1.utils.operations import Operation
 
 # #####################################################################################
@@ -123,7 +123,7 @@ class LatinPipeline(Pipeline):
 
 
 if __name__ == "__main__":
-    from cltkv1.utils.example_texts import LAT
+    from cltkv1.languages.example_texts import LAT
 
     cltk_nlp = NLP(language="latin")
     doc_germanica = cltk_nlp.run_pipeline(LAT)
