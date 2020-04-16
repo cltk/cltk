@@ -27,7 +27,7 @@ Import the function:
 
 .. code-block:: python
 
-    In [1]: from cltk.corpus.aramaic.transilterate import square_to_imperial
+    In [1]: from cltk.corpus.aramaic.transliterate import square_to_imperial
 
 Take a string written in square script:
 
@@ -39,6 +39,5 @@ Convert it to Imperial Aramaic by passing it to our function
 
 .. code-block:: python
 
-    In [3]: imperial = square_to_imperial(mystring)
-    In [4]: print(imperial)
-    Out[5]: "𐡐𐡃𐡉 𐡁𐡓 𐡃𐡂[𐡍]𐡌𐡋𐡊 𐡋𐡀𐡇𐡀 𐡁𐡓 𐡇𐡐𐡉𐡅 𐡍𐡕𐡍𐡕 𐡋𐡊"
+    In [3]: square_to_imperial(mystring)
+    Out[3]: "𐡐𐡃𐡉 𐡁𐡓 𐡃𐡂[𐡍]𐡌𐡋𐡊 𐡋𐡀𐡇𐡀 𐡁𐡓 𐡇𐡐𐡉𐡅 𐡍𐡕𐡍𐡕 𐡋𐡊"
