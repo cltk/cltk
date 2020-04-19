@@ -47,7 +47,7 @@ CONSONANTS = [
 ]
 
 # following are modified constants
-Modified_constants = ["क़", "ग़", "ख़", "ज़", "ड़", "ढ़", "फ़"]
+MODIFIED_CONSTANTS = ["क़", "ग़", "ख़", "ज़", "ड़", "ढ़", "फ़"]
 
 
 # the Semivowels are also in the script of hindi

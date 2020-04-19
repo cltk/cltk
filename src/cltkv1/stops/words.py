@@ -29,7 +29,7 @@ class Stops:
     """Class for filtering stopwords.
 
     >>> from cltkv1.stops.words import Stops
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> stops_obj = Stops(iso_code="lat")
     >>> tokens = split_punct_ws(get_example_text("lat"))

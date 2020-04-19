@@ -23,7 +23,7 @@ class StanzaProcess(Process):
 
 
     >>> from cltkv1.dependency.processes import StanzaProcess
-    >>> from cltkv1.utils.example_texts import get_example_text
+    >>> from cltkv1.languages.example_texts import get_example_text
     >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
     >>> isinstance(process_stanza, StanzaProcess)
     True
@@ -55,7 +55,7 @@ class StanzaProcess(Process):
         the CLTK's ``Word`` type.
 
         >>> from cltkv1.dependency.processes import StanzaProcess
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
         >>> process_stanza.run()
         >>> cltk_words = process_stanza.output_doc.words
@@ -116,42 +116,56 @@ class StanzaProcess(Process):
 
 @dataclass
 class GreekStanzaProcess(StanzaProcess):
+    """Stanza processor for Ancient Greek."""
+
     language: str = "grc"
     description: str = "Default process for Stanza for the Ancient Greek language."
 
 
 @dataclass
 class LatinStanzaProcess(StanzaProcess):
+    """Stanza processor for Latin."""
+
     language: str = "lat"
     description: str = "Default process for Stanza for the Latin language."
 
 
 @dataclass
 class OCSStanzaProcess(StanzaProcess):
+    """Stanza processor for Old Church Slavonic."""
+
     language: str = "chu"
     description: str = "Default process for Stanza for the Old Church Slavonic language."
 
 
 @dataclass
 class OldFrenchStanzaProcess(StanzaProcess):
+    """Stanza processor for Old French."""
+
     language: str = "fro"
     description: str = "Default process for Stanza for the Old French language."
 
 
 @dataclass
 class GothicStanzaProcess(StanzaProcess):
+    """Stanza processor for Gothic."""
+
     language: str = "got"
     description: str = "Default process for Stanza for the Gothic language."
 
 
 @dataclass
 class CopticStanzaProcess(StanzaProcess):
+    """Stanza processor for Coptic."""
+
     language: str = "cop"
     description: str = "Default process for Stanza for the Coptic language."
 
 
 @dataclass
 class ChineseStanzaProcess(StanzaProcess):
+    """Stanza processor for Classical Chinese."""
+
     language: str = "lzh"
     description: str = "Default process for Stanza for the Classical Chinese language."
 
@@ -167,7 +181,7 @@ class TreeBuilderProcess(Process):
     >>> from cltkv1.dependency.processes import TreeBuilderProcess
 
     # >>> nlp.pipeline.add_process(TreeBuilderProcess)
-    # >>> from cltkv1.utils.example_texts import get_example_text
+    # >>> from cltkv1.languages.example_texts import get_example_text
     # >>> doc = nlp.analyze(text=get_example_text("got"))
     # >>> len(doc.trees)
     # 4

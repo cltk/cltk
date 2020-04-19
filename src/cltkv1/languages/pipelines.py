@@ -226,9 +226,6 @@ class GreekPipeline(Pipeline):
     )
 
 
-# TODO: Add Hindi ("hin ")
-
-
 @dataclass
 class HindiPipeline(Pipeline):
     """Default ``Pipeline`` for Hindi.

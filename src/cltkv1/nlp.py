@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
 from cltkv1.core.data_types import Doc, Language, Pipeline
-from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError
 from cltkv1.languages.pipelines import (
     AkkadianPipeline,
     ArabicPipeline,
@@ -85,12 +85,12 @@ class NLP:
         >>> cltk_nlp = NLP(language="axm")
         Traceback (most recent call last):
           ...
-        cltkv1.core.exceptions.UnimplementedLanguageError: Valid ISO language code, however this algorithm is not available for ``axm``.
+        cltkv1.core.exceptions.UnimplementedAlgorithmError: Valid ISO language code, however this algorithm is not available for ``axm``.
         """
         try:
             return iso_to_pipeline[self.language.iso_639_3_code]()
         except KeyError:
-            raise UnimplementedLanguageError(
+            raise UnimplementedAlgorithmError(
                 f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
             )
 
@@ -98,7 +98,7 @@ class NLP:
         """The primary method for the NLP object, to which raw text strings are passed.
 
         >>> from cltkv1 import NLP
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> from cltkv1.core.data_types import Doc
         >>> cltk_nlp = NLP(language="lat")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
@@ -107,7 +107,7 @@ class NLP:
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
         Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=..., stop=False, named_entity=True)
 
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> cltk_nlp = NLP(language="grc")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("grc"))
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
@@ -153,7 +153,7 @@ class NLP:
         return self.analyze(text)
 
 if __name__ == "__main__":
-    from cltkv1.utils.example_texts import get_example_text
+    from cltkv1.languages.example_texts import get_example_text
 
     langs = [
         "lat",

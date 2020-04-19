@@ -6,7 +6,7 @@ __license__ = "MIT License. See LICENSE."
 import re
 
 
-class JVReplacer(object):  # pylint: disable=R0903
+class JVReplacer:  # pylint: disable=R0903
     """Replace J/V with I/U."""
 
     def __init__(self):

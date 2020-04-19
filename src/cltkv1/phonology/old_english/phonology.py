@@ -8,7 +8,7 @@ import logging
 import re
 import unicodedata
 
-from cltkv1.core.exceptions import UnimplementedLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -184,7 +184,7 @@ class Transliterate:
 
         else:
             LOG.error("The specified mode is currently not supported")
-            raise UnimplementedLanguageError(
+            raise UnimplementedAlgorithmError(
                 "The specified mode is currently not supported"
             )
 

@@ -10,7 +10,7 @@ import stanza  # type: ignore
 from stanza.models.common.constant import lang2lcode
 from stanza.utils.prepare_resources import default_treebanks
 
-from cltkv1.core.exceptions import UnimplementedLanguageError, UnknownLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError, UnknownLanguageError
 from cltkv1.utils import file_exists, suppress_stdout
 
 LOG = logging.getLogger(__name__)
@@ -44,7 +44,7 @@ class StanzaWrapper:
         'grc'
         >>> stanza_wrapper.treebank
         'perseus'
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
         >>> StanzaWrapper(language="xxx", stanza_debug_level="INFO")
@@ -73,7 +73,7 @@ class StanzaWrapper:
         >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO")
         Traceback (most recent call last):
           ...
-        cltkv1.core.exceptions.UnimplementedLanguageError: Invalid treebank 'xxx' for language 'lat'.
+        cltkv1.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.
         """
         self.language = language
         self.treebank = treebank
@@ -108,7 +108,7 @@ class StanzaWrapper:
         if self.treebank:
             valid_treebank = self._is_valid_treebank()
             if not valid_treebank:
-                raise UnimplementedLanguageError(
+                raise UnimplementedAlgorithmError(
                     f"Invalid treebank '{self.treebank}' for language '{self.language}'."
                 )
         else:
@@ -136,7 +136,7 @@ class StanzaWrapper:
     def parse(self, text: str):
         """Run all available ``stanza`` parsing on input text.
 
-        >>> from cltkv1.utils.example_texts import get_example_text
+        >>> from cltkv1.languages.example_texts import get_example_text
         >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
         >>> greek_nlp = stanza_wrapper.parse(get_example_text("grc"))
         >>> from stanza.models.common.doc import Document, Token
