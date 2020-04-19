@@ -262,7 +262,7 @@ class MorphosyntacticFeatureBundle:
         >>> f1[F]
         <F.pos: 1>
         >>> f1[V]
-         ...
+          ...
         KeyError: <enum 'V'>
         """
         if not issubclass(feature_name, MorphosyntacticFeature):
