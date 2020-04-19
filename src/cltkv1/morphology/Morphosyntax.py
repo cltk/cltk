@@ -15,7 +15,7 @@ class BinaryFeature(MorphosyntacticFeature):
     pass
 
 
-# ------------------- Categorial Features -------------------
+# Categorial Features
 
 class CategorialFeature(BinaryFeature):
     pass
@@ -33,7 +33,7 @@ class F(CategorialFeature):
     neg = auto()
     
     
-# ------------------- Verbal Features -------------------
+# Verbal features
 
 class VerbForm(MorphosyntacticFeature):
     converb = auto()
@@ -111,7 +111,7 @@ class Clusivity(MorphosyntacticFeature):
     
 verbal_features = [VerbForm, Tense, Mood, Aspect, Voice, Person, Polarity, Politeness, Clusivity, Evidentiality]
     
-# ------------------- Nominal Features -------------------
+# Nominal features
     
 class Case(MorphosyntacticFeature):
     # structural cases
@@ -133,8 +133,6 @@ class Case(MorphosyntacticFeature):
     genitive = auto()
     instrumental = auto()
     partitive = auto()
-    temporal = auto()
-    translative = auto()
     vocative = auto()    
     
     # spatiotemporal cases
@@ -153,6 +151,8 @@ class Case(MorphosyntacticFeature):
     sublative = auto()
     superessive = auto()
     terminative = auto()
+    temporal = auto()
+    translative = auto()
     
 class Gender(MorphosyntacticFeature):
     masculine = auto()
@@ -196,7 +196,7 @@ class Degree(MorphosyntacticFeature):
 nominal_features = [Case, Gender, Animacy, Number, Definiteness, Degree]
     
     
-# ------------------- Other lexical features  -------------------
+# Other lexical features
     
 class PrononimalType(MorphosyntacticFeature):
     article = auto()
@@ -238,10 +238,16 @@ class Typo(PrivativeFeature):
 
 UnderspecifiedFeature = None
 
-# ------------------- Feature Bundle -------------------
-
 class MorphosyntacticFeatureBundle:
     def __init__(self, *features):
+        """
+        >>> f1 = MorphosyntacticFeatureBundle(F.neg, N.pos, V.neg, Case.accusative)
+        >>> f1.features
+        {<enum 'F'>: <F.neg: 2>,
+         <enum 'N'>: <N.pos: 1>,
+         <enum 'V'>: <V.neg: 2>,
+         <enum 'Case'>: <Case.accusative: 2>}
+        """
         self.features = {}
         for feature in features:
             if isinstance(feature, type) and issubclass(feature, MorphosyntacticFeature):
@@ -252,6 +258,12 @@ class MorphosyntacticFeatureBundle:
     def __getitem__(self, feature_name):
         """
         Use dict-type syntax for accessing the values of features.
+        >>> f1 = f(F.pos, N.pos)
+        >>> f1[F]
+        <F.pos: 1>
+        >>> f1[V]
+         ...
+        KeyError: <enum 'V'>
         """
         if not issubclass(feature_name, MorphosyntacticFeature):
             raise TypeError(str(feature_name) + ' is not a morphosytactic feature')
@@ -260,6 +272,10 @@ class MorphosyntacticFeatureBundle:
     def __setitem__(self, feature_name, feature_value):
         """
         Use dict-type syntax to set the value of features.
+        >>> f1 = f(F.pos)
+        >>> f1[N] = N.neg
+        >>> f1
+        {<enum 'F'>: <F.pos: 1>, <enum 'N'>: <N.pos: 1>}
         """
         if not issubclass(feature_name, MorphosyntacticFeature):
             raise TypeError(str(feature_name) + ' is not a morphosyntactic feature')
@@ -271,6 +287,10 @@ class MorphosyntacticFeatureBundle:
     def underspecify(self, feature_name):
         """
         Underspecify the given feature in the bundle.
+        >>> f1 = f(F.pos, N.pos, V.neg)
+        >>> f1.underspecify(F)
+        >>> f1[F] is UnderspecifiedFeature
+        True
         """
         if not issubclass(feature_name, MorphosyntacticFeature):
             raise TypeError(str(feature_name) + ' is not a morphosytactic feature')
@@ -281,13 +301,21 @@ class MorphosyntacticFeatureBundle:
         This feature bundle matches other if other contains all the features of this bundle,
         i.e. if this bundle is an improper subset of other.
         Underspecified features will match.
+        
+        >>> f1 = f(F, N.pos, V.neg)
+        >>> f2 = f(F.neg, N.pos, V.neg)
+        >>> f3 = f(F.pos, N.neg, V.pos)
+        >>> f1.matches(f2)
+        True
+        >>> f1.matches(f3)
+        False
         """
         if other is None:
             return False
         for f in self.features.keys():
             if f not in other.features:
                 return False
-            if self[F] is not UnderspecifiedFeature and \
+            if self[f] is not UnderspecifiedFeature and \
                 other[f] is not UnderspecifiedFeature and \
                 not(self[f] == other[f]):
                 return False
@@ -300,4 +328,3 @@ class MorphosyntacticFeatureBundle:
     __repr__ = __str__
         
 f = MorphosyntacticFeatureBundle
-
