@@ -11,21 +11,21 @@ class MorphosyntacticFeature(IntEnum):
 
 
 class PrivativeFeature(MorphosyntacticFeature):
-    '''A privative feature either exists, or it does not exist.
-    There is no value associated with the feature.'''
+    """A privative feature either exists, or it does not exist.
+    There is no value associated with the feature."""
     pass
 
 
 class BinaryFeature(MorphosyntacticFeature):
-    '''A binary feature takes either a positive or negative value.'''
+    """A binary feature takes either a positive or negative value."""
     pass
 
 
 # Categorial Features
 
 class CategorialFeature(BinaryFeature):
-    '''A categorial feature is a binary feature that contributes to
-    identifying the part of speech of a lexical unit.'''
+    """A categorial feature is a binary feature that contributes to
+    identifying the part of speech of a lexical unit."""
     pass
 
 
@@ -60,10 +60,10 @@ class F(CategorialFeature):
 # Verbal features, related to +V categories.
 
 class VerbForm(MorphosyntacticFeature):
-    '''The inlectional type of the verb.  
+    """The inlectional type of the verb.  
     Possibly this confuses tense, aspect, and other more privitive morphosyntactic informaition.
     see https://universaldependencies.org/u/feat/VerbForm.html
-    '''
+    """
     converb = auto()
     finite = auto()
     gerund = auto()
@@ -75,9 +75,9 @@ class VerbForm(MorphosyntacticFeature):
 
     
 class Mood(MorphosyntacticFeature):
-    '''The mood of a verb.
+    """The mood of a verb.
     see https://universaldependencies.org/u/feat/Mood.html
-    '''
+    """
     admirative = auto()
     conditional = auto()
     desiderative = auto()
@@ -93,9 +93,9 @@ class Mood(MorphosyntacticFeature):
 
     
 class Tense(MorphosyntacticFeature):
-    '''The tense of a verb, i.e. the time of the eventuality in relation to a reference point in time.
+    """The tense of a verb, i.e. the time of the eventuality in relation to a reference point in time.
     see https://universaldependencies.org/u/feat/Tense.html
-    '''
+    """
     future = auto()
     imperfect = auto()
     past = auto()
@@ -104,9 +104,9 @@ class Tense(MorphosyntacticFeature):
 
     
 class Aspect(MorphosyntacticFeature):
-    '''The aspect of the verb, i.e. the temporal structure of the eventuality.
+    """The aspect of the verb, i.e. the temporal structure of the eventuality.
     see https://universaldependencies.org/u/feat/Aspect.html
-    '''
+    """
     habitual = auto()
     imperfective = auto()
     iterative = auto()
@@ -116,9 +116,9 @@ class Aspect(MorphosyntacticFeature):
 
     
 class Voice(MorphosyntacticFeature):
-    '''The voice of the verb, i.e. the relation of the participants to the eventuality.
+    """The voice of the verb, i.e. the relation of the participants to the eventuality.
     see https://universaldependencies.org/u/feat/Voice.html
-    '''
+    """
     active = auto()
     antipassive = auto()
     causative = auto()
@@ -130,26 +130,26 @@ class Voice(MorphosyntacticFeature):
 
     
 class Evidentiality(MorphosyntacticFeature):
-    '''What evidence is there for the assertion of the eventuality described by the verb?
+    """What evidence is there for the assertion of the eventuality described by the verb?
     Is it based on the speaker's knowledge, or indirect?
     see https://universaldependencies.org/u/feat/Evident.html
-    '''
+    """
     first_hand = auto()
     non_first_hand = auto()
 
     
 class Polarity(BinaryFeature):
-    '''Is the proposition negative or positive?
+    """Is the proposition negative or positive?
     see https://universaldependencies.org/u/feat/Polarity.html
-    '''
+    """
     pos = auto()
     neg = auto()
 
     
 class Person(MorphosyntacticFeature):
-    '''The grammatical person of the verb, i.e. the participant indicated by the subject.
+    """The grammatical person of the verb, i.e. the participant indicated by the subject.
     # see https://universaldependencies.org/u/feat/Person.html
-    '''
+    """
     zero = auto()
     one = auto()
     two = auto()
@@ -158,10 +158,10 @@ class Person(MorphosyntacticFeature):
 
     
 class Politeness(MorphosyntacticFeature):
-    '''The morphological reflex of the formal register with which participants 
+    """The morphological reflex of the formal register with which participants 
     are addressed in the sentence, affecting verbs and pronouns.
     see https://universaldependencies.org/u/feat/Polite.html
-    '''
+    """
     elevated = auto()
     formal = auto()
     humble = auto()
@@ -169,9 +169,9 @@ class Politeness(MorphosyntacticFeature):
 
     
 class Clusivity(MorphosyntacticFeature):
-    '''Does a first person plural subject include the addressee?
+    """Does a first person plural subject include the addressee?
     see https://universaldependencies.org/u/feat/Clusivity.html
-    '''
+    """
     exclusive = auto()
     inclusive = auto()
 
@@ -181,9 +181,9 @@ verbal_features = [VerbForm, Tense, Mood, Aspect, Voice, Person, Polarity, Polit
 # Nominal features, related to the +N categories.
     
 class Case(MorphosyntacticFeature):
-    '''The case of a noun phrase.
+    """The case of a noun phrase.
     see https://universaldependencies.org/u/feat/Case.html
-    '''
+    """
 
     # structural cases
     nominative = auto()
@@ -227,9 +227,9 @@ class Case(MorphosyntacticFeature):
 
     
 class Gender(MorphosyntacticFeature):
-    '''The grammatical gender of a nominal.
+    """The grammatical gender of a nominal.
     see https://universaldependencies.org/u/feat/Gender.html
-    '''
+    """
     masculine = auto()
     feminine = auto()
     neuter = auto()
@@ -237,9 +237,9 @@ class Gender(MorphosyntacticFeature):
 
     
 class Animacy(MorphosyntacticFeature):
-    '''The soul-type of an entity (as it were.)
+    """The soul-type of an entity (as it were.)
     see https://universaldependencies.org/u/feat/Animacy.html
-    '''
+    """
     animate = auto()
     human = auto()
     inaninate = auto()
@@ -247,9 +247,9 @@ class Animacy(MorphosyntacticFeature):
 
     
 class Number(MorphosyntacticFeature):
-    '''The count type of an entity.
+    """The count type of an entity.
     see https://universaldependencies.org/u/feat/Number.html
-    '''
+    """
     collective = auto()
     count_plural = auto()
     dual = auto()
@@ -264,10 +264,10 @@ class Number(MorphosyntacticFeature):
 
     
 class Definiteness(MorphosyntacticFeature):
-    '''The relationship between noun phrases and 
+    """The relationship between noun phrases and 
     entities in or not in the discoursive context. 
     see https://universaldependencies.org/u/feat/Definiteness.html
-    '''
+    """
     complex = auto()
     construct_state = auto()
     definite = auto()
@@ -276,9 +276,9 @@ class Definiteness(MorphosyntacticFeature):
 
     
 class Degree(MorphosyntacticFeature):
-    '''The degree of adjectives.
+    """The degree of adjectives.
     see https://universaldependencies.org/u/feat/Degree.html
-    '''
+    """
     absolute_superlative = auto()
     comparative = auto()
     equative = auto()
@@ -291,9 +291,9 @@ nominal_features = [Case, Gender, Animacy, Number, Definiteness, Degree]
 # Other lexical features
     
 class PrononimalType(MorphosyntacticFeature):
-    '''A subclassification of pronouns.
+    """A subclassification of pronouns.
     see https://universaldependencies.org/u/feat/PronType.html
-    '''
+    """
     article = auto()
     demonstrative = auto()
     emphatic = auto()
@@ -308,16 +308,16 @@ class PrononimalType(MorphosyntacticFeature):
 
     
 class Possessive(PrivativeFeature):
-    '''Is this nominal form marked as a possessive?
+    """Is this nominal form marked as a possessive?
     see https://universaldependencies.org/u/feat/Poss.html
-    '''
+    """
     pass
 
     
 class Numeral(MorphosyntacticFeature):
-    '''A subclassification of numeric types.
+    """A subclassification of numeric types.
     see https://universaldependencies.org/u/feat/NumType.html
-    '''
+    """
     cardinal = auto()
     distributive = auto()
     fractional = auto()
@@ -328,30 +328,30 @@ class Numeral(MorphosyntacticFeature):
 
     
 class Reflexive(PrivativeFeature):
-    '''Is the pronoun reflexive?
+    """Is the pronoun reflexive?
     see https://universaldependencies.org/u/feat/Reflex.html
-    '''
+    """
     pass
 
 
 class Foreign(PrivativeFeature):
-    '''Is this a foreign word, relative to the language of the sentences?
+    """Is this a foreign word, relative to the language of the sentences?
     see https://universaldependencies.org/u/feat/Foreign.html
-    '''
+    """
     pass
 
 
 class Abbr(PrivativeFeature):
-    '''Is this word an abbreviation?
+    """Is this word an abbreviation?
     see https://universaldependencies.org/u/feat/Abbr.html
-    '''
+    """
     pass
 
 
 class Typo(PrivativeFeature):
-    '''Does this word contain a typo?
+    """Does this word contain a typo?
     see https://universaldependencies.org/u/feat/Typo.html
-    '''
+    """
     pass
 
 # the feature value of an underspecified feature.
