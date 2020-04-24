@@ -211,12 +211,18 @@ class Doc:
         """
         return self._get_words_attribute("features")
 
+
     @property
     def lemmata(self) -> List[str]:
         """Returns a list of lemmata, indexed to the word tokens
         provided by `Doc.tokens`.
         """
         return self._get_words_attribute("lemma")
+
+    def __getitem__(self, word_index : int) -> Word:
+        """Indexing operator overloaded to return the `Word` at index `word_index`.
+        """
+        return self.words[word_index]
 
     @property
     def embeddings(self):
