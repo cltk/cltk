@@ -48,4 +48,5 @@ class UnknownLanguageError(CLTKException):
 
 class CorpusImportError(Exception):
     """CLTK exception to use when something goes wrong importing corpora"""
+
     pass

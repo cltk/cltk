@@ -149,8 +149,9 @@ class NLP:
 
         return doc
 
-    def __call__(self, text : str) -> Doc:
+    def __call__(self, text: str) -> Doc:
         return self.analyze(text)
+
 
 if __name__ == "__main__":
     from cltkv1.languages.example_texts import get_example_text
@@ -187,4 +188,3 @@ if __name__ == "__main__":
         print(f"Done with {lang}.")
         # print(cltk_doc)
         print("")
-

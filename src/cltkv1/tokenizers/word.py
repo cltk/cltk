@@ -48,8 +48,8 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             "akkadian",
             "arabic",
             "french",  # defaults to old_french
-            "greek",
-            "latin",
+            "grc",
+            "lat",
             "middle_english",
             "middle_french",
             "middle_high_german",
@@ -78,9 +78,9 @@ class WordTokenizer:  # pylint: disable=too-few-public-methods
             self.toker = BaseRegexWordTokenizer(
                 "old_french", OldFrenchTokenizerPatterns
             )
-        elif self.language == "greek":
+        elif self.language == "grc":
             self.toker = BasePunktWordTokenizer("greek", GreekRegexSentenceTokenizer)
-        elif self.language == "latin":
+        elif self.language == "lat":
             self.toker = LatinWordTokenizer()
         elif self.language == "old_norse":
             self.toker = BaseRegexWordTokenizer("old_norse", OldNorseTokenizerPatterns)

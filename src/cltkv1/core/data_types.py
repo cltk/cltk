@@ -211,7 +211,6 @@ class Doc:
         """
         return self._get_words_attribute("features")
 
-
     @property
     def lemmata(self) -> List[str]:
         """Returns a list of lemmata, indexed to the word tokens
@@ -219,7 +218,7 @@ class Doc:
         """
         return self._get_words_attribute("lemma")
 
-    def __getitem__(self, word_index : int) -> Word:
+    def __getitem__(self, word_index: int) -> Word:
         """Indexing operator overloaded to return the `Word` at index `word_index`.
         """
         return self.words[word_index]
