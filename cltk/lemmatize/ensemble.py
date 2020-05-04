@@ -281,7 +281,7 @@ class EnsembleRegexpLemmatizer(SequentialEnsembleLemmatizer, RegexpTagger):
             if re.search(pattern, tokens[index]):
                 hits.append(re.sub(pattern, replace, tokens[index]))
         hits = list(set(hits))
-        hits = [(hit, 100/len(hits)) for hit in hits]
+        hits = [(hit, 1/len(hits)) for hit in hits]
         return hits if hits else None
 
     def __repr__(self: object):
