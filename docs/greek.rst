@@ -71,7 +71,7 @@ Contrary to the original docs to use the functions from this module it is necess
    In[2]: add_diacritic(add_diacritic('ο', ROUGH), ACUTE)
    Out[2]: 'ὅ'
 
-``accent`` and ``strip_accent`` return the accent of a character as an Unicode escape and the character stripped of its accent respectively. ``breathing``, ``strip_breathing``, ``length`` and ``strip_length`` work analogously, for example:
+``accent`` and ``strip_accents`` return the accent of a character as an Unicode escape and the character stripped of its accent respectively. ``breathing``, ``strip_breathing``, ``length`` and ``strip_length`` work analogously, for example:
 
 .. code-block:: python
 
@@ -414,10 +414,14 @@ The lemmatizer offers several input and output options. For text input, it can t
 
    In [2]: sentence = 'τὰ γὰρ πρὸ αὐτῶν καὶ τὰ ἔτι παλαίτερα σαφῶς μὲν εὑρεῖν διὰ χρόνου πλῆθος ἀδύνατα ἦν'
 
-   In [3]: lemmatizer = LemmaReplacer('greek')
+   In [3]: from cltk.corpus.utils.formatter import cltk_normalize
+   
+   In [4]: sentence = cltk_normalize(sentence)  # can help when using certain texts
 
-   In [4]: lemmatizer.lemmatize(sentence)
-   Out[4]:
+   In [5]: lemmatizer = LemmaReplacer('greek')
+
+   In [6]: lemmatizer.lemmatize(sentence)
+   Out[6]:
    ['τὰ',
     'γὰρ',
     'πρὸ',
