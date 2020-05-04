@@ -58,13 +58,36 @@ class SequentialEnsembleLemmatizer(SequentialBackoffTagger):
         self.repr.maxlist = 1
         self.repr.maxdict = 1
 
-    def lemmatize(self: object, tokens: List[str]):
+    def lemmatize(self: object, tokens: List[str], lemmas_only: bool = False):
         """
         Transform tag method into custom method for lemmatizing tasks. Cf. ``tag`` method above.
 
         :param tokens: List of tokens to tag
         """
-        return self.tag(tokens)
+
+        def extract_lemma_scores(ensemble_lemmas):
+            lemma_scores = []
+            for token, lemma in ensemble_lemmas:
+                lemma_scores_ = []
+                for lemma_ in lemma:
+                    for value in lemma_.values():
+                        for value_ in value:
+                            lemma_scores_.append(value_)
+                lemma_scores.append(lemma_scores_)
+            return lemma_scores
+
+        def get_all_matches(lemma):
+            # https://stackoverflow.com/a/35344958/1816347
+            return sorted(set([lemma_[0] for lemma_ in lemma]))
+
+        if lemmas_only:
+            lemma_scores = extract_lemma_scores(self.tag(tokens))
+            lemmas = []
+            for lemma_score in lemma_scores:
+                lemmas.append(get_all_matches(lemma_score))
+            return lemmas
+        else:
+            return self.tag(tokens)
 
     def tag(self: object, tokens: List[str]):
         """ (Mostly) inherited from TaggerI; cf.
@@ -109,6 +132,7 @@ class SequentialEnsembleLemmatizer(SequentialBackoffTagger):
                 lemmas.append({tagger: lemma})
             else:
                 lemmas.append(None)
+
         return lemmas
 
 
@@ -292,4 +316,18 @@ class EnsembleRegexpLemmatizer(SequentialEnsembleLemmatizer, RegexpTagger):
 
 
 if __name__ == '__main__':
-    pass
+    test = "arma virumque cano qui".split()
+    patterns = [
+    (r'\b(.+)(o|is|it|imus|itis|unt)\b', r'\1o'),
+    (r'\b(.+)(o|as|at|amus|atis|ant)\b', r'\1o'),
+]
+    EDL = EnsembleDictLemmatizer(lemmas = {'cano': 'cano'}, source='EDL', verbose=True)
+    EUL = EnsembleUnigramLemmatizer(train=[
+            [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')],
+            [('arma', 'arma'), ('virumque', 'virus'), ('cano', 'canus')],
+            [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'canis')],
+            [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')],
+            ], verbose=True, backoff=EDL)
+    ERL = EnsembleRegexpLemmatizer(regexps=patterns, source='Latin Regex Patterns', verbose=True, backoff=EUL)
+    ensemble_lemmas = ERL.lemmatize(test, lemmas_only=True)
+    print(ensemble_lemmas)
