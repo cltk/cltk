@@ -100,8 +100,8 @@ LANGUAGE_CORPORA = {
             "type": "software",
         },
         {
-            "origin": "https://github.com/cltk/greek_text_perseus.git",
-            "name": "greek_text_perseus",
+            "name": "grc_text_perseus",
+            "origin": "https://github.com/cltk/grc_text_perseus.git",
             "type": "text",
         },
         {"origin": None, "name": "phi7", "location": "local", "type": "text"},
@@ -152,9 +152,9 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "greek_text_tesserae",
+            "name": "grc_text_tesserae",
             # modified plaintext with Tesserae-style citations
-            "origin": "https://github.com/cltk/greek_text_tesserae.git",
+            "origin": "https://github.com/cltk/grc_text_tesserae.git",
             "type": "text",
         },
     ],
@@ -168,17 +168,17 @@ LANGUAGE_CORPORA = {
     "lat": [
         {
             "type": "text",
-            "name": "latin_text_perseus",
-            "origin": "https://github.com/cltk/latin_text_perseus.git",
+            "name": "lat_text_perseus",
+            "origin": "https://github.com/cltk/lat_text_perseus.git",
         },
         {
-            "name": "latin_treebank_perseus",
-            "origin": "https://github.com/cltk/latin_treebank_perseus.git",
+            "name": "lat_treebank_perseus",
+            "origin": "https://github.com/cltk/lat_treebank_perseus.git",
             "type": "treebank",
         },
         {
-            "name": "latin_text_latin_library",
-            "origin": "https://github.com/cltk/latin_text_latin_library.git",
+            "name": "lat_text_latin_library",
+            "origin": "https://github.com/cltk/lat_text_latin_library.git",
             "type": "text",
         },
         {"location": "local", "name": "phi5", "origin": None, "type": "text"},
@@ -234,9 +234,9 @@ LANGUAGE_CORPORA = {
             "origin": "https://github.com/cltk/latin_text_poeti_ditalia.git",
         },
         {
-            "name": "latin_text_tesserae",
+            "name": "lat_text_tesserae",
             # modified plaintext with Tesserae-style citations
-            "origin": "https://github.com/cltk/latin_text_tesserae.git",
+            "origin": "https://github.com/cltk/lat_text_tesserae.git",
             "type": "text",
         },
     ],
@@ -729,8 +729,8 @@ class FetchCorpus:
                 self._copy_dir_recursive(local_path, tlg_originals_dir)
         else:
             """{'type': 'text',
-                'name': 'latin_text_perseus',
-                'origin': 'https://github.com/cltk/latin_text_perseus.git'},
+                'name': 'lat_text_perseus',
+                'origin': 'https://github.com/cltk/lat_text_perseus.git'},
             """
             if (
                 not matching_corpus.get("type")
