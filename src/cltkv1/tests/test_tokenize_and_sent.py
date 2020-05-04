@@ -160,7 +160,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
 
     def test_greek_word_tokenizer_base(self):
         """Test Greek-specific word tokenizer."""
-        word_tokenizer = WordTokenizer("greek")
+        word_tokenizer = WordTokenizer("grc")
 
         # Test sources:
         # - Thuc. 1.1.1
@@ -306,7 +306,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
 
     def test_latin_word_tokenizer_base(self):
         """Test Latin-specific word tokenizer."""
-        word_tokenizer = WordTokenizer("latin")
+        word_tokenizer = WordTokenizer("lat")
 
         # Test sources:
         # - V. Aen. 1.1

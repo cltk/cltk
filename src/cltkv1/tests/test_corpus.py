@@ -93,7 +93,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         corpus_importer = FetchCorpus("grc")
         corpus_importer.import_corpus("grc_text_perseus")
         corpus_importer.import_corpus("grc_text_tesserae")
-        # nltk.download('punkt')
+        nltk.download("punkt")
         # nltk.download('averaged_perceptron_tagger')
 
     def test_greek_betacode_to_unicode(self):
