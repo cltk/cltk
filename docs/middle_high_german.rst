@@ -228,6 +228,7 @@ POS tagging
 ===========
 
 .. code-block:: python
+
     In [1]: from cltk.tag.pos import POSTag
 
     In [2]: mhg_pos_tagger = POSTag("middle_high_german")
