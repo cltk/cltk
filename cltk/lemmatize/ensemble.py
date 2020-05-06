@@ -1,7 +1,15 @@
-"""Lemmatization module—includes several classes for different
-lemmatizing approaches--based on training data, regex pattern matching, etc. These can be chained together using the backoff parameter. Also, includes a pre-built chain that uses models in cltk_data. Unlike backoff lemmatizer, ensemble lemmatizer uses tag
-information from every lemmatizer in the backoff chain and returns
-lemmas based on scoring.
+"""Ensemble Lemmatizer module, includes several classes for different
+lemmatizing approaches--based on training data, regex pattern matching, etc.
+These can be chained together using the backoff parameter. Unlike backoff
+lemmatizer, ensemble lemmatizer uses tag information from every lemmatizer in
+the backoff chain and returns available lemmas. Selection and scoring
+mechanisms for use with the Ensemble Lemmatizer are under development.
+
+Ensemble Lemmatizer classes are subclasses of the NLTK SequentialBackoffTagger
+with modifications made for lemmatization and for better integration with CLTK.
+NLTK SequentialBackoffTagger available for modification and distribution under
+the Apache License 2.0 (https://github.com/nltk/nltk/blob/develop/LICENSE.txt).
+The original code is (C) 2001-2020 NLTK Project.
 """
 
 __author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
