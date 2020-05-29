@@ -135,9 +135,9 @@ class SequentialEnsembleLemmatizer(SequentialBackoffTagger):
         for tagger in self._taggers:
             lemma = tagger.choose_tag(tokens, index, history)
             if isinstance(lemma, str):
-                lemmas.append({tagger: [(lemma, 100)]})
+                lemmas.append({str(tagger): [(lemma, 100)]})
             elif isinstance(lemma, list):
-                lemmas.append({tagger: lemma})
+                lemmas.append({str(tagger): lemma})
             else:
                 lemmas.append(None)
 
@@ -218,6 +218,7 @@ class EnsembleUnigramLemmatizer(SequentialEnsembleLemmatizer, UnigramTagger):
         :param cutoff: If the most likely tag for a context occurs
             fewer than cutoff times, then exclude it from the
             context-to-tag table for the new tagger.
+        :param verbose: Not used
         """
 
         token_count = hit_count = 0
@@ -254,13 +255,6 @@ class EnsembleUnigramLemmatizer(SequentialEnsembleLemmatizer, UnigramTagger):
                 self._context_to_tag[context] = weighted_tags
                 hit_count += hits
 
-        # Display some stats, if requested.
-        if verbose:
-            size = len(self._context_to_tag)
-            backoff = 100 - (hit_count * 100.0) / token_count
-            pruning = 100 - (size * 100.0) / len(fd.conditions())
-            print("[Trained Unigram tagger:", end=' ')
-            print("size=%d, backoff=%.2f%%, pruning=%.2f%%]" % (size, backoff, pruning))
 
     def choose_tag(self: object, tokens: List[str], index: int, history: List[str]):
         """
@@ -337,5 +331,5 @@ if __name__ == '__main__':
             [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')],
             ], verbose=True, backoff=EDL)
     ERL = EnsembleRegexpLemmatizer(regexps=patterns, source='Latin Regex Patterns', verbose=True, backoff=EUL)
-    ensemble_lemmas = ERL.lemmatize(test, lemmas_only=True)
+    ensemble_lemmas = ERL.lemmatize(test, lemmas_only=False)
     print(ensemble_lemmas)
