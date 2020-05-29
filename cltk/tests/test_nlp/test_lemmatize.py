@@ -12,6 +12,9 @@ from cltk.lemmatize.backoff import IdentityLemmatizer
 from cltk.lemmatize.backoff import UnigramLemmatizer
 from cltk.lemmatize.backoff import DictLemmatizer
 from cltk.lemmatize.backoff import RegexpLemmatizer
+from cltk.lemmatize.ensemble import EnsembleDictLemmatizer
+from cltk.lemmatize.ensemble import EnsembleUnigramLemmatizer
+from cltk.lemmatize.ensemble import EnsembleRegexpLemmatizer
 
 from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
 from cltk.lemmatize.latin.backoff import RomanNumeralLemmatizer # Removed temporarily
@@ -186,6 +189,52 @@ class TestSequenceFunctions(unittest.TestCase):
         with patch.object(BackoffGreekLemmatizer,'models_path',''):
             with self.assertRaises(FileNotFoundError):
                 lemmatizer = BackoffGreekLemmatizer()
+
+    def test_ensemble_latin_dictlemmatizer(self):
+        """Test ensembleLatinLemmatizer"""
+
+        test_tokens = "arma virumque cano qui".split()
+        EDL = EnsembleDictLemmatizer(lemmas = {'cano': 'cano'}, source='EDL', verbose=True)
+        target = [[], [], ['cano'], []]
+        lemmas = EDL.lemmatize(test_tokens, lemmas_only=True)
+        self.assertEqual(lemmas, target)
+
+    def test_ensemble_latin_dictlemmatizer_lemmas_only_false(self):
+        """Test ensembleLatinLemmatizer"""
+
+        test_tokens = "arma virumque cano qui".split()
+        EDL = EnsembleDictLemmatizer(lemmas = {'cano': 'cano'}, source='EDL', verbose=True)
+        target = [('arma', []), ('virumque', []), ('cano', [{'<EnsembleDictLemmatizer: EDL>': [('cano', 100)]}]), ('qui', [])]
+        lemmas = EDL.lemmatize(test_tokens, lemmas_only=False)
+        self.assertEqual(lemmas, target)
+
+    def test_ensemble_latin_regexplemmatizer(self):
+        """Test ensembleLatinLemmatizer"""
+
+        test_tokens = "arma virumque cano qui".split()
+        patterns = [
+        (r'\b(.+)(o|is|it|imus|itis|unt)\b', r'\1o'),
+        (r'\b(.+)(o|as|at|amus|atis|ant)\b', r'\1o'),
+            ]
+        ERL = EnsembleRegexpLemmatizer(regexps=patterns, source='Latin Regex Patterns', verbose=True, backoff=None)
+        target = [[], [], ['cano'], []]
+        lemmas = ERL.lemmatize(test_tokens, lemmas_only=True)
+        self.assertEqual(lemmas, target)
+
+    def test_ensemble_latin_unigramlemmatizer(self):
+        """Test ensembleLatinLemmatizer"""
+
+        test_tokens = "arma virumque cano qui".split()
+        EUL = EnsembleUnigramLemmatizer(train=[
+                    [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')],
+                    [('arma', 'arma'), ('virumque', 'virus'), ('cano', 'canus')],
+                    [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'canis')],
+                    [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')],
+                    ], verbose=True, backoff=None)
+        target = [['arma'], ['vir', 'virus'], ['canis', 'cano', 'canus'], []]
+        lemmas = EUL.lemmatize(test_tokens, lemmas_only=True)
+        print(lemmas)
+        self.assertEqual(lemmas, target)
 
     def test_french_lemmatizer(self):
         text = "Li rois pense que par folie, Sire Tristran, vos aie amé ; Mais Dé plevis ma loiauté, Qui sor mon cors mete flaele, S'onques fors cil qui m’ot pucele Out m'amistié encor nul jor !"

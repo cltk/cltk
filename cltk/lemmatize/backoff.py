@@ -1,12 +1,14 @@
-"""Lemmatization module—includes several classes for different
-lemmatizing approaches--based on training data, regex pattern matching,
-etc. These can be chained together using the backoff parameter. Also,
-includes a pre-built chain that uses models in cltk_data.
+"""Backoff Lemmatizer module, includes several classes for different
+lemmatizing approaches--based on training data, regex pattern matching, etc.
+These can be chained together using the backoff parameter following the logic
+of NLTK's backoff POS tagger. See here for more info on sequential backoff
+tagging in NLTK: http://www.nltk.org/_modules/nltk/tag/sequential.html.
 
-The logic behind the backoff lemmatizer is based on backoff POS-tagging in
-NLTK and repurposes several of the tagging classes for lemmatization
-tasks. See here for more info on sequential backoff tagging in NLTK:
-http://www.nltk.org/_modules/nltk/tag/sequential.html
+Backoff Lemmatizer classes are subclasses of the NLTK SequentialBackoffTagger
+with modifications made for lemmatization and for better integration with CLTK.
+NLTK SequentialBackoffTagger available for modification and distribution under
+the Apache License 2.0 (https://github.com/nltk/nltk/blob/develop/LICENSE.txt).
+The original code is (C) 2001-2020 NLTK Project.
 """
 
 import os
