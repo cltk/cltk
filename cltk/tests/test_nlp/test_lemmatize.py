@@ -197,18 +197,15 @@ class TestSequenceFunctions(unittest.TestCase):
         EDL = EnsembleDictLemmatizer(lemmas = {'cano': 'cano'}, source='EDL', verbose=True)
         target = [[], [], ['cano'], []]
         lemmas = EDL.lemmatize(test_tokens, lemmas_only=True)
-        print(lemmas)
         self.assertEqual(lemmas, target)
 
     def test_ensemble_latin_dictlemmatizer_lemmas_only_false(self):
         """Test ensembleLatinLemmatizer"""
-        
+
         test_tokens = "arma virumque cano qui".split()
         EDL = EnsembleDictLemmatizer(lemmas = {'cano': 'cano'}, source='EDL', verbose=True)
         target = [('arma', []), ('virumque', []), ('cano', [{'<EnsembleDictLemmatizer: EDL>': [('cano', 100)]}]), ('qui', [])]
-        print(target[2][1]))
         lemmas = EDL.lemmatize(test_tokens, lemmas_only=False)
-        print(lemmas)
         self.assertEqual(lemmas, target)
 
     def test_ensemble_latin_regexplemmatizer(self):
