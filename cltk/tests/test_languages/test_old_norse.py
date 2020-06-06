@@ -4,7 +4,7 @@ import os
 import unittest
 
 from cltk.corpus.swadesh import Swadesh
-from cltk.phonology.old_norse import transcription as ont
+import cltk.phonology.old_norse.transcription as ont
 from cltk.stop.old_norse.stops import STOPS_LIST as OLD_NORSE_STOPS
 from nltk.tokenize.punkt import PunktLanguageVars
 from cltk.phonology import utils as ut
@@ -12,11 +12,11 @@ from cltk.tokenize.word import WordTokenizer
 from cltk.phonology.syllabify import Syllabifier
 from cltk.tag.pos import POSTag
 from cltk.corpus.utils.importer import CorpusImporter
-from cltk.tokenize.word import tokenize_old_norse_words
+from cltk.tokenize.word import WordTokenizer
 from cltk.corpus.old_norse.syllabifier import invalid_onsets
 from cltk.inflection.old_norse import pronouns, nouns
 import cltk.inflection.utils as decl_utils
-from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr
+from cltk.prosody.old_norse.verse import Fornyrdhislag, Ljoodhhaattr, MetreManager, UnspecifiedStanza, PoetryTools, PoeticWord
 
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>", ]
@@ -27,7 +27,7 @@ class TestOldNorse(unittest.TestCase):
     def setUp(self):
         corpus_importer = CorpusImporter("old_norse")
         corpus_importer.import_corpus("old_norse_models_cltk")
-        file_rel = os.path.join('~/cltk_data/old_norse/model/old_norse_models_cltk/README.md')
+        file_rel = os.path.join(get_cltk_data_dir() + '/old_norse/model/old_norse_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -46,7 +46,7 @@ class TestOldNorse(unittest.TestCase):
                            "dreifðist um heim allan."
 
         tr = ut.Transcriber(ont.DIPHTHONGS_IPA, ont.DIPHTHONGS_IPA_class, ont.IPA_class, ont.old_norse_rules)
-        transcribed_sentence = tr.main(example_sentence)
+        transcribed_sentence = tr.text_to_phonetic_representation(example_sentence)
         target = "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː " \
                  "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
         self.assertEqual(target, transcribed_sentence)
@@ -89,8 +89,10 @@ class TestOldNorse(unittest.TestCase):
         s = Syllabifier(language="old_norse", break_geminants=True)
         text = "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok " \
                "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
-        words = tokenize_old_norse_words(text)
-        syllabified_words = [s.legal_onsets(s.syllabify_SSP(word.lower()), invalid_onsets)
+        tokenizer = WordTokenizer('old_norse')
+        words = tokenizer.tokenize(text)
+        s.set_invalid_onsets(invalid_onsets)
+        syllabified_words = [s.syllabify_ssp(word.lower())
                              for word in words if word not in ",."]
 
         target = [['gef', 'jun'], ['dró'], ['frá'], ['gyl', 'fa'], ['glöð'], ['djúp', 'rö', 'ðul'], ['óðl', 'a'],
@@ -132,6 +134,55 @@ class TestOldNorse(unittest.TestCase):
         self.assertEqual(verse_alliterations,
                          [[('deyr', 'deyja'), ('fé', 'frændr')], [('sjalfr', 'sjalfr')], [('einn', 'aldrei')],
                           [('dómr', 'um')]])
+
+    def test_poem(self):
+        fake_poetic_text = ["Hljóðs bið ek allar\nhelgar kindir,\nmeiri ok minni\nmögu Heimdallar;\n"
+                            "viltu at ek, Valföðr,\nvel fyr telja\nforn spjöll fira,\nþau er fremst of man.",
+                            "Deyr fé,\ndeyja frændr,\ndeyr sjalfr it sama,\nek veit einn,\nat aldrei deyr:\n"
+                            "dómr um dauðan hvern.",
+                            "Ein sat hon úti,\nþá er inn aldni kom\nyggjungr ása\nok í augu leit.\n"
+                            "Hvers fregnið mik?\nHví freistið mín?\nAllt veit ek, Óðinn,\nhvar þú auga falt,\n"
+                            "í inum mæra\nMímisbrunni.\nDrekkr mjöð Mímir\nmorgun hverjan\naf veði Valföðrs.\n"
+                            "Vituð ér enn - eða hvat?"]
+        fake_poem = MetreManager.load_poem_from_paragraphs(fake_poetic_text)
+        self.assertIsInstance(fake_poem[0], Fornyrdhislag)
+        self.assertIsInstance(fake_poem[1], Ljoodhhaattr)
+        self.assertIsInstance(fake_poem[2], UnspecifiedStanza)
+
+    def test_syllable_length_1(self):
+        syllabifier = Syllabifier(language="old_norse_ipa")
+        word = [ont.a, ont.s, ont.g, ont.a, ont.r, ont.dh, ont.r]  # asgarðr (normally it is ásgarðr)
+        syllabified_word = syllabifier.syllabify_phonemes(word)
+        lengths = []
+        for syllable in syllabified_word:
+            lengths.append(ont.measure_old_norse_syllable(syllable))
+        self.assertListEqual(lengths, [ut.Length.short, ut.Length.long])
+
+    def test_syllable_length_2(self):
+        ont.o.length = ont.Length.long
+        word = [ont.n, ont.o, ont.t.lengthen()]  # nótt
+        syllabified_word = [word]
+        lengths = []
+        for syllable in syllabified_word:
+            lengths.append(ont.measure_old_norse_syllable(syllable))
+        self.assertListEqual(lengths, [ut.Length.overlong])
+
+    def test_syllable_length_3(self):
+        word = [ont.t, ont.t]  # tt
+        lengths = []
+        for syllable in [word]:
+            lengths.append(ont.measure_old_norse_syllable(syllable))
+        self.assertListEqual(lengths, [None])
+
+    def test_prosody_tools_1(self):
+        pt = PoetryTools()
+        helgar = PoeticWord("helgar")
+        helgar.parse_word_with(pt)
+
+        self.assertEqual("helgar", helgar.text)
+        self.assertListEqual(helgar.ipa_transcription, [['h', 'ɛ', 'l'], ['g', 'a', 'r']])
+        self.assertListEqual(helgar.length, ['short', 'short'])
+        self.assertListEqual(helgar.stress, [1, 0])
 
 
 if __name__ == '__main__':

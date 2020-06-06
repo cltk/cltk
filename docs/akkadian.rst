@@ -11,9 +11,16 @@ Babylonian respectively. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Akka
 
 Workflow Sample Model
 =====================
-A sample workflow model of utilizing the tools in Akkadian is shown below. In this example, we are taking a text file
-downloaded from CDLI, importing it, and have it be read and ingested. From here, we will look at the table of contents,
+A sample workflow model of utilizing the tools in Akkadian is shown below. In this example, we are taking a text file \
+downloaded from CDLI, importing it, and have it be read and ingested. From here, we will look at the table of contents, \
 select a text, convert the text into Unicode and PrettyPrint its result.
+
+**note:** this workflow model uses a set of test documents, available to be downloaded here:
+
+https://github.com/cltk/cltk/tree/master/cltk/tests/test_akkadian
+
+When you have downloaded these files, utilize its file location within os.path.join(), *e.g.: os.path.join('downloads', \
+'single_text.txt')*. **This tutorial assumes that you are using a fork of CLTK.**
 
 .. code-block:: python
 
@@ -32,7 +39,7 @@ select a text, convert the text into Unicode and PrettyPrint its result.
    In[7]: import os
 
    # import a text and read it
-   In[8]: fi = FileImport(os.path.join('Akkadian_test_texts', 'two_text.txt')
+   In[8]: fi = FileImport(os.path.join('test_akkadian', 'single_text.txt'))
 
    In[9]: fi.read_file()
 
@@ -48,8 +55,7 @@ select a text, convert the text into Unicode and PrettyPrint its result.
    # access the data through cc.texts (e.g. above) or initial prints (e.g. below):
    # look through the file's contents
    In[13]: print(cc.toc())
-   Out[13]: ['Pnum: P254202, Edition: ARM 01, 001, length: 23 line(s)',
-             'Pnum: P254203, Edition: ARM 01, 002, length: 28 line(s)']
+   Out[13]: ['Pnum: P254202, Edition: ARM 01, 001, length: 23 line(s)']
 
    # select a text through edition or cdli number (there's also .print_metadata):
    In[14]: selected_text = cc.catalog['P254202']['transliteration']
@@ -131,7 +137,7 @@ select a text, convert the text into Unicode and PrettyPrint its result.
    # Pretty printing:
    In[25]: pp = PrettyPrint()
 
-   In[26]: destination = os.path.join('..', 'Akkadian_test_texts', 'tutorial_html.html')
+   In[26]: destination = os.path.join('test_akkadian', 'html_single_text.html')
 
    In[27]: pp.html_print_single_text(cc.catalog, '&P254202', destination)
 
@@ -147,7 +153,7 @@ These two instance attributes are used for the ATFConverter.
 
    In[2]: from cltk.corpus.akkadian.file_importer import FileImport
 
-   In[3]: text_location = os.path.join('..', 'Akadian_test_texts', 'Akkadian.txt')
+   In[3]: text_location = os.path.join('test_akkadian', 'single_text.txt')
 
    In[4]: text = FileImport(text_location)
 
@@ -167,14 +173,14 @@ This function looks at the folder storing a file and outputs its contents.
 
    In[2]: from cltk.corpus.akkadian.file_importer import FileImport
 
-   In[3]: text_location = os.path.join('..', 'Akkadian_test_texts', 'Akkadian.txt')
+   In[3]: text_location = os.path.join('test_akkadian', 'single_text.txt')
 
    In[4]: folder = FileImport(text_location)
 
    In[5]: folder.file_catalog()
 
-   Out[5]: ['Akkadian.txt', 'ARM1Akkadian.txt', 'cdli_corpus.txt', 'html_file.html', 'html_single_text.html',
-            'single_text.txt', 'two_text.txt', 'two_text_abnormalities.txt', 'two_text_no_metadata.txt']
+   Out[5]: ['html_file.html', 'html_single_text.html', 'single_text.txt',
+            'test_akkadian.py', 'two_text_abnormalities.txt']
 
 Parse File
 ==========
@@ -191,7 +197,7 @@ all of which are callable.
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: f_i = FileImport(os.path.join('..', 'Akkadian_test_texts', 'single_text.txt'))
+   In[4]: f_i = FileImport(os.path.join('test_akkadian', 'single_text.txt'))
 
    In[5]: f_i.read_file()
 
@@ -200,6 +206,7 @@ all of which are callable.
 To access the text, use `.catalog`.
 
 .. code-block:: python
+
    In[7]: print(cc.catalog)
    Out[7]: {'P254202': {'metadata': ['Primary publication: ARM 01, 001', 'Author(s): Dossin, Georges',
                                      'Publication date: 1946',
@@ -258,15 +265,14 @@ Prints a table of contents from which one can identify the edition and cdli numb
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: path = FileImport(os.path.join('..', 'Akkadian_test_texts', 'two_text.txt'))
+   In[4]: path = FileImport(os.path.join('test_akkadian', 'single_text.txt'))
 
    In[5]: f_i = FileImport(path)
 
    In[6]: f_i.read_file()
 
    In[6]: cdli.toc()
-   Out[6]: ['Pnum: P254202, Edition: ARM 01, 001, length: 23 line(s)',
-            'Pnum: P254203, Edition: ARM 01, 002, length: 28 line(s)']
+   Out[6]: ['Pnum: P254202, Edition: ARM 01, 001, length: 23 line(s)']
 
 List Pnums
 ==========
@@ -281,14 +287,14 @@ Prints cdli numbers from which one can identify the edition and cdli number for 
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: path = FileImport(os.path.join('..', 'Akkadian_test_texts', 'two_text.txt'))
+   In[4]: path = FileImport(os.path.join('test_akkadian', 'single_text.txt'))
 
    In[5]: f_i = FileImport(path)
 
    In[6]: f_i.read_file()
 
    In[6]: cdli.list_pnums()
-   Out[6]: ['P254202', 'P254203']
+   Out[6]: ['P254202']
 
 List Editions
 =============
@@ -303,14 +309,14 @@ Prints editions from which one can identify the edition and cdli number for prin
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: path = FileImport(os.path.join('..', 'Akkadian_test_texts', 'two_text.txt'))
+   In[4]: path = FileImport(os.path.join('test_akkadian', 'single_text.txt'))
 
    In[5]: f_i = FileImport(path)
 
    In[6]: f_i.read_file()
 
    In[6]: cdli.list_editions()
-   Out[6]: ['ARM 01, 001', 'ARM 01, 002']
+   Out[6]: ['ARM 01, 001']
 
 Print Catalog
 =============
@@ -325,7 +331,7 @@ Prints cdli_corpus.catalog with bite-sized information, rather than text entiret
 
    In[3]: cdli = CDLICorpus()
 
-   In[4]: path = FileImport(os.path.join('..', 'Akkadian_test_texts', 'two_text.txt'))
+   In[4]: path = FileImport(os.path.join('test_akkadian', 'single_text.txt'))
 
    In[5]: f_i = FileImport(path)
 
@@ -334,13 +340,6 @@ Prints cdli_corpus.catalog with bite-sized information, rather than text entiret
    In[6]: cdli.print_catalog()
    Out[6]: Pnum: P254202
            Edition: ARM 01, 001
-           Metadata: True
-           Transliteration: True
-           Normalization: False
-           Translation: False
-
-           Pnum: P254203
-           Edition: ARM 01, 002
            Metadata: True
            Transliteration: True
            Normalization: False
@@ -392,17 +391,17 @@ Line Tokenization is for any text, from `FileImport.raw_text` to `.CDLICorpus.te
 
    In[3]: line_tokenizer = Tokenizer(preserve_damage=False)
 
-   In[4]: text = os.path.join('..', 'Akkadian_test_texts', 'Hammurabi.txt')
+   In[4]: text = os.path.join('test_akkadian', 'single_text.txt')
 
-   In[5]: line_tokenizer.line_token(text[3042:3054])
-   Out[5]: ['20. u2-sza-bi-la-kum',
-            '1. a-na ia-as2-ma-ah-{d}iszkur',
-            '2. qi2-bi2-ma',
-            '3. um-ma {d}utu-szi-{d}iszkur',
-            '4. a-bu-ka-a-ma',
-            '5. t,up-pa-ka sza-tu-sza-bi-lam esz-me',
-            '6. asz-szum t,e4-em {d}utu-illat-su2',
-            '7. u3 ia-szu-ub-dingir sza a-na la i-zu-zi-im']
+   In[5]: line_tokenizer.line_token(text[1:8])
+   Out[5]: ['a-na ia-ah-du-li-[im]',
+            'qi2-bi2-[ma]',
+            'um-ma a-bi-sa-mar#-[ma]',
+            'sa-li-ma-am e-pu-[usz]',
+            'asz-szum mu-sze-zi-ba-am# [la i-szu]',
+            '[sa]-li#-ma-am sza e-[pu-szu]',
+            '[u2-ul] e-pu-usz sa#-[li-mu-um]',
+            '[u2-ul] sa-[li-mu-um-ma]']
 
 **Word Tokenization:**
 
@@ -416,7 +415,7 @@ Word tokenization operates on a single line of text, returns all words in the li
 
    In[3]: word_tokenizer = WordTokenizer('akkadian')
 
-   In[4]: line = '21. u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
+   In[4]: line = 'u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er'
 
    In[5]: output = word_tokenizer.tokenize(line)
    Out[5]: [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'),
@@ -470,9 +469,9 @@ Pretty Print allows an individual to take a `.txt` file and populate it into an 
 
    In[2]: from cltk.corpus.akkadian.pretty_print import  PrettyPrint
 
-   In[3]: origin = os.path.join('..', 'Akkadian_test_text', 'Akkadian.txt')
+   In[3]: origin = os.path.join('test_akkadian', 'single_text.txt')
 
-   In[4]: destination = os.path.join('..', 'Akkadian_test_text', 'html_file.html')
+   In[4]: destination = os.path.join('..', 'Akkadian_test_text', 'html_single_text.html')
 
    In[5]: f_i = FileImport(path)
         f_i.read_file()

@@ -11,7 +11,7 @@ from cltk.corpus.utils.importer import CorpusImporter
 from cltk.lemmatize.french.lemma import LemmaReplacer
 import os
 
-__author__ = ['James Gawley <james.gawley@gmail.com', 'Patrick J. Burns <patrick@diyclassics.org>', 'Natasha Voake <natashavoake@gmail.com>']
+__author__ = ['James Gawley <james.gawley@gmail.com>', 'Patrick J. Burns <patrick@diyclassics.org>', 'Natasha Voake <natashavoake@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 

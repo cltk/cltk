@@ -1,16 +1,20 @@
-__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
 
+from typing import List
 import logging
 import unicodedata
-
 from collections import defaultdict
+
 from cltk.exceptions import InputError
 from cltk.corpus.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.corpus.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
 from cltk.corpus.old_english.syllabifier import Syllabifier as OE_Syllabifier
-from cltk.corpus.old_norse.syllabifier import hierarchy as OLD_NORSE_HIERARCHY
-import cltk.phonology.utils as phut
+from cltk.corpus.old_norse.syllabifier import hierarchy as old_norse_hierarchy
+from cltk.corpus.old_norse.syllabifier import ipa_hierarchy as ipa_old_norse_hierarchy
+
+
+__author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>', "Clément Besnier <clemsciences@aol.com>"]
+__license__ = 'MIT License. See LICENSE.'
+
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -73,8 +77,10 @@ class Syllabifier:
                  fricatives=None, plosives=None, language=None, break_geminants=False):
         
         self.break_geminants = break_geminants
+        self.invalid_onsets = []
+        self.invalid_ultima = []
         
-        if language == 'middle english':
+        if language == 'middle_english':
             hierarchy = [[] for _ in range(len(set(ME_Syllabifier.values())))]
 
             for k in ME_Syllabifier:
@@ -82,8 +88,10 @@ class Syllabifier:
 
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
+
+            self.invalid_ultima = ['a', 'ae', 'æ', 'e', 'ea', 'eo', 'i', 'o', 'u', 'y']
         
-        elif language == 'old english':
+        elif language == 'old_english':
             hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
 
             for k in OE_Syllabifier:
@@ -92,7 +100,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-        elif language == 'middle high german':
+        elif language == 'middle_high_german':
             hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
             for k in MHG_Syllabifier:
@@ -102,8 +110,12 @@ class Syllabifier:
             self.set_vowels(hierarchy[0])
 
         elif language == "old_norse":
-            self.set_hierarchy(OLD_NORSE_HIERARCHY)
-            self.set_vowels(OLD_NORSE_HIERARCHY[0])
+            self.set_hierarchy(old_norse_hierarchy)
+            self.set_vowels(old_norse_hierarchy[0])
+            
+        elif language == "old_norse_ipa":
+            self.set_hierarchy(ipa_old_norse_hierarchy)
+            self.set_vowels(ipa_old_norse_hierarchy[0])
 
         else:
 
@@ -128,6 +140,12 @@ class Syllabifier:
             self.hierarchy.update({key: 5 for key in self.nasals})
             self.hierarchy.update({key: 6 for key in self.fricatives})
             self.hierarchy.update({key: 7 for key in self.plosives})
+
+    def set_invalid_onsets(self, invalid_onsets):
+        self.invalid_onsets = invalid_onsets
+
+    def set_invalid_ultima(self, invalid_ultima):
+        self.invalid_ultima = invalid_ultima
 
     def set_hierarchy(self, hierarchy):
         """
@@ -165,9 +183,9 @@ class Syllabifier:
 
     def syllabify(self, word, mode='SSP'):
         if mode == 'SSP':
-            return self.syllabify_SSP(word)
+            return self.syllabify_ssp(word)
 
-    def syllabify_SSP(self, word):
+    def syllabify_ssp(self, word):
         """
         Syllabifies a word according to the Sonority Sequencing Principle
 
@@ -202,17 +220,17 @@ class Syllabifier:
             
             Additionally, you can utilize the language parameter:
             
-            >>> s = Syllabifier(language='middle high german')
+            >>> s = Syllabifier(language='middle_high_german')
             
             >>> s.syllabify('lobebæren')
             ['lo', 'be', 'bæ', 'ren']
             
-            >>> s = Syllabifier(language='middle english')
+            >>> s = Syllabifier(language='middle_english')
             
             >>> s.syllabify("huntyng")
             ['hun', 'tyng']
             
-            >>> s = Syllabifier(language='old english')
+            >>> s = Syllabifier(language='old_english')
             
             >>> s.syllabify("arcebiscop")
             ['ar', 'ce', 'bis', 'cop']
@@ -307,19 +325,30 @@ class Syllabifier:
                     syllables[i+1] = syllables[i][-1] + syllables[i+1]
                     syllables[i] = syllables[i][:-1]
 
-        return syllables
+        return self.legal_onsets(syllables)
 
-    def legal_onsets(self, syllables, invalid_onsets):
+    def legal_onsets(self, syllables):
         """
         Filters syllable respecting the legality principle
         :param syllables: str list
-        :param invalid_onsets: str list
 
         Example:
+            The method scans for invalid syllable onsets:
+
             >>> s = Syllabifier(["i", "u", "y"], ["o", "ø", "e"], ["a"], ["r"], ["l"], ["m", "n"], ["f", "v", "s", "h"], ["k", "g", "b", "p", "t", "d"])
 
-            >>> s.legal_onsets(s.syllabify_SSP("almatigr"), ['lm'])
+            >>> s.set_invalid_onsets(['lm'])
+
+            >>> s.legal_onsets(['a', 'lma', 'tigr'])
             ['al', 'ma', 'tigr']
+
+            You can also define invalid syllable ultima:
+
+            >>> s.set_invalid_ultima(['gr'])
+
+            >>> s.legal_onsets(['al', 'ma', 'ti', 'gr'])
+            ['al', 'ma', 'tigr']
+
         """
 
         vowels = self.vowels
@@ -336,14 +365,20 @@ class Syllabifier:
 
             for j in range(len(onset)):
                 # Check whether the given onset is valid
-                if onset[j:] not in invalid_onsets:
+                if onset[j:] not in self.invalid_onsets:
                     syllables[i - 1] += onset[:j]
                     syllables[i] = syllables[i][j:]
                     break
-        
+
+        # Check whether ultima is invalid
+
+        if syllables[-1] in self.invalid_ultima:
+            syllables[-2] += syllables[-1]
+            syllables = syllables[:-1]
+
         return syllables
 
-    def syllabify_IPA(self, word):
+    def syllabify_ipa(self, word):
         """
         Parses IPA string
         :param word: word to be syllabified
@@ -351,12 +386,12 @@ class Syllabifier:
         word = word[1:-1]
         word = ''.join(l for l in unicodedata.normalize('NFD', word) if unicodedata.category(l) != 'Mn')
 
-        return self.syllabify_SSP(word)
+        return self.syllabify_ssp(word)
 
     def syllabify_phonemes(self, phonological_word):
         """
 
-        :param phonological_word: result of Transcriber().first_process in cltk.phonology.utils
+        :param phonological_word: result of Transcriber().text_to_phonemes in cltk.phonology.utils
         :return:
         """
         phoneme_lengths = []
@@ -365,10 +400,8 @@ class Syllabifier:
             phoneme_lengths.append(len(phoneme.ipar))
             l_transcribed_word.append(phoneme.ipar)
         transcribed_word = "".join(l_transcribed_word)
-        print(phoneme_lengths)
-        print(l_transcribed_word)
-        print(transcribed_word)
-        syllabified_transcribed_word = self.syllabify_SSP(transcribed_word)
+        transcribed_word = transcribed_word.replace("ː", "")
+        syllabified_transcribed_word = self.syllabify_ssp(transcribed_word)
 
         syllabified_phonological_word = []
         counter = 0  # number of IPA character processed
@@ -382,3 +415,97 @@ class Syllabifier:
                 counter += 1
 
         return syllabified_phonological_word
+
+
+class Syllable:
+    """
+    A syllable has three main constituents:
+    - onset
+    - nucleus
+    - coda
+
+    Source: https://en.wikipedia.org/wiki/Syllable
+    """
+    def __init__(self, text: str, vowels: List[str], consonants: List[str]):
+        """
+
+        :param text:  a syllable
+        :param vowels: list of characters
+        :param consonants: list of characters
+        """
+        self.onset = []
+        self.nucleus = []
+        self.coda = []
+        self.text = text
+        self.consonants = consonants
+        self.vowels = vowels
+
+        self._compute_syllable(text)
+
+    def _compute_syllable(self, text):
+        """
+        >>> sylla1 = Syllable("armr", ["a"], ["r", "m"])
+        >>> sylla1.onset
+        []
+        >>> sylla1.nucleus
+        ['a']
+        >>> sylla1.coda
+        ['r', 'm', 'r']
+
+        >>> sylla2 = Syllable("gangr", ["a"], ["g", "n", "r"])
+        >>> sylla2.onset
+        ['g']
+        >>> sylla2.nucleus
+        ['a']
+        >>> sylla2.coda
+        ['n', 'g', 'r']
+
+
+        >>> sylla3 = Syllable("aurr", ["a", "u"], ["r"])
+        >>> sylla3.nucleus
+        ['a', 'u']
+        >>> sylla3.coda
+        ['r', 'r']
+
+
+        :param text: a syllable
+        :return:
+        """
+        is_in_onset = True
+        is_in_nucleus = False
+        is_in_coda = False
+        if len(text) > 0:
+            for c in text:
+                if is_in_onset and c in self.consonants:
+                    self.onset.append(c)
+
+                elif is_in_onset and c in self.vowels:
+                    is_in_onset = False
+                    is_in_nucleus = True
+                    self.nucleus.append(c)
+
+                elif is_in_nucleus and c in self.vowels:
+                    self.nucleus.append(c)
+
+                elif is_in_nucleus and c in self.consonants:
+                    is_in_nucleus = False
+                    is_in_coda = True
+                    self.coda.append(c)
+
+                elif is_in_coda and c in self.consonants:
+                    self.coda.append(c)
+
+                elif is_in_coda and c in self.vowels:
+                    raise ValueError("This is not a correct syllable "
+                                     "(a vowel '{}' cannot be inserted in coda)".format(c))
+
+                else:
+                    raise ValueError("{} is an unknown character".format(c))
+
+            if len(self.nucleus) == 0:
+                raise ValueError("This is not a correct syllable")
+        else:
+            raise ValueError("A syllable can't be void")
+
+    def __str__(self):
+        return "".join(self.onset)+"".join(self.nucleus)+"".join(self.coda)

@@ -1,5 +1,5 @@
 Malayalam
-********
+*********
 
 Malayalam is a language spoken in India, predominantly in the state of Kerala. Malayalam originated from Middle Tamil (Sen-Tamil) in the 7th century. An alternative theory proposes a split in even more ancient times.Malayalam incorporated many elements from Sanskrit through the ages. Many medieval liturgical texts were written in an admixture of Sanskrit and early Malayalam, called Manipravalam.The oldest literary work in Malayalam, distinct from the Tamil tradition, is dated from between the 9th and 11th centuries. (Source: `Wikipedia <https://en.wikipedia.org/wiki/Malayalam>`_)
 

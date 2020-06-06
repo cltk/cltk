@@ -1,17 +1,18 @@
 """Miscellaneous file operations used by various parts of the CLTK."""
 
 import os.path
+import hashlib
 import pickle
 
 from cltk.utils.cltk_logger import logger
 
-__author__ = ['Andreas Grivas <andreasgrv@gmail.com>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>']
+__author__ = ['Andreas Grivas <andreasgrv@gmail.com>', 'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Todd Cook <todd.g.cook@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
 
 def make_cltk_path(*fp_list):
     """Take arbitrary number of str arguments (not list) and return expanded,
-    absolute path to a user's cltk_data dir.
+    absolute path to a user's (or user-defined) cltk_data dir.
 
     Example:
     In [8]: make_cltk_path('greek', 'model', 'greek_models_cltk')
@@ -21,9 +22,8 @@ def make_cltk_path(*fp_list):
     :param: : fp_list tokens to join together beginning from cltk_root folder
     :rtype: str
     """
-    
-    home = os.path.expanduser('~')
-    return os.path.join(home, 'cltk_data', *fp_list)
+
+    return os.path.join(get_cltk_data_dir(), *fp_list)
 
 
 def open_pickle(path: str):
@@ -51,3 +51,22 @@ def open_pickle(path: str):
     except pickle.UnpicklingError as unp_error:
         logger.error(unp_error)
         raise
+
+
+def md5(filename:str)->str:
+    """
+    Given a filename produce an md5 hash of the contents.
+    >>> import tempfile, os
+    >>> f = tempfile.NamedTemporaryFile(delete=False)
+    >>> f.write(b'Hello Wirld!')
+    12
+    >>> f.close()
+    >>> md5(f.name)
+    '997c62b6afe9712cad3baffb49cb8c8a'
+    >>> os.unlink(f.name)
+    """
+    hash_md5 = hashlib.md5()
+    with open(filename, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
