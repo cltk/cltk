@@ -159,9 +159,3 @@ TODO
 * Add support for different transliteration systems used within egyptology.
 * Add an option to for i -> j transformation for facilitating computer based operations.
 * Add support for the problematic characters in future.
-
-
-
-
-
-
