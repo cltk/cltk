@@ -1,7 +1,7 @@
 """
 Scansion module for scanning Latin prose rhythms.
 """
-from typing import List, Dict
+from typing import List, Dict, Union, Tuple, Any
 
 from cltk.prosody.latin.syllabifier import Syllabifier
 
@@ -27,22 +27,16 @@ class Scansion:
     NASALS = ["m", "n"]
     SESTS = ["sc", "sm", "sp", "st", "z"]
 
-    def __init__(
-            self,
-            punctuation=[
-                ".",
-                "?",
-                "!",
-                ";",
-                ":"],
-            clausula_length=13,
-            elide=True):
-        self.punctuation = punctuation
+    def __init__(self, punctuation=None, clausula_length=13, elide=True):
+        if punctuation is None:
+            self.punctuation = [".", "?", "!", ";", ":"]
+        else:
+            self.punctuation = punctuation
         self.clausula_length = clausula_length
         self.elide = elide
         self.syllabifier = Syllabifier()
 
-    def _tokenize_syllables(self, word: str) -> List[Dict]:
+    def _tokenize_syllables(self, word: str) -> List[Dict[str, Any]]:
         """
         Tokenize syllables for word.
         "mihi" -> [{"syllable": "mi", index: 0, ... } ... ]
@@ -141,7 +135,7 @@ class Scansion:
 
         return syllable_tokens
 
-    def _tokenize_words(self, sentence: str) -> List[Dict]:
+    def _tokenize_words(self, sentence: str) -> List[Dict[str, Any]]:
         """
         Tokenize words for sentence.
         "Puella bona est" -> [{word: puella, index: 0, ... }, ... ]
@@ -224,7 +218,7 @@ class Scansion:
 
         return tokens
 
-    def tokenize(self, text: str) -> List[Dict]:
+    def tokenize(self, text: str) -> List[Dict[str, Any]]:
         """
         Tokenize text on supplied characters.
         "Puella bona est. Puer malus est." ->
@@ -239,10 +233,10 @@ class Scansion:
 
         tokenized_text = []
         for sentence in tokenized_sentences:
-            sentence_dict = {}
+            sentence_dict = {} # type: ignore
             sentence_dict["plain_text_sentence"] = sentence
             sentence_dict["structured_sentence"] = self._tokenize_words(
-                sentence)
+                sentence) # type: ignore
             tokenized_text.append(sentence_dict)
 
         return tokenized_text
@@ -260,7 +254,7 @@ class Scansion:
         tokens = self.tokenize(text)
         clausulae = []
         for sentence in tokens:
-            sentence_clausula = []
+            sentence_clausula = [] # type: List[str]
             syllables = [word['syllables']
                          for word in sentence['structured_sentence']]
             flat_syllables = [

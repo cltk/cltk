@@ -15,7 +15,6 @@ vowels.
 import re
 
 from cltk.text_reuse.levenshtein import Levenshtein
-
 from cltk.prosody.latin.verse import Verse
 from cltk.prosody.latin.metrical_validator import MetricalValidator
 from cltk.prosody.latin.scansion_constants import ScansionConstants
@@ -32,15 +31,21 @@ class HexameterScanner(VerseScanner):
     """The scansion symbols used can be configured by passing a suitable constants class to
     the constructor."""
 
-    def __init__(self, constants=ScansionConstants(), syllabifier=Syllabifier(),
-                 optional_transform=False, *args, **kwargs):
+    def __init__(self, constants=None, syllabifier=None,
+                 optional_transform: bool = False, *args, **kwargs):
+        """
+        :param constants: None or a class that implements ScansionConstants
+        :param syllabifier: None or a class that implements Syllabifier methods
+        :param optional_tranform: boolean, whether or not to apply aggresive verse transformations.
+        :param kwargs:
+        """
         super().__init__(*args, **kwargs)
-        self.constants = constants
+        self.constants = ScansionConstants() if constants is None else constants
+        self.syllabifier = Syllabifier() if syllabifier is None else syllabifier
         self.remove_punct_map = string_utils.remove_punctuation_dict()
         self.punctuation_substitutions = string_utils.punctuation_for_spaces_dict()
-        self.metrical_validator = MetricalValidator(constants)
-        self.formatter = ScansionFormatter(constants)
-        self.syllabifier = syllabifier
+        self.metrical_validator = MetricalValidator(self.constants)
+        self.formatter = ScansionFormatter(self.constants)
         self.inverted_amphibrach_re = re.compile(
             r"{}\s*{}\s*{}".format(self.constants.STRESSED,
                                    self.constants.UNSTRESSED,
@@ -66,73 +71,87 @@ class HexameterScanner(VerseScanner):
         >>> print(HexameterScanner().scan(
         ... "ēxiguām sedēm pariturae tērra negavit").scansion) # doctest: +NORMALIZE_WHITESPACE
         - -  -   - -   U U -  -  -  U  U - U
+
         >>> print(scanner.scan("impulerit. Tantaene animis caelestibus irae?"))
         Verse(original='impulerit. Tantaene animis caelestibus irae?', scansion='-  U U -    -   -   U U -    - -  U U  -  - ', meter='hexameter', valid=True, syllable_count=15, accented='īmpulerīt. Tāntaene animīs caelēstibus īrae?', scansion_notes=['Valid by positional stresses.'], syllables = ['īm', 'pu', 'le', 'rīt', 'Tān', 'taen', 'a', 'ni', 'mīs', 'cae', 'lēs', 'ti', 'bus', 'i', 'rae'])
+
         >>> print(scanner.scan(
         ... "Arma virumque cano, Troiae qui prīmus ab ōrīs").scansion) # doctest: +NORMALIZE_WHITESPACE
         -  U  U -   U  U -    -  -   -   - U  U  - -
+
         >>> # some hexameters need the optional transformations:
         >>> optional_transform_scanner = HexameterScanner(optional_transform=True)
         >>> print(optional_transform_scanner.scan(
         ... "Ītaliam, fāto profugus, Lāvīniaque vēnit").scansion) # doctest: +NORMALIZE_WHITESPACE
         - -  -    - -   U U -    - -  U  U  - U
+
         >>> print(HexameterScanner().scan(
         ... "lītora, multum ille et terrīs iactātus et alto").scansion) # doctest: +NORMALIZE_WHITESPACE
         - U U   -     -    -   -  -   -  - U  U  -  U
+
         >>> print(HexameterScanner().scan(
         ... "vī superum saevae memorem Iūnōnis ob īram;").scansion) # doctest: +NORMALIZE_WHITESPACE
         -  U U -    -  -  U U -   - - U  U  - U
+
         >>> # handle multiple elisions
         >>> print(scanner.scan("monstrum horrendum, informe, ingens, cui lumen ademptum").scansion) # doctest: +NORMALIZE_WHITESPACE
         -        -  -      -  -     -  -      -  - U  U -   U
+
         >>> # if we have 17 syllables, create a chain of all dactyls
         >>> print(scanner.scan("quadrupedante putrem sonitu quatit ungula campum"
         ... ).scansion) # doctest: +NORMALIZE_WHITESPACE
         -  U U -  U  U  -   U U -   U U  -  U U  -  U
+
         >>> # if we have 13 syllables exactly, we'll create a spondaic hexameter
         >>> print(HexameterScanner().scan(
         ... "illi inter sese multa vi bracchia tollunt").scansion)  # doctest: +NORMALIZE_WHITESPACE
         -    -  -   - -  -  -  -   -   UU  -  -
+
         >>> print(HexameterScanner().scan(
         ... "dat latus; insequitur cumulo praeruptus aquae mons").scansion) # doctest: +NORMALIZE_WHITESPACE
         -   U U   -  U  U -   U U -    - -  U  U   -  -
+
         >>> print(optional_transform_scanner.scan(
         ... "Non quivis videt inmodulata poëmata iudex").scansion) # doctest: +NORMALIZE_WHITESPACE
         -    - -   U U  -  U U - U  U- U U  - -
+
         >>> print(HexameterScanner().scan(
         ... "certabant urbem Romam Remoramne vocarent").scansion) # doctest: +NORMALIZE_WHITESPACE
         -  - -   -  -   - -   U U -  U  U - -
+
         >>> # advanced smoothing is available via keyword flags: dactyl_smoothing
-        >>> # print(HexameterScanner().scan(
-        #... "his verbis: 'o gnata, tibi sunt ante ferendae",
-        #... dactyl_smoothing=True).scansion) # doctest: +NORMALIZE_WHITESPACE
-        #-   -  -    -   - U   U -  -   -  U  U -   -
+        >>> print(HexameterScanner().scan(
+        ... "his verbis: 'o gnata, tibi sunt ante ferendae",
+        ... dactyl_smoothing=True).scansion) # doctest: +NORMALIZE_WHITESPACE
+        -   -  -    -   - U   U -  -   -  U  U -   -
+
+        >>> HexameterScanner().scan('Italiam non sponte sequor.')
+        Verse(original='Italiam non sponte sequor.', scansion='', meter='hexameter', valid=False, syllable_count=9, accented='', scansion_notes=['Incomplete hexameter; not enough syllables.'], syllables = ['I', 'ta', 'li', 'ām', 'nōn', 'spōn', 'te', 'se', 'quor'])
+
+        >>> HexameterScanner().scan('Phaselus ille, quem videtis, hospites')
+        Verse(original='Phaselus ille, quem videtis, hospites', scansion='  - U U  -  -    -   U U U    -  - U ', meter='hexameter', valid=False, syllable_count=12, accented='', scansion_notes=['Inverted amphibrachs corrected.'], syllables = ['Pha', 'se', 'lus', 'īl', 'le', 'quēm', 'vi', 'de', 'tis', 'hōs', 'pi', 'tes'])
+
         """
         verse = Verse(original_line, meter='hexameter')
         # replace punctuation with spaces
         line = original_line.translate(self.punctuation_substitutions)
-        # conservative i to j
-        line = self.transform_i_to_j(line)
-        working_line = self.elide_all(line)
-        working_line = self.accent_by_position(working_line)
-        syllables = self.syllabifier.syllabify(working_line)
         if optional_transform:
             working_line = self.transform_i_to_j_optional(line)
-            working_line = self.elide_all(working_line)
-            working_line = self.accent_by_position(working_line)
-            syllables = self.syllabifier.syllabify(working_line)
             verse.scansion_notes += [self.constants.NOTE_MAP["optional i to j"]]
-        verse.working_line = working_line
-        verse.syllable_count = self.syllabifier.get_syllable_count(syllables)
-        verse.syllables = syllables
+        else:
+            working_line = self.transform_i_to_j(line) # conservative i to j
+        working_line = self.elide_all(working_line)
+        verse.working_line = self.accent_by_position(working_line)
+        verse.syllables = self.syllabifier.syllabify(verse.working_line)
+        verse.syllable_count = self.syllabifier.get_syllable_count(verse.syllables)
         if verse.syllable_count < 12:
             verse.valid = False
             verse.scansion_notes += [self.constants.NOTE_MAP["< 12"]]
             return verse
-        stresses = self.flag_dipthongs(syllables)
-        syllables_wspaces = string_utils.to_syllables_with_trailing_spaces(working_line, syllables)
+        stresses = self.flag_dipthongs(verse.syllables)
+        syllables_wspaces = string_utils.to_syllables_with_trailing_spaces(verse.working_line, verse.syllables)
         offset_map = self.calc_offset(syllables_wspaces)
-        for idx, syl in enumerate(syllables):
+        for idx, syl in enumerate(verse.syllables):
             for accented in self.constants.ACCENTED_VOWELS:
                 if accented in syl:
                     stresses.append(idx)
@@ -196,6 +215,7 @@ class HexameterScanner(VerseScanner):
             return self.assign_candidate(verse, verse.scansion)
 
         smoothed = self.correct_first_two_dactyls(verse.scansion)
+
         if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
@@ -205,6 +225,7 @@ class HexameterScanner(VerseScanner):
             return self.assign_candidate(verse, verse.scansion)
 
         smoothed = self.correct_invalid_fifth_foot(verse.scansion)
+
         if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid 5th"]]
             verse.scansion = smoothed
@@ -236,6 +257,7 @@ class HexameterScanner(VerseScanner):
 
         # need to do this again, since the scansion has changed
         smoothed = self.correct_inverted_amphibrachs(verse.scansion)
+
         if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
@@ -272,7 +294,7 @@ class HexameterScanner(VerseScanner):
 
         # if the line doesn't scan "as is", if may scan if the optional i to j transformations
         # are made, so here we set them and try again.
-        if self.optional_transform and not verse.valid:
+        if self.optional_transform and not optional_transform and not verse.valid:
             return self.scan(original_line, optional_transform=True, dactyl_smoothing=True)
         return verse
 

@@ -8,7 +8,6 @@ from typing import List
 from cltk.prosody.latin.scansion_constants import ScansionConstants
 from cltk.text_reuse.levenshtein import Levenshtein
 
-
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
