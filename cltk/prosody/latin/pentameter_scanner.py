@@ -7,8 +7,7 @@ list so that end users may view the provenance of a scansion.
 
 import re
 
-from Levenshtein import distance
-
+from cltk.text_reuse.levenshtein import Levenshtein
 from cltk.prosody.latin.verse import Verse
 from cltk.prosody.latin.metrical_validator import MetricalValidator
 from cltk.prosody.latin.scansion_constants import ScansionConstants
@@ -26,7 +25,7 @@ class PentameterScanner(VerseScanner):
     the constructor."""
 
     def __init__(self, constants=ScansionConstants(), syllabifier=Syllabifier(),
-                 optional_transform: bool = False, *args, **kwargs):
+                 optional_transform: bool = False, *args, **kwargs)->None:
         super().__init__(*args, **kwargs)
         self.constants = constants
         self.remove_punct_map = string_utils.remove_punctuation_dict()
@@ -127,7 +126,7 @@ class PentameterScanner(VerseScanner):
 
         smoothed = self.correct_first_two_dactyls(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -137,7 +136,7 @@ class PentameterScanner(VerseScanner):
 
         smoothed = self.correct_penultimate_dactyl_chain(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["penultimate dactyl chain"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -160,7 +159,7 @@ class PentameterScanner(VerseScanner):
 
         # if the line doesn't scan "as is", it may scan if the optional i to j transformations
         # are made, so here we set them and try again.
-        if self.optional_transform and not verse.valid:
+        if self.optional_transform and not optional_transform and not verse.valid:
             return self.scan(original_line, optional_transform=True)
 
         verse.accented = self.formatter.merge_line_scansion(verse.original, verse.scansion)

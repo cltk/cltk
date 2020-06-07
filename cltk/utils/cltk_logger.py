@@ -4,6 +4,8 @@ import logging
 import logging.config
 import os
 
+from cltk import get_cltk_data_dir
+
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Stephen Margheim <stephen.margheim@gmail.com>']
 __license__ = 'MIT License. See LICENSE.'
 
