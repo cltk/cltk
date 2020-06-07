@@ -7,41 +7,53 @@ from nltk.tokenize import wordpunct_tokenize
 
 from cltk.utils.file_operations import open_pickle
 
-
 __author__ = ['Kyle P. Johnson <kyle@kyle-p-johnson.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-
-TAGGERS = {'greek':
-               {'unigram': 'unigram.pickle',
-                'bigram': 'bigram.pickle',
-                'trigram': 'trigram.pickle',
-                'ngram_123_backoff': '123grambackoff.pickle',
-                'tnt': 'tnt.pickle',
-                'crf': 'crf.pickle',
-               },
-           'latin':
-               {'unigram': 'unigram.pickle',
-                'bigram': 'bigram.pickle',
-                'trigram': 'trigram.pickle',
-                'ngram_123_backoff': '123grambackoff.pickle',
-                'tnt': 'tnt.pickle',
-                'crf': 'crf.pickle',
-                },
-           'old_norse':
-               {'tnt': 'tnt.pickle'
-               },
-           'middle_low_german':
-              {'ngram_12_backoff': 'backoff_tagger.pickle'
-              },
-            'old_english':
-               {'unigram': 'unigram.pickle',
-                'bigram': 'bigram.pickle',
-                'trigram': 'trigram.pickle',
-                'ngram_123_backoff': 'backoff.pickle',
-                'crf': 'crf.pickle',
-                'perceptron' : 'perceptron.pickle'
-           }}
+TAGGERS = {
+    'greek':
+        {
+            'unigram': 'unigram.pickle',
+            'bigram': 'bigram.pickle',
+            'trigram': 'trigram.pickle',
+            'ngram_123_backoff': '123grambackoff.pickle',
+            'tnt': 'tnt.pickle',
+            'crf': 'crf.pickle',
+        },
+    'latin':
+        {
+            'unigram': 'unigram.pickle',
+            'bigram': 'bigram.pickle',
+            'trigram': 'trigram.pickle',
+            'ngram_123_backoff': '123grambackoff.pickle',
+            'tnt': 'tnt.pickle',
+            'crf': 'crf.pickle',
+        },
+    'old_norse':
+        {
+            'tnt': 'tnt.pickle'
+        },
+    'middle_low_german':
+        {
+            'ngram_12_backoff': 'backoff_tagger.pickle'
+        },
+    'old_english':
+        {
+            'unigram': 'unigram.pickle',
+            'bigram': 'bigram.pickle',
+            'trigram': 'trigram.pickle',
+            'ngram_123_backoff': 'backoff.pickle',
+            'crf': 'crf.pickle',
+            'perceptron': 'perceptron.pickle'
+        },
+    'middle_high_german':
+        {
+            'unigram': 'unigram.pickle',
+            'bigram': 'bigram.pickle',
+            'trigram': 'trigram.pickle',
+            'tnt': 'tnt.pickle',
+        },
+}
 
 
 class POSTag:
@@ -119,7 +131,7 @@ class POSTag:
         tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
-    
+
     def tag_ngram_12_backoff(self, untagged_string: str):
         """Tag POS with 1-, 2-gram tagger.
         :type untagged_string: str
@@ -130,8 +142,8 @@ class POSTag:
         pickle_path = self.available_taggers['ngram_12_backoff']
         tagger = open_pickle(pickle_path)
         tagged_text = tagger.tag(untagged_tokens)
-        return tagged_text     
-    
+        return tagged_text
+
     def tag_tnt(self, untagged_string: str):
         """Tag POS with TnT tagger.
         :type untagged_string: str

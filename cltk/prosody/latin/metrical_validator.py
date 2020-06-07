@@ -212,7 +212,7 @@ class MetricalValidator:
         pattern = pattern.replace(self.constants.FOOT_SEPARATOR, "")
         ending = pattern[-1]
         candidate = pattern[:len(pattern) - 1] + self.constants.OPTIONAL_ENDING
-        cans = [(Levenshtein.Levenshtein_Distance(candidate, x), x) for x in patterns
+        cans = [(Levenshtein.levenshtein_distance(candidate, x), x) for x in patterns
                 if len(x) == len(candidate)]
         if cans:
             cans = sorted(cans, key=lambda tup: tup[0])

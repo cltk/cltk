@@ -198,3 +198,38 @@ The ``WordTokenizer`` class takes a string as input and returns a list of tokens
    
    In [4]: word_tokenizer.tokenize(text)
    Out[4]: ['Mīn', 'ougen', 'wurden', 'liebes', 'alsō', 'vol', ',', 'dō', 'ich', 'die', 'minneclīchen', 'ērst', 'gesach', ',', 'daȥ', 'eȥ', 'mir', 'hiute', 'und', 'iemer', 'mē', 'tuot', 'wol', '.']
+
+
+Lemmatization
+=============
+
+The CLTK offers a series of lemmatizers that can be combined in a backoff chain, i.e. if one lemmatizer is unable to return a headword for a token, this token can be passed onto another lemmatizer until either a headword is returned or the sequence ends.
+There is a generic version of the backoff Middle High German lemmatizer which requires data from `the CLTK Middle High German models data found here <https://github.com/cltk/middle_high_german_models_cltk/tree/master/lemmata/backoff>`_. The lemmatizer expects this model to be stored in a folder called cltk_data in the user's home directory.
+
+To use the generic version of the backoff Middle High German Lemmatizer:
+
+.. code-block:: python
+
+   In [1]: from cltk.lemmatize.middle_high_german.backoff import BackoffMHGLemmatizer
+
+   In [2]: lemmatizer = BackoffMHGLemmatizer()
+
+   In [3]: tokens = "uns ist in alten mæren".split(" ")
+
+   In [4]: lemmatizer.lemmatize(tokens)
+   Out[4]: [('uns', {'uns', 'unser', 'unz', 'wir'}), ('ist', {'sîn/wider(e)+', 'ist', 'sîn/inne+', 'sîn/mit(e)<+', 'sîn/vür(e)+', 'sîn/abe+', 'sîn/obe+', 'sîn/vor(e)+', 'sîn/vür(e)>+', 'sîn/ûze+', 'sîn/ûz+', 'sîn/bî<.+', 'sîn/vür(e)<+', 'sîn/innen+', 'sîn/âne+', 'sîn/bî+', 'sîn/ûz<+', 'sîn', 'sîn/ûf<.+'}), ('in', {'ër', 'in/hin(e)+', 'in/>+gân', 'in/+gân', 'în/+gân', 'in/+lâzen', 'în', 'in/<.+wintel(e)n', 'in/>+rinnen', 'in/dar(e)+', 'in/.>+slîzen', 'în/hin(e)+', 'în/+lèiten', 'în/+var(e)n', 'in', 'in/>+tragen', 'in/+tropfen', 'în/+lègen', 'in/>+winten', 'în/+brèngen', 'in/>+büègen', 'ërr', 'în/+zièhen', 'in/<.+gân', 'in/+zièhen', 'in/>+tûchen', 'dër', 'în/dâr+', 'in/war(e).+', 'in/<.+lâzen', 'in/>+rîten', 'în/+lâzen', 'in/>+lâzen', 'in/+stapfen', 'în/+sènten', 'in/>.+lâzen', 'in/>+stân', 'in/+drücken', 'in/>+ligen', 'in/dâr+ ', 'in/+var(e)n', 'in/+vüèren', 'in/<.+vallen', 'in/>+vlièzen', 'in/<.+rîten', 'in/hër(e).+', 'ne', 'in/>+wonen', 'in/<.+sigel(e)n', 'in/+lègen', 'în/+dringen', 'in/>+ge-trîben', 'in/+diènen', 'in/>+ge-stëchen', 'in/>+stècken', 'in/hër(e)+', 'in/>+stëchen', 'in/dâr+', 'in/+blâsen', 'în/dâr.+', 'in/>+wîsen', 'în/+îlen', 'in/>+laden', 'în/+komen', 'în/+ge-lèiten', 'in/<.+vloèzen', 'ër ', 'in/>+sètzen', 'in/hièr+', 'in/>+bûwen', 'in/>+lèiten', 'în/+ge-binten', '[!]', 'în/+trîben', 'in/<.+blâsen', 'in/+komen', 'în/+krièchen', 'in/+trîben', 'in/<.+ligen', 'in/+stëchen', 'in/<+gân', 'in/dâr.+', 'în/hër(e)+', 'in/+kêren', 'in/<.+var(e)n', 'in/+rîten', 'in/>+vallen', 'in/<.+vüèren'}), ('alten', {'alt', 'alter', 'alten'}), ('mæren', {'mæren', 'mære'})]
+
+
+POS tagging
+===========
+
+.. code-block:: python
+
+    In [1]: from cltk.tag.pos import POSTag
+
+    In [2]: mhg_pos_tagger = POSTag("middle_high_german")
+
+    In [3]: mhg_pos_tagger.tag_tnt("uns ist in alten mæren wunders vil geseit")
+    Out[3]: [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+             ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+

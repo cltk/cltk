@@ -55,13 +55,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_levenshtein_distance(self):
         """Test for Levenshtein Distance between two words""" 
         l = Levenshtein()
-        dist = l.Levenshtein_Distance("now grete glorious god through grace of himselven","and the precious prayer of his pris moder")
+        dist = l.levenshtein_distance("now grete glorious god through grace of himselven", "and the precious prayer of his pris moder")
         self.assertEqual(dist, 36)
         
     def test_damerau_levenshtein_distance(self):
         """Test for Damerau-Levenshtein Distance between two words"""
         l = Levenshtein()
-        dist = l.Damerau_Levenshtein_Distance("all haile whose solempne glorious concepcioun","fresche floure in quhom the hevinlie dewe doun fell")
+        dist = l.damerau_levenshtein_distance("all haile whose solempne glorious concepcioun", "fresche floure in quhom the hevinlie dewe doun fell")
         self.assertEqual(dist,35)
 
 #    Test causing lemmatizer Travis build to fail—figure out what is wrong and restore.

@@ -206,7 +206,7 @@ class HexameterScanner(VerseScanner):
             return verse
 
         smoothed = self.correct_inverted_amphibrachs(verse.scansion)
-        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -215,7 +215,8 @@ class HexameterScanner(VerseScanner):
             return self.assign_candidate(verse, verse.scansion)
 
         smoothed = self.correct_first_two_dactyls(verse.scansion)
-        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -224,7 +225,8 @@ class HexameterScanner(VerseScanner):
             return self.assign_candidate(verse, verse.scansion)
 
         smoothed = self.correct_invalid_fifth_foot(verse.scansion)
-        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid 5th"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -255,7 +257,8 @@ class HexameterScanner(VerseScanner):
 
         # need to do this again, since the scansion has changed
         smoothed = self.correct_inverted_amphibrachs(verse.scansion)
-        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -283,7 +286,7 @@ class HexameterScanner(VerseScanner):
 
         if dactyl_smoothing:
             smoothed = self.correct_dactyl_chain(smoothed)
-            if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+            if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
                 verse.scansion_notes += [self.constants.NOTE_MAP["dactyl smoothing"]]
                 verse.scansion = smoothed
             if self.metrical_validator.is_valid_hexameter(verse.scansion):

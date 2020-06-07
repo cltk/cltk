@@ -127,7 +127,7 @@ class PentameterScanner(VerseScanner):
 
         smoothed = self.correct_first_two_dactyls(verse.scansion)
 
-        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -137,7 +137,7 @@ class PentameterScanner(VerseScanner):
 
         smoothed = self.correct_penultimate_dactyl_chain(verse.scansion)
 
-        if Levenshtein.Levenshtein_Distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["penultimate dactyl chain"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
