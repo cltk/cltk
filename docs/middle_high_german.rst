@@ -198,3 +198,17 @@ The ``WordTokenizer`` class takes a string as input and returns a list of tokens
    
    In [4]: word_tokenizer.tokenize(text)
    Out[4]: ['Mīn', 'ougen', 'wurden', 'liebes', 'alsō', 'vol', ',', 'dō', 'ich', 'die', 'minneclīchen', 'ērst', 'gesach', ',', 'daȥ', 'eȥ', 'mir', 'hiute', 'und', 'iemer', 'mē', 'tuot', 'wol', '.']
+
+
+POS tagging
+===========
+
+.. code-block:: python
+    In [1]: from cltk.tag.pos import POSTag
+
+    In [2]: mhg_pos_tagger = POSTag("middle_high_german")
+
+    In [3]: mhg_pos_tagger.tag_tnt("uns ist in alten mæren wunders vil geseit")
+    Out[3]: [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+             ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+

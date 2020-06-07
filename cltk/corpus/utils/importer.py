@@ -28,6 +28,7 @@ from cltk.corpus.french.corpora import FRENCH_CORPORA
 from cltk.corpus.marathi.corpora import MARATHI_CORPORA
 from cltk.corpus.gujarati.corpora import GUJARATI_CORPORA
 from cltk.corpus.middle_low_german.corpora import MIDDLE_LOW_GERMAN_CORPORA
+from cltk.corpus.middle_high_german.corpora import MIDDLE_HIGH_GERMAN_CORPORA
 
 from cltk.utils.cltk_logger import logger
 
@@ -78,8 +79,8 @@ LANGUAGE_CORPORA = {'akkadian': AKKADIAN_CORPORA,
                     'classical_hindi':CLASSICAL_HINDI_CORPORA,
                     'french':FRENCH_CORPORA,
                     'gujarati': GUJARATI_CORPORA,
-                    'middle_low_german': MIDDLE_LOW_GERMAN_CORPORA
-
+                    'middle_low_german': MIDDLE_LOW_GERMAN_CORPORA,
+                    'middle_high_german': MIDDLE_HIGH_GERMAN_CORPORA,
                     }
 
 
