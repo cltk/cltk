@@ -7,7 +7,7 @@ list so that end users may view the provenance of a scansion.
 
 import re
 
-from Levenshtein import distance
+from cltk.text_reuse.levenshtein import Levenshtein
 
 import cltk.prosody.latin.string_utils as string_utils
 from cltk.prosody.latin.verse import Verse
@@ -110,7 +110,7 @@ class HendecasyllableScanner(VerseScanner):
 
         smoothed = self.correct_invalid_start(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -120,7 +120,7 @@ class HendecasyllableScanner(VerseScanner):
 
         smoothed = self.correct_antepenult_chain(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["antepenult chain"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)

@@ -1,5 +1,6 @@
 """Test Middle High German"""
 
+import os
 import unittest
 import unicodedata
 import os
@@ -11,6 +12,7 @@ from cltk.stem.middle_high_german.stem import stemmer_middle_high_german as midd
 from cltk.stop.middle_high_german.stops import STOPS_LIST as MIDDLE_HIGH_GERMAN_STOPS
 from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.syllabify import Syllabifier
+from cltk.tag.pos import POSTag
 from cltk.tokenize.word import WordTokenizer
 
 __author__ = ['Eleftheria Chatziargyriou <ele.hatzy@gmail.com>', 'Clément Besnier <clemsciences@aol.com>']
@@ -37,7 +39,8 @@ class TestMiddleHighGerman(unittest.TestCase):
         text = "Mīn ougen   wurden liebes alsō vol, \n\n\ndō ich die minneclīchen ērst gesach,\ndaȥ eȥ mir hiute und   iemer mē tuot wol."
 
         tokenized = word_tokenizer.tokenize(text)
-        target = ['Mīn', 'ougen', 'wurden', 'liebes', 'alsō', 'vol', ',', 'dō', 'ich', 'die', 'minneclīchen', 'ērst', 'gesach', ',', 'daȥ', 'eȥ', 'mir', 'hiute', 'und', 'iemer', 'mē', 'tuot', 'wol', '.']
+        target = ['Mīn', 'ougen', 'wurden', 'liebes', 'alsō', 'vol', ',', 'dō', 'ich', 'die', 'minneclīchen', 'ērst',
+                  'gesach', ',', 'daȥ', 'eȥ', 'mir', 'hiute', 'und', 'iemer', 'mē', 'tuot', 'wol', '.']
 
         self.assertEqual(tokenized, target)
 
@@ -90,7 +93,7 @@ class TestMiddleHighGerman(unittest.TestCase):
         """
         Test Middle High German spelling normalizer
         """
-        normalized =  normalize_middle_high_german("Mit ūf erbürten schilden in was ze strīte nōt", alpha_conv = True)
+        normalized = normalize_middle_high_german("Mit ūf erbürten schilden in was ze strīte nōt", alpha_conv=True)
         target = 'mit ûf erbürten schilden in was ze strîte nôt'
 
         self.assertEqual(normalized, target)
@@ -99,8 +102,8 @@ class TestMiddleHighGerman(unittest.TestCase):
         """
         Test Middle High German punctuation normalizer
         """
-        normalized = normalize_middle_high_german("Si sprach: ‘herre Sigemunt, ir sult iȥ lāȥen stān", punct = True)
-        target =  'si sprach herre sigemunt ir sult iȥ lâȥen stân'
+        normalized = normalize_middle_high_german("Si sprach: ‘herre Sigemunt, ir sult iȥ lāȥen stān", punct=True)
+        target = 'si sprach herre sigemunt ir sult iȥ lâȥen stân'
 
         self.assertEqual(normalized, target)
 
@@ -126,7 +129,7 @@ class TestMiddleHighGerman(unittest.TestCase):
         """
         Test Middle High German stemmer's user-defined dictionary function
         """
-        exception_dic = {"biuget" : "biegen"}
+        exception_dic = {"biuget": "biegen"}
         stemmed = middle_high_german_stemmer("swaȥ kriuchet unde fliuget und bein zer erden biuget", rem_umlauts=False,
                                              exceptions=exception_dic)
         target = ['swaȥ', 'kriuchet', 'unde', 'fliuget', 'und', 'bein', 'zer', 'erden', 'biegen']
@@ -150,6 +153,34 @@ class TestMiddleHighGerman(unittest.TestCase):
         target = ["wir", "sîn", "in", "alt", "mære"]
         for lemma_target, lemma_estimated in zip(target, res):
             self.assertIn(lemma_target, lemma_estimated)
+
+    def test_middle_high_german_tnt_pos_tagger(self):
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+                  ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+        mhg_pos_tagger = POSTag("middle_high_german")
+        res = mhg_pos_tagger.tag_tnt("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, res)
+
+    def test_middle_high_german_unigram_pos_tagger(self):
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+                  ('wunders', 'NA'), ('vil', 'ADJA'), ('geseit', 'VVPP')]
+        mhg_pos_tagger = POSTag("middle_high_german")
+        res = mhg_pos_tagger.tag_unigram("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, res)
+
+    def test_middle_high_german_bigram_pos_tagger(self):
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'NA'),
+                  ('wunders', 'NA'), ('vil', None), ('geseit', None)]
+        mhg_pos_tagger = POSTag("middle_high_german")
+        res = mhg_pos_tagger.tag_bigram("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, res)
+
+    def test_middle_high_german_trigram_pos_tagger(self):
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'NA'),
+                  ('wunders', 'NA'), ('vil', None), ('geseit', None)]
+        mhg_pos_tagger = POSTag("middle_high_german")
+        res = mhg_pos_tagger.tag_trigram("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, res)
 
 
 if __name__ == '__main__':

@@ -582,7 +582,7 @@ You can also calculate the Levenshtein distance of two words, defined as the min
 
 .. code-block:: python
 
-   In [4]: l.Levenshtein_Distance("deaeque", "deaeuqe")
+   In [4]: l.levenshtein_distance("deaeque", "deaeuqe")
    Out[4]: 2
 
 
@@ -610,10 +610,10 @@ Alternatively, you can also use CLTK's native ``Levenshtein`` class:
 
    In [3]: from cltk.text_reuse.levenshtein import Levenshtein
 
-   In [4]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaque")
+   In [4]: Levenshtein.damerau_levenshtein_distance("deaeque", "deaque")
    Out[4]: 1
 
-   In [5]: Levenshtein.Damerau_Levenshtein_Distance("deaeque", "deaeuqe")
+   In [5]: Levenshtein.damerau_levenshtein_distance("deaeque", "deaeuqe")
    Out[5]: 1
 
 Needleman-Wunsch Algorithm
