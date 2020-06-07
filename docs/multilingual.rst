@@ -172,10 +172,10 @@ This will save a file at ``~/cltk_data/user_data/search/2016_amicitia.html``, be
 with word-matches highlighted, of all authors (or texts, if ``chunk='work'``).
 
 
-Lemmatization, backoff
+Lemmatization, backoff and ensemble
 =======
 
-CLTK offers backoff lemmatizations, i.e. a series of lexicon-, rules-, or training data-based lemmatizers that can be chained together. The backoff lemmatizers are based on backoff POS tagging in NLTK. All of the examples below are in Latin, but these lemmatizers are language-independent (at least, where lemmatization is a meaningful NLP task) and can be made language-specific by providing different training sentences, regex patterns, etc.
+CLTK offers 'multiplex' lemmatization, i.e. a series of lexicon-, rules-, or training data-based lemmatizers that can be chained together. The multiplex lemmatizers are based on backoff POS tagging in NLTK: 1. with Backoff lemmatization, tagging stops at the first successful instance of tagging by a sub-tagger; 2.  with Ensemble lemmatization, tagging continues through the entire sequence, all possible lemmas are returned, and a method for scoring/selecting from possible lemmas can be specified. All of the examples below are in Latin, but these lemmatizers are language-independent (at least, where lemmatization is a meaningful NLP task) and can be made language-specific by providing different training sentences, regex patterns, etc.
 
 The backoff module offers DefaultLemmatizer which returns the same "lemma" for all tokens:
 
@@ -231,7 +231,7 @@ The DictLemmatizer—like all of the lemmatizers in this module—can take a sec
 
    In [15]: default = DefaultLemmatizer('UNK')
 
-   In [16]: lemmatizer =DictLemmatizer(lemmas=lemmas, backoff=default)
+   In [16]: lemmatizer = DictLemmatizer(lemmas=lemmas, backoff=default)
 
    In [17]: lemmatizer.lemmatize(tokens)
    Out[17]: [('arma', 'arma'), ('uirum', 'uir'), ('-que', 'UNK'), ('cano', 'UNK'), (',', 'UNK'), ('troiae', 'troia'), ('qui', 'UNK'), ('primus', 'UNK'), ('ab', 'UNK'), ('oris', 'ora')]
@@ -242,7 +242,7 @@ These lemmatizers also have a verbose mode that returns the specific tagger used
 
    In [18]: default = DefaultLemmatizer('UNK', verbose=True)
 
-   In [19]: lemmatizer =DictLemmatizer(lemmas=lemmas, backoff=default, verbose=True)
+   In [19]: lemmatizer = DictLemmatizer(lemmas=lemmas, backoff=default, verbose=True)
 
    In [20]: lemmatizer.lemmatize(tokens)
    Out[20]: [('arma', 'arma', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('uirum', 'uir', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('-que', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('cano', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), (',', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('troiae', 'troia', "<DictLemmatizer: {'arma': 'arma', ...}>"), ('qui', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('primus', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('ab', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('oris', 'ora', "<DictLemmatizer: {'arma': 'arma', ...}>")]
@@ -253,7 +253,7 @@ You can provide a name for the data source to make the verbose output clearer:
 
    In [21]: default = DefaultLemmatizer('UNK')
 
-   In [22]: lemmatizer =DictLemmatizer(lemmas=lemmas, source="CLTK Docs Example", backoff=default, verbose=True)
+   In [22]: lemmatizer = DictLemmatizer(lemmas=lemmas, source="CLTK Docs Example", backoff=default, verbose=True)
 
    In [23]: lemmatizer.lemmatize(tokens)
    Out[23]: [('arma', 'arma', '<DictLemmatizer: CLTK Docs Example>'), ('uirum', 'uir', '<DictLemmatizer: CLTK Docs Example>'), ('-que', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('cano', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), (',', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('troiae', 'troia', '<DictLemmatizer: CLTK Docs Example>'), ('qui', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('primus', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('ab', 'UNK', '<DefaultLemmatizer: lemma=UNK>'), ('oris', 'ora', '<DictLemmatizer: CLTK Docs Example>')]
@@ -275,11 +275,7 @@ Here is an example of the UnigramLemmatizer():
 
 There is also a regular-expression based lemmatizer that uses a tuple with substitution patterns to return lemmas:
 
-  In [28]: regexps = [
-    ('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'),
-    ('(.)ion(is|i|em|e|es|um|ibus)$', r'\1io'),
-    ('(.)av(i|isti|it|imus|istis|erunt|)$', r'\1o'),
-  ]
+  In [28]: regexps = [ ('(.)tat(is|i|em|e|es|um|ibus)$', r'\1tas'), ('(.)ion(is|i|em|e|es|um|ibus)$', r'\1io'), ('(.)av(i|isti|it|imus|istis|erunt|)$', r'\1o'),]
 
   In [29]: tokens = "iam a principio nobilitatis factionem disturbavit".split()
 
@@ -290,6 +286,22 @@ There is also a regular-expression based lemmatizer that uses a tuple with subst
   In [32]: lemmatizer.lemmatize(tokens)
   Out[32]: [('iam', None), ('a', None), ('principio', None), ('nobilitatis', 'nobilitas'), ('factionem', 'factio'), ('disturbavit', 'disturbo')]
 
+Ensemble lemmatization are constructed in a similar manner, but all sub-lemmatizers return tags. A selection mechanism can be applied to the output. (NB: Selection and scoring mechanisms for use with the Ensemble Lemmatizer are under development.)
+
+  In [33]: from cltk.lemmatize.ensemble import EnsembleDictLemmatizer, EnsembleUnigramLemmatizer, EnsembleRegexpLemmatizer
+
+  In [34]: patterns = [(r'\b(.+)(o|is|it|imus|itis|unt)\b', r'\1o'), (r'\b(.+)(o|as|at|amus|atis|ant)\b', r'\1o'),]
+
+  In [35]: tokens = "arma virumque cano qui".split()
+
+  In [36]: EDL = EnsembleDictLemmatizer(lemmas = {'cano': 'cano'}, source='EDL', verbose=True)
+
+  In [37]: EUL = EnsembleUnigramLemmatizer(train=[[('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')], [('arma', 'arma'), ('virumque', 'virus'), ('cano', 'canus')], [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'canis')], [('arma', 'arma'), ('virumque', 'vir'), ('cano', 'cano')],], verbose=True, backoff=EDL)
+
+  In [38]: ERL = EnsembleRegexpLemmatizer(regexps=patterns, source='Latin Regex Patterns', verbose=True, backoff=EUL)
+
+  In [39]: ERL.lemmatize(test, lemmas_only=True)
+  Out[39]: [['arma'], ['vir', 'virus'], ['canis', 'cano', 'canus'], []]
 
 N–grams
 =======
