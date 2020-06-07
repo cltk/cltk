@@ -1,16 +1,13 @@
 """ Code for building and working with stoplists
 """
+from typing import List
+from abc import abstractmethod
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>', 'Clément Besnier <clemsciences@aol.com>']
 __license__ = 'MIT License. See LICENSE.'
 
-from abc import abstractmethod
-from collections import Counter
 
-from cltk.utils.cltk_logger import logger
-
-
-class Stoplist():
+class Stoplist:
     """ Create stoplists
     """
 
@@ -21,7 +18,7 @@ class Stoplist():
         """
         if language:
             self.language = language.lower()
-        self.numpy_installed = True ## Write utility for common import traps?
+        self.numpy_installed = True  # Write utility for common import traps?
         self.sklearn_installed = True
 
         try:
@@ -32,11 +29,10 @@ class Stoplist():
 
         try:
             from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-#            self.vectorizer = CountVectorizer(input='content') # Set df?
-#            self.tfidf_vectorizer = TfidfVectorizer()
+            # self.vectorizer = CountVectorizer(input='content') # Set df?
+            # self.tfidf_vectorizer = TfidfVectorizer()
         except ImportError:
             self.sklearn_installed = False
-
 
     @abstractmethod
     def build_stoplist(self, text, size=100):
@@ -44,12 +40,21 @@ class Stoplist():
         Build a stoplist based on string or list of strings. This method
         should be overridden by subclasses of Stoplist.
         """
-        
-    def _remove_punctuation(self, texts, punctuation):
+
+    def _remove_punctuation(self, texts: List[str], punctuation):
+        """
+        >>> sl = Stoplist()
+        >>> sl._remove_punctuation(["Ave, amicus [meus]."], None)
+        ['Ave  amicus  meus  ']
+
+        :param texts: list of texts
+        :param punctuation: punctuation that should be removed
+        :return: the same text wher punctuation signs have been changed to a space
+        """
         if not punctuation:
-            punctuation = "\"#$%&\'()*+,-/:;<=>@[\]^_`{|}~.?!«»"
+            punctuation = "\"#$%&\'()*+,-/:;<=>@[]\\^_`{|}~.?!«»"
         translator = str.maketrans({key: " " for key in punctuation})
-        texts = [text.translate(translator) for text in texts] 
+        texts = [text.translate(translator) for text in texts]
         return texts
 
 
@@ -59,11 +64,17 @@ class BaseCorpusStoplist(Stoplist):
         Stoplist.__init__(self, language)
         self.punctuation = None
         if not self.numpy_installed or not self.sklearn_installed:
-            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
+            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. '
+                  'Try installing with `pip install numpy sklearn scipy`.\n\n')
             raise ImportError
         else:
             pass
 
+        # if not hasattr(self, "vectorizer"):
+        #     raise NotImplemented("vectorizer")
+        #
+        # if not hasattr(self, "tfidf_vectorizer"):
+        #     raise NotImplementedError("tfidf_vectorizer")
 
     def _make_dtm_vocab(self, texts):
         dtm = self.vectorizer.fit_transform(texts)
@@ -72,7 +83,6 @@ class BaseCorpusStoplist(Stoplist):
         vocab = self.np.array(vocab)
         return dtm, vocab
 
-
     def _make_tfidf_vocab(self, texts):
         tfidf = self.tfidf_vectorizer.fit_transform(texts)
         tfidf = tfidf.toarray()
@@ -80,49 +90,41 @@ class BaseCorpusStoplist(Stoplist):
         vocab = self.np.array(vocab)
         return tfidf, vocab
 
-
     def _get_raw_lengths(self, texts):
-        return [len(tokens.split()) for tokens in texts] # Use tokenizer rather than split?
-
+        return [len(tokens.split()) for tokens in texts]  # Use tokenizer rather than split?
 
     def _get_length_array(self, raw_lengths):
         length_array = self.np.array(raw_lengths)
-        length_array = length_array.reshape(len(length_array),1)
+        length_array = length_array.reshape(len(length_array), 1)
         return length_array
-
 
     def _get_probabilities(self, dtm, length_array):
         return dtm / length_array
-
 
     def _get_mean_probabilities(self, P, N):
         # Call N something different?
         probability_sum = self.np.ravel(P.sum(axis=0))
         return probability_sum / N
 
-
     def _get_variance_probabilities(self, bP, P, N):
-        variance = (P-bP) ** 2
+        variance = (P - bP) ** 2
         variance_sum = self.np.ravel(variance.sum(axis=0))
         return variance_sum / N
 
-
     def _get_entropies(self, P):
         with self.np.errstate(divide='ignore', invalid='ignore'):
-            logprobs = self.np.where(P != 0, self.np.log10(1/P), 0)
+            logprobs = self.np.where(P != 0, self.np.log10(1 / P), 0)
             ent = P * logprobs
             return self.np.ravel(ent.sum(axis=0))
-
 
     def _combine_vocabulary(self, vocab, measure):
         temp = list(zip(vocab, measure))
         temp = sorted(temp, key=lambda x: x[1], reverse=True)
-        #temp = [item[0] for item in temp]
+        # temp = [item[0] for item in temp]
         return temp
 
-
     def _borda_sort(self, lists):
-        ### From http://stackoverflow.com/a/30259368/1816347 ###
+        # From http://stackoverflow.com/a/30259368/1816347 ###
         scores = {}
         for l in lists:
             for idx, elem in enumerate(reversed(l)):
@@ -131,10 +133,9 @@ class BaseCorpusStoplist(Stoplist):
                 scores[elem] += idx
         return sorted(scores.keys(), key=lambda elem: scores[elem], reverse=True)
 
-
-    def build_stoplist(self, texts, basis='zou', size=100, sort_words=True,
-                        inc_values=False, lower=True, remove_punctuation = True,
-                        remove_numbers=True, include =[], exclude=[]):
+    def build_stoplist(self, texts: List[str], basis='zou', size=100, sort_words=True,
+                       inc_values=False, lower=True, remove_punctuation=True,
+                       remove_numbers=True, include=None, exclude=None):
         """
         :param texts: list of strings used as document collection for extracting stopwords
         :param basis: Define the basis for extracting stopwords from the corpus. Available methods are:
@@ -256,6 +257,3 @@ class BaseCorpusStoplist(Stoplist):
             return stops
         else:
             return [item[0] for item in stops]
-
-if __name__ == "__main__":
-    pass

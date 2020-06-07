@@ -835,7 +835,7 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
 
 
 Stoplist Construction
-==================
+=====================
 
 To extract a stoplist from a collection of documents:
 
