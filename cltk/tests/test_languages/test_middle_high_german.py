@@ -3,9 +3,11 @@
 import os
 import unittest
 import unicodedata
+import os
 
-from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
 from cltk.corpus.utils.importer import CorpusImporter
+from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
+from cltk.lemmatize.middle_high_german.backoff import BackoffMHGLemmatizer
 from cltk.stem.middle_high_german.stem import stemmer_middle_high_german as middle_high_german_stemmer
 from cltk.stop.middle_high_german.stops import STOPS_LIST as MIDDLE_HIGH_GERMAN_STOPS
 from cltk.phonology.middle_high_german import transcription as mhg
@@ -143,6 +145,14 @@ class TestMiddleHighGerman(unittest.TestCase):
         target = ['lo', 'be', 'bæ', 'ren']
 
         self.assertEqual(syllabified, target)
+
+    def test_lemmatizer(self):
+        mhg_lemmatizer = BackoffMHGLemmatizer()
+        lemmatized_sentence = mhg_lemmatizer.lemmatize("uns ist in alten mæren".split(" "))
+        res = [lemmata[1] for lemmata in lemmatized_sentence]
+        target = ["wir", "sîn", "in", "alt", "mære"]
+        for lemma_target, lemma_estimated in zip(target, res):
+            self.assertIn(lemma_target, lemma_estimated)
 
     def test_middle_high_german_tnt_pos_tagger(self):
         target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
