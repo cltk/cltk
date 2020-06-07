@@ -6,7 +6,8 @@ import logging
 from typing import List
 
 from cltk.prosody.latin.scansion_constants import ScansionConstants
-from Levenshtein import distance
+from cltk.text_reuse.levenshtein import Levenshtein
+
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -212,7 +213,7 @@ class MetricalValidator:
         pattern = pattern.replace(self.constants.FOOT_SEPARATOR, "")
         ending = pattern[-1]
         candidate = pattern[:len(pattern) - 1] + self.constants.OPTIONAL_ENDING
-        cans = [(distance(candidate, x), x) for x in patterns
+        cans = [(Levenshtein.levenshtein_distance(candidate, x), x) for x in patterns
                 if len(x) == len(candidate)]
         if cans:
             cans = sorted(cans, key=lambda tup: tup[0])
