@@ -18,6 +18,7 @@ Contents
    corpus_readers
    akkadian
    arabic
+   aramaic
    bengali
    chinese
    coptic
