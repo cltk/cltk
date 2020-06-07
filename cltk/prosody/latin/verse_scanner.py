@@ -32,13 +32,18 @@ class VerseScanner:
     the constructor.
     """
 
-    def __init__(self, constants=ScansionConstants(), syllabifier=Syllabifier(), **kwargs):
-        self.constants = constants
+    def __init__(self, constants=None, syllabifier=None, **kwargs):
+        """
+        :param constants: None or a class that implements ScansionConstants
+        :param syllabifier: None or a class that implements Syllabifier methods
+        :param kwargs:
+        """
+        self.constants = ScansionConstants() if constants is None else constants
+        self.syllabifier = Syllabifier() if syllabifier is None else syllabifier
         self.remove_punct_map = string_utils.remove_punctuation_dict()
         self.punctuation_substitutions = string_utils.punctuation_for_spaces_dict()
-        self.metrical_validator = MetricalValidator(constants)
-        self.formatter = ScansionFormatter(constants)
-        self.syllabifier = syllabifier
+        self.metrical_validator = MetricalValidator(self.constants)
+        self.formatter = ScansionFormatter(self.constants)
         self.inverted_amphibrach_re = re.compile(
             r"{}\s*{}\s*{}".format(self.constants.STRESSED,
                                    self.constants.UNSTRESSED,
