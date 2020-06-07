@@ -9,7 +9,8 @@ from cltk.prosody.latin.pentameter_scanner import PentameterScanner
 from cltk.prosody.latin.hendecasyllable_scanner import HendecasyllableScanner
 from cltk.prosody.latin.syllabifier import Syllabifier
 
-class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
+
+class TestScansionFunctions(unittest.TestCase):
     """Class for unittest"""
 
     def test_hexameter_scanner(self):
