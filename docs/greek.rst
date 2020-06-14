@@ -332,7 +332,7 @@ You may also convert individual files, with options for how the conversion happe
 
    In [4]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', markup='full')
 
-   In [5]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', break_lines=True)
+   In [5]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', rm_newlines=True)
 
    In [6]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', divide_works=True)
 
@@ -343,15 +343,11 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
-Concerning text normalization: Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some helpful code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
+Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
 
 Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
-
-See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
-
-
 
 
 Corpus Readers
