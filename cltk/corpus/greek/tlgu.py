@@ -161,9 +161,6 @@ class TLGU(object):
                                               input_path,
                                               output_path)
         logger.info(tlgu_call)
-        print("*" * 88)
-        print(tlgu_call)
-        input()
         try:
             p_out = subprocess.call(tlgu_call, shell=True)
             if p_out == 1:
