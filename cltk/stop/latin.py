@@ -16,21 +16,19 @@ __license__ = ['MIT License. See LICENSE.', 'GPL License.']
 from string import punctuation
 from cltk.stop.stop import BaseCorpusStoplist
 
+
 class CorpusStoplist(BaseCorpusStoplist):
 
     def __init__(self, language='latin'):
         BaseCorpusStoplist.__init__(self, language)
         self.punctuation = punctuation
-        if not self.numpy_installed or not self.sklearn_installed:
-            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. Try installing with `pip install numpy sklearn scipy`.\n\n')
-            raise ImportError
-        else:
+        if self.numpy_installed and self.sklearn_installed:
             from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-            self.vectorizer = CountVectorizer(input='content') # Set df?
+            self.vectorizer = CountVectorizer(input='content')  # Set df?
             self.tfidf_vectorizer = TfidfVectorizer(input='content')
 
-# Reference lists
 
+# Reference lists
 """This stopword list is taken from the Perseus Hopper source at
 ``/sgml/reading/build/stoplists``. Source at ``http://sourceforge.net/projects/perseus-hopper/``.
 
@@ -58,5 +56,4 @@ if __name__ == "__main__":
     test_corpus = [test_1, test_2]
 
     S = CorpusStoplist()
-    print(S.build_stoplist(test_corpus, size=10,
-                    basis='zou', inc_values=True))
+    print(S.build_stoplist(test_corpus, size=10, basis='zou', inc_values=True))

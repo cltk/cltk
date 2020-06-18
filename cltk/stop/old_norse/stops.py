@@ -5,14 +5,17 @@ A new introduction to Old Norse by Barnes
 Viking Language 1 by Byock (this book provides a list of most frequent words in the sagas sorted by part of speech)
 """
 
+from string import punctuation
+from cltk.stop.stop import BaseCorpusStoplist
+
 __author__ = ["Clément Besnier <clemsciences@aol.com>"]
 __license__ = 'GPL License.'
 
 
 STOPS_LIST = ['í',  # prepositions and adverbs
               'gegnum',
-              'svá'
-              'eigi'
+              'svá',
+              'eigi',
               'ekki',
               'vel',
               'upp',
@@ -102,3 +105,19 @@ STOPS_LIST = ['í',  # prepositions and adverbs
               'þetta',
               'þessu'
               ]
+
+
+class CorpusStoplist(BaseCorpusStoplist):
+
+    def __init__(self,):
+        BaseCorpusStoplist.__init__(self)
+        self.punctuation = punctuation
+        if not self.numpy_installed or not self.sklearn_installed:
+            print('\n\nThe Corpus-based Stoplist method requires numpy and scikit-learn for calculations. '
+                  'Try installing with `pip install numpy sklearn scipy`.\n\n')
+            raise ImportError
+        else:
+            from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+            self.vectorizer = CountVectorizer(input='content')  # Set df?
+            self.tfidf_vectorizer = TfidfVectorizer(input='content')
+
