@@ -116,6 +116,7 @@ def get_cltk_data_dir():
     >>> cltk_data_dir = os.environ.get("CLTK_DATA")
     >>> os.path.split(cltk_data_dir)[1]
     'custom_dir'
+    >>> del os.environ["CLTK_DATA"]
     """
     import os  # pylint: disable=import-outside-toplevel
 
