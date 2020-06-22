@@ -85,26 +85,17 @@ def remove_non_latin(input_string, also_keep=None):
 def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     """Remove and substitute post-processing for Greek TLG text.
     TODO: Surely more junk to pull out. Please submit bugs!
-    TODO: {.+?}|\(.+?\) working?
-    TODO: This is a rather slow now, help in speeding up welcome.
     """
-    remove_comp = regex.compile(r'-\n|«|»|<|>|\.\.\.|‘|’|_|{.+?}|\(.+?\)|[a-zA-Z0-9]', flags=regex.VERSION1)
+    remove_comp = regex.compile(r'-\n|[«»<>\(\)‘’_—:!\?\'\"\*]|{[[:print:][:space:]]+?}|\[[[:print:][:space:]]+?\]|[a-zA-Z0-9]', flags=regex.VERSION1)
     text = remove_comp.sub('', text)
 
-    new_text = None
     if rm_punctuation:
-        new_text = ''
-        punctuation = [',', '·', ':', '"', "'", '?', '-', '!', '*', '[', ']', '{', '}']
-        if rm_periods:
-            punctuation += ['.', ';']
-        for char in text:
-            # second try at rming some punctuation; merge with above regex
-            if char in punctuation:
-                pass
-            else:
-                new_text += char
-    if new_text:
-        text = new_text
+        punct_comp = regex.compile(r',|·')
+        text = punct_comp.sub('', text)        
+        
+    if rm_periods:
+        period_comp = regex.compile(r'\.|;')
+        text = period_comp.sub('', text)
 
     # replace line breaks w/ space
     replace_comp = regex.compile(r'\n')
@@ -114,7 +105,6 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     text = comp_space.sub(' ', text)
 
     return text
-
 
 def cltk_normalize(text, compatibility=True):
     if compatibility:
