@@ -2065,9 +2065,9 @@ class WordNetICCorpusReader(CorpusReader):
         fileids=None,
     ):
         if not root:
-            iso_map ={'lat': 'latin', 'grk': 'greek', 'skt': 'sanskrit'}
+
             root = os.path.join(
-            get_cltk_data_dir(), f"{iso_map[iso_code]}/model/{iso_map[iso_code]}_models_cltk/semantics/wordnet/"
+            get_cltk_data_dir(), f"{iso_code}/model/{iso_code}_models_cltk/semantics/wordnet/"
         )
         CorpusReader.__init__(self, root, fileids, encoding="utf8")
         if fileids is not None:
