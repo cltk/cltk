@@ -113,7 +113,6 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
 
     return text
 
-
 def cltk_normalize(text, compatibility=True):
     if compatibility:
         return normalize("NFKC", text)
