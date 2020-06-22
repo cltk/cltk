@@ -163,16 +163,16 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_tlg_plaintext_cleanup(self):
         """Test post-TLGU cleanup of text of Greek TLG text."""
-        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου〈πατήρ〉: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=line-too-long
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου 〈πατήρ〉: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=line-too-long
         clean = tlg_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=False)
-        target = " Ἀθήναιος μὲν ὁ τῆς βίβλουπατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."
+        target = " Ἀθήναιος μὲν ὁ τῆς βίβλου πατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."
         self.assertEqual(clean, target)
 
     def test_tlg_plaintext_cleanup_rm_periods(self):
         """Test post-TLGU cleanup of text of Greek TLG text."""
-        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου〈πατήρ〉: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=line-too-long
+        dirty = """{ΑΘΗΝΑΙΟΥ ΝΑΥΚΡΑΤΙΤΟΥ ΔΕΙΠΝΟΣΟΦΙΣΤΩΝ} LATIN Ἀθήναιος (μὲν) ὁ τῆς 999 βίβλου 〈πατήρ〉: ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην."""  # pylint: disable=line-too-long
         clean = tlg_plaintext_cleanup(dirty, rm_punctuation=True, rm_periods=True)
-        target = " Ἀθήναιος μὲν ὁ τῆς βίβλουπατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην"
+        target = " Ἀθήναιος μὲν ὁ τῆς βίβλου πατήρ ποιεῖται δὲ τὸν λόγον πρὸς Τιμοκράτην"
         self.assertEqual(clean, target)
 
     def test_phi5_plaintext_cleanup(self):
