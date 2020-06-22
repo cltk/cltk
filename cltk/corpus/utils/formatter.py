@@ -7,6 +7,7 @@ __author__ = [
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
     "Stephen Margheim <stephen.margheim@gmail.com>",
     "Natasha Voake <natashavoake@gmail.com>",
+    "pharos-alexandria"
 ]
 __license__ = "MIT License. See LICENSE."
 
@@ -111,7 +112,6 @@ def tlg_plaintext_cleanup(text, rm_punctuation=False, rm_periods=False):
     text = comp_space.sub(" ", text)
 
     return text
-
 
 def cltk_normalize(text, compatibility=True):
     if compatibility:
