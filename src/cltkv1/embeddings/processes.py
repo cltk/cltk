@@ -62,19 +62,7 @@ class EmbeddingsProcess(Process):
 
 @dataclass
 class ArabicEmbeddingsProcess(EmbeddingsProcess):
-    """The default Arabic embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import ArabicEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "arb"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = ArabicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Arabic embeddings algorithm."""
 
     description: str = "Default embeddings for Arabic."
     language: str = "arb"
@@ -82,19 +70,7 @@ class ArabicEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class AramaicEmbeddingsProcess(EmbeddingsProcess):
-    """The default Aramaic embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import AramaicEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "arc"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = AramaicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Aramaic embeddings algorithm."""
 
     description: str = "Default embeddings for Aramaic."
     language: str = "arb"
@@ -102,19 +78,7 @@ class AramaicEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class GothicEmbeddingsProcess(EmbeddingsProcess):
-    """The default Gothic embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import GothicEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "got"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = GothicEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Gothic embeddings algorithm."""
 
     description: str = "Default embeddings for Gothic."
     language: str = "got"
@@ -122,19 +86,7 @@ class GothicEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class GreekEmbeddingsProcess(EmbeddingsProcess):
-    """The default Ancient Greek embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import GreekEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "grc"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = GreekEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Ancient Greek embeddings algorithm."""
 
     language: str = "grc"
     description: str = "Default embeddings for Ancient Greek."
@@ -143,19 +95,7 @@ class GreekEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class LatinEmbeddingsProcess(EmbeddingsProcess):
-    """The default Latin embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import LatinEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "lat"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = LatinEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Latin embeddings algorithm."""
 
     language: str = "lat"
     description: str = "Default embeddings for Latin."
@@ -163,19 +103,7 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
-    """The default Old English embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import OldEnglishEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "ang"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = OldEnglishEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Old English embeddings algorithm."""
 
     description: str = "Default embeddings for Old English."
     language: str = "ang"
@@ -183,19 +111,7 @@ class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class PaliEmbeddingsProcess(EmbeddingsProcess):
-    """The default Pali embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import PaliEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "pli"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = PaliEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Pali embeddings algorithm."""
 
     description: str = "Default embeddings for Pali."
     language: str = "pli"
@@ -203,19 +119,7 @@ class PaliEmbeddingsProcess(EmbeddingsProcess):
 
 @dataclass
 class SanskritEmbeddingsProcess(EmbeddingsProcess):
-    """The default Sanskrit embeddings algorithm.
-
-    >>> from cltkv1.core.data_types import Doc, Word
-    >>> from cltkv1.embeddings.processes import SanskritEmbeddingsProcess
-    >>> from cltkv1.languages.example_texts import get_example_text
-    >>> language = "san"
-    >>> example_text = get_example_text(language)
-    >>> tokens = [Word(string=token) for token in example_text.split(" ")]
-    >>> a_process = SanskritEmbeddingsProcess(input_doc=Doc(raw=get_example_text(language), words=tokens))
-    >>> a_process.run()
-    >>> isinstance(a_process.output_doc.words[1].embedding, np.ndarray)
-    True
-    """
+    """The default Sanskrit embeddings algorithm."""
 
     description: str = "Default embeddings for Sanskrit."
     language: str = "san"

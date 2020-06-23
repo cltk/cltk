@@ -25,7 +25,7 @@ before_script:
 
 script:
   - make testOnlyDocTests
-  - make test
+#  - make test
 
 after_success:
   - echo Add later
