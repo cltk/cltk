@@ -21,8 +21,7 @@ before_install:
 
 install:
   - make install
-#  - poetry run python scripts/download_misc_dependencies.py
-# TODO: re-enable
+  - poetry run python scripts/download_misc_dependencies.py
 
 before_script:
   - poetry run pre-commit install-hooks
