@@ -30,6 +30,12 @@ shell:
 test:
 	poetry run tox
 
+testOnlyDocTests:
+	poetry run pytest --doctest-modules --cov-report term-missing --cov-report html:htmlcov --cov=src/cltkv1 src/cltkv1/ --ignore=tests
+
+testOnlyTestsDir:
+	poetry run pytest --disable-warnings tests
+
 typing:
 	poetry run mypy --html-report .mypy_cache src/cltkv1
 
