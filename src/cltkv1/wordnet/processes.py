@@ -34,12 +34,12 @@ class WordNetProcess(Process):
 
     def run(self):
         """Adds a list of Synset objects, representing a Word's senses, to all lemmatized words"""
-        
+
         tmp_doc = self.input_doc
         wn = self.algorithm
         for word in tmp_doc.words:
             # TODO: map CLTK lemmas to WN lemmas
             if word.lemma:
-                synsets =  list(wn.lemma(word.lemma, return_ambiguous=False).synsets())
+                synsets = list(wn.lemma(word.lemma, return_ambiguous=False).synsets())
                 word.synsets = synsets
         self.output_doc = tmp_doc

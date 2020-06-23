@@ -781,6 +781,7 @@ class Synset(_WordNetObject):
     - participle
 
     """
+
     __slots__ = [
         "_pos",
         "_offset",
@@ -1049,6 +1050,7 @@ class Synset(_WordNetObject):
 
         """
         from nltk.util import breadth_first
+
         synset_ids = []
         for synset in breadth_first(self, rel, depth):
             if synset.id() != self.id():
@@ -1662,10 +1664,11 @@ class WordNetCorpusReader(CorpusReader):
     True
 
     """
+
     _DEFAULT_HOSTS = {
         "skt": "https://sanskritwordnet.unipv.it",
         "grk": "https://greekwordnet.chs.harvard.edu",
-        "lat": "https://latinwordnet.exeter.ac.uk"
+        "lat": "https://latinwordnet.exeter.ac.uk",
     }
     _ENCODING = "utf8"
 
@@ -1745,19 +1748,25 @@ class WordNetCorpusReader(CorpusReader):
             if morpho and morpho in self._lemma_cache[lemma][pos]:
                 resolved.extend(self._lemma_cache[lemma][pos][morpho])
             else:
-                resolved.extend([
-                    l for l in self._lemma_cache[lemma][pos][morpho]
-                    for morpho in self._lemma_cache[lemma][pos]
-                    ])
+                resolved.extend(
+                    [
+                        l
+                        for l in self._lemma_cache[lemma][pos][morpho]
+                        for morpho in self._lemma_cache[lemma][pos]
+                    ]
+                )
         else:
             if lemma in self._lemma_cache:
-                resolved.extend([
-                    l for l in self._lemma_cache[lemma][pos][morpho]
-                    for pos in self._lemma_cache[lemma]
-                    if morpho in self._lemma_cache[lemma][pos]
-                ])
+                resolved.extend(
+                    [
+                        l
+                        for l in self._lemma_cache[lemma][pos][morpho]
+                        for pos in self._lemma_cache[lemma]
+                        if morpho in self._lemma_cache[lemma][pos]
+                    ]
+                )
 
-        if not resolved:        
+        if not resolved:
             results = self.json = requests.get(
                 f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}"
                 f"/{morpho if morpho else '*'}?format=json",
@@ -1765,7 +1774,7 @@ class WordNetCorpusReader(CorpusReader):
             )
             if results:
                 data = results.json()["results"]
-                for item in data:                
+                for item in data:
                     l = Lemma(self, **(item))
                     resolved.append(l)
                     self._lemma_cache[lemma][pos][morpho][item["uri"]] = l
@@ -1991,8 +2000,10 @@ class WordNetCorpusReader(CorpusReader):
         [Lemma(lemma='pumex', pos='n', morpho='n-s---cn3-', uri='p4512')]
 
         """
-        if self._iso_code in ('skt', 'grk'):
-            raise ValueError(f"Lemmatization not currently available for '{self._iso_code}'")
+        if self._iso_code in ("skt", "grk"):
+            raise ValueError(
+                f"Lemmatization not currently available for '{self._iso_code}'"
+            )
 
         form = form.translate(punctuation)
         if form:
@@ -2058,17 +2069,14 @@ class WordNetICCorpusReader(CorpusReader):
     >>> LWNIC = WordNetICCorpusReader(iso_code='lat', fileids=['ic-lasla.dat'])
 
     """
-    def __init__(
-        self,
-        iso_code,
-        root=None,
-        fileids=None,
-    ):
+
+    def __init__(self, iso_code, root=None, fileids=None):
         if not root:
 
             root = os.path.join(
-            get_cltk_data_dir(), f"{iso_code}/model/{iso_code}_models_cltk/semantics/wordnet/"
-        )
+                get_cltk_data_dir(),
+                f"{iso_code}/model/{iso_code}_models_cltk/semantics/wordnet/",
+            )
         CorpusReader.__init__(self, root, fileids, encoding="utf8")
         if fileids is not None:
             self.load_ic(fileids[0])
