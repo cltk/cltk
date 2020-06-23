@@ -23,7 +23,7 @@ from cltkv1.embeddings.processes import (
 from cltkv1.languages.example_texts import get_example_text
 
 
-class TestStringMethods(unittest.TestCase):
+class TestEmbedding(unittest.TestCase):
     def test_embeddings_fasttext(self):
         embeddings_obj = FastTextEmbeddings(
             iso_code="ang", interactive=False, overwrite=False, silent=True

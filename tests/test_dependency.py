@@ -7,7 +7,7 @@ from cltkv1.dependency.tree import Dependency, DependencyTree, Form
 from cltkv1.languages.example_texts import get_example_text
 
 
-class TestStringMethods(unittest.TestCase):
+class TestDependency(unittest.TestCase):
     def test_dependency_tree(self):
         cltk_nlp = NLP(language="lat")
         doc = cltk_nlp.analyze(text=get_example_text("lat"))

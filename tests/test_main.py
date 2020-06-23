@@ -9,13 +9,7 @@ from cltkv1.core.data_types import Doc, Word
 from cltkv1.languages.example_texts import get_example_text
 
 
-class TestStringMethods(unittest.TestCase):
-    def test_split(self):
-        s = "hello world"
-        self.assertEqual(s.split(), ["hello", "world"])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
+class TestMain(unittest.TestCase):
 
     def test_main_analyze(self):
         """Testing methods from ``cltkv1/nlp.py``. Note that we

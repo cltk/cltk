@@ -91,36 +91,84 @@ class WordNetError(Exception):
 
 
 class _WordNetObject(object):
-    """A common base class for lemmas and synsets."""
+    """A common base class for lemmas and synsets.
+
+
+    >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> sub = Lemma(LWN, lemma='sub', pos='r', morpho='rp--------', uri='37096')
+    >>> 'super' in [lemma.lemma() for lemma in sub.antonyms()]
+    True
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+    >>> s1.hypernyms()
+    [Synset(pos='n', offset='02893681', gloss='a weapon with a handle and blade with a sharp point')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
+    >>> s1.hyponyms()
+    [Synset(pos='n', offset='02575932', gloss='(Scottish) a long straight-bladed dagger'), Synset(pos='n', offset='03155758', gloss='a dagger with a slender blade'), Synset(pos='n', offset='03413564', gloss='a small dagger with a tapered blade')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('n', '00510771')
+    >>> s1.member_meronyms()
+    [Synset(pos='n', offset='07260585', gloss='a supporter of feminism')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('n', '02335723')
+    >>> s1.substance_meronyms()
+    [Synset(pos='n', offset='10626993', gloss='soil that is plastic when moist but hard when fired')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('n', '00541686')
+    >>> s1.attributes()
+    [Synset(pos='a', offset='01151057', gloss='sexually attracted to members of the opposite sex'), Synset(pos='a', offset='01151299', gloss='sexually attracted to members of your own sex')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('n', '00077986')
+    >>> s1.part_meronyms()
+    [Synset(pos='n', offset='00078772', gloss='preparation for the delivery of shellfire on a target')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('v', '00107243')
+    >>> s1.also_sees()
+    [Synset(pos='v', offset='00293275', gloss='become looser or slack')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('v', '00001740')
+    >>> s1.entailments()
+    [Synset(pos='v', offset='00003142', gloss='expel air'), Synset(pos='v', offset='00003763', gloss='draw in air')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('v', '00014590')
+    >>> s1.causes()
+    [Synset(pos='v', offset='00009805', gloss='be asleep')]
+
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('v', '00051515')
+    >>> s1.verb_groups()
+    [Synset(pos='v', offset='00050470', gloss='eliminate urine')]
+
+    # >>> LWN = WordNetCorpusReader(iso_code="lat")
+    >>> s1 = LWN.synset_from_pos_and_offset('n', 'L9083855')
+    >>> s1.nearest()
+    [Synset(pos='n', offset='03543592', gloss='ship for transporting troops')]
+    """
 
     def antonyms(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> sub = Lemma(LWN, lemma='sub', pos='r', morpho='rp--------', uri='37096')
-        >>> 'super' in [lemma.lemma() for lemma in sub.antonyms()]
-        True
-        """
+        """"""
         return self.related("!")
 
     def hypernyms(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s1.hypernyms()
-        [Synset(pos='n', offset='02893681', gloss='a weapon with a handle and blade with a sharp point')]
-        """
+        """"""
         return self.related("@")
 
     def _hypernyms(self):
         return self.related("@")
 
     def hyponyms(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = Synset(LWN, None, pos='n', offset='02542418', gloss='a short stabbing weapon with a pointed blade')
-        >>> s1.hyponyms()
-        [Synset(pos='n', offset='02575932', gloss='(Scottish) a long straight-bladed dagger'), Synset(pos='n', offset='03155758', gloss='a dagger with a slender blade'), Synset(pos='n', offset='03413564', gloss='a small dagger with a tapered blade')]
-        """
+        """"""
         return self.related("~")
 
     def member_holonyms(self):  # pragma: no cover
@@ -133,87 +181,42 @@ class _WordNetObject(object):
         return self.related("#p")
 
     def member_meronyms(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('n', '00510771')
-        >>> s1.member_meronyms()
-        [Synset(pos='n', offset='07260585', gloss='a supporter of feminism')]
-        """
+        """"""
         return self.related("%m")
 
     def substance_meronyms(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('n', '02335723')
-        >>> s1.substance_meronyms()
-        [Synset(pos='n', offset='10626993', gloss='soil that is plastic when moist but hard when fired')]
-        """
+        """"""
         return self.related("%s")
 
     def part_meronyms(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('n', '00077986')
-        >>> s1.part_meronyms()
-        [Synset(pos='n', offset='00078772', gloss='preparation for the delivery of shellfire on a target')]
-        """
+        """"""
         return self.related("%p")
 
     def attributes(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('n', '00541686')
-        >>> s1.attributes()
-        [Synset(pos='a', offset='01151057', gloss='sexually attracted to members of the opposite sex'), Synset(pos='a', offset='01151299', gloss='sexually attracted to members of your own sex')]
-        """
+        """"""
         return self.related("=")
 
     def entailments(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('v', '00001740')
-        >>> s1.entailments()
-        [Synset(pos='v', offset='00003142', gloss='expel air'), Synset(pos='v', offset='00003763', gloss='draw in air')]
-        """
+        """"""
         return self.related("*")
 
     def causes(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('v', '00014590')
-        >>> s1.causes()
-        [Synset(pos='v', offset='00009805', gloss='be asleep')]
-        """
+        """"""
         return self.related(">")
 
     def also_sees(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('v', '00107243')
-        >>> s1.also_sees()
-        [Synset(pos='v', offset='00293275', gloss='become looser or slack')]
-        """
+        """"""
         return self.related("^")
 
     def verb_groups(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('v', '00051515')
-        >>> s1.verb_groups()
-        [Synset(pos='v', offset='00050470', gloss='eliminate urine')]
-        """
+        """"""
         return self.related("$")
 
     def similar_tos(self):
         return self.related("&")
 
     def nearest(self):
-        """
-        >>> LWN = WordNetCorpusReader(iso_code="lat")
-        >>> s1 = LWN.synset_from_pos_and_offset('n', 'L9083855')
-        >>> s1.nearest()
-        [Synset(pos='n', offset='03543592', gloss='ship for transporting troops')]
-        """
+        """"""
         return self.related("|")
 
 
