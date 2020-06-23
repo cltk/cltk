@@ -130,10 +130,10 @@ class NLP:
         >>> len(cltk_doc.sentences)
         3
 
-        >>> cltk_nlp = NLP(language="cop")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("cop"))
-        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='ⲧⲏⲛ', pos='VERB', lemma='ⲧⲏⲛ', scansion=None, xpos='VSTAT', upos='VERB', dependency_relation='root', governor=-1, features={'VerbForm': 'Fin'}, embedding=None, stop=None, named_entity=None)
+        # >>> cltk_nlp = NLP(language="cop")
+        # >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("cop"))
+        # >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        # Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='ⲧⲏⲛ', pos='VERB', lemma='ⲧⲏⲛ', scansion=None, xpos='VSTAT', upos='VERB', dependency_relation='root', governor=-1, features={'VerbForm': 'Fin'}, embedding=None, stop=None, named_entity=None)
 
         >>> cltk_nlp = NLP(language="lzh")
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lzh"))
