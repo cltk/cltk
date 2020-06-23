@@ -24,6 +24,7 @@ before_script:
 #  - poetry run pre-commit run --all-files
 
 script:
+  - make testOnlyDocTests
   - make test
 
 after_success:
