@@ -11,13 +11,6 @@ from cltkv1.core.data_types import Doc, Word
 
 class TestStringMethods(unittest.TestCase):
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
     def test_split(self):
         s = 'hello world'
         self.assertEqual(s.split(), ['hello', 'world'])
@@ -25,7 +18,7 @@ class TestStringMethods(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.split(2)
 
-    def test_main(self):
+    def test_main_analyze(self):
         """Testing methods from ``cltkv1/nlp.py``. Note that we
         change ``first_word.embedding`` into an empty list because
         otherwise we would have to add a long vector into our tests.
