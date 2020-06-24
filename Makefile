@@ -7,6 +7,9 @@ develop:
 docs:
 	poetry run sphinx-apidoc -f -o docs src/cltkv1 && cd docs && poetry run make html && cd ..
 
+downloadDependencies:
+	poetry run python scripts/download_misc_dependencies.py
+
 format:
 	isort --recursive . && poetry run black src/cltkv1 tests docs scripts
 
@@ -28,7 +31,16 @@ shell:
 	poetry run ipython --automagic
 
 test:
+	echo "Going to run all tests ..."
 	poetry run tox
+
+testOnlyDocTests:
+	echo "Going to test only doctests ..."
+	poetry run pytest --disable-warnings --doctest-modules src/cltkv1/
+
+testOnlyTestsDir:
+	echo "Going to test only unit tests ..."
+	poetry run pytest --disable-warnings tests
 
 typing:
 	poetry run mypy --html-report .mypy_cache src/cltkv1

@@ -30,12 +30,6 @@ from cltkv1.utils import CLTK_DATA_DIR
 class Word2VecEmbeddings:
     """Wrapper for Word2Vec embeddings. Note: For models
     provided by fastText, use class ``FastTextEmbeddings``.
-
-    >>> from cltkv1.embeddings.embeddings import Word2VecEmbeddings
-    >>> embeddings_obj = Word2VecEmbeddings(iso_code="grc", interactive=False, overwrite=False, silent=True)
-    >>> vector = embeddings_obj.get_word_vector("ἀρχή")
-    >>> type(vector)
-    <class 'numpy.ndarray'>
     """
 
     def __init__(
@@ -46,12 +40,7 @@ class Word2VecEmbeddings:
         overwrite: bool = False,
         silent: bool = False,
     ):
-        """Constructor for  ``Word2VecEmbeddings`` class.
-
-        >>> embeddings_obj = Word2VecEmbeddings(iso_code="grc", interactive=False, overwrite=False, silent=True)
-        >>> type(embeddings_obj)
-        <class 'cltkv1.embeddings.embeddings.Word2VecEmbeddings'>
-        """
+        """Constructor for  ``Word2VecEmbeddings`` class."""
         self.iso_code = iso_code
         self.model_type = model_type
         self.interactive = interactive
@@ -199,6 +188,8 @@ class Word2VecEmbeddings:
         """Make all dirs specified for final file. If dir already exists,
         then silently continue.
 
+        TODO: Abstract this out, is duplicated in Fasttext class, too
+
         # >>> import os
         # >>> import tempfile
         # >>> tmp_dir = tempfile.mkdtemp("cltk-testing")
@@ -227,16 +218,7 @@ class Word2VecEmbeddings:
 
 
 class FastTextEmbeddings:
-    """Wrapper for fastText embeddings.
-
-    >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-    >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
-    >>> embeddings_obj.get_sims(word="amicitia")[0][0]
-    'amicitiam'
-    >>> vector = embeddings_obj.get_word_vector("amicitia")
-    >>> type(vector)
-    <class 'numpy.ndarray'>
-    """
+    """Wrapper for fastText embeddings."""
 
     def __init__(
         self,
@@ -247,12 +229,7 @@ class FastTextEmbeddings:
         overwrite: bool = False,
         silent: bool = False,
     ):
-        """Constructor for  ``FastTextEmbeddings`` class.
-
-        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
-        >>> type(embeddings_obj)
-        <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
-        """
+        """Constructor for  ``FastTextEmbeddings`` class."""
         self.iso_code = iso_code
         self.training_set = training_set
         self.model_type = model_type
@@ -336,28 +313,6 @@ class FastTextEmbeddings:
         """Look at combination of parameters give to class
         and determine if any invalid combination or missing
         models.
-
-        >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-        >>> fasttext_model = FastTextEmbeddings(iso_code="lat", interactive=False, overwrite=False, silent=True)
-        >>> type(fasttext_model)
-        <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
-        >>> fasttext_model = FastTextEmbeddings(iso_code="ave", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
-        Traceback (most recent call last):
-          ..
-        cltkv1.core.exceptions.UnimplementedAlgorithmError: No embedding available for language 'ave'. FastTextEmbeddings available for: ...
-        >>> fasttext_model = FastTextEmbeddings(iso_code="xxx", interactive=False, overwrite=False, silent=True)
-        Traceback (most recent call last):
-          ..
-        cltkv1.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
-        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="wiki", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
-        >>> type(fasttext_model)
-        <class 'cltkv1.embeddings.embeddings.FastTextEmbeddings'>
-        >>> fasttext_model = FastTextEmbeddings(iso_code="got", training_set="common_crawl", interactive=False, overwrite=False, silent=True) # doctest: +ELLIPSIS
-        Traceback (most recent call last):
-          ..
-        cltkv1.core.exceptions.CLTKException: Training set 'common_crawl' not available for language 'got'. Languages available for this training set: ...
-
-        TODO: Add tests for ``.bin`` files, too
         """
 
         # 1. check if lang valid
@@ -412,19 +367,6 @@ class FastTextEmbeddings:
         """Returns whether any vectors are available, for
         fastText, for the input language. This is not comprehensive
         of all fastText embeddings, only those added into the CLTK.
-
-        # >>> from cltkv1.embeddings.embeddings import FastTextEmbeddings
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", silent=True)
-        # >>> embeddings_obj._is_fasttext_lang_available()
-        # True
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="ave, silent=True")
-        # Traceback (most recent call last):
-        #   ..
-        # cltkv1.core.exceptions.UnimplementedAlgorithmError: No embedding available for language 'ave'. FastTextEmbeddings available for: 'ang', 'arb', 'arc', 'got', 'lat', 'pli', 'san'.
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="xxx", silent=True)
-        # Traceback (most recent call last):
-        #   ..
-        # cltkv1.core.exceptions.UnknownLanguageError
         """
         get_lang(iso_code=self.iso_code)
         if self.iso_code not in self.MAP_LANGS_CLTK_FASTTEXT:
@@ -524,12 +466,7 @@ class FastTextEmbeddings:
         """Make all dirs specified for final file. If dir already exists,
         then silently continue.
 
-        # >>> import os
-        # >>> import tempfile
-        # >>> tmp_dir = tempfile.mkdtemp("cltk-testing")
-        # >>> new_fp = os.path.join(tmp_dir, "new-dir", "some-file.txt")
-        # >>> _mk_dirs_for_file(new_fp)
-        # >>> _mk_dirs_for_file(new_fp)
+        TODO: Refactor with Wrod2Vec method, above
         """
         dirs = os.path.split(self.model_fp)[0]
         try:

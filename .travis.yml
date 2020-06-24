@@ -4,6 +4,10 @@ python:
   - "3.7.5"
 #   - "3.8-dev"
 
+env:
+  - TEST_SUITE=testOnlyDocTests
+  - TEST_SUITE=test
+
 # TODO: Add pip back to this cache somehow, either `pip` or its dir
 cache:
   directories:
@@ -23,8 +27,11 @@ before_script:
   - poetry run pre-commit install-hooks
 #  - poetry run pre-commit run --all-files
 
+#script: "bundle exec rake test:$TEST_SUITE"
 script:
-  - make test
+  - make $TEST_SUITE
+#  - make testOnlyDocTests
+#  - make test
 
 after_success:
   - echo Add later
