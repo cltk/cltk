@@ -76,6 +76,7 @@ class StanzaWrapper:
         cltkv1.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.
         """
         self.language = language
+        #TODO: get stanza code
         self.treebank = treebank
         self.stanza_debug_level = stanza_debug_level
 
@@ -275,7 +276,7 @@ class StanzaWrapper:
         print("Ω" * 80)  # pragma: no cover
         print("")  # pragma: no cover
         print("")  # pragma: no cover
-        stanza.download(lang=self.language, package=self.treebank)
+        stanza.download(lang=self.stanza_code, package=self.treebank)
         # if file model still not available after attempted DL, then raise error
         if not file_exists(self.model_path):
             raise FileNotFoundError(

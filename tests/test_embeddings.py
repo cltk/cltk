@@ -5,9 +5,8 @@ import unittest
 import numpy
 
 from cltkv1.core.data_types import Doc, Word
-from cltkv1.core.exceptions import UnimplementedAlgorithmError, UnknownLanguageError
+from cltkv1.core.exceptions import UnimplementedAlgorithmError, UnknownLanguageError, CLTKException
 from cltkv1.embeddings.embeddings import (
-    CLTKException,
     FastTextEmbeddings,
     Word2VecEmbeddings,
 )
