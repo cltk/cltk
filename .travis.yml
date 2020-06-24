@@ -31,7 +31,8 @@ script:
   - make $TEST_SUITE
 
 after_success:
-  - echo Add later
+  - make uml
+  - make docs
 
 after_failure:
   - echo Add later
