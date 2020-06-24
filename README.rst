@@ -38,7 +38,7 @@ Use ``pyenv`` to manage Python versions and ``poetry`` for package builds.
    - ``$ pyenv install --list | grep 3.8``
    - ``$ pyenv install 3.8.3`` (or whatever is latest)
    - ``$ pyenv virtualenv 3.8.3 cltkv1``
-   - ``$ pyenv local cltkv1``. Open a new window and this should be activated, with a ``(cltkv1) `` prepended to your Bash prompt.
+   - ``$ pyenv local cltkv1``. Open a new window and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` to support packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
 * Install Stanford NLP models: ``$ poetry run python scripts/download_misc_dependencies.py``
