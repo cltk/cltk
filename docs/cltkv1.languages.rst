@@ -4,6 +4,14 @@ cltkv1.languages package
 Submodules
 ----------
 
+cltkv1.languages.example\_texts module
+--------------------------------------
+
+.. automodule:: cltkv1.languages.example_texts
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltkv1.languages.glottolog module
 ---------------------------------
 

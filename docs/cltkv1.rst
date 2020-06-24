@@ -16,12 +16,15 @@ Subpackages
    cltkv1.ner
    cltkv1.phonology
    cltkv1.prosody
-   cltkv1.sentences
+   cltkv1.readers
+   cltkv1.sentence
    cltkv1.stem
    cltkv1.stops
    cltkv1.tag
+   cltkv1.tokenize
    cltkv1.tokenizers
    cltkv1.utils
+   cltkv1.wordnet
 
 Submodules
 ----------
