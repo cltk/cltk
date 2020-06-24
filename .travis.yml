@@ -1,8 +1,8 @@
 language: python
 
 python:
-  - "3.7.7"
-  - "3.8.3"
+  - "3.7.5"
+  - "3.8.2"
 
 env:
   - TEST_SUITE=testOnlyDocTests
@@ -13,7 +13,7 @@ cache:
     - $HOME/stanza_resources/
     - $HOME/cltk_data/
     - $HOME/virtualenv/
-    # - $HOME/.cache/pip
+    - $HOME/.cache/pip
 
 before_install:
   - pip install --upgrade pip
