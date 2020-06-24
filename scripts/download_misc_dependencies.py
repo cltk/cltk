@@ -68,10 +68,14 @@ if __name__ == "__main__":
     # TODO: add command line params for what langs (all or just one); useful for build server
     if not os.path.isfile(os.path.expanduser("~/stanza_resources/resources.json")):
         get_all_stanza_models()
-    if not os.path.isfile(os.path.expanduser("~/cltk_data/lat/embeddings/fasttext/wiki.la.vec")):
+    if not os.path.isfile(
+        os.path.expanduser("~/cltk_data/lat/embeddings/fasttext/wiki.la.vec")
+    ):
         get_fasttext_models(interactive=False)
 
-    if not os.path.isfile(os.path.expanduser("~/cltk_data/grc/embeddings/nlpl/model.bin")):
+    if not os.path.isfile(
+        os.path.expanduser("~/cltk_data/grc/embeddings/nlpl/model.bin")
+    ):
         download_nlpl_model(iso_code="grc")
 
     download_cltk_models(iso_code="lat")

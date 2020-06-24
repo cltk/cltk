@@ -69,26 +69,40 @@ class TestEmbedding(unittest.TestCase):
 
         self.assertIsInstance(embeddings_obj, FastTextEmbeddings)
 
-        self.assertRaises(
-            UnimplementedAlgorithmError,
+        with self.assertRaises(
+            UnimplementedAlgorithmError
+        ) as exception_context_manager:
             FastTextEmbeddings(
                 iso_code="ave", interactive=False, overwrite=False, silent=True
+            )
+        exception = exception_context_manager.exception
+        self.assertEqual(
+            exception.args,
+            (
+                "No embedding available for language 'ave'. FastTextEmbeddings available for: 'ang', 'arb', 'arc', 'got', 'lat', 'pli', 'san'.",
             ),
         )
-        self.assertRaises(
-            UnknownLanguageError,
+
+        with self.assertRaises(UnknownLanguageError) as exception_context_manager:
             FastTextEmbeddings(
                 iso_code="xxx", interactive=False, overwrite=False, silent=True
             ),
-        )
-        self.assertRaises(
-            CLTKException,
+        exception = exception_context_manager.exception
+        self.assertEqual(exception.args, ("Unknown ISO language code 'xxx'.",))
+
+        with self.assertRaises(CLTKException) as exception_context_manager:
             FastTextEmbeddings(
                 iso_code="got",
                 training_set="common_crawl",
                 interactive=False,
                 overwrite=False,
                 silent=True,
+            ),
+        exception = exception_context_manager.exception
+        self.assertEqual(
+            exception.args,
+            (
+                "Training set 'common_crawl' not available for language 'got'. Languages available for this training set: 'arb', 'lat', 'san'.",
             ),
         )
 
@@ -101,7 +115,7 @@ class TestEmbedding(unittest.TestCase):
         embeddings_obj = Word2VecEmbeddings(
             iso_code="chu", interactive=False, overwrite=False, silent=True
         )
-        most_similar_word = embeddings_obj.get_sims(word="обꙑчаѥмь")[0][1]
+        most_similar_word = embeddings_obj.get_sims(word="обꙑчаѥмь")[1][0]
         self.assertEqual(most_similar_word, "послѣди")
 
         embeddings_obj = Word2VecEmbeddings(
