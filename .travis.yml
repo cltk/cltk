@@ -18,7 +18,6 @@ cache:
 before_install:
   - pip install --upgrade pip
   - pip install poetry
-  - pip install tox-travis  # to keep tox from erring on travis
 
 install:
   - make install
