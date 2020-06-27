@@ -20,8 +20,7 @@ python:
       path: .
       extra_requirements:
         - docs
-#  install:
-#    - requirements: docs/requirements.txt
+    - requirements: docs/requirements.txt
 
 build:
   image: latest
