@@ -44,19 +44,44 @@ release = curr_version.version
 #
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.doctest",
+    # "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
-    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon.
+    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon. https://pypi.org/project/sphinx-autodoc-typehints/
     "sphinx.ext.autosummary",
     "sphinx.ext.coverage",
     "sphinx.ext.extlinks",
     "sphinx.ext.ifconfig",
-    "sphinx.ext.todo",
+    # "sphinx.ext.todo",
     "sphinx.ext.viewcode",
 ]
 
+
+# sphinx.ext.todo
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
-todo_include_todos = True
+# todo_include_todos = True
+
+# sphinx.ext.napoleon
+# Napolean for Google-style docstrings
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#type-annotations
+'''
+def func(arg1: int, arg2: str) -> bool:
+    """Summary line.
+
+    Extended description of function.
+
+    Args:
+        arg1: Description of arg1
+        arg2: Description of arg2
+
+    Returns:
+        Description of return value
+
+    """
+    return True
+'''
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#docstring-sections
+napoleon_include_private_with_doc = True
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

@@ -1,7 +1,7 @@
 """Convert MdC transliterated text to Unicode.
 
-.. todo::
-   Add tests and clean up.
+TODO:
+    Add tests and clean up.
 
 """
 

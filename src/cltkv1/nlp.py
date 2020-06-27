@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline.
 
-.. todo::
-   Add explanation of nlp module.
+TODO:
+    - This is a google-style todo
 
 """
 
@@ -59,6 +59,11 @@ class NLP:
     def __init__(self, language: str, custom_pipeline: Pipeline = None) -> None:
         """Constructor for CLTK class.
 
+        Args:
+            language: ISO code
+            custom_pipeline: Optional ``Pipeline`` for processing text.
+
+
         >>> from cltkv1 import NLP
         >>> cltk_nlp = NLP(language="lat")
         >>> isinstance(cltk_nlp, NLP)
@@ -101,6 +106,16 @@ class NLP:
 
     def analyze(self, text: str) -> Doc:
         """The primary method for the NLP object, to which raw text strings are passed.
+
+        Args:
+            text: Input text string.
+
+        Returns:
+            CLTK ``Doc`` containing all processed information.
+
+        TODO:
+            - A todo here
+            - Another
 
         >>> from cltkv1 import NLP
         >>> from cltkv1.languages.example_texts import get_example_text

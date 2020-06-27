@@ -11,7 +11,6 @@ Welcome to Classical Language Toolkit's documentation!
    :caption: Contents:
 
    modules.rst
-   todo.rst
 
 
 
