@@ -31,9 +31,10 @@ dt_today = datetime.today()  # type: datetime
 curr_year = dt_today.year  # type: int
 copyright = f"2019-{curr_year} Kyle P. Johnson"
 # author = "Kyle P. Johnson et al."
-cltk_project = cltkv1.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
-author_list = cltk_project["authors"]  # type: List[str]
-author = ", ".join(author_list)
+# the following errors on rtd server
+# cltk_project = cltkv1.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
+# author_list = cltk_project["authors"]  # type: List[str]
+# author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
 curr_version = pkg_resources.get_distribution("cltkv1")  # type: str
 release = curr_version.version  # type: str
