@@ -19,7 +19,7 @@ from typing import Dict, List, Union
 # import cltkv1
 
 # this path required for local build, to find ``pyproject.toml``
-sys.path.insert(0, os.path.abspath(".."))
+# sys.path.insert(0, os.path.abspath(".."))
 # this required for RTD build to find source
 sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 
