@@ -15,9 +15,11 @@ formats:
 # Adjust for poetry's pyproject.toml; can use ``pip install .`` in pip v. > 19 to install w/o ``requirements.txt``
 python:
   version: 3.7
-  pip_install: true
-  extra_requirements:
-    - docs
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs
 #  install:
 #    - requirements: docs/requirements.txt
 
