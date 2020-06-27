@@ -1,6 +1,11 @@
 cltkv1.phonology.akkadian package
 =================================
 
+.. automodule:: cltkv1.phonology.akkadian
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.phonology.akkadian.stress module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.phonology.akkadian
-   :members:
-   :undoc-members:
-   :show-inheritance:

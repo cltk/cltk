@@ -1,6 +1,11 @@
 cltkv1.tokenize.old\_french package
 ===================================
 
+.. automodule:: cltkv1.tokenize.old_french
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.tokenize.old\_french.word module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.tokenize.old_french
-   :members:
-   :undoc-members:
-   :show-inheritance:

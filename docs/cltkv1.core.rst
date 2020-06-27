@@ -1,6 +1,11 @@
 cltkv1.core package
 ===================
 
+.. automodule:: cltkv1.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -28,11 +33,3 @@ cltkv1.core.exceptions module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.core
-   :members:
-   :undoc-members:
-   :show-inheritance:

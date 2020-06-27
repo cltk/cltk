@@ -1,13 +1,16 @@
 """ Code for word tokenization: Akkadian
 """
 
-__author__ = ['Andrew Deloucas <adeloucas@g.harvard.edu>',
-              'Patrick J. Burns <patrick@diyclassics.org>']
-__license__ = 'MIT License.'
+__author__ = [
+    "Andrew Deloucas <adeloucas@g.harvard.edu>",
+    "Patrick J. Burns <patrick@diyclassics.org>",
+]
+__license__ = "MIT License."
 
 import re
 
-def tokenize_akkadian_words(line:str):
+
+def tokenize_akkadian_words(line: str):
     """
     Operates on a single line of text, returns all words in the line as a
     tuple in a list.
@@ -54,7 +57,7 @@ def tokenize_akkadian_words(line:str):
     return output_words
 
 
-def tokenize_akkadian_signs(word:str):
+def tokenize_akkadian_signs(word: str):
     """
     Takes tuple (word, language) and splits the word up into individual
     sign tuples (sign, language) in a list.
@@ -67,60 +70,60 @@ def tokenize_akkadian_signs(word:str):
     :return: list of tuples: (sign, function or language)
     """
     word_signs = []
-    sign = ''
+    sign = ""
     language = word[1]
     determinative = False
     for char in word[0]:
         if determinative is True:
-            if char == '}':
+            if char == "}":
                 determinative = False
                 if len(sign) > 0:  # pylint: disable=len-as-condition
-                    word_signs.append((sign, 'determinative'))
-                sign = ''
+                    word_signs.append((sign, "determinative"))
+                sign = ""
                 language = word[1]
                 continue
             else:
                 sign += char
                 continue
         else:
-            if language == 'akkadian':
-                if char == '{':
+            if language == "akkadian":
+                if char == "{":
                     if len(sign) > 0:  # pylint: disable=len-as-condition
                         word_signs.append((sign, language))
-                    sign = ''
+                    sign = ""
                     determinative = True
                     continue
-                elif char == '_':
+                elif char == "_":
                     if len(sign) > 0:  # pylint: disable=len-as-condition
                         word_signs.append((sign, language))
-                    sign = ''
-                    language = 'sumerian'
+                    sign = ""
+                    language = "sumerian"
                     continue
-                elif char == '-':
+                elif char == "-":
                     if len(sign) > 0:  # pylint: disable=len-as-condition
                         word_signs.append((sign, language))
-                    sign = ''
-                    language = word[1] # or default word[1]?
+                    sign = ""
+                    language = word[1]  # or default word[1]?
                     continue
                 else:
                     sign += char
-            elif language == 'sumerian':
-                if char == '{':
+            elif language == "sumerian":
+                if char == "{":
                     if len(sign) > 0:  # pylint: disable=len-as-condition
                         word_signs.append((sign, language))
-                    sign = ''
+                    sign = ""
                     determinative = True
                     continue
-                elif char == '_':
+                elif char == "_":
                     if len(sign) > 0:  # pylint: disable=len-as-condition
                         word_signs.append((sign, language))
-                    sign = ''
+                    sign = ""
                     language = word[1]
                     continue
-                elif char == '-':
+                elif char == "-":
                     if len(sign) > 0:  # pylint: disable=len-as-condition
                         word_signs.append((sign, language))
-                    sign = ''
+                    sign = ""
                     language = word[1]
                     continue
                 else:

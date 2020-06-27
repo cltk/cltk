@@ -1,6 +1,11 @@
 cltkv1.lemmatize package
 ========================
 
+.. automodule:: cltkv1.lemmatize
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -22,11 +27,3 @@ cltkv1.lemmatize.backoff module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.lemmatize
-   :members:
-   :undoc-members:
-   :show-inheritance:

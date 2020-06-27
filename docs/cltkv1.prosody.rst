@@ -1,6 +1,11 @@
 cltkv1.prosody package
 ======================
 
+.. automodule:: cltkv1.prosody
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -10,11 +15,3 @@ Subpackages
    cltkv1.prosody.latin
    cltkv1.prosody.middle_high_german
    cltkv1.prosody.old_norse
-
-Module contents
----------------
-
-.. automodule:: cltkv1.prosody
-   :members:
-   :undoc-members:
-   :show-inheritance:

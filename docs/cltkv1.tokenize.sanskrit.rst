@@ -1,6 +1,11 @@
 cltkv1.tokenize.sanskrit package
 ================================
 
+.. automodule:: cltkv1.tokenize.sanskrit
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -28,11 +33,3 @@ cltkv1.tokenize.sanskrit.word module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.tokenize.sanskrit
-   :members:
-   :undoc-members:
-   :show-inheritance:

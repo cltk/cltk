@@ -1,6 +1,11 @@
 cltkv1.data package
 ===================
 
+.. automodule:: cltkv1.data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.data.fetch module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.data
-   :members:
-   :undoc-members:
-   :show-inheritance:

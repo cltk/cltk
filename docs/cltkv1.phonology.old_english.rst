@@ -1,6 +1,11 @@
 cltkv1.phonology.old\_english package
 =====================================
 
+.. automodule:: cltkv1.phonology.old_english
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.phonology.old\_english.phonology module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.phonology.old_english
-   :members:
-   :undoc-members:
-   :show-inheritance:

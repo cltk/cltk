@@ -1,6 +1,11 @@
 cltkv1.lemmatize.greek package
 ==============================
 
+.. automodule:: cltkv1.lemmatize.greek
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.lemmatize.greek.greek module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.lemmatize.greek
-   :members:
-   :undoc-members:
-   :show-inheritance:

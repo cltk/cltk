@@ -9,43 +9,99 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+
+import os
+import sys
+from datetime import datetime
+import pkg_resources
+from typing import Dict, List, Union
+
+# import cltkv1
+
+# this path required for local build, to find ``pyproject.toml``
+sys.path.insert(0, os.path.abspath(".."))
+# this required for RTD build to find source
+sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 
 
 # -- Project information -----------------------------------------------------
-
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 project = "The Classical Language Toolkit"
-copyright = '2019, "Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
-author = '"Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
-
+dt_today = datetime.today()  # type: datetime
+curr_year = dt_today.year  # type: int
+copyright = f"2019-{curr_year} Kyle P. Johnson"
+# author = "Kyle P. Johnson et al."
+# the following errors on rtd server
+# cltk_project = cltkv1.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
+# author_list = cltk_project["authors"]  # type: List[str]
+# author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-# TODO: Figure out if it is possible to read this from ``pyproject.toml``
-# release = "1.0.0a1"
+curr_version = pkg_resources.get_distribution("cltkv1")  # type: str
+release = curr_version.version  # type: str
 
 
 # -- General configuration ---------------------------------------------------
+
+
+html_show_copyright = True  # default is True
+# html_show_sphinx = False
+
+# https://alabaster.readthedocs.io/en/latest/customization.html#header-footer-options
+html_theme_options = {
+    # 'logo': 'logo.png',
+    "logo_name": True,
+    "show_powered_by": False,
+    # "show_relbars": True,
+}
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 #
-# TODO: Decide which of these are necessary
-#
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.doctest",
+    # "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
-    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon.
-    "sphinx.ext.autosummary",
-    "sphinx.ext.coverage",
-    "sphinx.ext.extlinks",
-    "sphinx.ext.ifconfig",
+    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon. https://pypi.org/project/sphinx-autodoc-typehints/
+    # "sphinx.ext.autosummary",
+    # "sphinx.ext.coverage",
+    # "sphinx.ext.extlinks",
+    # "sphinx.ext.ifconfig",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
+    "sphinx.ext.graphviz",  # https://www.sphinx-doc.org/en/master/usage/extensions/graphviz.html#module-sphinx.ext.graphviz
+    # "sphinx.ext.duration",  # use when builds seem slow
 ]
+
+# sphinx.ext.autodoc
+# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+autodoc_member_order = "bysource"  # to sort according to order in code, not alaphabetical
+
+# sphinx.ext.todo
+# https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
+todo_include_todos = True
+
+# sphinx.ext.napoleon
+# Napolean for Google-style docstrings
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#type-annotations
+'''
+def func(arg1: int, arg2: str) -> bool:
+    """Summary line.
+
+    Extended description of function.
+
+    Args:
+        arg1: Description of arg1
+        arg2: Description of arg2
+
+    Returns:
+        Description of return value
+
+    """
+    return True
+'''
+# https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#docstring-sections
+napoleon_include_private_with_doc = True
 
 
 # Add any paths that contain templates here, relative to this directory.
@@ -62,9 +118,12 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+# https://alabaster.readthedocs.io/en/latest/customization.html
 html_theme = "alabaster"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
+# https://alabaster.readthedocs.io/en/latest/installation.html
+

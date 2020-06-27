@@ -1,6 +1,11 @@
 cltkv1.phonology.arabic package
 ===============================
 
+.. automodule:: cltkv1.phonology.arabic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.phonology.arabic.romanization module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.phonology.arabic
-   :members:
-   :undoc-members:
-   :show-inheritance:

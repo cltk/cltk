@@ -1,6 +1,11 @@
 cltkv1.wordnet package
 ======================
 
+.. automodule:: cltkv1.wordnet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.wordnet.wordnet module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.wordnet
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,6 +1,11 @@
 cltkv1.stem.akkadian package
 ============================
 
+.. automodule:: cltkv1.stem.akkadian
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -52,11 +57,3 @@ cltkv1.stem.akkadian.syllabifier module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.stem.akkadian
-   :members:
-   :undoc-members:
-   :show-inheritance:

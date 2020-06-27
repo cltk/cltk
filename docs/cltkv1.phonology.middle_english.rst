@@ -1,6 +1,11 @@
 cltkv1.phonology.middle\_english package
 ========================================
 
+.. automodule:: cltkv1.phonology.middle_english
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.phonology.middle\_english.transcription module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.phonology.middle_english
-   :members:
-   :undoc-members:
-   :show-inheritance:

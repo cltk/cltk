@@ -1,6 +1,11 @@
 cltkv1.alphabet package
 =======================
 
+.. automodule:: cltkv1.alphabet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -171,11 +176,3 @@ cltkv1.alphabet.urd module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.alphabet
-   :members:
-   :undoc-members:
-   :show-inheritance:

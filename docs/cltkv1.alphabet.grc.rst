@@ -1,6 +1,11 @@
 cltkv1.alphabet.grc package
 ===========================
 
+.. automodule:: cltkv1.alphabet.grc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.alphabet.grc.grc module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.alphabet.grc
-   :members:
-   :undoc-members:
-   :show-inheritance:

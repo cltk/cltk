@@ -1,6 +1,11 @@
 cltkv1.tokenizers package
 =========================
 
+.. automodule:: cltkv1.tokenizers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -107,11 +112,3 @@ cltkv1.tokenizers.word module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.tokenizers
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,6 +1,11 @@
 cltkv1.tag package
 ==================
 
+.. automodule:: cltkv1.tag
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -28,11 +33,3 @@ cltkv1.tag.treebanks module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.tag
-   :members:
-   :undoc-members:
-   :show-inheritance:

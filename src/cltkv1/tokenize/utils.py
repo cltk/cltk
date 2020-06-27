@@ -1,26 +1,29 @@
 """ Tokenization utilities
 """
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
-__license__ = 'MIT License.'
+__author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
+__license__ = "MIT License."
 
+import inspect
 import pickle
 from abc import abstractmethod
-from typing import List, Dict, Tuple, Set, Any, Generator
-import inspect
+from typing import Any, Dict, Generator, List, Set, Tuple
 
-from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
-from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 
-class BaseSentenceTokenizerTrainer():
+
+class BaseSentenceTokenizerTrainer:
     """ Train sentence tokenizer
     """
 
-    def __init__(self: object, language: str = None,
-                    punctuation: List[str] = None,
-                    strict: bool = False,
-                    strict_punctuation: List[str] = None,
-                    abbreviations: List[str] = None):
+    def __init__(
+        self: object,
+        language: str = None,
+        punctuation: List[str] = None,
+        strict: bool = False,
+        strict_punctuation: List[str] = None,
+        abbreviations: List[str] = None,
+    ):
         """ Initialize stoplist builder with option for language specific parameters
         :type language: str
         :param language: text from which to build the stoplist
@@ -50,7 +53,9 @@ class BaseSentenceTokenizerTrainer():
         # Set punctuation
         if self.punctuation:
             if self.strict:
-                language_punkt_vars.sent_end_chars = self.punctuation + self.strict_punctuation
+                language_punkt_vars.sent_end_chars = (
+                    self.punctuation + self.strict_punctuation
+                )
             else:
                 language_punkt_vars.sent_end_chars = self.punctuation
 
@@ -69,5 +74,5 @@ class BaseSentenceTokenizerTrainer():
 
     def pickle_sentence_tokenizer(self: object, filename: str, tokenizer: object):
         # Dump pickled tokenizer
-        with open(filename, 'wb') as f:
+        with open(filename, "wb") as f:
             pickle.dump(tokenizer, f)

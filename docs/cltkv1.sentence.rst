@@ -1,6 +1,11 @@
 cltkv1.sentence package
 =======================
 
+.. automodule:: cltkv1.sentence
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -36,11 +41,3 @@ cltkv1.sentence.sentence module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.sentence
-   :members:
-   :undoc-members:
-   :show-inheritance:

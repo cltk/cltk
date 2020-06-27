@@ -1,4 +1,12 @@
-"""Primary module for CLTK pipeline."""
+"""Primary module for CLTK pipeline.
+
+.. graphviz::
+
+   digraph foo {
+      "bar" -> "baz";
+   }
+
+"""
 
 from cltkv1.core.data_types import Doc, Language, Pipeline
 from cltkv1.core.exceptions import UnimplementedAlgorithmError
@@ -54,6 +62,11 @@ class NLP:
     def __init__(self, language: str, custom_pipeline: Pipeline = None) -> None:
         """Constructor for CLTK class.
 
+        Args:
+            language: ISO code
+            custom_pipeline: Optional ``Pipeline`` for processing text.
+
+
         >>> from cltkv1 import NLP
         >>> cltk_nlp = NLP(language="lat")
         >>> isinstance(cltk_nlp, NLP)
@@ -68,6 +81,34 @@ class NLP:
         """
         self.language = get_lang(language)  # type: Language
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
+
+    def analyze(self, text: str) -> Doc:
+        """The primary method for the NLP object, to which raw text strings are passed.
+
+        Args:
+            text: Input text string.
+
+        Returns:
+            CLTK ``Doc`` containing all processed information.
+
+        >>> from cltkv1 import NLP
+        >>> from cltkv1.languages.example_texts import get_example_text
+        >>> from cltkv1.core.data_types import Doc
+        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+        >>> isinstance(cltk_doc, Doc)
+        True
+        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=..., stop=False, named_entity=True)
+        """
+        doc = Doc(language=self.language.iso_639_3_code, raw=text)
+
+        for process in self.pipeline.processes:
+            a_process = process(input_doc=doc, language=self.language.iso_639_3_code)
+            a_process.run()
+            doc = a_process.output_doc
+
+        return doc
 
     def _get_pipeline(self) -> Pipeline:
         """Select appropriate pipeline for given language. If custom
@@ -93,28 +134,6 @@ class NLP:
             raise UnimplementedAlgorithmError(
                 f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
             )
-
-    def analyze(self, text: str) -> Doc:
-        """The primary method for the NLP object, to which raw text strings are passed.
-
-        >>> from cltkv1 import NLP
-        >>> from cltkv1.languages.example_texts import get_example_text
-        >>> from cltkv1.core.data_types import Doc
-        >>> cltk_nlp = NLP(language="lat")
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> isinstance(cltk_doc, Doc)
-        True
-        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=..., stop=False, named_entity=True)
-        """
-        doc = Doc(language=self.language.iso_639_3_code, raw=text)
-
-        for process in self.pipeline.processes:
-            a_process = process(input_doc=doc, language=self.language.iso_639_3_code)
-            a_process.run()
-            doc = a_process.output_doc
-
-        return doc
 
     def __call__(self, text: str) -> Doc:
         return self.analyze(text)

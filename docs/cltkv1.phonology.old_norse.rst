@@ -1,6 +1,11 @@
 cltkv1.phonology.old\_norse package
 ===================================
 
+.. automodule:: cltkv1.phonology.old_norse
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.phonology.old\_norse.transcription module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.phonology.old_norse
-   :members:
-   :undoc-members:
-   :show-inheritance:
