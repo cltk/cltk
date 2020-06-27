@@ -10,29 +10,24 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
+from datetime import datetime
+import pkg_resources
 import os
 import sys
 
-# print("Unaltered path:", sys.path)
-# sys.path.insert(0, os.path.abspath('.'))
-# print("Path w/ .abspath('.'):", sys.path)
-# sys.path.insert(0, os.path.abspath('..'))
-# print("Path w/ .abspath('..'):", sys.path)
-# sys.path.insert(0, os.path.abspath('../src'))
-# print("Path w/ .abspath('..src'):", sys.path)
-sys.path.insert(0, os.path.abspath('../src/cltkv1'))
-print("Path w/ .abspath('..src/cltkv1'):", sys.path)
+sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 
 
 # -- Project information -----------------------------------------------------
 
 project = "The Classical Language Toolkit"
-copyright = '2019, "Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
+today = datetime.today()
+curr_year = today.year
+copyright = f'2019-{curr_year}, "Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
 author = '"Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
-
 # The full version, including alpha/beta/rc tags
-# TODO: Figure out if it is possible to read this from ``pyproject.toml``
-# release = "1.0.0a1"
+curr_version = pkg_resources.get_distribution("cltkv1")
+release = curr_version.version
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,7 +36,7 @@ author = '"Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 #
-# TODO: Decide which of these are necessary
+# TODO: Decide which of these are necessary, if others needed
 #
 extensions = [
     "sphinx.ext.autodoc",
