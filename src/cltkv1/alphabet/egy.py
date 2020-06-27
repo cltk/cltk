@@ -1,6 +1,8 @@
 """Convert MdC transliterated text to Unicode.
 
-TODO: Add tests and clean up.
+.. todo::
+   Add tests and clean up.
+
 """
 
 import re
