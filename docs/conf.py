@@ -13,8 +13,10 @@
 import os
 import sys
 from datetime import datetime
-
 import pkg_resources
+from typing import Dict, List, Union
+
+import cltkv1
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
@@ -23,42 +25,60 @@ sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 
 
 # -- Project information -----------------------------------------------------
-
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 project = "The Classical Language Toolkit"
-dt_today = datetime.today()
-curr_year = dt_today.year
+dt_today = datetime.today()  # type: datetime
+curr_year = dt_today.year  # type: int
 copyright = f"2019-{curr_year} Kyle P. Johnson"
-author = "Kyle P. Johnson et al."
+# author = "Kyle P. Johnson et al."
+cltk_project = cltkv1.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
+author_list = cltk_project["authors"]  # type: List[str]
+author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-curr_version = pkg_resources.get_distribution("cltkv1")
-release = curr_version.version
+curr_version = pkg_resources.get_distribution("cltkv1")  # type: str
+release = curr_version.version  # type: str
 
 
 # -- General configuration ---------------------------------------------------
 
+
+html_show_copyright = True  # default is True
+# html_show_sphinx = False
+
+# https://alabaster.readthedocs.io/en/latest/customization.html#header-footer-options
+html_theme_options = {
+    # 'logo': 'logo.png',
+    "logo_name": True,
+    "show_powered_by": False,
+    # "show_relbars": True,
+}
+
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-#
-# TODO: Decide which of these are necessary, if others needed
 #
 extensions = [
     "sphinx.ext.autodoc",
     # "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon. https://pypi.org/project/sphinx-autodoc-typehints/
-    "sphinx.ext.autosummary",
-    "sphinx.ext.coverage",
-    "sphinx.ext.extlinks",
-    "sphinx.ext.ifconfig",
-    # "sphinx.ext.todo",
+    # "sphinx.ext.autosummary",
+    # "sphinx.ext.coverage",
+    # "sphinx.ext.extlinks",
+    # "sphinx.ext.ifconfig",
+    "sphinx.ext.todo",
     "sphinx.ext.viewcode",
+    "sphinx.ext.graphviz",  # https://www.sphinx-doc.org/en/master/usage/extensions/graphviz.html#module-sphinx.ext.graphviz
+    # "sphinx.ext.duration",  # use when builds seem slow
 ]
 
+# sphinx.ext.autodoc
+# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
+autodoc_member_order = "bysource"  # to sort according to order in code, not alaphabetical
 
 # sphinx.ext.todo
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
-# todo_include_todos = True
+todo_include_todos = True
 
 # sphinx.ext.napoleon
 # Napolean for Google-style docstrings
@@ -97,9 +117,12 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+# https://alabaster.readthedocs.io/en/latest/customization.html
 html_theme = "alabaster"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
+# https://alabaster.readthedocs.io/en/latest/installation.html
+

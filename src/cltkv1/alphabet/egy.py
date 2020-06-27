@@ -1,9 +1,4 @@
-"""Convert MdC transliterated text to Unicode.
-
-TODO:
-    Add tests and clean up.
-
-"""
+"""Convert MdC transliterated text to Unicode."""
 
 import re
 
