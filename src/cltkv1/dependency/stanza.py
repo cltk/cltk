@@ -10,8 +10,12 @@ import stanza  # type: ignore
 from stanza.models.common.constant import lang2lcode
 from stanza.utils.prepare_resources import default_treebanks
 
-from cltkv1.core.exceptions import UnimplementedAlgorithmError, UnknownLanguageError
-from cltkv1.utils import file_exists, suppress_stdout
+from cltkv1.core.exceptions import (
+    UnimplementedAlgorithmError,
+    UnknownLanguageError,
+    CLTKException,
+)
+from cltkv1.utils import file_exists, suppress_stdout, query_yes_no
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -23,13 +27,18 @@ class StanzaWrapper:
     nlps = {}
 
     def __init__(
-        self, language: str, treebank: Optional[str] = None, stanza_debug_level="ERROR"
+        self,
+        language: str,
+        treebank: Optional[str] = None,
+        stanza_debug_level="ERROR",
+        interactive: bool = True,
+        silent: bool = False,
     ) -> None:
         """Constructor for ``get_stanza_models`` wrapper class.
 
         TODO: Do tests for all langs and available models for each
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False)
         >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
         >>> stanza_wrapper.language
@@ -37,7 +46,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.treebank
         'proiel'
 
-        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="perseus", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="perseus", stanza_debug_level="INFO", interactive=False)
         >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
         >>> stanza_wrapper.language
@@ -79,6 +88,13 @@ class StanzaWrapper:
         # TODO: get stanza code
         self.treebank = treebank
         self.stanza_debug_level = stanza_debug_level
+        self.interactive = interactive
+        self.silent = silent
+
+        if self.interactive and self.silent:
+            raise ValueError(
+                "``interactive`` and ``silent`` options are not compatible with each other."
+            )
 
         # Setup language
         self.map_langs_cltk_stanza = {
@@ -257,26 +273,27 @@ class StanzaWrapper:
         return False
 
     def _download_model(self) -> None:
-        """Interface with the `stanza` model downloader.
-
-        # >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
-        # >>> stanza_wrapper._download_model()
-        # True
-        """
+        """Interface with the `stanza` model downloader."""
         # TODO: Add prompt whether to allow stanza to download files
         # prompt user to DL the get_stanza_models models
-        print("")  # pragma: no cover
-        print("")  # pragma: no cover
-        print("Α" * 80)  # pragma: no cover
-        print("")  # pragma: no cover
+        if not self.interactive:
+            if not self.silent:
+                print(
+                    f"Going to download required Stanza models to ``{self.model_path}`` ..."
+                )  # pragma: no cover
+            stanza.download(lang=self.stanza_code, package=self.treebank)
         print(  # pragma: no cover
-            "CLTK message: The part of the CLTK that you are using depends upon the Stanza NLP library (`stanza`). What follows are several question prompts coming from it. (More at: <https://github.com/stanfordnlp/stanza>.) Answer with defaults."
+            "CLTK message: The part of the CLTK that you are using depends upon the Stanza NLP library."
         )  # pragma: no cover
-        print("")  # pragma: no cover
-        print("Ω" * 80)  # pragma: no cover
-        print("")  # pragma: no cover
-        print("")  # pragma: no cover
-        stanza.download(lang=self.stanza_code, package=self.treebank)
+        dl_is_allowed = query_yes_no(
+            f"CLTK message: Allow download of Stanza models to ``{self.model_path}``?"
+        )  # type: bool
+        if dl_is_allowed:
+            stanza.download(lang=self.stanza_code, package=self.treebank)
+        else:
+            raise CLTKException(
+                f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
+            )
         # if file model still not available after attempted DL, then raise error
         if not file_exists(self.model_path):
             raise FileNotFoundError(
