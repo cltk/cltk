@@ -16,7 +16,7 @@ from datetime import datetime
 import pkg_resources
 from typing import Dict, List, Union
 
-import cltkv1
+# import cltkv1
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
