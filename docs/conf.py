@@ -16,7 +16,7 @@ from datetime import datetime
 import pkg_resources
 from typing import Dict, List, Union
 
-# import cltkv1
+import cltkv1
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
@@ -30,7 +30,7 @@ sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 project = "The Classical Language Toolkit"
 dt_today = datetime.today()  # type: datetime
 curr_year = dt_today.year  # type: int
-copyright = f"2019-{curr_year} Kyle P. Johnson"
+copyright = f" 2019-{curr_year} Kyle P. Johnson"
 # author = "Kyle P. Johnson et al."
 # the following errors on rtd server
 # cltk_project = cltkv1.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
