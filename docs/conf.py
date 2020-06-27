@@ -15,6 +15,9 @@ import pkg_resources
 import os
 import sys
 
+# this path required for local build, to find ``pyproject.toml``
+sys.path.insert(0, os.path.abspath(".."))
+# this required for RTD build to find source
 sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 
 
