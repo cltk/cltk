@@ -10,10 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
-from datetime import datetime
-import pkg_resources
 import os
 import sys
+from datetime import datetime
+
+import pkg_resources
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
@@ -24,10 +25,10 @@ sys.path.insert(0, os.path.abspath("../src/cltkv1"))
 # -- Project information -----------------------------------------------------
 
 project = "The Classical Language Toolkit"
-today = datetime.today()
-curr_year = today.year
-copyright = f'2019-{curr_year}, "Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
-author = '"Kyle P. Johnson <kyle@kyle-p-johnson.com>"'
+dt_today = datetime.today()
+curr_year = dt_today.year
+copyright = f"2019-{curr_year} Kyle P. Johnson"
+author = "Kyle P. Johnson et al."
 # The full version, including alpha/beta/rc tags
 curr_version = pkg_resources.get_distribution("cltkv1")
 release = curr_version.version
@@ -54,6 +55,8 @@ extensions = [
     "sphinx.ext.viewcode",
 ]
 
+# https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
+todo_include_todos = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

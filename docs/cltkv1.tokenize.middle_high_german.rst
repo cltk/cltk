@@ -1,6 +1,11 @@
 cltkv1.tokenize.middle\_high\_german package
 ============================================
 
+.. automodule:: cltkv1.tokenize.middle_high_german
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.tokenize.middle\_high\_german.word module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.tokenize.middle_high_german
-   :members:
-   :undoc-members:
-   :show-inheritance:

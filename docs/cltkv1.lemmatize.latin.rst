@@ -1,6 +1,11 @@
 cltkv1.lemmatize.latin package
 ==============================
 
+.. automodule:: cltkv1.lemmatize.latin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.lemmatize.latin.latin module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.lemmatize.latin
-   :members:
-   :undoc-members:
-   :show-inheritance:

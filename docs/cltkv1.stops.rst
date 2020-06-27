@@ -1,6 +1,11 @@
 cltkv1.stops package
 ====================
 
+.. automodule:: cltkv1.stops
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -124,11 +129,3 @@ cltkv1.stops.words module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.stops
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -5,7 +5,7 @@ develop:
 	python setup.py sdist develop
 
 docs:
-	poetry run sphinx-apidoc --force --output-dir=docs src/cltkv1 && cd docs && poetry run make html && cd ..
+	poetry run sphinx-apidoc --force --output-dir=docs --module-first --ext-todo src/cltkv1 && cd docs && poetry run make html && cd ..
 
 downloadDependencies:
 	poetry run python scripts/download_misc_dependencies.py

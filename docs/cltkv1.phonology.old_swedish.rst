@@ -1,6 +1,11 @@
 cltkv1.phonology.old\_swedish package
 =====================================
 
+.. automodule:: cltkv1.phonology.old_swedish
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.phonology.old\_swedish.transcription module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.phonology.old_swedish
-   :members:
-   :undoc-members:
-   :show-inheritance:

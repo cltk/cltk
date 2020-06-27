@@ -1,6 +1,11 @@
 cltkv1.languages package
 ========================
 
+.. automodule:: cltkv1.languages
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -36,11 +41,3 @@ cltkv1.languages.utils module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.languages
-   :members:
-   :undoc-members:
-   :show-inheritance:

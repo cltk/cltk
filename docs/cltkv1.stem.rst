@@ -1,6 +1,11 @@
 cltkv1.stem package
 ===================
 
+.. automodule:: cltkv1.stem
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -24,11 +29,3 @@ cltkv1.stem.lemma module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.stem
-   :members:
-   :undoc-members:
-   :show-inheritance:

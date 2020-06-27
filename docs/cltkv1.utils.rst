@@ -1,6 +1,11 @@
 cltkv1.utils package
 ====================
 
+.. automodule:: cltkv1.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.utils.utils module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:

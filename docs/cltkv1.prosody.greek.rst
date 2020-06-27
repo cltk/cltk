@@ -1,6 +1,11 @@
 cltkv1.prosody.greek package
 ============================
 
+.. automodule:: cltkv1.prosody.greek
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.prosody.greek.scanner module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.prosody.greek
-   :members:
-   :undoc-members:
-   :show-inheritance:

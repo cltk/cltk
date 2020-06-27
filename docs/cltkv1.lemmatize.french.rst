@@ -1,6 +1,11 @@
 cltkv1.lemmatize.french package
 ===============================
 
+.. automodule:: cltkv1.lemmatize.french
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.lemmatize.french.lemma module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.lemmatize.french
-   :members:
-   :undoc-members:
-   :show-inheritance:

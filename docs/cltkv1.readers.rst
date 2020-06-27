@@ -1,6 +1,11 @@
 cltkv1.readers package
 ======================
 
+.. automodule:: cltkv1.readers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -36,11 +41,3 @@ cltkv1.readers.readers module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.readers
-   :members:
-   :undoc-members:
-   :show-inheritance:

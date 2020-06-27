@@ -1,6 +1,11 @@
 cltkv1 package
 ==============
 
+.. automodule:: cltkv1
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -37,11 +42,3 @@ cltkv1.nlp module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1
-   :members:
-   :undoc-members:
-   :show-inheritance:

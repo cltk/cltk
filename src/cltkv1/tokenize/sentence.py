@@ -1,24 +1,25 @@
 """Tokenize sentences."""
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
-              'Kyle P. Johnson <kyle@kyle-p-johnson.com>', 'Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>']
-__license__ = 'MIT License. See LICENSE.'
+__author__ = [
+    "Patrick J. Burns <patrick@diyclassics.org>",
+    "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
+    "Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>",
+]
+__license__ = "MIT License. See LICENSE."
 
 import os
 import re
 import string
-from typing import List, Dict, Tuple, Set, Any, Generator
+from typing import Any, Dict, Generator, List, Set, Tuple
 
-from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktSentenceTokenizer
-
-from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.tokenize.greek.params import GreekLanguageVars
+from cltk.tokenize.latin.params import LatinLanguageVars
 from cltk.tokenize.sanskrit.params import SanskritLanguageVars
-
 from cltk.utils.file_operations import open_pickle
+from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer
 
-INDIAN_LANGUAGES = ['bengali', 'hindi', 'marathi', 'sanskrit', 'telugu']
+INDIAN_LANGUAGES = ["bengali", "hindi", "marathi", "sanskrit", "telugu"]
+
 
 class BaseSentenceTokenizer:
     """ Base class for sentence tokenization"""
@@ -51,7 +52,10 @@ class BaseSentenceTokenizer:
         return tokenizer.tokenize(text)
 
     def _get_models_path(self, language):  # pragma: no cover
-        return get_cltk_data_dir() + f'/{language}/model/{language}_models_cltk/tokenizers/sentence'
+        return (
+            get_cltk_data_dir()
+            + f"/{language}/model/{language}_models_cltk/tokenizers/sentence"
+        )
 
 
 class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
@@ -70,8 +74,12 @@ class BasePunktSentenceTokenizer(BaseSentenceTokenizer):
         if self.language:
             self.models_path = self._get_models_path(self.language)
             try:
-                self.model = open_pickle(os.path.join(os.path.expanduser(self.models_path),
-                                                      f'{self.language}_punkt.pickle'))
+                self.model = open_pickle(
+                    os.path.join(
+                        os.path.expanduser(self.models_path),
+                        f"{self.language}_punkt.pickle",
+                    )
+                )
             except FileNotFoundError as err:
                 raise type(err)(BasePunktSentenceTokenizer.missing_models_message)
 
@@ -89,8 +97,8 @@ class BaseRegexSentenceTokenizer(BaseSentenceTokenizer):
         BaseSentenceTokenizer.__init__(self, language)
         if sent_end_chars:
             self.sent_end_chars = sent_end_chars
-            self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
-            self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
+            self.sent_end_chars_regex = "|".join(self.sent_end_chars)
+            self.pattern = rf"(?<=[{self.sent_end_chars_regex}])\s"
         else:
             raise Exception  # TODO add message, must specify sent_end_chars, or warn and use defaults
 
@@ -120,9 +128,9 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         """
         self.language = language.lower()
         # Workaround for Latin—use old API syntax to load new sent tokenizer
-        if self.language == 'latin':
+        if self.language == "latin":
             self.lang_vars = LatinLanguageVars()
-            super().__init__(language='latin', lang_vars=self.lang_vars)
+            super().__init__(language="latin", lang_vars=self.lang_vars)
 
     def tokenize_sentences(self, untokenized_string: str):
         """Tokenize sentences by reading trained tokenizer and invoking
@@ -132,25 +140,26 @@ class TokenizeSentence(BasePunktSentenceTokenizer):  # pylint: disable=R0903
         :rtype : list of strings
         """
         # load tokenizer
-        assert isinstance(untokenized_string, str), \
-            'Incoming argument must be a string.'
+        assert isinstance(
+            untokenized_string, str
+        ), "Incoming argument must be a string."
 
-        if self.language == 'latin':
+        if self.language == "latin":
             tokenizer = super()
-        elif self.language == 'greek': # Workaround for regex tokenizer
-            self.sent_end_chars=GreekLanguageVars.sent_end_chars
-            self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
-            self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
+        elif self.language == "greek":  # Workaround for regex tokenizer
+            self.sent_end_chars = GreekLanguageVars.sent_end_chars
+            self.sent_end_chars_regex = "|".join(self.sent_end_chars)
+            self.pattern = rf"(?<=[{self.sent_end_chars_regex}])\s"
         elif self.language in INDIAN_LANGUAGES:
-            self.sent_end_chars=SanskritLanguageVars.sent_end_chars
-            self.sent_end_chars_regex = '|'.join(self.sent_end_chars)
-            self.pattern = rf'(?<=[{self.sent_end_chars_regex}])\s'
+            self.sent_end_chars = SanskritLanguageVars.sent_end_chars
+            self.sent_end_chars_regex = "|".join(self.sent_end_chars)
+            self.pattern = rf"(?<=[{self.sent_end_chars_regex}])\s"
         else:
             # Warn that NLTK Punkt is being used by default???
             tokenizer = PunktSentenceTokenizer()
 
         # mk list of tokenized sentences
-        if self.language == 'greek' or self.language in INDIAN_LANGUAGES:
+        if self.language == "greek" or self.language in INDIAN_LANGUAGES:
             return re.split(self.pattern, untokenized_string)
         else:
             return tokenizer.tokenize(untokenized_string)

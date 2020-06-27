@@ -1,6 +1,11 @@
 cltkv1.prosody.middle\_high\_german package
 ===========================================
 
+.. automodule:: cltkv1.prosody.middle_high_german
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -12,11 +17,3 @@ cltkv1.prosody.middle\_high\_german.verse module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.prosody.middle_high_german
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,6 +1,11 @@
 cltkv1.stem.french package
 ==========================
 
+.. automodule:: cltkv1.stem.french
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.stem.french.stem module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.stem.french
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,6 +1,11 @@
 cltkv1.ner package
 ==================
 
+.. automodule:: cltkv1.ner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -20,11 +25,3 @@ cltkv1.ner.processes module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.ner
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,4 +1,9 @@
-"""Primary module for CLTK pipeline."""
+"""Primary module for CLTK pipeline.
+
+.. todo::
+   Add explanation of nlp module.
+
+"""
 
 from cltkv1.core.data_types import Doc, Language, Pipeline
 from cltkv1.core.exceptions import UnimplementedAlgorithmError

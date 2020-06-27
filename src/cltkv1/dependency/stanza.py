@@ -76,7 +76,7 @@ class StanzaWrapper:
         cltkv1.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.
         """
         self.language = language
-        #TODO: get stanza code
+        # TODO: get stanza code
         self.treebank = treebank
         self.stanza_debug_level = stanza_debug_level
 

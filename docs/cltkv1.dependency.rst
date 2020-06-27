@@ -1,6 +1,11 @@
 cltkv1.dependency package
 =========================
 
+.. automodule:: cltkv1.dependency
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -28,11 +33,3 @@ cltkv1.dependency.tree module
    :undoc-members:
    :show-inheritance:
 
-
-Module contents
----------------
-
-.. automodule:: cltkv1.dependency
-   :members:
-   :undoc-members:
-   :show-inheritance:
