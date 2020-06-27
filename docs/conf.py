@@ -12,7 +12,16 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../src/'))
+
+print("Unaltered path:", sys.path)
+sys.path.insert(0, os.path.abspath('.'))
+print("Path w/ .abspath('.'):", sys.path)
+sys.path.insert(0, os.path.abspath('..'))
+print("Path w/ .abspath('..'):", sys.path)
+sys.path.insert(0, os.path.abspath('../src'))
+print("Path w/ .abspath('..src'):", sys.path)
+sys.path.insert(0, os.path.abspath('../src/cltkv1'))
+print("Path w/ .abspath('..src/cltkv1'):", sys.path)
 
 
 # -- Project information -----------------------------------------------------
