@@ -13,7 +13,6 @@ from urllib.parse import urljoin
 import yaml
 from git import RemoteProgress, Repo
 
-# from cltk.utils.cltk_logger import logger
 from cltkv1.core.cltk_logger import logger
 from cltkv1.core.exceptions import CorpusImportError
 from cltkv1.languages.utils import get_lang
@@ -789,4 +788,4 @@ if __name__ == "__main__":
     print(c.list_corpora)
     # c.import_corpus("latin_training_set_sentence_cltk")
     # c.import_corpus("example_distributed_latin_corpus")
-    c.import_corpus("phi5", local_path="~/Documents")
+    c.import_corpus("phi5", local_path="/tmp")
