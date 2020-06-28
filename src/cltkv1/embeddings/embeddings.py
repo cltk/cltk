@@ -18,13 +18,11 @@ for retraining.
 import os
 from zipfile import ZipFile
 
-import requests
 from gensim import models  # type: ignore
-from tqdm import tqdm
 
 from cltkv1.core.exceptions import CLTKException, UnimplementedAlgorithmError
 from cltkv1.languages.utils import get_lang
-from cltkv1.utils import CLTK_DATA_DIR, query_yes_no
+from cltkv1.utils import CLTK_DATA_DIR, query_yes_no, get_file_with_progress_bar
 
 
 class Word2VecEmbeddings:
@@ -148,7 +146,7 @@ class Word2VecEmbeddings:
                 print(
                     f"CLTK message: Going to download file '{model_url}' to '{self.fp_zip} ..."
                 )  # pragma: no cover
-            self._get_file_with_progress_bar(model_url=model_url)
+            get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
         print(  # pragma: no cover
             "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
         )  # pragma: no cover
@@ -156,34 +154,10 @@ class Word2VecEmbeddings:
             f"Do you want to download file '{model_url}' to '{self.fp_zip}'?"
         )  # type: bool
         if dl_is_allowed:
-            self._get_file_with_progress_bar(model_url=model_url)
+            get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
         else:
             raise CLTKException(
                 f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
-            )
-
-    def _get_file_with_progress_bar(self, model_url: str):
-        """Download file with a progress bar.
-
-        Source: https://stackoverflow.com/a/37573701
-
-        TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
-        TODO: Confirm everything saves right
-        TODO: Add tests
-        """
-        self._mk_dirs_for_file()
-        req_obj = requests.get(url=model_url, stream=True)
-        total_size = int(req_obj.headers.get("content-length", 0))
-        block_size = 1024  # 1 Kibibyte
-        progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
-        with open(self.fp_zip, "wb") as file_open:
-            for data in req_obj.iter_content(block_size):
-                progress_bar.update(len(data))
-                file_open.write(data)
-        progress_bar.close()
-        if total_size != 0 and progress_bar.n != total_size:
-            raise IOError(
-                f"Expected downloaded file to be of size '{total_size}' however it is in fact '{progress_bar.n}'."
             )
 
     def _mk_dirs_for_file(self) -> None:
@@ -290,31 +264,12 @@ class FastTextEmbeddings:
         TODO: error out better or continue to _load_model?
         """
         model_url = self._build_fasttext_url()
-        """
-        if not self.interactive:
-            # TODO: Add 10 sec wait to this, to give user time to cancel dl
-            if not self.silent:
-                print(f"Going to download file '{model_url}' to '{self.model_fp} ...")
-            self._get_file_with_progress_bar(model_url=model_url)
-        else:
-            res = input(
-                f"Do you want to download file '{model_url}' to '{self.model_fp}'? [y/n] "
-            )
-            if res.lower() == "y":
-                self._get_file_with_progress_bar(model_url=model_url)
-            elif res.lower() == "n":
-                # log error here and below
-                return None
-            else:
-                # TODO: mk this recursive fn
-                return None
-        """
         if not self.interactive:
             if not self.silent:
                 print(
                     f"CLTK message: Going to download file '{model_url}' to '{self.model_fp} ..."
                 )  # pragma: no cover
-            self._get_file_with_progress_bar(model_url=model_url)
+            get_file_with_progress_bar(model_url=model_url, file_path=self.model_fp)
         print(  # pragma: no cover
             "CLTK message: This part of the CLTK depends upon word embedding models from the Fasttext project."
         )  # pragma: no cover
@@ -322,7 +277,7 @@ class FastTextEmbeddings:
             f"Do you want to download file '{model_url}' to '{self.model_fp}'?"
         )  # type: bool
         if dl_is_allowed:
-            self._get_file_with_progress_bar(model_url=model_url)
+            get_file_with_progress_bar(model_url=model_url, file_path=self.model_fp)
         else:
             raise CLTKException(
                 f"Download of necessary Stanza model declined for '{self.iso_code}'. Unable to continue with Stanza's processing."
@@ -465,39 +420,3 @@ class FastTextEmbeddings:
             raise CLTKException("Unexpected exception.")
         return url
 
-    def _get_file_with_progress_bar(self, model_url: str):
-        """Download file with a progress bar.
-
-        Source: https://stackoverflow.com/a/37573701
-
-        TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
-        TODO: Confirm everything saves right
-        TODO: Add tests
-        """
-        self._mk_dirs_for_file()
-        req_obj = requests.get(url=model_url, stream=True)
-        total_size = int(req_obj.headers.get("content-length", 0))
-        block_size = 1024  # 1 Kibibyte
-        progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
-        with open(self.model_fp, "wb") as file_open:
-            for data in req_obj.iter_content(block_size):
-                progress_bar.update(len(data))
-                file_open.write(data)
-        progress_bar.close()
-        if total_size != 0 and progress_bar.n != total_size:
-            raise IOError(
-                f"Expected downloaded file to be of size '{total_size}' however it is in fact '{progress_bar.n}'."
-            )
-
-    def _mk_dirs_for_file(self):
-        """Make all dirs specified for final file. If dir already exists,
-        then silently continue.
-
-        TODO: Refactor with Wrod2Vec method, above
-        """
-        dirs = os.path.split(self.model_fp)[0]
-        try:
-            os.makedirs(dirs)
-        except FileExistsError:
-            # TODO: Log INFO level; it's OK if dir already exists
-            return None
