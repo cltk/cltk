@@ -113,19 +113,19 @@ class TestEmbedding(unittest.TestCase):
         # self.assertEqual(most_similar_word, "ἀφικόμην")
 
         embeddings_obj = Word2VecEmbeddings(
-            iso_code="chu", interactive=False, overwrite=False, silent=True
+            iso_code="chu", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="обꙑчаѥмь")[1][0]
         self.assertEqual(most_similar_word, "послѣди")
 
         embeddings_obj = Word2VecEmbeddings(
-            iso_code="grc", interactive=False, overwrite=False, silent=True
+            iso_code="grc", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="ἦλθον")[0][0]
         self.assertEqual(most_similar_word, "ἀφικόμην")
 
         embeddings_obj = Word2VecEmbeddings(
-            iso_code="lat", interactive=False, overwrite=False, silent=True
+            iso_code="lat", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="amicitia")[0][0]
         self.assertEqual(most_similar_word, "amicitiam")

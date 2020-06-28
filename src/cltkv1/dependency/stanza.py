@@ -36,8 +36,6 @@ class StanzaWrapper:
     ) -> None:
         """Constructor for ``get_stanza_models`` wrapper class.
 
-        TODO: Do tests for all langs and available models for each
-
         >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False)
         >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
@@ -85,7 +83,6 @@ class StanzaWrapper:
         cltkv1.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.
         """
         self.language = language
-        # TODO: get stanza code
         self.treebank = treebank
         self.stanza_debug_level = stanza_debug_level
         self.interactive = interactive
@@ -274,12 +271,10 @@ class StanzaWrapper:
 
     def _download_model(self) -> None:
         """Interface with the `stanza` model downloader."""
-        # TODO: Add prompt whether to allow stanza to download files
-        # prompt user to DL the get_stanza_models models
         if not self.interactive:
             if not self.silent:
                 print(
-                    f"Going to download required Stanza models to ``{self.model_path}`` ..."
+                    f"CLTK message: Going to download required Stanza models to ``{self.model_path}`` ..."
                 )  # pragma: no cover
             stanza.download(lang=self.stanza_code, package=self.treebank)
         print(  # pragma: no cover

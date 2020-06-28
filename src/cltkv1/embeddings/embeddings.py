@@ -24,7 +24,7 @@ from tqdm import tqdm
 
 from cltkv1.core.exceptions import CLTKException, UnimplementedAlgorithmError
 from cltkv1.languages.utils import get_lang
-from cltkv1.utils import CLTK_DATA_DIR
+from cltkv1.utils import CLTK_DATA_DIR, query_yes_no
 
 
 class Word2VecEmbeddings:
@@ -37,15 +37,20 @@ class Word2VecEmbeddings:
         iso_code: str,
         model_type: str = "txt",
         interactive: bool = True,
-        overwrite: bool = False,
         silent: bool = False,
+        overwrite: bool = False,
     ):
         """Constructor for  ``Word2VecEmbeddings`` class."""
         self.iso_code = iso_code
         self.model_type = model_type
         self.interactive = interactive
-        self.overwrite = overwrite
         self.silent = silent
+        self.overwrite = overwrite
+
+        if self.interactive and self.silent:
+            raise ValueError(
+                "``interactive`` and ``silent`` options are not compatible with each other."
+            )
 
         self.MAP_LANG_TO_URL = dict(
             arb="http://vectors.nlpl.eu/repository/20/31.zip",
@@ -61,7 +66,7 @@ class Word2VecEmbeddings:
         self.fp_model = self._build_nlpl_filepath()
         self.fp_model_dirs = os.path.split(self.fp_zip)[0]  # type: str
         if not self._is_nlpl_model_present() or self.overwrite:
-            self.download_nlpl_models()
+            self._download_nlpl_models()
             self._unzip_nlpl_model()
         elif self._is_nlpl_model_present() and not self.overwrite:
             # message = f"Model for '{self.iso_code}' / '{self.model_type}' already present at '{self.fp_model}' and ``overwrite=False``."
@@ -133,17 +138,16 @@ class Word2VecEmbeddings:
         else:
             return False
 
-    def download_nlpl_models(self) -> None:
+    def _download_nlpl_models(self) -> None:
         """Perform complete download of Word2Vec models and save
         them in appropriate ``cltk_data`` dir.
 
-        TODO: Add tests
-        TODO: Implement ``force``
-        TODO: error out better or continue to _load_model?
+        TODO: Implement ``overwrite``
         """
         model_url = self.MAP_LANG_TO_URL[self.iso_code]
+        '''
         if not self.interactive:
-            # TODO: Add 10 sec wait to this, to give user time to cancel dl
+            print("")
             if not self.silent:
                 print(f"Going to download file '{model_url}' to '{self.fp_zip} ...")
             self._get_file_with_progress_bar(model_url=model_url)
@@ -159,6 +163,26 @@ class Word2VecEmbeddings:
             else:
                 # TODO: mk this recursive fn
                 return None
+        '''
+        if not self.interactive:
+            if not self.silent:
+                print(
+                    f"CLTK message: Going to download file '{model_url}' to '{self.fp_zip} ..."
+                )  # pragma: no cover
+            self._get_file_with_progress_bar(model_url=model_url)
+        print(  # pragma: no cover
+            "CLTK message: The part of the CLTK that you are using depends upon word embedding models from the NLPL project."
+        )  # pragma: no cover
+        dl_is_allowed = query_yes_no(
+            f"Do you want to download file '{model_url}' to '{self.fp_zip}'?"
+        )  # type: bool
+        if dl_is_allowed:
+            self._get_file_with_progress_bar(model_url=model_url)
+        else:
+            raise CLTKException(
+                f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
+            )
+
 
     def _get_file_with_progress_bar(self, model_url: str):
         """Download file with a progress bar.
@@ -279,7 +303,7 @@ class FastTextEmbeddings:
         them in appropriate ``cltk_data`` dir.
 
         TODO: Add tests
-        TODO: Implement ``force``
+        TODO: Implement ``overwrite``
         TODO: error out better or continue to _load_model?
         """
         model_url = self._build_fasttext_url()
