@@ -179,9 +179,15 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
             print("Please respond with 'yes' or 'no' (or 'y' or 'n').")
 
 
-def mk_dirs_for_file(file_path):
+def mk_dirs_for_file(file_path: str) -> None:
     """Make all dirs specified for final file. If dir already exists,
     then silently continue.
+
+    Args:
+        file_path: Paths of dirs to be created (i.e., `mkdir -p`)
+
+    Returns:
+        None
     """
     dirs = os.path.split(file_path)[0]
     try:
@@ -191,12 +197,20 @@ def mk_dirs_for_file(file_path):
         return None
 
 
-def get_file_with_progress_bar(self, model_url: str, file_path: str):
+def get_file_with_progress_bar(self, model_url: str, file_path: str) -> None:
     """Download file with a progress bar.
 
     Source: https://stackoverflow.com/a/37573701
 
-    TODO: Look at "Download Large Files with Tqdm Progress Bar" here: https://medium.com/better-programming/python-progress-bars-with-tqdm-by-example-ce98dbbc9697
+    Args:
+        model_url: URL from which to downloaded file.
+        file_path: Location at which to save file.
+
+    Raises:
+        IOError: If size of downloaded file differs from that in remote's ``content-length`` header.
+
+    Returns:
+        None
     """
     mk_dirs_for_file(file_path=file_path)
     req_obj = requests.get(url=model_url, stream=True)
