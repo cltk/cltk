@@ -26,43 +26,43 @@ from cltkv1.languages.example_texts import get_example_text
 class TestEmbedding(unittest.TestCase):
     def test_embeddings_fasttext(self):
         embeddings_obj = FastTextEmbeddings(
-            iso_code="ang", interactive=False, overwrite=False, silent=True
+            iso_code="ang", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="mōnaþ")[0][0]
         self.assertEqual(most_similar_word, "hāliȝmōnaþ")
 
         embeddings_obj = FastTextEmbeddings(
-            iso_code="arb", interactive=False, overwrite=False, silent=True
+            iso_code="arb", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="بعدها")[0][0]
         self.assertEqual(most_similar_word, "وبعدها")
 
         embeddings_obj = FastTextEmbeddings(
-            iso_code="arc", interactive=False, overwrite=False, silent=True
+            iso_code="arc", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="ܒܠܚܘܕ")[0][0]
         self.assertEqual(most_similar_word, "ܠܒܪ")
 
         embeddings_obj = FastTextEmbeddings(
-            iso_code="got", interactive=False, overwrite=False, silent=True
+            iso_code="got", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="𐍅𐌰𐌹𐌷𐍄𐌹𐌽𐍃")[0][0]
         self.assertEqual(most_similar_word, "𐍅𐌰𐌹𐌷𐍄𐍃")
 
         embeddings_obj = FastTextEmbeddings(
-            iso_code="lat", interactive=False, overwrite=False, silent=True
+            iso_code="lat", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="amicitia")[0][0]
         self.assertEqual(most_similar_word, "amicitiam")
 
         embeddings_obj = FastTextEmbeddings(
-            iso_code="pli", interactive=False, overwrite=False, silent=True
+            iso_code="pli", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="anattamanā")[0][0]
         self.assertEqual(most_similar_word, "kupitā")
 
         embeddings_obj = FastTextEmbeddings(
-            iso_code="san", interactive=False, overwrite=False, silent=True
+            iso_code="san", interactive=False, silent=True, overwrite=False
         )
         most_similar_word = embeddings_obj.get_sims(word="निर्माणम्")[0][0]
         self.assertEqual(most_similar_word, "निर्माणमपि")
@@ -73,7 +73,7 @@ class TestEmbedding(unittest.TestCase):
             UnimplementedAlgorithmError
         ) as exception_context_manager:
             FastTextEmbeddings(
-                iso_code="ave", interactive=False, overwrite=False, silent=True
+                iso_code="ave", interactive=False, silent=True, overwrite=False
             )
         exception = exception_context_manager.exception
         self.assertEqual(
@@ -85,7 +85,7 @@ class TestEmbedding(unittest.TestCase):
 
         with self.assertRaises(UnknownLanguageError) as exception_context_manager:
             FastTextEmbeddings(
-                iso_code="xxx", interactive=False, overwrite=False, silent=True
+                iso_code="xxx", interactive=False, silent=True, overwrite=False
             ),
         exception = exception_context_manager.exception
         self.assertEqual(exception.args, ("Unknown ISO language code 'xxx'.",))
@@ -95,8 +95,8 @@ class TestEmbedding(unittest.TestCase):
                 iso_code="got",
                 training_set="common_crawl",
                 interactive=False,
-                overwrite=False,
                 silent=True,
+                overwrite=False,
             ),
         exception = exception_context_manager.exception
         self.assertEqual(

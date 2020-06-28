@@ -141,29 +141,8 @@ class Word2VecEmbeddings:
     def _download_nlpl_models(self) -> None:
         """Perform complete download of Word2Vec models and save
         them in appropriate ``cltk_data`` dir.
-
-        TODO: Implement ``overwrite``
         """
         model_url = self.MAP_LANG_TO_URL[self.iso_code]
-        '''
-        if not self.interactive:
-            print("")
-            if not self.silent:
-                print(f"Going to download file '{model_url}' to '{self.fp_zip} ...")
-            self._get_file_with_progress_bar(model_url=model_url)
-        else:
-            res = input(
-                f"Do you want to download file '{model_url}' to '{self.fp_zip}'? [y/n] "
-            )
-            if res.lower() == "y":
-                self._get_file_with_progress_bar(model_url=model_url)
-            elif res.lower() == "n":
-                # log error here and below
-                return None
-            else:
-                # TODO: mk this recursive fn
-                return None
-        '''
         if not self.interactive:
             if not self.silent:
                 print(
@@ -171,7 +150,7 @@ class Word2VecEmbeddings:
                 )  # pragma: no cover
             self._get_file_with_progress_bar(model_url=model_url)
         print(  # pragma: no cover
-            "CLTK message: The part of the CLTK that you are using depends upon word embedding models from the NLPL project."
+            "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
         )  # pragma: no cover
         dl_is_allowed = query_yes_no(
             f"Do you want to download file '{model_url}' to '{self.fp_zip}'?"
@@ -182,7 +161,6 @@ class Word2VecEmbeddings:
             raise CLTKException(
                 f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
             )
-
 
     def _get_file_with_progress_bar(self, model_url: str):
         """Download file with a progress bar.
@@ -258,8 +236,13 @@ class FastTextEmbeddings:
         self.training_set = training_set
         self.model_type = model_type
         self.interactive = interactive
-        self.overwrite = overwrite
         self.silent = silent
+        self.overwrite = overwrite
+
+        if self.interactive and self.silent:
+            raise ValueError(
+                "``interactive`` and ``silent`` options are not compatible with each other."
+            )
 
         self.MAP_LANGS_CLTK_FASTTEXT = {
             "ang": "ang",  # Anglo-Saxon
@@ -307,6 +290,7 @@ class FastTextEmbeddings:
         TODO: error out better or continue to _load_model?
         """
         model_url = self._build_fasttext_url()
+        '''
         if not self.interactive:
             # TODO: Add 10 sec wait to this, to give user time to cancel dl
             if not self.silent:
@@ -324,6 +308,25 @@ class FastTextEmbeddings:
             else:
                 # TODO: mk this recursive fn
                 return None
+        '''
+        if not self.interactive:
+            if not self.silent:
+                print(
+                    f"CLTK message: Going to download file '{model_url}' to '{self.model_fp} ..."
+                )  # pragma: no cover
+            self._get_file_with_progress_bar(model_url=model_url)
+        print(  # pragma: no cover
+            "CLTK message: This part of the CLTK depends upon word embedding models from the Fasttext project."
+        )  # pragma: no cover
+        dl_is_allowed = query_yes_no(
+            f"Do you want to download file '{model_url}' to '{self.model_fp}'?"
+        )  # type: bool
+        if dl_is_allowed:
+            self._get_file_with_progress_bar(model_url=model_url)
+        else:
+            raise CLTKException(
+                f"Download of necessary Stanza model declined for '{self.iso_code}'. Unable to continue with Stanza's processing."
+            )
 
     def _is_model_present(self):
         """Check if model in an otherwise valid filepath."""

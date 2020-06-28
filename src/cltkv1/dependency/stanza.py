@@ -278,7 +278,7 @@ class StanzaWrapper:
                 )  # pragma: no cover
             stanza.download(lang=self.stanza_code, package=self.treebank)
         print(  # pragma: no cover
-            "CLTK message: The part of the CLTK that you are using depends upon the Stanza NLP library."
+            "CLTK message: This part of the CLTK depends upon the Stanza NLP library."
         )  # pragma: no cover
         dl_is_allowed = query_yes_no(
             f"CLTK message: Allow download of Stanza models to ``{self.model_path}``?"
