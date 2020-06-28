@@ -13,6 +13,7 @@ class TestDependency(unittest.TestCase):
     ..todo::
        - Add check for ``CLTKException`` if explicit model dl refused
     """
+
     def test_dependency_tree(self):
         cltk_nlp = NLP(language="lat")
         doc = cltk_nlp.analyze(text=get_example_text("lat"))

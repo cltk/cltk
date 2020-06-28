@@ -22,12 +22,16 @@ class TestUtils(unittest.TestCase):
     @patch("builtins.input", lambda *args: "no")
     def test_query_no_def_none(self):
         """Test question function with I/O."""
-        self.assertEqual(query_yes_no(question="Is anyone wiser than Socrates?", default=None), False)
+        self.assertEqual(
+            query_yes_no(question="Is anyone wiser than Socrates?", default=None), False
+        )
 
     @patch("builtins.input", lambda *args: "no")
     def test_query_no_def_no(self):
         """Test question function with I/O."""
-        self.assertEqual(query_yes_no(question="Is anyone wiser than Socrates?", default="no"), False)
+        self.assertEqual(
+            query_yes_no(question="Is anyone wiser than Socrates?", default="no"), False
+        )
 
     @patch("builtins.input", lambda *args: "no")
     def test_query_no_def_invalid(self):

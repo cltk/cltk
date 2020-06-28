@@ -1,9 +1,9 @@
 """Module for commonly reused classes and functions."""
 
-from distutils.util import strtobool
 import os
 import sys
 from contextlib import contextmanager
+from distutils.util import strtobool
 from typing import Any, Dict, List, Optional, Union
 
 
@@ -168,7 +168,7 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
         # sys.stdout.write(question + prompt)
         print(question + prompt)
         choice = input().lower()
-        if default and choice == '':
+        if default and choice == "":
             return bool(strtobool(default))
         try:
             return bool(strtobool(choice))

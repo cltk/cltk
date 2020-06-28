@@ -290,7 +290,7 @@ class FastTextEmbeddings:
         TODO: error out better or continue to _load_model?
         """
         model_url = self._build_fasttext_url()
-        '''
+        """
         if not self.interactive:
             # TODO: Add 10 sec wait to this, to give user time to cancel dl
             if not self.silent:
@@ -308,7 +308,7 @@ class FastTextEmbeddings:
             else:
                 # TODO: mk this recursive fn
                 return None
-        '''
+        """
         if not self.interactive:
             if not self.silent:
                 print(

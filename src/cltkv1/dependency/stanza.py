@@ -11,11 +11,11 @@ from stanza.models.common.constant import lang2lcode
 from stanza.utils.prepare_resources import default_treebanks
 
 from cltkv1.core.exceptions import (
+    CLTKException,
     UnimplementedAlgorithmError,
     UnknownLanguageError,
-    CLTKException,
 )
-from cltkv1.utils import file_exists, suppress_stdout, query_yes_no
+from cltkv1.utils import file_exists, query_yes_no, suppress_stdout
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
