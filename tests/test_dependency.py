@@ -1,4 +1,4 @@
-"""The full unit test suite, testing every available model for every language."""
+"""Unit tests for ``cltkv1.dependency``."""
 
 import unittest
 
@@ -8,6 +8,12 @@ from cltkv1.languages.example_texts import get_example_text
 
 
 class TestDependency(unittest.TestCase):
+    """Unit tests for dependency module.
+
+    ..todo::
+       - Add check for ``CLTKException`` if explicit model dl refused
+    """
+
     def test_dependency_tree(self):
         cltk_nlp = NLP(language="lat")
         doc = cltk_nlp.analyze(text=get_example_text("lat"))

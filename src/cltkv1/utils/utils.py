@@ -3,7 +3,8 @@
 import os
 import sys
 from contextlib import contextmanager
-from typing import Any, Dict, List, Optional
+from distutils.util import strtobool
+from typing import Any, Dict, List, Optional, Union
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -136,6 +137,43 @@ def get_cltk_data_dir():
     else:
         cltk_data_dir = os.path.expanduser(os.path.normpath("~/cltk_data"))
     return cltk_data_dir
+
+
+def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
+    """Ask a yes/no question via ``input()` and return ``True``/``False``..
+
+    Source: `<https://stackoverflow.com/a/3041990>`_.
+
+    Args:
+        question: Question string presented to the user.
+        default: Presumed answer if the user just hits <Enter>.
+           It must be "yes" (the default), "no", or None (meaning
+           an answer is required of the user).
+
+    Returns:
+        ``True`` for "yes" or ``False`` for "no".
+    """
+    # 1. Construct prompt
+    if default == "yes":
+        prompt = " [Y/n] "
+    elif default == "no":
+        prompt = " [y/N] "
+    elif not default:
+        prompt = " [y/n] "
+    else:
+        raise ValueError("Invalid default answer: '%s'" % default)
+
+    # 2. Check user input and return correct boolean
+    while True:
+        # sys.stdout.write(question + prompt)
+        print(question + prompt)
+        choice = input().lower()
+        if default and choice == "":
+            return bool(strtobool(default))
+        try:
+            return bool(strtobool(choice))
+        except ValueError:
+            print("Please respond with 'yes' or 'no' (or 'y' or 'n').")
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()
