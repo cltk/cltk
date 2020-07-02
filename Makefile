@@ -14,17 +14,27 @@ format:
 	isort --recursive . && poetry run black src/cltkv1 tests docs scripts
 
 install:
-	# Equivalent of ``python setup.py install``
 	poetry install
 
 installPyPITest:
-	pip install --index-url https://test.pypi.org/simple/ cltk
+	pip install --index-url https://test.pypi.org/simple/ --no-deps cltkv1
 
 lint:
 	mkdir -p pylint && poetry run pylint --output-format=json cltkv1 > pylint/pylint.json || true && poetry run pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
 preCommitRun:
 	poetry run pre-commit autoupdate && poetry run pre-commit install && poetry run pre-commit autoupdate
+
+publishPyPI:
+	poetry publish
+
+publishPyPITest:
+	# poetry version prerelease
+	# make build
+	poetry publish --repository=testpypi
+
+publishPyPITestConfig:
+	poetry config repositories.testpypi https://test.pypi.org/legacy/
 
 shell:
 	# TODO: start w/ option ``doctest_mode``
@@ -51,12 +61,6 @@ updateDependencies:
 
 uml:
 	cd docs/ && poetry run pyreverse -o png ../src/cltkv1/ && cd ../
-
-upload:
-	poetry publish
-
-uploadTest:
-	poetry publish --repository=testpypi
 
 all: black lint typing test check uml docs
 

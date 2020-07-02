@@ -8,6 +8,8 @@ def get_pyproject():
     ``pyproject.toml`` file, located in the root of the
     source repo.
 
+    TODO: It doesn't make sense to check for a repo file here, does it?
+
     >>> pyproject_configs = get_pyproject()
     >>> sorted(pyproject_configs.keys())
     ['authors', 'classifiers', 'dependencies', 'description', 'dev-dependencies', 'documentation', 'homepage', 'keywords', 'license', 'name', 'readme', 'repository', 'version']
