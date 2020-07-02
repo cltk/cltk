@@ -1,10 +1,10 @@
-"""Unit tests for ``cltkv1.dependency``."""
+"""Unit tests for ``cltk.dependency``."""
 
 import unittest
 
-from cltkv1 import NLP
-from cltkv1.dependency.tree import Dependency, DependencyTree, Form
-from cltkv1.languages.example_texts import get_example_text
+from cltk import NLP
+from cltk.dependency.tree import Dependency, DependencyTree, Form
+from cltk.languages.example_texts import get_example_text
 
 
 class TestDependency(unittest.TestCase):

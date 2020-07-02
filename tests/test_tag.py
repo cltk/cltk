@@ -4,12 +4,12 @@ import os
 import shutil
 import unittest
 
-from cltkv1.data.fetch import FetchCorpus
-from cltkv1.stem.latin.j_v import JVReplacer
-from cltkv1.tag import ner
-from cltkv1.tag.ner import NamedEntityReplacer
-from cltkv1.tag.pos import POSTag
-from cltkv1.utils import CLTK_DATA_DIR
+from cltk.data.fetch import FetchCorpus
+from cltk.stem.latin.j_v import JVReplacer
+from cltk.tag import ner
+from cltk.tag.ner import NamedEntityReplacer
+from cltk.tag.pos import POSTag
+from cltk.utils import CLTK_DATA_DIR
 
 __license__ = "MIT License. See LICENSE."
 

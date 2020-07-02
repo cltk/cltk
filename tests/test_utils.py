@@ -1,9 +1,9 @@
-"""Uit tests for cltkv1.utils."""
+"""Uit tests for cltk.utils."""
 
 import unittest
 from unittest.mock import patch
 
-from cltkv1.utils.utils import query_yes_no
+from cltk.utils.utils import query_yes_no
 
 
 class TestUtils(unittest.TestCase):

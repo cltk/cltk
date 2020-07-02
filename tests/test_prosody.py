@@ -4,10 +4,10 @@ __license__ = "MIT License. See LICENSE."
 
 import unittest
 
-from cltkv1.prosody.greek.scanner import Scansion as ScansionGreek
-from cltkv1.prosody.latin.clausulae_analysis import Clausulae
-from cltkv1.prosody.latin.macronizer import Macronizer
-from cltkv1.prosody.latin.scanner import Scansion as ScansionLatin
+from cltk.prosody.greek.scanner import Scansion as ScansionGreek
+from cltk.prosody.latin.clausulae_analysis import Clausulae
+from cltk.prosody.latin.macronizer import Macronizer
+from cltk.prosody.latin.scanner import Scansion as ScansionLatin
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904

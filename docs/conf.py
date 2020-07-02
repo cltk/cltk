@@ -18,13 +18,13 @@ from typing import Dict, List, Union
 import pkg_resources
 
 # errors on rtd build
-# import cltkv1
+# import cltk
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
 # this required for RTD build to find source
 sys.path.insert(0, os.path.abspath("../src"))
-sys.path.insert(0, os.path.abspath("../src/cltkv1"))
+sys.path.insert(0, os.path.abspath("../src/cltk"))
 
 
 # -- Project information -----------------------------------------------------
@@ -35,11 +35,11 @@ curr_year = dt_today.year  # type: int
 copyright = f" 2019-{curr_year} Kyle P. Johnson"
 # author = "Kyle P. Johnson et al."
 # the following errors on rtd server
-# cltk_project = cltkv1.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
+# cltk_project = cltk.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
 # author_list = cltk_project["authors"]  # type: List[str]
 # author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-curr_version = pkg_resources.get_distribution("cltkv1")  # type: str
+curr_version = pkg_resources.get_distribution("cltk")  # type: str
 release = curr_version.version  # type: str
 
 

@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "cltkv1"
-version = "1.0.0-alpha.3"
+name = "cltk"
+version = "1.0.0-alpha.4"
 description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>", "Patrick J. Burns <patrick@diyclassics.org>", "John Stewart <johnstewart@aya.yale.edu>", "Todd Cook <todd.g.cook@gmail.com>"]
 readme = "README.rst"
 homepage = "http://cltk.org"
-repository = "https://github.com/cltk/cltkv1"
-documentation = "https://cltkv1.readthedocs.io/en/latest/"
+repository = "https://github.com/cltk/cltk"
+documentation = "https://cltk.readthedocs.io/en/latest/"
 keywords = ["nlp", "ai", "nltk", "latin", "greek"]
 classifiers = [
     "Intended Audience :: Education",
@@ -29,7 +29,7 @@ classifiers = [
     "Topic :: Text Processing :: Linguistic",
 ]
 #packages = [
-#    { include = "cltkv1", from = "src" },
+#    { include = "cltk", from = "src" },
 #]
 #include = []
 #exclude = []
@@ -37,7 +37,6 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 gitpython = "^3.0"
-cltk = "^0.1.112"
 requests = "^2.22.0"
 tqdm = "^4.41.1"
 fasttext = "^0.9.1"
@@ -47,6 +46,7 @@ greek-accentuation = "^1.2.0"
 python-Levenshtein = "^0.12.0"
 stanza = "^1.0.0"
 toml = "^0.10.1"
+nltk = "^3.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"

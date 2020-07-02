@@ -4,14 +4,14 @@ import unittest
 
 import numpy
 
-from cltkv1.core.data_types import Doc, Word
-from cltkv1.core.exceptions import (
+from cltk.core.data_types import Doc, Word
+from cltk.core.exceptions import (
     CLTKException,
     UnimplementedAlgorithmError,
     UnknownLanguageError,
 )
-from cltkv1.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
-from cltkv1.embeddings.processes import (
+from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
+from cltk.embeddings.processes import (
     AramaicEmbeddingsProcess,
     GothicEmbeddingsProcess,
     GreekEmbeddingsProcess,
@@ -20,7 +20,7 @@ from cltkv1.embeddings.processes import (
     PaliEmbeddingsProcess,
     SanskritEmbeddingsProcess,
 )
-from cltkv1.languages.example_texts import get_example_text
+from cltk.languages.example_texts import get_example_text
 
 
 class TestEmbedding(unittest.TestCase):

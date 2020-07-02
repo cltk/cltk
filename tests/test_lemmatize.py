@@ -3,24 +3,24 @@ import os
 import unittest
 from unittest.mock import patch
 
-from cltkv1.tokenize.word import WordTokenizer
+from cltk.tokenize.word import WordTokenizer
 
-from cltkv1.data.fetch import FetchCorpus
-from cltkv1.lemmatize.backoff import (
+from cltk.data.fetch import FetchCorpus
+from cltk.lemmatize.backoff import (
     DefaultLemmatizer,
     DictLemmatizer,
     IdentityLemmatizer,
     RegexpLemmatizer,
     UnigramLemmatizer,
 )
-from cltkv1.lemmatize.french.lemma import LemmaReplacer
-from cltkv1.lemmatize.greek.backoff import BackoffGreekLemmatizer
-from cltkv1.lemmatize.latin.backoff import (
+from cltk.lemmatize.french.lemma import LemmaReplacer
+from cltk.lemmatize.greek.backoff import BackoffGreekLemmatizer
+from cltk.lemmatize.latin.backoff import (
     BackoffLatinLemmatizer,
     RomanNumeralLemmatizer,
 )
-from cltkv1.stem.latin.j_v import JVReplacer
-from cltkv1.utils import CLTK_DATA_DIR
+from cltk.stem.latin.j_v import JVReplacer
+from cltk.utils import CLTK_DATA_DIR
 
 __author__ = [
     "Patrick J. Burns <patrick@diyclassics.org>",

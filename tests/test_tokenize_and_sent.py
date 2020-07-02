@@ -8,22 +8,22 @@ from unittest.mock import patch
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
-from cltkv1.data.fetch import FetchCorpus
-from cltkv1.sentence.lat import LatinPunktSentenceTokenizer
-from cltkv1.sentence.lat import SentenceTokenizer as LatinSentenceTokenizer
-from cltkv1.sentence.sentence import TokenizeSentence
-from cltkv1.tokenizers.arb import WordTokenizer as ArabicWordTokenizer
-from cltkv1.tokenizers.enm import WordTokenizer as MiddleEnglishWordTokenizer
-from cltkv1.tokenizers.fro import WordTokenizer as OldFrenchWordTokenizer
-from cltkv1.tokenizers.gmh import WordTokenizer as MiddleHighGermanWordTokenizer
-from cltkv1.tokenizers.grc import WordTokenizer as GreekWordTokenizer
-from cltkv1.tokenizers.lat.lat import WordTokenizer as LatinWordTokenizer
-from cltkv1.tokenizers.lat.utils import LatinSentenceTokenizerTrainer
-from cltkv1.tokenizers.line import LineTokenizer
-from cltkv1.tokenizers.non import WordTokenizer as OldNorseWordTokenizer
-from cltkv1.tokenizers.san import WordTokenizer as SanskritWordTokenizer
-from cltkv1.tokenizers.utils import BaseSentenceTokenizerTrainer
-from cltkv1.tokenizers.word import WordTokenizer
+from cltk.data.fetch import FetchCorpus
+from cltk.sentence.lat import LatinPunktSentenceTokenizer
+from cltk.sentence.lat import SentenceTokenizer as LatinSentenceTokenizer
+from cltk.sentence.sentence import TokenizeSentence
+from cltk.tokenizers.arb import WordTokenizer as ArabicWordTokenizer
+from cltk.tokenizers.enm import WordTokenizer as MiddleEnglishWordTokenizer
+from cltk.tokenizers.fro import WordTokenizer as OldFrenchWordTokenizer
+from cltk.tokenizers.gmh import WordTokenizer as MiddleHighGermanWordTokenizer
+from cltk.tokenizers.grc import WordTokenizer as GreekWordTokenizer
+from cltk.tokenizers.lat.lat import WordTokenizer as LatinWordTokenizer
+from cltk.tokenizers.lat.utils import LatinSentenceTokenizerTrainer
+from cltk.tokenizers.line import LineTokenizer
+from cltk.tokenizers.non import WordTokenizer as OldNorseWordTokenizer
+from cltk.tokenizers.san import WordTokenizer as SanskritWordTokenizer
+from cltk.tokenizers.utils import BaseSentenceTokenizerTrainer
+from cltk.tokenizers.word import WordTokenizer
 
 
 class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904

@@ -9,20 +9,20 @@ __license__ = "MIT License. See LICENSE."
 import unicodedata
 import unittest
 
-from cltkv1.phonology.old_norse.syllabifier import invalid_onsets
-from cltkv1.tokenize.word import WordTokenizer
+from cltk.phonology.old_norse.syllabifier import invalid_onsets
+from cltk.tokenize.word import WordTokenizer
 
-from cltkv1.phonology import utils as ut
-from cltkv1.phonology.akkadian import stress as AkkadianStress
-from cltkv1.phonology.arabic.romanization import transliterate as AarabicTransliterate
-from cltkv1.phonology.gothic import transcription as gothic
-from cltkv1.phonology.greek import transcription as grc
-from cltkv1.phonology.latin import transcription as lat
-from cltkv1.phonology.middle_english.transcription import Word as word_me
-from cltkv1.phonology.middle_high_german import transcription as mhg
-from cltkv1.phonology.old_norse import transcription as ont
-from cltkv1.phonology.old_swedish import transcription as old_swedish
-from cltkv1.phonology.syllabify import Syllabifier, Syllable
+from cltk.phonology import utils as ut
+from cltk.phonology.akkadian import stress as AkkadianStress
+from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
+from cltk.phonology.gothic import transcription as gothic
+from cltk.phonology.greek import transcription as grc
+from cltk.phonology.latin import transcription as lat
+from cltk.phonology.middle_english.transcription import Word as word_me
+from cltk.phonology.middle_high_german import transcription as mhg
+from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.old_swedish import transcription as old_swedish
+from cltk.phonology.syllabify import Syllabifier, Syllable
 
 
 class TestSequenceFunctions(unittest.TestCase):

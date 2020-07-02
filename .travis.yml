@@ -15,6 +15,11 @@ cache:
     - $HOME/virtualenv/
     - $HOME/.cache/pip
 
+addons:
+  apt:
+    packages:
+      - graphviz
+
 before_install:
   - pip install --upgrade pip
   - pip install poetry

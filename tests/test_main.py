@@ -4,14 +4,14 @@ import unittest
 
 import numpy
 
-from cltkv1 import NLP
-from cltkv1.core.data_types import Doc, Word
-from cltkv1.languages.example_texts import get_example_text
+from cltk import NLP
+from cltk.core.data_types import Doc, Word
+from cltk.languages.example_texts import get_example_text
 
 
 class TestMain(unittest.TestCase):
     def test_main_analyze(self):
-        """Testing methods from ``cltkv1/nlp.py``. Note that we
+        """Testing methods from ``cltk/nlp.py``. Note that we
         change ``first_word.embedding`` into an empty list because
         otherwise we would have to add a long vector into our tests.
         """
