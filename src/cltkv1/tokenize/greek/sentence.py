@@ -15,6 +15,7 @@ from cltkv1.tokenize.sentence import (
 )
 from cltkv1.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
+from cltkv1.utils import get_cltk_data_dir
 
 
 def SentenceTokenizer(tokenizer: str = "regex"):
