@@ -26,11 +26,12 @@ preCommitRun:
 	poetry run pre-commit autoupdate && poetry run pre-commit install && poetry run pre-commit autoupdate
 
 publishPyPI:
+	gmake build
 	poetry publish
 
 publishPyPITest:
 	# poetry version prerelease
-	# make build
+	make build
 	poetry publish --repository=testpypi
 
 publishPyPITestConfig:
