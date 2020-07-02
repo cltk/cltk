@@ -3,7 +3,11 @@
 import os
 import sys
 from contextlib import contextmanager
-from typing import Any, Dict, List, Optional
+from distutils.util import strtobool
+from typing import Any, Dict, List, Optional, Union
+
+import requests
+from tqdm import tqdm
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -136,6 +140,92 @@ def get_cltk_data_dir():
     else:
         cltk_data_dir = os.path.expanduser(os.path.normpath("~/cltk_data"))
     return cltk_data_dir
+
+
+def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
+    """Ask a yes/no question via ``input()` and return ``True``/``False``..
+
+    Source: `<https://stackoverflow.com/a/3041990>`_.
+
+    Args:
+        question: Question string presented to the user.
+        default: Presumed answer if the user just hits <Enter>.
+           It must be "yes" (the default), "no", or None (meaning
+           an answer is required of the user).
+
+    Returns:
+        ``True`` for "yes" or ``False`` for "no".
+    """
+    # 1. Construct prompt
+    if default == "yes":
+        prompt = " [Y/n] "
+    elif default == "no":
+        prompt = " [y/N] "
+    elif not default:
+        prompt = " [y/n] "
+    else:
+        raise ValueError("Invalid default answer: '%s'" % default)
+
+    # 2. Check user input and return correct boolean
+    while True:
+        # sys.stdout.write(question + prompt)
+        print(question + prompt)
+        choice = input().lower()
+        if default and choice == "":
+            return bool(strtobool(default))
+        try:
+            return bool(strtobool(choice))
+        except ValueError:
+            print("Please respond with 'yes' or 'no' (or 'y' or 'n').")
+
+
+def mk_dirs_for_file(file_path: str) -> None:
+    """Make all dirs specified for final file. If dir already exists,
+    then silently continue.
+
+    Args:
+        file_path: Paths of dirs to be created (i.e., `mkdir -p`)
+
+    Returns:
+        None
+    """
+    dirs = os.path.split(file_path)[0]
+    try:
+        os.makedirs(dirs)
+    except FileExistsError:
+        # TODO: Log INFO level; it's OK if dir already exists
+        return None
+
+
+def get_file_with_progress_bar(self, model_url: str, file_path: str) -> None:
+    """Download file with a progress bar.
+
+    Source: https://stackoverflow.com/a/37573701
+
+    Args:
+        model_url: URL from which to downloaded file.
+        file_path: Location at which to save file.
+
+    Raises:
+        IOError: If size of downloaded file differs from that in remote's ``content-length`` header.
+
+    Returns:
+        None
+    """
+    mk_dirs_for_file(file_path=file_path)
+    req_obj = requests.get(url=model_url, stream=True)
+    total_size = int(req_obj.headers.get("content-length", 0))
+    block_size = 1024  # 1 Kibibyte
+    progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
+    with open(self.fp_zip, "wb") as file_open:
+        for data in req_obj.iter_content(block_size):
+            progress_bar.update(len(data))
+            file_open.write(data)
+    progress_bar.close()
+    if total_size != 0 and progress_bar.n != total_size:
+        raise IOError(
+            f"Expected downloaded file to be of size '{total_size}' however it is in fact '{progress_bar.n}'."
+        )
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()

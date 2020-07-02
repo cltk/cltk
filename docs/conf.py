@@ -13,8 +13,9 @@
 import os
 import sys
 from datetime import datetime
-import pkg_resources
 from typing import Dict, List, Union
+
+import pkg_resources
 
 # errors on rtd build
 # import cltkv1
@@ -77,7 +78,9 @@ extensions = [
 
 # sphinx.ext.autodoc
 # https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
-autodoc_member_order = "bysource"  # to sort according to order in code, not alaphabetical
+autodoc_member_order = (
+    "bysource"
+)  # to sort according to order in code, not alaphabetical
 
 # sphinx.ext.todo
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
@@ -128,4 +131,3 @@ html_theme = "alabaster"
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
 # https://alabaster.readthedocs.io/en/latest/installation.html
-
