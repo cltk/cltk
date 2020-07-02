@@ -68,23 +68,25 @@ def download_nlpl_model(iso_code: str) -> None:
 
 
 if __name__ == "__main__":
-    if not os.path.isfile(os.path.expanduser("~/stanza_resources/resources.json")):
-        get_all_stanza_models()
+    get_all_fasttext_models(interactive=False)
 
-    if not os.path.isfile(
-        os.path.expanduser("~/cltk_data/lat/embeddings/fasttext/wiki.la.vec")
-    ):
-        get_all_fasttext_models(interactive=False)
-    if not os.path.isfile(
-        os.path.expanduser("~/cltk_data/grc/embeddings/nlpl/model.bin")
-    ):
-        download_nlpl_model(iso_code="grc")
-
-    download_cltk_models(iso_code="lat")
-    download_cltk_models(iso_code="grc")
-    download_cltk_models(iso_code="fro")
-    download_cltk_models(iso_code="san")
-    download_cltk_models(iso_code="ang")
-    download_cltk_models(iso_code="non")
-    download_cltk_models(iso_code="gml")
-    download_cltk_models(iso_code="gmh")
+    # if not os.path.isfile(os.path.expanduser("~/stanza_resources/resources.json")):
+    #     get_all_stanza_models()
+    #
+    # if not os.path.isfile(
+    #     os.path.expanduser("~/cltk_data/lat/embeddings/fasttext/wiki.la.vec")
+    # ):
+    #     get_all_fasttext_models(interactive=False)
+    # if not os.path.isfile(
+    #     os.path.expanduser("~/cltk_data/grc/embeddings/nlpl/model.bin")
+    # ):
+    #     download_nlpl_model(iso_code="grc")
+    #
+    # download_cltk_models(iso_code="lat")
+    # download_cltk_models(iso_code="grc")
+    # download_cltk_models(iso_code="fro")
+    # download_cltk_models(iso_code="san")
+    # download_cltk_models(iso_code="ang")
+    # download_cltk_models(iso_code="non")
+    # download_cltk_models(iso_code="gml")
+    # download_cltk_models(iso_code="gmh")

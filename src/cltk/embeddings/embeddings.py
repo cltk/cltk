@@ -147,18 +147,19 @@ class Word2VecEmbeddings:
                     f"CLTK message: Going to download file '{model_url}' to '{self.fp_zip} ..."
                 )  # pragma: no cover
             get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
-        print(  # pragma: no cover
-            "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
-        )  # pragma: no cover
-        dl_is_allowed = query_yes_no(
-            f"Do you want to download file '{model_url}' to '{self.fp_zip}'?"
-        )  # type: bool
-        if dl_is_allowed:
-            get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
         else:
-            raise CLTKException(
-                f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
-            )
+            print(  # pragma: no cover
+                "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
+            )  # pragma: no cover
+            dl_is_allowed = query_yes_no(
+                f"Do you want to download file '{model_url}' to '{self.fp_zip}'?"
+            )  # type: bool
+            if dl_is_allowed:
+                get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
+            else:
+                raise CLTKException(
+                    f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
+                )
 
     def _mk_dirs_for_file(self) -> None:
         """Make all dirs specified for final file. If dir already exists,
@@ -270,18 +271,19 @@ class FastTextEmbeddings:
                     f"CLTK message: Going to download file '{model_url}' to '{self.model_fp} ..."
                 )  # pragma: no cover
             get_file_with_progress_bar(model_url=model_url, file_path=self.model_fp)
-        print(  # pragma: no cover
-            "CLTK message: This part of the CLTK depends upon word embedding models from the Fasttext project."
-        )  # pragma: no cover
-        dl_is_allowed = query_yes_no(
-            f"Do you want to download file '{model_url}' to '{self.model_fp}'?"
-        )  # type: bool
-        if dl_is_allowed:
-            get_file_with_progress_bar(model_url=model_url, file_path=self.model_fp)
         else:
-            raise CLTKException(
-                f"Download of necessary Stanza model declined for '{self.iso_code}'. Unable to continue with Stanza's processing."
-            )
+            print(  # pragma: no cover
+                "CLTK message: This part of the CLTK depends upon word embedding models from the Fasttext project."
+            )  # pragma: no cover
+            dl_is_allowed = query_yes_no(
+                f"Do you want to download file '{model_url}' to '{self.model_fp}'?"
+            )  # type: bool
+            if dl_is_allowed:
+                get_file_with_progress_bar(model_url=model_url, file_path=self.model_fp)
+            else:
+                raise CLTKException(
+                    f"Download of necessary Stanza model declined for '{self.iso_code}'. Unable to continue with Stanza's processing."
+                )
 
     def _is_model_present(self):
         """Check if model in an otherwise valid filepath."""
