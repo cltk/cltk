@@ -1,7 +1,7 @@
-cltkv1
-======
+cltk
+====
 
 .. toctree::
    :maxdepth: 4
 
-   cltkv1
+   cltk

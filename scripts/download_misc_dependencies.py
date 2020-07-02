@@ -9,8 +9,8 @@ from typing import Any, Dict, List
 # from stanza.utils.resources import download
 import stanza
 
-from cltkv1.data.fetch import FetchCorpus
-from cltkv1.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
+from cltk.data.fetch import FetchCorpus
+from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
 
 
 def get_all_stanza_models() -> None:

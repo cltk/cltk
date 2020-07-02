@@ -2,21 +2,21 @@
 
 import unittest
 
-from cltkv1.core.exceptions import CLTKException
-from cltkv1.data.fetch import FetchCorpus
-from cltkv1.stem.akkadian.atf_converter import ATFConverter
-from cltkv1.stem.akkadian.bound_form import BoundForm as AkkadianBoundForm
-from cltkv1.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
-from cltkv1.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
-from cltkv1.stem.akkadian.stem import Stemmer as AkkadianStemmer
-from cltkv1.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
-from cltkv1.stem.french.stem import stem
-from cltkv1.stem.latin.declension import CollatinusDecliner
-from cltkv1.stem.latin.j_v import JVReplacer
-from cltkv1.stem.latin.stem import Stemmer
-from cltkv1.stem.latin.syllabifier import Syllabifier
-from cltkv1.stem.middle_english.stem import affix_stemmer as MiddleEnglishAffixStemmer
-from cltkv1.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
+from cltk.core.exceptions import CLTKException
+from cltk.data.fetch import FetchCorpus
+from cltk.stem.akkadian.atf_converter import ATFConverter
+from cltk.stem.akkadian.bound_form import BoundForm as AkkadianBoundForm
+from cltk.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
+from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
+from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
+from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
+from cltk.stem.french.stem import stem
+from cltk.stem.latin.declension import CollatinusDecliner
+from cltk.stem.latin.j_v import JVReplacer
+from cltk.stem.latin.stem import Stemmer
+from cltk.stem.latin.syllabifier import Syllabifier
+from cltk.stem.middle_english.stem import affix_stemmer as MiddleEnglishAffixStemmer
+from cltk.stem.sanskrit.indian_syllabifier import Syllabifier as IndianSyllabifier
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904

@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "cltkv1"
+name = "cltk"
 version = "1.0.0-alpha.3"
 description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>", "Patrick J. Burns <patrick@diyclassics.org>", "John Stewart <johnstewart@aya.yale.edu>", "Todd Cook <todd.g.cook@gmail.com>"]
 readme = "README.rst"
 homepage = "http://cltk.org"
-repository = "https://github.com/cltk/cltkv1"
-documentation = "https://cltkv1.readthedocs.io/en/latest/"
+repository = "https://github.com/cltk/cltk"
+documentation = "https://cltk.readthedocs.io/en/latest/"
 keywords = ["nlp", "ai", "nltk", "latin", "greek"]
 classifiers = [
     "Intended Audience :: Education",
@@ -29,7 +29,7 @@ classifiers = [
     "Topic :: Text Processing :: Linguistic",
 ]
 #packages = [
-#    { include = "cltkv1", from = "src" },
+#    { include = "cltk", from = "src" },
 #]
 #include = []
 #exclude = []

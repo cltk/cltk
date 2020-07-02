@@ -47,10 +47,10 @@ import re
 from dataclasses import dataclass
 from typing import Callable, List
 
-from cltkv1.languages.glottolog import LANGUAGES
-from cltkv1.nlp import NLP
-from cltkv1.utils.data_types import Word
-from cltkv1.utils.operations import Operation
+from cltk.languages.glottolog import LANGUAGES
+from cltk.nlp import NLP
+from cltk.utils.data_types import Word
+from cltk.utils.operations import Operation
 
 # #####################################################################################
 # #######################START OPERATION TYPE##########################################
@@ -123,7 +123,7 @@ class LatinPipeline(Pipeline):
 
 
 if __name__ == "__main__":
-    from cltkv1.languages.example_texts import LAT
+    from cltk.languages.example_texts import LAT
 
     cltk_nlp = NLP(language="latin")
     doc_germanica = cltk_nlp.run_pipeline(LAT)

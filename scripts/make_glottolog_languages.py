@@ -1,5 +1,5 @@
 """Module for mapping ISO 639-3 to Glottolog languages and language names.
-The contents of ``cltkv1/languages/glottolog.py`` were created by this.
+The contents of ``cltk/languages/glottolog.py`` were created by this.
 """
 
 import csv
@@ -7,7 +7,7 @@ import os
 import typing
 from collections import OrderedDict, defaultdict
 
-from cltkv1.utils.data_types import Language
+from cltk.utils.data_types import Language
 
 
 def make_iso_glotto_map():
