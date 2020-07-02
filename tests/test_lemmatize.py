@@ -3,7 +3,7 @@ import os
 import unittest
 from unittest.mock import patch
 
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.data.fetch import FetchCorpus
 from cltkv1.lemmatize.backoff import (

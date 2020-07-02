@@ -7,9 +7,8 @@ __license__ = "MIT License."
 import pickle
 from typing import Any, Dict, Generator, List, Set, Tuple
 
-from cltk.corpus.readers import get_corpus_reader
-from cltk.tokenize.latin.params import ABBREVIATIONS
-from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
+from cltkv1.tokenize.latin.params import ABBREVIATIONS
+from cltkv1.tokenize.utils import BaseSentenceTokenizerTrainer
 from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 
 

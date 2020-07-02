@@ -7,14 +7,15 @@ __license__ = "MIT License."
 import os.path
 import re
 
-from cltk.tokenize.greek.params import GreekLanguageVars
-from cltk.tokenize.sentence import (
+from cltkv1.tokenize.greek.params import GreekLanguageVars
+from cltkv1.tokenize.sentence import (
     BasePunktSentenceTokenizer,
     BaseRegexSentenceTokenizer,
     BaseSentenceTokenizer,
 )
-from cltk.utils.file_operations import open_pickle
+from cltkv1.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
+from cltkv1.utils import get_cltk_data_dir
 
 
 def SentenceTokenizer(tokenizer: str = "regex"):

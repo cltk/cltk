@@ -5,7 +5,7 @@ syllable surrounded by square brackets.
 
 # TODO: fails on: ['hammurabi', 'u', 'išmeānim']
 
-from cltk.stem.akkadian.syllabifier import Syllabifier
+from cltkv1.phonology.akkadian.syllabifier import Syllabifier
 
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."

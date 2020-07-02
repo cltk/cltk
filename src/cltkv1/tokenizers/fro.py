@@ -7,8 +7,8 @@ __author__ = [
 ]
 __license__ = "MIT License."
 
-from cltk.tokenize.old_french.params import OldFrenchTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltkv1.tokenize.old_french.params import OldFrenchTokenizerPatterns
+from cltkv1.tokenize.word import BaseRegexWordTokenizer
 
 OldFrenchTokenizerPatterns = [
     (r"’", r"'"),

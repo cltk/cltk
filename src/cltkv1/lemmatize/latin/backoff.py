@@ -75,7 +75,7 @@ class BackoffLatinLemmatizer(object):
     ### Putting it all together
     ### BETA Version of the Backoff Lemmatizer AKA BackoffLatinLemmatizer
     ### For comparison, there is also a TrainLemmatizer that replicates the
-    ###    original Latin lemmatizer from cltk.stem
+    ###    original Latin lemmatizer from cltkv1.stem
     """
 
     models_path = os.path.normpath(

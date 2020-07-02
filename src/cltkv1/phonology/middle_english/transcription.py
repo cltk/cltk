@@ -3,7 +3,7 @@ __license__ = "MIT License"
 
 import re
 
-from cltk.stem.middle_english.stem import affix_stemmer
+from cltkv1.stem.middle_english.stem import affix_stemmer
 
 """
 The hyphenation/syllabification algorithm is based on the typical syllable 

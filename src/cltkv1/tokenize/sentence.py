@@ -12,10 +12,10 @@ import re
 import string
 from typing import Any, Dict, Generator, List, Set, Tuple
 
-from cltk.tokenize.greek.params import GreekLanguageVars
-from cltk.tokenize.latin.params import LatinLanguageVars
-from cltk.tokenize.sanskrit.params import SanskritLanguageVars
-from cltk.utils.file_operations import open_pickle
+from cltkv1.tokenize.greek.params import GreekLanguageVars
+from cltkv1.tokenize.latin.params import LatinLanguageVars
+from cltkv1.tokenize.sanskrit.params import SanskritLanguageVars
+from cltkv1.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer
 
 INDIAN_LANGUAGES = ["bengali", "hindi", "marathi", "sanskrit", "telugu"]

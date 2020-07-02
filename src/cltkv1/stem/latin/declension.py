@@ -14,7 +14,6 @@ import json
 import os
 import re
 
-# from cltk.exceptions import CLTKException
 from cltkv1.core.exceptions import CLTKException
 from cltkv1.utils import CLTK_DATA_DIR
 
@@ -25,7 +24,7 @@ class CollatinusDecliner:
     .. code-block:: python
 
        # Ensure you have downloaded the corpus latin_models_cltk before running this
-       from cltk.stem.latin.declension import CollatinusDecliner
+       from cltkv1.stem.latin.declension import CollatinusDecliner
 
        decliner = CollatinusDecliner()
        print(decliner.decline("via"))

@@ -1,7 +1,7 @@
 import re
 
-from cltk.corpus.middle_high_german.alphabet import normalize_middle_high_german
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.alphabet.gmh import normalize_middle_high_german
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.stops.gmh import STOPS as MHG_STOPS
 

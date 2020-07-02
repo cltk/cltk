@@ -6,8 +6,8 @@ __license__ = "MIT License."
 
 import re
 
-from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltkv1.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
+from cltkv1.tokenize.word import BaseRegexWordTokenizer
 
 MiddleEnglishTokenizerPatterns = [
     (r"-", r" - "),

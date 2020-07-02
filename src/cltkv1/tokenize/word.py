@@ -18,14 +18,14 @@ import re
 from abc import abstractmethod
 from typing import List
 
-from cltk.corpus.arabic.utils.pyarabic import araby
-from cltk.tokenize.akkadian.word import tokenize_akkadian_signs, tokenize_akkadian_words
-from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
-from cltk.tokenize.latin.word import WordTokenizer as LatinWordTokenizer
-from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
-from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
-from cltk.tokenize.old_french.params import OldFrenchTokenizerPatterns
-from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
+from cltkv1.phonology.arabic.utils.pyarabic import araby
+from cltkv1.tokenize.akkadian.word import tokenize_akkadian_signs, tokenize_akkadian_words
+from cltkv1.tokenize.greek.sentence import GreekRegexSentenceTokenizer
+from cltkv1.tokenize.latin.word import WordTokenizer as LatinWordTokenizer
+from cltkv1.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
+from cltkv1.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
+from cltkv1.tokenize.old_french.params import OldFrenchTokenizerPatterns
+from cltkv1.tokenize.old_norse.params import OldNorseTokenizerPatterns
 from nltk.tokenize.punkt import PunktParameters, PunktSentenceTokenizer
 from nltk.tokenize.treebank import TreebankWordTokenizer
 

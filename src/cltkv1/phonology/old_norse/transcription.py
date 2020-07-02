@@ -6,7 +6,7 @@ Sources:
 
 from typing import Union
 
-from cltk.corpus.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
+from cltkv1.phonology.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
 
 from cltkv1.phonology.utils import (
     AbstractConsonant,

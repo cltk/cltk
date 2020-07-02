@@ -9,8 +9,8 @@ __license__ = "MIT License. See LICENSE."
 import unicodedata
 import unittest
 
-from cltk.corpus.old_norse.syllabifier import invalid_onsets
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.phonology.old_norse.syllabifier import invalid_onsets
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.phonology import utils as ut
 from cltkv1.phonology.akkadian import stress as AkkadianStress

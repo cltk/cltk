@@ -1,11 +1,10 @@
 """Named entity recognition (NER)."""
 
-# from cltk.corpus.utils.importer import CorpusImporter
 
 import importlib.machinery
 import os
 
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.tokenize.word import WordTokenizer
 from nltk.tokenize.punkt import PunktLanguageVars
 
 from cltkv1.data.fetch import FetchCorpus

@@ -4,9 +4,9 @@
 import re
 from math import floor
 
-import cltk.corpus.old_norse.syllabifier as old_norse_syllabifier
-from cltk.stop.old_norse.stops import STOPS_LIST
-from cltk.tokenize.word import WordTokenizer
+import cltkv1.phonology.old_norse.syllabifier as old_norse_syllabifier
+from cltkv1.stops.non import STOPS
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.core.cltk_logger import logger
 from cltkv1.phonology.old_norse.transcription import (
@@ -27,7 +27,7 @@ __author__ = ["Clément Besnier <clemsciences@aol.com>"]
 
 # extension of stop words for poetry
 stops_for_poetry = ["ek", "it"]  # to be completed
-STOPS_LIST.extend(stops_for_poetry)
+STOPS.extend(stops_for_poetry)
 
 
 def normalize(text):
@@ -174,7 +174,7 @@ class ShortLine:
             word1 = normalize(self.tokenized_text[j])
             for k, sound2 in enumerate(other_short_line.first_sounds):
                 word2 = normalize(other_short_line.tokenized_text[k])
-                if word1 not in STOPS_LIST and word2 not in STOPS_LIST:
+                if word1 not in STOPS and word2 not in STOPS:
                     if (
                         isinstance(sound1, Consonant)
                         and isinstance(sound2, Consonant)
@@ -251,7 +251,7 @@ class LongLine:
             if j < len(self.first_sounds) - 1:
                 for k, sound2 in enumerate(self.first_sounds[j + 1 :]):
                     word2 = normalize(self.tokenized_text[k])
-                    if word1 not in STOPS_LIST and sound2 not in STOPS_LIST:
+                    if word1 not in STOPS and sound2 not in STOPS:
                         if isinstance(sound1, Consonant) and sound1.ipar == sound2.ipar:
                             self.alliterations.append((word1, word2))
                             self.n_alliterations += 1

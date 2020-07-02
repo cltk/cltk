@@ -1,7 +1,7 @@
 import importlib.machinery
 import os
 
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.lemmatize.french.french import regex
 from cltkv1.utils import CLTK_DATA_DIR
