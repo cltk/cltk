@@ -9,8 +9,8 @@ __license__ = "MIT License."
 
 import re
 
-from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltkv1.tokenize.old_norse.params import OldNorseTokenizerPatterns
+from cltkv1.tokenize.word import BaseRegexWordTokenizer
 
 
 def WordTokenizer():

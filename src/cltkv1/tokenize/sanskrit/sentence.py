@@ -7,8 +7,8 @@ __license__ = "MIT License."
 import os.path
 import re
 
-from cltk.tokenize.sanskrit.params import SanskritLanguageVars
-from cltk.tokenize.sentence import BaseRegexSentenceTokenizer, BaseSentenceTokenizer
+from cltkv1.tokenize.sanskrit.params import SanskritLanguageVars
+from cltkv1.tokenize.sentence import BaseRegexSentenceTokenizer, BaseSentenceTokenizer
 from nltk.tokenize.punkt import PunktLanguageVars
 
 

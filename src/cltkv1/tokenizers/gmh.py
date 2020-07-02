@@ -6,8 +6,8 @@ __license__ = "MIT License."
 
 import re
 
-from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltkv1.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
+from cltkv1.tokenize.word import BaseRegexWordTokenizer
 
 # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
 MiddleHighGermanTokenizerPatterns = [

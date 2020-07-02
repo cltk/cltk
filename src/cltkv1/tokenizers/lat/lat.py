@@ -9,13 +9,13 @@ __license__ = "MIT License."
 import re
 from typing import List, Tuple
 
-from cltk.tokenize.latin.params import (
+from cltkv1.tokenize.latin.params import (
     ABBREVIATIONS,
     LatinLanguageVars,
     latin_exceptions,
 )
-from cltk.tokenize.latin.params import latin_replacements as REPLACEMENTS
-from cltk.tokenize.latin.sentence import SentenceTokenizer
+from cltkv1.tokenize.latin.params import latin_replacements as REPLACEMENTS
+from cltkv1.tokenize.latin.sentence import SentenceTokenizer
 from nltk.tokenize.punkt import (
     PunktLanguageVars,
     PunktParameters,

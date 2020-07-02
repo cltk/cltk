@@ -4,7 +4,7 @@
 __author__ = ["TK", "Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
-from cltk.tokenize.word import BaseArabyWordTokenizer
+from cltkv1.tokenize.word import BaseArabyWordTokenizer
 
 
 def WordTokenizer():

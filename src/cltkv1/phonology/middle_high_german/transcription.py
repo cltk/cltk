@@ -13,7 +13,7 @@
 import re
 import unicodedata
 
-from cltk.stem.middle_high_german.stem import remove_umlaut
+from cltkv1.stem.middle_high_german.stem import remove_umlaut
 
 SHORT_VOWELS = ["a", "e", "i", "o", "u", "ä", "ü", "ö"]
 LONG_VOWELS = ["â", "ê", "î", "ô", "û", "œ", "iu"]

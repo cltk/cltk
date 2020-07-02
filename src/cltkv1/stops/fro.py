@@ -9,12 +9,11 @@ Code used to determine most frequent words in the corpus:
 import nltk
 import re
 from nltk.probability import FreqDist
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.tokenize.word import WordTokenizer
 determines 100 most common words and number of occurrences in the French corpus
 ignores punctuation and upper-case
 file_content = open("~/cltk/cltk/stop/french/frenchtexts.txt").read()
 (n.b.: this file has been moved to fro_data_cltk)
-from cltk.tokenize.word import WordTokenizer
 
 word_tokenizer = WordTokenizer('french')
 words = word_tokenizer.tokenize(file_content)

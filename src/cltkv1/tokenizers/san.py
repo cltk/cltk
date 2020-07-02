@@ -7,7 +7,7 @@ __license__ = "MIT License."
 import re
 import string
 
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltkv1.tokenize.word import BaseRegexWordTokenizer
 from nltk.tokenize.punkt import PunktLanguageVars
 
 

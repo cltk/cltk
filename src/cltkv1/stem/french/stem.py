@@ -1,6 +1,6 @@
 import re
 
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.stem.french.exceptions import exceptions
 

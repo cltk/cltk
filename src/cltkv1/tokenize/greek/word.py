@@ -6,8 +6,8 @@ __license__ = "MIT License."
 
 import re
 
-from cltk.tokenize.greek.sentence import GreekRegexSentenceTokenizer
-from cltk.tokenize.word import BasePunktWordTokenizer
+from cltkv1.tokenize.greek.sentence import GreekRegexSentenceTokenizer
+from cltkv1.tokenize.word import BasePunktWordTokenizer
 from nltk.tokenize.treebank import TreebankWordTokenizer
 
 

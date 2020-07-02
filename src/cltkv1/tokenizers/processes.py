@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Callable
 
 from boltons.cacheutils import cachedproperty
-from cltk.tokenize.word import WordTokenizer
+from cltkv1.tokenize.word import WordTokenizer
 
 from cltkv1.core.data_types import Doc, Process, Word
 

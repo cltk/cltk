@@ -5,7 +5,7 @@ import os
 from nltk.tag import CRFTagger
 from nltk.tokenize import wordpunct_tokenize
 
-# from cltk.utils.file_operations import open_pickle
+
 from cltkv1.utils import CLTK_DATA_DIR
 from cltkv1.utils.file_operations import open_pickle
 

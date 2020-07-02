@@ -7,13 +7,13 @@ __license__ = "MIT License."
 import os.path
 
 import nltk
-from cltk.tokenize.latin.params import (
+from cltkv1.tokenize.latin.params import (
     PUNCTUATION,
     STRICT_PUNCTUATION,
     LatinLanguageVars,
 )
-from cltk.tokenize.sentence import BasePunktSentenceTokenizer, BaseSentenceTokenizer
-from cltk.utils.file_operations import open_pickle
+from cltkv1.tokenize.sentence import BasePunktSentenceTokenizer, BaseSentenceTokenizer
+from cltkv1.utils.file_operations import open_pickle
 from nltk.tokenize.punkt import PunktLanguageVars
 
 
