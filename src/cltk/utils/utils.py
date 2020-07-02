@@ -197,7 +197,7 @@ def mk_dirs_for_file(file_path: str) -> None:
         return None
 
 
-def get_file_with_progress_bar(self, model_url: str, file_path: str) -> None:
+def get_file_with_progress_bar(model_url: str, file_path: str) -> None:
     """Download file with a progress bar.
 
     Source: https://stackoverflow.com/a/37573701
@@ -217,7 +217,7 @@ def get_file_with_progress_bar(self, model_url: str, file_path: str) -> None:
     total_size = int(req_obj.headers.get("content-length", 0))
     block_size = 1024  # 1 Kibibyte
     progress_bar = tqdm(total=total_size, unit="iB", unit_scale=True)
-    with open(self.fp_zip, "wb") as file_open:
+    with open(file_path, "wb") as file_open:
         for data in req_obj.iter_content(block_size):
             progress_bar.update(len(data))
             file_open.write(data)
