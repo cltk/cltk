@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cltkv1"
-version = "1.0.0-alpha.0"
+version = "1.0.0-alpha.3"
 description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>", "Patrick J. Burns <patrick@diyclassics.org>", "John Stewart <johnstewart@aya.yale.edu>", "Todd Cook <todd.g.cook@gmail.com>"]
@@ -10,21 +10,23 @@ repository = "https://github.com/cltk/cltkv1"
 documentation = "https://cltkv1.readthedocs.io/en/latest/"
 keywords = ["nlp", "ai", "nltk", "latin", "greek"]
 classifiers = [
-    'Intended Audience :: Education',
-    'Intended Audience :: Religion',
-    'Intended Audience :: Science/Research',
-    'License :: OSI Approved :: MIT License',
-    'Natural Language :: English',
-    'Natural Language :: German',
-    'Natural Language :: Greek',
-    'Natural Language :: Latin',
-    'Natural Language :: Norwegian',
-    'Operating System :: POSIX',
-    'Programming Language :: Python :: 3',
-    'Topic :: Scientific/Engineering :: Artificial Intelligence',
-    'Topic :: Doc Processing',
-    'Topic :: Doc Processing :: General',
-    'Topic :: Doc Processing :: Linguistic',
+    "Intended Audience :: Education",
+    "Intended Audience :: Religion",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Traditional)",
+    "Natural Language :: English",
+    "Natural Language :: French",
+    "Natural Language :: German",
+    "Natural Language :: Greek",
+    "Natural Language :: Latin",
+    "Natural Language :: Russian",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: General",
+    "Topic :: Text Processing :: Linguistic",
 ]
 #packages = [
 #    { include = "cltkv1", from = "src" },
@@ -35,7 +37,6 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 gitpython = "^3.0"
-isort = "^4.3"
 cltk = "^0.1.112"
 requests = "^2.22.0"
 tqdm = "^4.41.1"
