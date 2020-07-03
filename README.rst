@@ -1,17 +1,15 @@
-.. image:: https://img.shields.io/travis/cltk/cltk/master   :alt: Travis (.org) branch
-
-.. image:: https://img.shields.io/travis/cltk/cltk/master   :alt: Travis (.org) branch
-
-.. image:: https://img.shields.io/readthedocs/cltk   :alt: Read the Docs
-
-.. image:: https://img.shields.io/codecov/c/github/cltk/cltk/master   :alt: Codecov branch
-
-.. image:: https://img.shields.io/pypi/v/cltk   :alt: PyPI
-
-.. image:: https://img.shields.io/pypi/pyversions/cltk   :alt: PyPI - Python Version
-
-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3445585.svg   :target: https://doi.org/10.5281/zenodo.3445585
-
+.. image:: https://img.shields.io/travis/cltk/cltk/master
+   :alt: Travis (.org) branch
+.. image:: https://img.shields.io/readthedocs/cltk
+   :alt: Read the Docs
+.. image:: https://img.shields.io/codecov/c/github/cltk/cltk/master
+   :alt: Codecov branch
+.. image:: https://img.shields.io/pypi/v/cltk
+   :alt: PyPI
+.. image:: https://img.shields.io/pypi/pyversions/cltk
+   :alt: PyPI - Python Version
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3445585.svg
+   :target: https://doi.org/10.5281/zenodo.3445585
 
 
 About
