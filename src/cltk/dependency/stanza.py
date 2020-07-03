@@ -71,8 +71,8 @@ class StanzaWrapper:
         >>> stanza_wrapper = StanzaWrapper(language="chu", stanza_debug_level="INFO")
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("chu"))
 
-        # >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO")
-        # >>> stanza_doc = stanza_wrapper.parse(get_example_text("cop"))
+        >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO")  # doctest: +SKIP
+        >>> stanza_doc = stanza_wrapper.parse(get_example_text("cop"))  # doctest: +SKIP
 
         >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO")
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lzh"))

@@ -161,25 +161,6 @@ class Word2VecEmbeddings:
                     f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
                 )
 
-    def _mk_dirs_for_file(self) -> None:
-        """Make all dirs specified for final file. If dir already exists,
-        then silently continue.
-
-        TODO: Abstract this out, is duplicated in Fasttext class, too
-
-        # >>> import os
-        # >>> import tempfile
-        # >>> tmp_dir = tempfile.mkdtemp("cltk-testing")
-        # >>> new_fp = os.path.join(tmp_dir, "new-dir", "some-file.txt")
-        # >>> _mk_dirs_for_file(new_fp)
-        # >>> _mk_dirs_for_file(new_fp)
-        """
-        try:
-            os.makedirs(self.fp_model_dirs)
-        except FileExistsError:
-            # TODO: Log INFO level; it's OK if dir already exists
-            return None
-
     def _unzip_nlpl_model(self) -> None:
         """Unzip model"""
         with ZipFile(self.fp_zip, "r") as zipfile_obj:
@@ -364,23 +345,23 @@ class FastTextEmbeddings:
 
         TODO: Do better than test for just name. Try trimming up to user home dir.
 
-        # >>> from cltk.embeddings.embeddings import FastTextEmbeddings
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", silent=True)
-        # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
-        # >>> os.path.split(vec_fp)[1]
-        # 'wiki.la.vec'
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="bin", silent=True)
-        # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
-        # >>> os.path.split(bin_fp)[1]
-        # 'wiki.la.bin'
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="vec", silent=True)
-        # >>> os.path.split(vec_fp)[1]
-        # 'cc.la.300.vec'
-        # >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="bin", silent=True)
-        # >>> bin_fp = embeddings_obj._build_fasttext_filepath()
-        # >>> vec_fp = embeddings_obj._build_fasttext_filepath()
-        # >>> os.path.split(bin_fp)[1]
-        # 'cc.la.300.bin'
+        >>> from cltk.embeddings.embeddings import FastTextEmbeddings  # doctest: +SKIP
+        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", silent=True)  # doctest: +SKIP
+        >>> vec_fp = embeddings_obj._build_fasttext_filepath()  # doctest: +SKIP
+        >>> os.path.split(vec_fp)[1]  # doctest: +SKIP
+        'wiki.la.vec'
+        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="bin", silent=True)  # doctest: +SKIP
+        >>> bin_fp = embeddings_obj._build_fasttext_filepath()  # doctest: +SKIP
+        >>> os.path.split(bin_fp)[1]  # doctest: +SKIP
+        'wiki.la.bin'
+        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="vec", silent=True)  # doctest: +SKIP
+        >>> os.path.split(vec_fp)[1]  # doctest: +SKIP
+        'cc.la.300.vec'
+        >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", training_set="common_crawl", model_type="bin", silent=True)  # doctest: +SKIP
+        >>> bin_fp = embeddings_obj._build_fasttext_filepath()  # doctest: +SKIP
+        >>> vec_fp = embeddings_obj._build_fasttext_filepath()  # doctest: +SKIP
+        >>> os.path.split(bin_fp)[1]  # doctest: +SKIP
+        'cc.la.300.bin'
         """
         fasttext_code = self.MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
 
