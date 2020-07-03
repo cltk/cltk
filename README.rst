@@ -138,7 +138,7 @@ Use pyenv to manage Python versions and Poetry for package builds.
 Git workflow
 ------------
 
-* ``$ git clone https://github.com/<your-username>/cltk.git)``
+* ``$ git clone https://github.com/your-username/cltk.git)``
 * ``$ cd cltk``
 * ``$ git remote add upstream https://github.com/cltk/cltk.git``
 * ``$ git branch fix-feature``
@@ -148,7 +148,7 @@ Git workflow
 * Run doctests locally: ``$ make testOnlyDocTests``
 * ``$ make docs``. Check that the docs look good for any modules you changed: ``docs/_build/html/index.html``.
 * ``$ git push origin fix-feature``
-* Open pull request: `<https://github.com/<your-username>/cltk/pull/new/master>`_
+* Open pull request: `<https://github.com/your-username/cltk/pull/new/master>`_
 * Wait for Travis CI to report build success for your PR: `<https://travis-ci.org/github/cltk/cltk/pull_requests>`_. Confirm code coverage and docs build OK, too.
 * A maintainer will review your code and either request changes or accept.
 * Once accepted, a maintainer will package a new version (`Packaging`_).
