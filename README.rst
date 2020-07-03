@@ -1,18 +1,13 @@
 .. image:: https://img.shields.io/travis/cltk/cltk/master
    :alt: Travis (.org) branch
-
 .. image:: https://img.shields.io/readthedocs/cltk
    :alt: Read the Docs
-
 .. image:: https://img.shields.io/codecov/c/github/cltk/cltk/master
    :alt: Codecov branch
-
 .. image:: https://img.shields.io/pypi/v/cltk
    :alt: PyPI
-
 .. image:: https://img.shields.io/pypi/pyversions/cltk
    :alt: PyPI - Python Version
-
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3445585.svg
    :target: https://doi.org/10.5281/zenodo.3445585
 
@@ -91,12 +86,14 @@ Notebooks are available at `<https://github.com/cltk/tutorials>`_.
 Citation
 ========
 
-@Misc{johnsonetal2014,
- author = {Johnson, Kyle P. and Patrick Burns and John Stewart and Todd Cook},
- title = {CLTK: The Classical Language Toolkit},
- howpublished = {\url{https://github.com/cltk/cltk}},
- year = {2014--2020},
-}
+.. code-block::
+
+   @Misc{johnsonetal2014,
+    author = {Johnson, Kyle P. and Patrick Burns and John Stewart and Todd Cook},
+    title = {CLTK: The Classical Language Toolkit},
+    url = {https://github.com/cltk/cltk},
+    year = {2014--2020},
+   }
 
 
 Development
@@ -108,7 +105,7 @@ The following steps will give you a working development environment.
 Python setup
 ------------
 
-Use ``pyenv`` to manage Python versions and ``poetry`` for package builds.
+Use pyenv to manage Python versions and Poetry for package builds.
 
 * Install ``pyenv``:
    - First time installation; ``curl https://pyenv.run | bash``
