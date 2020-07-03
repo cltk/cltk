@@ -1,12 +1,4 @@
-"""Primary module for CLTK pipeline.
-
-.. graphviz::
-
-   digraph foo {
-      "bar" -> "baz";
-   }
-
-"""
+"""Primary module for CLTK pipeline."""
 
 from cltk.core.data_types import Doc, Language, Pipeline
 from cltk.core.exceptions import UnimplementedAlgorithmError
@@ -137,40 +129,3 @@ class NLP:
 
     def __call__(self, text: str) -> Doc:
         return self.analyze(text)
-
-
-if __name__ == "__main__":
-    from cltk.languages.example_texts import get_example_text
-
-    langs = [
-        "lat",
-        # "grc",
-        # "got",
-        # "arb",
-        # "arc",
-        # "pli",
-        # "san",
-        # "ang",
-        # "akk",  # TODO: turn List[Tuple[str, str]] into List[str]
-        # "non",
-        # "gmh",
-        # "fro",
-        # "frm",
-        # "enm",
-        # "pan",
-        # "hin",
-    ]
-    for lang in langs:
-        cltk_nlp = NLP(language=lang)
-        print(f"Did NLP() for {lang} load fast? It should.")
-        example_text = get_example_text(iso_code=lang)
-        print(example_text[:50])
-        cltk_doc = cltk_nlp.analyze(example_text)
-        print(cltk_doc.tokens[:10])
-        a_word = cltk_doc.words[4]
-        # print(a_word)
-        # input()
-        print(a_word.string, a_word.index_token, a_word.embedding, a_word.pos)
-        print(f"Done with {lang}.")
-        # print(cltk_doc)
-        print("")
