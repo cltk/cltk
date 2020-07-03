@@ -152,6 +152,10 @@ Git workflow
 * Wait for Travis CI to report build success for your PR: `<https://travis-ci.org/github/cltk/cltk/pull_requests>`_. Confirm code coverage and docs build OK, too.
 * A maintainer will review your code and either request changes or accept.
 * Once accepted, a maintainer will package a new version (`Packaging`_).
+* After the PR is accepted and version incremented, update your local repo:
+   - ``$ git checkout master``
+   - ``$ git pull upstream master``
+   - ``$ git push orign master``
 
 
 Packaging
