@@ -62,6 +62,11 @@ The CLTK's API offers a primary interface for most users' needs.
    >>> cltk_doc.words[4].embedding[:5]
    array([-0.10924 , -0.048127,  0.15953 , -0.19465 ,  0.17935 ],
          dtype=float32)
+   >>> cltk_doc.words[5].index_sentence
+   0
+   >>> cltk_doc.words[20].index_sentence
+   1
+
 
 
 The ``NLP()`` class comes with a pre-configured processing pipeline for a number of languages (`see all here <https://cltkv1.readthedocs.io/en/latest/cltk.languages.html#module-cltk.languages.pipelines>`_). For customizing the pipeline or calling particular functions individually, see the docs.
