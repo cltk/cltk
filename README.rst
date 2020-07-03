@@ -155,4 +155,4 @@ Packaging
 License
 =======
 
-The CLTK is Copyright (c) 2014-2019 Kyle P. Johnson, under the MIT License. See `LICENSE <https://github.com/cltk/cltk/blob/master/LICENSE>`_.
+The CLTK is Copyright (c) 2014-2020 Kyle P. Johnson, under the MIT License. See `LICENSE <https://github.com/cltk/cltk/blob/master/LICENSE>`_.
