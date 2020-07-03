@@ -180,11 +180,11 @@ class TreeBuilderProcess(Process):
     >>> nlp = NLP(language="got")
     >>> from cltk.dependency.processes import TreeBuilderProcess
 
-    # >>> nlp.pipeline.add_process(TreeBuilderProcess)
-    # >>> from cltk.languages.example_texts import get_example_text
-    # >>> doc = nlp.analyze(text=get_example_text("got"))
-    # >>> len(doc.trees)
-    # 4
+    >>> nlp.pipeline.add_process(TreeBuilderProcess)  # doctest: +SKIP
+    >>> from cltk.languages.example_texts import get_example_text  # doctest: +SKIP
+    >>> doc = nlp.analyze(text=get_example_text("got"))  # doctest: +SKIP
+    >>> len(doc.trees)  # doctest: +SKIP
+    4
     """
 
     def algorithm(self, doc):
