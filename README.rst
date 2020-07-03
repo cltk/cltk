@@ -29,7 +29,7 @@ The Classical Language Toolkit (CLTK) is a python library offering natural langu
 Use
 ===
 
-The CLTK's API offers a primary interface for most users' needs.
+The CLTK's API offers a primary interface (``NLP()``) for most users' needs.
 
 .. code-block:: python
 
@@ -69,7 +69,7 @@ The CLTK's API offers a primary interface for most users' needs.
 
 
 
-The ``NLP()`` class comes with a pre-configured processing pipeline for a number of languages (`see all here <https://cltkv1.readthedocs.io/en/latest/cltk.languages.html#module-cltk.languages.pipelines>`_). For customizing the pipeline or calling particular functions individually, see the docs.
+The ``NLP()`` class comes with a pre-configured pipeline for processing a number of languages (`see all Pipelines here <https://cltkv1.readthedocs.io/en/latest/cltk.languages.html#module-cltk.languages.pipelines>`_). For customizing the pipeline or calling particular functions individually, see the docs.
 
 
 Installation
@@ -112,7 +112,7 @@ Citation
 Development
 ===========
 
-The following steps will give you a working development environment.
+The following steps will give you a working development environment as the maintainers have.
 
 
 Python setup
@@ -129,10 +129,29 @@ Use pyenv to manage Python versions and Poetry for package builds.
    - ``$ pyenv install 3.8.3`` (or whatever is latest)
    - ``$ pyenv virtualenv 3.8.3 cltk``
    - ``$ pyenv local cltk``. Open a new window and this should be activated (check with ``$ python --version``).
-* Install ``poetry`` to support packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
+* Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
 * Install Stanford NLP models: ``$ poetry run python scripts/download_misc_dependencies.py``
-* Install Graphiz (necessary for building docs): https://graphviz.gitlab.io/download/
+* Install Graphiz (necessary for building docs): `<https://graphviz.gitlab.io/download/>`_
+
+
+Git workflow
+------------
+
+* ``$ git clone https://github.com/<your-username>/cltk.git)``
+* ``$ cd cltk``
+* ``$ git remote add upstream https://github.com/cltk/cltk.git``
+* ``$ git branch fix-feature``
+* ``$ git checkout fix-feature``
+* Install: ``$ make install``
+* Check changes in interactive Python shell: ``$ make shell``
+* Run doctests locally: ``$ make testOnlyDocTests``
+* ``$ make docs``. Check that the docs look good for any modules you changed: ``docs/_build/html/index.html``.
+* ``$ git push origin fix-feature``
+* Open pull request: `<https://github.com/<your-username>/cltk/pull/new/master>`_
+* Wait for Travis CI to report build success for your PR: `<https://travis-ci.org/github/cltk/cltk/pull_requests>`_. Confirm code coverage and docs build OK, too.
+* A maintainer will review your code and either request changes or accept.
+* Once accepted, a maintainer will package a new version (`Packaging`_).
 
 
 Packaging
