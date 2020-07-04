@@ -77,11 +77,25 @@ The ``NLP()`` class comes with a pre-configured pipeline for processing a number
 Installation
 ============
 
+Install via Pip:
+
 .. code-block:: bash
 
    $ pip install cltk
 
-To build locally: ``$ make install``
+
+For a pre-release version:
+
+.. code-block::
+
+   $ pip install --pre cltk
+
+
+To install from source:
+
+.. code-block::
+
+   $ make install
 
 
 Documentation
@@ -153,11 +167,11 @@ Git workflow
 * Open pull request: `<https://github.com/your-username/cltk/pull/new/master>`_
 * Wait for Travis CI to report build success for your PR: `<https://travis-ci.org/github/cltk/cltk/pull_requests>`_. Confirm code coverage and docs build OK, too.
 * A maintainer will review your code and either request changes or accept.
-* Once accepted, a maintainer will package a new version (`Packaging`_).
+* Once accepted, a maintainer will package a new version and publish it to PyPI (`Packaging`_).
 * After the PR is accepted and version incremented, update your local repo:
    - ``$ git checkout master``
    - ``$ git pull upstream master``
-   - ``$ git push orign master``
+   - ``$ git push origin master``
 
 
 Packaging
@@ -193,4 +207,6 @@ Packaging
 License
 =======
 
-The CLTK is Copyright (c) 2014-2020 Kyle P. Johnson, under the MIT License. See `LICENSE <https://github.com/cltk/cltk/blob/master/LICENSE>`_.
+.. |year| date:: %Y
+
+Copyright (c) 2014-|year| Kyle P. Johnson under the `MIT License <https://github.com/cltk/cltk/blob/master/LICENSE>`_.

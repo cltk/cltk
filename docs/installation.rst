@@ -1,4 +1,7 @@
 Installation
 ============
 
-Add intro here
+
+.. include:: ../README.rst
+   :start-after: Installation
+   :end-before: Documentation
