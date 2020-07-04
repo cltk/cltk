@@ -15,3 +15,9 @@ Use
 ---
 
 .. include:: ./includes/basic_use_example.rst
+
+
+Tutorials
+---------
+
+.. include:: ./includes/tutorials.rst

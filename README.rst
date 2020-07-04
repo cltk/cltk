@@ -31,13 +31,13 @@ Installation
 
 .. code-block:: bash
 
-   $ pip install cltk
+   $ pip install --pre cltk
 
 
 Documentation
 =============
 
-Documentation at `<https://docs.cltk.org>`_.
+Documentation at `<https://alpha.cltk.org>`_.
 
 
 Citation
