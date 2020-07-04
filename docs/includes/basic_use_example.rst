@@ -1,4 +1,4 @@
-``NLP()`` has pre-configured processing pipelines for a number of languages. Executing ``NLP().analyze()`` returns a ``Doc`` object, which contains all processed information.
+:class:`cltk.nlp.NLP()` has pre-configured processing pipelines for a number of languages. Executing :meth:`cltk.nlp.NLP.analyze()` returns a :obj:`cltk.core.data_types.Doc` object, which contains all processed information.
 
 .. code-block:: python
 

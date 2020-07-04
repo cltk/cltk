@@ -1,0 +1,4 @@
+- `Kyle P. Johnson <https://github.com/kylepjohnson>`_
+- `Patrick J. Burns <https://github.com/diyclassics>`_
+- `John Stewart <https://github.com/free-variation>`_
+- `Todd Cook <https://github.com/todd-cook>`_
