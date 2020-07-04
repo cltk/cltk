@@ -3,20 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root ``toctree`` directive.
 
-The Classical Language Toolkit's documentation!
-======================================================
+
+Contents
+========
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 1
+   :numbered:
+   :titlesonly:
+   :glob:
 
-   modules.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   About <about.rst>
+   Quickstart <quickstart.rst>
+   Installation <installation.rst>
+   Data <data.rst>
+   Development <./includes/development.rst>
+   CLTK API <modules.rst>

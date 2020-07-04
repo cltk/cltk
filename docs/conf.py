@@ -32,7 +32,7 @@ sys.path.insert(0, os.path.abspath("../src/cltk"))
 project = "The Classical Language Toolkit"
 dt_today = datetime.today()  # type: datetime
 curr_year = dt_today.year  # type: int
-copyright = f" 2019-{curr_year} Kyle P. Johnson"
+copyright = f" 2014-{curr_year} Kyle P. Johnson"
 # author = "Kyle P. Johnson et al."
 # the following errors on rtd server
 # cltk_project = cltk.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
@@ -52,7 +52,7 @@ html_show_copyright = True  # default is True
 # https://alabaster.readthedocs.io/en/latest/customization.html#header-footer-options
 html_theme_options = {
     # 'logo': 'logo.png',
-    "logo_name": True,
+    "logo_name": False,
     "show_powered_by": False,
     # "show_relbars": True,
 }
