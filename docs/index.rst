@@ -15,7 +15,10 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
+   :numbered:
+   :titlesonly:
+   :glob:
 
    Quickstart <quickstart.rst>
    Installation <installation.rst>
