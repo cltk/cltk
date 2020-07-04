@@ -4,8 +4,25 @@
    contain the root ``toctree`` directive.
 
 
-
 .. include:: ./includes/about.rst
+
+
+Tutorials
+=========
+
+.. include:: ./includes/tutorials.rst
+
+
+Citation
+========
+
+.. include:: ./includes/citation.rst
+
+
+License
+=======
+
+.. include:: ./includes/license.rst
 
 
 Contents
