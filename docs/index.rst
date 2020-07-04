@@ -39,10 +39,3 @@ Contents
    Data <data.rst>
    Development <./includes/development.rst>
    CLTK API <modules.rst>
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
