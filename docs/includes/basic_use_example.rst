@@ -1,4 +1,4 @@
-The CLTK's API offers a primary interface (``NLP()``) for most users' needs.
+``NLP()`` has pre-configured processing pipelines for a number of languages. Executing ``NLP().analyze()`` returns a ``Doc`` object, which contains all processed information.
 
 .. code-block:: python
 
@@ -36,5 +36,3 @@ The CLTK's API offers a primary interface (``NLP()``) for most users' needs.
    >>> cltk_doc.words[20].index_sentence
    1
 
-
-The ``NLP()`` class comes with a pre-configured pipeline for processing a number of languages (`see all Pipelines here <https://cltkv1.readthedocs.io/en/latest/cltk.languages.html#module-cltk.languages.pipelines>`_). For customizing the pipeline or calling particular functions individually, see the docs.

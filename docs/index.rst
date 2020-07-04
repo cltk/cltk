@@ -4,9 +4,8 @@
    contain the root ``toctree`` directive.
 
 
-.. include:: ../README.rst
-   :start-after: About
-   :end-before: Use
+
+.. include:: ./includes/about.rst
 
 
 Contents
@@ -21,6 +20,7 @@ Contents
    Quickstart <quickstart.rst>
    Installation <installation.rst>
    Data <data.rst>
+   Development <./includes/development.rst>
    CLTK API <modules.rst>
 
 

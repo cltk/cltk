@@ -2,6 +2,4 @@ Installation
 ============
 
 
-.. include:: ../README.rst
-   :start-after: Installation
-   :end-before: Documentation
+.. include:: ./includes/installation_example.rst

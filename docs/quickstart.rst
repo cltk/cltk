@@ -8,6 +8,4 @@ Install via Pip:
    $ pip install cltk
 
 
-.. include:: ../README.rst
-   :start-after: Use
-   :end-before: Installation
+.. include:: ./includes/basic_use_example.rst
