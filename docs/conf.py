@@ -52,7 +52,7 @@ html_show_copyright = True  # default is True
 # https://alabaster.readthedocs.io/en/latest/customization.html#header-footer-options
 html_theme_options = {
     # 'logo': 'logo.png',
-    "logo_name": True,
+    "logo_name": False,
     "show_powered_by": False,
     # "show_relbars": True,
 }

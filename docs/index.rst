@@ -3,7 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root ``toctree`` directive.
 
+About
+=====
+
 .. include:: ../README.rst
+   :start-after: About
+   :end-before: Use
 
 
 Contents
@@ -11,9 +16,11 @@ Contents
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
 
-   modules.rst
+   Quickstart <quickstart.rst>
+   Installation <installation.rst>
+   Data <data.rst>
+   CLTK API <modules.rst>
 
 
 Indices and tables
