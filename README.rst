@@ -1,4 +1,4 @@
-|travis| |rtd| |codecov| |pypi| |pypiversions| |zenodo|
+|travis| |rtd| |codecov| |pypi| |pypiversions| |zenodo| |binder|
 
 
 .. |travis| image:: https://img.shields.io/travis/cltk/cltk/master
@@ -19,6 +19,8 @@
 .. |zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3445585.svg
    :target: https://doi.org/10.5281/zenodo.3445585
 
+.. |binder| image:: https://mybinder.org/badge_logo.svg
+ :target: https://mybinder.org/v2/gh/cltk/tutorials/master
 
 About
 =====
