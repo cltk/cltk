@@ -25,7 +25,7 @@
 About
 =====
 
-The Classical Language Toolkit (CLTK) is a python library offering natural language processing (NLP) for the languages of pre–modern Eurasia.
+The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for the languages of pre–modern Eurasia.
 
 
 Use
@@ -95,7 +95,7 @@ To build from this repo: ``$ make docs``, then open ``docs/_build/html/index.htm
 Tutorials
 =========
 
-Notebooks are available at `<https://github.com/cltk/tutorials>`_.
+Interactive notebooks available at `<https://mybinder.org/v2/gh/cltk/tutorials/master>`_. The notebooks themselves are hosted at `<https://github.com/cltk/tutorials>`_.
 
 
 Citation
