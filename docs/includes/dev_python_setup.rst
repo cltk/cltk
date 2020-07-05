@@ -5,6 +5,7 @@ Use pyenv to manage Python versions and Poetry for package builds.
    - To update: ``pyenv update``
    - Resource: `Managing Multiple Python Versions With pyenv <https://realpython.com/intro-to-pyenv/>`_
 * Install supported versions of the Python language through ``pyenv`` into a dedicated virtualenv:
+   - Find the Python versions supported by the CLTK, see ``poetry.toml``.
    - ``$ pyenv install --list | grep 3.8``
    - ``$ pyenv install 3.8.3`` (or whatever is latest)
    - ``$ pyenv virtualenv 3.8.3 cltk``
