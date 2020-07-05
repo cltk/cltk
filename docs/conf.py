@@ -19,6 +19,7 @@ import pkg_resources
 
 # errors on rtd build
 # import cltk
+from cltk.nlp import iso_to_pipeline
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
@@ -39,12 +40,23 @@ copyright = f" 2014-{curr_year} Kyle P. Johnson"
 # author_list = cltk_project["authors"]  # type: List[str]
 # author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-curr_version = pkg_resources.get_distribution("cltk")  # type: str
+curr_version = pkg_resources.get_distribution("cltk")  # type: pkg_resources.EggInfoDistribution
 release = curr_version.version  # type: str
 
 
-# -- General configuration ---------------------------------------------------
+langs_available_pipelines = [val.language.name for _, val in iso_to_pipeline.items()]  # type: List[str]
+langs_available_pipelines_len = len(langs_available_pipelines)
+langs_available_pipelines_alpha = sorted(langs_available_pipelines)
+langs_available_pipelines_str = "- " + "\n- ".join(langs_available_pipelines_alpha)
 
+
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog
+rst_epilog = f"""
+.. |PipelinesListLen| replace:: {langs_available_pipelines_len}
+"""
+
+
+# -- General configuration ---------------------------------------------------
 
 html_show_copyright = True  # default is True
 # html_show_sphinx = False

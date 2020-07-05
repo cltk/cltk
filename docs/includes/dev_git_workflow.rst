@@ -1,4 +1,4 @@
-* ``$ git clone https://github.com/your-username/cltk.git)``
+* ``$ git clone https://github.com/your-username/cltk.git``
 * ``$ cd cltk``
 * ``$ git remote add upstream https://github.com/cltk/cltk.git``
 * ``$ git branch fix-feature``

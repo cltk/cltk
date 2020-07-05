@@ -17,5 +17,6 @@ Contents
    Quickstart <quickstart.rst>
    Installation <installation.rst>
    Data <data.rst>
+   Languages <languages.rst>
    Development <./includes/development.rst>
-   CLTK API <modules.rst>
+   CLTK API <cltk.rst>
