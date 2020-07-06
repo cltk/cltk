@@ -3,6 +3,9 @@ About
 
 .. include:: ./includes/description.rst
 
+- Source (temporary development): https://github.com/cltk/cltkv1
+- Home: http://cltk.org
+
 
 Maintainers
 -----------
