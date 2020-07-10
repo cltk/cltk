@@ -17,18 +17,20 @@ import os
 
 from nltk.tokenize.punkt import PunktLanguageVars
 
-from cltk.sentence.sentence import BasePunktSentenceTokenizer
-from cltk.tokenizers.lat.lat import PUNCTUATION, STRICT_PUNCTUATION, LatinLanguageVars
+from cltk.sentence.sentence import PunktSentenceTokenizer
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
-
-def SentenceTokenizer(tokenizer: str = "punkt", strict: bool = False):
-    if tokenizer == "punkt":
-        return LatinPunktSentenceTokenizer(strict=strict)
+class LatinLanguageVars(PunktLanguageVars):
+    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'", "")
 
 
-class LatinPunktSentenceTokenizer(BasePunktSentenceTokenizer):
+PUNCTUATION = (".", "?", "!")
+STRICT_PUNCTUATION = PUNCTUATION + ("-", ":", ";")
+
+
+
+class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
     """Sentence tokenizer for Latin. Inherits from NLTK's ``PunktSentenceTokenizer``."""
 
     def __init__(self: object, strict: bool = False):

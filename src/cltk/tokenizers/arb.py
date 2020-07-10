@@ -4,22 +4,20 @@
 __author__ = ["TK", "Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
-from cltk.tokenize.word import BaseArabyWordTokenizer
+from cltk.phonology.arabic.utils.pyarabic import araby
+from cltk.tokenizers.word import WordTokenizer
 
 
-def WordTokenizer():
-    return ArabicArabyWordTokenizer()
-
-
-class ArabicArabyWordTokenizer(BaseArabyWordTokenizer):
+class ArabicWordTokenizer(WordTokenizer):
     """
-    Arabic word tokenizer using the pyarabic package:
+    Class for word tokenizer using the pyarabic package:
     https://pypi.org/project/PyArabic/
     """
 
-    def __init__(self: object, language: str = "arabic"):
+    def tokenize(self, text: str):
         """
-        :param language : language for word tokenization
-        :type language: str
+        :rtype: list
+        :param text: text to be tokenized into sentences
+        :type text: str
         """
-        super().__init__(language=language)
+        return araby.tokenize(text)

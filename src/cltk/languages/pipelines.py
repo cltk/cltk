@@ -42,8 +42,7 @@ from cltk.tokenizers.processes import (
     MiddleFrenchTokenizationProcess,
     MultilingualTokenizationProcess,
     OldFrenchTokenizationProcess,
-    OldNorseTokenizationProcess,
-    SanskritTokenizationProcess,
+    OldNorseTokenizationProcess
 )
 
 

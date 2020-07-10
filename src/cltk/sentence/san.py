@@ -14,11 +14,11 @@ __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
 
-from cltk.sentence.sentence import BaseRegexSentenceTokenizer
+from cltk.sentence.sentence import RegexSentenceTokenizer
 from cltk.tokenizers.san import SanskritLanguageVars
 
 
-class SanskritRegexSentenceTokenizer(BaseRegexSentenceTokenizer):
+class SanskritRegexSentenceTokenizer(RegexSentenceTokenizer):
     """RegexSentenceTokenizer for Sanskrit."""
 
     def __init__(self: object):

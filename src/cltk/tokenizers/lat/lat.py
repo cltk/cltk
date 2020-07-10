@@ -9,29 +9,24 @@ __license__ = "MIT License."
 import re
 from typing import List, Tuple
 
-from cltk.tokenize.latin.params import (
+from cltk.tokenizers.lat.params import (
     ABBREVIATIONS,
-    LatinLanguageVars,
-    latin_exceptions,
+    latin_exceptions
 )
-from cltk.tokenize.latin.params import latin_replacements as REPLACEMENTS
-from cltk.tokenize.latin.sentence import SentenceTokenizer
+from cltk.tokenizers.word import WordTokenizer
+from cltk.tokenizers.lat.params import latin_replacements as REPLACEMENTS
+from cltk.sentence.lat import LatinPunktSentenceTokenizer
+
 from nltk.tokenize.punkt import (
     PunktLanguageVars,
-    PunktParameters,
-    PunktSentenceTokenizer,
+    PunktParameters
 )
-
 
 class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'", "")
 
 
-PUNCTUATION = (".", "?", "!")
-STRICT_PUNCTUATION = PUNCTUATION + ("-", ":", ";")
-
-
-class WordTokenizer:
+class LatinWordTokenizer(WordTokenizer):
     """Tokenize according to rules specific to a given language."""
 
     ENCLITICS = ["que", "n", "ne", "ue", "ve", "st"]
@@ -39,10 +34,9 @@ class WordTokenizer:
     EXCEPTIONS = list(set(ENCLITICS + latin_exceptions))
 
     def __init__(self):
-        self.language = "latin"
         self.punkt_param = PunktParameters()
         self.punkt_param.abbrev_types = set(ABBREVIATIONS)
-        self.sent_tokenizer = PunktSentenceTokenizer(self.punkt_param)
+        self.sent_tokenizer = LatinPunktSentenceTokenizer()
         self.word_tokenizer = LatinLanguageVars()
 
     def tokenize(
