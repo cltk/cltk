@@ -229,7 +229,7 @@ class GreekPipeline(Pipeline):
 class HindiPipeline(Pipeline):
     """Default ``Pipeline`` for Hindi.
 
-    >>> from cltk.languages.pipelines import SanskritPipeline
+    >>> from cltk.languages.pipelines import HindiPipeline
     >>> a_pipeline = HindiPipeline()
     >>> a_pipeline.description
     'Pipeline for the Hindi language.'
