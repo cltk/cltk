@@ -63,7 +63,7 @@ class AkkadianWordTokenizer(WordTokenizer):
         return output_words
 
 
-    def tokenize_signs(word: str):
+    def tokenize_sign(self, word: str):
         """
         Takes tuple (word, language) and splits the word up into individual
         sign tuples (sign, language) in a list.

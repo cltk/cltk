@@ -14,7 +14,7 @@ from typing import Any, Dict, Generator, List, Set, Tuple
 from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 
 
-class BaseSentenceTokenizerTrainer:
+class SentenceTokenizerTrainer:
     """ Train sentences tokenizer
     """
 

@@ -15,10 +15,10 @@ from cltk.tokenizers.word import RegexWordTokenizer
 from cltk.tokenizers.akk import AkkadianWordTokenizer
 from cltk.tokenizers.arb import ArabicWordTokenizer
 from cltk.tokenizers.lat.lat import LatinWordTokenizer
-from cltk.tokenizers.enm import MiddleEnglishTokenizerPatterns
-from cltk.tokenizers.gmh import MiddleHighGermanTokenizerPatterns
-from cltk.tokenizers.fro import OldFrenchTokenizerPatterns
-from cltk.tokenizers.non import OldNorseTokenizerPatterns
+from cltk.tokenizers.enm import MiddleEnglishWordTokenizer
+from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
+from cltk.tokenizers.fro import OldFrenchWordTokenizer
+from cltk.tokenizers.non import OldNorseWordTokenizer
 
 from nltk.tokenize.treebank import TreebankWordTokenizer
 
@@ -173,7 +173,7 @@ class MHGTokenizationProcess(TokenizationProcess):
 
     @cachedproperty
     def algorithm(self):
-        return RegexWordTokenizer(MiddleHighGermanTokenizerPatterns)
+        return MiddleHighGermanWordTokenizer()
 
 
 @dataclass
@@ -193,7 +193,7 @@ class MiddleEnglishTokenizationProcess(TokenizationProcess):
 
     @cachedproperty
     def algorithm(self):
-        return RegexWordTokenizer(MiddleEnglishTokenizerPatterns)
+        return MiddleEnglishWordTokenizer()
 
 @dataclass
 class OldFrenchTokenizationProcess(TokenizationProcess):
@@ -212,7 +212,7 @@ class OldFrenchTokenizationProcess(TokenizationProcess):
 
     @cachedproperty
     def algorithm(self):
-        return RegexWordTokenizer(OldFrenchTokenizerPatterns)
+        return OldFrenchWordTokenizer()
 
 @dataclass
 class MiddleFrenchTokenizationProcess(TokenizationProcess):
@@ -231,7 +231,7 @@ class MiddleFrenchTokenizationProcess(TokenizationProcess):
 
     @cachedproperty
     def algorithm(self):
-        return RegexWordTokenizer(OldFrenchTokenizerPatterns)
+        return OldFrenchWordTokenizer()
 
 
 @dataclass
@@ -251,5 +251,5 @@ class OldNorseTokenizationProcess(TokenizationProcess):
 
     @cachedproperty
     def algorithm(self):
-        return RegexWordTokenizer(OldNorseTokenizerPatterns)
+        return OldNorseWordTokenizer()
 

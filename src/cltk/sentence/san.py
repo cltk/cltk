@@ -15,7 +15,15 @@ __license__ = "MIT License."
 
 
 from cltk.sentence.sentence import RegexSentenceTokenizer
-from cltk.tokenizers.san import SanskritLanguageVars
+
+import string
+
+from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktLanguageVars
+
+
+class SanskritLanguageVars(PunktLanguageVars):
+    sent_end_chars = ["\u0964", "\u0965", "\|", "\|\|"]
 
 
 class SanskritRegexSentenceTokenizer(RegexSentenceTokenizer):

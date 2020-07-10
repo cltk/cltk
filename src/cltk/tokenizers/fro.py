@@ -7,9 +7,17 @@ __author__ = [
 ]
 __license__ = "MIT License."
 
+from cltk.tokenizers.word import RegexWordTokenizer
 
 OldFrenchTokenizerPatterns = [
     (r"’", r"'"),
     (r"\'", r"' "),
     (r"(?<=.)(?=[.!?)(\";:,«»\-])", " "),
 ]
+
+class OldFrenchWordTokenizer(RegexWordTokenizer):
+	"""
+	A regex-based tokenizer for Old French.
+	"""
+	def __init__(self):
+		super().__init__(patterns = OldFrenchTokenizerPatterns)
