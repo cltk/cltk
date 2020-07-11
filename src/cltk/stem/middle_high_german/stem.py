@@ -1,7 +1,7 @@
 import re
 
 from cltk.alphabet.gmh import normalize_middle_high_german
-from cltk.tokenize.word import WordTokenizer
+from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
 
 from cltk.stops.gmh import STOPS as MHG_STOPS
 
@@ -110,7 +110,7 @@ def stemmer_middle_high_german(text_l, rem_umlauts=True, exceptions=exc_dict):
     )
 
     # Tokenize text
-    word_tokenizer = WordTokenizer("middle_high_german")
+    word_tokenizer = MiddleHighGermanWordTokenizer()
     text_l = word_tokenizer.tokenize(text_l)
     text = []
 

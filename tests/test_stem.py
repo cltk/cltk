@@ -902,55 +902,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = "the spek the henm kyng in the hill he behold he lok vnd his hond and his hed held"
         self.assertEqual(stemmed, target)
 
-    def test_convert_consonant(self):
-        """
-        Tests convert_consonant.
-        """
-        atf = ATFConverter()
-        signs = ["as,", "S,ATU", "tet,", "T,et", "sza", "ASZ"]
-        target = ["aṣ", "ṢATU", "teṭ", "Ṭet", "ša", "AŠ"]
-        output = [atf._convert_consonant(s) for s in signs]
-        self.assertEqual(output, target)
-
-    def test_get_number_from_sign(self):
-        """
-        Tests get_number_from_sign.
-        """
-        atf = ATFConverter()
-        signs = ["a", "a1", "be2", "bad3", "buru14"]
-        target = [0, 1, 2, 3, 14]
-        output = [atf._get_number_from_sign(s)[1] for s in signs]
-        self.assertEqual(output, target)
-
-    def test_single_sign(self):
-        """
-        Tests process with two_three as active.
-        """
-        atf = ATFConverter(two_three=True)
-        signs = ["a", "a1", "a2", "a3", "be2", "be3", "bad2", "bad3"]
-        target = ["a", "a₁", "a₂", "a₃", "be₂", "be₃", "bad₂", "bad₃"]
-        output = atf.process(signs)
-        self.assertEqual(output, target)
-
-    def test_accents(self):
-        """
-        Tests process with two_three as inactive.
-        """
-        atf = ATFConverter(two_three=False)
-        signs = ["a", "a2", "a3", "be2", "bad3", "buru14"]
-        target = ["a", "á", "à", "bé", "bàd", "buru₁₄"]
-        output = atf.process(signs)
-        self.assertEqual(output, target)
-
-    def test_unknown_token(self):
-        """
-        Tests process with unrecognizable tokens.
-        """
-        atf = ATFConverter(two_three=True)
-        signs = ["a2", "☉", "be3"]
-        target = ["a₂", "☉", "be₃"]
-        output = atf.process(signs)
-        self.assertEqual(output, target)
+    
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@ class SentenceTokenizer:
         if language:
             self.language = language.lower()
 
-    def tokenize(self, text: str, model: object = None):
+    def tokenize(self, text: str, model: object = None) -> List[str]:
         """
         Method for tokenizing sentences with pretrained punkt models; can
         be overridden by language-specific tokenizers.
