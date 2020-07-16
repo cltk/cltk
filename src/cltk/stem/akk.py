@@ -28,7 +28,7 @@ def stem(noun: str, gender: str, mimation: bool = True) -> str:
     Return the stem of a noun, given its gender
     
     >>> stem("šarrū", 'm')
-	'šarr'
+    'šarr'
     """
     
     stem = ""

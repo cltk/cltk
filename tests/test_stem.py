@@ -4,9 +4,6 @@ import unittest
 
 from cltk.core.exceptions import CLTKException
 from cltk.data.fetch import FetchCorpus
-from cltk.stem.akkadian.atf_converter import ATFConverter
-from cltk.stem.akkadian.bound_form import BoundForm as AkkadianBoundForm
-from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
 from cltk.stem.french.stem import stem
 from cltk.stem.latin.declension import CollatinusDecliner
 from cltk.stem.latin.j_v import JVReplacer
@@ -95,30 +92,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         current = syllabifier.get_offset("न", "hi")
         current1 = syllabifier.in_coordinated_range_offset(current)
         self.assertTrue(current1)
-
-    def test_akkadian_bound_form(self):
-        """Test Akkadian bound form method"""
-        bound_former = AkkadianBoundForm()
-        word = "awīlum"
-        bound_form = bound_former.get_bound_form(word, "m")
-        target = "awīl"
-        self.assertEqual(bound_form, target)
-
-    def test_akkadian_declension(self):
-        """Test Akkadian noun declension"""
-        decliner = AkkadianNaiveDecliner()
-        word = "iltum"
-        declension = decliner.decline_noun(word, "f")
-        target = [
-            ("iltim", {"case": "genitive", "number": "singular"}),
-            ("iltum", {"case": "nominative", "number": "singular"}),
-            ("iltam", {"case": "accusative", "number": "singular"}),
-            ("iltīn", {"case": "oblique", "number": "dual"}),
-            ("iltān", {"case": "nominative", "number": "dual"}),
-            ("ilātim", {"case": "oblique", "number": "plural"}),
-            ("ilātum", {"case": "nominative", "number": "plural"}),
-        ]
-        self.assertEqual(sorted(declension), sorted(target))
 
     """
     #? Someone fix this; assertTrue() doesn't make sense here

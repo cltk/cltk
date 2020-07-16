@@ -108,7 +108,7 @@ def syllabify(word) -> List[str]:
     ['na', 'piš', 'ta', 'šu', 'nu']
 
     >>> syllabify("epištašu")
-    ["e", "piš", "ta", "šu"]
+    ['e', 'piš', 'ta', 'šu']
     """
 
     syllables = []
