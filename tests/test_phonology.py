@@ -13,7 +13,6 @@ from cltk.phonology.old_norse.syllabifier import invalid_onsets
 from cltk.tokenize.word import WordTokenizer
 
 from cltk.phonology import utils as ut
-from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.gothic import transcription as gothic
 from cltk.phonology.greek import transcription as grc
@@ -539,14 +538,6 @@ class TestSequenceFunctions(unittest.TestCase):
             + " 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]"
         )
         self.assertEqual(transcription, target)
-
-    def test_akkadian_stress(self):
-        """Test finding stressed syllable in an Akkadian word."""
-        word = "napištašunu"
-        target = ["na", "[piš]", "ta", "šu", "nu"]
-        stresser = AkkadianStress.StressFinder()
-        stress = stresser.find_stress(word)
-        self.assertEqual(target, stress)
 
     def test_arabic_transliterate(self):
         """

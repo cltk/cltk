@@ -6,10 +6,7 @@ from cltk.core.exceptions import CLTKException
 from cltk.data.fetch import FetchCorpus
 from cltk.stem.akkadian.atf_converter import ATFConverter
 from cltk.stem.akkadian.bound_form import BoundForm as AkkadianBoundForm
-from cltk.stem.akkadian.cv_pattern import CVPattern as AkkadianCVPattern
 from cltk.stem.akkadian.declension import NaiveDecliner as AkkadianNaiveDecliner
-from cltk.stem.akkadian.stem import Stemmer as AkkadianStemmer
-from cltk.stem.akkadian.syllabifier import Syllabifier as AkkadianSyllabifier
 from cltk.stem.french.stem import stem
 from cltk.stem.latin.declension import CollatinusDecliner
 from cltk.stem.latin.j_v import JVReplacer
@@ -107,14 +104,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         target = "awīl"
         self.assertEqual(bound_form, target)
 
-    def test_akkadian_cv_pattern(self):
-        """Test Akkadian CV pattern method"""
-        cv_patterner = AkkadianCVPattern()
-        word = "iparras"
-        cv_pattern = cv_patterner.get_cv_pattern(word, pprint=True)
-        target = "V₁C₁V₂C₂C₂V₂C₃"
-        self.assertEqual(cv_pattern, target)
-
     def test_akkadian_declension(self):
         """Test Akkadian noun declension"""
         decliner = AkkadianNaiveDecliner()
@@ -130,22 +119,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             ("ilātum", {"case": "nominative", "number": "plural"}),
         ]
         self.assertEqual(sorted(declension), sorted(target))
-
-    def test_akkadian_stemmer(self):
-        """Test Akkadian stemmer"""
-        stemmer = AkkadianStemmer()
-        word = "šarrū"
-        stem = stemmer.get_stem(word, "m")
-        target = "šarr"
-        self.assertEqual(stem, target)
-
-    def test_akkadian_syllabifier(self):
-        """Test Akkadian syllabifier"""
-        syllabifier = AkkadianSyllabifier()
-        word = "epištašu"
-        syllables = syllabifier.syllabify(word)
-        target = ["e", "piš", "ta", "šu"]
-        self.assertEqual(syllables, target)
 
     """
     #? Someone fix this; assertTrue() doesn't make sense here

@@ -26,6 +26,7 @@ def _convert_consonant(sign: str) -> str:
     >>> [_convert_consonant(s) for s in signs]
     ['aṣ', 'ṢATU', 'teṭ', 'Ṭet', 'ša', 'AŠ']
     """
+    
     for key in TITTLES:
         sign = sign.replace(key, TITTLES[key])
     return sign
@@ -39,6 +40,7 @@ def _convert_number_to_subscript(num: int) -> str:
     >>> [_get_number_from_sign(s)[1] for s in signs]
     [0, 1, 2, 3, 14]
     """
+
     subscript = ""
     for character in str(num):
         subscript += chr(0x2080 + int(character))
@@ -55,6 +57,7 @@ def _get_number_from_sign(sign: str) -> Tuple[str, int] :
     :param sign: string
     :return: string, integer
     """
+
     match = re.search(r"\d{1,3}$", sign)
     if match is None:
         number = 0
@@ -90,6 +93,7 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
         """
         :param two_three: turns on or off accent marking.
         """
+
         self.two_three = two_three
 
 
@@ -97,6 +101,7 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
         """
         Converts number registered in get_number_from_sign.
         """
+
         # Check if there's a number at the end
         new_sign, num = _get_number_from_sign(sign)
         if num < 2:  # "ab" -> "ab"
@@ -131,4 +136,5 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
         >>> c.process(["a", "a2", "a3", "geme2", "bad3", "buru14"])
         ['a', 'a₂', 'a₃', 'geme₂', 'bad₃', 'buru₁₄']
         """
+
         return [self._convert_num(_convert_consonant(token)) for token in tokens]

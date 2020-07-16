@@ -23,49 +23,52 @@ ENDINGS = {
 }
 
 
-class AkkadianStemmer:
-    """Stem Akkadian words with a simple algorithm based on Huehnergard"""
+def stem(noun: str, gender: str, mimation: bool = True) -> str:
+    """
+    Return the stem of a noun, given its gender
+    
+    >>> stem("šarrū", 'm')
+	'šarr'
+    """
+    
+    stem = ""
 
-    def get_stem(self, noun: str, gender: str, mimation: bool =True) -> str:
-        """Return the stem of a noun, given its gender"""
-        stem = ""
-
-        if mimation and noun[-1:] == "m":
-            # noun = noun[:-1]
-            # TODO what should we do here?
-            pass
-        
-        # Take off ending
-        if gender == "m":
-            if noun[-2:] in list(self.endings["m"]["singular"].values()) + list(
-                self.endings["m"]["dual"].values()
-            ):
-                stem = noun[:-2]
-            elif noun[-1] in list(self.endings["m"]["plural"].values()):
-                stem = noun[:-1]
-            else:
-            	# we don't recognize the ending, so return the noun.
-               	stem = noun
-        elif gender == "f":
-            if (
-                noun[-4:]
-                in self.endings["f"]["plural"]["nominative"]
-                + self.endings["f"]["plural"]["oblique"]
-            ):
-                stem = noun[:-4] + "t"
-            elif noun[-3:] in list(self.endings["f"]["singular"].values()) + list(
-                self.endings["f"]["dual"].values()
-            ):
-                stem = noun[:-3] + "t"
-            elif noun[-2:] in list(self.endings["m"]["singular"].values()) + list(
-                self.endings["m"]["dual"].values()
-            ):
-                stem = noun[:-2]
-            else:
-                # we don't recognize the ending, so return the noun.
-                stem = noun
+    if mimation and noun[-1:] == "m":
+        # noun = noun[:-1]
+        # TODO what should we do here?
+        pass
+    
+    # Take off ending
+    if gender == "m":
+        if noun[-2:] in list(ENDINGS["m"]["singular"].values()) + list(
+            ENDINGS["m"]["dual"].values()
+        ):
+            stem = noun[:-2]
+        elif noun[-1] in list(ENDINGS["m"]["plural"].values()):
+            stem = noun[:-1]
         else:
+        	# we don't recognize the ending, so return the noun.
+           	stem = noun
+    elif gender == "f":
+        if (
+            noun[-4:]
+            in ENDINGS["f"]["plural"]["nominative"]
+            + ENDINGS["f"]["plural"]["oblique"]
+        ):
+            stem = noun[:-4] + "t"
+        elif noun[-3:] in list(ENDINGS["f"]["singular"].values()) + list(
+            ENDINGS["f"]["dual"].values()
+        ):
+            stem = noun[:-3] + "t"
+        elif noun[-2:] in list(ENDINGS["m"]["singular"].values()) + list(
+            ENDINGS["m"]["dual"].values()
+        ):
+            stem = noun[:-2]
+        else:
+            # we don't recognize the ending, so return the noun.
             stem = noun
-        return stem
+    else:
+        stem = noun
+    return stem
 
 
