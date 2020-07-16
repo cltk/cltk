@@ -1,7 +1,4 @@
-"""Stemmer for Akkadian.
-
-Get the stem of a word, given a declined form and its gender.
-"""
+"""Stemmer for Akkadian."""
 
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -25,7 +22,7 @@ ENDINGS = {
 
 def stem(noun: str, gender: str, mimation: bool = True) -> str:
     """
-    Return the stem of a noun, given its gender
+    Return the stem of a noun, given a declined form and its gender
     
     >>> stem("šarrū", 'm')
     'šarr'
