@@ -9,14 +9,9 @@ Source: https://github.com/anoopkunchukuttan/indic_nlp_library/blob/master/src/i
 import csv
 import os
 
+import numpy as np
+
 from cltk.utils import CLTK_DATA_DIR
-
-try:
-    import numpy as np
-except ImportError:
-    print('"numpy" is not installed.')
-    raise
-
 
 __author__ = ["Anoop Kunchukuttan <anoop.kunchukuttan@gmail.com>"]
 __license__ = "GPLv3"
