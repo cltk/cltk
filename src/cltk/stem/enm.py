@@ -1,3 +1,5 @@
+from typing import List, Dict
+
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
@@ -187,87 +189,71 @@ PREFIXES = [
 # Used for attaching endings to suffixes, catches more orthographical variations (e.g 'ir', 'ire')
 ENDS = ["", "s", "e", "en", "es"]
 
-# User-defined exception dictionary
-exceptions = dict()
 
-
-def affix_stemmer(words, exception_list=exceptions, strip_pref=True, strip_suf=True):
+def stem(word: str, exception_list: Dict[str, str] = dict(), strip_pref: bool = True, strip_suf: bool = True) -> str:
     """
     :param words: string list
 
     The affix stemmer works by rule-based stripping. It can work on prefixes,
 
-    >>> affix_stemmer(['yesterday', 'yesterdom', 'yisterweek'])
-    'day dom week'
+    >>> stem('yesterday')
+    'day'
 
     suffixes,
 
-    >>> affix_stemmer(['likingnes', 'armlich', 'heighli'])
-    'liking arm heigh'
+    >>> stem('likingnes')
+    'liking'
 
     or both
 
-    >>> affix_stemmer(['yisterdayes'])
+    >>> stem('yisterdayes')
     'day'
 
     You can also define whether the stemmer will strip suffixes
 
-    >>> affix_stemmer(['yisterdayes'], strip_suf = False)
+    >>> stem('yisterdayes', strip_suf = False)
     'dayes'
 
     or prefixes
 
-    >>> affix_stemmer(['yisterdayes'], strip_pref = False)
+    >>> stem('yisterdayes', strip_pref = False)
     'yisterday'
 
     The stemmer also accepts a user-defined dictionary, that essentially serves
     the function of a dictionary look-up stemmer
 
-    >>> affix_stemmer(['arisnesse'], exception_list = {'arisnesse':'rise'})
+    >>> stem('arisnesse', exception_list = {'arisnesse':'rise'})
     'rise'
-
-    :exception_list:
-    :return: string
     """
 
-    for i, w in enumerate(words):
+    if word in exception_list:
+       return exception_list[word]
 
-        try:
-            words[i] = exception_list[w]
+    if len(word) <= 4:
+        return word
 
-        except:
-            if len(w) <= 4:
-                continue
+    if strip_pref:
+        for prefix in PREFIXES:
+            if word.startswith(prefix):
+                word = word[len(prefix) :]
+                break
 
-            word = w
+    if strip_suf:
+        for en in ENDS:
+            if len(word) <= 4:
+                break
 
-            if strip_pref:
+            # Strip suffixes
+            for suffix in SUFFIXES:
 
-                for prefix in PREFIXES:
-                    if word.startswith(prefix):
-                        word = word[len(prefix) :]
-                        break
+                if len(suffix) <= len(en):
+                    break
 
-            if strip_suf:
+                if (word + en).endswith(suffix):
+                    word = word[: -len(suffix) + len(en)]
+                    break
 
-                for en in ENDS:
+            if len(word) <= 4:
+                break
 
-                    if len(word) <= 4:
-                        break
-
-                    # Strip suffixes
-                    for suffix in SUFFIXES:
-
-                        if len(suffix) <= len(en):
-                            break
-
-                        if (word + en).endswith(suffix):
-                            word = word[: -len(suffix) + len(en)]
-                            break
-
-                    if len(word) <= 4:
-                        break
-
-            words[i] = word
-
-    return " ".join(words)
+    return word
