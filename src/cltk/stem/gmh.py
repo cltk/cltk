@@ -1,9 +1,10 @@
 import re
+from typing import Dict
 
 from cltk.alphabet.gmh import normalize_middle_high_german
 from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
 
-from cltk.stops.gmh import STOPS as MHG_STOPS
+from cltk.stops.gmh import STOPS
 
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -23,8 +24,6 @@ http://snowball.tartarus.org/algorithms/german/stemmer.html
 http://www.inf.fu-berlin.de/lehre/WS98/digBib/projekt/_stemming.html
 """
 
-exc_dict = dict()  # User-defined exception dictionary, for stemmer.
-
 umlaut_dict = {
     "ë": "e",
     "ê": "e",
@@ -38,7 +37,10 @@ umlaut_dict = {
 }
 
 
-def stem_helper(word, rem_umlaut=True):
+def _remove_umlaut(word):
+    return "".join([umlaut_dict.get(letter, letter) for letter in word])
+
+def _stem_helper(word, rem_umlaut=True):
     """rem_umlat: Remove umlaut from text"""
 
     # Define R1 and R2 regions
@@ -47,10 +49,7 @@ def stem_helper(word, rem_umlaut=True):
 
     try:
         R1 = (
-            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word))[
-                0
-            ].start()
-            + 2
+            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word))[0].start() + 2
         )
     except:
         R1 = len(word)
@@ -59,11 +58,7 @@ def stem_helper(word, rem_umlaut=True):
 
     try:
         R2 = (
-            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[R1:]))[
-                0
-            ].start()
-            + 2
-            + R1
+            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[R1:]))[0].start() + 2 + R1
         )
     except:
         R2 = len(word)
@@ -73,16 +68,13 @@ def stem_helper(word, rem_umlaut=True):
     if R1 < 3:
         try:
             R1 = (
-                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[1:]))[
-                    0
-                ].start()
-                + 2
+                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[1:]))[0].start() + 2
             )
         except:
             R1 = len(word)
 
     if rem_umlaut:
-        word = remove_umlaut(word)
+        word = _remove_umlaut(word)
 
     word = word[:R1] + re.sub(
         r"(wes|wen|est|ern|em|en|er|es|eȥ(?=[klmrt])s|(?=[lr])n|e)$", "", word[R1:]
@@ -95,38 +87,25 @@ def stem_helper(word, rem_umlaut=True):
     return word
 
 
-def remove_umlaut(text):
-    return "".join([umlaut_dict.get(l, l) for word in text for l in word])
 
 
-def stemmer_middle_high_german(text_l, rem_umlauts=True, exceptions=exc_dict):
-    """text_l: text in string format
-	   rem_umlauts: choose whether to remove umlauts from string
-	   exceptions: hard-coded dictionary for the cases the algorithm fails"""
+def stem(word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool =True) -> str:
+    """
+    Stem a Middle High German word.
 
-    # Normalize text
-    text_l = normalize_middle_high_german(
-        text_l, to_lower_all=False, to_lower_beginning=True
-    )
+	rem_umlauts: choose whether to remove umlauts from string
+	exceptions: hard-coded dictionary for the cases the algorithm fails
 
-    # Tokenize text
-    word_tokenizer = MiddleHighGermanWordTokenizer()
-    text_l = word_tokenizer.tokenize(text_l)
-    text = []
+    >>> stem('tagen')
+    'tag'
+    """
 
-    for word in text_l:
-        try:
-            text.append(exceptions[word])  # test if word in exception dictionary
+    word = normalize_middle_high_german(word, to_lower_all = False, to_lower_beginning = True)
 
-        except:
-            if word[0].isupper():
-                # MHG only uses upper case for locations, people, etc. So any word that starts with a capital
-                # letter while not being at the start of a sentence will automatically be excluded.
-                text.append(word)
+    if word in exceptions:
+        return exceptions[word]
 
-            elif word in MHG_STOPS:
-                text.append(word)  # Filter stop words
+    if word[0].isupper() is True or word in STOPS:
+        return word
 
-            else:
-                text.append(stem_helper(word, rem_umlaut=rem_umlauts))
-    return text
+    return _stem_helper(word, rem_umlaut=rem_umlauts)
