@@ -38,7 +38,7 @@ EXCEPTIONS = [
     "tut",
 ]
 
-def _matchremove_noun_endings(word:str) -> str:
+def _matchremove_noun_endings(word: str) -> str:
     """Remove the noun and adverb word endings"""
 
     was_stemmed = False
@@ -78,7 +78,7 @@ def _matchremove_noun_endings(word:str) -> str:
     return word, was_stemmed
 
 
-def _matchremove_verb_endings(word:str) -> str:
+def _matchremove_verb_endings(word: str) -> str:
     """Remove the verb endings"""
     """verb endings sorted by charlen then alph"""
     verb_endings = [
@@ -201,7 +201,7 @@ def _matchremove_verb_endings(word:str) -> str:
     return word
 
 
-def stem(word:str) -> str:
+def stem(word: str) -> str:
     """
     Stem a word of Old French.
 
