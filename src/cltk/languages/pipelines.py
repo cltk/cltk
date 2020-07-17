@@ -37,7 +37,7 @@ from cltk.tokenizers.processes import (
     ArabicTokenizationProcess,
     GreekTokenizationProcess,
     LatinTokenizationProcess,
-    MHGTokenizationProcess,
+    MiddleHighGermanTokenizationProcess,
     MiddleEnglishTokenizationProcess,
     MiddleFrenchTokenizationProcess,
     MultilingualTokenizationProcess,
@@ -280,7 +280,7 @@ class LatinPipeline(Pipeline):
 
 
 @dataclass
-class MHGPipeline(Pipeline):
+class MiddleHighGermanPipeline(Pipeline):
     """Default ``Pipeline`` for Middle High German.
 
     >>> from cltk.languages.pipelines import MHGPipeline
@@ -298,7 +298,7 @@ class MHGPipeline(Pipeline):
     description: str = "Pipeline for the Middle High German language."
     language: Language = get_lang("gmh")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [MHGTokenizationProcess, StopsProcess]
+        default_factory=lambda: [MiddleHighGermanTokenizationProcess, StopsProcess]
     )
 
 

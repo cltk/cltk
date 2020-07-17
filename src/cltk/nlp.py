@@ -12,7 +12,7 @@ from cltk.languages.pipelines import (
     GreekPipeline,
     HindiPipeline,
     LatinPipeline,
-    MHGPipeline,
+    MiddleHighGermanPipeline,
     MiddleEnglishPipeline,
     MiddleFrenchPipeline,
     OCSPipeline,
@@ -35,7 +35,7 @@ iso_to_pipeline = {
     "enm": MiddleEnglishPipeline,
     "frm": MiddleFrenchPipeline,
     "fro": OldFrenchPipeline,
-    "gmh": MHGPipeline,
+    "gmh": MiddleHighGermanPipeline,
     "got": GothicPipeline,
     "grc": GreekPipeline,
     "hin": HindiPipeline,
@@ -96,7 +96,7 @@ class NLP:
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
 
         for process in self.pipeline.processes:
-            a_process = process(input_doc=doc, language=self.language.iso_639_3_code)
+            a_process = process(input_doc=doc)
             a_process.run()
             doc = a_process.output_doc
 

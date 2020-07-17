@@ -65,6 +65,7 @@ class Word:
     string: str = None
     pos: str = None
     lemma: str = None
+    stem: str = None
     scansion: str = None
     xpos: str = None  # treebank-specific POS tag (from stanza)
     upos: str = None  # universal POS tag (from stanza)
@@ -181,7 +182,7 @@ class Doc:
     @property
     def tokens(self) -> List[str]:
         """Returns a list of string word tokens of all words in the doc."""
-        tokens = self._get_words_attribute("string")  # type: List[str]
+        tokens = self._get_words_attribute("string") 
         return tokens
 
     @property
@@ -217,6 +218,14 @@ class Doc:
         provided by `Doc.tokens`.
         """
         return self._get_words_attribute("lemma")
+
+    @property
+    def stems(self) -> List[str]:
+        """Returns a list of word stems, indexed to the word tokens
+        provided by `Doc.tokens`.
+        """
+        stems = self._get_words_attribute("stem") 
+        return stems
 
     def __getitem__(self, word_index: int) -> Word:
         """Indexing operator overloaded to return the `Word` at index `word_index`.
