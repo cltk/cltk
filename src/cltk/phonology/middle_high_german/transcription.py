@@ -13,7 +13,7 @@
 import re
 import unicodedata
 
-from cltk.stem.middle_high_german.stem import remove_umlaut
+from cltk.stem.gmh import stem
 
 SHORT_VOWELS = ["a", "e", "i", "o", "u", "ä", "ü", "ö"]
 LONG_VOWELS = ["â", "ê", "î", "ô", "û", "œ", "iu"]
@@ -258,8 +258,8 @@ class Word:
         -Retain first 3 numbers (add 0 if less than 3)
         """
         t_word = (
-            remove_umlaut(self.word[0].lower()).upper()
-            + remove_umlaut(self.word[1:]).lower()
+            stem(self.word[0].lower()).upper()
+            + stem(self.word[1:]).lower()
         )
 
         for w, val in zip(dict_dipth_SE.keys(), dict_dipth_SE.values()):

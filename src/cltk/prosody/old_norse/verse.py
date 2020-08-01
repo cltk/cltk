@@ -19,7 +19,7 @@ from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber
 from cltk.stops.non import STOPS
 from cltk.tag.pos import POSTag
-from cltk.tokenize.word import WordTokenizer
+from cltk.tokenizers.word import WordTokenizer
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>"]
 

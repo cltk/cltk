@@ -7,7 +7,7 @@ import os
 from nltk.tokenize.punkt import PunktLanguageVars
 
 from cltk.data.fetch import FetchCorpus
-from cltk.tokenize.word import WordTokenizer
+from cltk.tokenizers.word import WordTokenizer
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]

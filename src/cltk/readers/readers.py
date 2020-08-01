@@ -14,7 +14,7 @@ from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize  # Replace with CLTK
 
 from cltk.prosody.latin.string_utils import flatten
-from cltk.sentence.sentence import TokenizeSentence
+from cltk.sentence.sentence import SentenceTokenizer
 from cltk.tokenizers.word import WordTokenizer
 from cltk.utils import get_cltk_data_dir
 
@@ -45,7 +45,7 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
             )
         )
 
-    sentence_tokenizer = TokenizeSentence(language)
+    sentence_tokenizer = SentenceTokenizer(language)
     the_word_tokenizer = WordTokenizer(language)
     doc_pattern = (
         r".*\.txt"
