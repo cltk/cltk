@@ -14,7 +14,6 @@ resulting scansion.
 
 .. warning::
     Known bug: Reduplicated syllables in a single sentence are not scanned separately.
-
 """
 
 from typing import List
@@ -119,7 +118,7 @@ class Scansion:
         Returns:
             List representation of each word's long (``¯``) and short (``˘``) values.
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> text_string = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
         >>> Scansion().scan_text(text_string)
         ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
@@ -139,7 +138,7 @@ class Scansion:
         Returns:
             Text with unnecessary punctuation removed
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> not_clean = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
         >>> Scansion()._clean_text(not_clean)
         'νέος μὲν καὶ ἄπειρος δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος.'
@@ -165,7 +164,7 @@ class Scansion:
         Returns:
             Text string with only accents required for processing.
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> unclean_accents = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
         >>> Scansion()._clean_accents(unclean_accents)
         'νεος μεν και απειρος δικων εγωγε ετι. μεν και απειρος.'
@@ -202,7 +201,7 @@ class Scansion:
         Returns:
             List of words within a list of sentences
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> not_tokenized = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
         >>> Scansion()._tokenize(not_tokenized)
         [['νεος', 'μεν', 'και', 'απειρος', 'δικων', 'εγωγε', 'ετι.'], ['μεν', 'και', 'απειρος.']]
@@ -226,7 +225,7 @@ class Scansion:
         Returns:
             List of words
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> input_syllables = [[["νε", "ος"], ["μεν"], ["και"], ["α", "πει", "ρος"], ["δι", "κων"], ["ε", "γω", "γε"], ["ε", "τι"]], [["μεν"], ["και"], ["α", "πει", "ρος"]]]
         >>> Scansion()._syllable_condenser(input_syllables)
         [['νε', 'ος', 'μεν', 'και', 'α', 'πει', 'ρος', 'δι', 'κων', 'ε', 'γω', 'γε', 'ε', 'τι'], ['μεν', 'και', 'α', 'πει', 'ρος']]
@@ -251,7 +250,7 @@ class Scansion:
         Returns:
             Whether or not input is long by nature.
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> syllables = ["νε", "ος", "μεν", "και", "α", "πει", "ρος", "δι", "κων", "ε", "γω", "γε", "ε", "τι", "μεν", "και", "α", "πει", "ρος"]
         >>> [Scansion()._long_by_nature(syllable) for syllable in syllables]
         [False, False, False, True, False, True, False, False, True, False, True, False, False, False, False, True, False, True, False]
@@ -281,7 +280,7 @@ class Scansion:
         Returns:
             Whether or not a syllable is long by position
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> syllables_sentence = ["μεν", "και", "α", "πει", "ρος"]
         >>> [Scansion()._long_by_position(syllable=syllable, sentence=syllables_sentence) for syllable in syllables_sentence]
         [True, False, False, False, False]
@@ -315,7 +314,7 @@ class Scansion:
         Returns:
             ``"˘"`` and ``"¯"`` to represent short and long syllables, respectively
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> syllables_sentence = [["νε", "ος", "μεν", "και", "α", "πει", "ρος", "δι", "κων", "ε", "γω", "γε", "ε", "τι"], ["μεν", "και", "α", "πει", "ρος"]]
         >>> Scansion()._scansion(syllables_sentence)
         ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
@@ -352,7 +351,7 @@ class Scansion:
         Returns:
             List of list of list of syllables
 
-        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> from cltk.prosody.grc import Scansion
         >>> text_string = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
         >>> Scansion()._make_syllables(text_string)
         [[['νε', 'ος'], ['μεν'], ['και'], ['α', 'πει', 'ρος'], ['δι', 'κων'], ['ε', 'γω', 'γε'], ['ε', 'τι']], [['μεν'], ['και'], ['α', 'πει', 'ρος']]]

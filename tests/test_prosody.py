@@ -4,7 +4,6 @@ __license__ = "MIT License. See LICENSE."
 
 import unittest
 
-from cltk.prosody.greek.scanner import Scansion as ScansionGreek
 from cltk.prosody.latin.clausulae_analysis import Clausulae
 from cltk.prosody.latin.macronizer import Macronizer
 from cltk.prosody.latin.scanner import Scansion as ScansionLatin
