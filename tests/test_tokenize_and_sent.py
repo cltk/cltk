@@ -7,12 +7,11 @@ import unittest
 from unittest.mock import patch
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer
+from nltk.tokenize.treebank import TreebankWordTokenizer
 
 from cltk.data.fetch import FetchCorpus
-
 from cltk.sentence.lat import LatinPunktSentenceTokenizer
 from cltk.sentence.san import SanskritRegexSentenceTokenizer
-
 from cltk.tokenizers.akk import AkkadianWordTokenizer
 from cltk.tokenizers.arb import ArabicWordTokenizer
 from cltk.tokenizers.enm import MiddleEnglishWordTokenizer
@@ -24,8 +23,6 @@ from cltk.tokenizers.line import LineTokenizer
 from cltk.tokenizers.non import OldNorseWordTokenizer
 from cltk.tokenizers.utils import SentenceTokenizerTrainer
 from cltk.tokenizers.word import WordTokenizer
-
-from nltk.tokenize.treebank import TreebankWordTokenizer
 
 
 class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
@@ -68,7 +65,6 @@ class TestSentenceTokenize(unittest.TestCase):  # pylint: disable=R0904
             """in principio creavit Deus caelum et terram; terra autem erat inanis et vacua et tenebrae super faciem abyssi et spiritus Dei ferebatur super aquas; dixitque Deus fiat lux et facta est lux; et vidit Deus lucem quod esset bona et divisit lucem ac tenebras."""
         )
         self.assertEqual(tokenized_sentences, target)
-
 
     # TODO: KJ commented this out, re-enable
     # def test_sentence_tokenizer_latin_punkt_missing(self):
@@ -129,7 +125,6 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         # self.greek_text = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""  # pylint: disable=line-too-long
         # self.latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
         pass
-
 
     def test_greek_word_tokenizer(self):
         """Test Greek-specific word tokenizer."""
@@ -581,7 +576,6 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         ]
         self.assertEqual(tokens, target)
 
-
     def test_tokenize_arabic_words(self):
         word_tokenizer = ArabicWordTokenizer()
         tests = [
@@ -646,7 +640,6 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         ]
         self.assertEqual(results, target)
 
-    
     def test_word_tokenizer_old_french(self):
         word_tokenizer = OldFrenchWordTokenizer()
 
@@ -687,7 +680,6 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
         ]  # pylint: disable=line-too-long
 
         self.assertEqual(results, target)
-
 
     def test_old_norse_word_tokenizer(self):
         text = (

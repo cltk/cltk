@@ -3,8 +3,6 @@ import os
 import unittest
 from unittest.mock import patch
 
-from cltk.tokenize.word import WordTokenizer
-
 from cltk.data.fetch import FetchCorpus
 from cltk.lemmatize.backoff import (
     DefaultLemmatizer,
@@ -15,11 +13,9 @@ from cltk.lemmatize.backoff import (
 )
 from cltk.lemmatize.french.lemma import LemmaReplacer
 from cltk.lemmatize.greek.backoff import BackoffGreekLemmatizer
-from cltk.lemmatize.latin.backoff import (
-    BackoffLatinLemmatizer,
-    RomanNumeralLemmatizer,
-)
+from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer, RomanNumeralLemmatizer
 from cltk.stem.latin.j_v import JVReplacer
+from cltk.tokenize.word import WordTokenizer
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = [

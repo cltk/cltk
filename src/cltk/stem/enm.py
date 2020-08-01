@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import Dict, List
 
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -190,7 +190,12 @@ PREFIXES = [
 ENDS = ["", "s", "e", "en", "es"]
 
 
-def stem(word: str, exception_list: Dict[str, str] = dict(), strip_pref: bool = True, strip_suf: bool = True) -> str:
+def stem(
+    word: str,
+    exception_list: Dict[str, str] = dict(),
+    strip_pref: bool = True,
+    strip_suf: bool = True,
+) -> str:
     """
     :param words: string list
 
@@ -227,7 +232,7 @@ def stem(word: str, exception_list: Dict[str, str] = dict(), strip_pref: bool = 
     """
 
     if word in exception_list:
-       return exception_list[word]
+        return exception_list[word]
 
     if len(word) <= 4:
         return word

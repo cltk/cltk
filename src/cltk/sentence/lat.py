@@ -21,13 +21,13 @@ from cltk.sentence.sentence import PunktSentenceTokenizer
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
+
 class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'", "")
 
 
 PUNCTUATION = (".", "?", "!")
 STRICT_PUNCTUATION = PUNCTUATION + ("-", ":", ";")
-
 
 
 class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):

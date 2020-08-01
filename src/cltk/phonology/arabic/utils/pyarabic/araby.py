@@ -20,112 +20,136 @@ import re
 
 from cltk.phonology.arabic.utils.pyarabic import stack
 
-__author__ = ['Taha Zerrouki taha.zerrouki@gmail.com']
-__license__ = 'GPL'
+__author__ = ["Taha Zerrouki taha.zerrouki@gmail.com"]
+__license__ = "GPL"
 
 
-COMMA = '\u060C'
-SEMICOLON = '\u061B'
-QUESTION = '\u061F'
-HAMZA = '\u0621'
-ALEF_MADDA = '\u0622'
-ALEF_HAMZA_ABOVE = '\u0623'
-WAW_HAMZA = '\u0624'
-ALEF_HAMZA_BELOW = '\u0625'
-YEH_HAMZA = '\u0626'
-ALEF = '\u0627'
-BEH = '\u0628'
-TEH_MARBUTA = '\u0629'
-TEH = '\u062a'
-THEH = '\u062b'
-JEEM = '\u062c'
-HAH = '\u062d'
-KHAH = '\u062e'
-DAL = '\u062f'
-THAL = '\u0630'
-REH = '\u0631'
-ZAIN = '\u0632'
-SEEN = '\u0633'
-SHEEN = '\u0634'
-SAD = '\u0635'
-DAD = '\u0636'
-TAH = '\u0637'
-ZAH = '\u0638'
-AIN = '\u0639'
-GHAIN = '\u063a'
-TATWEEL = '\u0640'
-FEH = '\u0641'
-QAF = '\u0642'
-KAF = '\u0643'
-LAM = '\u0644'
-MEEM = '\u0645'
-NOON = '\u0646'
-HEH = '\u0647'
-WAW = '\u0648'
-ALEF_MAKSURA = '\u0649'
-YEH = '\u064a'
-MADDA_ABOVE = '\u0653'
-HAMZA_ABOVE = '\u0654'
-HAMZA_BELOW = '\u0655'
-ZERO = '\u0660'
-ONE = '\u0661'
-TWO = '\u0662'
-THREE = '\u0663'
-FOUR = '\u0664'
-FIVE = '\u0665'
-SIX = '\u0666'
-SEVEN = '\u0667'
-EIGHT = '\u0668'
-NINE = '\u0669'
-PERCENT = '\u066a'
-DECIMAL = '\u066b'
-THOUSANDS = '\u066c'
-STAR = '\u066d'
-MINI_ALEF = '\u0670'
-ALEF_WASLA = '\u0671'
-FULL_STOP = '\u06d4'
-BYTE_ORDER_MARK = '\ufeff'
+COMMA = "\u060C"
+SEMICOLON = "\u061B"
+QUESTION = "\u061F"
+HAMZA = "\u0621"
+ALEF_MADDA = "\u0622"
+ALEF_HAMZA_ABOVE = "\u0623"
+WAW_HAMZA = "\u0624"
+ALEF_HAMZA_BELOW = "\u0625"
+YEH_HAMZA = "\u0626"
+ALEF = "\u0627"
+BEH = "\u0628"
+TEH_MARBUTA = "\u0629"
+TEH = "\u062a"
+THEH = "\u062b"
+JEEM = "\u062c"
+HAH = "\u062d"
+KHAH = "\u062e"
+DAL = "\u062f"
+THAL = "\u0630"
+REH = "\u0631"
+ZAIN = "\u0632"
+SEEN = "\u0633"
+SHEEN = "\u0634"
+SAD = "\u0635"
+DAD = "\u0636"
+TAH = "\u0637"
+ZAH = "\u0638"
+AIN = "\u0639"
+GHAIN = "\u063a"
+TATWEEL = "\u0640"
+FEH = "\u0641"
+QAF = "\u0642"
+KAF = "\u0643"
+LAM = "\u0644"
+MEEM = "\u0645"
+NOON = "\u0646"
+HEH = "\u0647"
+WAW = "\u0648"
+ALEF_MAKSURA = "\u0649"
+YEH = "\u064a"
+MADDA_ABOVE = "\u0653"
+HAMZA_ABOVE = "\u0654"
+HAMZA_BELOW = "\u0655"
+ZERO = "\u0660"
+ONE = "\u0661"
+TWO = "\u0662"
+THREE = "\u0663"
+FOUR = "\u0664"
+FIVE = "\u0665"
+SIX = "\u0666"
+SEVEN = "\u0667"
+EIGHT = "\u0668"
+NINE = "\u0669"
+PERCENT = "\u066a"
+DECIMAL = "\u066b"
+THOUSANDS = "\u066c"
+STAR = "\u066d"
+MINI_ALEF = "\u0670"
+ALEF_WASLA = "\u0671"
+FULL_STOP = "\u06d4"
+BYTE_ORDER_MARK = "\ufeff"
 
 # Diacritics
-FATHATAN = '\u064b'
-DAMMATAN = '\u064c'
-KASRATAN = '\u064d'
-FATHA = '\u064e'
-DAMMA = '\u064f'
-KASRA = '\u0650'
-SHADDA = '\u0651'
-SUKUN = '\u0652'
+FATHATAN = "\u064b"
+DAMMATAN = "\u064c"
+KASRATAN = "\u064d"
+FATHA = "\u064e"
+DAMMA = "\u064f"
+KASRA = "\u0650"
+SHADDA = "\u0651"
+SUKUN = "\u0652"
 
 # Small Letters
 SMALL_ALEF = "\u0670"
 SMALL_WAW = "\u06E5"
 SMALL_YEH = "\u06E6"
 # Ligatures
-LAM_ALEF = '\ufefb'
-LAM_ALEF_HAMZA_ABOVE = '\ufef7'
-LAM_ALEF_HAMZA_BELOW = '\ufef9'
-LAM_ALEF_MADDA_ABOVE = '\ufef5'
-SIMPLE_LAM_ALEF = '\u0644\u0627'
-SIMPLE_LAM_ALEF_HAMZA_ABOVE = '\u0644\u0623'
-SIMPLE_LAM_ALEF_HAMZA_BELOW = '\u0644\u0625'
-SIMPLE_LAM_ALEF_MADDA_ABOVE = '\u0644\u0622'
+LAM_ALEF = "\ufefb"
+LAM_ALEF_HAMZA_ABOVE = "\ufef7"
+LAM_ALEF_HAMZA_BELOW = "\ufef9"
+LAM_ALEF_MADDA_ABOVE = "\ufef5"
+SIMPLE_LAM_ALEF = "\u0644\u0627"
+SIMPLE_LAM_ALEF_HAMZA_ABOVE = "\u0644\u0623"
+SIMPLE_LAM_ALEF_HAMZA_BELOW = "\u0644\u0625"
+SIMPLE_LAM_ALEF_MADDA_ABOVE = "\u0644\u0622"
 # groups
 LETTERS = (
-    ALEF, BEH, TEH, TEH_MARBUTA, THEH, JEEM, HAH, KHAH,
-    DAL, THAL, REH, ZAIN, SEEN, SHEEN, SAD, DAD, TAH, ZAH,
-    AIN, GHAIN, FEH, QAF, KAF, LAM, MEEM, NOON, HEH, WAW, YEH,
-    HAMZA, ALEF_MADDA, ALEF_HAMZA_ABOVE, WAW_HAMZA, ALEF_HAMZA_BELOW,
+    ALEF,
+    BEH,
+    TEH,
+    TEH_MARBUTA,
+    THEH,
+    JEEM,
+    HAH,
+    KHAH,
+    DAL,
+    THAL,
+    REH,
+    ZAIN,
+    SEEN,
+    SHEEN,
+    SAD,
+    DAD,
+    TAH,
+    ZAH,
+    AIN,
+    GHAIN,
+    FEH,
+    QAF,
+    KAF,
+    LAM,
+    MEEM,
+    NOON,
+    HEH,
+    WAW,
+    YEH,
+    HAMZA,
+    ALEF_MADDA,
+    ALEF_HAMZA_ABOVE,
+    WAW_HAMZA,
+    ALEF_HAMZA_BELOW,
     YEH_HAMZA,
-    )
+)
 
-TASHKEEL = (FATHATAN, DAMMATAN, KASRATAN,
-            FATHA, DAMMA, KASRA,
-            SUKUN,
-            SHADDA)
-HARAKAT = (FATHATAN, DAMMATAN, KASRATAN,
-           FATHA, DAMMA, KASRA,
-           SUKUN
-           )
+TASHKEEL = (FATHATAN, DAMMATAN, KASRATAN, FATHA, DAMMA, KASRA, SUKUN, SHADDA)
+HARAKAT = (FATHATAN, DAMMATAN, KASRATAN, FATHA, DAMMA, KASRA, SUKUN)
 SHORTHARAKAT = (FATHA, DAMMA, KASRA, SUKUN)
 
 TANWIN = (FATHATAN, DAMMATAN, KASRATAN)
@@ -137,12 +161,24 @@ LIGUATURES = (
     LAM_ALEF_HAMZA_BELOW,
     LAM_ALEF_MADDA_ABOVE,
 )
-HAMZAT = (HAMZA, WAW_HAMZA, YEH_HAMZA, HAMZA_ABOVE, HAMZA_BELOW,
-          ALEF_HAMZA_BELOW, ALEF_HAMZA_ABOVE,
-          )
-ALEFAT = (ALEF, ALEF_MADDA, ALEF_HAMZA_ABOVE,
-          ALEF_HAMZA_BELOW, ALEF_WASLA, ALEF_MAKSURA, SMALL_ALEF,
-          )
+HAMZAT = (
+    HAMZA,
+    WAW_HAMZA,
+    YEH_HAMZA,
+    HAMZA_ABOVE,
+    HAMZA_BELOW,
+    ALEF_HAMZA_BELOW,
+    ALEF_HAMZA_ABOVE,
+)
+ALEFAT = (
+    ALEF,
+    ALEF_MADDA,
+    ALEF_HAMZA_ABOVE,
+    ALEF_HAMZA_BELOW,
+    ALEF_WASLA,
+    ALEF_MAKSURA,
+    SMALL_ALEF,
+)
 WEAK = (ALEF, WAW, YEH, ALEF_MAKSURA)
 YEHLIKE = (YEH, YEH_HAMZA, ALEF_MAKSURA, SMALL_YEH)
 
@@ -150,12 +186,28 @@ WAWLIKE = (WAW, WAW_HAMZA, SMALL_WAW)
 TEHLIKE = (TEH, TEH_MARBUTA)
 
 SMALL = (SMALL_ALEF, SMALL_WAW, SMALL_YEH)
-MOON = (HAMZA, ALEF_MADDA, ALEF_HAMZA_ABOVE, ALEF_HAMZA_BELOW,
-        ALEF, BEH, JEEM, HAH, KHAH, AIN, GHAIN,
-        FEH, QAF, KAF, MEEM, HEH, WAW, YEH)
+MOON = (
+    HAMZA,
+    ALEF_MADDA,
+    ALEF_HAMZA_ABOVE,
+    ALEF_HAMZA_BELOW,
+    ALEF,
+    BEH,
+    JEEM,
+    HAH,
+    KHAH,
+    AIN,
+    GHAIN,
+    FEH,
+    QAF,
+    KAF,
+    MEEM,
+    HEH,
+    WAW,
+    YEH,
+)
 
-SUN = (TEH, THEH, DAL, THAL, REH, ZAIN, SEEN, SHEEN,
-       SAD, DAD, TAH, ZAH, LAM, NOON,)
+SUN = (TEH, THEH, DAL, THAL, REH, ZAIN, SEEN, SHEEN, SAD, DAD, TAH, ZAH, LAM, NOON)
 
 ALPHABETIC_ORDER = {
     ALEF: 1,
@@ -188,7 +240,6 @@ ALPHABETIC_ORDER = {
     WAW: 27,
     YEH: 28,
     HAMZA: 29,
-
     ALEF_MADDA: 29,
     ALEF_HAMZA_ABOVE: 29,
     WAW_HAMZA: 29,
@@ -198,60 +249,59 @@ ALPHABETIC_ORDER = {
 NAMES = {
     ALEF: "ألف",
     BEH: "باء",
-    TEH: 'تاء',
-    TEH_MARBUTA: 'تاء مربوطة',
-    THEH: 'ثاء',
-    JEEM: 'جيم',
-    HAH: 'حاء',
-    KHAH: 'خاء',
-    DAL: 'دال',
-    THAL: 'ذال',
-    REH: 'راء',
-    ZAIN: 'زاي',
-    SEEN: 'سين',
-    SHEEN: 'شين',
-    SAD: 'صاد',
-    DAD: 'ضاد',
-    TAH: 'طاء',
-    ZAH: 'ظاء',
-    AIN: 'عين',
-    GHAIN: 'غين',
-    FEH: 'فاء',
-    QAF: 'قاف',
-    KAF: 'كاف',
-    LAM: 'لام',
-    MEEM: 'ميم',
-    NOON: 'نون',
-    HEH: 'هاء',
-    WAW: 'واو',
-    YEH: 'ياء',
-    HAMZA: 'همزة',
-
-    TATWEEL: 'تطويل',
-    ALEF_MADDA: 'ألف ممدودة',
-    ALEF_MAKSURA: 'ألف مقصورة',
-    ALEF_HAMZA_ABOVE: 'همزة على الألف',
-    WAW_HAMZA: 'همزة على الواو',
-    ALEF_HAMZA_BELOW: 'همزة تحت الألف',
-    YEH_HAMZA: 'همزة على الياء',
-    FATHATAN: 'فتحتان',
-    DAMMATAN: 'ضمتان',
-    KASRATAN: 'كسرتان',
-    FATHA: 'فتحة',
-    DAMMA: 'ضمة',
-    KASRA: 'كسرة',
-    SHADDA: 'شدة',
-    SUKUN: 'سكون',
+    TEH: "تاء",
+    TEH_MARBUTA: "تاء مربوطة",
+    THEH: "ثاء",
+    JEEM: "جيم",
+    HAH: "حاء",
+    KHAH: "خاء",
+    DAL: "دال",
+    THAL: "ذال",
+    REH: "راء",
+    ZAIN: "زاي",
+    SEEN: "سين",
+    SHEEN: "شين",
+    SAD: "صاد",
+    DAD: "ضاد",
+    TAH: "طاء",
+    ZAH: "ظاء",
+    AIN: "عين",
+    GHAIN: "غين",
+    FEH: "فاء",
+    QAF: "قاف",
+    KAF: "كاف",
+    LAM: "لام",
+    MEEM: "ميم",
+    NOON: "نون",
+    HEH: "هاء",
+    WAW: "واو",
+    YEH: "ياء",
+    HAMZA: "همزة",
+    TATWEEL: "تطويل",
+    ALEF_MADDA: "ألف ممدودة",
+    ALEF_MAKSURA: "ألف مقصورة",
+    ALEF_HAMZA_ABOVE: "همزة على الألف",
+    WAW_HAMZA: "همزة على الواو",
+    ALEF_HAMZA_BELOW: "همزة تحت الألف",
+    YEH_HAMZA: "همزة على الياء",
+    FATHATAN: "فتحتان",
+    DAMMATAN: "ضمتان",
+    KASRATAN: "كسرتان",
+    FATHA: "فتحة",
+    DAMMA: "ضمة",
+    KASRA: "كسرة",
+    SHADDA: "شدة",
+    SUKUN: "سكون",
 }
 # regular expretion
 
 HARAKAT_PATTERN = re.compile(u"[" + u"".join(HARAKAT) + u"]", re.UNICODE)
 # ~ """ pattern to strip Harakat"""
-LASTHARAKA_PATTERN = \
-    re.compile(u"[%s]$|[%s]" % (u"".join(HARAKAT), u''.join(TANWIN)), re.UNICODE)
+LASTHARAKA_PATTERN = re.compile(
+    u"[%s]$|[%s]" % (u"".join(HARAKAT), u"".join(TANWIN)), re.UNICODE
+)
 # ~ """ Pattern to strip only the last haraka """
-SHORTHARAKAT_PATTERN = \
-    re.compile(u"[" + u"".join(SHORTHARAKAT) + u"]", re.UNICODE)
+SHORTHARAKAT_PATTERN = re.compile(u"[" + u"".join(SHORTHARAKAT) + u"]", re.UNICODE)
 # ~ Pattern to lookup Short Harakat(Fatha, Damma, Kasra, sukun, tanwin),
 # but not shadda
 TASHKEEL_PATTERN = re.compile(u"[" + u"".join(TASHKEEL) + u"]", re.UNICODE)
@@ -263,7 +313,7 @@ ALEFAT_PATTERN = re.compile(u"[" + u"".join(ALEFAT) + u"]", re.UNICODE)
 LIGUATURES_PATTERN = re.compile(u"[" + u"".join(LIGUATURES) + u"]", re.UNICODE)
 # ~ """ all liguatures pattern """
 TOKEN_PATTERN = re.compile(u"([\w%s]+)" % u"".join(TASHKEEL), re.UNICODE)
-TOKEN_REPLACE = re.compile('\t|\r|\f|\v| ')
+TOKEN_REPLACE = re.compile("\t|\r|\f|\v| ")
 
 
 # ~ """ pattern to tokenize a text"""
@@ -476,7 +526,7 @@ def name(archar):
     @return: arabic name.
     @rtype: unicode
     """
-    return NAMES.get(archar, u'')
+    return NAMES.get(archar, u"")
 
 
 def arabicrange():
@@ -555,8 +605,11 @@ def is_arabicstring(text):
     @return: True if all charaters are in Arabic block
     @rtype: Boolean
     """
-    if re.search(u"([^\u0600-\u0652%s%s%s\s\d])" \
-                         % (LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_MADDA_ABOVE), text):
+    if re.search(
+        u"([^\u0600-\u0652%s%s%s\s\d])"
+        % (LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_MADDA_ABOVE),
+        text,
+    ):
         return False
     return True
 
@@ -568,8 +621,7 @@ def is_arabicrange(text):
     @return: True if all charaters are in Arabic block
     @rtype: Boolean
     """
-    if re.search(u"([^\u0600-\u06ff\ufb50-\ufdff\ufe70-\ufeff\u0750-\u077f])", \
-                 text):
+    if re.search(u"([^\u0600-\u06ff\ufb50-\ufdff\ufe70-\ufeff\u0750-\u077f])", text):
         return False
     return True
 
@@ -585,16 +637,20 @@ def is_arabicword(word):
     """
     if len(word) == 0:
         return False
-    elif re.search(u"([^\u0600-\u0652%s%s%s])" \
-                           % (LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_MADDA_ABOVE), word):
+    elif re.search(
+        u"([^\u0600-\u0652%s%s%s])"
+        % (LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_MADDA_ABOVE),
+        word,
+    ):
         return False
     elif is_haraka(word[0]) or word[0] in (WAW_HAMZA, YEH_HAMZA):
         return False
     # if Teh Marbuta or Alef_Maksura not in the end
     elif re.match(u"^(.)*[%s](.)+$" % ALEF_MAKSURA, word):
         return False
-    elif re.match(u"^(.)*[%s]([^%s%s%s])(.)+$" % \
-                          (TEH_MARBUTA, DAMMA, KASRA, FATHA), word):
+    elif re.match(
+        u"^(.)*[%s]([^%s%s%s])(.)+$" % (TEH_MARBUTA, DAMMA, KASRA, FATHA), word
+    ):
         return False
     else:
         return True
@@ -671,7 +727,7 @@ def strip_harakat(text):
         return text
     elif is_vocalized(text):
         for char in HARAKAT:
-            text = text.replace(char, '')
+            text = text.replace(char, "")
     return text
 
 
@@ -689,7 +745,7 @@ def strip_lastharaka(text):
     """
     if text:
         if is_vocalized(text):
-            return re.sub(LASTHARAKA_PATTERN, u'', text)
+            return re.sub(LASTHARAKA_PATTERN, u"", text)
     return text
 
 
@@ -710,7 +766,7 @@ def strip_tashkeel(text):
         return text
     elif is_vocalized(text):
         for char in TASHKEEL:
-            text = text.replace(char, '')
+            text = text.replace(char, "")
     return text
 
 
@@ -724,7 +780,7 @@ def strip_tatweel(text):
     @rtype: unicode.
 
     """
-    return text.replace(TATWEEL, '')
+    return text.replace(TATWEEL, "")
 
 
 def strip_shadda(text):
@@ -736,7 +792,7 @@ def strip_shadda(text):
     @return: return a striped text.
     @rtype: unicode.
     """
-    return text.replace(SHADDA, '')
+    return text.replace(SHADDA, "")
 
 
 def normalize_ligature(text):
@@ -753,7 +809,7 @@ def normalize_ligature(text):
     @rtype: unicode.
     """
     if text:
-        return LIGUATURES_PATTERN.sub('%s%s' % (LAM, ALEF), text)
+        return LIGUATURES_PATTERN.sub("%s%s" % (LAM, ALEF), text)
     return text
 
 
@@ -768,8 +824,11 @@ def normalize_hamza(word):
     @rtype: unicode.
     """
     if word.startswith(ALEF_MADDA):
-        if len(word) >= 3 and (word[1] not in HARAKAT) and \
-                (word[2] == SHADDA or len(word) == 3):
+        if (
+            len(word) >= 3
+            and (word[1] not in HARAKAT)
+            and (word[2] == SHADDA or len(word) == 3)
+        ):
             word = HAMZA + ALEF + word[1:]
         else:
             word = HAMZA + HAMZA + word[1:]
@@ -823,16 +882,16 @@ def separate(word, extract_shadda=False):
         last1 = stack1.pop()
     if extract_shadda:
         # the shadda is considered as letter
-        wordletters = u''.join(letters.items)
+        wordletters = u"".join(letters.items)
         # print wordletters.encode('utf8')
-        shaddaplaces = re.sub(u'[^%s]' % SHADDA, TATWEEL, wordletters)
-        shaddaplaces = re.sub(u'%s%s' % (TATWEEL, SHADDA), SHADDA, shaddaplaces)
+        shaddaplaces = re.sub(u"[^%s]" % SHADDA, TATWEEL, wordletters)
+        shaddaplaces = re.sub(u"%s%s" % (TATWEEL, SHADDA), SHADDA, shaddaplaces)
         # print wordletters.encode('utf8')
         wordletters = strip_shadda(wordletters)
         # print wordletters.encode('utf8')
-        return (wordletters, u''.join(marks.items), shaddaplaces)
+        return (wordletters, u"".join(marks.items), shaddaplaces)
     else:
-        return (u''.join(letters.items), u''.join(marks.items))
+        return (u"".join(letters.items), u"".join(marks.items))
 
 
 def joint(letters, marks):
@@ -877,7 +936,7 @@ def joint(letters, marks):
     if not (stack_letter.is_empty() and stack_mark.is_empty()):
         return False
     else:
-        return ''.join(word_stack.items)
+        return "".join(word_stack.items)
 
 
 def vocalizedlike(word1, word2):
@@ -1018,7 +1077,7 @@ def reduce_tashkeel(text):
     ]
     reduced = text
     for pat in patterns:
-        reduced = re.sub(pat, '', reduced)
+        reduced = re.sub(pat, "", reduced)
     return reduced
 
 
@@ -1074,13 +1133,13 @@ def tokenize(text=""):
     @return: list of words.
     @rtype: list.
     """
-    if text == '':
+    if text == "":
         return []
     else:
         # split tokens
         mylist = TOKEN_PATTERN.split(text)
         # don't remove newline \n
-        mylist = [TOKEN_REPLACE.sub('', x) for x in mylist if x]
+        mylist = [TOKEN_REPLACE.sub("", x) for x in mylist if x]
         # remove empty substring
         mylist = [x for x in mylist if x]
         return mylist
@@ -1096,10 +1155,10 @@ if __name__ == "__main__":
     # ~newword =  joint(l, m)
     # ~assert (newword != wrd)
 
-    print("like: ", vocalizedlike('مُتَوَهِّمًا', 'متوهمًا'))
-    print("sim: ", vocalized_similarity('ثمّ', 'ثُمَّ'))
-    print("like: ", vocalizedlike('ثمّ', 'ثُمَّ'))
-    print("sim: ", vocalized_similarity('ثم', 'ثُمَّ'))
-    print("like: ", vocalizedlike('ثم', 'ثُمَّ'))
-    print("sim: ", vocalized_similarity('مُتَوَهِّمًا', 'متوهمًا'))
-    print("sim: ", vocalized_similarity('مُتَوَهِّمًا', 'متوهمًا'))
+    print("like: ", vocalizedlike("مُتَوَهِّمًا", "متوهمًا"))
+    print("sim: ", vocalized_similarity("ثمّ", "ثُمَّ"))
+    print("like: ", vocalizedlike("ثمّ", "ثُمَّ"))
+    print("sim: ", vocalized_similarity("ثم", "ثُمَّ"))
+    print("like: ", vocalizedlike("ثم", "ثُمَّ"))
+    print("sim: ", vocalized_similarity("مُتَوَهِّمًا", "متوهمًا"))
+    print("sim: ", vocalized_similarity("مُتَوَهِّمًا", "متوهمًا"))

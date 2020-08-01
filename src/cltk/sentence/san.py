@@ -14,12 +14,11 @@ __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
 
-from cltk.sentence.sentence import RegexSentenceTokenizer
-
 import string
 
 from nltk.tokenize.punkt import PunktLanguageVars
-from nltk.tokenize.punkt import PunktLanguageVars
+
+from cltk.sentence.sentence import RegexSentenceTokenizer
 
 
 class SanskritLanguageVars(PunktLanguageVars):

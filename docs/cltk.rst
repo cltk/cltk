@@ -26,7 +26,6 @@ Subpackages
    cltk.stem
    cltk.stops
    cltk.tag
-   cltk.tokenize
    cltk.tokenizers
    cltk.utils
    cltk.wordnet

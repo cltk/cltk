@@ -6,20 +6,17 @@ TODO: Think about adding check somewhere if a contrib (not user) chooses an unav
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
+from nltk.tokenize.treebank import TreebankWordTokenizer
 
 from cltk.core.data_types import Doc, Process, Word
-
-
-from cltk.tokenizers.word import RegexWordTokenizer
 from cltk.tokenizers.akk import AkkadianWordTokenizer
 from cltk.tokenizers.arb import ArabicWordTokenizer
-from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.tokenizers.enm import MiddleEnglishWordTokenizer
-from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
 from cltk.tokenizers.fro import OldFrenchWordTokenizer
+from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
+from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.tokenizers.non import OldNorseWordTokenizer
-
-from nltk.tokenize.treebank import TreebankWordTokenizer
+from cltk.tokenizers.word import RegexWordTokenizer
 
 
 @dataclass
@@ -41,16 +38,16 @@ class TokenizationProcess(Process):
         The backoff tokenizer, from NLTK.
         """
         return TreebankWordTokenizer()
-    
+
     def run(self):
         tmp_doc = self.input_doc
         tmp_doc.words = list()
         tokenizer_obj = self.algorithm
-       
+
         for index, token in enumerate(tokenizer_obj.tokenize(tmp_doc.raw)):
             word_obj = Word(string=token, index_token=index)
             tmp_doc.words.append(word_obj)
-        
+
         self.output_doc = tmp_doc
 
 
@@ -183,6 +180,7 @@ class MiddleEnglishTokenizationProcess(TokenizationProcess):
     def algorithm(self):
         return MiddleEnglishWordTokenizer()
 
+
 @dataclass
 class OldFrenchTokenizationProcess(TokenizationProcess):
     """The default Old French tokenization algorithm.
@@ -200,6 +198,7 @@ class OldFrenchTokenizationProcess(TokenizationProcess):
     @cachedproperty
     def algorithm(self):
         return OldFrenchWordTokenizer()
+
 
 @dataclass
 class MiddleFrenchTokenizationProcess(TokenizationProcess):
@@ -237,4 +236,3 @@ class OldNorseTokenizationProcess(TokenizationProcess):
     @cachedproperty
     def algorithm(self):
         return OldNorseWordTokenizer()
-

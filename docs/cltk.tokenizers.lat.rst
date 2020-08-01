@@ -17,14 +17,6 @@ cltk.tokenizers.lat.lat module
    :undoc-members:
    :show-inheritance:
 
-cltk.tokenizers.lat.latin\_exceptions module
---------------------------------------------
-
-.. automodule:: cltk.tokenizers.lat.latin_exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cltk.tokenizers.lat.params module
 ---------------------------------
 

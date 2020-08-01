@@ -182,7 +182,7 @@ class Doc:
     @property
     def tokens(self) -> List[str]:
         """Returns a list of string word tokens of all words in the doc."""
-        tokens = self._get_words_attribute("string") 
+        tokens = self._get_words_attribute("string")
         return tokens
 
     @property
@@ -224,7 +224,7 @@ class Doc:
         """Returns a list of word stems, indexed to the word tokens
         provided by `Doc.tokens`.
         """
-        stems = self._get_words_attribute("stem") 
+        stems = self._get_words_attribute("stem")
         return stems
 
     def __getitem__(self, word_index: int) -> Word:

@@ -12,9 +12,12 @@ to typical Greek scansion rules. The details of these rules are delineated in
 the docstrings of the specific scansion functions. The final output is the
 resulting scansion.
 
-Known bugs:
-1) Reduplicated syllables in a single sentence are not scanned seperately
+.. warning::
+    Known bug: Reduplicated syllables in a single sentence are not scanned separately.
+
 """
+
+from typing import List
 
 from cltk.core.cltk_logger import logger
 
@@ -22,13 +25,15 @@ __author__ = ["Tyler Kirby <tyler.kirby9398@gmail.com>"]
 __license__ = "MIT License"
 
 
+# noinspection PyProtectedMember
 class Scansion:
+    """Scans Greek texts that already contain macronized
+    (i.e., long and shorts) texts.
+    """
 
-    """Scans Greek texts, but does not macronize the text."""
-
-    def __init__(self):
+    def __init__(self) -> None:
         """Setup class variables."""
-        self.vowels = ["ε", "ι", "ο", "α", "η", "ω", "υ", "ῖ", "ᾶ"]
+        self.vowels = ["ε", "ι", "ο", "α", "η", "ω", "υ", "ῖ", "ᾶ"]  # type: List[str]
         self.sing_cons = [
             "ς",
             "ρ",
@@ -46,9 +51,9 @@ class Scansion:
             "β",
             "ν",
             "μ",
-        ]
-        self.doub_cons = ["ξ", "ζ", "ψ"]
-        self.long_vowels = ["η", "ω", "ῖ", "ᾶ", "ῦ"]
+        ]  # type: List[str]
+        self.doub_cons = ["ξ", "ζ", "ψ"]  # type: List[str]
+        self.long_vowels = ["η", "ω", "ῖ", "ᾶ", "ῦ"]  # type: List[str]
         self.diphthongs = [
             "αι",
             "αῖ",
@@ -65,9 +70,9 @@ class Scansion:
             "υι",
             "υῖ",
             "ηῦ",
-        ]
-        self.stops = ["π", "τ", "κ", "β", "δ", "γ"]
-        self.liquids = ["ρ", "λ"]
+        ]  # type: List[str]
+        self.stops = ["π", "τ", "κ", "β", "δ", "γ"]  # type: List[str]
+        self.liquids = ["ρ", "λ"]  # type: List[str]
         self.punc = [
             "!",
             "@",
@@ -102,18 +107,44 @@ class Scansion:
             "᾽",
             "（",
             "）",
-        ]
-        self.punc_stops = ["·", ":", ";"]
+        ]  # type: List[str]
+        self.punc_stops = ["·", ":", ";"]  # type: List[str]
 
-    def _clean_text(self, text):
-        """Clean the text of extraneous punction.
+    def scan_text(self, input_string: str) -> List[str]:
+        """The primary method for the class.
 
-        By default, ':', ';', and '.' are defined as stops.
-        :param text: raw text
-        :return: clean text
-        :rtype : string
+        Args:
+            input_string: A string of macronized text.
+
+        Returns:
+            List representation of each word's long (``¯``) and short (``˘``) values.
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> text_string = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
+        >>> Scansion().scan_text(text_string)
+        ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
         """
-        clean = []
+        syllables = self._make_syllables(input_string)
+        sentence_syllables = self._syllable_condenser(syllables)
+        meter = self._scansion(sentence_syllables)
+        return meter
+
+    def _clean_text(self, text: str) -> str:
+        """Remove input text of extraneous (non-stop) punction (e.g., ``","``).
+        By default, ``":"``, ``";"``, and ``"."`` are defined as stops.
+
+        Args:
+            text: Text string containing non-stop punctuation.
+
+        Returns:
+            Text with unnecessary punctuation removed
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> not_clean = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
+        >>> Scansion()._clean_text(not_clean)
+        'νέος μὲν καὶ ἄπειρος δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος.'
+        """
+        clean = list()  # type: List[str]
         for char in text:
             if char in self.punc_stops:
                 clean += "."
@@ -123,14 +154,21 @@ class Scansion:
                 pass
         return ("".join(clean)).lower()
 
-    def _clean_accents(self, text):
-        """Remove most accent marks.
+    def _clean_accents(self, text: str) -> str:
+        """Remove most accent marks. This the circumflexes
+        over alphas and iotas in the text since they mark
+        vocalic quantity.
 
-        Note that the circumflexes over alphas and iotas in the text since
-        they determine vocalic quantity.
-        :param text: raw text
-        :return: clean text with minimum accent marks
-        :rtype : string
+        Args:
+            text: Text string with accents.
+
+        Returns:
+            Text string with only accents required for processing.
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> unclean_accents = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
+        >>> Scansion()._clean_accents(unclean_accents)
+        'νεος μεν και απειρος δικων εγωγε ετι. μεν και απειρος.'
         """
         accents = {
             "ὲέἐἑἒἓἕἔ": "ε",
@@ -146,79 +184,107 @@ class Scansion:
         }
         text = self._clean_text(text)
         for char in text:
-            for key in accents.keys():
+            for key in accents:
                 if char in key:
-                    text = text.replace(char, accents.get(key))
+                    accent = accents.get(key)
+                    if accent:
+                        text = text.replace(char, accent)
                 else:
                     pass
         return text
 
-    def _tokenize(self, text):
+    def _tokenize(self, text: str) -> List[List[str]]:
         """Tokenize the text into a list of sentences with a list of words.
 
-        :param text: raw text
-        :return: tokenized text
-        :rtype : list
+        Args:
+            text: Text string
+
+        Returns:
+            List of words within a list of sentences
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> not_tokenized = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
+        >>> Scansion()._tokenize(not_tokenized)
+        [['νεος', 'μεν', 'και', 'απειρος', 'δικων', 'εγωγε', 'ετι.'], ['μεν', 'και', 'απειρος.']]
         """
-        sentences = []
-        tokens = []
+        sentences = list()
+        tokens = list()
         for word in self._clean_accents(text).split(" "):
             tokens.append(word)
             if "." in word:
                 sentences.append(tokens)
-                tokens = []
+                tokens = list()
         return sentences
 
-    def _syllable_condenser(self, words_syllables):
-        """Reduce a list of [sentence [word [syllable]]] to [sentence [syllable]].
+    @staticmethod
+    def _syllable_condenser(words_syllables: List[List[List[str]]]) -> List[List[str]]:
+        """Reduce a list of ``[sentence[word[syllable]]]`` to ``[sentence[syllable]]``.
 
-        :param words_syllables: tokenized text
-        :return: text tokenized only at the sentence and syllable level
-        :rtype : list
+        Args:
+            words_syllables: List of syllables
+
+        Returns:
+            List of words
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> input_syllables = [[["νε", "ος"], ["μεν"], ["και"], ["α", "πει", "ρος"], ["δι", "κων"], ["ε", "γω", "γε"], ["ε", "τι"]], [["μεν"], ["και"], ["α", "πει", "ρος"]]]
+        >>> Scansion()._syllable_condenser(input_syllables)
+        [['νε', 'ος', 'μεν', 'και', 'α', 'πει', 'ρος', 'δι', 'κων', 'ε', 'γω', 'γε', 'ε', 'τι'], ['μεν', 'και', 'α', 'πει', 'ρος']]
         """
-        sentences_syllables = []
+        sentences_syllables = list()
         for sentence in words_syllables:
-            syllables_sentence = []
+            syllables_sentence = list()  # type: List[str]
             for word in sentence:
                 syllables_sentence += word
             sentences_syllables.append(syllables_sentence)
         return sentences_syllables
 
-    def _long_by_nature(self, syllable):
-        """Check if syllable is long by nature.
+    def _long_by_nature(self, syllable: str) -> bool:
+        """Check if syllable is long by nature. Long by nature includes:
 
-        Long by nature includes:
-        1) Syllable contains a diphthong
-        2) Syllable contains a long vowel
-        :param syllable: current syllable
-        :return: True if long by nature
-        :rtype : bool
+        1. Syllable contains a diphthong
+        2. Syllable contains a long vowel
+
+        Args:
+            syllable: A syllable
+
+        Returns:
+            Whether or not input is long by nature.
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> syllables = ["νε", "ος", "μεν", "και", "α", "πει", "ρος", "δι", "κων", "ε", "γω", "γε", "ε", "τι", "μεν", "και", "α", "πει", "ρος"]
+        >>> [Scansion()._long_by_nature(syllable) for syllable in syllables]
+        [False, False, False, True, False, True, False, False, True, False, True, False, False, False, False, True, False, True, False]
         """
         # Find diphthongs
-        vowel_group = []
+        vowel_group = list()  # type: List[str]
         for char in syllable:
-            print
             if char in self.long_vowels:
                 return True
-            elif char not in self.sing_cons and char not in self.doub_cons:
+            if char not in self.sing_cons and char not in self.doub_cons:
                 vowel_group += char
+        return bool("".join(vowel_group) in self.diphthongs)
 
-        if "".join(vowel_group) in self.diphthongs:
-            return True
+    def _long_by_position(self, syllable: str, sentence: List[str]) -> bool:
+        """Check if syllable is long by position. Returns ``True``
+        if syllable is long by position Long by position
+        includes contexts when:
 
-    def _long_by_position(self, syllable, sentence):
-        """Check if syllable is long by position.
+        1. Next syllable begins with two consonants, unless those consonants are a stop + liquid combination
+        2. Next syllable begins with a double consonant
+        3. Syllable ends with a consonant and the next syllable begins with a consonant
 
-        Long by position includes:
-        1) Next syllable begins with two consonants, unless those consonants
-        are a stop + liquid combination
-        2) Next syllable begins with a double consonant
-        3) Syllable ends with a consonant and the next syllable begins with a
-        consonant
-        :param syllable: Current syllable
-        :param sentence: Current sentence
-        :return: True if syllable is long by position
-        :rtype : bool
+        Args:
+            syllable: Current syllable
+            sentence: Sentence in which syllable appears
+
+        Returns:
+            Whether or not a syllable is long by position
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> syllables_sentence = ["μεν", "και", "α", "πει", "ρος"]
+        >>> [Scansion()._long_by_position(syllable=syllable, sentence=syllables_sentence) for syllable in syllables_sentence]
+        [True, False, False, False, False]
         """
         try:
             next_syll = sentence[sentence.index(syllable) + 1]
@@ -228,30 +294,35 @@ class Scansion:
             ):
                 return True
             # Long by position by case 2
-            elif syllable[-1] in self.vowels and next_syll[0] in self.doub_cons:
+            if syllable[-1] in self.vowels and next_syll[0] in self.doub_cons:
                 return True
             # Long by position by case 3
-            elif syllable[-1] in self.sing_cons and (next_syll[0] in self.sing_cons):
+            if syllable[-1] in self.sing_cons and (next_syll[0] in self.sing_cons):
                 return True
-            else:
-                pass
         except IndexError:
             logger.info(
                 "IndexError while checking if syllable '%s' is long. Continuing.",
                 syllable,
             )
+        return False
 
-    def _scansion(self, sentence_syllables):
+    def _scansion(self, sentence_syllables: List[List[str]]) -> List[str]:
         """Replace long and short values for each input syllable.
 
-        :param sentence_syllables: A list of strings
-        :return: '˘' and '¯' to represent short and long syllables,
-        respectively
-        :rtype : list
+        Args:
+            sentence_syllables: List of word tokens
+
+        Returns:
+            ``"˘"`` and ``"¯"`` to represent short and long syllables, respectively
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> syllables_sentence = [["νε", "ος", "μεν", "και", "α", "πει", "ρος", "δι", "κων", "ε", "γω", "γε", "ε", "τι"], ["μεν", "και", "α", "πει", "ρος"]]
+        >>> Scansion()._scansion(syllables_sentence)
+        ['˘¯¯¯˘¯¯˘¯˘¯˘˘x', '¯¯˘¯x']
         """
-        scanned_text = []
+        scanned_text = list()
         for sentence in sentence_syllables:
-            scanned_sent = []
+            scanned_sent = list()
             for syllable in sentence:
                 if self._long_by_position(syllable, sentence) or self._long_by_nature(
                     syllable
@@ -265,24 +336,34 @@ class Scansion:
             scanned_text.append("".join(scanned_sent))
         return scanned_text
 
-    def _make_syllables(self, sentences_words):
-        """Divide the word tokens into a list of syllables.
+    def _make_syllables(self, sentences_words: str) -> List[List[List[str]]]:
+        """First tokenize, then divide word tokens into a list of syllables.
+        Note that a syllable in this instance is defined as a vocalic
+        group (i.e., vowel or a diphthong). This means that all
+        syllables which are not the last syllable in the word
+        will end with a vowel or diphthong.
 
-        Note that a syllable in this instance is defined as a vocalic group
-        (i.e., vowel or a diphthong). This means that all syllables which are
-        not the last syllable in the word will end with a vowel or diphthong.
-        TODO: Determine whether a CLTK syllabifier could replace this
-        :param sentence_words:
-        :return: Syllabified words
-        :rtype : list
+        Todo:
+            * Determine whether a CLTK syllabifier could replace this.
+
+        Args:
+            sentences_words: Text string
+
+        Returns:
+            List of list of list of syllables
+
+        >>> from cltk.prosody.greek.scanner import Scansion
+        >>> text_string = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
+        >>> Scansion()._make_syllables(text_string)
+        [[['νε', 'ος'], ['μεν'], ['και'], ['α', 'πει', 'ρος'], ['δι', 'κων'], ['ε', 'γω', 'γε'], ['ε', 'τι']], [['μεν'], ['και'], ['α', 'πει', 'ρος']]]
         """
         text = self._tokenize(sentences_words)
-        all_syllables = []
+        all_syllables = list()
         for sentence in text:
-            syll_per_sent = []
+            syll_per_sent = list()
             for word in sentence:
                 syll_start = 0  # Begins syllable iterator
-                syll_per_word = []
+                syll_per_word = list()
                 cur_letter_in = 0  # Begins general iterator
                 while cur_letter_in < len(word):
                     letter = word[cur_letter_in]
@@ -319,15 +400,3 @@ class Scansion:
                     )
             all_syllables.append(syll_per_sent)
         return all_syllables
-
-    def scan_text(self, input_string):
-        """The primary method for the class.
-
-        :param input_string: A string of macronized text.
-        :return: meter of text
-        :rtype : list
-        """
-        syllables = self._make_syllables(input_string)
-        sentence_syllables = self._syllable_condenser(syllables)
-        meter = self._scansion(sentence_syllables)
-        return meter

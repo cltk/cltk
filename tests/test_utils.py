@@ -3,8 +3,8 @@
 import unittest
 from unittest.mock import patch
 
-from cltk.utils.utils import query_yes_no
 from cltk.utils.akk import ATFConverter
+from cltk.utils.utils import query_yes_no
 
 
 class TestUtils(unittest.TestCase):
@@ -39,5 +39,3 @@ class TestUtils(unittest.TestCase):
         """Test question function with I/O."""
         with self.assertRaises(ValueError) as context:
             query_yes_no(question="Is anyone wiser than Socrates?", default="xxx")
-
-

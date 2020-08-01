@@ -16,7 +16,7 @@ def replace_jv(text: str) -> str:
     >>> replace_jv("vem jam VEL JAM")
     'uem iam UEL IAM'
     """
-    
+
     for (pattern, repl) in patterns:
         text = re.subn(pattern, repl, text)[0]
     return text

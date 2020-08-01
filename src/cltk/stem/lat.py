@@ -12,6 +12,7 @@ import re
 
 from cltk.stops.lat import STOPS
 
+
 def _checkremove_que(word):
     """If word ends in -que and if word is not in pass list, strip -que"""
 
@@ -81,6 +82,7 @@ def _checkremove_que(word):
 
     return word, in_que_pass_list
 
+
 def _matchremove_simple_endings(word):
     """Remove the noun, adjective, adverb word endings"""
 
@@ -116,6 +118,7 @@ def _matchremove_simple_endings(word):
             break
 
     return word, was_stemmed
+
 
 def _matchremove_verb_endings(word):
     """Remove the verb endings"""
@@ -195,5 +198,3 @@ def stem(word: str) -> str:
                 word = _matchremove_verb_endings(word)
 
     return word
-
-   

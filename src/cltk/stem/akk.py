@@ -27,14 +27,14 @@ def stem(noun: str, gender: str, mimation: bool = True) -> str:
     >>> stem("šarrū", 'm')
     'šarr'
     """
-    
+
     stem = ""
 
     if mimation and noun[-1:] == "m":
         # noun = noun[:-1]
         # TODO what should we do here?
         pass
-    
+
     # Take off ending
     if gender == "m":
         if noun[-2:] in list(ENDINGS["m"]["singular"].values()) + list(
@@ -44,13 +44,12 @@ def stem(noun: str, gender: str, mimation: bool = True) -> str:
         elif noun[-1] in list(ENDINGS["m"]["plural"].values()):
             stem = noun[:-1]
         else:
-        	# we don't recognize the ending, so return the noun.
-           	stem = noun
+            # we don't recognize the ending, so return the noun.
+            stem = noun
     elif gender == "f":
         if (
             noun[-4:]
-            in ENDINGS["f"]["plural"]["nominative"]
-            + ENDINGS["f"]["plural"]["oblique"]
+            in ENDINGS["f"]["plural"]["nominative"] + ENDINGS["f"]["plural"]["oblique"]
         ):
             stem = noun[:-4] + "t"
         elif noun[-3:] in list(ENDINGS["f"]["singular"].values()) + list(
@@ -67,5 +66,3 @@ def stem(noun: str, gender: str, mimation: bool = True) -> str:
     else:
         stem = noun
     return stem
-
-

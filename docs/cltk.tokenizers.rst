@@ -56,14 +56,6 @@ cltk.tokenizers.gmh module
    :undoc-members:
    :show-inheritance:
 
-cltk.tokenizers.grc module
---------------------------
-
-.. automodule:: cltk.tokenizers.grc
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cltk.tokenizers.line module
 ---------------------------
 
@@ -84,14 +76,6 @@ cltk.tokenizers.processes module
 --------------------------------
 
 .. automodule:: cltk.tokenizers.processes
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cltk.tokenizers.san module
---------------------------
-
-.. automodule:: cltk.tokenizers.san
    :members:
    :undoc-members:
    :show-inheritance:

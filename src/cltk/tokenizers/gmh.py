@@ -15,9 +15,11 @@ MiddleHighGermanTokenizerPatterns = [
     (r"\s+", r" "),
 ]
 
+
 class MiddleHighGermanWordTokenizer(RegexWordTokenizer):
-	"""
+    """
 	A regex-based tokenizer for Middle High German.
 	"""
-	def __init__(self):
-		super().__init__(patterns = MiddleHighGermanTokenizerPatterns)
+
+    def __init__(self):
+        super().__init__(patterns=MiddleHighGermanTokenizerPatterns)

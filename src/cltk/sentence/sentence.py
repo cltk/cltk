@@ -111,4 +111,3 @@ class RegexSentenceTokenizer(SentenceTokenizer):
         """
         sentences = re.split(self.pattern, text)
         return sentences
-

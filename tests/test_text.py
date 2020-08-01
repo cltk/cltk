@@ -5,8 +5,8 @@ from unittest.mock import patch
 
 from cltk.text.akk import ATFConverter
 
-class TestAkkadianUtils(unittest.TestCase):
 
+class TestAkkadianUtils(unittest.TestCase):
     def test_single_sign(self):
         """
         Tests process with two_three as active.

@@ -11,11 +11,10 @@ Subpackages
 
 .. toctree::
 
-   cltk.phonology.akkadian
    cltk.phonology.arabic
    cltk.phonology.gothic
    cltk.phonology.greek
-   cltk.phonology.latin
+   cltk.phonology.lat
    cltk.phonology.middle_english
    cltk.phonology.middle_high_german
    cltk.phonology.old_english
@@ -24,6 +23,14 @@ Subpackages
 
 Submodules
 ----------
+
+cltk.phonology.akk module
+-------------------------
+
+.. automodule:: cltk.phonology.akk
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 cltk.phonology.orthophonology module
 ------------------------------------

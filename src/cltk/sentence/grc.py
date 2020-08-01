@@ -24,6 +24,4 @@ class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
     """``RegexSentenceTokenizer`` for Ancient Greek."""
 
     def __init__(self: object):
-        super().__init__(
-            language="greek", sent_end_chars=sent_end_chars
-        )
+        super().__init__(language="greek", sent_end_chars=sent_end_chars)

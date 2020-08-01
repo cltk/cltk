@@ -8,7 +8,7 @@ __author__ = [
     "Natasha Voake <natashavoake@gmail.com>",
     "Clément Besnier <clemsciences@aol.com>",
     "Andrew Deloucas <adeloucas@g.harvard.edu>",
-    "Todd Cook <todd.g.cook@gmail.com>"
+    "Todd Cook <todd.g.cook@gmail.com>",
 ]
 
 __license__ = "MIT License. See LICENSE."
@@ -19,6 +19,7 @@ from abc import abstractmethod
 from typing import List
 
 from nltk.tokenize.punkt import PunktParameters, PunktSentenceTokenizer
+
 
 class WordTokenizer:
     """ Base class for word tokenizers"""
@@ -88,6 +89,3 @@ class RegexWordTokenizer(WordTokenizer):
         for pattern in self.patterns:
             text = re.sub(pattern[0], pattern[1], text)
         return text.split()
-
-
-

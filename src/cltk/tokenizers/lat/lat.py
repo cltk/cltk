@@ -9,18 +9,13 @@ __license__ = "MIT License."
 import re
 from typing import List, Tuple
 
-from cltk.tokenizers.lat.params import (
-    ABBREVIATIONS,
-    latin_exceptions
-)
-from cltk.tokenizers.word import WordTokenizer
-from cltk.tokenizers.lat.params import latin_replacements as REPLACEMENTS
-from cltk.sentence.lat import LatinPunktSentenceTokenizer
+from nltk.tokenize.punkt import PunktLanguageVars, PunktParameters
 
-from nltk.tokenize.punkt import (
-    PunktLanguageVars,
-    PunktParameters
-)
+from cltk.sentence.lat import LatinPunktSentenceTokenizer
+from cltk.tokenizers.lat.params import ABBREVIATIONS, latin_exceptions
+from cltk.tokenizers.lat.params import latin_replacements as REPLACEMENTS
+from cltk.tokenizers.word import WordTokenizer
+
 
 class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'", "")

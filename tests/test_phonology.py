@@ -9,8 +9,6 @@ __license__ = "MIT License. See LICENSE."
 import unicodedata
 import unittest
 
-from cltk.phonology.old_norse.syllabifier import invalid_onsets
-
 from cltk.phonology import utils as ut
 from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.gothic import transcription as gothic
@@ -20,9 +18,10 @@ from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.old_norse import transcription as ont
-from cltk.tokenizers.non import OldNorseWordTokenizer
+from cltk.phonology.old_norse.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology.syllabify import Syllabifier, Syllable
+from cltk.tokenizers.non import OldNorseWordTokenizer
 
 
 class TestSequenceFunctions(unittest.TestCase):
@@ -451,12 +450,12 @@ class TestSequenceFunctions(unittest.TestCase):
         macronized_syllables = lat_syllabify(macronized_word)
         macronized_target = ["au", "dī", "tū"]
         self.assertEqual(macronized_syllables, macronized_target)
-        
+
         macronized_word2 = "conjiciō"
         macronized_syllables2 = lat_syllabify(macronized_word2)
         macronized_target2 = ["con", "ji", "ci", "ō"]
         self.assertEqual(macronized_syllables2, macronized_target2)
-        
+
         macronized_word3 = "ā"
         macronized_syllables3 = lat_syllabify(macronized_word3)
         macronized_target3 = ["ā"]

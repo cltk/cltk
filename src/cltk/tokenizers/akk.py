@@ -11,6 +11,7 @@ import re
 
 from cltk.tokenizers.word import WordTokenizer
 
+
 class AkkadianWordTokenizer(WordTokenizer):
     """
     Akkadian word and cuneiform tokenizer.
@@ -61,7 +62,6 @@ class AkkadianWordTokenizer(WordTokenizer):
                 # whatever language we're currently in.
                 output_words.append((word, language))
         return output_words
-
 
     def tokenize_sign(self, word: str):
         """

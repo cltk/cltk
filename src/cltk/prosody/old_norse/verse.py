@@ -5,9 +5,6 @@ import re
 from math import floor
 
 import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
-from cltk.stops.non import STOPS
-from cltk.tokenize.word import WordTokenizer
-
 from cltk.core.cltk_logger import logger
 from cltk.phonology.old_norse.transcription import (
     DIPHTHONGS_IPA,
@@ -20,7 +17,9 @@ from cltk.phonology.old_norse.transcription import (
 )
 from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber
+from cltk.stops.non import STOPS
 from cltk.tag.pos import POSTag
+from cltk.tokenize.word import WordTokenizer
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>"]
 

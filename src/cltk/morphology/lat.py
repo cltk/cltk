@@ -13,7 +13,7 @@ __license__ = "GPL v3"
 import json
 import os
 import re
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 from cltk.core.exceptions import CLTKException
 from cltk.utils import CLTK_DATA_DIR
@@ -130,7 +130,9 @@ class CollatinusDecliner:
 
         return original_roots
 
-    def decline(self, lemma: str, flatten: bool = False, collatinus_dict: bool =False) -> List[Tuple[str, str]]:
+    def decline(
+        self, lemma: str, flatten: bool = False, collatinus_dict: bool = False
+    ) -> List[Tuple[str, str]]:
         """ Decline a lemma
 
         .. warning:: POS are incomplete as we do not detect the type outside of verbs, participle and adjective.
