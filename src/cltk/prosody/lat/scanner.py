@@ -3,7 +3,7 @@ Scansion module for scanning Latin prose rhythms.
 """
 from typing import Dict, List
 
-from cltk.prosody.latin.syllabifier import Syllabifier
+from cltk.prosody.lat.syllabifier import Syllabifier
 
 
 class Scansion:

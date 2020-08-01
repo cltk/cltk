@@ -155,7 +155,7 @@ class Transliterate:
 
     def transliterate(self, text, mode="Latin"):
         """
-        Transliterates Anglo-Saxon runes into latin and vice versa.
+        Transliterates Anglo-Saxon runes into lat and vice versa.
 
         Sources:
             http://www.arild-hauge.com/eanglor.htm
@@ -164,7 +164,7 @@ class Transliterate:
         :param text: str: The text to be transcribed
         :param mode: Specifies transliteration mode, options:
 
-            Latin (default): Transliterates Anglo-Saxon runes into the latin
+            Latin (default): Transliterates Anglo-Saxon runes into the lat
             alphabet, using the Dickins system
 
             Anglo-Saxon/Anglo-Frisian : Transliterates Latin text into Anglo-Saxon runes

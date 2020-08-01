@@ -4,15 +4,15 @@ __license__ = "MIT License. See LICENSE."
 
 import unittest
 
-from cltk.prosody.latin.clausulae_analysis import Clausulae
-from cltk.prosody.latin.macronizer import Macronizer
-from cltk.prosody.latin.scanner import Scansion as ScansionLatin
+from cltk.prosody.lat.clausulae_analysis import Clausulae
+from cltk.prosody.lat.macronizer import Macronizer
+from cltk.prosody.lat.scanner import Scansion as ScansionLatin
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    # latin/macronizer.py
+    # lat/macronizer.py
     def test_retrieve_morpheus_entry(self):
         """ Text Macronizer()._retrieve_morpheus_tag()"""
         correct = [

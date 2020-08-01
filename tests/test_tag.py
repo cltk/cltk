@@ -143,9 +143,9 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_check_latest_latin(self):
         """Test _check_latest_data()"""
-        ner._check_latest_data("latin")
+        ner._check_latest_data("lat")
         names_path = os.path.normpath(
-            CLTK_DATA_DIR, "latin/model/latin_models_cltk/ner/proper_names.txt"
+            CLTK_DATA_DIR, "lat/model/latin_models_cltk/ner/proper_names.txt"
         )
         self.assertTrue(os.path.isfile(names_path))
 

@@ -120,7 +120,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
     def setUpClass(self):
         # corpus_importer = FetchCorpus('greek')
         # corpus_importer.import_corpus('greek_models_cltk')
-        # corpus_importer = FetchCorpus('latin')
+        # corpus_importer = FetchCorpus('lat')
         # corpus_importer.import_corpus('latin_models_cltk')
         # self.greek_text = """ὅλως δ’ ἀντεχόμενοί τινες, ὡς οἴονται, δικαίου τινός (ὁ γὰρ νόμος δίκαιόν τἰ τὴν κατὰ πόλεμον δουλείαν τιθέασι δικαίαν, ἅμα δ’ οὔ φασιν· τήν τε γὰρ ἀρχὴν ἐνδέχεται μὴ δικαίαν εἶναι τῶν πολέμων, καὶ τὸν ἀνάξιον δουλεύειν οὐδαμῶς ἂν φαίη τις δοῦλον εἶναι· εἰ δὲ μή, συμβήσεται τοὺς εὐγενεστάτους εἶναι δοκοῦντας δούλους εἶναι καὶ ἐκ δούλων, ἐὰν συμβῇ πραθῆναι ληφθέντας."""  # pylint: disable=line-too-long
         # self.latin_text = "O di inmortales! ubinam gentium sumus? in qua urbe vivimus? quam rem publicam habemus? Hic, hic sunt in nostro numero, patres conscripti, in hoc orbis terrae sanctissimo gravissimoque consilio, qui de nostro omnium interitu, qui de huius urbis atque adeo de orbis terrarum exitio cogitent! Hos ego video consul et de re publica sententiam rogo et, quos ferro trucidari oportebat, eos nondum voce volnero! Fuisti igitur apud Laecam illa nocte, Catilina, distribuisti partes Italiae, statuisti, quo quemque proficisci placeret, delegisti, quos Romae relinqueres, quos tecum educeres, discripsisti urbis partes ad incendia, confirmasti te ipsum iam esse exiturum, dixisti paulum tibi esse etiam nunc morae, quod ego viverem."  # pylint: disable=line-too-long
@@ -854,7 +854,7 @@ class TestLineTokenize(unittest.TestCase):  # pylint: disable=R0904
             "49. Miraris verbis nudis me scribere versus?",
             "Hoc brevitas fecit, sensus coniungere binos.",
         ]
-        tokenizer = LineTokenizer("latin")
+        tokenizer = LineTokenizer("lat")
         tokenized_lines = tokenizer.tokenize(text)
         self.assertTrue(tokenized_lines == target)
 
@@ -868,7 +868,7 @@ class TestLineTokenize(unittest.TestCase):  # pylint: disable=R0904
             "49. Miraris verbis nudis me scribere versus?",
             "Hoc brevitas fecit, sensus coniungere binos.",
         ]  # pylint: disable=line-too-long
-        tokenizer = LineTokenizer("latin")
+        tokenizer = LineTokenizer("lat")
         tokenized_lines = tokenizer.tokenize(text, include_blanks=True)
         self.assertTrue(tokenized_lines == target)
 
@@ -912,21 +912,21 @@ class TestSentenceTokenizeUtils(unittest.TestCase):  # pylint: disable=R0904
 
     def test_sentence_tokenizer_utils(self):
         """Test sentence tokenization trainer"""
-        trainer = SentenceTokenizerTrainer("latin")
+        trainer = SentenceTokenizerTrainer("lat")
         self.assertIsInstance(
             trainer.train_sentence_tokenizer(self.latin_text), PunktSentenceTokenizer
         )
 
     def test_sentence_tokenizer_utils_with_punctuation(self):
         """Test sentence tokenization trainer"""
-        trainer = SentenceTokenizerTrainer("latin", punctuation=[".", "?", "!"])
+        trainer = SentenceTokenizerTrainer("lat", punctuation=[".", "?", "!"])
         self.assertIsInstance(
             trainer.train_sentence_tokenizer(self.latin_text), PunktSentenceTokenizer
         )
 
     def test_sentence_tokenizer_utils_with_abbreviations(self):
         """Test sentence tokenization trainer"""
-        trainer = SentenceTokenizerTrainer("latin", abbreviations=["Kal."])
+        trainer = SentenceTokenizerTrainer("lat", abbreviations=["Kal."])
         self.assertIsInstance(
             trainer.train_sentence_tokenizer(self.latin_text), PunktSentenceTokenizer
         )
@@ -934,7 +934,7 @@ class TestSentenceTokenizeUtils(unittest.TestCase):  # pylint: disable=R0904
     def test_sentence_tokenizer_utils_with_strict(self):
         """Test sentence tokenization trainer"""
         trainer = SentenceTokenizerTrainer(
-            "latin", strict=True, punctuation=[".", "?", "!"], strict_punctuation=[","]
+            "lat", strict=True, punctuation=[".", "?", "!"], strict_punctuation=[","]
         )
         self.assertIsInstance(
             trainer.train_sentence_tokenizer(self.latin_text), PunktSentenceTokenizer
@@ -944,7 +944,7 @@ class TestSentenceTokenizeUtils(unittest.TestCase):  # pylint: disable=R0904
         with patch.object(
             SentenceTokenizerTrainer, "pickle_sentence_tokenizer"
         ) as mock:
-            trainer = SentenceTokenizerTrainer("latin")
+            trainer = SentenceTokenizerTrainer("lat")
             trainer.pickle_sentence_tokenizer("mock.p", trainer)
         mock.assert_called_once_with("mock.p", trainer)
 

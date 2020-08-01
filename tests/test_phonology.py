@@ -221,7 +221,7 @@ class TestSequenceFunctions(unittest.TestCase):
         ]
         self.assertEqual(transcription, target)
 
-    """latin.transcription"""
+    """lat.transcription"""
 
     def test_latin_refresh(self):
         """Test the Word class's `_refresh` method in Latin."""

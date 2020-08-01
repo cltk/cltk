@@ -13,7 +13,7 @@ from nltk.corpus.reader.api import CorpusReader
 from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize  # Replace with CLTK
 
-from cltk.prosody.latin.string_utils import flatten
+from cltk.prosody.lat.string_utils import flatten
 from cltk.sentence.sentence import SentenceTokenizer
 from cltk.tokenizers.word import WordTokenizer
 from cltk.utils import get_cltk_data_dir

@@ -1,5 +1,5 @@
 """Latin language syllabifier.
-Parses a latin word or a space separated list of words into a list of syllables.
+Parses a lat word or a space separated list of words into a list of syllables.
 Consonantal I is transformed into a J at the start of a word as necessary.
 Tuned for poetry and verse, this class is tolerant of isolated single character consonants that
 may appear due to elision."""
@@ -9,8 +9,8 @@ import logging
 import re
 from typing import List
 
-import cltk.prosody.latin.string_utils as string_utils
-from cltk.prosody.latin.scansion_constants import ScansionConstants
+import cltk.prosody.lat.string_utils as string_utils
+from cltk.prosody.lat.scansion_constants import ScansionConstants
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -44,7 +44,7 @@ class Syllabifier:
         """
         Parse a Latin word into a list of syllable strings.
 
-        :param words: a string containing one latin word or many words separated by spaces.
+        :param words: a string containing one lat word or many words separated by spaces.
         :return: list of string, each representing a syllable.
 
         >>> syllabifier = Syllabifier()

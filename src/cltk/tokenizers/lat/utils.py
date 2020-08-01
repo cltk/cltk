@@ -23,7 +23,7 @@ class LatinSentenceTokenizerTrainer(SentenceTokenizerTrainer):
         self.abbreviations = ABBREVIATIONS
 
         super().__init__(
-            language="latin",
+            language="lat",
             punctuation=self.punctuation,
             strict=self.strict,
             strict_punctuation=self.strict_punctuation,

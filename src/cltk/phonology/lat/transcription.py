@@ -2,7 +2,7 @@
 pronunciation in the International Phonetic Alphabet (IPA).
 
 https://raw.githubusercontent.com/j-duff/cltk/ipa/
-cltk/phonology/latin/transcription.py
+cltk/phonology/lat/transcription.py
 """
 import re
 import unicodedata
@@ -10,7 +10,7 @@ import unicodedata
 from nltk.tokenize import wordpunct_tokenize
 
 from cltk.core.cltk_logger import logger
-from cltk.prosody.latin import macronizer as m
+from cltk.prosody.lat import macronizer as m
 
 try:
     # James Tauber's greek_accentuation package

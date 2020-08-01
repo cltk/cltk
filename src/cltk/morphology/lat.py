@@ -25,7 +25,7 @@ class CollatinusDecliner:
     .. code-block:: python
 
        # Ensure you have downloaded the corpus latin_models_cltk before running this
-       from cltk.stem.latin.declension import CollatinusDecliner
+       from cltk.stem.lat.declension import CollatinusDecliner
 
        decliner = CollatinusDecliner()
        print(decliner.decline("via"))
