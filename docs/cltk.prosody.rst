@@ -11,17 +11,31 @@ Subpackages
 
 .. toctree::
 
-   cltk.prosody.latin
-   cltk.prosody.middle_high_german
-   cltk.prosody.old_norse
+   cltk.prosody.lat
 
 Submodules
 ----------
+
+cltk.prosody.gmh module
+-----------------------
+
+.. automodule:: cltk.prosody.gmh
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 cltk.prosody.grc module
 -----------------------
 
 .. automodule:: cltk.prosody.grc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.prosody.non module
+-----------------------
+
+.. automodule:: cltk.prosody.non
    :members:
    :undoc-members:
    :show-inheritance:
