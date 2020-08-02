@@ -14,9 +14,7 @@ OldNorseTokenizerPatterns = [(r"\'", r"' "), (r"(?<=.)(?=[.!?)(\";:,«»\-])", "
 
 
 class OldNorseWordTokenizer(RegexWordTokenizer):
-    """
-	A regex-based tokenizer for Old Norse.
-	"""
+    """A regex-based tokenizer for Old Norse."""
 
     def __init__(self):
         super().__init__(patterns=OldNorseTokenizerPatterns)

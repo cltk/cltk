@@ -88,6 +88,7 @@ class Syllabifier:
         plosives=None,
         language=None,
         break_geminants=False,
+        variant=None,
     ):
 
         self.break_geminants = break_geminants
@@ -123,11 +124,11 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-        elif language == "old_norse":
+        elif language == "non":
             self.set_hierarchy(old_norse_hierarchy)
             self.set_vowels(old_norse_hierarchy[0])
 
-        elif language == "old_norse_ipa":
+        elif language == "non" and variant == "ipa":
             self.set_hierarchy(ipa_old_norse_hierarchy)
             self.set_vowels(ipa_old_norse_hierarchy[0])
 
