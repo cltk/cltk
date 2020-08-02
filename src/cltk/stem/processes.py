@@ -1,20 +1,19 @@
 """Processes for stemming.
 """
 
-from dataclasses import dataclass
 from copy import deepcopy
+from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
 
+import cltk.stem.akk
+import cltk.stem.enm
+import cltk.stem.fro
+import cltk.stem.gmh
+import cltk.stem.lat
 from cltk.core.data_types import Doc, Process, Word
 from cltk.nlp import NLP
 
-import cltk.stem.akk 
-import cltk.stem.enm 
-import cltk.stem.fro 
-import cltk.stem.gmh 
-import cltk.stem.lat
-    
 
 @dataclass
 class StemmingProcess(Process):
@@ -27,10 +26,10 @@ class StemmingProcess(Process):
     >>> issubclass(StemmingProcess, Process)
     True
     """
-    
+
     def run(self):
         stem = self.algorithm
-        
+
         self.output_doc = deepcopy(self.input_doc)
         for word in self.output_doc.words:
             word.stem = stem(word.string)
@@ -54,8 +53,9 @@ class LatinStemmingProcess(StemmingProcess):
     description = "Default stemmer for the Latin language."
 
     @staticmethod
-    def algorithm(word:str) -> str:
+    def algorithm(word: str) -> str:
         return cltk.stem.lat.stem(word)
+
 
 class MiddleEnglishStemmingProcess(StemmingProcess):
     """The default Middle English stemming algorithm.
@@ -76,7 +76,7 @@ class MiddleEnglishStemmingProcess(StemmingProcess):
     description = "Default stemmer for the Middle English language."
 
     @staticmethod
-    def algorithm(word:str) -> str:
+    def algorithm(word: str) -> str:
         return cltk.stem.enm.stem(word)
 
 
@@ -99,8 +99,9 @@ class MiddleHighGermanStemmingProcess(StemmingProcess):
     description = "Default stemmer for the Middle High German language."
 
     @staticmethod
-    def algorithm(word:str) -> str:
+    def algorithm(word: str) -> str:
         return cltk.stem.gmh.stem(word)
+
 
 class OldFrenchStemmingProcess(StemmingProcess):
     """The default Middle High German stemming algorithm.
@@ -121,5 +122,5 @@ class OldFrenchStemmingProcess(StemmingProcess):
     description = "Default stemmer for the Old French language."
 
     @staticmethod
-    def algorithm(word:str) -> str:
+    def algorithm(word: str) -> str:
         return cltk.stem.fro.stem(word)

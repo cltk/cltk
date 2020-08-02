@@ -6,13 +6,13 @@ Functions and classes for Akkadian morphology.
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
-from cltk.phonology.akk import get_cv_pattern, syllabify, AKKADIAN
+from cltk.phonology.akk import AKKADIAN, get_cv_pattern, syllabify
 from cltk.stem.akk import ENDINGS, stem
 
 
-def get_bound_form(noun:str, gender:str) -> str:
+def get_bound_form(noun: str, gender: str) -> str:
     """
     Return bound form of nound, given its gender.
 
@@ -25,7 +25,9 @@ def get_bound_form(noun:str, gender:str) -> str:
     cv_pattern = get_cv_pattern(stemmed_noun)
 
     # Based on Huehnergard Appendix 6.C.1: base in -VC
-    if [letter[0] for letter in cv_pattern[-2:]] == ["V", "C"] or stemmed_noun in ["nakr"]:
+    if [letter[0] for letter in cv_pattern[-2:]] == ["V", "C"] or stemmed_noun in [
+        "nakr"
+    ]:
         # a. 2-syllable
         if len(syllables) > 2:
             # awīlum > awīl, nakrum > naker
@@ -75,8 +77,9 @@ def get_bound_form(noun:str, gender:str) -> str:
                 # Weak nouns...
 
 
-
-def decline_noun(noun:str, gender:str, mimation: bool =True) -> List[Tuple[str, Dict[str, str]]]:
+def decline_noun(
+    noun: str, gender: str, mimation: bool = True
+) -> List[Tuple[str, Dict[str, str]]]:
     """
     Return a list of all possible Akkadiandeclined forms given any form
      of a noun and its gender.
@@ -90,7 +93,7 @@ def decline_noun(noun:str, gender:str, mimation: bool =True) -> List[Tuple[str, 
 ('ilātum', {'case': 'nominative', 'number': 'plural'}), \
 ('ilātim', {'case': 'oblique', 'number': 'plural'})]
     """
-    
+
     stemmed_noun = stem(noun, gender)
     declension = []
 
@@ -116,11 +119,7 @@ def decline_noun(noun:str, gender:str, mimation: bool =True) -> List[Tuple[str, 
                 theme_vowel = stemmed_noun[-3]
             else:
                 theme_vowel = "ā"
-            ending = [
-                x
-                for x in ENDINGS[gender]["plural"][case]
-                if x[0] == theme_vowel
-            ]
+            ending = [x for x in ENDINGS[gender]["plural"][case] if x[0] == theme_vowel]
             if stemmed_noun[-2] in AKKADIAN["short_vowels"]:
                 form = stemmed_noun[:-2] + ending[0]
             elif (
@@ -133,4 +132,3 @@ def decline_noun(noun:str, gender:str, mimation: bool =True) -> List[Tuple[str, 
         declension.append((form, {"case": case, "number": "plural"}))
 
     return declension
-

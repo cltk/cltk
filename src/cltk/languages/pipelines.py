@@ -37,12 +37,12 @@ from cltk.tokenizers.processes import (
     ArabicTokenizationProcess,
     GreekTokenizationProcess,
     LatinTokenizationProcess,
-    MiddleHighGermanTokenizationProcess,
     MiddleEnglishTokenizationProcess,
     MiddleFrenchTokenizationProcess,
+    MiddleHighGermanTokenizationProcess,
     MultilingualTokenizationProcess,
     OldFrenchTokenizationProcess,
-    OldNorseTokenizationProcess
+    OldNorseTokenizationProcess,
 )
 
 

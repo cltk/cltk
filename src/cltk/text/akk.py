@@ -10,12 +10,11 @@ TITTLES = {
     r"s,": chr(0x1E63),
     r"sz": chr(0x0161),
     r"t,": chr(0x1E6D),
-    r"'" : chr(0x02BE),
+    r"'": chr(0x02BE),
     r"S,": chr(0x1E62),
     r"SZ": chr(0x0160),
     r"T,": chr(0x1E6C),
 }
-
 
 
 def _convert_consonant(sign: str) -> str:
@@ -26,7 +25,7 @@ def _convert_consonant(sign: str) -> str:
     >>> [_convert_consonant(s) for s in signs]
     ['aṣ', 'ṢATU', 'teṭ', 'Ṭet', 'ša', 'AŠ']
     """
-    
+
     for key in TITTLES:
         sign = sign.replace(key, TITTLES[key])
     return sign
@@ -47,7 +46,7 @@ def _convert_number_to_subscript(num: int) -> str:
     return subscript
 
 
-def _get_number_from_sign(sign: str) -> Tuple[str, int] :
+def _get_number_from_sign(sign: str) -> Tuple[str, int]:
     """
     Captures numbers after sign for __convert_num__.
 
@@ -95,7 +94,6 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
         """
 
         self.two_three = two_three
-
 
     def _convert_num(self, sign: str) -> str:
         """

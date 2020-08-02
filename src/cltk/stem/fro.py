@@ -38,6 +38,7 @@ EXCEPTIONS = [
     "tut",
 ]
 
+
 def _matchremove_noun_endings(word: str) -> str:
     """Remove the noun and adverb word endings"""
 
@@ -215,11 +216,9 @@ def stem(word: str) -> str:
 
     """remove the simple endings from the target word"""
     stemmed_word, was_stemmed = _matchremove_noun_endings(word)
-    
+
     """if word didn't match the simple endings, try verb endings"""
     if not was_stemmed:
         stemmed_word = _matchremove_verb_endings(word)
-   
+
     return stemmed_word
-
-

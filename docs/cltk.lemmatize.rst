@@ -11,7 +11,6 @@ Subpackages
 
 .. toctree::
 
-   cltk.lemmatize.french
    cltk.lemmatize.greek
    cltk.lemmatize.latin
    cltk.lemmatize.old_english
@@ -23,6 +22,14 @@ cltk.lemmatize.backoff module
 -----------------------------
 
 .. automodule:: cltk.lemmatize.backoff
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.lemmatize.fro module
+-------------------------
+
+.. automodule:: cltk.lemmatize.fro
    :members:
    :undoc-members:
    :show-inheritance:

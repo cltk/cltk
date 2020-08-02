@@ -67,7 +67,7 @@ class PunktSentenceTokenizer(SentenceTokenizer):
         """
         self.language = language
         if self.language == "lat":
-            self.language_old = "latin"
+            self.language_old = "lat"
         self.lang_vars = lang_vars
         super().__init__(language=self.language)
         if self.language:
@@ -111,4 +111,3 @@ class RegexSentenceTokenizer(SentenceTokenizer):
         """
         sentences = re.split(self.pattern, text)
         return sentences
-

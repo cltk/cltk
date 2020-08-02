@@ -3,8 +3,6 @@ import os
 import unittest
 from unittest.mock import patch
 
-from cltk.tokenize.word import WordTokenizer
-
 from cltk.data.fetch import FetchCorpus
 from cltk.lemmatize.backoff import (
     DefaultLemmatizer,
@@ -15,11 +13,9 @@ from cltk.lemmatize.backoff import (
 )
 from cltk.lemmatize.french.lemma import LemmaReplacer
 from cltk.lemmatize.greek.backoff import BackoffGreekLemmatizer
-from cltk.lemmatize.latin.backoff import (
-    BackoffLatinLemmatizer,
-    RomanNumeralLemmatizer,
-)
+from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer, RomanNumeralLemmatizer
 from cltk.stem.latin.j_v import JVReplacer
+from cltk.tokenize.word import WordTokenizer
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = [
@@ -51,7 +47,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("componam", "UNK"),
         ]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
@@ -69,7 +65,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("componam", "componam"),
         ]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
@@ -93,7 +89,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("componam", "compono"),
         ]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
@@ -119,7 +115,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("componam", "compono"),
         ]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
@@ -133,7 +129,7 @@ class TestSequenceFunctions(unittest.TestCase):
         test_str = "amabimus"
         target = [("amabimus", "amo")]
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
@@ -198,7 +194,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("componam", "compono"),
         ]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)
@@ -232,7 +228,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("componam", "compono", "<DictLemmatizer: Morpheus Lemmas>"),
         ]  # pylint: disable=line-too-long
         jv_replacer = JVReplacer()
-        tokenizer = WordTokenizer("latin")
+        tokenizer = WordTokenizer("lat")
         test_str = test_str.lower()
         test_str = jv_replacer.replace(test_str)
         tokens = tokenizer.tokenize(test_str)

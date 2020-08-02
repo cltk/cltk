@@ -8,17 +8,38 @@ __license__ = "MIT License. See LICENSE."
 from typing import List, Tuple, Union
 
 AKKADIAN = {
-    'short_vowels': ['a', 'e', 'i', 'u'],
-    'macron_vowels': ['ā', 'ē', 'ī', 'ū'],
-    'circumflex_vowels': ['â', 'ê', 'î', 'û'],
-
-    'consonants': ['b', 'd', 'g', 'h', 'ḫ', 'k', 'l', 'm',
-                   'n', 'p', 'q', 'r', 's', 'ṣ', 'š',
-                   't', 'ṭ', 'w', 'y', 'z', 'ʾ']
+    "short_vowels": ["a", "e", "i", "u"],
+    "macron_vowels": ["ā", "ē", "ī", "ū"],
+    "circumflex_vowels": ["â", "ê", "î", "û"],
+    "consonants": [
+        "b",
+        "d",
+        "g",
+        "h",
+        "ḫ",
+        "k",
+        "l",
+        "m",
+        "n",
+        "p",
+        "q",
+        "r",
+        "s",
+        "ṣ",
+        "š",
+        "t",
+        "ṭ",
+        "w",
+        "y",
+        "z",
+        "ʾ",
+    ],
 }
 
 
-def get_cv_pattern(word: str, pprint: bool = False) -> Union[List[Tuple[str, int, str]], str]:
+def get_cv_pattern(
+    word: str, pprint: bool = False
+) -> Union[List[Tuple[str, int, str]], str]:
     """
     Return a patterned string representing the consonants
  	and vowels of the input word.
@@ -47,7 +68,7 @@ def get_cv_pattern(word: str, pprint: bool = False) -> Union[List[Tuple[str, int
     c_count = 1
     v_count = 1
     count = 0
-    
+
     for char in word:
         if char in AKKADIAN["consonants"]:
             cv = "C"
@@ -55,9 +76,7 @@ def get_cv_pattern(word: str, pprint: bool = False) -> Union[List[Tuple[str, int
             cv = "V"
             # remove length:
             if char in AKKADIAN["macron_vowels"]:
-                char = AKKADIAN["short_vowels"][
-                    AKKADIAN["macron_vowels"].index(char)
-                ]
+                char = AKKADIAN["short_vowels"][AKKADIAN["macron_vowels"].index(char)]
             elif char in AKKADIAN["circumflex_vowels"]:
                 char = AKKADIAN["short_vowels"][
                     AKKADIAN["circumflex_vowels"].index(char)
@@ -83,6 +102,7 @@ def get_cv_pattern(word: str, pprint: bool = False) -> Union[List[Tuple[str, int
 def _is_consonant(char: str) -> bool:
     return char in AKKADIAN["consonants"]
 
+
 def _is_vowel(char: str) -> bool:
     return (
         char
@@ -91,11 +111,14 @@ def _is_vowel(char: str) -> bool:
         + AKKADIAN["circumflex_vowels"]
     )
 
+
 def _is_short_vowel(char: str) -> bool:
     return char in AKKADIAN["short_vowels"]
 
+
 def _is_macron_vowel(char: str) -> bool:
     return char in AKKADIAN["macron_vowels"]
+
 
 def _is_circumflex_vowel(char: str) -> bool:
     return char in AKKADIAN["circumflex_vowels"]
@@ -167,7 +190,6 @@ def syllabify(word) -> List[str]:
     return syllables + syllables_reverse[::-1]
 
 
-
 def find_stress(word: str) -> List[str]:
     """
     Find the stressed syllable in a word.
@@ -203,21 +225,16 @@ def find_stress(word: str) -> List[str]:
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
         elif len(syllable) == 2:
-            if _is_consonant(syllable[0]) and _is_circumflex_vowel(
-                syllable[1]
-            ):
+            if _is_consonant(syllable[0]) and _is_circumflex_vowel(syllable[1]):
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
             if (
-                _is_macron_vowel(syllable[0])
-                or _is_circumflex_vowel(syllable[0])
+                _is_macron_vowel(syllable[0]) or _is_circumflex_vowel(syllable[0])
             ) and _is_consonant(syllable[1]):
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
         elif len(syllable) == 3:
-            if _is_macron_vowel(syllable[1]) or _is_circumflex_vowel(
-                syllable[1]
-            ):
+            if _is_macron_vowel(syllable[1]) or _is_circumflex_vowel(syllable[1]):
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
 
@@ -228,14 +245,10 @@ def find_stress(word: str) -> List[str]:
                 syllables_stress.append((syllable, "Heavy"))
                 continue
         elif len(syllable) == 2:
-            if _is_consonant(syllable[0]) and _is_macron_vowel(
-                syllable[1]
-            ):
+            if _is_consonant(syllable[0]) and _is_macron_vowel(syllable[1]):
                 syllables_stress.append((syllable, "Heavy"))
                 continue
-            if _is_short_vowel(syllable[0]) and _is_consonant(
-                syllable[1]
-            ):
+            if _is_short_vowel(syllable[0]) and _is_consonant(syllable[1]):
                 syllables_stress.append((syllable, "Heavy"))
                 continue
         elif len(syllable) == 3:
@@ -250,9 +263,7 @@ def find_stress(word: str) -> List[str]:
                 syllables_stress.append((syllable, "Light"))
                 continue
         elif len(syllable) == 2:
-            if _is_consonant(syllable[0]) and _is_short_vowel(
-                syllable[1]
-            ):
+            if _is_consonant(syllable[0]) and _is_short_vowel(syllable[1]):
                 syllables_stress.append((syllable, "Light"))
                 continue
 
@@ -298,5 +309,3 @@ def find_stress(word: str) -> List[str]:
         syllables[0] = "[{}]".format(syllables[0])
 
     return syllables
-
-

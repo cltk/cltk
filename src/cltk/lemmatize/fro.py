@@ -95,17 +95,23 @@ def _build_match_and_apply_functions(pattern, replace):
     return (matches_rule, apply_rule)
 
 
-rules = [_build_match_and_apply_functions(pattern, replace) for (pattern, replace) in patterns]
+rules = [
+    _build_match_and_apply_functions(pattern, replace)
+    for (pattern, replace) in patterns
+]
+
 
 def _apply_regex(token):
     for matches_rule, apply_rule in rules:
         if matches_rule(token):
             return apply_rule(token)
 
-class Lemmatizer:  # pylint: disable=too-few-public-methods
 
+class Lemmatizer:  # pylint: disable=too-few-public-methods
     def __init__(self):
-        rel_path = os.path.join(CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "inverted_lemma_dict.py")
+        rel_path = os.path.join(
+            CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "inverted_lemma_dict.py"
+        )
         path = os.path.expanduser(rel_path)
         loader = importlib.machinery.SourceFileLoader("file", path)
         module = loader.load_module()
@@ -119,14 +125,13 @@ class Lemmatizer:  # pylint: disable=too-few-public-methods
         >>> lemmatizer.lemmatize('pecol')
         ['copel2', 'pecol']
         """
-        
+
         lemmas = self.inverted_index[token]
 
-        #if no match apply regular expressions and check for a match against the list of lemmas again
+        # if no match apply regular expressions and check for a match against the list of lemmas again
         if not lemmas:
             mod_token = _apply_regex(token)
             if mod_token in self.inverted_index:
                 lemmas = [mod_token]
 
         return lemmas if lemmas else [token]
-

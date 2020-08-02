@@ -4,65 +4,15 @@ __license__ = "MIT License. See LICENSE."
 
 import unittest
 
-from cltk.prosody.greek.scanner import Scansion as ScansionGreek
-from cltk.prosody.latin.clausulae_analysis import Clausulae
-from cltk.prosody.latin.macronizer import Macronizer
-from cltk.prosody.latin.scanner import Scansion as ScansionLatin
+from cltk.prosody.lat.clausulae_analysis import Clausulae
+from cltk.prosody.lat.macronizer import Macronizer
+from cltk.prosody.lat.scanner import Scansion as ScansionLatin
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     """Class for unittest"""
 
-    """greek/scanner.py"""
-    # Test string for Greek prosody module unit testing
-    test = "νέος μὲν καὶ ἄπειρος, δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
-
-    def test_clean_text_greek(self):
-        """Test _clean_text method."""
-        correct = "νέος μὲν καὶ ἄπειρος δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος."
-        current = ScansionGreek()._clean_text(self.test)
-        self.assertEqual(current, correct)
-
-    def test_clean_accents_greek(self):
-        """Test _clean_accents method."""
-        correct = "νεος μεν και απειρος δικων εγωγε ετι. μεν και απειρος."
-        current = ScansionGreek()._clean_accents(self.test)
-        self.assertEqual(current, correct)
-
-    def test_tokenize_greek(self):
-        """Test _tokenize method."""
-        correct = [
-            ["νεος", "μεν", "και", "απειρος", "δικων", "εγωγε", "ετι."],
-            ["μεν", "και", "απειρος."],
-        ]
-        current = ScansionGreek()._tokenize(self.test)
-        self.assertEqual(current, correct)
-
-    def test_make_syllables_greek(self):
-        """Test _make_syllables method."""
-        correct = [
-            [
-                ["νε", "ος"],
-                ["μεν"],
-                ["και"],
-                ["α", "πει", "ρος"],
-                ["δι", "κων"],
-                ["ε", "γω", "γε"],
-                ["ε", "τι"],
-            ],
-            [["μεν"], ["και"], ["α", "πει", "ρος"]],
-        ]
-        current = ScansionGreek()._make_syllables(self.test)
-        self.assertEqual(current, correct)
-
-    def test_scan_text_greek(self):
-        """Test scan_text method."""
-        correct = ["˘¯¯¯˘¯¯˘¯˘¯˘˘x", "¯¯˘¯x"]
-        current = ScansionGreek().scan_text(self.test)
-        self.assertEqual(current, correct)
-
-    """latin/macronizer.py"""
-
+    # lat/macronizer.py
     def test_retrieve_morpheus_entry(self):
         """ Text Macronizer()._retrieve_morpheus_tag()"""
         correct = [

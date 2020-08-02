@@ -2,7 +2,7 @@
 
 import logging
 
-from cltk.prosody.latin.scansion_constants import ScansionConstants
+from cltk.prosody.lat.scansion_constants import ScansionConstants
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())

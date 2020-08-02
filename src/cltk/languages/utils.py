@@ -34,7 +34,7 @@ def find_iso_name(common_name: str) -> List[str]:
     >>> from cltk.languages.utils import find_iso_name
     >>> find_iso_name(common_name="Latin")
     ['lat']
-    >>> find_iso_name(common_name="latin")
+    >>> find_iso_name(common_name="lat")
     ['lat']
     >>> find_iso_name(common_name="slav")
     ['chu']

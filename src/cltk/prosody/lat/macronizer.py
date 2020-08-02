@@ -1,4 +1,4 @@
-"""Delineate length of latin vowels.
+"""Delineate length of lat vowels.
 
 The Macronizer class places a macron over naturally long Latin vowels. To discern whether a vowel is long, a word is
 first matched with its Morpheus entry by way of its POS tag. The Morpheus entry includes the macronized form of the

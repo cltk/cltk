@@ -5,9 +5,6 @@ import re
 from math import floor
 
 import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
-from cltk.stops.non import STOPS
-from cltk.tokenize.word import WordTokenizer
-
 from cltk.core.cltk_logger import logger
 from cltk.phonology.old_norse.transcription import (
     DIPHTHONGS_IPA,
@@ -20,7 +17,9 @@ from cltk.phonology.old_norse.transcription import (
 )
 from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber
+from cltk.stops.non import STOPS
 from cltk.tag.pos import POSTag
+from cltk.tokenizers.non import OldNorseWordTokenizer
 
 __author__ = ["Clément Besnier <clemsciences@aol.com>"]
 
@@ -112,7 +111,7 @@ class MetreManager:
 class ShortLine:
     def __init__(self, text):
         self.text = text
-        self.tokenizer = WordTokenizer("old_norse")
+        self.tokenizer = OldNorseWordTokenizer()
         self.tokenized_text = self.tokenizer.tokenize(text)
         self.first_sounds = []
         self.syllabified = []
@@ -191,7 +190,7 @@ class ShortLine:
 class LongLine:
     def __init__(self, text):
         self.text = text
-        self.tokenizer = WordTokenizer("old_norse")
+        self.tokenizer = OldNorseWordTokenizer()
         self.tokenized_text = self.tokenizer.tokenize(text)
         self.short_lines = None
         self.first_sounds = []
@@ -296,7 +295,7 @@ class Metre:
             logger.error("No text was imported")
             self.syllabified_text = []
         else:
-            syllabifier = Syllabifier(language="old_norse", break_geminants=True)
+            syllabifier = Syllabifier(language="non", break_geminants=True)
             syllabifier.set_hierarchy(hierarchy)
             syllabified_text = []
             for i, long_line in enumerate(self.long_lines):
@@ -413,7 +412,7 @@ class UnspecifiedStanza(Metre):
         :param hierarchy:
         :return:
         """
-        syllabifier = Syllabifier(language="old_norse", break_geminants=True)
+        syllabifier = Syllabifier(language="non", break_geminants=True)
         syllabifier.set_hierarchy(hierarchy)
         syllabified_text = []
         for short_line in self.short_lines:
@@ -650,11 +649,11 @@ class PoetryTools:
     """
 
     def __init__(self):
-        self.syllabifier = Syllabifier(language="old_norse_ipa")
+        self.syllabifier = Syllabifier(language="non", variant="ipa")
         self.tr = Transcriber(
             DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules
         )
-        self.tagger = POSTag("old_norse")
+        self.tagger = POSTag("non")
 
 
 class PoeticWord:

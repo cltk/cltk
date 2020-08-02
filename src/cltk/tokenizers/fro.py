@@ -15,9 +15,11 @@ OldFrenchTokenizerPatterns = [
     (r"(?<=.)(?=[.!?)(\";:,«»\-])", " "),
 ]
 
+
 class OldFrenchWordTokenizer(RegexWordTokenizer):
-	"""
+    """
 	A regex-based tokenizer for Old French.
 	"""
-	def __init__(self):
-		super().__init__(patterns = OldFrenchTokenizerPatterns)
+
+    def __init__(self):
+        super().__init__(patterns=OldFrenchTokenizerPatterns)

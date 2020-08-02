@@ -112,21 +112,26 @@ def _is_consonant(char):
     """Checks if char is in the list of vowels in the language"""
     return not char in LATIN["vowels"]
 
+
 def _is_vowel(char):
     """Checks if char is in the list of vowels in the language"""
     return char in LATIN["vowels"]
+
 
 def _is_diphthong(char_1, char_2):
     """Checks if two sequential characters compose a diphthong"""
     return char_1 + char_2 in LATIN["diphthongs"]
 
+
 def _is_mute_consonant_or_f(char):
     """Checks if char is in the mute_consonants_and_f list"""
     return char in LATIN["mute_consonants_and_f"]
 
+
 def _is_liquid_consonant(char):
     """Checks if char is in the mute_consonants_and_f list"""
     return char in LATIN["liquid_consonants"]
+
 
 def syllabify(word: str) -> List[str]:
     """

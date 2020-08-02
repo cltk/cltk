@@ -668,7 +668,7 @@ n_exceptions += [
     "claudian",
     "john",
     "justin",
-    "latin",
+    "lat",
     "lucan",
     "martin",
     "novatian",

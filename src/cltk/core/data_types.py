@@ -24,10 +24,10 @@ class Language:
 
     >>> from cltk.core.data_types import Language
     >>> from cltk.languages.utils import get_lang
-    >>> latin = get_lang("lat")
-    >>> isinstance(latin, Language)
+    >>> lat = get_lang("lat")
+    >>> isinstance(lat, Language)
     True
-    >>> latin
+    >>> lat
     Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, dates=[], family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a')
     """
 
@@ -53,7 +53,7 @@ class Word:
     >>> get_example_text("lat")[:25]
     'Gallia est omnis divisa i'
     >>> from cltk.languages.utils import get_lang
-    >>> latin = get_lang("lat")
+    >>> lat = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, embedding=None, stop=None, named_entity=None)
     """
@@ -182,7 +182,7 @@ class Doc:
     @property
     def tokens(self) -> List[str]:
         """Returns a list of string word tokens of all words in the doc."""
-        tokens = self._get_words_attribute("string") 
+        tokens = self._get_words_attribute("string")
         return tokens
 
     @property
@@ -224,7 +224,7 @@ class Doc:
         """Returns a list of word stems, indexed to the word tokens
         provided by `Doc.tokens`.
         """
-        stems = self._get_words_attribute("stem") 
+        stems = self._get_words_attribute("stem")
         return stems
 
     def __getitem__(self, word_index: int) -> Word:

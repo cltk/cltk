@@ -12,12 +12,12 @@ import logging
 import re
 from typing import Any, Dict, List
 
-import cltk.prosody.latin.string_utils as string_utils
-from cltk.prosody.latin.metrical_validator import MetricalValidator
-from cltk.prosody.latin.scansion_constants import ScansionConstants
-from cltk.prosody.latin.scansion_formatter import ScansionFormatter
-from cltk.prosody.latin.syllabifier import Syllabifier
-from cltk.prosody.latin.verse import Verse
+import cltk.prosody.lat.string_utils as string_utils
+from cltk.prosody.lat.metrical_validator import MetricalValidator
+from cltk.prosody.lat.scansion_constants import ScansionConstants
+from cltk.prosody.lat.scansion_formatter import ScansionFormatter
+from cltk.prosody.lat.syllabifier import Syllabifier
+from cltk.prosody.lat.verse import Verse
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())

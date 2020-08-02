@@ -2,9 +2,8 @@ import re
 from typing import Dict
 
 from cltk.alphabet.gmh import normalize_middle_high_german
-from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
-
 from cltk.stops.gmh import STOPS
+from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
 
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -40,6 +39,7 @@ umlaut_dict = {
 def _remove_umlaut(word):
     return "".join([umlaut_dict.get(letter, letter) for letter in word])
 
+
 def _stem_helper(word, rem_umlaut=True):
     """rem_umlat: Remove umlaut from text"""
 
@@ -49,7 +49,10 @@ def _stem_helper(word, rem_umlaut=True):
 
     try:
         R1 = (
-            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word))[0].start() + 2
+            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word))[
+                0
+            ].start()
+            + 2
         )
     except:
         R1 = len(word)
@@ -58,7 +61,11 @@ def _stem_helper(word, rem_umlaut=True):
 
     try:
         R2 = (
-            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[R1:]))[0].start() + 2 + R1
+            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[R1:]))[
+                0
+            ].start()
+            + 2
+            + R1
         )
     except:
         R2 = len(word)
@@ -68,7 +75,10 @@ def _stem_helper(word, rem_umlaut=True):
     if R1 < 3:
         try:
             R1 = (
-                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[1:]))[0].start() + 2
+                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[1:]))[
+                    0
+                ].start()
+                + 2
             )
         except:
             R1 = len(word)
@@ -87,9 +97,9 @@ def _stem_helper(word, rem_umlaut=True):
     return word
 
 
-
-
-def stem(word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool =True) -> str:
+def stem(
+    word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool = True
+) -> str:
     """
     Stem a Middle High German word.
 
@@ -100,7 +110,9 @@ def stem(word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool =True
     'tag'
     """
 
-    word = normalize_middle_high_german(word, to_lower_all = False, to_lower_beginning = True)
+    word = normalize_middle_high_german(
+        word, to_lower_all=False, to_lower_beginning=True
+    )
 
     if word in exceptions:
         return exceptions[word]

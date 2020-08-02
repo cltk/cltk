@@ -40,11 +40,15 @@ copyright = f" 2014-{curr_year} Kyle P. Johnson"
 # author_list = cltk_project["authors"]  # type: List[str]
 # author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-curr_version = pkg_resources.get_distribution("cltk")  # type: pkg_resources.EggInfoDistribution
+curr_version = pkg_resources.get_distribution(
+    "cltk"
+)  # type: pkg_resources.EggInfoDistribution
 release = curr_version.version  # type: str
 
 
-langs_available_pipelines = [val.language.name for _, val in iso_to_pipeline.items()]  # type: List[str]
+langs_available_pipelines = [
+    val.language.name for _, val in iso_to_pipeline.items()
+]  # type: List[str]
 langs_available_pipelines_len = len(langs_available_pipelines)
 langs_available_pipelines_alpha = sorted(langs_available_pipelines)
 langs_available_pipelines_str = "- " + "\n- ".join(langs_available_pipelines_alpha)
