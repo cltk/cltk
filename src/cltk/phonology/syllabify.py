@@ -36,21 +36,18 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
     that the algorithm produces the best result for an untagged wordset of MHG,
     when retaining onsets which appear in at least 0.02% of the words
 
-    Example:
-        Let's test it on the opening lines of Nibelungenlied
+    Let's test it on the opening lines of Nibelungenlied
 
-        >>> text = ['uns', 'ist', 'in', 'alten', 'mæren', 'wunders', 'vil', 'geseit', 'von', 'helden', 'lobebæren', 'von', 'grôzer', 'arebeit', 'von', 'fröuden', 'hôchgezîten', 'von', 'weinen', 'und', 'von', 'klagen', 'von', 'küener', 'recken', 'strîten', 'muget', 'ir', 'nu', 'wunder', 'hœren', 'sagen']
+    >>> text = ['uns', 'ist', 'in', 'alten', 'mæren', 'wunders', 'vil', 'geseit', 'von', 'helden', 'lobebæren', 'von', 'grôzer', 'arebeit', 'von', 'fröuden', 'hôchgezîten', 'von', 'weinen', 'und', 'von', 'klagen', 'von', 'küener', 'recken', 'strîten', 'muget', 'ir', 'nu', 'wunder', 'hœren', 'sagen']
+    >>> vowels = "aeiouæœôîöü"
+    >>> get_onsets(text, vowels=vowels)
+    ['lt', 'm', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'ld', 'l', 'b', 'gr', 'z', 'fr', 'd', 'chg', 't', 'n', 'kl', 'k', 'ck', 'str']
 
-        >>> vowels = "aeiouæœôîöü"
+     Of course, this is an insignificant sample, but we could try and see
+     how modifying the threshold affects the returned onset:
 
-        >>> get_onsets(text, vowels=vowels)
-        ['lt', 'm', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'ld', 'l', 'b', 'gr', 'z', 'fr', 'd', 'chg', 't', 'n', 'kl', 'k', 'ck', 'str']
-
-         Of course, this is an insignificant sample, but we could try and see
-         how modifying the threshold affects the returned onset:
-
-        >>> get_onsets(text, threshold = 0.05, vowels=vowels)
-        ['m', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'b', 'z', 't', 'n']
+    >>> get_onsets(text, threshold = 0.05, vowels=vowels)
+    ['m', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'b', 'z', 't', 'n']
     """
     onset_dict = defaultdict(lambda: 0)
     n = len(text)
@@ -95,7 +92,7 @@ class Syllabifier:
         self.invalid_onsets = []
         self.invalid_ultima = []
 
-        if language == "middle_english":
+        if language == "enm":
             hierarchy = [[] for _ in range(len(set(ME_Syllabifier.values())))]
 
             for k in ME_Syllabifier:
@@ -106,7 +103,7 @@ class Syllabifier:
 
             self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y"]
 
-        elif language == "old_english":
+        elif language == "ang":
             hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
 
             for k in OE_Syllabifier:
@@ -115,7 +112,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-        elif language == "middle_high_german":
+        elif language == "gmh":
             hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
 
             for k in MHG_Syllabifier:
@@ -133,7 +130,6 @@ class Syllabifier:
             self.set_vowels(ipa_old_norse_hierarchy[0])
 
         else:
-
             self.low_vowels = [] if low_vowels is None else low_vowels
             self.mid_vowels = [] if mid_vowels is None else mid_vowels
             self.high_vowels = [] if high_vowels is None else high_vowels
@@ -172,15 +168,11 @@ class Syllabifier:
 
         The order of the phonemes defined is by decreased consonantality
 
-        Example:
-            >>> s = Syllabifier()
-
-            >>> s.set_hierarchy([['i', 'u'], ['e'], ['a'], ['r'], ['m', 'n'], ['f']])
-
-            >>> s.set_vowels(['i', 'u', 'e', 'a'])
-
-            >>> s.syllabify('feminarum')
-            ['fe', 'mi', 'na', 'rum']
+        >>> s = Syllabifier()
+        >>> s.set_hierarchy([['i', 'u'], ['e'], ['a'], ['r'], ['m', 'n'], ['f']])
+        >>> s.set_vowels(['i', 'u', 'e', 'a'])
+        >>> s.syllabify('feminarum')
+        ['fe', 'mi', 'na', 'rum']
         """
         self.hierarchy = dict([(k, i) for i, j in enumerate(hierarchy) for k in j])
 
@@ -188,13 +180,10 @@ class Syllabifier:
         """
         Define the vowel set of the syllabifier module
 
-        Example:
-            >>> s = Syllabifier()
-
-            >>> s.set_vowels(['i', 'u', 'e', 'a'])
-            
-            >>> s.vowels
-            ['i', 'u', 'e', 'a']
+        >>> s = Syllabifier()
+        >>> s.set_vowels(['i', 'u', 'e', 'a'])
+        >>> s.vowels
+        ['i', 'u', 'e', 'a']
         """
         self.vowels = vowels
 
@@ -226,7 +215,6 @@ class Syllabifier:
             ...
         cltk.core.exceptions.CLTKException
 
-
         Additionally, you can utilize the language parameter:
         >>> s = Syllabifier(language='middle_high_german')
         >>> s.syllabify('lobebæren')
@@ -237,7 +225,6 @@ class Syllabifier:
         >>> s = Syllabifier(language='old_english')
         >>> s.syllabify("arcebiscop")
         ['ar', 'ce', 'bis', 'cop']
-
 
         The break_geminants parameter ensures a breakpoint is placed between geminants:
         >>> geminant_s = Syllabifier(break_geminants=True)
@@ -333,23 +320,18 @@ class Syllabifier:
         Filters syllable respecting the legality principle
         :param syllables: str list
 
-        Example:
-            The method scans for invalid syllable onsets:
+        The method scans for invalid syllable onsets:
 
-            >>> s = Syllabifier(["i", "u", "y"], ["o", "ø", "e"], ["a"], ["r"], ["l"], ["m", "n"], ["f", "v", "s", "h"], ["k", "g", "b", "p", "t", "d"])
+        >>> s = Syllabifier(["i", "u", "y"], ["o", "ø", "e"], ["a"], ["r"], ["l"], ["m", "n"], ["f", "v", "s", "h"], ["k", "g", "b", "p", "t", "d"])
+        >>> s.set_invalid_onsets(['lm'])
+        >>> s.legal_onsets(['a', 'lma', 'tigr'])
+        ['al', 'ma', 'tigr']
 
-            >>> s.set_invalid_onsets(['lm'])
+        You can also define invalid syllable ultima:
 
-            >>> s.legal_onsets(['a', 'lma', 'tigr'])
-            ['al', 'ma', 'tigr']
-
-            You can also define invalid syllable ultima:
-
-            >>> s.set_invalid_ultima(['gr'])
-
-            >>> s.legal_onsets(['al', 'ma', 'ti', 'gr'])
-            ['al', 'ma', 'tigr']
-
+        >>> s.set_invalid_ultima(['gr'])
+        >>> s.legal_onsets(['al', 'ma', 'ti', 'gr'])
+        ['al', 'ma', 'tigr']
         """
 
         vowels = self.vowels
