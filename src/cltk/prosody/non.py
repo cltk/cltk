@@ -644,8 +644,7 @@ class MetreManager:
         return len(lines) == 6
 
     @staticmethod
-    def load_poem_from_paragraphs(paragraphs: List[str]) \
-            -> List[Union[Fornyrdhislag, Ljoodhhaattr, UnspecifiedStanza]]:
+    def load_poem_from_paragraphs(paragraphs: List[str]):
         """
         Deals with a list of paragraphs:
         - detects its category,
