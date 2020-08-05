@@ -226,7 +226,6 @@ class LongLine:
         self.tokenizer = OldNorseWordTokenizer()
         self.tokenized_text = self.tokenizer.tokenize(text)
         self.short_lines = None
-        self. = []
         self.syllabified = []
         self.transcribed = []
         self.alliterations = []
