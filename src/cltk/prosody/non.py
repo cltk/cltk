@@ -11,7 +11,6 @@ import cltk.phonology.old_norse.transcription as old_norse_transcription
 from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber
 from cltk.stops.non import STOPS
-from cltk.tokenize.word import WordTokenizer
 from cltk.tag.pos import POSTag
 from cltk.tokenizers.non import OldNorseWordTokenizer
 
