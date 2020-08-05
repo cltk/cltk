@@ -737,14 +737,20 @@ class PoeticWord:
         Compute if a syllable is stress of not.
         Compute the POS category the word is in.
 
+        >>> poetry_tools = PoetryTools()
         >>> pw = PoeticWord("Heimdallar")
+        >>> px.parse_word_with(poetry_tools)
         >>> pw.syl
+        []
 
         >>> pw.length
+        []
 
         >>> pw.stress
+        []
 
         >>> pw.ipa_transcription
+        []
 
         :param poetry_tools: instance of PoetryTools
         """
