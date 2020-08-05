@@ -25,7 +25,8 @@ STOPS.extend(stops_for_poetry)
 def old_norse_normalize(text: str) -> str:
     """
     >>> old_norse_normalize("Hvat er  þat?")
-    Hvat er þat
+    'hvat er þat'
+
     :param text: text to normalize
     :return: normalized text
     """
@@ -59,7 +60,9 @@ class ShortLine:
         """
         >>> raw_short_line = "Deyr fé"
         >>> short_line = ShortLine(raw_short_line)
-        >>> short_line.syllabify()
+        >>> syl = Syllabifier(language="non", break_geminants=True)
+        >>> syl.set_invalid_onsets(old_norse_syllabifier.invalid_onsets)
+        >>> short_line.syllabify(syl)
 
         :param syllabifier: function that transforms a word into a list of its syllables
         :return:
@@ -147,6 +150,11 @@ class LongLine:
 
     def syllabify(self, syllabifier):
         """
+        >>> raw_long_line = "Deyr fé,\\ndeyja frændr"
+        >>> short_line = ShortLine(raw_long_line)
+        >>> syl = Syllabifier(language="non", break_geminants=True)
+        >>> syl.set_invalid_onsets(old_norse_syllabifier.invalid_onsets)
+        >>> short_line.syllabify(syl)
 
         :param syllabifier: Old Norse syllabifier
         :return:
@@ -305,15 +313,12 @@ class Metre:
             for i, first_sound_line in enumerate(first_sounds):
                 if isinstance(self.long_lines[i][0], ShortLine) and\
                         isinstance(self.long_lines[i][1], ShortLine):
-                    self.long_lines[i][0].get_first_sounds()
-                    self.long_lines[i][1].get_first_sounds()
                     alli, counter = self.long_lines[i][0].find_alliterations(
                         self.long_lines[i][1]
                     )
                     verse_alliterations.append(alli)
                     n_alliterations_lines.append(counter)
                 elif isinstance(self.long_lines[i][0], LongLine):
-                    self.long_lines[i][0].get_first_sounds()
                     alli, counter = self.long_lines[i][0].find_alliterations()
                     verse_alliterations.append(alli)
                     n_alliterations_lines.append(counter)
