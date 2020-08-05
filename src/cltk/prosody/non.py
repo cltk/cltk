@@ -35,94 +35,6 @@ def old_norse_normalize(text: str) -> str:
     return res
 
 
-class MetreManager:
-    """
-    Handles different kinds of meter in Old Norse poetry.
-
-    * Fornyrðislag
-    * Ljóðaháttr
-    """
-
-    @staticmethod
-    def is_fornyrdhislag(text: str) -> bool:
-        """
-        Basic check, only the number of lines matters: 8 for fornyrðislag.
-
-        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
-        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-        >>> MetreManager.is_fornyrdhislag(text1)
-        True
-        >>> MetreManager.is_fornyrdhislag(text2)
-        False
-
-        :param text:
-        :return:
-        """
-        lines = [line for line in text.split("\n") if line]
-        return len(lines) == 8
-
-    @staticmethod
-    def is_ljoodhhaattr(text: str) -> bool:
-        """
-        Basic check, only the number of lines matters: 6 for ljóðaháttr
-
-        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
-        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-        >>> MetreManager.is_ljoodhhaattr(text1)
-        False
-        >>> MetreManager.is_ljoodhhaattr(text2)
-        True
-
-        :param text:
-        :return:
-        """
-        lines = [line for line in text.split("\n") if line]
-        return len(lines) == 6
-
-    @staticmethod
-    def load_poem_from_paragraphs(paragraphs: List[str]) \
-            -> List[Union[Fornyrdhislag, Ljoodhhaattr, UnspecifiedStanza]]:
-        """
-        Deals with a list of paragraphs:
-        - detects its category,
-        - processes it.
-
-        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
-        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-
-        >>> paragraphs = [text1, text2]
-        >>> poem = MetreManager.load_poem_from_paragraphs(paragraphs)
-        >>> isinstance(poem[0], Fornyrdhislag)
-        True
-        >>> isinstance(poem[1], Ljoodhhaattr)
-        True
-
-        :param paragraphs: list of stanzas (list of strings)
-        :return: list of Fornyrdhislag or Ljoodhhaattr instances
-        """
-        poem = []
-        for paragraph in paragraphs:
-            if MetreManager.is_fornyrdhislag(paragraph):
-                fnl = Fornyrdhislag()
-                fnl.from_short_lines_text(paragraph)
-                fnl.syllabify(old_norse_syllabifier.hierarchy)
-                fnl.to_phonetics()
-                poem.append(fnl)
-            elif MetreManager.is_ljoodhhaattr(paragraph):
-                lh = Ljoodhhaattr()
-                lh.from_short_lines_text(paragraph)
-                lh.syllabify(old_norse_syllabifier.hierarchy)
-                lh.to_phonetics()
-                poem.append(lh)
-            else:
-                stanza = UnspecifiedStanza()
-                stanza.from_short_lines_text(paragraph)
-                stanza.syllabify(old_norse_syllabifier.hierarchy)
-                stanza.to_phonetics()
-                poem.append(stanza)
-        return poem
-
-
 class ShortLine:
     """
     A short line, or half line, is a
@@ -130,8 +42,6 @@ class ShortLine:
     def __init__(self, text):
         self.text = text
         self.tokenizer = OldNorseWordTokenizer()
-        self.tokenized_text = self.tokenizer.tokenize(text)
-        self.first_sounds = []
         self.syllabified = []
         self.transcribed = []
         self.alliterations = {}
@@ -223,7 +133,6 @@ class LongLine:
     def __init__(self, text):
         self.text = text
         self.tokenizer = OldNorseWordTokenizer()
-        self.tokenized_text = self.tokenizer.tokenize(text)
         self.short_lines = None
         self.syllabified = []
         self.transcribed = []
@@ -231,6 +140,10 @@ class LongLine:
         self.phonological_features_text = []
         self.n_alliterations = 0
         self.syllabified_phonological_features_text = []
+
+    @property
+    def tokenized_text(self):
+        return self.tokenizer.tokenize(self.text)
 
     def syllabify(self, syllabifier):
         """
@@ -684,6 +597,94 @@ class Ljoodhhaattr(Metre):
         :return:
         """
         return Metre.find_alliteration(self)
+
+
+class MetreManager:
+    """
+    Handles different kinds of meter in Old Norse poetry.
+
+    * Fornyrðislag
+    * Ljóðaháttr
+    """
+
+    @staticmethod
+    def is_fornyrdhislag(text: str) -> bool:
+        """
+        Basic check, only the number of lines matters: 8 for fornyrðislag.
+
+        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
+        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> MetreManager.is_fornyrdhislag(text1)
+        True
+        >>> MetreManager.is_fornyrdhislag(text2)
+        False
+
+        :param text:
+        :return:
+        """
+        lines = [line for line in text.split("\n") if line]
+        return len(lines) == 8
+
+    @staticmethod
+    def is_ljoodhhaattr(text: str) -> bool:
+        """
+        Basic check, only the number of lines matters: 6 for ljóðaháttr
+
+        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
+        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> MetreManager.is_ljoodhhaattr(text1)
+        False
+        >>> MetreManager.is_ljoodhhaattr(text2)
+        True
+
+        :param text:
+        :return:
+        """
+        lines = [line for line in text.split("\n") if line]
+        return len(lines) == 6
+
+    @staticmethod
+    def load_poem_from_paragraphs(paragraphs: List[str]) \
+            -> List[Union[Fornyrdhislag, Ljoodhhaattr, UnspecifiedStanza]]:
+        """
+        Deals with a list of paragraphs:
+        - detects its category,
+        - processes it.
+
+        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
+        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+
+        >>> paragraphs = [text1, text2]
+        >>> poem = MetreManager.load_poem_from_paragraphs(paragraphs)
+        >>> isinstance(poem[0], Fornyrdhislag)
+        True
+        >>> isinstance(poem[1], Ljoodhhaattr)
+        True
+
+        :param paragraphs: list of stanzas (list of strings)
+        :return: list of Fornyrdhislag or Ljoodhhaattr instances
+        """
+        poem = []
+        for paragraph in paragraphs:
+            if MetreManager.is_fornyrdhislag(paragraph):
+                fnl = Fornyrdhislag()
+                fnl.from_short_lines_text(paragraph)
+                fnl.syllabify(old_norse_syllabifier.hierarchy)
+                fnl.to_phonetics()
+                poem.append(fnl)
+            elif MetreManager.is_ljoodhhaattr(paragraph):
+                lh = Ljoodhhaattr()
+                lh.from_short_lines_text(paragraph)
+                lh.syllabify(old_norse_syllabifier.hierarchy)
+                lh.to_phonetics()
+                poem.append(lh)
+            else:
+                stanza = UnspecifiedStanza()
+                stanza.from_short_lines_text(paragraph)
+                stanza.syllabify(old_norse_syllabifier.hierarchy)
+                stanza.to_phonetics()
+                poem.append(stanza)
+        return poem
 
 
 class PoetryTools:
