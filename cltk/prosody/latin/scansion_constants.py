@@ -70,7 +70,7 @@ class ScansionConstants:
                          'dī', 'ēf', 'ad', 'ne', 'ac', 'in', 'rē', 'nē', 'āb', 'ef', 'ēx', 'di',
                          'se', 'īn', 'en', 'co', 'ab', 'er', 'dē', 're', 'ēn', 'ōb', 'sē']
 
-        self.ASPIRATES = ["pt", "Pt", "ch", "th", "Ch", "Th"]
+        self.ASPIRATES = ["ph", "th", "ch", "Ph", "Th", "Ch", "PH", "TH", "CH"]
         self.NOTE_MAP: dict = dict((("positionally", "Valid by positional stresses."),
                                     ("inverted", "Inverted amphibrachs corrected."),
                                     ("invalid start", "Corrected invalid start."),

@@ -22,7 +22,7 @@ __license__ = 'MIT License'
 class Syllabifier:
     """Scansion constants can be modified and passed into the constructor if desired."""
 
-    def __init__(self, constants=ScansionConstants()):
+    def __init__(self, constants=ScansionConstants(), convert_i_to_j=True):
         self.constants = constants
         self.consonant_matcher = re.compile("[{}]".format(constants.CONSONANTS))
         self.vowel_matcher = re.compile(
@@ -34,6 +34,7 @@ class Syllabifier:
         self.ACCEPTABLE_CHARS = constants.ACCENTED_VOWELS + constants.VOWELS + ' ' \
                                 + constants.CONSONANTS
         self.diphthongs = [d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]]
+        self.convert_i_to_j = convert_i_to_j
 
     def syllabify(self, words: str) -> List[str]:
         """
@@ -189,6 +190,7 @@ class Syllabifier:
 
     def convert_consonantal_i(self, word) -> str:
         """Convert i to j when at the start of a word."""
+        if not self.convert_i_to_j: return word
         match = list(self.consonantal_i_matcher.finditer(word))
         if match:
             if word[0].isupper():
