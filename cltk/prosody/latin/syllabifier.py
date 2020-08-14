@@ -347,6 +347,8 @@ class Syllabifier:
             if self._contains_consonants(next_letter[0]) and self._starts_with_vowel(
                     previous_letter[-1]):
                 return string_utils.move_consonant_left(letters, [pos])
+            if consonant in self.constants.MUTES and next_letter[0] in self.constants.MUTES:
+                return string_utils.move_consonant_left(letters, [pos])
             # fall through case
             if self._contains_consonants(next_letter[0]):
                 return string_utils.move_consonant_right(letters, [pos])
