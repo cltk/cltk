@@ -215,7 +215,7 @@ class TestScansionFunctions(unittest.TestCase):
         self.assertEqual(syllabifier.syllabify("Bīthÿnus"), ['Bī', 'thÿ', 'nus'])
         # break a group of words into a group of syllables:
         self.assertEqual(syllabifier.syllabify("arbor pulcher ruptus"), [
-            'ar', 'bor', 'pul', 'cher', 'ru', 'ptus'])
+            'ar', 'bor', 'pul', 'cher', 'rup', 'tus'])
         # do not process character sets that have not been specified by the ScansionConstants class
         # that is injected into the constructor; a whole group is rejected when this occurs
         self.assertEqual(syllabifier.syllabify("Platonis Ψυχη"),['Platonis', 'Ψυχη'])

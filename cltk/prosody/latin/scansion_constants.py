@@ -57,8 +57,9 @@ class ScansionConstants:
                                "Huic": ["Huic"]}
         self.stress_accent_dict = dict(zip(list(self.VOWELS + self.ACCENTED_VOWELS),
                                            list(self.ACCENTED_VOWELS + self.ACCENTED_VOWELS)))
-        self.LIQUIDS = "lmnrLMNR"
+        self.LIQUIDS = "lrLR"
         self.MUTES = "bcdfgptBCDFGPT"
+        self.NASALS = "mnMN"
         self.DOUBLED_CONSONANTS = [letter + letter for letter in self.CONSONANTS]
         """Prefix order not arbitrary; one will want to match on extra before ex"""
         self.PREFIXES = ['contrā', 'contra', 'subter', 'circum', 'trans', 'extro', 'suprā', 'extrā',

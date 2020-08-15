@@ -88,7 +88,11 @@ class Syllabifier:
         >>> print(syllabifier.syllabify("pulcher"))
         ['pul', 'cher']
         >>> print(syllabifier.syllabify("ruptus"))
-        ['ru', 'ptus']
+        ['rup', 'tus']
+        >>> print(syllabifier.syllabify("sumptus"))
+        ['sump', 'tus']
+        >>> print(syllabifier.syllabify("quemadmodum"))
+        ['que', 'mad', 'mo', 'dum']
         >>> print(syllabifier.syllabify("Bīthÿnus"))
         ['Bī', 'thÿ', 'nus']
         >>> print(syllabifier.syllabify("sanguen"))
