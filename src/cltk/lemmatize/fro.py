@@ -3,10 +3,11 @@ Lemmatizer for Old French.
 Rules are based on Brunot & Bruneau (1949).
 """
 
-import importlib.machinery
 import os
-import re
-from typing import List
+import importlib.machinery
+
+from cltk.utils import CLTK_DATA_DIR
+from cltk.lemmatize.naive_lemmatizer import DictionaryRegexLemmatizer
 
 from cltk.utils import CLTK_DATA_DIR
 
@@ -85,53 +86,55 @@ patterns = (
 )
 
 
-def _build_match_and_apply_functions(pattern, replace):
-    def matches_rule(word):
-        return re.search(pattern, word)
+class OldFrenchDictionaryLemmatizer(DictionaryRegexLemmatizer):
+    """
+    Naive lemmatizer for Old French.
 
-    def apply_rule(word):
-        return re.sub(pattern, replace, word)
+    >>> lemmatizer = OldFrenchDictionaryLemmatizer()
+    >>> lemmatizer.lemmatize_token('corant')
+    'corant'
+    >>> lemmatizer.lemmatize_token('corant', return_frequencies=True)
+    ('corant', -9.319508628976836)
+    >>> lemmatizer.lemmatize_token('corant', return_frequencies=True, best_guess=False)
+    [('corir', 0), ('corant', -9.319508628976836)]
+    >>> lemmatizer.lemmatize(['corant', '.', 'vult', 'premir'], return_frequencies=True, best_guess=False)
+    [[('corir', 0), ('corant', -9.319508628976836)], [('PUNK', 0)], [('vout', -7.527749159748781)], [('premir', 0)]]
+    """
 
-    return (matches_rule, apply_rule)
+    def _load_forms_and_lemmas(self):
+        """Load the dictionary of lemmas and forms from the fro data repository."""
 
-
-rules = [
-    _build_match_and_apply_functions(pattern, replace)
-    for (pattern, replace) in patterns
-]
-
-
-def _apply_regex(token):
-    for matches_rule, apply_rule in rules:
-        if matches_rule(token):
-            return apply_rule(token)
-
-
-class Lemmatizer:  # pylint: disable=too-few-public-methods
-    def __init__(self):
         rel_path = os.path.join(
             CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "inverted_lemma_dict.py"
         )
         path = os.path.expanduser(rel_path)
         loader = importlib.machinery.SourceFileLoader("file", path)
         module = loader.load_module()
-        self.inverted_index = module.inverted_index
+        return module.inverted_index
 
-    def lemmatize(self, token: str) -> List[str]:
-        """
-        Lemmatize French words by replacing input words with corresponding
-        values from a replacement list.
-        >>> lemmatizer = Lemmatizer()
-        >>> lemmatizer.lemmatize('pecol')
-        ['copel2', 'pecol']
-        """
+    def _load_unigram_counts(self):
+        """Load the table of frequency counts of word forms."""
 
-        lemmas = self.inverted_index[token]
+        rel_path = os.path.join(
+            CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "fro_unigrams.txt"
+        )
+        path = os.path.expanduser(rel_path)
 
-        # if no match apply regular expressions and check for a match against the list of lemmas again
-        if not lemmas:
-            mod_token = _apply_regex(token)
-            if mod_token in self.inverted_index:
-                lemmas = [mod_token]
+        type_counts = {}
 
-        return lemmas if lemmas else [token]
+        with open(path, "r") as infile:
+            lines = infile.read().splitlines()
+            for line in lines:
+                count, word = line.split()
+                type_counts[word] = int(count)
+
+        return type_counts
+
+    def _specify_regex_rules(self):
+        return determiner_rules
+        + misc_rules
+        + auxiliary_rules
+        + verbal_rules
+        + french_nominal_rules
+        + reduction_rules
+
