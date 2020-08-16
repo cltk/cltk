@@ -4,15 +4,12 @@
 from copy import deepcopy
 from dataclasses import dataclass
 
-from boltons.cacheutils import cachedproperty
-
 import cltk.stem.akk
 import cltk.stem.enm
 import cltk.stem.fro
 import cltk.stem.gmh
 import cltk.stem.lat
 from cltk.core.data_types import Doc, Process, Word
-from cltk.nlp import NLP
 
 
 @dataclass
@@ -104,7 +101,7 @@ class MiddleHighGermanStemmingProcess(StemmingProcess):
 
 
 class OldFrenchStemmingProcess(StemmingProcess):
-    """The default Middle High German stemming algorithm.
+    """The default Old French stemming algorithm.
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers import OldFrenchTokenizationProcess

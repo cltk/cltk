@@ -119,7 +119,6 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
     :type lemma: str
     :param lemma: Lemma to assign to each token
 
-    >>> from cltk.lemmatize.lat.backoff import DefaultLemmatizer
     >>> default_lemmatizer = DefaultLemmatizer('UNK')
     >>> list(default_lemmatizer.lemmatize('arma virumque cano'.split()))
     [('arma', 'UNK'), ('virumque', 'UNK'), ('cano', 'UNK')]
@@ -145,7 +144,6 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
     all remaining unlemmatized tokens, increasing the chance of a successful
     match.
 
-    >>> from cltk.lemmatize.lat.backoff import IdentityLemmatizer
     >>> identity_lemmatizer = IdentityLemmatizer()
     >>> list(identity_lemmatizer.lemmatize('arma virumque cano'.split()))
     [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]

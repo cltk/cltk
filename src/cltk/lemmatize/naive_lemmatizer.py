@@ -1,4 +1,3 @@
-import codecs
 import math
 import os
 import re
@@ -125,4 +124,7 @@ class DictionaryRegexLemmatizer(ABC):
             self.lemmatize_token(token, best_guess, return_frequencies)
             for token in tokens
         ]
+
+    def __call__(self, token: str) -> str:
+        return self.lemmatize_token(token)
 

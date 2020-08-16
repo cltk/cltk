@@ -13,26 +13,27 @@ from cltk.lemmatize.backoff import (
     RegexpLemmatizer,
     UnigramLemmatizer,
 )
-from cltk.lemmatize.greek.greek import greek_sub_patterns
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
+greek_sub_patterns = [("(ων)(ος|ι|να)$", r"ων")]
 
-class BackoffGreekLemmatizer(object):
+models_path = os.path.normpath(
+    os.path.join(CLTK_DATA_DIR, "grc/model/grc_models_cltk/lemmata/backoff")
+)
+
+
+class GreekBackoffLemmatizer:
     """Suggested backoff chain; includes at least on of each
     type of major sequential backoff class from backoff.py
     """
 
-    models_path = os.path.normpath(
-        os.path.join(CLTK_DATA_DIR, "grc/model/grc_models_cltk/lemmata/backoff")
-    )
-
     def __init__(
         self: object, train: List[list] = None, seed: int = 3, verbose: bool = False
     ):
-        self.models_path = BackoffGreekLemmatizer.models_path
+        self.models_path = models_path
 
-        missing_models_message = "BackoffGreekLemmatizer requires the ```grc_models_cltk``` to be in cltk_data. Please load this corpus."
+        missing_models_message = "GreekBackoffLemmatizer requires the ```grc_models_cltk``` to be in cltk_data. Please load this corpus."
 
         try:
             self.train = open_pickle(
@@ -47,7 +48,7 @@ class BackoffGreekLemmatizer(object):
         except FileNotFoundError as err:
             raise type(err)(missing_models_message)
 
-        self.greek_sub_patterns = greek_sub_patterns  # Move to greek_models_cltk
+        self.greek_sub_patterns = greek_sub_patterns  
 
         self.seed = seed
         self.VERBOSE = verbose
@@ -100,6 +101,15 @@ class BackoffGreekLemmatizer(object):
         self.lemmatizer = self.backoff5
 
     def lemmatize(self: object, tokens: List[str]):
+        """
+        Lemmatize a list of words.
+
+        >>> lemmatizer = GreekBackoffLemmatizer()
+        >>> lemmatizer.lemmatize("κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος".split())
+        [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθὲς'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), \
+('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
+        """
+        
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
@@ -112,3 +122,6 @@ class BackoffGreekLemmatizer(object):
 
     def __repr__(self: object):
         return f"<BackoffGreekLemmatizer v0.1>"
+
+    def __call__(self, token: str) -> str:
+        return self.lemmatize([token])[0][0]
