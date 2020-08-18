@@ -19,6 +19,13 @@ from cltk.dependency.processes import (
     OCSStanzaProcess,
     OldFrenchStanzaProcess,
 )
+
+from cltk.lemmatize.processes import (
+    GreekLemmatizationProcess,
+    LatinLemmatizationProcess,
+    OldEnglishLemmatizationProcess,
+    OldFrenchLemmatizationProcess)
+
 from cltk.embeddings.processes import (
     ArabicEmbeddingsProcess,
     AramaicEmbeddingsProcess,
@@ -237,14 +244,14 @@ class HindiPipeline(Pipeline):
     Language(name='Hindi', glottolog_id='hind1269', latitude=25.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='hind1270', level='language', iso_639_3_code='hin', type='')
     >>> a_pipeline.language.name
     'Hindi'
-    >>> a_pipeline.processes[0]
-    <class 'cltk.tokenizers.processes.SanskritTokenizationProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltk.stops.processes.StopsProcess'>
     """
 
     description: str = "Pipeline for the Hindi language."
     language: Language = get_lang("hin")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [SanskritTokenizationProcess, StopsProcess]
+        default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
     )
 
 
@@ -283,8 +290,7 @@ class LatinPipeline(Pipeline):
 class MiddleHighGermanPipeline(Pipeline):
     """Default ``Pipeline`` for Middle High German.
 
-    >>> from cltk.languages.pipelines import MHGPipeline
-    >>> a_pipeline = MHGPipeline()
+    >>> a_pipeline = MiddleHighGermanPipeline()
     >>> a_pipeline.description
     'Pipeline for the Middle High German language.'
     >>> a_pipeline.language
@@ -292,7 +298,7 @@ class MiddleHighGermanPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Middle High German'
     >>> a_pipeline.processes[0]
-    <class 'cltk.tokenizers.processes.MHGTokenizationProcess'>
+    <class 'cltk.tokenizers.processes.MiddleHighGermanTokenizationProcess'>
     """
 
     description: str = "Pipeline for the Middle High German language."
@@ -394,6 +400,7 @@ class OldEnglishPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
             MultilingualTokenizationProcess,
+            OldEnglishLemmatizationProcess,
             OldEnglishEmbeddingsProcess,
             StopsProcess,
         ]
@@ -479,8 +486,6 @@ class PaliPipeline(Pipeline):
     )
 
 
-# TODO: Add Panjali ("pan")
-
 
 @dataclass
 class PanjabiPipeline(Pipeline):
@@ -494,14 +499,14 @@ class PanjabiPipeline(Pipeline):
     Language(name='Eastern Panjabi', glottolog_id='panj125', latitude=30.0368, longitude=75.6702, dates=[], family_id='indo1319', parent_id='east2727', level='language', iso_639_3_code='pan', type='')
     >>> a_pipeline.language.name
     'Eastern Panjabi'
-    >>> a_pipeline.processes[0]
-    <class 'cltk.tokenizers.processes.SanskritTokenizationProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltk.stops.processes.StopsProcess'>
     """
 
     description: str = "Pipeline for the Panjabi language."
     language: Language = get_lang("pan")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [SanskritTokenizationProcess, StopsProcess]
+        default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
     )
 
 
@@ -519,15 +524,15 @@ class SanskritPipeline(Pipeline):
     Language(name='Sanskrit', glottolog_id='sans1269', latitude=20.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='indo1321', level='language', iso_639_3_code='san', type='a')
     >>> a_pipeline.language.name
     'Sanskrit'
-    >>> a_pipeline.processes[0]
-    <class 'cltk.tokenizers.processes.SanskritTokenizationProcess'>
+    >>> a_pipeline.processes[1]
+    <class 'cltk.embeddings.processes.SanskritEmbeddingsProcess'>
     """
 
     description: str = "Pipeline for the Sanskrit language."
     language: Language = get_lang("san")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
-            SanskritTokenizationProcess,
+            MultilingualTokenizationProcess,
             SanskritEmbeddingsProcess,
             StopsProcess,
         ]

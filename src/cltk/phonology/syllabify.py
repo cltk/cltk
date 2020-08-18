@@ -216,13 +216,13 @@ class Syllabifier:
         cltk.core.exceptions.CLTKException
 
         Additionally, you can utilize the language parameter:
-        >>> s = Syllabifier(language='middle_high_german')
+        >>> s = Syllabifier(language='gmh')
         >>> s.syllabify('lobebæren')
         ['lo', 'be', 'bæ', 'ren']
-        >>> s = Syllabifier(language='middle_english')
+        >>> s = Syllabifier(language='enm')
         >>> s.syllabify("huntyng")
         ['hun', 'tyng']
-        >>> s = Syllabifier(language='old_english')
+        >>> s = Syllabifier(language='ang')
         >>> s.syllabify("arcebiscop")
         ['ar', 'ce', 'bis', 'cop']
 

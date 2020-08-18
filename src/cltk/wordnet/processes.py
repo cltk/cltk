@@ -3,6 +3,7 @@
 
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
+from copy import deepcopy
 
 from boltons.cacheutils import cachedproperty
 
@@ -32,14 +33,16 @@ class WordNetProcess(Process):
         if language is not None:
             return WordNetCorpusReader(language)
 
-    def run(self):
+    def run(self, input_doc: Doc) -> Doc:
         """Adds a list of Synset objects, representing a Word's senses, to all lemmatized words"""
 
-        tmp_doc = self.input_doc
+        output_doc = deepcopy(input_doc)
+
         wn = self.algorithm
-        for word in tmp_doc.words:
+        for word in output_doc.words:
             # TODO: map CLTK lemmas to WN lemmas
             if word.lemma:
                 synsets = list(wn.lemma(word.lemma, return_ambiguous=False).synsets())
                 word.synsets = synsets
-        self.output_doc = tmp_doc
+
+        return output_doc

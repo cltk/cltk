@@ -11,6 +11,7 @@ of the NLP pipeline.
 
 from dataclasses import dataclass
 from typing import Dict, List, Type
+from abc import ABC, abstractmethod
 
 import numpy
 
@@ -55,7 +56,9 @@ class Word:
     >>> from cltk.languages.utils import get_lang
     >>> lat = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, embedding=None, stop=None, named_entity=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
+lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, \
+embedding=None, stop=None, named_entity=None)
     """
 
     index_char_start: int = None
@@ -106,8 +109,8 @@ class Doc:
     9
     >>> len(cltk_doc.sentences[0])
     26
-    >>> isinstance(cltk_doc.sentences[0][2], Word)
-    True
+    >>> type(cltk_doc.sentences[0][2])
+    <class 'cltk.core.data_types.Word'>
     >>> cltk_doc.sentences[0][2].string
     'omnis'
     >>> len(cltk_doc.sentences_tokens)
@@ -242,18 +245,20 @@ class Doc:
 
 
 @dataclass
-class Process:
+class Process(ABC):
     """For each type of NLP process there needs to be a definition.
     It includes the type of data it expects (``str``, ``List[str]``,
     ``Word``, etc.) and what field within ``Word`` it will populate.
     This base class is intended to be inherited by NLP process
     types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
 
-    >>> a_process = Process(input_doc=Doc(raw="input words here"))
     """
 
-    input_doc: Doc
-    output_doc: Doc = None
+    language: str = None
+
+    @abstractmethod
+    def run(self, input_doc: Doc) -> Doc:
+        pass    
 
 
 @dataclass
@@ -276,5 +281,5 @@ class Pipeline:
     processes: List[Type[Process]]
     language: Language
 
-    def add_process(self, process):
+    def add_process(self, process: Type[Process]):
         self.processes.append(process)

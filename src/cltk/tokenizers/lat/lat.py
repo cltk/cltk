@@ -51,14 +51,14 @@ class LatinWordTokenizer(WordTokenizer):
 
         :returns: A list of substrings extracted from the text
 
-        >>> toker = WordTokenizer()
+        >>> toker = LatinWordTokenizer()
         >>> text = 'atque haec abuterque puerve paterne nihil'
         >>> toker.tokenize(text)
         ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'pater', '-ne', 'nihil']
 
         >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
-        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex.', 'Roscio']
-
+        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex', '.', 'Roscio']
+        
         >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
         ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
 

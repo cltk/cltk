@@ -24,12 +24,14 @@ class StemmingProcess(Process):
     True
     """
 
-    def run(self):
+    def run(self, input_doc: Doc) -> Doc:
         stem = self.algorithm
 
-        self.output_doc = deepcopy(self.input_doc)
-        for word in self.output_doc.words:
+        output_doc = deepcopy(input_doc)
+        for word in output_doc.words:
             word.stem = stem(word.string)
+
+        return output_doc
 
 
 class LatinStemmingProcess(StemmingProcess):

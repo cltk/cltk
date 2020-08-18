@@ -257,7 +257,7 @@ class Word:
 
         elif stress_rule == "GSR":
             # The word striped of suffixes
-            st_word = stem([self.word], strip_suf=False)
+            st_word = stem(self.word, strip_suf=False)
             affix = self.word[: len(self.word) - len(st_word)]
 
             # Syllabify stripped word and affix

@@ -59,22 +59,22 @@ class StanzaWrapper:
           ...
         cltk.core.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by Stanza.
 
-        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="proiel", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="proiel", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="perseus", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="perseus", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lat"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="proiel", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="proiel", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lat"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="chu", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="chu", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("chu"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO")  # doctest: +SKIP
+        >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO", interactive=False)  # doctest: +SKIP
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("cop"))  # doctest: +SKIP
 
-        >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lzh"))
 
         >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO")
@@ -277,18 +277,19 @@ class StanzaWrapper:
                     f"CLTK message: Going to download required Stanza models to ``{self.model_path}`` ..."
                 )  # pragma: no cover
             stanza.download(lang=self.stanza_code, package=self.treebank)
-        print(  # pragma: no cover
-            "CLTK message: This part of the CLTK depends upon the Stanza NLP library."
-        )  # pragma: no cover
-        dl_is_allowed = query_yes_no(
-            f"CLTK message: Allow download of Stanza models to ``{self.model_path}``?"
-        )  # type: bool
-        if dl_is_allowed:
-            stanza.download(lang=self.stanza_code, package=self.treebank)
         else:
-            raise CLTKException(
-                f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
-            )
+            print(  # pragma: no cover
+                "CLTK message: This part of the CLTK depends upon the Stanza NLP library."
+            )  # pragma: no cover
+            dl_is_allowed = query_yes_no(
+                f"CLTK message: Allow download of Stanza models to ``{self.model_path}``?"
+            )  # type: bool
+            if dl_is_allowed:
+                stanza.download(lang=self.stanza_code, package=self.treebank)
+            else:
+                raise CLTKException(
+                    f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
+                )
         # if file model still not available after attempted DL, then raise error
         if not file_exists(self.model_path):
             raise FileNotFoundError(

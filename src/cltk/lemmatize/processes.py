@@ -7,7 +7,7 @@ from copy import deepcopy
 
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types import Process
+from cltk.core.data_types import Process, Doc
 
 from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer
 from cltk.lemmatize.fro import OldFrenchDictionaryLemmatizer
@@ -28,12 +28,14 @@ class LemmatizationProcess(Process):
     True
     """
 
-    def run(self):
+    def run(self, input_doc: Doc) -> Doc:
         lemmatizer = self.algorithm
 
-        self.output_doc = deepcopy(self.input_doc)
-        for word in self.output_doc.words:
+        output_doc = deepcopy(input_doc)
+        for word in output_doc.words:
             word.lemma = lemmatizer(word.string)
+
+        return output_doc
 
 class GreekLemmatizationProcess(LemmatizationProcess):
 	"""The default Ancient Greek lemmatization algorithm.

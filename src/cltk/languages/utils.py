@@ -31,11 +31,10 @@ def find_iso_name(common_name: str) -> List[str]:
     does simple substring matching, with some normalization
     of case, on the ``name`` field of the ``Language`` object.
 
-    >>> from cltk.languages.utils import find_iso_name
     >>> find_iso_name(common_name="Latin")
     ['lat']
     >>> find_iso_name(common_name="lat")
-    ['lat']
+    ['xga', 'lat']
     >>> find_iso_name(common_name="slav")
     ['chu']
     >>> find_iso_name(common_name="xxx")
