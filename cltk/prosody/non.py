@@ -3,18 +3,11 @@
 
 import re
 from math import floor
+from typing import List, Union, Tuple, Dict
 
-import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
 from cltk.core.cltk_logger import logger
-from cltk.phonology.old_norse.transcription import (
-    DIPHTHONGS_IPA,
-    Consonant,
-    DIPHTHONGS_IPA_class,
-    IPA_class,
-    Vowel,
-    measure_old_norse_syllable,
-    old_norse_rules,
-)
+import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
+import cltk.phonology.old_norse.transcription as old_norse_transcription
 from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber
 from cltk.stops.non import STOPS
@@ -29,91 +22,27 @@ stops_for_poetry = ["ek", "it"]  # to be completed
 STOPS.extend(stops_for_poetry)
 
 
-def normalize(text):
+def old_norse_normalize(text: str) -> str:
+    """
+    >>> old_norse_normalize("Hvat er  þat?")
+    'hvat er þat'
+
+    :param text: text to normalize
+    :return: normalized text
+    """
     res = text.lower()
     res = re.sub(r"[\-:?;.,]", "", res)
     res = re.sub(r" +", " ", res)
     return res
 
 
-class MetreManager:
-    """
-    * Fornyrðislag
-    * Ljóðaháttr
-    """
-
-    @staticmethod
-    def is_fornyrdhislag(text: str):
-        """
-        Basic check, only the number of lines matters: 8 for fornyrðislag.
-
-        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
-        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-        >>> MetreManager.is_fornyrdhislag(text1)
-        True
-        >>> MetreManager.is_fornyrdhislag(text2)
-        False
-
-        :param text:
-        :return:
-        """
-        lines = [line for line in text.split("\n") if line]
-        return len(lines) == 8
-
-    @staticmethod
-    def is_ljoodhhaattr(text: str):
-        """
-        Basic check, only the number of lines matters: 6 for ljóðaháttr
-
-        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
-        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
-        >>> MetreManager.is_ljoodhhaattr(text1)
-        False
-        >>> MetreManager.is_ljoodhhaattr(text2)
-        True
-
-        :param text:
-        :return:
-        """
-        lines = [line for line in text.split("\n") if line]
-        return len(lines) == 6
-
-    @staticmethod
-    def load_poem_from_paragraphs(paragraphs):
-        """
-
-        :param paragraphs: list of stanzas (list of strings)
-        :return: list of Fornyrdhislag or Ljoodhhaattr instances
-        """
-        poem = []
-        for paragraph in paragraphs:
-            if MetreManager.is_fornyrdhislag(paragraph):
-                fnl = Fornyrdhislag()
-                fnl.from_short_lines_text(paragraph)
-                fnl.syllabify(old_norse_syllabifier.hierarchy)
-                fnl.to_phonetics()
-                poem.append(fnl)
-            elif MetreManager.is_ljoodhhaattr(paragraph):
-                lh = Ljoodhhaattr()
-                lh.from_short_lines_text(paragraph)
-                lh.syllabify(old_norse_syllabifier.hierarchy)
-                lh.to_phonetics()
-                poem.append(lh)
-            else:
-                stanza = UnspecifiedStanza()
-                stanza.from_short_lines_text(paragraph)
-                stanza.syllabify(old_norse_syllabifier.hierarchy)
-                stanza.to_phonetics()
-                poem.append(stanza)
-        return poem
-
-
 class ShortLine:
+    """
+    A short line, or half line, is a
+    """
     def __init__(self, text):
         self.text = text
         self.tokenizer = OldNorseWordTokenizer()
-        self.tokenized_text = self.tokenizer.tokenize(text)
-        self.first_sounds = []
         self.syllabified = []
         self.transcribed = []
         self.alliterations = {}
@@ -123,25 +52,34 @@ class ShortLine:
         # self.syllabified_transcribed_text = []
         self.syllabified_phonological_features_text = []
 
+    @property
+    def tokenized_text(self):
+        return self.tokenizer.tokenize(self.text)
+
     def syllabify(self, syllabifier):
         """
+        >>> raw_short_line = "Deyr fé"
+        >>> short_line = ShortLine(raw_short_line)
+        >>> syl = Syllabifier(language="non", break_geminants=True)
+        >>> syl.set_invalid_onsets(old_norse_syllabifier.invalid_onsets)
+        >>> short_line.syllabify(syl)
 
-        :param syllabifier:
+        :param syllabifier: function that transforms a word into a list of its syllables
         :return:
         """
         for viisuordh in self.tokenized_text:
-            word = normalize(viisuordh)
+            word = old_norse_normalize(viisuordh)
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
     def to_phonetics(self, transcriber):
         """
-        Phontic transcription of the ShortLine instances.
-        :param transcriber:
+        Phonetic transcription of the ShortLine instances.
+        :param transcriber: Old Norse transcriber
         :return:
         """
         for viisuordh in self.tokenized_text:
-            word = normalize(viisuordh)
+            word = old_norse_normalize(viisuordh)
             if word:
                 transcribed_word = transcriber.text_to_phonetic_representation(word)
                 # phonological features list, result of Transcriber.text_to_phonemes()
@@ -149,51 +87,56 @@ class ShortLine:
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
-        self.get_first_sounds()
 
-    def get_first_sounds(self):
+    @property
+    def first_sounds(self):
         """
         The first first sound of each word of the ShortLine.
-        :return:
+        :return: first sound of each word
         """
-        self.first_sounds = []
+        first_sounds = []
         for viisuord in self.phonological_features_text:
-            self.first_sounds.append(viisuord[0])
+            first_sounds.append(viisuord[0])
+        return first_sounds
 
     def find_alliterations(self, other_short_line):
         """
         Alliterations is the repetition of a same sound pattern (usually the first sound) of important words.
         This usually excludes stop words.
-        :param other_short_line:
+
+        :param other_short_line: short line to compare with
         :return:
         """
         self.n_alliterations = 0
         self.alliterations = []
         for j, sound1 in enumerate(self.first_sounds):
-            word1 = normalize(self.tokenized_text[j])
+            word1 = old_norse_normalize(self.tokenized_text[j])
             for k, sound2 in enumerate(other_short_line.first_sounds):
-                word2 = normalize(other_short_line.tokenized_text[k])
+                word2 = old_norse_normalize(other_short_line.tokenized_text[k])
                 if word1 not in STOPS and word2 not in STOPS:
                     if (
-                        isinstance(sound1, Consonant)
-                        and isinstance(sound2, Consonant)
+                        isinstance(sound1, old_norse_transcription.Consonant)
+                        and isinstance(sound2, old_norse_transcription.Consonant)
                         and sound1.ipar == sound2.ipar
                     ):
                         self.alliterations.append((word1, word2))
                         self.n_alliterations += 1
-                    elif isinstance(sound1, Vowel) and isinstance(sound2, Vowel):
+                    elif isinstance(sound1, old_norse_transcription.Vowel) and \
+                            isinstance(sound2, old_norse_transcription.Vowel):
                         self.alliterations.append((word1, word2))
                         self.n_alliterations += 1
         return self.alliterations, self.n_alliterations
 
 
 class LongLine:
+    """
+
+    """
+
     def __init__(self, text):
         self.text = text
         self.tokenizer = OldNorseWordTokenizer()
-        self.tokenized_text = self.tokenizer.tokenize(text)
         self.short_lines = None
-        self.first_sounds = []
         self.syllabified = []
         self.transcribed = []
         self.alliterations = []
@@ -201,41 +144,51 @@ class LongLine:
         self.n_alliterations = 0
         self.syllabified_phonological_features_text = []
 
+    @property
+    def tokenized_text(self):
+        return self.tokenizer.tokenize(self.text)
+
     def syllabify(self, syllabifier):
         """
+        >>> raw_long_line = "Deyr fé,\\ndeyja frændr"
+        >>> short_line = ShortLine(raw_long_line)
+        >>> syl = Syllabifier(language="non", break_geminants=True)
+        >>> syl.set_invalid_onsets(old_norse_syllabifier.invalid_onsets)
+        >>> short_line.syllabify(syl)
 
-        :param syllabifier:
+        :param syllabifier: Old Norse syllabifier
         :return:
         """
         for viisuordh in self.tokenized_text:
-            word = normalize(viisuordh)
+            word = old_norse_normalize(viisuordh)
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
     def to_phonetics(self, transcriber):
         """
         Phontic transcription of the ShortLine instances.
-        :param transcriber:
+        :param transcriber: Old Norse transcriber
         :return:
         """
         for viisuordh in self.tokenized_text:
-            word = normalize(viisuordh)
+            word = old_norse_normalize(viisuordh)
             if word:
                 transcribed_word = transcriber.text_to_phonetic_representation(word)
                 pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
                 self.phonological_features_text.append(pfl)
-        self.get_first_sounds()
 
-    def get_first_sounds(self):
+    @property
+    def first_sounds(self):
         """
         The first first sound of each word of the ShortLine.
         :return:
         """
-        self.first_sounds = []
+        first_sounds = []
         for viisuord in self.phonological_features_text:
-            self.first_sounds.append(viisuord[0])
+            first_sounds.append(viisuord[0])
+        return first_sounds
 
     def find_alliterations(self):
         """
@@ -246,15 +199,16 @@ class LongLine:
         self.n_alliterations = 0
         self.alliterations = []
         for j, sound1 in enumerate(self.first_sounds):
-            word1 = normalize(self.tokenized_text[j])
+            word1 = old_norse_normalize(self.tokenized_text[j])
             if j < len(self.first_sounds) - 1:
-                for k, sound2 in enumerate(self.first_sounds[j + 1 :]):
-                    word2 = normalize(self.tokenized_text[k])
+                for k, sound2 in enumerate(self.first_sounds[j+1:]):
+                    word2 = old_norse_normalize(self.tokenized_text[k])
                     if word1 not in STOPS and sound2 not in STOPS:
-                        if isinstance(sound1, Consonant) and sound1.ipar == sound2.ipar:
+                        if isinstance(sound1, old_norse_transcription.Consonant) and sound1.ipar == sound2.ipar:
                             self.alliterations.append((word1, word2))
                             self.n_alliterations += 1
-                        elif isinstance(sound1, Vowel) and isinstance(sound2, Vowel):
+                        elif isinstance(sound1, old_norse_transcription.Vowel) and \
+                                isinstance(sound2, old_norse_transcription.Vowel):
                             self.alliterations.append((word1, word2))
                             self.n_alliterations += 1
         return self.alliterations, self.n_alliterations
@@ -270,13 +224,11 @@ class Metre:
         """
 
         """
-        self.text = ""
+        self.text = ""  # raw text
         self.short_lines = []  # list of minimal lines
         self.long_lines = []  # list of long lines
         self.syllabified_text = []  # each word is replaced by a list of its syllables
-        self.transcribed_text = (
-            []
-        )  # each line is replaced by its phonetic transcription
+        self.transcribed_text = []  # each line is replaced by its phonetic transcription
         self.phonological_features_text = []
         self.syllabified_phonological_features_text = []
 
@@ -287,7 +239,7 @@ class Metre:
         """
         self.text = text
 
-    def syllabify(self, hierarchy):
+    def syllabify(self, hierarchy: Dict[str, int]):
         """
         Syllables may play a role in verse classification.
         """
@@ -313,11 +265,14 @@ class Metre:
         Transcribing words in verse helps find alliteration.
         """
         if len(self.long_lines) == 0:
-            logger.error("No text was imported")
+            logger.error("No text has been imported")
             self.syllabified_text = []
         else:
             transcriber = Transcriber(
-                DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules
+                old_norse_transcription.DIPHTHONGS_IPA,
+                old_norse_transcription.DIPHTHONGS_IPA_class,
+                old_norse_transcription.IPA_class,
+                old_norse_transcription.old_norse_rules
             )
             transcribed_text = []
             phonological_features_text = []
@@ -325,9 +280,8 @@ class Metre:
                 transcribed_text.append([])
                 phonological_features_text.append([])
                 for short_line in long_line:
-                    assert isinstance(short_line, ShortLine) or isinstance(
-                        short_line, LongLine
-                    )
+                    assert isinstance(short_line, ShortLine) or\
+                           isinstance(short_line, LongLine)
                     short_line.to_phonetics(transcriber)
                     transcribed_text[i].append(short_line.transcribed)
                     phonological_features_text[i].append(
@@ -357,18 +311,14 @@ class Metre:
             verse_alliterations = []
             n_alliterations_lines = []
             for i, first_sound_line in enumerate(first_sounds):
-                if isinstance(self.long_lines[i][0], ShortLine) and isinstance(
-                    self.long_lines[i][1], ShortLine
-                ):
-                    self.long_lines[i][0].get_first_sounds()
-                    self.long_lines[i][1].get_first_sounds()
+                if isinstance(self.long_lines[i][0], ShortLine) and\
+                        isinstance(self.long_lines[i][1], ShortLine):
                     alli, counter = self.long_lines[i][0].find_alliterations(
                         self.long_lines[i][1]
                     )
                     verse_alliterations.append(alli)
                     n_alliterations_lines.append(counter)
                 elif isinstance(self.long_lines[i][0], LongLine):
-                    self.long_lines[i][0].get_first_sounds()
                     alli, counter = self.long_lines[i][0].find_alliterations()
                     verse_alliterations.append(alli)
                     n_alliterations_lines.append(counter)
@@ -377,7 +327,8 @@ class Metre:
 
 class UnspecifiedStanza(Metre):
     """
-    No specific structure. No find_alliteration because it makes only sense for long lines.
+    No specific structure. No find_alliteration because it makes only sense
+    for long lines.
     """
 
     def __init__(self):
@@ -393,14 +344,14 @@ class UnspecifiedStanza(Metre):
         ['Ein sat hon úti,', 'þá er inn aldni kom', 'yggjungr ása', 'ok í augu leit.', 'Hvers fregnið mik?', 'Hví freistið mín?', 'Allt veit ek, Óðinn,', 'hvar þú auga falt,', 'í inum mæra', 'Mímisbrunni.', 'Drekkr mjöð Mímir', 'morgun hverjan', 'af veði Valföðrs.', 'Vituð ér enn - eða hvat?']
         >>> us.long_lines
 
-        :param text:
+        :param text: raw text
         :return:
         """
         Metre.from_short_lines_text(self, text)
         self.short_lines = [ShortLine(line) for line in text.split("\n") if line]
         self.long_lines = None
 
-    def syllabify(self, hierarchy):
+    def syllabify(self, hierarchy: Dict[str, int]):
         """
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
@@ -409,7 +360,7 @@ class UnspecifiedStanza(Metre):
         >>> us.syllabified_text
         [[['ein'], ['sat'], ['hon'], ['út', 'i']], [['þá'], ['er'], ['inn'], ['al', 'dni'], ['kom']], [['yg', 'gjungr'], ['ás', 'a']], [['ok'], ['í'], ['aug', 'u'], ['leit']], [['hvers'], ['freg', 'nið'], ['mik']], [['hví'], ['freis', 'tið'], ['mín']], [['allt'], ['veit'], ['ek'], ['ó', 'ðinn']], [['hvar'], ['þú'], ['aug', 'a'], ['falt']], [['í'], ['i', 'num'], ['mær', 'a']], [['mí', 'mis', 'brun', 'ni']], [['drekkr'], ['mjöð'], ['mí', 'mir']], [['mor', 'gun'], ['hver', 'jan']], [['af'], ['veð', 'i'], ['val', 'föðrs']], [['vi', 'tuð'], ['ér'], ['enn'], ['eð', 'a'], ['hvat']]]
 
-        :param hierarchy:
+        :param hierarchy: phonetic hierarchy
         :return:
         """
         syllabifier = Syllabifier(language="non", break_geminants=True)
@@ -433,12 +384,16 @@ class UnspecifiedStanza(Metre):
         :return:
         """
         transcriber = Transcriber(
-            DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules
+            old_norse_transcription.DIPHTHONGS_IPA,
+            old_norse_transcription.DIPHTHONGS_IPA_class,
+            old_norse_transcription.IPA_class,
+            old_norse_transcription.old_norse_rules
         )
         transcribed_text = []
         phonological_features_text = []
         for short_line in self.short_lines:
-            assert isinstance(short_line, ShortLine) or isinstance(short_line, LongLine)
+            assert isinstance(short_line, ShortLine) or\
+                   isinstance(short_line, LongLine)
             short_line.to_phonetics(transcriber)
             transcribed_text.append(short_line.transcribed)
             phonological_features_text.append(short_line.phonological_features_text)
@@ -462,9 +417,12 @@ class UnspecifiedStanza(Metre):
 
 class Fornyrdhislag(Metre):
     """
-    Fornyrðislag :
+    **Fornyrðislag** has two lifts per half line, with two or three (sometimes one)
+    unstressed syllables. At least two lifts, usually three, alliterate,
+    always including the main stave (the first lift of the second half-line).
+    (See https://en.wikipedia.org/wiki/Alliterative_verse#Old_Norse_poetic_forms)
 
-    short lines:
+    Short lines:
     --------
     --------
     --------
@@ -473,7 +431,7 @@ class Fornyrdhislag(Metre):
     --------
     --------
 
-    long lines:
+    Long lines:
     -------- --------
     -------- --------
     -------- --------
@@ -486,7 +444,7 @@ class Fornyrdhislag(Metre):
 
     def from_short_lines_text(self, text: str):
         """
-        Famous example from Völsupá 1
+        Famous example from Völsupá 1st stanza
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
         >>> fo.from_short_lines_text(text)
@@ -495,17 +453,16 @@ class Fornyrdhislag(Metre):
         >>> [[sl.text for sl in long_line] for long_line in fo.long_lines]
         [['Hljóðs bið ek allar', 'helgar kindir,'], ['meiri ok minni', 'mögu Heimdallar;'], ['viltu at ek, Valföðr,', 'vel fyr telja'], ['forn spjöll fira,', 'þau er fremst of man.']]
 
-        :param text:
+        :param text: raw text
         :return:
         """
         self.text = text
-        self.short_lines = [ShortLine(line) for line in text.split("\n") if line]
-        self.long_lines = [
-            self.short_lines[2 * i : 2 * i + 2]
-            for i in range(int(floor(len(self.short_lines) / 2)))
-        ]
+        self.short_lines = [ShortLine(line)
+                            for line in text.split("\n") if line]
+        self.long_lines = [self.short_lines[2 * i : 2 * i + 2]
+                           for i in range(int(floor(len(self.short_lines)/2)))]
 
-    def syllabify(self, hierarchy):
+    def syllabify(self, hierarchy: Dict[str, int]):
         """
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
@@ -514,6 +471,7 @@ class Fornyrdhislag(Metre):
         >>> fo.syllabified_text
         [[[['hljóðs'], ['bið'], ['ek'], ['al', 'lar']], [['hel', 'gar'], ['kin', 'dir']]], [[['meir', 'i'], ['ok'], ['min', 'ni']], [['mög', 'u'], ['heim', 'dal', 'lar']]], [[['vil', 'tu'], ['at'], ['ek'], ['val', 'föðr']], [['vel'], ['fyr'], ['tel', 'ja']]], [[['forn'], ['spjöll'], ['fir', 'a']], [['þau'], ['er'], ['fremst'], ['of'], ['man']]]]
 
+        :param hierarchy: phonetic hierarchy
         :return:
         """
         Metre.syllabify(self, hierarchy)
@@ -547,7 +505,12 @@ class Fornyrdhislag(Metre):
 
 class Ljoodhhaattr(Metre):
     """
-    Ljóðaháttr
+    Ljóðaháttr is a stanzaic verse form that created four line stanzas.
+    The odd numbered lines were almost standard lines of alliterative verse
+    with four lifts and two or three alliterations, with cæsura;
+    the even numbered lines had three lifts and two alliterations, and no cæsura.
+
+    See https://en.wikipedia.org/wiki/Alliterative_verse#Lj%C3%B3%C3%B0ah%C3%A1ttr.
 
     Short lines:
     --------
@@ -598,7 +561,7 @@ class Ljoodhhaattr(Metre):
             [self.short_lines[5]],
         ]
 
-    def syllabify(self, hierarchy):
+    def syllabify(self, hierarchy: Dict[str, int]):
         """
         >>> lj = Ljoodhhaattr()
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
@@ -607,6 +570,7 @@ class Ljoodhhaattr(Metre):
         >>> lj.syllabified_text
         [[[['deyr'], ['fé']], [['deyj', 'a'], ['frændr']]], [[['deyr'], ['sjalfr'], ['it'], ['sam', 'a']]], [[['ek'], ['veit'], ['einn']], [['at'], ['al', 'drei'], ['deyr']]], [[['dómr'], ['um'], ['dau', 'ðan'], ['hvern']]]]
 
+        :param hierarchy: phonetic hierarchy
         :return:
         """
         Metre.syllabify(self, hierarchy)
@@ -623,7 +587,7 @@ class Ljoodhhaattr(Metre):
         """
         Metre.to_phonetics(self)
 
-    def find_alliteration(self):
+    def find_alliteration(self) -> Tuple[list, list]:
         """
         >>> poem = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> lj = Ljoodhhaattr()
@@ -640,60 +604,88 @@ class Ljoodhhaattr(Metre):
         return Metre.find_alliteration(self)
 
 
-class PoetryTools:
+class MetreManager:
     """
-    Class which gathers tools necessary for poem analysis:
-    * a syllabifier
-    * a phonetic transcriber
-    * a parts-of-speech tagger
-    """
+    Handles different kinds of meter in Old Norse poetry.
 
-    def __init__(self):
-        self.syllabifier = Syllabifier(language="non", variant="ipa")
-        self.tr = Transcriber(
-            DIPHTHONGS_IPA, DIPHTHONGS_IPA_class, IPA_class, old_norse_rules
-        )
-        self.tagger = POSTag("non")
-
-
-class PoeticWord:
-    """
-    This class helps extract all relevant features of a poem word at once.
-    Features are:
-    * the raw text
-    * the syllabified word
-    * the syllable length of the word
-    * stress of syllables
-    * the parts-of-speech of the word
-
+    * Fornyrðislag
+    * Ljóðaháttr
     """
 
-    def __init__(self, text):
-        self.text = text
-        self.syl = []
-        self.length = []
-        self.stress = []
-        self.ipa_transcription = []
-
-    def parse_word_with(self, poetry_tools: PoetryTools):
+    @staticmethod
+    def is_fornyrdhislag(text: str) -> bool:
         """
-        Compute the phonetic transcription of the word with IPA representation
-        Compute the syllables of the word
-        Compute the length of each syllable
-        Compute if a syllable is stress of noe
-        Compute the POS category the word is in
+        Basic check, only the number of lines matters: 8 for fornyrðislag.
 
-        :param poetry_tools: instance of PoetryTools
+        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
+        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> MetreManager.is_fornyrdhislag(text1)
+        True
+        >>> MetreManager.is_fornyrdhislag(text2)
+        False
+
+        :param text:
         :return:
         """
-        phonemes = poetry_tools.tr.text_to_phonemes(self.text)
-        self.syl = poetry_tools.syllabifier.syllabify_phonemes(phonemes)
-        for i, syllable in enumerate(self.syl):
-            self.ipa_transcription.append([])
-            syl_len = measure_old_norse_syllable(syllable).value
-            syl_stress = 1 if i == 0 else 0
+        lines = [line for line in text.split("\n") if line]
+        return len(lines) == 8
 
-            self.length.append(syl_len)
-            self.stress.append(syl_stress)
-            for c in syllable:
-                self.ipa_transcription[i].append(c.ipar)
+    @staticmethod
+    def is_ljoodhhaattr(text: str) -> bool:
+        """
+        Basic check, only the number of lines matters: 6 for ljóðaháttr
+
+        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
+        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+        >>> MetreManager.is_ljoodhhaattr(text1)
+        False
+        >>> MetreManager.is_ljoodhhaattr(text2)
+        True
+
+        :param text:
+        :return:
+        """
+        lines = [line for line in text.split("\n") if line]
+        return len(lines) == 6
+
+    @staticmethod
+    def load_poem_from_paragraphs(paragraphs: List[str]):
+        """
+        Deals with a list of paragraphs:
+        - detects its category,
+        - processes it.
+
+        >>> text1 = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
+        >>> text2 = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
+
+        >>> paragraphs = [text1, text2]
+        >>> poem = MetreManager.load_poem_from_paragraphs(paragraphs)
+        >>> isinstance(poem[0], Fornyrdhislag)
+        True
+        >>> isinstance(poem[1], Ljoodhhaattr)
+        True
+
+        :param paragraphs: list of stanzas (list of strings)
+        :return: list of Fornyrdhislag or Ljoodhhaattr instances
+        """
+        poem = []
+        for paragraph in paragraphs:
+            if MetreManager.is_fornyrdhislag(paragraph):
+                fnl = Fornyrdhislag()
+                fnl.from_short_lines_text(paragraph)
+                fnl.syllabify(old_norse_syllabifier.hierarchy)
+                fnl.to_phonetics()
+                poem.append(fnl)
+            elif MetreManager.is_ljoodhhaattr(paragraph):
+                lh = Ljoodhhaattr()
+                lh.from_short_lines_text(paragraph)
+                lh.syllabify(old_norse_syllabifier.hierarchy)
+                lh.to_phonetics()
+                poem.append(lh)
+            else:
+                stanza = UnspecifiedStanza()
+                stanza.from_short_lines_text(paragraph)
+                stanza.syllabify(old_norse_syllabifier.hierarchy)
+                stanza.to_phonetics()
+                poem.append(stanza)
+        return poem
