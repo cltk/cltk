@@ -9,29 +9,19 @@ __license__ = "MIT License."
 import re
 from typing import List, Tuple
 
-from cltk.tokenize.latin.params import (
-    ABBREVIATIONS,
-    LatinLanguageVars,
-    latin_exceptions,
-)
-from cltk.tokenize.latin.params import latin_replacements as REPLACEMENTS
-from cltk.tokenize.latin.sentence import SentenceTokenizer
-from nltk.tokenize.punkt import (
-    PunktLanguageVars,
-    PunktParameters,
-    PunktSentenceTokenizer,
-)
+from nltk.tokenize.punkt import PunktLanguageVars, PunktParameters
+
+from cltk.sentence.lat import LatinPunktSentenceTokenizer
+from cltk.tokenizers.lat.params import ABBREVIATIONS, latin_exceptions
+from cltk.tokenizers.lat.params import latin_replacements as REPLACEMENTS
+from cltk.tokenizers.word import WordTokenizer
 
 
 class LatinLanguageVars(PunktLanguageVars):
     _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'", "")
 
 
-PUNCTUATION = (".", "?", "!")
-STRICT_PUNCTUATION = PUNCTUATION + ("-", ":", ";")
-
-
-class WordTokenizer:
+class LatinWordTokenizer(WordTokenizer):
     """Tokenize according to rules specific to a given language."""
 
     ENCLITICS = ["que", "n", "ne", "ue", "ve", "st"]
@@ -39,10 +29,9 @@ class WordTokenizer:
     EXCEPTIONS = list(set(ENCLITICS + latin_exceptions))
 
     def __init__(self):
-        self.language = "latin"
         self.punkt_param = PunktParameters()
         self.punkt_param.abbrev_types = set(ABBREVIATIONS)
-        self.sent_tokenizer = PunktSentenceTokenizer(self.punkt_param)
+        self.sent_tokenizer = LatinPunktSentenceTokenizer()
         self.word_tokenizer = LatinLanguageVars()
 
     def tokenize(
@@ -62,14 +51,14 @@ class WordTokenizer:
 
         :returns: A list of substrings extracted from the text
 
-        >>> toker = WordTokenizer()
+        >>> toker = LatinWordTokenizer()
         >>> text = 'atque haec abuterque puerve paterne nihil'
         >>> toker.tokenize(text)
         ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'pater', '-ne', 'nihil']
 
         >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
-        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex.', 'Roscio']
-
+        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex', '.', 'Roscio']
+        
         >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
         ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
 

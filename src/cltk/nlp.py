@@ -1,6 +1,9 @@
 """Primary module for CLTK pipeline."""
 
-from cltk.core.data_types import Doc, Language, Pipeline
+from typing import Type
+from threading import Lock
+
+from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.pipelines import (
     AkkadianPipeline,
@@ -12,9 +15,9 @@ from cltk.languages.pipelines import (
     GreekPipeline,
     HindiPipeline,
     LatinPipeline,
-    MHGPipeline,
     MiddleEnglishPipeline,
     MiddleFrenchPipeline,
+    MiddleHighGermanPipeline,
     OCSPipeline,
     OldEnglishPipeline,
     OldFrenchPipeline,
@@ -35,7 +38,7 @@ iso_to_pipeline = {
     "enm": MiddleEnglishPipeline,
     "frm": MiddleFrenchPipeline,
     "fro": OldFrenchPipeline,
-    "gmh": MHGPipeline,
+    "gmh": MiddleHighGermanPipeline,
     "got": GothicPipeline,
     "grc": GreekPipeline,
     "hin": HindiPipeline,
@@ -50,6 +53,23 @@ iso_to_pipeline = {
 
 class NLP:
     """NLP class for default processing."""
+
+    process_objects = {}
+    process_lock = Lock()
+
+    def _get_process_object(self, process_type: Type[Process]) -> Process:
+        """
+        Returns an instance of a process from a memoized hash.
+        An uninstantiated process is created and stashed in the cache.
+        """
+        with NLP.process_lock:
+            a_process = NLP.process_objects.get(process_type, None)
+            if a_process:
+                return a_process
+            else:
+                a_process = process_type(self.language.iso_639_3_code)
+                NLP.process_objects[process_type] = a_process
+                return a_process
 
     def __init__(self, language: str, custom_pipeline: Pipeline = None) -> None:
         """Constructor for CLTK class.
@@ -83,7 +103,6 @@ class NLP:
         Returns:
             CLTK ``Doc`` containing all processed information.
 
-        >>> from cltk import NLP
         >>> from cltk.languages.example_texts import get_example_text
         >>> from cltk.core.data_types import Doc
         >>> cltk_nlp = NLP(language="lat")
@@ -91,14 +110,13 @@ class NLP:
         >>> isinstance(cltk_doc, Doc)
         True
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=..., stop=False, named_entity=True)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=..., stop=False, named_entity=True)
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
 
         for process in self.pipeline.processes:
-            a_process = process(input_doc=doc, language=self.language.iso_639_3_code)
-            a_process.run()
-            doc = a_process.output_doc
+            a_process = self._get_process_object(process)
+            doc = a_process.run(doc)
 
         return doc
 
@@ -107,7 +125,6 @@ class NLP:
         processing is requested, ensure that user-selected choices
         are valid, both in themselves and in unison.
 
-        >>> from cltk import NLP
         >>> from cltk.core.data_types import Pipeline
         >>> cltk_nlp = NLP(language="lat")
         >>> lat_pipeline = cltk_nlp._get_pipeline()

@@ -9,20 +9,19 @@ __license__ = "MIT License. See LICENSE."
 import unicodedata
 import unittest
 
-from cltk.phonology.old_norse.syllabifier import invalid_onsets
-from cltk.tokenize.word import WordTokenizer
-
 from cltk.phonology import utils as ut
-from cltk.phonology.akkadian import stress as AkkadianStress
 from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
 from cltk.phonology.gothic import transcription as gothic
 from cltk.phonology.greek import transcription as grc
-from cltk.phonology.latin import transcription as lat
+from cltk.phonology.lat import transcription as lat
+from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.old_norse import transcription as ont
+from cltk.phonology.old_norse.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology.syllabify import Syllabifier, Syllable
+from cltk.tokenizers.non import OldNorseWordTokenizer
 
 
 class TestSequenceFunctions(unittest.TestCase):
@@ -222,7 +221,7 @@ class TestSequenceFunctions(unittest.TestCase):
         ]
         self.assertEqual(transcription, target)
 
-    """latin.transcription"""
+    """lat.transcription"""
 
     def test_latin_refresh(self):
         """Test the Word class's `_refresh` method in Latin."""
@@ -439,6 +438,29 @@ class TestSequenceFunctions(unittest.TestCase):
         ]
         self.assertEqual(outputs, target)
 
+    def test_latin_syllabifier(self):
+        """Test Latin syllabifier."""
+        word = "sidere"
+        syllables = lat_syllabify(word)
+        target = ["si", "de", "re"]
+        self.assertEqual(syllables, target)
+
+        # tests for macronized words
+        macronized_word = "audītū"
+        macronized_syllables = lat_syllabify(macronized_word)
+        macronized_target = ["au", "dī", "tū"]
+        self.assertEqual(macronized_syllables, macronized_target)
+
+        macronized_word2 = "conjiciō"
+        macronized_syllables2 = lat_syllabify(macronized_word2)
+        macronized_target2 = ["con", "ji", "ci", "ō"]
+        self.assertEqual(macronized_syllables2, macronized_target2)
+
+        macronized_word3 = "ā"
+        macronized_syllables3 = lat_syllabify(macronized_word3)
+        macronized_target3 = ["ā"]
+        self.assertEqual(macronized_syllables3, macronized_target3)
+
     def test_latin_print_ipa(self):
         """Test the Word class's method `_print_ipa` in Latin."""
         inputs = [
@@ -539,14 +561,6 @@ class TestSequenceFunctions(unittest.TestCase):
             + " 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]"
         )
         self.assertEqual(transcription, target)
-
-    def test_akkadian_stress(self):
-        """Test finding stressed syllable in an Akkadian word."""
-        word = "napištašunu"
-        target = ["na", "[piš]", "ta", "šu", "nu"]
-        stresser = AkkadianStress.StressFinder()
-        stress = stresser.find_stress(word)
-        self.assertEqual(target, stress)
 
     def test_arabic_transliterate(self):
         """
@@ -991,12 +1005,12 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(ru4.ipa_to_regular_expression(phonology), example)
 
     def test_syllabification_old_norse(self):
-        old_norse_syllabifier = Syllabifier(language="old_norse", break_geminants=True)
+        old_norse_syllabifier = Syllabifier(language="non", break_geminants=True)
         text = (
             "Gefjun dró frá Gylfa glöð djúpröðul óðla, svá at af rennirauknum rauk, Danmarkar auka. Báru öxn ok "
             "átta ennitungl, þars gengu fyrir vineyjar víðri valrauf, fjögur höfuð."
         )
-        tokenizer = WordTokenizer("old_norse")
+        tokenizer = OldNorseWordTokenizer()
         words = tokenizer.tokenize(text)
         old_norse_syllabifier.set_invalid_onsets(invalid_onsets)
 

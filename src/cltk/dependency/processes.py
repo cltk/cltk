@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
+from copy import deepcopy 
 
 import stanza
 from boltons.cacheutils import cachedproperty
@@ -24,12 +25,12 @@ class StanzaProcess(Process):
 
     >>> from cltk.dependency.processes import StanzaProcess
     >>> from cltk.languages.example_texts import get_example_text
-    >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
+    >>> process_stanza = StanzaProcess(language="lat")
     >>> isinstance(process_stanza, StanzaProcess)
     True
     >>> from stanza.models.common.doc import Document
-    >>> process_stanza.run()
-    >>> isinstance(process_stanza.output_doc.stanza_doc, Document)
+    >>> output_doc = process_stanza.run(Doc(raw=get_example_text("lat")))
+    >>> isinstance(output_doc.stanza_doc, Document)
     True
     """
 
@@ -39,14 +40,16 @@ class StanzaProcess(Process):
     def algorithm(self):
         return StanzaWrapper.get_nlp(language=self.language)
 
-    def run(self):
-        tmp_doc = self.input_doc
+    def run(self, input_doc: Doc) -> Doc:
+        output_doc = deepcopy(input_doc)
+        
         stanza_wrapper = self.algorithm
-        stanza_doc = stanza_wrapper.parse(tmp_doc.raw)
+        stanza_doc = stanza_wrapper.parse(output_doc.raw)
         cltk_words = self.stanza_to_cltk_word_type(stanza_doc)
-        tmp_doc.words = cltk_words
-        tmp_doc.stanza_doc = stanza_doc
-        self.output_doc = tmp_doc
+        output_doc.words = cltk_words
+        output_doc.stanza_doc = stanza_doc
+        
+        return output_doc
 
     @staticmethod
     def stanza_to_cltk_word_type(stanza_doc):
@@ -56,15 +59,16 @@ class StanzaProcess(Process):
 
         >>> from cltk.dependency.processes import StanzaProcess
         >>> from cltk.languages.example_texts import get_example_text
-        >>> process_stanza = StanzaProcess(input_doc=Doc(raw=get_example_text("lat")), language="lat")
-        >>> process_stanza.run()
-        >>> cltk_words = process_stanza.output_doc.words
+        >>> process_stanza = StanzaProcess(language="lat")
+        >>> cltk_words = process_stanza.run(Doc(raw=get_example_text("lat"))).words
         >>> isinstance(cltk_words, list)
         True
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', \
+lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, \
+features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None)
         """
         words_list = list()  # type: List[Word]
 

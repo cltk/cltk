@@ -15,14 +15,13 @@ Sentence tokenization for Ancient Greek is available using a regular-expression 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 
 
-from cltk.sentence.sentence import BaseRegexSentenceTokenizer
-from cltk.tokenizers.grc import GreekLanguageVars
+from cltk.sentence.sentence import RegexSentenceTokenizer
+
+sent_end_chars = [".", ";", "·"]
 
 
-class GreekRegexSentenceTokenizer(BaseRegexSentenceTokenizer):
+class GreekRegexSentenceTokenizer(RegexSentenceTokenizer):
     """``RegexSentenceTokenizer`` for Ancient Greek."""
 
     def __init__(self: object):
-        super().__init__(
-            language="greek", sent_end_chars=GreekLanguageVars.sent_end_chars
-        )
+        super().__init__(language="greek", sent_end_chars=sent_end_chars)

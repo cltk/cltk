@@ -3,7 +3,7 @@ __license__ = "MIT License"
 
 import re
 
-from cltk.stem.middle_english.stem import affix_stemmer
+from cltk.stem.enm import stem
 
 """
 The hyphenation/syllabification algorithm is based on the typical syllable 
@@ -257,7 +257,7 @@ class Word:
 
         elif stress_rule == "GSR":
             # The word striped of suffixes
-            st_word = affix_stemmer([self.word], strip_suf=False)
+            st_word = stem(self.word, strip_suf=False)
             affix = self.word[: len(self.word) - len(st_word)]
 
             # Syllabify stripped word and affix

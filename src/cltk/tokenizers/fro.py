@@ -7,8 +7,7 @@ __author__ = [
 ]
 __license__ = "MIT License."
 
-from cltk.tokenize.old_french.params import OldFrenchTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltk.tokenizers.word import RegexWordTokenizer
 
 OldFrenchTokenizerPatterns = [
     (r"’", r"'"),
@@ -17,21 +16,10 @@ OldFrenchTokenizerPatterns = [
 ]
 
 
-def WordTokenizer():
-    return OldFrenchRegexWordTokenizer()
-
-
-class OldFrenchRegexWordTokenizer(BaseRegexWordTokenizer):
+class OldFrenchWordTokenizer(RegexWordTokenizer):
     """
-    Old French word tokenizer using regex
-    """
+	A regex-based tokenizer for Old French.
+	"""
 
-    def __init__(
-        self: object, language: str = "old_french", patterns=OldFrenchTokenizerPatterns
-    ):
-        """
-        :param language : language for word tokenization
-        :type language: str
-        """
-        self.patterns = patterns
-        super().__init__(language=language, patterns=self.patterns)
+    def __init__(self):
+        super().__init__(patterns=OldFrenchTokenizerPatterns)

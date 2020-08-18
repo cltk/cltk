@@ -4,10 +4,7 @@
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
-import re
-
-from cltk.tokenize.middle_english.params import MiddleEnglishTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltk.tokenizers.word import RegexWordTokenizer
 
 MiddleEnglishTokenizerPatterns = [
     (r"-", r" - "),
@@ -18,23 +15,10 @@ MiddleEnglishTokenizerPatterns = [
 ]
 
 
-def WordTokenizer():
-    return MiddleEnglishRegexWordTokenizer()
-
-
-class MiddleEnglishRegexWordTokenizer(BaseRegexWordTokenizer):
+class MiddleEnglishWordTokenizer(RegexWordTokenizer):
     """
-    Middle English word tokenizer using regex
-    """
+	A regex-based tokenizer for Middle English.
+	"""
 
-    def __init__(
-        self: object,
-        language: str = "middle_english",
-        patterns=MiddleEnglishTokenizerPatterns,
-    ):
-        """
-        :param language : language for word tokenization
-        :type language: str
-        """
-        self.patterns = patterns
-        super().__init__(language="middle_english", patterns=self.patterns)
+    def __init__(self):
+        super().__init__(patterns=MiddleEnglishTokenizerPatterns)

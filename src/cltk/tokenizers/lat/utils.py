@@ -7,12 +7,13 @@ __license__ = "MIT License."
 import pickle
 from typing import Any, Dict, Generator, List, Set, Tuple
 
-from cltk.tokenize.latin.params import ABBREVIATIONS
-from cltk.tokenize.utils import BaseSentenceTokenizerTrainer
 from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 
+from cltk.tokenizers.lat.params import ABBREVIATIONS
+from cltk.tokenizers.utils import SentenceTokenizerTrainer
 
-class LatinSentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
+
+class LatinSentenceTokenizerTrainer(SentenceTokenizerTrainer):
     """ """
 
     def __init__(self: object, strict: bool = False):
@@ -22,7 +23,7 @@ class LatinSentenceTokenizerTrainer(BaseSentenceTokenizerTrainer):
         self.abbreviations = ABBREVIATIONS
 
         super().__init__(
-            language="latin",
+            language="lat",
             punctuation=self.punctuation,
             strict=self.strict,
             strict_punctuation=self.strict_punctuation,

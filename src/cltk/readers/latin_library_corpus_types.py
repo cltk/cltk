@@ -1,7 +1,7 @@
 """`latin_library_corpus_types` - a mapping of corpus types into common periods, based largely on:
 https://en.wikipedia.org/wiki/Latin_literature
-and some personal choices, e.g.: the inscrutable Twelve Tables is placed in an 'early' latin
-classification, while Plautus and Terence are in the Old latin section, some uncertain items are
+and some personal choices, e.g.: the inscrutable Twelve Tables is placed in an 'early' lat
+classification, while Plautus and Terence are in the Old lat section, some uncertain items are
 binned into 'misc'. Pull requests to further sort this out are welcome!
 """
 

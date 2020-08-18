@@ -14,11 +14,18 @@ __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
 
-from cltk.sentence.sentence import BaseRegexSentenceTokenizer
-from cltk.tokenizers.san import SanskritLanguageVars
+import string
+
+from nltk.tokenize.punkt import PunktLanguageVars
+
+from cltk.sentence.sentence import RegexSentenceTokenizer
 
 
-class SanskritRegexSentenceTokenizer(BaseRegexSentenceTokenizer):
+class SanskritLanguageVars(PunktLanguageVars):
+    sent_end_chars = ["\u0964", "\u0965", "\|", "\|\|"]
+
+
+class SanskritRegexSentenceTokenizer(RegexSentenceTokenizer):
     """RegexSentenceTokenizer for Sanskrit."""
 
     def __init__(self: object):

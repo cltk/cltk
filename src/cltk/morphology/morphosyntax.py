@@ -7,7 +7,7 @@ __author__ = ["John Stewart <free-variation>"]
 
 
 class MorphosyntacticFeature(IntEnum):
-    def __eq__(self : 'MorphosyntacticFeature', other : 'MorphosyntacticFeature') -> bool :
+    def __eq__(self: "MorphosyntacticFeature", other: "MorphosyntacticFeature") -> bool:
         return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
 
@@ -403,7 +403,7 @@ Underspecified = None
 
 
 class MorphosyntacticFeatureBundle:
-    def __init__(self, *features : List[MorphosyntacticFeature]) -> None:
+    def __init__(self, *features: List[MorphosyntacticFeature]) -> None:
         """
         >>> f1 = MorphosyntacticFeatureBundle(F.neg, N.pos, V.neg, Case.accusative)
         >>> f1.features
@@ -418,7 +418,9 @@ class MorphosyntacticFeatureBundle:
             else:
                 self.features[type(feature)] = feature
 
-    def __getitem__(self, feature_name : Type[MorphosyntacticFeature]) -> MorphosyntacticFeature:
+    def __getitem__(
+        self, feature_name: Type[MorphosyntacticFeature]
+    ) -> MorphosyntacticFeature:
         """
         Use dict-type syntax for accessing the values of features.
         >>> f1 = f(F.pos, N.pos)
@@ -432,8 +434,11 @@ class MorphosyntacticFeatureBundle:
             raise TypeError(str(feature_name) + " is not a morphosytactic feature")
         return self.features[feature_name]
 
-    def __setitem__(self, feature_name : Type[MorphosyntacticFeature], 
-        feature_value : MorphosyntacticFeature) -> 'MorphosyntacticFeatureBundle' :
+    def __setitem__(
+        self,
+        feature_name: Type[MorphosyntacticFeature],
+        feature_value: MorphosyntacticFeature,
+    ) -> "MorphosyntacticFeatureBundle":
         """
         Use dict-type syntax to set the value of features.
         >>> f1 = f(F.pos)
@@ -448,7 +453,7 @@ class MorphosyntacticFeatureBundle:
         self.features[feature_name] = feature_value
         return self
 
-    def underspecify(self, feature_name : Type[MorphosyntacticFeature]) -> None:
+    def underspecify(self, feature_name: Type[MorphosyntacticFeature]) -> None:
         """
         Underspecify the given feature in the bundle.
         >>> f1 = f(F.pos, N.pos, V.neg)
@@ -460,7 +465,7 @@ class MorphosyntacticFeatureBundle:
             raise TypeError(str(feature_name) + " is not a morphosytactic feature")
         self.features[feature_name] = Underspecified
 
-    def matches(self, other : 'MorphosyntacticFeatureBundle') -> bool :
+    def matches(self, other: "MorphosyntacticFeatureBundle") -> bool:
         """
         This feature bundle matches other if other contains all the features of this bundle,
         i.e. if this bundle is an improper subset of other.
@@ -488,7 +493,7 @@ class MorphosyntacticFeatureBundle:
 
         return True
 
-    def __str__(self) -> str :
+    def __str__(self) -> str:
         return str(self.features)
 
     __repr__ = __str__

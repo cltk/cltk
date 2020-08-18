@@ -7,7 +7,6 @@ Sources:
 from typing import Union
 
 from cltk.phonology.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
-
 from cltk.phonology.utils import (
     AbstractConsonant,
     AbstractPosition,

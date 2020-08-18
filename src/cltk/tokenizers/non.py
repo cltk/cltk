@@ -7,35 +7,14 @@ __author__ = [
 ]
 __license__ = "MIT License."
 
-import re
-
-from cltk.tokenize.old_norse.params import OldNorseTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltk.tokenizers.word import RegexWordTokenizer
 
 # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
 OldNorseTokenizerPatterns = [(r"\'", r"' "), (r"(?<=.)(?=[.!?)(\";:,«»\-])", " ")]
 
 
-def WordTokenizer():
-    return OldNorseRegexWordTokenizer()
+class OldNorseWordTokenizer(RegexWordTokenizer):
+    """A regex-based tokenizer for Old Norse."""
 
-
-class OldNorseRegexWordTokenizer(BaseRegexWordTokenizer):
-    """
-    Old Norse word tokenizer using regex
-    """
-
-    #     # TODO dealing with merges between verbs at the second person of the present tense and þú
-    #     # -> -tu, -ðu, -du, -u : question
-    #
-    #     # TODO dealing with merges between verbs and sik -> st : middle voice
-
-    def __init__(
-        self: object, language: str = "old_norse", patterns=OldNorseTokenizerPatterns
-    ):
-        """
-        :param language : language for word tokenization
-        :type language: str
-        """
-        self.patterns = patterns
-        super().__init__(language=language, patterns=self.patterns)
+    def __init__(self):
+        super().__init__(patterns=OldNorseTokenizerPatterns)

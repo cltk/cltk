@@ -4,10 +4,7 @@
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
-import re
-
-from cltk.tokenize.middle_high_german.params import MiddleHighGermanTokenizerPatterns
-from cltk.tokenize.word import BaseRegexWordTokenizer
+from cltk.tokenizers.word import RegexWordTokenizer
 
 # As far as I know, hyphens were never used for compounds, so the tokenizer treats all hyphens as line-breaks
 MiddleHighGermanTokenizerPatterns = [
@@ -19,23 +16,10 @@ MiddleHighGermanTokenizerPatterns = [
 ]
 
 
-def WordTokenizer():
-    return MiddleHighGermanRegexWordTokenizer()
-
-
-class MiddleHighGermanRegexWordTokenizer(BaseRegexWordTokenizer):
+class MiddleHighGermanWordTokenizer(RegexWordTokenizer):
     """
-    Middle High German word tokenizer using regex
-    """
+	A regex-based tokenizer for Middle High German.
+	"""
 
-    def __init__(
-        self: object,
-        language: str = "middle_high_german",
-        patterns=MiddleHighGermanTokenizerPatterns,
-    ):
-        """
-        :param language : language for word tokenization
-        :type language: str
-        """
-        self.patterns = patterns
-        super().__init__(language="middle_english", patterns=self.patterns)
+    def __init__(self):
+        super().__init__(patterns=MiddleHighGermanTokenizerPatterns)

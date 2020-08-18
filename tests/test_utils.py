@@ -3,6 +3,7 @@
 import unittest
 from unittest.mock import patch
 
+from cltk.utils.akk import ATFConverter
 from cltk.utils.utils import query_yes_no
 
 

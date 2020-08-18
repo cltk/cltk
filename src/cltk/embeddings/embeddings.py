@@ -22,7 +22,7 @@ from gensim import models  # type: ignore
 
 from cltk.core.exceptions import CLTKException, UnimplementedAlgorithmError
 from cltk.languages.utils import get_lang
-from cltk.utils import CLTK_DATA_DIR, query_yes_no, get_file_with_progress_bar
+from cltk.utils import CLTK_DATA_DIR, get_file_with_progress_bar, query_yes_no
 
 
 class Word2VecEmbeddings:
@@ -402,4 +402,3 @@ class FastTextEmbeddings:
         else:
             raise CLTKException("Unexpected exception.")
         return url
-

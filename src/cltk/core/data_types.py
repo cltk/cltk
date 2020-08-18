@@ -11,6 +11,7 @@ of the NLP pipeline.
 
 from dataclasses import dataclass
 from typing import Dict, List, Type
+from abc import ABC, abstractmethod
 
 import numpy
 
@@ -24,10 +25,10 @@ class Language:
 
     >>> from cltk.core.data_types import Language
     >>> from cltk.languages.utils import get_lang
-    >>> latin = get_lang("lat")
-    >>> isinstance(latin, Language)
+    >>> lat = get_lang("lat")
+    >>> isinstance(lat, Language)
     True
-    >>> latin
+    >>> lat
     Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, dates=[], family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a')
     """
 
@@ -53,9 +54,11 @@ class Word:
     >>> get_example_text("lat")[:25]
     'Gallia est omnis divisa i'
     >>> from cltk.languages.utils import get_lang
-    >>> latin = get_lang("lat")
+    >>> lat = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', lemma=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, embedding=None, stop=None, named_entity=None)
+    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
+lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, \
+embedding=None, stop=None, named_entity=None)
     """
 
     index_char_start: int = None
@@ -65,6 +68,7 @@ class Word:
     string: str = None
     pos: str = None
     lemma: str = None
+    stem: str = None
     scansion: str = None
     xpos: str = None  # treebank-specific POS tag (from stanza)
     upos: str = None  # universal POS tag (from stanza)
@@ -105,8 +109,8 @@ class Doc:
     9
     >>> len(cltk_doc.sentences[0])
     26
-    >>> isinstance(cltk_doc.sentences[0][2], Word)
-    True
+    >>> type(cltk_doc.sentences[0][2])
+    <class 'cltk.core.data_types.Word'>
     >>> cltk_doc.sentences[0][2].string
     'omnis'
     >>> len(cltk_doc.sentences_tokens)
@@ -181,7 +185,7 @@ class Doc:
     @property
     def tokens(self) -> List[str]:
         """Returns a list of string word tokens of all words in the doc."""
-        tokens = self._get_words_attribute("string")  # type: List[str]
+        tokens = self._get_words_attribute("string")
         return tokens
 
     @property
@@ -218,6 +222,14 @@ class Doc:
         """
         return self._get_words_attribute("lemma")
 
+    @property
+    def stems(self) -> List[str]:
+        """Returns a list of word stems, indexed to the word tokens
+        provided by `Doc.tokens`.
+        """
+        stems = self._get_words_attribute("stem")
+        return stems
+
     def __getitem__(self, word_index: int) -> Word:
         """Indexing operator overloaded to return the `Word` at index `word_index`.
         """
@@ -233,18 +245,20 @@ class Doc:
 
 
 @dataclass
-class Process:
+class Process(ABC):
     """For each type of NLP process there needs to be a definition.
     It includes the type of data it expects (``str``, ``List[str]``,
     ``Word``, etc.) and what field within ``Word`` it will populate.
     This base class is intended to be inherited by NLP process
     types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
 
-    >>> a_process = Process(input_doc=Doc(raw="input words here"))
     """
 
-    input_doc: Doc
-    output_doc: Doc = None
+    language: str = None
+
+    @abstractmethod
+    def run(self, input_doc: Doc) -> Doc:
+        pass    
 
 
 @dataclass
@@ -267,5 +281,5 @@ class Pipeline:
     processes: List[Type[Process]]
     language: Language
 
-    def add_process(self, process):
+    def add_process(self, process: Type[Process]):
         self.processes.append(process)

@@ -3,6 +3,7 @@ that are called by ``Pipeline``s.
 """
 
 from dataclasses import dataclass
+from copy import deepcopy 
 
 import numpy as np
 from boltons.cacheutils import cachedproperty
@@ -26,7 +27,7 @@ class EmbeddingsProcess(Process):
     >>> from cltk.core.data_types import Process
     >>> issubclass(EmbeddingsProcess, Process)
     True
-    >>> emb_proc = EmbeddingsProcess(input_doc=Doc(raw="some input data"))
+    >>> emb_proc = EmbeddingsProcess()
     """
 
     language: str = None
@@ -45,19 +46,22 @@ class EmbeddingsProcess(Process):
                 f"Invalid embeddings ``variant`` ``{self.variant}``. Available: '{valid_variants_str}'."
             )
 
-    def run(self):
-        tmp_doc = self.input_doc
+    def run(self, input_doc: Doc) -> Doc:
+        output_doc = deepcopy(input_doc)
+        
         embedding_length = None
         embeddings_obj = self.algorithm
-        for index, word_obj in enumerate(tmp_doc.words):
+        
+        for index, word_obj in enumerate(output_doc.words):
             if not embedding_length:
                 embedding_length = embeddings_obj.get_embedding_length()
             word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
             if not isinstance(word_embedding, np.ndarray):
                 word_embedding = np.zeros([embedding_length])
             word_obj.embedding = word_embedding
-            tmp_doc.words[index] = word_obj
-        self.output_doc = tmp_doc
+            output_doc.words[index] = word_obj
+        
+        return output_doc
 
 
 @dataclass
