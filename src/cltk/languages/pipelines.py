@@ -19,13 +19,6 @@ from cltk.dependency.processes import (
     OCSStanzaProcess,
     OldFrenchStanzaProcess,
 )
-
-from cltk.lemmatize.processes import (
-    GreekLemmatizationProcess,
-    LatinLemmatizationProcess,
-    OldEnglishLemmatizationProcess,
-    OldFrenchLemmatizationProcess)
-
 from cltk.embeddings.processes import (
     ArabicEmbeddingsProcess,
     AramaicEmbeddingsProcess,
@@ -37,6 +30,12 @@ from cltk.embeddings.processes import (
     SanskritEmbeddingsProcess,
 )
 from cltk.languages.utils import get_lang
+from cltk.lemmatize.processes import (
+    GreekLemmatizationProcess,
+    LatinLemmatizationProcess,
+    OldEnglishLemmatizationProcess,
+    OldFrenchLemmatizationProcess,
+)
 from cltk.ner.processes import GreekNERProcess, LatinNERProcess, OldFrenchNERProcess
 from cltk.stops.processes import StopsProcess
 from cltk.tokenizers.processes import (
@@ -484,7 +483,6 @@ class PaliPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
     )
-
 
 
 @dataclass

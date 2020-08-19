@@ -9,9 +9,9 @@ of the NLP pipeline.
 >>> from cltk.core.data_types import Pipeline
 """
 
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Dict, List, Type
-from abc import ABC, abstractmethod
 
 import numpy
 
@@ -258,7 +258,7 @@ class Process(ABC):
 
     @abstractmethod
     def run(self, input_doc: Doc) -> Doc:
-        pass    
+        pass
 
 
 @dataclass

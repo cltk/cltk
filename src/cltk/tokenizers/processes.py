@@ -3,8 +3,8 @@
 TODO: Think about adding check somewhere if a contrib (not user) chooses an unavailable item
 """
 
-from dataclasses import dataclass
 from copy import deepcopy
+from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
 from nltk.tokenize.treebank import TreebankWordTokenizer

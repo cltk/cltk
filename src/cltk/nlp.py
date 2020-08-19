@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
-from typing import Type
 from threading import Lock
+from typing import Type
 
 from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError

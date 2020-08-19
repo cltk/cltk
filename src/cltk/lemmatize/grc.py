@@ -48,7 +48,7 @@ class GreekBackoffLemmatizer:
         except FileNotFoundError as err:
             raise type(err)(missing_models_message)
 
-        self.greek_sub_patterns = greek_sub_patterns  
+        self.greek_sub_patterns = greek_sub_patterns
 
         self.seed = seed
         self.VERBOSE = verbose
@@ -109,7 +109,7 @@ class GreekBackoffLemmatizer:
         [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθὲς'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), \
 ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
         """
-        
+
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 

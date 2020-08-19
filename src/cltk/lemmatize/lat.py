@@ -18,7 +18,6 @@ from cltk.lemmatize.backoff import (
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
-
 latin_sub_patterns = [
     ("(bil)(is|i|em|e|es|ium|ibus)$", r"\1is"),
     ("(.)tat(is|i|em|e|es|um|ibus)$", r"\1tas"),
@@ -442,7 +441,6 @@ rn_patterns = [
 ]
 
 
-
 class RomanNumeralLemmatizer(RegexpLemmatizer):
     """Lemmatizer for identifying roman numerals in Latin text based on
     regex.
@@ -500,9 +498,11 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
     def __repr__(self: object):
         return f"<{type(self).__name__}: CLTK Roman Numeral Patterns>"
 
+
 models_path = os.path.normpath(
     os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk/lemmata/backoff")
 )
+
 
 class LatinBackoffLemmatizer:
     """Suggested backoff chain; includes at least on of each
@@ -513,8 +513,6 @@ class LatinBackoffLemmatizer:
     ### For comparison, there is also a TrainLemmatizer that replicates the
     ###    original Latin lemmatizer from cltk.stem
     """
-
-   
 
     def __init__(
         self: object, train: List[list] = None, seed: int = 3, verbose: bool = False
@@ -604,5 +602,3 @@ class LatinBackoffLemmatizer:
 
     def __call__(self, token: str) -> str:
         return self.lemmatize([token])[0][0]
-
-

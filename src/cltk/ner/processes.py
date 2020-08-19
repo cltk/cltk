@@ -1,7 +1,7 @@
 """This module holds the ``Process``es for NER."""
 
-from dataclasses import dataclass
 from copy import deepcopy
+from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
 
@@ -31,13 +31,11 @@ class NERProcess(Process):
         output_doc = deepcopy(input_doc)
 
         ner_obj = self.algorithm
-        bool_entities = ner_obj(
-            iso_code = self.language, input_tokens = input_doc.tokens
-        )
+        bool_entities = ner_obj(iso_code=self.language, input_tokens=input_doc.tokens)
         for index, word_obj in enumerate(output_doc.words):
             word_obj.named_entity = bool_entities[index]
             output_doc.words[index] = word_obj
-        
+
         return output_doc
 
 
