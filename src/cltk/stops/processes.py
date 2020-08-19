@@ -1,10 +1,10 @@
-from dataclasses import dataclass
 from copy import deepcopy
+from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
 from boltons.strutils import split_punct_ws
 
-from cltk.core.data_types import Process, Doc
+from cltk.core.data_types import Doc, Process
 from cltk.stops.words import Stops
 
 
@@ -36,14 +36,12 @@ class StopsProcess(Process):
         """
         output_doc = deepcopy(input_doc)
         stops_list = self.algorithm
-        
+
         for index, word_obj in enumerate(output_doc.words):
             if (word_obj.string in stops_list) or (word_obj.lemma in stops_list):
                 word_obj.stop = True
             else:
                 word_obj.stop = False
             output_doc.words[index] = word_obj
-        
+
         return output_doc
-
-

@@ -11,16 +11,17 @@ from cltk.lemmatize.backoff import (
     RegexpLemmatizer,
     UnigramLemmatizer,
 )
-
 from cltk.lemmatize.grc import GreekBackoffLemmatizer, models_path
-from cltk.lemmatize.lat import LatinBackoffLemmatizer, RomanNumeralLemmatizer, models_path
+from cltk.lemmatize.lat import (
+    LatinBackoffLemmatizer,
+    RomanNumeralLemmatizer,
+    models_path,
+)
 from cltk.text.lat import replace_jv
 from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.utils import CLTK_DATA_DIR
 
-__author__ = [
-    "Patrick J. Burns <patrick@diyclassics.org>"
-]
+__author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License. See LICENSE."
 
 
@@ -34,7 +35,7 @@ class TestSequenceFunctions(unittest.TestCase):
             "antequam": "antequam",
             "destinata": "destino",
             "componam": "compono",
-        }  
+        }
         lemmatizer = DictLemmatizer(lemmas=lemmas)
         test_str = "Ceterum antequam destinata componam"
         target = [
@@ -88,7 +89,6 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmas = lemmatizer.lemmatize(tokens)
         self.assertEqual(lemmas, target)
 
-
     def test_backoff_latin_lemmatizer(self):
         """Test LatinBackoffLemmatizer"""
         train = [
@@ -98,7 +98,7 @@ class TestSequenceFunctions(unittest.TestCase):
                 ("destinata", "destino"),
                 ("componam", "compono"),
             ]
-        ]  
+        ]
         lemmatizer = LatinBackoffLemmatizer()
         test_str = """Ceterum antequam destinata componam"""
         target = [
@@ -106,7 +106,7 @@ class TestSequenceFunctions(unittest.TestCase):
             ("antequam", "antequam"),
             ("destinata", "destino"),
             ("componam", "compono"),
-        ]  
+        ]
         tokenizer = LatinWordTokenizer()
         test_str = test_str.lower()
         test_str = replace_jv(test_str)
@@ -123,7 +123,7 @@ class TestSequenceFunctions(unittest.TestCase):
                 ("destinata", "destino"),
                 ("componam", "compono"),
             ]
-        ]  
+        ]
         lemmatizer = LatinBackoffLemmatizer(verbose=True)
         test_str = """Ceterum antequam destinata componam"""
         target = [
@@ -139,7 +139,7 @@ class TestSequenceFunctions(unittest.TestCase):
                 "<UnigramLemmatizer: CLTK Sentence Training Data>",
             ),
             ("componam", "compono", "<DictLemmatizer: Morpheus Lemmas>"),
-        ]  
+        ]
         tokenizer = LatinWordTokenizer()
         test_str = test_str.lower()
         test_str = replace_jv(test_str)
@@ -152,7 +152,6 @@ class TestSequenceFunctions(unittest.TestCase):
         lemmatizer = LatinBackoffLemmatizer(verbose=False)
         accuracy = lemmatizer.evaluate()
         self.assertTrue(0.85 <= accuracy <= 1)
-
 
 
 if __name__ == "__main__":

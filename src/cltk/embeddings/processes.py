@@ -2,8 +2,8 @@
 that are called by ``Pipeline``s.
 """
 
+from copy import deepcopy
 from dataclasses import dataclass
-from copy import deepcopy 
 
 import numpy as np
 from boltons.cacheutils import cachedproperty
@@ -48,10 +48,10 @@ class EmbeddingsProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = deepcopy(input_doc)
-        
+
         embedding_length = None
         embeddings_obj = self.algorithm
-        
+
         for index, word_obj in enumerate(output_doc.words):
             if not embedding_length:
                 embedding_length = embeddings_obj.get_embedding_length()
@@ -60,7 +60,7 @@ class EmbeddingsProcess(Process):
                 word_embedding = np.zeros([embedding_length])
             word_obj.embedding = word_embedding
             output_doc.words[index] = word_obj
-        
+
         return output_doc
 
 

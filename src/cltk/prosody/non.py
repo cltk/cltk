@@ -3,11 +3,11 @@
 
 import re
 from math import floor
-from typing import List, Union, Tuple, Dict
+from typing import Dict, List, Tuple, Union
 
-from cltk.core.cltk_logger import logger
 import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
 import cltk.phonology.old_norse.transcription as old_norse_transcription
+from cltk.core.cltk_logger import logger
 from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber
 from cltk.stops.non import STOPS
@@ -40,6 +40,7 @@ class ShortLine:
     """
     A short line, or half line, is a
     """
+
     def __init__(self, text):
         self.text = text
         self.tokenizer = OldNorseWordTokenizer()
@@ -121,8 +122,9 @@ class ShortLine:
                     ):
                         self.alliterations.append((word1, word2))
                         self.n_alliterations += 1
-                    elif isinstance(sound1, old_norse_transcription.Vowel) and \
-                            isinstance(sound2, old_norse_transcription.Vowel):
+                    elif isinstance(
+                        sound1, old_norse_transcription.Vowel
+                    ) and isinstance(sound2, old_norse_transcription.Vowel):
                         self.alliterations.append((word1, word2))
                         self.n_alliterations += 1
         return self.alliterations, self.n_alliterations
@@ -201,14 +203,18 @@ class LongLine:
         for j, sound1 in enumerate(self.first_sounds):
             word1 = old_norse_normalize(self.tokenized_text[j])
             if j < len(self.first_sounds) - 1:
-                for k, sound2 in enumerate(self.first_sounds[j+1:]):
+                for k, sound2 in enumerate(self.first_sounds[j + 1 :]):
                     word2 = old_norse_normalize(self.tokenized_text[k])
                     if word1 not in STOPS and sound2 not in STOPS:
-                        if isinstance(sound1, old_norse_transcription.Consonant) and sound1.ipar == sound2.ipar:
+                        if (
+                            isinstance(sound1, old_norse_transcription.Consonant)
+                            and sound1.ipar == sound2.ipar
+                        ):
                             self.alliterations.append((word1, word2))
                             self.n_alliterations += 1
-                        elif isinstance(sound1, old_norse_transcription.Vowel) and \
-                                isinstance(sound2, old_norse_transcription.Vowel):
+                        elif isinstance(
+                            sound1, old_norse_transcription.Vowel
+                        ) and isinstance(sound2, old_norse_transcription.Vowel):
                             self.alliterations.append((word1, word2))
                             self.n_alliterations += 1
         return self.alliterations, self.n_alliterations
@@ -228,7 +234,9 @@ class Metre:
         self.short_lines = []  # list of minimal lines
         self.long_lines = []  # list of long lines
         self.syllabified_text = []  # each word is replaced by a list of its syllables
-        self.transcribed_text = []  # each line is replaced by its phonetic transcription
+        self.transcribed_text = (
+            []
+        )  # each line is replaced by its phonetic transcription
         self.phonological_features_text = []
         self.syllabified_phonological_features_text = []
 
@@ -272,7 +280,7 @@ class Metre:
                 old_norse_transcription.DIPHTHONGS_IPA,
                 old_norse_transcription.DIPHTHONGS_IPA_class,
                 old_norse_transcription.IPA_class,
-                old_norse_transcription.old_norse_rules
+                old_norse_transcription.old_norse_rules,
             )
             transcribed_text = []
             phonological_features_text = []
@@ -280,8 +288,9 @@ class Metre:
                 transcribed_text.append([])
                 phonological_features_text.append([])
                 for short_line in long_line:
-                    assert isinstance(short_line, ShortLine) or\
-                           isinstance(short_line, LongLine)
+                    assert isinstance(short_line, ShortLine) or isinstance(
+                        short_line, LongLine
+                    )
                     short_line.to_phonetics(transcriber)
                     transcribed_text[i].append(short_line.transcribed)
                     phonological_features_text[i].append(
@@ -311,8 +320,9 @@ class Metre:
             verse_alliterations = []
             n_alliterations_lines = []
             for i, first_sound_line in enumerate(first_sounds):
-                if isinstance(self.long_lines[i][0], ShortLine) and\
-                        isinstance(self.long_lines[i][1], ShortLine):
+                if isinstance(self.long_lines[i][0], ShortLine) and isinstance(
+                    self.long_lines[i][1], ShortLine
+                ):
                     alli, counter = self.long_lines[i][0].find_alliterations(
                         self.long_lines[i][1]
                     )
@@ -387,13 +397,12 @@ class UnspecifiedStanza(Metre):
             old_norse_transcription.DIPHTHONGS_IPA,
             old_norse_transcription.DIPHTHONGS_IPA_class,
             old_norse_transcription.IPA_class,
-            old_norse_transcription.old_norse_rules
+            old_norse_transcription.old_norse_rules,
         )
         transcribed_text = []
         phonological_features_text = []
         for short_line in self.short_lines:
-            assert isinstance(short_line, ShortLine) or\
-                   isinstance(short_line, LongLine)
+            assert isinstance(short_line, ShortLine) or isinstance(short_line, LongLine)
             short_line.to_phonetics(transcriber)
             transcribed_text.append(short_line.transcribed)
             phonological_features_text.append(short_line.phonological_features_text)
@@ -457,10 +466,11 @@ class Fornyrdhislag(Metre):
         :return:
         """
         self.text = text
-        self.short_lines = [ShortLine(line)
-                            for line in text.split("\n") if line]
-        self.long_lines = [self.short_lines[2 * i : 2 * i + 2]
-                           for i in range(int(floor(len(self.short_lines)/2)))]
+        self.short_lines = [ShortLine(line) for line in text.split("\n") if line]
+        self.long_lines = [
+            self.short_lines[2 * i : 2 * i + 2]
+            for i in range(int(floor(len(self.short_lines) / 2)))
+        ]
 
     def syllabify(self, hierarchy: Dict[str, int]):
         """

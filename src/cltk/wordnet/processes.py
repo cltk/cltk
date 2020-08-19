@@ -1,9 +1,9 @@
 """``Process`` to wrap WordNet."""
 
 
+from copy import deepcopy
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
-from copy import deepcopy
 
 from boltons.cacheutils import cachedproperty
 

@@ -3,12 +3,10 @@ Lemmatizer for Old French.
 Rules are based on Brunot & Bruneau (1949).
 """
 
-import os
 import importlib.machinery
+import os
 
-from cltk.utils import CLTK_DATA_DIR
 from cltk.lemmatize.naive_lemmatizer import DictionaryRegexLemmatizer
-
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
@@ -132,9 +130,8 @@ class OldFrenchDictionaryLemmatizer(DictionaryRegexLemmatizer):
 
     def _specify_regex_rules(self):
         return determiner_rules
-        + misc_rules
-        + auxiliary_rules
-        + verbal_rules
-        + french_nominal_rules
-        + reduction_rules
-
+        +misc_rules
+        +auxiliary_rules
+        +verbal_rules
+        +french_nominal_rules
+        +reduction_rules

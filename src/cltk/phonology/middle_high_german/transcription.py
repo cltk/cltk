@@ -257,10 +257,7 @@ class Word:
         -Remove remaining letters
         -Retain first 3 numbers (add 0 if less than 3)
         """
-        t_word = (
-            stem(self.word[0].lower()).upper()
-            + stem(self.word[1:]).lower()
-        )
+        t_word = stem(self.word[0].lower()).upper() + stem(self.word[1:]).lower()
 
         for w, val in zip(dict_dipth_SE.keys(), dict_dipth_SE.values()):
             t_word = t_word.replace(w, val)

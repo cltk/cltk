@@ -2,11 +2,12 @@ import math
 import os
 import re
 from abc import ABC, abstractmethod
-from typing import Tuple, List, Union
+from typing import List, Tuple, Union
 
 from numpy import argmax
 
 from cltk.utils import CLTK_DATA_DIR
+
 
 def _build_match_and_apply_functions(pattern, replace):
     def matches_rule(word):
@@ -51,13 +52,11 @@ class DictionaryRegexLemmatizer(ABC):
     def _specify_regex_rules(self):
         pass
 
-
     def _relative_frequency(self, word: str) -> float:
         """Computes the log relative frequency for a word form"""
 
         count = self.unigram_counts.get(word, 0)
         return math.log(count / len(self.unigram_counts)) if count > 0 else 0
-
 
     def _apply_regex(self, token):
         """Looks for a match in the regex rules with the token.
@@ -69,8 +68,9 @@ class DictionaryRegexLemmatizer(ABC):
                 return apply_rule(token)
         return token
 
-    def lemmatize_token(self, token: str, 
-        best_guess: bool = True, return_frequencies: bool = False) -> Union[str, List[Union[str, Tuple[str, float]]]]:
+    def lemmatize_token(
+        self, token: str, best_guess: bool = True, return_frequencies: bool = False
+    ) -> Union[str, List[Union[str, Tuple[str, float]]]]:
         """Lemmatize a single token.  If best_guess is true, then take the most
         frequent lemma when a form has multiple possible lemmatizations.  
         If the form is not found, just return it. 
@@ -109,8 +109,12 @@ class DictionaryRegexLemmatizer(ABC):
 
         return lemma
 
-    def lemmatize(self, tokens: List[str], 
-        best_guess: bool = True, return_frequencies: bool = False) -> Union[str, List[Union[str, Tuple[str, float]]]]:
+    def lemmatize(
+        self,
+        tokens: List[str],
+        best_guess: bool = True,
+        return_frequencies: bool = False,
+    ) -> Union[str, List[Union[str, Tuple[str, float]]]]:
         """
         Lemmatize tokens in a list of strings.
 
@@ -127,4 +131,3 @@ class DictionaryRegexLemmatizer(ABC):
 
     def __call__(self, token: str) -> str:
         return self.lemmatize_token(token)
-

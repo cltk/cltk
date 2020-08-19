@@ -1,8 +1,8 @@
-import os
 import importlib.machinery
+import os
 
-from cltk.utils import CLTK_DATA_DIR
 from cltk.lemmatize.naive_lemmatizer import DictionaryRegexLemmatizer
+from cltk.utils import CLTK_DATA_DIR
 
 
 class OldEnglishDictionaryLemmatizer(DictionaryRegexLemmatizer):
@@ -32,7 +32,12 @@ class OldEnglishDictionaryLemmatizer(DictionaryRegexLemmatizer):
         """Load the dictionary of lemmas and forms from the OE models repository."""
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "ang", "model", "ang_models_cltk", "data", "inverted_lemma_dict.py"
+            CLTK_DATA_DIR,
+            "ang",
+            "model",
+            "ang_models_cltk",
+            "data",
+            "inverted_lemma_dict.py",
         )
         path = os.path.expanduser(rel_path)
         loader = importlib.machinery.SourceFileLoader("file", path)
@@ -59,5 +64,3 @@ class OldEnglishDictionaryLemmatizer(DictionaryRegexLemmatizer):
 
     def _specify_regex_rules(self):
         return []
-
-    

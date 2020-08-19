@@ -1,8 +1,8 @@
 """``Process`` classes for accessing the Stanza project."""
 
+from copy import deepcopy
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
-from copy import deepcopy 
 
 import stanza
 from boltons.cacheutils import cachedproperty
@@ -42,13 +42,13 @@ class StanzaProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = deepcopy(input_doc)
-        
+
         stanza_wrapper = self.algorithm
         stanza_doc = stanza_wrapper.parse(output_doc.raw)
         cltk_words = self.stanza_to_cltk_word_type(stanza_doc)
         output_doc.words = cltk_words
         output_doc.stanza_doc = stanza_doc
-        
+
         return output_doc
 
     @staticmethod
