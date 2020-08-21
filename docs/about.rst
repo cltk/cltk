@@ -1,13 +1,31 @@
 About
-#####
+=====
+
+.. include:: ./includes/description.rst
+
+- Source (temporary development): https://github.com/cltk/cltkv1
+- Home: http://cltk.org
 
 
-The Classical Language Toolkit (CLTK) offers natural language processing (NLP) support for the languages of Ancient, Classical, and Medieval Eurasia. Greek, Latin, Akkadian, and the Germanic languages are currently most complete. The goals of the CLTK are to:
+Maintainers
+-----------
 
-*   compile analysis-friendly corpora;
+.. include:: ./includes/maintainers.rst
 
-*   collect and generate linguistic data;
 
-*   act as a free and open platform for generating scientific research.
+Citation
+--------
 
-The project's source is hosted `on GitHub <https://github.com/cltk/cltk>`_ and the homepage is `http://cltk.org <http://cltk.org>`_.
+.. include:: ./includes/citation.rst
+
+
+Advisors
+--------
+
+.. include:: ./includes/advisors.rst
+
+
+License
+-------
+
+.. include:: ./includes/license.rst

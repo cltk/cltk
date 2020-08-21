@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "cltk"
+version = "1.0.0-alpha.5"
+description = "The Classical Language Toolkit"
+license = "MIT"
+authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>", "Patrick J. Burns <patrick@diyclassics.org>", "John Stewart <johnstewart@aya.yale.edu>", "Todd Cook <todd.g.cook@gmail.com>"]
+readme = "README.rst"
+homepage = "http://cltk.org"
+repository = "https://github.com/cltk/cltk"
+documentation = "https://cltk.readthedocs.io/en/latest/"
+keywords = ["nlp", "ai", "nltk", "latin", "greek"]
+classifiers = [
+    "Intended Audience :: Education",
+    "Intended Audience :: Religion",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Traditional)",
+    "Natural Language :: English",
+    "Natural Language :: French",
+    "Natural Language :: German",
+    "Natural Language :: Greek",
+    "Natural Language :: Latin",
+    "Natural Language :: Russian",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: General",
+    "Topic :: Text Processing :: Linguistic",
+]
+#packages = [
+#    { include = "cltk", from = "src" },
+#]
+#include = []
+#exclude = []
+
+[tool.poetry.dependencies]
+python = "^3.7"
+gitpython = "^3.0"
+requests = "^2.22.0"
+tqdm = "^4.41.1"
+fasttext = "^0.9.1"
+gensim = "^3.8.1"
+boltons = "^20.0.0"
+greek-accentuation = "^1.2.0"
+python-Levenshtein = "^0.12.0"
+stanza = "^1.0.0"
+nltk = "^3.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+nose = "^1.3"
+ipython = "^7.7"
+pylint = "^2.3"
+sphinx = "^2.2"
+coverage = "^4.5"
+black = {version = "^18.3-alpha.0", allow-prereleases = true}
+pylint-json2html = "^0.1.0"
+isort = "^4.3"
+tox = "^3.13"
+tox-pyenv = "^1.1"
+pytest-cov = "^2.7"
+rtd-poetry = "^0.1.0"
+sphinx-autodoc-typehints = "^1.7"
+pre-commit = "2.2.0"
+mypy = "^0.720.0"
+lxml = "^4.4"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

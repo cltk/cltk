@@ -1,70 +1,121 @@
-# pyenv
-.python-version
+# OS
+.DS_Store
 
-# mypy
-.mypy_cache
+# UML created by pyreverse
+*.png
 
+# IDE
+.idea
+
+# Sourcetrail
+*.srctrlbm
+*.srctrldb
+*.srctrlprj
+
+# pylint and pylint-json2html
+pylint
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
 *.py[cod]
+*$py.class
 
 # C extensions
 *.so
 
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
 .installed.cfg
-lib
-lib64
-__pycache__
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
 # Installer logs
 pip-log.txt
+pip-delete-this-directory.txt
 
 # Unit test / coverage reports
+htmlcov/
+.tox/
 .coverage
-.tox
+.coverage.*
+.cache
 nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
 
 # Translations
 *.mo
+*.pot
 
-# Mr Developer
-.mr.developer.cfg
-.project
-.pydevproject
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
 
-# virtualenv
-venv
+# Flask stuff:
+instance/
+.webassets-cache
 
-# text editor leavings
-*\~
-\#*
+# Scrapy stuff:
+.scrapy
 
-# Sphinx
-_build
-#_static
-_templates
+# Sphinx documentation
+docs/_build/
 
-# Mac
-.DS_Store
+# PyBuilder
+target/
 
-# an IDE
-.idea
-
-# Jupyter notebook
+# Jupyter Notebook
 .ipynb_checkpoints
-*.ipynb
 
-# VSCode folder
-.vscode/*
+# pyenv
+.python-version
 
-# cache
-.cache
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/

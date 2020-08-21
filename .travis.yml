@@ -1,50 +1,43 @@
-sudo: required
-
-dist: xenial
-
 language: python
 
 python:
-- '3.6'
-- '3.7'
+  - "3.7.5"
+  - "3.8.2"
+
+env:
+  - TEST_SUITE=testOnlyDocTests
+  - TEST_SUITE=test
+
+cache:
+  directories:
+    - $HOME/stanza_resources/
+    - $HOME/cltk_data/
+    - $HOME/virtualenv/
+    - $HOME/.cache/pip
+
+addons:
+  apt:
+    packages:
+      - graphviz
 
 before_install:
-- sudo rm -f /etc/boto.cfg
+  - pip install --upgrade pip
+  - pip install poetry
 
 install:
-- python setup.py install
+  - make install
+  - poetry run python scripts/download_misc_dependencies.py
 
 before_script:
-- pip install --upgrade pip
-- pip install codecov
-- pip install coveralls
-- pip install greek-accentuation  # for the phonetic transcriber
-- pip install fuzzywuzzy
-- pip install python-Levenshtein
-- pip install gensim  # for word2vec.py
-- pip install Sphinx
-- pip install numpy
-- pip install scipy
-- pip install scikit-learn
-- pip install nose-timer
+  - poetry run pre-commit install-hooks
+#  - poetry run pre-commit run --all-files
 
 script:
-  # Notes on nose:
-  # Travis CI pre-installs `nose`
-  # https://github.com/coagulant/coveralls-python#nosetests
-  # http://nose.readthedocs.org/en/latest/plugins/skip.html
-- nosetests --no-skip --with-coverage --cover-package=cltk --with-doctest --with-timer
-- ( cd docs && make doctest; )
+  - make $TEST_SUITE
 
 after_success:
-- codecov
+  - make uml
+  - make docs
 
-deploy:
-  provider: pypi
-  user: kyle_johnson
-  edge:
-    branch: v1.8.45
-  on:
-    branch: master
-  password:
-    secure: E67ydyMC4HHeJoT8iMwGosS5cd3I1Fd0+FCEmJLsqHWJQ5/ARpPQHh9YSTelWKJg11OQHeIy+4/ny4QR+uPNZ1Ina0iQzdVoqOzPRHyvcahUz4a0t0l27bYwBXVugtZ4BQP7VlH9l5Mt/R9CFp0oV4lPW22s19BJsso+FKCzeoA=
+after_failure:
+  - echo Add later
