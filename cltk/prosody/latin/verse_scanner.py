@@ -127,7 +127,7 @@ class VerseScanner:
                                               self.constants.VOWELS_WO_I),
                                           "j", 1)
         char_list = string_utils.overwrite(char_list,
-                                          "[{}][iI][{}]".format(self.constants.LIQUIDS,
+                                          "[{}][iI][{}]".format(self.constants.SONORANTS,
                                                                 self.constants.VOWELS_WO_I),
                                           "j", 1)
         return "".join(char_list)

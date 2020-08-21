@@ -57,8 +57,10 @@ class ScansionConstants:
                                "Huic": ["Huic"]}
         self.stress_accent_dict = dict(zip(list(self.VOWELS + self.ACCENTED_VOWELS),
                                            list(self.ACCENTED_VOWELS + self.ACCENTED_VOWELS)))
-        self.LIQUIDS = "lmnrLMNR"
+        self.LIQUIDS = "lrLR"
         self.MUTES = "bcdfgptBCDFGPT"
+        self.NASALS = "mnMN"
+        self.SONORANTS = self.LIQUIDS + self.NASALS
         self.DOUBLED_CONSONANTS = [letter + letter for letter in self.CONSONANTS]
         """Prefix order not arbitrary; one will want to match on extra before ex"""
         self.PREFIXES = ['contrā', 'contra', 'subter', 'circum', 'trans', 'extro', 'suprā', 'extrā',
@@ -70,7 +72,7 @@ class ScansionConstants:
                          'dī', 'ēf', 'ad', 'ne', 'ac', 'in', 'rē', 'nē', 'āb', 'ef', 'ēx', 'di',
                          'se', 'īn', 'en', 'co', 'ab', 'er', 'dē', 're', 'ēn', 'ōb', 'sē']
 
-        self.ASPIRATES = ["pt", "Pt", "ch", "th", "Ch", "Th"]
+        self.ASPIRATES = ["ph", "th", "ch", "Ph", "Th", "Ch", "PH", "TH", "CH"]
         self.NOTE_MAP: dict = dict((("positionally", "Valid by positional stresses."),
                                     ("inverted", "Inverted amphibrachs corrected."),
                                     ("invalid start", "Corrected invalid start."),

@@ -17,7 +17,7 @@ The Classical Language Toolkit (CLTK) offers natural language processing (NLP) s
 
 ## Documentation
 
-The docs are at [docs.cltk.org](http://docs.cltk.org).
+The docs are at [docs.cltk.org](https://docs.cltk.org).
 
 
 ### Installation
