@@ -39,5 +39,11 @@ after_success:
   - make uml
   - make docs
 
+deploy:
+  provider: pypi
+  username: kyle_johnson
+  password: $PYPI_PASSWORD  # defined at ``https://travis-ci.org/github/cltk/cltk/settings``
+  edge: true  # opt in to dpl v2
+
 after_failure:
   - echo Add later
