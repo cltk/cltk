@@ -1,26 +1,28 @@
-|travis| |rtd| |codecov| |pypi| |pypiversions| |zenodo| |binder|
+.. warning::
+
+   This page and Git branch contain the CLTK's upcoming major release. See `<https://github.com/cltk/cltk/tree/master>`_ and `<https://docs.cltk.org/>`_ for the legacy code and docs.
 
 
-.. |travis| image:: https://img.shields.io/travis/cltk/cltk/master
-   :alt: Travis (.org) branch
+|travis| |rtd| |codecov| |pypi| |zenodo| |binder|
+
+
+.. |travis| image:: https://travis-ci.org/cltk/cltk.svg?branch=dev
+    :target: https://travis-ci.org/cltk/cltk
 
 .. |rtd| image:: https://img.shields.io/readthedocs/cltk
-   :alt: Read the Docs
+   :target: http://dev.cltk.org/
 
-.. |codecov| image:: https://img.shields.io/codecov/c/github/cltk/cltk/master
-   :alt: Codecov branch
+.. |codecov| image:: https://codecov.io/gh/cltk/cltk/branch/dev/graph/badge.svg
+  :target: https://codecov.io/gh/cltk/cltk
 
 .. |pypi| image:: https://img.shields.io/pypi/v/cltk
-   :alt: PyPI
-
-.. |pypiversions| image:: https://img.shields.io/pypi/pyversions/cltk
-   :alt: PyPI - Python Version
+   :target: https://pypi.org/project/cltk/
 
 .. |zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3445585.svg
    :target: https://doi.org/10.5281/zenodo.3445585
 
 .. |binder| image:: https://mybinder.org/badge_logo.svg
- :target: https://mybinder.org/v2/gh/cltk/tutorials/master
+   :target: https://mybinder.org/v2/gh/cltk/tutorials/master
 
 
 The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for the languages of pre–modern Eurasia.
@@ -29,15 +31,22 @@ The Classical Language Toolkit (CLTK) is a Python library offering natural langu
 Installation
 ============
 
+For the CLTK's latest pre-release version:
+
 .. code-block:: bash
 
    $ pip install --pre cltk
+
+Requirements:
+   - Python version 3.7 or above
+   - A Unix-like OS
+   - To install from source, see `Development in the docs <https://dev.cltk.org/en/latest/includes/development.html>`_.
 
 
 Documentation
 =============
 
-Documentation at `<https://alpha.cltk.org>`_.
+Documentation at `<https://dev.cltk.org>`_.
 
 
 Citation

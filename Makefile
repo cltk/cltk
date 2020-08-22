@@ -63,6 +63,6 @@ updateDependencies:
 uml:
 	cd docs/ && poetry run pyreverse -o png ../src/cltk/ && cd ../
 
-all: black lint typing test check uml docs
+all: format lint typing test uml docs
 
 .PHONY: build docs
