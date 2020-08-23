@@ -34,16 +34,19 @@ before_script:
 
 script:
   - make $TEST_SUITE
-
-after_success:
   - make uml
   - make docs
 
+after_failure:
+  - echo Add later
+
+# https://docs.travis-ci.com/user/deployment-v2/providers/pypi/
 deploy:
   provider: pypi
   username: kyle_johnson
-  password: $PYPI_PASSWORD  # defined at ``https://travis-ci.org/github/cltk/cltk/settings``
+  password: $PYPI_PASSWORD
   edge: true  # opt in to dpl v2
 
-after_failure:
-  - echo Add later
+# if deploy success
+after_success:
+  - python scripts/trigger_github_release.py $GITHUB_TOKEN

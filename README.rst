@@ -7,7 +7,7 @@
 
 
 .. |travis| image:: https://travis-ci.org/cltk/cltk.svg?branch=dev
-    :target: https://travis-ci.org/cltk/cltk
+   :target: https://travis-ci.org/cltk/cltk
 
 .. |rtd| image:: https://img.shields.io/readthedocs/cltk
    :target: http://dev.cltk.org/
