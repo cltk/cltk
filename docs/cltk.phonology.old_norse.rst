@@ -9,7 +9,7 @@ cltk.phonology.old\_norse package
 Submodules
 ----------
 
-cltk.phonology.old\_norse.orthophonology module
+cltk.phonology.non.orthophonology module
 -----------------------------------------------
 
 .. automodule:: cltk.phonology.non.orthophonology
@@ -17,7 +17,7 @@ cltk.phonology.old\_norse.orthophonology module
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.old\_norse.syllabifier module
+cltk.phonology.non.syllabifier module
 --------------------------------------------
 
 .. automodule:: cltk.phonology.non.syllabifier
@@ -25,7 +25,7 @@ cltk.phonology.old\_norse.syllabifier module
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.old\_norse.transcription module
+cltk.phonology.non.transcription module
 ----------------------------------------------
 
 .. automodule:: cltk.phonology.non.transcription
