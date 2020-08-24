@@ -699,3 +699,17 @@ class MetreManager:
                 stanza.to_phonetics()
                 poem.append(stanza)
         return poem
+
+
+class OldNorseScanner:
+    def __init__(self):
+        pass
+
+    def scan(self, paragraphs):
+        MetreManager.load_poem_from_paragraphs(paragraphs)
+
+    def __repr__(self):
+        return f"<OldNorseScanner>"
+
+    def __call__(self, paragraphs):
+        return self.scan(paragraphs)
