@@ -17,8 +17,8 @@ from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
 from cltk.phonology.middle_english.transcription import Word as word_me
 from cltk.phonology.middle_high_german import transcription as mhg
-from cltk.phonology.old_norse import transcription as ont
-from cltk.phonology.old_norse.syllabifier import invalid_onsets
+from cltk.phonology.non import transcription as ont
+from cltk.phonology.non.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.tokenizers.non import OldNorseWordTokenizer

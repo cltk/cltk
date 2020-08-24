@@ -607,12 +607,11 @@ class BasePhonologicalRule:
     Specifically, a rule specifies a condition and an action.
 
     * The condition characterizes the phonological environment of a phoneme in terms of the
-    characteristics of the phomeme before it (if any), and after it (if any).
-    In general it is a function taking three arguments: before, target, after, the phonemes in the environment,
-    an returning a boolean for whether the rule should fire.
-
+      characteristics of the phomeme before it (if any), and after it (if any).
+      In general it is a function taking three arguments: before, target, after, the phonemes in the environment,
+      an returning a boolean for whether the rule should fire.
     * The action defines a transformation of the target phoneme, e.g. its vocalization.
-    It is a function taking only the action, which returns the replacement phoneme OR a *list* of phonemes.
+      It is a function taking only the action, which returns the replacement phoneme OR a *list* of phonemes.
 
     """
 
@@ -856,7 +855,7 @@ class Orthophonology:
 
     def transcribe(self, text, as_phonemes=False):
         """
-        Trascribes a text, which is first tokenized for words, then each word is transcribed.
+        Transcribes a text, which is first tokenized for words, then each word is transcribed.
         If as_phonemes is true, returns a list of list of phoneme objects,
         else returns a string concatenation of the IPA symbols of the phonemes.
         """
@@ -871,8 +870,8 @@ class Orthophonology:
 
     def transcribe_to_modern(self, text):
         """
-        A very first attempt at trancribing from IPA to some modern orthography.
-        The method is intended to provide the student with clues to the pronounciation of old orthographies.
+        A very first attempt at transcribing from IPA to some modern orthography.
+        The method is intended to provide the student with clues to the pronunciation of old orthographies.
         """
         # first transcribe letter by letter
         phoneme_words = self.transcribe(text, as_phonemes=True)

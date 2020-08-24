@@ -316,6 +316,7 @@ class Syllabifier:
     def legal_onsets(self, syllables):
         """
         Filters syllable respecting the legality principle
+
         :param syllables: str list
 
         The method scans for invalid syllable onsets:
@@ -362,6 +363,7 @@ class Syllabifier:
     def syllabify_ipa(self, word):
         """
         Parses IPA string
+
         :param word: word to be syllabified
         """
         word = word[1:-1]
@@ -405,6 +407,7 @@ class Syllabifier:
 class Syllable:
     """
     A syllable has three main constituents:
+
     - onset
     - nucleus
     - coda

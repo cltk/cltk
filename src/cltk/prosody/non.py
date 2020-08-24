@@ -5,8 +5,8 @@ import re
 from math import floor
 from typing import Dict, List, Tuple, Union
 
-import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
-import cltk.phonology.old_norse.transcription as old_norse_transcription
+import cltk.phonology.non.syllabifier as old_norse_syllabifier
+import cltk.phonology.non.transcription as old_norse_transcription
 from cltk.core.cltk_logger import logger
 from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.utils import Transcriber

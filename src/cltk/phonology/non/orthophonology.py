@@ -1,5 +1,5 @@
 """
-Old Norse orthophonology module similar to the cltk.phonology.old_norse.transcription with a different way to transcribe
+Old Norse orthophonology module similar to the cltk.phonology.non.transcription with a different way to transcribe
 """
 
 from cltk.phonology.orthophonology import *

@@ -11,14 +11,16 @@ Vowels:
 <e> and <o> are long vowels: [e:] and [o:]
 <ai>:
     * [ɛ] when <ai> is before <r>, <h> or <ƕ> or when it is in Ancient Greek borrowings
-    * [ɛ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word or when it is in an Ancient Greek borrowing
+    * [ɛ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word
+      or when it is in an Ancient Greek borrowing
     * [ai] in other cases
 
 Here -> [ɛ]
 
 <au>:
     * [ɔ] when <au> is before <r>, <h> or <ƕ> or when it is in Ancient Greek borrowings
-    * [ɔ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word or when it is in an Ancient Greek borrowing
+    * [ɔ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word
+      or when it is in an Ancient Greek borrowing
     * [au] in other cases
 
 Here -> [ɔ]
