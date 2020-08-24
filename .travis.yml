@@ -39,14 +39,3 @@ script:
 
 after_failure:
   - echo Add later
-
-# https://docs.travis-ci.com/user/deployment-v2/providers/pypi/
-deploy:
-  provider: pypi
-  username: kyle_johnson
-  password: $PYPI_PASSWORD
-  edge: true  # opt in to dpl v2
-
-# if deploy success
-after_success:
-  - python scripts/trigger_github_release.py $GITHUB_TOKEN
