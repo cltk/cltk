@@ -21,7 +21,7 @@ class PoetryProcess(Process):
         scanner = self.algorithm
 
         output_doc = deepcopy(input_doc)
-        output_doc.scanned_text = scanner(input_doc.string)
+        output_doc.scanned_text = scanner(input_doc.raw)
 
         return output_doc
 

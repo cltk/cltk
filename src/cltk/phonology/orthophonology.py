@@ -732,11 +732,14 @@ pde_phonotactics = [(r"(^|(?<= ))hw", "wh"), (r"oo(.)(^|(?= ))", "o\\1e")]
 class Orthophonology:
     """
     The ortho-phonology of a language is described by:
+
     * The inventory of all the phonemes of the language.
     * A mapping of orthographic symbols to phonemes.
     * mappings of orthographic symbols pairs to:
+
       * diphthongs
       * phonemes (i.e. digraphs)
+
     * phonological rules for the contextual transformation of phonological representations.
 
     The class is very clearly aimed at alphabetic orthographies.
