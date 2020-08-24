@@ -27,7 +27,7 @@ class PhonologicalTranscriptionProcess(Process):
         return output_doc
 
 
-class OldNorsePhonologicalTranscriber(PhonologicalTranscriptionProcess):
+class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
@@ -35,7 +35,7 @@ class OldNorsePhonologicalTranscriber(PhonologicalTranscriptionProcess):
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-    processes=[OldNorseTokenizationProcess, OldNorsePhonologicalTranscriber], \
+    processes=[OldNorseTokenizationProcess, OldNorsePhonologicalTranscriberProcess], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
     >>> nlp(get_example_text("non")).scanned_text
