@@ -425,13 +425,14 @@ class UnspecifiedStanza(Metre):
 
 
 class Fornyrdhislag(Metre):
-    """
-    **Fornyrðislag** has two lifts per half line, with two or three (sometimes one)
+    """**Fornyrðislag** has two lifts per half line, with two or three (sometimes one)
     unstressed syllables. At least two lifts, usually three, alliterate,
     always including the main stave (the first lift of the second half-line).
     (See https://en.wikipedia.org/wiki/Alliterative_verse#Old_Norse_poetic_forms)
 
     Short lines:
+
+    ```txt
     --------
     --------
     --------
@@ -439,13 +440,16 @@ class Fornyrdhislag(Metre):
     --------
     --------
     --------
+    ```
 
     Long lines:
-    -------- --------
-    -------- --------
-    -------- --------
-    -------- --------
 
+    ```txt
+    -------- --------
+    -------- --------
+    -------- --------
+    -------- --------
+    ```
     """
 
     def __init__(self):
@@ -523,18 +527,22 @@ class Ljoodhhaattr(Metre):
     See https://en.wikipedia.org/wiki/Alliterative_verse#Lj%C3%B3%C3%B0ah%C3%A1ttr.
 
     Short lines:
+    ```
     --------
     --------
     ----------------
     --------
     --------
     ----------------
+    ```
 
     Long lines :
+    ```
     -------- --------
     ----------------
     -------- --------
     ----------------
+    ```
     """
 
     def __init__(self):

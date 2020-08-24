@@ -43,8 +43,8 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
     >>> get_onsets(text, vowels=vowels)
     ['lt', 'm', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'ld', 'l', 'b', 'gr', 'z', 'fr', 'd', 'chg', 't', 'n', 'kl', 'k', 'ck', 'str']
 
-     Of course, this is an insignificant sample, but we could try and see
-     how modifying the threshold affects the returned onset:
+    Of course, this is an insignificant sample, but we could try and see
+    how modifying the threshold affects the returned onset:
 
     >>> get_onsets(text, threshold = 0.05, vowels=vowels)
     ['m', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'b', 'z', 't', 'n']
@@ -212,7 +212,7 @@ class Syllabifier:
         Not specifying your alphabet results in an error:
         >>> s.syllabify("foemina")
         Traceback (most recent call last):
-            ...
+        ...
         cltk.core.exceptions.CLTKException
 
         Additionally, you can utilize the language parameter:

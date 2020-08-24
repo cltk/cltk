@@ -2,6 +2,7 @@ __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License"
 
 import re
+from typing import List
 
 from cltk.stem.enm import stem
 
@@ -70,7 +71,7 @@ class Word:
         self.syllabified = None
         self.stressed = None
 
-    def syllabify(self):
+    def syllabify(self) -> List[str]:
         """Syllabification module for Middle English.
 
         Throughout the early 11th-14th century, ME went through a process of
@@ -83,8 +84,7 @@ class Word:
         cluster of consonants which took place at the earlier stages of the
         language.
 
-         Returns:
-             list: string list containing the syllables of the given word
+        :return: string list containing the syllables of the given word
 
         Examples:
         >>> Word('heldis').syllabify()
@@ -172,9 +172,9 @@ class Word:
 
         return self.syllabified
 
-    def syllabified_str(self, separator="."):
+    def syllabified_str(self, separator=".") -> str:
         """
-        Returns:
+        :return:
              str: Syllabified word in string format
 
         Examples:
@@ -190,32 +190,27 @@ class Word:
             self.syllabified if self.syllabified else self.syllabify()
         )
 
-    def stresser(self, stress_rule="FSR"):
+    def stresser(self, stress_rule="FSR") -> List:
         """
-        Args:
+        :param stress_rule: Stress Rule, valid options:
 
-            :param stress_rule: Stress Rule, valid options:
+            'FSR': French Stress Rule, stress falls on the ultima, unless
+             it contains schwa (ends with e), in which case the penult is
+            stressed
 
-                'FSR': French Stress Rule, stress falls on the ultima, unless
-                 it contains schwa (ends with e), in which case the penult is
-                stressed
+            'GSR': Germanic Stress Rule, stress falls on the first syllable
+            of the stemm. Note that the accuracy of the function directly
+            depends on that of the stemmer.
 
-                'GSR': Germanic Stress Rule, stress falls on the first syllable
-                of the stemm. Note that the accuracy of the function directly
-                depends on that of the stemmer.
+            'LSR': Latin Stress Rule, stress falls on the penult if its
+            heavy, else, if it has more than two syllables on the
+            antepenult, else on the ultima.
 
-                'LSR': Latin Stress Rule, stress falls on the penult if its
-                heavy, else, if it has more than two syllables on the
-                antepenult, else on the ultima.
-
-        Returns:
-
-            list: A list containing the separate syllable, where the stressed
+        :return: A list containing the separate syllable, where the stressed
             syllable is prefixed by ' . Monosyllabic words are left unchanged,
             since stress indicates relative emphasis.
 
         Examples:
-
             >>> Word('beren').stresser(stress_rule = "FSR")
             ['ber', "'en"]
 
@@ -292,17 +287,13 @@ class Word:
             else:
                 return self.syllabified[:-1] + ["'{0}".format(self.syllabified[-1])]
 
-    def phonetic_indexing(self, p="SE"):
+    def phonetic_indexing(self, p="SE") -> str:
         """
-        Args:
-
-            :param p: Specifies the phonetic indexing method
+        :param p: Specifies the phonetic indexing method
                 SE: Soundex variant for MHG
 
-        Returns:
-            str: Encoded string corresponding to the word's phonetic
+        :return: Encoded string corresponding to the word's phonetic
             representation
-
         """
 
         if p == "SE":

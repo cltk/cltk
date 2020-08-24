@@ -613,6 +613,7 @@ class BasePhonologicalRule:
 
     * The action defines a transformation of the target phoneme, e.g. its vocalization.
     It is a function taking only the action, which returns the replacement phoneme OR a *list* of phonemes.
+
     """
 
     def __init__(self, condition, action):
@@ -734,8 +735,8 @@ class Orthophonology:
     * The inventory of all the phonemes of the language.
     * A mapping of orthographic symbols to phonemes.
     * mappings of orthographic symbols pairs to:
-        * diphthongs
-        * phonemes (i.e. digraphs)
+      * diphthongs
+      * phonemes (i.e. digraphs)
     * phonological rules for the contextual transformation of phonological representations.
 
     The class is very clearly aimed at alphabetic orthographies.
