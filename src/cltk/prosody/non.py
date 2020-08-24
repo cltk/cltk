@@ -347,6 +347,7 @@ class UnspecifiedStanza(Metre):
     def from_short_lines_text(self, text: str):
         """
         Example from Völsupá 28
+
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
         >>> us.from_short_lines_text(stanza)
@@ -412,6 +413,7 @@ class UnspecifiedStanza(Metre):
     def find_alliteration(self):
         """
         Alliterations in short lines make no sense.
+
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
         >>> us.from_short_lines_text(stanza)
@@ -432,7 +434,8 @@ class Fornyrdhislag(Metre):
 
     Short lines:
 
-    ```txt
+    .. code block:: txt
+
     --------
     --------
     --------
@@ -440,16 +443,17 @@ class Fornyrdhislag(Metre):
     --------
     --------
     --------
-    ```
+
 
     Long lines:
 
-    ```txt
+    .. code block:: txt
+
     -------- --------
     -------- --------
     -------- --------
     -------- --------
-    ```
+
     """
 
     def __init__(self):
@@ -458,6 +462,7 @@ class Fornyrdhislag(Metre):
     def from_short_lines_text(self, text: str):
         """
         Famous example from Völsupá 1st stanza
+
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
         >>> fo.from_short_lines_text(text)
@@ -551,6 +556,7 @@ class Ljoodhhaattr(Metre):
     def from_short_lines_text(self, text: str):
         """
         Famous example from Hávamál 77
+
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> lj = Ljoodhhaattr()
         >>> lj.from_short_lines_text(text)

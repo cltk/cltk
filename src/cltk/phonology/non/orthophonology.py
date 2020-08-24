@@ -144,3 +144,18 @@ on.rules = [
     g >> gh | Consonantal.neg - Voiced.pos,
     g >> gh | Consonantal.neg - W,
 ]
+
+
+class OldNorsePhonologicalTranscriber:
+    def __init__(self):
+        pass
+
+    def transcribe(self, word):
+        pass
+
+    def __repr__(self):
+        return f"<OldNorseScanner>"
+
+    def __call__(self, word):
+        return self.transcribe(word)
+

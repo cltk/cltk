@@ -9,24 +9,25 @@ from dataclasses import dataclass
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, Process
-from cltk.prosody.non import OldNorseScanner
+from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 
 
 @dataclass
-class PoetryProcess(Process):
+class PhonologicalTranscriptionProcess(Process):
     """
 
     """
     def run(self, input_doc: Doc) -> Doc:
-        scanner = self.algorithm
+        transcriber = self.algorithm
 
         output_doc = deepcopy(input_doc)
-        output_doc.scanned_text = scanner(input_doc.raw)
+        for word in output_doc.words:
+            word.phonological_transcription = transcriber(input_doc.raw)
 
         return output_doc
 
 
-class OldNorsePoetryProcess(PoetryProcess):
+class OldNorsePhonologicalTranscriber(PhonologicalTranscriptionProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
@@ -34,7 +35,7 @@ class OldNorsePoetryProcess(PoetryProcess):
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-    processes=[OldNorseTokenizationProcess, OldNorsePoetryProcess], \
+    processes=[OldNorseTokenizationProcess, OldNorsePhonologicalTranscriber], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
     >>> nlp(get_example_text("non")).scanned_text
@@ -45,4 +46,4 @@ class OldNorsePoetryProcess(PoetryProcess):
 
     @cachedproperty
     def algorithm(self):
-        return OldNorseScanner()
+        return OldNorsePhonologicalTranscriber()
