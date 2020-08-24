@@ -38,7 +38,7 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     processes=[OldNorseTokenizationProcess, OldNorsePhonologicalTranscriberProcess], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).scanned_text
+    >>> nlp(get_example_text("non")).phonological_transcription
 
     """
 
