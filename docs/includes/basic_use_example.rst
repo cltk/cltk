@@ -1,4 +1,6 @@
-:class:`cltk.nlp.NLP()` has pre-configured processing pipelines for a number of languages. Executing :meth:`cltk.nlp.NLP.analyze()` returns a :obj:`cltk.core.data_types.Doc` object, which contains all processed information.
+:class:`cltk.nlp.NLP()` has pre-configured processing pipelines for a number of :ref:`Languages`_. Executing :meth:`cltk.nlp.NLP.analyze()` returns a :obj:`cltk.core.data_types.Doc` object, which contains all processed information.
+
+To process text:
 
 .. code-block:: python
 
@@ -6,6 +8,11 @@
    >>> vitruvius = "Architecti est scientia pluribus disciplinis et variis eruditionibus ornata, quae ab ceteris artibus perficiuntur. Opera ea nascitur et fabrica et ratiocinatione."
    >>> cltk_nlp = NLP(language="lat")
    >>> cltk_doc = cltk_nlp.analyze(text=vitruvius)
+
+You may then inspect the output object:
+
+.. code-block:: python
+
    >>> cltk_doc.tokens[:5]
    ['Architecti', 'est', 'scientia', 'pluribus', 'disciplinis']
    >>> cltk_doc.words[1].string
@@ -36,3 +43,5 @@
    >>> cltk_doc.words[20].index_sentence
    1
 
+
+For more, see :ref:`Pipelines, Processes, Docs, and Words`_.
