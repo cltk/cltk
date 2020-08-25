@@ -4,9 +4,9 @@ Pipelines, Processes, Docs, and Words
 The CLTK contains four important, native data types:
 
 - :class:`cltk.core.data_types.Word`: Contains all processed information for each word token. Has attributes including ``Word.string``, ``Word.lemma``, ``Word.pos``, ``Word.governor``, and ``Word.embedding``. A ``Process`` adds data to each ``Word``.
-- :class:`cltk.core.data_types.Doc`: The input and output of each ``Process`` and final output of ``NLP()``. Contains ``Doc.raw``, which is the original input string to ``NLP().analyze()``, and ``Doc.words`` which is a list of ``Word`` objects.
+- :class:`cltk.core.data_types.Doc`: Contains ``Doc.raw``, which is the original input string to ``NLP().analyze()``, and ``Doc.words``, which is a list of ``Word`` objects. It is the input and output of each ``Process`` and final output of ``NLP()``.
 - :class:`cltk.core.data_types.Process`: Takes and returns a ``Doc``. Each process does some processing of information within the ``Doc``, then annotates each ``Word`` object at ``Doc.words``.
-- :class:`cltk.core.data_types.Pipeline`: A list of ``Process`` objects at ``Pipeline.processes``. Predefined pipelines have been made for some languages (:ref:`languages`), while custom pipelines may be made for these languages or other, different languages altogether.
+- :class:`cltk.core.data_types.Pipeline`: Has a list of ``Process`` objects at ``Pipeline.processes``. Predefined pipelines have been made for some languages (:ref:`Languages`_), while custom pipelines may be made for these languages or other, different languages altogether.
 
 
 .. graphviz::
@@ -43,27 +43,27 @@ The CLTK contains four important, native data types:
      ]
 
      LatinEmbeddingProcess [
-       label = "{LatinEmbeddingProcess|\l| algorithm(): Callable}"
+       label = "{LatinEmbeddingProcess|\l|algorithm(): FastTextEmbeddings(\"lat\")}"
      ]
 
      GreekEmbeddingProcess [
-       label = "{GreekEmbeddingProcess|\l| algorithm(): FastTextEmbeddings(iso_code)}"
+       label = "{GreekEmbeddingProcess|\l|algorithm(): FastTextEmbeddings(\"grc\")}"
      ]
 
      EtcEmbeddingsProcess [
-       label = "{…|\l| algorithm(): FastTextEmbeddings(iso_code)}"
+       label = "{…|\l|algorithm(): Callable}"
      ]
 
      LatinNERProcess [
-       label = "{LatinNERProcess|\l| algorithm(): tag_ner}"
+       label = "{LatinNERProcess|\l|algorithm(): tag_ner(\"lat\")}"
      ]
 
      GreekNERProcess [
-       label = "{LatinNERProcess|\l| algorithm(): tag_ner}"
+       label = "{GreekNERProcess|\l|algorithm(): tag_ner(\"grc\")}"
      ]
 
      EtcNERProcess [
-       label = "{…|\l| algorithm(): Callable}"
+       label = "{…|\l|algorithm(): Callable}"
      ]
 
      Process -> EmbeddingProcess [dir=back]
@@ -104,7 +104,7 @@ The CLTK contains four important, native data types:
      ]
 
      GreekPipeline [
-       label = "{GreekPipeline|\l|processes: [GreekStanzaProcess, \l GreekEmbeddingsProcess,\l StopsProcess,\l GreekNERProcess]}"
+       label = "{GreekPipeline|\l|processes: [GreekStanzaProcess,\l GreekEmbeddingsProcess,\l StopsProcess,\l GreekNERProcess]}"
      ]
 
      EtcPipeline [
@@ -146,17 +146,6 @@ If you need to add your own ``Process`` to a pipeline, first create a new ``Proc
    ...     @staticmethod
    ...     def algorithm(word: str) -> str:
    ...         return mk_upper_case(word)
-   >>> cltk_doc = Doc(language="lat", raw="arma virmque cano", words=[
-   ...     Word(string="arma"), Word(string="virumque"), Word(string="cano")
-   ... ])
-   >>> cltk_doc.words[0].string
-   'arma'
-   >>> custom_process_mk_upper = UpperProcess()
-   >>> cltk_doc_processed = custom_process_mk_upper.run(input_doc=cltk_doc)
-   >>> cltk_doc_processed.words[0].string
-   'arma'
-   >>> cltk_doc_processed.words[0].upper
-   'ARMA'
 
 
 

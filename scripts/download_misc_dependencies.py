@@ -57,8 +57,6 @@ def download_cltk_models(iso_code: str) -> None:
         corpus_downloader.import_corpus(corpus_name=f"{iso_code}_data_cltk")
     else:
         corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
-        if iso_code == "lat":
-            corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
 
 
 def download_nlpl_model(iso_code: str) -> None:
@@ -88,3 +86,4 @@ if __name__ == "__main__":
     download_cltk_models(iso_code="non")
     download_cltk_models(iso_code="gml")
     download_cltk_models(iso_code="gmh")
+
