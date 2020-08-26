@@ -310,3 +310,17 @@ def find_stress(word: str) -> List[str]:
         syllables[0] = "[{}]".format(syllables[0])
 
     return syllables
+
+
+class AkkadianSyllabifier:
+    def __init__(self):
+        pass
+
+    def syllabify(self, word):
+        return syllabify(word)
+
+    def __repr__(self):
+        return f"<AkkadianSyllabifier>"
+
+    def __call__(self, word):
+        return self.syllabify(word)
