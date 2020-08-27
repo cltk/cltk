@@ -246,9 +246,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_tag_ner_str_list_french(self):
         """Test make_ner(), str, list."""
-        text_str = (
-            """Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."""
-        )
+        text_str = "Berte fu mere Charlemaine, qui pukis tint France et tot le Maine."
         ner_replacer = NamedEntityReplacer()
         tokens = ner_replacer.tag_ner_fr(input_text=text_str, output_type=list)
         target = [
