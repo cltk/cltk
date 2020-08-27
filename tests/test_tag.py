@@ -5,10 +5,10 @@ import shutil
 import unittest
 
 from cltk.data.fetch import FetchCorpus
-from cltk.text.lat import replace_jv
 from cltk.tag import ner
 from cltk.tag.ner import NamedEntityReplacer
 from cltk.tag.pos import POSTag
+from cltk.text.lat import replace_jv
 from cltk.utils import CLTK_DATA_DIR
 
 __license__ = "MIT License. See LICENSE."

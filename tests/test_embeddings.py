@@ -137,51 +137,79 @@ class TestEmbedding(unittest.TestCase):
 
         language = "ang"  # type: str
         example_text = get_example_text(language)  # type: str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = OldEnglishEmbeddingsProcess()  # type: OldEnglishEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))  # type: Doc
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )  # type: Doc
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
         language = "arc"  # type: str
         example_text = get_example_text(language)  # type: str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = AramaicEmbeddingsProcess()  # type: AramaicEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))  # type: Doc
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )  # type: Doc
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
         language = "got"  # type: str
         example_text = get_example_text(language)  # str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = GothicEmbeddingsProcess()  # type: GothicEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))  # type: Doc
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )  # type: Doc
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
         language = "grc"  # type: str
         example_text = get_example_text(language)  # type: str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = GreekEmbeddingsProcess()  # type: GreekEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))  # type: Doc
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )  # type: Doc
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
         language = "lat"  # type: str
         example_text = get_example_text(language)  # type: str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = LatinEmbeddingsProcess()  # type: LatinEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))  # type: Doc
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )  # type: Doc
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
         language = "pli"  # type: str
         example_text = get_example_text(language)  # type: str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = PaliEmbeddingsProcess()  # type: PaliEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
         language = "san"  # type: str
         example_text = get_example_text(language)  # type: str
-        word_objs = [Word(string=word_obj) for word_obj in example_text.split(" ")]  # type: List[Word]
+        word_objs = [
+            Word(string=word_obj) for word_obj in example_text.split(" ")
+        ]  # type: List[Word]
         a_process = SanskritEmbeddingsProcess()  # type: SanskritEmbeddingsProcess
-        a_doc = a_process.run(input_doc=Doc(raw=get_example_text(language), words=word_objs))  # type: Doc
+        a_doc = a_process.run(
+            input_doc=Doc(raw=get_example_text(language), words=word_objs)
+        )  # type: Doc
         isinstance(a_doc.words[1].embedding, numpy.ndarray)
 
 

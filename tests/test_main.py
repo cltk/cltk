@@ -15,31 +15,6 @@ class TestMain(unittest.TestCase):
         change ``first_word.embedding`` into an empty list because
         otherwise we would have to add a long vector into our tests.
         """
-        lang = "grc"
-        cltk_nlp = NLP(language=lang)
-        cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
-        first_word = cltk_doc.words[0]
-        self.assertIsInstance(first_word.embedding, numpy.ndarray)
-        first_word.embedding = list()
-        target = Word(
-            index_char_start=None,
-            index_char_stop=None,
-            index_token=0,
-            index_sentence=0,
-            string="ὅτι",
-            pos="ADV",
-            lemma="ὅτι",
-            scansion=None,
-            xpos="Df",
-            upos="ADV",
-            dependency_relation="advmod",
-            governor=6,
-            features={},
-            embedding=[],
-            stop=True,
-            named_entity=False,
-        )
-        self.assertEqual(first_word, target)
 
         lang = "chu"
         cltk_nlp = NLP(language=lang)
@@ -53,12 +28,38 @@ class TestMain(unittest.TestCase):
             string="отьчє",
             pos="NOUN",
             lemma="отьць",
+            stem=None,
             scansion=None,
             xpos="Nb",
             upos="NOUN",
             dependency_relation="vocative",
             governor=7,
             features={"Case": "Voc", "Gender": "Masc", "Number": "Sing"},
+            embedding=None,
+            stop=None,
+            named_entity=None,
+        )
+        self.assertEqual(first_word, target)
+
+        lang = "cop"
+        cltk_nlp = NLP(language=lang)
+        cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
+        first_word = cltk_doc.words[0]
+        target = Word(
+            index_char_start=None,
+            index_char_stop=None,
+            index_token=0,
+            index_sentence=0,
+            string="ⲧⲏⲛ",
+            pos="VERB",
+            lemma="ⲧⲏⲛ",
+            stem=None,
+            scansion=None,
+            xpos="VSTAT",
+            upos="VERB",
+            dependency_relation="root",
+            governor=-1,
+            features={"VerbForm": "Fin"},
             embedding=None,
             stop=None,
             named_entity=None,
@@ -77,6 +78,7 @@ class TestMain(unittest.TestCase):
             string="Une",
             pos="DET",
             lemma=None,
+            stem=None,
             scansion=None,
             xpos="DETndf",
             upos="DET",
@@ -103,6 +105,7 @@ class TestMain(unittest.TestCase):
             string="swa",
             pos="ADV",
             lemma="swa",
+            stem=None,
             scansion=None,
             xpos="Df",
             upos="ADV",
@@ -116,31 +119,32 @@ class TestMain(unittest.TestCase):
         self.assertEqual(first_word, target)
         self.assertEqual(len(cltk_doc.sentences), 3)
 
-        # TODO: Re-enable coptic
-        # raises ``KeyError: 'pretrain_path'`` from ``_set_up_model``
-        # lang = "cop"
-        # cltk_nlp = NLP(language=lang)
-        # cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
-        # first_word = cltk_doc.words[0]
-        # target = Word(
-        #     index_char_start=None,
-        #     index_char_stop=None,
-        #     index_token=0,
-        #     index_sentence=0,
-        #     string="ⲧⲏⲛ",
-        #     pos="VERB",
-        #     lemma="ⲧⲏⲛ",
-        #     scansion=None,
-        #     xpos="VSTAT",
-        #     upos="VERB",
-        #     dependency_relation="root",
-        #     governor=-1,
-        #     features={"VerbForm": "Fin"},
-        #     embedding=None,
-        #     stop=None,
-        #     named_entity=None,
-        # )
-        # self.assertEqual(first_word, target)
+        lang = "grc"
+        cltk_nlp = NLP(language=lang)
+        cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
+        first_word = cltk_doc.words[0]
+        self.assertIsInstance(first_word.embedding, numpy.ndarray)
+        first_word.embedding = list()  # clear out the array, for easier checking
+        target = Word(
+            index_char_start=None,
+            index_char_stop=None,
+            index_token=0,
+            index_sentence=0,
+            string="ὅτι",
+            pos="ADV",
+            lemma="ὅτι",
+            stem=None,
+            scansion=None,
+            xpos="Df",
+            upos="ADV",
+            dependency_relation="advmod",
+            governor=6,
+            features={},
+            embedding=[],
+            stop=True,
+            named_entity=False,
+        )
+        self.assertEqual(first_word, target)
 
         lang = "lzh"
         cltk_nlp = NLP(language=lang)
@@ -154,6 +158,7 @@ class TestMain(unittest.TestCase):
             string="黃",
             pos="NOUN",
             lemma="黃",
+            stem=None,
             scansion=None,
             xpos="n,名詞,描写,形質",
             upos="NOUN",

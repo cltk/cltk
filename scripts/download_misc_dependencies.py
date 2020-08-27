@@ -86,4 +86,3 @@ if __name__ == "__main__":
     download_cltk_models(iso_code="non")
     download_cltk_models(iso_code="gml")
     download_cltk_models(iso_code="gmh")
-
