@@ -28,7 +28,7 @@ class SyllabificationProcess(Process):
 
         output_doc = deepcopy(input_doc)
         for word in output_doc.words:
-            word.phonological_transcription = syllabifier(input_doc.raw)
+            word.syllables = syllabifier(input_doc.raw)
 
         return output_doc
 
@@ -44,7 +44,7 @@ class AkkadianSyllabificationProcess(SyllabificationProcess):
     processes=[AkkadianTokenizationProcess, AkkadianSyllabificationProcess], \
     language=get_lang("akk"))
     >>> nlp = NLP(language='akk', custom_pipeline = pipe)
-    >>> nlp(get_example_text("akk")).phonological_transcription
+    >>> nlp(get_example_text("akk")).syllables
 
     """
 
@@ -55,26 +55,26 @@ class AkkadianSyllabificationProcess(SyllabificationProcess):
         return AkkadianSyllabifier()
 
 
-class GothicSyllabificationProcess(SyllabificationProcess):
-    """
-    >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import GothicTokenizationProcess
-    >>> from cltk.languages.utils import get_lang
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Akkadian pipeline", \
-    processes=[GothicTokenizationProcess, GothicSyllabificationProcess], \
-    language=get_lang("akk"))
-    >>> nlp = NLP(language='akk', custom_pipeline = pipe)
-    >>> nlp(get_example_text("akk")).syllables
-
-    """
-
-    description = "The default Old Norse poetry process"
-
-    @cachedproperty
-    def algorithm(self):
-        return GothicSyllabifier()
+# class GothicSyllabificationProcess(SyllabificationProcess):
+#     """
+#     >>> from cltk.core.data_types import Process, Pipeline
+#     >>> from cltk.tokenizers.processes import GothicTokenizationProcess
+#     >>> from cltk.languages.utils import get_lang
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> from cltk.nlp import NLP
+#     >>> pipe = Pipeline(description="A custom Gothic pipeline", \
+#     processes=[GothicTokenizationProcess, GothicSyllabificationProcess], \
+#     language=get_lang("akk"))
+#     >>> nlp = NLP(language='akk', custom_pipeline = pipe)
+#     >>> nlp(get_example_text("akk")).syllables
+#
+#     """
+#
+#     description = "The default Old Norse poetry process"
+#
+#     @cachedproperty
+#     def algorithm(self):
+#         return GothicSyllabifier()
 
 
 class LatinSyllabificationProcess(SyllabificationProcess):
@@ -84,11 +84,11 @@ class LatinSyllabificationProcess(SyllabificationProcess):
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Akkadian pipeline", \
+    >>> pipe = Pipeline(description="A custom Latin pipeline", \
     processes=[AkkadianTokenizationProcess, LatinSyllabificationProcess], \
-    language=get_lang("akk"))
+    language=get_lang("lat"))
     >>> nlp = NLP(language='lat', custom_pipeline = pipe)
-    >>> nlp(get_example_text("lat")).phonological_transcription
+    >>> nlp(get_example_text("lat")).syllables
 
     """
 
@@ -107,10 +107,10 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Middle English pipeline", \
-    processes=[MiddleEnglishTokenizationProcess, AkkadianSyllbificationProcess], \
-    language=get_lang("akk"))
-    >>> nlp = NLP(language='akk', custom_pipeline = pipe)
-    >>> nlp(get_example_text("akk")).phonological_transcription
+    processes=[MiddleEnglishTokenizationProcess, MiddleEnglishSyllabificationProcess], \
+    language=get_lang("enm"))
+    >>> nlp = NLP(language='enm', custom_pipeline = pipe)
+    >>> nlp(get_example_text("enm")).syllables
 
     """
 
@@ -128,11 +128,11 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Akkadian pipeline", \
+    >>> pipe = Pipeline(description="A custom Middle High German pipeline", \
     processes=[MiddleHighGermanTokenizationProcess, MiddleHighGermanSyllabificationProcess], \
-    language=get_lang("mhg"))
-    >>> nlp = NLP(language='mhg', custom_pipeline = pipe)
-    >>> nlp(get_example_text("mhg")).phonological_transcription
+    language=get_lang("hmh"))
+    >>> nlp = NLP(language='gmh', custom_pipeline = pipe)
+    >>> nlp(get_example_text("gmh")).syllables
 
     """
 
@@ -152,9 +152,9 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old English pipeline", \
     processes=[OldEnglishTokenizationProcess, OldEnglishSyllabificationProcess], \
-    language=get_lang("akk"))
-    >>> nlp = NLP(language='akk', custom_pipeline = pipe)
-    >>> nlp(get_example_text("akk")).phonological_transcription
+    language=get_lang("ang"))
+    >>> nlp = NLP(language='ang', custom_pipeline = pipe)
+    >>> nlp(get_example_text("ang")).syllables
 
     """
 
@@ -176,7 +176,7 @@ class OldNorseSyllabificationProcess(SyllabificationProcess):
     processes=[OldNorseTokenizationProcess, OldNorseSyllabificationProcess], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).phonological_transcription
+    >>> nlp(get_example_text("non")).syllables
 
     """
 

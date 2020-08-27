@@ -10,19 +10,19 @@ from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, Process
 
-from cktk.phonology.orthophonology import Orthophonology
+from cltk.phonology.orthophonology import Orthophonology
 
 from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 
 from cltk.phonology.akk import AkkadianPhonologicalTranscriber
-# from cltk.phonology.arabic import ArabiccPhonologicalTranscriber
+# from cltk.phonology.arabic import ArabicPhonologicalTranscriber
 from cltk.phonology.gothic.transcription import GothicPhonologicalTranscriber
 from cltk.phonology.greek.transcription import GreekPhonologicalTranscriber
 from cltk.phonology.lat.transcription import LatinPhonologicalTranscriber
 from cltk.phonology.middle_english import MiddleEnglishPhonologicalTranscriber
 from cltk.phonology.middle_high_german import MiddleHighGermanPhonologicalTranscriber
 from cltk.phonology.old_english.orthophonology import OldNorsePhonologicalTranscriber
-from cltk.phonology.old_swedish.transcriber import OldSwedishPhonologicalTranscriber
+from cltk.phonology.old_swedish.transcription import OldSwedishPhonologicalTranscriber
 
 
 @dataclass
@@ -87,12 +87,12 @@ class ArabicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import GothicTokenizationProcess
+    >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Gothic pipeline", \
-    processes=[GothicTokenizationProcess, GothicPhonologicalTranscriberProcess], \
+    processes=[OldNorseTokenizationProcess, GothicPhonologicalTranscriberProcess], \
     language=get_lang("got"))
     >>> nlp = NLP(language='got', custom_pipeline = pipe)
     >>> nlp(get_example_text("got")).phonological_transcription
@@ -153,15 +153,15 @@ class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 class MiddleEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
+    >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Middle English pipeline", \
     processes=[MiddleEnglishTokenizationProcess, MiddleEnglishPhonologicalTranscriberProcess], \
-    language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).phonological_transcription
+    language=get_lang("enm"))
+    >>> nlp = NLP(language='enm', custom_pipeline = pipe)
+    >>> nlp(get_example_text("enm")).phonological_transcription
 
     """
 
@@ -197,15 +197,15 @@ class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionPr
 class OldEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import OldEnglishTokenizationProcess
+    >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old English pipeline", \
-    processes=[OldEnglishTokenizationProcess, OldEnglishPhonologicalTranscriberProcess], \
-    language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).phonological_transcription
+    processes=[MiddleEnglishTokenizationProcess, OldEnglishPhonologicalTranscriberProcess], \
+    language=get_lang("ang"))
+    >>> nlp = NLP(language='ang', custom_pipeline = pipe)
+    >>> nlp(get_example_text("ang")).phonological_transcription
 
     """
 
@@ -241,12 +241,12 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 class OldSwedishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import OldSwedishTokenizationProcess
+    >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old Swedish pipeline", \
-    processes=[OldSwedishTokenizationProcess, OldSwedishPhonologicalTranscriberProcess], \
+    processes=[OldNorseTokenizationProcess, OldSwedishPhonologicalTranscriberProcess], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
     >>> nlp(get_example_text("non")).phonological_transcription
