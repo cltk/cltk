@@ -2,7 +2,7 @@
 Sonority phoneme hierarchy for Old English
 """
 
-Syllabifier = {
+syllabification_hierarchy = {
     "a": 1,
     "e": 1,
     "i": 1,
