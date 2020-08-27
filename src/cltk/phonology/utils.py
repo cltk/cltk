@@ -5,7 +5,7 @@ from enum import Enum, auto
 
 from cltk.core.cltk_logger import logger
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class AutoName(Enum):
@@ -169,8 +169,6 @@ class Consonant(AbstractConsonant):
 
 
 # Vowels
-
-
 class Height(AutoName):
     open = auto()
     near_open = auto()

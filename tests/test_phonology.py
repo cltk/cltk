@@ -2,7 +2,7 @@
 
 __author__ = [
     "Jack Duff <jmunroeduff@gmail.com>",
-    "Clément Besnier <clemsciences@aol.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
 ]
 __license__ = "MIT License. See LICENSE."
 
@@ -138,7 +138,7 @@ class TestSequenceFunctions(unittest.TestCase):
             w = grc.Word(i, grc.GREEK["Attic"]["Probert"])
             w._alternate()
             outputs.append(
-                ["".join([p.ipa for l in n for p in l]) for n in w._syllabify()]
+                ["".join([p.ipa for l in n for p in l]) for n in w.syllabify()]
             )
         target = [
             [unicodedata.normalize("NFC", s) for s in y]
@@ -423,9 +423,9 @@ class TestSequenceFunctions(unittest.TestCase):
         outputs = []
         for i in raw_inputs:
             w = lat.Word(i, lat.LATIN["Classical"]["Allen"])
-            w._syllabify()
+            w.syllabify()
             outputs.append(
-                ["".join([p.ipa for l in n for p in l]) for n in w._syllabify()]
+                ["".join([p.ipa for l in n for p in l]) for n in w.syllabify()]
             )
         target = [
             [unicodedata.normalize("NFC", s) for s in y]
@@ -696,18 +696,18 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_old_swedish(self):
         # TODO: Re-enable
-        # sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
-        # tr = ut.Transcriber(
-        #     old_swedish.DIPHTHONGS_IPA,
-        #     old_swedish.DIPHTHONGS_IPA_class,
-        #     old_swedish.IPA_class,
-        #     old_swedish.old_swedish_rules,
-        # )
-        # transcribed_sentence = tr.text_to_phonetic_representation(sentence)
-        # self.assertEqual(
-        #     "[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
-        #     transcribed_sentence,
-        # )
+        sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
+        tr = ut.Transcriber(
+            old_swedish.DIPHTHONGS_IPA,
+            old_swedish.DIPHTHONGS_IPA_class,
+            old_swedish.IPA_class,
+            old_swedish.old_swedish_rules,
+        )
+        transcribed_sentence = tr.text_to_phonetic_representation(sentence)
+        self.assertEqual(
+            "[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
+            transcribed_sentence,
+        )
         pass
 
     def test_utils(self):

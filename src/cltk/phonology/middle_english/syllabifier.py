@@ -2,6 +2,7 @@
 Sonority hierarchy for Middle English
 """
 
+
 Syllabifier = {
     "a": 1,
     "æ": 1,

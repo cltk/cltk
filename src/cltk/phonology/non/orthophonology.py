@@ -4,7 +4,7 @@ Old Norse orthophonology module similar to the cltk.phonology.non.transcription 
 
 from cltk.phonology.orthophonology import *
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 # Vowels
 a = Vowel(Height.open, Backness.front, Roundedness.neg, Length.short, "a")

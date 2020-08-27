@@ -25,6 +25,9 @@ from cltk.phonology.old_english.orthophonology import OldNorsePhonologicalTransc
 from cltk.phonology.old_swedish.transcription import OldSwedishPhonologicalTranscriber
 
 
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
+
+
 @dataclass
 class PhonologicalTranscriptionProcess(Process):
     """

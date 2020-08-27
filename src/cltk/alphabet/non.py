@@ -4,7 +4,7 @@ Source: *Viking Language 1*, Jessie L. Byock
 TODO: Document and test better.
 """
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 from enum import Enum, auto
 

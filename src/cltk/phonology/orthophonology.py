@@ -2,7 +2,7 @@
 A module for representing the orthophonology of a language:
 the mapping from orthographic representations to IPA symbols.
 
-Based on many ideas in cltk.phonology.utils by Clément Besnier <clemsciences@aol.com>.
+Based on many ideas in cltk.phonology.utils by Clément Besnier <clem@clementbesnier.fr>.
 """
 
 import re
@@ -12,7 +12,7 @@ from functools import reduce
 
 __author__ = [
     "John Stewart <johnstewart@aya.yale.edu>",
-    "Clément Besnier <clemsciences@aol.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
 ]
 
 

@@ -14,7 +14,7 @@ from cltk.stops.non import STOPS
 from cltk.tag.pos import POSTag
 from cltk.tokenizers.non import OldNorseWordTokenizer
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 # extension of stop words for poetry

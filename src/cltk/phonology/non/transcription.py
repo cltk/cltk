@@ -21,7 +21,7 @@ from cltk.phonology.utils import (
     Vowel,
 )
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class OldNorsePhonology(Vowel):

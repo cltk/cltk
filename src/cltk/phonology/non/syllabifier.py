@@ -2,7 +2,7 @@
 Sonority hierarchy for Old Norse
 """
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 __license__ = "MIT License"
 
 # Used according to sonority principle
@@ -108,17 +108,3 @@ ipa_hierarchy = [
     ["f", "v", "θ", "ð", "s", "h"],
     ["b", "d", "g", "k", "p", "t"],
 ]
-
-
-class OldNorseSyllabifier:
-    def __init__(self):
-        pass
-
-    def syllabify(self, word):
-        pass
-
-    def __repr__(self):
-        return f"<OldNorseScanner>"
-
-    def __call__(self, word):
-        return self.syllabify(word)
