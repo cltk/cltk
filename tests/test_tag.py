@@ -5,7 +5,7 @@ import shutil
 import unittest
 
 from cltk.data.fetch import FetchCorpus
-from cltk.stem.latin.j_v import JVReplacer
+from cltk.text.lat import replace_jv
 from cltk.tag import ner
 from cltk.tag.ner import NamedEntityReplacer
 from cltk.tag.pos import POSTag
@@ -161,8 +161,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_tag_ner_str_list_latin(self):
         """Test make_ner(), str, list."""
         text_str = """ut Venus, ut Sirius, ut Spica, ut aliae quae primae dicuntur esse mangitudinis."""
-        jv_replacer = JVReplacer()
-        text_str_iu = jv_replacer.replace(text_str)
+        text_str_iu = replace_jv(text_str)
         tokens = ner.tag_ner("lat", input_text=text_str_iu, output_type=list)
         target = [
             ("ut",),
@@ -188,8 +187,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_tag_ner_list_list_latin(self):
         """Test make_ner(), list, list."""
         text_list = ["ut", "Venus", "Sirius"]
-        jv_replacer = JVReplacer()
-        text_list_iu = [jv_replacer.replace(x) for x in text_list]
+        text_list_iu = [replace_jv(x) for x in text_list]
         tokens = ner.tag_ner("lat", input_text=text_list_iu, output_type=list)
         target = [("ut",), ("Uenus", "Entity"), ("Sirius", "Entity")]
         self.assertEqual(tokens, target)
@@ -197,17 +195,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_tag_ner_list_str_latin(self):
         """Test make_ner(), list, str."""
         text_list = ["ut", "Venus", "Sirius"]
-        jv_replacer = JVReplacer()
-        text_list_iu = [jv_replacer.replace(x) for x in text_list]
+        text_list_iu = [replace_jv(x) for x in text_list]
         text = ner.tag_ner("lat", input_text=text_list_iu, output_type=str)
         target = " ut Uenus/Entity Sirius/Entity"
         self.assertEqual(text, target)
 
     def test_tag_ner_str_str_latin(self):
         """Test make_ner(), str, str."""
-        jv_replacer = JVReplacer()
         text_str = """ut Venus, ut Sirius, ut Spica, ut aliae quae primae dicuntur esse mangitudinis."""
-        text_str_iu = jv_replacer.replace(text_str)
+        text_str_iu = replace_jv(text_str)
         text = ner.tag_ner("lat", input_text=text_str_iu, output_type=str)
         target = " ut Uenus/Entity, ut Sirius/Entity, ut Spica/Entity, ut aliae quae primae dicuntur esse mangitudinis."
         self.assertEqual(text, target)
