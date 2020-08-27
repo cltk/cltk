@@ -14,7 +14,7 @@ from cltk.phonology.orthophonology import Orthophonology
 
 from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 
-from cltk.phonology.akk import AkkadianPhonologicalTranscriber
+# from cltk.phonology.akk import AkkadianPhonologicalTranscriber
 # from cltk.phonology.arabic import ArabicPhonologicalTranscriber
 from cltk.phonology.gothic.transcription import GothicPhonologicalTranscriber
 from cltk.phonology.greek.transcription import GreekPhonologicalTranscriber
@@ -43,26 +43,26 @@ class PhonologicalTranscriptionProcess(Process):
         return output_doc
 
 
-class AkkadianPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-    """
-    >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import AkkadianTokenizationProcess
-    >>> from cltk.languages.utils import get_lang
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Akkadian pipeline", \
-    processes=[AkkadianTokenizationProcess, AkkadianPhonologicalTranscriberProcess], \
-    language=get_lang("akk"))
-    >>> nlp = NLP(language='akk', custom_pipeline = pipe)
-    >>> nlp(get_example_text("akk")).phonological_transcription
-
-    """
-
-    description = "The default Akkadian transcription process"
-
-    @cachedproperty
-    def algorithm(self):
-        return AkkadianPhonologicalTranscriber()
+# class AkkadianPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
+#     """
+#     >>> from cltk.core.data_types import Process, Pipeline
+#     >>> from cltk.tokenizers.processes import AkkadianTokenizationProcess
+#     >>> from cltk.languages.utils import get_lang
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> from cltk.nlp import NLP
+#     >>> pipe = Pipeline(description="A custom Akkadian pipeline", \
+#     processes=[AkkadianTokenizationProcess, AkkadianPhonologicalTranscriberProcess], \
+#     language=get_lang("akk"))
+#     >>> nlp = NLP(language='akk', custom_pipeline = pipe)
+#     >>> nlp(get_example_text("akk")).phonological_transcription
+#
+#     """
+#
+#     description = "The default Akkadian transcription process"
+#
+#     @cachedproperty
+#     def algorithm(self):
+#         return AkkadianPhonologicalTranscriber()
 
 
 class ArabicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -74,9 +74,9 @@ class ArabicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
     processes=[ArabicTokenizationProcess, ArabicPhonologicalTranscriberProcess], \
-    language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).phonological_transcription
+    language=get_lang("arb"))
+    >>> nlp = NLP(language='arb', custom_pipeline = pipe)
+    >>> nlp(get_example_text("arb")).phonological_transcription
 
     """
 
