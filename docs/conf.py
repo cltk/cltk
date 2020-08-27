@@ -79,6 +79,7 @@ html_theme_options = {
 #
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
     # "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
     # typehints v. 1.10.3 is broken on ``@staticmethod``
