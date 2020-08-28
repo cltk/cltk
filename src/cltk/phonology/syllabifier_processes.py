@@ -44,7 +44,7 @@ class AkkadianSyllabificationProcess(SyllabificationProcess):
     processes=[AkkadianTokenizationProcess, AkkadianSyllabificationProcess], \
     language=get_lang("akk"))
     >>> nlp = NLP(language='akk', custom_pipeline = pipe)
-    >>> nlp(get_example_text("akk")).syllables
+    >>> nlp(get_example_text("akk"))
 
     """
 
@@ -80,15 +80,15 @@ class AkkadianSyllabificationProcess(SyllabificationProcess):
 class LatinSyllabificationProcess(SyllabificationProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import AkkadianTokenizationProcess
+    >>> from cltk.tokenizers.processes import LatinTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[AkkadianTokenizationProcess, LatinSyllabificationProcess], \
+    processes=[LatinTokenizationProcess, LatinSyllabificationProcess], \
     language=get_lang("lat"))
     >>> nlp = NLP(language='lat', custom_pipeline = pipe)
-    >>> nlp(get_example_text("lat")).syllables
+    >>> nlp(get_example_text("lat"))
 
     """
 
@@ -109,8 +109,8 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Middle English pipeline", \
     processes=[MiddleEnglishTokenizationProcess, MiddleEnglishSyllabificationProcess], \
     language=get_lang("enm"))
-    >>> nlp = NLP(language='enm', custom_pipeline = pipe)
-    >>> nlp(get_example_text("enm")).syllables
+    >>> nlp = NLP(language='enm', custom_pipeline=pipe)
+    >>> nlp(get_example_text("enm"))
 
     """
 
@@ -131,8 +131,8 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Middle High German pipeline", \
     processes=[MiddleHighGermanTokenizationProcess, MiddleHighGermanSyllabificationProcess], \
     language=get_lang("hmh"))
-    >>> nlp = NLP(language='gmh', custom_pipeline = pipe)
-    >>> nlp(get_example_text("gmh")).syllables
+    >>> nlp = NLP(language='gmh', custom_pipeline=pipe)
+    >>> nlp(get_example_text("gmh"))
 
     """
 
@@ -153,8 +153,8 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Old English pipeline", \
     processes=[MultilingualTokenizationProcess, OldEnglishSyllabificationProcess], \
     language=get_lang("ang"))
-    >>> nlp = NLP(language='ang', custom_pipeline = pipe)
-    >>> nlp(get_example_text("ang")).syllables
+    >>> nlp = NLP(language='ang', custom_pipeline=pipe)
+    >>> nlp(get_example_text("ang"))
 
     """
 
@@ -175,8 +175,8 @@ class OldNorseSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Akkadian pipeline", \
     processes=[OldNorseTokenizationProcess, OldNorseSyllabificationProcess], \
     language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).syllables
+    >>> nlp = NLP(language='non', custom_pipeline=pipe)
+    >>> nlp(get_example_text("non"))
 
     """
 
