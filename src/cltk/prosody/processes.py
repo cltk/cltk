@@ -30,22 +30,44 @@ class PoetryProcess(Process):
         return output_doc
 
 
-class OldNorsePoetryProcess(PoetryProcess):
+class GreekPoetryProcess(PoetryProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
+    >>> from cltk.tokenizers.processes import GreekTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-    processes=[OldNorseTokenizationProcess, OldNorsePoetryProcess], \
+    processes=[GreekTokenizationProcess, GreekPoetryProcess], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
     >>> nlp(get_example_text("non")).scanned_text
 
     """
 
-    description = "The default Old Norse poetry process"
+    description = "The default Greek poetry process"
+
+    @cachedproperty
+    def algorithm(self):
+        return GreekScanner()
+
+
+class LatinPoetryProcess(PoetryProcess):
+    """
+    >>> from cltk.core.data_types import Process, Pipeline
+    >>> from cltk.tokenizers.processes import LatinTokenizationProcess
+    >>> from cltk.languages.utils import get_lang
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> from cltk.nlp import NLP
+    >>> pipe = Pipeline(description="A custom Latin pipeline", \
+    processes=[LatinTokenizationProcess, LatinScanner], \
+    language=get_lang("lat"))
+    >>> nlp = NLP(language='lat', custom_pipeline = pipe)
+    >>> nlp(get_example_text("lat")).scanned_text
+
+    """
+
+    description = "The default Latin poetry process"
 
     @cachedproperty
     def algorithm(self):
@@ -74,45 +96,23 @@ class MiddleHighGermanPoetryProcess(PoetryProcess):
         return MiddleHighGermanScanner()
 
 
-class LatinPoetryProcess(PoetryProcess):
+class OldNorsePoetryProcess(PoetryProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import LatinTokenizationProcess
-    >>> from cltk.languages.utils import get_lang
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[LatinTokenizationProcess, LatinScanner], \
-    language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline = pipe)
-    >>> nlp(get_example_text("lat")).scanned_text
-
-    """
-
-    description = "The default Latin poetry process"
-
-    @cachedproperty
-    def algorithm(self):
-        return OldNorseScanner()
-
-
-class GreekPoetryProcess(PoetryProcess):
-    """
-    >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import GreekTokenizationProcess
+    >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-    processes=[GreekTokenizationProcess, GreekPoetryProcess], \
+    processes=[OldNorseTokenizationProcess, OldNorsePoetryProcess], \
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline = pipe)
     >>> nlp(get_example_text("non")).scanned_text
 
     """
 
-    description = "The default Greek poetry process"
+    description = "The default Old Norse poetry process"
 
     @cachedproperty
     def algorithm(self):
-        return GreekScanner()
+        return OldNorseScanner()

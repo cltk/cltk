@@ -399,3 +399,17 @@ class Scansion:
                     )
             all_syllables.append(syll_per_sent)
         return all_syllables
+
+
+class GreekScanner:
+    def __init__(self):
+        self.scanner = Scansion()
+
+    def scan(self, text):
+        return self.scanner.scan_text(text)
+
+    def __repr__(self):
+        return f"<OldNorseScanner>"
+
+    def __call__(self, paragraphs):
+        return self.scan(paragraphs)
