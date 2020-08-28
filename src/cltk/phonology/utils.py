@@ -592,23 +592,23 @@ class Transcriber:
         :return:
         """
         phonemes = []
-        is_repeted = False
+        is_repeated = False
         if len(word) >= 2:
             for index in range(len(word) - 1):
-                if is_repeted:
-                    is_repeted = False
+                if is_repeated:
+                    is_repeated = False
                     continue
                 if word[index : index + 2] in self.diphthongs_ipa:  # diphthongs
                     phonemes.append(
                         self.diphthongs_ipa_class[word[index] + word[index + 1]]
                     )
-                    is_repeted = True
+                    is_repeated = True
                 elif word[index] == word[index + 1]:
                     phonemes.append(self.ipa_class[word[index]].lengthen())
-                    is_repeted = True
+                    is_repeated = True
                 else:
                     phonemes.append(self.ipa_class[word[index]])
-            if not is_repeted:
+            if not is_repeated:
                 phonemes.append(self.ipa_class[word[len(word) - 1]])
         else:
             phonemes.append(self.ipa_class[word[0]])

@@ -10,12 +10,13 @@ import unicodedata
 import unittest
 
 from cltk.phonology import utils as ut
-from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
+from cltk.phonology.arabic.romanization import transliterate \
+    as arabic_transliterate
 from cltk.phonology.gothic import transcription as gothic
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
-from cltk.phonology.middle_english.transcription import Word as word_me
+from cltk.phonology.middle_english.syllabifier import Word as WordMe
 from cltk.phonology.middle_high_german import transcription as mhg
 from cltk.phonology.non import transcription as ont
 from cltk.phonology.non.syllabifier import invalid_onsets
@@ -576,29 +577,29 @@ class TestSequenceFunctions(unittest.TestCase):
 
         # from arabic native script to buckwalter
         assert (
-            AarabicTransliterate(mode, ar_string, ignore, reverse)
-            == "bisomi Allhi Alra~Hom`ni Alra~Hiyomi"
+                arabic_transliterate(mode, ar_string, ignore, reverse)
+                == "bisomi Allhi Alra~Hom`ni Alra~Hiyomi"
         )
         # from buckwalter to arabic native script
         reverse = False
         assert (
-            AarabicTransliterate(mode, buckwalter_string, ignore, reverse)
-            == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+                arabic_transliterate(mode, buckwalter_string, ignore, reverse)
+                == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
         )
 
         # from arabic native script to ISO233-2
         mode = "iso233-2"
         reverse = True
         assert (
-            AarabicTransliterate(mode, ar_string, ignore, reverse)
-            == "bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi"
+                arabic_transliterate(mode, ar_string, ignore, reverse)
+                == "bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi"
         )
 
         # from iso233-2 to arabic native script
         reverse = False
         assert (
-            AarabicTransliterate(mode, iso2332_string, ignore, reverse)
-            == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+                arabic_transliterate(mode, iso2332_string, ignore, reverse)
+                == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
         )
 
     def test_middle_high_german_transcriber(self):
@@ -639,7 +640,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         words = ["marchall", "content", "thyne", "greef", "commaundyd"]
 
-        syllabified = [word_me(w).syllabify() for w in words]
+        syllabified = [WordMe(w).syllabify() for w in words]
         target_syllabified = [
             ["mar", "chall"],
             ["con", "tent"],
@@ -650,7 +651,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         assert syllabified == target_syllabified
 
-        syllabified_str = [word_me(w).syllabified_str() for w in words]
+        syllabified_str = [WordMe(w).syllabified_str() for w in words]
         target_syllabified_str = [
             "mar.chall",
             "con.tent",
