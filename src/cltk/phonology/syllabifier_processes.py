@@ -156,7 +156,7 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
     >>> nlp = NLP(language='gmh', custom_pipeline=pipe)
     >>> text = get_example_text("gmh")
     >>> [word.syllables for word in nlp(text)[:5]]
-    [['ik'], ['gih', 'or', 'ta'], ['ðat'], ['seg', 'gen'], ['ðat']]
+    [['uns'], ['ist'], ['in'], ['al', 'ten'], ['mæren']]
     """
 
     description = "The default Middle High German syllabification process"
