@@ -153,7 +153,7 @@ class MiddleHighGermanTokenizationProcess(TokenizationProcess):
     >>> tokenizer_process = MiddleHighGermanTokenizationProcess()
     >>> output_doc = tokenizer_process.run(input_doc=Doc(raw=get_example_text("gmh")[:29]))
     >>> output_doc.tokens
-    ['Ik', 'gihorta', 'ðat', 'seggen', 'ðat', 'sih']
+    ['Uns', 'ist', 'in', 'alten', 'mæren', 'wunder']
     """
 
     description = "Default Middle High German tokenizer"

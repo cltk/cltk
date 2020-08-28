@@ -609,7 +609,7 @@ class Ljoodhhaattr(Metre):
         >>> lj.from_short_lines_text(text)
         >>> lj.to_phonetics(False)
         >>> lj.transcribed_text
-        [['ɛk', 'vɛit', 'ɛinː'], ['at', 'aldrɛi', 'dɐyr']], [['doːmr', 'um', 'dɒuðan', 'hvɛrn']]]
+        [[['dɐyr', 'feː'], ['dɐyja', 'frɛːndr']], [['dɐyr', 'sjalvr', 'it', 'sama']], [['ɛk', 'vɛit', 'ɛinː'], ['at', 'aldrɛi', 'dɐyr']], [['doːmr', 'um', 'dɒuðan', 'hvɛrn']]]
 
         """
         Metre.to_phonetics(self, with_squared_brackets)

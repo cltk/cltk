@@ -92,7 +92,7 @@ class MiddleHighGermanStemmingProcess(StemmingProcess):
     language=get_lang("gmh"))
     >>> nlp = NLP(language='gmh', custom_pipeline = pipe)
     >>> nlp(get_example_text("gmh")[:29]).stems
-    ['ik', 'gihorta', 'ðat', 'segg', 'ðat', 'sih']
+    ['uns', 'ist', 'in', 'alten', 'mær', 'wund']
     """
 
     description = "Default stemmer for the Middle High German language."
