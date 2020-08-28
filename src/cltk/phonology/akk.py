@@ -317,7 +317,10 @@ class AkkadianSyllabifier:
         pass
 
     def syllabify(self, word):
-        return syllabify(word)
+        if type(word) == tuple and len(word) == 2:
+            return syllabify(word[0])
+        else:
+            return syllabify(word)
 
     def __repr__(self):
         return f"<AkkadianSyllabifier>"

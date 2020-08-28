@@ -37,7 +37,7 @@ class OldNorseSyllabifier:
         self.syllabifier.set_invalid_onsets(ons.invalid_onsets)
 
     def syllabify(self, word):
-        self.syllabifier.syllabify(word)
+        return self.syllabifier.syllabify(word)
 
     def __repr__(self):
         return f"<OldNorseScanner>"

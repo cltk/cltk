@@ -99,7 +99,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-            self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y"]
+            # self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
 
         elif language == "ang":
             hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]

@@ -8,6 +8,7 @@ syllabification_hierarchy = {
     "i": 1,
     "o": 1,
     "u": 1,
+    "y": 1,
     "ø": 1,
     "æ": 1,
     "m": 2,
