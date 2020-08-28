@@ -73,16 +73,18 @@ class ShortLine:
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
-    def to_phonetics(self, transcriber):
+    def to_phonetics(self, transcriber, with_squared_brackets=True):
         """
         Phonetic transcription of the ShortLine instances.
         :param transcriber: Old Norse transcriber
+        :param with_squared_brackets:
         :return:
         """
         for viisuordh in self.tokenized_text:
             word = old_norse_normalize(viisuordh)
             if word:
-                transcribed_word = transcriber.text_to_phonetic_representation(word)
+                transcribed_word = transcriber.text_to_phonetic_representation(word,
+                                                                               with_squared_brackets)
                 # phonological features list, result of Transcriber.text_to_phonemes()
                 pfl = transcriber.text_to_phonemes(word)
 
@@ -166,16 +168,17 @@ class LongLine:
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
-    def to_phonetics(self, transcriber):
+    def to_phonetics(self, transcriber, with_squared_brackets=True):
         """
         Phontic transcription of the ShortLine instances.
         :param transcriber: Old Norse transcriber
+        :param with_squared_brackets:
         :return:
         """
         for viisuordh in self.tokenized_text:
             word = old_norse_normalize(viisuordh)
             if word:
-                transcribed_word = transcriber.text_to_phonetic_representation(word)
+                transcribed_word = transcriber.text_to_phonetic_representation(word, with_squared_brackets)
                 pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
@@ -268,7 +271,7 @@ class Metre:
                     syllabified_text[i].append(short_line.syllabified)
             self.syllabified_text = syllabified_text
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         Transcribing words in verse helps find alliteration.
         """
@@ -291,7 +294,7 @@ class Metre:
                     assert isinstance(short_line, ShortLine) or isinstance(
                         short_line, LongLine
                     )
-                    short_line.to_phonetics(transcriber)
+                    short_line.to_phonetics(transcriber, with_squared_brackets)
                     transcribed_text[i].append(short_line.transcribed)
                     phonological_features_text[i].append(
                         short_line.phonological_features_text
@@ -383,14 +386,14 @@ class UnspecifiedStanza(Metre):
             syllabified_text.append(short_line.syllabified)
         self.syllabified_text = syllabified_text
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
         >>> us.from_short_lines_text(stanza)
-        >>> us.to_phonetics()
+        >>> us.to_phonetics(False)
         >>> us.transcribed_text
-        [['[ɛin]', '[sat]', '[hɔn]', '[uːti]'], ['[θaː]', '[ɛr]', '[inː]', '[aldni]', '[kɔm]'], ['[ygːjunɣr]', '[aːsa]'], ['[ɔk]', '[iː]', '[ɒuɣu]', '[lɛit]'], ['[hvɛrs]', '[frɛɣnið]', '[mik]'], ['[hviː]', '[frɛistið]', '[miːn]'], ['[alːt]', '[vɛit]', '[ɛk]', '[oːðinː]'], ['[hvar]', '[θuː]', '[ɒuɣa]', '[falt]'], ['[iː]', '[inum]', '[mɛːra]'], ['[miːmisbrunːi]'], ['[drɛkːr]', '[mjœð]', '[miːmir]'], ['[mɔrɣun]', '[hvɛrjan]'], ['[av]', '[vɛði]', '[valvœðrs]'], ['[vituð]', '[eːr]', '[ɛnː]', '[ɛða]', '[hvat]']]
+        [['ɛin', 'sat', 'hɔn', 'uːti'], ['θaː', 'ɛr', 'inː', 'aldni', 'kɔm'], ['ygːjunɣr', 'aːsa'], ['ɔk', 'iː', 'ɒuɣu', 'lɛit'], ['hvɛrs', 'frɛɣnið', 'mik'], ['hviː', 'frɛistið', 'miːn'], ['alːt', 'vɛit', 'ɛk', 'oːðinː'], ['hvar', 'θuː', 'ɒuɣa', 'falt'], ['iː', 'inum', 'mɛːra'], ['miːmisbrunːi'], ['drɛkːr', 'mjœð', 'miːmir'], ['mɔrɣun', 'hvɛrjan'], ['av', 'vɛði', 'valvœðrs'], ['vituð', 'eːr', 'ɛnː', 'ɛða', 'hvat']]
 
         :return:
         """
@@ -404,7 +407,7 @@ class UnspecifiedStanza(Metre):
         phonological_features_text = []
         for short_line in self.short_lines:
             assert isinstance(short_line, ShortLine) or isinstance(short_line, LongLine)
-            short_line.to_phonetics(transcriber)
+            short_line.to_phonetics(transcriber, with_squared_brackets)
             transcribed_text.append(short_line.transcribed)
             phonological_features_text.append(short_line.phonological_features_text)
         self.transcribed_text = transcribed_text
@@ -495,18 +498,18 @@ class Fornyrdhislag(Metre):
         """
         Metre.syllabify(self, hierarchy)
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
         >>> fo.from_short_lines_text(text)
-        >>> fo.to_phonetics()
+        >>> fo.to_phonetics(False)
         >>> fo.transcribed_text
-        [[['[hljoːðs]', '[bið]', '[ɛk]', '[alːar]'], ['[hɛlɣar]', '[kindir]']], [['[mɛiri]', '[ɔk]', '[minːi]'], ['[mœɣu]', '[hɛimdalːar]']], [['[viltu]', '[at]', '[ɛk]', '[valvœðr]'], ['[vɛl]', '[fyr]', '[tɛlja]']], [['[fɔrn]', '[spjœlː]', '[fira]'], ['[θɒu]', '[ɛr]', '[frɛmst]', '[ɔv]', '[man]']]]
+        [[['hljoːðs', 'bið', 'ɛk', 'alːar'], ['hɛlɣar', 'kindir']], [['mɛiri', 'ɔk', 'minːi'], ['mœɣu', 'hɛimdalːar']], [['viltu', 'at', 'ɛk', 'valvœðr'], ['vɛl', 'fyr', 'tɛlja']], [['fɔrn', 'spjœlː', 'fira'], ['θɒu', 'ɛr', 'frɛmst', 'ɔv', 'man']]]
 
         :return:
         """
-        Metre.to_phonetics(self)
+        Metre.to_phonetics(self, with_squared_brackets)
 
     def find_alliteration(self):
         """
@@ -599,17 +602,17 @@ class Ljoodhhaattr(Metre):
         """
         Metre.syllabify(self, hierarchy)
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         >>> lj = Ljoodhhaattr()
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> lj.from_short_lines_text(text)
-        >>> lj.to_phonetics()
+        >>> lj.to_phonetics(False)
         >>> lj.transcribed_text
-        [[['[dɐyr]', '[feː]'], ['[dɐyja]', '[frɛːndr]']], [['[dɐyr]', '[sjalvr]', '[it]', '[sama]']], [['[ɛk]', '[vɛit]', '[ɛinː]'], ['[at]', '[aldrɛi]', '[dɐyr]']], [['[doːmr]', '[um]', '[dɒuðan]', '[hvɛrn]']]]
+        [['ɛk', 'vɛit', 'ɛinː'], ['at', 'aldrɛi', 'dɐyr']], [['doːmr', 'um', 'dɒuðan', 'hvɛrn']]]
 
         """
-        Metre.to_phonetics(self)
+        Metre.to_phonetics(self, with_squared_brackets)
 
     def find_alliteration(self) -> Tuple[list, list]:
         """
@@ -714,13 +717,22 @@ class MetreManager:
                 poem.append(stanza)
         return poem
 
+    @staticmethod
+    def load_poem_from_normalized_text(text: List[str]):
+        """
+        # TODO
+        :param text:
+        :return: list of Fornyrdhislag or Ljoodhhaattr instances
+        """
+        return []
+
 
 class OldNorseScanner:
     def __init__(self):
         pass
 
     def scan(self, paragraphs):
-        MetreManager.load_poem_from_paragraphs(paragraphs)
+        return MetreManager.load_poem_from_paragraphs(paragraphs)
 
     def __repr__(self):
         return f"<OldNorseScanner>"

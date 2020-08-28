@@ -332,7 +332,7 @@ class LatinScanner:
         self.scanner = Scansion()
 
     def scan(self, text):
-        self.scanner.scan_text(text)
+        return self.scanner.scan_text(text)
 
     def __repr__(self):
         return f"<LatinScanner>"
