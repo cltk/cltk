@@ -19,7 +19,8 @@ class GothicTranscription:
         )
 
     def transcribe(self, word):
-        return self.transcriber.text_to_phonetic_representation(word)
+        return self.transcriber.text_to_phonetic_representation(word,
+                                                                with_squared_brackets=False)
 
     def __repr__(self):
         return f"<GothicTranscription>"

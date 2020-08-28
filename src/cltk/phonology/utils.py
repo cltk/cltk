@@ -580,7 +580,8 @@ class Transcriber:
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            transliterated.append(self.word_to_phonetic_representation(word))
+            transliterated.append(
+                self.word_to_phonetic_representation(word, with_squared_brackets))
         if with_squared_brackets:
             return "[" + " ".join(transliterated) + "]"
         return " ".join(transliterated)

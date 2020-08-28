@@ -64,27 +64,27 @@ class PhonologicalTranscriptionProcess(Process):
 #         return AkkadianPhonologicalTranscriber()
 
 
-class ArabicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-    """
-    >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import ArabicTokenizationProcess
-    >>> from cltk.languages.utils import get_lang
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-    processes=[ArabicTokenizationProcess, ArabicPhonologicalTranscriberProcess], \
-    language=get_lang("arb"))
-    >>> nlp = NLP(language='arb', custom_pipeline=pipe)
-    >>> text = get_example_text("arb")
-    >>> [word.phonetic_transcription for word in nlp(text)]
-
-    """
-
-    description = "The default Arabic transcription process"
-
-    @cachedproperty
-    def algorithm(self):
-        return ArabicPhonologicalTranscriberProcess()
+# class ArabicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
+#     """
+#     >>> from cltk.core.data_types import Process, Pipeline
+#     >>> from cltk.tokenizers.processes import ArabicTokenizationProcess
+#     >>> from cltk.languages.utils import get_lang
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> from cltk.nlp import NLP
+#     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
+#     processes=[ArabicTokenizationProcess, ArabicPhonologicalTranscriberProcess], \
+#     language=get_lang("arb"))
+#     >>> nlp = NLP(language='arb', custom_pipeline=pipe)
+#     >>> text = get_example_text("arb")
+#     >>> [word.phonetic_transcription for word in nlp(text)]
+#
+#     """
+#
+#     description = "The default Arabic transcription process"
+#
+#     @cachedproperty
+#     def algorithm(self):
+#         return ArabicPhonologicalTranscriber()
 
 
 class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -100,10 +100,8 @@ class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     GothicPhonologicalTranscriberProcess], language=get_lang("got"))
     >>> nlp = NLP(language='got', custom_pipeline=pipe)
     >>> text = get_example_text("got")
-    >>> text
-    
     >>> [word.phonetic_transcription for word in nlp(text)[:5]]
-
+    ['swa', 'liuhtjɛ', 'liuhaθ', 'jzwar', 'jn']
     """
 
     description = "The default Gothic transcription process"
