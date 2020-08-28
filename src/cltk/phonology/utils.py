@@ -555,15 +555,35 @@ class Transcriber:
         self.ipa_class = ipa_class
         self.rules = rules
 
-    def text_to_phonetic_representation(self, sentence: str) -> str:
+    def word_to_phonetic_representation(self, word, with_squared_brackets=True):
+        """
+
+        :param word: normalized word
+        :param with_squared_brackets:
+        :return:
+        """
+        phonemes = self.text_to_phonemes(word)
+        phonetic_representation = self.phonemes_to_phonetic_representation(phonemes)
+        if with_squared_brackets:
+            return f"[{phonetic_representation}]"
+        return phonetic_representation
+
+    def text_to_phonetic_representation(self, sentence: str,
+                                        with_squared_brackets=True) -> str:
+        """
+
+        :param sentence:
+        :param with_squared_brackets:
+        :return:
+        """
         transliterated = []
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            phonemes = self.text_to_phonemes(word)
-            phonetic_representation = self.phonemes_to_phonetic_representation(phonemes)
-            transliterated.append(phonetic_representation)
-        return "[" + " ".join(transliterated) + "]"
+            transliterated.append(self.word_to_phonetic_representation(word))
+        if with_squared_brackets:
+            return "[" + " ".join(transliterated) + "]"
+        return " ".join(transliterated)
 
     def text_to_phonemes(self, word: str) -> list:
         """

@@ -15,7 +15,7 @@ class OldEnglishTranscription:
         self.transcriber = Transcriber()
 
     def transcribe(self, word):
-        return self.transcriber.transcribe(word)
+        return self.transcriber.transcribe(word, with_squared_brackets=False)
 
     def __repr__(self):
         return f"<OldEnglishTranscription>"

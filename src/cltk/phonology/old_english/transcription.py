@@ -156,11 +156,12 @@ class Transcriber:
         pass
 
     @staticmethod
-    def transcribe(text, punctuation=True):
+    def transcribe(text, punctuation=True, with_squared_brackets=True):
         """
         Parameters:
             :param text: str: The text to be transcribed
             :param punctuation: bool: Retain punctuation
+            :param with_squared_brackets:
 
         This module attempts to reconstruct the approximate phonology
         of Old English.
@@ -210,7 +211,10 @@ class Transcriber:
         for w, val in zip(IPA.keys(), IPA.values()):
             text = text.replace(w, val)
 
-        return "[" + text.replace("-", "") + "]"
+        if with_squared_brackets:
+            return "[" + text.replace("-", "") + "]"
+        else:
+            return text.replace("-", "")
 
 
 class Word:

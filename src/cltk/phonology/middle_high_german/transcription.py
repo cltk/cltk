@@ -117,8 +117,14 @@ class Transcriber:
     def __init__(self):
         pass  # To-do: Add different dialects and/or notations
 
-    def transcribe(self, text, punctuation=True):
-        """Accepts a word and returns a string of an approximate pronounciation (IPA)"""
+    def transcribe(self, text: str, punctuation=True, with_squared_brackets=True):
+        """
+        Accepts a word and returns a string of an approximate
+        pronounciation (IPA)
+        :param text:
+        :param punctuation:
+        :param with_squared_brackets:
+        """
 
         if not punctuation:
             text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
@@ -134,8 +140,9 @@ class Transcriber:
 
         for w, val in zip(IPA.keys(), IPA.values()):
             text = text.replace(w, val)
-
-        return "[" + text + "]"
+        if with_squared_brackets:
+            return "[" + text + "]"
+        return text
 
 
 class Word:
