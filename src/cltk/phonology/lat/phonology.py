@@ -2,6 +2,8 @@
 
 """
 
+import unicodedata
+
 import cltk.phonology.lat.transcription as latt
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -9,10 +11,12 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 class LatinTranscription:
     def __init__(self):
-        self.transcription = latt.Transcriber("Classical", "Allen")
+        self.transcriber = latt.Transcriber("Classical", "Allen")
 
     def transcribe(self, word):
-        return self.transcription.transcribe(word)
+
+        return self.transcriber.transcribe(unicodedata.normalize("NFC", word),
+                                           False, False, False)
 
     def __repr__(self):
         return f"<LatinTranscription>"

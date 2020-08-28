@@ -19,7 +19,7 @@ class GothicTranscription:
         )
 
     def transcribe(self, word):
-        return self.transcriber.text_to_phonemes(word)
+        return self.transcriber.text_to_phonetic_representation(word)
 
     def __repr__(self):
         return f"<GothicTranscription>"

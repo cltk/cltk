@@ -1,6 +1,7 @@
 """
 
 """
+import unicodedata
 
 import cltk.phonology.greek.transcription as gret
 
@@ -12,7 +13,7 @@ class GreekTranscription:
         self.transcriber = gret.Transcriber("Attic", "Probert")
 
     def transcribe(self, word):
-        return self.transcriber.transcribe(word)
+        return self.transcriber.transcribe(unicodedata.normalize("NFC", word))
 
     def __repr__(self):
         return f"<GreekTranscription>"
