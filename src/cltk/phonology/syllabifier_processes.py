@@ -11,11 +11,11 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process
 
 from cltk.phonology.akk import AkkadianSyllabifier
-from cltk.phonology.lat import LatinSyllabifier
-from cltk.phonology.middle_english import MiddleEnglishSyllabifier
-from cltk.phonology.middle_high_german import MiddleHighGermanSyllabifier
-from cltk.phonology.non import OldNorseSyllabifier
-from cltk.phonology.old_english import OldEnglishSyllabifier
+from cltk.phonology.lat.phonology import LatinSyllabifier
+from cltk.phonology.middle_english.phonology import MiddleEnglishSyllabifier
+from cltk.phonology.middle_high_german.phonology import MiddleHighGermanSyllabifier
+from cltk.phonology.non.phonology import OldNorseSyllabifier
+from cltk.phonology.old_english.phonology import OldEnglishSyllabifier
 
 
 @dataclass
@@ -146,12 +146,12 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
 class OldEnglishSyllabificationProcess(SyllabificationProcess):
     """
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import OldEnglishTokenizationProcess
+    >>> from cltk.tokenizers.processes import MultilingualTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Old English pipeline", \
-    processes=[OldEnglishTokenizationProcess, OldEnglishSyllabificationProcess], \
+    processes=[MultilingualTokenizationProcess, OldEnglishSyllabificationProcess], \
     language=get_lang("ang"))
     >>> nlp = NLP(language='ang', custom_pipeline = pipe)
     >>> nlp(get_example_text("ang")).syllables

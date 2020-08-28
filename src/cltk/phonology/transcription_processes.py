@@ -16,13 +16,13 @@ from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 
 # from cltk.phonology.akk import AkkadianPhonologicalTranscriber
 # from cltk.phonology.arabic import ArabicPhonologicalTranscriber
-from cltk.phonology.gothic.transcription import GothicPhonologicalTranscriber
-from cltk.phonology.greek.transcription import GreekPhonologicalTranscriber
-from cltk.phonology.lat.transcription import LatinPhonologicalTranscriber
-from cltk.phonology.middle_english import MiddleEnglishPhonologicalTranscriber
-from cltk.phonology.middle_high_german import MiddleHighGermanPhonologicalTranscriber
-from cltk.phonology.old_english.orthophonology import OldNorsePhonologicalTranscriber
-from cltk.phonology.old_swedish.transcription import OldSwedishPhonologicalTranscriber
+from cltk.phonology.gothic.phonology import GothicTranscription
+from cltk.phonology.greek.phonology import GreekTranscription
+from cltk.phonology.lat.phonology import LatinTranscription
+from cltk.phonology.middle_english.phonology import MiddleEnglishTranscription
+from cltk.phonology.middle_high_german.phonology import MiddleHighGermanTranscription
+from cltk.phonology.old_english.phonology import OldEnglishTranscription
+from cltk.phonology.old_swedish.phonology import OldSwedishTranscription
 
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -106,7 +106,7 @@ class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     @cachedproperty
     def algorithm(self):
-        return GothicPhonologicalTranscriber()
+        return GothicTranscription()
 
 
 class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -128,7 +128,7 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     @cachedproperty
     def algorithm(self):
-        return GreekPhonologicalTranscriber()
+        return GreekTranscription()
 
 
 class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -150,7 +150,7 @@ class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     @cachedproperty
     def algorithm(self):
-        return LatinPhonologicalTranscriber()
+        return LatinTranscription()
 
 
 class MiddleEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -172,7 +172,7 @@ class MiddleEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProce
 
     @cachedproperty
     def algorithm(self):
-        return MiddleEnglishPhonologicalTranscriber()
+        return MiddleEnglishTranscription()
 
 
 class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -194,7 +194,7 @@ class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionPr
 
     @cachedproperty
     def algorithm(self):
-        return MiddleHighGermanPhonologicalTranscriber()
+        return MiddleHighGermanTranscription()
 
 
 class OldEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -216,7 +216,7 @@ class OldEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
 
     @cachedproperty
     def algorithm(self):
-        return OldNorsePhonologicalTranscriber()
+        return OldEnglishTranscription()
 
 
 class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
@@ -260,4 +260,4 @@ class OldSwedishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
 
     @cachedproperty
     def algorithm(self):
-        return OldSwedishPhonologicalTranscriber()
+        return OldSwedishTranscription()
