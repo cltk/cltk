@@ -12,7 +12,7 @@ from cltk.core.data_types import Doc, Process
 
 from cltk.prosody.grc import GreekScanner
 from cltk.prosody.lat.scanner import LatinScanner
-from cltk.prosody.gmh import MiddleHighGermanScanner
+# from cltk.prosody.gmh import MiddleHighGermanScanner
 from cltk.prosody.non import OldNorseScanner
 
 
@@ -74,26 +74,26 @@ class LatinPoetryProcess(PoetryProcess):
         return LatinScanner()
 
 
-class MiddleHighGermanPoetryProcess(PoetryProcess):
-    """
-    >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.tokenizers.processes import MiddleHighGermanTokenizationProcess
-    >>> from cltk.languages.utils import get_lang
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Middle High German pipeline", \
-    processes=[MiddleHighGermanTokenizationProcess, MiddleHighGermanPoetryProcess], \
-    language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline = pipe)
-    >>> nlp(get_example_text("non")).scanned_text
-
-    """
-
-    description = "The default Middle High German poetry process"
-
-    @cachedproperty
-    def algorithm(self):
-        return MiddleHighGermanScanner()
+# class MiddleHighGermanPoetryProcess(PoetryProcess):
+#     """
+#     >>> from cltk.core.data_types import Process, Pipeline
+#     >>> from cltk.tokenizers.processes import MiddleHighGermanTokenizationProcess
+#     >>> from cltk.languages.utils import get_lang
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> from cltk.nlp import NLP
+#     >>> pipe = Pipeline(description="A custom Middle High German pipeline", \
+#     processes=[MiddleHighGermanTokenizationProcess, MiddleHighGermanPoetryProcess], \
+#     language=get_lang("non"))
+#     >>> nlp = NLP(language='non', custom_pipeline = pipe)
+#     >>> nlp(get_example_text("non")).scanned_text
+#
+#     """
+#
+#     description = "The default Middle High German poetry process"
+#
+#     @cachedproperty
+#     def algorithm(self):
+#         return MiddleHighGermanScanner()
 
 
 class OldNorsePoetryProcess(PoetryProcess):
