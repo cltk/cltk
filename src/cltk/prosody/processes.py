@@ -11,7 +11,7 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process
 
 from cltk.prosody.grc import GreekScanner
-from cltk.prosody.lat import LatinScanner
+from cltk.prosody.lat.scanner import LatinScanner
 from cltk.prosody.gmh import MiddleHighGermanScanner
 from cltk.prosody.non import OldNorseScanner
 
@@ -60,7 +60,7 @@ class LatinPoetryProcess(PoetryProcess):
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[LatinTokenizationProcess, LatinScanner], \
+    processes=[LatinTokenizationProcess, LatinPoetryProcess], \
     language=get_lang("lat"))
     >>> nlp = NLP(language='lat', custom_pipeline = pipe)
     >>> nlp(get_example_text("lat")).scanned_text
@@ -71,7 +71,7 @@ class LatinPoetryProcess(PoetryProcess):
 
     @cachedproperty
     def algorithm(self):
-        return OldNorseScanner()
+        return LatinScanner()
 
 
 class MiddleHighGermanPoetryProcess(PoetryProcess):

@@ -44,8 +44,10 @@ class Scansion:
     SESTS = ["sc", "sm", "sp", "st", "z"]
 
     def __init__(
-        self, punctuation=[".", "?", "!", ";", ":"], clausula_length=13, elide=True
+        self, punctuation=None, clausula_length=13, elide=True
     ):
+        if punctuation is None:
+            punctuation = [".", "?", "!", ";", ":"]
         self.punctuation = punctuation
         self.clausula_length = clausula_length
         self.elide = elide
@@ -323,3 +325,17 @@ class Scansion:
             clausulae.append("".join(sentence_clausula))
         clausulae = clausulae[:-1]
         return clausulae
+
+
+class LatinScanner:
+    def __init__(self):
+        self.scanner = Scansion()
+
+    def scan(self, text):
+        self.scanner.scan_text(text)
+
+    def __repr__(self):
+        return f"<LatinScanner>"
+
+    def __call__(self, text):
+        return self.scan(text)
