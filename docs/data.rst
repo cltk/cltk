@@ -1,12 +1,11 @@
 Data
 ====
 
-The CLTK downloads dependency data into ``~/cltk_data`` of a user's local filesystem. It also contains \
-``cltk.log`` for logging.
+The CLTK downloads dependency data into a directory at ``~/cltk_data``.
 
 .. tip::
 
-   User can override this by setting the environmental variable ``$CLTK_DATA``, e.g., ``CLTK_DATA="/opt/custom-dir"``.
+   A user can override the default location of the ``cltk_data`` directory by setting the environmental variable ``$CLTK_DATA``. E.g., ``CLTK_DATA="/opt/custom-dir"``.
 
 
 Discovering and downloading

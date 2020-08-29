@@ -7,7 +7,7 @@ import os
 from nltk.tokenize.punkt import PunktLanguageVars
 
 from cltk.data.fetch import FetchCorpus
-from cltk.tokenizers.word import WordTokenizer
+from cltk.tokenizers.word import PunktWordTokenizer
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
@@ -49,7 +49,7 @@ class NamedEntityReplacer(object):
         for entity in entities:
             (name, kind) = entity
 
-        word_tokenizer = WordTokenizer("french")
+        word_tokenizer = PunktWordTokenizer()
         tokenized_text = word_tokenizer.tokenize(input_text)
         ner_tuple_list = []
 
