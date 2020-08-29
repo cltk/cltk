@@ -10,14 +10,14 @@ import unicodedata
 import unittest
 
 from cltk.phonology import utils as ut
-from cltk.phonology.arabic.romanization import transliterate \
+from cltk.phonology.arb.romanization import transliterate \
     as arabic_transliterate
-from cltk.phonology.gothic import transcription as gothic
-from cltk.phonology.greek import transcription as grc
+from cltk.phonology.got import transcription as gothic
+from cltk.phonology.grc import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
-from cltk.phonology.middle_english.syllabifier import Word as WordMe
-from cltk.phonology.middle_high_german import transcription as mhg
+from cltk.phonology.enm.syllabifier import Word as WordMe
+from cltk.phonology.gmh import transcription as mhg
 from cltk.phonology.non import transcription as ont
 from cltk.phonology.non.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish

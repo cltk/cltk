@@ -5,7 +5,7 @@
 import logging
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.phonology.old_english.transcription import L_Transliteration, R_Transliteration
+from cltk.phonology.ang.transcription import L_Transliteration, R_Transliteration
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())

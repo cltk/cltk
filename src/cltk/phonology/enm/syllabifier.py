@@ -8,7 +8,7 @@ from typing import List
 
 from cltk.stem.enm import stem
 
-from cltk.phonology.middle_english.transcription import SHORT_VOWELS, CONSONANTS, TRIPHTHONGS, DIPHTHONGS, dict_SE
+from cltk.phonology.enm.transcription import SHORT_VOWELS, CONSONANTS, TRIPHTHONGS, DIPHTHONGS, dict_SE
 
 Syllabifier = {
     "a": 1,

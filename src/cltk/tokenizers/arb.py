@@ -4,7 +4,7 @@
 __author__ = ["TK", "Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
-from cltk.phonology.arabic.utils.pyarabic import araby
+from cltk.phonology.arb.utils.pyarabic import araby
 from cltk.tokenizers.word import WordTokenizer
 
 

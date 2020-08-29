@@ -1,7 +1,7 @@
 """Module for calculating rhyme scheme for a MHG stanza."""
 
 from cltk.alphabet.gmh import normalize_middle_high_german as normalizer
-from cltk.phonology.middle_high_german.transcription import Transcriber, Word
+from cltk.phonology.gmh.transcription import Transcriber, Word
 
 
 class Verse:

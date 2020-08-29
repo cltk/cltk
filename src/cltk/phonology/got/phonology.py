@@ -3,7 +3,7 @@
 """
 
 from cltk.phonology import utils as ut
-import cltk.phonology.gothic.transcription as gt
+import cltk.phonology.got.transcription as gt
 
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]

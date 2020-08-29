@@ -18,7 +18,7 @@ Includes code written by 'Arabtechies',  'Arabeyes',   'Taha Zerrouki'.
 
 import re
 
-from cltk.phonology.arabic.utils.pyarabic import stack
+from cltk.phonology.arb.utils.pyarabic import stack
 
 __author__ = ["Taha Zerrouki taha.zerrouki@gmail.com"]
 __license__ = "GPL"

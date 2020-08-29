@@ -2,7 +2,7 @@
 
 """
 
-from cltk.phonology.middle_high_german.transcription import Word, Transcriber
+from cltk.phonology.gmh.transcription import Word, Transcriber
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
@@ -12,7 +12,7 @@ class MiddleHighGermanTranscription:
         self.transcriber = Transcriber()
 
     def transcribe(self, word):
-        return self.transcriber.transcribe(word, with_squared_brackets=False)
+        return self.transcriber.transcribe(word, False)
 
     def __repr__(self):
         return f"<MiddleHighGermanTranscription>"

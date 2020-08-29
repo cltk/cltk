@@ -3,7 +3,7 @@
 """
 import unicodedata
 
-import cltk.phonology.greek.transcription as gret
+import cltk.phonology.grc.transcription as gret
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

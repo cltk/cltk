@@ -1,7 +1,7 @@
-cltk.phonology.middle\_high\_german package
+cltk.phonology.gmh package
 ===========================================
 
-.. automodule:: cltk.phonology.middle_high_german
+.. automodule:: cltk.phonology.gmh
    :members:
    :undoc-members:
    :show-inheritance:
@@ -9,18 +9,18 @@ cltk.phonology.middle\_high\_german package
 Submodules
 ----------
 
-cltk.phonology.middle\_high\_german.syllabifier module
+cltk.phonology.gmh.syllabifier module
 ------------------------------------------------------
 
-.. automodule:: cltk.phonology.middle_high_german.syllabifier
+.. automodule:: cltk.phonology.gmh.syllabifier
    :members:
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.middle\_high\_german.transcription module
+cltk.phonology.gmh.transcription module
 --------------------------------------------------------
 
-.. automodule:: cltk.phonology.middle_high_german.transcription
+.. automodule:: cltk.phonology.gmh.transcription
    :members:
    :undoc-members:
    :show-inheritance:

@@ -4,9 +4,9 @@ from collections import defaultdict
 from typing import List
 
 from cltk.core.exceptions import CLTKException
-from cltk.phonology.middle_english.syllabifier import Syllabifier as ME_Syllabifier
-from cltk.phonology.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
-from cltk.phonology.old_english.syllabifier import syllabification_hierarchy as OE_Syllabifier
+from cltk.phonology.enm.syllabifier import Syllabifier as ME_Syllabifier
+from cltk.phonology.gmh.syllabifier import Syllabifier as MHG_Syllabifier
+from cltk.phonology.ang.syllabifier import syllabification_hierarchy as OE_Syllabifier
 from cltk.phonology.non.syllabifier import hierarchy as old_norse_hierarchy
 from cltk.phonology.non.syllabifier import (
     ipa_hierarchy as ipa_old_norse_hierarchy,

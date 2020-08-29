@@ -15,13 +15,13 @@ from cltk.phonology.orthophonology import Orthophonology
 from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 
 # from cltk.phonology.akk import AkkadianPhonologicalTranscriber
-# from cltk.phonology.arabic import ArabicPhonologicalTranscriber
-from cltk.phonology.gothic.phonology import GothicTranscription
-from cltk.phonology.greek.phonology import GreekTranscription
+# from cltk.phonology.arb import ArabicPhonologicalTranscriber
+from cltk.phonology.got.phonology import GothicTranscription
+from cltk.phonology.grc.phonology import GreekTranscription
 from cltk.phonology.lat.phonology import LatinTranscription
-from cltk.phonology.middle_english.phonology import MiddleEnglishTranscription
-from cltk.phonology.middle_high_german.phonology import MiddleHighGermanTranscription
-from cltk.phonology.old_english.phonology import OldEnglishTranscription
+from cltk.phonology.enm.phonology import MiddleEnglishTranscription
+from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
+from cltk.phonology.ang.phonology import OldEnglishTranscription
 from cltk.phonology.old_swedish.phonology import OldSwedishTranscription
 
 

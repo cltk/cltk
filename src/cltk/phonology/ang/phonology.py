@@ -4,7 +4,7 @@ Sources:
     Hogg, Richard M. (1992). The Cambridge History of the English Language. Chapter 3
 """
 
-from cltk.phonology.old_english.transcription import Transcriber
+from cltk.phonology.ang.transcription import Transcriber
 from cltk.phonology.syllabify import Syllabifier
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]

@@ -1,7 +1,7 @@
-cltk.phonology.arabic.utils.pyarabic package
+cltk.phonology.arb.utils.pyarabic package
 ============================================
 
-.. automodule:: cltk.phonology.arabic.utils.pyarabic
+.. automodule:: cltk.phonology.arb.utils.pyarabic
    :members:
    :undoc-members:
    :show-inheritance:
@@ -9,18 +9,18 @@ cltk.phonology.arabic.utils.pyarabic package
 Submodules
 ----------
 
-cltk.phonology.arabic.utils.pyarabic.araby module
+cltk.phonology.arb.utils.pyarabic.araby module
 -------------------------------------------------
 
-.. automodule:: cltk.phonology.arabic.utils.pyarabic.araby
+.. automodule:: cltk.phonology.arb.utils.pyarabic.araby
    :members:
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.arabic.utils.pyarabic.stack module
+cltk.phonology.arb.utils.pyarabic.stack module
 -------------------------------------------------
 
-.. automodule:: cltk.phonology.arabic.utils.pyarabic.stack
+.. automodule:: cltk.phonology.arb.utils.pyarabic.stack
    :members:
    :undoc-members:
    :show-inheritance:

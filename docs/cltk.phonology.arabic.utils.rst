@@ -1,7 +1,7 @@
-cltk.phonology.arabic.utils package
+cltk.phonology.arb.utils package
 ===================================
 
-.. automodule:: cltk.phonology.arabic.utils
+.. automodule:: cltk.phonology.arb.utils
    :members:
    :undoc-members:
    :show-inheritance:
@@ -11,4 +11,4 @@ Subpackages
 
 .. toctree::
 
-   cltk.phonology.arabic.utils.pyarabic
+   cltk.phonology.arb.utils.pyarabic

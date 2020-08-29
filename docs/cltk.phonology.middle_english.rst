@@ -1,7 +1,7 @@
-cltk.phonology.middle\_english package
+cltk.phonology.enm package
 ======================================
 
-.. automodule:: cltk.phonology.middle_english
+.. automodule:: cltk.phonology.enm
    :members:
    :undoc-members:
    :show-inheritance:
@@ -9,18 +9,18 @@ cltk.phonology.middle\_english package
 Submodules
 ----------
 
-cltk.phonology.middle\_english.syllabifier module
+cltk.phonology.enm.syllabifier module
 -------------------------------------------------
 
-.. automodule:: cltk.phonology.middle_english.syllabifier
+.. automodule:: cltk.phonology.enm.syllabifier
    :members:
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.middle\_english.transcription module
+cltk.phonology.enm.transcription module
 ---------------------------------------------------
 
-.. automodule:: cltk.phonology.middle_english.transcription
+.. automodule:: cltk.phonology.enm.transcription
    :members:
    :undoc-members:
    :show-inheritance:
