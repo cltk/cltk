@@ -135,7 +135,7 @@ def normalize_middle_high_german(
     >>> from cltk.alphabet import gmh
     >>> from cltk.languages.example_texts import get_example_text
     >>> gmh.normalize_middle_high_german(get_example_text("gmh"))[:50]
-    'ik gihorta ðat seggen\\nðat sih urhettun ænon muotin'
+    'uns ist in alten\\nmæren wunders vil geseit\\nvon hele'
     """
 
     if to_lower_all:

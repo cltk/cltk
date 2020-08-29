@@ -1,13 +1,13 @@
 """
-  Note: there are no definite MHG  phonological rules, so this module serves
- as an approximate reconstruction of the original. As of this version, the Transcribe
- class doesn't support any specific dialects and serves as a superset encompassing
- various regional accents.
+Note: there are no definite MHG  phonological rules, so this module serves
+as an approximate reconstruction of the original. As of this version, the Transcribe
+class doesn't support any specific dialects and serves as a superset encompassing
+various regional accents.
 
- Sources:
-* https://www.germanistik.uni-bonn.de/institut/abteilungen/germanistische-mediavistik/studium/leitfaeden-reader-links/b1-reader-oktober-2009-endversion.pdf
-* [A Middle High German Primer - Joseph Wright](http://www.minnesang.com/Themen/Ulrich%20Mueller%20zur%20Aussprache.pdf)
-* Clements, George N. "The role of the sonority cycle in core syllabification." Papers in laboratory phonology 1 (1990): 283-333.
+Sources:
+    * https://www.germanistik.uni-bonn.de/institut/abteilungen/germanistische-mediavistik/studium/leitfaeden-reader-links/b1-reader-oktober-2009-endversion.pdf
+    * [A Middle High German Primer - Joseph Wright](http://www.minnesang.com/Themen/Ulrich%20Mueller%20zur%20Aussprache.pdf)
+    * Clements, George N. "The role of the sonority cycle in core syllabification." Papers in laboratory phonology 1 (1990): 283-333.
 """
 
 import re
@@ -117,8 +117,14 @@ class Transcriber:
     def __init__(self):
         pass  # To-do: Add different dialects and/or notations
 
-    def transcribe(self, text, punctuation=True):
-        """Accepts a word and returns a string of an approximate pronounciation (IPA)"""
+    def transcribe(self, text: str, punctuation=True, with_squared_brackets=True):
+        """
+        Accepts a word and returns a string of an approximate
+        pronounciation (IPA)
+        :param text:
+        :param punctuation:
+        :param with_squared_brackets:
+        """
 
         if not punctuation:
             text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
@@ -134,8 +140,9 @@ class Transcriber:
 
         for w, val in zip(IPA.keys(), IPA.values()):
             text = text.replace(w, val)
-
-        return "[" + text + "]"
+        if with_squared_brackets:
+            return "[" + text + "]"
+        return text
 
 
 class Word:

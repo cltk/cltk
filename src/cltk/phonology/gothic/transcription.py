@@ -1,8 +1,8 @@
 """
 Sources:
-- https://en.wikipedia.org/wiki/Gothic_language
-- Gotische Grammatik by W. Braune and K. Helm (Max Niemeyer Verlag 1952)
-- Grammaire explicative du gotique by André Rousseau (L'Harmattan 2012)
+    * https://en.wikipedia.org/wiki/Gothic_language
+    * Gotische Grammatik by W. Braune and K. Helm (Max Niemeyer Verlag 1952)
+    * Grammaire explicative du gotique by André Rousseau (L'Harmattan 2012)
 
 
 Vowels:
@@ -10,32 +10,35 @@ Vowels:
 <i> represents [i] and <ei> represents [i:]
 <e> and <o> are long vowels: [e:] and [o:]
 <ai>:
-    - [ɛ] when <ai> is before <r>, <h> or <ƕ> or when it is in Ancient Greek borrowings
-    - [ɛ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word or when it is in an
-    Ancient Greek borrowing
-    - [ai] in other cases
+    * [ɛ] when <ai> is before <r>, <h> or <ƕ> or when it is in Ancient Greek borrowings
+    * [ɛ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word
+      or when it is in an Ancient Greek borrowing
+    * [ai] in other cases
+
 Here -> [ɛ]
 
 <au>:
-    - [ɔ] when <au> is before <r>, <h> or <ƕ> or when it is in Ancient Greek borrowings
-    - [ɔ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word or when it is in an
-    Ancient Greek borrowing
-    - [au] in other cases
+    * [ɔ] when <au> is before <r>, <h> or <ƕ> or when it is in Ancient Greek borrowings
+    * [ɔ:] when <ai> is before <a> or <an> and when it is at the end of a syllable or a word
+      or when it is in an Ancient Greek borrowing
+    * [au] in other cases
+
 Here -> [ɔ]
 
 Specialists do not agree on digraph pronunciation. Some of them think they were monophthongs whereas others think
 that they were monophthongs or diphthongs according to cases.
 
 Remaining issues:
-<gg>: [ŋg]
-<ggw>: [ŋgw] or [ggw] because in such cases the geminated gg are actually a reinforcement of [gww]
-<z>: [z] in Germanic words or [dz] in Ancient Greek words
-etc
+    * <gg>: [ŋg]
+    * <ggw>: [ŋgw] or [ggw] because in such cases the geminated gg are actually a reinforcement of [gww]
+    * <z>: [z] in Germanic words or [dz] in Ancient Greek words
+    * etc
+
 """
 
 from cltk.phonology.utils import *
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 a = Vowel(Height.open, Backness.front, False, Length.short, "a")
 long_a = a.lengthen()
@@ -201,12 +204,14 @@ IPA_class = {
     "h": h,
     "j": j,
     "k": k,
+    "q": k + w,
     "l": l,
     "m": m,
     "n": n,
     "p": p,
     "r": r,
     "s": s,
+    "z": z,
     "t": t,
     "v": v,
     "w": w,

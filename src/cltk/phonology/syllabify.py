@@ -6,15 +6,15 @@ from typing import List
 from cltk.core.exceptions import CLTKException
 from cltk.phonology.middle_english.syllabifier import Syllabifier as ME_Syllabifier
 from cltk.phonology.middle_high_german.syllabifier import Syllabifier as MHG_Syllabifier
-from cltk.phonology.old_english.syllabifier import Syllabifier as OE_Syllabifier
-from cltk.phonology.old_norse.syllabifier import hierarchy as old_norse_hierarchy
-from cltk.phonology.old_norse.syllabifier import (
+from cltk.phonology.old_english.syllabifier import syllabification_hierarchy as OE_Syllabifier
+from cltk.phonology.non.syllabifier import hierarchy as old_norse_hierarchy
+from cltk.phonology.non.syllabifier import (
     ipa_hierarchy as ipa_old_norse_hierarchy,
 )
 
 __author__ = [
     "Eleftheria Chatziargyriou <ele.hatzy@gmail.com>",
-    "Clément Besnier <clemsciences@aol.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
 ]
 __license__ = "MIT License. See LICENSE."
 
@@ -29,9 +29,7 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
     2017, C. L. Hench
 
     :param text: str list: text to be analysed
-
     :param vowels: str: valid vowels constituting the syllable
-
     :param threshold: minimum frequency count for valid onset, C. Hench noted
     that the algorithm produces the best result for an untagged wordset of MHG,
     when retaining onsets which appear in at least 0.02% of the words
@@ -43,8 +41,8 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
     >>> get_onsets(text, vowels=vowels)
     ['lt', 'm', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'ld', 'l', 'b', 'gr', 'z', 'fr', 'd', 'chg', 't', 'n', 'kl', 'k', 'ck', 'str']
 
-     Of course, this is an insignificant sample, but we could try and see
-     how modifying the threshold affects the returned onset:
+    Of course, this is an insignificant sample, but we could try and see
+    how modifying the threshold affects the returned onset:
 
     >>> get_onsets(text, threshold = 0.05, vowels=vowels)
     ['m', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'b', 'z', 't', 'n']
@@ -101,7 +99,7 @@ class Syllabifier:
             self.set_hierarchy(hierarchy)
             self.set_vowels(hierarchy[0])
 
-            self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y"]
+            # self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
 
         elif language == "ang":
             hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
@@ -212,7 +210,7 @@ class Syllabifier:
         Not specifying your alphabet results in an error:
         >>> s.syllabify("foemina")
         Traceback (most recent call last):
-            ...
+        ...
         cltk.core.exceptions.CLTKException
 
         Additionally, you can utilize the language parameter:
@@ -318,6 +316,7 @@ class Syllabifier:
     def legal_onsets(self, syllables):
         """
         Filters syllable respecting the legality principle
+
         :param syllables: str list
 
         The method scans for invalid syllable onsets:
@@ -364,6 +363,7 @@ class Syllabifier:
     def syllabify_ipa(self, word):
         """
         Parses IPA string
+
         :param word: word to be syllabified
         """
         word = word[1:-1]
@@ -407,6 +407,7 @@ class Syllabifier:
 class Syllable:
     """
     A syllable has three main constituents:
+
     - onset
     - nucleus
     - coda

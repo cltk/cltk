@@ -1,10 +1,10 @@
 """
-Old Norse orthophonology module similar to the cltk.phonology.old_norse.transcription with a different way to transcribe
+Old Norse orthophonology module similar to the cltk.phonology.non.transcription with a different way to transcribe
 """
 
 from cltk.phonology.orthophonology import *
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 # Vowels
 a = Vowel(Height.open, Backness.front, Roundedness.neg, Length.short, "a")
@@ -144,3 +144,18 @@ on.rules = [
     g >> gh | Consonantal.neg - Voiced.pos,
     g >> gh | Consonantal.neg - W,
 ]
+
+
+class OldNorsePhonologicalTranscriber:
+    def __init__(self):
+        pass
+
+    def transcribe(self, word):
+        return "".join([phoneme.ipa for phoneme in on.transcribe_word(word)])
+
+    def __repr__(self):
+        return f"<OldNorseScanner>"
+
+    def __call__(self, word):
+        return self.transcribe(word)
+

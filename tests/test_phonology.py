@@ -2,7 +2,7 @@
 
 __author__ = [
     "Jack Duff <jmunroeduff@gmail.com>",
-    "Clément Besnier <clemsciences@aol.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
 ]
 __license__ = "MIT License. See LICENSE."
 
@@ -10,15 +10,16 @@ import unicodedata
 import unittest
 
 from cltk.phonology import utils as ut
-from cltk.phonology.arabic.romanization import transliterate as AarabicTransliterate
+from cltk.phonology.arabic.romanization import transliterate \
+    as arabic_transliterate
 from cltk.phonology.gothic import transcription as gothic
 from cltk.phonology.greek import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
-from cltk.phonology.middle_english.transcription import Word as word_me
+from cltk.phonology.middle_english.syllabifier import Word as WordMe
 from cltk.phonology.middle_high_german import transcription as mhg
-from cltk.phonology.old_norse import transcription as ont
-from cltk.phonology.old_norse.syllabifier import invalid_onsets
+from cltk.phonology.non import transcription as ont
+from cltk.phonology.non.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish
 from cltk.phonology.syllabify import Syllabifier, Syllable
 from cltk.tokenizers.non import OldNorseWordTokenizer
@@ -138,7 +139,7 @@ class TestSequenceFunctions(unittest.TestCase):
             w = grc.Word(i, grc.GREEK["Attic"]["Probert"])
             w._alternate()
             outputs.append(
-                ["".join([p.ipa for l in n for p in l]) for n in w._syllabify()]
+                ["".join([p.ipa for l in n for p in l]) for n in w.syllabify()]
             )
         target = [
             [unicodedata.normalize("NFC", s) for s in y]
@@ -423,9 +424,9 @@ class TestSequenceFunctions(unittest.TestCase):
         outputs = []
         for i in raw_inputs:
             w = lat.Word(i, lat.LATIN["Classical"]["Allen"])
-            w._syllabify()
+            w.syllabify()
             outputs.append(
-                ["".join([p.ipa for l in n for p in l]) for n in w._syllabify()]
+                ["".join([p.ipa for l in n for p in l]) for n in w.syllabify()]
             )
         target = [
             [unicodedata.normalize("NFC", s) for s in y]
@@ -576,29 +577,29 @@ class TestSequenceFunctions(unittest.TestCase):
 
         # from arabic native script to buckwalter
         assert (
-            AarabicTransliterate(mode, ar_string, ignore, reverse)
-            == "bisomi Allhi Alra~Hom`ni Alra~Hiyomi"
+                arabic_transliterate(mode, ar_string, ignore, reverse)
+                == "bisomi Allhi Alra~Hom`ni Alra~Hiyomi"
         )
         # from buckwalter to arabic native script
         reverse = False
         assert (
-            AarabicTransliterate(mode, buckwalter_string, ignore, reverse)
-            == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+                arabic_transliterate(mode, buckwalter_string, ignore, reverse)
+                == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
         )
 
         # from arabic native script to ISO233-2
         mode = "iso233-2"
         reverse = True
         assert (
-            AarabicTransliterate(mode, ar_string, ignore, reverse)
-            == "bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi"
+                arabic_transliterate(mode, ar_string, ignore, reverse)
+                == "bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi"
         )
 
         # from iso233-2 to arabic native script
         reverse = False
         assert (
-            AarabicTransliterate(mode, iso2332_string, ignore, reverse)
-            == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+                arabic_transliterate(mode, iso2332_string, ignore, reverse)
+                == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
         )
 
     def test_middle_high_german_transcriber(self):
@@ -639,7 +640,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         words = ["marchall", "content", "thyne", "greef", "commaundyd"]
 
-        syllabified = [word_me(w).syllabify() for w in words]
+        syllabified = [WordMe(w).syllabify() for w in words]
         target_syllabified = [
             ["mar", "chall"],
             ["con", "tent"],
@@ -650,7 +651,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
         assert syllabified == target_syllabified
 
-        syllabified_str = [word_me(w).syllabified_str() for w in words]
+        syllabified_str = [WordMe(w).syllabified_str() for w in words]
         target_syllabified_str = [
             "mar.chall",
             "con.tent",
@@ -696,18 +697,18 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_old_swedish(self):
         # TODO: Re-enable
-        # sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
-        # tr = ut.Transcriber(
-        #     old_swedish.DIPHTHONGS_IPA,
-        #     old_swedish.DIPHTHONGS_IPA_class,
-        #     old_swedish.IPA_class,
-        #     old_swedish.old_swedish_rules,
-        # )
-        # transcribed_sentence = tr.text_to_phonetic_representation(sentence)
-        # self.assertEqual(
-        #     "[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
-        #     transcribed_sentence,
-        # )
+        sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
+        tr = ut.Transcriber(
+            old_swedish.DIPHTHONGS_IPA,
+            old_swedish.DIPHTHONGS_IPA_class,
+            old_swedish.IPA_class,
+            old_swedish.old_swedish_rules,
+        )
+        transcribed_sentence = tr.text_to_phonetic_representation(sentence)
+        self.assertEqual(
+            "[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
+            transcribed_sentence,
+        )
         pass
 
     def test_utils(self):

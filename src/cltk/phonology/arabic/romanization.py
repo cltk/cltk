@@ -1,9 +1,10 @@
 """
-   arabic transliterate: Roman <-> Arabic unicode
-   To validate this implementation,I rely largely on these resources:
-            1. http://languagelog.ldc.upenn.edu/myl/ldc/morph/buckwalter.html.
-            2. https://github.com/Alfanous-team/alfanous/blob/master/src/alfanous/Romanization.py
-            3. https://en.wikipedia.org/wiki/ArabTeX
+arabic transliterate: Roman <-> Arabic unicode
+To validate this implementation,I rely largely on these resources:
+1. http://languagelog.ldc.upenn.edu/myl/ldc/morph/buckwalter.html.
+2. https://github.com/Alfanous-team/alfanous/blob/master/src/alfanous/Romanization.py
+3. https://en.wikipedia.org/wiki/ArabTeX
+
 """
 
 __author__ = ["Lakhdar Benzahia <lakhdar.benzahia@gmail.com>"]

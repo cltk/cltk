@@ -18,7 +18,7 @@ Subpackages
    cltk.phonology.middle_english
    cltk.phonology.middle_high_german
    cltk.phonology.old_english
-   cltk.phonology.old_norse
+   cltk.phonology.non
    cltk.phonology.old_swedish
 
 Submodules

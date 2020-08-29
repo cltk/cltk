@@ -6,7 +6,7 @@ Sources:
 
 from typing import Union
 
-from cltk.phonology.old_norse.syllabifier import BACK_TO_FRONT_VOWELS
+from cltk.phonology.non.syllabifier import BACK_TO_FRONT_VOWELS
 from cltk.phonology.utils import (
     AbstractConsonant,
     AbstractPosition,
@@ -21,7 +21,7 @@ from cltk.phonology.utils import (
     Vowel,
 )
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class OldNorsePhonology(Vowel):

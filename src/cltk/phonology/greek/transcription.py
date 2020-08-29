@@ -161,18 +161,17 @@ IPA = {
 
 
 class Phone:
-    "A phonological unit to be manipulated and represented as an IPA string."
+    """A phonological unit to be manipulated and represented as an IPA string."""
 
     # Has a bundle of feature values that help classify it so that it can
     # trigger contextual pronunciation changes.
 
     def __init__(self, ipa_ch):
-
         # Additions to greek_accentuation.characters for use in this class:
-        IPA_CIRCUMFLEX = "\u0302"  # ˆ, the IPA tonal notation for ῀
-        tones = chars.extract_diacritic(chars.ACUTE, IPA_CIRCUMFLEX)
+        ipa_circumflex = "\u0302"  # ˆ, the IPA tonal notation for ῀
+        tones = chars.extract_diacritic(chars.ACUTE, ipa_circumflex)
         # Collects IPA tonal diacritics
-        clear_tones = chars.remove_diacritic(chars.ACUTE, IPA_CIRCUMFLEX)
+        clear_tones = chars.remove_diacritic(chars.ACUTE, ipa_circumflex)
         # Clears IPA tonal diacritics
 
         # eventually exported to output string
@@ -203,7 +202,7 @@ class Phone:
 
 
 class Word:
-    "Max. phonological unit, contains phones and triggers alternations."
+    """Max. phonological unit, contains phones and triggers alternations."""
 
     # An ordered collection of Phones,
     # which are bundles of features/IPA strings.
@@ -292,7 +291,7 @@ class Word:
             if a[0] in self.alts:
                 a[1](self)
 
-    def _syllabify(self):
+    def syllabify(self):
         nuclei = []
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -301,16 +300,16 @@ class Word:
         # initialize syllables with a tuple for the first syllable
         # where onset is everything before the first nucleus
         # and coda remains unknown.
-        syllables = [[self.phones[0 : nuclei[0]], [self.phones[nuclei[0]]], []]]
+        syllables = [[self.phones[0: nuclei[0]], [self.phones[nuclei[0]]], []]]
         # continue for every nucleus, assuming that everything between
         # the previous nucleus and it is the onset.
         for x in range(len(nuclei) - 1):
             i = nuclei[x + 1]
-            onset = self.phones[nuclei[x] + 1 : i]
+            onset = self.phones[nuclei[x] + 1: i]
             nucleus = [self.phones[i]]
             syllables.append([onset, nucleus, []])
         # assume that everything after the final nucleus is final coda.
-        syllables[-1][2] = self.phones[nuclei[-1] + 1 :]
+        syllables[-1][2] = self.phones[nuclei[-1] + 1:]
         # now go through and check onset viability
         for x in range(len(syllables) - 1):
             onset = syllables[x + 1][0]
@@ -328,11 +327,11 @@ class Word:
                 # voiceless oral stop + nasal or liquid
                 # is a viable sequence, and passes
                 if (
-                    (not onset[0].cont)
-                    and (not onset[0].vce)
-                    and (not onset[0].app)
-                    and (not onset[0].nas)
-                    and (onset[1].nas or onset[1].app)
+                        (not onset[0].cont)
+                        and (not onset[0].vce)
+                        and (not onset[0].app)
+                        and (not onset[0].nas)
+                        and (onset[1].nas or onset[1].app)
                 ):
                     break
                 # voiced stop + liquid is also a viable sequence, and passes
@@ -352,7 +351,7 @@ class Word:
         # if syllabification flag is present
         # print IPA by syllable segment
         if syllabify:
-            syllables = self._syllabify()
+            syllables = self.syllabify()
             # ultima is final syllable
             ultima = syllables[-1]
             for s in syllables:
@@ -371,12 +370,12 @@ class Word:
 
 
 class Transcriber:
-    "Uses a reconstruction to transcribe a orthographic string into IPA."
+    """Uses a reconstruction to transcribe a orthographic string into IPA."""
 
     def __init__(self, dialect, reconstruction):
-        self.lect = dialect
+        self.dialect = dialect
         self.recon = reconstruction
-        self.root = GREEK[self.lect][self.recon]
+        self.root = GREEK[self.dialect][self.recon]
         self.table = self.root["correspondence"]
         self.diphs = self.root["diphthongs"]
         self.punc = self.root["punctuation"]
@@ -403,7 +402,7 @@ class Transcriber:
 
         out = chars.base(ch).lower()  # Initialize out as base of character.
 
-        if h != None and out != "ρ":  # If any rough breathing, and not rho
+        if h is not None and out != "ρ":  # If any rough breathing, and not rho
             out = "h///" + out  # insert an h/// before the base.
             # ('aspirated' rhos can be ignored,
             # and dealt with seperately.)
@@ -415,7 +414,7 @@ class Transcriber:
 
         out += "/"  # Create 2nd boundary
 
-        for c in [c for c in etc if c != None]:  # If any other diacritics,
+        for c in [c for c in etc if c is not None]:  # If any other diacritics,
             out += c  # place between second and final boundary
 
         out += "/"  # Create final boundary
@@ -438,7 +437,7 @@ class Transcriber:
             # Also finds any h's stranded in media diphthong (\3) and moves
             # them to the left edge
             pattern = (
-                r"([" + diph1 + r"])\/\/([̄]?\/)(h///)?([" + diph2 + r"]\/[́͂]?\/)\/"
+                    r"([" + diph1 + r"])\/\/([̄]?\/)(h///)?([" + diph2 + r"]\/[́͂]?\/)\/"
             )
             diphshift = re.sub(pattern, r"\3\1\4\2", string_in)
         else:
