@@ -1,6 +1,7 @@
 Languages
 =========
 
+
 The :class:`cltk.nlp.NLP()` class accepts a :class:`cltk.core.data_types.Pipeline()` object. \
 Module :mod:`cltk.languages.pipelines` contains all pre-configured pipelines.
 

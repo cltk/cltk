@@ -1,9 +1,9 @@
 """To be run on Travis CI after successful push to PyPI."""
 
 import argparse
-from datetime import datetime
 import json
 import sys
+from datetime import datetime
 
 import pkg_resources
 import requests

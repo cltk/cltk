@@ -18,6 +18,7 @@ import re
 from abc import abstractmethod
 from typing import List
 
+from nltk.tokenize import TreebankWordTokenizer
 from nltk.tokenize.punkt import PunktParameters, PunktSentenceTokenizer
 
 

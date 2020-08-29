@@ -356,7 +356,7 @@ def overwrite(
     :param offset:
     :return:
 
-    >>> overwrite(list('multe igne'), r'e\s[aeiou]', ' ')
+    >>> overwrite(list("multe igne"), r"e\s[aeiou]", " ")
     ['m', 'u', 'l', 't', ' ', ' ', 'i', 'g', 'n', 'e']
     """
     long_matcher = re.compile(regexp)
@@ -379,7 +379,7 @@ def overwrite_dipthong(char_list: List[str], regexp: str, quality: str) -> List[
     :param quality: a quality or character to replace
     :return: a list of characters with the dipthong overwritten
 
-    >>> overwrite_dipthong(list('multae aguae'), r'ae\s[aeou]', ' ')
+    >>> overwrite_dipthong(list("multae aguae"), r"ae\s[aeou]", " ")
     ['m', 'u', 'l', 't', ' ', ' ', ' ', 'a', 'g', 'u', 'a', 'e']
     """
     long_matcher = re.compile(regexp)

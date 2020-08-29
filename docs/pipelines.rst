@@ -6,11 +6,44 @@ The CLTK contains four important, native data types:
 - :class:`cltk.core.data_types.Word`: Contains all processed information for each word token. Has attributes including ``Word.string``, ``Word.lemma``, ``Word.pos``, ``Word.governor``, and ``Word.embedding``. A ``Process`` adds data to each ``Word``.
 - :class:`cltk.core.data_types.Doc`: Contains ``Doc.raw``, which is the original input string to ``NLP().analyze()``, and ``Doc.words``, which is a list of ``Word`` objects. It is the input and output of each ``Process`` and final output of ``NLP()``.
 - :class:`cltk.core.data_types.Process`: Takes and returns a ``Doc``. Each process does some processing of information within the ``Doc``, then annotates each ``Word`` object at ``Doc.words``.
-- :class:`cltk.core.data_types.Pipeline`: Has a list of ``Process`` objects at ``Pipeline.processes``. Predefined pipelines have been made for some languages (:ref:`Languages`_), while custom pipelines may be made for these languages or other, different languages altogether.
+- :class:`cltk.core.data_types.Pipeline`: Has a list of ``Process`` objects at ``Pipeline.processes``. Predefined pipelines have been made for some languages (:doc:`languages`), while custom pipelines may be made for these languages or other, different languages altogether.
+
+
+How to Customize an NLP Pipeline
+--------------------------------
+
+The following illustrate how the four data types work by demonstrating how to wrap your own NLP algorithm with a custom ``Process`` and then add it to a default ``Pipeline``.
+
+
+Process
+*******
+
+If you need to add your own ``Process`` to a pipeline, first create a new ``Process``. In the following example, a trivial function (``mk_upper_case``), which makes an uppercase version of each token, is wrapped by the new ``UpperProcess()``, which stores output values at ``Word.upper``. For an illustration, see figure :any:`processGraph`.
+
+.. code-block:: python
+
+   >>> from copy import deepcopy
+   >>> from cltk.core.data_types import Doc, Process, Word
+   >>> def mk_upper_case(word: str) -> str:
+   ...    return word.upper()
+   >>> class UpperProcess(Process):
+   ...     def run(self, input_doc: Doc) -> Doc:
+   ...         stem = self.algorithm
+   ...         output_doc = deepcopy(input_doc)
+   ...         for word in output_doc.words:
+   ...             word.upper = mk_upper_case(word.string)
+   ...         return output_doc
+   ...
+   ...     @staticmethod
+   ...     def algorithm(word: str) -> str:
+   ...         return mk_upper_case(word)
+
+
 
 
 .. graphviz::
-   :caption: Inheritance of ``Process`` class.
+   :caption: Inheritance of ``Process`` class
+   :name: processGraph
 
    digraph Processes {
      fontname = "Bitstream Vera Sans"
@@ -78,8 +111,34 @@ The CLTK contains four important, native data types:
    }
 
 
+Pipeline
+********
+
+Once your custom ``Process`` has been created, you may then add it to your language's pipeline. To view a language's default pipeline, you may import it directly or access it through ``NLP().processes``. The following example imports the default Latin ``Pipeline``, appends ``UpperProcess`` to the end of it, adds the now-modified ``LatinPipeline`` to an instantiation of the ``NLP()`` class, and finally runs ``NLP().analyze()``.  For an illustration, see figure :any:`pipelineGraph`.
+
+.. code-block:: python
+
+   >>> from cltk.languages.pipelines import LatinPipeline
+   >>> lat_pipeline = LatinPipeline()
+   >>> lat_pipeline.processes
+   [<class 'cltk.dependency.processes.LatinStanzaProcess'>, <class 'cltk.embeddings.processes.LatinEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>, <class 'cltk.ner.processes.LatinNERProcess'>]
+   >>> lat_pipeline.add_process(UpperProcess)
+   >>> lat_pipeline.processes
+   [<class 'cltk.dependency.processes.LatinStanzaProcess'>, <class 'cltk.embeddings.processes.LatinEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>, <class 'cltk.ner.processes.LatinNERProcess'>]
+
+   >>> from cltk import NLP
+   >>> cltk_nlp = NLP(language="lat")
+   >>> cltk_nlp.pipeline = lat_pipeline
+   >>> cltk_nlp.pipeline.processes
+   [<class 'cltk.dependency.processes.LatinStanzaProcess'>, <class 'cltk.embeddings.processes.LatinEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>, <class 'cltk.ner.processes.LatinNERProcess'>, <class '__main__.CustomProcess'>]
+   >>> aquinas = "Adoro te devote latens deitas"
+   >>> cltk_doc = cltk_nlp.analyze(aquinas)
+
+
+
 .. graphviz::
-   :caption: Inheritance of ``Pipeline`` class.
+   :caption: Inheritance of ``Pipeline`` class
+   :name: pipelineGraph
 
    digraph Pipeline {
      fontname = "Bitstream Vera Sans"
@@ -116,61 +175,6 @@ The CLTK contains four important, native data types:
      Pipeline -> EtcPipeline [dir=back]
    }
 
-
-
-Custom Pipeline
----------------
-
-The following illustrate how the four data types work by demonstrating how to wrap your own NLP algorithm with a custom ``Process`` and then add it to a default ``Pipeline``.
-
-
-Process
-*******
-
-If you need to add your own ``Process`` to a pipeline, first create a new ``Process``. In the following example, a trivial function (``mk_upper_case``), which makes an uppercase version of each token, is wrapped by the new ``UpperProcess()``, which stores output values at ``Word.upper``.
-
-.. code-block:: python
-
-   >>> from copy import deepcopy
-   >>> from cltk.core.data_types import Doc, Process, Word
-   >>> def mk_upper_case(word: str) -> str:
-   ...    return word.upper()
-   >>> class UpperProcess(Process):
-   ...     def run(self, input_doc: Doc) -> Doc:
-   ...         stem = self.algorithm
-   ...         output_doc = deepcopy(input_doc)
-   ...         for word in output_doc.words:
-   ...             word.upper = mk_upper_case(word.string)
-   ...         return output_doc
-   ...
-   ...     @staticmethod
-   ...     def algorithm(word: str) -> str:
-   ...         return mk_upper_case(word)
-
-
-
-Pipeline
-********
-
-Once your custom ``Process`` has been created, you may then add it to your language's pipeline. To view a language's default pipeline, you may import it directly or access it through ``NLP().processes``. The following example imports the default Latin ``Pipeline``, appends ``UpperProcess`` to the end of it, adds the now-modified ``LatinPipeline`` to an instantiation of the ``NLP()`` class, and finally runs ``NLP().analyze()``.
-
-.. code-block:: python
-
-   >>> from cltk.languages.pipelines import LatinPipeline
-   >>> lat_pipeline = LatinPipeline()
-   >>> lat_pipeline.processes
-   [<class 'cltk.dependency.processes.LatinStanzaProcess'>, <class 'cltk.embeddings.processes.LatinEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>, <class 'cltk.ner.processes.LatinNERProcess'>]
-   >>> lat_pipeline.add_process(UpperProcess)
-   >>> lat_pipeline.processes
-   [<class 'cltk.dependency.processes.LatinStanzaProcess'>, <class 'cltk.embeddings.processes.LatinEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>, <class 'cltk.ner.processes.LatinNERProcess'>]
-
-   >>> from cltk import NLP
-   >>> cltk_nlp = NLP(language="lat")
-   >>> cltk_nlp.pipeline = lat_pipeline
-   >>> cltk_nlp.pipeline.processes
-   [<class 'cltk.dependency.processes.LatinStanzaProcess'>, <class 'cltk.embeddings.processes.LatinEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>, <class 'cltk.ner.processes.LatinNERProcess'>, <class '__main__.CustomProcess'>]
-   >>> aquinas = "Adoro te devote latens deitas"
-   >>> cltk_doc = cltk_nlp.analyze(aquinas)
 
 
 Doc

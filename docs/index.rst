@@ -19,5 +19,5 @@ Contents
    Data <data.rst>
    Languages <languages.rst>
    Pipelines, Processes, Docs, and Words <pipelines.rst>
-   Development <./includes/development.rst>
+   Development <development.rst>
    CLTK API <cltk.rst>
