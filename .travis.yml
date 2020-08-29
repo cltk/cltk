@@ -23,7 +23,7 @@ addons:
 before_install:
   - pip install --upgrade pip
   - pip install poetry
-  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK (not 
+  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
 
 install:
   - make install

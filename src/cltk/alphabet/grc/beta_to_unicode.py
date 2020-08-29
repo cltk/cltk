@@ -373,7 +373,7 @@ class BetaCodeReplacer:
     >>> beta_code_str = "O(/PWS OU)=N MH\ TAU)TO\ "
     >>> beta_code_replace.replace_beta_code(beta_code_str)
     'ὅπως οὖν μὴ ταὐτὸ '
-    >>> beta_code_str = r"PROU+POTETAGME/NWN"
+    >>> beta_code_str = "PROU+POTETAGME/NWN"
     >>> beta_code_replace.replace_beta_code(beta_code_str)
     'προϋποτεταγμένων'
     """
@@ -404,7 +404,7 @@ class BetaCodeReplacer:
 
         >>> from cltk.alphabet.grc.beta_to_unicode import BetaCodeReplacer
         >>> beta_code_replace = BetaCodeReplacer()
-        >>> beta_code_str = r"*XALDAI+KH\\N"  # Note: Extra `\` here just for the doctest
+        >>> beta_code_str = "*XALDAI+KH\N"
         >>> beta_code_replace.replace_beta_code(beta_code_str)
         'Χαλδαϊκὴν'
         >>> beta_code_str = "proi+sxome/nwn"
