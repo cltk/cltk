@@ -404,7 +404,7 @@ class BetaCodeReplacer:
 
         >>> from cltk.alphabet.grc.beta_to_unicode import BetaCodeReplacer
         >>> beta_code_replace = BetaCodeReplacer()
-        >>> beta_code_str = "*XALDAI+KH\N"
+        >>> beta_code_str = r"*XALDAI+KH\\N"  # extra slash in ``\\N`` only here for doctest
         >>> beta_code_replace.replace_beta_code(beta_code_str)
         'Χαλδαϊκὴν'
         >>> beta_code_str = "proi+sxome/nwn"
