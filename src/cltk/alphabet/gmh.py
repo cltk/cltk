@@ -117,7 +117,8 @@ SHORT_VOWELS = ["a", "ë", "e", "i", "o", "u", "ä", "ö", "ü"]
 
 LONG_VOWELS = ["â", "ê", "î", "ô", "û", "æ", "œ", "iu"]
 
-DIPTHONGS = ["ei", "ie", "ou", "öu", "uo", "üe"]
+DIPHTHONGS = ["ei", "ie", "ou", "öu", "uo", "üe"]
+TRIPHTHONGS = ["sch"]
 
 
 def normalize_middle_high_german(

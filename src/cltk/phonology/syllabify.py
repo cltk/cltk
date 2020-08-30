@@ -121,9 +121,11 @@ class Syllabifier:
 
         elif language == "gmh":
             self.set_hierarchy(gmhs.hierarchy)
-            self.set_vowels(gmhs.hierarchy[0])
+            self.set_vowels(gmhs.SHORT_VOWELS+gmhs.LONG_VOWELS)
             self.set_diphthongs(gmhs.DIPHTHONGS)
             self.set_short_vowels(gmhs.SHORT_VOWELS)
+            self.set_consonants([consonant for level in gmhs.hierarchy
+                                 for consonant in level])
 
         elif language == "non" and variant == "ipa":
             self.set_hierarchy(nons.ipa_hierarchy)

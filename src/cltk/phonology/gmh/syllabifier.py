@@ -8,15 +8,10 @@ import re
 import unicodedata
 
 from cltk.stem.gmh import stem
-
+from cltk.alphabet.gmh import SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS, TRIPHTHONGS
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License"
 
-SHORT_VOWELS = ["a", "e", "i", "o", "u", "ä", "ü", "ö"]
-LONG_VOWELS = ["â", "ê", "î", "ô", "û", "œ", "iu"]
-
-DIPHTHONGS = ["ch", "ng", "nt"]
-TRIPHTHONGS = ["sch"]
 
 # Soundex Dictionary
 dict_dipth_SE = {"ng": "2", "ch": "2", "pf": "4", "ts": "4"}
@@ -46,10 +41,10 @@ dict_SE = {
 }
 
 hierarchy = [
-    ["a", "e", "i", "o", "u", "y", "ä", "ö", "ü", "æ", "œ", "ā",
-     "ō", "ū", "ē", "ī"],
-    ["l", "m", "n", "r", "w"],
-    ["b", "c", "d", "f", "g", "h", "k", "p", "q", "v", "t", "z"],
+    ["a", "e", "i", "o", "u", "y", "ä", "ö", "ü", "æ", "œ", "â",
+     "ô", "û", "ê", "î"],
+    ["l", "m", "n", "r", "w", "j"],
+    ["b", "c", "d", "f", "g", "h", "k", "p", "q", "v", "t", "s", "z"],
 ]
 
 
