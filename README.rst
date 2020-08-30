@@ -11,7 +11,7 @@
    :target: http://dev.cltk.org/
 
 .. |codecov| image:: https://codecov.io/gh/cltk/cltk/branch/dev/graph/badge.svg
-  :target: https://codecov.io/gh/cltk/cltk
+   :target: https://codecov.io/gh/cltk/cltk
 
 .. |pypi| image:: https://img.shields.io/pypi/v/cltk
    :target: https://pypi.org/project/cltk/
