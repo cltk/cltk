@@ -1,6 +1,4 @@
-.. warning::
-
-   This page and Git branch contain the CLTK's upcoming major release. See `<https://github.com/cltk/cltk/tree/master>`_ and `<https://docs.cltk.org/>`_ for the legacy code and docs.
+**Notice**: This Git branch (``dev``) contains the CLTK's upcoming major release (v. 1.0.0). See `<https://github.com/cltk/cltk/tree/master>`_ and `<https://docs.cltk.org/>`_ for the legacy code and docs.
 
 
 |travis| |rtd| |codecov| |pypi| |zenodo| |binder|
@@ -13,7 +11,7 @@
    :target: http://dev.cltk.org/
 
 .. |codecov| image:: https://codecov.io/gh/cltk/cltk/branch/dev/graph/badge.svg
-  :target: https://codecov.io/gh/cltk/cltk
+   :target: https://codecov.io/gh/cltk/cltk
 
 .. |pypi| image:: https://img.shields.io/pypi/v/cltk
    :target: https://pypi.org/project/cltk/

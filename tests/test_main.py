@@ -144,7 +144,7 @@ class TestMain(unittest.TestCase):
             governor=6,
             features={},
             embedding=[],
-            stop=True,
+            stop=False,
             named_entity=False,
         )
         self.assertEqual(first_word, target)
