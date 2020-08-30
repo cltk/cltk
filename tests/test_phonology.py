@@ -9,6 +9,7 @@ __license__ = "MIT License. See LICENSE."
 import unicodedata
 import unittest
 
+from cltk.alphabet.gmh import normalize_middle_high_german
 from cltk.phonology import utils as ut
 from cltk.phonology.arb.romanization import transliterate \
     as arabic_transliterate
@@ -16,7 +17,6 @@ from cltk.phonology.got import transcription as gothic
 from cltk.phonology.grc import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
-from cltk.phonology.enm.syllabifier import Word as WordMe
 from cltk.phonology.gmh import transcription as mhgt
 from cltk.phonology.gmh import syllabifier as mhgs
 from cltk.phonology.non import transcription as ont
@@ -630,8 +630,8 @@ class TestSequenceFunctions(unittest.TestCase):
         """
         Test MHG ASCII encoder
         """
-        s1 = mhgs.Word("vogellîn").ascii_encoding()
-        s2 = mhgs.Word("vogellīn").ascii_encoding()
+        s1 = normalize_middle_high_german("vogellîn", ascii=True)
+        s2 = normalize_middle_high_german("vogellīn", ascii=True)
         target = ["vogellin", "vogellin"]
 
         self.assertEqual([s1, s2], target)
@@ -640,8 +640,8 @@ class TestSequenceFunctions(unittest.TestCase):
         """Test syllabification for middle english"""
 
         words = ["marchall", "content", "thyne", "greef", "commaundyd"]
-
-        syllabified = [WordMe(w).syllabify() for w in words]
+        syllabifier = Syllabifier(language="enm")
+        syllabified = [syllabifier.syllabify(w, mode="MOP") for w in words]
         target_syllabified = [
             ["mar", "chall"],
             ["con", "tent"],
@@ -650,9 +650,10 @@ class TestSequenceFunctions(unittest.TestCase):
             ["com", "mau", "ndyd"],
         ]
 
-        assert syllabified == target_syllabified
+        self.assertListEqual(syllabified, target_syllabified)
 
-        syllabified_str = [WordMe(w).syllabified_str() for w in words]
+        syllabifier = Syllabifier(language="enm", sep=".")
+        syllabified_str = [syllabifier.syllabify(w, "MOP") for w in words]
         target_syllabified_str = [
             "mar.chall",
             "con.tent",
@@ -661,7 +662,7 @@ class TestSequenceFunctions(unittest.TestCase):
             "com.mau.ndyd",
         ]
 
-        assert syllabified_str == target_syllabified_str
+        self.assertListEqual(syllabified_str, target_syllabified_str)
 
     def test_old_norse_transcriber(self):
         example_sentence = (
