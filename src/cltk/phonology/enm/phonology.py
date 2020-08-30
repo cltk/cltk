@@ -16,12 +16,12 @@ class MiddleEnglishTranscription:
     def transcribe(self, word):
         # TODO
         # transcriber = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
-        # transcriber = None
-        # return transcriber.transcribe(word)
+        transcriber = None
+        return transcriber.transcribe(word)
         return None
 
     def __repr__(self):
-        return f"<OldSwedishTranscription>"
+        return f"<MiddleEnglishTranscription>"
 
     def __call__(self, word):
         return self.transcribe(word)

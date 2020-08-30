@@ -28,6 +28,7 @@ Misc. notes:
 """
 
 import re
+import unicodedata
 
 ALPHABET = [
     "a",
@@ -125,17 +126,22 @@ def normalize_middle_high_german(
     to_lower_beginning: bool = False,
     alpha_conv: bool = True,
     punct: bool = True,
+    ascii: bool = False
 ):
     """Normalize input string.
-
-    to_lower_all: convert whole text to lowercase
-    alpha_conv: convert alphabet to canonical form
-    punct: remove punctuation
 
     >>> from cltk.alphabet import gmh
     >>> from cltk.languages.example_texts import get_example_text
     >>> gmh.normalize_middle_high_german(get_example_text("gmh"))[:50]
     'uns ist in alten\\nmæren wunders vil geseit\\nvon hele'
+
+    :param text:
+    :param to_lower_beginning:
+    :param to_lower_all: convert whole text to lowercase
+    :param alpha_conv: convert alphabet to canonical form
+    :param punct: remove punctuation
+    :param ascii: returns ascii form
+    :return: normalized text
     """
 
     if to_lower_all:
@@ -154,4 +160,9 @@ def normalize_middle_high_german(
         text = text.replace("ae", "æ").replace("oe", "œ")
     if punct:
         text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
+    if ascii:
+        text = unicodedata.normalize("NFKD", text).encode(
+            "ASCII", "ignore"
+        )  # Encode into ASCII, returns a bytestring
+        text = text.decode("utf-8")  # Convert back to string
     return text

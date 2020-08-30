@@ -4,13 +4,10 @@ from collections import defaultdict
 from typing import List, Union
 
 from cltk.core.exceptions import CLTKException
-from cltk.phonology.enm.syllabifier import hierarchy as enm_hierarchy
-from cltk.phonology.gmh.syllabifier import hierarchy as gmh_hierarchy
-from cltk.phonology.ang.syllabifier import hierarchy as ang_hierarchy
-from cltk.phonology.non.syllabifier import hierarchy as non_hierarchy
-from cltk.phonology.non.syllabifier import (
-    ipa_hierarchy as ipa_old_norse_hierarchy,
-)
+import cltk.phonology.enm.syllabifier as enms
+import cltk.phonology.gmh.syllabifier as gmhs
+import cltk.phonology.ang.syllabifier as angs
+import cltk.phonology.non.syllabifier as nons
 
 __author__ = [
     "Eleftheria Chatziargyriou <ele.hatzy@gmail.com>",
@@ -111,29 +108,30 @@ class Syllabifier:
         self.sep = sep
 
         if language == "enm":
-            self.set_hierarchy(enm_hierarchy)
-            self.set_vowels(enm_hierarchy[0])
+            self.set_hierarchy(enms.hierarchy)
+            self.set_vowels(enms.hierarchy[0])
+            self.set_short_vowels(enms.SHORT_VOWELS)
+            self.set_consonants(enms.CONSONANTS)
 
             # self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
 
         elif language == "ang":
-            self.set_hierarchy(ang_hierarchy)
-            self.set_vowels(ang_hierarchy[0])
-
-        elif language == "gmh" and variant == "ipa":
-            pass
+            self.set_hierarchy(angs.hierarchy)
+            self.set_vowels(angs.hierarchy[0])
 
         elif language == "gmh":
-            self.set_hierarchy(gmh_hierarchy)
-            self.set_vowels(gmh_hierarchy[0])
+            self.set_hierarchy(gmhs.hierarchy)
+            self.set_vowels(gmhs.hierarchy[0])
+            self.set_diphthongs(gmhs.DIPHTHONGS)
+            self.set_short_vowels(gmhs.SHORT_VOWELS)
 
         elif language == "non" and variant == "ipa":
-            self.set_hierarchy(ipa_old_norse_hierarchy)
-            self.set_vowels(ipa_old_norse_hierarchy[0])
+            self.set_hierarchy(nons.ipa_hierarchy)
+            self.set_vowels(nons.ipa_hierarchy[0])
 
         elif language == "non":
-            self.set_hierarchy(non_hierarchy)
-            self.set_vowels(non_hierarchy[0])
+            self.set_hierarchy(nons.hierarchy)
+            self.set_vowels(nons.hierarchy[0])
 
         else:
             self.low_vowels = [] if low_vowels is None else low_vowels
@@ -194,6 +192,13 @@ class Syllabifier:
         self.vowels = vowels
 
     def syllabify(self, word, mode="SSP") -> Union[List[str], str]:
+        """
+
+        :param word: word to syllabify
+        :param mode: syllabification algorithm SSP (Sonority Sequence Principle)
+         or MOP (Maximum Onset Principle)
+        :return: syllabifier word
+        """
         res = None
         if mode == "SSP":
             res = self.syllabify_ssp(word)
@@ -393,7 +398,7 @@ class Syllabifier:
         >>> gmh_syllabifier.syllabify_mop('füerest')
         ['füe', 'rest']
 
-        >>> from cltk.phonology.enm.transcription import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
+        >>> from cltk.phonology.enm.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
         >>> enm_syllabifier = Syllabifier()
         >>> enm_syllabifier.set_short_vowels(SHORT_VOWELS)
         >>> enm_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
@@ -443,10 +448,10 @@ class Syllabifier:
                         i += 2
                         continue
 
-                    # elif sum(c not in self.consonants for c in word[i: i + 3]) == 0:
-                    #     ind.append(i - 1 if word[i: i + 3] in self.triphthongs else i)
-                    #     i += 3
-                    #     continue
+                    elif sum(c not in self.consonants for c in word[i: i + 3]) == 0:
+                        ind.append(i - 1 if word[i: i + 3] in self.triphthongs else i)
+                        i += 3
+                        continue
 
                 except IndexError:
                     pass
@@ -468,13 +473,13 @@ class Syllabifier:
             i += 1
 
         # # Check whether the last syllable should be merged with the previous one
-        # try:
-        #     if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
-        #         ind = ind[: -(1 + (ind[-2] == len(self.word) - 2))]
-        #
-        # except IndexError:
-        #     if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
-        #         ind = ind[:-1]
+        try:
+            if ind[-1] in [len(word) - 2, len(word) - 1]:
+                ind = ind[: -(1 + (ind[-2] == len(word) - 2))]
+
+        except IndexError:
+            if ind[-1] in [len(word) - 2, len(word) - 1]:
+                ind = ind[:-1]
 
         syllables = word
 
@@ -501,6 +506,9 @@ class Syllabifier:
 
     def set_triphthongs(self, triphthongs):
         self.triphthongs = triphthongs
+
+    def set_consonants(self, consonants):
+        self.consonants = consonants
 
     def syllabify_ipa(self, word):
         """

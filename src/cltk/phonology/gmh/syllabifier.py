@@ -9,6 +9,9 @@ import unicodedata
 
 from cltk.stem.gmh import stem
 
+__author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
+__license__ = "MIT License"
+
 SHORT_VOWELS = ["a", "e", "i", "o", "u", "ä", "ü", "ö"]
 LONG_VOWELS = ["â", "ê", "î", "ô", "û", "œ", "iu"]
 
@@ -54,90 +57,6 @@ class Word:
     def __init__(self, word):
         self.word = word.lower()
         self.syllabified = []
-
-    def syllabify(self):
-        """Syllabifier module for Middle High German
-
-        The algorithm works by applying the MOP(Maximal Onset Principle)
-        on open syllables. For closed syllables, the legal partitions
-        are checked and applied. The word is always returned in lowercase.
-
-        Examples:
-        >>> Word('entslâfen').syllabify()
-        ['ent', 'slâ', 'fen']
-
-        >>> Word('fröude').syllabify()
-        ['fröu', 'de']
-
-        >>> Word('füerest').syllabify()
-        ['füe', 'rest']
-
-        # TODO merge this with cltk.phonology.enm.syllabifier
-        """
-
-        # Array holding the index of each given syllable
-        ind = []
-
-        i = 0
-        # Iterate through letters of word searching for the nuclei
-
-        while i < len(self.word) - 1:
-
-            if self.word[i] in SHORT_VOWELS + LONG_VOWELS:
-
-                nucleus = ""
-
-                # Find cluster of vowels
-                while (
-                        self.word[i] in SHORT_VOWELS + LONG_VOWELS
-                        and i < len(self.word) - 1
-                ):
-                    nucleus += self.word[i]
-                    i += 1
-
-                try:
-                    # Check whether it is suceeded by a geminant
-
-                    if self.word[i] == self.word[i + 1]:
-                        ind.append(i)
-                        i += 2
-                        continue
-
-                except IndexError:
-                    pass
-
-                if nucleus in SHORT_VOWELS:
-                    ind.append(
-                        i + 2
-                        if self.word[i: i + 3] in TRIPHTHONGS
-                        else i + 1
-                        if self.word[i: i + 2] in DIPHTHONGS
-                        else i
-                    )
-                    continue
-
-                else:
-                    ind.append(i - 1)
-                    continue
-
-            i += 1
-
-        self.syllabified = self.word
-
-        for n, k in enumerate(ind):
-            self.syllabified = (
-                    self.syllabified[: k + n + 1] + "." + self.syllabified[k + n + 1:]
-            )
-
-        # Check whether the last syllable lacks a vowel nucleus
-
-        self.syllabified = self.syllabified.split(".")
-
-        if sum(map(lambda x: x in SHORT_VOWELS, self.syllabified[-1])) == 0:
-            self.syllabified[-2] += self.syllabified[-1]
-            self.syllabified = self.syllabified[:-1]
-
-        return self.syllabified
 
     def phonetic_indexing(self, p="SE"):
         """Specifies the phonetic indexing method.
@@ -187,13 +106,3 @@ class Word:
         t_word = re.sub(r"[a-zæœ]+", "", t_word)
 
         return (t_word + "0" * 3)[:4]  # Add trailing zeroes
-
-    def ascii_encoding(self):
-        """Returns the ASCII encoding of a string"""
-
-        w = unicodedata.normalize("NFKD", self.word).encode(
-            "ASCII", "ignore"
-        )  # Encode into ASCII, returns a bytestring
-        w = w.decode("utf-8")  # Convert back to string
-
-        return w

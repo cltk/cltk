@@ -12,9 +12,12 @@ Sources:
 
 import re
 
+__author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
+__license__ = "MIT License"
+
 
 # IPA Dictionary
-Dipthongs_IPA = {
+DIPHTHONGS_IPA = {
     "ei": "ɛ͡ɪ",  # Dipthongs
     "ie": "i͡ə",
     "üe": "y͡ə",
@@ -100,7 +103,7 @@ class Transcriber:
         text = re.sub(r"(?<=[aeiouäëöüâæœêîôû])s(?=[aeiouäëöüâæœêîôû])", "z̥", text)
         text = re.sub(r"^s(?=[aeiouäëöüâæœêîôû])", "z̥", text)
 
-        for w, val in zip(Dipthongs_IPA.keys(), Dipthongs_IPA.values()):
+        for w, val in zip(DIPHTHONGS_IPA.keys(), DIPHTHONGS_IPA.values()):
             text = text.replace(w, val)
 
         for w, val in zip(IPA.keys(), IPA.values()):
