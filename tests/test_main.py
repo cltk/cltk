@@ -128,6 +128,11 @@ class TestMain(unittest.TestCase):
         first_word = cltk_doc.words[0]
         self.assertIsInstance(first_word.embedding, numpy.ndarray)
         first_word.embedding = list()  # clear out the array, for easier checking
+        print("*" * 88)
+        print("What does the result look like on build server?")
+        print(first_word)
+        print("*" * 88)
+
         target = Word(
             index_char_start=None,
             index_char_stop=None,
