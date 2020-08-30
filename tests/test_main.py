@@ -105,19 +105,19 @@ class TestMain(unittest.TestCase):
             index_char_stop=None,
             index_token=0,
             index_sentence=0,
-            string="ὅτι",
+            string="swa",
             pos="ADV",
-            lemma="ὅτι",
+            lemma="swa",
             stem=None,
             scansion=None,
             xpos="Df",
             upos="ADV",
             dependency_relation="advmod",
-            governor=6,
+            governor=1,
             features={},
             embedding=[],
-            stop=False,
-            named_entity=False,
+            stop=None,
+            named_entity=None,
         )
         self.assertEqual(first_word, target)
         self.assertEqual(len(cltk_doc.sentences), 3)
@@ -144,7 +144,7 @@ class TestMain(unittest.TestCase):
             governor=6,
             features={},
             embedding=[],
-            stop=True,
+            stop=False,
             named_entity=False,
         )
         self.assertEqual(first_word, target)
