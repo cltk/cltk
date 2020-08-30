@@ -105,19 +105,19 @@ class TestMain(unittest.TestCase):
             index_char_stop=None,
             index_token=0,
             index_sentence=0,
-            string="swa",
+            string="ὅτι",
             pos="ADV",
-            lemma="swa",
+            lemma="ὅτι",
             stem=None,
             scansion=None,
             xpos="Df",
             upos="ADV",
             dependency_relation="advmod",
-            governor=1,
+            governor=6,
             features={},
             embedding=[],
-            stop=None,
-            named_entity=None,
+            stop=False,
+            named_entity=False,
         )
         self.assertEqual(first_word, target)
         self.assertEqual(len(cltk_doc.sentences), 3)
@@ -128,11 +128,6 @@ class TestMain(unittest.TestCase):
         first_word = cltk_doc.words[0]
         self.assertIsInstance(first_word.embedding, numpy.ndarray)
         first_word.embedding = list()  # clear out the array, for easier checking
-        print("*" * 88)
-        print("What does the result look like on build server?")
-        print(first_word)
-        print("*" * 88)
-
         target = Word(
             index_char_start=None,
             index_char_stop=None,
