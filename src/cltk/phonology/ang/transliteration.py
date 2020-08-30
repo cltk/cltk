@@ -1,5 +1,7 @@
 """
+Transliteration module for Old English
 
+Anglo-Saxon or Anglo-Frisian runes <-> Latin alphabet
 """
 
 import logging

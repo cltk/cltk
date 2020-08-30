@@ -10,7 +10,11 @@ from cltk.stem.enm import stem
 
 from cltk.phonology.enm.transcription import SHORT_VOWELS, CONSONANTS, TRIPHTHONGS, DIPHTHONGS, dict_SE
 
-Syllabifier = {
+__author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
+__license__ = "MIT License"
+
+
+hierarchy = {
     "a": 1,
     "æ": 1,
     "e": 1,
@@ -79,6 +83,8 @@ class Word:
 
         >>> word.syllabified
         ['com', 'mau', 'ndyd']
+
+        # TODO merge this with cltk.phonology.gmh.syllabifier
         """
 
         # Array holding the index of each given syllable
@@ -98,15 +104,15 @@ class Word:
                     i += 1
 
                 try:
-                    # Check whether it is suceeded by a geminant
+                    # Check whether it is succeeded by a geminant
 
                     if self.word[i] == self.word[i + 1]:
                         ind.append(i)
                         i += 2
                         continue
 
-                    elif sum(c not in CONSONANTS for c in self.word[i : i + 3]) == 0:
-                        ind.append(i - 1 if self.word[i : i + 3] in TRIPHTHONGS else i)
+                    elif sum(c not in CONSONANTS for c in self.word[i: i + 3]) == 0:
+                        ind.append(i - 1 if self.word[i: i + 3] in TRIPHTHONGS else i)
                         i += 3
                         continue
 
@@ -114,7 +120,7 @@ class Word:
                     pass
 
                 if nucleus in SHORT_VOWELS:
-                    ind.append(i - 1 if self.word[i : i + 2] in DIPHTHONGS else i)
+                    ind.append(i - 1 if self.word[i: i + 2] in DIPHTHONGS else i)
                     continue
 
                 else:

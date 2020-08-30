@@ -17,7 +17,8 @@ from cltk.phonology.grc import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
 from cltk.phonology.enm.syllabifier import Word as WordMe
-from cltk.phonology.gmh import transcription as mhg
+from cltk.phonology.gmh import transcription as mhgt
+from cltk.phonology.gmh import syllabifier as mhgs
 from cltk.phonology.non import transcription as ont
 from cltk.phonology.non.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish
@@ -607,7 +608,7 @@ class TestSequenceFunctions(unittest.TestCase):
         Test MHG IPA transcriber
         """
         inputs = "Slâfest du friedel ziere?"
-        transcriber = mhg.Transcriber().transcribe
+        transcriber = mhgt.Transcriber().transcribe
         transcription = [unicodedata.normalize("NFC", x) for x in transcriber(inputs)]
         target = [
             unicodedata.normalize("NFC", x)
@@ -619,8 +620,8 @@ class TestSequenceFunctions(unittest.TestCase):
         """
         Test MHG Soundex Phonetic Index
         """
-        w1 = mhg.Word("krêatiure").phonetic_indexing(p="SE")
-        w2 = mhg.Word("kreatur").phonetic_indexing(p="SE")
+        w1 = mhgs.Word("krêatiure").phonetic_indexing(p="SE")
+        w2 = mhgs.Word("kreatur").phonetic_indexing(p="SE")
         target = ["K535", "K535"]
 
         self.assertEqual([w1, w2], target)
@@ -629,8 +630,8 @@ class TestSequenceFunctions(unittest.TestCase):
         """
         Test MHG ASCII encoder
         """
-        s1 = mhg.Word("vogellîn").ASCII_encoding()
-        s2 = mhg.Word("vogellīn").ASCII_encoding()
+        s1 = mhgs.Word("vogellîn").ascii_encoding()
+        s2 = mhgs.Word("vogellīn").ascii_encoding()
         target = ["vogellin", "vogellin"]
 
         self.assertEqual([s1, s2], target)

@@ -2,7 +2,9 @@
 
 """
 
-from cltk.phonology.gmh.transcription import Word, Transcriber
+from cltk.phonology.gmh.transcription import Transcriber
+from cltk.phonology.gmh.syllabifier import Word
+
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

@@ -7,25 +7,8 @@ __license__ = "MIT License"
 
 # Used according to sonority principle
 hierarchy = [
-    [
-        "a",
-        "á",
-        "æ",
-        "e",
-        "é",
-        "i",
-        "í",
-        "o",
-        "ǫ",
-        "ø",
-        "ö",
-        "œ",
-        "ó",
-        "u",
-        "ú",
-        "y",
-        "ý",
-    ],
+    ["a", "á", "æ", "e", "é", "i", "í", "o", "ǫ", "ø", "ö", "œ", "ó", "u", "ú",
+     "y", "ý"],
     ["j"],
     ["m"],
     ["n"],
@@ -35,25 +18,7 @@ hierarchy = [
     ["l"],
 ]
 
-VOWELS = [
-    "a",
-    "e",
-    "i",
-    "o",
-    "ǫ",
-    "ö",
-    "ø",
-    "u",
-    "y",
-    "á",
-    "æ",
-    "œ",
-    "é",
-    "í",
-    "ó",
-    "ú",
-    "ý",
-]
+VOWELS = hierarchy[0]
 LONG_VOWELS = ["ö", "ø", "á", "æ", "œ", "é", "í", "ó", "ú", "ý"]
 SHORT_VOWELS = ["a", "e", "i", "o", "u", "y", "ǫ"]
 
@@ -73,27 +38,7 @@ BACK_TO_FRONT_VOWELS = {
 }
 
 DIPHTHONGS = ["ey", "au", "ei"]
-CONSONANTS = [
-    "b",
-    "d",
-    "f",
-    "g",
-    "h",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "p",
-    "r",
-    "s",
-    "t",
-    "v",
-    "x",
-    "z",
-    "þ",
-    "ð",
-]
+CONSONANTS = [consonant for level in hierarchy[1:] for consonant in level]
 
 invalid_onsets = ["lm", "fj", "nm", "rk", "nn", "tt", "ðr"]
 

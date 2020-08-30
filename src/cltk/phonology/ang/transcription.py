@@ -156,7 +156,7 @@ class Transcriber:
         pass
 
     @staticmethod
-    def transcribe(text, punctuation=True, with_squared_brackets=True):
+    def transcribe(text: str, punctuation=True, with_squared_brackets=True) -> str:
         """
         Parameters:
             :param text: str: The text to be transcribed

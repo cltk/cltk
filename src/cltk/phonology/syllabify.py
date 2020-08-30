@@ -1,13 +1,13 @@
 import logging
 import unicodedata
 from collections import defaultdict
-from typing import List
+from typing import List, Union
 
 from cltk.core.exceptions import CLTKException
-from cltk.phonology.enm.syllabifier import Syllabifier as ME_Syllabifier
-from cltk.phonology.gmh.syllabifier import Syllabifier as MHG_Syllabifier
-from cltk.phonology.ang.syllabifier import syllabification_hierarchy as OE_Syllabifier
-from cltk.phonology.non.syllabifier import hierarchy as old_norse_hierarchy
+from cltk.phonology.enm.syllabifier import hierarchy as enm_hierarchy
+from cltk.phonology.gmh.syllabifier import hierarchy as gmh_hierarchy
+from cltk.phonology.ang.syllabifier import hierarchy as ang_hierarchy
+from cltk.phonology.non.syllabifier import hierarchy as non_hierarchy
 from cltk.phonology.non.syllabifier import (
     ipa_hierarchy as ipa_old_norse_hierarchy,
 )
@@ -84,48 +84,56 @@ class Syllabifier:
         language=None,
         break_geminants=False,
         variant=None,
+        sep=None
     ):
+        """
+
+        :param low_vowels: list of low vowels
+        :param mid_vowels: list of middle vowels
+        :param high_vowels: list of high vowels
+        :param flaps:
+        :param laterals: list of lateral consonants
+        :param nasals: list of nasal consonants
+        :param fricatives: list of frictative consonants
+        :param plosives: list of plosive vowels
+        :param language: chosen language
+        :param break_geminants: if True, a geminant is split in two different consonants
+        :param variant:
+        :param sep: if set, returns a string whose separator of syllables as sep
+        """
 
         self.break_geminants = break_geminants
         self.invalid_onsets = []
         self.invalid_ultima = []
+        self.short_vowels = []
+        self.diphthongs = []
+        self.triphthongs = []
+        self.sep = sep
 
         if language == "enm":
-            hierarchy = [[] for _ in range(len(set(ME_Syllabifier.values())))]
-
-            for k in ME_Syllabifier:
-                hierarchy[ME_Syllabifier[k] - 1].append(k)
-
-            self.set_hierarchy(hierarchy)
-            self.set_vowels(hierarchy[0])
+            self.set_hierarchy(enm_hierarchy)
+            self.set_vowels(enm_hierarchy[0])
 
             # self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
 
         elif language == "ang":
-            hierarchy = [[] for _ in range(len(set(OE_Syllabifier.values())))]
+            self.set_hierarchy(ang_hierarchy)
+            self.set_vowels(ang_hierarchy[0])
 
-            for k in OE_Syllabifier:
-                hierarchy[OE_Syllabifier[k] - 1].append(k)
-
-            self.set_hierarchy(hierarchy)
-            self.set_vowels(hierarchy[0])
+        elif language == "gmh" and variant == "ipa":
+            pass
 
         elif language == "gmh":
-            hierarchy = [[] for _ in range(len(set(MHG_Syllabifier.values())))]
-
-            for k in MHG_Syllabifier:
-                hierarchy[MHG_Syllabifier[k] - 1].append(k)
-
-            self.set_hierarchy(hierarchy)
-            self.set_vowels(hierarchy[0])
-
-        elif language == "non":
-            self.set_hierarchy(old_norse_hierarchy)
-            self.set_vowels(old_norse_hierarchy[0])
+            self.set_hierarchy(gmh_hierarchy)
+            self.set_vowels(gmh_hierarchy[0])
 
         elif language == "non" and variant == "ipa":
             self.set_hierarchy(ipa_old_norse_hierarchy)
             self.set_vowels(ipa_old_norse_hierarchy[0])
+
+        elif language == "non":
+            self.set_hierarchy(non_hierarchy)
+            self.set_vowels(non_hierarchy[0])
 
         else:
             self.low_vowels = [] if low_vowels is None else low_vowels
@@ -185,9 +193,16 @@ class Syllabifier:
         """
         self.vowels = vowels
 
-    def syllabify(self, word, mode="SSP"):
+    def syllabify(self, word, mode="SSP") -> Union[List[str], str]:
+        res = None
         if mode == "SSP":
-            return self.syllabify_ssp(word)
+            res = self.syllabify_ssp(word)
+        elif mode == "MOP":
+            res = self.syllabify_mop(word)
+
+        if self.sep:
+            return self.sep.join(res)
+        return res
 
     def syllabify_ssp(self, word):
         """
@@ -257,7 +272,7 @@ class Syllabifier:
             while word[i] not in self.vowels and i < len(word) - 1 and find_nucleus:
                 i += 1
 
-            if find_nucleus is True:
+            if find_nucleus:
                 i += 1
 
             if i >= len(word) - 1:
@@ -359,6 +374,133 @@ class Syllabifier:
             syllables = syllables[:-1]
 
         return syllables
+
+    def syllabify_mop(self, word) -> List[str]:
+        """
+        >>> from cltk.phonology.gmh.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
+        >>> gmh_syllabifier = Syllabifier()
+        >>> gmh_syllabifier.set_short_vowels(SHORT_VOWELS)
+        >>> gmh_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
+        >>> gmh_syllabifier.set_diphthongs(DIPHTHONGS)
+        >>> gmh_syllabifier.set_triphthongs(TRIPHTHONGS)
+
+        >>> gmh_syllabifier.syllabify_mop('entslâfen')
+        ['ent', 'slâ', 'fen']
+
+        >>> gmh_syllabifier.syllabify_mop('fröude')
+        ['fröu', 'de']
+
+        >>> gmh_syllabifier.syllabify_mop('füerest')
+        ['füe', 'rest']
+
+        >>> from cltk.phonology.enm.transcription import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
+        >>> enm_syllabifier = Syllabifier()
+        >>> enm_syllabifier.set_short_vowels(SHORT_VOWELS)
+        >>> enm_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
+        >>> enm_syllabifier.set_diphthongs(DIPHTHONGS)
+        >>> enm_syllabifier.set_triphthongs(TRIPHTHONGS)
+
+
+        >>> enm_syllabifier.syllabify_mop('heldis')
+        ['hel', 'dis']
+        >>> enm_syllabifier.syllabify_mop('greef')
+        ['greef']
+
+        Once you syllabify the word, the result will be saved as a class
+        variable
+
+        >>> enm_syllabifier.syllabify_mop('commaundyd')
+        ['com', 'mau', 'ndyd']
+
+        :param word: word to syllabify
+        :return: syllabified word
+        """
+        # Array holding the index of each given syllable
+        ind = []
+
+        i = 0
+        # Iterate through letters of word searching for the nuclei
+
+        while i < len(word) - 1:
+
+            if word[i] in self.vowels:
+
+                nucleus = ""
+
+                # Find cluster of vowels
+                while (
+                        word[i] in self.vowels
+                        and i < len(word) - 1
+                ):
+                    nucleus += word[i]
+                    i += 1
+
+                try:
+                    # Check whether it is succeeded by a geminant
+
+                    if word[i] == word[i + 1]:
+                        ind.append(i)
+                        i += 2
+                        continue
+
+                    # elif sum(c not in self.consonants for c in word[i: i + 3]) == 0:
+                    #     ind.append(i - 1 if word[i: i + 3] in self.triphthongs else i)
+                    #     i += 3
+                    #     continue
+
+                except IndexError:
+                    pass
+
+                if nucleus in self.short_vowels:
+                    ind.append(
+                        i + 2
+                        if word[i: i + 3] in self.triphthongs
+                        else i + 1
+                        if word[i: i + 2] in self.diphthongs
+                        else i
+                    )
+                    continue
+
+                else:
+                    ind.append(i - 1)
+                    continue
+
+            i += 1
+
+        # # Check whether the last syllable should be merged with the previous one
+        # try:
+        #     if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
+        #         ind = ind[: -(1 + (ind[-2] == len(self.word) - 2))]
+        #
+        # except IndexError:
+        #     if ind[-1] in [len(self.word) - 2, len(self.word) - 1]:
+        #         ind = ind[:-1]
+
+        syllables = word
+
+        for n, k in enumerate(ind):
+            syllables = (
+                    syllables[: k + n + 1] + "." + syllables[k + n + 1:]
+            )
+
+        # Check whether the last syllable lacks a vowel nucleus
+
+        syllables = syllables.split(".")
+
+        if sum(map(lambda x: x in self.short_vowels, syllables[-1])) == 0:
+            syllables[-2] += syllables[-1]
+            syllables = syllables[:-1]
+
+        return syllables
+
+    def set_short_vowels(self, short_vowels):
+        self.short_vowels = short_vowels
+
+    def set_diphthongs(self, diphthongs):
+        self.diphthongs = diphthongs
+
+    def set_triphthongs(self, triphthongs):
+        self.triphthongs = triphthongs
 
     def syllabify_ipa(self, word):
         """
