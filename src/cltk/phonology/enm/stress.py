@@ -36,7 +36,7 @@ dict_SE = {
 
 
 class MiddleEnglishStresser:
-    def __init__(self, syllabifier):
+    def __init__(self, syllabifier=None):
         self.syllabifier = syllabifier
 
     def stress(self, word, stress_rule="FSR") -> List:
@@ -61,24 +61,28 @@ class MiddleEnglishStresser:
             since stress indicates relative emphasis.
 
         Examples:
-            >>> Word('beren').stresser(stress_rule = "FSR")
+            >>> from cltk.phonology.syllabify import Syllabifier
+            >>> stresser = MiddleEnglishStresser(Syllabifier(language="enm"))
+            >>> stresser.stress('beren', stress_rule="FSR")
             ['ber', "'en"]
 
-            >>> Word('prendre').stresser(stress_rule = "FSR")
+            >>> stresser.stress('prendre', stress_rule="FSR")
             ["'pren", 'dre']
 
-            >>> Word('yisterday').stresser(stress_rule = "GSR")
+            >>> stresser.stress('yisterday', stress_rule="GSR")
             ['yi', 'ster', "'day"]
 
-            >>> Word('day').stresser(stress_rule = "GSR")
+            >>> stresser.stress('day', stress_rule="GSR")
             ['day']
 
-            >>> Word('mervelus').stresser(stress_rule = "LSR")
+            >>> stresser.stress('mervelus', stress_rule="LSR")
             ["'mer", 'vel', 'us']
 
-            >>> Word('verbum').stresser(stress_rule = "LSR")
+            >>> stresser.stress('verbum', stress_rule="LSR")
             ['ver', "'bum"]
         """
+
+        assert self.syllabifier is not None
 
         # Syllabify word
         syllabified = self.syllabifier.syllabify(word)
@@ -136,8 +140,9 @@ class MiddleEnglishStresser:
             else:
                 return syllabified[:-1] + ["'{0}".format(syllabified[-1])]
 
-    def phonetic_indexing(self, p="SE") -> str:
+    def phonetic_indexing(self, word, p="SE") -> str:
         """
+        :param word: word
         :param p: Specifies the phonetic indexing method
                 SE: Soundex variant for MHG
 
@@ -146,9 +151,9 @@ class MiddleEnglishStresser:
         """
 
         if p == "SE":
-            return self._Soundex()
+            return self._soundex(word)
 
-    def _Soundex(self):
+    def _soundex(self, word):
         """
         The Soundex phonetic indexing algorithm adapted to ME phonology.
 
@@ -182,19 +187,20 @@ class MiddleEnglishStresser:
         by modern spelling (e.g. 'enough': /ɪˈnʌf/ and 'though': /ðəʊ/)
 
         Examples:
-            >>> Word("midel").phonetic_indexing(p="SE")
+            >>> MiddleEnglishStresser().phonetic_indexing("midel", "SE")
             'M230'
 
-            >>> Word("myddle").phonetic_indexing(p="SE")
+            >>> MiddleEnglishStresser().phonetic_indexing("myddle", "SE")
             'M230'
 
-            >>> Word("might").phonetic_indexing(p="SE")
+            >>> MiddleEnglishStresser().phonetic_indexing("might", "SE")
             'M120'
 
-            >>> Word("myghtely").phonetic_indexing(p="SE")
+            >>> MiddleEnglishStresser().phonetic_indexing("myghtely", "SE")
             'M123'
         """
 
+        self.word = word
         word = self.word[1:]
 
         for w, val in zip(dict_SE.keys(), dict_SE.values()):

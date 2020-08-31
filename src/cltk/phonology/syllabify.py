@@ -124,8 +124,7 @@ class Syllabifier:
             self.set_vowels(gmhs.SHORT_VOWELS+gmhs.LONG_VOWELS)
             self.set_diphthongs(gmhs.DIPHTHONGS)
             self.set_short_vowels(gmhs.SHORT_VOWELS)
-            self.set_consonants([consonant for level in gmhs.hierarchy
-                                 for consonant in level])
+            self.set_consonants(gmhs.CONSONANTS)
 
         elif language == "non" and variant == "ipa":
             self.set_hierarchy(nons.ipa_hierarchy)
@@ -384,12 +383,13 @@ class Syllabifier:
 
     def syllabify_mop(self, word) -> List[str]:
         """
-        >>> from cltk.phonology.gmh.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
+        >>> from cltk.phonology.gmh.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS, CONSONANTS
         >>> gmh_syllabifier = Syllabifier()
         >>> gmh_syllabifier.set_short_vowels(SHORT_VOWELS)
         >>> gmh_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
         >>> gmh_syllabifier.set_diphthongs(DIPHTHONGS)
         >>> gmh_syllabifier.set_triphthongs(TRIPHTHONGS)
+        >>> gmh_syllabifier.set_consonants(CONSONANTS)
 
         >>> gmh_syllabifier.syllabify_mop('entslâfen')
         ['ent', 'slâ', 'fen']
@@ -435,10 +435,7 @@ class Syllabifier:
                 nucleus = ""
 
                 # Find cluster of vowels
-                while (
-                        word[i] in self.vowels
-                        and i < len(word) - 1
-                ):
+                while word[i] in self.vowels and i < len(word) - 1:
                     nucleus += word[i]
                     i += 1
 
@@ -475,13 +472,14 @@ class Syllabifier:
             i += 1
 
         # # Check whether the last syllable should be merged with the previous one
-        try:
-            if ind[-1] in [len(word) - 2, len(word) - 1]:
-                ind = ind[: -(1 + (ind[-2] == len(word) - 2))]
-
-        except IndexError:
-            if ind[-1] in [len(word) - 2, len(word) - 1]:
-                ind = ind[:-1]
+        # try:
+        #     if ind[-1] in [len(word) - 2, len(word) - 1]:
+        #         ind = ind[: -(1 + (ind[-2] == len(word) - 2))]
+        #
+        # except IndexError:
+        #
+        #     if len(ind) > 1 and ind[-1] in [len(word) - 2, len(word) - 1]:
+        #         ind = ind[:-1]
 
         syllables = word
 

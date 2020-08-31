@@ -3,7 +3,7 @@
 """
 
 from cltk.phonology.gmh.transcription import Transcriber
-from cltk.phonology.gmh.syllabifier import Word
+from cltk.phonology.syllabify import Syllabifier
 
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -14,7 +14,7 @@ class MiddleHighGermanTranscription:
         self.transcriber = Transcriber()
 
     def transcribe(self, word):
-        return self.transcriber.transcribe(word, False)
+        return self.transcriber.transcribe(word, with_squared_brackets=False)
 
     def __repr__(self):
         return f"<MiddleHighGermanTranscription>"
@@ -25,10 +25,10 @@ class MiddleHighGermanTranscription:
 
 class MiddleHighGermanSyllabifier:
     def __init__(self):
-        pass
+        self.syllabifier = Syllabifier(language="gmh")
 
     def syllabify(self, word):
-        return Word(word).syllabify()
+        return self.syllabifier.syllabify(word, mode="MOP")
 
     def __repr__(self):
         return f"<MiddleHighGermanSyllabifier>"

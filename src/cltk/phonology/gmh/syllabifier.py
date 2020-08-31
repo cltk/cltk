@@ -8,15 +8,15 @@ import re
 import unicodedata
 
 from cltk.stem.gmh import stem
-from cltk.alphabet.gmh import SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS, TRIPHTHONGS
+from cltk.alphabet.gmh import SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS, TRIPHTHONGS, CONSONANTS
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License"
 
 
 # Soundex Dictionary
-dict_dipth_SE = {"ng": "2", "ch": "2", "pf": "4", "ts": "4"}
+dict_diphth_se = {"ng": "2", "ch": "2", "pf": "4", "ts": "4"}
 
-dict_SE = {
+dict_se = {
     "f": "1",
     "b": "1",
     "p": "1",
@@ -88,10 +88,10 @@ class Word:
         """
         t_word = stem(self.word[0].lower()).upper() + stem(self.word[1:]).lower()
 
-        for w, val in zip(dict_dipth_SE.keys(), dict_dipth_SE.values()):
+        for w, val in zip(dict_diphth_se.keys(), dict_diphth_se.values()):
             t_word = t_word.replace(w, val)
 
-        for w, val in zip(dict_SE.keys(), dict_SE.values()):
+        for w, val in zip(dict_se.keys(), dict_se.values()):
             t_word = t_word.replace(w, val)
 
         # Remove adjacent duplicate numbers
