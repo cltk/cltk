@@ -1,7 +1,7 @@
-cltk.phonology.gothic package
+cltk.phonology.got package
 =============================
 
-.. automodule:: cltk.phonology.gothic
+.. automodule:: cltk.phonology.got
    :members:
    :undoc-members:
    :show-inheritance:
@@ -9,10 +9,10 @@ cltk.phonology.gothic package
 Submodules
 ----------
 
-cltk.phonology.gothic.transcription module
+cltk.phonology.got.transcription module
 ------------------------------------------
 
-.. automodule:: cltk.phonology.gothic.transcription
+.. automodule:: cltk.phonology.got.transcription
    :members:
    :undoc-members:
    :show-inheritance:

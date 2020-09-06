@@ -43,6 +43,7 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
 
     >>> get_onsets(text, threshold = 0.05, vowels=vowels)
     ['m', 'r', 'w', 'nd', 'v', 'g', 's', 'h', 'b', 'z', 't', 'n']
+
     """
     onset_dict = defaultdict(lambda: 0)
     n = len(text)

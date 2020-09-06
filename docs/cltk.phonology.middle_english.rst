@@ -17,10 +17,19 @@ cltk.phonology.enm.syllabifier module
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.enm.transcription module
----------------------------------------------------
 
-.. automodule:: cltk.phonology.enm.transcription
+cltk.phonology.enm.phonology module
+-------------------------------------------------
+
+.. automodule:: cltk.phonology.enm.phonology
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.phonology.enm.stress module
+-------------------------------------------------
+
+.. automodule:: cltk.phonology.enm.stress
    :members:
    :undoc-members:
    :show-inheritance:

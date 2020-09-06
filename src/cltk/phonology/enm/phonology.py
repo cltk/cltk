@@ -17,7 +17,7 @@ class MiddleEnglishTranscription:
         # TODO
         # transcriber = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
         transcriber = None
-        return transcriber.transcribe(word)
+        # return transcriber.transcribe(word)
         return None
 
     def __repr__(self):

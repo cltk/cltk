@@ -61,31 +61,32 @@ class MiddleEnglishStresser:
             since stress indicates relative emphasis.
 
         Examples:
-            >>> from cltk.phonology.syllabify import Syllabifier
-            >>> from cltk.phonology.enm.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
-            >>> enm_syllabifier = Syllabifier()
-            >>> enm_syllabifier.set_short_vowels(SHORT_VOWELS)
-            >>> enm_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
-            >>> enm_syllabifier.set_diphthongs(DIPHTHONGS)
-            >>> enm_syllabifier.set_triphthongs(TRIPHTHONGS)
-            >>> stresser = MiddleEnglishStresser(enm_syllabifier)
-            >>> stresser.stress('beren', stress_rule="FSR")
-            ['ber', "'en"]
+        >>> from cltk.phonology.syllabify import Syllabifier
+        >>> from cltk.phonology.enm.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
+        >>> enm_syllabifier = Syllabifier()
+        >>> enm_syllabifier.set_short_vowels(SHORT_VOWELS)
+        >>> enm_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
+        >>> enm_syllabifier.set_diphthongs(DIPHTHONGS)
+        >>> enm_syllabifier.set_triphthongs(TRIPHTHONGS)
+        >>> stresser = MiddleEnglishStresser(enm_syllabifier)
+        >>> stresser.stress('beren', stress_rule="FSR")
+        ['ber', "'en"]
 
-            >>> stresser.stress('prendre', stress_rule="FSR")
-            ["'pren", 'dre']
+        >>> stresser.stress('prendre', stress_rule="FSR")
+        ["'pren", 'dre']
 
-            >>> stresser.stress('yisterday', stress_rule="GSR")
-            ['yi', 'ster', "'day"]
+        >>> stresser.stress('yisterday', stress_rule="GSR")
+        ['yi', 'ster', "'day"]
 
-            >>> stresser.stress('day', stress_rule="GSR")
-            ['day']
+        >>> stresser.stress('day', stress_rule="GSR")
+        ['day']
 
-            >>> stresser.stress('mervelus', stress_rule="LSR")
-            ["'mer", 'vel', 'us']
+        >>> stresser.stress('mervelus', stress_rule="LSR")
+        ["'mer", 'vel', 'us']
 
-            >>> stresser.stress('verbum', stress_rule="LSR")
-            ['ver', "'bum"]
+        >>> stresser.stress('verbum', stress_rule="LSR")
+        ['ver', "'bum"]
+
         """
 
         assert self.syllabifier is not None

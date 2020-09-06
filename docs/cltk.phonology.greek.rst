@@ -1,7 +1,7 @@
-cltk.phonology.greek package
+cltk.phonology.grc package
 ============================
 
-.. automodule:: cltk.phonology.greek
+.. automodule:: cltk.phonology.grc
    :members:
    :undoc-members:
    :show-inheritance:
@@ -9,10 +9,10 @@ cltk.phonology.greek package
 Submodules
 ----------
 
-cltk.phonology.greek.transcription module
+cltk.phonology.grc.transcription module
 -----------------------------------------
 
-.. automodule:: cltk.phonology.greek.transcription
+.. automodule:: cltk.phonology.grc.transcription
    :members:
    :undoc-members:
    :show-inheritance:

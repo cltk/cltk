@@ -435,28 +435,6 @@ class Fornyrdhislag(Metre):
     always including the main stave (the first lift of the second half-line).
     (See https://en.wikipedia.org/wiki/Alliterative_verse#Old_Norse_poetic_forms)
 
-    Short lines:
-
-    .. code block:: txt
-
-    --------
-    --------
-    --------
-    --------
-    --------
-    --------
-    --------
-
-
-    Long lines:
-
-    .. code block:: txt
-
-    -------- --------
-    -------- --------
-    -------- --------
-    -------- --------
-
     """
 
     def __init__(self):
@@ -534,23 +512,6 @@ class Ljoodhhaattr(Metre):
 
     See https://en.wikipedia.org/wiki/Alliterative_verse#Lj%C3%B3%C3%B0ah%C3%A1ttr.
 
-    Short lines:
-    ```
-    --------
-    --------
-    ----------------
-    --------
-    --------
-    ----------------
-    ```
-
-    Long lines :
-    ```
-    -------- --------
-    ----------------
-    -------- --------
-    ----------------
-    ```
     """
 
     def __init__(self):
