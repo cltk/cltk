@@ -113,7 +113,7 @@ class Syllabifier:
             self.set_short_vowels(enms.SHORT_VOWELS)
             self.set_consonants(enms.CONSONANTS)
 
-            # self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
+            self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
 
         elif language == "ang":
             self.set_hierarchy(angs.hierarchy)
@@ -427,7 +427,6 @@ class Syllabifier:
 
         i = 0
         # Iterate through letters of word searching for the nuclei
-
         while i < len(word) - 1:
 
             if word[i] in self.vowels:
@@ -447,10 +446,10 @@ class Syllabifier:
                         i += 2
                         continue
 
-                    elif sum(c not in self.consonants for c in word[i: i + 3]) == 0:
-                        ind.append(i - 1 if word[i: i + 3] in self.triphthongs else i)
-                        i += 3
-                        continue
+                    # elif sum(c not in self.consonants for c in word[i: i + 3]) == 0:
+                    #     ind.append(i - 1 if word[i: i + 3] in self.triphthongs else i)
+                    #     i += 3
+                    #     continue
 
                 except IndexError:
                     pass
@@ -471,22 +470,19 @@ class Syllabifier:
 
             i += 1
 
-        # # Check whether the last syllable should be merged with the previous one
-        # try:
-        #     if ind[-1] in [len(word) - 2, len(word) - 1]:
-        #         ind = ind[: -(1 + (ind[-2] == len(word) - 2))]
-        #
-        # except IndexError:
-        #
-        #     if len(ind) > 1 and ind[-1] in [len(word) - 2, len(word) - 1]:
-        #         ind = ind[:-1]
+        # Check whether the last syllable should be merged with the previous one
+        try:
+            if ind[-1] in [len(word) - 2, len(word) - 1]:
+                ind = ind[:-(1 + (ind[-2] == len(word) - 2))]
+
+        except IndexError:
+            if len(ind) > 0 and ind[-1] in [len(word) - 2, len(word) - 1]:
+                ind = ind[:-1]
 
         syllables = word
 
         for n, k in enumerate(ind):
-            syllables = (
-                    syllables[: k + n + 1] + "." + syllables[k + n + 1:]
-            )
+            syllables = syllables[:k + n + 1] + "." + syllables[k + n + 1:]
 
         # Check whether the last syllable lacks a vowel nucleus
 
