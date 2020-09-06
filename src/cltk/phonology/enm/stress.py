@@ -62,7 +62,13 @@ class MiddleEnglishStresser:
 
         Examples:
             >>> from cltk.phonology.syllabify import Syllabifier
-            >>> stresser = MiddleEnglishStresser(Syllabifier(language="enm"))
+            >>> from cltk.phonology.enm.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
+            >>> enm_syllabifier = Syllabifier()
+            >>> enm_syllabifier.set_short_vowels(SHORT_VOWELS)
+            >>> enm_syllabifier.set_vowels(SHORT_VOWELS+LONG_VOWELS)
+            >>> enm_syllabifier.set_diphthongs(DIPHTHONGS)
+            >>> enm_syllabifier.set_triphthongs(TRIPHTHONGS)
+            >>> stresser = MiddleEnglishStresser(enm_syllabifier)
             >>> stresser.stress('beren', stress_rule="FSR")
             ['ber', "'en"]
 
@@ -85,7 +91,7 @@ class MiddleEnglishStresser:
         assert self.syllabifier is not None
 
         # Syllabify word
-        syllabified = self.syllabifier.syllabify(word)
+        syllabified = self.syllabifier.syllabify(word, mode="MOP")
 
         # Check whether word is monosyllabic
         if len(syllabified) == 1:
@@ -110,13 +116,13 @@ class MiddleEnglishStresser:
 
             # Syllabify stripped word and affix
 
-            syl_word = self.syllabifier.syllabify(st_word)
+            syl_word = self.syllabifier.syllabify(st_word, mode="MOP")
 
             # Add stress
             syl_word = ["'{0}".format(syl_word[0])] + syl_word[1:]
 
             if affix:
-                affix = self.syllabifier.syllabify(affix)
+                affix = self.syllabifier.syllabify(affix, mode="MOP")
                 syl_word = affix + syl_word
 
             return syl_word

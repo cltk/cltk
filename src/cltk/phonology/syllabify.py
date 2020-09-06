@@ -113,7 +113,7 @@ class Syllabifier:
             self.set_short_vowels(enms.SHORT_VOWELS)
             self.set_consonants(enms.CONSONANTS)
 
-            self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
+            # self.invalid_ultima = ["a", "ae", "æ", "e", "ea", "eo", "i", "o", "u", "y", "w"]
 
         elif language == "ang":
             self.set_hierarchy(angs.hierarchy)
