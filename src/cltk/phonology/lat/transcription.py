@@ -278,6 +278,9 @@ class Phone:
         self.bk = self.ipa in IPA["back"]
         self.bound = self.ipa in IPA["boundary"]
 
+    def __repr__(self):
+        return self.ipa
+
 
 class Word:
     """Max. phonological unit, contains phones and triggers alternations."""
@@ -527,7 +530,7 @@ class Word:
         # initialize syllables with a tuple for the first syllable
         # where onset is everything before the first nucleus
         # and coda remains unknown.
-        syllables = [[self.phones[0 : nuclei[0]], [self.phones[nuclei[0]]], []]]
+        syllables = [[self.phones[0: nuclei[0]], [self.phones[nuclei[0]]], []]]
         # continue for every nucleus, assuming that everything between
         # the previous nucleus and it is the onset.
         for x in range(len(nuclei) - 1):

@@ -106,7 +106,7 @@ class LatinSyllabificationProcess(SyllabificationProcess):
     >>> nlp = NLP(language='lat', custom_pipeline = pipe)
     >>> text = get_example_text("lat")
     >>> [word.syllables for word in nlp(text)[:5]]
-    ["['gaɫ.lɪ̣.jaː]", "['ɛst̪]", "['ɔm.n̪iːs]", "[d̪iː.'wiː.sa]", "['ɪn̪]"]
+    [['gal', 'li', 'a'], ['est'], ['om', 'nis'], ['di', 'vi', 'sa'], ['in']]
     """
 
     description = "The default Latin Syllabification process"

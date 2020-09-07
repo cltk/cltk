@@ -149,7 +149,7 @@ class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     >>> text = get_example_text("lat")
 
     >>> [word.phonetic_transcription for word in nlp(text)[:5]]
-    ["['gaɫ.lɪ̣.jaː]", "['ɛst̪]", "['ɔm.n̪iːs]", "[d̪iː.'wiː.sa]", "['ɪn̪]"]
+    ['[gaɫlɪ̣ja]', '[ɛst̪]', '[ɔmn̪ɪs]', '[d̪ɪwɪsa]', '[ɪn̪]']
     """
 
     description = "The default Latin transcription process"

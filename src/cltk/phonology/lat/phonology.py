@@ -5,6 +5,7 @@
 import unicodedata
 
 import cltk.phonology.lat.transcription as latt
+from cltk.phonology.lat.syllabifier import syllabify
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
@@ -30,8 +31,7 @@ class LatinSyllabifier:
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
     def syllabify(self, word):
-        transcription = self.transcriber.transcribe(word)
-        return latt.Word(transcription, latt.LATIN["Classical"]["Allen"]).syllabify()
+        return syllabify(word)
 
     def __repr__(self):
         return f"<LatinSyllabifier>"
