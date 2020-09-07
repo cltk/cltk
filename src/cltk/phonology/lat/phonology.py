@@ -27,11 +27,11 @@ class LatinTranscription:
 
 class LatinSyllabifier:
     def __init__(self):
-        self.transcription = latt.Transcriber("Classical", "Allen")
+        self.transcriber = latt.Transcriber("Classical", "Allen")
 
     def syllabify(self, word):
-        return latt.Word(self.transcription.transcribe(word),
-                         latt.LATIN["Classical"]["Allen"]).syllabify()
+        transcription = self.transcriber.transcribe(word)
+        return latt.Word(transcription, latt.LATIN["Classical"]["Allen"]).syllabify()
 
     def __repr__(self):
         return f"<LatinSyllabifier>"

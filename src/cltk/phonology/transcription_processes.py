@@ -19,7 +19,6 @@ from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 from cltk.phonology.got.phonology import GothicTranscription
 from cltk.phonology.grc.phonology import GreekTranscription
 from cltk.phonology.lat.phonology import LatinTranscription
-from cltk.phonology.enm.phonology import MiddleEnglishTranscription
 from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
 from cltk.phonology.ang.phonology import OldEnglishTranscription
 from cltk.phonology.old_swedish.phonology import OldSwedishTranscription
@@ -135,54 +134,29 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
         return GreekTranscription()
 
 
-# TODO original algorithm does not work
-# class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-#     """
-#     >>> from cltk.core.data_types import Process, Pipeline
-#     >>> from cltk.tokenizers.processes import LatinTokenizationProcess
-#     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
-#     >>> from cltk.languages.utils import get_lang
-#     >>> from cltk.languages.example_texts import get_example_text
-#     >>> from cltk.nlp import NLP
-#     >>> pipe = Pipeline(description="A custom Latin pipeline", \
-#     processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, \
-#     LatinPhonologicalTranscriberProcess], language=get_lang("lat"))
-#     >>> nlp = NLP(language='lat', custom_pipeline=pipe)
-#     >>> text = get_example_text("lat")
-#
-#     >>> [word.phonetic_transcription for word in nlp(text)[:5]]
-#
-#     """
-#
-#     description = "The default Latin transcription process"
-#
-#     @cachedproperty
-#     def algorithm(self):
-#         return LatinTranscription()
+class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
+    """
+    >>> from cltk.core.data_types import Process, Pipeline
+    >>> from cltk.tokenizers.processes import LatinTokenizationProcess
+    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.languages.utils import get_lang
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> from cltk.nlp import NLP
+    >>> pipe = Pipeline(description="A custom Latin pipeline", \
+    processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, \
+    LatinPhonologicalTranscriberProcess], language=get_lang("lat"))
+    >>> nlp = NLP(language='lat', custom_pipeline=pipe)
+    >>> text = get_example_text("lat")
 
+    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    ["['gaɫ.lɪ̣.jaː]", "['ɛst̪]", "['ɔm.n̪iːs]", "[d̪iː.'wiː.sa]", "['ɪn̪]"]
+    """
 
-# class MiddleEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-#     """
-#     >>> from cltk.core.data_types import Process, Pipeline
-#     >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
-#     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
-#     >>> from cltk.languages.utils import get_lang
-#     >>> from cltk.languages.example_texts import get_example_text
-#     >>> from cltk.nlp import NLP
-#     >>> pipe = Pipeline(description="A custom Middle English pipeline", \
-#     processes=[MiddleEnglishTokenizationProcess, DefaultPunctuationRemovalProcess, \
-#     MiddleEnglishPhonologicalTranscriberProcess], language=get_lang("enm"))
-#     >>> nlp = NLP(language='enm', custom_pipeline=pipe)
-#     >>> text = get_example_text("enm")
-#     >>> [word.phonetic_transcription for word in nlp(text)[:5]]
-#
-#     """
-#
-#     description = "The default Middle English transcription process"
-#
-#     @cachedproperty
-#     def algorithm(self):
-#         return MiddleEnglishTranscription()
+    description = "The default Latin transcription process"
+
+    @cachedproperty
+    def algorithm(self):
+        return LatinTranscription()
 
 
 class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):

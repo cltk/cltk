@@ -656,12 +656,12 @@ class Transcriber:
         out += "/"  # Create 1st boundary
 
         # If any length, place between 1st and 2nd boundary
-        if not length:
+        if length:
             out += length
 
         out += "/"  # Create 2nd boundary
 
-        if not dia:  # If any diaeresis,
+        if dia:  # If any diaeresis,
             out += dia  # place between second and final boundary
 
         out += "/"  # Create final boundary
