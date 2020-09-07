@@ -124,9 +124,8 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     GreekPhonologicalTranscriberProcess], language=get_lang("grc"))
     >>> nlp = NLP(language='grc', custom_pipeline=pipe)
     >>> text = get_example_text("grc")
-
-    >>> [word.string for word in nlp(text)[:5]]
-
+    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    ['[hó.ti]', '[men]', '[hy.mệːs]', '[ɔ̂ː]', '[ɑ́n.dres]']
     """
 
     description = "The default Greek transcription process"
