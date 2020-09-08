@@ -3,11 +3,11 @@ import unicodedata
 from collections import defaultdict
 from typing import List, Union
 
-from cltk.core.exceptions import CLTKException
+import cltk.phonology.ang.syllabifier as angs
 import cltk.phonology.enm.syllabifier as enms
 import cltk.phonology.gmh.syllabifier as gmhs
-import cltk.phonology.ang.syllabifier as angs
 import cltk.phonology.non.syllabifier as nons
+from cltk.core.exceptions import CLTKException
 
 __author__ = [
     "Eleftheria Chatziargyriou <ele.hatzy@gmail.com>",
@@ -82,7 +82,7 @@ class Syllabifier:
         language=None,
         break_geminants=False,
         variant=None,
-        sep=None
+        sep=None,
     ):
         """
 
@@ -122,7 +122,7 @@ class Syllabifier:
 
         elif language == "gmh":
             self.set_hierarchy(gmhs.hierarchy)
-            self.set_vowels(gmhs.SHORT_VOWELS+gmhs.LONG_VOWELS)
+            self.set_vowels(gmhs.SHORT_VOWELS + gmhs.LONG_VOWELS)
             self.set_diphthongs(gmhs.DIPHTHONGS)
             self.set_short_vowels(gmhs.SHORT_VOWELS)
             self.set_consonants(gmhs.CONSONANTS)
@@ -458,9 +458,9 @@ class Syllabifier:
                 if nucleus in self.short_vowels:
                     ind.append(
                         i + 2
-                        if word[i: i + 3] in self.triphthongs
+                        if word[i : i + 3] in self.triphthongs
                         else i + 1
-                        if word[i: i + 2] in self.diphthongs
+                        if word[i : i + 2] in self.diphthongs
                         else i
                     )
                     continue
@@ -474,7 +474,7 @@ class Syllabifier:
         # Check whether the last syllable should be merged with the previous one
         try:
             if ind[-1] in [len(word) - 2, len(word) - 1]:
-                ind = ind[:-(1 + (ind[-2] == len(word) - 2))]
+                ind = ind[: -(1 + (ind[-2] == len(word) - 2))]
 
         except IndexError:
             if len(ind) > 0 and ind[-1] in [len(word) - 2, len(word) - 1]:
@@ -483,7 +483,7 @@ class Syllabifier:
         syllables = word
 
         for n, k in enumerate(ind):
-            syllables = syllables[:k + n + 1] + "." + syllables[k + n + 1:]
+            syllables = syllables[: k + n + 1] + "." + syllables[k + n + 1 :]
 
         # Check whether the last syllable lacks a vowel nucleus
 

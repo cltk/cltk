@@ -9,13 +9,13 @@ from dataclasses import dataclass
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, Process
+from cltk.phonology.ang.phonology import OldEnglishSyllabifier
+from cltk.phonology.enm.phonology import MiddleEnglishSyllabifier
+from cltk.phonology.gmh.phonology import MiddleHighGermanSyllabifier
 
 # from cltk.phonology.akk import AkkadianSyllabifier
 from cltk.phonology.lat.phonology import LatinSyllabifier
-from cltk.phonology.enm.phonology import MiddleEnglishSyllabifier
-from cltk.phonology.gmh.phonology import MiddleHighGermanSyllabifier
 from cltk.phonology.non.phonology import OldNorseSyllabifier
-from cltk.phonology.ang.phonology import OldEnglishSyllabifier
 
 
 @dataclass
@@ -23,6 +23,7 @@ class SyllabificationProcess(Process):
     """
 
     """
+
     def run(self, input_doc: Doc) -> Doc:
         syllabifier = self.algorithm
 

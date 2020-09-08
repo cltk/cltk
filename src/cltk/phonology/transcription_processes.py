@@ -9,20 +9,17 @@ from dataclasses import dataclass
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, Process
-
-from cltk.phonology.orthophonology import Orthophonology
-
-from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
+from cltk.phonology.ang.phonology import OldEnglishTranscription
+from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
 
 # from cltk.phonology.akk import AkkadianPhonologicalTranscriber
 # from cltk.phonology.arb import ArabicPhonologicalTranscriber
 from cltk.phonology.got.phonology import GothicTranscription
 from cltk.phonology.grc.phonology import GreekTranscription
 from cltk.phonology.lat.phonology import LatinTranscription
-from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
-from cltk.phonology.ang.phonology import OldEnglishTranscription
+from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 from cltk.phonology.old_swedish.phonology import OldSwedishTranscription
-
+from cltk.phonology.orthophonology import Orthophonology
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
@@ -32,6 +29,7 @@ class PhonologicalTranscriptionProcess(Process):
     """
 
     """
+
     def run(self, input_doc: Doc) -> Doc:
         transcriber = self.algorithm
 

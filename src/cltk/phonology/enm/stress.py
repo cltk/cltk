@@ -5,12 +5,18 @@
 import re
 from typing import List
 
+from cltk.phonology.enm.syllabifier import (
+    CONSONANTS,
+    DIPHTHONGS,
+    SHORT_VOWELS,
+    TRIPHTHONGS,
+)
 from cltk.stem.enm import stem
 
-from cltk.phonology.enm.syllabifier import SHORT_VOWELS, CONSONANTS, TRIPHTHONGS, DIPHTHONGS
-
-__author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>",
-              "Clément Besnier <clem@clementbesnier.fr>"]
+__author__ = [
+    "Eleftheria Chatziargyriou <ele.hatzy@gmail.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
+]
 
 # Soundex replacement rules
 dict_SE = {

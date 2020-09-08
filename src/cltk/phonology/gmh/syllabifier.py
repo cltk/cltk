@@ -7,8 +7,15 @@ Source: Resonances in Middle High German: New Methodologies in Prosody, Christop
 import re
 import unicodedata
 
+from cltk.alphabet.gmh import (
+    CONSONANTS,
+    DIPHTHONGS,
+    LONG_VOWELS,
+    SHORT_VOWELS,
+    TRIPHTHONGS,
+)
 from cltk.stem.gmh import stem
-from cltk.alphabet.gmh import SHORT_VOWELS, LONG_VOWELS, DIPHTHONGS, TRIPHTHONGS, CONSONANTS
+
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License"
 
@@ -41,8 +48,7 @@ dict_se = {
 }
 
 hierarchy = [
-    ["a", "e", "i", "o", "u", "y", "ä", "ö", "ü", "æ", "œ", "â",
-     "ô", "û", "ê", "î"],
+    ["a", "e", "i", "o", "u", "y", "ä", "ö", "ü", "æ", "œ", "â", "ô", "û", "ê", "î"],
     ["l", "m", "n", "r", "w", "j"],
     ["b", "c", "d", "f", "g", "h", "k", "p", "q", "v", "t", "s", "z"],
 ]

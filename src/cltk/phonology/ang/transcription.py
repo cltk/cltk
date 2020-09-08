@@ -1,4 +1,3 @@
-
 """
 
 """
@@ -7,8 +6,10 @@ import logging
 import re
 import unicodedata
 
-__author__ = ["John Stewart <johnstewart@aya.yale.edu>",
-              "Clément Besnier <clem@clementbesnier.fr>"]
+__author__ = [
+    "John Stewart <johnstewart@aya.yale.edu>",
+    "Clément Besnier <clem@clementbesnier.fr>",
+]
 
 
 IPA_rules = {

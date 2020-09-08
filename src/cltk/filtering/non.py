@@ -1,7 +1,7 @@
 """ Code for punctuation removal: Old Norse
 """
 
-__author__ = ["Clément Besnier <clemsciences@gmail.com>", ]
+__author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 __license__ = "MIT License."
 
 from cltk.tokenizers.word import RegexWordTokenizer
@@ -13,6 +13,7 @@ class OldNorsePunctuationRemover:
     """
 
     """
+
     def __init__(self):
         pass
 
@@ -24,4 +25,3 @@ class OldNorsePunctuationRemover:
 
     def __call__(self, word):
         return self.filter(word)
-

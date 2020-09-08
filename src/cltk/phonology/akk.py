@@ -106,10 +106,10 @@ def _is_consonant(char: str) -> bool:
 
 def _is_vowel(char: str) -> bool:
     return (
-            char
-            in AKKADIAN["short_vowels"]
-            + AKKADIAN["macron_vowels"]
-            + AKKADIAN["circumflex_vowels"]
+        char
+        in AKKADIAN["short_vowels"]
+        + AKKADIAN["macron_vowels"]
+        + AKKADIAN["circumflex_vowels"]
     )
 
 
@@ -230,7 +230,7 @@ def find_stress(word: str) -> List[str]:
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
             if (
-                    _is_macron_vowel(syllable[0]) or _is_circumflex_vowel(syllable[0])
+                _is_macron_vowel(syllable[0]) or _is_circumflex_vowel(syllable[0])
             ) and _is_consonant(syllable[1]):
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue

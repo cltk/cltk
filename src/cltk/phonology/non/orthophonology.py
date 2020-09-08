@@ -158,4 +158,3 @@ class OldNorsePhonologicalTranscriber:
 
     def __call__(self, word):
         return self.transcribe(word)
-

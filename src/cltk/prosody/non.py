@@ -83,8 +83,9 @@ class ShortLine:
         for viisuordh in self.tokenized_text:
             word = old_norse_normalize(viisuordh)
             if word:
-                transcribed_word = transcriber.text_to_phonetic_representation(word,
-                                                                               with_squared_brackets)
+                transcribed_word = transcriber.text_to_phonetic_representation(
+                    word, with_squared_brackets
+                )
                 # phonological features list, result of Transcriber.text_to_phonemes()
                 pfl = transcriber.text_to_phonemes(word)
 
@@ -178,7 +179,9 @@ class LongLine:
         for viisuordh in self.tokenized_text:
             word = old_norse_normalize(viisuordh)
             if word:
-                transcribed_word = transcriber.text_to_phonetic_representation(word, with_squared_brackets)
+                transcribed_word = transcriber.text_to_phonetic_representation(
+                    word, with_squared_brackets
+                )
                 pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)

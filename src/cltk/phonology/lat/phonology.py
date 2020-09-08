@@ -16,8 +16,9 @@ class LatinTranscription:
 
     def transcribe(self, word):
 
-        return self.transcriber.transcribe(unicodedata.normalize("NFC", word),
-                                           False, False, False)
+        return self.transcriber.transcribe(
+            unicodedata.normalize("NFC", word), False, False, False
+        )
 
     def __repr__(self):
         return f"<LatinTranscription>"

@@ -127,7 +127,7 @@ def normalize_middle_high_german(
     to_lower_beginning: bool = False,
     alpha_conv: bool = True,
     punct: bool = True,
-    ascii: bool = False
+    ascii: bool = False,
 ):
     """Normalize input string.
 
