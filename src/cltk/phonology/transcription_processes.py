@@ -97,7 +97,8 @@ class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     GothicPhonologicalTranscriberProcess], language=get_lang("got"))
     >>> nlp = NLP(language='got', custom_pipeline=pipe)
     >>> text = get_example_text("got")
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
     ['swa', 'liuhtjɛ', 'liuhaθ', 'jzwar', 'jn']
     """
 
@@ -121,7 +122,8 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     GreekPhonologicalTranscriberProcess], language=get_lang("grc"))
     >>> nlp = NLP(language='grc', custom_pipeline=pipe)
     >>> text = get_example_text("grc")
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
     ['[hó.ti]', '[men]', '[hy.mệːs]', '[ɔ̂ː]', '[ɑ́n.dres]']
     """
 
@@ -169,7 +171,8 @@ class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionPr
     MiddleHighGermanPhonologicalTranscriberProcess], language=get_lang("gmh"))
     >>> nlp = NLP(language='gmh', custom_pipeline=pipe)
     >>> text = get_example_text("gmh")
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
     ['ʊns', 'ɪst', 'ɪn', 'alten', 'mɛren']
     """
 
@@ -193,7 +196,8 @@ class OldEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
     OldEnglishPhonologicalTranscriberProcess], language=get_lang("ang"))
     >>> nlp = NLP(language='ang', custom_pipeline=pipe)
     >>> text = get_example_text("ang")
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
     ['ʍæt', 'we', 'gɑrˠdenɑ', 'in', 'gæːɑrˠdɑgum']
     """
 
@@ -217,7 +221,8 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     OldNorsePhonologicalTranscriberProcess], language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline=pipe)
     >>> text = get_example_text("non")
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
     ['gylvi', 'kɔnunɣr', 'reːð', 'θar', 'lœndum']
 
     """
@@ -227,26 +232,3 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     @cachedproperty
     def algorithm(self):
         return OldNorsePhonologicalTranscriber()
-
-
-# class OldSwedishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-#     """
-#     >>> from cltk.core.data_types import Process, Pipeline
-#     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
-#     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
-#     >>> from cltk.languages.utils import get_lang
-#     >>> from cltk.languages.example_texts import get_example_text
-#     >>> from cltk.nlp import NLP
-#     >>> pipe = Pipeline(description="A custom Old Swedish pipeline", \
-#     processes=[OldNorseTokenizationProcess, DefaultPunctuationRemovalProcess, \
-#     OldSwedishPhonologicalTranscriberProcess], language=get_lang("non"))
-#     >>> nlp = NLP(language='non', custom_pipeline=pipe)
-#     >>> nlp(get_example_text("non")).phonetic_transcription
-#
-#     """
-#
-#     description = "The default Old Swedish transcription process"
-#
-#     @cachedproperty
-#     def algorithm(self):
-#         return OldSwedishTranscription()

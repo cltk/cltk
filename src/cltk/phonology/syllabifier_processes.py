@@ -44,6 +44,7 @@ class LatinSyllabificationProcess(SyllabificationProcess):
     >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, LatinSyllabificationProcess], language=get_lang("lat"))
     >>> nlp = NLP(language='lat', custom_pipeline=a_pipeline)
     >>> text = get_example_text("lat")
+    >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]
     [['gal', 'li', 'a'], ['est'], ['om', 'nis'], ['di', 'vi', 'sa'], ['in']]
     """
@@ -68,7 +69,8 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
     language=get_lang("enm"))
     >>> nlp = NLP(language='enm', custom_pipeline=pipe)
     >>> text = get_example_text("enm").replace('\\n', ' ')
-    >>> [word.syllables for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.syllables for word in cltk_doc.words[:5]]
     [['whi', 'lom'], ['as'], ['ol', 'de'], ['sto', 'ries'], ['tellen']]
     """
 
@@ -92,7 +94,8 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
     MiddleHighGermanSyllabificationProcess], language=get_lang("gmh"))
     >>> nlp = NLP(language='gmh', custom_pipeline=pipe)
     >>> text = get_example_text("gmh")
-    >>> [word.syllables for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.syllables for word in cltk_doc.words[:5]]
     [['uns'], ['ist'], ['in'], ['al', 'ten'], ['mæ', 'ren']]
     """
 
@@ -116,8 +119,8 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
     language=get_lang("ang"))
     >>> nlp = NLP(language='ang', custom_pipeline=pipe)
     >>> text = get_example_text("ang")
-
-    >>> [word.syllables for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.syllables for word in cltk_doc.words[:5]]
     [['hwæt'], ['we'], ['gar', 'den', 'a'], ['in'], ['gear', 'da', 'gum']]
 
     """
@@ -142,7 +145,8 @@ class OldNorseSyllabificationProcess(SyllabificationProcess):
     language=get_lang("non"))
     >>> nlp = NLP(language='non', custom_pipeline=pipe)
     >>> text = get_example_text("non")
-    >>> [word.syllables for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp(text)
+    >>> [word.syllables for word in cltk_doc.words[:5]]
     [['gyl', 'fi'], ['ko', 'nungr'], ['réð'], ['þar'], ['lön', 'dum']]
     """
 
