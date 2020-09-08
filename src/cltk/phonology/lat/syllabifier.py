@@ -110,7 +110,7 @@ LATIN = {
 
 def _is_consonant(char):
     """Checks if char is in the list of vowels in the language"""
-    return not char in LATIN["vowels"]
+    return char not in LATIN["vowels"]
 
 
 def _is_vowel(char):
@@ -200,45 +200,48 @@ def syllabify(word: str) -> List[str]:
                 if char_is_vowel:
 
                     if (  # If the next character's a vowel
-                        _is_vowel(
-                            next_char
-                        )  # And it doesn't compose a dipthong with the current character
-                        and not _is_diphthong(
-                            char, next_char
-                        )  # And the current character isn't preceded by a q, unless followed by a u
-                        and not (
+                            _is_vowel(
+                                next_char
+                            )  # And it doesn't compose a dipthong with the current character
+                            and not _is_diphthong(
+                        char, next_char
+                    )  # And the current character isn't preceded by a q, unless followed by a u
+                            and not (
                             has_prev_char
                             and prev_char == "q"
                             and char == "u"
                             and next_char != "u"
-                        )
+                    )
                     ) or (
-                        # If the next character's a consonant but not a double consonant, unless it's a mute consonant followed by a liquid consonant
-                        i < word_len - 2
-                        and (
-                            (
-                                (
-                                    has_prev_char
-                                    and prev_char != "q"
-                                    and char == "u"
-                                    and _is_vowel(word[i + 2])
-                                )
-                                or (
-                                    not has_prev_char
-                                    and char == "u"
-                                    and _is_vowel(word[i + 2])
-                                )
+                            # If the next character's a consonant
+                            # but not a double consonant,
+                            # unless it's a mute consonant followed
+                            # by a liquid consonant
+                            i < word_len - 2
+                            and (
+                                    (
+                                            (
+                                                    has_prev_char
+                                                    and prev_char != "q"
+                                                    and char == "u"
+                                                    and _is_vowel(word[i + 2])
+                                            )
+                                            or (
+                                                    not has_prev_char
+                                                    and char == "u"
+                                                    and _is_vowel(word[i + 2])
+                                            )
+                                    )
+                                    or (
+                                            char != "u"
+                                            and _is_vowel(word[i + 2])
+                                            and not _is_diphthong(char, next_char)
+                                    )
+                                    or (
+                                            _is_mute_consonant_or_f(next_char)
+                                            and _is_liquid_consonant(word[i + 2])
+                                    )
                             )
-                            or (
-                                char != "u"
-                                and _is_vowel(word[i + 2])
-                                and not _is_diphthong(char, next_char)
-                            )
-                            or (
-                                _is_mute_consonant_or_f(next_char)
-                                and _is_liquid_consonant(word[i + 2])
-                            )
-                        )
                     ):
                         syllable_complete = True
 
@@ -246,27 +249,27 @@ def syllabify(word: str) -> List[str]:
                 else:
 
                     if (  # If the next character's also a consonant (but it's not the last in the word)
-                        (
-                            not _is_vowel(next_char) and i < word_len - 2
-                        )  # If the char's not a mute consonant followed by a liquid consonant
-                        and not (
+                            (
+                                    not _is_vowel(next_char) and i < word_len - 2
+                            )  # If the char's not a mute consonant followed by a liquid consonant
+                            and not (
                             _is_mute_consonant_or_f(char)
                             and _is_liquid_consonant(next_char)
-                        )  # If the char's not a c, p, or t followed by an h
-                        and not (
+                    )  # If the char's not a c, p, or t followed by an h
+                            and not (
                             (
-                                has_prev_char
-                                and not _is_vowel(prev_char)
-                                and char in ["c", "p", "t"]
-                                and next_char == "h"
+                                    has_prev_char
+                                    and not _is_vowel(prev_char)
+                                    and char in ["c", "p", "t"]
+                                    and next_char == "h"
                             )
                             or (
-                                not has_prev_char
-                                and char in ["c", "p", "t"]
-                                and next_char == "h"
+                                    not has_prev_char
+                                    and char in ["c", "p", "t"]
+                                    and next_char == "h"
                             )
-                        )  # And it's not the only letter in the syllable
-                        and not len(syllable) == 1
+                    )  # And it's not the only letter in the syllable
+                            and not len(syllable) == 1
                     ):
                         syllable_complete = True
 

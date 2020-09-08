@@ -11,14 +11,14 @@ Subpackages
 
 .. toctree::
 
-   cltk.phonology.arabic
-   cltk.phonology.gothic
-   cltk.phonology.greek
+   cltk.phonology.arb
+   cltk.phonology.got
+   cltk.phonology.grc
    cltk.phonology.lat
-   cltk.phonology.middle_english
-   cltk.phonology.middle_high_german
-   cltk.phonology.old_english
-   cltk.phonology.old_norse
+   cltk.phonology.enm
+   cltk.phonology.gmh
+   cltk.phonology.ang
+   cltk.phonology.non
    cltk.phonology.old_swedish
 
 Submodules

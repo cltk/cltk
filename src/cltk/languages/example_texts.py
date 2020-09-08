@@ -99,8 +99,18 @@ Et desos le castel aprés
 Avoit rivieres et forés
 Ou li chevaliers vout aler
 Sovent por son cors deporter.""",
-    # Middle High German, Hildebrandslied
-    gmh="""Ik gihorta ðat seggen
+    # Middle High German, das Nibelungenlied
+    gmh="""Uns ist in alten
+mæren wunders vil geseit
+von heleden lobebæren
+von grozer arebeit
+von frevde und hochgeciten
+von weinen und klagen
+von kvner recken striten
+muget ir nu wunder horen sagen
+    """,
+    # Old High German, Hildebrandslied
+    goh="""Ik gihorta ðat seggen
 ðat sih urhettun ænon muotin
 Hiltibrant enti Haðubrant untar heriun tuem
 sunufatarungo iro saro rihtun

@@ -8,7 +8,7 @@
 
 from cltk.phonology.utils import *
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 a = Vowel(Height.open, Backness.front, False, Length.short, "a")
 ee = Vowel(Height.open_mid, Backness.front, False, Length.short, "ɛ")

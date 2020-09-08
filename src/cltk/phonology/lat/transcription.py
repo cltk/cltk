@@ -246,7 +246,7 @@ IPA = {
 
 
 class Phone:
-    "A phonological unit to be manipulated and represented as an IPA string."
+    """A phonological unit to be manipulated and represented as an IPA string."""
 
     # Has a bundle of feature values that help classify it so that it can
     # trigger contextual pronunciation changes.
@@ -278,9 +278,12 @@ class Phone:
         self.bk = self.ipa in IPA["back"]
         self.bound = self.ipa in IPA["boundary"]
 
+    def __repr__(self):
+        return self.ipa
+
 
 class Word:
-    "Max. phonological unit, contains phones and triggers alternations."
+    """Max. phonological unit, contains phones and triggers alternations."""
 
     # An ordered collection of Phones, which are bundles of
     # features/IPA strings.
@@ -293,6 +296,8 @@ class Word:
         self.alts = self.root["alternations"]
         # Turns string of IPA characters into list of Phones
         self.phones = [Phone(c) for c in re.findall(r".[̪̣̃ʷʰ]*ː?", self.string)]
+
+        self.syllables = []
 
     # Assigns left and right contexts for every phone
     def _refresh(self):
@@ -513,7 +518,7 @@ class Word:
             if a[0] in self.alts:
                 a[1](self)
 
-    def _syllabify(self):
+    def syllabify(self):
         # takes Word input and returns a list of syllables as
         # (onset, nucleus, coda) tuples
         # where onset, nucleus, and coda are all lists of Phones.
@@ -525,7 +530,7 @@ class Word:
         # initialize syllables with a tuple for the first syllable
         # where onset is everything before the first nucleus
         # and coda remains unknown.
-        syllables = [[self.phones[0 : nuclei[0]], [self.phones[nuclei[0]]], []]]
+        syllables = [[self.phones[0: nuclei[0]], [self.phones[nuclei[0]]], []]]
         # continue for every nucleus, assuming that everything between
         # the previous nucleus and it is the onset.
         for x in range(len(nuclei) - 1):
@@ -570,7 +575,7 @@ class Word:
         # prints an appropriately marked up version of the transcription
         out = ""
         if syllabify:
-            syllables = self._syllabify()
+            syllables = self.syllabify()
             # the ultima is the final syllable
             ultima = syllables[-1]
             # identify which syllable has stress and store index as accent
@@ -630,7 +635,7 @@ class Word:
 
 
 class Transcriber:
-    "Uses a reconstruction to transcribe a orthographic string into IPA."
+    """Uses a reconstruction to transcribe a orthographic string into IPA."""
 
     def __init__(self, dialect, reconstruction):
         self.lect = dialect
@@ -654,12 +659,12 @@ class Transcriber:
         out += "/"  # Create 1st boundary
 
         # If any length, place between 1st and 2nd boundary
-        if length != None:
+        if length:
             out += length
 
         out += "/"  # Create 2nd boundary
 
-        if dia != None:  # If any diaeresis,
+        if dia:  # If any diaeresis,
             out += dia  # place between second and final boundary
 
         out += "/"  # Create final boundary
@@ -667,7 +672,7 @@ class Transcriber:
         return out
 
     def _prep_text(self, text):
-        # Performs preperatory tasks grouping and reordering characters
+        # Performs preparatory tasks grouping and reordering characters
         # in order to make transcription formulaic.
 
         string_in = "".join([self._parse_diacritics(ch) for ch in text])

@@ -2,10 +2,11 @@
 Functions and classes for Akkadian phonology.
 """
 
+from typing import List, Tuple, Union
+
 _author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
-from typing import List, Tuple, Union
 
 AKKADIAN = {
     "short_vowels": ["a", "e", "i", "u"],
@@ -42,12 +43,12 @@ def get_cv_pattern(
 ) -> Union[List[Tuple[str, int, str]], str]:
     """
     Return a patterned string representing the consonants
- 	and vowels of the input word.
+    and vowels of the input word.
 
-	>>> word = 'iparras'
+    >>> word = 'iparras'
     >>> get_cv_pattern(word)
     [('V', 1, 'i'), ('C', 1, 'p'), ('V', 2, 'a'), ('C', 2, 'r'), ('C', 2, 'r'), ('V', 2, 'a'), ('C', 3, 's')]
-    >>> get_cv_pattern(word, True) 
+    >>> get_cv_pattern(word, True)
     'V₁C₁V₂C₂C₂V₂C₃'
     """
 
@@ -105,10 +106,10 @@ def _is_consonant(char: str) -> bool:
 
 def _is_vowel(char: str) -> bool:
     return (
-        char
-        in AKKADIAN["short_vowels"]
-        + AKKADIAN["macron_vowels"]
-        + AKKADIAN["circumflex_vowels"]
+            char
+            in AKKADIAN["short_vowels"]
+            + AKKADIAN["macron_vowels"]
+            + AKKADIAN["circumflex_vowels"]
     )
 
 
@@ -229,7 +230,7 @@ def find_stress(word: str) -> List[str]:
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
             if (
-                _is_macron_vowel(syllable[0]) or _is_circumflex_vowel(syllable[0])
+                    _is_macron_vowel(syllable[0]) or _is_circumflex_vowel(syllable[0])
             ) and _is_consonant(syllable[1]):
                 syllables_stress.append((syllable, "Ultraheavy"))
                 continue
@@ -309,3 +310,20 @@ def find_stress(word: str) -> List[str]:
         syllables[0] = "[{}]".format(syllables[0])
 
     return syllables
+
+
+class AkkadianSyllabifier:
+    def __init__(self):
+        pass
+
+    def syllabify(self, word):
+        if type(word) == tuple and len(word) == 2:
+            return syllabify(word[0])
+        else:
+            return syllabify(word)
+
+    def __repr__(self):
+        return f"<AkkadianSyllabifier>"
+
+    def __call__(self, word):
+        return self.syllabify(word)

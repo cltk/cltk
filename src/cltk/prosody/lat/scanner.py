@@ -44,8 +44,10 @@ class Scansion:
     SESTS = ["sc", "sm", "sp", "st", "z"]
 
     def __init__(
-        self, punctuation=[".", "?", "!", ";", ":"], clausula_length=13, elide=True
+        self, punctuation=None, clausula_length=13, elide=True
     ):
+        if punctuation is None:
+            punctuation = [".", "?", "!", ";", ":"]
         self.punctuation = punctuation
         self.clausula_length = clausula_length
         self.elide = elide
