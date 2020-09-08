@@ -1,5 +1,5 @@
 cltk.phonology.enm package
-======================================
+==========================
 
 .. automodule:: cltk.phonology.enm
    :members:
@@ -9,17 +9,8 @@ cltk.phonology.enm package
 Submodules
 ----------
 
-cltk.phonology.enm.syllabifier module
--------------------------------------------------
-
-.. automodule:: cltk.phonology.enm.syllabifier
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 cltk.phonology.enm.phonology module
--------------------------------------------------
+-----------------------------------
 
 .. automodule:: cltk.phonology.enm.phonology
    :members:
@@ -27,9 +18,17 @@ cltk.phonology.enm.phonology module
    :show-inheritance:
 
 cltk.phonology.enm.stress module
--------------------------------------------------
+--------------------------------
 
 .. automodule:: cltk.phonology.enm.stress
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.phonology.enm.syllabifier module
+-------------------------------------
+
+.. automodule:: cltk.phonology.enm.syllabifier
    :members:
    :undoc-members:
    :show-inheritance:

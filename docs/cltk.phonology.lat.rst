@@ -9,6 +9,14 @@ cltk.phonology.lat package
 Submodules
 ----------
 
+cltk.phonology.lat.phonology module
+-----------------------------------
+
+.. automodule:: cltk.phonology.lat.phonology
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.phonology.lat.syllabifier module
 -------------------------------------
 

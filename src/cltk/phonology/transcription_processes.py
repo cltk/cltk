@@ -133,20 +133,19 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
 
 class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-    """
+    """Transcription ``Process`` for Latin.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import LatinTokenizationProcess
     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, \
-    LatinPhonologicalTranscriberProcess], language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline=pipe)
+    >>> from cltk import NLP
+    >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, LatinPhonologicalTranscriberProcess], language=get_lang("lat"))
+    >>> nlp = NLP(language="lat", custom_pipeline=a_pipeline)
     >>> text = get_example_text("lat")
-
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp.analyze(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words][:5]
     ['[gaɫlɪ̣ja]', '[ɛst̪]', '[ɔmn̪ɪs]', '[d̪ɪwɪsa]', '[ɪn̪]']
     """
 

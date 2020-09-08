@@ -92,21 +92,19 @@ class SyllabificationProcess(Process):
 #         return GothicSyllabifier()
 
 
-# TODO put it again
 class LatinSyllabificationProcess(SyllabificationProcess):
-    """
+    """Syllabification ``Process`` for Latin.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import LatinTokenizationProcess
     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, LatinSyllabificationProcess], \
-    language=get_lang("lat"))
+    >>> from cltk import NLP
+    >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, LatinSyllabificationProcess], language=get_lang("lat"))
     >>> nlp = NLP(language='lat', custom_pipeline = pipe)
     >>> text = get_example_text("lat")
-    >>> [word.syllables for word in nlp(text)[:5]]
+    >>> [word.syllables for word in cltk_doc.words[:5]]
     [['gal', 'li', 'a'], ['est'], ['om', 'nis'], ['di', 'vi', 'sa'], ['in']]
     """
 

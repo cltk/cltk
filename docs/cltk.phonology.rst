@@ -11,14 +11,13 @@ Subpackages
 
 .. toctree::
 
+   cltk.phonology.ang
    cltk.phonology.arb
+   cltk.phonology.enm
+   cltk.phonology.gmh
    cltk.phonology.got
    cltk.phonology.grc
    cltk.phonology.lat
-   cltk.phonology.enm
-   cltk.phonology.gmh
-   cltk.phonology.ang
-   cltk.phonology.non
    cltk.phonology.old_swedish
 
 Submodules
@@ -40,10 +39,34 @@ cltk.phonology.orthophonology module
    :undoc-members:
    :show-inheritance:
 
+cltk.phonology.processes module
+-------------------------------
+
+.. automodule:: cltk.phonology.processes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.phonology.syllabifier\_processes module
+--------------------------------------------
+
+.. automodule:: cltk.phonology.syllabifier_processes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.phonology.syllabify module
 -------------------------------
 
 .. automodule:: cltk.phonology.syllabify
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.phonology.transcription\_processes module
+----------------------------------------------
+
+.. automodule:: cltk.phonology.transcription_processes
    :members:
    :undoc-members:
    :show-inheritance:
