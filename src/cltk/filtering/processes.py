@@ -6,7 +6,8 @@ from copy import deepcopy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
-from cltk.core import Process, Doc
+
+from cltk.core import Doc, Process
 from cltk.filtering.non import OldNorsePunctuationRemover
 
 
@@ -15,11 +16,14 @@ class PunctuationRemovalProcess(Process):
     """
 
     """
+
     def run(self, input_doc: Doc) -> Doc:
         punctuation_remover = self.algorithm
 
         output_doc = deepcopy(input_doc)
-        output_doc.words = [word for word in output_doc.words if not punctuation_remover(word)]
+        output_doc.words = [
+            word for word in output_doc.words if not punctuation_remover(word)
+        ]
         return output_doc
 
 
@@ -39,6 +43,7 @@ class DefaultPunctuationRemover:
     """
 
     """
+
     def __init__(self):
         pass
 

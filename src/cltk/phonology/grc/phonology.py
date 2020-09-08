@@ -27,8 +27,9 @@ class GreekSyllabifier:
         self.transcriber = gret.Transcriber("Attic", "Probert")
 
     def transcribe(self, word):
-        return gret.Word(self.transcriber.transcribe(word),
-                         gret.GREEK["Attic"]["Probert"]).syllabify()
+        return gret.Word(
+            self.transcriber.transcribe(word), gret.GREEK["Attic"]["Probert"]
+        ).syllabify()
 
     def __repr__(self):
         return f"<GreekSyllabifier>"

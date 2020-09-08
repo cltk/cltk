@@ -49,10 +49,10 @@ def _stem_helper(word, rem_umlaut=True):
 
     try:
         R1 = (
-                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word))[
-                    0
-                ].start()
-                + 2
+            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word))[
+                0
+            ].start()
+            + 2
         )
     except:
         R1 = len(word)
@@ -61,11 +61,11 @@ def _stem_helper(word, rem_umlaut=True):
 
     try:
         R2 = (
-                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[R1:]))[
-                    0
-                ].start()
-                + 2
-                + R1
+            list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[R1:]))[
+                0
+            ].start()
+            + 2
+            + R1
         )
     except:
         R2 = len(word)
@@ -75,10 +75,10 @@ def _stem_helper(word, rem_umlaut=True):
     if R1 < 3:
         try:
             R1 = (
-                    list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[1:]))[
-                        0
-                    ].start()
-                    + 2
+                list(re.finditer(r"[aëeiouäöüâêîôûæœ][bdghfcjklmnspqrtvwz]", word[1:]))[
+                    0
+                ].start()
+                + 2
             )
         except:
             R1 = len(word)
@@ -98,7 +98,7 @@ def _stem_helper(word, rem_umlaut=True):
 
 
 def stem(
-        word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool = True
+    word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool = True
 ) -> str:
     """
     Stem a Middle High German word.

@@ -9,20 +9,17 @@ from dataclasses import dataclass
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, Process
-
-from cltk.phonology.orthophonology import Orthophonology
-
-from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
+from cltk.phonology.ang.phonology import OldEnglishTranscription
+from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
 
 # from cltk.phonology.akk import AkkadianPhonologicalTranscriber
 # from cltk.phonology.arb import ArabicPhonologicalTranscriber
 from cltk.phonology.got.phonology import GothicTranscription
 from cltk.phonology.grc.phonology import GreekTranscription
 from cltk.phonology.lat.phonology import LatinTranscription
-from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
-from cltk.phonology.ang.phonology import OldEnglishTranscription
+from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 from cltk.phonology.old_swedish.phonology import OldSwedishTranscription
-
+from cltk.phonology.orthophonology import Orthophonology
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
@@ -32,6 +29,7 @@ class PhonologicalTranscriptionProcess(Process):
     """
 
     """
+
     def run(self, input_doc: Doc) -> Doc:
         transcriber = self.algorithm
 
@@ -135,20 +133,19 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
 
 class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
-    """
+    """Transcription ``Process`` for Latin.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import LatinTokenizationProcess
     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, \
-    LatinPhonologicalTranscriberProcess], language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline=pipe)
+    >>> from cltk import NLP
+    >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, LatinPhonologicalTranscriberProcess], language=get_lang("lat"))
+    >>> nlp = NLP(language="lat", custom_pipeline=a_pipeline)
     >>> text = get_example_text("lat")
-
-    >>> [word.phonetic_transcription for word in nlp(text)[:5]]
+    >>> cltk_doc = nlp.analyze(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words][:5]
     ['[gaɫlɪ̣ja]', '[ɛst̪]', '[ɔmn̪ɪs]', '[d̪ɪwɪsa]', '[ɪn̪]']
     """
 

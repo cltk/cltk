@@ -11,14 +11,13 @@ import unittest
 
 from cltk.alphabet.gmh import normalize_middle_high_german
 from cltk.phonology import utils as ut
-from cltk.phonology.arb.romanization import transliterate \
-    as arabic_transliterate
+from cltk.phonology.arb.romanization import transliterate as arabic_transliterate
+from cltk.phonology.gmh import syllabifier as mhgs
+from cltk.phonology.gmh import transcription as mhgt
 from cltk.phonology.got import transcription as gothic
 from cltk.phonology.grc import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
-from cltk.phonology.gmh import transcription as mhgt
-from cltk.phonology.gmh import syllabifier as mhgs
 from cltk.phonology.non import transcription as ont
 from cltk.phonology.non.syllabifier import invalid_onsets
 from cltk.phonology.old_swedish import transcription as old_swedish
@@ -578,29 +577,29 @@ class TestSequenceFunctions(unittest.TestCase):
 
         # from arabic native script to buckwalter
         assert (
-                arabic_transliterate(mode, ar_string, ignore, reverse)
-                == "bisomi Allhi Alra~Hom`ni Alra~Hiyomi"
+            arabic_transliterate(mode, ar_string, ignore, reverse)
+            == "bisomi Allhi Alra~Hom`ni Alra~Hiyomi"
         )
         # from buckwalter to arabic native script
         reverse = False
         assert (
-                arabic_transliterate(mode, buckwalter_string, ignore, reverse)
-                == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+            arabic_transliterate(mode, buckwalter_string, ignore, reverse)
+            == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
         )
 
         # from arabic native script to ISO233-2
         mode = "iso233-2"
         reverse = True
         assert (
-                arabic_transliterate(mode, ar_string, ignore, reverse)
-                == "bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi"
+            arabic_transliterate(mode, ar_string, ignore, reverse)
+            == "bis°mi ʾllhi ʾlraّḥ°mٰni ʾlraّḥiy°mi"
         )
 
         # from iso233-2 to arabic native script
         reverse = False
         assert (
-                arabic_transliterate(mode, iso2332_string, ignore, reverse)
-                == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+            arabic_transliterate(mode, iso2332_string, ignore, reverse)
+            == "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
         )
 
     def test_middle_high_german_transcriber(self):
@@ -677,8 +676,9 @@ class TestSequenceFunctions(unittest.TestCase):
             ont.IPA_class,
             ont.old_norse_rules,
         )
-        transcribed_sentence = tr.text_to_phonetic_representation(example_sentence,
-                                                                  with_squared_brackets=True)
+        transcribed_sentence = tr.text_to_phonetic_representation(
+            example_sentence, with_squared_brackets=True
+        )
         target = (
             "[almaːtːiɣr guð skapaði iː upːhavi himin ɔk jœrð ɔk alːa θaː hluti ɛr θɛim fylɣja ɔɣ siːðast mɛnː "
             "tvaː ɛr ɛːtːir ɛru fraː kɔmnar adam ɔk ɛvu ɔk fjœlɣaðist θɛira kynsloːð ɔk drɛivðist um hɛim alːan]"
@@ -694,8 +694,9 @@ class TestSequenceFunctions(unittest.TestCase):
             gothic.IPA_class,
             gothic.gothic_rules,
         )
-        transcribed_sentence = tr.text_to_phonetic_representation(example_sentence,
-                                                                  with_squared_brackets=True)
+        transcribed_sentence = tr.text_to_phonetic_representation(
+            example_sentence, with_squared_brackets=True
+        )
         target = "[anastoːðiːns ɛwaŋgeːljoːns jeːsuis kristɔs sunɔs guðis]"
         self.assertEqual(target, transcribed_sentence)
 
@@ -708,8 +709,9 @@ class TestSequenceFunctions(unittest.TestCase):
             old_swedish.IPA_class,
             old_swedish.old_swedish_rules,
         )
-        transcribed_sentence = tr.text_to_phonetic_representation(sentence,
-                                                                  with_squared_brackets=True)
+        transcribed_sentence = tr.text_to_phonetic_representation(
+            sentence, with_squared_brackets=True
+        )
         self.assertEqual(
             "[far man kunu ok dør han før ɛn hun far barn ok siɣɛr hun ok hɛnːɛ frɛndɛr]",
             transcribed_sentence,

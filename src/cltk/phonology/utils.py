@@ -568,8 +568,9 @@ class Transcriber:
             return f"[{phonetic_representation}]"
         return phonetic_representation
 
-    def text_to_phonetic_representation(self, sentence: str,
-                                        with_squared_brackets=True) -> str:
+    def text_to_phonetic_representation(
+        self, sentence: str, with_squared_brackets=True
+    ) -> str:
         """
 
         :param sentence:
@@ -580,8 +581,7 @@ class Transcriber:
         sentence = sentence.lower()
         sentence = re.sub(r"[.\";,:\[\]()!&?‘]", "", sentence)
         for word in sentence.split(" "):
-            transliterated.append(
-                self.word_to_phonetic_representation(word, False))
+            transliterated.append(self.word_to_phonetic_representation(word, False))
         if with_squared_brackets:
             return "[" + " ".join(transliterated) + "]"
         return " ".join(transliterated)

@@ -111,6 +111,3 @@ class Transcriber:
         if with_squared_brackets:
             return "[" + text + "]"
         return text
-
-
-

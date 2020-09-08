@@ -15,8 +15,9 @@ class Verse:
             normalizer(line, to_lower_all=True, punct=True, alpha_conv=True).split(" ")
             for line in text
         ]
-        self.syllabified = [[syllabifier.syllabify(w) for w in line]
-                            for line in self.text]
+        self.syllabified = [
+            [syllabifier.syllabify(w) for w in line] for line in self.text
+        ]
         self.transcribed_phonetics = None
 
     def to_phonetics(self):

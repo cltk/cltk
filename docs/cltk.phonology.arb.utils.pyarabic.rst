@@ -1,5 +1,5 @@
 cltk.phonology.arb.utils.pyarabic package
-============================================
+=========================================
 
 .. automodule:: cltk.phonology.arb.utils.pyarabic
    :members:
@@ -10,7 +10,7 @@ Submodules
 ----------
 
 cltk.phonology.arb.utils.pyarabic.araby module
--------------------------------------------------
+----------------------------------------------
 
 .. automodule:: cltk.phonology.arb.utils.pyarabic.araby
    :members:
@@ -18,7 +18,7 @@ cltk.phonology.arb.utils.pyarabic.araby module
    :show-inheritance:
 
 cltk.phonology.arb.utils.pyarabic.stack module
--------------------------------------------------
+----------------------------------------------
 
 .. automodule:: cltk.phonology.arb.utils.pyarabic.stack
    :members:

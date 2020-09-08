@@ -10,6 +10,10 @@ from copy import deepcopy
 from enum import IntEnum, auto
 from functools import reduce
 
+# The list of features and their values are from the IPA charts.
+# Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
+from typing import Union
+
 __author__ = [
     "John Stewart <johnstewart@aya.yale.edu>",
     "Clément Besnier <clem@clementbesnier.fr>",
@@ -17,10 +21,6 @@ __author__ = [
 
 
 # ------------------- Phonological Features -------------------
-
-# The list of features and their values are from the IPA charts.
-# Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
-from typing import Union
 
 
 class PhonologicalFeature(IntEnum):

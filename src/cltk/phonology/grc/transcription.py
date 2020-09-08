@@ -301,17 +301,17 @@ class Word:
         # where onset is everything before the first nucleus
         # and coda remains unknown.
         if nuclei:
-            syllables = [[self.phones[0: nuclei[0]], [self.phones[nuclei[0]]], []]]
+            syllables = [[self.phones[0 : nuclei[0]], [self.phones[nuclei[0]]], []]]
 
             # continue for every nucleus, assuming that everything between
             # the previous nucleus and it is the onset.
             for x in range(len(nuclei) - 1):
                 i = nuclei[x + 1]
-                onset = self.phones[nuclei[x] + 1: i]
+                onset = self.phones[nuclei[x] + 1 : i]
                 nucleus = [self.phones[i]]
                 syllables.append([onset, nucleus, []])
             # assume that everything after the final nucleus is final coda.
-            syllables[-1][2] = self.phones[nuclei[-1] + 1:]
+            syllables[-1][2] = self.phones[nuclei[-1] + 1 :]
         else:
             syllables = [[self.phones]]
         # now go through and check onset viability
@@ -331,11 +331,11 @@ class Word:
                 # voiceless oral stop + nasal or liquid
                 # is a viable sequence, and passes
                 if (
-                        (not onset[0].cont)
-                        and (not onset[0].vce)
-                        and (not onset[0].app)
-                        and (not onset[0].nas)
-                        and (onset[1].nas or onset[1].app)
+                    (not onset[0].cont)
+                    and (not onset[0].vce)
+                    and (not onset[0].app)
+                    and (not onset[0].nas)
+                    and (onset[1].nas or onset[1].app)
                 ):
                     break
                 # voiced stop + liquid is also a viable sequence, and passes
@@ -441,7 +441,7 @@ class Transcriber:
             # Also finds any h's stranded in media diphthong (\3) and moves
             # them to the left edge
             pattern = (
-                    r"([" + diph1 + r"])\/\/([̄]?\/)(h///)?([" + diph2 + r"]\/[́͂]?\/)\/"
+                r"([" + diph1 + r"])\/\/([̄]?\/)(h///)?([" + diph2 + r"]\/[́͂]?\/)\/"
             )
             diphshift = re.sub(pattern, r"\3\1\4\2", string_in)
         else:

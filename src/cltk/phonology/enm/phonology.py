@@ -4,7 +4,6 @@
 
 from cltk.phonology.syllabify import Syllabifier
 
-
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
