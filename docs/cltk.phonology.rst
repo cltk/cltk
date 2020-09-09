@@ -18,7 +18,7 @@ Subpackages
    cltk.phonology.got
    cltk.phonology.grc
    cltk.phonology.lat
-   cltk.phonology.old_swedish
+   cltk.phonology.non.swe
 
 Submodules
 ----------

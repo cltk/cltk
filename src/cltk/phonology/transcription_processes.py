@@ -18,8 +18,6 @@ from cltk.phonology.got.phonology import GothicTranscription
 from cltk.phonology.grc.phonology import GreekTranscription
 from cltk.phonology.lat.phonology import LatinTranscription
 from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
-from cltk.phonology.old_swedish.phonology import OldSwedishTranscription
-from cltk.phonology.orthophonology import Orthophonology
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

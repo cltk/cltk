@@ -3,7 +3,7 @@
 """
 
 from cltk.phonology import utils as ut
-from cltk.phonology.old_swedish import transcription as old_swedish
+from cltk.phonology.non.old_swedish import transcription as old_swedish
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

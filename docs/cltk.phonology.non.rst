@@ -1,4 +1,4 @@
-cltk.phonology.old\_norse package
+cltk.phonology.non package
 =================================
 
 .. automodule:: cltk.phonology.non
