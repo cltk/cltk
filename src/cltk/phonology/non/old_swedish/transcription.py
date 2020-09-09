@@ -1,6 +1,7 @@
 """
-*Svenska språket under sjuhundra år* by Gertrud Pettersson (Studentlitteratur 2017)
+Sources:
 
+* *Svenska språket under sjuhundra år* by Gertrud Pettersson (Studentlitteratur 2017)
 * Klassisk fornsvenska (Classical Old Swedish): 1225-1375
 * Yngre fornsvenska (Younger Old Swedish): 1375-1526 (first prints)
 

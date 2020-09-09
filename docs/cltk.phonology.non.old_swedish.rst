@@ -1,5 +1,5 @@
 cltk.phonology.non.old_swedish package
-=================================
+======================================
 
 .. automodule:: cltk.phonology.non.old_swedish
    :members:
@@ -19,7 +19,7 @@ cltk.phonology.non.old_swedish.phonology module
 
 
 cltk.phonology.non.old_swedish.transcription module
-----------------------------------------------
+---------------------------------------------------
 
 .. automodule:: cltk.phonology.non.old_swedish.transcription
    :members:

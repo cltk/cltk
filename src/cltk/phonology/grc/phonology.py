@@ -13,7 +13,7 @@ class GreekTranscription:
         self.transcriber = gret.Transcriber("Attic", "Probert")
 
     def transcribe(self, word):
-        return self.transcriber.transcribe(unicodedata.normalize("NFC", word))
+        return self.transcriber.transcribe(unicodedata.normalize("NFC", word))[1:-1]
 
     def __repr__(self):
         return f"<GreekTranscription>"

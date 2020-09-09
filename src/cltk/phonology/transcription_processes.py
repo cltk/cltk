@@ -17,6 +17,7 @@ from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
 from cltk.phonology.got.phonology import GothicTranscription
 from cltk.phonology.grc.phonology import GreekTranscription
 from cltk.phonology.lat.phonology import LatinTranscription
+from cltk.phonology.non.old_swedish.phonology import OldSwedishTranscription
 from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -122,7 +123,7 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     >>> text = get_example_text("grc")
     >>> cltk_doc = nlp(text)
     >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
-    ['[hó.ti]', '[men]', '[hy.mệːs]', '[ɔ̂ː]', '[ɑ́n.dres]']
+    ['hó.ti', 'men', 'hy.mệːs', 'ɔ̂ː', 'ɑ́n.dres']
     """
 
     description = "The default Greek transcription process"
@@ -230,3 +231,28 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     @cachedproperty
     def algorithm(self):
         return OldNorsePhonologicalTranscriber()
+
+
+class OldSwedishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
+    """
+    >>> from cltk.core.data_types import Process, Pipeline
+    >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
+    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.languages.utils import get_lang
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> from cltk.nlp import NLP
+    >>> pipe = Pipeline(description="A custom Old Swedish pipeline", \
+    processes=[OldNorseTokenizationProcess, DefaultPunctuationRemovalProcess, \
+    OldSwedishPhonologicalTranscriberProcess], language=get_lang("non"))
+    >>> nlp = NLP(language='non', custom_pipeline=pipe)
+    >>> text = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
+    >>> cltk_doc = nlp(text)
+    >>> [word.phonetic_transcription for word in cltk_doc.words[:5]]
+    ['far', 'man', 'kunu', 'ok', 'dør']
+    """
+
+    description = "The default Old Swedish transcription process"
+
+    @cachedproperty
+    def algorithm(self):
+        return OldSwedishTranscription()

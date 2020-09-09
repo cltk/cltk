@@ -701,7 +701,6 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(target, transcribed_sentence)
 
     def test_old_swedish(self):
-        # TODO: Re-enable
         sentence = "Far man kunu oc dör han för en hun far barn. oc sigher hun oc hænnæ frændær."
         tr = ut.Transcriber(
             old_swedish.DIPHTHONGS_IPA,
