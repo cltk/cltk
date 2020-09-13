@@ -27,9 +27,7 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
 
     :param text: str list: text to be analysed
     :param vowels: str: valid vowels constituting the syllable
-    :param threshold: minimum frequency count for valid onset, C. Hench noted
-    that the algorithm produces the best result for an untagged wordset of MHG,
-    when retaining onsets which appear in at least 0.02% of the words
+    :param threshold: minimum frequency count for valid onset, C. Hench noted that the algorithm produces the best result for an untagged wordset of MHG, when retaining onsets which appear in at least 0.02% of the words
 
     Let's test it on the opening lines of Nibelungenlied
 

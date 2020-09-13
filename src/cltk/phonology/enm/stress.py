@@ -48,25 +48,18 @@ class MiddleEnglishStresser:
     def stress(self, word, stress_rule="FSR") -> List:
         """
         :param word: word to stress
-        :param stress_rule: Stress Rule, valid options:
+        :param stress_rule: Stress Rule, valid options: 
+            
+            'FSR': French Stress Rule, stress falls on the ultima, unless it contains schwa (ends with e), in which case the penult is stressed. 
+            
+            'GSR': Germanic Stress Rule, stress falls on the first syllable of the stemm. Note that the accuracy of the function directly depends on that of the stemmer. 
+            
+            'LSR': Latin Stress Rule, stress falls on the penult if its heavy, else, if it has more than two syllables on the antepenult, else on the ultima.
 
-            'FSR': French Stress Rule, stress falls on the ultima, unless
-             it contains schwa (ends with e), in which case the penult is
-            stressed
-
-            'GSR': Germanic Stress Rule, stress falls on the first syllable
-            of the stemm. Note that the accuracy of the function directly
-            depends on that of the stemmer.
-
-            'LSR': Latin Stress Rule, stress falls on the penult if its
-            heavy, else, if it has more than two syllables on the
-            antepenult, else on the ultima.
-
-        :return: A list containing the separate syllable, where the stressed
-            syllable is prefixed by ' . Monosyllabic words are left unchanged,
-            since stress indicates relative emphasis.
+        :return: A list containing the separate syllable, where the stressed syllable is prefixed by ' . Monosyllabic words are left unchanged, since stress indicates relative emphasis.
 
         Examples:
+
         >>> from cltk.phonology.syllabify import Syllabifier
         >>> from cltk.phonology.enm.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS
         >>> enm_syllabifier = Syllabifier()
@@ -92,7 +85,7 @@ class MiddleEnglishStresser:
 
         >>> stresser.stress('verbum', stress_rule="LSR")
         ['ver', "'bum"]
-
+        
         """
 
         assert self.syllabifier is not None

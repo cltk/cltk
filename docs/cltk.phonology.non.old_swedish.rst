@@ -1,5 +1,5 @@
-cltk.phonology.non.old_swedish package
-======================================
+cltk.phonology.non.old\_swedish package
+=======================================
 
 .. automodule:: cltk.phonology.non.old_swedish
    :members:
@@ -9,17 +9,16 @@ cltk.phonology.non.old_swedish package
 Submodules
 ----------
 
-cltk.phonology.non.old_swedish.phonology module
------------------------------------------------
+cltk.phonology.non.old\_swedish.phonology module
+------------------------------------------------
 
 .. automodule:: cltk.phonology.non.old_swedish.phonology
    :members:
    :undoc-members:
    :show-inheritance:
 
-
-cltk.phonology.non.old_swedish.transcription module
----------------------------------------------------
+cltk.phonology.non.old\_swedish.transcription module
+----------------------------------------------------
 
 .. automodule:: cltk.phonology.non.old_swedish.transcription
    :members:
