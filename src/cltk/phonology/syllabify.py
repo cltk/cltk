@@ -1,3 +1,18 @@
+"""The syllabify module implements two main classes:
+
+- **Syllabifier**
+- **Syllable**
+
+**Syllabifier** implements two general syllabification algorithms:
+
+- the Maximum Onset Principle,
+- the Sonority Sequence Principle.
+
+They are both based on phonetic principles.
+
+The **Syllable** class provides a way to linguistically reprensent a syllable.
+"""
+
 import logging
 import unicodedata
 from collections import defaultdict

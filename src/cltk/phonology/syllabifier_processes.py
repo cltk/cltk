@@ -1,5 +1,4 @@
-"""
-
+"""This module implements syllabification processes for several languages. You may extend **SyllabificationProcess** and see pre-defined examples.
 """
 
 
@@ -18,8 +17,8 @@ from cltk.phonology.non.phonology import OldNorseSyllabifier
 
 @dataclass
 class SyllabificationProcess(Process):
-    """
-
+    """This is the class to extend if you want to code your own syllabification
+    process in the CLTK-style.
     """
 
     def run(self, input_doc: Doc) -> Doc:

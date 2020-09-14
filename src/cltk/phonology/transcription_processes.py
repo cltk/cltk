@@ -1,5 +1,4 @@
-"""
-
+"""This module provides phonological/phonetic transcribers for several languages. **PhonologicalTranscriptionProcess** is the parent-class for all other custom transcription processes.
 """
 
 
