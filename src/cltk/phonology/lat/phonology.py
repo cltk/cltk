@@ -19,6 +19,7 @@ class LatinTranscription:
     def transcribe(self, word: str) -> str:
         """
         >>> LatinTranscription().transcribe("meditationes")
+        '[mɛd̪ɪt̪at̪ɪ̣jɔn̪ɛs]'
 
         :param word: word to transcribe
         :return: transcribed word
@@ -43,7 +44,7 @@ class LatinSyllabifier:
     def syllabify(self, word: str) -> List[str]:
         """
         >>> LatinSyllabifier().syllabify("relinquus")
-
+        ['re', 'lin', 'qu', 'us']
 
         :param word: word to syllabify
         :return: syllabified word
