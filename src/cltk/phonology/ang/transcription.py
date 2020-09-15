@@ -219,12 +219,12 @@ class Transcriber:
 
 class Word:
     """
-
+    Transcription of Old English words
     """
-    def __init__(self, w):
+    def __init__(self, w: str):
         self.word = w
 
-    def remove_diacritics(self):
+    def remove_diacritics(self) -> str:
         """
         :return: str: the input string stripped of its diacritics
 

@@ -83,16 +83,18 @@ IPA = {
 
 
 class Transcriber:
+    """
+    Transcriber for Middle High German
+    """
     def __init__(self):
         pass  # To-do: Add different dialects and/or notations
 
-    def transcribe(self, text: str, punctuation=True, with_squared_brackets=True):
+    def transcribe(self, text: str, punctuation=True, with_squared_brackets=True) -> str:
         """
-        Accepts a word and returns a string of an approximate
-        pronunciation (IPA)
-        :param text:
-        :param punctuation:
-        :param with_squared_brackets:
+        :param text: text to transcribe
+        :param punctuation: if True, keeps punctuation
+        :param with_squared_brackets: if True, put squared brackets around transcription.
+        :return: an approximate pronunciation (IPA)
         """
 
         if not punctuation:

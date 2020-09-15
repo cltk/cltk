@@ -39,11 +39,12 @@ class Transliterate:
             Anglo-Saxon/Anglo-Frisian : Transliterates Latin text into Anglo-Saxon runes
 
         Examples:
-            >>> Transliterate().transliterate("Hƿæt Ƿe Gardena in geardagum", "Anglo-Saxon")
-            'ᚻᚹᚫᛏ ᚹᛖ ᚷᚪᚱᛞᛖᚾᚪ ᛁᚾ ᚷᛠᚱᛞᚪᚷᚢᛗ'
 
-            >>> Transliterate().transliterate("ᚩᚠᛏ ᛋᚳᚣᛚᛞ ᛋᚳᛖᚠᛁᛝ ᛋᚳᛠᚦᛖᚾᚪ ᚦᚱᛠᛏᚢᛗ", "Latin")
-            'oft scyld scefin sceathena threatum'
+        >>> Transliterate().transliterate("Hƿæt Ƿe Gardena in geardagum", "Anglo-Saxon")
+        'ᚻᚹᚫᛏ ᚹᛖ ᚷᚪᚱᛞᛖᚾᚪ ᛁᚾ ᚷᛠᚱᛞᚪᚷᚢᛗ'
+
+        >>> Transliterate().transliterate("ᚩᚠᛏ ᛋᚳᚣᛚᛞ ᛋᚳᛖᚠᛁᛝ ᛋᚳᛠᚦᛖᚾᚪ ᚦᚱᛠᛏᚢᛗ", "Latin")
+        'oft scyld scefin sceathena threatum'
         """
         if mode == "Latin":
             return Transliterate.__transliterate_helper(text, L_Transliteration)

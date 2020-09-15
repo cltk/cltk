@@ -22,8 +22,8 @@ class OldEnglishTranscription:
     def transcribe(self, word):
         """
         >>> ang_transriber = OldEnglishTranscription()
-        >>> ang_transriber.transcribe("")
-
+        >>> ang_transriber.transcribe("Bēowulf")
+        'beːowuɫf'
 
         :param word: word to transcribe
         :return: transcribed word
@@ -47,8 +47,8 @@ class OldEnglishSyllabifier:
     def syllabify(self, word: str) -> List[str]:
         """
         >>> ang_syllabifier = OldEnglishSyllabifier()
-        >>> ang_syllabifier.syllabify("")
-
+        >>> ang_syllabifier.syllabify("Beowulf".lower())
+        ['beo', 'wulf']
 
         :param word: word to syllabify
         :return: syllabified word

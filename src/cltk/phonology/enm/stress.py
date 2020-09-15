@@ -76,19 +76,14 @@ class MiddleEnglishStresser:
         >>> stresser = MiddleEnglishStresser(enm_syllabifier)
         >>> stresser.stress('beren', stress_rule="FSR")
         ['ber', "'en"]
-
         >>> stresser.stress('prendre', stress_rule="FSR")
         ["'pren", 'dre']
-
         >>> stresser.stress('yisterday', stress_rule="GSR")
         ['yi', 'ster', "'day"]
-
         >>> stresser.stress('day', stress_rule="GSR")
         ['day']
-
         >>> stresser.stress('mervelus', stress_rule="LSR")
         ["'mer", 'vel', 'us']
-
         >>> stresser.stress('verbum', stress_rule="LSR")
         ['ver', "'bum"]
         

@@ -32,6 +32,31 @@ class SyllabificationProcess(Process):
         return output_doc
 
 
+class GreekSyllabificationProcess(SyllabificationProcess):
+    """Syllabification ``Process`` for Ancient Greek.
+
+    >>> from cltk.core.data_types import Process, Pipeline
+    >>> from cltk.tokenizers.processes import GreekTokenizationProcess
+    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.languages.utils import get_lang
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> from cltk import NLP
+    >>> a_pipeline = Pipeline(description="A custom Greek pipeline", processes=[GreekTokenizationProcess, DefaultPunctuationRemovalProcess, GreekSyllabificationProcess], language=get_lang("grc"))
+    >>> nlp = NLP(language='grc', custom_pipeline=a_pipeline)
+    >>> text = get_example_text("grc")
+    >>> cltk_doc = nlp(text)
+    >>> [word.syllables for word in cltk_doc.words[:5]]
+    [['ὅτι'], ['μὲν'], ['ὑμ', 'εῖς'], ['ὦ'], ['ἄν', 'δρ', 'ες']]
+
+    """
+
+    description = "The default Latin Syllabification process"
+
+    @cachedproperty
+    def algorithm(self):
+        return LatinSyllabifier()
+
+
 class LatinSyllabificationProcess(SyllabificationProcess):
     """Syllabification ``Process`` for Latin.
 

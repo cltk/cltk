@@ -1,5 +1,4 @@
 """Latin phonology tools
-
 """
 from typing import List
 
@@ -12,14 +11,14 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class LatinTranscription:
-    """
-
+    """Latin transcriber
     """
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
-    def transcribe(self, word):
+    def transcribe(self, word: str) -> str:
         """
+        >>> LatinTranscription().transcribe("meditationes")
 
         :param word: word to transcribe
         :return: transcribed word
@@ -31,19 +30,20 @@ class LatinTranscription:
     def __repr__(self):
         return f"<LatinTranscription>"
 
-    def __call__(self, word):
+    def __call__(self, word: str) -> str:
         return self.transcribe(word)
 
 
 class LatinSyllabifier:
-    """
-
+    """Latin syllabifier
     """
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
     def syllabify(self, word: str) -> List[str]:
         """
+        >>> LatinSyllabifier().syllabify("relinquus")
+
 
         :param word: word to syllabify
         :return: syllabified word
@@ -53,5 +53,5 @@ class LatinSyllabifier:
     def __repr__(self):
         return f"<LatinSyllabifier>"
 
-    def __call__(self, word):
+    def __call__(self, word: str) -> List[str]:
         return self.syllabify(word)

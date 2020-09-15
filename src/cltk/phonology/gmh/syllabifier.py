@@ -1,7 +1,4 @@
 """
-Sonority phoneme hierarchy for MHG
-
-Source: Resonances in Middle High German: New Methodologies in Prosody, Christopher Leo Hench, 2017
 
 """
 import re
@@ -55,6 +52,9 @@ hierarchy = [
 
 
 class Word:
+    """
+    Word class that helps
+    """
     def __init__(self, word):
         self.word = word.lower()
         self.syllabified = []

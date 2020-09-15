@@ -24,11 +24,11 @@ class OldNorseTranscription:
             ont.old_norse_rules,
         )
 
-    def transcribe(self, word):
+    def transcribe(self, word: str) -> str:
         """
         >>> non_transcriber = OldNorseTranscription()
-        >>> non_transcriber.transcribe("")
-
+        >>> non_transcriber.transcribe("Óðinn")
+        '[oːðinː]'
 
         :param word: word to transcribe
         :return: transcribed word
@@ -38,7 +38,7 @@ class OldNorseTranscription:
     def __repr__(self):
         return f"<OldNorseTranscription>"
 
-    def __call__(self, word):
+    def __call__(self, word: str) -> str:
         return self.transcribe(word)
 
 
@@ -54,8 +54,8 @@ class OldNorseSyllabifier:
     def syllabify(self, word: str) -> List[str]:
         """
         >>> non_syllabifier = OldNorseSyllabifier()
-        >>> non_syllabifier.syllabify('')
-
+        >>> non_syllabifier.syllabify('Miðgarðr'.lower())
+        ['mið', 'garðr']
 
         :param word: word to syllabify
         :return: syllabified word
@@ -65,5 +65,5 @@ class OldNorseSyllabifier:
     def __repr__(self):
         return f"<OldNorseScanner>"
 
-    def __call__(self, word):
+    def __call__(self, word: str) -> List[str]:
         return self.syllabify(word)

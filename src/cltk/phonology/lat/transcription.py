@@ -253,10 +253,10 @@ class Phone:
     # Has a bundle of feature values that help classify it so that it can
     # trigger contextual pronunciation changes.
 
-    def __init__(self, ipa_ch):
+    def __init__(self, ipa_ch: str):
         """
-
-        :param ipa_ch:
+        Analyzes features of phonetic signs
+        :param ipa_ch: phonetic sign from IPA
         """
 
         # eventually exported to output string
@@ -294,7 +294,7 @@ class Word:
     # An ordered collection of Phones, which are bundles of
     # features/IPA strings.
 
-    def __init__(self, ipa_str, root):
+    def __init__(self, ipa_str: str, root: dict):
         """
 
         :param ipa_str:
@@ -691,11 +691,11 @@ class Word:
 class Transcriber:
     """Uses a reconstruction to transcribe a orthographic string into IPA."""
 
-    def __init__(self, dialect, reconstruction):
+    def __init__(self, dialect: str, reconstruction: str):
         """
 
-        :param dialect:
-        :param reconstruction:
+        :param dialect: Latin dialect
+        :param reconstruction: reconstruction method
         """
         self.lect = dialect
         self.recon = reconstruction
@@ -705,12 +705,12 @@ class Transcriber:
         self.punc = self.root["punctuation"]
         self.macronizer = m.Macronizer("tag_ngram_123_backoff")
 
-    def _parse_diacritics(self, ch) -> str:
+    def _parse_diacritics(self, ch: str) -> str:
         """
 
         EG: input with base a -> a/LENGTH/DIAERESIS/
 
-        :param ch:
+        :param ch: character
         :return: a string with separated and organized diacritics for easier access later.
         """
 
@@ -734,7 +734,7 @@ class Transcriber:
 
         return out
 
-    def _prep_text(self, text):
+    def _prep_text(self, text: str):
         """
         Performs preparatory tasks grouping and reordering characters
         in order to make transcription formulaic.
@@ -755,7 +755,7 @@ class Transcriber:
 
         return tup_out
 
-    def transcribe(self, text, macronize=True, syllabify=True, accentuate=True):
+    def transcribe(self, text, macronize=True, syllabify=True, accentuate=True, with_squared_brackets=True):
         """
         >>> allen_transcriber = Transcriber("Classical", "Allen")
         >>> example = allen_transcriber.transcribe("Quo usque tandem, O Catilina, " + "abutere nostra patientia?")
@@ -765,7 +765,8 @@ class Transcriber:
         :param text: text to transcribe
         :param macronize: if True, macronize result
         :param syllabify: if True, syllabify result
-        :param accentuate: if True, accentuare result
+        :param accentuate: if True, accentuate result
+        :param with_squared_brackets: if True, put squared brackets around transcription
         :return: transcribed text
         """
         # if macronize, will first use the tagger to macronize input
@@ -791,6 +792,7 @@ class Transcriber:
             transcription._alternate()
             words.append(transcription)
         # Encloses output in brackets, proper notation for surface form.
-        return (
-            "[" + " ".join([w._print_ipa(syllabify, accentuate) for w in words]) + "]"
-        )
+        result = " ".join([w._print_ipa(syllabify, accentuate) for w in words])
+        if with_squared_brackets:
+            result = "["+result+"]"
+        return result

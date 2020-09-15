@@ -209,7 +209,7 @@ class Word:
     # An ordered collection of Phones,
     # which are bundles of features/IPA strings.
 
-    def __init__(self, ipa_str, root):
+    def __init__(self, ipa_str: str, root):
         """
 
         :param ipa_str:

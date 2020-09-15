@@ -1,4 +1,4 @@
-"""
+"""Old Norse transcription module
 Sources:
 - https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 - Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
@@ -25,6 +25,8 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class OldNorsePhonology(Vowel):
+    """Class that applies position-dependent phonological transformation
+    """
     U_UMLAUT = {"a": "ö", "ö": "u"}
 
     @staticmethod
@@ -38,8 +40,8 @@ class OldNorsePhonology(Vowel):
         >>> umlaut_au.ipar
         'ɐy'
 
-        :param sound:
-        :return:
+        :param sound: vowel
+        :return: transformed vowel
         """
         if sound.is_equal(a):
             return ee
@@ -64,8 +66,8 @@ class OldNorsePhonology(Vowel):
         >>> OldNorsePhonology.orthographic_i_umlaut("ý")
         'ý'
 
-        :param sound:
-        :return:
+        :param sound: vowel
+        :return: transformed vowel
         """
         if sound in BACK_TO_FRONT_VOWELS:
             return BACK_TO_FRONT_VOWELS[sound]
@@ -88,8 +90,8 @@ class OldNorsePhonology(Vowel):
         'e'
 
 
-        :param sound: instance of Vowel
-        :return:
+        :param sound: vowel
+        :return: transformed vowel
         """
         if sound.is_equal(a):
             return oee  # or oe
@@ -106,8 +108,8 @@ class OldNorsePhonology(Vowel):
         >>> OldNorsePhonology.orthographic_u_umlaut("e")
         'e'
 
-        :param sound:
-        :return:
+        :param sound: a vowel
+        :return: transformed vowel
         """
         if sound in OldNorsePhonology.U_UMLAUT:
             return OldNorsePhonology.U_UMLAUT[sound]
@@ -388,8 +390,8 @@ def normalize_for_syllabifier(text: str) -> str:
     >>> normalize_for_syllabifier("almaːtːiɣr")
     'almatiɣr'
 
-    :param text:
-    :return:
+    :param text: text to normalize for syllabification
+    :return: normalized text for syllabification
     """
     text = text.replace("ː", "")
     return text
