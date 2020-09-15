@@ -48,3 +48,11 @@ cltk.phonology.non.transcription module
    :undoc-members:
    :show-inheritance:
 
+cltk.phonology.non.utils module
+-------------------------------
+
+.. automodule:: cltk.phonology.non.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

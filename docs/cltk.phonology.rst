@@ -71,11 +71,3 @@ cltk.phonology.transcription\_processes module
    :undoc-members:
    :show-inheritance:
 
-cltk.phonology.utils module
----------------------------
-
-.. automodule:: cltk.phonology.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
