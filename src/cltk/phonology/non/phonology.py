@@ -2,8 +2,9 @@
 
 
 """
+from typing import List
 
-from cltk.phonology import utils as ut
+from cltk.phonology.non import utils as ut
 from cltk.phonology.non import syllabifier as ons
 from cltk.phonology.non import transcription as ont
 from cltk.phonology.syllabify import Syllabifier
@@ -12,6 +13,9 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class OldNorseTranscription:
+    """
+    Phonological transcriber for Old Norse
+    """
     def __init__(self):
         self.transcriber = ut.Transcriber(
             ont.DIPHTHONGS_IPA,
@@ -21,6 +25,14 @@ class OldNorseTranscription:
         )
 
     def transcribe(self, word):
+        """
+        >>> non_transcriber = OldNorseTranscription()
+        >>> non_transcriber.transcribe("")
+
+
+        :param word: word to transcribe
+        :return: transcribed word
+        """
         return self.transcriber.text_to_phonetic_representation(word)
 
     def __repr__(self):
@@ -31,12 +43,23 @@ class OldNorseTranscription:
 
 
 class OldNorseSyllabifier:
+    """
+    Syllabifier for Old Norse
+    """
     def __init__(self):
         self.syllabifier = Syllabifier(language="non", break_geminants=True)
 
         self.syllabifier.set_invalid_onsets(ons.invalid_onsets)
 
-    def syllabify(self, word):
+    def syllabify(self, word: str) -> List[str]:
+        """
+        >>> non_syllabifier = OldNorseSyllabifier()
+        >>> non_syllabifier.syllabify('')
+
+
+        :param word: word to syllabify
+        :return: syllabified word
+        """
         return self.syllabifier.syllabify(word)
 
     def __repr__(self):

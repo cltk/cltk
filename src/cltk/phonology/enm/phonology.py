@@ -1,4 +1,4 @@
-"""
+"""Middle English phonology tools
 
 """
 

@@ -10,7 +10,7 @@
 
 They are both based on phonetic principles.
 
-The **Syllable** class provides a way to linguistically reprensent a syllable.
+The **Syllable** class provides a way to linguistically represent a syllable.
 """
 
 import logging
@@ -22,6 +22,7 @@ import cltk.phonology.ang.syllabifier as angs
 import cltk.phonology.enm.syllabifier as enms
 import cltk.phonology.gmh.syllabifier as gmhs
 import cltk.phonology.non.syllabifier as nons
+import cltk.phonology.non.utils as nonu
 from cltk.core.exceptions import CLTKException
 
 __author__ = [
@@ -65,10 +66,10 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
         onset = ""
         candidates = []
 
-        for l in word:
+        for phoneme in word:
 
-            if l not in vowels:
-                onset += l
+            if phoneme not in vowels:
+                onset += phoneme
 
             else:
                 if onset != "":
@@ -82,6 +83,9 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
 
 
 class Syllabifier:
+    """
+    Provides 2 main methods that syllabify words given phonology of its language.
+    """
     def __init__(
         self,
         low_vowels=None,
@@ -173,10 +177,10 @@ class Syllabifier:
             self.hierarchy.update({key: 6 for key in self.fricatives})
             self.hierarchy.update({key: 7 for key in self.plosives})
 
-    def set_invalid_onsets(self, invalid_onsets):
+    def set_invalid_onsets(self, invalid_onsets: List[str]):
         self.invalid_onsets = invalid_onsets
 
-    def set_invalid_ultima(self, invalid_ultima):
+    def set_invalid_ultima(self, invalid_ultima: List[str]):
         self.invalid_ultima = invalid_ultima
 
     def set_hierarchy(self, hierarchy):
@@ -195,7 +199,7 @@ class Syllabifier:
         """
         self.hierarchy = dict([(k, i) for i, j in enumerate(hierarchy) for k in j])
 
-    def set_vowels(self, vowels):
+    def set_vowels(self, vowels: List[str]):
         """
         Define the vowel set of the syllabifier module
 
@@ -206,7 +210,7 @@ class Syllabifier:
         """
         self.vowels = vowels
 
-    def syllabify(self, word, mode="SSP") -> Union[List[str], str]:
+    def syllabify(self, word: str, mode="SSP") -> Union[List[str], str]:
         """
 
         :param word: word to syllabify
@@ -214,17 +218,18 @@ class Syllabifier:
          or MOP (Maximum Onset Principle)
         :return: syllabifier word
         """
-        res = None
         if mode == "SSP":
             res = self.syllabify_ssp(word)
         elif mode == "MOP":
             res = self.syllabify_mop(word)
+        else:
+            raise CLTKException("Wrong given mode")
 
         if self.sep:
             return self.sep.join(res)
         return res
 
-    def syllabify_ssp(self, word):
+    def syllabify_ssp(self, word: str) -> List[str]:
         """
         Syllabifies a word according to the Sonority Sequencing Principle
 
@@ -323,7 +328,7 @@ class Syllabifier:
                 i += 1
 
         for n, k in enumerate(syllables):
-            word = word[: k + n + 1] + "." + word[k + n + 1 :]
+            word = word[: k + n + 1] + "." + word[k + n + 1:]
 
         word = word.split(".")
 
@@ -335,7 +340,12 @@ class Syllabifier:
 
         return self.onset_maximization(word)
 
-    def onset_maximization(self, syllables):
+    def onset_maximization(self, syllables: List[str]) -> List[str]:
+        """
+        Applies onset maximisation principle to syllables
+        :param syllables: list of syllables
+        :return:
+        """
 
         for i, syl in enumerate(syllables):
             if i != len(syllables) - 1:
@@ -348,11 +358,11 @@ class Syllabifier:
 
         return self.legal_onsets(syllables)
 
-    def legal_onsets(self, syllables):
+    def legal_onsets(self, syllables: List[str]) -> List[str]:
         """
         Filters syllable respecting the legality principle
 
-        :param syllables: str list
+        :param syllables: list of syllables
 
         The method scans for invalid syllable onsets:
 
@@ -395,7 +405,7 @@ class Syllabifier:
 
         return syllables
 
-    def syllabify_mop(self, word) -> List[str]:
+    def syllabify_mop(self, word: str) -> List[str]:
         """
         >>> from cltk.phonology.gmh.syllabifier import DIPHTHONGS, TRIPHTHONGS, SHORT_VOWELS, LONG_VOWELS, CONSONANTS
         >>> gmh_syllabifier = Syllabifier()
@@ -520,7 +530,7 @@ class Syllabifier:
     def set_consonants(self, consonants):
         self.consonants = consonants
 
-    def syllabify_ipa(self, word):
+    def syllabify_ipa(self, word: str) -> List[str]:
         """
         Parses IPA string
 
@@ -535,10 +545,11 @@ class Syllabifier:
 
         return self.syllabify_ssp(word)
 
-    def syllabify_phonemes(self, phonological_word):
+    def syllabify_phonemes(self, phonological_word: List[Union[nonu.Vowel, nonu.Consonant]]) \
+            -> List[List[Union[nonu.Vowel, nonu.Consonant]]]:
         """
-
-        :param phonological_word: result of Transcriber().text_to_phonemes in cltk.phonology.utils
+        Syllabifies
+        :param phonological_word: result of Transcriber().text_to_phonemes in cltk.phonology.non.utils
         :return:
         """
         phoneme_lengths = []
@@ -577,6 +588,7 @@ class Syllable:
 
     def __init__(self, text: str, vowels: List[str], consonants: List[str]):
         """
+        Represents a syllable as an object.
 
         :param text:  a syllable
         :param vowels: list of characters
@@ -618,7 +630,6 @@ class Syllable:
 
 
         :param text: a syllable
-        :return:
         """
         is_in_onset = True
         is_in_nucleus = False

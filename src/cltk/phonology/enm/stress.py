@@ -1,5 +1,4 @@
-"""
-
+"""Middle English stress module
 """
 
 import re
@@ -42,7 +41,14 @@ dict_SE = {
 
 
 class MiddleEnglishStresser:
+    """
+    Middle English stresser
+    """
     def __init__(self, syllabifier=None):
+        """
+
+        :param syllabifier: Syllabifier instance
+        """
         self.syllabifier = syllabifier
 
     def stress(self, word, stress_rule="FSR") -> List:
@@ -193,17 +199,18 @@ class MiddleEnglishStresser:
         by modern spelling (e.g. 'enough': /ɪˈnʌf/ and 'though': /ðəʊ/)
 
         Examples:
-            >>> MiddleEnglishStresser().phonetic_indexing("midel", "SE")
-            'M230'
 
-            >>> MiddleEnglishStresser().phonetic_indexing("myddle", "SE")
-            'M230'
+        >>> MiddleEnglishStresser().phonetic_indexing("midel", "SE")
+        'M230'
 
-            >>> MiddleEnglishStresser().phonetic_indexing("might", "SE")
-            'M120'
+        >>> MiddleEnglishStresser().phonetic_indexing("myddle", "SE")
+        'M230'
 
-            >>> MiddleEnglishStresser().phonetic_indexing("myghtely", "SE")
-            'M123'
+        >>> MiddleEnglishStresser().phonetic_indexing("might", "SE")
+        'M120'
+
+        >>> MiddleEnglishStresser().phonetic_indexing("myghtely", "SE")
+        'M123'
         """
 
         self.word = word

@@ -1,4 +1,5 @@
 """
+Definition of reconstructed phonology of Old English
 Sources:
 - https://en.wikipedia.org/wiki/Old_English_phonology
 - https://ealdaenglisc.wordpress.com/old-english-lessons/lesson-0-alphabet-and-pronunciation/

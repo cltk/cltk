@@ -1,5 +1,4 @@
-"""
-
+"""This module attempts to reconstruct the approximate phonology of Old English.
 """
 
 import logging
@@ -153,19 +152,18 @@ LOG.addHandler(logging.NullHandler())
 
 
 class Transcriber:
+    """
+
+    """
     def __init__(self):
         pass
 
     @staticmethod
     def transcribe(text: str, punctuation=True, with_squared_brackets=True) -> str:
         """
-        Parameters:
-            :param text: str: The text to be transcribed
-            :param punctuation: bool: Retain punctuation
-            :param with_squared_brackets:
-
-        This module attempts to reconstruct the approximate phonology
-        of Old English.
+        :param text: The text to be transcribed
+        :param punctuation: Retain punctuation
+        :param with_squared_brackets: if True, add squared bracked around transcription
 
         The algorithm first tries the substitutions defined in
         IPA_rules and IPA.
@@ -182,11 +180,12 @@ class Transcriber:
           preceded by front and back vowels respectively
 
         Examples:
-            >>> Transcriber().transcribe('Fæder ūre þū þe eeart on heofonum,', punctuation = True)
-            '[fæder uːre θuː θe eːɑrˠt on heovonum,]'
 
-            >>> Transcriber().transcribe('Hwæt! wē Gār-Dena in ġēar-dagum', punctuation = False)
-            '[ʍæt weː gɑːrdenɑ in jæːɑrdɑgum]'
+        >>> Transcriber().transcribe('Fæder ūre þū þe eeart on heofonum,', punctuation = True)
+        '[fæder uːre θuː θe eːɑrˠt on heovonum,]'
+
+        >>> Transcriber().transcribe('Hwæt! wē Gār-Dena in ġēar-dagum', punctuation = False)
+        '[ʍæt weː gɑːrdenɑ in jæːɑrdɑgum]'
         """
 
         if not punctuation:
@@ -219,6 +218,9 @@ class Transcriber:
 
 
 class Word:
+    """
+
+    """
     def __init__(self, w):
         self.word = w
 
@@ -227,8 +229,9 @@ class Word:
         :return: str: the input string stripped of its diacritics
 
         Examples:
-            >>> Word('ġelǣd').remove_diacritics()
-            'gelæd'
+
+        >>> Word('ġelǣd').remove_diacritics()
+        'gelæd'
 
         """
 
@@ -249,11 +252,11 @@ class Word:
 
         Examples:
 
-            >>> Word('ġelǣd').ascii_encoding()
-            'gelaed'
+        >>> Word('ġelǣd').ascii_encoding()
+        'gelaed'
 
-            >>> Word('ƿeorðunga').ascii_encoding()
-            'weordunga'
+        >>> Word('ƿeorðunga').ascii_encoding()
+        'weordunga'
 
         """
 

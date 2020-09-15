@@ -1,6 +1,7 @@
-"""
+"""Latin phonology tools
 
 """
+from typing import List
 
 import unicodedata
 
@@ -11,11 +12,18 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class LatinTranscription:
+    """
+
+    """
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
     def transcribe(self, word):
+        """
 
+        :param word: word to transcribe
+        :return: transcribed word
+        """
         return self.transcriber.transcribe(
             unicodedata.normalize("NFC", word), False, False, False
         )
@@ -28,10 +36,18 @@ class LatinTranscription:
 
 
 class LatinSyllabifier:
+    """
+
+    """
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
-    def syllabify(self, word):
+    def syllabify(self, word: str) -> List[str]:
+        """
+
+        :param word: word to syllabify
+        :return: syllabified word
+        """
         return syllabify(word)
 
     def __repr__(self):

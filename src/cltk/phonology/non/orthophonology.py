@@ -130,28 +130,28 @@ alphabet = {
     "ð": dh,
 }
 
-on = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
-
-
-on.rules = [
-    th // f >> Voiced.pos | Consonantal.neg - Consonantal.neg,
-    th // f >> Voiced.pos | Voiced.pos - Consonantal.neg,
-    th // f >> Voiced.pos | Consonantal.neg - Voiced.pos,
-    th // f >> Voiced.pos | Voiced.pos - Voiced.pos,
-    g >> gh | Voiced.pos - Voiced.pos,
-    g >> gh | Consonantal.neg - Consonantal.neg,
-    g >> gh | Voiced.pos - Consonantal.neg,
-    g >> gh | Consonantal.neg - Voiced.pos,
-    g >> gh | Consonantal.neg - W,
-]
-
 
 class OldNorsePhonologicalTranscriber:
+    """
+    Old Norse phonological transcriber using orthophonology.
+    """
     def __init__(self):
-        pass
+        self.on = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
+
+        self.on.rules = [
+            th // f >> Voiced.pos | Consonantal.neg - Consonantal.neg,
+            th // f >> Voiced.pos | Voiced.pos - Consonantal.neg,
+            th // f >> Voiced.pos | Consonantal.neg - Voiced.pos,
+            th // f >> Voiced.pos | Voiced.pos - Voiced.pos,
+            g >> gh | Voiced.pos - Voiced.pos,
+            g >> gh | Consonantal.neg - Consonantal.neg,
+            g >> gh | Voiced.pos - Consonantal.neg,
+            g >> gh | Consonantal.neg - Voiced.pos,
+            g >> gh | Consonantal.neg - W,
+        ]
 
     def transcribe(self, word):
-        return "".join([phoneme.ipa for phoneme in on.transcribe_word(word)])
+        return "".join([phoneme.ipa for phoneme in self.on.transcribe_word(word)])
 
     def __repr__(self):
         return f"<OldNorseScanner>"

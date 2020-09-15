@@ -7,7 +7,7 @@ Sources:
 from typing import Union
 
 from cltk.phonology.non.syllabifier import BACK_TO_FRONT_VOWELS
-from cltk.phonology.utils import (
+from cltk.phonology.non.utils import (
     AbstractConsonant,
     AbstractPosition,
     Backness,

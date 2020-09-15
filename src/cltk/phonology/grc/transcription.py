@@ -6,6 +6,8 @@ cltk/phonology/greek/transcription.py
 """
 
 import re
+from typing import List
+
 import unicodedata
 
 from nltk.tokenize import wordpunct_tokenize
@@ -208,6 +210,11 @@ class Word:
     # which are bundles of features/IPA strings.
 
     def __init__(self, ipa_str, root):
+        """
+
+        :param ipa_str:
+        :param root:
+        """
         self.string = unicodedata.normalize("NFC", ipa_str)
         # Appropriate directory in the reconstruction dictionary
         self.root = root
@@ -218,7 +225,9 @@ class Word:
         self.phones = [Phone(c) for c in re.findall(r".[̥́̂ʰ]?ː?", self.string)]
 
     def _refresh(self):
-        # Assigns left and right contexts for every phone
+        """
+        Assigns left and right contexts for every phone
+        """
         for n in range(len(self.phones)):
             p = self.phones[n]
             if n != 0:
@@ -231,7 +240,10 @@ class Word:
                 p.right = Phone("#")
 
     def _r_devoice(self):
-        # Pronounce r as voiceless word-init or after another r.
+        """
+        Pronounce r as voiceless word-init or after another r.
+        """
+
         out_phones = self.phones
         target = Phone("r̥")
         for n in range(len(self.phones)):
@@ -244,7 +256,9 @@ class Word:
         self._refresh()
 
     def _s_voice_assimilation(self):
-        # Pronounce s as voiced (z) when followed by voiced.
+        """
+        Pronounce s as voiced (z) when followed by voiced.
+        """
         out_phones = self.phones
         target = Phone("z")
         for n in range(len(self.phones)):
@@ -255,7 +269,9 @@ class Word:
         self._refresh()
 
     def _nasal_place_assimilation(self):
-        # Pronounce nasals/g as velar nasals when followed by velar.
+        """
+        Pronounce nasals/g as velar nasals when followed by velar.
+        """
         out_phones = self.phones
         target = Phone("ŋ")
         for n in range(len(self.phones)):
@@ -266,7 +282,9 @@ class Word:
         self._refresh()
 
     def _g_nasality_assimilation(self):
-        # Pronounce g as (velar) nasal when followed by nasal.
+        """
+        Pronounce g as (velar) nasal when followed by nasal.
+        """
         out_phones = self.phones
         target = Phone("ŋ")
         for n in range(len(self.phones)):
@@ -291,7 +309,11 @@ class Word:
             if a[0] in self.alts:
                 a[1](self)
 
-    def syllabify(self):
+    def syllabify(self) -> List[str]:
+        """
+
+        :return: syllabified word
+        """
         nuclei = []
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -307,11 +329,11 @@ class Word:
             # the previous nucleus and it is the onset.
             for x in range(len(nuclei) - 1):
                 i = nuclei[x + 1]
-                onset = self.phones[nuclei[x] + 1 : i]
+                onset = self.phones[nuclei[x] + 1: i]
                 nucleus = [self.phones[i]]
                 syllables.append([onset, nucleus, []])
             # assume that everything after the final nucleus is final coda.
-            syllables[-1][2] = self.phones[nuclei[-1] + 1 :]
+            syllables[-1][2] = self.phones[nuclei[-1] + 1:]
         else:
             syllables = [[self.phones]]
         # now go through and check onset viability
@@ -387,11 +409,11 @@ class Transcriber:
         self.i = self.root["pronounce_iota_sub"]
 
     def _parse_diacritics(self, ch):
-        # Returns a string with seperated and organized diacritics
-        # for easier access later.
-        # EG: input with base α -> α/ACCENT/ETC/
-        # (where ETC includes diaeresis, iota subscripts, and macrons)
+        """
 
+        :param ch: EG: input with base α -> α/ACCENT/ETC/ (where ETC includes diaeresis, iota subscripts, and macrons)
+        :return: a string with separated and organized diacritics for easier access later.
+        """
         # Additions to greek_accentuation.characters for use here:
         marked_breathing = chars.extract_diacritic(chars.ROUGH)
         # (Don't need SMOOTH for these purposes)
@@ -413,7 +435,7 @@ class Transcriber:
 
         out += "/"  # Create 1st boundary
 
-        if acc != None:  # If any accent, place between 1st and 2nd boundary
+        if acc is not None:  # If any accent, place between 1st and 2nd boundary
             out += acc
 
         out += "/"  # Create 2nd boundary
@@ -426,9 +448,11 @@ class Transcriber:
         return out
 
     def _prep_text(self, text):
-        # Performs preperatory tasks grouping and reordering characters
-        # in order to make transcription formulaic.
-
+        """
+        Performs preparatory tasks grouping and reordering characters in order to make transcription formulaic.
+        :param text:
+        :return:
+        """
         string_in = "".join([self._parse_diacritics(ch) for ch in text])
         diph1 = "".join(list(set([d[0] for d in self.diphs])))
         # (list of all acceptable first chars in diphthongs)
@@ -464,8 +488,18 @@ class Transcriber:
         return tup_out
 
     def transcribe(self, text, accentuate=True, syllabify=True):
-        # input is word-tokenized, stripped of non-diacritic punctuation,
-        # and diphthongs and diacritics are handled
+        """
+        >>> blackwell_transcriber = Transcriber("Attic", "Probert")
+        >>> example = blackwell_transcriber.transcribe("δέκατον μὲν ἔτος τόδ᾽ ἐπεὶ Πριάμου μέγας ἀντίδικος, Μενέλαος ἄναξ ἠδ᾽ Ἀγαμέμνων, διθρόνου Διόθεν καὶ δισκήπτρου τιμῆς ὀχυρὸν ζεῦγος Ἀτρειδᾶν στόλον Ἀργείων χιλιοναύτην, τῆσδ᾽ ἀπὸ χώρας")
+        >>> example
+        '[dé.kɑ.ton men é.tos tód e.pẹː pri.ɑ́.mọː mé.gɑs ɑn.tí.di.kos me.né.lɑ.os ɑ́.nɑks ɛːd ɑ.gɑ.mém.nɔːn di.tʰró.nọː di.ó.tʰen kɑj dis.kɛ́ːp.trọː ti.mɛ̂ːs o.kʰy.ron zdêw.gos ɑ.trẹː.dɑ̂n stó.lon ɑr.gẹ́ː.ɔːn kʰi.li.o.nɑ́w.tɛːn tɛ̂ːzd ɑ.po kʰɔ́ː.rɑs]'
+
+        :param text: word-tokenized, stripped of non-diacritic punctuation, and diphthongs and diacritics are handled
+        :param accentuate: if True, result is accentuated
+        :param syllabify: if True, result if syllabified
+        :return: transcribed text
+        """
+        # input is
         inp = [
             self._prep_text(w) for w in wordpunct_tokenize(text) if w not in self.punc
         ]
@@ -498,14 +532,3 @@ class Transcriber:
             words.append(transcription)
         # Encloses output in brackets, proper notation for surface form.
         return "[" + " ".join([w._print_ipa(syllabify) for w in words]) + "]"
-
-
-if __name__ == "__main__":
-    blackwell_transcriber = Transcriber("Attic", "Probert")
-    example = blackwell_transcriber.transcribe(
-        "δέκατον μὲν ἔτος τόδ᾽ ἐπεὶ "
-        + "Πριάμου μέγας ἀντίδικος, Μενέλαος ἄναξ ἠδ᾽ Ἀγαμέμνων, διθρόνου "
-        + "Διόθεν καὶ δισκήπτρου τιμῆς ὀχυρὸν ζεῦγος Ἀτρειδᾶν στόλον Ἀργείων"
-        + " χιλιοναύτην, τῆσδ᾽ ἀπὸ χώρας"
-    )
-    print(example)

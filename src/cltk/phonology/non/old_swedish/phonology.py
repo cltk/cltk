@@ -1,8 +1,7 @@
-"""Old Swedish transcriber
-Provides a basic phonetic transcriber for Old Swedish.
+"""Old Swedish phonology tools.
 """
 
-from cltk.phonology import utils as ut
+from cltk.phonology.non import utils as ut
 from cltk.phonology.non.old_swedish import transcription as old_swedish
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -10,11 +9,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 class OldSwedishTranscription:
     """
-    >>> text = "sigher hun oc hænnæ frændær".split(" ")
-    >>> transcriber = OldSwedishTranscription()
-    >>> [transcriber.transcribe(word) for word in text]
-    ['siɣɛr', 'hun', 'ok', 'hɛnːɛ', 'frɛndɛr']
-
+    Phonological transcription for Old Swedish.
     """
     def __init__(self):
         self.transcriber = ut.Transcriber(
@@ -25,6 +20,15 @@ class OldSwedishTranscription:
         )
 
     def transcribe(self, word):
+        """
+        >>> text = "sigher hun oc hænnæ frændær".split(" ")
+        >>> transcriber = OldSwedishTranscription()
+        >>> [transcriber.transcribe(word) for word in text]
+        ['siɣɛr', 'hun', 'ok', 'hɛnːɛ', 'frɛndɛr']
+
+        :param word: word to transcribe
+        :return: transcribed word
+        """
         return "".join([phoneme for phoneme in self.transcriber.word_to_phonetic_representation(word) if word])[1:-1]
 
     def __repr__(self):

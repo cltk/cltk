@@ -14,6 +14,10 @@ LOG.addHandler(logging.NullHandler())
 
 
 class Transliterate:
+    """
+    Class that provides a transliteration method from Anglo-Saxon or Anglo-Frisian runic alphabet to Latin alphabet
+    and vice versa.
+    """
     def __init__(self):
         pass
 

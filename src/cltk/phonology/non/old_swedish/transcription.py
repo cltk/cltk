@@ -7,7 +7,7 @@ Sources:
 
 """
 
-from cltk.phonology.utils import *
+from cltk.phonology.non.utils import *
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

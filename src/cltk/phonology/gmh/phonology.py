@@ -1,5 +1,4 @@
-"""
-
+"""Middle High German phonology tools
 """
 
 from cltk.phonology.gmh.transcription import Transcriber

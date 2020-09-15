@@ -1,4 +1,4 @@
-"""
+"""Ancient Greek phonology tools
 
 """
 import unicodedata
@@ -9,10 +9,18 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class GreekTranscription:
+    """
+
+    """
     def __init__(self):
         self.transcriber = gret.Transcriber("Attic", "Probert")
 
     def transcribe(self, word):
+        """
+
+        :param word: word to transcribe
+        :return: transcribed word
+        """
         return self.transcriber.transcribe(unicodedata.normalize("NFC", word))[1:-1]
 
     def __repr__(self):

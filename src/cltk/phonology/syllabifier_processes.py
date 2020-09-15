@@ -1,4 +1,5 @@
-"""This module implements syllabification processes for several languages. You may extend **SyllabificationProcess** and see pre-defined examples.
+"""This module implements syllabification processes for several languages.
+You may extend **SyllabificationProcess** and see pre-defined examples.
 """
 
 
@@ -56,7 +57,8 @@ class LatinSyllabificationProcess(SyllabificationProcess):
 
 
 class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
-    """
+    """Syllabification ``Process`` for Middle English.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
@@ -81,7 +83,8 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
 
 
 class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
-    """
+    """Syllabification ``Process`` for Middle High German.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleHighGermanTokenizationProcess
     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
@@ -106,7 +109,8 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
 
 
 class OldEnglishSyllabificationProcess(SyllabificationProcess):
-    """
+    """Syllabification ``Process`` for Old English.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
     >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
@@ -132,7 +136,8 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
 
 
 class OldNorseSyllabificationProcess(SyllabificationProcess):
-    """
+    """Syllabification ``Process`` for Old Norse.
+
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
     >>> from cltk.filtering.processes import OldNorsePunctuationRemovalProcess

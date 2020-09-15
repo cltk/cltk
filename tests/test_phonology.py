@@ -10,7 +10,6 @@ import unicodedata
 import unittest
 
 from cltk.alphabet.gmh import normalize_middle_high_german
-from cltk.phonology import utils as ut
 from cltk.phonology.arb.romanization import transliterate as arabic_transliterate
 from cltk.phonology.gmh import syllabifier as mhgs
 from cltk.phonology.gmh import transcription as mhgt
@@ -19,6 +18,7 @@ from cltk.phonology.grc import transcription as grc
 from cltk.phonology.lat import transcription as lat
 from cltk.phonology.lat.syllabifier import syllabify as lat_syllabify
 from cltk.phonology.non import transcription as ont
+from cltk.phonology.non import utils as ut
 from cltk.phonology.non.syllabifier import invalid_onsets
 from cltk.phonology.non.old_swedish import transcription as old_swedish
 from cltk.phonology.syllabify import Syllabifier, Syllable

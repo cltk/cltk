@@ -2,7 +2,7 @@
 A module for representing the orthophonology of a language:
 the mapping from orthographic representations to IPA symbols.
 
-Based on many ideas in cltk.phonology.utils by Clément Besnier <clem@clementbesnier.fr>.
+Based on many ideas in cltk.phonology.non.utils by Clément Besnier <clem@clementbesnier.fr>.
 """
 
 import re

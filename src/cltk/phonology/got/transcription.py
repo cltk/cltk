@@ -1,4 +1,4 @@
-"""
+"""Gothic phonological transcription module.
 Sources:
     * https://en.wikipedia.org/wiki/Gothic_language
     * Gotische Grammatik by W. Braune and K. Helm (Max Niemeyer Verlag 1952)
@@ -36,7 +36,7 @@ Remaining issues:
 
 """
 
-from cltk.phonology.utils import *
+from cltk.phonology.non.utils import *
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

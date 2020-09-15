@@ -1,4 +1,5 @@
-"""
+"""Middle High German phonological transcriber module.
+
 Note: there are no definite MHG  phonological rules, so this module serves
 as an approximate reconstruction of the original. As of this version, the Transcribe
 class doesn't support any specific dialects and serves as a superset encompassing
@@ -88,7 +89,7 @@ class Transcriber:
     def transcribe(self, text: str, punctuation=True, with_squared_brackets=True):
         """
         Accepts a word and returns a string of an approximate
-        pronounciation (IPA)
+        pronunciation (IPA)
         :param text:
         :param punctuation:
         :param with_squared_brackets:
