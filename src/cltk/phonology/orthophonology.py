@@ -2,13 +2,19 @@
 A module for representing the orthophonology of a language:
 the mapping from orthographic representations to IPA symbols.
 
+Pre-modern languages are characterized by their non-standardized writing rules.
+Writers attempt to follow rules that fit morphology (words of same family tend to have close spelling)
+and phonology (words of similar pronunciations are written the same way).
+As languages evolve, their phonology changes faster than their writing rules.
+This module aims to unify writing rules with phonological rules by borrowing
+the representation of sound changes used by historical linguistics.
+
 Based on many ideas in cltk.phonology.non.utils by Clément Besnier <clem@clementbesnier.fr>.
 """
 
 import re
 from copy import deepcopy
 from enum import IntEnum, auto
-from functools import reduce
 
 # The list of features and their values are from the IPA charts.
 # Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
