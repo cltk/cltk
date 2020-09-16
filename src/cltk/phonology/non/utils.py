@@ -71,12 +71,10 @@ class AbstractConsonant:
 
 
 class Consonant(AbstractConsonant):
-    """
-    https://en.wikipedia.org/wiki/Consonant
-    A consonant is defined mostly by the its place (where in the vocal tract the obstruction of the consonant occurs,
+    """A `consonant <https://en.wikipedia.org/wiki/Consonant>`_ is defined mostly by the its place (where in the vocal tract the obstruction of the consonant occurs,
     and which speech organs are involved), its manner  how air escapes from the vocal tract when the consonant or
     approximant (vowel-like) sound is made), by if it is voiced or not, its length (if it is geminate). An IPA
-    transcription is given (https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)
+    standard is at: <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>_.
     """
 
     def __init__(self, place, manner, voiced, ipar, geminate):
