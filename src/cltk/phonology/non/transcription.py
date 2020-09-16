@@ -1,6 +1,7 @@
 """Old Norse transcription module. Sources:
 - https://fr.wikipedia.org/wiki/%C3%89criture_du_vieux_norrois
 - Altnordisches Elementarbuch by Friedrich Ranke and Dietrich Hofmann
+
 """
 
 from typing import Union
