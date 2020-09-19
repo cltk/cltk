@@ -44,6 +44,7 @@ class MiddleEnglishStresser:
     """
     Middle English stresser
     """
+
     def __init__(self, syllabifier=None):
         """
 

@@ -1,8 +1,7 @@
 """Latin phonology tools
 """
-from typing import List
-
 import unicodedata
+from typing import List
 
 import cltk.phonology.lat.transcription as latt
 from cltk.phonology.lat.syllabifier import syllabify
@@ -13,6 +12,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 class LatinTranscription:
     """Latin transcriber
     """
+
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
@@ -38,6 +38,7 @@ class LatinTranscription:
 class LatinSyllabifier:
     """Latin syllabifier
     """
+
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 

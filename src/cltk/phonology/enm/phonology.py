@@ -11,6 +11,7 @@ class MiddleEnglishSyllabifier:
     """
     Middle English syllabifier
     """
+
     def __init__(self):
         self.syllabifier = Syllabifier(language="enm")
 

@@ -6,9 +6,8 @@ cltk/phonology/greek/transcription.py
 """
 
 import re
-from typing import List
-
 import unicodedata
+from typing import List
 
 from nltk.tokenize import wordpunct_tokenize
 
@@ -329,11 +328,11 @@ class Word:
             # the previous nucleus and it is the onset.
             for x in range(len(nuclei) - 1):
                 i = nuclei[x + 1]
-                onset = self.phones[nuclei[x] + 1: i]
+                onset = self.phones[nuclei[x] + 1 : i]
                 nucleus = [self.phones[i]]
                 syllables.append([onset, nucleus, []])
             # assume that everything after the final nucleus is final coda.
-            syllables[-1][2] = self.phones[nuclei[-1] + 1:]
+            syllables[-1][2] = self.phones[nuclei[-1] + 1 :]
         else:
             syllables = [[self.phones]]
         # now go through and check onset viability

@@ -16,6 +16,7 @@ class OldEnglishTranscription:
     """
     Old English transcriber
     """
+
     def __init__(self):
         self.transcriber = Transcriber()
 
@@ -41,6 +42,7 @@ class OldEnglishSyllabifier:
     """
     Old English syllabifier
     """
+
     def __init__(self):
         self.syllabifier = Syllabifier(language="ang")
 

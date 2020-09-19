@@ -5,9 +5,8 @@ https://raw.githubusercontent.com/j-duff/cltk/ipa/
 cltk/phonology/lat/transcription.py
 """
 import re
-from typing import List
-
 import unicodedata
+from typing import List
 
 from nltk.tokenize import wordpunct_tokenize
 
@@ -577,12 +576,12 @@ class Word:
         # initialize syllables with a tuple for the first syllable
         # where onset is everything before the first nucleus
         # and coda remains unknown.
-        syllables = [[self.phones[0: nuclei[0]], [self.phones[nuclei[0]]], []]]
+        syllables = [[self.phones[0 : nuclei[0]], [self.phones[nuclei[0]]], []]]
         # continue for every nucleus, assuming that everything between
         # the previous nucleus and it is the onset.
         for x in range(len(nuclei) - 1):
             i = nuclei[x + 1]
-            onset = self.phones[nuclei[x] + 1: i]
+            onset = self.phones[nuclei[x] + 1 : i]
             nucleus = [self.phones[i]]
             syllables.append([onset, nucleus, []])
         # assume that everything after the final nucleus is final coda.
@@ -755,7 +754,14 @@ class Transcriber:
 
         return tup_out
 
-    def transcribe(self, text, macronize=True, syllabify=True, accentuate=True, with_squared_brackets=True):
+    def transcribe(
+        self,
+        text,
+        macronize=True,
+        syllabify=True,
+        accentuate=True,
+        with_squared_brackets=True,
+    ):
         """
         >>> allen_transcriber = Transcriber("Classical", "Allen")
         >>> example = allen_transcriber.transcribe("Quo usque tandem, O Catilina, " + "abutere nostra patientia?")
@@ -794,5 +800,5 @@ class Transcriber:
         # Encloses output in brackets, proper notation for surface form.
         result = " ".join([w._print_ipa(syllabify, accentuate) for w in words])
         if with_squared_brackets:
-            result = "["+result+"]"
+            result = "[" + result + "]"
         return result

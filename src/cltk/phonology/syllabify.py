@@ -86,6 +86,7 @@ class Syllabifier:
     """
     Provides 2 main methods that syllabify words given phonology of its language.
     """
+
     def __init__(
         self,
         low_vowels=None,
@@ -328,7 +329,7 @@ class Syllabifier:
                 i += 1
 
         for n, k in enumerate(syllables):
-            word = word[: k + n + 1] + "." + word[k + n + 1:]
+            word = word[: k + n + 1] + "." + word[k + n + 1 :]
 
         word = word.split(".")
 
@@ -545,8 +546,9 @@ class Syllabifier:
 
         return self.syllabify_ssp(word)
 
-    def syllabify_phonemes(self, phonological_word: List[Union[nonu.Vowel, nonu.Consonant]]) \
-            -> List[List[Union[nonu.Vowel, nonu.Consonant]]]:
+    def syllabify_phonemes(
+        self, phonological_word: List[Union[nonu.Vowel, nonu.Consonant]]
+    ) -> List[List[Union[nonu.Vowel, nonu.Consonant]]]:
         """
         Syllabifies
         :param phonological_word: result of Transcriber().text_to_phonemes in cltk.phonology.non.utils

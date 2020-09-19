@@ -12,6 +12,7 @@ class MiddleHighGermanTranscription:
     """
     Middle High German Transcriber
     """
+
     def __init__(self):
         self.transcriber = Transcriber()
 
@@ -37,6 +38,7 @@ class MiddleHighGermanSyllabifier:
     Middle High German syllabifier based on sonority phoneme hierarchy for MHG.
     Source: Resonances in Middle High German: New Methodologies in Prosody, Christopher Leo Hench, 2017
     """
+
     def __init__(self):
         self.syllabifier = Syllabifier(language="gmh")
 

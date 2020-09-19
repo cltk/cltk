@@ -55,6 +55,7 @@ class Word:
     """
     Word class that helps
     """
+
     def __init__(self, word):
         self.word = word.lower()
         self.syllabified = []

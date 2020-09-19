@@ -11,6 +11,7 @@ class OldSwedishTranscription:
     """
     Phonological transcription for Old Swedish.
     """
+
     def __init__(self):
         self.transcriber = ut.Transcriber(
             old_swedish.DIPHTHONGS_IPA,
@@ -29,7 +30,13 @@ class OldSwedishTranscription:
         :param word: word to transcribe
         :return: transcribed word
         """
-        return "".join([phoneme for phoneme in self.transcriber.word_to_phonetic_representation(word) if word])[1:-1]
+        return "".join(
+            [
+                phoneme
+                for phoneme in self.transcriber.word_to_phonetic_representation(word)
+                if word
+            ]
+        )[1:-1]
 
     def __repr__(self):
         return f"<OldSwedishTranscription>"

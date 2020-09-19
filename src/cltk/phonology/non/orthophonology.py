@@ -135,8 +135,11 @@ class OldNorsePhonologicalTranscriber:
     """
     Old Norse phonological transcriber using orthophonology.
     """
+
     def __init__(self):
-        self.on = Orthophonology(sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa)
+        self.on = Orthophonology(
+            sound_inventory, alphabet, diphthongs_ipa, digraphs_ipa
+        )
 
         self.on.rules = [
             th // f >> Voiced.pos | Consonantal.neg - Consonantal.neg,

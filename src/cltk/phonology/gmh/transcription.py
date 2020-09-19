@@ -86,10 +86,13 @@ class Transcriber:
     """
     Transcriber for Middle High German
     """
+
     def __init__(self):
         pass  # To-do: Add different dialects and/or notations
 
-    def transcribe(self, text: str, punctuation=True, with_squared_brackets=True) -> str:
+    def transcribe(
+        self, text: str, punctuation=True, with_squared_brackets=True
+    ) -> str:
         """
         :param text: text to transcribe
         :param punctuation: if True, keeps punctuation

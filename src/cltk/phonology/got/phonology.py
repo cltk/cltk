@@ -10,6 +10,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 class GothicTranscription:
     """Gothic transcriber
     """
+
     def __init__(self):
         self.transcriber = ut.Transcriber(
             gt.DIPHTHONGS_IPA, gt.DIPHTHONGS_IPA_class, gt.IPA_class, gt.gothic_rules

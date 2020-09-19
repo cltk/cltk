@@ -12,6 +12,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 class GreekTranscription:
     """Ancient Greek transcriber
     """
+
     def __init__(self):
         self.transcriber = gret.Transcriber("Attic", "Probert")
 

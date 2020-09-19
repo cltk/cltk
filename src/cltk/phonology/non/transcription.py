@@ -27,6 +27,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 class OldNorsePhonology(Vowel):
     """Class that applies position-dependent phonological transformation
     """
+
     U_UMLAUT = {"a": "ö", "ö": "u"}
 
     @staticmethod

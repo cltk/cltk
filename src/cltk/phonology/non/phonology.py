@@ -4,9 +4,9 @@
 """
 from typing import List
 
-from cltk.phonology.non import utils as ut
 from cltk.phonology.non import syllabifier as ons
 from cltk.phonology.non import transcription as ont
+from cltk.phonology.non import utils as ut
 from cltk.phonology.syllabify import Syllabifier
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -16,6 +16,7 @@ class OldNorseTranscription:
     """
     Phonological transcriber for Old Norse
     """
+
     def __init__(self):
         self.transcriber = ut.Transcriber(
             ont.DIPHTHONGS_IPA,
@@ -46,6 +47,7 @@ class OldNorseSyllabifier:
     """
     Syllabifier for Old Norse
     """
+
     def __init__(self):
         self.syllabifier = Syllabifier(language="non", break_geminants=True)
 

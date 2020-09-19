@@ -155,6 +155,7 @@ class Transcriber:
     """
 
     """
+
     def __init__(self):
         pass
 
@@ -221,6 +222,7 @@ class Word:
     """
     Transcription of Old English words
     """
+
     def __init__(self, w: str):
         self.word = w
 

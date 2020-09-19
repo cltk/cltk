@@ -8,8 +8,8 @@ from typing import Dict, List, Tuple, Union
 import cltk.phonology.non.syllabifier as old_norse_syllabifier
 import cltk.phonology.non.transcription as old_norse_transcription
 from cltk.core.cltk_logger import logger
-from cltk.phonology.syllabify import Syllabifier
 from cltk.phonology.non.utils import Transcriber
+from cltk.phonology.syllabify import Syllabifier
 from cltk.stops.non import STOPS
 from cltk.tag.pos import POSTag
 from cltk.tokenizers.non import OldNorseWordTokenizer
