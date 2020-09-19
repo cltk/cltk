@@ -1,7 +1,10 @@
 """Module for calculating rhyme scheme for a MHG stanza."""
 
 from cltk.alphabet.gmh import normalize_middle_high_german as normalizer
-from cltk.phonology.middle_high_german.transcription import Transcriber, Word
+from cltk.phonology.gmh.transcription import Transcriber
+from cltk.phonology.syllabify import Syllabifier
+
+syllabifier = Syllabifier(language="gmh")
 
 
 class Verse:
@@ -12,7 +15,9 @@ class Verse:
             normalizer(line, to_lower_all=True, punct=True, alpha_conv=True).split(" ")
             for line in text
         ]
-        self.syllabified = [[Word(w).syllabify() for w in line] for line in self.text]
+        self.syllabified = [
+            [syllabifier.syllabify(w) for w in line] for line in self.text
+        ]
         self.transcribed_phonetics = None
 
     def to_phonetics(self):
@@ -20,7 +25,7 @@ class Verse:
         tr = Transcriber()
         self.transcribed_phonetics = [tr.transcribe(line) for line in self.text]
 
-    def rhyme_scheme(self):
+    def rhyme_scheme(self, rhyme_size=3):
         """
         Calculates the rhyme scheme of a given stanza. It doesn't yet support
         phonetical rhyming (homophones) and thus is still error-prone
@@ -30,7 +35,7 @@ class Verse:
             
             >>> S = Verse(stanza)
             
-            >>> S.rhyme_scheme()
+            >>> S.rhyme_scheme(2)
             'AABB'
         """
         rhymes = dict()
@@ -39,7 +44,7 @@ class Verse:
 
         for line in self.syllabified:
 
-            w = line[-1][-1][-3:]
+            w = line[-1][-1][-rhyme_size:]
 
             for r in rhymes.keys():
                 if r.endswith(w) or w.endswith(r):

@@ -6,7 +6,7 @@ __author__ = [
     "Patrick J. Burns <patrick@diyclassics.org>",
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
     "Natasha Voake <natashavoake@gmail.com>",
-    "Clément Besnier <clemsciences@aol.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
     "Andrew Deloucas <adeloucas@g.harvard.edu>",
     "Todd Cook <todd.g.cook@gmail.com>",
 ]

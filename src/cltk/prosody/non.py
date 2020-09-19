@@ -5,16 +5,16 @@ import re
 from math import floor
 from typing import Dict, List, Tuple, Union
 
-import cltk.phonology.old_norse.syllabifier as old_norse_syllabifier
-import cltk.phonology.old_norse.transcription as old_norse_transcription
+import cltk.phonology.non.syllabifier as old_norse_syllabifier
+import cltk.phonology.non.transcription as old_norse_transcription
 from cltk.core.cltk_logger import logger
+from cltk.phonology.non.utils import Transcriber
 from cltk.phonology.syllabify import Syllabifier
-from cltk.phonology.utils import Transcriber
 from cltk.stops.non import STOPS
 from cltk.tag.pos import POSTag
 from cltk.tokenizers.non import OldNorseWordTokenizer
 
-__author__ = ["Clément Besnier <clemsciences@aol.com>"]
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 # extension of stop words for poetry
@@ -73,16 +73,19 @@ class ShortLine:
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
-    def to_phonetics(self, transcriber):
+    def to_phonetics(self, transcriber, with_squared_brackets=True):
         """
         Phonetic transcription of the ShortLine instances.
         :param transcriber: Old Norse transcriber
+        :param with_squared_brackets:
         :return:
         """
         for viisuordh in self.tokenized_text:
             word = old_norse_normalize(viisuordh)
             if word:
-                transcribed_word = transcriber.text_to_phonetic_representation(word)
+                transcribed_word = transcriber.text_to_phonetic_representation(
+                    word, with_squared_brackets
+                )
                 # phonological features list, result of Transcriber.text_to_phonemes()
                 pfl = transcriber.text_to_phonemes(word)
 
@@ -166,16 +169,19 @@ class LongLine:
             if word:
                 self.syllabified.append(syllabifier.syllabify(word))
 
-    def to_phonetics(self, transcriber):
+    def to_phonetics(self, transcriber, with_squared_brackets=True):
         """
         Phontic transcription of the ShortLine instances.
         :param transcriber: Old Norse transcriber
+        :param with_squared_brackets:
         :return:
         """
         for viisuordh in self.tokenized_text:
             word = old_norse_normalize(viisuordh)
             if word:
-                transcribed_word = transcriber.text_to_phonetic_representation(word)
+                transcribed_word = transcriber.text_to_phonetic_representation(
+                    word, with_squared_brackets
+                )
                 pfl = transcriber.text_to_phonemes(word)
 
                 self.transcribed.append(transcribed_word)
@@ -268,7 +274,7 @@ class Metre:
                     syllabified_text[i].append(short_line.syllabified)
             self.syllabified_text = syllabified_text
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         Transcribing words in verse helps find alliteration.
         """
@@ -291,7 +297,7 @@ class Metre:
                     assert isinstance(short_line, ShortLine) or isinstance(
                         short_line, LongLine
                     )
-                    short_line.to_phonetics(transcriber)
+                    short_line.to_phonetics(transcriber, with_squared_brackets)
                     transcribed_text[i].append(short_line.transcribed)
                     phonological_features_text[i].append(
                         short_line.phonological_features_text
@@ -347,6 +353,7 @@ class UnspecifiedStanza(Metre):
     def from_short_lines_text(self, text: str):
         """
         Example from Völsupá 28
+
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
         >>> us.from_short_lines_text(stanza)
@@ -382,14 +389,14 @@ class UnspecifiedStanza(Metre):
             syllabified_text.append(short_line.syllabified)
         self.syllabified_text = syllabified_text
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
         >>> us.from_short_lines_text(stanza)
-        >>> us.to_phonetics()
+        >>> us.to_phonetics(False)
         >>> us.transcribed_text
-        [['[ɛin]', '[sat]', '[hɔn]', '[uːti]'], ['[θaː]', '[ɛr]', '[inː]', '[aldni]', '[kɔm]'], ['[ygːjunɣr]', '[aːsa]'], ['[ɔk]', '[iː]', '[ɒuɣu]', '[lɛit]'], ['[hvɛrs]', '[frɛɣnið]', '[mik]'], ['[hviː]', '[frɛistið]', '[miːn]'], ['[alːt]', '[vɛit]', '[ɛk]', '[oːðinː]'], ['[hvar]', '[θuː]', '[ɒuɣa]', '[falt]'], ['[iː]', '[inum]', '[mɛːra]'], ['[miːmisbrunːi]'], ['[drɛkːr]', '[mjœð]', '[miːmir]'], ['[mɔrɣun]', '[hvɛrjan]'], ['[av]', '[vɛði]', '[valvœðrs]'], ['[vituð]', '[eːr]', '[ɛnː]', '[ɛða]', '[hvat]']]
+        [['ɛin', 'sat', 'hɔn', 'uːti'], ['θaː', 'ɛr', 'inː', 'aldni', 'kɔm'], ['ygːjunɣr', 'aːsa'], ['ɔk', 'iː', 'ɒuɣu', 'lɛit'], ['hvɛrs', 'frɛɣnið', 'mik'], ['hviː', 'frɛistið', 'miːn'], ['alːt', 'vɛit', 'ɛk', 'oːðinː'], ['hvar', 'θuː', 'ɒuɣa', 'falt'], ['iː', 'inum', 'mɛːra'], ['miːmisbrunːi'], ['drɛkːr', 'mjœð', 'miːmir'], ['mɔrɣun', 'hvɛrjan'], ['av', 'vɛði', 'valvœðrs'], ['vituð', 'eːr', 'ɛnː', 'ɛða', 'hvat']]
 
         :return:
         """
@@ -403,7 +410,7 @@ class UnspecifiedStanza(Metre):
         phonological_features_text = []
         for short_line in self.short_lines:
             assert isinstance(short_line, ShortLine) or isinstance(short_line, LongLine)
-            short_line.to_phonetics(transcriber)
+            short_line.to_phonetics(transcriber, with_squared_brackets)
             transcribed_text.append(short_line.transcribed)
             phonological_features_text.append(short_line.phonological_features_text)
         self.transcribed_text = transcribed_text
@@ -412,6 +419,7 @@ class UnspecifiedStanza(Metre):
     def find_alliteration(self):
         """
         Alliterations in short lines make no sense.
+
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
         >>> us.from_short_lines_text(stanza)
@@ -425,26 +433,10 @@ class UnspecifiedStanza(Metre):
 
 
 class Fornyrdhislag(Metre):
-    """
-    **Fornyrðislag** has two lifts per half line, with two or three (sometimes one)
+    """**Fornyrðislag** has two lifts per half line, with two or three (sometimes one)
     unstressed syllables. At least two lifts, usually three, alliterate,
     always including the main stave (the first lift of the second half-line).
     (See https://en.wikipedia.org/wiki/Alliterative_verse#Old_Norse_poetic_forms)
-
-    Short lines:
-    --------
-    --------
-    --------
-    --------
-    --------
-    --------
-    --------
-
-    Long lines:
-    -------- --------
-    -------- --------
-    -------- --------
-    -------- --------
 
     """
 
@@ -454,6 +446,7 @@ class Fornyrdhislag(Metre):
     def from_short_lines_text(self, text: str):
         """
         Famous example from Völsupá 1st stanza
+
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
         >>> fo.from_short_lines_text(text)
@@ -486,18 +479,18 @@ class Fornyrdhislag(Metre):
         """
         Metre.syllabify(self, hierarchy)
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
         >>> fo.from_short_lines_text(text)
-        >>> fo.to_phonetics()
+        >>> fo.to_phonetics(False)
         >>> fo.transcribed_text
-        [[['[hljoːðs]', '[bið]', '[ɛk]', '[alːar]'], ['[hɛlɣar]', '[kindir]']], [['[mɛiri]', '[ɔk]', '[minːi]'], ['[mœɣu]', '[hɛimdalːar]']], [['[viltu]', '[at]', '[ɛk]', '[valvœðr]'], ['[vɛl]', '[fyr]', '[tɛlja]']], [['[fɔrn]', '[spjœlː]', '[fira]'], ['[θɒu]', '[ɛr]', '[frɛmst]', '[ɔv]', '[man]']]]
+        [[['hljoːðs', 'bið', 'ɛk', 'alːar'], ['hɛlɣar', 'kindir']], [['mɛiri', 'ɔk', 'minːi'], ['mœɣu', 'hɛimdalːar']], [['viltu', 'at', 'ɛk', 'valvœðr'], ['vɛl', 'fyr', 'tɛlja']], [['fɔrn', 'spjœlː', 'fira'], ['θɒu', 'ɛr', 'frɛmst', 'ɔv', 'man']]]
 
         :return:
         """
-        Metre.to_phonetics(self)
+        Metre.to_phonetics(self, with_squared_brackets)
 
     def find_alliteration(self):
         """
@@ -522,19 +515,6 @@ class Ljoodhhaattr(Metre):
 
     See https://en.wikipedia.org/wiki/Alliterative_verse#Lj%C3%B3%C3%B0ah%C3%A1ttr.
 
-    Short lines:
-    --------
-    --------
-    ----------------
-    --------
-    --------
-    ----------------
-
-    Long lines :
-    -------- --------
-    ----------------
-    -------- --------
-    ----------------
     """
 
     def __init__(self):
@@ -543,6 +523,7 @@ class Ljoodhhaattr(Metre):
     def from_short_lines_text(self, text: str):
         """
         Famous example from Hávamál 77
+
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> lj = Ljoodhhaattr()
         >>> lj.from_short_lines_text(text)
@@ -585,17 +566,17 @@ class Ljoodhhaattr(Metre):
         """
         Metre.syllabify(self, hierarchy)
 
-    def to_phonetics(self):
+    def to_phonetics(self, with_squared_brackets=True):
         """
         >>> lj = Ljoodhhaattr()
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> lj.from_short_lines_text(text)
-        >>> lj.to_phonetics()
+        >>> lj.to_phonetics(False)
         >>> lj.transcribed_text
-        [[['[dɐyr]', '[feː]'], ['[dɐyja]', '[frɛːndr]']], [['[dɐyr]', '[sjalvr]', '[it]', '[sama]']], [['[ɛk]', '[vɛit]', '[ɛinː]'], ['[at]', '[aldrɛi]', '[dɐyr]']], [['[doːmr]', '[um]', '[dɒuðan]', '[hvɛrn]']]]
+        [[['dɐyr', 'feː'], ['dɐyja', 'frɛːndr']], [['dɐyr', 'sjalvr', 'it', 'sama']], [['ɛk', 'vɛit', 'ɛinː'], ['at', 'aldrɛi', 'dɐyr']], [['doːmr', 'um', 'dɒuðan', 'hvɛrn']]]
 
         """
-        Metre.to_phonetics(self)
+        Metre.to_phonetics(self, with_squared_brackets)
 
     def find_alliteration(self) -> Tuple[list, list]:
         """

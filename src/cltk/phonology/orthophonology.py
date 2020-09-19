@@ -2,24 +2,31 @@
 A module for representing the orthophonology of a language:
 the mapping from orthographic representations to IPA symbols.
 
-Based on many ideas in cltk.phonology.utils by Clément Besnier <clemsciences@aol.com>.
+Pre-modern languages are characterized by their non-standardized writing rules.
+Writers attempt to follow rules that fit morphology (words of same family tend to have close spelling)
+and phonology (words of similar pronunciations are written the same way).
+As languages evolve, their phonology changes faster than their writing rules.
+This module aims to unify writing rules with phonological rules by borrowing
+the representation of sound changes used by historical linguistics.
+
+Based on many ideas in cltk.phonology.non.utils by Clément Besnier <clem@clementbesnier.fr>.
 """
 
 import re
 from copy import deepcopy
 from enum import IntEnum, auto
-from functools import reduce
+
+# The list of features and their values are from the IPA charts.
+# Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
+from typing import Union
 
 __author__ = [
     "John Stewart <johnstewart@aya.yale.edu>",
-    "Clément Besnier <clemsciences@aol.com>",
+    "Clément Besnier <clem@clementbesnier.fr>",
 ]
 
 
 # ------------------- Phonological Features -------------------
-
-# The list of features and their values are from the IPA charts.
-# Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
 
 
 class PhonologicalFeature(IntEnum):
@@ -285,7 +292,7 @@ class AbstractPhoneme:
         return PhonemeDisjunction(self, other)
 
 
-def make_phoneme(*feature_values):
+def make_phoneme(*feature_values) -> AbstractPhoneme:
     """
     Creates an abstract phoneme made of the feature specifications given in the vararg.
     """
@@ -329,7 +336,7 @@ class AlwaysMatchingPseudoPhoneme(AbstractPhoneme):
     def __init__(self):
         AbstractPhoneme.__init__(self, ipa="*")
 
-    def matches(self, other):
+    def matches(self, other: AbstractPhoneme) -> bool:
         return True
 
 
@@ -341,10 +348,10 @@ class WordBoundaryPseudoPhoneme(AbstractPhoneme):
     def __init__(self):
         AbstractPhoneme.__init__(self, ipa="#")
 
-    def matches(self, other):
+    def matches(self, other) -> bool:
         return other is None
 
-    def is_equal(self, other):
+    def is_equal(self, other) -> bool:
         return self is other
 
 
@@ -357,7 +364,7 @@ class SyllableBoundaryPseudoPhoneme(AbstractPhoneme):
     def __init__(self):
         AbstractPhoneme.__init__(self, ipa="$")
 
-    def matches(self, other):
+    def matches(self, other) -> bool:
         if other is None:
             return True
         elif getattr(self, "env_start", False) and getattr(
@@ -426,7 +433,7 @@ class PhonemeDisjunction(list):
             action=lambda target: target << other,
         )
 
-    def matches(self, other):
+    def matches(self, other) -> bool:
         """
         A disjunctive list matches a phoneme if any of its members matches the phoneme.
         If other is also a disjunctive list, any match between this list and the other returns true.
@@ -496,7 +503,7 @@ class Consonant(AbstractPhoneme):
             ipa,
         )
 
-    def is_more_sonorous(self, other):
+    def is_more_sonorous(self, other) -> bool:
         """
         compare this phoneme to another for sonority.
         Used for SSP considerations.
@@ -576,7 +583,7 @@ class Vowel(AbstractPhoneme):
         vowel.ipa += "ː"
         return vowel
 
-    def is_more_sonorous(self, other):
+    def is_more_sonorous(self, other) -> bool:
         """
         compare this phoneme to another for sonority.
         Used for SSP considerations.
@@ -607,12 +614,12 @@ class BasePhonologicalRule:
     Specifically, a rule specifies a condition and an action.
 
     * The condition characterizes the phonological environment of a phoneme in terms of the
-    characteristics of the phomeme before it (if any), and after it (if any).
-    In general it is a function taking three arguments: before, target, after, the phonemes in the environment,
-    an returning a boolean for whether the rule should fire.
-
+      characteristics of the phomeme before it (if any), and after it (if any).
+      In general it is a function taking three arguments: before, target, after, the phonemes in the environment,
+      an returning a boolean for whether the rule should fire.
     * The action defines a transformation of the target phoneme, e.g. its vocalization.
-    It is a function taking only the action, which returns the replacement phoneme OR a *list* of phonemes.
+      It is a function taking only the action, which returns the replacement phoneme OR a *list* of phonemes.
+
     """
 
     def __init__(self, condition, action):
@@ -731,11 +738,14 @@ pde_phonotactics = [(r"(^|(?<= ))hw", "wh"), (r"oo(.)(^|(?= ))", "o\\1e")]
 class Orthophonology:
     """
     The ortho-phonology of a language is described by:
+
     * The inventory of all the phonemes of the language.
     * A mapping of orthographic symbols to phonemes.
     * mappings of orthographic symbols pairs to:
-        * diphthongs
-        * phonemes (i.e. digraphs)
+
+      * diphthongs
+      * phonemes (i.e. digraphs)
+
     * phonological rules for the contextual transformation of phonological representations.
 
     The class is very clearly aimed at alphabetic orthographies.
@@ -765,7 +775,7 @@ class Orthophonology:
         self.rules.append(rule)
 
     # these are not static because language-specific subclasses probably need access to the sound inventory
-    def is_syllable_initial(self, phonemes, pos):
+    def is_syllable_initial(self, phonemes, pos) -> bool:
         if pos == len(phonemes) - 1:
             return False
         # start of word is always syllable-initial, otherwise use SSP
@@ -774,7 +784,7 @@ class Orthophonology:
             and not phonemes[pos].is_more_sonorous(phonemes[pos + 1])
         )
 
-    def is_syllable_final(self, phonemes, pos):
+    def is_syllable_final(self, phonemes, pos) -> bool:
         # end of word is always syllable-final, otherwise use SSP
         return pos == len(phonemes) - 1 or self.is_syllable_initial(phonemes, pos + 1)
 
@@ -816,7 +826,7 @@ class Orthophonology:
 
         i = 0
         while i < len(word):
-            # check for digraphs and dipththongs
+            # check for digraphs and diphthongs
             if i < len(word) - 1 and word[i : i + 2] in self.di:
                 letter_pair = word[i : i + 2]
                 replacement = self.di[letter_pair]
@@ -850,9 +860,9 @@ class Orthophonology:
 
         return phonemes
 
-    def transcribe(self, text, as_phonemes=False):
+    def transcribe(self, text: str, as_phonemes=False) -> Union[str, list]:
         """
-        Trascribes a text, which is first tokenized for words, then each word is transcribed.
+        Transcribes a text, which is first tokenized for words, then each word is transcribed.
         If as_phonemes is true, returns a list of list of phoneme objects,
         else returns a string concatenation of the IPA symbols of the phonemes.
         """
@@ -865,10 +875,10 @@ class Orthophonology:
         else:
             return phoneme_words
 
-    def transcribe_to_modern(self, text):
+    def transcribe_to_modern(self, text: str) -> str:
         """
-        A very first attempt at trancribing from IPA to some modern orthography.
-        The method is intended to provide the student with clues to the pronounciation of old orthographies.
+        A very first attempt at transcribing from IPA to some modern orthography.
+        The method is intended to provide the student with clues to the pronunciation of old orthographies.
         """
         # first transcribe letter by letter
         phoneme_words = self.transcribe(text, as_phonemes=True)
@@ -884,7 +894,7 @@ class Orthophonology:
 
         return modern_text
 
-    def voice(self, consonant):
+    def voice(self, consonant: Consonant) -> Consonant:
         """
         Voices a consonant, by searching the sound inventory for a consonant having the same
         features as the argument, but +voice.
@@ -893,7 +903,7 @@ class Orthophonology:
         voiced_consonant[Voiced] = Voiced.pos
         return self._find_sound(voiced_consonant)
 
-    def aspirate(self, consonant):
+    def aspirate(self, consonant: Consonant) -> Consonant:
         """
         Aspirates a consonant, by searching the sound inventory for a consonant having the same
         features as the argument, but +aspirated.
@@ -902,7 +912,7 @@ class Orthophonology:
         aspirated_consonant[Aspirated] = Aspirated.pos
         return self._find_sound(aspirated_consonant)
 
-    def geminate(self, consonant):
+    def geminate(self, consonant: Consonant) -> Consonant:
         """
 
         :param consonant:
@@ -913,13 +923,13 @@ class Orthophonology:
         return self._find_sound(geminate_consonant)
 
     @staticmethod
-    def lengthen(vowel):
+    def lengthen(vowel) -> Vowel:
         """
         Returns a lengthened copy of the vowel argument.
         """
         return vowel.lengthen()
 
-    def __call__(self, text, as_phonemes=False):
+    def __call__(self, text, as_phonemes=False) -> Union[str, list]:
         """
         syntactic sugar for call the transcribe method
         """

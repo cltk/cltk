@@ -7,7 +7,6 @@ Module :mod:`cltk.languages.pipelines` contains all pre-configured pipelines.
 
 .. contents::
    :depth: 2
-   :numbered:
 
 Akkadian
 --------

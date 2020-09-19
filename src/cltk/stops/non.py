@@ -1,5 +1,5 @@
 """
-Old Norse: "Clément Besnier <clemsciences@aol.com>". Stopwords were defined by picking up in Altnordisches Elementarbuch by Ranke and Hofmann A new introduction to Old Norse by Barnes Viking Language 1 by Byock (this book provides a list of most frequent words in the sagas sorted by part of speech)
+Old Norse: "Clément Besnier <clem@clementbesnier.fr>". Stopwords were defined by picking up in Altnordisches Elementarbuch by Ranke and Hofmann A new introduction to Old Norse by Barnes Viking Language 1 by Byock (this book provides a list of most frequent words in the sagas sorted by part of speech)
 """
 
 STOPS = [

@@ -4,11 +4,11 @@ Spencer in C# and Javascript. Original documentation from Fr. Spencer
 is preserved where applicable.
 """
 
-__author__ = ["Luke Hollis <lukehollis@gmail.com>"]
-__license__ = "MIT License. See LICENSE."
-
 import re
 from typing import List
+
+__author__ = ["Luke Hollis <lukehollis@gmail.com>"]
+__license__ = "MIT License. See LICENSE."
 
 # nota bene: ui is only a diphthong in the exceptional
 # cases below (according to Wheelock's Latin)
@@ -108,27 +108,27 @@ LATIN = {
 }
 
 
-def _is_consonant(char):
+def _is_consonant(char: str) -> bool:
     """Checks if char is in the list of vowels in the language"""
-    return not char in LATIN["vowels"]
+    return char not in LATIN["vowels"]
 
 
-def _is_vowel(char):
+def _is_vowel(char: str) -> bool:
     """Checks if char is in the list of vowels in the language"""
     return char in LATIN["vowels"]
 
 
-def _is_diphthong(char_1, char_2):
+def _is_diphthong(char_1: str, char_2: str) -> bool:
     """Checks if two sequential characters compose a diphthong"""
     return char_1 + char_2 in LATIN["diphthongs"]
 
 
-def _is_mute_consonant_or_f(char):
+def _is_mute_consonant_or_f(char: str) -> bool:
     """Checks if char is in the mute_consonants_and_f list"""
     return char in LATIN["mute_consonants_and_f"]
 
 
-def _is_liquid_consonant(char):
+def _is_liquid_consonant(char: str) -> bool:
     """Checks if char is in the mute_consonants_and_f list"""
     return char in LATIN["liquid_consonants"]
 
@@ -213,7 +213,10 @@ def syllabify(word: str) -> List[str]:
                             and next_char != "u"
                         )
                     ) or (
-                        # If the next character's a consonant but not a double consonant, unless it's a mute consonant followed by a liquid consonant
+                        # If the next character's a consonant
+                        # but not a double consonant,
+                        # unless it's a mute consonant followed
+                        # by a liquid consonant
                         i < word_len - 2
                         and (
                             (

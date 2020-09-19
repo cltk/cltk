@@ -103,8 +103,8 @@ def stem(
     """
     Stem a Middle High German word.
 
-	rem_umlauts: choose whether to remove umlauts from string
-	exceptions: hard-coded dictionary for the cases the algorithm fails
+    rem_umlauts: choose whether to remove umlauts from string
+    exceptions: hard-coded dictionary for the cases the algorithm fails
 
     >>> stem('tagen')
     'tag'

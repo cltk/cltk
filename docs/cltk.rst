@@ -16,6 +16,7 @@ Subpackages
    cltk.data
    cltk.dependency
    cltk.embeddings
+   cltk.filtering
    cltk.languages
    cltk.lemmatize
    cltk.ner

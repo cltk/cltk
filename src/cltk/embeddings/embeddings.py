@@ -2,10 +2,10 @@
 <https://fasttext.cc/>`_ and `Word2Vec embeddings from NLPL
 <http://vectors.nlpl.eu/repository/>`_. Two sets of models are available
 from fastText, one being trained only on corpora taken from
-Wikipedia (249 languages, `here
+Wikipedia (`249 languages
 <https://fasttext.cc/docs/en/pretrained-vectors.html>`_) and
 the other being a combination of Wikipedia and Common Crawl
-(157 languages, a subset of the former, `here
+(`157 languages, a subset of the former
 <https://fasttext.cc/docs/en/crawl-vectors.html>`_).
 
 The Word2Vec models are in two versions, ``txt`` and ``bin``, with the
@@ -343,7 +343,8 @@ class FastTextEmbeddings:
         """Create filepath at which to save a downloaded
         fasttext model.
 
-        TODO: Do better than test for just name. Try trimming up to user home dir.
+        .. todo::
+           Do better than test for just name. Try trimming up to user home dir.
 
         >>> from cltk.embeddings.embeddings import FastTextEmbeddings  # doctest: +SKIP
         >>> embeddings_obj = FastTextEmbeddings(iso_code="lat", silent=True)  # doctest: +SKIP

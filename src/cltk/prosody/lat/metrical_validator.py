@@ -37,8 +37,8 @@ class MetricalValidator:
     def is_valid_hendecasyllables(self, scanned_line: str) -> bool:
         """Determine if a scansion pattern is one of the valid Hendecasyllables metrical patterns
 
-        :param scanned_line: a line containing a sequence of stressed and unstressed syllables
-        :return bool
+        Args:
+            scanned_line: a line containing a sequence of stressed and unstressed syllables
 
         >>> print(MetricalValidator().is_valid_hendecasyllables("-U-UU-U-U-U"))
         True

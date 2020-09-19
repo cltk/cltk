@@ -6,6 +6,7 @@ cltk/phonology/lat/transcription.py
 """
 import re
 import unicodedata
+from typing import List
 
 from nltk.tokenize import wordpunct_tokenize
 
@@ -246,12 +247,16 @@ IPA = {
 
 
 class Phone:
-    "A phonological unit to be manipulated and represented as an IPA string."
+    """A phonological unit to be manipulated and represented as an IPA string."""
 
     # Has a bundle of feature values that help classify it so that it can
     # trigger contextual pronunciation changes.
 
-    def __init__(self, ipa_ch):
+    def __init__(self, ipa_ch: str):
+        """
+        Analyzes features of phonetic signs
+        :param ipa_ch: phonetic sign from IPA
+        """
 
         # eventually exported to output string
         self.ipa = unicodedata.normalize("NFC", ipa_ch)
@@ -278,14 +283,22 @@ class Phone:
         self.bk = self.ipa in IPA["back"]
         self.bound = self.ipa in IPA["boundary"]
 
+    def __repr__(self):
+        return self.ipa
+
 
 class Word:
-    "Max. phonological unit, contains phones and triggers alternations."
+    """Max. phonological unit, contains phones and triggers alternations."""
 
     # An ordered collection of Phones, which are bundles of
     # features/IPA strings.
 
-    def __init__(self, ipa_str, root):
+    def __init__(self, ipa_str: str, root: dict):
+        """
+
+        :param ipa_str:
+        :param root:
+        """
         self.string = unicodedata.normalize("NFC", ipa_str)
         # Appropriate directory in the reconstruction dictionary
         self.root = root
@@ -294,8 +307,12 @@ class Word:
         # Turns string of IPA characters into list of Phones
         self.phones = [Phone(c) for c in re.findall(r".[̪̣̃ʷʰ]*ː?", self.string)]
 
-    # Assigns left and right contexts for every phone
+        self.syllables = []
+
     def _refresh(self):
+        """
+        Assigns left and right contexts for every phone
+        """
         for n in range(len(self.phones)):
             p = self.phones[n]
             if n != 0:
@@ -308,7 +325,9 @@ class Word:
                 p.right = Phone("#")
 
     def _j_maker(self):
-        # Assume word-initial or intervocalic i to be j
+        """
+        Assume word-initial or intervocalic i to be j
+        """
         out_phones = self.phones
         target = Phone("j")
         for n in range(len(self.phones)):
@@ -321,7 +340,9 @@ class Word:
         self._refresh()
 
     def _w_maker(self):
-        # Assume word-initial or intervocalic u to be w
+        """
+        Assume word-initial or intervocalic u to be w
+        """
         out_phones = self.phones
         target = Phone("w")
         for n in range(len(self.phones)):
@@ -335,7 +356,9 @@ class Word:
         self._refresh()
 
     def _wj_block(self):
-        # Addendum to correct possible 'wj' sequences
+        """
+        Addendum to correct possible 'wj' sequences
+        """
         out_phones = self.phones
         target = Phone("ɪ")
         for n in range(len(self.phones)):
@@ -346,7 +369,9 @@ class Word:
         self._refresh()
 
     def _uj_diph_maker(self):
-        # Find accidental "ʊɪ" instances and treat as diphthong [uj].
+        """
+        Find accidental "ʊɪ" instances and treat as diphthong [uj].
+        """
         out_phones = self.phones
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -357,7 +382,9 @@ class Word:
         self._refresh()
 
     def _b_devoice(self):
-        # Pronounce b as p when followed by s or t.
+        """
+        Pronounce b as p when followed by s or t.
+        """
         out_phones = self.phones
         target = Phone("p")
         for n in range(len(self.phones)):
@@ -368,7 +395,9 @@ class Word:
         self._refresh()
 
     def _final_m_drop(self):
-        # Final m nasalizes and lengthens nucleus and drops.
+        """
+        Final m nasalizes and lengthens nucleus and drops.
+        """
         out_phones = self.phones
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -379,7 +408,9 @@ class Word:
         self._refresh()
 
     def _n_place_assimilation(self):
-        # Pronounce n as ŋ when followed by velar.
+        """
+        Pronounce n as ŋ when followed by velar.
+        """
         out_phones = self.phones
         target = Phone("ŋ")
         for n in range(len(self.phones)):
@@ -390,7 +421,10 @@ class Word:
         self._refresh()
 
     def _g_n_nasality_assimilation(self):
-        # Pronounce g as ŋ when followed by n.
+        """
+        Pronounce g as ŋ when followed by n.
+        """
+
         out_phones = self.phones
         target = Phone("ŋ")
         for n in range(len(self.phones)):
@@ -401,7 +435,9 @@ class Word:
         self._refresh()
 
     def _ns_nf_lengthening(self):
-        # Lengthen vowel before ns or nf.
+        """
+        Lengthen vowel before ns or nf.
+        """
         out_phones = self.phones
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -416,7 +452,9 @@ class Word:
         self._refresh()
 
     def _l_darken(self):
-        # Pronounce l as ɫ in coda.
+        """
+        Pronounce l as ɫ in coda.
+        """
         out_phones = self.phones
         target = Phone("ɫ")
         for n in range(len(self.phones)):
@@ -427,7 +465,9 @@ class Word:
         self._refresh()
 
     def _j_z_doubling(self):
-        # Double j and z between vowels.
+        """
+        Double j and z between vowels.
+        """
         out_phones = self.phones
         dupl = []
         for n in range(len(self.phones)):
@@ -443,7 +483,9 @@ class Word:
         self._refresh()
 
     def _long_vowel_catcher(self):
-        # Replace ɪː with iː, ʊː with uː, and ɛː with eː.
+        """
+        Replace ɪː with iː, ʊː with uː, and ɛː with eː.
+        """
         out_phones = self.phones
         target_dict = {
             "ɪː": "iː",
@@ -461,7 +503,9 @@ class Word:
         self._refresh()
 
     def _e_i_closer_before_vowel(self):
-        # e and i become closer (̣) when followed by a vowel.
+        """
+        e and i become closer (̣) when followed by a vowel.
+        """
         out_phones = self.phones
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -471,7 +515,9 @@ class Word:
         self._refresh()
 
     def _intervocalic_j(self):
-        # epenthesize j between vowels
+        """
+        epenthesize j between vowels
+        """
         out_phones = self.phones
         target = Phone("j")
         j = []
@@ -506,17 +552,22 @@ class Word:
     ]
 
     def _alternate(self):
-        # after setting left and right contexts for every phone...
+        """
+        After setting left and right contexts for every phone...
+        """
         self._refresh()
         # runs all alternations
         for a in Word.ALTERNATIONS:
             if a[0] in self.alts:
                 a[1](self)
 
-    def _syllabify(self):
-        # takes Word input and returns a list of syllables as
-        # (onset, nucleus, coda) tuples
-        # where onset, nucleus, and coda are all lists of Phones.
+    def syllabify(self) -> List[List[Phone]]:
+        """
+        Takes Word input and returns a list of syllables
+        as (onset, nucleus, coda) tuples
+        where onset, nucleus, and coda are all lists of Phones.
+        :return: list of syllables
+        """
         nuclei = []
         for n in range(len(self.phones)):
             p = self.phones[n]
@@ -566,11 +617,18 @@ class Word:
         return syllables
 
     def _print_ipa(self, syllabify, accentuate):
-        # depending on the syllabify and accentuate parameters
-        # prints an appropriately marked up version of the transcription
+        """
+        Depending on the syllabify and accentuate parameters
+        Prints an appropriately marked up version of the transcription
+
+        :param syllabify:
+        :param accentuate:
+        :return:
+        """
+
         out = ""
         if syllabify:
-            syllables = self._syllabify()
+            syllables = self.syllabify()
             # the ultima is the final syllable
             ultima = syllables[-1]
             # identify which syllable has stress and store index as accent
@@ -630,9 +688,14 @@ class Word:
 
 
 class Transcriber:
-    "Uses a reconstruction to transcribe a orthographic string into IPA."
+    """Uses a reconstruction to transcribe a orthographic string into IPA."""
 
-    def __init__(self, dialect, reconstruction):
+    def __init__(self, dialect: str, reconstruction: str):
+        """
+
+        :param dialect: Latin dialect
+        :param reconstruction: reconstruction method
+        """
         self.lect = dialect
         self.recon = reconstruction
         self.root = LATIN[self.lect][self.recon]
@@ -641,10 +704,14 @@ class Transcriber:
         self.punc = self.root["punctuation"]
         self.macronizer = m.Macronizer("tag_ngram_123_backoff")
 
-    def _parse_diacritics(self, ch):
-        # Returns a string with seperated and organized diacritics
-        # for easier access later.
-        # EG: input with base a -> a/LENGTH/DIAERESIS/
+    def _parse_diacritics(self, ch: str) -> str:
+        """
+
+        EG: input with base a -> a/LENGTH/DIAERESIS/
+
+        :param ch: character
+        :return: a string with separated and organized diacritics for easier access later.
+        """
 
         out = chars.base(ch).lower()  # Initialize out as base of character.
 
@@ -654,22 +721,26 @@ class Transcriber:
         out += "/"  # Create 1st boundary
 
         # If any length, place between 1st and 2nd boundary
-        if length != None:
+        if length:
             out += length
 
         out += "/"  # Create 2nd boundary
 
-        if dia != None:  # If any diaeresis,
+        if dia:  # If any diaeresis,
             out += dia  # place between second and final boundary
 
         out += "/"  # Create final boundary
 
         return out
 
-    def _prep_text(self, text):
-        # Performs preperatory tasks grouping and reordering characters
-        # in order to make transcription formulaic.
+    def _prep_text(self, text: str):
+        """
+        Performs preparatory tasks grouping and reordering characters
+        in order to make transcription formulaic.
 
+        :param text:
+        :return:
+        """
         string_in = "".join([self._parse_diacritics(ch) for ch in text])
 
         # searches for diphthongs and treats them as one phone
@@ -683,7 +754,27 @@ class Transcriber:
 
         return tup_out
 
-    def transcribe(self, text, macronize=True, syllabify=True, accentuate=True):
+    def transcribe(
+        self,
+        text,
+        macronize=True,
+        syllabify=True,
+        accentuate=True,
+        with_squared_brackets=True,
+    ):
+        """
+        >>> allen_transcriber = Transcriber("Classical", "Allen")
+        >>> example = allen_transcriber.transcribe("Quo usque tandem, O Catilina, " + "abutere nostra patientia?")
+        >>> example
+        "['kʷoː 'ʊs.kʷɛ 't̪an̪.d̪ẽː 'oː ka.t̪ɪ.'liː.n̪aː a.buː.'t̪eː.rɛ 'n̪ɔs.t̪raː pa.t̪ɪ̣.'jɛn̪.t̪ɪ̣.ja]"
+
+        :param text: text to transcribe
+        :param macronize: if True, macronize result
+        :param syllabify: if True, syllabify result
+        :param accentuate: if True, accentuate result
+        :param with_squared_brackets: if True, put squared brackets around transcription
+        :return: transcribed text
+        """
         # if macronize, will first use the tagger to macronize input
         # otherwise, input will be the raw input string
         if macronize:
@@ -707,14 +798,7 @@ class Transcriber:
             transcription._alternate()
             words.append(transcription)
         # Encloses output in brackets, proper notation for surface form.
-        return (
-            "[" + " ".join([w._print_ipa(syllabify, accentuate) for w in words]) + "]"
-        )
-
-
-if __name__ == "__main__":
-    allen_transcriber = Transcriber("Classical", "Allen")
-    example = allen_transcriber.transcribe(
-        "Quo usque tandem, O Catilina, " + "abutere nostra patientia?"
-    )
-    print(example)
+        result = " ".join([w._print_ipa(syllabify, accentuate) for w in words])
+        if with_squared_brackets:
+            result = "[" + result + "]"
+        return result

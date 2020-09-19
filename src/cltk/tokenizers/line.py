@@ -21,6 +21,7 @@ class LineTokenizer:
 
     def tokenize(self: object, untokenized_string: str, include_blanks=False):
         """Tokenize lines by '\n'.
+
         :type untokenized_string: str
         :param untokenized_string: A string containing one of more sentences.
         :param include_blanks: Boolean; If True, blanks will be preserved by "" in returned list of strings; Default is False.
