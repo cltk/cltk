@@ -1,5 +1,4 @@
-"""
-Arabic module
+"""Arabic module
 
 Features:
 =========
@@ -12,7 +11,10 @@ Features:
     * Letters normalization ( Ligatures and Hamza)
 
 
-Includes code written by 'Arabtechies',  'Arabeyes',   'Taha Zerrouki'.
+Includes code written by 'Arabtechies', 'Arabeyes',  'Taha Zerrouki'.
+
+.. todo::
+   Remove, rewrite, and/or refactor this due to GPL.
 
 """
 
@@ -351,7 +353,7 @@ def is_tatweel(archar):
 
 
 def is_tanwin(archar):
-    """Checks for Arabic Tanwin Marks (FATHATAN,  DAMMATAN,  KASRATAN).
+    """Checks for Arabic Tanwin Marks (FATHATAN, DAMMATAN, KASRATAN).
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -361,10 +363,12 @@ def is_tanwin(archar):
 
 
 def is_tashkeel(archar):
-    """Checks for Arabic Tashkeel Marks (
-        - FATHA, DAMMA, KASRA,  SUKUN,
-        - SHADDA,
-        - FATHATAN, DAMMATAN,  KASRATAn).
+    """Checks for Arabic Tashkeel Marks:
+
+    - FATHA, DAMMA, KASRA, SUKUN,
+    - SHADDA,
+    - FATHATAN, DAMMATAN, KASRATAN.
+
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -395,7 +399,7 @@ def is_shortharaka(archar):
 
 def is_ligature(archar):
     """Checks for Arabic  Ligatures like LamAlef.
-    (LAM_ALEF,  LAM_ALEF_HAMZA_ABOVE,  LAM_ALEF_HAMZA_BELOW,  LAM_ALEF_MADDA_ABOVE)
+    (LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_HAMZA_BELOW, LAM_ALEF_MADDA_ABOVE)
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -406,7 +410,7 @@ def is_ligature(archar):
 
 def is_hamza(archar):
     """Checks for Arabic  Hamza forms.
-    HAMZAT are (HAMZA,  WAW_HAMZA,  YEH_HAMZA,  HAMZA_ABOVE,  HAMZA_BELOW, ALEF_HAMZA_BELOW,  ALEF_HAMZA_ABOVE )
+    HAMZAT are (HAMZA, WAW_HAMZA, YEH_HAMZA, HAMZA_ABOVE, HAMZA_BELOW, ALEF_HAMZA_BELOW, ALEF_HAMZA_ABOVE )
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -417,7 +421,7 @@ def is_hamza(archar):
 
 def is_alef(archar):
     """Checks for Arabic Alef forms.
-    ALEFAT = (ALEF,  ALEF_MADDA,  ALEF_HAMZA_ABOVE,  ALEF_HAMZA_BELOW, ALEF_WASLA,  ALEF_MAKSURA )
+    ALEFAT = (ALEF, ALEF_MADDA, ALEF_HAMZA_ABOVE, ALEF_HAMZA_BELOW, ALEF_WASLA, ALEF_MAKSURA )
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -428,7 +432,7 @@ def is_alef(archar):
 
 def is_yehlike(archar):
     """Checks for Arabic Yeh forms.
-    Yeh forms : YEH,  YEH_HAMZA,  SMALL_YEH,  ALEF_MAKSURA
+    Yeh forms : YEH, YEH_HAMZA, SMALL_YEH, ALEF_MAKSURA
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -439,7 +443,7 @@ def is_yehlike(archar):
 
 def is_wawlike(archar):
     """Checks for Arabic Waw like forms.
-    Waw forms : WAW,  WAW_HAMZA,  SMALL_WAW
+    Waw forms : WAW, WAW_HAMZA, SMALL_WAW
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -450,7 +454,7 @@ def is_wawlike(archar):
 
 def is_teh(archar):
     """Checks for Arabic Teh forms.
-    Teh forms : TEH,  TEH_MARBUTA
+    Teh forms : TEH, TEH_MARBUTA
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -461,7 +465,7 @@ def is_teh(archar):
 
 def is_small(archar):
     """Checks for Arabic Small letters.
-    SMALL Letters : SMALL ALEF,  SMALL WAW,  SMALL YEH
+    SMALL Letters : SMALL ALEF, SMALL WAW, SMALL YEH
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -472,7 +476,7 @@ def is_small(archar):
 
 def is_weak(archar):
     """Checks for Arabic Weak letters.
-    Weak Letters : ALEF,  WAW,  YEH,  ALEF_MAKSURA
+    Weak Letters : ALEF, WAW, YEH, ALEF_MAKSURA
     @param archar: arabic unicode char
     @type archar: unicode
     @return:
@@ -508,8 +512,8 @@ def is_sun(archar):
 #####################################
 def order(archar):
     """return Arabic letter order between 1 and 29.
-    Alef order is 1,  Yeh is 28,  Hamza is 29.
-    Teh Marbuta has the same ordre with Teh,  3.
+    Alef order is 1, Yeh is 28, Hamza is 29.
+    Teh Marbuta has the same ordre with Teh, 3.
     @param archar: arabic unicode char
     @type archar: unicode
     @return: arabic order.
@@ -519,8 +523,8 @@ def order(archar):
 
 
 def name(archar):
-    """return Arabic letter name in arabic.     Alef order is 1,  Yeh is 28,
-    Hamza is 29. Teh Marbuta has the same ordre with Teh,  3.
+    """return Arabic letter name in arabic.     Alef order is 1, Yeh is 28,
+    Hamza is 29. Teh Marbuta has the same ordre with Teh, 3.
     @param archar: arabic unicode char
     @type archar: unicode
     @return: arabic name.
@@ -598,8 +602,8 @@ def is_vocalizedtext(text):
 
 def is_arabicstring(text):
     """ Checks for an  Arabic standard Unicode block characters
-    An arabic string can contain spaces,  digits and pounctuation.
-    but only arabic standard characters,  not extended arabic
+    An arabic string can contain spaces, digits and pounctuation.
+    but only arabic standard characters, not extended arabic
     @param text: input text
     @type text: unicode
     @return: True if all charaters are in Arabic block
@@ -628,8 +632,8 @@ def is_arabicrange(text):
 
 def is_arabicword(word):
     """ Checks for an valid Arabic  word.
-    An Arabic word not contains spaces,  digits and pounctuation
-    avoid some spelling error,   TEH_MARBUTA must be at the end.
+    An Arabic word not contains spaces, digits and pounctuation
+    avoid some spelling error,  TEH_MARBUTA must be at the end.
     @param word: input word
     @type word: unicode
     @return: True if all charaters are in Arabic block
@@ -710,10 +714,10 @@ def secondlast_char(word):
 def strip_harakat(text):
     """Strip Harakat from arabic word except Shadda.
     The striped marks are :
-        - FATHA,  DAMMA,  KASRA
-        - SUKUN
-        - FATHATAN,  DAMMATAN,  KASRATAN,
 
+    - FATHA, DAMMA, KASRA
+    - SUKUN
+    - FATHATAN, DAMMATAN, KASRATAN,
 
     @param text: arabic text.
     @type text: unicode.
@@ -733,10 +737,11 @@ def strip_harakat(text):
 
 def strip_lastharaka(text):
     """Strip the last Haraka from arabic word except Shadda.
-    The striped marks are :
-        - FATHA,  DAMMA,  KASRA
-        - SUKUN
-        - FATHATAN,  DAMMATAN,  KASRATAN
+    The striped marks are:
+
+    - FATHA, DAMMA, KASRA
+    - SUKUN
+    - FATHATAN, DAMMATAN, KASRATAN
 
     @param text: arabic text.
     @type text: unicode.
@@ -750,12 +755,13 @@ def strip_lastharaka(text):
 
 
 def strip_tashkeel(text):
-    """Strip vowels from a text,  include Shadda.
-    The striped marks are :
-        - FATHA,  DAMMA,  KASRA
-        - SUKUN
-        - SHADDA
-        - FATHATAN,  DAMMATAN,  KASRATAN,  ,  ,  .
+    """Strip vowels from a text, include Shadda.
+    The striped marks are:
+
+    - FATHA, DAMMA, KASRA
+    - SUKUN
+    - SHADDA
+    - FATHATAN, DAMMATAN, KASRATAN
 
     @param text: arabic text.
     @type text: unicode.
@@ -800,8 +806,7 @@ def normalize_ligature(text):
     and Tand return a result text.
     Some systems present lamAlef ligature as a single letter,
     this function convert it into two letters,
-    The converted letters into  LAM and ALEF are :
-        - LAM_ALEF,  LAM_ALEF_HAMZA_ABOVE,  LAM_ALEF_HAMZA_BELOW,  LAM_ALEF_MADDA_ABOVE
+    The converted letters into  LAM and ALEF are: LAM_ALEF, LAM_ALEF_HAMZA_ABOVE, LAM_ALEF_HAMZA_BELOW, LAM_ALEF_MADDA_ABOVE
 
     @param text: arabic text.
     @type text: unicode.
@@ -840,8 +845,8 @@ def normalize_hamza(word):
 
 def separate(word, extract_shadda=False):
     """
-    separate the letters from the vowels,  in arabic word,
-    if a letter hasn't a haraka,  the not definited haraka is attributed.
+    separate the letters from the vowels, in arabic word,
+    if a letter hasn't a haraka, the not definited haraka is attributed.
     return ( letters, vowels)
     @param word: the input word
     @type word: unicode
@@ -941,8 +946,8 @@ def joint(letters, marks):
 
 def vocalizedlike(word1, word2):
     """
-    if the two words has the same letters and the same harakats,  this fuction return True.
-    The two words can be full vocalized,  or partial vocalized
+    if the two words has the same letters and the same harakats, this fuction return True.
+    The two words can be full vocalized, or partial vocalized
 
     @param word1: first word
     @type word1: unicode
@@ -963,9 +968,9 @@ def vocalizedlike(word1, word2):
 def waznlike(word1, wazn):
     """If the  word1 is like a wazn (pattern),
     the letters must be equal,
-    the wazn has FEH,  AIN,  LAM letters.
+    the wazn has FEH, AIN, LAM letters.
     this are as generic letters.
-    The two words can be full vocalized,  or partial vocalized
+    The two words can be full vocalized, or partial vocalized
 
     @param word1: input word
     @type word1: unicode
@@ -997,7 +1002,7 @@ def waznlike(word1, wazn):
             break
     # reverse the root letters
     root.items.reverse()
-    # ~ print " the root is ",  root.items#"".join(root.items)
+    # ~ print " the root is ", root.items#"".join(root.items)
     if not (stack1.is_empty() and stack2.is_empty()):
         return False
     else:
@@ -1006,7 +1011,7 @@ def waznlike(word1, wazn):
 
 def shaddalike(partial, fully):
     """
-    If the two words has the same letters and the same harakats,  this fuction return True.
+    If the two words has the same letters and the same harakats, this fuction return True.
     The first word is partially vocalized, the second is fully
     if the partially contians a shadda, it must be at the same place in the fully
 
@@ -1031,19 +1036,19 @@ def shaddalike(partial, fully):
     vstack = stack.Stack(fully)
     plast = pstack.pop()
     vlast = vstack.pop()
-    # if debug: print "+0",  Pstack,  Vstack
+    # if debug: print "+0", Pstack, Vstack
     while plast != None and vlast != None:
         if plast == vlast:
             plast = pstack.pop()
             vlast = vstack.pop()
         elif plast == SHADDA and vlast != SHADDA:
-            # if debug: print "+2",  Pstack.items, Plast,  Vstack.items, Vlast
+            # if debug: print "+2", Pstack.items, Plast, Vstack.items, Vlast
             break
         elif plast != SHADDA and vlast == SHADDA:
-            # if debug: print "+2",  Pstack.items, Plast,  Vstack.items, Vlast
+            # if debug: print "+2", Pstack.items, Plast, Vstack.items, Vlast
             vlast = vstack.pop()
         else:
-            # if debug: print "+2",  Pstack.items, Plast,  Vstack.items, Vlast
+            # if debug: print "+2", Pstack.items, Plast, Vstack.items, Vlast
             break
     if not (pstack.is_empty() and vstack.is_empty()):
         return False
@@ -1052,7 +1057,7 @@ def shaddalike(partial, fully):
 
 
 def reduce_tashkeel(text):
-    """Reduce the Tashkeel,  by deleting evident cases.
+    """Reduce the Tashkeel, by deleting evident cases.
 
     @param text: the input text fully vocalized.
     @type text: unicode.
@@ -1061,7 +1066,7 @@ def reduce_tashkeel(text):
 
     """
     patterns = [
-        # delete all fathat,   except on waw and yeh
+        # delete all fathat,  except on waw and yeh
         u"(?<!(%s|%s))(%s|%s)" % (WAW, YEH, SUKUN, FATHA),
         # delete damma if followed by waw.
         u"%s(?=%s)" % (DAMMA, WAW),
@@ -1083,7 +1088,7 @@ def reduce_tashkeel(text):
 
 def vocalized_similarity(word1, word2):
     """
-    if the two words has the same letters and the same harakats,  this function return True.
+    if the two words has the same letters and the same harakats, this function return True.
     The two words can be full vocalized, or partial vocalized
 
     @param word1: first word
@@ -1151,7 +1156,7 @@ if __name__ == "__main__":
     # ~for wrd in WORDS:
     # ~l, m, s = separate(wrd, True)
     # ~l = joint(l, s)
-    # ~print u'\t'.join([wrd,  l, m, s]).encode('utf8')
+    # ~print u'\t'.join([wrd, l, m, s]).encode('utf8')
     # ~newword =  joint(l, m)
     # ~assert (newword != wrd)
 

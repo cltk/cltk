@@ -1,6 +1,4 @@
-"""This module holds the ``Process``es, related to embeddings,
-that are called by ``Pipeline``s.
-"""
+"""This module holds the embeddings ``Process``es."""
 
 from copy import deepcopy
 from dataclasses import dataclass

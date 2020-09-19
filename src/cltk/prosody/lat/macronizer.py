@@ -7,9 +7,10 @@ matched word.
 Since the accuracy of the macronizer largely derives from the accuracy of the POS tagger used to match words to their
 Morpheus entry, the Macronizer class allows for multiple POS to be used.
 
-"""
+.. todo::
+   Determine how to disambiguate tags (see logger)
 
-# TODO Determine how to disambiguate tags (see logger)
+"""
 
 import importlib.machinery
 import os
@@ -53,7 +54,7 @@ class Macronizer:
     def _retrieve_tag(self, text):
         """Tag text with chosen tagger and clean tags.
 
-        Tag format: [('word', 'tag')]
+        Tag format: ``[('word', 'tag')]``
 
         :param text: string
         :return: list of tuples, with each tuple containing the word and its pos tag
@@ -74,7 +75,7 @@ class Macronizer:
     def _retrieve_morpheus_entry(self, word):
         """Return Morpheus entry for word
 
-        Entry format: [(head word, tag, macronized form)]
+        Entry format: ``[(head word, tag, macronized form)]``
 
         :param word: unmacronized, lowercased word
         :ptype word: string

@@ -1,8 +1,11 @@
 """Stem Latin words with an implementation of the Schinke Latin stemming
 algorithm (Schinke R, Greengrass M, Robertson AM and Willett P. (1996). 'A
- stemming algorithm for Latin text databases'. Journal of Documentation, 52:
-  172-187).
-TODO: Make this stemmer like lemma, with import from ``stem`` dir.
+stemming algorithm for Latin text databases'. Journal of Documentation, 52:
+172-187).
+
+.. todo::
+   Make this stemmer like lemma, with import from ``stem`` dir.
+
 """
 
 __author__ = ["Luke Hollis <lukehollis@gmail.com>"]
