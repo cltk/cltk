@@ -40,4 +40,3 @@ cltk.readers.readers module
    :members:
    :undoc-members:
    :show-inheritance:
-

@@ -83,7 +83,7 @@ extensions = [
     # "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
     # typehints v. 1.10.3 is broken on ``@staticmethod``
-    # "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon. https://pypi.org/project/sphinx-autodoc-typehints/
+    "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon. https://pypi.org/project/sphinx-autodoc-typehints/
     # "sphinx.ext.autosummary",
     # "sphinx.ext.coverage",
     # "sphinx.ext.extlinks",

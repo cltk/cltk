@@ -32,4 +32,3 @@ cltk.phonology.gmh.transcription module
    :members:
    :undoc-members:
    :show-inheritance:
-

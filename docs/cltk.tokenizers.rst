@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.tokenizers.lat
 
@@ -95,4 +96,3 @@ cltk.tokenizers.word module
    :members:
    :undoc-members:
    :show-inheritance:
-

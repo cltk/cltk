@@ -136,7 +136,7 @@ class Doc:
 
     language: str = None
     words: List[Word] = None
-    pipeline: "Pipeline" = None
+    pipeline: "Pipeline" = None  # Note: type should be ``Pipeline`` w/o quotes
     raw: str = None
     embeddings_model = None
 

@@ -24,4 +24,3 @@ cltk.wordnet.wordnet module
    :members:
    :undoc-members:
    :show-inheritance:
-

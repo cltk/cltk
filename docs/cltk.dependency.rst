@@ -32,4 +32,3 @@ cltk.dependency.tree module
    :members:
    :undoc-members:
    :show-inheritance:
-

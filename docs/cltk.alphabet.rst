@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.alphabet.grc
 
@@ -175,4 +176,3 @@ cltk.alphabet.urd module
    :members:
    :undoc-members:
    :show-inheritance:
-

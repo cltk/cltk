@@ -1,8 +1,8 @@
 language: python
 
 python:
-  - "3.7.5"
-#  - "3.8.2"
+#  - "3.7.5"
+  - "3.8.5"
 
 env:
   - TEST_SUITE=testOnlyDocTests
@@ -36,6 +36,8 @@ before_script:
 script:
   - make $TEST_SUITE
   - make uml
+  # typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
+  - pip uninstall -y typed_ast
   - make docs
 
 after_failure:

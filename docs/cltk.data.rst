@@ -16,4 +16,3 @@ cltk.data.fetch module
    :members:
    :undoc-members:
    :show-inheritance:
-

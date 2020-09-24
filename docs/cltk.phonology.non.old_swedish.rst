@@ -24,4 +24,3 @@ cltk.phonology.non.old\_swedish.transcription module
    :members:
    :undoc-members:
    :show-inheritance:
-

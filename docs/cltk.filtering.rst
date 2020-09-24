@@ -24,4 +24,3 @@ cltk.filtering.processes module
    :members:
    :undoc-members:
    :show-inheritance:
-
