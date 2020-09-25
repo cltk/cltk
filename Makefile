@@ -54,7 +54,7 @@ testOnlyDocTests:
 testOnlyTestsDir:
 	echo "Going to test only unit tests ..."
 	echo "NOTE: wordnet.py doctests have been disabled!"
-	poetry run pytest --disable-warnings--ignore=src/cltk/wordnet tests
+	poetry run pytest --disable-warnings --ignore=src/cltk/wordnet tests
 
 typing:
 	poetry run mypy --html-report .mypy_cache src/cltk
