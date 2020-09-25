@@ -80,17 +80,12 @@ html_theme_options = {
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
-    # "sphinx.ext.doctest",
     "sphinx.ext.napoleon",
-    # typehints v. 1.10.3 is broken on ``@staticmethod``
     "sphinx_autodoc_typehints",  # Must come *after* sphinx.ext.napoleon. https://pypi.org/project/sphinx-autodoc-typehints/
-    # "sphinx.ext.autosummary",
-    # "sphinx.ext.coverage",
-    # "sphinx.ext.extlinks",
-    # "sphinx.ext.ifconfig",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx.ext.graphviz",  # https://www.sphinx-doc.org/en/master/usage/extensions/graphviz.html#module-sphinx.ext.graphviz
+    # "sphinx.ext.doctest",
     # "sphinx.ext.duration",  # use when builds seem slow
 ]
 
