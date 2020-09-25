@@ -20,7 +20,7 @@ Use pyenv to manage Python versions and Poetry for package builds.
    - ``$ pyenv local cltk``. Open a new window and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
-* Install Stanford NLP models: ``$ poetry run python scripts/download_misc_dependencies.py``
+* Install Stanford NLP models: ``$ poetry run python scripts/download_all_models.py``
 * Install Graphiz (necessary for building docs): `<https://graphviz.gitlab.io/download/>`_
 
 

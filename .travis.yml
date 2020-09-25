@@ -27,7 +27,7 @@ before_install:
 
 install:
   - make install
-  - poetry run python scripts/download_misc_dependencies.py
+  - poetry run python scripts/download_all_models.py
 
 before_script:
   - poetry run pre-commit install-hooks

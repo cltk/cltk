@@ -9,7 +9,7 @@ docs:
 	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
 
 downloadDependencies:
-	poetry run python scripts/download_misc_dependencies.py
+	poetry run python scripts/download_all_models.py
 
 format:
 	isort --recursive . && poetry run black src/cltk tests docs scripts
