@@ -7,8 +7,8 @@ import os
 from typing import Dict, Optional
 
 import stanza  # type: ignore
-from stanza.models.common.constant import lang2lcode
-from stanza.utils.prepare_resources import default_treebanks
+from stanza.models.common.constant import lang2lcode  # type: Dict[str, str]
+from stanza.resources.prepare_resources import default_treebanks  # type: Dict[str, str]
 
 from cltk.core.exceptions import (
     CLTKException,
@@ -164,7 +164,7 @@ class StanzaWrapper:
         'ὅτι'
         >>> nlp_greek_first_sent.tokens[0].words
         [{
-          "id": "1",
+          "id": 1,
           "text": "ὅτι",
           "lemma": "ὅτι",
           "upos": "ADV",
@@ -182,11 +182,11 @@ class StanzaWrapper:
         >>> nlp_greek_first_sent.tokens[0].pretty_print()
         '<Token id=1;words=[<Word id=1;text=ὅτι;lemma=ὅτι;upos=ADV;xpos=Df;head=7;deprel=advmod>]>'
         >>> nlp_greek_first_sent.tokens[0].to_dict()
-        [{'id': '1', 'text': 'ὅτι', 'lemma': 'ὅτι', 'upos': 'ADV', 'xpos': 'Df', 'head': 7, 'deprel': 'advmod', 'misc': 'start_char=0|end_char=3'}]
+        [{'id': 1, 'text': 'ὅτι', 'lemma': 'ὅτι', 'upos': 'ADV', 'xpos': 'Df', 'head': 7, 'deprel': 'advmod', 'misc': 'start_char=0|end_char=3'}]
 
         >>> first_word = nlp_greek_first_sent.tokens[0].words[0]
         >>> first_word.id
-        '1'
+        1
         >>> first_word.text
         'ὅτι'
         >>> first_word.lemma
@@ -201,7 +201,7 @@ class StanzaWrapper:
         >>> first_word.parent
         [
           {
-            "id": "1",
+            "id": 1,
             "text": "ὅτι",
             "lemma": "ὅτι",
             "upos": "ADV",
@@ -239,14 +239,12 @@ class StanzaWrapper:
         models_dir = os.path.expanduser(
             "~/stanza_resources/"
         )  # TODO: Mv this a self. var or maybe even global
+        processors = None  # if ``None``, then use defaults; was ``"tokenize,mwt,pos,lemma,depparse"``
         lemma_use_identity = False
         if self.language == "fro":
             processors = "tokenize,pos,lemma"
             lemma_use_identity = True
-        else:
-            processors = "tokenize,mwt,pos,lemma,depparse"
 
-        # def __init__(self, lang='en', dir=DEFAULT_MODEL_DIR, package='default', processors={}, logging_level='INFO', verbose=None, use_gpu=True, **kwargs)
         nlp = stanza.Pipeline(
             lang=self.stanza_code,
             dir=models_dir,

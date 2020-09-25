@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.phonology.non.old_swedish
 
@@ -55,4 +56,3 @@ cltk.phonology.non.utils module
    :members:
    :undoc-members:
    :show-inheritance:
-

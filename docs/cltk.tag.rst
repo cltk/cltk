@@ -32,4 +32,3 @@ cltk.tag.treebanks module
    :members:
    :undoc-members:
    :show-inheritance:
-

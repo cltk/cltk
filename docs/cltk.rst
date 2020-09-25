@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.alphabet
    cltk.core
@@ -42,4 +43,3 @@ cltk.nlp module
    :members:
    :undoc-members:
    :show-inheritance:
-

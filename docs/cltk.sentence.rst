@@ -40,4 +40,3 @@ cltk.sentence.sentence module
    :members:
    :undoc-members:
    :show-inheritance:
-

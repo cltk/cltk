@@ -24,4 +24,3 @@ cltk.text.lat module
    :members:
    :undoc-members:
    :show-inheritance:
-

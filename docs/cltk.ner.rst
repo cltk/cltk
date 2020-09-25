@@ -24,4 +24,3 @@ cltk.ner.processes module
    :members:
    :undoc-members:
    :show-inheritance:
-

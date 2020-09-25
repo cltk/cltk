@@ -24,4 +24,3 @@ cltk.phonology.arb.utils.pyarabic.stack module
    :members:
    :undoc-members:
    :show-inheritance:
-

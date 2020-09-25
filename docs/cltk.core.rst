@@ -32,4 +32,3 @@ cltk.core.exceptions module
    :members:
    :undoc-members:
    :show-inheritance:
-

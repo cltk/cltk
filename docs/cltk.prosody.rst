@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.prosody.lat
 
@@ -39,4 +40,3 @@ cltk.prosody.non module
    :members:
    :undoc-members:
    :show-inheritance:
-

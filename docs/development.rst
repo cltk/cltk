@@ -20,7 +20,7 @@ Use pyenv to manage Python versions and Poetry for package builds.
    - ``$ pyenv local cltk``. Open a new window and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
-* Install Stanford NLP models: ``$ poetry run python scripts/download_misc_dependencies.py``
+* Install Stanford NLP models: ``$ poetry run python scripts/download_all_models.py``
 * Install Graphiz (necessary for building docs): `<https://graphviz.gitlab.io/download/>`_
 
 
@@ -55,6 +55,8 @@ Packaging
    - For minor version: ``$ poetry version preminor`` (``1.0.0`` to ``1.1.0-alpha.0``)
    - For major version: ``$ poetry version premajor`` (``1.0.0`` to ``2.0.0-alpha.0``)
 * Update all dependencies to latest version (optional): ``$ make updateDependencies``
+   - Poetry will not automatically update major versions (e.g., ``2.x`` to ``1.x``), even if the ``pyproject.toml`` is ``"^1.3"``. To view new major releases, use ``$ poetry show -o``. You would then need to manually update the config file to the latest.
+   - Only maintainers should do dependency updates, unless an upgrade is required by a contributor.
 * Make package (sdist and wheel): ``$ make build``
 * Check typing: ``$ make typing``
    - View report at ``.mypy_cache/index.html``

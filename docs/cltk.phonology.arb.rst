@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.phonology.arb.utils
 
@@ -31,4 +32,3 @@ cltk.phonology.arb.romanization module
    :members:
    :undoc-members:
    :show-inheritance:
-

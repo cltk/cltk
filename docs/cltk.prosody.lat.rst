@@ -112,4 +112,3 @@ cltk.prosody.lat.verse\_scanner module
    :members:
    :undoc-members:
    :show-inheritance:
-

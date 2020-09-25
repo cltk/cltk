@@ -10,6 +10,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cltk.phonology.ang
    cltk.phonology.arb
@@ -70,4 +71,3 @@ cltk.phonology.transcription\_processes module
    :members:
    :undoc-members:
    :show-inheritance:
-

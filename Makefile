@@ -5,10 +5,11 @@ develop:
 	python setup.py sdist develop
 
 docs:
-	poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
+	# typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
+	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
 
 downloadDependencies:
-	poetry run python scripts/download_misc_dependencies.py
+	poetry run python scripts/download_all_models.py
 
 format:
 	isort --recursive . && poetry run black src/cltk tests docs scripts
@@ -53,13 +54,12 @@ testOnlyDocTests:
 testOnlyTestsDir:
 	echo "Going to test only unit tests ..."
 	echo "NOTE: wordnet.py doctests have been disabled!"
-	poetry run pytest --disable-warnings--ignore=src/cltk/wordnet tests
+	poetry run pytest --disable-warnings --ignore=src/cltk/wordnet tests
 
 typing:
 	poetry run mypy --html-report .mypy_cache src/cltk
 
 updateDependencies:
-	# Equivalent of ``pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U``
 	poetry update
 
 uml:

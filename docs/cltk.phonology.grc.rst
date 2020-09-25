@@ -24,4 +24,3 @@ cltk.phonology.grc.transcription module
    :members:
    :undoc-members:
    :show-inheritance:
-

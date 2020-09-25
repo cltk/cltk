@@ -24,4 +24,3 @@ cltk.embeddings.processes module
    :members:
    :undoc-members:
    :show-inheritance:
-
