@@ -201,7 +201,7 @@ class StanzaWrapper:
         >>> first_word.parent
         [
           {
-            "id": "1",
+            "id": 1,
             "text": "ὅτι",
             "lemma": "ὅτι",
             "upos": "ADV",
