@@ -9,7 +9,8 @@ from cltk.prosody.latin.pentameter_scanner import PentameterScanner
 from cltk.prosody.latin.hendecasyllable_scanner import HendecasyllableScanner
 from cltk.prosody.latin.syllabifier import Syllabifier
 
-class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
+
+class TestScansionFunctions(unittest.TestCase):
     """Class for unittest"""
 
     def test_hexameter_scanner(self):
@@ -214,7 +215,7 @@ class TestScansionFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertEqual(syllabifier.syllabify("Bīthÿnus"), ['Bī', 'thÿ', 'nus'])
         # break a group of words into a group of syllables:
         self.assertEqual(syllabifier.syllabify("arbor pulcher ruptus"), [
-            'ar', 'bor', 'pul', 'cher', 'ru', 'ptus'])
+            'ar', 'bor', 'pul', 'cher', 'rup', 'tus'])
         # do not process character sets that have not been specified by the ScansionConstants class
         # that is injected into the constructor; a whole group is rejected when this occurs
         self.assertEqual(syllabifier.syllabify("Platonis Ψυχη"),['Platonis', 'Ψυχη'])

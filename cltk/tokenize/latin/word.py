@@ -1,105 +1,141 @@
-""" Code for word tokenization: Latin
-"""
+""" Latin word tokenization - handles enclitics and abbreviations."""
 
-__author__ = ['Patrick J. Burns <patrick@diyclassics.org>']
+__author__ = ['Patrick J. Burns <patrick@diyclassics.org>',
+              'Todd Cook <todd.g.cook@gmail.com']
 __license__ = 'MIT License.'
 
 import re
+from typing import List, Tuple
 
-from nltk.tokenize.treebank import TreebankWordTokenizer
+from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 
-from cltk.tokenize.word import BasePunktWordTokenizer
-from cltk.tokenize.latin.params import ABBREVIATIONS, latin_exceptions, latin_replacements
+from cltk.tokenize.latin.params import ABBREVIATIONS
+from cltk.tokenize.latin.params import latin_exceptions
+from cltk.tokenize.latin.params import latin_replacements as REPLACEMENTS
 from cltk.tokenize.latin.sentence import SentenceTokenizer
+from cltk.tokenize.latin.params import LatinLanguageVars
 
-def WordTokenizer():
-    return LatinPunktWordTokenizer()
 
-class LatinPunktWordTokenizer(BasePunktWordTokenizer):
-    """
-    PunktSentenceTokenizer trained on Latin
-    """
-    def __init__(self: object, language:str = 'latin', sent_tokenizer=SentenceTokenizer):
+class WordTokenizer:
+    """Tokenize according to rules specific to a given language."""
+
+    ENCLITICS = ['que', 'n', 'ne', 'ue', 've', 'st']
+
+    EXCEPTIONS = list(set(ENCLITICS + latin_exceptions))
+
+    def __init__(self):
+        self.language = 'latin'
+        self.punkt_param = PunktParameters()
+        self.punkt_param.abbrev_types = set(ABBREVIATIONS)
+        self.sent_tokenizer = PunktSentenceTokenizer(self.punkt_param)
+        self.word_tokenizer = LatinLanguageVars()
+
+    def tokenize(self, text: str,
+                 replacements: List[Tuple[str, str]] = REPLACEMENTS,
+                 enclitics_exceptions: List[str] = EXCEPTIONS,
+                 enclitics: List[str] = ENCLITICS
+
+    ) ->List[str]:
         """
-        :param language : language for word tokenization
-        :type language: str
+        Tokenizer divides the text into a list of substrings
+
+        :param text: This accepts the string value that needs to be tokenized
+        :param replacements: List of replacements to apply to tokens such as "mecum" -> ["cum", "me"]
+        :param enclitics_exceptions: List of words that look likes they end with an enclitic but are not.
+        :param enclitics: List of enclitics to check for in tokenization
+
+        :returns: A list of substrings extracted from the text
+
+        >>> toker = WordTokenizer()
+        >>> text = 'atque haec abuterque puerve paterne nihil'
+        >>> toker.tokenize(text)
+        ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'pater', '-ne', 'nihil']
+
+        >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
+        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex.', 'Roscio']
+
+        >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
+        ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
+
+        >>> toker.tokenize('Dic si audes mihi, bellan videtur specie mulier?')
+        ['Dic', 'si', 'audes', 'mihi', ',', 'bella', '-ne', 'videtur', 'specie', 'mulier', '?']
+
+        >>> toker.tokenize("mecum")
+        ['cum', 'me']
+
+        You can specify how replacements are made using replacements
+
+        >>> toker.tokenize("mecum", replacements=[(r"mecum", "me cum")])
+        ['me', 'cum']
+
+        Or change enclitics and enclitics exception:
+        >>> toker.tokenize("atque haec abuterque puerve paterne nihil", enclitics=["que"])
+        ['atque', 'haec', 'abuter', '-que', 'puerve', 'paterne', 'nihil']
+
+        >>> toker.tokenize("atque haec abuterque puerve paterne nihil", enclitics=["que", "ve", "ne"],
+        ...    enclitics_exceptions=('paterne', 'atque'))
+        ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'paterne', 'nihil']
+
         """
-        super().__init__(language='latin')
-        self.sent_tokenizer = sent_tokenizer()
-        self._latin_replacements = latin_replacements
 
-    def tokenize(self, text: str, split_enclitics:list = ['ne', 'n', 'que', 've', 'ue', 'st'],
-                                  split_words:list = []):
-        """
-        :rtype: list
-        :param text: text to be tokenized into sentences
-        :type text: str
-        :param model: tokenizer object to used # Should be in init?
-        :type model: object
-        """
-        if self._latin_replacements:
-            split_words = self._latin_replacements
+        def matchcase(word):
+            """helper function From Python Cookbook"""
 
-        if split_words:
-            text = self._replace_patterns(text, split_words)
-        sents = self.sent_tokenizer.tokenize(text)
-        if split_enclitics:
-            sents = self._split_enclitics(sents, split_enclitics)
-        tokenizer = TreebankWordTokenizer()
-        return [item for sublist in tokenizer.tokenize_sents(sents) for item in sublist]
-
-    def _split_enclitics(self:object, sents:list, enclitics: list):
-        import string
-        exclude_flag = '~'
-        if 'ne' in enclitics and 'n' in enclitics:
-            ne_compile = re.compile(r'^\b(\w+?)([n]e?)[%s]?\b'%re.escape(string.punctuation))
-        elif 'ne' in enclitics:
-            ne_compile = re.compile(r'^\b(\w+?)(ne)[%s]?\b'%re.escape(string.punctuation))
-        elif 'n' in enclitics:
-            ne_compile = re.compile(r'^\b(\w+?)(n)[%s]?\b'%re.escape(string.punctuation))
-
-        enclitics_ = [enc for enc in enclitics if enc is not 'ne' and enc is not 'n']
-        if len(enclitics_) > 1:
-            if "que" in enclitics_ and 'ue' in enclitics_:
-                enclitics_.remove('que')
-                enclitics_.remove('ue')
-                enclitics_.append('q?ue')
-            enclitics_string = "|".join(enclitics_)
-            enc_compile = re.compile(r'\b(?<!~)(\w+?)(%s)[%s]?\b'%(enclitics_string, re.escape(string.punctuation)))
-
-        sent_tokens_ = []
-        for sent in sents:
-            for word in latin_exceptions:
-                sent = re.sub(rf'\b{word}\b', self._matchcase(rf'~{word}~'), sent, flags=re.IGNORECASE)
-            sent = " ".join(filter(None, ne_compile.split(sent)))
-            sent = " ".join(filter(None, enc_compile.split(sent)))
-            for enclitic in enclitics:
-                if enclitic == 'st':
-                    sent = sent.replace('u st ', 'us st ')
-                    sent = re.sub(rf'[^%s]\b{enclitic}\b'%(exclude_flag), f' e{enclitic}', sent)
-                elif enclitic == 'n':
-                    sent = re.sub(rf'[^%s]\b{enclitic}\b'%(exclude_flag), f' -{enclitic}e', sent)
-                else:
-                    sent = re.sub(rf'[^%s]\b{enclitic}\b'%(exclude_flag), f' -{enclitic}', sent)
-            sent = sent.replace('~','')
-            sent_tokens_.append(" ".join(sent.split()))
-        return sent_tokens_
-
-    def _matchcase(self, word):
-        # From Python Cookbook, p. 47
-        def replace(m):
-            text = m.group()
-            if text.isupper():
-                return word.upper()
-            elif text.islower():
-                return word.lower()
-            elif text[0].isupper():
-                return word.title()
-            else:
+            def replace(matching):
+                text = matching.group()
+                if text.isupper():
+                    return word.upper()
+                elif text.islower():
+                    return word.lower()
+                elif text[0].isupper():
+                    return word.capitalize()
                 return word
-        return replace
 
-    def _replace_patterns(self, text: str, patterns: list):
-        for pattern in patterns:
-            text = re.sub(pattern[0], self._matchcase(pattern[1]), text, flags=re.IGNORECASE)
-        return text
+            return replace
+
+        for replacement in replacements:
+            text = re.sub(replacement[0], matchcase(replacement[1]), text, flags=re.IGNORECASE)
+
+        sents = self.sent_tokenizer.tokenize(text)
+        tokens = []  # type: List[str]
+
+        for sent in sents:
+            temp_tokens = self.word_tokenizer.word_tokenize(sent)
+            # Need to check that tokens exist before handling them;
+            # needed to make stream.readlines work in PlaintextCorpusReader
+            if temp_tokens:
+                if temp_tokens[0].endswith('ne'):
+                    if temp_tokens[0].lower() not in enclitics_exceptions:
+                        temp = [temp_tokens[0][:-2], '-ne']
+                        temp_tokens = temp + temp_tokens[1:]
+                if temp_tokens[-1].endswith('.'):
+                    final_word = temp_tokens[-1][:-1]
+                    del temp_tokens[-1]
+                    temp_tokens += [final_word, '.']
+
+                for token in temp_tokens:
+                    tokens.append(token)
+
+        # Break enclitic handling into own function?
+        specific_tokens = [] # type: List[str]
+
+        for token in tokens:
+            is_enclitic = False
+            if token.lower() not in enclitics_exceptions:
+                for enclitic in enclitics:
+                    if token.endswith(enclitic):
+                        if enclitic == 'n':
+                            specific_tokens += [token[:-len(enclitic)]] + ['-ne']
+                        elif enclitic == 'st':
+                            if token.endswith('ust'):
+                                specific_tokens += [token[:-len(enclitic) + 1]] + ['est']
+                            else:
+                                specific_tokens += [token[:-len(enclitic)]] + ['est']
+                        else:
+                            specific_tokens += [token[:-len(enclitic)]] + ['-' + enclitic]
+                        is_enclitic = True
+                        break
+            if not is_enclitic:
+                specific_tokens.append(token)
+
+        return specific_tokens

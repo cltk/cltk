@@ -22,7 +22,7 @@ __license__ = 'MIT License'
 class Syllabifier:
     """Scansion constants can be modified and passed into the constructor if desired."""
 
-    def __init__(self, constants=ScansionConstants()):
+    def __init__(self, constants=ScansionConstants(), convert_i_to_j=True):
         self.constants = constants
         self.consonant_matcher = re.compile("[{}]".format(constants.CONSONANTS))
         self.vowel_matcher = re.compile(
@@ -34,6 +34,7 @@ class Syllabifier:
         self.ACCEPTABLE_CHARS = constants.ACCENTED_VOWELS + constants.VOWELS + ' ' \
                                 + constants.CONSONANTS
         self.diphthongs = [d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]]
+        self.convert_i_to_j = convert_i_to_j
 
     def syllabify(self, words: str) -> List[str]:
         """
@@ -87,7 +88,11 @@ class Syllabifier:
         >>> print(syllabifier.syllabify("pulcher"))
         ['pul', 'cher']
         >>> print(syllabifier.syllabify("ruptus"))
-        ['ru', 'ptus']
+        ['rup', 'tus']
+        >>> print(syllabifier.syllabify("sumptus"))
+        ['sump', 'tus']
+        >>> print(syllabifier.syllabify("quemadmodum"))
+        ['que', 'mad', 'mo', 'dum']
         >>> print(syllabifier.syllabify("Bīthÿnus"))
         ['Bī', 'thÿ', 'nus']
         >>> print(syllabifier.syllabify("sanguen"))
@@ -189,6 +194,7 @@ class Syllabifier:
 
     def convert_consonantal_i(self, word) -> str:
         """Convert i to j when at the start of a word."""
+        if not self.convert_i_to_j: return word
         match = list(self.consonantal_i_matcher.finditer(word))
         if match:
             if word[0].isupper():
@@ -344,6 +350,8 @@ class Syllabifier:
                 return string_utils.move_consonant_right(letters, [pos])
             if self._contains_consonants(next_letter[0]) and self._starts_with_vowel(
                     previous_letter[-1]):
+                return string_utils.move_consonant_left(letters, [pos])
+            if consonant in self.constants.MUTES and next_letter[0] in self.constants.MUTES:
                 return string_utils.move_consonant_left(letters, [pos])
             # fall through case
             if self._contains_consonants(next_letter[0]):

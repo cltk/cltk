@@ -7,8 +7,7 @@ list so that end users may view the provenance of a scansion.
 
 import re
 
-from Levenshtein import distance
-
+from cltk.text_reuse.levenshtein import Levenshtein
 import cltk.prosody.latin.string_utils as string_utils
 from cltk.prosody.latin.verse import Verse
 from cltk.prosody.latin.metrical_validator import MetricalValidator
@@ -25,15 +24,21 @@ class HendecasyllableScanner(VerseScanner):
     """The scansion symbols used can be configured by passing a suitable constants class to
     the constructor."""
 
-    def __init__(self, constants=ScansionConstants(), syllabifier=Syllabifier(),
-                 optional_tranform=False, *args, **kwargs):
+    def __init__(self, constants=None, syllabifier=None,
+                 optional_tranform: bool = False, *args, **kwargs):
+        """
+        :param constants: None or a class that implements ScansionConstants
+        :param syllabifier: None or a class that implements Syllabifier methods
+        :param optional_tranform: boolean, whether or not to apply aggresive verse transformations.
+        :param kwargs:
+        """
         super().__init__(*args, **kwargs)
-        self.constants = constants
+        self.constants = ScansionConstants() if constants is None else constants
+        self.syllabifier = Syllabifier() if syllabifier is None else syllabifier
         self.remove_punct_map = string_utils.remove_punctuation_dict()
         self.punctuation_substitutions = string_utils.punctuation_for_spaces_dict()
-        self.metrical_validator = MetricalValidator(constants)
-        self.formatter = ScansionFormatter(constants)
-        self.syllabifier = syllabifier
+        self.metrical_validator = MetricalValidator(self.constants)
+        self.formatter = ScansionFormatter(self.constants)
         self.inverted_amphibrach_re = re.compile(
             r"{}\s*{}\s*{}".format(self.constants.STRESSED,
                                    self.constants.UNSTRESSED,
@@ -62,20 +67,15 @@ class HendecasyllableScanner(VerseScanner):
         verse = Verse(original_line, meter='hendecasyllable')
         # replace punctuation with spaces
         line = original_line.translate(self.punctuation_substitutions)
-        # conservative i to j
-        line = self.transform_i_to_j(line)
-        working_line = self.elide_all(line)
-        working_line = self.accent_by_position(working_line)
-        syllables = self.syllabifier.syllabify(working_line)
         if optional_transform:
             working_line = self.transform_i_to_j_optional(line)
-            working_line = self.elide_all(working_line)
-            working_line = self.accent_by_position(working_line)
-            syllables = self.syllabifier.syllabify(working_line)
             verse.scansion_notes += [self.constants.NOTE_MAP["optional i to j"]]
-        verse.working_line = working_line
-        verse.syllable_count = self.syllabifier.get_syllable_count(syllables)
-        verse.syllables = syllables
+        else:
+            working_line = self.transform_i_to_j(line) # conservative i to j
+        working_line = self.elide_all(working_line)
+        verse.working_line = self.accent_by_position(working_line)
+        verse.syllables = self.syllabifier.syllabify(verse.working_line)
+        verse.syllable_count = self.syllabifier.get_syllable_count(verse.syllables)
         # identify some obvious and probably choices based on number of syllables
         if verse.syllable_count > 11:
             verse.valid = False
@@ -86,10 +86,10 @@ class HendecasyllableScanner(VerseScanner):
             verse.scansion_notes += [self.constants.NOTE_MAP["< 11"]]
             return verse
 
-        stresses = self.flag_dipthongs(syllables)
-        syllables_wspaces = string_utils.to_syllables_with_trailing_spaces(working_line, syllables)
+        stresses = self.flag_dipthongs(verse.syllables)
+        syllables_wspaces = string_utils.to_syllables_with_trailing_spaces(verse.working_line, verse.syllables)
         offset_map = self.calc_offset(syllables_wspaces)
-        for idx, syl in enumerate(syllables):
+        for idx, syl in enumerate(verse.syllables):
             for accented in self.constants.ACCENTED_VOWELS:
                 if accented in syl:
                     stresses.append(idx)
@@ -110,7 +110,7 @@ class HendecasyllableScanner(VerseScanner):
 
         smoothed = self.correct_invalid_start(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -120,7 +120,7 @@ class HendecasyllableScanner(VerseScanner):
 
         smoothed = self.correct_antepenult_chain(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if Levenshtein.levenshtein_distance(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["antepenult chain"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -142,7 +142,7 @@ class HendecasyllableScanner(VerseScanner):
 
         # if the line doesn't scan "as is", if may scan if the optional i to j transformations
         # are made, so here we set them and try again.
-        if self.optional_transform and not verse.valid:
+        if self.optional_transform and not optional_transform and not verse.valid:
             return self.scan(original_line, optional_transform=True)
 
         verse.accented = self.formatter.merge_line_scansion(

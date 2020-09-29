@@ -28,7 +28,7 @@ ARGS = {
     'line_tab': '-B',
     'higher_levels': '-X',
     'lower_levels': '-Y',
-    'no_spaces': '-N',  # break_lines
+    'no_spaces': '-N',  # rm_newlines
     'citation_debug': '-C',
     'code_debug': '-S',
     'verbose': '-V',
@@ -102,7 +102,7 @@ class TLGU(object):
                         logger.error('TLGU install with sudo failed.')
 
     def convert(self, input_path=None, output_path=None, markup=None,
-                break_lines=False, divide_works=False, latin=False,
+                rm_newlines=False, divide_works=False, latin=False,
                 extra_args=None):
         """
         :param input_path: TLG filepath to convert.
@@ -110,7 +110,7 @@ class TLGU(object):
         :param markup: Specificity of inline markup. Default None removes all
         numerical markup; 'full' gives most detailed, with reference numbers
         included before each text line.
-        :param break_lines: No spaces; removes line ends and hyphens before an
+        :param rm_newlines: No spaces; removes line ends and hyphens before an
          ID code; hyphens and spaces before page and column ends are retained.
         :param divide_works: Each work (book) is output as a separate file in
         the form output_file-xxx.txt; if an output file is not specified, this
@@ -134,7 +134,7 @@ class TLGU(object):
         if markup == 'full':
             full_args = ['v', 'w', 'x', 'y', 'z']
             [tlgu_options.append(x) for x in full_args]  # pylint: disable=W0106
-        if break_lines:
+        if rm_newlines:
             tlgu_options.append('N')
         if divide_works:
             tlgu_options.append('W')
@@ -174,12 +174,11 @@ class TLGU(object):
                          exc)
             raise
 
-    def convert_corpus(self, corpus, markup=None, break_lines=False, divide_works=False, latin=None, extra_args=None):  # pylint: disable=W0613
+    def convert_corpus(self, corpus, markup=None, latin=None):  # pylint: disable=W0613
         """Look for imported TLG or PHI files and convert them all to
         ``~/cltk_data/greek/text/tlg/<plaintext>``.
-        TODO: Should this and/or convert() be static?
         TODO: Add markup options to input.
-        TODO: Do something with break_lines, divide_works, and extra_args or rm them
+        TODO: Add rm_newlines, divide_works, and extra_args
         """
         orig_path_rel = get_cltk_data_dir() + '/originals'
         orig_path = os.path.expanduser(orig_path_rel)
@@ -218,7 +217,7 @@ class TLGU(object):
             target_txt_path = os.path.join(target_txt_dir, txt)
             try:
                 self.convert(orig_txt_path, target_txt_path, markup=None,
-                             break_lines=False, divide_works=False, latin=latin,
+                             rm_newlines=False, divide_works=False, latin=latin,
                              extra_args=None)
             except Exception as exception:
                 logger.error("Failed to convert file '%s' to '%s': %s", orig_txt_path, target_txt_path, exception)

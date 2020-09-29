@@ -753,6 +753,17 @@ Sentence tokenization for Latin is available using a [Punkt](https://www.nltk.or
 
 Note that the Latin sentence tokenizer takes account of abbreviations like 'Kal.' and 'C.' and does not split sentences at these points.
 
+By default, the Latin Punkt Sentence Tokenizer splits on period, question mark, and exclamation point. There is a ```strict``` parameter that adds colon, semicolon, and hyphen to this.
+
+.. code-block:: python
+
+In [5]: sent_tokenizer = SentenceTokenizer(strict=True)
+
+In [6]: untokenized_text = 'In principio creavit Deus caelum et terram; terra autem erat inanis et vacua et tenebrae super faciem abyssi et spiritus Dei ferebatur super aquas; dixitque Deus fiat lux et facta est lux; et vidit Deus lucem quod esset bona et divisit lucem ac tenebras.'
+
+In [7]: sent_tokenizer.tokenize(untokenized_text)
+Out[7]: ['In principio creavit Deus caelum et terram;', 'terra autem erat inanis et vacua et tenebrae super faciem abyssi et spiritus Dei ferebatur super aquas;', 'dixitque Deus fiat lux et facta est lux;', 'et vidit Deus lucem quod esset bona et divisit lucem ac tenebras.']
+
 NB: The old method for sentence tokenizer, i.e. TokenizeSentence, is still available, but now calls the tokenizer described above.
 
 .. code-block:: python
@@ -824,7 +835,7 @@ The stemmer strips suffixes via an algorithm. It is much faster than the lemmati
 
 
 Stoplist Construction
-==================
+=====================
 
 To extract a stoplist from a collection of documents:
 
@@ -978,7 +989,7 @@ Word Tokenization
    In [3]: text = 'atque haec abuterque puerve paterne nihil'
 
    In [4]: word_tokenizer.tokenize(text)
-   Out[4]: ['atque', 'haec', 'abuter', 'que', 'puer', 've', 'pater', 'ne', 'nihil']
+   Out[4]: ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'pater', '-ne', 'nihil']
 
 
 

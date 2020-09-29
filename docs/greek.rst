@@ -71,7 +71,7 @@ Contrary to the original docs to use the functions from this module it is necess
    In[2]: add_diacritic(add_diacritic('ο', ROUGH), ACUTE)
    Out[2]: 'ὅ'
 
-``accent`` and ``strip_accent`` return the accent of a character as an Unicode escape and the character stripped of its accent respectively. ``breathing``, ``strip_breathing``, ``length`` and ``strip_length`` work analogously, for example:
+``accent`` and ``strip_accents`` return the accent of a character as an Unicode escape and the character stripped of its accent respectively. ``breathing``, ``strip_breathing``, ``length`` and ``strip_length`` work analogously, for example:
 
 .. code-block:: python
 
@@ -332,7 +332,7 @@ You may also convert individual files, with options for how the conversion happe
 
    In [4]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', markup='full')
 
-   In [5]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', break_lines=True)
+   In [5]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', rm_newlines=True)
 
    In [6]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', divide_works=True)
 
@@ -343,15 +343,11 @@ For ``convert()``, plain arguments may be sent directly to the ``TLGU``, as well
 
    In [7]: t.convert('~/Downloads/corpora/TLG_E/TLG0003.TXT', '~/Documents/thucydides.txt', extra_args=['p', 'B'])
 
-Concerning text normalization: Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some helpful code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
+Even after plaintext conversion, the TLG will still need some cleanup. The CLTK contains some code for `post-TLGU cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>`_.
 
 You may read about these arguments in `the TLGU manual <https://github.com/cltk/tlgu/blob/master/tlgu.1.pdf?raw=true>`_.
 
 Once these files are created, see `TLG Indices <http://docs.cltk.org/en/latest/greek.html#tlg-indices>`_ below for accessing these newly created files.
-
-See also `Text Cleanup <http://docs.cltk.org/en/latest/greek.html#text-cleanup>` for removing extraneous non-textual characters from these files.
-
-
 
 
 Corpus Readers
@@ -414,10 +410,14 @@ The lemmatizer offers several input and output options. For text input, it can t
 
    In [2]: sentence = 'τὰ γὰρ πρὸ αὐτῶν καὶ τὰ ἔτι παλαίτερα σαφῶς μὲν εὑρεῖν διὰ χρόνου πλῆθος ἀδύνατα ἦν'
 
-   In [3]: lemmatizer = LemmaReplacer('greek')
+   In [3]: from cltk.corpus.utils.formatter import cltk_normalize
+   
+   In [4]: sentence = cltk_normalize(sentence)  # can help when using certain texts
 
-   In [4]: lemmatizer.lemmatize(sentence)
-   Out[4]:
+   In [5]: lemmatizer = LemmaReplacer('greek')
+
+   In [6]: lemmatizer.lemmatize(sentence)
+   Out[6]:
    ['τὰ',
     'γὰρ',
     'πρὸ',
