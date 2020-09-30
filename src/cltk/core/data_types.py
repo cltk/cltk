@@ -20,7 +20,7 @@ import numpy
 class Language:
     """For holding information about any given language. Used to
     encode data from ISO 639-3 and Glottolog at
-    ``cltk.lagnuages.glottolog.LANGUAGES`` May be extended by
+    ``cltk.languages.glottolog.LANGUAGES`` May be extended by
     user for dialects or languages not documented by ISO 639-3.
 
     >>> from cltk.core.data_types import Language
@@ -58,7 +58,7 @@ class Word:
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
 lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, \
-embedding=None, stop=None, named_entity=None)
+embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
     """
 
     index_char_start: int = None
@@ -78,6 +78,8 @@ embedding=None, stop=None, named_entity=None)
     embedding: numpy.ndarray = None
     stop: bool = None
     named_entity: bool = None
+    syllables: List[str] = None
+    phonetic_transcription: str = None
 
 
 @dataclass
