@@ -20,7 +20,7 @@ import numpy
 class Language:
     """For holding information about any given language. Used to
     encode data from ISO 639-3 and Glottolog at
-    ``cltk.languages.glottolog.LANGUAGES`` May be extended by
+    ``cltk.languages.glottolog.LANGUAGES``. May be extended by
     user for dialects or languages not documented by ISO 639-3.
 
     >>> from cltk.core.data_types import Language
