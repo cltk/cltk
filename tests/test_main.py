@@ -38,6 +38,8 @@ class TestMain(unittest.TestCase):
             embedding=None,
             stop=None,
             named_entity=None,
+            syllables=None,
+            phonetic_transcription=None,
         )
         self.assertEqual(first_word, target)
 
