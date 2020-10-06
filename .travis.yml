@@ -20,24 +20,23 @@ addons:
     packages:
       - graphviz
 
-before_install:
-  - pip install --upgrade pip
-  - pip install poetry
-  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
+#before_install:
+#  - pip install --upgrade pip
+#  - pip install poetry
+#  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
 
 # install:
 #   - make install
 #   - poetry run python scripts/download_all_models.py
 
-before_script:
-  - poetry run pre-commit install-hooks
+#before_script:
+#  - poetry run pre-commit install-hooks
 #  - poetry run pre-commit run --all-files
 
 # script:
 #   - make $TEST_SUITE
 #   - make uml
 #   - make docs
-#   - make format
 
 after_failure:
   - echo Add later
