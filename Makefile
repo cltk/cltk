@@ -12,7 +12,7 @@ downloadDependencies:
 	poetry run python scripts/download_all_models.py
 
 format:
-	isort --recursive . && poetry run black src/cltk tests docs scripts
+	poetry run isort --recursive . && poetry run black src/cltk tests docs scripts
 
 install:
 	poetry install
