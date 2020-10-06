@@ -37,6 +37,7 @@ script:
   - make $TEST_SUITE
   - make uml
   - make docs
+  - make format
 
 after_failure:
   - echo Add later
