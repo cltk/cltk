@@ -22,6 +22,7 @@ addons:
 
 before_install:
   - echo $FAKE_SECRET_ENV_VAR
+  - pip install -y setuptools requests
   - python scripts/trigger_github_release.py $FAKE_SECRET_ENV_VAR
   - python scripts/trigger_github_release.py $GITHUB_TOKEN
 
