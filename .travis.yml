@@ -24,7 +24,7 @@ before_install:
   - echo $FAKE_SECRET_ENV_VAR
   - pip install setuptools requests
   - python scripts/trigger_github_release.py $FAKE_SECRET_ENV_VAR
-  - python scripts/trigger_github_release.py $GITHUB_TOKEN
+#   - python scripts/trigger_github_release.py $GITHUB_TOKEN
 
 #  - pip install --upgrade pip
 #  - pip install poetry
