@@ -25,19 +25,19 @@ before_install:
   - pip install poetry
   - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
 
-install:
-  - make install
-  - poetry run python scripts/download_all_models.py
+# install:
+#   - make install
+#   - poetry run python scripts/download_all_models.py
 
 before_script:
   - poetry run pre-commit install-hooks
 #  - poetry run pre-commit run --all-files
 
-script:
-  - make $TEST_SUITE
-  - make uml
-  - make docs
-  - make format
+# script:
+#   - make $TEST_SUITE
+#   - make uml
+#   - make docs
+#   - make format
 
 after_failure:
   - echo Add later
@@ -51,4 +51,6 @@ deploy:
 
 # if deploy success
 after_success:
+  - echo $FAKE_SECRET_ENV_VAR
+  - echo FAKE_SECRET_ENV_VAR
   - python scripts/trigger_github_release.py $GITHUB_TOKEN
