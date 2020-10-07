@@ -204,7 +204,7 @@ def find_stress(word: str) -> List[str]:
     (b) Otherwise, stress falls on the last non-final heavy or ultraheavy syllable.
     (c) Words that contain no non-final heavy or ultraheavy syllables have the
     stress fall on the first syllable.
-    
+
     >>> find_stress("napištašunu")
     ['na', '[piš]', 'ta', 'šu', 'nu']
 

@@ -379,7 +379,7 @@ class Lemma(_WordNetObject):
         return chain(self.literal(), self.metonymic(), self.metaphoric())
 
     def literal(self):
-        """ Retrieve all literal senses of the lemma.
+        """Retrieve all literal senses of the lemma.
 
         >>> LWN = WordNetCorpusReader(iso_code="lat")
         >>> virtus = LWN.lemmas_from_uri('u0800')[0]
@@ -399,7 +399,7 @@ class Lemma(_WordNetObject):
         )
 
     def metonymic(self):
-        """ Retrieve all metonymic senses of the lemma.
+        """Retrieve all metonymic senses of the lemma.
 
         >>> LWN = WordNetCorpusReader(iso_code="lat")
         >>> baculum = LWN.lemma('baculum', 'n', 'n-s---nn2-')
@@ -419,7 +419,7 @@ class Lemma(_WordNetObject):
         )
 
     def metaphoric(self):
-        """ Retrieve all metaphoric senses of the lemma.
+        """Retrieve all metaphoric senses of the lemma.
 
         >>> LWN = WordNetCorpusReader(iso_code="lat")
         >>> baculum = LWN.lemma('baculum', 'n', 'n-s---nn2-')
@@ -594,7 +594,7 @@ class Semfield:
         return self._english
 
     def synsets(self):
-        """ Retrieve all synsets of the semfield.
+        """Retrieve all synsets of the semfield.
 
         >>> LWN = WordNetCorpusReader(iso_code="lat")
         >>> anatomy = Semfield(LWN, '611', "Human anatomy, cytology & histology")
@@ -626,7 +626,7 @@ class Semfield:
         return self._synsets
 
     def lemmas(self):
-        """ Retrieve all lemmas for all synsets of the semfield.
+        """Retrieve all lemmas for all synsets of the semfield.
 
         >>> LWN = WordNetCorpusReader(iso_code="lat")
         >>> anatomy = Semfield(LWN, '611', "Human anatomy, cytology & histology")
@@ -1719,8 +1719,8 @@ class WordNetCorpusReader(CorpusReader):
     def lemma(self, lemma, pos="", morpho="", return_ambiguous=True):
         """Takes ``lemma`` and finds matching headword.
 
-        If ``pos`` or ``morph`` is provided, the results found through 
-        ``lemma`` alone are filtered. ``pos`` tags are in the form 
+        If ``pos`` or ``morph`` is provided, the results found through
+        ``lemma`` alone are filtered. ``pos`` tags are in the form
         ``n`` for noun, ``v`` for verb, ``a`` for adjective, ``r`` for adverb.
 
         >>> LWN = WordNetCorpusReader(iso_code="lat")
@@ -2187,7 +2187,7 @@ class WordNetICCorpusReader(CorpusReader):
         self._ic = ic
 
     def information_content(self, synset):  # pragma: no cover
-        """ Retrieve the information content score for a synset.
+        """Retrieve the information content score for a synset.
 
         >>> from cltk.wordnet.wordnet import WordNetCorpusReader, WordNetICCorpusReader
         >>> LWN = WordNetCorpusReader(iso_code="lat")

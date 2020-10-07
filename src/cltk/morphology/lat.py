@@ -20,7 +20,7 @@ from cltk.utils import CLTK_DATA_DIR
 
 
 class CollatinusDecliner:
-    """ Latin Decliner based on Collatinus data and approach to declining words for Latin
+    """Latin Decliner based on Collatinus data and approach to declining words for Latin
 
     .. code-block:: python
 
@@ -55,7 +55,7 @@ class CollatinusDecliner:
         self._mapped = self._data["maps"]
 
     def __getPOS(self, key):
-        """ Get POS tag for key
+        """Get POS tag for key
 
         :param key: Key Index of Collatinus Morphos
         :return: Part-Of-Speech tag
@@ -71,7 +71,7 @@ class CollatinusDecliner:
         return CollatinusDecliner._dism.sub("", root)
 
     def _getRoots(self, lemma, model):
-        """ Retrieve the known roots of a lemma
+        """Retrieve the known roots of a lemma
 
         :param lemma: Canonical form of the word (lemma)
         :type lemma: str

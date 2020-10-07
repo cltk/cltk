@@ -49,19 +49,16 @@ class Verse:
 
     def __repr__(self) -> str:
         class_name = type(self).__name__
-        return (
-            "{}(original={!r}, scansion={!r}, meter={!r}, valid={!r}, syllable_count={!r},"
-            " accented={!r}, scansion_notes={!r}, syllables = {!r})".format(
-                class_name,
-                self.original,
-                self.scansion,
-                self.meter,
-                self.valid,
-                self.syllable_count,
-                self.accented,
-                self.scansion_notes,
-                self.syllables,
-            )
+        return "{}(original={!r}, scansion={!r}, meter={!r}, valid={!r}, syllable_count={!r}," " accented={!r}, scansion_notes={!r}, syllables = {!r})".format(
+            class_name,
+            self.original,
+            self.scansion,
+            self.meter,
+            self.valid,
+            self.syllable_count,
+            self.accented,
+            self.scansion_notes,
+            self.syllables,
         )
 
     def __iter__(self):

@@ -17,8 +17,8 @@ MiddleEnglishTokenizerPatterns = [
 
 class MiddleEnglishWordTokenizer(RegexWordTokenizer):
     """
-	A regex-based tokenizer for Middle English.
-	"""
+    A regex-based tokenizer for Middle English.
+    """
 
     def __init__(self):
         super().__init__(patterns=MiddleEnglishTokenizerPatterns)

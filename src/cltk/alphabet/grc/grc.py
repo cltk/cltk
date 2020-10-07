@@ -533,15 +533,15 @@ MAP_SUBSCRIPT_NO_SUB = {
 
 def expand_iota_subscript(input_str: str, lowercase: bool = True):
     """Find characters with iota subscript and replace with
-     char + iota added.
+    char + iota added.
 
-     >>> from cltk.alphabet import grc
-     >>> str_iota_subscript = "ἐν τῇ νῦν Ἑλλάδι καλεομένῃ χωρῇ οὕτω δ᾽ εἶπε τερᾴζων"
-     >>> grc.expand_iota_subscript(str_iota_subscript)
-     'ἐν τῆι νῦν ἑλλάδι καλεομένηι χωρῆι οὕτω δ᾽ εἶπε τεράιζων'
-     >>> grc.expand_iota_subscript(str_iota_subscript, lowercase=False)
-     'ἐν τῆΙ νῦν Ἑλλάδι καλεομένηΙ χωρῆΙ οὕτω δ᾽ εἶπε τεράΙζων'
-     """
+    >>> from cltk.alphabet import grc
+    >>> str_iota_subscript = "ἐν τῇ νῦν Ἑλλάδι καλεομένῃ χωρῇ οὕτω δ᾽ εἶπε τερᾴζων"
+    >>> grc.expand_iota_subscript(str_iota_subscript)
+    'ἐν τῆι νῦν ἑλλάδι καλεομένηι χωρῆι οὕτω δ᾽ εἶπε τεράιζων'
+    >>> grc.expand_iota_subscript(str_iota_subscript, lowercase=False)
+    'ἐν τῆΙ νῦν Ἑλλάδι καλεομένηΙ χωρῆΙ οὕτω δ᾽ εἶπε τεράΙζων'
+    """
     new_list = []
     for char in input_str:
         new_char = MAP_SUBSCRIPT_NO_SUB.get(char)

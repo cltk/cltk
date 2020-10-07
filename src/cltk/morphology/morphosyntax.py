@@ -67,7 +67,7 @@ class F(CategorialFeature):
 
 
 class VerbForm(MorphosyntacticFeature):
-    """The inlectional type of the verb.  
+    """The inlectional type of the verb.
     Possibly this confuses tense, aspect, and other more privitive morphosyntactic informaition.
     see https://universaldependencies.org/u/feat/VerbForm.html
     """
@@ -173,7 +173,7 @@ class Person(MorphosyntacticFeature):
 
 
 class Politeness(MorphosyntacticFeature):
-    """The morphological reflex of the formal register with which participants 
+    """The morphological reflex of the formal register with which participants
     are addressed in the sentence, affecting verbs and pronouns.
     see https://universaldependencies.org/u/feat/Polite.html
     """
@@ -296,8 +296,8 @@ class Number(MorphosyntacticFeature):
 
 
 class Definiteness(MorphosyntacticFeature):
-    """The relationship between noun phrases and 
-    entities in or not in the discoursive context. 
+    """The relationship between noun phrases and
+    entities in or not in the discoursive context.
     see https://universaldependencies.org/u/feat/Definiteness.html
     """
 
@@ -470,7 +470,7 @@ class MorphosyntacticFeatureBundle:
         This feature bundle matches other if other contains all the features of this bundle,
         i.e. if this bundle is an improper subset of other.
         Underspecified features will match.
-        
+
         >>> f1 = f(F, N.pos, V.neg)
         >>> f2 = f(F.neg, N.pos, V.neg)
         >>> f3 = f(F.pos, N.neg, V.pos)

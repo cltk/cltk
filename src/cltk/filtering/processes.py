@@ -13,9 +13,7 @@ from cltk.filtering.non import OldNorsePunctuationRemover
 
 @dataclass
 class PunctuationRemovalProcess(Process):
-    """
-
-    """
+    """"""
 
     def run(self, input_doc: Doc) -> Doc:
         punctuation_remover = self.algorithm
@@ -40,9 +38,7 @@ DEFAULT_PUNCTUATION = [".", ",", ";", ":", '"', "'", "!", "?"]
 
 
 class DefaultPunctuationRemover:
-    """
-
-    """
+    """"""
 
     def __init__(self):
         pass

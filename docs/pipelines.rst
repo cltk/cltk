@@ -215,4 +215,3 @@ Looking directly at ``Doc.words``, we see a list of ``Word`` types.
    Word(index_char_start=None, index_char_stop=None, index_token=2, index_sentence=0, string='devote', pos='ADV', lemma='devote', stem=None, scansion=None, xpos='L2|modM|tem4|grp1|casG', upos='ADV', dependency_relation='advmod', governor=3, features={'Degree': 'Pos'}, embedding=array([-4.2728e-01, ...], dtype=float32), stop=False, named_entity=False)
    >>> cltk_doc.words[2].upper
    'DEVOTE'
-

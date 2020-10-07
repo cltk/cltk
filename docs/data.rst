@@ -51,4 +51,3 @@ Users can import any repository that is hosted on a Git server. These are declar
        origin: https://github.com/kylepjohnson/a_nonexistent_repo.git
        language: pali
        type: treebank
-

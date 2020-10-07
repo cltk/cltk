@@ -145,7 +145,7 @@ class Doc:
     @property
     def sentences(self) -> List[List[Word]]:
         """Returns a list of lists, with the inner list being a
-         list of ``Word`` objects.
+        list of ``Word`` objects.
         """
         sentences = {}
         for word in self.words:
@@ -191,7 +191,9 @@ class Doc:
         return tokens
 
     @property
-    def tokens_stops_filtered(self,) -> List[str]:
+    def tokens_stops_filtered(
+        self,
+    ) -> List[str]:
         """Returns a list of string word tokens of all words in the
         doc, but with stopwords removed.
         """
@@ -233,8 +235,7 @@ class Doc:
         return stems
 
     def __getitem__(self, word_index: int) -> Word:
-        """Indexing operator overloaded to return the `Word` at index `word_index`.
-        """
+        """Indexing operator overloaded to return the `Word` at index `word_index`."""
         return self.words[word_index]
 
     @property

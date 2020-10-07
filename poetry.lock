@@ -88,16 +88,21 @@ description = "The uncompromising code formatter."
 name = "black"
 optional = false
 python-versions = ">=3.6"
-version = "18.9b0"
+version = "20.8b1"
 
 [package.dependencies]
 appdirs = "*"
-attrs = ">=17.4.0"
-click = ">=6.5"
-toml = ">=0.9.4"
+click = ">=7.1.2"
+mypy-extensions = ">=0.4.3"
+pathspec = ">=0.6,<1"
+regex = ">=2020.1.8"
+toml = ">=0.10.1"
+typed-ast = ">=1.4.0"
+typing-extensions = ">=3.7.4"
 
 [package.extras]
-d = ["aiohttp (>=3.3.2)"]
+colorama = ["colorama (>=0.4.3)"]
+d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
 category = "main"
@@ -113,10 +118,10 @@ description = "The AWS SDK for Python"
 name = "boto3"
 optional = false
 python-versions = "*"
-version = "1.15.11"
+version = "1.15.13"
 
 [package.dependencies]
-botocore = ">=1.18.11,<1.19.0"
+botocore = ">=1.18.13,<1.19.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.3.0,<0.4.0"
 
@@ -126,7 +131,7 @@ description = "Low-level, data-driven core of boto 3."
 name = "botocore"
 optional = false
 python-versions = "*"
-version = "1.18.11"
+version = "1.18.13"
 
 [package.dependencies]
 jmespath = ">=0.7.1,<1.0.0"
@@ -393,14 +398,13 @@ category = "dev"
 description = "A Python utility / library to sort Python imports."
 name = "isort"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "4.3.21"
+python-versions = ">=3.6,<4.0"
+version = "5.5.4"
 
 [package.extras]
-pipfile = ["pipreqs", "requirementslib"]
-pyproject = ["toml"]
-requirements = ["pipreqs", "pip-api"]
-xdg_home = ["appdirs (>=1.4.0)"]
+colors = ["colorama (>=0.4.3,<0.5.0)"]
+pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+requirements_deprecated_finder = ["pipreqs", "pip-api"]
 
 [[package]]
 category = "dev"
@@ -580,6 +584,14 @@ testing = ["docopt", "pytest (>=3.0.7)"]
 
 [[package]]
 category = "dev"
+description = "Utility library for gitignore style pattern matching of file paths."
+name = "pathspec"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "0.8.0"
+
+[[package]]
+category = "dev"
 description = "Pexpect allows easy control of interactive console applications."
 marker = "sys_platform != \"win32\""
 name = "pexpect"
@@ -620,7 +632,7 @@ description = "A framework for managing and maintaining multi-language pre-commi
 name = "pre-commit"
 optional = false
 python-versions = ">=3.6.1"
-version = "2.2.0"
+version = "2.7.1"
 
 [package.dependencies]
 cfgv = ">=2.0.0"
@@ -628,7 +640,7 @@ identify = ">=1.0.0"
 nodeenv = ">=0.11.1"
 pyyaml = ">=5.1"
 toml = "*"
-virtualenv = ">=15.2"
+virtualenv = ">=20.0.8"
 
 [package.dependencies.importlib-metadata]
 python = "<3.8"
@@ -1203,7 +1215,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
 [metadata]
-content-hash = "a2cd3ab31a191e58cc1d2ea2ef2f4f0a80cd99f8c2a33502f8a1a50da6b7132d"
+content-hash = "70a8f4042980816a64d09eef3bdde41e4b54fbc8c23d82e0da217b331fd1bed6"
 lock-version = "1.0"
 python-versions = "^3.7"
 
@@ -1241,20 +1253,19 @@ backcall = [
     {file = "backcall-0.2.0.tar.gz", hash = "sha256:5cbdbf27be5e7cfadb448baf0aa95508f91f2bbc6c6437cd9cd06e2a4c215e1e"},
 ]
 black = [
-    {file = "black-18.9b0-py36-none-any.whl", hash = "sha256:817243426042db1d36617910df579a54f1afd659adb96fc5032fcf4b36209739"},
-    {file = "black-18.9b0.tar.gz", hash = "sha256:e030a9a28f542debc08acceb273f228ac422798e5215ba2a791a6ddeaaca22a5"},
+    {file = "black-20.8b1.tar.gz", hash = "sha256:1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"},
 ]
 boltons = [
     {file = "boltons-20.2.1-py2.py3-none-any.whl", hash = "sha256:3dd8a8e3c1886e7f7ba3422b50f55a66e1700161bf01b919d098e7d96dd2d9b6"},
     {file = "boltons-20.2.1.tar.gz", hash = "sha256:dd362291a460cc1e0c2e91cc6a60da3036ced77099b623112e8f833e6734bdc5"},
 ]
 boto3 = [
-    {file = "boto3-1.15.11-py2.py3-none-any.whl", hash = "sha256:5f3969dd167b787e5bc6742afbfe15e149051d8c6aa1edaa4858133384f64ec7"},
-    {file = "boto3-1.15.11.tar.gz", hash = "sha256:713da2b28e9e4cd77e922690c97935dd2316ab27635b6bab4745a2d42bd887ec"},
+    {file = "boto3-1.15.13-py2.py3-none-any.whl", hash = "sha256:f71ef9005bc49f92e822b3c24d651a9bc2b682a63acdcbbb2bc1d16da39c01ea"},
+    {file = "boto3-1.15.13.tar.gz", hash = "sha256:329178bd505b5d1dbb5eab25e9697c0e592c45548c895f451a91772d0e5a9329"},
 ]
 botocore = [
-    {file = "botocore-1.18.11-py2.py3-none-any.whl", hash = "sha256:a0514ba531148af26fe36bf75c73089698a5ed8ae150695b96e7cbdf32dd232b"},
-    {file = "botocore-1.18.11.tar.gz", hash = "sha256:1531ee5d7f7d0f0d9a12ea829ef046ac52063a1948409ae19a452a3f47a07937"},
+    {file = "botocore-1.18.13-py2.py3-none-any.whl", hash = "sha256:90e76683807896a28bbefd6e9bc3a2dc44ecd88fc6f6737fa0e3b20d5b7223ea"},
+    {file = "botocore-1.18.13.tar.gz", hash = "sha256:570609095c992732cf6158c3dd0a38619c77818fa700d6779b27277b34f98959"},
 ]
 certifi = [
     {file = "certifi-2020.6.20-py2.py3-none-any.whl", hash = "sha256:8fc0819f1f30ba15bdb34cceffb9ef04d99f420f68eb75d901e9560b8749fc41"},
@@ -1437,8 +1448,8 @@ ipython-genutils = [
     {file = "ipython_genutils-0.2.0.tar.gz", hash = "sha256:eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8"},
 ]
 isort = [
-    {file = "isort-4.3.21-py2.py3-none-any.whl", hash = "sha256:6e811fcb295968434526407adb8796944f1988c5b65e8139058f2014cbe100fd"},
-    {file = "isort-4.3.21.tar.gz", hash = "sha256:54da7e92468955c4fceacd0c86bd0ec997b0e1ee80d97f67c35a78b719dccab1"},
+    {file = "isort-5.5.4-py3-none-any.whl", hash = "sha256:36f0c6659b9000597e92618d05b72d4181104cf59472b1c6a039e3783f930c95"},
+    {file = "isort-5.5.4.tar.gz", hash = "sha256:ba040c24d20aa302f78f4747df549573ae1eaf8e1084269199154da9c483f07f"},
 ]
 jedi = [
     {file = "jedi-0.17.2-py2.py3-none-any.whl", hash = "sha256:98cc583fa0f2f8304968199b01b6b4b94f469a1f4a74c1560506ca2a211378b5"},
@@ -1619,6 +1630,10 @@ parso = [
     {file = "parso-0.7.1-py2.py3-none-any.whl", hash = "sha256:97218d9159b2520ff45eb78028ba8b50d2bc61dcc062a9682666f2dc4bd331ea"},
     {file = "parso-0.7.1.tar.gz", hash = "sha256:caba44724b994a8a5e086460bb212abc5a8bc46951bf4a9a1210745953622eb9"},
 ]
+pathspec = [
+    {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
+    {file = "pathspec-0.8.0.tar.gz", hash = "sha256:da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"},
+]
 pexpect = [
     {file = "pexpect-4.8.0-py2.py3-none-any.whl", hash = "sha256:0b48a55dcb3c05f3329815901ea4fc1537514d6ba867a152b581d69ae3710937"},
     {file = "pexpect-4.8.0.tar.gz", hash = "sha256:fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"},
@@ -1632,8 +1647,8 @@ pluggy = [
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
 ]
 pre-commit = [
-    {file = "pre_commit-2.2.0-py2.py3-none-any.whl", hash = "sha256:487c675916e6f99d355ec5595ad77b325689d423ef4839db1ed2f02f639c9522"},
-    {file = "pre_commit-2.2.0.tar.gz", hash = "sha256:c0aa11bce04a7b46c5544723aedf4e81a4d5f64ad1205a30a9ea12d5e81969e1"},
+    {file = "pre_commit-2.7.1-py2.py3-none-any.whl", hash = "sha256:810aef2a2ba4f31eed1941fc270e72696a1ad5590b9751839c90807d0fff6b9a"},
+    {file = "pre_commit-2.7.1.tar.gz", hash = "sha256:c54fd3e574565fe128ecc5e7d2f91279772ddb03f8729645fa812fe809084a70"},
 ]
 prompt-toolkit = [
     {file = "prompt_toolkit-3.0.7-py3-none-any.whl", hash = "sha256:83074ee28ad4ba6af190593d4d4c607ff525272a504eb159199b6dd9f950c950"},

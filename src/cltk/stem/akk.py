@@ -23,7 +23,7 @@ ENDINGS = {
 def stem(noun: str, gender: str, mimation: bool = True) -> str:
     """
     Return the stem of a noun, given a declined form and its gender
-    
+
     >>> stem("šarrū", 'm')
     'šarr'
     """

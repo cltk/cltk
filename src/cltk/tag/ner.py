@@ -81,8 +81,7 @@ def _check_latest_data(lang):
 
 
 def tag_ner(lang, input_text, output_type=list):
-    """Run NER for chosen language.
-    """
+    """Run NER for chosen language."""
 
     _check_latest_data(lang)
 

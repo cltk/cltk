@@ -25,8 +25,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 @dataclass
 class PhonologicalTranscriptionProcess(Process):
-    """General phonological transcription `Process`.
-    """
+    """General phonological transcription `Process`."""
 
     def run(self, input_doc: Doc) -> Doc:
         transcriber = self.algorithm

@@ -649,10 +649,10 @@ class FetchCorpus:
         self, corpus_name: str, local_path: str = None, branch: str = "master"
     ):
         """Download a remote or load local corpus into dir ``~/cltk_data``.
-        
+
         TODO: maybe add ``from git import RemoteProgress``
         TODO: refactor this, it's getting kinda long
-        
+
         :param corpus_name: The name of an available corpus.
         :param local_path: A filepath, required when importing local corpora.
         :param branch: What Git branch to clone.
@@ -672,10 +672,10 @@ class FetchCorpus:
         matching_corpus = matching_corpus_list[0]
         if matching_corpus.get("user_defined"):
             """{'origin': 'https://github.com/kylepjohnson/latin_corpus_newton_example.git',
-                'type': 'text',
-                'name': 'example_distributed_latin_corpus',
-                'user_defined': True}
-              """
+            'type': 'text',
+            'name': 'example_distributed_latin_corpus',
+            'user_defined': True}
+            """
             self._git_user_defined_corpus(
                 matching_corpus["name"],
                 matching_corpus["type"],
@@ -728,8 +728,8 @@ class FetchCorpus:
                 self._copy_dir_recursive(local_path, tlg_originals_dir)
         else:
             """{'type': 'text',
-                'name': 'lat_text_perseus',
-                'origin': 'https://github.com/cltk/lat_text_perseus.git'},
+            'name': 'lat_text_perseus',
+            'origin': 'https://github.com/cltk/lat_text_perseus.git'},
             """
             if (
                 not matching_corpus.get("type")
