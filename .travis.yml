@@ -45,8 +45,14 @@ after_failure:
   - echo Add later
 
 # https://docs.travis-ci.com/user/deployment-v2/providers/pypi/
+# example for branches: https://github.com/travis-ci/travis-ci/issues/8289#issuecomment-324722657
 deploy:
   provider: pypi
+  on:
+    branches:
+      only:
+        - master
+        - dev
   username: kyle_johnson
   password: $PYPI_PASSWORD
   edge: true  # opt in to dpl v2
