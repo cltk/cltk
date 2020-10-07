@@ -8,12 +8,12 @@ env:
   - TEST_SUITE=testOnlyDocTests
   - TEST_SUITE=test
 
-#cache:
-#  directories:
-#    - $HOME/stanza_resources/
-#    - $HOME/cltk_data/
-#    - $HOME/virtualenv/
-#    - $HOME/.cache/pip
+cache:
+  directories:
+    - $HOME/stanza_resources/
+    - $HOME/cltk_data/
+    - $HOME/virtualenv/
+    - $HOME/.cache/pip
 
 addons:
   apt:
@@ -30,14 +30,14 @@ before_install:
 
 install:
   - make install
-#  - poetry run python scripts/download_all_models.py
+  - poetry run python scripts/download_all_models.py
 
-#before_script:
-#  - poetry run pre-commit install-hooks
-#  - poetry run pre-commit run --all-files
+before_script:
+  - poetry run pre-commit install-hooks
+  - poetry run pre-commit run --all-files
 
 script:
-#  - make $TEST_SUITE
+  - make $TEST_SUITE
   - make uml
   - make docs
 
