@@ -51,7 +51,9 @@ Packaging
 ---------
 
 * Validate structure of ``pyproject.toml``: ``$ poetry check``
-* Update project version with ``poetry``: ``$ poetry version prepatch`` (e.g., ``1.0.0`` to ``1.0.1-alpha.0``)
+* Update project version with ``poetry``:
+   - For pre-release: ``$ poetry version prerelease`` (e.g., ``1.0.0`` to ``1.0.0-alpha.0``)
+   - For patch: ``$ poetry version prepatch`` (e.g., ``1.0.0`` to ``1.0.1-alpha.0``)
    - For minor version: ``$ poetry version preminor`` (``1.0.0`` to ``1.1.0-alpha.0``)
    - For major version: ``$ poetry version premajor`` (``1.0.0`` to ``2.0.0-alpha.0``)
 * Update all dependencies to latest version (optional): ``$ make updateDependencies``
