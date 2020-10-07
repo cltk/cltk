@@ -4,9 +4,9 @@ python:
 #  - "3.7.5"
   - "3.8.5"
 
-env:
-  - TEST_SUITE=testOnlyDocTests
-  - TEST_SUITE=test
+#env:
+#  - TEST_SUITE=testOnlyDocTests
+#  - TEST_SUITE=test
 
 cache:
   directories:
@@ -37,7 +37,7 @@ before_script:
   - make preCommitRun
 
 script:
-  - make $TEST_SUITE
+  - make test
   - make uml
   - make docs
 
