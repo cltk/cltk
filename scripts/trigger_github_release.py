@@ -36,7 +36,7 @@ def main():
     print("Status code:", res.status_code)
     print("Message", res.text)
     if not res.status_code == 201:
-        sys.exit(__status=1)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

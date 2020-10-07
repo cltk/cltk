@@ -31,17 +31,15 @@ before_install:
 install:
   - make install
 #  - poetry run python scripts/download_all_models.py
-  - python scripts/trigger_github_release.py $FAKE_SECRET_ENV_VAR
-#   - python scripts/trigger_github_release.py $GITHUB_TOKEN
 
 #before_script:
 #  - poetry run pre-commit install-hooks
 #  - poetry run pre-commit run --all-files
 
-# script:
-#   - make $TEST_SUITE
-#   - make uml
-#   - make docs
+script:
+#  - make $TEST_SUITE
+  - make uml
+  - make docs
 
 after_failure:
   - echo Add later
@@ -55,4 +53,4 @@ deploy:
 
 # if deploy success
 after_success:
-  - python scripts/trigger_github_release.py $GITHUB_TOKEN
+  - python scripts/trigger_github_release.py $GH_PERSONAL_ACCESS_TOKEN
