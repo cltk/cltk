@@ -62,6 +62,9 @@ testOnlyTestsDir:
 typing:
 	poetry run mypy --html-report .mypy_cache src/cltk
 
+uninstall:
+	poetry run pip uninstall -y cltk
+
 updateDependencies:
 	poetry update
 
