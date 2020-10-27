@@ -17,6 +17,9 @@ format:
 install:
 	poetry install
 
+installPyPI:
+	poetry run pip install --pre cltk
+
 installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ --no-deps cltk
 
