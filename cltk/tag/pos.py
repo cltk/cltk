@@ -63,6 +63,7 @@ class POSTag:
         """Setup variables."""
         self.language = language
         self.available_taggers = self._setup_language_variables(self.language)
+        self.models = {}
 
     def _setup_language_variables(self, lang: str):  # pylint: disable=no-self-use
         """Check for language availability and presence of tagger files.
@@ -84,15 +85,24 @@ class POSTag:
             tagger_paths[tagger_key] = tagger_path
         return tagger_paths
 
-    def tag_unigram(self, untagged_string: str):
+    def _load_model(self, name):
+        model = self.models.get(name, None)
+
+        if model is None:
+            pickle_path = self.available_taggers[name]
+            model = open_pickle(pickle_path)
+            self.models[name] = model
+
+        return model
+
+     def tag_unigram(self, untagged_string: str):
         """Tag POS with unigram tagger.
         :type untagged_string: str
         :param : An untagged, untokenized string of text.
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['unigram']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("unigram")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -103,8 +113,7 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['bigram']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("bigram")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -115,8 +124,7 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['trigram']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("trigram")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -127,8 +135,7 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['ngram_123_backoff']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("ngram_123_backoff")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -139,8 +146,7 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['ngram_12_backoff']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("ngram_12_backoff")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -151,8 +157,7 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['tnt']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("tnt")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -163,9 +168,7 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['crf']
-        tagger = CRFTagger()
-        tagger.set_model_file(pickle_path)
+        tagger = self._load_model("crf")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
 
@@ -176,7 +179,6 @@ class POSTag:
         :rtype tagged_text: str
         """
         untagged_tokens = wordpunct_tokenize(untagged_string)
-        pickle_path = self.available_taggers['perceptron']
-        tagger = open_pickle(pickle_path)
+        tagger = self._load_model("perceptron")
         tagged_text = tagger.tag(untagged_tokens)
         return tagged_text
