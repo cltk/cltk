@@ -95,16 +95,16 @@ class POSTag:
 
         return model
 
-     def tag_unigram(self, untagged_string: str):
-        """Tag POS with unigram tagger.
-        :type untagged_string: str
-        :param : An untagged, untokenized string of text.
-        :rtype tagged_text: str
-        """
-        untagged_tokens = wordpunct_tokenize(untagged_string)
-        tagger = self._load_model("unigram")
-        tagged_text = tagger.tag(untagged_tokens)
-        return tagged_text
+    def tag_unigram(self, untagged_string: str):
+       """Tag POS with unigram tagger.
+       :type untagged_string: str
+       :param : An untagged, untokenized string of text.
+       :rtype tagged_text: str
+       """
+       untagged_tokens = wordpunct_tokenize(untagged_string)
+       tagger = self._load_model("unigram")
+       tagged_text = tagger.tag(untagged_tokens)
+       return tagged_text
 
     def tag_bigram(self, untagged_string: str):
         """Tag POS with bigram tagger.
