@@ -10,6 +10,7 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process, Word
 from cltk.dependency.stanza import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
+from cltk.morphology.morphosyntax import from_ud, to_categorial, MorphosyntacticFeatureBundle
 
 
 @dataclass
@@ -66,8 +67,9 @@ class StanzaProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=<POS.noun: 8>, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={<enum 'Case'>: [<Case.nominative: 1>], <enum 'Degree'>: [<Degree.positive: 4>], <enum 'Gender'>: [<Gender.feminine: 2>], <enum 'Number'>: [<Number.singular: 10>]}, category={<enum 'F'>: [<F.neg: 2>], <enum 'N'>: [<N.pos: 1>], <enum 'V'>: [<V.neg: 2>]}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
         """
+        
         words_list = list()  # type: List[Word]
 
         for sentence_index, sentence in enumerate(stanza_doc.sentences):
@@ -77,12 +79,13 @@ class StanzaProcess(Process):
             for token_index, token in enumerate(sentence.tokens):
                 stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
                 # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
+
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
                     - 1,  # subtract 1 from id b/c snpl starts their index at 1
                     index_sentence=sentence_index,
                     string=stanza_word.text,  # same as ``token.text``
-                    pos=stanza_word.pos,
+                    pos=from_ud('POS', stanza_word.pos),
                     xpos=stanza_word.xpos,
                     upos=stanza_word.upos,
                     lemma=stanza_word.lemma,
@@ -90,10 +93,14 @@ class StanzaProcess(Process):
                     governor=stanza_word.head - 1
                     if stanza_word.head
                     else -1,  # note: if val becomes ``-1`` then no governor, ie word is root; ``fro`` gives None sometimes, what does this mean?
-                    features=dict()
-                    if not stanza_word.feats
-                    else dict([f.split("=") for f in stanza_word.feats.split("|")]),
                 )  # type: Word
+
+                # convert UD features to the normalized CLTK features
+                features = [tuple(f.split("=")) for f in stanza_word.feats.split("|")] if stanza_word.feats else []
+                cltk_features = [from_ud(feature_name, feature_value) for feature_name, feature_value in features]
+                cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
+                cltk_word.category = to_categorial(cltk_word.pos)
+
                 # sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
 

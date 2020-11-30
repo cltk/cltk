@@ -13,7 +13,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Dict, List, Type
 
-import numpy
+import numpy as np
+
+from cltk.morphology.morphosyntax import MorphosyntacticFeature, MorphosyntacticFeatureBundle
 
 
 @dataclass
@@ -74,12 +76,16 @@ embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcrip
     upos: str = None  # universal POS tag (from stanza)
     dependency_relation: str = None  # (from stanza)
     governor: int = None
-    features: Dict[str, str] = None  # morphological features (from stanza)
-    embedding: numpy.ndarray = None
+    features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
+    category: MorphosyntacticFeatureBundle = None
+    embedding: np.ndarray = None
     stop: bool = None
     named_entity: bool = None
     syllables: List[str] = None
     phonetic_transcription: str = None
+
+    def __getitem__(self, feature_name: Type[MorphosyntacticFeature]) -> List[MorphosyntacticFeature]:
+        return self.feature_bundle[feature_name]
 
 
 @dataclass
@@ -131,8 +137,8 @@ class Doc:
     True
     >>> cltk_doc.sentences_strings[1]
     'Hi omnes lingua , institutis , legibus inter se differunt .'
-    >>> import numpy
-    >>> isinstance(cltk_doc.embeddings[1], numpy.ndarray)
+    >>> import numpy as np
+    >>> isinstance(cltk_doc.embeddings[1], np.ndarray)
     True
     """
 
