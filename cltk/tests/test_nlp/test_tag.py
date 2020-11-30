@@ -56,8 +56,8 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         self.assertTrue(file_exists)
 
         corpus_importer = CorpusImporter('old_english')
-        corpus_importer.import_corpus('old_english_models_cltk')
-        file_rel = os.path.join(get_cltk_data_dir() + '/old_english/model/old_english_models_cltk/README.md')
+        corpus_importer.import_corpus('ang_models_cltk')
+        file_rel = os.path.join(get_cltk_data_dir() + '/old_english/model/ang_models_cltk/README.md')
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)

@@ -4,8 +4,8 @@ OLD_ENGLISH_CORPORA = [
      'location': 'remote',
      'type': 'html'
     },
-    {'origin': 'https://github.com/cltk/old_english_models_cltk.git',
-     'name': 'old_english_models_cltk',
+    {'origin': 'https://github.com/cltk/ang_models_cltk.git',
+     'name': 'ang_models_cltk',
      'location': 'remote',
 	'type': 'model'
 	}

@@ -22,7 +22,7 @@ class OldEnglishDictionaryLemmatizer:
 		rel_path = os.path.join(CLTK_DATA_DIR,
                                 'old_english',
                                 'model',
-                                'old_english_models_cltk',
+                                'ang_models_cltk',
                                 'data',
                                 'oe.lemmas')
 		path = os.path.expanduser(rel_path)
@@ -53,7 +53,7 @@ class OldEnglishDictionaryLemmatizer:
 		rel_path = os.path.join(CLTK_DATA_DIR,
                                 'old_english',
                                 'model',
-                                'old_english_models_cltk',
+                                'ang_models_cltk',
                                 'data',
                                 'oe.counts')
 		path = os.path.expanduser(rel_path)
