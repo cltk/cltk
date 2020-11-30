@@ -73,8 +73,8 @@ class POSTag:
             tagger_path = os.path.join(path, tagger_val)
             assert os.path.isfile(
                 tagger_path
-            ), "CLTK linguistics models not available for {0}, looking for .".format(
-                [tagger_val, tagger_path]
+            ), "CLTK linguistics models not available for {0}, looking for {1}.".format(
+                tagger_val, tagger_path
             )
             tagger_paths[tagger_key] = tagger_path
         return tagger_paths
