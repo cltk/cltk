@@ -4,10 +4,24 @@ import os
 import sys
 from contextlib import contextmanager
 from distutils.util import strtobool
+from enum import EnumMeta, IntEnum
 from typing import Any, Dict, List, Optional, Union
 
 import requests
 from tqdm import tqdm
+
+
+class CLTKEnumMeta(EnumMeta):
+    def __repr__(cls):
+        return cls.__name__
+
+
+class CLTKEnum(IntEnum, metaclass=CLTKEnumMeta):
+    def __repr__(self):
+        return f"{self._name_}"
+
+    def __eq__(self, other):
+        return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:

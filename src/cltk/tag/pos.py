@@ -42,7 +42,6 @@ TAGGERS = {
 }
 
 
-
 class POSTag:
     """Tag words' parts-of-speech."""
 
