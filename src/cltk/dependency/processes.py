@@ -10,7 +10,11 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process, Word
 from cltk.dependency.stanza import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
-from cltk.morphology.morphosyntax import from_ud, to_categorial, MorphosyntacticFeatureBundle
+from cltk.morphology.morphosyntax import (
+    MorphosyntacticFeatureBundle,
+    from_ud,
+    to_categorial,
+)
 
 
 @dataclass
@@ -67,9 +71,13 @@ class StanzaProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=<POS.noun: 8>, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={<enum 'Case'>: [<Case.nominative: 1>], <enum 'Degree'>: [<Degree.positive: 4>], <enum 'Gender'>: [<Gender.feminine: 2>], <enum 'Number'>: [<Number.singular: 10>]}, category={<enum 'F'>: [<F.neg: 2>], <enum 'N'>: [<N.pos: 1>], <enum 'V'>: [<V.neg: 2>]}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', \
+pos=noun, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', \
+dependency_relation='nsubj', governor=3, \
+features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, \
+embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
         """
-        
+
         words_list = list()  # type: List[Word]
 
         for sentence_index, sentence in enumerate(stanza_doc.sentences):
@@ -85,7 +93,7 @@ class StanzaProcess(Process):
                     - 1,  # subtract 1 from id b/c snpl starts their index at 1
                     index_sentence=sentence_index,
                     string=stanza_word.text,  # same as ``token.text``
-                    pos=from_ud('POS', stanza_word.pos),
+                    pos=from_ud("POS", stanza_word.pos),
                     xpos=stanza_word.xpos,
                     upos=stanza_word.upos,
                     lemma=stanza_word.lemma,
@@ -96,8 +104,15 @@ class StanzaProcess(Process):
                 )  # type: Word
 
                 # convert UD features to the normalized CLTK features
-                features = [tuple(f.split("=")) for f in stanza_word.feats.split("|")] if stanza_word.feats else []
-                cltk_features = [from_ud(feature_name, feature_value) for feature_name, feature_value in features]
+                features = (
+                    [tuple(f.split("=")) for f in stanza_word.feats.split("|")]
+                    if stanza_word.feats
+                    else []
+                )
+                cltk_features = [
+                    from_ud(feature_name, feature_value)
+                    for feature_name, feature_value in features
+                ]
                 cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
                 cltk_word.category = to_categorial(cltk_word.pos)
 

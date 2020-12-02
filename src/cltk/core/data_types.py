@@ -15,7 +15,10 @@ from typing import Dict, List, Type
 
 import numpy as np
 
-from cltk.morphology.morphosyntax import MorphosyntacticFeature, MorphosyntacticFeatureBundle
+from cltk.morphology.morphosyntax import (
+    MorphosyntacticFeature,
+    MorphosyntacticFeatureBundle,
+)
 
 
 @dataclass
@@ -60,7 +63,7 @@ class Word:
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
 lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, \
-embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
+category=None, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
     """
 
     index_char_start: int = None
@@ -76,7 +79,7 @@ embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcrip
     upos: str = None  # universal POS tag (from stanza)
     dependency_relation: str = None  # (from stanza)
     governor: int = None
-    features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
+    features: MorphosyntacticFeatureBundle = None
     category: MorphosyntacticFeatureBundle = None
     embedding: np.ndarray = None
     stop: bool = None
@@ -84,8 +87,10 @@ embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcrip
     syllables: List[str] = None
     phonetic_transcription: str = None
 
-    def __getitem__(self, feature_name: Type[MorphosyntacticFeature]) -> List[MorphosyntacticFeature]:
-        return self.feature_bundle[feature_name]
+    def __getitem__(
+        self, feature_name: Type[MorphosyntacticFeature]
+    ) -> List[MorphosyntacticFeature]:
+        return self.features[feature_name]
 
 
 @dataclass
@@ -110,7 +115,7 @@ class Doc:
     >>> cltk_doc.pos[:3]
     ['NOUN', 'AUX', 'PRON']
     >>> cltk_doc.morphosyntactic_features[:3]
-    [{'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, {'Mood': 'Ind', 'Number': 'Sing', 'Person': '3', 'Tense': 'Pres', 'VerbForm': 'Fin', 'Voice': 'Act'}, {'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing', 'PronType': 'Ind'}]
+    [{Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
     >>> cltk_doc.lemmata[:5]
     ['mallis', 'sum', 'omnis', 'divido', 'in']
     >>> len(cltk_doc.sentences)

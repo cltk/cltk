@@ -14,11 +14,14 @@ Based on many ideas in cltk.phonology.non.utils by Clément Besnier <clem@clemen
 
 import re
 from copy import deepcopy
-from enum import IntEnum, auto
+from enum import auto
+from typing import Union
+
+from cltk.utils.utils import CLTKEnum
 
 # The list of features and their values are from the IPA charts.
 # Features for non-pulmonic consonants (e.g. clicks, implosives) are not yet provided.
-from typing import Union
+
 
 __author__ = [
     "John Stewart <johnstewart@aya.yale.edu>",
@@ -29,7 +32,7 @@ __author__ = [
 # ------------------- Phonological Features -------------------
 
 
-class PhonologicalFeature(IntEnum):
+class PhonologicalFeature(CLTKEnum):
     def __sub__(self, other):
         return make_phoneme(self) - other
 
@@ -44,9 +47,6 @@ class PhonologicalFeature(IntEnum):
 
     def matches(self, other):
         return make_phoneme(self).matches(other)
-
-    def __eq__(self, other):
-        return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
     def __floordiv__(self, other):
         return make_phoneme(self) // other

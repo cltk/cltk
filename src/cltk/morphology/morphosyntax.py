@@ -1,16 +1,19 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from enum import IntEnum, auto
+from enum import auto
 from typing import List, Type, Union
 
 from cltk.core.exceptions import CLTKException
+from cltk.utils.utils import CLTKEnum
 
 __author__ = ["John Stewart <free-variation>"]
 
 
-class MorphosyntacticFeature(IntEnum):
-    def __eq__(self: "MorphosyntacticFeature", other: "MorphosyntacticFeature") -> bool:
-        return False if type(self) != type(other) else IntEnum.__eq__(self, other)
+class MorphosyntacticFeature(CLTKEnum):
+    """A generic multivalued morphosyntactic feature.
+    """
+
+    pass
 
 
 class PrivativeFeature(MorphosyntacticFeature):
@@ -81,7 +84,7 @@ class POS(MorphosyntacticFeature):
     symbol = auto()
     verb = auto()
     other = auto()
-    
+
 
 # Morphosyntactic Features.
 # The inventory of features represented here are those of the Universal Dependencies project.
@@ -90,6 +93,7 @@ class POS(MorphosyntacticFeature):
 # In particular, the list spatiotemporal cases is likely to grow over time.
 
 # Verbal features, related to +V categories.
+
 
 class VerbForm(MorphosyntacticFeature):
     """The inlectional type of the verb.  
@@ -370,6 +374,7 @@ class PrononimalType(MorphosyntacticFeature):
     relative = auto()
     total = auto()
 
+
 class AdpositionalType(MorphosyntacticFeature):
     """Defines the position of an adposition.
     see https://universaldependencies.org/u/feat/AdpType.html
@@ -444,7 +449,7 @@ class MorphosyntacticFeatureBundle:
         """
         >>> f1 = MorphosyntacticFeatureBundle(F.neg, N.pos, V.neg, Case.accusative)
         >>> f1.features
-        {<enum 'F'>: [<F.neg: 2>], <enum 'N'>: [<N.pos: 1>], <enum 'V'>: [<V.neg: 2>], <enum 'Case'>: [<Case.accusative: 2>]}
+        {F: [neg], N: [pos], V: [neg], Case: [accusative]}
         """
         self.features = {}
         for feature in features:
@@ -465,18 +470,18 @@ class MorphosyntacticFeatureBundle:
         Use dict-type syntax for accessing the values of features.
         >>> f1 = f(F.pos, N.pos)
         >>> f1[F]
-        [<F.pos: 1>]
+        [pos]
         >>> f1[V]
         Traceback (most recent call last):
-        cltk.core.exceptions.CLTKException: {<enum 'F'>: [<F.pos: 1>], <enum 'N'>: [<N.pos: 1>]} unspecified for <enum 'V'>
+        cltk.core.exceptions.CLTKException: {F: [pos], N: [pos]} unspecified for V
         """
         if not issubclass(feature_name, MorphosyntacticFeature):
             raise TypeError(str(feature_name) + " is not a morphosytactic feature")
-        
+
         if feature_name in self.features:
             return self.features[feature_name]
         else:
-            raise CLTKException(f'{self} unspecified for {feature_name}')
+            raise CLTKException(f"{self} unspecified for {feature_name}")
 
     def __setitem__(
         self,
@@ -488,11 +493,11 @@ class MorphosyntacticFeatureBundle:
         >>> f1 = f(F.pos)
         >>> f1[N] = N.neg
         >>> f1
-        {<enum 'F'>: [<F.pos: 1>], <enum 'N'>: [<N.neg: 2>]}
+        {F: [pos], N: [neg]}
         """
         if not issubclass(feature_name, MorphosyntacticFeature):
             raise TypeError(str(feature_name) + " is not a morphosyntactic feature")
-        
+
         if type(feature_values) is not list:
             feature_values = [feature_values]
 
@@ -551,13 +556,14 @@ class MorphosyntacticFeatureBundle:
 
 f = MorphosyntacticFeatureBundle
 
+
 def to_categorial(pos: int) -> "MorphosyntacticFeatureBundle":
     """Maps UD parts of speech to binary categorial feature bundles.
     In some cases these are underspecified, including empty bundles for interjections.
     >>> to_categorial(POS.adjective)
-    {<enum 'F'>: [<F.neg: 2>], <enum 'N'>: [<N.pos: 1>], <enum 'V'>: [<V.pos: 1>]}
+    {F: [neg], N: [pos], V: [pos]}
     >>> to_categorial(POS.particle)
-    {<enum 'F'>: [<F.pos: 1>]}
+    {F: [pos]}
     >>> to_categorial(POS.interjection)
     {}
     """
@@ -586,249 +592,229 @@ def to_categorial(pos: int) -> "MorphosyntacticFeatureBundle":
 
 from_ud_map = {
     # parts of speech
-    'POS': {
-        'ADJ': POS.adjective,
-        'ADP': POS.adposition,
-        'ADV': POS.adverb,
-        'AUX': POS.auxiliary,
-        'CCONJ': POS.coordinating_conjunction,
-        'DET': POS.determiner,
-        'INTJ': POS.interjection,
-        'NOUN': POS.noun,
-        'NUM': POS.numeral,
-        'PART': POS.particle,
-        'PRON': POS.pronoun,
-        'PROPN': POS.proper_noun,
-        'PUNCT': POS.punctuation,
-        'SCONJ': POS.subordinating_conjunction,
-        'SYM': POS.symbol,
-        'VERB': POS.verb,
-        'X': POS.other
+    "POS": {
+        "ADJ": POS.adjective,
+        "ADP": POS.adposition,
+        "ADV": POS.adverb,
+        "AUX": POS.auxiliary,
+        "CCONJ": POS.coordinating_conjunction,
+        "DET": POS.determiner,
+        "INTJ": POS.interjection,
+        "NOUN": POS.noun,
+        "NUM": POS.numeral,
+        "PART": POS.particle,
+        "PRON": POS.pronoun,
+        "PROPN": POS.proper_noun,
+        "PUNCT": POS.punctuation,
+        "SCONJ": POS.subordinating_conjunction,
+        "SYM": POS.symbol,
+        "VERB": POS.verb,
+        "X": POS.other,
     },
     # verbal features
-    'VerbForm': {
-        'Conv': VerbForm.converb,
-        'Fin': VerbForm.finite,
-        'Gdv': VerbForm.gerundive,
-        'Ger': VerbForm.gerund,
-        'Inf': VerbForm.infinitive,
-        'Part': VerbForm.participle,
-        'Sup': VerbForm.supine,
-        'Vnoun': VerbForm.masdar
+    "VerbForm": {
+        "Conv": VerbForm.converb,
+        "Fin": VerbForm.finite,
+        "Gdv": VerbForm.gerundive,
+        "Ger": VerbForm.gerund,
+        "Inf": VerbForm.infinitive,
+        "Part": VerbForm.participle,
+        "Sup": VerbForm.supine,
+        "Vnoun": VerbForm.masdar,
     },
-    'Mood': {
-        'Adm': Mood.admirative,
-        'Cnd': Mood.conditional,
-        'Des': Mood.desiderative,
-        'Imp': Mood.imperative,
-        'Ind': Mood.indicative,
-        'Jus': Mood.jussive,
-        'Nec': Mood.necessitative,
-        'Opt': Mood.optative,
-        'Pot': Mood.potential,
-        'Prp': Mood.purposive,
-        'Qot': Mood.quotative,
-        'Sub': Mood.subjunctive
+    "Mood": {
+        "Adm": Mood.admirative,
+        "Cnd": Mood.conditional,
+        "Des": Mood.desiderative,
+        "Imp": Mood.imperative,
+        "Ind": Mood.indicative,
+        "Jus": Mood.jussive,
+        "Nec": Mood.necessitative,
+        "Opt": Mood.optative,
+        "Pot": Mood.potential,
+        "Prp": Mood.purposive,
+        "Qot": Mood.quotative,
+        "Sub": Mood.subjunctive,
     },
-    'Tense': {
-        'Fut': Tense.future,
-        'Imp': Tense.imperfect,
-        'Past': Tense.past,
-        'Pqp': Tense.pluperfect,
-        'Pres': Tense.present
+    "Tense": {
+        "Fut": Tense.future,
+        "Imp": Tense.imperfect,
+        "Past": Tense.past,
+        "Pqp": Tense.pluperfect,
+        "Pres": Tense.present,
     },
-    'Aspect': {
-        'Hab': Aspect.habitual,
-        'Imp': Aspect.imperfective,
-        'Iter': Aspect.iterative,
-        'Perf': Aspect.perfective,
-        'Prog': Aspect.progressive,
-        'Prosp': Aspect.prospective
+    "Aspect": {
+        "Hab": Aspect.habitual,
+        "Imp": Aspect.imperfective,
+        "Iter": Aspect.iterative,
+        "Perf": Aspect.perfective,
+        "Prog": Aspect.progressive,
+        "Prosp": Aspect.prospective,
     },
-    'Voice': {
-        'Act': Voice.active,
-        'Antip': Voice.antipassive,
-        'Bfoc': Voice.beneficiary_focus,
-        'Lfoc': Voice.location_focus,
-        'Caus': Voice.causative,
-        'Dir': Voice.direct,
-        'Inv': Voice.inverse,
-        'Mid': Voice.middle,
-        'Pass': Voice.passive,
-        'Rcp': Voice.reciprocal,
+    "Voice": {
+        "Act": Voice.active,
+        "Antip": Voice.antipassive,
+        "Bfoc": Voice.beneficiary_focus,
+        "Lfoc": Voice.location_focus,
+        "Caus": Voice.causative,
+        "Dir": Voice.direct,
+        "Inv": Voice.inverse,
+        "Mid": Voice.middle,
+        "Pass": Voice.passive,
+        "Rcp": Voice.reciprocal,
     },
-    'Evident': {
-        'Fh': Evidentiality.first_hand,
-        'Nfh': Evidentiality.non_first_hand
+    "Evident": {"Fh": Evidentiality.first_hand, "Nfh": Evidentiality.non_first_hand},
+    "Polarity": {"Pos": Polarity.pos, "Neg": Polarity.neg},
+    "Person": {
+        "0": Person.zeroth,
+        "1": Person.first,
+        "2": Person.second,
+        "3": Person.third,
+        "4": Person.fourth,
     },
-    'Polarity': {
-        'Pos': Polarity.pos,
-        'Neg': Polarity.neg
+    "Polite": {
+        "Elev": Politeness.elevated,
+        "Form": Politeness.formal,
+        "Humb": Politeness.humble,
+        "Infm": Politeness.informal,
     },
-    'Person': {
-        '0': Person.zeroth,
-        '1': Person.first,
-        '2': Person.second,
-        '3': Person.third,
-        '4': Person.fourth
+    "Clusivity": {"Ex": Clusivity.exclusive, "In": Clusivity.inclusive},
+    # nominal
+    "Gender": {
+        "Com": Gender.common,
+        "Fem": Gender.feminine,
+        "Masc": Gender.masculine,
+        "Neut": Gender.neuter,
     },
-    'Polite': {
-        'Elev': Politeness.elevated,
-        'Form': Politeness.formal,
-        'Humb': Politeness.humble,
-        'Infm': Politeness.informal
+    "Animacy": {
+        "Anim": Animacy.animate,
+        "Hum": Animacy.human,
+        "Inan": Animacy.inanimate,
+        "Nhum": Animacy.non_human,
     },
-    'Clusivity': {
-        'Ex': Clusivity.exclusive,
-        'In': Clusivity.inclusive
+    "Number": {
+        "Coll": Number.collective,
+        "Count": Number.count_plural,
+        "Dual": Number.dual,
+        "Grpa": Number.greater_paucal,
+        "Grpl": Number.greater_plural,
+        "Inv": Number.inverse_number,
+        "Pauc": Number.paucal,
+        "Plur": Number.plural,
+        "Ptan": Number.plurale_tantum,
+        "Sing": Number.singular,
+        "Tri": Number.trial,
     },
-
-    #nominal
-    'Gender': {
-        'Com': Gender.common,
-        'Fem': Gender.feminine,
-        'Masc': Gender.masculine,
-        'Neut': Gender.neuter
-    },
-    'Animacy': {
-        'Anim': Animacy.animate,
-        'Hum': Animacy.human,
-        'Inan': Animacy.inanimate,
-        'Nhum': Animacy.non_human
-    },
-    'Number': {
-        'Coll': Number.collective,
-        'Count': Number.count_plural,
-        'Dual': Number.dual,
-        'Grpa': Number.greater_paucal,
-        'Grpl': Number.greater_plural,
-        'Inv': Number.inverse_number,
-        'Pauc': Number.paucal,
-        'Plur': Number.plural,
-        'Ptan': Number.plurale_tantum,
-        'Sing': Number.singular,
-        'Tri': Number.trial
-    },
-    'Case': {
-         # structural cases
-        'Nom': Case.nominative,
-        'Acc': Case.accusative,
-        'Erg': Case.ergative,
-        'Abs': Case.absolutive,
-
+    "Case": {
+        # structural cases
+        "Nom": Case.nominative,
+        "Acc": Case.accusative,
+        "Erg": Case.ergative,
+        "Abs": Case.absolutive,
         # oblique cases
-        'Abe': Case.abessive,
-        'Ben': Case.befefactive,
-        'Caus': Case.causative,
-        'Cmp': Case.comparative,
-        'Cns': Case.considerative,
-        'Com': Case.comitative,
-        'Dat': Case.dative,
-        'Dis': Case.distributive,
-        'Equ': Case.equative,
-        'Gen': Case.genitive,
-        'Ins': Case.instrumental,
-        'Par': Case.partitive,
-        'Voc': Case.vocative,
-
+        "Abe": Case.abessive,
+        "Ben": Case.befefactive,
+        "Caus": Case.causative,
+        "Cmp": Case.comparative,
+        "Cns": Case.considerative,
+        "Com": Case.comitative,
+        "Dat": Case.dative,
+        "Dis": Case.distributive,
+        "Equ": Case.equative,
+        "Gen": Case.genitive,
+        "Ins": Case.instrumental,
+        "Par": Case.partitive,
+        "Voc": Case.vocative,
         # spatiotemporal cases
-        'Abl': Case.ablative,
-        'Add': Case.additive,
-        'Ade': Case.adessive,
-        'All': Case.allative,
-        'Del': Case.delative,
-        'Ela': Case.elative,
-        'Ess': Case.essive,
-        'Ill': Case.illative,
-        'Ine': Case.inessive,
-        'Lat': Case.lative,
-        'Loc': Case.locative,
-        'Per': Case.perlative,
-        'Sub': Case.sublative,
-        'Sup': Case.superessive,
-        'Ter': Case.terminative,
-        'Tem': Case.temporal,
-        'Tra': Case.translative
+        "Abl": Case.ablative,
+        "Add": Case.additive,
+        "Ade": Case.adessive,
+        "All": Case.allative,
+        "Del": Case.delative,
+        "Ela": Case.elative,
+        "Ess": Case.essive,
+        "Ill": Case.illative,
+        "Ine": Case.inessive,
+        "Lat": Case.lative,
+        "Loc": Case.locative,
+        "Per": Case.perlative,
+        "Sub": Case.sublative,
+        "Sup": Case.superessive,
+        "Ter": Case.terminative,
+        "Tem": Case.temporal,
+        "Tra": Case.translative,
     },
-    'Definite': {
-        'Com': Definiteness.complex,
-        'Cons': Definiteness.construct_state,
-        'Def': Definiteness.definite,
-        'Ind': Definiteness.indefinite,
-        'Spec': Definiteness.specific_indefinite
+    "Definite": {
+        "Com": Definiteness.complex,
+        "Cons": Definiteness.construct_state,
+        "Def": Definiteness.definite,
+        "Ind": Definiteness.indefinite,
+        "Spec": Definiteness.specific_indefinite,
     },
-    'Degree': {
-        'Abs': Degree.absolute_superlative,
-        'Cmp': Degree.comparative,
-        'Equ': Degree.equative,
-        'Pos': Degree.positive,
-        'Sup': Degree.superlative
+    "Degree": {
+        "Abs": Degree.absolute_superlative,
+        "Cmp": Degree.comparative,
+        "Equ": Degree.equative,
+        "Pos": Degree.positive,
+        "Sup": Degree.superlative,
     },
-
     # other lexical
-    'PronType': {
-        'Art': PrononimalType.article,
-        'Dem': PrononimalType.demonstrative,
-        'Emp': PrononimalType.emphatic,
-        'Exc': PrononimalType.exclamative,
-        'Ind': PrononimalType.indefinite,
-        'Int': PrononimalType.interrogative,
-        'Neg': PrononimalType.negative,
-        'Prs': PrononimalType.personal,
-        'Rcp': PrononimalType.reciprocal,
-        'Rel': PrononimalType.relative,
-        'Tot': PrononimalType.total
+    "PronType": {
+        "Art": PrononimalType.article,
+        "Dem": PrononimalType.demonstrative,
+        "Emp": PrononimalType.emphatic,
+        "Exc": PrononimalType.exclamative,
+        "Ind": PrononimalType.indefinite,
+        "Int": PrononimalType.interrogative,
+        "Neg": PrononimalType.negative,
+        "Prs": PrononimalType.personal,
+        "Rcp": PrononimalType.reciprocal,
+        "Rel": PrononimalType.relative,
+        "Tot": PrononimalType.total,
     },
-    'AdpType': {
-        'Prep': AdpositionalType.preposition,
-        'Post': AdpositionalType.postposition,
-        'Circ': AdpositionalType.circumposition,
-        'Voc': AdpositionalType.vocalized_adposition
+    "AdpType": {
+        "Prep": AdpositionalType.preposition,
+        "Post": AdpositionalType.postposition,
+        "Circ": AdpositionalType.circumposition,
+        "Voc": AdpositionalType.vocalized_adposition,
     },
-    'NumType': {
-        'Card': Numeral.cardinal,
-        'Dist': Numeral.distributive,
-        'Frac': Numeral.fractional,
-        'Mult': Numeral.multiplicative,
-        'Ord': Numeral.ordinal,
-        'Range': Numeral.range,
-        'Sets': Numeral.sets
+    "NumType": {
+        "Card": Numeral.cardinal,
+        "Dist": Numeral.distributive,
+        "Frac": Numeral.fractional,
+        "Mult": Numeral.multiplicative,
+        "Ord": Numeral.ordinal,
+        "Range": Numeral.range,
+        "Sets": Numeral.sets,
     },
-    'Poss': {
-        'Yes': Possessive
-    },
-    'Reflex': {
-        'Yes': Reflexive
-    },
-    'Foreign': {
-        'Yes': Foreign
-    },
-    'Abbr': {
-        'Yes': Abbreviation
-    },
-    'Typo': {
-        'Yes': Typo
-    }
+    "Poss": {"Yes": Possessive},
+    "Reflex": {"Yes": Reflexive},
+    "Foreign": {"Yes": Foreign},
+    "Abbr": {"Yes": Abbreviation},
+    "Typo": {"Yes": Typo},
 }
+
 
 def from_ud(feature_name: str, feature_value: str) -> MorphosyntacticFeature:
     """For a given Universal Dependencies feature name and value,
     return the appropriate feature class/value.
     >>> from_ud('Case', 'Abl')
-    <Case.ablative: 18>
+    ablative
     >>> from_ud('Abbr', 'Yes')
-    <enum 'Abbreviation'>
+    Abbreviation
     >>> from_ud('PronType', 'Ind')
-    <PrononimalType.indefinite: 5>
+    indefinite
     """
     if feature_name in from_ud_map:
         feature_map = from_ud_map[feature_name]
     else:
-        raise CLTKException(f'{feature_name}: Unrecognized UD feature name')
-    
-    values = feature_value.split(',')
+        raise CLTKException(f"{feature_name}: Unrecognized UD feature name")
+
+    values = feature_value.split(",")
     for value in values:
         if value in feature_map:
             return feature_map[value]
         else:
-            raise CLTKException(f'{value}: Unrecognized value for UD feature {feature_name}')
+            raise CLTKException(
+                f"{value}: Unrecognized value for UD feature {feature_name}"
+            )
