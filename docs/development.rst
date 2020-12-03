@@ -3,35 +3,42 @@ Development
 
 The following steps will give you a working development environment as the maintainers have.
 
+Git
+---
+
+Begin by forking the ``cltk/cltk`` repo into your github account.
+
+* ``$ git clone https://github.com/your-username/cltk.git``
+* ``$ cd cltk``
+* ``$ git remote add upstream https://github.com/cltk/cltk.git``
+
 Python
 ------
 
-Use pyenv to manage Python versions and Poetry for package builds.
+Use pyenv to manage Python versions and Poetry for package builds.  Note that pyenv does not depend on Python itself.
 
 * Install ``pyenv``:
    - First time installation; ``curl https://pyenv.run | bash``
-   - To update: ``pyenv update``
    - Resource: `Managing Multiple Python Versions With pyenv <https://realpython.com/intro-to-pyenv/>`_
 * Install supported versions of the Python language through ``pyenv`` into a dedicated virtualenv:
    - Find the Python versions supported by the CLTK, see ``poetry.toml``.
    - ``$ pyenv install --list | grep 3.8``
    - ``$ pyenv install 3.8.3`` (or whatever is latest)
    - ``$ pyenv virtualenv 3.8.3 cltk``
-   - ``$ pyenv local cltk``. Open a new window and this should be activated (check with ``$ python --version``).
+
+   Ensure that your working directory is `cltk', then:
+
+   - ``$ pyenv local cltk``. Open a new terminal and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
 * Install Stanford NLP models: ``$ poetry run python scripts/download_all_models.py``
 * Install Graphiz (necessary for building docs): `<https://graphviz.gitlab.io/download/>`_
 
 
-Git
----
+Git Flow
+--------
 
-* ``$ git clone https://github.com/your-username/cltk.git``
-* ``$ cd cltk``
-* ``$ git remote add upstream https://github.com/cltk/cltk.git``
-* ``$ git branch fix-feature``
-* ``$ git checkout fix-feature``
+* ``$ git branch -b fix-feature``
 * Install: ``$ make install``
 * Check changes in interactive Python shell: ``$ make shell``
 * Run doctests locally: ``$ make testOnlyDocTests``
