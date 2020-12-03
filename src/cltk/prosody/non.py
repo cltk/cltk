@@ -134,9 +134,7 @@ class ShortLine:
 
 
 class LongLine:
-    """
-
-    """
+    """"""
 
     def __init__(self, text):
         self.text = text
@@ -233,9 +231,7 @@ class Metre:
     """
 
     def __init__(self):
-        """
-
-        """
+        """"""
         self.text = ""  # raw text
         self.short_lines = []  # list of minimal lines
         self.long_lines = []  # list of long lines

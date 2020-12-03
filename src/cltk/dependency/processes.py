@@ -159,7 +159,9 @@ class OCSStanzaProcess(StanzaProcess):
     """Stanza processor for Old Church Slavonic."""
 
     language: str = "chu"
-    description: str = "Default process for Stanza for the Old Church Slavonic language."
+    description: str = (
+        "Default process for Stanza for the Old Church Slavonic language."
+    )
 
 
 @dataclass

@@ -239,9 +239,7 @@ class StanzaWrapper:
         models_dir = os.path.expanduser(
             "~/stanza_resources/"
         )  # TODO: Mv this a self. var or maybe even global
-        processors = (
-            None
-        )  # if ``None``, then use defaults; was ``"tokenize,mwt,pos,lemma,depparse"``
+        processors = None  # if ``None``, then use defaults; was ``"tokenize,mwt,pos,lemma,depparse"``
         lemma_use_identity = False
         if self.language == "fro":
             processors = "tokenize,pos,lemma"

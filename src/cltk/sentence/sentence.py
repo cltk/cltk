@@ -22,7 +22,7 @@ class SentenceTokenizer:
     """ Base class for sentences tokenization"""
 
     def __init__(self, language: str = None):
-        """ Initialize stoplist builder with option for language specific parameters
+        """Initialize stoplist builder with option for language specific parameters
         :param language : language for sentences tokenization
         :type language: str
         """

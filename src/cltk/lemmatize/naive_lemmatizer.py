@@ -22,7 +22,7 @@ def _build_match_and_apply_functions(pattern, replace):
 class DictionaryRegexLemmatizer(ABC):
     """Implementation of a lemmatizer based on a
     dictionary of lemmas and forms, backing off to regex rules.
-    Since a given form may map to multiple lemmas, 
+    Since a given form may map to multiple lemmas,
     a corpus-based frequency disambiguator is employed.
 
     Subclasses must provide methods to load dictionary and corpora,
@@ -72,8 +72,8 @@ class DictionaryRegexLemmatizer(ABC):
         self, token: str, best_guess: bool = True, return_frequencies: bool = False
     ) -> Union[str, List[Union[str, Tuple[str, float]]]]:
         """Lemmatize a single token.  If best_guess is true, then take the most
-        frequent lemma when a form has multiple possible lemmatizations.  
-        If the form is not found, just return it. 
+        frequent lemma when a form has multiple possible lemmatizations.
+        If the form is not found, just return it.
         If best_guess is false, then
         always return the full set of possible lemmas, or the empty list if none found.
         If return_frequencies is true ,then also return the relative frequency of the lemma in a corpus.

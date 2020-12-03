@@ -8,8 +8,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class GothicTranscription:
-    """Gothic transcriber
-    """
+    """Gothic transcriber"""
 
     def __init__(self):
         self.transcriber = ut.Transcriber(

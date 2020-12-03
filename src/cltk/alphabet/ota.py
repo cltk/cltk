@@ -152,8 +152,8 @@ OTHER_SYMBOLS = [PERCENT, DECIMAL, THOUSANDS]
 # Necessary for writing
 KESHIDEGI = "\u0640"  # Elongation
 ZERO_WIDTH_NONE_JOINER = (
-    "\u200c"
-)  # Forces disconnect betweeen two letters (useful for HE in Ottoman)
+    "\u200c"  # Forces disconnect betweeen two letters (useful for HE in Ottoman)
+)
 ZERO_WIDTH_JOINER = "\u200d"
 
 NECESSARY_FOR_WRITING = [KESHIDEGI, ZERO_WIDTH_JOINER, ZERO_WIDTH_NONE_JOINER]

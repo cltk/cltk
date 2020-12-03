@@ -4,9 +4,9 @@ python:
 #  - "3.7.5"
   - "3.8.5"
 
-env:
-  - TEST_SUITE=testOnlyDocTests
-  - TEST_SUITE=test
+#env:
+#  - TEST_SUITE=testOnlyDocTests
+#  - TEST_SUITE=test
 
 cache:
   directories:
@@ -21,6 +21,9 @@ addons:
       - graphviz
 
 before_install:
+  - echo $FAKE_SECRET_ENV_VAR
+  - pip install setuptools requests
+
   - pip install --upgrade pip
   - pip install poetry
   - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
@@ -30,25 +33,30 @@ install:
   - poetry run python scripts/download_all_models.py
 
 before_script:
-  - poetry run pre-commit install-hooks
-#  - poetry run pre-commit run --all-files
+  - make preCommitUpdate
+  - make preCommitRun
 
 script:
-  - make $TEST_SUITE
+  - make test
   - make uml
   - make docs
-  - make format
 
 after_failure:
   - echo Add later
 
 # https://docs.travis-ci.com/user/deployment-v2/providers/pypi/
+# example for branches: https://github.com/travis-ci/travis-ci/issues/8289#issuecomment-324722657
 deploy:
   provider: pypi
+  on:
+    branches:
+      only:
+        - master
+        - dev
   username: kyle_johnson
   password: $PYPI_PASSWORD
   edge: true  # opt in to dpl v2
 
 # if deploy success
 after_success:
-  - python scripts/trigger_github_release.py $GITHUB_TOKEN
+  - python scripts/trigger_github_release.py $GH_PERSONAL_ACCESS_TOKEN

@@ -601,7 +601,7 @@ def is_vocalizedtext(text):
 
 
 def is_arabicstring(text):
-    """ Checks for an  Arabic standard Unicode block characters
+    """Checks for an  Arabic standard Unicode block characters
     An arabic string can contain spaces, digits and pounctuation.
     but only arabic standard characters, not extended arabic
     @param text: input text
@@ -619,7 +619,7 @@ def is_arabicstring(text):
 
 
 def is_arabicrange(text):
-    """ Checks for an  Arabic Unicode block characters
+    """Checks for an  Arabic Unicode block characters
     @param text: input text
     @type text: unicode
     @return: True if all charaters are in Arabic block
@@ -631,7 +631,7 @@ def is_arabicrange(text):
 
 
 def is_arabicword(word):
-    """ Checks for an valid Arabic  word.
+    """Checks for an valid Arabic  word.
     An Arabic word not contains spaces, digits and pounctuation
     avoid some spelling error,  TEH_MARBUTA must be at the end.
     @param word: input word
@@ -900,7 +900,7 @@ def separate(word, extract_shadda=False):
 
 
 def joint(letters, marks):
-    """ joint the letters with the marks
+    """joint the letters with the marks
     the length ot letters and marks must be equal
     return word
     @param letters: the word letters

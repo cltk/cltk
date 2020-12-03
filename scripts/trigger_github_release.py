@@ -14,6 +14,7 @@ def main():
     parser.add_argument("token", help="GitHub Auth token", type=str)
     args = parser.parse_args()
     token = args.token
+    print("FAKE SECRET:", token)
     cltk_version = pkg_resources.get_distribution("cltk").version  # str
     # https://docs.github.com/en/rest/reference/repos#create-a-release
     data = {
@@ -35,7 +36,7 @@ def main():
     print("Status code:", res.status_code)
     print("Message", res.text)
     if not res.status_code == 201:
-        sys.exit(__status=1)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
