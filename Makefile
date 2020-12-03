@@ -30,7 +30,7 @@ preCommitRun:
 	poetry run pre-commit run --all-files
 
 publishPyPI:
-	gmake build
+	make build
 	poetry publish
 
 publishPyPITest:
