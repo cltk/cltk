@@ -103,15 +103,16 @@ embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcrip
                     else -1,  # note: if val becomes ``-1`` then no governor, ie word is root; ``fro`` gives None sometimes, what does this mean?
                 )  # type: Word
 
+                print(stanza_word.feats)
                 # convert UD features to the normalized CLTK features
-                features = (
+                raw_features = (
                     [tuple(f.split("=")) for f in stanza_word.feats.split("|")]
                     if stanza_word.feats
                     else []
                 )
                 cltk_features = [
                     from_ud(feature_name, feature_value)
-                    for feature_name, feature_value in features
+                    for feature_name, feature_value in raw_features
                 ]
                 cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
                 cltk_word.category = to_categorial(cltk_word.pos)
