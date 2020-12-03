@@ -224,6 +224,16 @@ class Clusivity(MorphosyntacticFeature):
     inclusive = auto()
 
 
+class Strength(MorphosyntacticFeature):
+    """Is this a strong or weak verb or adjective?
+    UDv1 feature, specific to Gothic.
+    see http://universaldependencies.org/docsv1/got/feat/Strength.html
+    """
+
+    strong = auto()
+    weak = auto()
+
+
 verbal_features = [
     VerbForm,
     Tense,
@@ -235,6 +245,7 @@ verbal_features = [
     Politeness,
     Clusivity,
     Evidentiality,
+    Strength,
 ]
 
 # Nominal features, related to the +N categories.
@@ -351,10 +362,25 @@ class Degree(MorphosyntacticFeature):
     superlative = auto()
 
 
-nominal_features = [Case, Gender, Animacy, Number, Definiteness, Degree]
+nominal_features = [Case, Gender, Animacy, Number, Definiteness, Degree, Strength]
 
 
 # Other lexical features
+
+
+class NameType(MorphosyntacticFeature):
+    """The type of a named entity, mostly applying to proper nouns.
+    see https://universaldependencies.org/u/feat/NameType.html
+    """
+
+    place = auto()
+    person = auto()
+    person_given_name = auto()
+    person_surname = auto()
+    nationality = auto()
+    company = auto()
+    product = auto()
+    other = auto()
 
 
 class PrononimalType(MorphosyntacticFeature):
@@ -384,6 +410,30 @@ class AdpositionalType(MorphosyntacticFeature):
     postposition = auto()
     circumposition = auto()
     vocalized_adposition = auto()
+
+
+class AdverbialType(MorphosyntacticFeature):
+    """What type of adverb is this?
+    see https://universaldependencies.org/u/feat/AdvType.html
+    """
+
+    manner = auto()
+    location = auto()
+    time = auto()
+    degree = auto()
+    cause = auto()
+    modality = auto()
+
+
+class VerbType(MorphosyntacticFeature):
+    """If this is a functional verb, what kind is it?
+    see https://universaldependencies.org/u/feat/VerbType.html
+    """
+
+    auxiliary = auto()
+    copula = auto()
+    modal = auto()
+    light = auto()
 
 
 class Possessive(PrivativeFeature):
@@ -778,6 +828,20 @@ from_ud_map = {
         "Circ": AdpositionalType.circumposition,
         "Voc": AdpositionalType.vocalized_adposition,
     },
+    "AdvType": {
+        "Man": AdverbialType.manner,
+        "Loc": AdverbialType.location,
+        "Tim": AdverbialType.time,
+        "Deg": AdverbialType.degree,
+        "Cau": AdverbialType.cause,
+        "Mod": AdverbialType.modality,
+    },
+    "VerbType": {
+        "Aux": VerbType.auxiliary,
+        "Cop": VerbType.copula,
+        "Mod": VerbType.modal,
+        "Light": VerbType.light,
+    },
     "NumType": {
         "Card": Numeral.cardinal,
         "Dist": Numeral.distributive,
@@ -787,6 +851,17 @@ from_ud_map = {
         "Range": Numeral.range,
         "Sets": Numeral.sets,
     },
+    "NameType": {
+        "Geo": NameType.place,
+        "Prs": NameType.person,
+        "Giv": NameType.person_given_name,
+        "Sur": NameType.person_surname,
+        "Nat": NameType.nationality,
+        "Com": NameType.company,
+        "Pro": NameType.product,
+        "Oth": NameType.other,
+    },
+    "Strength": {"Strong": Strength.strong, "Weak": Strength.weak},
     "Poss": {"Yes": Possessive},
     "Reflex": {"Yes": Reflexive},
     "Foreign": {"Yes": Foreign},
