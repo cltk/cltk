@@ -17,7 +17,6 @@ from typing import Dict, List, Type, Union
 import numpy as np
 import stringcase as sc
 
-from cltk.core.exceptions import CLTKException
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeature,
     MorphosyntacticFeatureBundle,
