@@ -11,14 +11,19 @@ of the NLP pipeline.
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Dict, List, Type
+from typing import Dict, List, Type, Union
+import importlib
 
 import numpy as np
+import stringcase as sc
 
+from cltk.core.exceptions import CLTKException
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeature,
-    MorphosyntacticFeatureBundle,
+    MorphosyntacticFeatureBundle
 )
+
+ud_mod = importlib.import_module('cltk.morphology.universal_dependencies_features')
 
 
 @dataclass
@@ -88,9 +93,17 @@ category=None, embedding=None, stop=None, named_entity=None, syllables=None, pho
     phonetic_transcription: str = None
 
     def __getitem__(
-        self, feature_name: Type[MorphosyntacticFeature]
+        self, feature_name: Union[str, Type[MorphosyntacticFeature]]
     ) -> List[MorphosyntacticFeature]:
         return self.features[feature_name]
+
+    def __getattr__(self, item: str):
+        feature_name = sc.pascalcase(item)
+        if feature_name in ud_mod.__dict__:
+            return self.features[feature_name]
+        else:
+           raise AttributeError(item)
+
 
 
 @dataclass
@@ -116,6 +129,10 @@ class Doc:
     ['NOUN', 'AUX', 'PRON']
     >>> cltk_doc.morphosyntactic_features[:3]
     [{Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
+    >>> cltk_doc[0].gender
+    [feminine]
+    >>> cltk_doc[0]['Case']
+    [nominative]
     >>> cltk_doc.lemmata[:5]
     ['mallis', 'sum', 'omnis', 'divido', 'in']
     >>> len(cltk_doc.sentences)
