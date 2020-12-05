@@ -32,9 +32,9 @@ class Verse:
 
         Example:
             >>> stanza = ['Ein rîchiu küneginne, frou Uote ir muoter hiez.', 'ir vater der hiez Dancrât, der in diu erbe liez', 'sît nâch sîme lebene, ein ellens rîcher man,', 'der ouch in sîner jugende grôzer êren vil gewan.']
-            
+
             >>> S = Verse(stanza)
-            
+
             >>> S.rhyme_scheme(2)
             'AABB'
         """

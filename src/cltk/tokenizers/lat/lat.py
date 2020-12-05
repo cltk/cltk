@@ -58,7 +58,7 @@ class LatinWordTokenizer(WordTokenizer):
 
         >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
         ['Cicero', 'dixit', 'orationem', 'pro', 'Sex', '.', 'Roscio']
-        
+
         >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
         ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
 

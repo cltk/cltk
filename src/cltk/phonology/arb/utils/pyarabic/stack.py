@@ -9,7 +9,7 @@ __license__ = "GPL"
 
 class Stack:
     """
-	Stack class
+    Stack class
     """
 
     def __init__(self, text=""):

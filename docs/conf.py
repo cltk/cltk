@@ -92,8 +92,8 @@ extensions = [
 # sphinx.ext.autodoc
 # https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 autodoc_member_order = (
-    "bysource"
-)  # to sort according to order in code, not alaphabetical
+    "bysource"  # to sort according to order in code, not alaphabetical
+)
 
 # sphinx.ext.todo
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html

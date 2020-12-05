@@ -47,9 +47,7 @@ def get_corpus_reader(corpus_name: str = None, language: str = None) -> CorpusRe
 
     sentence_tokenizer = SentenceTokenizer(language)
     the_word_tokenizer = WordTokenizer(language)
-    doc_pattern = (
-        r".*\.txt"
-    )  #: Generic file ending, override below in your own CorpusReader implementation
+    doc_pattern = r".*\.txt"  #: Generic file ending, override below in your own CorpusReader implementation
 
     if language == "lat":
         if corpus_name == "lat_text_latin_library":
@@ -417,8 +415,7 @@ class JsonfileCorpusReader(CorpusReader):
 
 # WRITE DOCSTRING
 class TesseraeCorpusReader(PlaintextCorpusReader):
-    """
-    """
+    """"""
 
     def __init__(
         self, root, fileids=None, encoding="utf8", skip_keywords=None, **kwargs

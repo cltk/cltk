@@ -10,9 +10,7 @@ OLD_NORSE_PUNCTUATION = [".", ",", ";", ":", '"', "'", "!", "?"]
 
 
 class OldNorsePunctuationRemover:
-    """
-
-    """
+    """"""
 
     def __init__(self):
         pass

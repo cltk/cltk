@@ -18,8 +18,8 @@ OldFrenchTokenizerPatterns = [
 
 class OldFrenchWordTokenizer(RegexWordTokenizer):
     """
-	A regex-based tokenizer for Old French.
-	"""
+    A regex-based tokenizer for Old French.
+    """
 
     def __init__(self):
         super().__init__(patterns=OldFrenchTokenizerPatterns)

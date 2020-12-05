@@ -18,8 +18,8 @@ MiddleHighGermanTokenizerPatterns = [
 
 class MiddleHighGermanWordTokenizer(RegexWordTokenizer):
     """
-	A regex-based tokenizer for Middle High German.
-	"""
+    A regex-based tokenizer for Middle High German.
+    """
 
     def __init__(self):
         super().__init__(patterns=MiddleHighGermanTokenizerPatterns)

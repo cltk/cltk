@@ -10,8 +10,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class LatinTranscription:
-    """Latin transcriber
-    """
+    """Latin transcriber"""
 
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
@@ -36,8 +35,7 @@ class LatinTranscription:
 
 
 class LatinSyllabifier:
-    """Latin syllabifier
-    """
+    """Latin syllabifier"""
 
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")

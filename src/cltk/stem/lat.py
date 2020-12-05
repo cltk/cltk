@@ -181,7 +181,7 @@ def _matchremove_verb_endings(word):
 def stem(word: str) -> str:
     """
     Stem each word of the Latin text.
-    
+
     >>> stem('interdum')
     'interd'
     >>> stem('mercaturis')

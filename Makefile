@@ -23,11 +23,14 @@ installPyPITest:
 lint:
 	mkdir -p pylint && poetry run pylint --output-format=json cltk > pylint/pylint.json || true && poetry run pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
+preCommitUpdate:
+	poetry run pre-commit autoupdate && poetry run pre-commit install --install-hooks && poetry run pre-commit autoupdate
+
 preCommitRun:
-	poetry run pre-commit autoupdate && poetry run pre-commit install && poetry run pre-commit autoupdate
+	poetry run pre-commit run --all-files
 
 publishPyPI:
-	gmake build
+	make build
 	poetry publish
 
 publishPyPITest:
@@ -58,6 +61,9 @@ testOnlyTestsDir:
 
 typing:
 	poetry run mypy --html-report .mypy_cache src/cltk
+
+uninstall:
+	poetry run pip uninstall -y cltk
 
 updateDependencies:
 	poetry update

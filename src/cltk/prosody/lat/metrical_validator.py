@@ -53,12 +53,12 @@ class MetricalValidator:
     def is_valid_pentameter(self, scanned_line: str) -> bool:
         """Determine if a scansion pattern is one of the valid Pentameter metrical patterns
 
-             :param scanned_line: a line containing a sequence of stressed and unstressed syllables
-             :return bool: whether or not the scansion is a valid pentameter
+        :param scanned_line: a line containing a sequence of stressed and unstressed syllables
+        :return bool: whether or not the scansion is a valid pentameter
 
-             >>> print(MetricalValidator().is_valid_pentameter('-UU-UU--UU-UUX'))
-             True
-             """
+        >>> print(MetricalValidator().is_valid_pentameter('-UU-UU--UU-UUX'))
+        True
+        """
         line = scanned_line.replace(self.constants.FOOT_SEPARATOR, "")
         line = line.replace(" ", "")
         if len(line) < 10:
