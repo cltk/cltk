@@ -4,11 +4,11 @@ from enum import auto
 from typing import List, Type, Union
 
 from cltk.core.exceptions import CLTKException
+from cltk.morphology.universal_dependencies_features import *
 from cltk.utils.utils import CLTKEnum
 
-from cltk.morphology.universal_dependencies_features import *
-
 __author__ = ["John Stewart <free-variation>"]
+
 
 class MorphosyntacticFeatureBundle:
     def __init__(self, *features: List[MorphosyntacticFeature]) -> None:

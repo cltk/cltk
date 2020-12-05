@@ -10,7 +10,6 @@ from enum import auto
 
 from cltk.utils.utils import CLTKEnum
 
-
 __author__ = ["John Stewart <free-variation>"]
 
 

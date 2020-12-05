@@ -9,10 +9,10 @@ of the NLP pipeline.
 >>> from cltk.core.data_types import Pipeline
 """
 
+import importlib
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Dict, List, Type, Union
-import importlib
 
 import numpy as np
 import stringcase as sc
@@ -20,10 +20,10 @@ import stringcase as sc
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeature,
-    MorphosyntacticFeatureBundle
+    MorphosyntacticFeatureBundle,
 )
 
-ud_mod = importlib.import_module('cltk.morphology.universal_dependencies_features')
+ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
 
 
 @dataclass
@@ -102,8 +102,7 @@ category=None, embedding=None, stop=None, named_entity=None, syllables=None, pho
         if feature_name in ud_mod.__dict__:
             return self.features[feature_name]
         else:
-           raise AttributeError(item)
-
+            raise AttributeError(item)
 
 
 @dataclass
