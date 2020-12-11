@@ -65,6 +65,11 @@ class MultilingualTokenizationProcess(TokenizationProcess):
     >>> output_doc = tokenizer_process.run(Doc(raw=get_example_text("non")[:29]))
     >>> output_doc.tokens
     ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
+    
+    >>> [word.index_char_start for word in output_doc.words]
+    [0, 6, 14, 18, 22]
+    >>> [word.index_char_stop for word in output_doc.words]
+    [5, 13, 17, 21, 28]
     """
 
     description = "Default tokenizer for languages lacking a dedicated tokenizer. This is a whitespace tokenizer inheriting from the NLTK."
