@@ -17,7 +17,7 @@ from cltk.tokenizers.fro import OldFrenchWordTokenizer
 from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
 from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.tokenizers.non import OldNorseWordTokenizer
-from cltk.tokenizers.word import RegexWordTokenizer
+from cltk.tokenizers.word import CLTKTreebankWordTokenizer
 
 
 @dataclass
@@ -38,17 +38,20 @@ class TokenizationProcess(Process):
         """
         The backoff tokenizer, from NLTK.
         """
-        return TreebankWordTokenizer()
+        return CLTKTreebankWordTokenizer()
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = deepcopy(input_doc)
-        output_doc.words = list()
+        output_doc.words = []
         tokenizer_obj = self.algorithm
 
-        for index, token in enumerate(tokenizer_obj.tokenize(output_doc.raw)):
-            word_obj = Word(string=token, index_token=index)
+        tokens = tokenizer_obj.tokenize(output_doc.raw)
+        indices = tokenizer_obj.compute_indices(output_doc.raw, tokens)
+        for index, token in enumerate(tokens):
+            word_obj = Word(string=token, index_token=index,
+                            index_char_start=indices[index],
+                            index_char_stop=indices[index]+len(token))
             output_doc.words.append(word_obj)
-
         return output_doc
 
 
@@ -123,7 +126,7 @@ class GreekTokenizationProcess(TokenizationProcess):
 
     @cachedproperty
     def algorithm(self):
-        return TreebankWordTokenizer()
+        return CLTKTreebankWordTokenizer()
 
 
 @dataclass

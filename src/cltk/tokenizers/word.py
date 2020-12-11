@@ -41,6 +41,17 @@ class WordTokenizer:
         """
         pass
 
+    @staticmethod
+    def compute_indices(text: str, tokens):
+        indices = []
+        for i, token in enumerate(tokens):
+            if 1 <= i:
+                current_index = indices[-1] + len(tokens[i - 1])
+                indices.append(current_index+text[current_index:].find(token))
+            else:
+                indices.append(text.find(token))
+        return indices
+
 
 class PunktWordTokenizer(WordTokenizer):
     """Class for punkt word tokenization"""
@@ -90,3 +101,17 @@ class RegexWordTokenizer(WordTokenizer):
         for pattern in self.patterns:
             text = re.sub(pattern[0], pattern[1], text)
         return text.split()
+
+
+class CLTKTreebankWordTokenizer(TreebankWordTokenizer):
+
+    @staticmethod
+    def compute_indices(text: str, tokens):
+        indices = []
+        for i, token in enumerate(tokens):
+            if 1 <= i:
+                current_index = indices[-1] + len(tokens[i - 1])
+                indices.append(current_index + text[current_index:].find(token))
+            else:
+                indices.append(text.find(token))
+        return indices
