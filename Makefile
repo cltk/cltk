@@ -33,7 +33,7 @@ preCommitRun:
 	poetry run pre-commit run --all-files
 
 publishPyPI:
-	gmake build
+	make build
 	poetry publish
 
 publishPyPITest:
@@ -72,7 +72,7 @@ updateDependencies:
 	poetry update
 
 uml:
-	cd docs/ && poetry run pyreverse -o png ../src/cltk/ && cd ../
+	cd docs/ && poetry run pyreverse -o svg ../src/cltk/ && cd ../
 
 all: format lint typing test uml docs
 

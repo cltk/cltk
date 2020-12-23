@@ -11,6 +11,8 @@ Installation
 .. note::
 
    The CLTK supports POSIX–compliant operating systems (Linux, Mac OS X, Windows Subsystem for Linux, etc.).
+   If you use the Windows Subsystem for Linux (WSL), we reccomend you upgrade to WSL2 at least, 
+   and install the CLTK on your *Linux filesystem*, e.g. under ``/home``.
 
 
 Install via Pip:

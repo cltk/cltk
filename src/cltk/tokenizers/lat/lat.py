@@ -150,3 +150,17 @@ class LatinWordTokenizer(WordTokenizer):
                 specific_tokens.append(token)
 
         return specific_tokens
+
+    @staticmethod
+    def compute_indices(text: str, tokens):
+        indices = []
+        for i, token in enumerate(tokens):
+            if 1 <= i:
+                current_index = indices[-1] + len(tokens[i - 1])
+                if token == "-ne":
+                    indices.append(current_index + text[current_index:].find(token[1:]))
+                else:
+                    indices.append(current_index + text[current_index:].find(token))
+            else:
+                indices.append(text.find(token))
+        return indices

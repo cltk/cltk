@@ -138,3 +138,14 @@ class AkkadianWordTokenizer(WordTokenizer):
             word_signs.append((sign, language))
 
         return word_signs
+
+    @staticmethod
+    def compute_indices(text: str, tokens):
+        indices = []
+        for i, token in enumerate(tokens):
+            if 1 <= i:
+                current_index = indices[-1] + len(tokens[i - 1][0])
+                indices.append(current_index + text[current_index:].find(token[0]))
+            else:
+                indices.append(text.find(token[0]))
+        return indices
