@@ -47,7 +47,7 @@ class WordTokenizer:
         for i, token in enumerate(tokens):
             if 1 <= i:
                 current_index = indices[-1] + len(tokens[i - 1])
-                indices.append(current_index+text[current_index:].find(token))
+                indices.append(current_index + text[current_index:].find(token))
             else:
                 indices.append(text.find(token))
         return indices
@@ -104,7 +104,6 @@ class RegexWordTokenizer(WordTokenizer):
 
 
 class CLTKTreebankWordTokenizer(TreebankWordTokenizer):
-
     @staticmethod
     def compute_indices(text: str, tokens):
         indices = []

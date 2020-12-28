@@ -13,6 +13,8 @@ The Word2Vec models are in two versions, ``txt`` and ``bin``, with the
 for retraining.
 
 # TODO: Classes ``Word2VecEmbeddings`` and ``FastTextEmbeddings`` contain duplicative code. Consider combining them.
+
+# TODO: Instead of returning `None`, return an empty numpy array of correct len.
 """
 
 import os

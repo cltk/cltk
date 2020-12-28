@@ -26,6 +26,9 @@ installPyPITest:
 lint:
 	mkdir -p pylint && poetry run pylint --output-format=json cltk > pylint/pylint.json || true && poetry run pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
+notebook:
+	poetry run jupyter notebook notebooks
+
 preCommitUpdate:
 	poetry run pre-commit autoupdate && poetry run pre-commit install --install-hooks && poetry run pre-commit autoupdate
 

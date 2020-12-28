@@ -286,6 +286,11 @@ from_ud_map = {
         "Sing": Number.singular,
         "Tri": Number.trial,
     },
+    "NumForm": {
+        "Word": NumForm.word,
+        "Digit": NumForm.digit,
+        "Roman": NumForm.roman,
+    },
     "Case": {
         # structural cases
         "Nom": Case.nominative,
