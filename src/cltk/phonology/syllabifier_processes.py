@@ -165,7 +165,7 @@ class OldNorseSyllabificationProcess(SyllabificationProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
-    >>> from cltk.filtering.processes import OldNorsePunctuationRemovalProcess
+    >>> from cltk.text.processes import OldNorsePunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
