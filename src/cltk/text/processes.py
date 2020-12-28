@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from boltons.cacheutils import cachedproperty
 
 from cltk.core import Doc, Process
-from cltk.filtering.non import OldNorsePunctuationRemover
+from cltk.text.non import OldNorsePunctuationRemover
 
 
 @dataclass

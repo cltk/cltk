@@ -90,7 +90,7 @@ embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcrip
 
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
-                    - 1,  # subtract 1 from id b/c snpl starts their index at 1
+                    - 1,  # subtract 1 from id b/c Stanza starts their index at 1
                     index_sentence=sentence_index,
                     string=stanza_word.text,  # same as ``token.text``
                     pos=from_ud("POS", stanza_word.pos),

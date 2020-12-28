@@ -6,6 +6,14 @@ from typing import Dict, List, Union
 from xml.etree.ElementTree import Element, ElementTree
 
 from cltk.core.data_types import Doc, Process, Word
+from cltk.core.exceptions import CLTKException
+from cltk.morphology.universal_dependencies_features import (
+    NOMINAL_FEATURES,
+    VERBAL_FEATURES,
+    MorphosyntacticFeature,
+)
+
+ALL_POSSIBLE_FEATURES = NOMINAL_FEATURES + VERBAL_FEATURES
 
 
 class Form(Element):
@@ -89,7 +97,7 @@ class Form(Element):
             self.tag
             + "_"
             + self("form_id")
-            + (("/" + self("pos")) if self("pos") else "")
+            # + (("/" + self("pos")) if self("pos") else "")  # Note: This was erroring, KJ commented
         )
 
     __repr__ = __str__
@@ -115,7 +123,7 @@ class Form(Element):
             self("form_id"),
             ",".join(
                 [
-                    feature + "=" + self(feature)
+                    feature + "="  # + self(feature)
                     for feature in self.attrib.keys()
                     if feature not in excluded
                 ]
@@ -129,6 +137,8 @@ class Form(Element):
     def to_form(word: Word) -> "Form":
         """Converts a ``CLTK`` ``Word`` object to a ``Form``.
 
+        TODO: The Form info that prints is incomplete/ugly; correct str repr of ``Form``
+
         >>> cltk_word = Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={'Case': 'Nom', 'Degree': 'Pos', 'Gender': 'Fem', 'Number': 'Sing'}, embedding=[], stop=False, named_entity=True)
         >>> f = Form.to_form(cltk_word)
         >>> f.full_str()
@@ -141,8 +151,14 @@ class Form(Element):
         form.set("upos", word.upos)
         form.set("xpos", word.xpos)
 
-        for (feature_name, feature_value) in word.features.items():
-            form.set(feature_name, feature_value)
+        for possible_feature in ALL_POSSIBLE_FEATURES:
+            try:
+                feat = word.__getattr__(possible_feature)[
+                    0
+                ]  # type: MorphosyntacticFeature
+            except CLTKException:
+                continue
+            form.set(str(feat), feat.name)
 
         return form
 
@@ -221,7 +237,7 @@ class DependencyTree(ElementTree):
             for child_node in list(node):
                 _print_treelet(child_node, indent + 4, all_features)
 
-        # self._print_treelet(self.getroot(), indent=0, all_features=all_features)
+        _print_treelet(self.getroot(), indent=0, all_features=all_features)
 
     @staticmethod
     def to_tree(sentence: List[Word]) -> "DependencyTree":
