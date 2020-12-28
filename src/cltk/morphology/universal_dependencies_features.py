@@ -51,16 +51,36 @@ class CategorialFeature(BinaryFeature):
 
 
 class N(CategorialFeature):
+    """A `nominal word <https://en.wikipedia.org/wiki/Nominal_(linguistics)>_,
+    "a category used to group together nouns and adjectives based on shared
+    properties. The motivation for nominal grouping is that in many languages
+    nouns and adjectives share a number of morphological and syntactic
+    properties."
+    """
+
     pos = auto()
     neg = auto()
 
 
 class V(CategorialFeature):
+    """A `verbal word <https://universaldependencies.org/u/pos/all.html#verb-verb>`_,
+    which "typically signal events and actions, can constitute a minimal
+    predicate in a clause, and govern the number and types of other
+    constituents which may occur in the clause." See notes that verb-like forms
+    may be better classed as eg, nouns, adjectives, etc..
+    """
+
     pos = auto()
     neg = auto()
 
 
 class F(CategorialFeature):
+    """A `function word <https://en.wikipedia.org/wiki/Function_word>`_.
+    These "have little lexical meaning or have ambiguous meaning and express
+    grammatical relationships among other words within a sentence,
+    or specify the attitude or mood of the speaker".
+    """
+
     pos = auto()
     neg = auto()
 
@@ -237,7 +257,7 @@ class Strength(MorphosyntacticFeature):
     weak = auto()
 
 
-verbal_features = [
+VERBAL_FEATURES = [
     VerbForm,
     Tense,
     Mood,
@@ -340,6 +360,17 @@ class Number(MorphosyntacticFeature):
     trial = auto()
 
 
+class NumForm(MorphosyntacticFeature):
+    """Feature of cardinal and ordinal numbers.
+    Is the number expressed by digits or as a word?
+    See `<https://universaldependencies.org/cs/feat/NumForm.html>`_.
+    """
+
+    word = auto()
+    digit = auto()
+    roman = auto()
+
+
 class Definiteness(MorphosyntacticFeature):
     """The relationship between noun phrases and
     entities in or not in the discoursive context.
@@ -365,7 +396,7 @@ class Degree(MorphosyntacticFeature):
     superlative = auto()
 
 
-nominal_features = [Case, Gender, Animacy, Number, Definiteness, Degree, Strength]
+NOMINAL_FEATURES = [Case, Gender, Animacy, Number, Definiteness, Degree, Strength]
 
 
 # Other lexical features

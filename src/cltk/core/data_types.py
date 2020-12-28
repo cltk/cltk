@@ -94,9 +94,11 @@ category=None, embedding=None, stop=None, named_entity=None, syllables=None, pho
     def __getitem__(
         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
     ) -> List[MorphosyntacticFeature]:
+        """Accessor to help get morphosyntatic features from a word object."""
         return self.features[feature_name]
 
     def __getattr__(self, item: str):
+        """Accessor to help get morphosyntatic features from a word object."""
         feature_name = sc.pascalcase(item)
         if feature_name in ud_mod.__dict__:
             return self.features[feature_name]
