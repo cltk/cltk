@@ -24,6 +24,7 @@ def get_pos(word: Optional[Word]) -> Union[str, None]:
 
 def get_features(
     word: Optional[Word],
+    prepend_to_label: str = None,
 ) -> Tuple[List[str], List[Union[str, int, float, None]]]:
     """Take a word, return a list of feature labels."""
 
@@ -35,9 +36,10 @@ def get_features(
             features_present.append(None)
             continue
         try:
-            # TODO: This is broken!
             feat = word.__getattr__(possible_feature)[0]  # type: MorphosyntacticFeature
             features_present.append(str(feat.name))
         except CLTKException:
             features_present.append(None)
+    if prepend_to_label:
+        feature_variables = [prepend_to_label + name for name in feature_variables]
     return feature_variables, features_present
