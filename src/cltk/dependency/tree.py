@@ -223,7 +223,7 @@ class DependencyTree(ElementTree):
         deps.append(Dependency(None, self.getroot(), "root"))
         return deps
 
-    def print_tree(self, all_features: bool = True):
+    def print_tree(self, all_features: bool = False):
         """Prints a pretty-printed (indented) representation
         of the dependency tree. If all_features is True, then
         each node is printed with its complete feature bundles.
@@ -232,7 +232,9 @@ class DependencyTree(ElementTree):
         def _print_treelet(node: Form, indent: int, all_features: bool):
             edge = "└─ " if indent > 0 else ""
             node_str = node.full_str(False) if all_features else str(node)
-            print(" " * indent + edge + node("relation") + " | " + node_str)
+            print(" " * indent + edge + node("relation") + " | "
+                  + node_str
+                  )
 
             for child_node in list(node):
                 _print_treelet(child_node, indent + 4, all_features)
