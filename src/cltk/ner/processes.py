@@ -74,10 +74,8 @@ class LatinNERProcess(NERProcess):
     >>> tokens = [Word(string=token) for token in split_punct_ws(get_example_text("lat"))]
     >>> a_process = LatinNERProcess()
     >>> output_doc = a_process.run(Doc(raw=get_example_text("lat"), words=tokens))
-    >>> output_doc.words[0].named_entity
-    True
-    >>> output_doc.words[1].named_entity
-    False
+    >>> [word.named_entity for word in output_doc.words][:20]
+    ['LOCATION', False, False, False, False, False, False, False, False, False, 'LOCATION', False, 'LOCATION', False, False, False, False, 'LOCATION', False, 'LOCATION']
     """
 
     language: str = "lat"

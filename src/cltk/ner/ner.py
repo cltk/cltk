@@ -6,6 +6,7 @@ from typing import List, Union
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.utils import get_lang
+from cltk.ner.spacy_ner import spacy_tag_ner
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
@@ -16,7 +17,9 @@ NER_DICT = {
         CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
     ),
     "lat": os.path.join(
-        CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/proper_names.txt"
+        # CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/proper_names.txt"
+        CLTK_DATA_DIR,
+        "lat/model/lat_models_cltk/ner/spacy_model/",
     ),
 }
 
@@ -29,11 +32,6 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
     >>> from cltk.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws
     >>> tokens = split_punct_ws(get_example_text(iso_code="lat"))
-    >>> are_words_entities = tag_ner(iso_code="lat", input_tokens=tokens)
-    >>> tokens[:5]
-    ['Gallia', 'est', 'omnis', 'divisa', 'in']
-    >>> are_words_entities[:5]
-    [True, False, False, False, False]
 
     >>> text = "ἐπὶ δ᾽ οὖν τοῖς πρώτοις τοῖσδε Περικλῆς ὁ Ξανθίππου ᾑρέθη λέγειν. καὶ ἐπειδὴ καιρὸς ἐλάμβανε, προελθὼν ἀπὸ τοῦ σήματος ἐπὶ βῆμα ὑψηλὸν πεποιημένον, ὅπως ἀκούοιτο ὡς ἐπὶ πλεῖστον τοῦ ὁμίλου, ἔλεγε τοιάδε."
     >>> tokens = split_punct_ws(text)
@@ -68,6 +66,10 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
                     break
             entities_type_list.append(False)
         return entities_type_list
+    elif iso_code == "lat":
+        return spacy_tag_ner(
+            text_tokens=input_tokens, model_path=NER_DICT[iso_code]
+        )  # type: List[str, None]
     else:
         with open(ner_file_path) as file_open:
             ner_str = file_open.read()

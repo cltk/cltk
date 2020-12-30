@@ -72,8 +72,7 @@ def cltk_doc_to_features_table(
             word_features_list.append(pos_label_governor)
             variable_names.append("governing_word")
             feature_names_governor, features_present_governor = get_features(
-                word=governing_word,
-                prepend_to_label="governor_"
+                word=governing_word, prepend_to_label="governor_"
             )
             word_features_list += (
                 features_present_governor  # add the features list to the big list
