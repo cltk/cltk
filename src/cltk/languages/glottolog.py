@@ -3237,7 +3237,7 @@ LANGUAGES["ory"] = Language(
 )
 
 LANGUAGES["pes"] = Language(
-    name="	Western Farsi",
+    name="Western Farsi",
     glottolog_id="west2369",
     latitude=228.6593,
     longitude=55.1586,
