@@ -232,9 +232,7 @@ class DependencyTree(ElementTree):
         def _print_treelet(node: Form, indent: int, all_features: bool):
             edge = "└─ " if indent > 0 else ""
             node_str = node.full_str(False) if all_features else str(node)
-            print(" " * indent + edge + node("relation") + " | "
-                  + node_str
-                  )
+            print(" " * indent + edge + node("relation") + " | " + node_str)
 
             for child_node in list(node):
                 _print_treelet(child_node, indent + 4, all_features)

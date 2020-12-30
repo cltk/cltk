@@ -207,7 +207,9 @@ class Doc:
         for sentence_tokens in sentences_list:  # type: List[str]
             if self.language == "akk":
                 # akk produces List[Tuple[str, str]]
-                sentence_tokens_str = " ".join([tup[0] for tup in sentence_tokens])  # type: str
+                sentence_tokens_str = " ".join(
+                    [tup[0] for tup in sentence_tokens]
+                )  # type: str
             else:
                 sentence_tokens_str = " ".join(sentence_tokens)  # type: str
             sentences_str.append(sentence_tokens_str)
