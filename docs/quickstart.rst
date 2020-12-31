@@ -67,9 +67,6 @@ For more, see :doc:`pipelines`.
 Tutorials
 ---------
 
-.. todo::
+Demonstration notebooks available at `<https://github.com/cltk/cltk/tree/dev/notebooks>`_.
 
-   Update tutorials for v1.0
-
-
-Interactive notebooks available at `<https://mybinder.org/v2/gh/cltk/tutorials/dev>`_. The notebooks themselves are hosted at `<https://github.com/cltk/tutorials>`_.
+.. Interactive notebooks available at `<https://mybinder.org/v2/gh/cltk/tutorials/dev>`_. The notebooks themselves are hosted at `<https://github.com/cltk/tutorials>`_.
