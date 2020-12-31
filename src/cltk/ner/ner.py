@@ -68,7 +68,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
         return entities_type_list
     elif iso_code == "lat":
         return spacy_tag_ner(
-            text_tokens=input_tokens, model_path=NER_DICT[iso_code]
+            iso_code=iso_code, text_tokens=input_tokens, model_path=NER_DICT[iso_code]
         )  # type: List[str, None]
     else:
         with open(ner_file_path) as file_open:
