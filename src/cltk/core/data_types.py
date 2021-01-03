@@ -17,10 +17,8 @@ from typing import Dict, List, Type, Union
 import numpy as np
 import stringcase as sc
 
-from cltk.morphology.morphosyntax import (
-    MorphosyntacticFeature,
-    MorphosyntacticFeatureBundle,
-)
+from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle
+from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
 
 ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
 

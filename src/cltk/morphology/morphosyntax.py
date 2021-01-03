@@ -1,16 +1,16 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from enum import auto
-from typing import List, Type, Union, Dict, Tuple
+from typing import List, Type, Union, Tuple
 
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import *
-from cltk.utils.utils import CLTKEnum
 
 __author__ = ["John Stewart <free-variation>"]
 
 
 class MorphosyntacticFeatureBundle:
+    """A representation of a set of features, usually associated with a word form."""
+
     def __init__(self, *features: List[MorphosyntacticFeature]) -> None:
         """
         >>> f1 = MorphosyntacticFeatureBundle(F.neg, N.pos, V.neg, Case.accusative)
