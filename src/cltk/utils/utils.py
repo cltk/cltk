@@ -20,6 +20,8 @@ class CLTKEnum(IntEnum, metaclass=CLTKEnumMeta):
     def __repr__(self):
         return f"{self._name_}"
 
+    __str__ = __repr__
+
     def __eq__(self, other):
         return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 

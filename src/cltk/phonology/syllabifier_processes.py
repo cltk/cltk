@@ -37,7 +37,7 @@ class GreekSyllabificationProcess(SyllabificationProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import GreekTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk import NLP
@@ -62,7 +62,7 @@ class LatinSyllabificationProcess(SyllabificationProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import LatinTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk import NLP
@@ -86,7 +86,7 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -112,7 +112,7 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleHighGermanTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -138,7 +138,7 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP

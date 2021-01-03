@@ -19,28 +19,8 @@ class MorphosyntacticFeature(CLTKEnum):
     pass
 
 
-class PrivativeFeature(MorphosyntacticFeature):
-    """A privative feature either exists, or it does not exist.
-    There is no value associated with the feature."""
-
-    pass
-
-
-class BinaryFeature(MorphosyntacticFeature):
-    """A binary feature takes either a positive or negative value."""
-
-    pass
-
 
 # Categorial Features
-
-
-class CategorialFeature(BinaryFeature):
-    """A categorial feature is a binary feature that contributes to
-    identifying the part of speech of a lexical unit."""
-
-    pass
-
 
 # The following are the traditional categorial features [+/-N, +/-V] of generative linguistics,
 # augmented with the +/-F(unctional) feature as developed by Fukui (1986).
@@ -50,7 +30,7 @@ class CategorialFeature(BinaryFeature):
 # See http://primus.arts.u-szeged.hu/bese/Chapter1/1.3.1.htm for a readable explanation.
 
 
-class N(CategorialFeature):
+class N(MorphosyntacticFeature):
     """A `nominal word <https://en.wikipedia.org/wiki/Nominal_(linguistics)>_,
     "a category used to group together nouns and adjectives based on shared
     properties. The motivation for nominal grouping is that in many languages
@@ -62,7 +42,7 @@ class N(CategorialFeature):
     neg = auto()
 
 
-class V(CategorialFeature):
+class V(MorphosyntacticFeature):
     """A `verbal word <https://universaldependencies.org/u/pos/all.html#verb-verb>`_,
     which "typically signal events and actions, can constitute a minimal
     predicate in a clause, and govern the number and types of other
@@ -74,7 +54,7 @@ class V(CategorialFeature):
     neg = auto()
 
 
-class F(CategorialFeature):
+class F(MorphosyntacticFeature):
     """A `function word <https://en.wikipedia.org/wiki/Function_word>`_.
     These "have little lexical meaning or have ambiguous meaning and express
     grammatical relationships among other words within a sentence,
@@ -205,7 +185,7 @@ class Evidentiality(MorphosyntacticFeature):
     non_first_hand = auto()
 
 
-class Polarity(BinaryFeature):
+class Polarity(MorphosyntacticFeature):
     """Is the proposition negative or positive?
     see https://universaldependencies.org/u/feat/Polarity.html
     """
@@ -470,12 +450,13 @@ class VerbType(MorphosyntacticFeature):
     light = auto()
 
 
-class Possessive(PrivativeFeature):
+class Possessive(MorphosyntacticFeature):
     """Is this nominal form marked as a possessive?
     see https://universaldependencies.org/u/feat/Poss.html
     """
 
-    pass
+    pos = auto()
+    neg = auto()
 
 
 class Numeral(MorphosyntacticFeature):
@@ -492,37 +473,48 @@ class Numeral(MorphosyntacticFeature):
     sets = auto()
 
 
-class Reflexive(PrivativeFeature):
+class Reflexive(MorphosyntacticFeature):
     """Is the pronoun reflexive?
     see https://universaldependencies.org/u/feat/Reflex.html
     """
 
-    pass
+    pos = auto()
+    neg = auto()
 
 
-class Foreign(PrivativeFeature):
+class Foreign(MorphosyntacticFeature):
     """Is this a foreign word, relative to the language of the sentences?
     see https://universaldependencies.org/u/feat/Foreign.html
     """
 
-    pass
+    pos = auto()
+    neg = auto()
 
 
-class Abbreviation(PrivativeFeature):
+class Abbreviation(MorphosyntacticFeature):
     """Is this word an abbreviation?
     see https://universaldependencies.org/u/feat/Abbr.html
     """
+    pos = auto()
+    neg = auto()
 
     pass
 
 
-class Typo(PrivativeFeature):
+class Typo(MorphosyntacticFeature):
     """Does this word contain a typo?
     see https://universaldependencies.org/u/feat/Typo.html
     """
 
-    pass
+    pos = auto()
+    neg = auto()
 
 
 # the feature value of an underspecified feature.
 Underspecified = None
+
+OTHER_FEATURES = [
+    NameType, PrononimalType, AdpositionalType, AdverbialType,
+    VerbType, Possessive, Numeral, Reflexive,
+    Foreign, Abbreviation, Typo
+]

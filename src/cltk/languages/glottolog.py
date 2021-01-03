@@ -3324,7 +3324,7 @@ def _resort_languages_list(
 
     >>> iso_dict_keys = _resort_languages_list(LANGUAGES)
     >>> list(iso_dict_keys)[:10]
-    ['pes', 'xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna']
+    ['xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna', 'xzp']
     """
     name_sorted_langs = OrderedDict(
         sorted(languages_list.items(), key=lambda x: x[1].name)

@@ -66,8 +66,8 @@ class Word:
     >>> lat = get_lang("lat")
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
-lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features=None, \
-category=None, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
+lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, \
+category={}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
     """
 
     index_char_start: int = None
@@ -83,8 +83,8 @@ category=None, embedding=None, stop=None, named_entity=None, syllables=None, pho
     upos: str = None  # universal POS tag (from stanza)
     dependency_relation: str = None  # (from stanza)
     governor: int = None
-    features: MorphosyntacticFeatureBundle = None
-    category: MorphosyntacticFeatureBundle = None
+    features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
+    category: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     embedding: np.ndarray = None
     stop: bool = None
     named_entity: bool = None
