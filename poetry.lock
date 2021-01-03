@@ -15,22 +15,16 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "dev"
 description = "Disable App Nap on macOS >= 10.9"
 marker = "sys_platform == \"darwin\""
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "appnope"
 version = "0.1.2"
 description = "Disable App Nap on macOS >= 10.9"
 category = "dev"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "0.1.2"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "astroid"
@@ -61,7 +55,6 @@ description = "Classes Without Boilerplate"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-<<<<<<< HEAD
 version = "20.3.0"
 
 [package.extras]
@@ -69,14 +62,6 @@ dev = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six",
 docs = ["furo", "sphinx", "zope.interface"]
 tests = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 tests_no_zope = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
-=======
-
-[package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "furo", "sphinx", "pre-commit"]
-docs = ["furo", "sphinx", "zope.interface"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "babel"
@@ -85,10 +70,7 @@ description = "Internationalization utilities"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-<<<<<<< HEAD
 version = "2.9.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 pytz = ">=2015.7"
@@ -124,7 +106,6 @@ colorama = ["colorama (>=0.4.3)"]
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "The Blis BLAS-like linear algebra library, as a self-contained C-extension."
 name = "blis"
@@ -155,14 +136,6 @@ version = "1.0.0"
 [package.dependencies.importlib-metadata]
 python = "<3.8"
 version = ">=0.20"
-=======
-name = "boltons"
-version = "20.2.1"
-description = "When they're not builtins, they're boltons."
-category = "main"
-optional = false
-python-versions = "*"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "certifi"
@@ -171,10 +144,7 @@ description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "2020.12.5"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "cfgv"
@@ -190,12 +160,8 @@ version = "3.0.4"
 description = "Universal encoding detector for Python 2 and 3"
 category = "main"
 optional = false
-<<<<<<< HEAD
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "4.0.0"
-=======
-python-versions = "*"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "click"
@@ -212,10 +178,7 @@ description = "Cross-platform colored terminal text."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-<<<<<<< HEAD
 version = "0.4.4"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "coverage"
@@ -226,7 +189,6 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Manage calls to calloc/free through Cython"
 name = "cymem"
@@ -237,8 +199,6 @@ version = "2.0.5"
 [[package]]
 category = "main"
 description = "The Cython compiler for writing C extensions for the Python language."
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "cython"
 version = "0.29.14"
 description = "The Cython compiler for writing C extensions for the Python language."
@@ -299,19 +259,8 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Python framework for fast Vector Space Modelling"
-=======
-name = "future"
-version = "0.18.2"
-description = "Clean single-source support for Python 3 and 2"
-category = "main"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-
-[[package]]
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "gensim"
 version = "3.8.3"
 description = "Python framework for fast Vector Space Modelling"
@@ -350,10 +299,7 @@ description = "Python Git Library"
 category = "main"
 optional = false
 python-versions = ">=3.4"
-<<<<<<< HEAD
 version = "3.1.11"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 gitdb = ">=4.0.1,<5"
@@ -373,10 +319,7 @@ description = "File identification library for Python"
 category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
-<<<<<<< HEAD
 version = "1.5.10"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 license = ["editdistance"]
@@ -398,22 +341,16 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Read metadata from Python packages"
 marker = "python_version < \"3.8\""
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "importlib-metadata"
 version = "2.1.1"
 description = "Read metadata from Python packages"
 category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-<<<<<<< HEAD
 version = "2.1.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 zipp = ">=0.5"
@@ -429,10 +366,7 @@ description = "iniconfig: brain-dead simple config-ini parsing"
 category = "dev"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "1.1.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "ipython"
@@ -441,10 +375,7 @@ description = "IPython: Productive Interactive Computing"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
-<<<<<<< HEAD
 version = "7.19.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 appnope = {version = "*", markers = "sys_platform == \"darwin\""}
@@ -484,10 +415,7 @@ description = "A Python utility / library to sort Python imports."
 category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
-<<<<<<< HEAD
 version = "5.6.4"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
@@ -500,12 +428,8 @@ version = "0.17.2"
 description = "An autocompletion tool for Python that can be used for text editors."
 category = "dev"
 optional = false
-<<<<<<< HEAD
 python-versions = ">=3.6"
 version = "0.18.0"
-=======
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 parso = ">=0.8.0,<0.9.0"
@@ -529,21 +453,15 @@ MarkupSafe = ">=0.23"
 i18n = ["Babel (>=0.8)"]
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Lightweight pipelining with Python functions"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "joblib"
 version = "0.17.0"
 description = "Lightweight pipelining: using Python functions as pipeline jobs."
 category = "main"
 optional = false
 python-versions = ">=3.6"
-<<<<<<< HEAD
 version = "1.0.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "lazy-object-proxy"
@@ -560,10 +478,7 @@ description = "Powerful and Pythonic XML processing library combining libxml2/li
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
-<<<<<<< HEAD
 version = "4.6.2"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 cssselect = ["cssselect (>=0.7)"]
@@ -588,7 +503,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Cython bindings for MurmurHash"
 name = "murmurhash"
@@ -599,8 +513,6 @@ version = "1.0.5"
 [[package]]
 category = "dev"
 description = "Optional static typing for Python"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "mypy"
 version = "0.782"
 description = "Optional static typing for Python"
@@ -669,10 +581,7 @@ description = "NumPy is the fundamental package for array computing with Python.
 category = "main"
 optional = false
 python-versions = ">=3.6"
-<<<<<<< HEAD
 version = "1.19.4"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "packaging"
@@ -681,10 +590,7 @@ description = "Core utilities for Python packages"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-<<<<<<< HEAD
 version = "20.8"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 pyparsing = ">=2.0.2"
@@ -695,12 +601,8 @@ version = "0.7.1"
 description = "A Python Parser"
 category = "dev"
 optional = false
-<<<<<<< HEAD
 python-versions = ">=3.6"
 version = "0.8.1"
-=======
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 qa = ["flake8 (3.8.3)", "mypy (0.782)"]
@@ -713,10 +615,7 @@ description = "Utility library for gitignore style pattern matching of file path
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-<<<<<<< HEAD
 version = "0.8.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "pexpect"
@@ -738,7 +637,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "The smartest command line arguments parser in the world"
 name = "plac"
@@ -749,8 +647,6 @@ version = "1.1.3"
 [[package]]
 category = "dev"
 description = "plugin and hook calling mechanisms for python"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "pluggy"
 version = "0.13.1"
 description = "plugin and hook calling mechanisms for python"
@@ -782,7 +678,6 @@ toml = "*"
 virtualenv = ">=20.0.8"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Cython hash table that trusts the keys are pre-hashed"
 name = "preshed"
@@ -797,18 +692,13 @@ murmurhash = ">=0.28.0,<1.1.0"
 [[package]]
 category = "dev"
 description = "Library for building powerful interactive command lines in Python"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "prompt-toolkit"
 version = "3.0.8"
 description = "Library for building powerful interactive command lines in Python"
 category = "dev"
 optional = false
 python-versions = ">=3.6.1"
-<<<<<<< HEAD
 version = "3.0.8"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 wcwidth = "*"
@@ -820,10 +710,7 @@ description = "Protocol Buffers"
 category = "main"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "3.14.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 six = ">=1.9"
@@ -835,10 +722,7 @@ description = "Run a subprocess in a pseudo terminal"
 category = "dev"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "0.7.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "py"
@@ -847,10 +731,7 @@ description = "library with cross-python path, ini-parsing, io, code, log facili
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-<<<<<<< HEAD
 version = "1.10.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "pybind11"
@@ -859,10 +740,7 @@ description = "Seamless operability between C++11 and Python"
 category = "main"
 optional = false
 python-versions = "!=3.0,!=3.1,!=3.2,!=3.3,!=3.4,>=2.7"
-<<<<<<< HEAD
 version = "2.6.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 global = ["pybind11-global (2.6.1)"]
@@ -874,10 +752,7 @@ description = "Pygments is a syntax highlighting package written in Python."
 category = "dev"
 optional = false
 python-versions = ">=3.5"
-<<<<<<< HEAD
 version = "2.7.3"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "pylint"
@@ -920,7 +795,6 @@ version = "6.1.2"
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
-<<<<<<< HEAD
 python-versions = ">=3.6"
 version = "6.2.1"
 
@@ -928,15 +802,6 @@ version = "6.2.1"
 atomicwrites = ">=1.0"
 attrs = ">=19.2.0"
 colorama = "*"
-=======
-python-versions = ">=3.5"
-
-[package.dependencies]
-atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
-attrs = ">=17.4.0"
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
-importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<1.0.0a1"
@@ -962,11 +827,8 @@ pytest = ">=4.6"
 testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Python extension for computing string edit distances and similarities."
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "python-levenshtein"
 version = "0.12.0"
 description = "Python extension for computing string edit distances and similarities."
@@ -981,10 +843,7 @@ description = "World timezone definitions, modern and historical"
 category = "dev"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "2020.5"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "pyyaml"
@@ -1001,10 +860,7 @@ description = "Alternative regular expression module, to replace re."
 category = "main"
 optional = false
 python-versions = "*"
-<<<<<<< HEAD
 version = "2020.11.13"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "requests"
@@ -1013,10 +869,7 @@ description = "Python HTTP for Humans."
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-<<<<<<< HEAD
 version = "2.25.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 certifi = ">=2017.4.17"
@@ -1031,29 +884,17 @@ socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
 [[package]]
 name = "rtd-poetry"
 version = "0.1.0"
-<<<<<<< HEAD
 
 [[package]]
 category = "main"
 description = "SciPy: Scientific Library for Python"
-=======
-description = "Execute poetry install with dev dependencies on RTD"
-category = "dev"
-optional = false
-python-versions = ">=3.6,<4.0"
-
-[[package]]
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "scipy"
 version = "1.5.4"
 description = "SciPy: Scientific Library for Python"
 category = "main"
 optional = false
 python-versions = ">=3.6"
-<<<<<<< HEAD
 version = "1.5.4"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 numpy = ">=1.14.5"
@@ -1073,10 +914,7 @@ description = "Utils for streaming large files (S3, HDFS, GCS, Azure Blob Storag
 category = "main"
 optional = false
 python-versions = ">=3.6.*"
-<<<<<<< HEAD
 version = "4.0.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 all = ["boto3", "google-cloud-storage", "azure-storage-blob", "azure-common", "azure-core", "requests"]
@@ -1104,7 +942,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Industrial-strength Natural Language Processing (NLP) in Python"
 name = "spacy"
@@ -1146,18 +983,13 @@ th = ["pythainlp (>=2.0)"]
 [[package]]
 category = "dev"
 description = "Python documentation generator"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "sphinx"
 version = "3.3.1"
 description = "Python documentation generator"
 category = "dev"
 optional = false
 python-versions = ">=3.5"
-<<<<<<< HEAD
 version = "3.4.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 alabaster = ">=0.7,<0.8"
@@ -1179,13 +1011,8 @@ sphinxcontrib-serializinghtml = "*"
 
 [package.extras]
 docs = ["sphinxcontrib-websupport"]
-<<<<<<< HEAD
 lint = ["flake8 (>=3.5.0)", "isort", "mypy (>=0.790)", "docutils-stubs"]
 test = ["pytest", "pytest-cov", "html5lib", "cython", "typed-ast"]
-=======
-lint = ["flake8 (>=3.5.0)", "flake8-import-order", "mypy (>=0.790)", "docutils-stubs"]
-test = ["pytest", "pytest-cov", "html5lib", "typed-ast", "cython"]
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "sphinx-autodoc-typehints"
@@ -1194,10 +1021,7 @@ description = "Type hints (PEP 484) support for the Sphinx autodoc extension"
 category = "dev"
 optional = false
 python-versions = ">=3.5.2"
-<<<<<<< HEAD
 version = "1.11.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 Sphinx = ">=3.0"
@@ -1278,7 +1102,6 @@ lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Modern high-performance serialization utilities for Python"
 name = "srsly"
@@ -1289,8 +1112,6 @@ version = "1.0.5"
 [[package]]
 category = "main"
 description = "A Python NLP Library for Many Human Languages, by the Stanford NLP Group"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "stanza"
 version = "1.1.1"
 description = "A Python NLP Library for Many Human Languages, by the Stanford NLP Group"
@@ -1310,7 +1131,6 @@ dev = ["check-manifest"]
 test = ["coverage"]
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "String case converter."
 name = "stringcase"
@@ -1357,14 +1177,6 @@ name = "toml"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "0.10.2"
-=======
-name = "stringcase"
-version = "1.2.0"
-description = "String case converter."
-category = "main"
-optional = false
-python-versions = "*"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "toml"
@@ -1380,18 +1192,10 @@ version = "1.7.0"
 description = "Tensors and Dynamic neural networks in Python with strong GPU acceleration"
 category = "main"
 optional = false
-<<<<<<< HEAD
 python-versions = ">=3.6.2"
 version = "1.7.1"
 
 [package.dependencies]
-=======
-python-versions = ">=3.6.1"
-
-[package.dependencies]
-dataclasses = "*"
-future = "*"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 numpy = "*"
 typing-extensions = "*"
 
@@ -1402,10 +1206,7 @@ description = "tox is a generic virtualenv management and test command line tool
 category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-<<<<<<< HEAD
 version = "3.20.1"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 colorama = {version = ">=0.4.1", markers = "platform_system == \"Windows\""}
@@ -1418,13 +1219,10 @@ six = ">=1.14.0"
 toml = ">=0.9.4"
 virtualenv = ">=16.0.0,<20.0.0 || >20.0.0,<20.0.1 || >20.0.1,<20.0.2 || >20.0.2,<20.0.3 || >20.0.3,<20.0.4 || >20.0.4,<20.0.5 || >20.0.5,<20.0.6 || >20.0.6,<20.0.7 || >20.0.7"
 
-<<<<<<< HEAD
 [package.dependencies.importlib-metadata]
 python = "<3.8"
 version = ">=0.12,<3"
 
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 [package.extras]
 docs = ["pygments-github-lexers (>=0.0.5)", "sphinx (>=2.0.0)", "sphinxcontrib-autoprogram (>=0.1.5)", "towncrier (>=18.5.0)"]
 testing = ["flaky (>=3.4.0)", "freezegun (>=0.3.11)", "pathlib2 (>=2.3.3)", "psutil (>=5.6.1)", "pytest (>=4.0.0)", "pytest-cov (>=2.5.1)", "pytest-mock (>=1.10.0)", "pytest-randomly (>=1.0.0)", "pytest-xdist (>=1.22.2)"]
@@ -1447,17 +1245,11 @@ description = "Fast, Extensible Progress Meter"
 category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
-<<<<<<< HEAD
 version = "4.55.0"
 
 [package.extras]
 dev = ["py-make (>=0.1.0)", "twine", "wheel"]
 telegram = ["requests"]
-=======
-
-[package.extras]
-dev = ["py-make (>=0.1.0)", "twine", "argopt", "pydoc-markdown", "wheel"]
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [[package]]
 name = "traitlets"
@@ -1466,10 +1258,7 @@ description = "Traitlets Python configuration system"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
-<<<<<<< HEAD
 version = "5.0.5"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 ipython-genutils = "*"
@@ -1486,11 +1275,8 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Backported and Experimental Type Hints for Python 3.5+"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "typing-extensions"
 version = "3.7.4.3"
 description = "Backported and Experimental Type Hints for Python 3.5+"
@@ -1505,10 +1291,7 @@ description = "HTTP library with thread-safe connection pooling, file post, and 
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
-<<<<<<< HEAD
 version = "1.26.2"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
@@ -1522,10 +1305,7 @@ description = "Virtual Python Environment builder"
 category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
-<<<<<<< HEAD
 version = "20.2.2"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.dependencies]
 appdirs = ">=1.4.3,<2"
@@ -1534,19 +1314,15 @@ filelock = ">=3.0.0,<4"
 importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 six = ">=1.9.0,<2"
 
-<<<<<<< HEAD
 [package.dependencies.importlib-metadata]
 python = "<3.8"
 version = ">=0.12"
 
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 [package.extras]
 docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=19.9.0rc1)"]
 testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "pytest-xdist (>=1.31.0)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "A lightweight console printing and formatting toolkit"
 name = "wasabi"
@@ -1557,8 +1333,6 @@ version = "0.8.0"
 [[package]]
 category = "dev"
 description = "Measures the displayed width of unicode strings in a terminal"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -1575,34 +1349,24 @@ optional = false
 python-versions = "*"
 
 [[package]]
-<<<<<<< HEAD
 category = "main"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 marker = "python_version < \"3.8\""
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 name = "zipp"
 version = "3.4.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
-<<<<<<< HEAD
 version = "3.4.0"
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 
 [package.extras]
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
 [metadata]
-<<<<<<< HEAD
 content-hash = "0768cab17c5ae804b834359a0c986e628c65cd3bc48a51d661eb74e2f3cae541"
 lock-version = "1.0"
-=======
-lock-version = "1.1"
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 python-versions = "^3.7"
 content-hash = "4d635fa49db883210a0d2a96b75477812fa7fd037be96a0d45d2d543fd664fdb"
 
@@ -1661,13 +1425,10 @@ boltons = [
     {file = "boltons-20.2.1-py2.py3-none-any.whl", hash = "sha256:3dd8a8e3c1886e7f7ba3422b50f55a66e1700161bf01b919d098e7d96dd2d9b6"},
     {file = "boltons-20.2.1.tar.gz", hash = "sha256:dd362291a460cc1e0c2e91cc6a60da3036ced77099b623112e8f833e6734bdc5"},
 ]
-<<<<<<< HEAD
 catalogue = [
     {file = "catalogue-1.0.0-py2.py3-none-any.whl", hash = "sha256:584d78e7f4c3c6e2fd498eb56dfc8ef1f4ff738480237de2ccd26cbe2cf47172"},
     {file = "catalogue-1.0.0.tar.gz", hash = "sha256:d74d1d856c6b36a37bf14aa6dbbc27d0582667b7ab979a6108e61a575e8723f5"},
 ]
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 certifi = [
     {file = "certifi-2020.12.5-py2.py3-none-any.whl", hash = "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"},
     {file = "certifi-2020.12.5.tar.gz", hash = "sha256:1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"},
@@ -2064,13 +1825,8 @@ numpy = [
     {file = "numpy-1.19.4.zip", hash = "sha256:141ec3a3300ab89c7f2b0775289954d193cc8edb621ea05f99db9cb181530512"},
 ]
 packaging = [
-<<<<<<< HEAD
     {file = "packaging-20.8-py2.py3-none-any.whl", hash = "sha256:24e0da08660a87484d1602c30bb4902d74816b6985b93de36926f5bc95741858"},
     {file = "packaging-20.8.tar.gz", hash = "sha256:78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"},
-=======
-    {file = "packaging-20.7-py2.py3-none-any.whl", hash = "sha256:eb41423378682dadb7166144a4926e443093863024de508ca5c9737d6bc08376"},
-    {file = "packaging-20.7.tar.gz", hash = "sha256:05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 parso = [
     {file = "parso-0.8.1-py2.py3-none-any.whl", hash = "sha256:15b00182f472319383252c18d5913b69269590616c947747bc50bf4ac768f410"},
@@ -2156,13 +1912,8 @@ pybind11 = [
     {file = "pybind11-2.6.1.tar.gz", hash = "sha256:ab7e60a520fe6ae25eca939191bb2ac416cd58478ce754740238a8bf1af18934"},
 ]
 pygments = [
-<<<<<<< HEAD
     {file = "Pygments-2.7.3-py3-none-any.whl", hash = "sha256:f275b6c0909e5dafd2d6269a656aa90fa58ebf4a74f8fcf9053195d226b24a08"},
     {file = "Pygments-2.7.3.tar.gz", hash = "sha256:ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"},
-=======
-    {file = "Pygments-2.7.2-py3-none-any.whl", hash = "sha256:88a0bbcd659fcb9573703957c6b9cff9fab7295e6e76db54c9d00ae42df32773"},
-    {file = "Pygments-2.7.2.tar.gz", hash = "sha256:381985fcc551eb9d37c52088a32914e00517e57f4a21609f48141ba08e193fa0"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 pylint = [
     {file = "pylint-2.6.0-py3-none-any.whl", hash = "sha256:bfe68f020f8a0fece830a22dd4d5dddb4ecc6137db04face4c3420a46a52239f"},
@@ -2177,13 +1928,8 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 pytest = [
-<<<<<<< HEAD
     {file = "pytest-6.2.1-py3-none-any.whl", hash = "sha256:1969f797a1a0dbd8ccf0fecc80262312729afea9c17f1d70ebf85c5e76c6f7c8"},
     {file = "pytest-6.2.1.tar.gz", hash = "sha256:66e419b1899bc27346cb2c993e12c5e5e8daba9073c1fbce33b9807abc95c306"},
-=======
-    {file = "pytest-6.1.2-py3-none-any.whl", hash = "sha256:4288fed0d9153d9646bfcdf0c0428197dba1ecb27a33bb6e031d002fa88653fe"},
-    {file = "pytest-6.1.2.tar.gz", hash = "sha256:c0a7e94a8cdbc5422a51ccdad8e6f1024795939cc89159a0ae7f0b316ad3823e"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 pytest-cov = [
     {file = "pytest-cov-2.10.1.tar.gz", hash = "sha256:47bd0ce14056fdd79f93e1713f88fad7bdcc583dcd7783da86ef2f085a0bb88e"},
@@ -2193,13 +1939,8 @@ python-levenshtein = [
     {file = "python-Levenshtein-0.12.0.tar.gz", hash = "sha256:033a11de5e3d19ea25c9302d11224e1a1898fe5abd23c61c7c360c25195e3eb1"},
 ]
 pytz = [
-<<<<<<< HEAD
     {file = "pytz-2020.5-py2.py3-none-any.whl", hash = "sha256:16962c5fb8db4a8f63a26646d8886e9d769b6c511543557bc84e9569fb9a9cb4"},
     {file = "pytz-2020.5.tar.gz", hash = "sha256:180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"},
-=======
-    {file = "pytz-2020.4-py2.py3-none-any.whl", hash = "sha256:5c55e189b682d420be27c6995ba6edce0c0a77dd67bfbe2ae6607134d5851ffd"},
-    {file = "pytz-2020.4.tar.gz", hash = "sha256:3e6b7dd2d1e0a59084bcee14a17af60c5c562cdc16d828e8eba2e683d3a7e268"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 pyyaml = [
     {file = "PyYAML-5.3.1-cp27-cp27m-win32.whl", hash = "sha256:74809a57b329d6cc0fdccee6318f44b9b8649961fa73144a98735b0aaf029f1f"},
@@ -2258,13 +1999,8 @@ regex = [
     {file = "regex-2020.11.13.tar.gz", hash = "sha256:83d6b356e116ca119db8e7c6fc2983289d87b27b3fac238cfe5dca529d884562"},
 ]
 requests = [
-<<<<<<< HEAD
     {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
-=======
-    {file = "requests-2.25.0-py2.py3-none-any.whl", hash = "sha256:e786fa28d8c9154e6a4de5d46a1d921b8749f8b74e28bde23768e5e16eece998"},
-    {file = "requests-2.25.0.tar.gz", hash = "sha256:7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 rtd-poetry = [
     {file = "rtd-poetry-0.1.0.tar.gz", hash = "sha256:21f6d5bc8c2347b1d20c358fcba8f6052a637f3687a1a42393a42e75570ee67c"},
@@ -2328,13 +2064,8 @@ spacy = [
     {file = "spacy-2.3.5.tar.gz", hash = "sha256:315278ab60094643baecd866017c7d4cbd966efd2d517ad0e6c888edf7fa5aef"},
 ]
 sphinx = [
-<<<<<<< HEAD
     {file = "Sphinx-3.4.1-py3-none-any.whl", hash = "sha256:aeef652b14629431c82d3fe994ce39ead65b3fe87cf41b9a3714168ff8b83376"},
     {file = "Sphinx-3.4.1.tar.gz", hash = "sha256:e450cb205ff8924611085183bf1353da26802ae73d9251a8fcdf220a8f8712ef"},
-=======
-    {file = "Sphinx-3.3.1-py3-none-any.whl", hash = "sha256:d4e59ad4ea55efbb3c05cde3bfc83bfc14f0c95aa95c3d75346fcce186a47960"},
-    {file = "Sphinx-3.3.1.tar.gz", hash = "sha256:1e8d592225447104d1172be415bc2972bd1357e3e12fdc76edf2261105db4300"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 sphinx-autodoc-typehints = [
     {file = "sphinx-autodoc-typehints-1.11.1.tar.gz", hash = "sha256:244ba6d3e2fdb854622f643c7763d6f95b6886eba24bec28e86edf205e4ddb20"},
@@ -2386,7 +2117,6 @@ stanza = [
 stringcase = [
     {file = "stringcase-1.2.0.tar.gz", hash = "sha256:48a06980661908efe8d9d34eab2b6c13aefa2163b3ced26972902e3bdfd87008"},
 ]
-<<<<<<< HEAD
 thinc = [
     {file = "thinc-7.4.5-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:5774007b5c52501cab5e2970cadca84923b4c420fff06172f2d0c86531973ce8"},
     {file = "thinc-7.4.5-cp36-cp36m-manylinux2014_x86_64.whl", hash = "sha256:02b71ae5a0fa906a0aca968bd65589e0ab9fabd511e57be839774228b1509224"},
@@ -2402,14 +2132,11 @@ thinc = [
     {file = "thinc-7.4.5-cp39-cp39-win_amd64.whl", hash = "sha256:fae320de65af70786c1526ffc33b88f2da650d3106f5f9a06b37f0ac3944a44f"},
     {file = "thinc-7.4.5.tar.gz", hash = "sha256:5743fde41706252ec6ce4737c68d3505f7e1cc3d4431174a17149838d594f8cb"},
 ]
-=======
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
 ]
 torch = [
-<<<<<<< HEAD
     {file = "torch-1.7.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:422e64e98d0e100c360993819d0307e5d56e9517b26135808ad68984d577d75a"},
     {file = "torch-1.7.1-cp36-cp36m-win_amd64.whl", hash = "sha256:f0aaf657145533824b15f2fd8fde8f8c67fe6c6281088ef588091f03fad90243"},
     {file = "torch-1.7.1-cp36-none-macosx_10_9_x86_64.whl", hash = "sha256:af464a6f4314a875035e0c4c2b07517599704b214634f4ed3ad2e748c5ef291f"},
@@ -2422,17 +2149,6 @@ torch = [
     {file = "torch-1.7.1-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:a3793dcceb12b1e2281290cca1277c5ce86ddfd5bf044f654285a4d69057aea7"},
     {file = "torch-1.7.1-cp39-cp39-win_amd64.whl", hash = "sha256:6652a767a0572ae0feb74ad128758e507afd3b8396b6e7f147e438ba8d4c6f63"},
     {file = "torch-1.7.1-cp39-none-macosx_10_9_x86_64.whl", hash = "sha256:38d67f4fb189a92a977b2c0a38e4f6dd413e0bf55aa6d40004696df7e40a71ff"},
-=======
-    {file = "torch-1.7.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:6b0c9b56cb56afe3ecbac79351d21c6f7172dffc7b7daa8c365f660541baf1a5"},
-    {file = "torch-1.7.0-cp36-cp36m-win_amd64.whl", hash = "sha256:b609b30b09627409612461b247531cf50894256e8b026105f1bc3858d67c2fa7"},
-    {file = "torch-1.7.0-cp36-none-macosx_10_9_x86_64.whl", hash = "sha256:e8cc3b2c3937b7ae036a3b447a189af049bfc006bca054fc1d8ae78766ca3105"},
-    {file = "torch-1.7.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:1520c48430dea38e5845b7b3defc9054edad45f1f245808aa268ade840bb2c2a"},
-    {file = "torch-1.7.0-cp37-cp37m-win_amd64.whl", hash = "sha256:a29a7aab6fa161259219c8aaa88b25abbf214ec098a002c4499660c23e0f6c33"},
-    {file = "torch-1.7.0-cp37-none-macosx_10_9_x86_64.whl", hash = "sha256:89cb8774243750bd3fd2b3b3d09bab6e3be68b1785ad48b8411f1eb4fc7acdba"},
-    {file = "torch-1.7.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:11054f26eee5c3114d217201dba5b3a35f1745d11133c123c077c5981bc95997"},
-    {file = "torch-1.7.0-cp38-cp38m-win_amd64.whl", hash = "sha256:83538fd7920bd02c8b6403ebe4ecee3e0641fe7bb6a18efc4585d2e1375ad1de"},
-    {file = "torch-1.7.0-cp38-none-macosx_10_9_x86_64.whl", hash = "sha256:b8000e39600e101b2f19dbbab75de663a3b78e3979c3e1720b7136aae1c35ce2"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 tox = [
     {file = "tox-3.20.1-py2.py3-none-any.whl", hash = "sha256:42ce19ce5dc2f6d6b1fdc5666c476e1f1e2897359b47e0aa3a5b774f335d57c2"},
@@ -2443,13 +2159,8 @@ tox-pyenv = [
     {file = "tox_pyenv-1.1.0-py2.py3-none-any.whl", hash = "sha256:e470c18af115fe52eeff95e7e3cdd0793613eca19709966fc2724b79d55246cb"},
 ]
 tqdm = [
-<<<<<<< HEAD
     {file = "tqdm-4.55.0-py2.py3-none-any.whl", hash = "sha256:0cd81710de29754bf17b6fee07bdb86f956b4fa20d3078f02040f83e64309416"},
     {file = "tqdm-4.55.0.tar.gz", hash = "sha256:f4f80b96e2ceafea69add7bf971b8403b9cba8fb4451c1220f91c79be4ebd208"},
-=======
-    {file = "tqdm-4.54.1-py2.py3-none-any.whl", hash = "sha256:d4f413aecb61c9779888c64ddf0c62910ad56dcbe857d8922bb505d4dbff0df1"},
-    {file = "tqdm-4.54.1.tar.gz", hash = "sha256:38b658a3e4ecf9b4f6f8ff75ca16221ae3378b2e175d846b6b33ea3a20852cf5"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 traitlets = [
     {file = "traitlets-5.0.5-py3-none-any.whl", hash = "sha256:69ff3f9d5351f31a7ad80443c2674b7099df13cc41fc5fa6e2f6d3b0330b0426"},
@@ -2488,17 +2199,12 @@ urllib3 = [
     {file = "urllib3-1.26.2.tar.gz", hash = "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"},
 ]
 virtualenv = [
-<<<<<<< HEAD
     {file = "virtualenv-20.2.2-py2.py3-none-any.whl", hash = "sha256:54b05fc737ea9c9ee9f8340f579e5da5b09fb64fd010ab5757eb90268616907c"},
     {file = "virtualenv-20.2.2.tar.gz", hash = "sha256:b7a8ec323ee02fb2312f098b6b4c9de99559b462775bc8fe3627a73706603c1b"},
 ]
 wasabi = [
     {file = "wasabi-0.8.0-py3-none-any.whl", hash = "sha256:98bc9c492c6aa8628303a02961a5cfa7b0c7fa6d2b397abdeb0adc4b39397c49"},
     {file = "wasabi-0.8.0.tar.gz", hash = "sha256:75fec6db6193c8615d7f398ae4aa2c4ad294e6e3e81c6a6dbbbd3864ee2223c3"},
-=======
-    {file = "virtualenv-20.2.1-py2.py3-none-any.whl", hash = "sha256:07cff122e9d343140366055f31be4dcd61fd598c69d11cd33a9d9c8df4546dd7"},
-    {file = "virtualenv-20.2.1.tar.gz", hash = "sha256:e0aac7525e880a429764cefd3aaaff54afb5d9f25c82627563603f5d7de5a6e5"},
->>>>>>> 8df89a7ff38723890bff4222d402bd2685d8d260
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
