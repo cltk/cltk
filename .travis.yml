@@ -30,7 +30,7 @@ before_install:
 
 install:
   - make install
-  - poetry run python scripts/download_all_models.py
+  - make downloadBasicModels
 
 before_script:
   - make preCommitUpdate
