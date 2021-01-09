@@ -66,7 +66,7 @@ def download_nlpl_model(iso_code: str) -> None:
 
 
 if __name__ == "__main__":
-    print('*** Donloading a basic set of models ... this will take a while.*** \n')
+    print('*** Downloading a basic set of models ... this will take a while.*** \n')
     
     get_all_stanza_models()
 
