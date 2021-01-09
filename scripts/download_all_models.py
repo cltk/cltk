@@ -66,17 +66,13 @@ def download_nlpl_model(iso_code: str) -> None:
 
 
 if __name__ == "__main__":
+    print('*** Donloading a basic set of models ... this will take a while.*** \n')
+    
     get_all_stanza_models()
 
-    if not os.path.isfile(
-        os.path.expanduser("~/cltk_data/lat/embeddings/fasttext/wiki.la.vec")
-    ):
-        get_all_fasttext_models(interactive=False)
+    get_all_fasttext_models(interactive=False)
 
-    if not os.path.isfile(
-        os.path.expanduser("~/cltk_data/grc/embeddings/nlpl/model.bin")
-    ):
-        download_nlpl_model(iso_code="grc")
+    download_nlpl_model(iso_code="grc")
 
     download_cltk_models(iso_code="lat")
     download_cltk_models(iso_code="grc")
@@ -86,3 +82,5 @@ if __name__ == "__main__":
     download_cltk_models(iso_code="non")
     download_cltk_models(iso_code="gml")
     download_cltk_models(iso_code="gmh")
+
+    print('\n *** All done.  Welcome to the CLTK! ***')

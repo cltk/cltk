@@ -9,7 +9,14 @@ from cltk.core.data_types import Doc, Word
 from cltk.languages.example_texts import get_example_text
 
 
+
+
 class TestMain(unittest.TestCase):
+    def _word_assertions(self, first_word, target):
+        self.assertEqual(first_word.lemma, target.lemma)
+        self.assertEqual(first_word.upos, target.upos)
+        self.assertEqual(first_word.dependency_relation, target.dependency_relation)
+
     def test_main_analyze(self):
         """Testing methods from ``cltk/nlp.py``. Note that we
         change ``first_word.embedding`` into an empty list because
@@ -26,7 +33,7 @@ class TestMain(unittest.TestCase):
             index_token=0,
             index_sentence=0,
             string="отьчє",
-            pos="NOUN",
+            pos='noun',
             lemma="отьць",
             stem=None,
             scansion=None,
@@ -41,7 +48,7 @@ class TestMain(unittest.TestCase):
             syllables=None,
             phonetic_transcription=None,
         )
-        self.assertEqual(first_word, target)
+        self._word_assertions(first_word, target)
 
         # Re-enable later. Raises error upon run, at least on build server
         # Should probably be reported back to Stanza
@@ -96,7 +103,7 @@ class TestMain(unittest.TestCase):
             syllables=None,
             phonetic_transcription=None,
         )
-        self.assertEqual(first_word, target)
+        self._word_assertions(first_word, target)
 
         lang = "got"
         cltk_nlp = NLP(language=lang)
@@ -125,7 +132,7 @@ class TestMain(unittest.TestCase):
             syllables=None,
             phonetic_transcription=None,
         )
-        self.assertEqual(first_word, target)
+        self._word_assertions(first_word, target)
         self.assertEqual(len(cltk_doc.sentences), 3)
 
         lang = "grc"
@@ -155,7 +162,7 @@ class TestMain(unittest.TestCase):
             syllables=None,
             phonetic_transcription=None,
         )
-        self.assertEqual(first_word, target)
+        self._word_assertions(first_word, target)
 
         lang = "lzh"
         cltk_nlp = NLP(language=lang)
@@ -182,7 +189,7 @@ class TestMain(unittest.TestCase):
             syllables=None,
             phonetic_transcription=None,
         )
-        self.assertEqual(first_word, target)
+        self._word_assertions(first_word, target)
 
 
 if __name__ == "__main__":

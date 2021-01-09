@@ -1,16 +1,16 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from enum import auto
-from typing import List, Type, Union
+from typing import List, Type, Union, Tuple
 
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import *
-from cltk.utils.utils import CLTKEnum
 
 __author__ = ["John Stewart <free-variation>"]
 
 
 class MorphosyntacticFeatureBundle:
+    """A representation of a set of features, usually associated with a word form."""
+
     def __init__(self, *features: List[MorphosyntacticFeature]) -> None:
         """
         >>> f1 = MorphosyntacticFeatureBundle(F.neg, N.pos, V.neg, Case.accusative)
@@ -88,6 +88,9 @@ class MorphosyntacticFeatureBundle:
 
         self.features[feature_name] = feature_values
         return self
+
+    def all(self) -> List[Tuple[Type[MorphosyntacticFeature], List[MorphosyntacticFeature]]]:
+        return self.features.items()
 
     def underspecify(self, feature_name: Type[MorphosyntacticFeature]) -> None:
         """
@@ -398,11 +401,11 @@ from_ud_map = {
         "Oth": NameType.other,
     },
     "Strength": {"Strong": Strength.strong, "Weak": Strength.weak},
-    "Poss": {"Yes": Possessive},
-    "Reflex": {"Yes": Reflexive},
-    "Foreign": {"Yes": Foreign},
-    "Abbr": {"Yes": Abbreviation},
-    "Typo": {"Yes": Typo},
+    "Poss": {"Yes": Possessive.pos},
+    "Reflex": {"Yes": Reflexive.pos},
+    "Foreign": {"Yes": Foreign.pos},
+    "Abbr": {"Yes": Abbreviation.pos},
+    "Typo": {"Yes": Typo.pos},
 }
 
 
@@ -412,7 +415,7 @@ def from_ud(feature_name: str, feature_value: str) -> MorphosyntacticFeature:
     >>> from_ud('Case', 'Abl')
     ablative
     >>> from_ud('Abbr', 'Yes')
-    Abbreviation
+    pos
     >>> from_ud('PronType', 'Ind')
     indefinite
     """

@@ -59,7 +59,7 @@ def spacy_tag_ner(
 
     >>> text_tokens = ["Gallia", "est", "omnis", "divisa", "in", "partes", "tres", ",", "quarum", "unam", "incolunt", "Belgae", ",", "aliam", "Aquitani", ",", "tertiam", "qui", "ipsorum", "lingua", "Celtae", ",", "nostra", "Galli", "appellantur", "."]
     >>> from cltk.utils import CLTK_DATA_DIR
-    >>> spacy_tag_ner(text_tokens=text_tokens, model_path=os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/spacy_model/"))
+    >>> spacy_tag_ner('lat', text_tokens=text_tokens, model_path=os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/spacy_model/"))
     ['LOCATION', False, False, False, False, False, False, False, False, False, False, 'LOCATION', False, False, 'LOCATION', False, False, False, False, False, 'LOCATION', False, False, 'LOCATION', False, False]
     """
     # make sure that we have a List[str]

@@ -86,7 +86,7 @@ class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -112,7 +112,7 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import GreekTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -138,7 +138,7 @@ class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import LatinTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk import NLP
@@ -161,7 +161,7 @@ class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionPr
     """Phonological transcription `Process` for Middle High German.
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleHighGermanTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -186,7 +186,7 @@ class OldEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
     """Phonological transcription `Process` for Old English.
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import MiddleEnglishTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -212,7 +212,7 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
@@ -239,7 +239,7 @@ class OldSwedishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers.processes import OldNorseTokenizationProcess
-    >>> from cltk.filtering.processes import DefaultPunctuationRemovalProcess
+    >>> from cltk.text.processes import DefaultPunctuationRemovalProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP

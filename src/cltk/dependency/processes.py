@@ -23,12 +23,9 @@ class StanzaProcess(Process):
     that the ``stanza`` project can do for a
     given language.
 
-
     .. note::
         ``stanza`` has only partial functionality available for some languages.
 
-
-    >>> from cltk.dependency.processes import StanzaProcess
     >>> from cltk.languages.example_texts import get_example_text
     >>> process_stanza = StanzaProcess(language="lat")
     >>> isinstance(process_stanza, StanzaProcess)
@@ -115,6 +112,7 @@ embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcrip
                 ]
                 cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
                 cltk_word.category = to_categorial(cltk_word.pos)
+                cltk_word.stanza_features = stanza_word.feats
 
                 # sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
@@ -198,7 +196,7 @@ class ChineseStanzaProcess(StanzaProcess):
 
 class TreeBuilderProcess(Process):
     """A ``Process`` that takes a doc containing sentences of CLTK words
-    and returns a dependency tree for each sentences.
+    and returns a dependency tree for each sentence.
 
     TODO: JS help to make this work, illustrate better.
 
