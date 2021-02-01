@@ -12,9 +12,12 @@ from cltk.utils import CLTK_DATA_DIR
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
 
 NER_DICT = {
+    "ang": os.path.join(CLTK_DATA_DIR, "ang/model/ang_models_cltk/ner/spacy_model/"),
     "fro": os.path.join(CLTK_DATA_DIR, "fro/text/fro_data_cltk/named_entities_fr.py"),
     "grc": os.path.join(
-        CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
+        # CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
+        CLTK_DATA_DIR,
+        "grc/model/grc_models_cltk/ner/spacy_model/",
     ),
     "lat": os.path.join(
         # CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/proper_names.txt"
@@ -66,7 +69,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
                     break
             entities_type_list.append(False)
         return entities_type_list
-    elif iso_code == "lat":
+    elif iso_code in ["ang", "grc", "lat"]:
         return spacy_tag_ner(
             iso_code=iso_code, text_tokens=input_tokens, model_path=NER_DICT[iso_code]
         )  # type: List[str, None]
