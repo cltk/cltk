@@ -9,8 +9,6 @@ from cltk.core.data_types import Doc, Word
 from cltk.languages.example_texts import get_example_text
 
 
-
-
 class TestMain(unittest.TestCase):
     def _word_assertions(self, first_word, target):
         self.assertEqual(first_word.lemma, target.lemma)
@@ -33,7 +31,7 @@ class TestMain(unittest.TestCase):
             index_token=0,
             index_sentence=0,
             string="отьчє",
-            pos='noun',
+            pos="noun",
             lemma="отьць",
             stem=None,
             scansion=None,

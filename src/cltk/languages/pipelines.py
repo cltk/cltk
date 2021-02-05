@@ -1,8 +1,8 @@
 """Default processing pipelines for languages. The purpose of
 these dataclasses is to represent:
 
-1. the types of NLP processs that the CLTK can do
-2. the order in which processs are to be executed
+1. the types of NLP processes that the CLTK can do
+2. the order in which processes are to be executed
 3. specifying what downstream features a particular implemented process requires
 """
 
@@ -36,7 +36,7 @@ from cltk.lemmatize.processes import (
     OldEnglishLemmatizationProcess,
     OldFrenchLemmatizationProcess,
 )
-from cltk.ner.processes import GreekNERProcess, LatinNERProcess, OldFrenchNERProcess
+from cltk.ner.processes import GreekNERProcess, LatinNERProcess, OldEnglishNERProcess, OldFrenchNERProcess
 from cltk.stops.processes import StopsProcess
 from cltk.tokenizers.processes import (
     AkkadianTokenizationProcess,

@@ -1,6 +1,6 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from typing import List, Type, Union, Tuple
+from typing import List, Tuple, Type, Union
 
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import *
@@ -89,7 +89,9 @@ class MorphosyntacticFeatureBundle:
         self.features[feature_name] = feature_values
         return self
 
-    def all(self) -> List[Tuple[Type[MorphosyntacticFeature], List[MorphosyntacticFeature]]]:
+    def all(
+        self,
+    ) -> List[Tuple[Type[MorphosyntacticFeature], List[MorphosyntacticFeature]]]:
         return self.features.items()
 
     def underspecify(self, feature_name: Type[MorphosyntacticFeature]) -> None:
