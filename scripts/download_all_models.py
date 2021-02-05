@@ -66,8 +66,8 @@ def download_nlpl_model(iso_code: str) -> None:
 
 
 if __name__ == "__main__":
-    print('*** Downloading a basic set of models ... this will take a while.*** \n')
-    
+    print("*** Downloading a basic set of models ... this will take a while.*** \n")
+
     get_all_stanza_models()
 
     get_all_fasttext_models(interactive=False)
@@ -83,4 +83,4 @@ if __name__ == "__main__":
     download_cltk_models(iso_code="gml")
     download_cltk_models(iso_code="gmh")
 
-    print('\n *** All done.  Welcome to the CLTK! ***')
+    print("\n *** All done.  Welcome to the CLTK! ***")

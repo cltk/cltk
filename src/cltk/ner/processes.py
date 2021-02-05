@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 from dataclasses import dataclass
+from typing import Any, List
 
 from boltons.cacheutils import cachedproperty
 
@@ -31,9 +32,11 @@ class NERProcess(Process):
         output_doc = deepcopy(input_doc)
 
         ner_obj = self.algorithm
-        bool_entities = ner_obj(iso_code=self.language, input_tokens=input_doc.tokens)
+        entity_values = ner_obj(
+            iso_code=self.language, input_tokens=input_doc.tokens
+        )  # type: List[Any]
         for index, word_obj in enumerate(output_doc.words):
-            word_obj.named_entity = bool_entities[index]
+            word_obj.named_entity = entity_values[index]
             output_doc.words[index] = word_obj
 
         return output_doc
@@ -42,6 +45,9 @@ class NERProcess(Process):
 @dataclass
 class GreekNERProcess(NERProcess):
     """The default Greek NER algorithm.
+
+    .. todo::
+       Update doctest w/ production model
 
     >>> from cltk.core.data_types import Doc, Word
     >>> from cltk.languages.example_texts import get_example_text
@@ -62,6 +68,27 @@ class GreekNERProcess(NERProcess):
 
     language: str = "grc"
     description: str = "Default NER for Greek."
+
+
+@dataclass
+class OldEnglishNERProcess(NERProcess):
+    """The default OE NER algorithm.
+
+    .. todo::
+       Update doctest w/ production model
+
+    >>> from cltk.core.data_types import Doc, Word
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> from boltons.strutils import split_punct_ws
+    >>> text = get_example_text(iso_code="ang")
+    >>> tokens = [Word(string=token) for token in split_punct_ws(text)]
+    >>> a_process = OldEnglishNERProcess()
+    >>> output_doc = a_process.run(Doc(raw=text, words=tokens))
+    >>> output_doc.words[2].string, output_doc.words[2].named_entity
+    """
+
+    language: str = "ang"
+    description: str = "Default NER for Old English."
 
 
 @dataclass

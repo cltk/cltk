@@ -9,8 +9,8 @@ from cltk.core.data_types import Doc, Process, Word
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import (
     NOMINAL_FEATURES,
-    VERBAL_FEATURES,
     OTHER_FEATURES,
+    VERBAL_FEATURES,
     MorphosyntacticFeature,
 )
 
@@ -98,7 +98,7 @@ class Form(Element):
             self.tag
             + "_"
             + self("form_id")
-            + (("/" + self("pos")) if self("pos") else "")  
+            + (("/" + self("pos")) if self("pos") else "")
         )
 
     __repr__ = __str__
@@ -124,7 +124,7 @@ class Form(Element):
             self("form_id"),
             ",".join(
                 [
-                    feature + "="  + self(feature)
+                    feature + "=" + self(feature)
                     for feature in self.attrib.keys()
                     if feature not in excluded
                 ]

@@ -30,7 +30,7 @@ class NamedEntityReplacer(object):
 
     def _load_necessary_data(self):
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "fro", "text", "fro_data_cltk", "named_entities_fr.py"
+            CLTK_DATA_DIR, "fro", "text", "fro_models_cltk", "named_entities_fr.py"
         )
         path = os.path.expanduser(rel_path)
         # logger.info('Loading entries. This may take a minute.')

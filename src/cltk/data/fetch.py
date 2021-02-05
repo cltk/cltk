@@ -441,8 +441,8 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "fro_data_cltk",
-            "origin": "https://github.com/cltk/fro_data_cltk.git",
+            "name": "fro_models_cltk",
+            "origin": "https://github.com/cltk/fro_models_cltk.git",
             "type": "text",
         },
     ],

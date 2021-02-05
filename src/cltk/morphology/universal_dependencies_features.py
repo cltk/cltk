@@ -9,6 +9,7 @@ from enum import auto
 
 from cltk.utils.utils import CLTKEnum
 
+
 class MorphosyntacticFeature(CLTKEnum):
     """A generic multivalued morphosyntactic feature."""
 
@@ -490,6 +491,7 @@ class Abbreviation(MorphosyntacticFeature):
     """Is this word an abbreviation?
     see https://universaldependencies.org/u/feat/Abbr.html
     """
+
     pos = auto()
     neg = auto()
 
@@ -509,7 +511,15 @@ class Typo(MorphosyntacticFeature):
 Underspecified = None
 
 OTHER_FEATURES = [
-    NameType, PrononimalType, AdpositionalType, AdverbialType,
-    VerbType, Possessive, Numeral, Reflexive,
-    Foreign, Abbreviation, Typo
+    NameType,
+    PrononimalType,
+    AdpositionalType,
+    AdverbialType,
+    VerbType,
+    Possessive,
+    Numeral,
+    Reflexive,
+    Foreign,
+    Abbreviation,
+    Typo,
 ]
