@@ -402,6 +402,7 @@ class OldEnglishPipeline(Pipeline):
             OldEnglishLemmatizationProcess,
             OldEnglishEmbeddingsProcess,
             StopsProcess,
+            OldEnglishNERProcess,
         ]
     )
 
