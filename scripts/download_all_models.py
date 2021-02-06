@@ -29,16 +29,17 @@ PARSER.add_argument(
 )
 ARGS = PARSER.parse_args()
 SELECTED_LANGS = list()  # type: List[str]
-AVAILABLE_LANGS = list(iso_to_pipeline.keys())  # type: List[str]
+ALL_AVAILABLE_LANGS = list(iso_to_pipeline.keys())  # type: List[str]
 if not ARGS.languages:
-    SELECTED_LANGS = AVAILABLE_LANGS
+    SELECTED_LANGS = ALL_AVAILABLE_LANGS
 else:
     SELECTED_LANGS_SPLIT = ARGS.languages.split(",")
     for LANG in SELECTED_LANGS_SPLIT:
-        if LANG not in AVAILABLE_LANGS:
+        if LANG not in ALL_AVAILABLE_LANGS:
             raise CLTKException(
-                f"Unavailable language '{LANG}' chosen. Choose from: {', '.join(AVAILABLE_LANGS)}"
+                f"Unavailable language '{LANG}' chosen. Choose from: {', '.join(ALL_AVAILABLE_LANGS)}"
             )
+    SELECTED_LANGS = SELECTED_LANGS_SPLIT
 
 
 def download_stanza_model(iso_code: str) -> None:
@@ -115,7 +116,7 @@ def download_nlpl_model(iso_code: str) -> None:
 
 if __name__ == "__main__":
     print("*** Downloading a basic set of models ... this will take a while.*** \n")
-    for LANG in SELECTED_LANGS_SPLIT:
+    for LANG in SELECTED_LANGS:
         print(f"Going to download all '{LANG}' models ...", LANG)
         # 1. Check if CLTK model available
         if LANG in AVAILABLE_CLTK_LANGS:

@@ -10,8 +10,8 @@ python:
 
 cache:
   directories:
-#    - $HOME/stanza_resources/
-#    - $HOME/cltk_data/
+    - $HOME/stanza_resources/
+    - $HOME/cltk_data/
 #    - $HOME/virtualenv/
     - $HOME/.cache/pip
 
@@ -37,6 +37,7 @@ install:
 
 script:
   - make lameTest
+  - poetry run python scripts/download_all_models.py --languages=got
 #  - make test
 #  - make uml
 #  - make docs
