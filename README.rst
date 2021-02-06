@@ -50,7 +50,7 @@ Documentation at `<https://dev.cltk.org>`_.
 Citation
 ========
 
-.. code-block::
+.. code-block:: bibtex
 
    @Misc{johnsonetal2014,
     author = {Johnson, Kyle P. and Patrick Burns and John Stewart and Todd Cook},
