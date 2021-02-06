@@ -1,16 +1,16 @@
 """A quick sanity check for testing library without downloads or
  a network connection"""
 
-from typing import List
 import unittest
+from typing import List
 
 from boltons.strutils import split_punct_ws
 
 from cltk import NLP
+from cltk.core.data_types import Doc, Pipeline, Process, Word
 from cltk.dependency.tree import Dependency, DependencyTree, Form
 from cltk.languages.example_texts import get_example_text
 from cltk.stops.processes import StopsProcess
-from cltk.core.data_types import Doc, Pipeline, Process, Word
 
 
 class TestLame(unittest.TestCase):

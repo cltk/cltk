@@ -15,7 +15,7 @@ from typing import List, Union
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.utils import get_lang
-from cltk.ner.spacy_ner import spacy_tag_ner, download_prompt
+from cltk.ner.spacy_ner import download_prompt, spacy_tag_ner
 from cltk.utils import CLTK_DATA_DIR
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
