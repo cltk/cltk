@@ -23,6 +23,9 @@ installPyPI:
 installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ --no-deps cltk
 
+lameTest:
+	poetry run python tests/test_lame.py
+
 lint:
 	mkdir -p pylint && poetry run pylint --output-format=json cltk > pylint/pylint.json || true && poetry run pylint-json2html pylint/pylint.json 1> pylint/pylint.html
 
