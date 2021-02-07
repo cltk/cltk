@@ -1,5 +1,5 @@
 """A CLTK interface for Sanskrit, Greek and Latin WordNets, built on the NLTK WordNet API
-The Sanskrit, Greek and Latin WordNets are lexico-semantic databases for the classical languages inspired by the Princeton WordNet for English. Most directly, these WordNets build on the framework of the Fondazione Bruno Kessler's MultiWordNet Project. 
+The Sanskrit, Greek and Latin WordNets are lexico-semantic databases for the classical languages inspired by the Princeton WordNet for English. Most directly, these WordNets build on the framework of the Fondazione Bruno Kessler's MultiWordNet Project.
 The CLTK WordNet API provides a nearly complete interface to the RESTful API provided by these services and thus provides access to the rich lexical and, especially, semantic information they contain. The WordNets share a common set of semantic descriptors
 (synsets) for defining the senses of words, as well as language-specific ones.
 
@@ -36,6 +36,7 @@ import math
 import os
 import re
 import string
+import logging
 from collections import defaultdict, deque
 from functools import total_ordering
 from itertools import chain
@@ -46,6 +47,8 @@ from nltk.corpus.reader import CorpusReader
 from nltk.probability import FreqDist
 
 from cltk.utils import get_cltk_data_dir
+
+logger = logging.getLogger(__name__)
 
 nesteddict = lambda: defaultdict(nesteddict)
 punctuation = str.maketrans("", "", string.punctuation)
@@ -1651,18 +1654,14 @@ class WordNetCorpusReader(CorpusReader):
     """
 
     _DEFAULT_HOSTS = {
-        "skt": "https://sanskritwordnet.unipv.it",
-        "grk": "https://greekwordnet.chs.harvard.edu",
+        "san": "https://sanskritwordnet.unipv.it",
+        "grc": "https://greekwordnet.chs.harvard.edu",
         "lat": "https://latinwordnet.exeter.ac.uk",
     }
     _ENCODING = "utf8"
 
-    # { Part-of-speech constants
-    ADJ, ADV, NOUN, VERB = "a", "r", "n", "v"
-    # }
-
     # { Part of speech constants
-    _pos_numbers = {NOUN: 1, VERB: 2, ADJ: 3, ADV: 4}
+    _pos_numbers = {NOUN: 1, VERB: 2, ADJ: 3, ADV: 4, PREP: 5}
     _pos_names = dict(tup[::-1] for tup in _pos_numbers.items())
     # }
 
@@ -1723,35 +1722,44 @@ class WordNetCorpusReader(CorpusReader):
         ``lemma`` alone are filtered. ``pos`` tags are in the form
         ``n`` for noun, ``v`` for verb, ``a`` for adjective, ``r`` for adverb.
 
+        If ``return_ambiguous`` is ``False``, only the first matching lemma
+        is returned as a single-element list. If ``True``, (default) all the
+        matching lemmas will be returned.
+
         >>> LWN = WordNetCorpusReader(iso_code="lat")
         >>> LWN.lemma('baculum')
         [Lemma(lemma='baculum', pos='n', morpho='n-s---nn2-', uri='b0034')]
 
         """
         resolved = []
-        if pos and pos in self._lemma_cache[lemma]:  # pragma: no cover
-            if morpho and morpho in self._lemma_cache[lemma][pos]:
-                resolved.extend(self._lemma_cache[lemma][pos][morpho])
+        if lemma in self._lemma_cache:
+            logger.debug(f"lemma found in cache: {lemma}")
+            if pos and pos in self._lemma_cache[lemma]:  # pragma: no cover
+                logger.debug(f"pos found in cache: {pos}")
+                if morpho and morpho in self._lemma_cache[lemma][pos]:
+                    logger.debug(f"morpho found in cache: {morpho}")
+                    resolved.extend(self._lemma_cache[lemma][pos][morpho])
+                else:
+                    resolved.extend(
+                        [
+                            self._lemma_cache[lemma][pos][morpho][uri]
+                            for morpho in self._lemma_cache[lemma][pos]
+                            for uri in self._lemma_cache[lemma][pos][morpho]
+                        ]
+                    )
             else:
                 resolved.extend(
                     [
-                        l
-                        for l in self._lemma_cache[lemma][pos][morpho]
-                        for morpho in self._lemma_cache[lemma][pos]
-                    ]
-                )
-        else:
-            if lemma in self._lemma_cache:
-                resolved.extend(
-                    [
-                        l
-                        for l in self._lemma_cache[lemma][pos][morpho]
+                        self._lemma_cache[lemma][pos][morpho][uri]
                         for pos in self._lemma_cache[lemma]
+                        for morpho in self._lemma_cache[lemma][pos]
+                        for uri in self._lemma_cache[lemma][pos][morpho]
                         if morpho in self._lemma_cache[lemma][pos]
                     ]
                 )
 
         if not resolved:
+            logger.debug(f"REQUEST: {lemma}, (pos={pos}, morpho={morpho})")
             results = self.json = requests.get(
                 f"{self.host()}/api/lemmas/{lemma if lemma else '*'}/{pos if pos else '*'}"
                 f"/{morpho if morpho else '*'}?format=json",
@@ -1762,12 +1770,12 @@ class WordNetCorpusReader(CorpusReader):
                 for item in data:
                     l = Lemma(self, **(item))
                     resolved.append(l)
-                    self._lemma_cache[lemma][pos][morpho][item["uri"]] = l
+                    self._lemma_cache[lemma][item['pos']][item['morpho']][item['uri']] = l
 
         if return_ambiguous:
             return resolved
         else:
-            return resolved[0]
+            return resolved[:1]
 
     def lemma_from_uri(self, uri):
         """
