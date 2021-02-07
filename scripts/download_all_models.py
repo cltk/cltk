@@ -106,7 +106,7 @@ if __name__ == "__main__":
     print(f"Module loaded. Total elapsed time: {time.time() - T0}")
     print("*** Downloading a basic set of models ... this will take a while.*** \n")
     for LANG in SELECTED_LANGS:
-        print(f"Going to download all '{LANG}' models ...", LANG)
+        print(f"Going to download all '{LANG}' models ...")
         # 1. Check if CLTK model available
         if LANG in AVAILABLE_CLTK_LANGS:
             download_cltk_models_repo(iso_code="lat")

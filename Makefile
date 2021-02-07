@@ -8,7 +8,7 @@ docs:
 	# typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
 	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
 
-downloadBasicModels:
+downloadAllModels:
 	poetry run python scripts/download_all_models.py
 
 format:
