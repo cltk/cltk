@@ -10,8 +10,8 @@ python:
 
 cache:
   directories:
-    - $HOME/stanza_resources/
-    - $HOME/cltk_data/
+#    - $HOME/stanza_resources/
+#    - $HOME/cltk_data/
 #    - $HOME/virtualenv/
     - $HOME/.cache/pip
 
@@ -25,7 +25,7 @@ before_install:
   - pip install setuptools requests
   - pip install --upgrade pip
   - pip install poetry
-  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
+#  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
 
 install:
   - make install
