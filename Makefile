@@ -55,6 +55,9 @@ test:
 	echo "Going to run all tests ..."
 	poetry run tox
 
+testLatNLP:
+	poetry run pytest tests/test_sanity_lat_only.py
+
 testNoInternet:
 	poetry run pytest tests/test_sanity_no_internet.py tests/test_utils.py tests/test_text.py
 
