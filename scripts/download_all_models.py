@@ -7,21 +7,22 @@ For selected languages only: ``$ python scripts/download_all_models.py --languag
 """
 
 import argparse
-import os
-from typing import Any, Dict, List
-
-import stanza
+import time
+from typing import Dict, List
 
 from cltk.core.exceptions import CLTKException
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
 from cltk.data.fetch import FetchCorpus
 from cltk.dependency.stanza import (
-    map_langs_cltk_stanza as AVAIL_STANZA_LANGS,
-)  # type: Dict[str, str]
+    MAP_LANGS_CLTK_STANZA as AVAIL_STANZA_LANGS,
+)  # pylint: disable=syntax-error
+from cltk.dependency.stanza import StanzaWrapper
 from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT_LANGS
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
 from cltk.nlp import iso_to_pipeline
+
+T0 = time.time()
 
 PARSER = argparse.ArgumentParser()
 PARSER.add_argument(
@@ -47,32 +48,13 @@ def download_stanza_model(iso_code: str) -> None:
     that are supported by the CLTK or in scope. More here:
     `<https://stanfordnlp.github.io/stanza/models.html>_.
 
-    TODO: Use CLTK stanza wrapper class to dlk files
-    TODO: Re-enable `package` parameter
+    TODO: Re-enable `treebank` parameter
     """
-    all_ud_models_for_cltk = dict(
-        cop=["scriptorium"],
-        cu=["proiel"],  # OCS
-        fro=["srcmf"],  # Old French
-        grc=["perseus", "proiel"],
-        got=["proiel"],
-        la=["ittb", "proiel", "perseus"],
-        lzh=["kyoto"],
-    )  # type: Dict[str, List[str]]
-    if iso_code not in all_ud_models_for_cltk:
+    print(f"Going to download Stanza model for '{iso_code}'.")
+    if iso_code not in AVAIL_STANZA_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for Stanza.")
-    stanza_dir = os.path.expanduser("~/stanza_resources/")  # type: str
-    # for lang_name, model_sources in all_ud_models_for_cltk.items():
-    #     for model_source in model_sources:
-    if iso_code == "cop":
-        # Coptic errors our, for some reason, if we pass the package name ``scriptorium``
-        stanza.download(lang=iso_code, dir=stanza_dir)
-    else:
-        stanza.download(
-            lang=iso_code,
-            dir=stanza_dir,
-            # package=all_ud_models_for_cltk[iso_code]
-        )
+    StanzaWrapper(language=iso_code, interactive=False, silent=False)
+    print(f"Finished downloading Stanza for '{iso_code}'.")
 
 
 def download_fasttext_model(
@@ -80,8 +62,9 @@ def download_fasttext_model(
 ) -> None:
     """Download fasttext model.
 
-    TODO: Add way to actually get Common Crawl model.
+    TODO: Add way to specify a Common Crawl model.
     """
+    print(f"Going to download fasttext model for '{iso_code}'.")
     avail_sources = ["wiki", "common_crawl"]
     assert (
         model_source in avail_sources
@@ -99,22 +82,28 @@ def download_fasttext_model(
     FastTextEmbeddings(
         iso_code=iso_code, interactive=interactive, overwrite=False, silent=False
     )
+    print(f"Finished downloading fasttext for '{iso_code}'.")
 
 
 def download_cltk_models_repo(iso_code: str) -> None:
     """Download CLTK repos."""
+    print(f"Going to download CLTK models for '{iso_code}'.")
     corpus_downloader = FetchCorpus(language=iso_code)
     corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
+    print(f"Finished downloading CLTK models for '{iso_code}'.")
 
 
 def download_nlpl_model(iso_code: str) -> None:
     """Download word2vec model."""
+    print(f"Going to download NLPL model for '{iso_code}'.")
     Word2VecEmbeddings(
         iso_code=iso_code, interactive=False, overwrite=False, silent=True
     )
+    print(f"Finished downloading NLPL model for '{iso_code}'.")
 
 
 if __name__ == "__main__":
+    print(f"Module loaded. Total elapsed time: {time.time() - T0}")
     print("*** Downloading a basic set of models ... this will take a while.*** \n")
     for LANG in SELECTED_LANGS:
         print(f"Going to download all '{LANG}' models ...", LANG)
@@ -130,4 +119,7 @@ if __name__ == "__main__":
         # 4. Check nlpl
         if LANG in AVAIL_NLPL_LANGS:
             download_nlpl_model(iso_code=LANG)
-    print("\n *** All done.  Welcome to the CLTK! ***")
+        print(
+            f"All models fetched for '{LANG}'. Total elapsed time: {time.time() - T0}"
+        )
+    print("*** All done.  Welcome to the CLTK! ***")

@@ -21,7 +21,7 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 
-map_langs_cltk_stanza = {
+MAP_LANGS_CLTK_STANZA = {
     "chu": "Old_Church_Slavonic",
     "cop": "Coptic",
     "fro": "Old_French",
@@ -329,7 +329,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.is_wrapper_available()
         True
         """
-        if self.language in map_langs_cltk_stanza:
+        if self.language in MAP_LANGS_CLTK_STANZA:
             return True
         return False
 
@@ -347,7 +347,7 @@ class StanzaWrapper:
         KeyError: 'Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen.'
         """
         try:
-            stanza_lang_name = map_langs_cltk_stanza[self.language]
+            stanza_lang_name = MAP_LANGS_CLTK_STANZA[self.language]
         except KeyError:
             raise KeyError(
                 "Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen."
