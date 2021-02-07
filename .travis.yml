@@ -24,6 +24,9 @@ before_install:
   - echo $FAKE_SECRET_ENV_VAR
   - pip install setuptools requests
   - pip install --upgrade pip
+  # poetry's dependency complains on the cltk/cltk branch that rust is not installed
+  - sudo apt install -y curl
+  - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   - pip install poetry
 #  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
 
