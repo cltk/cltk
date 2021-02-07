@@ -1,5 +1,5 @@
 """A quick sanity check for testing library without downloads or
- a network connection"""
+ a network connection."""
 
 import unittest
 from typing import List
@@ -8,15 +8,14 @@ from boltons.strutils import split_punct_ws
 
 from cltk import NLP
 from cltk.core.data_types import Doc, Pipeline, Process, Word
-from cltk.dependency.tree import Dependency, DependencyTree, Form
 from cltk.languages.example_texts import get_example_text
 from cltk.stops.processes import StopsProcess
 
 
-class TestLame(unittest.TestCase):
+class TestNoInternet(unittest.TestCase):
     """Quick test."""
 
-    def test_simple(self):
+    def test_nlp_latin_stops(self):
         lang = "lat"  # type: str
         cltk_nlp = NLP(language=lang)  # type: NLP
         self.assertIsInstance(cltk_nlp, NLP)

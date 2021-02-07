@@ -2,7 +2,7 @@ language: python
 
 python:
 #  - "3.7.5"
-  - "3.8.5"
+  - "3.8.6"
 
 #env:
 #  - TEST_SUITE=testOnlyDocTests
@@ -36,8 +36,8 @@ install:
 #  - make preCommitRun
 
 script:
-  - make lameTest
-  - poetry run python scripts/download_all_models.py --languages=got
+#  - poetry run python scripts/download_all_models.py --languages=lat
+  - make testNoInternet
 #  - make test
 #  - make uml
 #  - make docs
