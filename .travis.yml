@@ -9,12 +9,12 @@ python:
 #  - TEST_SUITE=test
 
 cache:
-  directories:
+  - pip
+#  directories:
 #    - $HOME/stanza_resources/
 #    - $HOME/cltk_data/
 #    - $HOME/virtualenv/
 #    - $HOME/.cache/pip
-    - pip
 
 addons:
   apt:
