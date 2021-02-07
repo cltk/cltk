@@ -49,10 +49,15 @@ script:
 after_failure:
   - echo Add later
 
+before_deploy:
+  - poetry config http-basic.pypi kyle_johnson $PYPI_PASSWORD
+  - poetry build
+
 # https://docs.travis-ci.com/user/deployment-v2/providers/pypi/
 # example for branches: https://github.com/travis-ci/travis-ci/issues/8289#issuecomment-324722657
 deploy:
-  provider: pypi
+  provider: script
+  script: poetry publish
   on:
     branch:
         - master
