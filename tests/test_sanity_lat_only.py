@@ -14,17 +14,15 @@ from cltk.languages.example_texts import get_example_text
 from cltk.languages.pipelines import LatinPipeline
 from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle
 from cltk.morphology.universal_dependencies_features import POS
-from cltk.stops.processes import StopsProcess
 
 
 class TestNLPLatin(unittest.TestCase):
-    """Quick."""
-
-    # @classmethod
-    # def setUpClass(self):
-    #     self.lang = "lat"  # type: str
+    """Test all Latin models in default pipeline."""
 
     def test_nlp_latin(self):
+        TO = time.time()
+        print("Starting complete `NLP()` test for 'lat' ...")
+
         lang = "lat"  # type: str
 
         self.assertIsInstance(LatinPipeline.description, str)
@@ -68,9 +66,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(word.upos, str)
         self.assertIsInstance(word.xpos, str)
 
+        print(f"Finished complete test of `NLP()` in {time.time() - TO} secs.")
 
 if __name__ == "__main__":
-    TO = time.time()
-    print("Starting complete `NLP()` test for 'lat' ...")
     unittest.main()
-    print(f"Finished complete test of `NLP()` in {time.time() - TO} secs.")
