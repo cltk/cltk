@@ -37,7 +37,7 @@ install:
 #  - make preCommitRun
 
 script:
-#  - poetry run python scripts/download_all_models.py --languages=lat
+  - poetry run python scripts/download_all_models.py --languages=lat
   - make testNoInternet
 #  - make test
 #  - make uml
