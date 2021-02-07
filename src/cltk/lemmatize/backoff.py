@@ -17,7 +17,8 @@ import re
 import reprlib
 from typing import List
 
-from nltk.tag.sequential import RegexpTagger, SequentialBackoffTagger, UnigramTagger
+from nltk.tag.sequential import (RegexpTagger, SequentialBackoffTagger,
+                                 UnigramTagger)
 
 
 class SequentialBackoffLemmatizer(SequentialBackoffTagger):

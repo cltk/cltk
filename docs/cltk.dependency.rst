@@ -32,3 +32,11 @@ cltk.dependency.tree module
    :members:
    :undoc-members:
    :show-inheritance:
+
+cltk.dependency.utils module
+----------------------------
+
+.. automodule:: cltk.dependency.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

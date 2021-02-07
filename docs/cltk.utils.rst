@@ -9,6 +9,14 @@ cltk.utils package
 Submodules
 ----------
 
+cltk.utils.feature\_extraction module
+-------------------------------------
+
+.. automodule:: cltk.utils.feature_extraction
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.utils.file\_operations module
 ----------------------------------
 

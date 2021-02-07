@@ -24,3 +24,19 @@ cltk.text.lat module
    :members:
    :undoc-members:
    :show-inheritance:
+
+cltk.text.non module
+--------------------
+
+.. automodule:: cltk.text.non
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.text.processes module
+--------------------------
+
+.. automodule:: cltk.text.processes
+   :members:
+   :undoc-members:
+   :show-inheritance:
