@@ -5,27 +5,16 @@ from typing import Type
 
 from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.pipelines import (
-    AkkadianPipeline,
-    ArabicPipeline,
-    AramaicPipeline,
-    ChinesePipeline,
-    CopticPipeline,
-    GothicPipeline,
-    GreekPipeline,
-    HindiPipeline,
-    LatinPipeline,
-    MiddleEnglishPipeline,
-    MiddleFrenchPipeline,
-    MiddleHighGermanPipeline,
-    OCSPipeline,
-    OldEnglishPipeline,
-    OldFrenchPipeline,
-    OldNorsePipeline,
-    PaliPipeline,
-    PanjabiPipeline,
-    SanskritPipeline,
-)
+from cltk.languages.pipelines import (AkkadianPipeline, ArabicPipeline,
+                                      AramaicPipeline, ChinesePipeline,
+                                      CopticPipeline, GothicPipeline,
+                                      GreekPipeline, HindiPipeline,
+                                      LatinPipeline, MiddleEnglishPipeline,
+                                      MiddleFrenchPipeline,
+                                      MiddleHighGermanPipeline, OCSPipeline,
+                                      OldEnglishPipeline, OldFrenchPipeline,
+                                      OldNorsePipeline, PaliPipeline,
+                                      PanjabiPipeline, SanskritPipeline)
 from cltk.languages.utils import get_lang
 
 iso_to_pipeline = {

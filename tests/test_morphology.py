@@ -2,6 +2,7 @@
 
 import unittest
 
+from cltk.core.exceptions import CLTKException
 from cltk.morphology.lat import CollatinusDecliner
 
 

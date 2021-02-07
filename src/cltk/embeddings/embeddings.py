@@ -18,6 +18,7 @@ for retraining.
 """
 
 import os
+from typing import List
 from zipfile import ZipFile
 
 from gensim import models  # type: ignore
@@ -25,6 +26,23 @@ from gensim import models  # type: ignore
 from cltk.core.exceptions import CLTKException, UnimplementedAlgorithmError
 from cltk.languages.utils import get_lang
 from cltk.utils import CLTK_DATA_DIR, get_file_with_progress_bar, query_yes_no
+
+MAP_NLPL_LANG_TO_URL = dict(
+    arb="http://vectors.nlpl.eu/repository/20/31.zip",
+    chu="http://vectors.nlpl.eu/repository/20/60.zip",
+    grc="http://vectors.nlpl.eu/repository/20/30.zip",
+    lat="http://vectors.nlpl.eu/repository/20/56.zip",
+)
+
+MAP_LANGS_CLTK_FASTTEXT = {
+    "ang": "ang",  # Anglo-Saxon
+    "arb": "ar",  # Arabic
+    "arc": "arc",  # Aramaic
+    "got": "got",  # Gothic
+    "lat": "la",  # Latin
+    "pli": "pi",  # Pali
+    "san": "sa",  # Sanskrit
+}
 
 
 class Word2VecEmbeddings:
@@ -51,13 +69,6 @@ class Word2VecEmbeddings:
             raise ValueError(
                 "``interactive`` and ``silent`` options are not compatible with each other."
             )
-
-        self.MAP_LANG_TO_URL = dict(
-            arb="http://vectors.nlpl.eu/repository/20/31.zip",
-            chu="http://vectors.nlpl.eu/repository/20/60.zip",
-            grc="http://vectors.nlpl.eu/repository/20/30.zip",
-            lat="http://vectors.nlpl.eu/repository/20/56.zip",
-        )
 
         self._check_input_params()
 
@@ -100,8 +111,8 @@ class Word2VecEmbeddings:
         get_lang(self.iso_code)  # check if iso_code valid
 
         # 2. check if any fasttext embeddings for this lang
-        if self.iso_code not in self.MAP_LANG_TO_URL:
-            available_embeddings_str = "', '".join(self.MAP_LANG_TO_URL.keys())
+        if self.iso_code not in MAP_NLPL_LANG_TO_URL:
+            available_embeddings_str = "', '".join(MAP_NLPL_LANG_TO_URL.keys())
             raise UnimplementedAlgorithmError(
                 f"No embedding available for language '{self.iso_code}'. Word2Vec models available for: '{available_embeddings_str}'."
             )
@@ -116,7 +127,7 @@ class Word2VecEmbeddings:
 
     def _build_zip_filepath(self) -> str:
         """Create filepath where .zip file will be saved."""
-        url_frag = self.MAP_LANG_TO_URL[self.iso_code].split(".")[-2]  # type: str
+        url_frag = MAP_NLPL_LANG_TO_URL[self.iso_code].split(".")[-2]  # type: str
         nlpl_id = int(url_frag.split("/")[-1])  # str
         fp_zip = os.path.join(
             CLTK_DATA_DIR, f"{self.iso_code}/embeddings/nlpl/{nlpl_id}.zip"
@@ -142,7 +153,7 @@ class Word2VecEmbeddings:
         """Perform complete download of Word2Vec models and save
         them in appropriate ``cltk_data`` dir.
         """
-        model_url = self.MAP_LANG_TO_URL[self.iso_code]
+        model_url = MAP_NLPL_LANG_TO_URL[self.iso_code]
         if not self.interactive:
             if not self.silent:
                 print(
@@ -201,16 +212,6 @@ class FastTextEmbeddings:
             raise ValueError(
                 "``interactive`` and ``silent`` options are not compatible with each other."
             )
-
-        self.MAP_LANGS_CLTK_FASTTEXT = {
-            "ang": "ang",  # Anglo-Saxon
-            "arb": "ar",  # Arabic
-            "arc": "arc",  # Aramaic
-            "got": "got",  # Gothic
-            "lat": "la",  # Latin
-            "pli": "pi",  # Pali
-            "san": "sa",  # Sanskrit
-        }
 
         self._check_input_params()
 
@@ -287,7 +288,7 @@ class FastTextEmbeddings:
 
         # 2. check if any fasttext embeddings for this lang
         if not self._is_fasttext_lang_available():
-            available_embeddings_str = "', '".join(self.MAP_LANGS_CLTK_FASTTEXT.keys())
+            available_embeddings_str = "', '".join(MAP_LANGS_CLTK_FASTTEXT.keys())
             raise UnimplementedAlgorithmError(
                 f"No embedding available for language '{self.iso_code}'. FastTextEmbeddings available for: '{available_embeddings_str}'."
             )
@@ -336,7 +337,7 @@ class FastTextEmbeddings:
         of all fastText embeddings, only those added into the CLTK.
         """
         get_lang(iso_code=self.iso_code)
-        if self.iso_code not in self.MAP_LANGS_CLTK_FASTTEXT:
+        if self.iso_code not in MAP_LANGS_CLTK_FASTTEXT:
             return False
         else:
             return True
@@ -366,7 +367,7 @@ class FastTextEmbeddings:
         >>> os.path.split(bin_fp)[1]  # doctest: +SKIP
         'cc.la.300.bin'
         """
-        fasttext_code = self.MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
+        fasttext_code = MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
 
         fp_model = None
         if self.training_set == "wiki":
@@ -392,7 +393,7 @@ class FastTextEmbeddings:
     def _build_fasttext_url(self):
         """Make the URL at which the requested model may be
         downloaded."""
-        fasttext_code = self.MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
+        fasttext_code = MAP_LANGS_CLTK_FASTTEXT[self.iso_code]
         if self.training_set == "wiki":
             if self.model_type == "vec":
                 ending = "vec"

@@ -38,7 +38,7 @@ For the CLTK's latest pre-release version:
 Requirements:
    - Python version 3.7 or above
    - A Unix-like OS
-   - To install from source, see `Development in the docs <https://dev.cltk.org/en/latest/includes/development.html>`_.
+   - To install from source, see `Development <https://dev.cltk.org/en/latest/includes/development.html>`_ in the docs.
 
 
 Documentation
@@ -56,7 +56,7 @@ Citation
     author = {Johnson, Kyle P. and Patrick Burns and John Stewart and Todd Cook},
     title = {CLTK: The Classical Language Toolkit},
     url = {https://github.com/cltk/cltk},
-    year = {2014--2020},
+    year = {2014--2021},
    }
 
 

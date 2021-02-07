@@ -2,18 +2,18 @@ language: python
 
 python:
 #  - "3.7.5"
-  - "3.8.5"
+  - "3.8.6"
 
 #env:
 #  - TEST_SUITE=testOnlyDocTests
 #  - TEST_SUITE=test
 
-cache:
-  directories:
-    - $HOME/stanza_resources/
-    - $HOME/cltk_data/
-    - $HOME/virtualenv/
-    - $HOME/.cache/pip
+#cache:
+#  directories:
+#    - $HOME/stanza_resources/
+#    - $HOME/cltk_data/
+#    - $HOME/virtualenv/
+#    - $HOME/.cache/pip
 
 addons:
   apt:
@@ -23,23 +23,25 @@ addons:
 before_install:
   - echo $FAKE_SECRET_ENV_VAR
   - pip install setuptools requests
-
   - pip install --upgrade pip
   - pip install poetry
-  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
+#  - pip install python-crfsuite  # required for ``cltk.tag.pos.POSTag``, which calls NLTK
 
 install:
   - make install
-  - make downloadBasicModels
+#  - make downloadAllModels
 
-before_script:
-  - make preCommitUpdate
-  - make preCommitRun
+#before_script:
+#  - make preCommitUpdate
+#  - make preCommitRun
 
 script:
-  - make test
-  - make uml
-  - make docs
+  - poetry run python scripts/download_all_models.py --languages=lat
+  - make testNoInternet
+  - make testLatNLP
+#  - make test
+#  - make uml
+#  - make docs
 
 after_failure:
   - echo Add later

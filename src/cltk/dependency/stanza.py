@@ -8,17 +8,26 @@ from typing import Dict, Optional
 
 import stanza  # type: ignore
 from stanza.models.common.constant import lang2lcode  # type: Dict[str, str]
-from stanza.resources.prepare_resources import default_treebanks  # type: Dict[str, str]
+from stanza.resources.prepare_resources import \
+    default_treebanks  # type: Dict[str, str]
 
-from cltk.core.exceptions import (
-    CLTKException,
-    UnimplementedAlgorithmError,
-    UnknownLanguageError,
-)
+from cltk.core.exceptions import (CLTKException, UnimplementedAlgorithmError,
+                                  UnknownLanguageError)
 from cltk.utils import file_exists, query_yes_no, suppress_stdout
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
+
+
+MAP_LANGS_CLTK_STANZA = {
+    "chu": "Old_Church_Slavonic",
+    "cop": "Coptic",
+    "fro": "Old_French",
+    "grc": "Ancient_Greek",
+    "got": "Gothic",
+    "lat": "Latin",
+    "lzh": "Classical_Chinese",
+}
 
 
 class StanzaWrapper:
@@ -92,17 +101,6 @@ class StanzaWrapper:
             raise ValueError(
                 "``interactive`` and ``silent`` options are not compatible with each other."
             )
-
-        # Setup language
-        self.map_langs_cltk_stanza = {
-            "chu": "Old_Church_Slavonic",
-            "cop": "Coptic",
-            "fro": "Old_French",
-            "grc": "Ancient_Greek",
-            "got": "Gothic",
-            "lat": "Latin",
-            "lzh": "Classical_Chinese",
-        }
 
         self.wrapper_available = self.is_wrapper_available()  # type: bool
         if not self.wrapper_available:
@@ -329,7 +327,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.is_wrapper_available()
         True
         """
-        if self.language in self.map_langs_cltk_stanza:
+        if self.language in MAP_LANGS_CLTK_STANZA:
             return True
         return False
 
@@ -347,7 +345,7 @@ class StanzaWrapper:
         KeyError: 'Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen.'
         """
         try:
-            stanza_lang_name = self.map_langs_cltk_stanza[self.language]
+            stanza_lang_name = MAP_LANGS_CLTK_STANZA[self.language]
         except KeyError:
             raise KeyError(
                 "Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen."

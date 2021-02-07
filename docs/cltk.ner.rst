@@ -24,3 +24,11 @@ cltk.ner.processes module
    :members:
    :undoc-members:
    :show-inheritance:
+
+cltk.ner.spacy\_ner module
+--------------------------
+
+.. automodule:: cltk.ner.spacy_ner
+   :members:
+   :undoc-members:
+   :show-inheritance:

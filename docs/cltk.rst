@@ -17,9 +17,9 @@ Subpackages
    cltk.data
    cltk.dependency
    cltk.embeddings
-   cltk.filtering
    cltk.languages
    cltk.lemmatize
+   cltk.morphology
    cltk.ner
    cltk.phonology
    cltk.prosody

@@ -4,13 +4,8 @@
 import re
 import unicodedata
 
-from cltk.alphabet.gmh import (
-    CONSONANTS,
-    DIPHTHONGS,
-    LONG_VOWELS,
-    SHORT_VOWELS,
-    TRIPHTHONGS,
-)
+from cltk.alphabet.gmh import (CONSONANTS, DIPHTHONGS, LONG_VOWELS,
+                               SHORT_VOWELS, TRIPHTHONGS)
 from cltk.stem.gmh import stem
 
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
