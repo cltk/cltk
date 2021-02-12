@@ -263,9 +263,9 @@ smart-open = ">=1.8.1"
 
 [package.extras]
 distributed = ["Pyro4 (>=4.27)"]
-docs = ["pytest", "pytest-rerunfailures", "mock", "cython", "nmslib", "pyemd", "testfixtures", "Morfessor (2.0.2a4)", "python-Levenshtein (>=0.10.2)", "visdom (>=0.1.8,<0.1.8.7 || >0.1.8.7)", "scikit-learn", "Pyro4 (>=4.27)", "sphinx (<=2.4.4)", "sphinx-gallery", "sphinxcontrib.programoutput", "sphinxcontrib-napoleon", "matplotlib", "plotly", "memory-profiler", "annoy", "pyro4", "nltk", "statsmodels", "pandas"]
-test = ["pytest", "pytest-rerunfailures", "mock", "cython", "nmslib", "pyemd", "testfixtures", "Morfessor (2.0.2a4)", "python-Levenshtein (>=0.10.2)", "visdom (>=0.1.8,<0.1.8.7 || >0.1.8.7)", "scikit-learn"]
-test-win = ["pytest", "pytest-rerunfailures", "mock", "cython", "nmslib", "pyemd", "testfixtures", "Morfessor (2.0.2a4)", "python-Levenshtein (>=0.10.2)", "visdom (>=0.1.8,<0.1.8.7 || >0.1.8.7)", "scikit-learn"]
+docs = ["pytest", "pytest-rerunfailures", "mock", "cython", "nmslib", "pyemd", "testfixtures", "Morfessor (2.0.2a4)", "rapidfuzz (>=1.0.0)", "visdom (>=0.1.8,<0.1.8.7 || >0.1.8.7)", "scikit-learn", "Pyro4 (>=4.27)", "sphinx (<=2.4.4)", "sphinx-gallery", "sphinxcontrib.programoutput", "sphinxcontrib-napoleon", "matplotlib", "plotly", "memory-profiler", "annoy", "pyro4", "nltk", "statsmodels", "pandas"]
+test = ["pytest", "pytest-rerunfailures", "mock", "cython", "nmslib", "pyemd", "testfixtures", "Morfessor (2.0.2a4)", "rapidfuzz (>=1.0.0)", "visdom (>=0.1.8,<0.1.8.7 || >0.1.8.7)", "scikit-learn"]
+test-win = ["pytest", "pytest-rerunfailures", "mock", "cython", "nmslib", "pyemd", "testfixtures", "Morfessor (2.0.2a4)", "rapidfuzz (>=1.0.0)", "visdom (>=0.1.8,<0.1.8.7 || >0.1.8.7)", "scikit-learn"]
 
 [[package]]
 category = "main"
@@ -1873,8 +1873,8 @@ pytest-cov = [
     {file = "pytest-cov-2.10.1.tar.gz", hash = "sha256:47bd0ce14056fdd79f93e1713f88fad7bdcc583dcd7783da86ef2f085a0bb88e"},
     {file = "pytest_cov-2.10.1-py2.py3-none-any.whl", hash = "sha256:45ec2d5182f89a81fc3eb29e3d1ed3113b9e9a873bcddb2a71faaab066110191"},
 ]
-python-levenshtein = [
-    {file = "python-Levenshtein-0.12.0.tar.gz", hash = "sha256:033a11de5e3d19ea25c9302d11224e1a1898fe5abd23c61c7c360c25195e3eb1"},
+rapidfuzz = [
+    {file = "rapidfuzz-1.0.0.tar.gz", hash = "sha256:de177347779aff5be7eec6669b89c13e77dad5f862f2bcb646fd65262fde9a8e"},
 ]
 pytz = [
     {file = "pytz-2020.5-py2.py3-none-any.whl", hash = "sha256:16962c5fb8db4a8f63a26646d8886e9d769b6c511543557bc84e9569fb9a9cb4"},

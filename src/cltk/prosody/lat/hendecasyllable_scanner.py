@@ -7,7 +7,7 @@ list so that end users may view the provenance of a scansion.
 
 import re
 
-from Levenshtein import distance
+from rapidfuzz.string_metric import levenshtein
 
 import cltk.prosody.lat.string_utils as string_utils
 from cltk.prosody.lat.metrical_validator import MetricalValidator
@@ -125,7 +125,7 @@ class HendecasyllableScanner(VerseScanner):
 
         smoothed = self.correct_invalid_start(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if levenshtein(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -135,7 +135,7 @@ class HendecasyllableScanner(VerseScanner):
 
         smoothed = self.correct_antepenult_chain(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if levenshtein(verse.scansion, smoothed) > 0:
             verse.scansion_notes += [self.constants.NOTE_MAP["antepenult chain"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
