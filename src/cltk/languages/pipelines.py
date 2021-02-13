@@ -164,7 +164,7 @@ class CopticPipeline(Pipeline):
     description: str = "Pipeline for the Coptic language"
     language: Language = get_lang("cop")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [CopticStanzaProcess]
+        default_factory=lambda: [CopticStanzaProcess, StopsProcess]
     )
 
 

@@ -6,13 +6,14 @@ TODO: Give definition here of stopwords.
 from typing import List
 
 from cltk.languages.utils import get_lang
-from cltk.stops import (akk, ang, arb, enm, fro, gmh, grc, hin, lat, non, omr,
+from cltk.stops import (akk, ang, arb, cop, enm, fro, gmh, grc, hin, lat, non, omr,
                         pan, san)
 
 MAP_ISO_TO_MODULE = dict(
     akk=akk,
     ang=ang,
     arb=arb,
+    cop=cop,
     enm=enm,
     fro=fro,
     gmh=gmh,
