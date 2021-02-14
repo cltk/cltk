@@ -116,11 +116,9 @@ features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [s
 embedding=..., stop=False, named_entity='LOCATION', syllables=None, phonetic_transcription=None)
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
-
         for process in self.pipeline.processes:
             a_process = self._get_process_object(process)
             doc = a_process.run(doc)
-
         return doc
 
     def _get_pipeline(self) -> Pipeline:
