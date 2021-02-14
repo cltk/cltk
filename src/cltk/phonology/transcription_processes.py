@@ -11,6 +11,7 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process
 from cltk.phonology.ang.phonology import OldEnglishTranscription
 from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
+
 # from cltk.phonology.akk import AkkadianPhonologicalTranscriber
 # from cltk.phonology.arb import ArabicPhonologicalTranscriber
 from cltk.phonology.got.phonology import GothicTranscription

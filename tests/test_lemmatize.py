@@ -4,12 +4,19 @@ import unittest
 from unittest.mock import patch
 
 from cltk.data.fetch import FetchCorpus
-from cltk.lemmatize.backoff import (DefaultLemmatizer, DictLemmatizer,
-                                    IdentityLemmatizer, RegexpLemmatizer,
-                                    UnigramLemmatizer)
+from cltk.lemmatize.backoff import (
+    DefaultLemmatizer,
+    DictLemmatizer,
+    IdentityLemmatizer,
+    RegexpLemmatizer,
+    UnigramLemmatizer,
+)
 from cltk.lemmatize.grc import GreekBackoffLemmatizer, models_path
-from cltk.lemmatize.lat import (LatinBackoffLemmatizer, RomanNumeralLemmatizer,
-                                models_path)
+from cltk.lemmatize.lat import (
+    LatinBackoffLemmatizer,
+    RomanNumeralLemmatizer,
+    models_path,
+)
 from cltk.text.lat import replace_jv
 from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.utils import CLTK_DATA_DIR

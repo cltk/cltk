@@ -32,11 +32,11 @@ Synset(pos='n', offset='03457380', gloss='a cutting or thrusting weapon with a l
 from __future__ import print_function, unicode_literals
 
 import codecs
+import logging
 import math
 import os
 import re
 import string
-import logging
 from collections import defaultdict, deque
 from functools import total_ordering
 from itertools import chain
@@ -1770,7 +1770,9 @@ class WordNetCorpusReader(CorpusReader):
                 for item in data:
                     l = Lemma(self, **(item))
                     resolved.append(l)
-                    self._lemma_cache[lemma][item['pos']][item['morpho']][item['uri']] = l
+                    self._lemma_cache[lemma][item["pos"]][item["morpho"]][
+                        item["uri"]
+                    ] = l
 
         if return_ambiguous:
             return resolved

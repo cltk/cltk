@@ -11,8 +11,7 @@ import pickle
 from abc import abstractmethod
 from typing import Any, Dict, Generator, List, Set, Tuple
 
-from nltk.tokenize.punkt import (PunktLanguageVars, PunktSentenceTokenizer,
-                                 PunktTrainer)
+from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 
 
 class SentenceTokenizerTrainer:
