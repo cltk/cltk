@@ -10,8 +10,11 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process, Word
 from cltk.dependency.stanza import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
-from cltk.morphology.morphosyntax import (MorphosyntacticFeatureBundle,
-                                          from_ud, to_categorial)
+from cltk.morphology.morphosyntax import (
+    MorphosyntacticFeatureBundle,
+    from_ud,
+    to_categorial,
+)
 
 
 @dataclass

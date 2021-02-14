@@ -6,16 +6,21 @@ from typing import List
 import numpy
 
 from cltk.core.data_types import Doc, Word
-from cltk.core.exceptions import (CLTKException, UnimplementedAlgorithmError,
-                                  UnknownLanguageError)
+from cltk.core.exceptions import (
+    CLTKException,
+    UnimplementedAlgorithmError,
+    UnknownLanguageError,
+)
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
-from cltk.embeddings.processes import (AramaicEmbeddingsProcess,
-                                       GothicEmbeddingsProcess,
-                                       GreekEmbeddingsProcess,
-                                       LatinEmbeddingsProcess,
-                                       OldEnglishEmbeddingsProcess,
-                                       PaliEmbeddingsProcess,
-                                       SanskritEmbeddingsProcess)
+from cltk.embeddings.processes import (
+    AramaicEmbeddingsProcess,
+    GothicEmbeddingsProcess,
+    GreekEmbeddingsProcess,
+    LatinEmbeddingsProcess,
+    OldEnglishEmbeddingsProcess,
+    PaliEmbeddingsProcess,
+    SanskritEmbeddingsProcess,
+)
 from cltk.languages.example_texts import get_example_text
 
 

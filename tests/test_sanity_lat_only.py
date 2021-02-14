@@ -68,5 +68,6 @@ class TestNLPLatin(unittest.TestCase):
 
         print(f"Finished complete test of `NLP()` in {time.time() - TO} secs.")
 
+
 if __name__ == "__main__":
     unittest.main()
