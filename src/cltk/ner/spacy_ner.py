@@ -69,7 +69,7 @@ def spacy_tag_ner(
         msg = f"spaCy model path '{model_path}' not found. Going to try to download it ..."
         logging.warning(msg)
         dl_msg = f"This part of the CLTK depends upon models from the CLTK project."
-        model_url = "https://github.com/cltk/lat_models_cltk"
+        model_url = f"https://github.com/cltk/{iso_code}_models_cltk"
         download_prompt(iso_code=iso_code, message=dl_msg, model_url=model_url)
     spacy_nlp = spacy.load(model_path)
     # Create the tokenizer for the spacy model
