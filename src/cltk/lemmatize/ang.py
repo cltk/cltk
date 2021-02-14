@@ -2,6 +2,7 @@ import importlib.machinery
 import os
 
 from cltk.lemmatize.naive_lemmatizer import DictionaryRegexLemmatizer
+from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
 
 
@@ -40,6 +41,10 @@ class OldEnglishDictionaryLemmatizer(DictionaryRegexLemmatizer):
             "inverted_lemma_dict.py",
         )
         path = os.path.expanduser(rel_path)
+        if not os.path.isfile(path=path):
+            dl_msg = f"This part of the CLTK depends upon models from the CLTK project."
+            repo_url = "https://github.com/cltk/ang_models_cltk"
+            download_prompt(iso_code="ang", message=dl_msg, model_url=repo_url)
         loader = importlib.machinery.SourceFileLoader("file", path)
         module = loader.load_module()
         return module.inverted_index
