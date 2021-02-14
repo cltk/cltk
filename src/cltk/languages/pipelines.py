@@ -9,6 +9,7 @@ these dataclasses is to represent:
 from dataclasses import dataclass, field
 from typing import List, Type
 
+from cltk.alphabet.processes import GreekNormalizeProcess, LatinNormalizeProcess
 from cltk.core.data_types import Language, Pipeline, Process
 from cltk.dependency.processes import (
     ChineseStanzaProcess,
@@ -228,6 +229,7 @@ class GreekPipeline(Pipeline):
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
             # GreekTokenizationProcess,
+            GreekNormalizeProcess,
             GreekStanzaProcess,
             GreekEmbeddingsProcess,
             StopsProcess,
@@ -281,6 +283,7 @@ class LatinPipeline(Pipeline):
     language: Language = get_lang("lat")
     processes: List[Type[Process]] = field(
         default_factory=lambda: [
+            LatinNormalizeProcess,
             # LatinTokenizationProcess,
             LatinStanzaProcess,
             LatinEmbeddingsProcess,

@@ -17,6 +17,7 @@ __author__ = [
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
 ]
 
+from cltk.alphabet.text_normalization import cltk_normalize
 
 # Upper Case Vowels
 UPPER = [  #
@@ -611,3 +612,33 @@ def filter_non_greek(input_str: str) -> str:
     )
     #
     return greek_string.strip()
+
+
+TONOS_OXIA = {
+    "ά": "ά",
+    "έ": "έ",
+    "ή": "ή",
+    "ί": "ί",
+    "ό": "ό",
+    "ύ": "ύ",
+    "ώ": "ώ",
+}
+
+
+def tonos_oxia_converter(text, reverse=False):
+    """For the Ancient Greek language. Converts characters accented with the
+    tonos (meant for Modern Greek) into the oxia equivalent. Without this
+    normalization, string comparisons will fail."""
+    for char_tonos, char_oxia in TONOS_OXIA.items():
+        if not reverse:
+            text = text.replace(char_tonos, char_oxia)
+        else:
+            text = text.replace(char_oxia, char_tonos)
+    return text
+
+
+def normalize_grc(text: str) -> str:
+    """The function for all default Greek normalization."""
+    text_cltk_normalized = cltk_normalize(text=text)  # type: str
+    text_oxia_converted = tonos_oxia_converter(text=text_cltk_normalized)  # type: str
+    return text_oxia_converted

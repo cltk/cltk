@@ -166,6 +166,7 @@ class Doc:
     words: List[Word] = None
     pipeline: "Pipeline" = None  # Note: type should be ``Pipeline`` w/o quotes
     raw: str = None
+    normalized_text: str = None
     embeddings_model = None
 
     @property

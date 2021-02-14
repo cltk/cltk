@@ -44,9 +44,12 @@ class StanzaProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = deepcopy(input_doc)
-
         stanza_wrapper = self.algorithm
-        stanza_doc = stanza_wrapper.parse(output_doc.raw)
+        if output_doc.normalized_text:
+            input_text = output_doc.normalized_text
+        else:
+            input_text = output_doc.raw
+        stanza_doc = stanza_wrapper.parse(input_text)
         cltk_words = self.stanza_to_cltk_word_type(stanza_doc)
         output_doc.words = cltk_words
         output_doc.stanza_doc = stanza_doc
