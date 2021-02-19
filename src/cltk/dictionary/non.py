@@ -1,0 +1,4 @@
+
+
+class OldNorseDictionary:
+    pass

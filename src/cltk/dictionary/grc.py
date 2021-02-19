@@ -1,0 +1,4 @@
+
+
+class GreekDictionary:
+    pass

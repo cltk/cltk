@@ -88,6 +88,7 @@ category={}, embedding=None, stop=None, named_entity=None, syllables=None, phone
     named_entity: bool = None
     syllables: List[str] = None
     phonetic_transcription: str = None
+    definition: str = None
 
     def __getitem__(
         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
