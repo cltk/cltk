@@ -60,7 +60,7 @@ deploy:
   provider: script
   script: poetry publish
   on:
-    branches:
+    branch:
         - master
         - dev
 #  username: kyle_johnson
