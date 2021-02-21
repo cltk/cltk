@@ -39,10 +39,10 @@ install:
 #  - make preCommitRun
 
 script:
-#  - poetry run python scripts/download_all_models.py --languages=lat
+  - poetry run python scripts/download_all_models.py --languages=lat
   - make testNoInternet
-#  - make testLatNLP
-  - poetry run python tests/test_tlgu.py
+  - make testLatNLP
+#  - poetry run python tests/test_tlgu.py
 #  - make test
 #  - make uml
 #  - make docs
@@ -60,7 +60,7 @@ deploy:
   provider: script
   script: poetry publish
   on:
-    branch:
+    branches:
         - master
         - dev
 #  username: kyle_johnson
