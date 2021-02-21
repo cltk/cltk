@@ -109,29 +109,35 @@ class TLGU:
                     msg = "TLGU installed."
                     print(msg)
                     logger.info(msg)
+                    return True
                 else:
                     msg = "TLGU install without sudo failed. Going to try again with sudo (usually required for Linux) ..."
                     print(msg)
                     logger.error(msg)
                 if self.interactive:
                     command = "cd {0} && sudo make install".format(tlgu_path)
-                    print(
-                        "Could not install without root access. Do you want to install TLGU with sudo?"
-                    )
-                    print("Going to run command:", command)
-                    print("To continue, press Return. To exit, Control-C.")
-                    input()
+                    install_question = "Do you want to install TLGU? with sudo?"
+                    do_install = query_yes_no(question=install_question)
+                    if not do_install:
+                        raise CLTKException(
+                            "TLGU installation required for this class to work."
+                        )
                     p_out = subprocess.call(command, shell=True)
                 else:
+                    print("Going to run command:", command)
                     p_out = subprocess.call(command, shell=True)
                 if p_out == 0:
                     msg = "TLGU installed."
                     print(msg)
                     logger.info(msg)
+                    return True
                 else:
                     msg = "TLGU install with sudo failed."
                     print(msg)
                     logger.error(msg)
+                    raise CLTKException(
+                        "TLGU installation required for this class to work."
+                    )
 
     @staticmethod
     def convert(
