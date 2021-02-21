@@ -130,7 +130,6 @@ class TLGU:
                     msg = "TLGU installed."
                     print(msg)
                     logger.info(msg)
-                    return True
                 else:
                     msg = "TLGU install with sudo failed."
                     print(msg)
@@ -218,11 +217,7 @@ class TLGU:
         TODO: Add markup options to input.
         TODO: Add rm_newlines, divide_works, and extra_args
         """
-        # orig_path_rel = get_cltk_data_dir() + "/originals"
-        # orig_path = os.path.expanduser(orig_path_rel)
-        orig_path = make_cltk_path("/originals")
-        # target_path_rel = get_cltk_data_dir()
-        # target_path = os.path.expanduser(target_path_rel)
+        orig_path = make_cltk_path("originals")
         target_path = make_cltk_path()
         assert corpus in [
             "tlg",
@@ -247,10 +242,7 @@ class TLGU:
             logger.error("Failed to find TLG files: %s", exception)
             raise
         # make a list of files to be converted
-        txts = []
-        [
-            txts.append(x) for x in corpus_files if x.endswith("TXT")
-        ]  # pylint: disable=W0106
+        txts = [x for x in corpus_files if x.endswith("TXT")]
         # loop through list and convert one at a time
         for txt in txts:
             orig_txt_path = os.path.join(orig_path, txt)
@@ -285,26 +277,20 @@ class TLGU:
         TODO: Write test for this
         """
         if corpus == "tlg":
-            # orig_dir_rel = get_cltk_data_dir() + "/originals/tlg"
-            orig_dir = make_cltk_path("/originals/tlg")
-            # works_dir_rel = get_cltk_data_dir() + "/grc/text/tlg/individual_works"
-            works_dir = make_cltk_path("/grc/text/tlg/individual_works")
+            orig_dir = make_cltk_path("originals/tlg")
+            works_dir = make_cltk_path("grc/text/tlg/individual_works")
             file_prefix = "TLG"
             lat = False
         elif corpus == "phi5":
-            # orig_dir_rel = get_cltk_data_dir() + "/originals/phi5"
-            orig_dir = make_cltk_path("/originals/phi5")
-            # works_dir_rel = get_cltk_data_dir() + "/lat/text/phi5/individual_works"
-            works_dir = make_cltk_path("/lat/text/phi5/individual_works")
+            orig_dir = make_cltk_path("originals/phi5")
+            works_dir = make_cltk_path("lat/text/phi5/individual_works")
             file_prefix = "LAT"
             lat = True  # this is for the optional TLGU argument to convert()
+        elif corpus == "phi7":
+            raise CLTKException("``phi7`` cannot be divided into individual works.")
         else:
-            raise CLTKException(
-                f"fInvalid corpus '{corpus}'. This should never happen."
-            )
+            raise CLTKException(f"Invalid corpus '{corpus}'. This should never happen.")
 
-        # orig_dir = os.path.expanduser(orig_dir_rel)
-        # works_dir = os.path.expanduser(works_dir_rel)
         if not os.path.exists(works_dir):
             os.makedirs(works_dir)
 
