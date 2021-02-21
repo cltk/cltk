@@ -238,6 +238,11 @@ LANGUAGE_CORPORA = {
             "origin": "https://github.com/cltk/lat_text_tesserae.git",
             "type": "text",
         },
+        {
+            "type": "lexicon",
+            "name": "cltk_lat_lewis_elementary_lexicon",
+            "origin": "https://github.com/cltk/cltk_lat_lewis_elementary_lexicon.git",
+        }
     ],
     "multilingual": [
         {
@@ -788,4 +793,4 @@ if __name__ == "__main__":
     print(c.list_corpora)
     # c.import_corpus("latin_training_set_sentence_cltk")
     # c.import_corpus("example_distributed_latin_corpus")
-    c.import_corpus("phi5", local_path="/tmp")
+    c.import_corpus("cltk_lat_lewis_elementary_lexicon", local_path="/tmp")
