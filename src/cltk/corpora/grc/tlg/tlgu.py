@@ -306,3 +306,6 @@ class TLGU:
                 logger.info("Writing files at %s to %s.", orig_file_path, works_dir)
             except Exception as err:
                 logger.error("Failed to convert files: %s.", err)
+
+
+# assemble_tlg_author_filepaths
