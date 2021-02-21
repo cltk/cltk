@@ -18,6 +18,7 @@ except ImportError:
     mycapitains_installed = False
 
 from cltk.core.cltk_logger import logger
+from cltk.utils.file_operations import make_cltk_path
 
 
 def onekgreek_tei_xml_to_text():
@@ -25,21 +26,17 @@ def onekgreek_tei_xml_to_text():
     if not bs4_installed:
         logger.error("Install `bs4` and `lxml` to parse these TEI files.")
         raise ImportError
-    xml_dir = os.path.normpath(
-        get_cltk_data_dir() + "/greek/text/greek_text_first1kgreek/data/*/*/*.xml"
-    )
+    xml_dir = make_cltk_path("greek/text/greek_text_first1kgreek/data/*/*/*.xml")
     xml_paths = glob.glob(xml_dir)
     if not len(xml_paths):
         logger.error(
-            "1K Greek corpus not installed. Use CorpusInstaller to get `First1KGreek`."
+            "1K Greek corpus not installed. Use ``FetchCorpus`` to get `First1KGreek`."
         )
         raise FileNotFoundError
     xml_paths = [path for path in xml_paths if "__cts__" not in path]
 
     # new dir
-    new_dir = os.path.normpath(
-        get_cltk_data_dir() + "/greek/text/greek_text_first1kgreek_plaintext/"
-    )
+    new_dir = make_cltk_path("greek/text/greek_text_first1kgreek_plaintext/")
     if not os.path.isdir(new_dir):
         os.makedirs(new_dir)
 
@@ -58,13 +55,10 @@ def onekgreek_tei_xml_to_text():
 
 def onekgreek_tei_xml_to_text_capitains():
     """Use MyCapitains program to convert TEI to plaintext."""
-    file = os.path.expanduser(
-        get_cltk_data_dir()
-        + "/greek/text/greek_text_first1kgreek/data/tlg0627/tlg021/tlg0627.tlg021.1st1K-grc1.xml"
+    file = make_cltk_path(
+        "greek/text/greek_text_first1kgreek/data/tlg0627/tlg021/tlg0627.tlg021.1st1K-grc1.xml"
     )
-    xml_dir = os.path.normpath(
-        get_cltk_data_dir() + "/greek/text/greek_text_first1kgreek/data/*/*/*.xml"
-    )
+    xml_dir = make_cltk_path("greek/text/greek_text_first1kgreek/data/*/*/*.xml")
     xml_paths = glob.glob(xml_dir)
     if not len(xml_paths):
         logger.error(
@@ -74,9 +68,7 @@ def onekgreek_tei_xml_to_text_capitains():
     xml_paths = [path for path in xml_paths if "__cts__" not in path]
 
     # new dir
-    new_dir = os.path.normpath(
-        get_cltk_data_dir() + "/greek/text/greek_text_first1kgreek_plaintext/"
-    )
+    new_dir = make_cltk_path("greek/text/greek_text_first1kgreek_plaintext/")
     if not os.path.isdir(new_dir):
         os.makedirs(new_dir)
 

@@ -18,8 +18,8 @@ __license__ = "MIT License. See LICENSE."
 import os
 import subprocess
 
-from cltk.core.exceptions import CLTKException
 from cltk.core.cltk_logger import logger
+from cltk.core.exceptions import CLTKException
 from cltk.data.fetch import FetchCorpus
 from cltk.utils.file_operations import make_cltk_path
 from cltk.utils.utils import query_yes_no

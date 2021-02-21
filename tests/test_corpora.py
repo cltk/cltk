@@ -1,8 +1,8 @@
 """Test ``cltk.corpora``."""
 
-from unicodedata import normalize
 import os
 import unittest
+from unicodedata import normalize
 from unittest.mock import patch
 
 from cltk.corpora.grc.tlg.tlgu import TLGU
@@ -89,6 +89,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         #     nltk.download("averaged_perceptron_tagger")
         # except:
         #     raise Exception("Failure to download test corpus")
+
     #
     # def test_greek_betacode_to_unicode(self):
     #     """Test converting Beta Code to Unicode.
@@ -122,6 +123,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         TLGU(interactive=False)
         header_file = make_cltk_path("greek/software/greek_software_tlgu/README.md")
         self.assertTrue(os.path.isfile(header_file))
+
 
 #     def test_import_greek_software_tlgu(self):
 #         """Test instantiating TLGU(). This will download and install
