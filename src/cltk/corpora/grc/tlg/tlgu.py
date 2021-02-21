@@ -54,8 +54,7 @@ class TLGU:
         self._check_and_download_tlgu_source()
         self._check_install()
 
-    @staticmethod
-    def _check_and_download_tlgu_source():
+    def _check_and_download_tlgu_source(self):
         """Check if tlgu downloaded, if not download it."""
         path = make_cltk_path("grc/software/grc_software_tlgu/tlgu.h")
         if not os.path.isfile(path):
@@ -66,7 +65,10 @@ class TLGU:
             dl_question = (
                 f"Do you want to download TLGU from '{repo_url}' to '{dl_dir}'?"
             )
-            do_download = query_yes_no(question=dl_question)
+            if self.interactive:
+                do_download = query_yes_no(question=dl_question)
+            else:
+                do_download = True
             if do_download:
                 fetch_corpus = FetchCorpus(language="grc")
                 fetch_corpus.import_corpus(corpus_name="grc_software_tlgu")
