@@ -94,8 +94,8 @@ LANGUAGE_CORPORA = {
     ],
     "grc": [
         {
-            "name": "greek_software_tlgu",
-            "origin": "https://github.com/cltk/greek_software_tlgu.git",
+            "name": "grc_software_tlgu",
+            "origin": "https://github.com/cltk/grc_software_tlgu.git",
             "type": "software",
         },
         {

@@ -41,7 +41,8 @@ install:
 script:
   - poetry run python scripts/download_all_models.py --languages=lat
   - make testNoInternet
-  - make testLatNLP
+#  - make testLatNLP
+  - poetry run python tests/test_tlgu.py
 #  - make test
 #  - make uml
 #  - make docs
