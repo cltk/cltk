@@ -114,8 +114,8 @@ class TLGU:
                     msg = "TLGU install without sudo failed. Going to try again with sudo (usually required for Linux) ..."
                     print(msg)
                     logger.error(msg)
+                command = "cd {0} && sudo make install".format(tlgu_path)
                 if self.interactive:
-                    command = "cd {0} && sudo make install".format(tlgu_path)
                     install_question = "Do you want to install TLGU? with sudo?"
                     do_install = query_yes_no(question=install_question)
                     if not do_install:
