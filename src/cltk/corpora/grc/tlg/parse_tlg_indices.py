@@ -6,13 +6,14 @@ import os
 
 import regex
 
-from cltk.corpus.greek.tlg.author_date import AUTHOR_DATE
-from cltk.corpus.greek.tlg.author_epithet import AUTHOR_EPITHET
-from cltk.corpus.greek.tlg.author_female import AUTHOR_FEMALE
-from cltk.corpus.greek.tlg.author_geo import AUTHOR_GEO
-from cltk.corpus.greek.tlg.id_author import ID_AUTHOR
-from cltk.corpus.greek.tlg.index_lists import INDEX_LIST
-from cltk.corpus.greek.tlg.work_numbers import WORK_NUMBERS
+
+from cltk.corpora.grc.tlg.author_date import AUTHOR_DATE
+from cltk.corpora.grc.tlg.author_epithet import AUTHOR_EPITHET
+from cltk.corpora.grc.tlg.author_female import AUTHOR_FEMALE
+from cltk.corpora.grc.tlg.author_geo import AUTHOR_GEO
+from cltk.corpora.grc.tlg.id_author import ID_AUTHOR
+from cltk.corpora.grc.tlg.index_lists import INDEX_LIST
+from cltk.corpora.grc.tlg.work_numbers import WORK_NUMBERS
 
 __author__ = [
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
@@ -228,8 +229,3 @@ def normalize_dates():
             date.update(tmp_date)
 
         print(date)
-
-
-if __name__ == "__main__":
-    print(get_date_author())
-    pass
