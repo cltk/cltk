@@ -1,20 +1,26 @@
 
-
-from functools import lru_cache
 import os
 import re
 import yaml
+
+from boltons.cacheutils import cachedproperty
 from cltk.utils import CLTK_DATA_DIR
 
 
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
+
+
 class LatinLewisLexicon:
+    """
+    Latin lexicon that uses Lewis' lexicon.
+    """
     def __init__(self):
         rel_path = os.path.join(CLTK_DATA_DIR, "lat", "lexicon", "cltk_lat_lewis_elementary_lexicon")
         with open(os.path.join(rel_path, "lewis.yaml"), "r", encoding="utf-8") as f:
             entries = yaml.load(f, Loader=yaml.Loader)
         self.entries = entries
 
-    @lru_cache(maxsize=None)
+    @cachedproperty
     def lookup(self, lemma):
         """
         >>> lll = LatinLewisLexicon()

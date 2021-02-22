@@ -13,6 +13,9 @@ from cltk.lemmatize.processes import LatinLemmatizationProcess
 from cltk.lexicon.lat import LatinLewisLexicon
 
 
+__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
+
+
 @dataclass
 class LexiconProcess(Process):
     """To be inherited for each language's dictionary declarations.
