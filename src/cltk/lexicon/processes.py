@@ -14,15 +14,6 @@ from cltk.lexicon.lat import LatinLewisLexicon
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-# def do_lexicon_lookup(iso_code: str, lemma: str):
-#     """Return correct lexicon lookup algo for language."""
-#     if iso_code == "lat":
-#         lex_class = LatinLewisLexicon()
-#     else:
-#         raise CLTKException(f"No lookup algorithm for language '{iso_code}'.")
-#     return lex_class.lookup
-
-
 @dataclass
 class LexiconProcess(Process):
     """To be inherited for each language's dictionary declarations.
