@@ -3,6 +3,7 @@ PHI5 data after it has been processed by ``TLGU()``.
 """
 
 import os
+
 import regex
 
 from cltk.corpora.lat.phi.phi5_index import PHI5_INDEX, PHI5_WORKS_INDEX

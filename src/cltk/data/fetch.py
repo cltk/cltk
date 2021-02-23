@@ -242,7 +242,7 @@ LANGUAGE_CORPORA = {
             "type": "lexicon",
             "name": "cltk_lat_lewis_elementary_lexicon",
             "origin": "https://github.com/cltk/cltk_lat_lewis_elementary_lexicon.git",
-        }
+        },
     ],
     "multilingual": [
         {
@@ -783,14 +783,3 @@ class FetchCorpus:
                         git_uri, corpus_imp_err
                     )
                     logger.error(msg)
-
-
-if __name__ == "__main__":
-    # for lang in LANGUAGE_CORPORA:
-    #     c = FetchCorpus(language=lang)
-    #     print(c.list_corpora)
-    c = FetchCorpus(language="lat")
-    print(c.list_corpora)
-    # c.import_corpus("latin_training_set_sentence_cltk")
-    # c.import_corpus("example_distributed_latin_corpus")
-    c.import_corpus("cltk_lat_lewis_elementary_lexicon", local_path="/tmp")

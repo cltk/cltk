@@ -1,43 +1,73 @@
+"""Code for querying Latin language dictionaries/lexicons."""
 
-import os
-import re
+import regex
 import yaml
 
-from boltons.cacheutils import cachedproperty
-from cltk.utils import CLTK_DATA_DIR
-
+from cltk.core.exceptions import CLTKException
+from cltk.data.fetch import FetchCorpus
+from cltk.utils.file_operations import make_cltk_path
+from cltk.utils.utils import query_yes_no
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class LatinLewisLexicon:
-    """
-    Latin lexicon that uses Lewis' lexicon.
-    """
-    def __init__(self):
-        rel_path = os.path.join(CLTK_DATA_DIR, "lat", "lexicon", "cltk_lat_lewis_elementary_lexicon")
-        with open(os.path.join(rel_path, "lewis.yaml"), "r", encoding="utf-8") as f:
-            entries = yaml.load(f, Loader=yaml.Loader)
-        self.entries = entries
+    """Access a digital form of Charlton T. Lewis's *An Elementary Latin Dictionary* (1890)."""
 
-    @cachedproperty
-    def lookup(self, lemma):
-        """
+    def __init__(self, interactive: bool = True):
+        self.interactive = interactive
+        self.lewis_yaml_fp = make_cltk_path(
+            "lat", "lexicon", "cltk_lat_lewis_elementary_lexicon", "lewis.yaml"
+        )
+        try:
+            self.entries = self._load_entries()
+        except FileNotFoundError:
+            if self.interactive:
+                dl_msg = f"This part of the CLTK depends upon Lewis's *An Elementary Latin Dictionary* (1890)."
+                print(dl_msg)
+                dl_question = "Do you want to download this?"
+                do_download = query_yes_no(question=dl_question)
+            else:
+                do_download = True
+            if do_download:
+                fetch_corpus = FetchCorpus(language="lat")
+                fetch_corpus.import_corpus(
+                    corpus_name="cltk_lat_lewis_elementary_lexicon"
+                )
+            else:
+                raise CLTKException(
+                    f"File '{self.lewis_yaml_fp}' is not found. It is required for this class."
+                )
+            self.entries = self._load_entries()
+
+    def lookup(self, lemma: str) -> str:
+        """Perform match of a lemma against headwords. If more than one match,
+        then return the longer of the two entries (this is naive, working
+        on the assumption that the longer of two entries will be that most
+        frequently queried (eg,
+
         >>> lll = LatinLewisLexicon()
         >>> lll.lookup("clemens")[:50]
         'clēmēns entis (abl. -tī; rarely -te, L.), adj. with comp. and sup, mild, calm, gentle: clementissimus amnis, O.—Fig., calm, quiet, gentle, tranquil, kind: vita, T.: cupio me esse clementem: satis in disputando.—Mild, forbearing, indulgent, compassionate, merciful: animo clementi in illam, T : iudices: viro clemens misero peperci, H.: vir ab innocentiā clementissimus: legis interpres, L.: castigatio: clementior sententia, L.—Mitigated, qualified: rumor, S.'
-
-        :param lemma:
-        :return:
         """
         if not self.entries:
-            raise
+            raise CLTKException(
+                "No lexicon entries found in the .yaml file. This should never happen."
+            )
         keys = self.entries.keys()
-        matches = [key for key in keys if re.match(rf"{lemma}[0-9]?", key)]
+        matches = [key for key in keys if regex.match(rf"{lemma}[0-9]?", key)]
         n_matches = len(matches)
         if n_matches > 1:
             return "\n".join([self.entries[key] for key in matches])
         elif n_matches == 1:
+            print("*" * 10, lemma)
+            input()
             return self.entries[lemma]
         else:
             return ""
+
+    def _load_entries(self):
+        """Read the yaml file of the lexion."""
+        with open(self.lewis_yaml_fp) as file_open:
+            entries = yaml.load(file_open, Loader=yaml.Loader)
+        return entries

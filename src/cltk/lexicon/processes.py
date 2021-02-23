@@ -8,12 +8,19 @@ from dataclasses import dataclass
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, Process
-from cltk.lemmatize.processes import LatinLemmatizationProcess
-
+from cltk.core.exceptions import CLTKException
 from cltk.lexicon.lat import LatinLewisLexicon
 
-
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
+
+
+# def do_lexicon_lookup(iso_code: str, lemma: str):
+#     """Return correct lexicon lookup algo for language."""
+#     if iso_code == "lat":
+#         lex_class = LatinLewisLexicon()
+#     else:
+#         raise CLTKException(f"No lookup algorithm for language '{iso_code}'.")
+#     return lex_class.lookup
 
 
 @dataclass
@@ -28,13 +35,21 @@ class LexiconProcess(Process):
     True
     """
 
-    def run(self, input_doc: Doc) -> Doc:
-        lookup = self.algorithm
+    language: str = None
 
+    @cachedproperty
+    def algorithm(self):
+        if self.language == "lat":
+            lex_class = LatinLewisLexicon()
+        else:
+            raise CLTKException(f"No lookup algorithm for language '{self.language}'.")
+        return lex_class
+
+    def run(self, input_doc: Doc) -> Doc:
+        lookup_algo = self.algorithm
         output_doc = deepcopy(input_doc)
         for word in output_doc.words:
-            word.definition = lookup(word.lemma)
-
+            word.definition = lookup_algo.lookup(word.lemma)
         return output_doc
 
 
@@ -43,18 +58,21 @@ class LatinLexiconProcess(LexiconProcess):
 
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers import LatinTokenizationProcess
+    >>> from cltk.lemmatize.processes import LatinLemmatizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Latin pipeline", \
     processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], \
     language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline = pipe)
-    >>> nlp(get_example_text("lat")).lemmata[30:40]
-    ['institutis', ',', 'legibus', 'inter', 'se', 'differunt', '.', 'Gallos', 'ab', 'Aquitanis']
+    >>> nlp = NLP(language='lat', custom_pipeline=pipe)
+    >>> cltk_doc = nlp.analyze(text=get_example_text("lat"))
+    >>> [word.definition for word in cltk_doc.words][:5]
+    ['?', '?', '?']
     """
 
     description = "Dictionary lookup process for Latin"
+    language = "lat"
 
     @cachedproperty
     def algorithm(self):
