@@ -60,8 +60,6 @@ class LatinLewisLexicon:
         if n_matches > 1:
             return "\n".join([self.entries[key] for key in matches])
         elif n_matches == 1:
-            print("*" * 10, lemma)
-            input()
             return self.entries[lemma]
         else:
             return ""
