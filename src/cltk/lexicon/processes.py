@@ -53,13 +53,12 @@ class LatinLexiconProcess(LexiconProcess):
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Latin pipeline", \
-    processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], \
-    language=get_lang("lat"))
+    >>> pipe = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], language=get_lang("lat"))
+    
     >>> nlp = NLP(language='lat', custom_pipeline=pipe)
     >>> cltk_doc = nlp.analyze(text=get_example_text("lat"))
-    >>> [word.definition for word in cltk_doc.words][:5]
-    ['?', '?', '?']
+    >>> [word.definition[:10] for word in cltk_doc.words][:5]
+    ['', 'est\\n\\n\\n see', 'omnis e (o', '', 'in  old in']
     """
 
     description = "Dictionary lookup process for Latin"
@@ -68,3 +67,4 @@ class LatinLexiconProcess(LexiconProcess):
     @cachedproperty
     def algorithm(self):
         return LatinLewisLexicon()
+

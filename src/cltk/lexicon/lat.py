@@ -51,18 +51,31 @@ class LatinLewisLexicon:
 	'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
         >>> lll.lookup("omnia")
         ''
+        >>> lll.lookup(".")
+        ''
+        >>> lll.lookup("123")
+        ''
+        >>> lll.lookup("175.")
+        ''
         """
         if not self.entries:
             raise CLTKException(
                 "No lexicon entries found in the .yaml file. This should never happen."
             )
+
+
+        if regex.match(r"^[0-9\.\?,\:;\!\<\>\-]*$", lemma) is not None:
+            return ""
+
+        lemma = lemma.lower()
+
         keys = self.entries.keys()
-        matches = [key for key in keys if regex.match(rf"{lemma}[0-9]?", key)]
+        matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)]
         n_matches = len(matches)
         if n_matches > 1:
             return "\n".join([self.entries[key] for key in matches])
         elif n_matches == 1:
-            return self.entries[lemma]
+            return self.entries[matches[0]]
         else:
             return ""
 
