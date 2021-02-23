@@ -48,7 +48,9 @@ class LatinLewisLexicon:
 
         >>> lll = LatinLewisLexicon()
         >>> lll.lookup("clemens")[:50]
-        'clēmēns entis (abl. -tī; rarely -te, L.), adj. with comp. and sup, mild, calm, gentle: clementissimus amnis, O.—Fig., calm, quiet, gentle, tranquil, kind: vita, T.: cupio me esse clementem: satis in disputando.—Mild, forbearing, indulgent, compassionate, merciful: animo clementi in illam, T : iudices: viro clemens misero peperci, H.: vir ab innocentiā clementissimus: legis interpres, L.: castigatio: clementior sententia, L.—Mitigated, qualified: rumor, S.'
+	'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
+        >>> lll.lookup("omnia")
+        ''
         """
         if not self.entries:
             raise CLTKException(
