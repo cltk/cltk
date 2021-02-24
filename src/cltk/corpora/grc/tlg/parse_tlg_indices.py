@@ -6,7 +6,6 @@ import os
 
 import regex
 
-
 from cltk.corpora.grc.tlg.author_date import AUTHOR_DATE
 from cltk.corpora.grc.tlg.author_epithet import AUTHOR_EPITHET
 from cltk.corpora.grc.tlg.author_female import AUTHOR_FEMALE

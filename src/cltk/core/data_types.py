@@ -65,7 +65,7 @@ class Word:
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
 lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, \
-category={}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
+category={}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
     """
 
     index_char_start: int = None
@@ -88,6 +88,7 @@ category={}, embedding=None, stop=None, named_entity=None, syllables=None, phone
     named_entity: bool = None
     syllables: List[str] = None
     phonetic_transcription: str = None
+    definition: str = None
 
     def __getitem__(
         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
