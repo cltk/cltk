@@ -48,7 +48,7 @@ class LatinLewisLexicon:
 
         >>> lll = LatinLewisLexicon()
         >>> lll.lookup("clemens")[:50]
-	'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
+        'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
         >>> lll.lookup("omnia")
         ''
         >>> lll.lookup(".")

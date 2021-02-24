@@ -53,7 +53,9 @@ class LatinLexiconProcess(LexiconProcess):
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], language=get_lang("lat"))
+    >>> pipe = Pipeline(description="A custom Latin pipeline", \
+    processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], \
+    language=get_lang("lat"))
     
     >>> nlp = NLP(language='lat', custom_pipeline=pipe)
     >>> cltk_doc = nlp.analyze(text=get_example_text("lat"))
@@ -67,4 +69,3 @@ class LatinLexiconProcess(LexiconProcess):
     @cachedproperty
     def algorithm(self):
         return LatinLewisLexicon()
-
