@@ -30,7 +30,7 @@ class OldNorseZoegaLexicon:
             else:
                 do_download = True
             if do_download:
-                fetch_corpus = FetchCorpus(language="lat")
+                fetch_corpus = FetchCorpus(language="non")
                 fetch_corpus.import_corpus(
                     corpus_name="cltk_non_zoega_dictionary"
                 )
@@ -46,13 +46,17 @@ class OldNorseZoegaLexicon:
 
         >>> lll = OldNorseZoegaLexicon()
         >>> lll.lookup("sonr")
-        'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
+        '(gen. sonar, dat. syni and søni; pl. synir, sønir; ace. sonu and syni), m. son.' 
+
         >>> lll.lookup("syni")
         ''
+
         >>> lll.lookup(".")
         ''
+
         >>> lll.lookup("123")
         ''
+
         >>> lll.lookup("175.")
         ''
         """
@@ -67,12 +71,12 @@ class OldNorseZoegaLexicon:
         lemma = lemma.lower()
 
         keys = self.entries.keys()
-        matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)]
+        matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key.lower())]
         n_matches = len(matches)
         if n_matches > 1:
-            return "\n".join([self.entries[key] for key in matches])
+            return "\n".join([self.entries[key.lower()] for key in matches])
         elif n_matches == 1:
-            return self.entries[matches[0]]
+            return self.entries[matches[0].lower()]
         else:
             return ""
 
