@@ -10,6 +10,7 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.lexicon.lat import LatinLewisLexicon
+from cltk.lexicon.non import OldNorseZoegaLexicon
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
@@ -69,3 +70,29 @@ class LatinLexiconProcess(LexiconProcess):
     @cachedproperty
     def algorithm(self):
         return LatinLewisLexicon()
+
+
+class OldNorseLexiconProcess(LexiconProcess):
+    """The default Latin dictionary lookup algorithm.
+
+    >>> from cltk.core.data_types import Process, Pipeline
+    >>> from cltk.tokenizers import OldNorseTokenizationProcess
+    >>> from cltk.languages.utils import get_lang
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> from cltk.nlp import NLP
+    >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
+    processes=[OldNorseTokenizationProcess, OldNorseLexiconProcess], \
+    language=get_lang("non"))
+
+    >>> nlp = NLP(language='non', custom_pipeline=pipe)
+    >>> cltk_doc = nlp.analyze(text=get_example_text("non"))
+    >>> [word.definition[:10] for word in cltk_doc.words][:5]
+
+    """
+
+    description = "Dictionary lookup process for Old Norse"
+    language = "non"
+
+    @cachedproperty
+    def algorithm(self):
+        return OldNorseZoegaLexicon()

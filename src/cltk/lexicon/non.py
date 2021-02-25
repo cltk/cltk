@@ -1,4 +1,4 @@
-"""Code for querying Latin language dictionaries/lexicons."""
+"""Code for querying Old Norse language dictionaries/lexicons."""
 
 import regex
 import yaml
@@ -11,19 +11,19 @@ from cltk.utils.utils import query_yes_no
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-class LatinLewisLexicon:
-    """Access a digital form of Charlton T. Lewis's *An Elementary Latin Dictionary* (1890)."""
+class OldNorseZoegaLexicon:
+    """Access a digital form of Zoëga's dictionary."""
 
     def __init__(self, interactive: bool = True):
         self.interactive = interactive
-        self.lewis_yaml_fp = make_cltk_path(
-            "lat", "lexicon", "cltk_lat_lewis_elementary_lexicon", "lewis.yaml"
+        self.zoega_yaml_fp = make_cltk_path(
+            "non", "dictionary", "cltk_non_zoega_dictionary", "dictionary.yaml"
         )
         try:
             self.entries = self._load_entries()
         except FileNotFoundError:
             if self.interactive:
-                dl_msg = f"This part of the CLTK depends upon Lewis's *An Elementary Latin Dictionary* (1890)."
+                dl_msg = f"This part of the CLTK depends upon Zoëga's *A Concise Old Norse Dictionary* (1890)."
                 print(dl_msg)
                 dl_question = "Do you want to download this?"
                 do_download = query_yes_no(question=dl_question)
@@ -32,11 +32,11 @@ class LatinLewisLexicon:
             if do_download:
                 fetch_corpus = FetchCorpus(language="lat")
                 fetch_corpus.import_corpus(
-                    corpus_name="cltk_lat_lewis_elementary_lexicon"
+                    corpus_name="cltk_non_zoega_dictionary"
                 )
             else:
                 raise CLTKException(
-                    f"File '{self.lewis_yaml_fp}' is not found. It is required for this class."
+                    f"File '{self.zoega_yaml_fp}' is not found. It is required for this class."
                 )
             self.entries = self._load_entries()
 
@@ -44,10 +44,10 @@ class LatinLewisLexicon:
         """Perform match of a lemma against headwords. If more than one match,
         then return the concatenated entries. For example:
 
-        >>> lll = LatinLewisLexicon()
-        >>> lll.lookup("clemens")[:50]
+        >>> lll = OldNorseZoegaLexicon()
+        >>> lll.lookup("sonr")
         'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
-        >>> lll.lookup("omnia")
+        >>> lll.lookup("syni")
         ''
         >>> lll.lookup(".")
         ''
@@ -58,7 +58,7 @@ class LatinLewisLexicon:
         """
         if not self.entries:
             raise CLTKException(
-                "No lexicon entries found in the .yaml file. This should never happen."
+                "No dictionary entries found in the .yaml file. This should never happen."
             )
 
         if regex.match(r"^[0-9\.\?,\:;\!\<\>\-]*$", lemma) is not None:
@@ -78,6 +78,6 @@ class LatinLewisLexicon:
 
     def _load_entries(self):
         """Read the yaml file of the lexion."""
-        with open(self.lewis_yaml_fp) as file_open:
+        with open(self.zoega_yaml_fp) as file_open:
             entries = yaml.load(file_open, Loader=yaml.Loader)
         return entries
