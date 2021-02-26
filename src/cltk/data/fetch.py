@@ -415,8 +415,8 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "old_norse_dictionary_zoega",
-            "origin": "https://github.com/cltk/old_norse_dictionary_zoega.git",
+            "name": "cltk_non_zoega_dictionary",
+            "origin": "https://github.com/cltk/cltk_non_zoega_dictionary.git",
             "type": "dictionary",
         },
     ],

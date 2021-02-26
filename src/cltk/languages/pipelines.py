@@ -37,6 +37,7 @@ from cltk.lemmatize.processes import (
     OldEnglishLemmatizationProcess,
     OldFrenchLemmatizationProcess,
 )
+from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
 from cltk.ner.processes import (
     GreekNERProcess,
     LatinNERProcess,
@@ -289,6 +290,7 @@ class LatinPipeline(Pipeline):
             LatinEmbeddingsProcess,
             StopsProcess,
             LatinNERProcess,
+            LatinLexiconProcess,
         ]
     )
 
@@ -465,7 +467,11 @@ class OldNorsePipeline(Pipeline):
     description: str = "Pipeline for the Old Norse language"
     language: Language = get_lang("non")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [OldNorseTokenizationProcess, StopsProcess]
+        default_factory=lambda: [
+            OldNorseTokenizationProcess,
+            StopsProcess,
+            OldNorseLexiconProcess,
+        ]
     )
 
 
