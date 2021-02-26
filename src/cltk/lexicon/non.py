@@ -39,8 +39,8 @@ class OldNorseZoegaLexicon:
             self.entries = self._load_entries()
 
     def lookup(self, lemma: str) -> str:
-        """Perform match of a lemma against headwords. If more than one match,
-        then return the concatenated entries. For example:
+        """Perform match of a lemma against headwords. This is case sensitive.
+        If more than one match, then return the concatenated entries. For example:
 
         >>> onzl = OldNorseZoegaLexicon()
         >>> onzl.lookup("sonr")
@@ -54,15 +54,13 @@ class OldNorseZoegaLexicon:
         if regex.match(r"^[0-9\.\?,\:;\!\<\>\-]*$", lemma) is not None:
             return ""
 
-        lemma = lemma.lower()
-
         keys = self.entries.keys()
-        matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key.lower())]
+        matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)]
         n_matches = len(matches)
         if n_matches > 1:
-            return "\n".join([self.entries[key.lower()] for key in matches])
+            return "\n".join([self.entries[key] for key in matches])
         elif n_matches == 1:
-            return self.entries[matches[0].lower()]
+            return self.entries[matches[0]]
         else:
             return ""
 
