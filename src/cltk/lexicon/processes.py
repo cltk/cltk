@@ -41,7 +41,14 @@ class LexiconProcess(Process):
         lookup_algo = self.algorithm
         output_doc = deepcopy(input_doc)
         for word in output_doc.words:
-            word.definition = lookup_algo.lookup(word.lemma)
+            if self.language == "lat":
+                word.definition = lookup_algo.lookup(word.lemma)
+            elif self.language == "non":
+                word.definition = lookup_algo.lookup(word.string)
+            else:
+                raise CLTKException(
+                    f"``LexiconProcess()`` not available for language '{self.language}' This should never happen."
+                )
         return output_doc
 
 

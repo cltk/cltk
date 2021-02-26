@@ -31,9 +31,7 @@ class OldNorseZoegaLexicon:
                 do_download = True
             if do_download:
                 fetch_corpus = FetchCorpus(language="non")
-                fetch_corpus.import_corpus(
-                    corpus_name="cltk_non_zoega_dictionary"
-                )
+                fetch_corpus.import_corpus(corpus_name="cltk_non_zoega_dictionary")
             else:
                 raise CLTKException(
                     f"File '{self.zoega_yaml_fp}' is not found. It is required for this class."
@@ -44,21 +42,9 @@ class OldNorseZoegaLexicon:
         """Perform match of a lemma against headwords. If more than one match,
         then return the concatenated entries. For example:
 
-        >>> lll = OldNorseZoegaLexicon()
-        >>> lll.lookup("sonr")
-        '(gen. sonar, dat. syni and søni; pl. synir, sønir; ace. sonu and syni), m. son.' 
-
-        >>> lll.lookup("syni")
-        ''
-
-        >>> lll.lookup(".")
-        ''
-
-        >>> lll.lookup("123")
-        ''
-
-        >>> lll.lookup("175.")
-        ''
+        >>> onzl = OldNorseZoegaLexicon()
+        >>> onzl.lookup("sonr")
+        '(gen. sonar, dat. syni and søni; pl. synir, sønir; ace. sonu and syni), m. son.'
         """
         if not self.entries:
             raise CLTKException(
