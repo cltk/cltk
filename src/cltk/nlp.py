@@ -3,6 +3,7 @@
 from threading import Lock
 from typing import Type
 
+from cltk import __version__ as cltk_version
 from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.pipelines import (
@@ -54,22 +55,8 @@ iso_to_pipeline = {
 class NLP:
     """NLP class for default processing."""
 
-    process_objects = {}
+    process_objects = dict()
     process_lock = Lock()
-
-    def _get_process_object(self, process_type: Type[Process]) -> Process:
-        """
-        Returns an instance of a process from a memoized hash.
-        An uninstantiated process is created and stashed in the cache.
-        """
-        with NLP.process_lock:
-            a_process = NLP.process_objects.get(process_type, None)
-            if a_process:
-                return a_process
-            else:
-                a_process = process_type(self.language.iso_639_3_code)
-                NLP.process_objects[process_type] = a_process
-                return a_process
 
     def __init__(self, language: str, custom_pipeline: Pipeline = None) -> None:
         """Constructor for CLTK class.
@@ -93,6 +80,36 @@ class NLP:
         """
         self.language = get_lang(language)  # type: Language
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
+        self._print_pipelines_for_current_lang()
+
+    def _print_pipelines_for_current_lang(self):
+        """Print to screen the ``Process``es invoked upon invocation
+        of ``NLP()``.
+        """
+        processes_name = [
+            process.__name__ for process in self.pipeline.processes
+        ]  # type: List[str]
+        processes_name_str = "`, `".join(processes_name)  # type: str
+        ltr_mark = "\u200E"
+        alep = "𐤀"
+        print(f"{ltr_mark + alep} CLTK version '{cltk_version}'.")
+        print(
+            f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
+        )
+
+    def _get_process_object(self, process_object: Type[Process]) -> Process:
+        """
+        Returns an instance of a process from a memoized hash.
+        An un-instantiated process is created and stashed in the cache.
+        """
+        with NLP.process_lock:
+            a_process = NLP.process_objects.get(process_object, None)
+            if a_process:
+                return a_process
+            else:
+                a_process = process_object(self.language.iso_639_3_code)
+                NLP.process_objects[process_object] = a_process
+                return a_process
 
     def analyze(self, text: str) -> Doc:
         """The primary method for the NLP object, to which raw text strings are passed.
