@@ -34,10 +34,10 @@ For a local corpus, such as the TLG, you must give a second argument of the file
    The CLTK depends on several libraries (Stanza, fastText) which host their own models. The CLTK will offer to download these for you.
 
 
-User-defined, distributed corpora
----------------------------------
+Self-hosted corpora and models
+------------------------------
 
-Users can import any repository that is hosted on a Git server. These are declared in \
+Users can import any repository that is hosted on a Git server. These may be declared in \
 ``~/cltk_data/distributed_corpora.yaml``.
 
 .. code-block:: python

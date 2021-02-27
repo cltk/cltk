@@ -1,17 +1,13 @@
 Installation
 ============
 
-
-|pypiversions|
-
-.. |pypiversions| image:: https://img.shields.io/pypi/pyversions/cltk
-   :alt: PyPI - Python Version
-
+.. note::
+   We currently support Python versions ``3.7``, ``3.8``, ``3.9``.
 
 .. note::
 
    The CLTK supports POSIX–compliant operating systems (Linux, Mac OS X, Windows Subsystem for Linux, etc.).
-   If you use the Windows Subsystem for Linux (WSL), we reccomend you upgrade to WSL2 at least, 
+   If you use the Windows Subsystem for Linux (WSL), we recommend you upgrade to WSL2 at least,
    and install the CLTK on your *Linux filesystem*, e.g. under ``/home``.
 
 

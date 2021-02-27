@@ -1,7 +1,7 @@
 **Notice**: This Git branch (``dev``) contains the CLTK's upcoming major release (v. 1.0.0). See `<https://github.com/cltk/cltk/tree/master>`_ and `<https://docs.cltk.org/>`_ for the legacy code and docs.
 
 
-|travis| |rtd| |codecov| |pypi| |zenodo| |binder|
+|travis| |rtd| |pypi| |zenodo|
 
 
 .. |travis| image:: https://travis-ci.org/cltk/cltk.svg?branch=dev

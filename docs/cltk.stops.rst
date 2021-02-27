@@ -33,6 +33,14 @@ cltk.stops.arb module
    :undoc-members:
    :show-inheritance:
 
+cltk.stops.cop module
+---------------------
+
+.. automodule:: cltk.stops.cop
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.stops.enm module
 ---------------------
 

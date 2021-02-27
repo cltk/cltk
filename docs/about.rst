@@ -15,6 +15,8 @@ Maintainers
 - `Patrick J. Burns <https://github.com/diyclassics>`_
 - `John Stewart <https://github.com/free-variation>`_
 - `Todd Cook <https://github.com/todd-cook>`_
+- `Clément Besnier <https://github.com/clemsciences>`_
+- `William J. B. Mattingly <https://github.com/wjbmattingly>`_
 
 
 Citation
