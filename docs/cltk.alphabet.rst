@@ -65,6 +65,14 @@ cltk.alphabet.enm module
    :undoc-members:
    :show-inheritance:
 
+cltk.alphabet.fro module
+------------------------
+
+.. automodule:: cltk.alphabet.fro
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.alphabet.gmh module
 ------------------------
 
@@ -93,6 +101,14 @@ cltk.alphabet.kan module
 ------------------------
 
 .. automodule:: cltk.alphabet.kan
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.alphabet.lat module
+------------------------
+
+.. automodule:: cltk.alphabet.lat
    :members:
    :undoc-members:
    :show-inheritance:
@@ -153,6 +169,14 @@ cltk.alphabet.pli module
    :undoc-members:
    :show-inheritance:
 
+cltk.alphabet.processes module
+------------------------------
+
+.. automodule:: cltk.alphabet.processes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.alphabet.san module
 ------------------------
 
@@ -165,6 +189,14 @@ cltk.alphabet.tel module
 ------------------------
 
 .. automodule:: cltk.alphabet.tel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.alphabet.text\_normalization module
+----------------------------------------
+
+.. automodule:: cltk.alphabet.text_normalization
    :members:
    :undoc-members:
    :show-inheritance:

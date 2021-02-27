@@ -31,7 +31,7 @@ Use pyenv to manage Python versions and Poetry for package builds.  Note that py
    - ``$ pyenv local cltk``. Open a new terminal and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
-* Install Stanford NLP models: ``$ poetry run python scripts/download_all_models.py``
+* Download NLP models: ``$ poetry run python scripts/download_all_models.py`` with optional flag ``--languages=lat`` for only those of a specific language.
 * Install Graphiz (necessary for building docs): `<https://graphviz.gitlab.io/download/>`_
 
 
@@ -39,8 +39,9 @@ Git Flow
 --------
 
 * ``$ git branch -b fix-feature``
+* Do changes
 * Install: ``$ make install``
-* Check changes in interactive Python shell: ``$ make shell``
+* Check changes in interactive Python shell (``$ make shell``) or notebook (``$ make notebook``)
 * Run doctests locally: ``$ make testOnlyDocTests``
 * ``$ make docs``. Check that the docs look good for any modules you changed: ``docs/_build/html/index.html``.
 * ``$ git push origin fix-feature``

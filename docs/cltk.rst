@@ -19,6 +19,7 @@ Subpackages
    cltk.embeddings
    cltk.languages
    cltk.lemmatize
+   cltk.lexicon
    cltk.morphology
    cltk.ner
    cltk.phonology

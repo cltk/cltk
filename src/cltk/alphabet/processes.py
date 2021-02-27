@@ -1,4 +1,4 @@
-"""This module holds the ``Process``es for normalizing text strings, usually
+"""This module holds the ``Process`` for normalizing text strings, usually
 before the text is sent to other processes.
 """
 
@@ -53,6 +53,7 @@ class GreekNormalizeProcess(NormalizeProcess):
 @dataclass
 class LatinNormalizeProcess(NormalizeProcess):
     """Text normalization for Latin.
+
     >>> from cltk.core.data_types import Doc, Word
     >>> from cltk.languages.example_texts import get_example_text
     >>> from boltons.strutils import split_punct_ws

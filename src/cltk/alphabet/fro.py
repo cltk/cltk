@@ -6,15 +6,16 @@ The normalizer, word tokenizer, stemmer, lemmatizer, and list of stopwords for O
 A full write-up of this work can be found at : https://gist.github.com/nat1881/6f134617805e2efbe5d275770e26d350
 **References :** Pope, M.K. 1956. From Latin to Modern French with Especial Consideration of Anglo-Norman. Manchester: MUP.
 Anglo-French spelling variants normalized to "orthographe commune", from M. K. Pope (1956)
+
 - word-final d - e.g. vertud vs vertu
 - use of <u> over <ou>
 - <eaus> for <eus>, <ceaus> for <ceus>
 - triphtongs:
-    - <iu> for <ieu>
-    - <u> for <eu>
-    - <ie> for <iee>
-    - <ue> for <uee>
-    - <ure> for <eure>
+   - <iu> for <ieu>
+   - <u> for <eu>
+   - <ie> for <iee>
+   - <ue> for <uee>
+   - <ure> for <eure>
 - "epenthetic vowels" - e.g. averai for avrai
 - <eo> for <o>
 - <iw>, <ew> for <ieux>
