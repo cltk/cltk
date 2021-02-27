@@ -3,7 +3,7 @@
 from threading import Lock
 from typing import Type
 
-from cltk import __version__ as cltk_version
+import cltk
 from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.pipelines import (
@@ -92,7 +92,7 @@ class NLP:
         processes_name_str = "`, `".join(processes_name)  # type: str
         ltr_mark = "\u200E"
         alep = "𐤀"
-        print(f"{ltr_mark + alep} CLTK version '{cltk_version}'.")
+        print(f"{ltr_mark + alep} CLTK version '{cltk.__version__}'.")
         print(
             f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
         )
