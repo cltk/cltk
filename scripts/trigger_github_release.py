@@ -19,7 +19,7 @@ def main():
     # https://docs.github.com/en/rest/reference/repos#create-a-release
     data = {
         "tag_name": f"{cltk_version}",
-        "target_commitish": "dev",
+        "target_commitish": "master",
         "name": cltk_version,
         "body": f"CLTK release version {cltk_version} triggered on {datetime.utcnow().strftime('%d/%m/%Y at %H:%M:%S')}.",
         "draft": False,
