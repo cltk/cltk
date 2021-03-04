@@ -22,7 +22,7 @@ def main():
         "name": cltk_version,
         "body": f"CLTK release version {cltk_version} triggered on {datetime.utcnow().strftime('%d/%m/%Y at %H:%M:%S')}.",
         "draft": False,
-        "prerelease": True,
+        "prerelease": False,
     }
     res = requests.post(
         url="https://api.github.com/repos/cltk/cltk/releases",
