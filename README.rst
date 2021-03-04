@@ -1,16 +1,13 @@
-**Notice**: This Git branch (``dev``) contains the CLTK's upcoming major release (v. 1.0.0). See `<https://github.com/cltk/cltk/tree/master>`_ and `<https://docs.cltk.org/>`_ for the legacy code and docs.
-
-
 |travis| |rtd| |pypi| |zenodo|
 
 
-.. |travis| image:: https://travis-ci.org/cltk/cltk.svg?branch=dev
+.. |travis| image:: https://travis-ci.org/cltk/cltk.svg?branch=master
    :target: https://travis-ci.org/cltk/cltk
 
 .. |rtd| image:: https://img.shields.io/readthedocs/cltk
-   :target: http://dev.cltk.org/
+   :target: http://docs.cltk.org/
 
-.. |codecov| image:: https://codecov.io/gh/cltk/cltk/branch/dev/graph/badge.svg
+.. |codecov| image:: https://codecov.io/gh/cltk/cltk/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/cltk/cltk
 
 .. |pypi| image:: https://img.shields.io/pypi/v/cltk
@@ -20,7 +17,7 @@
    :target: https://doi.org/10.5281/zenodo.3445585
 
 .. |binder| image:: https://mybinder.org/badge_logo.svg
-   :target: https://mybinder.org/v2/gh/cltk/tutorials/dev
+   :target: https://mybinder.org/v2/gh/cltk/tutorials/master
 
 
 The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for the languages of pre–modern Eurasia.
@@ -29,22 +26,22 @@ The Classical Language Toolkit (CLTK) is a Python library offering natural langu
 Installation
 ============
 
-For the CLTK's latest pre-release version:
+For the CLTK's latest version:
 
 .. code-block:: bash
 
-   $ pip install --pre cltk
+   $ pip install cltk
 
 Requirements:
-   - Python version 3.7 or above
+   - Python version 3.7, 3.8, 3.9
    - A Unix-like OS
-   - To install from source, see `Development <https://dev.cltk.org/en/latest/includes/development.html>`_ in the docs.
+   - To install from source, see `Development <https://docs.cltk.org/en/latest/includes/development.html>`_ in the docs.
 
 
 Documentation
 =============
 
-Documentation at `<https://dev.cltk.org>`_.
+Documentation at `<https://docs.cltk.org>`_.
 
 
 Citation
@@ -53,7 +50,7 @@ Citation
 .. code-block:: bibtex
 
    @Misc{johnsonetal2014,
-    author = {Johnson, Kyle P. and Patrick Burns and John Stewart and Todd Cook},
+    author = {Johnson, Kyle P. and Patrick Burns and John Stewart and Todd Cook and Clément Besnier and William J. B. Mattingly},
     title = {CLTK: The Classical Language Toolkit},
     url = {https://github.com/cltk/cltk},
     year = {2014--2021},
