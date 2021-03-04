@@ -14,7 +14,6 @@ def main():
     parser.add_argument("token", help="GitHub Auth token", type=str)
     args = parser.parse_args()
     token = args.token
-    print("FAKE SECRET:", token)
     cltk_version = pkg_resources.get_distribution("cltk").version  # str
     # https://docs.github.com/en/rest/reference/repos#create-a-release
     data = {
