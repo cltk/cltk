@@ -14,6 +14,7 @@ Subpackages
 
    cltk.alphabet
    cltk.core
+   cltk.corpora
    cltk.data
    cltk.dependency
    cltk.embeddings
