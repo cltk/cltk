@@ -204,7 +204,7 @@ class TreeBuilderProcess(Process):
     TODO: JS help to make this work, illustrate better.
 
     >>> from cltk import NLP
-    >>> nlp = NLP(language="got")
+    >>> nlp = NLP(language="got", suppress_banner=True)
     >>> from cltk.dependency.processes import TreeBuilderProcess
 
     >>> nlp.pipeline.add_process(TreeBuilderProcess)  # doctest: +SKIP

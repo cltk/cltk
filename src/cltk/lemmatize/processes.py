@@ -47,7 +47,7 @@ class GreekLemmatizationProcess(LemmatizationProcess):
     >>> pipe = Pipeline(description="A custom Greek pipeline", \
     processes=[MultilingualTokenizationProcess, GreekLemmatizationProcess], \
     language=get_lang("grc"))
-    >>> nlp = NLP(language='grc', custom_pipeline = pipe)
+    >>> nlp = NLP(language='grc', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("grc")).lemmata[30:40]
     ['ἔλεγον.', 'καίτοι', 'ἀληθές', 'γε', 'ὡς', 'ἔπος', 'εἰπεῖν', 'οὐδὲν', 'εἰρήκασιν.', 'μάλιστα']
     """
@@ -70,7 +70,7 @@ class LatinLemmatizationProcess(LemmatizationProcess):
     >>> pipe = Pipeline(description="A custom Latin pipeline", \
     processes=[LatinTokenizationProcess, LatinLemmatizationProcess], \
     language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline = pipe)
+    >>> nlp = NLP(language='lat', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("lat")).lemmata[30:40]
     ['institutis', ',', 'legibus', 'inter', 'se', 'differunt', '.', 'Gallos', 'ab', 'Aquitanis']
     """
@@ -94,7 +94,7 @@ class OldEnglishLemmatizationProcess(LemmatizationProcess):
     >>> pipe = Pipeline(description="A custom Old English pipeline", \
     processes=[MultilingualTokenizationProcess, OldEnglishLemmatizationProcess], \
     language=get_lang("ang"))
-    >>> nlp = NLP(language='ang', custom_pipeline = pipe)
+    >>> nlp = NLP(language='ang', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("ang")).lemmata[30:40]
     ['siððan', 'ær', 'weorþan', 'feasceaft', 'findan', ',', 'he', 'se', 'frofre', 'gebidan']
     """
@@ -118,7 +118,7 @@ class OldFrenchLemmatizationProcess(LemmatizationProcess):
     >>> pipe = Pipeline(description="A custom Old French pipeline", \
     processes=[MultilingualTokenizationProcess, OldFrenchLemmatizationProcess], \
     language=get_lang("fro"))
-    >>> nlp = NLP(language='fro', custom_pipeline = pipe)
+    >>> nlp = NLP(language='fro', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("fro")).lemmata[30:40]
     ['avenir', 'jadis', 'en', 'bretaingne', 'avoir', '.I.', 'molt', 'riche', 'chevalier', 'PUNK']
     """
