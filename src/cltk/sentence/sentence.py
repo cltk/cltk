@@ -12,7 +12,8 @@ import os
 import re
 from typing import List
 
-from nltk.tokenize.punkt import PunktSentenceTokenizer as NLTKPunktSentenceTokenizer
+from nltk.tokenize.punkt import \
+    PunktSentenceTokenizer as NLTKPunktSentenceTokenizer
 
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle

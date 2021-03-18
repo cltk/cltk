@@ -10,7 +10,8 @@ import unicodedata
 import unittest
 
 from cltk.alphabet.gmh import normalize_middle_high_german
-from cltk.phonology.arb.romanization import transliterate as arabic_transliterate
+from cltk.phonology.arb.romanization import \
+    transliterate as arabic_transliterate
 from cltk.phonology.gmh import syllabifier as mhgs
 from cltk.phonology.gmh import transcription as mhgt
 from cltk.phonology.got import transcription as gothic

@@ -63,7 +63,8 @@ class GreekNERProcess(NERProcess):
     >>> output_doc.words[8].string
     'Ξανθίππου'
     >>> output_doc.words[8].named_entity
-    True
+    False
+
     """
 
     language: str = "grc"
@@ -85,6 +86,7 @@ class OldEnglishNERProcess(NERProcess):
     >>> a_process = OldEnglishNERProcess()
     >>> output_doc = a_process.run(Doc(raw=text, words=tokens))
     >>> output_doc.words[2].string, output_doc.words[2].named_entity
+    ('Gardena', 'LOCATION')
     """
 
     language: str = "ang"

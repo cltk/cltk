@@ -9,54 +9,41 @@ these dataclasses is to represent:
 from dataclasses import dataclass, field
 from typing import List, Type
 
-from cltk.alphabet.processes import GreekNormalizeProcess, LatinNormalizeProcess
+from cltk.alphabet.processes import (GreekNormalizeProcess,
+                                     LatinNormalizeProcess)
 from cltk.core.data_types import Language, Pipeline, Process
-from cltk.dependency.processes import (
-    ChineseStanzaProcess,
-    CopticStanzaProcess,
-    GothicStanzaProcess,
-    GreekStanzaProcess,
-    LatinStanzaProcess,
-    OCSStanzaProcess,
-    OldFrenchStanzaProcess,
-)
-from cltk.embeddings.processes import (
-    ArabicEmbeddingsProcess,
-    AramaicEmbeddingsProcess,
-    GothicEmbeddingsProcess,
-    GreekEmbeddingsProcess,
-    LatinEmbeddingsProcess,
-    OldEnglishEmbeddingsProcess,
-    PaliEmbeddingsProcess,
-    SanskritEmbeddingsProcess,
-)
+from cltk.dependency.processes import (ChineseStanzaProcess,
+                                       CopticStanzaProcess,
+                                       GothicStanzaProcess, GreekStanzaProcess,
+                                       LatinStanzaProcess, OCSStanzaProcess,
+                                       OldFrenchStanzaProcess)
+from cltk.embeddings.processes import (ArabicEmbeddingsProcess,
+                                       AramaicEmbeddingsProcess,
+                                       GothicEmbeddingsProcess,
+                                       GreekEmbeddingsProcess,
+                                       LatinEmbeddingsProcess,
+                                       OldEnglishEmbeddingsProcess,
+                                       PaliEmbeddingsProcess,
+                                       SanskritEmbeddingsProcess)
 from cltk.languages.utils import get_lang
-from cltk.lemmatize.processes import (
-    GreekLemmatizationProcess,
-    LatinLemmatizationProcess,
-    OldEnglishLemmatizationProcess,
-    OldFrenchLemmatizationProcess,
-)
+from cltk.lemmatize.processes import (GreekLemmatizationProcess,
+                                      LatinLemmatizationProcess,
+                                      OldEnglishLemmatizationProcess,
+                                      OldFrenchLemmatizationProcess)
 from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
-from cltk.ner.processes import (
-    GreekNERProcess,
-    LatinNERProcess,
-    OldEnglishNERProcess,
-    OldFrenchNERProcess,
-)
+from cltk.ner.processes import (GreekNERProcess, LatinNERProcess,
+                                OldEnglishNERProcess, OldFrenchNERProcess)
 from cltk.stops.processes import StopsProcess
-from cltk.tokenizers.processes import (
-    AkkadianTokenizationProcess,
-    ArabicTokenizationProcess,
-    GreekTokenizationProcess,
-    LatinTokenizationProcess,
-    MiddleEnglishTokenizationProcess,
-    MiddleFrenchTokenizationProcess,
-    MiddleHighGermanTokenizationProcess,
-    MultilingualTokenizationProcess,
-    OldFrenchTokenizationProcess,
-    OldNorseTokenizationProcess,
-)
+from cltk.tokenizers.processes import (AkkadianTokenizationProcess,
+                                       ArabicTokenizationProcess,
+                                       GreekTokenizationProcess,
+                                       LatinTokenizationProcess,
+                                       MiddleEnglishTokenizationProcess,
+                                       MiddleFrenchTokenizationProcess,
+                                       MiddleHighGermanTokenizationProcess,
+                                       MultilingualTokenizationProcess,
+                                       OldFrenchTokenizationProcess,
+                                       OldNorseTokenizationProcess)
 
 
 @dataclass
@@ -222,7 +209,7 @@ class GreekPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Ancient Greek'
     >>> a_pipeline.processes[0]
-    <class 'cltk.dependency.processes.GreekStanzaProcess'>
+    <class 'cltk.alphabet.processes.GreekNormalizeProcess'>
     """
 
     description: str = "Pipeline for the Greek language"
@@ -277,7 +264,7 @@ class LatinPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Latin'
     >>> a_pipeline.processes[0]
-    <class 'cltk.dependency.processes.LatinStanzaProcess'>
+    <class 'cltk.alphabet.processes.LatinNormalizeProcess'>
     """
 
     description: str = "Pipeline for the Latin language"

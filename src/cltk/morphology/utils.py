@@ -7,10 +7,7 @@ from typing import List, Optional, Tuple, Union
 from cltk.core.data_types import Word
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import (
-    NOMINAL_FEATURES,
-    VERBAL_FEATURES,
-    MorphosyntacticFeature,
-)
+    NOMINAL_FEATURES, VERBAL_FEATURES, MorphosyntacticFeature)
 
 ALL_POSSIBLE_FEATURES = NOMINAL_FEATURES + VERBAL_FEATURES
 
