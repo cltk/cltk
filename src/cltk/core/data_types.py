@@ -11,7 +11,7 @@ of the NLP pipeline.
 
 import importlib
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, List, Type, Union
 
 import numpy as np
@@ -65,7 +65,7 @@ class Word:
     >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
     Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
 lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, \
-category={}, embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+category={}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
     """
 
     index_char_start: int = None
@@ -83,7 +83,7 @@ category={}, embedding=None, stop=None, named_entity=None, syllables=None, phone
     governor: int = None
     features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     category: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
-    embedding: np.ndarray = None
+    embedding: np.ndarray = field(repr=False, default=None)
     stop: bool = None
     named_entity: bool = None
     syllables: List[str] = None
@@ -114,7 +114,7 @@ class Doc:
 
     >>> from cltk import NLP
     >>> from cltk.languages.example_texts import get_example_text
-    >>> cltk_nlp = NLP(language="lat")
+    >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
     >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
     >>> cltk_doc.raw[:38]
     'Gallia est omnis divisa in partes tres'
