@@ -71,7 +71,7 @@ class JVReplacer:  # pylint: disable=too-few-public-methods
         return text
 
 
-jvreplacer = JVReplacer()
+JV_REPLACER = JVReplacer()
 
 
 class AEOEReplacer:  # pylint: disable=too-few-public-methods
@@ -106,7 +106,7 @@ class AEOEReplacer:  # pylint: disable=too-few-public-methods
         return text
 
 
-aeoereplacer = AEOEReplacer()
+LIGATURE_REPLACER = AEOEReplacer()
 
 
 def dehyphenate(text: str) -> str:
@@ -442,7 +442,8 @@ def normalize_lat(
     text: str,
     drop_accents: bool = False,
     drop_macrons: bool = False,
-    jvaeoe_replacement: bool = False,
+    jv_replacement: bool = False,
+    ligature_replacement: bool = False
 ) -> str:
     """The function for all default Latin normalization.
 
@@ -456,7 +457,10 @@ def normalize_lat(
     >>> normalize_lat(text, drop_accents=True, drop_macrons=True)
     'cano Iulii suspensam quăm aegerrume ĭndignu is óccidentem frúges Julius Caesar. In vino veritas. mæd prœil'
 
-    >>> normalize_lat(text, drop_accents=True, drop_macrons=True, jvaeoe_replacement=True)
+    >>> normalize_lat(text, drop_accents=True, drop_macrons=True, jv_replacement=True)
+    'cano Iulii suspensam quăm aegerrume ĭndignu is óccidentem frúges Iulius Caesar. In uino ueritas. mæd prœil'
+
+    >>> normalize_lat(text, drop_accents=True, drop_macrons=True, jv_replacement=True, ligature_replacement=True)
     'cano Iulii suspensam quăm aegerrume ĭndignu is óccidentem frúges Iulius Caesar. In uino ueritas. maed proeil'
 
     """
@@ -465,7 +469,8 @@ def normalize_lat(
         text_cltk_normalized = remove_macrons(text_cltk_normalized)
     if drop_accents:
         text_cltk_normalized = remove_accents(text_cltk_normalized)
-    if jvaeoe_replacement:
-        text_cltk_normalized = jvreplacer.replace(text_cltk_normalized)
-        text_cltk_normalized = aeoereplacer.replace(text_cltk_normalized)
+    if jv_replacement:
+        text_cltk_normalized = JV_REPLACER.replace(text_cltk_normalized)
+    if ligature_replacement:
+        text_cltk_normalized = LIGATURE_REPLACER.replace(text_cltk_normalized)
     return text_cltk_normalized
