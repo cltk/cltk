@@ -47,7 +47,7 @@ class StanzaWrapper:
     ) -> None:
         """Constructor for ``get_stanza_models`` wrapper class.
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="grc", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
         >>> stanza_wrapper.language
@@ -55,7 +55,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.treebank
         'proiel'
 
-        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="perseus", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="perseus", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> isinstance(stanza_wrapper, StanzaWrapper)
         True
         >>> stanza_wrapper.language
@@ -65,30 +65,30 @@ class StanzaWrapper:
         >>> from cltk.languages.example_texts import get_example_text
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
-        >>> StanzaWrapper(language="xxx", stanza_debug_level="INFO")
+        >>> StanzaWrapper(language="xxx", stanza_debug_level="INFO", interactive=False, silent=True)
         Traceback (most recent call last):
           ...
         cltk.core.exceptions.UnknownLanguageError: Language 'xxx' either not in scope for CLTK or not supported by Stanza.
 
-        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="proiel", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="grc", treebank="proiel", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("grc"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="perseus", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="perseus", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lat"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="proiel", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="proiel", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lat"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="chu", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="chu", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("chu"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO", interactive=False)  # doctest: +SKIP
+        >>> stanza_wrapper = StanzaWrapper(language="cop", stanza_debug_level="INFO", interactive=False, silent=True)  # doctest: +SKIP
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("cop"))  # doctest: +SKIP
 
-        >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lzh"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO", interactive=False)
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO", interactive=False, silent=True)
         Traceback (most recent call last):
           ...
         cltk.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.
@@ -151,7 +151,7 @@ class StanzaWrapper:
         """Run all available ``stanza`` parsing on input text.
 
         >>> from cltk.languages.example_texts import get_example_text
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> greek_nlp = stanza_wrapper.parse(get_example_text("grc"))
         >>> from stanza.models.common.doc import Document, Token
         >>> isinstance(greek_nlp, Document)
@@ -227,11 +227,11 @@ class StanzaWrapper:
         TODO: Make sure that logging captures what it should from the default stanza printout.
         TODO: Make note that full lemmatization is not possible for Old French
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> with suppress_stdout():    nlp_obj = stanza_wrapper._load_pipeline()
         >>> isinstance(nlp_obj, stanza.pipeline.core.Pipeline)
         True
-        >>> stanza_wrapper = StanzaWrapper(language='fro', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='fro', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> with suppress_stdout():    nlp_obj = stanza_wrapper._load_pipeline()
         >>> isinstance(nlp_obj, stanza.pipeline.core.Pipeline)
         True
@@ -259,7 +259,7 @@ class StanzaWrapper:
     def _is_model_present(self) -> bool:
         """Checks if the model is already downloaded.
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_wrapper._is_model_present()
         True
         """
@@ -300,7 +300,7 @@ class StanzaWrapper:
         """Return description of a language's default treebank if none
         supplied.
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_wrapper._get_default_treebank()
         'proiel'
         """
@@ -311,7 +311,7 @@ class StanzaWrapper:
         """Check whether for chosen language, optional
         treebank value is valid.
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', treebank='proiel', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', treebank='proiel', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_wrapper._is_valid_treebank()
         True
         """
@@ -325,7 +325,7 @@ class StanzaWrapper:
         that used by ``stanza`` (``la``); confirms that this is
         a language the CLTK supports (i.e., is it pre-modern or not).
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_wrapper.is_wrapper_available()
         True
         """
@@ -337,7 +337,7 @@ class StanzaWrapper:
         """Using known-supported language, use the CLTK's
         internal code to look up the code used by Stanza.
 
-        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language='grc', stanza_debug_level="INFO", interactive=False, silent=True)
         >>> stanza_wrapper._get_stanza_code()
         'grc'
         >>> stanza_wrapper.language = "xxx"
