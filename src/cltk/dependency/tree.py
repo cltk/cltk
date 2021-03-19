@@ -8,7 +8,11 @@ from xml.etree.ElementTree import Element, ElementTree
 from cltk.core.data_types import Doc, Process, Word
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import (
-    NOMINAL_FEATURES, OTHER_FEATURES, VERBAL_FEATURES, MorphosyntacticFeature)
+    NOMINAL_FEATURES,
+    OTHER_FEATURES,
+    VERBAL_FEATURES,
+    MorphosyntacticFeature,
+)
 
 ALL_POSSIBLE_FEATURES = NOMINAL_FEATURES + VERBAL_FEATURES + OTHER_FEATURES
 

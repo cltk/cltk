@@ -8,11 +8,13 @@ from typing import Dict, Optional
 
 import stanza  # type: ignore
 from stanza.models.common.constant import lang2lcode  # type: Dict[str, str]
-from stanza.resources.prepare_resources import \
-    default_treebanks  # type: Dict[str, str]
+from stanza.resources.prepare_resources import default_treebanks  # type: Dict[str, str]
 
-from cltk.core.exceptions import (CLTKException, UnimplementedAlgorithmError,
-                                  UnknownLanguageError)
+from cltk.core.exceptions import (
+    CLTKException,
+    UnimplementedAlgorithmError,
+    UnknownLanguageError,
+)
 from cltk.utils import file_exists, query_yes_no, suppress_stdout
 
 LOG = logging.getLogger(__name__)
