@@ -4,12 +4,8 @@
 import re
 from typing import List
 
-from cltk.phonology.enm.syllabifier import (
-    CONSONANTS,
-    DIPHTHONGS,
-    SHORT_VOWELS,
-    TRIPHTHONGS,
-)
+from cltk.phonology.enm.syllabifier import (CONSONANTS, DIPHTHONGS,
+                                            SHORT_VOWELS, TRIPHTHONGS)
 from cltk.stem.enm import stem
 
 __author__ = [

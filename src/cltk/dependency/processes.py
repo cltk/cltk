@@ -10,11 +10,8 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.data_types import Doc, Process, Word
 from cltk.dependency.stanza import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
-from cltk.morphology.morphosyntax import (
-    MorphosyntacticFeatureBundle,
-    from_ud,
-    to_categorial,
-)
+from cltk.morphology.morphosyntax import (MorphosyntacticFeatureBundle,
+                                          from_ud, to_categorial)
 
 
 @dataclass
@@ -71,11 +68,8 @@ class StanzaProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', \
-pos=noun, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', \
-dependency_relation='nsubj', governor=3, \
-features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, \
-embedding=None, stop=None, named_entity=None, syllables=None, phonetic_transcription=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+
         """
 
         words_list = list()  # type: List[Word]
@@ -204,7 +198,7 @@ class TreeBuilderProcess(Process):
     TODO: JS help to make this work, illustrate better.
 
     >>> from cltk import NLP
-    >>> nlp = NLP(language="got")
+    >>> nlp = NLP(language="got", suppress_banner=True)
     >>> from cltk.dependency.processes import TreeBuilderProcess
 
     >>> nlp.pipeline.add_process(TreeBuilderProcess)  # doctest: +SKIP

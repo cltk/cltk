@@ -8,13 +8,11 @@ from typing import Dict, Optional
 
 import stanza  # type: ignore
 from stanza.models.common.constant import lang2lcode  # type: Dict[str, str]
-from stanza.resources.prepare_resources import default_treebanks  # type: Dict[str, str]
+from stanza.resources.prepare_resources import \
+    default_treebanks  # type: Dict[str, str]
 
-from cltk.core.exceptions import (
-    CLTKException,
-    UnimplementedAlgorithmError,
-    UnknownLanguageError,
-)
+from cltk.core.exceptions import (CLTKException, UnimplementedAlgorithmError,
+                                  UnknownLanguageError)
 from cltk.utils import file_exists, query_yes_no, suppress_stdout
 
 LOG = logging.getLogger(__name__)
@@ -88,7 +86,7 @@ class StanzaWrapper:
         >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lzh"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO", interactive=False)
         Traceback (most recent call last):
           ...
         cltk.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.

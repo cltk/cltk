@@ -60,10 +60,11 @@ class LatinNormalizeProcess(NormalizeProcess):
     >>> lang = "lat"
     >>> orig_text = get_example_text(lang)
     >>> non_normed_doc = Doc(raw=orig_text)
-    >>> normalize_proc = GreekNormalizeProcess(language=lang)
+    >>> normalize_proc = LatinNormalizeProcess(language=lang)
     >>> normalized_text = normalize_proc.run(input_doc=non_normed_doc)
     >>> normalized_text == orig_text
-    True
+    False
+
     """
 
     language = "lat"

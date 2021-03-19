@@ -7,12 +7,8 @@ __license__ = "MIT License. See LICENSE."
 import os
 from typing import List
 
-from cltk.lemmatize.backoff import (
-    DictLemmatizer,
-    IdentityLemmatizer,
-    RegexpLemmatizer,
-    UnigramLemmatizer,
-)
+from cltk.lemmatize.backoff import (DictLemmatizer, IdentityLemmatizer,
+                                    RegexpLemmatizer, UnigramLemmatizer)
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 

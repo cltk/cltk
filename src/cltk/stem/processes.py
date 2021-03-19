@@ -43,7 +43,7 @@ class LatinStemmingProcess(StemmingProcess):
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.nlp import NLP
     >>> pipe = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, LatinStemmingProcess], language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline = pipe)
+    >>> nlp = NLP(language='lat', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("lat")[:23]).stems
     ['Gall', 'est', 'omn', 'divis']
 
@@ -67,7 +67,7 @@ class MiddleEnglishStemmingProcess(StemmingProcess):
     >>> pipe = Pipeline(description="A custom Middle English pipeline", \
     processes=[MiddleEnglishTokenizationProcess, MiddleEnglishStemmingProcess], \
     language=get_lang("enm"))
-    >>> nlp = NLP(language='enm', custom_pipeline = pipe)
+    >>> nlp = NLP(language='enm', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("enm")[:29]).stems
     ['Whil', ',', 'as', 'olde', 'stor', 'lle']
     """
@@ -90,7 +90,7 @@ class MiddleHighGermanStemmingProcess(StemmingProcess):
     >>> pipe = Pipeline(description="A custom MHG pipeline", \
     processes=[MiddleHighGermanTokenizationProcess, MiddleHighGermanStemmingProcess], \
     language=get_lang("gmh"))
-    >>> nlp = NLP(language='gmh', custom_pipeline = pipe)
+    >>> nlp = NLP(language='gmh', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("gmh")[:29]).stems
     ['uns', 'ist', 'in', 'alten', 'mær', 'wund']
     """
@@ -113,7 +113,7 @@ class OldFrenchStemmingProcess(StemmingProcess):
     >>> pipe = Pipeline(description="A custom Old French pipeline", \
     processes=[OldFrenchTokenizationProcess, OldFrenchStemmingProcess], \
     language=get_lang("fro"))
-    >>> nlp = NLP(language='fro', custom_pipeline = pipe)
+    >>> nlp = NLP(language='fro', custom_pipeline = pipe, suppress_banner=True)
     >>> nlp(get_example_text("fro")[:29]).stems
     ['un', 'aventu', 'vos', 'voil', 'di', 'mo']
     """

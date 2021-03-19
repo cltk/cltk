@@ -7,19 +7,9 @@
 from typing import Union
 
 from cltk.phonology.non.syllabifier import BACK_TO_FRONT_VOWELS
-from cltk.phonology.non.utils import (
-    AbstractConsonant,
-    AbstractPosition,
-    Backness,
-    Consonant,
-    Height,
-    Length,
-    Manner,
-    Place,
-    Rank,
-    Rule,
-    Vowel,
-)
+from cltk.phonology.non.utils import (AbstractConsonant, AbstractPosition,
+                                      Backness, Consonant, Height, Length,
+                                      Manner, Place, Rank, Rule, Vowel)
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

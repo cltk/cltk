@@ -7,6 +7,7 @@ TLGU software written by Dimitri Marinakis and available at
 
 TODO: the arguments to ``convert_corpus()`` need some rationalization, and
 ``divide_works()`` should be incorporated into it.
+
 """
 
 __author__ = [
@@ -152,27 +153,12 @@ class TLGU:
         Do conversion.
 
         :param input_path: TLG filepath to convert.
-
         :param output_path: filepath of new converted text.
-
-        :param markup: Specificity of inline markup. Default None removes all
-        numerical markup; 'full' gives most detailed, with reference numbers
-        included before each text line.
-
-        :param rm_newlines: No spaces; removes line ends and hyphens before an
-         ID code; hyphens and spaces before page and column ends are retained.
-
-        :param divide_works: Each work (book) is output as a separate file in
-        the form output_file-xxx.txt; if an output file is not specified, this
-         option has no effect.
-
-        :param lat: Primarily Latin text (PHI). Some TLG texts, notably
-        doccan1.txt and doccan2.txt are mostly roman texts lacking explicit
-        language change codes. Setting this option will force a change to
-        Latin text after each citation block is encountered.
-
-        :param extra_args: Any other tlgu args to be passed, in list form and
-        without dashes, e.g.: ['p', 'b', 'B'].
+        :param markup: Specificity of inline markup. Default None removes all numerical markup; 'full' gives most detailed, with reference numbers included before each text line.
+        :param rm_newlines: No spaces; removes line ends and hyphens before an ID code; hyphens and spaces before page and column ends are retained.
+        :param divide_works: Each work (book) is output as a separate file in the form output_file-xxx.txt; if an output file is not specified, this option has no effect.
+        :param lat: Primarily Latin text (PHI). Some TLG texts, notably doccan1.txt and doccan2.txt are mostly roman texts lacking explicit language change codes. Setting this option will force a change to Latin text after each citation block is encountered.
+        :param extra_args: Any other tlgu args to be passed, in list form and without dashes, e.g.: ['p', 'b', 'B'].
 
         """
         # setup file paths
@@ -284,6 +270,7 @@ class TLGU:
         """Use the work-breaking option.
         TODO: Maybe incorporate this into ``convert_corpus()``
         TODO: Write test for this
+
         """
         if corpus == "tlg":
             orig_dir = make_cltk_path("originals/tlg")

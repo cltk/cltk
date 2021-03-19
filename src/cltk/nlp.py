@@ -6,27 +6,16 @@ from typing import Type
 import cltk
 from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.pipelines import (
-    AkkadianPipeline,
-    ArabicPipeline,
-    AramaicPipeline,
-    ChinesePipeline,
-    CopticPipeline,
-    GothicPipeline,
-    GreekPipeline,
-    HindiPipeline,
-    LatinPipeline,
-    MiddleEnglishPipeline,
-    MiddleFrenchPipeline,
-    MiddleHighGermanPipeline,
-    OCSPipeline,
-    OldEnglishPipeline,
-    OldFrenchPipeline,
-    OldNorsePipeline,
-    PaliPipeline,
-    PanjabiPipeline,
-    SanskritPipeline,
-)
+from cltk.languages.pipelines import (AkkadianPipeline, ArabicPipeline,
+                                      AramaicPipeline, ChinesePipeline,
+                                      CopticPipeline, GothicPipeline,
+                                      GreekPipeline, HindiPipeline,
+                                      LatinPipeline, MiddleEnglishPipeline,
+                                      MiddleFrenchPipeline,
+                                      MiddleHighGermanPipeline, OCSPipeline,
+                                      OldEnglishPipeline, OldFrenchPipeline,
+                                      OldNorsePipeline, PaliPipeline,
+                                      PanjabiPipeline, SanskritPipeline)
 from cltk.languages.utils import get_lang
 
 iso_to_pipeline = {
@@ -58,7 +47,12 @@ class NLP:
     process_objects = dict()
     process_lock = Lock()
 
-    def __init__(self, language: str, custom_pipeline: Pipeline = None) -> None:
+    def __init__(
+        self,
+        language: str,
+        custom_pipeline: Pipeline = None,
+        suppress_banner: bool = False,
+    ) -> None:
         """Constructor for CLTK class.
 
         Args:
@@ -67,20 +61,21 @@ class NLP:
 
 
         >>> from cltk import NLP
-        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
         >>> isinstance(cltk_nlp, NLP)
         True
         >>> from cltk.core.data_types import Pipeline
         >>> from cltk.tokenizers import LatinTokenizationProcess
         >>> from cltk.languages.utils import get_lang
         >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
-        >>> nlp = NLP(language="lat", custom_pipeline=a_pipeline)
+        >>> nlp = NLP(language="lat", custom_pipeline=a_pipeline, suppress_banner=True)
         >>> nlp.pipeline is a_pipeline
         True
         """
         self.language = get_lang(language)  # type: Language
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
-        self._print_pipelines_for_current_lang()
+        if not suppress_banner:
+            self._print_pipelines_for_current_lang()
 
     def _print_pipelines_for_current_lang(self):
         """Print to screen the ``Process``es invoked upon invocation
@@ -122,15 +117,13 @@ class NLP:
 
         >>> from cltk.languages.example_texts import get_example_text
         >>> from cltk.core.data_types import Doc
-        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> isinstance(cltk_doc, Doc)
         True
         >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, \
-lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, \
-features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, \
-embedding=..., stop=False, named_entity='LOCATION', syllables=None, phonetic_transcription=None)
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=False, named_entity='LOCATION', syllables=None, phonetic_transcription=None, definition='')
+
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
         for process in self.pipeline.processes:
@@ -144,13 +137,13 @@ embedding=..., stop=False, named_entity='LOCATION', syllables=None, phonetic_tra
         are valid, both in themselves and in unison.
 
         >>> from cltk.core.data_types import Pipeline
-        >>> cltk_nlp = NLP(language="lat")
+        >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
         >>> lat_pipeline = cltk_nlp._get_pipeline()
         >>> isinstance(cltk_nlp.pipeline, Pipeline)
         True
         >>> isinstance(lat_pipeline, Pipeline)
         True
-        >>> cltk_nlp = NLP(language="axm")
+        >>> cltk_nlp = NLP(language="axm", suppress_banner=True)
         Traceback (most recent call last):
           ...
         cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO language code, however this algorithm is not available for ``axm``.

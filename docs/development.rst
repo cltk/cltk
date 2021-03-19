@@ -38,7 +38,7 @@ Use pyenv to manage Python versions and Poetry for package builds.  Note that py
 Git Flow
 --------
 
-* ``$ git branch -b fix-feature``
+* ``$ git checkout -b fix-feature``
 * Do changes
 * Install: ``$ make install``
 * Check changes in interactive Python shell (``$ make shell``) or notebook (``$ make notebook``)

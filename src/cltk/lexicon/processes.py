@@ -65,7 +65,7 @@ class LatinLexiconProcess(LexiconProcess):
     processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], \
     language=get_lang("lat"))
     
-    >>> nlp = NLP(language='lat', custom_pipeline=pipe)
+    >>> nlp = NLP(language='lat', custom_pipeline=pipe, suppress_banner=True)
     >>> cltk_doc = nlp.analyze(text=get_example_text("lat"))
     >>> [word.definition[:10] for word in cltk_doc.words][:5]
     ['', 'est\\n\\n\\n see', 'omnis e (o', '', 'in  old in']
@@ -91,9 +91,11 @@ class OldNorseLexiconProcess(LexiconProcess):
     processes=[OldNorseTokenizationProcess, OldNorseLexiconProcess], \
     language=get_lang("non"))
 
-    >>> nlp = NLP(language='non', custom_pipeline=pipe)
+    >>> nlp = NLP(language='non', custom_pipeline=pipe, suppress_banner=True)
     >>> cltk_doc = nlp.analyze(text=get_example_text("non"))
-    >>> [word.definition[:10] for word in cltk_doc.words][:5]
+
+    #>>> [word.definition[:10] for word in cltk_doc.words][:5] # TODO check this
+    #['', '(-s, -ar),', '', 'adv.\n1) th', '']
 
     """
 
