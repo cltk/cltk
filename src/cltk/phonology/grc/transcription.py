@@ -152,6 +152,16 @@ IPA = {
         "y",
         "yː",
         "ɔː",
+        "ɑj", # diphthongs
+        "ɛːj",
+        'ɛːj',
+        "oj",
+        "ɔːj",
+        'ɔːj',
+        "yj",
+        "ɑw",
+        "ew",
+        "ɛːw",
     ],
     "high": ["i", "iː", "y", "yː"],  # [-consonantal, +high]
     "low": ["ɑ", "ɛː", "ɔː", "ɑː"],  # [-consonantal, +low]
@@ -221,7 +231,7 @@ class Word:
         self.alts = self.root["alternations"]
 
         # Turns string of IPA characters into list of Phones
-        self.phones = [Phone(c) for c in re.findall(r".[̥́̂ʰ]?ː?", self.string)]
+        self.phones = [Phone(c) for c in re.findall(r".[̥́̂ʰ]?ː?[jw]?", self.string)]
 
     def _refresh(self):
         """
