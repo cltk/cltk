@@ -476,14 +476,14 @@ class Transcriber:
             # Adds macron, since iota subscripts only appear on long vowels
             # (and we need to use all clues to identify long vowels)
             iotashift = re.sub(
-                r"([αηω])(\/[́͂]*\/[̄¨]*)ͅ([̄¨]*\/)", r"\1ι\2̄\3", diphshift
+                r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1ι\2̄\3", diphshift
             )
         else:
             # Same as above, but deletes iota entirely: only adds macrons
             iotashift = re.sub(
-                r"([αηω])(\/[́͂]*\/[̄¨]*)ͅ([̄¨]*\/)", r"\1\2̄\3", diphshift
+                r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1\2̄\3", diphshift
             )
-        tup_out = re.findall(r"(..?)\/([́͂]*)\/([̄¨]*)\/", iotashift)
+        tup_out = re.findall(r"(..?)\/([́͂]*)\/([̄ ̈]*)\/", iotashift)
         return tup_out
 
     def transcribe(self, text, accentuate=True, syllabify=True):
