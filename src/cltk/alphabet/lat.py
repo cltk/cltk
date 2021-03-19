@@ -443,7 +443,7 @@ def normalize_lat(
     drop_accents: bool = False,
     drop_macrons: bool = False,
     jv_replacement: bool = False,
-    ligature_replacement: bool = False
+    ligature_replacement: bool = False,
 ) -> str:
     """The function for all default Latin normalization.
 
