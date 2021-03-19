@@ -92,7 +92,7 @@ class NLP:
         processes_name_str = "`, `".join(processes_name)  # type: str
         ltr_mark = "\u200E"
         alep = "𐤀"
-        print(f"{ltr_mark + alep} CLTK version '{cltk.__version__}'.")
+        print(f"{ltr_mark + alep} CLTK version '{cltk.__version__.version}'.")
         print(
             f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
         )

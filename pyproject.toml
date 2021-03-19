@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cltk"
-version = "1.0.5"
+version = "1.0.6"
 description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>", "Patrick J. Burns <patrick@diyclassics.org>", "John Stewart <johnstewart@aya.yale.edu>", "Todd Cook <todd.g.cook@gmail.com>", "Clément Besnier <https://github.com/clemsciences>", "William J. B. Mattingly <https://github.com/wjbmattingly>"]
@@ -43,6 +43,7 @@ stanza = "^1.0.0"
 nltk = "^3.5"
 stringcase = "^1.2"
 spacy = "^2.3.5"
+PyYAML = "^5.4.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.1"
