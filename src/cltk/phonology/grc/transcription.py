@@ -152,6 +152,16 @@ IPA = {
         "y",
         "yː",
         "ɔː",
+        "ɑj", # diphthongs
+        "ɛːj",
+        'ɛːj',
+        "oj",
+        "ɔːj",
+        'ɔːj',
+        "yj",
+        "ɑw",
+        "ew",
+        "ɛːw",
     ],
     "high": ["i", "iː", "y", "yː"],  # [-consonantal, +high]
     "low": ["ɑ", "ɛː", "ɔː", "ɑː"],  # [-consonantal, +low]
@@ -221,7 +231,7 @@ class Word:
         self.alts = self.root["alternations"]
 
         # Turns string of IPA characters into list of Phones
-        self.phones = [Phone(c) for c in re.findall(r".[̥́̂ʰ]?ː?", self.string)]
+        self.phones = [Phone(c) for c in re.findall(r".[̥́̂ʰ]?ː?[jw]?", self.string)]
 
     def _refresh(self):
         """
@@ -476,14 +486,14 @@ class Transcriber:
             # Adds macron, since iota subscripts only appear on long vowels
             # (and we need to use all clues to identify long vowels)
             iotashift = re.sub(
-                r"([αηω])(\/[́͂]*\/[̄¨]*)ͅ([̄¨]*\/)", r"\1ι\2̄\3", diphshift
+                r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1ι\2̄\3", diphshift
             )
         else:
             # Same as above, but deletes iota entirely: only adds macrons
             iotashift = re.sub(
-                r"([αηω])(\/[́͂]*\/[̄¨]*)ͅ([̄¨]*\/)", r"\1\2̄\3", diphshift
+                r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1\2̄\3", diphshift
             )
-        tup_out = re.findall(r"(..?)\/([́͂]*)\/([̄¨]*)\/", iotashift)
+        tup_out = re.findall(r"(..?)\/([́͂]*)\/([̄ ̈]*)\/", iotashift)
         return tup_out
 
     def transcribe(self, text, accentuate=True, syllabify=True):
