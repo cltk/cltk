@@ -425,7 +425,8 @@ def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFe
         feature_map = from_ud_map[feature_name]
     else:
         msg = f"{feature_name}: Unrecognized UD feature name"
-        raise CLTKException(msg)
+        print("From `from_ud():`", msg)
+        # raise CLTKException(msg)
         return None
 
     values = feature_value.split(",")
