@@ -1,6 +1,6 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from typing import Dict, List, Tuple, Type, Union
+from typing import Dict, List, Tuple, Type, Optional, Union
 
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import *
