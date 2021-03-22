@@ -29,6 +29,8 @@ To install from source, clone the Git repository and run:
 
 .. code-block::
 
+   $ git clone https://github.com/cltk/cltk.git
+   $ cd cltk/
    $ make install
 
 
