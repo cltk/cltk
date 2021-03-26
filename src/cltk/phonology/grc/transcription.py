@@ -152,12 +152,12 @@ IPA = {
         "y",
         "yː",
         "ɔː",
-        "ɑj", # diphthongs
+        "ɑj",  # diphthongs
         "ɛːj",
-        'ɛːj',
+        "ɛːj",
         "oj",
         "ɔːj",
-        'ɔːj',
+        "ɔːj",
         "yj",
         "ɑw",
         "ew",
