@@ -241,8 +241,9 @@ class StanzaWrapper:
         )  # TODO: Mv this a self. var or maybe even global
         processors = None  # if ``None``, then use defaults; was ``"tokenize,mwt,pos,lemma,depparse"``
         lemma_use_identity = False
+
         if self.language == "fro":
-            processors = "tokenize,pos,lemma"
+            processors = "tokenize,pos,lemma,depparse"
             lemma_use_identity = True
 
         nlp = stanza.Pipeline(

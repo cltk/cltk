@@ -97,7 +97,7 @@ class StanzaProcess(Process):
                     dependency_relation=stanza_word.deprel,
                     governor=stanza_word.head - 1
                     if stanza_word.head
-                    else -1,  # note: if val becomes ``-1`` then no governor, ie word is root; ``fro`` gives None sometimes, what does this mean?
+                    else -1,  # note: if val becomes ``-1`` then no governor, ie word is root
                 )  # type: Word
 
                 # convert UD features to the normalized CLTK features

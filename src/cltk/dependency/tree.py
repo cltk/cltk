@@ -263,12 +263,14 @@ class DependencyTree(ElementTree):
         for word in sentence:
             forms[word.index_token] = Form.to_form(word)
 
+        root = None
         for word in sentence:
             if word.dependency_relation == "root":
                 root = forms[word.index_token]
-            else:
+            elif word.governor != -1:
+                # only add a non-root element to the tree if it has a governor (i.e. not -1)
                 gov = forms[word.governor]
                 dep = forms[word.index_token]
                 gov >> dep | word.dependency_relation
 
-        return DependencyTree(root)
+        return DependencyTree(root) if root else None

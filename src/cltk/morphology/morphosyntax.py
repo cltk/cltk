@@ -1,6 +1,6 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from typing import List, Tuple, Type, Union
+from typing import Dict, List, Optional, Tuple, Type, Union
 
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import *
@@ -176,7 +176,7 @@ def to_categorial(pos: int) -> "MorphosyntacticFeatureBundle":
         return f()
 
 
-from_ud_map = {
+from_ud_map: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     # parts of speech
     "POS": {
         "ADJ": POS.adjective,
@@ -411,7 +411,7 @@ from_ud_map = {
 }
 
 
-def from_ud(feature_name: str, feature_value: str) -> MorphosyntacticFeature:
+def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFeature]:
     """For a given Universal Dependencies feature name and value,
     return the appropriate feature class/value.
     >>> from_ud('Case', 'Abl')
@@ -424,7 +424,10 @@ def from_ud(feature_name: str, feature_value: str) -> MorphosyntacticFeature:
     if feature_name in from_ud_map:
         feature_map = from_ud_map[feature_name]
     else:
-        raise CLTKException(f"{feature_name}: Unrecognized UD feature name")
+        msg = f"{feature_name}: Unrecognized UD feature name"
+        print("From `from_ud():`", msg)
+        # raise CLTKException(msg)
+        return None
 
     values = feature_value.split(",")
     for value in values:
