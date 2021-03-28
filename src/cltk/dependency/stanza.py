@@ -88,7 +88,7 @@ class StanzaWrapper:
         >>> stanza_wrapper = StanzaWrapper(language="lzh", stanza_debug_level="INFO", interactive=False)
         >>> stanza_doc = stanza_wrapper.parse(get_example_text("lzh"))
 
-        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO")
+        >>> stanza_wrapper = StanzaWrapper(language="lat", treebank="xxx", stanza_debug_level="INFO", interactive=False)
         Traceback (most recent call last):
           ...
         cltk.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.

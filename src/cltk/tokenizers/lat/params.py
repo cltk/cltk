@@ -1,14 +1,11 @@
-""" Params: Latin
+""" Parameters for Latin Word Tokenization and Exceptions."""
 
-TODO: Some of these are only used for training. PRAENOMINA for training punkt tokenizer (als ABBREVIATIONS, CALENDAR, MISC)
-TODO: The enclitic exceptions (que_exceptions and below) can all be deleted
-
-"""
-
-__author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
+__author__ = [
+    "Patrick J. Burns <patrick@diyclassics.org>",
+    "Todd Cook <todd.g.cook@gmail.com",
+]
 __license__ = "MIT License."
 
-### Exceptions for the word tokenizer
 from typing import List
 
 PRAENOMINA = [
@@ -68,9 +65,9 @@ PRAENOMINA = [
     "sta",
     "t",
     "ti",
-    "v",
-    "vol",
-    "vop",
+    "u",  # `v` may appear as `u`
+    "uol",
+    "uop",
 ]
 
 CALENDAR = [
@@ -85,6 +82,7 @@ CALENDAR = [
     "sept",
     "oct",
     "nov",
+    "nou",  # `v` may appear as `u`
     "dec",
 ] + ["kal", "non", "id", "a.d"]
 
@@ -672,6 +670,7 @@ n_exceptions += [
     "lucan",
     "martin",
     "novatian",
+    "nouatian",  # `v` may appear as `u`
     "quintilian",
     "roman",
     "tertullian",
@@ -803,6 +802,7 @@ latin_replacements = [
     (r"\bsecum\b", "cum se"),
     (r"\bnobiscum\b", "cum nobis"),
     (r"\bvobiscum\b", "cum vobis"),
+    (r"\buobiscum\b", "cum uobis"),  # `v` may appear as `u`
     (r"\bquocum\b", "cum quo"),
     (r"\bquacum\b", "cum qua"),
     (r"\bquicum\b", "cum qui"),

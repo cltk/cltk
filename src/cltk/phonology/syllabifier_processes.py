@@ -42,7 +42,7 @@ class GreekSyllabificationProcess(SyllabificationProcess):
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk import NLP
     >>> a_pipeline = Pipeline(description="A custom Greek pipeline", processes=[GreekTokenizationProcess, DefaultPunctuationRemovalProcess, GreekSyllabificationProcess], language=get_lang("grc"))
-    >>> nlp = NLP(language='grc', custom_pipeline=a_pipeline)
+    >>> nlp = NLP(language='grc', custom_pipeline=a_pipeline, suppress_banner=True)
     >>> text = get_example_text("grc")
     >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]
@@ -67,7 +67,7 @@ class LatinSyllabificationProcess(SyllabificationProcess):
     >>> from cltk.languages.example_texts import get_example_text
     >>> from cltk import NLP
     >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess, DefaultPunctuationRemovalProcess, LatinSyllabificationProcess], language=get_lang("lat"))
-    >>> nlp = NLP(language='lat', custom_pipeline=a_pipeline)
+    >>> nlp = NLP(language='lat', custom_pipeline=a_pipeline, suppress_banner=True)
     >>> text = get_example_text("lat")
     >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]
@@ -93,7 +93,7 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Middle English pipeline", \
     processes=[MiddleEnglishTokenizationProcess, DefaultPunctuationRemovalProcess, MiddleEnglishSyllabificationProcess], \
     language=get_lang("enm"))
-    >>> nlp = NLP(language='enm', custom_pipeline=pipe)
+    >>> nlp = NLP(language='enm', custom_pipeline=pipe, suppress_banner=True)
     >>> text = get_example_text("enm").replace('\\n', ' ')
     >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]
@@ -119,7 +119,7 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Middle High German pipeline", \
     processes=[MiddleHighGermanTokenizationProcess, DefaultPunctuationRemovalProcess, \
     MiddleHighGermanSyllabificationProcess], language=get_lang("gmh"))
-    >>> nlp = NLP(language='gmh', custom_pipeline=pipe)
+    >>> nlp = NLP(language='gmh', custom_pipeline=pipe, suppress_banner=True)
     >>> text = get_example_text("gmh")
     >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]
@@ -145,7 +145,7 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Old English pipeline", \
     processes=[MiddleEnglishTokenizationProcess, DefaultPunctuationRemovalProcess, OldEnglishSyllabificationProcess], \
     language=get_lang("ang"))
-    >>> nlp = NLP(language='ang', custom_pipeline=pipe)
+    >>> nlp = NLP(language='ang', custom_pipeline=pipe, suppress_banner=True)
     >>> text = get_example_text("ang")
     >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]
@@ -172,7 +172,7 @@ class OldNorseSyllabificationProcess(SyllabificationProcess):
     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
     processes=[OldNorseTokenizationProcess, OldNorsePunctuationRemovalProcess, OldNorseSyllabificationProcess], \
     language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline=pipe)
+    >>> nlp = NLP(language='non', custom_pipeline=pipe, suppress_banner=True)
     >>> text = get_example_text("non")
     >>> cltk_doc = nlp(text)
     >>> [word.syllables for word in cltk_doc.words[:5]]

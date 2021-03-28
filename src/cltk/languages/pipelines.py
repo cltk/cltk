@@ -222,7 +222,7 @@ class GreekPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Ancient Greek'
     >>> a_pipeline.processes[0]
-    <class 'cltk.dependency.processes.GreekStanzaProcess'>
+    <class 'cltk.alphabet.processes.GreekNormalizeProcess'>
     """
 
     description: str = "Pipeline for the Greek language"
@@ -277,7 +277,7 @@ class LatinPipeline(Pipeline):
     >>> a_pipeline.language.name
     'Latin'
     >>> a_pipeline.processes[0]
-    <class 'cltk.dependency.processes.LatinStanzaProcess'>
+    <class 'cltk.alphabet.processes.LatinNormalizeProcess'>
     """
 
     description: str = "Pipeline for the Latin language"
