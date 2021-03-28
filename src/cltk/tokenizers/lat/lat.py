@@ -57,7 +57,7 @@ class LatinWordTokenizer(WordTokenizer):
         ['atque', 'haec', 'abuter', '-que', 'puer', '-ve', 'pater', '-ne', 'nihil']
 
         >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
-        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex', '.', 'Roscio']
+        ['Cicero', 'dixit', 'orationem', 'pro', 'Sex.', 'Roscio']
 
         >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
         ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
@@ -149,6 +149,16 @@ class LatinWordTokenizer(WordTokenizer):
             if not is_enclitic:
                 specific_tokens.append(token)
 
+        # collapse abbreviations
+        abbrev_idx = []
+        for idx, token in enumerate(specific_tokens):
+            if token.lower() in self.punkt_param.abbrev_types:
+                abbrev_idx.append(idx)
+        for val in reversed(abbrev_idx):
+            if val + 1 < len(specific_tokens) and specific_tokens[val + 1] == ".":
+                specific_tokens[val] = specific_tokens[val] + "."
+                specific_tokens[val + 1] = ""
+        specific_tokens = [tmp for tmp in specific_tokens if tmp]
         return specific_tokens
 
     @staticmethod

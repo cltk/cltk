@@ -74,7 +74,7 @@ class JVReplacer:  # pylint: disable=too-few-public-methods
 JV_REPLACER = JVReplacer()
 
 
-class AEOEReplacer:  # pylint: disable=too-few-public-methods
+class LigatureReplacer:  # pylint: disable=too-few-public-methods
     """Replace 'œæ' with AE, 'Œ Æ' with OE.
     Classical Latin wrote the o and e separately (as has today again become the general practice),
     but the ligature was used by medieval and early modern writings, in part because the
@@ -85,7 +85,7 @@ class AEOEReplacer:  # pylint: disable=too-few-public-methods
     letter in the alphabets of some languages, including Danish, Norwegian, Icelandic, and Faroese.
     See: https://en.wikipedia.org/wiki/%C3%86
 
-    >>> replacer = AEOEReplacer()
+    >>> replacer = LigatureReplacer()
     >>> replacer.replace("mæd")
     'maed'
 
@@ -95,7 +95,7 @@ class AEOEReplacer:  # pylint: disable=too-few-public-methods
     """
 
     def __init__(self):
-        """Initialization for AEOEReplacer, reads replacement pattern tuple."""
+        """Initialization for LigatureReplacer, reads replacement pattern tuple."""
         patterns = [(r"œ", "oe"), (r"æ", "ae"), (r"Œ", "OE"), (r"Æ", "AE")]
         self.patterns = [(re.compile(regex), repl) for (regex, repl) in patterns]
 
@@ -106,7 +106,7 @@ class AEOEReplacer:  # pylint: disable=too-few-public-methods
         return text
 
 
-LIGATURE_REPLACER = AEOEReplacer()
+LIGATURE_REPLACER = LigatureReplacer()
 
 
 def dehyphenate(text: str) -> str:
