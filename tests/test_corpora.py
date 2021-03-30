@@ -59,7 +59,6 @@ from cltk.utils.file_operations import make_cltk_path
 # from cltk.corpus.aramaic.transliterate import square_to_imperial
 # from cltk.corpus.utils.formatter import normalize_fr
 # from cltk.corpus.swadesh import Swadesh
-# from cltk.corpus.readers import assemble_corpus, get_corpus_reader
 # from cltk.corpus.latin.latin_library_corpus_types import (
 #     corpus_texts_by_type,
 #     corpus_directories_by_type,
@@ -121,7 +120,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     def test_tlgu_init(self):
         """Test constructors of TLGU module for check, import, and install."""
         TLGU(interactive=False)
-        header_file = make_cltk_path("greek/software/greek_software_tlgu/README.md")
+        header_file = make_cltk_path("grc/software/grc_software_tlgu/README.md")
         self.assertTrue(os.path.isfile(header_file))
 
 
@@ -299,22 +298,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 #         non_latin_str = remove_non_latin(latin_str, also_keep=[".", ","])
 #         valid = " Dices   pulchrum esse inimicos ulcisci."
 #         self.assertEqual(non_latin_str, valid)
-#
-#     def test_latin_library_reader_missing_corpus(self):
-#         """
-#         Needs to precede (for now) the next two tests which load the corpus
-#         Provided by Patrick Burns
-#         """
-#         corpus_importer = CorpusImporter("latin")
-#         # corpus_importer.import_corpus('latin_text_latin_library')
-#         corpus_importer.import_corpus("latin_models_cltk")
-#
-#         def _import():
-#             with patch("builtins.input", return_value="n"):
-#                 from cltk.corpus.readers import latinlibrary
-#
-#                 self.assertRaises(OSError, _import)
-#
+
 #     def test_import_lat_text_lat_lib(self):
 #         """Test cloning the Latin Library text corpus."""
 #         corpus_importer = CorpusImporter("latin")
@@ -325,57 +309,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 #         _file = os.path.expanduser(file_rel)
 #         file_exists = os.path.isfile(_file)
 #         self.assertTrue(file_exists)
-#
-#     def test_import_latin_library_corpus_reader(self):
-#         """Test the Latin Library corpus reader."""
-#         corpus_importer = CorpusImporter("latin")
-#         corpus_importer.import_corpus("latin_text_latin_library")
-#         reader = get_corpus_reader(
-#             language="latin", corpus_name="latin_text_latin_library"
-#         )
-#         ALL_FILE_IDS = list(reader.fileids())
-#         self.assertTrue(len(ALL_FILE_IDS) > 2100)
-#
-#     def test_json_corpus_reader(self):
-#         """Test filtered corpus sents method."""
-#         reader = get_corpus_reader(language="latin", corpus_name="latin_text_perseus")
-#         # this has simple sections
-#         reader._fileids = ["cicero__on-behalf-of-aulus-caecina__latin.json"]
-#         self.assertTrue(len(list(reader.paras())) >= 1)
-#         self.assertTrue(len(list(reader.sents())) > 400)
-#         self.assertTrue(len(list(reader.words())) > 12000)
-#         reader = get_corpus_reader(language="latin", corpus_name="latin_text_perseus")
-#         # this example has subsections
-#         reader._fileids = ["ausonius-decimus-magnus__eclogarum-liber__latin.json"]
-#         self.assertTrue(len(list(reader.docs())) == 1)
-#         self.assertTrue(len(list(reader.paras())) >= 1)
-#         self.assertTrue(len(list(reader.sents())) > 50)
-#         self.assertTrue(len(list(reader.words())) > 2750)
-#         # reader = get_corpus_reader(corpus_name='greek_text_perseus', language='greek')
-#         # reader._fileids = ['plato__apology__grc.json']
-#         # self.assertTrue(len(list(reader.docs())) == 1)
-#         # self.assertTrue(len(list(reader.paras())) > 1)
-#         # self.assertTrue(len(list(reader.sents())) > 260)
-#         # self.assertTrue(len(list(reader.words())) > 9800)
-#
-#     def test_tesserae_corpus_reader(self):
-#         """Test Tesserae corpus methods."""
-#         # Update when corpus is add to CLTK
-#         reader = get_corpus_reader(language="greek", corpus_name="greek_text_tesserae")
-#         sample = reader.fileids()[0]
-#         self.assertTrue(len(list(reader.docs(sample))) >= 1)
-#         self.assertTrue(len(list(reader.texts(sample))) >= 1)
-#         self.assertTrue(len(list(reader.paras(sample))) >= 1)
-#         self.assertTrue(len(list(reader.sents(sample))) >= 1)
-#         self.assertTrue(len(list(reader.words(sample))) >= 1)
-#         self.assertTrue(len(list(reader.lines(sample))) >= 1)
-#         self.assertTrue(reader.describe())
-#         self.assertTrue(len(list(reader.pos_tokenize(sample))) >= 1)
-#
-#     def test_json_corpus_reader_sizes(self):
-#         """Test filtered corpus sizes method."""
-#         reader = get_corpus_reader(language="latin", corpus_name="latin_text_perseus")
-#         self.assertTrue(len(list(reader.sizes())) > 290)
 #
 #     def test_import_latin_models_cltk(self):
 #         """Test cloning the CLTK Latin models."""
@@ -758,111 +691,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 #         target = "'madame' quod he 'reule me as ye lyketh best'"
 #         test = normalize_middle_english(in_test)
 #         self.assertEqual(target, test)
-#
-#
-# class TestFilteredCorpus(unittest.TestCase):
-#     """Test the Latin Library corpus reader filter"""
-#
-#     @classmethod
-#     def setUpClass(self):
-#         try:
-#             corpus_importer = CorpusImporter("latin")
-#             corpus_importer.import_corpus("latin_models_cltk")
-#             corpus_importer.import_corpus("latin_text_latin_library")
-#         except:
-#             raise Exception("Failure to download test corpus")
-#         self.reader = get_corpus_reader(
-#             language="latin", corpus_name="latin_text_latin_library"
-#         )
-#         self.reader._fileids = ["pervig.txt"]
-#         # Need a additional instance because tests below change internals #TO-DO Fix
-#         self.reader_2 = get_corpus_reader(
-#             language="latin", corpus_name="latin_text_latin_library"
-#         )
-#         self.reader_3 = get_corpus_reader(
-#             language="latin", corpus_name="latin_text_latin_library"
-#         )
-#         self.reader_4 = get_corpus_reader(
-#             language="latin", corpus_name="latin_text_latin_library"
-#         )
-#
-#     def test_import_latin_library_corpus_filter_by_file(self):
-#         """Test the Latin Library corpus reader filter by files."""
-#         filtered_reader = assemble_corpus(
-#             self.reader_2, types_requested=["old"], type_files=corpus_texts_by_type
-#         )
-#         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-#
-#     def test_import_latin_library_corpus_filter_by_dir(self):
-#         """Test the Latin Library corpus reader filter by directories."""
-#         filtered_reader = assemble_corpus(
-#             self.reader_3, types_requested=["old"], type_dirs=corpus_directories_by_type
-#         )
-#         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-#
-#     def test_import_latin_library_corpus_filter_by_file_and_dir(self):
-#         """Test the Latin Library corpus reader filter by directories."""
-#         filtered_reader = assemble_corpus(
-#             self.reader_4,
-#             types_requested=["old"],
-#             type_dirs=corpus_directories_by_type,
-#             type_files=corpus_texts_by_type,
-#         )
-#         self.assertTrue(len(list(filtered_reader.fileids())) > 0)
-#
-#     def test_filtered_corpus_reader_sents(self):
-#         """Test filtered corpus sents method."""
-#         sents = self.reader.sents()
-#         uniq_words = distinct_words(sents)
-#         # Curious—why the original test checked for two different words?
-#         if "Library" in uniq_words:
-#             self.fail("Filtered word present!")
-#         # You can check for uniq_words because it implies that sents had content
-#         self.assertTrue(uniq_words)
-#
-#     def test_filtered_corpus_reader_paras(self):
-#         """Test filtered corpus paras method."""
-#         paras = self.reader.paras()
-#         sents = [sent for para in paras for sent in para]
-#         uniq_words = distinct_words(sents)
-#         if "Library" in uniq_words:
-#             self.fail("Filtered word present!")
-#         self.assertTrue(uniq_words)
-#
-#     def test_filtered_corpus_reader_words(self):
-#         """Test filtered corpus words method."""
-#         words = self.reader.words()
-#         uniq_words = distinct_words(words)
-#         if "Library" in uniq_words:
-#             self.fail("Filtered word present!")
-#         self.assertTrue(uniq_words)
-#
-#     def test_filtered_corpus_reader_docs(self):
-#         """Test filtered corpus docs method."""
-#         docs = list(self.reader.docs())
-#         uniq_words = distinct_words(docs)
-#         if "Library" in uniq_words:
-#             self.fail("Filtered word present!")
-#         self.assertTrue(len(docs) > 0)
-#         problem_files = [
-#             "caesar/bc3.txt",
-#             "hymni.txt",
-#             "varro.frag.txt",
-#             "varro.ll10.txt",
-#             "varro.ll5.txt",
-#             "varro.ll6.txt",
-#             "varro.ll7.txt",
-#             "varro.ll8.txt",
-#             "varro.ll9.txt",
-#         ]
-#         for filename in problem_files:
-#             doc = list(self.reader.docs([filename]))
-#             assert doc
-#             assert len(doc[0]) > 100
-#
-#     def test_filtered_corpus_reader_sizes(self):
-#         """Test filtered corpus sizes method."""
-#         self.assertTrue(len(list(self.reader.sizes())) > 0)
 #
 #
 # class TestUnicode(unittest.TestCase):

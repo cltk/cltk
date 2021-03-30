@@ -25,7 +25,6 @@ Subpackages
    cltk.ner
    cltk.phonology
    cltk.prosody
-   cltk.readers
    cltk.sentence
    cltk.stem
    cltk.stops
