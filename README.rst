@@ -1,4 +1,4 @@
-|travis| |rtd| |pypi| |zenodo|
+|travis| |pypi| |zenodo|
 
 
 .. |travis| image:: https://travis-ci.org/cltk/cltk.svg?branch=master
@@ -32,10 +32,9 @@ For the CLTK's latest version:
 
    $ pip install cltk
 
-Requirements:
-   - Python version 3.7, 3.8, 3.9
-   - A Unix-like OS
-   - To install from source, see `Development <https://docs.cltk.org/en/latest/includes/development.html>`_ in the docs.
+For more information, see `Installation docs <https://docs.cltk.org/en/latest/installation.html>`_ or, to install from source, `Development <https://docs.cltk.org/en/latest/development.html>`_.
+
+Pre-1.0 software remains available on the `branch v0.1.x <https://github.com/cltk/cltk/tree/v0.1.x>`_ and docs at `<https://legacy.cltk.org/en/latest/>`_.
 
 
 Documentation
