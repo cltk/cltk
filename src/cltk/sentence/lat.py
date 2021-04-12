@@ -23,7 +23,7 @@ from cltk.utils.file_operations import open_pickle
 
 
 class LatinLanguageVars(PunktLanguageVars):
-    _re_non_word_chars = PunktLanguageVars._re_non_word_chars.replace("'", "")
+    _re_non_word_chars = PunktLanguageVars()._re_non_word_chars.replace("'", "")
 
 
 PUNCTUATION = (".", "?", "!")
