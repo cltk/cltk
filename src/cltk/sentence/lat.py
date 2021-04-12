@@ -21,7 +21,11 @@ from cltk.sentence.sentence import PunktSentenceTokenizer
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
-LATIN_LANGUAGE_VARS = PunktLanguageVars()._re_non_word_chars.replace("'", "")
+
+class LatinLanguageVars(PunktLanguageVars):
+    _re_non_word_chars = PunktLanguageVars()._re_non_word_chars.replace("'", "")
+
+
 PUNCTUATION = (".", "?", "!")
 STRICT_PUNCTUATION = PUNCTUATION + ("-", ":", ";")
 
@@ -35,7 +39,7 @@ class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
         :param strict : allow for stricter punctuation for sentences tokenization
         :type strict: bool
         """
-        self.lang_vars = LATIN_LANGUAGE_VARS
+        self.lang_vars = LatinLanguageVars()
         self.strict = strict
         super().__init__(language="lat", lang_vars=self.lang_vars)
 

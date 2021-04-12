@@ -17,7 +17,8 @@ from cltk.tokenizers.lat.params import latin_replacements as REPLACEMENTS
 from cltk.tokenizers.word import WordTokenizer
 
 
-LATIN_LANGUAGE_VARS = PunktLanguageVars()._re_non_word_chars.replace("'", "")
+class LatinLanguageVars(PunktLanguageVars):
+    _re_non_word_chars = PunktLanguageVars()._re_non_word_chars.replace("'", "")
 
 
 class LatinWordTokenizer(WordTokenizer):
@@ -31,7 +32,7 @@ class LatinWordTokenizer(WordTokenizer):
         self.punkt_param = PunktParameters()
         self.punkt_param.abbrev_types = set(ABBREVIATIONS)
         self.sent_tokenizer = LatinPunktSentenceTokenizer()
-        self.word_tokenizer = LATIN_LANGUAGE_VARS
+        self.word_tokenizer = LatinLanguageVars()
 
     def tokenize(
         self,
