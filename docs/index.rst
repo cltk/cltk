@@ -1,57 +1,23 @@
 .. Classical Language Toolkit documentation master file, created by
-   sphinx-quickstart on Sat Jan 25 22:43:50 2014.
+   sphinx-quickstart on Mon Aug 19 22:05:11 2019.
    You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+   contain the root ``toctree`` directive.
 
-The Classical Language Toolkit (CLTK)
-*************************************
 
 Contents
 ========
-.. toctree::
-   :maxdepth: 2
 
-   about
-   citation
-   installation
-   importing_corpora
-   corpus_readers
-   akkadian
-   arabic
-   bengali
-   chinese
-   coptic
-   ancient_egyptian
-   old_english
-   middle_english
-   french
-   middle_high_german.rst
-   middle_low_german
-   gothic
-   greek
-   gujarati
-   hebrew
-   hindi
-   javanese
-   kannada
-   latin
-   malayalam
-   marathi
-   multilingual
-   old_norse
-   odia
-   ottoman
-   pali
-   persian
-   phonology
-   old_portuguese
-   prakrit
-   punjabi
-   sanskrit
-   old_swedish
-   tamil
-   telugu
-   tibetan
-   tocharian_b
-   tutorials.rst
-   urdu
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+   :titlesonly:
+   :glob:
+
+   About <about.rst>
+   Quickstart <quickstart.rst>
+   Installation <installation.rst>
+   Data <data.rst>
+   Languages <languages.rst>
+   Pipelines, Processes, Docs, and Words <pipelines.rst>
+   Development <development.rst>
+   CLTK API <cltk.rst>
