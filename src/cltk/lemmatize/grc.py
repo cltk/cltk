@@ -26,6 +26,8 @@ models_path = os.path.normpath(
 class GreekBackoffLemmatizer:
     """Suggested backoff chain; includes at least on of each
     type of major sequential backoff class from backoff.py
+
+
     """
 
     def __init__(
@@ -105,6 +107,10 @@ class GreekBackoffLemmatizer:
         Lemmatize a list of words.
 
         >>> lemmatizer = GreekBackoffLemmatizer()
+        >>> from cltk.alphabet.text_normalization import cltk_normalize
+        >>> word = cltk_normalize('διοτρεφές')
+        >>> lemmatizer.lemmatize([word])
+        [('διοτρεφές', 'διοτρεφής')]
         >>> lemmatizer.lemmatize("κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος".split())
         [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθὲς'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), \
 ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
