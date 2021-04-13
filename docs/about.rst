@@ -20,6 +20,15 @@ Maintainers
 - `William J. B. Mattingly <https://github.com/wjbmattingly>`_
 
 
+Advisors
+--------
+
+- Neil Coffee, University at Buffalo (Associate Professor of Classics); `Tesserae <http://tesserae.caset.buffalo.edu/>`_ (Principal Investigator)
+- Gregory Crane, Universität Leipzig (Humboldt Chair of Digital Humanities), Tufts University (Professor of Classics); `Perseus <http://www.perseus.tufts.edu/hopper/>`_ (Editor–in–Chief) and `Open Philology <http://www.dh.uni-leipzig.de/wo/open-philology-project/>`_ (Director)
+- Peter Meineck, New York University (Associate Professor of Classics); Aquila Theatre (Founder), Ancient Greeks/Modern Lives (Founder, Director)
+- Leonard Muellner, Brandeis University (Professor Emeritus of Classical Studies); Center for Hellenic Studies (Director of Publications, Information Technology and Libraries)
+
+
 Citation
 --------
 
@@ -31,15 +40,6 @@ Citation
     url = {https://github.com/cltk/cltk},
     year = {2014--2021},
    }
-
-
-Advisors
---------
-
-- Neil Coffee, University at Buffalo (Associate Professor of Classics); `Tesserae <http://tesserae.caset.buffalo.edu/>`_ (Principal Investigator)
-- Gregory Crane, Universität Leipzig (Humboldt Chair of Digital Humanities), Tufts University (Professor of Classics); `Perseus <http://www.perseus.tufts.edu/hopper/>`_ (Editor–in–Chief) and `Open Philology <http://www.dh.uni-leipzig.de/wo/open-philology-project/>`_ (Director)
-- Peter Meineck, New York University (Associate Professor of Classics); Aquila Theatre (Founder), Ancient Greeks/Modern Lives (Founder, Director)
-- Leonard Muellner, Brandeis University (Professor Emeritus of Classical Studies); Center for Hellenic Studies (Director of Publications, Information Technology and Libraries)
 
 
 License
