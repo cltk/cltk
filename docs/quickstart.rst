@@ -83,4 +83,4 @@ For more, see :doc:`pipelines`.
 Tutorials
 ---------
 
-Demonstration notebooks available at `<https://github.com/cltk/cltk/tree/dev/notebooks>`_.
+Demonstration notebooks available at `<https://github.com/cltk/cltk/blob/master/notebooks>`_.
