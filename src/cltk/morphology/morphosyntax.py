@@ -295,6 +295,7 @@ from_ud_map: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Word": NumForm.word,
         "Digit": NumForm.digit,
         "Roman": NumForm.roman,
+        "Reference": NumForm.reference,
     },
     "Case": {
         # structural cases
