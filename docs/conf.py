@@ -18,7 +18,6 @@ from typing import Dict, List, Union
 import pkg_resources
 
 # errors on rtd build
-# import cltk
 from cltk.nlp import iso_to_pipeline
 
 # this path required for local build, to find ``pyproject.toml``
@@ -31,24 +30,24 @@ sys.path.insert(0, os.path.abspath("../src/cltk"))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 project = "The Classical Language Toolkit"
-dt_today = datetime.today()  # type: datetime
-curr_year = dt_today.year  # type: int
+dt_today: datetime = datetime.today()
+curr_year: int = dt_today.year
 copyright = f" 2014-{curr_year} Kyle P. Johnson"
 # author = "Kyle P. Johnson et al."
 # the following errors on rtd server
 # cltk_project = cltk.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
-# author_list = cltk_project["authors"]  # type: List[str]
+# author_list: List[str] = cltk_project["authors"]
 # author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-curr_version = pkg_resources.get_distribution(
+curr_version: pkg_resources.EggInfoDistribution = pkg_resources.get_distribution(
     "cltk"
-)  # type: pkg_resources.EggInfoDistribution
-release = curr_version.version  # type: str
+)
+release: str = curr_version.version
 
 
-langs_available_pipelines = [
+langs_available_pipelines: List[str] = [
     val.language.name for _, val in iso_to_pipeline.items()
-]  # type: List[str]
+]
 langs_available_pipelines_len = len(langs_available_pipelines)
 langs_available_pipelines_alpha = sorted(langs_available_pipelines)
 langs_available_pipelines_str = "- " + "\n- ".join(langs_available_pipelines_alpha)
@@ -128,7 +127,7 @@ templates_path = ["_templates"]
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "modules.rst"]
 
 
 # -- Options for HTML op_output -------------------------------------------------
@@ -142,6 +141,6 @@ html_theme = "alabaster"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
-html_favicon = "favicon-32x32.png"
+html_static_path = ["_static"]  # Note: This doesn't help find the favicon
+html_favicon = "_static/favicon-32x32.png"  # Note: Full path required here
 # https://alabaster.readthedocs.io/en/latest/installation.html

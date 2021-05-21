@@ -24,11 +24,8 @@ Use pyenv to manage Python versions and Poetry for package builds.  Note that py
    - Find the Python versions supported by the CLTK, see ``pyproject.toml``.
    - ``$ pyenv install --list | grep 3.8``
    - ``$ pyenv install 3.8.3`` (or whatever is latest)
-   - ``$ pyenv virtualenv 3.8.3 cltk``
-
-   Ensure that your working directory is `cltk', then:
-
-   - ``$ pyenv local cltk``. Open a new terminal and this should be activated (check with ``$ python --version``).
+   - ``$ pyenv virtualenv 3.8.3 cltk``.
+   - Ensure that your working directory is ``cltk``, then: ``$ pyenv local cltk``. Open a new terminal and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
 * Download NLP models: ``$ poetry run python scripts/download_all_models.py`` with optional flag ``--languages=lat`` for only those of a specific language.
