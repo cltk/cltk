@@ -345,6 +345,7 @@ class NumForm(MorphosyntacticFeature):
     word = auto()
     digit = auto()
     roman = auto()
+    reference = auto()
 
 
 class Definiteness(MorphosyntacticFeature):
