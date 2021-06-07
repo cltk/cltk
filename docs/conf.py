@@ -39,9 +39,7 @@ copyright = f" 2014-{curr_year} Kyle P. Johnson"
 # author_list: List[str] = cltk_project["authors"]
 # author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
-curr_version: pkg_resources.EggInfoDistribution = pkg_resources.get_distribution(
-    "cltk"
-)
+curr_version: pkg_resources.EggInfoDistribution = pkg_resources.get_distribution("cltk")
 release: str = curr_version.version
 
 
