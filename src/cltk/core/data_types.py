@@ -11,6 +11,7 @@ of the NLP pipeline.
 
 import importlib
 from abc import ABC, abstractmethod
+from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Dict, List, Type, Union
 
@@ -106,6 +107,25 @@ category={}, stop=None, named_entity=None, syllables=None, phonetic_transcriptio
 
 
 @dataclass
+class Sentence:
+    """
+    The Data Container for sentences.
+    """
+
+    words: List[Word] = None
+    index: int = None
+    embedding: np.ndarray = field(repr=False, default=None)
+
+    def __getitem__(self, item):
+        """This indexing operation descends into the word list structure."""
+        return self.words[item]
+
+    def __len__(self):
+        """Returns the number of tokens in the sentence"""
+        return len(self.words)
+
+
+@dataclass
 class Doc:
     """The object returned to the user from the ``NLP()`` class.
     Contains overall attributes of submitted texts, plus most
@@ -169,28 +189,34 @@ class Doc:
     raw: str = None
     normalized_text: str = None
     embeddings_model = None
+    sent_embeddings: Dict[int, np.ndarray] = field(
+        repr=False, default=None
+    )  #: slot for sentences
 
     @property
-    def sentences(self) -> List[List[Word]]:
-        """Returns a list of lists, with the inner list being a
-        list of ``Word`` objects.
-        """
-        sentences = {}
+    def sentences(self) -> List[Sentence]:
+        """Returns a list of Sentences, with each sentence being a container for a
+        list of ``Word`` objects."""
+        sents = defaultdict(list)
         for word in self.words:
-            sentence = sentences.get(word.index_sentence, {})
-            sentence[word.index_token] = word
-            sentences[word.index_sentence] = sentence
-
-        sorted_values = lambda dict: [x[1] for x in sorted(dict.items())]
-
-        return [sorted_values(sentence) for sentence in sorted_values(sentences)]
+            sents[word.index_sentence].append(word)
+        for key in sents:
+            sents[key].sort(key=lambda x: x.index_token)
+        if (
+            not self.sent_embeddings
+        ):  # sometimes not available, nor initialized; e.g. stanza
+            self.sent_embeddings = {}
+        return [
+            Sentence(words=val, index=key, embedding=self.sent_embeddings.get(key))
+            for key, val in sorted(sents.items(), key=lambda x: x[0])
+        ]
 
     @property
     def sentences_tokens(self) -> List[List[str]]:
         """Returns a list of lists, with the inner list being a
         list of word token strings.
         """
-        sentences_list = self.sentences  # type: List[List[Word]]
+        sentences_list = self.sentences  # type: List[Sentence]
         sentences_tokens = list()  # type: List[List[str]]
         for sentence in sentences_list:
             sentence_tokens = [word.string for word in sentence]  # type: List[str]
@@ -202,7 +228,7 @@ class Doc:
         """Returns a list of strings, with each string being
         a sentence reconstructed from the word tokens.
         """
-        sentences_list = self.sentences_tokens  # type: List[List[str]]
+        sentences_list = self.sentences_tokens  # type: List[Sentence]
         sentences_str = list()  # type: List[str]
         for sentence_tokens in sentences_list:  # type: List[str]
             if self.language == "akk":
