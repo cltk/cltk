@@ -57,9 +57,10 @@ class GreekBackoffLemmatizer:
 
         def _randomize_data(train: List[list], seed: int):
             import random
+
             random.seed(seed)
             random.shuffle(train)
-            train_size = int(.9 * len(train))
+            train_size = int(0.9 * len(train))
             pos_train_sents = train[:train_size]
             lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
             train_sents = lem_train_sents[:train_size]
@@ -111,8 +112,8 @@ class GreekBackoffLemmatizer:
         >>> word = cltk_normalize('διοτρεφές')
         >>> lemmatizer.lemmatize([word])
         [('διοτρεφές', 'διοτρεφής')]
-        >>> lemmatizer.lemmatize("κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος".split())
-        [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθὲς'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), \
+        >>> lemmatizer.lemmatize("κατέβην εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος".split())
+        [('κατέβην', 'καταβαίνω'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), \
 ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
         """
 
