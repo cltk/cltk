@@ -116,11 +116,11 @@ class Sentence:
     index: int = None
     embedding: np.ndarray = field(repr=False, default=None)
 
-    def __getitem__(self, item):
+    def __getitem__(self, item: int) -> Word:
         """This indexing operation descends into the word list structure."""
         return self.words[item]
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Returns the number of tokens in the sentence"""
         return len(self.words)
 
@@ -197,7 +197,7 @@ class Doc:
     def sentences(self) -> List[Sentence]:
         """Returns a list of Sentences, with each sentence being a container for a
         list of ``Word`` objects."""
-        sents = defaultdict(list)
+        sents: Dict[int, List[Word]] = defaultdict(list)
         for word in self.words:
             sents[word.index_sentence].append(word)
         for key in sents:

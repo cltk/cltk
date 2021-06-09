@@ -36,8 +36,8 @@ class EmbeddingsProcess(Process):
     variant: str = "fasttext"
     embedding_length: int = None
     word_idf: Optional[Dict[str, float]] = field(repr=False, default=None)
-    min_idf = None
-    max_idf = None
+    min_idf: Optional[np.float64] = None
+    max_idf: Optional[np.float64] = None
 
     @cachedproperty
     def algorithm(self):
@@ -165,7 +165,7 @@ class SanskritEmbeddingsProcess(EmbeddingsProcess):
     language: str = "san"
 
 
-TFIDF_MAP = {
+TFIDF_MAP: Dict[str, str] = {
     "lat": os.path.join(
         CLTK_DATA_DIR,
         "lat/model/lat_models_cltk/tfidf/",
@@ -235,7 +235,7 @@ def get_sent_embeddings(
     :return ndarray: values of the sentence embedding, or returns an array of zeroes
     if no sentence embedding could be computed.
     """
-    embed_map = {
+    embed_map: Dict[str, Tuple[np.float64, np.ndarray]] = {
         tmp.string: (
             rescale_idf(word_idf.get(tmp.string.lower(), min_idf), min_idf, max_idf),
             tmp.embedding,
@@ -243,8 +243,8 @@ def get_sent_embeddings(
         for tmp in sent.words
         if not np.all((tmp.embedding == 0))  # skip processing empty embeddings
     }
-    words = embed_map.keys()
-    weights_embedds = embed_map.values()
+    words: KeysView = embed_map.keys()
+    weights_embedds: ValuesView = embed_map.values()
     if (
         len(weights_embedds) < 2
     ):  # we can't create a sentence embedding for just one word
