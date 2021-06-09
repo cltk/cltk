@@ -1,5 +1,4 @@
-"""Module for lemmatizing Ancient Greek
-"""
+"""Module for lemmatizing Ancient Greek."""
 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License. See LICENSE."
@@ -25,9 +24,7 @@ models_path = os.path.normpath(
 
 class GreekBackoffLemmatizer:
     """Suggested backoff chain; includes at least on of each
-    type of major sequential backoff class from backoff.py
-
-
+    type of major sequential backoff class from backoff.py.
     """
 
     def __init__(
@@ -112,9 +109,9 @@ class GreekBackoffLemmatizer:
         >>> word = cltk_normalize('διοτρεφές')
         >>> lemmatizer.lemmatize([word])
         [('διοτρεφές', 'διοτρεφής')]
-        >>> lemmatizer.lemmatize("κατέβην εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος".split())
-        [('κατέβην', 'καταβαίνω'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), \
-('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
+        >>> republic = cltk_normalize("κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος")
+        >>> lemmatizer.lemmatize(republic.split())
+        [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθές'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
         """
 
         lemmas = self.lemmatizer.lemmatize(tokens)

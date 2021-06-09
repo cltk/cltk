@@ -1,6 +1,7 @@
 """This module holds the embeddings ``Process``es."""
 import os
 import pickle
+from collections.abc import KeysView, ValuesView
 from copy import deepcopy
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
@@ -9,9 +10,11 @@ import numpy as np
 from boltons.cacheutils import cachedproperty
 from sklearn.decomposition import TruncatedSVD
 
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process, Sentence
 from cltk.core.exceptions import CLTKException
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
+from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
 
 
@@ -74,7 +77,7 @@ class EmbeddingsProcess(Process):
                 model_path = TFIDF_MAP[self.language]
                 if not os.path.isdir(model_path):
                     msg = f"TFIDF model path '{model_path}' not found. Going to try to download it ..."
-                    logging.warning(msg)
+                    logger.warning(msg)
                     dl_msg = f"This part of the CLTK depends upon models from the CLTK project."
                     model_url = f"https://github.com/cltk/{self.language}_models_cltk"
                     download_prompt(
@@ -88,9 +91,9 @@ class EmbeddingsProcess(Process):
             self.min_idf = np.min(np.array(list(self.word_idf.values())))
             self.max_idf = np.max(np.array(list(self.word_idf.values())))
         if self.word_idf:
-            output_doc.sent_embeddings = {}  # type: Dict[int, np.ndarray]
+            output_doc.sentence_embeddings = {}  # type: Dict[int, np.ndarray]
             for index, sent_obj in enumerate(output_doc.sentences):
-                output_doc.sent_embeddings[index] = get_sent_embeddings(
+                output_doc.sentence_embeddings[index] = get_sent_embeddings(
                     sent_obj,
                     self.word_idf,
                     self.min_idf,
@@ -226,7 +229,7 @@ def get_sent_embeddings(
     Word can only appear once in a sentence, multiple occurrences are collapsed.
     Must have 2 or more embeddings, otherwise Principle Component cannot be found and removed.
 
-    :param sent: Sentence
+    :param sent: ``Sentence``
     :param word_idf: a dictionary of tokens and idf values
     :param min_idf: the min idf score to use for scaling
     :param max_idf: the max idf score to use for scaling
@@ -245,16 +248,15 @@ def get_sent_embeddings(
     }
     words: KeysView = embed_map.keys()
     weights_embedds: ValuesView = embed_map.values()
-    if (
-        len(weights_embedds) < 2
-    ):  # we can't create a sentence embedding for just one word
+    # We can't create a sentence embedding for just one word
+    if len(weights_embedds) < 2:
         return np.zeros(dimensions)
     weights, embedds = zip(*weights_embedds)
     if sum(weights) == 0:
         return np.zeros(dimensions)
-    embedds = remove_pc(np.array(embedds))
-    scale_factor = 1 / sum(weights)
-    scaled_vals = np.array([tmp * scale_factor for tmp in weights])
-    # apply our weighted terms to the adjusted embeddings
-    weighted_embeds = embedds * scaled_vals[:, None]
+    embedds: np.ndarray = remove_pc(np.array(embedds))
+    scale_factor: np.float64 = 1 / sum(weights)
+    scaled_vals: np.float64 = np.array([tmp * scale_factor for tmp in weights])
+    # Apply our weighted terms to the adjusted embeddings
+    weighted_embeds: np.ndarray = embedds * scaled_vals[:, None]
     return np.sum(weighted_embeds, axis=0)

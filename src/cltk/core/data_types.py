@@ -189,25 +189,22 @@ class Doc:
     raw: str = None
     normalized_text: str = None
     embeddings_model = None
-    sent_embeddings: Dict[int, np.ndarray] = field(
-        repr=False, default=None
-    )  #: slot for sentences
+    sentence_embeddings: Dict[int, np.ndarray] = field(repr=False, default=None)
 
     @property
     def sentences(self) -> List[Sentence]:
-        """Returns a list of Sentences, with each sentence being a container for a
+        """Returns a list of ``Sentence``s, with each ``Sentence`` being a container for a
         list of ``Word`` objects."""
         sents: Dict[int, List[Word]] = defaultdict(list)
         for word in self.words:
             sents[word.index_sentence].append(word)
         for key in sents:
             sents[key].sort(key=lambda x: x.index_token)
-        if (
-            not self.sent_embeddings
-        ):  # sometimes not available, nor initialized; e.g. stanza
-            self.sent_embeddings = {}
+        # Sometimes not available, nor initialized; e.g. stanza
+        if not self.sentence_embeddings:
+            self.sentence_embeddings = dict()
         return [
-            Sentence(words=val, index=key, embedding=self.sent_embeddings.get(key))
+            Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
             for key, val in sorted(sents.items(), key=lambda x: x[0])
         ]
 
@@ -216,10 +213,9 @@ class Doc:
         """Returns a list of lists, with the inner list being a
         list of word token strings.
         """
-        sentences_list = self.sentences  # type: List[Sentence]
-        sentences_tokens = list()  # type: List[List[str]]
-        for sentence in sentences_list:
-            sentence_tokens = [word.string for word in sentence]  # type: List[str]
+        sentences_tokens: List[List[str]] = list()
+        for sentence in self.sentences:
+            sentence_tokens: List[str] = [word.string for word in sentence]
             sentences_tokens.append(sentence_tokens)
         return sentences_tokens
 
