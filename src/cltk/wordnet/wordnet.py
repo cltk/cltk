@@ -1650,8 +1650,7 @@ class WordNetCorpusReader(CorpusReader):
     # }
 
     def __init__(self, iso_code, ignore_errors=False):
-        """Construct a new WordNet corpus reader
-        """
+        """Construct a new WordNet corpus reader"""
         super(WordNetCorpusReader, self).__init__(
             encoding=self._ENCODING, root="", fileids=None
         )
