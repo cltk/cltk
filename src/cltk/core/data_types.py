@@ -224,16 +224,16 @@ class Doc:
         """Returns a list of strings, with each string being
         a sentence reconstructed from the word tokens.
         """
-        sentences_list = self.sentences_tokens  # type: List[Sentence]
-        sentences_str = list()  # type: List[str]
+        sentences_list: List[List[str]] = self.sentences_tokens
+        sentences_str: List[str] = list()
         for sentence_tokens in sentences_list:  # type: List[str]
             if self.language == "akk":
-                # akk produces List[Tuple[str, str]]
+                # 'akk' produces List[Tuple[str, str]]
                 sentence_tokens_str = " ".join(
                     [tup[0] for tup in sentence_tokens]
                 )  # type: str
             else:
-                sentence_tokens_str = " ".join(sentence_tokens)  # type: str
+                sentence_tokens_str: str = " ".join(sentence_tokens)
             sentences_str.append(sentence_tokens_str)
         return sentences_str
 

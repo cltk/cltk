@@ -85,7 +85,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
     elif iso_code in ["ang", "grc", "lat"]:
         return spacy_tag_ner(
             iso_code=iso_code, text_tokens=input_tokens, model_path=NER_DICT[iso_code]
-        )  # type: List[str, None]
+        )  # List[str, None]
     else:
         with open(ner_file_path) as file_open:
             ner_str = file_open.read()
