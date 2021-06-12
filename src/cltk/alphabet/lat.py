@@ -26,7 +26,7 @@ __license__ = "MIT License"
 import re
 from typing import Dict
 
-from cltk.alphabet.text_normalization import cltk_normalize
+from cltk.alphabet.text_normalization import cltk_normalize, split_trailing_punct
 
 BRACE_STRIP = re.compile(r"{[^}]+}")
 NUMERALS = re.compile(r"[0-9]+")
@@ -464,7 +464,8 @@ def normalize_lat(
     'cano Iulii suspensam quăm aegerrume ĭndignu is óccidentem frúges Iulius Caesar. In uino ueritas. maed proeil'
 
     """
-    text_cltk_normalized = cltk_normalize(text=text)  # type: str
+    text_cltk_normalized: str = cltk_normalize(text=text)
+    text_cltk_normalized = split_trailing_punct(text=text_cltk_normalized)
     if drop_macrons:
         text_cltk_normalized = remove_macrons(text_cltk_normalized)
     if drop_accents:

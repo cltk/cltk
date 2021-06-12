@@ -17,7 +17,7 @@ __author__ = [
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
 ]
 
-from cltk.alphabet.text_normalization import cltk_normalize
+from cltk.alphabet.text_normalization import cltk_normalize, split_trailing_punct
 
 # Upper Case Vowels
 UPPER = [  #
@@ -639,6 +639,7 @@ def tonos_oxia_converter(text, reverse=False):
 
 def normalize_grc(text: str) -> str:
     """The function for all default Greek normalization."""
-    text_cltk_normalized = cltk_normalize(text=text)  # type: str
-    text_oxia_converted = tonos_oxia_converter(text=text_cltk_normalized)  # type: str
-    return text_oxia_converted
+    text_cltk_normalized: str = cltk_normalize(text=text)
+    text_oxia_converted: str = tonos_oxia_converter(text=text_cltk_normalized)
+    text_punct_processed: str = split_trailing_punct(text=text_oxia_converted)
+    return text_punct_processed
