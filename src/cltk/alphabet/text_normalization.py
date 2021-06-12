@@ -37,7 +37,7 @@ def remove_non_latin(input_string, also_keep=None):
 
 def split_trailing_punct(text: str, punctuation: Optional[List[str]] = None) -> str:
     """Some tokenizers, including that in Stanza, do not always
-    handle punctuation properly. For example, trailing colon (``"οἶδα:"``)
+    handle punctuation properly. For example, a trailing colon (``"οἶδα:"``)
     is not split into an extra punctuation token. This function
     does such splitting on raw text before being sent to such
     a tokenizer.
