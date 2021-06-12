@@ -58,7 +58,7 @@ def split_trailing_punct(text: str, punctuation: Optional[List[str]] = None) -> 
     new_chars: List[str] = list()
     for char in text:
         if char in punctuation:
-            new_chars.append(" :")
+            new_chars.append(" " + char)
         else:
             new_chars.append(char)
     return "".join(new_chars)
