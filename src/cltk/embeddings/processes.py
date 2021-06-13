@@ -18,7 +18,6 @@ from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
-
 TFIDF_MAP: Dict[str, str] = {
     "lat": os.path.join(
         CLTK_DATA_DIR,

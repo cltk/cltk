@@ -26,7 +26,12 @@ __license__ = "MIT License"
 import re
 from typing import Dict
 
-from cltk.alphabet.text_normalization import cltk_normalize, split_trailing_punct
+from cltk.alphabet.text_normalization import (
+    cltk_normalize,
+    remove_odd_punct,
+    split_leading_punct,
+    split_trailing_punct,
+)
 
 BRACE_STRIP = re.compile(r"{[^}]+}")
 NUMERALS = re.compile(r"[0-9]+")
@@ -465,7 +470,9 @@ def normalize_lat(
 
     """
     text_cltk_normalized: str = cltk_normalize(text=text)
-    text_cltk_normalized = split_trailing_punct(text=text_cltk_normalized)
+    # text_cltk_normalized = split_trailing_punct(text=text_cltk_normalized)
+    # text_cltk_normalized = split_leading_punct(text=text_cltk_normalized)
+    text_cltk_normalized = remove_odd_punct(text=text_cltk_normalized)
     if drop_macrons:
         text_cltk_normalized = remove_macrons(text_cltk_normalized)
     if drop_accents:
