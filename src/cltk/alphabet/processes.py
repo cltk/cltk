@@ -64,7 +64,6 @@ class LatinNormalizeProcess(NormalizeProcess):
     >>> normalized_text = normalize_proc.run(input_doc=non_normed_doc)
     >>> normalized_text == orig_text
     False
-
     """
 
     language = "lat"

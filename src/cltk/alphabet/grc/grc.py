@@ -644,8 +644,8 @@ def tonos_oxia_converter(text, reverse=False):
 
 def normalize_grc(text: str) -> str:
     """The function for all default Greek normalization."""
-    text_cltk_normalized: str = cltk_normalize(text=text)
-    text_oxia_converted: str = tonos_oxia_converter(text=text_cltk_normalized)
+    # text_cltk_normalized: str = cltk_normalize(text=text)
+    text_oxia_converted: str = tonos_oxia_converter(text=text)
     # text_punct_processed: str = split_trailing_punct(text=text_oxia_converted)
     # text_punct_processed = split_leading_punct(text=text_punct_processed)
     text_punct_processed: str = remove_odd_punct(text=text_oxia_converted)
