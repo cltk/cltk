@@ -14,6 +14,7 @@ Morpheus entry, the Macronizer class allows for multiple POS to be used.
 
 import importlib.machinery
 import os
+from typing import List, Tuple
 
 from cltk.core.cltk_logger import logger
 from cltk.tag.pos import POSTag
@@ -51,14 +52,15 @@ class Macronizer:
         macrons = module.vowel_len_map
         return macrons
 
-    def _retrieve_tag(self, text):
+    def _retrieve_tag(self, text: str) -> List[Tuple[str, str]]:
         """Tag text with chosen tagger and clean tags.
 
         Tag format: ``[('word', 'tag')]``
 
         :param text: string
+
         :return: list of tuples, with each tuple containing the word and its pos tag
-        :rtype : list
+
         """
         if (
             self.tagger == "tag_ngram_123_backoff"
@@ -72,15 +74,16 @@ class Macronizer:
             tags = POSTag("lat").tag_crf(text.lower())
             return [(tag[0], tag[1]) for tag in tags]
 
-    def _retrieve_morpheus_entry(self, word):
+    def _retrieve_morpheus_entry(self, word: str) -> Tuple[str, str, str]:
         """Return Morpheus entry for word
 
         Entry format: ``[(head word, tag, macronized form)]``
 
         :param word: unmacronized, lowercased word
         :ptype word: string
+
         :return: Morpheus entry in tuples
-        :rtype : list
+
         """
         entry = self.macron_data.get(word)
         if entry is None:
@@ -90,13 +93,12 @@ class Macronizer:
             logger.info("No Morpheus entry found for {}.".format(word))
         return entry
 
-    def _macronize_word(self, word):
+    def _macronize_word(self, word: Tuple[str, str]) -> Tuple[str, str, str]:
         """Return macronized word.
 
         :param word: (word, tag)
-        :ptype word: tuple
+
         :return: (word, tag, macronized_form)
-        :rtype : tuple
         """
         head_word = word[0]
         tag = word[1]
@@ -121,7 +123,7 @@ class Macronizer:
                 logger.info("Multiple matching entries found for {}.".format(head_word))
                 return head_word, tag.lower(), matched_entry[1][2].lower()
 
-    def macronize_tags(self, text):
+    def macronize_tags(self, text: str) -> List[Tuple[str, str, str]]:
         """Return macronized form along with POS tags.
 
         E.g. "Gallia est omnis divisa in partes tres," ->
@@ -130,20 +132,21 @@ class Macronizer:
         ('tres', 'm--------', 'trēs')]
 
         :param text: raw text
+
         :return: tuples of head word, tag, macronized form
-        :rtype : list
         """
         return [self._macronize_word(word) for word in self._retrieve_tag(text)]
 
-    def macronize_text(self, text):
+    def macronize_text(self, text: str) -> str:
         """Return macronized form of text.
 
         E.g. "Gallia est omnis divisa in partes tres," ->
         "galliā est omnis dīvīsa in partēs trēs ,"
 
         :param text: raw text
+
         :return: macronized text
-        :rtype : str
+
         """
         macronized_words = [entry[2] for entry in self.macronize_tags(text)]
         return " ".join(macronized_words)

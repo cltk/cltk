@@ -24,3 +24,11 @@ cltk.embeddings.processes module
    :members:
    :undoc-members:
    :show-inheritance:
+
+cltk.embeddings.sentence module
+-------------------------------
+
+.. automodule:: cltk.embeddings.sentence
+   :members:
+   :undoc-members:
+   :show-inheritance:
