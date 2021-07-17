@@ -214,55 +214,59 @@ def remove_accents(text: str) -> str:  # pylint: disable=too-many-statements
     'fruges'
 
     """
-    text = text.replace(r"á", "a")  # suspensám
-    text = text.replace(r"Á", "A")
-    text = text.replace(r"á", "a")  # Note: this accent is different than the one above!
-    text = text.replace(r"Á", "A")
-    text = text.replace(r"ă", "a")  # 'quăm'
-    text = text.replace(r"Ă", "A")
-    text = text.replace(r"à", "a")
-    text = text.replace(r"À", "A")
-    text = text.replace(r"â", "a")
-    text = text.replace(r"Â", "A")
-    text = text.replace(r"ä", "a")
-    text = text.replace(r"Ä", "A")
-    text = text.replace(r"é", "e")  # aegérrume
-    text = text.replace(r"è", "e")
-    text = text.replace(r"È", "E")
-    text = text.replace(r"é", "e")
-    text = text.replace(r"É", "E")
-    text = text.replace(r"ê", "e")
-    text = text.replace(r"Ê", "E")
-    text = text.replace(r"ë", "e")
-    text = text.replace(r"Ë", "E")
-    text = text.replace(r"ĭ", "i")  # ĭndignu
-    text = text.replace(r"î", "i")  # 'îs'
-    text = text.replace(r"í", "i")
-    text = text.replace(r"í", "i")
-    text = text.replace(r"î", "i")
-    text = text.replace(r"Î", "I")
-    text = text.replace(r"ï", "i")
-    text = text.replace(r"Ï", "I")
-    text = text.replace(r"ó", "o")  # óccidentem
-    text = text.replace(r"ô", "o")
-    text = text.replace(r"Ô", "O")
-    text = text.replace(r"ö", "o")
-    text = text.replace(r"Ö", "O")
-    text = text.replace(r"û", "u")
-    text = text.replace(r"Û", "U")
-    text = text.replace(r"ù", "u")
-    text = text.replace(r"Ù", "U")
-    text = text.replace(r"ü", "u")
-    text = text.replace(r"Ü", "U")
-    text = text.replace(r"ú", "u")  # frúges
-    text = text.replace(r"ÿ", "y")
-    text = text.replace(r"Ÿ", "Y")
-    text = text.replace(r"ç", "c")
-    text = text.replace(r"Ç", "C")
-    text = text.replace(r"ë", "e")
-    text = text.replace(r"Ë", "E")
-    text = text.replace(r"Ȳ", "Y")
-    text = text.replace(r"ȳ", "y")
+    replacements = (
+        (r"á", "a"),
+        (r"Á", "A"),
+        (r"á", "a"),
+        (r"Á", "A"),
+        (r"ă", "a"),
+        (r"Ă", "A"),
+        (r"à", "a"),
+        (r"À", "A"),
+        (r"â", "a"),
+        (r"Â", "A"),
+        (r"ä", "a"),
+        (r"Ä", "A"),
+        (r"é", "e"),
+        (r"è", "e"),
+        (r"È", "E"),
+        (r"é", "e"),
+        (r"É", "E"),
+        (r"ê", "e"),
+        (r"Ê", "E"),
+        (r"ë", "e"),
+        (r"Ë", "E"),
+        (r"ĭ", "i"),
+        (r"î", "i"),
+        (r"í", "i"),
+        (r"í", "i"),
+        (r"î", "i"),
+        (r"Î", "I"),
+        (r"ï", "i"),
+        (r"Ï", "I"),
+        (r"ó", "o"),
+        (r"ô", "o"),
+        (r"Ô", "O"),
+        (r"ö", "o"),
+        (r"Ö", "O"),
+        (r"û", "u"),
+        (r"Û", "U"),
+        (r"ù", "u"),
+        (r"Ù", "U"),
+        (r"ü", "u"),
+        (r"Ü", "U"),
+        (r"ú", "u"),
+        (r"ÿ", "y"),
+        (r"Ÿ", "Y"),
+        (r"ç", "c"),
+        (r"Ç", "C"),
+        (r"ë", "e"),
+        (r"Ë", "E"),
+        (r"Ȳ", "Y"),
+        (r"ȳ", "y"),
+    )
+    for target, tranformation in replacements:
+        text = text.replace(target, tranformation)
     return text
 
 

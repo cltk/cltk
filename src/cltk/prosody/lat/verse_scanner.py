@@ -5,7 +5,8 @@ Some useful methods
 * Performs elisions
 * Accents vowels by position
 * Breaks the line into a list of syllables by calling a Syllabifier class which may be injected
- into this classes constructor.
+into this classes constructor.
+
 """
 
 import logging

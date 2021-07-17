@@ -20,7 +20,7 @@ def compute_pc(x: np.ndarray, npc: int = 1) -> np.ndarray:
     :param npc: number of principal components to remove
     :return: component_[i,:] is the i-th pc
 
-    This has been adapted from the SIF paper code: https://openreview.net/pdf?id=SyK00v5xx
+    This has been adapted from the SIF paper code: `https://openreview.net/pdf?id=SyK00v5xx`.
     """
     svd: TruncatedSVD = TruncatedSVD(n_components=npc, n_iter=7, random_state=0)
     svd.fit(x)
@@ -28,13 +28,13 @@ def compute_pc(x: np.ndarray, npc: int = 1) -> np.ndarray:
 
 
 def remove_pc(x: np.ndarray, npc: int = 1) -> np.ndarray:
-    """Remove the projection on the principal components.
+    """Remove the projection on the principal components. Calling this on a collection of sentence embeddings, prior to comparison, may improve accuracy.
 
     :param x: X[i,:] is a data point
     :param npc: number of principal components to remove
     :return: XX[i, :] is the data point after removing its projection
 
-    This has been adapted from the SIF paper code: `<https://openreview.net/pdf?id=SyK00v5xx>`_.
+    This has been adapted from the SIF paper code: `https://openreview.net/pdf?id=SyK00v5xx`.
     """
     pc: np.ndarray = compute_pc(x, npc)
     if npc == 1:
@@ -51,8 +51,7 @@ def get_sent_embeddings(
     max_idf: Union[float, np.float64],
     dimensions: int = 300,
 ) -> np.ndarray:
-    """Provides the weighted average of a sentence's word vectors
-    with the principle component removed.
+    """Provides the weighted average of a sentence's word vectors.
 
     Expectations:
     Word can only appear once in a sentence, multiple occurrences are collapsed.
@@ -64,10 +63,8 @@ def get_sent_embeddings(
     :param max_idf: the max idf score to use for scaling
     :param dimensions: the number of dimensions of the embedding
 
-    :return ndarray: values of the sentence embedding, or returns an array of zeroes
-    if no sentence embedding could be computed.
+    :return ndarray: values of the sentence embedding, or returns an array of zeroes if no sentence embedding could be computed.
     """
-    # val: float, min_idf: float, max_idf:
     map_word_embedding: Dict[str, Tuple[np.float64, np.ndarray]] = {
         token.string: (
             rescale_idf(idf_model.get(token.string.lower(), min_idf), min_idf, max_idf),
@@ -76,7 +73,6 @@ def get_sent_embeddings(
         for token in sent.words
         if not np.all((token.embedding == 0))  # skip processing empty embeddings
     }
-    # words: KeysView = embed_map.keys()
     weight_embedding_tuple: ValuesView = map_word_embedding.values()
     # We can't create a sentence embedding for just one word
     if len(weight_embedding_tuple) < 2:
@@ -84,7 +80,6 @@ def get_sent_embeddings(
     weights, embeddings = zip(*weight_embedding_tuple)
     if sum(weights) == 0:
         return np.zeros(dimensions)
-    embeddings: np.ndarray = remove_pc(np.array(embeddings))
     scale_factor: np.float64 = 1 / sum(weights)
     scaled_weights: List[np.float64] = [weight * scale_factor for weight in weights]
     scaled_values: np.ndarray = np.array(scaled_weights)

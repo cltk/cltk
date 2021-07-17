@@ -37,8 +37,7 @@ class MetricalValidator:
     def is_valid_hendecasyllables(self, scanned_line: str) -> bool:
         """Determine if a scansion pattern is one of the valid Hendecasyllables metrical patterns
 
-        Args:
-            scanned_line: a line containing a sequence of stressed and unstressed syllables
+        :param scanned_line: a line containing a sequence of stressed and unstressed syllables
 
         >>> print(MetricalValidator().is_valid_hendecasyllables("-U-UU-U-U-U"))
         True
@@ -77,12 +76,11 @@ class MetricalValidator:
     def hexameter_feet(self, scansion: str) -> List[str]:
         """
         Produces a list of hexameter feet, stressed and unstressed syllables with spaces intact.
-        If the scansion line is not entirely correct, it will attempt to corral one or more improper
-        patterns into one or more feet.
+        If the scansion line is not entirely correct, it will attempt to corral one or more improper patterns into one or more feet.
 
-        :param: scansion: the scanned line
-        :return list of strings, representing the feet of the hexameter, or if the scansion is
-        wildly incorrect, the function will return an empty list.
+        :param: scansion, the scanned line
+
+        :return list of strings, representing the feet of the hexameter, or if the scansion is wildly incorrect, the function will return an empty list.
 
         >>> print("|".join(MetricalValidator().hexameter_feet(
         ... "- U U   -     -  - -   -  -     - U  U  -  U")).strip() )
@@ -90,6 +88,7 @@ class MetricalValidator:
         >>> print("|".join(MetricalValidator().hexameter_feet(
         ... "- U U   -     -  U -   -  -     - U  U  -  U")).strip())
         - U U   |-     -  |U -   |-  -     |- U  U  |-  U
+
         """
         backwards_scan = list(scansion.rstrip())
         feet = []
@@ -160,6 +159,7 @@ class MetricalValidator:
     def hexameter_possible_unstresses() -> List[int]:
         """
         Provide a list of possible positions which may be unstressed syllables in a hexameter.
+
         :return: a zero based list enumerating which syllables are known to be unstressed.
         """
         return list(set(range(17)) - set(range(17)[::3]))
@@ -168,8 +168,7 @@ class MetricalValidator:
         """
         Find the closest group of matching valid hexameter patterns.
 
-        :return: list of the closest valid hexameter patterns; only candidates with a matching
-        length/number of syllables are considered.
+        :return: list of the closest valid hexameter patterns; only candidates with a matching length/number of syllables are considered.
 
         >>> print(MetricalValidator().closest_hexameter_patterns('-UUUUU-----UU--'))
         ['-UU-UU-----UU--']
@@ -189,8 +188,7 @@ class MetricalValidator:
         """
         Find the closest group of matching valid pentameter patterns.
 
-        :return: list of the closest valid pentameter patterns; only candidates with a matching
-        length/number of syllables are considered.
+        :return: list of the closest valid pentameter patterns; only candidates with a matching length/number of syllables are considered.
 
         >>> print(MetricalValidator().closest_pentameter_patterns('--UUU--UU-UUX'))
         ['---UU--UU-UUX']
@@ -201,8 +199,7 @@ class MetricalValidator:
         """
         Find the closest group of matching valid hendecasyllable patterns.
 
-        :return: list of the closest valid hendecasyllable patterns; only candidates with a matching
-        length/number of syllables are considered.
+        :return: list of the closest valid hendecasyllable patterns; only candidates with a matching length/number of syllables are considered.
 
         >>> print(MetricalValidator().closest_hendecasyllable_patterns('UU-UU-U-U-X'))
         ['-U-UU-U-U-X', 'U--UU-U-U-X']
@@ -215,8 +212,7 @@ class MetricalValidator:
 
         :patterns: a list of patterns
         :scansion: the scansion pattern thus far
-        :return: list of the closest valid patterns; only candidates with a matching
-        length/number of syllables are considered.
+        :return: list of the closest valid patterns; only candidates with a matching length/number of syllables are considered.
         """
         pattern = scansion.replace(" ", "")
         pattern = pattern.replace(self.constants.FOOT_SEPARATOR, "")
@@ -238,8 +234,7 @@ class MetricalValidator:
         however since it *is* a possible combination, we include it here.
 
         :param stress_positions: 5 binary integers, indicating whether foot is dactyl or spondee
-        :return: a valid hexameter scansion template, a string representing stressed and
-        unstresssed syllables with the optional terminal ending.
+        :return: a valid hexameter scansion template, a string representing stressed and unstresssed syllables with the optional terminal ending.
 
         >>> print(MetricalValidator()._build_hexameter_template("01010"))
         -UU---UU---UU-X
