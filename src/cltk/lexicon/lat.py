@@ -47,6 +47,8 @@ class LatinLewisLexicon:
         >>> lll = LatinLewisLexicon()
         >>> lll.lookup("clemens")[:50]
         'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
+        >>> all(word in lll.lookup("levis") for word in ["levis","lēvis"]) # Test for concatenated entries
+        True
         >>> lll.lookup("omnia")
         ''
         >>> lll.lookup(".")
@@ -54,6 +56,8 @@ class LatinLewisLexicon:
         >>> lll.lookup("123")
         ''
         >>> lll.lookup("175.")
+        ''
+        >>> lll.lookup("(") # Test for regex special character
         ''
         """
         if not self.entries:
@@ -64,7 +68,7 @@ class LatinLewisLexicon:
         if regex.match(r"^[0-9\.\?,\:;\!\<\>\-]*$", lemma) is not None:
             return ""
 
-        lemma = lemma.lower()
+        lemma = regex.escape(lemma.lower())
 
         keys = self.entries.keys()
         matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)]
