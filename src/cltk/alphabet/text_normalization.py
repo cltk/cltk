@@ -58,7 +58,7 @@ def split_trailing_punct(text: str, punctuation: Optional[List[str]] = None) -> 
         punctuation = [":", "’", "”"]  # closing curly quotes
     new_chars: List[str] = list()
     for index, char in enumerate(text):
-        if char in punctuation and index > 0::
+        if char in punctuation and index > 0:
             # Check whether the punct is attached to a word end
             prev_char = text[index - 1]
             # If a space already before the punct, then don't add space
