@@ -86,7 +86,7 @@ def split_leading_punct(text: str, punctuation: Optional[List[str]] = None) -> s
     Returns:
         Text string with leading punctuation separated by a whitespace character.
 
-    raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
+    >>> raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
     >>> split_leading_punct(text=raw_text)
     '‘ κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν'
     """
