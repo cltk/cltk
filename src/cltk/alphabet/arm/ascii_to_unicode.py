@@ -10,11 +10,16 @@ The ISO output follows ISO 9985 (1996).
 The Classical output is based in Hübschmann-Meillet with adaptations from
 Macack, Martin (2017) The phonology of Classical Armenian in Klein, Joseph and
 Friz. (2017) Handbook of Comparative and Historical Linguistics, volume 41.2.
+
+
+TODO: Add tests
+TODO: Implement a system to derive the D՜D notation for numerical conversion.
 """
 
 import re
 
 __author__ =  ["Caio Geraldes <caio.geraldes@usp.br"]
+
 
 ASCII_TO_ARMENIAN_SCRIPT_MINISCULES = [
         # Complex input (+1 char)
