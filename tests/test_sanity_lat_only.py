@@ -9,7 +9,7 @@ import numpy as np
 from stanza.models.common.doc import Document
 
 from cltk import NLP
-from cltk.core.data_types import Doc, Language, Pipeline, Process, Word
+from cltk.core.data_types import Doc, Language, Word
 from cltk.languages.example_texts import get_example_text
 from cltk.languages.pipelines import LatinPipeline
 from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle
@@ -20,10 +20,10 @@ class TestNLPLatin(unittest.TestCase):
     """Test all Latin models in default pipeline."""
 
     def test_nlp_latin(self):
-        TO = time.time()
+        time_0 = time.time()
         print("Starting complete `NLP()` test for 'lat' ...")
 
-        lang = "lat"  # type: str
+        lang: str = "lat"
 
         self.assertIsInstance(LatinPipeline.description, str)
         self.assertIsInstance(LatinPipeline.language, Language)
@@ -39,7 +39,7 @@ class TestNLPLatin(unittest.TestCase):
         text = get_example_text(iso_code=lang)
         self.assertIsInstance(text, str)
 
-        cltk_nlp = NLP(language=lang)  # type: NLP
+        cltk_nlp: NLP = NLP(language=lang)
         self.assertIsInstance(cltk_nlp, NLP)
 
         cltk_doc = cltk_nlp.analyze(text=text)
@@ -66,7 +66,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(word.upos, str)
         self.assertIsInstance(word.xpos, str)
 
-        print(f"Finished complete test of `NLP()` in {time.time() - TO} secs.")
+        print(f"Finished complete test of `NLP()` in {time.time() - time_0} secs.")
 
 
 if __name__ == "__main__":
