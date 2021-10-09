@@ -1,4 +1,4 @@
-|circleci| |pypi| |zenodo|
+|circleci| |pypi|
 
 
 .. |circleci| image:: https://circleci.com/gh/cltk/cltk/tree/master.svg?style=svg
