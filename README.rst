@@ -1,7 +1,7 @@
-|travis| |pypi| |zenodo|
+|circleci| |pypi| |zenodo|
 
 
-.. image:: https://circleci.com/gh/cltk/cltk/tree/master.svg?style=svg
+.. |circleci| image:: https://circleci.com/gh/cltk/cltk/tree/master.svg?style=svg
         :target: https://circleci.com/gh/cltk/cltk/tree/master
 
 .. |rtd| image:: https://img.shields.io/readthedocs/cltk
