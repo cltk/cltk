@@ -46,6 +46,13 @@ Documentation at `<https://docs.cltk.org>`_.
 Citation
 ========
 
+When using the CLTK, please cite `the following publication <https://aclanthology.org/2021.acl-demo.3>`_, including the DOI:
+
+   Johnson, Kyle P., Patrick J. Burns, John Stewart, Todd Cook, Clément Besnier, and William J. B.  Mattingly. "The Classical Language Toolkit: An NLP Framework for Pre-Modern Languages." In *Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing: System Demonstrations*, pp. 20-29. 2021. 10.18653/v1/2021.acl-demo.3
+
+
+The complete BibTeX entry:
+
 .. code-block:: bibtex
 
    @inproceedings{johnson-etal-2021-classical,
@@ -65,7 +72,8 @@ Citation
        doi = "10.18653/v1/2021.acl-demo.3",
        pages = "20--29",
        abstract = "This paper announces version 1.0 of the Classical Language Toolkit (CLTK), an NLP framework for pre-modern languages. The vast majority of NLP, its algorithms and software, is created with assumptions particular to living languages, thus neglecting certain important characteristics of largely non-spoken historical languages. Further, scholars of pre-modern languages often have different goals than those of living-language researchers. To fill this void, the CLTK adapts ideas from several leading NLP frameworks to create a novel software architecture that satisfies the unique needs of pre-modern languages and their researchers. Its centerpiece is a modular processing pipeline that balances the competing demands of algorithmic diversity with pre-configured defaults. The CLTK currently provides pipelines, including models, for almost 20 languages.",
-}
+   }
+
 
 License
 =======
