@@ -2,12 +2,12 @@
 
 from copy import deepcopy
 from dataclasses import dataclass
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import stanza
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types import Doc, Process, Word
+from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
 from cltk.dependency.stanza import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
 from cltk.morphology.morphosyntax import (
@@ -84,13 +84,13 @@ class StanzaProcess(Process):
             for token_index, token in enumerate(sentence.tokens):
                 stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
                 # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
-
+                pos: Optional[MorphosyntacticFeature] = from_ud("POS", stanza_word.pos)
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
                     - 1,  # subtract 1 from id b/c Stanza starts their index at 1
                     index_sentence=sentence_index,
                     string=stanza_word.text,  # same as ``token.text``
-                    pos=from_ud("POS", stanza_word.pos),
+                    pos=pos,
                     xpos=stanza_word.xpos,
                     upos=stanza_word.upos,
                     lemma=stanza_word.lemma,

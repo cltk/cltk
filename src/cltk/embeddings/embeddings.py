@@ -84,9 +84,7 @@ class Word2VecEmbeddings:
             # print(message)
             # TODO: Log message
             pass
-        self.model = (
-            self._load_model()
-        )  # type: models.keyedvectors.Word2VecKeyedVectors
+        self.model: models.keyedvectors.Word2VecKeyedVectors = self._load_model()
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
@@ -179,13 +177,18 @@ class Word2VecEmbeddings:
         with ZipFile(self.fp_zip, "r") as zipfile_obj:
             zipfile_obj.extractall(path=self.fp_model_dirs)
 
-    def _load_model(self):
+    def _load_model(self) -> models.keyedvectors.Word2VecKeyedVectors:
         """Load model into memory.
 
         TODO: When testing show that this is a Gensim type
         TODO: Suppress Gensim info printout from screen
         """
-        return models.KeyedVectors.load_word2vec_format(self.fp_model)
+        try:
+            return models.KeyedVectors.load_word2vec_format(self.fp_model)
+        except UnicodeDecodeError:
+            msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."
+            print(msg)
+            raise UnicodeDecodeError
 
 
 class FastTextEmbeddings:

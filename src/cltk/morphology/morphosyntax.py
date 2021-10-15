@@ -257,6 +257,8 @@ from_ud_map: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "2": Person.second,
         "3": Person.third,
         "4": Person.fourth,
+        "Psor": Person.psor,
+        "Subj": Person.subj,
     },
     "Polite": {
         "Elev": Politeness.elevated,
@@ -290,6 +292,7 @@ from_ud_map: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Ptan": Number.plurale_tantum,
         "Sing": Number.singular,
         "Tri": Number.trial,
+        "Psor": Number.psor,
     },
     "NumForm": {
         "Word": NumForm.word,
@@ -422,11 +425,22 @@ def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFe
     >>> from_ud('PronType', 'Ind')
     indefinite
     """
+    # Do cleanup on certain inputs that look like ``"Number[psor]``
+    # Thus this is rewritten to ``feature_name = Number``
+    # and ``feature_value = psor``.
+    if "[" in feature_name and "]" in feature_name:
+        feature_name_split: List[str] = feature_name.split("[", maxsplit=1)
+        feature_name = feature_name_split[0]
+        feature_value = feature_name_split[1][:-1]
+        feature_value = feature_value.title()
+
     if feature_name in from_ud_map:
         feature_map = from_ud_map[feature_name]
     else:
-        msg = f"{feature_name}: Unrecognized UD feature name"
-        print("From `from_ud():`", msg)
+        msg1: str = f"Unrecognized UD `feature_name` ('{feature_name}') and `feature_value` ('{feature_value}')."
+        msg2: str = f"Please raise an issue at <https://github.com/cltk/cltk/issues> and include a small sample to reproduce the error."
+        print(msg1)
+        print(msg2)
         # raise CLTKException(msg)
         return None
 

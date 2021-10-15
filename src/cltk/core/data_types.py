@@ -74,7 +74,7 @@ category={}, stop=None, named_entity=None, syllables=None, phonetic_transcriptio
     index_token: int = None
     index_sentence: int = None
     string: str = None
-    pos: str = None
+    pos: MorphosyntacticFeature = None
     lemma: str = None
     stem: str = None
     scansion: str = None

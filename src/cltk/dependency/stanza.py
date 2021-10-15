@@ -239,13 +239,12 @@ class StanzaWrapper:
         models_dir = os.path.expanduser(
             "~/stanza_resources/"
         )  # TODO: Mv this a self. var or maybe even global
-        processors = None  # if ``None``, then use defaults; was ``"tokenize,mwt,pos,lemma,depparse"``
+        processors = "tokenize,mwt,pos,lemma,depparse"
         lemma_use_identity = False
 
         if self.language == "fro":
             processors = "tokenize,pos,lemma,depparse"
             lemma_use_identity = True
-
         nlp = stanza.Pipeline(
             lang=self.stanza_code,
             dir=models_dir,
@@ -354,7 +353,7 @@ class StanzaWrapper:
                 "Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen."
             )
         # {'Afrikaans': 'af', 'Ancient_Greek': 'grc', ...}
-        stanza_lang_code = lang2lcode  # type: Dict[str, str]
+        stanza_lang_code: Dict[str, str] = lang2lcode
         try:
             return stanza_lang_code[stanza_lang_name]
         except KeyError:
