@@ -23,11 +23,11 @@ To process text:
    >>> from cltk import NLP
    >>> vitruvius = "Architecti est scientia pluribus disciplinis et variis eruditionibus ornata, quae ab ceteris artibus perficiuntur. Opera ea nascitur et fabrica et ratiocinatione."
    >>> cltk_nlp = NLP(language="lat")
-   ‎𐤀 CLTK version 'cltk 1.0.0b10'.
+   ‎𐤀 CLTK version '1.0.11'.
    Pipeline for language 'Latin' (ISO: 'lat'): `LatinNormalizeProcess`, `LatinStanzaProcess`, `LatinEmbeddingsProcess`, `StopsProcess`, `LatinNERProcess`, `LatinLexiconProcess`.
    >>> cltk_doc = cltk_nlp.analyze(text=vitruvius)
 
-Some NLP ``Process`` require downloaded models, for which you will be prompted to download. You may then inspect the output ``Doc``, which contains the information produced by each ``Process`` step:
+Some NLP ``Process`` require downloaded models, which you will be prompted to download. You may then inspect the output ``Doc``, which contains the information produced by each ``Process`` step:
 
 .. code-block:: python
 
@@ -52,7 +52,7 @@ Most processes add their information to a list of ``Word`` objects at ``Doc.word
    >>> cltk_doc.words[1].lemma
    'sum'
    >>> cltk_doc.words[4].definition[:200]
-'disciplīna\n\n\n ae, \nf\n\ndiscipulus, \ninstruction, tuition, teaching, training, education\n: puerilis: adulescentīs in disciplinam ei tradere:\n                te in disciplinam meam tradere: in disciplina'
+   'disciplīna\n\n\n ae, \nf\n\ndiscipulus, \ninstruction, tuition, teaching, training, education\n: puerilis: adulescentīs in disciplinam ei tradere:\n                te in disciplinam meam tradere: in disciplina'
    >>> cltk_doc.words[4].pos
    'NOUN'
    >>> cltk_doc.words[4].category
@@ -83,4 +83,4 @@ For more, see :doc:`pipelines`.
 Tutorials
 ---------
 
-Demonstration notebooks available at `<https://github.com/cltk/cltk/tree/dev/notebooks>`_.
+Demonstration notebooks available at `<https://github.com/cltk/cltk/blob/master/notebooks>`_.

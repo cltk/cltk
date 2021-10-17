@@ -7,8 +7,8 @@ import os
 from typing import Dict, Optional
 
 import stanza  # type: ignore
-from stanza.models.common.constant import lang2lcode  # type: Dict[str, str]
-from stanza.resources.prepare_resources import default_treebanks  # type: Dict[str, str]
+from stanza.models.common.constant import lang2lcode  # Dict[str, str]
+from stanza.resources.prepare_resources import default_treebanks  # Dict[str, str]
 
 from cltk.core.exceptions import (
     CLTKException,
@@ -169,20 +169,20 @@ class StanzaWrapper:
           "lemma": "ὅτι",
           "upos": "ADV",
           "xpos": "Df",
-          "head": 7,
+          "head": 13,
           "deprel": "advmod",
-          "misc": "start_char=0|end_char=3"
+          "start_char": 0,
+          "end_char": 3
         }]
         >>> nlp_greek_first_sent.tokens[0].start_char
         0
         >>> nlp_greek_first_sent.tokens[0].end_char
         3
         >>> nlp_greek_first_sent.tokens[0].misc
-        'start_char=0|end_char=3'
         >>> nlp_greek_first_sent.tokens[0].pretty_print()
-        '<Token id=1;words=[<Word id=1;text=ὅτι;lemma=ὅτι;upos=ADV;xpos=Df;head=7;deprel=advmod>]>'
+        '<Token id=1;words=[<Word id=1;text=ὅτι;lemma=ὅτι;upos=ADV;xpos=Df;head=13;deprel=advmod>]>'
         >>> nlp_greek_first_sent.tokens[0].to_dict()
-        [{'id': 1, 'text': 'ὅτι', 'lemma': 'ὅτι', 'upos': 'ADV', 'xpos': 'Df', 'head': 7, 'deprel': 'advmod', 'misc': 'start_char=0|end_char=3'}]
+        [{'id': 1, 'text': 'ὅτι', 'lemma': 'ὅτι', 'upos': 'ADV', 'xpos': 'Df', 'head': 13, 'deprel': 'advmod', 'start_char': 0, 'end_char': 3}]
 
         >>> first_word = nlp_greek_first_sent.tokens[0].words[0]
         >>> first_word.id
@@ -197,7 +197,7 @@ class StanzaWrapper:
         'Df'
         >>> first_word.feats
         >>> first_word.head
-        7
+        13
         >>> first_word.parent
         [
           {
@@ -206,13 +206,13 @@ class StanzaWrapper:
             "lemma": "ὅτι",
             "upos": "ADV",
             "xpos": "Df",
-            "head": 7,
+            "head": 13,
             "deprel": "advmod",
-            "misc": "start_char=0|end_char=3"
+            "start_char": 0,
+            "end_char": 3
           }
         ]
         >>> first_word.misc
-        'start_char=0|end_char=3'
         >>> first_word.deprel
         'advmod'
         >>> first_word.pos
@@ -239,13 +239,14 @@ class StanzaWrapper:
         models_dir = os.path.expanduser(
             "~/stanza_resources/"
         )  # TODO: Mv this a self. var or maybe even global
-        processors = None  # if ``None``, then use defaults; was ``"tokenize,mwt,pos,lemma,depparse"``
+        processors = "tokenize,mwt,pos,lemma,depparse"
         lemma_use_identity = False
-
         if self.language == "fro":
             processors = "tokenize,pos,lemma,depparse"
             lemma_use_identity = True
-
+        if self.language in ["chu", "got", "grc", "lzh"]:
+            # Note: MWT not available for several languages
+            processors = "tokenize,pos,lemma,depparse"
         nlp = stanza.Pipeline(
             lang=self.stanza_code,
             dir=models_dir,
@@ -354,7 +355,7 @@ class StanzaWrapper:
                 "Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen."
             )
         # {'Afrikaans': 'af', 'Ancient_Greek': 'grc', ...}
-        stanza_lang_code = lang2lcode  # type: Dict[str, str]
+        stanza_lang_code: Dict[str, str] = lang2lcode
         try:
             return stanza_lang_code[stanza_lang_name]
         except KeyError:

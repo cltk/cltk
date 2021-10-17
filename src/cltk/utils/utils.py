@@ -117,7 +117,7 @@ def suppress_stdout():
             sys.stdout = old_stdout
 
 
-def get_cltk_data_dir():
+def get_cltk_data_dir() -> str:
     """Defines where to look for the ``cltk_data`` dir.
     By default, this is located in a user's home directory
     and the directory is created there (``~/cltk_data``).

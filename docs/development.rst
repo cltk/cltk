@@ -24,11 +24,8 @@ Use pyenv to manage Python versions and Poetry for package builds.  Note that py
    - Find the Python versions supported by the CLTK, see ``pyproject.toml``.
    - ``$ pyenv install --list | grep 3.8``
    - ``$ pyenv install 3.8.3`` (or whatever is latest)
-   - ``$ pyenv virtualenv 3.8.3 cltk``
-
-   Ensure that your working directory is `cltk', then:
-
-   - ``$ pyenv local cltk``. Open a new terminal and this should be activated (check with ``$ python --version``).
+   - ``$ pyenv virtualenv 3.8.3 cltk``.
+   - Ensure that your working directory is ``cltk``, then: ``$ pyenv local cltk``. Open a new terminal and this should be activated (check with ``$ python --version``).
 * Install ``poetry`` for packaging: ``$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`` (`<https://poetry.eustace.io/docs/>`_)
 * Install dependencies in ``poetry.lock``: ``$ poetry install``
 * Download NLP models: ``$ poetry run python scripts/download_all_models.py`` with optional flag ``--languages=lat`` for only those of a specific language.
@@ -79,11 +76,12 @@ Packaging
    - View diagrams at ``docs/classes.png`` and ``docs/packages.png``
 * Run the above at each commit  with ``pre-commit``: ``$ poetry run pre-commit install`` (just once)
 * Run tests: ``$ make test``
-* Publish pre-release (permissions required): ``$ make uploadTest``
+* Run config check: ``$ make publishPyPITestConfig``
+* Publish pre-release (permissions required): ``$ make publishPyPITest``
 * Install from TestPyPI: ``$ make installPyPITest``
 * Repeat the above as necessary
 * Bump version: ``$ poetry version patch`` (e.g., ``1.0.1-alpha.0`` to ``1.0.1``)
    - For minor version: ``$ poetry version minor`` (``1.0.1-alpha.0`` to ``1.1.0``)
    - For major version: ``$ poetry version major`` (``1.0.1-alpha.0`` to ``2.0.0``)
    - If you need to publish multiple versions of an alpha pre-release, run ``$ poetry version prerelease`` (e.g., ``1.0.1-alpha.0`` to ``1.0.1-alpha.1`` to ``1.0.1-alpha.2``)
-* Publish to PyPI (permissions required): ``$ make upload``
+* Publish to PyPI (permissions required): ``$ make publishPyPI``

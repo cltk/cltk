@@ -3,15 +3,16 @@ Pipelines, Processes, Docs, and Words
 
 .. tip::
 
-   See notebook `<https://github.com/cltk/cltk/blob/dev/notebooks/CLTK%20data%20types.ipynb>`_ for a detailed walkthrough of CLTK data types.
+   See notebook `<https://github.com/cltk/cltk/blob/master/notebooks/CLTK%20data%20types.ipynb>`_ for a detailed walkthrough of CLTK data types.
 
 
 The CLTK contains four important, native data types:
 
-- :class:`cltk.core.data_types.Word`: Contains all processed information for each word token. Has attributes including ``Word.string``, ``Word.lemma``, ``Word.pos``, ``Word.governor``, and ``Word.embedding``. A ``Process`` adds data to each ``Word``. See notebook `<https://github.com/cltk/cltk/blob/dev/notebooks/CLTK%20Demonstration.ipynb>`_ for a full demonstration of what kind of information is stored in ``Word``.
-- :class:`cltk.core.data_types.Doc`: Contains ``Doc.raw``, which is the original input string to ``NLP().analyze()``, and ``Doc.words``, which is a list of ``Word`` objects. It is the input and output of each ``Process`` and final output of ``NLP()``. See notebook `<https://github.com/cltk/cltk/blob/dev/notebooks/CLTK%20Demonstration.ipynb>`_ for a full demonstration of what kind of information is stored in ``Doc``
-- :class:`cltk.core.data_types.Process`: Takes and returns a ``Doc``. Each process does some processing of information within the ``Doc``, then annotates each ``Word`` object at ``Doc.words``. For an illustration of how ``Process`` objects inherit from one another, see figure :any:`processGraph`.
-- :class:`cltk.core.data_types.Pipeline`: Has a list of ``Process`` objects at ``Pipeline.processes``. Predefined pipelines have been made for some languages (:doc:`languages`), while custom pipelines may be created for these languages or other, different languages. See notebook `<https://github.com/cltk/cltk/blob/dev/notebooks/Make%20custom%20Process%20and%20add%20to%20Pipeline.ipynb>`_ for an example creating a new ``Process`` and adding it to a custom ``Pipeline``.
+- :class:`cltk.core.data_types.Word`: Contains all processed information for each word token. Has attributes including ``Word.string``, ``Word.lemma``, ``Word.pos``, ``Word.governor``, and ``Word.embedding``. A ``Process`` adds data to each ``Word``. See notebook `<https://github.com/cltk/cltk/blob/master/notebooks/CLTK%20Demonstration.ipynb>`_ for a full demonstration of what kind of information is stored in ``Word``.
+- :class:`cltk.core.data_types.Sentence`: Contains ``sentence_embeddings`` a weighted average of the word embeddings of the sentence.
+- :class:`cltk.core.data_types.Doc`: Contains ``Doc.raw``, which is the original input string to ``NLP().analyze()``, and ``Doc.words``, which is a list of ``Word`` objects. It is the input and output of each ``Process`` and final output of ``NLP()``. See notebook `<https://github.com/cltk/cltk/blob/master/notebooks/CLTK%20Demonstration.ipynb>`_ for a full demonstration of what kind of information is stored in ``Doc``
+- :class:`cltk.core.data_types.Process`: Takes and returns a ``Doc``. Each process does some processing of information within the ``Doc``, then annotates each ``Word`` object at ``Doc.words``.
+- :class:`cltk.core.data_types.Pipeline`: Has a list of ``Process`` objects at ``Pipeline.processes``. Predefined pipelines have been made for some languages (:doc:`languages`), while custom pipelines may be created for these languages or other, different languages. See notebook `<https://github.com/cltk/cltk/blob/master/notebooks/Make%20custom%20Process%20and%20add%20to%20Pipeline.ipynb>`_ for an example creating a new ``Process`` and adding it to a custom ``Pipeline``. For an illustration of how ``Process`` objects inherit from one another, see figure :any:`pipelineGraph`.
 
 
 

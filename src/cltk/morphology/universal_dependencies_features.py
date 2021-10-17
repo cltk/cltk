@@ -76,6 +76,7 @@ class POS(MorphosyntacticFeature):
     noun = auto()
     numeral = auto()
     particle = auto()
+    possessors_number = auto()
     pronoun = auto()
     proper_noun = auto()
     punctuation = auto()
@@ -200,6 +201,8 @@ class Person(MorphosyntacticFeature):
     second = auto()
     third = auto()
     fourth = auto()
+    psor = auto()
+    subj = auto()
 
 
 class Politeness(MorphosyntacticFeature):
@@ -334,6 +337,7 @@ class Number(MorphosyntacticFeature):
     plurale_tantum = auto()
     singular = auto()
     trial = auto()
+    psor = auto()
 
 
 class NumForm(MorphosyntacticFeature):
@@ -345,6 +349,7 @@ class NumForm(MorphosyntacticFeature):
     word = auto()
     digit = auto()
     roman = auto()
+    reference = auto()
 
 
 class Definiteness(MorphosyntacticFeature):

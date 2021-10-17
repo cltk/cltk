@@ -10,6 +10,7 @@ __license__ = "MIT License. See LICENSE."
 
 import os
 import re
+from abc import ABC, abstractmethod
 from typing import List
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer as NLTKPunktSentenceTokenizer
@@ -18,9 +19,10 @@ from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
 
-class SentenceTokenizer:
-    """ Base class for sentences tokenization"""
+class SentenceTokenizer(ABC):
+    """Base class for sentences tokenization"""
 
+    @abstractmethod
     def __init__(self, language: str = None):
         """Initialize stoplist builder with option for language specific parameters
         :param language : language for sentences tokenization
@@ -65,11 +67,10 @@ class PunktSentenceTokenizer(SentenceTokenizer):
         :param language : language for sentences tokenization
         :type language: str
         """
-        self.language = language
+        super().__init__(language=language)
         if self.language == "lat":
             self.language_old = "lat"
         self.lang_vars = lang_vars
-        super().__init__(language=self.language)
         if self.language:
             self.models_path = self._get_models_path(self.language)
             try:
@@ -99,7 +100,7 @@ class RegexSentenceTokenizer(SentenceTokenizer):
             self.sent_end_chars_regex = "|".join(self.sent_end_chars)
             self.pattern = rf"(?<=[{self.sent_end_chars_regex}])\s"
         else:
-            raise Exception  # TODO add message, must specify sent_end_chars, or warn and use defaults
+            raise Exception("Must specify sent_end_chars")
 
     def tokenize(self, text: str, model: object = None) -> List[str]:
         """

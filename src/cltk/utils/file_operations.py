@@ -3,6 +3,7 @@
 import hashlib
 import os.path
 import pickle
+from typing import Any
 
 from cltk.core.cltk_logger import logger
 from cltk.utils import CLTK_DATA_DIR
@@ -34,7 +35,7 @@ def make_cltk_path(*fp_list):
     return os.path.join(CLTK_DATA_DIR, *fp_list)
 
 
-def open_pickle(path: str):
+def open_pickle(path: str) -> Any:
     """Open a pickle and return loaded pickle object.
     :type path: str
     :param : path: File path to pickle file to be opened.

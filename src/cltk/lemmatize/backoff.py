@@ -101,7 +101,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         lemma = None
         for tagger in self._taggers:
             lemma = tagger.choose_tag(tokens, index, history)
-            if lemma is not None:
+            if lemma is not None and lemma != "":
                 break
         return lemma, tagger
 

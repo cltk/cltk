@@ -1,0 +1,45 @@
+"""The Lydian alphabet. Sources:
+
+- `<https://www.unicode.org/charts/PDF/U10920.pdf>`_
+- Payne, A. and Wintjies. (2016) Lords of Asia Minor: An Introduction to the Lydians.
+
+"""
+
+__author__ = ["Caio Geraldes <caio.geraldes@usp.br>"]
+
+
+VOWELS = [
+    "\U00010920",  # LYDIAN LETTER A
+    "\U00010924",  # LYDIAN LETTER E
+    "\U00010926",  # LYDIAN LETTER I
+    "\U0001092C",  # LYDIAN LETTER O
+    "\U00010930",  # LYDIAN LETTER U
+    "\U00010927",  # LYDIAN LETTER Y
+    "\U00010935",  # LYDIAN LETTER AN
+    "\U00010936",  # LYDIAN LETTER EN
+]
+
+CONSONANTS = [
+    "\U00010921",  # LYDIAN LETTER B
+    "\U00010922",  # LYDIAN LETTER G
+    "\U00010923",  # LYDIAN LETTER D
+    "\U00010925",  # LYDIAN LETTER V
+    "\U00010928",  # LYDIAN LETTER K
+    "\U00010929",  # LYDIAN LETTER L
+    "\U0001092A",  # LYDIAN LETTER M
+    "\U0001092B",  # LYDIAN LETTER N
+    "\U0001092D",  # LYDIAN LETTER R
+    "\U0001092E",  # LYDIAN LETTER SS
+    "\U0001092F",  # LYDIAN LETTER T
+    "\U00010931",  # LYDIAN LETTER F
+    "\U00010932",  # LYDIAN LETTER Q
+    "\U00010933",  # LYDIAN LETTER S
+    "\U00010934",  # LYDIAN LETTER TT
+    "\U00010937",  # LYDIAN LETTER LY
+    "\U00010938",  # LYDIAN LETTER NN
+    "\U00010939",  # LYDIAN LETTER C
+]
+
+PUNCTUATION = [
+    "\U0001093F",  # LYDIAN TRIANGULAR MARK
+]

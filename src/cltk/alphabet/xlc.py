@@ -1,0 +1,42 @@
+"""The Lycian alphabet. Sources:
+
+- `<https://www.unicode.org/charts/PDF/U10280.pdf>`
+
+"""
+
+__author__ = ["Caio Geraldes <caio.geraldes@usp.br>"]
+
+VOWELS = [
+    "\U00010280",  # 𐊀 LYCIAN LETTER A
+    "\U00010281",  # 𐊁 LYCIAN LETTER E
+    "\U00010286",  # 𐊆 LYCIAN LETTER I
+    "\U00010292",  # 𐊒 LYCIAN LETTER U
+    "\U00010299",  # 𐊙 LYCIAN LETTER AN
+    "\U0001029A",  # 𐊚 LYCIAN LETTER EN
+]
+
+CONSONANTS = [
+    "\U00010282",  # 𐊂 LYCIAN LETTER B
+    "\U00010283",  # 𐊃 LYCIAN LETTER BH
+    "\U00010284",  # 𐊄 LYCIAN LETTER G
+    "\U00010285",  # 𐊅 LYCIAN LETTER D
+    "\U00010287",  # 𐊇 LYCIAN LETTER W
+    "\U00010288",  # 𐊈 LYCIAN LETTER Z
+    "\U00010289",  # 𐊉 LYCIAN LETTER TH
+    "\U0001028A",  # 𐊊 LYCIAN LETTER J
+    "\U0001028B",  # 𐊋 LYCIAN LETTER K
+    "\U0001028C",  # 𐊌 LYCIAN LETTER Q
+    "\U0001028D",  # 𐊍 LYCIAN LETTER L
+    "\U0001028E",  # 𐊎 LYCIAN LETTER M
+    "\U0001028F",  # 𐊏 LYCIAN LETTER N
+    "\U00010290",  # 𐊐 LYCIAN LETTER MM
+    "\U00010291",  # 𐊑 LYCIAN LETTER NN
+    "\U00010293",  # 𐊓 LYCIAN LETTER P
+    "\U00010294",  # 𐊔 LYCIAN LETTER KK
+    "\U00010295",  # 𐊕 LYCIAN LETTER R
+    "\U00010296",  # 𐊖 LYCIAN LETTER S
+    "\U00010297",  # 𐊗 LYCIAN LETTER T
+    "\U00010298",  # 𐊘 LYCIAN LETTER TT
+    "\U0001029B",  # 𐊛 LYCIAN LETTER H
+    "\U0001029C",  # 𐊜 LYCIAN LETTER X
+]

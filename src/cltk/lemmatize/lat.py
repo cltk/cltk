@@ -544,10 +544,11 @@ class LatinBackoffLemmatizer:
 
             random.seed(seed)
             random.shuffle(train)
-            pos_train_sents = train[:4000]
+            train_size = int(0.9 * len(train))
+            pos_train_sents = train[:train_size]
             lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
-            train_sents = lem_train_sents[:4000]
-            test_sents = lem_train_sents[4000:5000]
+            train_sents = lem_train_sents[:train_size]
+            test_sents = lem_train_sents[train_size:]
 
             return pos_train_sents, train_sents, test_sents
 

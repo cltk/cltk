@@ -56,11 +56,11 @@ class Scansion:
         Tokenize syllables for word.
         "mihi" -> [{"syllable": "mi", index: 0, ... } ... ]
         Syllable properties:
-            syllable: string -> syllable
-            index: int -> postion in word
-            long_by_nature: bool -> is syllable long by nature
-            accented: bool -> does receive accent
-            long_by_position: bool -> is syllable long by position
+        syllable: string -> syllable
+        index: int -> postion in word
+        long_by_nature: bool -> is syllable long by nature
+        accented: bool -> does receive accent
+        long_by_position: bool -> is syllable long by position
         :param word: string
         :return: list
 
@@ -179,10 +179,10 @@ class Scansion:
         Tokenize words for sentence.
         "Puella bona est" -> [{word: puella, index: 0, ... }, ... ]
         Word properties:
-            word: string -> word
-            index: int -> position in sentence
-            syllables: list -> list of syllable objects
-            syllables_count: int -> number of syllables in word
+        word: string -> word
+        index: int -> position in sentence
+        syllables: list -> list of syllable objects
+        syllables_count: int -> number of syllables in word
         :param sentence: string
         :return: list
 

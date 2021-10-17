@@ -11,6 +11,7 @@ of the NLP pipeline.
 
 import importlib
 from abc import ABC, abstractmethod
+from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Dict, List, Type, Union
 
@@ -57,15 +58,9 @@ class Word:
     words. Designed to be used in the ``Doc.words`` dataclass.
 
     >>> from cltk.core.data_types import Word
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> get_example_text("lat")[:25]
-    'Gallia est omnis divisa i'
-    >>> from cltk.languages.utils import get_lang
-    >>> lat = get_lang("lat")
-    >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
-lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, \
-category={}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+    >>> Word(index_char_start=0, index_char_stop=6, string="Gallia")
+    Word(index_char_start=0, index_char_stop=6, index_token=None, index_sentence=None, string='Gallia', pos=None, lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, category={}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+
     """
 
     index_char_start: int = None
@@ -73,7 +68,7 @@ category={}, stop=None, named_entity=None, syllables=None, phonetic_transcriptio
     index_token: int = None
     index_sentence: int = None
     string: str = None
-    pos: str = None
+    pos: MorphosyntacticFeature = None
     lemma: str = None
     stem: str = None
     scansion: str = None
@@ -106,6 +101,25 @@ category={}, stop=None, named_entity=None, syllables=None, phonetic_transcriptio
 
 
 @dataclass
+class Sentence:
+    """
+    The Data Container for sentences.
+    """
+
+    words: List[Word] = None
+    index: int = None
+    embedding: np.ndarray = field(repr=False, default=None)
+
+    def __getitem__(self, item: int) -> Word:
+        """This indexing operation descends into the word list structure."""
+        return self.words[item]
+
+    def __len__(self) -> int:
+        """Returns the number of tokens in the sentence"""
+        return len(self.words)
+
+
+@dataclass
 class Doc:
     """The object returned to the user from the ``NLP()`` class.
     Contains overall attributes of submitted texts, plus most
@@ -125,15 +139,15 @@ class Doc:
     >>> cltk_doc.tokens_stops_filtered[:10]
     ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
     >>> cltk_doc.pos[:3]
-    ['NOUN', 'AUX', 'PRON']
+    ['NOUN', 'AUX', 'DET']
     >>> cltk_doc.morphosyntactic_features[:3]
-    [{Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
+    [{Case: [nominative], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
     >>> cltk_doc[0].gender
     [feminine]
     >>> cltk_doc[0]['Case']
     [nominative]
     >>> cltk_doc.lemmata[:5]
-    ['mallis', 'sum', 'omnis', 'divido', 'in']
+    ['Gallia', 'sum', 'omnis', 'divisa', 'in']
     >>> len(cltk_doc.sentences)
     9
     >>> len(cltk_doc.sentences[0])
@@ -169,31 +183,33 @@ class Doc:
     raw: str = None
     normalized_text: str = None
     embeddings_model = None
+    sentence_embeddings: Dict[int, np.ndarray] = field(repr=False, default=None)
 
     @property
-    def sentences(self) -> List[List[Word]]:
-        """Returns a list of lists, with the inner list being a
-        list of ``Word`` objects.
-        """
-        sentences = {}
+    def sentences(self) -> List[Sentence]:
+        """Returns a list of ``Sentence``s, with each ``Sentence`` being a container for a
+        list of ``Word`` objects."""
+        sents: Dict[int, List[Word]] = defaultdict(list)
         for word in self.words:
-            sentence = sentences.get(word.index_sentence, {})
-            sentence[word.index_token] = word
-            sentences[word.index_sentence] = sentence
-
-        sorted_values = lambda dict: [x[1] for x in sorted(dict.items())]
-
-        return [sorted_values(sentence) for sentence in sorted_values(sentences)]
+            sents[word.index_sentence].append(word)
+        for key in sents:
+            sents[key].sort(key=lambda x: x.index_token)
+        # Sometimes not available, nor initialized; e.g. stanza
+        if not self.sentence_embeddings:
+            self.sentence_embeddings = dict()
+        return [
+            Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
+            for key, val in sorted(sents.items(), key=lambda x: x[0])
+        ]
 
     @property
     def sentences_tokens(self) -> List[List[str]]:
         """Returns a list of lists, with the inner list being a
         list of word token strings.
         """
-        sentences_list = self.sentences  # type: List[List[Word]]
-        sentences_tokens = list()  # type: List[List[str]]
-        for sentence in sentences_list:
-            sentence_tokens = [word.string for word in sentence]  # type: List[str]
+        sentences_tokens: List[List[str]] = list()
+        for sentence in self.sentences:
+            sentence_tokens: List[str] = [word.string for word in sentence]
             sentences_tokens.append(sentence_tokens)
         return sentences_tokens
 
@@ -202,16 +218,16 @@ class Doc:
         """Returns a list of strings, with each string being
         a sentence reconstructed from the word tokens.
         """
-        sentences_list = self.sentences_tokens  # type: List[List[str]]
-        sentences_str = list()  # type: List[str]
+        sentences_list: List[List[str]] = self.sentences_tokens
+        sentences_str: List[str] = list()
         for sentence_tokens in sentences_list:  # type: List[str]
             if self.language == "akk":
-                # akk produces List[Tuple[str, str]]
+                # 'akk' produces List[Tuple[str, str]]
                 sentence_tokens_str = " ".join(
                     [tup[0] for tup in sentence_tokens]
                 )  # type: str
             else:
-                sentence_tokens_str = " ".join(sentence_tokens)  # type: str
+                sentence_tokens_str: str = " ".join(sentence_tokens)
             sentences_str.append(sentence_tokens_str)
         return sentences_str
 

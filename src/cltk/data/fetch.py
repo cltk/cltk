@@ -146,7 +146,7 @@ LANGUAGE_CORPORA = {
             "type": "text",
         },
         {
-            "name": "greek_text_first1kgreek",
+            "name": "grc_text_first1kgreek",
             "origin": "https://github.com/cltk/First1KGreek",
             "type": "text",
         },

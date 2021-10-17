@@ -21,6 +21,7 @@ class LexiconProcess(Process):
 
     Example: ``LexiconProcess`` -> ``LatinLexiconProcess``
 
+    >>> from cltk.lexicon.processes import LexiconProcess
     >>> from cltk.lemmatize.processes import LemmatizationProcess
     >>> from cltk.core.data_types import Process
     >>> issubclass(LexiconProcess, Process)
@@ -55,6 +56,7 @@ class LexiconProcess(Process):
 class LatinLexiconProcess(LexiconProcess):
     """The default Latin dictionary lookup algorithm.
 
+    >>> from cltk.lexicon.processes import LexiconProcess
     >>> from cltk.core.data_types import Process, Pipeline
     >>> from cltk.tokenizers import LatinTokenizationProcess
     >>> from cltk.lemmatize.processes import LatinLemmatizationProcess

@@ -42,7 +42,8 @@ class OldNorseZoegaLexicon:
         """Perform match of a lemma against headwords. This is case sensitive.
         If more than one match, then return the concatenated entries. For example:
 
-        >>> onzl = OldNorseZoegaLexicon()
+        >>> from cltk.lexicon.non import OldNorseZoegaLexicon
+        >>> onzl = OldNorseZoegaLexicon(interactive=False)
         >>> onzl.lookup("sonr")
         '(gen. sonar, dat. syni and søni; pl. synir, sønir; ace. sonu and syni), m. son.'
         """
