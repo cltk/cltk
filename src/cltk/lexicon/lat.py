@@ -44,7 +44,8 @@ class LatinLewisLexicon:
         """Perform match of a lemma against headwords. If more than one match,
         then return the concatenated entries. For example:
 
-        >>> lll = LatinLewisLexicon()
+        >>> from cltk.lexicon.lat import LatinLewisLexicon
+        >>> lll = LatinLewisLexicon(interactive=False)
         >>> lll.lookup("clemens")[:50]
         'clēmēns entis (abl. -tī; rarely -te, L.), adj. wit'
         >>> all(word in lll.lookup("levis") for word in ["levis","lēvis"]) # Test for concatenated entries

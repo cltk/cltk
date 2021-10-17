@@ -183,8 +183,20 @@ class Word2VecEmbeddings:
         TODO: When testing show that this is a Gensim type
         TODO: Suppress Gensim info printout from screen
         """
+        # KJ added these two checks because NLPL embeddings
+        # began erring in Gensim (Oct 2021)
+        is_binary: bool = False
+        unicode_errors: str = "strict"
+        if self.fp_model.endswith(".txt"):
+            unicode_errors = "ignore"
+        if self.fp_model.endswith(".bin"):
+            is_binary = True
         try:
-            return models.KeyedVectors.load_word2vec_format(self.fp_model)
+            return models.KeyedVectors.load_word2vec_format(
+                self.fp_model,
+                binary=is_binary,
+                unicode_errors=unicode_errors,
+            )
         except UnicodeDecodeError:
             msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."
             print(msg)

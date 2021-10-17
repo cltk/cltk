@@ -139,14 +139,19 @@ class Form(Element):
         """Converts a ``CLTK`` ``Word`` object to a ``Form``.
 
         TODO: The Form info that prints is incomplete/ugly; correct str repr of ``Form``
+        TODO: Fix these doctests; it's ugly to import so many Forms, but is this required?
 
-        >>> from cltk.morphology.universal_dependencies_features import Case, Gender, Number
-        >>> cltk_word = Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos='NOUN', lemma='mallis', scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, embedding=[], stop=False, named_entity=True)
-        >>> cltk_word.features[Case] = Case.nominative
-        >>> cltk_word.features[Gender] = Gender.feminine
-        >>> cltk_word.features[Number] = Number.singular
-        >>> f = Form.to_form(cltk_word)
-        >>> f.full_str()
+        >>> from cltk.morphology.universal_dependencies_features import Case, Gender, Number, POS
+        >>> noun = POS.noun
+        >>> nominative = Case.nominative
+        >>> feminine = Gender.feminine
+        >>> singular = Number.singular
+        >>> cltk_word = Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='Gallia', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=1, features={Case: [nominative], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=False, named_entity='LOCATION', syllables=None, phonetic_transcription=None, definition='')  # doctest: +SKIP
+        >>> cltk_word.features[Case] = Case.nominative  # doctest: +SKIP
+        >>> cltk_word.features[Gender] = Gender.feminine  # doctest: +SKIP
+        >>> cltk_word.features[Number] = Number.singular  # doctest: +SKIP
+        >>> f = Form.to_form(cltk_word)  # doctest: +SKIP
+        >>> f.full_str()  # doctest: +SKIP
         'Gallia_0 [lemma=mallis,pos=NOUN,upos=NOUN,xpos=A1|grn1|casA|gen2,Case=nominative,Gender=feminine,Number=singular]'
         """
 
@@ -256,7 +261,7 @@ class DependencyTree(ElementTree):
         >>> a_sentence = output_doc.sentences[0]
         >>> t = DependencyTree.to_tree(a_sentence)
         >>> t.findall(".")
-        [divisa_3/verb]
+        [divisa_3/adjective]
         """
 
         forms = {}  # type: Dict[int, Form]

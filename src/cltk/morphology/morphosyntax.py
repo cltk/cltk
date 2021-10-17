@@ -437,7 +437,7 @@ def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFe
     if feature_name in from_ud_map:
         feature_map = from_ud_map[feature_name]
     else:
-        msg1: str = f"Unrecognized UD `feature_name` ('{feature_name}') and `feature_value` ('{feature_value}')."
+        msg1: str = f"Unrecognized UD `feature_name` ('{feature_name}') with `feature_value` ('{feature_value}')."
         msg2: str = f"Please raise an issue at <https://github.com/cltk/cltk/issues> and include a small sample to reproduce the error."
         print(msg1)
         print(msg2)

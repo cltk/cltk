@@ -92,6 +92,8 @@ def download_cltk_models_repo(iso_code: str) -> None:
     corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
     if iso_code == "lat":
         corpus_downloader.import_corpus(corpus_name="cltk_lat_lewis_elementary_lexicon")
+    elif iso_code == "non":
+        corpus_downloader.import_corpus(corpus_name="cltk_non_zoega_dictionary")
     print(f"Finished downloading CLTK models for '{iso_code}'.")
 
 
@@ -111,7 +113,7 @@ if __name__ == "__main__":
         print(f"Going to download all '{LANG}' models ...")
         # 1. Check if CLTK model available
         if LANG in AVAILABLE_CLTK_LANGS:
-            download_cltk_models_repo(iso_code="lat")
+            download_cltk_models_repo(iso_code=LANG)
         # 2. Check for Stanza
         if LANG in AVAIL_STANZA_LANGS:
             download_stanza_model(iso_code=LANG)

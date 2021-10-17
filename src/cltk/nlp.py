@@ -132,8 +132,8 @@ class NLP:
         >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
         >>> isinstance(cltk_doc, Doc)
         True
-        >>> cltk_doc.words[0] # doctest: +ELLIPSIS
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='mallis', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=3, features={Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=False, named_entity='LOCATION', syllables=None, phonetic_transcription=None, definition='')
+        >>> cltk_doc.words[0]
+        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='Gallia', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=1, features={Case: [nominative], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=False, named_entity='LOCATION', syllables=None, phonetic_transcription=None, definition='')
 
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
