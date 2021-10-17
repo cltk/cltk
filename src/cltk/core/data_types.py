@@ -58,15 +58,9 @@ class Word:
     words. Designed to be used in the ``Doc.words`` dataclass.
 
     >>> from cltk.core.data_types import Word
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> get_example_text("lat")[:25]
-    'Gallia est omnis divisa i'
-    >>> from cltk.languages.utils import get_lang
-    >>> lat = get_lang("lat")
-    >>> Word(index_char_start=0, index_char_stop=6, index_token=0, string=get_example_text("lat")[0:6], pos="nom")
-    Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=None, string='Gallia', pos='nom', \
-lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, \
-category={}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+    >>> Word(index_char_start=0, index_char_stop=6, string="Gallia")
+    Word(index_char_start=0, index_char_stop=6, index_token=None, index_sentence=None, string='Gallia', pos=None, lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, category={}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+
     """
 
     index_char_start: int = None
@@ -74,7 +68,7 @@ category={}, stop=None, named_entity=None, syllables=None, phonetic_transcriptio
     index_token: int = None
     index_sentence: int = None
     string: str = None
-    pos: str = None
+    pos: MorphosyntacticFeature = None
     lemma: str = None
     stem: str = None
     scansion: str = None
@@ -145,15 +139,15 @@ class Doc:
     >>> cltk_doc.tokens_stops_filtered[:10]
     ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
     >>> cltk_doc.pos[:3]
-    ['NOUN', 'AUX', 'PRON']
+    ['NOUN', 'AUX', 'DET']
     >>> cltk_doc.morphosyntactic_features[:3]
-    [{Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Degree: [positive], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
+    [{Case: [nominative], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
     >>> cltk_doc[0].gender
     [feminine]
     >>> cltk_doc[0]['Case']
     [nominative]
     >>> cltk_doc.lemmata[:5]
-    ['mallis', 'sum', 'omnis', 'divido', 'in']
+    ['Gallia', 'sum', 'omnis', 'divisa', 'in']
     >>> len(cltk_doc.sentences)
     9
     >>> len(cltk_doc.sentences[0])

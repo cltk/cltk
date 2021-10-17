@@ -48,7 +48,7 @@ def tag_ner(iso_code: str, input_tokens: List[str]) -> List[Union[bool, str]]:
     >>> are_words_entities = tag_ner(iso_code="grc", input_tokens=tokens)
     >>> tokens[:9]
     ['ἐπὶ', 'δ᾽', 'οὖν', 'τοῖς', 'πρώτοις', 'τοῖσδε', 'Περικλῆς', 'ὁ', 'Ξανθίππου']
-    >>> are_words_entities[:9] # TODO check this result
+    >>> are_words_entities[:9] # TODO find working ex!
     [False, False, False, False, False, False, False, False, False]
 
     >>> tokens = split_punct_ws(get_example_text(iso_code="fro"))

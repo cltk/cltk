@@ -27,7 +27,7 @@ To process text:
    Pipeline for language 'Latin' (ISO: 'lat'): `LatinNormalizeProcess`, `LatinStanzaProcess`, `LatinEmbeddingsProcess`, `StopsProcess`, `LatinNERProcess`, `LatinLexiconProcess`.
    >>> cltk_doc = cltk_nlp.analyze(text=vitruvius)
 
-Some NLP ``Process`` require downloaded models, for which you will be prompted to download. You may then inspect the output ``Doc``, which contains the information produced by each ``Process`` step:
+Some NLP ``Process`` require downloaded models, which you will be prompted to download. You may then inspect the output ``Doc``, which contains the information produced by each ``Process`` step:
 
 .. code-block:: python
 
@@ -52,7 +52,7 @@ Most processes add their information to a list of ``Word`` objects at ``Doc.word
    >>> cltk_doc.words[1].lemma
    'sum'
    >>> cltk_doc.words[4].definition[:200]
-'disciplīna\n\n\n ae, \nf\n\ndiscipulus, \ninstruction, tuition, teaching, training, education\n: puerilis: adulescentīs in disciplinam ei tradere:\n                te in disciplinam meam tradere: in disciplina'
+   'disciplīna\n\n\n ae, \nf\n\ndiscipulus, \ninstruction, tuition, teaching, training, education\n: puerilis: adulescentīs in disciplinam ei tradere:\n                te in disciplinam meam tradere: in disciplina'
    >>> cltk_doc.words[4].pos
    'NOUN'
    >>> cltk_doc.words[4].category

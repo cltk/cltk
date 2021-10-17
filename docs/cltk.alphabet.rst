@@ -41,6 +41,14 @@ cltk.alphabet.arc module
    :undoc-members:
    :show-inheritance:
 
+cltk.alphabet.ave module
+------------------------
+
+.. automodule:: cltk.alphabet.ave
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.alphabet.ben module
 ------------------------
 
@@ -137,6 +145,14 @@ cltk.alphabet.ory module
    :undoc-members:
    :show-inheritance:
 
+cltk.alphabet.osc module
+------------------------
+
+.. automodule:: cltk.alphabet.osc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.alphabet.ota module
 ------------------------
 
@@ -149,6 +165,14 @@ cltk.alphabet.oty module
 ------------------------
 
 .. automodule:: cltk.alphabet.oty
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.alphabet.peo module
+------------------------
+
+.. automodule:: cltk.alphabet.peo
    :members:
    :undoc-members:
    :show-inheritance:
@@ -205,6 +229,22 @@ cltk.alphabet.urd module
 ------------------------
 
 .. automodule:: cltk.alphabet.urd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.alphabet.xlc module
+------------------------
+
+.. automodule:: cltk.alphabet.xlc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.alphabet.xld module
+------------------------
+
+.. automodule:: cltk.alphabet.xld
    :members:
    :undoc-members:
    :show-inheritance:
