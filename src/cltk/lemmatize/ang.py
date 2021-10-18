@@ -11,14 +11,13 @@ class OldEnglishDictionaryLemmatizer(DictionaryRegexLemmatizer):
     Naive lemmatizer for Old English.
 
     TODO: Add silent and non-interactive options to this class
-    TODO: Re-enable these doctests
 
-    >>> lemmatizer = OldEnglishDictionaryLemmatizer()  # doctest: +SKIP
-    >>> lemmatizer.lemmatize_token('ġesāƿen')  # doctest: +SKIP
+    >>> lemmatizer = OldEnglishDictionaryLemmatizer()
+    >>> lemmatizer.lemmatize_token('ġesāƿen')
     'geseon'
-    >>> lemmatizer.lemmatize_token('ġesāƿen', return_frequencies=True)  # doctest: +SKIP
+    >>> lemmatizer.lemmatize_token('ġesāƿen', return_frequencies=True)
     ('geseon', -6.519245611523386)
-    >>> lemmatizer.lemmatize_token('ġesāƿen', return_frequencies=True, best_guess=False)  # doctest: +SKIP
+    >>> lemmatizer.lemmatize_token('ġesāƿen', return_frequencies=True, best_guess=False)
     [('geseon', -6.519245611523386), ('gesaƿan', 0), ('saƿan', 0)]
     >>> lemmatizer.lemmatize(['Same', 'men', 'cweþaþ', 'on', 'Englisc', 'þæt', 'hit', 'sie', 'feaxede', 'steorra', 'forþæm', 'þær', 'stent', 'lang', 'leoma', 'of', 'hwilum', 'on', 'ane', 'healfe', 'hwilum', 'on', 'ælce', 'healfe'], return_frequencies=True, best_guess=False)  # doctest: +SKIP
     [[('same', -8.534148632065651), ('sum', -5.166852802079177)], [('mann', -6.829400539827225)], [('cweþan', -9.227295812625597)], \
