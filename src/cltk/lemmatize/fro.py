@@ -88,16 +88,14 @@ class OldFrenchDictionaryLemmatizer(DictionaryRegexLemmatizer):
     """
     Naive lemmatizer for Old French.
 
-    TODO: Re-enable these tests
-
-    >>> lemmatizer = OldFrenchDictionaryLemmatizer()  # doctest: +SKIP
-    >>> lemmatizer.lemmatize_token('corant')  # doctest: +SKIP
+    >>> lemmatizer = OldFrenchDictionaryLemmatizer()
+    >>> lemmatizer.lemmatize_token('corant')
     'corant'
-    >>> lemmatizer.lemmatize_token('corant', return_frequencies=True)  # doctest: +SKIP
+    >>> lemmatizer.lemmatize_token('corant', return_frequencies=True)
     ('corant', -9.319508628976836)
-    >>> lemmatizer.lemmatize_token('corant', return_frequencies=True, best_guess=False)  # doctest: +SKIP
+    >>> lemmatizer.lemmatize_token('corant', return_frequencies=True, best_guess=False)
     [('corir', 0), ('corant', -9.319508628976836)]
-    >>> lemmatizer.lemmatize(['corant', '.', 'vult', 'premir'], return_frequencies=True, best_guess=False)  # doctest: +SKIP
+    >>> lemmatizer.lemmatize(['corant', '.', 'vult', 'premir'], return_frequencies=True, best_guess=False)
     [[('corir', 0), ('corant', -9.319508628976836)], [('PUNK', 0)], [('vout', -7.527749159748781)], [('premir', 0)]]
     """
 

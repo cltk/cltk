@@ -104,15 +104,13 @@ class GreekBackoffLemmatizer:
         """
         Lemmatize a list of words.
 
-        TODO: Re-enable tests
-
-        >>> lemmatizer = GreekBackoffLemmatizer()  # doctest: +SKIP
-        >>> from cltk.alphabet.text_normalization import cltk_normalize  # doctest: +SKIP
-        >>> word = cltk_normalize('διοτρεφές')  # doctest: +SKIP
-        >>> lemmatizer.lemmatize([word])  # doctest: +SKIP
+        >>> lemmatizer = GreekBackoffLemmatizer()
+        >>> from cltk.alphabet.text_normalization import cltk_normalize
+        >>> word = cltk_normalize('διοτρεφές')
+        >>> lemmatizer.lemmatize([word])
         [('διοτρεφές', 'διοτρεφής')]
-        >>> republic = cltk_normalize("κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος")  # doctest: +SKIP
-        >>> lemmatizer.lemmatize(republic.split())  # doctest: +SKIP
+        >>> republic = cltk_normalize("κατέβην χθὲς εἰς Πειραιᾶ μετὰ Γλαύκωνος τοῦ Ἀρίστωνος")
+        >>> lemmatizer.lemmatize(republic.split())
         [('κατέβην', 'καταβαίνω'), ('χθὲς', 'χθές'), ('εἰς', 'εἰς'), ('Πειραιᾶ', 'Πειραιεύς'), ('μετὰ', 'μετά'), ('Γλαύκωνος', 'Γλαύκων'), ('τοῦ', 'ὁ'), ('Ἀρίστωνος', 'Ἀρίστων')]
         """
 

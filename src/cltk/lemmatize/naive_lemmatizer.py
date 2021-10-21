@@ -78,11 +78,11 @@ class DictionaryRegexLemmatizer(ABC):
         always return the full set of possible lemmas, or the empty list if none found.
         If return_frequencies is true ,then also return the relative frequency of the lemma in a corpus.
 
-        >>> from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer  # doctest: +SKIP
-        >>> lemmatizer = OldEnglishDictionaryLemmatizer()  # doctest: +SKIP
-        >>> lemmatizer.lemmatize_token('fōrestepeþ')  # doctest: +SKIP
+        >>> from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer
+        >>> lemmatizer = OldEnglishDictionaryLemmatizer()
+        >>> lemmatizer.lemmatize_token('fōrestepeþ')
         'foresteppan'
-        >>> lemmatizer.lemmatize_token('Caesar', return_frequencies=True, best_guess=True)  # doctest: +SKIP
+        >>> lemmatizer.lemmatize_token('Caesar', return_frequencies=True, best_guess=True)
         ('Caesar', 0)
         """
 
@@ -118,11 +118,9 @@ class DictionaryRegexLemmatizer(ABC):
         """
         Lemmatize tokens in a list of strings.
 
-        TODO: Re-enable tests
-
-        >>> from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer  # doctest: +SKIP
-        >>> lemmatizer = OldEnglishDictionaryLemmatizer()  # doctest: +SKIP
-        >>> lemmatizer.lemmatize(['eotenas','ond','ylfe','ond','orcneas'], return_frequencies=True, best_guess=True)  # doctest: +SKIP
+        >>> from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer
+        >>> lemmatizer = OldEnglishDictionaryLemmatizer()
+        >>> lemmatizer.lemmatize(['eotenas','ond','ylfe','ond','orcneas'], return_frequencies=True, best_guess=True)
         [('eoten', -9.227295812625597), ('and', -2.8869365088978443), ('ylfe', -9.227295812625597), ('and', -2.8869365088978443), ('orcneas', -9.227295812625597)]
         """
 
