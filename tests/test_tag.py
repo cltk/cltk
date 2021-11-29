@@ -63,6 +63,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
+        corpus_importer = FetchCorpus("gmh")
+        corpus_importer.import_corpus("gmh_models_cltk")
+        file_rel = os.path.join(CLTK_DATA_DIR, "gmh/model/gmh_models_cltk/README.md")
+        file = os.path.expanduser(file_rel)
+        file_exists = os.path.exists(file)
+        self.assertTrue(file_exists)
+
     def test_pos_unigram_greek(self):
         """Test tagging Greek POS with unigram tagger."""
         tagger = POSTag("grc")
@@ -334,6 +341,38 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             "Hwæt! We Gardena in geardagum, þeodcyninga, þrym gefrunon, hu ða æþelingas ellen fremedon."
         )
         self.assertTrue(tagged)
+
+    def test_pos_unigram_middle_high_german(self):
+        """Test tagging Middle High German with unigram tagger"""
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+                  ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+        tagger = POSTag("gmh")
+        tagged = tagger.tag_unigram("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, tagged)
+
+    def test_pos_bigram_middle_high_german(self):
+        """Test tagging Middle High German with bigram tagger"""
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+                  ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+        tagger = POSTag("gmh")
+        tagged = tagger.tag_bigram("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, tagged)
+
+    def test_pos_trigram_middle_high_german(self):
+        """Test tagging Middle High German with trigram tagger"""
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+                  ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+        tagger = POSTag("gmh")
+        tagged = tagger.tag_trigram("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, tagged)
+
+    def test_pos_tnt_middle_high_german(self):
+        """Test tagging Middle High German with TnT tagger"""
+        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
+                  ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+        tagger = POSTag("gmh")
+        tagged = tagger.tag_tnt("uns ist in alten mæren wunders vil geseit")
+        self.assertEqual(target, tagged)
 
 
 if __name__ == "__main__":
