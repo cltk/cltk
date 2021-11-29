@@ -39,13 +39,12 @@ TAGGERS = {
         "crf": "crf.pickle",
         "perceptron": "perceptron.pickle",
     },
-    'gmh':
-        {
-            'unigram': 'unigram.pickle',
-            'bigram': 'bigram.pickle',
-            'trigram': 'trigram.pickle',
-            'tnt': 'tnt.pickle',
-        },
+    "gmh": {
+        "unigram": "unigram.pickle",
+        "bigram": "bigram.pickle",
+        "trigram": "trigram.pickle",
+        "tnt": "tnt.pickle",
+    },
 }
 
 
