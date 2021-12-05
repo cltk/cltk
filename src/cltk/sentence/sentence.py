@@ -15,6 +15,7 @@ from typing import List
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer as NLTKPunktSentenceTokenizer
 
+from cltk.core import CLTKException
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
@@ -30,6 +31,8 @@ class SentenceTokenizer(ABC):
         """
         if language:
             self.language = language.lower()
+        self.model = None
+        self.lang_vars = None
 
     def tokenize(self, text: str, model: object = None) -> List[str]:
         """
@@ -42,10 +45,12 @@ class SentenceTokenizer(ABC):
         :param model: tokenizer object to used # Should be in init?
         :type model: object
         """
-        if not self.model:
-            model = self.model
+        if not hasattr(self, "model") or not self.model:
+            self.model = model
 
         tokenizer = self.model
+        if not hasattr(tokenizer, "tokenize"):
+            raise CLTKException("model does not have 'tokenize' method.")
         if self.lang_vars:
             tokenizer._lang_vars = self.lang_vars
         return tokenizer.tokenize(text)
