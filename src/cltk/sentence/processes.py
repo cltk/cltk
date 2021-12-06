@@ -27,6 +27,7 @@ class SentenceTokenizationProcess(Process):
     >>> issubclass(SentenceTokenizationProcess, Process)
     True
     >>> tok = SentenceTokenizationProcess()
+
     """
 
     model: object = None
@@ -39,19 +40,19 @@ class SentenceTokenizationProcess(Process):
         output_doc = deepcopy(input_doc)
         sentence_tokenizer = self.algorithm
         if not isinstance(sentence_tokenizer, SentenceTokenizer):
-            raise CLTKException("Algorithm must be an of SentenceTokenizer subclass")
+            raise CLTKException("Algorithm must be an instance of SentenceTokenizer subclass")
 
         sentences = sentence_tokenizer.tokenize(output_doc.raw, self.model)
         sentence_indices = []
         for i, sentence in enumerate(sentences):
-            if 1 <= i:
+            if i >= 1:
                 sentence_indices.append(sentence_indices[-1] + len(sentences[i]))
             else:
                 sentence_indices.append(len(sentence))
         sentence_index = 0
         for j, word in enumerate(output_doc.words):
             if sentence_indices[sentence_index] < word.index_char_stop and\
-                    sentence_index+1 < len(sentence_indices):
+                    sentence_index + 1 < len(sentence_indices):
                 sentence_index += 1
             word.index_sentence = sentence_index
         return output_doc
