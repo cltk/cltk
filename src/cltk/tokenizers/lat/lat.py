@@ -59,6 +59,9 @@ class LatinWordTokenizer(WordTokenizer):
         >>> toker.tokenize('Cicero dixit orationem pro Sex. Roscio')
         ['Cicero', 'dixit', 'orationem', 'pro', 'Sex.', 'Roscio']
 
+        >>> toker.tokenize('nihilne te nocturnum praesidium Palati')
+        ['nihil', '-ne', 'te', 'nocturnum', 'praesidium', 'Palati']
+
         >>> toker.tokenize('Cenavin ego heri in navi in portu Persico?')
         ['Cenavi', '-ne', 'ego', 'heri', 'in', 'navi', 'in', 'portu', 'Persico', '?']
 
@@ -141,9 +144,7 @@ class LatinWordTokenizer(WordTokenizer):
                             else:
                                 specific_tokens += [token[: -len(enclitic)]] + ["est"]
                         else:
-                            specific_tokens += [token[: -len(enclitic)]] + [
-                                "-" + enclitic
-                            ]
+                            specific_tokens += [token]
                         is_enclitic = True
                         break
             if not is_enclitic:
