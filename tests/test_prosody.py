@@ -14,7 +14,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     # lat/macronizer.py
     def test_retrieve_morpheus_entry(self):
-        """ Text Macronizer()._retrieve_morpheus_tag()"""
+        """Text Macronizer()._retrieve_morpheus_tag()"""
         correct = [
             ("n-s---fb-", "puella", "puellā"),
             ("n-s---fn-", "puella", "puella"),
