@@ -1,3 +1,4 @@
-from cltk.sentence.processes import \
-    SentenceTokenizationProcess,\
-    OldNorseSentenceTokenizationProcess
+from cltk.sentence.processes import (
+    OldNorseSentenceTokenizationProcess,
+    SentenceTokenizationProcess,
+)

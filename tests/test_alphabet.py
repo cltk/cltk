@@ -2,8 +2,8 @@
 
 __license__ = "MIT License. See LICENSE."
 
-import unittest
 import unicodedata
+import unittest
 
 from cltk.alphabet.grc.grc import normalize_grc
 
