@@ -5,7 +5,9 @@ Old Norse: "Clément Besnier <clem@clementbesnier.fr>". Stopwords were defined b
 STOPS = [
     "í",  # prepositions and adverbs
     "gegnum",
-    "svá" "eigi" "ekki",
+    "svá",
+    "eigi",
+    "ekki",
     "vel",
     "upp",
     "síðan",
@@ -52,7 +54,8 @@ STOPS = [
     "yfir",
     "útan",
     "án",
-    "meðan" "þegar",  # adverbs
+    "meðan",
+    "þegar",  # adverbs
     "þangar",
     "hva",
     "hverr",
