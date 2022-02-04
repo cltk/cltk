@@ -281,7 +281,6 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test tagging Old Norse POS with TnT tagger."""
         tagger = POSTag("non")
         tagged = tagger.tag_tnt("Hlióðs bið ek allar.")
-        print(tagged)
         self.assertTrue(tagged)
 
     def test_pos_ngram12_tagger_middle_low_german(self):
@@ -344,32 +343,64 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_pos_unigram_middle_high_german(self):
         """Test tagging Middle High German with unigram tagger"""
-        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
-                  ('wunders', 'NA'), ('vil', 'ADJA'), ('geseit', 'VVPP')]
+        target = [
+            ("uns", "PPER"),
+            ("ist", "VAFIN"),
+            ("in", "APPR"),
+            ("alten", "ADJA"),
+            ("mæren", "ADJA"),
+            ("wunders", "NA"),
+            ("vil", "ADJA"),
+            ("geseit", "VVPP"),
+        ]
         tagger = POSTag("gmh")
         tagged = tagger.tag_unigram("uns ist in alten mæren wunders vil geseit")
         self.assertEqual(target, tagged)
 
     def test_pos_bigram_middle_high_german(self):
         """Test tagging Middle High German with bigram tagger"""
-        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'NA'),
-                  ('wunders', 'NA'), ('vil', None), ('geseit', None)]
+        target = [
+            ("uns", "PPER"),
+            ("ist", "VAFIN"),
+            ("in", "APPR"),
+            ("alten", "ADJA"),
+            ("mæren", "NA"),
+            ("wunders", "NA"),
+            ("vil", None),
+            ("geseit", None),
+        ]
         tagger = POSTag("gmh")
         tagged = tagger.tag_bigram("uns ist in alten mæren wunders vil geseit")
         self.assertEqual(target, tagged)
 
     def test_pos_trigram_middle_high_german(self):
         """Test tagging Middle High German with trigram tagger"""
-        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'NA'),
-                  ('wunders', 'NA'), ('vil', None), ('geseit', None)]
+        target = [
+            ("uns", "PPER"),
+            ("ist", "VAFIN"),
+            ("in", "APPR"),
+            ("alten", "ADJA"),
+            ("mæren", "NA"),
+            ("wunders", "NA"),
+            ("vil", None),
+            ("geseit", None),
+        ]
         tagger = POSTag("gmh")
         tagged = tagger.tag_trigram("uns ist in alten mæren wunders vil geseit")
         self.assertEqual(target, tagged)
 
     def test_pos_tnt_middle_high_german(self):
         """Test tagging Middle High German with TnT tagger"""
-        target = [('uns', 'PPER'), ('ist', 'VAFIN'), ('in', 'APPR'), ('alten', 'ADJA'), ('mæren', 'ADJA'),
-                  ('wunders', 'NA'), ('vil', 'AVD'), ('geseit', 'VVPP')]
+        target = [
+            ("uns", "PPER"),
+            ("ist", "VAFIN"),
+            ("in", "APPR"),
+            ("alten", "ADJA"),
+            ("mæren", "ADJA"),
+            ("wunders", "NA"),
+            ("vil", "AVD"),
+            ("geseit", "VVPP"),
+        ]
         tagger = POSTag("gmh")
         tagged = tagger.tag_tnt("uns ist in alten mæren wunders vil geseit")
         self.assertEqual(target, tagged)
