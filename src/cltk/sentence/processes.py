@@ -12,7 +12,6 @@ from cltk.core.data_types import Doc, Process
 from cltk.sentence.non import OldNorseRegexSentenceTokenizer
 from cltk.sentence.sentence import SentenceTokenizer
 
-
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
@@ -34,13 +33,17 @@ class SentenceTokenizationProcess(Process):
 
     @cachedproperty
     def algorithm(self):
-        raise CLTKException(f"No sentence tokenization algorithm for language '{self.language}'.")
+        raise CLTKException(
+            f"No sentence tokenization algorithm for language '{self.language}'."
+        )
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = deepcopy(input_doc)
         sentence_tokenizer = self.algorithm
         if not isinstance(sentence_tokenizer, SentenceTokenizer):
-            raise CLTKException("Algorithm must be an instance of SentenceTokenizer subclass")
+            raise CLTKException(
+                "Algorithm must be an instance of SentenceTokenizer subclass"
+            )
 
         sentences = sentence_tokenizer.tokenize(output_doc.raw, self.model)
         sentence_indices = []
@@ -51,8 +54,9 @@ class SentenceTokenizationProcess(Process):
                 sentence_indices.append(len(sentence))
         sentence_index = 0
         for j, word in enumerate(output_doc.words):
-            if sentence_indices[sentence_index] < word.index_char_stop and\
-                    sentence_index + 1 < len(sentence_indices):
+            if sentence_indices[
+                sentence_index
+            ] < word.index_char_stop and sentence_index + 1 < len(sentence_indices):
                 sentence_index += 1
             word.index_sentence = sentence_index
         return output_doc
@@ -64,7 +68,7 @@ class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcess):
     The default Old Norse sentence tokenization algorithm.
 
     >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.sentence import OldNorseSentenceTokenizationProcess
+    >>> from cltk.sentence.processes import OldNorseSentenceTokenizationProcess
     >>> from cltk.tokenizers import OldNorseTokenizationProcess
     >>> from cltk.languages.utils import get_lang
     >>> from cltk.languages.example_texts import get_example_text

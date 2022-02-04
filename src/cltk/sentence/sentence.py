@@ -1,5 +1,4 @@
-"""Tokenize sentences.
-"""
+"""Tokenize sentences."""
 
 __author__ = [
     "Patrick J. Burns <patrick@diyclassics.org>",
@@ -25,7 +24,8 @@ class SentenceTokenizer(ABC):
 
     @abstractmethod
     def __init__(self, language: str = None):
-        """Initialize stoplist builder with option for language specific parameters
+        """Initialize stoplist builder with option for language specific parameters.
+
         :param language : language for sentences tokenization
         :type language: str
         """
@@ -35,8 +35,7 @@ class SentenceTokenizer(ABC):
         self.lang_vars = None
 
     def tokenize(self, text: str, model: object = None) -> List[str]:
-        """
-        Method for tokenizing sentences with pretrained punkt models; can
+        """Method for tokenizing sentences with pretrained punkt models; can
         be overridden by language-specific tokenizers.
 
         :rtype: list
@@ -63,12 +62,13 @@ class SentenceTokenizer(ABC):
 
 
 class PunktSentenceTokenizer(SentenceTokenizer):
-    """Base class for punkt sentences tokenization"""
+    """Base class for punkt sentences tokenization."""
 
     missing_models_message = "PunktSentenceTokenizer requires a language model."
 
     def __init__(self, language: str = None, lang_vars: object = None):
-        """
+        """Constructor.
+
         :param language : language for sentences tokenization
         :type language: str
         """
@@ -90,10 +90,11 @@ class PunktSentenceTokenizer(SentenceTokenizer):
 
 
 class RegexSentenceTokenizer(SentenceTokenizer):
-    """ Base class for regex sentences tokenization"""
+    """Base class for regex sentences tokenization."""
 
     def __init__(self, language: str = None, sent_end_chars: List[str] = None):
-        """
+        """Constructor.
+
         :param language: language for sentences tokenization
         :type language: str
         :param sent_end_chars: list of sentences-ending punctuation marks
@@ -108,8 +109,7 @@ class RegexSentenceTokenizer(SentenceTokenizer):
             raise Exception("Must specify sent_end_chars")
 
     def tokenize(self, text: str, model: object = None) -> List[str]:
-        """
-        Method for tokenizing sentences with regular expressions.
+        """Method for tokenizing sentences with regular expressions.
 
         :rtype: list
         :param text: text to be tokenized into sentences
