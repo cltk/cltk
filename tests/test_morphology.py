@@ -8,7 +8,7 @@ from cltk.morphology.lat import CollatinusDecliner
 
 class TestMorphology(unittest.TestCase):
     def test_collatinus_decline(self):
-        """ Ensure lemmatization works well """
+        """Ensure lemmatization works well"""
         decliner = CollatinusDecliner()
 
         def sort_result(result):
@@ -554,7 +554,7 @@ class TestMorphology(unittest.TestCase):
             )
 
     def test_collatinus_flatten_decline(self):
-        """ Ensure that flattening decline result is consistant"""
+        """Ensure that flattening decline result is consistant"""
         decliner = CollatinusDecliner()
         self.assertEqual(
             decliner.decline("via", flatten=True),
@@ -598,7 +598,7 @@ class TestMorphology(unittest.TestCase):
         )
 
     def test_collatinus_POS_decline(self):
-        """ Ensure that POS decline result is consistant"""
+        """Ensure that POS decline result is consistant"""
         decliner = CollatinusDecliner()
         self.assertEqual(
             decliner.decline("via"),
@@ -658,7 +658,7 @@ class TestMorphology(unittest.TestCase):
         self.assertIn("jejunitatem", jajunitas)
 
         def test_collatinus_raise(self):
-            """ Unknown lemma should raise exception """
+            """Unknown lemma should raise exception"""
 
             def decline():
                 decliner = CollatinusDecliner()

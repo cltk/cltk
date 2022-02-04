@@ -23,7 +23,7 @@ from nltk.tokenize.punkt import PunktParameters, PunktSentenceTokenizer
 
 
 class WordTokenizer:
-    """ Base class for word tokenizers"""
+    """Base class for word tokenizers"""
 
     @abstractmethod
     def tokenize(self, text: str, model: object = None):
