@@ -176,7 +176,7 @@ def to_categorial(pos: int) -> "MorphosyntacticFeatureBundle":
         return f()
 
 
-from_ud_map: Dict[str, Dict[str, MorphosyntacticFeature]] = {
+FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     # parts of speech
     "POS": {
         "ADJ": POS.adjective,
@@ -273,6 +273,7 @@ from_ud_map: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Fem": Gender.feminine,
         "Masc": Gender.masculine,
         "Neut": Gender.neuter,
+        "Psor": Gender.psor,
     },
     "Animacy": {
         "Anim": Animacy.animate,
@@ -434,8 +435,8 @@ def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFe
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
 
-    if feature_name in from_ud_map:
-        feature_map = from_ud_map[feature_name]
+    if feature_name in FORM_UD_MAP:
+        feature_map = FORM_UD_MAP[feature_name]
     else:
         msg1: str = f"Unrecognized UD `feature_name` ('{feature_name}') with `feature_value` ('{feature_value}')."
         msg2: str = f"Please raise an issue at <https://github.com/cltk/cltk/issues> and include a small sample to reproduce the error."

@@ -308,6 +308,7 @@ class Gender(MorphosyntacticFeature):
     feminine = auto()
     neuter = auto()
     common = auto()
+    psor = auto()
 
 
 class Animacy(MorphosyntacticFeature):

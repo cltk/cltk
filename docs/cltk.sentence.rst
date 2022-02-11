@@ -25,6 +25,22 @@ cltk.sentence.lat module
    :undoc-members:
    :show-inheritance:
 
+cltk.sentence.non module
+------------------------
+
+.. automodule:: cltk.sentence.non
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cltk.sentence.processes module
+------------------------------
+
+.. automodule:: cltk.sentence.processes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.sentence.san module
 ------------------------
 
