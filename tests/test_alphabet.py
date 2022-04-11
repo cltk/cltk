@@ -29,6 +29,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
     def test_beta_to_unicode_grc_converter(self):
         """Test full conversion algorithm"""
+<<<<<<< HEAD
         source = [
             r"proi+sxome/nwn",
             r"*Xaldai+kh\n",
@@ -49,6 +50,10 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
             "Ἆ",
             "ὅϲα",
         ]
+=======
+        source = [r"proi+sxome/nwn", r"*Xaldai+kh\n", r"*xaldai+kh\n", r"*XALDAI+KH\N"]
+        expected = ["προϊσχομένων", "Χαλδαϊκὴν", "Χαλδαϊκὴν", "Χαλδαϊκὴν"]
+>>>>>>> greek_beta_to_uni
         conv = beta_to_unicode.BetaCodeReplacer()
         target = [conv.replace_beta_code(case) for case in source]
         self.assertEqual(expected, target)
