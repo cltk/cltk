@@ -22,7 +22,7 @@ __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
 
 NER_DICT = {
     # "ang": os.path.join(CLTK_DATA_DIR, "ang/model/ang_models_cltk/ner/spacy_model/"),
-    "fro": os.path.join(CLTK_DATA_DIR, "fro/text/fro_models_cltk/named_entities_fr.py"),
+    "fro": os.path.join(CLTK_DATA_DIR, "fro/model/fro_models_cltk/named_entities_fr.py"),
     # "grc": os.path.join(
     #     CLTK_DATA_DIR,
     #     "grc/model/grc_models_cltk/ner/spacy_model/",
