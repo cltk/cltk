@@ -58,7 +58,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(word.governor, int)
         self.assertIsInstance(word.index_token, int)
         self.assertIsInstance(word.lemma, str)
-        self.assertIsInstance(word.named_entity, str)
+        # self.assertIsInstance(word.named_entity, str)
         self.assertIsInstance(word.pos, POS)
         self.assertIsInstance(word.stanza_features, str)
         self.assertIsInstance(word.stop, bool)
