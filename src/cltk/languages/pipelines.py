@@ -39,9 +39,9 @@ from cltk.lemmatize.processes import (
 )
 from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
 from cltk.ner.processes import (
-    GreekNERProcess,
-    LatinNERProcess,
-    OldEnglishNERProcess,
+    # GreekNERProcess,
+    # LatinNERProcess,
+    # OldEnglishNERProcess,
     OldFrenchNERProcess,
 )
 from cltk.stops.processes import StopsProcess
@@ -234,7 +234,7 @@ class GreekPipeline(Pipeline):
             GreekStanzaProcess,
             GreekEmbeddingsProcess,
             StopsProcess,
-            GreekNERProcess,
+            # GreekNERProcess,
         ]
     )
 
@@ -289,7 +289,7 @@ class LatinPipeline(Pipeline):
             LatinStanzaProcess,
             LatinEmbeddingsProcess,
             StopsProcess,
-            LatinNERProcess,
+            # LatinNERProcess,
             LatinLexiconProcess,
         ]
     )
@@ -412,7 +412,7 @@ class OldEnglishPipeline(Pipeline):
             OldEnglishLemmatizationProcess,
             OldEnglishEmbeddingsProcess,
             StopsProcess,
-            OldEnglishNERProcess,
+            # OldEnglishNERProcess,
         ]
     )
 
