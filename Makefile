@@ -58,7 +58,7 @@ publishPyPITestConfig:
 	poetry config repositories.testpypi https://test.pypi.org/legacy/
 
 shell:
-	# TODO: start w/ option ``doctest_mode``
+	echo 'Tip: Use `option ``doctest_mode`` when making doctests'
 	poetry run ipython --automagic
 
 test:
