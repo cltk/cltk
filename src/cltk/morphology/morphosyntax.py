@@ -151,11 +151,18 @@ class MorphosyntacticFeatureBundle:
     def items(self):
         return self.features.items()
 
-    def __contains__(self, item):
-        return item in self.features
-
     def __len__(self):
         return len(self.features)
+
+    def __contains__(self, item: MorphosyntacticFeature):
+        if not isinstance(item, MorphosyntacticFeature):
+            # raise TypeError(str(item) + " is not a MorphosyntacticFeature")
+            return False
+        else:
+            for i in self.features:
+                if item in self.features[i]:
+                    return True
+            return False
 
 
 f = MorphosyntacticFeatureBundle
