@@ -137,7 +137,32 @@ class MorphosyntacticFeatureBundle:
     def __str__(self) -> str:
         return str(self.features)
 
+    def __iter__(self):
+        return iter(self.features)
+
     __repr__ = __str__
+
+    def keys(self):
+        return self.features.keys()
+
+    def values(self):
+        return self.features.values()
+
+    def items(self):
+        return self.features.items()
+
+    def __len__(self):
+        return len(self.features)
+
+    def __contains__(self, item: MorphosyntacticFeature):
+        if not isinstance(item, MorphosyntacticFeature):
+            # raise TypeError(str(item) + " is not a MorphosyntacticFeature")
+            return False
+        else:
+            for i in self.features:
+                if item in self.features[i]:
+                    return True
+            return False
 
 
 f = MorphosyntacticFeatureBundle
