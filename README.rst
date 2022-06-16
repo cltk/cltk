@@ -1,4 +1,4 @@
-|circleci| |pypi|
+|circleci| |pypi| |twitter|
 
 
 .. |circleci| image:: https://circleci.com/gh/cltk/cltk/tree/master.svg?style=svg
@@ -19,6 +19,8 @@
 .. |binder| image:: https://mybinder.org/badge_logo.svg
    :target: https://mybinder.org/v2/gh/cltk/tutorials/master
 
+.. |twitter| image:: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCLTKorg&label=Follow%20%40CLTKorg
+   :target: https://twitter.com/CLTKorg
 
 The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for pre-modern languages.
 
