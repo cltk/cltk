@@ -23,7 +23,7 @@
    :target: https://twitter.com/CLTKorg
    
 .. |discord| image:: https://img.shields.io/discord/974033391542480936
-   :target: https://img.shields.io/discord/974033391542480936
+   :target: https://discord.gg/ATUDJQX7cg
  
 The Classical Language Toolkit (CLTK) is a Python library offering natural language processing (NLP) for pre-modern languages.
 
