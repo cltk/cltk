@@ -3,7 +3,6 @@
 import os
 import sys
 from contextlib import contextmanager
-from distutils.util import strtobool
 from enum import EnumMeta, IntEnum
 from typing import Any, Dict, List, Optional, Union
 
@@ -158,8 +157,22 @@ def get_cltk_data_dir() -> str:
     return cltk_data_dir
 
 
+def str_to_bool(str: str, truths: List[str] = ["yes", "y"]) -> bool:
+    """Convert a string into a boolean (case insensitively).
+
+    Args:
+        str: String to convert.
+        truths: List of strings that count as Truthy; defaults to "yes" and "y".
+
+    Returns:
+        ``True`` if str is in truths; otherwise, returns ``False``. All strings are
+        compared in lowercase, so the method is case insensitive.
+    """
+    return str.lower() in [t.lower() for t in truths]
+
+
 def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
-    """Ask a yes/no question via ``input()` and return ``True``/``False``..
+    """Ask a yes/no question via ``input()`` and return ``True``/``False``.
 
     Source: `<https://stackoverflow.com/a/3041990>`_.
 
@@ -170,7 +183,7 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
            an answer is required of the user).
 
     Returns:
-        ``True`` for "yes" or ``False`` for "no".
+        ``True`` for "yes" and "y" or ``False`` for "no" and "n".
     """
     # 1. Construct prompt
     if default == "yes":
@@ -186,11 +199,11 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
     while True:
         # sys.stdout.write(question + prompt)
         print(question + prompt)
-        choice = input().lower()
+        choice = input()
         if default and choice == "":
-            return bool(strtobool(default))
+            return str_to_bool(default)
         try:
-            return bool(strtobool(choice))
+            return str_to_bool(choice)
         except ValueError:
             print("Please respond with 'yes' or 'no' (or 'y' or 'n').")
 
