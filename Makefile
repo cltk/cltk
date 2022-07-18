@@ -11,11 +11,21 @@ downloadAllModels:
 format:
 	poetry run isort src/cltk tests docs scripts && poetry run black src/cltk tests docs scripts
 
+freezeDependencies:
+	# Update lock file from pyptoject.toml, but do not install the changed/added packages
+	poetry lock
+
 install:
+	echo "Excluding ``[tool.poetry.dev-dependencies]`` in ``pyproject.toml``"
+	poetry install --no-dev
+
+installDev:
+	# Including ``[tool.poetry.dev-dependencies]`` in ``pyproject.toml``
 	poetry install
 
-installDevelop:
-	python setup.py sdist develop
+installLegacy:
+	# For cltk v. 0.1
+	python setup.py install
 
 installPyPI:
 	poetry run pip install --pre cltk
@@ -48,7 +58,7 @@ publishPyPITestConfig:
 	poetry config repositories.testpypi https://test.pypi.org/legacy/
 
 shell:
-	# TODO: start w/ option ``doctest_mode``
+	echo 'Tip: Use `option ``doctest_mode`` when making doctests'
 	poetry run ipython --automagic
 
 test:
