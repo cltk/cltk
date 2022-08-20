@@ -7,8 +7,6 @@ list so that end users may view the provenance of a scansion.
 
 import re
 
-from Levenshtein import distance
-
 import cltk.prosody.lat.string_utils as string_utils
 from cltk.prosody.lat.metrical_validator import MetricalValidator
 from cltk.prosody.lat.scansion_constants import ScansionConstants
@@ -152,7 +150,7 @@ class PentameterScanner(VerseScanner):
 
         smoothed = self.correct_first_two_dactyls(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if verse.scansion != smoothed:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -162,7 +160,7 @@ class PentameterScanner(VerseScanner):
 
         smoothed = self.correct_penultimate_dactyl_chain(verse.scansion)
 
-        if distance(verse.scansion, smoothed) > 0:
+        if verse.scansion != smoothed:
             verse.scansion_notes += [
                 self.constants.NOTE_MAP["penultimate dactyl chain"]
             ]
