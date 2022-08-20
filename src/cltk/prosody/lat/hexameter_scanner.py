@@ -14,8 +14,6 @@ vowels.
 
 import re
 
-from Levenshtein import distance
-
 import cltk.prosody.lat.string_utils as string_utils
 from cltk.prosody.lat.metrical_validator import MetricalValidator
 from cltk.prosody.lat.scansion_constants import ScansionConstants
@@ -214,7 +212,7 @@ class HexameterScanner(VerseScanner):
             return verse
 
         smoothed = self.correct_inverted_amphibrachs(verse.scansion)
-        if distance(verse.scansion, smoothed) > 0:
+        if verse.scansion != smoothed:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -223,7 +221,7 @@ class HexameterScanner(VerseScanner):
             return self.assign_candidate(verse, verse.scansion)
 
         smoothed = self.correct_first_two_dactyls(verse.scansion)
-        if distance(verse.scansion, smoothed) > 0:
+        if verse.scansion != smoothed:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid start"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -232,7 +230,7 @@ class HexameterScanner(VerseScanner):
             return self.assign_candidate(verse, verse.scansion)
 
         smoothed = self.correct_invalid_fifth_foot(verse.scansion)
-        if distance(verse.scansion, smoothed) > 0:
+        if verse.scansion != smoothed:
             verse.scansion_notes += [self.constants.NOTE_MAP["invalid 5th"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -269,7 +267,7 @@ class HexameterScanner(VerseScanner):
 
         # need to do this again, since the scansion has changed
         smoothed = self.correct_inverted_amphibrachs(verse.scansion)
-        if distance(verse.scansion, smoothed) > 0:
+        if verse.scansion != smoothed:
             verse.scansion_notes += [self.constants.NOTE_MAP["inverted"]]
             verse.scansion = smoothed
             stresses += string_utils.differences(verse.scansion, smoothed)
@@ -301,7 +299,7 @@ class HexameterScanner(VerseScanner):
 
         if dactyl_smoothing:
             smoothed = self.correct_dactyl_chain(smoothed)
-            if distance(verse.scansion, smoothed) > 0:
+            if verse.scansion != smoothed:
                 verse.scansion_notes += [self.constants.NOTE_MAP["dactyl smoothing"]]
                 verse.scansion = smoothed
             if self.metrical_validator.is_valid_hexameter(verse.scansion):
