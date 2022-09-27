@@ -26,6 +26,7 @@ from cltk.embeddings.processes import (
     GothicEmbeddingsProcess,
     GreekEmbeddingsProcess,
     LatinEmbeddingsProcess,
+    MiddleEnglishEmbeddingsProcess,
     OldEnglishEmbeddingsProcess,
     PaliEmbeddingsProcess,
     SanskritEmbeddingsProcess,
@@ -338,7 +339,9 @@ class MiddleEnglishPipeline(Pipeline):
     description: str = "Pipeline for the Middle English language"
     language: Language = get_lang("enm")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [MiddleEnglishTokenizationProcess, StopsProcess]
+        default_factory=lambda: [MiddleEnglishTokenizationProcess,
+                                 StopsProcess,
+                                 MiddleEnglishEmbeddingsProcess]
     )
 
 
