@@ -52,7 +52,6 @@ class EmbeddingsProcess(Process):
 
     @cachedproperty
     def algorithm(self):
-        print(self.variant)
         valid_variants = ["fasttext", "nlpl", "cltk"]
         if self.variant == "fasttext":
             return FastTextEmbeddings(iso_code=self.language)
