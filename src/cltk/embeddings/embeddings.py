@@ -75,13 +75,13 @@ class CLTKWord2VecEmbeddings:
         self._check_input_params()
 
         self.model_path = make_cltk_path(
-            self.iso_code, "models", f"{self.iso_code}_cltk_models", "semantics"
+            self.iso_code, "model", f"{self.iso_code}_models_cltk", "semantics"
         )
 
         # load model after all checks OK
         # self._download_cltk_self_hosted_models()
         # self.fp_zip = self._build_zip_filepath()
-        # self.fp_model = self._build_nlpl_filepath()
+        self.fp_model = self._build_filepath()
         # self.fp_model_dirs = os.path.split(self.fp_zip)[0]  # type: str
         if not self._is_model_present() or self.overwrite:
             self._download_cltk_self_hosted_models()
@@ -90,12 +90,19 @@ class CLTKWord2VecEmbeddings:
             # print(message)
             # TODO: Log message
             pass
-        self.model: models.keyedvectors.Word2VecKeyedVectors = self._load_model()
+        self.model: models.word2vec.Word2Vec = self._load_model()
+
+    def _build_filepath(self):
+        """Create filepath where chosen language should be found."""
+        model_dir = os.path.join(
+            self.iso_code, "models", f"{self.iso_code}_models_cltk", "semantics"
+        )  # type: str
+        return os.path.join(model_dir, f"me_word_embeddings_model.{self.model_type}")
 
     def get_word_vector(self, word: str):
         """Return embedding array."""
         try:
-            return self.model.get_vector(word)
+            return self.model.wv.get_vector(word)
         except KeyError:
             return None
 
@@ -105,7 +112,7 @@ class CLTKWord2VecEmbeddings:
 
     def get_sims(self, word: str):
         """Get similar words."""
-        return self.model.most_similar(word)
+        return self.model.wv.most_similar(word)
 
     def _check_input_params(self) -> None:
         """Confirm that input parameters are valid and in a
@@ -143,7 +150,8 @@ class CLTKWord2VecEmbeddings:
                 # TODO download git repository
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
-                    corpus_name=f"{self.iso_code}_cltk_models"
+                    corpus_name=f"{self.iso_code}_cltk_models",
+                    branch="main"
                 )
         else:
             print(  # pragma: no cover
@@ -157,7 +165,8 @@ class CLTKWord2VecEmbeddings:
                 # TODO download git repository
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
-                    corpus_name=f"{self.iso_code}_cltk_models"
+                    corpus_name=f"{self.iso_code}_models_cltk",
+                    branch="main"
                 )
                 pass
             else:
@@ -173,7 +182,7 @@ class CLTKWord2VecEmbeddings:
         else:
             return False
 
-    def _load_model(self) -> models.keyedvectors.Word2VecKeyedVectors:
+    def _load_model(self) -> models.word2vec.Word2Vec:
         """Load model into memory.
 
         TODO: When testing show that this is a Gensim type
@@ -181,17 +190,17 @@ class CLTKWord2VecEmbeddings:
         """
         # KJ added these two checks because NLPL embeddings
         # began erring in Gensim (Oct 2021)
-        is_binary: bool = False
-        unicode_errors: str = "strict"
-        if self.fp_model.endswith(".txt"):
-            unicode_errors = "ignore"
-        if self.fp_model.endswith(".bin"):
-            is_binary = True
+        # is_binary: bool = False
+        # unicode_errors: str = "strict"
+        # if self.fp_model.endswith(".txt"):
+        #     unicode_errors = "ignore"
+        # if self.fp_model.endswith(".bin"):
+        #     is_binary = True
         try:
-            return models.KeyedVectors.load_word2vec_format(
-                self.model_path,
-                binary=is_binary,
-                unicode_errors=unicode_errors,
+            return models.word2vec.Word2Vec.load(
+                os.path.join(self.model_path, os.path.basename(self.fp_model)),
+                # binary=is_binary,
+                # unicode_errors=unicode_errors,
             )
         except UnicodeDecodeError:
             msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."

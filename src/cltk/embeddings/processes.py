@@ -52,6 +52,7 @@ class EmbeddingsProcess(Process):
 
     @cachedproperty
     def algorithm(self):
+        print(self.variant)
         valid_variants = ["fasttext", "nlpl", "cltk"]
         if self.variant == "fasttext":
             return FastTextEmbeddings(iso_code=self.language)
@@ -157,11 +158,16 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     description: str = "Default embeddings for Latin."
 
 
+@dataclass
 class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):
-    """The default Middle English embeddings algorithm"""
-    language: str = "enm"
-    description: str = "Default embeddings for Middle Enhlish"
-    variant: str = "cltk"
+    """The default Middle English embeddings algorithm."""
+    language = "enm"
+    variant = "cltk"
+    description = "Default embeddings for Middle English"
+
+    @cachedproperty
+    def algorithm(self):
+        return CLTKWord2VecEmbeddings(iso_code=self.language, model_type="bin", )
 
 
 @dataclass
