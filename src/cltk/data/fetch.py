@@ -476,9 +476,9 @@ LANGUAGE_CORPORA = {
         {
             "name": "enm_models_cltk",
             "origin": "https://github.com/cltk/enm_models_cltk.git",
-            "type": "model"
+            "type": "model",
         }
-    ]
+    ],
 }
 
 

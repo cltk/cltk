@@ -5,8 +5,8 @@ __license__ = "MIT License. See LICENSE."
 import unicodedata
 import unittest
 
-from cltk.alphabet.grc.grc import normalize_grc
 from cltk.alphabet.grc import beta_to_unicode
+from cltk.alphabet.grc.grc import normalize_grc
 
 
 class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904

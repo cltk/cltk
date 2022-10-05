@@ -29,9 +29,7 @@ from cltk.languages.utils import get_lang
 from cltk.utils import CLTK_DATA_DIR, get_file_with_progress_bar, query_yes_no
 from cltk.utils.file_operations import make_cltk_path
 
-MAP_CLTK_SELF_HOSTED_LANGS = dict(
-    enm="enm"
-)
+MAP_CLTK_SELF_HOSTED_LANGS = dict(enm="enm")
 
 MAP_NLPL_LANG_TO_URL = dict(
     arb="http://vectors.nlpl.eu/repository/20/31.zip",
@@ -52,15 +50,16 @@ MAP_LANGS_CLTK_FASTTEXT = {
 
 
 class CLTKWord2VecEmbeddings:
-    """Wrapper for self-hosted Word2Vec embeddings.
-    """
+    """Wrapper for self-hosted Word2Vec embeddings."""
 
-    def __init__(self,
-                 iso_code: str,
-                 model_type: str = "txt",
-                 interactive: bool = True,
-                 silent: bool = False,
-                 overwrite: bool = False):
+    def __init__(
+        self,
+        iso_code: str,
+        model_type: str = "txt",
+        interactive: bool = True,
+        silent: bool = False,
+        overwrite: bool = False,
+    ):
         self.iso_code = iso_code
         self.model_type = model_type
         self.interactive = interactive
@@ -150,8 +149,7 @@ class CLTKWord2VecEmbeddings:
                 # TODO download git repository
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
-                    corpus_name=f"{self.iso_code}_cltk_models",
-                    branch="main"
+                    corpus_name=f"{self.iso_code}_cltk_models", branch="main"
                 )
         else:
             print(  # pragma: no cover
@@ -165,14 +163,11 @@ class CLTKWord2VecEmbeddings:
                 # TODO download git repository
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
-                    corpus_name=f"{self.iso_code}_models_cltk",
-                    branch="main"
+                    corpus_name=f"{self.iso_code}_models_cltk", branch="main"
                 )
                 pass
             else:
-                raise CLTKException(
-                    f"Impossible to download the model."
-                )
+                raise CLTKException(f"Impossible to download the model.")
 
     def _is_model_present(self) -> bool:
         """Check if model in an otherwise valid filepath."""

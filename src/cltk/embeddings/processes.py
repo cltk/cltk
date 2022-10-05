@@ -12,7 +12,11 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
-from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings, CLTKWord2VecEmbeddings
+from cltk.embeddings.embeddings import (
+    CLTKWord2VecEmbeddings,
+    FastTextEmbeddings,
+    Word2VecEmbeddings,
+)
 from cltk.embeddings.sentence import get_sent_embeddings
 from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
@@ -160,13 +164,17 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
 @dataclass
 class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):
     """The default Middle English embeddings algorithm."""
+
     language = "enm"
     variant = "cltk"
     description = "Default embeddings for Middle English"
 
     @cachedproperty
     def algorithm(self):
-        return CLTKWord2VecEmbeddings(iso_code=self.language, model_type="bin", )
+        return CLTKWord2VecEmbeddings(
+            iso_code=self.language,
+            model_type="bin",
+        )
 
 
 @dataclass
