@@ -472,6 +472,13 @@ LANGUAGE_CORPORA = {
             "type": "model",
         }
     ],
+    "enm": [
+        {
+            "name": "enm_models_cltk",
+            "origin": "https://github.com/cltk/enm_models_cltk.git",
+            "type": "model"
+        }
+    ]
 }
 
 
@@ -741,7 +748,7 @@ class FetchCorpus:
                 and not matching_corpus.get("name")
                 and not matching_corpus.get("origin")
             ):
-                raise FetchCorpus(f"Malformed record for ``{corpus_name}``.")
+                raise ValueError(f"Malformed record for ``{corpus_name}``.")
             git_uri = matching_corpus["origin"]
             type_dir_rel = os.path.join(
                 CLTK_DATA_DIR, self.language, matching_corpus["type"]
