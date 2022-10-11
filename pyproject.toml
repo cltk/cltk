@@ -34,7 +34,7 @@ python = ">=3.8,<3.11"
 gitpython = "^3.0"
 requests = "^2.22.0"
 tqdm = "^4.41.1"
-fasttext = "^0.9.1"
+fasttext = {git = "https://github.com/cfculhane/fastText.git"}
 gensim = "^4.1.2"
 boltons = "^21.0.0"
 greek-accentuation = "^1.2.0"
