@@ -338,23 +338,13 @@ LOWER_DIAERESIS_ACUTE = [  #
 ]
 
 LOWER_DIAERESIS_GRAVE = [  #
-    "\u1f0e",  # Ἆ Greek Capital Letter Alpha With Psili And Perispomeni
-    "\u1f2e",  # Ἦ Greek Capital Letter Eta With Psili And Perispomeni
-    "\u1f3e",  # Ἶ Greek Capital Letter Iota With Psili And Perispomeni
-    "\u1f6e",  # Ὦ Greek Capital Letter Omega With Psili And Perispomeni
-    "\u1f8e",  # ᾎ Greek Capital Letter Alpha With Psili And Perispomeni And Prosgegrammeni
-    "\u1f9e",  # ᾞ Greek Capital Letter Eta With Psili And Perispomeni And Prosgegrammeni
-    "\u1fae",  # ᾮ Greek Capital Letter Omega With Psili And Perispomeni And Prosgegrammeni
+    "\u1fe2",  # ῢ Greek Small Letter Upsilon With Dialytika And Varia
+    "\u1fd2",  # ῒ Greek Small Letter Iota With Dialytika And Varia
 ]
 
 LOWER_DIAERESIS_CIRCUMFLEX = [  #
-    "\u1f0e",  # Ἆ Greek Capital Letter Alpha With Psili And Perispomeni
-    "\u1f2e",  # Ἦ Greek Capital Letter Eta With Psili And Perispomeni
-    "\u1f3e",  # Ἶ Greek Capital Letter Iota With Psili And Perispomeni
-    "\u1f6e",  # Ὦ Greek Capital Letter Omega With Psili And Perispomeni
-    "\u1f8e",  # ᾎ Greek Capital Letter Alpha With Psili And Perispomeni And Prosgegrammeni
-    "\u1f9e",  # ᾞ Greek Capital Letter Eta With Psili And Perispomeni And Prosgegrammeni
-    "\u1fae",  # ᾮ Greek Capital Letter Omega With Psili And Perispomeni And Prosgegrammeni
+    "\u1fe7",  # ῧ Greek Small Letter Upsilon With Dialytika And Perispomeni
+    "\u1fd7",  # ῗ Greek Small Letter Iota With Dialytika And Perispomeni
 ]
 
 LOWER_MACRON = [  #
