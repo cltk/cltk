@@ -78,10 +78,7 @@ class CLTKWord2VecEmbeddings:
         )
 
         # load model after all checks OK
-        # self._download_cltk_self_hosted_models()
-        # self.fp_zip = self._build_zip_filepath()
         self.fp_model = self._build_filepath()
-        # self.fp_model_dirs = os.path.split(self.fp_zip)[0]  # type: str
         if not self._is_model_present() or self.overwrite:
             self._download_cltk_self_hosted_models()
         elif self._is_model_present() and not self.overwrite:
@@ -140,7 +137,6 @@ class CLTKWord2VecEmbeddings:
         """Perform complete download of Word2Vec models and save
         them in appropriate ``cltk_data`` dir.
         """
-        model_url = MAP_CLTK_SELF_HOSTED_LANGS[self.iso_code]
         if not self.interactive:
             if not self.silent:
                 print(
@@ -159,8 +155,6 @@ class CLTKWord2VecEmbeddings:
                 f"Do you want to download the {self.iso_code} models to {self.model_path}'?"
             )  # type: bool
             if dl_is_allowed:
-                # get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
-                # TODO download git repository
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
                     corpus_name=f"{self.iso_code}_models_cltk", branch="main"
@@ -179,24 +173,10 @@ class CLTKWord2VecEmbeddings:
 
     def _load_model(self) -> models.word2vec.Word2Vec:
         """Load model into memory.
-
-        TODO: When testing show that this is a Gensim type
-        TODO: Suppress Gensim info printout from screen
         """
-        # KJ added these two checks because NLPL embeddings
-        # began erring in Gensim (Oct 2021)
-        # is_binary: bool = False
-        # unicode_errors: str = "strict"
-        # if self.fp_model.endswith(".txt"):
-        #     unicode_errors = "ignore"
-        # if self.fp_model.endswith(".bin"):
-        #     is_binary = True
         try:
             return models.word2vec.Word2Vec.load(
-                os.path.join(self.model_path, os.path.basename(self.fp_model)),
-                # binary=is_binary,
-                # unicode_errors=unicode_errors,
-            )
+                os.path.join(self.model_path, os.path.basename(self.fp_model)))
         except UnicodeDecodeError:
             msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."
             print(msg)
