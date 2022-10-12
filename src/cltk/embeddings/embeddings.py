@@ -24,8 +24,12 @@ from zipfile import ZipFile
 from gensim import models  # type: ignore
 
 from cltk.core.exceptions import CLTKException, UnimplementedAlgorithmError
+from cltk.data.fetch import FetchCorpus
 from cltk.languages.utils import get_lang
 from cltk.utils import CLTK_DATA_DIR, get_file_with_progress_bar, query_yes_no
+from cltk.utils.file_operations import make_cltk_path
+
+MAP_CLTK_SELF_HOSTED_LANGS = dict(enm="enm")
 
 MAP_NLPL_LANG_TO_URL = dict(
     arb="http://vectors.nlpl.eu/repository/20/31.zip",
@@ -43,6 +47,140 @@ MAP_LANGS_CLTK_FASTTEXT = {
     "pli": "pi",  # Pali
     "san": "sa",  # Sanskrit
 }
+
+
+class CLTKWord2VecEmbeddings:
+    """Wrapper for self-hosted Word2Vec embeddings."""
+
+    def __init__(
+        self,
+        iso_code: str,
+        model_type: str = "txt",
+        interactive: bool = True,
+        silent: bool = False,
+        overwrite: bool = False,
+    ):
+        self.iso_code = iso_code
+        self.model_type = model_type
+        self.interactive = interactive
+        self.silent = silent
+        self.overwrite = overwrite
+
+        if self.interactive and self.silent:
+            raise ValueError(
+                "``interactive`` and ``silent`` options are not compatible with each other."
+            )
+
+        self._check_input_params()
+
+        self.model_path = make_cltk_path(
+            self.iso_code, "model", f"{self.iso_code}_models_cltk", "semantics"
+        )
+
+        # load model after all checks OK
+        self.fp_model = self._build_filepath()
+        if not self._is_model_present() or self.overwrite:
+            self._download_cltk_self_hosted_models()
+        elif self._is_model_present() and not self.overwrite:
+            # message = f"Model for '{self.iso_code}' / '{self.model_type}' already present at '{self.fp_model}' and ``overwrite=False``."
+            # print(message)
+            # TODO: Log message
+            pass
+        self.model: models.word2vec.Word2Vec = self._load_model()
+
+    def _build_filepath(self):
+        """Create filepath where chosen language should be found."""
+        model_dir = os.path.join(
+            self.iso_code, "models", f"{self.iso_code}_models_cltk", "semantics"
+        )  # type: str
+        return os.path.join(model_dir, f"me_word_embeddings_model.{self.model_type}")
+
+    def get_word_vector(self, word: str):
+        """Return embedding array."""
+        try:
+            return self.model.wv.get_vector(word)
+        except KeyError:
+            return None
+
+    def get_embedding_length(self) -> int:
+        """Return the embedding length for selected model."""
+        return self.model.vector_size
+
+    def get_sims(self, word: str):
+        """Get similar words."""
+        return self.model.wv.most_similar(word)
+
+    def _check_input_params(self) -> None:
+        """Confirm that input parameters are valid and in a
+        valid configuration.
+        """
+        # 1. check if lang valid
+        get_lang(self.iso_code)  # check if iso_code valid
+
+        # 2. check if any fasttext embeddings for this lang
+        if self.iso_code not in MAP_CLTK_SELF_HOSTED_LANGS:
+            available_embeddings_str = "', '".join(MAP_CLTK_SELF_HOSTED_LANGS.keys())
+            raise UnimplementedAlgorithmError(
+                f"No embedding available for language '{self.iso_code}'."
+                f" Self-hosted Word2Vec models available for: '{available_embeddings_str}'."
+            )
+
+        # 3. assert that model type is valid
+        valid_types = ["bin", "txt"]
+        if self.model_type not in valid_types:
+            unavailable_types_str = "', '".join(valid_types)
+            raise ValueError(
+                f"Invalid ``model_type`` {self.model_type}. Valid model types: {unavailable_types_str}."
+            )
+
+    def _download_cltk_self_hosted_models(self) -> None:
+        """Perform complete download of Word2Vec models and save
+        them in appropriate ``cltk_data`` dir.
+        """
+        if not self.interactive:
+            if not self.silent:
+                print(
+                    f"CLTK message: Going to download the model ..."
+                )  # pragma: no cover
+                # TODO download git repository
+                fetch_corpus = FetchCorpus(language=self.iso_code)
+                fetch_corpus.import_corpus(
+                    corpus_name=f"{self.iso_code}_cltk_models", branch="main"
+                )
+        else:
+            print(  # pragma: no cover
+                "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
+            )  # pragma: no cover
+            dl_is_allowed = query_yes_no(
+                f"Do you want to download the {self.iso_code} models to {self.model_path}'?"
+            )  # type: bool
+            if dl_is_allowed:
+                fetch_corpus = FetchCorpus(language=self.iso_code)
+                fetch_corpus.import_corpus(
+                    corpus_name=f"{self.iso_code}_models_cltk", branch="main"
+                )
+                pass
+            else:
+                raise CLTKException(f"Impossible to download the model.")
+
+    def _is_model_present(self) -> bool:
+        """Check if model in an otherwise valid filepath."""
+
+        if os.path.isdir(self.model_path):
+            return True
+        else:
+            return False
+
+    def _load_model(self) -> models.word2vec.Word2Vec:
+        """Load model into memory.
+        """
+        try:
+            return models.word2vec.Word2Vec.load(
+                os.path.join(self.model_path, os.path.basename(self.fp_model)))
+        except UnicodeDecodeError:
+            msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."
+            print(msg)
+            raise UnicodeDecodeError
 
 
 class Word2VecEmbeddings:

@@ -12,7 +12,11 @@ from boltons.cacheutils import cachedproperty
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
-from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
+from cltk.embeddings.embeddings import (
+    CLTKWord2VecEmbeddings,
+    FastTextEmbeddings,
+    Word2VecEmbeddings,
+)
 from cltk.embeddings.sentence import get_sent_embeddings
 from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
@@ -52,11 +56,13 @@ class EmbeddingsProcess(Process):
 
     @cachedproperty
     def algorithm(self):
-        valid_variants = ["fasttext", "nlpl"]
+        valid_variants = ["fasttext", "nlpl", "cltk"]
         if self.variant == "fasttext":
             return FastTextEmbeddings(iso_code=self.language)
         elif self.variant == "nlpl":
             return Word2VecEmbeddings(iso_code=self.language)
+        elif self.variant == "cltk":
+            return CLTKWord2VecEmbeddings(iso_code=self.language)
         else:
             valid_variants_str = "', '".join(valid_variants)
             raise CLTKException(
@@ -153,6 +159,22 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
 
     language: str = "lat"
     description: str = "Default embeddings for Latin."
+
+
+@dataclass
+class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):
+    """The default Middle English embeddings algorithm."""
+
+    language = "enm"
+    variant = "cltk"
+    description = "Default embeddings for Middle English"
+
+    @cachedproperty
+    def algorithm(self):
+        return CLTKWord2VecEmbeddings(
+            iso_code=self.language,
+            model_type="bin",
+        )
 
 
 @dataclass

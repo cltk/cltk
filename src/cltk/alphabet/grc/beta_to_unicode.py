@@ -6,8 +6,9 @@ TODO: Add tests
 
 # pylint: disable=anomalous-backslash-in-string
 
-import regex
 from unicodedata import normalize
+
+import regex
 
 BETA_REPLACE = [
     (r"S|\*[sS]", "Σ"),

@@ -26,6 +26,7 @@ from cltk.embeddings.processes import (
     GothicEmbeddingsProcess,
     GreekEmbeddingsProcess,
     LatinEmbeddingsProcess,
+    MiddleEnglishEmbeddingsProcess,
     OldEnglishEmbeddingsProcess,
     PaliEmbeddingsProcess,
     SanskritEmbeddingsProcess,
@@ -39,11 +40,8 @@ from cltk.lemmatize.processes import (
 )
 from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
 from cltk.ner.processes import (
-    # GreekNERProcess,
-    # LatinNERProcess,
-    # OldEnglishNERProcess,
     OldFrenchNERProcess,
-)
+)  # GreekNERProcess,; LatinNERProcess,; OldEnglishNERProcess,
 from cltk.stops.processes import StopsProcess
 from cltk.tokenizers.processes import (
     AkkadianTokenizationProcess,
@@ -333,12 +331,23 @@ class MiddleEnglishPipeline(Pipeline):
     'Middle English'
     >>> a_pipeline.processes[0]
     <class 'cltk.tokenizers.processes.MiddleEnglishTokenizationProcess'>
+    >>> from cltk import NLP
+    >>> middle_english_nlp = NLP(language="enm", suppress_banner=True)
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> doc = middle_english_nlp.analyze(get_example_text("enm"))
+    >>> doc[2].embedding.shape
+    (50,)
+
     """
 
     description: str = "Pipeline for the Middle English language"
     language: Language = get_lang("enm")
     processes: List[Type[Process]] = field(
-        default_factory=lambda: [MiddleEnglishTokenizationProcess, StopsProcess]
+        default_factory=lambda: [
+            MiddleEnglishTokenizationProcess,
+            StopsProcess,
+            MiddleEnglishEmbeddingsProcess,
+        ]
     )
 
 
