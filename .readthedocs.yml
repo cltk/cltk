@@ -14,7 +14,7 @@ formats: []
 # Optionally set the version of Python and requirements required to build your docs
 # Adjust for poetry's pyproject.toml; can use ``pip install .`` in pip v. > 19 to install w/o ``requirements.txt``
 python:
-  version: 3.7
+  version: 3.8
   install:
     - method: pip
       path: .
