@@ -12,6 +12,9 @@ The Word2Vec models are in two versions, ``txt`` and ``bin``, with the
 ``txt`` being approximately twice the size and containing information
 for retraining.
 
+Note: In Oct 2022, we changed from the ``fasttext`` library to Spacy's ``floret``,
+which contains ``fasttext``'s source but without its packaging problems.
+
 # TODO: Classes ``Word2VecEmbeddings`` and ``FastTextEmbeddings`` contain duplicative code. Consider combining them.
 
 # TODO: Instead of returning `None`, return an empty numpy array of correct len.
