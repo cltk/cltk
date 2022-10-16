@@ -438,14 +438,14 @@ testing = ["Django (<3.1)", "colorama", "docopt", "pytest (<7.0.0)"]
 
 [[package]]
 name = "jinja2"
-version = "3.0.0"
+version = "3.0.3"
 description = "A very fast and expressive template engine."
 category = "main"
 optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-MarkupSafe = ">=2.0.0rc2"
+MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
@@ -1496,7 +1496,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "596519367cfcc4dd6b1ef8bcdfdbbb1ea9806a16ee804e91ee645b7db8cacf40"
+content-hash = "7ae235f66224936f0ef223514fd6d3737baef16f74aa9e79a4860de0e83fb8d2"
 
 [metadata.files]
 alabaster = []
