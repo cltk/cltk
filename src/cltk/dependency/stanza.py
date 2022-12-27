@@ -265,9 +265,7 @@ class StanzaWrapper:
         >>> stanza_wrapper._is_model_present()
         True
         """
-        if file_exists(self.model_path):
-            return True
-        return False
+        return file_exists(self.model_path)
 
     def _download_model(self) -> None:
         """Interface with the `stanza` model downloader."""
@@ -318,9 +316,7 @@ class StanzaWrapper:
         True
         """
         possible_treebanks = self.map_code_treebanks[self.stanza_code]
-        if self.treebank in possible_treebanks:
-            return True
-        return False
+        return self.treebank in possible_treebanks
 
     def is_wrapper_available(self) -> bool:
         """Maps an ISO 639-3 language id (e.g., ``lat`` for Latin) to
@@ -331,9 +327,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.is_wrapper_available()
         True
         """
-        if self.language in MAP_LANGS_CLTK_STANZA:
-            return True
-        return False
+        return self.language in MAP_LANGS_CLTK_STANZA
 
     def _get_stanza_code(self) -> str:
         """Using known-supported language, use the CLTK's
