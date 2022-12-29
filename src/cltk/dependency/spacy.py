@@ -1,7 +1,7 @@
 
 import logging
 import os.path
-from typing import Union
+from typing import Union, Optional
 
 import spacy
 from cltk.utils import suppress_stdout
@@ -17,7 +17,7 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 MAP_LANGS_CLTK_SPACY = {
-    "la": "Latin",
+    "lat": "Latin",
     # "grc": "Ancient_Greek",
     # "sa": "Sanskrit"
 }
@@ -38,31 +38,29 @@ class SpacyWrapper:
         :param silent:
         """
         self.language = language
-        self.interactive = interactive
-        self.silent = silent
+        self._interactive = interactive
+        self._silent = silent
 
-        if self.interactive and self.silent:
+        if self._interactive and self._silent:
             raise ValueError(
                 "``interactive`` and ``silent`` options are not compatible with each other."
             )
 
-        if not self._is_model_present():
+        if not self.is_wrapper_available:
+            raise UnknownLanguageError(f"Language {self.language} is not supported by CLTK wrapper of SpaCy.")
+
+        if not self._is_model_present:
             self._download_model()
 
         with suppress_stdout():
             self.nlp = self._load_pipeline()
+            self.nlps[self.language] = self.nlp
 
     @property
     def is_wrapper_available(self) -> bool:
         return self.language in MAP_LANGS_CLTK_SPACY
 
-    @classmethod
-    def get_nlp(cls, language: str):
-        if language in cls.nlps[language]:
-            return cls.nlps[language]
-        return None
-
-    def _load_pipeline(self) -> Union[spacy.Language, None]:
+    def _load_pipeline(self) -> Optional[spacy.Language]:
 
         models_dir = os.path.expanduser("~/")
         if self.language in ["la", "lat"]:
@@ -73,11 +71,11 @@ class SpacyWrapper:
         elif self.language == "grc":
             self.model = "grc_ud_proiel_sm"
         else:
-            return None
+            raise CLTKException(f"No spaCy model found for language {self.language}")
         nlp = spacy.load(self.model)
         return nlp
 
-    def parse(self, text: str) -> Union[Doc, None]:
+    def parse(self, text: str) -> Optional[Doc]:
         """
         >>> from cltk.languages.example_texts import get_example_text
         >>> spacy_wrapper = SpacyWrapper(language="lat")
@@ -89,15 +87,23 @@ class SpacyWrapper:
         :param text:
         :return:
         """
-        if self.nlp:
-            return self.nlp(text)
-        return None
+        return self.nlp(text)
 
     def _download_model(self):
         os.system(f"python -m spacy download {self.model}")
 
+    @property
     def _is_model_present(self):
         return True
+
+    @classmethod
+    def get_nlp(cls, language: str):
+        if language in cls.nlps:
+            return cls.nlps[language]
+        else:
+            nlp = cls(language)
+            cls.nlps[language] = nlp
+            return nlp
 
 
 

@@ -4,7 +4,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
-import spacy.tokens as sp
+import spacy.tokens as spt
 import stanza
 from boltons.cacheutils import cachedproperty
 
@@ -259,7 +259,7 @@ class SpacyProcess(Process):
         return output_doc
 
     @staticmethod
-    def spacy_to_cltk_word_type(spacy_doc: sp.Doc):
+    def spacy_to_cltk_word_type(spacy_doc: spt.Doc):
         """Take an entire ``spacy`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
@@ -273,7 +273,7 @@ class SpacyProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='Gallia', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=1, features={Case: [nominative], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+
 
         """
 
@@ -281,56 +281,25 @@ class SpacyProcess(Process):
 
         for sentence_index, sentence in enumerate(spacy_doc.doc.sents):
             sent_words = {}  # type: Dict[int, Word]
-            indices = []  # type: List[Tuple[int, int]]
 
             for token_index in range(sentence.start, sentence.end):
-                spacy_word = spacy_doc[0]  # type: sp.Token
-                # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
-                # pos: Optional[MorphosyntacticFeature] = from_ud("POS", spacy_word.pos)
+                spacy_word = spacy_doc[0]  # type: spt.Token
 
                 cltk_word = Word(
-                    index_token=token_index
-                    - 1,  # subtract 1 from id b/c Stanza starts their index at 1
+                    index_token=token_index,
+                    index_char_start=spacy_word.idx,
+                    index_char_stop=spacy_word.idx+len(spacy_word),
                     index_sentence=sentence_index,
                     string=spacy_word.text,  # same as ``token.text``
-                    pos=spacy_word.tag,
+                    pos=spacy_word.tag,  # TODO: translate it to str
                     # xpos=,
-                    upos=spacy_word.pos,
-                    lemma=spacy_word.lemma,
-                    dependency_relation=spacy_word.dep,
-                )  # type: Word
-
-                # convert UD features to the normalized CLTK features
-                # raw_features = (
-                #     [tuple(f.split("=")) for f in stanza_word.feats.split("|")]
-                #     if stanza_word.feats
-                #     else []
-                # )
-                # cltk_features = [
-                #     from_ud(feature_name, feature_value)
-                #     for feature_name, feature_value in raw_features
-                # ]
-                # cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
-                # cltk_word.category = to_categorial(cltk_word.pos)
-                # cltk_word.stanza_features = stanza_word.feats
+                    upos=spacy_word.pos,  # TODO: translate it to str
+                    lemma=spacy_word.lemma,  # TODO; translate it to str
+                    dependency_relation=spacy_word.dep,  # TODO: translate it to str
+                    stop=spacy_word.is_stop
+                )
 
                 sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
-
-                # # TODO: Fix this, I forget what we were tracking in this
-                # indices.append(
-                #     (
-                #         int(stanza_word.governor)
-                #         - 1,  # -1 to match CLTK Word.index_token
-                #         int(stanza_word.parent_token.index)
-                #         - 1,  # -1 to match CLTK Word.index_token
-                #     )
-                # )
-            # # TODO: Confirm that cltk_word.parent is ever getting filled out. Only for some lang models?
-            # for idx, cltk_word in enumerate(sent_words.values()):
-            #     governor_index, parent_index = indices[idx]  # type: int, int
-            #     cltk_word.governor = governor_index if governor_index >= 0 else None
-            #     if cltk_word.index_token != sent_words[parent_index].index_token:
-            #         cltk_word.parent = parent_index
 
         return words_list
