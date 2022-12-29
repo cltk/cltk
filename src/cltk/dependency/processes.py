@@ -4,6 +4,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
+import spacy
 import spacy.tokens as spt
 import stanza
 from boltons.cacheutils import cachedproperty
@@ -273,6 +274,11 @@ class SpacyProcess(Process):
 
 
         """
+        def from_spacy_pos_to_upos(pos):
+            for key, value in spacy.parts_of_speech.IDS.items():
+                if pos == value:
+                    return key
+            return ""
 
         words_list = []  # type: List[Word]
 
@@ -288,11 +294,11 @@ class SpacyProcess(Process):
                     index_char_stop=spacy_word.idx+len(spacy_word),
                     index_sentence=sentence_index,
                     string=spacy_word.text,  # same as ``token.text``
-                    pos=spacy_word.tag,  # TODO: translate it to str
-                    # xpos=,
-                    upos=spacy_word.pos,  # TODO: translate it to str
-                    lemma=spacy_word.lemma,  # TODO; translate it to str
-                    dependency_relation=spacy_word.dep,  # TODO: translate it to str
+                    # pos=spacy_word.tag_,
+                    xpos=spacy_word.tag_,
+                    upos=from_spacy_pos_to_upos(spacy_word.pos),
+                    lemma=spacy_word.lemma_,
+                    dependency_relation=spacy_word.dep_,
                     stop=spacy_word.is_stop
                 )
 
@@ -300,3 +306,5 @@ class SpacyProcess(Process):
                 words_list.append(cltk_word)
 
         return words_list
+
+
