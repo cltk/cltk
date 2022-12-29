@@ -4,7 +4,7 @@
 
 """
 
-from typing import Union
+from typing import Optional
 
 from cltk.phonology.non.syllabifier import BACK_TO_FRONT_VOWELS
 from cltk.phonology.non.utils import (
@@ -319,7 +319,7 @@ old_norse_rules.extend(rule_g)
 old_norse_rules.extend(rule_th)
 
 
-def measure_old_norse_syllable(syllable: list) -> Union[Length, None]:
+def measure_old_norse_syllable(syllable: list) -> Optional[Length]:
     """
     Old Norse syllables are considered as:
     - short if
