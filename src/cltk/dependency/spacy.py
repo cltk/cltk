@@ -4,7 +4,6 @@ import os.path
 from typing import Union, Optional
 
 import spacy
-from cltk.utils import suppress_stdout
 from spacy.tokens import Doc
 
 from cltk.core.exceptions import (
@@ -12,6 +11,8 @@ from cltk.core.exceptions import (
     UnimplementedAlgorithmError,
     UnknownLanguageError,
 )
+from cltk.utils import suppress_stdout
+
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
@@ -90,7 +91,7 @@ class SpacyWrapper:
         return self.nlp(text)
 
     def _download_model(self):
-        os.system(f"python -m spacy download {self.model}")
+        spacy.cli.download(self.model)
 
     @property
     def _is_model_present(self):
