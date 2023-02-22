@@ -399,7 +399,7 @@ class NameType(MorphosyntacticFeature):
     other = auto()
 
 
-class PrononimalType(MorphosyntacticFeature):
+class PronominalType(MorphosyntacticFeature):
     """A subclassification of pronouns.
     see https://universaldependencies.org/u/feat/PronType.html
     """
@@ -518,7 +518,7 @@ Underspecified = None
 
 OTHER_FEATURES = [
     NameType,
-    PrononimalType,
+    PronominalType,
     AdpositionalType,
     AdverbialType,
     VerbType,
