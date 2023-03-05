@@ -141,7 +141,7 @@ class Doc:
     >>> cltk_doc.pos[:3]
     ['NOUN', 'AUX', 'DET']
     >>> cltk_doc.morphosyntactic_features[:3]
-    [{Case: [nominative], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
+    [{Case: [nominative], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Gender: [feminine], Number: [singular], PronominalType: [indefinite]}]
     >>> cltk_doc[0].gender
     [feminine]
     >>> cltk_doc[0]['Case']
