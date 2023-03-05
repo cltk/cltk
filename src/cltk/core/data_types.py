@@ -262,10 +262,9 @@ class Doc:
         return self._get_words_attribute("upos")
 
     @property
-    def morphosyntactic_features(self) -> List[Dict[str, str]]:
-        """Returns a list of dictionaries containing the morphosyntactic features
+    def morphosyntactic_features(self) -> List[MorphosyntacticFeatureBundle]:
+        """Returns a list of `MorphosyntacticFeatureBundle` containing the morphosyntactic features
         of each word (when available).
-        Each dictionary specifies feature names as keys and feature values as values.
         """
         return self._get_words_attribute("features")
 
