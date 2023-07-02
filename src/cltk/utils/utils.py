@@ -4,7 +4,7 @@ import os
 import sys
 from contextlib import contextmanager
 from enum import EnumMeta, IntEnum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 import requests
 from tqdm import tqdm
@@ -172,7 +172,7 @@ def str_to_bool(string: str, truths: Optional[List[str]] = None) -> bool:
     return string.lower() in [t.lower() for t in truths]
 
 
-def query_yes_no(question: str, default: Optional[str] = "yes") -> bool:
+def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
     """Ask a yes/no question via ``input()`` and return ``True``/``False``.
 
     Source: `<https://stackoverflow.com/a/3041990>`_.
