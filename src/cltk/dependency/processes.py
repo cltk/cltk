@@ -5,12 +5,11 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
 import spacy
-import spacy.tokens as spt
 import stanza
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
-from cltk.dependency.spacy import SpacyWrapper
+from cltk.dependency.spacy_dep import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
 from cltk.morphology.morphosyntax import (
@@ -230,9 +229,10 @@ class SpacyProcess(Process):
         ``spacy`` has only partial functionality available for some languages.
 
     >>> from cltk.languages.example_texts import get_example_text
-    >>> process_stanza = SpacyProcess(language="lat")
-    >>> isinstance(process_stanza, StanzaProcess)
+    >>> process_spacy = SpacyProcess(language="lat")
+    >>> isinstance(process_spacy, SpacyProcess)
     True
+
     # >>> from stanza.models.common.doc import Document
     # >>> output_doc = process_stanza.run(Doc(raw=get_example_text("lat")))
     # >>> isinstance(output_doc.stanza_doc, Document)
@@ -260,10 +260,12 @@ class SpacyProcess(Process):
         return output_doc
 
     @staticmethod
-    def spacy_to_cltk_word_type(spacy_doc: spt.Doc):
+    def spacy_to_cltk_word_type(spacy_doc: spacy.tokens.Doc):
         """Take an entire ``spacy`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
+
+        It works only if there is some sentence boundaries has been set by the loaded model.
 
         >>> from cltk.dependency.processes import SpacyProcess
         >>> from cltk.languages.example_texts import get_example_text
@@ -274,32 +276,24 @@ class SpacyProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-
+        Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=0, string='Gallia', pos=None, lemma='Gallia', stem=None, scansion=None, xpos='proper_noun', upos='PROPN', dependency_relation='nsubj', governor=None, features={}, category={}, stop=False, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
 
         """
-        def from_spacy_pos_to_upos(pos):
-            for key, value in spacy.parts_of_speech.IDS.items():
-                if pos == value:
-                    return key
-            return ""
-
-        words_list = []  # type: List[Word]
+        words_list: List[Word] = []
 
         for sentence_index, sentence in enumerate(spacy_doc.doc.sents):
-            sent_words = {}  # type: Dict[int, Word]
+            sent_words: Dict[int, Word] = {}
 
-            for token_index in range(sentence.start, sentence.end):
-                spacy_word = spacy_doc[0]  # type: spt.Token
-
+            for spacy_word in sentence:
                 cltk_word = Word(
-                    index_token=token_index,
+                    index_token=spacy_word.i,
                     index_char_start=spacy_word.idx,
                     index_char_stop=spacy_word.idx+len(spacy_word),
                     index_sentence=sentence_index,
                     string=spacy_word.text,  # same as ``token.text``
-                    # pos=spacy_word.tag_,
+                    # pos= TODO,
                     xpos=spacy_word.tag_,
-                    upos=from_spacy_pos_to_upos(spacy_word.pos),
+                    upos=spacy_word.pos_,
                     lemma=spacy_word.lemma_,
                     dependency_relation=spacy_word.dep_,
                     stop=spacy_word.is_stop

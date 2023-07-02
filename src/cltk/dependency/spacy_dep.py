@@ -1,7 +1,8 @@
 
 import logging
 import os.path
-from typing import Union, Optional
+import subprocess
+import sys
 
 import spacy
 from spacy.tokens import Doc
@@ -50,6 +51,8 @@ class SpacyWrapper:
         if not self.is_wrapper_available:
             raise UnknownLanguageError(f"Language {self.language} is not supported by CLTK wrapper of SpaCy.")
 
+        self._select_model()
+
         if not self._is_model_present:
             self._download_model()
 
@@ -61,22 +64,24 @@ class SpacyWrapper:
     def is_wrapper_available(self) -> bool:
         return self.language in MAP_LANGS_CLTK_SPACY
 
-    def _load_pipeline(self) -> Optional[spacy.Language]:
-
-        models_dir = os.path.expanduser("~/")
+    def _select_model(self):
         if self.language in ["la", "lat"]:
-            self.model = "la_core_cltk_sm"
-        elif self.language == "sa":
-            self.model = ""
-            # https://huggingface.co/Jacobo/grc_ud_proiel_trf/resolve/main/grc_ud_proiel_trf-any-py3-none-any.whl
-        elif self.language == "grc":
-            self.model = "grc_ud_proiel_sm"
+            self.model = "la_core_web_md"
+        # elif self.language == "sa":
+        #     self.model = ""
+        # elif self.language == "grc":
+        #     self.model = ""
         else:
             raise CLTKException(f"No spaCy model found for language {self.language}")
+
+    def _load_pipeline(self) -> spacy.Language:
+
+        models_dir = os.path.expanduser("~/")
+
         nlp = spacy.load(self.model)
         return nlp
 
-    def parse(self, text: str) -> Optional[Doc]:
+    def parse(self, text: str) -> Doc:
         """
         >>> from cltk.languages.example_texts import get_example_text
         >>> spacy_wrapper = SpacyWrapper(language="lat")
@@ -91,11 +96,24 @@ class SpacyWrapper:
         return self.nlp(text)
 
     def _download_model(self):
+        models_dir = os.path.expanduser("~/")
+        if self.language in ["la", "lat"]:
+            package = "https://huggingface.co/latincy/la_core_web_md/resolve/main/la_core_web_md-3.5.1/dist/la_core_web_md-3.5.1.tar.gz"
+            # package = "https://huggingface.co/latincy/la_core_web_md/blob/main/la_core_web_md-any-py3-none-any.whl"
+            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+        # elif self.language == "sa":
+        #     package = ""
+            # https://huggingface.co/Jacobo/grc_ud_proiel_trf/resolve/main/grc_ud_proiel_trf-any-py3-none-any.whl
+        # elif self.language == "grc":
+        #     TODO change it?
+            # package = "grc_ud_proiel_sm"
+        else:
+            raise CLTKException(f"No spaCy model found for language {self.language}")
         spacy.cli.download(self.model)
 
     @property
     def _is_model_present(self):
-        return True
+        return spacy.util.is_package(self.model)
 
     @classmethod
     def get_nlp(cls, language: str):

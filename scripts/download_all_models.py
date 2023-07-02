@@ -19,6 +19,10 @@ from cltk.dependency.stanza_wrapper import (
     MAP_LANGS_CLTK_STANZA as AVAIL_STANZA_LANGS,
 )  # pylint: disable=syntax-error
 from cltk.dependency.stanza_wrapper import StanzaWrapper
+from cltk.dependency.spacy_dep import (
+    MAP_LANGS_CLTK_SPACY as AVAIL_SPACY_LANGS
+)
+from cltk.dependency.spacy_dep import SpacyWrapper
 from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT_LANGS
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
@@ -113,6 +117,19 @@ def download_nlpl_model(iso_code: str) -> None:
     print(f"Finished downloading NLPL model for '{iso_code}'.")
 
 
+def download_spacy_models(iso_code: str) -> None:
+    """Download language models, from the ``spaCy`` project,
+        that are supported by the CLTK or in scope. More here:
+        `<https://stanfordnlp.github.io/stanza/models.html>_.
+
+        """
+    print(f"Going to download spaCy model for '{iso_code}'.")
+    if iso_code not in AVAIL_SPACY_LANGS:
+        raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
+    SpacyWrapper(language=iso_code, interactive=False, silent=False)
+    print(f"Finished downloading spaCy for '{iso_code}'.")
+
+
 if __name__ == "__main__":
     print(f"Module loaded. Total elapsed time: {time.time() - T0}")
     print("*** Downloading a basic set of models ... this will take a while.*** \n")
@@ -130,6 +147,9 @@ if __name__ == "__main__":
         # 4. Check nlpl
         if LANG in AVAIL_NLPL_LANGS:
             download_nlpl_model(iso_code=LANG)
+        # 5. Check spaCy
+        if LANG in AVAIL_SPACY_LANGS:
+            download_stanza_model(iso_code=LANG)
         print(
             f"All models fetched for '{LANG}'. Total elapsed time: {time.time() - T0}"
         )
