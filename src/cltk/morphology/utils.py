@@ -15,7 +15,7 @@ from cltk.morphology.universal_dependencies_features import (
 ALL_POSSIBLE_FEATURES = NOMINAL_FEATURES + VERBAL_FEATURES
 
 
-def get_pos(word: Optional[Word]) -> Optional[str]:
+def get_pos(word: Optional[Word]) -> Union[str, None]:
     """Take word, return structured info."""
     if not word:
         return None
@@ -28,7 +28,7 @@ def get_features(
 ) -> Tuple[List[str], List[Union[str, int, float, None]]]:
     """Take a word, return a list of feature labels."""
 
-    features_present = list()  # type: List[Optional[str]]
+    features_present = list()  # type: List[Union[str, None]]
     feature_variables = list()  # type: List[str]
     for possible_feature in ALL_POSSIBLE_FEATURES:
         feature_variables.append(str(possible_feature).lower())
