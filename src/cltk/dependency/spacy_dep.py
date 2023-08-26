@@ -2,6 +2,7 @@
 import logging
 import subprocess
 import sys
+from typing import Optional
 
 import spacy
 from spacy.tokens import Doc
@@ -22,28 +23,32 @@ MAP_LANGS_CLTK_SPACY = {
 
 
 class SpacyWrapper:
+    """
+    `SpacyWrapper` has been made to be an interface between spaCy and CLTK.
+
+    """
 
     nlps = {}
 
     def __init__(self,
                  language: str,
-                 spacy_language: spacy.Language = None,
+                 nlp: Optional[spacy.Language] = None,
                  interactive: bool = True,
                  silent: bool = False):
         """
 
         :param language: One of the officially supported languages by CLTK. It selects a default model for
-        :param spacy_language: A `Language` instance from spaCy (not used by default).
+        :param nlp: A `Language` instance from spaCy (not used by default).
         :param interactive: Are downloads interactive?
         :param silent: Is it verbose?
         """
-        self.spacy_language = spacy_language
-        if self.spacy_language:
-            self.language = self.spacy_language.lang
-            self.nlps[self.language] = self
+        self.nlp = nlp
+        if self.nlp:
+            self._language = self.nlp.lang
+            self.nlps[self._language] = self
         else:
 
-            self.language = language
+            self._language = language
             self._interactive = interactive
             self._silent = silent
 
@@ -53,7 +58,7 @@ class SpacyWrapper:
                 )
 
             if not self.is_wrapper_available:
-                raise UnknownLanguageError(f"Language {self.language} is not supported by CLTK wrapper of SpaCy.")
+                raise UnknownLanguageError(f"Language {self._language} is not supported by CLTK wrapper of SpaCy.")
 
             self._select_model()
 
@@ -61,22 +66,30 @@ class SpacyWrapper:
                 self._download_model()
 
             with suppress_stdout():
-                self.spacy_language = self._load_pipeline()
-                self.nlps[self.language] = self
+                self.nlp = self._load_pipeline()
+                self.nlps[self._language] = self
+
+    @property
+    def language(self) -> str:
+        return self._language
+
+    @property
+    def silent(self) -> bool:
+        return self._silent
+
+    @property
+    def interactive(self) -> bool:
+        return self._interactive
 
     @property
     def is_wrapper_available(self) -> bool:
-        return self.language in MAP_LANGS_CLTK_SPACY
+        return self._language in MAP_LANGS_CLTK_SPACY
 
     def _select_model(self):
-        if self.language in ["la", "lat"]:
+        if self._language in ["la", "lat"]:
             self.model = "la_core_web_md"
-        # elif self.language == "sa":
-        #     self.model = ""
-        # elif self.language == "grc":
-        #     self.model = ""
         else:
-            raise CLTKException(f"No spaCy model found for language {self.language}")
+            raise CLTKException(f"No spaCy model found for language {self._language}")
 
     def _load_pipeline(self) -> spacy.Language:
         nlp = spacy.load(self.model)
@@ -94,14 +107,17 @@ class SpacyWrapper:
         :param text: Text to analyze.
         :return:
         """
-        return self.spacy_language(text)
+        if isinstance(self.nlp, spacy.Language):
+            return self.nlp(text)
+        raise CLTKException("No spaCy model has been loaded. Is the language supported? "
+                            "Otherwise try to provide a spaCy model with `nlp`argument.")
 
     def _download_model(self):
-        if self.language in ["la", "lat"]:
+        if self._language in ["la", "lat"]:
             package = "https://huggingface.co/latincy/la_core_web_md/resolve/main/la_core_web_md-3.5.1/dist/la_core_web_md-3.5.1.tar.gz"
             subprocess.check_call([sys.executable, "-m", "pip", "install", package])
         else:
-            raise CLTKException(f"No spaCy model found for language '{self.language}'")
+            raise CLTKException(f"No spaCy model found for language '{self._language}'")
         spacy.cli.download(self.model)
 
     @property
@@ -121,7 +137,3 @@ class SpacyWrapper:
             nlp = cls(language)
             cls.nlps[language] = nlp
             return nlp
-
-
-
-
