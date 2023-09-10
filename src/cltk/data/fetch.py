@@ -34,6 +34,7 @@ LANGUAGE_CORPORA = {
             "name": "cdli_corpus",
             "origin": "https://github.com/cdli-gh/data.git",
             "type": "atf",
+            "branch": "master"
         }
     ],
     "arb": [
@@ -41,16 +42,19 @@ LANGUAGE_CORPORA = {
             "name": "arabic_text_perseus",
             "origin": "https://github.com/cltk/arabic_text_perseus",
             "type": "text",
+            "branch": "master"
         },
         {
             "name": "quranic-corpus",
             "origin": "https://github.com/cltk/arabic_text_quranic_corpus",
             "type": "text",
+            "branch": "master"
         },
         {
             "name": "quranic-corpus-morphology",
             "origin": "https://github.com/cltk/arabic_morphology_quranic-corpus",
             "type": "text",
+            "branch": "master"
         },
     ],
     "lzh": [
@@ -58,31 +62,37 @@ LANGUAGE_CORPORA = {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_01.git",
             "name": "chinese_text_cbeta_01",
+            "branch": "master"
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_02.git",
             "name": "chinese_text_cbeta_02",
+            "branch": "master"
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_indices.git",
             "name": "chinese_text_cbeta_indices",
+            "branch": "master"
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_txt.git",
             "name": "chinese_text_cbeta_txt",
+            "branch": "master"
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_taf_xml.git",
             "name": "chinese_text_cbeta_taf_xml",
+
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_txt.git",
             "name": "chinese_text_cbeta_txt",
+            "branch": "master",
         },
     ],
     "cop": [
@@ -90,6 +100,7 @@ LANGUAGE_CORPORA = {
             "type": "text",
             "origin": "https://github.com/cltk/coptic_text_scriptorium.git",
             "name": "coptic_text_scriptorium",
+            "branch": "master",
         }
     ],
     "grc": [
@@ -97,11 +108,13 @@ LANGUAGE_CORPORA = {
             "name": "grc_software_tlgu",
             "origin": "https://github.com/cltk/grc_software_tlgu.git",
             "type": "software",
+            "branch": "master",
         },
         {
             "name": "grc_text_perseus",
             "origin": "https://github.com/cltk/grc_text_perseus.git",
             "type": "text",
+            "branch": "master",
         },
         {"origin": None, "name": "phi7", "location": "local", "type": "text"},
         {"name": "tlg", "origin": None, "location": "local", "type": "text"},
@@ -109,52 +122,62 @@ LANGUAGE_CORPORA = {
             "name": "greek_proper_names_cltk",
             "origin": "https://github.com/cltk/greek_proper_names_cltk.git",
             "type": "lexicon",
+            "branch": "master",
         },
         {
             "name": "grc_models_cltk",
             "origin": "https://github.com/cltk/grc_models_cltk.git",
             "type": "model",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/cltk/greek_treebank_perseus.git",
             "name": "greek_treebank_perseus",
             "type": "treebank",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/vgorman1/Greek-Dependency-Trees.git",
             "name": "greek_treebank_gorman",
             "type": "treebank",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/cltk/greek_lexica_perseus.git",
             "name": "greek_lexica_perseus",
             "type": "lexicon",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/cltk/greek_training_set_sentence_cltk.git",
             "name": "greek_training_set_sentence_cltk",
             "type": "training_set",
+            "branch": "master",
         },
         {
             "name": "greek_word2vec_cltk",
             "origin": "https://github.com/cltk/greek_word2vec_cltk.git",
             "type": "model",
+            "branch": "master",
         },
         {
             "name": "greek_text_lacus_curtius",
             "origin": "https://github.com/cltk/greek_text_lacus_curtius.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "grc_text_first1kgreek",
             "origin": "https://github.com/cltk/First1KGreek",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "grc_text_tesserae",
             # modified plaintext with Tesserae-style citations
             "origin": "https://github.com/cltk/grc_text_tesserae.git",
             "type": "text",
+            "branch": "master",
         },
     ],
     "hbo": [
@@ -162,6 +185,7 @@ LANGUAGE_CORPORA = {
             "name": "hebrew_text_sefaria",
             "origin": "https://github.com/cltk/hebrew_text_sefaria.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "lat": [
@@ -169,16 +193,19 @@ LANGUAGE_CORPORA = {
             "type": "text",
             "name": "lat_text_perseus",
             "origin": "https://github.com/cltk/lat_text_perseus.git",
+            "branch": "master",
         },
         {
             "name": "lat_treebank_perseus",
             "origin": "https://github.com/cltk/lat_treebank_perseus.git",
             "type": "treebank",
+            "branch": "master",
         },
         {
             "name": "lat_text_latin_library",
             "origin": "https://github.com/cltk/lat_text_latin_library.git",
             "type": "text",
+            "branch": "master",
         },
         {"location": "local", "name": "phi5", "origin": None, "type": "text"},
         {"origin": None, "name": "phi7", "location": "local", "type": "text"},
@@ -186,62 +213,74 @@ LANGUAGE_CORPORA = {
             "name": "latin_proper_names_cltk",
             "origin": "https://github.com/cltk/latin_proper_names_cltk.git",
             "type": "lexicon",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/cltk/lat_models_cltk.git",
             "name": "lat_models_cltk",
             "type": "model",
+            "branch": "master",
         },
         {
             "name": "latin_pos_lemmata_cltk",
             "origin": "https://github.com/cltk/latin_pos_lemmata_cltk.git",
             "type": "lemma",
+            "branch": "master",
         },
         {
             "name": "latin_treebank_index_thomisticus",
             "origin": "https://github.com/cltk/latin_treebank_index_thomisticus.git",
             "type": "treebank",
+            "branch": "master",
         },
         {
             "name": "latin_lexica_perseus",
             "origin": "https://github.com/cltk/latin_lexica_perseus.git",
             "type": "lexicon",
+            "branch": "master",
         },
         {
             "name": "latin_training_set_sentence_cltk",
             "origin": "https://github.com/cltk/latin_training_set_sentence_cltk.git",
             "type": "training_set",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/cltk/latin_word2vec_cltk.git",
             "name": "latin_word2vec_cltk",
             "type": "model",
+            "branch": "master",
         },
         {
             "type": "text",
             "name": "latin_text_antique_digiliblt",
             "origin": "https://github.com/cltk/latin_text_antique_digiliblt.git",
+            "branch": "master",
         },
         {
             "type": "text",
             "name": "latin_text_corpus_grammaticorum_latinorum",
             "origin": "https://github.com/cltk/latin_text_corpus_grammaticorum_latinorum.git",
+            "branch": "master",
         },
         {
             "type": "text",
             "name": "latin_text_poeti_ditalia",
             "origin": "https://github.com/cltk/latin_text_poeti_ditalia.git",
+            "branch": "master",
         },
         {
             "name": "lat_text_tesserae",
             # modified plaintext with Tesserae-style citations
             "origin": "https://github.com/cltk/lat_text_tesserae.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "type": "lexicon",
             "name": "cltk_lat_lewis_elementary_lexicon",
             "origin": "https://github.com/cltk/cltk_lat_lewis_elementary_lexicon.git",
+            "branch": "master",
         },
     ],
     "multilingual": [
@@ -249,16 +288,19 @@ LANGUAGE_CORPORA = {
             "type": "treebank",
             "origin": "https://github.com/cltk/multilingual_treebank_proiel.git",
             "name": "multilingual_treebank_proiel",
+            "branch": "master",
         },
         {
             "type": "treebank",
             "origin": "https://github.com/cltk/iswoc-treebank.git",
             "name": "multilingual_treebank_iswoc",
+            "branch": "master",
         },
         {
             "type": "treebank",
             "origin": "https://github.com/cltk/treebank-releases.git",
             "name": "multilingual_treebank_torot",
+            "branch": "master",
         },
     ],
     "pli": [
@@ -266,11 +308,13 @@ LANGUAGE_CORPORA = {
             "type": "text",
             "origin": "https://github.com/cltk/pali_text_ptr_tipitaka.git",
             "name": "pali_text_ptr_tipitaka",
+            "branch": "master",
         },
         {
             "name": "pali_texts_gretil",
             "type": "text",
             "origin": "https://github.com/cltk/pali_texts_gretil",
+            "branch": "master",
         },
     ],
     "pan": [
@@ -278,6 +322,7 @@ LANGUAGE_CORPORA = {
             "name": "punjabi_text_gurban",
             "origin": "https://github.com/cltk/punjabi_text_gurban.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "xct": [
@@ -285,11 +330,13 @@ LANGUAGE_CORPORA = {
             "type": "pos",
             "origin": "https://github.com/cltk/tibetan_pos_tdc.git",
             "name": "tibetan_pos_tdc",
+            "branch": "master",
         },
         {
             "type": "lexicon",
             "origin": "https://github.com/cltk/tibetan_lexica_tdc.git",
             "name": "tibetan_lexica_tdc",
+            "branch": "master",
         },
     ],
     "san": [
@@ -297,46 +344,55 @@ LANGUAGE_CORPORA = {
             "name": "sanskrit_text_jnu",
             "origin": "https://github.com/cltk/sanskrit_text_jnu.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "sanskrit_text_dcs",
             "origin": "https://github.com/cltk/sanskrit_text_dcs.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "sanskrit_parallel_sacred_texts",
             "origin": "https://github.com/cltk/sanskrit_parallel_sacred_texts.git",
             "type": "parallel",
+            "branch": "master",
         },
         {
             "name": "sanskrit_text_sacred_texts",
             "origin": "https://github.com/cltk/sanskrit_text_sacred_texts.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "sanskrit_parallel_gitasupersite",
             "origin": "https://github.com/cltk/sanskrit_parallel_gitasupersite.git",
             "type": "parallel",
+            "branch": "master",
         },
         {
             "name": "sanskrit_text_gitasupersite",
             "origin": "https://github.com/cltk/sanskrit_text_gitasupersite.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "sanskrit_text_wikipedia",
             "origin": "https://github.com/cltk/sanskrit_text_wikipedia.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "sanskrit_text_sanskrit_documents",
             "origin": "https://github.com/cltk/sanskrit_text_sanskrit_documents.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "san_models_cltk",
             "origin": "https://github.com/cltk/san_models_cltk.git",
             "type": "model",
+            "branch": "master",
         },
     ],
     "ang": [
@@ -344,11 +400,13 @@ LANGUAGE_CORPORA = {
             "name": "old_english_text_sacred_texts",
             "origin": "https://github.com/cltk/old_english_text_sacred_texts.git",
             "type": "html",
+            "branch": "master",
         },
         {
             "origin": "https://github.com/cltk/ang_models_cltk.git",
             "name": "ang_models_cltk",
             "type": "model",
+            "branch": "master",
         },
     ],
     "ben": [
@@ -356,6 +414,7 @@ LANGUAGE_CORPORA = {
             "name": "bengali_text_wikisource",
             "origin": "https://github.com/cltk/bengali_text_wikisource.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "chu": [
@@ -363,6 +422,7 @@ LANGUAGE_CORPORA = {
             "name": "old_church_slavonic_ccmh",
             "origin": "https://github.com/cltk/old_church_slavonic_ccmh.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "pmh": [
@@ -370,6 +430,7 @@ LANGUAGE_CORPORA = {
             "name": "prakrit_texts_gretil",
             "type": "text",
             "origin": "https://github.com/cltk/prakrit_texts_gretil.git",
+            "branch": "master",
         }
     ],
     "mal": [
@@ -377,6 +438,7 @@ LANGUAGE_CORPORA = {
             "name": "malayalam_text_gretil",
             "origin": "https://github.com/cltk/malayalam_text_gretil.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "omr": [
@@ -384,6 +446,7 @@ LANGUAGE_CORPORA = {
             "name": "marathi_text_wikisource",
             "origin": "https://github.com/cltk/marathi_text_wikisource.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "kaw": [
@@ -391,6 +454,7 @@ LANGUAGE_CORPORA = {
             "name": "javanese_text_gretil",
             "origin": "https://github.com/cltk/javanese_text_gretil.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "non": [
@@ -398,26 +462,31 @@ LANGUAGE_CORPORA = {
             "name": "old_norse_text_perseus",
             "origin": "https://github.com/cltk/old_norse_text_perseus.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "non_models_cltk",
             "origin": "https://github.com/cltk/non_models_cltk.git",
             "type": "model",
+            "branch": "master",
         },
         {
             "name": "old_norse_texts_heimskringla",
             "origin": "https://github.com/cltk/old_norse_texts_heimskringla.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "old_norse_runic_transcriptions",
             "origin": "https://github.com/cltk/old_norse_runes_corpus.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "cltk_non_zoega_dictionary",
             "origin": "https://github.com/cltk/cltk_non_zoega_dictionary.git",
             "type": "dictionary",
+            "branch": "master",
         },
     ],
     "tel": [
@@ -425,6 +494,7 @@ LANGUAGE_CORPORA = {
             "name": "telugu_text_wikisource",
             "origin": "https://github.com/cltk/telugu_text_wikisource.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "hin": [
@@ -432,6 +502,7 @@ LANGUAGE_CORPORA = {
             "type": "text",
             "origin": "https://github.com/cltk/hindi_text_ltrc.git",
             "name": "hindi_text_ltrc",
+            "branch": "master",
         }
     ],
     "fro": [
@@ -439,16 +510,19 @@ LANGUAGE_CORPORA = {
             "name": "french_text_wikisource",
             "origin": "https://github.com/cltk/french_text_wikisource.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "french_lexicon_cltk",
             "origin": "https://github.com/cltk/french_lexicon_cltk.git",
             "type": "text",
+            "branch": "master",
         },
         {
             "name": "fro_models_cltk",
             "origin": "https://github.com/cltk/fro_models_cltk.git",
             "type": "model",
+            "branch": "master",
         },
     ],
     "guj": [
@@ -456,6 +530,7 @@ LANGUAGE_CORPORA = {
             "name": "gujarati_text_wikisource",
             "origin": "https://github.com/cltk/gujarati_text_wikisource.git",
             "type": "text",
+            "branch": "master",
         }
     ],
     "gml": [
@@ -463,6 +538,7 @@ LANGUAGE_CORPORA = {
             "name": "gml_models_cltk",
             "origin": "https://github.com/cltk/gml_models_cltk.git",
             "type": "model",
+            "branch": "master",
         }
     ],
     "gmh": [
@@ -470,6 +546,7 @@ LANGUAGE_CORPORA = {
             "name": "gmh_models_cltk",
             "origin": "https://github.com/cltk/gmh_models_cltk.git",
             "type": "model",
+            "branch": "master",
         }
     ],
     "enm": [
@@ -477,6 +554,7 @@ LANGUAGE_CORPORA = {
             "name": "enm_models_cltk",
             "origin": "https://github.com/cltk/enm_models_cltk.git",
             "type": "model",
+            "branch": "master",
         }
     ],
 }
@@ -512,7 +590,7 @@ class FetchCorpus:
         self.user_defined_corpora = self._get_user_defined_corpora()
         self.library_defined_corpora = self._get_library_defined_corpora()
         self.all_corpora_for_lang = (
-            self.user_defined_corpora + self.library_defined_corpora
+                self.user_defined_corpora + self.library_defined_corpora
         )
 
     def __repr__(self):
@@ -618,7 +696,7 @@ class FetchCorpus:
         raise CorpusImportError(msg)
 
     def _git_user_defined_corpus(
-        self, corpus_name, corpus_type, uri: str, branch="master"
+            self, corpus_name, corpus_type, uri: str, branch="master"
     ):
         """Clone or update a git repo defined by user.
         TODO: This code is very redundant with what's in import_corpus(),
@@ -658,7 +736,7 @@ class FetchCorpus:
                 logger.error(msg)
 
     def import_corpus(
-        self, corpus_name: str, local_path: str = None, branch: str = "master"
+            self, corpus_name: str, local_path: str = None, branch: str = "master"
     ):
         """Download a remote or load local corpus into dir ``~/cltk_data``.
 
@@ -744,9 +822,9 @@ class FetchCorpus:
             'origin': 'https://github.com/cltk/lat_text_perseus.git'},
             """
             if (
-                not matching_corpus.get("type")
-                and not matching_corpus.get("name")
-                and not matching_corpus.get("origin")
+                    not matching_corpus.get("type")
+                    and not matching_corpus.get("name")
+                    and not matching_corpus.get("origin")
             ):
                 raise ValueError(f"Malformed record for ``{corpus_name}``.")
             git_uri = matching_corpus["origin"]
