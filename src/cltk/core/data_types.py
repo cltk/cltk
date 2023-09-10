@@ -44,12 +44,12 @@ class Language:
     glottolog_id: str
     latitude: float
     longitude: float
-    dates: List[int]  # add later; not available from Glottolog or ISO list
     family_id: str  # from Glottolog
     parent_id: str  # from Glottolog
     level: str  # a language or a dialect
     iso_639_3_code: str
     type: str  # "a" for ancient and "h" for historical; this from Glottolog
+    dates: List[int] = None  # add later; not available from Glottolog or ISO list
 
 
 @dataclass
