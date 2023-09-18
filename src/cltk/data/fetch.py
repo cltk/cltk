@@ -605,11 +605,11 @@ class FetchCorpus:
         """
         if self.testing:
             distributed_corpora_fp = os.path.normpath(
-                CLTK_DATA_DIR + "/test_distributed_corpora.yaml"
+                os.path.join(CLTK_DATA_DIR, "test_distributed_corpora.yaml")
             )
         else:
             distributed_corpora_fp = os.path.normpath(
-                CLTK_DATA_DIR + "/distributed_corpora.yaml"
+                os.path.join(CLTK_DATA_DIR, "distributed_corpora.yaml")
             )
         try:
             with open(distributed_corpora_fp) as file_open:
