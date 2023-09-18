@@ -44,7 +44,7 @@ class CollatinusDecliner:
 
     def __init__(self):
         path = os.path.join(
-            CLTK_DATA_DIR, "lat/model/lat_models_cltk/lemmata/collatinus/collected.json"
+            CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "lemmata", "collatinus", "collected.json"
         )
         path = os.path.expanduser(path)
         with open(path) as data_file:

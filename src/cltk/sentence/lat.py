@@ -43,7 +43,7 @@ class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
         self.strict = strict
         super().__init__(language="lat", lang_vars=self.lang_vars)
 
-        fp_sentence_tok_model_dir = "lat/model/lat_models_cltk/tokenizers/sentence/"
+        fp_sentence_tok_model_dir = os.path.join("lat", "model", "lat_models_cltk", "tokenizers", "sentence")
         models_path = os.path.join(CLTK_DATA_DIR, fp_sentence_tok_model_dir)
         self.models_path = os.path.join(models_path, "latin_punkt.pickle")
 

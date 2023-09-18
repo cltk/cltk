@@ -514,10 +514,10 @@ class LatinBackoffLemmatizer:
     ###    original Latin lemmatizer from cltk.stem
     """
 
-    def __init__(
-        self: object, train: List[list] = None, seed: int = 3, verbose: bool = False
-    ):
-        self.models_path = models_path
+    def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
+        self.models_path = os.path.normpath(
+            os.path.join(CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "lemmata", "backoff")
+        )
 
         missing_models_message = "LatinBackoffLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
