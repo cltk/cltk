@@ -16,7 +16,7 @@ __author__ = [
 __license__ = "MIT License. See LICENSE."
 
 
-CLTK_DATA_DIR_PRIVATE = os.path.expanduser("~/cltk_data/private/")
+CLTK_DATA_DIR_PRIVATE = os.path.expanduser(os.path.join("~", "cltk_data", "private"))
 
 
 def make_cltk_path(*fp_list):
@@ -39,7 +39,6 @@ def open_pickle(path: str) -> Any:
     """Open a pickle and return loaded pickle object.
     :type path: str
     :param : path: File path to pickle file to be opened.
-    :rtype : object
     """
     try:
         with open(path, "rb") as opened_pickle:

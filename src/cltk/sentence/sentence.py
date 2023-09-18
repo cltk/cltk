@@ -55,9 +55,9 @@ class SentenceTokenizer(ABC):
         return tokenizer.tokenize(text)
 
     def _get_models_path(self, language):  # pragma: no cover
-        return (
-            CLTK_DATA_DIR
-            + f"/{language}/model/{language}_models_cltk/tokenizers/sentence"
+        return os.path.join(
+            CLTK_DATA_DIR,
+            language, "model", f"{language}_models_cltk", "tokenizers", "sentence"
         )
 
 

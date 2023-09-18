@@ -18,7 +18,7 @@ from cltk.utils.file_operations import open_pickle
 greek_sub_patterns = [("(ων)(ος|ι|να)$", r"ων")]
 
 models_path = os.path.normpath(
-    os.path.join(CLTK_DATA_DIR, "grc/model/grc_models_cltk/lemmata/backoff")
+    os.path.join(CLTK_DATA_DIR, "grc", "model", "grc_models_cltk", "lemmata", "backoff")
 )
 
 

@@ -23,5 +23,5 @@ sent_end_chars = [".", "!", "?"]
 class OldNorseRegexSentenceTokenizer(RegexSentenceTokenizer):
     """``RegexSentenceTokenizer`` for Old Norse."""
 
-    def __init__(self: object):
+    def __init__(self):
         super().__init__(language="non", sent_end_chars=sent_end_chars)
