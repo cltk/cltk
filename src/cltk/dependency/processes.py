@@ -8,7 +8,7 @@ import stanza
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
-from cltk.dependency.stanza import StanzaWrapper
+from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
@@ -82,9 +82,11 @@ class StanzaProcess(Process):
             indices = list()  # type: List[Tuple[int, int]]
 
             for token_index, token in enumerate(sentence.tokens):
-                stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
+                stanza_word: stanza.pipeline.doc.Word = token.words[0]
                 # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
-                pos: Optional[MorphosyntacticFeature] = from_ud("POS", stanza_word.pos)
+                pos: Optional[MorphosyntacticFeature] = None
+                if stanza_word.pos:
+                    pos = from_ud("POS", stanza_word.pos)
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
                     - 1,  # subtract 1 from id b/c Stanza starts their index at 1
@@ -93,12 +95,12 @@ class StanzaProcess(Process):
                     pos=pos,
                     xpos=stanza_word.xpos,
                     upos=stanza_word.upos,
-                    lemma=stanza_word.lemma,
+                    lemma=stanza_word.lemma if stanza_word.lemma else stanza_word.text,
                     dependency_relation=stanza_word.deprel,
                     governor=stanza_word.head - 1
                     if stanza_word.head
                     else -1,  # note: if val becomes ``-1`` then no governor, ie word is root
-                )  # type: Word
+                )
 
                 # convert UD features to the normalized CLTK features
                 raw_features = (
@@ -106,6 +108,7 @@ class StanzaProcess(Process):
                     if stanza_word.feats
                     else []
                 )
+                print(f"token->{stanza_word.text}")
                 cltk_features = [
                     from_ud(feature_name, feature_value)
                     for feature_name, feature_value in raw_features

@@ -28,7 +28,7 @@ class SanskritLanguageVars(PunktLanguageVars):
 class SanskritRegexSentenceTokenizer(RegexSentenceTokenizer):
     """RegexSentenceTokenizer for Sanskrit."""
 
-    def __init__(self: object):
+    def __init__(self):
         super().__init__(
             language="sanskrit", sent_end_chars=SanskritLanguageVars.sent_end_chars
         )

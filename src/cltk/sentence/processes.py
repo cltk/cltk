@@ -29,7 +29,7 @@ class SentenceTokenizationProcess(Process):
 
     """
 
-    model: object = None
+    model = None
 
     @cachedproperty
     def algorithm(self):

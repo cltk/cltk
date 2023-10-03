@@ -15,9 +15,9 @@ https://gist.github.com/diyclassics/fc80024d65cc237f185a9a061c5d4824.
 
 import re
 import reprlib
-from typing import List
+from typing import List, Dict, Optional, Tuple
 
-from nltk.tag.sequential import RegexpTagger, SequentialBackoffTagger, UnigramTagger
+from nltk.tag.sequential import RegexpTagger, SequentialBackoffTagger, UnigramTagger, TaggerI
 
 
 class SequentialBackoffLemmatizer(SequentialBackoffTagger):
@@ -38,7 +38,10 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         and dict length in subclass __repr__'s
     """
 
-    def __init__(self: object, backoff: object, verbose: bool = False):
+    # def choose_tag(self, tokens, index, history):
+    #     pass
+
+    def __init__(self, backoff: Optional[SequentialBackoffTagger], verbose: bool = False):
         """Setup for SequentialBackoffLemmatizer
         :param backoff: Next lemmatizer in backoff chain
         :type verbose: bool
@@ -58,7 +61,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         self.repr.maxlist = 1
         self.repr.maxdict = 1
 
-    def tag(self: object, tokens: List[str]):
+    def tag(self, tokens: List[str]):
         """Docs (mostly) inherited from TaggerI; cf.
         https://www.nltk.org/_modules/nltk/tag/api.html#TaggerI.tag
 
@@ -84,7 +87,7 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         else:
             return list(zip(tokens, tags))
 
-    def tag_one(self: object, tokens: List[str], index: int, history: List[str]):
+    def tag_one(self, tokens: List[str], index: int, history: List[str]) -> Tuple:
         """Determine an appropriate tag for the specified token, and
         return that tag.  If this tagger is unable to determine a tag
         for the specified token, then its backoff tagger is consulted.
@@ -99,13 +102,15 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
         :param history: A list of the tags for all words before index.
         """
         lemma = None
-        for tagger in self._taggers:
-            lemma = tagger.choose_tag(tokens, index, history)
+        tagger = None
+        for _tagger in self._taggers:
+            lemma = _tagger.choose_tag(tokens, index, history)
+            tagger = _tagger
             if lemma is not None and lemma != "":
                 break
         return lemma, tagger
 
-    def lemmatize(self: object, tokens: List[str]):
+    def lemmatize(self, tokens: List[str]) -> List:
         """
         Transform tag method into custom method for lemmatizing
         tasks. Cf. ``tag`` method above.
@@ -126,15 +131,15 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
     """
 
     def __init__(
-        self: object, lemma: str = None, backoff: object = None, verbose: bool = False
+        self, lemma: str = None, backoff: Optional[SequentialBackoffTagger] = None, verbose: bool = False
     ):
         self.lemma = lemma
         SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
-    def choose_tag(self: object, tokens: List[str], index: int, history: List[str]):
+    def choose_tag(self, tokens: List[str], index: int, history: List[str]):
         return self.lemma
 
-    def __repr__(self: object):
+    def __repr__(self):
         return f"<{type(self).__name__}: lemma={self.lemma}>"
 
 
@@ -149,13 +154,13 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
     [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]
     """
 
-    def __init__(self: object, backoff: object = None, verbose: bool = False):
+    def __init__(self, backoff: Optional[SequentialBackoffTagger] = None, verbose: bool = False):
         SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
-    def choose_tag(self: object, tokens: List[str], index: int, history: List[str]):
+    def choose_tag(self, tokens: List[str], index: int, history: List[str]):
         return tokens[index]
 
-    def __repr__(self: object):
+    def __repr__(self):
         return f"<{type(self).__name__}>"
 
 
@@ -165,9 +170,9 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
     based on dictionary lookup and does not use training data."""
 
     def __init__(
-        self: object,
-        lemmas: List[str],
-        backoff: object = None,
+        self,
+        lemmas: Dict[str, str],
+        backoff: Optional[SequentialBackoffTagger] = None,
         source: str = None,
         verbose: bool = False,
     ):
@@ -182,7 +187,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
         self.lemmas = lemmas
         self.source = source
 
-    def choose_tag(self: object, tokens: List[str], index: int, history: List[str]):
+    def choose_tag(self, tokens: List[str], index: int, history: List[str]):
         """
         Looks up token in ``lemmas`` dict and returns the corresponding
         value as lemma.
@@ -198,7 +203,7 @@ class DictLemmatizer(SequentialBackoffLemmatizer):
         if tokens[index] in keys:
             return self.lemmas[tokens[index]]
 
-    def __repr__(self: object):
+    def __repr__(self):
         if self.source:
             return f"<{type(self).__name__}: {self.source}>"
         else:
@@ -212,10 +217,10 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
     """
 
     def __init__(
-        self: object,
+        self,
         train=None,
         model=None,
-        backoff: object = None,
+        backoff: Optional[SequentialBackoffTagger] = None,
         source: str = None,
         cutoff=0,
         verbose: bool = False,
@@ -228,7 +233,7 @@ class UnigramLemmatizer(SequentialBackoffLemmatizer, UnigramTagger):
         self.train = train
         self.source = source
 
-    def __repr__(self: object):
+    def __repr__(self):
         if self.source:
             return f"<{type(self).__name__}: {self.source}>"
         else:
@@ -241,7 +246,7 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
     """
 
     def __init__(
-        self: object, regexps=None, source=None, backoff=None, verbose: bool = False
+        self, regexps=None, source=None, backoff=None, verbose: bool = False
     ):
         """Setup for RegexpLemmatizer()
         :type regexps: list
@@ -253,7 +258,7 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
         self._regexs = regexps
         self.source = source
 
-    def choose_tag(self: object, tokens: List[str], index: int, history: List[str]):
+    def choose_tag(self, tokens: List[str], index: int, history: List[str]):
         """Use regular expressions for rules-based lemmatizing based on word endings;
         tokens are matched for patterns with the base kept as a group; an word ending
         replacement is added to the (base) group.
@@ -269,7 +274,7 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
             if re.search(pattern, tokens[index]):
                 return re.sub(pattern, replace, tokens[index])
 
-    def __repr__(self: object):
+    def __repr__(self):
         if self.source:
             return f"<{type(self).__name__}: {self.source}>"
         else:

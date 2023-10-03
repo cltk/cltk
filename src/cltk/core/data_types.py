@@ -13,7 +13,7 @@ import importlib
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Dict, List, Type, Union
+from typing import Dict, List, Type, Union, Optional
 
 import numpy as np
 import stringcase as sc
@@ -63,30 +63,30 @@ class Word:
 
     """
 
-    index_char_start: int = None
-    index_char_stop: int = None
-    index_token: int = None
-    index_sentence: int = None
-    string: str = None
-    pos: MorphosyntacticFeature = None
-    lemma: str = None
-    stem: str = None
-    scansion: str = None
-    xpos: str = None  # treebank-specific POS tag (from stanza)
-    upos: str = None  # universal POS tag (from stanza)
-    dependency_relation: str = None  # (from stanza)
-    governor: int = None
+    index_char_start: Optional[int] = None
+    index_char_stop: Optional[int] = None
+    index_token: Optional[int] = None
+    index_sentence: Optional[int] = None
+    string: Optional[str] = None
+    pos: Optional[MorphosyntacticFeature] = None
+    lemma: Optional[str] = None
+    stem: Optional[str] = None
+    scansion: Optional[str] = None
+    xpos: Optional[str] = None  # treebank-specific POS tag (from stanza)
+    upos: Optional[str] = None  # universal POS tag (from stanza)
+    dependency_relation: Optional[str] = None  # (from stanza)
+    governor: Optional[int] = None
     features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     category: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     embedding: np.ndarray = field(repr=False, default=None)
-    stop: bool = None
-    named_entity: bool = None
+    stop: Optional[bool] = None
+    named_entity: Optional[bool] = None
     syllables: List[str] = None
-    phonetic_transcription: str = None
-    definition: str = None
+    phonetic_transcription: Optional[str] = None
+    definition: Optional[str] = None
 
     def __getitem__(
-        self, feature_name: Union[str, Type[MorphosyntacticFeature]]
+            self, feature_name: Union[str, Type[MorphosyntacticFeature]]
     ) -> List[MorphosyntacticFeature]:
         """Accessor to help get morphosyntatic features from a word object."""
         return self.features[feature_name]
@@ -225,7 +225,7 @@ class Doc:
                 # 'akk' produces List[Tuple[str, str]]
                 sentence_tokens_str = " ".join(
                     [tup[0] for tup in sentence_tokens]
-                )  # type: str
+                )
             else:
                 sentence_tokens_str: str = " ".join(sentence_tokens)
             sentences_str.append(sentence_tokens_str)
@@ -242,7 +242,7 @@ class Doc:
 
     @property
     def tokens_stops_filtered(
-        self,
+            self,
     ) -> List[str]:
         """Returns a list of string word tokens of all words in the
         doc, but with stopwords removed.
@@ -332,6 +332,14 @@ class Pipeline:
     description: str
     processes: List[Type[Process]]
     language: Language
+
+    def __init__(self, language: Language, description: str = "", processes=None):
+        self.language = language
+        self.description = description
+        if processes:
+            self.processes = processes
+        else:
+            self.processes = []
 
     def add_process(self, process: Type[Process]):
         self.processes.append(process)
