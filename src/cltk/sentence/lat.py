@@ -33,7 +33,7 @@ STRICT_PUNCTUATION = PUNCTUATION + ("-", ":", ";")
 class LatinPunktSentenceTokenizer(PunktSentenceTokenizer):
     """Sentence tokenizer for Latin. Inherits from NLTK's ``PunktSentenceTokenizer``."""
 
-    def __init__(self: object, strict: bool = False):
+    def __init__(self, strict: bool = False):
         """Constructor for ``LatinPunktSentenceTokenizer``.
 
         :param strict : allow for stricter punctuation for sentences tokenization

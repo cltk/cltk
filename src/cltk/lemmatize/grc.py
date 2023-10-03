@@ -28,7 +28,7 @@ class GreekBackoffLemmatizer:
     """
 
     def __init__(
-        self: object, train: List[list] = None, seed: int = 3, verbose: bool = False
+        self, train: List[list] = None, seed: int = 3, verbose: bool = False
     ):
         self.models_path = models_path
 
@@ -70,7 +70,7 @@ class GreekBackoffLemmatizer:
         )
         self._define_lemmatizer()
 
-    def _define_lemmatizer(self: object):
+    def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
         self.backoff1 = IdentityLemmatizer(verbose=self.VERBOSE)
@@ -100,7 +100,7 @@ class GreekBackoffLemmatizer:
         )
         self.lemmatizer = self.backoff5
 
-    def lemmatize(self: object, tokens: List[str]):
+    def lemmatize(self, tokens: List[str]):
         """
         Lemmatize a list of words.
 
@@ -117,14 +117,14 @@ class GreekBackoffLemmatizer:
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
-    def evaluate(self: object):
+    def evaluate(self):
         if self.VERBOSE:
             raise AssertionError(
                 "evaluate() method only works when verbose: bool = False"
             )
         return self.lemmatizer.evaluate(self.test_sents)
 
-    def __repr__(self: object):
+    def __repr__(self):
         return f"<BackoffGreekLemmatizer v0.1>"
 
     def __call__(self, token: str) -> str:
