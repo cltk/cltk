@@ -265,9 +265,7 @@ class StanzaWrapper:
         >>> stanza_wrapper._is_model_present()
         True
         """
-        if file_exists(self.model_path):
-            return True
-        return False
+        return file_exists(self.model_path)
 
     def _download_model(self) -> None:
         """Interface with the `stanza` model downloader."""

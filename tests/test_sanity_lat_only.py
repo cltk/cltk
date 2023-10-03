@@ -24,22 +24,23 @@ class TestNLPLatin(unittest.TestCase):
         print("Starting complete `NLP()` test for 'lat' ...")
 
         lang: str = "lat"
+        default_latin_pipeline = LatinPipeline()
 
-        self.assertIsInstance(LatinPipeline.description, str)
-        self.assertIsInstance(LatinPipeline.language, Language)
-        self.assertIsInstance(LatinPipeline.language.family_id, str)
-        self.assertIsInstance(LatinPipeline.language.glottolog_id, str)
-        self.assertIsInstance(LatinPipeline.language.iso_639_3_code, str)
-        self.assertIsInstance(LatinPipeline.language.latitude, float)
-        self.assertIsInstance(LatinPipeline.language.level, str)
-        self.assertIsInstance(LatinPipeline.language.longitude, float)
-        self.assertIsInstance(LatinPipeline.language.parent_id, str)
-        self.assertIsInstance(LatinPipeline.language.type, str)
+        self.assertIsInstance(default_latin_pipeline.description, str)
+        self.assertIsInstance(default_latin_pipeline.language, Language)
+        self.assertIsInstance(default_latin_pipeline.language.family_id, str)
+        self.assertIsInstance(default_latin_pipeline.language.glottolog_id, str)
+        self.assertIsInstance(default_latin_pipeline.language.iso_639_3_code, str)
+        self.assertIsInstance(default_latin_pipeline.language.latitude, float)
+        self.assertIsInstance(default_latin_pipeline.language.level, str)
+        self.assertIsInstance(default_latin_pipeline.language.longitude, float)
+        self.assertIsInstance(default_latin_pipeline.language.parent_id, str)
+        self.assertIsInstance(default_latin_pipeline.language.type, str)
 
         text = get_example_text(iso_code=lang)
         self.assertIsInstance(text, str)
 
-        cltk_nlp: NLP = NLP(language=lang)
+        cltk_nlp = NLP(language=lang)
         self.assertIsInstance(cltk_nlp, NLP)
 
         cltk_doc = cltk_nlp.analyze(text=text)

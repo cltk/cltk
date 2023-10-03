@@ -23,49 +23,49 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """
         corpus_importer = FetchCorpus("grc")
         corpus_importer.import_corpus("grc_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "grc/model/grc_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "grc", "model", "grc_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = FetchCorpus("lat")
         corpus_importer.import_corpus("lat_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = FetchCorpus("fro")
         corpus_importer.import_corpus("fro_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "fro/text/fro_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "fro", "text", "fro_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = FetchCorpus("non")
         corpus_importer.import_corpus("non_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "non/model/non_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "non", "model", "non_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = FetchCorpus("gml")
         corpus_importer.import_corpus("gml_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "gml/model/gml_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "gml", "model", "gml_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = FetchCorpus("ang")
         corpus_importer.import_corpus("ang_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "ang/model/ang_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "ang", "model", "ang_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
 
         corpus_importer = FetchCorpus("gmh")
         corpus_importer.import_corpus("gmh_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "gmh/model/gmh_models_cltk/README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "gmh", "model", "gmh_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.exists(file)
         self.assertTrue(file_exists)
@@ -155,13 +155,13 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
         """Test _check_latest_data()"""
         ner._check_latest_data("lat")
         names_path = os.path.normpath(
-            CLTK_DATA_DIR, "lat/model/latin_models_cltk/ner/proper_names.txt"
+            CLTK_DATA_DIR, "lat", "model", "latin_models_cltk", "ner", "proper_names.txt"
         )
         self.assertTrue(os.path.isfile(names_path))
 
     def test_check_latest_latin(self):
         """Test _check_latest_data()"""
-        path = os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk")
+        path = os.path.join(CLTK_DATA_DIR, "lat", "model", "lat_models_cltk")
         names_dir = os.path.expanduser(path)
         shutil.rmtree(names_dir, ignore_errors=True)
         ner._check_latest_data("lat")

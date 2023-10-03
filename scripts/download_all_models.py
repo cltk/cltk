@@ -15,10 +15,10 @@ from git import GitCommandError
 from cltk.core.exceptions import CLTKException, CorpusImportError
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
 from cltk.data.fetch import FetchCorpus
-from cltk.dependency.stanza import (
+from cltk.dependency.stanza_wrapper import (
     MAP_LANGS_CLTK_STANZA as AVAIL_STANZA_LANGS,
 )  # pylint: disable=syntax-error
-from cltk.dependency.stanza import StanzaWrapper
+from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT_LANGS
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings

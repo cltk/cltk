@@ -26,7 +26,7 @@ class WordTokenizer:
     """Base class for word tokenizers"""
 
     @abstractmethod
-    def tokenize(self, text: str, model: object = None):
+    def tokenize(self, text: str, model=None):
         """
         Create a list of tokens from a string.
         This method should be overridden by subclasses of WordTokenizer.
@@ -34,7 +34,7 @@ class WordTokenizer:
         pass
 
     @abstractmethod
-    def tokenize_sign(self, text: str, model: object = None):
+    def tokenize_sign(self, text: str, model=None):
         """
         Create a list of tokens from a string, for cuneiform signs..
         This method should be overridden by subclasses of WordTokenizer.
@@ -56,7 +56,7 @@ class WordTokenizer:
 class PunktWordTokenizer(WordTokenizer):
     """Class for punkt word tokenization"""
 
-    def __init__(self, sent_tokenizer: object = None):
+    def __init__(self, sent_tokenizer=None):
         """
         :param language : language for sentences tokenization
         :type language: str
@@ -96,7 +96,7 @@ class RegexWordTokenizer(WordTokenizer):
         :param text: text to be tokenized into sentences
         :type text: str
         :param model: tokenizer object to used # Should be in init?
-        :type model: object
+        :type model
         """
         for pattern in self.patterns:
             text = re.sub(pattern[0], pattern[1], text)

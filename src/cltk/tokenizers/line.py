@@ -19,7 +19,7 @@ class LineTokenizer:
             language.lower()
         )  # Keep in case there winds up being a need for language-specific line tokenization
 
-    def tokenize(self: object, untokenized_string: str, include_blanks=False):
+    def tokenize(self, untokenized_string: str, include_blanks=False):
         """Tokenize lines by '\n'.
 
         :type untokenized_string: str
