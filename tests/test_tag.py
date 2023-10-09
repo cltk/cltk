@@ -37,7 +37,7 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
 
         corpus_importer = FetchCorpus("fro")
         corpus_importer.import_corpus("fro_models_cltk")
-        file_rel = os.path.join(CLTK_DATA_DIR, "fro", "text", "fro_models_cltk", "README.md")
+        file_rel = os.path.join(CLTK_DATA_DIR, "fro", "model", "fro_models_cltk", "README.md")
         file = os.path.expanduser(file_rel)
         file_exists = os.path.isfile(file)
         self.assertTrue(file_exists)
@@ -151,15 +151,15 @@ class TestSequenceFunctions(unittest.TestCase):  # pylint: disable=R0904
     #     tagged = tagger.tag_crf("Gallia est omnis divisa in partes tres")
     #     self.assertTrue(tagged)
 
-    def test_check_latest_latin(self):
+    def test_check_latest_latin_1(self):
         """Test _check_latest_data()"""
         ner._check_latest_data("lat")
-        names_path = os.path.normpath(
-            CLTK_DATA_DIR, "lat", "model", "latin_models_cltk", "ner", "proper_names.txt"
-        )
+        names_path = os.path.normpath(os.path.join(
+            CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "ner", "proper_names.txt"
+        ))
         self.assertTrue(os.path.isfile(names_path))
 
-    def test_check_latest_latin(self):
+    def test_check_latest_latin_2(self):
         """Test _check_latest_data()"""
         path = os.path.join(CLTK_DATA_DIR, "lat", "model", "lat_models_cltk")
         names_dir = os.path.expanduser(path)
