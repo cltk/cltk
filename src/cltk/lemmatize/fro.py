@@ -103,7 +103,7 @@ class OldFrenchDictionaryLemmatizer(DictionaryRegexLemmatizer):
         """Load the dictionary of lemmas and forms from the fro data repository."""
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "fro", "text", "fro_models_cltk", "inverted_lemma_dict.py"
+            CLTK_DATA_DIR, "fro", "model", "fro_models_cltk", "inverted_lemma_dict.py"
         )
         path = os.path.expanduser(rel_path)
         loader = importlib.machinery.SourceFileLoader("file", path)
@@ -114,7 +114,7 @@ class OldFrenchDictionaryLemmatizer(DictionaryRegexLemmatizer):
         """Load the table of frequency counts of word forms."""
 
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "fro", "text", "fro_models_cltk", "fro_unigrams.txt"
+            CLTK_DATA_DIR, "fro", "model", "fro_models_cltk", "fro_unigrams.txt"
         )
         path = os.path.expanduser(rel_path)
 
