@@ -5,7 +5,7 @@ a suitable default is provided."""
 import logging
 from typing import List
 
-from Levenshtein import distance
+from rapidfuzz.distance import DamerauLevenshtein
 
 from cltk.prosody.lat.scansion_constants import ScansionConstants
 
@@ -219,7 +219,7 @@ class MetricalValidator:
         ending = pattern[-1]
         candidate = pattern[: len(pattern) - 1] + self.constants.OPTIONAL_ENDING
         cans = [
-            (distance(candidate, x), x) for x in patterns if len(x) == len(candidate)
+            (DamerauLevenshtein.distance(candidate, x), x) for x in patterns if len(x) == len(candidate)
         ]
         if cans:
             cans = sorted(cans, key=lambda tup: tup[0])
