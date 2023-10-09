@@ -193,6 +193,11 @@ class Doc:
         for word in self.words:
             sents[word.index_sentence].append(word)
         for key in sents:
+            for w in sents[key]:
+                if w.index_token is None:
+                    raise ValueError(f"Index token is not defined for {w.string}")
+
+        for key in sents:
             sents[key].sort(key=lambda x: x.index_token)
         # Sometimes not available, nor initialized; e.g. stanza
         if not self.sentence_embeddings:
