@@ -159,6 +159,7 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
 
     language: str = "lat"
     description: str = "Default embeddings for Latin."
+    variant: str = "fasttext"
 
 
 @dataclass
