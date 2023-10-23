@@ -13,7 +13,7 @@ import importlib
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Dict, List, Type, Union, Optional
+from typing import Dict, List, Optional, Type, Union
 
 import numpy as np
 import stringcase as sc
@@ -86,7 +86,7 @@ class Word:
     definition: Optional[str] = None
 
     def __getitem__(
-            self, feature_name: Union[str, Type[MorphosyntacticFeature]]
+        self, feature_name: Union[str, Type[MorphosyntacticFeature]]
     ) -> List[MorphosyntacticFeature]:
         """Accessor to help get morphosyntatic features from a word object."""
         return self.features[feature_name]
@@ -228,9 +228,7 @@ class Doc:
         for sentence_tokens in sentences_list:  # type: List[str]
             if self.language == "akk":
                 # 'akk' produces List[Tuple[str, str]]
-                sentence_tokens_str = " ".join(
-                    [tup[0] for tup in sentence_tokens]
-                )
+                sentence_tokens_str = " ".join([tup[0] for tup in sentence_tokens])
             else:
                 sentence_tokens_str: str = " ".join(sentence_tokens)
             sentences_str.append(sentence_tokens_str)
@@ -247,7 +245,7 @@ class Doc:
 
     @property
     def tokens_stops_filtered(
-            self,
+        self,
     ) -> List[str]:
         """Returns a list of string word tokens of all words in the
         doc, but with stopwords removed.

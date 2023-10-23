@@ -25,7 +25,10 @@ from cltk.utils.file_operations import open_pickle
 TFIDF_MAP: Dict[str, str] = {
     "lat": os.path.join(
         CLTK_DATA_DIR,
-        "lat", "model", "lat_models_cltk", "tfidf",
+        "lat",
+        "model",
+        "lat_models_cltk",
+        "tfidf",
     ),
 }
 
@@ -101,7 +104,9 @@ class EmbeddingsProcess(Process):
                     download_prompt(
                         iso_code=self.language, message=dl_msg, model_url=model_url
                     )
-                self.idf_model = open_pickle(path=os.path.join(model_path, "word_idf.pkl"))
+                self.idf_model = open_pickle(
+                    path=os.path.join(model_path, "word_idf.pkl")
+                )
         # Min and max values are needed while generating sentence embeddings
         if self.idf_model and not self.min_idf:
             tfidf_values: ValuesView = self.idf_model.values()

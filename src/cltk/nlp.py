@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
 from threading import Lock
-from typing import Type, List
+from typing import List, Type
 
 import cltk
 from cltk.core.data_types import Doc, Language, Pipeline, Process

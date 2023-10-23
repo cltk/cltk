@@ -92,7 +92,9 @@ def download_cltk_models_repo(iso_code: str, default_branch: str = "master") -> 
     print(f"Going to download CLTK models for '{iso_code}'.")
     corpus_downloader = FetchCorpus(language=iso_code)
     try:
-        corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk", branch=default_branch)
+        corpus_downloader.import_corpus(
+            corpus_name=f"{iso_code}_models_cltk", branch=default_branch
+        )
     except CorpusImportError as e:
         print(e)
     if iso_code == "lat":
@@ -118,7 +120,9 @@ if __name__ == "__main__":
         print(f"Going to download all '{LANG}' models ...")
         # 1. Check if CLTK model available
         if LANG in AVAILABLE_CLTK_LANGS:
-            download_cltk_models_repo(iso_code=LANG, default_branch=SELECTED_LANGS[LANG]["branch"])
+            download_cltk_models_repo(
+                iso_code=LANG, default_branch=SELECTED_LANGS[LANG]["branch"]
+            )
         # 2. Check for Stanza
         if LANG in AVAIL_STANZA_LANGS:
             download_stanza_model(iso_code=LANG)
