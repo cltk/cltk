@@ -86,8 +86,10 @@ class CLTKWord2VecEmbeddings:
         if not self._is_model_present() or self.overwrite:
             self._download_cltk_self_hosted_models()
         elif self._is_model_present() and not self.overwrite:
-            message = (f"Model for '{self.iso_code}' / '{self.model_type}' already present "
-                       f"at '{self.fp_model}' and ``overwrite=False``.")
+            message = (
+                f"Model for '{self.iso_code}' / '{self.model_type}' already present "
+                f"at '{self.fp_model}' and ``overwrite=False``."
+            )
             logger.info(message)
         self.model: models.word2vec.Word2Vec = self._load_model()
 
@@ -175,11 +177,11 @@ class CLTKWord2VecEmbeddings:
             return False
 
     def _load_model(self) -> models.word2vec.Word2Vec:
-        """Load model into memory.
-        """
+        """Load model into memory."""
         try:
             return models.word2vec.Word2Vec.load(
-                os.path.join(self.model_path, os.path.basename(self.fp_model)))
+                os.path.join(self.model_path, os.path.basename(self.fp_model))
+            )
         except UnicodeDecodeError:
             msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."
             print(msg)
@@ -221,8 +223,10 @@ class Word2VecEmbeddings:
             self._download_nlpl_models()
             self._unzip_nlpl_model()
         elif self._is_nlpl_model_present() and not self.overwrite:
-            message = (f"Model for '{self.iso_code}' / '{self.model_type}' already present "
-                       f"at '{self.fp_model}' and ``overwrite=False``.")
+            message = (
+                f"Model for '{self.iso_code}' / '{self.model_type}' already present "
+                f"at '{self.fp_model}' and ``overwrite=False``."
+            )
             logger.info(message)
             pass
         self.model: models.keyedvectors.Word2VecKeyedVectors = self._load_model()
@@ -378,8 +382,10 @@ class FastTextEmbeddings:
         if not self._is_model_present() or self.overwrite:
             self.download_fasttext_models()
         elif self._is_model_present() and not self.overwrite:
-            message = (f"Model for '{self.iso_code}' / '{self.training_set}' / '{self.model_type}' already present "
-                       f"at '{self.model_fp}' and ``overwrite=False``.")
+            message = (
+                f"Model for '{self.iso_code}' / '{self.training_set}' / '{self.model_type}' already present "
+                f"at '{self.model_fp}' and ``overwrite=False``."
+            )
             logger.info(message)
         self.model = self._load_model()
 

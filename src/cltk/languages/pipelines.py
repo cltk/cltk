@@ -77,7 +77,9 @@ class AkkadianPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Akkadian language."):
+    def __init__(
+        self, processes=None, description="Pipeline for the Akkadian language."
+    ):
         language = get_lang("akk")
         if not processes:
             processes = [AkkadianTokenizationProcess, StopsProcess]
@@ -178,7 +180,9 @@ class ChinesePipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Classical Chinese language"):
+    def __init__(
+        self, processes=None, description="Pipeline for the Classical Chinese language"
+    ):
         language = get_lang("lzh")
         if not processes:
             processes = [ChineseStanzaProcess]
@@ -358,7 +362,11 @@ class MiddleHighGermanPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Middle High German language."):
+    def __init__(
+        self,
+        processes=None,
+        description="Pipeline for the Middle High German language.",
+    ):
         language = get_lang("gmh")
         if not processes:
             processes = [MiddleHighGermanTokenizationProcess, StopsProcess]
@@ -394,7 +402,9 @@ class MiddleEnglishPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Middle English language"):
+    def __init__(
+        self, processes=None, description="Pipeline for the Middle English language"
+    ):
         language = get_lang("enm")
         if not processes:
             processes = [
@@ -427,7 +437,9 @@ class MiddleFrenchPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Middle French language"):
+    def __init__(
+        self, processes=None, description="Pipeline for the Middle French language"
+    ):
         language = get_lang("frm")
         if not processes:
             processes = [MiddleFrenchTokenizationProcess]
@@ -454,7 +466,11 @@ class OCSPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Old Church Slavonic language"):
+    def __init__(
+        self,
+        processes=None,
+        description="Pipeline for the Old Church Slavonic language",
+    ):
         language = get_lang("chu")
         if not processes:
             processes = [OCSStanzaProcess]
@@ -481,7 +497,9 @@ class OldEnglishPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Old English language"):
+    def __init__(
+        self, processes=None, description="Pipeline for the Old English language"
+    ):
         language = get_lang("ang")
         if not processes:
             processes = [
@@ -514,7 +532,9 @@ class OldFrenchPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Old French language"):
+    def __init__(
+        self, processes=None, description="Pipeline for the Old French language"
+    ):
         language = get_lang("fro")
         if not processes:
             processes = [
@@ -549,7 +569,9 @@ class OldNorsePipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Old Norse language"):
+    def __init__(
+        self, processes=None, description="Pipeline for the Old Norse language"
+    ):
         language = get_lang("non")
         if not processes:
             processes = [
@@ -609,7 +631,9 @@ class PanjabiPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Panjabi language."):
+    def __init__(
+        self, processes=None, description="Pipeline for the Panjabi language."
+    ):
         language = get_lang("pan")
         if not processes:
             processes = [MultilingualTokenizationProcess, StopsProcess]
@@ -638,7 +662,9 @@ class SanskritPipeline(Pipeline):
     language: Language
     processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Sanskrit language."):
+    def __init__(
+        self, processes=None, description="Pipeline for the Sanskrit language."
+    ):
         language = get_lang("sab")
         if not processes:
             processes = [

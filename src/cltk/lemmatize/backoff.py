@@ -15,9 +15,14 @@ https://gist.github.com/diyclassics/fc80024d65cc237f185a9a061c5d4824.
 
 import re
 import reprlib
-from typing import List, Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
-from nltk.tag.sequential import RegexpTagger, SequentialBackoffTagger, UnigramTagger, TaggerI
+from nltk.tag.sequential import (
+    RegexpTagger,
+    SequentialBackoffTagger,
+    TaggerI,
+    UnigramTagger,
+)
 
 
 class SequentialBackoffLemmatizer(SequentialBackoffTagger):
@@ -41,7 +46,9 @@ class SequentialBackoffLemmatizer(SequentialBackoffTagger):
     # def choose_tag(self, tokens, index, history):
     #     pass
 
-    def __init__(self, backoff: Optional[SequentialBackoffTagger], verbose: bool = False):
+    def __init__(
+        self, backoff: Optional[SequentialBackoffTagger], verbose: bool = False
+    ):
         """Setup for SequentialBackoffLemmatizer
         :param backoff: Next lemmatizer in backoff chain
         :type verbose: bool
@@ -131,7 +138,10 @@ class DefaultLemmatizer(SequentialBackoffLemmatizer):
     """
 
     def __init__(
-        self, lemma: str = None, backoff: Optional[SequentialBackoffTagger] = None, verbose: bool = False
+        self,
+        lemma: str = None,
+        backoff: Optional[SequentialBackoffTagger] = None,
+        verbose: bool = False,
     ):
         self.lemma = lemma
         SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
@@ -154,7 +164,9 @@ class IdentityLemmatizer(SequentialBackoffLemmatizer):
     [('arma', 'arma'), ('virumque', 'virumque'), ('cano', 'cano')]
     """
 
-    def __init__(self, backoff: Optional[SequentialBackoffTagger] = None, verbose: bool = False):
+    def __init__(
+        self, backoff: Optional[SequentialBackoffTagger] = None, verbose: bool = False
+    ):
         SequentialBackoffLemmatizer.__init__(self, backoff=None, verbose=verbose)
 
     def choose_tag(self, tokens: List[str], index: int, history: List[str]):
@@ -245,9 +257,7 @@ class RegexpLemmatizer(SequentialBackoffLemmatizer, RegexpTagger):
     ``SequentialBackoffLemmatizer`` and ``RegexpTagger``.
     """
 
-    def __init__(
-        self, regexps=None, source=None, backoff=None, verbose: bool = False
-    ):
+    def __init__(self, regexps=None, source=None, backoff=None, verbose: bool = False):
         """Setup for RegexpLemmatizer()
         :type regexps: list
         :param regexps: List of tuples of form (PATTERN, REPLACEMENT)
