@@ -133,7 +133,7 @@ class StanzaWrapper:
         # TODO: This is a weak check for the models actually being downloaded and valid
         # TODO: Use ``models_dir`` var from below and make self. or global to module
         self.model_path = os.path.expanduser(
-            f"~/stanza_resources/{self.stanza_code}/tokenize/{self.treebank}.pt"
+            os.path.join("~", "stanza_resources", self.stanza_code, "tokenize", f"{self.treebank}/pt")+"/"
         )
         if not self._is_model_present():
             # download model if necessary
@@ -237,7 +237,7 @@ class StanzaWrapper:
         True
         """
         models_dir = os.path.expanduser(
-            "~/stanza_resources/"
+            os.path.join("~", "stanza_resources")
         )  # TODO: Mv this a self. var or maybe even global
         processors = "tokenize,mwt,pos,lemma,depparse"
         lemma_use_identity = False
