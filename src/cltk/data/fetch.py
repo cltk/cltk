@@ -34,7 +34,7 @@ LANGUAGE_CORPORA = {
             "name": "cdli_corpus",
             "origin": "https://github.com/cdli-gh/data.git",
             "type": "atf",
-            "branch": "master"
+            "branch": "master",
         }
     ],
     "arb": [
@@ -42,19 +42,19 @@ LANGUAGE_CORPORA = {
             "name": "arabic_text_perseus",
             "origin": "https://github.com/cltk/arabic_text_perseus",
             "type": "text",
-            "branch": "master"
+            "branch": "master",
         },
         {
             "name": "quranic-corpus",
             "origin": "https://github.com/cltk/arabic_text_quranic_corpus",
             "type": "text",
-            "branch": "master"
+            "branch": "master",
         },
         {
             "name": "quranic-corpus-morphology",
             "origin": "https://github.com/cltk/arabic_morphology_quranic-corpus",
             "type": "text",
-            "branch": "master"
+            "branch": "master",
         },
     ],
     "lzh": [
@@ -62,31 +62,30 @@ LANGUAGE_CORPORA = {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_01.git",
             "name": "chinese_text_cbeta_01",
-            "branch": "master"
+            "branch": "master",
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_02.git",
             "name": "chinese_text_cbeta_02",
-            "branch": "master"
+            "branch": "master",
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_indices.git",
             "name": "chinese_text_cbeta_indices",
-            "branch": "master"
+            "branch": "master",
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_txt.git",
             "name": "chinese_text_cbeta_txt",
-            "branch": "master"
+            "branch": "master",
         },
         {
             "type": "text",
             "origin": "https://github.com/cltk/chinese_text_cbeta_taf_xml.git",
             "name": "chinese_text_cbeta_taf_xml",
-
         },
         {
             "type": "text",
@@ -590,7 +589,7 @@ class FetchCorpus:
         self.user_defined_corpora = self._get_user_defined_corpora()
         self.library_defined_corpora = self._get_library_defined_corpora()
         self.all_corpora_for_lang = (
-                self.user_defined_corpora + self.library_defined_corpora
+            self.user_defined_corpora + self.library_defined_corpora
         )
 
     def __repr__(self):
@@ -696,7 +695,7 @@ class FetchCorpus:
         raise CorpusImportError(msg)
 
     def _git_user_defined_corpus(
-            self, corpus_name, corpus_type, uri: str, branch="master"
+        self, corpus_name, corpus_type, uri: str, branch="master"
     ):
         """Clone or update a git repo defined by user.
         TODO: This code is very redundant with what's in import_corpus(),
@@ -736,7 +735,7 @@ class FetchCorpus:
                 logger.error(msg)
 
     def import_corpus(
-            self, corpus_name: str, local_path: str = None, branch: str = "master"
+        self, corpus_name: str, local_path: str = None, branch: str = "master"
     ):
         """Download a remote or load local corpus into dir ``~/cltk_data``.
 
@@ -822,9 +821,9 @@ class FetchCorpus:
             'origin': 'https://github.com/cltk/lat_text_perseus.git'},
             """
             if (
-                    not matching_corpus.get("type")
-                    and not matching_corpus.get("name")
-                    and not matching_corpus.get("origin")
+                not matching_corpus.get("type")
+                and not matching_corpus.get("name")
+                and not matching_corpus.get("origin")
             ):
                 raise ValueError(f"Malformed record for ``{corpus_name}``.")
             git_uri = matching_corpus["origin"]

@@ -27,9 +27,7 @@ class GreekBackoffLemmatizer:
     type of major sequential backoff class from backoff.py.
     """
 
-    def __init__(
-        self, train: List[list] = None, seed: int = 3, verbose: bool = False
-    ):
+    def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = models_path
 
         missing_models_message = "GreekBackoffLemmatizer requires the ```grc_models_cltk``` to be in cltk_data. Please load this corpus."

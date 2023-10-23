@@ -456,7 +456,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
     [('i', 'RN'), ('ii', 'RN'), ('iii', 'RN')]
     """
 
-    def __init__(self, default: str = None, backoff = None):
+    def __init__(self, default: str = None, backoff=None):
         """
         RomanNumeralLemmatizer
         :type default: str
@@ -511,7 +511,9 @@ class LatinBackoffLemmatizer:
 
     def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = os.path.normpath(
-            os.path.join(CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "lemmata", "backoff")
+            os.path.join(
+                CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "lemmata", "backoff"
+            )
         )
 
         missing_models_message = "LatinBackoffLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."

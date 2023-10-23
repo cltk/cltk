@@ -219,7 +219,9 @@ class MetricalValidator:
         ending = pattern[-1]
         candidate = pattern[: len(pattern) - 1] + self.constants.OPTIONAL_ENDING
         cans = [
-            (DamerauLevenshtein.distance(candidate, x), x) for x in patterns if len(x) == len(candidate)
+            (DamerauLevenshtein.distance(candidate, x), x)
+            for x in patterns
+            if len(x) == len(candidate)
         ]
         if cans:
             cans = sorted(cans, key=lambda tup: tup[0])

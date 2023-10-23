@@ -441,7 +441,9 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
 }
 
 
-def from_ud(feature_name: str, feature_value: Optional[str]) -> Optional[MorphosyntacticFeature]:
+def from_ud(
+    feature_name: str, feature_value: Optional[str]
+) -> Optional[MorphosyntacticFeature]:
     """For a given Universal Dependencies feature name and value,
     return the appropriate feature class/value.
     >>> from_ud('Case', 'Abl')
