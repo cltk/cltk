@@ -11,9 +11,9 @@ from cltk.languages.example_texts import get_example_text
 
 class TestMain(unittest.TestCase):
     def _word_assertions(self, first_word, target):
-        self.assertEqual(first_word.lemma, target.lemma)
-        self.assertEqual(first_word.upos, target.upos)
-        self.assertEqual(first_word.dependency_relation, target.dependency_relation)
+        self.assertEqual(target.lemma, first_word.lemma)
+        self.assertEqual(target.upos, first_word.upos)
+        self.assertEqual(target.dependency_relation, first_word.dependency_relation)
 
     def test_main_analyze(self):
         """Testing methods from ``cltk/nlp.py``. Note that we
