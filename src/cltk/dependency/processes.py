@@ -108,7 +108,7 @@ class StanzaProcess(Process):
                     if stanza_word.feats
                     else []
                 )
-                print(f"token->{stanza_word.text}")
+
                 cltk_features = [
                     from_ud(feature_name, feature_value)
                     for feature_name, feature_value in raw_features
