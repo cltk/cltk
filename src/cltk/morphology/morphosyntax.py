@@ -438,6 +438,22 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     "Foreign": {"Yes": Foreign.pos},
     "Abbr": {"Yes": Abbreviation.pos},
     "Typo": {"Yes": Typo.pos},
+    "InflClass": {
+        "IndEurA": InflClass.ind_eur_a,
+        "IndEurE": InflClass.ind_eur_e,
+        "IndEurI": InflClass.ind_eur_i,
+        "IndEurO": InflClass.ind_eur_o,
+        "IndEurU": InflClass.ind_eur_u,
+        "IndEurX": InflClass.ind_eur_x,
+        "LatA": InflClass.lat_a,
+        "LatAnom": InflClass.lat_anom,
+        "LatE": InflClass.lat_e,
+        "LatI": InflClass.lat_i,
+        "LatI2": InflClass.lat_i2,
+        "LatPron": InflClass.lat_pron,
+        "LatX": InflClass.lat_x
+
+    }
 }
 
 

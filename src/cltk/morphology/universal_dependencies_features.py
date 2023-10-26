@@ -513,6 +513,22 @@ class Typo(MorphosyntacticFeature):
     neg = auto()
 
 
+class InflClass(MorphosyntacticFeature):
+    ind_eur_a = auto()
+    ind_eur_e = auto()
+    ind_eur_i = auto()
+    ind_eur_o = auto()
+    ind_eur_u = auto()
+    ind_eur_x = auto()
+    lat_a = auto()
+    lat_anom = auto()
+    lat_e = auto()
+    lat_i = auto()
+    lat_i2 = auto()
+    lat_pron = auto()
+    lat_x = auto()
+
+
 # the feature value of an underspecified feature.
 Underspecified = None
 
