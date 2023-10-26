@@ -97,7 +97,7 @@ class POS(MorphosyntacticFeature):
 
 class VerbForm(MorphosyntacticFeature):
     """The inlectional type of the verb.
-    Possibly this confuses tense, aspect, and other more privitive morphosyntactic informaition.
+    Possibly this confuses tense, aspect, and other more primitive morphosyntactic information.
     see https://universaldependencies.org/u/feat/VerbForm.html
     """
 
@@ -385,7 +385,7 @@ NOMINAL_FEATURES = [Case, Gender, Animacy, Number, Definiteness, Degree, Strengt
 
 
 class NameType(MorphosyntacticFeature):
-    """The type of a named entity, mostly applying to proper nouns.
+    """The type of named entity, mostly applying to proper nouns.
     see https://universaldependencies.org/u/feat/NameType.html
     """
 
@@ -399,12 +399,13 @@ class NameType(MorphosyntacticFeature):
     other = auto()
 
 
-class PrononimalType(MorphosyntacticFeature):
+class PronominalType(MorphosyntacticFeature):
     """A subclassification of pronouns.
     see https://universaldependencies.org/u/feat/PronType.html
     """
 
     article = auto()
+    con = auto()  # specific to Latin
     demonstrative = auto()
     emphatic = auto()
     exclamative = auto()
@@ -527,6 +528,17 @@ class InflClass(MorphosyntacticFeature):
     lat_i2 = auto()
     lat_pron = auto()
     lat_x = auto()
+    nominal = auto()
+
+
+class NumValue(MorphosyntacticFeature):
+    pos = auto()
+    neg = auto()
+
+
+class Form(MorphosyntacticFeature):
+    pos = auto()
+    neg = auto()
 
 
 # the feature value of an underspecified feature.
@@ -534,7 +546,7 @@ Underspecified = None
 
 OTHER_FEATURES = [
     NameType,
-    PrononimalType,
+    PronominalType,
     AdpositionalType,
     AdverbialType,
     VerbType,
