@@ -381,17 +381,18 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     },
     # other lexical
     "PronType": {
-        "Art": PrononimalType.article,
-        "Dem": PrononimalType.demonstrative,
-        "Emp": PrononimalType.emphatic,
-        "Exc": PrononimalType.exclamative,
-        "Ind": PrononimalType.indefinite,
-        "Int": PrononimalType.interrogative,
-        "Neg": PrononimalType.negative,
-        "Prs": PrononimalType.personal,
-        "Rcp": PrononimalType.reciprocal,
-        "Rel": PrononimalType.relative,
-        "Tot": PrononimalType.total,
+        "Art": PronominalType.article,
+        "Con": PronominalType.con,
+        "Dem": PronominalType.demonstrative,
+        "Emp": PronominalType.emphatic,
+        "Exc": PronominalType.exclamative,
+        "Ind": PronominalType.indefinite,
+        "Int": PronominalType.interrogative,
+        "Neg": PronominalType.negative,
+        "Prs": PronominalType.personal,
+        "Rcp": PronominalType.reciprocal,
+        "Rel": PronominalType.relative,
+        "Tot": PronominalType.total,
     },
     "AdpType": {
         "Prep": AdpositionalType.preposition,
@@ -422,6 +423,12 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Range": Numeral.range,
         "Sets": Numeral.sets,
     },
+    "NumValue": {
+        "1": NumValue.pos
+    },
+    "Form": {
+        "Emp": Form.pos
+    },
     "NameType": {
         "Geo": NameType.place,
         "Prs": NameType.person,
@@ -451,7 +458,8 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "LatI": InflClass.lat_i,
         "LatI2": InflClass.lat_i2,
         "LatPron": InflClass.lat_pron,
-        "LatX": InflClass.lat_x
+        "LatX": InflClass.lat_x,
+        "Nominal": InflClass.nominal
 
     }
 }
