@@ -138,9 +138,8 @@ class StanzaWrapper:
                 "stanza_resources",
                 self.stanza_code,
                 "tokenize",
-                f"{self.treebank}/pt",
+                f"{self.treebank}.pt",
             )
-            + "/"
         )
         if not self._is_model_present():
             # download model if necessary
@@ -323,9 +322,7 @@ class StanzaWrapper:
         True
         """
         possible_treebanks = self.map_code_treebanks[self.stanza_code]
-        if self.treebank in possible_treebanks:
-            return True
-        return False
+        return self.treebank in possible_treebanks
 
     def is_wrapper_available(self) -> bool:
         """Maps an ISO 639-3 language id (e.g., ``lat`` for Latin) to
