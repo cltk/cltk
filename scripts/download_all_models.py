@@ -120,9 +120,7 @@ if __name__ == "__main__":
         print(f"Going to download all '{LANG}' models ...")
         # 1. Check if CLTK model available
         if LANG in AVAILABLE_CLTK_LANGS:
-            download_cltk_models_repo(
-                iso_code=LANG, default_branch=SELECTED_LANGS[LANG]["branch"]
-            )
+            download_cltk_models_repo(iso_code=LANG)
         # 2. Check for Stanza
         if LANG in AVAIL_STANZA_LANGS:
             download_stanza_model(iso_code=LANG)
