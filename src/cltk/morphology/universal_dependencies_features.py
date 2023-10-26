@@ -405,7 +405,7 @@ class PronominalType(MorphosyntacticFeature):
     """
 
     article = auto()
-    con = auto()  # specific to Latin
+    contrastive = auto()  # specific to Latin
     demonstrative = auto()
     emphatic = auto()
     exclamative = auto()

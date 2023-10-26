@@ -382,7 +382,7 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     # other lexical
     "PronType": {
         "Art": PronominalType.article,
-        "Con": PronominalType.con,
+        "Con": PronominalType.contrastive,
         "Dem": PronominalType.demonstrative,
         "Emp": PronominalType.emphatic,
         "Exc": PronominalType.exclamative,
