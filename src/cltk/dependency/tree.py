@@ -221,7 +221,7 @@ class DependencyTree(ElementTree):
         >>> a_sentence = output_doc.sentences[0]
         >>> t = DependencyTree.to_tree(a_sentence)
         >>> len(t.get_dependencies())
-        28
+        34
         """
 
         def _get_deps(node: Form, deps: List[Dependency]) -> List[Dependency]:
