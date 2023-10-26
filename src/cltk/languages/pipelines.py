@@ -136,26 +136,16 @@ class AramaicPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.ArabicTokenizationProcess'>
     """
 
-    description: str = "Pipeline for the Aramaic language"
-    language: Language = field(default_factory=lambda: get_lang("arc"))
-    processes: List[Type[Process]] = field(
-        default_factory=lambda: [
-            ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
-            AramaicEmbeddingsProcess,
-        ]
-    )
+    description: str
+    language: Language
+    processes: List[Type[Process]]
 
-    def __init__(self, processes=None, description="Pipeline for the Latin language"):
-        language = get_lang("lat")
+    def __init__(self, processes=None, description="Pipeline for the Aramaic language"):
+        language = get_lang("arc")
         if not processes:
             processes = [
-                LatinNormalizeProcess,
-                # LatinTokenizationProcess,
-                LatinStanzaProcess,
-                LatinEmbeddingsProcess,
-                StopsProcess,
-                # LatinNERProcess,
-                LatinLexiconProcess,
+                ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
+                AramaicEmbeddingsProcess,
             ]
         super().__init__(language, description, processes)
 
@@ -665,7 +655,7 @@ class SanskritPipeline(Pipeline):
     def __init__(
         self, processes=None, description="Pipeline for the Sanskrit language."
     ):
-        language = get_lang("sab")
+        language = get_lang("san")
         if not processes:
             processes = [
                 MultilingualTokenizationProcess,

@@ -21,7 +21,7 @@ class TestDependency(unittest.TestCase):
         one_word.embedding = list()
         f = Form.to_form(word=one_word)
         form_str = f.full_str()
-        target = "Gallia_0 [lemma=mallis,pos=noun,upos=NOUN,xpos=A1|grn1|casA|gen2,Case=nominative,Degree=positive,Gender=feminine,Number=singular]"
+        target = "Gallia_0 [lemma=Gallis,pos=noun,upos=NOUN,xpos=A1|grn1|casA|gen2,Case=nominative,Gender=feminine,InflClass=ind_eur_a,Number=singular]"
         self.assertEqual(form_str, target)
 
         t = DependencyTree.to_tree(doc.sentences[0])
