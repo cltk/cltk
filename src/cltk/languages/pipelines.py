@@ -73,17 +73,19 @@ class AkkadianPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.AkkadianTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
+    description: str = "Pipeline for the Akkadian language."
+    language: Language = get_lang("akk")
+    processes: List[Type[Process]] = field(
+        default_factory = lambda: [AkkadianTokenizationProcess, StopsProcess]
+    )
 
-    def __init__(
-        self, processes=None, description="Pipeline for the Akkadian language."
-    ):
-        language = get_lang("akk")
-        if not processes:
-            processes = [AkkadianTokenizationProcess, StopsProcess]
-        super().__init__(language, description, processes)
+    # def __init__(
+    #     self, processes=None, description="Pipeline for the Akkadian language."
+    # ):
+    #     language: Language = get_lang("akk")
+    #     if not processes:
+    #         processes = [AkkadianTokenizationProcess, StopsProcess]
+    #     super().__init__(language, description, processes)
 
 
 @dataclass
