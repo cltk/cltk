@@ -423,12 +423,8 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Range": Numeral.range,
         "Sets": Numeral.sets,
     },
-    "NumValue": {
-        "1": NumValue.pos
-    },
-    "Form": {
-        "Emp": Form.pos
-    },
+    "NumValue": {"1": NumValue.pos},
+    "Form": {"Emp": Form.pos},
     "NameType": {
         "Geo": NameType.place,
         "Prs": NameType.person,
@@ -459,9 +455,9 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "LatI2": InflClass.lat_i2,
         "LatPron": InflClass.lat_pron,
         "LatX": InflClass.lat_x,
-        "Nominal": InflClass.nominal
-
-    }
+        "Nominal": InflClass.nominal,
+    },
+    "Proper": {"Yes": Proper.yes},
 }
 
 

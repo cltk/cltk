@@ -536,6 +536,12 @@ class NumValue(MorphosyntacticFeature):
     neg = auto()
 
 
+class Proper(MorphosyntacticFeature):
+    """Added October 2023."""
+
+    yes = auto()
+
+
 class Form(MorphosyntacticFeature):
     pos = auto()
     neg = auto()

@@ -12,10 +12,7 @@ from cltk.lemmatize.backoff import (
     UnigramLemmatizer,
 )
 from cltk.lemmatize.grc import GreekBackoffLemmatizer
-from cltk.lemmatize.lat import (
-    LatinBackoffLemmatizer,
-    RomanNumeralLemmatizer,
-)
+from cltk.lemmatize.lat import LatinBackoffLemmatizer, RomanNumeralLemmatizer
 from cltk.text.lat import replace_jv
 from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.utils import CLTK_DATA_DIR
