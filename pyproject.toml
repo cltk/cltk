@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cltk"
-version = "1.1.7a4"
+version = "1.1.7a5"
 description = "The Classical Language Toolkit"
 license = "MIT"
 authors = ["Kyle P. Johnson <kyle@kyle-p-johnson.com>", "Patrick J. Burns <patrick@diyclassics.org>", "John Stewart <johnstewart@aya.yale.edu>", "Todd Cook <todd.g.cook@gmail.com>", "Clément Besnier <clem@clementbesnier.fr>", "William J. B. Mattingly <https://github.com/wjbmattingly>"]
@@ -30,7 +30,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9,<3.12"
 gitpython = "^3.0"
 requests = "^2.22.0"
 tqdm = "^4.41.1"
@@ -63,6 +63,9 @@ mypy = "^0.942"
 lxml = "^4.9"
 black = "^22.3.0"
 isort = "^5.10.1"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
 
 [build-system]
 requires = ["poetry>=1.1.13"]
