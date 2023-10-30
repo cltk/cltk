@@ -76,16 +76,8 @@ class AkkadianPipeline(Pipeline):
     description: str = "Pipeline for the Akkadian language."
     language: Language = get_lang("akk")
     processes: List[Type[Process]] = field(
-        default_factory = lambda: [AkkadianTokenizationProcess, StopsProcess]
+        default_factory=lambda: [AkkadianTokenizationProcess, StopsProcess]
     )
-
-    # def __init__(
-    #     self, processes=None, description="Pipeline for the Akkadian language."
-    # ):
-    #     language: Language = get_lang("akk")
-    #     if not processes:
-    #         processes = [AkkadianTokenizationProcess, StopsProcess]
-    #     super().__init__(language, description, processes)
 
 
 @dataclass
@@ -104,19 +96,15 @@ class ArabicPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.ArabicTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Arabic language"):
-        language = get_lang("arb")
-        if not processes:
-            processes = [
-                ArabicTokenizationProcess,
-                ArabicEmbeddingsProcess,
-                StopsProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Arabic language"
+    language: Language = get_lang("arb")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            ArabicTokenizationProcess,
+            ArabicEmbeddingsProcess,
+            StopsProcess,
+        ]
+    )
 
 
 @dataclass
@@ -138,18 +126,14 @@ class AramaicPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.ArabicTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Aramaic language"):
-        language = get_lang("arc")
-        if not processes:
-            processes = [
-                ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
-                AramaicEmbeddingsProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Aramaic language"
+    language: Language = get_lang("arc")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
+            AramaicEmbeddingsProcess,
+        ]
+    )
 
 
 @dataclass
@@ -168,17 +152,11 @@ class ChinesePipeline(Pipeline):
     <class 'cltk.dependency.processes.ChineseStanzaProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Classical Chinese language"
-    ):
-        language = get_lang("lzh")
-        if not processes:
-            processes = [ChineseStanzaProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Classical Chinese language"
+    language: Language = get_lang("lzh")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [ChineseStanzaProcess]
+    )
 
 
 @dataclass
@@ -197,15 +175,11 @@ class CopticPipeline(Pipeline):
     <class 'cltk.dependency.processes.CopticStanzaProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Coptic language"):
-        language = get_lang("cop")
-        if not processes:
-            processes = [CopticStanzaProcess, StopsProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Coptic language"
+    language: Language = get_lang("cop")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [CopticStanzaProcess, StopsProcess]
+    )
 
 
 @dataclass
@@ -226,15 +200,11 @@ class GothicPipeline(Pipeline):
     <class 'cltk.embeddings.processes.GothicEmbeddingsProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Gothic language"):
-        language = get_lang("got")
-        if not processes:
-            processes = [GothicStanzaProcess, GothicEmbeddingsProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Gothic language"
+    language: Language = get_lang("got")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [GothicStanzaProcess, GothicEmbeddingsProcess]
+    )
 
 
 @dataclass
@@ -253,22 +223,18 @@ class GreekPipeline(Pipeline):
     <class 'cltk.alphabet.processes.GreekNormalizeProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Greek language"):
-        language = get_lang("grc")
-        if not processes:
-            processes = [
-                # GreekTokenizationProcess,
-                GreekNormalizeProcess,
-                GreekStanzaProcess,
-                GreekEmbeddingsProcess,
-                StopsProcess,
-                # GreekNERProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Greek language"
+    language: Language = get_lang("grc")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            # GreekTokenizationProcess,
+            GreekNormalizeProcess,
+            GreekStanzaProcess,
+            GreekEmbeddingsProcess,
+            StopsProcess,
+            # GreekNERProcess,
+        ]
+    )
 
 
 @dataclass
@@ -287,15 +253,11 @@ class HindiPipeline(Pipeline):
     <class 'cltk.stops.processes.StopsProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Hindi language."):
-        language = get_lang("hin")
-        if not processes:
-            processes = [MultilingualTokenizationProcess, StopsProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Hindi language."
+    language: Language = get_lang("hin")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
+    )
 
 
 @dataclass
@@ -316,23 +278,19 @@ class LatinPipeline(Pipeline):
     <class 'cltk.alphabet.processes.LatinNormalizeProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Latin language"):
-        language = get_lang("lat")
-        if not processes:
-            processes = [
-                LatinNormalizeProcess,
-                # LatinTokenizationProcess,
-                LatinStanzaProcess,
-                LatinEmbeddingsProcess,
-                StopsProcess,
-                # LatinNERProcess,
-                LatinLexiconProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Latin language"
+    language: Language = get_lang("lat")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            LatinNormalizeProcess,
+            # LatinTokenizationProcess,
+            LatinStanzaProcess,
+            LatinEmbeddingsProcess,
+            StopsProcess,
+            # LatinNERProcess,
+            LatinLexiconProcess,
+        ]
+    )
 
 
 @dataclass
@@ -350,19 +308,11 @@ class MiddleHighGermanPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.MiddleHighGermanTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self,
-        processes=None,
-        description="Pipeline for the Middle High German language.",
-    ):
-        language = get_lang("gmh")
-        if not processes:
-            processes = [MiddleHighGermanTokenizationProcess, StopsProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Middle High German language."
+    language: Language = get_lang("gmh")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [MiddleHighGermanTokenizationProcess, StopsProcess]
+    )
 
 
 @dataclass
@@ -390,21 +340,15 @@ class MiddleEnglishPipeline(Pipeline):
 
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Middle English language"
-    ):
-        language = get_lang("enm")
-        if not processes:
-            processes = [
-                MiddleEnglishTokenizationProcess,
-                StopsProcess,
-                MiddleEnglishEmbeddingsProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Middle English language"
+    language: Language = get_lang("enm")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            MiddleEnglishTokenizationProcess,
+            StopsProcess,
+            MiddleEnglishEmbeddingsProcess,
+        ]
+    )
 
 
 @dataclass
@@ -425,17 +369,11 @@ class MiddleFrenchPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.MiddleFrenchTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Middle French language"
-    ):
-        language = get_lang("frm")
-        if not processes:
-            processes = [MiddleFrenchTokenizationProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Middle French language"
+    language: Language = get_lang("frm")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [MiddleFrenchTokenizationProcess]
+    )
 
 
 @dataclass
@@ -454,19 +392,9 @@ class OCSPipeline(Pipeline):
     <class 'cltk.dependency.processes.OCSStanzaProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self,
-        processes=None,
-        description="Pipeline for the Old Church Slavonic language",
-    ):
-        language = get_lang("chu")
-        if not processes:
-            processes = [OCSStanzaProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Old Church Slavonic language"
+    language: Language = get_lang("chu")
+    processes: List[Type[Process]] = field(default_factory=lambda: [OCSStanzaProcess])
 
 
 @dataclass
@@ -485,23 +413,17 @@ class OldEnglishPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.MultilingualTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Old English language"
-    ):
-        language = get_lang("ang")
-        if not processes:
-            processes = [
-                MultilingualTokenizationProcess,
-                OldEnglishLemmatizationProcess,
-                OldEnglishEmbeddingsProcess,
-                StopsProcess,
-                # OldEnglishNERProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Old English language"
+    language: Language = get_lang("ang")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            MultilingualTokenizationProcess,
+            OldEnglishLemmatizationProcess,
+            OldEnglishEmbeddingsProcess,
+            StopsProcess,
+            # OldEnglishNERProcess,
+        ]
+    )
 
 
 @dataclass
@@ -520,22 +442,16 @@ class OldFrenchPipeline(Pipeline):
     <class 'cltk.dependency.processes.OldFrenchStanzaProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Old French language"
-    ):
-        language = get_lang("fro")
-        if not processes:
-            processes = [
-                # OldFrenchTokenizationProcess,
-                OldFrenchStanzaProcess,
-                StopsProcess,
-                OldFrenchNERProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Old French language"
+    language: Language = get_lang("fro")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            # OldFrenchTokenizationProcess,
+            OldFrenchStanzaProcess,
+            StopsProcess,
+            OldFrenchNERProcess,
+        ]
+    )
 
 
 # TODO: Add Old Marathi ("omr")
@@ -557,21 +473,15 @@ class OldNorsePipeline(Pipeline):
     <class 'cltk.tokenizers.processes.OldNorseTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Old Norse language"
-    ):
-        language = get_lang("non")
-        if not processes:
-            processes = [
-                OldNorseTokenizationProcess,
-                StopsProcess,
-                OldNorseLexiconProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Old Norse language"
+    language: Language = get_lang("non")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            OldNorseTokenizationProcess,
+            StopsProcess,
+            OldNorseLexiconProcess,
+        ]
+    )
 
 
 @dataclass
@@ -592,15 +502,11 @@ class PaliPipeline(Pipeline):
     <class 'cltk.tokenizers.processes.MultilingualTokenizationProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(self, processes=None, description="Pipeline for the Pali language"):
-        language = get_lang("pli")
-        if not processes:
-            processes = [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Pali language"
+    language: Language = get_lang("pli")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
+    )
 
 
 @dataclass
@@ -619,17 +525,11 @@ class PanjabiPipeline(Pipeline):
     <class 'cltk.stops.processes.StopsProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Panjabi language."
-    ):
-        language = get_lang("pan")
-        if not processes:
-            processes = [MultilingualTokenizationProcess, StopsProcess]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Panjabi language."
+    language: Language = get_lang("pan")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
+    )
 
 
 @dataclass
@@ -650,18 +550,12 @@ class SanskritPipeline(Pipeline):
     <class 'cltk.embeddings.processes.SanskritEmbeddingsProcess'>
     """
 
-    description: str
-    language: Language
-    processes: List[Type[Process]]
-
-    def __init__(
-        self, processes=None, description="Pipeline for the Sanskrit language."
-    ):
-        language = get_lang("san")
-        if not processes:
-            processes = [
-                MultilingualTokenizationProcess,
-                SanskritEmbeddingsProcess,
-                StopsProcess,
-            ]
-        super().__init__(language, description, processes)
+    description: str = "Pipeline for the Sanskrit language."
+    language: Language = get_lang("san")
+    processes: List[Type[Process]] = field(
+        default_factory=lambda: [
+            MultilingualTokenizationProcess,
+            SanskritEmbeddingsProcess,
+            StopsProcess,
+        ]
+    )

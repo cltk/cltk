@@ -24,7 +24,7 @@ from cltk.morphology.universal_dependencies_features import MorphosyntacticFeatu
 ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
 
 
-@dataclass
+@dataclass(frozen=True)
 class Language:
     """For holding information about any given language. Used to
     encode data from ISO 639-3 and Glottolog at
