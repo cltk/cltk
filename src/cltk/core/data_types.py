@@ -331,6 +331,7 @@ class Pipeline:
     >>> issubclass(a_pipeline.processes[0], Process)
     True
     """
+
     description: str
     processes: List[Type[Process]]
     language: Language
