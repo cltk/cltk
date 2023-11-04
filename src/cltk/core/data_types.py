@@ -331,18 +331,9 @@ class Pipeline:
     >>> issubclass(a_pipeline.processes[0], Process)
     True
     """
-
     description: str
     processes: List[Type[Process]]
     language: Language
-
-    def __init__(self, language: Language, description: str = "", processes=None):
-        self.language = language
-        self.description = description
-        if processes:
-            self.processes = processes
-        else:
-            self.processes = []
 
     def add_process(self, process: Type[Process]):
         self.processes.append(process)
