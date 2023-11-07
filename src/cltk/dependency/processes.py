@@ -9,7 +9,7 @@ import stanza
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
-from cltk.dependency.spacy_dep import SpacyWrapper
+from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
 from cltk.morphology.morphosyntax import (
@@ -288,7 +288,7 @@ class SpacyProcess(Process):
                 cltk_word = Word(
                     index_token=spacy_word.i,
                     index_char_start=spacy_word.idx,
-                    index_char_stop=spacy_word.idx+len(spacy_word),
+                    index_char_stop=spacy_word.idx + len(spacy_word),
                     index_sentence=sentence_index,
                     string=spacy_word.text,  # same as ``token.text``
                     # pos= TODO,
@@ -296,12 +296,10 @@ class SpacyProcess(Process):
                     upos=spacy_word.pos_,
                     lemma=spacy_word.lemma_,
                     dependency_relation=spacy_word.dep_,
-                    stop=spacy_word.is_stop
+                    stop=spacy_word.is_stop,
                 )
 
                 sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
 
         return words_list
-
-

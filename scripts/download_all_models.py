@@ -15,14 +15,12 @@ from git import GitCommandError
 from cltk.core.exceptions import CLTKException, CorpusImportError
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
 from cltk.data.fetch import FetchCorpus
+from cltk.dependency.spacy_wrapper import MAP_LANGS_CLTK_SPACY as AVAIL_SPACY_LANGS
+from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import (
     MAP_LANGS_CLTK_STANZA as AVAIL_STANZA_LANGS,
 )  # pylint: disable=syntax-error
 from cltk.dependency.stanza_wrapper import StanzaWrapper
-from cltk.dependency.spacy_dep import (
-    MAP_LANGS_CLTK_SPACY as AVAIL_SPACY_LANGS
-)
-from cltk.dependency.spacy_dep import SpacyWrapper
 from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT_LANGS
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
@@ -119,10 +117,10 @@ def download_nlpl_model(iso_code: str) -> None:
 
 def download_spacy_models(iso_code: str) -> None:
     """Download language models, from the ``spaCy`` project,
-        that are supported by the CLTK or in scope. More here:
-        `<https://stanfordnlp.github.io/stanza/models.html>_.
+    that are supported by the CLTK or in scope. More here:
+    `<https://stanfordnlp.github.io/stanza/models.html>_.
 
-        """
+    """
     print(f"Going to download spaCy model for '{iso_code}'.")
     if iso_code not in AVAIL_SPACY_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
