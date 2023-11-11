@@ -4,4 +4,4 @@ import importlib.metadata
 
 from .nlp import NLP
 
-__version__ = curr_version = importlib.metadata.version()
+__version__ = curr_version = importlib.metadata.version("cltk")
