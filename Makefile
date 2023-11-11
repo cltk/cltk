@@ -1,6 +1,13 @@
 build:
 	poetry build
 
+coverage:
+	poetry run coverage report
+
+coverageHtml:
+	poetry run coverage html
+
+
 docs:
 	# typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
 	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
