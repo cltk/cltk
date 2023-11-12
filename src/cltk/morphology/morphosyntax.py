@@ -461,6 +461,17 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
 }
 
 
+def clean_up_feature_name(feature_name: str) -> str:
+    """Make changes for obvious mistakes or irregularities
+    coming out of a parser.
+
+    TODO: Turn the if-else into match/case statments after 3.9 support is dropped
+    """
+    if feature_name == "Verbform":
+        feature_name = "VerbForm"
+    return feature_name
+
+
 def from_ud(
     feature_name: str, feature_value: Optional[str]
 ) -> Optional[MorphosyntacticFeature]:
@@ -482,13 +493,17 @@ def from_ud(
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
 
+    feature_name = clean_up_feature_name(feature_name=feature_name)
     if feature_name in FORM_UD_MAP:
         feature_map = FORM_UD_MAP[feature_name]
     else:
-        msg1: str = f"Unrecognized UD `feature_name` ('{feature_name}') with `feature_value` ('{feature_value}')."
-        msg2: str = f"Please raise an issue at <https://github.com/cltk/cltk/issues> and include a small sample to reproduce the error."
+        msg1: str = (
+            f"Unrecognized UD feature '{feature_name}' with value '{feature_value}'."
+        )
+        msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
         print(msg1)
         print(msg2)
+        print("")
         # raise CLTKException(msg)
         return None
     # print(f"feature_name={feature_name}->feature_value={feature_value}")
@@ -498,8 +513,12 @@ def from_ud(
             if value in feature_map:
                 return feature_map[value]
             else:
-                raise CLTKException(
-                    f"{value}: Unrecognized value for UD feature {feature_name}"
+                msg1: str = (
+                    f"Unrecognized value '{value}' for UD feature '{feature_name}'."
                 )
+                msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+                print(msg1)
+                print(msg2)
+                print("")
     else:
         raise CLTKException(f"{feature_name} is None")
