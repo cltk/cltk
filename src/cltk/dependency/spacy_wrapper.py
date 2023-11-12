@@ -36,7 +36,7 @@ class SpacyWrapper:
     def __init__(
         self,
         language: str,
-        nlp: Optional[Any] = None,
+        nlp: Optional[spacy.Language] = None,
         interactive: bool = True,
         silent: bool = False,
         # spacy_model_name: Optional[str] = None
@@ -49,7 +49,7 @@ class SpacyWrapper:
         :param silent: Is it verbose?
         """
         self.language = language
-        self.nlp: Any = nlp
+        self.nlp = nlp
         self.interactive = interactive
         self.silent = silent
         self.spacy_model: Optional[Any] = None
@@ -69,8 +69,11 @@ class SpacyWrapper:
         self.spacy_model_name: str = self._get_spacy_model_name()
         self.spacy_model_url: str = self._get_spacy_model_url()
 
+        if not self._is_model_present():
+            self._download_model()
+
         if not self.spacy_model:
-            self.spacy_model = self._load_model()
+            self.nlp = self._load_model()
 
         # def is_wrapper_available(self) -> bool:
         #     """Maps an ISO 639-3 language id (e.g., ``lat`` for Latin) to
@@ -154,32 +157,30 @@ class SpacyWrapper:
         :param text: Text to analyze.
         :return:
         """
-        # TODO: Re-enable something like this?
-        # if isinstance(self.nlp, spacy.Language):
-        #     return self.nlp(text)
-        # raise CLTKException(
-        #     "No spaCy model has been loaded. Is the language supported? "
-        #     "Otherwise try to provide a spaCy model with `nlp`argument."
-        # )
+        if isinstance(self.nlp, spacy.Language):
+            return self.nlp(text)
+        raise CLTKException(
+            "No spaCy model has been loaded. Is the language supported? "
+            "Otherwise try to provide a spaCy model with `nlp`argument."
+        )
         # Note: spacy's `nlp` object is called directly, not with eg `nlp.process()`
-        parsed_text: spacy.tokens.doc.Doc = self.spacy_model(text=text)
-        return parsed_text
+        # parsed_text: spacy.tokens.doc.Doc = self.spacy_model(text=text)
+        # return parsed_text
 
-    # def _download_model(self):
-    #     if self._language == "lat":
-    #         # Use Patrick Burns's Spacy models, hosted on HuggingFace
-    #         subprocess.check_call([
-    #             "pip",
-    #             "install",
-    #             "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl"
-    #         ])
-    #     else:
-    #         raise CLTKException(f"No spaCy model found for language '{self._language}'. If you know of a publicly available spaCy model for '{self._language}', please open a pull request (with this message) at `https://github.com/cltk/cltk/issues`.")
-    #
-    # @property
-    # def _is_model_present(self):
-    #     return spacy.util.is_package(self.spacy_model_name)
-    #
+    def _download_model(self):
+        if self.language == "lat":
+            # Use Patrick Burns's Spacy models, hosted on HuggingFace
+            subprocess.check_call([
+                "pip",
+                "install",
+                "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl"
+            ])
+        else:
+            raise CLTKException(f"No spaCy model found for language '{self.language}'. If you know of a publicly available spaCy model for '{self._language}', please open a pull request (with this message) at `https://github.com/cltk/cltk/issues`.")
+
+    def _is_model_present(self):
+        return spacy.util.is_package(self.spacy_model_name)
+
     @classmethod
     def get_nlp(cls, language: str):
         """
