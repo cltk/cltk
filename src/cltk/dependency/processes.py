@@ -280,28 +280,43 @@ class SpacyProcess(Process):
 
         """
         words_list: List[Word] = []
-
         for sentence_index, sentence in enumerate(spacy_doc.doc.sents):
             sent_words: Dict[int, Word] = {}
-
             for spacy_word in sentence:
+                pos: Optional[MorphosyntacticFeature] = None
+                if spacy_word.pos_:
+                    pos = from_ud("POS", spacy_word.pos_)
                 cltk_word = Word(
                     index_token=spacy_word.i,
                     index_char_start=spacy_word.idx,
                     index_char_stop=spacy_word.idx + len(spacy_word),
                     index_sentence=sentence_index,
                     string=spacy_word.text,  # same as ``token.text``
-                    # pos= TODO,
+                    pos=pos,
                     xpos=spacy_word.tag_,
                     upos=spacy_word.pos_,
                     lemma=spacy_word.lemma_,
-                    dependency_relation=spacy_word.dep_,
+                    dependency_relation=spacy_word.dep_,  # str
                     stop=spacy_word.is_stop,
+                    governor=spacy_word.head.i,  # TODO: Confirm this is the index
                 )
-
+                raw_features: list[tuple[str, str]] = (
+                    [
+                        (feature, value)
+                        for feature, value in spacy_word.morph.to_dict().items()
+                    ]
+                    if spacy_word.morph
+                    else []
+                )
+                cltk_features = [
+                    from_ud(feature_name, feature_value)
+                    for feature_name, feature_value in raw_features
+                ]
+                cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
+                cltk_word.category = to_categorial(cltk_word.pos)
+                cltk_word.spacy_features = spacy_word.morph
                 sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
-
         return words_list
 
 
