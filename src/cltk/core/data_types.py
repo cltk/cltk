@@ -72,9 +72,9 @@ class Word:
     lemma: Optional[str] = None
     stem: Optional[str] = None
     scansion: Optional[str] = None
-    xpos: Optional[str] = None  # treebank-specific POS tag (from stanza)
-    upos: Optional[str] = None  # universal POS tag (from stanza)
-    dependency_relation: Optional[str] = None  # (from stanza)
+    xpos: Optional[str] = None  # treebank-specific POS tag (from Stanza or Spacy)
+    upos: Optional[str] = None  # universal POS tag (from Stanza or Spacy)
+    dependency_relation: Optional[str] = None  # (from Stanza or Spacy)
     governor: Optional[int] = None
     features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     category: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
