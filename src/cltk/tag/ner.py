@@ -15,10 +15,10 @@ __license__ = "MIT License. See LICENSE."
 
 NER_DICT = {
     "grc": os.path.join(
-        CLTK_DATA_DIR, "grc/model/grc_models_cltk/ner/proper_names.txt"
+        CLTK_DATA_DIR, "grc", "model", "grc_models_cltk", "ner", "proper_names.txt"
     ),
     "lat": os.path.join(
-        CLTK_DATA_DIR, "lat/model/lat_models_cltk/ner/proper_names.txt"
+        CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "ner", "proper_names.txt"
     ),
 }
 
@@ -30,7 +30,7 @@ class NamedEntityReplacer(object):
 
     def _load_necessary_data(self):
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "fro", "text", "fro_models_cltk", "named_entities_fr.py"
+            CLTK_DATA_DIR, "fro", "model", "fro_models_cltk", "named_entities_fr.py"
         )
         path = os.path.expanduser(rel_path)
         # logger.info('Loading entries. This may take a minute.')

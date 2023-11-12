@@ -16,7 +16,7 @@ from cltk.tokenizers.utils import SentenceTokenizerTrainer
 class LatinSentenceTokenizerTrainer(SentenceTokenizerTrainer):
     """ """
 
-    def __init__(self: object, strict: bool = False):
+    def __init__(self, strict: bool = False):
         self.strict = strict
         self.punctuation = [".", "?", "!"]
         self.strict_punctuation = [";", ":", "—"]

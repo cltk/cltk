@@ -11,12 +11,8 @@ from cltk.lemmatize.backoff import (
     RegexpLemmatizer,
     UnigramLemmatizer,
 )
-from cltk.lemmatize.grc import GreekBackoffLemmatizer, models_path
-from cltk.lemmatize.lat import (
-    LatinBackoffLemmatizer,
-    RomanNumeralLemmatizer,
-    models_path,
-)
+from cltk.lemmatize.grc import GreekBackoffLemmatizer
+from cltk.lemmatize.lat import LatinBackoffLemmatizer, RomanNumeralLemmatizer
 from cltk.text.lat import replace_jv
 from cltk.tokenizers.lat.lat import LatinWordTokenizer
 from cltk.utils import CLTK_DATA_DIR
@@ -151,7 +147,8 @@ class TestSequenceFunctions(unittest.TestCase):
         """Test LatinBackoffLemmatizer evaluate method"""
         lemmatizer = LatinBackoffLemmatizer(verbose=False)
         accuracy = lemmatizer.evaluate()
-        self.assertTrue(0.85 <= accuracy <= 1)
+        self.assertGreaterEqual(accuracy, 0.85)
+        self.assertLessEqual(accuracy, 1)
 
 
 if __name__ == "__main__":

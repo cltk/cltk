@@ -17,7 +17,7 @@ freezeDependencies:
 
 install:
 	echo "Excluding ``[tool.poetry.dev-dependencies]`` in ``pyproject.toml``"
-	poetry install --no-dev
+	poetry install --only main
 
 installDev:
 	# Including ``[tool.poetry.dev-dependencies]`` in ``pyproject.toml``

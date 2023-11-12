@@ -18,7 +18,7 @@ class SentenceTokenizerTrainer:
     """Train sentences tokenizer"""
 
     def __init__(
-        self: object,
+        self,
         language: str = None,
         punctuation: List[str] = None,
         strict: bool = False,
@@ -45,7 +45,7 @@ class SentenceTokenizerTrainer:
         self.strict_punctuation = strict_punctuation
         self.abbreviations = abbreviations
 
-    def train_sentence_tokenizer(self: object, text: str):
+    def train_sentence_tokenizer(self, text: str):
         """
         Train sentences tokenizer.
         """
@@ -73,7 +73,7 @@ class SentenceTokenizerTrainer:
 
         return tokenizer
 
-    def pickle_sentence_tokenizer(self: object, filename: str, tokenizer: object):
+    def pickle_sentence_tokenizer(self, filename: str, tokenizer):
         # Dump pickled tokenizer
         with open(filename, "wb") as f:
             pickle.dump(tokenizer, f)

@@ -16,6 +16,7 @@ from cltk.dependency.processes import (
     CopticStanzaProcess,
     GothicStanzaProcess,
     GreekStanzaProcess,
+    LatinSpacyProcess,
     LatinStanzaProcess,
     OCSStanzaProcess,
     OldFrenchStanzaProcess,
@@ -66,7 +67,7 @@ class AkkadianPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Akkadian language.'
     >>> a_pipeline.language
-    Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
+    Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a', dates=[])
     >>> a_pipeline.language.name
     'Akkadian'
     >>> a_pipeline.processes[0]
@@ -89,7 +90,7 @@ class ArabicPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Arabic language'
     >>> a_pipeline.language
-    Language(name='Standard Arabic', glottolog_id='stan1318', latitude=27.9625, longitude=43.8525, dates=[], family_id='afro1255', parent_id='arab1395', level='language', iso_639_3_code='arb', type='')
+    Language(name='Standard Arabic', glottolog_id='stan1318', latitude=27.9625, longitude=43.8525, family_id='afro1255', parent_id='arab1395', level='language', iso_639_3_code='arb', type='', dates=[])
     >>> a_pipeline.language.name
     'Standard Arabic'
     >>> a_pipeline.processes[0]
@@ -119,7 +120,7 @@ class AramaicPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Aramaic language'
     >>> a_pipeline.language
-    Language(name='Official Aramaic (700-300 BCE)', glottolog_id='', latitude=0.0, longitude=0.0, dates=[], family_id='', parent_id='', level='', iso_639_3_code='arc', type='a')
+    Language(name='Official Aramaic (700-300 BCE)', glottolog_id='', latitude=0.0, longitude=0.0, family_id='', parent_id='', level='', iso_639_3_code='arc', type='a', dates=[])
     >>> a_pipeline.language.name
     'Official Aramaic (700-300 BCE)'
     >>> a_pipeline.processes[0]
@@ -145,7 +146,7 @@ class ChinesePipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Classical Chinese language'
     >>> a_pipeline.language
-    Language(name='Literary Chinese', glottolog_id='lite1248', latitude=0.0, longitude=0.0, dates=[], family_id='sino1245', parent_id='clas1255', level='language', iso_639_3_code='lzh', type='h')
+    Language(name='Literary Chinese', glottolog_id='lite1248', latitude=0.0, longitude=0.0, family_id='sino1245', parent_id='clas1255', level='language', iso_639_3_code='lzh', type='h', dates=[])
     >>> a_pipeline.language.name
     'Literary Chinese'
     >>> a_pipeline.processes[0]
@@ -168,7 +169,7 @@ class CopticPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Coptic language'
     >>> a_pipeline.language
-    Language(name='Coptic', glottolog_id='copt1239', latitude=29.472, longitude=31.2053, dates=[], family_id='afro1255', parent_id='egyp1245', level='language', iso_639_3_code='cop', type='')
+    Language(name='Coptic', glottolog_id='copt1239', latitude=29.472, longitude=31.2053, family_id='afro1255', parent_id='egyp1245', level='language', iso_639_3_code='cop', type='', dates=[])
     >>> a_pipeline.language.name
     'Coptic'
     >>> a_pipeline.processes[0]
@@ -191,7 +192,7 @@ class GothicPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Gothic language'
     >>> a_pipeline.language
-    Language(name='Gothic', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, dates=[], family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a')
+    Language(name='Gothic', glottolog_id='goth1244', latitude=46.9304, longitude=29.9786, family_id='indo1319', parent_id='east2805', level='language', iso_639_3_code='got', type='a', dates=[])
     >>> a_pipeline.language.name
     'Gothic'
     >>> a_pipeline.processes[0]
@@ -216,7 +217,7 @@ class GreekPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Greek language'
     >>> a_pipeline.language
-    Language(name='Ancient Greek', glottolog_id='anci1242', latitude=39.8155, longitude=21.9129, dates=[], family_id='indo1319', parent_id='east2798', level='language', iso_639_3_code='grc', type='h')
+    Language(name='Ancient Greek', glottolog_id='anci1242', latitude=39.8155, longitude=21.9129, family_id='indo1319', parent_id='east2798', level='language', iso_639_3_code='grc', type='h', dates=[])
     >>> a_pipeline.language.name
     'Ancient Greek'
     >>> a_pipeline.processes[0]
@@ -246,7 +247,7 @@ class HindiPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Hindi language.'
     >>> a_pipeline.language
-    Language(name='Hindi', glottolog_id='hind1269', latitude=25.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='hind1270', level='language', iso_639_3_code='hin', type='')
+    Language(name='Hindi', glottolog_id='hind1269', latitude=25.0, longitude=77.0, family_id='indo1319', parent_id='hind1270', level='language', iso_639_3_code='hin', type='', dates=[])
     >>> a_pipeline.language.name
     'Hindi'
     >>> a_pipeline.processes[1]
@@ -271,7 +272,7 @@ class LatinPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Latin language'
     >>> a_pipeline.language
-    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, dates=[], family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a')
+    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a', dates=[])
     >>> a_pipeline.language.name
     'Latin'
     >>> a_pipeline.processes[0]
@@ -284,7 +285,8 @@ class LatinPipeline(Pipeline):
         default_factory=lambda: [
             LatinNormalizeProcess,
             # LatinTokenizationProcess,
-            LatinStanzaProcess,
+            # LatinStanzaProcess,
+            LatinSpacyProcess,
             LatinEmbeddingsProcess,
             StopsProcess,
             # LatinNERProcess,
@@ -301,7 +303,7 @@ class MiddleHighGermanPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Middle High German language.'
     >>> a_pipeline.language
-    Language(name='Middle High German', glottolog_id='midd1343', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='midd1349', level='language', iso_639_3_code='gmh', type='h')
+    Language(name='Middle High German', glottolog_id='midd1343', latitude=0.0, longitude=0.0, family_id='indo1319', parent_id='midd1349', level='language', iso_639_3_code='gmh', type='h', dates=[])
     >>> a_pipeline.language.name
     'Middle High German'
     >>> a_pipeline.processes[0]
@@ -326,7 +328,7 @@ class MiddleEnglishPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Middle English language'
     >>> a_pipeline.language
-    Language(name='Middle English', glottolog_id='midd1317', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='merc1242', level='language', iso_639_3_code='enm', type='h')
+    Language(name='Middle English', glottolog_id='midd1317', latitude=0.0, longitude=0.0, family_id='indo1319', parent_id='merc1242', level='language', iso_639_3_code='enm', type='h', dates=[])
     >>> a_pipeline.language.name
     'Middle English'
     >>> a_pipeline.processes[0]
@@ -362,7 +364,7 @@ class MiddleFrenchPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Middle French language'
     >>> a_pipeline.language
-    Language(name='Middle French', glottolog_id='midd1316', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='stan1290', level='dialect', iso_639_3_code='frm', type='h')
+    Language(name='Middle French', glottolog_id='midd1316', latitude=0.0, longitude=0.0, family_id='indo1319', parent_id='stan1290', level='dialect', iso_639_3_code='frm', type='h', dates=[])
     >>> a_pipeline.language.name
     'Middle French'
     >>> a_pipeline.processes[0]
@@ -385,7 +387,7 @@ class OCSPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Old Church Slavonic language'
     >>> a_pipeline.language
-    Language(name='Church Slavic', glottolog_id='chur1257', latitude=43.7171, longitude=22.8442, dates=[], family_id='indo1319', parent_id='east2269', level='language', iso_639_3_code='chu', type='a')
+    Language(name='Church Slavic', glottolog_id='chur1257', latitude=43.7171, longitude=22.8442, family_id='indo1319', parent_id='east2269', level='language', iso_639_3_code='chu', type='a', dates=[])
     >>> a_pipeline.language.name
     'Church Slavic'
     >>> a_pipeline.processes[0]
@@ -406,7 +408,7 @@ class OldEnglishPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Old English language'
     >>> a_pipeline.language
-    Language(name='Old English (ca. 450-1100)', glottolog_id='olde1238', latitude=51.06, longitude=-1.31, dates=[], family_id='indo1319', parent_id='angl1265', level='language', iso_639_3_code='ang', type='h')
+    Language(name='Old English (ca. 450-1100)', glottolog_id='olde1238', latitude=51.06, longitude=-1.31, family_id='indo1319', parent_id='angl1265', level='language', iso_639_3_code='ang', type='h', dates=[])
     >>> a_pipeline.language.name
     'Old English (ca. 450-1100)'
     >>> a_pipeline.processes[0]
@@ -435,7 +437,7 @@ class OldFrenchPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Old French language'
     >>> a_pipeline.language
-    Language(name='Old French (842-ca. 1400)', glottolog_id='oldf1239', latitude=0.0, longitude=0.0, dates=[], family_id='indo1319', parent_id='oila1234', level='language', iso_639_3_code='fro', type='h')
+    Language(name='Old French (842-ca. 1400)', glottolog_id='oldf1239', latitude=0.0, longitude=0.0, family_id='indo1319', parent_id='oila1234', level='language', iso_639_3_code='fro', type='h', dates=[])
     >>> a_pipeline.language.name
     'Old French (842-ca. 1400)'
     >>> a_pipeline.processes[0]
@@ -466,7 +468,7 @@ class OldNorsePipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Old Norse language'
     >>> a_pipeline.language
-    Language(name='Old Norse', glottolog_id='oldn1244', latitude=63.42, longitude=10.38, dates=[], family_id='indo1319', parent_id='west2805', level='language', iso_639_3_code='non', type='h')
+    Language(name='Old Norse', glottolog_id='oldn1244', latitude=63.42, longitude=10.38, family_id='indo1319', parent_id='west2805', level='language', iso_639_3_code='non', type='h', dates=[])
     >>> a_pipeline.language.name
     'Old Norse'
     >>> a_pipeline.processes[0]
@@ -495,7 +497,7 @@ class PaliPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Pali language'
     >>> a_pipeline.language
-    Language(name='Pali', glottolog_id='pali1273', latitude=24.5271, longitude=82.251, dates=[], family_id='indo1319', parent_id='biha1245', level='language', iso_639_3_code='pli', type='a')
+    Language(name='Pali', glottolog_id='pali1273', latitude=24.5271, longitude=82.251, family_id='indo1319', parent_id='biha1245', level='language', iso_639_3_code='pli', type='a', dates=[])
     >>> a_pipeline.language.name
     'Pali'
     >>> a_pipeline.processes[0]
@@ -518,7 +520,7 @@ class PanjabiPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Panjabi language.'
     >>> a_pipeline.language
-    Language(name='Eastern Panjabi', glottolog_id='panj125', latitude=30.0368, longitude=75.6702, dates=[], family_id='indo1319', parent_id='east2727', level='language', iso_639_3_code='pan', type='')
+    Language(name='Eastern Panjabi', glottolog_id='panj125', latitude=30.0368, longitude=75.6702, family_id='indo1319', parent_id='east2727', level='language', iso_639_3_code='pan', type='', dates=[])
     >>> a_pipeline.language.name
     'Eastern Panjabi'
     >>> a_pipeline.processes[1]
@@ -543,7 +545,7 @@ class SanskritPipeline(Pipeline):
     >>> a_pipeline.description
     'Pipeline for the Sanskrit language.'
     >>> a_pipeline.language
-    Language(name='Sanskrit', glottolog_id='sans1269', latitude=20.0, longitude=77.0, dates=[], family_id='indo1319', parent_id='indo1321', level='language', iso_639_3_code='san', type='a')
+    Language(name='Sanskrit', glottolog_id='sans1269', latitude=20.0, longitude=77.0, family_id='indo1319', parent_id='indo1321', level='language', iso_639_3_code='san', type='a', dates=[])
     >>> a_pipeline.language.name
     'Sanskrit'
     >>> a_pipeline.processes[1]

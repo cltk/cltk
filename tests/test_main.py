@@ -1,5 +1,5 @@
 """The full unit test suite, testing every available model for every language."""
-
+import os
 import unittest
 
 import numpy
@@ -11,9 +11,9 @@ from cltk.languages.example_texts import get_example_text
 
 class TestMain(unittest.TestCase):
     def _word_assertions(self, first_word, target):
-        self.assertEqual(first_word.lemma, target.lemma)
-        self.assertEqual(first_word.upos, target.upos)
-        self.assertEqual(first_word.dependency_relation, target.dependency_relation)
+        self.assertEqual(target.lemma, first_word.lemma)
+        self.assertEqual(target.upos, first_word.upos)
+        self.assertEqual(target.dependency_relation, first_word.dependency_relation)
 
     def test_main_analyze(self):
         """Testing methods from ``cltk/nlp.py``. Note that we
@@ -21,6 +21,7 @@ class TestMain(unittest.TestCase):
         otherwise we would have to add a long vector into our tests.
         """
 
+    def test_main_chu_analyze(self):
         lang = "chu"
         cltk_nlp = NLP(language=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
@@ -76,6 +77,7 @@ class TestMain(unittest.TestCase):
         # )
         # self.assertEqual(first_word, target)
 
+    def test_main_fro_analyze(self):
         lang = "fro"
         cltk_nlp = NLP(language=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
@@ -103,6 +105,16 @@ class TestMain(unittest.TestCase):
         )
         self._word_assertions(first_word, target)
 
+    def test_main_lat_analyze(self):
+        # if "LD_LIBRARY_PATH" in os.environ:
+        #     del os.environ["LD_LIBRARY_PATH"]
+        lang = "lat"
+        cltk_nlp = NLP(language=lang)
+        cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
+        first_word = cltk_doc.words[0]
+        self.assertIsInstance(first_word.embedding, numpy.ndarray)
+
+    def test_main_got_analyze(self):
         lang = "got"
         cltk_nlp = NLP(language=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
@@ -133,6 +145,7 @@ class TestMain(unittest.TestCase):
         self._word_assertions(first_word, target)
         self.assertEqual(len(cltk_doc.sentences), 3)
 
+    def test_main_grc_analyze(self):
         lang = "grc"
         cltk_nlp = NLP(language=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
@@ -162,6 +175,7 @@ class TestMain(unittest.TestCase):
         )
         self._word_assertions(first_word, target)
 
+    def test_main_lzh_analyze(self):
         lang = "lzh"
         cltk_nlp = NLP(language=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))

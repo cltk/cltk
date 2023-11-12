@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
 from threading import Lock
-from typing import Type
+from typing import List, Type
 
 import cltk
 from cltk.core.data_types import Doc, Language, Pipeline, Process
@@ -83,7 +83,7 @@ class NLP:
         >>> nlp.pipeline is a_pipeline
         True
         """
-        self.language = get_lang(language)  # type: Language
+        self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
         if not suppress_banner:
             self._print_pipelines_for_current_lang()
@@ -92,9 +92,9 @@ class NLP:
         """Print to screen the ``Process``es invoked upon invocation
         of ``NLP()``.
         """
-        processes_name = [
+        processes_name: List[str] = [
             process.__name__ for process in self.pipeline.processes
-        ]  # type: List[str]
+        ]
         processes_name_str = "`, `".join(processes_name)  # type: str
         ltr_mark = "\u200E"
         alep = "𐤀"

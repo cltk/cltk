@@ -10,17 +10,17 @@ import argparse
 import time
 from typing import Dict, List
 
-from cltk.core.exceptions import CLTKException
+from git import GitCommandError
+
+from cltk.core.exceptions import CLTKException, CorpusImportError
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
 from cltk.data.fetch import FetchCorpus
-from cltk.dependency.stanza_dep import (
+from cltk.dependency.spacy_wrapper import MAP_LANGS_CLTK_SPACY as AVAIL_SPACY_LANGS
+from cltk.dependency.spacy_wrapper import SpacyWrapper
+from cltk.dependency.stanza_wrapper import (
     MAP_LANGS_CLTK_STANZA as AVAIL_STANZA_LANGS,
 )  # pylint: disable=syntax-error
-from cltk.dependency.stanza_dep import StanzaWrapper
-from cltk.dependency.spacy_dep import (
-    MAP_LANGS_CLTK_SPACY as AVAIL_SPACY_LANGS
-)
-from cltk.dependency.spacy_dep import SpacyWrapper
+from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT_LANGS
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
@@ -89,11 +89,16 @@ def download_fasttext_model(
     print(f"Finished downloading fasttext for '{iso_code}'.")
 
 
-def download_cltk_models_repo(iso_code: str) -> None:
+def download_cltk_models_repo(iso_code: str, default_branch: str = "master") -> None:
     """Download CLTK repos."""
     print(f"Going to download CLTK models for '{iso_code}'.")
     corpus_downloader = FetchCorpus(language=iso_code)
-    corpus_downloader.import_corpus(corpus_name=f"{iso_code}_models_cltk")
+    try:
+        corpus_downloader.import_corpus(
+            corpus_name=f"{iso_code}_models_cltk", branch=default_branch
+        )
+    except CorpusImportError as e:
+        print(e)
     if iso_code == "lat":
         corpus_downloader.import_corpus(corpus_name="cltk_lat_lewis_elementary_lexicon")
     elif iso_code == "non":
@@ -112,10 +117,10 @@ def download_nlpl_model(iso_code: str) -> None:
 
 def download_spacy_models(iso_code: str) -> None:
     """Download language models, from the ``spaCy`` project,
-        that are supported by the CLTK or in scope. More here:
-        `<https://stanfordnlp.github.io/stanza/models.html>_.
+    that are supported by the CLTK or in scope. More here:
+    `<https://stanfordnlp.github.io/stanza/models.html>_.
 
-        """
+    """
     print(f"Going to download spaCy model for '{iso_code}'.")
     if iso_code not in AVAIL_SPACY_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")

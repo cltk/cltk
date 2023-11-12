@@ -17,10 +17,10 @@ cltk.dependency.processes module
    :undoc-members:
    :show-inheritance:
 
-cltk.dependency.stanza module
------------------------------
+cltk.dependency.stanza\_wrapper module
+--------------------------------------
 
-.. automodule:: cltk.dependency.stanza
+.. automodule:: cltk.dependency.stanza_wrapper
    :members:
    :undoc-members:
    :show-inheritance:

@@ -381,17 +381,18 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     },
     # other lexical
     "PronType": {
-        "Art": PrononimalType.article,
-        "Dem": PrononimalType.demonstrative,
-        "Emp": PrononimalType.emphatic,
-        "Exc": PrononimalType.exclamative,
-        "Ind": PrononimalType.indefinite,
-        "Int": PrononimalType.interrogative,
-        "Neg": PrononimalType.negative,
-        "Prs": PrononimalType.personal,
-        "Rcp": PrononimalType.reciprocal,
-        "Rel": PrononimalType.relative,
-        "Tot": PrononimalType.total,
+        "Art": PronominalType.article,
+        "Con": PronominalType.contrastive,
+        "Dem": PronominalType.demonstrative,
+        "Emp": PronominalType.emphatic,
+        "Exc": PronominalType.exclamative,
+        "Ind": PronominalType.indefinite,
+        "Int": PronominalType.interrogative,
+        "Neg": PronominalType.negative,
+        "Prs": PronominalType.personal,
+        "Rcp": PronominalType.reciprocal,
+        "Rel": PronominalType.relative,
+        "Tot": PronominalType.total,
     },
     "AdpType": {
         "Prep": AdpositionalType.preposition,
@@ -422,6 +423,8 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Range": Numeral.range,
         "Sets": Numeral.sets,
     },
+    "NumValue": {"1": NumValue.pos},
+    "Form": {"Emp": Form.pos},
     "NameType": {
         "Geo": NameType.place,
         "Prs": NameType.person,
@@ -438,10 +441,29 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
     "Foreign": {"Yes": Foreign.pos},
     "Abbr": {"Yes": Abbreviation.pos},
     "Typo": {"Yes": Typo.pos},
+    "InflClass": {
+        "IndEurA": InflClass.ind_eur_a,
+        "IndEurE": InflClass.ind_eur_e,
+        "IndEurI": InflClass.ind_eur_i,
+        "IndEurO": InflClass.ind_eur_o,
+        "IndEurU": InflClass.ind_eur_u,
+        "IndEurX": InflClass.ind_eur_x,
+        "LatA": InflClass.lat_a,
+        "LatAnom": InflClass.lat_anom,
+        "LatE": InflClass.lat_e,
+        "LatI": InflClass.lat_i,
+        "LatI2": InflClass.lat_i2,
+        "LatPron": InflClass.lat_pron,
+        "LatX": InflClass.lat_x,
+        "Nominal": InflClass.nominal,
+    },
+    "Proper": {"Yes": Proper.yes},
 }
 
 
-def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFeature]:
+def from_ud(
+    feature_name: str, feature_value: Optional[str]
+) -> Optional[MorphosyntacticFeature]:
     """For a given Universal Dependencies feature name and value,
     return the appropriate feature class/value.
     >>> from_ud('Case', 'Abl')
@@ -469,12 +491,15 @@ def from_ud(feature_name: str, feature_value: str) -> Optional[MorphosyntacticFe
         print(msg2)
         # raise CLTKException(msg)
         return None
-
-    values = feature_value.split(",")
-    for value in values:
-        if value in feature_map:
-            return feature_map[value]
-        else:
-            raise CLTKException(
-                f"{value}: Unrecognized value for UD feature {feature_name}"
-            )
+    # print(f"feature_name={feature_name}->feature_value={feature_value}")
+    if feature_value:
+        values = feature_value.split(",")
+        for value in values:
+            if value in feature_map:
+                return feature_map[value]
+            else:
+                raise CLTKException(
+                    f"{value}: Unrecognized value for UD feature {feature_name}"
+                )
+    else:
+        raise CLTKException(f"{feature_name} is None")

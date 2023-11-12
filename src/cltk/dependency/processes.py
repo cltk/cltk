@@ -2,15 +2,15 @@
 
 from copy import deepcopy
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Literal, Optional, Tuple
 
 import spacy
 import stanza
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
-from cltk.dependency.spacy_dep import SpacyWrapper
-from cltk.dependency.stanza_dep import StanzaWrapper
+from cltk.dependency.spacy_wrapper import SpacyWrapper
+from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
@@ -73,7 +73,7 @@ class StanzaProcess(Process):
         >>> isinstance(cltk_words[0], Word)
         True
         >>> cltk_words[0]
-        Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='Gallia', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=1, features={Case: [nominative], Gender: [feminine], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+         Word(index_char_start=None, index_char_stop=None, index_token=0, index_sentence=0, string='Gallia', pos=noun, lemma='Gallia', stem=None, scansion=None, xpos='A1|grn1|casA|gen2', upos='NOUN', dependency_relation='nsubj', governor=1, features={Case: [nominative], Gender: [feminine], InflClass: [ind_eur_a], Number: [singular]}, category={F: [neg], N: [pos], V: [neg]}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
 
         """
 
@@ -84,9 +84,11 @@ class StanzaProcess(Process):
             indices = list()  # type: List[Tuple[int, int]]
 
             for token_index, token in enumerate(sentence.tokens):
-                stanza_word = token.words[0]  # type: stanza.pipeline.doc.Word
+                stanza_word: stanza.pipeline.doc.Word = token.words[0]
                 # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
-                pos: Optional[MorphosyntacticFeature] = from_ud("POS", stanza_word.pos)
+                pos: Optional[MorphosyntacticFeature] = None
+                if stanza_word.pos:
+                    pos = from_ud("POS", stanza_word.pos)
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
                     - 1,  # subtract 1 from id b/c Stanza starts their index at 1
@@ -95,12 +97,12 @@ class StanzaProcess(Process):
                     pos=pos,
                     xpos=stanza_word.xpos,
                     upos=stanza_word.upos,
-                    lemma=stanza_word.lemma,
+                    lemma=stanza_word.lemma if stanza_word.lemma else stanza_word.text,
                     dependency_relation=stanza_word.deprel,
                     governor=stanza_word.head - 1
                     if stanza_word.head
                     else -1,  # note: if val becomes ``-1`` then no governor, ie word is root
-                )  # type: Word
+                )
 
                 # convert UD features to the normalized CLTK features
                 raw_features = (
@@ -108,6 +110,7 @@ class StanzaProcess(Process):
                     if stanza_word.feats
                     else []
                 )
+
                 cltk_features = [
                     from_ud(feature_name, feature_value)
                     for feature_name, feature_value in raw_features
@@ -236,7 +239,7 @@ class SpacyProcess(Process):
     True
     """
 
-    language: str = None
+    # language: Optional[str] = None
 
     @cachedproperty
     def algorithm(self):
@@ -257,7 +260,7 @@ class SpacyProcess(Process):
         return output_doc
 
     @staticmethod
-    def spacy_to_cltk_word_type(spacy_doc: spacy.tokens.Doc):
+    def spacy_to_cltk_word_type(spacy_doc: spacy.tokens.doc.Doc):
         """Take an entire ``spacy`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
@@ -285,7 +288,7 @@ class SpacyProcess(Process):
                 cltk_word = Word(
                     index_token=spacy_word.i,
                     index_char_start=spacy_word.idx,
-                    index_char_stop=spacy_word.idx+len(spacy_word),
+                    index_char_stop=spacy_word.idx + len(spacy_word),
                     index_sentence=sentence_index,
                     string=spacy_word.text,  # same as ``token.text``
                     # pos= TODO,
@@ -293,7 +296,7 @@ class SpacyProcess(Process):
                     upos=spacy_word.pos_,
                     lemma=spacy_word.lemma_,
                     dependency_relation=spacy_word.dep_,
-                    stop=spacy_word.is_stop
+                    stop=spacy_word.is_stop,
                 )
 
                 sent_words[cltk_word.index_token] = cltk_word
@@ -302,3 +305,8 @@ class SpacyProcess(Process):
         return words_list
 
 
+@dataclass
+class LatinSpacyProcess(SpacyProcess):
+    """Run a Spacy model."""
+
+    language: Literal["lat"] = "lat"

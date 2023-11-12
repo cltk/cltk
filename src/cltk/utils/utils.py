@@ -153,7 +153,9 @@ def get_cltk_data_dir() -> str:
                 "write permission." % cltk_data_dir
             )
     else:
-        cltk_data_dir = os.path.expanduser(os.path.normpath("~/cltk_data"))
+        cltk_data_dir = os.path.expanduser(
+            os.path.normpath(os.path.join("~", "cltk_data"))
+        )
     return cltk_data_dir
 
 

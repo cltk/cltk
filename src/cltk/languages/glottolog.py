@@ -23,7 +23,7 @@ Jena: Max Planck Institute for the Science of Human History.
 >>> from cltk.languages.utils import get_lang
 >>> akkadian = get_lang("akk")
 >>> akkadian
-Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, dates=[], family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a')
+Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1, family_id='afro1255', parent_id='east2678', level='language', iso_639_3_code='akk', type='a', dates=[])
 >>> akkadian.name
 'Akkadian'
 >>> akkadian.glottolog_id

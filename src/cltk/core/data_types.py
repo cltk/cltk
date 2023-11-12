@@ -13,7 +13,7 @@ import importlib
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Dict, List, Type, Union
+from typing import Dict, List, Optional, Type, Union
 
 import numpy as np
 import stringcase as sc
@@ -24,7 +24,7 @@ from cltk.morphology.universal_dependencies_features import MorphosyntacticFeatu
 ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
 
 
-@dataclass
+@dataclass(frozen=True)
 class Language:
     """For holding information about any given language. Used to
     encode data from ISO 639-3 and Glottolog at
@@ -37,19 +37,19 @@ class Language:
     >>> isinstance(lat, Language)
     True
     >>> lat
-    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, dates=[], family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a')
+    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a', dates=[])
     """
 
     name: str  # Glottolog description
     glottolog_id: str
     latitude: float
     longitude: float
-    dates: List[int]  # add later; not available from Glottolog or ISO list
     family_id: str  # from Glottolog
     parent_id: str  # from Glottolog
     level: str  # a language or a dialect
     iso_639_3_code: str
     type: str  # "a" for ancient and "h" for historical; this from Glottolog
+    dates: List[int] = None  # add later; not available from Glottolog or ISO list
 
 
 @dataclass
@@ -63,27 +63,27 @@ class Word:
 
     """
 
-    index_char_start: int = None
-    index_char_stop: int = None
-    index_token: int = None
-    index_sentence: int = None
-    string: str = None
-    pos: MorphosyntacticFeature = None
-    lemma: str = None
-    stem: str = None
-    scansion: str = None
-    xpos: str = None  # treebank-specific POS tag (from stanza)
-    upos: str = None  # universal POS tag (from stanza)
-    dependency_relation: str = None  # (from stanza)
-    governor: int = None
+    index_char_start: Optional[int] = None
+    index_char_stop: Optional[int] = None
+    index_token: Optional[int] = None
+    index_sentence: Optional[int] = None
+    string: Optional[str] = None
+    pos: Optional[MorphosyntacticFeature] = None
+    lemma: Optional[str] = None
+    stem: Optional[str] = None
+    scansion: Optional[str] = None
+    xpos: Optional[str] = None  # treebank-specific POS tag (from stanza)
+    upos: Optional[str] = None  # universal POS tag (from stanza)
+    dependency_relation: Optional[str] = None  # (from stanza)
+    governor: Optional[int] = None
     features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     category: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
     embedding: np.ndarray = field(repr=False, default=None)
-    stop: bool = None
-    named_entity: bool = None
+    stop: Optional[bool] = None
+    named_entity: Optional[bool] = None
     syllables: List[str] = None
-    phonetic_transcription: str = None
-    definition: str = None
+    phonetic_transcription: Optional[str] = None
+    definition: Optional[str] = None
 
     def __getitem__(
         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
@@ -141,7 +141,7 @@ class Doc:
     >>> cltk_doc.pos[:3]
     ['NOUN', 'AUX', 'DET']
     >>> cltk_doc.morphosyntactic_features[:3]
-    [{Case: [nominative], Gender: [feminine], Number: [singular]}, {Mood: [indicative], Number: [singular], Person: [third], Tense: [present], VerbForm: [finite], Voice: [active]}, {Case: [nominative], Gender: [feminine], Number: [singular], PrononimalType: [indefinite]}]
+    [{Case: [nominative], Gender: [feminine], InflClass: [ind_eur_a], Number: [singular]}, {InflClass: [lat_anom], Number: [singular], VerbForm: [finite]}, {Case: [nominative], Gender: [feminine], InflClass: [ind_eur_i], Number: [singular], PronominalType: [indefinite]}]
     >>> cltk_doc[0].gender
     [feminine]
     >>> cltk_doc[0]['Case']
@@ -193,6 +193,11 @@ class Doc:
         for word in self.words:
             sents[word.index_sentence].append(word)
         for key in sents:
+            for w in sents[key]:
+                if w.index_token is None:
+                    raise ValueError(f"Index token is not defined for {w.string}")
+
+        for key in sents:
             sents[key].sort(key=lambda x: x.index_token)
         # Sometimes not available, nor initialized; e.g. stanza
         if not self.sentence_embeddings:
@@ -223,9 +228,7 @@ class Doc:
         for sentence_tokens in sentences_list:  # type: List[str]
             if self.language == "akk":
                 # 'akk' produces List[Tuple[str, str]]
-                sentence_tokens_str = " ".join(
-                    [tup[0] for tup in sentence_tokens]
-                )  # type: str
+                sentence_tokens_str = " ".join([tup[0] for tup in sentence_tokens])
             else:
                 sentence_tokens_str: str = " ".join(sentence_tokens)
             sentences_str.append(sentence_tokens_str)

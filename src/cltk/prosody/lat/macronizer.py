@@ -44,7 +44,13 @@ class Macronizer:
 
     def _setup_macrons_data(self):
         rel_path = os.path.join(
-            CLTK_DATA_DIR, "lat/model/lat_models_cltk/taggers/macrons/macrons.py"
+            CLTK_DATA_DIR,
+            "lat",
+            "model",
+            "lat_models_cltk",
+            "taggers",
+            "macrons",
+            "macrons.py",
         )
         path = os.path.expanduser(rel_path)
         loader = importlib.machinery.SourceFileLoader("macrons", path)

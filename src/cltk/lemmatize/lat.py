@@ -456,7 +456,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
     [('i', 'RN'), ('ii', 'RN'), ('iii', 'RN')]
     """
 
-    def __init__(self: object, default: str = None, backoff: object = None):
+    def __init__(self, default: str = None, backoff=None):
         """
         RomanNumeralLemmatizer
         :type default: str
@@ -476,7 +476,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
         self._regexs = [(re.compile(regexp), pattern) for regexp, pattern in regexps]
         self.default = default
 
-    def choose_tag(self: object, tokens: List[str], index: int, history: List[str]):
+    def choose_tag(self, tokens: List[str], index: int, history: List[str]):
         """Use regular expressions for rules-based lemmatizing based on word endings;
         tokens are matched for patterns with the base kept as a group; an word ending
         replacement is added to the (base) group.
@@ -495,13 +495,8 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
                 else:
                     return replace
 
-    def __repr__(self: object):
+    def __repr__(self):
         return f"<{type(self).__name__}: CLTK Roman Numeral Patterns>"
-
-
-models_path = os.path.normpath(
-    os.path.join(CLTK_DATA_DIR, "lat/model/lat_models_cltk/lemmata/backoff")
-)
 
 
 class LatinBackoffLemmatizer:
@@ -514,10 +509,12 @@ class LatinBackoffLemmatizer:
     ###    original Latin lemmatizer from cltk.stem
     """
 
-    def __init__(
-        self: object, train: List[list] = None, seed: int = 3, verbose: bool = False
-    ):
-        self.models_path = models_path
+    def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
+        self.models_path = os.path.normpath(
+            os.path.join(
+                CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "lemmata", "backoff"
+            )
+        )
 
         missing_models_message = "LatinBackoffLemmatizer requires the ```latin_models_cltk``` to be in cltk_data. Please load this corpus."
 
@@ -539,25 +536,12 @@ class LatinBackoffLemmatizer:
         self.seed = seed
         self.VERBOSE = verbose
 
-        def _randomize_data(train: List[list], seed: int):
-            import random
-
-            random.seed(seed)
-            random.shuffle(train)
-            train_size = int(0.9 * len(train))
-            pos_train_sents = train[:train_size]
-            lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
-            train_sents = lem_train_sents[:train_size]
-            test_sents = lem_train_sents[train_size:]
-
-            return pos_train_sents, train_sents, test_sents
-
-        self.pos_train_sents, self.train_sents, self.test_sents = _randomize_data(
+        self.pos_train_sents, self.train_sents, self.test_sents = self._randomize_data(
             self.train, self.seed
         )
         self._define_lemmatizer()
 
-    def _define_lemmatizer(self: object):
+    def _define_lemmatizer(self):
         # Suggested backoff chain--should be tested for optimal order
         self.backoff0 = None
         self.backoff1 = IdentityLemmatizer(verbose=self.VERBOSE)
@@ -587,18 +571,32 @@ class LatinBackoffLemmatizer:
         )
         self.lemmatizer = self.backoff5
 
-    def lemmatize(self: object, tokens: List[str]):
+    def lemmatize(self, tokens: List[str]):
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
-    def evaluate(self: object):
+    def evaluate(self):
         if self.VERBOSE:
             raise AssertionError(
                 "evaluate() method only works when verbose: bool = False"
             )
         return self.lemmatizer.evaluate(self.test_sents)
 
-    def __repr__(self: object):
+    @classmethod
+    def _randomize_data(cls, train: List[list], seed: int):
+        import random
+
+        random.seed(seed)
+        random.shuffle(train)
+        train_size = int(0.9 * len(train))
+        pos_train_sents = train[:train_size]
+        lem_train_sents = [[(item[0], item[1]) for item in sent] for sent in train]
+        train_sents = lem_train_sents[:train_size]
+        test_sents = lem_train_sents[train_size:]
+
+        return pos_train_sents, train_sents, test_sents
+
+    def __repr__(self):
         return f"<BackoffLatinLemmatizer v0.2>"
 
     def __call__(self, token: str) -> str:

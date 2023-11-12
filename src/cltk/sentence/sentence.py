@@ -34,7 +34,7 @@ class SentenceTokenizer(ABC):
         self.model = None
         self.lang_vars = None
 
-    def tokenize(self, text: str, model: object = None) -> List[str]:
+    def tokenize(self, text: str, model=None) -> List[str]:
         """Method for tokenizing sentences with pretrained punkt models; can
         be overridden by language-specific tokenizers.
 
@@ -42,7 +42,7 @@ class SentenceTokenizer(ABC):
         :param text: text to be tokenized into sentences
         :type text: str
         :param model: tokenizer object to used # Should be in init?
-        :type model: object
+        :type model
         """
         if not hasattr(self, "model") or not self.model:
             self.model = model
@@ -55,9 +55,13 @@ class SentenceTokenizer(ABC):
         return tokenizer.tokenize(text)
 
     def _get_models_path(self, language):  # pragma: no cover
-        return (
-            CLTK_DATA_DIR
-            + f"/{language}/model/{language}_models_cltk/tokenizers/sentence"
+        return os.path.join(
+            CLTK_DATA_DIR,
+            language,
+            "model",
+            f"{language}_models_cltk",
+            "tokenizers",
+            "sentence",
         )
 
 
@@ -66,7 +70,7 @@ class PunktSentenceTokenizer(SentenceTokenizer):
 
     missing_models_message = "PunktSentenceTokenizer requires a language model."
 
-    def __init__(self, language: str = None, lang_vars: object = None):
+    def __init__(self, language: str = None, lang_vars=None):
         """Constructor.
 
         :param language : language for sentences tokenization
@@ -108,7 +112,7 @@ class RegexSentenceTokenizer(SentenceTokenizer):
         else:
             raise Exception("Must specify sent_end_chars")
 
-    def tokenize(self, text: str, model: object = None) -> List[str]:
+    def tokenize(self, text: str, model=None) -> List[str]:
         """Method for tokenizing sentences with regular expressions.
 
         :rtype: list

@@ -26,6 +26,7 @@ from zipfile import ZipFile
 
 from gensim import models  # type: ignore
 
+from cltk.core.cltk_logger import logger
 from cltk.core.exceptions import CLTKException, UnimplementedAlgorithmError
 from cltk.data.fetch import FetchCorpus
 from cltk.languages.utils import get_lang
@@ -85,10 +86,11 @@ class CLTKWord2VecEmbeddings:
         if not self._is_model_present() or self.overwrite:
             self._download_cltk_self_hosted_models()
         elif self._is_model_present() and not self.overwrite:
-            # message = f"Model for '{self.iso_code}' / '{self.model_type}' already present at '{self.fp_model}' and ``overwrite=False``."
-            # print(message)
-            # TODO: Log message
-            pass
+            message = (
+                f"Model for '{self.iso_code}' / '{self.model_type}' already present "
+                f"at '{self.fp_model}' and ``overwrite=False``."
+            )
+            logger.info(message)
         self.model: models.word2vec.Word2Vec = self._load_model()
 
     def _build_filepath(self):
@@ -175,11 +177,11 @@ class CLTKWord2VecEmbeddings:
             return False
 
     def _load_model(self) -> models.word2vec.Word2Vec:
-        """Load model into memory.
-        """
+        """Load model into memory."""
         try:
             return models.word2vec.Word2Vec.load(
-                os.path.join(self.model_path, os.path.basename(self.fp_model)))
+                os.path.join(self.model_path, os.path.basename(self.fp_model))
+            )
         except UnicodeDecodeError:
             msg = f"Cannot open file '{self.fp_model}' with Gensim 'load_word2vec_format'."
             print(msg)
@@ -221,9 +223,11 @@ class Word2VecEmbeddings:
             self._download_nlpl_models()
             self._unzip_nlpl_model()
         elif self._is_nlpl_model_present() and not self.overwrite:
-            # message = f"Model for '{self.iso_code}' / '{self.model_type}' already present at '{self.fp_model}' and ``overwrite=False``."
-            # print(message)
-            # TODO: Log message
+            message = (
+                f"Model for '{self.iso_code}' / '{self.model_type}' already present "
+                f"at '{self.fp_model}' and ``overwrite=False``."
+            )
+            logger.info(message)
             pass
         self.model: models.keyedvectors.Word2VecKeyedVectors = self._load_model()
 
@@ -253,7 +257,8 @@ class Word2VecEmbeddings:
         if self.iso_code not in MAP_NLPL_LANG_TO_URL:
             available_embeddings_str = "', '".join(MAP_NLPL_LANG_TO_URL.keys())
             raise UnimplementedAlgorithmError(
-                f"No embedding available for language '{self.iso_code}'. Word2Vec models available for: '{available_embeddings_str}'."
+                f"No embedding available for language '{self.iso_code}'. "
+                f"Word2Vec models available for: '{available_embeddings_str}'."
             )
 
         # 3. assert that model type is valid
@@ -310,7 +315,8 @@ class Word2VecEmbeddings:
                 get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
             else:
                 raise CLTKException(
-                    f"Download of necessary Stanza model declined for '{self.language}'. Unable to continue with Stanza's processing."
+                    f"Download of necessary Stanza model declined for '{self.language}'. "
+                    f"Unable to continue with Stanza's processing."
                 )
 
     def _unzip_nlpl_model(self) -> None:
@@ -376,8 +382,11 @@ class FastTextEmbeddings:
         if not self._is_model_present() or self.overwrite:
             self.download_fasttext_models()
         elif self._is_model_present() and not self.overwrite:
-            message = f"Model for '{self.iso_code}' / '{self.training_set}' / '{self.model_type}' already present at '{self.model_fp}' and ``overwrite=False``."
-            # TODO: Log message
+            message = (
+                f"Model for '{self.iso_code}' / '{self.training_set}' / '{self.model_type}' already present "
+                f"at '{self.model_fp}' and ``overwrite=False``."
+            )
+            logger.info(message)
         self.model = self._load_model()
 
     def get_word_vector(self, word: str):
