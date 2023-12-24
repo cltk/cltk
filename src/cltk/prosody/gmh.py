@@ -43,7 +43,6 @@ class Verse:
         strs = ""
 
         for line in self.syllabified:
-
             w = line[-1][-1][-rhyme_size:]
 
             for r in rhymes.keys():

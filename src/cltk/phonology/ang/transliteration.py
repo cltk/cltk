@@ -61,7 +61,6 @@ class Transliterate:
 
     @staticmethod
     def __transliterate_helper(text, dicts):
-
         text = text.lower()
         for w, val in zip(dicts.keys(), dicts.values()):
             text = text.replace(w, val)

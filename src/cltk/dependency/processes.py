@@ -233,9 +233,9 @@ class SpacyProcess(Process):
     >>> isinstance(process_spacy, SpacyProcess)
     True
 
-    # >>> from stanza.models.common.doc import Document
-    # >>> output_doc = process_stanza.run(Doc(raw=get_example_text("lat")))
-    # >>> isinstance(output_doc.stanza_doc, Document)
+    # >>> from spacy.models.common.doc import Document
+    # >>> output_doc = process_spacy.run(Doc(raw=get_example_text("lat")))
+    # >>> isinstance(output_doc.spacy_doc, Document)
     True
     """
 
@@ -255,7 +255,7 @@ class SpacyProcess(Process):
         spacy_doc = spacy_wrapper.parse(input_text)
         cltk_words = self.spacy_to_cltk_word_type(spacy_doc)
         output_doc.words = cltk_words
-        output_doc.stanza_doc = spacy_doc
+        output_doc.spacy_doc = spacy_doc
 
         return output_doc
 
@@ -322,6 +322,10 @@ class SpacyProcess(Process):
 
 @dataclass
 class LatinSpacyProcess(SpacyProcess):
-    """Run a Spacy model."""
+    """Run a Spacy model.
+
+    <https://huggingface.co/latincy>_
+    """
 
     language: Literal["lat"] = "lat"
+    description: str = "Process for Spacy for Patrick Burn's Latin model."

@@ -2047,7 +2047,6 @@ class WordNetICCorpusReader(CorpusReader):
 
     def __init__(self, iso_code, root=None, fileids=None):
         if not root:
-
             root = os.path.join(
                 get_cltk_data_dir(),
                 f"{iso_code}/model/{iso_code}_models_cltk/semantics/wordnet/",

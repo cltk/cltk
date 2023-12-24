@@ -17,6 +17,14 @@ cltk.dependency.processes module
    :undoc-members:
    :show-inheritance:
 
+cltk.dependency.spacy\_wrapper module
+-------------------------------------
+
+.. automodule:: cltk.dependency.spacy_wrapper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cltk.dependency.stanza\_wrapper module
 --------------------------------------
 

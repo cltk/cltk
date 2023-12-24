@@ -233,12 +233,16 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Sup": VerbForm.supine,
         "Vnoun": VerbForm.masdar,
     },
+    # https://universaldependencies.org/u/feat/Mood.html
     "Mood": {
         "Adm": Mood.admirative,
         "Cnd": Mood.conditional,
         "Des": Mood.desiderative,
+        "Gdv": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
+        "Ger": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
         "Imp": Mood.imperative,
         "Ind": Mood.indicative,
+        "Inf": Mood.infinitive,  # Note: Not in UD under Mood, but VerbForm!
         "Jus": Mood.jussive,
         "Nec": Mood.necessitative,
         "Opt": Mood.optative,

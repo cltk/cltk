@@ -67,7 +67,6 @@ def get_onsets(text, vowels="aeiou", threshold=0.0002):
         candidates = []
 
         for phoneme in word:
-
             if phoneme not in vowels:
                 onset += phoneme
 
@@ -385,7 +384,6 @@ class Syllabifier:
             onset = ""
 
             for letter in syllables[i]:
-
                 if letter in vowels:
                     break
 
@@ -453,9 +451,7 @@ class Syllabifier:
         i = 0
         # Iterate through letters of word searching for the nuclei
         while i < len(word) - 1:
-
             if word[i] in self.vowels:
-
                 nucleus = ""
 
                 # Find cluster of vowels

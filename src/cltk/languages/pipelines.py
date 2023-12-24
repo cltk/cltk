@@ -287,8 +287,8 @@ class LatinPipeline(Pipeline):
             # LatinTokenizationProcess,
             # LatinStanzaProcess,
             LatinSpacyProcess,
-            LatinEmbeddingsProcess,
-            StopsProcess,
+            # LatinEmbeddingsProcess,
+            # StopsProcess,  # Necessary since Spacy has .is_stop?
             # LatinNERProcess,
             LatinLexiconProcess,
         ]

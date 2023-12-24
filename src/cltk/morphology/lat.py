@@ -110,7 +110,6 @@ class CollatinusDecliner:
 
         # For each registered root in the model,
         for model_root_id, model_root_data in model["R"].items():
-
             # If we have K, it's equivalent to canonical form
             if model_root_data[0] == "K":
                 returned_roots[model_root_id] = lemma_in_lemma_entry.split(",")
