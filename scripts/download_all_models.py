@@ -7,6 +7,7 @@ For selected languages only: ``$ python scripts/download_all_models.py --languag
 """
 
 import argparse
+import subprocess
 import time
 from typing import Dict, List
 
@@ -124,8 +125,17 @@ def download_spacy_models(iso_code: str) -> None:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
     # SpacyWrapper(language=iso_code, interactive=False, silent=False)
     import spacy
-    spacy.load("la_core_web_lg")
-    SpacyWrapper(language=iso_code, interactive=False, silent=False)
+
+    if not spacy.util.is_package("la_core_web_lg"):
+        subprocess.check_call(
+            [
+                "pip",
+                "install",
+                "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
+            ]
+        )
+    # spacy.load("la_core_web_lg")
+    # SpacyWrapper(language=iso_code, interactive=False, silent=False)
     print(f"Finished downloading spaCy for '{iso_code}'.")
 
 
