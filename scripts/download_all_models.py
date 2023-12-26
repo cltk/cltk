@@ -117,9 +117,7 @@ def download_nlpl_model(iso_code: str) -> None:
 
 def download_spacy_models(iso_code: str) -> None:
     """Download language models, from the ``spaCy`` project,
-    that are supported by the CLTK or in scope. More here:
-    `<https://stanfordnlp.github.io/stanza/models.html>_.
-
+    that are supported by the CLTK or in scope.
     """
     print(f"Going to download spaCy model for '{iso_code}'.")
     if iso_code not in AVAIL_SPACY_LANGS:
@@ -147,7 +145,7 @@ if __name__ == "__main__":
             download_nlpl_model(iso_code=LANG)
         # 5. Check spaCy
         if LANG in AVAIL_SPACY_LANGS:
-            download_stanza_model(iso_code=LANG)
+            download_spacy_models(iso_code=LANG)
         print(
             f"All models fetched for '{LANG}'. Total elapsed time: {time.time() - T0}"
         )

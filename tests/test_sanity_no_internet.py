@@ -17,14 +17,14 @@ class TestNoInternet(unittest.TestCase):
 
     def test_nlp_latin_stops(self):
         lang: str = "lat"
-        cltk_nlp = NLP(language=lang)  # type: NLP
+        cltk_nlp: NLP = NLP(language=lang)
         self.assertIsInstance(cltk_nlp, NLP)
         lat_pipeline: Pipeline = cltk_nlp.pipeline
         pipeline_just_stops: list[Type[Process]] = [
             proc for proc in lat_pipeline.processes if proc.__name__ == "StopsProcess"
         ]
         self.assertEqual(len(pipeline_just_stops), 1)
-        stops_class: StopsProcess = pipeline_just_stops[0]
+        stops_class: Type[Process] = pipeline_just_stops[0]
         self.assertIs(stops_class, StopsProcess)
         words = [Word(string=token) for token in split_punct_ws(get_example_text(lang))]
         doc = Doc(words=words)

@@ -105,7 +105,7 @@ class SpacyWrapper:
                 "CLTK message: This part of the CLTK depends upon a spaCy NLP mode."
             )  # pragma: no cover
             dl_is_allowed: bool = query_yes_no(
-                f"CLTK message: Allow download of Stanza models spaCy model ``{self.spacy_model_name}`` from ``{self.spacy_model_url}``?"
+                f"CLTK message: Allow download of spaCy model ``{self.spacy_model_name}`` from ``{self.spacy_model_url}``?"
             )
             if not dl_is_allowed:
                 raise CLTKException(
