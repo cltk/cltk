@@ -264,10 +264,9 @@ class DependencyTree(ElementTree):
         [divisa_3/adjective]
         """
 
-        forms = {}  # type: Dict[int, Form]
+        forms: dict[int, Form] = {}
         for word in sentence:
             forms[word.index_token] = Form.to_form(word)
-
         root = None
         for word in sentence:
             # Note: LatinCy uses uppercase `ROOT`, Stanza lowercase `root`

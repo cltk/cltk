@@ -2,7 +2,7 @@
 
 import logging
 import subprocess
-from typing import Optional, Any
+from typing import Any, Optional
 
 import spacy
 from spacy import Language as SpacyLanguage

@@ -267,6 +267,8 @@ class SpacyProcess(Process):
 
         It works only if there is some sentence boundaries has been set by the loaded model.
 
+        See note in code about starting word token index at 1
+
         >>> from cltk.dependency.processes import SpacyProcess
         >>> from cltk.languages.example_texts import get_example_text
         >>> process_spacy = SpacyProcess(language="lat")
@@ -287,7 +289,9 @@ class SpacyProcess(Process):
                 if spacy_word.pos_:
                     pos = from_ud("POS", spacy_word.pos_)
                 cltk_word = Word(
-                    index_token=spacy_word.i,
+                    # Note: In order to match how Stanza orders token output
+                    # (index starting at 1, not 0), we must add an extra 1 to each
+                    index_token=spacy_word.i + 1,
                     index_char_start=spacy_word.idx,
                     index_char_stop=spacy_word.idx + len(spacy_word),
                     index_sentence=sentence_index,
@@ -298,7 +302,8 @@ class SpacyProcess(Process):
                     lemma=spacy_word.lemma_,
                     dependency_relation=spacy_word.dep_,  # str
                     stop=spacy_word.is_stop,
-                    governor=spacy_word.head.i,  # TODO: Confirm this is the index
+                    # Note: Must increment this, too
+                    governor=spacy_word.head.i + 1,  # TODO: Confirm this is the index
                 )
                 raw_features: list[tuple[str, str]] = (
                     [

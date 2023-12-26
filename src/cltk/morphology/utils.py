@@ -15,11 +15,16 @@ from cltk.morphology.universal_dependencies_features import (
 ALL_POSSIBLE_FEATURES = NOMINAL_FEATURES + VERBAL_FEATURES
 
 
-def get_pos(word: Optional[Word]) -> Union[str, None]:
+def get_pos(word: Optional[Word]) -> Optional[str]:
     """Take word, return structured info."""
     if not word:
         return None
-    return word.pos.name
+    # Note: SpaCy word.pos.name for stanza, word.pos for spacy
+    # TODO: Write this properly upstream!
+    if hasattr(word.pos, "name"):
+        return word.pos.name
+    else:
+        return word.pos
 
 
 def get_features(
