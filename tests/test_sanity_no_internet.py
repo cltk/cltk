@@ -2,7 +2,7 @@
  a network connection."""
 
 import unittest
-from typing import List
+from typing import List, Type
 
 from boltons.strutils import split_punct_ws
 
@@ -16,15 +16,15 @@ class TestNoInternet(unittest.TestCase):
     """Quick test."""
 
     def test_nlp_latin_stops(self):
-        lang = "lat"  # type: str
+        lang: str = "lat"
         cltk_nlp = NLP(language=lang)  # type: NLP
         self.assertIsInstance(cltk_nlp, NLP)
-        lat_pipeline = cltk_nlp.pipeline  # type: Pipeline
-        pipeline_just_stops = [
+        lat_pipeline: Pipeline = cltk_nlp.pipeline
+        pipeline_just_stops: list[Type[Process]] = [
             proc for proc in lat_pipeline.processes if proc.__name__ == "StopsProcess"
-        ]  # type: List[Process]
+        ]
         self.assertEqual(len(pipeline_just_stops), 1)
-        stops_class = pipeline_just_stops[0]  # type: StopsProcess
+        stops_class: StopsProcess = pipeline_just_stops[0]
         self.assertIs(stops_class, StopsProcess)
         words = [Word(string=token) for token in split_punct_ws(get_example_text(lang))]
         doc = Doc(words=words)
