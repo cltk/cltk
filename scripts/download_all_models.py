@@ -134,8 +134,8 @@ def download_spacy_models(iso_code: str) -> None:
                 "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
             ]
         )
-    # spacy.load("la_core_web_lg")
-    SpacyWrapper(language=iso_code, interactive=False, silent=False)
+    spacy.load("la_core_web_lg")
+    # SpacyWrapper(language=iso_code, interactive=False, silent=False)
     print(f"Finished downloading spaCy for '{iso_code}'.")
 
 
