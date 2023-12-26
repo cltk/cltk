@@ -122,6 +122,9 @@ def download_spacy_models(iso_code: str) -> None:
     print(f"Going to download spaCy model for '{iso_code}'.")
     if iso_code not in AVAIL_SPACY_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
+    # SpacyWrapper(language=iso_code, interactive=False, silent=False)
+    import spacy
+    spacy.load("la_core_web_lg")
     SpacyWrapper(language=iso_code, interactive=False, silent=False)
     print(f"Finished downloading spaCy for '{iso_code}'.")
 
