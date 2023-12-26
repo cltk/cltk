@@ -11,6 +11,7 @@ import subprocess
 import time
 from typing import Dict, List
 
+import spacy
 from git import GitCommandError
 
 from cltk.core.exceptions import CLTKException, CorpusImportError
@@ -123,9 +124,6 @@ def download_spacy_models(iso_code: str) -> None:
     print(f"Going to download spaCy model for '{iso_code}'.")
     if iso_code not in AVAIL_SPACY_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
-    # SpacyWrapper(language=iso_code, interactive=False, silent=False)
-    import spacy
-
     if not spacy.util.is_package("la_core_web_lg"):
         subprocess.check_call(
             [
@@ -134,8 +132,6 @@ def download_spacy_models(iso_code: str) -> None:
                 "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
             ]
         )
-    spacy.load("la_core_web_lg")
-    # SpacyWrapper(language=iso_code, interactive=False, silent=False)
     print(f"Finished downloading spaCy for '{iso_code}'.")
 
 
