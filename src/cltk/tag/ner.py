@@ -71,7 +71,7 @@ def _check_latest_data(lang):
         ", ".join(NER_DICT.keys())
     )
 
-    ner_file_path = os.path.expanduser(NER_dict[lang])
+    ner_file_path = os.path.expanduser(NER_DICT[lang])
 
     if not os.path.isfile(ner_file_path):
         corpus_importer = FetchCorpus(lang)
@@ -102,7 +102,7 @@ def tag_ner(lang, input_text, output_type=list):
                 new_tokens.append(word)
         input_text = new_tokens
 
-    ner_file_path = os.path.expanduser(NER_dict[lang])
+    ner_file_path = os.path.expanduser(NER_DICT[lang])
     with open(ner_file_path) as file_open:
         ner_str = file_open.read()
     ner_list = ner_str.split("\n")

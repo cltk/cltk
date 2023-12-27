@@ -44,7 +44,7 @@ class Clausulae:
         """Initialize class."""
         self.rhythms = rhythms
 
-    def clausulae_analysis(self, prosody: List) -> list[dict[str, int]]:
+    def clausulae_analysis(self, prosody: list[str]) -> list[dict[str, int]]:
         """
         Return dictionary in which the key is a type of clausula and the value is its frequency.
         :param prosody: the prosody of a prose text (must be in the format of the scansion produced by the scanner classes.
