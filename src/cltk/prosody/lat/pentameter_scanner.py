@@ -1,6 +1,6 @@
 """Utility class for producing a scansion pattern for a Latin pentameter.
 
-Given a line of pentameter, the scan method performs a series of transformation and checks 
+Given a line of pentameter, the scan method performs a series of transformation and checks
 are performed, and for each one performed successfully, a note is added to the scansion_notes
 list so that end users may view the provenance of a scansion.
 """

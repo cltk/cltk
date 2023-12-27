@@ -75,3 +75,6 @@ jupyter = "^1.0.0"
 [build-system]
 requires = ["poetry>=1.1.13"]
 build-backend = "poetry.masonry.api"
+
+[tool.isort]
+profile = "black"

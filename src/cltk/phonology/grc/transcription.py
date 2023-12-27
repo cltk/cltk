@@ -1,4 +1,4 @@
-"""Convert a word from Greek orthography into its hypothesized 
+"""Convert a word from Greek orthography into its hypothesized
 pronunciation in the International Phonetic Alphabet (IPA).
 
 https://raw.githubusercontent.com/j-duff/cltk/ipa/

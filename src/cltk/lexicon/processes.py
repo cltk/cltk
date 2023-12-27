@@ -68,7 +68,7 @@ class LatinLexiconProcess(LexiconProcess):
     >>> pipe = Pipeline(description="A custom Latin pipeline", \
     processes=[LatinTokenizationProcess, LatinLemmatizationProcess, LatinLexiconProcess], \
     language=get_lang("lat"))
-    
+
     >>> nlp = NLP(language='lat', custom_pipeline=pipe, suppress_banner=True)
     >>> cltk_doc = nlp.analyze(text=get_example_text("lat"))
     >>> [word.definition[:10] for word in cltk_doc.words][:5]
