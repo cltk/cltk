@@ -30,7 +30,7 @@ class TestNoInternet(unittest.TestCase):
         doc = Doc(words=words)
         stops_obj = stops_class(language=lang)
         output_doc = stops_obj.run(input_doc=doc)
-        is_stops = [w.stop for w in output_doc.words]  # type: list[bool]
+        is_stops: list[bool] = [w.stop for w in output_doc.words]
         self.assertEqual(len(words), len(is_stops))
         self.assertIsInstance(is_stops[0], bool)
 
