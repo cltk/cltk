@@ -156,6 +156,7 @@ class GreekEmbeddingsProcess(EmbeddingsProcess):
     language: str = "grc"
     description: str = "Default embeddings for Ancient Greek."
     variant: str = "nlpl"
+    authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
 
 
 @dataclass
@@ -165,6 +166,7 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     language: str = "lat"
     description: str = "Default embeddings for Latin."
     variant: str = "fasttext"
+    authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
 
 
 @dataclass

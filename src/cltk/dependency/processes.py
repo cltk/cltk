@@ -147,6 +147,7 @@ class GreekStanzaProcess(StanzaProcess):
 
     language: str = "grc"
     description: str = "Default process for Stanza for the Ancient Greek language."
+    authorship_info: str = "``LatinSpacyProcess`` using Stanza model by Stanford University from https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
 
 
 @dataclass
@@ -334,3 +335,4 @@ class LatinSpacyProcess(SpacyProcess):
 
     language: Literal["lat"] = "lat"
     description: str = "Process for Spacy for Patrick Burn's Latin model."
+    authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://arxiv.org/abs/2305.04365 . Please cite: https://arxiv.org/abs/2305.04365"

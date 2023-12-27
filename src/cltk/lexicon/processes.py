@@ -75,8 +75,11 @@ class LatinLexiconProcess(LexiconProcess):
     ['', 'est\\n\\n\\n see', 'omnis e (o', '', 'in  old in']
     """
 
-    description = "Dictionary lookup process for Latin"
-    language = "lat"
+    description: str = "Dictionary lookup process for Latin"
+    language: str = "lat"
+    authorship_info: str = (
+        "``LatinLexiconProcess`` using Lewis's *An Elementary Latin Dictionary* (1890)."
+    )
 
     @cachedproperty
     def algorithm(self):

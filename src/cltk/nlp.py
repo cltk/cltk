@@ -86,7 +86,19 @@ class NLP:
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
         if not suppress_banner:
+            self._print_cltk_info()
             self._print_pipelines_for_current_lang()
+            self._print_special_authorship_messages_for_current_lang()
+            self._print_suppress_reminder()
+
+    def _print_cltk_info(self):
+        """Print to screen about citing CLTK."""
+        ltr_mark = "\u200E"
+        alep = "𐤀"
+        print(
+            f"{ltr_mark + alep} CLTK version '{cltk.__version__.version}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
+        )
+        print("")
 
     def _print_pipelines_for_current_lang(self):
         """Print to screen the ``Process``es invoked upon invocation
@@ -96,11 +108,26 @@ class NLP:
             process.__name__ for process in self.pipeline.processes
         ]
         processes_name_str = "`, `".join(processes_name)  # type: str
-        ltr_mark = "\u200E"
-        alep = "𐤀"
-        print(f"{ltr_mark + alep} CLTK version '{cltk.__version__.version}'.")
         print(
             f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
+        )
+        print("")
+
+    def _print_special_authorship_messages_for_current_lang(self):
+        """Print to screen the authors of particular algorithms."""
+        for process in self.pipeline.processes:
+            if hasattr(process, "authorship_info"):
+                # https://archive.ph/20120806003722/http://www.tlg.uci.edu/~opoudjis/unicode/punctuation.html
+                # U+2E16 Dotted Right-Pointing Angle ⸖
+                print(f"⸖ {process.authorship_info}")
+
+    def _print_suppress_reminder(self):
+        """Tell users how to suppress printed messages."""
+        # https://en.wikipedia.org/wiki/Coronis_(textual_symbol)
+        # U+2E0E ⸎ EDITORIAL CORONIS
+        print("")
+        print(
+            "⸎ To suppress these messages, instantiate ``NLP()`` with ``suppress_banner=True``."
         )
 
     def _get_process_object(self, process_object: Type[Process]) -> Process:
