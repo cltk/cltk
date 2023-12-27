@@ -40,9 +40,9 @@ def download_prompt(
         # get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
     else:
         print(message)
-        dl_is_allowed = query_yes_no(
+        dl_is_allowed: bool = query_yes_no(
             f"Do you want to download '{model_url}' to '~/cltk_data/{iso_code}'?"
-        )  # type: bool
+        )
         if dl_is_allowed:
             fetch_corpus.import_corpus(corpus_name=f"{iso_code}_models_cltk")
             # get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
@@ -75,9 +75,9 @@ def spacy_tag_ner(
     # Create the tokenizer for the spacy model
     spacy_nlp.tokenizer = CustomTokenizer(vocab=spacy_nlp.vocab)
     # Create the spacy Doc Object that contains the metadata for entities
-    spacy_doc = spacy_nlp(text_tokens)  # type: Doc
+    spacy_doc: Doc = spacy_nlp(text_tokens)
     # generate the final output
-    token_labels = list()  # type: list[Union[str, bool]]
+    token_labels: list[Union[str, bool]] = list()
     for word in spacy_doc:
         if word.ent_type_:
             # word.ent_type_  # type: str

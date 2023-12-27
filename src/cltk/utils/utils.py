@@ -35,7 +35,7 @@ def file_exists(file_path: str, is_dir: bool = False) -> bool:
     >>> file_exists('~/', is_dir=True)
     True
     """
-    file_path_expanded = os.path.expanduser(file_path)  # type: str
+    file_path_expanded: str = os.path.expanduser(file_path)
     if is_dir:
         return os.path.isdir(file_path_expanded)
     return os.path.isfile(file_path_expanded)
@@ -76,7 +76,7 @@ def reverse_dict(
                 type(ignore_keys)
             )
         )
-    output_dict = dict()  # type: dict[str, str]
+    output_dict: dict[str, str] = dict()
     for key, val in input_dict.items():
         if ignore_keys and key in ignore_keys:
             continue

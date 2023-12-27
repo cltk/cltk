@@ -106,7 +106,7 @@ class LatinWordTokenizer(WordTokenizer):
             )
 
         sents = self.sent_tokenizer.tokenize(text)
-        tokens = []  # type: list[str]
+        tokens: list[str] = []
 
         for sent in sents:
             temp_tokens = self.word_tokenizer.word_tokenize(sent)
@@ -126,7 +126,7 @@ class LatinWordTokenizer(WordTokenizer):
                     tokens.append(token)
 
         # Break enclitic handling into own function?
-        specific_tokens = []  # type: list[str]
+        specific_tokens: list[str] = []
 
         for token in tokens:
             is_enclitic = False

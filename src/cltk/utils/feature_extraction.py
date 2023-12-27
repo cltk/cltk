@@ -36,9 +36,7 @@ def cltk_doc_to_features_table(
     variable_names: Optional[list[str]] = None
     for sentence in cltk_doc.sentences:
         for word in sentence:
-            word_features_list = (
-                list()
-            )  # type: list[Union[str, int, float, None, np.ndarray]]
+            word_features_list: list[Union[str, int, float, None, np.ndarray]] = list()
             # note: this gets made and remade; only needs to be done once, at beginning or at end; need to add check that len == the actual instance row
             variable_names = list()
             # Get word token chars

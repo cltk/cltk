@@ -33,15 +33,15 @@ def get_features(
 ) -> tuple[list[str], list[Union[str, int, float, None]]]:
     """Take a word, return a list of feature labels."""
 
-    features_present = list()  # type: list[Union[str, None]]
-    feature_variables = list()  # type: list[str]
+    features_present: list[Union[str, None]] = list()
+    feature_variables: list[str] = list()
     for possible_feature in ALL_POSSIBLE_FEATURES:
         feature_variables.append(str(possible_feature).lower())
         if not word:
             features_present.append(None)
             continue
         try:
-            feat = word.__getattr__(possible_feature)[0]  # type: MorphosyntacticFeature
+            feat: MorphosyntacticFeature = word.__getattr__(possible_feature)[0]
             features_present.append(str(feat.name))
         except CLTKException:
             features_present.append(None)

@@ -250,13 +250,13 @@ class Doc:
         """Returns a list of string word tokens of all words in the
         doc, but with stopwords removed.
         """
-        tokens = self._get_words_attribute("string")  # type: list[str]
+        tokens: list[str] = self._get_words_attribute("string")
         # create equal-length list of True & False/None values
-        is_token_stop = self._get_words_attribute("stop")  # type: list[bool]
+        is_token_stop: list[bool] = self._get_words_attribute("stop")
         # remove from the token list any who index in ``is_token_stop`` is True
-        tokens_no_stops = [
+        tokens_no_stops: list[str] = [
             token for index, token in enumerate(tokens) if not is_token_stop[index]
-        ]  # type: list[str]
+        ]
         return tokens_no_stops
 
     @property

@@ -107,7 +107,7 @@ class NLP:
         processes_name: list[str] = [
             process.__name__ for process in self.pipeline.processes
         ]
-        processes_name_str = "`, `".join(processes_name)  # type: str
+        processes_name_str: str = "`, `".join(processes_name)
         print(
             f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
         )

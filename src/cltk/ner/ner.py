@@ -11,7 +11,7 @@
 import importlib.machinery
 import logging
 import os
-from typing import Union
+from typing import Any, Union
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.utils import get_lang
@@ -36,7 +36,9 @@ NER_DICT = {
 }
 
 
-def tag_ner(iso_code: str, input_tokens: list[str]) -> list[Union[bool, str]]:
+def tag_ner(
+    iso_code: str, input_tokens: list[str]
+) -> Union[list[Union[bool, str]], list[bool]]:
     """Run NER for chosen language. Some languages return boolean True/False,
     others give string of entity type (e.g., ``LOC``).
 
@@ -65,7 +67,7 @@ def tag_ner(iso_code: str, input_tokens: list[str]) -> list[Union[bool, str]]:
     if iso_code not in NER_DICT:
         msg = f"NER unavailable for language ``{iso_code}``."
         raise UnimplementedAlgorithmError(msg)
-    ner_file_path = os.path.expanduser(NER_dict[iso_code])
+    ner_file_path = os.path.expanduser(NER_DICT[iso_code])
     if iso_code == "fro":
         if not os.path.isfile(ner_file_path):
             msg = f"Old French model path '{ner_file_path}' not found. Going to try to download it ..."
@@ -74,8 +76,8 @@ def tag_ner(iso_code: str, input_tokens: list[str]) -> list[Union[bool, str]]:
             model_url = "https://github.com/cltk/fro_models_cltk"
             download_prompt(iso_code=iso_code, message=dl_msg, model_url=model_url)
         loader = importlib.machinery.SourceFileLoader("entities", ner_file_path)
-        module = loader.load_module()  # type: module
-        entities: tuple(str, str) = module.entities
+        module: Any = loader.load_module()
+        entities: tuple[str, str] = module.entities
         entities_type_list = list()
         for input_token in input_tokens:
             for entity_token, kind in entities:
@@ -86,13 +88,13 @@ def tag_ner(iso_code: str, input_tokens: list[str]) -> list[Union[bool, str]]:
         return entities_type_list
     elif iso_code in ["ang", "grc", "lat"]:
         return spacy_tag_ner(
-            iso_code=iso_code, text_tokens=input_tokens, model_path=NER_dict[iso_code]
-        )  # list[str, None]
+            iso_code=iso_code, text_tokens=input_tokens, model_path=NER_DICT[iso_code]
+        )
     else:
         with open(ner_file_path) as file_open:
             ner_str = file_open.read()
         ner_list = ner_str.split("\n")
-        is_entity_list = list()  # type: list[bool]
+        is_entity_list: list[bool] = list()
         for word_token in input_tokens:
             if word_token in ner_list:
                 is_entity_list.append(True)

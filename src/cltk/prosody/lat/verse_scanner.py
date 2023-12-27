@@ -278,7 +278,7 @@ class VerseScanner:
         :return:
         """
         line = string_utils.flatten(syllables_spaces)
-        mydict = {}  # type: dict[int, int]
+        mydict: dict[int, int] = {}
         # #defaultdict(int) #type: dict[int, int]
         for idx, syl in enumerate(syllables_spaces):
             target_syllable = syllables_spaces[idx]

@@ -77,11 +77,11 @@ class StanzaProcess(Process):
 
         """
 
-        words_list = list()  # type: list[Word]
+        words_list: list[Word] = list()
 
         for sentence_index, sentence in enumerate(stanza_doc.sentences):
-            sent_words = dict()  # type: dict[int, Word]
-            indices = list()  # type: list[tuple[int, int]]
+            sent_words: dict[int, Word] = dict()
+            indices: list[tuple[int, int]] = list()
 
             for token_index, token in enumerate(sentence.tokens):
                 stanza_word: stanza.pipeline.doc.Word = token.words[0]

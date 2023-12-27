@@ -31,8 +31,8 @@ class Scansion:
 
     def __init__(self) -> None:
         """Setup class variables."""
-        self.vowels = ["ε", "ι", "ο", "α", "η", "ω", "υ", "ῖ", "ᾶ"]  # type: list[str]
-        self.sing_cons = [
+        self.vowels: list[str] = ["ε", "ι", "ο", "α", "η", "ω", "υ", "ῖ", "ᾶ"]
+        self.sing_cons: list[str] = [
             "ς",
             "ρ",
             "τ",
@@ -49,10 +49,10 @@ class Scansion:
             "β",
             "ν",
             "μ",
-        ]  # type: list[str]
-        self.doub_cons = ["ξ", "ζ", "ψ"]  # type: list[str]
-        self.long_vowels = ["η", "ω", "ῖ", "ᾶ", "ῦ"]  # type: list[str]
-        self.diphthongs = [
+        ]
+        self.doub_cons: list[str] = ["ξ", "ζ", "ψ"]
+        self.long_vowels: list[str] = ["η", "ω", "ῖ", "ᾶ", "ῦ"]
+        self.diphthongs: list[str] = [
             "αι",
             "αῖ",
             "ευ",
@@ -68,10 +68,10 @@ class Scansion:
             "υι",
             "υῖ",
             "ηῦ",
-        ]  # type: list[str]
-        self.stops = ["π", "τ", "κ", "β", "δ", "γ"]  # type: list[str]
-        self.liquids = ["ρ", "λ"]  # type: list[str]
-        self.punc = [
+        ]
+        self.stops: list[str] = ["π", "τ", "κ", "β", "δ", "γ"]
+        self.liquids: list[str] = ["ρ", "λ"]
+        self.punc: list[str] = [
             "!",
             "@",
             "#",
@@ -105,8 +105,8 @@ class Scansion:
             "᾽",
             "（",
             "）",
-        ]  # type: list[str]
-        self.punc_stops = ["·", ":", ";"]  # type: list[str]
+        ]
+        self.punc_stops: list[str] = ["·", ":", ";"]
 
     def scan_text(self, input_string: str) -> list[str]:
         """The primary method for the class.
@@ -142,7 +142,7 @@ class Scansion:
         >>> Scansion()._clean_text(not_clean)
         'νέος μὲν καὶ ἄπειρος δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος.'
         """
-        clean = list()  # type: list[str]
+        clean: list[str] = list()
         for char in text:
             if char in self.punc_stops:
                 clean += "."
@@ -231,7 +231,7 @@ class Scansion:
         """
         sentences_syllables = list()
         for sentence in words_syllables:
-            syllables_sentence = list()  # type: list[str]
+            syllables_sentence: list[str] = list()
             for word in sentence:
                 syllables_sentence += word
             sentences_syllables.append(syllables_sentence)
@@ -255,7 +255,7 @@ class Scansion:
         [False, False, False, True, False, True, False, False, True, False, True, False, False, False, False, True, False, True, False]
         """
         # Find diphthongs
-        vowel_group = list()  # type: list[str]
+        vowel_group: list[str] = list()
         for char in syllable:
             if char in self.long_vowels:
                 return True
