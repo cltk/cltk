@@ -28,7 +28,7 @@ Code used to determine most frequent words in the corpus::
 
 """
 
-STOPS = [
+STOPS: list[str] = [
     "et",
     "a",
     "de",

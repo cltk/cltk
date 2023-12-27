@@ -2,7 +2,7 @@
 
 import os
 from collections.abc import ValuesView
-from copy import copy, deepcopy
+from copy import copy
 from dataclasses import dataclass, field
 from typing import Optional
 

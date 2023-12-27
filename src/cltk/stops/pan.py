@@ -4,7 +4,7 @@ Panjabi: 'Nimit Bhardwaj <nimitbhardwaj@gmail.com>'. Sahib Singh, from the site 
 Note: This is in the `Gurmukhi alphabet <https://en.wikipedia.org/wiki/Gurmukhi>`_.
 """
 
-STOPS = [
+STOPS: list[str] = [
     "ਦੇ",  # used to show the possession
     "ਦੀ",  # used same as above but is just a feminine of above words
     "ਵਿਚ",  # used as preposition, for 'inside'

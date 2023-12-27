@@ -1,3 +1,5 @@
+"""Utility functions for keeping track of languages."""
+
 from cltk.core.data_types import Language
 from cltk.core.exceptions import UnknownLanguageError
 from cltk.languages.glottolog import LANGUAGES
@@ -38,7 +40,7 @@ def find_iso_name(common_name: str) -> list[str]:
     >>> find_iso_name(common_name="xxx")
     []
     """
-    iso_return_list = list()  # type: list[str]
+    iso_return_list: list[str] = list()
     for iso_key, language_obj in LANGUAGES.items():
         if common_name.lower() in language_obj.name.lower():
             iso_return_list.append(iso_key)

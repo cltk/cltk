@@ -2,7 +2,7 @@
 
 TODO: Give definition here of stopwords.
 """
-
+from typing import Any
 
 from cltk.languages.utils import get_lang
 from cltk.stops import (
@@ -22,7 +22,7 @@ from cltk.stops import (
     san,
 )
 
-MAP_ISO_TO_MODULE = dict(
+MAP_ISO_TO_MODULE: dict[str, Any] = dict(
     akk=akk,
     ang=ang,
     arb=arb,
@@ -60,13 +60,13 @@ class Stops:
     """
 
     def __init__(self, iso_code: str):
-        self.iso_code = iso_code
+        self.iso_code: str = iso_code
         get_lang(iso_code=self.iso_code)
-        self.stops = self.get_stopwords()
+        self.stops: list[str] = self.get_stopwords()
 
     def get_stopwords(self) -> list[str]:
         """Take language code, return list of stopwords."""
-        stops_module = MAP_ISO_TO_MODULE[self.iso_code]
+        stops_module: Any = MAP_ISO_TO_MODULE[self.iso_code]
         return stops_module.STOPS
 
     def remove_stopwords(

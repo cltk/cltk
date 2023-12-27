@@ -1,8 +1,11 @@
-"""
-Latin: from the Perseus Hopper source at ``/sgml/reading/build/stoplists``. Source at `<http://sourceforge.net/projects/perseus-hopper/>`_. Perseus data licensed under  the Mozilla Public License 1.1 (MPL 1.1, `<http://www.mozilla.org/MPL/1.1/>`_).
+"""Latin: from the Perseus Hopper source at
+``/sgml/reading/build/stoplists``. Source at
+`<http://sourceforge.net/projects/perseus-hopper/>`_.
+Perseus data licensed under  the Mozilla Public License 1.1
+(MPL 1.1, `<http://www.mozilla.org/MPL/1.1/>`_).
 """
 
-STOPS = [
+STOPS: list[str] = [
     "ab",
     "ac",
     "ad",

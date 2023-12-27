@@ -1,8 +1,10 @@
 import re
+from typing import Optional
 
 from cltk.alphabet.gmh import normalize_middle_high_german
 from cltk.stops.gmh import STOPS
-from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
+
+# from cltk.tokenizers.gmh import MiddleHighGermanWordTokenizer
 
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -22,7 +24,7 @@ http://snowball.tartarus.org/algorithms/german/stemmer.html
 http://www.inf.fu-berlin.de/lehre/WS98/digBib/projekt/_stemming.html
 """
 
-umlaut_dict = {
+umlaut_dict: dict[str, str] = {
     "ë": "e",
     "ê": "e",
     "ä": "a",
@@ -35,11 +37,11 @@ umlaut_dict = {
 }
 
 
-def _remove_umlaut(word):
+def _remove_umlaut(word: str) -> str:
     return "".join([umlaut_dict.get(letter, letter) for letter in word])
 
 
-def _stem_helper(word, rem_umlaut=True):
+def _stem_helper(word: str, rem_umlaut: bool = True) -> str:
     """rem_umlat: Remove umlaut from text"""
 
     # Define R1 and R2 regions
@@ -97,7 +99,7 @@ def _stem_helper(word, rem_umlaut=True):
 
 
 def stem(
-    word: str, exceptions: dict[str, str] = dict(), rem_umlauts: bool = True
+    word: str, exceptions: Optional[dict[str, str]] = None, rem_umlauts: bool = True
 ) -> str:
     """
     Stem a Middle High German word.
@@ -108,6 +110,8 @@ def stem(
     >>> stem('tagen')
     'tag'
     """
+    if not exceptions:
+        exceptions = dict()
 
     word = normalize_middle_high_german(
         word, to_lower_all=False, to_lower_beginning=True

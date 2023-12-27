@@ -158,7 +158,7 @@ SUFFIXES: list[str] = [
     "ur",
 ]
 
-PREFIXES = [
+PREFIXES: list[str] = [
     "yester",
     "yister",
     "yistyr",
@@ -185,7 +185,7 @@ PREFIXES = [
 ]
 
 # Used for attaching endings to suffixes, catches more orthographical variations (e.g 'ir', 'ire')
-ENDS = ["", "s", "e", "en", "es"]
+ENDS: list[str] = ["", "s", "e", "en", "es"]
 
 
 def stem(

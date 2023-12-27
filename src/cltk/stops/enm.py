@@ -2,7 +2,7 @@
 Middle English: - people.stanford.edu/widner/content/text-mining-middle-ages (slide 13), textifier.com/resources/common-english-words.txt, en.wikipedia.org/wiki/Middle_English, en.wiktionary.org/wiki/Category:Middle_English_prepositions, en.wiktionary.org/wiki/Category:MIddle_English_determiners, en.wiktionary.org/wiki/Category:MIddle_English_conjunctions
 """
 
-STOPS = [
+STOPS: list[str] = [
     "ac",
     "afore",
     "ake",

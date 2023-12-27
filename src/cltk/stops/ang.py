@@ -1,7 +1,7 @@
 """
 Old English: 'Sourav Singh <ssouravsingh12@gmail.com>'. adapted `Introduction to Old English` website  at ``https://lrc.la.utexas.edu/eieol/engol``.
 """
-STOPS = [
+STOPS: list[str] = [
     "and",
     "on",
     "þonne",

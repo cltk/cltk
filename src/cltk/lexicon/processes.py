@@ -2,7 +2,7 @@
 Processes for dictionary lookup.
 """
 
-from copy import copy, deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty

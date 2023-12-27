@@ -3,11 +3,12 @@
 
 from copy import copy
 from dataclasses import dataclass
+from typing import Optional
 
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types import Doc, Process, Word
-from cltk.wordnet.wordnet import WordNetCorpusReader, WordNetICCorpusReader
+from cltk.core.data_types import Doc, Process
+from cltk.wordnet.wordnet import WordNetCorpusReader
 
 
 @dataclass
@@ -20,7 +21,7 @@ class WordNetProcess(Process):
     language: str = None
 
     @cachedproperty
-    def algorithm(self):
+    def algorithm(self) -> Optional[WordNetCorpusReader]:
         """Returns a WordNetCorpusReader appropriate to the Document's language"""
         language = None
         if self.language == "lat":
