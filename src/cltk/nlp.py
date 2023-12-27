@@ -96,7 +96,7 @@ class NLP:
         ltr_mark = "\u200E"
         alep = "𐤀"
         print(
-            f"{ltr_mark + alep} CLTK version '{cltk.__version__.version}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
+            f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
         )
         print("")
 

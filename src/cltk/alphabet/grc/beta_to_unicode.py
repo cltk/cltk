@@ -8,7 +8,7 @@ TODO: Add tests
 
 from unicodedata import normalize
 
-import regex
+import regex  # type: ignore
 
 BETA_REPLACE = [
     (r"S|\*[sS]", "Σ"),
