@@ -19,7 +19,7 @@ __license__ = "MIT License. See LICENSE."
 CLTK_DATA_DIR_PRIVATE = os.path.expanduser(os.path.join("~", "cltk_data", "private"))
 
 
-def make_cltk_path(*fp_list):
+def make_cltk_path(*fp_list) -> str:
     """Take arbitrary number of str arguments (not list) and return expanded,
     absolute path to a user's (or user-defined) cltk_data dir.
 

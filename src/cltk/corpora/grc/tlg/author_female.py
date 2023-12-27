@@ -1,4 +1,4 @@
-AUTHOR_FEMALE = {
+AUTHOR_FEMALE: dict[str, list[str]] = {
     "Femina": [
         "0009",
         "0051",
