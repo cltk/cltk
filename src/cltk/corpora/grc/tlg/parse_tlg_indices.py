@@ -46,7 +46,7 @@ def get_epithets() -> list[str]:
     return sorted(MAP_EPITHET_TO_AUTHOR_IDS.keys())
 
 
-def select_authors_by_epithet(query) -> set[str]:
+def select_authors_by_epithet(query: str) -> set[str]:
     """Pass exact name (case-insensitive) of
     epithet name, return ordered set of author ids.
     """
@@ -55,7 +55,7 @@ def select_authors_by_epithet(query) -> set[str]:
             return set(ids)
 
 
-def get_epithet_of_author(_id) -> str:
+def get_epithet_of_author(_id: str) -> str:
     """Pass author id and return the name of its associated epithet."""
     for epithet, ids in MAP_EPITHET_TO_AUTHOR_IDS.items():
         if _id in ids:
@@ -77,7 +77,7 @@ def get_geographies() -> list[str]:
     return sorted(AUTHOR_GEO.keys())
 
 
-def select_authors_by_geo(query) -> set[str]:
+def select_authors_by_geo(query: str) -> set[str]:
     """Pass exact name (case-insensitive) of
     geography name, return ordered set of author ids.
     """
@@ -86,7 +86,7 @@ def select_authors_by_geo(query) -> set[str]:
             return set(ids)
 
 
-def get_geo_of_author(_id) -> str:
+def get_geo_of_author(_id: str) -> str:
     """Pass author id and return the name of its associated epithet."""
     for geo, ids in AUTHOR_GEO.items():
         if _id in ids:
