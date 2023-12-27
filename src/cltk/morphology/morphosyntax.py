@@ -462,7 +462,7 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
 }
 
 
-def _preprocess_latincy_ud_types(
+def _postprocess_latincy_ud_types(
     feature_name: str, feature_value: str
 ) -> tuple[str, str]:
     """Pre-process for invalid UD types in LatinCy"""
@@ -496,7 +496,7 @@ def from_ud(
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
 
-    feature_name, feature_value = _preprocess_latincy_ud_types(
+    feature_name, feature_value = _postprocess_latincy_ud_types(
         feature_name=feature_name, feature_value=feature_value
     )
 
