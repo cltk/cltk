@@ -167,7 +167,6 @@ def syllabify(word: str) -> List[str]:
 
         # Iterate over characters to build syllables
         for i, char in enumerate(word):
-
             # Build syllable
             syllable = syllable + char
             syllable_complete = False
@@ -198,7 +197,6 @@ def syllabify(word: str) -> List[str]:
 
                 # Determine if the syllable is complete
                 if char_is_vowel:
-
                     if (  # If the next character's a vowel
                         _is_vowel(
                             next_char
@@ -247,7 +245,6 @@ def syllabify(word: str) -> List[str]:
 
                 # Otherwise, it's a consonant
                 else:
-
                     if (  # If the next character's also a consonant (but it's not the last in the word)
                         (
                             not _is_vowel(next_char) and i < word_len - 2

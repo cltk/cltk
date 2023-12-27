@@ -2,12 +2,14 @@
 
 from copy import deepcopy
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Literal, Optional, Tuple
 
+import spacy
 import stanza
 from boltons.cacheutils import cachedproperty
 
 from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
+from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
 from cltk.morphology.morphosyntax import (
@@ -145,6 +147,7 @@ class GreekStanzaProcess(StanzaProcess):
 
     language: str = "grc"
     description: str = "Default process for Stanza for the Ancient Greek language."
+    authorship_info: str = "``LatinSpacyProcess`` using Stanza model by Stanford University from https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
 
 
 @dataclass
@@ -217,3 +220,119 @@ class TreeBuilderProcess(Process):
     def algorithm(self, doc):
         doc.trees = [DependencyTree.to_tree(sentence) for sentence in doc.sentences]
         return doc
+
+
+@dataclass
+class SpacyProcess(Process):
+    """A ``Process`` type to capture everything, that the ``spaCy`` project can do for a given language.
+
+    .. note::
+        ``spacy`` has only partial functionality available for some languages.
+
+    >>> from cltk.languages.example_texts import get_example_text
+    >>> process_spacy = SpacyProcess(language="lat")
+    >>> isinstance(process_spacy, SpacyProcess)
+    True
+
+    # >>> from spacy.models.common.doc import Document
+    # >>> output_doc = process_spacy.run(Doc(raw=get_example_text("lat")))
+    # >>> isinstance(output_doc.spacy_doc, Document)
+    True
+    """
+
+    # language: Optional[str] = None
+
+    @cachedproperty
+    def algorithm(self):
+        return SpacyWrapper.get_nlp(language=self.language)
+
+    def run(self, input_doc: Doc) -> Doc:
+        output_doc = deepcopy(input_doc)
+        spacy_wrapper = self.algorithm
+        if output_doc.normalized_text:
+            input_text = output_doc.normalized_text
+        else:
+            input_text = output_doc.raw
+        spacy_doc = spacy_wrapper.parse(input_text)
+        cltk_words = self.spacy_to_cltk_word_type(spacy_doc)
+        output_doc.words = cltk_words
+        output_doc.spacy_doc = spacy_doc
+
+        return output_doc
+
+    @staticmethod
+    def spacy_to_cltk_word_type(spacy_doc: spacy.tokens.doc.Doc):
+        """Take an entire ``spacy`` document, extract
+        each word, and encode it in the way expected by
+        the CLTK's ``Word`` type.
+
+        It works only if there is some sentence boundaries has been set by the loaded model.
+
+        See note in code about starting word token index at 1
+
+        >>> from cltk.dependency.processes import SpacyProcess
+        >>> from cltk.languages.example_texts import get_example_text
+        >>> process_spacy = SpacyProcess(language="lat")
+        >>> cltk_words = process_spacy.run(Doc(raw=get_example_text("lat"))).words
+        >>> isinstance(cltk_words, list)
+        True
+        >>> isinstance(cltk_words[0], Word)
+        True
+        >>> cltk_words[0]
+        Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=0, string='Gallia', pos=None, lemma='Gallia', stem=None, scansion=None, xpos='proper_noun', upos='PROPN', dependency_relation='nsubj', governor=None, features={}, category={}, stop=False, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+
+        """
+        words_list: List[Word] = []
+        for sentence_index, sentence in enumerate(spacy_doc.doc.sents):
+            sent_words: Dict[int, Word] = {}
+            for spacy_word in sentence:
+                pos: Optional[MorphosyntacticFeature] = None
+                if spacy_word.pos_:
+                    pos = from_ud("POS", spacy_word.pos_)
+                cltk_word = Word(
+                    # Note: In order to match how Stanza orders token output
+                    # (index starting at 1, not 0), we must add an extra 1 to each
+                    index_token=spacy_word.i + 1,
+                    index_char_start=spacy_word.idx,
+                    index_char_stop=spacy_word.idx + len(spacy_word),
+                    index_sentence=sentence_index,
+                    string=spacy_word.text,  # same as ``token.text``
+                    pos=pos,
+                    xpos=spacy_word.tag_,
+                    upos=spacy_word.pos_,
+                    lemma=spacy_word.lemma_,
+                    dependency_relation=spacy_word.dep_,  # str
+                    stop=spacy_word.is_stop,
+                    # Note: Must increment this, too
+                    governor=spacy_word.head.i + 1,  # TODO: Confirm this is the index
+                )
+                raw_features: list[tuple[str, str]] = (
+                    [
+                        (feature, value)
+                        for feature, value in spacy_word.morph.to_dict().items()
+                    ]
+                    if spacy_word.morph
+                    else []
+                )
+                cltk_features = [
+                    from_ud(feature_name, feature_value)
+                    for feature_name, feature_value in raw_features
+                ]
+                cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
+                cltk_word.category = to_categorial(cltk_word.pos)
+                cltk_word.spacy_features = spacy_word.morph
+                sent_words[cltk_word.index_token] = cltk_word
+                words_list.append(cltk_word)
+        return words_list
+
+
+@dataclass
+class LatinSpacyProcess(SpacyProcess):
+    """Run a Spacy model.
+
+    <https://huggingface.co/latincy>_
+    """
+
+    language: Literal["lat"] = "lat"
+    description: str = "Process for Spacy for Patrick Burn's Latin model."
+    authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://arxiv.org/abs/2305.04365 . Please cite: https://arxiv.org/abs/2305.04365"

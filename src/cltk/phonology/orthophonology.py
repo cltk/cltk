@@ -771,7 +771,8 @@ class Orthophonology:
     def add_rule(self, rule):
         """
         Adds a rule to the orthophonology.
-        The *order* in which rules are added is critcial, since the first rule that matches fires."""
+        The *order* in which rules are added is critcial, since the first rule that matches fires.
+        """
         self.rules.append(rule)
 
     # these are not static because language-specific subclasses probably need access to the sound inventory

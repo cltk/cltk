@@ -47,7 +47,6 @@ class TestEmbedding(unittest.TestCase):
         self.assertEqual(most_similar_word, "ܠܒܪ")
 
     def test_embeddings_fasttext_got(self):
-
         embeddings_obj = FastTextEmbeddings(
             iso_code="got", interactive=False, silent=True, overwrite=False
         )
@@ -93,7 +92,6 @@ class TestEmbedding(unittest.TestCase):
         )
 
     def test_embeddings_fasttext_xxx(self):
-
         with self.assertRaises(UnknownLanguageError) as exception_context_manager:
             FastTextEmbeddings(
                 iso_code="xxx", interactive=False, silent=True, overwrite=False
@@ -147,7 +145,6 @@ class TestEmbedding(unittest.TestCase):
         self.assertIsInstance(embeddings_obj, Word2VecEmbeddings)
 
     def test_embeddings_processes_ang(self):
-
         language = "ang"  # type: str
         example_text = get_example_text(language)  # type: str
         word_objs = [

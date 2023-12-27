@@ -333,9 +333,7 @@ class StanzaWrapper:
         >>> stanza_wrapper.is_wrapper_available()
         True
         """
-        if self.language in MAP_LANGS_CLTK_STANZA:
-            return True
-        return False
+        return self.language in MAP_LANGS_CLTK_STANZA
 
     def _get_stanza_code(self) -> str:
         """Using known-supported language, use the CLTK's

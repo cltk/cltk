@@ -47,7 +47,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(cltk_doc, Doc)
         self.assertIsInstance(cltk_doc.raw, str)
         self.assertEqual(cltk_doc.language, lang)
-        self.assertIsInstance(cltk_doc.stanza_doc, Document)
+        # self.assertIsInstance(cltk_doc.stanza_doc, Document)
 
         self.assertTrue(len(cltk_doc.words) > 0)
         all_words_pres = all([isinstance(word, Word) for word in cltk_doc.words])
@@ -61,7 +61,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(word.lemma, str)
         # self.assertIsInstance(word.named_entity, str)
         self.assertIsInstance(word.pos, POS)
-        self.assertIsInstance(word.stanza_features, str)
+        # self.assertIsInstance(word.stanza_features, str)
         self.assertIsInstance(word.stop, bool)
         self.assertIsInstance(word.string, str)
         self.assertIsInstance(word.upos, str)

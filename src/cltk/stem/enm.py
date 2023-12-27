@@ -250,7 +250,6 @@ def stem(
 
             # Strip suffixes
             for suffix in SUFFIXES:
-
                 if len(suffix) <= len(en):
                     break
 

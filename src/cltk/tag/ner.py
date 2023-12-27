@@ -25,7 +25,6 @@ NER_DICT = {
 
 class NamedEntityReplacer(object):
     def __init__(self):
-
         self.entities = self._load_necessary_data()
 
     def _load_necessary_data(self):
@@ -43,7 +42,6 @@ class NamedEntityReplacer(object):
     (name, "entity", kind_of_entity)"""
 
     def tag_ner_fr(self, input_text, output_type=list):
-
         entities = self.entities
 
         for entity in entities:

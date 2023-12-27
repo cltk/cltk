@@ -2,11 +2,15 @@
 especially for the purpose of preparing data for machine learning.
 """
 
-from typing import List, Tuple, Union
+from typing import List, Optional, Tuple, Union
 
-from cltk.core.data_types import Doc
+from cltk.core.data_types import Doc, Word
 from cltk.core.exceptions import CLTKException
-from cltk.dependency.utils import get_governor_relationship, get_governor_word
+from cltk.dependency.utils import (
+    get_governor_relationship,
+    get_governor_word,
+    get_governor_word2,
+)
 from cltk.morphology.utils import get_features, get_pos
 
 
@@ -67,7 +71,15 @@ def cltk_doc_to_features_table(
             variable_names += feature_names
 
             # Get dependency info
-            governing_word = get_governor_word(word=word, sentence=sentence)
+            # strs = [w.string for w in sentence.words]
+            # idxs = [w.dependency_relation for w in sentence.words]
+            # govs = [w.governor for w in sentence.words]
+            # print(list(zip(strs, idxs, govs)))
+            # input()
+            # governing_word = get_governor_word(word=word, sentence=sentence.words)
+            governing_word: Optional[Word] = get_governor_word2(
+                word=word, sentence_words=sentence.words
+            )
             pos_label_governor = get_pos(word=governing_word)
             word_features_list.append(pos_label_governor)
             variable_names.append("governing_word")

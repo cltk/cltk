@@ -2,7 +2,7 @@
 
 import os
 from collections.abc import ValuesView
-from copy import deepcopy
+from copy import copy, deepcopy
 from dataclasses import dataclass, field
 from typing import Dict, Optional
 
@@ -74,7 +74,7 @@ class EmbeddingsProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         """Compute the embeddings."""
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         # For word2vec-style embedding, used for word embeddings
         embeddings_obj = self.algorithm
         for index, word_obj in enumerate(output_doc.words):
@@ -156,6 +156,7 @@ class GreekEmbeddingsProcess(EmbeddingsProcess):
     language: str = "grc"
     description: str = "Default embeddings for Ancient Greek."
     variant: str = "nlpl"
+    authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
 
 
 @dataclass
@@ -165,6 +166,7 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     language: str = "lat"
     description: str = "Default embeddings for Latin."
     variant: str = "fasttext"
+    authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
 
 
 @dataclass

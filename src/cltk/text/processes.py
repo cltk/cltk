@@ -26,7 +26,6 @@ class PunctuationRemovalProcess(Process):
 
 
 class DefaultPunctuationRemovalProcess(PunctuationRemovalProcess):
-
     description = "Default punctuation removal algorithm"
 
     @cachedproperty
@@ -54,7 +53,6 @@ class DefaultPunctuationRemover:
 
 
 class OldNorsePunctuationRemovalProcess(PunctuationRemovalProcess):
-
     description = "Default Old Norse punctuation removal algorithm"
 
     @cachedproperty

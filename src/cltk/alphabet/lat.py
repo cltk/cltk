@@ -71,7 +71,7 @@ class JVReplacer:  # pylint: disable=too-few-public-methods
 
     def replace(self, text):
         """Do j/v replacement"""
-        for (pattern, repl) in self.patterns:
+        for pattern, repl in self.patterns:
             text = re.subn(pattern, repl, text)[0]
         return text
 
@@ -106,7 +106,7 @@ class LigatureReplacer:  # pylint: disable=too-few-public-methods
 
     def replace(self, text):
         """Do character replacement."""
-        for (pattern, repl) in self.patterns:
+        for pattern, repl in self.patterns:
             text = re.subn(pattern, repl, text)[0]
         return text
 

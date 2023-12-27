@@ -152,8 +152,8 @@ class BetaCodeReplacer:
         if text.isupper():
             text = regex.sub(r"(?<!\*)([A-Z]+)", lambda pat: pat.group(1).lower(), text)
         text = text.replace("-", "")
-        for (pattern, repl) in self.reorder_pattern:
+        for pattern, repl in self.reorder_pattern:
             text = pattern.subn(repl, text)[0]
-        for (pattern, repl) in self.pattern:
+        for pattern, repl in self.pattern:
             text = pattern.subn(repl, text)[0]
         return normalize("NFC", text)

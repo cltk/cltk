@@ -233,6 +233,7 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Sup": VerbForm.supine,
         "Vnoun": VerbForm.masdar,
     },
+    # https://universaldependencies.org/u/feat/Mood.html
     "Mood": {
         "Adm": Mood.admirative,
         "Cnd": Mood.conditional,
@@ -461,6 +462,18 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
 }
 
 
+def _postprocess_latincy_ud_types(
+    feature_name: str, feature_value: str
+) -> tuple[str, str]:
+    """Pre-process for invalid UD types in LatinCy"""
+    if feature_name == "Verbform":
+        feature_name = "VerbForm"
+
+    if feature_name == "Mood" and feature_value in ["Ger", "Gdv", "Inf"]:
+        return "VerbForm", feature_value
+    return feature_name, feature_value
+
+
 def from_ud(
     feature_name: str, feature_value: Optional[str]
 ) -> Optional[MorphosyntacticFeature]:
@@ -476,19 +489,27 @@ def from_ud(
     # Do cleanup on certain inputs that look like ``"Number[psor]``
     # Thus this is rewritten to ``feature_name = Number``
     # and ``feature_value = psor``.
+    # Was this for Stanza or LatinCy?
     if "[" in feature_name and "]" in feature_name:
         feature_name_split: List[str] = feature_name.split("[", maxsplit=1)
         feature_name = feature_name_split[0]
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
 
+    feature_name, feature_value = _postprocess_latincy_ud_types(
+        feature_name=feature_name, feature_value=feature_value
+    )
+
     if feature_name in FORM_UD_MAP:
         feature_map = FORM_UD_MAP[feature_name]
     else:
-        msg1: str = f"Unrecognized UD `feature_name` ('{feature_name}') with `feature_value` ('{feature_value}')."
-        msg2: str = f"Please raise an issue at <https://github.com/cltk/cltk/issues> and include a small sample to reproduce the error."
+        msg1: str = (
+            f"Unrecognized UD feature '{feature_name}' with value '{feature_value}'."
+        )
+        msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
         print(msg1)
         print(msg2)
+        print("")
         # raise CLTKException(msg)
         return None
     # print(f"feature_name={feature_name}->feature_value={feature_value}")
@@ -498,8 +519,12 @@ def from_ud(
             if value in feature_map:
                 return feature_map[value]
             else:
-                raise CLTKException(
-                    f"{value}: Unrecognized value for UD feature {feature_name}"
+                msg1: str = (
+                    f"Unrecognized value '{value}' for UD feature '{feature_name}'."
                 )
+                msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+                print(msg1)
+                print(msg2)
+                print("")
     else:
         raise CLTKException(f"{feature_name} is None")

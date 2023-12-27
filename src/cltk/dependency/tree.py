@@ -264,13 +264,13 @@ class DependencyTree(ElementTree):
         [divisa_3/adjective]
         """
 
-        forms = {}  # type: Dict[int, Form]
+        forms: dict[int, Form] = {}
         for word in sentence:
             forms[word.index_token] = Form.to_form(word)
-
         root = None
         for word in sentence:
-            if word.dependency_relation == "root":
+            # Note: LatinCy uses uppercase `ROOT`, Stanza lowercase `root`
+            if word.dependency_relation in ["root", "ROOT"]:
                 root = forms[word.index_token]
             elif word.governor != -1:
                 # only add a non-root element to the tree if it has a governor (i.e. not -1)

@@ -7,14 +7,17 @@ For selected languages only: ``$ python scripts/download_all_models.py --languag
 """
 
 import argparse
-import time
-from typing import Dict, List
 
-from git import GitCommandError
+# import subprocess
+import time
+
+import spacy
 
 from cltk.core.exceptions import CLTKException, CorpusImportError
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
 from cltk.data.fetch import FetchCorpus
+from cltk.dependency.spacy_wrapper import MAP_LANGS_CLTK_SPACY as AVAIL_SPACY_LANGS
+from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import (
     MAP_LANGS_CLTK_STANZA as AVAIL_STANZA_LANGS,
 )  # pylint: disable=syntax-error
@@ -24,15 +27,18 @@ from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
 from cltk.nlp import iso_to_pipeline
 
+# from git import GitCommandError
+
+
 T0 = time.time()
 
-PARSER = argparse.ArgumentParser()
+PARSER: argparse.ArgumentParser = argparse.ArgumentParser()
 PARSER.add_argument(
     "--languages", help="What languages to download. Comma separated, no spaces."
 )
-ARGS = PARSER.parse_args()
-SELECTED_LANGS = list()  # type: List[str]
-ALL_AVAILABLE_LANGS = list(iso_to_pipeline.keys())  # type: List[str]
+ARGS: argparse.Namespace = PARSER.parse_args()
+SELECTED_LANGS: list[str] = list()
+ALL_AVAILABLE_LANGS: list[str] = list(iso_to_pipeline.keys())
 if not ARGS.languages:
     SELECTED_LANGS = ALL_AVAILABLE_LANGS
 else:
@@ -113,6 +119,29 @@ def download_nlpl_model(iso_code: str) -> None:
     print(f"Finished downloading NLPL model for '{iso_code}'.")
 
 
+def download_spacy_models(iso_code: str) -> None:
+    """Download language models, from the ``spaCy`` project,
+    that are supported by the CLTK or in scope.
+    """
+    print(f"Going to download spaCy model for '{iso_code}'.")
+    if iso_code not in AVAIL_SPACY_LANGS:
+        raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
+    if not spacy.util.is_package("la_core_web_lg"):
+        print("Spacy Latin model not found. Going to download it ...")
+        spacy_wrapper: SpacyWrapper = SpacyWrapper(
+            language="lat", interactive=False, silent=False
+        )
+        # subprocess.check_call(
+        #     [
+        #         "pip",
+        #         "install",
+        #         "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
+        #     ]
+        # )
+        print("Spacy downloaded?", spacy_wrapper._is_model_present())
+    print(f"Finished downloading spaCy for '{iso_code}'.")
+
+
 if __name__ == "__main__":
     print(f"Module loaded. Total elapsed time: {time.time() - T0}")
     print("*** Downloading a basic set of models ... this will take a while.*** \n")
@@ -130,6 +159,9 @@ if __name__ == "__main__":
         # 4. Check nlpl
         if LANG in AVAIL_NLPL_LANGS:
             download_nlpl_model(iso_code=LANG)
+        # 5. Check spaCy
+        if LANG in AVAIL_SPACY_LANGS:
+            download_spacy_models(iso_code=LANG)
         print(
             f"All models fetched for '{LANG}'. Total elapsed time: {time.time() - T0}"
         )

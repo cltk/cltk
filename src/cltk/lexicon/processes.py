@@ -2,7 +2,7 @@
 Processes for dictionary lookup.
 """
 
-from copy import deepcopy
+from copy import copy, deepcopy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -40,7 +40,7 @@ class LexiconProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         lookup_algo = self.algorithm
-        output_doc = deepcopy(input_doc)
+        output_doc: Doc = copy(input_doc)
         for word in output_doc.words:
             if self.language == "lat":
                 if word.lemma:
@@ -75,8 +75,11 @@ class LatinLexiconProcess(LexiconProcess):
     ['', 'est\\n\\n\\n see', 'omnis e (o', '', 'in  old in']
     """
 
-    description = "Dictionary lookup process for Latin"
-    language = "lat"
+    description: str = "Dictionary lookup process for Latin"
+    language: str = "lat"
+    authorship_info: str = (
+        "``LatinLexiconProcess`` using Lewis's *An Elementary Latin Dictionary* (1890)."
+    )
 
     @cachedproperty
     def algorithm(self):
