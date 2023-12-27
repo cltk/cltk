@@ -12,7 +12,7 @@ hard-coded list (Middle English Dictionary(MED) https://quod.lib.umich.edu/m/med
   TODO: Implement a stochastic algorithm/Implement overarching stemmer class
 """
 
-SUFFIXES = [
+SUFFIXES: list[str] = [
     "rightes",
     "eresse",
     "kinnes",

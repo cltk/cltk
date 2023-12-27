@@ -1,6 +1,6 @@
 """``Process`` classes for accessing the Stanza project."""
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 from typing import Any, Literal, Optional
 
@@ -45,7 +45,7 @@ class StanzaProcess(Process):
         return StanzaWrapper.get_nlp(language=self.language)
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         stanza_wrapper = self.algorithm
         if output_doc.normalized_text:
             input_text = output_doc.normalized_text
@@ -247,7 +247,7 @@ class SpacyProcess(Process):
         return SpacyWrapper.get_nlp(language=self.language)
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         spacy_wrapper = self.algorithm
         if output_doc.normalized_text:
             input_text = output_doc.normalized_text

@@ -13,7 +13,7 @@ Based on many ideas in cltk.phonology.non.utils by Clément Besnier <clem@clemen
 """
 
 import re
-from copy import deepcopy
+from copy import copy
 from enum import auto
 from typing import Union
 
@@ -160,7 +160,7 @@ class AbstractPhoneme:
         Other can be a list of phonemes, in which case the list is returned (for technical reasons).
         Other may also be a single feature value or a list of feature values.
         """
-        phoneme = deepcopy(self)
+        phoneme = copy(self)
 
         # special case for list of phonemes
         if (
@@ -317,7 +317,7 @@ def PositionedPhoneme(
     or its position in an environment.
     """
 
-    pos_phoneme = deepcopy(phoneme)
+    pos_phoneme = copy(phoneme)
     pos_phoneme.word_initial = word_initial
     pos_phoneme.word_final = word_final
     pos_phoneme.syllable_initial = syllable_initial
@@ -525,7 +525,7 @@ class Consonant(AbstractPhoneme):
         Returns a new Consonant with its Geminate pos,
         and "ː" appended to its IPA symbol.
         """
-        consonant = deepcopy(self)
+        consonant = copy(self)
 
         if consonant[Geminate] == Geminate.neg:
             consonant[Geminate] = Geminate.pos
@@ -564,7 +564,7 @@ class Vowel(AbstractPhoneme):
         and the concatenation of the IPA symbols.
         A hack because the features of the second vowel are lost.
         """
-        diphthong = deepcopy(self)
+        diphthong = copy(self)
         diphthong.ipa += other.ipa
         return diphthong
 
@@ -573,7 +573,7 @@ class Vowel(AbstractPhoneme):
         Returns a new Vowel with its Length lengthened,
         and "ː" appended to its IPA symbol.
         """
-        vowel = deepcopy(self)
+        vowel = copy(self)
 
         if vowel[Length] == Length.short:
             vowel[Length] = Length.long
@@ -900,7 +900,7 @@ class Orthophonology:
         Voices a consonant, by searching the sound inventory for a consonant having the same
         features as the argument, but +voice.
         """
-        voiced_consonant = deepcopy(consonant)
+        voiced_consonant = copy(consonant)
         voiced_consonant[Voiced] = Voiced.pos
         return self._find_sound(voiced_consonant)
 
@@ -909,7 +909,7 @@ class Orthophonology:
         Aspirates a consonant, by searching the sound inventory for a consonant having the same
         features as the argument, but +aspirated.
         """
-        aspirated_consonant = deepcopy(consonant)
+        aspirated_consonant = copy(consonant)
         aspirated_consonant[Aspirated] = Aspirated.pos
         return self._find_sound(aspirated_consonant)
 
@@ -919,7 +919,7 @@ class Orthophonology:
         :param consonant:
         :return:
         """
-        geminate_consonant = deepcopy(consonant)
+        geminate_consonant = copy(consonant)
         geminate_consonant[Geminate] = Geminate.pos
         return self._find_sound(geminate_consonant)
 

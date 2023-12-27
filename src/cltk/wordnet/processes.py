@@ -1,7 +1,7 @@
 """``Process`` to wrap WordNet."""
 
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -35,7 +35,7 @@ class WordNetProcess(Process):
     def run(self, input_doc: Doc) -> Doc:
         """Adds a list of Synset objects, representing a Word's senses, to all lemmatized words"""
 
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
 
         wn = self.algorithm
         for word in output_doc.words:

@@ -384,7 +384,7 @@ class Syllabifier:
         ... 'Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum']))
         11
         """
-        tmp_syllables = copy.deepcopy(syllables)
+        tmp_syllables = copy.copy(syllables)
         return len(
             string_utils.remove_blank_spaces(
                 string_utils.move_consonant_right(

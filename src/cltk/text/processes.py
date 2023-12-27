@@ -2,7 +2,7 @@
 
 """
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -18,7 +18,7 @@ class PunctuationRemovalProcess(Process):
     def run(self, input_doc: Doc) -> Doc:
         punctuation_remover = self.algorithm
 
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         output_doc.words = [
             word for word in output_doc.words if not punctuation_remover(word)
         ]

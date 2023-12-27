@@ -1,6 +1,6 @@
 """Processes for lemmatization."""
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -27,7 +27,7 @@ class LemmatizationProcess(Process):
     def run(self, input_doc: Doc) -> Doc:
         lemmatizer = self.algorithm
 
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         for word in output_doc.words:
             word.lemma = lemmatizer(word.string)
 

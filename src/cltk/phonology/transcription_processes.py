@@ -3,7 +3,7 @@
 """
 
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -30,7 +30,7 @@ class PhonologicalTranscriptionProcess(Process):
     def run(self, input_doc: Doc) -> Doc:
         transcriber = self.algorithm
 
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         for word in output_doc.words:
             word.phonetic_transcription = transcriber(word.string.lower())
         return output_doc

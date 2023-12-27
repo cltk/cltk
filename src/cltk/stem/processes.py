@@ -1,7 +1,7 @@
 """Processes for stemming.
 """
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 import cltk.stem.akk
@@ -27,7 +27,7 @@ class StemmingProcess(Process):
     def run(self, input_doc: Doc) -> Doc:
         stem = self.algorithm
 
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         for word in output_doc.words:
             word.stem = stem(word.string)
 

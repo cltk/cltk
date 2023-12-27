@@ -1,6 +1,6 @@
 """This module holds the ``Process``es for NER."""
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 from typing import Any
 
@@ -29,7 +29,7 @@ class NERProcess(Process):
         return tag_ner
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
 
         ner_obj = self.algorithm
         entity_values: list[Any] = ner_obj(

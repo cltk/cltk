@@ -16,12 +16,12 @@ import re
 from cltk.stops.lat import STOPS
 
 
-def _checkremove_que(word):
+def _checkremove_que(word) -> tuple[str, bool]:
     """If word ends in -que and if word is not in pass list, strip -que"""
 
-    in_que_pass_list = False
+    in_que_pass_list: bool = False
 
-    que_pass_list = [
+    que_pass_list: list[str] = [
         "atque",
         "quoque",
         "neque",
@@ -79,20 +79,20 @@ def _checkremove_que(word):
     ]
 
     if word not in que_pass_list:
-        word = re.sub(r"que$", "", word)
+        word: str = re.sub(r"que$", "", word)
     else:
-        in_que_pass_list = True
+        in_que_pass_list: bool = True
 
     return word, in_que_pass_list
 
 
-def _matchremove_simple_endings(word):
+def _matchremove_simple_endings(word) -> tuple[str, bool]:
     """Remove the noun, adjective, adverb word endings"""
 
-    was_stemmed = False
+    was_stemmed: bool = False
 
     # noun, adjective, and adverb word endings sorted by charlen, then alph
-    simple_endings = [
+    simple_endings: list[str] = [
         "ibus",
         "ius",
         "ae",
@@ -113,26 +113,24 @@ def _matchremove_simple_endings(word):
         "o",
         "u",
     ]
-
     for ending in simple_endings:
         if word.endswith(ending):
-            word = re.sub(r"{0}$".format(ending), "", word)
-            was_stemmed = True
+            word: str = re.sub(r"{0}$".format(ending), "", word)
+            was_stemmed: bool = True
             break
-
     return word, was_stemmed
 
 
-def _matchremove_verb_endings(word):
+def _matchremove_verb_endings(word) -> str:
     """Remove the verb endings"""
 
-    i_verb_endings = ["iuntur", "erunt", "untur", "iunt", "unt"]
+    i_verb_endings: list[str] = ["iuntur", "erunt", "untur", "iunt", "unt"]
 
-    bi_verb_endings = ["beris", "bor", "bo"]
+    bi_verb_endings: list[str] = ["beris", "bor", "bo"]
 
-    eri_verb_endings = ["ero"]
+    eri_verb_endings: list[str] = ["ero"]
 
-    verb_endings = [
+    verb_endings: list[str] = [
         "mini",
         "ntur",
         "stis",
@@ -154,25 +152,25 @@ def _matchremove_verb_endings(word):
     # replace i verb endings with i
     for ending in i_verb_endings:
         if word.endswith(ending):
-            word = re.sub(r"{0}$".format(ending), "i", word)
+            word: str = re.sub(r"{0}$".format(ending), "i", word)
             return word
 
     # replace bi verb endings with bi
     for ending in bi_verb_endings:
         if word.endswith(ending):
-            word = re.sub(r"{0}$".format(ending), "bi", word)
+            word: str = re.sub(r"{0}$".format(ending), "bi", word)
             return word
 
     # replace eri verb endings with eri
     for ending in eri_verb_endings:
         if word.endswith(ending):
-            word = re.sub(r"{0}$".format(ending), "eri", word)
+            word: str = re.sub(r"{0}$".format(ending), "eri", word)
             return word
 
     # otherwise, remove general verb endings
     for ending in verb_endings:
         if word.endswith(ending):
-            word = re.sub(r"{0}$".format(ending), "", word)
+            word: str = re.sub(r"{0}$".format(ending), "", word)
             break
 
     return word
@@ -187,7 +185,6 @@ def stem(word: str) -> str:
     >>> stem('mercaturis')
     'mercatur'
     """
-
     if word not in STOPS:
         # remove '-que' suffix
         word, in_que_pass_list = _checkremove_que(word)

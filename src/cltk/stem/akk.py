@@ -3,7 +3,10 @@
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
-ENDINGS = {
+from typing import Union
+
+AKK_END_TYPES = dict[str, dict[str, Union[str, list[str], dict[str, str]]]]
+AKKADIAN_ENDINGS: AKK_END_TYPES = {
     "m": {
         "singular": {"nominative": "um", "accusative": "am", "genitive": "im"},
         "dual": {"nominative": "ān", "oblique": "īn"},
@@ -37,11 +40,11 @@ def stem(noun: str, gender: str, mimation: bool = True) -> str:
 
     # Take off ending
     if gender == "m":
-        if noun[-2:] in list(ENDINGS["m"]["singular"].values()) + list(
-            ENDINGS["m"]["dual"].values()
+        if noun[-2:] in list(AKKADIAN_ENDINGS["m"]["singular"].values()) + list(
+            AKKADIAN_ENDINGS["m"]["dual"].values()
         ):
             stem = noun[:-2]
-        elif noun[-1] in list(ENDINGS["m"]["plural"].values()):
+        elif noun[-1] in list(AKKADIAN_ENDINGS["m"]["plural"].values()):
             stem = noun[:-1]
         else:
             # we don't recognize the ending, so return the noun.
@@ -49,15 +52,16 @@ def stem(noun: str, gender: str, mimation: bool = True) -> str:
     elif gender == "f":
         if (
             noun[-4:]
-            in ENDINGS["f"]["plural"]["nominative"] + ENDINGS["f"]["plural"]["oblique"]
+            in AKKADIAN_ENDINGS["f"]["plural"]["nominative"]
+            + AKKADIAN_ENDINGS["f"]["plural"]["oblique"]
         ):
             stem = noun[:-4] + "t"
-        elif noun[-3:] in list(ENDINGS["f"]["singular"].values()) + list(
-            ENDINGS["f"]["dual"].values()
+        elif noun[-3:] in list(AKKADIAN_ENDINGS["f"]["singular"].values()) + list(
+            AKKADIAN_ENDINGS["f"]["dual"].values()
         ):
             stem = noun[:-3] + "t"
-        elif noun[-2:] in list(ENDINGS["m"]["singular"].values()) + list(
-            ENDINGS["m"]["dual"].values()
+        elif noun[-2:] in list(AKKADIAN_ENDINGS["m"]["singular"].values()) + list(
+            AKKADIAN_ENDINGS["m"]["dual"].values()
         ):
             stem = noun[:-2]
         else:
