@@ -238,11 +238,8 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Adm": Mood.admirative,
         "Cnd": Mood.conditional,
         "Des": Mood.desiderative,
-        # "Gdv": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
-        # "Ger": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
         "Imp": Mood.imperative,
         "Ind": Mood.indicative,
-        # "Inf": Mood.infinitive,  # Note: Not in UD under Mood, but VerbForm!
         "Jus": Mood.jussive,
         "Nec": Mood.necessitative,
         "Opt": Mood.optative,
@@ -465,21 +462,13 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
 }
 
 
-def clean_up_feature_name(feature_name: str) -> str:
-    """Make changes for obvious mistakes or irregularities
-    coming out of a parser.
-
-    TODO: Turn the if-else into match/case statments after 3.9 support is dropped
-    """
-    if feature_name == "Verbform":
-        feature_name = "VerbForm"
-    return feature_name
-
-
 def _preprocess_latincy_ud_types(
     feature_name: str, feature_value: str
 ) -> tuple[str, str]:
     """Pre-process for invalid UD types in LatinCy"""
+    if feature_name == "Verbform":
+        feature_name = "VerbForm"
+
     if feature_name == "Mood" and feature_value in ["Ger", "Gdv", "Inf"]:
         return "VerbForm", feature_value
     return feature_name, feature_value
@@ -500,13 +489,12 @@ def from_ud(
     # Do cleanup on certain inputs that look like ``"Number[psor]``
     # Thus this is rewritten to ``feature_name = Number``
     # and ``feature_value = psor``.
+    # Was this for Stanza or LatinCy?
     if "[" in feature_name and "]" in feature_name:
         feature_name_split: List[str] = feature_name.split("[", maxsplit=1)
         feature_name = feature_name_split[0]
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
-    # Other cleanup
-    feature_name = clean_up_feature_name(feature_name=feature_name)
 
     feature_name, feature_value = _preprocess_latincy_ud_types(
         feature_name=feature_name, feature_value=feature_value
