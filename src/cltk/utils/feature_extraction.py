@@ -2,13 +2,13 @@
 especially for the purpose of preparing data for machine learning.
 """
 
-from typing import List, Optional, Tuple, Union
+from typing import Optional, Union
+
+import numpy as np
 
 from cltk.core.data_types import Doc, Word
 from cltk.core.exceptions import CLTKException
-from cltk.dependency.utils import (
-    get_governor_relationship,
-    get_governor_word,
+from cltk.dependency.utils import (  # get_governor_relationship,; get_governor_word,
     get_governor_word2,
 )
 from cltk.morphology.utils import get_features, get_pos
@@ -16,7 +16,7 @@ from cltk.morphology.utils import get_features, get_pos
 
 def cltk_doc_to_features_table(
     cltk_doc: Doc,
-) -> Tuple[List[str], List[List[Union[str, int, float, None]]]]:
+) -> tuple[list[str], list[list[Union[str, int, float, None]]]]:
     """Take a CLTK ``Doc`` and return a list of lists ready for
     machine learning.
 
@@ -31,17 +31,16 @@ def cltk_doc_to_features_table(
     if len(cltk_doc.sentences) < 1:
         raise CLTKException("Must contain at least one ``Doc.sentence``.")
 
-    list_of_list_features = (
-        list()
-    )  # type: List[List[Union[str, int, float, None, np.ndarray]]]
+    list_of_list_features: list[list[Union[str, int, float, None, np.ndarray]]] = list()
 
+    variable_names: Optional[list[str]] = None
     for sentence in cltk_doc.sentences:
         for word in sentence:
             word_features_list = (
                 list()
-            )  # type: List[Union[str, int, float, None, np.ndarray]]
+            )  # type: list[Union[str, int, float, None, np.ndarray]]
             # note: this gets made and remade; only needs to be done once, at beginning or at end; need to add check that len == the actual instance row
-            variable_names = list()  # type: List[str]
+            variable_names = list()
             # Get word token chars
             word_features_list.append(word.string)
             variable_names.append("string")
@@ -98,6 +97,10 @@ def cltk_doc_to_features_table(
 
             list_of_list_features.append(word_features_list)
 
+    if not variable_names:
+        raise CLTKException(
+            "Input data problem, variable ``variable_names`` not created."
+        )
     assert len(variable_names) == len(
         list_of_list_features[0]
     ), f"The names of variables ({len(variable_names)}) does not match then actual number of variables ({len(list_of_list_features[0])}). These must be equal."
