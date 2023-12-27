@@ -119,10 +119,10 @@ class Mood(MorphosyntacticFeature):
     admirative = auto()
     conditional = auto()
     desiderative = auto()
-    gerundive = auto()  # Note: Not in UD under Mood, but VerbForm!
+    # gerundive = auto()  # Note: Not in UD under Mood, but VerbForm!
     imperative = auto()
     indicative = auto()
-    infinitive = auto()  # Note: Not in UD under Mood, but VerbForm!
+    # infinitive = auto()  # Note: Not in UD under Mood, but VerbForm!
     jussive = auto()
     necessitative = auto()
     optative = auto()

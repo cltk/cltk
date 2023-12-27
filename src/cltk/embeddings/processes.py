@@ -2,7 +2,7 @@
 
 import os
 from collections.abc import ValuesView
-from copy import deepcopy
+from copy import copy, deepcopy
 from dataclasses import dataclass, field
 from typing import Dict, Optional
 
@@ -74,7 +74,7 @@ class EmbeddingsProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         """Compute the embeddings."""
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         # For word2vec-style embedding, used for word embeddings
         embeddings_obj = self.algorithm
         for index, word_obj in enumerate(output_doc.words):

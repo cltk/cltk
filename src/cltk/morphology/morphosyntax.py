@@ -238,11 +238,11 @@ FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
         "Adm": Mood.admirative,
         "Cnd": Mood.conditional,
         "Des": Mood.desiderative,
-        "Gdv": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
-        "Ger": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
+        # "Gdv": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
+        # "Ger": Mood.gerundive,  # Note: Not in UD under Mood, but VerbForm!
         "Imp": Mood.imperative,
         "Ind": Mood.indicative,
-        "Inf": Mood.infinitive,  # Note: Not in UD under Mood, but VerbForm!
+        # "Inf": Mood.infinitive,  # Note: Not in UD under Mood, but VerbForm!
         "Jus": Mood.jussive,
         "Nec": Mood.necessitative,
         "Opt": Mood.optative,
@@ -473,6 +473,11 @@ def clean_up_feature_name(feature_name: str) -> str:
     """
     if feature_name == "Verbform":
         feature_name = "VerbForm"
+
+    # Pre-process a few forms that have been mis-classified by LatinCy
+    if "Gdv" in feature_name:
+        print(feature_name)
+
     return feature_name
 
 
@@ -496,8 +501,11 @@ def from_ud(
         feature_name = feature_name_split[0]
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
+    # Other cleanup
+    feature_name = clean_up_feature_name(
+        feature_name=feature_name
+    )
 
-    feature_name = clean_up_feature_name(feature_name=feature_name)
     if feature_name in FORM_UD_MAP:
         feature_map = FORM_UD_MAP[feature_name]
     else:

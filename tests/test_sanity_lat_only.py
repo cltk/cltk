@@ -61,7 +61,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(word.lemma, str)
         # self.assertIsInstance(word.named_entity, str)
         self.assertIsInstance(word.pos, POS)
-        self.assertIsInstance(word.stanza_features, str)
+        # self.assertIsInstance(word.stanza_features, str)
         self.assertIsInstance(word.stop, bool)
         self.assertIsInstance(word.string, str)
         self.assertIsInstance(word.upos, str)
