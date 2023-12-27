@@ -375,4 +375,3 @@ Sanskrit
    'Sanskrit'
    >>> a_pipeline.processes
    [<class 'cltk.tokenizers.processes.MultilingualTokenizationProcess'>, <class 'cltk.embeddings.processes.SanskritEmbeddingsProcess'>, <class 'cltk.stops.processes.StopsProcess'>]
-

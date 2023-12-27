@@ -1,4 +1,4 @@
-"""Convert a word from Latin orthography into its hypothesized 
+"""Convert a word from Latin orthography into its hypothesized
 pronunciation in the International Phonetic Alphabet (IPA).
 
 https://raw.githubusercontent.com/j-duff/cltk/ipa/

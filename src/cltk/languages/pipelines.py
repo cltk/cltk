@@ -40,9 +40,9 @@ from cltk.lemmatize.processes import (
     OldFrenchLemmatizationProcess,
 )
 from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
-from cltk.ner.processes import (
+from cltk.ner.processes import (  # GreekNERProcess,; LatinNERProcess,; OldEnglishNERProcess,
     OldFrenchNERProcess,
-)  # GreekNERProcess,; LatinNERProcess,; OldEnglishNERProcess,
+)
 from cltk.stops.processes import StopsProcess
 from cltk.tokenizers.processes import (
     AkkadianTokenizationProcess,

@@ -10,13 +10,13 @@ __license__ = "MIT License. See LICENSE."
 
 """
 The biggest challenge when it comes to noun and adjective stemming is that -similarly to MG- MHG suffixes are based on gender,
-which is difficult to determine without either a hard-coded dictionary or an efficient tagger. Statistical analysis could 
+which is difficult to determine without either a hard-coded dictionary or an efficient tagger. Statistical analysis could
 theoretically yield more  accurate results, but a lack of online resources make this approach somewhat unreliable.
 
 Another core problem is the fact that unlike English, changes of the stem often occur in the middle of the word rather than the
 end (bruoder -> brüeder).
 
-The following algorithm is inspired by Modern German stemmers (namely Snowball), modified to better fit MHG morphological 
+The following algorithm is inspired by Modern German stemmers (namely Snowball), modified to better fit MHG morphological
 structure.
 
 http://snowball.tartarus.org/algorithms/german/stemmer.html

@@ -9,7 +9,7 @@ downloadAllModels:
 	poetry run python scripts/download_all_models.py
 
 format:
-	poetry run isort src/cltk tests docs scripts && poetry run black src/cltk tests docs scripts
+	poetry run isort --profile black src/cltk tests docs scripts && poetry run black src/cltk tests docs scripts
 
 freezeDependencies:
 	# Update lock file from pyptoject.toml, but do not install the changed/added packages
