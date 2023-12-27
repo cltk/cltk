@@ -125,13 +125,14 @@ def download_spacy_models(iso_code: str) -> None:
     if iso_code not in AVAIL_SPACY_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
     if not spacy.util.is_package("la_core_web_lg"):
-        subprocess.check_call(
-            [
-                "pip",
-                "install",
-                "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
-            ]
-        )
+        spacy_wrapper: SpacyWrapper = SpacyWrapper(language="lat", interactive=False, silent=False)
+        # subprocess.check_call(
+        #     [
+        #         "pip",
+        #         "install",
+        #         "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
+        #     ]
+        # )
     print(f"Finished downloading spaCy for '{iso_code}'.")
 
 
