@@ -7,12 +7,11 @@ For selected languages only: ``$ python scripts/download_all_models.py --languag
 """
 
 import argparse
-import subprocess
+# import subprocess
 import time
-from typing import Dict, List
 
 import spacy
-from git import GitCommandError
+# from git import GitCommandError
 
 from cltk.core.exceptions import CLTKException, CorpusImportError
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
@@ -30,13 +29,13 @@ from cltk.nlp import iso_to_pipeline
 
 T0 = time.time()
 
-PARSER = argparse.ArgumentParser()
+PARSER: argparse.ArgumentParser = argparse.ArgumentParser()
 PARSER.add_argument(
     "--languages", help="What languages to download. Comma separated, no spaces."
 )
-ARGS = PARSER.parse_args()
-SELECTED_LANGS = list()  # type: List[str]
-ALL_AVAILABLE_LANGS = list(iso_to_pipeline.keys())  # type: List[str]
+ARGS: argparse.Namespace = PARSER.parse_args()
+SELECTED_LANGS: list[str] = list()
+ALL_AVAILABLE_LANGS: list[str] = list(iso_to_pipeline.keys())
 if not ARGS.languages:
     SELECTED_LANGS = ALL_AVAILABLE_LANGS
 else:
@@ -125,7 +124,10 @@ def download_spacy_models(iso_code: str) -> None:
     if iso_code not in AVAIL_SPACY_LANGS:
         raise CLTKException(f"Language '{iso_code}' not available for spaCy.")
     if not spacy.util.is_package("la_core_web_lg"):
-        spacy_wrapper: SpacyWrapper = SpacyWrapper(language="lat", interactive=False, silent=False)
+        print("Spacy Latin model not found. Going to download it ...")
+        spacy_wrapper: SpacyWrapper = SpacyWrapper(
+            language="lat", interactive=False, silent=False
+        )
         # subprocess.check_call(
         #     [
         #         "pip",
@@ -133,6 +135,7 @@ def download_spacy_models(iso_code: str) -> None:
         #         "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
         #     ]
         # )
+        print("Spacy downloaded?", spacy_wrapper._is_model_present())
     print(f"Finished downloading spaCy for '{iso_code}'.")
 
 
