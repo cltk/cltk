@@ -1,4 +1,4 @@
-from copy import deepcopy
+from copy import copy, deepcopy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -34,7 +34,7 @@ class StopsProcess(Process):
         either the inflected form (``Word.string``) or the
         lemma (``Word.lemma``).
         """
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         stops_list = self.algorithm
 
         for index, word_obj in enumerate(output_doc.words):

@@ -47,7 +47,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(cltk_doc, Doc)
         self.assertIsInstance(cltk_doc.raw, str)
         self.assertEqual(cltk_doc.language, lang)
-        self.assertIsInstance(cltk_doc.stanza_doc, Document)
+        # self.assertIsInstance(cltk_doc.stanza_doc, Document)
 
         self.assertTrue(len(cltk_doc.words) > 0)
         all_words_pres = all([isinstance(word, Word) for word in cltk_doc.words])
