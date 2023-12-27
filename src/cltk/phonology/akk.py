@@ -2,7 +2,7 @@
 Functions and classes for Akkadian phonology.
 """
 
-from typing import List, Tuple, Union
+from typing import Union
 
 _author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -40,7 +40,7 @@ AKKADIAN = {
 
 def get_cv_pattern(
     word: str, pprint: bool = False
-) -> Union[List[Tuple[str, int, str]], str]:
+) -> Union[list[tuple[str, int, str]], str]:
     """
     Return a patterned string representing the consonants
     and vowels of the input word.
@@ -125,7 +125,7 @@ def _is_circumflex_vowel(char: str) -> bool:
     return char in AKKADIAN["circumflex_vowels"]
 
 
-def syllabify(word) -> List[str]:
+def syllabify(word) -> list[str]:
     """
     Split Akkadian words into list of syllables
     >>> syllabify("napištašunu")
@@ -191,7 +191,7 @@ def syllabify(word) -> List[str]:
     return syllables + syllables_reverse[::-1]
 
 
-def find_stress(word: str) -> List[str]:
+def find_stress(word: str) -> list[str]:
     """
     Find the stressed syllable in a word.
     The general logic follows Huehnergard 3rd edition (pgs. 3-4):

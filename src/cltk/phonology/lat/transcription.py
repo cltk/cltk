@@ -6,7 +6,6 @@ cltk/phonology/lat/transcription.py
 """
 import re
 import unicodedata
-from typing import List
 
 from nltk.tokenize import wordpunct_tokenize
 
@@ -561,7 +560,7 @@ class Word:
             if a[0] in self.alts:
                 a[1](self)
 
-    def syllabify(self) -> List[List[Phone]]:
+    def syllabify(self) -> list[list[Phone]]:
         """
         Takes Word input and returns a list of syllables
         as (onset, nucleus, coda) tuples

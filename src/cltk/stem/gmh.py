@@ -1,5 +1,4 @@
 import re
-from typing import Dict
 
 from cltk.alphabet.gmh import normalize_middle_high_german
 from cltk.stops.gmh import STOPS
@@ -98,7 +97,7 @@ def _stem_helper(word, rem_umlaut=True):
 
 
 def stem(
-    word: str, exceptions: Dict[str, str] = dict(), rem_umlauts: bool = True
+    word: str, exceptions: dict[str, str] = dict(), rem_umlauts: bool = True
 ) -> str:
     """
     Stem a Middle High German word.

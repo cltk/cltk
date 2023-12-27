@@ -21,7 +21,6 @@ which contains ``fasttext``'s source but without its packaging problems.
 """
 
 import os
-from typing import List
 from zipfile import ZipFile
 
 from gensim import models  # type: ignore

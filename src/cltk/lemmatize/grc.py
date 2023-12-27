@@ -4,7 +4,6 @@ __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License. See LICENSE."
 
 import os
-from typing import List
 
 from cltk.lemmatize.backoff import (
     DictLemmatizer,
@@ -27,7 +26,7 @@ class GreekBackoffLemmatizer:
     type of major sequential backoff class from backoff.py.
     """
 
-    def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
+    def __init__(self, train: list[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = models_path
 
         missing_models_message = "GreekBackoffLemmatizer requires the ```grc_models_cltk``` to be in cltk_data. Please load this corpus."
@@ -50,7 +49,7 @@ class GreekBackoffLemmatizer:
         self.seed = seed
         self.VERBOSE = verbose
 
-        def _randomize_data(train: List[list], seed: int):
+        def _randomize_data(train: list[list], seed: int):
             import random
 
             random.seed(seed)
@@ -98,7 +97,7 @@ class GreekBackoffLemmatizer:
         )
         self.lemmatizer = self.backoff5
 
-    def lemmatize(self, tokens: List[str]):
+    def lemmatize(self, tokens: list[str]):
         """
         Lemmatize a list of words.
 

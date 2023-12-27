@@ -7,7 +7,6 @@ paper "Auceps syllabarum: A Digital Analysis of Latin Prose Rhythm". The list of
 rhythm will be counted in multiple categories.
 """
 from collections import namedtuple
-from typing import Dict, List
 
 __author__ = ["Tyler Kirby <tyler.kirby9398@gmail.com>"]
 __license__ = "MIT License. See LICENSE"
@@ -41,11 +40,11 @@ standard_clausulae = [
 
 
 class Clausulae:
-    def __init__(self, rhythms: List[Clausula] = standard_clausulae):
+    def __init__(self, rhythms: list[Clausula] = standard_clausulae):
         """Initialize class."""
         self.rhythms = rhythms
 
-    def clausulae_analysis(self, prosody: List) -> List[Dict[str, int]]:
+    def clausulae_analysis(self, prosody: List) -> list[dict[str, int]]:
         """
         Return dictionary in which the key is a type of clausula and the value is its frequency.
         :param prosody: the prosody of a prose text (must be in the format of the scansion produced by the scanner classes.

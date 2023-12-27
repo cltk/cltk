@@ -7,7 +7,6 @@ cltk/phonology/greek/transcription.py
 
 import re
 import unicodedata
-from typing import List
 
 from nltk.tokenize import wordpunct_tokenize
 
@@ -318,7 +317,7 @@ class Word:
             if a[0] in self.alts:
                 a[1](self)
 
-    def syllabify(self) -> List[str]:
+    def syllabify(self) -> list[str]:
         """
 
         :return: syllabified word

@@ -3,7 +3,7 @@
 
 import re
 from math import floor
-from typing import Dict, List, Tuple, Union
+from typing import Union
 
 import cltk.phonology.non.syllabifier as old_norse_syllabifier
 import cltk.phonology.non.transcription as old_norse_transcription
@@ -249,7 +249,7 @@ class Metre:
         """
         self.text = text
 
-    def syllabify(self, hierarchy: Dict[str, int]):
+    def syllabify(self, hierarchy: dict[str, int]):
         """
         Syllables may play a role in verse classification.
         """
@@ -364,7 +364,7 @@ class UnspecifiedStanza(Metre):
         self.short_lines = [ShortLine(line) for line in text.split("\n") if line]
         self.long_lines = None
 
-    def syllabify(self, hierarchy: Dict[str, int]):
+    def syllabify(self, hierarchy: dict[str, int]):
         """
         >>> stanza = "Ein sat hon úti,\\nþá er inn aldni kom\\nyggjungr ása\\nok í augu leit.\\nHvers fregnið mik?\\nHví freistið mín?\\nAllt veit ek, Óðinn,\\nhvar þú auga falt,\\ní inum mæra\\nMímisbrunni.\\nDrekkr mjöð Mímir\\nmorgun hverjan\\naf veði Valföðrs.\\nVituð ér enn - eða hvat?"
         >>> us = UnspecifiedStanza()
@@ -461,7 +461,7 @@ class Fornyrdhislag(Metre):
             for i in range(int(floor(len(self.short_lines) / 2)))
         ]
 
-    def syllabify(self, hierarchy: Dict[str, int]):
+    def syllabify(self, hierarchy: dict[str, int]):
         """
         >>> text = "Hljóðs bið ek allar\\nhelgar kindir,\\nmeiri ok minni\\nmögu Heimdallar;\\nviltu at ek, Valföðr,\\nvel fyr telja\\nforn spjöll fira,\\nþau er fremst of man."
         >>> fo = Fornyrdhislag()
@@ -548,7 +548,7 @@ class Ljoodhhaattr(Metre):
             [self.short_lines[5]],
         ]
 
-    def syllabify(self, hierarchy: Dict[str, int]):
+    def syllabify(self, hierarchy: dict[str, int]):
         """
         >>> lj = Ljoodhhaattr()
         >>> text = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
@@ -574,7 +574,7 @@ class Ljoodhhaattr(Metre):
         """
         Metre.to_phonetics(self, with_squared_brackets)
 
-    def find_alliteration(self) -> Tuple[list, list]:
+    def find_alliteration(self) -> tuple[list, list]:
         """
         >>> poem = "Deyr fé,\\ndeyja frændr,\\ndeyr sjalfr it sama,\\nek veit einn,\\nat aldrei deyr:\\ndómr um dauðan hvern."
         >>> lj = Ljoodhhaattr()
@@ -636,7 +636,7 @@ class MetreManager:
         return len(lines) == 6
 
     @staticmethod
-    def load_poem_from_paragraphs(paragraphs: List[str]):
+    def load_poem_from_paragraphs(paragraphs: list[str]):
         """
         Deals with a list of paragraphs:
         - detects its category,

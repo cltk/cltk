@@ -2,7 +2,7 @@
 info from CLTK data structures.
 """
 
-from typing import List, Optional, Tuple, Union
+from typing import Optional, Union
 
 from cltk.core.data_types import Word
 from cltk.core.exceptions import CLTKException
@@ -30,11 +30,11 @@ def get_pos(word: Optional[Word]) -> Optional[str]:
 def get_features(
     word: Optional[Word],
     prepend_to_label: str = None,
-) -> Tuple[List[str], List[Union[str, int, float, None]]]:
+) -> tuple[list[str], list[Union[str, int, float, None]]]:
     """Take a word, return a list of feature labels."""
 
-    features_present = list()  # type: List[Union[str, None]]
-    feature_variables = list()  # type: List[str]
+    features_present = list()  # type: list[Union[str, None]]
+    feature_variables = list()  # type: list[str]
     for possible_feature in ALL_POSSIBLE_FEATURES:
         feature_variables.append(str(possible_feature).lower())
         if not word:

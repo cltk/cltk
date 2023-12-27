@@ -3,7 +3,6 @@
 TODO: Give definition here of stopwords.
 """
 
-from typing import List
 
 from cltk.languages.utils import get_lang
 from cltk.stops import (
@@ -65,14 +64,14 @@ class Stops:
         get_lang(iso_code=self.iso_code)
         self.stops = self.get_stopwords()
 
-    def get_stopwords(self) -> List[str]:
+    def get_stopwords(self) -> list[str]:
         """Take language code, return list of stopwords."""
         stops_module = MAP_ISO_TO_MODULE[self.iso_code]
         return stops_module.STOPS
 
     def remove_stopwords(
-        self, tokens: List[str], extra_stops: List[str] = None
-    ) -> List[str]:
+        self, tokens: list[str], extra_stops: list[str] = None
+    ) -> list[str]:
         """Take list of strings and remove stopwords."""
         if extra_stops and not isinstance(extra_stops, list):
             raise ValueError("``extra_stops`` must be a list.")

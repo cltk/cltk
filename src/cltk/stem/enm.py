@@ -1,5 +1,3 @@
-from typing import Dict, List
-
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
@@ -192,7 +190,7 @@ ENDS = ["", "s", "e", "en", "es"]
 
 def stem(
     word: str,
-    exception_list: Dict[str, str] = dict(),
+    exception_list: dict[str, str] = dict(),
     strip_pref: bool = True,
     strip_suf: bool = True,
 ) -> str:

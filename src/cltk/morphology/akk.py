@@ -6,8 +6,6 @@ Functions and classes for Akkadian morphology.
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
-from typing import Dict, List, Tuple
-
 from cltk.phonology.akk import AKKADIAN, get_cv_pattern, syllabify
 from cltk.stem.akk import ENDINGS, stem
 
@@ -79,7 +77,7 @@ def get_bound_form(noun: str, gender: str) -> str:
 
 def decline_noun(
     noun: str, gender: str, mimation: bool = True
-) -> List[Tuple[str, Dict[str, str]]]:
+) -> list[tuple[str, dict[str, str]]]:
     """
     Return a list of all possible Akkadiandeclined forms given any form
      of a noun and its gender.

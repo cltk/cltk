@@ -4,7 +4,7 @@ import os
 import sys
 from contextlib import contextmanager
 from enum import EnumMeta, IntEnum
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Optional, Union
 
 import requests
 from tqdm import tqdm
@@ -42,9 +42,9 @@ def file_exists(file_path: str, is_dir: bool = False) -> bool:
 
 
 def reverse_dict(
-    input_dict: Dict[str, Any],  # pylint: disable=bad-continuation
-    ignore_keys: Optional[List[str]] = None,  # pylint: disable=bad-continuation
-) -> Dict[str, str]:
+    input_dict: dict[str, Any],  # pylint: disable=bad-continuation
+    ignore_keys: Optional[list[str]] = None,  # pylint: disable=bad-continuation
+) -> dict[str, str]:
     """Take a dict and reverse its keys and values. Optional
     parameter to ignore certain keys.
 
@@ -76,7 +76,7 @@ def reverse_dict(
                 type(ignore_keys)
             )
         )
-    output_dict = dict()  # type: Dict[str, str]
+    output_dict = dict()  # type: dict[str, str]
     for key, val in input_dict.items():
         if ignore_keys and key in ignore_keys:
             continue
@@ -159,7 +159,7 @@ def get_cltk_data_dir() -> str:
     return cltk_data_dir
 
 
-def str_to_bool(string: str, truths: Optional[List[str]] = None) -> bool:
+def str_to_bool(string: str, truths: Optional[list[str]] = None) -> bool:
     """Convert a string into a boolean (case insensitively).
 
     Args:

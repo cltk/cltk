@@ -4,7 +4,7 @@ Sources:
     https://en.wikipedia.org/wiki/Old_English_phonology
     Hogg, Richard M. (1992). The Cambridge History of the English Language. Chapter 3
 """
-from typing import List
+
 
 from cltk.phonology.ang.transcription import Transcriber
 from cltk.phonology.syllabify import Syllabifier
@@ -46,7 +46,7 @@ class OldEnglishSyllabifier:
     def __init__(self):
         self.syllabifier = Syllabifier(language="ang")
 
-    def syllabify(self, word: str) -> List[str]:
+    def syllabify(self, word: str) -> list[str]:
         """
         >>> ang_syllabifier = OldEnglishSyllabifier()
         >>> ang_syllabifier.syllabify("Beowulf".lower())

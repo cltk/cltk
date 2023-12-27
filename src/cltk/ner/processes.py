@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 from dataclasses import dataclass
-from typing import Any, List
+from typing import Any
 
 from boltons.cacheutils import cachedproperty
 
@@ -32,9 +32,9 @@ class NERProcess(Process):
         output_doc = deepcopy(input_doc)
 
         ner_obj = self.algorithm
-        entity_values = ner_obj(
+        entity_values: list[Any] = ner_obj(
             iso_code=self.language, input_tokens=input_doc.tokens
-        )  # type: List[Any]
+        )
         for index, word_obj in enumerate(output_doc.words):
             word_obj.named_entity = entity_values[index]
             output_doc.words[index] = word_obj

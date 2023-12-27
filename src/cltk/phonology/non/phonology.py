@@ -2,7 +2,7 @@
 
 
 """
-from typing import List
+
 
 from cltk.phonology.non import syllabifier as ons
 from cltk.phonology.non import transcription as ont
@@ -53,7 +53,7 @@ class OldNorseSyllabifier:
 
         self.syllabifier.set_invalid_onsets(ons.invalid_onsets)
 
-    def syllabify(self, word: str) -> List[str]:
+    def syllabify(self, word: str) -> list[str]:
         """
         >>> non_syllabifier = OldNorseSyllabifier()
         >>> non_syllabifier.syllabify('Miðgarðr'.lower())
@@ -67,5 +67,5 @@ class OldNorseSyllabifier:
     def __repr__(self):
         return f"<OldNorseScanner>"
 
-    def __call__(self, word: str) -> List[str]:
+    def __call__(self, word: str) -> list[str]:
         return self.syllabify(word)

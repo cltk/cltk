@@ -2,7 +2,7 @@ import math
 import os
 import re
 from abc import ABC, abstractmethod
-from typing import List, Tuple, Union
+from typing import Union
 
 from numpy import argmax
 
@@ -70,7 +70,7 @@ class DictionaryRegexLemmatizer(ABC):
 
     def lemmatize_token(
         self, token: str, best_guess: bool = True, return_frequencies: bool = False
-    ) -> Union[str, List[Union[str, Tuple[str, float]]]]:
+    ) -> Union[str, list[Union[str, tuple[str, float]]]]:
         """Lemmatize a single token.  If best_guess is true, then take the most
         frequent lemma when a form has multiple possible lemmatizations.
         If the form is not found, just return it.
@@ -111,10 +111,10 @@ class DictionaryRegexLemmatizer(ABC):
 
     def lemmatize(
         self,
-        tokens: List[str],
+        tokens: list[str],
         best_guess: bool = True,
         return_frequencies: bool = False,
-    ) -> Union[str, List[Union[str, Tuple[str, float]]]]:
+    ) -> Union[str, list[Union[str, tuple[str, float]]]]:
         """
         Lemmatize tokens in a list of strings.
 

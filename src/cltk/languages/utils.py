@@ -1,5 +1,3 @@
-from typing import List
-
 from cltk.core.data_types import Language
 from cltk.core.exceptions import UnknownLanguageError
 from cltk.languages.glottolog import LANGUAGES
@@ -25,7 +23,7 @@ def get_lang(iso_code: str) -> Language:
         raise UnknownLanguageError(f"Unknown ISO language code '{iso_code}'.")
 
 
-def find_iso_name(common_name: str) -> List[str]:
+def find_iso_name(common_name: str) -> list[str]:
     """Find the ISO 639-3 language code (e.g., ``lat``) by
     inputting the common name (``Latin``). This function just
     does simple substring matching, with some normalization
@@ -40,7 +38,7 @@ def find_iso_name(common_name: str) -> List[str]:
     >>> find_iso_name(common_name="xxx")
     []
     """
-    iso_return_list = list()  # type: List[str]
+    iso_return_list = list()  # type: list[str]
     for iso_key, language_obj in LANGUAGES.items():
         if common_name.lower() in language_obj.name.lower():
             iso_return_list.append(iso_key)

@@ -6,7 +6,6 @@ __author__ = [
 ]
 __license__ = "MIT License."
 
-from typing import List
 
 PRAENOMINA = [
     "a",
@@ -91,12 +90,12 @@ MISC = ["coll", "cos", "ord", "pl.", "s.c", "suff", "trib"]
 ABBREVIATIONS = set(PRAENOMINA + CALENDAR + MISC)
 
 
-que_exceptions = []  # type: List[str]
-n_exceptions = []  # type: List[str]
-ne_exceptions = []  # type: List[str]
-ue_exceptions = []  # type: List[str]
-ve_exceptions = []  # type: List[str]
-st_exceptions = []  # type: List[str]
+que_exceptions = []  # type: list[str]
+n_exceptions = []  # type: list[str]
+ne_exceptions = []  # type: list[str]
+ue_exceptions = []  # type: list[str]
+ve_exceptions = []  # type: list[str]
+st_exceptions = []  # type: list[str]
 
 # quisque / quique
 que_exceptions += [

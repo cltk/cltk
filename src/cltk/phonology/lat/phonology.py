@@ -1,7 +1,6 @@
 """Latin phonology tools
 """
 import unicodedata
-from typing import List
 
 import cltk.phonology.lat.transcription as latt
 from cltk.phonology.lat.syllabifier import syllabify
@@ -40,7 +39,7 @@ class LatinSyllabifier:
     def __init__(self):
         self.transcriber = latt.Transcriber("Classical", "Allen")
 
-    def syllabify(self, word: str) -> List[str]:
+    def syllabify(self, word: str) -> list[str]:
         """
         >>> LatinSyllabifier().syllabify("relinquus")
         ['re', 'lin', 'qu', 'us']
@@ -53,5 +52,5 @@ class LatinSyllabifier:
     def __repr__(self):
         return f"<LatinSyllabifier>"
 
-    def __call__(self, word: str) -> List[str]:
+    def __call__(self, word: str) -> list[str]:
         return self.syllabify(word)

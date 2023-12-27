@@ -4,7 +4,7 @@ import os
 from collections.abc import ValuesView
 from copy import copy, deepcopy
 from dataclasses import dataclass, field
-from typing import Dict, Optional
+from typing import Optional
 
 import numpy as np
 from boltons.cacheutils import cachedproperty
@@ -22,7 +22,7 @@ from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
-TFIDF_MAP: Dict[str, str] = {
+TFIDF_MAP: dict[str, str] = {
     "lat": os.path.join(
         CLTK_DATA_DIR,
         "lat",
@@ -53,7 +53,7 @@ class EmbeddingsProcess(Process):
     language: str = None
     variant: str = "fasttext"
     embedding_length: int = None
-    idf_model: Optional[Dict[str, float]] = field(repr=False, default=None)
+    idf_model: Optional[dict[str, float]] = field(repr=False, default=None)
     min_idf: Optional[np.float64] = None
     max_idf: Optional[np.float64] = None
 

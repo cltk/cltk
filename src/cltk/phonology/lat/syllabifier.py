@@ -5,7 +5,6 @@ is preserved where applicable.
 """
 
 import re
-from typing import List
 
 __author__ = ["Luke Hollis <lukehollis@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
@@ -133,7 +132,7 @@ def _is_liquid_consonant(char: str) -> bool:
     return char in LATIN["liquid_consonants"]
 
 
-def syllabify(word: str) -> List[str]:
+def syllabify(word: str) -> list[str]:
     """
     Splits input Latin word into a list of syllables
 

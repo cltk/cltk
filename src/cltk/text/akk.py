@@ -1,5 +1,4 @@
 import re
-from typing import List, Tuple
 from unicodedata import normalize
 
 __author__ = ["Andrew Deloucas <ADeloucas@g.harvard.com>"]
@@ -46,7 +45,7 @@ def _convert_number_to_subscript(num: int) -> str:
     return subscript
 
 
-def _get_number_from_sign(sign: str) -> Tuple[str, int]:
+def _get_number_from_sign(sign: str) -> tuple[str, int]:
     """
     Captures numbers after sign for __convert_num__.
 
@@ -125,7 +124,7 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
                 + new_sign[i + 1 :].replace(str(num), "")
             )
 
-    def process(self, tokens: List[str]) -> List[str]:
+    def process(self, tokens: list[str]) -> list[str]:
         """
         Expects a list of tokens, will return the list converted from ATF
         format to print-format.

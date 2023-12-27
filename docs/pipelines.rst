@@ -47,7 +47,7 @@ The CLTK contains four important, native data types:
      ]
 
      EtcPipeline [
-       label = "{…|\l|processes: List[Process]}"
+       label = "{…|\l|processes: list[Process]}"
      ]
 
      Pipeline -> LatinPipeline [dir=back]

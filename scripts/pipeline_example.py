@@ -32,7 +32,7 @@ In the following, I propose these new data types:
    which has as value a given field (e.g., ``LatinPipeline.algo == LatinTokenizationOperation == True``.
 
    - ``Doc``: Returned by the ``NLP`` class (more specifically, by ``NLP().run_pipeline()``). Similar to what spaCy returns, only more transparent (IMHO). To the field ``Doc.words`` will be a list
-   of ``Word`` (``List[Word]``).
+   of ``Word`` (``list[Word]``).
 
 Notes:
 
@@ -45,7 +45,7 @@ Notes:
 
 import re
 from dataclasses import dataclass
-from typing import Callable, List
+from typing import Callable
 
 from cltk.languages.glottolog import LANGUAGES
 from cltk.nlp import NLP
@@ -56,7 +56,7 @@ from cltk.utils.operations import Operation
 # #######################START OPERATION TYPE##########################################
 
 
-def dummy_get_token_indices(text: str) -> List[List[int]]:
+def dummy_get_token_indices(text: str) -> list[list[int]]:
     """Get the start/stop char indices of word boundaries.
 
     >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας"
@@ -89,7 +89,7 @@ class LatinTokenizationOperation(TokenizationOperation):
     name = "CLTK Dummy Latin Tokenizer"
     description = "This is a simple regex which divides on word spaces (``r'\w+)`` for illustrative purposes."
     input = str
-    output = List[List[int]]  # e.g., [[0, 4], [6, 11], ...]
+    output = list[list[int]]  # e.g., [[0, 4], [6, 11], ...]
     algorithm = dummy_get_token_indices
     language = LANGUAGES["lat"]
 
@@ -104,8 +104,8 @@ class LatinTokenizationOperation(TokenizationOperation):
 
 @dataclass
 class Pipeline:
-    sentence_splitter: Callable[[str], List[List[int]]] = None
-    word_tokenizer: Callable[[str], List[Word]] = None
+    sentence_splitter: Callable[[str], list[list[int]]] = None
+    word_tokenizer: Callable[[str], list[Word]] = None
     dependency: str = None
     pos: str = None
     scansion: Callable[[str], str] = None

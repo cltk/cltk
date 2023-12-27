@@ -6,7 +6,6 @@ __license__ = "MIT License. See LICENSE."
 
 import os
 import re
-from typing import List
 
 from cltk.lemmatize.backoff import (
     DefaultLemmatizer,
@@ -476,7 +475,7 @@ class RomanNumeralLemmatizer(RegexpLemmatizer):
         self._regexs = [(re.compile(regexp), pattern) for regexp, pattern in regexps]
         self.default = default
 
-    def choose_tag(self, tokens: List[str], index: int, history: List[str]):
+    def choose_tag(self, tokens: list[str], index: int, history: list[str]):
         """Use regular expressions for rules-based lemmatizing based on word endings;
         tokens are matched for patterns with the base kept as a group; an word ending
         replacement is added to the (base) group.
@@ -509,7 +508,7 @@ class LatinBackoffLemmatizer:
     ###    original Latin lemmatizer from cltk.stem
     """
 
-    def __init__(self, train: List[list] = None, seed: int = 3, verbose: bool = False):
+    def __init__(self, train: list[list] = None, seed: int = 3, verbose: bool = False):
         self.models_path = os.path.normpath(
             os.path.join(
                 CLTK_DATA_DIR, "lat", "model", "lat_models_cltk", "lemmata", "backoff"
@@ -571,7 +570,7 @@ class LatinBackoffLemmatizer:
         )
         self.lemmatizer = self.backoff5
 
-    def lemmatize(self, tokens: List[str]):
+    def lemmatize(self, tokens: list[str]):
         lemmas = self.lemmatizer.lemmatize(tokens)
         return lemmas
 
@@ -583,7 +582,7 @@ class LatinBackoffLemmatizer:
         return self.lemmatizer.evaluate(self.test_sents)
 
     @classmethod
-    def _randomize_data(cls, train: List[list], seed: int):
+    def _randomize_data(cls, train: list[list], seed: int):
         import random
 
         random.seed(seed)
