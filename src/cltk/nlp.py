@@ -1,7 +1,7 @@
 """Primary module for CLTK pipeline."""
 
 from threading import Lock
-from typing import List, Type
+from typing import List, Optional, Type
 
 import cltk
 from cltk.core.data_types import Doc, Language, Pipeline, Process
@@ -55,13 +55,13 @@ iso_to_pipeline = {
 class NLP:
     """NLP class for default processing."""
 
-    process_objects = dict()
+    process_objects: dict[Type[Process], Process] = dict()
     process_lock = Lock()
 
     def __init__(
         self,
         language: str,
-        custom_pipeline: Pipeline = None,
+        custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
         """Constructor for CLTK class.
@@ -91,16 +91,16 @@ class NLP:
             self._print_special_authorship_messages_for_current_lang()
             self._print_suppress_reminder()
 
-    def _print_cltk_info(self):
+    def _print_cltk_info(self) -> None:
         """Print to screen about citing CLTK."""
-        ltr_mark = "\u200E"
-        alep = "𐤀"
+        ltr_mark: str = "\u200E"
+        alep: str = "𐤀"
         print(
             f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
         )
         print("")
 
-    def _print_pipelines_for_current_lang(self):
+    def _print_pipelines_for_current_lang(self) -> None:
         """Print to screen the ``Process``es invoked upon invocation
         of ``NLP()``.
         """
@@ -113,7 +113,7 @@ class NLP:
         )
         print("")
 
-    def _print_special_authorship_messages_for_current_lang(self):
+    def _print_special_authorship_messages_for_current_lang(self) -> None:
         """Print to screen the authors of particular algorithms."""
         for process in self.pipeline.processes:
             if hasattr(process, "authorship_info"):
@@ -121,7 +121,7 @@ class NLP:
                 # U+2E16 Dotted Right-Pointing Angle ⸖
                 print(f"⸖ {process.authorship_info}")
 
-    def _print_suppress_reminder(self):
+    def _print_suppress_reminder(self) -> None:
         """Tell users how to suppress printed messages."""
         # https://en.wikipedia.org/wiki/Coronis_(textual_symbol)
         # U+2E0E ⸎ EDITORIAL CORONIS
@@ -134,15 +134,17 @@ class NLP:
         """
         Returns an instance of a process from a memoized hash.
         An un-instantiated process is created and stashed in the cache.
+
+        TODO: Figure out typing in this.
         """
         with NLP.process_lock:
-            a_process = NLP.process_objects.get(process_object, None)
+            a_process: Optional[Process] = NLP.process_objects.get(process_object, None)
             if a_process:
                 return a_process
             else:
-                a_process = process_object(self.language.iso_639_3_code)
-                NLP.process_objects[process_object] = a_process
-                return a_process
+                new_process: Process = process_object(self.language.iso_639_3_code)
+                NLP.process_objects[process_object] = new_process
+                return new_process
 
     def analyze(self, text: str) -> Doc:
         """The primary method for the NLP object, to which raw text strings are passed.
@@ -164,7 +166,7 @@ class NLP:
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
         for process in self.pipeline.processes:
-            a_process = self._get_process_object(process)
+            a_process: Process = self._get_process_object(process_object=process)
             doc = a_process.run(doc)
         return doc
 

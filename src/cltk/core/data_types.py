@@ -333,7 +333,7 @@ class Pipeline:
     """
 
     description: str
-    processes: List[Type[Process]]
+    processes: list[Type[Process]]
     language: Language
 
     def add_process(self, process: Type[Process]):

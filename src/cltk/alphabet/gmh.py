@@ -128,7 +128,7 @@ def normalize_middle_high_german(
     alpha_conv: bool = True,
     punct: bool = True,
     ascii: bool = False,
-):
+) -> str:
     """Normalize input string.
 
     >>> from cltk.alphabet import gmh
@@ -149,7 +149,7 @@ def normalize_middle_high_german(
         text = text.lower()
     if to_lower_beginning:
         text = text[0].lower() + text[1:]
-        text = re.sub(r"(?<=[\.\?\!]\s)(\w)", lambda x: x.group(1).lower(), text)
+        text: str = re.sub(r"(?<=[\.\?\!]\s)(\w)", lambda x: x.group(1).lower(), text)
     if alpha_conv:
         text = (
             text.replace("ē", "ê")
@@ -162,8 +162,8 @@ def normalize_middle_high_german(
     if punct:
         text = re.sub(r"[\.\";\,\:\[\]\(\)!&?‘]", "", text)
     if ascii:
-        text = unicodedata.normalize("NFKD", text).encode(
+        text_raw: bytes = unicodedata.normalize("NFKD", text).encode(
             "ASCII", "ignore"
         )  # Encode into ASCII, returns a bytestring
-        text = text.decode("utf-8")  # Convert back to string
+        text = text_raw.decode("utf-8")  # Convert back to string
     return text
