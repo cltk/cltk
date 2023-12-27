@@ -7,11 +7,11 @@ For selected languages only: ``$ python scripts/download_all_models.py --languag
 """
 
 import argparse
+
 # import subprocess
 import time
 
 import spacy
-# from git import GitCommandError
 
 from cltk.core.exceptions import CLTKException, CorpusImportError
 from cltk.data.fetch import LANGUAGE_CORPORA as AVAILABLE_CLTK_LANGS
@@ -26,6 +26,9 @@ from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
 from cltk.nlp import iso_to_pipeline
+
+# from git import GitCommandError
+
 
 T0 = time.time()
 

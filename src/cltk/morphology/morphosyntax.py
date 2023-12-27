@@ -473,12 +473,16 @@ def clean_up_feature_name(feature_name: str) -> str:
     """
     if feature_name == "Verbform":
         feature_name = "VerbForm"
-
-    # Pre-process a few forms that have been mis-classified by LatinCy
-    if "Gdv" in feature_name:
-        print(feature_name)
-
     return feature_name
+
+
+def _preprocess_latincy_ud_types(
+    feature_name: str, feature_value: str
+) -> tuple[str, str]:
+    """Pre-process for invalid UD types in LatinCy"""
+    if feature_name == "Mood" and feature_value in ["Ger", "Gdv", "Inf"]:
+        return "VerbForm", feature_value
+    return feature_name, feature_value
 
 
 def from_ud(
@@ -502,8 +506,10 @@ def from_ud(
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
     # Other cleanup
-    feature_name = clean_up_feature_name(
-        feature_name=feature_name
+    feature_name = clean_up_feature_name(feature_name=feature_name)
+
+    feature_name, feature_value = _preprocess_latincy_ud_types(
+        feature_name=feature_name, feature_value=feature_value
     )
 
     if feature_name in FORM_UD_MAP:
