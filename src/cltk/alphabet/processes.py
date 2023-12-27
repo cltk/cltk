@@ -4,7 +4,7 @@ before the text is sent to other processes.
 
 from dataclasses import dataclass
 
-from boltons.cacheutils import cachedproperty
+from boltons.cacheutils import cachedproperty  # type: ignore
 
 from cltk.alphabet.grc.grc import normalize_grc
 from cltk.alphabet.lat import normalize_lat
