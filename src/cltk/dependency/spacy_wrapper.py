@@ -15,14 +15,17 @@ LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
 
 MAP_LANGS_CLTK_SPACY = {
+    "grc": "grc",
     "lat": "la",
 }
 
 MAP_LANG_TO_SPACY_MODEL_NAME: dict[str, str] = {
+    "grc": "grc_odycy_joint_sm",
     "lat": "la_core_web_lg",
 }
 
 MAP_LANG_TO_SPACY_MODEL_URL: dict[str, str] = {
+    "grc": "https://huggingface.co/chcaa/grc_odycy_joint_sm/resolve/main/grc_odycy_joint_sm-any-py3-none-any.whl",
     "lat": "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
 }
 
@@ -111,6 +114,19 @@ class SpacyWrapper:
                 raise CLTKException(
                     f"Download of necessary spaCy model declined for '{self.language}'. Unable to continue with spaCy's processing."
                 )
+        if self.language == "grc":
+            # Use OdyCy's Spacy models, hosted on HuggingFace
+            subprocess.check_call(
+                [
+                    "pip",
+                    "install",
+                    "https://huggingface.co/chcaa/grc_odycy_joint_sm/resolve/main/grc_odycy_joint_sm-any-py3-none-any.whl",
+                ]
+            )
+        else:
+            raise CLTKException(
+                f"No spaCy model found for language '{self.language}'. If you know of a publicly available spaCy model for '{self.language}', please open a pull request (with this message) at `https://github.com/cltk/cltk/issues`."
+            )
         if self.language == "lat":
             # Use Patrick Burns's Spacy models, hosted on HuggingFace
             subprocess.check_call(
