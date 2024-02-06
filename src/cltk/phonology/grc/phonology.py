@@ -2,7 +2,6 @@
 
 """
 import unicodedata
-from typing import List
 
 import cltk.phonology.grc.transcription as gret
 
@@ -34,7 +33,7 @@ class GreekSyllabifier:
     def __init__(self):
         self.transcriber = gret.Transcriber("Attic", "Probert")
 
-    def syllabify(self, word: str) -> List[str]:
+    def syllabify(self, word: str) -> list[str]:
         """
         >>> GreekTranscription().transcribe("Ὀδύσσεια")
         'o.dýs.sẹː.ɑ'
@@ -49,5 +48,5 @@ class GreekSyllabifier:
     def __repr__(self):
         return f"<GreekSyllabifier>"
 
-    def __call__(self, word: str) -> List[str]:
+    def __call__(self, word: str) -> list[str]:
         return self.syllabify(word)

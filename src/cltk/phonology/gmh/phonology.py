@@ -1,6 +1,6 @@
 """Middle High German phonology tools
 """
-from typing import List
+
 
 from cltk.phonology.gmh.transcription import Transcriber
 from cltk.phonology.syllabify import Syllabifier
@@ -42,7 +42,7 @@ class MiddleHighGermanSyllabifier:
     def __init__(self):
         self.syllabifier = Syllabifier(language="gmh")
 
-    def syllabify(self, word: str) -> List[str]:
+    def syllabify(self, word: str) -> list[str]:
         """
         >>> MiddleHighGermanSyllabifier().syllabify("Gunther")
         ['Gunt', 'her']

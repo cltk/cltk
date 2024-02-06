@@ -21,9 +21,10 @@ which contains ``fasttext``'s source but without its packaging problems.
 """
 
 import os
-from typing import List
+from typing import Optional
 from zipfile import ZipFile
 
+import numpy as np
 from gensim import models  # type: ignore
 
 from cltk.core.cltk_logger import logger
@@ -33,16 +34,16 @@ from cltk.languages.utils import get_lang
 from cltk.utils import CLTK_DATA_DIR, get_file_with_progress_bar, query_yes_no
 from cltk.utils.file_operations import make_cltk_path
 
-MAP_CLTK_SELF_HOSTED_LANGS = dict(enm="enm")
+MAP_CLTK_SELF_HOSTED_LANGS: dict[str, str] = dict(enm="enm")
 
-MAP_NLPL_LANG_TO_URL = dict(
+MAP_NLPL_LANG_TO_URL: dict[str, str] = dict(
     arb="http://vectors.nlpl.eu/repository/20/31.zip",
     chu="http://vectors.nlpl.eu/repository/20/60.zip",
     grc="http://vectors.nlpl.eu/repository/20/30.zip",
     lat="http://vectors.nlpl.eu/repository/20/56.zip",
 )
 
-MAP_LANGS_CLTK_FASTTEXT = {
+MAP_LANGS_CLTK_FASTTEXT: dict[str, str] = {
     "ang": "ang",  # Anglo-Saxon
     "arb": "ar",  # Arabic
     "arc": "arc",  # Aramaic
@@ -64,11 +65,11 @@ class CLTKWord2VecEmbeddings:
         silent: bool = False,
         overwrite: bool = False,
     ):
-        self.iso_code = iso_code
-        self.model_type = model_type
-        self.interactive = interactive
-        self.silent = silent
-        self.overwrite = overwrite
+        self.iso_code: str = iso_code
+        self.model_type: str = model_type
+        self.interactive: bool = interactive
+        self.silent: bool = silent
+        self.overwrite: bool = overwrite
 
         if self.interactive and self.silent:
             raise ValueError(
@@ -77,30 +78,30 @@ class CLTKWord2VecEmbeddings:
 
         self._check_input_params()
 
-        self.model_path = make_cltk_path(
+        self.model_path: str = make_cltk_path(
             self.iso_code, "model", f"{self.iso_code}_models_cltk", "semantics"
         )
 
         # load model after all checks OK
-        self.fp_model = self._build_filepath()
+        self.fp_model: str = self._build_filepath()
         if not self._is_model_present() or self.overwrite:
             self._download_cltk_self_hosted_models()
         elif self._is_model_present() and not self.overwrite:
-            message = (
+            message: str = (
                 f"Model for '{self.iso_code}' / '{self.model_type}' already present "
                 f"at '{self.fp_model}' and ``overwrite=False``."
             )
             logger.info(message)
         self.model: models.word2vec.Word2Vec = self._load_model()
 
-    def _build_filepath(self):
+    def _build_filepath(self) -> str:
         """Create filepath where chosen language should be found."""
-        model_dir = os.path.join(
+        model_dir: str = os.path.join(
             self.iso_code, "models", f"{self.iso_code}_models_cltk", "semantics"
-        )  # type: str
+        )
         return os.path.join(model_dir, f"me_word_embeddings_model.{self.model_type}")
 
-    def get_word_vector(self, word: str):
+    def get_word_vector(self, word: str) -> Optional[np.ndarray]:
         """Return embedding array."""
         try:
             return self.model.wv.get_vector(word)
@@ -124,16 +125,18 @@ class CLTKWord2VecEmbeddings:
 
         # 2. check if any fasttext embeddings for this lang
         if self.iso_code not in MAP_CLTK_SELF_HOSTED_LANGS:
-            available_embeddings_str = "', '".join(MAP_CLTK_SELF_HOSTED_LANGS.keys())
+            available_embeddings_str: str = "', '".join(
+                MAP_CLTK_SELF_HOSTED_LANGS.keys()
+            )
             raise UnimplementedAlgorithmError(
                 f"No embedding available for language '{self.iso_code}'."
                 f" Self-hosted Word2Vec models available for: '{available_embeddings_str}'."
             )
 
         # 3. assert that model type is valid
-        valid_types = ["bin", "txt"]
+        valid_types: list[str] = ["bin", "txt"]
         if self.model_type not in valid_types:
-            unavailable_types_str = "', '".join(valid_types)
+            unavailable_types_str: str = "', '".join(valid_types)
             raise ValueError(
                 f"Invalid ``model_type`` {self.model_type}. Valid model types: {unavailable_types_str}."
             )
@@ -156,9 +159,9 @@ class CLTKWord2VecEmbeddings:
             print(  # pragma: no cover
                 "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
             )  # pragma: no cover
-            dl_is_allowed = query_yes_no(
+            dl_is_allowed: bool = query_yes_no(
                 f"Do you want to download the {self.iso_code} models to {self.model_path}'?"
-            )  # type: bool
+            )
             if dl_is_allowed:
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
@@ -216,14 +219,14 @@ class Word2VecEmbeddings:
         self._check_input_params()
 
         # load model after all checks OK
-        self.fp_zip = self._build_zip_filepath()
-        self.fp_model = self._build_nlpl_filepath()
-        self.fp_model_dirs = os.path.split(self.fp_zip)[0]  # type: str
+        self.fp_zip: str = self._build_zip_filepath()
+        self.fp_model: str = self._build_nlpl_filepath()
+        self.fp_model_dirs: str = os.path.split(self.fp_zip)[0]
         if not self._is_nlpl_model_present() or self.overwrite:
             self._download_nlpl_models()
             self._unzip_nlpl_model()
         elif self._is_nlpl_model_present() and not self.overwrite:
-            message = (
+            message: str = (
                 f"Model for '{self.iso_code}' / '{self.model_type}' already present "
                 f"at '{self.fp_model}' and ``overwrite=False``."
             )
@@ -271,18 +274,18 @@ class Word2VecEmbeddings:
 
     def _build_zip_filepath(self) -> str:
         """Create filepath where .zip file will be saved."""
-        url_frag = MAP_NLPL_LANG_TO_URL[self.iso_code].split(".")[-2]  # type: str
+        url_frag: str = MAP_NLPL_LANG_TO_URL[self.iso_code].split(".")[-2]
         nlpl_id = int(url_frag.split("/")[-1])  # str
-        fp_zip = os.path.join(
+        fp_zip: str = os.path.join(
             CLTK_DATA_DIR, f"{self.iso_code}/embeddings/nlpl/{nlpl_id}.zip"
-        )  # type: str
+        )
         return fp_zip
 
     def _build_nlpl_filepath(self) -> str:
         """Create filepath where chosen language should be found."""
-        model_dir = os.path.join(
+        model_dir: str = os.path.join(
             CLTK_DATA_DIR, f"{self.iso_code}/embeddings/nlpl/"
-        )  # type: str
+        )
         return os.path.join(model_dir, f"model.{self.model_type}")
 
     def _is_nlpl_model_present(self) -> bool:
@@ -308,9 +311,9 @@ class Word2VecEmbeddings:
             print(  # pragma: no cover
                 "CLTK message: This part of the CLTK depends upon word embedding models from the NLPL project."
             )  # pragma: no cover
-            dl_is_allowed = query_yes_no(
+            dl_is_allowed: bool = query_yes_no(
                 f"Do you want to download file '{model_url}' to '{self.fp_zip}'?"
-            )  # type: bool
+            )
             if dl_is_allowed:
                 get_file_with_progress_bar(model_url=model_url, file_path=self.fp_zip)
             else:
@@ -424,9 +427,9 @@ class FastTextEmbeddings:
             print(  # pragma: no cover
                 "CLTK message: This part of the CLTK depends upon word embedding models from the Fasttext project."
             )  # pragma: no cover
-            dl_is_allowed = query_yes_no(
+            dl_is_allowed: bool = query_yes_no(
                 f"Do you want to download file '{model_url}' to '{self.model_fp}'?"
-            )  # type: bool
+            )
             if dl_is_allowed:
                 get_file_with_progress_bar(model_url=model_url, file_path=self.model_fp)
             else:

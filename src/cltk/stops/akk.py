@@ -4,7 +4,7 @@
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "GPL License."
 
-STOPS = [
+STOPS: list[str] = [
     "ana",  # prepositions
     "ina",
     "itti",

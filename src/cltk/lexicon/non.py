@@ -15,15 +15,15 @@ class OldNorseZoegaLexicon:
     """Access a digital form of Zoëga's dictionary."""
 
     def __init__(self, interactive: bool = True):
-        self.interactive = interactive
-        self.zoega_yaml_fp = make_cltk_path(
+        self.interactive: bool = interactive
+        self.zoega_yaml_fp: str = make_cltk_path(
             "non", "dictionary", "cltk_non_zoega_dictionary", "dictionary.yaml"
         )
         try:
-            self.entries = self._load_entries()
+            self.entries: dict[str, str] = self._load_entries()
         except FileNotFoundError:
             if self.interactive:
-                dl_msg = f"This part of the CLTK depends upon Zoëga's *A Concise Old Norse Dictionary* (1890)."
+                dl_msg: str = f"This part of the CLTK depends upon Zoëga's *A Concise Old Norse Dictionary* (1890)."
                 print(dl_msg)
                 dl_question = "Do you want to download this?"
                 do_download = query_yes_no(question=dl_question)
@@ -36,7 +36,7 @@ class OldNorseZoegaLexicon:
                 raise CLTKException(
                     f"File '{self.zoega_yaml_fp}' is not found. It is required for this class."
                 )
-            self.entries = self._load_entries()
+            self.entries: dict[str, str] = self._load_entries()
 
     def lookup(self, lemma: str) -> str:
         """Perform match of a lemma against headwords. This is case sensitive.
@@ -55,7 +55,7 @@ class OldNorseZoegaLexicon:
         if regex.match(r"^[0-9\.\?,\:;\!\<\>\-]*$", lemma) is not None:
             return ""
 
-        keys = self.entries.keys()
+        keys: list[str] = list(self.entries.keys())
         matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)]
         n_matches = len(matches)
         if n_matches > 1:
@@ -65,8 +65,11 @@ class OldNorseZoegaLexicon:
         else:
             return ""
 
-    def _load_entries(self):
-        """Read the yaml file of the lexion."""
+    def _load_entries(self) -> dict[str, str]:
+        """Read the yaml file of the lexion.
+
+        TODO: Make sure this actualy returns dict[str, str]
+        """
         with open(self.zoega_yaml_fp) as file_open:
-            entries = yaml.load(file_open, Loader=yaml.Loader)
+            entries: dict[str, str] = yaml.load(file_open, Loader=yaml.Loader)
         return entries

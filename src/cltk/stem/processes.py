@@ -1,15 +1,16 @@
 """Processes for stemming.
 """
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
+from typing import Any
 
 import cltk.stem.akk
 import cltk.stem.enm
 import cltk.stem.fro
 import cltk.stem.gmh
 import cltk.stem.lat
-from cltk.core.data_types import Doc, Process, Word
+from cltk.core.data_types import Doc, Process
 
 
 @dataclass
@@ -25,9 +26,9 @@ class StemmingProcess(Process):
     """
 
     def run(self, input_doc: Doc) -> Doc:
-        stem = self.algorithm
+        stem: Any = self.algorithm
 
-        output_doc = deepcopy(input_doc)
+        output_doc: Doc = copy(input_doc)
         for word in output_doc.words:
             word.stem = stem(word.string)
 

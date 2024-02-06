@@ -16,7 +16,6 @@ __license__ = "MIT License. See LICENSE."
 import logging
 import re
 from abc import abstractmethod
-from typing import List
 
 from nltk.tokenize import TreebankWordTokenizer
 from nltk.tokenize.punkt import PunktParameters, PunktSentenceTokenizer
@@ -81,7 +80,7 @@ class PunktWordTokenizer(WordTokenizer):
 class RegexWordTokenizer(WordTokenizer):
     """Class for regex-based word tokenization"""
 
-    def __init__(self, patterns: List[str] = None):
+    def __init__(self, patterns: list[str] = None):
         """
         :param language : language for sentences tokenization
         :type language: str

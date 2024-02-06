@@ -11,7 +11,7 @@ into this classes constructor.
 
 import logging
 import re
-from typing import Any, Dict, List
+from typing import Any
 
 import cltk.prosody.lat.string_utils as string_utils
 from cltk.prosody.lat.metrical_validator import MetricalValidator
@@ -270,7 +270,7 @@ class VerseScanner:
         results = string_utils.merge_elisions(candidates)
         return results
 
-    def calc_offset(self, syllables_spaces: List[str]) -> Dict[int, int]:
+    def calc_offset(self, syllables_spaces: list[str]) -> dict[int, int]:
         """
         Calculate a dictionary of accent positions from a list of syllables with spaces.
 
@@ -278,8 +278,8 @@ class VerseScanner:
         :return:
         """
         line = string_utils.flatten(syllables_spaces)
-        mydict = {}  # type: Dict[int, int]
-        # #defaultdict(int) #type: Dict[int, int]
+        mydict: dict[int, int] = {}
+        # #defaultdict(int) #type: dict[int, int]
         for idx, syl in enumerate(syllables_spaces):
             target_syllable = syllables_spaces[idx]
             skip_qu = string_utils.starts_with_qu(target_syllable)
@@ -304,7 +304,7 @@ class VerseScanner:
         return mydict
 
     def produce_scansion(
-        self, stresses: list, syllables_wspaces: List[str], offset_map: Dict[int, int]
+        self, stresses: list, syllables_wspaces: list[str], offset_map: dict[int, int]
     ) -> str:
         """
         Create a scansion string that has stressed and unstressed syllable positions in locations
@@ -334,7 +334,7 @@ class VerseScanner:
             )
         return "".join(scansion)
 
-    def flag_dipthongs(self, syllables: List[str]) -> List[int]:
+    def flag_dipthongs(self, syllables: list[str]) -> list[int]:
         """
         Return a list of syllables that contain a dipthong
 

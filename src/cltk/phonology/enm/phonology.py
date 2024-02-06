@@ -1,6 +1,6 @@
 """Middle English phonology tools
 """
-from typing import List
+
 
 from cltk.phonology.syllabify import Syllabifier
 
@@ -15,11 +15,11 @@ class MiddleEnglishSyllabifier:
     def __init__(self):
         self.syllabifier = Syllabifier(language="enm")
 
-    def syllabify(self, word: str) -> List[str]:
+    def syllabify(self, word: str) -> list[str]:
         return self.syllabifier.syllabify(word)
 
     def __repr__(self):
         return f"<MiddleEnglishSyllabifier>"
 
-    def __call__(self, word: str) -> List[str]:
+    def __call__(self, word: str) -> list[str]:
         return self.syllabify(word)

@@ -736,7 +736,7 @@ class FetchCorpus:
 
     def import_corpus(
         self, corpus_name: str, local_path: str = None, branch: str = "master"
-    ):
+    ) -> None:
         """Download a remote or load local corpus into dir ``~/cltk_data``.
 
         TODO: maybe add ``from git import RemoteProgress``

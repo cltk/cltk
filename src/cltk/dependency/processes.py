@@ -1,8 +1,8 @@
 """``Process`` classes for accessing the Stanza project."""
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
-from typing import Any, Dict, List, Literal, Optional, Tuple
+from typing import Any, Literal, Optional
 
 import spacy
 import stanza
@@ -45,7 +45,7 @@ class StanzaProcess(Process):
         return StanzaWrapper.get_nlp(language=self.language)
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         stanza_wrapper = self.algorithm
         if output_doc.normalized_text:
             input_text = output_doc.normalized_text
@@ -77,11 +77,11 @@ class StanzaProcess(Process):
 
         """
 
-        words_list = list()  # type: List[Word]
+        words_list: list[Word] = list()
 
         for sentence_index, sentence in enumerate(stanza_doc.sentences):
-            sent_words = dict()  # type: Dict[int, Word]
-            indices = list()  # type: List[Tuple[int, int]]
+            sent_words: dict[int, Word] = dict()
+            indices: list[tuple[int, int]] = list()
 
             for token_index, token in enumerate(sentence.tokens):
                 stanza_word: stanza.pipeline.doc.Word = token.words[0]
@@ -247,7 +247,7 @@ class SpacyProcess(Process):
         return SpacyWrapper.get_nlp(language=self.language)
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         spacy_wrapper = self.algorithm
         if output_doc.normalized_text:
             input_text = output_doc.normalized_text
@@ -282,9 +282,9 @@ class SpacyProcess(Process):
         Word(index_char_start=0, index_char_stop=6, index_token=0, index_sentence=0, string='Gallia', pos=None, lemma='Gallia', stem=None, scansion=None, xpos='proper_noun', upos='PROPN', dependency_relation='nsubj', governor=None, features={}, category={}, stop=False, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
 
         """
-        words_list: List[Word] = []
+        words_list: list[Word] = []
         for sentence_index, sentence in enumerate(spacy_doc.doc.sents):
-            sent_words: Dict[int, Word] = {}
+            sent_words: dict[int, Word] = {}
             for spacy_word in sentence:
                 pos: Optional[MorphosyntacticFeature] = None
                 if spacy_word.pos_:

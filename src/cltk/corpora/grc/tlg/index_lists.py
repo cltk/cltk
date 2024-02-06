@@ -1,4 +1,4 @@
-INDEX_LIST = {
+ALL_TLG_INDICES: dict[str, dict[str, str]] = {
     "Miscellaneous indices (works on CD)": {
         "AWNAMSCD.BIN": "Names of authors and works",
         "BIBINDCD.BIN": "Index to author/work entries in bibliographical form of Canon",

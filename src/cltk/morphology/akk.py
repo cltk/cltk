@@ -6,10 +6,8 @@ Functions and classes for Akkadian morphology.
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
-from typing import Dict, List, Tuple
-
 from cltk.phonology.akk import AKKADIAN, get_cv_pattern, syllabify
-from cltk.stem.akk import ENDINGS, stem
+from cltk.stem.akk import AKKADIAN_ENDINGS, stem
 
 
 def get_bound_form(noun: str, gender: str) -> str:
@@ -79,7 +77,7 @@ def get_bound_form(noun: str, gender: str) -> str:
 
 def decline_noun(
     noun: str, gender: str, mimation: bool = True
-) -> List[Tuple[str, Dict[str, str]]]:
+) -> list[tuple[str, dict[str, str]]]:
     """
     Return a list of all possible Akkadiandeclined forms given any form
      of a noun and its gender.
@@ -97,29 +95,33 @@ def decline_noun(
     stemmed_noun = stem(noun, gender)
     declension = []
 
-    for case in ENDINGS[gender]["singular"]:
+    for case in AKKADIAN_ENDINGS[gender]["singular"]:
         if gender == "m":
-            form = stemmed_noun + ENDINGS[gender]["singular"][case]
+            form = stemmed_noun + AKKADIAN_ENDINGS[gender]["singular"][case]
         else:
-            form = stemmed_noun + ENDINGS[gender]["singular"][case][1:]
+            form = stemmed_noun + AKKADIAN_ENDINGS[gender]["singular"][case][1:]
         declension.append((form, {"case": case, "number": "singular"}))
 
-    for case in ENDINGS[gender]["dual"]:
+    for case in AKKADIAN_ENDINGS[gender]["dual"]:
         if gender == "m":
-            form = stemmed_noun + ENDINGS[gender]["dual"][case]
+            form = stemmed_noun + AKKADIAN_ENDINGS[gender]["dual"][case]
         else:
-            form = stemmed_noun + ENDINGS[gender]["dual"][case][1:]
+            form = stemmed_noun + AKKADIAN_ENDINGS[gender]["dual"][case][1:]
         declension.append((form, {"case": case, "number": "dual"}))
 
-    for case in ENDINGS[gender]["plural"]:
+    for case in AKKADIAN_ENDINGS[gender]["plural"]:
         if gender == "m":
-            form = stemmed_noun + ENDINGS[gender]["plural"][case]
+            form = stemmed_noun + AKKADIAN_ENDINGS[gender]["plural"][case]
         else:
             if stemmed_noun[-3] in AKKADIAN["macron_vowels"]:
                 theme_vowel = stemmed_noun[-3]
             else:
                 theme_vowel = "ā"
-            ending = [x for x in ENDINGS[gender]["plural"][case] if x[0] == theme_vowel]
+            ending = [
+                x
+                for x in AKKADIAN_ENDINGS[gender]["plural"][case]
+                if x[0] == theme_vowel
+            ]
             if stemmed_noun[-2] in AKKADIAN["short_vowels"]:
                 form = stemmed_noun[:-2] + ending[0]
             elif (

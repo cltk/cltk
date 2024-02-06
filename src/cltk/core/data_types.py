@@ -13,7 +13,7 @@ import importlib
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Type, Union
+from typing import Optional, Type, Union
 
 import numpy as np
 import stringcase as sc
@@ -49,7 +49,7 @@ class Language:
     level: str  # a language or a dialect
     iso_639_3_code: str
     type: str  # "a" for ancient and "h" for historical; this from Glottolog
-    dates: List[int] = None  # add later; not available from Glottolog or ISO list
+    dates: list[int] = None  # add later; not available from Glottolog or ISO list
 
 
 @dataclass
@@ -81,13 +81,13 @@ class Word:
     embedding: np.ndarray = field(repr=False, default=None)
     stop: Optional[bool] = None
     named_entity: Optional[bool] = None
-    syllables: List[str] = None
+    syllables: list[str] = None
     phonetic_transcription: Optional[str] = None
     definition: Optional[str] = None
 
     def __getitem__(
         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
-    ) -> List[MorphosyntacticFeature]:
+    ) -> list[MorphosyntacticFeature]:
         """Accessor to help get morphosyntatic features from a word object."""
         return self.features[feature_name]
 
@@ -106,7 +106,7 @@ class Sentence:
     The Data Container for sentences.
     """
 
-    words: List[Word] = None
+    words: list[Word] = None
     index: int = None
     embedding: np.ndarray = field(repr=False, default=None)
 
@@ -178,18 +178,18 @@ class Doc:
     """
 
     language: str = None
-    words: List[Word] = None
+    words: list[Word] = None
     pipeline: "Pipeline" = None  # Note: type should be ``Pipeline`` w/o quotes
     raw: str = None
     normalized_text: str = None
     embeddings_model = None
-    sentence_embeddings: Dict[int, np.ndarray] = field(repr=False, default=None)
+    sentence_embeddings: dict[int, np.ndarray] = field(repr=False, default=None)
 
     @property
-    def sentences(self) -> List[Sentence]:
+    def sentences(self) -> list[Sentence]:
         """Returns a list of ``Sentence``s, with each ``Sentence`` being a container for a
         list of ``Word`` objects."""
-        sents: Dict[int, List[Word]] = defaultdict(list)
+        sents: dict[int, list[Word]] = defaultdict(list)
         for word in self.words:
             sents[word.index_sentence].append(word)
         for key in sents:
@@ -208,26 +208,26 @@ class Doc:
         ]
 
     @property
-    def sentences_tokens(self) -> List[List[str]]:
+    def sentences_tokens(self) -> list[list[str]]:
         """Returns a list of lists, with the inner list being a
         list of word token strings.
         """
-        sentences_tokens: List[List[str]] = list()
+        sentences_tokens: list[list[str]] = list()
         for sentence in self.sentences:
-            sentence_tokens: List[str] = [word.string for word in sentence]
+            sentence_tokens: list[str] = [word.string for word in sentence]
             sentences_tokens.append(sentence_tokens)
         return sentences_tokens
 
     @property
-    def sentences_strings(self) -> List[str]:
+    def sentences_strings(self) -> list[str]:
         """Returns a list of strings, with each string being
         a sentence reconstructed from the word tokens.
         """
-        sentences_list: List[List[str]] = self.sentences_tokens
-        sentences_str: List[str] = list()
-        for sentence_tokens in sentences_list:  # type: List[str]
+        sentences_list: list[list[str]] = self.sentences_tokens
+        sentences_str: list[str] = list()
+        for sentence_tokens in sentences_list:  # type: list[str]
             if self.language == "akk":
-                # 'akk' produces List[Tuple[str, str]]
+                # 'akk' produces list[tuple[str, str]]
                 sentence_tokens_str = " ".join([tup[0] for tup in sentence_tokens])
             else:
                 sentence_tokens_str: str = " ".join(sentence_tokens)
@@ -238,7 +238,7 @@ class Doc:
         return [getattr(word, attribute) for word in self.words]
 
     @property
-    def tokens(self) -> List[str]:
+    def tokens(self) -> list[str]:
         """Returns a list of string word tokens of all words in the doc."""
         tokens = self._get_words_attribute("string")
         return tokens
@@ -246,40 +246,40 @@ class Doc:
     @property
     def tokens_stops_filtered(
         self,
-    ) -> List[str]:
+    ) -> list[str]:
         """Returns a list of string word tokens of all words in the
         doc, but with stopwords removed.
         """
-        tokens = self._get_words_attribute("string")  # type: List[str]
+        tokens: list[str] = self._get_words_attribute("string")
         # create equal-length list of True & False/None values
-        is_token_stop = self._get_words_attribute("stop")  # type: List[bool]
+        is_token_stop: list[bool] = self._get_words_attribute("stop")
         # remove from the token list any who index in ``is_token_stop`` is True
-        tokens_no_stops = [
+        tokens_no_stops: list[str] = [
             token for index, token in enumerate(tokens) if not is_token_stop[index]
-        ]  # type: List[str]
+        ]
         return tokens_no_stops
 
     @property
-    def pos(self) -> List[str]:
+    def pos(self) -> list[str]:
         """Returns a list of the POS tags of all words in the doc."""
         return self._get_words_attribute("upos")
 
     @property
-    def morphosyntactic_features(self) -> List[MorphosyntacticFeatureBundle]:
+    def morphosyntactic_features(self) -> list[MorphosyntacticFeatureBundle]:
         """Returns a list of `MorphosyntacticFeatureBundle` containing the morphosyntactic features
         of each word (when available).
         """
         return self._get_words_attribute("features")
 
     @property
-    def lemmata(self) -> List[str]:
+    def lemmata(self) -> list[str]:
         """Returns a list of lemmata, indexed to the word tokens
         provided by `Doc.tokens`.
         """
         return self._get_words_attribute("lemma")
 
     @property
-    def stems(self) -> List[str]:
+    def stems(self) -> list[str]:
         """Returns a list of word stems, indexed to the word tokens
         provided by `Doc.tokens`.
         """
@@ -302,7 +302,7 @@ class Doc:
 @dataclass
 class Process(ABC):
     """For each type of NLP process there needs to be a definition.
-    It includes the type of data it expects (``str``, ``List[str]``,
+    It includes the type of data it expects (``str``, ``list[str]``,
     ``Word``, etc.) and what field within ``Word`` it will populate.
     This base class is intended to be inherited by NLP process
     types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
@@ -333,7 +333,7 @@ class Pipeline:
     """
 
     description: str
-    processes: List[Type[Process]]
+    processes: list[Type[Process]]
     language: Language
 
     def add_process(self, process: Type[Process]):

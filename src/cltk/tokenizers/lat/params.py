@@ -6,7 +6,6 @@ __author__ = [
 ]
 __license__ = "MIT License."
 
-from typing import List
 
 PRAENOMINA = [
     "a",
@@ -91,12 +90,12 @@ MISC = ["coll", "cos", "ord", "pl.", "s.c", "suff", "trib"]
 ABBREVIATIONS = set(PRAENOMINA + CALENDAR + MISC)
 
 
-que_exceptions = []  # type: List[str]
-n_exceptions = []  # type: List[str]
-ne_exceptions = []  # type: List[str]
-ue_exceptions = []  # type: List[str]
-ve_exceptions = []  # type: List[str]
-st_exceptions = []  # type: List[str]
+que_exceptions: list[str] = []
+n_exceptions: list[str] = []
+ne_exceptions: list[str] = []
+ue_exceptions: list[str] = []
+ve_exceptions: list[str] = []
+st_exceptions: list[str] = []
 
 # quisque / quique
 que_exceptions += [
@@ -785,7 +784,7 @@ st_exceptions += [
     "superest",
 ]
 
-latin_exceptions = list(
+latin_exceptions: list[str] = list(
     set(
         que_exceptions
         + ne_exceptions
@@ -796,7 +795,7 @@ latin_exceptions = list(
     )
 )
 
-latin_replacements = [
+latin_replacements: list[tuple[str, str]] = [
     (r"\bmecum\b", "cum me"),
     (r"\btecum\b", "cum te"),
     (r"\bsecum\b", "cum se"),

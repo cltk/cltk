@@ -3,7 +3,7 @@
 TODO: Think about adding check somewhere if a contrib (not user) chooses an unavailable item
 """
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -41,7 +41,7 @@ class TokenizationProcess(Process):
         return CLTKTreebankWordTokenizer()
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         output_doc.words = []
         tokenizer_obj = self.algorithm
 

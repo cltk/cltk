@@ -1,6 +1,6 @@
 """For computing embeddings for lists of words."""
 
-from typing import Dict, List, Tuple, Union, ValuesView
+from typing import Union, ValuesView
 
 import numpy as np
 from sklearn.decomposition import TruncatedSVD
@@ -46,7 +46,7 @@ def remove_pc(x: np.ndarray, npc: int = 1) -> np.ndarray:
 
 def get_sent_embeddings(
     sent: Sentence,
-    idf_model: Dict[str, Union[float, np.float64]],
+    idf_model: dict[str, Union[float, np.float64]],
     min_idf: Union[float, np.float64],
     max_idf: Union[float, np.float64],
     dimensions: int = 300,
@@ -65,7 +65,7 @@ def get_sent_embeddings(
 
     :return ndarray: values of the sentence embedding, or returns an array of zeroes if no sentence embedding could be computed.
     """
-    map_word_embedding: Dict[str, Tuple[np.float64, np.ndarray]] = {
+    map_word_embedding: dict[str, tuple[np.float64, np.ndarray]] = {
         token.string: (
             rescale_idf(idf_model.get(token.string.lower(), min_idf), min_idf, max_idf),
             token.embedding,
@@ -81,7 +81,7 @@ def get_sent_embeddings(
     if sum(weights) == 0:
         return np.zeros(dimensions)
     scale_factor: np.float64 = 1 / sum(weights)
-    scaled_weights: List[np.float64] = [weight * scale_factor for weight in weights]
+    scaled_weights: list[np.float64] = [weight * scale_factor for weight in weights]
     scaled_values: np.ndarray = np.array(scaled_weights)
     # Apply our weighted terms to the adjusted embeddings
     weighted_embeds: np.ndarray = embeddings * scaled_values[:, None]

@@ -23,7 +23,6 @@ Anglo-French spelling variants normalized to "orthographe commune", from M. K. P
 """
 
 import re
-from typing import List
 
 FRO_PATTERNS = [
     ("eaus$", "eus"),
@@ -54,7 +53,7 @@ def build_match_and_apply_functions(pattern, replace):
     return matches_rule, apply_rule
 
 
-def normalize_fr(tokens: List[str]) -> List[str]:
+def normalize_fr(tokens: list[str]) -> list[str]:
     """Normalize Old and Middle French tokens.
 
     TODO: Make work work again with a tokenizer.

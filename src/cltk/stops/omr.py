@@ -2,7 +2,7 @@
 Marathi: from 100 most frequently occuring words in Marathi corpus in CLTK.
 """
 
-STOPS = [
+STOPS: list[str] = [
     "न",
     "तरी",
     "तो",

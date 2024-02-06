@@ -2,7 +2,7 @@
 which in turn is based on UniversalDependencies treebanks.
 """
 
-STOPS = [
+STOPS: list[str] = [
     "ϣⲁ",  # lemma: ϣⲁ, UD_pos: ADP
     "ϣⲁⲣⲟ",  # lemma: ϣⲁ, UD_pos: ADP
     "ϣⲁⲣⲱ",  # lemma: ϣⲁ, UD_pos: ADP

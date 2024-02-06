@@ -4,11 +4,11 @@ About: `<https://github.com/stanfordnlp/stanza>`_.
 
 import logging
 import os
-from typing import Dict, Optional
+from typing import Optional
 
-import stanza  # type: ignore
-from stanza.models.common.constant import lang2lcode  # Dict[str, str]
-from stanza.resources.prepare_resources import default_treebanks  # Dict[str, str]
+import stanza
+from stanza.models.common.constant import lang2lcode  # dict[str, str]
+from stanza.resources.prepare_resources import default_treebanks  # dict[str, str]
 
 from cltk.core.exceptions import (
     CLTKException,
@@ -35,13 +35,13 @@ MAP_LANGS_CLTK_STANZA = {
 class StanzaWrapper:
     """CLTK's wrapper for the Stanza project."""
 
-    nlps = {}
+    nlps: dict[str, "StanzaWrapper"] = dict()
 
     def __init__(
         self,
         language: str,
         treebank: Optional[str] = None,
-        stanza_debug_level="ERROR",
+        stanza_debug_level: str = "ERROR",
         interactive: bool = True,
         silent: bool = False,
     ) -> None:
@@ -93,34 +93,34 @@ class StanzaWrapper:
           ...
         cltk.core.exceptions.UnimplementedAlgorithmError: Invalid treebank 'xxx' for language 'lat'.
         """
-        self.language = language
-        self.treebank = treebank
+        self.language: str = language
+        self.treebank: Optional[str] = treebank
         self.stanza_debug_level = stanza_debug_level
-        self.interactive = interactive
-        self.silent = silent
+        self.interactive: bool = interactive
+        self.silent: bool = silent
 
         if self.interactive and self.silent:
             raise ValueError(
                 "``interactive`` and ``silent`` options are not compatible with each other."
             )
 
-        self.wrapper_available = self.is_wrapper_available()  # type: bool
+        self.wrapper_available: bool = self.is_wrapper_available()
         if not self.wrapper_available:
             raise UnknownLanguageError(
                 "Language '{}' either not in scope for CLTK or not supported by Stanza.".format(
                     self.language
                 )
             )
-        self.stanza_code = self._get_stanza_code()
+        self.stanza_code: str = self._get_stanza_code()
 
         # Setup optional treebank if specified
         # TODO: Write tests for all treebanks
-        self.map_code_treebanks = dict(
+        self.map_code_treebanks: dict[str, list[str]] = dict(
             grc=["proiel", "perseus"], la=["perseus", "proiel", "ittb"]
         )
         # if not specified, will use the default treebank chosen by stanza
         if self.treebank:
-            valid_treebank = self._is_valid_treebank()
+            valid_treebank: bool = self._is_valid_treebank()
             if not valid_treebank:
                 raise UnimplementedAlgorithmError(
                     f"Invalid treebank '{self.treebank}' for language '{self.language}'."
@@ -132,7 +132,7 @@ class StanzaWrapper:
         # this fp is just to confirm that some model has already been downloaded.
         # TODO: This is a weak check for the models actually being downloaded and valid
         # TODO: Use ``models_dir`` var from below and make self. or global to module
-        self.model_path = os.path.expanduser(
+        self.model_path: str = os.path.expanduser(
             os.path.join(
                 "~",
                 "stanza_resources",
@@ -151,9 +151,9 @@ class StanzaWrapper:
         # Though we should capture these, within `_load_pipeline()`,
         # for the log file.
         with suppress_stdout():
-            self.nlp = self._load_pipeline()
+            self.nlp: stanza.Pipeline = self._load_pipeline()
 
-    def parse(self, text: str):
+    def parse(self, text: str) -> stanza.models.common.doc.Document:
         """Run all available ``stanza`` parsing on input text.
 
         >>> from cltk.languages.example_texts import get_example_text
@@ -224,10 +224,10 @@ class StanzaWrapper:
         >>> first_word.pos
         'ADV'
         """
-        parsed_text = self.nlp(text)
+        parsed_text: stanza.models.common.doc.Document = self.nlp(text)
         return parsed_text
 
-    def _load_pipeline(self):
+    def _load_pipeline(self) -> stanza.Pipeline:
         """Instantiate ``stanza.Pipeline()``.
 
         TODO: Make sure that logging captures what it should from the default stanza printout.
@@ -242,18 +242,18 @@ class StanzaWrapper:
         >>> isinstance(nlp_obj, stanza.pipeline.core.Pipeline)
         True
         """
-        models_dir = os.path.expanduser(
+        models_dir: str = os.path.expanduser(
             os.path.join("~", "stanza_resources")
         )  # TODO: Mv this a self. var or maybe even global
-        processors = "tokenize,mwt,pos,lemma,depparse"
-        lemma_use_identity = False
+        processors: str = "tokenize,mwt,pos,lemma,depparse"
+        lemma_use_identity: bool = False
         if self.language == "fro":
             processors = "tokenize,pos,lemma,depparse"
             lemma_use_identity = True
         if self.language in ["chu", "got", "grc", "lzh"]:
             # Note: MWT not available for several languages
             processors = "tokenize,pos,lemma,depparse"
-        nlp = stanza.Pipeline(
+        nlp: stanza.Pipeline = stanza.Pipeline(
             lang=self.stanza_code,
             dir=models_dir,
             package=self.treebank,
@@ -285,9 +285,9 @@ class StanzaWrapper:
             print(  # pragma: no cover
                 "CLTK message: This part of the CLTK depends upon the Stanza NLP library."
             )  # pragma: no cover
-            dl_is_allowed = query_yes_no(
+            dl_is_allowed: bool = query_yes_no(
                 f"CLTK message: Allow download of Stanza models to ``{self.model_path}``?"
-            )  # type: bool
+            )
             if dl_is_allowed:
                 stanza.download(lang=self.stanza_code, package=self.treebank)
             else:
@@ -310,7 +310,7 @@ class StanzaWrapper:
         >>> stanza_wrapper._get_default_treebank()
         'proiel'
         """
-        stanza_default_treebanks = default_treebanks  # type: Dict[str, str]
+        stanza_default_treebanks: dict[str, str] = default_treebanks
         return stanza_default_treebanks[self.stanza_code]
 
     def _is_valid_treebank(self) -> bool:
@@ -321,7 +321,7 @@ class StanzaWrapper:
         >>> stanza_wrapper._is_valid_treebank()
         True
         """
-        possible_treebanks = self.map_code_treebanks[self.stanza_code]
+        possible_treebanks: list[str] = self.map_code_treebanks[self.stanza_code]
         return self.treebank in possible_treebanks
 
     def is_wrapper_available(self) -> bool:
@@ -349,23 +349,23 @@ class StanzaWrapper:
         KeyError: 'Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen.'
         """
         try:
-            stanza_lang_name = MAP_LANGS_CLTK_STANZA[self.language]
+            stanza_lang_name: str = MAP_LANGS_CLTK_STANZA[self.language]
         except KeyError:
             raise KeyError(
                 "Somehow ``StanzaWrapper.language`` got renamed to something invalid. This should never happen."
             )
         # {'Afrikaans': 'af', 'Ancient_Greek': 'grc', ...}
-        stanza_lang_code: Dict[str, str] = lang2lcode
+        stanza_lang_code: dict[str, str] = lang2lcode
         try:
             return stanza_lang_code[stanza_lang_name]
         except KeyError:
             raise KeyError("The CLTK's map of ISO-to-Stanza is out of sync.")
 
     @classmethod
-    def get_nlp(cls, language: str, treebank: Optional[str] = None):
+    def get_nlp(cls, language: str, treebank: Optional[str] = None) -> "StanzaWrapper":
         if language in cls.nlps:
             return cls.nlps[language]
         else:
-            nlp = cls(language, treebank)
+            nlp: StanzaWrapper = cls(language, treebank)
             cls.nlps[language] = nlp
             return nlp

@@ -3,7 +3,7 @@ You may extend **SyllabificationProcess** and see pre-defined examples.
 """
 
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -25,7 +25,7 @@ class SyllabificationProcess(Process):
     def run(self, input_doc: Doc) -> Doc:
         syllabifier = self.algorithm
 
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         for word in output_doc.words:
             word.syllables = syllabifier(word.string.lower())
 

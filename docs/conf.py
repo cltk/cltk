@@ -13,7 +13,7 @@
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List, Union
+from typing import Union
 
 import pkg_resources
 
@@ -35,15 +35,15 @@ curr_year: int = dt_today.year
 copyright = f" 2014-{curr_year} Kyle P. Johnson"
 # author = "Kyle P. Johnson et al."
 # the following errors on rtd server
-# cltk_project = cltk.get_pyproject()  # Dict[str,Union[str, List[str], Dict[str,str]]]
-# author_list: List[str] = cltk_project["authors"]
+# cltk_project = cltk.get_pyproject()  # dict[str,Union[str, list[str], dict[str,str]]]
+# author_list: list[str] = cltk_project["authors"]
 # author = ", ".join(author_list)
 # The full version, including alpha/beta/rc tags
 curr_version: pkg_resources.EggInfoDistribution = pkg_resources.get_distribution("cltk")
 release: str = curr_version.version
 
 
-langs_available_pipelines: List[str] = [
+langs_available_pipelines: list[str] = [
     val.language.name for _, val in iso_to_pipeline.items()
 ]
 langs_available_pipelines_len = len(langs_available_pipelines)

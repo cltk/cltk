@@ -2,7 +2,7 @@
 info from CLTK data structures.
 """
 
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 from cltk.core.data_types import Word
 
@@ -39,6 +39,6 @@ def get_governor_word2(word: Word, sentence_words: list[Word]) -> Optional[Word]
     #     print(word)
 
 
-def get_governor_relationship(word: Word, sentence: List[Word]) -> Optional[Any]:
+def get_governor_relationship(word: Word, sentence: list[Word]) -> Optional[Any]:
     """Get the dependency relationship of a dependent to its governor."""
     pass

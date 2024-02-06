@@ -1,4 +1,4 @@
-AUTHOR_DATE = {
+MAP_DATE_TO_AUTHORS: dict[str, list[str]] = {
     "A.D. 1": [
         "0031",
         "0041",

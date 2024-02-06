@@ -32,7 +32,7 @@ class SpacyWrapper:
     between spaCy and CLTK.
     """
 
-    nlps: dict[str, Any] = {}
+    nlps: dict[str, "SpacyWrapper"] = dict()
 
     def __init__(
         self,
@@ -129,7 +129,7 @@ class SpacyWrapper:
         return spacy.util.is_package(self.spacy_model_name)
 
     @classmethod
-    def get_nlp(cls, language: str):
+    def get_nlp(cls, language: str) -> "SpacyWrapper":
         """
 
         :param language: Language parameter to retrieve an already-loaded model or the default model.
@@ -137,7 +137,7 @@ class SpacyWrapper:
         """
         if language in cls.nlps:
             return cls.nlps[language]
-        nlp = cls(language)
+        nlp: SpacyWrapper = cls(language)
         cls.nlps[language] = nlp
         return nlp
 

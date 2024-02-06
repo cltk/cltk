@@ -1,4 +1,4 @@
-ID_AUTHOR = {
+ID_AUTHOR: dict[str, str] = {
     "2434": "Aelius Dius Hist.",
     "2035": "Athanasius Theol.",
     "2012": "Acta Eupli",

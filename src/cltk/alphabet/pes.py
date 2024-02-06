@@ -220,12 +220,12 @@ def mk_replacement_regex():
         replacement_dict[arb.EASTERN_ARABIC_NUMERALS[i]] = NUMERALS[i]
         replacement_dict[arb.WESTERN_ARABIC_NUMERALS[i]] = NUMERALS[i]
         # Use the commented parts for Word2Vec embeddings
-        # replacementDict[NUMERALS[i]] = " %s " % NUMERALS_WRITINGS[i]
+        # replacementdict[NUMERALS[i]] = " %s " % NUMERALS_WRITINGS[i]
 
     # for char in '[!"#%\'()*+,-./:;<=>?@\[\]^_`{|}~’”“′‘\\\]؟؛«»،٪':
-    #     replacementDict[char] = " "
+    #     replacementdict[char] = " "
     #
-    # replacementDict[" +"] = " "
+    # replacementdict[" +"] = " "
 
     return re.compile("(%s)" % "|".join(map(re.escape, replacement_dict.keys())))
 

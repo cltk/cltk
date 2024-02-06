@@ -1,4 +1,4 @@
-AUTHOR_EPITHET = {
+MAP_EPITHET_TO_AUTHOR_IDS: dict[str, list[str]] = {
     "Sophistae": [
         "0008",
         "0061",

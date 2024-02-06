@@ -2,9 +2,9 @@
 
 import os
 from collections.abc import ValuesView
-from copy import copy, deepcopy
+from copy import copy
 from dataclasses import dataclass, field
-from typing import Dict, Optional
+from typing import Any, Optional
 
 import numpy as np
 from boltons.cacheutils import cachedproperty
@@ -22,7 +22,7 @@ from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
 
-TFIDF_MAP: Dict[str, str] = {
+TFIDF_MAP: dict[str, str] = {
     "lat": os.path.join(
         CLTK_DATA_DIR,
         "lat",
@@ -53,7 +53,7 @@ class EmbeddingsProcess(Process):
     language: str = None
     variant: str = "fasttext"
     embedding_length: int = None
-    idf_model: Optional[Dict[str, float]] = field(repr=False, default=None)
+    idf_model: Optional[dict[str, float]] = field(repr=False, default=None)
     min_idf: Optional[np.float64] = None
     max_idf: Optional[np.float64] = None
 
@@ -80,9 +80,11 @@ class EmbeddingsProcess(Process):
         for index, word_obj in enumerate(output_doc.words):
             if not self.embedding_length:
                 self.embedding_length = embeddings_obj.get_embedding_length()
-            word_embedding = embeddings_obj.get_word_vector(word=word_obj.string)
+            word_embedding: np.ndarray = embeddings_obj.get_word_vector(
+                word=word_obj.string
+            )
             if not isinstance(word_embedding, np.ndarray):
-                word_embedding = np.zeros([self.embedding_length])
+                word_embedding: np.ndarray = np.zeros([self.embedding_length])
             word_obj.embedding = word_embedding
             output_doc.words[index] = word_obj
 
@@ -97,14 +99,16 @@ class EmbeddingsProcess(Process):
             elif TFIDF_MAP.get(self.language):
                 model_path: str = TFIDF_MAP[self.language]
                 if not os.path.isdir(model_path):
-                    msg = f"TF-IDF model path '{model_path}' not found. Going to try to download it ..."
+                    msg: str = f"TF-IDF model path '{model_path}' not found. Going to try to download it ..."
                     logger.warning(msg)
-                    dl_msg = f"This part of the CLTK depends upon models from the CLTK project."
-                    model_url = f"https://github.com/cltk/{self.language}_models_cltk"
+                    dl_msg: str = f"This part of the CLTK depends upon models from the CLTK project."
+                    model_url: str = (
+                        f"https://github.com/cltk/{self.language}_models_cltk"
+                    )
                     download_prompt(
                         iso_code=self.language, message=dl_msg, model_url=model_url
                     )
-                self.idf_model = open_pickle(
+                self.idf_model: Any = open_pickle(
                     path=os.path.join(model_path, "word_idf.pkl")
                 )
         # Min and max values are needed while generating sentence embeddings
@@ -178,7 +182,7 @@ class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):
     description = "Default embeddings for Middle English"
 
     @cachedproperty
-    def algorithm(self):
+    def algorithm(self) -> CLTKWord2VecEmbeddings:
         return CLTKWord2VecEmbeddings(
             iso_code=self.language,
             model_type="bin",

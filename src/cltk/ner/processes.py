@@ -1,8 +1,8 @@
 """This module holds the ``Process``es for NER."""
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
-from typing import Any, List
+from typing import Any
 
 from boltons.cacheutils import cachedproperty
 
@@ -29,12 +29,12 @@ class NERProcess(Process):
         return tag_ner
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
 
         ner_obj = self.algorithm
-        entity_values = ner_obj(
+        entity_values: list[Any] = ner_obj(
             iso_code=self.language, input_tokens=input_doc.tokens
-        )  # type: List[Any]
+        )
         for index, word_obj in enumerate(output_doc.words):
             word_obj.named_entity = entity_values[index]
             output_doc.words[index] = word_obj
