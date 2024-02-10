@@ -16,6 +16,7 @@ from cltk.dependency.processes import (
     CopticStanzaProcess,
     GothicStanzaProcess,
     GreekStanzaProcess,
+    GreekSpacyProcess,
     LatinSpacyProcess,
     LatinStanzaProcess,
     OCSStanzaProcess,
@@ -230,7 +231,8 @@ class GreekPipeline(Pipeline):
         default_factory=lambda: [
             # GreekTokenizationProcess,
             GreekNormalizeProcess,
-            GreekStanzaProcess,
+            #GreekStanzaProcess,
+            GreekSpacyProcess,
             GreekEmbeddingsProcess,
             StopsProcess,
             # GreekNERProcess,
