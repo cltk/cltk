@@ -321,7 +321,7 @@ class Scansion:
         scanned_text = list()
         for sentence in sentence_syllables:
             scanned_sent = list()
-             for i, syllable in enumerate(sentence):   
+            for i, syllable in enumerate(sentence):   
                 if self._long_by_position(i, syllable, sentence) or self._long_by_nature(
                     syllable
                 ):
