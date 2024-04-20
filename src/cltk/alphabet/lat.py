@@ -475,7 +475,7 @@ def normalize_lat(
     text_cltk_normalized: str = cltk_normalize(text=text)
     text_cltk_normalized = split_trailing_punct(text=text_cltk_normalized)
     text_cltk_normalized = split_leading_punct(text=text_cltk_normalized)
-    # text_cltk_normalized = remove_odd_punct(text=text_cltk_normalized)
+    text_cltk_normalized = remove_odd_punct(text=text_cltk_normalized)
     if drop_macrons:
         text_cltk_normalized = remove_macrons(text_cltk_normalized)
     if drop_accents:
