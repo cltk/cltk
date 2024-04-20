@@ -263,7 +263,9 @@ class Scansion:
                 vowel_group += char
         return bool("".join(vowel_group) in self.diphthongs)
 
-    def _long_by_position(self, sentence_index, syllable: str, sentence: list[str]) -> bool:
+    def _long_by_position(
+        self, sentence_index, syllable: str, sentence: list[str]
+    ) -> bool:
         """Check if syllable is long by position. Returns ``True``
         if syllable is long by position Long by position
         includes contexts when:
@@ -321,10 +323,10 @@ class Scansion:
         scanned_text = list()
         for sentence in sentence_syllables:
             scanned_sent = list()
-            for i, syllable in enumerate(sentence):   
-                if self._long_by_position(i, syllable, sentence) or self._long_by_nature(
-                    syllable
-                ):
+            for i, syllable in enumerate(sentence):
+                if self._long_by_position(
+                    i, syllable, sentence
+                ) or self._long_by_nature(syllable):
                     scanned_sent.append("¯")
                 else:
                     scanned_sent.append("˘")

@@ -127,6 +127,6 @@ def remove_odd_punct(text: str, punctuation: list[str] = None) -> str:
     'κατηγόρων, οὐκ οἶδα ἐγὼ δ᾽ οὖν'
     """
     if not punctuation:
-        punctuation = ["‘", "“", ":", "’", "”"]
+        punctuation = ["‘", "“", "’", "”"]
     chars: list[str] = [char for char in text if char not in punctuation]
     return "".join(chars)
