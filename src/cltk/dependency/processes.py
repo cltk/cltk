@@ -320,7 +320,6 @@ class SpacyProcess(Process):
                 ]
                 cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
                 cltk_word.category = to_categorial(cltk_word.pos)
-                cltk_word.spacy_features = spacy_word.morph
                 sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
         return words_list
