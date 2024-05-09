@@ -18,6 +18,7 @@ __license__ = "MIT License. See LICENSE."
 
 import os
 import subprocess
+from typing import Optional
 
 from cltk.core.cltk_logger import logger
 from cltk.core.exceptions import CLTKException
@@ -25,8 +26,8 @@ from cltk.data.fetch import FetchCorpus
 from cltk.utils.file_operations import make_cltk_path
 from cltk.utils.utils import query_yes_no
 
-# this currently not in use
-ARGS = {
+# These TLGU args not currently in use
+ARGS: dict[str, str] = {
     "book_breaks": "-b",
     "page_breaks": "-p",
     "lat_text": "-r",
@@ -49,34 +50,35 @@ ARGS = {
 class TLGU:
     """Check, install, and call TLGU."""
 
-    def __init__(self, interactive=True):
+    def __init__(self, interactive: bool = True):
         """Check whether tlgu is installed, if not, import and install."""
-        self.interactive = interactive
+        self.interactive: bool = interactive
         self._check_and_download_tlgu_source()
         self._check_install()
 
-    def _check_and_download_tlgu_source(self):
+    def _check_and_download_tlgu_source(self) -> None:
         """Check if tlgu downloaded, if not download it."""
-        path = make_cltk_path("grc/software/grc_software_tlgu/tlgu.h")
+        path: str = make_cltk_path("grc/software/grc_software_tlgu/tlgu.h")
         if not os.path.isfile(path):
-            dl_msg = f"This part of the CLTK depends upon TLGU, software written by Dimitri Marinakis `<http://tlgu.carmen.gr/>`_."
+            dl_msg: str = f"This part of the CLTK depends upon TLGU, software written by Dimitri Marinakis `<http://tlgu.carmen.gr/>`_."
             print(dl_msg)
-            repo_url = "https://github.com/cltk/grc_software_tlgu.git"
-            dl_dir = os.path.split(path)[0]
-            dl_question = (
+            repo_url: str = "https://github.com/cltk/grc_software_tlgu.git"
+            dl_dir: str = os.path.split(path)[0]
+            dl_question: str = (
                 f"Do you want to download TLGU from '{repo_url}' to '{dl_dir}'?"
             )
+            do_download: Optional[bool] = None
             if self.interactive:
                 do_download = query_yes_no(question=dl_question)
             else:
                 do_download = True
             if do_download:
-                fetch_corpus = FetchCorpus(language="grc")
+                fetch_corpus: FetchCorpus = FetchCorpus(language="grc")
                 fetch_corpus.import_corpus(corpus_name="grc_software_tlgu")
             else:
                 raise CLTKException(f"TLGU software required for this class to work.")
 
-    def _check_install(self):
+    def _check_install(self) -> None:
         """Check if tlgu installed, if not install it."""
         try:
             subprocess.check_output(["which", "tlgu"])
@@ -87,52 +89,51 @@ class TLGU:
             if not subprocess.check_output(["which", "gcc"]):
                 logger.error("GCC seems not to be installed.")
             else:
-                tlgu_path = make_cltk_path("grc/software/grc_software_tlgu")
+                tlgu_path: str = make_cltk_path("grc/software/grc_software_tlgu")
                 if self.interactive:
-                    install_question = "Do you want to install TLGU?"
-                    do_install = query_yes_no(question=install_question)
+                    install_question: str = "Do you want to install TLGU?"
+                    do_install: bool = query_yes_no(question=install_question)
                     if not do_install:
                         raise CLTKException(
                             "TLGU installation required for this class to work."
                         )
                 else:
                     print("Non-interactive installation. Continuing ...")
-                command = "cd {0} && make install".format(tlgu_path)
+                command: str = "cd {0} && make install".format(tlgu_path)
                 print(f"Going to run command: ``{command}``")
                 try:
-                    p_out = subprocess.call(command, shell=True)
+                    p_out: int = subprocess.call(command, shell=True)
                 except subprocess.SubprocessError as sub_err:
                     print(
                         "Error executing installation. Going to check output of ``subprocess.call()`` ..."
                     )
                     raise CLTKException(sub_err)
                 if p_out == 0:
-                    msg = "TLGU installed."
+                    msg: str = "TLGU installed."
                     print(msg)
                     logger.info(msg)
-                    return True
                 else:
-                    msg = "TLGU install without sudo failed. Going to try again with sudo (usually required for Linux) ..."
+                    msg: str = "TLGU install without sudo failed. Going to try again with sudo (usually required for Linux) ..."
                     print(msg)
                     logger.error(msg)
-                command = "cd {0} && sudo make install".format(tlgu_path)
+                command: str = "cd {0} && sudo make install".format(tlgu_path)
                 if self.interactive:
-                    install_question = "Do you want to install TLGU? with sudo?"
-                    do_install = query_yes_no(question=install_question)
+                    install_question: str = "Do you want to install TLGU? with sudo?"
+                    do_install: bool = query_yes_no(question=install_question)
                     if not do_install:
                         raise CLTKException(
                             "TLGU installation required for this class to work."
                         )
-                    p_out = subprocess.call(command, shell=True)
+                    p_out: int = subprocess.call(command, shell=True)
                 else:
                     print("Going to run command:", command)
-                    p_out = subprocess.call(command, shell=True)
+                    p_out: int = subprocess.call(command, shell=True)
                 if p_out == 0:
-                    msg = "TLGU installed."
+                    msg: str = "TLGU installed."
                     print(msg)
                     logger.info(msg)
                 else:
-                    msg = "TLGU install with sudo failed."
+                    msg: str = "TLGU install with sudo failed."
                     print(msg)
                     logger.error(msg)
                     raise CLTKException(
@@ -141,16 +142,15 @@ class TLGU:
 
     @staticmethod
     def convert(
-        input_path=None,
-        output_path=None,
-        markup=None,
-        rm_newlines=False,
-        divide_works=False,
-        lat=False,
-        extra_args=None,
-    ):
-        """
-        Do conversion.
+        input_path: Optional[str] = None,
+        output_path: Optional[str] = None,
+        markup: Optional[str] = None,
+        rm_newlines: bool = False,
+        divide_works: bool = False,
+        lat: bool = False,
+        extra_args: Optional[list[str]] = None,
+    ) -> None:
+        """Do conversion.
 
         :param input_path: TLG filepath to convert.
         :param output_path: filepath of new converted text.
@@ -162,14 +162,14 @@ class TLGU:
 
         """
         # setup file paths
-        input_path = os.path.expanduser(input_path)
-        output_path = os.path.expanduser(output_path)
+        input_path: str = os.path.expanduser(input_path)
+        output_path: str = os.path.expanduser(output_path)
 
         # check input path exists
         assert os.path.isfile(input_path), "File {0} does not exist.".format(input_path)
 
         # setup tlgu flags
-        tlgu_options = []
+        tlgu_options: list[str] = list()
         if markup == "full":
             full_args = ["v", "w", "x", "y", "z"]
             [tlgu_options.append(x) for x in full_args]  # pylint: disable=W0106
@@ -181,46 +181,49 @@ class TLGU:
             tlgu_options.append("r")
         # setup extra args
         if extra_args is None:
-            extra_args = []
+            extra_args: list[str] = list()
         else:
             try:
                 extra_args = list(extra_args)
             except Exception as exc:
                 logger.error("Argument 'extra_args' must be a list: %s.", exc)
                 raise
-        tlgu_options = tlgu_options + extra_args
-        # assemble all tlgu flags
+        tlgu_options: list[str] = tlgu_options + extra_args
+        # Assemble all tlgu flags
         tlgu_options = list(set(tlgu_options))
+        tlgu_options: Optional[str] = None
         if tlgu_options:
             tlgu_flags = "-" + " -".join(tlgu_options)
         else:
             tlgu_flags = ""
         # make tlgu call
-        tlgu_call = "tlgu {0} {1} {2}".format(tlgu_flags, input_path, output_path)
+        tlgu_call: str = "tlgu {0} {1} {2}".format(tlgu_flags, input_path, output_path)
         logger.info(tlgu_call)
         try:
-            p_out = subprocess.call(tlgu_call, shell=True)
+            p_out: int = subprocess.call(tlgu_call, shell=True)
             if p_out == 1:
                 logger.error("Failed to convert %s to %s.", input_path, output_path)
         except Exception as exc:
             logger.error("Failed to convert %s to %s: %s", input_path, output_path, exc)
             raise
 
-    def convert_corpus(self, corpus, markup=None, lat=None):  # pylint: disable=W0613
+    def convert_corpus(
+        self, corpus: str, markup: Optional[str] = None, lat: Optional[bool] = None
+    ) -> None:  # pylint: disable=W0613
         """Look for imported TLG or PHI files and convert them all to
         ``~/cltk_data/grc/text/tlg/<plaintext>``.
         TODO: Add markup options to input.
         TODO: Add rm_newlines, divide_works, and extra_args
         """
-        orig_path = make_cltk_path("originals")
-        target_path = make_cltk_path()
+        orig_path: str = make_cltk_path("originals")
+        target_path: str = make_cltk_path()
         assert corpus in [
             "tlg",
             "phi5",
             "phi7",
         ], "Corpus must be 'tlg', 'phi5', or 'phi7'"
         if corpus in ["tlg", "phi5", "phi7"]:
-            orig_path = os.path.join(orig_path, corpus)
+            orig_path: str = os.path.join(orig_path, corpus)
             if corpus in ["tlg", "phi7"]:
                 if "phi7" and lat is True:
                     lat = True
@@ -232,27 +235,28 @@ class TLGU:
                 target_path = os.path.join(target_path, "lat", "text", corpus)
                 lat = True
         try:
-            corpus_files = os.listdir(orig_path)
+            corpus_files: list[str] = os.listdir(orig_path)
         except Exception as exception:
             logger.error("Failed to find TLG files: %s", exception)
             raise
         # make a list of files to be converted
-        txts = [x for x in corpus_files if x.endswith("TXT")]
+        txts: list[str] = [x for x in corpus_files if x.endswith("TXT")]
         # loop through list and convert one at a time
         for txt in txts:
-            orig_txt_path = os.path.join(orig_path, txt)
+            orig_txt_path: str = os.path.join(orig_path, txt)
+            target_txt_dir: Optional[str] = None
             if markup is None:
                 target_txt_dir = os.path.join(target_path, "plaintext")
             else:
                 target_txt_dir = os.path.join(target_path, str(markup))
             if not os.path.isdir(target_txt_dir):
                 os.makedirs(target_txt_dir)
-            target_txt_path = os.path.join(target_txt_dir, txt)
+            target_txt_path: str = os.path.join(target_txt_dir, txt)
             try:
                 self.convert(
                     orig_txt_path,
                     target_txt_path,
-                    markup=False,
+                    markup=None,
                     rm_newlines=False,
                     divide_works=False,
                     lat=lat,
@@ -266,7 +270,7 @@ class TLGU:
                     exception,
                 )
 
-    def divide_works(self, corpus):
+    def divide_works(self, corpus: str) -> None:
         """Use the work-breaking option.
         TODO: Maybe incorporate this into ``convert_corpus()``
         TODO: Write test for this
@@ -290,12 +294,14 @@ class TLGU:
         if not os.path.exists(works_dir):
             os.makedirs(works_dir)
 
-        files = os.listdir(orig_dir)
-        texts = [x for x in files if x.endswith(".TXT") and x.startswith(file_prefix)]
+        files: list[str] = os.listdir(orig_dir)
+        texts: list[str] = [
+            x for x in files if x.endswith(".TXT") and x.startswith(file_prefix)
+        ]
 
         for file in texts:
-            orig_file_path = os.path.join(orig_dir, file)
-            new_file_path = os.path.join(works_dir, file)
+            orig_file_path: str = os.path.join(orig_dir, file)
+            new_file_path: str = os.path.join(works_dir, file)
 
             try:
                 self.convert(orig_file_path, new_file_path, divide_works=True, lat=lat)

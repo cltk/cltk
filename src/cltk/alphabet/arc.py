@@ -3,9 +3,9 @@ a Hebrew transcription of an Imperial Aramaic text to its own Unicode block.
 
 TODO: Add Hebrew-to-Aramaic converter
 """
+from typing import Union
 
-
-IMPERIAL_ARAMAIC_BLOCK = [
+IMPERIAL_ARAMAIC_BLOCK: list[tuple[str, str, str]] = [
     # Imperial Aramaic block as it is provided
     # by https://www.unicode.org/charts/PDF/U10840.pdf
     # The Unicode Standard, Version 13.0
@@ -54,7 +54,7 @@ IMPERIAL_ARAMAIC_BLOCK = [
     ),
 ]
 
-TABLE = [
+ARAMAIC_CHAR_TABLE: list[Union[tuple[str, str], tuple[str, str, str]]] = [
     # Equivalencies are provided based on
     # Skeleton Achaemenid Aramaic Grammar
     # http://arshama.classics.ox.ac.uk/aramaic/
@@ -92,9 +92,9 @@ TABLE = [
 ]
 
 
-def _imperial_to_square_table():
-    new_table = []
-    for _tuple in TABLE:
+def _imperial_to_square_table() -> list[tuple[str, str]]:
+    new_table: list[tuple[str, str]] = list()
+    for _tuple in ARAMAIC_CHAR_TABLE:
         if len(_tuple) > 2:
             new_table.append((_tuple[1], _tuple[0]))
             new_table.append((_tuple[2], _tuple[0]))
@@ -103,9 +103,9 @@ def _imperial_to_square_table():
     return new_table
 
 
-SQUARE_TO_IMPERIAL_TABLE = _imperial_to_square_table()
+SQUARE_TO_IMPERIAL_TABLE: list[tuple[str, str]] = _imperial_to_square_table()
 # SQUARE_TO_IMPERIAL = {k: v for k, v in SQUARE_TO_IMPERIAL_TABLE}
-SQUARE_TO_IMPERIAL = dict(SQUARE_TO_IMPERIAL_TABLE)
+SQUARE_TO_IMPERIAL: dict[str, str] = dict(SQUARE_TO_IMPERIAL_TABLE)
 
 
 def _square_to_imperial_char(_str: str) -> str:

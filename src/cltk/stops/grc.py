@@ -2,7 +2,7 @@
 Greek: 'Kyle P. Johnson <kyle@kyle-p-johnson.com>', from the Perseus Hopper source [http://sourceforge.net/projects/perseus-hopper], found at "/sgml/reading/build/stoplists", though this only contained acute accents on the ultima. There has been added to this grave accents to the ultima of each. Perseus source is made available under the Mozilla Public License 1.1 (MPL 1.1) [http://www.mozilla.org/MPL/1.1/].
 """
 
-STOPS = [
+STOPS: list[str] = [
     "αὐτὸς",
     "αὐτός",
     "γε",

@@ -7,7 +7,6 @@ __author__ = [
 __license__ = "MIT License."
 
 import re
-from typing import List, Tuple
 
 from nltk.tokenize.punkt import PunktLanguageVars, PunktParameters
 
@@ -37,10 +36,10 @@ class LatinWordTokenizer(WordTokenizer):
     def tokenize(
         self,
         text: str,
-        replacements: List[Tuple[str, str]] = REPLACEMENTS,
-        enclitics_exceptions: List[str] = EXCEPTIONS,
-        enclitics: List[str] = ENCLITICS,
-    ) -> List[str]:
+        replacements: list[tuple[str, str]] = REPLACEMENTS,
+        enclitics_exceptions: list[str] = EXCEPTIONS,
+        enclitics: list[str] = ENCLITICS,
+    ) -> list[str]:
         """
         Tokenizer divides the text into a list of substrings
 
@@ -107,7 +106,7 @@ class LatinWordTokenizer(WordTokenizer):
             )
 
         sents = self.sent_tokenizer.tokenize(text)
-        tokens = []  # type: List[str]
+        tokens: list[str] = []
 
         for sent in sents:
             temp_tokens = self.word_tokenizer.word_tokenize(sent)
@@ -127,7 +126,7 @@ class LatinWordTokenizer(WordTokenizer):
                     tokens.append(token)
 
         # Break enclitic handling into own function?
-        specific_tokens = []  # type: List[str]
+        specific_tokens: list[str] = []
 
         for token in tokens:
             is_enclitic = False

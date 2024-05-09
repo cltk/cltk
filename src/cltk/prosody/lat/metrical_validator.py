@@ -3,7 +3,6 @@ Allows users to configure the scansion symbols internally via a constructor argu
 a suitable default is provided."""
 
 import logging
-from typing import List
 
 from rapidfuzz.distance import DamerauLevenshtein
 
@@ -73,7 +72,7 @@ class MetricalValidator:
         self.VALID_HENDECASYLLABLES = self._build_hendecasyllable_templates()
         self.VALID_PENTAMETERS = self._build_pentameter_templates()
 
-    def hexameter_feet(self, scansion: str) -> List[str]:
+    def hexameter_feet(self, scansion: str) -> list[str]:
         """
         Produces a list of hexameter feet, stressed and unstressed syllables with spaces intact.
         If the scansion line is not entirely correct, it will attempt to corral one or more improper patterns into one or more feet.
@@ -148,7 +147,7 @@ class MetricalValidator:
         return feet[::-1]
 
     @staticmethod
-    def hexameter_known_stresses() -> List[int]:
+    def hexameter_known_stresses() -> list[int]:
         """Provide a list of known stress positions for a hexameter.
 
         :return: a zero based list enumerating which syllables are known to be stressed.
@@ -156,7 +155,7 @@ class MetricalValidator:
         return list(range(17)[::3])
 
     @staticmethod
-    def hexameter_possible_unstresses() -> List[int]:
+    def hexameter_possible_unstresses() -> list[int]:
         """
         Provide a list of possible positions which may be unstressed syllables in a hexameter.
 
@@ -164,7 +163,7 @@ class MetricalValidator:
         """
         return list(set(range(17)) - set(range(17)[::3]))
 
-    def closest_hexameter_patterns(self, scansion: str) -> List[str]:
+    def closest_hexameter_patterns(self, scansion: str) -> list[str]:
         """
         Find the closest group of matching valid hexameter patterns.
 
@@ -176,7 +175,7 @@ class MetricalValidator:
         return self._closest_patterns(self.VALID_HEXAMETERS, scansion)
 
     @staticmethod
-    def pentameter_possible_stresses() -> List[int]:
+    def pentameter_possible_stresses() -> list[int]:
         """
         Provide a list of possible stress positions for a hexameter.
 
@@ -184,7 +183,7 @@ class MetricalValidator:
         """
         return list(range(0, 6)) + [8]
 
-    def closest_pentameter_patterns(self, scansion: str) -> List[str]:
+    def closest_pentameter_patterns(self, scansion: str) -> list[str]:
         """
         Find the closest group of matching valid pentameter patterns.
 
@@ -195,7 +194,7 @@ class MetricalValidator:
         """
         return self._closest_patterns(self.VALID_PENTAMETERS, scansion)
 
-    def closest_hendecasyllable_patterns(self, scansion: str) -> List[str]:
+    def closest_hendecasyllable_patterns(self, scansion: str) -> list[str]:
         """
         Find the closest group of matching valid hendecasyllable patterns.
 
@@ -206,7 +205,7 @@ class MetricalValidator:
         """
         return self._closest_patterns(self.VALID_HENDECASYLLABLES, scansion)
 
-    def _closest_patterns(self, patterns: List[str], scansion: str) -> List[str]:
+    def _closest_patterns(self, patterns: list[str], scansion: str) -> list[str]:
         """
         Find the closest group of matching valid patterns.
 
@@ -250,7 +249,7 @@ class MetricalValidator:
         hexameter.append(self.constants.HEXAMETER_ENDING)
         return "".join(hexameter)
 
-    def _build_hendecasyllable_templates(self) -> List[str]:
+    def _build_hendecasyllable_templates(self) -> list[str]:
         return [
             #     -U  - U   U -  U -  U - X
             self.constants.TROCHEE
@@ -275,7 +274,7 @@ class MetricalValidator:
             + self.constants.OPTIONAL_ENDING,
         ]
 
-    def _build_pentameter_templates(self) -> List[str]:
+    def _build_pentameter_templates(self) -> list[str]:
         """Create pentameter templates."""
         return [  # '-UU|-UU|-|-UU|-UU|X'
             self.constants.DACTYL

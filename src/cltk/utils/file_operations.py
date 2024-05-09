@@ -16,10 +16,12 @@ __author__ = [
 __license__ = "MIT License. See LICENSE."
 
 
-CLTK_DATA_DIR_PRIVATE = os.path.expanduser(os.path.join("~", "cltk_data", "private"))
+CLTK_DATA_DIR_PRIVATE: str = os.path.expanduser(
+    os.path.join("~", "cltk_data", "private")
+)
 
 
-def make_cltk_path(*fp_list):
+def make_cltk_path(*fp_list: str) -> str:
     """Take arbitrary number of str arguments (not list) and return expanded,
     absolute path to a user's (or user-defined) cltk_data dir.
 
@@ -74,7 +76,7 @@ def md5(filename: str) -> str:
     >>> os.unlink(f.name)
     """
     hash_md5 = hashlib.md5()
-    with open(filename, "rb") as f:
-        for chunk in iter(lambda: f.read(4096), b""):
+    with open(filename, "rb") as file_open:
+        for chunk in iter(lambda: file_open.read(4096), b""):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()

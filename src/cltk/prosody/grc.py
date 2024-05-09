@@ -16,7 +16,6 @@ resulting scansion.
     Known bug: Reduplicated syllables in a single sentence are not scanned separately.
 """
 
-from typing import List
 
 from cltk.core.cltk_logger import logger
 
@@ -32,8 +31,8 @@ class Scansion:
 
     def __init__(self) -> None:
         """Setup class variables."""
-        self.vowels = ["ε", "ι", "ο", "α", "η", "ω", "υ", "ῖ", "ᾶ"]  # type: List[str]
-        self.sing_cons = [
+        self.vowels: list[str] = ["ε", "ι", "ο", "α", "η", "ω", "υ", "ῖ", "ᾶ"]
+        self.sing_cons: list[str] = [
             "ς",
             "ρ",
             "τ",
@@ -50,10 +49,10 @@ class Scansion:
             "β",
             "ν",
             "μ",
-        ]  # type: List[str]
-        self.doub_cons = ["ξ", "ζ", "ψ"]  # type: List[str]
-        self.long_vowels = ["η", "ω", "ῖ", "ᾶ", "ῦ"]  # type: List[str]
-        self.diphthongs = [
+        ]
+        self.doub_cons: list[str] = ["ξ", "ζ", "ψ"]
+        self.long_vowels: list[str] = ["η", "ω", "ῖ", "ᾶ", "ῦ"]
+        self.diphthongs: list[str] = [
             "αι",
             "αῖ",
             "ευ",
@@ -69,10 +68,10 @@ class Scansion:
             "υι",
             "υῖ",
             "ηῦ",
-        ]  # type: List[str]
-        self.stops = ["π", "τ", "κ", "β", "δ", "γ"]  # type: List[str]
-        self.liquids = ["ρ", "λ"]  # type: List[str]
-        self.punc = [
+        ]
+        self.stops: list[str] = ["π", "τ", "κ", "β", "δ", "γ"]
+        self.liquids: list[str] = ["ρ", "λ"]
+        self.punc: list[str] = [
             "!",
             "@",
             "#",
@@ -106,10 +105,10 @@ class Scansion:
             "᾽",
             "（",
             "）",
-        ]  # type: List[str]
-        self.punc_stops = ["·", ":", ";"]  # type: List[str]
+        ]
+        self.punc_stops: list[str] = ["·", ":", ";"]
 
-    def scan_text(self, input_string: str) -> List[str]:
+    def scan_text(self, input_string: str) -> list[str]:
         """The primary method for the class.
 
         Args:
@@ -143,7 +142,7 @@ class Scansion:
         >>> Scansion()._clean_text(not_clean)
         'νέος μὲν καὶ ἄπειρος δικῶν ἔγωγε ἔτι. μὲν καὶ ἄπειρος.'
         """
-        clean = list()  # type: List[str]
+        clean: list[str] = list()
         for char in text:
             if char in self.punc_stops:
                 clean += "."
@@ -192,7 +191,7 @@ class Scansion:
                     pass
         return text
 
-    def _tokenize(self, text: str) -> List[List[str]]:
+    def _tokenize(self, text: str) -> list[list[str]]:
         """Tokenize the text into a list of sentences with a list of words.
 
         Args:
@@ -216,7 +215,7 @@ class Scansion:
         return sentences
 
     @staticmethod
-    def _syllable_condenser(words_syllables: List[List[List[str]]]) -> List[List[str]]:
+    def _syllable_condenser(words_syllables: list[list[list[str]]]) -> list[list[str]]:
         """Reduce a list of ``[sentence[word[syllable]]]`` to ``[sentence[syllable]]``.
 
         Args:
@@ -232,7 +231,7 @@ class Scansion:
         """
         sentences_syllables = list()
         for sentence in words_syllables:
-            syllables_sentence = list()  # type: List[str]
+            syllables_sentence: list[str] = list()
             for word in sentence:
                 syllables_sentence += word
             sentences_syllables.append(syllables_sentence)
@@ -256,7 +255,7 @@ class Scansion:
         [False, False, False, True, False, True, False, False, True, False, True, False, False, False, False, True, False, True, False]
         """
         # Find diphthongs
-        vowel_group = list()  # type: List[str]
+        vowel_group: list[str] = list()
         for char in syllable:
             if char in self.long_vowels:
                 return True
@@ -264,7 +263,9 @@ class Scansion:
                 vowel_group += char
         return bool("".join(vowel_group) in self.diphthongs)
 
-    def _long_by_position(self, syllable: str, sentence: List[str]) -> bool:
+    def _long_by_position(
+        self, sentence_index, syllable: str, sentence: list[str]
+    ) -> bool:
         """Check if syllable is long by position. Returns ``True``
         if syllable is long by position Long by position
         includes contexts when:
@@ -286,10 +287,10 @@ class Scansion:
         [True, False, False, False, False]
         """
         try:
-            next_syll = sentence[sentence.index(syllable) + 1]
+            next_syll = sentence[sentence_index + 1]
             # Long by position by case 1
             if (next_syll[0] in self.sing_cons and next_syll[1] in self.sing_cons) and (
-                next_syll[0] not in self.stops and next_syll[1] not in self.liquids
+                next_syll[0] not in self.stops or next_syll[1] not in self.liquids
             ):
                 return True
             # Long by position by case 2
@@ -305,7 +306,7 @@ class Scansion:
             )
         return False
 
-    def _scansion(self, sentence_syllables: List[List[str]]) -> List[str]:
+    def _scansion(self, sentence_syllables: list[list[str]]) -> list[str]:
         """Replace long and short values for each input syllable.
 
         Args:
@@ -322,10 +323,10 @@ class Scansion:
         scanned_text = list()
         for sentence in sentence_syllables:
             scanned_sent = list()
-            for syllable in sentence:
-                if self._long_by_position(syllable, sentence) or self._long_by_nature(
-                    syllable
-                ):
+            for i, syllable in enumerate(sentence):
+                if self._long_by_position(
+                    i, syllable, sentence
+                ) or self._long_by_nature(syllable):
                     scanned_sent.append("¯")
                 else:
                     scanned_sent.append("˘")
@@ -335,7 +336,7 @@ class Scansion:
             scanned_text.append("".join(scanned_sent))
         return scanned_text
 
-    def _make_syllables(self, sentences_words: str) -> List[List[List[str]]]:
+    def _make_syllables(self, sentences_words: str) -> list[list[list[str]]]:
         """First tokenize, then divide word tokens into a list of syllables.
         Note that a syllable in this instance is defined as a vocalic
         group (i.e., vowel or a diphthong). This means that all

@@ -3,14 +3,15 @@
 TODO: Rm regex dependency
 TODO: Add tests
 """
-
-# pylint: disable=anomalous-backslash-in-string
-
+from typing import Optional, Pattern
 from unicodedata import normalize
 
 import regex  # type: ignore
 
-BETA_REPLACE = [
+# pylint: disable=anomalous-backslash-in-string
+
+
+BETA_REPLACE: list[tuple[str, str]] = [
     (r"S|\*[sS]", "Σ"),
     (r"B|\*[bB]", "Β"),
     (r"G|\*[gG]", "Γ"),
@@ -97,7 +98,7 @@ BETA_REPLACE = [
     (r"'", "\u02bc"),
 ]
 
-BETA_REORDER = [
+BETA_REORDER: list[tuple[str, str]] = [
     # Brings breathings and diairesis first, then accents, then subscript iota
     (r"([\\/=])(\|)?([()+])?", r"\3\1\2"),
     # Makes sure the upper case marking is followed by the letter and only then
@@ -119,16 +120,20 @@ class BetaCodeReplacer:
     'προϋποτεταγμένων'
     """
 
-    def __init__(self, pattern=None, reorder_pattern=None):
-        if pattern is None:
+    def __init__(
+        self,
+        pattern=Optional[list[tuple[str, str]]],
+        reorder_pattern=Optional[list[tuple[str, str]]],
+    ):
+        if not pattern:
             pattern = BETA_REPLACE
-        if reorder_pattern is None:
+        if not reorder_pattern:
             reorder_pattern = BETA_REORDER
-        self.pattern = [
+        self.pattern: list[tuple[Pattern, str]] = [
             (regex.compile(beta_regex, flags=regex.VERSION1), repl)
             for (beta_regex, repl) in pattern
         ]
-        self.reorder_pattern = [
+        self.reorder_pattern: list[tuple[Pattern, str]] = [
             (regex.compile(beta_regex, flags=regex.VERSION1), repl)
             for (beta_regex, repl) in reorder_pattern
         ]

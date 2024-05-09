@@ -5,7 +5,7 @@ __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."
 
 import pickle
-from typing import Any, Dict, Generator, List, Set, Tuple
+from typing import Any, Generator, Set
 
 from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 

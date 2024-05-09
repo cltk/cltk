@@ -13,7 +13,6 @@ __license__ = "GPL v3"
 import json
 import os
 import re
-from typing import Dict, List, Tuple
 
 from cltk.core.exceptions import CLTKException
 from cltk.utils import CLTK_DATA_DIR
@@ -137,7 +136,7 @@ class CollatinusDecliner:
 
     def decline(
         self, lemma: str, flatten: bool = False, collatinus_dict: bool = False
-    ) -> List[Tuple[str, str]]:
+    ) -> list[tuple[str, str]]:
         """ Decline a lemma
 
         .. warning:: POS are incomplete as we do not detect the type outside of verbs, participle and adjective.
@@ -148,7 +147,7 @@ class CollatinusDecliner:
         :type lemma: str
         :param flatten: If set to True, returns a list of forms without natural language information about them
         :type flatten: bool
-        :param collatinus_dict: If sets to True, Dictionary of grammatically valid forms, including variants, with keys\
+        :param collatinus_dict: If sets to Trueionary of grammatically valid forms, including variants, with keys\
          corresponding to morpho informations.
         :type collatinus_dict: bool
         :return: List of tuple where first value is the form and second the pos, ie [("sum", "v1ppip---")]
@@ -228,5 +227,5 @@ class CollatinusDecliner:
             )
 
     @property
-    def lemmas(self) -> Dict[str, Dict[str, str]]:
+    def lemmas(self) -> dict[str, dict[str, str]]:
         return self._lemmas

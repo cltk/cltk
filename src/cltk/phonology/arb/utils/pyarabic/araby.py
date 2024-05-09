@@ -539,12 +539,9 @@ def arabicrange():
     @return: list of arabic characteres.
     @rtype: unicode
     """
-    mylist = []
+    mylist: list[str] = list()
     for i in range(0x0600, 0x00653):
         try:
-            mylist.append(unichr(i))
-        except NameError:
-            # python 3 compatible
             mylist.append(chr(i))
         except ValueError:
             pass

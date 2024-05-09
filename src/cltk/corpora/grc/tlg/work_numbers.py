@@ -1,4 +1,4 @@
-WORK_NUMBERS = {
+WORK_NUMBERS: dict[str, dict[str, str]] = {
     "0001": {"001": "Argonautica", "002": "Fragmenta", "003": "Epigramma"},
     "0002": {
         "001": "Elegiae",

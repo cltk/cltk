@@ -1,7 +1,6 @@
 """The full unit test suite, testing every available model for every language."""
 
 import unittest
-from typing import List
 
 import numpy
 
@@ -149,7 +148,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # type: str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = OldEnglishEmbeddingsProcess()  # type: OldEnglishEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)
@@ -161,7 +160,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # type: str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = AramaicEmbeddingsProcess()  # type: AramaicEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)
@@ -173,7 +172,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = GothicEmbeddingsProcess()  # type: GothicEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)
@@ -185,7 +184,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # type: str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = GreekEmbeddingsProcess()  # type: GreekEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)
@@ -197,7 +196,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # type: str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = LatinEmbeddingsProcess()  # type: LatinEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)
@@ -209,7 +208,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # type: str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = PaliEmbeddingsProcess()  # type: PaliEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)
@@ -221,7 +220,7 @@ class TestEmbedding(unittest.TestCase):
         example_text = get_example_text(language)  # type: str
         word_objs = [
             Word(string=word_obj) for word_obj in example_text.split(" ")
-        ]  # type: List[Word]
+        ]  # type: list[Word]
         a_process = SanskritEmbeddingsProcess()  # type: SanskritEmbeddingsProcess
         a_doc = a_process.run(
             input_doc=Doc(raw=get_example_text(language), words=word_objs)

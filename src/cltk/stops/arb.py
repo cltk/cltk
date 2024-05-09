@@ -8,7 +8,7 @@ this list inspired from Arabic Stop Words Project https://github.com/linuxscout/
 __author__ = ["Lakhdar Benzahia <lakhdar.benzahia@gmail.com>"]
 __license__ = "GPL License."
 
-STOPS = [
+STOPS: list[str] = [
     "إذ",
     "إذا",
     "إذما",

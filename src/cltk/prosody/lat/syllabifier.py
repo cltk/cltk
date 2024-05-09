@@ -7,7 +7,6 @@ may appear due to elision."""
 import copy
 import logging
 import re
-from typing import List
 
 import cltk.prosody.lat.string_utils as string_utils
 from cltk.prosody.lat.scansion_constants import ScansionConstants
@@ -40,7 +39,7 @@ class Syllabifier:
             d for d in constants.DIPTHONGS if d not in ["ui", "Ui", "uī"]
         ]
 
-    def syllabify(self, words: str) -> List[str]:
+    def syllabify(self, words: str) -> list[str]:
         """
         Parse a Latin word into a list of syllable strings.
 
@@ -170,7 +169,7 @@ class Syllabifier:
 
         return string_utils.remove_blank_spaces(syllables)
 
-    def _setup(self, word) -> List[str]:
+    def _setup(self, word) -> list[str]:
         """
         Prepares a word for syllable processing.
 
@@ -202,7 +201,7 @@ class Syllabifier:
             return "j" + word[1:]
         return word
 
-    def _process(self, word: str) -> List[str]:
+    def _process(self, word: str) -> list[str]:
         """
         Process a word into a list of strings representing the syllables of the word. This
         method describes rules for consonant grouping behaviors and then iteratively applies those
@@ -290,7 +289,7 @@ class Syllabifier:
                 return []
         return []
 
-    def _ending_consonants_only(self, letters: List[str]) -> List[int]:
+    def _ending_consonants_only(self, letters: list[str]) -> list[int]:
         """Return a list of positions for ending consonants."""
         reversed_letters = list(reversed(letters))
         length = len(letters)
@@ -303,7 +302,7 @@ class Syllabifier:
                 return []
         return []
 
-    def _find_solo_consonant(self, letters: List[str]) -> List[int]:
+    def _find_solo_consonant(self, letters: list[str]) -> list[int]:
         """Find the positions of any solo consonants that are not yet paired with a vowel."""
         solos = []
         for idx, letter in enumerate(letters):
@@ -311,7 +310,7 @@ class Syllabifier:
                 solos.append(idx)
         return solos
 
-    def _find_consonant_cluster(self, letters: List[str]) -> List[int]:
+    def _find_consonant_cluster(self, letters: list[str]) -> list[int]:
         """
         Find clusters of consonants that do not contain a vowel.
         :param letters:
@@ -324,7 +323,7 @@ class Syllabifier:
                 return [idx]
         return []
 
-    def _move_consonant(self, letters: list, positions: List[int]) -> List[str]:
+    def _move_consonant(self, letters: list, positions: list[int]) -> list[str]:
         """
         Given a list of consonant positions, move the consonants according to certain
         consonant syllable behavioral rules for gathering and grouping.
@@ -369,7 +368,7 @@ class Syllabifier:
                 return string_utils.move_consonant_right(letters, [pos])
         return letters
 
-    def get_syllable_count(self, syllables: List[str]) -> int:
+    def get_syllable_count(self, syllables: list[str]) -> int:
         """
         Counts the number of syllable groups that would occur after ellision.
 
@@ -385,7 +384,7 @@ class Syllabifier:
         ... 'Jām', 'tūm', 'c', 'au', 'sus', 'es', 'u', 'nus', 'I', 'ta', 'lo', 'rum']))
         11
         """
-        tmp_syllables = copy.deepcopy(syllables)
+        tmp_syllables = copy.copy(syllables)
         return len(
             string_utils.remove_blank_spaces(
                 string_utils.move_consonant_right(

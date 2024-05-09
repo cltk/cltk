@@ -9,7 +9,7 @@ __license__ = "MIT License."
 import inspect
 import pickle
 from abc import abstractmethod
-from typing import Any, Dict, Generator, List, Set, Tuple
+from typing import Any, Generator, Set
 
 from nltk.tokenize.punkt import PunktLanguageVars, PunktSentenceTokenizer, PunktTrainer
 
@@ -20,10 +20,10 @@ class SentenceTokenizerTrainer:
     def __init__(
         self,
         language: str = None,
-        punctuation: List[str] = None,
+        punctuation: list[str] = None,
         strict: bool = False,
-        strict_punctuation: List[str] = None,
-        abbreviations: List[str] = None,
+        strict_punctuation: list[str] = None,
+        abbreviations: list[str] = None,
     ):
         """Initialize stoplist builder with option for language specific parameters
         :type language: str

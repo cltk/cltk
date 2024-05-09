@@ -10,13 +10,12 @@ __license__ = "MIT License. See LICENSE."
 import os
 import re
 from abc import ABC, abstractmethod
-from typing import List
-
-from nltk.tokenize.punkt import PunktSentenceTokenizer as NLTKPunktSentenceTokenizer
 
 from cltk.core import CLTKException
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
+
+# from nltk.tokenize.punkt import PunktSentenceTokenizer as NLTKPunktSentenceTokenizer
 
 
 class SentenceTokenizer(ABC):
@@ -34,7 +33,7 @@ class SentenceTokenizer(ABC):
         self.model = None
         self.lang_vars = None
 
-    def tokenize(self, text: str, model=None) -> List[str]:
+    def tokenize(self, text: str, model=None) -> list[str]:
         """Method for tokenizing sentences with pretrained punkt models; can
         be overridden by language-specific tokenizers.
 
@@ -96,7 +95,7 @@ class PunktSentenceTokenizer(SentenceTokenizer):
 class RegexSentenceTokenizer(SentenceTokenizer):
     """Base class for regex sentences tokenization."""
 
-    def __init__(self, language: str = None, sent_end_chars: List[str] = None):
+    def __init__(self, language: str = None, sent_end_chars: list[str] = None):
         """Constructor.
 
         :param language: language for sentences tokenization
@@ -112,7 +111,7 @@ class RegexSentenceTokenizer(SentenceTokenizer):
         else:
             raise Exception("Must specify sent_end_chars")
 
-    def tokenize(self, text: str, model=None) -> List[str]:
+    def tokenize(self, text: str, model=None) -> list[str]:
         """Method for tokenizing sentences with regular expressions.
 
         :rtype: list

@@ -2,7 +2,7 @@
 """
 
 
-from copy import deepcopy
+from copy import copy
 from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
@@ -38,7 +38,7 @@ class SentenceTokenizationProcess(Process):
         )
 
     def run(self, input_doc: Doc) -> Doc:
-        output_doc = deepcopy(input_doc)
+        output_doc = copy(input_doc)
         sentence_tokenizer = self.algorithm
         if not isinstance(sentence_tokenizer, SentenceTokenizer):
             raise CLTKException(

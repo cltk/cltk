@@ -1,4 +1,4 @@
-AUTHOR_GEO = {
+AUTHOR_GEO: dict[str, list[str]] = {
     "Mesopotamia": ["2109"],
     "Panormus [vel Panormum]": ["2393"],
     "Hierapolis": ["0557", "1163", "1558"],

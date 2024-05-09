@@ -37,10 +37,6 @@ jobs:
           name: Run quick tests
           # This assumes pytest is installed via the install-package step above
           command: make testNoInternet
-      # TODO: Remove this once caching issue figured out
-      - run:
-          name: Check spacy version
-          command: poetry run spacy info
       - run:
           name: Download dependencies
           command: poetry run python scripts/download_all_models.py --languages=lat

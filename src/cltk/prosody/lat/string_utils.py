@@ -3,7 +3,6 @@
 import re
 import sys
 import unicodedata
-from typing import Dict, List, Tuple
 
 __author__ = ["Todd Cook <todd.g.cook@gmail.com>"]
 __license__ = "MIT License"
@@ -12,7 +11,7 @@ __license__ = "MIT License"
 qu_matcher = re.compile("[qQ][uU]")
 
 
-def remove_punctuation_dict() -> Dict[int, None]:
+def remove_punctuation_dict() -> dict[int, None]:
     """
     Provide a dictionary for removing punctuation, swallowing spaces.
 
@@ -30,7 +29,7 @@ def remove_punctuation_dict() -> Dict[int, None]:
     return tmp
 
 
-def punctuation_for_spaces_dict() -> Dict[int, str]:
+def punctuation_for_spaces_dict() -> dict[int, str]:
     """
     Provide a dictionary for removing punctuation, keeping spaces. Essential for scansion
     to keep stress patterns in alignment with original vowel positions in the verse.
@@ -48,7 +47,7 @@ def punctuation_for_spaces_dict() -> Dict[int, str]:
     )
 
 
-def differences(scansion: str, candidate: str) -> List[int]:
+def differences(scansion: str, candidate: str) -> list[int]:
     """
     Given two strings, return a list of index positions where the contents differ.
 
@@ -68,7 +67,7 @@ def differences(scansion: str, candidate: str) -> List[int]:
     return diffs
 
 
-def mark_list(line: str) -> List[int]:
+def mark_list(line: str) -> list[int]:
     """
     Given a string, return a list of index positions where a character/non blank space exists.
 
@@ -85,7 +84,7 @@ def mark_list(line: str) -> List[int]:
     return marks
 
 
-def space_list(line: str) -> List[int]:
+def space_list(line: str) -> list[int]:
     """
     Given a string, return a list of index positions where a blank space occurs.
 
@@ -115,7 +114,7 @@ def flatten(list_of_lists):
     return [val for sublist in list_of_lists for val in sublist]
 
 
-def to_syllables_with_trailing_spaces(line: str, syllables: List[str]) -> List[str]:
+def to_syllables_with_trailing_spaces(line: str, syllables: list[str]) -> list[str]:
     """
     Given a line of syllables and spaces, and a list of syllables, produce a list of the
     syllables with trailing spaces attached as approriate.
@@ -161,7 +160,7 @@ def to_syllables_with_trailing_spaces(line: str, syllables: List[str]) -> List[s
     return syllabs_spaces
 
 
-def join_syllables_spaces(syllables: List[str], spaces: List[int]) -> str:
+def join_syllables_spaces(syllables: list[str], spaces: list[int]) -> str:
     """
     Given a list of syllables, and a list of integers indicating the position of spaces, return
     a string that has a space inserted at the designated points.
@@ -194,7 +193,7 @@ def starts_with_qu(word) -> bool:
     return qu_matcher.search(word) is not None
 
 
-def stress_positions(stress: str, scansion: str) -> List[int]:
+def stress_positions(stress: str, scansion: str) -> list[int]:
     """
     Given a stress value and a scansion line, return the index positions of the stresses.
 
@@ -213,7 +212,7 @@ def stress_positions(stress: str, scansion: str) -> List[int]:
     return stresses
 
 
-def merge_elisions(elided: List[str]) -> str:
+def merge_elisions(elided: list[str]) -> str:
     """
     Given a list of strings with different space swapping elisions applied, merge the elisions,
     taking the most without compounding the omissions.
@@ -233,7 +232,7 @@ def merge_elisions(elided: List[str]) -> str:
     return "".join(results)
 
 
-def move_consonant_right(letters: List[str], positions: List[int]) -> List[str]:
+def move_consonant_right(letters: list[str], positions: list[int]) -> list[str]:
     """
     Given a list of letters, and a list of consonant positions, move the consonant positions to
     the right, merging strings as necessary.
@@ -251,7 +250,7 @@ def move_consonant_right(letters: List[str], positions: List[int]) -> List[str]:
     return letters
 
 
-def move_consonant_left(letters: List[str], positions: List[int]) -> List[str]:
+def move_consonant_left(letters: list[str], positions: list[int]) -> list[str]:
     """
     Given a list of letters, and a list of consonant positions, move the consonant positions to
     the left, merging strings as necessary.
@@ -269,7 +268,7 @@ def move_consonant_left(letters: List[str], positions: List[int]) -> List[str]:
     return letters
 
 
-def merge_next(letters: List[str], positions: List[int]) -> List[str]:
+def merge_next(letters: list[str], positions: list[int]) -> list[str]:
     """
     Given a list of letter positions, merge each letter with its next neighbor.
 
@@ -289,7 +288,7 @@ def merge_next(letters: List[str], positions: List[int]) -> List[str]:
     return letters
 
 
-def remove_blanks(letters: List[str]):
+def remove_blanks(letters: list[str]):
     """
     Given a list of letters, remove any empty strings.
 
@@ -306,7 +305,7 @@ def remove_blanks(letters: List[str]):
     return cleaned
 
 
-def split_on(word: str, section: str) -> Tuple[str, str]:
+def split_on(word: str, section: str) -> tuple[str, str]:
     """
     Given a string, split on a section, and return the two sections as a tuple.
 
@@ -323,7 +322,7 @@ def split_on(word: str, section: str) -> Tuple[str, str]:
     )
 
 
-def remove_blank_spaces(syllables: List[str]) -> List[str]:
+def remove_blank_spaces(syllables: list[str]) -> list[str]:
     """
     Given a list of letters, remove any blank spaces or empty strings.
 
@@ -343,8 +342,8 @@ def remove_blank_spaces(syllables: List[str]) -> List[str]:
 
 
 def overwrite(
-    char_list: List[str], regexp: str, quality: str, offset: int = 0
-) -> List[str]:
+    char_list: list[str], regexp: str, quality: str, offset: int = 0
+) -> list[str]:
     """
     Given a list of characters and spaces, a matching regular expression, and a quality or
     character, replace the matching character with a space, overwriting with an offset and
@@ -368,7 +367,7 @@ def overwrite(
     return char_list
 
 
-def overwrite_dipthong(char_list: List[str], regexp: str, quality: str) -> List[str]:
+def overwrite_dipthong(char_list: list[str], regexp: str, quality: str) -> list[str]:
     """
     Given a list of characters and spaces, a matching regular expression, and a quality or
     character, replace the matching character with a space, overwriting with an offset and
@@ -392,7 +391,7 @@ def overwrite_dipthong(char_list: List[str], regexp: str, quality: str) -> List[
     return char_list
 
 
-def get_unstresses(stresses: List[int], count: int) -> List[int]:
+def get_unstresses(stresses: list[int], count: int) -> list[int]:
     """
     Given a list of stressed positions, and count of possible positions, return a list of
     the unstressed positions.

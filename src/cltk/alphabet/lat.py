@@ -24,7 +24,6 @@ __author__ = [
 __license__ = "MIT License"
 
 import re
-from typing import Dict
 
 from cltk.alphabet.text_normalization import (
     cltk_normalize,
@@ -420,7 +419,7 @@ def accept_editorial(text: str) -> str:
     return text
 
 
-def truecase(word: str, case_counter: Dict[str, int]):
+def truecase(word: str, case_counter: dict[str, int]):
     """
     Truecase a word using a Truecase dictionary
 
@@ -474,8 +473,8 @@ def normalize_lat(
 
     """
     text_cltk_normalized: str = cltk_normalize(text=text)
-    # text_cltk_normalized = split_trailing_punct(text=text_cltk_normalized)
-    # text_cltk_normalized = split_leading_punct(text=text_cltk_normalized)
+    text_cltk_normalized = split_trailing_punct(text=text_cltk_normalized)
+    text_cltk_normalized = split_leading_punct(text=text_cltk_normalized)
     text_cltk_normalized = remove_odd_punct(text=text_cltk_normalized)
     if drop_macrons:
         text_cltk_normalized = remove_macrons(text_cltk_normalized)

@@ -2,7 +2,6 @@
 """
 
 import re
-from typing import List
 
 from cltk.phonology.enm.syllabifier import (
     CONSONANTS,
@@ -52,7 +51,7 @@ class MiddleEnglishStresser:
         """
         self.syllabifier = syllabifier
 
-    def stress(self, word, stress_rule="FSR") -> List:
+    def stress(self, word, stress_rule="FSR") -> list[str]:
         """
         :param word: word to stress
         :param stress_rule: Stress Rule, valid options:

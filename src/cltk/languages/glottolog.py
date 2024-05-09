@@ -45,7 +45,7 @@ from collections import OrderedDict
 
 from cltk.core.data_types import Language
 
-LANGUAGES = OrderedDict(
+LANGUAGES: typing.OrderedDict[str, Language] = OrderedDict(
     [
         (
             "akk",
@@ -3326,10 +3326,12 @@ def _resort_languages_list(
     >>> list(iso_dict_keys)[:10]
     ['xae', 'xag', 'akk', 'xln', 'grc', 'hbo', 'xlg', 'xmk', 'xna', 'xzp']
     """
-    name_sorted_langs = OrderedDict(
+    name_sorted_langs: typing.OrderedDict[str, Language] = OrderedDict(
         sorted(languages_list.items(), key=lambda x: x[1].name)
     )
     return name_sorted_langs
 
 
-LANGUAGES = _resort_languages_list(languages_list=LANGUAGES)
+LANGUAGES: typing.OrderedDict[str, Language] = _resort_languages_list(
+    languages_list=LANGUAGES
+)

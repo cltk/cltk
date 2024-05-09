@@ -1,5 +1,7 @@
 """Code for querying Latin language dictionaries/lexicons."""
 
+from typing import Optional
+
 import regex
 import yaml
 
@@ -15,22 +17,23 @@ class LatinLewisLexicon:
     """Access a digital form of Charlton T. Lewis's *An Elementary Latin Dictionary* (1890)."""
 
     def __init__(self, interactive: bool = True):
-        self.interactive = interactive
-        self.lewis_yaml_fp = make_cltk_path(
+        self.interactive: bool = interactive
+        self.lewis_yaml_fp: str = make_cltk_path(
             "lat", "lexicon", "cltk_lat_lewis_elementary_lexicon", "lewis.yaml"
         )
         try:
-            self.entries = self._load_entries()
+            self.entries: dict[str, str] = self._load_entries()
         except FileNotFoundError:
+            do_download: Optional[bool] = None
             if self.interactive:
-                dl_msg = f"This part of the CLTK depends upon Lewis's *An Elementary Latin Dictionary* (1890)."
+                dl_msg: str = f"This part of the CLTK depends upon Lewis's *An Elementary Latin Dictionary* (1890)."
                 print(dl_msg)
-                dl_question = "Do you want to download this?"
+                dl_question: str = "Do you want to download this?"
                 do_download = query_yes_no(question=dl_question)
             else:
                 do_download = True
             if do_download:
-                fetch_corpus = FetchCorpus(language="lat")
+                fetch_corpus: FetchCorpus = FetchCorpus(language="lat")
                 fetch_corpus.import_corpus(
                     corpus_name="cltk_lat_lewis_elementary_lexicon"
                 )
@@ -38,7 +41,7 @@ class LatinLewisLexicon:
                 raise CLTKException(
                     f"File '{self.lewis_yaml_fp}' is not found. It is required for this class."
                 )
-            self.entries = self._load_entries()
+            self.entries: dict[str, str] = self._load_entries()
 
     def lookup(self, lemma: str) -> str:
         """Perform match of a lemma against headwords. If more than one match,
@@ -71,9 +74,11 @@ class LatinLewisLexicon:
 
         lemma = regex.escape(lemma.lower())
 
-        keys = self.entries.keys()
-        matches = [key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)]
-        n_matches = len(matches)
+        keys: list[str] = list(self.entries.keys())
+        matches: list[str] = [
+            key for key in keys if regex.match(rf"^{lemma}[0-9]?$", key)
+        ]
+        n_matches: int = len(matches)
         if n_matches > 1:
             return "\n".join([self.entries[key] for key in matches])
         elif n_matches == 1:
@@ -81,8 +86,8 @@ class LatinLewisLexicon:
         else:
             return ""
 
-    def _load_entries(self):
+    def _load_entries(self) -> dict[str, str]:
         """Read the yaml file of the lexion."""
         with open(self.lewis_yaml_fp) as file_open:
-            entries = yaml.load(file_open, Loader=yaml.Loader)
+            entries: dict[str, str] = yaml.load(file_open, Loader=yaml.Loader)
         return entries

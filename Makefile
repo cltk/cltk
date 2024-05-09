@@ -82,7 +82,7 @@ testOnlyTestsDir:
 	poetry run pytest --disable-warnings --ignore=src/cltk/wordnet tests
 
 typing:
-	poetry run mypy --html-report .mypy_cache src/cltk
+	poetry run mypy --check-untyped-defs --html-report .mypy_cache src/cltk
 
 uninstall:
 	poetry run pip uninstall -y cltk

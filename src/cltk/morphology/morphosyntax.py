@@ -1,6 +1,6 @@
 """A module for representing universal morphosyntactic feature bundles."""
 
-from typing import Dict, List, Optional, Tuple, Type, Union
+from typing import Optional, Type, Union
 
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import *
@@ -11,7 +11,7 @@ __author__ = ["John Stewart <free-variation>"]
 class MorphosyntacticFeatureBundle:
     """A representation of a set of features, usually associated with a word form."""
 
-    def __init__(self, *features: List[MorphosyntacticFeature]) -> None:
+    def __init__(self, *features: list[MorphosyntacticFeature]) -> None:
         """
         >>> f1 = MorphosyntacticFeatureBundle(F.neg, N.pos, V.neg, Case.accusative)
         >>> f1.features
@@ -31,7 +31,7 @@ class MorphosyntacticFeatureBundle:
 
     def __getitem__(
         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
-    ) -> List[MorphosyntacticFeature]:
+    ) -> list[MorphosyntacticFeature]:
         """
         Use dict-type syntax for accessing the values of features.
         >>> f1 = f(F.pos, N.pos)
@@ -59,7 +59,7 @@ class MorphosyntacticFeatureBundle:
     def __setitem__(
         self,
         feature_name: Union[str, Type[MorphosyntacticFeature]],
-        feature_values: Union[MorphosyntacticFeature, List[MorphosyntacticFeature]],
+        feature_values: Union[MorphosyntacticFeature, list[MorphosyntacticFeature]],
     ) -> "MorphosyntacticFeatureBundle":
         """
         Use dict-type syntax to set the value of features.
@@ -91,7 +91,7 @@ class MorphosyntacticFeatureBundle:
 
     def all(
         self,
-    ) -> List[Tuple[Type[MorphosyntacticFeature], List[MorphosyntacticFeature]]]:
+    ) -> list[tuple[Type[MorphosyntacticFeature], list[MorphosyntacticFeature]]]:
         return self.features.items()
 
     def underspecify(self, feature_name: Type[MorphosyntacticFeature]) -> None:
@@ -201,7 +201,7 @@ def to_categorial(pos: int) -> "MorphosyntacticFeatureBundle":
         return f()
 
 
-FORM_UD_MAP: Dict[str, Dict[str, MorphosyntacticFeature]] = {
+FORM_UD_MAP: dict[str, dict[str, MorphosyntacticFeature]] = {
     # parts of speech
     "POS": {
         "ADJ": POS.adjective,
@@ -491,7 +491,7 @@ def from_ud(
     # and ``feature_value = psor``.
     # Was this for Stanza or LatinCy?
     if "[" in feature_name and "]" in feature_name:
-        feature_name_split: List[str] = feature_name.split("[", maxsplit=1)
+        feature_name_split: list[str] = feature_name.split("[", maxsplit=1)
         feature_name = feature_name_split[0]
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()

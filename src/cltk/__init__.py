@@ -1,7 +1,8 @@
 """Init module for importing the CLTK class."""
 
-import importlib.metadata
+from importlib import metadata
 
 from .nlp import NLP
 
-__version__ = curr_version = importlib.metadata.version("cltk")
+curr_version: str = metadata.version("cltk")
+__version__: str = curr_version

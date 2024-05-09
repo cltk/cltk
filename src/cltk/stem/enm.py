@@ -1,5 +1,3 @@
-from typing import Dict, List
-
 __author__ = ["Eleftheria Chatziargyriou <ele.hatzy@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
@@ -14,7 +12,7 @@ hard-coded list (Middle English Dictionary(MED) https://quod.lib.umich.edu/m/med
   TODO: Implement a stochastic algorithm/Implement overarching stemmer class
 """
 
-SUFFIXES = [
+SUFFIXES: list[str] = [
     "rightes",
     "eresse",
     "kinnes",
@@ -160,7 +158,7 @@ SUFFIXES = [
     "ur",
 ]
 
-PREFIXES = [
+PREFIXES: list[str] = [
     "yester",
     "yister",
     "yistyr",
@@ -187,12 +185,12 @@ PREFIXES = [
 ]
 
 # Used for attaching endings to suffixes, catches more orthographical variations (e.g 'ir', 'ire')
-ENDS = ["", "s", "e", "en", "es"]
+ENDS: list[str] = ["", "s", "e", "en", "es"]
 
 
 def stem(
     word: str,
-    exception_list: Dict[str, str] = dict(),
+    exception_list: dict[str, str] = dict(),
     strip_pref: bool = True,
     strip_suf: bool = True,
 ) -> str:

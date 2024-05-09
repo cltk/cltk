@@ -1,6 +1,6 @@
 """Functions for preprocessing texts. Not language-specific."""
 
-from typing import List, Optional
+from typing import Optional
 from unicodedata import normalize
 
 
@@ -35,7 +35,7 @@ def remove_non_latin(input_string, also_keep=None):
     return no_latin
 
 
-def split_trailing_punct(text: str, punctuation: Optional[List[str]] = None) -> str:
+def split_trailing_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
     """Some tokenizers, including that in Stanza, do not always
     handle punctuation properly. For example, a trailing colon (``"οἶδα:"``)
     is not split into an extra punctuation token. This function
@@ -56,7 +56,7 @@ def split_trailing_punct(text: str, punctuation: Optional[List[str]] = None) -> 
     if not punctuation:
         # What about the curly thing (``᾽``) in eg ``δ᾽``
         punctuation = [":", "’", "”"]  # closing curly quotes
-    new_chars: List[str] = list()
+    new_chars: list[str] = list()
     for index, char in enumerate(text):
         if char in punctuation and index > 0:
             # Check whether the punct is attached to a word end
@@ -72,7 +72,7 @@ def split_trailing_punct(text: str, punctuation: Optional[List[str]] = None) -> 
     return "".join(new_chars)
 
 
-def split_leading_punct(text: str, punctuation: Optional[List[str]] = None) -> str:
+def split_leading_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
     """Some tokenizers, including that in Stanza, do not always
     handle punctuation properly. For example, an open curly
     quote  (``"‘κατηγόρων’"``) is not split into an extra punctuation
@@ -92,7 +92,7 @@ def split_leading_punct(text: str, punctuation: Optional[List[str]] = None) -> s
     """
     if not punctuation:
         punctuation = ["‘", "“"]  # opening curly quotes
-    new_chars: List[str] = list()
+    new_chars: list[str] = list()
     last_char_idx = len(text) - 1
     for index, char in enumerate(text):
         # If at end of string, don't split
@@ -112,7 +112,7 @@ def split_leading_punct(text: str, punctuation: Optional[List[str]] = None) -> s
     return "".join(new_chars)
 
 
-def remove_odd_punct(text: str, punctuation: List[str] = None) -> str:
+def remove_odd_punct(text: str, punctuation: list[str] = None) -> str:
     """Remove certain characters that downstream processes do
     not handle well. It would be better to use ``split_leading_punct()``
     and ``split_trailing_punct()``, however the default models
@@ -127,6 +127,6 @@ def remove_odd_punct(text: str, punctuation: List[str] = None) -> str:
     'κατηγόρων, οὐκ οἶδα ἐγὼ δ᾽ οὖν'
     """
     if not punctuation:
-        punctuation = ["‘", "“", ":", "’", "”"]
-    chars: List[str] = [char for char in text if char not in punctuation]
+        punctuation = ["‘", "“", "’", "”"]
+    chars: list[str] = [char for char in text if char not in punctuation]
     return "".join(chars)

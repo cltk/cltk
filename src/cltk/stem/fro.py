@@ -4,7 +4,7 @@ import re
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]
 __license__ = "MIT License. See LICENSE."
 
-EXCEPTIONS = [
+EXCEPTIONS: list[str] = [
     "mer",
     "certes",
     "mais",
@@ -39,13 +39,13 @@ EXCEPTIONS = [
 ]
 
 
-def _matchremove_noun_endings(word: str) -> str:
+def _matchremove_noun_endings(word: str) -> tuple[str, bool]:
     """Remove the noun and adverb word endings"""
 
-    was_stemmed = False
+    was_stemmed: bool = False
 
     """common and proper noun and adjective word endings sorted by charlen, then alph"""
-    noun_endings = [
+    noun_endings: list[str] = [
         "arons",
         "ains",
         "aron",
@@ -82,7 +82,7 @@ def _matchremove_noun_endings(word: str) -> str:
 def _matchremove_verb_endings(word: str) -> str:
     """Remove the verb endings"""
     """verb endings sorted by charlen then alph"""
-    verb_endings = [
+    verb_endings: list[str] = [
         "issiiens",
         "isseient",
         "issiiez",

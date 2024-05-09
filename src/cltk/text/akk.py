@@ -1,12 +1,13 @@
 import re
-from typing import List, Tuple
+from re import Match
+from typing import Optional
 from unicodedata import normalize
 
 __author__ = ["Andrew Deloucas <ADeloucas@g.harvard.com>"]
 __license__ = "MIT License. See LICENSE."
 
-VOWELS = "aeiouAEIOU"
-TITTLES = {
+VOWELS: str = "aeiouAEIOU"
+TITTLES: dict[str, str] = {
     r"s,": chr(0x1E63),
     r"sz": chr(0x0161),
     r"t,": chr(0x1E6D),
@@ -18,8 +19,7 @@ TITTLES = {
 
 
 def _convert_consonant(sign: str) -> str:
-    """
-    Uses dictionary to replace ATF convention for unicode characters.
+    """Uses dictionary to replace ATF convention for unicode characters.
 
     >>> signs = ["as,", "S,ATU", "tet,", "T,et", "sza", "ASZ"]
     >>> [_convert_consonant(s) for s in signs]
@@ -32,23 +32,21 @@ def _convert_consonant(sign: str) -> str:
 
 
 def _convert_number_to_subscript(num: int) -> str:
-    """
-    Converts number into subscript.
+    """Converts number into subscript.
 
     >>> signs = ["a", "a1", "be2", "bad3", "buru14"]
     >>> [_get_number_from_sign(s)[1] for s in signs]
     [0, 1, 2, 3, 14]
     """
 
-    subscript = ""
+    subscript: str = ""
     for character in str(num):
         subscript += chr(0x2080 + int(character))
     return subscript
 
 
-def _get_number_from_sign(sign: str) -> Tuple[str, int]:
-    """
-    Captures numbers after sign for __convert_num__.
+def _get_number_from_sign(sign: str) -> tuple[str, int]:
+    """Captures numbers after sign for __convert_num__.
 
     input = ["a", "a1", "be2", "bad3", "buru14"]
     output = [0, 1, 2, 3, 14]
@@ -57,7 +55,8 @@ def _get_number_from_sign(sign: str) -> Tuple[str, int]:
     :return: string, integer
     """
 
-    match = re.search(r"\d{1,3}$", sign)
+    match: Match[str] = re.search(r"\d{1,3}$", sign)
+    number: Optional[int] = None
     if match is None:
         number = 0
     else:
@@ -67,9 +66,7 @@ def _get_number_from_sign(sign: str) -> Tuple[str, int]:
 
 # noinspection PyUnboundLocalVariable
 class ATFConverter:  # pylint: disable=too-few-public-methods
-    """
-    Class to convert tokens to unicode.
-
+    """Class to convert tokens to unicode.
 
     Transliterates ATF data from CDLI into readable unicode.
         sz = š
@@ -93,7 +90,7 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
         :param two_three: turns on or off accent marking.
         """
 
-        self.two_three = two_three
+        self.two_three: bool = two_three
 
     def _convert_num(self, sign: str) -> str:
         """
@@ -125,7 +122,7 @@ class ATFConverter:  # pylint: disable=too-few-public-methods
                 + new_sign[i + 1 :].replace(str(num), "")
             )
 
-    def process(self, tokens: List[str]) -> List[str]:
+    def process(self, tokens: list[str]) -> list[str]:
         """
         Expects a list of tokens, will return the list converted from ATF
         format to print-format.

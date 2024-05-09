@@ -16,7 +16,7 @@ TODO: Get longer Akkadian text
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.utils import get_lang
 
-EXAMPLE_TEXTS = dict(
+EXAMPLE_TEXTS: dict[str, str] = dict(
     # Akkadian
     akk="u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er",
     # Old English, Beowulf

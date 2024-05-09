@@ -1,6 +1,7 @@
 """Indices to the PHI5 Latin corpus."""
+from typing import Union
 
-PHI5_INDEX = {
+MAP_PHI5_AUTHOR_ID_TO_NAME: dict[str, str] = {
     "LAT0428": "Bellum Alexandrinum [Anonymous]",
     "LAT1276": "Decimus Iunius Iuvenalis, Juvenal",
     "LAT0448": "Gaius Iulius Caesar, Caesar",
@@ -365,7 +366,7 @@ PHI5_INDEX = {
     "LAT0969": "Aulus Persius Flaccus",
 }
 
-PHI5_WORKS_INDEX = {
+MAP_PHI5_AUTHOR_ID_TO_WORKS_AND_NAME: dict[str, dict[str, Union[list[str], str]]] = {
     "LAT0528": {"works": ["001"], "name": "Granius Flaccus"},
     "LAT0650": {"works": ["001"], "name": "Sueius"},
     "LAT1380": {"works": ["001"], "name": "Philumenus medicus"},
