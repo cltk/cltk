@@ -114,7 +114,16 @@ class SpacyWrapper:
                 raise CLTKException(
                     f"Download of necessary spaCy model declined for '{self.language}'. Unable to continue with spaCy's processing."
                 )
-        if self.language == "grc":
+        if self.language == "lat":
+            # Use Patrick Burns's Spacy models, hosted on HuggingFace
+            subprocess.check_call(
+                [
+                    "pip",
+                    "install",
+                    "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
+                ]
+            )
+        elif self.language == "grc":
             # Use OdyCy's Spacy models, hosted on HuggingFace
             subprocess.check_call(
                 [
