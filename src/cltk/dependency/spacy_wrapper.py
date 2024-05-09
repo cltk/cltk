@@ -136,19 +136,6 @@ class SpacyWrapper:
             raise CLTKException(
                 f"No spaCy model found for language '{self.language}'. If you know of a publicly available spaCy model for '{self.language}', please open a pull request (with this message) at `https://github.com/cltk/cltk/issues`."
             )
-        if self.language == "lat":
-            # Use Patrick Burns's Spacy models, hosted on HuggingFace
-            subprocess.check_call(
-                [
-                    "pip",
-                    "install",
-                    "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
-                ]
-            )
-        else:
-            raise CLTKException(
-                f"No spaCy model found for language '{self.language}'. If you know of a publicly available spaCy model for '{self.language}', please open a pull request (with this message) at `https://github.com/cltk/cltk/issues`."
-            )
 
     def _is_model_present(self) -> bool:
         return spacy.util.is_package(self.spacy_model_name)
