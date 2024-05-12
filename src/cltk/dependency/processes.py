@@ -334,4 +334,15 @@ class LatinSpacyProcess(SpacyProcess):
 
     language: Literal["lat"] = "lat"
     description: str = "Process for Spacy for Patrick Burn's Latin model."
-    authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://arxiv.org/abs/2305.04365 . Please cite: https://arxiv.org/abs/2305.04365"
+    authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://huggingface.co/latincy . Please cite: https://arxiv.org/abs/2305.04365"
+
+@dataclass
+class GreekSpacyProcess(SpacyProcess):
+    """Run a Spacy model.
+
+    <https://huggingface.co/chcaa>_
+    """
+
+    language: Literal["grc"] = "grc"
+    description: str = "Process for Spacy for OdyCy's Greek model."
+    authorship_info: str = "``GreekSpacyProcess`` using OdyCy model by Center for Humanities Computing Aarhus from https://huggingface.co/chcaa . Please cite: https://aclanthology.org/2023.latechclfl-1.14"
