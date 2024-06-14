@@ -135,6 +135,8 @@ class LatinWordTokenizer(WordTokenizer):
                     if token.endswith(enclitic):
                         if enclitic == "n":
                             specific_tokens += [token[: -len(enclitic)]] + ["-ne"]
+                        elif token == "-ne" and enclitic == "ne":
+                            specific_tokens += [token]
                         elif enclitic == "st":
                             if token.endswith("ust"):
                                 specific_tokens += [token[: -len(enclitic) + 1]] + [
@@ -143,7 +145,9 @@ class LatinWordTokenizer(WordTokenizer):
                             else:
                                 specific_tokens += [token[: -len(enclitic)]] + ["est"]
                         else:
-                            specific_tokens += [token]
+                            specific_tokens += [token[: -len(enclitic)]] + [
+                                "-" + enclitic
+                            ]
                         is_enclitic = True
                         break
             if not is_enclitic:
