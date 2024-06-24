@@ -119,21 +119,17 @@ class BetaCodeReplacer:
     >>> beta_code_replace.replace_beta_code(beta_code_str)
     'προϋποτεταγμένων'
     """
-
-    def __init__(
-        self,
-        pattern=Optional[list[tuple[str, str]]],
-        reorder_pattern=Optional[list[tuple[str, str]]],
-    ):
+    
+    def __init__(self, pattern=None, reorder_pattern=None):
         if not pattern:
             pattern = BETA_REPLACE
-        if not reorder_pattern:
+        if reorder_pattern is None:
             reorder_pattern = BETA_REORDER
-        self.pattern: list[tuple[Pattern, str]] = [
+        self.pattern = [
             (regex.compile(beta_regex, flags=regex.VERSION1), repl)
             for (beta_regex, repl) in pattern
         ]
-        self.reorder_pattern: list[tuple[Pattern, str]] = [
+        self.reorder_pattern = [
             (regex.compile(beta_regex, flags=regex.VERSION1), repl)
             for (beta_regex, repl) in reorder_pattern
         ]
