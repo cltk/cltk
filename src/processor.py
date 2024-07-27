@@ -4,8 +4,10 @@
 # Uses cltk, Fran did most of this
 
 def greekToScansion(file_path):
-    from src.cltk.prosody.grc import Scansion
+    from cltk.prosody.grc import Scansion
     from phaistos import NLP
+    import sys
+    sys.path.append("cltk")
 
     scanner = Scansion()
     with open(file_path, 'r', encoding="utf8") as file:
