@@ -4,7 +4,7 @@
 # Uses cltk, Fran did most of this
 
 def greekToScansion(file_path):
-    from phaistos.src.cltk.prosody.grc import Scansion
+    from src.cltk.prosody.grc import Scansion
     from phaistos import NLP
 
     scanner = Scansion()
