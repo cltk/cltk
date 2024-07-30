@@ -83,6 +83,7 @@ class NLP:
         >>> nlp.pipeline is a_pipeline
         True
         """
+        suppress_banner=True
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
         if not suppress_banner:

@@ -5,7 +5,7 @@
 
 def greekToScansion(file_path):
     from cltk.prosody.grc import Scansion
-    from phaistos import NLP
+    from cltk import NLP
     import sys
     sys.path.append("cltk")
 
@@ -13,6 +13,8 @@ def greekToScansion(file_path):
     with open(file_path, 'r', encoding="utf8") as file:
         file_content = file.read()
 
+    # https://github.com/cltk/cltk/issues/1247
+    # Including this here just in case
     cltk_nlp = NLP(language="grc")
     cltk_doc = cltk_nlp.analyze(file_content)
     tokens = cltk_doc.tokens
@@ -23,4 +25,4 @@ def greekToScansion(file_path):
     return scanned
     #return scanner.scan_text(file_content)
 
-print(greekToScansion("texts/shortTheogeny.txt"))
+print(greekToScansion("researchProject/texts/shortTheogeny.txt"))

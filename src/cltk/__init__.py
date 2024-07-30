@@ -11,6 +11,6 @@ else:
 
 from .nlp import NLP
 
-# Commented this out because it was causing the PackageNotFoundError
+# Commented this out because it was causing the packageNotFoundError
 #curr_version: str = metadata.version("CLTK")
 #__version__: str = curr_version
