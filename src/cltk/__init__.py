@@ -1,13 +1,16 @@
 """Init module for importing the CLTK class."""
 
+import sys
+
 # Fix for importing when using different Python versions
 # https://stackoverflow.com/questions/59216175/importerror-cannot-import-name-metadata-from-importlib
-try:
+if sys.version_info >= (3, 8):
     from importlib import metadata
-except ImportError:
+else:
     import importlib_metadata as metadata
 
 from .nlp import NLP
 
-curr_version: str = metadata.version("cltk")
-__version__: str = curr_version
+# Commented this out because it was causing the PackageNotFoundError
+#curr_version: str = metadata.version("CLTK")
+#__version__: str = curr_version
