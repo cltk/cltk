@@ -323,13 +323,20 @@ class Scansion:
         scanned_text = list()
         for sentence in sentence_syllables:
             scanned_sent = list()
-            for i, syllable in enumerate(sentence):
-                if self._long_by_position(
-                    i, syllable, sentence
-                ) or self._long_by_nature(syllable):
-                    scanned_sent.append("¯")
-                else:
-                    scanned_sent.append("˘")
+            i = 0
+            while i < len(sentence):
+                try:
+                    if self._long_by_nature(sentence[i + 1]):
+                        scanned_sent.append("¯¯")
+                        i += 1
+                    elif (not self._long_by_nature(sentence[i+1]) and not self._long_by_nature(sentence[i+2])):
+                        scanned_sent.append("¯˘˘")
+                        i += 2                    
+                except IndexError:
+                    scanned_sent.append("¯x")
+                    i += 1
+
+                i += 1
             if len(scanned_sent) > 1:
                 del scanned_sent[-1]
                 scanned_sent.append("x")

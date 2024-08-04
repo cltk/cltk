@@ -22,6 +22,5 @@ def greekToScansion(file_path):
     condensed = Scansion()._syllable_condenser(syllables)
     scanned = Scansion()._scansion(condensed)
     return scanned
-    #return scanner.scan_text(file_content)
 
 print(greekToScansion("researchProject/texts/shortTheogeny.txt"))
