@@ -23,4 +23,22 @@ def greekToScansion(file_path):
     scanned = Scansion()._scansion(condensed)
     return scanned
 
-print(greekToScansion("researchProject/texts/shortTheogeny.txt"))
+def makePresentable(scansion):
+    # This function is used to make the scansion output more presentable
+    newScansion = ""
+    for sentence in scansion:
+        for syllable in sentence:
+            match syllable:
+                case "¯":
+                    newScansion += "- "
+                case "˘":
+                    newScansion += "u "
+                case "|":
+                    if newScansion[len(newScansion) - 1] != "\n":
+                        newScansion += "| "
+                case _:
+                    newScansion += "x\n"
+    return newScansion
+
+scans = greekToScansion("researchProject/texts/shortTheogeny.txt")
+print(makePresentable(scans))

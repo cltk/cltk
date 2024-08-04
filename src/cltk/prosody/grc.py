@@ -324,22 +324,34 @@ class Scansion:
         for sentence in sentence_syllables:
             scanned_sent = list()
             i = 0
+            dactylCounter = 0
             while i < len(sentence):
-                try:
-                    if self._long_by_nature(sentence[i + 1]):
-                        scanned_sent.append("¯¯")
-                        i += 1
-                    elif (not self._long_by_nature(sentence[i+1]) and not self._long_by_nature(sentence[i+2])):
-                        scanned_sent.append("¯˘˘")
-                        i += 2                    
-                except IndexError:
-                    scanned_sent.append("¯x")
-                    i += 1
+                dactylCounter += 1
 
-                i += 1
+                try: 
+                    # Check for anceps (long, either)
+                    if dactylCounter == 6:
+                        scanned_sent.append("¯X|")
+                        i += 2                
+                        dactylCounter = 0
+                    else:
+                        # Check for spondees (long, long)
+                        if self._long_by_nature(sentence[i + 1]):
+                            scanned_sent.append("¯¯|")
+                            i += 2
+                        # Check for dactyls (long, short, short)
+                        else: #(not self._long_by_nature(sentence[i+1]) and not self._long_by_nature(sentence[i+2])):
+                            scanned_sent.append("¯˘˘|")
+                            i += 3
+                        
+                except IndexError:
+                    # Unsure if I need to include this line
+                    # scanned_sent.append("¯x")
+                    i += 1
+                    print("shit at {i}")
+                    
             if len(scanned_sent) > 1:
                 del scanned_sent[-1]
-                scanned_sent.append("x")
             scanned_text.append("".join(scanned_sent))
         return scanned_text
 
