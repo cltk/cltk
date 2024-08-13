@@ -51,6 +51,8 @@ from cltk.languages.glottolog import LANGUAGES
 from cltk.nlp import NLP
 from cltk.utils.data_types import Word
 from cltk.utils.operations import Operation
+import inspect
+from cltk.languages.pipeline_example import Process
 
 # #####################################################################################
 # #######################START OPERATION TYPE##########################################
@@ -87,7 +89,7 @@ class LatinTokenizationOperation(TokenizationOperation):
     """The default (or one of many) Latin tokenization algorithm."""
 
     name = "CLTK Dummy Latin Tokenizer"
-    description = "This is a simple regex which divides on word spaces (``r'\w+)`` for illustrative purposes."
+    description = r"This is a simple regex which divides on word spaces (``r'\w+')`` for illustrative purposes."
     input = str
     output = list[list[int]]  # e.g., [[0, 4], [6, 11], ...]
     algorithm = dummy_get_token_indices
@@ -121,9 +123,18 @@ class LatinPipeline(Pipeline):
 # #######################END PIPELINE TYPE#############################################
 # #####################################################################################
 
+def get_process_subclasses():
+    subclasses = []
+    for name, obj in inspect.getmembers(__import__('cltk.languages.pipeline_example')):
+        if inspect.isclass(obj) and issubclass(obj, Process) and obj is not Process:
+            subclass_name = obj.__name__
+            subclass_str = subclass_name.lower()
+            subclasses.append((subclass_name, subclass_str))
+    return subclasses
 
 if __name__ == "__main__":
     from cltk.languages.example_texts import LAT
+    from cltk.nlp import NLP
 
     cltk_nlp = NLP(language="lat")
     doc_germanica = cltk_nlp.run_pipeline(LAT)
@@ -147,3 +158,7 @@ if __name__ == "__main__":
     print("")
     print("``Doc.pipeline.indices_tokens[:10]``:", doc_germanica.indices_tokens[:10])
     print("")
+
+    subclasses = get_process_subclasses()
+    print("List of Process Subclasses:")
+    print(subclasses)
