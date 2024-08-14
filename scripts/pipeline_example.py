@@ -45,20 +45,55 @@ Notes:
 
 import re
 from dataclasses import dataclass
-from typing import Callable
-
-from cltk.languages.glottolog import LANGUAGES
-from cltk.nlp import NLP
-from cltk.utils.data_types import Word
-from cltk.utils.operations import Operation
+from typing import List, Callable
 import inspect
-from cltk.languages.pipeline_example import Process
+
+# Mock classes
+class Word:
+    def __init__(self, text):
+        self.text = text
+
+class Operation:
+    def __init__(self, name):
+        self.name = name
+
+    def execute(self, data):
+        return data
+
+class Process:
+    def __init__(self, name):
+        self.name = name
+
+    def run(self, data):
+        return data
+
+# Mock LANGUAGES
+LANGUAGES = {
+    "lat": "Latin"
+}
+
+# Mock NLP class
+class NLP:
+    def __init__(self, language):
+        self.language = language
+        self.pipeline = LatinPipeline()
+
+    def run_pipeline(self, text):
+        # Simulated processing
+        return Doc(self.pipeline, text)
+
+# Mock Doc class
+class Doc:
+    def __init__(self, pipeline, text):
+        self.pipeline = pipeline
+        self.tokens = [Word(text[i:i+1]) for i in range(len(text))]  # Apply tokenizer (mocked)
+        self.indices_tokens = pipeline.word_tokenizer.algorithm(text)  # Assuming tokens are indices for this mock
 
 # #####################################################################################
 # #######################START OPERATION TYPE##########################################
 
 
-def dummy_get_token_indices(text: str) -> list[list[int]]:
+def dummy_get_token_indices(text: str) -> List[List[int]]:
     """Get the start/stop char indices of word boundaries.
 
     >>> john_damascus_corinth = "Τοῦτο εἰπὼν, ᾐνίξατο αἰτίους ὄντας"
@@ -66,11 +101,11 @@ def dummy_get_token_indices(text: str) -> list[list[int]]:
     >>> indices_words[0:3]
     [[0, 5], [6, 11], [13, 20]]
     """
-    indices_words = list()
+    indices_words = []
     pattern_word = re.compile(r"\w+")
     for word_match in pattern_word.finditer(string=text):
         idx_word_start, idx_word_stop = word_match.span()
-        indices_words.append([idx_word_start, idx_word_stop])
+        indices_words.append([text[idx_word_start:idx_word_stop]])  # Extract actual token
     return indices_words
 
 
@@ -88,12 +123,12 @@ class TokenizationOperation(Operation):
 class LatinTokenizationOperation(TokenizationOperation):
     """The default (or one of many) Latin tokenization algorithm."""
 
-    name = "CLTK Dummy Latin Tokenizer"
-    description = r"This is a simple regex which divides on word spaces (``r'\w+')`` for illustrative purposes."
-    input = str
-    output = list[list[int]]  # e.g., [[0, 4], [6, 11], ...]
-    algorithm = dummy_get_token_indices
-    language = LANGUAGES["lat"]
+    name: str
+    description: str
+    input: type
+    output: List[List[int]]
+    algorithm: Callable[[str], List[List[int]]]
+    language: str
 
 
 # #######################END OPERATION TYPE############################################
@@ -106,8 +141,8 @@ class LatinTokenizationOperation(TokenizationOperation):
 
 @dataclass
 class Pipeline:
-    sentence_splitter: Callable[[str], list[list[int]]] = None
-    word_tokenizer: Callable[[str], list[Word]] = None
+    sentence_splitter: Callable[[str], List[List[int]]] = None
+    word_tokenizer: LatinTokenizationOperation = None
     dependency: str = None
     pos: str = None
     scansion: Callable[[str], str] = None
@@ -115,26 +150,32 @@ class Pipeline:
 
 @dataclass
 class LatinPipeline(Pipeline):
-    # sentence_splitter = LatinSplitter().dummy_get_indices
-    word_tokenizer = LatinTokenizationOperation
-    language = LANGUAGES["lat"]
-
-
-# #######################END PIPELINE TYPE#############################################
-# #####################################################################################
+    def __init__(self):
+        self.word_tokenizer = LatinTokenizationOperation(
+            name="CLTK Dummy Latin Tokenizer",
+            description="Simple regex tokenizer",
+            input=str,
+            output=[],
+            algorithm=dummy_get_token_indices,
+            language=LANGUAGES["lat"]
+        )
 
 def get_process_subclasses():
     subclasses = []
-    for name, obj in inspect.getmembers(__import__('cltk.languages.pipeline_example')):
+    for name, obj in inspect.getmembers(__import__('__main__')):
         if inspect.isclass(obj) and issubclass(obj, Process) and obj is not Process:
             subclass_name = obj.__name__
             subclass_str = subclass_name.lower()
             subclasses.append((subclass_name, subclass_str))
     return subclasses
 
+
+# #######################END PIPELINE TYPE#############################################
+# #####################################################################################
+
+
 if __name__ == "__main__":
-    from cltk.languages.example_texts import LAT
-    from cltk.nlp import NLP
+    LAT = "Your placeholder text or data here"
 
     cltk_nlp = NLP(language="lat")
     doc_germanica = cltk_nlp.run_pipeline(LAT)
