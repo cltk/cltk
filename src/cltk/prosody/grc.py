@@ -336,19 +336,25 @@ class Scansion:
                         dactylCounter = 0
                     else:
                         # Check for spondees (long, long)
-                        if self._long_by_nature(sentence[i + 1]):
+                        if self._long_by_nature(sentence[i + 1]) or self._long_by_position(i + 1, sentence[i + 1], sentence):
                             scanned_sent.append("¯¯|")
                             i += 2
                         # Check for dactyls (long, short, short)
-                        else: #(not self._long_by_nature(sentence[i+1]) and not self._long_by_nature(sentence[i+2])):
-                            scanned_sent.append("¯˘˘|")
-                            i += 3
+                        else:
+                            # Check for impossible pattern (long, short, long)
+                            if self._long_by_nature(sentence[i + 2]) or self._long_by_position(i + 2, sentence[i + 2], sentence):
+                                scanned_sent.append("¯¯|")
+                                i += 2
+                            else:
+                                scanned_sent.append("¯˘˘|")
+                                i += 3
                         
                 except IndexError:
                      raise ValueError("IndexError while scanning")
 
             if len(scanned_sent) > 1:
                 del scanned_sent[-1]
+            scanned_sent.append("¯X|")
             scanned_text.append("".join(scanned_sent))
         return scanned_text
 
