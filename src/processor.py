@@ -76,5 +76,22 @@ def makeMorePresentable(scansion, syllables):
         syllOffset += 1
     return finString
 
+def makePrologPresentable(scansion):
+    # This function translates scansion so it doesn't use prolog operator symbols
+    newScansion = ""
+    for sentence in scansion:
+        for syllable in sentence:
+            match syllable:
+                case "¯":
+                    newScansion += "l "
+                case "˘":
+                    newScansion += "u "
+                case "|":
+                    if newScansion[len(newScansion) - 1] != "\n":
+                        newScansion += "d "
+                case _:
+                    newScansion += "x\n"
+    return newScansion
+
 scans = greekToScansion("researchProject/texts/shortTheogeny.txt")
-print(makePresentable(scans[0]))
+print(makePrologPresentable(scans[0]))
