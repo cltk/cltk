@@ -21,7 +21,7 @@ def greekToScansion(file_path):
     syllables = Scansion()._make_syllables(clean_accents)
     condensed = Scansion()._syllable_condenser(syllables)
     scanned = Scansion()._scansion(condensed)
-    return scanned
+    return scanned, condensed
 
 def makePresentable(scansion):
     # This function is used to make the scansion output more presentable
@@ -40,5 +40,41 @@ def makePresentable(scansion):
                     newScansion += "x\n"
     return newScansion
 
+def makeMorePresentable(scansion, syllables):
+    # This function will make the scansion output more presentable while also displaying how each syllable was classified
+    syllOffset = 0
+    finString = ""
+    for sentence in scansion:
+        syllI = 0
+        scanSent = ""
+        syllSent = ""
+
+        for syllable in sentence:
+            match syllable:
+                case "¯":
+                    scanSent += "- "
+                    syllSent += str(syllables[syllOffset][syllI]) + " "
+                    syllI += 1
+                case "˘":
+                    scanSent += "u "
+                    syllSent += str(syllables[syllOffset][syllI]) + " "
+                    syllI += 1
+                case "|":
+                    if scanSent != "":
+                        scanSent += "| "
+                        syllSent += "| "
+                case _:
+                    scanSent += "x"
+                    syllSent += str(syllables[syllOffset][syllI]) + " "
+                    syllI += 1
+                    syllSent = syllSent.replace("\n", "\\n")
+                    finString += scanSent + "\n"
+                    finString += syllSent + "\n"
+                    scanSent = ""
+                    syllSent = ""
+        
+        syllOffset += 1
+    return finString
+
 scans = greekToScansion("researchProject/texts/shortTheogeny.txt")
-print(makePresentable(scans))
+print(makePresentable(scans[0]))
