@@ -78,19 +78,19 @@ def makeMorePresentable(scansion, syllables):
 
 def makePrologPresentable(scansion):
     # This function translates scansion so it doesn't use prolog operator symbols
-    newScansion = ""
+    newScansion = []
     for sentence in scansion:
         for syllable in sentence:
             match syllable:
                 case "¯":
-                    newScansion += "l "
+                    newScansion.append("l")
                 case "˘":
-                    newScansion += "u "
+                    newScansion.append("u")
                 case "|":
-                    if newScansion[len(newScansion) - 1] != "\n":
-                        newScansion += "d "
+                    if newScansion[len(newScansion) - 1] != "x":
+                        newScansion.append("d")
                 case _:
-                    newScansion += "x\n"
+                    newScansion.append("x")
     return newScansion
 
 scans = greekToScansion("researchProject/texts/shortTheogeny.txt")
