@@ -314,6 +314,22 @@ class SpacyProcess(Process):
                     if spacy_word.morph
                     else []
                 )
+                # Do cleanup for the LatinCy model that incorrectly (according
+                # to the UD project) calls perfect and future perfect tenses
+                # (they are aspects). The function `from_ud()` calls
+                # `_postprocess_latincy_ud_types()` for all inputs and
+                # corrects the morphology on a word-by-word basis,
+                # but it cannot add a new morphological key-value pair.
+                # So this following function looks to see if anything is Tense: Perf
+                # or Tense: FutPerf, and if so adds a new pair Aspect: Perf or
+                # Aspect: FutPerf.
+                add_aspect: Optional[tuple[str, str]] = None
+                if any([True for feature_name, feature_value in raw_features if
+                        feature_name == "Tense" and feature_value in ("Perf", "FutPerf")]):
+                    add_aspect: tuple[str, str] = ("Aspect", feature_value)
+                if add_aspect:
+                    raw_features.append(add_aspect)
+                # Now do word-by-word rewrite; any invalid pairs are corrected
                 cltk_features = [
                     from_ud(feature_name, feature_value)
                     for feature_name, feature_value in raw_features

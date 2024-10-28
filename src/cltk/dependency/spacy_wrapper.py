@@ -116,20 +116,34 @@ class SpacyWrapper:
                 )
         if self.language == "lat":
             # Use Patrick Burns's Spacy models, hosted on HuggingFace
+            spacy_model_name: str = MAP_LANG_TO_SPACY_MODEL_NAME[self.language]
+            url_to_wheel: str = MAP_LANG_TO_SPACY_MODEL_URL[self.language]
+            # Temporary (hopefully) uninstall of `spacy_lookups_data` due to issue with LatinCy
+            # https://github.com/diyclassics/la_core_web_lg/issues/1#issuecomment-2295271783
+            subprocess.check_call([
+                "pip",
+                "uninstall",
+                "-y",
+                "spacy_lookups_data",
+            ])
+            # Note change in how pip wants to call wheels like these
+            # https://github.com/explosion/spaCy/issues/13599#issuecomment-2365275213
             subprocess.check_call(
                 [
                     "pip",
                     "install",
-                    "https://huggingface.co/latincy/la_core_web_lg/resolve/main/la_core_web_lg-any-py3-none-any.whl",
+                    f"{spacy_model_name} @ {url_to_wheel}",
                 ]
             )
         elif self.language == "grc":
             # Use OdyCy's Spacy models, hosted on HuggingFace
+            spacy_model_name: str = MAP_LANG_TO_SPACY_MODEL_NAME[self.language]
+            url_to_wheel: str = MAP_LANG_TO_SPACY_MODEL_URL[self.language]
             subprocess.check_call(
                 [
                     "pip",
                     "install",
-                    "https://huggingface.co/chcaa/grc_odycy_joint_sm/resolve/main/grc_odycy_joint_sm-any-py3-none-any.whl",
+                    f"{spacy_model_name} @ {url_to_wheel}",
                 ]
             )
         else:
