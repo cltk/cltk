@@ -160,8 +160,10 @@ if __name__ == "__main__":
         if LANG in AVAIL_NLPL_LANGS:
             download_nlpl_model(iso_code=LANG)
         # 5. Check spaCy
-        if LANG in AVAIL_SPACY_LANGS:
-            download_spacy_models(iso_code=LANG)
+        # TODO: Re-enable if we use Spacy again
+        # Download works locally but failed on build server (Nov 2024)
+        # if LANG in AVAIL_SPACY_LANGS:
+        #     download_spacy_models(iso_code=LANG)
         print(
             f"All models fetched for '{LANG}'. Total elapsed time: {time.time() - T0}"
         )

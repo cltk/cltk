@@ -120,12 +120,14 @@ class SpacyWrapper:
             url_to_wheel: str = MAP_LANG_TO_SPACY_MODEL_URL[self.language]
             # Temporary (hopefully) uninstall of `spacy_lookups_data` due to issue with LatinCy
             # https://github.com/diyclassics/la_core_web_lg/issues/1#issuecomment-2295271783
-            subprocess.check_call([
-                "pip",
-                "uninstall",
-                "-y",
-                "spacy_lookups_data",
-            ])
+            subprocess.check_call(
+                [
+                    "pip",
+                    "uninstall",
+                    "-y",
+                    "spacy_lookups_data",
+                ]
+            )
             # Note change in how pip wants to call wheels like these
             # https://github.com/explosion/spaCy/issues/13599#issuecomment-2365275213
             subprocess.check_call(

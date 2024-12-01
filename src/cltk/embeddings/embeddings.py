@@ -165,7 +165,7 @@ class CLTKWord2VecEmbeddings:
             if dl_is_allowed:
                 fetch_corpus = FetchCorpus(language=self.iso_code)
                 fetch_corpus.import_corpus(
-                    corpus_name=f"{self.iso_code}_models_cltk", branch="main"
+                    corpus_name=f"{self.iso_code}_models_cltk", branch="master"
                 )
                 pass
             else:
