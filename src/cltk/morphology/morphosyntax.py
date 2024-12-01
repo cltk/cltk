@@ -465,9 +465,19 @@ FORM_UD_MAP: dict[str, dict[str, MorphosyntacticFeature]] = {
 def _postprocess_latincy_ud_types(
     feature_name: str, feature_value: str
 ) -> tuple[str, str]:
-    """Pre-process for invalid UD types in LatinCy"""
+    """Post-processes types from LatinCy not accepted as valid by UD.
+    To be used before sending to `from_ud()`.
+    """
     if feature_name == "Verbform":
         feature_name = "VerbForm"
+
+    # Perfectives are apsects, not tenses
+    # https://github.com/cltk/cltk/issues/1267#issuecomment-2442640775
+    # Note: In UD, the Pluperfect is a Tense and is abbreviated `Pqp`
+    if feature_name == "Tense" and feature_value == "Perf":
+        feature_value = "Pres"
+    if feature_name == "Tense" and feature_value == "FutPerf":
+        feature_value = "Fut"
 
     if feature_name == "Mood" and feature_value in ["Ger", "Gdv", "Inf"]:
         return "VerbForm", feature_value

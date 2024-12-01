@@ -156,6 +156,7 @@ class LatinStanzaProcess(StanzaProcess):
 
     language: str = "lat"
     description: str = "Default process for Stanza for the Latin language."
+    authorship_info: str = "``LatinStanzaProcess`` using Stanza model from the Stanford NLP Group: https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
 
 
 @dataclass
@@ -240,8 +241,6 @@ class SpacyProcess(Process):
     True
     """
 
-    # language: Optional[str] = None
-
     @cachedproperty
     def algorithm(self):
         return SpacyWrapper.get_nlp(language=self.language)
@@ -260,8 +259,8 @@ class SpacyProcess(Process):
 
         return output_doc
 
-    @staticmethod
-    def spacy_to_cltk_word_type(spacy_doc: spacy.tokens.doc.Doc):
+    # @staticmethod
+    def spacy_to_cltk_word_type(self, spacy_doc: spacy.tokens.doc.Doc):
         """Take an entire ``spacy`` document, extract
         each word, and encode it in the way expected by
         the CLTK's ``Word`` type.
@@ -314,6 +313,11 @@ class SpacyProcess(Process):
                     if spacy_word.morph
                     else []
                 )
+                # xxx
+                raw_features = self._latincy_aspect_correction(
+                    raw_features=raw_features
+                )
+                # Now do word-by-word rewrite; any invalid pairs are corrected
                 cltk_features = [
                     from_ud(feature_name, feature_value)
                     for feature_name, feature_value in raw_features
@@ -323,6 +327,66 @@ class SpacyProcess(Process):
                 sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
         return words_list
+
+    def _latincy_aspect_correction(self, raw_features: list[tuple[str, str]]):
+        """Do cleanup for the LatinCy model that incorrectly (according
+        to the UD project) calls perfect and future perfect tenses
+        (they are aspects). The function `from_ud()` calls
+        `_postprocess_latincy_ud_types()` for all inputs and
+        corrects the morphology on a word-by-word basis,
+        but it cannot add a new morphological key-value pair.
+        So this following looks to see if anything is Tense: Perf
+        or Tense: FutPerf, and if so adds a new pair Aspect: Perf or
+        Aspect: FutPerf."""
+        aspect_needs_correction: bool = any(
+            [
+                True
+                for feature_name, feature_value in raw_features
+                if feature_name == "Tense" and feature_value in ("Perf", "FutPerf")
+            ]
+        )
+        if not aspect_needs_correction:
+            return raw_features
+        else:
+            # print("Word:", spacy_word.text)
+            print("Pre-corr. raw features:", raw_features)
+            # Extract incorrect tuples
+            tense_feature_to_correct: list[tuple[int, str, str]] = [
+                (tense_feature_idx, _tuple[0], _tuple[1])
+                for tense_feature_idx, _tuple in enumerate(raw_features)
+                if _tuple[0] == "Tense"
+            ]
+            print("tense_feature_to_correct:", tense_feature_to_correct)
+            # We need to change the tuples `("Aspect", ______)`; ??? and `("Tense", ______)`
+            # corrected_new_aspect: tuple[str, Optional[str]] = ("Aspect", None)
+            for (
+                tense_feature_idx,
+                tense_feature_name,
+                tense_feature_value,
+            ) in tense_feature_to_correct:
+                if tense_feature_value == "FutPerf":
+                    tense_feature_value = "Perf"
+                corrected_new_aspect: tuple[str, str] = (
+                    "Aspect",
+                    tense_feature_value,
+                )
+                print("corrected_new_aspect:", corrected_new_aspect)
+                raw_features.append(corrected_new_aspect)
+                corrected_tense_val: Optional[str] = None
+                print("??, tense_feature_name", tense_feature_value)
+                if tense_feature_value == "Perf":
+                    corrected_tense_val = "Pres"
+                elif tense_feature_value == "FutPerf":
+                    corrected_tense_val = "Fut"
+                corrected_tense_feature: tuple[str, str] = (
+                    "Tense",
+                    corrected_tense_val,
+                )
+                raw_features[tense_feature_idx] = corrected_tense_feature
+            print("Post-corr. raw_features:", raw_features)
+            print("")
+        # yyy
+        return raw_features
 
 
 @dataclass
@@ -335,6 +399,7 @@ class LatinSpacyProcess(SpacyProcess):
     language: Literal["lat"] = "lat"
     description: str = "Process for Spacy for Patrick Burn's Latin model."
     authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://huggingface.co/latincy . Please cite: https://arxiv.org/abs/2305.04365"
+
 
 @dataclass
 class GreekSpacyProcess(SpacyProcess):

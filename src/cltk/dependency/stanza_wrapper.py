@@ -4,6 +4,7 @@ About: `<https://github.com/stanfordnlp/stanza>`_.
 
 import logging
 import os
+import warnings
 from typing import Optional
 
 import stanza
@@ -16,6 +17,10 @@ from cltk.core.exceptions import (
     UnknownLanguageError,
 )
 from cltk.utils import file_exists, query_yes_no, suppress_stdout
+
+# Suppress pytorch.load warnings out of stanza (added Nov 2024)
+# https://github.com/stanfordnlp/stanza/issues/1429#issuecomment-2430930006
+warnings.simplefilter(action="ignore", category=FutureWarning)
 
 LOG = logging.getLogger(__name__)
 LOG.addHandler(logging.NullHandler())
