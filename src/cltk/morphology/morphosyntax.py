@@ -485,7 +485,9 @@ def _postprocess_latincy_ud_types(
 
 
 def from_ud(
-    feature_name: str, feature_value: Optional[str]
+    feature_name: str,
+    feature_value: Optional[str] = None,
+    token_string: Optional[str] = None,
 ) -> Optional[MorphosyntacticFeature]:
     """For a given Universal Dependencies feature name and value,
     return the appropriate feature class/value.
@@ -513,12 +515,15 @@ def from_ud(
     if feature_name in FORM_UD_MAP:
         feature_map = FORM_UD_MAP[feature_name]
     else:
-        msg1: str = (
+        msg_feature_val: str = (
             f"Unrecognized UD feature '{feature_name}' with value '{feature_value}'."
         )
-        msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
-        print(msg1)
-        print(msg2)
+        msg_report_error: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+        print(msg_feature_val)
+        if token_string:
+            msg_offending_token: str = f"Offending token {token_string}"
+            print(msg_offending_token)
+        print(msg_report_error)
         print("")
         # raise CLTKException(msg)
         return None
@@ -529,12 +534,15 @@ def from_ud(
             if value in feature_map:
                 return feature_map[value]
             else:
-                msg1: str = (
+                msg_feature_val: str = (
                     f"Unrecognized value '{value}' for UD feature '{feature_name}'."
                 )
-                msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
-                print(msg1)
-                print(msg2)
+                msg_report_error: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+                print(msg_feature_val)
+                if token_string:
+                    msg_offending_token: str = f"Offending token {token_string}"
+                    print(msg_offending_token)
+                print(msg_report_error)
                 print("")
     else:
         raise CLTKException(f"{feature_name} is None")

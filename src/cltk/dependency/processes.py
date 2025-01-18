@@ -88,7 +88,7 @@ class StanzaProcess(Process):
                 # TODO: Figure out how to handle the token indexes, esp 0 (root) and None (?)
                 pos: Optional[MorphosyntacticFeature] = None
                 if stanza_word.pos:
-                    pos = from_ud("POS", stanza_word.pos)
+                    pos = from_ud("POS", stanza_word.pos, token_string=stanza_word.text)
                 cltk_word = Word(
                     index_token=int(stanza_word.id)
                     - 1,  # subtract 1 from id b/c Stanza starts their index at 1
@@ -103,17 +103,19 @@ class StanzaProcess(Process):
                     if stanza_word.head
                     else -1,  # note: if val becomes ``-1`` then no governor, ie word is root
                 )
-
-                # convert UD features to the normalized CLTK features
-                raw_features = (
-                    [tuple(f.split("=")) for f in stanza_word.feats.split("|")]
+                # Convert UD features to the normalized CLTK features
+                # Update 1/18/25: Add token string to the raw_features
+                raw_features: list[tuple[str, str, str]] = (
+                    [
+                        tuple(f.split("=")) + (stanza_word.text,)
+                        for f in stanza_word.feats.split("|")
+                    ]
                     if stanza_word.feats
                     else []
                 )
-
                 cltk_features = [
-                    from_ud(feature_name, feature_value)
-                    for feature_name, feature_value in raw_features
+                    from_ud(feature_name, feature_value, token_string)
+                    for feature_name, feature_value, token_string in raw_features
                 ]
                 cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
                 cltk_word.category = to_categorial(cltk_word.pos)
