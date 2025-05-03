@@ -16,10 +16,10 @@ from dataclasses import dataclass, field
 from typing import Optional, Type, Union
 
 import numpy as np
-import stringcase as sc
 
 from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
+from cltk.utils import pascal_case
 
 ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
 
@@ -93,7 +93,7 @@ class Word:
 
     def __getattr__(self, item: str):
         """Accessor to help get morphosyntatic features from a word object."""
-        feature_name = sc.pascalcase(item)
+        feature_name = pascal_case(item)
         if feature_name in ud_mod.__dict__:
             return self.features[feature_name]
         else:

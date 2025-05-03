@@ -1,6 +1,7 @@
 """Module for commonly reused classes and functions."""
 
 import os
+import re
 import sys
 from contextlib import contextmanager
 from enum import EnumMeta, IntEnum
@@ -258,6 +259,21 @@ def get_file_with_progress_bar(model_url: str, file_path: str) -> None:
         raise IOError(
             f"Expected downloaded file to be of size '{total_size}' however it is in fact '{progress_bar.n}'."
         )
+
+
+def pascal_case(value: str):
+    return capital_case(camel_case(value))
+
+
+def camel_case(value: str) -> str:
+    string = re.sub(r"\w[\s\W]+\w", '', str(value))
+    if not string:
+        return string
+    return string[0].lower() + re.sub(r"[\-_\.\s]([a-z])", lambda matched: matched.group(1).upper(), string[1:])
+
+
+def capital_case(value: str) -> str:
+    return value[0].upper() + value[1:]
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()
