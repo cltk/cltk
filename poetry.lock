@@ -3242,7 +3242,8 @@ astroid = ">=3.3.8,<=3.4.0.dev0"
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 dill = [
     {version = ">=0.2", markers = "python_version < \"3.11\""},
-    {version = ">=0.3.6", markers = "python_version >= \"3.11\""},
+    {version = ">=0.3.7", markers = "python_version >= \"3.12\""},
+    {version = ">=0.3.6", markers = "python_version == \"3.11\""},
 ]
 isort = ">=4.2.5,<5.13 || >5.13,<7"
 mccabe = ">=0.6,<0.8"
@@ -4565,14 +4566,14 @@ tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
 name = "stanza"
-version = "1.9.2"
+version = "1.10.1"
 description = "A Python NLP Library for Many Human Languages, by the Stanford NLP Group"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "stanza-1.9.2-py3-none-any.whl", hash = "sha256:d869c4bbd61c52422bd263ee72d6d225e2235b18b0b00b5eff3d86a14b210553"},
-    {file = "stanza-1.9.2.tar.gz", hash = "sha256:36a93f60bf470e6026122eacab291751ad401fe3279e2d022fffef5cb35903e5"},
+    {file = "stanza-1.10.1-py3-none-any.whl", hash = "sha256:d0ebc22c7e7a201077e0ed88d2450e654acadb4ea0d8584d5a5eb2ae1e65c060"},
+    {file = "stanza-1.10.1.tar.gz", hash = "sha256:f1b283021323ef9273fb1a751a194c0d568e373a2a11b933e2f4b600322406b2"},
 ]
 
 [package.dependencies]
@@ -4589,7 +4590,7 @@ tqdm = "*"
 datasets = ["datasets"]
 dev = ["check-manifest"]
 test = ["coverage", "pytest"]
-tokenizers = ["jieba", "pythainlp", "python-crfsuite", "spacy", "sudachidict-core", "sudachipy"]
+tokenizers = ["jieba", "pythainlp", "python-crfsuite", "spacy", "sudachidict_core", "sudachipy"]
 transformers = ["peft (>=0.6.1)", "transformers (>=3.0.0)"]
 visualization = ["ipython", "spacy", "streamlit"]
 
@@ -4842,6 +4843,7 @@ nvidia-cusparselt-cu12 = {version = "0.6.3", markers = "platform_system == \"Lin
 nvidia-nccl-cu12 = {version = "2.26.2", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
 nvidia-nvjitlink-cu12 = {version = "12.6.85", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
 nvidia-nvtx-cu12 = {version = "12.6.77", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
+setuptools = {version = "*", markers = "python_version >= \"3.12\""}
 sympy = ">=1.13.3"
 triton = {version = "3.3.0", markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""}
 typing-extensions = ">=4.10.0"
@@ -5301,5 +5303,5 @@ type = ["pytest-mypy"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.9,<3.12"
-content-hash = "dd665e1184cf2b34dfbc84c48446a5c66a7686f819099375ee463de6a9db0c9b"
+python-versions = ">=3.9,<3.13"
+content-hash = "9c785eab3a9056de2eb5f4d06cbfc3090bb18d5cbbeb91634681d7cba550c247"
