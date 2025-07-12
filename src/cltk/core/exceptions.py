@@ -54,4 +54,5 @@ class CorpusImportError(Exception):
 
 class OpenAIInferenceError(CLTKException):
     """Custom exception for OpenAI-related errors."""
+
     pass

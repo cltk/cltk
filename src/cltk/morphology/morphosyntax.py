@@ -73,7 +73,9 @@ class MorphosyntacticFeatureBundle:
         """
         if type(feature_name) == str:
             if feature_name not in globals():
-                raise TypeError(f"'{str(feature_name)}' is not a morphosyntactic feature")
+                raise TypeError(
+                    f"'{str(feature_name)}' is not a morphosyntactic feature"
+                )
             feature_name = globals()[feature_name]
 
         if not issubclass(feature_name, MorphosyntacticFeature):

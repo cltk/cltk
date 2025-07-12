@@ -266,10 +266,12 @@ def pascal_case(value: str):
 
 
 def camel_case(value: str) -> str:
-    string = re.sub(r"\w[\s\W]+\w", '', str(value))
+    string = re.sub(r"\w[\s\W]+\w", "", str(value))
     if not string:
         return string
-    return string[0].lower() + re.sub(r"[\-_\.\s]([a-z])", lambda matched: matched.group(1).upper(), string[1:])
+    return string[0].lower() + re.sub(
+        r"[\-_\.\s]([a-z])", lambda matched: matched.group(1).upper(), string[1:]
+    )
 
 
 def capital_case(value: str) -> str:
