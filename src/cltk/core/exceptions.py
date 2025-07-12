@@ -50,3 +50,8 @@ class CorpusImportError(Exception):
     """CLTK exception to use when something goes wrong importing corpora"""
 
     pass
+
+
+class OpenAIInferenceError(CLTKException):
+    """Custom exception for OpenAI-related errors."""
+    pass

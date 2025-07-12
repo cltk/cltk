@@ -276,4 +276,18 @@ def capital_case(value: str) -> str:
     return value[0].upper() + value[1:]
 
 
+def load_env_file(env_file: str = ".env") -> None:
+    """Load environment variables from a .env file.
+
+    Args:
+        env_file: Path to the .env file. Defaults to ".env".
+
+    Returns:
+        None
+    """
+    from dotenv import load_dotenv  # pylint: disable=import-outside-toplevel
+
+    load_dotenv(env_file)
+
+
 CLTK_DATA_DIR = get_cltk_data_dir()
