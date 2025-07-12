@@ -1,10 +1,12 @@
 """Call ChatGPT."""
 
 import os
+import re
 from typing import Optional
 
 from openai import OpenAI, OpenAIError
 
+from cltk.morphology.morphosyntax import FORM_UD_MAP
 from cltk.core.data_types import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.languages.utils import get_lang
@@ -86,7 +88,6 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         self, response: str, print_raw_response: bool = False
     ) -> dict[str, str]:
         """Extract part of speech and morphological information from a word."""
-        import re
 
         word_info: dict[str, str] = {}
         # Regex matches: **word** <spaces> – or - <spaces> info
@@ -100,10 +101,44 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                 word_info[word] = info
         return word_info
 
+    def _map_non_ud_feature(self, key: str, value: str) -> list[tuple[str, str]]:
+        """Map non-UD features to closest UD equivalents, or return as custom."""
+        # Map PartType
+        if key == "PartType":
+            if value == "Disc":
+                return [("Polarity", "Pos")]
+            if value == "Conj":
+                return [("POS", "CCONJ")]
+        # Add more mappings as needed for other features
+        # If no mapping, return as custom (for user inspection)
+        return [(key, value)]
+
+    def _normalize_feature_value(self, key: str, value: str) -> list[str]:
+        """Normalize only problematic forms for UD features, stripping commentary and mapping non-UD features."""
+        # Remove commentary in parentheses or after a space
+
+        # Remove parenthetical commentary
+        value = re.sub(r"\s*\(.*?\)", "", value)
+        # Remove trailing commentary after a space (e.g., 'Pos something')
+        value = value.split()[0]
+        # Handle slashed values (e.g., 'Acc/Gen')
+        if "/" in value:
+            return value.split("/")
+        # Specific rewrites
+        if key == "Tense" and value == "Aor":
+            return ["Past"]
+        if key == "Degree" and value == "Comp":
+            return ["Cmp"]
+        if key == "Aspect" and value == "Aor":
+            return ["Perf"]
+        if key == "Aspect" and value == "Pres":
+            return []  # Ignore invalid aspect value
+        return [value]
+
     def _build_cltk_doc(
         self, word_info_dict: dict[str, str], input_text: Optional[str] = None
     ) -> Doc:
-        """Build a CLTK Doc object from the response, filling out index fields."""
+
         doc = Doc(language=self.language.name)
         words: list[Word] = list()
         used_spans = []  # List of (start, stop) for already matched words
@@ -117,23 +152,40 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         for idx, (word, info) in enumerate(word_info_dict.items()):
             pos_info = info.split("|")
             pos_tag = pos_info[0]
-            morph_dict: dict[str, str] = dict()
+            morph_dict: dict[str, list[str]] = dict()
+            custom_features: dict[str, list[str]] = dict()
             for feature in pos_info[1:]:
                 if "=" not in feature:
                     continue  # Skip empty or malformed features
                 key, value = feature.split("=")
-                morph_dict[key] = value
+                # Try to map non-UD features
+                if key not in FORM_UD_MAP:
+                    mapped = self._map_non_ud_feature(key, value)
+                    for mapped_key, mapped_value in mapped:
+                        if mapped_key in FORM_UD_MAP:
+                            values = self._normalize_feature_value(mapped_key, mapped_value)
+                            if values:
+                                morph_dict[mapped_key] = values
+                        else:
+                            # Store as custom feature for user inspection
+                            if mapped_key not in custom_features:
+                                custom_features[mapped_key] = []
+                            custom_features[mapped_key].append(mapped_value)
+                else:
+                    values = self._normalize_feature_value(key, value)
+                    if values:
+                        morph_dict[key] = values
             morph_features = MorphosyntacticFeatureBundle()
-            for key, value in morph_dict.items():
-                feature_instance = from_ud(key, value)
-                if feature_instance:
-                    morph_features[type(feature_instance)] = [feature_instance]
+            for key, values in morph_dict.items():
+                for value in values:
+                    feature_instance = from_ud(key, value)
+                    if feature_instance:
+                        morph_features[type(feature_instance)] = [feature_instance]
             # Find char indexes by searching for the word in input_text
             index_token = None
             index_char_start = None
             index_char_stop = None
             if input_text:
-                import re
 
                 # Use regex to find all occurrences of the word
                 pattern = re.compile(re.escape(word))
@@ -158,6 +210,9 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                 index_char_start=index_char_start,
                 index_char_stop=index_char_stop,
             )
+            # Optionally attach custom features to Word (for user inspection)
+            if custom_features:
+                cltk_word.definition = str(custom_features)
             words.append(cltk_word)
         doc.words = words
         return doc
@@ -181,10 +236,11 @@ if __name__ == "__main__":
     DEMOSTHENES_DOC: Doc = CHATGPT_GRC.generate(
         input_text=DEMOSTHENES_2_4, print_raw_response=True
     )
+    input("Press Enter to print final Doc ...")
     print(DEMOSTHENES_DOC)
 
     # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
     # LANGUAGE: str = "hbo"
     # CHATGPT_HBO: ChatGPT = ChatGPT(language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL)
-    # POS_HBO: str = CHATGPT_HBO.generate(input_text=JOB_1_13)
-    # print(POS_HBO)
+    # JOB_DOC: Doc = CHATGPT_HBO.generate(input_text=JOB_1_13)
+    # print(JOB_DOC)
