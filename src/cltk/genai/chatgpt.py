@@ -14,11 +14,12 @@ from cltk.utils.utils import load_env_file
 
 
 class ChatGPT:
-    def __init__(self, language: str, api_key: str, model: str = "gpt-4.1"):
+    def __init__(self, language: str, api_key: str, model: str = "gpt-4.1", temperature: float = 1.0):
         """Initialize the ChatGPT class and set up OpenAI connection."""
         self.api_key = api_key
         self.language: Language = get_lang(language)
         self.model: str = model
+        self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
 
     def generate(self,  input_text: str, prompt_template: Optional[str] = None, print_raw_response: bool = False) -> Doc:
@@ -35,7 +36,8 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         try:
             response = self.client.responses.create(
                 model=self.model,
-                input=prompt
+                input=prompt,
+                temperature=self.temperature
             )
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
@@ -45,22 +47,17 @@ Return each word with its part of speech tag on its own line. Use the Universal 
 
     def _post_process_response(self, response: str) -> Doc:
         """Post-process the response to format it correctly."""
-        # Locate the start and end of the morphological tagging section
+        # Try to extract between --- markers, but fall back to extracting lines with ** if not found
         start_index = response.find("---")
         end_index = response.rfind("---")
-        if start_index == -1 or end_index == -1:
-            raise OpenAIInferenceError("Response format is incorrect. Expected '---' markers not found.")
-
-        # Extract the relevant section
-        relevant_section = response[start_index + 3:end_index].strip()
-
-        # Remove any extra whitespace or empty lines
-        lines = [line.strip() for line in relevant_section.split("\n") if line.strip()]
-
-        # Reconstruct the cleaned response
-        cleaned_response = "\n".join(lines)
-
-        # Parse the cleaned response
+        if start_index != -1 and end_index != -1:
+            relevant_section = response[start_index + 3:end_index].strip()
+            lines = [line.strip() for line in relevant_section.split("\n") if line.strip()]
+            cleaned_response = "\n".join(lines)
+        else:
+            # Fallback: extract only lines starting with **
+            lines = [line.strip() for line in response.split("\n") if line.strip().startswith("**")]
+            cleaned_response = "\n".join(lines)
         word_level_info: dict[str, str] = self._get_word_info(response=cleaned_response)
         doc: Doc = self._build_cltk_doc(word_info_dict=word_level_info)
         return doc
@@ -100,7 +97,6 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                 feature_instance = from_ud(key, value)
                 if feature_instance:
                     morph_features[type(feature_instance)] = [feature_instance]
-
             cltk_word: Word = Word(
                 string=word,
                 upos=pos_tag,
@@ -119,9 +115,10 @@ if __name__ == "__main__":
     if not OPENAI_API_KEY:
         raise CLTKException("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
     MODEL: str = "gpt-4.1"
+    TEMPERATURE: float = 1.0  # 0.2 recommended for consistent structured output
 
     LANGUAGE: str = "grc"
-    CHATGPT_GRC: ChatGPT = ChatGPT(language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL)
+    CHATGPT_GRC: ChatGPT = ChatGPT(language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL, temperature=TEMPERATURE)
     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     DEMOSTHENES_DOC: Doc = CHATGPT_GRC.generate(input_text=DEMOSTHENES_2_4, print_raw_response=True)
     print(DEMOSTHENES_DOC)
