@@ -2,7 +2,7 @@ Installation
 ============
 
 .. note::
-   We currently support Python versions ``3.7``, ``3.8``, ``3.9``.
+   For currently supported Python versions see the project on `PyPi <https://pypi.org/project/cltk/>`_.
 
 .. note::
 
