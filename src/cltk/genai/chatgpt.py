@@ -116,10 +116,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
     def _normalize_feature_value(self, key: str, value: str) -> list[str]:
         """Normalize only problematic forms for UD features, stripping commentary and mapping non-UD features."""
         # Remove commentary in parentheses or after a space
-
-        # Remove parenthetical commentary
         value = re.sub(r"\s*\(.*?\)", "", value)
-        # Remove trailing commentary after a space (e.g., 'Pos something')
         value = value.split()[0]
         # Handle slashed values (e.g., 'Acc/Gen')
         if "/" in value:
@@ -127,12 +124,16 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         # Specific rewrites
         if key == "Tense" and value == "Aor":
             return ["Past"]
+        if key == "Tense" and value == "Plup":
+            return ["Pqp"]
         if key == "Degree" and value == "Comp":
             return ["Cmp"]
         if key == "Aspect" and value == "Aor":
             return ["Perf"]
         if key == "Aspect" and value == "Pres":
             return []  # Ignore invalid aspect value
+        if key == "Voice" and value == "Perf":
+            return ["Act"]
         return [value]
 
     def _build_cltk_doc(
@@ -219,6 +220,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
 
 
 if __name__ == "__main__":
+    from cltk.languages.example_texts import get_example_text
     load_env_file()
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
     if not OPENAI_API_KEY:
@@ -232,12 +234,13 @@ if __name__ == "__main__":
     CHATGPT_GRC: ChatGPT = ChatGPT(
         language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL, temperature=TEMPERATURE
     )
-    DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
-    DEMOSTHENES_DOC: Doc = CHATGPT_GRC.generate(
-        input_text=DEMOSTHENES_2_4, print_raw_response=True
+    # DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
+    PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
+    GRC_DOC: Doc = CHATGPT_GRC.generate(
+        input_text=PLUTARCH_ANTHONY_27_2, print_raw_response=True
     )
     input("Press Enter to print final Doc ...")
-    print(DEMOSTHENES_DOC)
+    print(GRC_DOC)
 
     # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
     # LANGUAGE: str = "hbo"
