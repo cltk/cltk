@@ -12,6 +12,7 @@ from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.languages.utils import get_lang
 from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle, from_ud
 from cltk.utils.utils import load_env_file
+from cltk.alphabet.text_normalization import cltk_normalize
 
 
 class ChatGPT:
@@ -134,6 +135,8 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return []  # Ignore invalid aspect value
         if key == "Voice" and value == "Perf":
             return ["Act"]
+        if key == "Person" and value == "-":
+            return []  # Do not include Person feature if value is '-'
         return [value]
 
     def _build_cltk_doc(
@@ -151,6 +154,8 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return False
 
         for idx, (word, info) in enumerate(word_info_dict.items()):
+            # Normalize word for matching
+            norm_word = cltk_normalize(word)
             pos_info = info.split("|")
             pos_tag = pos_info[0]
             morph_dict: dict[str, list[str]] = dict()
@@ -168,7 +173,6 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                             if values:
                                 morph_dict[mapped_key] = values
                         else:
-                            # Store as custom feature for user inspection
                             if mapped_key not in custom_features:
                                 custom_features[mapped_key] = []
                             custom_features[mapped_key].append(mapped_value)
@@ -187,16 +191,14 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             index_char_start = None
             index_char_stop = None
             if input_text:
-
-                # Use regex to find all occurrences of the word
-                pattern = re.compile(re.escape(word))
-                for match in pattern.finditer(input_text):
+                norm_input_text = cltk_normalize(input_text)
+                pattern = re.compile(re.escape(norm_word))
+                for match in pattern.finditer(norm_input_text):
                     start, stop = match.start(), match.end()
                     if not is_span_used(start, stop):
                         index_char_start = start
                         index_char_stop = stop
                         used_spans.append((start, stop))
-                        # Token index: count how many non-overlapping matches before this one
                         index_token = sum(1 for s, e in used_spans if s < start)
                         break
                 if index_char_start is None:
@@ -234,10 +236,11 @@ if __name__ == "__main__":
     CHATGPT_GRC: ChatGPT = ChatGPT(
         language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL, temperature=TEMPERATURE
     )
-    # DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
+    DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
+    EXAMPLE_GRC: str = get_example_text("grc")
     GRC_DOC: Doc = CHATGPT_GRC.generate(
-        input_text=PLUTARCH_ANTHONY_27_2, print_raw_response=True
+        input_text=DEMOSTHENES_2_4, print_raw_response=True
     )
     input("Press Enter to print final Doc ...")
     print(GRC_DOC)
