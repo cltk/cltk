@@ -63,6 +63,7 @@ Text:
 
     def _post_process_response(self, response: str, input_text: str) -> Doc:
         """Post-process the response to format it correctly."""
+        print("[DEBUG] Raw OpenAI response:", response)
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
         start_index = response.find("---")
         end_index = response.rfind("---")
@@ -80,9 +81,27 @@ Text:
                 if line.strip().startswith("**")
             ]
             cleaned_response = "\n".join(lines)
+        print("[DEBUG] Cleaned response for word parsing:", cleaned_response)
         word_level_info: dict[str, dict] = self._get_word_info(
             response=cleaned_response
         )
+        if not word_level_info:
+            print(
+                "[ERROR] No word info parsed from response. Falling back to whitespace tokenization."
+            )
+            # Fallback: tokenize input_text and create minimal Word objects
+            tokens = input_text.split()
+            word_level_info = {
+                token: {
+                    "lemma": None,
+                    "gloss": None,
+                    "ner": None,
+                    "paradigm": None,
+                    "ipa": None,
+                    "pos_morph": "X",
+                }
+                for token in tokens
+            }
         doc: Doc = self._build_cltk_doc(
             word_info_dict=word_level_info, input_text=input_text
         )
@@ -93,11 +112,13 @@ Text:
     ) -> dict[str, dict]:
         """Extract all requested features from each word line. Add fallback if parsing fails."""
         word_info: dict[str, dict] = {}
+        debug_lines = []
         # Expect tab-separated columns: word, lemma, gloss, NER, paradigm, IPA, POS|morph
         for line in response.split("\n"):
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
+            debug_lines.append(line)
             parts = line.split("\t")
             if len(parts) >= 7:
                 word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
@@ -112,14 +133,17 @@ Text:
         # Fallback: try to parse lines with fewer columns or alternative formats
         if not word_info:
             print(
-                "[WARNING] No words parsed from response. Attempting fallback parsing."
+                f"[WARNING] No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
             )
-            # Try to parse lines with at least word and POS|morph
+            # Try to parse lines with at least word and POS|morph, using tab or space
             for line in response.split("\n"):
                 line = line.strip()
                 if not line or line.startswith("#"):
                     continue
+                # Try tab, then space
                 parts = line.split("\t")
+                if len(parts) < 2:
+                    parts = line.split()
                 if len(parts) >= 2:
                     word = parts[0]
                     pos_morph = parts[-1]
@@ -132,55 +156,12 @@ Text:
                         "pos_morph": pos_morph,
                     }
         if not word_info:
-            print("[ERROR] Still no words parsed. Check prompt and response format.")
+            print(
+                f"[ERROR] Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
+            )
+        else:
+            print(f"[DEBUG] Parsed word_info: {word_info}")
         return word_info
-
-    def _map_non_ud_feature(self, key: str, value: str) -> list[tuple[str, str]]:
-        """Map non-UD features to closest UD equivalents, or return as custom."""
-        # Map PartType
-        if key == "PartType":
-            if value == "Disc":
-                return [("Polarity", "Pos")]
-            if value == "Conj":
-                return [("POS", "CCONJ")]
-        # Add more mappings as needed for other features
-        # If no mapping, return as custom (for user inspection)
-        return [(key, value)]
-
-    def _normalize_feature_value(self, key: str, value: str) -> list[str]:
-        """Normalize only problematic forms for UD features, stripping commentary and mapping non-UD features."""
-        value = re.sub(r"\s*\(.*?\)", "", value)
-        value = value.split()[0]
-        if "/" in value:
-            return value.split("/")
-        # Specific rewrites
-        if key == "Tense" and value in ["Aor"]:
-            return ["Past"]
-        if key == "Tense" and value in ["Plup"]:
-            return ["Pqp"]
-        if key == "Tense" and value in ["Imperf", "Imperfect"]:
-            return ["Imp"]
-        if key == "Tense" and value in ["Pluperf"]:
-            return ["Pqp"]
-        if key == "Degree" and value in ["Comp"]:
-            return ["Cmp"]
-        if key == "Degree" and value in ["Compar"]:
-            return ["Cmp"]
-        if key == "Voice" and value == "Perf":
-            return ["Act"]
-        if key == "Voice" and value == "Med":
-            return ["Mid"]
-        if key == "Aspect" and value == "Aor":
-            return ["Perf"]
-        if key == "Aspect" and value == "Pres":
-            return []
-        if key == "Person" and value == "-":
-            return []
-        if key == "Mood" and value == "Part":
-            return []
-        if key == "Value":
-            return [value]  # Will be mapped to NumValue by feature mapping logic
-        return [value]
 
     def _build_cltk_doc(self, word_info_dict: dict[str, dict], input_text: str) -> Doc:
         doc = Doc(
@@ -306,6 +287,12 @@ Text:
                 else:
                     cltk_word.definition = str(custom_features)
             words.append(cltk_word)
+        if not words:
+            print(f"[WARNING] No Word objects created for input: {input_text}")
+        else:
+            print(
+                f"[DEBUG] Built {len(words)} Word objects: {[w.string for w in words]}"
+            )
         doc.words = words
         return doc
 
@@ -321,7 +308,9 @@ Text:
         """
         # Prepare input for prompt: line-by-line tokens with features
         lines = []
-        for idx, word in enumerate(doc.words, start=1):
+        # When iterating over doc.words, ensure it's a list
+        words = doc.words if doc.words is not None else []
+        for idx, word in enumerate(words, start=1):
             features_str = "|".join(
                 f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
                 for key, val in word.features.items()
@@ -353,9 +342,9 @@ Text:
         # Attach dependency info to each Word in the Doc
         for i, line in enumerate(dep_lines):
             parts = line.split("\t")
-            if len(parts) < 4 or i >= len(doc.words):
+            if len(parts) < 4 or i >= len(words):
                 continue  # skip malformed lines or out-of-range
-            word_obj = doc.words[i]
+            word_obj = words[i]
             word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
             word_obj.dependency_relation = parts[3]
             if len(parts) > 4:
@@ -384,7 +373,7 @@ Text:
         print_raw_response: bool = False,
     ) -> Doc:
         """
-        Generate both POS/morphological analysis and dependency parse for the input text.
+        Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
         Returns a CLTK Doc with all information populated.
         """
         doc = self.generate_pos(
@@ -397,7 +386,169 @@ Text:
             prompt_template=dep_prompt_template,
             print_raw_response=print_raw_response,
         )
+        # Enrich Doc with metadata
+        metadata = self.generate_doc_metadata(
+            input_text=input_text,
+            print_raw_response=print_raw_response,
+        )
+        doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        doc.translation = metadata.get("translation", None)
+        doc.summary = metadata.get("summary", None)
+        doc.topic = metadata.get("topic", None)
+        # Discourse relations
+        doc.discourse_relations = self.generate_discourse_relations(
+            input_text=input_text,
+            print_raw_response=print_raw_response,
+        )
+        # Coreference resolution
+        doc.coreferences = self.generate_coreferences(
+            input_text=input_text,
+            print_raw_response=print_raw_response,
+        )
         return doc
+
+    def generate_doc_metadata(
+        self,
+        input_text: str,
+        print_raw_response: bool = False,
+    ) -> dict:
+        """
+        Call the OpenAI API to return sentence segmentation, translation, summary, and topic/domain classification for the input text.
+        Returns a dict with keys: sentence_boundaries, translation, summary, topic.
+        """
+        prompt = f"""For the following text in {self.language.name}:
+
+{input_text}
+
+1. List each sentence on a new line. For each sentence, also return its character start and stop offsets in the original text, in the format: <sentence> <TAB> <start_offset> <TAB> <end_offset>.
+2. Translate the entire text into English.
+3. Summarize the text in 1-2 sentences.
+4. Classify the topic or domain of the text (e.g., history, philosophy, poetry, law).
+
+Return your answer as four sections, each starting with a header line:
+---SENTENCES---
+<sentence>\t<start>\t<end>
+...
+---TRANSLATION---
+<translation>
+---SUMMARY---
+<summary>
+---TOPIC---
+<topic>
+"""
+        try:
+            response = self.client.responses.create(
+                model=self.model, input=prompt, temperature=self.temperature
+            )
+        except OpenAIError as openai_error:
+            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+        if print_raw_response:
+            print("Raw response from OpenAI (metadata):", response.output_text)
+        # Parse response
+        result = {}
+        text = response.output_text
+        # SENTENCES
+        sentences_section = (
+            text.split("---SENTENCES---")[-1].split("---TRANSLATION---")[0].strip()
+        )
+        sentence_boundaries = []
+        for line in sentences_section.splitlines():
+            parts = line.split("\t")
+            if len(parts) == 3:
+                sent, start, end = parts
+                try:
+                    start = int(start)
+                    end = int(end)
+                    sentence_boundaries.append((sent, start, end))
+                except ValueError:
+                    continue
+        result["sentence_boundaries"] = sentence_boundaries
+        # TRANSLATION
+        translation_section = (
+            text.split("---TRANSLATION---")[-1].split("---SUMMARY---")[0].strip()
+        )
+        result["translation"] = translation_section
+        # SUMMARY
+        summary_section = (
+            text.split("---SUMMARY---")[-1].split("---TOPIC---")[0].strip()
+        )
+        result["summary"] = summary_section
+        # TOPIC
+        topic_section = text.split("---TOPIC---")[-1].strip()
+        result["topic"] = topic_section
+        return result
+
+    def generate_discourse_relations(
+        self,
+        input_text: str,
+        print_raw_response: bool = False,
+    ) -> list[str]:
+        """
+        Call the OpenAI API to return discourse relations between sentences/clauses.
+        Returns a list of relations.
+        """
+        prompt = f"""For the following text in {self.language.name}, for each sentence or clause, describe its discourse relation to the previous one (e.g., contrast, elaboration, cause, result). List each relation on a new line, in order.
+
+{input_text}
+"""
+        try:
+            response = self.client.responses.create(
+                model=self.model, input=prompt, temperature=self.temperature
+            )
+        except OpenAIError as openai_error:
+            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+        if print_raw_response:
+            print("Raw response from OpenAI (discourse):", response.output_text)
+        relations = [
+            line.strip() for line in response.output_text.splitlines() if line.strip()
+        ]
+        return relations
+
+    def generate_coreferences(
+        self,
+        input_text: str,
+        print_raw_response: bool = False,
+    ) -> list[tuple[str, str, int, int]]:
+        """
+        Call the OpenAI API to return coreference resolution for pronouns and their referents.
+        Returns a list of tuples: (pronoun, referent, sentence index, word index).
+        """
+        prompt = f"""For the following text in {self.language.name}, identify all pronouns and their referents. For each, return a line in the format: <pronoun> <TAB> <referent> <TAB> <sentence_index> <TAB> <word_index>.
+
+{input_text}
+"""
+        try:
+            response = self.client.responses.create(
+                model=self.model, input=prompt, temperature=self.temperature
+            )
+        except OpenAIError as openai_error:
+            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+        if print_raw_response:
+            print("Raw response from OpenAI (coref):", response.output_text)
+        corefs = []
+        for line in response.output_text.splitlines():
+            parts = line.split("\t")
+            if len(parts) == 4:
+                pronoun, referent, sent_idx, word_idx = parts
+                try:
+                    sent_idx = int(sent_idx)
+                    word_idx = int(word_idx)
+                    corefs.append((pronoun, referent, sent_idx, word_idx))
+                except ValueError:
+                    continue
+        return corefs
+
+    def _map_non_ud_feature(self, key: str, value: str) -> dict:
+        """Map non-standard UD features to normalized format."""
+        # Placeholder: implement mapping logic or import from UD features module
+        # For now, just return as-is
+        return {key: value}
+
+    def _normalize_feature_value(self, key: str, value: str) -> list:
+        """Normalize UD feature values to canonical format."""
+        # Placeholder: implement normalization logic or import from UD features module
+        # For now, just return as a single-item list
+        return [value]
 
 
 if __name__ == "__main__":
@@ -423,7 +574,7 @@ if __name__ == "__main__":
         input_text=PLUTARCH_ANTHONY_27_2, print_raw_response=True
     )
     input("Press Enter to print final Doc ...")
-    print(GRC_DOC)
+    print(GRC_DOC.words)
 
     # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
     # LANGUAGE: str = "hbo"

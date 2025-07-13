@@ -49,7 +49,9 @@ class Language:
     level: str  # a language or a dialect
     iso_639_3_code: str
     type: str  # "a" for ancient and "h" for historical; this from Glottolog
-    dates: list[int] = None  # add later; not available from Glottolog or ISO list
+    dates: Optional[list[int]] = field(
+        default_factory=list
+    )  # add later; not available from Glottolog or ISO list
 
 
 @dataclass
@@ -76,12 +78,16 @@ class Word:
     upos: Optional[str] = None  # universal POS tag (from Stanza or Spacy)
     dependency_relation: Optional[str] = None  # (from Stanza or Spacy)
     governor: Optional[int] = None
-    features: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
-    category: MorphosyntacticFeatureBundle = MorphosyntacticFeatureBundle()
-    embedding: np.ndarray = field(repr=False, default=None)
+    features: MorphosyntacticFeatureBundle = field(
+        default_factory=MorphosyntacticFeatureBundle
+    )
+    category: MorphosyntacticFeatureBundle = field(
+        default_factory=MorphosyntacticFeatureBundle
+    )
+    embedding: Optional[np.ndarray] = None
     stop: Optional[bool] = None
-    named_entity: Optional[bool] = None
-    syllables: list[str] = None
+    named_entity: Optional[str] = None
+    syllables: Optional[list[str]] = field(default_factory=list)
     phonetic_transcription: Optional[str] = None
     definition: Optional[str] = None
 
@@ -106,16 +112,18 @@ class Sentence:
     The Data Container for sentences.
     """
 
-    words: list[Word] = None
-    index: int = None
-    embedding: np.ndarray = field(repr=False, default=None)
+    words: Optional[list[Word]] = field(default_factory=list)
+    index: Optional[int] = None
+    embedding: Optional[np.ndarray] = None
 
     def __getitem__(self, item: int) -> Word:
-        """This indexing operation descends into the word list structure."""
+        if not self.words:
+            raise IndexError("No words in sentence.")
         return self.words[item]
 
     def __len__(self) -> int:
-        """Returns the number of tokens in the sentence"""
+        if not self.words:
+            return 0
         return len(self.words)
 
 
@@ -177,30 +185,46 @@ class Doc:
     True
     """
 
-    language: str = None
-    words: list[Word] = None
-    pipeline: "Pipeline" = None  # Note: type should be ``Pipeline`` w/o quotes
-    raw: str = None
-    normalized_text: str = None
-    embeddings_model = None
-    sentence_embeddings: dict[int, np.ndarray] = field(repr=False, default=None)
+    language: Optional[str] = None
+    words: Optional[list[Word]] = field(default_factory=list)
+    pipeline: Optional[
+        "Pipeline"
+    ] = None  # Note: type should be ``Pipeline`` w/o quotes
+    raw: Optional[str] = None
+    normalized_text: Optional[str] = None
+    embeddings_model: Optional[object] = None
+    sentence_embeddings: Optional[dict[int, np.ndarray]] = field(default_factory=dict)
+    # --- New fields for extended features ---
+    translation: Optional[str] = None  # Full translation of the input text
+    summary: Optional[str] = None  # Short summary or paraphrase
+    topic: Optional[str] = None  # Topic or domain classification
+    discourse_relations: Optional[list[str]] = field(
+        default_factory=list
+    )  # Discourse relations between sentences/clauses
+    coreferences: Optional[list[tuple[str, str, int, int]]] = field(
+        default_factory=list
+    )  # (pronoun, referent, sentence idx, word idx)
+    sentence_boundaries: Optional[list[tuple[int, int]]] = field(
+        default_factory=list
+    )  # List of (start, stop) char offsets for sentences
 
     @property
     def sentences(self) -> list[Sentence]:
-        """Returns a list of ``Sentence``s, with each ``Sentence`` being a container for a
-        list of ``Word`` objects."""
+        if not self.words:
+            return []
         sents: dict[int, list[Word]] = defaultdict(list)
-        for word in self.words:
-            sents[word.index_sentence].append(word)
+        for word in self.words or []:
+            if word.index_sentence is not None:
+                sents[word.index_sentence].append(word)
         for key in sents:
             for w in sents[key]:
                 if w.index_token is None:
                     raise ValueError(f"Index token is not defined for {w.string}")
-
         for key in sents:
-            sents[key].sort(key=lambda x: x.index_token)
-        # Sometimes not available, nor initialized; e.g. stanza
-        if not self.sentence_embeddings:
+            sents[key].sort(
+                key=lambda x: x.index_token if x.index_token is not None else -1
+            )
+        if self.sentence_embeddings is None:
             self.sentence_embeddings = dict()
         return [
             Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
@@ -209,93 +233,70 @@ class Doc:
 
     @property
     def sentences_tokens(self) -> list[list[str]]:
-        """Returns a list of lists, with the inner list being a
-        list of word token strings.
-        """
         sentences_tokens: list[list[str]] = list()
         for sentence in self.sentences:
-            sentence_tokens: list[str] = [word.string for word in sentence]
+            sentence_tokens: list[str] = [
+                word.string for word in sentence if word.string is not None
+            ]
             sentences_tokens.append(sentence_tokens)
         return sentences_tokens
 
     @property
     def sentences_strings(self) -> list[str]:
-        """Returns a list of strings, with each string being
-        a sentence reconstructed from the word tokens.
-        """
         sentences_list: list[list[str]] = self.sentences_tokens
         sentences_str: list[str] = list()
-        for sentence_tokens in sentences_list:  # type: list[str]
-            if self.language == "akk":
-                # 'akk' produces list[tuple[str, str]]
-                sentence_tokens_str = " ".join([tup[0] for tup in sentence_tokens])
-            else:
-                sentence_tokens_str: str = " ".join(sentence_tokens)
+        for sentence_tokens in sentences_list:
+            sentence_tokens_str: str = " ".join(
+                [t for t in sentence_tokens if t is not None]
+            )
             sentences_str.append(sentence_tokens_str)
         return sentences_str
 
     def _get_words_attribute(self, attribute):
-        return [getattr(word, attribute) for word in self.words]
+        if not self.words:
+            return []
+        return [
+            getattr(word, attribute) for word in self.words if hasattr(word, attribute)
+        ]
 
     @property
     def tokens(self) -> list[str]:
-        """Returns a list of string word tokens of all words in the doc."""
-        tokens = self._get_words_attribute("string")
-        return tokens
+        return self._get_words_attribute("string")
 
     @property
-    def tokens_stops_filtered(
-        self,
-    ) -> list[str]:
-        """Returns a list of string word tokens of all words in the
-        doc, but with stopwords removed.
-        """
+    def tokens_stops_filtered(self) -> list[str]:
         tokens: list[str] = self._get_words_attribute("string")
-        # create equal-length list of True & False/None values
         is_token_stop: list[bool] = self._get_words_attribute("stop")
-        # remove from the token list any who index in ``is_token_stop`` is True
         tokens_no_stops: list[str] = [
-            token for index, token in enumerate(tokens) if not is_token_stop[index]
+            token
+            for index, token in enumerate(tokens)
+            if index < len(is_token_stop) and not is_token_stop[index]
         ]
         return tokens_no_stops
 
     @property
     def pos(self) -> list[str]:
-        """Returns a list of the POS tags of all words in the doc."""
         return self._get_words_attribute("upos")
 
     @property
     def morphosyntactic_features(self) -> list[MorphosyntacticFeatureBundle]:
-        """Returns a list of `MorphosyntacticFeatureBundle` containing the morphosyntactic features
-        of each word (when available).
-        """
         return self._get_words_attribute("features")
 
     @property
     def lemmata(self) -> list[str]:
-        """Returns a list of lemmata, indexed to the word tokens
-        provided by `Doc.tokens`.
-        """
         return self._get_words_attribute("lemma")
 
     @property
     def stems(self) -> list[str]:
-        """Returns a list of word stems, indexed to the word tokens
-        provided by `Doc.tokens`.
-        """
-        stems = self._get_words_attribute("stem")
-        return stems
+        return self._get_words_attribute("stem")
 
     def __getitem__(self, word_index: int) -> Word:
-        """Indexing operator overloaded to return the `Word` at index `word_index`."""
+        if not self.words:
+            raise IndexError("No words in Doc.")
         return self.words[word_index]
 
     @property
     def embeddings(self):
-        """Returns an embedding for each word.
-
-        TODO: Consider option to use lemma
-        """
         return self._get_words_attribute("embedding")
 
 
@@ -309,7 +310,7 @@ class Process(ABC):
 
     """
 
-    language: str = None
+    language: Optional[str] = None
 
     @abstractmethod
     def run(self, input_doc: Doc) -> Doc:
@@ -332,9 +333,11 @@ class Pipeline:
     True
     """
 
-    description: str
-    processes: list[Type[Process]]
-    language: Language
+    description: Optional[str] = None
+    processes: Optional[list[Type[Process]]] = field(default_factory=list)
+    language: Optional[Language] = None
 
     def add_process(self, process: Type[Process]):
+        if self.processes is None:
+            self.processes = []
         self.processes.append(process)
