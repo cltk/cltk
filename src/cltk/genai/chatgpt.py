@@ -39,12 +39,12 @@ class ChatGPT:
         prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
     ) -> Doc:
-        """Call the OpenAI API and return the response text."""
+        """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         if not prompt_template:
-            prompt = f"""Return part of speech tags (including full morphological information) about the following text in the {self.language.name} language.
+            prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
+word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>POS|morphological_features (Universal Dependencies)
 
-Return each word with its part of speech tag on its own line. Use the Universal Dependencies format. For each line/word, use markup as follows: `**Ἐγὼ**  – PRON|Case=Nom|Gender=Masc|Number=Sing|Person=1`.
-
+Text:
 {input_text}
 """
         else:
@@ -80,7 +80,9 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                 if line.strip().startswith("**")
             ]
             cleaned_response = "\n".join(lines)
-        word_level_info: dict[str, str] = self._get_word_info(response=cleaned_response)
+        word_level_info: dict[str, dict] = self._get_word_info(
+            response=cleaned_response
+        )
         doc: Doc = self._build_cltk_doc(
             word_info_dict=word_level_info, input_text=input_text
         )
@@ -88,19 +90,49 @@ Return each word with its part of speech tag on its own line. Use the Universal 
 
     def _get_word_info(
         self, response: str, print_raw_response: bool = False
-    ) -> dict[str, str]:
-        """Extract part of speech and morphological information from a word."""
-
-        word_info: dict[str, str] = {}
-        # Regex matches: **word** <spaces> – or - <spaces> info
-        pattern = re.compile(r"^\*\*(.+?)\*\*\s*[–-]\s*(.+)$")
+    ) -> dict[str, dict]:
+        """Extract all requested features from each word line. Add fallback if parsing fails."""
+        word_info: dict[str, dict] = {}
+        # Expect tab-separated columns: word, lemma, gloss, NER, paradigm, IPA, POS|morph
         for line in response.split("\n"):
             line = line.strip()
-            match = pattern.match(line)
-            if match:
-                word = match.group(1).strip()
-                info = match.group(2).strip()
-                word_info[word] = info
+            if not line or line.startswith("#"):
+                continue
+            parts = line.split("\t")
+            if len(parts) >= 7:
+                word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
+                word_info[word] = {
+                    "lemma": lemma if lemma else None,
+                    "gloss": gloss if gloss else None,
+                    "ner": ner if ner else None,
+                    "paradigm": paradigm if paradigm else None,
+                    "ipa": ipa if ipa else None,
+                    "pos_morph": pos_morph,
+                }
+        # Fallback: try to parse lines with fewer columns or alternative formats
+        if not word_info:
+            print(
+                "[WARNING] No words parsed from response. Attempting fallback parsing."
+            )
+            # Try to parse lines with at least word and POS|morph
+            for line in response.split("\n"):
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                parts = line.split("\t")
+                if len(parts) >= 2:
+                    word = parts[0]
+                    pos_morph = parts[-1]
+                    word_info[word] = {
+                        "lemma": None,
+                        "gloss": None,
+                        "ner": None,
+                        "paradigm": None,
+                        "ipa": None,
+                        "pos_morph": pos_morph,
+                    }
+        if not word_info:
+            print("[ERROR] Still no words parsed. Check prompt and response format.")
         return word_info
 
     def _map_non_ud_feature(self, key: str, value: str) -> list[tuple[str, str]]:
@@ -150,7 +182,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return [value]  # Will be mapped to NumValue by feature mapping logic
         return [value]
 
-    def _build_cltk_doc(self, word_info_dict: dict[str, str], input_text: str) -> Doc:
+    def _build_cltk_doc(self, word_info_dict: dict[str, dict], input_text: str) -> Doc:
         doc = Doc(
             language=self.language.name,
             raw=input_text,
@@ -166,18 +198,16 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return False
 
         for idx, (word, info) in enumerate(word_info_dict.items()):
-            # Normalize word for matching
             norm_word = cltk_normalize(word)
-            pos_info = info.split("|")
+            pos_info = info["pos_morph"].split("|")
             pos_tag = pos_info[0]
             morph_dict: dict[str, list[str]] = dict()
             custom_features: dict[str, list[str]] = dict()
             verbform_part_needed = False
             for feature in pos_info[1:]:
                 if "=" not in feature:
-                    continue  # Skip empty or malformed features
+                    continue
                 key, value = feature.split("=")
-                # Try to map non-UD features
                 if key not in FORM_UD_MAP:
                     mapped = self._map_non_ud_feature(key, value)
                     for mapped_key, mapped_value in mapped:
@@ -217,6 +247,8 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             index_char_start = None
             index_char_stop = None
             norm_input_text = cltk_normalize(input_text)
+            import re
+
             pattern = re.compile(re.escape(norm_word))
             found = False
             for match in pattern.finditer(norm_input_text):
@@ -229,12 +261,6 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                     found = True
                     break
             if not found:
-                # Log normalized word and input text
-                print(
-                    f"[MATCH FAIL] Normalized word: '{norm_word}' not found in normalized input text."
-                )
-                print(f"[MATCH FAIL] Normalized input text: '{norm_input_text}'")
-                # Try more robust matching: ignore accents and case
                 import unicodedata
 
                 def strip_accents(s):
@@ -254,14 +280,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                         index_char_stop = stop
                         used_spans.append((start, stop))
                         index_token = sum(1 for s, e in used_spans if s < start)
-                        print(
-                            f"[MATCH RECOVERED] Found by accent/case-insensitive match: '{norm_word_stripped}'"
-                        )
                         break
-            if index_char_start is None:
-                print(
-                    f"Warning: Could not find word '{word}' in input_text for index assignment (even after accent/case-insensitive matching)."
-                )
             cltk_word: Word = Word(
                 string=word,
                 upos=pos_tag,
@@ -270,9 +289,22 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                 index_char_start=index_char_start,
                 index_char_stop=index_char_stop,
             )
-            # Optionally attach custom features to Word (for user inspection)
+            # Set new features if present
+            if info.get("lemma"):
+                cltk_word.lemma = info["lemma"]
+            if info.get("gloss"):
+                cltk_word.definition = info["gloss"]
+            if info.get("ner"):
+                cltk_word.named_entity = info["ner"]
+            if info.get("paradigm"):
+                cltk_word.stem = info["paradigm"]
+            if info.get("ipa"):
+                cltk_word.phonetic_transcription = info["ipa"]
             if custom_features:
-                cltk_word.definition = str(custom_features)
+                if cltk_word.definition:
+                    cltk_word.definition += f"; custom: {str(custom_features)}"
+                else:
+                    cltk_word.definition = str(custom_features)
             words.append(cltk_word)
         doc.words = words
         return doc
