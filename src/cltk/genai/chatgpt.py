@@ -58,10 +58,12 @@ Text:
         if print_raw_response:
             print("Raw response from OpenAI:", response.output_text)
         return self._post_process_response(
-            response=response.output_text, input_text=input_text
+            response=response.output_text, input_text=input_text, response_obj=response
         )
 
-    def _post_process_response(self, response: str, input_text: str) -> Doc:
+    def _post_process_response(
+        self, response: str, input_text: str, response_obj=None
+    ) -> Doc:
         """Post-process the response to format it correctly."""
         print("[DEBUG] Raw OpenAI response:", response)
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
@@ -105,6 +107,23 @@ Text:
         doc: Doc = self._build_cltk_doc(
             word_info_dict=word_level_info, input_text=input_text
         )
+        # Add ChatGPT metadata if available
+        chatgpt_meta = {}
+        if response_obj is not None:
+            usage = getattr(response_obj, "usage", None)
+            if usage is not None:
+                chatgpt_meta["tokens_total"] = str(
+                    getattr(
+                        usage,
+                        "total_tokens",
+                        getattr(usage, "get", lambda k, d=None: d)("total_tokens", ""),
+                    )
+                )
+            chatgpt_meta["model"] = str(
+                getattr(response_obj, "model", getattr(self, "model", ""))
+            )
+            chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
+        doc.chatgpt = chatgpt_meta
         return doc
 
     def _get_word_info(
@@ -538,11 +557,10 @@ Return your answer as four sections, each starting with a header line:
                     continue
         return corefs
 
-    def _map_non_ud_feature(self, key: str, value: str) -> dict:
+    def _map_non_ud_feature(self, key: str, value: str) -> list[tuple[str, str]]:
         """Map non-standard UD features to normalized format."""
-        # Placeholder: implement mapping logic or import from UD features module
-        # For now, just return as-is
-        return {key: value}
+        # For now, just return as a list of tuples
+        return [(key, value)]
 
     def _normalize_feature_value(self, key: str, value: str) -> list:
         """Normalize UD feature values to canonical format."""
@@ -575,6 +593,8 @@ if __name__ == "__main__":
     )
     input("Press Enter to print final Doc ...")
     print(GRC_DOC.words)
+    input()
+    print(GRC_DOC.chatgpt)
 
     # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
     # LANGUAGE: str = "hbo"
