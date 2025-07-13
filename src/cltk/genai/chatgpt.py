@@ -62,7 +62,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         )
 
     def _post_process_response(
-        self, response: str, input_text: Optional[str] = None
+        self, response: str, input_text: str
     ) -> Doc:
         """Post-process the response to format it correctly."""
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
@@ -119,10 +119,8 @@ Return each word with its part of speech tag on its own line. Use the Universal 
 
     def _normalize_feature_value(self, key: str, value: str) -> list[str]:
         """Normalize only problematic forms for UD features, stripping commentary and mapping non-UD features."""
-        # Remove commentary in parentheses or after a space
         value = re.sub(r"\s*\(.*?\)", "", value)
         value = value.split()[0]
-        # Handle slashed values (e.g., 'Acc/Gen')
         if "/" in value:
             return value.split("/")
         # Specific rewrites
@@ -132,28 +130,32 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return ["Pqp"]
         if key == "Tense" and value in ["Imperf", "Imperfect"]:
             return ["Imp"]
+        if key == "Tense" and value in ["Pluperf"]:
+            return ["Pqp"]
         if key == "Degree" and value in ["Comp"]:
             return ["Cmp"]
         if key == "Degree" and value in ["Compar"]:
             return ["Cmp"]
+        if key == "Voice" and value == "Perf":
+            return ["Act"]
+        if key == "Voice" and value == "Med":
+            return ["Mid"]
         if key == "Aspect" and value == "Aor":
             return ["Perf"]
         if key == "Aspect" and value == "Pres":
-            return []  # Ignore invalid aspect value
-        if key == "Voice" and value == "Perf":
-            return ["Act"]
-        if key == "Person" and value == "-":
-            return []  # Do not include Person feature if value is '-'
-        if key == "Mood" and value == "Part":
-            # Map Mood=Part to VerbForm=Part (skip Mood=Part, add VerbForm=Part in feature loop)
             return []
+        if key == "Person" and value == "-":
+            return []
+        if key == "Mood" and value == "Part":
+            return []
+        if key == "Value":
+            return [value]  # Will be mapped to NumValue by feature mapping logic
         return [value]
 
     def _build_cltk_doc(
-        self, word_info_dict: dict[str, str], input_text: Optional[str] = None
+        self, word_info_dict: dict[str, str], input_text: str
     ) -> Doc:
-        # TODO: Add raw and normalized_text to Doc
-        doc = Doc(language=self.language.name)
+        doc = Doc(language=self.language.name, raw=input_text, normalized_text=cltk_normalize(input_text))
         words: list[Word] = list()
         used_spans = []  # List of (start, stop) for already matched words
 
@@ -214,21 +216,20 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             index_token = None
             index_char_start = None
             index_char_stop = None
-            if input_text:
-                norm_input_text = cltk_normalize(input_text)
-                pattern = re.compile(re.escape(norm_word))
-                for match in pattern.finditer(norm_input_text):
-                    start, stop = match.start(), match.end()
-                    if not is_span_used(start, stop):
-                        index_char_start = start
-                        index_char_stop = stop
-                        used_spans.append((start, stop))
-                        index_token = sum(1 for s, e in used_spans if s < start)
-                        break
-                if index_char_start is None:
-                    print(
-                        f"Warning: Could not find word '{word}' in input_text for index assignment."
-                    )
+            norm_input_text = cltk_normalize(input_text)
+            pattern = re.compile(re.escape(norm_word))
+            for match in pattern.finditer(norm_input_text):
+                start, stop = match.start(), match.end()
+                if not is_span_used(start, stop):
+                    index_char_start = start
+                    index_char_stop = stop
+                    used_spans.append((start, stop))
+                    index_token = sum(1 for s, e in used_spans if s < start)
+                    break
+            if index_char_start is None:
+                print(
+                    f"Warning: Could not find word '{word}' in input_text for index assignment."
+                )
             cltk_word: Word = Word(
                 string=word,
                 upos=pos_tag,
