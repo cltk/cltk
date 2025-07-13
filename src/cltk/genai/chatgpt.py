@@ -33,7 +33,7 @@ class ChatGPT:
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
 
-    def generate(
+    def generate_pos(
         self,
         input_text: str,
         prompt_template: Optional[str] = None,
@@ -148,6 +148,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
     def _build_cltk_doc(
         self, word_info_dict: dict[str, str], input_text: Optional[str] = None
     ) -> Doc:
+        # TODO: Add raw and normalized_text to Doc
         doc = Doc(language=self.language.name)
         words: list[Word] = list()
         used_spans = []  # List of (start, stop) for already matched words
@@ -239,6 +240,58 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         doc.words = words
         return doc
 
+    def generate_dependency(
+        self,
+        doc: Doc,
+        prompt_template: Optional[str] = None,
+        print_raw_response: bool = False,
+    ) -> Doc:
+        """
+        Call the OpenAI API to generate Universal Dependencies syntax (dependency) information for each word in the Doc.
+        Returns a CLTK Doc with dependency info added to each Word (governor, dependency_relation, etc.).
+        """
+        # Prepare input for prompt: line-by-line tokens with features
+        lines = []
+        for idx, word in enumerate(doc.words, start=1):
+            features_str = "|".join(
+                f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
+                for key, val in word.features.items() if val and val[0] is not None
+            )
+            line = f"{idx}\t{word.string}\t{word.upos}"
+            if features_str:
+                line += f"\t{features_str}"
+            lines.append(line)
+        token_table = "\n".join(lines)
+        if not prompt_template:
+            prompt = f"""Given the following Ancient Greek text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
+        else:
+            prompt = prompt_template.format(token_table=token_table)
+        try:
+            response = self.client.responses.create(
+                model=self.model, input=prompt, temperature=self.temperature
+            )
+        except OpenAIError as openai_error:
+            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+        if print_raw_response:
+            print("Raw response from OpenAI:", response.output_text)
+        # Parse response: expect tab-separated columns per line
+        dep_lines = [line.strip() for line in response.output_text.split("\n") if line.strip() and not line.strip().startswith("#")]
+        # Attach dependency info to each Word in the Doc
+        for i, line in enumerate(dep_lines):
+            parts = line.split("\t")
+            if len(parts) < 4 or i >= len(doc.words):
+                continue  # skip malformed lines or out-of-range
+            word_obj = doc.words[i]
+            word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
+            word_obj.dependency_relation = parts[3]
+            if len(parts) > 4:
+                extra = "|".join(parts[4:])
+                if word_obj.definition:
+                    word_obj.definition += f"; dep: {extra}"
+                else:
+                    word_obj.definition = f"dep: {extra}"
+        return doc
+
 
 if __name__ == "__main__":
     from cltk.languages.example_texts import get_example_text
@@ -259,7 +312,8 @@ if __name__ == "__main__":
     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
-    GRC_DOC: Doc = CHATGPT_GRC.generate(input_text=EXAMPLE_GRC, print_raw_response=True)
+    GRC_DOC: Doc = CHATGPT_GRC.generate_pos(input_text=EXAMPLE_GRC, print_raw_response=True)
+    GRC_DOC: Doc = CHATGPT_GRC.generate_dependency(doc=GRC_DOC)
     input("Press Enter to print final Doc ...")
     print(GRC_DOC)
 
