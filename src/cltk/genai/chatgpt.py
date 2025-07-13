@@ -6,13 +6,16 @@ from typing import Optional
 
 from openai import OpenAI, OpenAIError
 
-from cltk.morphology.morphosyntax import FORM_UD_MAP
+from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.data_types import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.languages.utils import get_lang
-from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle, from_ud
+from cltk.morphology.morphosyntax import (
+    FORM_UD_MAP,
+    MorphosyntacticFeatureBundle,
+    from_ud,
+)
 from cltk.utils.utils import load_env_file
-from cltk.alphabet.text_normalization import cltk_normalize
 
 
 class ChatGPT:
@@ -137,12 +140,14 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return ["Act"]
         if key == "Person" and value == "-":
             return []  # Do not include Person feature if value is '-'
+        if key == "Mood" and value == "Part":
+            # Map Mood=Part to VerbForm=Part (skip Mood=Part, add VerbForm=Part in feature loop)
+            return []
         return [value]
 
     def _build_cltk_doc(
         self, word_info_dict: dict[str, str], input_text: Optional[str] = None
     ) -> Doc:
-
         doc = Doc(language=self.language.name)
         words: list[Word] = list()
         used_spans = []  # List of (start, stop) for already matched words
@@ -160,6 +165,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             pos_tag = pos_info[0]
             morph_dict: dict[str, list[str]] = dict()
             custom_features: dict[str, list[str]] = dict()
+            verbform_part_needed = False
             for feature in pos_info[1:]:
                 if "=" not in feature:
                     continue  # Skip empty or malformed features
@@ -169,7 +175,9 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                     mapped = self._map_non_ud_feature(key, value)
                     for mapped_key, mapped_value in mapped:
                         if mapped_key in FORM_UD_MAP:
-                            values = self._normalize_feature_value(mapped_key, mapped_value)
+                            values = self._normalize_feature_value(
+                                mapped_key, mapped_value
+                            )
                             if values:
                                 morph_dict[mapped_key] = values
                         else:
@@ -178,8 +186,19 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                             custom_features[mapped_key].append(mapped_value)
                 else:
                     values = self._normalize_feature_value(key, value)
+                    if key == "Mood" and value == "Part":
+                        verbform_part_needed = True
                     if values:
                         morph_dict[key] = values
+            # If Mood=Part was present, ensure VerbForm=Part is added
+            if verbform_part_needed and (
+                "VerbForm" not in morph_dict
+                or "Part" not in morph_dict.get("VerbForm", [])
+            ):
+                if "VerbForm" in morph_dict:
+                    morph_dict["VerbForm"].append("Part")
+                else:
+                    morph_dict["VerbForm"] = ["Part"]
             morph_features = MorphosyntacticFeatureBundle()
             for key, values in morph_dict.items():
                 for value in values:
@@ -223,6 +242,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
 
 if __name__ == "__main__":
     from cltk.languages.example_texts import get_example_text
+
     load_env_file()
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
     if not OPENAI_API_KEY:
@@ -239,9 +259,7 @@ if __name__ == "__main__":
     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
-    GRC_DOC: Doc = CHATGPT_GRC.generate(
-        input_text=DEMOSTHENES_2_4, print_raw_response=True
-    )
+    GRC_DOC: Doc = CHATGPT_GRC.generate(input_text=EXAMPLE_GRC, print_raw_response=True)
     input("Press Enter to print final Doc ...")
     print(GRC_DOC)
 
