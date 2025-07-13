@@ -344,6 +344,29 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                     word_obj.definition = f"dep: {extra}"
         return doc
 
+    def generate_all(
+        self,
+        input_text: str,
+        pos_prompt_template: Optional[str] = None,
+        dep_prompt_template: Optional[str] = None,
+        print_raw_response: bool = False,
+    ) -> Doc:
+        """
+        Generate both POS/morphological analysis and dependency parse for the input text.
+        Returns a CLTK Doc with all information populated.
+        """
+        doc = self.generate_pos(
+            input_text=input_text,
+            prompt_template=pos_prompt_template,
+            print_raw_response=print_raw_response,
+        )
+        doc = self.generate_dependency(
+            doc=doc,
+            prompt_template=dep_prompt_template,
+            print_raw_response=print_raw_response,
+        )
+        return doc
+
 
 if __name__ == "__main__":
     from cltk.languages.example_texts import get_example_text
@@ -364,10 +387,9 @@ if __name__ == "__main__":
     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
-    GRC_DOC: Doc = CHATGPT_GRC.generate_pos(
+    GRC_DOC: Doc = CHATGPT_GRC.generate_all(
         input_text=PLUTARCH_ANTHONY_27_2, print_raw_response=True
     )
-    GRC_DOC: Doc = CHATGPT_GRC.generate_dependency(doc=GRC_DOC)
     input("Press Enter to print final Doc ...")
     print(GRC_DOC)
 
