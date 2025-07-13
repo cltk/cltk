@@ -61,9 +61,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             response=response.output_text, input_text=input_text
         )
 
-    def _post_process_response(
-        self, response: str, input_text: str
-    ) -> Doc:
+    def _post_process_response(self, response: str, input_text: str) -> Doc:
         """Post-process the response to format it correctly."""
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
         start_index = response.find("---")
@@ -152,10 +150,12 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             return [value]  # Will be mapped to NumValue by feature mapping logic
         return [value]
 
-    def _build_cltk_doc(
-        self, word_info_dict: dict[str, str], input_text: str
-    ) -> Doc:
-        doc = Doc(language=self.language.name, raw=input_text, normalized_text=cltk_normalize(input_text))
+    def _build_cltk_doc(self, word_info_dict: dict[str, str], input_text: str) -> Doc:
+        doc = Doc(
+            language=self.language.name,
+            raw=input_text,
+            normalized_text=cltk_normalize(input_text),
+        )
         words: list[Word] = list()
         used_spans = []  # List of (start, stop) for already matched words
 
@@ -218,6 +218,7 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             index_char_stop = None
             norm_input_text = cltk_normalize(input_text)
             pattern = re.compile(re.escape(norm_word))
+            found = False
             for match in pattern.finditer(norm_input_text):
                 start, stop = match.start(), match.end()
                 if not is_span_used(start, stop):
@@ -225,10 +226,41 @@ Return each word with its part of speech tag on its own line. Use the Universal 
                     index_char_stop = stop
                     used_spans.append((start, stop))
                     index_token = sum(1 for s, e in used_spans if s < start)
+                    found = True
                     break
+            if not found:
+                # Log normalized word and input text
+                print(
+                    f"[MATCH FAIL] Normalized word: '{norm_word}' not found in normalized input text."
+                )
+                print(f"[MATCH FAIL] Normalized input text: '{norm_input_text}'")
+                # Try more robust matching: ignore accents and case
+                import unicodedata
+
+                def strip_accents(s):
+                    return "".join(
+                        c
+                        for c in unicodedata.normalize("NFD", s)
+                        if unicodedata.category(c) != "Mn"
+                    )
+
+                norm_word_stripped = strip_accents(norm_word).lower()
+                norm_input_text_stripped = strip_accents(norm_input_text).lower()
+                pattern_stripped = re.compile(re.escape(norm_word_stripped))
+                for match in pattern_stripped.finditer(norm_input_text_stripped):
+                    start, stop = match.start(), match.end()
+                    if not is_span_used(start, stop):
+                        index_char_start = start
+                        index_char_stop = stop
+                        used_spans.append((start, stop))
+                        index_token = sum(1 for s, e in used_spans if s < start)
+                        print(
+                            f"[MATCH RECOVERED] Found by accent/case-insensitive match: '{norm_word_stripped}'"
+                        )
+                        break
             if index_char_start is None:
                 print(
-                    f"Warning: Could not find word '{word}' in input_text for index assignment."
+                    f"Warning: Could not find word '{word}' in input_text for index assignment (even after accent/case-insensitive matching)."
                 )
             cltk_word: Word = Word(
                 string=word,
@@ -260,7 +292,8 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         for idx, word in enumerate(doc.words, start=1):
             features_str = "|".join(
                 f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
-                for key, val in word.features.items() if val and val[0] is not None
+                for key, val in word.features.items()
+                if val and val[0] is not None
             )
             line = f"{idx}\t{word.string}\t{word.upos}"
             if features_str:
@@ -280,7 +313,11 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         if print_raw_response:
             print("Raw response from OpenAI:", response.output_text)
         # Parse response: expect tab-separated columns per line
-        dep_lines = [line.strip() for line in response.output_text.split("\n") if line.strip() and not line.strip().startswith("#")]
+        dep_lines = [
+            line.strip()
+            for line in response.output_text.split("\n")
+            if line.strip() and not line.strip().startswith("#")
+        ]
         # Attach dependency info to each Word in the Doc
         for i, line in enumerate(dep_lines):
             parts = line.split("\t")
@@ -327,7 +364,9 @@ if __name__ == "__main__":
     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
-    GRC_DOC: Doc = CHATGPT_GRC.generate_pos(input_text=EXAMPLE_GRC, print_raw_response=True)
+    GRC_DOC: Doc = CHATGPT_GRC.generate_pos(
+        input_text=PLUTARCH_ANTHONY_27_2, print_raw_response=True
+    )
     GRC_DOC: Doc = CHATGPT_GRC.generate_dependency(doc=GRC_DOC)
     input("Press Enter to print final Doc ...")
     print(GRC_DOC)
