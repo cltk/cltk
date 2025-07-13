@@ -395,36 +395,105 @@ Text:
         Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
         Returns a CLTK Doc with all information populated.
         """
-        doc = self.generate_pos(
+        usage_meta = {}
+        # POS/morphology
+        pos_doc, pos_usage = self._call_with_usage(
+            self.generate_pos,
             input_text=input_text,
             prompt_template=pos_prompt_template,
             print_raw_response=print_raw_response,
         )
-        doc = self.generate_dependency(
-            doc=doc,
+        # Dependency
+        dep_doc, dep_usage = self._call_with_usage(
+            self.generate_dependency,
+            doc=pos_doc,
             prompt_template=dep_prompt_template,
             print_raw_response=print_raw_response,
         )
-        # Enrich Doc with metadata
-        metadata = self.generate_doc_metadata(
+        # Metadata
+        metadata, metadata_usage = self._call_with_usage(
+            self.generate_doc_metadata,
             input_text=input_text,
             print_raw_response=print_raw_response,
         )
-        doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
-        doc.translation = metadata.get("translation", None)
-        doc.summary = metadata.get("summary", None)
-        doc.topic = metadata.get("topic", None)
+        dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        dep_doc.translation = metadata.get("translation", None)
+        dep_doc.summary = metadata.get("summary", None)
+        dep_doc.topic = metadata.get("topic", None)
         # Discourse relations
-        doc.discourse_relations = self.generate_discourse_relations(
+        discourse, discourse_usage = self._call_with_usage(
+            self.generate_discourse_relations,
             input_text=input_text,
             print_raw_response=print_raw_response,
         )
+        dep_doc.discourse_relations = discourse
         # Coreference resolution
-        doc.coreferences = self.generate_coreferences(
+        coref, coref_usage = self._call_with_usage(
+            self.generate_coreferences,
             input_text=input_text,
             print_raw_response=print_raw_response,
         )
-        return doc
+        dep_doc.coreferences = coref
+        # Aggregate token usage
+        tokens_per_call = {
+            "pos": pos_usage,
+            "dep": dep_usage,
+            "metadata": metadata_usage,
+            "discourse": discourse_usage,
+            "coref": coref_usage,
+        }
+        total_tokens = sum(
+            int(v)
+            for v in tokens_per_call.values()
+            if v is not None and str(v).isdigit()
+        )
+        dep_doc.chatgpt = {
+            "tokens_total": total_tokens,
+            "tokens_per_call": tokens_per_call,
+            "model": self.model,
+            "temperature": self.temperature,
+        }
+        return dep_doc
+
+    def _call_with_usage(self, func, *args, **kwargs):
+        """
+        Helper to call a function and extract token usage from its response object or internal usage attributes.
+        Returns (result, tokens_total) where result is the main output and tokens_total is an int or None.
+        """
+        if func == self.generate_pos:
+            doc = func(*args, **kwargs)
+            usage = (
+                doc.chatgpt.get("tokens_total")
+                if hasattr(doc, "chatgpt") and doc.chatgpt
+                else None
+            )
+            return doc, usage
+        elif func == self.generate_dependency:
+            doc = func(*args, **kwargs)
+            usage = (
+                doc.chatgpt.get("tokens_total")
+                if hasattr(doc, "chatgpt") and doc.chatgpt
+                else None
+            )
+            return doc, usage
+        elif func == self.generate_doc_metadata:
+            result = func(*args, **kwargs)
+            usage = getattr(self, "_last_metadata_usage", None)
+            return result, usage
+        elif func == self.generate_discourse_relations:
+            result = func(*args, **kwargs)
+            usage = getattr(self, "_last_discourse_usage", None)
+            return result, usage
+        elif func == self.generate_coreferences:
+            result = func(*args, **kwargs)
+            usage = getattr(self, "_last_coref_usage", None)
+            return result, usage
+        else:
+            result = func(*args, **kwargs)
+            usage = None
+            if hasattr(result, "chatgpt") and result.chatgpt:
+                usage = result.chatgpt.get("tokens_total")
+            return result, usage
 
     def generate_doc_metadata(
         self,
@@ -463,6 +532,11 @@ Return your answer as four sections, each starting with a header line:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
             print("Raw response from OpenAI (metadata):", response.output_text)
+        usage = getattr(response, "usage", None)
+        usage_val = getattr(usage, "total_tokens", None)
+        self._last_metadata_usage = (
+            int(usage_val) if usage_val and str(usage_val).isdigit() else 0
+        )
         # Parse response
         result = {}
         text = response.output_text
@@ -518,6 +592,12 @@ Return your answer as four sections, each starting with a header line:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
             print("Raw response from OpenAI (discourse):", response.output_text)
+        usage = getattr(response, "usage", None)
+        usage_val = getattr(usage, "total_tokens", None)
+        self._last_discourse_usage = (
+            int(usage_val) if usage_val and str(usage_val).isdigit() else 0
+        )
+        # Parse response
         relations = [
             line.strip() for line in response.output_text.splitlines() if line.strip()
         ]
@@ -544,6 +624,12 @@ Return your answer as four sections, each starting with a header line:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
             print("Raw response from OpenAI (coref):", response.output_text)
+        usage = getattr(response, "usage", None)
+        usage_val = getattr(usage, "total_tokens", None)
+        self._last_coref_usage = (
+            int(usage_val) if usage_val and str(usage_val).isdigit() else 0
+        )
+        # Parse response
         corefs = []
         for line in response.output_text.splitlines():
             parts = line.split("\t")
@@ -589,7 +675,7 @@ if __name__ == "__main__":
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
     GRC_DOC: Doc = CHATGPT_GRC.generate_all(
-        input_text=PLUTARCH_ANTHONY_27_2, print_raw_response=True
+        input_text=DEMOSTHENES_2_4, print_raw_response=True
     )
     input("Press Enter to print final Doc ...")
     print(GRC_DOC.words)
