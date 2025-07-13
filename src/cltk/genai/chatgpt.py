@@ -126,11 +126,15 @@ Return each word with its part of speech tag on its own line. Use the Universal 
         if "/" in value:
             return value.split("/")
         # Specific rewrites
-        if key == "Tense" and value == "Aor":
+        if key == "Tense" and value in ["Aor"]:
             return ["Past"]
-        if key == "Tense" and value == "Plup":
+        if key == "Tense" and value in ["Plup"]:
             return ["Pqp"]
-        if key == "Degree" and value == "Comp":
+        if key == "Tense" and value in ["Imperf", "Imperfect"]:
+            return ["Imp"]
+        if key == "Degree" and value in ["Comp"]:
+            return ["Cmp"]
+        if key == "Degree" and value in ["Compar"]:
             return ["Cmp"]
         if key == "Aspect" and value == "Aor":
             return ["Perf"]
@@ -285,7 +289,17 @@ Return each word with its part of speech tag on its own line. Use the Universal 
             word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
             word_obj.dependency_relation = parts[3]
             if len(parts) > 4:
-                extra = "|".join(parts[4:])
+                # Normalize each extra feature
+                normalized_extras = []
+                for feat in parts[4:]:
+                    if "=" in feat:
+                        key, value = feat.split("=", 1)
+                        norm_values = self._normalize_feature_value(key, value)
+                        for norm_value in norm_values:
+                            normalized_extras.append(f"{key}={norm_value}")
+                    else:
+                        normalized_extras.append(feat)
+                extra = "|".join(normalized_extras)
                 if word_obj.definition:
                     word_obj.definition += f"; dep: {extra}"
                 else:
