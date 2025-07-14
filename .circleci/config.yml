@@ -38,13 +38,14 @@ jobs:
           # This assumes pytest is installed via the install-package step above
           command: make testNoInternet
       - run:
+          name: Run ChatGPT tests
+          command: make testChatGPT
+      - run:
           name: Download dependencies
           command: poetry run python scripts/download_all_models.py --languages=lat
       - run:
           name: Run longer tests for Latin only
-          command: 
-            - make testLatNLP
-            - make testChatGPT
+          command: make testLatNLP
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
