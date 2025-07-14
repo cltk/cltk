@@ -96,6 +96,10 @@ class NLP:
         # Load OpenAI API key from environment or .env
         load_dotenv()
         self.api_key = os.getenv("OPENAI_API_KEY")
+        if self.api_key is None or self.api_key == "":
+            print(
+                "[WARNING] OPENAI_API_KEY is missing. ChatGPT-based processes will fail unless an API key is provided."
+            )
         if not suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
@@ -174,6 +178,10 @@ class NLP:
                     )
                 except TypeError:
                     new_process: Process = process_object(self.language.iso_639_3_code)
+                except Exception as e:
+                    raise RuntimeError(
+                        f"Failed to instantiate process {process_object.__name__}: {e}"
+                    )
                 NLP.process_objects[process_object] = new_process
                 return new_process
 
@@ -195,13 +203,24 @@ class NLP:
         >>> cltk_doc.words[0].string
         'Gallia'
         """
+        if not text or not isinstance(text, str):
+            raise ValueError("Input text must be a non-empty string.")
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
         processes = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         for process in processes:
             a_process: Process = self._get_process_object(process_object=process)
-            doc = a_process.run(doc)
+            try:
+                doc = a_process.run(doc)
+            except Exception as e:
+                raise RuntimeError(
+                    f"Process '{a_process.__class__.__name__}' failed: {e}"
+                )
+        if doc.words is None or not isinstance(doc.words, list):
+            raise RuntimeError(
+                "Pipeline did not produce any words. Check your pipeline configuration and input text."
+            )
         return doc
 
     def _get_pipeline(self) -> Pipeline:
