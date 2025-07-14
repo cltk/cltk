@@ -7,6 +7,7 @@ from typing import Optional
 from openai import OpenAI, OpenAIError
 
 from cltk.alphabet.text_normalization import cltk_normalize
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.languages.utils import get_lang
@@ -56,7 +57,7 @@ Text:
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
-            print("Raw response from OpenAI:", response.output_text)
+            logger.info(f"Raw response from OpenAI: {response.output_text}")
         return self._post_process_response(
             response=response.output_text,
             input_text=input_text,
@@ -73,7 +74,7 @@ Text:
     ) -> Doc:
         """Post-process the response to format it correctly."""
         if print_raw_response:
-            print("[DEBUG] Raw OpenAI response:", response)
+            logger.debug(f"Raw OpenAI response: {response}")
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
         start_index = response.find("---")
         end_index = response.rfind("---")
@@ -92,13 +93,13 @@ Text:
             ]
             cleaned_response = "\n".join(lines)
         if print_raw_response:
-            print("[DEBUG] Cleaned response for word parsing:", cleaned_response)
+            logger.debug(f"Cleaned response for word parsing: {cleaned_response}")
         word_level_info: dict[str, dict] = self._get_word_info(
             response=cleaned_response, print_raw_response=print_raw_response
         )
         if not word_level_info:
-            print(
-                "[ERROR] No word info parsed from response. Falling back to whitespace tokenization."
+            logger.warning(
+                "No word info parsed from response. Falling back to whitespace tokenization."
             )
             # Fallback: tokenize input_text and create minimal Word objects
             tokens = input_text.split()
@@ -161,8 +162,8 @@ Text:
         # Fallback: try to parse lines with fewer columns or alternative formats
         if not word_info:
             if print_raw_response:
-                print(
-                    f"[WARNING] No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
+                logger.warning(
+                    f"No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
                 )
             # Try to parse lines with at least word and POS|morph, using tab or space
             for line in response.split("\n"):
@@ -186,12 +187,12 @@ Text:
                     }
         if not word_info:
             if print_raw_response:
-                print(
-                    f"[ERROR] Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
+                logger.error(
+                    f"Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
                 )
         else:
             if print_raw_response:
-                print(f"[DEBUG] Parsed word_info: {word_info}")
+                logger.debug(f"Parsed word_info: {word_info}")
         return word_info
 
     def _build_cltk_doc(
@@ -324,12 +325,11 @@ Text:
                     cltk_word.definition = str(custom_features)
             words.append(cltk_word)
         if not words:
-            print(f"[WARNING] No Word objects created for input: {input_text}")
+            logger.warning(f"No Word objects created for input: {input_text}")
         else:
-            if print_raw_response:
-                print(
-                    f"[DEBUG] Built {len(words)} Word objects: {[w.string for w in words]}"
-                )
+            logger.debug(
+                f"Built {len(words)} Word objects: {[w.string for w in words]}"
+            )
         doc.words = words
         return doc
 
@@ -369,7 +369,7 @@ Text:
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
-            print("Raw response from OpenAI:", response.output_text)
+            logger.info(f"Raw response from OpenAI: {response.output_text}")
         # Parse response: expect tab-separated columns per line
         dep_lines = [
             line.strip()
@@ -549,7 +549,7 @@ Return your answer as four sections, each starting with a header line:
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
-            print("Raw response from OpenAI (metadata):", response.output_text)
+            logger.info(f"Raw response from OpenAI: {response.output_text}")
         usage = getattr(response, "usage", None)
         usage_val = getattr(usage, "total_tokens", None)
         self._last_metadata_usage = (
@@ -609,7 +609,7 @@ Return your answer as four sections, each starting with a header line:
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
-            print("Raw response from OpenAI (discourse):", response.output_text)
+            logger.info(f"Raw response from OpenAI: {response.output_text}")
         usage = getattr(response, "usage", None)
         usage_val = getattr(usage, "total_tokens", None)
         self._last_discourse_usage = (
@@ -641,7 +641,7 @@ Return your answer as four sections, each starting with a header line:
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
-            print("Raw response from OpenAI (coref):", response.output_text)
+            logger.info(f"Raw response from OpenAI: {response.output_text}")
         usage = getattr(response, "usage", None)
         usage_val = getattr(usage, "total_tokens", None)
         self._last_coref_usage = (
@@ -679,6 +679,9 @@ if __name__ == "__main__":
     load_env_file()
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
     if not OPENAI_API_KEY:
+        logger.error(
+            "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
+        )
         raise CLTKException(
             "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
         )
@@ -696,9 +699,9 @@ if __name__ == "__main__":
         input_text=EXAMPLE_GRC, print_raw_response=True
     )
     input("Press Enter to print final Doc ...")
-    print(GRC_DOC.words)
+    logger.info(f"GRC_DOC words: {GRC_DOC.words}")
     input()
-    print(GRC_DOC.chatgpt)
+    logger.info(f"GRC_DOC chatgpt: {GRC_DOC.chatgpt}")
 
     # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
     # LANGUAGE: str = "hbo"

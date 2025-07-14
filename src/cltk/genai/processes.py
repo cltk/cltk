@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.genai.chatgpt import ChatGPT
@@ -31,6 +32,23 @@ class ChatGPTProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         """Run ChatGPT inferencing and enrich the Doc with linguistic metadata."""
+        if not self.chatgpt:
+            raise ValueError("ChatGPTProcess requires language and api_key to be set.")
+        # Use normalized_text if available, else raw
+        input_text = (
+            input_doc.normalized_text if input_doc.normalized_text else input_doc.raw
+        )
+        if not input_text:
+            raise CLTKException(
+                "Input document must have either normalized_text or raw text."
+            )
+        enriched_doc = self._enrich_doc(input_doc)
+        logger.info(f"Enriched doc words: {enriched_doc.words}")
+        logger.info(f"Enriched doc chatgpt: {enriched_doc.chatgpt}")
+        return enriched_doc
+
+    def _enrich_doc(self, input_doc: Doc) -> Doc:
+        """Enrich the document with metadata using ChatGPT."""
         if not self.chatgpt:
             raise ValueError("ChatGPTProcess requires language and api_key to be set.")
         # Use normalized_text if available, else raw

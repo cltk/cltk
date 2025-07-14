@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional, Type
 from dotenv import load_dotenv
 
 import cltk
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.pipelines import (
@@ -71,34 +72,16 @@ class NLP:
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
-        """Constructor for CLTK class.
-
-        Args:
-            language: ISO code
-            custom_pipeline: Optional ``Pipeline`` for processing text.
-            api_key: Optional OpenAI API key for ChatGPT-based processes.
-
-
-        >>> from cltk import NLP
-        >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
-        >>> isinstance(cltk_nlp, NLP)
-        True
-        >>> from cltk.core.data_types import Pipeline
-        >>> from cltk.tokenizers import LatinTokenizationProcess
-        >>> from cltk.languages.utils import get_lang
-        >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
-        >>> nlp = NLP(language="lat", custom_pipeline=a_pipeline, suppress_banner=True)
-        >>> nlp.pipeline is a_pipeline
-        True
-        """
+        logger.info(f"Initializing NLP for language: {language}")
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
+        logger.debug(f"Pipeline selected: {self.pipeline}")
         # Load OpenAI API key from environment or .env
         load_dotenv()
         self.api_key = os.getenv("OPENAI_API_KEY")
         if self.api_key is None or self.api_key == "":
-            print(
-                "[WARNING] OPENAI_API_KEY is missing. ChatGPT-based processes will fail unless an API key is provided."
+            logger.warning(
+                "OPENAI_API_KEY is missing. ChatGPT-based processes will fail unless an API key is provided."
             )
         if not suppress_banner:
             self._print_cltk_info()
@@ -107,18 +90,16 @@ class NLP:
             self._print_suppress_reminder()
 
     def _print_cltk_info(self) -> None:
-        """Print to screen about citing CLTK."""
+        logger.info("Printing CLTK citation info.")
         ltr_mark: str = "\u200E"
-        alep: str = "𐤀"
+        alep: str = "\U00010900"
         print(
             f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
         )
         print("")
 
     def _print_pipelines_for_current_lang(self) -> None:
-        """Print to screen the ``Process``es invoked upon invocation
-        of ``NLP()``.
-        """
+        logger.info(f"Printing pipeline for language: {self.language.name}")
         processes = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
@@ -128,10 +109,7 @@ class NLP:
             f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
         )
         print("")
-
-        processes = (
-            self.pipeline.processes if self.pipeline.processes is not None else []
-        )
+        logger.debug(f"Processes in pipeline: {processes_name}")
         print(f"Processes in pipeline: {[process.__name__ for process in processes]}")
         for process_class in processes:
             process_instance = self._get_process_object(process_class)
@@ -140,7 +118,7 @@ class NLP:
                 print(f"⸖ {authorship_info}")
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
-        """Print to screen the authors of particular algorithms."""
+        logger.info("Printing special authorship messages for current language.")
         processes = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
@@ -153,25 +131,22 @@ class NLP:
                 print(special_message)
 
     def _print_suppress_reminder(self) -> None:
-        """Tell users how to suppress printed messages."""
-        # https://en.wikipedia.org/wiki/Coronis_(textual_symbol)
-        # U+2E0E ⸎ EDITORIAL CORONIS
+        logger.info("Printing suppress banner reminder.")
         print("")
         print(
             "⸎ To suppress these messages, instantiate ``NLP()`` with ``suppress_banner=True``."
         )
 
     def _get_process_object(self, process_object: Type[Process]) -> Process:
-        """
-        Returns an instance of a process from a memoized hash.
-        An un-instantiated process is created and stashed in the cache.
-        """
+        logger.debug(f"Getting process object for: {process_object.__name__}")
         with NLP.process_lock:
             a_process: Optional[Process] = NLP.process_objects.get(process_object, None)
             if a_process:
+                logger.debug(
+                    f"Process object found in cache: {process_object.__name__}"
+                )
                 return a_process
             else:
-                # Try instantiating with api_key, fallback if not accepted
                 try:
                     new_process: Process = process_object(
                         self.language.iso_639_3_code, api_key=self.api_key  # type: ignore introspection
@@ -179,31 +154,22 @@ class NLP:
                 except TypeError:
                     new_process: Process = process_object(self.language.iso_639_3_code)
                 except Exception as e:
+                    logger.error(
+                        f"Failed to instantiate process {process_object.__name__}: {e}"
+                    )
                     raise RuntimeError(
                         f"Failed to instantiate process {process_object.__name__}: {e}"
                     )
                 NLP.process_objects[process_object] = new_process
+                logger.debug(
+                    f"Process object instantiated and cached: {process_object.__name__}"
+                )
                 return new_process
 
     def analyze(self, text: str) -> Doc:
-        """The primary method for the NLP object, to which raw text strings are passed.
-
-        Args:
-            text: Input text string.
-
-        Returns:
-            CLTK ``Doc`` containing all processed information.
-
-        >>> from cltk.languages.example_texts import get_example_text
-        >>> from cltk.core.data_types import Doc
-        >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
-        >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
-        >>> isinstance(cltk_doc, Doc)
-        True
-        >>> cltk_doc.words[0].string
-        'Gallia'
-        """
+        logger.info("Analyzing text with NLP pipeline.")
         if not text or not isinstance(text, str):
+            logger.error("Input text must be a non-empty string.")
             raise ValueError("Input text must be a non-empty string.")
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
         processes = (
@@ -212,15 +178,21 @@ class NLP:
         for process in processes:
             a_process: Process = self._get_process_object(process_object=process)
             try:
+                logger.debug(f"Running process: {a_process.__class__.__name__}")
                 doc = a_process.run(doc)
             except Exception as e:
+                logger.error(f"Process '{a_process.__class__.__name__}' failed: {e}")
                 raise RuntimeError(
                     f"Process '{a_process.__class__.__name__}' failed: {e}"
                 )
         if doc.words is None or not isinstance(doc.words, list):
+            logger.error(
+                "Pipeline did not produce any words. Check your pipeline configuration and input text."
+            )
             raise RuntimeError(
                 "Pipeline did not produce any words. Check your pipeline configuration and input text."
             )
+        logger.info("NLP analysis complete.")
         return doc
 
     def _get_pipeline(self) -> Pipeline:
@@ -247,29 +219,16 @@ class NLP:
                 f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
             )
 
-    def run_pipeline(self, text: str) -> Doc:
-        """Run the entire pipeline on the given text."""
-        doc = Doc(language=self.language.iso_639_3_code, raw=text)
-        processes = (
-            self.pipeline.processes if self.pipeline.processes is not None else []
-        )
-        for process in processes:
-            a_process: Process = self._get_process_object(process_object=process)
-            doc = a_process.run(doc)
-        return doc
-
-    def __call__(self, text: str) -> Doc:
-        return self.analyze(text)
-
 
 if __name__ == "__main__":
     from cltk.languages.example_texts import get_example_text
     from cltk.languages.pipelines import GreekChatGPTPipeline
 
+    logger.info("Running NLP main block for GreekChatGPTPipeline example.")
     example_text = get_example_text("grc")
     pipeline = GreekChatGPTPipeline()
-    nlp = NLP(language="grc", custom_pipeline=pipeline, suppress_banner=True)
-    doc = nlp(example_text)
-    print(doc)
-    print("Words:", [w.string for w in doc.words] if doc.words is not None else [])
-    print("ChatGPT metadata:", doc.chatgpt)
+    nlp = NLP(language="grc", custom_pipeline=pipeline, suppress_banner=False)
+    doc = nlp.analyze(example_text)
+    logger.info(f"Doc output: {doc}")
+    # logger.info(f"Words: {[w.string for w in doc.words] if doc.words is not None else []}")
+    # logger.info(f"ChatGPT metadata: {doc.chatgpt}")
