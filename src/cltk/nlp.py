@@ -3,7 +3,7 @@
 import inspect
 import os
 from threading import Lock
-from typing import Optional, Type
+from typing import Any, Dict, List, Optional, Type
 
 from dotenv import load_dotenv
 
@@ -59,8 +59,11 @@ iso_to_pipeline = {
 class NLP:
     """NLP class for default processing."""
 
-    process_objects: dict[Type[Process], Process] = dict()
-    process_lock = Lock()
+    process_objects: Dict[Type[Process], Process] = dict()
+    process_lock: Lock = Lock()
+    language: Language
+    pipeline: Pipeline
+    api_key: Optional[str]
 
     def __init__(
         self,
@@ -112,9 +115,10 @@ class NLP:
         """Print to screen the ``Process``es invoked upon invocation
         of ``NLP()``.
         """
-        processes_name: list[str] = [
-            process.__name__ for process in self.pipeline.processes
-        ]
+        processes = (
+            self.pipeline.processes if self.pipeline.processes is not None else []
+        )
+        processes_name: list[str] = [process.__name__ for process in processes]
         processes_name_str: str = "`, `".join(processes_name)
         print(
             f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
@@ -192,7 +196,10 @@ class NLP:
         'Gallia'
         """
         doc = Doc(language=self.language.iso_639_3_code, raw=text)
-        for process in self.pipeline.processes:
+        processes = (
+            self.pipeline.processes if self.pipeline.processes is not None else []
+        )
+        for process in processes:
             a_process: Process = self._get_process_object(process_object=process)
             doc = a_process.run(doc)
         return doc
