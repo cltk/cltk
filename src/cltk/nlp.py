@@ -196,3 +196,17 @@ class NLP:
 
     def __call__(self, text: str) -> Doc:
         return self.analyze(text)
+
+
+if __name__ == "__main__":
+    from cltk.languages.example_texts import get_example_text
+    from cltk.languages.pipelines import GreekChatGPTPipeline
+
+    example_text = get_example_text("grc")
+    pipeline = GreekChatGPTPipeline()
+    nlp = NLP(language="grc", custom_pipeline=pipeline, suppress_banner=True)
+    doc = nlp(example_text)
+    input()
+    print(doc)
+    print("Words:", [w.string for w in doc.words] if doc.words is not None else [])
+    print("ChatGPT metadata:", doc.chatgpt)
