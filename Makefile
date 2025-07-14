@@ -65,6 +65,10 @@ test:
 	echo "Going to run all tests ..."
 	poetry run tox
 
+testChatGPT:
+	echo "Going to test code calling ChatGPT ..."
+	poetry run python tests/test_chatgpt.py
+
 testLatNLP:
 	poetry run pytest tests/test_sanity_lat_only.py
 

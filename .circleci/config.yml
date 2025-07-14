@@ -42,7 +42,9 @@ jobs:
           command: poetry run python scripts/download_all_models.py --languages=lat
       - run:
           name: Run longer tests for Latin only
-          command: make testLatNLP
+          command: 
+            - make testLatNLP
+            - make testChatGPT
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
