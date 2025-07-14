@@ -675,7 +675,7 @@ if __name__ == "__main__":
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
     GRC_DOC: Doc = CHATGPT_GRC.generate_all(
-        input_text=DEMOSTHENES_2_4, print_raw_response=True
+        input_text=EXAMPLE_GRC, print_raw_response=True
     )
     input("Press Enter to print final Doc ...")
     print(GRC_DOC.words)
