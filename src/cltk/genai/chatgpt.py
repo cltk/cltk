@@ -58,14 +58,22 @@ Text:
         if print_raw_response:
             print("Raw response from OpenAI:", response.output_text)
         return self._post_process_response(
-            response=response.output_text, input_text=input_text, response_obj=response
+            response=response.output_text,
+            input_text=input_text,
+            response_obj=response,
+            print_raw_response=print_raw_response,
         )
 
     def _post_process_response(
-        self, response: str, input_text: str, response_obj=None
+        self,
+        response: str,
+        input_text: str,
+        response_obj=None,
+        print_raw_response: bool = False,
     ) -> Doc:
         """Post-process the response to format it correctly."""
-        print("[DEBUG] Raw OpenAI response:", response)
+        if print_raw_response:
+            print("[DEBUG] Raw OpenAI response:", response)
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
         start_index = response.find("---")
         end_index = response.rfind("---")
@@ -83,9 +91,10 @@ Text:
                 if line.strip().startswith("**")
             ]
             cleaned_response = "\n".join(lines)
-        print("[DEBUG] Cleaned response for word parsing:", cleaned_response)
+        if print_raw_response:
+            print("[DEBUG] Cleaned response for word parsing:", cleaned_response)
         word_level_info: dict[str, dict] = self._get_word_info(
-            response=cleaned_response
+            response=cleaned_response, print_raw_response=print_raw_response
         )
         if not word_level_info:
             print(
@@ -151,9 +160,10 @@ Text:
                 }
         # Fallback: try to parse lines with fewer columns or alternative formats
         if not word_info:
-            print(
-                f"[WARNING] No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
-            )
+            if print_raw_response:
+                print(
+                    f"[WARNING] No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
+                )
             # Try to parse lines with at least word and POS|morph, using tab or space
             for line in response.split("\n"):
                 line = line.strip()
@@ -175,14 +185,21 @@ Text:
                         "pos_morph": pos_morph,
                     }
         if not word_info:
-            print(
-                f"[ERROR] Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
-            )
+            if print_raw_response:
+                print(
+                    f"[ERROR] Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
+                )
         else:
-            print(f"[DEBUG] Parsed word_info: {word_info}")
+            if print_raw_response:
+                print(f"[DEBUG] Parsed word_info: {word_info}")
         return word_info
 
-    def _build_cltk_doc(self, word_info_dict: dict[str, dict], input_text: str) -> Doc:
+    def _build_cltk_doc(
+        self,
+        word_info_dict: dict[str, dict],
+        input_text: str,
+        print_raw_response: bool = False,
+    ) -> Doc:
         doc = Doc(
             language=self.language.name,
             raw=input_text,
@@ -309,9 +326,10 @@ Text:
         if not words:
             print(f"[WARNING] No Word objects created for input: {input_text}")
         else:
-            print(
-                f"[DEBUG] Built {len(words)} Word objects: {[w.string for w in words]}"
-            )
+            if print_raw_response:
+                print(
+                    f"[DEBUG] Built {len(words)} Word objects: {[w.string for w in words]}"
+                )
         doc.words = words
         return doc
 

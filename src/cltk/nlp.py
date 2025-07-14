@@ -1,7 +1,11 @@
 """Primary module for CLTK pipeline."""
 
+import inspect
+import os
 from threading import Lock
 from typing import Optional, Type
+
+from dotenv import load_dotenv
 
 import cltk
 from cltk.core.data_types import Doc, Language, Pipeline, Process
@@ -69,6 +73,7 @@ class NLP:
         Args:
             language: ISO code
             custom_pipeline: Optional ``Pipeline`` for processing text.
+            api_key: Optional OpenAI API key for ChatGPT-based processes.
 
 
         >>> from cltk import NLP
@@ -85,6 +90,9 @@ class NLP:
         """
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
+        # Load OpenAI API key from environment or .env
+        load_dotenv()
+        self.api_key = os.getenv("OPENAI_API_KEY")
         if not suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
@@ -113,13 +121,28 @@ class NLP:
         )
         print("")
 
+        processes = (
+            self.pipeline.processes if self.pipeline.processes is not None else []
+        )
+        print(f"Processes in pipeline: {[process.__name__ for process in processes]}")
+        for process_class in processes:
+            process_instance = self._get_process_object(process_class)
+            authorship_info = getattr(process_instance, "authorship_info", None)
+            if authorship_info:
+                print(f"⸖ {authorship_info}")
+
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         """Print to screen the authors of particular algorithms."""
-        for process in self.pipeline.processes:
-            if hasattr(process, "authorship_info"):
-                # https://archive.ph/20120806003722/http://www.tlg.uci.edu/~opoudjis/unicode/punctuation.html
-                # U+2E16 Dotted Right-Pointing Angle ⸖
-                print(f"⸖ {process.authorship_info}")
+        processes = (
+            self.pipeline.processes if self.pipeline.processes is not None else []
+        )
+        for process_class in processes:
+            process_instance = self._get_process_object(process_class)
+            special_message = getattr(
+                process_instance, "special_authorship_message", None
+            )
+            if special_message:
+                print(special_message)
 
     def _print_suppress_reminder(self) -> None:
         """Tell users how to suppress printed messages."""
@@ -134,15 +157,19 @@ class NLP:
         """
         Returns an instance of a process from a memoized hash.
         An un-instantiated process is created and stashed in the cache.
-
-        TODO: Figure out typing in this.
         """
         with NLP.process_lock:
             a_process: Optional[Process] = NLP.process_objects.get(process_object, None)
             if a_process:
                 return a_process
             else:
-                new_process: Process = process_object(self.language.iso_639_3_code)
+                # Try instantiating with api_key, fallback if not accepted
+                try:
+                    new_process: Process = process_object(
+                        self.language.iso_639_3_code, api_key=self.api_key  # type: ignore introspection
+                    )
+                except TypeError:
+                    new_process: Process = process_object(self.language.iso_639_3_code)
                 NLP.process_objects[process_object] = new_process
                 return new_process
 
@@ -194,6 +221,17 @@ class NLP:
                 f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
             )
 
+    def run_pipeline(self, text: str) -> Doc:
+        """Run the entire pipeline on the given text."""
+        doc = Doc(language=self.language.iso_639_3_code, raw=text)
+        processes = (
+            self.pipeline.processes if self.pipeline.processes is not None else []
+        )
+        for process in processes:
+            a_process: Process = self._get_process_object(process_object=process)
+            doc = a_process.run(doc)
+        return doc
+
     def __call__(self, text: str) -> Doc:
         return self.analyze(text)
 
@@ -206,7 +244,6 @@ if __name__ == "__main__":
     pipeline = GreekChatGPTPipeline()
     nlp = NLP(language="grc", custom_pipeline=pipeline, suppress_banner=True)
     doc = nlp(example_text)
-    input()
     print(doc)
     print("Words:", [w.string for w in doc.words] if doc.words is not None else [])
     print("ChatGPT metadata:", doc.chatgpt)
