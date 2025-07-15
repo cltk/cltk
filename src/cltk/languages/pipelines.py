@@ -33,7 +33,7 @@ from cltk.embeddings.processes import (
     PaliEmbeddingsProcess,
     SanskritEmbeddingsProcess,
 )
-from cltk.genai.processes import GreekChatGPTProcess
+from cltk.genai.processes import AncientGreekChatGPTProcess
 from cltk.languages.utils import get_lang
 from cltk.lemmatize.processes import (
     GreekLemmatizationProcess,
@@ -156,7 +156,7 @@ class GreekChatGPTPipeline(Pipeline):
     description: Optional[str] = "Pipeline for Ancient Greek with ChatGPT annotation"
     language: Optional[Language] = get_lang("grc")
     processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [GreekNormalizeProcess, GreekChatGPTProcess]
+        default_factory=lambda: [GreekNormalizeProcess, AncientGreekChatGPTProcess]
     )
 
 

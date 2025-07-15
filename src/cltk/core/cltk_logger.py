@@ -1,16 +1,12 @@
 """CLTK's logging module."""
 
+__license__ = "MIT License. See LICENSE."
 
 import logging
 import os
 import sys
 
 from cltk.utils.utils import CLTK_DATA_DIR
-
-__author__ = [
-    "Kyle P. Johnson <kyle@kyle-p-johnson.com>",
-    "Stephen Margheim <stephen.margheim@gmail.com>",
-]
 
 
 def setup_cltk_logger(name="CLTK", log_to_file=True, log_to_console=True, level=None):
