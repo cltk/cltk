@@ -3,11 +3,13 @@ before the text is sent to other processes.
 """
 
 from dataclasses import dataclass
+from typing import Optional
 
 from boltons.cacheutils import cachedproperty  # type: ignore
 
 from cltk.alphabet.grc.grc import normalize_grc
 from cltk.alphabet.lat import normalize_lat
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process
 
 
@@ -15,24 +17,47 @@ from cltk.core.data_types import Doc, Process
 class NormalizeProcess(Process):
     """Generic process for text normalization."""
 
-    language: str = None
+    language: Optional[str] = None
 
     @cachedproperty
     def algorithm(self):
+        logger.debug(f"Selecting normalization algorithm for language: {self.language}")
         if self.language == "grc":
+            logger.info("Using Ancient Greek normalization algorithm.")
             return normalize_grc
         elif self.language == "lat":
+            logger.info("Using Latin normalization algorithm.")
             return normalize_lat
+        logger.warning(
+            f"No normalization algorithm found for language: {self.language}"
+        )
+        return None
 
     def run(self, input_doc: Doc) -> Doc:
         """This ideally returns an algorithm that takes and returns a string."""
+        logger.debug(f"Running normalization for language: {self.language}")
+        if self.algorithm is None:
+            logger.error(
+                f"No normalization algorithm found for language '{self.language}'"
+            )
+            raise ValueError(
+                f"No normalization algorithm found for language '{self.language}'"
+            )
+        if input_doc.raw is None:
+            logger.error("input_doc.raw must not be None")
+            raise ValueError("input_doc.raw must not be None")
         normalized_text = self.algorithm(input_doc.raw)
         input_doc.normalized_text = normalized_text
+        logger.info(
+            f"Normalized text: {input_doc.normalized_text[:50]}..."
+            if input_doc.normalized_text
+            else "Normalized text is empty."
+        )
         return input_doc
 
 
 @dataclass
-class GreekNormalizeProcess(NormalizeProcess):
+class AncientGreekNormalizeProcess(NormalizeProcess):
     """Text normalization for Ancient Greek.
 
     >>> from cltk.core.data_types import Doc, Word
@@ -48,6 +73,9 @@ class GreekNormalizeProcess(NormalizeProcess):
     """
 
     language = "grc"
+
+    def __post_init__(self):
+        logger.debug("AncientGreekNormalizeProcess initialized.")
 
 
 @dataclass
@@ -67,3 +95,6 @@ class LatinNormalizeProcess(NormalizeProcess):
     """
 
     language = "lat"
+
+    def __post_init__(self):
+        logger.debug("LatinNormalizeProcess initialized.")

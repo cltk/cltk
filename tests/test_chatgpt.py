@@ -33,7 +33,7 @@ def test_fallback_word_info():
 
 def test_metadata_aggregation():
     chatgpt = ChatGPT(language="lat", api_key="sk-test")
-    doc = chatgpt._post_process_response(
+    doc = chatgpt._post_process_pos_response(
         "Gallia\tGallia\tGallia\tO\tNOUN\tNOUN\tNOUN",
         "Gallia",
         response_obj=None,

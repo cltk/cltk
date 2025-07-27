@@ -222,13 +222,20 @@ class NLP:
 
 if __name__ == "__main__":
     from cltk.languages.example_texts import get_example_text
-    from cltk.languages.pipelines import GreekChatGPTPipeline
+    from cltk.languages.pipelines import GreekChatGPTPipeline, LatinChatGPTPipeline
 
-    logger.info("Running NLP main block for GreekChatGPTPipeline example.")
-    example_text = get_example_text("grc")
+    logger.info("Running NLP main block.")
+    LANG: str = "grc"
+    logger.info(f"Selected language: {LANG}")
+    example_text = get_example_text(iso_code=LANG)
     pipeline = GreekChatGPTPipeline()
-    nlp = NLP(language="grc", custom_pipeline=pipeline, suppress_banner=False)
+    # pipeline = LatinChatGPTPipeline()
+    nlp = NLP(language=LANG, custom_pipeline=pipeline, suppress_banner=False)
+    # example_text: str = "ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος."
+    example_text: str = "ἐν ἀρχῇ ἦν ὁ λόγος."
+    logger.info(f"Example text: {example_text[:50]}...")  # Log first 50 characters
     doc = nlp.analyze(example_text)
     logger.info(f"Doc output: {doc}")
+    logger.info(f"Word[0] output: {doc.words[0] if doc.words else 'No words found'}")
     # logger.info(f"Words: {[w.string for w in doc.words] if doc.words is not None else []}")
     # logger.info(f"ChatGPT metadata: {doc.chatgpt}")

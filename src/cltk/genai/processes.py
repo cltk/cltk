@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
+from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
@@ -21,6 +22,7 @@ class ChatGPTProcess(Process):
     chatgpt: Optional[ChatGPT] = field(init=False, default=None)
 
     def __post_init__(self):
+        logger.debug(f"Initializing ChatGPTProcess for language: {self.language}")
         if self.language and self.api_key:
             self.chatgpt = ChatGPT(
                 language=self.language,
@@ -28,49 +30,84 @@ class ChatGPTProcess(Process):
                 model=self.model,
                 temperature=self.temperature,
             )
+            logger.info(
+                f"ChatGPT instance created for language: {self.language}, model: {self.model}"
+            )
         else:
             self.chatgpt = None
+            logger.warning(
+                "ChatGPTProcess initialized without language or api_key. chatgpt set to None."
+            )
 
     def run(self, input_doc: Doc) -> Doc:
         """Run ChatGPT inferencing and enrich the Doc with linguistic metadata."""
+        logger.debug(f"Running ChatGPTProcess for language: {self.language}")
         if not self.chatgpt:
+            logger.error("ChatGPTProcess requires language and api_key to be set.")
             raise ValueError("ChatGPTProcess requires language and api_key to be set.")
-        # Use normalized_text if available, else raw
+        if not input_doc.raw and not input_doc.normalized_text:
+            logger.error(
+                "Input document must have either `.normalized_text` or `raw` text."
+            )
+            raise CLTKException(
+                "Input document must have either `.normalized_text` or `.raw` text."
+            )
+        if not input_doc.normalized_text:
+            logger.info(
+                "Normalizing input text using `cltk_normalize()` and writing to `Doc.normalized_text`."
+            )
+            input_doc.normalized_text = cltk_normalize(input_doc.raw)
         input_text = (
             input_doc.normalized_text if input_doc.normalized_text else input_doc.raw
         )
+        # xxx
         if not input_text:
-            raise CLTKException(
-                "Input document must have either normalized_text or raw text."
+            logger.error(
+                "Input document must have either `.normalized_text` or `raw` text."
             )
-        enriched_doc = self._enrich_doc(input_doc)
-        logger.info(f"Enriched doc words: {enriched_doc.words}")
-        logger.info(f"Enriched doc chatgpt: {enriched_doc.chatgpt}")
+            raise CLTKException(
+                "Input document must have either `.normalized_text` or `.raw` text."
+            )
+        logger.info(
+            f"Input text for ChatGPT: {input_text[:50]}..."
+            if input_text
+            else "Input text is empty."
+        )
+        enriched_doc = self.chatgpt.generate_all(input_doc=input_doc)
+        print(enriched_doc)
+        input()
+        # enriched_doc = self._enrich_doc(input_doc)
+        # logger.info(f"Enriched doc words: {enriched_doc.words}")
+        # logger.info(f"Enriched doc chatgpt: {enriched_doc.chatgpt}")
         return enriched_doc
 
-    def _enrich_doc(self, input_doc: Doc) -> Doc:
-        """Enrich the document with metadata using ChatGPT."""
-        if not self.chatgpt:
-            raise ValueError("ChatGPTProcess requires language and api_key to be set.")
-        # Use normalized_text if available, else raw
-        input_text = (
-            input_doc.normalized_text if input_doc.normalized_text else input_doc.raw
-        )
-        if not input_text:
-            raise CLTKException(
-                "Input document must have either normalized_text or raw text."
-            )
-        enriched_doc = self.chatgpt.generate_all(input_text=input_text)
-        # Only overwrite fields if not None in input_doc
-        if input_doc.language is not None:
-            enriched_doc.language = input_doc.language
-        if input_doc.normalized_text is not None:
-            enriched_doc.normalized_text = input_doc.normalized_text
-        if input_doc.raw is not None:
-            enriched_doc.raw = input_doc.raw
-        if input_doc.pipeline is not None:
-            enriched_doc.pipeline = input_doc.pipeline
-        return enriched_doc
+    # def _enrich_doc(self, input_doc: Doc) -> Doc:
+    #     """Enrich the document with metadata using ChatGPT."""
+    #     logger.debug("Enriching document with ChatGPT metadata.")
+    #     if not self.chatgpt:
+    #         logger.error("ChatGPTProcess requires language and api_key to be set.")
+    #         raise ValueError("ChatGPTProcess requires language and api_key to be set.")
+    #     input_text = (
+    #         input_doc.normalized_text if input_doc.normalized_text else input_doc.raw
+    #     )
+    #     if not input_text:
+    #         logger.error("Input document must have either `.normalized_text` or `.raw` text.")
+    #         raise CLTKException(
+    #             "Input document must have either `.normalized_text` or `.raw` text."
+    #         )
+    #     logger.debug(f"Calling chatgpt.generate_all for language: {self.language}")
+    #     enriched_doc = self.chatgpt.generate_all(input_text=input_text)
+    #     # Only overwrite fields if not None in input_doc
+    #     if input_doc.language is not None:
+    #         enriched_doc.language = input_doc.language
+    #     if input_doc.normalized_text is not None:
+    #         enriched_doc.normalized_text = input_doc.normalized_text
+    #     if input_doc.raw is not None:
+    #         enriched_doc.raw = input_doc.raw
+    #     if input_doc.pipeline is not None:
+    #         enriched_doc.pipeline = input_doc.pipeline
+    #     logger.debug("Document enrichment complete.")
+    #     return enriched_doc
 
 
 @dataclass
@@ -79,12 +116,20 @@ class AequianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Aequian language."
     authorship_info: str = "AequianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AequianChatGPTProcess initialized.")
+
 
 @dataclass
 class AghwanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xag"
     description: str = "Default process for ChatGPT for the Aghwan language."
     authorship_info: str = "AghwanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AghwanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -93,12 +138,20 @@ class AkkadianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Akkadian language."
     authorship_info: str = "AkkadianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AkkadianChatGPTProcess initialized.")
+
 
 @dataclass
 class AlanicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xln"
     description: str = "Default process for ChatGPT for the Alanic language."
     authorship_info: str = "AlanicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AlanicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -107,6 +160,10 @@ class AncientGreekChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Ancient Greek language."
     authorship_info: str = "Ancient GreekChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AncientGreekChatGPTProcess initialized.")
+
 
 @dataclass
 class AncientHebrewChatGPTProcess(ChatGPTProcess):
@@ -114,12 +171,20 @@ class AncientHebrewChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Ancient Hebrew language."
     authorship_info: str = "Ancient HebrewChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AncientHebrewChatGPTProcess initialized.")
+
 
 @dataclass
 class AncientLigurianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xlg"
     description: str = "Default process for ChatGPT for the Ancient Ligurian language."
     authorship_info: str = "Ancient LigurianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AncientLigurianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -129,6 +194,10 @@ class AncientMacedonianChatGPTProcess(ChatGPTProcess):
         "Default process for ChatGPT for the Ancient Macedonian language."
     )
     authorship_info: str = "Ancient MacedonianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AncientMacedonianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -141,12 +210,20 @@ class AncientNorthArabianChatGPTProcess(ChatGPTProcess):
         "Ancient North ArabianChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AncientNorthArabianChatGPTProcess initialized.")
+
 
 @dataclass
 class AncientZapotecChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xzp"
     description: str = "Default process for ChatGPT for the Ancient Zapotec language."
     authorship_info: str = "Ancient ZapotecChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AncientZapotecChatGPTProcess initialized.")
 
 
 @dataclass
@@ -155,6 +232,10 @@ class AndalusianArabicChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Andalusian Arabic language."
     authorship_info: str = "Andalusian ArabicChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AndalusianArabicChatGPTProcess initialized.")
+
 
 @dataclass
 class AngloNormanChatGPTProcess(ChatGPTProcess):
@@ -162,12 +243,20 @@ class AngloNormanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Anglo-Norman language."
     authorship_info: str = "Anglo-NormanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AngloNormanChatGPTProcess initialized.")
+
 
 @dataclass
 class AquitanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xaq"
     description: str = "Default process for ChatGPT for the Aquitanian language."
     authorship_info: str = "AquitanianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AquitanianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -178,12 +267,20 @@ class ArdhamāgadhīPrākritChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Ardhamāgadhī PrākritChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ArdhamāgadhīPrākritChatGPTProcess initialized.")
+
 
 @dataclass
 class ArmazicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xrm"
     description: str = "Default process for ChatGPT for the Armazic language."
     authorship_info: str = "ArmazicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ArmazicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -192,12 +289,20 @@ class AvestanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Avestan language."
     authorship_info: str = "AvestanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("AvestanChatGPTProcess initialized.")
+
 
 @dataclass
 class BactrianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xbc"
     description: str = "Default process for ChatGPT for the Bactrian language."
     authorship_info: str = "BactrianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("BactrianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -206,12 +311,20 @@ class BengaliChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Bengali language."
     authorship_info: str = "BengaliChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("BengaliChatGPTProcess initialized.")
+
 
 @dataclass
 class BolgarianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xbo"
     description: str = "Default process for ChatGPT for the Bolgarian language."
     authorship_info: str = "BolgarianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("BolgarianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -220,12 +333,20 @@ class BurmaPyuChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Burma Pyu language."
     authorship_info: str = "Burma PyuChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("BurmaPyuChatGPTProcess initialized.")
+
 
 @dataclass
 class CamunicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcc"
     description: str = "Default process for ChatGPT for the Camunic language."
     authorship_info: str = "CamunicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CamunicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -234,12 +355,20 @@ class CarianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Carian language."
     authorship_info: str = "CarianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CarianChatGPTProcess initialized.")
+
 
 @dataclass
 class CeltiberianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xce"
     description: str = "Default process for ChatGPT for the Celtiberian language."
     authorship_info: str = "CeltiberianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CeltiberianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -248,12 +377,20 @@ class ChurchSlavicChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Church Slavic language."
     authorship_info: str = "Church SlavicChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ChurchSlavicChatGPTProcess initialized.")
+
 
 @dataclass
 class CisalpineGaulishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcg"
     description: str = "Default process for ChatGPT for the Cisalpine Gaulish language."
     authorship_info: str = "Cisalpine GaulishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CisalpineGaulishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -264,12 +401,20 @@ class ClassicalArmenianChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Classical ArmenianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalArmenianChatGPTProcess initialized.")
+
 
 @dataclass
 class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "myz"
     description: str = "Default process for ChatGPT for the Classical Mandaic language."
     authorship_info: str = "Classical MandaicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalMandaicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -280,12 +425,20 @@ class ClassicalMongolianChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Classical MongolianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalMongolianChatGPTProcess initialized.")
+
 
 @dataclass
 class ClassicalNahuatlChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nci"
     description: str = "Default process for ChatGPT for the Classical Nahuatl language."
     authorship_info: str = "Classical NahuatlChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalNahuatlChatGPTProcess initialized.")
 
 
 @dataclass
@@ -294,12 +447,20 @@ class ClassicalNewariChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Classical Newari language."
     authorship_info: str = "Classical NewariChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalNewariChatGPTProcess initialized.")
+
 
 @dataclass
 class ClassicalQuechuaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "qwc"
     description: str = "Default process for ChatGPT for the Classical Quechua language."
     authorship_info: str = "Classical QuechuaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalQuechuaChatGPTProcess initialized.")
 
 
 @dataclass
@@ -308,12 +469,20 @@ class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Classical Syriac language."
     authorship_info: str = "Classical SyriacChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalSyriacChatGPTProcess initialized.")
+
 
 @dataclass
 class ClassicalTibetanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xct"
     description: str = "Default process for ChatGPT for the Classical Tibetan language."
     authorship_info: str = "Classical TibetanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ClassicalTibetanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -322,12 +491,20 @@ class CopticChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Coptic language."
     authorship_info: str = "CopticChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CopticChatGPTProcess initialized.")
+
 
 @dataclass
 class CumbricChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcb"
     description: str = "Default process for ChatGPT for the Cumbric language."
     authorship_info: str = "CumbricChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CumbricChatGPTProcess initialized.")
 
 
 @dataclass
@@ -336,12 +513,20 @@ class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Cuneiform Luwian language."
     authorship_info: str = "Cuneiform LuwianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CuneiformLuwianChatGPTProcess initialized.")
+
 
 @dataclass
 class CuronianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcu"
     description: str = "Default process for ChatGPT for the Curonian language."
     authorship_info: str = "CuronianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("CuronianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -350,12 +535,20 @@ class DacianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Dacian language."
     authorship_info: str = "DacianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("DacianChatGPTProcess initialized.")
+
 
 @dataclass
 class EarlyIrishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "sga"
     description: str = "Default process for ChatGPT for the Early Irish language."
     authorship_info: str = "Early IrishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EarlyIrishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -364,12 +557,20 @@ class EarlyTripuriChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Early Tripuri language."
     authorship_info: str = "Early TripuriChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EarlyTripuriChatGPTProcess initialized.")
+
 
 @dataclass
 class EasternPanjabiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pan"
     description: str = "Default process for ChatGPT for the Eastern Panjabi language."
     authorship_info: str = "Eastern PanjabiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EasternPanjabiChatGPTProcess initialized.")
 
 
 @dataclass
@@ -378,12 +579,20 @@ class EblaiteChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Eblaite language."
     authorship_info: str = "EblaiteChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EblaiteChatGPTProcess initialized.")
+
 
 @dataclass
 class EdomiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xdm"
     description: str = "Default process for ChatGPT for the Edomite language."
     authorship_info: str = "EdomiteChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EdomiteChatGPTProcess initialized.")
 
 
 @dataclass
@@ -394,12 +603,20 @@ class EgyptianChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Egyptian (Ancient)ChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EgyptianChatGPTProcess initialized.")
+
 
 @dataclass
 class ElamiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "elx"
     description: str = "Default process for ChatGPT for the Elamite language."
     authorship_info: str = "ElamiteChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ElamiteChatGPTProcess initialized.")
 
 
 @dataclass
@@ -408,12 +625,20 @@ class ElymianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Elymian language."
     authorship_info: str = "ElymianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ElymianChatGPTProcess initialized.")
+
 
 @dataclass
 class EpiOlmecChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xep"
     description: str = "Default process for ChatGPT for the Epi-Olmec language."
     authorship_info: str = "Epi-OlmecChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EpiOlmecChatGPTProcess initialized.")
 
 
 @dataclass
@@ -422,12 +647,20 @@ class EpigraphicMayanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Epigraphic Mayan language."
     authorship_info: str = "Epigraphic MayanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EpigraphicMayanChatGPTProcess initialized.")
+
 
 @dataclass
 class EteocretanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ecr"
     description: str = "Default process for ChatGPT for the Eteocretan language."
     authorship_info: str = "EteocretanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EteocretanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -436,12 +669,20 @@ class EteocypriotChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Eteocypriot language."
     authorship_info: str = "EteocypriotChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EteocypriotChatGPTProcess initialized.")
+
 
 @dataclass
 class EtruscanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ett"
     description: str = "Default process for ChatGPT for the Etruscan language."
     authorship_info: str = "EtruscanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("EtruscanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -450,12 +691,20 @@ class FaliscanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Faliscan language."
     authorship_info: str = "FaliscanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("FaliscanChatGPTProcess initialized.")
+
 
 @dataclass
 class GalatianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xga"
     description: str = "Default process for ChatGPT for the Galatian language."
     authorship_info: str = "GalatianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("GalatianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -464,12 +713,20 @@ class GalindanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Galindan language."
     authorship_info: str = "GalindanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("GalindanChatGPTProcess initialized.")
+
 
 @dataclass
 class GeezChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gez"
     description: str = "Default process for ChatGPT for the Geez language."
     authorship_info: str = "GeezChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("GeezChatGPTProcess initialized.")
 
 
 @dataclass
@@ -478,12 +735,20 @@ class GothicChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Gothic language."
     authorship_info: str = "GothicChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("GothicChatGPTProcess initialized.")
+
 
 @dataclass
 class GujaratiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "guj"
     description: str = "Default process for ChatGPT for the Gujarati language."
     authorship_info: str = "GujaratiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("GujaratiChatGPTProcess initialized.")
 
 
 @dataclass
@@ -492,12 +757,20 @@ class GāndhārīChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Gāndhārī language."
     authorship_info: str = "GāndhārīChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("GāndhārīChatGPTProcess initialized.")
+
 
 @dataclass
 class HadramiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhd"
     description: str = "Default process for ChatGPT for the Hadrami language."
     authorship_info: str = "HadramiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HadramiChatGPTProcess initialized.")
 
 
 @dataclass
@@ -506,12 +779,20 @@ class HaramiChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Harami language."
     authorship_info: str = "HaramiChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HaramiChatGPTProcess initialized.")
+
 
 @dataclass
 class HarappanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xiv"
     description: str = "Default process for ChatGPT for the Harappan language."
     authorship_info: str = "HarappanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HarappanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -520,12 +801,20 @@ class HatticChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Hattic language."
     authorship_info: str = "HatticChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HatticChatGPTProcess initialized.")
+
 
 @dataclass
 class HernicanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhr"
     description: str = "Default process for ChatGPT for the Hernican language."
     authorship_info: str = "HernicanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HernicanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -538,6 +827,10 @@ class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
         "Hiberno-Scottish GaelicChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HibernoScottishGaelicChatGPTProcess initialized.")
+
 
 @dataclass
 class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
@@ -547,12 +840,20 @@ class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Hieroglyphic LuwianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HieroglyphicLuwianChatGPTProcess initialized.")
+
 
 @dataclass
 class HindiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hin"
     description: str = "Default process for ChatGPT for the Hindi language."
     authorship_info: str = "HindiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HindiChatGPTProcess initialized.")
 
 
 @dataclass
@@ -561,12 +862,20 @@ class HittiteChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Hittite language."
     authorship_info: str = "HittiteChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HittiteChatGPTProcess initialized.")
+
 
 @dataclass
 class HunnicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhc"
     description: str = "Default process for ChatGPT for the Hunnic language."
     authorship_info: str = "HunnicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HunnicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -575,12 +884,20 @@ class HurrianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Hurrian language."
     authorship_info: str = "HurrianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("HurrianChatGPTProcess initialized.")
+
 
 @dataclass
 class IberianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xib"
     description: str = "Default process for ChatGPT for the Iberian language."
     authorship_info: str = "IberianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("IberianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -589,12 +906,20 @@ class IllyrianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Illyrian language."
     authorship_info: str = "IllyrianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("IllyrianChatGPTProcess initialized.")
+
 
 @dataclass
 class JutishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "jut"
     description: str = "Default process for ChatGPT for the Jutish language."
     authorship_info: str = "JutishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("JutishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -603,12 +928,20 @@ class KajkavianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Kajkavian language."
     authorship_info: str = "KajkavianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KajkavianChatGPTProcess initialized.")
+
 
 @dataclass
 class KannadaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "kan"
     description: str = "Default process for ChatGPT for the Kannada language."
     authorship_info: str = "KannadaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KannadaChatGPTProcess initialized.")
 
 
 @dataclass
@@ -617,12 +950,20 @@ class KaraChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Kara (Korea) language."
     authorship_info: str = "Kara (Korea)ChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KaraChatGPTProcess initialized.")
+
 
 @dataclass
 class KarakhanidChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xqa"
     description: str = "Default process for ChatGPT for the Karakhanid language."
     authorship_info: str = "KarakhanidChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KarakhanidChatGPTProcess initialized.")
 
 
 @dataclass
@@ -631,12 +972,20 @@ class KaskeanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Kaskean language."
     authorship_info: str = "KaskeanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KaskeanChatGPTProcess initialized.")
+
 
 @dataclass
 class KawiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "kaw"
     description: str = "Default process for ChatGPT for the Kawi language."
     authorship_info: str = "KawiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KawiChatGPTProcess initialized.")
 
 
 @dataclass
@@ -645,12 +994,20 @@ class KhazarChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Khazar language."
     authorship_info: str = "KhazarChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KhazarChatGPTProcess initialized.")
+
 
 @dataclass
 class KhorezmianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zkh"
     description: str = "Default process for ChatGPT for the Khorezmian language."
     authorship_info: str = "KhorezmianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KhorezmianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -659,12 +1016,20 @@ class KhotaneseChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Khotanese language."
     authorship_info: str = "KhotaneseChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KhotaneseChatGPTProcess initialized.")
+
 
 @dataclass
 class KhwarezmianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xco"
     description: str = "Default process for ChatGPT for the Khwarezmian language."
     authorship_info: str = "KhwarezmianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KhwarezmianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -673,12 +1038,20 @@ class KitanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Kitan language."
     authorship_info: str = "KitanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KitanChatGPTProcess initialized.")
+
 
 @dataclass
 class KoguryoChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zkg"
     description: str = "Default process for ChatGPT for the Koguryo language."
     authorship_info: str = "KoguryoChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("KoguryoChatGPTProcess initialized.")
 
 
 @dataclass
@@ -687,12 +1060,20 @@ class LangobardicChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Langobardic language."
     authorship_info: str = "LangobardicChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LangobardicChatGPTProcess initialized.")
+
 
 @dataclass
 class LatinChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "lat"
     description: str = "Default process for ChatGPT for the Latin language."
     authorship_info: str = "LatinChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LatinChatGPTProcess initialized.")
 
 
 @dataclass
@@ -701,12 +1082,20 @@ class LemnianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Lemnian language."
     authorship_info: str = "LemnianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LemnianChatGPTProcess initialized.")
+
 
 @dataclass
 class LeponticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xlp"
     description: str = "Default process for ChatGPT for the Lepontic language."
     authorship_info: str = "LeponticChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LeponticChatGPTProcess initialized.")
 
 
 @dataclass
@@ -715,12 +1104,20 @@ class LiburnianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Liburnian language."
     authorship_info: str = "LiburnianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LiburnianChatGPTProcess initialized.")
+
 
 @dataclass
 class LinearAChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "lab"
     description: str = "Default process for ChatGPT for the Linear A language."
     authorship_info: str = "Linear AChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LinearAChatGPTProcess initialized.")
 
 
 @dataclass
@@ -729,12 +1126,20 @@ class LiteraryChineseChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Literary Chinese language."
     authorship_info: str = "Literary ChineseChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LiteraryChineseChatGPTProcess initialized.")
+
 
 @dataclass
 class LusitanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xls"
     description: str = "Default process for ChatGPT for the Lusitanian language."
     authorship_info: str = "LusitanianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LusitanianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -743,6 +1148,10 @@ class LycianAChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Lycian A language."
     authorship_info: str = "Lycian AChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LycianAChatGPTProcess initialized.")
+
 
 @dataclass
 class LydianChatGPTProcess(ChatGPTProcess):
@@ -750,12 +1159,20 @@ class LydianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Lydian language."
     authorship_info: str = "LydianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("LydianChatGPTProcess initialized.")
+
 
 @dataclass
 class MaekChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hmk"
     description: str = "Default process for ChatGPT for the Maek language."
     authorship_info: str = "MaekChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MaekChatGPTProcess initialized.")
 
 
 @dataclass
@@ -766,12 +1183,20 @@ class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Maharastri PrakritChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MaharastriPrakritChatGPTProcess initialized.")
+
 
 @dataclass
 class MalayalamChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "mal"
     description: str = "Default process for ChatGPT for the Malayalam language."
     authorship_info: str = "MalayalamChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MalayalamChatGPTProcess initialized.")
 
 
 @dataclass
@@ -784,12 +1209,20 @@ class ManichaeanMiddlePersianChatGPTProcess(ChatGPTProcess):
         "Manichaean Middle PersianChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ManichaeanMiddlePersianChatGPTProcess initialized.")
+
 
 @dataclass
 class MarrucinianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "umc"
     description: str = "Default process for ChatGPT for the Marrucinian language."
     authorship_info: str = "MarrucinianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MarrucinianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -798,12 +1231,20 @@ class MarsianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Marsian language."
     authorship_info: str = "MarsianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MarsianChatGPTProcess initialized.")
+
 
 @dataclass
 class MedianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xme"
     description: str = "Default process for ChatGPT for the Median language."
     authorship_info: str = "MedianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MedianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -812,12 +1253,20 @@ class MeroiticChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Meroitic language."
     authorship_info: str = "MeroiticChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MeroiticChatGPTProcess initialized.")
+
 
 @dataclass
 class MessapicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cms"
     description: str = "Default process for ChatGPT for the Messapic language."
     authorship_info: str = "MessapicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MessapicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -826,12 +1275,20 @@ class MiddleArmenianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Middle Armenian language."
     authorship_info: str = "Middle ArmenianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleArmenianChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleBretonChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xbm"
     description: str = "Default process for ChatGPT for the Middle Breton language."
     authorship_info: str = "Middle BretonChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleBretonChatGPTProcess initialized.")
 
 
 @dataclass
@@ -840,12 +1297,20 @@ class MiddleChineseChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Middle Chinese language."
     authorship_info: str = "Middle ChineseChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleChineseChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleCornishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cnx"
     description: str = "Default process for ChatGPT for the Middle Cornish language."
     authorship_info: str = "Middle CornishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleCornishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -854,6 +1319,10 @@ class MiddleDutchChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Middle Dutch language."
     authorship_info: str = "Middle DutchChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleDutchChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleEnglishChatGPTProcess(ChatGPTProcess):
@@ -861,12 +1330,20 @@ class MiddleEnglishChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Middle English language."
     authorship_info: str = "Middle EnglishChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleEnglishChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleFrenchChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "frm"
     description: str = "Default process for ChatGPT for the Middle French language."
     authorship_info: str = "Middle FrenchChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleFrenchChatGPTProcess initialized.")
 
 
 @dataclass
@@ -877,12 +1354,20 @@ class MiddleHighGermanChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = "Middle High GermanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleHighGermanChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleHittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "htx"
     description: str = "Default process for ChatGPT for the Middle Hittite language."
     authorship_info: str = "Middle HittiteChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleHittiteChatGPTProcess initialized.")
 
 
 @dataclass
@@ -895,6 +1380,10 @@ class MiddleIrishChatGPTProcess(ChatGPTProcess):
         "Middle Irish (10-12th century)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleIrishChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleKoreanChatGPTProcess(ChatGPTProcess):
@@ -906,12 +1395,20 @@ class MiddleKoreanChatGPTProcess(ChatGPTProcess):
         "Middle Korean (10th-16th cent.)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleKoreanChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gml"
     description: str = "Default process for ChatGPT for the Middle Low German language."
     authorship_info: str = "Middle Low GermanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleLowGermanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -920,12 +1417,20 @@ class MiddleMongolChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Middle Mongol language."
     authorship_info: str = "Middle MongolChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleMongolChatGPTProcess initialized.")
+
 
 @dataclass
 class MiddleNewarChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nwx"
     description: str = "Default process for ChatGPT for the Middle Newar language."
     authorship_info: str = "Middle NewarChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleNewarChatGPTProcess initialized.")
 
 
 @dataclass
@@ -934,12 +1439,20 @@ class MiddleWelshChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Middle Welsh language."
     authorship_info: str = "Middle WelshChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MiddleWelshChatGPTProcess initialized.")
+
 
 @dataclass
 class MilyanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "imy"
     description: str = "Default process for ChatGPT for the Milyan language."
     authorship_info: str = "MilyanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MilyanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -948,12 +1461,20 @@ class MinaeanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Minaean language."
     authorship_info: str = "MinaeanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MinaeanChatGPTProcess initialized.")
+
 
 @dataclass
 class MinoanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "omn"
     description: str = "Default process for ChatGPT for the Minoan language."
     authorship_info: str = "MinoanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MinoanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -962,12 +1483,20 @@ class MoabiteChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Moabite language."
     authorship_info: str = "MoabiteChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MoabiteChatGPTProcess initialized.")
+
 
 @dataclass
 class MozarabicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "mxi"
     description: str = "Default process for ChatGPT for the Mozarabic language."
     authorship_info: str = "MozarabicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MozarabicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -976,12 +1505,20 @@ class MycenaeanGreekChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Mycenaean Greek language."
     authorship_info: str = "Mycenaean GreekChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MycenaeanGreekChatGPTProcess initialized.")
+
 
 @dataclass
 class MysianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "yms"
     description: str = "Default process for ChatGPT for the Mysian language."
     authorship_info: str = "MysianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("MysianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -990,12 +1527,20 @@ class NadruvianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Nadruvian language."
     authorship_info: str = "NadruvianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("NadruvianChatGPTProcess initialized.")
+
 
 @dataclass
 class NeoHittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nei"
     description: str = "Default process for ChatGPT for the Neo-Hittite language."
     authorship_info: str = "Neo-HittiteChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("NeoHittiteChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1004,12 +1549,20 @@ class NoricChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Noric language."
     authorship_info: str = "NoricChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("NoricChatGPTProcess initialized.")
+
 
 @dataclass
 class NorthPiceneChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nrp"
     description: str = "Default process for ChatGPT for the North Picene language."
     authorship_info: str = "North PiceneChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("NorthPiceneChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1018,12 +1571,20 @@ class NumidianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Numidian language."
     authorship_info: str = "NumidianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("NumidianChatGPTProcess initialized.")
+
 
 @dataclass
 class OdiaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ory"
     description: str = "Default process for ChatGPT for the Odia language."
     authorship_info: str = "OdiaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OdiaChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1036,6 +1597,10 @@ class OfficialAramaicChatGPTProcess(ChatGPTProcess):
         "Official Aramaic (700-300 BCE)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OfficialAramaicChatGPTProcess initialized.")
+
 
 @dataclass
 class OldAramaicChatGPTProcess(ChatGPTProcess):
@@ -1047,12 +1612,20 @@ class OldAramaicChatGPTProcess(ChatGPTProcess):
         "Old Aramaic (up to 700 BCE)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldAramaicChatGPTProcess initialized.")
+
 
 @dataclass
 class OldAvarChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oav"
     description: str = "Default process for ChatGPT for the Old Avar language."
     authorship_info: str = "Old AvarChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldAvarChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1061,12 +1634,20 @@ class OldBretonChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Breton language."
     authorship_info: str = "Old BretonChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldBretonChatGPTProcess initialized.")
+
 
 @dataclass
 class OldBurmeseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "obr"
     description: str = "Default process for ChatGPT for the Old Burmese language."
     authorship_info: str = "Old BurmeseChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldBurmeseChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1075,12 +1656,20 @@ class OldChineseChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Chinese language."
     authorship_info: str = "Old ChineseChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldChineseChatGPTProcess initialized.")
+
 
 @dataclass
 class OldCornishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oco"
     description: str = "Default process for ChatGPT for the Old Cornish language."
     authorship_info: str = "Old CornishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldCornishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1093,6 +1682,10 @@ class OldDutchOldFrankishChatGPTProcess(ChatGPTProcess):
         "Old Dutch-Old FrankishChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldDutchOldFrankishChatGPTProcess initialized.")
+
 
 @dataclass
 class OldEnglishChatGPTProcess(ChatGPTProcess):
@@ -1104,12 +1697,20 @@ class OldEnglishChatGPTProcess(ChatGPTProcess):
         "Old English (ca. 450-1100)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldEnglishChatGPTProcess initialized.")
+
 
 @dataclass
 class OldFrankishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "frk"
     description: str = "Default process for ChatGPT for the Old Frankish language."
     authorship_info: str = "Old FrankishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldFrankishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1122,6 +1723,10 @@ class OldFrenchChatGPTProcess(ChatGPTProcess):
         "Old French (842-ca. 1400)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldFrenchChatGPTProcess initialized.")
+
 
 @dataclass
 class OldFrisianChatGPTProcess(ChatGPTProcess):
@@ -1129,12 +1734,20 @@ class OldFrisianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Frisian language."
     authorship_info: str = "Old FrisianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldFrisianChatGPTProcess initialized.")
+
 
 @dataclass
 class OldGeorgianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oge"
     description: str = "Default process for ChatGPT for the Old Georgian language."
     authorship_info: str = "Old GeorgianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldGeorgianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1147,12 +1760,20 @@ class OldHighGermanChatGPTProcess(ChatGPTProcess):
         "Old High German (ca. 750-1050)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldHighGermanChatGPTProcess initialized.")
+
 
 @dataclass
 class OldHittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oht"
     description: str = "Default process for ChatGPT for the Old Hittite language."
     authorship_info: str = "Old HittiteChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldHittiteChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1161,12 +1782,20 @@ class OldHungarianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Hungarian language."
     authorship_info: str = "Old HungarianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldHungarianChatGPTProcess initialized.")
+
 
 @dataclass
 class OldJapaneseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ojp"
     description: str = "Default process for ChatGPT for the Old Japanese language."
     authorship_info: str = "Old JapaneseChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldJapaneseChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1179,12 +1808,20 @@ class OldKoreanChatGPTProcess(ChatGPTProcess):
         "Old Korean (3rd-9th cent.)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldKoreanChatGPTProcess initialized.")
+
 
 @dataclass
 class OldLithuanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "olt"
     description: str = "Default process for ChatGPT for the Old Lithuanian language."
     authorship_info: str = "Old LithuanianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldLithuanianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1193,12 +1830,20 @@ class OldManipuriChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Manipuri language."
     authorship_info: str = "Old ManipuriChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldManipuriChatGPTProcess initialized.")
+
 
 @dataclass
 class OldMarathiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "omr"
     description: str = "Default process for ChatGPT for the Old Marathi language."
     authorship_info: str = "Old MarathiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldMarathiChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1207,12 +1852,20 @@ class OldMonChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Mon language."
     authorship_info: str = "Old MonChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldMonChatGPTProcess initialized.")
+
 
 @dataclass
 class OldNorseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "non"
     description: str = "Default process for ChatGPT for the Old Norse language."
     authorship_info: str = "Old NorseChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldNorseChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1221,12 +1874,20 @@ class OldNubianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Nubian language."
     authorship_info: str = "Old NubianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldNubianChatGPTProcess initialized.")
+
 
 @dataclass
 class OldOsseticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oos"
     description: str = "Default process for ChatGPT for the Old Ossetic language."
     authorship_info: str = "Old OsseticChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldOsseticChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1239,12 +1900,20 @@ class OldPersianChatGPTProcess(ChatGPTProcess):
         "Old Persian (ca. 600-400 B.C.)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldPersianChatGPTProcess initialized.")
+
 
 @dataclass
 class OldProvençalChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pro"
     description: str = "Default process for ChatGPT for the Old Provençal language."
     authorship_info: str = "Old ProvençalChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldProvençalChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1253,12 +1922,20 @@ class OldRussianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Russian language."
     authorship_info: str = "Old RussianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldRussianChatGPTProcess initialized.")
+
 
 @dataclass
 class OldSaxonChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "osx"
     description: str = "Default process for ChatGPT for the Old Saxon language."
     authorship_info: str = "Old SaxonChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldSaxonChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1267,12 +1944,20 @@ class OldSpanishChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Spanish language."
     authorship_info: str = "Old SpanishChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldSpanishChatGPTProcess initialized.")
+
 
 @dataclass
 class OldTamilChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oty"
     description: str = "Default process for ChatGPT for the Old Tamil language."
     authorship_info: str = "Old TamilChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldTamilChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1281,12 +1966,20 @@ class OldTibetanChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Tibetan language."
     authorship_info: str = "Old TibetanChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldTibetanChatGPTProcess initialized.")
+
 
 @dataclass
 class OldTurkicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oui"
     description: str = "Default process for ChatGPT for the Old Turkic language."
     authorship_info: str = "Old TurkicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldTurkicChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1295,6 +1988,10 @@ class OldTurkishChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old Turkish language."
     authorship_info: str = "Old TurkishChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldTurkishChatGPTProcess initialized.")
+
 
 @dataclass
 class OldMiddleWelshChatGPTProcess(ChatGPTProcess):
@@ -1302,12 +1999,20 @@ class OldMiddleWelshChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Old-Middle Welsh language."
     authorship_info: str = "Old-Middle WelshChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OldMiddleWelshChatGPTProcess initialized.")
+
 
 @dataclass
 class OscanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "osc"
     description: str = "Default process for ChatGPT for the Oscan language."
     authorship_info: str = "OscanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OscanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1320,12 +2025,20 @@ class OttomanTurkishChatGPTProcess(ChatGPTProcess):
         "Ottoman Turkish (1500-1928)ChatGPTProcess using OpenAI GPT models."
     )
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("OttomanTurkishChatGPTProcess initialized.")
+
 
 @dataclass
 class PaekcheChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pkc"
     description: str = "Default process for ChatGPT for the Paekche language."
     authorship_info: str = "PaekcheChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PaekcheChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1334,6 +2047,10 @@ class PaelignianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Paelignian language."
     authorship_info: str = "PaelignianChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PaelignianChatGPTProcess initialized.")
+
 
 @dataclass
 class PahlaviChatGPTProcess(ChatGPTProcess):
@@ -1341,23 +2058,31 @@ class PahlaviChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Pahlavi language."
     authorship_info: str = "PahlaviChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PahlaviChatGPTProcess initialized.")
+
 
 @dataclass
 class PalaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "plq"
+    language: Optional[str] = "xpa"
     description: str = "Default process for ChatGPT for the Palaic language."
     authorship_info: str = "PalaicChatGPTProcess using OpenAI GPT models."
 
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PalaicChatGPTProcess initialized.")
+
 
 @dataclass
-class PalestinianJewishAramaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "jpa"
-    description: str = (
-        "Default process for ChatGPT for the Palestinian Jewish Aramaic language."
-    )
-    authorship_info: str = (
-        "Palestinian Jewish AramaicChatGPTProcess using OpenAI GPT models."
-    )
+class PalauanChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pau"
+    description: str = "Default process for ChatGPT for the Palauan language."
+    authorship_info: str = "PalauanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PalauanChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1366,19 +2091,42 @@ class PaliChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Pali language."
     authorship_info: str = "PaliChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class ParthianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpr"
-    description: str = "Default process for ChatGPT for the Parthian language."
-    authorship_info: str = "ParthianChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PaliChatGPTProcess initialized.")
 
 
 @dataclass
-class PechenegChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpc"
-    description: str = "Default process for ChatGPT for the Pecheneg language."
-    authorship_info: str = "PechenegChatGPTProcess using OpenAI GPT models."
+class PampangaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pam"
+    description: str = "Default process for ChatGPT for the Pampanga language."
+    authorship_info: str = "PampangaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PampangaChatGPTProcess initialized.")
+
+
+@dataclass
+class PashtoChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pus"
+    description: str = "Default process for ChatGPT for the Pashto language."
+    authorship_info: str = "PashtoChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PashtoChatGPTProcess initialized.")
+
+
+@dataclass
+class PersianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pes"
+    description: str = "Default process for ChatGPT for the Persian language."
+    authorship_info: str = "PersianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PersianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1387,82 +2135,130 @@ class PhoenicianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Phoenician language."
     authorship_info: str = "PhoenicianChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class PhrygianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpg"
-    description: str = "Default process for ChatGPT for the Phrygian language."
-    authorship_info: str = "PhrygianChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PhoenicianChatGPTProcess initialized.")
 
 
 @dataclass
-class PictishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpi"
-    description: str = "Default process for ChatGPT for the Pictish language."
-    authorship_info: str = "PictishChatGPTProcess using OpenAI GPT models."
+class PicardChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pic"
+    description: str = "Default process for ChatGPT for the Picard language."
+    authorship_info: str = "PicardChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PicardChatGPTProcess initialized.")
 
 
 @dataclass
-class PisidianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xps"
-    description: str = "Default process for ChatGPT for the Pisidian language."
-    authorship_info: str = "PisidianChatGPTProcess using OpenAI GPT models."
+class PolishChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pol"
+    description: str = "Default process for ChatGPT for the Polish language."
+    authorship_info: str = "PolishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PolishChatGPTProcess initialized.")
 
 
 @dataclass
-class PrimitiveIrishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pgl"
-    description: str = "Default process for ChatGPT for the Primitive Irish language."
-    authorship_info: str = "Primitive IrishChatGPTProcess using OpenAI GPT models."
+class PortugueseChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "por"
+    description: str = "Default process for ChatGPT for the Portuguese language."
+    authorship_info: str = "PortugueseChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PortugueseChatGPTProcess initialized.")
 
 
 @dataclass
-class PunicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpu"
-    description: str = "Default process for ChatGPT for the Punic language."
-    authorship_info: str = "PunicChatGPTProcess using OpenAI GPT models."
+class ProvençalChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pro"
+    description: str = "Default process for ChatGPT for the Provençal language."
+    authorship_info: str = "ProvençalChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ProvençalChatGPTProcess initialized.")
 
 
 @dataclass
-class PuyoChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpy"
-    description: str = "Default process for ChatGPT for the Puyo language."
-    authorship_info: str = "PuyoChatGPTProcess using OpenAI GPT models."
+class PunjabiChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "pan"
+    description: str = "Default process for ChatGPT for the Punjabi language."
+    authorship_info: str = "PunjabiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("PunjabiChatGPTProcess initialized.")
 
 
 @dataclass
-class PuyoPaekcheChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpp"
-    description: str = "Default process for ChatGPT for the Puyo-Paekche language."
-    authorship_info: str = "Puyo-PaekcheChatGPTProcess using OpenAI GPT models."
+class QashqaiChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "xqs"
+    description: str = "Default process for ChatGPT for the Qashqai language."
+    authorship_info: str = "QashqaiChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("QashqaiChatGPTProcess initialized.")
 
 
 @dataclass
-class QatabanianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xqt"
-    description: str = "Default process for ChatGPT for the Qatabanian language."
-    authorship_info: str = "QatabanianChatGPTProcess using OpenAI GPT models."
+class QuechuaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "que"
+    description: str = "Default process for ChatGPT for the Quechua language."
+    authorship_info: str = "QuechuaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("QuechuaChatGPTProcess initialized.")
 
 
 @dataclass
-class RaeticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xrr"
-    description: str = "Default process for ChatGPT for the Raetic language."
-    authorship_info: str = "RaeticChatGPTProcess using OpenAI GPT models."
+class RarotonganChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "rar"
+    description: str = "Default process for ChatGPT for the Rarotongan language."
+    authorship_info: str = "RarotonganChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("RarotonganChatGPTProcess initialized.")
 
 
 @dataclass
-class SabaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xsa"
-    description: str = "Default process for ChatGPT for the Sabaic language."
-    authorship_info: str = "SabaicChatGPTProcess using OpenAI GPT models."
+class RomanianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "ron"
+    description: str = "Default process for ChatGPT for the Romanian language."
+    authorship_info: str = "RomanianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("RomanianChatGPTProcess initialized.")
 
 
 @dataclass
-class SabineChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sbv"
-    description: str = "Default process for ChatGPT for the Sabine language."
-    authorship_info: str = "SabineChatGPTProcess using OpenAI GPT models."
+class RussianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "rus"
+    description: str = "Default process for ChatGPT for the Russian language."
+    authorship_info: str = "RussianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("RussianChatGPTProcess initialized.")
+
+
+@dataclass
+class SardinianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "srd"
+    description: str = "Default process for ChatGPT for the Sardinian language."
+    authorship_info: str = "SardinianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SardinianChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1471,82 +2267,108 @@ class SanskritChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Sanskrit language."
     authorship_info: str = "SanskritChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class SauraseniPrakritChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "psu"
-    description: str = "Default process for ChatGPT for the Sauraseni Prakrit language."
-    authorship_info: str = "Sauraseni PrakritChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SanskritChatGPTProcess initialized.")
 
 
 @dataclass
-class ScythianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xsc"
-    description: str = "Default process for ChatGPT for the Scythian language."
-    authorship_info: str = "ScythianChatGPTProcess using OpenAI GPT models."
+class ScottishGaelicChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "gla"
+    description: str = "Default process for ChatGPT for the Scottish Gaelic language."
+    authorship_info: str = "Scottish GaelicChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ScottishGaelicChatGPTProcess initialized.")
 
 
 @dataclass
-class SicanaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sxc"
-    description: str = "Default process for ChatGPT for the Sicana language."
-    authorship_info: str = "SicanaChatGPTProcess using OpenAI GPT models."
+class SerbianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "srp"
+    description: str = "Default process for ChatGPT for the Serbian language."
+    authorship_info: str = "SerbianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SerbianChatGPTProcess initialized.")
 
 
 @dataclass
-class SiculaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "scx"
-    description: str = "Default process for ChatGPT for the Sicula language."
-    authorship_info: str = "SiculaChatGPTProcess using OpenAI GPT models."
+class SicilianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "scn"
+    description: str = "Default process for ChatGPT for the Sicilian language."
+    authorship_info: str = "SicilianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SicilianChatGPTProcess initialized.")
 
 
 @dataclass
-class SiculoArabicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sqr"
-    description: str = "Default process for ChatGPT for the Siculo Arabic language."
-    authorship_info: str = "Siculo ArabicChatGPTProcess using OpenAI GPT models."
+class SilesianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "szl"
+    description: str = "Default process for ChatGPT for the Silesian language."
+    authorship_info: str = "SilesianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SilesianChatGPTProcess initialized.")
 
 
 @dataclass
-class SideticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xsd"
-    description: str = "Default process for ChatGPT for the Sidetic language."
-    authorship_info: str = "SideticChatGPTProcess using OpenAI GPT models."
+class SlovakChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "slk"
+    description: str = "Default process for ChatGPT for the Slovak language."
+    authorship_info: str = "SlovakChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SlovakChatGPTProcess initialized.")
 
 
 @dataclass
-class SkalvianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "svx"
-    description: str = "Default process for ChatGPT for the Skalvian language."
-    authorship_info: str = "SkalvianChatGPTProcess using OpenAI GPT models."
+class SlovenianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "slv"
+    description: str = "Default process for ChatGPT for the Slovenian language."
+    authorship_info: str = "SlovenianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SlovenianChatGPTProcess initialized.")
 
 
 @dataclass
-class SogdianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sog"
-    description: str = "Default process for ChatGPT for the Sogdian language."
-    authorship_info: str = "SogdianChatGPTProcess using OpenAI GPT models."
+class SomaliChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "som"
+    description: str = "Default process for ChatGPT for the Somali language."
+    authorship_info: str = "SomaliChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SomaliChatGPTProcess initialized.")
 
 
 @dataclass
-class SorothapticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sxo"
-    description: str = "Default process for ChatGPT for the Sorothaptic language."
-    authorship_info: str = "SorothapticChatGPTProcess using OpenAI GPT models."
+class SorbianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "wen"
+    description: str = "Default process for ChatGPT for the Sorbian language."
+    authorship_info: str = "SorbianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SorbianChatGPTProcess initialized.")
 
 
 @dataclass
-class SouthPiceneChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "spx"
-    description: str = "Default process for ChatGPT for the South Picene language."
-    authorship_info: str = "South PiceneChatGPTProcess using OpenAI GPT models."
+class SpanishChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "spa"
+    description: str = "Default process for ChatGPT for the Spanish language."
+    authorship_info: str = "SpanishChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class StandardArabicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "arb"
-    description: str = "Default process for ChatGPT for the Standard Arabic language."
-    authorship_info: str = "Standard ArabicChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SpanishChatGPTProcess initialized.")
 
 
 @dataclass
@@ -1555,154 +2377,248 @@ class SumerianChatGPTProcess(ChatGPTProcess):
     description: str = "Default process for ChatGPT for the Sumerian language."
     authorship_info: str = "SumerianChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class TangutChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "txg"
-    description: str = "Default process for ChatGPT for the Tangut language."
-    authorship_info: str = "TangutChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SumerianChatGPTProcess initialized.")
 
 
 @dataclass
-class TartessianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "txr"
-    description: str = "Default process for ChatGPT for the Tartessian language."
-    authorship_info: str = "TartessianChatGPTProcess using OpenAI GPT models."
+class SwedishChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "swe"
+    description: str = "Default process for ChatGPT for the Swedish language."
+    authorship_info: str = "SwedishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SwedishChatGPTProcess initialized.")
 
 
 @dataclass
-class TeluguChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "tel"
-    description: str = "Default process for ChatGPT for the Telugu language."
-    authorship_info: str = "TeluguChatGPTProcess using OpenAI GPT models."
+class SyriacChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "syc"
+    description: str = "Default process for ChatGPT for the Syriac language."
+    authorship_info: str = "SyriacChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("SyriacChatGPTProcess initialized.")
 
 
 @dataclass
-class ThracianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "txh"
-    description: str = "Default process for ChatGPT for the Thracian language."
-    authorship_info: str = "ThracianChatGPTProcess using OpenAI GPT models."
+class TahitianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "tah"
+    description: str = "Default process for ChatGPT for the Tahitian language."
+    authorship_info: str = "TahitianChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TahitianChatGPTProcess initialized.")
+
+
+@dataclass
+class TigrinyaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "tir"
+    description: str = "Default process for ChatGPT for the Tigrinya language."
+    authorship_info: str = "TigrinyaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TigrinyaChatGPTProcess initialized.")
+
+
+@dataclass
+class TibetanChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "bod"
+    description: str = "Default process for ChatGPT for the Tibetan language."
+    authorship_info: str = "TibetanChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TibetanChatGPTProcess initialized.")
+
+
+@dataclass
+class TigréChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "tig"
+    description: str = "Default process for ChatGPT for the Tigré language."
+    authorship_info: str = "TigréChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TigréChatGPTProcess initialized.")
 
 
 @dataclass
 class TokharianAChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xto"
+    language: Optional[str] = "xqa"
     description: str = "Default process for ChatGPT for the Tokharian A language."
     authorship_info: str = "Tokharian AChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TokharianAChatGPTProcess initialized.")
 
 
 @dataclass
 class TokharianBChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "txb"
+    language: Optional[str] = "xqb"
     description: str = "Default process for ChatGPT for the Tokharian B language."
     authorship_info: str = "Tokharian BChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class TransalpineGaulishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xtg"
-    description: str = (
-        "Default process for ChatGPT for the Transalpine Gaulish language."
-    )
-    authorship_info: str = "Transalpine GaulishChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TokharianBChatGPTProcess initialized.")
 
 
 @dataclass
-class TumshuqeseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xtq"
-    description: str = "Default process for ChatGPT for the Tumshuqese language."
-    authorship_info: str = "TumshuqeseChatGPTProcess using OpenAI GPT models."
+class TurkishChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "tur"
+    description: str = "Default process for ChatGPT for the Turkish language."
+    authorship_info: str = "TurkishChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("TurkishChatGPTProcess initialized.")
 
 
 @dataclass
-class UgariticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "uga"
-    description: str = "Default process for ChatGPT for the Ugaritic language."
-    authorship_info: str = "UgariticChatGPTProcess using OpenAI GPT models."
+class UighurChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "uig"
+    description: str = "Default process for ChatGPT for the Uighur language."
+    authorship_info: str = "UighurChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("UighurChatGPTProcess initialized.")
 
 
 @dataclass
-class UmbrianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xum"
-    description: str = "Default process for ChatGPT for the Umbrian language."
-    authorship_info: str = "UmbrianChatGPTProcess using OpenAI GPT models."
+class UkrainianChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "ukr"
+    description: str = "Default process for ChatGPT for the Ukrainian language."
+    authorship_info: str = "UkrainianChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class UrartianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xur"
-    description: str = "Default process for ChatGPT for the Urartian language."
-    authorship_info: str = "UrartianChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("UkrainianChatGPTProcess initialized.")
 
 
 @dataclass
 class UrduChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "urd"
+    language: Optional[str] = "ud"
     description: str = "Default process for ChatGPT for the Urdu language."
     authorship_info: str = "UrduChatGPTProcess using OpenAI GPT models."
 
-
-@dataclass
-class VandalicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xvn"
-    description: str = "Default process for ChatGPT for the Vandalic language."
-    authorship_info: str = "VandalicChatGPTProcess using OpenAI GPT models."
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("UrduChatGPTProcess initialized.")
 
 
 @dataclass
-class VeneticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xve"
-    description: str = "Default process for ChatGPT for the Venetic language."
-    authorship_info: str = "VeneticChatGPTProcess using OpenAI GPT models."
+class UzbekChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "uz"
+    description: str = "Default process for ChatGPT for the Uzbek language."
+    authorship_info: str = "UzbekChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("UzbekChatGPTProcess initialized.")
 
 
 @dataclass
-class VestinianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xvs"
-    description: str = "Default process for ChatGPT for the Vestinian language."
-    authorship_info: str = "VestinianChatGPTProcess using OpenAI GPT models."
+class VietnameseChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "vie"
+    description: str = "Default process for ChatGPT for the Vietnamese language."
+    authorship_info: str = "VietnameseChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("VietnameseChatGPTProcess initialized.")
 
 
 @dataclass
-class VolscianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xvo"
-    description: str = "Default process for ChatGPT for the Volscian language."
-    authorship_info: str = "VolscianChatGPTProcess using OpenAI GPT models."
+class WelshChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "cy"
+    description: str = "Default process for ChatGPT for the Welsh language."
+    authorship_info: str = "WelshChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("WelshChatGPTProcess initialized.")
 
 
 @dataclass
-class WesternFarsiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pes"
-    description: str = "Default process for ChatGPT for the Western Farsi language."
-    authorship_info: str = "Western FarsiChatGPTProcess using OpenAI GPT models."
+class WolofChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "wo"
+    description: str = "Default process for ChatGPT for the Wolof language."
+    authorship_info: str = "WolofChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("WolofChatGPTProcess initialized.")
 
 
 @dataclass
-class ZhangzhungChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xzh"
-    description: str = "Default process for ChatGPT for the Zhangzhung language."
-    authorship_info: str = "ZhangzhungChatGPTProcess using OpenAI GPT models."
+class XhosaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "xh"
+    description: str = "Default process for ChatGPT for the Xhosa language."
+    authorship_info: str = "XhosaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("XhosaChatGPTProcess initialized.")
+
+
+@dataclass
+class YorubaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "yo"
+    description: str = "Default process for ChatGPT for the Yoruba language."
+    authorship_info: str = "YorubaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("YorubaChatGPTProcess initialized.")
+
+
+@dataclass
+class ZazaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "zza"
+    description: str = "Default process for ChatGPT for the Zaza language."
+    authorship_info: str = "ZazaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ZazaChatGPTProcess initialized.")
+
+
+@dataclass
+class ZenagaChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "zen"
+    description: str = "Default process for ChatGPT for the Zenaga language."
+    authorship_info: str = "ZenagaChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ZenagaChatGPTProcess initialized.")
+
+
+@dataclass
+class ZuluChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "zu"
+    description: str = "Default process for ChatGPT for the Zulu language."
+    authorship_info: str = "ZuluChatGPTProcess using OpenAI GPT models."
+
+    def __post_init__(self):
+        super().__post_init__()
+        logger.debug("ZuluChatGPTProcess initialized.")
 
 
 if __name__ == "__main__":
-    import os
-
-    from cltk.languages.example_texts import get_example_text
-    from cltk.utils.utils import load_env_file
-
-    load_env_file()
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    if not OPENAI_API_KEY:
-        raise CLTKException("Please set the OPENAI_API_KEY environment variable.")
-    LANG_CODE: str = "lat"
-    EXAMPLE_LAT = get_example_text(LANG_CODE)
-    doc = Doc(language=LANG_CODE, raw=EXAMPLE_LAT)
-    process = ChatGPTProcess(
-        language=LANG_CODE, api_key=OPENAI_API_KEY, model="gpt-4.1", temperature=1.0
-    )
-    # process = AncientGreekChatGPTProcess(
-    #     language="grc", api_key=OPENAI_API_KEY, model="gpt-4.1", temperature=1.0
-    # )
-    enriched_doc = process.run(doc)
-    print(enriched_doc.words)
-    print(enriched_doc.chatgpt)
+    logger.info("Entering main block of `src/cltk/genai/processes.py`.")
+    TEXT: str = "ἐν ἀρχῇ ἦν ὁ λόγος."
+    DOC = Doc(language="grc", normalized_text=cltk_normalize(TEXT), raw=TEXT)
+    PROCESS = AncientGreekChatGPTProcess()
+    print(PROCESS.description)
+    print(PROCESS.authorship_info)
+    PROCESS.run(DOC)
+    logger.info("Exiting main block of `src/cltk/genai/processes.py`.")

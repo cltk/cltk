@@ -72,7 +72,6 @@ def cltk_doc_to_features_table(
             # idxs = [w.dependency_relation for w in sentence.words]
             # govs = [w.governor for w in sentence.words]
             # print(list(zip(strs, idxs, govs)))
-            # input()
             # governing_word = get_governor_word(word=word, sentence=sentence.words)
             governing_word: Optional[Word] = get_governor_word2(
                 word=word, sentence_words=sentence.words

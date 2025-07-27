@@ -2,6 +2,7 @@
 
 import os
 import re
+import unicodedata
 from typing import Optional
 
 from openai import OpenAI, OpenAIError
@@ -36,7 +37,7 @@ class ChatGPT:
 
     def generate_pos(
         self,
-        input_text: str,
+        input_doc: Doc,
         prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
     ) -> Doc:
@@ -46,10 +47,10 @@ class ChatGPT:
 word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>POS|morphological_features (Universal Dependencies)
 
 Text:
-{input_text}
+{input_doc.normalized_text}
 """
         else:
-            prompt = prompt_template.format(input_text=input_text)
+            prompt = prompt_template.format(input_text=input_doc.normalized_text)
         try:
             response = self.client.responses.create(
                 model=self.model, input=prompt, temperature=self.temperature
@@ -58,21 +59,27 @@ Text:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
             logger.info(f"Raw response from OpenAI: {response.output_text}")
-        return self._post_process_response(
+        if not input_doc.normalized_text:
+            raise CLTKException("Input document must have `.normalized_text` set.")
+        doc_with_pos_data = self._post_process_pos_response(
+            input_doc=input_doc,
             response=response.output_text,
-            input_text=input_text,
+            input_text=input_doc.normalized_text,
             response_obj=response,
             print_raw_response=print_raw_response,
         )
+        return doc_with_pos_data
 
-    def _post_process_response(
+    def _post_process_pos_response(
         self,
+        input_doc: Doc,
         response: str,
         input_text: str,
         response_obj=None,
         print_raw_response: bool = False,
     ) -> Doc:
         """Post-process the response to format it correctly."""
+        # TODO: Accept input Doc, don't make a new one
         if print_raw_response:
             logger.debug(f"Raw OpenAI response: {response}")
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
@@ -114,8 +121,8 @@ Text:
                 }
                 for token in tokens
             }
-        doc: Doc = self._build_cltk_doc(
-            word_info_dict=word_level_info, input_text=input_text
+        doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
+            input_doc=input_doc, word_info_dict=word_level_info, input_text=input_text
         )
         # Add ChatGPT metadata if available
         chatgpt_meta = {}
@@ -133,8 +140,8 @@ Text:
                 getattr(response_obj, "model", getattr(self, "model", ""))
             )
             chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
-        doc.chatgpt = chatgpt_meta
-        return doc
+        doc_with_pos_added.chatgpt = chatgpt_meta
+        return doc_with_pos_added
 
     def _get_word_info(
         self, response: str, print_raw_response: bool = False
@@ -195,17 +202,14 @@ Text:
                 logger.debug(f"Parsed word_info: {word_info}")
         return word_info
 
-    def _build_cltk_doc(
+    def _add_pos_word_info_to_doc(
         self,
+        input_doc: Doc,
         word_info_dict: dict[str, dict],
         input_text: str,
         print_raw_response: bool = False,
     ) -> Doc:
-        doc = Doc(
-            language=self.language.name,
-            raw=input_text,
-            normalized_text=cltk_normalize(input_text),
-        )
+        """Build a CLTK Doc from the word info dictionary."""
         words: list[Word] = list()
         used_spans = []  # List of (start, stop) for already matched words
 
@@ -279,7 +283,6 @@ Text:
                     found = True
                     break
             if not found:
-                import unicodedata
 
                 def strip_accents(s):
                     return "".join(
@@ -330,8 +333,8 @@ Text:
             logger.debug(
                 f"Built {len(words)} Word objects: {[w.string for w in words]}"
             )
-        doc.words = words
-        return doc
+        input_doc.words = words
+        return input_doc
 
     def generate_dependency(
         self,
@@ -405,7 +408,7 @@ Text:
 
     def generate_all(
         self,
-        input_text: str,
+        input_doc: Doc,
         pos_prompt_template: Optional[str] = None,
         dep_prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
@@ -414,25 +417,31 @@ Text:
         Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
         Returns a CLTK Doc with all information populated.
         """
-        usage_meta = {}
+        if not input_doc.raw and not input_doc.normalized_text:
+            logger.warning(
+                "Input document must have either `.normalized_text` or `raw` text."
+            )
+        if not input_doc.normalized_text:
+            logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
+            input_doc.normalized_text = cltk_normalize(input_doc.raw)
         # POS/morphology
-        pos_doc, pos_usage = self._call_with_usage(
+        pos_doc, pos_tokens_used = self._call_with_usage(
             self.generate_pos,
-            input_text=input_text,
+            input_doc=input_doc,
             prompt_template=pos_prompt_template,
             print_raw_response=print_raw_response,
         )
         # Dependency
-        dep_doc, dep_usage = self._call_with_usage(
+        dep_doc, dep_tokens_used = self._call_with_usage(
             self.generate_dependency,
             doc=pos_doc,
             prompt_template=dep_prompt_template,
             print_raw_response=print_raw_response,
         )
         # Metadata
-        metadata, metadata_usage = self._call_with_usage(
+        metadata, metadata_tokens_used = self._call_with_usage(
             self.generate_doc_metadata,
-            input_text=input_text,
+            input_text=input_doc.normalized_text,
             print_raw_response=print_raw_response,
         )
         dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
@@ -440,26 +449,26 @@ Text:
         dep_doc.summary = metadata.get("summary", None)
         dep_doc.topic = metadata.get("topic", None)
         # Discourse relations
-        discourse, discourse_usage = self._call_with_usage(
+        discourse, discourse_tokens_used = self._call_with_usage(
             self.generate_discourse_relations,
-            input_text=input_text,
+            input_text=input_doc.normalized_text,
             print_raw_response=print_raw_response,
         )
         dep_doc.discourse_relations = discourse
         # Coreference resolution
-        coref, coref_usage = self._call_with_usage(
+        coref, coref_tokens_used = self._call_with_usage(
             self.generate_coreferences,
-            input_text=input_text,
+            input_text=input_doc.normalized_text,
             print_raw_response=print_raw_response,
         )
         dep_doc.coreferences = coref
         # Aggregate token usage
         tokens_per_call = {
-            "pos": pos_usage,
-            "dep": dep_usage,
-            "metadata": metadata_usage,
-            "discourse": discourse_usage,
-            "coref": coref_usage,
+            "pos": pos_tokens_used,
+            "dep": dep_tokens_used,
+            "metadata": metadata_tokens_used,
+            "discourse": discourse_tokens_used,
+            "coref": coref_tokens_used,
         }
         total_tokens = sum(
             int(v)
@@ -475,8 +484,7 @@ Text:
         return dep_doc
 
     def _call_with_usage(self, func, *args, **kwargs):
-        """
-        Helper to call a function and extract token usage from its response object or internal usage attributes.
+        """Helper to call a function and extract token usage from its response object or internal usage attributes.
         Returns (result, tokens_total) where result is the main output and tokens_total is an int or None.
         """
         if func == self.generate_pos:
