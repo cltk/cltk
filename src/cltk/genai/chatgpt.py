@@ -7,6 +7,7 @@ from typing import Optional
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
+from openai.types.responses.response_usage import ResponseUsage
 
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
@@ -41,7 +42,7 @@ class ChatGPT:
         input_doc: Doc,
         prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
-    ) -> tuple[Doc, Optional[int]]:
+    ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         if not prompt_template:
             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
@@ -69,13 +70,30 @@ Text:
             chatgpt_response_obj=chatgpt_response,
             print_raw_response=print_raw_response,
         )
-        # yyy
-        # TODO: Add tokens used to response
-        usage = getattr(chatgpt_response, "usage", None)
-        tokens_used = None
-        if usage is not None:
-            tokens_used = getattr(usage, "total_tokens", None)
-        return doc_with_pos_data, tokens_used
+        # TODO: Mk this fun for other gpt post processers
+        usage: Optional[ResponseUsage] = getattr(chatgpt_response, "usage", None)
+        tokens_used: int = 0
+        if not usage:
+            logger.warning(
+                "No usage information found in response. Tokens used may not be available."
+            )
+        else:
+            # Also available: usage.input_tokens, .input_tokens_details, .output_tokens, .output_tokens_details
+            tokens_used: int = int(getattr(usage, "total_tokens", 0))
+            if tokens_used == 0:
+                logger.warning(
+                    "No tokens used reported in response. This may indicate an issue with the API call."
+                )
+        previous_total_tokens: int = getattr(input_doc.chatgpt, "tokens_total", 0)
+        doc_with_pos_data.chatgpt = {
+            "pos_tokens_used": tokens_used,
+            "total_tokens_used": previous_total_tokens + tokens_used,
+            "model": self.model,
+            "temperature": self.temperature,
+        }
+        print(doc_with_pos_data)  
+        input("yyy")
+        return doc_with_pos_data
 
     def _post_process_pos_response(
         self,
@@ -432,14 +450,13 @@ Text:
         # POS/morphology
         # xxx start here
         # TODO: Add types to
-        pos_tokens_used: Optional[int]
         # input_doc, pos_tokens_used = self._call_with_usage(
         #     self.generate_pos,
         #     input_doc=input_doc,
         #     prompt_template=pos_prompt_template,
         #     print_raw_response=print_raw_response,
         # )
-        input_doc, pos_tokens_used = self.generate_pos(
+        input_doc = self.generate_pos(
             input_doc=input_doc,
             prompt_template=pos_prompt_template,
             print_raw_response=print_raw_response,

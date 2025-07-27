@@ -207,7 +207,7 @@ class Doc:
     sentence_boundaries: Optional[list[tuple[int, int]]] = field(
         default_factory=list
     )  # List of (start, stop) char offsets for sentences
-    chatgpt: Optional[dict[str, str]] = field(default_factory=dict)  # ChatGPT metadata
+    chatgpt: Optional[dict[str, Union[str, int, float, None]]] = field(default_factory=dict)  # ChatGPT metadata
 
     @property
     def sentences(self) -> list[Sentence]:
