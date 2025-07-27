@@ -121,7 +121,6 @@ Text:
                     cleaned_lines.append(line)
         cleaned_response = "\n".join(cleaned_lines)
         logger.info(f"Cleaned response for word parsing:\n{cleaned_response}")
-        input()
         word_level_info: dict[str, dict] = self._get_word_info(
             response=cleaned_response, print_raw_response=print_raw_response
         )
@@ -204,6 +203,7 @@ Text:
         else:
             if print_raw_response:
                 logger.debug(f"Parsed word_info: {word_info}")
+        logger.info(f"Final word_info:\n{word_info}")
         return word_info
 
     def _add_pos_word_info_to_doc(
