@@ -74,8 +74,6 @@ class ChatGPTProcess(Process):
             else "Input text is empty."
         )
         enriched_doc = self.chatgpt.generate_all(input_doc=input_doc)
-        print(enriched_doc)
-        input()
         # enriched_doc = self._enrich_doc(input_doc)
         # logger.info(f"Enriched doc words: {enriched_doc.words}")
         # logger.info(f"Enriched doc chatgpt: {enriched_doc.chatgpt}")

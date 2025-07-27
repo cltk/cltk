@@ -709,7 +709,6 @@ if __name__ == "__main__":
     )
     input("Press Enter to print final Doc ...")
     logger.info(f"GRC_DOC words: {GRC_DOC.words}")
-    input()
     logger.info(f"GRC_DOC chatgpt: {GRC_DOC.chatgpt}")
 
     # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
