@@ -3,7 +3,7 @@
 import os
 import re
 import unicodedata
-from typing import Optional
+from typing import Any, Optional, Union
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
@@ -44,6 +44,9 @@ class ChatGPT:
         print_raw_response: bool = False,
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
+        if not input_doc.normalized_text:
+            raise CLTKException("Input document must have `.normalized_text` set.")
+        prompt: str
         if not prompt_template:
             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
 word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>POS|morphological_features (Universal Dependencies)
@@ -59,10 +62,7 @@ Text:
             )
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {chatgpt_response.output_text}")
-        if not input_doc.normalized_text:
-            raise CLTKException("Input document must have `.normalized_text` set.")
+        logger.info(f"Raw response from OpenAI:\n{chatgpt_response.output_text}")
         doc_with_pos_data = self._post_process_pos_response(
             input_doc=input_doc,
             response=chatgpt_response.output_text,
@@ -70,29 +70,14 @@ Text:
             chatgpt_response_obj=chatgpt_response,
             print_raw_response=print_raw_response,
         )
-        # TODO: Mk this fun for other gpt post processers
-        usage: Optional[ResponseUsage] = getattr(chatgpt_response, "usage", None)
-        tokens_used: int = 0
-        if not usage:
-            logger.warning(
-                "No usage information found in response. Tokens used may not be available."
-            )
-        else:
-            # Also available: usage.input_tokens, .input_tokens_details, .output_tokens, .output_tokens_details
-            tokens_used: int = int(getattr(usage, "total_tokens", 0))
-            if tokens_used == 0:
-                logger.warning(
-                    "No tokens used reported in response. This may indicate an issue with the API call."
-                )
-        previous_total_tokens: int = getattr(input_doc.chatgpt, "tokens_total", 0)
-        doc_with_pos_data.chatgpt = {
-            "pos_tokens_used": tokens_used,
-            "total_tokens_used": previous_total_tokens + tokens_used,
-            "model": self.model,
-            "temperature": self.temperature,
-        }
-        print(doc_with_pos_data)  
-        input("yyy")
+        chatgpt_usage: dict[str, Any] = self._extract_usage_info(
+            response=chatgpt_response
+        )
+        chatgpt_usage["task"] = "pos"
+        # Ensure chatgpt is always a list before usage
+        if not isinstance(input_doc.chatgpt, list):
+            input_doc.chatgpt = []
+        input_doc.chatgpt.append(chatgpt_usage)
         return doc_with_pos_data
 
     def _post_process_pos_response(
@@ -104,27 +89,39 @@ Text:
         print_raw_response: bool = False,
     ) -> Doc:
         """Post-process the response to format it correctly."""
-        if print_raw_response:
-            logger.debug(f"Raw OpenAI response: {response}")
-        # Try to extract between --- markers, but fall back to extracting lines with ** if not found
-        start_index = response.find("---")
-        end_index = response.rfind("---")
-        if start_index != -1 and end_index != -1:
-            relevant_section = response[start_index + 3 : end_index].strip()
-            lines = [
-                line.strip() for line in relevant_section.split("\n") if line.strip()
-            ]
-            cleaned_response = "\n".join(lines)
-        else:
-            # Fallback: extract only lines starting with **
-            lines = [
-                line.strip()
-                for line in response.split("\n")
-                if line.strip().startswith("**")
-            ]
-            cleaned_response = "\n".join(lines)
-        if print_raw_response:
-            logger.debug(f"Cleaned response for word parsing: {cleaned_response}")
+        # Flexible extraction: handle code fences, markdown tables, tab-separated lines, and ignore explanations
+        cleaned_lines = []
+        in_code_fence = False
+        for line in response.split("\n"):
+            line = line.strip()
+            # Toggle code fence state
+            if line.startswith("```"):
+                in_code_fence = not in_code_fence
+                continue
+            # Skip explanation, header, or markdown separator lines
+            if (
+                not line
+                or line.startswith("**")
+                or line.startswith("---")
+                or line.startswith("#")
+                or line.lower().startswith("word")
+                or line.lower().startswith("lemma")
+                or (
+                    "|" in line and line.replace("|", "").replace("-", "").strip() == ""
+                )
+            ):
+                continue
+            # If inside code fence, keep tab-separated or pipe-separated lines
+            if in_code_fence:
+                if "\t" in line or ("|" in line and line.count("|") >= 2):
+                    cleaned_lines.append(line)
+            else:
+                # Outside code fence, keep tab-separated or markdown table lines
+                if "\t" in line or ("|" in line and line.count("|") >= 2):
+                    cleaned_lines.append(line)
+        cleaned_response = "\n".join(cleaned_lines)
+        logger.info(f"Cleaned response for word parsing:\n{cleaned_response}")
+        input()
         word_level_info: dict[str, dict] = self._get_word_info(
             response=cleaned_response, print_raw_response=print_raw_response
         )
@@ -141,29 +138,13 @@ Text:
                     "ner": None,
                     "paradigm": None,
                     "ipa": None,
-                    "pos_morph": "X",
+                    "pos_morph": None,
                 }
                 for token in tokens
             }
         doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
             input_doc=input_doc, word_info_dict=word_level_info, input_text=input_text
         )
-        # Add ChatGPT metadata
-        chatgpt_meta = dict()
-        usage = getattr(chatgpt_response_obj, "usage", None)
-        if usage is not None:
-            chatgpt_meta["tokens_total"] = str(
-                getattr(
-                    usage,
-                    "total_tokens",
-                    getattr(usage, "get", lambda k, d=None: d)("total_tokens", ""),
-                )
-            )
-        chatgpt_meta["model"] = str(
-            getattr(chatgpt_response_obj, "model", getattr(self, "model", ""))
-        )
-        chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
-        doc_with_pos_added.chatgpt = chatgpt_meta
         return doc_with_pos_added
 
     def _get_word_info(
@@ -234,7 +215,7 @@ Text:
     ) -> Doc:
         """Build a CLTK Doc from the word info dictionary."""
         words: list[Word] = list()
-        used_spans = []  # List of (start, stop) for already matched words
+        used_spans = list()  # List of (start, stop) for already matched words
 
         def is_span_used(start, stop):
             for s, e in used_spans:
@@ -292,7 +273,6 @@ Text:
             index_char_start = None
             index_char_stop = None
             norm_input_text = cltk_normalize(input_text)
-            import re
 
             pattern = re.compile(re.escape(norm_word))
             found = False
@@ -334,6 +314,7 @@ Text:
                 index_char_stop=index_char_stop,
             )
             # Set new features if present
+            # TODO: This is broken, writes to wrong Word object, and doesn't map to UD types anymore
             if info.get("lemma"):
                 cltk_word.lemma = info["lemma"]
             if info.get("gloss"):
@@ -361,7 +342,7 @@ Text:
 
     def generate_dependency(
         self,
-        doc: Doc,
+        input_doc: Doc,
         prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
     ) -> Doc:
@@ -372,7 +353,7 @@ Text:
         # Prepare input for prompt: line-by-line tokens with features
         lines = []
         # When iterating over doc.words, ensure it's a list
-        words = doc.words if doc.words is not None else []
+        words = input_doc.words if input_doc.words is not None else []
         for idx, word in enumerate(words, start=1):
             features_str = "|".join(
                 f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
@@ -384,32 +365,59 @@ Text:
                 line += f"\t{features_str}"
             lines.append(line)
         token_table = "\n".join(lines)
+        prompt: str
         if not prompt_template:
-            # TODO: Update this after change to Doc.language to type `Language``
-            prompt = f"""Given the following '{doc.language}' text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
+            prompt = f"""Given the following '{input_doc.language}' text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
         else:
             prompt = prompt_template.format(token_table=token_table)
         try:
-            response = self.client.responses.create(
+            response: Response = self.client.responses.create(
                 model=self.model, input=prompt, temperature=self.temperature
             )
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {response.output_text}")
-        # Parse response: expect tab-separated columns per line
+        logger.info(f"Raw response from OpenAI: {response.output_text}")
+        # Parse response: handle both tab-separated and markdown table formats
         dep_lines = [
             line.strip()
             for line in response.output_text.split("\n")
             if line.strip() and not line.strip().startswith("#")
         ]
+        # Detect markdown table format
+        is_markdown_table = any(
+            "|" in line and line.count("|") >= 4 for line in dep_lines
+        )
+        parsed_rows = []
+        for line in dep_lines:
+            # Skip markdown header/separator lines
+            if (
+                line.replace("|", "").replace("-", "").strip() == ""
+                or line.lower().startswith("index | word")
+                or line.startswith("---")
+            ):
+                continue
+            if is_markdown_table and "|" in line:
+                parts = [p.strip() for p in line.split("|")]
+                # Remove empty first/last if present (from leading/trailing pipes)
+                if parts and parts[0] == "":
+                    parts = parts[1:]
+                if parts and parts[-1] == "":
+                    parts = parts[:-1]
+            else:
+                parts = line.split("\t")
+            if len(parts) < 4:
+                continue  # skip malformed lines
+            parsed_rows.append(parts)
         # Attach dependency info to each Word in the Doc
-        for i, line in enumerate(dep_lines):
-            parts = line.split("\t")
-            if len(parts) < 4 or i >= len(words):
-                continue  # skip malformed lines or out-of-range
+        for i, parts in enumerate(parsed_rows):
+            if i >= len(words):
+                continue  # out-of-range
             word_obj = words[i]
-            word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
+            # index, word, head, relation, features...
+            try:
+                word_obj.governor = int(parts[2]) if str(parts[2]).isdigit() else None
+            except Exception:
+                word_obj.governor = None
             word_obj.dependency_relation = parts[3]
             if len(parts) > 4:
                 # Normalize each extra feature
@@ -427,7 +435,13 @@ Text:
                     word_obj.definition += f"; dep: {extra}"
                 else:
                     word_obj.definition = f"dep: {extra}"
-        return doc
+        chatgpt_usage: dict[str, Any] = self._extract_usage_info(response=response)
+        chatgpt_usage["task"] = "dependency"
+        # Ensure chatgpt is always a list before usage
+        if not isinstance(input_doc.chatgpt, list):
+            input_doc.chatgpt = []
+        input_doc.chatgpt.append(chatgpt_usage)
+        return input_doc
 
     def generate_all(
         self,
@@ -447,27 +461,15 @@ Text:
         if not input_doc.normalized_text:
             logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
             input_doc.normalized_text = cltk_normalize(input_doc.raw)
-        # POS/morphology
-        # xxx start here
-        # TODO: Add types to
-        # input_doc, pos_tokens_used = self._call_with_usage(
-        #     self.generate_pos,
-        #     input_doc=input_doc,
-        #     prompt_template=pos_prompt_template,
-        #     print_raw_response=print_raw_response,
-        # )
+        # tokenization/POS/morphology
         input_doc = self.generate_pos(
             input_doc=input_doc,
             prompt_template=pos_prompt_template,
             print_raw_response=print_raw_response,
         )
-        print(input_doc)  
-        print(pos_tokens_used)
-        input("zzz")
         # Dependency
-        dep_doc, dep_tokens_used = self._call_with_usage(
-            self.generate_dependency,
-            doc=pos_doc,
+        input_doc = self.generate_dependency(
+            input_doc=input_doc,
             prompt_template=dep_prompt_template,
             print_raw_response=print_raw_response,
         )
@@ -477,25 +479,33 @@ Text:
             input_text=input_doc.normalized_text,
             print_raw_response=print_raw_response,
         )
-        dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
-        dep_doc.translation = metadata.get("translation", None)
-        dep_doc.summary = metadata.get("summary", None)
-        dep_doc.topic = metadata.get("topic", None)
+        input_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        input_doc.translation = metadata.get("translation", None)
+        input_doc.summary = metadata.get("summary", None)
+        input_doc.topic = metadata.get("topic", None)
         # Discourse relations
         discourse, discourse_tokens_used = self._call_with_usage(
             self.generate_discourse_relations,
             input_text=input_doc.normalized_text,
             print_raw_response=print_raw_response,
         )
-        dep_doc.discourse_relations = discourse
+        input_doc.discourse_relations = discourse
         # Coreference resolution
         coref, coref_tokens_used = self._call_with_usage(
             self.generate_coreferences,
             input_text=input_doc.normalized_text,
             print_raw_response=print_raw_response,
         )
-        dep_doc.coreferences = coref
+        input_doc.coreferences = coref
         # Aggregate token usage
+        # Extract POS and DEP token usage from chatgpt list
+        pos_tokens_used = None
+        dep_tokens_used = None
+        for usage in input_doc.chatgpt:
+            if usage.get("task") == "pos":
+                pos_tokens_used = usage.get("tokens_total")
+            elif usage.get("task") == "dependency":
+                dep_tokens_used = usage.get("tokens_total")
         tokens_per_call = {
             "pos": pos_tokens_used,
             "dep": dep_tokens_used,
@@ -508,13 +518,17 @@ Text:
             for v in tokens_per_call.values()
             if v is not None and str(v).isdigit()
         )
-        dep_doc.chatgpt = {
-            "tokens_total": total_tokens,
-            "tokens_per_call": tokens_per_call,
-            "model": self.model,
-            "temperature": self.temperature,
-        }
-        return dep_doc
+        # Append aggregate usage/metadata to chatgpt list
+        input_doc.chatgpt.append(
+            {
+                "task": "aggregate",
+                "tokens_total": total_tokens,
+                "tokens_per_call": tokens_per_call,
+                "model": self.model,
+                "temperature": self.temperature,
+            }
+        )
+        return input_doc
 
     def _call_with_usage(self, func, *args, **kwargs):
         """Helper to call a function and extract token usage from its response object or internal usage attributes.
@@ -713,6 +727,34 @@ Return your answer as four sections, each starting with a header line:
         # Placeholder: implement normalization logic or import from UD features module
         # For now, just return as a single-item list
         return [value]
+
+    def _extract_usage_info(self, response: Response) -> dict[str, Any]:
+        """
+        Extract all available information from Response.ResponseUsage as a dictionary.
+        Returns an empty dict if no usage info is present.
+        Logs a warning if any value is zero or missing.
+        Also extracts model name and temperature from the Response object if available.
+        """
+        usage: Optional[ResponseUsage] = getattr(response, "usage", None)
+        usage_info: dict[str, Any] = dict()
+        if not usage:
+            logger.warning(
+                "No usage information found in response. Tokens used may not be available."
+            )
+        else:
+            for key in ["total_tokens", "input_tokens", "output_tokens"]:
+                value = getattr(usage, key, None)
+                usage_info[key] = value if value is not None else 0
+                if value is None:
+                    logger.warning(f"Usage value for '{key}' is missing in response.")
+                elif value == 0:
+                    logger.warning(
+                        f"Usage value for '{key}' is zero. This may indicate an issue with the API call."
+                    )
+        # Extract model name and temperature from Response object if available
+        usage_info["model"] = getattr(response, "model", None)
+        usage_info["temperature"] = getattr(response, "temperature", None)
+        return usage_info
 
 
 if __name__ == "__main__":

@@ -363,7 +363,7 @@ class OldFrenchPipeline(Pipeline):
 
 
 # TODO: Add Old Marathi ("omr")
-logger.critical("Old Marathi pipeline is not yet implemented.")
+# logger.critical("Old Marathi pipeline is not yet implemented.")
 
 
 @dataclass

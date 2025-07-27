@@ -13,7 +13,7 @@ import importlib
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Optional, Type, Union
+from typing import Any, Optional, Type, Union
 
 import numpy as np
 
@@ -207,7 +207,9 @@ class Doc:
     sentence_boundaries: Optional[list[tuple[int, int]]] = field(
         default_factory=list
     )  # List of (start, stop) char offsets for sentences
-    chatgpt: Optional[dict[str, Union[str, int, float, None]]] = field(default_factory=dict)  # ChatGPT metadata
+    chatgpt: Optional[list[dict[str, Any]]] = field(
+        default_factory=list
+    )  # ChatGPT metadata
 
     @property
     def sentences(self) -> list[Sentence]:
