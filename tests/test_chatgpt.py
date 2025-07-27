@@ -36,7 +36,7 @@ def test_metadata_aggregation():
     doc = chatgpt._post_process_pos_response(
         "Gallia\tGallia\tGallia\tO\tNOUN\tNOUN\tNOUN",
         "Gallia",
-        response_obj=None,
+        chatgpt_response_obj=None,
         print_raw_response=False,
     )
     assert hasattr(doc, "chatgpt")

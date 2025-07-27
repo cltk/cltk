@@ -6,6 +6,7 @@ import unicodedata
 from typing import Optional
 
 from openai import OpenAI, OpenAIError
+from openai.types.responses.response import Response
 
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
@@ -52,20 +53,20 @@ Text:
         else:
             prompt = prompt_template.format(input_text=input_doc.normalized_text)
         try:
-            response = self.client.responses.create(
+            chatgpt_response: Response = self.client.responses.create(
                 model=self.model, input=prompt, temperature=self.temperature
             )
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {response.output_text}")
+            logger.info(f"Raw response from OpenAI: {chatgpt_response.output_text}")
         if not input_doc.normalized_text:
             raise CLTKException("Input document must have `.normalized_text` set.")
         doc_with_pos_data = self._post_process_pos_response(
             input_doc=input_doc,
-            response=response.output_text,
+            response=chatgpt_response.output_text,
             input_text=input_doc.normalized_text,
-            response_obj=response,
+            chatgpt_response_obj=chatgpt_response,
             print_raw_response=print_raw_response,
         )
         return doc_with_pos_data
@@ -75,11 +76,10 @@ Text:
         input_doc: Doc,
         response: str,
         input_text: str,
-        response_obj=None,
+        chatgpt_response_obj: Response,
         print_raw_response: bool = False,
     ) -> Doc:
         """Post-process the response to format it correctly."""
-        # TODO: Accept input Doc, don't make a new one
         if print_raw_response:
             logger.debug(f"Raw OpenAI response: {response}")
         # Try to extract between --- markers, but fall back to extracting lines with ** if not found
@@ -124,22 +124,21 @@ Text:
         doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
             input_doc=input_doc, word_info_dict=word_level_info, input_text=input_text
         )
-        # Add ChatGPT metadata if available
-        chatgpt_meta = {}
-        if response_obj is not None:
-            usage = getattr(response_obj, "usage", None)
-            if usage is not None:
-                chatgpt_meta["tokens_total"] = str(
-                    getattr(
-                        usage,
-                        "total_tokens",
-                        getattr(usage, "get", lambda k, d=None: d)("total_tokens", ""),
-                    )
+        # Add ChatGPT metadata
+        chatgpt_meta = dict()
+        usage = getattr(chatgpt_response_obj, "usage", None)
+        if usage is not None:
+            chatgpt_meta["tokens_total"] = str(
+                getattr(
+                    usage,
+                    "total_tokens",
+                    getattr(usage, "get", lambda k, d=None: d)("total_tokens", ""),
                 )
-            chatgpt_meta["model"] = str(
-                getattr(response_obj, "model", getattr(self, "model", ""))
             )
-            chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
+        chatgpt_meta["model"] = str(
+            getattr(chatgpt_response_obj, "model", getattr(self, "model", ""))
+        )
+        chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
         doc_with_pos_added.chatgpt = chatgpt_meta
         return doc_with_pos_added
 
@@ -207,7 +206,7 @@ Text:
         input_doc: Doc,
         word_info_dict: dict[str, dict],
         input_text: str,
-        print_raw_response: bool = False,
+        # print_raw_response: bool = False,
     ) -> Doc:
         """Build a CLTK Doc from the word info dictionary."""
         words: list[Word] = list()
@@ -432,6 +431,7 @@ Text:
             print_raw_response=print_raw_response,
         )
         # Dependency
+        # xxx start here
         dep_doc, dep_tokens_used = self._call_with_usage(
             self.generate_dependency,
             doc=pos_doc,
@@ -704,9 +704,10 @@ if __name__ == "__main__":
     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
     EXAMPLE_GRC: str = get_example_text("grc")
-    GRC_DOC: Doc = CHATGPT_GRC.generate_all(
-        input_text=EXAMPLE_GRC, print_raw_response=True
+    EX_DOC: Doc = Doc(
+        raw=EXAMPLE_GRC, language="grc", normalized_text=cltk_normalize(EXAMPLE_GRC)
     )
+    GRC_DOC: Doc = CHATGPT_GRC.generate_all(input_doc=EX_DOC, print_raw_response=True)
     input("Press Enter to print final Doc ...")
     logger.info(f"GRC_DOC words: {GRC_DOC.words}")
     logger.info(f"GRC_DOC chatgpt: {GRC_DOC.chatgpt}")
