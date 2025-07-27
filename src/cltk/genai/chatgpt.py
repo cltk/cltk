@@ -41,7 +41,7 @@ class ChatGPT:
         input_doc: Doc,
         prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
-    ) -> Doc:
+    ) -> tuple[Doc, Optional[int]]:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         if not prompt_template:
             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
@@ -69,7 +69,13 @@ Text:
             chatgpt_response_obj=chatgpt_response,
             print_raw_response=print_raw_response,
         )
-        return doc_with_pos_data
+        # yyy
+        # TODO: Add tokens used to response
+        usage = getattr(chatgpt_response, "usage", None)
+        tokens_used = None
+        if usage is not None:
+            tokens_used = getattr(usage, "total_tokens", None)
+        return doc_with_pos_data, tokens_used
 
     def _post_process_pos_response(
         self,
@@ -424,14 +430,24 @@ Text:
             logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
             input_doc.normalized_text = cltk_normalize(input_doc.raw)
         # POS/morphology
-        pos_doc, pos_tokens_used = self._call_with_usage(
-            self.generate_pos,
+        # xxx start here
+        # TODO: Add types to
+        pos_tokens_used: Optional[int]
+        # input_doc, pos_tokens_used = self._call_with_usage(
+        #     self.generate_pos,
+        #     input_doc=input_doc,
+        #     prompt_template=pos_prompt_template,
+        #     print_raw_response=print_raw_response,
+        # )
+        input_doc, pos_tokens_used = self.generate_pos(
             input_doc=input_doc,
             prompt_template=pos_prompt_template,
             print_raw_response=print_raw_response,
         )
+        print(input_doc)  
+        print(pos_tokens_used)
+        input("zzz")
         # Dependency
-        # xxx start here
         dep_doc, dep_tokens_used = self._call_with_usage(
             self.generate_dependency,
             doc=pos_doc,
