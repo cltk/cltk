@@ -3,6 +3,7 @@
 import os
 import re
 import sys
+import unicodedata
 from contextlib import contextmanager
 from enum import EnumMeta, IntEnum
 from typing import Any, Optional, Union
@@ -290,6 +291,12 @@ def load_env_file(env_file: str = ".env") -> None:
     from dotenv import load_dotenv  # pylint: disable=import-outside-toplevel
 
     load_dotenv(env_file)
+
+
+def strip_accents(s):
+    return "".join(
+        c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
+    )
 
 
 CLTK_DATA_DIR = get_cltk_data_dir()

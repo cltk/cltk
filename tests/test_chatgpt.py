@@ -27,7 +27,9 @@ def test_prompt_construction():
 def test_fallback_word_info():
     chatgpt = ChatGPT(language="lat", api_key="sk-test")
     # Simulate a malformed response
-    result = chatgpt._get_word_info("", print_raw_response=False)
+    result = chatgpt._parse_word_info_from_chatgpt_response(
+        "", print_raw_response=False
+    )
     assert isinstance(result, dict)
 
 

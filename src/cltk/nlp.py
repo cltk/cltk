@@ -228,11 +228,11 @@ if __name__ == "__main__":
     LANG: str = "grc"
     logger.info(f"Selected language: {LANG}")
     example_text = get_example_text(iso_code=LANG)
+    # example_text: str = "ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος."
+    # example_text: str = "ἐν ἀρχῇ ἦν ὁ λόγος."
     pipeline = GreekChatGPTPipeline()
     # pipeline = LatinChatGPTPipeline()
     nlp = NLP(language=LANG, custom_pipeline=pipeline, suppress_banner=False)
-    # example_text: str = "ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος."
-    example_text: str = "ἐν ἀρχῇ ἦν ὁ λόγος."
     logger.info(f"Example text: {example_text[:50]}...")  # Log first 50 characters
     doc = nlp.analyze(example_text)
     logger.info(f"Doc output: {doc}")

@@ -19,7 +19,7 @@ from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
     from_ud,
 )
-from cltk.utils.utils import load_env_file
+from cltk.utils.utils import load_env_file, strip_accents
 
 
 class ChatGPT:
@@ -49,7 +49,7 @@ class ChatGPT:
         prompt: str
         if not prompt_template:
             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
-word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>POS|morphological_features (Universal Dependencies)
+word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>morphology (Universal Dependencies)
 
 Text:
 {input_doc.normalized_text}
@@ -63,13 +63,28 @@ Text:
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         logger.info(f"Raw response from OpenAI:\n{chatgpt_response.output_text}")
-        doc_with_pos_data = self._post_process_pos_response(
-            input_doc=input_doc,
-            response=chatgpt_response.output_text,
-            input_text=input_doc.normalized_text,
-            chatgpt_response_obj=chatgpt_response,
-            print_raw_response=print_raw_response,
-        )
+        # Retry _post_process_pos_response up to 3 times if CLTKException is raised
+        doc_with_pos_data = None
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                doc_with_pos_data = self._post_process_pos_response(
+                    input_doc=input_doc,
+                    chatgpt_response_obj=chatgpt_response,
+                )
+                break
+            except CLTKException as e:
+                logger.warning(
+                    f"POS post-processing failed (attempt {attempt+1}/{max_attempts}): {e}"
+                )
+                if attempt == max_attempts - 1:
+                    raise CLTKException(
+                        f"POS post-processing failed after {max_attempts} attempts: {e}"
+                    )
+        if doc_with_pos_data is None:
+            raise CLTKException(
+                "POS post-processing failed: no Doc returned after retries."
+            )
         chatgpt_usage: dict[str, Any] = self._extract_usage_info(
             response=chatgpt_response
         )
@@ -83,16 +98,13 @@ Text:
     def _post_process_pos_response(
         self,
         input_doc: Doc,
-        response: str,
-        input_text: str,
         chatgpt_response_obj: Response,
-        print_raw_response: bool = False,
     ) -> Doc:
         """Post-process the response to format it correctly."""
         # Flexible extraction: handle code fences, markdown tables, tab-separated lines, and ignore explanations
         cleaned_lines = []
         in_code_fence = False
-        for line in response.split("\n"):
+        for line in chatgpt_response_obj.output_text.split("\n"):
             line = line.strip()
             # Toggle code fence state
             if line.startswith("```"):
@@ -121,45 +133,74 @@ Text:
                     cleaned_lines.append(line)
         cleaned_response = "\n".join(cleaned_lines)
         logger.info(f"Cleaned response for word parsing:\n{cleaned_response}")
-        word_level_info: dict[str, dict] = self._get_word_info(
-            response=cleaned_response, print_raw_response=print_raw_response
+        word_level_info: dict[str, dict] = self._parse_word_info_from_chatgpt_response(
+            response=cleaned_response
         )
-        if not word_level_info:
-            logger.warning(
-                "No word info parsed from response. Falling back to whitespace tokenization."
-            )
-            # Fallback: tokenize input_text and create minimal Word objects
-            tokens = input_text.split()
-            word_level_info = {
-                token: {
-                    "lemma": None,
-                    "gloss": None,
-                    "ner": None,
-                    "paradigm": None,
-                    "ipa": None,
-                    "pos_morph": None,
-                }
-                for token in tokens
-            }
+        # if not word_level_info:
+        #     logger.warning(
+        #         "No word info parsed from response. Falling back to whitespace tokenization."
+        #     )
+        #     # Fallback: tokenize input_text and create minimal Word objects
+        #     tokens = input_text.split()
+        #     word_level_info = {
+        #         token: {
+        #             "lemma": None,
+        #             "gloss": None,
+        #             "ner": None,
+        #             "paradigm": None,
+        #             "ipa": None,
+        #             "pos_morph": None,
+        #         }
+        #         for token in tokens
+        #     }
         doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
-            input_doc=input_doc, word_info_dict=word_level_info, input_text=input_text
+            input_doc=input_doc, word_info_dict=word_level_info
         )
         return doc_with_pos_added
 
-    def _get_word_info(
-        self, response: str, print_raw_response: bool = False
-    ) -> dict[str, dict]:
+    def _parse_word_info_from_chatgpt_response(self, response: str) -> dict[str, dict]:
         """Extract all requested features from each word line. Add fallback if parsing fails."""
         word_info: dict[str, dict] = {}
-        debug_lines = []
-        # Expect tab-separated columns: word, lemma, gloss, NER, paradigm, IPA, POS|morph
+        debug_lines = list()
+        # Expect tab-separated columns: word, lemma, gloss, NER, paradigm, IPA, morphology
+        is_markdown_table = False
         for line in response.split("\n"):
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
             debug_lines.append(line)
+            # Detect markdown table format
+            if "|" in line and line.count("|") >= 6:
+                is_markdown_table = True
+            # Parse markdown table rows
+            if is_markdown_table and "|" in line:
+                # Skip header/separator lines
+                if (
+                    line.replace("|", "").replace("-", "").strip() == ""
+                    or line.lower().startswith("word | lemma")
+                    or line.lower().startswith("| word")
+                ):
+                    continue
+                parts = [p.strip() for p in line.split("|")]
+                # Remove empty first/last if present
+                if parts and parts[0] == "":
+                    parts = parts[1:]
+                if parts and parts[-1] == "":
+                    parts = parts[:-1]
+                if len(parts) == 7:
+                    word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
+                    word_info[word] = {
+                        "lemma": lemma if lemma else None,
+                        "gloss": gloss if gloss else None,
+                        "ner": ner if ner else None,
+                        "paradigm": paradigm if paradigm else None,
+                        "ipa": ipa if ipa else None,
+                        "pos_morph": pos_morph,
+                    }
+                    continue
+            # Parse tab-separated rows (default)
             parts = line.split("\t")
-            if len(parts) >= 7:
+            if len(parts) == 7:
                 word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
                 word_info[word] = {
                     "lemma": lemma if lemma else None,
@@ -169,49 +210,19 @@ Text:
                     "ipa": ipa if ipa else None,
                     "pos_morph": pos_morph,
                 }
-        # Fallback: try to parse lines with fewer columns or alternative formats
+            else:
+                logger.error(f"Failed to process ChatGPT response table row: {line}")
         if not word_info:
-            if print_raw_response:
-                logger.warning(
-                    f"No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
-                )
-            # Try to parse lines with at least word and POS|morph, using tab or space
-            for line in response.split("\n"):
-                line = line.strip()
-                if not line or line.startswith("#"):
-                    continue
-                # Try tab, then space
-                parts = line.split("\t")
-                if len(parts) < 2:
-                    parts = line.split()
-                if len(parts) >= 2:
-                    word = parts[0]
-                    pos_morph = parts[-1]
-                    word_info[word] = {
-                        "lemma": None,
-                        "gloss": None,
-                        "ner": None,
-                        "paradigm": None,
-                        "ipa": None,
-                        "pos_morph": pos_morph,
-                    }
-        if not word_info:
-            if print_raw_response:
-                logger.error(
-                    f"Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
-                )
-        else:
-            if print_raw_response:
-                logger.debug(f"Parsed word_info: {word_info}")
-        logger.info(f"Final word_info:\n{word_info}")
+            raise CLTKException(
+                f"CLTK failed to parse output from ChatGPT. Full ChatGPT response:\n{response}"
+            )
+        logger.info(f"Parsed word_info:\n{word_info}")
         return word_info
 
     def _add_pos_word_info_to_doc(
         self,
         input_doc: Doc,
         word_info_dict: dict[str, dict],
-        input_text: str,
-        # print_raw_response: bool = False,
     ) -> Doc:
         """Build a CLTK Doc from the word info dictionary."""
         words: list[Word] = list()
@@ -272,7 +283,11 @@ Text:
             index_token = None
             index_char_start = None
             index_char_stop = None
-            norm_input_text = cltk_normalize(input_text)
+            if not input_doc.normalized_text:
+                raise CLTKException(
+                    "Input document must have `.normalized_text` set for word span matching."
+                )
+            norm_input_text: str = input_doc.normalized_text
 
             pattern = re.compile(re.escape(norm_word))
             found = False
@@ -286,14 +301,6 @@ Text:
                     found = True
                     break
             if not found:
-
-                def strip_accents(s):
-                    return "".join(
-                        c
-                        for c in unicodedata.normalize("NFD", s)
-                        if unicodedata.category(c) != "Mn"
-                    )
-
                 norm_word_stripped = strip_accents(norm_word).lower()
                 norm_input_text_stripped = strip_accents(norm_input_text).lower()
                 pattern_stripped = re.compile(re.escape(norm_word_stripped))
@@ -307,7 +314,8 @@ Text:
                         break
             cltk_word: Word = Word(
                 string=word,
-                upos=pos_tag,
+                # TODO: Improve this, values are inconsistent and ugly
+                # upos=pos_tag,
                 features=morph_features,
                 index_token=index_token,
                 index_char_start=index_char_start,
@@ -332,7 +340,9 @@ Text:
                     cltk_word.definition = str(custom_features)
             words.append(cltk_word)
         if not words:
-            logger.warning(f"No Word objects created for input: {input_text}")
+            logger.warning(
+                f"No Word objects created for input: {input_doc.normalized_text}"
+            )
         else:
             logger.debug(
                 f"Built {len(words)} Word objects: {[w.string for w in words]}"
