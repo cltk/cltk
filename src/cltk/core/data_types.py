@@ -186,7 +186,7 @@ class Doc:
     """
 
     language: Optional[str] = None
-    words: Optional[list[Word]] = field(default_factory=list)
+    words: list[Word] = field(default_factory=list)
     pipeline: Optional[
         "Pipeline"
     ] = None  # Note: type should be ``Pipeline`` w/o quotes

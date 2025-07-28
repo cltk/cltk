@@ -31,7 +31,7 @@ class ChatGPTProcess(Process):
                 temperature=self.temperature,
             )
             logger.info(
-                f"ChatGPT instance created for language: {self.language}, model: {self.model}"
+                f"ChatGPT instance created for language: {self.language}, model: {self.model}, temperature: {self.temperature}"
             )
         else:
             self.chatgpt = None

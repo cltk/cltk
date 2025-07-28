@@ -450,6 +450,7 @@ Text: {input_doc.normalized_text}
         input_doc.sentence_boundaries = split_ancient_greek_sentences(
             text=input_doc.normalized_text
         )
+        tmp_docs: list[Doc] = list()
         for start, stop in input_doc.sentence_boundaries:
             if not input_doc.normalized_text:
                 raise CLTKException(
@@ -464,8 +465,25 @@ Text: {input_doc.normalized_text}
                 input_doc=tmp_doc,
                 prompt_template=pos_prompt_template,
             )
-            print(tmp_doc)
+            logger.info(f"tmp_doc: {tmp_doc}")
+            tmp_docs.append(tmp_doc)
             continue
+        for tmp_doc in tmp_docs:
+            if not input_doc.words:
+                input_doc.words = []
+            if tmp_doc.words:
+                input_doc.words += tmp_doc.words
+        # Fix the indexes of words in the main input_doc
+        for idx, word in enumerate(input_doc.words):
+            word.index_token = idx
+            if word.index_char_start and word.index_char_stop:
+                # Adjust char indexes based on the full normalized text
+                if word.string:
+                    word.index_char_start += input_doc.normalized_text.find(word.string)
+                word.index_char_stop = (
+                    word.index_char_start + len(word.string) if word.string else 0
+                )
+        logger.info(f"Doc with words added: {input_doc.words}")
         sys.exit(1)
         #     # Dependency
         #     input_doc = self.generate_dependency(
