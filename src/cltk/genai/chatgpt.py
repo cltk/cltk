@@ -483,7 +483,8 @@ Text: {input_doc.normalized_text}
                 word.index_char_stop = (
                     word.index_char_start + len(word.string) if word.string else 0
                 )
-        logger.info(f"Doc with words added: {input_doc.words}")
+        # TODO: Add token usage from the POS step
+        logger.info(f"Doc with words added: {input_doc}")
         sys.exit(1)
         #     # Dependency
         #     input_doc = self.generate_dependency(

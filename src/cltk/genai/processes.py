@@ -16,7 +16,7 @@ class ChatGPTProcess(Process):
     language: Optional[str] = None
     api_key: Optional[str] = None
     model: str = "gpt-4.1"
-    temperature: float = 1.0
+    temperature: float = 0.2
     description: str = "Process for ChatGPT for linguistic annotation."
     authorship_info: str = "ChatGPTProcess using OpenAI GPT models."
     chatgpt: Optional[ChatGPT] = field(init=False, default=None)
@@ -60,7 +60,6 @@ class ChatGPTProcess(Process):
         input_text = (
             input_doc.normalized_text if input_doc.normalized_text else input_doc.raw
         )
-        # xxx
         if not input_text:
             logger.error(
                 "Input document must have either `.normalized_text` or `raw` text."
