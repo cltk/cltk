@@ -2,6 +2,7 @@
 
 import os
 import re
+import sys
 import unicodedata
 from typing import Any, Optional, Union
 
@@ -9,6 +10,7 @@ from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
 from openai.types.responses.response_usage import ResponseUsage
 
+from cltk.alphabet.grc.grc import split_ancient_greek_sentences
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Language, Word
@@ -41,11 +43,11 @@ class ChatGPT:
         self,
         input_doc: Doc,
         prompt_template: Optional[str] = None,
-        print_raw_response: bool = False,
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         if not input_doc.normalized_text:
             raise CLTKException("Input document must have `.normalized_text` set.")
+        assert input_doc.normalized_text is not None  # For static type checkers
         prompt: str
         if not prompt_template:
             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
@@ -136,23 +138,6 @@ Text:
         word_level_info: dict[str, dict] = self._parse_word_info_from_chatgpt_response(
             response=cleaned_response
         )
-        # if not word_level_info:
-        #     logger.warning(
-        #         "No word info parsed from response. Falling back to whitespace tokenization."
-        #     )
-        #     # Fallback: tokenize input_text and create minimal Word objects
-        #     tokens = input_text.split()
-        #     word_level_info = {
-        #         token: {
-        #             "lemma": None,
-        #             "gloss": None,
-        #             "ner": None,
-        #             "paradigm": None,
-        #             "ipa": None,
-        #             "pos_morph": None,
-        #         }
-        #         for token in tokens
-        #     }
         doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
             input_doc=input_doc, word_info_dict=word_level_info
         )
@@ -187,31 +172,61 @@ Text:
                     parts = parts[1:]
                 if parts and parts[-1] == "":
                     parts = parts[:-1]
+                # Fallback: pad to 7 columns if fewer
+                if 2 <= len(parts) < 7:
+                    parts += [None] * (7 - len(parts))
                 if len(parts) == 7:
                     word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
+                    if not word:
+                        continue  # skip if word is None or empty
                     word_info[word] = {
                         "lemma": lemma if lemma else None,
                         "gloss": gloss if gloss else None,
                         "ner": ner if ner else None,
                         "paradigm": paradigm if paradigm else None,
                         "ipa": ipa if ipa else None,
-                        "pos_morph": pos_morph,
+                        "pos_morph": pos_morph if pos_morph else None,
                     }
                     continue
             # Parse tab-separated rows (default)
-            parts = line.split("\t")
-            if len(parts) == 7:
-                word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
-                word_info[word] = {
-                    "lemma": lemma if lemma else None,
-                    "gloss": gloss if gloss else None,
-                    "ner": ner if ner else None,
-                    "paradigm": paradigm if paradigm else None,
-                    "ipa": ipa if ipa else None,
-                    "pos_morph": pos_morph,
-                }
-            else:
-                logger.error(f"Failed to process ChatGPT response table row: {line}")
+            if "\t" in line:
+                parts = line.split("\t")
+                if 2 <= len(parts) < 7:
+                    parts += [None] * (7 - len(parts))
+                if len(parts) == 7:
+                    word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
+                    if not word:
+                        continue  # skip if word is None or empty
+                    word_info[word] = {
+                        "lemma": lemma if lemma else None,
+                        "gloss": gloss if gloss else None,
+                        "ner": ner if ner else None,
+                        "paradigm": paradigm if paradigm else None,
+                        "ipa": ipa if ipa else None,
+                        "pos_morph": pos_morph if pos_morph else None,
+                    }
+                    continue
+            # Parse space-separated rows (new fallback)
+            if " " in line and not ("|" in line or "\t" in line):
+                # Use maxsplit=6 to allow gloss to contain spaces
+                parts = line.split(None, 6)
+                if 2 <= len(parts) < 7:
+                    parts += [None] * (7 - len(parts))
+                if len(parts) == 7:
+                    word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
+                    if not word:
+                        continue  # skip if word is None or empty
+                    word_info[word] = {
+                        "lemma": lemma if lemma else None,
+                        "gloss": gloss if gloss else None,
+                        "ner": ner if ner else None,
+                        "paradigm": paradigm if paradigm else None,
+                        "ipa": ipa if ipa else None,
+                        "pos_morph": pos_morph if pos_morph else None,
+                    }
+                    continue
+            # If none of the above, log error
+            logger.error(f"Failed to process ChatGPT response table row: {line}")
         if not word_info:
             raise CLTKException(
                 f"CLTK failed to parse output from ChatGPT. Full ChatGPT response:\n{response}"
@@ -236,8 +251,9 @@ Text:
 
         for idx, (word, info) in enumerate(word_info_dict.items()):
             norm_word = cltk_normalize(word)
-            pos_info = info["pos_morph"].split("|")
-            pos_tag = pos_info[0]
+            pos_morph = info["pos_morph"] if info["pos_morph"] is not None else ""
+            pos_info = pos_morph.split("|")
+            pos_tag = pos_info[0] if pos_info else None
             morph_dict: dict[str, list[str]] = dict()
             custom_features: dict[str, list[str]] = dict()
             verbform_part_needed = False
@@ -458,7 +474,7 @@ Text:
         input_doc: Doc,
         pos_prompt_template: Optional[str] = None,
         dep_prompt_template: Optional[str] = None,
-        print_raw_response: bool = False,
+        # print_raw_response: bool = False,
     ) -> Doc:
         """
         Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
@@ -468,77 +484,98 @@ Text:
             logger.warning(
                 "Input document must have either `.normalized_text` or `raw` text."
             )
+            raise CLTKException(
+                "Input document must have either `.normalized_text` or `raw` text."
+            )
         if not input_doc.normalized_text:
             logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
+            if not input_doc.raw:
+                raise CLTKException(
+                    "Input document must have either `.normalized_text` or `raw` text."
+                )
             input_doc.normalized_text = cltk_normalize(input_doc.raw)
-        # tokenization/POS/morphology
-        input_doc = self.generate_pos(
-            input_doc=input_doc,
-            prompt_template=pos_prompt_template,
-            print_raw_response=print_raw_response,
+        input_doc.sentence_boundaries = split_ancient_greek_sentences(
+            text=input_doc.normalized_text
         )
-        # Dependency
-        input_doc = self.generate_dependency(
-            input_doc=input_doc,
-            prompt_template=dep_prompt_template,
-            print_raw_response=print_raw_response,
-        )
-        # Metadata
-        metadata, metadata_tokens_used = self._call_with_usage(
-            self.generate_doc_metadata,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        input_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
-        input_doc.translation = metadata.get("translation", None)
-        input_doc.summary = metadata.get("summary", None)
-        input_doc.topic = metadata.get("topic", None)
-        # Discourse relations
-        discourse, discourse_tokens_used = self._call_with_usage(
-            self.generate_discourse_relations,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        input_doc.discourse_relations = discourse
-        # Coreference resolution
-        coref, coref_tokens_used = self._call_with_usage(
-            self.generate_coreferences,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        input_doc.coreferences = coref
-        # Aggregate token usage
-        # Extract POS and DEP token usage from chatgpt list
-        pos_tokens_used = None
-        dep_tokens_used = None
-        for usage in input_doc.chatgpt:
-            if usage.get("task") == "pos":
-                pos_tokens_used = usage.get("tokens_total")
-            elif usage.get("task") == "dependency":
-                dep_tokens_used = usage.get("tokens_total")
-        tokens_per_call = {
-            "pos": pos_tokens_used,
-            "dep": dep_tokens_used,
-            "metadata": metadata_tokens_used,
-            "discourse": discourse_tokens_used,
-            "coref": coref_tokens_used,
-        }
-        total_tokens = sum(
-            int(v)
-            for v in tokens_per_call.values()
-            if v is not None and str(v).isdigit()
-        )
-        # Append aggregate usage/metadata to chatgpt list
-        input_doc.chatgpt.append(
-            {
-                "task": "aggregate",
-                "tokens_total": total_tokens,
-                "tokens_per_call": tokens_per_call,
-                "model": self.model,
-                "temperature": self.temperature,
-            }
-        )
-        return input_doc
+        for start, stop in input_doc.sentence_boundaries:
+            if not input_doc.normalized_text:
+                raise CLTKException(
+                    "Input document must have `.normalized_text` set before sentence segmentation."
+                )
+            tmp_doc: Doc = Doc(
+                normalized_text=input_doc.normalized_text[start:stop],
+                language=input_doc.language,
+            )
+            # tokenization/POS/morphology
+            tmp_doc = self.generate_pos(
+                input_doc=tmp_doc,
+                prompt_template=pos_prompt_template,
+            )
+            print(tmp_doc)
+            continue
+        sys.exit(1)
+        #     # Dependency
+        #     input_doc = self.generate_dependency(
+        #         input_doc=input_doc,
+        #         prompt_template=dep_prompt_template,
+        #         print_raw_response=print_raw_response,
+        #     )
+        #     # Metadata
+        #     metadata, metadata_tokens_used = self._call_with_usage(
+        #         self.generate_doc_metadata,
+        #         input_text=input_doc.normalized_text,
+        #         print_raw_response=print_raw_response,
+        #     )
+        #     input_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        #     input_doc.translation = metadata.get("translation", None)
+        #     input_doc.summary = metadata.get("summary", None)
+        #     input_doc.topic = metadata.get("topic", None)
+        #     # Discourse relations
+        #     discourse, discourse_tokens_used = self._call_with_usage(
+        #         self.generate_discourse_relations,
+        #         input_text=input_doc.normalized_text,
+        #         print_raw_response=print_raw_response,
+        #     )
+        #     input_doc.discourse_relations = discourse
+        #     # Coreference resolution
+        #     coref, coref_tokens_used = self._call_with_usage(
+        #         self.generate_coreferences,
+        #         input_text=input_doc.normalized_text,
+        #         print_raw_response=print_raw_response,
+        #     )
+        #     input_doc.coreferences = coref
+        #     # Aggregate token usage
+        #     # Extract POS and DEP token usage from chatgpt list
+        #     pos_tokens_used = None
+        #     dep_tokens_used = None
+        #     for usage in input_doc.chatgpt:
+        #         if usage.get("task") == "pos":
+        #             pos_tokens_used = usage.get("tokens_total")
+        #         elif usage.get("task") == "dependency":
+        #             dep_tokens_used = usage.get("tokens_total")
+        #     tokens_per_call = {
+        #         "pos": pos_tokens_used,
+        #         "dep": dep_tokens_used,
+        #         "metadata": metadata_tokens_used,
+        #         "discourse": discourse_tokens_used,
+        #         "coref": coref_tokens_used,
+        #     }
+        #     total_tokens = sum(
+        #         int(v)
+        #         for v in tokens_per_call.values()
+        #         if v is not None and str(v).isdigit()
+        #     )
+        #     # Append aggregate usage/metadata to chatgpt list
+        #     input_doc.chatgpt.append(
+        #         {
+        #             "task": "aggregate",
+        #             "tokens_total": total_tokens,
+        #             "tokens_per_call": tokens_per_call,
+        #             "model": self.model,
+        #             "temperature": self.temperature,
+        #         }
+        #     )
+        # return input_doc
 
     def _call_with_usage(self, func, *args, **kwargs):
         """Helper to call a function and extract token usage from its response object or internal usage attributes.
