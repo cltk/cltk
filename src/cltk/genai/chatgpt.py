@@ -50,11 +50,19 @@ class ChatGPT:
         assert input_doc.normalized_text is not None  # For static type checkers
         prompt: str
         if not prompt_template:
-            prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
-word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>morphology (Universal Dependencies)
+            #             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
+            # word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>morphology (Universal Dependencies)
 
-Text:
-{input_doc.normalized_text}
+            # Text:
+            # {input_doc.normalized_text}
+            # """
+            prompt = f"""For the following {self.language.name} text, tokenize the text and return a table with one word per line. For each word, provide only the word itself and its Universal Dependencies (UD) morphological features. The response must be a markdown code block containing a pipe-delimited table with the following columns:
+
+| word | morphology (Universal Dependencies) |
+
+Do not include any explanation, commentary, or extra formatting. Only output the table inside a markdown code block.
+
+Text: {input_doc.normalized_text}
 """
         else:
             prompt = prompt_template.format(input_text=input_doc.normalized_text)
@@ -135,109 +143,66 @@ Text:
                     cleaned_lines.append(line)
         cleaned_response = "\n".join(cleaned_lines)
         logger.info(f"Cleaned response for word parsing:\n{cleaned_response}")
-        word_level_info: dict[str, dict] = self._parse_word_info_from_chatgpt_response(
+        word_level_info: dict[str, str] = self._parse_word_info_from_chatgpt_response(
             response=cleaned_response
         )
         doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
-            input_doc=input_doc, word_info_dict=word_level_info
+            input_doc=input_doc, map_word_to_morphology=word_level_info
         )
         return doc_with_pos_added
 
-    def _parse_word_info_from_chatgpt_response(self, response: str) -> dict[str, dict]:
-        """Extract all requested features from each word line. Add fallback if parsing fails."""
-        word_info: dict[str, dict] = {}
-        debug_lines = list()
-        # Expect tab-separated columns: word, lemma, gloss, NER, paradigm, IPA, morphology
-        is_markdown_table = False
+    def _parse_word_info_from_chatgpt_response(self, response: str) -> dict[str, str]:
+        """Parse a two-column markdown table: word | morphology (Universal Dependencies)."""
+        map_word_to_morphology: dict[str, str] = dict()
+        in_table = False
+        table_found = False
         for line in response.split("\n"):
             line = line.strip()
-            if not line or line.startswith("#"):
+            # Enter/exit code block (optional, for robustness)
+            if line.startswith("```"):
+                if in_table and table_found:
+                    # End of first table, stop parsing
+                    break
+                in_table = not in_table
                 continue
-            debug_lines.append(line)
-            # Detect markdown table format
-            if "|" in line and line.count("|") >= 6:
-                is_markdown_table = True
-            # Parse markdown table rows
-            if is_markdown_table and "|" in line:
-                # Skip header/separator lines
-                if (
-                    line.replace("|", "").replace("-", "").strip() == ""
-                    or line.lower().startswith("word | lemma")
-                    or line.lower().startswith("| word")
-                ):
-                    continue
-                parts = [p.strip() for p in line.split("|")]
-                # Remove empty first/last if present
-                if parts and parts[0] == "":
-                    parts = parts[1:]
-                if parts and parts[-1] == "":
-                    parts = parts[:-1]
-                # Fallback: pad to 7 columns if fewer
-                if 2 <= len(parts) < 7:
-                    parts += [None] * (7 - len(parts))
-                if len(parts) == 7:
-                    word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
-                    if not word:
-                        continue  # skip if word is None or empty
-                    word_info[word] = {
-                        "lemma": lemma if lemma else None,
-                        "gloss": gloss if gloss else None,
-                        "ner": ner if ner else None,
-                        "paradigm": paradigm if paradigm else None,
-                        "ipa": ipa if ipa else None,
-                        "pos_morph": pos_morph if pos_morph else None,
-                    }
-                    continue
-            # Parse tab-separated rows (default)
-            if "\t" in line:
-                parts = line.split("\t")
-                if 2 <= len(parts) < 7:
-                    parts += [None] * (7 - len(parts))
-                if len(parts) == 7:
-                    word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
-                    if not word:
-                        continue  # skip if word is None or empty
-                    word_info[word] = {
-                        "lemma": lemma if lemma else None,
-                        "gloss": gloss if gloss else None,
-                        "ner": ner if ner else None,
-                        "paradigm": paradigm if paradigm else None,
-                        "ipa": ipa if ipa else None,
-                        "pos_morph": pos_morph if pos_morph else None,
-                    }
-                    continue
-            # Parse space-separated rows (new fallback)
-            if " " in line and not ("|" in line or "\t" in line):
-                # Use maxsplit=6 to allow gloss to contain spaces
-                parts = line.split(None, 6)
-                if 2 <= len(parts) < 7:
-                    parts += [None] * (7 - len(parts))
-                if len(parts) == 7:
-                    word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
-                    if not word:
-                        continue  # skip if word is None or empty
-                    word_info[word] = {
-                        "lemma": lemma if lemma else None,
-                        "gloss": gloss if gloss else None,
-                        "ner": ner if ner else None,
-                        "paradigm": paradigm if paradigm else None,
-                        "ipa": ipa if ipa else None,
-                        "pos_morph": pos_morph if pos_morph else None,
-                    }
-                    continue
-            # If none of the above, log error
-            logger.error(f"Failed to process ChatGPT response table row: {line}")
-        if not word_info:
+            # Skip markdown table headers and separators
+            if (
+                not line
+                or line.startswith("#")
+                or (
+                    line.startswith("|")
+                    and set(line.replace("|", "").replace("-", "").strip()) == set()
+                )
+                or line.lower().startswith("| word")
+                or line.lower().startswith("word | morphology")
+            ):
+                continue
+            # Only process lines with at least two columns
+            if not "|" in line:
+                continue
+            if not line.startswith("|") and not line.endswith("|"):
+                continue
+            without_left_pipe: str = line.split("|", maxsplit=1)[1]
+            without_right_pipe: str = without_left_pipe.rsplit("|", maxsplit=1)[0]
+            word: str
+            morphology: str
+            word, morphology = without_right_pipe.split("|", maxsplit=1)
+            word = word.strip()
+            morphology = morphology.strip()
+            map_word_to_morphology[word] = morphology
+            if table_found and not in_table:
+                break
+        if not map_word_to_morphology:
             raise CLTKException(
                 f"CLTK failed to parse output from ChatGPT. Full ChatGPT response:\n{response}"
             )
-        logger.info(f"Parsed word_info:\n{word_info}")
-        return word_info
+        logger.info(f"Parsed word_info:\n{map_word_to_morphology}")
+        return map_word_to_morphology
 
     def _add_pos_word_info_to_doc(
         self,
         input_doc: Doc,
-        word_info_dict: dict[str, dict],
+        map_word_to_morphology: dict[str, str],
     ) -> Doc:
         """Build a CLTK Doc from the word info dictionary."""
         words: list[Word] = list()
@@ -249,11 +214,11 @@ Text:
                     return True
             return False
 
-        for idx, (word, info) in enumerate(word_info_dict.items()):
+        for idx, (word, morphology) in enumerate(map_word_to_morphology.items()):
             norm_word = cltk_normalize(word)
-            pos_morph = info["pos_morph"] if info["pos_morph"] is not None else ""
-            pos_info = pos_morph.split("|")
-            pos_tag = pos_info[0] if pos_info else None
+            # pos_morph = morphology["pos_morph"] if morphology["pos_morph"] is not None else ""
+            pos_info = morphology.split("|")
+            # pos_tag = pos_info[0] if pos_info else None
             morph_dict: dict[str, list[str]] = dict()
             custom_features: dict[str, list[str]] = dict()
             verbform_part_needed = False
@@ -337,18 +302,6 @@ Text:
                 index_char_start=index_char_start,
                 index_char_stop=index_char_stop,
             )
-            # Set new features if present
-            # TODO: This is broken, writes to wrong Word object, and doesn't map to UD types anymore
-            if info.get("lemma"):
-                cltk_word.lemma = info["lemma"]
-            if info.get("gloss"):
-                cltk_word.definition = info["gloss"]
-            if info.get("ner"):
-                cltk_word.named_entity = info["ner"]
-            if info.get("paradigm"):
-                cltk_word.stem = info["paradigm"]
-            if info.get("ipa"):
-                cltk_word.phonetic_transcription = info["ipa"]
             if custom_features:
                 if cltk_word.definition:
                     cltk_word.definition += f"; custom: {str(custom_features)}"
