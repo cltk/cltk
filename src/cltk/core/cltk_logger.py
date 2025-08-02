@@ -35,5 +35,5 @@ def setup_cltk_logger(name="CLTK", log_to_file=True, log_to_console=True, level=
 
 
 # Usage:
-logger = setup_cltk_logger()
+logger = setup_cltk_logger(level="DEBUG")
 logger.info("CLTK logger initialized.")

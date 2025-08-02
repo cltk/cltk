@@ -4,13 +4,12 @@ import os
 import re
 import sys
 import unicodedata
-from typing import Any, Optional, Union
+from typing import Optional
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
 from openai.types.responses.response_usage import ResponseUsage
 
-from cltk.alphabet.grc.grc import split_ancient_greek_sentences
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Language, Word
@@ -21,7 +20,7 @@ from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
     from_ud,
 )
-from cltk.utils.utils import load_env_file, strip_accents
+from cltk.utils.utils import load_env_file
 
 
 class ChatGPT:
@@ -42,171 +41,274 @@ class ChatGPT:
     def generate_pos(
         self,
         input_doc: Doc,
-        prompt_template: Optional[str] = None,
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
-        if not input_doc.normalized_text:
-            raise CLTKException("Input document must have `.normalized_text` set.")
-        assert input_doc.normalized_text is not None  # For static type checkers
-        prompt: str
-        if not prompt_template:
-            #             prompt = f"""For each word in the following {self.language.name} text, return a line in the following tab-separated format:
-            # word<TAB>lemma<TAB>gloss<TAB>named_entity_type<TAB>inflectional_paradigm<TAB>IPA_pronunciation<TAB>morphology (Universal Dependencies)
+        prompt = f"""For the following {self.language.name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields according to Universal Dependencies guidelines.
 
-            # Text:
-            # {input_doc.normalized_text}
-            # """
-            prompt = f"""For the following {self.language.name} text, tokenize the text and return a table with one word per line. For each word, provide only the word itself and its Universal Dependencies (UD) morphological features. The response must be a markdown code block containing a pipe-delimited table with the following columns:
+Return the result as a markdown code block containing a tab-delimited table (TSV format) with the following columns:
 
-| word | morphology (Universal Dependencies) |
+FORM\tLEMMA\tUPOS\tFEATS
 
 Do not include any explanation, commentary, or extra formatting. Only output the table inside a markdown code block.
 
 Text: {input_doc.normalized_text}
 """
-        else:
-            prompt = prompt_template.format(input_text=input_doc.normalized_text)
         try:
             chatgpt_response: Response = self.client.responses.create(
                 model=self.model, input=prompt, temperature=self.temperature
             )
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        logger.info(f"Raw response from OpenAI:\n{chatgpt_response.output_text}")
-        # Retry _post_process_pos_response up to 3 times if CLTKException is raised
-        doc_with_pos_data = None
-        max_attempts = 3
-        for attempt in range(max_attempts):
-            try:
-                doc_with_pos_data = self._post_process_pos_response(
-                    input_doc=input_doc,
-                    chatgpt_response_obj=chatgpt_response,
-                )
-                break
-            except CLTKException as e:
-                logger.warning(
-                    f"POS post-processing failed (attempt {attempt+1}/{max_attempts}): {e}"
-                )
-                if attempt == max_attempts - 1:
-                    raise CLTKException(
-                        f"POS post-processing failed after {max_attempts} attempts: {e}"
-                    )
-        if doc_with_pos_data is None:
+        logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
+        if not input_doc.normalized_text:
+            raise CLTKException("Input document must have `.normalized_text` set.")
+        if not chatgpt_response.output_text:
             raise CLTKException(
-                "POS post-processing failed: no Doc returned after retries."
+                "No output text returned from OpenAI. Check your prompt and API key."
             )
-        chatgpt_usage: dict[str, Any] = self._extract_usage_info(
-            response=chatgpt_response
-        )
-        chatgpt_usage["task"] = "pos"
-        # Ensure chatgpt is always a list before usage
-        if not isinstance(input_doc.chatgpt, list):
-            input_doc.chatgpt = []
-        input_doc.chatgpt.append(chatgpt_usage)
-        return doc_with_pos_data
+        logger.debug(f"Raw ChatGPT response:\n{chatgpt_response.output_text}")
+
+        def extract_code_blocks(text):
+            # This regex finds all text between triple backticks
+            return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
+
+        code_blocks = extract_code_blocks(chatgpt_response.output_text)
+        if not code_blocks:
+            logger.warning("No code blocks found in ChatGPT response.")
+            raise CLTKException("No code blocks found in ChatGPT response.")
+        code_block: str = code_blocks[0].strip()
+        logger.debug(f"Extracted code block:\n{code_block}")
+
+        def parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
+            lines: list[str] = [
+                line.strip() for line in tsv_string.strip().splitlines() if line.strip()
+            ]
+            header: list[str] | None = None
+            data: list[dict[str, str]] = []
+            for line in lines:
+                if header is None:
+                    header = [col.strip().lower() for col in line.split("\t")]
+                    continue
+                parts = line.split("\t")
+                if len(parts) == 4:
+                    entry: dict[str, str] = dict(zip(header, parts))
+                    data.append(entry)
+            return data
+
+        parsed_pos_tags: list[dict[str, str]] = parse_tsv_table(code_block)
+        logger.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
+        cleaned_pos_tags: list[dict[str, Optional[str]]] = [
+            {k: (None if v == "_" else v) for k, v in d.items()}
+            for d in parsed_pos_tags
+        ]
+        logger.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
+        words: list[Word] = list()
+        for pos_dict in cleaned_pos_tags:
+            word: Word = Word(
+                string=pos_dict.get("form", None),
+                lemma=pos_dict.get("lemma", None),
+                upos=pos_dict.get("upos", None),
+            )
+            feats_raw: Optional[str] = pos_dict.get("feats", None)
+            features_bundle: Optional[MorphosyntacticFeatureBundle] = None
+            if not feats_raw:
+                features_bundle = None
+            else:
+                features_bundle = MorphosyntacticFeatureBundle()
+                feats: list[str] = feats_raw.split("|")
+                for feat in feats:
+                    if "=" in feat:
+                        key, value = feat.split("=", 1)
+                        if key in FORM_UD_MAP:
+                            values = self._normalize_feature_value(key, value)
+                            for val in values:
+                                feature_instance = from_ud(key, val)
+                                if feature_instance:
+                                    features_bundle[type(feature_instance)] = [
+                                        feature_instance
+                                    ]
+                word.features = features_bundle
+            words.append(word)
+        logger.debug(f"Created {len(words)} Word objects from POS tags.")
+        logger.debug("Words:", words)
+        if not input_doc.words:
+            logger.debug("`input_doc.words` is empty. Setting with new words.")
+            input_doc.words = words
+        else:
+            # TODO: Handle case where input_doc.words already has data
+            logger.warning("`input_doc.words` already has data. Not overwriting.")
+
+        return input_doc
+
+        # doc_with_pos_data = self._post_process_pos_response(
+        #     input_doc=input_doc,
+        #     response=chatgpt_response.output_text,
+        #     input_text=input_doc.normalized_text,
+        #     chatgpt_response_obj=chatgpt_response,
+        #     print_raw_response=print_raw_response,
+        # )
+        # usage: Optional[ResponseUsage] = getattr(chatgpt_response, "usage", None)
+        # tokens_used: int = 0
+        # if not usage:
+        #     logger.warning(
+        #         "No usage information found in response. Tokens used may not be available."
+        #     )
+        # else:
+        #     # Also available: usage.input_tokens, .input_tokens_details, .output_tokens, .output_tokens_details
+        #     tokens_used: int = int(getattr(usage, "total_tokens", 0))
+        #     if tokens_used == 0:
+        #         logger.warning(
+        #             "No tokens used reported in response. This may indicate an issue with the API call."
+        #         )
+        # previous_total_tokens: int = getattr(input_doc.chatgpt, "tokens_total", 0)
+        # doc_with_pos_data.chatgpt = {
+        #     "pos_tokens_used": tokens_used,
+        #     "total_tokens_used": previous_total_tokens + tokens_used,
+        #     "model": self.model,
+        #     "temperature": self.temperature,
+        # }
+        # return doc_with_pos_data
 
     def _post_process_pos_response(
         self,
         input_doc: Doc,
+        response: str,
+        input_text: str,
         chatgpt_response_obj: Response,
+        print_raw_response: bool = False,
     ) -> Doc:
         """Post-process the response to format it correctly."""
-        # Flexible extraction: handle code fences, markdown tables, tab-separated lines, and ignore explanations
-        cleaned_lines = []
-        in_code_fence = False
-        for line in chatgpt_response_obj.output_text.split("\n"):
-            line = line.strip()
-            # Toggle code fence state
-            if line.startswith("```"):
-                in_code_fence = not in_code_fence
-                continue
-            # Skip explanation, header, or markdown separator lines
-            if (
-                not line
-                or line.startswith("**")
-                or line.startswith("---")
-                or line.startswith("#")
-                or line.lower().startswith("word")
-                or line.lower().startswith("lemma")
-                or (
-                    "|" in line and line.replace("|", "").replace("-", "").strip() == ""
-                )
-            ):
-                continue
-            # If inside code fence, keep tab-separated or pipe-separated lines
-            if in_code_fence:
-                if "\t" in line or ("|" in line and line.count("|") >= 2):
-                    cleaned_lines.append(line)
-            else:
-                # Outside code fence, keep tab-separated or markdown table lines
-                if "\t" in line or ("|" in line and line.count("|") >= 2):
-                    cleaned_lines.append(line)
-        cleaned_response = "\n".join(cleaned_lines)
-        logger.info(f"Cleaned response for word parsing:\n{cleaned_response}")
-        word_level_info: dict[str, str] = self._parse_word_info_from_chatgpt_response(
-            response=cleaned_response
+        if print_raw_response:
+            logger.debug(f"Raw OpenAI response: {response}")
+        # Try to extract between --- markers, but fall back to extracting lines with ** if not found
+        start_index = response.find("---")
+        end_index = response.rfind("---")
+        if start_index != -1 and end_index != -1:
+            relevant_section = response[start_index + 3 : end_index].strip()
+            lines = [
+                line.strip() for line in relevant_section.split("\n") if line.strip()
+            ]
+            cleaned_response = "\n".join(lines)
+        else:
+            # Fallback: extract only lines starting with **
+            lines = [
+                line.strip()
+                for line in response.split("\n")
+                if line.strip().startswith("**")
+            ]
+            cleaned_response = "\n".join(lines)
+        if print_raw_response:
+            logger.debug(f"Cleaned response for word parsing: {cleaned_response}")
+        word_level_info: dict[str, dict] = self._get_word_info(
+            response=cleaned_response, print_raw_response=print_raw_response
         )
+        if not word_level_info:
+            logger.warning(
+                "No word info parsed from response. Falling back to whitespace tokenization."
+            )
+            # Fallback: tokenize input_text and create minimal Word objects
+            tokens = input_text.split()
+            word_level_info = {
+                token: {
+                    "lemma": None,
+                    "gloss": None,
+                    "ner": None,
+                    "paradigm": None,
+                    "ipa": None,
+                    "pos_morph": "X",
+                }
+                for token in tokens
+            }
         doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
-            input_doc=input_doc, map_word_to_morphology=word_level_info
+            input_doc=input_doc, word_info_dict=word_level_info, input_text=input_text
         )
+        # Add ChatGPT metadata
+        chatgpt_meta = dict()
+        usage = getattr(chatgpt_response_obj, "usage", None)
+        if usage is not None:
+            chatgpt_meta["tokens_total"] = str(
+                getattr(
+                    usage,
+                    "total_tokens",
+                    getattr(usage, "get", lambda k, d=None: d)("total_tokens", ""),
+                )
+            )
+        chatgpt_meta["model"] = str(
+            getattr(chatgpt_response_obj, "model", getattr(self, "model", ""))
+        )
+        chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
+        doc_with_pos_added.chatgpt = chatgpt_meta
         return doc_with_pos_added
 
-    def _parse_word_info_from_chatgpt_response(self, response: str) -> dict[str, str]:
-        """Parse a two-column markdown table: word | morphology (Universal Dependencies)."""
-        map_word_to_morphology: dict[str, str] = dict()
-        in_table = False
-        table_found = False
+    def _get_word_info(
+        self, response: str, print_raw_response: bool = False
+    ) -> dict[str, dict]:
+        """Extract all requested features from each word line. Add fallback if parsing fails."""
+        word_info: dict[str, dict] = {}
+        debug_lines = []
+        # Expect tab-separated columns: word, lemma, gloss, NER, paradigm, IPA, POS|morph
         for line in response.split("\n"):
             line = line.strip()
-            # Enter/exit code block (optional, for robustness)
-            if line.startswith("```"):
-                if in_table and table_found:
-                    # End of first table, stop parsing
-                    break
-                in_table = not in_table
+            if not line or line.startswith("#"):
                 continue
-            # Skip markdown table headers and separators
-            if (
-                not line
-                or line.startswith("#")
-                or (
-                    line.startswith("|")
-                    and set(line.replace("|", "").replace("-", "").strip()) == set()
+            debug_lines.append(line)
+            parts = line.split("\t")
+            if len(parts) >= 7:
+                word, lemma, gloss, ner, paradigm, ipa, pos_morph = parts[:7]
+                word_info[word] = {
+                    "lemma": lemma if lemma else None,
+                    "gloss": gloss if gloss else None,
+                    "ner": ner if ner else None,
+                    "paradigm": paradigm if paradigm else None,
+                    "ipa": ipa if ipa else None,
+                    "pos_morph": pos_morph,
+                }
+        # Fallback: try to parse lines with fewer columns or alternative formats
+        if not word_info:
+            if print_raw_response:
+                logger.warning(
+                    f"No words parsed from response. Attempting fallback parsing. Lines: {debug_lines}"
                 )
-                or line.lower().startswith("| word")
-                or line.lower().startswith("word | morphology")
-            ):
-                continue
-            # Only process lines with at least two columns
-            if not "|" in line:
-                continue
-            if not line.startswith("|") and not line.endswith("|"):
-                continue
-            without_left_pipe: str = line.split("|", maxsplit=1)[1]
-            without_right_pipe: str = without_left_pipe.rsplit("|", maxsplit=1)[0]
-            word: str
-            morphology: str
-            word, morphology = without_right_pipe.split("|", maxsplit=1)
-            word = word.strip()
-            morphology = morphology.strip()
-            map_word_to_morphology[word] = morphology
-            if table_found and not in_table:
-                break
-        if not map_word_to_morphology:
-            raise CLTKException(
-                f"CLTK failed to parse output from ChatGPT. Full ChatGPT response:\n{response}"
-            )
-        logger.info(f"Parsed word_info:\n{map_word_to_morphology}")
-        return map_word_to_morphology
+            # Try to parse lines with at least word and POS|morph, using tab or space
+            for line in response.split("\n"):
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                # Try tab, then space
+                parts = line.split("\t")
+                if len(parts) < 2:
+                    parts = line.split()
+                if len(parts) >= 2:
+                    word = parts[0]
+                    pos_morph = parts[-1]
+                    word_info[word] = {
+                        "lemma": None,
+                        "gloss": None,
+                        "ner": None,
+                        "paradigm": None,
+                        "ipa": None,
+                        "pos_morph": pos_morph,
+                    }
+        if not word_info:
+            if print_raw_response:
+                logger.error(
+                    f"Still no words parsed. Check prompt and response format. Lines: {debug_lines}"
+                )
+        else:
+            if print_raw_response:
+                logger.debug(f"Parsed word_info: {word_info}")
+        return word_info
 
     def _add_pos_word_info_to_doc(
         self,
         input_doc: Doc,
-        map_word_to_morphology: dict[str, str],
+        word_info_dict: dict[str, dict],
+        input_text: str,
+        # print_raw_response: bool = False,
     ) -> Doc:
         """Build a CLTK Doc from the word info dictionary."""
         words: list[Word] = list()
-        used_spans = list()  # List of (start, stop) for already matched words
+        used_spans = []  # List of (start, stop) for already matched words
 
         def is_span_used(start, stop):
             for s, e in used_spans:
@@ -214,11 +316,10 @@ Text: {input_doc.normalized_text}
                     return True
             return False
 
-        for idx, (word, morphology) in enumerate(map_word_to_morphology.items()):
+        for idx, (word, info) in enumerate(word_info_dict.items()):
             norm_word = cltk_normalize(word)
-            # pos_morph = morphology["pos_morph"] if morphology["pos_morph"] is not None else ""
-            pos_info = morphology.split("|")
-            # pos_tag = pos_info[0] if pos_info else None
+            pos_info = info["pos_morph"].split("|")
+            pos_tag = pos_info[0]
             morph_dict: dict[str, list[str]] = dict()
             custom_features: dict[str, list[str]] = dict()
             verbform_part_needed = False
@@ -264,11 +365,8 @@ Text: {input_doc.normalized_text}
             index_token = None
             index_char_start = None
             index_char_stop = None
-            if not input_doc.normalized_text:
-                raise CLTKException(
-                    "Input document must have `.normalized_text` set for word span matching."
-                )
-            norm_input_text: str = input_doc.normalized_text
+            norm_input_text = cltk_normalize(input_text)
+            import re
 
             pattern = re.compile(re.escape(norm_word))
             found = False
@@ -282,6 +380,14 @@ Text: {input_doc.normalized_text}
                     found = True
                     break
             if not found:
+
+                def strip_accents(s):
+                    return "".join(
+                        c
+                        for c in unicodedata.normalize("NFD", s)
+                        if unicodedata.category(c) != "Mn"
+                    )
+
                 norm_word_stripped = strip_accents(norm_word).lower()
                 norm_input_text_stripped = strip_accents(norm_input_text).lower()
                 pattern_stripped = re.compile(re.escape(norm_word_stripped))
@@ -295,13 +401,23 @@ Text: {input_doc.normalized_text}
                         break
             cltk_word: Word = Word(
                 string=word,
-                # TODO: Improve this, values are inconsistent and ugly
-                # upos=pos_tag,
+                upos=pos_tag,
                 features=morph_features,
                 index_token=index_token,
                 index_char_start=index_char_start,
                 index_char_stop=index_char_stop,
             )
+            # Set new features if present
+            if info.get("lemma"):
+                cltk_word.lemma = info["lemma"]
+            if info.get("gloss"):
+                cltk_word.definition = info["gloss"]
+            if info.get("ner"):
+                cltk_word.named_entity = info["ner"]
+            if info.get("paradigm"):
+                cltk_word.stem = info["paradigm"]
+            if info.get("ipa"):
+                cltk_word.phonetic_transcription = info["ipa"]
             if custom_features:
                 if cltk_word.definition:
                     cltk_word.definition += f"; custom: {str(custom_features)}"
@@ -309,9 +425,7 @@ Text: {input_doc.normalized_text}
                     cltk_word.definition = str(custom_features)
             words.append(cltk_word)
         if not words:
-            logger.warning(
-                f"No Word objects created for input: {input_doc.normalized_text}"
-            )
+            logger.warning(f"No Word objects created for input: {input_text}")
         else:
             logger.debug(
                 f"Built {len(words)} Word objects: {[w.string for w in words]}"
@@ -321,7 +435,7 @@ Text: {input_doc.normalized_text}
 
     def generate_dependency(
         self,
-        input_doc: Doc,
+        doc: Doc,
         prompt_template: Optional[str] = None,
         print_raw_response: bool = False,
     ) -> Doc:
@@ -332,7 +446,7 @@ Text: {input_doc.normalized_text}
         # Prepare input for prompt: line-by-line tokens with features
         lines = []
         # When iterating over doc.words, ensure it's a list
-        words = input_doc.words if input_doc.words is not None else []
+        words = doc.words if doc.words is not None else []
         for idx, word in enumerate(words, start=1):
             features_str = "|".join(
                 f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
@@ -344,59 +458,32 @@ Text: {input_doc.normalized_text}
                 line += f"\t{features_str}"
             lines.append(line)
         token_table = "\n".join(lines)
-        prompt: str
         if not prompt_template:
-            prompt = f"""Given the following '{input_doc.language}' text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
+            # TODO: Update this after change to Doc.language to type `Language``
+            prompt = f"""Given the following '{doc.language}' text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
         else:
             prompt = prompt_template.format(token_table=token_table)
         try:
-            response: Response = self.client.responses.create(
+            response = self.client.responses.create(
                 model=self.model, input=prompt, temperature=self.temperature
             )
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        logger.info(f"Raw response from OpenAI: {response.output_text}")
-        # Parse response: handle both tab-separated and markdown table formats
+        if print_raw_response:
+            logger.info(f"Raw response from OpenAI: {response.output_text}")
+        # Parse response: expect tab-separated columns per line
         dep_lines = [
             line.strip()
             for line in response.output_text.split("\n")
             if line.strip() and not line.strip().startswith("#")
         ]
-        # Detect markdown table format
-        is_markdown_table = any(
-            "|" in line and line.count("|") >= 4 for line in dep_lines
-        )
-        parsed_rows = []
-        for line in dep_lines:
-            # Skip markdown header/separator lines
-            if (
-                line.replace("|", "").replace("-", "").strip() == ""
-                or line.lower().startswith("index | word")
-                or line.startswith("---")
-            ):
-                continue
-            if is_markdown_table and "|" in line:
-                parts = [p.strip() for p in line.split("|")]
-                # Remove empty first/last if present (from leading/trailing pipes)
-                if parts and parts[0] == "":
-                    parts = parts[1:]
-                if parts and parts[-1] == "":
-                    parts = parts[:-1]
-            else:
-                parts = line.split("\t")
-            if len(parts) < 4:
-                continue  # skip malformed lines
-            parsed_rows.append(parts)
         # Attach dependency info to each Word in the Doc
-        for i, parts in enumerate(parsed_rows):
-            if i >= len(words):
-                continue  # out-of-range
+        for i, line in enumerate(dep_lines):
+            parts = line.split("\t")
+            if len(parts) < 4 or i >= len(words):
+                continue  # skip malformed lines or out-of-range
             word_obj = words[i]
-            # index, word, head, relation, features...
-            try:
-                word_obj.governor = int(parts[2]) if str(parts[2]).isdigit() else None
-            except Exception:
-                word_obj.governor = None
+            word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
             word_obj.dependency_relation = parts[3]
             if len(parts) > 4:
                 # Normalize each extra feature
@@ -414,20 +501,11 @@ Text: {input_doc.normalized_text}
                     word_obj.definition += f"; dep: {extra}"
                 else:
                     word_obj.definition = f"dep: {extra}"
-        chatgpt_usage: dict[str, Any] = self._extract_usage_info(response=response)
-        chatgpt_usage["task"] = "dependency"
-        # Ensure chatgpt is always a list before usage
-        if not isinstance(input_doc.chatgpt, list):
-            input_doc.chatgpt = []
-        input_doc.chatgpt.append(chatgpt_usage)
-        return input_doc
+        return doc
 
     def generate_all(
         self,
         input_doc: Doc,
-        pos_prompt_template: Optional[str] = None,
-        dep_prompt_template: Optional[str] = None,
-        # print_raw_response: bool = False,
     ) -> Doc:
         """
         Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
@@ -437,117 +515,67 @@ Text: {input_doc.normalized_text}
             logger.warning(
                 "Input document must have either `.normalized_text` or `raw` text."
             )
-            raise CLTKException(
-                "Input document must have either `.normalized_text` or `raw` text."
-            )
         if not input_doc.normalized_text:
             logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
-            if not input_doc.raw:
-                raise CLTKException(
-                    "Input document must have either `.normalized_text` or `raw` text."
-                )
             input_doc.normalized_text = cltk_normalize(input_doc.raw)
-        input_doc.sentence_boundaries = split_ancient_greek_sentences(
-            text=input_doc.normalized_text
+        # POS/morphology
+        input_doc = self.generate_pos(
+            input_doc=input_doc,
         )
-        tmp_docs: list[Doc] = list()
-        for start, stop in input_doc.sentence_boundaries:
-            if not input_doc.normalized_text:
-                raise CLTKException(
-                    "Input document must have `.normalized_text` set before sentence segmentation."
-                )
-            tmp_doc: Doc = Doc(
-                normalized_text=input_doc.normalized_text[start:stop],
-                language=input_doc.language,
-            )
-            # tokenization/POS/morphology
-            tmp_doc = self.generate_pos(
-                input_doc=tmp_doc,
-                prompt_template=pos_prompt_template,
-            )
-            logger.info(f"tmp_doc: {tmp_doc}")
-            tmp_docs.append(tmp_doc)
-            continue
-        for tmp_doc in tmp_docs:
-            if not input_doc.words:
-                input_doc.words = []
-            if tmp_doc.words:
-                input_doc.words += tmp_doc.words
-        # Fix the indexes of words in the main input_doc
-        for idx, word in enumerate(input_doc.words):
-            word.index_token = idx
-            if word.index_char_start and word.index_char_stop:
-                # Adjust char indexes based on the full normalized text
-                if word.string:
-                    word.index_char_start += input_doc.normalized_text.find(word.string)
-                word.index_char_stop = (
-                    word.index_char_start + len(word.string) if word.string else 0
-                )
-        # TODO: Add token usage from the POS step
-        logger.info(f"Doc with words added: {input_doc}")
+        logger.debug(f"`input_doc` after ChatGPT POS tagging:\n{input_doc}")
         sys.exit(1)
-        #     # Dependency
-        #     input_doc = self.generate_dependency(
-        #         input_doc=input_doc,
-        #         prompt_template=dep_prompt_template,
-        #         print_raw_response=print_raw_response,
-        #     )
-        #     # Metadata
-        #     metadata, metadata_tokens_used = self._call_with_usage(
-        #         self.generate_doc_metadata,
-        #         input_text=input_doc.normalized_text,
-        #         print_raw_response=print_raw_response,
-        #     )
-        #     input_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
-        #     input_doc.translation = metadata.get("translation", None)
-        #     input_doc.summary = metadata.get("summary", None)
-        #     input_doc.topic = metadata.get("topic", None)
-        #     # Discourse relations
-        #     discourse, discourse_tokens_used = self._call_with_usage(
-        #         self.generate_discourse_relations,
-        #         input_text=input_doc.normalized_text,
-        #         print_raw_response=print_raw_response,
-        #     )
-        #     input_doc.discourse_relations = discourse
-        #     # Coreference resolution
-        #     coref, coref_tokens_used = self._call_with_usage(
-        #         self.generate_coreferences,
-        #         input_text=input_doc.normalized_text,
-        #         print_raw_response=print_raw_response,
-        #     )
-        #     input_doc.coreferences = coref
-        #     # Aggregate token usage
-        #     # Extract POS and DEP token usage from chatgpt list
-        #     pos_tokens_used = None
-        #     dep_tokens_used = None
-        #     for usage in input_doc.chatgpt:
-        #         if usage.get("task") == "pos":
-        #             pos_tokens_used = usage.get("tokens_total")
-        #         elif usage.get("task") == "dependency":
-        #             dep_tokens_used = usage.get("tokens_total")
-        #     tokens_per_call = {
-        #         "pos": pos_tokens_used,
-        #         "dep": dep_tokens_used,
-        #         "metadata": metadata_tokens_used,
-        #         "discourse": discourse_tokens_used,
-        #         "coref": coref_tokens_used,
-        #     }
-        #     total_tokens = sum(
-        #         int(v)
-        #         for v in tokens_per_call.values()
-        #         if v is not None and str(v).isdigit()
-        #     )
-        #     # Append aggregate usage/metadata to chatgpt list
-        #     input_doc.chatgpt.append(
-        #         {
-        #             "task": "aggregate",
-        #             "tokens_total": total_tokens,
-        #             "tokens_per_call": tokens_per_call,
-        #             "model": self.model,
-        #             "temperature": self.temperature,
-        #         }
-        #     )
-        # return input_doc
+
+        # Dependency
+        dep_doc, dep_tokens_used = self._call_with_usage(
+            self.generate_dependency,
+            doc=pos_doc,
+            prompt_template=dep_prompt_template,
+            print_raw_response=print_raw_response,
+        )
+        # Metadata
+        metadata, metadata_tokens_used = self._call_with_usage(
+            self.generate_doc_metadata,
+            input_text=input_doc.normalized_text,
+            print_raw_response=print_raw_response,
+        )
+        dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        dep_doc.translation = metadata.get("translation", None)
+        dep_doc.summary = metadata.get("summary", None)
+        dep_doc.topic = metadata.get("topic", None)
+        # Discourse relations
+        discourse, discourse_tokens_used = self._call_with_usage(
+            self.generate_discourse_relations,
+            input_text=input_doc.normalized_text,
+            print_raw_response=print_raw_response,
+        )
+        dep_doc.discourse_relations = discourse
+        # Coreference resolution
+        coref, coref_tokens_used = self._call_with_usage(
+            self.generate_coreferences,
+            input_text=input_doc.normalized_text,
+            print_raw_response=print_raw_response,
+        )
+        dep_doc.coreferences = coref
+        # Aggregate token usage
+        tokens_per_call = {
+            "pos": pos_tokens_used,
+            "dep": dep_tokens_used,
+            "metadata": metadata_tokens_used,
+            "discourse": discourse_tokens_used,
+            "coref": coref_tokens_used,
+        }
+        total_tokens = sum(
+            int(v)
+            for v in tokens_per_call.values()
+            if v is not None and str(v).isdigit()
+        )
+        dep_doc.chatgpt = {
+            "tokens_total": total_tokens,
+            "tokens_per_call": tokens_per_call,
+            "model": self.model,
+            "temperature": self.temperature,
+        }
+        return dep_doc
 
     def _call_with_usage(self, func, *args, **kwargs):
         """Helper to call a function and extract token usage from its response object or internal usage attributes.
@@ -747,33 +775,34 @@ Return your answer as four sections, each starting with a header line:
         # For now, just return as a single-item list
         return [value]
 
-    def _extract_usage_info(self, response: Response) -> dict[str, Any]:
-        """
-        Extract all available information from Response.ResponseUsage as a dictionary.
-        Returns an empty dict if no usage info is present.
-        Logs a warning if any value is zero or missing.
-        Also extracts model name and temperature from the Response object if available.
-        """
-        usage: Optional[ResponseUsage] = getattr(response, "usage", None)
-        usage_info: dict[str, Any] = dict()
-        if not usage:
-            logger.warning(
-                "No usage information found in response. Tokens used may not be available."
+    def parse_tsv_table(self, response: str) -> list[dict[str, str]]:
+        """Parse a TSV table with columns FORM, LEMMA, UPOS, FEATS into a list of dicts."""
+        lines = [line.strip() for line in response.splitlines() if line.strip()]
+        data: list[dict[str, str]] = []
+        header = None
+        for line in lines:
+            # Skip markdown code block markers
+            if line.startswith("```"):
+                continue
+            # Find header
+            if header is None:
+                if all(
+                    col in line.upper() for col in ("FORM", "LEMMA", "UPOS", "FEATS")
+                ):
+                    header = [col.strip().lower() for col in line.split("\t")]
+                    continue
+            # Parse data rows
+            if header is not None:
+                parts = line.split("\t")
+                if len(parts) != 4:
+                    continue  # skip malformed lines
+                entry = dict(zip(header, parts))
+                data.append(entry)
+        if not data:
+            raise CLTKException(
+                f"No valid TSV word info found in response:\n{response}"
             )
-        else:
-            for key in ["total_tokens", "input_tokens", "output_tokens"]:
-                value = getattr(usage, key, None)
-                usage_info[key] = value if value is not None else 0
-                if value is None:
-                    logger.warning(f"Usage value for '{key}' is missing in response.")
-                elif value == 0:
-                    logger.warning(
-                        f"Usage value for '{key}' is zero. This may indicate an issue with the API call."
-                    )
-        # Extract model name and temperature from Response object if available
-        usage_info["model"] = getattr(response, "model", None)
-        usage_info["temperature"] = getattr(response, "temperature", None)
-        return usage_info
+        return data
 
 
 if __name__ == "__main__":
