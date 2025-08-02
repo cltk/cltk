@@ -4,12 +4,14 @@ import os
 import re
 import sys
 import unicodedata
+from copy import deepcopy
 from typing import Optional
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
 from openai.types.responses.response_usage import ResponseUsage
 
+from cltk.alphabet.grc.grc import split_ancient_greek_sentences
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Language, Word
@@ -41,6 +43,7 @@ class ChatGPT:
     def generate_pos(
         self,
         input_doc: Doc,
+        sentence_idx: Optional[int] = None,
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         prompt = f"""For the following {self.language.name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields according to Universal Dependencies guidelines.
@@ -60,7 +63,9 @@ Text: {input_doc.normalized_text}
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
-        chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(response=chatgpt_response)
+        chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(
+            response=chatgpt_response
+        )
         logger.info(f"ChatGPT usage: {chatgpt_usage}")
         if not input_doc.chatgpt:
             input_doc.chatgpt = list()
@@ -109,13 +114,16 @@ Text: {input_doc.normalized_text}
             for d in parsed_pos_tags
         ]
         logger.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
+        # Create Word objects from cleaned POS tags
         words: list[Word] = list()
-        for pos_dict in cleaned_pos_tags:
+        for word_idx, pos_dict in enumerate(cleaned_pos_tags):
             word: Word = Word(
                 string=pos_dict.get("form", None),
+                index_token=word_idx,
                 lemma=pos_dict.get("lemma", None),
                 upos=pos_dict.get("upos", None),
             )
+            # Add morphology features to each Word object
             feats_raw: Optional[str] = pos_dict.get("feats", None)
             features_bundle: Optional[MorphosyntacticFeatureBundle] = None
             if not feats_raw:
@@ -134,6 +142,18 @@ Text: {input_doc.normalized_text}
                                     features_bundle[type(feature_instance)] = [
                                         feature_instance
                                     ]
+                                else:
+                                    # Handle unknown feature keys
+                                    logger.warning(
+                                        f"Unknown feature key: {key} for '{word.string}'. Please check the input text and try again."
+                                    )
+                                    # input()
+                        else:
+                            # Handle unknown feature keys
+                            logger.warning(
+                                f"Unknown feature key: {key} for '{word.string}'"
+                            )
+                            # input()
                 word.features = features_bundle
             words.append(word)
         logger.debug(f"Created {len(words)} Word objects from POS tags.")
@@ -148,7 +168,7 @@ Text: {input_doc.normalized_text}
                 "`input_doc.words` already has data. Not overwriting. "
                 "Consider clearing it first if you want to replace."
             )
-        
+
         # Get start/stop indexes for each word in the input text
         start = 0
         for word_idx, word in enumerate(input_doc.words):
@@ -167,9 +187,19 @@ Text: {input_doc.normalized_text}
                 word.index_char_stop = None
             input_doc.words[word_idx] = word  # Update in-place
         logger.debug("Set character indexes for each word in input_doc.words.")
-        sys.exit(1)
-        return input_doc
 
+        # Add sentence idx to Word objects
+        if sentence_idx is not None:
+            for word in input_doc.words:
+                word.index_sentence = sentence_idx
+            logger.debug(
+                f"Set sentence index {sentence_idx} for all words in input_doc.words."
+            )
+        else:
+            logger.warning(
+                "No sentence index provided. Skipping sentence index assignment."
+            )
+        return input_doc
 
     def _get_word_info(
         self, response: str, print_raw_response: bool = False
@@ -449,11 +479,28 @@ Text: {input_doc.normalized_text}
         if not input_doc.normalized_text:
             logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
             input_doc.normalized_text = cltk_normalize(input_doc.raw)
+        # Get sentence indices if not set already
+        if not input_doc.sentence_boundaries:
+            input_doc.sentence_boundaries = split_ancient_greek_sentences(
+                text=input_doc.normalized_text
+            )
+            logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
+
         # POS/morphology
-        input_doc = self.generate_pos(
-            input_doc=input_doc,
-        )
-        logger.debug(f"`input_doc` after ChatGPT POS tagging:\n{input_doc}")
+        sentence_boundary: tuple[int, int]
+        tmp_docs: list[Doc] = list()
+        for sent_idx, sentence_boundary in enumerate(input_doc.sentence_boundaries):
+            sentence_start_idx, sentence_end_idx = sentence_boundary
+            assert input_doc.normalized_text is not None
+            # sentence: str = input_doc.normalized_text[sentence_start_idx:sentence_end_idx]
+            tmp_doc = deepcopy(input_doc)
+            tmp_doc = self.generate_pos(
+                input_doc=tmp_doc,
+                sentence_idx=sent_idx,
+            )
+            tmp_docs.append(tmp_doc)
+            logger.debug(f"`input_doc` after ChatGPT POS tagging:\n{input_doc}")
+            print(tmp_doc)
         sys.exit(1)
 
         # Dependency
@@ -740,13 +787,17 @@ Return your answer as four sections, each starting with a header line:
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
-            logger.warning("No usage information found in response. Tokens used may not be available.")
+            logger.warning(
+                "No usage information found in response. Tokens used may not be available."
+            )
             return tokens
         tokens["input"] = int(getattr(usage, "input_tokens", 0))
         tokens["output"] = int(getattr(usage, "output_tokens", 0))
         tokens["total"] = int(getattr(usage, "total_tokens", 0))
         if tokens["total"] == 0:
-            logger.warning("No tokens used reported in response. This may indicate an issue with the API call.")
+            logger.warning(
+                "No tokens used reported in response. This may indicate an issue with the API call."
+            )
         return tokens
 
 

@@ -508,9 +508,9 @@ def from_ud(
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
 
-    feature_name, feature_value = _postprocess_latincy_ud_types(
-        feature_name=feature_name, feature_value=feature_value
-    )
+    # feature_name, feature_value = _postprocess_latincy_ud_types(
+    #     feature_name=feature_name, feature_value=feature_value
+    # )
 
     if feature_name in FORM_UD_MAP:
         feature_map = FORM_UD_MAP[feature_name]
