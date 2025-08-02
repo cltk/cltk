@@ -60,19 +60,26 @@ Text: {input_doc.normalized_text}
         except OpenAIError as openai_error:
             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
         logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
+        chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(response=chatgpt_response)
+        logger.info(f"ChatGPT usage: {chatgpt_usage}")
+        if not input_doc.chatgpt:
+            input_doc.chatgpt = list()
+        input_doc.chatgpt.append(chatgpt_usage)
         if not input_doc.normalized_text:
             raise CLTKException("Input document must have `.normalized_text` set.")
         if not chatgpt_response.output_text:
             raise CLTKException(
                 "No output text returned from OpenAI. Check your prompt and API key."
             )
-        logger.debug(f"Raw ChatGPT response:\n{chatgpt_response.output_text}")
+        raw_chatgpt_response_normalized: str = cltk_normalize(
+            text=chatgpt_response.output_text
+        )
 
         def extract_code_blocks(text):
             # This regex finds all text between triple backticks
             return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
 
-        code_blocks = extract_code_blocks(chatgpt_response.output_text)
+        code_blocks = extract_code_blocks(raw_chatgpt_response_normalized)
         if not code_blocks:
             logger.warning("No code blocks found in ChatGPT response.")
             raise CLTKException("No code blocks found in ChatGPT response.")
@@ -130,115 +137,39 @@ Text: {input_doc.normalized_text}
                 word.features = features_bundle
             words.append(word)
         logger.debug(f"Created {len(words)} Word objects from POS tags.")
-        logger.debug("Words:", words)
+        logger.debug("Words: %s", ", ".join([word.string or "" for word in words]))
         if not input_doc.words:
             logger.debug("`input_doc.words` is empty. Setting with new words.")
             input_doc.words = words
         else:
             # TODO: Handle case where input_doc.words already has data
             logger.warning("`input_doc.words` already has data. Not overwriting.")
-
+            raise CLTKException(
+                "`input_doc.words` already has data. Not overwriting. "
+                "Consider clearing it first if you want to replace."
+            )
+        
+        # Get start/stop indexes for each word in the input text
+        start = 0
+        for word_idx, word in enumerate(input_doc.words):
+            if not word.string:
+                word.index_char_start = None
+                word.index_char_stop = None
+                input_doc.words[word_idx] = word  # Update in-place
+                continue
+            char_idx = input_doc.normalized_text.find(word.string, start)
+            if char_idx != -1:
+                word.index_char_start = char_idx
+                word.index_char_stop = char_idx + len(word.string)
+                start = word.index_char_stop  # move past this word for next search
+            else:
+                word.index_char_start = None
+                word.index_char_stop = None
+            input_doc.words[word_idx] = word  # Update in-place
+        logger.debug("Set character indexes for each word in input_doc.words.")
+        sys.exit(1)
         return input_doc
 
-        # doc_with_pos_data = self._post_process_pos_response(
-        #     input_doc=input_doc,
-        #     response=chatgpt_response.output_text,
-        #     input_text=input_doc.normalized_text,
-        #     chatgpt_response_obj=chatgpt_response,
-        #     print_raw_response=print_raw_response,
-        # )
-        # usage: Optional[ResponseUsage] = getattr(chatgpt_response, "usage", None)
-        # tokens_used: int = 0
-        # if not usage:
-        #     logger.warning(
-        #         "No usage information found in response. Tokens used may not be available."
-        #     )
-        # else:
-        #     # Also available: usage.input_tokens, .input_tokens_details, .output_tokens, .output_tokens_details
-        #     tokens_used: int = int(getattr(usage, "total_tokens", 0))
-        #     if tokens_used == 0:
-        #         logger.warning(
-        #             "No tokens used reported in response. This may indicate an issue with the API call."
-        #         )
-        # previous_total_tokens: int = getattr(input_doc.chatgpt, "tokens_total", 0)
-        # doc_with_pos_data.chatgpt = {
-        #     "pos_tokens_used": tokens_used,
-        #     "total_tokens_used": previous_total_tokens + tokens_used,
-        #     "model": self.model,
-        #     "temperature": self.temperature,
-        # }
-        # return doc_with_pos_data
-
-    def _post_process_pos_response(
-        self,
-        input_doc: Doc,
-        response: str,
-        input_text: str,
-        chatgpt_response_obj: Response,
-        print_raw_response: bool = False,
-    ) -> Doc:
-        """Post-process the response to format it correctly."""
-        if print_raw_response:
-            logger.debug(f"Raw OpenAI response: {response}")
-        # Try to extract between --- markers, but fall back to extracting lines with ** if not found
-        start_index = response.find("---")
-        end_index = response.rfind("---")
-        if start_index != -1 and end_index != -1:
-            relevant_section = response[start_index + 3 : end_index].strip()
-            lines = [
-                line.strip() for line in relevant_section.split("\n") if line.strip()
-            ]
-            cleaned_response = "\n".join(lines)
-        else:
-            # Fallback: extract only lines starting with **
-            lines = [
-                line.strip()
-                for line in response.split("\n")
-                if line.strip().startswith("**")
-            ]
-            cleaned_response = "\n".join(lines)
-        if print_raw_response:
-            logger.debug(f"Cleaned response for word parsing: {cleaned_response}")
-        word_level_info: dict[str, dict] = self._get_word_info(
-            response=cleaned_response, print_raw_response=print_raw_response
-        )
-        if not word_level_info:
-            logger.warning(
-                "No word info parsed from response. Falling back to whitespace tokenization."
-            )
-            # Fallback: tokenize input_text and create minimal Word objects
-            tokens = input_text.split()
-            word_level_info = {
-                token: {
-                    "lemma": None,
-                    "gloss": None,
-                    "ner": None,
-                    "paradigm": None,
-                    "ipa": None,
-                    "pos_morph": "X",
-                }
-                for token in tokens
-            }
-        doc_with_pos_added: Doc = self._add_pos_word_info_to_doc(
-            input_doc=input_doc, word_info_dict=word_level_info, input_text=input_text
-        )
-        # Add ChatGPT metadata
-        chatgpt_meta = dict()
-        usage = getattr(chatgpt_response_obj, "usage", None)
-        if usage is not None:
-            chatgpt_meta["tokens_total"] = str(
-                getattr(
-                    usage,
-                    "total_tokens",
-                    getattr(usage, "get", lambda k, d=None: d)("total_tokens", ""),
-                )
-            )
-        chatgpt_meta["model"] = str(
-            getattr(chatgpt_response_obj, "model", getattr(self, "model", ""))
-        )
-        chatgpt_meta["temperature"] = str(getattr(self, "temperature", ""))
-        doc_with_pos_added.chatgpt = chatgpt_meta
-        return doc_with_pos_added
 
     def _get_word_info(
         self, response: str, print_raw_response: bool = False
@@ -803,6 +734,20 @@ Return your answer as four sections, each starting with a header line:
                 f"No valid TSV word info found in response:\n{response}"
             )
         return data
+
+    def chatgpt_response_tokens(self, response: Response) -> dict[str, int]:
+        """Extract token usage information from an OpenAI Response object."""
+        usage = getattr(response, "usage", None)
+        tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
+        if not usage:
+            logger.warning("No usage information found in response. Tokens used may not be available.")
+            return tokens
+        tokens["input"] = int(getattr(usage, "input_tokens", 0))
+        tokens["output"] = int(getattr(usage, "output_tokens", 0))
+        tokens["total"] = int(getattr(usage, "total_tokens", 0))
+        if tokens["total"] == 0:
+            logger.warning("No tokens used reported in response. This may indicate an issue with the API call.")
+        return tokens
 
 
 if __name__ == "__main__":
