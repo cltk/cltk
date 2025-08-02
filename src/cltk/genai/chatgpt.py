@@ -40,6 +40,107 @@ class ChatGPT:
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
 
+    def generate_all(
+        self,
+        input_doc: Doc,
+    ) -> Doc:
+        """
+        Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
+        Returns a CLTK Doc with all information populated.
+        """
+        if not input_doc.raw and not input_doc.normalized_text:
+            logger.warning(
+                "Input document must have either `.normalized_text` or `raw` text."
+            )
+        if not input_doc.normalized_text:
+            logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
+            input_doc.normalized_text = cltk_normalize(input_doc.raw)
+        # Get sentence indices if not set already
+        if not input_doc.sentence_boundaries:
+            input_doc.sentence_boundaries = split_ancient_greek_sentences(
+                text=input_doc.normalized_text
+            )
+            logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
+
+        # POS/morphology
+        tmp_docs: list[Doc] = list()
+        for sent_idx, sentence_boundary in enumerate(input_doc.sentence_boundaries):
+            tmp_doc = deepcopy(input_doc)
+            tmp_doc = self.generate_pos(
+                input_doc=tmp_doc,
+                sentence_idx=sent_idx,
+            )
+            tmp_docs.append(tmp_doc)
+            logger.debug(f"`input_doc` after ChatGPT POS tagging:\n{input_doc}")
+            print(tmp_doc)
+        # Combine all Word objects from tmp_docs into a single list
+        all_words: list[Word] = list()
+        token_counter: int = 0
+        for doc in tmp_docs:
+            for word in doc.words:
+                word.index_token = token_counter
+                all_words.append(word)
+                token_counter += 1
+        logger.debug(
+            f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
+        )
+        # Assign to your main Doc
+        input_doc.words = all_words
+        logger.debug(f"Doc after POS tagging:\n{input_doc}")
+        sys.exit(1)
+
+        # Dependency
+        dep_doc, dep_tokens_used = self._call_with_usage(
+            self.generate_dependency,
+            doc=pos_doc,
+            prompt_template=dep_prompt_template,
+            print_raw_response=print_raw_response,
+        )
+        # Metadata
+        metadata, metadata_tokens_used = self._call_with_usage(
+            self.generate_doc_metadata,
+            input_text=input_doc.normalized_text,
+            print_raw_response=print_raw_response,
+        )
+        dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        dep_doc.translation = metadata.get("translation", None)
+        dep_doc.summary = metadata.get("summary", None)
+        dep_doc.topic = metadata.get("topic", None)
+        # Discourse relations
+        discourse, discourse_tokens_used = self._call_with_usage(
+            self.generate_discourse_relations,
+            input_text=input_doc.normalized_text,
+            print_raw_response=print_raw_response,
+        )
+        dep_doc.discourse_relations = discourse
+        # Coreference resolution
+        coref, coref_tokens_used = self._call_with_usage(
+            self.generate_coreferences,
+            input_text=input_doc.normalized_text,
+            print_raw_response=print_raw_response,
+        )
+        dep_doc.coreferences = coref
+        # Aggregate token usage
+        tokens_per_call = {
+            "pos": pos_tokens_used,
+            "dep": dep_tokens_used,
+            "metadata": metadata_tokens_used,
+            "discourse": discourse_tokens_used,
+            "coref": coref_tokens_used,
+        }
+        total_tokens = sum(
+            int(v)
+            for v in tokens_per_call.values()
+            if v is not None and str(v).isdigit()
+        )
+        dep_doc.chatgpt = {
+            "tokens_total": total_tokens,
+            "tokens_per_call": tokens_per_call,
+            "model": self.model,
+            "temperature": self.temperature,
+        }
+        return dep_doc
+
     def generate_pos(
         self,
         input_doc: Doc,
@@ -175,7 +276,7 @@ Text: {input_doc.normalized_text}
             if not word.string:
                 word.index_char_start = None
                 word.index_char_stop = None
-                input_doc.words[word_idx] = word  # Update in-place
+                input_doc.words[word_idx] = word
                 continue
             char_idx = input_doc.normalized_text.find(word.string, start)
             if char_idx != -1:
@@ -185,7 +286,7 @@ Text: {input_doc.normalized_text}
             else:
                 word.index_char_start = None
                 word.index_char_stop = None
-            input_doc.words[word_idx] = word  # Update in-place
+            input_doc.words[word_idx] = word
         logger.debug("Set character indexes for each word in input_doc.words.")
 
         # Add sentence idx to Word objects
@@ -260,140 +361,6 @@ Text: {input_doc.normalized_text}
                 logger.debug(f"Parsed word_info: {word_info}")
         return word_info
 
-    def _add_pos_word_info_to_doc(
-        self,
-        input_doc: Doc,
-        word_info_dict: dict[str, dict],
-        input_text: str,
-        # print_raw_response: bool = False,
-    ) -> Doc:
-        """Build a CLTK Doc from the word info dictionary."""
-        words: list[Word] = list()
-        used_spans = []  # List of (start, stop) for already matched words
-
-        def is_span_used(start, stop):
-            for s, e in used_spans:
-                if not (stop <= s or start >= e):
-                    return True
-            return False
-
-        for idx, (word, info) in enumerate(word_info_dict.items()):
-            norm_word = cltk_normalize(word)
-            pos_info = info["pos_morph"].split("|")
-            pos_tag = pos_info[0]
-            morph_dict: dict[str, list[str]] = dict()
-            custom_features: dict[str, list[str]] = dict()
-            verbform_part_needed = False
-            for feature in pos_info[1:]:
-                if "=" not in feature:
-                    continue
-                key, value = feature.split("=")
-                if key not in FORM_UD_MAP:
-                    mapped = self._map_non_ud_feature(key, value)
-                    for mapped_key, mapped_value in mapped:
-                        if mapped_key in FORM_UD_MAP:
-                            values = self._normalize_feature_value(
-                                mapped_key, mapped_value
-                            )
-                            if values:
-                                morph_dict[mapped_key] = values
-                        else:
-                            if mapped_key not in custom_features:
-                                custom_features[mapped_key] = []
-                            custom_features[mapped_key].append(mapped_value)
-                else:
-                    values = self._normalize_feature_value(key, value)
-                    if key == "Mood" and value == "Part":
-                        verbform_part_needed = True
-                    if values:
-                        morph_dict[key] = values
-            # If Mood=Part was present, ensure VerbForm=Part is added
-            if verbform_part_needed and (
-                "VerbForm" not in morph_dict
-                or "Part" not in morph_dict.get("VerbForm", [])
-            ):
-                if "VerbForm" in morph_dict:
-                    morph_dict["VerbForm"].append("Part")
-                else:
-                    morph_dict["VerbForm"] = ["Part"]
-            morph_features = MorphosyntacticFeatureBundle()
-            for key, values in morph_dict.items():
-                for value in values:
-                    feature_instance = from_ud(key, value)
-                    if feature_instance:
-                        morph_features[type(feature_instance)] = [feature_instance]
-            # Find char indexes by searching for the word in input_text
-            index_token = None
-            index_char_start = None
-            index_char_stop = None
-            norm_input_text = cltk_normalize(input_text)
-            import re
-
-            pattern = re.compile(re.escape(norm_word))
-            found = False
-            for match in pattern.finditer(norm_input_text):
-                start, stop = match.start(), match.end()
-                if not is_span_used(start, stop):
-                    index_char_start = start
-                    index_char_stop = stop
-                    used_spans.append((start, stop))
-                    index_token = sum(1 for s, e in used_spans if s < start)
-                    found = True
-                    break
-            if not found:
-
-                def strip_accents(s):
-                    return "".join(
-                        c
-                        for c in unicodedata.normalize("NFD", s)
-                        if unicodedata.category(c) != "Mn"
-                    )
-
-                norm_word_stripped = strip_accents(norm_word).lower()
-                norm_input_text_stripped = strip_accents(norm_input_text).lower()
-                pattern_stripped = re.compile(re.escape(norm_word_stripped))
-                for match in pattern_stripped.finditer(norm_input_text_stripped):
-                    start, stop = match.start(), match.end()
-                    if not is_span_used(start, stop):
-                        index_char_start = start
-                        index_char_stop = stop
-                        used_spans.append((start, stop))
-                        index_token = sum(1 for s, e in used_spans if s < start)
-                        break
-            cltk_word: Word = Word(
-                string=word,
-                upos=pos_tag,
-                features=morph_features,
-                index_token=index_token,
-                index_char_start=index_char_start,
-                index_char_stop=index_char_stop,
-            )
-            # Set new features if present
-            if info.get("lemma"):
-                cltk_word.lemma = info["lemma"]
-            if info.get("gloss"):
-                cltk_word.definition = info["gloss"]
-            if info.get("ner"):
-                cltk_word.named_entity = info["ner"]
-            if info.get("paradigm"):
-                cltk_word.stem = info["paradigm"]
-            if info.get("ipa"):
-                cltk_word.phonetic_transcription = info["ipa"]
-            if custom_features:
-                if cltk_word.definition:
-                    cltk_word.definition += f"; custom: {str(custom_features)}"
-                else:
-                    cltk_word.definition = str(custom_features)
-            words.append(cltk_word)
-        if not words:
-            logger.warning(f"No Word objects created for input: {input_text}")
-        else:
-            logger.debug(
-                f"Built {len(words)} Word objects: {[w.string for w in words]}"
-            )
-        input_doc.words = words
-        return input_doc
-
     def generate_dependency(
         self,
         doc: Doc,
@@ -464,135 +431,44 @@ Text: {input_doc.normalized_text}
                     word_obj.definition = f"dep: {extra}"
         return doc
 
-    def generate_all(
-        self,
-        input_doc: Doc,
-    ) -> Doc:
-        """
-        Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
-        Returns a CLTK Doc with all information populated.
-        """
-        if not input_doc.raw and not input_doc.normalized_text:
-            logger.warning(
-                "Input document must have either `.normalized_text` or `raw` text."
-            )
-        if not input_doc.normalized_text:
-            logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
-            input_doc.normalized_text = cltk_normalize(input_doc.raw)
-        # Get sentence indices if not set already
-        if not input_doc.sentence_boundaries:
-            input_doc.sentence_boundaries = split_ancient_greek_sentences(
-                text=input_doc.normalized_text
-            )
-            logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
-
-        # POS/morphology
-        sentence_boundary: tuple[int, int]
-        tmp_docs: list[Doc] = list()
-        for sent_idx, sentence_boundary in enumerate(input_doc.sentence_boundaries):
-            sentence_start_idx, sentence_end_idx = sentence_boundary
-            assert input_doc.normalized_text is not None
-            # sentence: str = input_doc.normalized_text[sentence_start_idx:sentence_end_idx]
-            tmp_doc = deepcopy(input_doc)
-            tmp_doc = self.generate_pos(
-                input_doc=tmp_doc,
-                sentence_idx=sent_idx,
-            )
-            tmp_docs.append(tmp_doc)
-            logger.debug(f"`input_doc` after ChatGPT POS tagging:\n{input_doc}")
-            print(tmp_doc)
-        sys.exit(1)
-
-        # Dependency
-        dep_doc, dep_tokens_used = self._call_with_usage(
-            self.generate_dependency,
-            doc=pos_doc,
-            prompt_template=dep_prompt_template,
-            print_raw_response=print_raw_response,
-        )
-        # Metadata
-        metadata, metadata_tokens_used = self._call_with_usage(
-            self.generate_doc_metadata,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
-        dep_doc.translation = metadata.get("translation", None)
-        dep_doc.summary = metadata.get("summary", None)
-        dep_doc.topic = metadata.get("topic", None)
-        # Discourse relations
-        discourse, discourse_tokens_used = self._call_with_usage(
-            self.generate_discourse_relations,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        dep_doc.discourse_relations = discourse
-        # Coreference resolution
-        coref, coref_tokens_used = self._call_with_usage(
-            self.generate_coreferences,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        dep_doc.coreferences = coref
-        # Aggregate token usage
-        tokens_per_call = {
-            "pos": pos_tokens_used,
-            "dep": dep_tokens_used,
-            "metadata": metadata_tokens_used,
-            "discourse": discourse_tokens_used,
-            "coref": coref_tokens_used,
-        }
-        total_tokens = sum(
-            int(v)
-            for v in tokens_per_call.values()
-            if v is not None and str(v).isdigit()
-        )
-        dep_doc.chatgpt = {
-            "tokens_total": total_tokens,
-            "tokens_per_call": tokens_per_call,
-            "model": self.model,
-            "temperature": self.temperature,
-        }
-        return dep_doc
-
-    def _call_with_usage(self, func, *args, **kwargs):
-        """Helper to call a function and extract token usage from its response object or internal usage attributes.
-        Returns (result, tokens_total) where result is the main output and tokens_total is an int or None.
-        """
-        if func == self.generate_pos:
-            doc = func(*args, **kwargs)
-            usage = (
-                doc.chatgpt.get("tokens_total")
-                if hasattr(doc, "chatgpt") and doc.chatgpt
-                else None
-            )
-            return doc, usage
-        elif func == self.generate_dependency:
-            doc = func(*args, **kwargs)
-            usage = (
-                doc.chatgpt.get("tokens_total")
-                if hasattr(doc, "chatgpt") and doc.chatgpt
-                else None
-            )
-            return doc, usage
-        elif func == self.generate_doc_metadata:
-            result = func(*args, **kwargs)
-            usage = getattr(self, "_last_metadata_usage", None)
-            return result, usage
-        elif func == self.generate_discourse_relations:
-            result = func(*args, **kwargs)
-            usage = getattr(self, "_last_discourse_usage", None)
-            return result, usage
-        elif func == self.generate_coreferences:
-            result = func(*args, **kwargs)
-            usage = getattr(self, "_last_coref_usage", None)
-            return result, usage
-        else:
-            result = func(*args, **kwargs)
-            usage = None
-            if hasattr(result, "chatgpt") and result.chatgpt:
-                usage = result.chatgpt.get("tokens_total")
-            return result, usage
+    # def _call_with_usage(self, func, *args, **kwargs):
+    #     """Helper to call a function and extract token usage from its response object or internal usage attributes.
+    #     Returns (result, tokens_total) where result is the main output and tokens_total is an int or None.
+    #     """
+    #     if func == self.generate_pos:
+    #         doc = func(*args, **kwargs)
+    #         usage = (
+    #             doc.chatgpt.get("tokens_total")
+    #             if hasattr(doc, "chatgpt") and doc.chatgpt
+    #             else None
+    #         )
+    #         return doc, usage
+    #     elif func == self.generate_dependency:
+    #         doc = func(*args, **kwargs)
+    #         usage = (
+    #             doc.chatgpt.get("tokens_total")
+    #             if hasattr(doc, "chatgpt") and doc.chatgpt
+    #             else None
+    #         )
+    #         return doc, usage
+    #     elif func == self.generate_doc_metadata:
+    #         result = func(*args, **kwargs)
+    #         usage = getattr(self, "_last_metadata_usage", None)
+    #         return result, usage
+    #     elif func == self.generate_discourse_relations:
+    #         result = func(*args, **kwargs)
+    #         usage = getattr(self, "_last_discourse_usage", None)
+    #         return result, usage
+    #     elif func == self.generate_coreferences:
+    #         result = func(*args, **kwargs)
+    #         usage = getattr(self, "_last_coref_usage", None)
+    #         return result, usage
+    #     else:
+    #         result = func(*args, **kwargs)
+    #         usage = None
+    #         if hasattr(result, "chatgpt") and result.chatgpt:
+    #             usage = result.chatgpt.get("tokens_total")
+    #         return result, usage
 
     def generate_doc_metadata(
         self,
