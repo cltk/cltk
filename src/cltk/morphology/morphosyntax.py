@@ -45,7 +45,7 @@ class MorphosyntacticFeatureBundle:
         """
         if type(feature_name) == str:
             if feature_name not in globals():
-                raise TypeError(str(feature_name) + " is not a morphosytactic feature")
+                raise TypeError(feature_name + " is not a morphosytactic feature")
             feature_name = globals()[feature_name]
 
         if not issubclass(feature_name, MorphosyntacticFeature):
@@ -73,13 +73,11 @@ class MorphosyntacticFeatureBundle:
         """
         if type(feature_name) == str:
             if feature_name not in globals():
-                raise TypeError(
-                    f"'{str(feature_name)}' is not a morphosyntactic feature"
-                )
+                raise TypeError(feature_name + " is not a morphosytactic feature")
             feature_name = globals()[feature_name]
 
         if not issubclass(feature_name, MorphosyntacticFeature):
-            raise TypeError(f"'{str(feature_name)}' is not a morphosyntactic feature")
+            raise TypeError(str(feature_name) + " is not a morphosyntactic feature")
 
         if type(feature_values) is not list:
             feature_values = [feature_values]
@@ -508,9 +506,9 @@ def from_ud(
         feature_value = feature_name_split[1][:-1]
         feature_value = feature_value.title()
 
-    # feature_name, feature_value = _postprocess_latincy_ud_types(
-    #     feature_name=feature_name, feature_value=feature_value
-    # )
+    feature_name, feature_value = _postprocess_latincy_ud_types(
+        feature_name=feature_name, feature_value=feature_value
+    )
 
     if feature_name in FORM_UD_MAP:
         feature_map = FORM_UD_MAP[feature_name]

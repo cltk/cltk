@@ -75,6 +75,7 @@ class Word:
     stem: Optional[str] = None
     scansion: Optional[str] = None
     xpos: Optional[str] = None  # treebank-specific POS tag (from Stanza or Spacy)
+    # TODO: Enforce `upos` to set of valid tags in UD at `FORM_UD_MAP`: https://universaldependencies.org/u/pos/all.html
     upos: Optional[str] = None  # universal POS tag (from Stanza or Spacy)
     dependency_relation: Optional[str] = None  # (from Stanza or Spacy)
     governor: Optional[int] = None
@@ -193,23 +194,21 @@ class Doc:
     raw: Optional[str] = None
     normalized_text: Optional[str] = None
     embeddings_model: Optional[object] = None
-    sentence_embeddings: Optional[dict[int, np.ndarray]] = field(default_factory=dict)
+    sentence_embeddings: dict[int, np.ndarray] = field(default_factory=dict)
     # --- New fields for extended features ---
     translation: Optional[str] = None  # Full translation of the input text
     summary: Optional[str] = None  # Short summary or paraphrase
     topic: Optional[str] = None  # Topic or domain classification
-    discourse_relations: Optional[list[str]] = field(
+    discourse_relations: list[str] = field(
         default_factory=list
     )  # Discourse relations between sentences/clauses
-    coreferences: Optional[list[tuple[str, str, int, int]]] = field(
+    coreferences: list[tuple[str, str, int, int]] = field(
         default_factory=list
     )  # (pronoun, referent, sentence idx, word idx)
-    sentence_boundaries: Optional[list[tuple[int, int]]] = field(
+    sentence_boundaries: list[tuple[int, int]] = field(
         default_factory=list
     )  # List of (start, stop) char offsets for sentences
-    chatgpt: Optional[list[dict[str, Any]]] = field(
-        default_factory=list
-    )  # ChatGPT metadata
+    chatgpt: list[dict[str, Any]] = field(default_factory=list)  # ChatGPT metadata
 
     @property
     def sentences(self) -> list[Sentence]:

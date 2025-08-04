@@ -45,6 +45,9 @@ preCommitUpdate:
 preCommitRun:
 	poetry run pre-commit run --all-files
 
+profile:
+	poetry run python -m cProfile -o profile.out src/cltk/nlp.py && poetry run snakeviz profile.out
+
 publishPyPI:
 	make build
 	poetry publish

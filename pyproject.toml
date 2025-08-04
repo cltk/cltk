@@ -57,6 +57,7 @@ scikit-learn = "^1.0.2"
 torch = ">=2.0.0, !=2.0.1, !=2.1.0"
 openai = "^1.95.1"
 python-dotenv = "^1.1.1"
+pydantic = "^2.11.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.4.3"
@@ -76,6 +77,7 @@ mypy = "^1.8.0"
 lxml = "^4.9"
 black = "^23.12.1"
 isort = "^5.13.2"
+snakeviz = "^2.2.2"
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
