@@ -9,6 +9,7 @@ from pydantic import BaseModel, field_validator, model_validator
 
 from cltk.core.cltk_logger import logger
 
+# TODO: This can probably be removed; was used to validate UDDeprel instances
 VALID_DEPREL_CATEGORIES: dict[str, tuple[str, Optional[str]]] = {
     "nsubj": ("Nominal", "Core Argument"),
     "obj": ("Nominal", "Core Argument"),
@@ -66,6 +67,7 @@ class UDDeprel(BaseModel):
     syntactic_role: Optional[
         Literal["Core Argument", "Non-core Dependent", "Nominal Dependent"]
     ] = None
+    subtypes: Optional[list[str]] = None
     description: str  # Official UD description
     is_obsolete: Optional[bool] = False
 
@@ -83,16 +85,33 @@ class UDDeprel(BaseModel):
 class UDDeprelTag(BaseModel):
     code: str  # e.g., "nsubj"
     name: str  # Human-readable name
+    subtype: Optional[str] = None  # e.g., "outer", "pass"
 
     @field_validator("code")
     @classmethod
-    def validate_code(cls, v):
-        if v not in UD_DEPRELS:
-            raise ValueError(f"Invalid UD DepRel code: '{v}'")
-        return v
+    def validate_code(cls, deprel_code):
+        if deprel_code not in UD_DEPRELS:
+            raise ValueError(f"Invalid UD DepRel code: '{deprel_code}'")
+        return deprel_code
+
+    @field_validator("subtype")
+    @classmethod
+    def validate_subtype(cls, subtype, values):
+        code = values.data.get("code")
+        if subtype:
+            deprel = UD_DEPRELS.get(code)
+            if not deprel or not deprel.subtypes or subtype not in deprel.subtypes:
+                raise ValueError(
+                    f"DepRel subtype '{subtype}' not available for DepRel '{code}'"
+                )
+        return subtype
 
     def __str__(self):
-        return f'UDDeprelTag(code="{self.code}", name="{self.name}")'
+        string: str = f'UDDeprelTag(code="{self.code}", name="{self.name}"'
+        if self.subtype:
+            string += f', subtype="{self.subtype}"'
+        string += ")"
+        return string
 
     def __repr__(self):
         return self.__str__()
@@ -106,6 +125,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Clause",
         syntactic_role="Nominal Dependent",
         description="Clausal modifier of noun (adnominal clause).",
+        subtypes=["relcl"],
     ),
     "advcl": UDDeprel(
         code="advcl",
@@ -113,6 +133,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Clause",
         syntactic_role="Non-core Dependent",
         description="Adverbial clause modifier.",
+        subtypes=["relcl"],
     ),
     "advmod": UDDeprel(
         code="advmod",
@@ -120,6 +141,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Modifier Word",
         syntactic_role="Non-core Dependent",
         description="Adverbial modifier.",
+        subtypes=["emph", "lmod"],
     ),
     "amod": UDDeprel(
         code="amod",
@@ -141,6 +163,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Function Word",
         syntactic_role="Non-core Dependent",
         description="Auxiliary.",
+        subtypes=["pass"],
     ),
     "case": UDDeprel(
         code="case",
@@ -155,6 +178,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Coordination",
         syntactic_role=None,
         description="Coordinating conjunction.",
+        subtypes=["preconj"],
     ),
     "ccomp": UDDeprel(
         code="ccomp",
@@ -176,6 +200,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Special",
         syntactic_role=None,
         description="Compound.",
+        subtypes=["lvc", "prt", "redup", "svc"],
     ),
     "conj": UDDeprel(
         code="conj",
@@ -197,6 +222,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Clause",
         syntactic_role="Core Argument",
         description="Clausal subject.",
+        subtypes=["outer", "pass"],
     ),
     "dep": UDDeprel(
         code="dep",
@@ -211,6 +237,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Function Word",
         syntactic_role="Nominal Dependent",
         description="Determiner.",
+        subtypes=["numgov", "nummod", "poss"],
     ),
     "discourse": UDDeprel(
         code="discourse",
@@ -232,6 +259,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Nominal",
         syntactic_role="Non-core Dependent",
         description="Expletive.",
+        subtypes=["impers", "pass", "pv"],
     ),
     "fixed": UDDeprel(
         code="fixed",
@@ -246,6 +274,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Headless",
         syntactic_role=None,
         description="Flat multiword expression.",
+        subtypes=["foreign", "name"],
     ),
     "goeswith": UDDeprel(
         code="goeswith",
@@ -281,6 +310,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Nominal",
         syntactic_role="Nominal Dependent",
         description="Nominal modifier.",
+        subtypes=["poss", "tmod"],
     ),
     "nsubj": UDDeprel(
         code="nsubj",
@@ -288,6 +318,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Nominal",
         syntactic_role="Core Argument",
         description="Nominal subject.",
+        subtypes=["outer", "pass"],
     ),
     "nummod": UDDeprel(
         code="nummod",
@@ -295,6 +326,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Nominal",
         syntactic_role="Nominal Dependent",
         description="Numeric modifier.",
+        subtypes=["gov"],
     ),
     "obj": UDDeprel(
         code="obj",
@@ -309,6 +341,7 @@ UD_DEPRELS: dict[str, UDDeprel] = {
         word_type="Nominal",
         syntactic_role="Non-core Dependent",
         description="Oblique nominal.",
+        subtypes=["agent", "arg", "lmod", "tmod"],
     ),
     "orphan": UDDeprel(
         code="orphan",
@@ -367,16 +400,20 @@ def is_valid_deprel(code: str) -> bool:
     return code in UD_DEPRELS
 
 
-def get_ud_deprel_tag(code: str) -> Optional[UDDeprelTag]:
+def get_ud_deprel_tag(
+    code: str, subtype: Optional[str] = None
+) -> Optional[UDDeprelTag]:
     """Return a UDDeprelTag for the given code, or None if not found."""
     deprel = UD_DEPRELS.get(code)
     if not deprel:
         logger.warning(f"Unknown UD DepRel code '{code}'.")
         return None
-    return UDDeprelTag(
+    tag: UDDeprelTag = UDDeprelTag(
         code=deprel.code,
         name=deprel.name,
+        subtype=subtype,
     )
+    return tag
 
 
 if __name__ == "__main__":
@@ -385,7 +422,7 @@ if __name__ == "__main__":
     print(tag)
     tag2 = get_ud_deprel_tag("obj")
     print(tag2)
-
+    print("")
     # Direct instantiation with validation
     try:
         tag3 = UDDeprelTag(code="nsubj", name="nominal subject")
@@ -394,5 +431,14 @@ if __name__ == "__main__":
         print(e)
     try:
         tag4 = UDDeprelTag(code="notareal", name="fake")
+    except ValueError as e:
+        print(e)
+    print("")
+    tag = get_ud_deprel_tag("nsubj", subtype="outer")
+    print(tag)
+    print("")
+    try:
+        tag = get_ud_deprel_tag("nsubj", subtype="invalid-subtype")
+        print(tag)
     except ValueError as e:
         print(e)
