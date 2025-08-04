@@ -3,18 +3,81 @@
 https://universaldependencies.org/u/dep/index.html
 """
 
-from typing import Optional
+from typing import Literal, Optional
 
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, model_validator
 
 from cltk.core.cltk_logger import logger
+
+VALID_DEPREL_CATEGORIES: dict[str, tuple[str, Optional[str]]] = {
+    "nsubj": ("Nominal", "Core Argument"),
+    "obj": ("Nominal", "Core Argument"),
+    "iobj": ("Nominal", "Core Argument"),
+    "csubj": ("Clause", "Core Argument"),
+    "ccomp": ("Clause", "Core Argument"),
+    "xcomp": ("Clause", "Core Argument"),
+    "obl": ("Nominal", "Non-core Dependent"),
+    "vocative": ("Nominal", "Non-core Dependent"),
+    "expl": ("Nominal", "Non-core Dependent"),
+    "dislocated": ("Nominal", "Non-core Dependent"),
+    "advcl": ("Clause", "Non-core Dependent"),
+    "advmod": ("Modifier Word", "Non-core Dependent"),
+    "discourse": ("Modifier Word", "Non-core Dependent"),
+    "aux": ("Function Word", "Non-core Dependent"),
+    "cop": ("Function Word", "Non-core Dependent"),
+    "mark": ("Function Word", "Non-core Dependent"),
+    "nmod": ("Nominal", "Nominal Dependent"),
+    "appos": ("Nominal", "Nominal Dependent"),
+    "nummod": ("Nominal", "Nominal Dependent"),
+    "acl": ("Clause", "Nominal Dependent"),
+    "amod": ("Modifier Word", "Nominal Dependent"),
+    "det": ("Function Word", "Nominal Dependent"),
+    "case": ("Function Word", "Nominal Dependent"),
+    "conj": ("Coordination", None),
+    "cc": ("Coordination", None),
+    "fixed": ("Headless", None),
+    "flat": ("Headless", None),
+    "list": ("Loose", None),
+    "parataxis": ("Loose", None),
+    "compound": ("Special", None),
+    "orphan": ("Special", None),
+    "goeswith": ("Special", None),
+    "reparandum": ("Special", None),
+    "punct": ("Other", None),
+    "root": ("Other", None),
+    "dep": ("Other", None),
+}
 
 
 class UDDeprel(BaseModel):
     code: str  # e.g., "nsubj"
     name: str  # Human-readable name, e.g., "nominal subject"
+    word_type: Literal[
+        "Nominal",
+        "Clause",
+        "Modifier Word",
+        "Function Word",
+        "Coordination",
+        "Headless",
+        "Loose",
+        "Special",
+        "Other",
+    ]
+    syntactic_role: Optional[
+        Literal["Core Argument", "Non-core Dependent", "Nominal Dependent"]
+    ] = None
     description: str  # Official UD description
     is_obsolete: Optional[bool] = False
+
+    @model_validator(mode="after")
+    def validate_categories(self):
+        allowed = VALID_DEPREL_CATEGORIES.get(self.code)
+        if allowed:
+            if (self.word_type, self.syntactic_role) != allowed:
+                raise ValueError(
+                    f"For DepRel '{self.code}', only word_type='{allowed[0]}' and syntactic_role='{allowed[1]}' are allowed."
+                )
+        return self
 
 
 class UDDeprelTag(BaseModel):
@@ -40,97 +103,262 @@ UD_DEPRELS: dict[str, UDDeprel] = {
     "acl": UDDeprel(
         code="acl",
         name="clausal modifier of noun",
+        word_type="Clause",
+        syntactic_role="Nominal Dependent",
         description="Clausal modifier of noun (adnominal clause).",
     ),
     "advcl": UDDeprel(
         code="advcl",
         name="adverbial clause modifier",
+        word_type="Clause",
+        syntactic_role="Non-core Dependent",
         description="Adverbial clause modifier.",
     ),
     "advmod": UDDeprel(
-        code="advmod", name="adverbial modifier", description="Adverbial modifier."
+        code="advmod",
+        name="adverbial modifier",
+        word_type="Modifier Word",
+        syntactic_role="Non-core Dependent",
+        description="Adverbial modifier.",
     ),
     "amod": UDDeprel(
-        code="amod", name="adjectival modifier", description="Adjectival modifier."
+        code="amod",
+        name="adjectival modifier",
+        word_type="Modifier Word",
+        syntactic_role="Nominal Dependent",
+        description="Adjectival modifier.",
     ),
     "appos": UDDeprel(
-        code="appos", name="appositional modifier", description="Appositional modifier."
+        code="appos",
+        name="appositional modifier",
+        word_type="Nominal",
+        syntactic_role="Nominal Dependent",
+        description="Appositional modifier.",
     ),
-    "aux": UDDeprel(code="aux", name="auxiliary", description="Auxiliary."),
-    "case": UDDeprel(code="case", name="case marking", description="Case marking."),
+    "aux": UDDeprel(
+        code="aux",
+        name="auxiliary",
+        word_type="Function Word",
+        syntactic_role="Non-core Dependent",
+        description="Auxiliary.",
+    ),
+    "case": UDDeprel(
+        code="case",
+        name="case marking",
+        word_type="Function Word",
+        syntactic_role="Nominal Dependent",
+        description="Case marking.",
+    ),
     "cc": UDDeprel(
         code="cc",
         name="coordinating conjunction",
+        word_type="Coordination",
+        syntactic_role=None,
         description="Coordinating conjunction.",
     ),
     "ccomp": UDDeprel(
         code="ccomp",
         name="clausal complement",
+        word_type="Clause",
+        syntactic_role="Core Argument",
         description="Clausal complement with internal subject.",
     ),
-    "clf": UDDeprel(code="clf", name="classifier", description="Classifier."),
-    "compound": UDDeprel(code="compound", name="compound", description="Compound."),
-    "conj": UDDeprel(code="conj", name="conjunct", description="Conjunct."),
-    "cop": UDDeprel(code="cop", name="copula", description="Copula."),
+    "clf": UDDeprel(
+        code="clf",
+        name="classifier",
+        word_type="Function Word",
+        syntactic_role="Nominal Dependent",
+        description="Classifier.",
+    ),
+    "compound": UDDeprel(
+        code="compound",
+        name="compound",
+        word_type="Special",
+        syntactic_role=None,
+        description="Compound.",
+    ),
+    "conj": UDDeprel(
+        code="conj",
+        name="conjunct",
+        word_type="Coordination",
+        syntactic_role=None,
+        description="Conjunct.",
+    ),
+    "cop": UDDeprel(
+        code="cop",
+        name="copula",
+        word_type="Function Word",
+        syntactic_role="Non-core Dependent",
+        description="Copula.",
+    ),
     "csubj": UDDeprel(
-        code="csubj", name="clausal subject", description="Clausal subject."
+        code="csubj",
+        name="clausal subject",
+        word_type="Clause",
+        syntactic_role="Core Argument",
+        description="Clausal subject.",
     ),
     "dep": UDDeprel(
-        code="dep", name="unspecified dependency", description="Unspecified dependency."
+        code="dep",
+        name="unspecified dependency",
+        word_type="Other",
+        syntactic_role=None,
+        description="Unspecified dependency.",
     ),
-    "det": UDDeprel(code="det", name="determiner", description="Determiner."),
+    "det": UDDeprel(
+        code="det",
+        name="determiner",
+        word_type="Function Word",
+        syntactic_role="Nominal Dependent",
+        description="Determiner.",
+    ),
     "discourse": UDDeprel(
-        code="discourse", name="discourse element", description="Discourse element."
+        code="discourse",
+        name="discourse element",
+        word_type="Modifier Word",
+        syntactic_role="Non-core Dependent",
+        description="Discourse element.",
     ),
     "dislocated": UDDeprel(
         code="dislocated",
         name="dislocated elements",
+        word_type="Nominal",
+        syntactic_role="Non-core Dependent",
         description="Dislocated elements.",
     ),
-    "expl": UDDeprel(code="expl", name="expletive", description="Expletive."),
+    "expl": UDDeprel(
+        code="expl",
+        name="expletive",
+        word_type="Nominal",
+        syntactic_role="Non-core Dependent",
+        description="Expletive.",
+    ),
     "fixed": UDDeprel(
         code="fixed",
         name="fixed multiword expression",
+        word_type="Headless",
+        syntactic_role=None,
         description="Fixed multiword expression.",
     ),
     "flat": UDDeprel(
         code="flat",
         name="flat multiword expression",
+        word_type="Headless",
+        syntactic_role=None,
         description="Flat multiword expression.",
     ),
-    "goeswith": UDDeprel(code="goeswith", name="goes with", description="Goes with."),
-    "iobj": UDDeprel(
-        code="iobj", name="indirect object", description="Indirect object."
+    "goeswith": UDDeprel(
+        code="goeswith",
+        name="goes with",
+        word_type="Special",
+        syntactic_role=None,
+        description="Goes with.",
     ),
-    "list": UDDeprel(code="list", name="list", description="List."),
-    "mark": UDDeprel(code="mark", name="marker", description="Marker."),
+    "iobj": UDDeprel(
+        code="iobj",
+        name="indirect object",
+        word_type="Nominal",
+        syntactic_role="Core Argument",
+        description="Indirect object.",
+    ),
+    "list": UDDeprel(
+        code="list",
+        name="list",
+        word_type="Loose",
+        syntactic_role=None,
+        description="List.",
+    ),
+    "mark": UDDeprel(
+        code="mark",
+        name="marker",
+        word_type="Function Word",
+        syntactic_role="Non-core Dependent",
+        description="Marker.",
+    ),
     "nmod": UDDeprel(
-        code="nmod", name="nominal modifier", description="Nominal modifier."
+        code="nmod",
+        name="nominal modifier",
+        word_type="Nominal",
+        syntactic_role="Nominal Dependent",
+        description="Nominal modifier.",
     ),
     "nsubj": UDDeprel(
-        code="nsubj", name="nominal subject", description="Nominal subject."
+        code="nsubj",
+        name="nominal subject",
+        word_type="Nominal",
+        syntactic_role="Core Argument",
+        description="Nominal subject.",
     ),
     "nummod": UDDeprel(
-        code="nummod", name="numeric modifier", description="Numeric modifier."
+        code="nummod",
+        name="numeric modifier",
+        word_type="Nominal",
+        syntactic_role="Nominal Dependent",
+        description="Numeric modifier.",
     ),
-    "obj": UDDeprel(code="obj", name="object", description="Object."),
-    "obl": UDDeprel(code="obl", name="oblique nominal", description="Oblique nominal."),
-    "orphan": UDDeprel(code="orphan", name="orphan", description="Orphan."),
-    "parataxis": UDDeprel(code="parataxis", name="parataxis", description="Parataxis."),
-    "punct": UDDeprel(code="punct", name="punctuation", description="Punctuation."),
+    "obj": UDDeprel(
+        code="obj",
+        name="object",
+        word_type="Nominal",
+        syntactic_role="Core Argument",
+        description="Object.",
+    ),
+    "obl": UDDeprel(
+        code="obl",
+        name="oblique nominal",
+        word_type="Nominal",
+        syntactic_role="Non-core Dependent",
+        description="Oblique nominal.",
+    ),
+    "orphan": UDDeprel(
+        code="orphan",
+        name="orphan",
+        word_type="Special",
+        syntactic_role=None,
+        description="Orphan.",
+    ),
+    "parataxis": UDDeprel(
+        code="parataxis",
+        name="parataxis",
+        word_type="Loose",
+        syntactic_role=None,
+        description="Parataxis.",
+    ),
+    "punct": UDDeprel(
+        code="punct",
+        name="punctuation",
+        word_type="Other",
+        syntactic_role=None,
+        description="Punctuation.",
+    ),
     "reparandum": UDDeprel(
         code="reparandum",
         name="overridden disfluency",
+        word_type="Special",
+        syntactic_role=None,
         description="Overridden disfluency.",
     ),
-    "root": UDDeprel(code="root", name="root", description="Root."),
-    "vocative": UDDeprel(code="vocative", name="vocative", description="Vocative."),
+    "root": UDDeprel(
+        code="root",
+        name="root",
+        word_type="Other",
+        syntactic_role=None,
+        description="Root.",
+    ),
+    "vocative": UDDeprel(
+        code="vocative",
+        name="vocative",
+        word_type="Nominal",
+        syntactic_role="Non-core Dependent",
+        description="Vocative.",
+    ),
     "xcomp": UDDeprel(
         code="xcomp",
         name="open clausal complement",
+        word_type="Clause",
+        syntactic_role="Core Argument",
         description="Open clausal complement.",
     ),
-    # Add more as needed from the UD documentation
 }
 
 
