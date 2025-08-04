@@ -5,7 +5,7 @@ https://universaldependencies.org/u/feat/index.html
 
 from typing import Literal, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError, field_validator, model_validator
 
 from cltk.core.cltk_logger import logger
 
@@ -29,9 +29,30 @@ class UDFeatureTag(BaseModel):
     # Use this when instantiated a tagged word
     key: str
     value: str
-    value_label: str  # full, human-readable label
-    category: Literal["Lexical", "Inflectional", "Other"]
+    value_label: str = ""
+    category: Literal["Lexical", "Inflectional", "Other"] = "Lexical"
     inflectional_class: Optional[Literal["Nominal", "Verbal"]] = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def fill_fields(cls, data):
+        key = data.get("key")
+        value = data.get("value")
+        if key not in UD_FEATURES_MAP:
+            raise ValueError(f"Invalid UD feature key: '{key}'")
+        feature = UD_FEATURES_MAP[key]
+        if value not in feature.values:
+            raise ValueError(f"Invalid value '{value}' for feature key '{key}'")
+        data["category"] = feature.category
+        data["inflectional_class"] = feature.inflectional_class
+        data["value_label"] = feature.values[value].label
+        return data
+
+    def __str__(self):
+        return f"UDFeatureTag(" f"{self.key}={self.value_label}" + ")"
+
+    def __repr__(self):
+        return self.__str__()
 
 
 class UDFeatureTagSet(BaseModel):
@@ -47,6 +68,13 @@ class UDFeatureTagSet(BaseModel):
             return None
         self.features.append(feature)
         logger.debug(f"Added feature {feature.key} to UDFeatureTagSet.")
+
+    def __str__(self):
+        features_str = ", ".join(str(f) for f in self.features)
+        return f"UDFeatureTagSet([{features_str}])"
+
+    def __repr__(self):
+        return self.__str__()
 
 
 UD_FEATURES: list[UDFeature] = [
@@ -1289,11 +1317,40 @@ def get_ud_feature(key: str, value: str) -> Optional[UDFeatureTag]:
 
 
 if __name__ == "__main__":
+    # Use of functions in this module
     UD_FEATURE_SET: UDFeatureTagSet = UDFeatureTagSet()
     FEAT_1: Optional[UDFeatureTag] = get_ud_feature("Case", "Nom")
     if FEAT_1:
+        # Use of validators in pydantic models
         UD_FEATURE_SET.add_feature(FEAT_1)
     FEAT_2: Optional[UDFeatureTag] = get_ud_feature("Gen", "Fem")
     if FEAT_2:
+        # Use of validators in pydantic models
         UD_FEATURE_SET.add_feature(FEAT_2)
     print(UD_FEATURE_SET)
+
+    # Use of validators in pydantic models
+    from cltk.morphology.ud_features import UDFeatureTag, UDFeatureTagSet
+
+    # This will succeed if "Case" and "Nom" are valid
+    tag1 = UDFeatureTag(
+        key="Case",
+        value="Nom",
+    )
+    print("tag1:", tag1)
+    # This will raise a ValidationError if the key or value is invalid
+    try:
+        tag2 = UDFeatureTag(
+            key="Case",
+            value="InvalidValue",
+        )
+    except ValueError as e:
+        print(e)
+
+    # Other examples showing the use of UDFeatureTag's own "before" validation
+    print("")
+    tag = UDFeatureTag(key="Case", value="Nom")
+    print("tag:", tag)
+    print(tag.category)  # "Inflectional"
+    print(tag.inflectional_class)  # "Nominal"
+    print(tag.value_label)  # "Nominative

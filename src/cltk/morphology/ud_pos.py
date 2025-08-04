@@ -3,7 +3,7 @@
 https://universaldependencies.org/u/pos/index.html
 """
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError, field_validator
 
 from cltk.core.cltk_logger import logger
 
@@ -13,6 +13,31 @@ class UDPartOfSpeech(BaseModel):
     name: str  # Human-readable name
     description: str  # Official UD description
     open_class: bool  # True if open class, False if closed class
+
+
+from typing import Literal, Optional
+
+from pydantic import BaseModel
+
+
+class UDPartOfSpeechTag(BaseModel):
+    # Use this when instantiating a tagged word
+    tag: str  # UD abbreviation, e.g., "ADJ"
+    name: str  # Human-readable name
+    open_class: bool  # True if open class, False if closed class
+
+    @field_validator("tag")
+    @classmethod
+    def validate_tag(cls, v):
+        if v.upper() not in UD_POS_TAGS:
+            raise ValueError(f"Invalid UD POS tag: '{v}'")
+        return v.upper()
+
+    def __str__(self):
+        return f'UDPartOfSpeech(tag="{self.tag}", name="{self.name}")'
+
+    def __repr__(self):
+        return self.__str__()
 
 
 # UD POS Registry
@@ -181,14 +206,21 @@ def is_valid_pos_tag(tag: str, normalize: bool = True) -> bool:
 
 
 if __name__ == "__main__":
-    # Example usage
-    print(is_valid_pos_tag("NOUN"))  # True
-    print(is_valid_pos_tag("XYZ"))  # False
-    print(is_valid_pos_tag("N", normalize=False))  # False
-    print(is_valid_pos_tag("N", normalize=True))  # True
-    print(UD_POS_TAGS["NOUN"])  # UDPartOfSpeech object for NOUN
-    print(UD_POS_TAGS["NOUN"].name)  # "noun"
-    print(
-        UD_POS_TAGS["NOUN"].description
-    )  # "Nouns are a part of speech typically denoting a person, place, thing, animal or idea."
-    print(UD_POS_TAGS["NOUN"].tag)  # "NOUN"
+    # # Example usage
+    # print(is_valid_pos_tag("NOUN"))  # True
+    # print(is_valid_pos_tag("XYZ"))  # False
+    # print(is_valid_pos_tag("N", normalize=False))  # False
+    # print(is_valid_pos_tag("N", normalize=True))  # True
+    # print(UD_POS_TAGS["NOUN"])  # UDPartOfSpeech object for NOUN
+    # print(UD_POS_TAGS["NOUN"].name)  # "noun"
+    # print(
+    #     UD_POS_TAGS["NOUN"].description
+    # )  # "Nouns are a part of speech typically denoting a person, place, thing, animal or idea."
+    # print(UD_POS_TAGS["NOUN"].tag)  # "NOUN"
+
+    udpos: UDPartOfSpeechTag = UDPartOfSpeechTag(
+        tag="NOUN",
+        name="noun",
+        open_class=True,
+    )
+    print(udpos)
