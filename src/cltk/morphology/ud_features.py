@@ -38,11 +38,22 @@ class UDFeatureTag(BaseModel):
     def fill_fields(cls, data):
         key = data.get("key")
         value = data.get("value")
-        if key not in UD_FEATURES_MAP:
-            raise ValueError(f"Invalid UD feature key: '{key}'")
+        if key not in UD_FEATURES_MAP or value not in UD_FEATURES_MAP[key].values:
+            # Try to normalize
+            normalized = normalize_ud_feature_pair(key, value)
+            if normalized:
+                key, value = normalized
+                data["key"] = key
+                data["value"] = value
+            else:
+                msg: str = f"Invalid value '{value}' for feature key '{key}'"
+                logger.error(msg)
+                raise ValueError(msg)
         feature = UD_FEATURES_MAP[key]
         if value not in feature.values:
-            raise ValueError(f"Invalid value '{value}' for feature key '{key}'")
+            msg: str = f"Value '{value}' is not valid for feature key '{key}' even after normalization."
+            logger.error(msg)
+            raise ValueError(msg)
         data["category"] = feature.category
         data["inflectional_class"] = feature.inflectional_class
         data["value_label"] = feature.values[value].label
@@ -1252,16 +1263,18 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
     Returns:
         tuple[str, str]: The normalized key and value if valid, otherwise raises ValueError.
     """
-    ud_feature_pair_remap = {
+    ud_feature_pair_remap: dict[tuple[str, str], tuple[str, str]] = {
         ("Tense", "Perf"): ("Aspect", "Perf"),
         ("Tense", "Aor"): ("Tense", "Past"),
         ("Tense", "Plup"): ("Tense", "Pqp"),
         ("Degree", "Comp"): ("Degree", "Cmp"),
-        # ("PronType", "Art"): ("", ""),
+        ("Aspect", "Aor"): ("Tense", "Past"),
+        ("Aspect", "Pres"): ("Tense", "Pres"),
+        ("Aspect", "Fut"): ("Tense", "Fut"),
         # ("", ""): ("", ""),
         # Add more as needed
     }
-    remap = ud_feature_pair_remap.get((key, value))
+    remap: Optional[tuple[str, str]] = ud_feature_pair_remap.get((key, value))
     if remap:
         norm_key, norm_value = remap
         logger.warning(f"Remapped {key}={value} to {norm_key}={norm_value}")
@@ -1272,6 +1285,7 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
 
 def get_ud_feature(key: str, value: str) -> Optional[UDFeatureTag]:
     # Get feature key with input string
+    # yyy
     try:
         UD_FEATURE: UDFeature = UD_FEATURES_MAP[key]
     except KeyError:
@@ -1324,7 +1338,43 @@ def get_ud_feature(key: str, value: str) -> Optional[UDFeatureTag]:
     )
 
 
+def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
+    features_tag_set = UDFeatureTagSet()
+    # Ensure inner tuple has only 2 elements
+    raw_features_pairs: list[tuple[str, str]] = [
+        tup
+        for tup in (
+            tuple(pair.split("=", maxsplit=1))
+            for pair in feats_raw.split("|")
+            if "=" in pair
+        )
+        if len(tup) == 2
+    ]
+    logger.debug(f"raw_features_pairs: {raw_features_pairs}")
+    raw_feature_pairs: tuple[str, str]
+    for raw_feature_pairs in raw_features_pairs:
+        raw_feature_key: str = raw_feature_pairs[0]
+        raw_feature_value: str = raw_feature_pairs[1]
+        # TODO: Do some validation to ensure the tag value is not multiple (check for commas)
+        feature_tag: UDFeatureTag = UDFeatureTag(
+            key=raw_feature_key,
+            value=raw_feature_value,
+        )
+        logger.debug(f"feature_tag: {feature_tag}")
+        features_tag_set.features.append(feature_tag)
+        return features_tag_set
+
+
 if __name__ == "__main__":
+    import sys
+
+    # normalize_ud_feature_pair("Apect", "Fut")
+    feature_tag: UDFeatureTag = UDFeatureTag(
+        key="Aspect",
+        value="Fut",
+    )
+    sys.exit(0)
+
     # Use of functions in this module
     UD_FEATURE_SET: UDFeatureTagSet = UDFeatureTagSet()
     FEAT_1: Optional[UDFeatureTag] = get_ud_feature("Case", "Nom")

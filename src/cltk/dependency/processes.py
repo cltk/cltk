@@ -13,13 +13,12 @@ from cltk.core.data_types_v2 import Doc, Process, Word
 from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
-from cltk.dependency.utils import convert_pos_features_to_ud
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
     from_ud,
     to_categorial,
 )
-from cltk.morphology.ud_features import UDFeatureTagSet
+from cltk.morphology.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 
 
 class StanzaProcess(Process):

@@ -16,14 +16,18 @@ from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
-from cltk.dependency.utils import convert_pos_features_to_ud
 from cltk.languages.utils import get_lang
 from cltk.morphology.morphosyntax import (
     FORM_UD_MAP,
     MorphosyntacticFeatureBundle,
     from_ud,
 )
-from cltk.morphology.ud_features import UDFeature, UDFeatureTag, UDFeatureTagSet
+from cltk.morphology.ud_features import (
+    UDFeature,
+    UDFeatureTag,
+    UDFeatureTagSet,
+    convert_pos_features_to_ud,
+)
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
 from cltk.utils.utils import load_env_file
@@ -244,7 +248,6 @@ Text: {input_doc.normalized_text}
             upos_val_raw: Optional[str] = pos_dict.get("upos", None)
             udpos: Optional[UDPartOfSpeechTag] = None
             if upos_val_raw:
-                # xxx
                 # TODO: Do check if tag is valid or try to correct if this raises error
                 udpos = UDPartOfSpeechTag(tag=upos_val_raw)
             else:

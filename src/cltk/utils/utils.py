@@ -9,6 +9,7 @@ from enum import EnumMeta, IntEnum
 from typing import Any, Optional, Union
 
 import requests
+from dotenv import load_dotenv
 from tqdm import tqdm
 
 
@@ -288,7 +289,6 @@ def load_env_file(env_file: str = ".env") -> None:
     Returns:
         None
     """
-    from dotenv import load_dotenv  # pylint: disable=import-outside-toplevel
 
     load_dotenv(env_file)
 
