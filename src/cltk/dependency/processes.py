@@ -2,24 +2,26 @@
 
 from copy import copy
 from dataclasses import dataclass
+from functools import cached_property
 from typing import Any, Literal, Optional
 
 import spacy
 import stanza
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types import Doc, MorphosyntacticFeature, Process, Word
+from cltk.core.data_types_v2 import Doc, Process, Word
 from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree
+from cltk.dependency.utils import convert_pos_features_to_ud
 from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
     from_ud,
     to_categorial,
 )
+from cltk.morphology.ud_features import UDFeatureTagSet
 
 
-@dataclass
 class StanzaProcess(Process):
     """A ``Process`` type to capture everything
     that the ``stanza`` project can do for a
@@ -38,9 +40,9 @@ class StanzaProcess(Process):
     True
     """
 
-    language: str = None
+    language: Optional[str] = None
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return StanzaWrapper.get_nlp(language=self.language)
 
@@ -105,19 +107,22 @@ class StanzaProcess(Process):
                 )
 
                 # convert UD features to the normalized CLTK features
-                raw_features = (
-                    [tuple(f.split("=")) for f in stanza_word.feats.split("|")]
-                    if stanza_word.feats
-                    else []
-                )
+                # raw_features = (
+                #     [tuple(f.split("=")) for f in stanza_word.feats.split("|")]
+                #     if stanza_word.feats
+                #     else []
+                # )
+                features_tag_set: Optional[
+                    UDFeatureTagSet
+                ] = convert_pos_features_to_ud(feats_raw=stanza_word.feats)
 
-                cltk_features = [
-                    from_ud(feature_name, feature_value)
-                    for feature_name, feature_value in raw_features
-                ]
-                cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
-                cltk_word.category = to_categorial(cltk_word.pos)
-                cltk_word.stanza_features = stanza_word.feats
+                # cltk_features = [
+                #     from_ud(feature_name, feature_value)
+                #     for feature_name, feature_value in raw_features
+                # ]
+                # cltk_word.features = MorphosyntacticFeatureBundle(*cltk_features)
+                # cltk_word.category = to_categorial(cltk_word.pos)
+                # cltk_word.stanza_features = stanza_word.feats
 
                 # sent_words[cltk_word.index_token] = cltk_word
                 words_list.append(cltk_word)
@@ -141,63 +146,56 @@ class StanzaProcess(Process):
         return words_list
 
 
-@dataclass
 class GreekStanzaProcess(StanzaProcess):
     """Stanza processor for Ancient Greek."""
 
-    language: str = "grc"
+    language: Optional[str] = "grc"
     description: str = "Default process for Stanza for the Ancient Greek language."
     authorship_info: str = "``LatinSpacyProcess`` using Stanza model by Stanford University from https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
 
 
-@dataclass
 class LatinStanzaProcess(StanzaProcess):
     """Stanza processor for Latin."""
 
-    language: str = "lat"
+    language: Optional[str] = "lat"
     description: str = "Default process for Stanza for the Latin language."
     authorship_info: str = "``LatinStanzaProcess`` using Stanza model from the Stanford NLP Group: https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
 
 
-@dataclass
 class OCSStanzaProcess(StanzaProcess):
     """Stanza processor for Old Church Slavonic."""
 
-    language: str = "chu"
+    language: Optional[str] = "chu"
     description: str = (
         "Default process for Stanza for the Old Church Slavonic language."
     )
 
 
-@dataclass
 class OldFrenchStanzaProcess(StanzaProcess):
     """Stanza processor for Old French."""
 
-    language: str = "fro"
+    language: Optional[str] = "fro"
     description: str = "Default process for Stanza for the Old French language."
 
 
-@dataclass
 class GothicStanzaProcess(StanzaProcess):
     """Stanza processor for Gothic."""
 
-    language: str = "got"
+    language: Optional[str] = "got"
     description: str = "Default process for Stanza for the Gothic language."
 
 
-@dataclass
 class CopticStanzaProcess(StanzaProcess):
     """Stanza processor for Coptic."""
 
-    language: str = "cop"
+    language: Optional[str] = "cop"
     description: str = "Default process for Stanza for the Coptic language."
 
 
-@dataclass
 class ChineseStanzaProcess(StanzaProcess):
     """Stanza processor for Classical Chinese."""
 
-    language: str = "lzh"
+    language: Optional[str] = "lzh"
     description: str = "Default process for Stanza for the Classical Chinese language."
 
 
@@ -223,7 +221,6 @@ class TreeBuilderProcess(Process):
         return doc
 
 
-@dataclass
 class SpacyProcess(Process):
     """A ``Process`` type to capture everything, that the ``spaCy`` project can do for a given language.
 
@@ -241,7 +238,7 @@ class SpacyProcess(Process):
     True
     """
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return SpacyWrapper.get_nlp(language=self.language)
 
@@ -396,7 +393,6 @@ class SpacyProcess(Process):
     #     return raw_features
 
 
-@dataclass
 class LatinSpacyProcess(SpacyProcess):
     """Run a Spacy model.
 
@@ -408,7 +404,6 @@ class LatinSpacyProcess(SpacyProcess):
     authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://huggingface.co/latincy . Please cite: https://arxiv.org/abs/2305.04365"
 
 
-@dataclass
 class GreekSpacyProcess(SpacyProcess):
     """Run a Spacy model.
 

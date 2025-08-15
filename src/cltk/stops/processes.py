@@ -1,14 +1,12 @@
 from copy import copy
-from dataclasses import dataclass
+from functools import cached_property
 
-from boltons.cacheutils import cachedproperty
 from boltons.strutils import split_punct_ws
 
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.stops.words import Stops
 
 
-@dataclass
 class StopsProcess(Process):
     """
 
@@ -25,7 +23,7 @@ class StopsProcess(Process):
     True
     """
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return Stops(iso_code=self.language).get_stopwords()
 

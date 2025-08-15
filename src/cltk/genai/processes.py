@@ -1,17 +1,23 @@
+import os
 from dataclasses import dataclass, field
 from typing import Optional
 
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.genai.chatgpt import ChatGPT
 from cltk.languages.glottolog import LANGUAGES
+from cltk.utils.utils import load_env_file
+
+# from dotenv import load_dotenv
 
 
-@dataclass
 class ChatGPTProcess(Process):
     """A Process type to capture everything that ChatGPT can do for a given language."""
+
+    # For the type `ChatGPT`
+    model_config = {"arbitrary_types_allowed": True}
 
     language: Optional[str] = None
     api_key: Optional[str] = None
@@ -21,8 +27,15 @@ class ChatGPTProcess(Process):
     authorship_info: str = "ChatGPTProcess using OpenAI GPT models."
     chatgpt: Optional[ChatGPT] = field(init=False, default=None)
 
-    def __post_init__(self):
+    def model_post_init(self, __context):
+        load_env_file()
         logger.debug(f"Initializing ChatGPTProcess for language: {self.language}")
+        if not self.api_key:
+            self.api_key = os.environ.get("OPENAI_API_KEY")
+        if not self.api_key:
+            logger.error(
+                "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
+            )
         if self.language and self.api_key:
             self.chatgpt = ChatGPT(
                 language=self.language,
@@ -107,7 +120,6 @@ class ChatGPTProcess(Process):
     #     return enriched_doc
 
 
-@dataclass
 class AequianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xae"
     description: str = "Default process for ChatGPT for the Aequian language."
@@ -118,7 +130,6 @@ class AequianChatGPTProcess(ChatGPTProcess):
         logger.debug("AequianChatGPTProcess initialized.")
 
 
-@dataclass
 class AghwanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xag"
     description: str = "Default process for ChatGPT for the Aghwan language."
@@ -129,7 +140,6 @@ class AghwanChatGPTProcess(ChatGPTProcess):
         logger.debug("AghwanChatGPTProcess initialized.")
 
 
-@dataclass
 class AkkadianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "akk"
     description: str = "Default process for ChatGPT for the Akkadian language."
@@ -140,7 +150,6 @@ class AkkadianChatGPTProcess(ChatGPTProcess):
         logger.debug("AkkadianChatGPTProcess initialized.")
 
 
-@dataclass
 class AlanicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xln"
     description: str = "Default process for ChatGPT for the Alanic language."
@@ -151,7 +160,6 @@ class AlanicChatGPTProcess(ChatGPTProcess):
         logger.debug("AlanicChatGPTProcess initialized.")
 
 
-@dataclass
 class AncientGreekChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "grc"
     description: str = "Default process for ChatGPT for the Ancient Greek language."
@@ -162,7 +170,6 @@ class AncientGreekChatGPTProcess(ChatGPTProcess):
         logger.debug("AncientGreekChatGPTProcess initialized.")
 
 
-@dataclass
 class AncientHebrewChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hbo"
     description: str = "Default process for ChatGPT for the Ancient Hebrew language."
@@ -173,7 +180,6 @@ class AncientHebrewChatGPTProcess(ChatGPTProcess):
         logger.debug("AncientHebrewChatGPTProcess initialized.")
 
 
-@dataclass
 class AncientLigurianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xlg"
     description: str = "Default process for ChatGPT for the Ancient Ligurian language."
@@ -184,7 +190,6 @@ class AncientLigurianChatGPTProcess(ChatGPTProcess):
         logger.debug("AncientLigurianChatGPTProcess initialized.")
 
 
-@dataclass
 class AncientMacedonianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xmk"
     description: str = (
@@ -197,7 +202,6 @@ class AncientMacedonianChatGPTProcess(ChatGPTProcess):
         logger.debug("AncientMacedonianChatGPTProcess initialized.")
 
 
-@dataclass
 class AncientNorthArabianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xna"
     description: str = (
@@ -212,7 +216,6 @@ class AncientNorthArabianChatGPTProcess(ChatGPTProcess):
         logger.debug("AncientNorthArabianChatGPTProcess initialized.")
 
 
-@dataclass
 class AncientZapotecChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xzp"
     description: str = "Default process for ChatGPT for the Ancient Zapotec language."
@@ -223,7 +226,6 @@ class AncientZapotecChatGPTProcess(ChatGPTProcess):
         logger.debug("AncientZapotecChatGPTProcess initialized.")
 
 
-@dataclass
 class AndalusianArabicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xaa"
     description: str = "Default process for ChatGPT for the Andalusian Arabic language."
@@ -234,7 +236,6 @@ class AndalusianArabicChatGPTProcess(ChatGPTProcess):
         logger.debug("AndalusianArabicChatGPTProcess initialized.")
 
 
-@dataclass
 class AngloNormanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xno"
     description: str = "Default process for ChatGPT for the Anglo-Norman language."
@@ -245,7 +246,6 @@ class AngloNormanChatGPTProcess(ChatGPTProcess):
         logger.debug("AngloNormanChatGPTProcess initialized.")
 
 
-@dataclass
 class AquitanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xaq"
     description: str = "Default process for ChatGPT for the Aquitanian language."
@@ -256,7 +256,6 @@ class AquitanianChatGPTProcess(ChatGPTProcess):
         logger.debug("AquitanianChatGPTProcess initialized.")
 
 
-@dataclass
 class ArdhamāgadhīPrākritChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pka"
     description: str = (
@@ -269,7 +268,6 @@ class ArdhamāgadhīPrākritChatGPTProcess(ChatGPTProcess):
         logger.debug("ArdhamāgadhīPrākritChatGPTProcess initialized.")
 
 
-@dataclass
 class ArmazicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xrm"
     description: str = "Default process for ChatGPT for the Armazic language."
@@ -280,7 +278,6 @@ class ArmazicChatGPTProcess(ChatGPTProcess):
         logger.debug("ArmazicChatGPTProcess initialized.")
 
 
-@dataclass
 class AvestanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ave"
     description: str = "Default process for ChatGPT for the Avestan language."
@@ -291,7 +288,6 @@ class AvestanChatGPTProcess(ChatGPTProcess):
         logger.debug("AvestanChatGPTProcess initialized.")
 
 
-@dataclass
 class BactrianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xbc"
     description: str = "Default process for ChatGPT for the Bactrian language."
@@ -302,7 +298,6 @@ class BactrianChatGPTProcess(ChatGPTProcess):
         logger.debug("BactrianChatGPTProcess initialized.")
 
 
-@dataclass
 class BengaliChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ben"
     description: str = "Default process for ChatGPT for the Bengali language."
@@ -313,7 +308,6 @@ class BengaliChatGPTProcess(ChatGPTProcess):
         logger.debug("BengaliChatGPTProcess initialized.")
 
 
-@dataclass
 class BolgarianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xbo"
     description: str = "Default process for ChatGPT for the Bolgarian language."
@@ -324,7 +318,6 @@ class BolgarianChatGPTProcess(ChatGPTProcess):
         logger.debug("BolgarianChatGPTProcess initialized.")
 
 
-@dataclass
 class BurmaPyuChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pyx"
     description: str = "Default process for ChatGPT for the Burma Pyu language."
@@ -335,7 +328,6 @@ class BurmaPyuChatGPTProcess(ChatGPTProcess):
         logger.debug("BurmaPyuChatGPTProcess initialized.")
 
 
-@dataclass
 class CamunicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcc"
     description: str = "Default process for ChatGPT for the Camunic language."
@@ -346,7 +338,6 @@ class CamunicChatGPTProcess(ChatGPTProcess):
         logger.debug("CamunicChatGPTProcess initialized.")
 
 
-@dataclass
 class CarianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcr"
     description: str = "Default process for ChatGPT for the Carian language."
@@ -357,7 +348,6 @@ class CarianChatGPTProcess(ChatGPTProcess):
         logger.debug("CarianChatGPTProcess initialized.")
 
 
-@dataclass
 class CeltiberianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xce"
     description: str = "Default process for ChatGPT for the Celtiberian language."
@@ -368,7 +358,6 @@ class CeltiberianChatGPTProcess(ChatGPTProcess):
         logger.debug("CeltiberianChatGPTProcess initialized.")
 
 
-@dataclass
 class ChurchSlavicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "chu"
     description: str = "Default process for ChatGPT for the Church Slavic language."
@@ -379,7 +368,6 @@ class ChurchSlavicChatGPTProcess(ChatGPTProcess):
         logger.debug("ChurchSlavicChatGPTProcess initialized.")
 
 
-@dataclass
 class CisalpineGaulishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcg"
     description: str = "Default process for ChatGPT for the Cisalpine Gaulish language."
@@ -390,7 +378,6 @@ class CisalpineGaulishChatGPTProcess(ChatGPTProcess):
         logger.debug("CisalpineGaulishChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalArmenianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcl"
     description: str = (
@@ -403,7 +390,6 @@ class ClassicalArmenianChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalArmenianChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "myz"
     description: str = "Default process for ChatGPT for the Classical Mandaic language."
@@ -414,7 +400,6 @@ class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalMandaicChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalMongolianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cmg"
     description: str = (
@@ -427,7 +412,6 @@ class ClassicalMongolianChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalMongolianChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalNahuatlChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nci"
     description: str = "Default process for ChatGPT for the Classical Nahuatl language."
@@ -438,7 +422,6 @@ class ClassicalNahuatlChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalNahuatlChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalNewariChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nwc"
     description: str = "Default process for ChatGPT for the Classical Newari language."
@@ -449,7 +432,6 @@ class ClassicalNewariChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalNewariChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalQuechuaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "qwc"
     description: str = "Default process for ChatGPT for the Classical Quechua language."
@@ -460,7 +442,6 @@ class ClassicalQuechuaChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalQuechuaChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "syc"
     description: str = "Default process for ChatGPT for the Classical Syriac language."
@@ -471,7 +452,6 @@ class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalSyriacChatGPTProcess initialized.")
 
 
-@dataclass
 class ClassicalTibetanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xct"
     description: str = "Default process for ChatGPT for the Classical Tibetan language."
@@ -482,7 +462,6 @@ class ClassicalTibetanChatGPTProcess(ChatGPTProcess):
         logger.debug("ClassicalTibetanChatGPTProcess initialized.")
 
 
-@dataclass
 class CopticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cop"
     description: str = "Default process for ChatGPT for the Coptic language."
@@ -493,7 +472,6 @@ class CopticChatGPTProcess(ChatGPTProcess):
         logger.debug("CopticChatGPTProcess initialized.")
 
 
-@dataclass
 class CumbricChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcb"
     description: str = "Default process for ChatGPT for the Cumbric language."
@@ -504,7 +482,6 @@ class CumbricChatGPTProcess(ChatGPTProcess):
         logger.debug("CumbricChatGPTProcess initialized.")
 
 
-@dataclass
 class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xlu"
     description: str = "Default process for ChatGPT for the Cuneiform Luwian language."
@@ -515,7 +492,6 @@ class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
         logger.debug("CuneiformLuwianChatGPTProcess initialized.")
 
 
-@dataclass
 class CuronianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xcu"
     description: str = "Default process for ChatGPT for the Curonian language."
@@ -526,7 +502,6 @@ class CuronianChatGPTProcess(ChatGPTProcess):
         logger.debug("CuronianChatGPTProcess initialized.")
 
 
-@dataclass
 class DacianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xdc"
     description: str = "Default process for ChatGPT for the Dacian language."
@@ -537,7 +512,6 @@ class DacianChatGPTProcess(ChatGPTProcess):
         logger.debug("DacianChatGPTProcess initialized.")
 
 
-@dataclass
 class EarlyIrishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "sga"
     description: str = "Default process for ChatGPT for the Early Irish language."
@@ -548,7 +522,6 @@ class EarlyIrishChatGPTProcess(ChatGPTProcess):
         logger.debug("EarlyIrishChatGPTProcess initialized.")
 
 
-@dataclass
 class EarlyTripuriChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xtr"
     description: str = "Default process for ChatGPT for the Early Tripuri language."
@@ -559,7 +532,6 @@ class EarlyTripuriChatGPTProcess(ChatGPTProcess):
         logger.debug("EarlyTripuriChatGPTProcess initialized.")
 
 
-@dataclass
 class EasternPanjabiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pan"
     description: str = "Default process for ChatGPT for the Eastern Panjabi language."
@@ -570,7 +542,6 @@ class EasternPanjabiChatGPTProcess(ChatGPTProcess):
         logger.debug("EasternPanjabiChatGPTProcess initialized.")
 
 
-@dataclass
 class EblaiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xeb"
     description: str = "Default process for ChatGPT for the Eblaite language."
@@ -581,7 +552,6 @@ class EblaiteChatGPTProcess(ChatGPTProcess):
         logger.debug("EblaiteChatGPTProcess initialized.")
 
 
-@dataclass
 class EdomiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xdm"
     description: str = "Default process for ChatGPT for the Edomite language."
@@ -592,7 +562,6 @@ class EdomiteChatGPTProcess(ChatGPTProcess):
         logger.debug("EdomiteChatGPTProcess initialized.")
 
 
-@dataclass
 class EgyptianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "egy"
     description: str = (
@@ -605,7 +574,6 @@ class EgyptianChatGPTProcess(ChatGPTProcess):
         logger.debug("EgyptianChatGPTProcess initialized.")
 
 
-@dataclass
 class ElamiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "elx"
     description: str = "Default process for ChatGPT for the Elamite language."
@@ -616,7 +584,6 @@ class ElamiteChatGPTProcess(ChatGPTProcess):
         logger.debug("ElamiteChatGPTProcess initialized.")
 
 
-@dataclass
 class ElymianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xly"
     description: str = "Default process for ChatGPT for the Elymian language."
@@ -627,7 +594,6 @@ class ElymianChatGPTProcess(ChatGPTProcess):
         logger.debug("ElymianChatGPTProcess initialized.")
 
 
-@dataclass
 class EpiOlmecChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xep"
     description: str = "Default process for ChatGPT for the Epi-Olmec language."
@@ -638,7 +604,6 @@ class EpiOlmecChatGPTProcess(ChatGPTProcess):
         logger.debug("EpiOlmecChatGPTProcess initialized.")
 
 
-@dataclass
 class EpigraphicMayanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "emy"
     description: str = "Default process for ChatGPT for the Epigraphic Mayan language."
@@ -649,7 +614,6 @@ class EpigraphicMayanChatGPTProcess(ChatGPTProcess):
         logger.debug("EpigraphicMayanChatGPTProcess initialized.")
 
 
-@dataclass
 class EteocretanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ecr"
     description: str = "Default process for ChatGPT for the Eteocretan language."
@@ -660,7 +624,6 @@ class EteocretanChatGPTProcess(ChatGPTProcess):
         logger.debug("EteocretanChatGPTProcess initialized.")
 
 
-@dataclass
 class EteocypriotChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ecy"
     description: str = "Default process for ChatGPT for the Eteocypriot language."
@@ -671,7 +634,6 @@ class EteocypriotChatGPTProcess(ChatGPTProcess):
         logger.debug("EteocypriotChatGPTProcess initialized.")
 
 
-@dataclass
 class EtruscanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ett"
     description: str = "Default process for ChatGPT for the Etruscan language."
@@ -682,7 +644,6 @@ class EtruscanChatGPTProcess(ChatGPTProcess):
         logger.debug("EtruscanChatGPTProcess initialized.")
 
 
-@dataclass
 class FaliscanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xfa"
     description: str = "Default process for ChatGPT for the Faliscan language."
@@ -693,7 +654,6 @@ class FaliscanChatGPTProcess(ChatGPTProcess):
         logger.debug("FaliscanChatGPTProcess initialized.")
 
 
-@dataclass
 class GalatianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xga"
     description: str = "Default process for ChatGPT for the Galatian language."
@@ -704,7 +664,6 @@ class GalatianChatGPTProcess(ChatGPTProcess):
         logger.debug("GalatianChatGPTProcess initialized.")
 
 
-@dataclass
 class GalindanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xgl"
     description: str = "Default process for ChatGPT for the Galindan language."
@@ -715,7 +674,6 @@ class GalindanChatGPTProcess(ChatGPTProcess):
         logger.debug("GalindanChatGPTProcess initialized.")
 
 
-@dataclass
 class GeezChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gez"
     description: str = "Default process for ChatGPT for the Geez language."
@@ -726,7 +684,6 @@ class GeezChatGPTProcess(ChatGPTProcess):
         logger.debug("GeezChatGPTProcess initialized.")
 
 
-@dataclass
 class GothicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "got"
     description: str = "Default process for ChatGPT for the Gothic language."
@@ -737,7 +694,6 @@ class GothicChatGPTProcess(ChatGPTProcess):
         logger.debug("GothicChatGPTProcess initialized.")
 
 
-@dataclass
 class GujaratiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "guj"
     description: str = "Default process for ChatGPT for the Gujarati language."
@@ -748,7 +704,6 @@ class GujaratiChatGPTProcess(ChatGPTProcess):
         logger.debug("GujaratiChatGPTProcess initialized.")
 
 
-@dataclass
 class GāndhārīChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pgd"
     description: str = "Default process for ChatGPT for the Gāndhārī language."
@@ -759,7 +714,6 @@ class GāndhārīChatGPTProcess(ChatGPTProcess):
         logger.debug("GāndhārīChatGPTProcess initialized.")
 
 
-@dataclass
 class HadramiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhd"
     description: str = "Default process for ChatGPT for the Hadrami language."
@@ -770,7 +724,6 @@ class HadramiChatGPTProcess(ChatGPTProcess):
         logger.debug("HadramiChatGPTProcess initialized.")
 
 
-@dataclass
 class HaramiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xha"
     description: str = "Default process for ChatGPT for the Harami language."
@@ -781,7 +734,6 @@ class HaramiChatGPTProcess(ChatGPTProcess):
         logger.debug("HaramiChatGPTProcess initialized.")
 
 
-@dataclass
 class HarappanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xiv"
     description: str = "Default process for ChatGPT for the Harappan language."
@@ -792,7 +744,6 @@ class HarappanChatGPTProcess(ChatGPTProcess):
         logger.debug("HarappanChatGPTProcess initialized.")
 
 
-@dataclass
 class HatticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xht"
     description: str = "Default process for ChatGPT for the Hattic language."
@@ -803,7 +754,6 @@ class HatticChatGPTProcess(ChatGPTProcess):
         logger.debug("HatticChatGPTProcess initialized.")
 
 
-@dataclass
 class HernicanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhr"
     description: str = "Default process for ChatGPT for the Hernican language."
@@ -814,7 +764,6 @@ class HernicanChatGPTProcess(ChatGPTProcess):
         logger.debug("HernicanChatGPTProcess initialized.")
 
 
-@dataclass
 class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ghc"
     description: str = (
@@ -829,7 +778,6 @@ class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
         logger.debug("HibernoScottishGaelicChatGPTProcess initialized.")
 
 
-@dataclass
 class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hlu"
     description: str = (
@@ -842,7 +790,6 @@ class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
         logger.debug("HieroglyphicLuwianChatGPTProcess initialized.")
 
 
-@dataclass
 class HindiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hin"
     description: str = "Default process for ChatGPT for the Hindi language."
@@ -853,7 +800,6 @@ class HindiChatGPTProcess(ChatGPTProcess):
         logger.debug("HindiChatGPTProcess initialized.")
 
 
-@dataclass
 class HittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hit"
     description: str = "Default process for ChatGPT for the Hittite language."
@@ -864,7 +810,6 @@ class HittiteChatGPTProcess(ChatGPTProcess):
         logger.debug("HittiteChatGPTProcess initialized.")
 
 
-@dataclass
 class HunnicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhc"
     description: str = "Default process for ChatGPT for the Hunnic language."
@@ -875,7 +820,6 @@ class HunnicChatGPTProcess(ChatGPTProcess):
         logger.debug("HunnicChatGPTProcess initialized.")
 
 
-@dataclass
 class HurrianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xhu"
     description: str = "Default process for ChatGPT for the Hurrian language."
@@ -886,7 +830,6 @@ class HurrianChatGPTProcess(ChatGPTProcess):
         logger.debug("HurrianChatGPTProcess initialized.")
 
 
-@dataclass
 class IberianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xib"
     description: str = "Default process for ChatGPT for the Iberian language."
@@ -897,7 +840,6 @@ class IberianChatGPTProcess(ChatGPTProcess):
         logger.debug("IberianChatGPTProcess initialized.")
 
 
-@dataclass
 class IllyrianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xil"
     description: str = "Default process for ChatGPT for the Illyrian language."
@@ -908,7 +850,6 @@ class IllyrianChatGPTProcess(ChatGPTProcess):
         logger.debug("IllyrianChatGPTProcess initialized.")
 
 
-@dataclass
 class JutishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "jut"
     description: str = "Default process for ChatGPT for the Jutish language."
@@ -919,7 +860,6 @@ class JutishChatGPTProcess(ChatGPTProcess):
         logger.debug("JutishChatGPTProcess initialized.")
 
 
-@dataclass
 class KajkavianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "kjv"
     description: str = "Default process for ChatGPT for the Kajkavian language."
@@ -930,7 +870,6 @@ class KajkavianChatGPTProcess(ChatGPTProcess):
         logger.debug("KajkavianChatGPTProcess initialized.")
 
 
-@dataclass
 class KannadaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "kan"
     description: str = "Default process for ChatGPT for the Kannada language."
@@ -941,7 +880,6 @@ class KannadaChatGPTProcess(ChatGPTProcess):
         logger.debug("KannadaChatGPTProcess initialized.")
 
 
-@dataclass
 class KaraChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zra"
     description: str = "Default process for ChatGPT for the Kara (Korea) language."
@@ -952,7 +890,6 @@ class KaraChatGPTProcess(ChatGPTProcess):
         logger.debug("KaraChatGPTProcess initialized.")
 
 
-@dataclass
 class KarakhanidChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xqa"
     description: str = "Default process for ChatGPT for the Karakhanid language."
@@ -963,7 +900,6 @@ class KarakhanidChatGPTProcess(ChatGPTProcess):
         logger.debug("KarakhanidChatGPTProcess initialized.")
 
 
-@dataclass
 class KaskeanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zsk"
     description: str = "Default process for ChatGPT for the Kaskean language."
@@ -974,7 +910,6 @@ class KaskeanChatGPTProcess(ChatGPTProcess):
         logger.debug("KaskeanChatGPTProcess initialized.")
 
 
-@dataclass
 class KawiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "kaw"
     description: str = "Default process for ChatGPT for the Kawi language."
@@ -985,7 +920,6 @@ class KawiChatGPTProcess(ChatGPTProcess):
         logger.debug("KawiChatGPTProcess initialized.")
 
 
-@dataclass
 class KhazarChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zkz"
     description: str = "Default process for ChatGPT for the Khazar language."
@@ -996,7 +930,6 @@ class KhazarChatGPTProcess(ChatGPTProcess):
         logger.debug("KhazarChatGPTProcess initialized.")
 
 
-@dataclass
 class KhorezmianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zkh"
     description: str = "Default process for ChatGPT for the Khorezmian language."
@@ -1007,7 +940,6 @@ class KhorezmianChatGPTProcess(ChatGPTProcess):
         logger.debug("KhorezmianChatGPTProcess initialized.")
 
 
-@dataclass
 class KhotaneseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "kho"
     description: str = "Default process for ChatGPT for the Khotanese language."
@@ -1018,7 +950,6 @@ class KhotaneseChatGPTProcess(ChatGPTProcess):
         logger.debug("KhotaneseChatGPTProcess initialized.")
 
 
-@dataclass
 class KhwarezmianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xco"
     description: str = "Default process for ChatGPT for the Khwarezmian language."
@@ -1029,7 +960,6 @@ class KhwarezmianChatGPTProcess(ChatGPTProcess):
         logger.debug("KhwarezmianChatGPTProcess initialized.")
 
 
-@dataclass
 class KitanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zkt"
     description: str = "Default process for ChatGPT for the Kitan language."
@@ -1040,7 +970,6 @@ class KitanChatGPTProcess(ChatGPTProcess):
         logger.debug("KitanChatGPTProcess initialized.")
 
 
-@dataclass
 class KoguryoChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zkg"
     description: str = "Default process for ChatGPT for the Koguryo language."
@@ -1051,7 +980,6 @@ class KoguryoChatGPTProcess(ChatGPTProcess):
         logger.debug("KoguryoChatGPTProcess initialized.")
 
 
-@dataclass
 class LangobardicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "lng"
     description: str = "Default process for ChatGPT for the Langobardic language."
@@ -1062,7 +990,6 @@ class LangobardicChatGPTProcess(ChatGPTProcess):
         logger.debug("LangobardicChatGPTProcess initialized.")
 
 
-@dataclass
 class LatinChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "lat"
     description: str = "Default process for ChatGPT for the Latin language."
@@ -1073,7 +1000,6 @@ class LatinChatGPTProcess(ChatGPTProcess):
         logger.debug("LatinChatGPTProcess initialized.")
 
 
-@dataclass
 class LemnianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xle"
     description: str = "Default process for ChatGPT for the Lemnian language."
@@ -1084,7 +1010,6 @@ class LemnianChatGPTProcess(ChatGPTProcess):
         logger.debug("LemnianChatGPTProcess initialized.")
 
 
-@dataclass
 class LeponticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xlp"
     description: str = "Default process for ChatGPT for the Lepontic language."
@@ -1095,7 +1020,6 @@ class LeponticChatGPTProcess(ChatGPTProcess):
         logger.debug("LeponticChatGPTProcess initialized.")
 
 
-@dataclass
 class LiburnianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xli"
     description: str = "Default process for ChatGPT for the Liburnian language."
@@ -1106,7 +1030,6 @@ class LiburnianChatGPTProcess(ChatGPTProcess):
         logger.debug("LiburnianChatGPTProcess initialized.")
 
 
-@dataclass
 class LinearAChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "lab"
     description: str = "Default process for ChatGPT for the Linear A language."
@@ -1117,7 +1040,6 @@ class LinearAChatGPTProcess(ChatGPTProcess):
         logger.debug("LinearAChatGPTProcess initialized.")
 
 
-@dataclass
 class LiteraryChineseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "lzh"
     description: str = "Default process for ChatGPT for the Literary Chinese language."
@@ -1128,7 +1050,6 @@ class LiteraryChineseChatGPTProcess(ChatGPTProcess):
         logger.debug("LiteraryChineseChatGPTProcess initialized.")
 
 
-@dataclass
 class LusitanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xls"
     description: str = "Default process for ChatGPT for the Lusitanian language."
@@ -1139,7 +1060,6 @@ class LusitanianChatGPTProcess(ChatGPTProcess):
         logger.debug("LusitanianChatGPTProcess initialized.")
 
 
-@dataclass
 class LycianAChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xlc"
     description: str = "Default process for ChatGPT for the Lycian A language."
@@ -1150,7 +1070,6 @@ class LycianAChatGPTProcess(ChatGPTProcess):
         logger.debug("LycianAChatGPTProcess initialized.")
 
 
-@dataclass
 class LydianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xld"
     description: str = "Default process for ChatGPT for the Lydian language."
@@ -1161,7 +1080,6 @@ class LydianChatGPTProcess(ChatGPTProcess):
         logger.debug("LydianChatGPTProcess initialized.")
 
 
-@dataclass
 class MaekChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "hmk"
     description: str = "Default process for ChatGPT for the Maek language."
@@ -1172,7 +1090,6 @@ class MaekChatGPTProcess(ChatGPTProcess):
         logger.debug("MaekChatGPTProcess initialized.")
 
 
-@dataclass
 class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pmh"
     description: str = (
@@ -1185,7 +1102,6 @@ class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
         logger.debug("MaharastriPrakritChatGPTProcess initialized.")
 
 
-@dataclass
 class MalayalamChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "mal"
     description: str = "Default process for ChatGPT for the Malayalam language."
@@ -1196,7 +1112,6 @@ class MalayalamChatGPTProcess(ChatGPTProcess):
         logger.debug("MalayalamChatGPTProcess initialized.")
 
 
-@dataclass
 class ManichaeanMiddlePersianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xmn"
     description: str = (
@@ -1211,7 +1126,6 @@ class ManichaeanMiddlePersianChatGPTProcess(ChatGPTProcess):
         logger.debug("ManichaeanMiddlePersianChatGPTProcess initialized.")
 
 
-@dataclass
 class MarrucinianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "umc"
     description: str = "Default process for ChatGPT for the Marrucinian language."
@@ -1222,7 +1136,6 @@ class MarrucinianChatGPTProcess(ChatGPTProcess):
         logger.debug("MarrucinianChatGPTProcess initialized.")
 
 
-@dataclass
 class MarsianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ims"
     description: str = "Default process for ChatGPT for the Marsian language."
@@ -1233,7 +1146,6 @@ class MarsianChatGPTProcess(ChatGPTProcess):
         logger.debug("MarsianChatGPTProcess initialized.")
 
 
-@dataclass
 class MedianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xme"
     description: str = "Default process for ChatGPT for the Median language."
@@ -1244,7 +1156,6 @@ class MedianChatGPTProcess(ChatGPTProcess):
         logger.debug("MedianChatGPTProcess initialized.")
 
 
-@dataclass
 class MeroiticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xmr"
     description: str = "Default process for ChatGPT for the Meroitic language."
@@ -1255,7 +1166,6 @@ class MeroiticChatGPTProcess(ChatGPTProcess):
         logger.debug("MeroiticChatGPTProcess initialized.")
 
 
-@dataclass
 class MessapicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cms"
     description: str = "Default process for ChatGPT for the Messapic language."
@@ -1266,7 +1176,6 @@ class MessapicChatGPTProcess(ChatGPTProcess):
         logger.debug("MessapicChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleArmenianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "axm"
     description: str = "Default process for ChatGPT for the Middle Armenian language."
@@ -1277,7 +1186,6 @@ class MiddleArmenianChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleArmenianChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleBretonChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xbm"
     description: str = "Default process for ChatGPT for the Middle Breton language."
@@ -1288,7 +1196,6 @@ class MiddleBretonChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleBretonChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleChineseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ltc"
     description: str = "Default process for ChatGPT for the Middle Chinese language."
@@ -1299,7 +1206,6 @@ class MiddleChineseChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleChineseChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleCornishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cnx"
     description: str = "Default process for ChatGPT for the Middle Cornish language."
@@ -1310,7 +1216,6 @@ class MiddleCornishChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleCornishChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleDutchChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "dum"
     description: str = "Default process for ChatGPT for the Middle Dutch language."
@@ -1321,7 +1226,6 @@ class MiddleDutchChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleDutchChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleEnglishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "enm"
     description: str = "Default process for ChatGPT for the Middle English language."
@@ -1332,7 +1236,6 @@ class MiddleEnglishChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleEnglishChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleFrenchChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "frm"
     description: str = "Default process for ChatGPT for the Middle French language."
@@ -1343,7 +1246,6 @@ class MiddleFrenchChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleFrenchChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleHighGermanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gmh"
     description: str = (
@@ -1356,7 +1258,6 @@ class MiddleHighGermanChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleHighGermanChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleHittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "htx"
     description: str = "Default process for ChatGPT for the Middle Hittite language."
@@ -1367,7 +1268,6 @@ class MiddleHittiteChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleHittiteChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleIrishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "mga"
     description: str = (
@@ -1382,7 +1282,6 @@ class MiddleIrishChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleIrishChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleKoreanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "okm"
     description: str = (
@@ -1397,7 +1296,6 @@ class MiddleKoreanChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleKoreanChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gml"
     description: str = "Default process for ChatGPT for the Middle Low German language."
@@ -1408,7 +1306,6 @@ class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleLowGermanChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleMongolChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xng"
     description: str = "Default process for ChatGPT for the Middle Mongol language."
@@ -1419,7 +1316,6 @@ class MiddleMongolChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleMongolChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleNewarChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nwx"
     description: str = "Default process for ChatGPT for the Middle Newar language."
@@ -1430,7 +1326,6 @@ class MiddleNewarChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleNewarChatGPTProcess initialized.")
 
 
-@dataclass
 class MiddleWelshChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "wlm"
     description: str = "Default process for ChatGPT for the Middle Welsh language."
@@ -1441,7 +1336,6 @@ class MiddleWelshChatGPTProcess(ChatGPTProcess):
         logger.debug("MiddleWelshChatGPTProcess initialized.")
 
 
-@dataclass
 class MilyanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "imy"
     description: str = "Default process for ChatGPT for the Milyan language."
@@ -1452,7 +1346,6 @@ class MilyanChatGPTProcess(ChatGPTProcess):
         logger.debug("MilyanChatGPTProcess initialized.")
 
 
-@dataclass
 class MinaeanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "inm"
     description: str = "Default process for ChatGPT for the Minaean language."
@@ -1463,7 +1356,6 @@ class MinaeanChatGPTProcess(ChatGPTProcess):
         logger.debug("MinaeanChatGPTProcess initialized.")
 
 
-@dataclass
 class MinoanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "omn"
     description: str = "Default process for ChatGPT for the Minoan language."
@@ -1474,7 +1366,6 @@ class MinoanChatGPTProcess(ChatGPTProcess):
         logger.debug("MinoanChatGPTProcess initialized.")
 
 
-@dataclass
 class MoabiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "obm"
     description: str = "Default process for ChatGPT for the Moabite language."
@@ -1485,7 +1376,6 @@ class MoabiteChatGPTProcess(ChatGPTProcess):
         logger.debug("MoabiteChatGPTProcess initialized.")
 
 
-@dataclass
 class MozarabicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "mxi"
     description: str = "Default process for ChatGPT for the Mozarabic language."
@@ -1496,7 +1386,6 @@ class MozarabicChatGPTProcess(ChatGPTProcess):
         logger.debug("MozarabicChatGPTProcess initialized.")
 
 
-@dataclass
 class MycenaeanGreekChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gmy"
     description: str = "Default process for ChatGPT for the Mycenaean Greek language."
@@ -1507,7 +1396,6 @@ class MycenaeanGreekChatGPTProcess(ChatGPTProcess):
         logger.debug("MycenaeanGreekChatGPTProcess initialized.")
 
 
-@dataclass
 class MysianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "yms"
     description: str = "Default process for ChatGPT for the Mysian language."
@@ -1518,7 +1406,6 @@ class MysianChatGPTProcess(ChatGPTProcess):
         logger.debug("MysianChatGPTProcess initialized.")
 
 
-@dataclass
 class NadruvianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ndf"
     description: str = "Default process for ChatGPT for the Nadruvian language."
@@ -1529,7 +1416,6 @@ class NadruvianChatGPTProcess(ChatGPTProcess):
         logger.debug("NadruvianChatGPTProcess initialized.")
 
 
-@dataclass
 class NeoHittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nei"
     description: str = "Default process for ChatGPT for the Neo-Hittite language."
@@ -1540,7 +1426,6 @@ class NeoHittiteChatGPTProcess(ChatGPTProcess):
         logger.debug("NeoHittiteChatGPTProcess initialized.")
 
 
-@dataclass
 class NoricChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nrc"
     description: str = "Default process for ChatGPT for the Noric language."
@@ -1551,7 +1436,6 @@ class NoricChatGPTProcess(ChatGPTProcess):
         logger.debug("NoricChatGPTProcess initialized.")
 
 
-@dataclass
 class NorthPiceneChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nrp"
     description: str = "Default process for ChatGPT for the North Picene language."
@@ -1562,7 +1446,6 @@ class NorthPiceneChatGPTProcess(ChatGPTProcess):
         logger.debug("NorthPiceneChatGPTProcess initialized.")
 
 
-@dataclass
 class NumidianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "nxm"
     description: str = "Default process for ChatGPT for the Numidian language."
@@ -1573,7 +1456,6 @@ class NumidianChatGPTProcess(ChatGPTProcess):
         logger.debug("NumidianChatGPTProcess initialized.")
 
 
-@dataclass
 class OdiaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ory"
     description: str = "Default process for ChatGPT for the Odia language."
@@ -1584,7 +1466,6 @@ class OdiaChatGPTProcess(ChatGPTProcess):
         logger.debug("OdiaChatGPTProcess initialized.")
 
 
-@dataclass
 class OfficialAramaicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "arc"
     description: str = (
@@ -1599,7 +1480,6 @@ class OfficialAramaicChatGPTProcess(ChatGPTProcess):
         logger.debug("OfficialAramaicChatGPTProcess initialized.")
 
 
-@dataclass
 class OldAramaicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oar"
     description: str = (
@@ -1614,7 +1494,6 @@ class OldAramaicChatGPTProcess(ChatGPTProcess):
         logger.debug("OldAramaicChatGPTProcess initialized.")
 
 
-@dataclass
 class OldAvarChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oav"
     description: str = "Default process for ChatGPT for the Old Avar language."
@@ -1625,7 +1504,6 @@ class OldAvarChatGPTProcess(ChatGPTProcess):
         logger.debug("OldAvarChatGPTProcess initialized.")
 
 
-@dataclass
 class OldBretonChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "obt"
     description: str = "Default process for ChatGPT for the Old Breton language."
@@ -1636,7 +1514,6 @@ class OldBretonChatGPTProcess(ChatGPTProcess):
         logger.debug("OldBretonChatGPTProcess initialized.")
 
 
-@dataclass
 class OldBurmeseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "obr"
     description: str = "Default process for ChatGPT for the Old Burmese language."
@@ -1647,7 +1524,6 @@ class OldBurmeseChatGPTProcess(ChatGPTProcess):
         logger.debug("OldBurmeseChatGPTProcess initialized.")
 
 
-@dataclass
 class OldChineseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "och"
     description: str = "Default process for ChatGPT for the Old Chinese language."
@@ -1658,7 +1534,6 @@ class OldChineseChatGPTProcess(ChatGPTProcess):
         logger.debug("OldChineseChatGPTProcess initialized.")
 
 
-@dataclass
 class OldCornishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oco"
     description: str = "Default process for ChatGPT for the Old Cornish language."
@@ -1669,7 +1544,6 @@ class OldCornishChatGPTProcess(ChatGPTProcess):
         logger.debug("OldCornishChatGPTProcess initialized.")
 
 
-@dataclass
 class OldDutchOldFrankishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "odt"
     description: str = (
@@ -1684,7 +1558,6 @@ class OldDutchOldFrankishChatGPTProcess(ChatGPTProcess):
         logger.debug("OldDutchOldFrankishChatGPTProcess initialized.")
 
 
-@dataclass
 class OldEnglishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ang"
     description: str = (
@@ -1699,7 +1572,6 @@ class OldEnglishChatGPTProcess(ChatGPTProcess):
         logger.debug("OldEnglishChatGPTProcess initialized.")
 
 
-@dataclass
 class OldFrankishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "frk"
     description: str = "Default process for ChatGPT for the Old Frankish language."
@@ -1710,7 +1582,6 @@ class OldFrankishChatGPTProcess(ChatGPTProcess):
         logger.debug("OldFrankishChatGPTProcess initialized.")
 
 
-@dataclass
 class OldFrenchChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "fro"
     description: str = (
@@ -1725,7 +1596,6 @@ class OldFrenchChatGPTProcess(ChatGPTProcess):
         logger.debug("OldFrenchChatGPTProcess initialized.")
 
 
-@dataclass
 class OldFrisianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ofs"
     description: str = "Default process for ChatGPT for the Old Frisian language."
@@ -1736,7 +1606,6 @@ class OldFrisianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldFrisianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldGeorgianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oge"
     description: str = "Default process for ChatGPT for the Old Georgian language."
@@ -1747,7 +1616,6 @@ class OldGeorgianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldGeorgianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldHighGermanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "goh"
     description: str = (
@@ -1762,7 +1630,6 @@ class OldHighGermanChatGPTProcess(ChatGPTProcess):
         logger.debug("OldHighGermanChatGPTProcess initialized.")
 
 
-@dataclass
 class OldHittiteChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oht"
     description: str = "Default process for ChatGPT for the Old Hittite language."
@@ -1773,7 +1640,6 @@ class OldHittiteChatGPTProcess(ChatGPTProcess):
         logger.debug("OldHittiteChatGPTProcess initialized.")
 
 
-@dataclass
 class OldHungarianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ohu"
     description: str = "Default process for ChatGPT for the Old Hungarian language."
@@ -1784,7 +1650,6 @@ class OldHungarianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldHungarianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldJapaneseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ojp"
     description: str = "Default process for ChatGPT for the Old Japanese language."
@@ -1795,7 +1660,6 @@ class OldJapaneseChatGPTProcess(ChatGPTProcess):
         logger.debug("OldJapaneseChatGPTProcess initialized.")
 
 
-@dataclass
 class OldKoreanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oko"
     description: str = (
@@ -1810,7 +1674,6 @@ class OldKoreanChatGPTProcess(ChatGPTProcess):
         logger.debug("OldKoreanChatGPTProcess initialized.")
 
 
-@dataclass
 class OldLithuanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "olt"
     description: str = "Default process for ChatGPT for the Old Lithuanian language."
@@ -1821,7 +1684,6 @@ class OldLithuanianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldLithuanianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldManipuriChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "omp"
     description: str = "Default process for ChatGPT for the Old Manipuri language."
@@ -1832,7 +1694,6 @@ class OldManipuriChatGPTProcess(ChatGPTProcess):
         logger.debug("OldManipuriChatGPTProcess initialized.")
 
 
-@dataclass
 class OldMarathiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "omr"
     description: str = "Default process for ChatGPT for the Old Marathi language."
@@ -1843,7 +1704,6 @@ class OldMarathiChatGPTProcess(ChatGPTProcess):
         logger.debug("OldMarathiChatGPTProcess initialized.")
 
 
-@dataclass
 class OldMonChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "omx"
     description: str = "Default process for ChatGPT for the Old Mon language."
@@ -1854,7 +1714,6 @@ class OldMonChatGPTProcess(ChatGPTProcess):
         logger.debug("OldMonChatGPTProcess initialized.")
 
 
-@dataclass
 class OldNorseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "non"
     description: str = "Default process for ChatGPT for the Old Norse language."
@@ -1865,7 +1724,6 @@ class OldNorseChatGPTProcess(ChatGPTProcess):
         logger.debug("OldNorseChatGPTProcess initialized.")
 
 
-@dataclass
 class OldNubianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "onw"
     description: str = "Default process for ChatGPT for the Old Nubian language."
@@ -1876,7 +1734,6 @@ class OldNubianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldNubianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldOsseticChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oos"
     description: str = "Default process for ChatGPT for the Old Ossetic language."
@@ -1887,7 +1744,6 @@ class OldOsseticChatGPTProcess(ChatGPTProcess):
         logger.debug("OldOsseticChatGPTProcess initialized.")
 
 
-@dataclass
 class OldPersianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "peo"
     description: str = (
@@ -1902,7 +1758,6 @@ class OldPersianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldPersianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldProvençalChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pro"
     description: str = "Default process for ChatGPT for the Old Provençal language."
@@ -1913,7 +1768,6 @@ class OldProvençalChatGPTProcess(ChatGPTProcess):
         logger.debug("OldProvençalChatGPTProcess initialized.")
 
 
-@dataclass
 class OldRussianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "orv"
     description: str = "Default process for ChatGPT for the Old Russian language."
@@ -1924,7 +1778,6 @@ class OldRussianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldRussianChatGPTProcess initialized.")
 
 
-@dataclass
 class OldSaxonChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "osx"
     description: str = "Default process for ChatGPT for the Old Saxon language."
@@ -1935,7 +1788,6 @@ class OldSaxonChatGPTProcess(ChatGPTProcess):
         logger.debug("OldSaxonChatGPTProcess initialized.")
 
 
-@dataclass
 class OldSpanishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "osp"
     description: str = "Default process for ChatGPT for the Old Spanish language."
@@ -1946,7 +1798,6 @@ class OldSpanishChatGPTProcess(ChatGPTProcess):
         logger.debug("OldSpanishChatGPTProcess initialized.")
 
 
-@dataclass
 class OldTamilChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oty"
     description: str = "Default process for ChatGPT for the Old Tamil language."
@@ -1957,7 +1808,6 @@ class OldTamilChatGPTProcess(ChatGPTProcess):
         logger.debug("OldTamilChatGPTProcess initialized.")
 
 
-@dataclass
 class OldTibetanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "otb"
     description: str = "Default process for ChatGPT for the Old Tibetan language."
@@ -1968,7 +1818,6 @@ class OldTibetanChatGPTProcess(ChatGPTProcess):
         logger.debug("OldTibetanChatGPTProcess initialized.")
 
 
-@dataclass
 class OldTurkicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "oui"
     description: str = "Default process for ChatGPT for the Old Turkic language."
@@ -1979,7 +1828,6 @@ class OldTurkicChatGPTProcess(ChatGPTProcess):
         logger.debug("OldTurkicChatGPTProcess initialized.")
 
 
-@dataclass
 class OldTurkishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "otk"
     description: str = "Default process for ChatGPT for the Old Turkish language."
@@ -1990,7 +1838,6 @@ class OldTurkishChatGPTProcess(ChatGPTProcess):
         logger.debug("OldTurkishChatGPTProcess initialized.")
 
 
-@dataclass
 class OldMiddleWelshChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "owl"
     description: str = "Default process for ChatGPT for the Old-Middle Welsh language."
@@ -2001,7 +1848,6 @@ class OldMiddleWelshChatGPTProcess(ChatGPTProcess):
         logger.debug("OldMiddleWelshChatGPTProcess initialized.")
 
 
-@dataclass
 class OscanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "osc"
     description: str = "Default process for ChatGPT for the Oscan language."
@@ -2012,7 +1858,6 @@ class OscanChatGPTProcess(ChatGPTProcess):
         logger.debug("OscanChatGPTProcess initialized.")
 
 
-@dataclass
 class OttomanTurkishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ota"
     description: str = (
@@ -2027,7 +1872,6 @@ class OttomanTurkishChatGPTProcess(ChatGPTProcess):
         logger.debug("OttomanTurkishChatGPTProcess initialized.")
 
 
-@dataclass
 class PaekcheChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pkc"
     description: str = "Default process for ChatGPT for the Paekche language."
@@ -2038,7 +1882,6 @@ class PaekcheChatGPTProcess(ChatGPTProcess):
         logger.debug("PaekcheChatGPTProcess initialized.")
 
 
-@dataclass
 class PaelignianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pgn"
     description: str = "Default process for ChatGPT for the Paelignian language."
@@ -2049,7 +1892,6 @@ class PaelignianChatGPTProcess(ChatGPTProcess):
         logger.debug("PaelignianChatGPTProcess initialized.")
 
 
-@dataclass
 class PahlaviChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pal"
     description: str = "Default process for ChatGPT for the Pahlavi language."
@@ -2060,7 +1902,6 @@ class PahlaviChatGPTProcess(ChatGPTProcess):
         logger.debug("PahlaviChatGPTProcess initialized.")
 
 
-@dataclass
 class PalaicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xpa"
     description: str = "Default process for ChatGPT for the Palaic language."
@@ -2071,7 +1912,6 @@ class PalaicChatGPTProcess(ChatGPTProcess):
         logger.debug("PalaicChatGPTProcess initialized.")
 
 
-@dataclass
 class PalauanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pau"
     description: str = "Default process for ChatGPT for the Palauan language."
@@ -2082,7 +1922,6 @@ class PalauanChatGPTProcess(ChatGPTProcess):
         logger.debug("PalauanChatGPTProcess initialized.")
 
 
-@dataclass
 class PaliChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pli"
     description: str = "Default process for ChatGPT for the Pali language."
@@ -2093,7 +1932,6 @@ class PaliChatGPTProcess(ChatGPTProcess):
         logger.debug("PaliChatGPTProcess initialized.")
 
 
-@dataclass
 class PampangaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pam"
     description: str = "Default process for ChatGPT for the Pampanga language."
@@ -2104,7 +1942,6 @@ class PampangaChatGPTProcess(ChatGPTProcess):
         logger.debug("PampangaChatGPTProcess initialized.")
 
 
-@dataclass
 class PashtoChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pus"
     description: str = "Default process for ChatGPT for the Pashto language."
@@ -2115,7 +1952,6 @@ class PashtoChatGPTProcess(ChatGPTProcess):
         logger.debug("PashtoChatGPTProcess initialized.")
 
 
-@dataclass
 class PersianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pes"
     description: str = "Default process for ChatGPT for the Persian language."
@@ -2126,7 +1962,6 @@ class PersianChatGPTProcess(ChatGPTProcess):
         logger.debug("PersianChatGPTProcess initialized.")
 
 
-@dataclass
 class PhoenicianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "phn"
     description: str = "Default process for ChatGPT for the Phoenician language."
@@ -2137,7 +1972,6 @@ class PhoenicianChatGPTProcess(ChatGPTProcess):
         logger.debug("PhoenicianChatGPTProcess initialized.")
 
 
-@dataclass
 class PicardChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pic"
     description: str = "Default process for ChatGPT for the Picard language."
@@ -2148,7 +1982,6 @@ class PicardChatGPTProcess(ChatGPTProcess):
         logger.debug("PicardChatGPTProcess initialized.")
 
 
-@dataclass
 class PolishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pol"
     description: str = "Default process for ChatGPT for the Polish language."
@@ -2159,7 +1992,6 @@ class PolishChatGPTProcess(ChatGPTProcess):
         logger.debug("PolishChatGPTProcess initialized.")
 
 
-@dataclass
 class PortugueseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "por"
     description: str = "Default process for ChatGPT for the Portuguese language."
@@ -2170,7 +2002,6 @@ class PortugueseChatGPTProcess(ChatGPTProcess):
         logger.debug("PortugueseChatGPTProcess initialized.")
 
 
-@dataclass
 class ProvençalChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pro"
     description: str = "Default process for ChatGPT for the Provençal language."
@@ -2181,7 +2012,6 @@ class ProvençalChatGPTProcess(ChatGPTProcess):
         logger.debug("ProvençalChatGPTProcess initialized.")
 
 
-@dataclass
 class PunjabiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pan"
     description: str = "Default process for ChatGPT for the Punjabi language."
@@ -2192,7 +2022,6 @@ class PunjabiChatGPTProcess(ChatGPTProcess):
         logger.debug("PunjabiChatGPTProcess initialized.")
 
 
-@dataclass
 class QashqaiChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xqs"
     description: str = "Default process for ChatGPT for the Qashqai language."
@@ -2203,7 +2032,6 @@ class QashqaiChatGPTProcess(ChatGPTProcess):
         logger.debug("QashqaiChatGPTProcess initialized.")
 
 
-@dataclass
 class QuechuaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "que"
     description: str = "Default process for ChatGPT for the Quechua language."
@@ -2214,7 +2042,6 @@ class QuechuaChatGPTProcess(ChatGPTProcess):
         logger.debug("QuechuaChatGPTProcess initialized.")
 
 
-@dataclass
 class RarotonganChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "rar"
     description: str = "Default process for ChatGPT for the Rarotongan language."
@@ -2225,7 +2052,6 @@ class RarotonganChatGPTProcess(ChatGPTProcess):
         logger.debug("RarotonganChatGPTProcess initialized.")
 
 
-@dataclass
 class RomanianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ron"
     description: str = "Default process for ChatGPT for the Romanian language."
@@ -2236,7 +2062,6 @@ class RomanianChatGPTProcess(ChatGPTProcess):
         logger.debug("RomanianChatGPTProcess initialized.")
 
 
-@dataclass
 class RussianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "rus"
     description: str = "Default process for ChatGPT for the Russian language."
@@ -2247,7 +2072,6 @@ class RussianChatGPTProcess(ChatGPTProcess):
         logger.debug("RussianChatGPTProcess initialized.")
 
 
-@dataclass
 class SardinianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "srd"
     description: str = "Default process for ChatGPT for the Sardinian language."
@@ -2258,7 +2082,6 @@ class SardinianChatGPTProcess(ChatGPTProcess):
         logger.debug("SardinianChatGPTProcess initialized.")
 
 
-@dataclass
 class SanskritChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "san"
     description: str = "Default process for ChatGPT for the Sanskrit language."
@@ -2269,7 +2092,6 @@ class SanskritChatGPTProcess(ChatGPTProcess):
         logger.debug("SanskritChatGPTProcess initialized.")
 
 
-@dataclass
 class ScottishGaelicChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "gla"
     description: str = "Default process for ChatGPT for the Scottish Gaelic language."
@@ -2280,7 +2102,6 @@ class ScottishGaelicChatGPTProcess(ChatGPTProcess):
         logger.debug("ScottishGaelicChatGPTProcess initialized.")
 
 
-@dataclass
 class SerbianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "srp"
     description: str = "Default process for ChatGPT for the Serbian language."
@@ -2291,7 +2112,6 @@ class SerbianChatGPTProcess(ChatGPTProcess):
         logger.debug("SerbianChatGPTProcess initialized.")
 
 
-@dataclass
 class SicilianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "scn"
     description: str = "Default process for ChatGPT for the Sicilian language."
@@ -2302,7 +2122,6 @@ class SicilianChatGPTProcess(ChatGPTProcess):
         logger.debug("SicilianChatGPTProcess initialized.")
 
 
-@dataclass
 class SilesianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "szl"
     description: str = "Default process for ChatGPT for the Silesian language."
@@ -2313,7 +2132,6 @@ class SilesianChatGPTProcess(ChatGPTProcess):
         logger.debug("SilesianChatGPTProcess initialized.")
 
 
-@dataclass
 class SlovakChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "slk"
     description: str = "Default process for ChatGPT for the Slovak language."
@@ -2324,7 +2142,6 @@ class SlovakChatGPTProcess(ChatGPTProcess):
         logger.debug("SlovakChatGPTProcess initialized.")
 
 
-@dataclass
 class SlovenianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "slv"
     description: str = "Default process for ChatGPT for the Slovenian language."
@@ -2335,7 +2152,6 @@ class SlovenianChatGPTProcess(ChatGPTProcess):
         logger.debug("SlovenianChatGPTProcess initialized.")
 
 
-@dataclass
 class SomaliChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "som"
     description: str = "Default process for ChatGPT for the Somali language."
@@ -2346,7 +2162,6 @@ class SomaliChatGPTProcess(ChatGPTProcess):
         logger.debug("SomaliChatGPTProcess initialized.")
 
 
-@dataclass
 class SorbianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "wen"
     description: str = "Default process for ChatGPT for the Sorbian language."
@@ -2357,7 +2172,6 @@ class SorbianChatGPTProcess(ChatGPTProcess):
         logger.debug("SorbianChatGPTProcess initialized.")
 
 
-@dataclass
 class SpanishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "spa"
     description: str = "Default process for ChatGPT for the Spanish language."
@@ -2368,7 +2182,6 @@ class SpanishChatGPTProcess(ChatGPTProcess):
         logger.debug("SpanishChatGPTProcess initialized.")
 
 
-@dataclass
 class SumerianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "sux"
     description: str = "Default process for ChatGPT for the Sumerian language."
@@ -2379,7 +2192,6 @@ class SumerianChatGPTProcess(ChatGPTProcess):
         logger.debug("SumerianChatGPTProcess initialized.")
 
 
-@dataclass
 class SwedishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "swe"
     description: str = "Default process for ChatGPT for the Swedish language."
@@ -2390,7 +2202,6 @@ class SwedishChatGPTProcess(ChatGPTProcess):
         logger.debug("SwedishChatGPTProcess initialized.")
 
 
-@dataclass
 class SyriacChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "syc"
     description: str = "Default process for ChatGPT for the Syriac language."
@@ -2401,7 +2212,6 @@ class SyriacChatGPTProcess(ChatGPTProcess):
         logger.debug("SyriacChatGPTProcess initialized.")
 
 
-@dataclass
 class TahitianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "tah"
     description: str = "Default process for ChatGPT for the Tahitian language."
@@ -2412,7 +2222,6 @@ class TahitianChatGPTProcess(ChatGPTProcess):
         logger.debug("TahitianChatGPTProcess initialized.")
 
 
-@dataclass
 class TigrinyaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "tir"
     description: str = "Default process for ChatGPT for the Tigrinya language."
@@ -2423,7 +2232,6 @@ class TigrinyaChatGPTProcess(ChatGPTProcess):
         logger.debug("TigrinyaChatGPTProcess initialized.")
 
 
-@dataclass
 class TibetanChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "bod"
     description: str = "Default process for ChatGPT for the Tibetan language."
@@ -2434,7 +2242,6 @@ class TibetanChatGPTProcess(ChatGPTProcess):
         logger.debug("TibetanChatGPTProcess initialized.")
 
 
-@dataclass
 class TigréChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "tig"
     description: str = "Default process for ChatGPT for the Tigré language."
@@ -2445,7 +2252,6 @@ class TigréChatGPTProcess(ChatGPTProcess):
         logger.debug("TigréChatGPTProcess initialized.")
 
 
-@dataclass
 class TokharianAChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xqa"
     description: str = "Default process for ChatGPT for the Tokharian A language."
@@ -2456,7 +2262,6 @@ class TokharianAChatGPTProcess(ChatGPTProcess):
         logger.debug("TokharianAChatGPTProcess initialized.")
 
 
-@dataclass
 class TokharianBChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xqb"
     description: str = "Default process for ChatGPT for the Tokharian B language."
@@ -2467,7 +2272,6 @@ class TokharianBChatGPTProcess(ChatGPTProcess):
         logger.debug("TokharianBChatGPTProcess initialized.")
 
 
-@dataclass
 class TurkishChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "tur"
     description: str = "Default process for ChatGPT for the Turkish language."
@@ -2478,7 +2282,6 @@ class TurkishChatGPTProcess(ChatGPTProcess):
         logger.debug("TurkishChatGPTProcess initialized.")
 
 
-@dataclass
 class UighurChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "uig"
     description: str = "Default process for ChatGPT for the Uighur language."
@@ -2489,7 +2292,6 @@ class UighurChatGPTProcess(ChatGPTProcess):
         logger.debug("UighurChatGPTProcess initialized.")
 
 
-@dataclass
 class UkrainianChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ukr"
     description: str = "Default process for ChatGPT for the Ukrainian language."
@@ -2500,7 +2302,6 @@ class UkrainianChatGPTProcess(ChatGPTProcess):
         logger.debug("UkrainianChatGPTProcess initialized.")
 
 
-@dataclass
 class UrduChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "ud"
     description: str = "Default process for ChatGPT for the Urdu language."
@@ -2511,7 +2312,6 @@ class UrduChatGPTProcess(ChatGPTProcess):
         logger.debug("UrduChatGPTProcess initialized.")
 
 
-@dataclass
 class UzbekChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "uz"
     description: str = "Default process for ChatGPT for the Uzbek language."
@@ -2522,7 +2322,6 @@ class UzbekChatGPTProcess(ChatGPTProcess):
         logger.debug("UzbekChatGPTProcess initialized.")
 
 
-@dataclass
 class VietnameseChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "vie"
     description: str = "Default process for ChatGPT for the Vietnamese language."
@@ -2533,7 +2332,6 @@ class VietnameseChatGPTProcess(ChatGPTProcess):
         logger.debug("VietnameseChatGPTProcess initialized.")
 
 
-@dataclass
 class WelshChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "cy"
     description: str = "Default process for ChatGPT for the Welsh language."
@@ -2544,7 +2342,6 @@ class WelshChatGPTProcess(ChatGPTProcess):
         logger.debug("WelshChatGPTProcess initialized.")
 
 
-@dataclass
 class WolofChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "wo"
     description: str = "Default process for ChatGPT for the Wolof language."
@@ -2555,7 +2352,6 @@ class WolofChatGPTProcess(ChatGPTProcess):
         logger.debug("WolofChatGPTProcess initialized.")
 
 
-@dataclass
 class XhosaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "xh"
     description: str = "Default process for ChatGPT for the Xhosa language."
@@ -2566,7 +2362,6 @@ class XhosaChatGPTProcess(ChatGPTProcess):
         logger.debug("XhosaChatGPTProcess initialized.")
 
 
-@dataclass
 class YorubaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "yo"
     description: str = "Default process for ChatGPT for the Yoruba language."
@@ -2577,7 +2372,6 @@ class YorubaChatGPTProcess(ChatGPTProcess):
         logger.debug("YorubaChatGPTProcess initialized.")
 
 
-@dataclass
 class ZazaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zza"
     description: str = "Default process for ChatGPT for the Zaza language."
@@ -2588,7 +2382,6 @@ class ZazaChatGPTProcess(ChatGPTProcess):
         logger.debug("ZazaChatGPTProcess initialized.")
 
 
-@dataclass
 class ZenagaChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zen"
     description: str = "Default process for ChatGPT for the Zenaga language."
@@ -2599,7 +2392,6 @@ class ZenagaChatGPTProcess(ChatGPTProcess):
         logger.debug("ZenagaChatGPTProcess initialized.")
 
 
-@dataclass
 class ZuluChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "zu"
     description: str = "Default process for ChatGPT for the Zulu language."

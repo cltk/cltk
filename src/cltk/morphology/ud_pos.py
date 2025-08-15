@@ -24,7 +24,9 @@ class UDPartOfSpeechTag(BaseModel):
     # Use this when instantiating a tagged word
     tag: str  # UD abbreviation, e.g., "ADJ"
     name: Optional[str] = None  # Human-readable name (auto-filled)
-    open_class: Optional[bool] = None  # True if open class, False if closed class (auto-filled)
+    open_class: Optional[
+        bool
+    ] = None  # True if open class, False if closed class (auto-filled)
 
     @field_validator("tag")
     @classmethod

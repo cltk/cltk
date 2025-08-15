@@ -1,16 +1,13 @@
 """This module holds the ``Process``es for NER."""
 
 from copy import copy
-from dataclasses import dataclass
-from typing import Any
+from functools import cached_property
+from typing import Any, Optional
 
-from boltons.cacheutils import cachedproperty
-
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.ner.ner import tag_ner
 
 
-@dataclass
 class NERProcess(Process):
     """To be inherited for each language's NER declarations.
 
@@ -22,9 +19,9 @@ class NERProcess(Process):
     >>> emb_proc = NERProcess()
     """
 
-    language: str = None
+    language: Optional[str] = None
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return tag_ner
 
@@ -42,7 +39,6 @@ class NERProcess(Process):
         return output_doc
 
 
-@dataclass
 class GreekNERProcess(NERProcess):
     """The default Greek NER algorithm.
 
@@ -67,11 +63,10 @@ class GreekNERProcess(NERProcess):
 
     """
 
-    language: str = "grc"
+    language: Optional[str] = "grc"
     description: str = "Default NER for Greek."
 
 
-@dataclass
 class OldEnglishNERProcess(NERProcess):
     """The default OE NER algorithm.
 
@@ -89,11 +84,10 @@ class OldEnglishNERProcess(NERProcess):
     ('Gardena', 'LOCATION')
     """
 
-    language: str = "ang"
+    language: Optional[str] = "ang"
     description: str = "Default NER for Old English."
 
 
-@dataclass
 class LatinNERProcess(NERProcess):
     """The default Latin NER algorithm.
 
@@ -107,11 +101,10 @@ class LatinNERProcess(NERProcess):
     ['LOCATION', False, False, False, False, False, False, False, False, False, 'LOCATION', False, 'LOCATION', False, False, False, False, 'LOCATION', False, 'LOCATION']
     """
 
-    language: str = "lat"
+    language: Optional[str] = "lat"
     description: str = "Default NER for Latin."
 
 
-@dataclass
 class OldFrenchNERProcess(NERProcess):
     """The default Old French NER algorithm.
 
@@ -129,5 +122,5 @@ class OldFrenchNERProcess(NERProcess):
     False
     """
 
-    language: str = "fro"
+    language: Optional[str] = "fro"
     description: str = "Default NER for Old French."

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.phonology.ang.phonology import OldEnglishSyllabifier
 from cltk.phonology.enm.phonology import MiddleEnglishSyllabifier
 from cltk.phonology.gmh.phonology import MiddleHighGermanSyllabifier
@@ -16,7 +16,6 @@ from cltk.phonology.lat.phonology import LatinSyllabifier
 from cltk.phonology.non.phonology import OldNorseSyllabifier
 
 
-@dataclass
 class SyllabificationProcess(Process):
     """This is the class to extend if you want to code your own syllabification
     process in the CLTK-style.
@@ -50,7 +49,7 @@ class GreekSyllabificationProcess(SyllabificationProcess):
 
     """
 
-    description = "The default Latin Syllabification process"
+    description: str = "The default Latin Syllabification process"
 
     @cachedproperty
     def algorithm(self):
@@ -74,7 +73,7 @@ class LatinSyllabificationProcess(SyllabificationProcess):
     [['gal', 'li', 'a'], ['est'], ['om', 'nis'], ['di', 'vi', 'sa'], ['in']]
     """
 
-    description = "The default Latin Syllabification process"
+    description: str = "The default Latin Syllabification process"
 
     @cachedproperty
     def algorithm(self):
@@ -100,7 +99,7 @@ class MiddleEnglishSyllabificationProcess(SyllabificationProcess):
     [['whi', 'lom'], ['as'], ['ol', 'de'], ['sto', 'ries'], ['tellen']]
     """
 
-    description = "The default Middle English Syllabification process"
+    description: str = "The default Middle English Syllabification process"
 
     @cachedproperty
     def algorithm(self):
@@ -126,7 +125,7 @@ class MiddleHighGermanSyllabificationProcess(SyllabificationProcess):
     [['uns'], ['ist'], ['in'], ['al', 'ten'], ['mæ', 'ren']]
     """
 
-    description = "The default Middle High German syllabification process"
+    description: str = "The default Middle High German syllabification process"
 
     @cachedproperty
     def algorithm(self):
@@ -153,7 +152,7 @@ class OldEnglishSyllabificationProcess(SyllabificationProcess):
 
     """
 
-    description = "The default Old English syllabification process"
+    description: str = "The default Old English syllabification process"
 
     @cachedproperty
     def algorithm(self):
@@ -179,7 +178,7 @@ class OldNorseSyllabificationProcess(SyllabificationProcess):
     [['gyl', 'fi'], ['ko', 'nungr'], ['réð'], ['þar'], ['lön', 'dum']]
     """
 
-    description = "The default Old Norse syllabification process"
+    description: str = "The default Old Norse syllabification process"
 
     @cachedproperty
     def algorithm(self):

@@ -1,6 +1,6 @@
 """Utility functions for keeping track of languages."""
 
-from cltk.core.data_types import Language
+from cltk.core.data_types_v2 import Language
 from cltk.core.exceptions import UnknownLanguageError
 from cltk.languages.glottolog import LANGUAGES
 

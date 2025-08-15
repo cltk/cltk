@@ -88,6 +88,13 @@ UD_FEATURES: list[UDFeature] = [
             "It applies to pronouns, determiners, and pronominal adverbs."
         ),
         values={
+            "Art": UDFeatureValue(
+                code="Art",
+                label="Personal",
+                description=(
+                    "Article is a special case of determiner that bears the feature of definiteness (in other languages, the feature may be marked directly on nouns)."
+                ),
+            ),
             "Prs": UDFeatureValue(
                 code="Prs",
                 label="Personal",
@@ -1250,6 +1257,7 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Tense", "Aor"): ("Tense", "Past"),
         ("Tense", "Plup"): ("Tense", "Pqp"),
         ("Degree", "Comp"): ("Degree", "Cmp"),
+        # ("PronType", "Art"): ("", ""),
         # ("", ""): ("", ""),
         # Add more as needed
     }

@@ -4,13 +4,13 @@ import os
 from collections.abc import ValuesView
 from copy import copy
 from dataclasses import dataclass, field
+from functools import cached_property
 from typing import Any, Optional
 
 import numpy as np
-from boltons.cacheutils import cachedproperty
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.embeddings.embeddings import (
     CLTKWord2VecEmbeddings,
@@ -21,6 +21,9 @@ from cltk.embeddings.sentence import get_sent_embeddings
 from cltk.ner.spacy_ner import download_prompt
 from cltk.utils import CLTK_DATA_DIR
 from cltk.utils.file_operations import open_pickle
+
+# from boltons.cacheutils import cachedproperty
+
 
 TFIDF_MAP: dict[str, str] = {
     "lat": os.path.join(
@@ -33,7 +36,6 @@ TFIDF_MAP: dict[str, str] = {
 }
 
 
-@dataclass
 class EmbeddingsProcess(Process):
     """To be inherited for each language's embeddings declarations.
 
@@ -50,6 +52,10 @@ class EmbeddingsProcess(Process):
     >>> emb_proc = EmbeddingsProcess()
     """
 
+    # To allow np type
+    # alternative is to use `min_idf: Optional[float] = None`
+    model_config = {"arbitrary_types_allowed": True}
+
     language: str = None
     variant: str = "fasttext"
     embedding_length: int = None
@@ -57,7 +63,7 @@ class EmbeddingsProcess(Process):
     min_idf: Optional[np.float64] = None
     max_idf: Optional[np.float64] = None
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         valid_variants = ["fasttext", "nlpl", "cltk"]
         if self.variant == "fasttext":
@@ -129,7 +135,6 @@ class EmbeddingsProcess(Process):
         return output_doc
 
 
-@dataclass
 class ArabicEmbeddingsProcess(EmbeddingsProcess):
     """The default Arabic embeddings algorithm."""
 
@@ -137,7 +142,6 @@ class ArabicEmbeddingsProcess(EmbeddingsProcess):
     language: str = "arb"
 
 
-@dataclass
 class AramaicEmbeddingsProcess(EmbeddingsProcess):
     """The default Aramaic embeddings algorithm."""
 
@@ -145,7 +149,6 @@ class AramaicEmbeddingsProcess(EmbeddingsProcess):
     language: str = "arb"
 
 
-@dataclass
 class GothicEmbeddingsProcess(EmbeddingsProcess):
     """The default Gothic embeddings algorithm."""
 
@@ -153,7 +156,6 @@ class GothicEmbeddingsProcess(EmbeddingsProcess):
     language: str = "got"
 
 
-@dataclass
 class GreekEmbeddingsProcess(EmbeddingsProcess):
     """The default Ancient Greek embeddings algorithm."""
 
@@ -163,7 +165,6 @@ class GreekEmbeddingsProcess(EmbeddingsProcess):
     authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
 
 
-@dataclass
 class LatinEmbeddingsProcess(EmbeddingsProcess):
     """The default Latin embeddings algorithm."""
 
@@ -173,15 +174,14 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
 
 
-@dataclass
 class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):
     """The default Middle English embeddings algorithm."""
 
-    language = "enm"
-    variant = "cltk"
-    description = "Default embeddings for Middle English"
+    language: str = "enm"
+    variant: str = "cltk"
+    description: str = "Default embeddings for Middle English."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self) -> CLTKWord2VecEmbeddings:
         return CLTKWord2VecEmbeddings(
             iso_code=self.language,
@@ -189,7 +189,6 @@ class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):
         )
 
 
-@dataclass
 class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
     """The default Old English embeddings algorithm."""
 
@@ -197,7 +196,6 @@ class OldEnglishEmbeddingsProcess(EmbeddingsProcess):
     language: str = "ang"
 
 
-@dataclass
 class PaliEmbeddingsProcess(EmbeddingsProcess):
     """The default Pali embeddings algorithm."""
 
@@ -205,7 +203,6 @@ class PaliEmbeddingsProcess(EmbeddingsProcess):
     language: str = "pli"
 
 
-@dataclass
 class SanskritEmbeddingsProcess(EmbeddingsProcess):
     """The default Sanskrit embeddings algorithm."""
 

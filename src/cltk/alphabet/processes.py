@@ -2,24 +2,21 @@
 before the text is sent to other processes.
 """
 
-from dataclasses import dataclass
+from functools import cached_property
 from typing import Optional
-
-from boltons.cacheutils import cachedproperty  # type: ignore
 
 from cltk.alphabet.grc.grc import normalize_grc
 from cltk.alphabet.lat import normalize_lat
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 
 
-@dataclass
 class NormalizeProcess(Process):
     """Generic process for text normalization."""
 
     language: Optional[str] = None
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         logger.debug(f"Selecting normalization algorithm for language: {self.language}")
         if self.language == "grc":
@@ -56,7 +53,6 @@ class NormalizeProcess(Process):
         return input_doc
 
 
-@dataclass
 class AncientGreekNormalizeProcess(NormalizeProcess):
     """Text normalization for Ancient Greek.
 
@@ -72,13 +68,12 @@ class AncientGreekNormalizeProcess(NormalizeProcess):
     False
     """
 
-    language = "grc"
+    language: Optional[str] = "grc"
 
     def __post_init__(self):
         logger.debug("AncientGreekNormalizeProcess initialized.")
 
 
-@dataclass
 class LatinNormalizeProcess(NormalizeProcess):
     """Text normalization for Latin.
 
@@ -94,7 +89,7 @@ class LatinNormalizeProcess(NormalizeProcess):
     False
     """
 
-    language = "lat"
+    language: Optional[str] = "lat"
 
     def __post_init__(self):
         logger.debug("LatinNormalizeProcess initialized.")

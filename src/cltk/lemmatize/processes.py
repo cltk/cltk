@@ -2,17 +2,15 @@
 
 from copy import copy
 from dataclasses import dataclass
+from functools import cached_property
 
-from boltons.cacheutils import cachedproperty
-
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer
 from cltk.lemmatize.fro import OldFrenchDictionaryLemmatizer
 from cltk.lemmatize.grc import GreekBackoffLemmatizer
 from cltk.lemmatize.lat import LatinBackoffLemmatizer
 
 
-@dataclass
 class LemmatizationProcess(Process):
     """To be inherited for each language's lemmatization declarations.
 
@@ -50,9 +48,9 @@ class GreekLemmatizationProcess(LemmatizationProcess):
     ['ἔλεγον.', 'καίτοι', 'ἀληθές', 'γε', 'ὡς', 'ἔπος', 'εἰπεῖν', 'οὐδὲν', 'εἰρήκασιν.', 'μάλιστα']
     """
 
-    description = "Lemmatization process for Ancient Greek"
+    description: str = "Lemmatization process for Ancient Greek"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return GreekBackoffLemmatizer()
 
@@ -73,14 +71,13 @@ class LatinLemmatizationProcess(LemmatizationProcess):
     ['institutis', ',', 'legibus', 'inter', 'se', 'differunt', '.', 'Gallos', 'ab', 'Aquitanis']
     """
 
-    description = "Lemmatization process for Latin"
+    description: str = "Lemmatization process for Latin"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return LatinBackoffLemmatizer()
 
 
-@dataclass
 class OldEnglishLemmatizationProcess(LemmatizationProcess):
     """The default Old English lemmatization algorithm.
 
@@ -97,14 +94,13 @@ class OldEnglishLemmatizationProcess(LemmatizationProcess):
     ['siððan', 'ær', 'weorþan', 'feasceaft', 'findan', ',', 'he', 'se', 'frofre', 'gebidan']
     """
 
-    description = "Lemmatization process for Old English"
+    description: str = "Lemmatization process for Old English"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldEnglishDictionaryLemmatizer()
 
 
-@dataclass
 class OldFrenchLemmatizationProcess(LemmatizationProcess):
     """The default Old French lemmatization algorithm.
 
@@ -121,8 +117,8 @@ class OldFrenchLemmatizationProcess(LemmatizationProcess):
     ['avenir', 'jadis', 'en', 'bretaingne', 'avoir', '.I.', 'molt', 'riche', 'chevalier', 'PUNK']
     """
 
-    description = "Lemmatization process for Old French"
+    description: str = "Lemmatization process for Old French"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldFrenchDictionaryLemmatizer()

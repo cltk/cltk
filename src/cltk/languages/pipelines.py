@@ -11,7 +11,7 @@ from typing import Optional, Type
 
 from cltk.alphabet.processes import AncientGreekNormalizeProcess, LatinNormalizeProcess
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Language, Pipeline, Process
+from cltk.core.data_types_v2 import Language, Pipeline, Process
 from cltk.dependency.processes import (
     ChineseStanzaProcess,
     CopticStanzaProcess,
@@ -61,7 +61,6 @@ from cltk.tokenizers.processes import (
 )
 
 
-@dataclass
 class AkkadianPipeline(Pipeline):
     """Default ``Pipeline`` for Akkadian."""
 
@@ -76,7 +75,6 @@ class AkkadianPipeline(Pipeline):
         logger.info("AkkadianPipeline created.")
 
 
-@dataclass
 class ArabicPipeline(Pipeline):
     """Default ``Pipeline`` for Arabic."""
 
@@ -95,7 +93,6 @@ class ArabicPipeline(Pipeline):
         logger.info("ArabicPipeline created.")
 
 
-@dataclass
 class AramaicPipeline(Pipeline):
     """Default ``Pipeline`` for Aramaic."""
 
@@ -114,7 +111,6 @@ class AramaicPipeline(Pipeline):
         logger.warning("Using Arabic tokenizer for Aramaic. Is this OK?")
 
 
-@dataclass
 class ChinesePipeline(Pipeline):
     """Default ``Pipeline`` for Classical Chinese."""
 
@@ -129,7 +125,6 @@ class ChinesePipeline(Pipeline):
         logger.info("ChinesePipeline created.")
 
 
-@dataclass
 class CopticPipeline(Pipeline):
     """Default ``Pipeline`` for Coptic."""
 
@@ -144,7 +139,6 @@ class CopticPipeline(Pipeline):
         logger.info("CopticPipeline created.")
 
 
-@dataclass
 class GothicPipeline(Pipeline):
     """Default ``Pipeline`` for Gothic."""
 
@@ -159,7 +153,6 @@ class GothicPipeline(Pipeline):
         logger.info("GothicPipeline created.")
 
 
-@dataclass
 class GreekPipeline(Pipeline):
     """Default ``Pipeline`` for Ancient Greek."""
 
@@ -179,7 +172,6 @@ class GreekPipeline(Pipeline):
         logger.info("GreekPipeline created.")
 
 
-@dataclass
 class GreekChatGPTPipeline(Pipeline):
     """Pipeline for Ancient Greek using normalization and ChatGPT annotation only."""
 
@@ -199,7 +191,6 @@ class GreekChatGPTPipeline(Pipeline):
         logger.info("GreekChatGPTPipeline created.")
 
 
-@dataclass
 class HindiPipeline(Pipeline):
     """Default ``Pipeline`` for Hindi."""
 
@@ -214,7 +205,6 @@ class HindiPipeline(Pipeline):
         logger.info("HindiPipeline created.")
 
 
-@dataclass
 class LatinPipeline(Pipeline):
     """Default ``Pipeline`` for Latin."""
 
@@ -232,7 +222,6 @@ class LatinPipeline(Pipeline):
         logger.info("LatinPipeline created.")
 
 
-@dataclass
 class LatinChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Latin."""
 
@@ -253,7 +242,6 @@ class LatinChatGPTPipeline(Pipeline):
         logger.info("LatinPipeline created.")
 
 
-@dataclass
 class MiddleHighGermanPipeline(Pipeline):
     """Default ``Pipeline`` for Middle High German."""
 
@@ -270,7 +258,6 @@ class MiddleHighGermanPipeline(Pipeline):
         logger.info("MiddleHighGermanPipeline created.")
 
 
-@dataclass
 class MiddleEnglishPipeline(Pipeline):
     """Default ``Pipeline`` for Middle English."""
 
@@ -291,7 +278,6 @@ class MiddleEnglishPipeline(Pipeline):
         logger.info("MiddleEnglishPipeline created.")
 
 
-@dataclass
 class MiddleFrenchPipeline(Pipeline):
     """Default ``Pipeline`` for Middle French."""
 
@@ -308,7 +294,6 @@ class MiddleFrenchPipeline(Pipeline):
         logger.info("MiddleFrenchPipeline created.")
 
 
-@dataclass
 class OCSPipeline(Pipeline):
     """Default ``Pipeline`` for Old Church Slavonic."""
 
@@ -323,7 +308,6 @@ class OCSPipeline(Pipeline):
         logger.info("OCSPipeline created.")
 
 
-@dataclass
 class OldEnglishPipeline(Pipeline):
     """Default ``Pipeline`` for Old English."""
 
@@ -343,7 +327,6 @@ class OldEnglishPipeline(Pipeline):
         logger.info("OldEnglishPipeline created.")
 
 
-@dataclass
 class OldFrenchPipeline(Pipeline):
     """Default ``Pipeline`` for Old French."""
 
@@ -366,7 +349,6 @@ class OldFrenchPipeline(Pipeline):
 # logger.critical("Old Marathi pipeline is not yet implemented.")
 
 
-@dataclass
 class OldNorsePipeline(Pipeline):
     """Default ``Pipeline`` for Old Norse."""
 
@@ -385,7 +367,6 @@ class OldNorsePipeline(Pipeline):
         logger.info("OldNorsePipeline created.")
 
 
-@dataclass
 class PaliPipeline(Pipeline):
     """Default ``Pipeline`` for Pali."""
 
@@ -400,7 +381,6 @@ class PaliPipeline(Pipeline):
         logger.info("PaliPipeline created.")
 
 
-@dataclass
 class PanjabiPipeline(Pipeline):
     """Default ``Pipeline`` for Panjabi."""
 
@@ -415,7 +395,6 @@ class PanjabiPipeline(Pipeline):
         logger.info("PanjabiPipeline created.")
 
 
-@dataclass
 class SanskritPipeline(Pipeline):
     """Default ``Pipeline`` for Sanskrit."""
 

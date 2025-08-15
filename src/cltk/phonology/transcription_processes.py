@@ -5,10 +5,9 @@
 
 from copy import copy
 from dataclasses import dataclass
+from functools import cached_property
 
-from boltons.cacheutils import cachedproperty
-
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.phonology.ang.phonology import OldEnglishTranscription
 from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
 
@@ -23,7 +22,6 @@ from cltk.phonology.non.orthophonology import OldNorsePhonologicalTranscriber
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-@dataclass
 class PhonologicalTranscriptionProcess(Process):
     """General phonological transcription `Process`."""
 
@@ -51,9 +49,9 @@ class PhonologicalTranscriptionProcess(Process):
 #
 #     """
 #
-#     description = "The default Akkadian transcription process"
+#     description: str = "The default Akkadian transcription process"
 #
-#     @cachedproperty
+#     @cached_property
 #     def algorithm(self):
 #         return AkkadianPhonologicalTranscriber()
 
@@ -74,9 +72,9 @@ class PhonologicalTranscriptionProcess(Process):
 #
 #     """
 #
-#     description = "The default Arabic transcription process"
+#     description: str = "The default Arabic transcription process"
 #
-#     @cachedproperty
+#     @cached_property
 #     def algorithm(self):
 #         return ArabicPhonologicalTranscriber()
 
@@ -100,9 +98,9 @@ class GothicPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     ['swa', 'liuhtjɛ', 'liuhaθ', 'jzwar', 'jn']
     """
 
-    description = "The default Gothic transcription process"
+    description: str = "The default Gothic transcription process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return GothicTranscription()
 
@@ -126,9 +124,9 @@ class GreekPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     ['hó.ti', 'men', 'hy.mệːs', 'ɔ̂ː', 'ɑ́n.dres']
     """
 
-    description = "The default Greek transcription process"
+    description: str = "The default Greek transcription process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return GreekTranscription()
 
@@ -150,9 +148,9 @@ class LatinPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
     ['[gaɫlɪ̣ja]', '[ɛst̪]', '[ɔmn̪ɪs]', '[d̪ɪwɪsa]', '[ɪn̪]']
     """
 
-    description = "The default Latin transcription process"
+    description: str = "The default Latin transcription process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return LatinTranscription()
 
@@ -175,9 +173,9 @@ class MiddleHighGermanPhonologicalTranscriberProcess(PhonologicalTranscriptionPr
     ['ʊns', 'ɪst', 'ɪn', 'alten', 'mɛren']
     """
 
-    description = "The default Middle High German transcription process"
+    description: str = "The default Middle High German transcription process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return MiddleHighGermanTranscription()
 
@@ -200,9 +198,9 @@ class OldEnglishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
     ['ʍæt', 'we', 'gɑrˠdenɑ', 'in', 'gæːɑrˠdɑgum']
     """
 
-    description = "The default Old English transcription process"
+    description: str = "The default Old English transcription process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldEnglishTranscription()
 
@@ -227,9 +225,9 @@ class OldNorsePhonologicalTranscriberProcess(PhonologicalTranscriptionProcess):
 
     """
 
-    description = "The default Old Norse poetry process"
+    description: str = "The default Old Norse poetry process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldNorsePhonologicalTranscriber()
 
@@ -253,8 +251,8 @@ class OldSwedishPhonologicalTranscriberProcess(PhonologicalTranscriptionProcess)
     ['far', 'man', 'kunu', 'ok', 'dør']
     """
 
-    description = "The default Old Swedish transcription process"
+    description: str = "The default Old Swedish transcription process"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldSwedishTranscription()

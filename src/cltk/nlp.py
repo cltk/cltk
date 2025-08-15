@@ -5,11 +5,9 @@ import os
 from threading import Lock
 from typing import Any, Dict, List, Optional, Type
 
-from dotenv import load_dotenv
-
 import cltk
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Language, Pipeline, Process
+from cltk.core.data_types_v2 import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.pipelines import (
     AkkadianPipeline,
@@ -76,8 +74,6 @@ class NLP:
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
         logger.debug(f"Pipeline selected: {self.pipeline}")
-        # Load OpenAI API key from environment or .env
-        load_dotenv()
         self.api_key = os.getenv("OPENAI_API_KEY")
         if self.api_key is None or self.api_key == "":
             logger.warning(
@@ -149,7 +145,7 @@ class NLP:
             else:
                 try:
                     new_process: Process = process_object(
-                        self.language.iso_639_3_code, api_key=self.api_key  # type: ignore introspection
+                        language=self.language.iso_639_3_code
                     )
                 except TypeError:
                     new_process: Process = process_object(self.language.iso_639_3_code)
@@ -221,6 +217,7 @@ class NLP:
 
 
 if __name__ == "__main__":
+    # from pprint import pprint
     from cltk.core.cltk_logger import setup_cltk_logger
     from cltk.languages.example_texts import get_example_text
     from cltk.languages.pipelines import GreekChatGPTPipeline, LatinChatGPTPipeline
@@ -247,11 +244,16 @@ if __name__ == "__main__":
     # example_text: str = (
     #     "ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος."
     # )
+    # from cltk.utils.utils import load_env_file
+    # load_env_file()
+    # print(os.environ.get("OPENAI_API_KEY"))
+    # input()
     pipeline = GreekChatGPTPipeline()
     # pipeline = LatinChatGPTPipeline()
     nlp = NLP(language=LANG, custom_pipeline=pipeline, suppress_banner=False)
     doc = nlp.analyze(example_text)
     logger.info(f"Doc output:\n{doc}")
+    print(doc)
     # logger.info(f"Word[0] output: {doc.words[0] if doc.words else 'No words found'}")
     # logger.info(f"Words: {[w.string for w in doc.words] if doc.words is not None else []}")
     # logger.info(f"ChatGPT metadata: {doc.chatgpt}")

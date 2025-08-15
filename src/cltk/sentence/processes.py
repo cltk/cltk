@@ -3,19 +3,17 @@
 
 
 from copy import copy
-from dataclasses import dataclass
-
-from boltons.cacheutils import cachedproperty
+from functools import cached_property
+from typing import Any, ClassVar
 
 from cltk.core import CLTKException
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.sentence.non import OldNorseRegexSentenceTokenizer
 from cltk.sentence.sentence import SentenceTokenizer
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-@dataclass
 class SentenceTokenizationProcess(Process):
     """To be inherited for each language's tokenization declarations.
 
@@ -29,9 +27,10 @@ class SentenceTokenizationProcess(Process):
 
     """
 
-    model = None
+    # model = None
+    model: ClassVar[Any] = None
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         raise CLTKException(
             f"No sentence tokenization algorithm for language '{self.language}'."
@@ -62,7 +61,6 @@ class SentenceTokenizationProcess(Process):
         return output_doc
 
 
-@dataclass
 class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcess):
     """
     The default Old Norse sentence tokenization algorithm.
@@ -83,6 +81,6 @@ class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcess):
     7
     """
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldNorseRegexSentenceTokenizer()

@@ -2,7 +2,11 @@
 of the NLP pipeline.
 """
 
+# from cltk.utils import pascal_case
+# import importlib
+from abc import ABC, abstractmethod
 from typing import Any, Optional, Type
+
 import numpy as np
 from pydantic import BaseModel, Field, field_validator, model_validator
 
@@ -11,9 +15,7 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 from cltk.morphology.ud_deprels import UDDeprelTag
 from cltk.morphology.ud_features import UDFeatureTagSet
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
-# from cltk.utils import pascal_case
-# import importlib
-from abc import ABC, abstractmethod
+
 # from collections import defaultdict
 
 # ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
@@ -25,6 +27,7 @@ class Language(BaseModel):
     ``cltk.languages.glottolog.LANGUAGES``. May be extended by
     user for dialects or languages not documented by ISO 639-3.
     """
+
     name: str
     glottolog_id: str
     latitude: float
@@ -40,6 +43,7 @@ class Language(BaseModel):
     @classmethod
     def name_must_be_in_languages(cls, v):
         from cltk.languages.glottolog_v2 import LANGUAGES  # to avoide circular import
+
         valid_names = {lang.name for lang in LANGUAGES.values()}
         if v not in valid_names:
             raise ValueError(f"Language.name '{v}' is not in LANGUAGES.")
@@ -52,6 +56,7 @@ class CLTKBaseModel(BaseModel):
 
 class Word(CLTKBaseModel):
     """Contains attributes of each processed word in a list of words."""
+
     index_char_start: Optional[int] = None
     index_char_stop: Optional[int] = None
     index_token: Optional[int] = None
@@ -86,6 +91,7 @@ class Word(CLTKBaseModel):
 
 class Sentence(CLTKBaseModel):
     """The Data Container for sentences."""
+
     words: Optional[list[Word]] = Field(default_factory=list)
     index: Optional[int] = None
     embedding: Optional[np.ndarray] = None
@@ -103,6 +109,7 @@ class Sentence(CLTKBaseModel):
 
 class Doc(CLTKBaseModel):
     """The object returned to the user from the ``NLP()`` class."""
+
     language: Optional[str] = None
     words: list[Word] = Field(default_factory=list)
     pipeline: Optional["Pipeline"] = None
@@ -212,6 +219,7 @@ class Doc(CLTKBaseModel):
 
 class Process(BaseModel):
     """For each type of NLP process there needs to be a definition."""
+
     language: Optional[str] = None
 
     @abstractmethod
@@ -221,6 +229,7 @@ class Process(BaseModel):
 
 class Pipeline(BaseModel):
     """Abstract ``Pipeline`` class to be inherited."""
+
     description: Optional[str] = None
     processes: Optional[list[Type[Process]]] = Field(default_factory=list)
     language: Optional[Language] = None

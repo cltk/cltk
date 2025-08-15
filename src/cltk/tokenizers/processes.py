@@ -4,12 +4,11 @@ TODO: Think about adding check somewhere if a contrib (not user) chooses an unav
 """
 
 from copy import copy
-from dataclasses import dataclass
+from functools import cached_property
 
-from boltons.cacheutils import cachedproperty
 from nltk.tokenize.treebank import TreebankWordTokenizer
 
-from cltk.core.data_types import Doc, Process, Word
+from cltk.core.data_types_v2 import Doc, Process, Word
 from cltk.tokenizers.akk import AkkadianWordTokenizer
 from cltk.tokenizers.arb import ArabicWordTokenizer
 from cltk.tokenizers.enm import MiddleEnglishWordTokenizer
@@ -20,7 +19,6 @@ from cltk.tokenizers.non import OldNorseWordTokenizer
 from cltk.tokenizers.word import CLTKTreebankWordTokenizer
 
 
-@dataclass
 class TokenizationProcess(Process):
     """To be inherited for each language's tokenization declarations.
 
@@ -33,7 +31,7 @@ class TokenizationProcess(Process):
     >>> tok = TokenizationProcess()
     """
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         """
         The backoff tokenizer, from NLTK.
@@ -58,7 +56,6 @@ class TokenizationProcess(Process):
         return output_doc
 
 
-@dataclass
 class MultilingualTokenizationProcess(TokenizationProcess):
     """The default tokenization algorithm.
 
@@ -75,10 +72,9 @@ class MultilingualTokenizationProcess(TokenizationProcess):
     [5, 13, 17, 21, 28]
     """
 
-    description = "Default tokenizer for languages lacking a dedicated tokenizer. This is a whitespace tokenizer inheriting from the NLTK."
+    description: str = "Default tokenizer for languages lacking a dedicated tokenizer. This is a whitespace tokenizer inheriting from the NLTK."
 
 
-@dataclass
 class AkkadianTokenizationProcess(TokenizationProcess):
     """The default Akkadian tokenization algorithm.
 
@@ -92,14 +88,13 @@ class AkkadianTokenizationProcess(TokenizationProcess):
     [('u2-wa-a-ru', 'akkadian'), ('at-ta', 'akkadian'), ('e2-kal2-la-ka', 'akkadian'), ('_e2_-ka', 'sumerian'), ('wu-e-er', 'akkadian')]
     """
 
-    description = "Default tokenizer for the Akkadian language."
+    description: str = "Default tokenizer for the Akkadian language."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return AkkadianWordTokenizer()
 
 
-@dataclass
 class ArabicTokenizationProcess(TokenizationProcess):
     """The default Arabic tokenization algorithm.
 
@@ -111,14 +106,13 @@ class ArabicTokenizationProcess(TokenizationProcess):
     ['كهيعص', '﴿', '١', '﴾', 'ذِكْرُ', 'رَحْمَتِ', 'رَبِّكَ']
     """
 
-    description = "Default tokenizer for the Arabic language."
+    description: str = "Default tokenizer for the Arabic language."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return ArabicWordTokenizer()
 
 
-@dataclass
 class GreekTokenizationProcess(TokenizationProcess):
     """The default Greek tokenization algorithm.
 
@@ -130,14 +124,13 @@ class GreekTokenizationProcess(TokenizationProcess):
     ['ὅτι', 'μὲν', 'ὑμεῖς', ',', 'ὦ', 'ἄνδρες']
     """
 
-    description = "Default tokenizer for the Greek language."
+    description: str = "Default tokenizer for the Greek language."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return CLTKTreebankWordTokenizer()
 
 
-@dataclass
 class LatinTokenizationProcess(TokenizationProcess):
     """The default Latin tokenization algorithm.
 
@@ -149,14 +142,13 @@ class LatinTokenizationProcess(TokenizationProcess):
     ['Gallia', 'est', 'omnis', 'divisa']
     """
 
-    description = "Default tokenizer for the Latin language."
+    description: str = "Default tokenizer for the Latin language."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return LatinWordTokenizer()
 
 
-@dataclass
 class MiddleHighGermanTokenizationProcess(TokenizationProcess):
     """The default Middle High German tokenization algorithm.
 
@@ -167,14 +159,13 @@ class MiddleHighGermanTokenizationProcess(TokenizationProcess):
     ['Uns', 'ist', 'in', 'alten', 'mæren', 'wunder']
     """
 
-    description = "Default Middle High German tokenizer"
+    description: str = "Default Middle High German tokenizer"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return MiddleHighGermanWordTokenizer()
 
 
-@dataclass
 class MiddleEnglishTokenizationProcess(TokenizationProcess):
     """The default Middle English tokenization algorithm.
 
@@ -186,14 +177,13 @@ class MiddleEnglishTokenizationProcess(TokenizationProcess):
     ['Whilom', ',', 'as', 'olde', 'stories', 'tellen']
     """
 
-    description = "Default Middle English tokenizer"
+    description: str = "Default Middle English tokenizer"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return MiddleEnglishWordTokenizer()
 
 
-@dataclass
 class OldFrenchTokenizationProcess(TokenizationProcess):
     """The default Old French tokenization algorithm.
 
@@ -205,14 +195,13 @@ class OldFrenchTokenizationProcess(TokenizationProcess):
     ['Une', 'aventure', 'vos', 'voil', 'dire', 'Molt', 'bien']
     """
 
-    description = "Default tokenizer for the Old French language."
+    description: str = "Default tokenizer for the Old French language."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldFrenchWordTokenizer()
 
 
-@dataclass
 class MiddleFrenchTokenizationProcess(TokenizationProcess):
     """The default Middle French tokenization algorithm.
 
@@ -224,14 +213,13 @@ class MiddleFrenchTokenizationProcess(TokenizationProcess):
     ['Attilius', 'Regulus', ',', 'general', 'de', "l'", 'armée']
     """
 
-    description = "Default tokenizer for the Middle French language."
+    description: str = "Default tokenizer for the Middle French language."
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldFrenchWordTokenizer()
 
 
-@dataclass
 class OldNorseTokenizationProcess(TokenizationProcess):
     """The default OldNorse tokenization algorithm.
 
@@ -243,8 +231,8 @@ class OldNorseTokenizationProcess(TokenizationProcess):
     ['Gylfi', 'konungr', 'réð', 'þar', 'löndum']
     """
 
-    description = "Default Old Norse tokenizer"
+    description: str = "Default Old Norse tokenizer"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldNorseWordTokenizer()

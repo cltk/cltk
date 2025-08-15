@@ -16,12 +16,14 @@ from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
+from cltk.dependency.utils import convert_pos_features_to_ud
 from cltk.languages.utils import get_lang
 from cltk.morphology.morphosyntax import (
     FORM_UD_MAP,
     MorphosyntacticFeatureBundle,
     from_ud,
 )
+from cltk.morphology.ud_features import UDFeature, UDFeatureTag, UDFeatureTagSet
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
 from cltk.utils.utils import load_env_file
@@ -257,107 +259,18 @@ Text: {input_doc.normalized_text}
             )
             # Add morphology features to each Word object
             feats_raw: Optional[str] = pos_dict.get("feats", None)
-            print("feats_raw:", feats_raw)
-            features_bundle: Optional[MorphosyntacticFeatureBundle] = None
-            all_features: list[MorphosyntacticFeature] = []
+            logger.debug(f"feats_raw: {feats_raw}")
             if not feats_raw:
-                features_bundle = None
-            else:
-                features_bundle = MorphosyntacticFeatureBundle()
-                # Ex: `"Feature1=Value1|Feature2=Value2,Value3|Feature3=Value4"` ...
-                # ... becomes `[('Feature1', 'Value1'), ('Feature2', 'Value2,Value3'), ('Feature3', 'Value4')]`
-                # xxx
-                # feats_raw: str = "Feature1=Value1|Feature2=Value2,Value3|Feature3=Value4"
-                raw_features_pairs: list[tuple[str, ...]] = [
-                    tuple(pair.split("=", maxsplit=1))
-                    for pair in feats_raw.split("|")
-                    if "=" in pair
-                ]
-                raw_feature_pairs: tuple[str, ...]  # Ex: ['Case=Nom']
-                for raw_feature_pairs in raw_features_pairs:
-                    if len(raw_feature_pairs) != 2:
-                        logger.warning(
-                            f"Malformed feature pair: {raw_feature_pairs} for {word.string}"
-                        )
-                    raw_feature_key: str = raw_feature_pairs[0]
-                    raw_feature_values: str = raw_feature_pairs[1]
-                    raw_feature_value: str
-                    for raw_feature_value in raw_feature_values.split(","):
-                        (
-                            raw_feature_key,
-                            raw_feature_key,
-                        ) = self._normalize_to_ud_feature_pair(
-                            key=raw_feature_key, value=raw_feature_value
-                        )
-                        print("raw_feature_key:", raw_feature_key)
-                        print("raw_feature_value:", raw_feature_value)
-                        feature_instance: Optional[MorphosyntacticFeature] = from_ud(
-                            raw_feature_key, raw_feature_key
-                        )
-                        if not feature_instance:
-                            logger.info(
-                                f"Failed to create morphology object for {raw_feature_key} = {raw_feature_value} for {word.string}"
-                            )
-                            continue
-                        feature_class: type[MorphosyntacticFeature] = type(
-                            feature_instance
-                        )
-                        features_bundle[feature_class] = [feature_instance]
-                        print("feature_instance:", feature_instance)
-                        input()
-                        # feature_instance: Optional[MorphosyntacticFeature] = from_ud(raw_feature_key, raw_feature_value)
-                        # if not feature_instance:
-                        #     logger.error(f"Failed to create morphology object for {raw_feature_key} = {raw_feature_value} for {word.string}")
-                        #     continue
-                        # feature_class: type[MorphosyntacticFeature] = type(feature_instance)
-                        # features_bundle[feature_class] = [feature_instance]
-                        # all_features.append(feature_instance)
-            print(f"features_bundle for {word.string}:", features_bundle)
-            input()
-
-            # for raw_feature_pair in raw_feature_pairs:
-            #     raw_feature, raw_value = raw_feature_pair.split("=", maxsplit=1)
-            #     raw_feature, raw_value = self._normalize_to_ud_feature_pair(
-            #         key=raw_feature, value=raw_value
-            #     )
-            #     feature_instance: Optional[MorphosyntacticFeature] = from_ud(raw_feature, raw_value)
-            #     if not feature_instance:
-            #         logger.warning(f"Failed to create Morphosyntactic pair {raw_feature} = {raw_value} for {word.string}.")
-            #         continue
-            #     print("feature_instance:", feature_instance)
-            # feature_class: type[MorphosyntacticFeature] = type(feature_instance)
-            # features_bundle[feature_class] = [feature_instance]
-            # input()
-            # for feature_key, feature_value in raw_feature_pair:
-            # feature_key, feature_value = self._normalize_to_ud_feature_pair(key=feature_key, value=feature_value)
-
-            # for feat in feats:
-            #     if "=" in feat:
-            #         key: str
-            #         value_raw: str
-            #         key, value_raw = feat.split("=", 1)
-            #         key, values = self._normalize_to_ud_feature_pair(key=key, value=value_raw)
-            #         if key in FORM_UD_MAP:
-            #             values: list[str] = value
-            #             for val in values:
-            #                 feature_instance = from_ud(key, val)
-            #                 if feature_instance:
-            #                     features_bundle[type(feature_instance)] = [
-            #                         feature_instance
-            #                     ]
-            #                 else:
-            #                     # Handle unknown values
-            #                     logger.error(
-            #                         f"Unknown feature '{key}' for '{word.string}'. Please check the input text and try again."
-            #                     )
-            #         else:
-            #             # Handle unknown keys
-            #             logger.error(
-            #                 f"Unknown feature '{key}' for '{word.string}'."
-            #             )
-            #     else:
-            #         logger.warning(f"Malformed feature '{feat}' for '{word.string}'.")
-            # word.features = features_bundle
+                words.append(word)
+                logger.debug(
+                    f"No features found for {word.string}, skipping feature assignment."
+                )
+                continue
+            features_tag_set: Optional[UDFeatureTagSet] = convert_pos_features_to_ud(
+                feats_raw=feats_raw
+            )
+            logger.debug(f"features_tag_set for {word.string}: {features_tag_set}")
+            word.features = features_tag_set
             words.append(word)
         logger.debug(f"Created {len(words)} Word objects from POS tags.")
         logger.debug("Words: %s", ", ".join([word.string or "" for word in words]))

@@ -4,10 +4,10 @@ Processes for dictionary lookup.
 
 from copy import copy
 from dataclasses import dataclass
+from functools import cached_property
+from typing import Optional
 
-from boltons.cacheutils import cachedproperty
-
-from cltk.core.data_types import Doc, Process
+from cltk.core.data_types_v2 import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.lexicon.lat import LatinLewisLexicon
 from cltk.lexicon.non import OldNorseZoegaLexicon
@@ -15,7 +15,6 @@ from cltk.lexicon.non import OldNorseZoegaLexicon
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-@dataclass
 class LexiconProcess(Process):
     """To be inherited for each language's dictionary declarations.
 
@@ -28,9 +27,9 @@ class LexiconProcess(Process):
     True
     """
 
-    language: str = None
+    language: Optional[str] = None
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         if self.language == "lat":
             lex_class = LatinLewisLexicon()
@@ -76,12 +75,12 @@ class LatinLexiconProcess(LexiconProcess):
     """
 
     description: str = "Dictionary lookup process for Latin"
-    language: str = "lat"
+    language: Optional[str] = "lat"
     authorship_info: str = (
         "``LatinLexiconProcess`` using Lewis's *An Elementary Latin Dictionary* (1890)."
     )
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return LatinLewisLexicon()
 
@@ -106,9 +105,9 @@ class OldNorseLexiconProcess(LexiconProcess):
 
     """
 
-    description = "Dictionary lookup process for Old Norse"
-    language = "non"
+    description: Optional[str] = "Dictionary lookup process for Old Norse"
+    language: Optional[str] = "non"
 
-    @cachedproperty
+    @cached_property
     def algorithm(self):
         return OldNorseZoegaLexicon()

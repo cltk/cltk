@@ -5,7 +5,7 @@ __author__ = ["John Stewart <free-variation>"]
 from typing import Union
 from xml.etree.ElementTree import Element, ElementTree
 
-from cltk.core.data_types import Doc, Word
+from cltk.core.data_types_v2 import Doc, Word
 
 # from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import (  # MorphosyntacticFeature,
