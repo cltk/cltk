@@ -3,7 +3,7 @@
 https://universaldependencies.org/u/pos/index.html
 """
 
-from pydantic import BaseModel, ValidationError, field_validator
+from pydantic import BaseModel, ValidationError, field_validator, model_validator
 
 from cltk.core.cltk_logger import logger
 
@@ -23,18 +23,27 @@ from pydantic import BaseModel
 class UDPartOfSpeechTag(BaseModel):
     # Use this when instantiating a tagged word
     tag: str  # UD abbreviation, e.g., "ADJ"
-    name: str  # Human-readable name
-    open_class: bool  # True if open class, False if closed class
+    name: Optional[str] = None  # Human-readable name (auto-filled)
+    open_class: Optional[bool] = None  # True if open class, False if closed class (auto-filled)
 
     @field_validator("tag")
     @classmethod
     def validate_tag(cls, v):
-        if v.upper() not in UD_POS_TAGS:
+        v = v.upper()
+        if v not in UD_POS_TAGS:
             raise ValueError(f"Invalid UD POS tag: '{v}'")
-        return v.upper()
+        return v
+
+    @model_validator(mode="after")
+    def fill_fields(self):
+        pos = UD_POS_TAGS.get(self.tag)
+        if pos:
+            object.__setattr__(self, "name", pos.name)
+            object.__setattr__(self, "open_class", pos.open_class)
+        return self
 
     def __str__(self):
-        return f'UDPartOfSpeech(tag="{self.tag}", name="{self.name}")'
+        return f'UDPartOfSpeechTag(tag="{self.tag}", name="{self.name}")'
 
     def __repr__(self):
         return self.__str__()
@@ -220,7 +229,7 @@ if __name__ == "__main__":
 
     udpos: UDPartOfSpeechTag = UDPartOfSpeechTag(
         tag="NOUN",
-        name="noun",
-        open_class=True,
+        # name="noun",
+        # open_class=True,
     )
     print(udpos)

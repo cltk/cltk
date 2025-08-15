@@ -14,7 +14,7 @@ from openai.types.responses.response_usage import ResponseUsage
 from cltk.alphabet.grc.grc import split_ancient_greek_sentences
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Doc, Language, Word
+from cltk.core.data_types_v2 import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.languages.utils import get_lang
 from cltk.morphology.morphosyntax import (
@@ -22,6 +22,7 @@ from cltk.morphology.morphosyntax import (
     MorphosyntacticFeatureBundle,
     from_ud,
 )
+from cltk.morphology.ud_pos import UDPartOfSpeechTag
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
 from cltk.utils.utils import load_env_file
 
@@ -238,11 +239,21 @@ Text: {input_doc.normalized_text}
         # Create Word objects from cleaned POS tags
         words: list[Word] = list()
         for word_idx, pos_dict in enumerate(cleaned_pos_tags):
+            upos_val_raw: Optional[str] = pos_dict.get("upos", None)
+            udpos: Optional[UDPartOfSpeechTag] = None
+            if upos_val_raw:
+                # xxx
+                # TODO: Do check if tag is valid or try to correct if this raises error
+                udpos = UDPartOfSpeechTag(tag=upos_val_raw)
+            else:
+                logger.error(
+                    f"Missing 'upos' field in POS dict: {pos_dict}. Error: {e}"
+                )
             word: Word = Word(
                 string=pos_dict.get("form", None),
                 index_token=word_idx,
                 lemma=pos_dict.get("lemma", None),
-                upos=pos_dict.get("upos", None),
+                upos=udpos,
             )
             # Add morphology features to each Word object
             feats_raw: Optional[str] = pos_dict.get("feats", None)
