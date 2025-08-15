@@ -2,9 +2,12 @@
 info from CLTK data structures.
 """
 
+__license__ = "MIT License. See LICENSE."
+
+
 from typing import Optional, Union
 
-from cltk.core.data_types import Word
+from cltk.core.data_types_v2 import Word
 from cltk.core.exceptions import CLTKException
 from cltk.morphology.universal_dependencies_features import (
     NOMINAL_FEATURES,

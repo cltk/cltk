@@ -1,5 +1,7 @@
 """Call ChatGPT."""
 
+__license__ = "MIT License. See LICENSE."
+
 import os
 import re
 import sys
@@ -251,9 +253,7 @@ Text: {input_doc.normalized_text}
                 # TODO: Do check if tag is valid or try to correct if this raises error
                 udpos = UDPartOfSpeechTag(tag=upos_val_raw)
             else:
-                logger.error(
-                    f"Missing 'upos' field in POS dict: {pos_dict}. Error: {e}"
-                )
+                logger.error(f"Missing 'upos' field in POS dict: {pos_dict}.")
             word: Word = Word(
                 string=pos_dict.get("form", None),
                 index_token=word_idx,
@@ -269,9 +269,17 @@ Text: {input_doc.normalized_text}
                     f"No features found for {word.string}, skipping feature assignment."
                 )
                 continue
-            features_tag_set: Optional[UDFeatureTagSet] = convert_pos_features_to_ud(
-                feats_raw=feats_raw
-            )
+            features_tag_set: Optional[UDFeatureTagSet] = None
+            try:
+                features_tag_set = convert_pos_features_to_ud(feats_raw=feats_raw)
+            except ValueError as e:
+                msg: str = f"Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
+                logger.error(msg)
+                with open("features_err.log", "a") as f:
+                    f.write(msg + "\n")
+                word.features = features_tag_set
+                # TODO: Re-raise this error
+                # raise ValueError(msg)
             logger.debug(f"features_tag_set for {word.string}: {features_tag_set}")
             word.features = features_tag_set
             words.append(word)

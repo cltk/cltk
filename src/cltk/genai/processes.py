@@ -1,3 +1,7 @@
+"""Processes for ChatGPT."""
+
+__license__ = "MIT License. See LICENSE."
+
 import os
 from dataclasses import dataclass, field
 from typing import Optional
@@ -9,8 +13,6 @@ from cltk.core.exceptions import CLTKException
 from cltk.genai.chatgpt import ChatGPT
 from cltk.languages.glottolog import LANGUAGES
 from cltk.utils.utils import load_env_file
-
-# from dotenv import load_dotenv
 
 
 class ChatGPTProcess(Process):

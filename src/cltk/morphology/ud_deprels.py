@@ -3,6 +3,8 @@
 https://universaldependencies.org/u/dep/index.html
 """
 
+__license__ = "MIT License. See LICENSE."
+
 from typing import Literal, Optional
 
 from pydantic import BaseModel, field_validator, model_validator

@@ -6,7 +6,28 @@ import logging
 import os
 import sys
 
+from colorama import Fore, Style
+from colorama import init as colorama_init
+
 from cltk.utils.utils import CLTK_DATA_DIR
+
+colorama_init(autoreset=True)
+
+
+class ColorFormatter(logging.Formatter):
+    COLORS = {
+        logging.DEBUG: Fore.CYAN + Style.DIM,
+        logging.INFO: Fore.GREEN + Style.BRIGHT,
+        logging.WARNING: Fore.YELLOW + Style.BRIGHT,
+        logging.ERROR: Fore.RED + Style.BRIGHT,
+        logging.CRITICAL: Fore.RED + Style.BRIGHT + Style.BRIGHT,
+    }
+
+    def format(self, record):
+        color = self.COLORS.get(record.levelno, "")
+        reset = Style.RESET_ALL
+        record.msg = f"{color}{record.msg}{reset}"
+        return super().format(record)
 
 
 def setup_cltk_logger(name="CLTK", log_to_file=True, log_to_console=True, level=None):
@@ -19,7 +40,7 @@ def setup_cltk_logger(name="CLTK", log_to_file=True, log_to_console=True, level=
     formatter_file = logging.Formatter(
         "%(asctime)s - %(name)s - %(filename)s:%(lineno)s - %(levelname)s - %(message)s"
     )
-    formatter_console = logging.Formatter("%(levelname)s: %(message)s")
+    formatter_console = ColorFormatter("%(levelname)s: %(message)s")
 
     if log_to_file:
         file_handler = logging.FileHandler("cltk.log")

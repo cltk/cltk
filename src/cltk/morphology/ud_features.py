@@ -3,6 +3,8 @@
 https://universaldependencies.org/u/feat/index.html
 """
 
+__license__ = "MIT License. See LICENSE."
+
 from typing import Literal, Optional
 
 from pydantic import BaseModel, ValidationError, field_validator, model_validator
@@ -1271,6 +1273,14 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Aspect", "Aor"): ("Tense", "Past"),
         ("Aspect", "Pres"): ("Tense", "Pres"),
         ("Aspect", "Fut"): ("Tense", "Fut"),
+        ("Emph", "Yes"): ("PronType", "Emp"),
+        ("Emphatic", "Yes"): ("PronType", "Emp"),
+        ("Indef", "Yes"): ("PronType", "Indef"),
+        ("Demonstrative", "Yes"): ("PronType", "Dem"),
+        ("Indefinite", "Yes"): ("PronType", "Ind"),
+        ("Participle", "Yes"): ("VerbForm", "Part"),
+        ("PartForm", "Pres"): ("Tense", "Pres"),
+        ("Partic", "Yes"): ("VerbForm", "Part"),
         # ("", ""): ("", ""),
         # Add more as needed
     }
@@ -1356,10 +1366,14 @@ def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
         raw_feature_key: str = raw_feature_pairs[0]
         raw_feature_value: str = raw_feature_pairs[1]
         # TODO: Do some validation to ensure the tag value is not multiple (check for commas)
-        feature_tag: UDFeatureTag = UDFeatureTag(
-            key=raw_feature_key,
-            value=raw_feature_value,
-        )
+        try:
+            feature_tag: UDFeatureTag = UDFeatureTag(
+                key=raw_feature_key,
+                value=raw_feature_value,
+            )
+        except ValueError as e:
+            logger.error(f"Failed to create feature tag: {e}")
+            raise ValueError
         logger.debug(f"feature_tag: {feature_tag}")
         features_tag_set.features.append(feature_tag)
         return features_tag_set

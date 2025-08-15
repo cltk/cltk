@@ -5,6 +5,8 @@ import os
 from threading import Lock
 from typing import Any, Dict, List, Optional, Type
 
+from colorama import Fore, Style, init
+
 import cltk
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Language, Pipeline, Process
@@ -31,6 +33,8 @@ from cltk.languages.pipelines import (
     SanskritPipeline,
 )
 from cltk.languages.utils import get_lang
+
+init(autoreset=True)  # For colorama to display on Windows
 
 iso_to_pipeline = {
     "akk": AkkadianPipeline,
@@ -74,11 +78,11 @@ class NLP:
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
         logger.debug(f"Pipeline selected: {self.pipeline}")
-        self.api_key = os.getenv("OPENAI_API_KEY")
-        if self.api_key is None or self.api_key == "":
-            logger.warning(
-                "OPENAI_API_KEY is missing. ChatGPT-based processes will fail unless an API key is provided."
-            )
+        # self.api_key = os.getenv("OPENAI_API_KEY")
+        # if self.api_key is None or self.api_key == "":
+        #     logger.warning(
+        #         "OPENAI_API_KEY is missing. ChatGPT-based processes will fail unless an API key is provided."
+        #     )
         if not suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
@@ -89,10 +93,20 @@ class NLP:
         logger.info("Printing CLTK citation info.")
         ltr_mark: str = "\u200E"
         alep: str = "\U00010900"
+        # print(
+        #     f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
+        # )
+        # print("")
         print(
-            f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
+            Fore.CYAN
+            + Style.BRIGHT
+            + f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: "
+            + Fore.BLUE
+            + Style.BRIGHT
+            + "https://aclanthology.org/2021.acl-demo.3/"
+            + Style.RESET_ALL
+            + "\n"
         )
-        print("")
 
     def _print_pipelines_for_current_lang(self) -> None:
         logger.info(f"Printing pipeline for language: {self.language.name}")
@@ -101,17 +115,33 @@ class NLP:
         )
         processes_name: list[str] = [process.__name__ for process in processes]
         processes_name_str: str = "`, `".join(processes_name)
+        # print(
+        #     f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
+        # )
+        # print("")
         print(
-            f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
+            Fore.CYAN
+            + f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'):"
+            + Fore.GREEN
+            + f" `{', '.join(processes_name)}`"
+            + Style.RESET_ALL
+            + "\n"
         )
-        print("")
+
         logger.debug(f"Processes in pipeline: {processes_name}")
-        print(f"Processes in pipeline: {[process.__name__ for process in processes]}")
+        # print(f"Processes in pipeline: {[process.__name__ for process in processes]}")
+        print(
+            Fore.CYAN
+            + f"Processes in pipeline:"
+            + Fore.GREEN
+            + f" {[process.__name__ for process in processes]}"
+            + Style.RESET_ALL
+        )
         for process_class in processes:
             process_instance = self._get_process_object(process_class)
             authorship_info = getattr(process_instance, "authorship_info", None)
             if authorship_info:
-                print(f"⸖ {authorship_info}")
+                print(f"\n" + Fore.CYAN + f"⸖ {authorship_info}" + Style.RESET_ALL)
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         logger.info("Printing special authorship messages for current language.")
@@ -128,9 +158,16 @@ class NLP:
 
     def _print_suppress_reminder(self) -> None:
         logger.info("Printing suppress banner reminder.")
-        print("")
+        # print("")
+        # print(
+        #     "⸎ To suppress these messages, instantiate `NLP()` with `suppress_banner=True`."
+        # )
         print(
-            "⸎ To suppress these messages, instantiate `NLP()` with `suppress_banner=True`."
+            "\n"
+            + Fore.YELLOW
+            + Style.BRIGHT
+            + "⸎ To suppress these messages, instantiate NLP() with suppress_banner=True."
+            + Style.RESET_ALL
         )
 
     def _get_process_object(self, process_object: Type[Process]) -> Process:
