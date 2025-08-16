@@ -10,8 +10,11 @@ from typing import Any, Optional, Type
 import numpy as np
 from pydantic import BaseModel, Field, field_validator, model_validator
 
+from cltk.alphabet.grc.grc import extract_sentences_from_boundaries
+
 # from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle
 # from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
+from cltk.core.cltk_logger import logger
 from cltk.morphology.ud_deprels import UDDeprelTag
 from cltk.morphology.ud_features import UDFeatureTagSet
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
@@ -124,6 +127,20 @@ class Doc(CLTKBaseModel):
     coreferences: list[tuple[str, str, int, int]] = Field(default_factory=list)
     sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
     chatgpt: list[dict[str, Any]] = Field(default_factory=list)
+
+    @property
+    def sentence_strings(self) -> list[str]:
+        """
+        Return the list of sentence strings using sentence boundaries and the normalized text.
+        """
+        if not self.normalized_text or not self.sentence_boundaries:
+            logger.warning(
+                f"`Doc.normalized_text` or `.sentence_boundaries` is empty, cannot return sentence strings."
+            )
+            return []
+        return extract_sentences_from_boundaries(
+            self.normalized_text, self.sentence_boundaries
+        )
 
     # @property
     # def sentences(self) -> list[Sentence]:

@@ -315,7 +315,7 @@ LOWER_ROUGH_GRAVE = [  #
     "\u1f63",  # ὣ Greek Small Letter Omega With Dasia And Varia
     "\u1f83",  # ᾃ Greek Small Letter Alpha With Dasia And Varia And Ypogegrammeni
     "\u1f93",  # ᾓ Greek Small Letter Eta With Dasia And Varia And Ypogegrammeni
-    "\u1fa3",  # ᾣ Greek Small Letter Omega With Dasia And Varia And Ypogegrammeni
+    "\u1fa3",  # ᾣ Greek Small Letter Omega With Dasia And Varia And Prosgegrammeni
 ]
 
 LOWER_ROUGH_CIRCUMFLEX = [  #
@@ -642,14 +642,16 @@ def normalize_grc(text: str) -> str:
     return text_punct_processed
 
 
-def split_ancient_greek_sentences(text: str) -> list[tuple[int, int]]:
+def split_ancient_greek_sentences(
+    text: str,
+) -> list[tuple[int, int]]:
     """
     Split Ancient Greek text into sentences using punctuation:
-    Greek question mark (;), semicolon (;), ano teleia (·), and full stop (.).
+    Greek question mark (;), semicolon (;), ano teleia (·), middle dot (·), and full stop (.).
     Returns a list of (start, stop) character indices for each sentence.
     """
     # Define a regular expression for splitting
-    sentence_endings = r"([;;·.])"
+    sentence_endings = r"([;;·.·])"
 
     # Split and keep the delimiter
     parts = re.split(sentence_endings, text)
@@ -677,4 +679,15 @@ def split_ancient_greek_sentences(text: str) -> list[tuple[int, int]]:
             stop = start + len(sentence)
             boundaries.append((start, stop))
             idx = stop
+
     return boundaries
+
+
+def extract_sentences_from_boundaries(
+    text: str, boundaries: list[tuple[int, int]]
+) -> list[str]:
+    """
+    Given a text and a list of (start, stop) character index tuples,
+    return the list of sentence strings.
+    """
+    return [text[start:stop] for start, stop in boundaries]

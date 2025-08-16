@@ -213,7 +213,10 @@ class LatinPipeline(Pipeline):
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [
             LatinNormalizeProcess,
-            LatinChatGPTProcess,
+            LatinStanzaProcess,
+            LatinEmbeddingsProcess,
+            StopsProcess,
+            LatinLexiconProcess,
         ]
     )
 
@@ -230,10 +233,7 @@ class LatinChatGPTPipeline(Pipeline):
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [
             LatinNormalizeProcess,
-            LatinStanzaProcess,
-            LatinEmbeddingsProcess,
-            StopsProcess,
-            LatinLexiconProcess,
+            LatinChatGPTProcess,
         ]
     )
 

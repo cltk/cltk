@@ -7,11 +7,14 @@ import re
 import sys
 import unicodedata
 from copy import deepcopy
-from typing import Optional
+from typing import Literal, Optional
 
+from colorama import Fore, Style
 from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
 from openai.types.responses.response_usage import ResponseUsage
+from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
+from tqdm import tqdm
 
 from cltk.alphabet.grc.grc import split_ancient_greek_sentences
 from cltk.alphabet.text_normalization import cltk_normalize
@@ -34,13 +37,15 @@ from cltk.morphology.ud_pos import UDPartOfSpeechTag
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
 from cltk.utils.utils import load_env_file
 
+AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
+
 
 class ChatGPT:
     def __init__(
         self,
         language: str,
         api_key: str,
-        model: str = "gpt-4.1",
+        model: AVAILABILE_MODELS,
         temperature: float = 1.0,
     ):
         """Initialize the ChatGPT class and set up OpenAI connection."""
@@ -71,18 +76,22 @@ class ChatGPT:
                 text=input_doc.normalized_text
             )
             logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
-
         # POS/morphology
         tmp_docs: list[Doc] = list()
-        for sent_idx, sentence_boundary in enumerate(input_doc.sentence_boundaries):
-            tmp_doc = deepcopy(input_doc)
+        for sent_idx, sentence_string in tqdm(
+            enumerate(input_doc.sentence_strings),
+            total=len(input_doc.sentence_strings),
+            desc=Fore.CYAN + Style.BRIGHT + "Processing sentences" + Style.RESET_ALL,
+            unit="sent",
+        ):
+            tmp_doc = Doc(language=input_doc.language, normalized_text=sentence_string)
             tmp_doc = self.generate_pos(
-                input_doc=tmp_doc,
+                doc=tmp_doc,
                 sentence_idx=sent_idx,
             )
             tmp_docs.append(tmp_doc)
             logger.info(
-                f"Completed POS tagging to sentence #{sent_idx + 1} of {len(input_doc.sentence_boundaries)}"
+                f"Completed POS tagging to sentence #{sent_idx + 1} of {len(input_doc.sentence_strings)}"
             )
         # Combine all Word objects from tmp_docs into a single list
         all_words: list[Word] = list()
@@ -172,68 +181,107 @@ class ChatGPT:
 
     def generate_pos(
         self,
-        input_doc: Doc,
+        doc: Doc,
         sentence_idx: Optional[int] = None,
+        max_retries: int = 2,
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
-        prompt = f"""For the following {self.language.name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields according to Universal Dependencies guidelines.
+        prompt: str = f"""For the following {self.language.name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) Greek guidelines.
 
-Return the result as a markdown code block containing a tab-delimited table (TSV format) with the following columns:
+Rules:
+- Always use strict UD Greek morphological tags (not a simplified system).
+- Split off enclitics and contractions as separate tokens (e.g., οὔτʼ → οὔτε).
+- Always include punctuation as separate tokens with UPOS=PUNCT and FEATS=_.
+- For uncertain, rare, or dialectal forms (e.g., τουτουὶ), always provide the most standard dictionary lemma and supply a best-effort UD tag. Do not skip any tokens.
+- Separate UD features with a pipe ("|"). Do not use a semi-colon or other characters.
+- Preserve the spelling of the text exactly as given (including diacritics, breathings, and subscripts). Do not normalize.
+- If a lemma or feature is uncertain, still provide the closest standard form and UD features. Never leave fields blank and never ask for clarification.
+- If full accuracy is not possible, always provide a best-effort output without asking for clarification.  
+- Never request to perform the task in multiple stages; always deliver the final TSV in one step.  
+- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.  
+- Always output all four fields: FORM, LEMMA, UPOS, FEATS.
+- The result must be a markdown code block containing only a tab-delimited table (TSV) with the following header row:
 
-FORM\tLEMMA\tUPOS\tFEATS
+FORM    LEMMA   UPOS    FEATS
 
-Do not include any explanation, commentary, or extra formatting. Only output the table inside a markdown code block.
-
-Text: {input_doc.normalized_text}
+Text: {doc.normalized_text}
 """
-        try:
-            chatgpt_response: Response = self.client.responses.create(
-                model=self.model, input=prompt, temperature=self.temperature
-            )
-        except OpenAIError as openai_error:
-            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
-        chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(
-            response=chatgpt_response
-        )
-        logger.info(f"ChatGPT usage: {chatgpt_usage}")
-        if not input_doc.chatgpt:
-            input_doc.chatgpt = list()
-        input_doc.chatgpt.append(chatgpt_usage)
-        if not input_doc.normalized_text:
-            raise CLTKException("Input document must have `.normalized_text` set.")
-        if not chatgpt_response.output_text:
-            raise CLTKException(
-                "No output text returned from OpenAI. Check your prompt and API key."
-            )
-        raw_chatgpt_response_normalized: str = cltk_normalize(
-            text=chatgpt_response.output_text
-        )
+        logger.debug(prompt)
+        for attempt in range(1, max_retries + 1):
+            try:
+                if "4.1" in self.model:
+                    chatgpt_response: Response = self.client.responses.create(
+                        model=self.model, input=prompt, temperature=self.temperature
+                    )
+                elif "-5" in self.model:
+                    chatgpt_response: Response = self.client.responses.create(
+                        model=self.model,
+                        input=prompt,
+                        reasoning={"effort": "medium"},
+                        text={"verbosity": "medium"},
+                    )
+                else:
+                    raise ValueError(f"Unsupported model: {self.model}.")
+            except OpenAIError as openai_error:
+                raise OpenAIInferenceError(
+                    f"An error from OpenAI occurred: {openai_error}"
+                )
 
-        def extract_code_blocks(text):
-            # This regex finds all text between triple backticks
-            return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
+            logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
+            chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(
+                model=self.model, response=chatgpt_response
+            )
+            logger.info(f"ChatGPT usage: {chatgpt_usage}")
+            if not doc.chatgpt:
+                doc.chatgpt = list()
+            doc.chatgpt.append(chatgpt_usage)
+            if not doc.normalized_text:
+                raise CLTKException("Input document must have `.normalized_text` set.")
+            if not chatgpt_response.output_text:
+                raise CLTKException(
+                    "No output text returned from OpenAI. Check your prompt and API key."
+                )
+            raw_chatgpt_response_normalized: str = cltk_normalize(
+                text=chatgpt_response.output_text
+            )
 
-        code_blocks = extract_code_blocks(raw_chatgpt_response_normalized)
-        if not code_blocks:
-            logger.warning("No code blocks found in ChatGPT response.")
-            raise CLTKException("No code blocks found in ChatGPT response.")
+            def extract_code_blocks(text):
+                # This regex finds all text between triple backticks
+                return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
+
+            code_blocks = extract_code_blocks(raw_chatgpt_response_normalized)
+            if code_blocks:
+                break  # Success, exit retry loop
+            else:
+                logger.warning(
+                    f"Attempt {attempt}: No code block found in ChatGPT response. Retrying..."
+                )
+                if attempt == max_retries:
+                    msg: str = "No code blocks found in ChatGPT response after retries."
+                    logger.error(msg)
+                    logger.error(raw_chatgpt_response_normalized)
+                    raise CLTKException(msg)
+                # Optionally, you could modify the prompt or add a delay here
+
         code_block: str = code_blocks[0].strip()
         logger.debug(f"Extracted code block:\n{code_block}")
 
         def parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
-            lines: list[str] = [
+            lines = [
                 line.strip() for line in tsv_string.strip().splitlines() if line.strip()
             ]
-            header: list[str] | None = None
-            data: list[dict[str, str]] = []
+            header = ["form", "lemma", "upos", "feats"]
+            data = []
             for line in lines:
-                if header is None:
-                    header = [col.strip().lower() for col in line.split("\t")]
+                # Skip markdown code block markers
+                if line.startswith("```"):
                     continue
                 parts = line.split("\t")
                 if len(parts) == 4:
-                    entry: dict[str, str] = dict(zip(header, parts))
+                    # Skip the header row if present
+                    if [p.lower() for p in parts] == header:
+                        continue
+                    entry = dict(zip(header, parts))
                     data.append(entry)
             return data
 
@@ -251,9 +299,16 @@ Text: {input_doc.normalized_text}
             udpos: Optional[UDPartOfSpeechTag] = None
             if upos_val_raw:
                 # TODO: Do check if tag is valid or try to correct if this raises error
-                udpos = UDPartOfSpeechTag(tag=upos_val_raw)
+                try:
+                    udpos = UDPartOfSpeechTag(tag=upos_val_raw)
+                except PydanticValidationError as e:
+                    logger.error(
+                        f"Invalid 'upos' field in POS dict: {pos_dict}, `upos_val_raw`='{upos_val_raw}'. Error: {e}"
+                    )
+                    input()
             else:
                 logger.error(f"Missing 'upos' field in POS dict: {pos_dict}.")
+                logger.error(f"`code_block` from LLM: {code_block}")
             word: Word = Word(
                 string=pos_dict.get("form", None),
                 index_token=word_idx,
@@ -285,9 +340,9 @@ Text: {input_doc.normalized_text}
             words.append(word)
         logger.debug(f"Created {len(words)} Word objects from POS tags.")
         logger.debug("Words: %s", ", ".join([word.string or "" for word in words]))
-        if not input_doc.words:
+        if not doc.words:
             logger.debug("`input_doc.words` is empty. Setting with new words.")
-            input_doc.words = words
+            doc.words = words
         else:
             # TODO: Handle case where input_doc.words already has data
             logger.warning("`input_doc.words` already has data. Not overwriting.")
@@ -298,13 +353,13 @@ Text: {input_doc.normalized_text}
 
         # Get start/stop indexes for each word in the input text
         start = 0
-        for word_idx, word in enumerate(input_doc.words):
+        for word_idx, word in enumerate(doc.words):
             if not word.string:
                 word.index_char_start = None
                 word.index_char_stop = None
-                input_doc.words[word_idx] = word
+                doc.words[word_idx] = word
                 continue
-            char_idx = input_doc.normalized_text.find(word.string, start)
+            char_idx = doc.normalized_text.find(word.string, start)
             if char_idx != -1:
                 word.index_char_start = char_idx
                 word.index_char_stop = char_idx + len(word.string)
@@ -312,12 +367,12 @@ Text: {input_doc.normalized_text}
             else:
                 word.index_char_start = None
                 word.index_char_stop = None
-            input_doc.words[word_idx] = word
+            doc.words[word_idx] = word
         logger.debug("Set character indexes for each word in input_doc.words.")
 
         # Add sentence idx to Word objects
         if sentence_idx is not None:
-            for word in input_doc.words:
+            for word in doc.words:
                 word.index_sentence = sentence_idx
             logger.debug(
                 f"Set sentence index {sentence_idx} for all words in input_doc.words."
@@ -326,7 +381,7 @@ Text: {input_doc.normalized_text}
             logger.warning(
                 "No sentence index provided. Skipping sentence index assignment."
             )
-        return input_doc
+        return doc
 
     def _get_word_info(
         self, response: str, print_raw_response: bool = False
@@ -693,7 +748,7 @@ Return your answer as four sections, each starting with a header line:
             )
         return data
 
-    def chatgpt_response_tokens(self, response: Response) -> dict[str, int]:
+    def chatgpt_response_tokens(self, model: str, response: Response) -> dict[str, int]:
         """Extract token usage information from an OpenAI Response object."""
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
@@ -702,9 +757,15 @@ Return your answer as four sections, each starting with a header line:
                 "No usage information found in response. Tokens used may not be available."
             )
             return tokens
-        tokens["input"] = int(getattr(usage, "input_tokens", 0))
-        tokens["output"] = int(getattr(usage, "output_tokens", 0))
+
+        # OpenAI API standardizes these keys:
+        # prompt_tokens: tokens in the prompt
+        # completion_tokens: tokens in the completion
+        # total_tokens: total tokens used
+        tokens["input"] = int(getattr(usage, "prompt_tokens", 0))
+        tokens["output"] = int(getattr(usage, "completion_tokens", 0))
         tokens["total"] = int(getattr(usage, "total_tokens", 0))
+
         if tokens["total"] == 0:
             logger.warning(
                 "No tokens used reported in response. This may indicate an issue with the API call."

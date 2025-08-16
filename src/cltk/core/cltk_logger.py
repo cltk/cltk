@@ -11,7 +11,7 @@ from colorama import init as colorama_init
 
 from cltk.utils.utils import CLTK_DATA_DIR
 
-colorama_init(autoreset=True)
+colorama_init(autoreset=True)  # for Windows
 
 
 class ColorFormatter(logging.Formatter):

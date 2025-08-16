@@ -5,7 +5,7 @@ import os
 from threading import Lock
 from typing import Any, Dict, List, Optional, Type
 
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 
 import cltk
 from cltk.core.cltk_logger import logger
@@ -33,8 +33,6 @@ from cltk.languages.pipelines import (
     SanskritPipeline,
 )
 from cltk.languages.utils import get_lang
-
-init(autoreset=True)  # For colorama to display on Windows
 
 iso_to_pipeline = {
     "akk": AkkadianPipeline,

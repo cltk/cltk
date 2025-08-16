@@ -6,6 +6,7 @@ https://universaldependencies.org/u/pos/index.html
 __license__ = "MIT License. See LICENSE."
 
 from pydantic import BaseModel, ValidationError, field_validator, model_validator
+from wasabi import msg
 
 from cltk.core.cltk_logger import logger
 
@@ -30,12 +31,53 @@ class UDPartOfSpeechTag(BaseModel):
         bool
     ] = None  # True if open class, False if closed class (auto-filled)
 
+    @staticmethod
+    def normalize_ud_pos_tag(tag: str) -> str:
+        """
+        Normalize a POS tag to the standard UD tag used in UD_POS_TAGS.
+        Handles common LLM and upstream errors, e.g., "CONJ" -> "CCONJ", "SCONJ", etc.
+
+        Args:
+            tag (str): The POS tag to normalize (e.g., "CONJ", "N", "V", "PRP").
+
+        Returns:
+            str: The normalized UD POS tag (e.g., "NOUN", "VERB").
+
+        Raises:
+            ValueError: If the tag cannot be normalized to a known UD POS tag.
+        """
+        # Common alternate/abbreviated forms
+        tag_map = {
+            "N": "NOUN",
+            "V": "VERB",
+            "PRP": "PRON",
+            "PROPN": "PROPN",
+            "CC": "CCONJ",
+            "SC": "SCONJ",
+            "CONJ": "CCONJ",  # LLMs often use "CONJ" for "CCONJ"
+            "SUBCONJ": "SCONJ",  # Sometimes "SUBCONJ" for "SCONJ"
+            # Add more as needed
+        }
+        tag_upper = tag.upper()
+        if tag_upper in UD_POS_TAGS:
+            return tag_upper
+        if tag_upper in tag_map:
+            return tag_map[tag_upper]
+        msg: str = f"Unknown POS tag '{tag}'. Cannot normalize to UD POS tag."
+        logger.warning(msg)
+        raise ValueError(msg)
+
     @field_validator("tag")
     @classmethod
     def validate_tag(cls, v):
         v = v.upper()
         if v not in UD_POS_TAGS:
-            raise ValueError(f"Invalid UD POS tag: '{v}'")
+            logger.info(f"Normalizing UD POS tag: '{v}' ...")
+            v = cls.normalize_ud_pos_tag(v)
+            if not v in UD_POS_TAGS:
+                msg: str = f"Failed to normalize UD POS tag: '{v}'"
+                logger.error(msg)
+                raise ValueError(msg)
         return v
 
     @model_validator(mode="after")
@@ -160,62 +202,62 @@ UD_POS_TAGS: dict[str, UDPartOfSpeech] = {
 }
 
 
-def normalize_pos_tag(tag: str) -> str:
-    """
-    Normalize a POS tag to the standard UD tag used in UD_POS_TAGS.
-    Extend this mapping as new variants or errors are encountered.
+# def normalize_pos_tag(tag: str) -> str:
+#     """
+#     Normalize a POS tag to the standard UD tag used in UD_POS_TAGS.
+#     Extend this mapping as new variants or errors are encountered.
 
-    Args:
-        tag (str): The POS tag to normalize (e.g., "N", "NOUN", "v", "VERB").
+#     Args:
+#         tag (str): The POS tag to normalize (e.g., "N", "NOUN", "v", "VERB").
 
-    Returns:
-        str: The normalized UD POS tag (e.g., "NOUN", "VERB").
+#     Returns:
+#         str: The normalized UD POS tag (e.g., "NOUN", "VERB").
 
-    Raises:
-        ValueError: If the tag cannot be normalized to a known UD POS tag.
-    """
-    tag_map = {
-        # Common alternate/abbreviated forms
-        "N": "NOUN",
-        "V": "VERB",
-        "PRP": "PRON",  # Sometimes used for pronoun
-        "PROPN": "PROPN",
-        "ADP": "ADP",
-        "CC": "CCONJ",
-        "SC": "SCONJ",
-        # Add more as needed
-    }
-    tag_upper = tag.upper()
-    if tag_upper in UD_POS_TAGS:
-        return tag_upper
-    if tag_upper in tag_map:
-        return tag_map[tag_upper]
-    msg: str = f"Unknown POS tag '{tag}'. Cannot normalize to UD POS tag."
-    logger.warning(msg)
-    raise ValueError(msg)
+#     Raises:
+#         ValueError: If the tag cannot be normalized to a known UD POS tag.
+#     """
+#     tag_map = {
+#         # Common alternate/abbreviated forms
+#         "N": "NOUN",
+#         "V": "VERB",
+#         "PRP": "PRON",  # Sometimes used for pronoun
+#         "PROPN": "PROPN",
+#         "ADP": "ADP",
+#         "CC": "CCONJ",
+#         "SC": "SCONJ",
+#         # Add more as needed
+#     }
+#     tag_upper = tag.upper()
+#     if tag_upper in UD_POS_TAGS:
+#         return tag_upper
+#     if tag_upper in tag_map:
+#         return tag_map[tag_upper]
+#     msg: str = f"Unknown POS tag '{tag}'. Cannot normalize to UD POS tag."
+#     logger.warning(msg)
+#     raise ValueError(msg)
 
 
-def is_valid_pos_tag(tag: str, normalize: bool = True) -> bool:
-    """
-    Check if the given tag is a valid UD part-of-speech tag.
+# def is_valid_pos_tag(tag: str, normalize: bool = True) -> bool:
+#     """
+#     Check if the given tag is a valid UD part-of-speech tag.
 
-    Args:
-        tag (str): The UD POS tag to validate (e.g., "NOUN", "XYZ").
+#     Args:
+#         tag (str): The UD POS tag to validate (e.g., "NOUN", "XYZ").
 
-    Returns:
-        bool: True if valid, False otherwise.
-    """
+#     Returns:
+#         bool: True if valid, False otherwise.
+#     """
 
-    if not tag.upper() in UD_POS_TAGS:
-        if normalize:
-            try:
-                tag = normalize_pos_tag(tag)
-            except ValueError:
-                return False
-            if tag.upper() in UD_POS_TAGS:
-                return True
-        return False
-    return True
+#     if not tag.upper() in UD_POS_TAGS:
+#         if normalize:
+#             try:
+#                 tag = normalize_pos_tag(tag)
+#             except ValueError:
+#                 return False
+#             if tag.upper() in UD_POS_TAGS:
+#                 return True
+#         return False
+#     return True
 
 
 if __name__ == "__main__":

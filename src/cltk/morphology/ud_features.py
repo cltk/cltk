@@ -1281,71 +1281,74 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Participle", "Yes"): ("VerbForm", "Part"),
         ("PartForm", "Pres"): ("Tense", "Pres"),
         ("Partic", "Yes"): ("VerbForm", "Part"),
+        ("Tense", "Present"): ("Tense", "Pres"),
+        ("Definite", "Yes"): ("Definite", "Def"),
+        ("Mood", "Inf"): ("VerbForm", "Inf"),
+        ("Mood", "Indicative"): ("Mood", "Ind"),
         # ("", ""): ("", ""),
         # Add more as needed
     }
     remap: Optional[tuple[str, str]] = ud_feature_pair_remap.get((key, value))
     if remap:
         norm_key, norm_value = remap
-        logger.warning(f"Remapped {key}={value} to {norm_key}={norm_value}")
+        logger.info(f"Remapped {key}={value} to {norm_key}={norm_value}")
         return norm_key, norm_value
     logger.warning(f"Failed to normalize UD feature pair: {key}={value}.")
     return None
 
 
-def get_ud_feature(key: str, value: str) -> Optional[UDFeatureTag]:
-    # Get feature key with input string
-    # yyy
-    try:
-        UD_FEATURE: UDFeature = UD_FEATURES_MAP[key]
-    except KeyError:
-        logger.warning(f"Unknown UD feature key '{key}'. Attempting to normalize.")
-        normalized_feature = normalize_ud_feature_key(key=key)
-        if not normalized_feature:
-            # No normalization remapping was possible
-            return None
-        try:
-            UD_FEATURE: UDFeature = UD_FEATURES_MAP[normalized_feature]
-        except KeyError:
-            logger.error(
-                "Even with normalization, the feature key is not found; this is not expected and means that the re-mapping output is invalid."
-            )
-            return None
-    try:
-        UD_VALUE: UDFeatureValue = UD_FEATURE.values[value]
-    except KeyError:
-        logger.warning(
-            f"Unknown UD feature value '{value}' for feature '{UD_FEATURE.key}'. Attempting to normalize key-value pair."
-        )
-        # Get new UDFeature since this may have been changed during remapping
-        normalized_pair = normalize_ud_feature_pair(key=UD_FEATURE.key, value=value)
-        if not normalized_pair:
-            logger.warning(
-                f"Failed to normalize UD feature pair: {UD_FEATURE.key}={value}."
-            )
-            return None
-        normalized_feature, normalized_value = normalized_pair
-        try:
-            UD_FEATURE: UDFeature = UD_FEATURES_MAP[normalized_feature]
-        except KeyError:
-            logger.error(
-                f"Unknown UD feature key '{normalized_feature}'. This is unexpected and means there is a mistake in the key of the remapped pair."
-            )
-            return None
-        try:
-            UD_VALUE: UDFeatureValue = UD_FEATURE.values[normalized_value]
-        except KeyError:
-            logger.error(
-                f"Failed to find UD feature pair even after normalization to {UD_FEATURE.key}={value}. This is not expected and means that there is a mistake in the rammapped value."
-            )
-            return None
-    return UDFeatureTag(
-        key=UD_FEATURE.key,
-        value=UD_VALUE.code,
-        value_label=UD_VALUE.label,
-        category=UD_FEATURE.category,
-        inflectional_class=UD_FEATURE.inflectional_class,
-    )
+# def get_ud_feature(key: str, value: str) -> Optional[UDFeatureTag]:
+#     # Get feature key with input string
+#     try:
+#         UD_FEATURE: UDFeature = UD_FEATURES_MAP[key]
+#     except KeyError:
+#         logger.warning(f"Unknown UD feature key '{key}'. Attempting to normalize.")
+#         normalized_feature = normalize_ud_feature_key(key=key)
+#         if not normalized_feature:
+#             # No normalization remapping was possible
+#             return None
+#         try:
+#             UD_FEATURE: UDFeature = UD_FEATURES_MAP[normalized_feature]
+#         except KeyError:
+#             logger.error(
+#                 "Even with normalization, the feature key is not found; this is not expected and means that the re-mapping output is invalid."
+#             )
+#             return None
+#     try:
+#         UD_VALUE: UDFeatureValue = UD_FEATURE.values[value]
+#     except KeyError:
+#         logger.warning(
+#             f"Unknown UD feature value '{value}' for feature '{UD_FEATURE.key}'. Attempting to normalize key-value pair."
+#         )
+#         # Get new UDFeature since this may have been changed during remapping
+#         normalized_pair = normalize_ud_feature_pair(key=UD_FEATURE.key, value=value)
+#         if not normalized_pair:
+#             logger.warning(
+#                 f"Failed to normalize UD feature pair: {UD_FEATURE.key}={value}."
+#             )
+#             return None
+#         normalized_feature, normalized_value = normalized_pair
+#         try:
+#             UD_FEATURE: UDFeature = UD_FEATURES_MAP[normalized_feature]
+#         except KeyError:
+#             logger.error(
+#                 f"Unknown UD feature key '{normalized_feature}'. This is unexpected and means there is a mistake in the key of the remapped pair."
+#             )
+#             return None
+#         try:
+#             UD_VALUE: UDFeatureValue = UD_FEATURE.values[normalized_value]
+#         except KeyError:
+#             logger.error(
+#                 f"Failed to find UD feature pair even after normalization to {UD_FEATURE.key}={value}. This is not expected and means that there is a mistake in the rammapped value."
+#             )
+#             return None
+#     return UDFeatureTag(
+#         key=UD_FEATURE.key,
+#         value=UD_VALUE.code,
+#         value_label=UD_VALUE.label,
+#         category=UD_FEATURE.category,
+#         inflectional_class=UD_FEATURE.inflectional_class,
+#     )
 
 
 def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
