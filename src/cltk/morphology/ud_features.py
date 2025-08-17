@@ -1285,6 +1285,15 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Definite", "Yes"): ("Definite", "Def"),
         ("Mood", "Inf"): ("VerbForm", "Inf"),
         ("Mood", "Indicative"): ("Mood", "Ind"),
+        ("Mood", "Indic"): ("Mood", "Ind"),
+        ("Number", "Pl"): ("Number", "Plur"),
+        ("Voice", "Medium"): ("Voice", "Mid"),  # double check this
+        ("Voice", "Active"): ("Voice", "Act"),  # double check this
+        ("Voice", "Passive"): ("Voice", "Pass"),  # double check this
+        ("Tense", "Aorist"): ("Tense", "Past"),
+        ("Tense", "Future"): ("Tense", "Fut"),
+        ("Degree", "Positive"): ("Degree", "Pos"),
+        ("Rel", "Yes"): ("PronType", "Rel"),
         # ("", ""): ("", ""),
         # Add more as needed
     }
@@ -1353,7 +1362,6 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
 
 def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
     features_tag_set = UDFeatureTagSet()
-    # Ensure inner tuple has only 2 elements
     raw_features_pairs: list[tuple[str, str]] = [
         tup
         for tup in (
@@ -1364,22 +1372,20 @@ def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
         if len(tup) == 2
     ]
     logger.debug(f"raw_features_pairs: {raw_features_pairs}")
-    raw_feature_pairs: tuple[str, str]
-    for raw_feature_pairs in raw_features_pairs:
-        raw_feature_key: str = raw_feature_pairs[0]
-        raw_feature_value: str = raw_feature_pairs[1]
-        # TODO: Do some validation to ensure the tag value is not multiple (check for commas)
+    for raw_feature_key, raw_feature_value in raw_features_pairs:
         try:
-            feature_tag: UDFeatureTag = UDFeatureTag(
+            feature_tag = UDFeatureTag(
                 key=raw_feature_key,
                 value=raw_feature_value,
             )
+            features_tag_set.features.append(feature_tag)
+            logger.debug(f"feature_tag: {feature_tag}")
         except ValueError as e:
-            logger.error(f"Failed to create feature tag: {e}")
-            raise ValueError
-        logger.debug(f"feature_tag: {feature_tag}")
-        features_tag_set.features.append(feature_tag)
-        return features_tag_set
+            logger.warning(
+                f"Skipping invalid feature: {raw_feature_key}={raw_feature_value} ({e})"
+            )
+            continue  # Skip this feature and move on
+    return features_tag_set
 
 
 if __name__ == "__main__":

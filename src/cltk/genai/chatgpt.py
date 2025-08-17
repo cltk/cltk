@@ -305,7 +305,6 @@ Text: {doc.normalized_text}
                     logger.error(
                         f"Invalid 'upos' field in POS dict: {pos_dict}, `upos_val_raw`='{upos_val_raw}'. Error: {e}"
                     )
-                    input()
             else:
                 logger.error(f"Missing 'upos' field in POS dict: {pos_dict}.")
                 logger.error(f"`code_block` from LLM: {code_block}")
