@@ -260,7 +260,8 @@ Text: {doc.normalized_text}
                     msg: str = "No code blocks found in ChatGPT response after retries."
                     logger.error(msg)
                     logger.error(raw_chatgpt_response_normalized)
-                    raise CLTKException(msg)
+                    # raise CLTKException(msg)
+                    return doc
                 # Optionally, you could modify the prompt or add a delay here
 
         code_block: str = code_blocks[0].strip()
