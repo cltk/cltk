@@ -17,9 +17,9 @@ colorama_init(autoreset=True)  # for Windows
 class ColorFormatter(logging.Formatter):
     COLORS = {
         logging.DEBUG: Fore.CYAN + Style.DIM,
-        logging.INFO: Fore.GREEN + Style.BRIGHT,
-        logging.WARNING: Fore.YELLOW + Style.BRIGHT,
-        logging.ERROR: Fore.RED + Style.BRIGHT,
+        logging.INFO: Fore.CYAN,
+        logging.WARNING: Fore.YELLOW,
+        logging.ERROR: Fore.RED,
         logging.CRITICAL: Fore.RED + Style.BRIGHT + Style.BRIGHT,
     }
 

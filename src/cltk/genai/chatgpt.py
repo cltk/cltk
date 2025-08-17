@@ -82,7 +82,9 @@ class ChatGPT:
         for sent_idx, sentence_string in tqdm(
             enumerate(input_doc.sentence_strings),
             total=len(input_doc.sentence_strings),
-            desc=Fore.CYAN + Style.BRIGHT + "Processing sentences" + Style.RESET_ALL,
+            desc=Fore.GREEN
+            + "Processing sentences with ChatGPT for UD features"
+            + Style.RESET_ALL,
             unit="sentence",
         ):
             tmp_doc = Doc(language=input_doc.language, normalized_text=sentence_string)

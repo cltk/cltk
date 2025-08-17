@@ -82,6 +82,32 @@ class NLP:
             self._print_special_authorship_messages_for_current_lang()
             self._print_suppress_reminder()
 
+    def analyze(self, text: str) -> Doc:
+        logger.info("Analyzing text with NLP pipeline.")
+        if not text or not isinstance(text, str):
+            logger.error("Input text must be a non-empty string.")
+            raise ValueError("Input text must be a non-empty string.")
+        doc = Doc(language=self.language, raw=text)
+        processes = (
+            self.pipeline.processes if self.pipeline.processes is not None else []
+        )
+        for process in processes:
+            a_process: Process = self._get_process_object(process_object=process)
+            try:
+                logger.debug(f"Running process: {a_process.__class__.__name__}")
+                doc = a_process.run(doc)
+            except Exception as e:
+                logger.error(f"Process '{a_process.__class__.__name__}' failed: {e}")
+                raise RuntimeError(
+                    f"Process '{a_process.__class__.__name__}' failed: {e}"
+                )
+        if doc.words is None or not isinstance(doc.words, list):
+            msg: str = "Pipeline did not produce any words. Check your pipeline configuration and input text."
+            logger.error(msg)
+            raise RuntimeError(msg)
+        logger.info("NLP analysis complete.")
+        return doc
+
     def _print_cltk_info(self) -> None:
         logger.info("Printing CLTK citation info.")
         ltr_mark: str = "\u200E"
@@ -114,6 +140,7 @@ class NLP:
         )
 
         logger.debug(f"Processes in pipeline: {processes_name}")
+        # TODO: Combine this with previous printed message
         print(
             Fore.CYAN
             + f"Processes in pipeline:"
@@ -145,8 +172,7 @@ class NLP:
         print(
             "\n"
             + Fore.CYAN
-            + Style.BRIGHT
-            + "⸎ To suppress these messages, instantiate NLP() with suppress_banner=True."
+            + "⸎ To suppress these messages, instantiate NLP() with suppress_banner=True.\n"
             + Style.RESET_ALL
         )
 
@@ -176,35 +202,6 @@ class NLP:
                     f"Process object instantiated and cached: {process_object.__name__}"
                 )
                 return new_process
-
-    def analyze(self, text: str) -> Doc:
-        logger.info("Analyzing text with NLP pipeline.")
-        if not text or not isinstance(text, str):
-            logger.error("Input text must be a non-empty string.")
-            raise ValueError("Input text must be a non-empty string.")
-        doc = Doc(language=self.language, raw=text)
-        processes = (
-            self.pipeline.processes if self.pipeline.processes is not None else []
-        )
-        for process in processes:
-            a_process: Process = self._get_process_object(process_object=process)
-            try:
-                logger.debug(f"Running process: {a_process.__class__.__name__}")
-                doc = a_process.run(doc)
-            except Exception as e:
-                logger.error(f"Process '{a_process.__class__.__name__}' failed: {e}")
-                raise RuntimeError(
-                    f"Process '{a_process.__class__.__name__}' failed: {e}"
-                )
-        if doc.words is None or not isinstance(doc.words, list):
-            logger.error(
-                "Pipeline did not produce any words. Check your pipeline configuration and input text."
-            )
-            raise RuntimeError(
-                "Pipeline did not produce any words. Check your pipeline configuration and input text."
-            )
-        logger.info("NLP analysis complete.")
-        return doc
 
     def _get_pipeline(self) -> Pipeline:
         """Select appropriate pipeline for given language. If custom
