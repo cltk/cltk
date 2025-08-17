@@ -1273,6 +1273,7 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Aspect", "Aor"): ("Tense", "Past"),
         ("Aspect", "Pres"): ("Tense", "Pres"),
         ("Aspect", "Fut"): ("Tense", "Fut"),
+        ("Mood", "Fut"): ("Tense", "Fut"),
         ("Emph", "Yes"): ("PronType", "Emp"),
         ("Emphatic", "Yes"): ("PronType", "Emp"),
         ("Indef", "Yes"): ("PronType", "Indef"),
@@ -1315,7 +1316,7 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Mood", "Perf"): ("Aspect", "Perf"),
         ("PronType", "Pron"): ("PronType", ""),
         ("Degree", "Comparative"): ("Degree", "Cmp"),
-        # ("Polarity", "_"): ("", ""),
+        ("Vocative", "Yes"): ("Case", "Voc"),
         # ("", ""): ("", ""),
     }
     remap: Optional[tuple[str, str]] = ud_feature_pair_remap.get((key, value))

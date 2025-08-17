@@ -34,7 +34,11 @@ from cltk.embeddings.processes import (
     PaliEmbeddingsProcess,
     SanskritEmbeddingsProcess,
 )
-from cltk.genai.processes import AncientGreekChatGPTProcess, LatinChatGPTProcess
+from cltk.genai.processes import (
+    AncientGreekChatGPTProcess,
+    LatinChatGPTProcess,
+    PaliChatGPTProcess,
+)
 from cltk.languages.utils import get_lang
 from cltk.lemmatize.processes import (
     GreekLemmatizationProcess,
@@ -374,6 +378,20 @@ class PaliPipeline(Pipeline):
     language: Optional[Language] = get_lang("pli")
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
+    )
+
+    def __post_init__(self):
+        logger.debug(f"Initializing PaliPipeline with language: {self.language}")
+        logger.info("PaliPipeline created.")
+
+
+class PaliChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Pali."""
+
+    description: Optional[str] = "Pipeline for the Pali language"
+    language: Optional[Language] = get_lang("pli")
+    processes: Optional[list[Type[Process]]] = field(
+        default_factory=lambda: [PaliChatGPTProcess]
     )
 
     def __post_init__(self):
