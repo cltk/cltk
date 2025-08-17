@@ -37,7 +37,7 @@ class Language:
     >>> isinstance(lat, Language)
     True
     >>> lat
-    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, family_id='indo1319', parent_id='impe1234', level='language', iso_639_3_code='lat', type='a', dates=[])
+    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, family_id='indo1319', parent_id='impe1234', level='language', iso='lat', type='a', dates=[])
     """
 
     name: str  # Glottolog description
@@ -47,7 +47,7 @@ class Language:
     family_id: str  # from Glottolog
     parent_id: str  # from Glottolog
     level: str  # a language or a dialect
-    iso_639_3_code: str
+    iso: str
     type: str  # "a" for ancient and "h" for historical; this from Glottolog
     dates: Optional[list[int]] = field(
         default_factory=list

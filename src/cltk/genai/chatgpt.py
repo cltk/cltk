@@ -16,7 +16,6 @@ from openai.types.responses.response_usage import ResponseUsage
 from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
 from tqdm import tqdm
 
-from cltk.alphabet.grc.grc import split_ancient_greek_sentences
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Language, Word
@@ -35,6 +34,7 @@ from cltk.morphology.ud_features import (
 )
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
+from cltk.sentence.utils import split_sentences_multilang
 from cltk.utils.utils import load_env_file
 
 AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
@@ -72,8 +72,9 @@ class ChatGPT:
             input_doc.normalized_text = cltk_normalize(input_doc.raw)
         # Get sentence indices if not set already
         if not input_doc.sentence_boundaries:
-            input_doc.sentence_boundaries = split_ancient_greek_sentences(
-                text=input_doc.normalized_text
+            input_doc.sentence_boundaries = split_sentences_multilang(
+                text=input_doc.normalized_text,
+                iso=input_doc.language.iso,
             )
             logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
         # POS/morphology

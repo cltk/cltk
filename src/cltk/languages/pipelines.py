@@ -183,7 +183,9 @@ class GreekChatGPTPipeline(Pipeline):
     language: Optional[Language] = get_lang("grc")
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [
+            # TODO: Add Sentence Splitting
             AncientGreekNormalizeProcess,
+            # TODO: Rename to Token,POS,Features
             AncientGreekChatGPTProcess,
         ]
     )

@@ -30,7 +30,7 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(default_latin_pipeline.language, Language)
         self.assertIsInstance(default_latin_pipeline.language.family_id, str)
         self.assertIsInstance(default_latin_pipeline.language.glottolog_id, str)
-        self.assertIsInstance(default_latin_pipeline.language.iso_639_3_code, str)
+        self.assertIsInstance(default_latin_pipeline.language.iso, str)
         self.assertIsInstance(default_latin_pipeline.language.latitude, float)
         self.assertIsInstance(default_latin_pipeline.language.level, str)
         self.assertIsInstance(default_latin_pipeline.language.longitude, float)

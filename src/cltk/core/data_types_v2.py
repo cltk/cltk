@@ -10,10 +10,6 @@ from typing import Any, Optional, Type
 import numpy as np
 from pydantic import BaseModel, Field, field_validator, model_validator
 
-from cltk.alphabet.grc.grc import extract_sentences_from_boundaries
-
-# from cltk.morphology.morphosyntax import MorphosyntacticFeatureBundle
-# from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
 from cltk.core.cltk_logger import logger
 from cltk.morphology.ud_deprels import UDDeprelTag
 from cltk.morphology.ud_features import UDFeatureTagSet
@@ -38,19 +34,19 @@ class Language(BaseModel):
     family_id: str
     parent_id: str
     level: str
-    iso_639_3_code: str
+    iso: str
     type: str
     dates: Optional[list[int]] = []
 
-    @field_validator("name")
-    @classmethod
-    def name_must_be_in_languages(cls, v):
-        from cltk.languages.glottolog_v2 import LANGUAGES  # to avoide circular import
+    # @field_validator("name")
+    # @classmethod
+    # def name_must_be_in_languages(cls, v):
+    #     from cltk.languages.glottolog_v2 import LANGUAGES  # to avoide circular import
 
-        valid_names = {lang.name for lang in LANGUAGES.values()}
-        if v not in valid_names:
-            raise ValueError(f"Language.name '{v}' is not in LANGUAGES.")
-        return v
+    #     valid_names = {lang.name for lang in LANGUAGES.values()}
+    #     if v not in valid_names:
+    #         raise ValueError(f"Language.name '{v}' is not in LANGUAGES.")
+    #     return v
 
 
 class CLTKBaseModel(BaseModel):
@@ -113,7 +109,7 @@ class Sentence(CLTKBaseModel):
 class Doc(CLTKBaseModel):
     """The object returned to the user from the ``NLP()`` class."""
 
-    language: Optional[str] = None
+    language: Language
     words: list[Word] = Field(default_factory=list)
     pipeline: Optional["Pipeline"] = None
     raw: Optional[str] = None
@@ -133,6 +129,9 @@ class Doc(CLTKBaseModel):
         """
         Return the list of sentence strings using sentence boundaries and the normalized text.
         """
+        # TODO: Decide if this is preventable
+        from cltk.sentence.utils import extract_sentences_from_boundaries
+
         if not self.normalized_text or not self.sentence_boundaries:
             logger.warning(
                 f"`Doc.normalized_text` or `.sentence_boundaries` is empty, cannot return sentence strings."

@@ -60,7 +60,7 @@ iso_to_pipeline = {
 class NLP:
     """NLP class for default processing."""
 
-    process_objects: Dict[Type[Process], Process] = dict()
+    process_objects: dict[Type[Process], Process] = dict()
     process_lock: Lock = Lock()
     language: Language
     pipeline: Pipeline
@@ -76,11 +76,6 @@ class NLP:
         self.language: Language = get_lang(language)
         self.pipeline = custom_pipeline if custom_pipeline else self._get_pipeline()
         logger.debug(f"Pipeline selected: {self.pipeline}")
-        # self.api_key = os.getenv("OPENAI_API_KEY")
-        # if self.api_key is None or self.api_key == "":
-        #     logger.warning(
-        #         "OPENAI_API_KEY is missing. ChatGPT-based processes will fail unless an API key is provided."
-        #     )
         if not suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
@@ -91,10 +86,6 @@ class NLP:
         logger.info("Printing CLTK citation info.")
         ltr_mark: str = "\u200E"
         alep: str = "\U00010900"
-        # print(
-        #     f"{ltr_mark + alep} CLTK version '{cltk.__version__}'. When using the CLTK in research, please cite: https://aclanthology.org/2021.acl-demo.3/"
-        # )
-        # print("")
         print(
             Fore.CYAN
             + Style.BRIGHT
@@ -112,14 +103,10 @@ class NLP:
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         processes_name: list[str] = [process.__name__ for process in processes]
-        processes_name_str: str = "`, `".join(processes_name)
-        # print(
-        #     f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'): `{processes_name_str}`."
-        # )
-        # print("")
+        # processes_name_str: str = "`, `".join(processes_name)
         print(
             Fore.CYAN
-            + f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso_639_3_code}'):"
+            + f"Pipeline for language '{self.language.name}' (ISO: '{self.language.iso}'):"
             + Fore.GREEN
             + f" `{', '.join(processes_name)}`"
             + Style.RESET_ALL
@@ -127,7 +114,6 @@ class NLP:
         )
 
         logger.debug(f"Processes in pipeline: {processes_name}")
-        # print(f"Processes in pipeline: {[process.__name__ for process in processes]}")
         print(
             Fore.CYAN
             + f"Processes in pipeline:"
@@ -175,11 +161,9 @@ class NLP:
                 return a_process
             else:
                 try:
-                    new_process: Process = process_object(
-                        language=self.language.iso_639_3_code
-                    )
+                    new_process: Process = process_object(language=self.language.iso)
                 except TypeError:
-                    new_process: Process = process_object(self.language.iso_639_3_code)
+                    new_process: Process = process_object(self.language.iso)
                 except Exception as e:
                     logger.error(
                         f"Failed to instantiate process {process_object.__name__}: {e}"
@@ -198,7 +182,7 @@ class NLP:
         if not text or not isinstance(text, str):
             logger.error("Input text must be a non-empty string.")
             raise ValueError("Input text must be a non-empty string.")
-        doc = Doc(language=self.language.iso_639_3_code, raw=text)
+        doc = Doc(language=self.language, raw=text)
         processes = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
@@ -240,10 +224,10 @@ class NLP:
         cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO language code, however this algorithm is not available for ``axm``.
         """
         try:
-            return iso_to_pipeline[self.language.iso_639_3_code]()
+            return iso_to_pipeline[self.language.iso]()
         except KeyError:
             raise UnimplementedAlgorithmError(
-                f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso_639_3_code}``."
+                f"Valid ISO language code, however this algorithm is not available for ``{self.language.iso}``."
             )
 
 
