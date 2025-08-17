@@ -1292,10 +1292,31 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Voice", "Passive"): ("Voice", "Pass"),  # double check this
         ("Tense", "Aorist"): ("Tense", "Past"),
         ("Tense", "Future"): ("Tense", "Fut"),
+        ("Tense", "Imperfect"): ("Tense", "Imp"),
+        ("Tense", "Imperf"): ("Tense", "Imp"),
+        ("Tense", "Impft"): ("Tense", "Imp"),
+        ("Tense", "Impft."): ("Tense", "Imp"),
         ("Degree", "Positive"): ("Degree", "Pos"),
         ("Rel", "Yes"): ("PronType", "Rel"),
+        ("Gender", "Mas"): ("Gender", "Masc"),
+        ("Gender", "Mas."): ("Gender", "Masc"),
+        ("Gender", "Neuter"): ("Gender", "Neut"),
+        ("Def", "Def"): ("Definite", "Def"),
+        ("Voice", "Middle"): ("Voice", "Mid"),
+        ("Voice", "Med"): ("Voice", "Mid"),
+        ("Reflexive", "Yes"): ("Reflex", "Yes"),
+        ("Mood", "Pres"): ("Tense", "Pres"),
+        ("Mood", "Participle"): ("VerbForm", "Part"),
+        ("Mood", "Part"): ("VerbForm", "Part"),
+        ("Degree", "Superlative"): ("Degree", "Sup"),
+        ("Case", "Accusative"): ("Case", "Acc"),
+        ("Mood", "Subj"): ("Mood", "Sub"),
+        ("Aspect", "Perfect"): ("Aspect", "Perf"),
+        ("Mood", "Perf"): ("Aspect", "Perf"),
+        ("PronType", "Pron"): ("PronType", ""),
+        ("Degree", "Comparative"): ("Degree", "Cmp"),
+        # ("Polarity", "_"): ("", ""),
         # ("", ""): ("", ""),
-        # Add more as needed
     }
     remap: Optional[tuple[str, str]] = ud_feature_pair_remap.get((key, value))
     if remap:

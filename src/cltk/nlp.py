@@ -156,13 +156,9 @@ class NLP:
 
     def _print_suppress_reminder(self) -> None:
         logger.info("Printing suppress banner reminder.")
-        # print("")
-        # print(
-        #     "⸎ To suppress these messages, instantiate `NLP()` with `suppress_banner=True`."
-        # )
         print(
             "\n"
-            + Fore.YELLOW
+            + Fore.CYAN
             + Style.BRIGHT
             + "⸎ To suppress these messages, instantiate NLP() with suppress_banner=True."
             + Style.RESET_ALL

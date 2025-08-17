@@ -56,9 +56,10 @@ class UDPartOfSpeechTag(BaseModel):
             "SC": "SCONJ",
             "CONJ": "CCONJ",  # LLMs often use "CONJ" for "CCONJ"
             "SUBCONJ": "SCONJ",  # Sometimes "SUBCONJ" for "SCONJ"
-            # Add more as needed
+            "PREP": "ADP",
+            # "": "",
         }
-        tag_upper = tag.upper()
+        tag_upper = tag.upper().strip()
         if tag_upper in UD_POS_TAGS:
             return tag_upper
         if tag_upper in tag_map:

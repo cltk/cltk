@@ -82,7 +82,7 @@ class ChatGPT:
             enumerate(input_doc.sentence_strings),
             total=len(input_doc.sentence_strings),
             desc=Fore.CYAN + Style.BRIGHT + "Processing sentences" + Style.RESET_ALL,
-            unit="sent",
+            unit="sentence",
         ):
             tmp_doc = Doc(language=input_doc.language, normalized_text=sentence_string)
             tmp_doc = self.generate_pos(
@@ -200,7 +200,7 @@ Rules:
 - Never request to perform the task in multiple stages; always deliver the final TSV in one step.  
 - Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.  
 - Always output all four fields: FORM, LEMMA, UPOS, FEATS.
-- The result must be a markdown code block containing only a tab-delimited table (TSV) with the following header row:
+- The result **must be a markdown code block** (beginning and ending in "```") containing only a tab-delimited table (TSV) with the following header row:
 
 FORM    LEMMA   UPOS    FEATS
 
@@ -217,8 +217,8 @@ Text: {doc.normalized_text}
                     chatgpt_response: Response = self.client.responses.create(
                         model=self.model,
                         input=prompt,
-                        reasoning={"effort": "medium"},
-                        text={"verbosity": "medium"},
+                        reasoning={"effort": "low"},
+                        text={"verbosity": "low"},
                     )
                 else:
                     raise ValueError(f"Unsupported model: {self.model}.")

@@ -23,7 +23,7 @@ class ChatGPTProcess(Process):
 
     language: Optional[str] = None
     api_key: Optional[str] = None
-    model: AVAILABILE_MODELS = "gpt-5-nano"
+    model: AVAILABILE_MODELS = "gpt-5-mini"
     temperature: float = 0.2
     description: str = "Process for ChatGPT for linguistic annotation."
     authorship_info: str = "ChatGPTProcess using OpenAI GPT models."
