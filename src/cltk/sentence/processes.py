@@ -4,17 +4,74 @@
 
 from copy import copy
 from functools import cached_property
+from types import FunctionType
 from typing import Any, ClassVar
 
 from cltk.core import CLTKException
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Process
 from cltk.sentence.non import OldNorseRegexSentenceTokenizer
 from cltk.sentence.sentence import SentenceTokenizer
+from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-class SentenceTokenizationProcess(Process):
+class SentenceSplittingProcess(Process):
+    """Base class for sentence splitting processes."""
+
+    @cached_property
+    def algorithm(self) -> FunctionType:
+        # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
+        logger.debug(f"Selecting normalization algorithm for language: {self.language}")
+        if self.language in ["arc", "grc", "hbo", "lat", "pli", "san"]:
+            logger.debug(
+                f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.language}"
+            )
+            return split_sentences_multilang
+        else:
+            msg: str = f"`Sentence splitter not available for {self.language}`"
+            logger.error(msg)
+            raise ValueError(msg)
+
+    def run(self, input_doc: Doc) -> Doc:
+        output_doc = copy(input_doc)
+        if not output_doc.normalized_text:
+            msg: str = "Doc must have `normalized_text`."
+            logger.error(msg)
+            raise ValueError(msg)
+        output_doc.sentence_boundaries = self.algorithm(
+            text=output_doc.normalized_text, iso=output_doc.language.iso
+        )
+        return output_doc
+
+
+class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Ancient Greek."""
+
+
+class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Ancient Hebrew."""
+
+
+class LatinSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Latin."""
+
+
+class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Official Aramaic."""
+
+
+class PaliSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Pali."""
+
+
+class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Sanskrit."""
+
+
+# V1 below
+class SentenceTokenizationProcessV1(Process):
     """To be inherited for each language's tokenization declarations.
 
     Example: ``SentenceTokenizationProcess`` -> ``OldNorseTokenizationProcess``
@@ -61,7 +118,7 @@ class SentenceTokenizationProcess(Process):
         return output_doc
 
 
-class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcess):
+class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcessV1):
     """
     The default Old Norse sentence tokenization algorithm.
 

@@ -63,20 +63,20 @@ class ChatGPT:
         Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
         Returns a CLTK Doc with all information populated.
         """
-        if not input_doc.raw and not input_doc.normalized_text:
-            logger.warning(
-                "Input document must have either `.normalized_text` or `raw` text."
-            )
         if not input_doc.normalized_text:
-            logger.info("Normalizing input_doc.raw to input_doc.normalized_text.")
-            input_doc.normalized_text = cltk_normalize(input_doc.raw)
+            msg: str = "Input document must have either `.normalized_text`."
+            logger.error(msg)
+            raise ValueError(msg)
         # Get sentence indices if not set already
         if not input_doc.sentence_boundaries:
-            input_doc.sentence_boundaries = split_sentences_multilang(
-                text=input_doc.normalized_text,
-                iso=input_doc.language.iso,
-            )
-            logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
+            # input_doc.sentence_boundaries = split_sentences_multilang(
+            #     text=input_doc.normalized_text,
+            #     iso=input_doc.language.iso,
+            # )
+            # logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
+            msg: str = "Input document must have `.sentence_boundaries`."
+            logger.error(msg)
+            raise ValueError(msg)
         # POS/morphology
         tmp_docs: list[Doc] = list()
         for sent_idx, sentence_string in tqdm(
@@ -128,59 +128,57 @@ class ChatGPT:
 
         return input_doc
 
-        sys.exit(1)
-
-        # Dependency
-        dep_doc, dep_tokens_used = self._call_with_usage(
-            self.generate_dependency,
-            doc=pos_doc,
-            prompt_template=dep_prompt_template,
-            print_raw_response=print_raw_response,
-        )
-        # Metadata
-        metadata, metadata_tokens_used = self._call_with_usage(
-            self.generate_doc_metadata,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
-        dep_doc.translation = metadata.get("translation", None)
-        dep_doc.summary = metadata.get("summary", None)
-        dep_doc.topic = metadata.get("topic", None)
-        # Discourse relations
-        discourse, discourse_tokens_used = self._call_with_usage(
-            self.generate_discourse_relations,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        dep_doc.discourse_relations = discourse
-        # Coreference resolution
-        coref, coref_tokens_used = self._call_with_usage(
-            self.generate_coreferences,
-            input_text=input_doc.normalized_text,
-            print_raw_response=print_raw_response,
-        )
-        dep_doc.coreferences = coref
-        # Aggregate token usage
-        tokens_per_call = {
-            "pos": pos_tokens_used,
-            "dep": dep_tokens_used,
-            "metadata": metadata_tokens_used,
-            "discourse": discourse_tokens_used,
-            "coref": coref_tokens_used,
-        }
-        total_tokens = sum(
-            int(v)
-            for v in tokens_per_call.values()
-            if v is not None and str(v).isdigit()
-        )
-        dep_doc.chatgpt = {
-            "tokens_total": total_tokens,
-            "tokens_per_call": tokens_per_call,
-            "model": self.model,
-            "temperature": self.temperature,
-        }
-        return dep_doc
+        # # Dependency
+        # dep_doc, dep_tokens_used = self._call_with_usage(
+        #     self.generate_dependency,
+        #     doc=pos_doc,
+        #     prompt_template=dep_prompt_template,
+        #     print_raw_response=print_raw_response,
+        # )
+        # # Metadata
+        # metadata, metadata_tokens_used = self._call_with_usage(
+        #     self.generate_doc_metadata,
+        #     input_text=input_doc.normalized_text,
+        #     print_raw_response=print_raw_response,
+        # )
+        # dep_doc.sentence_boundaries = metadata.get("sentence_boundaries", [])
+        # dep_doc.translation = metadata.get("translation", None)
+        # dep_doc.summary = metadata.get("summary", None)
+        # dep_doc.topic = metadata.get("topic", None)
+        # # Discourse relations
+        # discourse, discourse_tokens_used = self._call_with_usage(
+        #     self.generate_discourse_relations,
+        #     input_text=input_doc.normalized_text,
+        #     print_raw_response=print_raw_response,
+        # )
+        # dep_doc.discourse_relations = discourse
+        # # Coreference resolution
+        # coref, coref_tokens_used = self._call_with_usage(
+        #     self.generate_coreferences,
+        #     input_text=input_doc.normalized_text,
+        #     print_raw_response=print_raw_response,
+        # )
+        # dep_doc.coreferences = coref
+        # # Aggregate token usage
+        # tokens_per_call = {
+        #     "pos": pos_tokens_used,
+        #     "dep": dep_tokens_used,
+        #     "metadata": metadata_tokens_used,
+        #     "discourse": discourse_tokens_used,
+        #     "coref": coref_tokens_used,
+        # }
+        # total_tokens = sum(
+        #     int(v)
+        #     for v in tokens_per_call.values()
+        #     if v is not None and str(v).isdigit()
+        # )
+        # dep_doc.chatgpt = {
+        #     "tokens_total": total_tokens,
+        #     "tokens_per_call": tokens_per_call,
+        #     "model": self.model,
+        #     "temperature": self.temperature,
+        # }
+        # return dep_doc
 
     def generate_pos(
         self,
@@ -445,75 +443,75 @@ Text: {doc.normalized_text}
                 logger.debug(f"Parsed word_info: {word_info}")
         return word_info
 
-    def generate_dependency(
-        self,
-        doc: Doc,
-        prompt_template: Optional[str] = None,
-        print_raw_response: bool = False,
-    ) -> Doc:
-        """
-        Call the OpenAI API to generate Universal Dependencies syntax (dependency) information for each word in the Doc.
-        Returns a CLTK Doc with dependency info added to each Word (governor, dependency_relation, etc.).
-        """
-        # Prepare input for prompt: line-by-line tokens with features
-        lines = []
-        # When iterating over doc.words, ensure it's a list
-        words = doc.words if doc.words is not None else []
-        for idx, word in enumerate(words, start=1):
-            features_str = "|".join(
-                f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
-                for key, val in word.features.items()
-                if val and val[0] is not None
-            )
-            line = f"{idx}\t{word.string}\t{word.upos}"
-            if features_str:
-                line += f"\t{features_str}"
-            lines.append(line)
-        token_table = "\n".join(lines)
-        if not prompt_template:
-            # TODO: Update this after change to Doc.language to type `Language``
-            prompt = f"""Given the following '{doc.language}' text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
-        else:
-            prompt = prompt_template.format(token_table=token_table)
-        try:
-            response = self.client.responses.create(
-                model=self.model, input=prompt, temperature=self.temperature
-            )
-        except OpenAIError as openai_error:
-            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {response.output_text}")
-        # Parse response: expect tab-separated columns per line
-        dep_lines = [
-            line.strip()
-            for line in response.output_text.split("\n")
-            if line.strip() and not line.strip().startswith("#")
-        ]
-        # Attach dependency info to each Word in the Doc
-        for i, line in enumerate(dep_lines):
-            parts = line.split("\t")
-            if len(parts) < 4 or i >= len(words):
-                continue  # skip malformed lines or out-of-range
-            word_obj = words[i]
-            word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
-            word_obj.dependency_relation = parts[3]
-            if len(parts) > 4:
-                # Normalize each extra feature
-                normalized_extras = []
-                for feat in parts[4:]:
-                    if "=" in feat:
-                        key, value = feat.split("=", 1)
-                        norm_values = self._normalize_feature_value(key, value)
-                        for norm_value in norm_values:
-                            normalized_extras.append(f"{key}={norm_value}")
-                    else:
-                        normalized_extras.append(feat)
-                extra = "|".join(normalized_extras)
-                if word_obj.definition:
-                    word_obj.definition += f"; dep: {extra}"
-                else:
-                    word_obj.definition = f"dep: {extra}"
-        return doc
+    # def generate_dependency(
+    #     self,
+    #     doc: Doc,
+    #     prompt_template: Optional[str] = None,
+    #     print_raw_response: bool = False,
+    # ) -> Doc:
+    #     """
+    #     Call the OpenAI API to generate Universal Dependencies syntax (dependency) information for each word in the Doc.
+    #     Returns a CLTK Doc with dependency info added to each Word (governor, dependency_relation, etc.).
+    #     """
+    #     # Prepare input for prompt: line-by-line tokens with features
+    #     lines = []
+    #     # When iterating over doc.words, ensure it's a list
+    #     words = doc.words if doc.words is not None else []
+    #     for idx, word in enumerate(words, start=1):
+    #         features_str = "|".join(
+    #             f"{key.__name__}={val[0].name if hasattr(val[0], 'name') else val[0]}"
+    #             for key, val in word.features.items()
+    #             if val and val[0] is not None
+    #         )
+    #         line = f"{idx}\t{word.string}\t{word.upos}"
+    #         if features_str:
+    #             line += f"\t{features_str}"
+    #         lines.append(line)
+    #     token_table = "\n".join(lines)
+    #     if not prompt_template:
+    #         # TODO: Update this after change to Doc.language to type `Language``
+    #         prompt = f"""Given the following '{doc.language}' text and its Universal Dependencies POS and morphological tags, return the syntactic dependency parse for each word in UD format (index, word, head index, relation, and all UD features):\n\n{token_table}\n\nReturn each word on its own line, with columns: index, word, head index, relation, and all UD features. Do not return a parse tree, only line-by-line explanations."""
+    #     else:
+    #         prompt = prompt_template.format(token_table=token_table)
+    #     try:
+    #         response = self.client.responses.create(
+    #             model=self.model, input=prompt, temperature=self.temperature
+    #         )
+    #     except OpenAIError as openai_error:
+    #         raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+    #     if print_raw_response:
+    #         logger.info(f"Raw response from OpenAI: {response.output_text}")
+    #     # Parse response: expect tab-separated columns per line
+    #     dep_lines = [
+    #         line.strip()
+    #         for line in response.output_text.split("\n")
+    #         if line.strip() and not line.strip().startswith("#")
+    #     ]
+    #     # Attach dependency info to each Word in the Doc
+    #     for i, line in enumerate(dep_lines):
+    #         parts = line.split("\t")
+    #         if len(parts) < 4 or i >= len(words):
+    #             continue  # skip malformed lines or out-of-range
+    #         word_obj = words[i]
+    #         word_obj.governor = int(parts[2]) if parts[2].isdigit() else None
+    #         word_obj.dependency_relation = parts[3]
+    #         if len(parts) > 4:
+    #             # Normalize each extra feature
+    #             normalized_extras = []
+    #             for feat in parts[4:]:
+    #                 if "=" in feat:
+    #                     key, value = feat.split("=", 1)
+    #                     norm_values = self._normalize_feature_value(key, value)
+    #                     for norm_value in norm_values:
+    #                         normalized_extras.append(f"{key}={norm_value}")
+    #                 else:
+    #                     normalized_extras.append(feat)
+    #             extra = "|".join(normalized_extras)
+    #             if word_obj.definition:
+    #                 word_obj.definition += f"; dep: {extra}"
+    #             else:
+    #                 word_obj.definition = f"dep: {extra}"
+    #     return doc
 
     # def _call_with_usage(self, func, *args, **kwargs):
     #     """Helper to call a function and extract token usage from its response object or internal usage attributes.
@@ -554,167 +552,167 @@ Text: {doc.normalized_text}
     #             usage = result.chatgpt.get("tokens_total")
     #         return result, usage
 
-    def generate_doc_metadata(
-        self,
-        input_text: str,
-        print_raw_response: bool = False,
-    ) -> dict:
-        """
-        Call the OpenAI API to return sentence segmentation, translation, summary, and topic/domain classification for the input text.
-        Returns a dict with keys: sentence_boundaries, translation, summary, topic.
-        """
-        prompt = f"""For the following text in {self.language.name}:
+    #     def generate_doc_metadata(
+    #         self,
+    #         input_text: str,
+    #         print_raw_response: bool = False,
+    #     ) -> dict:
+    #         """
+    #         Call the OpenAI API to return sentence segmentation, translation, summary, and topic/domain classification for the input text.
+    #         Returns a dict with keys: sentence_boundaries, translation, summary, topic.
+    #         """
+    #         prompt = f"""For the following text in {self.language.name}:
 
-{input_text}
+    # {input_text}
 
-1. List each sentence on a new line. For each sentence, also return its character start and stop offsets in the original text, in the format: <sentence> <TAB> <start_offset> <TAB> <end_offset>.
-2. Translate the entire text into English.
-3. Summarize the text in 1-2 sentences.
-4. Classify the topic or domain of the text (e.g., history, philosophy, poetry, law).
+    # 1. List each sentence on a new line. For each sentence, also return its character start and stop offsets in the original text, in the format: <sentence> <TAB> <start_offset> <TAB> <end_offset>.
+    # 2. Translate the entire text into English.
+    # 3. Summarize the text in 1-2 sentences.
+    # 4. Classify the topic or domain of the text (e.g., history, philosophy, poetry, law).
 
-Return your answer as four sections, each starting with a header line:
----SENTENCES---
-<sentence>\t<start>\t<end>
-...
----TRANSLATION---
-<translation>
----SUMMARY---
-<summary>
----TOPIC---
-<topic>
-"""
-        try:
-            response = self.client.responses.create(
-                model=self.model, input=prompt, temperature=self.temperature
-            )
-        except OpenAIError as openai_error:
-            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {response.output_text}")
-        usage = getattr(response, "usage", None)
-        usage_val = getattr(usage, "total_tokens", None)
-        self._last_metadata_usage = (
-            int(usage_val) if usage_val and str(usage_val).isdigit() else 0
-        )
-        # Parse response
-        result = {}
-        text = response.output_text
-        # SENTENCES
-        sentences_section = (
-            text.split("---SENTENCES---")[-1].split("---TRANSLATION---")[0].strip()
-        )
-        sentence_boundaries = []
-        for line in sentences_section.splitlines():
-            parts = line.split("\t")
-            if len(parts) == 3:
-                sent, start, end = parts
-                try:
-                    start = int(start)
-                    end = int(end)
-                    sentence_boundaries.append((sent, start, end))
-                except ValueError:
-                    continue
-        result["sentence_boundaries"] = sentence_boundaries
-        # TRANSLATION
-        translation_section = (
-            text.split("---TRANSLATION---")[-1].split("---SUMMARY---")[0].strip()
-        )
-        result["translation"] = translation_section
-        # SUMMARY
-        summary_section = (
-            text.split("---SUMMARY---")[-1].split("---TOPIC---")[0].strip()
-        )
-        result["summary"] = summary_section
-        # TOPIC
-        topic_section = text.split("---TOPIC---")[-1].strip()
-        result["topic"] = topic_section
-        return result
+    # Return your answer as four sections, each starting with a header line:
+    # ---SENTENCES---
+    # <sentence>\t<start>\t<end>
+    # ...
+    # ---TRANSLATION---
+    # <translation>
+    # ---SUMMARY---
+    # <summary>
+    # ---TOPIC---
+    # <topic>
+    # """
+    #         try:
+    #             response = self.client.responses.create(
+    #                 model=self.model, input=prompt, temperature=self.temperature
+    #             )
+    #         except OpenAIError as openai_error:
+    #             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+    #         if print_raw_response:
+    #             logger.info(f"Raw response from OpenAI: {response.output_text}")
+    #         usage = getattr(response, "usage", None)
+    #         usage_val = getattr(usage, "total_tokens", None)
+    #         self._last_metadata_usage = (
+    #             int(usage_val) if usage_val and str(usage_val).isdigit() else 0
+    #         )
+    #         # Parse response
+    #         result = {}
+    #         text = response.output_text
+    #         # SENTENCES
+    #         sentences_section = (
+    #             text.split("---SENTENCES---")[-1].split("---TRANSLATION---")[0].strip()
+    #         )
+    #         sentence_boundaries = []
+    #         for line in sentences_section.splitlines():
+    #             parts = line.split("\t")
+    #             if len(parts) == 3:
+    #                 sent, start, end = parts
+    #                 try:
+    #                     start = int(start)
+    #                     end = int(end)
+    #                     sentence_boundaries.append((sent, start, end))
+    #                 except ValueError:
+    #                     continue
+    #         result["sentence_boundaries"] = sentence_boundaries
+    #         # TRANSLATION
+    #         translation_section = (
+    #             text.split("---TRANSLATION---")[-1].split("---SUMMARY---")[0].strip()
+    #         )
+    #         result["translation"] = translation_section
+    #         # SUMMARY
+    #         summary_section = (
+    #             text.split("---SUMMARY---")[-1].split("---TOPIC---")[0].strip()
+    #         )
+    #         result["summary"] = summary_section
+    #         # TOPIC
+    #         topic_section = text.split("---TOPIC---")[-1].strip()
+    #         result["topic"] = topic_section
+    #         return result
 
-    def generate_discourse_relations(
-        self,
-        input_text: str,
-        print_raw_response: bool = False,
-    ) -> list[str]:
-        """
-        Call the OpenAI API to return discourse relations between sentences/clauses.
-        Returns a list of relations.
-        """
-        prompt = f"""For the following text in {self.language.name}, for each sentence or clause, describe its discourse relation to the previous one (e.g., contrast, elaboration, cause, result). List each relation on a new line, in order.
+    #     def generate_discourse_relations(
+    #         self,
+    #         input_text: str,
+    #         print_raw_response: bool = False,
+    #     ) -> list[str]:
+    #         """
+    #         Call the OpenAI API to return discourse relations between sentences/clauses.
+    #         Returns a list of relations.
+    #         """
+    #         prompt = f"""For the following text in {self.language.name}, for each sentence or clause, describe its discourse relation to the previous one (e.g., contrast, elaboration, cause, result). List each relation on a new line, in order.
 
-{input_text}
-"""
-        try:
-            response = self.client.responses.create(
-                model=self.model, input=prompt, temperature=self.temperature
-            )
-        except OpenAIError as openai_error:
-            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {response.output_text}")
-        usage = getattr(response, "usage", None)
-        usage_val = getattr(usage, "total_tokens", None)
-        self._last_discourse_usage = (
-            int(usage_val) if usage_val and str(usage_val).isdigit() else 0
-        )
-        # Parse response
-        relations = [
-            line.strip() for line in response.output_text.splitlines() if line.strip()
-        ]
-        return relations
+    # {input_text}
+    # """
+    #         try:
+    #             response = self.client.responses.create(
+    #                 model=self.model, input=prompt, temperature=self.temperature
+    #             )
+    #         except OpenAIError as openai_error:
+    #             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+    #         if print_raw_response:
+    #             logger.info(f"Raw response from OpenAI: {response.output_text}")
+    #         usage = getattr(response, "usage", None)
+    #         usage_val = getattr(usage, "total_tokens", None)
+    #         self._last_discourse_usage = (
+    #             int(usage_val) if usage_val and str(usage_val).isdigit() else 0
+    #         )
+    #         # Parse response
+    #         relations = [
+    #             line.strip() for line in response.output_text.splitlines() if line.strip()
+    #         ]
+    #         return relations
 
-    def generate_coreferences(
-        self,
-        input_text: str,
-        print_raw_response: bool = False,
-    ) -> list[tuple[str, str, int, int]]:
-        """
-        Call the OpenAI API to return coreference resolution for pronouns and their referents.
-        Returns a list of tuples: (pronoun, referent, sentence index, word index).
-        """
-        prompt = f"""For the following text in {self.language.name}, identify all pronouns and their referents. For each, return a line in the format: <pronoun> <TAB> <referent> <TAB> <sentence_index> <TAB> <word_index>.
+    #     def generate_coreferences(
+    #         self,
+    #         input_text: str,
+    #         print_raw_response: bool = False,
+    #     ) -> list[tuple[str, str, int, int]]:
+    #         """
+    #         Call the OpenAI API to return coreference resolution for pronouns and their referents.
+    #         Returns a list of tuples: (pronoun, referent, sentence index, word index).
+    #         """
+    #         prompt = f"""For the following text in {self.language.name}, identify all pronouns and their referents. For each, return a line in the format: <pronoun> <TAB> <referent> <TAB> <sentence_index> <TAB> <word_index>.
 
-{input_text}
-"""
-        try:
-            response = self.client.responses.create(
-                model=self.model, input=prompt, temperature=self.temperature
-            )
-        except OpenAIError as openai_error:
-            raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
-        if print_raw_response:
-            logger.info(f"Raw response from OpenAI: {response.output_text}")
-        usage = getattr(response, "usage", None)
-        usage_val = getattr(usage, "total_tokens", None)
-        self._last_coref_usage = (
-            int(usage_val) if usage_val and str(usage_val).isdigit() else 0
-        )
-        # Parse response
-        corefs = []
-        for line in response.output_text.splitlines():
-            parts = line.split("\t")
-            if len(parts) == 4:
-                pronoun, referent, sent_idx, word_idx = parts
-                try:
-                    sent_idx = int(sent_idx)
-                    word_idx = int(word_idx)
-                    corefs.append((pronoun, referent, sent_idx, word_idx))
-                except ValueError:
-                    continue
-        return corefs
+    # {input_text}
+    # """
+    #         try:
+    #             response = self.client.responses.create(
+    #                 model=self.model, input=prompt, temperature=self.temperature
+    #             )
+    #         except OpenAIError as openai_error:
+    #             raise OpenAIInferenceError(f"An error from OpenAI occurred: {openai_error}")
+    #         if print_raw_response:
+    #             logger.info(f"Raw response from OpenAI: {response.output_text}")
+    #         usage = getattr(response, "usage", None)
+    #         usage_val = getattr(usage, "total_tokens", None)
+    #         self._last_coref_usage = (
+    #             int(usage_val) if usage_val and str(usage_val).isdigit() else 0
+    #         )
+    #         # Parse response
+    #         corefs = []
+    #         for line in response.output_text.splitlines():
+    #             parts = line.split("\t")
+    #             if len(parts) == 4:
+    #                 pronoun, referent, sent_idx, word_idx = parts
+    #                 try:
+    #                     sent_idx = int(sent_idx)
+    #                     word_idx = int(word_idx)
+    #                     corefs.append((pronoun, referent, sent_idx, word_idx))
+    #                 except ValueError:
+    #                     continue
+    #         return corefs
 
-    def _normalize_to_ud_feature_pair(self, key: str, value: str) -> tuple[str, str]:
-        """Map non-standard UD features to normalized format. If no change is needed (or
-        has been recorded as needed) then the input is not changed."""
-        if key == "Tense" and value == "Perf":
-            new_key = "Aspect"
-            new_value = "Perf"
-        else:
-            new_key = key
-            new_value = value
-        logger.debug(
-            f"Mapped non-UD feature {key} = {value} to {new_key} = {new_value}"
-        )
-        return new_key, new_value
+    #     def _normalize_to_ud_feature_pair(self, key: str, value: str) -> tuple[str, str]:
+    #         """Map non-standard UD features to normalized format. If no change is needed (or
+    #         has been recorded as needed) then the input is not changed."""
+    #         if key == "Tense" and value == "Perf":
+    #             new_key = "Aspect"
+    #             new_value = "Perf"
+    #         else:
+    #             new_key = key
+    #             new_value = value
+    #         logger.debug(
+    #             f"Mapped non-UD feature {key} = {value} to {new_key} = {new_value}"
+    #         )
+    #         return new_key, new_value
 
     def _normalize_feature_value(self, key: str, value: str) -> list:
         """Normalize UD feature values to canonical format."""
@@ -777,38 +775,38 @@ Return your answer as four sections, each starting with a header line:
         return tokens
 
 
-if __name__ == "__main__":
-    from cltk.languages.example_texts import get_example_text
+# if __name__ == "__main__":
+#     from cltk.languages.example_texts import get_example_text
 
-    load_env_file()
-    OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
-    if not OPENAI_API_KEY:
-        logger.error(
-            "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
-        )
-        raise CLTKException(
-            "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
-        )
-    MODEL: str = "gpt-4.1"
-    TEMPERATURE: float = 1.0  # 0.2 recommended for consistent structured output
+#     load_env_file()
+#     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
+#     if not OPENAI_API_KEY:
+#         logger.error(
+#             "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
+#         )
+#         raise CLTKException(
+#             "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
+#         )
+#     MODEL: str = "gpt-4.1"
+#     TEMPERATURE: float = 1.0  # 0.2 recommended for consistent structured output
 
-    LANGUAGE: str = "grc"
-    CHATGPT_GRC: ChatGPT = ChatGPT(
-        language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL, temperature=TEMPERATURE
-    )
-    DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
-    PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
-    EXAMPLE_GRC: str = get_example_text("grc")
-    EX_DOC: Doc = Doc(
-        raw=EXAMPLE_GRC, language="grc", normalized_text=cltk_normalize(EXAMPLE_GRC)
-    )
-    GRC_DOC: Doc = CHATGPT_GRC.generate_all(input_doc=EX_DOC, print_raw_response=True)
-    input("Press Enter to print final Doc ...")
-    logger.info(f"GRC_DOC words: {GRC_DOC.words}")
-    logger.info(f"GRC_DOC chatgpt: {GRC_DOC.chatgpt}")
+#     LANGUAGE: str = "grc"
+#     CHATGPT_GRC: ChatGPT = ChatGPT(
+#         language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL, temperature=TEMPERATURE
+#     )
+#     DEMOSTHENES_2_4: str = "Ἐγὼ γάρ, ὦ ἄνδρες Ἀθηναῖοι, τὸ μὲν παρρησιάσασθαι περὶ ὧν σκοπῶ καὶ λέγω τῇ πόλει, πλείστου ἀξιῶ· τοῦτο γάρ μοι δοκεῖ τοῖς ἀγαθοῖς πολίταις ἴδιον εἶναι· τὸ δὲ μὴ λέγειν ἃ δοκεῖ, πολλοῦ μοι δοκεῖ χεῖρον εἶναι καὶ τοῦ ψεύδεσθαι."
+#     PLUTARCH_ANTHONY_27_2: str = "Καὶ γὰρ ἦν ὁ χρόνος ἐν ᾧ κατεπλεῖ Κλεοπάτρα κατὰ τὴν Κιλικίαν, παρακαλεσαμένη πρότερον τὸν Ἀντώνιον εἰς συνουσίαν. ἡ δὲ πλοῖον ἐν χρυσῷ πεπλουμένον ἔχουσα, τὰς μὲν νεᾶς ἀργυραῖς ἐστίλβειν κελεύσασα, τὸν δὲ αὐλὸν ἀνακρούοντα καὶ φλαυῖν τὰς τριήρεις ἰοῖς παντοδαποῖς ἀνακεκαλυμμένας, αὐτὴ καθήμενη χρυσῷ προσπεποίκιλτο καταπέτασμα, καὶ παίδες ὥσπερ Ἔρωτες περὶ αὐτὴν διῄεσαν."
+#     EXAMPLE_GRC: str = get_example_text("grc")
+#     EX_DOC: Doc = Doc(
+#         raw=EXAMPLE_GRC, language="grc", normalized_text=cltk_normalize(EXAMPLE_GRC)
+#     )
+#     GRC_DOC: Doc = CHATGPT_GRC.generate_all(input_doc=EX_DOC, print_raw_response=True)
+#     input("Press Enter to print final Doc ...")
+#     logger.info(f"GRC_DOC words: {GRC_DOC.words}")
+#     logger.info(f"GRC_DOC chatgpt: {GRC_DOC.chatgpt}")
 
-    # JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
-    # LANGUAGE: str = "hbo"
-    # CHATGPT_HBO: ChatGPT = ChatGPT(language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL)
-    # JOB_DOC: Doc = CHATGPT_HBO.generate(input_text=JOB_1_13)
-    # print(JOB_DOC)
+# JOB_1_13: str = "י וַיְהִי הַיּוֹם וּבָנָיו וּבְנוֹתָיו אֹכְלִים וְשֹׁתִים יַיִן בְּבֵית אֲחִיהֶם הַבְּכוֹר."
+# LANGUAGE: str = "hbo"
+# CHATGPT_HBO: ChatGPT = ChatGPT(language=LANGUAGE, api_key=OPENAI_API_KEY, model=MODEL)
+# JOB_DOC: Doc = CHATGPT_HBO.generate(input_text=JOB_1_13)
+# print(JOB_DOC)

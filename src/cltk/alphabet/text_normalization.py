@@ -1,10 +1,11 @@
 """Functions for preprocessing texts. Not language-specific."""
 
+import re
 from typing import Optional
 from unicodedata import normalize
 
 
-def cltk_normalize(text, compatibility=True):
+def cltk_normalize(text: str, compatibility: bool = True) -> str:
     if compatibility:
         return normalize("NFKC", text)
     else:
@@ -130,3 +131,20 @@ def remove_odd_punct(text: str, punctuation: list[str] = None) -> str:
         punctuation = ["‘", "“", "’", "”"]
     chars: list[str] = [char for char in text if char not in punctuation]
     return "".join(chars)
+
+
+def strip_section_numbers(text: str) -> str:
+    """
+    Remove section numbers like '1.2.2', '[55]', '[55A]', '1.2.2A', '55', '55B', '2:4b' from the text.
+    """
+    # Remove bracketed numbers like [55], [55A]
+    text = re.sub(r"\[\d+[A-Z]?\]", "", text)
+    # Remove numbers like 1.2.2 or 1.2.2A (at word boundaries)
+    text = re.sub(r"\b\d+(?:\.\d+)+[A-Z]?\b", "", text)
+    # Remove standalone numbers or numbers with a trailing capital letter (at word boundaries)
+    text = re.sub(r"\b\d+[A-Z]?\b", "", text)
+    # Remove patterns like 2:4b or 12:34A at the start of a line or after whitespace
+    text = re.sub(r"(^|\s)\d+:\d+[A-Za-z]?\b", " ", text, flags=re.MULTILINE)
+    # Remove extra spaces left behind
+    text = re.sub(r"\s{2,}", " ", text)
+    return text.strip()
