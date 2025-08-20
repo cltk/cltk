@@ -1,6 +1,5 @@
-"""Ancient Greek phonology tools
+"""Ancient Greek phonology tools"""
 
-"""
 import unicodedata
 
 import cltk.phonology.grc.transcription as gret

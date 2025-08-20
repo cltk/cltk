@@ -1,4 +1,5 @@
 """Stemmer for Old French."""
+
 import re
 
 __author__ = ["Natasha Voake <natashavoake@gmail.com>"]

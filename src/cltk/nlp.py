@@ -102,7 +102,9 @@ class NLP:
                     f"Process '{a_process.__class__.__name__}' failed: {e}"
                 )
         if doc.words is None or not isinstance(doc.words, list):
-            msg: str = "Pipeline did not produce any words. Check your pipeline configuration and input text."
+            msg: str = (
+                "Pipeline did not produce any words. Check your pipeline configuration and input text."
+            )
             logger.error(msg)
             raise RuntimeError(msg)
         logger.info("NLP analysis complete.")
@@ -110,7 +112,7 @@ class NLP:
 
     def _print_cltk_info(self) -> None:
         logger.info("Printing CLTK citation info.")
-        ltr_mark: str = "\u200E"
+        ltr_mark: str = "\u200e"
         alep: str = "\U00010900"
         print(
             Fore.CYAN
@@ -120,7 +122,7 @@ class NLP:
             + Style.BRIGHT
             + "https://aclanthology.org/2021.acl-demo.3/"
             + Style.RESET_ALL
-            + "\n"
+            # + "\n"
         )
 
     def _print_pipelines_for_current_lang(self) -> None:
@@ -136,7 +138,7 @@ class NLP:
             + Fore.GREEN
             + f" `{', '.join(processes_name)}`"
             + Style.RESET_ALL
-            + "\n"
+            # + "\n"
         )
 
         logger.debug(f"Processes in pipeline: {processes_name}")
@@ -152,7 +154,12 @@ class NLP:
             process_instance = self._get_process_object(process_class)
             authorship_info = getattr(process_instance, "authorship_info", None)
             if authorship_info:
-                print(f"\n" + Fore.CYAN + f"⸖ {authorship_info}" + Style.RESET_ALL)
+                print(
+                    # "\n" +
+                    Fore.CYAN
+                    + f"⸖ {authorship_info}"
+                    + Style.RESET_ALL
+                )
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         logger.info("Printing special authorship messages for current language.")
@@ -170,9 +177,10 @@ class NLP:
     def _print_suppress_reminder(self) -> None:
         logger.info("Printing suppress banner reminder.")
         print(
-            "\n"
-            + Fore.CYAN
-            + "⸎ To suppress these messages, instantiate NLP() with suppress_banner=True.\n"
+            # "\n" +
+            Fore.CYAN
+            + "⸎ To suppress these messages, instantiate NLP() with "
+            # + "\n"
             + Style.RESET_ALL
         )
 

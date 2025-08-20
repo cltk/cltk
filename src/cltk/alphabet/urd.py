@@ -3,7 +3,6 @@
 TODO: Add tests.
 """
 
-
 # Persian digits from 0 to 9
 DIGITS = ["۰", "۱", "۲", "۳", "٤", "۵", "٦", "۷", "۸", "۹"]
 

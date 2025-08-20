@@ -1,5 +1,5 @@
 """A quick sanity check for testing library without downloads or
- a network connection."""
+a network connection."""
 
 import unittest
 from typing import Type

@@ -86,9 +86,9 @@ def assemble_phi5_works_filepaths() -> list[str]:
     plaintext_dir: str = make_cltk_path("lat/text/phi5/individual_works/")
     all_filepaths: list[str] = list()
     for author_code in MAP_PHI5_AUTHOR_ID_TO_WORKS_AND_NAME:
-        author_data: dict[
-            str, Union[list[str], str]
-        ] = MAP_PHI5_AUTHOR_ID_TO_WORKS_AND_NAME[author_code]
+        author_data: dict[str, Union[list[str], str]] = (
+            MAP_PHI5_AUTHOR_ID_TO_WORKS_AND_NAME[author_code]
+        )
         works: Union[list[str], str] = author_data["works"]
         for work in works:
             filepath: str = os.path.join(

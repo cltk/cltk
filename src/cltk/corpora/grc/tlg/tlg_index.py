@@ -5,6 +5,7 @@ Note: # ``TLG_MASTER_INDEX`` is the result of failed IDT parsing.
 TODO: Add work names to ``TLG_WORKS_INDEX``
 TODO: Add all TLG index data.
 """
+
 from typing import Union
 
 TLG_INDEX: dict[str, str] = {

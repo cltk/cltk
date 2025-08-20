@@ -329,7 +329,9 @@ Text: {doc.normalized_text}
             try:
                 features_tag_set = convert_pos_features_to_ud(feats_raw=feats_raw)
             except ValueError as e:
-                msg: str = f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
+                msg: str = (
+                    f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
+                )
                 logger.error(msg)
                 with open("features_err.log", "a") as f:
                     f.write(msg + "\n")

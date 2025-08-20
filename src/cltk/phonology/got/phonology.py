@@ -1,5 +1,4 @@
-"""Gothic phonology tools
-"""
+"""Gothic phonology tools"""
 
 import cltk.phonology.got.transcription as gt
 from cltk.phonology.non import utils as ut

@@ -16,7 +16,6 @@ resulting scansion.
     Known bug: Reduplicated syllables in a single sentence are not scanned separately.
 """
 
-
 from cltk.core.cltk_logger import logger
 
 __author__ = ["Tyler Kirby <tyler.kirby9398@gmail.com>"]

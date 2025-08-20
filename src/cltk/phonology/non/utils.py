@@ -1,5 +1,4 @@
-"""To define sounds, phonetic rules for phonetic transcription.
-"""
+"""To define sounds, phonetic rules for phonetic transcription."""
 
 import re
 from enum import Enum, auto

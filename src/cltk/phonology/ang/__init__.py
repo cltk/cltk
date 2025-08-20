@@ -1,2 +1,1 @@
-"""Old English phonology
-"""
+"""Old English phonology"""

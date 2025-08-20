@@ -2,7 +2,6 @@
 You may extend **SyllabificationProcess** and see pre-defined examples.
 """
 
-
 from copy import copy
 from dataclasses import dataclass
 

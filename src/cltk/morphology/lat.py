@@ -1,4 +1,4 @@
-""" This modules provides Decliner for Latin. Given a lemma, the Decliner will provide each grammatically valid forms
+"""This modules provides Decliner for Latin. Given a lemma, the Decliner will provide each grammatically valid forms
 
 This work is based on the lexical and linguistic data built for and by the Collatinus Team ( https://github.com/biblissima/collatinus ).
 This module hence inherit the license from the original project. The objective of this module is to port part of Collatinus to CLTK.

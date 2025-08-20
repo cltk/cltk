@@ -1,5 +1,4 @@
-""" Code for word tokenization: Middle High German
-"""
+"""Code for word tokenization: Middle High German"""
 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."

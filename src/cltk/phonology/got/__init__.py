@@ -1,2 +1,1 @@
-"""Gothic phonology
-"""
+"""Gothic phonology"""

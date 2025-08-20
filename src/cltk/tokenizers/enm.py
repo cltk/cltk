@@ -1,5 +1,4 @@
-""" Code for word tokenization: Middle English
-"""
+"""Code for word tokenization: Middle English"""
 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."

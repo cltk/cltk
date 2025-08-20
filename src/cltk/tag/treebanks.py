@@ -1,5 +1,4 @@
-"""Generate a Python dict from input tags from a treebank, in str. As of this version, only treebanks following the Penn notation are supported.
-"""
+"""Generate a Python dict from input tags from a treebank, in str. As of this version, only treebanks following the Penn notation are supported."""
 
 
 def set_path(dicts, keys, v):

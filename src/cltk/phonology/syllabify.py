@@ -479,9 +479,7 @@ class Syllabifier:
                     ind.append(
                         i + 2
                         if word[i : i + 3] in self.triphthongs
-                        else i + 1
-                        if word[i : i + 2] in self.diphthongs
-                        else i
+                        else i + 1 if word[i : i + 2] in self.diphthongs else i
                     )
                     continue
 

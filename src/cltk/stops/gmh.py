@@ -1,6 +1,7 @@
 """
 Middle High German: "Eleftheria Chatziargyriou <ele.hatzy@gmail.com>" using TFIDF method. Source of texts: http://www.gutenberg.org/files/22636/22636-h/22636-h.htm , http://texte.mediaevum.de/12mhd.htm
 """
+
 STOPS: list[str] = [
     "abe",
     "aber",

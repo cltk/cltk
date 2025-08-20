@@ -1,5 +1,4 @@
-"""This stopword list was compiled by M. Willis Monroe
-"""
+"""This stopword list was compiled by M. Willis Monroe"""
 
 __author__ = ["M. Willis Monroe <willismonroe@gmail.com>"]
 __license__ = "GPL License."

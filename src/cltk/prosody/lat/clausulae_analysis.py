@@ -6,6 +6,7 @@ of times it occurs in the text. The list of clausulae used in the method is deri
 paper "Auceps syllabarum: A Digital Analysis of Latin Prose Rhythm". The list of clausulae are mutually exclusive so no one
 rhythm will be counted in multiple categories.
 """
+
 from collections import namedtuple
 
 __author__ = ["Tyler Kirby <tyler.kirby9398@gmail.com>"]

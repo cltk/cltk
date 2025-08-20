@@ -1,4 +1,4 @@
-""" Latin word tokenization - handles enclitics and abbreviations."""
+"""Latin word tokenization - handles enclitics and abbreviations."""
 
 __author__ = [
     "Patrick J. Burns <patrick@diyclassics.org>",

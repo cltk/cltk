@@ -1,2 +1,1 @@
-"""Ancient Greek phonology
-"""
+"""Ancient Greek phonology"""

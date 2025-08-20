@@ -26,9 +26,9 @@ __author__ = ["Taha Zerrouki taha.zerrouki@gmail.com"]
 __license__ = "GPL"
 
 
-COMMA = "\u060C"
-SEMICOLON = "\u061B"
-QUESTION = "\u061F"
+COMMA = "\u060c"
+SEMICOLON = "\u061b"
+QUESTION = "\u061f"
 HAMZA = "\u0621"
 ALEF_MADDA = "\u0622"
 ALEF_HAMZA_ABOVE = "\u0623"
@@ -100,8 +100,8 @@ SUKUN = "\u0652"
 
 # Small Letters
 SMALL_ALEF = "\u0670"
-SMALL_WAW = "\u06E5"
-SMALL_YEH = "\u06E6"
+SMALL_WAW = "\u06e5"
+SMALL_YEH = "\u06e6"
 # Ligatures
 LAM_ALEF = "\ufefb"
 LAM_ALEF_HAMZA_ABOVE = "\ufef7"

@@ -1,5 +1,4 @@
-"""Old Swedish phonology tools.
-"""
+"""Old Swedish phonology tools."""
 
 from cltk.phonology.non import utils as ut
 from cltk.phonology.non.old_swedish import transcription as old_swedish

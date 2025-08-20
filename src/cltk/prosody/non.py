@@ -1,6 +1,5 @@
 """Verse structures of Old Norse poetry"""
 
-
 import re
 from math import floor
 from typing import Union

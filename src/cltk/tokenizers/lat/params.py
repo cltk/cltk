@@ -1,4 +1,4 @@
-""" Parameters for Latin Word Tokenization and Exceptions."""
+"""Parameters for Latin Word Tokenization and Exceptions."""
 
 __author__ = [
     "Patrick J. Burns <patrick@diyclassics.org>",

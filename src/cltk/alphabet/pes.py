@@ -3,7 +3,6 @@
 TODO: Write tests.
 """
 
-
 __author__ = "Iman Nazari"
 
 
@@ -55,9 +54,9 @@ HE2 = "\u0647"
 YE = "\u06cc"
 
 # Punctuation marks
-COMMA = "\u060C"
-SEMICOLON = "\u061B"
-QUESTION = "\u061F"
+COMMA = "\u060c"
+SEMICOLON = "\u061b"
+QUESTION = "\u061f"
 
 # Other symbols
 PERCENT = "\u066a"

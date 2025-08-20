@@ -2,6 +2,7 @@
 this list inspired from Arabic Stop Words Project https://github.com/linuxscout/arabicstopwords
 
 """
+
 # TODO: Improve stop list word
 # TODO: Add translate comments for each stop word.
 

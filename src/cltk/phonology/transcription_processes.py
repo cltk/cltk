@@ -2,7 +2,6 @@
 **PhonologicalTranscriptionProcess** is the parent-class for all other custom transcription processes.
 """
 
-
 from copy import copy
 from dataclasses import dataclass
 from functools import cached_property

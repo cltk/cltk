@@ -1,4 +1,4 @@
-""" Code for sentences tokenization: Latin
+"""Code for sentences tokenization: Latin
 
 >>> from cltk.sentence.lat import LatinPunktSentenceTokenizer
 >>> from cltk.languages.example_texts import get_example_text

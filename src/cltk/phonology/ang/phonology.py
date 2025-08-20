@@ -5,7 +5,6 @@ Sources:
     Hogg, Richard M. (1992). The Cambridge History of the English Language. Chapter 3
 """
 
-
 from cltk.phonology.ang.transcription import Transcriber
 from cltk.phonology.syllabify import Syllabifier
 

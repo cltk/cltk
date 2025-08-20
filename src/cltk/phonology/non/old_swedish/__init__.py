@@ -1,2 +1,1 @@
-"""Old Swedish phonology
-"""
+"""Old Swedish phonology"""

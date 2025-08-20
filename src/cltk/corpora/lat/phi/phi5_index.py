@@ -1,4 +1,5 @@
 """Indices to the PHI5 Latin corpus."""
+
 from typing import Union
 
 MAP_PHI5_AUTHOR_ID_TO_NAME: dict[str, str] = {

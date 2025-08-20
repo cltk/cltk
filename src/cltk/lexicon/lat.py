@@ -26,7 +26,9 @@ class LatinLewisLexicon:
         except FileNotFoundError:
             do_download: Optional[bool] = None
             if self.interactive:
-                dl_msg: str = f"This part of the CLTK depends upon Lewis's *An Elementary Latin Dictionary* (1890)."
+                dl_msg: str = (
+                    f"This part of the CLTK depends upon Lewis's *An Elementary Latin Dictionary* (1890)."
+                )
                 print(dl_msg)
                 dl_question: str = "Do you want to download this?"
                 do_download = query_yes_no(question=dl_question)

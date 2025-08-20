@@ -1,5 +1,4 @@
-"""Arabic phonology tools
-"""
+"""Arabic phonology tools"""
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 

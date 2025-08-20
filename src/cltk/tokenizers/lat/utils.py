@@ -1,5 +1,4 @@
-""" Tokenization utilities: Latin
-"""
+"""Tokenization utilities: Latin"""
 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."

@@ -1,5 +1,4 @@
-"""Module for lemmatizing Latin
-"""
+"""Module for lemmatizing Latin"""
 
 __author__ = ["Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License. See LICENSE."

@@ -9,7 +9,7 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 from enum import Enum, auto
 
 POINT = "᛫"
-SEMI_COLUMN = "\u16EC"
+SEMI_COLUMN = "\u16ec"
 
 
 class AutoName(Enum):
@@ -25,7 +25,7 @@ class RunicAlphabetName(AutoName):
 
 class Rune:
     """
-    >>> Rune(RunicAlphabetName.elder_futhark, "\u16BA", "h", "h", "haglaz")
+    >>> Rune(RunicAlphabetName.elder_futhark, "\u16ba", "h", "h", "haglaz")
     ᚺ
     >>> Rune.display_runes(ELDER_FUTHARK)
     ['ᚠ', 'ᚢ', 'ᚦ', 'ᚨ', 'ᚱ', 'ᚲ', 'ᚷ', 'ᚹ', 'ᚺ', 'ᚾ', 'ᛁ', 'ᛃ', 'ᛇ', 'ᛈ', 'ᛉ', 'ᛊ', 'ᛏ', 'ᛒ', 'ᛖ', 'ᛗ', 'ᛚ', 'ᛜ', 'ᛟ', 'ᛞ']
@@ -127,74 +127,74 @@ class Transcriber:
 
 # ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ ᚾ ᛁ ᛃ ᛇ ᛈ ᛉ ᛊ ᛏ ᛒ ᛖ ᛗ ᛚ ᛜ ᛟ ᛞ
 ELDER_FUTHARK = [
-    Rune(RunicAlphabetName.elder_futhark, "\u16A0", "f", "f", "fehu"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16A2", "u", "u", "uruz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16A6", "θ", "þ", "þuriaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16A8", "a", "a", "ansuz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16B1", "r", "r", "raido"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16B2", "k", "k", "kaunan"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16B7", "g", "g", "gyfu"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16B9", "w", "w", "wynn"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16BA", "h", "h", "haglaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16BE", "n", "n", "naudiz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16C1", "i", "i", "isaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16C3", "j", "j", "jeran"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16C7", "æ", "E", "eiwaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16C8", "p", "p", "peorð"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16C9", "ʀ", "r", "algiz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16CA", "s", "s", "sowilo"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16CF", "t", "t", "tiwaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16D2", "b", "b", "berkanan"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16D6", "e", "e", "ehwaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16D7", "m", "m", "mannaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16DA", "l", "l", "laguz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16DC", "ŋ", "ng", "ingwaz"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16DF", "ø", "œ", "odal"),
-    Rune(RunicAlphabetName.elder_futhark, "\u16DE", "d", "d", "dagaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16a0", "f", "f", "fehu"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16a2", "u", "u", "uruz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16a6", "θ", "þ", "þuriaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16a8", "a", "a", "ansuz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16b1", "r", "r", "raido"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16b2", "k", "k", "kaunan"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16b7", "g", "g", "gyfu"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16b9", "w", "w", "wynn"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16ba", "h", "h", "haglaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16be", "n", "n", "naudiz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16c1", "i", "i", "isaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16c3", "j", "j", "jeran"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16c7", "æ", "E", "eiwaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16c8", "p", "p", "peorð"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16c9", "ʀ", "r", "algiz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16ca", "s", "s", "sowilo"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16cf", "t", "t", "tiwaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16d2", "b", "b", "berkanan"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16d6", "e", "e", "ehwaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16d7", "m", "m", "mannaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16da", "l", "l", "laguz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16dc", "ŋ", "ng", "ingwaz"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16df", "ø", "œ", "odal"),
+    Rune(RunicAlphabetName.elder_futhark, "\u16de", "d", "d", "dagaz"),
 ]
 
 # ᚠ ᚢ ᚦ ᚭ ᚱ ᚴ ᚼ ᚾ ᛁ ᛅ ᛋ ᛏ ᛒ ᛖ ᛘ ᛚ ᛦ
 YOUNGER_FUTHARK = [
-    Rune(RunicAlphabetName.younger_futhark, "\u16A0", "f", "f", "fehu"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16A2", "u", "u", "uruz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16A6", "θ", "þ", "þuriaz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16AD", "a", "a", "ansuz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16B1", "r", "r", "raido"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16B4", "k", "k", "kaunan"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16BC", "h", "h", "haglaz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16BE", "n", "n", "naudiz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16C1", "i", "i", "isaz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16C5", "a", "a", "jeran"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16CB", "s", "s", "sowilo"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16CF", "t", "t", "tiwaz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16D2", "b", "b", "berkanan"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16D6", "e", "e", "ehwaz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16a0", "f", "f", "fehu"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16a2", "u", "u", "uruz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16a6", "θ", "þ", "þuriaz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16ad", "a", "a", "ansuz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16b1", "r", "r", "raido"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16b4", "k", "k", "kaunan"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16bc", "h", "h", "haglaz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16be", "n", "n", "naudiz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16c1", "i", "i", "isaz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16c5", "a", "a", "jeran"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16cb", "s", "s", "sowilo"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16cf", "t", "t", "tiwaz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16d2", "b", "b", "berkanan"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16d6", "e", "e", "ehwaz"),
     Rune(
-        RunicAlphabetName.younger_futhark, "\u16D8", "m", "m", "mannaz"
+        RunicAlphabetName.younger_futhark, "\u16d8", "m", "m", "mannaz"
     ),  # also \u16D9
-    Rune(RunicAlphabetName.younger_futhark, "\u16DA", "l", "l", "laguz"),
-    Rune(RunicAlphabetName.younger_futhark, "\u16E6", "r", "R", "algiz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16da", "l", "l", "laguz"),
+    Rune(RunicAlphabetName.younger_futhark, "\u16e6", "r", "R", "algiz"),
 ]
 
 # ᚠ ᚢ ᚦ ᚭ ᚱ ᚴ ᚽ ᚿ ᛁ ᛅ ᛌ ᛐ ᛓ ᛖ ᛙ ᛚ ᛧ
 SHORT_TWIG_YOUNGER_FUTHARK = [
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16A0", "f", "f", "fehu"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16A2", "u", "u", "uruz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16A6", "θ", "þ", "þuriaz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16AD", "a", "a", "ansuz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16B1", "r", "r", "raido"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16B4", "k", "k", "kaunan"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16BD", "h", "h", "haglaz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16BF", "n", "n", "naudiz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16C1", "i", "i", "isaz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16C5", "a", "a", "jeran"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16CC", "s", "s", "sowilo"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16D0", "t", "t", "tiwaz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16D3", "b", "b", "berkanan"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16D6", "e", "e", "ehwaz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16a0", "f", "f", "fehu"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16a2", "u", "u", "uruz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16a6", "θ", "þ", "þuriaz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16ad", "a", "a", "ansuz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16b1", "r", "r", "raido"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16b4", "k", "k", "kaunan"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16bd", "h", "h", "haglaz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16bf", "n", "n", "naudiz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16c1", "i", "i", "isaz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16c5", "a", "a", "jeran"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16cc", "s", "s", "sowilo"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16d0", "t", "t", "tiwaz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16d3", "b", "b", "berkanan"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16d6", "e", "e", "ehwaz"),
     Rune(
-        RunicAlphabetName.short_twig_younger_futhark, "\u16D9", "m", "m", "mannaz"
+        RunicAlphabetName.short_twig_younger_futhark, "\u16d9", "m", "m", "mannaz"
     ),  # also \u16D9
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16DA", "l", "l", "laguz"),
-    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16E7", "r", "R", "algiz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16da", "l", "l", "laguz"),
+    Rune(RunicAlphabetName.short_twig_younger_futhark, "\u16e7", "r", "R", "algiz"),
 ]

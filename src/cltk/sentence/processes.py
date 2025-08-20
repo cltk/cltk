@@ -1,6 +1,4 @@
-"""Module for sentence tokenizers.
-"""
-
+"""Module for sentence tokenizers."""
 
 from copy import copy
 from functools import cached_property
@@ -24,7 +22,7 @@ class SentenceSplittingProcess(Process):
     def algorithm(self) -> FunctionType:
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
         logger.debug(f"Selecting normalization algorithm for language: {self.language}")
-        if self.language in ["arc", "grc", "hbo", "lat", "pli", "san"]:
+        if self.language in ["arc", "cop", "grc", "hbo", "lat", "pli", "san"]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.language}"
             )
@@ -52,6 +50,10 @@ class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
 
 class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Hebrew."""
+
+
+class CopticSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Coptic."""
 
 
 class LatinSentenceSplittingProcess(SentenceSplittingProcess):

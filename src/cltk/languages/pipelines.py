@@ -41,6 +41,7 @@ from cltk.embeddings.processes import (
 from cltk.genai.processes import (
     AncientGreekChatGPTProcess,
     AncientHebrewChatGPTProcess,
+    CopticChatGPTProcess,
     LatinChatGPTProcess,
     OfficialAramaicChatGPTProcess,
     PaliChatGPTProcess,
@@ -60,6 +61,7 @@ from cltk.ner.processes import (  # GreekNERProcess,; LatinNERProcess,; OldEngli
 from cltk.sentence.processes import (
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
+    CopticSentenceSplittingProcess,
     LatinSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
@@ -156,6 +158,20 @@ class CopticPipeline(Pipeline):
     def __post_init__(self):
         logger.debug(f"Initializing CopticPipeline with language: {self.language}")
         logger.info("CopticPipeline created.")
+
+
+class CopticChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Coptic."""
+
+    description: Optional[str] = "ChatGPT Pipeline for the Coptic language."
+    language: Optional[Language] = get_lang("cop")
+    processes: Optional[list[Type[Process]]] = field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            CopticSentenceSplittingProcess,
+            CopticChatGPTProcess,
+        ]
+    )
 
 
 class GothicPipeline(Pipeline):
@@ -349,7 +365,7 @@ class OfficialAramaicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Official Aramaic."""
 
     description: Optional[str] = "ChatGPT Pipeline for the Official Aramaic language."
-    language: Optional[Language] = get_lang("lat")
+    language: Optional[Language] = get_lang("arc")
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,

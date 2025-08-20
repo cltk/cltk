@@ -1,5 +1,4 @@
-""" Code for word tokenization: Arabic
-"""
+"""Code for word tokenization: Arabic"""
 
 __author__ = ["TK", "Patrick J. Burns <patrick@diyclassics.org>"]
 __license__ = "MIT License."

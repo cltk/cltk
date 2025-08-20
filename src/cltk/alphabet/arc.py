@@ -3,6 +3,7 @@ a Hebrew transcription of an Imperial Aramaic text to its own Unicode block.
 
 TODO: Add Hebrew-to-Aramaic converter
 """
+
 from typing import Union
 
 IMPERIAL_ARAMAIC_BLOCK: list[tuple[str, str, str]] = [

@@ -1,6 +1,4 @@
-"""Middle High German phonology tools
-"""
-
+"""Middle High German phonology tools"""
 
 from cltk.phonology.gmh.transcription import Transcriber
 from cltk.phonology.syllabify import Syllabifier

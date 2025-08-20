@@ -1,4 +1,4 @@
-""" Tokenization utilities
+"""Tokenization utilities
 
 TODO: KJ consider moving to ``scripts`` dir.
 """

@@ -23,12 +23,12 @@ BUCKWALTER_TO_UNICODE = {
     "A": "\u0627",  # bare 'alif
     "b": "\u0628",  # baa'
     "p": "\u0629",  # taa' marbuuTa
-    "t": "\u062A",  # taa'
-    "v": "\u062B",  # thaa'
-    "j": "\u062C",  # jiim
-    "H": "\u062D",  # Haa'
-    "x": "\u062E",  # khaa'
-    "d": "\u062F",  # daal
+    "t": "\u062a",  # taa'
+    "v": "\u062b",  # thaa'
+    "j": "\u062c",  # jiim
+    "H": "\u062d",  # Haa'
+    "x": "\u062e",  # khaa'
+    "d": "\u062f",  # daal
     "*": "\u0630",  # dhaal
     "r": "\u0631",  # raa'
     "z": "\u0632",  # zaay
@@ -39,7 +39,7 @@ BUCKWALTER_TO_UNICODE = {
     "T": "\u0637",  # Taa'
     "Z": "\u0638",  # Zaa' (DHaa')
     "E": "\u0639",  # cayn
-    "g": "\u063A",  # ghayn
+    "g": "\u063a",  # ghayn
     "_": "\u0640",  # taTwiil
     "f": "\u0641",  # faa'
     "q": "\u0642",  # qaaf
@@ -50,12 +50,12 @@ BUCKWALTER_TO_UNICODE = {
     "h": "\u0647",  # haa'
     "w": "\u0648",  # waaw
     "Y": "\u0649",  # 'alif maqSuura
-    "y": "\u064A",  # yaa'
-    "F": "\u064B",  # fatHatayn
-    "N": "\u064C",  # Dammatayn
-    "K": "\u064D",  # kasratayn
-    "a": "\u064E",  # fatHa
-    "u": "\u064F",  # Damma
+    "y": "\u064a",  # yaa'
+    "F": "\u064b",  # fatHatayn
+    "N": "\u064c",  # Dammatayn
+    "K": "\u064d",  # kasratayn
+    "a": "\u064e",  # fatHa
+    "u": "\u064f",  # Damma
     "i": "\u0650",  # kasra
     "~": "\u0651",  # shaddah
     "o": "\u0652",  # sukuun
@@ -64,18 +64,18 @@ BUCKWALTER_TO_UNICODE = {
     # extended here
     "^": "\u0653",  # Maddah
     "#": "\u0654",  # HamzaAbove
-    ":": "\u06DC",  # SmallHighSeen
-    "@": "\u06DF",  # SmallHighRoundedZero
-    '"': "\u06E0",  # SmallHighUprightRectangularZero
-    "[": "\u06E2",  # SmallHighMeemIsolatedForm
-    ";": "\u06E3",  # SmallLowSeen
-    ",": "\u06E5",  # SmallWaw
-    ".": "\u06E6",  # SmallYa
-    "!": "\u06E8",  # SmallHighNoon
-    "-": "\u06EA",  # EmptyCentreLowStop
-    "+": "\u06EB",  # EmptyCentreHighStop
-    "%": "\u06EC",  # RoundedHighStopWithFilledCentre
-    "]": "\u06ED",  #
+    ":": "\u06dc",  # SmallHighSeen
+    "@": "\u06df",  # SmallHighRoundedZero
+    '"': "\u06e0",  # SmallHighUprightRectangularZero
+    "[": "\u06e2",  # SmallHighMeemIsolatedForm
+    ";": "\u06e3",  # SmallLowSeen
+    ",": "\u06e5",  # SmallWaw
+    ".": "\u06e6",  # SmallYa
+    "!": "\u06e8",  # SmallHighNoon
+    "-": "\u06ea",  # EmptyCentreLowStop
+    "+": "\u06eb",  # EmptyCentreHighStop
+    "%": "\u06ec",  # RoundedHighStopWithFilledCentre
+    "]": "\u06ed",  #
 }
 
 ISO2332_TO_UNICODE = {
@@ -88,12 +88,12 @@ ISO2332_TO_UNICODE = {
     "ʾ": "\u0627",  # bare 'alif
     "b": "\u0628",  # baa'
     "ẗ": "\u0629",  # taa' marbuuTa
-    "t": "\u062A",  # taa'
-    "ṯ": "\u062B",  # thaa'
-    "ǧ": "\u062C",  # jiim
-    "ḥ": "\u062D",  # Haa'
-    "ẖ": "\u062E",  # khaa'
-    "d": "\u062F",  # daal
+    "t": "\u062a",  # taa'
+    "ṯ": "\u062b",  # thaa'
+    "ǧ": "\u062c",  # jiim
+    "ḥ": "\u062d",  # Haa'
+    "ẖ": "\u062e",  # khaa'
+    "d": "\u062f",  # daal
     "ḏ": "\u0630",  # dhaal
     "r": "\u0631",  # raa'
     "z": "\u0632",  # zaay
@@ -104,7 +104,7 @@ ISO2332_TO_UNICODE = {
     "ṭ": "\u0637",  # Taa'
     "ẓ": "\u0638",  # Zaa' (DHaa')
     "ʿ": "\u0639",  # cayn
-    "ġ": "\u063A",  # ghayn
+    "ġ": "\u063a",  # ghayn
     # "_": "\u0640", # taTwiil
     "f": "\u0641",  # faa'
     "q": "\u0642",  # qaaf
@@ -115,12 +115,12 @@ ISO2332_TO_UNICODE = {
     "h": "\u0647",  # haa'
     "w": "\u0648",  # waaw
     "ỳ": "\u0649",  # 'alif maqSuura
-    "y": "\u064A",  # yaa'
-    "á": "\u064B",  # fatHatayn
-    "ú": "\u064C",  # Dammatayn
-    "í": "\u064D",  # kasratayn
-    "a": "\u064E",  # fatHa
-    "u": "\u064F",  # Damma
+    "y": "\u064a",  # yaa'
+    "á": "\u064b",  # fatHatayn
+    "ú": "\u064c",  # Dammatayn
+    "í": "\u064d",  # kasratayn
+    "a": "\u064e",  # fatHa
+    "u": "\u064f",  # Damma
     "i": "\u0650",  # kasra
     # "~": "\u0651", # shaddah
     "°": "\u0652",  # sukuun
@@ -153,12 +153,12 @@ ARABTEX_TO_UNICODE = {
     "A": "\u0627",  # bare 'alif
     "b": "\u0628",  # baa'
     "T": "\u0629",  # taa' marbuuTa
-    "t": "\u062A",  # taa'
-    "_t": "\u062B",  # thaa'
-    "j": "\u062C",  # jiim
-    ".h": "\u062D",  # Haa'
-    "x": "\u062E",  # khaa'
-    "d": "\u062F",  # daal
+    "t": "\u062a",  # taa'
+    "_t": "\u062b",  # thaa'
+    "j": "\u062c",  # jiim
+    ".h": "\u062d",  # Haa'
+    "x": "\u062e",  # khaa'
+    "d": "\u062f",  # daal
     "_d": "\u0630",  # dhaal
     "r": "\u0631",  # raa'
     "z": "\u0632",  # zaay
@@ -169,7 +169,7 @@ ARABTEX_TO_UNICODE = {
     ".t": "\u0637",  # Taa'
     ".z": "\u0638",  # Zaa' (DHaa')
     "`": "\u0639",  # cayn
-    ".g": "\u063A",  # ghayn
+    ".g": "\u063a",  # ghayn
     # "_": "\u0640", # taTwiil # Missing
     "f": "\u0641",  # faa'
     "q": "\u0642",  # qaaf
@@ -180,12 +180,12 @@ ARABTEX_TO_UNICODE = {
     "h": "\u0647",  # haa'
     "w": "\u0648",  # waaw
     "I*": "\u0649",  # 'alif maqSuura
-    "y": "\u064A",  # yaa'
-    "aN": "\u064B",  # fatHatayn
-    "uN": "\u064C",  # Dammatayn
-    "iN": "\u064D",  # kasratayn
-    "a": "\u064E",  # fatHa
-    "u": "\u064F",  # Damma
+    "y": "\u064a",  # yaa'
+    "aN": "\u064b",  # fatHatayn
+    "uN": "\u064c",  # Dammatayn
+    "iN": "\u064d",  # kasratayn
+    "a": "\u064e",  # fatHa
+    "u": "\u064f",  # Damma
     "i": "\u0650",  # kasra
     "xx": "\u0651",  # shaddah
     # "": "\u0652", # sukuun    Missing
@@ -218,12 +218,12 @@ ASMO449_TO_UNICODE = {
     "G": "\u0627",  # bare 'alif
     "H": "\u0628",  # baa'
     "I": "\u0629",  # taa' marbuuTa
-    "J": "\u062A",  # taa'
-    "K": "\u062B",  # thaa'
-    "L": "\u062C",  # jiim
-    "M": "\u062D",  # Haa'
-    "N": "\u062E",  # khaa'
-    "O": "\u062F",  # daal
+    "J": "\u062a",  # taa'
+    "K": "\u062b",  # thaa'
+    "L": "\u062c",  # jiim
+    "M": "\u062d",  # Haa'
+    "N": "\u062e",  # khaa'
+    "O": "\u062f",  # daal
     "P": "\u0630",  # dhaal
     "Q": "\u0631",  # raa'
     "R": "\u0632",  # zaay
@@ -234,7 +234,7 @@ ASMO449_TO_UNICODE = {
     "W": "\u0637",  # Taa'
     "X": "\u0638",  # Zaa' (DHaa')
     "Y": "\u0639",  # cayn
-    "Z": "\u063A",  # ghayn
+    "Z": "\u063a",  # ghayn
     "0x60": "\u0640",  # taTwiil
     "a": "\u0641",  # faa'
     "b": "\u0642",  # qaaf
@@ -245,12 +245,12 @@ ASMO449_TO_UNICODE = {
     "g": "\u0647",  # haa'
     "h": "\u0648",  # waaw
     "i": "\u0649",  # 'alif maqSuura
-    "j": "\u064A",  # yaa'
-    "k": "\u064B",  # fatHatayn
-    "l": "\u064C",  # Dammatayn
-    "m": "\u064D",  # kasratayn
-    "n": "\u064E",  # fatHa
-    "o": "\u064F",  # Damma
+    "j": "\u064a",  # yaa'
+    "k": "\u064b",  # fatHatayn
+    "l": "\u064c",  # Dammatayn
+    "m": "\u064d",  # kasratayn
+    "n": "\u064e",  # fatHa
+    "o": "\u064f",  # Damma
     "p": "\u0650",  # kasra
     "q": "\u0651",  # shaddah
     "r": "\u0652",  # sukuun
@@ -283,12 +283,12 @@ ISO88596_TO_UNICODE = {
     "C7": "\u0627",  # bare 'alif
     "C8": "\u0628",  # baa'
     "C9": "\u0629",  # taa' marbuuTa
-    "CA": "\u062A",  # taa'
-    "CB": "\u062B",  # thaa'
-    "CC": "\u062C",  # jiim
-    "CD": "\u062D",  # Haa'
-    "CE": "\u062E",  # khaa'
-    "CF": "\u062F",  # daal
+    "CA": "\u062a",  # taa'
+    "CB": "\u062b",  # thaa'
+    "CC": "\u062c",  # jiim
+    "CD": "\u062d",  # Haa'
+    "CE": "\u062e",  # khaa'
+    "CF": "\u062f",  # daal
     "D0": "\u0630",  # dhaal
     "D1": "\u0631",  # raa'
     "D2": "\u0632",  # zaay
@@ -299,7 +299,7 @@ ISO88596_TO_UNICODE = {
     "D7": "\u0637",  # Taa'
     "D8": "\u0638",  # Zaa' (DHaa')
     "D9": "\u0639",  # cayn
-    "DA": "\u063A",  # ghayn
+    "DA": "\u063a",  # ghayn
     "E0": "\u0640",  # taTwiil missing
     "E1": "\u0641",  # faa'
     "E2": "\u0642",  # qaaf
@@ -310,12 +310,12 @@ ISO88596_TO_UNICODE = {
     "E7": "\u0647",  # haa'
     "E8": "\u0648",  # waaw
     "E9": "\u0649",  # 'alif maqSuura
-    "EA": "\u064A",  # yaa'
-    "EB": "\u064B",  # fatHatayn
-    "EC": "\u064C",  # Dammatayn
-    "ED": "\u064D",  # kasratayn
-    "EE": "\u064E",  # fatHa
-    "EF": "\u064F",  # Damma
+    "EA": "\u064a",  # yaa'
+    "EB": "\u064b",  # fatHatayn
+    "EC": "\u064c",  # Dammatayn
+    "ED": "\u064d",  # kasratayn
+    "EE": "\u064e",  # fatHa
+    "EF": "\u064f",  # Damma
     "F0": "\u0650",  # kasra
     "F1": "\u0651",  # shaddah
     "F2": "\u0652",  # sukuun

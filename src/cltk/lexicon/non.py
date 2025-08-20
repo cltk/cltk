@@ -23,7 +23,9 @@ class OldNorseZoegaLexicon:
             self.entries: dict[str, str] = self._load_entries()
         except FileNotFoundError:
             if self.interactive:
-                dl_msg: str = f"This part of the CLTK depends upon Zoëga's *A Concise Old Norse Dictionary* (1890)."
+                dl_msg: str = (
+                    f"This part of the CLTK depends upon Zoëga's *A Concise Old Norse Dictionary* (1890)."
+                )
                 print(dl_msg)
                 dl_question = "Do you want to download this?"
                 do_download = query_yes_no(question=dl_question)

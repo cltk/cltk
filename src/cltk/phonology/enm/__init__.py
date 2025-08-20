@@ -1,2 +1,1 @@
-"""Middle English phonology
-"""
+"""Middle English phonology"""

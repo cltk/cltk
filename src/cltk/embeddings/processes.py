@@ -105,9 +105,13 @@ class EmbeddingsProcess(Process):
             elif TFIDF_MAP.get(self.language):
                 model_path: str = TFIDF_MAP[self.language]
                 if not os.path.isdir(model_path):
-                    msg: str = f"TF-IDF model path '{model_path}' not found. Going to try to download it ..."
+                    msg: str = (
+                        f"TF-IDF model path '{model_path}' not found. Going to try to download it ..."
+                    )
                     logger.warning(msg)
-                    dl_msg: str = f"This part of the CLTK depends upon models from the CLTK project."
+                    dl_msg: str = (
+                        f"This part of the CLTK depends upon models from the CLTK project."
+                    )
                     model_url: str = (
                         f"https://github.com/cltk/{self.language}_models_cltk"
                     )
@@ -162,7 +166,9 @@ class GreekEmbeddingsProcess(EmbeddingsProcess):
     language: str = "grc"
     description: str = "Default embeddings for Ancient Greek."
     variant: str = "nlpl"
-    authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
+    authorship_info: str = (
+        "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
+    )
 
 
 class LatinEmbeddingsProcess(EmbeddingsProcess):
@@ -171,7 +177,9 @@ class LatinEmbeddingsProcess(EmbeddingsProcess):
     language: str = "lat"
     description: str = "Default embeddings for Latin."
     variant: str = "fasttext"
-    authorship_info: str = "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
+    authorship_info: str = (
+        "``LatinEmbeddingsProcess`` using word2vec model by University of Oslo from http://vectors.nlpl.eu/ . Please cite: https://aclanthology.org/W17-0237/"
+    )
 
 
 class MiddleEnglishEmbeddingsProcess(EmbeddingsProcess):

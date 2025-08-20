@@ -5,6 +5,7 @@ by the Universal Dependencies (UD) project
 These are from v2 of UD, except for ``Strength`` which is from v1
 and was (as of 12/2020) still in the Gothic treebank.
 """
+
 from enum import auto
 
 from cltk.utils.utils import CLTKEnum

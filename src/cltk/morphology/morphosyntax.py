@@ -516,7 +516,9 @@ def from_ud(
         msg1: str = (
             f"Unrecognized UD feature '{feature_name}' with value '{feature_value}'."
         )
-        msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+        msg2: str = (
+            f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+        )
         print(msg1)
         print(msg2)
         print("")
@@ -532,7 +534,9 @@ def from_ud(
                 msg1: str = (
                     f"Unrecognized value '{value}' for UD feature '{feature_name}'."
                 )
-                msg2: str = f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+                msg2: str = (
+                    f"If you believe this is not an error in the dependency parser, please raise an issue at <https://github.com/cltk/cltk/issues> and include a short text to reproduce the error."
+                )
                 print(msg1)
                 print(msg2)
                 print("")

@@ -72,7 +72,9 @@ class MultilingualTokenizationProcess(TokenizationProcess):
     [5, 13, 17, 21, 28]
     """
 
-    description: str = "Default tokenizer for languages lacking a dedicated tokenizer. This is a whitespace tokenizer inheriting from the NLTK."
+    description: str = (
+        "Default tokenizer for languages lacking a dedicated tokenizer. This is a whitespace tokenizer inheriting from the NLTK."
+    )
 
 
 class AkkadianTokenizationProcess(TokenizationProcess):

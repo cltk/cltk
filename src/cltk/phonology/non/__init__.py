@@ -1,2 +1,1 @@
-"""Old Norse phonology
-"""
+"""Old Norse phonology"""

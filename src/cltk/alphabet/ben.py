@@ -9,7 +9,6 @@
 ['ক', 'খ', 'গ', 'ঘ ', 'ঙ']
 """
 
-
 # The digits in bengali start from index 0 to 9.
 DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"]
 

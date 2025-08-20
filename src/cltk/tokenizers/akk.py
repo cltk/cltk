@@ -1,5 +1,4 @@
-""" Code for word tokenization: Akkadian
-"""
+"""Code for word tokenization: Akkadian"""
 
 __author__ = [
     "Andrew Deloucas <adeloucas@g.harvard.edu>",

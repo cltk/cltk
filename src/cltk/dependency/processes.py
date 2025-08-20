@@ -100,9 +100,9 @@ class StanzaProcess(Process):
                     upos=stanza_word.upos,
                     lemma=stanza_word.lemma if stanza_word.lemma else stanza_word.text,
                     dependency_relation=stanza_word.deprel,
-                    governor=stanza_word.head - 1
-                    if stanza_word.head
-                    else -1,  # note: if val becomes ``-1`` then no governor, ie word is root
+                    governor=(
+                        stanza_word.head - 1 if stanza_word.head else -1
+                    ),  # note: if val becomes ``-1`` then no governor, ie word is root
                 )
 
                 # convert UD features to the normalized CLTK features
@@ -111,9 +111,9 @@ class StanzaProcess(Process):
                 #     if stanza_word.feats
                 #     else []
                 # )
-                features_tag_set: Optional[
-                    UDFeatureTagSet
-                ] = convert_pos_features_to_ud(feats_raw=stanza_word.feats)
+                features_tag_set: Optional[UDFeatureTagSet] = (
+                    convert_pos_features_to_ud(feats_raw=stanza_word.feats)
+                )
 
                 # cltk_features = [
                 #     from_ud(feature_name, feature_value)
@@ -150,7 +150,9 @@ class GreekStanzaProcess(StanzaProcess):
 
     language: Optional[str] = "grc"
     description: str = "Default process for Stanza for the Ancient Greek language."
-    authorship_info: str = "``LatinSpacyProcess`` using Stanza model by Stanford University from https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
+    authorship_info: str = (
+        "``LatinSpacyProcess`` using Stanza model by Stanford University from https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
+    )
 
 
 class LatinStanzaProcess(StanzaProcess):
@@ -158,7 +160,9 @@ class LatinStanzaProcess(StanzaProcess):
 
     language: Optional[str] = "lat"
     description: str = "Default process for Stanza for the Latin language."
-    authorship_info: str = "``LatinStanzaProcess`` using Stanza model from the Stanford NLP Group: https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
+    authorship_info: str = (
+        "``LatinStanzaProcess`` using Stanza model from the Stanford NLP Group: https://stanfordnlp.github.io/stanza/ . Please cite: https://arxiv.org/abs/2003.07082"
+    )
 
 
 class OCSStanzaProcess(StanzaProcess):
@@ -400,7 +404,9 @@ class LatinSpacyProcess(SpacyProcess):
 
     language: Literal["lat"] = "lat"
     description: str = "Process for Spacy for Patrick Burn's Latin model."
-    authorship_info: str = "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://huggingface.co/latincy . Please cite: https://arxiv.org/abs/2305.04365"
+    authorship_info: str = (
+        "``LatinSpacyProcess`` using LatinCy model by Patrick Burns from https://huggingface.co/latincy . Please cite: https://arxiv.org/abs/2305.04365"
+    )
 
 
 class GreekSpacyProcess(SpacyProcess):
@@ -411,4 +417,6 @@ class GreekSpacyProcess(SpacyProcess):
 
     language: Literal["grc"] = "grc"
     description: str = "Process for Spacy for OdyCy's Greek model."
-    authorship_info: str = "``GreekSpacyProcess`` using OdyCy model by Center for Humanities Computing Aarhus from https://huggingface.co/chcaa . Please cite: https://aclanthology.org/2023.latechclfl-1.14"
+    authorship_info: str = (
+        "``GreekSpacyProcess`` using OdyCy model by Center for Humanities Computing Aarhus from https://huggingface.co/chcaa . Please cite: https://aclanthology.org/2023.latechclfl-1.14"
+    )

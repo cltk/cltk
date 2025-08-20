@@ -64,8 +64,8 @@ HAMZA_BELOW = "\u0655"
 
 # Small Letters
 SMALL_ALEF = "\u0670"
-SMALL_WAW = "\u06E5"
-SMALL_YEH = "\u06E6"
+SMALL_WAW = "\u06e5"
+SMALL_YEH = "\u06e6"
 
 # Ligatures Lam-Alef
 LAM_ALEF = "\ufefb"
@@ -210,7 +210,7 @@ QAF_ISOLATED = "\ufed5"
 QAF_FINAL = "\ufed6"
 
 KAF_INITIAL = "\ufedb"
-KAF_MEDIAL = "\ufedC"
+KAF_MEDIAL = "\ufedc"
 KAF_ISOLATED = "\ufed9"
 KAF_FINAL = "\ufeda"
 
@@ -246,9 +246,9 @@ YEH_ISOLATED = "\ufef1"
 YEH_FINAL = "\ufef2"
 
 # Punctuation marks
-COMMA = "\u060C"
-SEMICOLON = "\u061B"
-QUESTION = "\u061F"
+COMMA = "\u060c"
+SEMICOLON = "\u061b"
+QUESTION = "\u061f"
 
 # Kasheeda, Tatweel
 KASHEEDA = "\u0640"

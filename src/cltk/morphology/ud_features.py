@@ -53,7 +53,9 @@ class UDFeatureTag(BaseModel):
                 raise ValueError(msg)
         feature = UD_FEATURES_MAP[key]
         if value not in feature.values:
-            msg: str = f"Value '{value}' is not valid for feature key '{key}' even after normalization."
+            msg: str = (
+                f"Value '{value}' is not valid for feature key '{key}' even after normalization."
+            )
             logger.error(msg)
             raise ValueError(msg)
         data["category"] = feature.category

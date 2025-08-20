@@ -1,8 +1,4 @@
-"""
-
-
-"""
-
+""" """
 
 from cltk.phonology.non import syllabifier as ons
 from cltk.phonology.non import transcription as ont

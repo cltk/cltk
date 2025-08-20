@@ -3317,7 +3317,7 @@ LANGUAGES["cop"] = Language(
 
 
 def _resort_languages_list(
-    languages_list: typing.OrderedDict[str, Language]
+    languages_list: typing.OrderedDict[str, Language],
 ) -> typing.OrderedDict[str, Language]:
     """Pick up the LANGUAGES global and return
     alphabetized according to a language's common name.

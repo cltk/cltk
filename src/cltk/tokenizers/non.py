@@ -1,5 +1,4 @@
-""" Code for word tokenization: Old Norse
-"""
+"""Code for word tokenization: Old Norse"""
 
 __author__ = [
     "Clément Besnier <clemsciences@gmail.com>",

@@ -1,5 +1,5 @@
-"""Latin phonology tools
-"""
+"""Latin phonology tools"""
+
 import unicodedata
 
 import cltk.phonology.lat.transcription as latt

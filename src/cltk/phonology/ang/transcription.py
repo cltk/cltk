@@ -1,5 +1,4 @@
-"""This module attempts to reconstruct the approximate phonology of Old English.
-"""
+"""This module attempts to reconstruct the approximate phonology of Old English."""
 
 import logging
 import re

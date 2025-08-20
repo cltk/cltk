@@ -1,2 +1,1 @@
-"""Latin phonology
-"""
+"""Latin phonology"""

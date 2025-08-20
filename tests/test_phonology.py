@@ -413,8 +413,7 @@ class TestSequenceFunctions(unittest.TestCase):
             w._alternate()
             outputs.append("".join([p.ipa for p in w.phones]))
         target = [
-            unicodedata.normalize("NFC", y)
-            for y in ["gaɫlɪ̣ja", "d̪iːwiːsa", "kʷaːrũː"]
+            unicodedata.normalize("NFC", y) for y in ["gaɫlɪ̣ja", "d̪iːwiːsa", "kʷaːrũː"]
         ]
         self.assertEqual(outputs, target)
 
@@ -610,8 +609,7 @@ class TestSequenceFunctions(unittest.TestCase):
         transcriber = mhgt.Transcriber().transcribe
         transcription = [unicodedata.normalize("NFC", x) for x in transcriber(inputs)]
         target = [
-            unicodedata.normalize("NFC", x)
-            for x in "[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre?]"
+            unicodedata.normalize("NFC", x) for x in "[Slɑːfest d̥ʊ frɪ͡əd̥el t͡sɪ͡əre?]"
         ]
         self.assertEqual(target, transcription)
 

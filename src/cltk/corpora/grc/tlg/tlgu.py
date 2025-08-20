@@ -60,7 +60,9 @@ class TLGU:
         """Check if tlgu downloaded, if not download it."""
         path: str = make_cltk_path("grc/software/grc_software_tlgu/tlgu.h")
         if not os.path.isfile(path):
-            dl_msg: str = f"This part of the CLTK depends upon TLGU, software written by Dimitri Marinakis `<http://tlgu.carmen.gr/>`_."
+            dl_msg: str = (
+                f"This part of the CLTK depends upon TLGU, software written by Dimitri Marinakis `<http://tlgu.carmen.gr/>`_."
+            )
             print(dl_msg)
             repo_url: str = "https://github.com/cltk/grc_software_tlgu.git"
             dl_dir: str = os.path.split(path)[0]
@@ -113,7 +115,9 @@ class TLGU:
                     print(msg)
                     logger.info(msg)
                 else:
-                    msg: str = "TLGU install without sudo failed. Going to try again with sudo (usually required for Linux) ..."
+                    msg: str = (
+                        "TLGU install without sudo failed. Going to try again with sudo (usually required for Linux) ..."
+                    )
                     print(msg)
                     logger.error(msg)
                 command: str = "cd {0} && sudo make install".format(tlgu_path)

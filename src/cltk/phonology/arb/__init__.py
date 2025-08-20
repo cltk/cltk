@@ -1,2 +1,1 @@
-"""Classical Arabic phonology
-"""
+"""Classical Arabic phonology"""

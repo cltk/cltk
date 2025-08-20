@@ -1,7 +1,8 @@
-""" Classical Hindi Stopwords
+"""Classical Hindi Stopwords
 This list is composed from 100 most frequently occuring words in classical_hindi corpus <https://github.com/cltk/hindi_text_ltrc> in CLTK.
 source code : <https://gist.github.com/inishchith/ad4bc0da200110de638f5408c64bb14c>
 """
+
 __author__ = "Nishchith Shetty <inishchith[at]gmail[.]com>"
 
 STOPS: list[str] = [

@@ -2,6 +2,7 @@
 
 TODO: Give definition here of stopwords.
 """
+
 from typing import Any
 
 from cltk.languages.utils import get_lang

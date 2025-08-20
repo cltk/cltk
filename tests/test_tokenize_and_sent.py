@@ -635,7 +635,7 @@ class TestWordTokenize(unittest.TestCase):  # pylint: disable=R0904
                 "يُوصَفَ",
                 "بِالْجَوْدَةِ",
                 "؟",
-            ]
+            ],
             # pylint: disable=line-too-long
         ]
         self.assertEqual(results, target)

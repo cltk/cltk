@@ -17,6 +17,7 @@ Guidelines:
 - If only one word is corrupt, there is only one obelus, which precedes the word; if two or more words are corrupt, two obeli enclose them. (Such at least is the rule--but that rule is often broken, especially in older editions, which sometimes dagger several words using only one obelus.) To dagger words in this way is to ʺobelizeʺ them.
 
 """
+
 __author__ = [
     "Todd Cook <todd.g.cook@gmail.com>",
     "Kyle P. Johnson <kyle@kyle-p-johnson.com>",

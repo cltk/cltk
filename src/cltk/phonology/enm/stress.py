@@ -1,5 +1,4 @@
-"""Middle English stress module
-"""
+"""Middle English stress module"""
 
 import re
 

@@ -1,6 +1,5 @@
 """Helpers for dealing with sentences."""
 
-
 import re
 from typing import Literal
 
@@ -16,7 +15,7 @@ def extract_sentences_from_boundaries(
 
 
 def split_sentences_multilang(
-    text: Literal["arc", "grc", "hbo", "lat", "pli", "san"], iso: str
+    text: Literal["arc", "cop" "grc", "hbo", "lat", "pli", "san"], iso: str
 ) -> list[tuple[int, int]]:
     """
     Split text into sentences for multiple languages using language-specific punctuation.
@@ -37,6 +36,7 @@ def split_sentences_multilang(
         "pli": r"([।.!?])",  # Pali: danda, period, exclamation, question
         "hbo": r"([׃.])",  # Hebrew: sof pasuq, full stop
         "arc": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
+        "cop": r"([⳹.!?])",  # Coptic: punctuation marks
     }
 
     if iso not in lang_sentence_endings:

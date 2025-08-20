@@ -1,6 +1,4 @@
-"""Middle English phonology tools
-"""
-
+"""Middle English phonology tools"""
 
 from cltk.phonology.syllabify import Syllabifier
 

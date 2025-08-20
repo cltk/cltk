@@ -3,6 +3,7 @@
 TODO: Rm regex dependency
 TODO: Add tests
 """
+
 from typing import Optional, Pattern
 from unicodedata import normalize
 

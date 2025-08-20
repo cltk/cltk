@@ -1,6 +1,7 @@
 """
 Scansion module for scanning Latin prose rhythms.
 """
+
 from typing import Any
 
 from cltk.prosody.lat.syllabifier import Syllabifier

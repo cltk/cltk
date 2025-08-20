@@ -1,6 +1,5 @@
 """Named entity recognition (NER)."""
 
-
 import importlib.machinery
 import os
 

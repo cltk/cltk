@@ -472,9 +472,7 @@ class Transcriber:
             # Combines all diacritics accordingly
             # Also finds any h's stranded in media diphthong (\3) and moves
             # them to the left edge
-            pattern = (
-                r"([" + diph1 + r"])\/\/([̄]?\/)(h///)?([" + diph2 + r"]\/[́͂]?\/)\/"
-            )
+            pattern = r"([" + diph1 + r"])\/\/([̄]?\/)(h///)?([" + diph2 + r"]\/[́͂]?\/)\/"
             diphshift = re.sub(pattern, r"\3\1\4\2", string_in)
         else:
             # Same as above, minus h-moving
@@ -484,14 +482,10 @@ class Transcriber:
             # Locates iota subscripts and treats as base + iota diphthongs
             # Adds macron, since iota subscripts only appear on long vowels
             # (and we need to use all clues to identify long vowels)
-            iotashift = re.sub(
-                r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1ι\2̄\3", diphshift
-            )
+            iotashift = re.sub(r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1ι\2̄\3", diphshift)
         else:
             # Same as above, but deletes iota entirely: only adds macrons
-            iotashift = re.sub(
-                r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1\2̄\3", diphshift
-            )
+            iotashift = re.sub(r"([αηω])(\/[́͂]*\/[̄ ̈]*)ͅ([̄ ̈]*\/)", r"\1\2̄\3", diphshift)
         tup_out = re.findall(r"(..?)\/([́͂]*)\/([̄ ̈]*)\/", iotashift)
         return tup_out
 

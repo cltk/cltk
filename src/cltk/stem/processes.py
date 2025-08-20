@@ -1,5 +1,4 @@
-"""Processes for stemming.
-"""
+"""Processes for stemming."""
 
 from copy import copy
 from dataclasses import dataclass

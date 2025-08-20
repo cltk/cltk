@@ -1,5 +1,4 @@
-""" Code for word tokenization: Old French
-"""
+"""Code for word tokenization: Old French"""
 
 __author__ = [
     "Natasha Voake <natashavoake@gmail.com>",

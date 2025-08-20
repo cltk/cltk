@@ -1,5 +1,4 @@
-""" Code for punctuation removal: Old Norse
-"""
+"""Code for punctuation removal: Old Norse"""
 
 __author__ = ["Clément Besnier <clemsciences@gmail.com>"]
 __license__ = "MIT License."

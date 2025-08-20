@@ -1,6 +1,5 @@
 """``Process`` to wrap WordNet."""
 
-
 from copy import copy
 from dataclasses import dataclass
 from typing import Optional

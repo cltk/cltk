@@ -2,6 +2,7 @@
 
 TODO: Add tests.
 """
+
 __author__ = "Nishchith Shetty <inishchith[at]gmail[dot]com>"
 
 VOWELS = [
