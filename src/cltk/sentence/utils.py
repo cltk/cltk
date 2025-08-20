@@ -15,7 +15,7 @@ def extract_sentences_from_boundaries(
 
 
 def split_sentences_multilang(
-    text: Literal["arc", "cop" "grc", "hbo", "lat", "non", "pli", "san"], iso: str
+    text: Literal["akk", "ang", "arc", "cop" "grc", "hbo", "lat", "non", "pli", "san"], iso: str
 ) -> list[tuple[int, int]]:
     """
     Split text into sentences for multiple languages using language-specific punctuation.
@@ -38,6 +38,8 @@ def split_sentences_multilang(
         "arc": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
         "cop": r"([⳹.!?])",  # Coptic: punctuation marks
         "non": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
+        "ang": r"([.!?])",   # Old English: period, exclamation, question
+        "akk": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
     }
 
     if iso not in lang_sentence_endings:

@@ -26,8 +26,10 @@ class ColorFormatter(logging.Formatter):
     def format(self, record):
         color = self.COLORS.get(record.levelno, "")
         reset = Style.RESET_ALL
-        record.msg = f"{color}{record.msg}{reset}"
-        return super().format(record)
+        # record.msg = f"{color}{record.msg}{reset}"
+        # return super().format(record)
+        message = super().format(record)
+        return f"{color}{message}{reset}"
 
 
 def setup_cltk_logger(name="CLTK", log_to_file=True, log_to_console=True, level=None):

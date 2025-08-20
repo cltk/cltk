@@ -57,6 +57,7 @@ class UDPartOfSpeechTag(BaseModel):
             "CONJ": "CCONJ",  # LLMs often use "CONJ" for "CCONJ"
             "SUBCONJ": "SCONJ",  # Sometimes "SUBCONJ" for "SCONJ"
             "PREP": "ADP",
+            "ADJECTIVE": "ADJ",
             # "": "",
         }
         tag_upper = tag.upper().strip()

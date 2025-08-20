@@ -22,7 +22,7 @@ class SentenceSplittingProcess(Process):
     def algorithm(self) -> FunctionType:
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
         logger.debug(f"Selecting normalization algorithm for language: {self.language}")
-        if self.language in ["arc", "cop", "grc", "hbo", "lat", "non", "pli", "san"]:
+        if self.language in ["akk", "ang", "arc", "cop", "grc", "hbo", "lat", "non", "pli", "san"]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.language}"
             )
@@ -44,6 +44,10 @@ class SentenceSplittingProcess(Process):
         return output_doc
 
 
+class AkkadianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Akkadian."""
+
+
 class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Greek."""
 
@@ -63,6 +67,8 @@ class LatinSentenceSplittingProcess(SentenceSplittingProcess):
 class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Official Aramaic."""
 
+class OldEnglishSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old English."""
 
 class OldNorseSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old Norse."""
