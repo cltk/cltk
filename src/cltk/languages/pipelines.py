@@ -44,6 +44,7 @@ from cltk.genai.processes import (
     CopticChatGPTProcess,
     LatinChatGPTProcess,
     OfficialAramaicChatGPTProcess,
+    OldNorseChatGPTProcess,
     PaliChatGPTProcess,
     SanskritChatGPTProcess,
 )
@@ -64,6 +65,7 @@ from cltk.sentence.processes import (
     CopticSentenceSplittingProcess,
     LatinSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
+    OldNorseSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     SanskritSentenceSplittingProcess,
 )
@@ -426,6 +428,24 @@ class OldNorsePipeline(Pipeline):
             OldNorseTokenizationProcess,
             StopsProcess,
             OldNorseLexiconProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(f"Initializing OldNorsePipeline with language: {self.language}")
+        logger.info("OldNorsePipeline created.")
+
+
+class OldNorseChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Norse."""
+
+    description: Optional[str] = "Pipeline for the Old Norse language"
+    language: Optional[Language] = get_lang("non")
+    processes: Optional[list[Type[Process]]] = field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldNorseSentenceSplittingProcess,
+            OldNorseChatGPTProcess,
         ]
     )
 

@@ -69,11 +69,6 @@ class ChatGPT:
             raise ValueError(msg)
         # Get sentence indices if not set already
         if not input_doc.sentence_boundaries:
-            # input_doc.sentence_boundaries = split_sentences_multilang(
-            #     text=input_doc.normalized_text,
-            #     iso=input_doc.language.iso,
-            # )
-            # logger.info(f"Found {len(input_doc.sentence_boundaries)} sentences.")
             msg: str = "Input document must have `.sentence_boundaries`."
             logger.error(msg)
             raise ValueError(msg)
@@ -227,7 +222,6 @@ Text: {doc.normalized_text}
                 raise OpenAIInferenceError(
                     f"An error from OpenAI occurred: {openai_error}"
                 )
-
             logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
             chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(
                 model=self.model, response=chatgpt_response
@@ -305,7 +299,7 @@ Text: {doc.normalized_text}
                     udpos = UDPartOfSpeechTag(tag=upos_val_raw)
                 except PydanticValidationError as e:
                     logger.error(
-                        f"Invalid 'upos' field in POS dict: {pos_dict}, `upos_val_raw`='{upos_val_raw}'. Error: {e}"
+                        f"{pos_dict['form']}: Invalid 'upos' field in POS dict: {pos_dict}, `upos_val_raw`='{upos_val_raw}'. Error: {e}"
                     )
             else:
                 logger.error(f"Missing 'upos' field in POS dict: {pos_dict}.")

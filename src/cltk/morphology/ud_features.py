@@ -1223,6 +1223,29 @@ UD_FEATURES: list[UDFeature] = [
             )
         },
     ),
+    UDFeature(
+        key="Variant",
+        category="Other",
+        inflectional_class=None,
+        description=("Optional key-value feature used by certain treebanks."),
+        values={
+            "Arch": UDFeatureValue(
+                code="Arch",
+                label="Archaic",
+                description="Archaic spelling or form.",
+            ),
+            "Dial": UDFeatureValue(
+                code="Dial",
+                label="Dialectal variant",
+                description="Dialectal spelling or form.",
+            ),
+            "Coll": UDFeatureValue(
+                code="Coll",
+                label="Colloquial",
+                description="Colloquial spelling or form.",
+            ),
+        },
+    ),
 ]
 
 # For faster lookup
@@ -1305,6 +1328,8 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("Gender", "Mas."): ("Gender", "Masc"),
         ("Gender", "Neuter"): ("Gender", "Neut"),
         ("Def", "Def"): ("Definite", "Def"),
+        ("Definiteness", "Def"): ("Definite", "Def"),
+        ("Definiteness", "Ind"): ("Definite", "Ind"),
         ("Voice", "Middle"): ("Voice", "Mid"),
         ("Voice", "Med"): ("Voice", "Mid"),
         ("Reflexive", "Yes"): ("Reflex", "Yes"),
@@ -1319,6 +1344,44 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("PronType", "Pron"): ("PronType", ""),
         ("Degree", "Comparative"): ("Degree", "Cmp"),
         ("Vocative", "Yes"): ("Case", "Voc"),
+        # xxx
+        # Mappings from legacy SubPOS → UD (FEATS or UPOS)
+        # Degree (adjectives/adverbs)
+        ("SubPOS", "Pos."): ("Degree", "Pos"),
+        ("SubPOS", "Comp."): ("Degree", "Cmp"),
+        ("SubPOS", "Sup."): ("Degree", "Sup"),
+        ("SubPOS", "Prf."): ("Degree", "Abs"),  # absolute superlative
+        # Pronouns / determiners
+        ("SubPOS", "Dem."): ("PronType", "Dem"),
+        ("SubPOS", "Int."): ("PronType", "Int"),
+        ("SubPOS", "Rel."): ("PronType", "Rel"),
+        ("SubPOS", "Rel"): ("PronType", "Rel"),
+        ("SubPOS", "Ind."): ("PronType", "Ind"),
+        ("SubPOS", "Pers."): ("PronType", "Prs"),
+        ("SubPOS", "Refl."): ("Reflex", "Yes"),
+        ("SubPOS", "Poss."): ("Poss", "Yes"),
+        # Verbs
+        ("SubPOS", "Fin."): ("VerbForm", "Fin"),
+        ("SubPOS", "Inf."): ("VerbForm", "Inf"),
+        ("SubPOS", "Part."): ("VerbForm", "Part"),
+        ("SubPOS", "Ger."): ("VerbForm", "Ger"),
+        ("SubPOS", "Sup."): ("VerbForm", "Sup"),
+        # Nouns
+        # TODO: Map via UPOS, which is part of UD but not a FEAT)
+        # ("SubPOS", "Com."): ("UPOS", "NOUN"),
+        # ("SubPOS", "Prop."): ("UPOS", "PROPN"),
+        # ("SubPOS", "Abstr."): ("UPOS", "NOUN"),
+        # Adpositions / conjunctions / particles
+        ("SubPOS", "Prep."): ("AdpType", "Prep"),
+        ("SubPOS", "Post."): ("AdpType", "Post"),
+        # ("SubPOS", "Conj."): ("UPOS", "CCONJ"),
+        # ("SubPOS", "Sub."): ("UPOS", "SCONJ"),
+        # ("SubPOS", "Part."): ("UPOS", "PART"),
+        # Other
+        # ("SubPOS", "Num."): ("UPOS", "NUM"),
+        ("SubPOS", "Abbr."): ("Abbr", "Yes"),
+        ("SubPOS", "Foreign."): ("Foreign", "Yes"),
+        ("AdvType", "Place"): ("AdvType", "Loc"),
         # ("", ""): ("", ""),
     }
     remap: Optional[tuple[str, str]] = ud_feature_pair_remap.get((key, value))
