@@ -20,6 +20,12 @@ from cltk.morphology.ud_pos import UDPartOfSpeechTag
 # ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
 
 
+class Dialect(BaseModel):
+    glottolog_id: str  # Glottolog id
+    code: str  # internal code (e.g., "egy-dem")
+    name: str  # human-readable variety name
+
+
 class Language(BaseModel):
     """For holding information about any given language. Used to
     encode data from ISO 639-3 and Glottolog at
@@ -37,6 +43,8 @@ class Language(BaseModel):
     iso: str
     type: str
     dates: Optional[list[int]] = []
+    dialects: list[Dialect] = []
+    selected_dialect: Optional[str] = None
 
     # @field_validator("name")
     # @classmethod

@@ -19,7 +19,9 @@ def split_sentences_multilang(
         "akk",
         "ang",
         "arc",
-        "cop" "grc",
+        "cop",
+        "egy",
+        "grc",
         "hbo",
         "lat",
         "non",
@@ -73,6 +75,7 @@ def split_sentences_multilang(
         "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
         "lzh": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
+        "egy": r"([.!?])",  # Egyptian: period, exclamation, question (adjust if you have more info)
     }
 
     if iso not in lang_sentence_endings:

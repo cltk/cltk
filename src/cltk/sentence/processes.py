@@ -27,6 +27,7 @@ class SentenceSplittingProcess(Process):
             "ang",
             "arc",
             "cop",
+            "egy",
             "grc",
             "hbo",
             "lat",
@@ -221,3 +222,7 @@ class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcessV1):
     @cached_property
     def algorithm(self):
         return OldNorseRegexSentenceTokenizer()
+
+
+class EgyptianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Egyptian."""

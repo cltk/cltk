@@ -43,7 +43,7 @@ Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1
 import typing
 from collections import OrderedDict
 
-from cltk.core.data_types_v2 import Language
+from cltk.core.data_types_v2 import Dialect, Language
 
 LANGUAGES: typing.OrderedDict[str, Language] = OrderedDict(
     [
@@ -240,6 +240,20 @@ LANGUAGES: typing.OrderedDict[str, Language] = OrderedDict(
                 level="language",
                 iso="egy",
                 type="a",
+                dialects=[
+                    Dialect(
+                        code="egy-mid", name="Middle Egyptian", glottolog_id="midd1369"
+                    ),
+                    Dialect(
+                        code="egy-late", name="Late Egyptian", glottolog_id="late1256"
+                    ),
+                    Dialect(
+                        code="egy-old", name="Old Egyptian", glottolog_id="olde1242"
+                    ),
+                    Dialect(
+                        code="egy-dem", name="Demotic Egyptian", glottolog_id="demo1234"
+                    ),
+                ],
             ),
         ),
         (
@@ -3169,6 +3183,9 @@ LANGUAGES["arb"] = Language(
     level="language",
     iso="arb",
     type="",
+    dialects=[
+        Dialect(code="arb-clas", name="Classical Arabic", glottolog_id="clas1259")
+    ],
 )
 
 LANGUAGES["ben"] = Language(
