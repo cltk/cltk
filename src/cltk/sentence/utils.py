@@ -15,7 +15,29 @@ def extract_sentences_from_boundaries(
 
 
 def split_sentences_multilang(
-    text: Literal["akk", "ang", "arc", "cop" "grc", "hbo", "lat", "non", "pli", "san"], iso: str
+    text: Literal[
+        "akk",
+        "ang",
+        "arc",
+        "cop" "grc",
+        "hbo",
+        "lat",
+        "non",
+        "pli",
+        "san",
+        "arb",
+        "chu",
+        "enm",
+        "frm",
+        "fro",
+        "gmh",
+        "goh",
+        "got",
+        "hin",
+        "lzh",
+        "pan",
+    ],
+    iso: str,
 ) -> list[tuple[int, int]]:
     """
     Split text into sentences for multiple languages using language-specific punctuation.
@@ -38,8 +60,19 @@ def split_sentences_multilang(
         "arc": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
         "cop": r"([⳹.!?])",  # Coptic: punctuation marks
         "non": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
-        "ang": r"([.!?])",   # Old English: period, exclamation, question
+        "ang": r"([.!?])",  # Old English: period, exclamation, question
         "akk": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
+        "arb": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
+        "chu": r"([.!?])",  # Old Church Slavonic: period, exclamation, question
+        "enm": r"([.!?])",  # Middle English: period, exclamation, question
+        "frm": r"([.!?])",  # Middle French: period, exclamation, question
+        "fro": r"([.!?])",  # Old French: period, exclamation, question
+        "gmh": r"([.!?])",  # Middle High German: period, exclamation, question
+        "goh": r"([.!?])",  # Old High German: period, exclamation, question
+        "got": r"([.!?])",  # Gothic: period, exclamation, question
+        "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
+        "lzh": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
+        "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
     }
 
     if iso not in lang_sentence_endings:

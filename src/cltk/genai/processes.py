@@ -258,6 +258,16 @@ class AquitanianChatGPTProcess(ChatGPTProcess):
         logger.debug("AquitanianChatGPTProcess initialized.")
 
 
+class ArabicChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "arb"
+    description: str = "Default process for ChatGPT for the Arabic language."
+    authorship_info: str = "ArabicChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("ArabicChatGPTProcess initialized.")
+
+
 class ArdhamāgadhīPrākritChatGPTProcess(ChatGPTProcess):
     language: Optional[str] = "pka"
     description: str = (

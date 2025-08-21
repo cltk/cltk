@@ -1382,207 +1382,212 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
         ("SubPOS", "Abbr."): ("Abbr", "Yes"),
         ("SubPOS", "Foreign."): ("Foreign", "Yes"),
         ("AdvType", "Place"): ("AdvType", "Loc"),
-
         # Normalization of tags used in Sanskrit Dependency Treebank (SDT)
         # --- UPOS (legacy POS → UD UPOS) ---
-        ("POS", "N"):            ("UPOS", "NOUN"),
-        ("POS", "PROPN"):        ("UPOS", "PROPN"),
-        ("POS", "PRO"):          ("UPOS", "PRON"),
-        ("POS", "PRON"):         ("UPOS", "PRON"),
-        ("POS", "ADJ"):          ("UPOS", "ADJ"),
-        ("POS", "ADV"):          ("UPOS", "ADV"),
-        ("POS", "V"):            ("UPOS", "VERB"),
-        ("POS", "AUX"):          ("UPOS", "AUX"),
-        ("POS", "NUM"):          ("UPOS", "NUM"),
-        ("POS", "DET"):          ("UPOS", "DET"),
-        ("POS", "ADP"):          ("UPOS", "ADP"),
-        ("POS", "POST"):         ("UPOS", "ADP"),     # postposition
-        ("POS", "PREP"):         ("UPOS", "ADP"),     # preposition (rare in Sanskrit)
-        ("POS", "CCONJ"):        ("UPOS", "CCONJ"),
-        ("POS", "CONJ"):         ("UPOS", "CCONJ"),
-        ("POS", "SCONJ"):        ("UPOS", "SCONJ"),
-        ("POS", "PART"):         ("UPOS", "PART"),
-        ("POS", "INTJ"):         ("UPOS", "INTJ"),
-        ("POS", "PUNCT"):        ("UPOS", "PUNCT"),
-        ("POS", "SYM"):          ("UPOS", "SYM"),
-        ("POS", "X"):            ("UPOS", "X"),
-
+        ("POS", "N"): ("UPOS", "NOUN"),
+        ("POS", "PROPN"): ("UPOS", "PROPN"),
+        ("POS", "PRO"): ("UPOS", "PRON"),
+        ("POS", "PRON"): ("UPOS", "PRON"),
+        ("POS", "ADJ"): ("UPOS", "ADJ"),
+        ("POS", "ADV"): ("UPOS", "ADV"),
+        ("POS", "V"): ("UPOS", "VERB"),
+        ("POS", "AUX"): ("UPOS", "AUX"),
+        ("POS", "NUM"): ("UPOS", "NUM"),
+        ("POS", "DET"): ("UPOS", "DET"),
+        ("POS", "ADP"): ("UPOS", "ADP"),
+        ("POS", "POST"): ("UPOS", "ADP"),  # postposition
+        ("POS", "PREP"): ("UPOS", "ADP"),  # preposition (rare in Sanskrit)
+        ("POS", "CCONJ"): ("UPOS", "CCONJ"),
+        ("POS", "CONJ"): ("UPOS", "CCONJ"),
+        ("POS", "SCONJ"): ("UPOS", "SCONJ"),
+        ("POS", "PART"): ("UPOS", "PART"),
+        ("POS", "INTJ"): ("UPOS", "INTJ"),
+        ("POS", "PUNCT"): ("UPOS", "PUNCT"),
+        ("POS", "SYM"): ("UPOS", "SYM"),
+        ("POS", "X"): ("UPOS", "X"),
         # --- Case (legacy → UD) ---
-        ("Case", "NOM"):         ("Case", "Nom"),
-        ("Case", "ACC"):         ("Case", "Acc"),
-        ("Case", "DAT"):         ("Case", "Dat"),
-        ("Case", "GEN"):         ("Case", "Gen"),
-        ("Case", "LOC"):         ("Case", "Loc"),
-        ("Case", "INS"):         ("Case", "Ins"),
-        ("Case", "ABL"):         ("Case", "Abl"),
-        ("Case", "VOC"):         ("Case", "Voc"),
-
+        ("Case", "NOM"): ("Case", "Nom"),
+        ("Case", "ACC"): ("Case", "Acc"),
+        ("Case", "DAT"): ("Case", "Dat"),
+        ("Case", "GEN"): ("Case", "Gen"),
+        ("Case", "LOC"): ("Case", "Loc"),
+        ("Case", "INS"): ("Case", "Ins"),
+        ("Case", "ABL"): ("Case", "Abl"),
+        ("Case", "VOC"): ("Case", "Voc"),
         # Numeric case codes used by some Sanskrit taggers (1–8)
-        ("Case", "1"):           ("Case", "Nom"),
-        ("Case", "2"):           ("Case", "Acc"),
-        ("Case", "3"):           ("Case", "Ins"),
-        ("Case", "4"):           ("Case", "Dat"),
-        ("Case", "5"):           ("Case", "Abl"),
-        ("Case", "6"):           ("Case", "Gen"),
-        ("Case", "7"):           ("Case", "Loc"),
-        ("Case", "8"):           ("Case", "Voc"),
-
+        ("Case", "1"): ("Case", "Nom"),
+        ("Case", "2"): ("Case", "Acc"),
+        ("Case", "3"): ("Case", "Ins"),
+        ("Case", "4"): ("Case", "Dat"),
+        ("Case", "5"): ("Case", "Abl"),
+        ("Case", "6"): ("Case", "Gen"),
+        ("Case", "7"): ("Case", "Loc"),
+        ("Case", "8"): ("Case", "Voc"),
         # --- Number (legacy → UD) ---
-        ("Number", "SG"):        ("Number", "Sing"),
-        ("Number", "DU"):        ("Number", "Dual"),
-        ("Number", "PL"):        ("Number", "Plur"),
-        ("Number", "Sg"):        ("Number", "Sing"),
-        ("Number", "Du"):        ("Number", "Dual"),
-        ("Number", "Pl"):        ("Number", "Plur"),
-
+        ("Number", "SG"): ("Number", "Sing"),
+        ("Number", "DU"): ("Number", "Dual"),
+        ("Number", "PL"): ("Number", "Plur"),
+        ("Number", "Sg"): ("Number", "Sing"),
+        ("Number", "Du"): ("Number", "Dual"),
+        ("Number", "Pl"): ("Number", "Plur"),
         # --- Gender (legacy → UD) ---
-        ("Gender", "M"):         ("Gender", "Masc"),
-        ("Gender", "F"):         ("Gender", "Fem"),
-        ("Gender", "N"):         ("Gender", "Neut"),
-        ("Gender", "m"):         ("Gender", "Masc"),
-        ("Gender", "f"):         ("Gender", "Fem"),
-        ("Gender", "n"):         ("Gender", "Neut"),
-
+        ("Gender", "M"): ("Gender", "Masc"),
+        ("Gender", "F"): ("Gender", "Fem"),
+        ("Gender", "N"): ("Gender", "Neut"),
+        ("Gender", "m"): ("Gender", "Masc"),
+        ("Gender", "f"): ("Gender", "Fem"),
+        ("Gender", "n"): ("Gender", "Neut"),
         # --- Person (legacy → UD) ---
-        ("Person", "1"):         ("Person", "1"),
-        ("Person", "2"):         ("Person", "2"),
-        ("Person", "3"):         ("Person", "3"),
-
+        ("Person", "1"): ("Person", "1"),
+        ("Person", "2"): ("Person", "2"),
+        ("Person", "3"): ("Person", "3"),
         # --- Degree (ADJ/ADV) ---
-        ("Degree", "POS"):       ("Degree", "Pos"),
-        ("Degree", "COMP"):      ("Degree", "Cmp"),
-        ("Degree", "SUPER"):     ("Degree", "Sup"),
-        ("Degree", "ABS"):       ("Degree", "Abs"),   # "absolute" superlative (if present in your source)
-
+        ("Degree", "POS"): ("Degree", "Pos"),
+        ("Degree", "COMP"): ("Degree", "Cmp"),
+        ("Degree", "SUPER"): ("Degree", "Sup"),
+        ("Degree", "ABS"): (
+            "Degree",
+            "Abs",
+        ),  # "absolute" superlative (if present in your source)
         # --- Polarity ---
-        ("Polarity", "NEG"):     ("Polarity", "Neg"),
-        ("Polarity", "POS"):     ("Polarity", "Pos"),
-
+        ("Polarity", "NEG"): ("Polarity", "Neg"),
+        ("Polarity", "POS"): ("Polarity", "Pos"),
         # --- Pronouns / determiners ---
-        ("PronType", "DEM"):     ("PronType", "Dem"),
-        ("PronType", "REL"):     ("PronType", "Rel"),
-        ("PronType", "INT"):     ("PronType", "Int"),
-        ("PronType", "INDF"):    ("PronType", "Ind"),
-        ("PronType", "PRS"):     ("PronType", "Prs"),
-        ("PronType", "NEG"):     ("PronType", "Neg"),
-        ("PronType", "TOT"):     ("PronType", "Tot"),
-        ("Reflex", "REFL"):      ("Reflex", "Yes"),
-        ("Poss", "POSS"):        ("Poss", "Yes"),
-
+        ("PronType", "DEM"): ("PronType", "Dem"),
+        ("PronType", "REL"): ("PronType", "Rel"),
+        ("PronType", "INT"): ("PronType", "Int"),
+        ("PronType", "INDF"): ("PronType", "Ind"),
+        ("PronType", "PRS"): ("PronType", "Prs"),
+        ("PronType", "NEG"): ("PronType", "Neg"),
+        ("PronType", "TOT"): ("PronType", "Tot"),
+        ("Reflex", "REFL"): ("Reflex", "Yes"),
+        ("Poss", "POSS"): ("Poss", "Yes"),
         # --- Numerals ---
-        ("NumType", "CARD"):     ("NumType", "Card"),
-        ("NumType", "ORD"):      ("NumType", "Ord"),
-        ("NumType", "FRAC"):     ("NumType", "Frac"),
-        ("NumType", "DIST"):     ("NumType", "Dist"),
-        ("NumType", "MULT"):     ("NumType", "Mult"),
-        ("NumType", "SETS"):     ("NumType", "Sets"),
-
+        ("NumType", "CARD"): ("NumType", "Card"),
+        ("NumType", "ORD"): ("NumType", "Ord"),
+        ("NumType", "FRAC"): ("NumType", "Frac"),
+        ("NumType", "DIST"): ("NumType", "Dist"),
+        ("NumType", "MULT"): ("NumType", "Mult"),
+        ("NumType", "SETS"): ("NumType", "Sets"),
         # --- Adpositions ---
-        ("AdpType", "POST"):     ("AdpType", "Post"),
-        ("AdpType", "PREP"):     ("AdpType", "Prep"),
-
+        ("AdpType", "POST"): ("AdpType", "Post"),
+        ("AdpType", "PREP"): ("AdpType", "Prep"),
         # --- Adverbs (semantic type) ---
-        ("AdvType", "Place"):    ("AdvType", "Loc"),  # normalize to UD Loc
-        ("AdvType", "Time"):     ("AdvType", "Tim"),
-        ("AdvType", "Manner"):   ("AdvType", "Man"),
-        ("AdvType", "Degree"):   ("AdvType", "Deg"),
-        ("AdvType", "Cause"):    ("AdvType", "Cau"),
-        ("AdvType", "Freq"):     ("AdvType", "Freq"),
-        ("AdvType", "Mod"):      ("AdvType", "Mod"),
-
+        ("AdvType", "Place"): ("AdvType", "Loc"),  # normalize to UD Loc
+        ("AdvType", "Time"): ("AdvType", "Tim"),
+        ("AdvType", "Manner"): ("AdvType", "Man"),
+        ("AdvType", "Degree"): ("AdvType", "Deg"),
+        ("AdvType", "Cause"): ("AdvType", "Cau"),
+        ("AdvType", "Freq"): ("AdvType", "Freq"),
+        ("AdvType", "Mod"): ("AdvType", "Mod"),
         # --- Tense (legacy → UD) ---
-        ("Tense", "PRES"):       ("Tense", "Pres"),
-        ("Tense", "PR"):         ("Tense", "Pres"),
-        ("Tense", "PRS"):        ("Tense", "Pres"),
-
-        ("Tense", "FUT"):        ("Tense", "Fut"),
-
+        ("Tense", "PRES"): ("Tense", "Pres"),
+        ("Tense", "PR"): ("Tense", "Pres"),
+        ("Tense", "PRS"): ("Tense", "Pres"),
+        ("Tense", "FUT"): ("Tense", "Fut"),
         # Past categories in legacy Sanskrit tagsets
         # Imperfect (IMPF) → simple Past in UD
-        ("Tense", "IMPF"):       ("Tense", "Past"),
-        ("Tense", "IMPERF"):     ("Tense", "Past"),
-
+        ("Tense", "IMPF"): ("Tense", "Past"),
+        ("Tense", "IMPERF"): ("Tense", "Past"),
         # Aorist / Perfect often annotated with Aspect=Perf in UD Sanskrit
-        ("Tense", "AOR"):        ("Tense", "Past"),    # (optionally add Aspect=Perf in your pipeline)
-        ("Tense", "PERF"):       ("Tense", "Past"),    # (optionally add Aspect=Perf)
-
+        ("Tense", "AOR"): (
+            "Tense",
+            "Past",
+        ),  # (optionally add Aspect=Perf in your pipeline)
+        ("Tense", "PERF"): ("Tense", "Past"),  # (optionally add Aspect=Perf)
         # --- Aspect (when present) ---
-        ("Aspect", "PERF"):      ("Aspect", "Perf"),
-        ("Aspect", "IPFV"):      ("Aspect", "Imp"),
-
+        ("Aspect", "PERF"): ("Aspect", "Perf"),
+        ("Aspect", "IPFV"): ("Aspect", "Imp"),
         # --- Mood (legacy → UD) ---
-        ("Mood", "IND"):         ("Mood", "Ind"),
-        ("Mood", "IMP"):         ("Mood", "Imp"),
-        ("Mood", "JUS"):         ("Mood", "Jus"),
-        ("Mood", "OPT"):         ("Mood", "Opt"),
-
+        ("Mood", "IND"): ("Mood", "Ind"),
+        ("Mood", "IMP"): ("Mood", "Imp"),
+        ("Mood", "JUS"): ("Mood", "Jus"),
+        ("Mood", "OPT"): ("Mood", "Opt"),
         # Less common legacy moods; map to nearest UD value
-        ("Mood", "SBJV"):        ("Mood", "Sub"),      # Vedic subjunctive (UD allows Sub universally)
-        ("Mood", "COND"):        ("Mood", "Cnd"),      # conditional (rare; UD allows Cnd)
-        ("Mood", "BEN"):         ("Mood", "Jus"),      # benedictive/precative → closest UD value is Jussive
-        ("Mood", "INJ"):         ("Mood", "Ind"),      # injunctive → treated as indicative in UD Sanskrit
-
+        ("Mood", "SBJV"): (
+            "Mood",
+            "Sub",
+        ),  # Vedic subjunctive (UD allows Sub universally)
+        ("Mood", "COND"): ("Mood", "Cnd"),  # conditional (rare; UD allows Cnd)
+        ("Mood", "BEN"): (
+            "Mood",
+            "Jus",
+        ),  # benedictive/precative → closest UD value is Jussive
+        ("Mood", "INJ"): (
+            "Mood",
+            "Ind",
+        ),  # injunctive → treated as indicative in UD Sanskrit
         # --- Voice (legacy → UD) ---
-        ("Voice", "ACT"):        ("Voice", "Act"),     # parasmaipada
-        ("Voice", "MID"):        ("Voice", "Mid"),     # ātmanepada
-        ("Voice", "PASS"):       ("Voice", "Pass"),
-        ("Voice", "CAUS"):       ("Voice", "Caus"),    # UD Sanskrit admits Caus as a voice value
-
+        ("Voice", "ACT"): ("Voice", "Act"),  # parasmaipada
+        ("Voice", "MID"): ("Voice", "Mid"),  # ātmanepada
+        ("Voice", "PASS"): ("Voice", "Pass"),
+        ("Voice", "CAUS"): (
+            "Voice",
+            "Caus",
+        ),  # UD Sanskrit admits Caus as a voice value
         # --- VerbForm / non-finites (legacy → UD) ---
-        ("VerbForm", "FIN"):     ("VerbForm", "Fin"),
-        ("VerbForm", "INF"):     ("VerbForm", "Inf"),
-
+        ("VerbForm", "FIN"): ("VerbForm", "Fin"),
+        ("VerbForm", "INF"): ("VerbForm", "Inf"),
         # Absolutive / “gerund” (ktvā/lyap): normalize to UD Conv
-        ("VerbForm", "GER"):     ("VerbForm", "Conv"),
-        ("VerbForm", "ABS"):     ("VerbForm", "Conv"),
-        ("VerbForm", "CONV"):    ("VerbForm", "Conv"),
-
+        ("VerbForm", "GER"): ("VerbForm", "Conv"),
+        ("VerbForm", "ABS"): ("VerbForm", "Conv"),
+        ("VerbForm", "CONV"): ("VerbForm", "Conv"),
         # Participles (map to UD Part + tense/voice if available upstream)
-        ("VerbForm", "PART"):    ("VerbForm", "Part"),
-        ("PartType", "PAP"):     ("VerbForm", "Part"),   # Present Active Part. → add Tense=Pres|Voice=Act
-        ("PartType", "PMP"):     ("VerbForm", "Part"),   # Present Middle Part. → add Tense=Pres|Voice=Mid
-        ("PartType", "PPP"):     ("VerbForm", "Part"),   # Past Passive Part.  → add Tense=Past|Voice=Pass
-        ("PartType", "FAP"):     ("VerbForm", "Part"),   # Future Active Part. → add Tense=Fut|Voice=Act
-        ("PartType", "FMP"):     ("VerbForm", "Part"),   # Future Middle Part. → add Tense=Fut|Voice=Mid
-        ("PartType", "PFP"):     ("VerbForm", "Part"),   # Gerundive → add Tense=Fut|Voice=Pass
-
+        ("VerbForm", "PART"): ("VerbForm", "Part"),
+        ("PartType", "PAP"): (
+            "VerbForm",
+            "Part",
+        ),  # Present Active Part. → add Tense=Pres|Voice=Act
+        ("PartType", "PMP"): (
+            "VerbForm",
+            "Part",
+        ),  # Present Middle Part. → add Tense=Pres|Voice=Mid
+        ("PartType", "PPP"): (
+            "VerbForm",
+            "Part",
+        ),  # Past Passive Part.  → add Tense=Past|Voice=Pass
+        ("PartType", "FAP"): (
+            "VerbForm",
+            "Part",
+        ),  # Future Active Part. → add Tense=Fut|Voice=Act
+        ("PartType", "FMP"): (
+            "VerbForm",
+            "Part",
+        ),  # Future Middle Part. → add Tense=Fut|Voice=Mid
+        ("PartType", "PFP"): (
+            "VerbForm",
+            "Part",
+        ),  # Gerundive → add Tense=Fut|Voice=Pass
         # Periphrastic future participle (bhavitā etc.)—treated as Part
         ("PartType", "PERIPH_FUT"): ("VerbForm", "Part"),
         # --- Definiteness (for borrowed/article-like usages; rare in Sanskrit) ---
         ("Definiteness", "DEF"): ("Definiteness", "Def"),
         ("Definiteness", "IND"): ("Definiteness", "Ind"),
         # --- Foreign / Abbreviation (if present) ---
-        ("Foreign", "Y"):        ("Foreign", "Yes"),
-        ("Abbr", "Y"):           ("Abbr", "Yes"),
+        ("Foreign", "Y"): ("Foreign", "Yes"),
+        ("Abbr", "Y"): ("Abbr", "Yes"),
         # Many legacy Indo-Aryan tagsets use conjunctive participle for Sanskrit/Pāli absolutives (ktvā / -ya)
         ("PartType", "Conj."): ("VerbForm", "Conv"),
         # Most taggers meant "personal" here.
         ("PronType", "Part"): ("PronType", "Prs"),
-
         # 2) ParticleType=Clitic → UD has no ParticleType feature.
         #    Best practice: mark cliticness with a dedicated feature key if your schema allows it.
         #    Many validators accept Clitic=Yes. If yours does not, drop to MISC.
-        ("ParticleType", "Clitic"): ("Clitic", "Yes"),
-
+        # ("ParticleType", "Clitic"): ("Clitic", "Yes"),
         # 3) PartType=Prt → 'Prt' isn’t a UD value. If the goal is just “this is a particle”,
         #    capture it via UPOS (PART) and drop the feature.
-        ("PartType", "Prt"): ("UPOS", "PART"),
-
+        # ("PartType", "Prt"): ("UPOS", "PART"),
         # 4) Polarity=Aff → UD uses Pos/Neg, not Aff.
         ("Polarity", "Aff"): ("Polarity", "Pos"),
-
         # 5) ConjType=Coord → coordination/subordination is encoded in UPOS, not ConjType.
-        ("ConjType", "Coord"): ("UPOS", "CCONJ"),
-
+        # ("ConjType", "Coord"): ("UPOS", "CCONJ"),
         ("VerbForm", "Opt"): ("Mood", "Opt"),
         ("VerbForm", "Imp"): ("Mood", "Imp"),
-
         # ("PronType", "Proper"): ("UPOS", "PROPN"),
         # Conjunction subtype → UPOS (UD encodes sub/coord at UPOS level)
         # ("ConjType", "Sub"):  ("UPOS", "SCONJ"),
         # Preposition subtype → UPOS (if your validator flags AdpType, drop it)
         # ("AdpType", "Prep"): ("UPOS", "ADP"),
-
         # TODO: Consider post-rules for things like this and also to change/add UPOS
         # Note (recommended): In UD, Optative and Imperative are moods on a finite verb. After applying the above mappings, if a token has Mood ∈ {Opt,Imp} and no VerbForm, set:
         # post‑rule:
