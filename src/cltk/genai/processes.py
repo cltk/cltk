@@ -574,11 +574,9 @@ class EdomiteChatGPTProcess(ChatGPTProcess):
         logger.debug("EdomiteChatGPTProcess initialized.")
 
 
-class EgyptianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "egy"
-    description: str = (
-        "Default process for ChatGPT for the Egyptian (Ancient) language."
-    )
+class DemoticChatGPTProcess(ChatGPTProcess):
+    language: Optional[str] = "egy-dem"
+    description: str = "Default process for ChatGPT for the Demotic Egyptian language."
     authorship_info: str = "Egyptian (Ancient)ChatGPTProcess using OpenAI GPT models."
 
     def model_post_init(self, __context):

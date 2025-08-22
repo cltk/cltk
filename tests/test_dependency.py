@@ -15,7 +15,7 @@ class TestDependency(unittest.TestCase):
     """
 
     def test_dependency_tree(self):
-        cltk_nlp = NLP(language="lat")
+        cltk_nlp = NLP(language_code="lat")
         doc = cltk_nlp.analyze(text=get_example_text("lat"))
         one_word = doc.words[0]
         one_word.embedding = list()

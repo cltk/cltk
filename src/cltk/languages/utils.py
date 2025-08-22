@@ -9,12 +9,12 @@ _DIALECT_INDEX: dict[str, Language] = {}
 for iso_key, lang in LANGUAGES.items():
     for dialect in lang.dialects:
         lang.selected_dialect = (
-            dialect.code
+            dialect.language_code
         )  # Set the selected dialect for the base language
-        _DIALECT_INDEX[dialect.code] = lang
+        _DIALECT_INDEX[dialect.language_code] = lang
 
 
-def get_lang(code: str) -> Language:
+def get_lang(language_code: str) -> Language:
     """Return a Language by ISO 639-3 code (e.g., 'lat') or by dialect code (e.g., 'egy-dem').
 
     If a dialect code is provided, this returns the base Language object with
@@ -30,14 +30,14 @@ def get_lang(code: str) -> Language:
     """
     # Exact ISO code hit
     try:
-        return LANGUAGES[code]
+        return LANGUAGES[language_code]
     except KeyError:
         pass
     # Look for dialect code
     try:
-        lang_with_dialect = _DIALECT_INDEX[code]
+        lang_with_dialect = _DIALECT_INDEX[language_code]
     except KeyError:
-        msg: str = f"Unknown language code '{code}'."
+        msg: str = f"Unknown language code '{language_code}'."
         raise UnknownLanguageError(msg)
     # Return a fresh copy annotated with the requested dialect (Dialect object, not just code)
     return lang_with_dialect.model_copy(
@@ -62,6 +62,6 @@ def find_iso_name(common_name: str) -> list[str]:
     for iso_key, language_obj in LANGUAGES.items():
         for d in language_obj.dialects or []:
             if q in d.name.lower():
-                codes.append(d.code)
+                codes.append(d.language_code)
 
     return codes

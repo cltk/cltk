@@ -54,7 +54,7 @@ class TestChatGPTNLP(unittest.TestCase):
     def test_greek_chatgpt_pipeline(self):
         example_text = get_example_text("grc")
         pipeline = GreekChatGPTPipeline()
-        nlp = NLP(language="grc", custom_pipeline=pipeline, suppress_banner=True)
+        nlp = NLP(language_code="grc", custom_pipeline=pipeline, suppress_banner=True)
         doc = nlp.analyze(example_text)
         # Basic assertions
         self.assertIsNotNone(doc)

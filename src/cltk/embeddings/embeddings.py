@@ -504,7 +504,7 @@ class FastTextEmbeddings:
         fastText, for the input language. This is not comprehensive
         of all fastText embeddings, only those added into the CLTK.
         """
-        get_lang(iso_code=self.iso_code)
+        get_lang(language_code=self.iso_code)
         if self.iso_code not in MAP_LANGS_CLTK_FASTTEXT:
             return False
         else:

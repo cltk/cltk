@@ -25,7 +25,7 @@ class StopsProcess(Process):
 
     @cached_property
     def algorithm(self):
-        return Stops(iso_code=self.language).get_stopwords()
+        return Stops(iso_code=self.language_code).get_stopwords()
 
     def run(self, input_doc: Doc) -> Doc:
         """Note this marks a word a stop if there is a match on

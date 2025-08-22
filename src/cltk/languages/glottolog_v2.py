@@ -242,16 +242,24 @@ LANGUAGES: typing.OrderedDict[str, Language] = OrderedDict(
                 type="a",
                 dialects=[
                     Dialect(
-                        code="egy-mid", name="Middle Egyptian", glottolog_id="midd1369"
+                        language_code="egy-mid",
+                        name="Middle Egyptian",
+                        glottolog_id="midd1369",
                     ),
                     Dialect(
-                        code="egy-late", name="Late Egyptian", glottolog_id="late1256"
+                        language_code="egy-late",
+                        name="Late Egyptian",
+                        glottolog_id="late1256",
                     ),
                     Dialect(
-                        code="egy-old", name="Old Egyptian", glottolog_id="olde1242"
+                        language_code="egy-old",
+                        name="Old Egyptian",
+                        glottolog_id="olde1242",
                     ),
                     Dialect(
-                        code="egy-dem", name="Demotic Egyptian", glottolog_id="demo1234"
+                        language_code="egy-dem",
+                        name="Demotic Egyptian",
+                        glottolog_id="demo1234",
                     ),
                 ],
             ),
@@ -3184,7 +3192,9 @@ LANGUAGES["arb"] = Language(
     iso="arb",
     type="",
     dialects=[
-        Dialect(code="arb-clas", name="Classical Arabic", glottolog_id="clas1259")
+        Dialect(
+            language_code="arb-clas", name="Classical Arabic", glottolog_id="clas1259"
+        )
     ],
 )
 

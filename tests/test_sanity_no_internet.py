@@ -17,7 +17,7 @@ class TestNoInternet(unittest.TestCase):
 
     def test_nlp_latin_stops(self):
         lang: str = "lat"
-        cltk_nlp: NLP = NLP(language=lang)
+        cltk_nlp: NLP = NLP(language_code=lang)
         self.assertIsInstance(cltk_nlp, NLP)
         lat_pipeline: Pipeline = cltk_nlp.pipeline
         pipeline_just_stops: list[Type[Process]] = [

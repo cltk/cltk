@@ -243,7 +243,7 @@ class SpacyProcess(Process):
 
     @cached_property
     def algorithm(self):
-        return SpacyWrapper.get_nlp(language=self.language)
+        return SpacyWrapper.get_nlp(language=self.language_code)
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = copy(input_doc)

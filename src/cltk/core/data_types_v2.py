@@ -22,7 +22,7 @@ from cltk.morphology.ud_pos import UDPartOfSpeechTag
 
 class Dialect(BaseModel):
     glottolog_id: str  # Glottolog id
-    code: str  # internal code (e.g., "egy-dem")
+    language_code: str  # internal code (e.g., "egy-dem")
     name: str  # human-readable variety name
 
 
@@ -45,6 +45,8 @@ class Language(BaseModel):
     dates: Optional[list[int]] = []
     dialects: list[Dialect] = []
     selected_dialect: Optional[str] = None
+
+    # TODO: Add a lazy-load mechanism for example_text?
 
     # @field_validator("name")
     # @classmethod
@@ -244,7 +246,7 @@ class Doc(CLTKBaseModel):
 class Process(BaseModel):
     """For each type of NLP process there needs to be a definition."""
 
-    language: Optional[str] = None
+    language_code: Optional[str] = None
 
     @abstractmethod
     def run(self, input_doc: Doc) -> Doc:

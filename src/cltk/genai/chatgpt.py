@@ -34,8 +34,6 @@ from cltk.morphology.ud_features import (
 )
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
 from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
-from cltk.sentence.utils import split_sentences_multilang
-from cltk.utils.utils import load_env_file
 
 AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 

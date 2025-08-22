@@ -24,7 +24,7 @@ class TestMain(unittest.TestCase):
 
     def test_main_chu_analyze(self):
         lang = "chu"
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
         first_word = cltk_doc.words[0]
         target = Word(
@@ -80,7 +80,7 @@ class TestMain(unittest.TestCase):
 
     def test_main_fro_analyze(self):
         lang = "fro"
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
         first_word = cltk_doc.words[0]
         target = Word(
@@ -110,14 +110,14 @@ class TestMain(unittest.TestCase):
         # if "LD_LIBRARY_PATH" in os.environ:
         #     del os.environ["LD_LIBRARY_PATH"]
         lang = "lat"
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
         first_word = cltk_doc.words[0]
         self.assertIsInstance(first_word.embedding, numpy.ndarray)
 
     def test_main_got_analyze(self):
         lang = "got"
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
         first_word = cltk_doc.words[0]
         self.assertIsInstance(first_word.embedding, numpy.ndarray)
@@ -148,7 +148,7 @@ class TestMain(unittest.TestCase):
 
     def test_main_grc_analyze(self):
         lang = "grc"
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
         first_word = cltk_doc.words[0]
         self.assertIsInstance(first_word.embedding, numpy.ndarray)
@@ -178,7 +178,7 @@ class TestMain(unittest.TestCase):
 
     def test_main_lzh_analyze(self):
         lang = "lzh"
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         cltk_doc = cltk_nlp.analyze(text=get_example_text(lang))
         first_word = cltk_doc.words[0]
         target = Word(

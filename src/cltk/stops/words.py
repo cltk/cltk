@@ -62,7 +62,7 @@ class Stops:
 
     def __init__(self, iso_code: str):
         self.iso_code: str = iso_code
-        get_lang(iso_code=self.iso_code)
+        get_lang(language_code=self.iso_code)
         self.stops: list[str] = self.get_stopwords()
 
     def get_stopwords(self) -> list[str]:

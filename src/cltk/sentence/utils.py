@@ -20,7 +20,7 @@ def split_sentences_multilang(
         "ang",
         "arc",
         "cop",
-        "egy",
+        "egy-dem",
         "grc",
         "hbo",
         "lat",
@@ -39,7 +39,7 @@ def split_sentences_multilang(
         "lzh",
         "pan",
     ],
-    iso: str,
+    language_code: str,
 ) -> list[tuple[int, int]]:
     """
     Split text into sentences for multiple languages using language-specific punctuation.
@@ -47,7 +47,7 @@ def split_sentences_multilang(
 
     Args:
         text (str): The input text.
-        lang (str): ISO code for the language.
+        language_code (str): ISO code for the language.
 
     Returns:
         list[tuple[int, int]]: List of (start, stop) indices for each sentence.
@@ -75,13 +75,12 @@ def split_sentences_multilang(
         "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
         "lzh": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
-        "egy": r"([.!?])",  # Egyptian: period, exclamation, question (adjust if you have more info)
+        "egy-dem": r"([.!?])",  # Egyptian: period, exclamation, question (adjust if you have more info)
     }
+    if language_code not in lang_sentence_endings:
+        raise ValueError(f"Unsupported language code: {language_code}")
 
-    if iso not in lang_sentence_endings:
-        raise ValueError(f"Unsupported language code: {iso}")
-
-    sentence_endings = lang_sentence_endings[iso]
+    sentence_endings = lang_sentence_endings[language_code]
     parts = re.split(sentence_endings, text)
 
     boundaries = []

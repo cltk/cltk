@@ -3,7 +3,7 @@
 from copy import copy
 from functools import cached_property
 from types import FunctionType
-from typing import Any, ClassVar
+from typing import Any, ClassVar, Optional
 
 from cltk.core import CLTKException
 from cltk.core.cltk_logger import logger
@@ -21,13 +21,15 @@ class SentenceSplittingProcess(Process):
     @cached_property
     def algorithm(self) -> FunctionType:
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
-        logger.debug(f"Selecting normalization algorithm for language: {self.language}")
-        if self.language in [
+        logger.debug(
+            f"Selecting normalization algorithm for language: {self.language_code}"
+        )
+        if self.language_code in [
             "akk",
             "ang",
             "arc",
             "cop",
-            "egy",
+            "egy-dem",
             "grc",
             "hbo",
             "lat",
@@ -47,11 +49,11 @@ class SentenceSplittingProcess(Process):
             "pan",
         ]:
             logger.debug(
-                f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.language}"
+                f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.language_code}"
             )
             return split_sentences_multilang
         else:
-            msg: str = f"`Sentence splitter not available for {self.language}`"
+            msg: str = f"`Sentence splitter not available for {self.language_code}`"
             logger.error(msg)
             raise ValueError(msg)
 
@@ -61,8 +63,19 @@ class SentenceSplittingProcess(Process):
             msg: str = "Doc must have `normalized_text`."
             logger.error(msg)
             raise ValueError(msg)
+        # Prefer dialect code from the process (e.g., "egy-dem") if present,
+        # otherwise fall back to selected_dialect, then base ISO.
+        language_code: str
+        if output_doc.language.selected_dialect:
+            language_code = output_doc.language.selected_dialect
+        else:
+            language_code = output_doc.language.iso
+        logger.debug(
+            f"Sentence splitter passed to split_sentences_multilang: {language_code}"
+        )
         output_doc.sentence_boundaries = self.algorithm(
-            text=output_doc.normalized_text, iso=output_doc.language.iso
+            text=output_doc.normalized_text,
+            language_code=language_code,
         )
         return output_doc
 
@@ -70,85 +83,134 @@ class SentenceSplittingProcess(Process):
 class AkkadianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Akkadian."""
 
+    language_code: Optional[str] = "akk"
+
 
 class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Greek."""
+
+    language_code: Optional[str] = "grc"
 
 
 class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Hebrew."""
 
+    language_code: Optional[str] = "hbo"
+
 
 class CopticSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Coptic."""
+
+    language_code: Optional[str] = "cop"
 
 
 class LatinSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Latin."""
 
+    language_code: Optional[str] = "lat"
+
 
 class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Official Aramaic."""
+
+    language_code: Optional[str] = "arc"
 
 
 class OldEnglishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old English."""
 
+    language_code: Optional[str] = "ang"
+
 
 class OldNorseSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old Norse."""
+
+    language_code: Optional[str] = "non"
 
 
 class PaliSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Pali."""
 
+    language_code: Optional[str] = "pli"
+
 
 class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Sanskrit."""
+
+    language_code: Optional[str] = "san"
 
 
 class ArabicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Arabic."""
 
+    # TODO: Rename to ClassicalArabic
+    language_code: Optional[str] = "arb"
+
 
 class ChurchSlavonicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old Church Slavonic."""
+
+    language_code: Optional[str] = "chu"
 
 
 class MiddleEnglishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle English."""
 
+    language_code: Optional[str] = "enm"
+
 
 class MiddleFrenchSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle French."""
+
+    language_code: Optional[str] = "frm"
 
 
 class OldFrenchSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old French."""
 
+    language_code: Optional[str] = "fro"
+
 
 class MiddleHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle High German."""
+
+    language_code: Optional[str] = "gmh"
 
 
 class OldHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old High German."""
 
+    language_code: Optional[str] = "goh"
+
 
 class GothicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Gothic."""
+
+    language_code: Optional[str] = "got"
 
 
 class HindiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Hindi."""
 
+    language_code: Optional[str] = "hin"
+
 
 class LiteraryChineseSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Classical Chinese."""
 
+    language_code: Optional[str] = "lzh"
+
 
 class PanjabiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Panjabi."""
+
+    language_code: Optional[str] = "pan"
+
+
+class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Egyptian."""
+
+    language_code: Optional[str] = "egy-dem"
 
 
 # V1 below
@@ -171,7 +233,7 @@ class SentenceTokenizationProcessV1(Process):
     @cached_property
     def algorithm(self):
         raise CLTKException(
-            f"No sentence tokenization algorithm for language '{self.language}'."
+            f"No sentence tokenization algorithm for language '{self.language_code}'."
         )
 
     def run(self, input_doc: Doc) -> Doc:
@@ -222,7 +284,3 @@ class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcessV1):
     @cached_property
     def algorithm(self):
         return OldNorseRegexSentenceTokenizer()
-
-
-class EgyptianSentenceSplittingProcess(SentenceSplittingProcess):
-    """Sentence splitting process for Egyptian."""

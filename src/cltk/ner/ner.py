@@ -63,7 +63,7 @@ def tag_ner(
     ['LOC', False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, 'CHI']
     """
 
-    get_lang(iso_code=iso_code)
+    get_lang(language_code=iso_code)
     if iso_code not in NER_DICT:
         msg = f"NER unavailable for language ``{iso_code}``."
         raise UnimplementedAlgorithmError(msg)

@@ -16,33 +16,35 @@ from cltk.core.data_types_v2 import Doc, Process
 class NormalizeProcess(Process):
     """Generic process for text normalization."""
 
-    language: Optional[str] = None
+    language_code: Optional[str] = None
 
     @cached_property
     def algorithm(self) -> FunctionType:
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
-        logger.debug(f"Selecting normalization algorithm for language: {self.language}")
-        if self.language == "grc":
+        logger.debug(
+            f"Selecting normalization algorithm for language: {self.language_code}"
+        )
+        if self.language_code == "grc":
             logger.info("Using Ancient Greek normalization algorithm.")
             return normalize_grc
-        elif self.language == "lat":
+        elif self.language_code == "lat":
             logger.info("Using Latin normalization algorithm.")
             return normalize_lat
         else:
             logger.debug(
-                f"`NormalizeProcess()`: Generic normalization for: {self.language}"
+                f"`NormalizeProcess()`: Generic normalization for: {self.language_code}"
             )
             return cltk_normalize
 
     def run(self, input_doc: Doc) -> Doc:
         """This invokes language-appropriate normalization code for text a given language."""
-        logger.debug(f"Running normalization for language: {self.language}")
+        logger.debug(f"Running normalization for language: {self.language_code}")
         if self.algorithm is None:
             logger.error(
-                f"No normalization algorithm found for language '{self.language}'"
+                f"No normalization algorithm found for language '{self.language_code}'"
             )
             raise ValueError(
-                f"No normalization algorithm found for language '{self.language}'"
+                f"No normalization algorithm found for language '{self.language_code}'"
             )
         if input_doc.raw is None:
             logger.error("input_doc.raw must not be None")
@@ -72,7 +74,7 @@ class AncientGreekNormalizeProcess(NormalizeProcess):
     False
     """
 
-    language: Optional[str] = "grc"
+    language_code: Optional[str] = "grc"
 
     def __post_init__(self):
         logger.debug("AncientGreekNormalizeProcess initialized.")
@@ -93,7 +95,7 @@ class LatinNormalizeProcess(NormalizeProcess):
     False
     """
 
-    language: Optional[str] = "lat"
+    language_code: Optional[str] = "lat"
 
     def __post_init__(self):
         logger.debug("LatinNormalizeProcess initialized.")
@@ -101,8 +103,6 @@ class LatinNormalizeProcess(NormalizeProcess):
 
 class MultilingualNormalizeProcess(NormalizeProcess):
     """Text normalization for multiple languages."""
-
-    language: Optional[str] = None
 
     def __post_init__(self):
         logger.debug("MultilingualNormalizeProcess initialized.")

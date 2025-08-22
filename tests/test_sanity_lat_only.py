@@ -37,10 +37,10 @@ class TestNLPLatin(unittest.TestCase):
         self.assertIsInstance(default_latin_pipeline.language.parent_id, str)
         self.assertIsInstance(default_latin_pipeline.language.type, str)
 
-        text = get_example_text(iso_code=lang)
+        text = get_example_text(language_code=lang)
         self.assertIsInstance(text, str)
 
-        cltk_nlp = NLP(language=lang)
+        cltk_nlp = NLP(language_code=lang)
         self.assertIsInstance(cltk_nlp, NLP)
 
         cltk_doc = cltk_nlp.analyze(text=text)

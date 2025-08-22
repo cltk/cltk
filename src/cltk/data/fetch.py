@@ -582,7 +582,7 @@ class FetchCorpus:
 
         self.language = language.lower()
         if self.language != "multilingual":
-            get_lang(iso_code=language)
+            get_lang(language_code=language)
 
         assert isinstance(testing, bool), "``testing`` parameter must be boolean type"
         self.testing = testing
