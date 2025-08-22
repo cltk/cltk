@@ -11,13 +11,13 @@ from cltk.languages.pipelines import GreekChatGPTPipeline
 
 
 def test_chatgpt_init():
-    chatgpt = ChatGPT(language="lat", api_key="sk-test")
+    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
     assert chatgpt.language.name == "Latin"
     assert chatgpt.api_key == "sk-test"
 
 
 def test_prompt_construction():
-    chatgpt = ChatGPT(language="lat", api_key="sk-test")
+    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
     prompt = chatgpt.generate_pos(
         "Gallia est omnis divisa in partes tres.", print_raw_response=False
     )
@@ -25,7 +25,7 @@ def test_prompt_construction():
 
 
 def test_fallback_word_info():
-    chatgpt = ChatGPT(language="lat", api_key="sk-test")
+    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
     # Simulate a malformed response
     result = chatgpt._parse_word_info_from_chatgpt_response(
         "", print_raw_response=False
@@ -34,7 +34,7 @@ def test_fallback_word_info():
 
 
 def test_metadata_aggregation():
-    chatgpt = ChatGPT(language="lat", api_key="sk-test")
+    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
     doc = chatgpt._post_process_pos_response(
         "Gallia\tGallia\tGallia\tO\tNOUN\tNOUN\tNOUN",
         "Gallia",
@@ -47,7 +47,7 @@ def test_metadata_aggregation():
 def test_missing_api_key():
     os.environ.pop("OPENAI_API_KEY", None)
     with pytest.raises(Exception):
-        ChatGPT(language="lat", api_key=None)  # type: ignore intentional bad parameter
+        ChatGPT(language_code="lat", api_key=None)  # type: ignore intentional bad parameter
 
 
 class TestChatGPTNLP(unittest.TestCase):

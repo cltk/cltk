@@ -67,7 +67,7 @@ class SentenceSplittingProcess(Process):
         # otherwise fall back to selected_dialect, then base ISO.
         language_code: str
         if output_doc.language.selected_dialect:
-            language_code = output_doc.language.selected_dialect
+            language_code = output_doc.language.selected_dialect.language_code
         else:
             language_code = output_doc.language.iso
         logger.debug(

@@ -8,9 +8,7 @@ from cltk.languages.glottolog_v2 import LANGUAGES
 _DIALECT_INDEX: dict[str, Language] = {}
 for iso_key, lang in LANGUAGES.items():
     for dialect in lang.dialects:
-        lang.selected_dialect = (
-            dialect.language_code
-        )  # Set the selected dialect for the base language
+        lang.selected_dialect = dialect
         _DIALECT_INDEX[dialect.language_code] = lang
 
 

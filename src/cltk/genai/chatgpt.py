@@ -41,14 +41,14 @@ AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 class ChatGPT:
     def __init__(
         self,
-        language: str,
+        language_code: str,
         api_key: str,
         model: AVAILABILE_MODELS,
         temperature: float = 1.0,
     ):
         """Initialize the ChatGPT class and set up OpenAI connection."""
         self.api_key = api_key
-        self.language: Language = get_lang(language)
+        self.language: Language = get_lang(language_code)
         self.model: str = model
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
@@ -180,7 +180,13 @@ class ChatGPT:
         max_retries: int = 2,
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
-        prompt: str = f"""For the following {self.language.name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) Greek guidelines.
+        # xxx update this to give dialect if given
+        lang_or_dialect_name: str
+        if self.language.selected_dialect_name:
+            lang_or_dialect_name = self.language.selected_dialect_name
+        else:
+            lang_or_dialect_name = self.language.name
+        prompt: str = f"""For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) Greek guidelines.
 
 Rules:
 - Always use strict UD Greek morphological tags (not a simplified system).

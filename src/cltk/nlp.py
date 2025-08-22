@@ -77,10 +77,6 @@ class NLP:
         logger.info(f"Initializing NLP for language: {language_code}")
         self.language: Language = get_lang(language_code=language_code)
         self.language_code: str = language_code
-        self.dialect_name: Optional[str] = (
-            self.language.selected_dialect if self.language.selected_dialect else None
-        )
-        # self.language_code: str = self.language.selected_dialect if self.language.selected_dialect else self.language.iso
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
@@ -140,13 +136,14 @@ class NLP:
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         processes_name: list[str] = [process.__name__ for process in processes]
-        # processes_name_str: str = "`, `".join(processes_name)
-        lang_or_dialect: str = (
-            self.dialect_name if self.dialect_name else self.language.name
-        )
+        lang_or_dialect_name: str
+        if self.language.selected_dialect_name:
+            lang_or_dialect_name = self.language.selected_dialect_name
+        else:
+            lang_or_dialect_name = self.language.name
         print(
             Fore.CYAN
-            + f"Pipeline for {lang_or_dialect} ('{self.language_code}'):"
+            + f"Pipeline for {lang_or_dialect_name} ('{self.language_code}'):"
             + Fore.GREEN
             + f" {[process.__name__ for process in processes]}"
             + Style.RESET_ALL

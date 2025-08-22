@@ -44,7 +44,12 @@ class Language(BaseModel):
     type: str
     dates: Optional[list[int]] = []
     dialects: list[Dialect] = []
-    selected_dialect: Optional[str] = None
+    selected_dialect: Optional[Dialect] = None
+
+    @property
+    def selected_dialect_name(self) -> Optional[str]:
+        """Convenience: return the name of the currently selected dialect, if any."""
+        return self.selected_dialect.name if self.selected_dialect else None
 
     # TODO: Add a lazy-load mechanism for example_text?
 

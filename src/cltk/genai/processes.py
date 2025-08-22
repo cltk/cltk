@@ -20,8 +20,7 @@ class ChatGPTProcess(Process):
 
     # For the type `ChatGPT`
     model_config = {"arbitrary_types_allowed": True}
-
-    language: Optional[str] = None
+    language_code: Optional[str] = None
     api_key: Optional[str] = None
     model: AVAILABILE_MODELS = "gpt-5-mini"
     temperature: float = 0.2
@@ -31,22 +30,22 @@ class ChatGPTProcess(Process):
 
     def model_post_init(self, __context):
         load_env_file()
-        logger.debug(f"Initializing ChatGPTProcess for language: {self.language}")
+        logger.debug(f"Initializing ChatGPTProcess for language: {self.language_code}")
         if not self.api_key:
             self.api_key = os.environ.get("OPENAI_API_KEY")
         if not self.api_key:
             logger.error(
                 "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
             )
-        if self.language and self.api_key:
+        if self.language_code and self.api_key:
             self.chatgpt = ChatGPT(
-                language=self.language,
+                language_code=self.language_code,
                 api_key=self.api_key,
                 model=self.model,
                 temperature=self.temperature,
             )
             logger.info(
-                f"ChatGPT instance created for language: {self.language}, model: {self.model}, temperature: {self.temperature}"
+                f"ChatGPT instance created for language: {self.language_code}, model: {self.model}, temperature: {self.temperature}"
             )
         else:
             self.chatgpt = None
@@ -56,7 +55,7 @@ class ChatGPTProcess(Process):
 
     def run(self, input_doc: Doc) -> Doc:
         """Run ChatGPT inferencing and enrich the Doc with linguistic metadata."""
-        logger.debug(f"Running ChatGPTProcess for language: {self.language}")
+        logger.debug(f"Running ChatGPTProcess for language: {self.language_code}")
         if not self.chatgpt:
             logger.error("ChatGPTProcess requires language and api_key to be set.")
             raise ValueError("ChatGPTProcess requires language and api_key to be set.")
@@ -67,11 +66,6 @@ class ChatGPTProcess(Process):
             raise CLTKException(
                 "Input document must have either `.normalized_text` or `.raw` text."
             )
-        # if not input_doc.normalized_text:
-        #     logger.info(
-        #         "Normalizing input text using `cltk_normalize()` and writing to `Doc.normalized_text`."
-        #     )
-        #     input_doc.normalized_text = cltk_normalize(input_doc.raw)
         input_text = (
             input_doc.normalized_text if input_doc.normalized_text else input_doc.raw
         )
@@ -123,7 +117,7 @@ class ChatGPTProcess(Process):
 
 
 class AequianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xae"
+    language_code: Optional[str] = "xae"
     description: str = "Default process for ChatGPT for the Aequian language."
     authorship_info: str = "AequianChatGPTProcess using OpenAI GPT models."
 
@@ -133,7 +127,7 @@ class AequianChatGPTProcess(ChatGPTProcess):
 
 
 class AghwanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xag"
+    language_code: Optional[str] = "xag"
     description: str = "Default process for ChatGPT for the Aghwan language."
     authorship_info: str = "AghwanChatGPTProcess using OpenAI GPT models."
 
@@ -143,7 +137,7 @@ class AghwanChatGPTProcess(ChatGPTProcess):
 
 
 class AkkadianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "akk"
+    language_code: Optional[str] = "akk"
     description: str = "Default process for ChatGPT for the Akkadian language."
     authorship_info: str = "AkkadianChatGPTProcess using OpenAI GPT models."
 
@@ -153,7 +147,7 @@ class AkkadianChatGPTProcess(ChatGPTProcess):
 
 
 class AlanicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xln"
+    language_code: Optional[str] = "xln"
     description: str = "Default process for ChatGPT for the Alanic language."
     authorship_info: str = "AlanicChatGPTProcess using OpenAI GPT models."
 
@@ -163,7 +157,7 @@ class AlanicChatGPTProcess(ChatGPTProcess):
 
 
 class AncientGreekChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "grc"
+    language_code: Optional[str] = "grc"
     description: str = "Default process for ChatGPT for the Ancient Greek language."
     authorship_info: str = "Ancient GreekChatGPTProcess using OpenAI GPT models."
 
@@ -173,7 +167,7 @@ class AncientGreekChatGPTProcess(ChatGPTProcess):
 
 
 class AncientHebrewChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "hbo"
+    language_code: Optional[str] = "hbo"
     description: str = "Default process for ChatGPT for the Ancient Hebrew language."
     authorship_info: str = "Ancient HebrewChatGPTProcess using OpenAI GPT models."
 
@@ -183,7 +177,7 @@ class AncientHebrewChatGPTProcess(ChatGPTProcess):
 
 
 class AncientLigurianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xlg"
+    language_code: Optional[str] = "xlg"
     description: str = "Default process for ChatGPT for the Ancient Ligurian language."
     authorship_info: str = "Ancient LigurianChatGPTProcess using OpenAI GPT models."
 
@@ -193,7 +187,7 @@ class AncientLigurianChatGPTProcess(ChatGPTProcess):
 
 
 class AncientMacedonianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xmk"
+    language_code: Optional[str] = "xmk"
     description: str = (
         "Default process for ChatGPT for the Ancient Macedonian language."
     )
@@ -205,7 +199,7 @@ class AncientMacedonianChatGPTProcess(ChatGPTProcess):
 
 
 class AncientNorthArabianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xna"
+    language_code: Optional[str] = "xna"
     description: str = (
         "Default process for ChatGPT for the Ancient North Arabian language."
     )
@@ -219,7 +213,7 @@ class AncientNorthArabianChatGPTProcess(ChatGPTProcess):
 
 
 class AncientZapotecChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xzp"
+    language_code: Optional[str] = "xzp"
     description: str = "Default process for ChatGPT for the Ancient Zapotec language."
     authorship_info: str = "Ancient ZapotecChatGPTProcess using OpenAI GPT models."
 
@@ -229,7 +223,7 @@ class AncientZapotecChatGPTProcess(ChatGPTProcess):
 
 
 class AndalusianArabicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xaa"
+    language_code: Optional[str] = "xaa"
     description: str = "Default process for ChatGPT for the Andalusian Arabic language."
     authorship_info: str = "Andalusian ArabicChatGPTProcess using OpenAI GPT models."
 
@@ -239,7 +233,7 @@ class AndalusianArabicChatGPTProcess(ChatGPTProcess):
 
 
 class AngloNormanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xno"
+    language_code: Optional[str] = "xno"
     description: str = "Default process for ChatGPT for the Anglo-Norman language."
     authorship_info: str = "Anglo-NormanChatGPTProcess using OpenAI GPT models."
 
@@ -249,7 +243,7 @@ class AngloNormanChatGPTProcess(ChatGPTProcess):
 
 
 class AquitanianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xaq"
+    language_code: Optional[str] = "xaq"
     description: str = "Default process for ChatGPT for the Aquitanian language."
     authorship_info: str = "AquitanianChatGPTProcess using OpenAI GPT models."
 
@@ -259,7 +253,7 @@ class AquitanianChatGPTProcess(ChatGPTProcess):
 
 
 class ArabicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "arb"
+    language_code: Optional[str] = "arb"
     description: str = "Default process for ChatGPT for the Arabic language."
     authorship_info: str = "ArabicChatGPTProcess using OpenAI GPT models."
 
@@ -269,7 +263,7 @@ class ArabicChatGPTProcess(ChatGPTProcess):
 
 
 class ArdhamāgadhīPrākritChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pka"
+    language_code: Optional[str] = "pka"
     description: str = (
         "Default process for ChatGPT for the Ardhamāgadhī Prākrit language."
     )
@@ -281,7 +275,7 @@ class ArdhamāgadhīPrākritChatGPTProcess(ChatGPTProcess):
 
 
 class ArmazicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xrm"
+    language_code: Optional[str] = "xrm"
     description: str = "Default process for ChatGPT for the Armazic language."
     authorship_info: str = "ArmazicChatGPTProcess using OpenAI GPT models."
 
@@ -291,7 +285,7 @@ class ArmazicChatGPTProcess(ChatGPTProcess):
 
 
 class AvestanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ave"
+    language_code: Optional[str] = "ave"
     description: str = "Default process for ChatGPT for the Avestan language."
     authorship_info: str = "AvestanChatGPTProcess using OpenAI GPT models."
 
@@ -301,7 +295,7 @@ class AvestanChatGPTProcess(ChatGPTProcess):
 
 
 class BactrianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xbc"
+    language_code: Optional[str] = "xbc"
     description: str = "Default process for ChatGPT for the Bactrian language."
     authorship_info: str = "BactrianChatGPTProcess using OpenAI GPT models."
 
@@ -311,7 +305,7 @@ class BactrianChatGPTProcess(ChatGPTProcess):
 
 
 class BengaliChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ben"
+    language_code: Optional[str] = "ben"
     description: str = "Default process for ChatGPT for the Bengali language."
     authorship_info: str = "BengaliChatGPTProcess using OpenAI GPT models."
 
@@ -321,7 +315,7 @@ class BengaliChatGPTProcess(ChatGPTProcess):
 
 
 class BolgarianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xbo"
+    language_code: Optional[str] = "xbo"
     description: str = "Default process for ChatGPT for the Bolgarian language."
     authorship_info: str = "BolgarianChatGPTProcess using OpenAI GPT models."
 
@@ -331,7 +325,7 @@ class BolgarianChatGPTProcess(ChatGPTProcess):
 
 
 class BurmaPyuChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pyx"
+    language_code: Optional[str] = "pyx"
     description: str = "Default process for ChatGPT for the Burma Pyu language."
     authorship_info: str = "Burma PyuChatGPTProcess using OpenAI GPT models."
 
@@ -341,7 +335,7 @@ class BurmaPyuChatGPTProcess(ChatGPTProcess):
 
 
 class CamunicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xcc"
+    language_code: Optional[str] = "xcc"
     description: str = "Default process for ChatGPT for the Camunic language."
     authorship_info: str = "CamunicChatGPTProcess using OpenAI GPT models."
 
@@ -351,7 +345,7 @@ class CamunicChatGPTProcess(ChatGPTProcess):
 
 
 class CarianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xcr"
+    language_code: Optional[str] = "xcr"
     description: str = "Default process for ChatGPT for the Carian language."
     authorship_info: str = "CarianChatGPTProcess using OpenAI GPT models."
 
@@ -361,7 +355,7 @@ class CarianChatGPTProcess(ChatGPTProcess):
 
 
 class CeltiberianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xce"
+    language_code: Optional[str] = "xce"
     description: str = "Default process for ChatGPT for the Celtiberian language."
     authorship_info: str = "CeltiberianChatGPTProcess using OpenAI GPT models."
 
@@ -371,7 +365,7 @@ class CeltiberianChatGPTProcess(ChatGPTProcess):
 
 
 class ChurchSlavicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "chu"
+    language_code: Optional[str] = "chu"
     description: str = "Default process for ChatGPT for the Church Slavic language."
     authorship_info: str = "Church SlavicChatGPTProcess using OpenAI GPT models."
 
@@ -381,7 +375,7 @@ class ChurchSlavicChatGPTProcess(ChatGPTProcess):
 
 
 class CisalpineGaulishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xcg"
+    language_code: Optional[str] = "xcg"
     description: str = "Default process for ChatGPT for the Cisalpine Gaulish language."
     authorship_info: str = "Cisalpine GaulishChatGPTProcess using OpenAI GPT models."
 
@@ -391,7 +385,7 @@ class CisalpineGaulishChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalArmenianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xcl"
+    language_code: Optional[str] = "xcl"
     description: str = (
         "Default process for ChatGPT for the Classical Armenian language."
     )
@@ -403,7 +397,7 @@ class ClassicalArmenianChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "myz"
+    language_code: Optional[str] = "myz"
     description: str = "Default process for ChatGPT for the Classical Mandaic language."
     authorship_info: str = "Classical MandaicChatGPTProcess using OpenAI GPT models."
 
@@ -413,7 +407,7 @@ class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalMongolianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "cmg"
+    language_code: Optional[str] = "cmg"
     description: str = (
         "Default process for ChatGPT for the Classical Mongolian language."
     )
@@ -425,7 +419,7 @@ class ClassicalMongolianChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalNahuatlChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nci"
+    language_code: Optional[str] = "nci"
     description: str = "Default process for ChatGPT for the Classical Nahuatl language."
     authorship_info: str = "Classical NahuatlChatGPTProcess using OpenAI GPT models."
 
@@ -435,7 +429,7 @@ class ClassicalNahuatlChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalNewariChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nwc"
+    language_code: Optional[str] = "nwc"
     description: str = "Default process for ChatGPT for the Classical Newari language."
     authorship_info: str = "Classical NewariChatGPTProcess using OpenAI GPT models."
 
@@ -445,7 +439,7 @@ class ClassicalNewariChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalQuechuaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "qwc"
+    language_code: Optional[str] = "qwc"
     description: str = "Default process for ChatGPT for the Classical Quechua language."
     authorship_info: str = "Classical QuechuaChatGPTProcess using OpenAI GPT models."
 
@@ -455,7 +449,7 @@ class ClassicalQuechuaChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "syc"
+    language_code: Optional[str] = "syc"
     description: str = "Default process for ChatGPT for the Classical Syriac language."
     authorship_info: str = "Classical SyriacChatGPTProcess using OpenAI GPT models."
 
@@ -465,7 +459,7 @@ class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalTibetanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xct"
+    language_code: Optional[str] = "xct"
     description: str = "Default process for ChatGPT for the Classical Tibetan language."
     authorship_info: str = "Classical TibetanChatGPTProcess using OpenAI GPT models."
 
@@ -475,7 +469,7 @@ class ClassicalTibetanChatGPTProcess(ChatGPTProcess):
 
 
 class CopticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "cop"
+    language_code: Optional[str] = "cop"
     description: str = "Default process for ChatGPT for the Coptic language."
     authorship_info: str = "CopticChatGPTProcess using OpenAI GPT models."
 
@@ -485,7 +479,7 @@ class CopticChatGPTProcess(ChatGPTProcess):
 
 
 class CumbricChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xcb"
+    language_code: Optional[str] = "xcb"
     description: str = "Default process for ChatGPT for the Cumbric language."
     authorship_info: str = "CumbricChatGPTProcess using OpenAI GPT models."
 
@@ -495,7 +489,7 @@ class CumbricChatGPTProcess(ChatGPTProcess):
 
 
 class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xlu"
+    language_code: Optional[str] = "xlu"
     description: str = "Default process for ChatGPT for the Cuneiform Luwian language."
     authorship_info: str = "Cuneiform LuwianChatGPTProcess using OpenAI GPT models."
 
@@ -505,7 +499,7 @@ class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
 
 
 class CuronianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xcu"
+    language_code: Optional[str] = "xcu"
     description: str = "Default process for ChatGPT for the Curonian language."
     authorship_info: str = "CuronianChatGPTProcess using OpenAI GPT models."
 
@@ -515,7 +509,7 @@ class CuronianChatGPTProcess(ChatGPTProcess):
 
 
 class DacianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xdc"
+    language_code: Optional[str] = "xdc"
     description: str = "Default process for ChatGPT for the Dacian language."
     authorship_info: str = "DacianChatGPTProcess using OpenAI GPT models."
 
@@ -525,7 +519,7 @@ class DacianChatGPTProcess(ChatGPTProcess):
 
 
 class EarlyIrishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sga"
+    language_code: Optional[str] = "sga"
     description: str = "Default process for ChatGPT for the Early Irish language."
     authorship_info: str = "Early IrishChatGPTProcess using OpenAI GPT models."
 
@@ -535,7 +529,7 @@ class EarlyIrishChatGPTProcess(ChatGPTProcess):
 
 
 class EarlyTripuriChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xtr"
+    language_code: Optional[str] = "xtr"
     description: str = "Default process for ChatGPT for the Early Tripuri language."
     authorship_info: str = "Early TripuriChatGPTProcess using OpenAI GPT models."
 
@@ -545,7 +539,7 @@ class EarlyTripuriChatGPTProcess(ChatGPTProcess):
 
 
 class EasternPanjabiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pan"
+    language_code: Optional[str] = "pan"
     description: str = "Default process for ChatGPT for the Eastern Panjabi language."
     authorship_info: str = "Eastern PanjabiChatGPTProcess using OpenAI GPT models."
 
@@ -555,7 +549,7 @@ class EasternPanjabiChatGPTProcess(ChatGPTProcess):
 
 
 class EblaiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xeb"
+    language_code: Optional[str] = "xeb"
     description: str = "Default process for ChatGPT for the Eblaite language."
     authorship_info: str = "EblaiteChatGPTProcess using OpenAI GPT models."
 
@@ -565,7 +559,7 @@ class EblaiteChatGPTProcess(ChatGPTProcess):
 
 
 class EdomiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xdm"
+    language_code: Optional[str] = "xdm"
     description: str = "Default process for ChatGPT for the Edomite language."
     authorship_info: str = "EdomiteChatGPTProcess using OpenAI GPT models."
 
@@ -575,7 +569,7 @@ class EdomiteChatGPTProcess(ChatGPTProcess):
 
 
 class DemoticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "egy-dem"
+    language_code: Optional[str] = "egy-dem"
     description: str = "Default process for ChatGPT for the Demotic Egyptian language."
     authorship_info: str = "Egyptian (Ancient)ChatGPTProcess using OpenAI GPT models."
 
@@ -585,7 +579,7 @@ class DemoticChatGPTProcess(ChatGPTProcess):
 
 
 class ElamiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "elx"
+    language_code: Optional[str] = "elx"
     description: str = "Default process for ChatGPT for the Elamite language."
     authorship_info: str = "ElamiteChatGPTProcess using OpenAI GPT models."
 
@@ -595,7 +589,7 @@ class ElamiteChatGPTProcess(ChatGPTProcess):
 
 
 class ElymianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xly"
+    language_code: Optional[str] = "xly"
     description: str = "Default process for ChatGPT for the Elymian language."
     authorship_info: str = "ElymianChatGPTProcess using OpenAI GPT models."
 
@@ -605,7 +599,7 @@ class ElymianChatGPTProcess(ChatGPTProcess):
 
 
 class EpiOlmecChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xep"
+    language_code: Optional[str] = "xep"
     description: str = "Default process for ChatGPT for the Epi-Olmec language."
     authorship_info: str = "Epi-OlmecChatGPTProcess using OpenAI GPT models."
 
@@ -615,7 +609,7 @@ class EpiOlmecChatGPTProcess(ChatGPTProcess):
 
 
 class EpigraphicMayanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "emy"
+    language_code: Optional[str] = "emy"
     description: str = "Default process for ChatGPT for the Epigraphic Mayan language."
     authorship_info: str = "Epigraphic MayanChatGPTProcess using OpenAI GPT models."
 
@@ -625,7 +619,7 @@ class EpigraphicMayanChatGPTProcess(ChatGPTProcess):
 
 
 class EteocretanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ecr"
+    language_code: Optional[str] = "ecr"
     description: str = "Default process for ChatGPT for the Eteocretan language."
     authorship_info: str = "EteocretanChatGPTProcess using OpenAI GPT models."
 
@@ -635,7 +629,7 @@ class EteocretanChatGPTProcess(ChatGPTProcess):
 
 
 class EteocypriotChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ecy"
+    language_code: Optional[str] = "ecy"
     description: str = "Default process for ChatGPT for the Eteocypriot language."
     authorship_info: str = "EteocypriotChatGPTProcess using OpenAI GPT models."
 
@@ -645,7 +639,7 @@ class EteocypriotChatGPTProcess(ChatGPTProcess):
 
 
 class EtruscanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ett"
+    language_code: Optional[str] = "ett"
     description: str = "Default process for ChatGPT for the Etruscan language."
     authorship_info: str = "EtruscanChatGPTProcess using OpenAI GPT models."
 
@@ -655,7 +649,7 @@ class EtruscanChatGPTProcess(ChatGPTProcess):
 
 
 class FaliscanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xfa"
+    language_code: Optional[str] = "xfa"
     description: str = "Default process for ChatGPT for the Faliscan language."
     authorship_info: str = "FaliscanChatGPTProcess using OpenAI GPT models."
 
@@ -665,7 +659,7 @@ class FaliscanChatGPTProcess(ChatGPTProcess):
 
 
 class GalatianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xga"
+    language_code: Optional[str] = "xga"
     description: str = "Default process for ChatGPT for the Galatian language."
     authorship_info: str = "GalatianChatGPTProcess using OpenAI GPT models."
 
@@ -675,7 +669,7 @@ class GalatianChatGPTProcess(ChatGPTProcess):
 
 
 class GalindanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xgl"
+    language_code: Optional[str] = "xgl"
     description: str = "Default process for ChatGPT for the Galindan language."
     authorship_info: str = "GalindanChatGPTProcess using OpenAI GPT models."
 
@@ -685,7 +679,7 @@ class GalindanChatGPTProcess(ChatGPTProcess):
 
 
 class GeezChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "gez"
+    language_code: Optional[str] = "gez"
     description: str = "Default process for ChatGPT for the Geez language."
     authorship_info: str = "GeezChatGPTProcess using OpenAI GPT models."
 
@@ -695,7 +689,7 @@ class GeezChatGPTProcess(ChatGPTProcess):
 
 
 class GothicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "got"
+    language_code: Optional[str] = "got"
     description: str = "Default process for ChatGPT for the Gothic language."
     authorship_info: str = "GothicChatGPTProcess using OpenAI GPT models."
 
@@ -705,7 +699,7 @@ class GothicChatGPTProcess(ChatGPTProcess):
 
 
 class GujaratiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "guj"
+    language_code: Optional[str] = "guj"
     description: str = "Default process for ChatGPT for the Gujarati language."
     authorship_info: str = "GujaratiChatGPTProcess using OpenAI GPT models."
 
@@ -715,7 +709,7 @@ class GujaratiChatGPTProcess(ChatGPTProcess):
 
 
 class GāndhārīChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pgd"
+    language_code: Optional[str] = "pgd"
     description: str = "Default process for ChatGPT for the Gāndhārī language."
     authorship_info: str = "GāndhārīChatGPTProcess using OpenAI GPT models."
 
@@ -725,7 +719,7 @@ class GāndhārīChatGPTProcess(ChatGPTProcess):
 
 
 class HadramiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xhd"
+    language_code: Optional[str] = "xhd"
     description: str = "Default process for ChatGPT for the Hadrami language."
     authorship_info: str = "HadramiChatGPTProcess using OpenAI GPT models."
 
@@ -735,7 +729,7 @@ class HadramiChatGPTProcess(ChatGPTProcess):
 
 
 class HaramiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xha"
+    language_code: Optional[str] = "xha"
     description: str = "Default process for ChatGPT for the Harami language."
     authorship_info: str = "HaramiChatGPTProcess using OpenAI GPT models."
 
@@ -745,7 +739,7 @@ class HaramiChatGPTProcess(ChatGPTProcess):
 
 
 class HarappanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xiv"
+    language_code: Optional[str] = "xiv"
     description: str = "Default process for ChatGPT for the Harappan language."
     authorship_info: str = "HarappanChatGPTProcess using OpenAI GPT models."
 
@@ -755,7 +749,7 @@ class HarappanChatGPTProcess(ChatGPTProcess):
 
 
 class HatticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xht"
+    language_code: Optional[str] = "xht"
     description: str = "Default process for ChatGPT for the Hattic language."
     authorship_info: str = "HatticChatGPTProcess using OpenAI GPT models."
 
@@ -765,7 +759,7 @@ class HatticChatGPTProcess(ChatGPTProcess):
 
 
 class HernicanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xhr"
+    language_code: Optional[str] = "xhr"
     description: str = "Default process for ChatGPT for the Hernican language."
     authorship_info: str = "HernicanChatGPTProcess using OpenAI GPT models."
 
@@ -775,7 +769,7 @@ class HernicanChatGPTProcess(ChatGPTProcess):
 
 
 class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ghc"
+    language_code: Optional[str] = "ghc"
     description: str = (
         "Default process for ChatGPT for the Hiberno-Scottish Gaelic language."
     )
@@ -789,7 +783,7 @@ class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
 
 
 class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "hlu"
+    language_code: Optional[str] = "hlu"
     description: str = (
         "Default process for ChatGPT for the Hieroglyphic Luwian language."
     )
@@ -801,7 +795,7 @@ class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
 
 
 class HindiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "hin"
+    language_code: Optional[str] = "hin"
     description: str = "Default process for ChatGPT for the Hindi language."
     authorship_info: str = "HindiChatGPTProcess using OpenAI GPT models."
 
@@ -811,7 +805,7 @@ class HindiChatGPTProcess(ChatGPTProcess):
 
 
 class HittiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "hit"
+    language_code: Optional[str] = "hit"
     description: str = "Default process for ChatGPT for the Hittite language."
     authorship_info: str = "HittiteChatGPTProcess using OpenAI GPT models."
 
@@ -821,7 +815,7 @@ class HittiteChatGPTProcess(ChatGPTProcess):
 
 
 class HunnicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xhc"
+    language_code: Optional[str] = "xhc"
     description: str = "Default process for ChatGPT for the Hunnic language."
     authorship_info: str = "HunnicChatGPTProcess using OpenAI GPT models."
 
@@ -831,7 +825,7 @@ class HunnicChatGPTProcess(ChatGPTProcess):
 
 
 class HurrianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xhu"
+    language_code: Optional[str] = "xhu"
     description: str = "Default process for ChatGPT for the Hurrian language."
     authorship_info: str = "HurrianChatGPTProcess using OpenAI GPT models."
 
@@ -841,7 +835,7 @@ class HurrianChatGPTProcess(ChatGPTProcess):
 
 
 class IberianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xib"
+    language_code: Optional[str] = "xib"
     description: str = "Default process for ChatGPT for the Iberian language."
     authorship_info: str = "IberianChatGPTProcess using OpenAI GPT models."
 
@@ -851,7 +845,7 @@ class IberianChatGPTProcess(ChatGPTProcess):
 
 
 class IllyrianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xil"
+    language_code: Optional[str] = "xil"
     description: str = "Default process for ChatGPT for the Illyrian language."
     authorship_info: str = "IllyrianChatGPTProcess using OpenAI GPT models."
 
@@ -861,7 +855,7 @@ class IllyrianChatGPTProcess(ChatGPTProcess):
 
 
 class JutishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "jut"
+    language_code: Optional[str] = "jut"
     description: str = "Default process for ChatGPT for the Jutish language."
     authorship_info: str = "JutishChatGPTProcess using OpenAI GPT models."
 
@@ -871,7 +865,7 @@ class JutishChatGPTProcess(ChatGPTProcess):
 
 
 class KajkavianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "kjv"
+    language_code: Optional[str] = "kjv"
     description: str = "Default process for ChatGPT for the Kajkavian language."
     authorship_info: str = "KajkavianChatGPTProcess using OpenAI GPT models."
 
@@ -881,7 +875,7 @@ class KajkavianChatGPTProcess(ChatGPTProcess):
 
 
 class KannadaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "kan"
+    language_code: Optional[str] = "kan"
     description: str = "Default process for ChatGPT for the Kannada language."
     authorship_info: str = "KannadaChatGPTProcess using OpenAI GPT models."
 
@@ -891,7 +885,7 @@ class KannadaChatGPTProcess(ChatGPTProcess):
 
 
 class KaraChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zra"
+    language_code: Optional[str] = "zra"
     description: str = "Default process for ChatGPT for the Kara (Korea) language."
     authorship_info: str = "Kara (Korea)ChatGPTProcess using OpenAI GPT models."
 
@@ -901,7 +895,7 @@ class KaraChatGPTProcess(ChatGPTProcess):
 
 
 class KarakhanidChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xqa"
+    language_code: Optional[str] = "xqa"
     description: str = "Default process for ChatGPT for the Karakhanid language."
     authorship_info: str = "KarakhanidChatGPTProcess using OpenAI GPT models."
 
@@ -911,7 +905,7 @@ class KarakhanidChatGPTProcess(ChatGPTProcess):
 
 
 class KaskeanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zsk"
+    language_code: Optional[str] = "zsk"
     description: str = "Default process for ChatGPT for the Kaskean language."
     authorship_info: str = "KaskeanChatGPTProcess using OpenAI GPT models."
 
@@ -921,7 +915,7 @@ class KaskeanChatGPTProcess(ChatGPTProcess):
 
 
 class KawiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "kaw"
+    language_code: Optional[str] = "kaw"
     description: str = "Default process for ChatGPT for the Kawi language."
     authorship_info: str = "KawiChatGPTProcess using OpenAI GPT models."
 
@@ -931,7 +925,7 @@ class KawiChatGPTProcess(ChatGPTProcess):
 
 
 class KhazarChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zkz"
+    language_code: Optional[str] = "zkz"
     description: str = "Default process for ChatGPT for the Khazar language."
     authorship_info: str = "KhazarChatGPTProcess using OpenAI GPT models."
 
@@ -941,7 +935,7 @@ class KhazarChatGPTProcess(ChatGPTProcess):
 
 
 class KhorezmianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zkh"
+    language_code: Optional[str] = "zkh"
     description: str = "Default process for ChatGPT for the Khorezmian language."
     authorship_info: str = "KhorezmianChatGPTProcess using OpenAI GPT models."
 
@@ -951,7 +945,7 @@ class KhorezmianChatGPTProcess(ChatGPTProcess):
 
 
 class KhotaneseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "kho"
+    language_code: Optional[str] = "kho"
     description: str = "Default process for ChatGPT for the Khotanese language."
     authorship_info: str = "KhotaneseChatGPTProcess using OpenAI GPT models."
 
@@ -961,7 +955,7 @@ class KhotaneseChatGPTProcess(ChatGPTProcess):
 
 
 class KhwarezmianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xco"
+    language_code: Optional[str] = "xco"
     description: str = "Default process for ChatGPT for the Khwarezmian language."
     authorship_info: str = "KhwarezmianChatGPTProcess using OpenAI GPT models."
 
@@ -971,7 +965,7 @@ class KhwarezmianChatGPTProcess(ChatGPTProcess):
 
 
 class KitanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zkt"
+    language_code: Optional[str] = "zkt"
     description: str = "Default process for ChatGPT for the Kitan language."
     authorship_info: str = "KitanChatGPTProcess using OpenAI GPT models."
 
@@ -981,7 +975,7 @@ class KitanChatGPTProcess(ChatGPTProcess):
 
 
 class KoguryoChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zkg"
+    language_code: Optional[str] = "zkg"
     description: str = "Default process for ChatGPT for the Koguryo language."
     authorship_info: str = "KoguryoChatGPTProcess using OpenAI GPT models."
 
@@ -991,7 +985,7 @@ class KoguryoChatGPTProcess(ChatGPTProcess):
 
 
 class LangobardicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "lng"
+    language_code: Optional[str] = "lng"
     description: str = "Default process for ChatGPT for the Langobardic language."
     authorship_info: str = "LangobardicChatGPTProcess using OpenAI GPT models."
 
@@ -1001,7 +995,7 @@ class LangobardicChatGPTProcess(ChatGPTProcess):
 
 
 class LatinChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "lat"
+    language_code: Optional[str] = "lat"
     description: str = "Default process for ChatGPT for the Latin language."
     authorship_info: str = "LatinChatGPTProcess using OpenAI GPT models."
 
@@ -1011,7 +1005,7 @@ class LatinChatGPTProcess(ChatGPTProcess):
 
 
 class LemnianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xle"
+    language_code: Optional[str] = "xle"
     description: str = "Default process for ChatGPT for the Lemnian language."
     authorship_info: str = "LemnianChatGPTProcess using OpenAI GPT models."
 
@@ -1021,7 +1015,7 @@ class LemnianChatGPTProcess(ChatGPTProcess):
 
 
 class LeponticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xlp"
+    language_code: Optional[str] = "xlp"
     description: str = "Default process for ChatGPT for the Lepontic language."
     authorship_info: str = "LeponticChatGPTProcess using OpenAI GPT models."
 
@@ -1031,7 +1025,7 @@ class LeponticChatGPTProcess(ChatGPTProcess):
 
 
 class LiburnianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xli"
+    language_code: Optional[str] = "xli"
     description: str = "Default process for ChatGPT for the Liburnian language."
     authorship_info: str = "LiburnianChatGPTProcess using OpenAI GPT models."
 
@@ -1041,7 +1035,7 @@ class LiburnianChatGPTProcess(ChatGPTProcess):
 
 
 class LinearAChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "lab"
+    language_code: Optional[str] = "lab"
     description: str = "Default process for ChatGPT for the Linear A language."
     authorship_info: str = "Linear AChatGPTProcess using OpenAI GPT models."
 
@@ -1051,7 +1045,7 @@ class LinearAChatGPTProcess(ChatGPTProcess):
 
 
 class LiteraryChineseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "lzh"
+    language_code: Optional[str] = "lzh"
     description: str = "Default process for ChatGPT for the Literary Chinese language."
     authorship_info: str = "Literary ChineseChatGPTProcess using OpenAI GPT models."
 
@@ -1061,7 +1055,7 @@ class LiteraryChineseChatGPTProcess(ChatGPTProcess):
 
 
 class LusitanianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xls"
+    language_code: Optional[str] = "xls"
     description: str = "Default process for ChatGPT for the Lusitanian language."
     authorship_info: str = "LusitanianChatGPTProcess using OpenAI GPT models."
 
@@ -1071,7 +1065,7 @@ class LusitanianChatGPTProcess(ChatGPTProcess):
 
 
 class LycianAChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xlc"
+    language_code: Optional[str] = "xlc"
     description: str = "Default process for ChatGPT for the Lycian A language."
     authorship_info: str = "Lycian AChatGPTProcess using OpenAI GPT models."
 
@@ -1081,7 +1075,7 @@ class LycianAChatGPTProcess(ChatGPTProcess):
 
 
 class LydianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xld"
+    language_code: Optional[str] = "xld"
     description: str = "Default process for ChatGPT for the Lydian language."
     authorship_info: str = "LydianChatGPTProcess using OpenAI GPT models."
 
@@ -1091,7 +1085,7 @@ class LydianChatGPTProcess(ChatGPTProcess):
 
 
 class MaekChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "hmk"
+    language_code: Optional[str] = "hmk"
     description: str = "Default process for ChatGPT for the Maek language."
     authorship_info: str = "MaekChatGPTProcess using OpenAI GPT models."
 
@@ -1101,7 +1095,7 @@ class MaekChatGPTProcess(ChatGPTProcess):
 
 
 class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pmh"
+    language_code: Optional[str] = "pmh"
     description: str = (
         "Default process for ChatGPT for the Maharastri Prakrit language."
     )
@@ -1113,7 +1107,7 @@ class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
 
 
 class MalayalamChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "mal"
+    language_code: Optional[str] = "mal"
     description: str = "Default process for ChatGPT for the Malayalam language."
     authorship_info: str = "MalayalamChatGPTProcess using OpenAI GPT models."
 
@@ -1123,7 +1117,7 @@ class MalayalamChatGPTProcess(ChatGPTProcess):
 
 
 class ManichaeanMiddlePersianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xmn"
+    language_code: Optional[str] = "xmn"
     description: str = (
         "Default process for ChatGPT for the Manichaean Middle Persian language."
     )
@@ -1137,7 +1131,7 @@ class ManichaeanMiddlePersianChatGPTProcess(ChatGPTProcess):
 
 
 class MarrucinianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "umc"
+    language_code: Optional[str] = "umc"
     description: str = "Default process for ChatGPT for the Marrucinian language."
     authorship_info: str = "MarrucinianChatGPTProcess using OpenAI GPT models."
 
@@ -1147,7 +1141,7 @@ class MarrucinianChatGPTProcess(ChatGPTProcess):
 
 
 class MarsianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ims"
+    language_code: Optional[str] = "ims"
     description: str = "Default process for ChatGPT for the Marsian language."
     authorship_info: str = "MarsianChatGPTProcess using OpenAI GPT models."
 
@@ -1157,7 +1151,7 @@ class MarsianChatGPTProcess(ChatGPTProcess):
 
 
 class MedianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xme"
+    language_code: Optional[str] = "xme"
     description: str = "Default process for ChatGPT for the Median language."
     authorship_info: str = "MedianChatGPTProcess using OpenAI GPT models."
 
@@ -1167,7 +1161,7 @@ class MedianChatGPTProcess(ChatGPTProcess):
 
 
 class MeroiticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xmr"
+    language_code: Optional[str] = "xmr"
     description: str = "Default process for ChatGPT for the Meroitic language."
     authorship_info: str = "MeroiticChatGPTProcess using OpenAI GPT models."
 
@@ -1177,7 +1171,7 @@ class MeroiticChatGPTProcess(ChatGPTProcess):
 
 
 class MessapicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "cms"
+    language_code: Optional[str] = "cms"
     description: str = "Default process for ChatGPT for the Messapic language."
     authorship_info: str = "MessapicChatGPTProcess using OpenAI GPT models."
 
@@ -1187,7 +1181,7 @@ class MessapicChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleArmenianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "axm"
+    language_code: Optional[str] = "axm"
     description: str = "Default process for ChatGPT for the Middle Armenian language."
     authorship_info: str = "Middle ArmenianChatGPTProcess using OpenAI GPT models."
 
@@ -1197,7 +1191,7 @@ class MiddleArmenianChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleBretonChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xbm"
+    language_code: Optional[str] = "xbm"
     description: str = "Default process for ChatGPT for the Middle Breton language."
     authorship_info: str = "Middle BretonChatGPTProcess using OpenAI GPT models."
 
@@ -1207,7 +1201,7 @@ class MiddleBretonChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleChineseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ltc"
+    language_code: Optional[str] = "ltc"
     description: str = "Default process for ChatGPT for the Middle Chinese language."
     authorship_info: str = "Middle ChineseChatGPTProcess using OpenAI GPT models."
 
@@ -1217,7 +1211,7 @@ class MiddleChineseChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleCornishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "cnx"
+    language_code: Optional[str] = "cnx"
     description: str = "Default process for ChatGPT for the Middle Cornish language."
     authorship_info: str = "Middle CornishChatGPTProcess using OpenAI GPT models."
 
@@ -1227,7 +1221,7 @@ class MiddleCornishChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleDutchChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "dum"
+    language_code: Optional[str] = "dum"
     description: str = "Default process for ChatGPT for the Middle Dutch language."
     authorship_info: str = "Middle DutchChatGPTProcess using OpenAI GPT models."
 
@@ -1237,7 +1231,7 @@ class MiddleDutchChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleEnglishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "enm"
+    language_code: Optional[str] = "enm"
     description: str = "Default process for ChatGPT for the Middle English language."
     authorship_info: str = "Middle EnglishChatGPTProcess using OpenAI GPT models."
 
@@ -1247,7 +1241,7 @@ class MiddleEnglishChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleFrenchChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "frm"
+    language_code: Optional[str] = "frm"
     description: str = "Default process for ChatGPT for the Middle French language."
     authorship_info: str = "Middle FrenchChatGPTProcess using OpenAI GPT models."
 
@@ -1257,7 +1251,7 @@ class MiddleFrenchChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleHighGermanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "gmh"
+    language_code: Optional[str] = "gmh"
     description: str = (
         "Default process for ChatGPT for the Middle High German language."
     )
@@ -1269,7 +1263,7 @@ class MiddleHighGermanChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleHittiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "htx"
+    language_code: Optional[str] = "htx"
     description: str = "Default process for ChatGPT for the Middle Hittite language."
     authorship_info: str = "Middle HittiteChatGPTProcess using OpenAI GPT models."
 
@@ -1279,7 +1273,7 @@ class MiddleHittiteChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleIrishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "mga"
+    language_code: Optional[str] = "mga"
     description: str = (
         "Default process for ChatGPT for the Middle Irish (10-12th century) language."
     )
@@ -1293,7 +1287,7 @@ class MiddleIrishChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleKoreanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "okm"
+    language_code: Optional[str] = "okm"
     description: str = (
         "Default process for ChatGPT for the Middle Korean (10th-16th cent.) language."
     )
@@ -1307,7 +1301,7 @@ class MiddleKoreanChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "gml"
+    language_code: Optional[str] = "gml"
     description: str = "Default process for ChatGPT for the Middle Low German language."
     authorship_info: str = "Middle Low GermanChatGPTProcess using OpenAI GPT models."
 
@@ -1317,7 +1311,7 @@ class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleMongolChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xng"
+    language_code: Optional[str] = "xng"
     description: str = "Default process for ChatGPT for the Middle Mongol language."
     authorship_info: str = "Middle MongolChatGPTProcess using OpenAI GPT models."
 
@@ -1327,7 +1321,7 @@ class MiddleMongolChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleNewarChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nwx"
+    language_code: Optional[str] = "nwx"
     description: str = "Default process for ChatGPT for the Middle Newar language."
     authorship_info: str = "Middle NewarChatGPTProcess using OpenAI GPT models."
 
@@ -1337,7 +1331,7 @@ class MiddleNewarChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleWelshChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "wlm"
+    language_code: Optional[str] = "wlm"
     description: str = "Default process for ChatGPT for the Middle Welsh language."
     authorship_info: str = "Middle WelshChatGPTProcess using OpenAI GPT models."
 
@@ -1347,7 +1341,7 @@ class MiddleWelshChatGPTProcess(ChatGPTProcess):
 
 
 class MilyanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "imy"
+    language_code: Optional[str] = "imy"
     description: str = "Default process for ChatGPT for the Milyan language."
     authorship_info: str = "MilyanChatGPTProcess using OpenAI GPT models."
 
@@ -1357,7 +1351,7 @@ class MilyanChatGPTProcess(ChatGPTProcess):
 
 
 class MinaeanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "inm"
+    language_code: Optional[str] = "inm"
     description: str = "Default process for ChatGPT for the Minaean language."
     authorship_info: str = "MinaeanChatGPTProcess using OpenAI GPT models."
 
@@ -1367,7 +1361,7 @@ class MinaeanChatGPTProcess(ChatGPTProcess):
 
 
 class MinoanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "omn"
+    language_code: Optional[str] = "omn"
     description: str = "Default process for ChatGPT for the Minoan language."
     authorship_info: str = "MinoanChatGPTProcess using OpenAI GPT models."
 
@@ -1377,7 +1371,7 @@ class MinoanChatGPTProcess(ChatGPTProcess):
 
 
 class MoabiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "obm"
+    language_code: Optional[str] = "obm"
     description: str = "Default process for ChatGPT for the Moabite language."
     authorship_info: str = "MoabiteChatGPTProcess using OpenAI GPT models."
 
@@ -1387,7 +1381,7 @@ class MoabiteChatGPTProcess(ChatGPTProcess):
 
 
 class MozarabicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "mxi"
+    language_code: Optional[str] = "mxi"
     description: str = "Default process for ChatGPT for the Mozarabic language."
     authorship_info: str = "MozarabicChatGPTProcess using OpenAI GPT models."
 
@@ -1397,7 +1391,7 @@ class MozarabicChatGPTProcess(ChatGPTProcess):
 
 
 class MycenaeanGreekChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "gmy"
+    language_code: Optional[str] = "gmy"
     description: str = "Default process for ChatGPT for the Mycenaean Greek language."
     authorship_info: str = "Mycenaean GreekChatGPTProcess using OpenAI GPT models."
 
@@ -1407,7 +1401,7 @@ class MycenaeanGreekChatGPTProcess(ChatGPTProcess):
 
 
 class MysianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "yms"
+    language_code: Optional[str] = "yms"
     description: str = "Default process for ChatGPT for the Mysian language."
     authorship_info: str = "MysianChatGPTProcess using OpenAI GPT models."
 
@@ -1417,7 +1411,7 @@ class MysianChatGPTProcess(ChatGPTProcess):
 
 
 class NadruvianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ndf"
+    language_code: Optional[str] = "ndf"
     description: str = "Default process for ChatGPT for the Nadruvian language."
     authorship_info: str = "NadruvianChatGPTProcess using OpenAI GPT models."
 
@@ -1427,7 +1421,7 @@ class NadruvianChatGPTProcess(ChatGPTProcess):
 
 
 class NeoHittiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nei"
+    language_code: Optional[str] = "nei"
     description: str = "Default process for ChatGPT for the Neo-Hittite language."
     authorship_info: str = "Neo-HittiteChatGPTProcess using OpenAI GPT models."
 
@@ -1437,7 +1431,7 @@ class NeoHittiteChatGPTProcess(ChatGPTProcess):
 
 
 class NoricChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nrc"
+    language_code: Optional[str] = "nrc"
     description: str = "Default process for ChatGPT for the Noric language."
     authorship_info: str = "NoricChatGPTProcess using OpenAI GPT models."
 
@@ -1447,7 +1441,7 @@ class NoricChatGPTProcess(ChatGPTProcess):
 
 
 class NorthPiceneChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nrp"
+    language_code: Optional[str] = "nrp"
     description: str = "Default process for ChatGPT for the North Picene language."
     authorship_info: str = "North PiceneChatGPTProcess using OpenAI GPT models."
 
@@ -1457,7 +1451,7 @@ class NorthPiceneChatGPTProcess(ChatGPTProcess):
 
 
 class NumidianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "nxm"
+    language_code: Optional[str] = "nxm"
     description: str = "Default process for ChatGPT for the Numidian language."
     authorship_info: str = "NumidianChatGPTProcess using OpenAI GPT models."
 
@@ -1467,7 +1461,7 @@ class NumidianChatGPTProcess(ChatGPTProcess):
 
 
 class OdiaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ory"
+    language_code: Optional[str] = "ory"
     description: str = "Default process for ChatGPT for the Odia language."
     authorship_info: str = "OdiaChatGPTProcess using OpenAI GPT models."
 
@@ -1477,7 +1471,7 @@ class OdiaChatGPTProcess(ChatGPTProcess):
 
 
 class OfficialAramaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "arc"
+    language_code: Optional[str] = "arc"
     description: str = (
         "Default process for ChatGPT for the Official Aramaic (700-300 BCE) language."
     )
@@ -1491,7 +1485,7 @@ class OfficialAramaicChatGPTProcess(ChatGPTProcess):
 
 
 class OldAramaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oar"
+    language_code: Optional[str] = "oar"
     description: str = (
         "Default process for ChatGPT for the Old Aramaic (up to 700 BCE) language."
     )
@@ -1505,7 +1499,7 @@ class OldAramaicChatGPTProcess(ChatGPTProcess):
 
 
 class OldAvarChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oav"
+    language_code: Optional[str] = "oav"
     description: str = "Default process for ChatGPT for the Old Avar language."
     authorship_info: str = "Old AvarChatGPTProcess using OpenAI GPT models."
 
@@ -1515,7 +1509,7 @@ class OldAvarChatGPTProcess(ChatGPTProcess):
 
 
 class OldBretonChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "obt"
+    language_code: Optional[str] = "obt"
     description: str = "Default process for ChatGPT for the Old Breton language."
     authorship_info: str = "Old BretonChatGPTProcess using OpenAI GPT models."
 
@@ -1525,7 +1519,7 @@ class OldBretonChatGPTProcess(ChatGPTProcess):
 
 
 class OldBurmeseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "obr"
+    language_code: Optional[str] = "obr"
     description: str = "Default process for ChatGPT for the Old Burmese language."
     authorship_info: str = "Old BurmeseChatGPTProcess using OpenAI GPT models."
 
@@ -1535,7 +1529,7 @@ class OldBurmeseChatGPTProcess(ChatGPTProcess):
 
 
 class OldChineseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "och"
+    language_code: Optional[str] = "och"
     description: str = "Default process for ChatGPT for the Old Chinese language."
     authorship_info: str = "Old ChineseChatGPTProcess using OpenAI GPT models."
 
@@ -1545,7 +1539,7 @@ class OldChineseChatGPTProcess(ChatGPTProcess):
 
 
 class OldCornishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oco"
+    language_code: Optional[str] = "oco"
     description: str = "Default process for ChatGPT for the Old Cornish language."
     authorship_info: str = "Old CornishChatGPTProcess using OpenAI GPT models."
 
@@ -1555,7 +1549,7 @@ class OldCornishChatGPTProcess(ChatGPTProcess):
 
 
 class OldDutchOldFrankishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "odt"
+    language_code: Optional[str] = "odt"
     description: str = (
         "Default process for ChatGPT for the Old Dutch-Old Frankish language."
     )
@@ -1569,7 +1563,7 @@ class OldDutchOldFrankishChatGPTProcess(ChatGPTProcess):
 
 
 class OldEnglishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ang"
+    language_code: Optional[str] = "ang"
     description: str = (
         "Default process for ChatGPT for the Old English (ca. 450-1100) language."
     )
@@ -1583,7 +1577,7 @@ class OldEnglishChatGPTProcess(ChatGPTProcess):
 
 
 class OldFrankishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "frk"
+    language_code: Optional[str] = "frk"
     description: str = "Default process for ChatGPT for the Old Frankish language."
     authorship_info: str = "Old FrankishChatGPTProcess using OpenAI GPT models."
 
@@ -1593,7 +1587,7 @@ class OldFrankishChatGPTProcess(ChatGPTProcess):
 
 
 class OldFrenchChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "fro"
+    language_code: Optional[str] = "fro"
     description: str = (
         "Default process for ChatGPT for the Old French (842-ca. 1400) language."
     )
@@ -1607,7 +1601,7 @@ class OldFrenchChatGPTProcess(ChatGPTProcess):
 
 
 class OldFrisianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ofs"
+    language_code: Optional[str] = "ofs"
     description: str = "Default process for ChatGPT for the Old Frisian language."
     authorship_info: str = "Old FrisianChatGPTProcess using OpenAI GPT models."
 
@@ -1617,7 +1611,7 @@ class OldFrisianChatGPTProcess(ChatGPTProcess):
 
 
 class OldGeorgianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oge"
+    language_code: Optional[str] = "oge"
     description: str = "Default process for ChatGPT for the Old Georgian language."
     authorship_info: str = "Old GeorgianChatGPTProcess using OpenAI GPT models."
 
@@ -1627,7 +1621,7 @@ class OldGeorgianChatGPTProcess(ChatGPTProcess):
 
 
 class OldHighGermanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "goh"
+    language_code: Optional[str] = "goh"
     description: str = (
         "Default process for ChatGPT for the Old High German (ca. 750-1050) language."
     )
@@ -1641,7 +1635,7 @@ class OldHighGermanChatGPTProcess(ChatGPTProcess):
 
 
 class OldHittiteChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oht"
+    language_code: Optional[str] = "oht"
     description: str = "Default process for ChatGPT for the Old Hittite language."
     authorship_info: str = "Old HittiteChatGPTProcess using OpenAI GPT models."
 
@@ -1651,7 +1645,7 @@ class OldHittiteChatGPTProcess(ChatGPTProcess):
 
 
 class OldHungarianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ohu"
+    language_code: Optional[str] = "ohu"
     description: str = "Default process for ChatGPT for the Old Hungarian language."
     authorship_info: str = "Old HungarianChatGPTProcess using OpenAI GPT models."
 
@@ -1661,7 +1655,7 @@ class OldHungarianChatGPTProcess(ChatGPTProcess):
 
 
 class OldJapaneseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ojp"
+    language_code: Optional[str] = "ojp"
     description: str = "Default process for ChatGPT for the Old Japanese language."
     authorship_info: str = "Old JapaneseChatGPTProcess using OpenAI GPT models."
 
@@ -1671,7 +1665,7 @@ class OldJapaneseChatGPTProcess(ChatGPTProcess):
 
 
 class OldKoreanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oko"
+    language_code: Optional[str] = "oko"
     description: str = (
         "Default process for ChatGPT for the Old Korean (3rd-9th cent.) language."
     )
@@ -1685,7 +1679,7 @@ class OldKoreanChatGPTProcess(ChatGPTProcess):
 
 
 class OldLithuanianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "olt"
+    language_code: Optional[str] = "olt"
     description: str = "Default process for ChatGPT for the Old Lithuanian language."
     authorship_info: str = "Old LithuanianChatGPTProcess using OpenAI GPT models."
 
@@ -1695,7 +1689,7 @@ class OldLithuanianChatGPTProcess(ChatGPTProcess):
 
 
 class OldManipuriChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "omp"
+    language_code: Optional[str] = "omp"
     description: str = "Default process for ChatGPT for the Old Manipuri language."
     authorship_info: str = "Old ManipuriChatGPTProcess using OpenAI GPT models."
 
@@ -1705,7 +1699,7 @@ class OldManipuriChatGPTProcess(ChatGPTProcess):
 
 
 class OldMarathiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "omr"
+    language_code: Optional[str] = "omr"
     description: str = "Default process for ChatGPT for the Old Marathi language."
     authorship_info: str = "Old MarathiChatGPTProcess using OpenAI GPT models."
 
@@ -1715,7 +1709,7 @@ class OldMarathiChatGPTProcess(ChatGPTProcess):
 
 
 class OldMonChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "omx"
+    language_code: Optional[str] = "omx"
     description: str = "Default process for ChatGPT for the Old Mon language."
     authorship_info: str = "Old MonChatGPTProcess using OpenAI GPT models."
 
@@ -1725,7 +1719,7 @@ class OldMonChatGPTProcess(ChatGPTProcess):
 
 
 class OldNorseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "non"
+    language_code: Optional[str] = "non"
     description: str = "Default process for ChatGPT for the Old Norse language."
     authorship_info: str = "Old NorseChatGPTProcess using OpenAI GPT models."
 
@@ -1735,7 +1729,7 @@ class OldNorseChatGPTProcess(ChatGPTProcess):
 
 
 class OldNubianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "onw"
+    language_code: Optional[str] = "onw"
     description: str = "Default process for ChatGPT for the Old Nubian language."
     authorship_info: str = "Old NubianChatGPTProcess using OpenAI GPT models."
 
@@ -1745,7 +1739,7 @@ class OldNubianChatGPTProcess(ChatGPTProcess):
 
 
 class OldOsseticChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oos"
+    language_code: Optional[str] = "oos"
     description: str = "Default process for ChatGPT for the Old Ossetic language."
     authorship_info: str = "Old OsseticChatGPTProcess using OpenAI GPT models."
 
@@ -1755,7 +1749,7 @@ class OldOsseticChatGPTProcess(ChatGPTProcess):
 
 
 class OldPersianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "peo"
+    language_code: Optional[str] = "peo"
     description: str = (
         "Default process for ChatGPT for the Old Persian (ca. 600-400 B.C.) language."
     )
@@ -1769,7 +1763,7 @@ class OldPersianChatGPTProcess(ChatGPTProcess):
 
 
 class OldProvençalChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pro"
+    language_code: Optional[str] = "pro"
     description: str = "Default process for ChatGPT for the Old Provençal language."
     authorship_info: str = "Old ProvençalChatGPTProcess using OpenAI GPT models."
 
@@ -1779,7 +1773,7 @@ class OldProvençalChatGPTProcess(ChatGPTProcess):
 
 
 class OldRussianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "orv"
+    language_code: Optional[str] = "orv"
     description: str = "Default process for ChatGPT for the Old Russian language."
     authorship_info: str = "Old RussianChatGPTProcess using OpenAI GPT models."
 
@@ -1789,7 +1783,7 @@ class OldRussianChatGPTProcess(ChatGPTProcess):
 
 
 class OldSaxonChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "osx"
+    language_code: Optional[str] = "osx"
     description: str = "Default process for ChatGPT for the Old Saxon language."
     authorship_info: str = "Old SaxonChatGPTProcess using OpenAI GPT models."
 
@@ -1799,7 +1793,7 @@ class OldSaxonChatGPTProcess(ChatGPTProcess):
 
 
 class OldSpanishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "osp"
+    language_code: Optional[str] = "osp"
     description: str = "Default process for ChatGPT for the Old Spanish language."
     authorship_info: str = "Old SpanishChatGPTProcess using OpenAI GPT models."
 
@@ -1809,7 +1803,7 @@ class OldSpanishChatGPTProcess(ChatGPTProcess):
 
 
 class OldTamilChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oty"
+    language_code: Optional[str] = "oty"
     description: str = "Default process for ChatGPT for the Old Tamil language."
     authorship_info: str = "Old TamilChatGPTProcess using OpenAI GPT models."
 
@@ -1819,7 +1813,7 @@ class OldTamilChatGPTProcess(ChatGPTProcess):
 
 
 class OldTibetanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "otb"
+    language_code: Optional[str] = "otb"
     description: str = "Default process for ChatGPT for the Old Tibetan language."
     authorship_info: str = "Old TibetanChatGPTProcess using OpenAI GPT models."
 
@@ -1829,7 +1823,7 @@ class OldTibetanChatGPTProcess(ChatGPTProcess):
 
 
 class OldTurkicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "oui"
+    language_code: Optional[str] = "oui"
     description: str = "Default process for ChatGPT for the Old Turkic language."
     authorship_info: str = "Old TurkicChatGPTProcess using OpenAI GPT models."
 
@@ -1839,7 +1833,7 @@ class OldTurkicChatGPTProcess(ChatGPTProcess):
 
 
 class OldTurkishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "otk"
+    language_code: Optional[str] = "otk"
     description: str = "Default process for ChatGPT for the Old Turkish language."
     authorship_info: str = "Old TurkishChatGPTProcess using OpenAI GPT models."
 
@@ -1849,7 +1843,7 @@ class OldTurkishChatGPTProcess(ChatGPTProcess):
 
 
 class OldMiddleWelshChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "owl"
+    language_code: Optional[str] = "owl"
     description: str = "Default process for ChatGPT for the Old-Middle Welsh language."
     authorship_info: str = "Old-Middle WelshChatGPTProcess using OpenAI GPT models."
 
@@ -1859,7 +1853,7 @@ class OldMiddleWelshChatGPTProcess(ChatGPTProcess):
 
 
 class OscanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "osc"
+    language_code: Optional[str] = "osc"
     description: str = "Default process for ChatGPT for the Oscan language."
     authorship_info: str = "OscanChatGPTProcess using OpenAI GPT models."
 
@@ -1869,7 +1863,7 @@ class OscanChatGPTProcess(ChatGPTProcess):
 
 
 class OttomanTurkishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ota"
+    language_code: Optional[str] = "ota"
     description: str = (
         "Default process for ChatGPT for the Ottoman Turkish (1500-1928) language."
     )
@@ -1883,7 +1877,7 @@ class OttomanTurkishChatGPTProcess(ChatGPTProcess):
 
 
 class PaekcheChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pkc"
+    language_code: Optional[str] = "pkc"
     description: str = "Default process for ChatGPT for the Paekche language."
     authorship_info: str = "PaekcheChatGPTProcess using OpenAI GPT models."
 
@@ -1893,7 +1887,7 @@ class PaekcheChatGPTProcess(ChatGPTProcess):
 
 
 class PaelignianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pgn"
+    language_code: Optional[str] = "pgn"
     description: str = "Default process for ChatGPT for the Paelignian language."
     authorship_info: str = "PaelignianChatGPTProcess using OpenAI GPT models."
 
@@ -1903,7 +1897,7 @@ class PaelignianChatGPTProcess(ChatGPTProcess):
 
 
 class PahlaviChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pal"
+    language_code: Optional[str] = "pal"
     description: str = "Default process for ChatGPT for the Pahlavi language."
     authorship_info: str = "PahlaviChatGPTProcess using OpenAI GPT models."
 
@@ -1913,7 +1907,7 @@ class PahlaviChatGPTProcess(ChatGPTProcess):
 
 
 class PalaicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xpa"
+    language_code: Optional[str] = "xpa"
     description: str = "Default process for ChatGPT for the Palaic language."
     authorship_info: str = "PalaicChatGPTProcess using OpenAI GPT models."
 
@@ -1923,7 +1917,7 @@ class PalaicChatGPTProcess(ChatGPTProcess):
 
 
 class PalauanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pau"
+    language_code: Optional[str] = "pau"
     description: str = "Default process for ChatGPT for the Palauan language."
     authorship_info: str = "PalauanChatGPTProcess using OpenAI GPT models."
 
@@ -1933,7 +1927,7 @@ class PalauanChatGPTProcess(ChatGPTProcess):
 
 
 class PaliChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pli"
+    language_code: Optional[str] = "pli"
     description: str = "Default process for ChatGPT for the Pali language."
     authorship_info: str = "PaliChatGPTProcess using OpenAI GPT models."
 
@@ -1943,7 +1937,7 @@ class PaliChatGPTProcess(ChatGPTProcess):
 
 
 class PampangaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pam"
+    language_code: Optional[str] = "pam"
     description: str = "Default process for ChatGPT for the Pampanga language."
     authorship_info: str = "PampangaChatGPTProcess using OpenAI GPT models."
 
@@ -1953,7 +1947,7 @@ class PampangaChatGPTProcess(ChatGPTProcess):
 
 
 class PashtoChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pus"
+    language_code: Optional[str] = "pus"
     description: str = "Default process for ChatGPT for the Pashto language."
     authorship_info: str = "PashtoChatGPTProcess using OpenAI GPT models."
 
@@ -1963,7 +1957,7 @@ class PashtoChatGPTProcess(ChatGPTProcess):
 
 
 class PersianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pes"
+    language_code: Optional[str] = "pes"
     description: str = "Default process for ChatGPT for the Persian language."
     authorship_info: str = "PersianChatGPTProcess using OpenAI GPT models."
 
@@ -1973,7 +1967,7 @@ class PersianChatGPTProcess(ChatGPTProcess):
 
 
 class PhoenicianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "phn"
+    language_code: Optional[str] = "phn"
     description: str = "Default process for ChatGPT for the Phoenician language."
     authorship_info: str = "PhoenicianChatGPTProcess using OpenAI GPT models."
 
@@ -1983,7 +1977,7 @@ class PhoenicianChatGPTProcess(ChatGPTProcess):
 
 
 class PicardChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pic"
+    language_code: Optional[str] = "pic"
     description: str = "Default process for ChatGPT for the Picard language."
     authorship_info: str = "PicardChatGPTProcess using OpenAI GPT models."
 
@@ -1993,7 +1987,7 @@ class PicardChatGPTProcess(ChatGPTProcess):
 
 
 class PolishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pol"
+    language_code: Optional[str] = "pol"
     description: str = "Default process for ChatGPT for the Polish language."
     authorship_info: str = "PolishChatGPTProcess using OpenAI GPT models."
 
@@ -2003,7 +1997,7 @@ class PolishChatGPTProcess(ChatGPTProcess):
 
 
 class PortugueseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "por"
+    language_code: Optional[str] = "por"
     description: str = "Default process for ChatGPT for the Portuguese language."
     authorship_info: str = "PortugueseChatGPTProcess using OpenAI GPT models."
 
@@ -2013,7 +2007,7 @@ class PortugueseChatGPTProcess(ChatGPTProcess):
 
 
 class ProvençalChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pro"
+    language_code: Optional[str] = "pro"
     description: str = "Default process for ChatGPT for the Provençal language."
     authorship_info: str = "ProvençalChatGPTProcess using OpenAI GPT models."
 
@@ -2023,7 +2017,7 @@ class ProvençalChatGPTProcess(ChatGPTProcess):
 
 
 class PunjabiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "pan"
+    language_code: Optional[str] = "pan"
     description: str = "Default process for ChatGPT for the Punjabi language."
     authorship_info: str = "PunjabiChatGPTProcess using OpenAI GPT models."
 
@@ -2033,7 +2027,7 @@ class PunjabiChatGPTProcess(ChatGPTProcess):
 
 
 class QashqaiChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xqs"
+    language_code: Optional[str] = "xqs"
     description: str = "Default process for ChatGPT for the Qashqai language."
     authorship_info: str = "QashqaiChatGPTProcess using OpenAI GPT models."
 
@@ -2043,7 +2037,7 @@ class QashqaiChatGPTProcess(ChatGPTProcess):
 
 
 class QuechuaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "que"
+    language_code: Optional[str] = "que"
     description: str = "Default process for ChatGPT for the Quechua language."
     authorship_info: str = "QuechuaChatGPTProcess using OpenAI GPT models."
 
@@ -2053,7 +2047,7 @@ class QuechuaChatGPTProcess(ChatGPTProcess):
 
 
 class RarotonganChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "rar"
+    language_code: Optional[str] = "rar"
     description: str = "Default process for ChatGPT for the Rarotongan language."
     authorship_info: str = "RarotonganChatGPTProcess using OpenAI GPT models."
 
@@ -2063,7 +2057,7 @@ class RarotonganChatGPTProcess(ChatGPTProcess):
 
 
 class RomanianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ron"
+    language_code: Optional[str] = "ron"
     description: str = "Default process for ChatGPT for the Romanian language."
     authorship_info: str = "RomanianChatGPTProcess using OpenAI GPT models."
 
@@ -2073,7 +2067,7 @@ class RomanianChatGPTProcess(ChatGPTProcess):
 
 
 class RussianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "rus"
+    language_code: Optional[str] = "rus"
     description: str = "Default process for ChatGPT for the Russian language."
     authorship_info: str = "RussianChatGPTProcess using OpenAI GPT models."
 
@@ -2083,7 +2077,7 @@ class RussianChatGPTProcess(ChatGPTProcess):
 
 
 class SardinianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "srd"
+    language_code: Optional[str] = "srd"
     description: str = "Default process for ChatGPT for the Sardinian language."
     authorship_info: str = "SardinianChatGPTProcess using OpenAI GPT models."
 
@@ -2093,7 +2087,7 @@ class SardinianChatGPTProcess(ChatGPTProcess):
 
 
 class SanskritChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "san"
+    language_code: Optional[str] = "san"
     description: str = "Default process for ChatGPT for the Sanskrit language."
     authorship_info: str = "SanskritChatGPTProcess using OpenAI GPT models."
 
@@ -2103,7 +2097,7 @@ class SanskritChatGPTProcess(ChatGPTProcess):
 
 
 class ScottishGaelicChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "gla"
+    language_code: Optional[str] = "gla"
     description: str = "Default process for ChatGPT for the Scottish Gaelic language."
     authorship_info: str = "Scottish GaelicChatGPTProcess using OpenAI GPT models."
 
@@ -2113,7 +2107,7 @@ class ScottishGaelicChatGPTProcess(ChatGPTProcess):
 
 
 class SerbianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "srp"
+    language_code: Optional[str] = "srp"
     description: str = "Default process for ChatGPT for the Serbian language."
     authorship_info: str = "SerbianChatGPTProcess using OpenAI GPT models."
 
@@ -2123,7 +2117,7 @@ class SerbianChatGPTProcess(ChatGPTProcess):
 
 
 class SicilianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "scn"
+    language_code: Optional[str] = "scn"
     description: str = "Default process for ChatGPT for the Sicilian language."
     authorship_info: str = "SicilianChatGPTProcess using OpenAI GPT models."
 
@@ -2133,7 +2127,7 @@ class SicilianChatGPTProcess(ChatGPTProcess):
 
 
 class SilesianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "szl"
+    language_code: Optional[str] = "szl"
     description: str = "Default process for ChatGPT for the Silesian language."
     authorship_info: str = "SilesianChatGPTProcess using OpenAI GPT models."
 
@@ -2143,7 +2137,7 @@ class SilesianChatGPTProcess(ChatGPTProcess):
 
 
 class SlovakChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "slk"
+    language_code: Optional[str] = "slk"
     description: str = "Default process for ChatGPT for the Slovak language."
     authorship_info: str = "SlovakChatGPTProcess using OpenAI GPT models."
 
@@ -2153,7 +2147,7 @@ class SlovakChatGPTProcess(ChatGPTProcess):
 
 
 class SlovenianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "slv"
+    language_code: Optional[str] = "slv"
     description: str = "Default process for ChatGPT for the Slovenian language."
     authorship_info: str = "SlovenianChatGPTProcess using OpenAI GPT models."
 
@@ -2163,7 +2157,7 @@ class SlovenianChatGPTProcess(ChatGPTProcess):
 
 
 class SomaliChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "som"
+    language_code: Optional[str] = "som"
     description: str = "Default process for ChatGPT for the Somali language."
     authorship_info: str = "SomaliChatGPTProcess using OpenAI GPT models."
 
@@ -2173,7 +2167,7 @@ class SomaliChatGPTProcess(ChatGPTProcess):
 
 
 class SorbianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "wen"
+    language_code: Optional[str] = "wen"
     description: str = "Default process for ChatGPT for the Sorbian language."
     authorship_info: str = "SorbianChatGPTProcess using OpenAI GPT models."
 
@@ -2183,7 +2177,7 @@ class SorbianChatGPTProcess(ChatGPTProcess):
 
 
 class SpanishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "spa"
+    language_code: Optional[str] = "spa"
     description: str = "Default process for ChatGPT for the Spanish language."
     authorship_info: str = "SpanishChatGPTProcess using OpenAI GPT models."
 
@@ -2193,7 +2187,7 @@ class SpanishChatGPTProcess(ChatGPTProcess):
 
 
 class SumerianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "sux"
+    language_code: Optional[str] = "sux"
     description: str = "Default process for ChatGPT for the Sumerian language."
     authorship_info: str = "SumerianChatGPTProcess using OpenAI GPT models."
 
@@ -2203,7 +2197,7 @@ class SumerianChatGPTProcess(ChatGPTProcess):
 
 
 class SwedishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "swe"
+    language_code: Optional[str] = "swe"
     description: str = "Default process for ChatGPT for the Swedish language."
     authorship_info: str = "SwedishChatGPTProcess using OpenAI GPT models."
 
@@ -2213,7 +2207,7 @@ class SwedishChatGPTProcess(ChatGPTProcess):
 
 
 class SyriacChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "syc"
+    language_code: Optional[str] = "syc"
     description: str = "Default process for ChatGPT for the Syriac language."
     authorship_info: str = "SyriacChatGPTProcess using OpenAI GPT models."
 
@@ -2223,7 +2217,7 @@ class SyriacChatGPTProcess(ChatGPTProcess):
 
 
 class TahitianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "tah"
+    language_code: Optional[str] = "tah"
     description: str = "Default process for ChatGPT for the Tahitian language."
     authorship_info: str = "TahitianChatGPTProcess using OpenAI GPT models."
 
@@ -2233,7 +2227,7 @@ class TahitianChatGPTProcess(ChatGPTProcess):
 
 
 class TigrinyaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "tir"
+    language_code: Optional[str] = "tir"
     description: str = "Default process for ChatGPT for the Tigrinya language."
     authorship_info: str = "TigrinyaChatGPTProcess using OpenAI GPT models."
 
@@ -2243,7 +2237,7 @@ class TigrinyaChatGPTProcess(ChatGPTProcess):
 
 
 class TibetanChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "bod"
+    language_code: Optional[str] = "bod"
     description: str = "Default process for ChatGPT for the Tibetan language."
     authorship_info: str = "TibetanChatGPTProcess using OpenAI GPT models."
 
@@ -2253,7 +2247,7 @@ class TibetanChatGPTProcess(ChatGPTProcess):
 
 
 class TigréChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "tig"
+    language_code: Optional[str] = "tig"
     description: str = "Default process for ChatGPT for the Tigré language."
     authorship_info: str = "TigréChatGPTProcess using OpenAI GPT models."
 
@@ -2263,7 +2257,7 @@ class TigréChatGPTProcess(ChatGPTProcess):
 
 
 class TokharianAChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xqa"
+    language_code: Optional[str] = "xqa"
     description: str = "Default process for ChatGPT for the Tokharian A language."
     authorship_info: str = "Tokharian AChatGPTProcess using OpenAI GPT models."
 
@@ -2273,7 +2267,7 @@ class TokharianAChatGPTProcess(ChatGPTProcess):
 
 
 class TokharianBChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xqb"
+    language_code: Optional[str] = "xqb"
     description: str = "Default process for ChatGPT for the Tokharian B language."
     authorship_info: str = "Tokharian BChatGPTProcess using OpenAI GPT models."
 
@@ -2283,7 +2277,7 @@ class TokharianBChatGPTProcess(ChatGPTProcess):
 
 
 class TurkishChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "tur"
+    language_code: Optional[str] = "tur"
     description: str = "Default process for ChatGPT for the Turkish language."
     authorship_info: str = "TurkishChatGPTProcess using OpenAI GPT models."
 
@@ -2293,7 +2287,7 @@ class TurkishChatGPTProcess(ChatGPTProcess):
 
 
 class UighurChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "uig"
+    language_code: Optional[str] = "uig"
     description: str = "Default process for ChatGPT for the Uighur language."
     authorship_info: str = "UighurChatGPTProcess using OpenAI GPT models."
 
@@ -2303,7 +2297,7 @@ class UighurChatGPTProcess(ChatGPTProcess):
 
 
 class UkrainianChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ukr"
+    language_code: Optional[str] = "ukr"
     description: str = "Default process for ChatGPT for the Ukrainian language."
     authorship_info: str = "UkrainianChatGPTProcess using OpenAI GPT models."
 
@@ -2313,7 +2307,7 @@ class UkrainianChatGPTProcess(ChatGPTProcess):
 
 
 class UrduChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "ud"
+    language_code: Optional[str] = "ud"
     description: str = "Default process for ChatGPT for the Urdu language."
     authorship_info: str = "UrduChatGPTProcess using OpenAI GPT models."
 
@@ -2323,7 +2317,7 @@ class UrduChatGPTProcess(ChatGPTProcess):
 
 
 class UzbekChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "uz"
+    language_code: Optional[str] = "uz"
     description: str = "Default process for ChatGPT for the Uzbek language."
     authorship_info: str = "UzbekChatGPTProcess using OpenAI GPT models."
 
@@ -2333,7 +2327,7 @@ class UzbekChatGPTProcess(ChatGPTProcess):
 
 
 class VietnameseChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "vie"
+    language_code: Optional[str] = "vie"
     description: str = "Default process for ChatGPT for the Vietnamese language."
     authorship_info: str = "VietnameseChatGPTProcess using OpenAI GPT models."
 
@@ -2343,7 +2337,7 @@ class VietnameseChatGPTProcess(ChatGPTProcess):
 
 
 class WelshChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "cy"
+    language_code: Optional[str] = "cy"
     description: str = "Default process for ChatGPT for the Welsh language."
     authorship_info: str = "WelshChatGPTProcess using OpenAI GPT models."
 
@@ -2353,7 +2347,7 @@ class WelshChatGPTProcess(ChatGPTProcess):
 
 
 class WolofChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "wo"
+    language_code: Optional[str] = "wo"
     description: str = "Default process for ChatGPT for the Wolof language."
     authorship_info: str = "WolofChatGPTProcess using OpenAI GPT models."
 
@@ -2363,7 +2357,7 @@ class WolofChatGPTProcess(ChatGPTProcess):
 
 
 class XhosaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "xh"
+    language_code: Optional[str] = "xh"
     description: str = "Default process for ChatGPT for the Xhosa language."
     authorship_info: str = "XhosaChatGPTProcess using OpenAI GPT models."
 
@@ -2373,7 +2367,7 @@ class XhosaChatGPTProcess(ChatGPTProcess):
 
 
 class YorubaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "yo"
+    language_code: Optional[str] = "yo"
     description: str = "Default process for ChatGPT for the Yoruba language."
     authorship_info: str = "YorubaChatGPTProcess using OpenAI GPT models."
 
@@ -2383,7 +2377,7 @@ class YorubaChatGPTProcess(ChatGPTProcess):
 
 
 class ZazaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zza"
+    language_code: Optional[str] = "zza"
     description: str = "Default process for ChatGPT for the Zaza language."
     authorship_info: str = "ZazaChatGPTProcess using OpenAI GPT models."
 
@@ -2393,7 +2387,7 @@ class ZazaChatGPTProcess(ChatGPTProcess):
 
 
 class ZenagaChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zen"
+    language_code: Optional[str] = "zen"
     description: str = "Default process for ChatGPT for the Zenaga language."
     authorship_info: str = "ZenagaChatGPTProcess using OpenAI GPT models."
 
@@ -2403,7 +2397,7 @@ class ZenagaChatGPTProcess(ChatGPTProcess):
 
 
 class ZuluChatGPTProcess(ChatGPTProcess):
-    language: Optional[str] = "zu"
+    language_code: Optional[str] = "zu"
     description: str = "Default process for ChatGPT for the Zulu language."
     authorship_info: str = "ZuluChatGPTProcess using OpenAI GPT models."
 
