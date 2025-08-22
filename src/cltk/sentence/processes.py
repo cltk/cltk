@@ -36,7 +36,7 @@ class SentenceSplittingProcess(Process):
             "non",
             "pli",
             "san",
-            "arb",
+            "arb-cla",
             "chu",
             "enm",
             "frm",
@@ -140,11 +140,10 @@ class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
     language_code: Optional[str] = "san"
 
 
-class ArabicSentenceSplittingProcess(SentenceSplittingProcess):
-    """Sentence splitting process for Arabic."""
+class ClassicalArabicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Arabic."""
 
-    # TODO: Rename to ClassicalArabic
-    language_code: Optional[str] = "arb"
+    language_code: Optional[str] = "arb-cla"
 
 
 class ChurchSlavonicSentenceSplittingProcess(SentenceSplittingProcess):

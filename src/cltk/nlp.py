@@ -178,7 +178,7 @@ class NLP:
         print(
             # "\n" +
             Fore.CYAN
-            + "⸎ To suppress these messages, instantiate NLP() with "
+            + "⸎ To suppress these messages, instantiate `NLP()` with `suppress_banner=True`"
             # + "\n"
             + Style.RESET_ALL
         )

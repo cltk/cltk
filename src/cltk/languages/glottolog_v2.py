@@ -3193,7 +3193,7 @@ LANGUAGES["arb"] = Language(
     type="",
     dialects=[
         Dialect(
-            language_code="arb-clas", name="Classical Arabic", glottolog_id="clas1259"
+            language_code="arb-cla", name="Classical Arabic", glottolog_id="clas1259"
         )
     ],
 )

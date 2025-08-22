@@ -42,8 +42,8 @@ from cltk.genai.processes import (
     AkkadianChatGPTProcess,
     AncientGreekChatGPTProcess,
     AncientHebrewChatGPTProcess,
-    ArabicChatGPTProcess,
     ChurchSlavicChatGPTProcess,
+    ClassicalArabicChatGPTProcess,
     CopticChatGPTProcess,
     DemoticChatGPTProcess,
     GothicChatGPTProcess,
@@ -77,8 +77,8 @@ from cltk.sentence.processes import (
     AkkadianSentenceSplittingProcess,
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
-    ArabicSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
+    ClassicalArabicSentenceSplittingProcess,
     CopticSentenceSplittingProcess,
     DemoticSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
@@ -164,16 +164,16 @@ class ArabicPipeline(Pipeline):
         logger.info("ArabicPipeline created.")
 
 
-class ArabicChatGPTPipeline(Pipeline):
+class ClassicalArabicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Arabic."""
 
     description: Optional[str] = "Pipeline for the Arabic language"
-    language: Optional[Language] = get_lang("arb")
+    language: Optional[Language] = get_lang("arb-cla")
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
-            ArabicSentenceSplittingProcess,
-            ArabicChatGPTProcess,
+            ClassicalArabicSentenceSplittingProcess,
+            ClassicalArabicChatGPTProcess,
         ]
     )
 

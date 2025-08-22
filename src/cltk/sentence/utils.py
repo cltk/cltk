@@ -27,7 +27,7 @@ def split_sentences_multilang(
         "non",
         "pli",
         "san",
-        "arb",
+        "arb-cla",
         "chu",
         "enm",
         "frm",
@@ -64,7 +64,7 @@ def split_sentences_multilang(
         "non": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
         "ang": r"([.!?])",  # Old English: period, exclamation, question
         "akk": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
-        "arb": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
+        "arb-cla": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
         "chu": r"([.!?])",  # Old Church Slavonic: period, exclamation, question
         "enm": r"([.!?])",  # Middle English: period, exclamation, question
         "frm": r"([.!?])",  # Middle French: period, exclamation, question

@@ -150,7 +150,7 @@ class AramaicEmbeddingsProcess(EmbeddingsProcess):
     """The default Aramaic embeddings algorithm."""
 
     description: str = "Default embeddings for Aramaic."
-    language: str = "arb"
+    language: str = "arc"
 
 
 class GothicEmbeddingsProcess(EmbeddingsProcess):
