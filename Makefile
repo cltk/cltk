@@ -16,16 +16,10 @@ freezeDependencies:
 	poetry lock
 
 install:
-	echo "Excluding ``[tool.poetry.dev-dependencies]`` in ``pyproject.toml``"
 	poetry install --only main
 
 installDev:
-	# Including ``[tool.poetry.dev-dependencies]`` in ``pyproject.toml``
 	poetry install
-
-installLegacy:
-	# For cltk v. 0.1
-	python setup.py install
 
 installPyPI:
 	poetry run pip install --pre cltk
