@@ -1,5 +1,6 @@
 """Utility functions for keeping track of languages."""
 
+from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Dialect, Language
 from cltk.core.exceptions import UnknownLanguageError
 from cltk.languages.glottolog_v2 import LANGUAGES
@@ -26,6 +27,20 @@ def get_lang(language_code: str) -> Language:
       ...
     cltk.core.exceptions.UnknownLanguageError: Unknown language code 'xxx'.
     """
+    # Rewrite incorrect codes
+    if language_code == "arb":
+        logger.warning(f"Rewriting language code '{language_code}' to 'arb-cla'.")
+        language_code = "arb-cla"
+        input()
+    elif language_code == "egy":
+        egy_dialects: str = ", ".join(
+            [f'"{d.language_code}" ({d.name})' for d in LANGUAGES["egy"].dialects]
+        )
+        msg: str = (
+            f"Language code 'egy' is ambiguous. Please choose a dialect: {egy_dialects}."
+        )
+        logger.error(msg)
+        raise UnknownLanguageError(msg)
     # Exact ISO code hit
     try:
         return LANGUAGES[language_code]

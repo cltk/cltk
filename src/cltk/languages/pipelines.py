@@ -150,7 +150,7 @@ class ArabicPipeline(Pipeline):
     """Default ``Pipeline`` for Arabic."""
 
     description: Optional[str] = "Pipeline for the Arabic language"
-    language: Optional[Language] = get_lang("arb")
+    language: Optional[Language] = get_lang("arb-cla")
     processes: Optional[list[Type[Process]]] = field(
         default_factory=lambda: [
             ArabicTokenizationProcess,
