@@ -59,7 +59,7 @@ def get_lang(language_code: str) -> Language:
 
 
 def find_iso_name(common_name: str) -> list[str]:
-    """Find codes by matching the human name. Returns ISO codes and dialect codes.
+    """Find codes by matching the human name. Returns ISO or Glottolog language and dialect codes.
 
     Matches against Language.name and Dialect.name (case-insensitive substring).
     """
