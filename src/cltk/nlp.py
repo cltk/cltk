@@ -3,7 +3,7 @@
 import inspect
 import os
 from threading import Lock
-from typing import Any, Dict, List, Optional, Type
+from typing import Any, Dict, List, Optional, Type, ClassVar
 
 from colorama import Fore, Style
 
@@ -61,16 +61,13 @@ iso_to_pipeline = {
 class NLP:
     """NLP class for default processing."""
 
-    process_objects: dict[Type[Process], Process] = dict()
-    process_lock: Lock = Lock()
-    language: Language
-    # language_code: str
-    pipeline: Pipeline
-    api_key: Optional[str]
+    # Shared across all NLP instances (class-level singletons)
+    process_objects: ClassVar[dict[Type[Process], Process]] = dict()
+    process_lock: ClassVar[Lock] = Lock()
 
     def __init__(
         self,
-        language_code: str,  # Called `language` for end user; elsewhere what codebase calls `language_code` (ISO or Glottolog)
+        language_code: str,
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
@@ -80,6 +77,7 @@ class NLP:
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
+        self.api_key: Optional[str] = None
         logger.debug(f"Pipeline selected: {self.pipeline}")
         if not suppress_banner:
             self._print_cltk_info()

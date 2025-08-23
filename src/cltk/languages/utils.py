@@ -65,16 +65,13 @@ def find_iso_name(common_name: str) -> list[str]:
     """
     q = common_name.lower()
     codes: list[str] = []
-
     # Match language names
     for iso_key, language_obj in LANGUAGES.items():
         if q in language_obj.name.lower():
             codes.append(f'{language_obj.name} ("{iso_key}")')
-
     # Match dialect names (return dialect codes, e.g., 'egy-dem')
     for iso_key, language_obj in LANGUAGES.items():
         for d in language_obj.dialects or []:
             if q in d.name.lower():
                 codes.append(f'{d.name} ("{d.language_code}")')
-
     return codes
