@@ -5,11 +5,12 @@ from functools import cached_property
 from types import FunctionType
 from typing import Any, ClassVar, Optional
 
-from cltk.core import CLTKException
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Process
-from cltk.sentence.non import OldNorseRegexSentenceTokenizer
-from cltk.sentence.sentence import SentenceTokenizer
+from cltk.core.exceptions import CLTKException
+
+# from cltk.sentence.non import OldNorseRegexSentenceTokenizer
+# from cltk.sentence.sentence import SentenceTokenizer
 from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]

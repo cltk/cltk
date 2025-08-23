@@ -6,7 +6,6 @@ https://universaldependencies.org/u/pos/index.html
 __license__ = "MIT License. See LICENSE."
 
 from pydantic import BaseModel, ValidationError, field_validator, model_validator
-from wasabi import msg
 
 from cltk.core.cltk_logger import logger
 

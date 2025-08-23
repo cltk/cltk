@@ -1,3 +1,3 @@
-"""Init for `cltk.utils`."""
+# """Init for `cltk.utils`."""
 
-from .utils import *
+# from .utils import *

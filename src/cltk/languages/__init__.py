@@ -1,3 +1,3 @@
 """Init for ``cltk.languages``."""
 
-from .glottolog import LANGUAGES
+# from .glottolog import LANGUAGES

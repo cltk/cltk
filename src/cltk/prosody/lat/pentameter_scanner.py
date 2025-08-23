@@ -29,7 +29,7 @@ class PentameterScanner(VerseScanner):
         syllabifier=Syllabifier(),
         optional_transform: bool = False,
         *args,
-        **kwargs
+        **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self.constants = constants

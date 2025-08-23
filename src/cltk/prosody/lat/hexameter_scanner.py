@@ -36,7 +36,7 @@ class HexameterScanner(VerseScanner):
         syllabifier=Syllabifier(),
         optional_transform=False,
         *args,
-        **kwargs
+        **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self.constants = constants

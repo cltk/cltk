@@ -12,16 +12,16 @@ Sentence tokenization for Old Norse is available using a regular-expression base
 7
 """
 
-__author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
+# __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
-from cltk.sentence.sentence import RegexSentenceTokenizer
+# from cltk.sentence.sentence import RegexSentenceTokenizer
 
-sent_end_chars = [".", "!", "?"]
+# sent_end_chars = [".", "!", "?"]
 
 
-class OldNorseRegexSentenceTokenizer(RegexSentenceTokenizer):
-    """``RegexSentenceTokenizer`` for Old Norse."""
+# class OldNorseRegexSentenceTokenizer(RegexSentenceTokenizer):
+#     """``RegexSentenceTokenizer`` for Old Norse."""
 
-    def __init__(self):
-        super().__init__(language="non", sent_end_chars=sent_end_chars)
+#     def __init__(self):
+#         super().__init__(language="non", sent_end_chars=sent_end_chars)
