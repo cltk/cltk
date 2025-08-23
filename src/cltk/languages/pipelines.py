@@ -1,43 +1,37 @@
-"""Default processing pipelines for languages. The purpose of
-these dataclasses is to represent:
+"""Processing pipelines for languages."""
 
-1. the types of NLP processes that the CLTK can do
-2. the order in which processes are to be executed
-3. specifying what downstream features a particular implemented process requires
-"""
-
-from dataclasses import dataclass, field
 from typing import Optional, Type
 
-from cltk.alphabet.processes import (
-    AncientGreekNormalizeProcess,
-    LatinNormalizeProcess,
+from pydantic import Field
+
+from cltk.alphabet.processes import (  # AncientGreekNormalizeProcess,; LatinNormalizeProcess,
     MultilingualNormalizeProcess,
 )
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Language, Pipeline, Process
-from cltk.dependency.processes import (
-    ChineseStanzaProcess,
-    CopticStanzaProcess,
-    GothicStanzaProcess,
-    GreekSpacyProcess,
-    GreekStanzaProcess,
-    LatinSpacyProcess,
-    LatinStanzaProcess,
-    OCSStanzaProcess,
-    OldFrenchStanzaProcess,
-)
-from cltk.embeddings.processes import (
-    ArabicEmbeddingsProcess,
-    AramaicEmbeddingsProcess,
-    GothicEmbeddingsProcess,
-    GreekEmbeddingsProcess,
-    LatinEmbeddingsProcess,
-    MiddleEnglishEmbeddingsProcess,
-    OldEnglishEmbeddingsProcess,
-    PaliEmbeddingsProcess,
-    SanskritEmbeddingsProcess,
-)
+
+# from cltk.dependency.processes import (
+#     ChineseStanzaProcess,
+#     CopticStanzaProcess,
+#     GothicStanzaProcess,
+#     GreekSpacyProcess,
+#     GreekStanzaProcess,
+#     LatinSpacyProcess,
+#     LatinStanzaProcess,
+#     OCSStanzaProcess,
+#     OldFrenchStanzaProcess,
+# )
+# from cltk.embeddings.processes import (
+#     ArabicEmbeddingsProcess,
+#     AramaicEmbeddingsProcess,
+#     GothicEmbeddingsProcess,
+#     GreekEmbeddingsProcess,
+#     LatinEmbeddingsProcess,
+#     MiddleEnglishEmbeddingsProcess,
+#     OldEnglishEmbeddingsProcess,
+#     PaliEmbeddingsProcess,
+#     SanskritEmbeddingsProcess,
+# )
 from cltk.genai.processes import (
     AkkadianChatGPTProcess,
     AncientGreekChatGPTProcess,
@@ -63,16 +57,17 @@ from cltk.genai.processes import (
     SanskritChatGPTProcess,
 )
 from cltk.languages.utils import get_lang
-from cltk.lemmatize.processes import (
-    GreekLemmatizationProcess,
-    LatinLemmatizationProcess,
-    OldEnglishLemmatizationProcess,
-    OldFrenchLemmatizationProcess,
-)
-from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
-from cltk.ner.processes import (  # GreekNERProcess,; LatinNERProcess,; OldEnglishNERProcess,
-    OldFrenchNERProcess,
-)
+
+# from cltk.lemmatize.processes import (
+#     GreekLemmatizationProcess,
+#     LatinLemmatizationProcess,
+#     OldEnglishLemmatizationProcess,
+#     OldFrenchLemmatizationProcess,
+# )
+# from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
+# from cltk.ner.processes import (  # GreekNERProcess,; LatinNERProcess,; OldEnglishNERProcess,
+#     OldFrenchNERProcess,
+# )
 from cltk.sentence.processes import (
     AkkadianSentenceSplittingProcess,
     AncientGreekSentenceSplittingProcess,
@@ -97,33 +92,34 @@ from cltk.sentence.processes import (
     PanjabiSentenceSplittingProcess,
     SanskritSentenceSplittingProcess,
 )
-from cltk.stops.processes import StopsProcess
-from cltk.tokenizers.processes import (
-    AkkadianTokenizationProcess,
-    ArabicTokenizationProcess,
-    GreekTokenizationProcess,
-    LatinTokenizationProcess,
-    MiddleEnglishTokenizationProcess,
-    MiddleFrenchTokenizationProcess,
-    MiddleHighGermanTokenizationProcess,
-    MultilingualTokenizationProcess,
-    OldFrenchTokenizationProcess,
-    OldNorseTokenizationProcess,
-)
+
+# from cltk.stops.processes import StopsProcess
+# from cltk.tokenizers.processes import (
+#     AkkadianTokenizationProcess,
+#     ArabicTokenizationProcess,
+#     GreekTokenizationProcess,
+#     LatinTokenizationProcess,
+#     MiddleEnglishTokenizationProcess,
+#     MiddleFrenchTokenizationProcess,
+#     MiddleHighGermanTokenizationProcess,
+#     MultilingualTokenizationProcess,
+#     OldFrenchTokenizationProcess,
+#     OldNorseTokenizationProcess,
+# )
 
 
-class AkkadianPipeline(Pipeline):
-    """Default ``Pipeline`` for Akkadian."""
+# class AkkadianPipeline(Pipeline):
+#     """Default ``Pipeline`` for Akkadian."""
 
-    description: Optional[str] = "Pipeline for the Akkadian language."
-    language: Optional[Language] = get_lang("akk")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [AkkadianTokenizationProcess, StopsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Akkadian language."
+#     language: Optional[Language] = get_lang("akk")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [AkkadianTokenizationProcess, StopsProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing AkkadianPipeline with language: {self.language}")
-        logger.info("AkkadianPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing AkkadianPipeline with language: {self.language}")
+#         logger.info("AkkadianPipeline created.")
 
 
 class AkkadianChatGPTPipeline(Pipeline):
@@ -131,7 +127,7 @@ class AkkadianChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Akkadian language"
     language: Optional[Language] = get_lang("akk")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AkkadianSentenceSplittingProcess,
@@ -146,22 +142,22 @@ class AkkadianChatGPTPipeline(Pipeline):
         logger.info("AkkadianChatGPTPipeline created.")
 
 
-class ArabicPipeline(Pipeline):
-    """Default ``Pipeline`` for Arabic."""
+# class ArabicPipeline(Pipeline):
+#     """Default ``Pipeline`` for Arabic."""
 
-    description: Optional[str] = "Pipeline for the Arabic language"
-    language: Optional[Language] = get_lang("arb-cla")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            ArabicTokenizationProcess,
-            ArabicEmbeddingsProcess,
-            StopsProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Arabic language"
+#     language: Optional[Language] = get_lang("arb-cla")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             ArabicTokenizationProcess,
+#             ArabicEmbeddingsProcess,
+#             StopsProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing ArabicPipeline with language: {self.language}")
-        logger.info("ArabicPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing ArabicPipeline with language: {self.language}")
+#         logger.info("ArabicPipeline created.")
 
 
 class ClassicalArabicChatGPTPipeline(Pipeline):
@@ -169,7 +165,7 @@ class ClassicalArabicChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Arabic language"
     language: Optional[Language] = get_lang("arb-cla")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ClassicalArabicSentenceSplittingProcess,
@@ -184,50 +180,50 @@ class ClassicalArabicChatGPTPipeline(Pipeline):
         logger.info("ArabicChatGPTPipeline created.")
 
 
-class AramaicPipeline(Pipeline):
-    """Default ``Pipeline`` for Aramaic."""
+# class AramaicPipeline(Pipeline):
+#     """Default ``Pipeline`` for Aramaic."""
 
-    description: Optional[str] = "Pipeline for the Aramaic language"
-    language: Optional[Language] = get_lang("arc")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
-            AramaicEmbeddingsProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Aramaic language"
+#     language: Optional[Language] = get_lang("arc")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             ArabicTokenizationProcess,  # Note: Using Arabic tokenizer for Aramaic. Is this OK?
+#             AramaicEmbeddingsProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing AramaicPipeline with language: {self.language}")
-        logger.info("AramaicPipeline created.")
-        logger.warning("Using Arabic tokenizer for Aramaic. Is this OK?")
-
-
-class ChinesePipeline(Pipeline):
-    """Default ``Pipeline`` for Classical Chinese."""
-
-    description: Optional[str] = "Pipeline for the Classical Chinese language"
-    language: Optional[Language] = get_lang("lzh")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [ChineseStanzaProcess]
-    )
-
-    def __post_init__(self):
-        logger.debug(f"Initializing ChinesePipeline with language: {self.language}")
-        logger.info("ChinesePipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing AramaicPipeline with language: {self.language}")
+#         logger.info("AramaicPipeline created.")
+#         logger.warning("Using Arabic tokenizer for Aramaic. Is this OK?")
 
 
-class CopticPipeline(Pipeline):
-    """Default ``Pipeline`` for Coptic."""
+# class ChinesePipeline(Pipeline):
+#     """Default ``Pipeline`` for Classical Chinese."""
 
-    description: Optional[str] = "Pipeline for the Coptic language"
-    language: Optional[Language] = get_lang("cop")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [CopticStanzaProcess, StopsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Classical Chinese language"
+#     language: Optional[Language] = get_lang("lzh")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [ChineseStanzaProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing CopticPipeline with language: {self.language}")
-        logger.info("CopticPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing ChinesePipeline with language: {self.language}")
+#         logger.info("ChinesePipeline created.")
+
+
+# class CopticPipeline(Pipeline):
+#     """Default ``Pipeline`` for Coptic."""
+
+#     description: Optional[str] = "Pipeline for the Coptic language"
+#     language: Optional[Language] = get_lang("cop")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [CopticStanzaProcess, StopsProcess]
+#     )
+
+#     def __post_init__(self):
+#         logger.debug(f"Initializing CopticPipeline with language: {self.language}")
+#         logger.info("CopticPipeline created.")
 
 
 class CopticChatGPTPipeline(Pipeline):
@@ -235,7 +231,7 @@ class CopticChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "ChatGPT Pipeline for the Coptic language."
     language: Optional[Language] = get_lang("cop")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             CopticSentenceSplittingProcess,
@@ -244,18 +240,18 @@ class CopticChatGPTPipeline(Pipeline):
     )
 
 
-class GothicPipeline(Pipeline):
-    """Default ``Pipeline`` for Gothic."""
+# class GothicPipeline(Pipeline):
+#     """Default ``Pipeline`` for Gothic."""
 
-    description: Optional[str] = "Pipeline for the Gothic language"
-    language: Optional[Language] = get_lang("got")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [GothicStanzaProcess, GothicEmbeddingsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Gothic language"
+#     language: Optional[Language] = get_lang("got")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [GothicStanzaProcess, GothicEmbeddingsProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing GothicPipeline with language: {self.language}")
-        logger.info("GothicPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing GothicPipeline with language: {self.language}")
+#         logger.info("GothicPipeline created.")
 
 
 class GothicChatGPTPipeline(Pipeline):
@@ -263,7 +259,7 @@ class GothicChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Gothic language"
     language: Optional[Language] = get_lang("got")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             GothicSentenceSplittingProcess,
@@ -278,23 +274,23 @@ class GothicChatGPTPipeline(Pipeline):
         logger.info("GothicChatGPTPipeline created.")
 
 
-class GreekPipeline(Pipeline):
-    """Default ``Pipeline`` for Ancient Greek."""
+# class GreekPipeline(Pipeline):
+#     """Default ``Pipeline`` for Ancient Greek."""
 
-    description: Optional[str] = "Pipeline for the Greek language"
-    language: Optional[Language] = get_lang("grc")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            AncientGreekNormalizeProcess,
-            GreekSpacyProcess,
-            GreekEmbeddingsProcess,
-            StopsProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Greek language"
+#     language: Optional[Language] = get_lang("grc")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             AncientGreekNormalizeProcess,
+#             GreekSpacyProcess,
+#             GreekEmbeddingsProcess,
+#             StopsProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing GreekPipeline with language: {self.language}")
-        logger.info("GreekPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing GreekPipeline with language: {self.language}")
+#         logger.info("GreekPipeline created.")
 
 
 class GreekChatGPTPipeline(Pipeline):
@@ -302,7 +298,7 @@ class GreekChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for Ancient Greek with ChatGPT annotation"
     language: Optional[Language] = get_lang("grc")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             # AncientGreekNormalizeProcess,
             MultilingualNormalizeProcess,
@@ -318,18 +314,18 @@ class GreekChatGPTPipeline(Pipeline):
         logger.info("GreekChatGPTPipeline created.")
 
 
-class HindiPipeline(Pipeline):
-    """Default ``Pipeline`` for Hindi."""
+# class HindiPipeline(Pipeline):
+#     """Default ``Pipeline`` for Hindi."""
 
-    description: Optional[str] = "Pipeline for the Hindi language."
-    language: Optional[Language] = get_lang("hin")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Hindi language."
+#     language: Optional[Language] = get_lang("hin")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing HindiPipeline with language: {self.language}")
-        logger.info("HindiPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing HindiPipeline with language: {self.language}")
+#         logger.info("HindiPipeline created.")
 
 
 class AncientHebrewChatGPTPipeline(Pipeline):
@@ -337,7 +333,7 @@ class AncientHebrewChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Ancient Hebrew language."
     language: Optional[Language] = get_lang("hbo")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             AncientHebrewSentenceSplittingProcess,
@@ -350,20 +346,20 @@ class AncientHebrewChatGPTPipeline(Pipeline):
         logger.info("LatinPipeline created.")
 
 
-class LatinPipeline(Pipeline):
-    """Default ``Pipeline`` for Latin."""
+# class LatinPipeline(Pipeline):
+#     """Default ``Pipeline`` for Latin."""
 
-    description: Optional[str] = "Pipeline for the Latin language."
-    language: Optional[Language] = get_lang("lat")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            LatinNormalizeProcess,
-            LatinStanzaProcess,
-            LatinEmbeddingsProcess,
-            StopsProcess,
-            LatinLexiconProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Latin language."
+#     language: Optional[Language] = get_lang("lat")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             LatinNormalizeProcess,
+#             LatinStanzaProcess,
+#             LatinEmbeddingsProcess,
+#             StopsProcess,
+#             LatinLexiconProcess,
+#         ]
+#     )
 
 
 class LatinChatGPTPipeline(Pipeline):
@@ -371,7 +367,7 @@ class LatinChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "ChatGPT Pipeline for the Latin language."
     language: Optional[Language] = get_lang("lat")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             # LatinNormalizeProcess,
             MultilingualNormalizeProcess,
@@ -385,40 +381,40 @@ class LatinChatGPTPipeline(Pipeline):
         logger.info("LatinPipeline created.")
 
 
-class MiddleHighGermanPipeline(Pipeline):
-    """Default ``Pipeline`` for Middle High German."""
+# class MiddleHighGermanPipeline(Pipeline):
+#     """Default ``Pipeline`` for Middle High German."""
 
-    description: Optional[str] = "Pipeline for the Middle High German language."
-    language: Optional[Language] = get_lang("gmh")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [MiddleHighGermanTokenizationProcess, StopsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Middle High German language."
+#     language: Optional[Language] = get_lang("gmh")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [MiddleHighGermanTokenizationProcess, StopsProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(
-            f"Initializing MiddleHighGermanPipeline with language: {self.language}"
-        )
-        logger.info("MiddleHighGermanPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(
+#             f"Initializing MiddleHighGermanPipeline with language: {self.language}"
+#         )
+#         logger.info("MiddleHighGermanPipeline created.")
 
 
-class MiddleEnglishPipeline(Pipeline):
-    """Default ``Pipeline`` for Middle English."""
+# class MiddleEnglishPipeline(Pipeline):
+#     """Default ``Pipeline`` for Middle English."""
 
-    description: Optional[str] = "Pipeline for the Middle English language"
-    language: Optional[Language] = get_lang("enm")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            MiddleEnglishTokenizationProcess,
-            StopsProcess,
-            MiddleEnglishEmbeddingsProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Middle English language"
+#     language: Optional[Language] = get_lang("enm")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             MiddleEnglishTokenizationProcess,
+#             StopsProcess,
+#             MiddleEnglishEmbeddingsProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(
-            f"Initializing MiddleEnglishPipeline with language: {self.language}"
-        )
-        logger.info("MiddleEnglishPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(
+#             f"Initializing MiddleEnglishPipeline with language: {self.language}"
+#         )
+#         logger.info("MiddleEnglishPipeline created.")
 
 
 class MiddleEnglishChatGPTPipeline(Pipeline):
@@ -426,7 +422,7 @@ class MiddleEnglishChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Middle English language"
     language: Optional[Language] = get_lang("enm")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleEnglishSentenceSplittingProcess,
@@ -441,20 +437,20 @@ class MiddleEnglishChatGPTPipeline(Pipeline):
         logger.info("MiddleEnglishChatGPTPipeline created.")
 
 
-class MiddleFrenchPipeline(Pipeline):
-    """Default ``Pipeline`` for Middle French."""
+# class MiddleFrenchPipeline(Pipeline):
+#     """Default ``Pipeline`` for Middle French."""
 
-    description: Optional[str] = "Pipeline for the Middle French language"
-    language: Optional[Language] = get_lang("frm")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [MiddleFrenchTokenizationProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Middle French language"
+#     language: Optional[Language] = get_lang("frm")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [MiddleFrenchTokenizationProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(
-            f"Initializing MiddleFrenchPipeline with language: {self.language}"
-        )
-        logger.info("MiddleFrenchPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(
+#             f"Initializing MiddleFrenchPipeline with language: {self.language}"
+#         )
+#         logger.info("MiddleFrenchPipeline created.")
 
 
 class MiddleFrenchChatGPTPipeline(Pipeline):
@@ -462,7 +458,7 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Middle French language"
     language: Optional[Language] = get_lang("frm")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleFrenchSentenceSplittingProcess,
@@ -477,18 +473,18 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
         logger.info("MiddleFrenchChatGPTPipeline created.")
 
 
-class OCSPipeline(Pipeline):
-    """Default ``Pipeline`` for Old Church Slavonic."""
+# class OCSPipeline(Pipeline):
+#     """Default ``Pipeline`` for Old Church Slavonic."""
 
-    description: Optional[str] = "Pipeline for the Old Church Slavonic language"
-    language: Optional[Language] = get_lang("chu")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [OCSStanzaProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Old Church Slavonic language"
+#     language: Optional[Language] = get_lang("chu")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [OCSStanzaProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing OCSPipeline with language: {self.language}")
-        logger.info("OCSPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing OCSPipeline with language: {self.language}")
+#         logger.info("OCSPipeline created.")
 
 
 class OfficialAramaicChatGPTPipeline(Pipeline):
@@ -496,7 +492,7 @@ class OfficialAramaicChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "ChatGPT Pipeline for the Official Aramaic language."
     language: Optional[Language] = get_lang("arc")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OfficialAramaicSentenceSplittingProcess,
@@ -510,7 +506,7 @@ class ChurchSlavonicChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Church Slavonic language"
     language: Optional[Language] = get_lang("chu")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             ChurchSlavonicSentenceSplittingProcess,
@@ -525,23 +521,23 @@ class ChurchSlavonicChatGPTPipeline(Pipeline):
         logger.info("ChurchSlavonicChatGPTPipeline")
 
 
-class OldEnglishPipeline(Pipeline):
-    """Default ``Pipeline`` for Old English."""
+# class OldEnglishPipeline(Pipeline):
+#     """Default ``Pipeline`` for Old English."""
 
-    description: Optional[str] = "Pipeline for the Old English language"
-    language: Optional[Language] = get_lang("ang")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            MultilingualTokenizationProcess,
-            OldEnglishLemmatizationProcess,
-            OldEnglishEmbeddingsProcess,
-            StopsProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Old English language"
+#     language: Optional[Language] = get_lang("ang")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             MultilingualTokenizationProcess,
+#             OldEnglishLemmatizationProcess,
+#             OldEnglishEmbeddingsProcess,
+#             StopsProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing OldEnglishPipeline with language: {self.language}")
-        logger.info("OldEnglishPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing OldEnglishPipeline with language: {self.language}")
+#         logger.info("OldEnglishPipeline created.")
 
 
 class OldEnglishChatGPTPipeline(Pipeline):
@@ -549,7 +545,7 @@ class OldEnglishChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Old English language"
     language: Optional[Language] = get_lang("ang")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldEnglishSentenceSplittingProcess,
@@ -564,22 +560,22 @@ class OldEnglishChatGPTPipeline(Pipeline):
         logger.info("OldEnglishChatGPTPipeline created.")
 
 
-class OldFrenchPipeline(Pipeline):
-    """Default ``Pipeline`` for Old French."""
+# class OldFrenchPipeline(Pipeline):
+#     """Default ``Pipeline`` for Old French."""
 
-    description: Optional[str] = "Pipeline for the Old French language"
-    language: Optional[Language] = get_lang("fro")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            OldFrenchStanzaProcess,
-            StopsProcess,
-            OldFrenchNERProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Old French language"
+#     language: Optional[Language] = get_lang("fro")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             OldFrenchStanzaProcess,
+#             StopsProcess,
+#             OldFrenchNERProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing OldFrenchPipeline with language: {self.language}")
-        logger.info("OldFrenchPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing OldFrenchPipeline with language: {self.language}")
+#         logger.info("OldFrenchPipeline created.")
 
 
 class OldFrenchChatGPTPipeline(Pipeline):
@@ -587,7 +583,7 @@ class OldFrenchChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Old French language"
     language: Optional[Language] = get_lang("fro")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldFrenchSentenceSplittingProcess,
@@ -602,26 +598,22 @@ class OldFrenchChatGPTPipeline(Pipeline):
         logger.info("OldFrenchChatGPTPipeline created.")
 
 
-# TODO: Add Old Marathi ("omr")
-# logger.critical("Old Marathi pipeline is not yet implemented.")
+# class OldNorsePipeline(Pipeline):
+#     """Default ``Pipeline`` for Old Norse."""
 
+#     description: Optional[str] = "Pipeline for the Old Norse language"
+#     language: Optional[Language] = get_lang("non")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             OldNorseTokenizationProcess,
+#             StopsProcess,
+#             OldNorseLexiconProcess,
+#         ]
+#     )
 
-class OldNorsePipeline(Pipeline):
-    """Default ``Pipeline`` for Old Norse."""
-
-    description: Optional[str] = "Pipeline for the Old Norse language"
-    language: Optional[Language] = get_lang("non")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            OldNorseTokenizationProcess,
-            StopsProcess,
-            OldNorseLexiconProcess,
-        ]
-    )
-
-    def __post_init__(self):
-        logger.debug(f"Initializing OldNorsePipeline with language: {self.language}")
-        logger.info("OldNorsePipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing OldNorsePipeline with language: {self.language}")
+#         logger.info("OldNorsePipeline created.")
 
 
 class OldNorseChatGPTPipeline(Pipeline):
@@ -629,7 +621,7 @@ class OldNorseChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Old Norse language"
     language: Optional[Language] = get_lang("non")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             OldNorseSentenceSplittingProcess,
@@ -644,18 +636,18 @@ class OldNorseChatGPTPipeline(Pipeline):
         logger.info("OldNorseChatGPTPipeline created.")
 
 
-class PaliPipeline(Pipeline):
-    """Default ``Pipeline`` for Pali."""
+# class PaliPipeline(Pipeline):
+#     """Default ``Pipeline`` for Pali."""
 
-    description: Optional[str] = "Pipeline for the Pali language"
-    language: Optional[Language] = get_lang("pli")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Pali language"
+#     language: Optional[Language] = get_lang("pli")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [MultilingualTokenizationProcess, PaliEmbeddingsProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing PaliPipeline with language: {self.language}")
-        logger.info("PaliPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing PaliPipeline with language: {self.language}")
+#         logger.info("PaliPipeline created.")
 
 
 class PaliChatGPTPipeline(Pipeline):
@@ -663,7 +655,7 @@ class PaliChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Pali language"
     language: Optional[Language] = get_lang("pli")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             PaliSentenceSplittingProcess,
@@ -676,36 +668,36 @@ class PaliChatGPTPipeline(Pipeline):
         logger.info("PaliPipeline created.")
 
 
-class PanjabiPipeline(Pipeline):
-    """Default ``Pipeline`` for Panjabi."""
+# class PanjabiPipeline(Pipeline):
+#     """Default ``Pipeline`` for Panjabi."""
 
-    description: Optional[str] = "Pipeline for the Panjabi language."
-    language: Optional[Language] = get_lang("pan")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
-    )
+#     description: Optional[str] = "Pipeline for the Panjabi language."
+#     language: Optional[Language] = get_lang("pan")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [MultilingualTokenizationProcess, StopsProcess]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing PanjabiPipeline with language: {self.language}")
-        logger.info("PanjabiPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing PanjabiPipeline with language: {self.language}")
+#         logger.info("PanjabiPipeline created.")
 
 
-class SanskritPipeline(Pipeline):
-    """Default ``Pipeline`` for Sanskrit."""
+# class SanskritPipeline(Pipeline):
+#     """Default ``Pipeline`` for Sanskrit."""
 
-    description: Optional[str] = "Pipeline for the Sanskrit language."
-    language: Optional[Language] = get_lang("san")
-    processes: Optional[list[Type[Process]]] = field(
-        default_factory=lambda: [
-            MultilingualTokenizationProcess,
-            SanskritEmbeddingsProcess,
-            StopsProcess,
-        ]
-    )
+#     description: Optional[str] = "Pipeline for the Sanskrit language."
+#     language: Optional[Language] = get_lang("san")
+#     processes: Optional[list[Type[Process]]] = Field(
+#         default_factory=lambda: [
+#             MultilingualTokenizationProcess,
+#             SanskritEmbeddingsProcess,
+#             StopsProcess,
+#         ]
+#     )
 
-    def __post_init__(self):
-        logger.debug(f"Initializing SanskritPipeline with language: {self.language}")
-        logger.info("SanskritPipeline created.")
+#     def __post_init__(self):
+#         logger.debug(f"Initializing SanskritPipeline with language: {self.language}")
+#         logger.info("SanskritPipeline created.")
 
 
 class SanskritChatGPTPipeline(Pipeline):
@@ -713,7 +705,7 @@ class SanskritChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Sanskrit language"
     language: Optional[Language] = get_lang("san")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             SanskritSentenceSplittingProcess,
@@ -733,7 +725,7 @@ class OldHighGermanChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Old High German language"
     language: Optional[Language] = get_lang("goh")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             # MiddleHighGermanTokenizationProcess,  # Substitute with OldHighGermanTokenizationProcess if available
@@ -754,7 +746,7 @@ class MiddleHighGermanChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Middle High German language"
     language: Optional[Language] = get_lang("gmh")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             MiddleHighGermanSentenceSplittingProcess,
@@ -774,7 +766,7 @@ class HindiChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Hindi language"
     language: Optional[Language] = get_lang("hin")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             HindiSentenceSplittingProcess,
@@ -796,7 +788,7 @@ class LiteraryChineseChatGPTPipeline(Pipeline):
         "Pipeline for the Literary (or Classical) Chinese language"
     )
     language: Optional[Language] = get_lang("lzh")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             LiteraryChineseSentenceSplittingProcess,
@@ -816,7 +808,7 @@ class PanjabiChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Panjabi language"
     language: Optional[Language] = get_lang("pan")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             PanjabiSentenceSplittingProcess,
@@ -836,7 +828,7 @@ class DemoticChatGPTPipeline(Pipeline):
 
     description: Optional[str] = "Pipeline for the Egyptian language"
     language: Optional[Language] = get_lang("egy-dem")
-    processes: Optional[list[Type[Process]]] = field(
+    processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
             DemoticSentenceSplittingProcess,
@@ -849,3 +841,51 @@ class DemoticChatGPTPipeline(Pipeline):
             f"Initializing EgyptianChatGPTPipeline with language: {self.language}"
         )
         logger.info("EgyptianChatGPTPipeline created.")
+
+
+MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
+    # "akk": AkkadianPipeline,
+    # "ang": OldEnglishPipeline,
+    # "arb": ArabicPipeline,
+    # "arc": AramaicPipeline,
+    # "chu": OCSPipeline,
+    # "cop": CopticPipeline,
+    # "enm": MiddleEnglishPipeline,
+    # "frm": MiddleFrenchPipeline,
+    # "fro": OldFrenchPipeline,
+    # "gmh": MiddleHighGermanPipeline,
+    # "got": GothicPipeline,
+    # "grc": GreekPipeline,
+    # "hin": HindiPipeline,
+    # "lat": LatinPipeline,
+    # "lzh": ChinesePipeline,
+    # "non": OldNorsePipeline,
+    # "pan": PanjabiPipeline,
+    # "pli": PaliPipeline,
+    # "san": SanskritPipeline,
+}
+
+MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
+    "akk": AkkadianChatGPTPipeline,
+    "ang": OldEnglishChatGPTPipeline,
+    "arc": OfficialAramaicChatGPTPipeline,
+    "cop": CopticChatGPTPipeline,
+    "grc": GreekChatGPTPipeline,
+    "hbo": AncientHebrewChatGPTPipeline,
+    "lat": LatinChatGPTPipeline,
+    "non": OldNorseChatGPTPipeline,
+    "pli": PaliChatGPTPipeline,
+    "san": SanskritChatGPTPipeline,
+    "arb-cla": ClassicalArabicChatGPTPipeline,
+    "chu": ChurchSlavonicChatGPTPipeline,
+    "enm": MiddleEnglishChatGPTPipeline,
+    "frm": MiddleFrenchChatGPTPipeline,
+    "fro": OldFrenchChatGPTPipeline,
+    "gmh": MiddleHighGermanChatGPTPipeline,
+    "goh": OldHighGermanChatGPTPipeline,
+    "got": GothicChatGPTPipeline,
+    "hin": HindiChatGPTPipeline,
+    "lzh": LiteraryChineseChatGPTPipeline,
+    "pan": PanjabiChatGPTPipeline,
+    "egy-dem": DemoticChatGPTPipeline,
+}

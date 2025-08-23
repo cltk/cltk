@@ -59,46 +59,46 @@ class NormalizeProcess(Process):
         return input_doc
 
 
-class AncientGreekNormalizeProcess(NormalizeProcess):
-    """Text normalization for Ancient Greek.
+# class AncientGreekNormalizeProcess(NormalizeProcess):
+#     """Text normalization for Ancient Greek.
 
-    >>> from cltk.core.data_types import Doc, Word
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from boltons.strutils import split_punct_ws
-    >>> lang = "grc"
-    >>> orig_text = get_example_text(lang)
-    >>> non_normed_doc = Doc(raw=orig_text)
-    >>> normalize_proc = GreekNormalizeProcess(language=lang)
-    >>> normalized_text = normalize_proc.run(input_doc=non_normed_doc)
-    >>> normalized_text == orig_text
-    False
-    """
+#     >>> from cltk.core.data_types import Doc, Word
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> from boltons.strutils import split_punct_ws
+#     >>> lang = "grc"
+#     >>> orig_text = get_example_text(lang)
+#     >>> non_normed_doc = Doc(raw=orig_text)
+#     >>> normalize_proc = GreekNormalizeProcess(language=lang)
+#     >>> normalized_text = normalize_proc.run(input_doc=non_normed_doc)
+#     >>> normalized_text == orig_text
+#     False
+#     """
 
-    language_code: Optional[str] = "grc"
+#     language_code: Optional[str] = "grc"
 
-    def __post_init__(self):
-        logger.debug("AncientGreekNormalizeProcess initialized.")
+#     def __post_init__(self):
+#         logger.debug("AncientGreekNormalizeProcess initialized.")
 
 
-class LatinNormalizeProcess(NormalizeProcess):
-    """Text normalization for Latin.
+# class LatinNormalizeProcess(NormalizeProcess):
+#     """Text normalization for Latin.
 
-    >>> from cltk.core.data_types import Doc, Word
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> from boltons.strutils import split_punct_ws
-    >>> lang = "lat"
-    >>> orig_text = get_example_text(lang)
-    >>> non_normed_doc = Doc(raw=orig_text)
-    >>> normalize_proc = LatinNormalizeProcess(language=lang)
-    >>> normalized_text = normalize_proc.run(input_doc=non_normed_doc)
-    >>> normalized_text == orig_text
-    False
-    """
+#     >>> from cltk.core.data_types import Doc, Word
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> from boltons.strutils import split_punct_ws
+#     >>> lang = "lat"
+#     >>> orig_text = get_example_text(lang)
+#     >>> non_normed_doc = Doc(raw=orig_text)
+#     >>> normalize_proc = LatinNormalizeProcess(language=lang)
+#     >>> normalized_text = normalize_proc.run(input_doc=non_normed_doc)
+#     >>> normalized_text == orig_text
+#     False
+#     """
 
-    language_code: Optional[str] = "lat"
+#     language_code: Optional[str] = "lat"
 
-    def __post_init__(self):
-        logger.debug("LatinNormalizeProcess initialized.")
+#     def __post_init__(self):
+#         logger.debug("LatinNormalizeProcess initialized.")
 
 
 class MultilingualNormalizeProcess(NormalizeProcess):

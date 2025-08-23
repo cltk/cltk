@@ -18,7 +18,7 @@ from typing import Union
 import pkg_resources
 
 # errors on rtd build
-from cltk.nlp import iso_to_pipeline
+from cltk.nlp import MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE
 
 # this path required for local build, to find ``pyproject.toml``
 sys.path.insert(0, os.path.abspath(".."))
@@ -44,7 +44,7 @@ release: str = curr_version.version
 
 
 langs_available_pipelines: list[str] = [
-    val.language.name for _, val in iso_to_pipeline.items()
+    val.language.name for _, val in MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE.items()
 ]
 langs_available_pipelines_len = len(langs_available_pipelines)
 langs_available_pipelines_alpha = sorted(langs_available_pipelines)

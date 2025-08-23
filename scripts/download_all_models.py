@@ -27,7 +27,7 @@ from cltk.dependency.stanza_wrapper import (
 from cltk.embeddings.embeddings import MAP_LANGS_CLTK_FASTTEXT as AVAIL_FASSTEXT_LANGS
 from cltk.embeddings.embeddings import MAP_NLPL_LANG_TO_URL as AVAIL_NLPL_LANGS
 from cltk.embeddings.embeddings import FastTextEmbeddings, Word2VecEmbeddings
-from cltk.nlp import iso_to_pipeline
+from cltk.nlp import MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE
 
 # from git import GitCommandError
 
@@ -40,7 +40,9 @@ PARSER.add_argument(
 )
 ARGS: argparse.Namespace = PARSER.parse_args()
 SELECTED_LANGS: list[str] = list()
-ALL_AVAILABLE_LANGS: list[str] = list(iso_to_pipeline.keys())
+ALL_AVAILABLE_LANGS: list[str] = list(
+    MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE.keys()
+)
 if not ARGS.languages:
     SELECTED_LANGS = ALL_AVAILABLE_LANGS
 else:

@@ -1,9 +1,8 @@
 """Primary module for CLTK pipeline."""
 
-import inspect
 import os
-from threading import Lock
-from typing import Any, Dict, List, Optional, Type, ClassVar
+import shutil
+from typing import Literal, Optional, Type
 
 from colorama import Fore, Style
 
@@ -11,81 +10,45 @@ import cltk
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v2 import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.pipelines import (
-    AkkadianPipeline,
-    ArabicPipeline,
-    AramaicPipeline,
-    ChinesePipeline,
-    CopticPipeline,
-    GothicPipeline,
-    GreekPipeline,
-    HindiPipeline,
-    LatinPipeline,
-    MiddleEnglishPipeline,
-    MiddleFrenchPipeline,
-    MiddleHighGermanPipeline,
-    OCSPipeline,
-    OldEnglishPipeline,
-    OldFrenchPipeline,
-    OldNorsePipeline,
-    PaliPipeline,
-    PanjabiPipeline,
-    SanskritPipeline,
+from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
+    MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE,
+    MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
 )
 from cltk.languages.utils import get_lang
-
-# TODO: Revisit this and add GPT/genai routing
-iso_to_pipeline = {
-    "akk": AkkadianPipeline,
-    "ang": OldEnglishPipeline,
-    "arb": ArabicPipeline,
-    "arc": AramaicPipeline,
-    "chu": OCSPipeline,
-    "cop": CopticPipeline,
-    "enm": MiddleEnglishPipeline,
-    "frm": MiddleFrenchPipeline,
-    "fro": OldFrenchPipeline,
-    "gmh": MiddleHighGermanPipeline,
-    "got": GothicPipeline,
-    "grc": GreekPipeline,
-    "hin": HindiPipeline,
-    "lat": LatinPipeline,
-    "lzh": ChinesePipeline,
-    "non": OldNorsePipeline,
-    "pan": PanjabiPipeline,
-    "pli": PaliPipeline,
-    "san": SanskritPipeline,
-}
 
 
 class NLP:
     """NLP class for default processing."""
 
-    # Shared across all NLP instances (class-level singletons)
-    process_objects: ClassVar[dict[Type[Process], Process]] = dict()
-    process_lock: ClassVar[Lock] = Lock()
-
     def __init__(
         self,
         language_code: str,
+        backend: Literal["disc", "gen-cloud", "gen-local", "auto"] = "auto",
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
         logger.info(f"Initializing NLP for language: {language_code}")
         self.language: Language = get_lang(language_code=language_code)
         self.language_code: str = language_code
+        # Resolve backend (param > env > auto detection)
+        env_backend = os.getenv("CLTK_BACKEND")
+        self.backend: str = self._normalize_backend(env_backend or backend)
+        # API key used for gen-cloud auto detection
+        self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY") or os.getenv(
+            "CLTK_GENAI_API_KEY"
+        )
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
-        self.api_key: Optional[str] = None
         logger.debug(f"Pipeline selected: {self.pipeline}")
         if not suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
             self._print_special_authorship_messages_for_current_lang()
-            self._print_suppress_reminder()
+            # self._print_suppress_reminder()
 
     def analyze(self, text: str) -> Doc:
+        """Run text through NLP pipeline."""
         logger.info("Analyzing text with NLP pipeline.")
         if not text or not isinstance(text, str):
             logger.error("Input text must be a non-empty string.")
@@ -103,13 +66,12 @@ class NLP:
                 logger.error(f"Process '{process_obj.__class__.__name__}' failed: {e}")
                 raise RuntimeError(
                     f"Process '{process_obj.__class__.__name__}' failed: {e}"
-                )
+                ) from e
         if doc.words is None or not isinstance(doc.words, list):
             msg: str = (
                 "Pipeline did not produce any words. Check your pipeline configuration and input text."
             )
             logger.warning(msg)
-            # raise RuntimeError(msg)
         logger.info("NLP analysis complete.")
         return doc
 
@@ -141,7 +103,7 @@ class NLP:
             lang_or_dialect_name = self.language.name
         print(
             Fore.CYAN
-            + f"Pipeline for {lang_or_dialect_name} ('{self.language_code}'):"
+            + f"Pipeline for {lang_or_dialect_name} ('{self.language_code}', backend='{self._resolved_backend()}'):"
             + Fore.GREEN
             + f" {[process.__name__ for process in processes]}"
             + Style.RESET_ALL
@@ -183,32 +145,47 @@ class NLP:
 
     def _get_process_object(self, process_object: Type[Process]) -> Process:
         logger.debug(f"Getting process object for: {process_object.__name__}")
-        with NLP.process_lock:
-            a_process: Optional[Process] = NLP.process_objects.get(process_object, None)
-            if a_process:
-                logger.debug(
-                    f"Process object found in cache: {process_object.__name__}"
-                )
-                return a_process
-            else:
-                try:
-                    new_process: Process = process_object(
-                        language_code=self.language_code
-                    )
-                # except TypeError:
-                #     # TODO: Revisit this and standardize passing Language object to all Processes
-                #     new_process: Process = process_object(language=self.language.iso)
-                except Exception as e:
-                    msg: str = (
-                        f"Failed to instantiate process {process_object.__name__}: {e}"
-                    )
-                    logger.error(msg)
-                    raise RuntimeError(msg)
-                NLP.process_objects[process_object] = new_process
-                logger.debug(
-                    f"Process object instantiated and cached: {process_object.__name__}"
-                )
-                return new_process
+        try:
+            return process_object(language_code=self.language_code)
+        # except TypeError:
+        #     # TODO: Revisit this and standardize passing Language object to all Processes
+        #     return process_object(language=self.language.iso)
+        except Exception as e:
+            msg: str = f"Failed to instantiate process {process_object.__name__}: {e}"
+            logger.error(msg)
+            raise RuntimeError(msg) from e
+
+    def _normalize_backend(self, value: str) -> str:
+        """Map friendly aliases to canonical backends."""
+        aliases = {
+            "local": "disc",
+            "discriminative": "disc",
+            "spacy": "disc",
+            "stanza": "disc",
+            "cloud": "gen-cloud",
+            "chatgpt": "gen-cloud",
+            "openai": "gen-cloud",
+            "llama": "gen-local",
+            "ollama": "gen-local",
+            "local-gen": "gen-local",
+        }
+        if value in ("disc", "gen-cloud", "gen-local", "auto"):
+            return value
+        return aliases.get(value, "auto")
+
+    def _has_local_gen(self) -> bool:
+        """Heuristic: treat presence of 'ollama' binary or OLLAMA_HOST as available local LLM."""
+        return bool(os.getenv("OLLAMA_HOST") or shutil.which("ollama"))
+
+    def _resolved_backend(self) -> str:
+        """Resolve 'auto' based on environment; otherwise return normalized backend."""
+        if self.backend != "auto":
+            return self.backend
+        if self.api_key:
+            return "gen-cloud"
+        if self._has_local_gen():
+            return "gen-local"
+        return "disc"
 
     def _get_pipeline(self) -> Pipeline:
         """Select appropriate pipeline for given language. If custom
@@ -227,9 +204,20 @@ class NLP:
           ...
         cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO language code, however this algorithm is not available for ``axm``.
         """
+        backend = self._resolved_backend()
+        if backend == "disc":
+            raise NotImplementedError("Discriminative backend not yet reimplemented.")
+            # mapping = MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE
+        elif backend == "gen-cloud":
+            mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
+        else:  # "gen-local"
+            raise NotImplementedError("Local generative backend not yet implemented.")
+            # mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL
         try:
-            return iso_to_pipeline[self.language_code]()
-        except KeyError:
+            pipeline_cls = mapping[self.language_code]
+        except KeyError as e:
             raise UnimplementedAlgorithmError(
-                f"Valid ISO or Glottolog language code, however this algorithm is not available for ``{self.language_code}``."
-            )
+                f"Valid ISO/Glottolog code but no pipeline for '{self.language_code}' with backend '{backend}'."
+            ) from e
+        logger.info(f"Using backend '{backend}' with pipeline {pipeline_cls.__name__}")
+        return pipeline_cls()
