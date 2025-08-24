@@ -35,3 +35,5 @@ jupyter = "^1.1.1"
 colorama = "^0.4.6"
 lxml = "^6.0.1"
 
+[tool.setuptools.package-data]
+cltk = ["languages/glottolog.json"]
