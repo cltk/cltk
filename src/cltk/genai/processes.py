@@ -157,7 +157,7 @@ class AlanicChatGPTProcess(ChatGPTProcess):
 
 
 class AncientGreekChatGPTProcess(ChatGPTProcess):
-    language_code: Optional[str] = "grc"
+    language_code: Optional[str] = "anci1242"
     description: str = "Default process for ChatGPT for the Ancient Greek language."
     authorship_info: str = "Ancient GreekChatGPTProcess using OpenAI GPT models."
 
@@ -1471,7 +1471,7 @@ class OdiaChatGPTProcess(ChatGPTProcess):
 
 
 class OfficialAramaicChatGPTProcess(ChatGPTProcess):
-    language_code: Optional[str] = "arc"
+    language_code: Optional[str] = "impe1235"
     description: str = (
         "Default process for ChatGPT for the Official Aramaic (700-300 BCE) language."
     )

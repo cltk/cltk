@@ -300,7 +300,7 @@ class GreekChatGPTPipeline(Pipeline):
     """Pipeline for Ancient Greek using normalization and ChatGPT annotation only."""
 
     description: Optional[str] = "Pipeline for Ancient Greek with ChatGPT annotation"
-    language: Optional[Language] = get_language("grc")
+    language: Optional[Language] = get_language("anci1242")
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             # AncientGreekNormalizeProcess,
@@ -494,7 +494,7 @@ class OfficialAramaicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Official Aramaic."""
 
     description: Optional[str] = "ChatGPT Pipeline for the Official Aramaic language."
-    language: Optional[Language] = get_language("arc")
+    language: Optional[Language] = get_language("impe1235")
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -873,24 +873,24 @@ MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
 MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "akka1240": AkkadianChatGPTPipeline,
     "olde1238": OldEnglishChatGPTPipeline,
-    "arc": OfficialAramaicChatGPTPipeline,
-    "cop": CopticChatGPTPipeline,
-    "grc": GreekChatGPTPipeline,
-    "hbo": AncientHebrewChatGPTPipeline,
-    "lat": LatinChatGPTPipeline,
-    "non": OldNorseChatGPTPipeline,
-    # "pli": PaliChatGPTPipeline,
-    "san": SanskritChatGPTPipeline,
-    "arb-cla": ClassicalArabicChatGPTPipeline,
-    "chu": ChurchSlavonicChatGPTPipeline,
-    "enm": MiddleEnglishChatGPTPipeline,
-    "frm": MiddleFrenchChatGPTPipeline,
-    "fro": OldFrenchChatGPTPipeline,
-    "gmh": MiddleHighGermanChatGPTPipeline,
-    "goh": OldHighGermanChatGPTPipeline,
-    "got": GothicChatGPTPipeline,
-    "hin": HindiChatGPTPipeline,
-    "lzh": LiteraryChineseChatGPTPipeline,
-    # "pan": PanjabiChatGPTPipeline,
-    "demo1234": DemoticChatGPTPipeline,
+    # "impe1235": OfficialAramaicChatGPTPipeline,
+    "copt1239": CopticChatGPTPipeline,
+    "anci1242": GreekChatGPTPipeline,
+    # "hbo": AncientHebrewChatGPTPipeline,
+    # "lat": LatinChatGPTPipeline,
+    # "non": OldNorseChatGPTPipeline,
+    # # "pli": PaliChatGPTPipeline,
+    # "san": SanskritChatGPTPipeline,
+    # "arb-cla": ClassicalArabicChatGPTPipeline,
+    # "chu": ChurchSlavonicChatGPTPipeline,
+    # "enm": MiddleEnglishChatGPTPipeline,
+    # "frm": MiddleFrenchChatGPTPipeline,
+    # "fro": OldFrenchChatGPTPipeline,
+    # "gmh": MiddleHighGermanChatGPTPipeline,
+    # "goh": OldHighGermanChatGPTPipeline,
+    # "got": GothicChatGPTPipeline,
+    # "hin": HindiChatGPTPipeline,
+    # "lzh": LiteraryChineseChatGPTPipeline,
+    # # "pan": PanjabiChatGPTPipeline,
+    # "demo1234": DemoticChatGPTPipeline,
 }

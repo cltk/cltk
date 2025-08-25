@@ -18,10 +18,10 @@ def split_sentences_multilang(
     text: Literal[
         "akka1240",  # Akkadian
         "olde1238",  # Old English
-        "arc",
-        "cop",
+        "impe1235",  # Imperial Aramaic
+        "copt1239",  # Coptic
         "egy-dem",
-        "grc",
+        "anci1242",  # Ancient Greek
         "hbo",
         "lat",
         "non",
@@ -54,13 +54,13 @@ def split_sentences_multilang(
     """
     # Define language-specific sentence-ending regex patterns
     lang_sentence_endings = {
-        "grc": r"([;;·.·])",  # Greek question mark, semicolon, ano teleia, middle dot, full stop
+        "anci1242": r"([;;·.·])",  # Greek question mark, semicolon, ano teleia, middle dot, full stop
         "lat": r"([.!?])",  # Latin: period, exclamation, question
         "san": r"([।॥.!?])",  # Sanskrit: danda, double danda, period, exclamation, question
         "pli": r"([।.!?])",  # Pali: danda, period, exclamation, question
         "hbo": r"([׃.])",  # Hebrew: sof pasuq, full stop
-        "arc": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
-        "cop": r"([⳹.!?])",  # Coptic: punctuation marks
+        "impe1235": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
+        "copt1239": r"([⳹.!?])",  # Coptic: punctuation marks
         "non": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
         "olde1238": r"([.!?])",  # Old English: period, exclamation, question
         "akka1240": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)

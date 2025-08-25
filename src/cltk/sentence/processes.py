@@ -28,10 +28,10 @@ class SentenceSplittingProcess(Process):
         if self.language_code in [
             "akka1240",  # Akkadian
             "olde1238",  # Old English
-            "arc",
-            "cop",
+            "impe1235",  # Imperial Aramaic
+            "copt1239",  # Coptic
             "egy-dem",
-            "grc",
+            "anci1242",  # Ancient Greek
             "hbo",
             "lat",
             "non",
@@ -90,7 +90,7 @@ class AkkadianSentenceSplittingProcess(SentenceSplittingProcess):
 class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Greek."""
 
-    language_code: Optional[str] = "grc"
+    language_code: Optional[str] = "anci1242"
 
 
 class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
@@ -102,7 +102,7 @@ class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
 class CopticSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Coptic."""
 
-    language_code: Optional[str] = "cop"
+    language_code: Optional[str] = "copt1239"
 
 
 class LatinSentenceSplittingProcess(SentenceSplittingProcess):
@@ -114,7 +114,7 @@ class LatinSentenceSplittingProcess(SentenceSplittingProcess):
 class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Official Aramaic."""
 
-    language_code: Optional[str] = "arc"
+    language_code: Optional[str] = "impe1235"
 
 
 class OldEnglishSentenceSplittingProcess(SentenceSplittingProcess):

@@ -9,6 +9,7 @@ python build_glottolog_models.py --glottolog ~/code/glottolog/ --out glottolog.j
 
 TODO: Missing Pali ("pli") and its dialects: https://glottolog.org/resource/languoid/id/pali1273
 TODO: Missing Demotic
+TODO: Has Imperial Aramaic ("impe1235") but missing later forms
 """
 
 from __future__ import annotations
