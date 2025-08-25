@@ -14,12 +14,14 @@ TODO: Get longer Akkadian text
 # pylint: disable=line-too-long
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.utils import get_lang
+from cltk.languages.glottolog_v3 import get_language
+
+# from cltk.languages.utils import get_lang
 
 EXAMPLE_TEXTS: dict[str, str] = {
-    "akk": "u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er",
+    "akka1240": "u2-wa-a-ru at-ta e2-kal2-la-ka _e2_-ka wu-e-er",
     # Beowulf
-    "ang": """Hwæt. We Gardena in geardagum,
+    "olde1238": """Hwæt. We Gardena in geardagum,
 þeodcyninga, þrym gefrunon,
 hu ða æþelingas ellen fremedon.
 Oft Scyld Scefing sceaþena þreatum,
@@ -151,7 +153,7 @@ helidos ubar hringa do sie to dero hiltiu ritun""",
 
 यस् तु सर्वाणि भूतान्य् आत्मन्य् एवानुपश्यति ।
 सर्वभूतेषु चात्मानं ततो न विजुगुप्सते ॥""",
-    "egy-dem": "ꜥḥꜥ nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw.",
+    "egyp1246": "ꜥḥꜥ nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw.",
 }
 
 
@@ -170,7 +172,7 @@ def get_example_text(language_code: str) -> str:
       ...
     cltk.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
     """
-    get_lang(language_code=language_code)
+    get_language(key=language_code)
     try:
         return EXAMPLE_TEXTS[language_code]
     except KeyError:

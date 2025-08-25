@@ -16,8 +16,8 @@ def extract_sentences_from_boundaries(
 
 def split_sentences_multilang(
     text: Literal[
-        "akk",
-        "ang",
+        "akka1240",  # Akkadian
+        "olde1238",  # Old English
         "arc",
         "cop",
         "egy-dem",
@@ -62,8 +62,8 @@ def split_sentences_multilang(
         "arc": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
         "cop": r"([⳹.!?])",  # Coptic: punctuation marks
         "non": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
-        "ang": r"([.!?])",  # Old English: period, exclamation, question
-        "akk": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
+        "olde1238": r"([.!?])",  # Old English: period, exclamation, question
+        "akka1240": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
         "arb-cla": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
         "chu": r"([.!?])",  # Old Church Slavonic: period, exclamation, question
         "enm": r"([.!?])",  # Middle English: period, exclamation, question

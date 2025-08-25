@@ -10,7 +10,7 @@ from typing import Any, Optional
 import numpy as np
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.embeddings.embeddings import (
     CLTKWord2VecEmbeddings,

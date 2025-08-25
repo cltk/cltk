@@ -10,7 +10,7 @@ from cltk.alphabet.grc.grc import normalize_grc
 from cltk.alphabet.lat import normalize_lat
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 
 
 class NormalizeProcess(Process):

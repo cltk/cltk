@@ -4,7 +4,7 @@ from copy import copy
 from dataclasses import dataclass
 from functools import cached_property
 
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 from cltk.lemmatize.ang import OldEnglishDictionaryLemmatizer
 from cltk.lemmatize.fro import OldFrenchDictionaryLemmatizer
 from cltk.lemmatize.grc import GreekBackoffLemmatizer

@@ -5,7 +5,7 @@ info from CLTK data structures.
 from typing import Any, Optional
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Word
+from cltk.core.data_types_v3 import Word
 from cltk.morphology.ud_features import UDFeatureTag, UDFeatureTagSet
 
 

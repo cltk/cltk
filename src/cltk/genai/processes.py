@@ -8,10 +8,10 @@ from typing import Optional
 
 # from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.genai.chatgpt import AVAILABILE_MODELS, ChatGPT
-from cltk.languages.glottolog import LANGUAGES
+from cltk.languages.utils import _DIALECT_INDEX, LANGUAGES
 from cltk.utils.utils import load_env_file
 
 

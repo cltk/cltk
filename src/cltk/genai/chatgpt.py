@@ -18,9 +18,11 @@ from tqdm import tqdm
 
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Doc, Language, Word
+from cltk.core.data_types_v3 import Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
-from cltk.languages.utils import get_lang
+
+# from cltk.languages.utils import get_lang
+from cltk.languages.glottolog_v3 import get_language
 from cltk.morphology.morphosyntax import (
     FORM_UD_MAP,
     MorphosyntacticFeatureBundle,
@@ -48,7 +50,7 @@ class ChatGPT:
     ):
         """Initialize the ChatGPT class and set up OpenAI connection."""
         self.api_key = api_key
-        self.language: Language = get_lang(language_code)
+        self.language: Language = get_language(language_code)
         self.model: str = model
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
@@ -181,11 +183,11 @@ class ChatGPT:
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         # xxx update this to give dialect if given
-        lang_or_dialect_name: str
-        if self.language.selected_dialect_name:
-            lang_or_dialect_name = self.language.selected_dialect_name
-        else:
-            lang_or_dialect_name = self.language.name
+        lang_or_dialect_name: str = self.language.name
+        # if self.language.selected_dialect_name:
+        #     lang_or_dialect_name = self.language.selected_dialect_name
+        # else:
+        #     lang_or_dialect_name = self.language.name
         prompt: str = f"""For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) Greek guidelines.
 
 Rules:

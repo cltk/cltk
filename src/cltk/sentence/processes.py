@@ -6,7 +6,7 @@ from types import FunctionType
 from typing import Any, ClassVar, Optional
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 from cltk.core.exceptions import CLTKException
 
 # from cltk.sentence.non import OldNorseRegexSentenceTokenizer
@@ -26,8 +26,8 @@ class SentenceSplittingProcess(Process):
             f"Selecting normalization algorithm for language: {self.language_code}"
         )
         if self.language_code in [
-            "akk",
-            "ang",
+            "akka1240",  # Akkadian
+            "olde1238",  # Old English
             "arc",
             "cop",
             "egy-dem",
@@ -66,11 +66,11 @@ class SentenceSplittingProcess(Process):
             raise ValueError(msg)
         # Prefer dialect code from the process (e.g., "egy-dem") if present,
         # otherwise fall back to selected_dialect, then base ISO.
-        language_code: str
-        if output_doc.language.selected_dialect:
-            language_code = output_doc.language.selected_dialect.language_code
-        else:
-            language_code = output_doc.language.iso
+        language_code: str = output_doc.language.glottolog_id
+        # if output_doc.language.selected_dialect:
+        #     language_code = output_doc.language.selected_dialect.language_code
+        # else:
+        #     language_code = output_doc.language.iso
         logger.debug(
             f"Sentence splitter passed to split_sentences_multilang: {language_code}"
         )
@@ -84,7 +84,7 @@ class SentenceSplittingProcess(Process):
 class AkkadianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Akkadian."""
 
-    language_code: Optional[str] = "akk"
+    language_code: Optional[str] = "akka1240"
 
 
 class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
@@ -120,7 +120,7 @@ class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
 class OldEnglishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old English."""
 
-    language_code: Optional[str] = "ang"
+    language_code: Optional[str] = "olde1238"
 
 
 class OldNorseSentenceSplittingProcess(SentenceSplittingProcess):

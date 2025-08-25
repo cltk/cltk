@@ -9,7 +9,7 @@ import spacy
 import stanza
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types_v2 import Doc, Process, Word
+from cltk.core.data_types_v3 import Doc, Process, Word
 from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree

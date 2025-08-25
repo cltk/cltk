@@ -6,7 +6,7 @@ from copy import copy
 from dataclasses import dataclass
 from functools import cached_property
 
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 from cltk.phonology.ang.phonology import OldEnglishTranscription
 from cltk.phonology.gmh.phonology import MiddleHighGermanTranscription
 

@@ -6,6 +6,9 @@ Now with provenance hydration:
 - commit_sha and last_updated from git (if available)
 
 python build_glottolog_models.py --glottolog ~/code/glottolog/ --out glottolog.json
+
+TODO: Missing Pali ("pli") and its dialects: https://glottolog.org/resource/languoid/id/pali1273
+TODO: Missing Demotic
 """
 
 from __future__ import annotations

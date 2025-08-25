@@ -8,7 +8,7 @@ from functools import cached_property
 
 from nltk.tokenize.treebank import TreebankWordTokenizer
 
-from cltk.core.data_types_v2 import Doc, Process, Word
+from cltk.core.data_types_v3 import Doc, Process, Word
 from cltk.tokenizers.akk import AkkadianWordTokenizer
 from cltk.tokenizers.arb import ArabicWordTokenizer
 from cltk.tokenizers.enm import MiddleEnglishWordTokenizer

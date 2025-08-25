@@ -8,13 +8,15 @@ from colorama import Fore, Style
 
 import cltk
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v2 import Doc, Language, Pipeline, Process
+from cltk.core.data_types_v3 import Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
+from cltk.languages.glottolog_v3 import get_language
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
 )
-from cltk.languages.utils import get_lang
+
+# from cltk.languages.utils import get_lang
 
 
 class NLP:
@@ -28,7 +30,7 @@ class NLP:
         suppress_banner: bool = False,
     ) -> None:
         logger.info(f"Initializing NLP for language: {language_code}")
-        self.language: Language = get_lang(language_code=language_code)
+        self.language: Language = get_language(key=language_code)
         self.language_code: str = language_code
         # Resolve backend (param > env > auto detection)
         env_backend = os.getenv("CLTK_BACKEND")
@@ -97,10 +99,10 @@ class NLP:
         )
         processes_name: list[str] = [process.__name__ for process in processes]
         lang_or_dialect_name: str
-        if self.language.selected_dialect_name:
-            lang_or_dialect_name = self.language.selected_dialect_name
-        else:
-            lang_or_dialect_name = self.language.name
+        # if self.language.selected_dialect_name:
+        #     lang_or_dialect_name = self.language.selected_dialect_name
+        # else:
+        lang_or_dialect_name = self.language.name
         print(
             Fore.CYAN
             + f"Pipeline for {lang_or_dialect_name} ('{self.language_code}', backend='{self._resolved_backend()}'):"

@@ -3,7 +3,7 @@ from functools import cached_property
 
 from boltons.strutils import split_punct_ws
 
-from cltk.core.data_types_v2 import Doc, Process
+from cltk.core.data_types_v3 import Doc, Process
 from cltk.stops.words import Stops
 
 

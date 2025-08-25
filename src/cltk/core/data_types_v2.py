@@ -56,7 +56,7 @@ class Language(BaseModel):
     # @field_validator("name")
     # @classmethod
     # def name_must_be_in_languages(cls, v):
-    #     from cltk.languages.glottolog_v2 import LANGUAGES  # to avoide circular import
+    #     from cltk.languages.glottolog_v3 import LANGUAGES  # to avoide circular import
 
     #     valid_names = {lang.name for lang in LANGUAGES.values()}
     #     if v not in valid_names:

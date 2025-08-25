@@ -43,7 +43,7 @@ Language(name='Akkadian', glottolog_id='akka1240', latitude=33.1, longitude=44.1
 import typing
 from collections import OrderedDict
 
-from cltk.core.data_types_v2 import Dialect, Language
+from cltk.core.data_types_v3 import Dialect, Language
 
 LANGUAGES: typing.OrderedDict[str, Language] = OrderedDict(
     [
