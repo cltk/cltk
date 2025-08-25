@@ -128,7 +128,8 @@ class AkkadianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Akkadian."""
 
     description: Optional[str] = "Pipeline for the Akkadian language"
-    language: Optional[Language] = get_language("akka1240")
+    glottolog_id: str = "akka1240"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -233,7 +234,8 @@ class CopticChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Coptic."""
 
     description: Optional[str] = "ChatGPT Pipeline for the Coptic language."
-    language: Optional[Language] = get_language("cop")
+    glottolog_id: str = "copt1239"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -300,7 +302,8 @@ class GreekChatGPTPipeline(Pipeline):
     """Pipeline for Ancient Greek using normalization and ChatGPT annotation only."""
 
     description: Optional[str] = "Pipeline for Ancient Greek with ChatGPT annotation"
-    language: Optional[Language] = get_language("anci1242")
+    glottolog_id: str = "anci1242"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             # AncientGreekNormalizeProcess,
@@ -331,11 +334,12 @@ class GreekChatGPTPipeline(Pipeline):
 #         logger.info("HindiPipeline created.")
 
 
-class AncientHebrewChatGPTPipeline(Pipeline):
+class BiblicalHebrewChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Ancient Hebrew."""
 
     description: Optional[str] = "Pipeline for the Ancient Hebrew language."
-    language: Optional[Language] = get_language("hbo")
+    glottolog_id: str = "anci1244"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -369,7 +373,8 @@ class LatinChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Latin."""
 
     description: Optional[str] = "ChatGPT Pipeline for the Latin language."
-    language: Optional[Language] = get_language("lat")
+    glottolog_id: str = "lati1261"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             # LatinNormalizeProcess,
@@ -547,7 +552,8 @@ class OldEnglishChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old English."""
 
     description: Optional[str] = "Pipeline for the Old English language"
-    language: Optional[Language] = get_language("olde1238")
+    glottolog_id: str = "olde1238"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -624,7 +630,8 @@ class OldNorseChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old Norse."""
 
     description: Optional[str] = "Pipeline for the Old Norse language"
-    language: Optional[Language] = get_language("non")
+    glottolog_id: str = "oldn1244"
+    language: Optional[Language] = get_language(glottolog_id)
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -876,9 +883,9 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "impe1235": OfficialAramaicChatGPTPipeline,
     "copt1239": CopticChatGPTPipeline,
     "anci1242": GreekChatGPTPipeline,
-    # "hbo": AncientHebrewChatGPTPipeline,
-    # "lat": LatinChatGPTPipeline,
-    # "non": OldNorseChatGPTPipeline,
+    "anci1244": BiblicalHebrewChatGPTPipeline,
+    "lati1261": LatinChatGPTPipeline,
+    "oldn1244": OldNorseChatGPTPipeline,
     # # "pli": PaliChatGPTPipeline,
     # "san": SanskritChatGPTPipeline,
     # "arb-cla": ClassicalArabicChatGPTPipeline,

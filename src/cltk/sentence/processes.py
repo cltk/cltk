@@ -32,9 +32,9 @@ class SentenceSplittingProcess(Process):
             "copt1239",  # Coptic
             "egy-dem",
             "anci1242",  # Ancient Greek
-            "hbo",
-            "lat",
-            "non",
+            "anci1244",  # Biblical Hebrew
+            "lati1261",  # Latin
+            "oldn1244",  # Old Norse
             "pli",
             "san",
             "arb-cla",
@@ -96,7 +96,7 @@ class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
 class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Hebrew."""
 
-    language_code: Optional[str] = "hbo"
+    language_code: Optional[str] = "anci1244"
 
 
 class CopticSentenceSplittingProcess(SentenceSplittingProcess):
@@ -108,7 +108,7 @@ class CopticSentenceSplittingProcess(SentenceSplittingProcess):
 class LatinSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Latin."""
 
-    language_code: Optional[str] = "lat"
+    language_code: Optional[str] = "lati1261"
 
 
 class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
@@ -126,7 +126,7 @@ class OldEnglishSentenceSplittingProcess(SentenceSplittingProcess):
 class OldNorseSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old Norse."""
 
-    language_code: Optional[str] = "non"
+    language_code: Optional[str] = "oldn1244"
 
 
 class PaliSentenceSplittingProcess(SentenceSplittingProcess):
