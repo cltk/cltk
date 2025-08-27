@@ -18,11 +18,11 @@ from tqdm import tqdm
 
 from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Doc, Language, Word
+from cltk.core.data_types_v3 import Dialect, Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 
 # from cltk.languages.utils import get_lang
-from cltk.languages.glottolog_v3 import get_language
+from cltk.languages.glottolog_v3 import get_language, resolve_languoid
 from cltk.morphology.morphosyntax import (
     FORM_UD_MAP,
     MorphosyntacticFeatureBundle,
@@ -50,7 +50,14 @@ class ChatGPT:
     ):
         """Initialize the ChatGPT class and set up OpenAI connection."""
         self.api_key = api_key
-        self.language: Language = get_language(glottolog_id)
+        # self.language: Language = get_language(glottolog_id)
+        self.language: Language
+        self.dialect: Optional[Dialect]
+        self.language, self.dialect = resolve_languoid(key=glottolog_id)
+        if self.dialect:
+            self.language_code: str = self.dialect.glottolog_id
+        else:
+            self.language_code: str = self.language.glottolog_id
         self.model: str = model
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
@@ -183,7 +190,10 @@ class ChatGPT:
     ) -> Doc:
         """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
         # xxx update this to give dialect if given
-        lang_or_dialect_name: str = self.language.name
+        if self.dialect:
+            lang_or_dialect_name: str = self.dialect.name
+        else:
+            lang_or_dialect_name: str = self.language.name
         # if self.language.selected_dialect_name:
         #     lang_or_dialect_name = self.language.selected_dialect_name
         # else:

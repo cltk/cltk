@@ -40,7 +40,7 @@ class SentenceSplittingProcess(Process):
             # "arb-cla",
             "chur1257",  # Old Church Slavonic
             "midd1317",  # Middle English
-            # "midd1316",  # Middle French; broke fix later
+            "midd1316",  # Middle French; broke fix later
             "oldf1239",  # Old French
             "midd1343",  # Middle High German
             "oldh1241",  # Gothic
@@ -64,19 +64,12 @@ class SentenceSplittingProcess(Process):
             msg: str = "Doc must have `normalized_text`."
             logger.error(msg)
             raise ValueError(msg)
-        # Prefer dialect code from the process (e.g., "egy-dem") if present,
-        # otherwise fall back to selected_dialect, then base ISO.
-        glottolog_id: str = output_doc.language.glottolog_id
-        # if output_doc.language.selected_dialect:
-        #     language_code = output_doc.language.selected_dialect.language_code
-        # else:
-        #     language_code = output_doc.language.iso
         logger.debug(
-            f"Sentence splitter passed to split_sentences_multilang: {glottolog_id}"
+            f"Sentence splitter passed to split_sentences_multilang: {self.glottolog_id}"
         )
         output_doc.sentence_boundaries = self.algorithm(
             text=output_doc.normalized_text,
-            glottolog_id=glottolog_id,
+            glottolog_id=self.glottolog_id,
         )
         return output_doc
 

@@ -14,7 +14,7 @@ TODO: Get longer Akkadian text
 # pylint: disable=line-too-long
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog_v3 import get_language
+from cltk.languages.glottolog_v3 import get_language, resolve_languoid
 
 # from cltk.languages.utils import get_lang
 
@@ -155,7 +155,7 @@ helidos ubar hringa do sie to dero hiltiu ritun""",
 सर्वभूतेषु चात्मानं ततो न विजुगुप्सते ॥""",
     # TODO: Check if this is Egyptian, Tale of the Eloquent Peasant (P. Anastasi I, lines 1-10)
     "egyp1246": "ꜥḥꜥ nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw.",
-    "dem": """iw=f ḏd n=w : pꜣy=f ḥꜥty r nꜣ ḥsb r nꜣ rmṯ . iw=w r ḫpr r nꜣ rmṯ 
+    "demo1234": """iw=f ḏd n=w : pꜣy=f ḥꜥty r nꜣ ḥsb r nꜣ rmṯ . iw=w r ḫpr r nꜣ rmṯ 
 n ḏd mdw . iw=f ḫpr r pꜣ šꜥ n ḏd mdw r pꜣ rmṯ .
 """,
 }
@@ -176,7 +176,7 @@ def get_example_text(language_code: str) -> str:
       ...
     cltk.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
     """
-    get_language(key=language_code)
+    resolve_languoid(key=language_code)
     try:
         return EXAMPLE_TEXTS[language_code]
     except KeyError:

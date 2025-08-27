@@ -414,6 +414,29 @@ class Pipeline(BaseModel):
     description: Optional[str] = None
     processes: Optional[list[Type[Process]]] = Field(default_factory=list)
     language: Optional[Language] = None
+    dialect: Optional[Dialect] = None
+    glottolog_id: Optional[str] = None
+
+    @model_validator(mode="after")
+    def _auto_resolve_language_and_dialect(self):
+        """If glottolog_id is present, resolve language/dialect lazily."""
+        # Only resolve if at least one is missing
+        if (self.language is None or self.dialect is None) and self.glottolog_id:
+            try:
+                # Late import to avoid core<->languages circular import at module import time
+                from cltk.languages.glottolog_v3 import resolve_languoid
+
+                lang, dia = resolve_languoid(self.glottolog_id)
+                if self.language is None:
+                    self.language = lang
+                if self.dialect is None:
+                    self.dialect = dia
+            except Exception as e:
+                # Don’t hard-fail here; subclasses can assert/validate if required
+                logger.debug(
+                    f"Pipeline auto-resolve skipped for '{self.glottolog_id}': {e}"
+                )
+        return self
 
     def add_process(self, process: Type[Process]):
         if self.processes is None:

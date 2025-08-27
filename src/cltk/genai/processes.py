@@ -569,7 +569,7 @@ class EdomiteChatGPTProcess(ChatGPTProcess):
 
 
 class DemoticChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "egy-dem"
+    glottolog_id: Optional[str] = "demo1234"
     description: str = "Default process for ChatGPT for the Demotic Egyptian language."
     authorship_info: str = "Egyptian (Ancient)ChatGPTProcess using OpenAI GPT models."
 

@@ -77,13 +77,74 @@ def load_languages(path: Optional[str] = None) -> dict[str, Language]:
     raise ValueError(msg)
 
 
-@lru_cache(maxsize=1)
+HISTORIC_CUTOFF_YEAR: int = 1700
+_HISTORIC_MODIFIERS: set[str] = {
+    "ancient",
+    "old",
+    "middle",
+    "classical",
+    "late",
+    "early",
+    "medieval",
+    "archaic",
+    "literary",
+    "demotic",
+}
+
+
+def _norm(s: str) -> str:
+    return " ".join(s.lower().split())
+
+
+def _is_historic_like(L: Language, cutoff: int = HISTORIC_CUTOFF_YEAR) -> bool:
+    try:
+        if getattr(L, "status", None) in {"extinct", "unattested"}:
+            return True
+    except Exception:
+        pass
+    ts = getattr(L, "timespan", None)
+    if ts:
+        years = [
+            v
+            for v in (getattr(ts, "start", None), getattr(ts, "end", None))
+            if isinstance(v, int)
+        ]
+        if years and min(years) <= cutoff:
+            return True
+    name_tokens = set(_norm(L.name).split())
+    if name_tokens & _HISTORIC_MODIFIERS:
+        return True
+    for nv in getattr(L, "alt_names", []):
+        if set(_norm(nv.value).split()) & _HISTORIC_MODIFIERS:
+            return True
+    return False
+
+
+def _historic_rank(
+    L: Language, cutoff: int = HISTORIC_CUTOFF_YEAR
+) -> tuple[int, int, int]:
+    is_hist = 1 if _is_historic_like(L, cutoff=cutoff) else 0
+    has_mod = 1 if (set(_norm(L.name).split()) & _HISTORIC_MODIFIERS) else 0
+    ts = getattr(L, "timespan", None)
+    years = [
+        v
+        for v in (getattr(ts, "start", None), getattr(ts, "end", None))
+        if isinstance(v, int)
+    ]
+    earliest = min(years) if years else 9999
+    return (is_hist, has_mod, -earliest)
+
+
 def build_indices(
     path: Optional[str] = None,
-) -> dict[Literal["by_iso", "by_name", "by_dialect"], dict[str, str]]:
+) -> dict[
+    Literal["by_iso", "by_name_lang", "by_name_dialect", "by_dialect"],
+    dict[str, Any],
+]:
     """Build lookup indices:
     - by_iso: iso -> language glottocode
-    - by_name: lowercased name/alt-name -> language OR dialect glottocode
+    - by_name_lang: lowercased language name/alt-name -> [language glottocode]
+    - by_name_dialect: lowercased dialect name -> [dialect glottocode]
     - by_dialect: dialect glottocode -> parent language glottocode
     """
     logger.debug(
@@ -91,23 +152,31 @@ def build_indices(
     )
     langs = load_languages(path)
     by_iso: dict[str, str] = {}
-    by_name: dict[str, str] = {}
+    by_name_lang: dict[str, list[str]] = {}
+    by_name_dialect: dict[str, list[str]] = {}
     by_dialect: dict[str, str] = {}
     for g, L in langs.items():
         if L.iso:
             by_iso[L.iso.lower()] = g
-        by_name[L.name.lower()] = g
+        by_name_lang.setdefault(L.name.lower(), []).append(g)
         for nv in L.alt_names:
-            by_name[nv.value.lower()] = g
+            by_name_lang.setdefault(nv.value.lower(), []).append(g)
         # Index dialects by their glottocode and name
         for d in L.dialects:
             by_dialect[d.glottolog_id] = g
-            # Let dialect names be discoverable via by_name; value points to the dialect id
-            by_name.setdefault(d.name.lower(), d.glottolog_id)
+            by_name_dialect.setdefault(d.name.lower(), []).append(d.glottolog_id)
     logger.info(
-        f"Built indices: by_iso={len(by_iso)} entries, by_name={len(by_name)} entries, by_dialect={len(by_dialect)}"
+        f"Built indices: by_iso={len(by_iso)} entries, "
+        f"by_name_lang_keys={len(by_name_lang)}, "
+        f"by_name_dialect_keys={len(by_name_dialect)}, "
+        f"by_dialect={len(by_dialect)}"
     )
-    return {"by_iso": by_iso, "by_name": by_name, "by_dialect": by_dialect}
+    return {
+        "by_iso": by_iso,
+        "by_name_lang": by_name_lang,
+        "by_name_dialect": by_name_dialect,
+        "by_dialect": by_dialect,
+    }
 
 
 def get_language(key: str, path: Optional[str] = None) -> Language:
@@ -116,73 +185,242 @@ def get_language(key: str, path: Optional[str] = None) -> Language:
         f"Looking up language for key='{key}' (path={'packaged' if not path else path})"
     )
     langs: dict[str, Language] = load_languages(path)
-    idx: dict[Literal["by_iso", "by_name", "by_dialect"], dict[str, str]] = (
-        build_indices(path)
-    )
+    idx: dict[
+        Literal["by_iso", "by_name_lang", "by_name_dialect", "by_dialect"],
+        dict[str, Any],
+    ] = build_indices(path)
     k: str = key.lower()
     # glottocode (language)
     if key in langs:
         logger.debug(f"Found language by glottocode: {key}")
         return langs[key]
-    # glottocode (dialect) -> return parent language
+    # glottocode (dialect) -> do NOT coerce to language; ask user to use get_dialect()
     parent = idx["by_dialect"].get(key)
     if parent:
-        logger.debug(
-            f"Found dialect glottocode '{key}', returning parent language '{parent}'"
+        lang = langs[parent]
+        msg = (
+            f"'{key}' is a dialect of {lang.name} (glottolog_id={parent}). "
+            f"Use get_dialect('{key}') to retrieve the dialect."
         )
-        return langs[parent]
+        logger.info(msg)
+        raise KeyError(msg)
     # ISO
     g: Optional[str] = idx["by_iso"].get(k)
     if g:
         logger.debug(f"Found language by ISO='{k}' -> glottocode='{g}'")
         return langs[g]
-    # name/alt-name (may map to a language or a dialect)
-    hit: Optional[str] = idx["by_name"].get(k)
-    if hit:
-        # If name maps to a language id, return it; if it maps to a dialect id, return its parent
-        if hit in langs:
-            logger.debug(f"Found language by name='{k}' -> glottocode='{hit}'")
-            return langs[hit]
-        parent = idx["by_dialect"].get(hit)
-        if parent:
-            logger.debug(
-                f"Found dialect by name='{k}' -> dialect='{hit}', parent glottocode='{parent}'"
-            )
-            return langs[parent]
     msg = f"No language found for '{key}'"
     logger.error(msg)
     raise KeyError(msg)
 
 
 def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect]:
-    """Lookup a dialect by glottocode, ISO, or name/alt-name."""
+    """Lookup a dialect by glottocode or exact dialect name.
+    Returns (parent_language, dialect). Raises KeyError with guidance on failure.
+    """
     logger.debug(
         f"Looking up dialect for key='{key}' (path={'packaged' if not path else path})"
     )
     langs: dict[str, Language] = load_languages(path)
-    idx: dict[Literal["by_iso", "by_name", "by_dialect"], dict[str, str]] = (
-        build_indices(path)
-    )
-    k: str = key.lower()
-    # glottocode (dialect)
+    idx: dict[
+        Literal["by_iso", "by_name_lang", "by_name_dialect", "by_dialect"],
+        dict[str, Any],
+    ] = build_indices(path)
+
+    k = key.lower()
+
+    # If the key is a language glottocode, direct user to get_language()
     if key in langs:
-        logger.debug(f"Found dialect by glottocode: {key}")
-        lang = langs[key]
-        return lang, lang.dialects[0]  # Return the first dialect found
-    # ISO
-    g: Optional[str] = idx["by_iso"].get(k)
-    if g:
-        logger.debug(f"Found dialect by ISO='{k}' -> glottocode='{g}'")
-        lang = langs[g]
-        return lang, lang.dialects[0]
-    # name/alt-name (must map to a dialect)
-    hit: Optional[str] = idx["by_name"].get(k)
-    if hit:
-        logger.debug(f"Found dialect by name='{k}' -> glottocode='{hit}'")
-        # Ensure the hit is a dialect glottocode
-        if hit in langs and langs[hit].dialects:
-            lang = langs[hit]
-            return lang, lang.dialects[0]
+        msg = f"'{key}' is a language glottocode. Use get_language('{key}')."
+        logger.info(msg)
+        raise KeyError(msg)
+
+    # If the key looks like a language ISO, direct user to get_language()
+    if k in idx["by_iso"]:
+        lang_id = idx["by_iso"][k]
+        lang = langs[lang_id]
+        msg = (
+            f"'{key}' resolves to the language {lang.name} (glottolog_id={lang_id}). "
+            f"Use get_language('{key}') for languages."
+        )
+        logger.info(msg)
+        raise KeyError(msg)
+
+    # Direct dialect glottocode
+    parent = idx["by_dialect"].get(key) or idx["by_dialect"].get(k)
+    if parent:
+        lang = langs[parent]
+        target_id = key if key in idx["by_dialect"] else k
+        for d in lang.dialects:
+            if d.glottolog_id == target_id:
+                logger.debug(
+                    f"Found dialect by id '{key}' under language '{lang.name}'"
+                )
+                return lang, d
+        # Very unlikely: index points to parent but dialect not found; scan as fallback
+        for L in langs.values():
+            for d in L.dialects:
+                if d.glottolog_id == target_id:
+                    logger.debug(
+                        f"Found dialect by id '{key}' under language '{L.name}' (fallback scan)"
+                    )
+                    return L, d
+        msg = f"Dialect id '{key}' indexed but not found in model data."
+        logger.error(msg)
+        raise KeyError(msg)
+
+    # Exact dialect name (lowercased) may map to multiple dialect ids
+    hits = idx["by_name_dialect"].get(k, [])
+    if hits:
+        if len(hits) == 1:
+            did = hits[0]
+            parent = idx["by_dialect"].get(did)
+            if parent and parent in langs:
+                lang = langs[parent]
+                d = next((d for d in lang.dialects if d.glottolog_id == did), None)
+                if d:
+                    logger.debug(
+                        f"Found dialect by name '{key}' -> {d.name} (id={did}) under '{lang.name}'"
+                    )
+                    return lang, d
+        # Ambiguous name → ask for a glottocode, list a few options
+        options: list[str] = []
+        for did in hits[:5]:
+            p = idx["by_dialect"].get(did)
+            if p and p in langs:
+                lang = langs[p]
+                dname = next(
+                    (d.name for d in lang.dialects if d.glottolog_id == did), did
+                )
+                options.append(
+                    f"{dname} (dialect id={did}, parent={lang.name}, glottolog_id={p})"
+                )
+        msg = (
+            f"Ambiguous dialect name '{key}'. Please specify a dialect glottocode. "
+            + ("Options: " + "; ".join(options) if options else "No options available.")
+        )
+        logger.info(msg)
+        raise KeyError(msg)
+
     msg = f"No dialect found for '{key}'"
+    logger.error(msg)
+    raise KeyError(msg)
+
+
+def resolve_languoid(
+    key: str, path: Optional[str] = None
+) -> tuple[Language, Optional[Dialect]]:
+    """Resolve a language or dialect key into (Language, Optional[Dialect]).
+    Accepts:
+      - language glottocode (e.g., 'lati1261'), ISO (e.g., 'lat'), or exact language name/alt-name
+      - dialect glottocode (e.g., 'demo1234') or exact dialect name
+    Returns:
+      - (Language, None) for languages
+      - (Language, Dialect) for dialects
+    Raises:
+      - KeyError with guidance if nothing (or an ambiguous dialect name) matches.
+    """
+    logger.debug(
+        f"Resolving languoid for key='{key}' (path={'packaged' if not path else path})"
+    )
+
+    langs: dict[str, Language] = load_languages(path)
+    idx: dict[
+        Literal["by_iso", "by_name_lang", "by_name_dialect", "by_dialect"],
+        dict[str, Any],
+    ] = build_indices(path)
+
+    k = key.lower()
+
+    # 1) Exact language glottocode
+    if key in langs:
+        L = langs[key]
+        logger.debug(f"Resolved language by glottocode: {key} -> {L.name}")
+        return L, None
+
+    # 2) Exact dialect glottocode
+    parent = idx["by_dialect"].get(key) or idx["by_dialect"].get(k)
+    if parent:
+        lang = langs[parent]
+        target_id = key if key in idx["by_dialect"] else k
+        for d in lang.dialects:
+            if d.glottolog_id == target_id:
+                logger.debug(
+                    f"Resolved dialect by glottocode: {key} -> {d.name} (parent={lang.name})"
+                )
+                return lang, d
+        # Fallback scan (should not be needed)
+        for L in langs.values():
+            for d in L.dialects:
+                if d.glottolog_id == target_id:
+                    logger.debug(
+                        f"Resolved dialect by glottocode via fallback scan: {key} -> {d.name} (parent={L.name})"
+                    )
+                    return L, d
+        msg = f"Dialect id '{key}' indexed but not found in model data."
+        logger.error(msg)
+        raise KeyError(msg)
+
+    # 3) ISO (language only)
+    g = idx["by_iso"].get(k)
+    if g:
+        L = langs[g]
+        logger.debug(f"Resolved language by ISO: {key} -> {L.name} (glottolog_id={g})")
+        return L, None
+
+    # 4) Exact language name/alt-name (may be ambiguous) → prefer historic
+    hits_lang: list[str] = idx["by_name_lang"].get(k, [])
+    if hits_lang:
+        if len(hits_lang) == 1:
+            g0 = hits_lang[0]
+            L = langs[g0]
+            logger.debug(
+                f"Resolved language by name: '{key}' -> {L.name} (glottolog_id={g0})"
+            )
+            return L, None
+        cands = [langs[gx] for gx in hits_lang if gx in langs]
+        cands.sort(key=_historic_rank, reverse=True)
+        best = cands[0]
+        logger.info(
+            f"Ambiguous language name '{key}' matched {len(cands)} entries; "
+            f"selecting '{best.name}' (glottolog_id={best.glottolog_id}) by historic preference."
+        )
+        return best, None
+
+    # 5) Exact dialect name (may be ambiguous)
+    hits_dia: list[str] = idx["by_name_dialect"].get(k, [])
+    if hits_dia:
+        if len(hits_dia) == 1:
+            did = hits_dia[0]
+            parent = idx["by_dialect"].get(did)
+            if parent and parent in langs:
+                lang = langs[parent]
+                d = next((d for d in lang.dialects if d.glottolog_id == did), None)
+                if d:
+                    logger.debug(
+                        f"Resolved dialect by name: '{key}' -> {d.name} (id={did}, parent={lang.name})"
+                    )
+                    return lang, d
+        # Ambiguous dialect name → ask for a glottocode, list options
+        options: list[str] = []
+        for did in hits_dia[:5]:
+            p = idx["by_dialect"].get(did)
+            if p and p in langs:
+                lang = langs[p]
+                dname = next(
+                    (d.name for d in lang.dialects if d.glottolog_id == did), did
+                )
+                options.append(
+                    f"{dname} (dialect id={did}, parent={lang.name}, glottolog_id={p})"
+                )
+        msg = (
+            f"Ambiguous dialect name '{key}'. Please specify a dialect glottocode. "
+            + ("Options: " + "; ".join(options) if options else "No options available.")
+        )
+        logger.info(msg)
+        raise KeyError(msg)
+
+    # 6) No match
+    msg = f"No language or dialect found for '{key}'"
     logger.error(msg)
     raise KeyError(msg)

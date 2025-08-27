@@ -8,9 +8,9 @@ from colorama import Fore, Style
 
 import cltk
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Doc, Language, Pipeline, Process
+from cltk.core.data_types_v3 import Dialect, Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog_v3 import get_language
+from cltk.languages.glottolog_v3 import get_language, resolve_languoid
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
@@ -30,8 +30,14 @@ class NLP:
         suppress_banner: bool = False,
     ) -> None:
         logger.info(f"Initializing NLP for language: {language_code}")
-        self.language: Language = get_language(key=language_code)
-        self.language_code: str = language_code
+        # self.language: Language = get_language(key=language_code)
+        self.language: Language
+        self.dialect: Optional[Dialect]
+        self.language, self.dialect = resolve_languoid(key=language_code)
+        if self.dialect:
+            self.language_code: str = self.dialect.glottolog_id
+        else:
+            self.language_code: str = self.language.glottolog_id
         # Resolve backend (param > env > auto detection)
         env_backend = os.getenv("CLTK_BACKEND")
         self.backend: str = self._normalize_backend(env_backend or backend)
