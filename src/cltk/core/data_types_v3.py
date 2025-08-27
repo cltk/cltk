@@ -401,7 +401,7 @@ class Doc(CLTKBaseModel):
 class Process(BaseModel):
     """For each type of NLP process there needs to be a definition."""
 
-    language_code: Optional[str] = None
+    glottolog_id: Optional[str] = None
 
     @abstractmethod
     def run(self, input_doc: Doc) -> Doc:

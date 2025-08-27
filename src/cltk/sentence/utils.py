@@ -15,31 +15,8 @@ def extract_sentences_from_boundaries(
 
 
 def split_sentences_multilang(
-    text: Literal[
-        "akka1240",  # Akkadian
-        "olde1238",  # Old English
-        "impe1235",  # Imperial Aramaic
-        "copt1239",  # Coptic
-        "egy-dem",
-        "anci1242",  # Ancient Greek
-        "anci1244",  # Biblical Hebrew
-        "lati1261",  # Latin
-        "oldn1244",  # Old Norse
-        "pli",
-        "san",
-        "arb-cla",
-        "chu",
-        "enm",
-        "frm",
-        "fro",
-        "gmh",
-        "goh",
-        "got",
-        "hin",
-        "lzh",
-        "pan",
-    ],
-    language_code: str,
+    text: str,
+    glottolog_id: str,
 ) -> list[tuple[int, int]]:
     """
     Split text into sentences for multiple languages using language-specific punctuation.
@@ -47,7 +24,7 @@ def split_sentences_multilang(
 
     Args:
         text (str): The input text.
-        language_code (str): ISO code for the language.
+        glottolog_id (str): Glottolog languoid code for the language.
 
     Returns:
         list[tuple[int, int]]: List of (start, stop) indices for each sentence.
@@ -56,7 +33,7 @@ def split_sentences_multilang(
     lang_sentence_endings = {
         "anci1242": r"([;;·.·])",  # Greek question mark, semicolon, ano teleia, middle dot, full stop
         "lati1261": r"([.!?])",  # Latin: period, exclamation, question
-        "san": r"([।॥.!?])",  # Sanskrit: danda, double danda, period, exclamation, question
+        "sans1269": r"([।॥.!?])",  # Sanskrit: danda, double danda, period, exclamation, question
         "pli": r"([।.!?])",  # Pali: danda, period, exclamation, question
         "anci1244": r"([׃.])",  # Biblical Hebrew: sof pasuq, full stop
         "impe1235": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
@@ -65,22 +42,22 @@ def split_sentences_multilang(
         "olde1238": r"([.!?])",  # Old English: period, exclamation, question
         "akka1240": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
         "arb-cla": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
-        "chu": r"([.!?])",  # Old Church Slavonic: period, exclamation, question
-        "enm": r"([.!?])",  # Middle English: period, exclamation, question
-        "frm": r"([.!?])",  # Middle French: period, exclamation, question
-        "fro": r"([.!?])",  # Old French: period, exclamation, question
-        "gmh": r"([.!?])",  # Middle High German: period, exclamation, question
+        "chur1257": r"([.!?])",  # Old Church Slavonic: period, exclamation, question
+        "midd1317": r"([.!?])",  # Middle English: period, exclamation, question
+        "midd1316": r"([.!?])",  # Middle French: period, exclamation, question
+        "oldf1239": r"([.!?])",  # Old French: period, exclamation, question
+        "midd1343": r"([.!?])",  # Middle High German: period, exclamation, question
         "goh": r"([.!?])",  # Old High German: period, exclamation, question
-        "got": r"([.!?])",  # Gothic: period, exclamation, question
+        "oldh1241": r"([.!?])",  # Gothic: period, exclamation, question
         "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
-        "lzh": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
+        "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
-        "egy-dem": r"([.!?])",  # Egyptian: period, exclamation, question (adjust if you have more info)
+        "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)
     }
-    if language_code not in lang_sentence_endings:
-        raise ValueError(f"Unsupported language code: {language_code}")
+    if glottolog_id not in lang_sentence_endings:
+        raise ValueError(f"Unsupported language code: {glottolog_id}")
 
-    sentence_endings = lang_sentence_endings[language_code]
+    sentence_endings = lang_sentence_endings[glottolog_id]
     parts = re.split(sentence_endings, text)
 
     boundaries = []

@@ -23,38 +23,38 @@ class SentenceSplittingProcess(Process):
     def algorithm(self) -> FunctionType:
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
         logger.debug(
-            f"Selecting normalization algorithm for language: {self.language_code}"
+            f"Selecting normalization algorithm for language: {self.glottolog_id}"
         )
-        if self.language_code in [
+        if self.glottolog_id in [
             "akka1240",  # Akkadian
             "olde1238",  # Old English
             "impe1235",  # Imperial Aramaic
             "copt1239",  # Coptic
-            "egy-dem",
+            "demo1234",  # Demotic
             "anci1242",  # Ancient Greek
             "anci1244",  # Biblical Hebrew
             "lati1261",  # Latin
             "oldn1244",  # Old Norse
-            "pli",
-            "san",
-            "arb-cla",
-            "chu",
-            "enm",
-            "frm",
-            "fro",
-            "gmh",
-            "goh",
-            "got",
-            "hin",
-            "lzh",
-            "pan",
+            # "pli",
+            "sans1269",  # Sanskrit
+            # "arb-cla",
+            "chur1257",  # Old Church Slavonic
+            "midd1317",  # Middle English
+            # "midd1316",  # Middle French; broke fix later
+            "oldf1239",  # Old French
+            "midd1343",  # Middle High German
+            "oldh1241",  # Gothic
+            # "got", #?
+            # "hin",
+            "lite1248",  # Literary Chinese
+            # "pan",
         ]:
             logger.debug(
-                f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.language_code}"
+                f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
             )
             return split_sentences_multilang
         else:
-            msg: str = f"`Sentence splitter not available for {self.language_code}`"
+            msg: str = f"`Sentence splitter not available for {self.glottolog_id}`"
             logger.error(msg)
             raise ValueError(msg)
 
@@ -66,17 +66,17 @@ class SentenceSplittingProcess(Process):
             raise ValueError(msg)
         # Prefer dialect code from the process (e.g., "egy-dem") if present,
         # otherwise fall back to selected_dialect, then base ISO.
-        language_code: str = output_doc.language.glottolog_id
+        glottolog_id: str = output_doc.language.glottolog_id
         # if output_doc.language.selected_dialect:
         #     language_code = output_doc.language.selected_dialect.language_code
         # else:
         #     language_code = output_doc.language.iso
         logger.debug(
-            f"Sentence splitter passed to split_sentences_multilang: {language_code}"
+            f"Sentence splitter passed to split_sentences_multilang: {glottolog_id}"
         )
         output_doc.sentence_boundaries = self.algorithm(
             text=output_doc.normalized_text,
-            language_code=language_code,
+            glottolog_id=glottolog_id,
         )
         return output_doc
 
@@ -84,133 +84,133 @@ class SentenceSplittingProcess(Process):
 class AkkadianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Akkadian."""
 
-    language_code: Optional[str] = "akka1240"
+    glottolog_id: Optional[str] = "akka1240"
 
 
 class AncientGreekSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Greek."""
 
-    language_code: Optional[str] = "anci1242"
+    glottolog_id: Optional[str] = "anci1242"
 
 
 class AncientHebrewSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Ancient Hebrew."""
 
-    language_code: Optional[str] = "anci1244"
+    glottolog_id: Optional[str] = "anci1244"
 
 
 class CopticSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Coptic."""
 
-    language_code: Optional[str] = "copt1239"
+    glottolog_id: Optional[str] = "copt1239"
 
 
 class LatinSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Latin."""
 
-    language_code: Optional[str] = "lati1261"
+    glottolog_id: Optional[str] = "lati1261"
 
 
 class OfficialAramaicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Official Aramaic."""
 
-    language_code: Optional[str] = "impe1235"
+    glottolog_id: Optional[str] = "impe1235"
 
 
 class OldEnglishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old English."""
 
-    language_code: Optional[str] = "olde1238"
+    glottolog_id: Optional[str] = "olde1238"
 
 
 class OldNorseSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old Norse."""
 
-    language_code: Optional[str] = "oldn1244"
+    glottolog_id: Optional[str] = "oldn1244"
 
 
 class PaliSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Pali."""
 
-    language_code: Optional[str] = "pli"
+    glottolog_id: Optional[str] = "pli"
 
 
 class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Sanskrit."""
 
-    language_code: Optional[str] = "san"
+    glottolog_id: Optional[str] = "sans1269"
 
 
 class ClassicalArabicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Classical Arabic."""
 
-    language_code: Optional[str] = "arb-cla"
+    glottolog_id: Optional[str] = "arb-cla"
 
 
 class ChurchSlavonicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old Church Slavonic."""
 
-    language_code: Optional[str] = "chu"
+    glottolog_id: Optional[str] = "chur1257"
 
 
 class MiddleEnglishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle English."""
 
-    language_code: Optional[str] = "enm"
+    glottolog_id: Optional[str] = "midd1317"
 
 
 class MiddleFrenchSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle French."""
 
-    language_code: Optional[str] = "frm"
+    glottolog_id: Optional[str] = "midd1316"
 
 
 class OldFrenchSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old French."""
 
-    language_code: Optional[str] = "fro"
+    glottolog_id: Optional[str] = "oldf1239"
 
 
 class MiddleHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle High German."""
 
-    language_code: Optional[str] = "gmh"
+    glottolog_id: Optional[str] = "midd1343"
 
 
 class OldHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old High German."""
 
-    language_code: Optional[str] = "goh"
+    glottolog_id: Optional[str] = "goh"
 
 
 class GothicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Gothic."""
 
-    language_code: Optional[str] = "got"
+    glottolog_id: Optional[str] = "oldh1241"
 
 
 class HindiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Hindi."""
 
-    language_code: Optional[str] = "hin"
+    glottolog_id: Optional[str] = "hin"
 
 
 class LiteraryChineseSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Classical Chinese."""
 
-    language_code: Optional[str] = "lzh"
+    glottolog_id: Optional[str] = "lite1248"
 
 
 class PanjabiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Panjabi."""
 
-    language_code: Optional[str] = "pan"
+    glottolog_id: Optional[str] = "pan"
 
 
 class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Egyptian."""
 
-    language_code: Optional[str] = "egy-dem"
+    glottolog_id: Optional[str] = "demo1234"
 
 
 # V1 below
@@ -233,7 +233,7 @@ class SentenceTokenizationProcessV1(Process):
     @cached_property
     def algorithm(self):
         raise CLTKException(
-            f"No sentence tokenization algorithm for language '{self.language_code}'."
+            f"No sentence tokenization algorithm for language '{self.glottolog_id}'."
         )
 
     def run(self, input_doc: Doc) -> Doc:

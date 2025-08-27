@@ -43,14 +43,14 @@ AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 class ChatGPT:
     def __init__(
         self,
-        language_code: str,
+        glottolog_id: str,
         api_key: str,
         model: AVAILABILE_MODELS,
         temperature: float = 1.0,
     ):
         """Initialize the ChatGPT class and set up OpenAI connection."""
         self.api_key = api_key
-        self.language: Language = get_language(language_code)
+        self.language: Language = get_language(glottolog_id)
         self.model: str = model
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
@@ -206,7 +206,7 @@ Rules:
 
 FORM    LEMMA   UPOS    FEATS
 
-Text: {doc.normalized_text}
+Text:\n\n{doc.normalized_text}
 """
         logger.debug(prompt)
         for attempt in range(1, max_retries + 1):

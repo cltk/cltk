@@ -148,7 +148,7 @@ class NLP:
     def _get_process_object(self, process_object: Type[Process]) -> Process:
         logger.debug(f"Getting process object for: {process_object.__name__}")
         try:
-            return process_object(language_code=self.language_code)
+            return process_object(glottolog_id=self.language_code)
         # except TypeError:
         #     # TODO: Revisit this and standardize passing Language object to all Processes
         #     return process_object(language=self.language.iso)
