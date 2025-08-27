@@ -3,14 +3,11 @@
 from copy import copy
 from functools import cached_property
 from types import FunctionType
-from typing import Any, ClassVar, Optional
+from typing import Any, ClassVar, List, Optional, Tuple
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v3 import Doc, Process
 from cltk.core.exceptions import CLTKException
-
-# from cltk.sentence.non import OldNorseRegexSentenceTokenizer
-# from cltk.sentence.sentence import SentenceTokenizer
 from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -213,74 +210,37 @@ class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
     glottolog_id: Optional[str] = "demo1234"
 
 
-# V1 below
-# class SentenceTokenizationProcessV1(Process):
-#     """To be inherited for each language's tokenization declarations.
+class HittiteSentenceSplittingProcess(Process):
+    """Sentence splitter for Hittite (hit1242)."""
 
-#     Example: ``SentenceTokenizationProcess`` -> ``OldNorseTokenizationProcess``
-
-#     >>> from cltk.tokenizers.processes import TokenizationProcess
-#     >>> from cltk.core.data_types import Process
-#     >>> issubclass(SentenceTokenizationProcess, Process)
-#     True
-#     >>> tok = SentenceTokenizationProcess()
-
-#     """
-
-#     # model = None
-#     model: ClassVar[Any] = None
-
-#     @cached_property
-#     def algorithm(self):
-#         raise CLTKException(
-#             f"No sentence tokenization algorithm for language '{self.glottolog_id}'."
-#         )
-
-#     def run(self, input_doc: Doc) -> Doc:
-#         output_doc = copy(input_doc)
-#         sentence_tokenizer = self.algorithm
-#         if not isinstance(sentence_tokenizer, SentenceTokenizer):
-#             raise CLTKException(
-#                 "Algorithm must be an instance of SentenceTokenizer subclass"
-#             )
-
-#         sentences = sentence_tokenizer.tokenize(output_doc.raw, self.model)
-#         sentence_indices = []
-#         for i, sentence in enumerate(sentences):
-#             if i >= 1:
-#                 sentence_indices.append(sentence_indices[-1] + len(sentences[i]))
-#             else:
-#                 sentence_indices.append(len(sentence))
-#         sentence_index = 0
-#         for j, word in enumerate(output_doc.words):
-#             if sentence_indices[
-#                 sentence_index
-#             ] < word.index_char_stop and sentence_index + 1 < len(sentence_indices):
-#                 sentence_index += 1
-#             word.index_sentence = sentence_index
-#         return output_doc
+    glottolog_id: Optional[str] = "hit1242"
 
 
-# class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcessV1):
-#     """
-#     The default Old Norse sentence tokenization algorithm.
+class TocharianASentenceSplittingProcess(Process):
+    """Sentence splitter for Tocharian A (toch1238)."""
 
-#     >>> from cltk.core.data_types import Process, Pipeline
-#     >>> from cltk.sentence.processes import OldNorseSentenceTokenizationProcess
-#     >>> from cltk.tokenizers import OldNorseTokenizationProcess
-#     >>> from cltk.languages.utils import get_lang
-#     >>> from cltk.languages.example_texts import get_example_text
+    glottolog_id: Optional[str] = "toch1238"
 
-#     >>> from cltk.nlp import NLP
-#     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-#     processes=[OldNorseTokenizationProcess, OldNorseSentenceTokenizationProcess], \
-#     language=get_lang("non"))
-#     >>> nlp = NLP(language='non', custom_pipeline=pipe, suppress_banner=True)
-#     >>> output_doc = nlp.analyze(get_example_text("non"))
-#     >>> len(output_doc.sentences_strings)
-#     7
-#     """
 
-#     @cached_property
-#     def algorithm(self):
-#         return OldNorseRegexSentenceTokenizer()
+class TocharianBSentenceSplittingProcess(Process):
+    """Sentence splitter for Tocharian B (toch1237)."""
+
+    glottolog_id: Optional[str] = "toch1237"
+
+
+class AvestanSentenceSplittingProcess(Process):
+    """Sentence splitter for Avestan (aves1237)."""
+
+    glottolog_id: Optional[str] = "aves1237"
+
+
+class OldPersianSentenceSplittingProcess(Process):
+    """Sentence splitter for Old Persian (oldp1245)."""
+
+    glottolog_id: Optional[str] = "oldp1245"
+
+
+class OldIrishSentenceSplittingProcess(Process):
+    """Sentence splitter for Old Irish (oldi1245)."""
+
+    glottolog_id: Optional[str] = "oldi1245"

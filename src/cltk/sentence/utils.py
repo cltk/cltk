@@ -31,8 +31,8 @@ def split_sentences_multilang(
     """
     # Define language-specific sentence-ending regex patterns
     lang_sentence_endings = {
-        "anci1242": r"([;;·.·])",  # Greek question mark, semicolon, ano teleia, middle dot, full stop
-        "lati1261": r"([.!?])",  # Latin: period, exclamation, question
+        "anci1242": r"([;;·.·])",
+        "lati1261": r"([.!?])",
         "sans1269": r"([।॥.!?])",  # Sanskrit: danda, double danda, period, exclamation, question
         "pli": r"([।.!?])",  # Pali: danda, period, exclamation, question
         "anci1244": r"([׃.])",  # Biblical Hebrew: sof pasuq, full stop
@@ -54,6 +54,12 @@ def split_sentences_multilang(
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
         "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)
         "clas1252": r"(r[܀܁܂܃܄܆܇·])",  # Classical Syriac
+        "hit1242": r"([\.!?𒑰])",  # Hittite: generic (Akkadian-like) punctuation + 𒑰
+        "toch1238": r"([।॥.!?])",  # Tocharian A: Brahmi danda family
+        "toch1237": r"([।॥.!?])",  # Tocharian B: Brahmi danda family
+        "aves1237": r"([.!?])",  # Avestan: generic punctuation
+        "oldp1245": r"([.!?])",  # Old Persian: generic punctuation
+        "oldi1245": r"([.!?])",  # Old Irish: Latin punctuation
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

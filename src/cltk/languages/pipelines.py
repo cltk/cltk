@@ -35,6 +35,7 @@ from cltk.core.data_types_v3 import Dialect, Language, Pipeline, Process
 from cltk.genai.processes import (
     AkkadianChatGPTProcess,
     AncientGreekChatGPTProcess,
+    AvestanChatGPTProcess,
     BiblicalHebrewChatGPTProcess,
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
@@ -43,6 +44,7 @@ from cltk.genai.processes import (
     DemoticChatGPTProcess,
     GothicChatGPTProcess,
     HindiChatGPTProcess,
+    HittiteChatGPTProcess,
     LatinChatGPTProcess,
     LiteraryChineseChatGPTProcess,
     MiddleEnglishChatGPTProcess,
@@ -52,10 +54,14 @@ from cltk.genai.processes import (
     OldEnglishChatGPTProcess,
     OldFrenchChatGPTProcess,
     OldHighGermanChatGPTProcess,
+    OldIrishChatGPTProcess,
     OldNorseChatGPTProcess,
+    OldPersianChatGPTProcess,
     PaliChatGPTProcess,
     PunjabiChatGPTProcess,
     SanskritChatGPTProcess,
+    TokharianAChatGPTProcess,
+    TokharianBChatGPTProcess,
 )
 
 # from cltk.languages.utils import get_lang
@@ -75,6 +81,7 @@ from cltk.sentence.processes import (
     AkkadianSentenceSplittingProcess,
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
+    AvestanSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
@@ -82,6 +89,7 @@ from cltk.sentence.processes import (
     DemoticSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
     HindiSentenceSplittingProcess,
+    HittiteSentenceSplittingProcess,
     LatinSentenceSplittingProcess,
     LiteraryChineseSentenceSplittingProcess,
     MiddleEnglishSentenceSplittingProcess,
@@ -91,10 +99,14 @@ from cltk.sentence.processes import (
     OldEnglishSentenceSplittingProcess,
     OldFrenchSentenceSplittingProcess,
     OldHighGermanSentenceSplittingProcess,
+    OldIrishSentenceSplittingProcess,
     OldNorseSentenceSplittingProcess,
+    OldPersianSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     PanjabiSentenceSplittingProcess,
     SanskritSentenceSplittingProcess,
+    TocharianASentenceSplittingProcess,
+    TocharianBSentenceSplittingProcess,
 )
 
 # from cltk.stops.processes import StopsProcess
@@ -873,6 +885,126 @@ class DemoticChatGPTPipeline(Pipeline):
         logger.info("DemoticChatGPTPipeline created.")
 
 
+class HittiteChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Hittite."""
+
+    description: Optional[str] = "Pipeline for the Hittite language"
+    glottolog_id: Optional[str] = "hit1242"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            HittiteSentenceSplittingProcess,
+            HittiteChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing HittiteChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("HittiteChatGPTPipeline created.")
+
+
+class TocharianAChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Tocharian A."""
+
+    description: Optional[str] = "Pipeline for the Tocharian A language"
+    glottolog_id: Optional[str] = "toch1238"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            TocharianASentenceSplittingProcess,
+            TokharianAChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing TocharianAChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("TocharianAChatGPTPipeline created.")
+
+
+class TocharianBChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Tocharian B."""
+
+    description: Optional[str] = "Pipeline for the Tocharian B language"
+    glottolog_id: Optional[str] = "toch1237"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            TocharianBSentenceSplittingProcess,
+            TokharianBChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing TocharianBChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("TocharianBChatGPTPipeline created.")
+
+
+class AvestanChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Avestan."""
+
+    description: Optional[str] = "Pipeline for the Avestan language"
+    glottolog_id: Optional[str] = "aves1237"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            AvestanSentenceSplittingProcess,
+            AvestanChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing AvestanChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("AvestanChatGPTPipeline created.")
+
+
+class OldPersianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Persian."""
+
+    description: Optional[str] = "Pipeline for the Old Persian language"
+    glottolog_id: Optional[str] = "oldp1245"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldPersianSentenceSplittingProcess,
+            OldPersianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing OldPersianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("OldPersianChatGPTPipeline created.")
+
+
+class OldIrishChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Irish."""
+
+    description: Optional[str] = "Pipeline for the Old Irish language"
+    glottolog_id: Optional[str] = "oldi1245"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldIrishSentenceSplittingProcess,
+            OldIrishChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing OldIrishChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("OldIrishChatGPTPipeline created.")
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -894,6 +1026,30 @@ MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "pli": PaliPipeline,
     # "san": SanskritPipeline,
 }
+
+# Indo-European
+# Hittite (hit1242) — earliest attested Indo-European language; lots of tablets, strong scholarly interest.
+# Tocharian A/B (toch1238, toch1237) — Buddhist texts from the Tarim Basin, unique branch of Indo-European.
+# Avestan (aves1237) — sacred Zoroastrian language; close to Old Persian, key for Iranian studies.
+# Old Persian (oldp1245) — royal inscriptions, relatively small corpus but important historically.
+# Gothic (goth1244) — earliest attested Germanic, crucial for comparative studies.
+# Old Irish (oldi1245) — earliest Celtic with substantial corpus, highly inflected.
+
+# Semitic
+# Ugaritic (ugar1238) — Northwest Semitic, alphabetic cuneiform corpus, very important for biblical studies.
+# Phoenician / Punic (phoe1238) — inscriptions across the Mediterranean, huge for comparative Semitics.
+# Geʿez (Classical Ethiopic) (geez1241) — major liturgical language of the Horn of Africa, continuous tradition.
+# Egyptian & Related
+# Middle Egyptian (midd1330) — the “classical” stage of Egyptian, most of the literary corpus.
+# Old Egyptian (olde1246) — Pyramid Texts, earliest stage.
+# Late Egyptian (late1246) — administrative/literary texts, Amarna period onward.
+# (Demotic and Coptic you already have.)
+
+# East & South Asia
+# Pali (pali1273) — canonical Buddhist Prakrit, still central in Buddhist studies.
+# Prakrits (esp. Ardhamāgadhī, Māhārāṣṭrī) — Jain and early drama texts.
+# Classical Japanese (Bungo) (clas1255) — Heian and medieval prose/poetry, essential for East Asian NLP.
+# Classical Tibetan (clas1249) — canonical Buddhist translations, large corpus, lots of digital projects.
 
 MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # TODO: Pali missing from JSON entirely
@@ -919,6 +1075,10 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "demo1234": DemoticChatGPTPipeline,
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1252": ClassicalSyriacChatGPTPipeline,
-    # "pan": PanjabiChatGPTPipeline,
-    # "hin": HindiChatGPTPipeline,
+    "hit1242": HittiteChatGPTPipeline,
+    "toch1238": TocharianAChatGPTPipeline,
+    "toch1237": TocharianBChatGPTPipeline,
+    "aves1237": AvestanChatGPTPipeline,
+    "oldp1245": OldPersianChatGPTPipeline,
+    "oldi1245": OldIrishChatGPTPipeline,
 }

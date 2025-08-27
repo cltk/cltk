@@ -285,7 +285,7 @@ class ArmazicChatGPTProcess(ChatGPTProcess):
 
 
 class AvestanChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ave"
+    glottolog_id: Optional[str] = "aves1237"
     description: str = "Default process for ChatGPT for the Avestan language."
     authorship_info: str = "AvestanChatGPTProcess using OpenAI GPT models."
 
@@ -805,7 +805,7 @@ class HindiChatGPTProcess(ChatGPTProcess):
 
 
 class HittiteChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "hit"
+    glottolog_id: Optional[str] = "hit1242"
     description: str = "Default process for ChatGPT for the Hittite language."
     authorship_info: str = "HittiteChatGPTProcess using OpenAI GPT models."
 
@@ -1654,6 +1654,16 @@ class OldHungarianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldHungarianChatGPTProcess initialized.")
 
 
+class OldIrishChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "oldi1245"
+    description: str = "Default process for ChatGPT for the Old Irish language."
+    authorship_info: str = "Old IrishChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("OldIrishChatGPTProcess initialized.")
+
+
 class OldJapaneseChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "ojp"
     description: str = "Default process for ChatGPT for the Old Japanese language."
@@ -1749,7 +1759,7 @@ class OldOsseticChatGPTProcess(ChatGPTProcess):
 
 
 class OldPersianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "peo"
+    glottolog_id: Optional[str] = "oldp1245"
     description: str = (
         "Default process for ChatGPT for the Old Persian (ca. 600-400 B.C.) language."
     )
@@ -2257,7 +2267,7 @@ class TigréChatGPTProcess(ChatGPTProcess):
 
 
 class TokharianAChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xqa"
+    glottolog_id: Optional[str] = "toch1238"
     description: str = "Default process for ChatGPT for the Tokharian A language."
     authorship_info: str = "Tokharian AChatGPTProcess using OpenAI GPT models."
 
@@ -2267,7 +2277,7 @@ class TokharianAChatGPTProcess(ChatGPTProcess):
 
 
 class TokharianBChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xqb"
+    glottolog_id: Optional[str] = "toch1237"
     description: str = "Default process for ChatGPT for the Tokharian B language."
     authorship_info: str = "Tokharian BChatGPTProcess using OpenAI GPT models."
 
