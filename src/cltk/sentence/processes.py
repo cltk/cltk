@@ -37,7 +37,7 @@ class SentenceSplittingProcess(Process):
             "oldn1244",  # Old Norse
             # "pli",
             "sans1269",  # Sanskrit
-            # "arb-cla",
+            "clas1259",  # Classical Arabic
             "chur1257",  # Old Church Slavonic
             "midd1317",  # Middle English
             "midd1316",  # Middle French; broke fix later
@@ -137,7 +137,7 @@ class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
 class ClassicalArabicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Classical Arabic."""
 
-    glottolog_id: Optional[str] = "arb-cla"
+    glottolog_id: Optional[str] = "clas1259"
 
 
 class ChurchSlavonicSentenceSplittingProcess(SentenceSplittingProcess):
@@ -207,73 +207,73 @@ class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
 
 
 # V1 below
-class SentenceTokenizationProcessV1(Process):
-    """To be inherited for each language's tokenization declarations.
+# class SentenceTokenizationProcessV1(Process):
+#     """To be inherited for each language's tokenization declarations.
 
-    Example: ``SentenceTokenizationProcess`` -> ``OldNorseTokenizationProcess``
+#     Example: ``SentenceTokenizationProcess`` -> ``OldNorseTokenizationProcess``
 
-    >>> from cltk.tokenizers.processes import TokenizationProcess
-    >>> from cltk.core.data_types import Process
-    >>> issubclass(SentenceTokenizationProcess, Process)
-    True
-    >>> tok = SentenceTokenizationProcess()
+#     >>> from cltk.tokenizers.processes import TokenizationProcess
+#     >>> from cltk.core.data_types import Process
+#     >>> issubclass(SentenceTokenizationProcess, Process)
+#     True
+#     >>> tok = SentenceTokenizationProcess()
 
-    """
+#     """
 
-    # model = None
-    model: ClassVar[Any] = None
+#     # model = None
+#     model: ClassVar[Any] = None
 
-    @cached_property
-    def algorithm(self):
-        raise CLTKException(
-            f"No sentence tokenization algorithm for language '{self.glottolog_id}'."
-        )
+#     @cached_property
+#     def algorithm(self):
+#         raise CLTKException(
+#             f"No sentence tokenization algorithm for language '{self.glottolog_id}'."
+#         )
 
-    def run(self, input_doc: Doc) -> Doc:
-        output_doc = copy(input_doc)
-        sentence_tokenizer = self.algorithm
-        if not isinstance(sentence_tokenizer, SentenceTokenizer):
-            raise CLTKException(
-                "Algorithm must be an instance of SentenceTokenizer subclass"
-            )
+#     def run(self, input_doc: Doc) -> Doc:
+#         output_doc = copy(input_doc)
+#         sentence_tokenizer = self.algorithm
+#         if not isinstance(sentence_tokenizer, SentenceTokenizer):
+#             raise CLTKException(
+#                 "Algorithm must be an instance of SentenceTokenizer subclass"
+#             )
 
-        sentences = sentence_tokenizer.tokenize(output_doc.raw, self.model)
-        sentence_indices = []
-        for i, sentence in enumerate(sentences):
-            if i >= 1:
-                sentence_indices.append(sentence_indices[-1] + len(sentences[i]))
-            else:
-                sentence_indices.append(len(sentence))
-        sentence_index = 0
-        for j, word in enumerate(output_doc.words):
-            if sentence_indices[
-                sentence_index
-            ] < word.index_char_stop and sentence_index + 1 < len(sentence_indices):
-                sentence_index += 1
-            word.index_sentence = sentence_index
-        return output_doc
+#         sentences = sentence_tokenizer.tokenize(output_doc.raw, self.model)
+#         sentence_indices = []
+#         for i, sentence in enumerate(sentences):
+#             if i >= 1:
+#                 sentence_indices.append(sentence_indices[-1] + len(sentences[i]))
+#             else:
+#                 sentence_indices.append(len(sentence))
+#         sentence_index = 0
+#         for j, word in enumerate(output_doc.words):
+#             if sentence_indices[
+#                 sentence_index
+#             ] < word.index_char_stop and sentence_index + 1 < len(sentence_indices):
+#                 sentence_index += 1
+#             word.index_sentence = sentence_index
+#         return output_doc
 
 
-class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcessV1):
-    """
-    The default Old Norse sentence tokenization algorithm.
+# class OldNorseSentenceTokenizationProcess(SentenceTokenizationProcessV1):
+#     """
+#     The default Old Norse sentence tokenization algorithm.
 
-    >>> from cltk.core.data_types import Process, Pipeline
-    >>> from cltk.sentence.processes import OldNorseSentenceTokenizationProcess
-    >>> from cltk.tokenizers import OldNorseTokenizationProcess
-    >>> from cltk.languages.utils import get_lang
-    >>> from cltk.languages.example_texts import get_example_text
+#     >>> from cltk.core.data_types import Process, Pipeline
+#     >>> from cltk.sentence.processes import OldNorseSentenceTokenizationProcess
+#     >>> from cltk.tokenizers import OldNorseTokenizationProcess
+#     >>> from cltk.languages.utils import get_lang
+#     >>> from cltk.languages.example_texts import get_example_text
 
-    >>> from cltk.nlp import NLP
-    >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
-    processes=[OldNorseTokenizationProcess, OldNorseSentenceTokenizationProcess], \
-    language=get_lang("non"))
-    >>> nlp = NLP(language='non', custom_pipeline=pipe, suppress_banner=True)
-    >>> output_doc = nlp.analyze(get_example_text("non"))
-    >>> len(output_doc.sentences_strings)
-    7
-    """
+#     >>> from cltk.nlp import NLP
+#     >>> pipe = Pipeline(description="A custom Old Norse pipeline", \
+#     processes=[OldNorseTokenizationProcess, OldNorseSentenceTokenizationProcess], \
+#     language=get_lang("non"))
+#     >>> nlp = NLP(language='non', custom_pipeline=pipe, suppress_banner=True)
+#     >>> output_doc = nlp.analyze(get_example_text("non"))
+#     >>> len(output_doc.sentences_strings)
+#     7
+#     """
 
-    @cached_property
-    def algorithm(self):
-        return OldNorseRegexSentenceTokenizer()
+#     @cached_property
+#     def algorithm(self):
+#         return OldNorseRegexSentenceTokenizer()

@@ -163,24 +163,24 @@ class AkkadianChatGPTPipeline(Pipeline):
 #         logger.info("ArabicPipeline created.")
 
 
-# class ClassicalArabicChatGPTPipeline(Pipeline):
-#     """Default ``Pipeline`` for Arabic."""
+class ClassicalArabicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Arabic."""
 
-#     description: Optional[str] = "Pipeline for the Arabic language"
-#     language: Optional[Language] = get_language("Classical Arabic")
-#     processes: Optional[list[Type[Process]]] = Field(
-#         default_factory=lambda: [
-#             MultilingualNormalizeProcess,
-#             ClassicalArabicSentenceSplittingProcess,
-#             ClassicalArabicChatGPTProcess,
-#         ]
-#     )
+    description: Optional[str] = "Pipeline for the Arabic language"
+    glottolog_id: Optional[str] = "clas1259"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ClassicalArabicSentenceSplittingProcess,
+            ClassicalArabicChatGPTProcess,
+        ]
+    )
 
-#     def __post_init__(self):
-#         logger.debug(
-#             f"Initializing ArabicChatGPTPipeline with language: {self.language}"
-#         )
-#         logger.info("ArabicChatGPTPipeline created.")
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing ArabicChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("ArabicChatGPTPipeline created.")
 
 
 # class AramaicPipeline(Pipeline):
@@ -425,8 +425,7 @@ class MiddleEnglishChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Middle English."""
 
     description: Optional[str] = "Pipeline for the Middle English language"
-    glottolog_id: str = "midd1317"
-    language: Optional[Language] = get_language(glottolog_id)
+    glottolog_id: Optional[str] = "midd1317"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -492,11 +491,11 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
 #         logger.info("OCSPipeline created.")
 
 
-class OfficialAramaicChatGPTPipeline(Pipeline):
+class ImperialAramaicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Official Aramaic."""
 
     description: Optional[str] = "ChatGPT Pipeline for the Official Aramaic language."
-    language: Optional[Language] = get_language("impe1235")
+    glottolog_id: Optional[str] = "impe1235"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -510,8 +509,7 @@ class ChurchSlavonicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for (Old) Church Slavonic."""
 
     description: Optional[str] = "Pipeline for the Church Slavonic language"
-    glottolog_id: str = "chur1257"
-    language: Optional[Language] = get_language(glottolog_id)
+    glottolog_id: Optional[str] = "chur1257"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -712,8 +710,7 @@ class SanskritChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Sanskrit."""
 
     description: Optional[str] = "Pipeline for the Sanskrit language"
-    glottolog_id: str = "sans1269"
-    language: Optional[Language] = get_language(glottolog_id)
+    glottolog_id: Optional[str] = "sans1269"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -875,29 +872,28 @@ MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
 }
 
 MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
+    # TODO: Pali missing from JSON entirely
+    # # "pli": PaliChatGPTPipeline,
+    # TODO: Re-enable, Gothic the JSON incorrectly puts Gothic as another name for Old High German (oldh1241)
+    # "got": GothicChatGPTPipeline,
     "akka1240": AkkadianChatGPTPipeline,
     "olde1238": OldEnglishChatGPTPipeline,
-    # "impe1235": OfficialAramaicChatGPTPipeline,
+    "impe1235": ImperialAramaicChatGPTPipeline,
     "copt1239": CopticChatGPTPipeline,
     "anci1242": GreekChatGPTPipeline,
     "anci1244": BiblicalHebrewChatGPTPipeline,
     "lati1261": LatinChatGPTPipeline,
     "oldn1244": OldNorseChatGPTPipeline,
-    # # "pli": PaliChatGPTPipeline,
     "sans1269": SanskritChatGPTPipeline,
-    # "arb-cla": ClassicalArabicChatGPTPipeline,
+    "clas1259": ClassicalArabicChatGPTPipeline,
     "chur1257": ChurchSlavonicChatGPTPipeline,
     "midd1317": MiddleEnglishChatGPTPipeline,
-    # TODO: Fix Middle French, it wrongly resolves to Standard French stan1290
     "midd1316": MiddleFrenchChatGPTPipeline,
     "oldf1239": OldFrenchChatGPTPipeline,
     "midd1343": MiddleHighGermanChatGPTPipeline,
     "oldh1241": OldHighGermanChatGPTPipeline,
-    # TODO: Re-enable, Gothic get_language() returns oldh1241 for Old High German
-    # "got": GothicChatGPTPipeline,
-    # "hin": HindiChatGPTPipeline,
-    "lite1248": LiteraryChineseChatGPTPipeline,
-    # # "pan": PanjabiChatGPTPipeline,
-    # Like with Middle French, get_language() demo1234 returns the Egyptian egyp1246
     "demo1234": DemoticChatGPTPipeline,
+    "lite1248": LiteraryChineseChatGPTPipeline,
+    # "pan": PanjabiChatGPTPipeline,
+    # "hin": HindiChatGPTPipeline,
 }

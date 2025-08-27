@@ -41,7 +41,7 @@ def split_sentences_multilang(
         "oldn1244": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
         "olde1238": r"([.!?])",  # Old English: period, exclamation, question
         "akka1240": r"([\.!?𒑰])",  # Akkadian: period, exclamation, question, and double wedge (𒑰, U+12370)
-        "arb-cla": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
+        "clas1259": r"([.!\u061F\u06D4])",  # Arabic: period, exclamation, Arabic question mark (؟), Arabic full stop (۔)
         "chur1257": r"([.!?])",  # Old Church Slavonic: period, exclamation, question
         "midd1317": r"([.!?])",  # Middle English: period, exclamation, question
         "midd1316": r"([.!?])",  # Middle French: period, exclamation, question

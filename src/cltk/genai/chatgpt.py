@@ -7,7 +7,7 @@ import re
 import sys
 import unicodedata
 from copy import deepcopy
-from typing import Literal, Optional
+from typing import Any, Literal, Optional
 
 from colorama import Fore, Style
 from openai import OpenAI, OpenAIError
@@ -219,6 +219,7 @@ FORM    LEMMA   UPOS    FEATS
 Text:\n\n{doc.normalized_text}
 """
         logger.debug(prompt)
+        code_blocks: str = ""
         for attempt in range(1, max_retries + 1):
             try:
                 if "4.1" in self.model:
@@ -256,11 +257,11 @@ Text:\n\n{doc.normalized_text}
                 text=chatgpt_response.output_text
             )
 
-            def extract_code_blocks(text):
+            def extract_code_blocks(text) -> str:
                 # This regex finds all text between triple backticks
-                return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
+                return str(re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL))
 
-            code_blocks = extract_code_blocks(raw_chatgpt_response_normalized)
+            code_blocks: str = extract_code_blocks(raw_chatgpt_response_normalized)
             if code_blocks:
                 break  # Success, exit retry loop
             else:
@@ -274,7 +275,10 @@ Text:\n\n{doc.normalized_text}
                     # raise CLTKException(msg)
                     return doc
                 # Optionally, you could modify the prompt or add a delay here
-
+        if not code_blocks:
+            msg: str = "No code blocks found in ChatGPT response."
+            logger.error(msg)
+            raise CLTKException(msg)
         code_block: str = code_blocks[0].strip()
         logger.debug(f"Extracted code block:\n{code_block}")
 
@@ -365,6 +369,7 @@ Text:\n\n{doc.normalized_text}
             )
 
         # Get start/stop indexes for each word in the input text
+        assert doc.normalized_text
         start = 0
         for word_idx, word in enumerate(doc.words):
             if not word.string:

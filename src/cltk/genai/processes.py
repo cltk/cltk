@@ -1476,7 +1476,7 @@ class OfficialAramaicChatGPTProcess(ChatGPTProcess):
         "Default process for ChatGPT for the Official Aramaic (700-300 BCE) language."
     )
     authorship_info: str = (
-        "Official Aramaic (700-300 BCE)ChatGPTProcess using OpenAI GPT models."
+        "Official Aramaic (700-300 BCE) ChatGPTProcess using OpenAI GPT models."
     )
 
     def model_post_init(self, __context):
