@@ -53,6 +53,7 @@ def split_sentences_multilang(
         "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
         "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)
+        "clas1252": r"(r[܀܁܂܃܄܆܇·])",  # Classical Syriac
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

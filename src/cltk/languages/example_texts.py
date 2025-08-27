@@ -159,6 +159,15 @@ helidos ubar hringa do sie to dero hiltiu ritun""",
     "demo1234": """iw=f ḏd n=w : pꜣy=f ḥꜥty r nꜣ ḥsb r nꜣ rmṯ . iw=w r ḫpr r nꜣ rmṯ 
 n ḏd mdw . iw=f ḫpr r pꜣ šꜥ n ḏd mdw r pꜣ rmṯ .
 """,
+    # Classical Syriac, Peshitta New Testament, Gospel of Matthew 6:9–13 (the Lord’s Prayer)
+    "clas1252": """ܐܒܘܢ ܕܒܫܡܝܐ ܢܬܩܕܫ ܫܡܟܼ܀ 
+ܬܐܬܐ ܡܠܟܘܬܟܼ܀ 
+ܢܗܘܐ ܨܒܝܢܟܼ ܐܝܟܼ ܕܒܫܡܝܐ ܐܦ ܒܐܪܥܐ܀ 
+ܗܒ ܠܢ ܠܚܡܐ ܕܣܘܢܩܢܢ ܝܘܡܢܐ܀ 
+ܘܫܒܘܩ ܠܢ ܚܘܒܝܢ ܐܝܟܼܢܐ ܕܐܦ ܚܢܢ ܫܒܩܢ ܠܚܝܒܝܢ܀ 
+ܘܠܐ ܬܥܠܢ ܠܢܣܝܘܢܐ ܐܠܐ ܦܨܢ ܡܢ ܒܝܫܐ܀
+
+""",
 }
 
 

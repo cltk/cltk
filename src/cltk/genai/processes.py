@@ -449,7 +449,7 @@ class ClassicalQuechuaChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "syc"
+    glottolog_id: Optional[str] = "clas1252"
     description: str = "Default process for ChatGPT for the Classical Syriac language."
     authorship_info: str = "Classical SyriacChatGPTProcess using OpenAI GPT models."
 
