@@ -46,6 +46,8 @@ class SentenceSplittingProcess(Process):
             "lite1248",  # Literary Chinese
             # "pan",
             "clas1252",  # Classical Syriac
+            "oldp1254",  # Old Persian
+            "oldi1245",  # Early Irish
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -210,37 +212,37 @@ class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
     glottolog_id: Optional[str] = "demo1234"
 
 
-class HittiteSentenceSplittingProcess(Process):
+class HittiteSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Hittite (hit1242)."""
 
     glottolog_id: Optional[str] = "hit1242"
 
 
-class TocharianASentenceSplittingProcess(Process):
+class TocharianASentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Tocharian A (toch1238)."""
 
     glottolog_id: Optional[str] = "toch1238"
 
 
-class TocharianBSentenceSplittingProcess(Process):
+class TocharianBSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Tocharian B (toch1237)."""
 
     glottolog_id: Optional[str] = "toch1237"
 
 
-class AvestanSentenceSplittingProcess(Process):
+class AvestanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Avestan (aves1237)."""
 
     glottolog_id: Optional[str] = "aves1237"
 
 
-class OldPersianSentenceSplittingProcess(Process):
-    """Sentence splitter for Old Persian (oldp1245)."""
+class OldPersianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Old Persian (oldp1254)."""
 
-    glottolog_id: Optional[str] = "oldp1245"
+    glottolog_id: Optional[str] = "oldp1254"
 
 
-class OldIrishSentenceSplittingProcess(Process):
+class EarlyIrishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Old Irish (oldi1245)."""
 
     glottolog_id: Optional[str] = "oldi1245"

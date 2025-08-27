@@ -58,8 +58,8 @@ def split_sentences_multilang(
         "toch1238": r"([।॥.!?])",  # Tocharian A: Brahmi danda family
         "toch1237": r"([।॥.!?])",  # Tocharian B: Brahmi danda family
         "aves1237": r"([.!?])",  # Avestan: generic punctuation
-        "oldp1245": r"([.!?])",  # Old Persian: generic punctuation
-        "oldi1245": r"([.!?])",  # Old Irish: Latin punctuation
+        "oldp1254": r"([.!?])",  # Old Persian: generic punctuation
+        "oldi1245": r"([.!?])",  # Early Irish: Latin punctuation
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

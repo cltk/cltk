@@ -42,6 +42,7 @@ from cltk.genai.processes import (
     ClassicalSyriacChatGPTProcess,
     CopticChatGPTProcess,
     DemoticChatGPTProcess,
+    EarlyIrishChatGPTProcess,
     GothicChatGPTProcess,
     HindiChatGPTProcess,
     HittiteChatGPTProcess,
@@ -54,7 +55,6 @@ from cltk.genai.processes import (
     OldEnglishChatGPTProcess,
     OldFrenchChatGPTProcess,
     OldHighGermanChatGPTProcess,
-    OldIrishChatGPTProcess,
     OldNorseChatGPTProcess,
     OldPersianChatGPTProcess,
     PaliChatGPTProcess,
@@ -87,6 +87,7 @@ from cltk.sentence.processes import (
     ClassicalSyriacSentenceSplittingProcess,
     CopticSentenceSplittingProcess,
     DemoticSentenceSplittingProcess,
+    EarlyIrishSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
     HindiSentenceSplittingProcess,
     HittiteSentenceSplittingProcess,
@@ -99,7 +100,6 @@ from cltk.sentence.processes import (
     OldEnglishSentenceSplittingProcess,
     OldFrenchSentenceSplittingProcess,
     OldHighGermanSentenceSplittingProcess,
-    OldIrishSentenceSplittingProcess,
     OldNorseSentenceSplittingProcess,
     OldPersianSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
@@ -969,7 +969,7 @@ class OldPersianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old Persian."""
 
     description: Optional[str] = "Pipeline for the Old Persian language"
-    glottolog_id: Optional[str] = "oldp1245"
+    glottolog_id: Optional[str] = "oldp1254"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -985,7 +985,7 @@ class OldPersianChatGPTPipeline(Pipeline):
         logger.info("OldPersianChatGPTPipeline created.")
 
 
-class OldIrishChatGPTPipeline(Pipeline):
+class EarlyIrishChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old Irish."""
 
     description: Optional[str] = "Pipeline for the Old Irish language"
@@ -993,8 +993,8 @@ class OldIrishChatGPTPipeline(Pipeline):
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
-            OldIrishSentenceSplittingProcess,
-            OldIrishChatGPTProcess,
+            EarlyIrishSentenceSplittingProcess,
+            EarlyIrishChatGPTProcess,
         ]
     )
 
@@ -1075,10 +1075,13 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "demo1234": DemoticChatGPTPipeline,
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1252": ClassicalSyriacChatGPTPipeline,
-    "hit1242": HittiteChatGPTPipeline,
-    "toch1238": TocharianAChatGPTPipeline,
-    "toch1237": TocharianBChatGPTPipeline,
-    "aves1237": AvestanChatGPTPipeline,
-    "oldp1245": OldPersianChatGPTPipeline,
-    "oldi1245": OldIrishChatGPTPipeline,
+    # TODO: Hittite missing from JSON
+    # "hit1242": HittiteChatGPTPipeline,
+    # TODO: Both Tocharians missing from JSON
+    # "toch1238": TocharianAChatGPTPipeline,
+    # "toch1237": TocharianBChatGPTPipeline,
+    # Not in JSON
+    # "aves1237": AvestanChatGPTPipeline,
+    "oldp1254": OldPersianChatGPTPipeline,
+    "oldi1245": EarlyIrishChatGPTPipeline,
 }

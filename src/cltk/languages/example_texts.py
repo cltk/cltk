@@ -168,6 +168,17 @@ n ḏd mdw . iw=f ḫpr r pꜣ šꜥ n ḏd mdw r pꜣ rmṯ .
 ܘܠܐ ܬܥܠܢ ܠܢܣܝܘܢܐ ܐܠܐ ܦܨܢ ܡܢ ܒܝܫܐ܀
 
 """,
+    # Old Persian, Behistun Inscription of Darius I (c. 520 BC), the longest Old Persian text
+    "oldp1254": """adam Dārayavauš xšāyaθiya vazraka xšāyaθiya xšāyaθiyānām xšāyaθiya dahyūnām
+Vištāspahyā puça Haxāmanišiya thātiy Dārayavauš xšāyaθiya : avam Auramazdā
+frābara mā Auramazdā xšāyaθiyam akunauš.
+""",
+    # Early Irish, Senchas Már (7th–8th c.), one of the earliest law texts
+    "oldi1245": """Is tre chrecht n-igabálach is é rogab i cétóir,
+is tre gním n-igabálach is é rogab i cétóir.
+Is tre n-airitiu n-igabálach is é rogab i cétóir.
+Is tre aithgáir n-igabálach is é rogab i cétóir.
+""",
 }
 
 

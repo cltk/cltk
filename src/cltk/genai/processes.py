@@ -1654,7 +1654,7 @@ class OldHungarianChatGPTProcess(ChatGPTProcess):
         logger.debug("OldHungarianChatGPTProcess initialized.")
 
 
-class OldIrishChatGPTProcess(ChatGPTProcess):
+class EarlyIrishChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "oldi1245"
     description: str = "Default process for ChatGPT for the Old Irish language."
     authorship_info: str = "Old IrishChatGPTProcess using OpenAI GPT models."
@@ -1759,7 +1759,7 @@ class OldOsseticChatGPTProcess(ChatGPTProcess):
 
 
 class OldPersianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "oldp1245"
+    glottolog_id: Optional[str] = "oldp1254"
     description: str = (
         "Default process for ChatGPT for the Old Persian (ca. 600-400 B.C.) language."
     )
