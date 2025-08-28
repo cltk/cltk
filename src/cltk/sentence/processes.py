@@ -48,6 +48,12 @@ class SentenceSplittingProcess(Process):
             "clas1252",  # Classical Syriac
             "oldp1254",  # Old Persian
             "oldi1245",  # Early Irish
+            "ugar1238",  # Ugaritic
+            "phoe1239",  # Phoenician
+            "geez1241",  # Geez
+            "midd1369",  # Middle Egyptian
+            "olde1242",  # Old Egyptian
+            "late1256",  # Late Egyptian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -246,3 +252,39 @@ class EarlyIrishSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Old Irish (oldi1245)."""
 
     glottolog_id: Optional[str] = "oldi1245"
+
+
+class UgariticSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Ugaritic (ugar1238)."""
+
+    glottolog_id: Optional[str] = "ugar1238"
+
+
+class PhoenicianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Phoenician (phoe1239)."""
+
+    glottolog_id: Optional[str] = "phoe1239"
+
+
+class GeezSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Geez (geez1241)."""
+
+    glottolog_id: Optional[str] = "geez1241"
+
+
+class MiddleEgyptianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Middle Egyptian (midd1369)."""
+
+    glottolog_id: Optional[str] = "midd1369"
+
+
+class OldEgyptianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Old Egyptian (olde1242)."""
+
+    glottolog_id: Optional[str] = "olde1242"
+
+
+class LateEgyptianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Late Egyptian (late1256)."""
+
+    glottolog_id: Optional[str] = "late1256"

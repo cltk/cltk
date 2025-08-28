@@ -43,25 +43,31 @@ from cltk.genai.processes import (
     CopticChatGPTProcess,
     DemoticChatGPTProcess,
     EarlyIrishChatGPTProcess,
+    GeezChatGPTProcess,
     GothicChatGPTProcess,
     HindiChatGPTProcess,
     HittiteChatGPTProcess,
+    LateEgyptianChatGPTProcess,
     LatinChatGPTProcess,
     LiteraryChineseChatGPTProcess,
+    MiddleEgyptianChatGPTProcess,
     MiddleEnglishChatGPTProcess,
     MiddleFrenchChatGPTProcess,
     MiddleHighGermanChatGPTProcess,
     OfficialAramaicChatGPTProcess,
+    OldEgyptianChatGPTProcess,
     OldEnglishChatGPTProcess,
     OldFrenchChatGPTProcess,
     OldHighGermanChatGPTProcess,
     OldNorseChatGPTProcess,
     OldPersianChatGPTProcess,
     PaliChatGPTProcess,
+    PhoenicianChatGPTProcess,
     PunjabiChatGPTProcess,
     SanskritChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
+    UgariticChatGPTProcess,
 )
 
 # from cltk.languages.utils import get_lang
@@ -88,15 +94,19 @@ from cltk.sentence.processes import (
     CopticSentenceSplittingProcess,
     DemoticSentenceSplittingProcess,
     EarlyIrishSentenceSplittingProcess,
+    GeezSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
     HindiSentenceSplittingProcess,
     HittiteSentenceSplittingProcess,
+    LateEgyptianSentenceSplittingProcess,
     LatinSentenceSplittingProcess,
     LiteraryChineseSentenceSplittingProcess,
+    MiddleEgyptianSentenceSplittingProcess,
     MiddleEnglishSentenceSplittingProcess,
     MiddleFrenchSentenceSplittingProcess,
     MiddleHighGermanSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
+    OldEgyptianSentenceSplittingProcess,
     OldEnglishSentenceSplittingProcess,
     OldFrenchSentenceSplittingProcess,
     OldHighGermanSentenceSplittingProcess,
@@ -104,9 +114,11 @@ from cltk.sentence.processes import (
     OldPersianSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     PanjabiSentenceSplittingProcess,
+    PhoenicianSentenceSplittingProcess,
     SanskritSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
+    UgariticSentenceSplittingProcess,
 )
 
 # from cltk.stops.processes import StopsProcess
@@ -1005,6 +1017,124 @@ class EarlyIrishChatGPTPipeline(Pipeline):
         logger.info("OldIrishChatGPTPipeline created.")
 
 
+class UgariticChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Ugaritic."""
+
+    description: Optional[str] = "Pipeline for the Ugaritic language"
+    glottolog_id: Optional[str] = "ugar1238"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            UgariticSentenceSplittingProcess,
+            UgariticChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing UgariticChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("UgariticChatGPTPipeline created.")
+
+
+class PhoenicianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Phoenician (Punic)."""
+
+    description: Optional[str] = "Pipeline for the Phoenician (Punic) language"
+    glottolog_id: Optional[str] = "phoe1238"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            PhoenicianSentenceSplittingProcess,
+            PhoenicianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing PhoenicianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("PhoenicianChatGPTPipeline created.")
+
+
+class GeezChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Geʿez (Classical Ethiopic)."""
+
+    description: Optional[str] = "Pipeline for the Geʿez (Classical Ethiopic) language"
+    glottolog_id: Optional[str] = "geez1241"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            GeezSentenceSplittingProcess,
+            GeezChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(f"Initializing GeezChatGPTPipeline with language: {self.language}")
+        logger.info("GeezChatGPTPipeline created.")
+
+
+class MiddleEgyptianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Middle Egyptian."""
+
+    description: Optional[str] = "Pipeline for the Middle Egyptian language"
+    glottolog_id: Optional[str] = "midd1369"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddleEgyptianSentenceSplittingProcess,
+            MiddleEgyptianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MiddleEgyptianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MiddleEgyptianChatGPTPipeline created.")
+
+
+class OldEgyptianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Egyptian."""
+
+    description: Optional[str] = "Pipeline for the Old Egyptian language"
+    glottolog_id: Optional[str] = "olde1242"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldEgyptianSentenceSplittingProcess,
+            OldEgyptianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing OldEgyptianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("OldEgyptianChatGPTPipeline created.")
+
+
+class LateEgyptianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Late Egyptian."""
+
+    description: Optional[str] = "Pipeline for the Late Egyptian language"
+    glottolog_id: Optional[str] = "late1256"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            LateEgyptianSentenceSplittingProcess,
+            LateEgyptianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing LateEgyptianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("LateEgyptianChatGPTPipeline created.")
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1084,4 +1214,12 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "aves1237": AvestanChatGPTPipeline,
     "oldp1254": OldPersianChatGPTPipeline,
     "oldi1245": EarlyIrishChatGPTPipeline,
+    # TODO: Missing from JSON
+    # "ugar1238": UgariticChatGPTPipeline,
+    # TODO: Missing from JSON
+    # "phoe1239": PhoenicianChatGPTPipeline,
+    "geez1241": GeezChatGPTPipeline,
+    "midd1369": MiddleEgyptianChatGPTPipeline,
+    "olde1242": OldEgyptianChatGPTPipeline,
+    "late1256": LateEgyptianChatGPTPipeline,
 }

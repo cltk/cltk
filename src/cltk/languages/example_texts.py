@@ -179,6 +179,27 @@ is tre gním n-igabálach is é rogab i cétóir.
 Is tre n-airitiu n-igabálach is é rogab i cétóir.
 Is tre aithgáir n-igabálach is é rogab i cétóir.
 """,
+    "ugar1238": """yṯb mlk. bṯkrt. ʿl ksʼ mlk. ʿl ksʼ dgn.
+ykḥd. npš mlk. krt. ʿm npš. ʾilm.
+""",
+    "phoe1239": """אנכ כלמוא בר חי
+מלך גדלתי ית גדל
+ואבני לא יספן כען
+ואבני לא ישימון
+""",
+    "geez1241": """እምነት ወእምሕረት እምአምላክ እምአብ ወእምወልድ ወእምመንፈስ ቅዱስ።
+እምነት አምላክ አንድ ሥም ወአንድ አምላክ።
+""",
+    "midd1369": """ỉw=ỉ rʿỉ m-ẖnw šmsw nsw m-ẖnw ḥꜥw.
+ỉw=ỉ ḫr=s r-ḥr=f. ḥr wꜥt ḥr šms ỉm.
+""",
+    "olde1242": """tp=k ḥr pṯ tꜣ.
+wnn=k ḥr wꜣḏ ḥr.
+ḏd mdw ỉn wsir unas.
+""",
+    "late1256": """ỉw=ỉ ḥr sḫr ỉt. r ḥsb ḫr tp ḥm=f.
+ỉw=f ḫpr ḥr ḏd n=ỉ: ỉr=k n=ỉ sš.
+""",
 }
 
 

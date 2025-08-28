@@ -518,14 +518,14 @@ class DacianChatGPTProcess(ChatGPTProcess):
         logger.debug("DacianChatGPTProcess initialized.")
 
 
-class EarlyIrishChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "sga"
-    description: str = "Default process for ChatGPT for the Early Irish language."
-    authorship_info: str = "Early IrishChatGPTProcess using OpenAI GPT models."
+class DemoticChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "demo1234"
+    description: str = "Default process for ChatGPT for the Demotic language."
+    authorship_info: str = "DemoticChatGPTProcess using OpenAI GPT models."
 
     def model_post_init(self, __context):
         super().model_post_init(__context)
-        logger.debug("EarlyIrishChatGPTProcess initialized.")
+        logger.debug("DemoticChatGPTProcess initialized.")
 
 
 class EarlyTripuriChatGPTProcess(ChatGPTProcess):
@@ -566,16 +566,6 @@ class EdomiteChatGPTProcess(ChatGPTProcess):
     def model_post_init(self, __context):
         super().model_post_init(__context)
         logger.debug("EdomiteChatGPTProcess initialized.")
-
-
-class DemoticChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "demo1234"
-    description: str = "Default process for ChatGPT for the Demotic Egyptian language."
-    authorship_info: str = "Egyptian (Ancient)ChatGPTProcess using OpenAI GPT models."
-
-    def model_post_init(self, __context):
-        super().model_post_init(__context)
-        logger.debug("EgyptianChatGPTProcess initialized.")
 
 
 class ElamiteChatGPTProcess(ChatGPTProcess):
@@ -679,7 +669,7 @@ class GalindanChatGPTProcess(ChatGPTProcess):
 
 
 class GeezChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "gez"
+    glottolog_id: Optional[str] = "geez1241"
     description: str = "Default process for ChatGPT for the Geez language."
     authorship_info: str = "GeezChatGPTProcess using OpenAI GPT models."
 
@@ -994,6 +984,16 @@ class LangobardicChatGPTProcess(ChatGPTProcess):
         logger.debug("LangobardicChatGPTProcess initialized.")
 
 
+class LateEgyptianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "late1256"
+    description: str = "Default process for ChatGPT for the Late Egyptian language."
+    authorship_info: str = "Late Egyptian ChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("LateEgyptianChatGPTProcess initialized.")
+
+
 class LatinChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "lati1261"
     description: str = "Default process for ChatGPT for the Latin language."
@@ -1228,6 +1228,16 @@ class MiddleDutchChatGPTProcess(ChatGPTProcess):
     def model_post_init(self, __context):
         super().model_post_init(__context)
         logger.debug("MiddleDutchChatGPTProcess initialized.")
+
+
+class MiddleEgyptianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "midd1369"
+    description: str = "Default process for ChatGPT for the Middle Egyptian language."
+    authorship_info: str = "Middle Egyptian ChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("MiddleEgyptianChatGPTProcess initialized.")
 
 
 class MiddleEnglishChatGPTProcess(ChatGPTProcess):
@@ -1560,6 +1570,16 @@ class OldDutchOldFrankishChatGPTProcess(ChatGPTProcess):
     def model_post_init(self, __context):
         super().model_post_init(__context)
         logger.debug("OldDutchOldFrankishChatGPTProcess initialized.")
+
+
+class OldEgyptianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "olde1242"
+    description: str = "Default process for ChatGPT for the Old Egyptian language."
+    authorship_info: str = "Old Egyptian ChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("OldEgyptianChatGPTProcess initialized.")
 
 
 class OldEnglishChatGPTProcess(ChatGPTProcess):
@@ -1977,7 +1997,7 @@ class PersianChatGPTProcess(ChatGPTProcess):
 
 
 class PhoenicianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "phn"
+    glottolog_id: Optional[str] = "phoe1238"
     description: str = "Default process for ChatGPT for the Phoenician language."
     authorship_info: str = "PhoenicianChatGPTProcess using OpenAI GPT models."
 
@@ -2294,6 +2314,16 @@ class TurkishChatGPTProcess(ChatGPTProcess):
     def model_post_init(self, __context):
         super().model_post_init(__context)
         logger.debug("TurkishChatGPTProcess initialized.")
+
+
+class UgariticChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "ugar1238"
+    description: str = "Default process for ChatGPT for the Ugaritic language."
+    authorship_info: str = "UgariticChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("UgariticChatGPTProcess initialized.")
 
 
 class UighurChatGPTProcess(ChatGPTProcess):

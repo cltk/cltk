@@ -60,6 +60,12 @@ def split_sentences_multilang(
         "aves1237": r"([.!?])",  # Avestan: generic punctuation
         "oldp1254": r"([.!?])",  # Old Persian: generic punctuation
         "oldi1245": r"([.!?])",  # Early Irish: Latin punctuation
+        "ugar1238": r"([𒑰])",  # Ugaritic: generic punctuation
+        "phoe1239": r"([𐤟])",  # Phoenician: generic punctuation
+        "geez1241": r"([፡።፨])",  # Geez: generic punctuation
+        "midd1369": r"([𓏛])",  # Middle Egyptian: generic punctuation
+        "olde1242": r"([𓏛])",  # Old Egyptian: generic punctuation
+        "late1256": r"([𓏛])",  # Late Egyptian: generic punctuation
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")
