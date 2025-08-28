@@ -40,6 +40,7 @@ from cltk.genai.processes import (
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
     ClassicalSyriacChatGPTProcess,
+    ClassicalTibetanChatGPTProcess,
     CopticChatGPTProcess,
     DemoticChatGPTProcess,
     EarlyIrishChatGPTProcess,
@@ -91,6 +92,7 @@ from cltk.sentence.processes import (
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
+    ClassicalTibetanSentenceSplittingProcess,
     CopticSentenceSplittingProcess,
     DemoticSentenceSplittingProcess,
     EarlyIrishSentenceSplittingProcess,
@@ -229,6 +231,28 @@ class ClassicalSyriacChatGPTPipeline(Pipeline):
             f"Initializing ClassicalSyriacChatGPTPipeline with language: {self.language.name}"
         )
         logger.info("ClassicalSyriacChatGPTPipeline created.")
+
+
+# ClassicalTibetanPipeline
+class ClassicalTibetanPipeline(Pipeline):
+    """Default ``Pipeline`` for Classical Tibetan."""
+
+    description: Optional[str] = "Pipeline for the Classical Tibetan language"
+    glottolog_id: Optional[str] = "clas1254"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ClassicalTibetanSentenceSplittingProcess,
+            ClassicalTibetanChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        assert self.language, "Language not found"
+        logger.debug(
+            f"Initializing ClassicalTibetanChatGPTPipeline with language: {self.language.name}"
+        )
+        logger.info("ClassicalTibetanChatGPTPipeline created.")
 
 
 # class AramaicPipeline(Pipeline):
@@ -1222,4 +1246,5 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "midd1369": MiddleEgyptianChatGPTPipeline,
     "olde1242": OldEgyptianChatGPTPipeline,
     "late1256": LateEgyptianChatGPTPipeline,
+    "clas1254": ClassicalTibetanPipeline,
 }

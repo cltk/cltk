@@ -127,7 +127,6 @@ class ChatGPT:
         logger.debug(
             f"Completed processing POS for text starting with {input_doc.normalized_text[:50]} ..."
         )
-
         return input_doc
 
         # # Dependency
@@ -256,12 +255,17 @@ Text:\n\n{doc.normalized_text}
             raw_chatgpt_response_normalized: str = cltk_normalize(
                 text=chatgpt_response.output_text
             )
+            logger.debug(
+                f"raw_chatgpt_response_normalized:\n{raw_chatgpt_response_normalized}"
+            )
 
-            def extract_code_blocks(text) -> str:
+            def extract_code_blocks(text) -> list[Any]:
                 # This regex finds all text between triple backticks
-                return str(re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL))
+                return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
 
-            code_blocks: str = extract_code_blocks(raw_chatgpt_response_normalized)
+            code_blocks: list[Any] = extract_code_blocks(
+                raw_chatgpt_response_normalized
+            )
             if code_blocks:
                 break  # Success, exit retry loop
             else:
@@ -299,6 +303,8 @@ Text:\n\n{doc.normalized_text}
                         continue
                     entry = dict(zip(header, parts))
                     data.append(entry)
+                else:
+                    logger.debug(f"Skipping malformed line: {line}")
             return data
 
         parsed_pos_tags: list[dict[str, str]] = parse_tsv_table(code_block)

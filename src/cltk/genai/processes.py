@@ -459,7 +459,7 @@ class ClassicalSyriacChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalTibetanChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xct"
+    glottolog_id: Optional[str] = "clas1254"
     description: str = "Default process for ChatGPT for the Classical Tibetan language."
     authorship_info: str = "Classical TibetanChatGPTProcess using OpenAI GPT models."
 

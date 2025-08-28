@@ -54,6 +54,7 @@ class SentenceSplittingProcess(Process):
             "midd1369",  # Middle Egyptian
             "olde1242",  # Old Egyptian
             "late1256",  # Late Egyptian
+            "clas1254",  # Classical Tibetan
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -102,6 +103,12 @@ class ClassicalSyriacSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Classical Syriac."""
 
     glottolog_id: Optional[str] = "clas1252"
+
+
+class ClassicalTibetanSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Tibetan."""
+
+    glottolog_id: Optional[str] = "clas1254"
 
 
 class CopticSentenceSplittingProcess(SentenceSplittingProcess):
