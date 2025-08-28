@@ -84,7 +84,6 @@ class NLP:
         return doc
 
     def _print_cltk_info(self) -> None:
-        logger.info("Printing CLTK citation info.")
         ltr_mark: str = "\u200e"
         alep: str = "\U00010900"
         print(
@@ -104,14 +103,18 @@ class NLP:
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         processes_name: list[str] = [process.__name__ for process in processes]
-        lang_or_dialect_name: str
-        # if self.language.selected_dialect_name:
-        #     lang_or_dialect_name = self.language.selected_dialect_name
-        # else:
-        lang_or_dialect_name = self.language.name
+        lang_and_dialect_selected: str = ""
+        if self.dialect:
+            lang_and_dialect_selected: str = (
+                f'Selected language "{self.language.name}" ("{self.language.glottolog_id}") with dialect "{self.dialect.name}" ("{self.dialect.glottolog_id}").'
+            )
+        else:
+            lang_and_dialect_selected = f'Selected language "{self.language.name}" ("{self.language.glottolog_id}") without dialect.'
         print(
             Fore.CYAN
-            + f"Pipeline for {lang_or_dialect_name} ('{self.language_code}', backend='{self._resolved_backend()}'):"
+            + lang_and_dialect_selected
+            + "\n"
+            + f'Pipeline for `NLP("{self.language_code}", backend="{self._resolved_backend()}")`:'
             + Fore.GREEN
             + f" {[process.__name__ for process in processes]}"
             + Style.RESET_ALL

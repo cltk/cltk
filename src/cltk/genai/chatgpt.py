@@ -218,7 +218,7 @@ FORM    LEMMA   UPOS    FEATS
 Text:\n\n{doc.normalized_text}
 """
         logger.debug(prompt)
-        code_blocks: str = ""
+        code_blocks: list[Any] = []
         for attempt in range(1, max_retries + 1):
             try:
                 if "4.1" in self.model:
