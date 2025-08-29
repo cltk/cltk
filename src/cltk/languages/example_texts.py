@@ -212,14 +212,37 @@ puklāṃśi śśäk lyākäṃ ñom śśäk ñompatär.
     "tokh1243": """ñakte śolai ṣom wärpatsiṃ tärkentsiṃ ñi ṣolai palskoṃ lyu
 klyoskaṣṣäl ñakte śolai ṣom wärpatsiṃ ñi ṣolai palskoṃ.
 """,
-    # Avestan from the Gāthās
-    "aves1237": """at̰ tā vā ahmāi astvaitīm yazamaide
-yaθa ahū vairyō manahā vohū
-xšaθrəmca ahurāi ā yim drigubyo dadāt̰ vāstārem.
+    # Avestan, Avesta, Yasna 30.2–30.4
+    "aves1237": """at̰ mąθrəm vacā ahurahyā mazdå  
+vīspā vohū vīdvåŋhō raocå ahurå  
+dā̊tō gaēθå yąm vīdvåŋhō urvān  
+vīdvåŋhō mananghō vahistem.
+yat̰ aēibyō mazdå ahurå  
+yąm vīspā gaēθā vīspå urvān  
+sraēštå sraotā mananghō vahistem  
+xšnūtå daēnō mazdå ahurahyā.
+yat̰ vā nā vā ząm fravaxšyantī  
+yąm ahurå vīdvåŋhō mananghō  
+yąm vīspā urvān fradaēnao  
+mazdå ahurå pouruyō.
 """,
     # Old Persian, from the Behistun Inscription of Darius I (ca. 520 B.C.)
     # 𐎠𐎭𐎶𐎺𐎢𐏁 𐎧𐏁𐎹𐎠 𐎶𐎠𐎼𐎺𐎢𐏁𐎠 𐎶𐎠𐎭𐎠 𐎶𐎠𐎴𐎠
     "oldp1254": """adam Dārayavauš xšāyaθiya vazraka xšāyaθiya xšāyaθiyānām""",
+    # Middle Persian, Book Pahlavi script transliterated into Latin letters) from the Bundahišn (“Creation”), one of the great Zoroastrian Middle Persian texts
+    "pahl1241": """ōy ī-šān čiyōn-iz abar dēn pad nām ī Ohrmazd-iz gōwēd kū Ohrmazd pad ōhrmazdān ī yazdān dām kard harwisp ī dāmān pad gōwārišn ud xwāhišn.""",
+    # Parthian, Manichaean hymn fragment (M 178 I, Turfan collection, 3rd–4th c. CE) in Henning (1940) style transliteration
+    "part1239": """āz ēn gōhr ud āz ēn rōšn bawēd xwēškār.  
+xwēškār bawēd čiyōn ātaxš andar frazānīgān.  
+ud frazānīgān andar ātaxš andar rōšn bawēd.  
+""",
+    # Bactrian, from the Rabatak Inscription
+    "bact1239": """κανηϸκι κοϸανο ϸαο νανο ϸαο βαγο ϸαο κοϸανο  
+κανηϸκι καδανο ιδο ϸαοο  
+ανο κι βαγολαγγο ιδο βαγο.  
+ϸαο κι κοϸανο ϸαοανο κι αναρο ϸαο.  
+""",
+    # "": """""",
 }
 
 

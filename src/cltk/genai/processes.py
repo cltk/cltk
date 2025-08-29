@@ -295,7 +295,7 @@ class AvestanChatGPTProcess(ChatGPTProcess):
 
 
 class BactrianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xbc"
+    glottolog_id: Optional[str] = "bact1239"
     description: str = "Default process for ChatGPT for the Bactrian language."
     authorship_info: str = "BactrianChatGPTProcess using OpenAI GPT models."
 
@@ -1926,14 +1926,24 @@ class PaelignianChatGPTProcess(ChatGPTProcess):
         logger.debug("PaelignianChatGPTProcess initialized.")
 
 
-class PahlaviChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "pal"
-    description: str = "Default process for ChatGPT for the Pahlavi language."
-    authorship_info: str = "PahlaviChatGPTProcess using OpenAI GPT models."
+class ParthianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "part1239"
+    description: str = "Default process for ChatGPT for the Parthian language."
+    authorship_info: str = "ParthianChatGPTProcess using OpenAI GPT models."
 
     def model_post_init(self, __context):
         super().model_post_init(__context)
-        logger.debug("PahlaviChatGPTProcess initialized.")
+        logger.debug("ParthianChatGPTProcess initialized.")
+
+
+class MiddlePersianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "pahl1241"
+    description: str = "Default process for ChatGPT for the Middle Persian language."
+    authorship_info: str = "MiddlePersianChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("MiddlePersianChatGPTProcess initialized.")
 
 
 class PalaicChatGPTProcess(ChatGPTProcess):

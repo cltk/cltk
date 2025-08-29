@@ -55,6 +55,10 @@ class SentenceSplittingProcess(Process):
             "olde1242",  # Old Egyptian
             "late1256",  # Late Egyptian
             "clas1254",  # Classical Tibetan
+            "pahl1241",  # Middle Persian
+            "part1239",  # Parthian
+            "aves1237",  # Avestan
+            "bact1239",  # Bactrian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -177,6 +181,12 @@ class MiddleFrenchSentenceSplittingProcess(SentenceSplittingProcess):
     glottolog_id: Optional[str] = "midd1316"
 
 
+class MiddlePersianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Persian."""
+
+    glottolog_id: Optional[str] = "pahl1241"
+
+
 class OldFrenchSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old French."""
 
@@ -219,6 +229,12 @@ class PanjabiSentenceSplittingProcess(SentenceSplittingProcess):
     glottolog_id: Optional[str] = "pan"
 
 
+class ParthianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Parthian."""
+
+    glottolog_id: Optional[str] = "part1239"
+
+
 class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Egyptian."""
 
@@ -247,6 +263,12 @@ class AvestanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Avestan (aves1237)."""
 
     glottolog_id: Optional[str] = "aves1237"
+
+
+class BactrianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Bactrian (bact1239)."""
+
+    glottolog_id: Optional[str] = "bact1239"
 
 
 class OldPersianSentenceSplittingProcess(SentenceSplittingProcess):

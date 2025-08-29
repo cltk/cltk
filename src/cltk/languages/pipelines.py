@@ -36,6 +36,7 @@ from cltk.genai.processes import (
     AkkadianChatGPTProcess,
     AncientGreekChatGPTProcess,
     AvestanChatGPTProcess,
+    BactrianChatGPTProcess,
     BiblicalHebrewChatGPTProcess,
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
@@ -55,6 +56,7 @@ from cltk.genai.processes import (
     MiddleEnglishChatGPTProcess,
     MiddleFrenchChatGPTProcess,
     MiddleHighGermanChatGPTProcess,
+    MiddlePersianChatGPTProcess,
     OfficialAramaicChatGPTProcess,
     OldEgyptianChatGPTProcess,
     OldEnglishChatGPTProcess,
@@ -63,6 +65,7 @@ from cltk.genai.processes import (
     OldNorseChatGPTProcess,
     OldPersianChatGPTProcess,
     PaliChatGPTProcess,
+    ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
     PunjabiChatGPTProcess,
     SanskritChatGPTProcess,
@@ -89,6 +92,7 @@ from cltk.sentence.processes import (
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
     AvestanSentenceSplittingProcess,
+    BactrianSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
@@ -107,6 +111,7 @@ from cltk.sentence.processes import (
     MiddleEnglishSentenceSplittingProcess,
     MiddleFrenchSentenceSplittingProcess,
     MiddleHighGermanSentenceSplittingProcess,
+    MiddlePersianSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
     OldEgyptianSentenceSplittingProcess,
     OldEnglishSentenceSplittingProcess,
@@ -116,6 +121,7 @@ from cltk.sentence.processes import (
     OldPersianSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     PanjabiSentenceSplittingProcess,
+    ParthianSentenceSplittingProcess,
     PhoenicianSentenceSplittingProcess,
     SanskritSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
@@ -563,6 +569,26 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
 #         logger.info("OCSPipeline created.")
 
 
+class MiddlePersianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Middle Persian (Pahlavi)."""
+
+    description: Optional[str] = "Pipeline for the Middle Persian (Pahlavi) language"
+    glottolog_id: Optional[str] = "pahl1241"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddlePersianSentenceSplittingProcess,
+            MiddlePersianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MiddlePersianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MiddlePersianChatGPTPipeline created.")
+
+
 class ImperialAramaicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Official Aramaic."""
 
@@ -1001,6 +1027,26 @@ class AvestanChatGPTPipeline(Pipeline):
         logger.info("AvestanChatGPTPipeline created.")
 
 
+class BactrianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Bactrian."""
+
+    description: Optional[str] = "Pipeline for the Bactrian language"
+    glottolog_id: Optional[str] = "bact1239"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            BactrianSentenceSplittingProcess,
+            BactrianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing BactrianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("BactrianChatGPTPipeline created.")
+
+
 class OldPersianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old Persian."""
 
@@ -1159,6 +1205,26 @@ class LateEgyptianChatGPTPipeline(Pipeline):
         logger.info("LateEgyptianChatGPTPipeline created.")
 
 
+class ParthianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Parthian."""
+
+    description: Optional[str] = "Pipeline for the Parthian language"
+    glottolog_id: Optional[str] = "part1239"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ParthianSentenceSplittingProcess,
+            ParthianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing LateEgyptianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("LateEgyptianChatGPTPipeline created.")
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1232,9 +1298,6 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "hit1242": HittiteChatGPTPipeline,
     "tokh1242": TocharianAChatGPTPipeline,
     "tokh1243": TocharianBChatGPTPipeline,
-    "aves1237": AvestanChatGPTPipeline,
-    "oldp1254": OldPersianChatGPTPipeline,
-    # TODO: Add later versions of Persian, related languages
     "oldi1245": EarlyIrishChatGPTPipeline,
     "ugar1238": UgariticChatGPTPipeline,
     "phoe1239": PhoenicianChatGPTPipeline,
@@ -1243,4 +1306,23 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "olde1242": OldEgyptianChatGPTPipeline,
     "late1256": LateEgyptianChatGPTPipeline,
     "clas1254": ClassicalTibetanPipeline,
+    # Iranian languages
+    ## SW Iranian
+    "oldp1254": OldPersianChatGPTPipeline,
+    # Middle Persian (Pahlavi) (ca. 200 BC–800 AD)
+    "pahl1241": MiddlePersianChatGPTPipeline,
+    ## NW Iranian
+    # # Parthian (ca. 250 BC–300 AD)
+    "part1239": ParthianChatGPTPipeline,
+    # ## E Iranian
+    # # Avestan (ca. 1200–500 BC, fixed canon later)
+    "aves1237": AvestanChatGPTPipeline,
+    # # Bactrian (ca. 200 BC–900 AD)
+    "bact1239": BactrianChatGPTPipeline,
+    # # Sogdian (ca. 400–1000 AD)
+    # "sogd1245": SogdianChatGPTPipeline,
+    # # Khotanese Saka (ca. 300–1000 AD)
+    # "khot1251": KhotaneseChatGPTPipeline,
+    # # Tumshuqese
+    # "tumsh1237": TumshuqeseChatGPTPipeline,
 }
