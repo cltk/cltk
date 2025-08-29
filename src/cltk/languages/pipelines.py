@@ -1375,12 +1375,36 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Prakrits (Middle Indo-Aryan, ca. 500 BCE–500 CE)
     "pali1273": PaliChatGPTPipeline,
     # Ardhamāgadhī, Śaurasenī, Mahārāṣṭrī, etc. — languages of Jain/Buddhist texts and early drama.
-    # Ashokan inscriptions (3rd c. BCE) in Prakrits are the first written Indo-Aryan texts.
+    # ? Glotto says alt_name for Pali; Ardhamāgadhī, literary language associated with Magadha (eastern India); Jain canonical texts (the Āgamas) are written primarily in Ardhamāgadhī
+    # "saur1252": "Sauraseni Prakrit"; Śaurasenī, Linked to Śūrasena (region around Mathurā, central north India).
+    # "maha1305": "Maharastri Prakrit"; Mahārāṣṭrī, Western Deccan (Maharashtra). Lyric and epic poetry, gatha
+    # "maga1260": "Magadhi Prakrit"; Māgadhī, Magadha (Bihar). Buddhist texts (especially in eastern India).
+    # "Gandhari": "gand1259"; Gāndhārī, Inscriptions and Buddhist texts. Kharoṣṭhī script
     ## Middle Indo-Aryan
-    # Apabhraṃśa (500–1200 CE); Bridges Prakrits → New Indo-Aryan
+    # "Maithili": "mait1250"; Apabhraṃśa; "Apabhramsa" is alt_name; (500–1200 CE); Bridges Prakrits → New Indo-Aryan
     ## New Indo-Aryan
     ## Medieval languages (~1200 CE onward):
     # Early forms of Hindi, Bengali, Gujarati, Marathi, Punjabi, Oriya, Sinhala, etc
+    # North-Western / Hindi Belt
+    # "hind1269": "Hindi"; "Old Hindi" is alt_name: ~10th–14th century CE.
+    # "hind1269": "Hindi"; Khari Boli is alt name: In the medieval period (before 1700), Khari Boli itself was not a prestigious literary dialect; Braj and Awadhi dominated literary use.; becomes the basis of Standard Hindi and Standard Urdu
+    # "braj1242": "Braj" Braj Bhāṣā: Braj area around Mathura, Agra, western Uttar Pradesh, parts of Rajasthan; Flourished 15th–18th centuries as a major literary dialect; language of Krishna bhakti poetry
+    # "awad1243": "Awadhi" Awadhi: Awadh region of eastern Uttar Pradesh; Active literary language from 14th century onward; Rāmāyaṇa tradition, Sufi poetry
+    # "": "" Urdu: 13th–14th c.: In Delhi Sultanate, Sufi poets (e.g. Amīr Khusro, d. 1325) composed in Hindavī, blending Khari Boli vernacular with Persian/Arabic elements.
+    ### Eastern Indo-Aryan
+    # "": "" Bengali (Bangla): Descends from Magadhi Apabhraṃśa; Caryāpadas (Buddhist, c. 10th–12th c.); Chaitanya, a vast Vaishnava devotional literature
+    # "": "" Oriya (Odia): diverging from Bengali/Assamese around 10th–11th c.; Sarala Dāsa (15th c.): Mahābhārata in Odia, Chandī Purāṇa, Vilanka Rāmāyaṇa, and other medieval epics
+    # "": "" Assamese: the same eastern Apabhraṃśa ancestor as Bengali and Odia; distinct by 12th–13th c.; Śaṅkaradeva (15th–16th c.): central figure, created Vaishnava plays (Ankiyā Nāt), poetry, translations of epics
+    ### Western Indo-Aryan
+    # "": "" Gujarati: from western Apabhraṃśa by the 12th c.; Jain religious poetry (12th–14th c.).
+    # "": "" Marathi: Western Apabhraṃśa → Old Marathi attested from 11th–13th c. inscriptions.; Earliest texts: Jñāneśvarī (1275 CE) by Jñāneśvar — Marathi commentary on the Bhagavad Gītā.
+    # "": "" Rajasthani: Old Western Rajasthani (often overlapping with Old Gujarati/Apabhraṃśa). Jain texts in Dingal/Pingal dialects, heroic poetry (12th–13th c.).
+    ### Southern Indo-Aryan
+    # "": "" Sinhala (Sinhalese); Earliest texts: Elu Sandēsa poems (13th c.), chronicles (Cūḷavaṃsa continues through medieval period).
+    ### North-Western Frontier
+    # "": "" Punjabi: in its Old forms; Baba Farid’s vārs (12th–13th c.)
+    # "": "" Sindhi: Northwestern WIA dialect continuum; Sufi poetry from the 14th c.
+    # "": "" Kashmiri: Early poetry of Lal Dēd (14th c.) and Habba Khatoon (16th c.).
     # Afroasiatic family
     ## Semitic languages
     ### East Semitic
