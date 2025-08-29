@@ -204,6 +204,22 @@ wnn=k ḥr wꜣḏ ḥr.
 བྱང་ཆུབ་སེམས་སུ་སྐྱེས་ནས། རང་དོན་དང་གཞན་དོན་གཉིས་ཀྱི་དོན་དུ་
 བྱང་ཆུབ་སེམས་དང་བཅས་པའི་ལམ་ལ་འཇུག་པར་བྱེད་པའོ།
 """,
+    # Tocharian A, from Udānavarga (a Buddhist anthology of verses)
+    "tokh1242": """śśäk warṣam tsainma lyākäṃ ntsätär oksoṃ.
+puklāṃśi śśäk lyākäṃ ñom śśäk ñompatär.
+""",
+    # Tocharian B, from a Buddhist text (a sermon fragment, TB 14 a)
+    "tokh1243": """ñakte śolai ṣom wärpatsiṃ tärkentsiṃ ñi ṣolai palskoṃ lyu
+klyoskaṣṣäl ñakte śolai ṣom wärpatsiṃ ñi ṣolai palskoṃ.
+""",
+    # Avestan from the Gāthās
+    "aves1237": """at̰ tā vā ahmāi astvaitīm yazamaide
+yaθa ahū vairyō manahā vohū
+xšaθrəmca ahurāi ā yim drigubyo dadāt̰ vāstārem.
+""",
+    # Old Persian, from the Behistun Inscription of Darius I (ca. 520 B.C.)
+    # 𐎠𐎭𐎶𐎺𐎢𐏁 𐎧𐏁𐎹𐎠 𐎶𐎠𐎼𐎺𐎢𐏁𐎠 𐎶𐎠𐎭𐎠 𐎶𐎠𐎴𐎠
+    "oldp1254": """adam Dārayavauš xšāyaθiya vazraka xšāyaθiya xšāyaθiyānām""",
 }
 
 

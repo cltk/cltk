@@ -1229,18 +1229,14 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "demo1234": DemoticChatGPTPipeline,
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1252": ClassicalSyriacChatGPTPipeline,
-    # TODO: Hittite missing from JSON
     "hit1242": HittiteChatGPTPipeline,
-    # TODO: Both Tocharians missing from JSON
-    "toch1238": TocharianAChatGPTPipeline,
-    "toch1237": TocharianBChatGPTPipeline,
-    # Not in JSON
+    "tokh1242": TocharianAChatGPTPipeline,
+    "tokh1243": TocharianBChatGPTPipeline,
     "aves1237": AvestanChatGPTPipeline,
     "oldp1254": OldPersianChatGPTPipeline,
+    # TODO: Add later versions of Persian, related languages
     "oldi1245": EarlyIrishChatGPTPipeline,
-    # TODO: Missing from JSON
     "ugar1238": UgariticChatGPTPipeline,
-    # TODO: Missing from JSON
     "phoe1239": PhoenicianChatGPTPipeline,
     "geez1241": GeezChatGPTPipeline,
     "midd1369": MiddleEgyptianChatGPTPipeline,
