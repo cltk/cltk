@@ -73,6 +73,7 @@ from cltk.genai.processes import (
     SogdianChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
+    TumshuqeseChatGPTProcess,
     UgariticChatGPTProcess,
 )
 
@@ -130,6 +131,7 @@ from cltk.sentence.processes import (
     SogdianSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
+    TumshuqeseSentenceSplittingProcess,
     UgariticSentenceSplittingProcess,
 )
 
@@ -1091,6 +1093,26 @@ class KhotaneseChatGPTPipeline(Pipeline):
         logger.info("KhotaneseChatGPTPipeline created.")
 
 
+class TumshuqeseChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Tumshuqese."""
+
+    description: Optional[str] = "Pipeline for the Tumshuqese language"
+    glottolog_id: Optional[str] = "tums1237"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            TumshuqeseSentenceSplittingProcess,
+            TumshuqeseChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing TumshuqeseChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("TumshuqeseChatGPTPipeline created.")
+
+
 class OldPersianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old Persian."""
 
@@ -1359,14 +1381,14 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # # Parthian (ca. 250 BC–300 AD)
     "part1239": ParthianChatGPTPipeline,
     # ## E Iranian
-    # # Avestan (ca. 1200–500 BC, fixed canon later)
+    # Avestan (ca. 1200–500 BC, fixed canon later)
     "aves1237": AvestanChatGPTPipeline,
-    # # Bactrian (ca. 200 BC–900 AD)
+    # Bactrian (ca. 200 BC–900 AD)
     "bact1239": BactrianChatGPTPipeline,
-    # # Sogdian (ca. 400–1000 AD)
+    # Sogdian (ca. 400–1000 AD)
     "sogd1245": SogdianChatGPTPipeline,
-    # # Khotanese Saka (ca. 300–1000 AD)
+    # Khotanese Saka (ca. 300–1000 AD)
     "khot1251": KhotaneseChatGPTPipeline,
-    # # Tumshuqese
-    # "tumsh1237": TumshuqeseChatGPTPipeline,
+    # Tumshuqese
+    "tums1237": TumshuqeseChatGPTPipeline,
 }

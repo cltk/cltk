@@ -73,6 +73,7 @@ def split_sentences_multilang(
         "bact1239": r"([·:⁘.;:])",  # Bactrian
         "sogd1245": r"([·:܃⁘.;:])",  # Sogdian
         "khot1251": r"([।॥.])",  # Khotanese
+        "tums1237": r"([।॥.])",  # Tumshuqese
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

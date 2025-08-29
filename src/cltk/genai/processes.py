@@ -954,6 +954,16 @@ class KhotaneseChatGPTProcess(ChatGPTProcess):
         logger.debug("KhotaneseChatGPTProcess initialized.")
 
 
+class TumshuqeseChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "tums1237"
+    description: str = "Default process for ChatGPT for the Tumshuqese language."
+    authorship_info: str = "TumshuqeseChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("TumshuqeseChatGPTProcess initialized.")
+
+
 class KhwarezmianChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "xco"
     description: str = "Default process for ChatGPT for the Khwarezmian language."

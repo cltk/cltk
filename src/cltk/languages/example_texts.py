@@ -250,12 +250,21 @@ pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.
 ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn  
 βγʾnʾk prʾwʾxšʾn.  
 """,
+    # Khotanese, Book of Zambasta (a major Khotanese Buddhist text, ca. 5th–6th c. CE)
     "khot1251": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn  
 ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt  
 pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.  
 ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ  
 ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn  
 βγʾnʾk prʾwʾxšʾn.  
+""",
+    # Tumshuqese, from a Buddhist text, Fragment T iii, lines 1–6; from Harold W. Bailey (Indo-Scythian Studies, 1985)
+    "tums1237": """śśa ysä ñäke ñāte hvātä  
+śśa ysä hvātä hvāṣṣe śśa ysä hvāṣṣe hvāṣṣe  
+śśa ysä jīvä hvāṣṣe śśa ysä jīvä hvātä.  
+
+śśa ysä hīnā hvāṣṣe śśa ysä hīnā hvātä  
+śśa ysä marä hvāṣṣe śśa ysä marä hvātä.
 """,
     # "": """""",
 }
