@@ -242,6 +242,14 @@ ud frazānīgān andar ātaxš andar rōšn bawēd.
 ανο κι βαγολαγγο ιδο βαγο.  
 ϸαο κι κοϸανο ϸαοανο κι αναρο ϸαο.  
 """,
+    # Sogdian
+    "sogd1245": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn  
+ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt  
+pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.  
+ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ  
+ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn  
+βγʾnʾk prʾwʾxšʾn.  
+""",
     # "": """""",
 }
 

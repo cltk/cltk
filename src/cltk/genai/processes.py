@@ -304,6 +304,16 @@ class BactrianChatGPTProcess(ChatGPTProcess):
         logger.debug("BactrianChatGPTProcess initialized.")
 
 
+class SogdianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "sogd1245"
+    description: str = "Default process for ChatGPT for the Sogdian language."
+    authorship_info: str = "SogdianChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("SogdianChatGPTProcess initialized.")
+
+
 class BengaliChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "ben"
     description: str = "Default process for ChatGPT for the Bengali language."

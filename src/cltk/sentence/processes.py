@@ -59,6 +59,7 @@ class SentenceSplittingProcess(Process):
             "part1239",  # Parthian
             "aves1237",  # Avestan
             "bact1239",  # Bactrian
+            "sogd1245",  # Sogdian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -269,6 +270,12 @@ class BactrianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Bactrian (bact1239)."""
 
     glottolog_id: Optional[str] = "bact1239"
+
+
+class SogdianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitter for Sogdian (sogd1245)."""
+
+    glottolog_id: Optional[str] = "sogd1245"
 
 
 class OldPersianSentenceSplittingProcess(SentenceSplittingProcess):

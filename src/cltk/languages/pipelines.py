@@ -69,6 +69,7 @@ from cltk.genai.processes import (
     PhoenicianChatGPTProcess,
     PunjabiChatGPTProcess,
     SanskritChatGPTProcess,
+    SogdianChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
     UgariticChatGPTProcess,
@@ -124,6 +125,7 @@ from cltk.sentence.processes import (
     ParthianSentenceSplittingProcess,
     PhoenicianSentenceSplittingProcess,
     SanskritSentenceSplittingProcess,
+    SogdianSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
     UgariticSentenceSplittingProcess,
@@ -1047,6 +1049,26 @@ class BactrianChatGPTPipeline(Pipeline):
         logger.info("BactrianChatGPTPipeline created.")
 
 
+class SogdianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Sogdian."""
+
+    description: Optional[str] = "Pipeline for the Sogdian language"
+    glottolog_id: Optional[str] = "sogd1245"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            SogdianSentenceSplittingProcess,
+            SogdianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing SogdianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("SogdianChatGPTPipeline created.")
+
+
 class OldPersianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Old Persian."""
 
@@ -1320,7 +1342,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # # Bactrian (ca. 200 BC–900 AD)
     "bact1239": BactrianChatGPTPipeline,
     # # Sogdian (ca. 400–1000 AD)
-    # "sogd1245": SogdianChatGPTPipeline,
+    "sogd1245": SogdianChatGPTPipeline,
     # # Khotanese Saka (ca. 300–1000 AD)
     # "khot1251": KhotaneseChatGPTPipeline,
     # # Tumshuqese
