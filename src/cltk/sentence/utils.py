@@ -34,7 +34,7 @@ def split_sentences_multilang(
         "anci1242": r"([;;·.·])",
         "lati1261": r"([.!?])",
         "sans1269": r"([।॥.!?])",  # Sanskrit: danda, double danda, period, exclamation, question
-        "pli": r"([।.!?])",  # Pali: danda, period, exclamation, question
+        "pali1273": r"([।॥!?])",  # Pali: danda, period, exclamation, question
         "anci1244": r"([׃.])",  # Biblical Hebrew: sof pasuq, full stop
         "impe1235": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
         "copt1239": r"([⳹.!?])",  # Coptic: punctuation marks
@@ -47,7 +47,7 @@ def split_sentences_multilang(
         "midd1316": r"([.!?])",  # Middle French: period, exclamation, question
         "oldf1239": r"([.!?])",  # Old French: period, exclamation, question
         "midd1343": r"([.!?])",  # Middle High German: period, exclamation, question
-        "goh": r"([.!?])",  # Old High German: period, exclamation, question
+        "oldh1241": r"([.!?])",  # Old High German: period, exclamation, question
         "goth1244": r"([.!?])",  # Gothic: period, exclamation, question
         "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
         "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)

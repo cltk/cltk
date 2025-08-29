@@ -758,23 +758,22 @@ class OldNorseChatGPTPipeline(Pipeline):
 #         logger.info("PaliPipeline created.")
 
 
-# TODO: Re-enable once Pali is added to the Glottolog export
-# class PaliChatGPTPipeline(Pipeline):
-#     """Default ``Pipeline`` for Pali."""
+class PaliChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Pali."""
 
-#     description: Optional[str] = "Pipeline for the Pali language"
-#     language: Optional[Language] = get_language("pli")
-#     processes: Optional[list[Type[Process]]] = Field(
-#         default_factory=lambda: [
-#             MultilingualNormalizeProcess,
-#             PaliSentenceSplittingProcess,
-#             PaliChatGPTProcess,
-#         ]
-#     )
+    description: Optional[str] = "Pipeline for the Pali language"
+    glottolog_id: Optional[str] = "pali1273"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            PaliSentenceSplittingProcess,
+            PaliChatGPTProcess,
+        ]
+    )
 
-#     def __post_init__(self):
-#         logger.debug(f"Initializing PaliPipeline with language: {self.language}")
-#         logger.info("PaliPipeline created.")
+    def __post_init__(self):
+        logger.debug(f"Initializing PaliPipeline with language: {self.language}")
+        logger.info("PaliPipeline created.")
 
 
 # class PanjabiPipeline(Pipeline):
@@ -1315,18 +1314,6 @@ MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
 
 MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Indo-European family
-    ## Iranian languages
-    ### SW Iranian
-    "oldp1254": OldPersianChatGPTPipeline,
-    "pahl1241": MiddlePersianChatGPTPipeline,
-    ### NW Iranian
-    "part1239": ParthianChatGPTPipeline,
-    ### E Iranian
-    "aves1237": AvestanChatGPTPipeline,
-    "bact1239": BactrianChatGPTPipeline,
-    "sogd1245": SogdianChatGPTPipeline,
-    "khot1251": KhotaneseChatGPTPipeline,
-    "tums1237": TumshuqeseChatGPTPipeline,
     ## Italic
     "lati1261": LatinChatGPTPipeline,
     "oldf1239": OldFrenchChatGPTPipeline,
@@ -1350,7 +1337,50 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "oldn1244": OldNorseChatGPTPipeline,
     "olde1238": OldEnglishChatGPTPipeline,
     "midd1317": MiddleEnglishChatGPTPipeline,
+    ## Balto-Slavic
     "chur1257": ChurchSlavonicChatGPTPipeline,
+    # Old Prussian (catechisms, 16th c.).
+    # Lithuanian and Latvian (later medieval to modern).
+    ## Albanian, Earliest text: 15th–16th c. CE (Gjon Buzuku’s Meshari).
+    ## Armenian, Earliest texts: 5th c. CE (Bible translation by Mesrop Mashtots, who created the script)
+    ## Anatolian
+    # Hittite (cuneiform inscriptions, 17th–11th c. BCE).
+    "hit1242": HittiteChatGPTPipeline,
+    # Luwian (cuneiform and hieroglyphic inscriptions, 14th–8th c. BCE).
+    # Lycian (inscriptions, 6th–4th c. BCE).
+    # Lydian (inscriptions, 7th–4th c. BCE).
+    # Palaic (inscriptions, 2nd–1st c. BCE).
+    # Carian (inscriptions, 6th–4th c. BCE).
+    ## Tocharian
+    "tokh1242": TocharianAChatGPTPipeline,
+    "tokh1243": TocharianBChatGPTPipeline,
+    ## Indo-Iranian
+    ## Iranian languages
+    ### SW Iranian
+    "oldp1254": OldPersianChatGPTPipeline,
+    "pahl1241": MiddlePersianChatGPTPipeline,
+    ### NW Iranian
+    "part1239": ParthianChatGPTPipeline,
+    ### E Iranian
+    "aves1237": AvestanChatGPTPipeline,
+    "bact1239": BactrianChatGPTPipeline,
+    "sogd1245": SogdianChatGPTPipeline,
+    "khot1251": KhotaneseChatGPTPipeline,
+    "tums1237": TumshuqeseChatGPTPipeline,
+    # Indo-Aryan (Indic): Sanskrit (Vedic & Classical), Prakrits, Pali, later medieval languages (Hindi, Bengali, etc.)
+    ## Old Indo-Aryan
+    # Vedic Sanskrit (c. 1500–500 BCE) "vedi1234"
+    # Classical Sanskrit (from ~500 BCE) "clas1258"
+    "sans1269": SanskritChatGPTPipeline,
+    # Prakrits (Middle Indo-Aryan, ca. 500 BCE–500 CE)
+    "pali1273": PaliChatGPTPipeline,
+    # Ardhamāgadhī, Śaurasenī, Mahārāṣṭrī, etc. — languages of Jain/Buddhist texts and early drama.
+    # Ashokan inscriptions (3rd c. BCE) in Prakrits are the first written Indo-Aryan texts.
+    ## Middle Indo-Aryan
+    # Apabhraṃśa (500–1200 CE); Bridges Prakrits → New Indo-Aryan
+    ## New Indo-Aryan
+    ## Medieval languages (~1200 CE onward):
+    # Early forms of Hindi, Bengali, Gujarati, Marathi, Punjabi, Oriya, Sinhala, etc
     # Afroasiatic family
     ## Semitic languages
     ### East Semitic
@@ -1394,12 +1424,6 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # earliest written records only medieval, often in Geʿez script or Arabic script (e.g. Beja glosses in Arabic works)
     ## Chadic
     # Hausa; Essentially oral until medieval period, when Hausa is written in Ajami (Arabic script).
-    "hit1242": HittiteChatGPTPipeline,
-    "sans1269": SanskritChatGPTPipeline,
-    "tokh1242": TocharianAChatGPTPipeline,
-    "tokh1243": TocharianBChatGPTPipeline,
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1254": ClassicalTibetanPipeline,
-    # TODO: Pali missing from JSON entirely
-    # # "pli": PaliChatGPTPipeline,
 }

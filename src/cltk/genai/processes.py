@@ -1987,7 +1987,7 @@ class PalauanChatGPTProcess(ChatGPTProcess):
 
 
 class PaliChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "pli"
+    glottolog_id: Optional[str] = "pali1273"
     description: str = "Default process for ChatGPT for the Pali language."
     authorship_info: str = "PaliChatGPTProcess using OpenAI GPT models."
 

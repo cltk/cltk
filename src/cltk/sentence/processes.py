@@ -32,7 +32,7 @@ class SentenceSplittingProcess(Process):
             "anci1244",  # Biblical Hebrew
             "lati1261",  # Latin
             "oldn1244",  # Old Norse
-            # "pli",
+            "pali1273",  # Pali
             "sans1269",  # Sanskrit
             "clas1259",  # Classical Arabic
             "chur1257",  # Old Church Slavonic
@@ -41,6 +41,7 @@ class SentenceSplittingProcess(Process):
             "oldf1239",  # Old French
             "midd1343",  # Middle High German
             "goth1244",  # Gothic
+            "oldh1241",  # Old High German
             # "got", #?
             # "hin",
             "lite1248",  # Literary Chinese
@@ -151,7 +152,7 @@ class OldNorseSentenceSplittingProcess(SentenceSplittingProcess):
 class PaliSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Pali."""
 
-    glottolog_id: Optional[str] = "pli"
+    glottolog_id: Optional[str] = "pali1273"
 
 
 class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
@@ -205,7 +206,7 @@ class MiddleHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
 class OldHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Old High German."""
 
-    glottolog_id: Optional[str] = "goh"
+    glottolog_id: Optional[str] = "oldh1241"
 
 
 class GothicSentenceSplittingProcess(SentenceSplittingProcess):
