@@ -48,7 +48,7 @@ def split_sentences_multilang(
         "oldf1239": r"([.!?])",  # Old French: period, exclamation, question
         "midd1343": r"([.!?])",  # Middle High German: period, exclamation, question
         "goh": r"([.!?])",  # Old High German: period, exclamation, question
-        "oldh1241": r"([.!?])",  # Gothic: period, exclamation, question
+        "goth1244": r"([.!?])",  # Gothic: period, exclamation, question
         "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
         "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question

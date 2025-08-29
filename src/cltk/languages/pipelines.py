@@ -341,25 +341,24 @@ class CopticChatGPTPipeline(Pipeline):
 #         logger.info("GothicPipeline created.")
 
 
-# class GothicChatGPTPipeline(Pipeline):
-#     """Default ``Pipeline`` for Gothic."""
+class GothicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Gothic."""
 
-#     description: Optional[str] = "Pipeline for the Gothic language"
-#     glottolog_id: str = "oldh1241"
-#     language: Optional[Language] = get_language("oldh1241")
-#     processes: Optional[list[Type[Process]]] = Field(
-#         default_factory=lambda: [
-#             MultilingualNormalizeProcess,
-#             GothicSentenceSplittingProcess,
-#             GothicChatGPTProcess,
-#         ]
-#     )
+    description: Optional[str] = "Pipeline for the Gothic language"
+    glottolog_id: Optional[str] = "goth1244"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            GothicSentenceSplittingProcess,
+            GothicChatGPTProcess,
+        ]
+    )
 
-#     def __post_init__(self):
-#         logger.debug(
-#             f"Initializing GothicChatGPTPipeline with language: {self.language}"
-#         )
-#         logger.info("GothicChatGPTPipeline created.")
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing GothicChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("GothicChatGPTPipeline created.")
 
 
 # class GreekPipeline(Pipeline):
@@ -1313,82 +1312,94 @@ MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "san": SanskritPipeline,
 }
 
-# Indo-European
-# Hittite (hit1242) — earliest attested Indo-European language; lots of tablets, strong scholarly interest.
-# Tocharian A/B (toch1238, toch1237) — Buddhist texts from the Tarim Basin, unique branch of Indo-European.
-# Avestan (aves1237) — sacred Zoroastrian language; close to Old Persian, key for Iranian studies.
-# Old Persian (oldp1245) — royal inscriptions, relatively small corpus but important historically.
-# Gothic (goth1244) — earliest attested Germanic, crucial for comparative studies.
-# Old Irish (oldi1245) — earliest Celtic with substantial corpus, highly inflected.
-
-# Semitic
-# Ugaritic (ugar1238) — Northwest Semitic, alphabetic cuneiform corpus, very important for biblical studies.
-# Phoenician / Punic (phoe1239) — inscriptions across the Mediterranean, huge for comparative Semitics.
-# Geʿez (Classical Ethiopic) (geez1241) — major liturgical language of the Horn of Africa, continuous tradition.
-# Egyptian & Related
-# Middle Egyptian (midd1330) — the “classical” stage of Egyptian, most of the literary corpus.
-# Old Egyptian (olde1246) — Pyramid Texts, earliest stage.
-# Late Egyptian (late1246) — administrative/literary texts, Amarna period onward.
-# (Demotic and Coptic you already have.)
-
-# East & South Asia
-# Pali (pali1273) — canonical Buddhist Prakrit, still central in Buddhist studies.
-# Prakrits (esp. Ardhamāgadhī, Māhārāṣṭrī) — Jain and early drama texts.
-# Classical Japanese (Bungo) (clas1255) — Heian and medieval prose/poetry, essential for East Asian NLP.
-# Classical Tibetan (clas1249) — canonical Buddhist translations, large corpus, lots of digital projects.
 
 MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
-    # TODO: Pali missing from JSON entirely
-    # # "pli": PaliChatGPTPipeline,
-    # TODO: Re-enable, Gothic the JSON incorrectly puts Gothic as another name for Old High German (oldh1241)
-    # "got": GothicChatGPTPipeline,
-    "akka1240": AkkadianChatGPTPipeline,
-    "olde1238": OldEnglishChatGPTPipeline,
-    "impe1235": ImperialAramaicChatGPTPipeline,
-    "copt1239": CopticChatGPTPipeline,
-    "anci1242": GreekChatGPTPipeline,
-    "anci1244": BiblicalHebrewChatGPTPipeline,
+    # Indo-European family
+    ## Iranian languages
+    ### SW Iranian
+    "oldp1254": OldPersianChatGPTPipeline,
+    "pahl1241": MiddlePersianChatGPTPipeline,
+    ### NW Iranian
+    "part1239": ParthianChatGPTPipeline,
+    ### E Iranian
+    "aves1237": AvestanChatGPTPipeline,
+    "bact1239": BactrianChatGPTPipeline,
+    "sogd1245": SogdianChatGPTPipeline,
+    "khot1251": KhotaneseChatGPTPipeline,
+    "tums1237": TumshuqeseChatGPTPipeline,
+    ## Italic
     "lati1261": LatinChatGPTPipeline,
-    "oldn1244": OldNorseChatGPTPipeline,
-    "sans1269": SanskritChatGPTPipeline,
-    "clas1259": ClassicalArabicChatGPTPipeline,
-    "chur1257": ChurchSlavonicChatGPTPipeline,
-    "midd1317": MiddleEnglishChatGPTPipeline,
-    "midd1316": MiddleFrenchChatGPTPipeline,
     "oldf1239": OldFrenchChatGPTPipeline,
-    "midd1343": MiddleHighGermanChatGPTPipeline,
-    "oldh1241": OldHighGermanChatGPTPipeline,
-    "demo1234": DemoticChatGPTPipeline,
-    "lite1248": LiteraryChineseChatGPTPipeline,
-    "clas1252": ClassicalSyriacChatGPTPipeline,
-    "hit1242": HittiteChatGPTPipeline,
-    "tokh1242": TocharianAChatGPTPipeline,
-    "tokh1243": TocharianBChatGPTPipeline,
+    "midd1316": MiddleFrenchChatGPTPipeline,
+    # Other Romance languages
+    ## Hellenic
+    "anci1242": GreekChatGPTPipeline,
+    # Mycenaean Greek (Linear B tablets, ca. 1400–1200 BCE).
+    # Medieval/Byzantine Greek
+    ## Celtic
     "oldi1245": EarlyIrishChatGPTPipeline,
+    # Middle Welsh
+    # Middle Breton
+    # Cornish
+    ## Germanic
+    # Proto-Norse
+    # Gothic (Runic inscriptions)
+    "goth1244": GothicChatGPTPipeline,
+    "oldh1241": OldHighGermanChatGPTPipeline,
+    "midd1343": MiddleHighGermanChatGPTPipeline,
+    "oldn1244": OldNorseChatGPTPipeline,
+    "olde1238": OldEnglishChatGPTPipeline,
+    "midd1317": MiddleEnglishChatGPTPipeline,
+    "chur1257": ChurchSlavonicChatGPTPipeline,
+    # Afroasiatic family
+    ## Semitic languages
+    ### East Semitic
+    "akka1240": AkkadianChatGPTPipeline,
+    # Eblaite
+    ### West Semitic
     "ugar1238": UgariticChatGPTPipeline,
     "phoe1239": PhoenicianChatGPTPipeline,
+    # Biblical Hebrew
+    "anci1244": BiblicalHebrewChatGPTPipeline,
+    # Medieval Hebrew
+    # Moabite, Ammonite, Edomite
+    # Old Aramaic (ca. 1000–700 BCE, inscriptions).
+    # Imperial Aramaic (ca. 700–300 BCE), lingua franca of Assyrian, Babylonian, Persian empires.
+    "impe1235": ImperialAramaicChatGPTPipeline,
+    # Middle Aramaic (200 BCE – 700 CE), includes Biblical Aramaic, Palmyrene, Nabataean, Targumic Aramaic.
+    # Syriac (2nd c. CE → medieval period): huge Christian corpus (Bible, hymns, philosophy).
+    "clas1252": ClassicalSyriacChatGPTPipeline,
+    # Jewish Babylonian Aramaic: Talmud, liturgy.
+    # Mandaic: liturgy of the Mandaeans.
+    ### NW Semitic
+    # Samʾalian (Zincirli) — 1st mill. BCE; NW Semitic variety with its own inscriptional corpus.
+    ## South Semitic
+    # Old South Arabian (OSA)
+    # Geʿez (Classical Ethiopic)
     "geez1241": GeezChatGPTPipeline,
-    "midd1369": MiddleEgyptianChatGPTPipeline,
+    ### Central Semitic (bridge between NW and South)
+    # Pre-Islamic Arabic
+    # Classical Arabic (7th c. CE onward): Qurʾān, poetry, early Islamic literature.
+    "clas1259": ClassicalArabicChatGPTPipeline,
+    # Medieval Arabic: scientific, philosophical, historical works dominate much of the Islamic Golden Age corpus.
+    ## Egyptian languages
     "olde1242": OldEgyptianChatGPTPipeline,
+    "midd1369": MiddleEgyptianChatGPTPipeline,
     "late1256": LateEgyptianChatGPTPipeline,
+    "demo1234": DemoticChatGPTPipeline,
+    "copt1239": CopticChatGPTPipeline,
+    ## Berber
+    # Libyco-Berber inscriptions (1st mill. BCE).
+    ## Cushitic
+    # earliest written records only medieval, often in Geʿez script or Arabic script (e.g. Beja glosses in Arabic works)
+    ## Chadic
+    # Hausa; Essentially oral until medieval period, when Hausa is written in Ajami (Arabic script).
+    "hit1242": HittiteChatGPTPipeline,
+    "sans1269": SanskritChatGPTPipeline,
+    "tokh1242": TocharianAChatGPTPipeline,
+    "tokh1243": TocharianBChatGPTPipeline,
+    "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1254": ClassicalTibetanPipeline,
-    # Iranian languages
-    ## SW Iranian
-    "oldp1254": OldPersianChatGPTPipeline,
-    # Middle Persian (Pahlavi) (ca. 200 BC–800 AD)
-    "pahl1241": MiddlePersianChatGPTPipeline,
-    ## NW Iranian
-    # # Parthian (ca. 250 BC–300 AD)
-    "part1239": ParthianChatGPTPipeline,
-    # ## E Iranian
-    # Avestan (ca. 1200–500 BC, fixed canon later)
-    "aves1237": AvestanChatGPTPipeline,
-    # Bactrian (ca. 200 BC–900 AD)
-    "bact1239": BactrianChatGPTPipeline,
-    # Sogdian (ca. 400–1000 AD)
-    "sogd1245": SogdianChatGPTPipeline,
-    # Khotanese Saka (ca. 300–1000 AD)
-    "khot1251": KhotaneseChatGPTPipeline,
-    # Tumshuqese
-    "tums1237": TumshuqeseChatGPTPipeline,
+    # TODO: Pali missing from JSON entirely
+    # # "pli": PaliChatGPTPipeline,
 }

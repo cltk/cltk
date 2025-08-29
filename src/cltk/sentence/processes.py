@@ -40,7 +40,7 @@ class SentenceSplittingProcess(Process):
             "midd1316",  # Middle French; broke fix later
             "oldf1239",  # Old French
             "midd1343",  # Middle High German
-            "oldh1241",  # Gothic
+            "goth1244",  # Gothic
             # "got", #?
             # "hin",
             "lite1248",  # Literary Chinese
@@ -211,7 +211,7 @@ class OldHighGermanSentenceSplittingProcess(SentenceSplittingProcess):
 class GothicSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Gothic."""
 
-    glottolog_id: Optional[str] = "oldh1241"
+    glottolog_id: Optional[str] = "goth1244"
 
 
 class HindiSentenceSplittingProcess(SentenceSplittingProcess):

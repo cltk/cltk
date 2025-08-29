@@ -689,7 +689,7 @@ class GeezChatGPTProcess(ChatGPTProcess):
 
 
 class GothicChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "got"
+    glottolog_id: Optional[str] = "goth1244"
     description: str = "Default process for ChatGPT for the Gothic language."
     authorship_info: str = "GothicChatGPTProcess using OpenAI GPT models."
 
