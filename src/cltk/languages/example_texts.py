@@ -242,8 +242,15 @@ ud frazānīgān andar ātaxš andar rōšn bawēd.
 ανο κι βαγολαγγο ιδο βαγο.  
 ϸαο κι κοϸανο ϸαοανο κι αναρο ϸαο.  
 """,
-    # Sogdian
+    # Sogdian, the Vessantara Jātaka (British Library Or.8212/81, ca. 8th c. CE); original uses Aramaic-derived script
     "sogd1245": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn  
+ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt  
+pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.  
+ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ  
+ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn  
+βγʾnʾk prʾwʾxšʾn.  
+""",
+    "khot1251": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn  
 ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt  
 pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.  
 ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ  

@@ -945,7 +945,7 @@ class KhorezmianChatGPTProcess(ChatGPTProcess):
 
 
 class KhotaneseChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "kho"
+    glottolog_id: Optional[str] = "khot1251"
     description: str = "Default process for ChatGPT for the Khotanese language."
     authorship_info: str = "KhotaneseChatGPTProcess using OpenAI GPT models."
 
