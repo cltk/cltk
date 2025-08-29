@@ -1065,7 +1065,7 @@ class PhoenicianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Phoenician (Punic)."""
 
     description: Optional[str] = "Pipeline for the Phoenician (Punic) language"
-    glottolog_id: Optional[str] = "phoe1238"
+    glottolog_id: Optional[str] = "phoe1239"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -1191,7 +1191,7 @@ MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
 
 # Semitic
 # Ugaritic (ugar1238) — Northwest Semitic, alphabetic cuneiform corpus, very important for biblical studies.
-# Phoenician / Punic (phoe1238) — inscriptions across the Mediterranean, huge for comparative Semitics.
+# Phoenician / Punic (phoe1239) — inscriptions across the Mediterranean, huge for comparative Semitics.
 # Geʿez (Classical Ethiopic) (geez1241) — major liturgical language of the Horn of Africa, continuous tradition.
 # Egyptian & Related
 # Middle Egyptian (midd1330) — the “classical” stage of Egyptian, most of the literary corpus.
@@ -1230,18 +1230,18 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1252": ClassicalSyriacChatGPTPipeline,
     # TODO: Hittite missing from JSON
-    # "hit1242": HittiteChatGPTPipeline,
+    "hit1242": HittiteChatGPTPipeline,
     # TODO: Both Tocharians missing from JSON
-    # "toch1238": TocharianAChatGPTPipeline,
-    # "toch1237": TocharianBChatGPTPipeline,
+    "toch1238": TocharianAChatGPTPipeline,
+    "toch1237": TocharianBChatGPTPipeline,
     # Not in JSON
-    # "aves1237": AvestanChatGPTPipeline,
+    "aves1237": AvestanChatGPTPipeline,
     "oldp1254": OldPersianChatGPTPipeline,
     "oldi1245": EarlyIrishChatGPTPipeline,
     # TODO: Missing from JSON
-    # "ugar1238": UgariticChatGPTPipeline,
+    "ugar1238": UgariticChatGPTPipeline,
     # TODO: Missing from JSON
-    # "phoe1239": PhoenicianChatGPTPipeline,
+    "phoe1239": PhoenicianChatGPTPipeline,
     "geez1241": GeezChatGPTPipeline,
     "midd1369": MiddleEgyptianChatGPTPipeline,
     "olde1242": OldEgyptianChatGPTPipeline,

@@ -1997,7 +1997,7 @@ class PersianChatGPTProcess(ChatGPTProcess):
 
 
 class PhoenicianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "phoe1238"
+    glottolog_id: Optional[str] = "phoe1239"
     description: str = "Default process for ChatGPT for the Phoenician language."
     authorship_info: str = "PhoenicianChatGPTProcess using OpenAI GPT models."
 

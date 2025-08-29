@@ -1,15 +1,12 @@
 """
 Build Language/Dialect models from a local Glottolog checkout.
 
-Now with provenance hydration:
-- glottolog_version from glottolog.ini
-- commit_sha and last_updated from git (if available)
+- Exports ALL languages and their dialects (no historic filtering).
+- Does not map any values into Language.sources or Dialect.sources.
+- Preserves optional Newick generation for root languages only.
 
-python build_glottolog_models.py --glottolog ~/code/glottolog/ --out glottolog.json
-
-TODO: Missing Pali ("pli") and its dialects: https://glottolog.org/resource/languoid/id/pali1273
-TODO: Missing Demotic
-TODO: Has Imperial Aramaic ("impe1235") but missing later forms
+Usage:
+  python build_glottolog_models.py --glottolog ~/code/glottolog/ --out glottolog.json
 """
 
 from __future__ import annotations
@@ -110,7 +107,7 @@ def glottocode_from_path(md_path: Path) -> str:
     return md_path.parent.name
 
 
-# --- NEW: repo provenance readers -------------------------------------------
+# --- Repo provenance readers -------------------------------------------
 
 
 def read_glottolog_version(repo_root: Path) -> Optional[str]:
@@ -151,50 +148,6 @@ def read_git_provenance(repo_root: Path) -> tuple[Optional[str], Optional[date]]
     return sha, d
 
 
-# -------------------- Historic filter helpers --------------------
-HISTORIC_NAME_KEYWORDS: tuple[str, ...] = (
-    "old",
-    "middle",
-    "classical",
-    "ancient",
-    "archaic",
-    "medieval",
-    "late antique",
-    "preclassical",
-    "pre-classical",
-    "demotic",
-)
-
-
-def looks_historic_name(name: Optional[str]) -> bool:
-    if not name:
-        return False
-    low = name.lower()
-    return any(kw in low for kw in HISTORIC_NAME_KEYWORDS)
-
-
-def is_historic_raw_node(rn: "RawNode", cutoff_year: int) -> bool:
-    """Historic if extinct/unattested, or timespan overlaps <= cutoff_year,
-    or name/alt-names suggest pre-modern."""
-    status = as_status(rn.core.get("status"))
-    if status in {"extinct", "unattested"}:
-        return True
-    ts = parse_timespan(rn.core.get("timespan"))
-    if ts:
-        vals = [v for v in (ts.start, ts.end) if isinstance(v, int)]
-        if vals and min(vals) <= cutoff_year:
-            return True
-        note = (ts.note or "").upper()
-        if "BCE" in note or "BC" in note:
-            return True
-    if looks_historic_name(rn.core.get("name")):
-        return True
-    for names in rn.altnames.values():
-        if any(looks_historic_name(v) for v in names):
-            return True
-    return False
-
-
 # -------------------- Parse entire tree into RawNodes --------------------
 
 
@@ -221,12 +174,8 @@ def build_raw_nodes(tree_root: Path) -> Dict[str, RawNode]:
                 if v:
                     links[k] = v
 
+        # Do not parse sources; we never map them into Language/Dialect
         sources: List[str] = []
-        if cfg.has_section("sources"):
-            for _, v in cfg.items("sources"):
-                for line in split_lines(v):
-                    if line:
-                        sources.append(line)
 
         gcode = glottocode_from_path(md)
         parent_g = parent_glottocode_from_path(md, tree_root)
@@ -343,16 +292,19 @@ def build_links(links: Dict[str, str]) -> List[Link]:
     return out
 
 
-def build_sources(keys: List[str]) -> List[SourceRef]:
-    return [SourceRef(key=k) for k in keys]
-
-
 def raw_to_models(
     nodes: Dict[str, RawNode],
     root_glottocode: Optional[str] = None,
-    historic_cutoff: int = 1700,
+    historic_cutoff: Optional[int] = None,  # kept for CLI compatibility; ignored
 ) -> Dict[str, Language]:
-    """Convert the raw graph to Language/Dialect objects."""
+    """
+    Convert the raw graph to Language/Dialect objects.
+
+    - Materializes ALL languages (level == 'language').
+    - Attaches ALL dialects to their nearest language ancestor.
+    - Families are not materialized.
+    - `historic_cutoff` is ignored (kept for backward compatibility).
+    """
 
     def lineage_of(g: str) -> List[str]:
         lin: List[str] = []
@@ -401,7 +353,6 @@ def raw_to_models(
         iso = iso_set.get("639-3") or core.get("iso639-3")
         alt_names = build_alt_names(rn.altnames)
         links = build_links(rn.links)
-        sources = build_sources(rn.sources)
 
         parent = rn.parent_glottocode if rn.parent_glottocode in allowed else None
         lineage = [x for x in lineage_of(g) if x in allowed]
@@ -410,10 +361,8 @@ def raw_to_models(
         scripts: List[str] = []
         orthographies: List[Orthography] = []
 
-        # Only materialize languages that look historic; families are not materialized.
         if rn.level == "language":
-            if not is_historic_raw_node(rn, historic_cutoff):
-                continue
+            # Materialize ALL languages
             lang = Language(
                 name=name,
                 glottolog_id=g,
@@ -436,7 +385,7 @@ def raw_to_models(
                 alt_names=alt_names,
                 scripts=scripts,
                 orthographies=orthographies,
-                sources=sources,
+                # sources: intentionally omitted
                 links=links,
                 latitude=geo.centroid.lat if geo and geo.centroid else None,
                 longitude=geo.centroid.lon if geo and geo.centroid else None,
@@ -470,21 +419,17 @@ def raw_to_models(
                 timespan=timespan,
                 scripts=[],
                 orthographies=[],
-                sources=sources,
+                # sources: intentionally omitted
                 links=links,
             )
-            # Only attach dialects if the historic parent language is materialized.
-            if parent_lang and parent_lang in langs:
+            if parent_lang:
                 pending_dialects_by_parent.setdefault(parent_lang, []).append(dia)
-            else:
-                # parent not materialized -> drop dialect
-                pass
 
     for parent_g, dlist in pending_dialects_by_parent.items():
         if parent_g in langs:
             langs[parent_g].dialects.extend(dlist)
 
-    # Update children lists to include only materialized historic languages
+    # Update children lists to include only materialized languages
     for g, lang in langs.items():
         child_langs = [c for c in nodes[g].children if c in langs]
         lang.classification.children_glottocodes = child_langs
@@ -529,7 +474,7 @@ def to_newick(glottocode: str, langs: Dict[str, Language]) -> Optional[str]:
 
 def main():
     ap = argparse.ArgumentParser(
-        description="Build Language/Dialect models from Glottolog languoids/tree (historic only)."
+        description="Build Language/Dialect models from Glottolog languoids/tree (ALL languages, ALL dialects)."
     )
     ap.add_argument(
         "--glottolog",
@@ -546,11 +491,12 @@ def main():
         action="store_true",
         help="If set, computes .newick for the chosen root node(s).",
     )
+    # kept for backward compatibility; ignored
     ap.add_argument(
         "--historic-cutoff",
         type=int,
         default=1700,
-        help="Latest year to consider a language 'historic' by timespan (default: 1700).",
+        help="Deprecated/ignored. All languages and dialects are exported.",
     )
     args = ap.parse_args()
 
@@ -561,7 +507,7 @@ def main():
             f"Cannot find {tree_root}. Are you sure --glottolog points to the repo root?"
         )
 
-    # --- NEW: hydrate provenance ---
+    # Provenance
     gl_version = read_glottolog_version(repo_root)
     commit_sha, commit_date = read_git_provenance(repo_root)
     fallback_today = date.today()
@@ -573,15 +519,15 @@ def main():
     raw = build_raw_nodes(tree_root)
     print(f"Parsed {len(raw)} md.ini files.")
 
-    print("Converting to models ...")
+    print("Converting to models (all languages and dialects) ...")
     langs = raw_to_models(
-        raw, root_glottocode=args.root, historic_cutoff=args.historic_cutoff
+        raw, root_glottocode=args.root, historic_cutoff=None  # ignored
     )
-    print(
-        f"Retained {len(langs)} historic languages after filtering (cutoff={args.historic_cutoff})."
-    )
+    lang_count = len(langs)
+    dia_count = sum(len(L.dialects) for L in langs.values())
+    print(f"Materialized {lang_count} languages and {dia_count} dialects.")
 
-    # Determine top-level objects to dump
+    # Determine root languages for optional Newick
     if args.root:
         roots = [args.root] if args.root in langs else []
     else:
@@ -601,20 +547,20 @@ def main():
             if nw:
                 langs[r].newick = nw
 
-    # --- NEW: apply provenance to all materialized nodes ---
+    # Apply provenance to all languages
     for L in langs.values():
         L.glottolog_version = gl_version
         L.commit_sha = commit_sha
         L.last_updated = commit_date or fallback_today
 
-    # Serialize
-    payload = [langs[g].model_dump(mode="json") for g in roots]
+    # Serialize ALL languages (each includes its dialects)
+    payload = [langs[g].model_dump(mode="json") for g in sorted(langs.keys())]
     out_path = Path(args.out).expanduser().resolve()
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
-    print(f"Wrote {len(payload)} top-level objects to {out_path}")
+    print(f"Wrote {len(payload)} languages (with dialects) to {out_path}")
 
 
 if __name__ == "__main__":

@@ -197,13 +197,13 @@ class ChatGPT:
         #     lang_or_dialect_name = self.language.selected_dialect_name
         # else:
         #     lang_or_dialect_name = self.language.name
-        prompt: str = f"""For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) Greek guidelines.
+        prompt: str = f"""For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) guidelines.
 
 Rules:
-- Always use strict UD Greek morphological tags (not a simplified system).
-- Split off enclitics and contractions as separate tokens (e.g., οὔτʼ → οὔτε).
+- Always use strict UD morphological tags (not a simplified system).
+- Split off enclitics and contractions as separate tokens.
 - Always include punctuation as separate tokens with UPOS=PUNCT and FEATS=_.
-- For uncertain, rare, or dialectal forms (e.g., τουτουὶ), always provide the most standard dictionary lemma and supply a best-effort UD tag. Do not skip any tokens.
+- For uncertain, rare, or dialectal forms, always provide the most standard dictionary lemma and supply a best-effort UD tag. Do not skip any tokens.
 - Separate UD features with a pipe ("|"). Do not use a semi-colon or other characters.
 - Preserve the spelling of the text exactly as given (including diacritics, breathings, and subscripts). Do not normalize.
 - If a lemma or feature is uncertain, still provide the closest standard form and UD features. Never leave fields blank and never ask for clarification.
