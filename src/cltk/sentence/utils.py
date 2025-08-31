@@ -78,9 +78,11 @@ def split_sentences_multilang(
         "bret1244": r"([∴.!?])",  # Old-Middle Breton
         "corn1251": r"([:.!?])",  # Cornish
         "prus1238": r"([.!?·:;])",  # Old Prussian: period, exclamation, question, middle dot, colon, semicolon
-        "lith1251": r"([.!?…])",  # Lithuanian: period, exclamation, question, ellipsis
-        "latv1249": r"([.!?…])",  # Latvian: period, exclamation, question, ellipsis
-        "gheg1238": r"([.!?…])",  # Albanian: period, exclamation, question, ellipsis
+        "lith1251": r"([.!?])",  # Lithuanian: period, exclamation, question
+        "latv1249": r"([.!?])",  # Latvian: period, exclamation, question
+        "gheg1238": r"([.!?])",  # Albanian: period, exclamation, question
+        "clas1256": r"([։՞,!;])",  # Classical Armenian: period, exclamation, question
+        "midd1364": r"([։՞,!;])",  # Middle Armenian: period, exclamation, question
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

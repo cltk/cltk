@@ -41,6 +41,7 @@ from cltk.genai.processes import (
     BiblicalHebrewChatGPTProcess,
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
+    ClassicalArmenianChatGPTProcess,
     ClassicalSyriacChatGPTProcess,
     ClassicalTibetanChatGPTProcess,
     CopticChatGPTProcess,
@@ -56,6 +57,7 @@ from cltk.genai.processes import (
     LatvianChatGPTProcess,
     LiteraryChineseChatGPTProcess,
     LithuanianChatGPTProcess,
+    MiddleArmenianChatGPTProcess,
     MiddleBretonChatGPTProcess,
     MiddleCornishChatGPTProcess,
     MiddleEgyptianChatGPTProcess,
@@ -106,6 +108,7 @@ from cltk.sentence.processes import (
     BactrianSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
+    ClassicalArmenianSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
     ClassicalTibetanSentenceSplittingProcess,
     CopticSentenceSplittingProcess,
@@ -121,6 +124,7 @@ from cltk.sentence.processes import (
     LatvianSentenceSplittingProcess,
     LiteraryChineseSentenceSplittingProcess,
     LithuanianSentenceSplittingProcess,
+    MiddleArmenianSentenceSplittingProcess,
     MiddleBretonSentenceSplittingProcess,
     MiddleCornishSentenceSplittingProcess,
     MiddleEgyptianSentenceSplittingProcess,
@@ -1443,6 +1447,45 @@ class AlbanianChatGPTPipeline(Pipeline):
         logger.info("AlbanianChatGPTPipeline created.")
 
 
+class ClassicalArmenianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Classical Armenian."""
+
+    description: Optional[str] = "Pipeline for the Classical Armenian language"
+    glottolog_id: Optional[str] = "clas1256"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ClassicalArmenianSentenceSplittingProcess,
+            ClassicalArmenianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing ClassicalArmenianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("ClassicalArmenianChatGPTPipeline created.")
+
+
+class MiddleArmenianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Middle Armenian."""
+
+    description: Optional[str] = "Pipeline for the Middle Armenian language"
+    glottolog_id: Optional[str] = "midd1364"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddleArmenianSentenceSplittingProcess,
+            MiddleArmenianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MiddleArmenianChatGPTPipeline with language: {self.language}"
+        )
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1495,8 +1538,9 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "lith1251": LithuanianChatGPTPipeline,
     "latv1249": LatvianChatGPTPipeline,
     "gheg1238": AlbanianChatGPTPipeline,
-    ## Albanian, Earliest text: 15th–16th c. CE (Gjon Buzuku’s Meshari).
     ## Armenian, Earliest texts: 5th c. CE (Bible translation by Mesrop Mashtots, who created the script)
+    "clas1256": ClassicalArmenianChatGPTPipeline,
+    "midd1364": MiddleArmenianChatGPTPipeline,
     # Note this is only a parent, not true languoid
     ## Anatolian
     "hit1242": HittiteChatGPTPipeline,

@@ -67,6 +67,8 @@ class SentenceSplittingProcess(Process):
             "lith1251",  # Lithuanian
             "latv1249",  # Latvian
             "gheg1238",  # Albanian
+            "clas1256",  # Classical Armenian
+            "midd1364",  # Middle Armenian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -91,6 +93,18 @@ class SentenceSplittingProcess(Process):
             glottolog_id=self.glottolog_id,
         )
         return output_doc
+
+
+class ClassicalArmenianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Armenian."""
+
+    glottolog_id: Optional[str] = "clas1256"
+
+
+class MiddleArmenianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Armenian."""
+
+    glottolog_id: Optional[str] = "midd1364"
 
 
 class AkkadianSentenceSplittingProcess(SentenceSplittingProcess):
