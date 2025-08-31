@@ -59,6 +59,8 @@ from cltk.genai.processes import (
     LatvianChatGPTProcess,
     LiteraryChineseChatGPTProcess,
     LithuanianChatGPTProcess,
+    LycianAChatGPTProcess,
+    LydianChatGPTProcess,
     MiddleArmenianChatGPTProcess,
     MiddleBretonChatGPTProcess,
     MiddleCornishChatGPTProcess,
@@ -128,6 +130,8 @@ from cltk.sentence.processes import (
     LatvianSentenceSplittingProcess,
     LiteraryChineseSentenceSplittingProcess,
     LithuanianSentenceSplittingProcess,
+    LycianASentenceSplittingProcess,
+    LydianSentenceSplittingProcess,
     MiddleArmenianSentenceSplittingProcess,
     MiddleBretonSentenceSplittingProcess,
     MiddleCornishSentenceSplittingProcess,
@@ -1530,16 +1534,16 @@ class HieroglyphicLuwianChatGPTPipeline(Pipeline):
         logger.info("HieroglyphicLuwianChatGPTPipeline created.")
 
 
-class LycianChatGPTPipeline(Pipeline):
+class LycianAChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Lycian."""
 
     description: Optional[str] = "Pipeline for the Lycian language"
-    glottolog_id: Optional[str] = "lyci1242"
+    glottolog_id: Optional[str] = "lyci1241"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
-            LycianSentenceSplittingProcess,
-            LycianChatGPTProcess,
+            LycianASentenceSplittingProcess,
+            LycianAChatGPTProcess,
         ]
     )
 
@@ -1669,7 +1673,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "hit1242": HittiteChatGPTPipeline,
     "cune1239": CuneiformLuwianChatGPTPipeline,
     "hier1240": HieroglyphicLuwianChatGPTPipeline,
-    "lyci1242": LycianChatGPTPipeline,
+    "lyci1241": LycianAChatGPTPipeline,
     "lydi1241": LydianChatGPTPipeline,
     "pala1342": PalaicChatGPTPipeline,
     "cari1273": CarianChatGPTPipeline,

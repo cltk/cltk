@@ -85,6 +85,8 @@ def split_sentences_multilang(
         "midd1364": r"([։՞,!;])",  # Middle Armenian: period, exclamation, question
         "cune1239": r"(.?!:;?:\|\||§|\n+)",  # Cuneiform Luwian: double ruling, section mark, or explicit line break
         "hier1240": r"(.!;?:\|\||•|·|\n+)",  # Hieroglyphic Luwian: double ruling (sentence/section), bullet or mid-dot used in some editions, or line break
+        "lyci1241": r"([.:;·:])",  # Lycian A
+        "lydi1241": r"([.:;!?·:])",  # Lydian
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

@@ -359,6 +359,21 @@ nu-mu wa/i-mi-iš ta-ti-i
 (5) tu-wa/i-na-sa MAGNUS.REX LUGAL-sa zi-an-na
     pa+ra/i-wa/i-ti zi-an-na ha+ra/i-sa
 """,
+    # Lycian A, Letoon Trilingual Stele
+    "lyci1241": """ẽti pddẽmi prñnawatẽ: xñtawati mruwa pixodarahe prñnawatẽ
+mruwa: hrppi: se tideimi: prñnawatẽ: se tewi tideimi xntawatẽ
+se tideimi hrppi: prñnawatẽ: se tewi tideimi prñnawatẽ
+xñtawatẽ: mruwa: se prñnawatẽ hrppi: tideimi se tewi tideimi
+se prñnawatẽ: se tewi tideimi se prñnawatẽ tideimi se prñnawatẽ.
+""",
+    # Lydian, Funerary Inscription of Sardis, ca. 5th c. BCE
+    "lydi1241": """ννυλαχ ποδα καβλ εσνολ κβαλς
+λμυν κουλ λιδσ νοκ
+αρτμν ϝαναλαδ ποδα καβαλις
+κουλ λαλαλ ννυλαχ ποδα
+κβαλ εσνολ τβαρν
+ϝαναλαδ λμυν κουλ.
+""",
     # "": """""",
 }
 

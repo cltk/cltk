@@ -1124,7 +1124,7 @@ class LusitanianChatGPTProcess(ChatGPTProcess):
 
 
 class LycianAChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xlc"
+    glottolog_id: Optional[str] = "lyci1241"
     description: str = "Default process for ChatGPT for the Lycian A language."
     authorship_info: str = "Lycian AChatGPTProcess using OpenAI GPT models."
 
@@ -1134,7 +1134,7 @@ class LycianAChatGPTProcess(ChatGPTProcess):
 
 
 class LydianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xld"
+    glottolog_id: Optional[str] = "lydi1241"
     description: str = "Default process for ChatGPT for the Lydian language."
     authorship_info: str = "LydianChatGPTProcess using OpenAI GPT models."
 
