@@ -88,6 +88,7 @@ def split_sentences_multilang(
         "lyci1241": r"([.:;·:])",  # Lycian A
         "lydi1241": r"([.:;?·:])",  # Lydian
         "pala1331": r"(.;?:\|\||§|\r?\n+)",  # Palaic
+        "cari1274": r"([.?!:;⸱·⁚⁝])",  # Carian
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

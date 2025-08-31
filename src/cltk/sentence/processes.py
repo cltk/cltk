@@ -74,6 +74,7 @@ class SentenceSplittingProcess(Process):
             "lyci1241",  # Lycian A
             "lydi1241",  # Lydian
             "pala1331",  # Palaic
+            "cari1274",  # Carian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -121,7 +122,7 @@ class PalaicSentenceSplittingProcess(SentenceSplittingProcess):
 class CarianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Carian."""
 
-    glottolog_id: Optional[str] = "cari1273"
+    glottolog_id: Optional[str] = "cari1274"
 
 
 class CuneiformLuwianSentenceSplittingProcess(SentenceSplittingProcess):

@@ -39,6 +39,7 @@ from cltk.genai.processes import (
     AvestanChatGPTProcess,
     BactrianChatGPTProcess,
     BiblicalHebrewChatGPTProcess,
+    CarianChatGPTProcess,
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
     ClassicalArmenianChatGPTProcess,
@@ -111,6 +112,7 @@ from cltk.sentence.processes import (
     AncientHebrewSentenceSplittingProcess,
     AvestanSentenceSplittingProcess,
     BactrianSentenceSplittingProcess,
+    CarianSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalArmenianSentenceSplittingProcess,
@@ -1600,7 +1602,7 @@ class CarianChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Carian."""
 
     description: Optional[str] = "Pipeline for the Carian language"
-    glottolog_id: Optional[str] = "cari1273"
+    glottolog_id: Optional[str] = "cari1274"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -1678,7 +1680,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "lyci1241": LycianAChatGPTPipeline,
     "lydi1241": LydianChatGPTPipeline,
     "pala1331": PalaicChatGPTPipeline,
-    "cari1273": CarianChatGPTPipeline,
+    "cari1274": CarianChatGPTPipeline,
     ## Tocharian
     "tokh1242": TocharianAChatGPTPipeline,
     "tokh1243": TocharianBChatGPTPipeline,

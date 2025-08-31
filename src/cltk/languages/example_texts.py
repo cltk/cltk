@@ -374,6 +374,7 @@ se prñnawatẽ: se tewi tideimi se prñnawatẽ tideimi se prñnawatẽ.
 κβαλ εσνολ τβαρν
 ϝαναλαδ λμυν κουλ.
 """,
+    # Palaic, CTH 751, KUB 35.165 — invocation to Tiyaz
     "pala1331": """21. =I [(nu-ku)] pa-a“-hu-ul-la-“a-a“ti-[ia-]az ta-ba-ar-ni LUGAL-i
     pa-a-pa-az-ku-ar ti-i
 22. =II [(a-an-na-)]az-ku-ar ti-i i“-ka[n]u-u“-“i-ia-am-pí ti-i
@@ -381,6 +382,11 @@ se prñnawatẽ: se tewi tideimi se prñnawatẽ tideimi se prñnawatẽ.
 Vo 23–24  ha tabarna ti=kuar — šūna
 Rs 22′    šu-ú-na-at
 Rs 24′    šu-ú-na
+""",
+    # Carian, Kaunos inscription
+    "cari1274": """śmrmś : kbirś : mλś : oθoś : mniś : wśśoś : trquś :
+ślś : bśnś : kwśś : aśśś : ntrś : 
+śprśś : dwśś : qbrśś : tmśśś
 """,
     # "": """""",
 }

@@ -416,7 +416,7 @@ class CamunicChatGPTProcess(ChatGPTProcess):
 
 
 class CarianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xcr"
+    glottolog_id: Optional[str] = "cari1274"
     description: str = "Default process for ChatGPT for the Carian language."
     authorship_info: str = "CarianChatGPTProcess using OpenAI GPT models."
 
