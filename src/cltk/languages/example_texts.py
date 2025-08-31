@@ -339,6 +339,26 @@ që të shpëtoni shpirtrat tuaj.
 ի գործոց և ի սովորութենից կենսին, 
 ի հաւասարութիւն և ի խաղաղութիւն պահել զմիմեանս։
 """,
+    # Cuneiform Luwian, KUB 35.54 + duplicates, a Luwian ritual text, 13th c. BCE
+    "cune1239": """nu-mu wa-a/i-mi-iš ta-ti-i a-za-a ti
+nu-mu pa-i-ti wa/i-mi-iš tu-wa-na-ti
+nu-mu wa/i-mi-iš tu-pa-a-ti
+nu-mu wa/i-mi-iš zi-ia-ti
+nu-mu pa-i-ti wa/i-mi-iš a-za-a-ti
+nu-mu wa/i-mi-iš ta-ti-i
+""",
+    # Hieroglyphic Luwian, Yalburt Inscription of King Tudhaliya IV (13th c. BCE, Neo-Hittite period)
+    "hier1240": """(1) MAGNUS.REX +ra/i TÚBIRUNTI-ia-sa 
+    +ra/i INFANS.LITUUS-sa zi-an-na-ti-wa/i-sa
+(2) wa/i-mi-sa-sa URBS-ha+ra/i-ti zi-an-na
+    +ra/i-sa+ra/i-ta URBS+ra/i-sa-na
+(3) wa/i-mi-sa INFANS.LITUUS-sa ha+ra/i-zi
+    wa/i-mi-sa URBS-ha+ra/i-ta
+(4) zi-an-na-ti-wa/i-sa URBS-ha+ra/i-ti zi-an-na
+    wa/i-mi-sa zi-an-na URBS-ha+ra/i-ti
+(5) tu-wa/i-na-sa MAGNUS.REX LUGAL-sa zi-an-na
+    pa+ra/i-wa/i-ti zi-an-na ha+ra/i-sa
+""",
     # "": """""",
 }
 

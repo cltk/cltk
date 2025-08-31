@@ -69,6 +69,8 @@ class SentenceSplittingProcess(Process):
             "gheg1238",  # Albanian
             "clas1256",  # Classical Armenian
             "midd1364",  # Middle Armenian
+            "cune1239",  # Cuneiform Luwian
+            "hier1240",  # Hieroglyphic Luwian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -93,6 +95,18 @@ class SentenceSplittingProcess(Process):
             glottolog_id=self.glottolog_id,
         )
         return output_doc
+
+
+class CuneiformLuwianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Cuneiform Luwian."""
+
+    glottolog_id: Optional[str] = "cune1239"
+
+
+class HieroglyphicLuwianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Hieroglyphic Luwian."""
+
+    glottolog_id: Optional[str] = "hier1240"
 
 
 class ClassicalArmenianSentenceSplittingProcess(SentenceSplittingProcess):

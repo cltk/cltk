@@ -116,6 +116,28 @@ class ChatGPTProcess(Process):
     #     return enriched_doc
 
 
+class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "cune1239"
+    description: str = "Default process for ChatGPT for the Cuneiform Luwian language."
+    authorship_info: str = "CuneiformLuwianChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("CuneiformLuwianChatGPTProcess initialized.")
+
+
+class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "hier1240"
+    description: str = (
+        "Default process for ChatGPT for the Hieroglyphic Luwian language."
+    )
+    authorship_info: str = "HieroglyphicLuwianChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("HieroglyphicLuwianChatGPTProcess initialized.")
+
+
 class OldPrussianChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "prus1238"
     description: str = "Default process for ChatGPT for the Old Prussian language."
@@ -537,16 +559,6 @@ class CumbricChatGPTProcess(ChatGPTProcess):
         logger.debug("CumbricChatGPTProcess initialized.")
 
 
-class CuneiformLuwianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xlu"
-    description: str = "Default process for ChatGPT for the Cuneiform Luwian language."
-    authorship_info: str = "Cuneiform LuwianChatGPTProcess using OpenAI GPT models."
-
-    def model_post_init(self, __context):
-        super().model_post_init(__context)
-        logger.debug("CuneiformLuwianChatGPTProcess initialized.")
-
-
 class CuronianChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "xcu"
     description: str = "Default process for ChatGPT for the Curonian language."
@@ -819,18 +831,6 @@ class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
     def model_post_init(self, __context):
         super().model_post_init(__context)
         logger.debug("HibernoScottishGaelicChatGPTProcess initialized.")
-
-
-class HieroglyphicLuwianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "hlu"
-    description: str = (
-        "Default process for ChatGPT for the Hieroglyphic Luwian language."
-    )
-    authorship_info: str = "Hieroglyphic LuwianChatGPTProcess using OpenAI GPT models."
-
-    def model_post_init(self, __context):
-        super().model_post_init(__context)
-        logger.debug("HieroglyphicLuwianChatGPTProcess initialized.")
 
 
 class HindiChatGPTProcess(ChatGPTProcess):

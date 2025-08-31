@@ -45,10 +45,12 @@ from cltk.genai.processes import (
     ClassicalSyriacChatGPTProcess,
     ClassicalTibetanChatGPTProcess,
     CopticChatGPTProcess,
+    CuneiformLuwianChatGPTProcess,
     DemoticChatGPTProcess,
     EarlyIrishChatGPTProcess,
     GeezChatGPTProcess,
     GothicChatGPTProcess,
+    HieroglyphicLuwianChatGPTProcess,
     HindiChatGPTProcess,
     HittiteChatGPTProcess,
     KhotaneseChatGPTProcess,
@@ -112,10 +114,12 @@ from cltk.sentence.processes import (
     ClassicalSyriacSentenceSplittingProcess,
     ClassicalTibetanSentenceSplittingProcess,
     CopticSentenceSplittingProcess,
+    CuneiformLuwianSentenceSplittingProcess,
     DemoticSentenceSplittingProcess,
     EarlyIrishSentenceSplittingProcess,
     GeezSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
+    HieroglyphicLuwianSentenceSplittingProcess,
     HindiSentenceSplittingProcess,
     HittiteSentenceSplittingProcess,
     KhotaneseSentenceSplittingProcess,
@@ -1486,6 +1490,125 @@ class MiddleArmenianChatGPTPipeline(Pipeline):
         )
 
 
+class CuneiformLuwianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Cuneiform Luwian."""
+
+    description: Optional[str] = "Pipeline for the Cuneiform Luwian language"
+    glottolog_id: Optional[str] = "cune1239"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            CuneiformLuwianSentenceSplittingProcess,
+            CuneiformLuwianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing CuneiformLuwianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("CuneiformLuwianChatGPTPipeline created.")
+
+
+class HieroglyphicLuwianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Hieroglyphic Luwian."""
+
+    description: Optional[str] = "Pipeline for the Hieroglyphic Luwian language"
+    glottolog_id: Optional[str] = "hier1240"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            HieroglyphicLuwianSentenceSplittingProcess,
+            HieroglyphicLuwianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing HieroglyphicLuwianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("HieroglyphicLuwianChatGPTPipeline created.")
+
+
+class LycianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Lycian."""
+
+    description: Optional[str] = "Pipeline for the Lycian language"
+    glottolog_id: Optional[str] = "lyci1242"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            LycianSentenceSplittingProcess,
+            LycianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing LycianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("LycianChatGPTPipeline created.")
+
+
+class LydianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Lydian."""
+
+    description: Optional[str] = "Pipeline for the Lydian language"
+    glottolog_id: Optional[str] = "lydi1241"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            LydianSentenceSplittingProcess,
+            LydianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing LydianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("LydianChatGPTPipeline created.")
+
+
+class PalaicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Palaic."""
+
+    description: Optional[str] = "Pipeline for the Palaic language"
+    glottolog_id: Optional[str] = "pala1342"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            PalaicSentenceSplittingProcess,
+            PalaicChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing PalaicChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("PalaicChatGPTPipeline created.")
+
+
+class CarianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Carian."""
+
+    description: Optional[str] = "Pipeline for the Carian language"
+    glottolog_id: Optional[str] = "cari1273"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            CarianSentenceSplittingProcess,
+            CarianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing CarianChatGPTPipeline with language: {self.language}"
+        )
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1544,11 +1667,12 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Note this is only a parent, not true languoid
     ## Anatolian
     "hit1242": HittiteChatGPTPipeline,
-    # Luwian (cuneiform and hieroglyphic inscriptions, 14th–8th c. BCE).
-    # Lycian (inscriptions, 6th–4th c. BCE).
-    # Lydian (inscriptions, 7th–4th c. BCE).
-    # Palaic (inscriptions, 2nd–1st c. BCE).
-    # Carian (inscriptions, 6th–4th c. BCE).
+    "cune1239": CuneiformLuwianChatGPTPipeline,
+    "hier1240": HieroglyphicLuwianChatGPTPipeline,
+    "lyci1242": LycianChatGPTPipeline,
+    "lydi1241": LydianChatGPTPipeline,
+    "pala1342": PalaicChatGPTPipeline,
+    "cari1273": CarianChatGPTPipeline,
     ## Tocharian
     "tokh1242": TocharianAChatGPTPipeline,
     "tokh1243": TocharianBChatGPTPipeline,
