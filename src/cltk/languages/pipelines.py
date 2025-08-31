@@ -1434,8 +1434,8 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     ### Central Semitic (bridge between NW and South)
     # Pre-Islamic Arabic
     # Classical Arabic (7th c. CE onward): Qurʾān, poetry, early Islamic literature.
-    "clas1259": ClassicalArabicChatGPTPipeline,
-    # Medieval Arabic: scientific, philosophical, historical works dominate much of the Islamic Golden Age corpus.
+    "clas1259": ClassicalArabicChatGPTPipeline,  # Dialect
+    # Glotto doesn't have medieval arabic; Medieval Arabic: scientific, philosophical, historical works dominate much of the Islamic Golden Age corpus.
     ## Egyptian languages
     "olde1242": OldEgyptianChatGPTPipeline,
     "midd1369": MiddleEgyptianChatGPTPipeline,
@@ -1443,11 +1443,34 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "demo1234": DemoticChatGPTPipeline,
     "copt1239": CopticChatGPTPipeline,
     ## Berber
-    # Libyco-Berber inscriptions (1st mill. BCE).
-    ## Cushitic
+    # "numi1241": "Numidian"; "Ancient Berber" and "Lybico-Berber" are alt names; Libyco-Berber inscriptions (1st mill. BCE).
+    ## "tait1247": "Cushitic Taita" ; Cushitic
     # earliest written records only medieval, often in Geʿez script or Arabic script (e.g. Beja glosses in Arabic works)
     ## Chadic
-    # Hausa; Essentially oral until medieval period, when Hausa is written in Ajami (Arabic script).
+    # ; "haus1257": "Hausa"; Hausa; Essentially oral until medieval period, when Hausa is written in Ajami (Arabic script).
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1254": ClassicalTibetanPipeline,
+    # Sino-Tibetan family
+    # Sino-Tibetan (Pre-1800 Attested)
+    # | Language / Register                     | Period              | Glottocode    |
+    # |----------------------------------------|---------------------|---------------|
+    # | **Old Chinese**                         | ca. 1200 BCE – 200 CE | `oldc1244`    |
+    # | **Middle Chinese**                      | ca. 3rd – 10th c. CE | `midd1344`    |
+    # | **Classical Chinese (Literary Chinese)**| ca. 5th c. BCE – 19th c. | `lite1248` |
+    # | **Early Vernacular Chinese (Baihua)**   | ca. 10th – 18th c. CE | *(under `clas1255`)* |
+    # | **Old Tibetan**                         | 7th – 10th c. CE     | *(not separately coded)* |
+    # | **Classical Tibetan**                   | from 7th c. onward   | `clas1254`    |
+    # | **Old Burmese**                         | 11th – 16th c. CE    | `oldb1235`    |
+    # | **Classical Burmese**                   | 16th – 18th c. CE    | `nucl1310`    |
+    # | **Tangut**                              | 11th – 13th c. CE    | `tang1334`    |
+    # | **Newar (Classical Nepal Bhasa)**       | 12th – 18th c. CE    | `newa1246`    |
+    # | **Meitei (Classical Manipuri)**         | 15th – 18th c. CE    | `mani1292` |
+    # | **Early Sgaw Karen**                    | 18th c. CE           | `sgaw1245` |
+    # Mongolic family
+    # Mongolic (Pre-1800 Attested)
+    # | Language / Period                | Approx. Dates        | Glottocode      |
+    # |----------------------------------|----------------------|-----------------|
+    # | Middle Mongol                    | 13th–16th centuries  | `mong1329`      |
+    # | Classical Mongolian              | ca. 1700–1900        | `mong1331`      |
+    # | Mogholi (Moghol language)        | ca. 13th–17th c.     | `mogh1245`      |
 }
