@@ -2175,14 +2175,26 @@ class SardinianChatGPTProcess(ChatGPTProcess):
         logger.debug("SardinianChatGPTProcess initialized.")
 
 
-class SanskritChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "sans1269"
-    description: str = "Default process for ChatGPT for the Sanskrit language."
-    authorship_info: str = "SanskritChatGPTProcess using OpenAI GPT models."
+class ClassicalSanskritChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "clas1258"
+    description: str = (
+        "Default process for ChatGPT for the Classical Sanskrit language."
+    )
+    authorship_info: str = "ClassicalSanskritChatGPTProcess using OpenAI GPT models."
 
     def model_post_init(self, __context):
         super().model_post_init(__context)
-        logger.debug("SanskritChatGPTProcess initialized.")
+        logger.debug("ClassicalSanskritChatGPTProcess initialized.")
+
+
+class VedicSanskritChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "vedi1234"
+    description: str = "Default process for ChatGPT for the Vedic Sanskrit language."
+    authorship_info: str = "VedicSanskritChatGPTProcess using OpenAI GPT models."
+
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("VedicSanskritChatGPTProcess initialized.")
 
 
 class ScottishGaelicChatGPTProcess(ChatGPTProcess):

@@ -33,7 +33,8 @@ def split_sentences_multilang(
     lang_sentence_endings = {
         "anci1242": r"([;;·.·])",
         "lati1261": r"([.!?])",
-        "sans1269": r"([।॥.!?])",  # Sanskrit: danda, double danda, period, exclamation, question
+        "vedi1234": r"([।॥.!?])",  # Vedic Sanskrit: danda, double danda, period, exclamation, question
+        "clas1258": r"([।॥.!?])",  # Classical Sanskrit: danda, double danda, period, exclamation, question
         "pali1273": r"([।॥!?])",  # Pali: danda, period, exclamation, question
         "anci1244": r"([׃.])",  # Biblical Hebrew: sof pasuq, full stop
         "impe1235": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation

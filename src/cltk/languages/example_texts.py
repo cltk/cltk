@@ -135,8 +135,17 @@ helidos ubar hringa do sie to dero hiltiu ritun""",
     "pan": "ਆਿਦ ਸਚ ੁ ਜੁਗਾਿਦ ਸਚ ੁ ॥ ਹੈ ਭੀ ਸਚ ੁ ਨਾਨਕ ਹੋਸੀ ਭੀ ਸਚ ੁ ॥੧॥ ਸੋਚੈ ਸੋਿਚ ਨ ਹੋਵਈ ਜੇ ਸੋਚੀ ਲਖ ਵਾਰ ॥ ਚ ੁਪੈ ਚ ੁਪ ਨ ਹੋਵਈ ਜੇ ਲਾਇ ਰਹਾ ਿਲਵ ਤਾਰ ॥ ਭੁਿਖਆ ਭੁਖ ਨ ਉਤਰੀ ਜੇ ਬ ੰਨਾ ਪੁਰੀਆ ਭਾਰ ॥ ਸਹਸ ਿਸਆਣਪਾ ਲਖ ਹੋਿਹ ਤ ਇਕ ਨ ਚਲੈ ਨਾਿਲ ॥",
     # Pali, Milindapañha 32-33
     "pali1273": "Raajaa aaha 'ki.mlakkha.no, bhante naagasena, manasikaaro, ki.mlakkha.naa pa~n~naa'ti? 'Uuhanalakkha.no kho, mahaaraaja, manasikaaro, chedanalakkha.naa pa~n~naa'ti. 'Katha.m uuhanalakkha.no manasikaaro, katha.m chedanalakkha.naa pa~n~naa, opamma.m karohii'ti. 'Jaanaasi, tva.m mahaaraaja, yavalaavake'ti. 'Aama bhante, jaanaamii'ti. 'Katha.m, mahaaraaja, yavalaavakaa yava.m lunantii'ti? 'Vaamena, bhante, hatthena yavakalaapa.m gahetvaa dakkhi.nena hatthena daatta.m gahetvaa daattena chindantii'ti. 'Yathaa, mahaaraaja, yavalaavako vaamena hatthena yavakalaapa.m gahetvaa dakkhi.nena hatthena daatta.m gahetvaa yava.m chindati, evameva kho, mahaaraaja, yogaavacaro manasikaarena maanasa.m gahetvaa pa~n~naaya kilese chindati, eva.m kho, mahaaraaja, uuhanalakkha.no manasikaaro, eva.m chedanalakkha.naa pa~n~naa'ti. 'Kallosi, bhante naagasenaa'ti.",
-    # Sanskrit, Isha Upanishad (Īśāvāsyopaniṣad)
-    "sans1269": """ईशा वास्यम् इदं सर्वं यत् किञ्च जगत्यां जगत् ।
+    # Classical Sanskrit, Devanāgarī (normalized), Kālidāsa (4th–5th c. CE), Raghuvaṃśa (a mahākāvya epic)
+    "clas1258": """vāgarthāviva saṃpṛktau vāgarthapratipattaye ।
+jagataḥ pitarau vande pārvatīparameśvarau ॥ 1 ॥
+
+vaṃśaḥ pṛthivyāṃ sthitireṣa dhātrā
+dharmasya mūlaṃ munināṃ ca lakṣmīḥ ।
+yena prabhāvād bhuvanāni tasthuḥ
+sa rāghavaḥ pātu vaḥ raghūṇām ॥ 2 ॥
+""",
+    # Vedic Sanskrit, Isha Upanishad (Īśāvāsyopaniṣad)
+    "vedi1234": """ईशा वास्यम् इदं सर्वं यत् किञ्च जगत्यां जगत् ।
 तेन त्यक्तेन भुञ्जीथा मा गृधः कस्य स्विद्धनम् ॥
 
 कुर्वन्न् एवेह कर्माणि जिजीविषेच्छतं समाः ।

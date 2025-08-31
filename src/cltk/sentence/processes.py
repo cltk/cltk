@@ -33,7 +33,8 @@ class SentenceSplittingProcess(Process):
             "lati1261",  # Latin
             "oldn1244",  # Old Norse
             "pali1273",  # Pali
-            "sans1269",  # Sanskrit
+            "vedi1234",  # Vedic Sanskrit
+            "clas1258",  # Classical Sanskrit
             "clas1259",  # Classical Arabic
             "chur1257",  # Old Church Slavonic
             "midd1317",  # Middle English
@@ -215,10 +216,16 @@ class PaliSentenceSplittingProcess(SentenceSplittingProcess):
     glottolog_id: Optional[str] = "pali1273"
 
 
-class SanskritSentenceSplittingProcess(SentenceSplittingProcess):
-    """Sentence splitting process for Sanskrit."""
+class ClassicalSanskritSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Sanskrit."""
 
-    glottolog_id: Optional[str] = "sans1269"
+    glottolog_id: Optional[str] = "clas1258"
+
+
+class VedicSanskritSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Vedic Sanskrit."""
+
+    glottolog_id: Optional[str] = "vedi1234"
 
 
 class ClassicalArabicSentenceSplittingProcess(SentenceSplittingProcess):

@@ -43,6 +43,7 @@ from cltk.genai.processes import (
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
     ClassicalArmenianChatGPTProcess,
+    ClassicalSanskritChatGPTProcess,
     ClassicalSyriacChatGPTProcess,
     ClassicalTibetanChatGPTProcess,
     CopticChatGPTProcess,
@@ -84,12 +85,12 @@ from cltk.genai.processes import (
     ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
     PunjabiChatGPTProcess,
-    SanskritChatGPTProcess,
     SogdianChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
     TumshuqeseChatGPTProcess,
     UgariticChatGPTProcess,
+    VedicSanskritChatGPTProcess,
 )
 
 # from cltk.languages.utils import get_lang
@@ -116,6 +117,7 @@ from cltk.sentence.processes import (
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalArmenianSentenceSplittingProcess,
+    ClassicalSanskritSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
     ClassicalTibetanSentenceSplittingProcess,
     CopticSentenceSplittingProcess,
@@ -157,12 +159,12 @@ from cltk.sentence.processes import (
     PanjabiSentenceSplittingProcess,
     ParthianSentenceSplittingProcess,
     PhoenicianSentenceSplittingProcess,
-    SanskritSentenceSplittingProcess,
     SogdianSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
     TumshuqeseSentenceSplittingProcess,
     UgariticSentenceSplittingProcess,
+    VedicSanskritSentenceSplittingProcess,
 )
 
 # from cltk.stops.processes import StopsProcess
@@ -838,24 +840,44 @@ class PaliChatGPTPipeline(Pipeline):
 #         logger.info("SanskritPipeline created.")
 
 
-class SanskritChatGPTPipeline(Pipeline):
-    """Default ``Pipeline`` for Sanskrit."""
+class ClassicalSanskritChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Classical Sanskrit."""
 
-    description: Optional[str] = "Pipeline for the Sanskrit language"
-    glottolog_id: Optional[str] = "sans1269"
+    description: Optional[str] = "Pipeline for the Classical Sanskrit language"
+    glottolog_id: Optional[str] = "vedi1234"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
-            SanskritSentenceSplittingProcess,
-            SanskritChatGPTProcess,
+            ClassicalSanskritSentenceSplittingProcess,
+            ClassicalSanskritChatGPTProcess,
         ]
     )
 
     def __post_init__(self):
         logger.debug(
-            f"Initializing SanskritChatGPTPipeline with language: {self.language}"
+            f"Initializing ClassicalSanskritChatGPTPipeline with language: {self.language}"
         )
-        logger.info("PaliPipeline created.")
+        logger.info("ClassicalSanskritChatGPTPipeline created.")
+
+
+class VedicSanskritChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Vedic Sanskrit."""
+
+    description: Optional[str] = "Pipeline for the Vedic Sanskrit language"
+    glottolog_id: Optional[str] = "clas1258"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            VedicSanskritSentenceSplittingProcess,
+            VedicSanskritChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing VedicSanskritChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("VedicSanskritChatGPTPipeline created.")
 
 
 class OldHighGermanChatGPTPipeline(Pipeline):
@@ -1701,7 +1723,8 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     ## Old Indo-Aryan
     # Vedic Sanskrit (c. 1500–500 BCE) "vedi1234"
     # Classical Sanskrit (from ~500 BCE) "clas1258"
-    "sans1269": SanskritChatGPTPipeline,
+    "vedi1234": VedicSanskritChatGPTPipeline,
+    "clas1258": ClassicalSanskritChatGPTPipeline,
     # Prakrits (Middle Indo-Aryan, ca. 500 BCE–500 CE)
     "pali1273": PaliChatGPTPipeline,
     # Ardhamāgadhī, Śaurasenī, Mahārāṣṭrī, etc. — languages of Jain/Buddhist texts and early drama.
