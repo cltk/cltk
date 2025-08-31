@@ -42,10 +42,7 @@ class SentenceSplittingProcess(Process):
             "midd1343",  # Middle High German
             "goth1244",  # Gothic
             "oldh1241",  # Old High German
-            # "got", #?
-            # "hin",
             "lite1248",  # Literary Chinese
-            # "pan",
             "clas1252",  # Classical Syriac
             "oldp1254",  # Old Persian
             "oldi1245",  # Early Irish
@@ -63,6 +60,13 @@ class SentenceSplittingProcess(Process):
             "sogd1245",  # Sogdian
             "khot1251",  # Khotanese
             "tums1237",  # Tumshuqese
+            "oldw1239",  # Old Welsh
+            "bret1244",  # Old-Middle Breton
+            "corn1251",  # Cornish
+            "prus1238",  # Old Prussian
+            "lith1251",  # Lithuanian
+            "latv1249",  # Latvian
+            "gheg1238",  # Albanian
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -339,3 +343,45 @@ class LateEgyptianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Late Egyptian (late1256)."""
 
     glottolog_id: Optional[str] = "late1256"
+
+
+class OldMiddleWelshSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Welsh."""
+
+    glottolog_id: Optional[str] = "midd1254"
+
+
+class MiddleBretonSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Breton."""
+
+    glottolog_id: Optional[str] = "midb1244"
+
+
+class MiddleCornishSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Cornish."""
+
+    glottolog_id: Optional[str] = "corn1251"
+
+
+class OldPrussianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Prussian."""
+
+    glottolog_id: Optional[str] = "prus1238"
+
+
+class LithuanianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Lithuanian."""
+
+    glottolog_id: Optional[str] = "lith1251"
+
+
+class LatvianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Latvian."""
+
+    glottolog_id: Optional[str] = "latv1249"
+
+
+class AlbanianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Albanian."""
+
+    glottolog_id: Optional[str] = "gheg1238"

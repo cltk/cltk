@@ -266,6 +266,61 @@ ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn
 śśa ysä hīnā hvāṣṣe śśa ysä hīnā hvātä  
 śśa ysä marä hvāṣṣe śśa ysä marä hvātä.
 """,
+    # Old–Middle Welsh, Brut y Tywysogion (Chronicle of the Princes, 12th–13th c., Red Book of Hergest recension)
+    "oldw1239": """A’r flwyddyn honno y bu farw Owain Gwynedd, arglwydd Gwynedd oll,
+a’r gwr mwyaf a fu yn y Brytanyeit o’i amser ef. 
+Ac ymladd a wnaeth yn erbyn y Saeson lawer gwaith, 
+a lluoedd mawr a laddodd o honynt. 
+A phan fu farw, y gwnaethant y beddrod iddo yng Nghlynnog Fawr, 
+a phob dyn a alwas ef yn gadarnwr y genedl.
+""",
+    # Middle Breton, An Dialog etre Arzur Roe d’an Bretounet ha Guynglaff (“Dialogue between Arthur, King of the Bretons, and Guynglaff,” 15th c.)
+    "bret1244": """Evit gwir, Arzur a lavaras, na welis den kemmysk ha guirion eveldomp.
+Guignet a vezo an amzer, ha te a lavaro din petra a deuio. 
+Ar foenn a zeuio dre ar mor, ar c’hleze a vo gwelet er c’hleier, 
+hag an hent bras a vo leun a soudarded. 
+An dud a vo spountet, ar vugale a ouelo, 
+ha me, roue, a vezo truas am bobl.
+""",
+    # Cornish, Passio Christi in the Ordinalia (14th c.)
+    "corn1251": """Iudas a veu lowen ow tos gans an Jues, 
+hag ef a wul margh ha covena rag drehevel Crist. 
+An Jues a vyns owth assaya, hag ef a grug ow treylya war an Arloedh. 
+Yma Dew rag an dus owth godhvos an coweth bras, 
+mes an dus a veu dullys ha’n moys a’n tasow a vyns owth fyllel. 
+Crist a veu kemmysk gans an dus, hag a veu dhyllis gans Iudas ewn, 
+hag an Apostolyon oll a veu spountys owth tenna dhe-ves.
+""",
+    # Old Prussian, from the 1545 Catechism of Simon Grunau
+    "prus1238": """Deinay deiws swints, tu scherkans nan swintay,
+tu deiws pertingis nan dewei. 
+Tu deiws gans grikkimis, nan perwangis.
+Tu deiws gans giwis, nan dargans.
+""",
+    # Old Lithuanian, Catechism by Martynas Mažvydas (1547)
+    "lith1251": """Broliai seserys, imkiet mani ir skaitykiet,
+ir gerai mokykites: 
+širdis, ausis, akys atvertos turit būti. 
+Išgirsdami dievo žodį, priimkite jį su meile,
+kad ne tik burnoje, bet ir širdyje gultų.
+""",
+    # Old Latvian, Enchiridion, Lutheran catechism 1585
+    "latv1249": """Mīļie brāļi un māsas, klausaities dieva vārdu.
+Dievs ir mūsu tēvs, kas mūs mīl un glābj.
+Viņš mums devis baušļus, ka mēs dzīvotu taisni,
+un sūtījis savu dēlu, kas mūs izpestījis no grēkiem.
+Tāpēc turiet viņa vārdus sirdī, 
+un dzīvojiet pēc tiem visās dienās.
+""",
+    # Old Albanian (Gjon Buzuku, Meshari, 1555)
+    "gheg1238": """Unë, Gjon Buzuku, prift, desha me u dhënë këtij libri
+disa fjalë, që mos të mbeteni pa mësuar fenë tonë të krishterë.
+Sepse shoh shumë njerëz se shkojnë pas së keqes
+dhe nuk njohin rrugën e Zotit. 
+Prandaj ju lutesh, vëllezër e motra,
+ta dëgjoni fjalën e Zotit me dashuri,
+që të shpëtoni shpirtrat tuaj.
+""",
     # "": """""",
 }
 

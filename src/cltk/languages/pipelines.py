@@ -34,6 +34,7 @@ from cltk.core.data_types_v3 import Dialect, Language, Pipeline, Process
 # )
 from cltk.genai.processes import (
     AkkadianChatGPTProcess,
+    AlbanianChatGPTProcess,
     AncientGreekChatGPTProcess,
     AvestanChatGPTProcess,
     BactrianChatGPTProcess,
@@ -52,7 +53,11 @@ from cltk.genai.processes import (
     KhotaneseChatGPTProcess,
     LateEgyptianChatGPTProcess,
     LatinChatGPTProcess,
+    LatvianChatGPTProcess,
     LiteraryChineseChatGPTProcess,
+    LithuanianChatGPTProcess,
+    MiddleBretonChatGPTProcess,
+    MiddleCornishChatGPTProcess,
     MiddleEgyptianChatGPTProcess,
     MiddleEnglishChatGPTProcess,
     MiddleFrenchChatGPTProcess,
@@ -63,8 +68,10 @@ from cltk.genai.processes import (
     OldEnglishChatGPTProcess,
     OldFrenchChatGPTProcess,
     OldHighGermanChatGPTProcess,
+    OldMiddleWelshChatGPTProcess,
     OldNorseChatGPTProcess,
     OldPersianChatGPTProcess,
+    OldPrussianChatGPTProcess,
     PaliChatGPTProcess,
     ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
@@ -92,6 +99,7 @@ from cltk.languages.glottolog_v3 import get_dialect, get_language, resolve_langu
 # )
 from cltk.sentence.processes import (
     AkkadianSentenceSplittingProcess,
+    AlbanianSentenceSplittingProcess,
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
     AvestanSentenceSplittingProcess,
@@ -110,7 +118,11 @@ from cltk.sentence.processes import (
     KhotaneseSentenceSplittingProcess,
     LateEgyptianSentenceSplittingProcess,
     LatinSentenceSplittingProcess,
+    LatvianSentenceSplittingProcess,
     LiteraryChineseSentenceSplittingProcess,
+    LithuanianSentenceSplittingProcess,
+    MiddleBretonSentenceSplittingProcess,
+    MiddleCornishSentenceSplittingProcess,
     MiddleEgyptianSentenceSplittingProcess,
     MiddleEnglishSentenceSplittingProcess,
     MiddleFrenchSentenceSplittingProcess,
@@ -121,8 +133,10 @@ from cltk.sentence.processes import (
     OldEnglishSentenceSplittingProcess,
     OldFrenchSentenceSplittingProcess,
     OldHighGermanSentenceSplittingProcess,
+    OldMiddleWelshSentenceSplittingProcess,
     OldNorseSentenceSplittingProcess,
     OldPersianSentenceSplittingProcess,
+    OldPrussianSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     PanjabiSentenceSplittingProcess,
     ParthianSentenceSplittingProcess,
@@ -1289,6 +1303,146 @@ class ParthianChatGPTPipeline(Pipeline):
         logger.info("LateEgyptianChatGPTPipeline created.")
 
 
+class OldMiddleWelshChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Middle Welsh."""
+
+    description: Optional[str] = "Pipeline for the Middle Welsh language"
+    glottolog_id: Optional[str] = "oldw1239"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldMiddleWelshSentenceSplittingProcess,
+            OldMiddleWelshChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MiddleWelshChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MiddleWelshChatGPTPipeline created.")
+
+
+class MiddleBretonChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Middle Breton."""
+
+    description: Optional[str] = "Pipeline for the Middle Breton language"
+    glottolog_id: Optional[str] = "oldb1244"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddleBretonSentenceSplittingProcess,
+            MiddleBretonChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MiddleBretonChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MiddleBretonChatGPTPipeline created.")
+
+
+class CornishChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Cornish."""
+
+    description: Optional[str] = "Pipeline for the Cornish language"
+    glottolog_id: Optional[str] = "corn1251"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddleCornishSentenceSplittingProcess,
+            MiddleCornishChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing CornishChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("CornishChatGPTPipeline created.")
+
+
+class OldPrussianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Prussian."""
+
+    description: Optional[str] = "Pipeline for the Old Prussian language"
+    glottolog_id: Optional[str] = "prus1238"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldPrussianSentenceSplittingProcess,
+            OldPrussianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing OldPrussianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("OldPrussianChatGPTPipeline created.")
+
+
+class LithuanianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Lithuanian."""
+
+    description: Optional[str] = "Pipeline for the Lithuanian language"
+    glottolog_id: Optional[str] = "lith1251"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            LithuanianSentenceSplittingProcess,
+            LithuanianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing LithuanianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("LithuanianChatGPTPipeline created.")
+
+
+class LatvianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Latvian."""
+
+    description: Optional[str] = "Pipeline for the Latvian language"
+    glottolog_id: Optional[str] = "latv1249"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            LatvianSentenceSplittingProcess,
+            LatvianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing LatvianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("LatvianChatGPTPipeline created.")
+
+
+class AlbanianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Albanian."""
+
+    description: Optional[str] = "Pipeline for the Albanian language"
+    glottolog_id: Optional[str] = "gheg1238"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            AlbanianSentenceSplittingProcess,
+            AlbanianChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing AlbanianChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("AlbanianChatGPTPipeline created.")
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1323,14 +1477,12 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "anci1242": GreekChatGPTPipeline,
     # Mycenaean Greek (Linear B tablets, ca. 1400–1200 BCE).
     # Medieval/Byzantine Greek
-    ## Celtic
     "oldi1245": EarlyIrishChatGPTPipeline,
-    # Middle Welsh
-    # Middle Breton
-    # Cornish
+    "oldw1239": OldMiddleWelshChatGPTPipeline,
+    "bret1244": MiddleBretonChatGPTPipeline,
+    "corn1251": CornishChatGPTPipeline,
     ## Germanic
     # Proto-Norse
-    # Gothic (Runic inscriptions)
     "goth1244": GothicChatGPTPipeline,
     "oldh1241": OldHighGermanChatGPTPipeline,
     "midd1343": MiddleHighGermanChatGPTPipeline,
@@ -1339,12 +1491,14 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "midd1317": MiddleEnglishChatGPTPipeline,
     ## Balto-Slavic
     "chur1257": ChurchSlavonicChatGPTPipeline,
-    # Old Prussian (catechisms, 16th c.).
-    # Lithuanian and Latvian (later medieval to modern).
+    "prus1238": OldPrussianChatGPTPipeline,
+    "lith1251": LithuanianChatGPTPipeline,
+    "latv1249": LatvianChatGPTPipeline,
+    "gheg1238": AlbanianChatGPTPipeline,
     ## Albanian, Earliest text: 15th–16th c. CE (Gjon Buzuku’s Meshari).
     ## Armenian, Earliest texts: 5th c. CE (Bible translation by Mesrop Mashtots, who created the script)
+    # Note this is only a parent, not true languoid
     ## Anatolian
-    # Hittite (cuneiform inscriptions, 17th–11th c. BCE).
     "hit1242": HittiteChatGPTPipeline,
     # Luwian (cuneiform and hieroglyphic inscriptions, 14th–8th c. BCE).
     # Lycian (inscriptions, 6th–4th c. BCE).
@@ -1473,4 +1627,25 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # | Middle Mongol                    | 13th–16th centuries  | `mong1329`      |
     # | Classical Mongolian              | ca. 1700–1900        | `mong1331`      |
     # | Mogholi (Moghol language)        | ca. 13th–17th c.     | `mogh1245`      |
+    # Pre-Modern Literate Language Families (Non-Euro/Afroasiatic/Sino-Tibetan/Mongolic)
+    # | Family         | Language / Stage           | Approx. Period      | Glottocode     |
+    # |----------------|-----------------------------|----------------------|----------------|
+    # | Dravidian      | Old Tamil                   | ca. 300 BCE–300 CE   | `oldt1248`     |
+    # |                | Middle Tamil                | medieval             | *(not coded)*  |
+    # |                | Old Kannada                 | from 5th c. CE       | *(not coded)*  |
+    # |                | Old Telugu                  | from 6th c. CE       | *(not coded)*  |
+    # |                | Old Malayalam               | from 13th c. CE      | *(not coded)*  |
+    # | Turkic         | Old Turkic                  | 8th–10th c. CE       | `oldu1238`     |
+    # |                | Chagatai                    | 15th–18th c. CE      | `chag1247`     |
+    # | Uralic         | Old Hungarian               | 12th–13th c. CE      | `oldh1242`     |
+    # | Koreanic       | Old Korean                  | 7th–10th c. CE       | *(not coded)*  |
+    # |                | Middle Korean               | 15th c. onward       | *(not coded)*  |
+    # | Japonic        | Old Japanese                | 8th c. CE            | `japo1237`     |
+    # | Altaic-Adj.    | Old Jurchen                 | 12th–13th c. CE      | *(not coded)*  |
+    # |                | Manchu                      | 17th–18th c. CE      | *(not coded)*  |
+    # | Austroasiatic  | Old Mon                     | from 6th c. CE       | *(not coded)*  |
+    # |                | Old Khmer                   | from 7th c. CE       | *(not coded)*  |
+    # | Austronesian   | Old Javanese (Kawi)         | from 8th c. CE       | *(not coded)*  |
+    # |                | Classical Malay             | from 7th c. CE onward| *(not coded)*  |
+    # | Tai–Kadai      | Old Thai                    | from 13th c. CE      | *(not coded)*  |
 }
