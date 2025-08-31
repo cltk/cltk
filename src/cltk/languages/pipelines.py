@@ -78,6 +78,7 @@ from cltk.genai.processes import (
     OldNorseChatGPTProcess,
     OldPersianChatGPTProcess,
     OldPrussianChatGPTProcess,
+    PalaicChatGPTProcess,
     PaliChatGPTProcess,
     ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
@@ -149,6 +150,7 @@ from cltk.sentence.processes import (
     OldNorseSentenceSplittingProcess,
     OldPersianSentenceSplittingProcess,
     OldPrussianSentenceSplittingProcess,
+    PalaicSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     PanjabiSentenceSplittingProcess,
     ParthianSentenceSplittingProcess,
@@ -1578,7 +1580,7 @@ class PalaicChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Palaic."""
 
     description: Optional[str] = "Pipeline for the Palaic language"
-    glottolog_id: Optional[str] = "pala1342"
+    glottolog_id: Optional[str] = "pala1331"
     processes: Optional[list[Type[Process]]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -1675,7 +1677,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "hier1240": HieroglyphicLuwianChatGPTPipeline,
     "lyci1241": LycianAChatGPTPipeline,
     "lydi1241": LydianChatGPTPipeline,
-    "pala1342": PalaicChatGPTPipeline,
+    "pala1331": PalaicChatGPTPipeline,
     "cari1273": CarianChatGPTPipeline,
     ## Tocharian
     "tokh1242": TocharianAChatGPTPipeline,

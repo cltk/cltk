@@ -1996,7 +1996,7 @@ class MiddlePersianChatGPTProcess(ChatGPTProcess):
 
 
 class PalaicChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xpa"
+    glottolog_id: Optional[str] = "pala1331"
     description: str = "Default process for ChatGPT for the Palaic language."
     authorship_info: str = "PalaicChatGPTProcess using OpenAI GPT models."
 

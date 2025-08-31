@@ -374,6 +374,14 @@ se prñnawatẽ: se tewi tideimi se prñnawatẽ tideimi se prñnawatẽ.
 κβαλ εσνολ τβαρν
 ϝαναλαδ λμυν κουλ.
 """,
+    "pala1331": """21. =I [(nu-ku)] pa-a“-hu-ul-la-“a-a“ti-[ia-]az ta-ba-ar-ni LUGAL-i
+    pa-a-pa-az-ku-ar ti-i
+22. =II [(a-an-na-)]az-ku-ar ti-i i“-ka[n]u-u“-“i-ia-am-pí ti-i
+[…]
+Vo 23–24  ha tabarna ti=kuar — šūna
+Rs 22′    šu-ú-na-at
+Rs 24′    šu-ú-na
+""",
     # "": """""",
 }
 
