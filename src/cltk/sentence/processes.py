@@ -2,12 +2,10 @@
 
 from copy import copy
 from functools import cached_property
-from types import FunctionType
-from typing import Any, Callable, ClassVar, List, Optional, Tuple
+from typing import Callable, Optional
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v3 import Doc, Process
-from cltk.core.exceptions import CLTKException
 from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]

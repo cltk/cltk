@@ -6,7 +6,7 @@ import pickle
 from typing import Any
 
 from cltk.core.cltk_logger import logger
-from cltk.utils import CLTK_DATA_DIR
+from cltk.utils.utils import CLTK_DATA_DIR
 
 __author__ = [
     "Andreas Grivas <andreasgrv@gmail.com>",

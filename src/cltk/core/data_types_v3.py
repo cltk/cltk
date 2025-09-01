@@ -2,17 +2,17 @@
 of the NLP pipeline.
 """
 
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 from datetime import date
 from typing import Any, Literal, Optional, Type, TypeAlias
 
 import numpy as np
-from pydantic import AnyUrl, BaseModel, Field, field_validator, model_validator
+from pydantic import AnyUrl, BaseModel, Field, model_validator
 
 from cltk.core.cltk_logger import logger
-from cltk.morphology.ud_deprels import UDDeprelTag
-from cltk.morphology.ud_features import UDFeatureTagSet
-from cltk.morphology.ud_pos import UDPartOfSpeechTag
+from cltk.morphosyntax.ud_deprels import UDDeprelTag
+from cltk.morphosyntax.ud_features import UDFeatureTagSet
+from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 # --- Type aliases (mark with TypeAlias to appease linters/IDEs) ---------------
 Level: TypeAlias = Literal["family", "language", "dialect"]
@@ -250,7 +250,7 @@ class Doc(CLTKBaseModel):
 
         if not self.normalized_text or not self.sentence_boundaries:
             logger.warning(
-                f"`Doc.normalized_text` or `.sentence_boundaries` is empty, cannot return sentence strings."
+                "`Doc.normalized_text` or `.sentence_boundaries` is empty, cannot return sentence strings."
             )
             return []
         return extract_sentences_from_boundaries(
@@ -373,7 +373,7 @@ class Pipeline(BaseModel):
     glottolog_id: Optional[str] = None
 
     @model_validator(mode="after")
-    def _auto_resolve_language_and_dialect(self):
+    def _auto_resolve_language_and_dialect(self) -> "Pipeline":
         """If glottolog_id is present, resolve language/dialect lazily."""
         # Only resolve if at least one is missing
         if (self.language is None or self.dialect is None) and self.glottolog_id:
@@ -393,7 +393,7 @@ class Pipeline(BaseModel):
                 )
         return self
 
-    def add_process(self, process: Type[Process]):
+    def add_process(self, process: Type[Process]) -> None:
         if self.processes is None:
             self.processes = []
         self.processes.append(process)

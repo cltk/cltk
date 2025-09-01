@@ -4,7 +4,7 @@ import json
 from functools import lru_cache
 from importlib.resources import files as pkg_files
 from pathlib import Path
-from typing import Any, Literal, Optional
+from typing import Any, Literal, Optional, cast
 
 from pydantic import TypeAdapter
 
@@ -67,7 +67,7 @@ def load_languages(path: Optional[str] = None) -> dict[str, Language]:
     if isinstance(data, list):
         logger.debug("Top-level JSON is an array; validating as list[Language]")
         adapter = TypeAdapter(list[Language])
-        langs_list = adapter.validate_python(data)
+        langs_list = cast(list[Language], adapter.validate_python(data))
         langs = {L.glottolog_id: L for L in langs_list}
         logger.info(f"Validated {len(langs)} languages (list form)")
         return langs
@@ -277,12 +277,14 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
             parent = idx["by_dialect"].get(did)
             if parent and parent in langs:
                 lang = langs[parent]
-                d = next((d for d in lang.dialects if d.glottolog_id == did), None)
-                if d:
+                dialect_match = next(
+                    (d for d in lang.dialects if d.glottolog_id == did), None
+                )
+                if dialect_match:
                     logger.debug(
-                        f"Found dialect by name '{key}' -> {d.name} (id={did}) under '{lang.name}'"
+                        f"Found dialect by name '{key}' -> {dialect_match.name} (id={did}) under '{lang.name}'"
                     )
-                    return lang, d
+                    return lang, dialect_match
         # Ambiguous name → ask for a glottocode, list a few options
         options: list[str] = []
         for did in hits[:5]:
@@ -395,12 +397,14 @@ def resolve_languoid(
             parent = idx["by_dialect"].get(did)
             if parent and parent in langs:
                 lang = langs[parent]
-                d = next((d for d in lang.dialects if d.glottolog_id == did), None)
-                if d:
+                dialect_match = next(
+                    (d for d in lang.dialects if d.glottolog_id == did), None
+                )
+                if dialect_match:
                     logger.debug(
-                        f"Resolved dialect by name: '{key}' -> {d.name} (id={did}, parent={lang.name})"
+                        f"Resolved dialect by name: '{key}' -> {dialect_match.name} (id={did}, parent={lang.name})"
                     )
-                    return lang, d
+                    return lang, dialect_match
         # Ambiguous dialect name → ask for a glottocode, list options
         options: list[str] = []
         for did in hits_dia[:5]:

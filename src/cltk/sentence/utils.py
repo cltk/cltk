@@ -1,7 +1,6 @@
 """Helpers for dealing with sentences."""
 
 import re
-from typing import Literal
 
 
 def extract_sentences_from_boundaries(
@@ -58,7 +57,6 @@ def split_sentences_multilang(
         "hit1242": r"([\.!?𒑰])",  # Hittite: generic (Akkadian-like) punctuation + 𒑰
         "toch1238": r"([।॥.!?])",  # Tocharian A: Brahmi danda family
         "toch1237": r"([।॥.!?])",  # Tocharian B: Brahmi danda family
-        "aves1237": r"([.!?])",  # Avestan: generic punctuation
         "oldp1254": r"([.!?])",  # Old Persian: generic punctuation
         "oldi1245": r"([.!?])",  # Early Irish: Latin punctuation
         "ugar1238": r"([𒑰])",  # Ugaritic: generic punctuation

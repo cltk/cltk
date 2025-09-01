@@ -10,9 +10,8 @@ import cltk
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v3 import Dialect, Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog_v3 import get_language, resolve_languoid
+from cltk.languages.glottolog_v3 import resolve_languoid
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
-    MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
 )
 
@@ -80,9 +79,7 @@ class NLP:
                     f"Process '{process_obj.__class__.__name__}' failed: {e}"
                 ) from e
         if doc.words is None or not isinstance(doc.words, list):
-            msg: str = (
-                "Pipeline did not produce any words. Check your pipeline configuration and input text."
-            )
+            msg: str = "Pipeline did not produce any words. Check your pipeline configuration and input text."
             logger.warning(msg)
         logger.info("NLP analysis complete.")
         return doc
@@ -129,9 +126,7 @@ class NLP:
             if authorship_info:
                 print(
                     # "\n" +
-                    Fore.CYAN
-                    + f"⸖ {authorship_info}"
-                    + Style.RESET_ALL
+                    Fore.CYAN + f"⸖ {authorship_info}" + Style.RESET_ALL
                 )
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:

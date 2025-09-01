@@ -5,27 +5,27 @@ import re
 import sys
 import unicodedata
 from contextlib import contextmanager
-from enum import EnumMeta, IntEnum
-from typing import Any, Optional, Union
 
-import requests
+# from enum import EnumMeta, IntEnum
+from typing import Any, Iterator, Optional, Union
+
+import requests  # type: ignore[import-untyped]
 from dotenv import load_dotenv
 from tqdm import tqdm
 
+# class CLTKEnumMeta(EnumMeta):
+#     def __repr__(cls):
+#         return cls.__name__
 
-class CLTKEnumMeta(EnumMeta):
-    def __repr__(cls):
-        return cls.__name__
 
+# class CLTKEnum(IntEnum, metaclass=CLTKEnumMeta):
+#     def __repr__(self):
+#         return f"{self._name_}"
 
-class CLTKEnum(IntEnum, metaclass=CLTKEnumMeta):
-    def __repr__(self):
-        return f"{self._name_}"
+#     __str__ = __repr__
 
-    __str__ = __repr__
-
-    def __eq__(self, other):
-        return False if type(self) != type(other) else IntEnum.__eq__(self, other)
+#     def __eq__(self, other):
+#         return False if type(self) != type(other) else IntEnum.__eq__(self, other)
 
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
@@ -95,7 +95,7 @@ def reverse_dict(
 
 
 @contextmanager
-def suppress_stdout():
+def suppress_stdout() -> Iterator[None]:
     """Wrap a function with this to suppress
     its printing to screen.
 
@@ -152,8 +152,7 @@ def get_cltk_data_dir() -> str:
             )
         if not os.access(cltk_data_dir, os.W_OK):
             raise PermissionError(
-                "Custom data directory `%s` must have "
-                "write permission." % cltk_data_dir
+                "Custom data directory `%s` must have write permission." % cltk_data_dir
             )
     else:
         cltk_data_dir = os.path.expanduser(
@@ -263,7 +262,7 @@ def get_file_with_progress_bar(model_url: str, file_path: str) -> None:
         )
 
 
-def pascal_case(value: str):
+def pascal_case(value: str) -> str:
     return capital_case(camel_case(value))
 
 
@@ -293,7 +292,7 @@ def load_env_file(env_file: str = ".env") -> None:
     load_dotenv(env_file)
 
 
-def strip_accents(s):
+def strip_accents(s: str) -> str:
     return "".join(
         c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
     )

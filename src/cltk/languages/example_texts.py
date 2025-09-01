@@ -14,7 +14,7 @@ TODO: Get longer Akkadian text
 # pylint: disable=line-too-long
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog_v3 import get_language, resolve_languoid
+from cltk.languages.glottolog_v3 import resolve_languoid
 
 # from cltk.languages.utils import get_lang
 
@@ -165,15 +165,15 @@ sa rāghavaḥ pātu vaḥ raghūṇām ॥ 2 ॥
     # TODO: Check if this is: Egyptian, Tale of the Eloquent Peasant (P. Anastasi I, lines 1-10)
     "egyp1246": "ꜥḥꜥ nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw nꜣ ḥꜥw nꜣ ḥsb nꜣ ḥꜥw.",
     # Demotic Egyptian
-    "demo1234": """iw=f ḏd n=w : pꜣy=f ḥꜥty r nꜣ ḥsb r nꜣ rmṯ . iw=w r ḫpr r nꜣ rmṯ 
+    "demo1234": """iw=f ḏd n=w : pꜣy=f ḥꜥty r nꜣ ḥsb r nꜣ rmṯ . iw=w r ḫpr r nꜣ rmṯ
 n ḏd mdw . iw=f ḫpr r pꜣ šꜥ n ḏd mdw r pꜣ rmṯ .
 """,
     # Classical Syriac, Peshitta New Testament, Gospel of Matthew 6:9–13 (the Lord’s Prayer)
-    "clas1252": """ܐܒܘܢ ܕܒܫܡܝܐ ܢܬܩܕܫ ܫܡܟܼ܀ 
-ܬܐܬܐ ܡܠܟܘܬܟܼ܀ 
-ܢܗܘܐ ܨܒܝܢܟܼ ܐܝܟܼ ܕܒܫܡܝܐ ܐܦ ܒܐܪܥܐ܀ 
-ܗܒ ܠܢ ܠܚܡܐ ܕܣܘܢܩܢܢ ܝܘܡܢܐ܀ 
-ܘܫܒܘܩ ܠܢ ܚܘܒܝܢ ܐܝܟܼܢܐ ܕܐܦ ܚܢܢ ܫܒܩܢ ܠܚܝܒܝܢ܀ 
+    "clas1252": """ܐܒܘܢ ܕܒܫܡܝܐ ܢܬܩܕܫ ܫܡܟܼ܀
+ܬܐܬܐ ܡܠܟܘܬܟܼ܀
+ܢܗܘܐ ܨܒܝܢܟܼ ܐܝܟܼ ܕܒܫܡܝܐ ܐܦ ܒܐܪܥܐ܀
+ܗܒ ܠܢ ܠܚܡܐ ܕܣܘܢܩܢܢ ܝܘܡܢܐ܀
+ܘܫܒܘܩ ܠܢ ܚܘܒܝܢ ܐܝܟܼܢܐ ܕܐܦ ܚܢܢ ܫܒܩܢ ܠܚܝܒܝܢ܀
 ܘܠܐ ܬܥܠܢ ܠܢܣܝܘܢܐ ܐܠܐ ܦܨܢ ܡܢ ܒܝܫܐ܀
 
 """,
@@ -222,94 +222,91 @@ puklāṃśi śśäk lyākäṃ ñom śśäk ñompatär.
 klyoskaṣṣäl ñakte śolai ṣom wärpatsiṃ ñi ṣolai palskoṃ.
 """,
     # Avestan, Avesta, Yasna 30.2–30.4
-    "aves1237": """at̰ mąθrəm vacā ahurahyā mazdå  
-vīspā vohū vīdvåŋhō raocå ahurå  
-dā̊tō gaēθå yąm vīdvåŋhō urvān  
+    "aves1237": """at̰ mąθrəm vacā ahurahyā mazdå
+vīspā vohū vīdvåŋhō raocå ahurå
+dā̊tō gaēθå yąm vīdvåŋhō urvān
 vīdvåŋhō mananghō vahistem.
-yat̰ aēibyō mazdå ahurå  
-yąm vīspā gaēθā vīspå urvān  
-sraēštå sraotā mananghō vahistem  
+yat̰ aēibyō mazdå ahurå
+yąm vīspā gaēθā vīspå urvān
+sraēštå sraotā mananghō vahistem
 xšnūtå daēnō mazdå ahurahyā.
-yat̰ vā nā vā ząm fravaxšyantī  
-yąm ahurå vīdvåŋhō mananghō  
-yąm vīspā urvān fradaēnao  
+yat̰ vā nā vā ząm fravaxšyantī
+yąm ahurå vīdvåŋhō mananghō
+yąm vīspā urvān fradaēnao
 mazdå ahurå pouruyō.
 """,
-    # Old Persian, from the Behistun Inscription of Darius I (ca. 520 B.C.)
-    # 𐎠𐎭𐎶𐎺𐎢𐏁 𐎧𐏁𐎹𐎠 𐎶𐎠𐎼𐎺𐎢𐏁𐎠 𐎶𐎠𐎭𐎠 𐎶𐎠𐎴𐎠
-    "oldp1254": """adam Dārayavauš xšāyaθiya vazraka xšāyaθiya xšāyaθiyānām""",
     # Middle Persian, Book Pahlavi script transliterated into Latin letters) from the Bundahišn (“Creation”), one of the great Zoroastrian Middle Persian texts
     "pahl1241": """ōy ī-šān čiyōn-iz abar dēn pad nām ī Ohrmazd-iz gōwēd kū Ohrmazd pad ōhrmazdān ī yazdān dām kard harwisp ī dāmān pad gōwārišn ud xwāhišn.""",
     # Parthian, Manichaean hymn fragment (M 178 I, Turfan collection, 3rd–4th c. CE) in Henning (1940) style transliteration
-    "part1239": """āz ēn gōhr ud āz ēn rōšn bawēd xwēškār.  
-xwēškār bawēd čiyōn ātaxš andar frazānīgān.  
-ud frazānīgān andar ātaxš andar rōšn bawēd.  
+    "part1239": """āz ēn gōhr ud āz ēn rōšn bawēd xwēškār.
+xwēškār bawēd čiyōn ātaxš andar frazānīgān.
+ud frazānīgān andar ātaxš andar rōšn bawēd.
 """,
     # Bactrian, from the Rabatak Inscription
-    "bact1239": """κανηϸκι κοϸανο ϸαο νανο ϸαο βαγο ϸαο κοϸανο  
-κανηϸκι καδανο ιδο ϸαοο  
-ανο κι βαγολαγγο ιδο βαγο.  
-ϸαο κι κοϸανο ϸαοανο κι αναρο ϸαο.  
+    "bact1239": """κανηϸκι κοϸανο ϸαο νανο ϸαο βαγο ϸαο κοϸανο
+κανηϸκι καδανο ιδο ϸαοο
+ανο κι βαγολαγγο ιδο βαγο.
+ϸαο κι κοϸανο ϸαοανο κι αναρο ϸαο.
 """,
     # Sogdian, the Vessantara Jātaka (British Library Or.8212/81, ca. 8th c. CE); original uses Aramaic-derived script
-    "sogd1245": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn  
-ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt  
-pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.  
-ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ  
-ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn  
-βγʾnʾk prʾwʾxšʾn.  
+    "sogd1245": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn
+ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt
+pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.
+ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ
+ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn
+βγʾnʾk prʾwʾxšʾn.
 """,
     # Khotanese, Book of Zambasta (a major Khotanese Buddhist text, ca. 5th–6th c. CE)
-    "khot1251": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn  
-ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt  
-pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.  
-ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ  
-ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn  
-βγʾnʾk prʾwʾxšʾn.  
+    "khot1251": """ʾrty kʾm xsʾy βγ pwšʾʾnt prʾβ wrʾʾn
+ptʾ xwβrtʾ βγʾnʾ prʾnʾk wʾstʾxšnt
+pyrʾʾw xšʾw βγʾnʾ ʾnw βʾrʾγʾn.
+ʾwn ʾrty pwšʾʾnt xsʾy βγʾnʾ
+ptʾ nʾmwʾxšny prʾγʾw xšʾwʾn
+βγʾnʾk prʾwʾxšʾn.
 """,
     # Tumshuqese, from a Buddhist text, Fragment T iii, lines 1–6; from Harold W. Bailey (Indo-Scythian Studies, 1985)
-    "tums1237": """śśa ysä ñäke ñāte hvātä  
-śśa ysä hvātä hvāṣṣe śśa ysä hvāṣṣe hvāṣṣe  
-śśa ysä jīvä hvāṣṣe śśa ysä jīvä hvātä.  
+    "tums1237": """śśa ysä ñäke ñāte hvātä
+śśa ysä hvātä hvāṣṣe śśa ysä hvāṣṣe hvāṣṣe
+śśa ysä jīvä hvāṣṣe śśa ysä jīvä hvātä.
 
-śśa ysä hīnā hvāṣṣe śśa ysä hīnā hvātä  
+śśa ysä hīnā hvāṣṣe śśa ysä hīnā hvātä
 śśa ysä marä hvāṣṣe śśa ysä marä hvātä.
 """,
     # Old–Middle Welsh, Brut y Tywysogion (Chronicle of the Princes, 12th–13th c., Red Book of Hergest recension)
     "oldw1239": """A’r flwyddyn honno y bu farw Owain Gwynedd, arglwydd Gwynedd oll,
-a’r gwr mwyaf a fu yn y Brytanyeit o’i amser ef. 
-Ac ymladd a wnaeth yn erbyn y Saeson lawer gwaith, 
-a lluoedd mawr a laddodd o honynt. 
-A phan fu farw, y gwnaethant y beddrod iddo yng Nghlynnog Fawr, 
+a’r gwr mwyaf a fu yn y Brytanyeit o’i amser ef.
+Ac ymladd a wnaeth yn erbyn y Saeson lawer gwaith,
+a lluoedd mawr a laddodd o honynt.
+A phan fu farw, y gwnaethant y beddrod iddo yng Nghlynnog Fawr,
 a phob dyn a alwas ef yn gadarnwr y genedl.
 """,
     # Middle Breton, An Dialog etre Arzur Roe d’an Bretounet ha Guynglaff (“Dialogue between Arthur, King of the Bretons, and Guynglaff,” 15th c.)
     "bret1244": """Evit gwir, Arzur a lavaras, na welis den kemmysk ha guirion eveldomp.
-Guignet a vezo an amzer, ha te a lavaro din petra a deuio. 
-Ar foenn a zeuio dre ar mor, ar c’hleze a vo gwelet er c’hleier, 
-hag an hent bras a vo leun a soudarded. 
-An dud a vo spountet, ar vugale a ouelo, 
+Guignet a vezo an amzer, ha te a lavaro din petra a deuio.
+Ar foenn a zeuio dre ar mor, ar c’hleze a vo gwelet er c’hleier,
+hag an hent bras a vo leun a soudarded.
+An dud a vo spountet, ar vugale a ouelo,
 ha me, roue, a vezo truas am bobl.
 """,
     # Cornish, Passio Christi in the Ordinalia (14th c.)
-    "corn1251": """Iudas a veu lowen ow tos gans an Jues, 
-hag ef a wul margh ha covena rag drehevel Crist. 
-An Jues a vyns owth assaya, hag ef a grug ow treylya war an Arloedh. 
-Yma Dew rag an dus owth godhvos an coweth bras, 
-mes an dus a veu dullys ha’n moys a’n tasow a vyns owth fyllel. 
-Crist a veu kemmysk gans an dus, hag a veu dhyllis gans Iudas ewn, 
+    "corn1251": """Iudas a veu lowen ow tos gans an Jues,
+hag ef a wul margh ha covena rag drehevel Crist.
+An Jues a vyns owth assaya, hag ef a grug ow treylya war an Arloedh.
+Yma Dew rag an dus owth godhvos an coweth bras,
+mes an dus a veu dullys ha’n moys a’n tasow a vyns owth fyllel.
+Crist a veu kemmysk gans an dus, hag a veu dhyllis gans Iudas ewn,
 hag an Apostolyon oll a veu spountys owth tenna dhe-ves.
 """,
     # Old Prussian, from the 1545 Catechism of Simon Grunau
     "prus1238": """Deinay deiws swints, tu scherkans nan swintay,
-tu deiws pertingis nan dewei. 
+tu deiws pertingis nan dewei.
 Tu deiws gans grikkimis, nan perwangis.
 Tu deiws gans giwis, nan dargans.
 """,
     # Old Lithuanian, Catechism by Martynas Mažvydas (1547)
     "lith1251": """Broliai seserys, imkiet mani ir skaitykiet,
-ir gerai mokykites: 
-širdis, ausis, akys atvertos turit būti. 
+ir gerai mokykites:
+širdis, ausis, akys atvertos turit būti.
 Išgirsdami dievo žodį, priimkite jį su meile,
 kad ne tik burnoje, bet ir širdyje gultų.
 """,
@@ -318,34 +315,34 @@ kad ne tik burnoje, bet ir širdyje gultų.
 Dievs ir mūsu tēvs, kas mūs mīl un glābj.
 Viņš mums devis baušļus, ka mēs dzīvotu taisni,
 un sūtījis savu dēlu, kas mūs izpestījis no grēkiem.
-Tāpēc turiet viņa vārdus sirdī, 
+Tāpēc turiet viņa vārdus sirdī,
 un dzīvojiet pēc tiem visās dienās.
 """,
     # Old Albanian (Gjon Buzuku, Meshari, 1555)
     "gheg1238": """Unë, Gjon Buzuku, prift, desha me u dhënë këtij libri
 disa fjalë, që mos të mbeteni pa mësuar fenë tonë të krishterë.
 Sepse shoh shumë njerëz se shkojnë pas së keqes
-dhe nuk njohin rrugën e Zotit. 
+dhe nuk njohin rrugën e Zotit.
 Prandaj ju lutesh, vëllezër e motra,
 ta dëgjoni fjalën e Zotit me dashuri,
 që të shpëtoni shpirtrat tuaj.
 """,
     # Classical Armenian, Movsēs Xorenac‘i, History of the Armenians (Book I, ca. 5th century CE)
-    "clas1256": """Եւ իբրեւ եղեւ ի թագաւորութիւն Արշակայոց, 
-կարծես թէ ի գերեզման հանգստացան իշխանք և զորք մեծն Հայոց, 
-և չար միտք և նախանձ իւրաքանչիւր քաղաքաւորի բորբոքեցաւ։ 
-Եւ բաժանեցաւ թագաւորութիւնը, և եղեւ ամէնքն ի հաւասարութեան անհնազանդ։ 
-Եւ ոչ էր զորս ձգող զպէս դիւանի կամ զօրաց, այլ իւրաքանչիւր իշխան եկաւ ինքն իր կամաց։ 
+    "clas1256": """Եւ իբրեւ եղեւ ի թագաւորութիւն Արշակայոց,
+կարծես թէ ի գերեզման հանգստացան իշխանք և զորք մեծն Հայոց,
+և չար միտք և նախանձ իւրաքանչիւր քաղաքաւորի բորբոքեցաւ։
+Եւ բաժանեցաւ թագաւորութիւնը, և եղեւ ամէնքն ի հաւասարութեան անհնազանդ։
+Եւ ոչ էր զորս ձգող զպէս դիւանի կամ զօրաց, այլ իւրաքանչիւր իշխան եկաւ ինքն իր կամաց։
 Եւ անկանոն մեծ խռովք եւ կործանում եկաւ ի հայրենիս։
 """,
     # Middle Armenian, Mkhitar Gosh, Datastanagirk’ (Law Code, 12th c.)
-    "midd1364": """Յարուստ և աղքատ միաբան են առ Աստուծոյ, 
-զի առաքեալն ասում է՝ «ոչ է հանճար առ Աստուծոյ», 
-այլ ըստ գործոց յուրաքանչիւր անուանէցի կըդտանէ։ 
-Եւ ոչ ըստ ծագմանս ազգին, այլ ըստ արդարութեան և անարդարութեան դատուի մարդ։ 
-Արդ, պատուիրեմք զամենայն քրիստոնեանս 
-զորս բնակեն ի գաւառիս այսոցիկ, 
-ի գործոց և ի սովորութենից կենսին, 
+    "midd1364": """Յարուստ և աղքատ միաբան են առ Աստուծոյ,
+զի առաքեալն ասում է՝ «ոչ է հանճար առ Աստուծոյ»,
+այլ ըստ գործոց յուրաքանչիւր անուանէցի կըդտանէ։
+Եւ ոչ ըստ ծագմանս ազգին, այլ ըստ արդարութեան և անարդարութեան դատուի մարդ։
+Արդ, պատուիրեմք զամենայն քրիստոնեանս
+զորս բնակեն ի գաւառիս այսոցիկ,
+ի գործոց և ի սովորութենից կենսին,
 ի հաւասարութիւն և ի խաղաղութիւն պահել զմիմեանս։
 """,
     # Cuneiform Luwian, KUB 35.54 + duplicates, a Luwian ritual text, 13th c. BCE
@@ -357,7 +354,7 @@ nu-mu pa-i-ti wa/i-mi-iš a-za-a-ti
 nu-mu wa/i-mi-iš ta-ti-i
 """,
     # Hieroglyphic Luwian, Yalburt Inscription of King Tudhaliya IV (13th c. BCE, Neo-Hittite period)
-    "hier1240": """(1) MAGNUS.REX +ra/i TÚBIRUNTI-ia-sa 
+    "hier1240": """(1) MAGNUS.REX +ra/i TÚBIRUNTI-ia-sa
     +ra/i INFANS.LITUUS-sa zi-an-na-ti-wa/i-sa
 (2) wa/i-mi-sa-sa URBS-ha+ra/i-ti zi-an-na
     +ra/i-sa+ra/i-ta URBS+ra/i-sa-na
@@ -394,22 +391,22 @@ Rs 24′    šu-ú-na
 """,
     # Carian, Kaunos inscription
     "cari1274": """śmrmś : kbirś : mλś : oθoś : mniś : wśśoś : trquś :
-ślś : bśnś : kwśś : aśśś : ntrś : 
+ślś : bśnś : kwśś : aśśś : ntrś :
 śprśś : dwśś : qbrśś : tmśśś
 """,
     # Śaurasenī Prakrit, Śakuntalā, Act IV, Śaurasenī dialogue
-    "saur1252": """sāmi, mama gharaṃ gato asi? 
-āṃ, tumaṃ gharaṃ gato. 
-kiṃ tumaṃ mama mitraṃ passasi? 
-āṃ, ahaṃ tassaṃ diṭṭhā. 
+    "saur1252": """sāmi, mama gharaṃ gato asi?
+āṃ, tumaṃ gharaṃ gato.
+kiṃ tumaṃ mama mitraṃ passasi?
+āṃ, ahaṃ tassaṃ diṭṭhā.
 """,
     # Maharastri Prakrit, Sattasaī, verse 149,
     "maha1305": """jeṇa padīṇaṃ paṇayanti paṇayanti ya jeṇa lajjanti |
 seṇa vi māṇavāṇāṃ vippaṭipattī hu suhavā ||
 """,
     # Magadhi Prakrit, Bhagavatī Sūtra
-    "maga1260": """bhante, kahaṃ bhavissati esaṃ sattānaṃ gati? 
-te sattā kālena kālaṃ uppajjanti, kālena kālaṃ nirayesu nikkhanti. 
+    "maga1260": """bhante, kahaṃ bhavissati esaṃ sattānaṃ gati?
+te sattā kālena kālaṃ uppajjanti, kālena kālaṃ nirayesu nikkhanti.
 evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
 """,
     # Gandhari, Dharmapada fragment, Gāndhārī,

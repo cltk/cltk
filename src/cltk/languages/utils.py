@@ -1,8 +1,6 @@
 """Utility functions for keeping track of languages."""
 
-from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Dialect, Language
-from cltk.core.exceptions import UnknownLanguageError
+from cltk.core.data_types_v3 import Language
 from cltk.languages.glottolog_v3 import load_languages
 
 # Build a fast lookup for dialect codes like "egy-dem" → (iso, dialect)

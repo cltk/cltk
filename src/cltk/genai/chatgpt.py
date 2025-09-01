@@ -2,40 +2,27 @@
 
 __license__ = "MIT License. See LICENSE."
 
-import os
 import re
-import sys
-import unicodedata
-from copy import deepcopy
 from typing import Any, Literal, Optional
 
 from colorama import Fore, Style
 from openai import OpenAI, OpenAIError
 from openai.types.responses.response import Response
-from openai.types.responses.response_usage import ResponseUsage
 from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
 from tqdm import tqdm
 
-from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v3 import Dialect, Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 
 # from cltk.languages.utils import get_lang
-from cltk.languages.glottolog_v3 import get_language, resolve_languoid
-from cltk.morphology.morphosyntax import (
-    FORM_UD_MAP,
-    MorphosyntacticFeatureBundle,
-    from_ud,
-)
-from cltk.morphology.ud_features import (
-    UDFeature,
-    UDFeatureTag,
+from cltk.languages.glottolog_v3 import resolve_languoid
+from cltk.morphosyntax.ud_features import (
     UDFeatureTagSet,
     convert_pos_features_to_ud,
 )
-from cltk.morphology.ud_pos import UDPartOfSpeechTag
-from cltk.morphology.universal_dependencies_features import MorphosyntacticFeature
+from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
+from cltk.text.utils import cltk_normalize
 
 AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 
@@ -210,9 +197,9 @@ Rules:
 - Separate UD features with a pipe ("|"). Do not use a semi-colon or other characters.
 - Preserve the spelling of the text exactly as given (including diacritics, breathings, and subscripts). Do not normalize.
 - If a lemma or feature is uncertain, still provide the closest standard form and UD features. Never leave fields blank and never ask for clarification.
-- If full accuracy is not possible, always provide a best-effort output without asking for clarification.  
-- Never request to perform the task in multiple stages; always deliver the final TSV in one step.  
-- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.  
+- If full accuracy is not possible, always provide a best-effort output without asking for clarification.
+- Never request to perform the task in multiple stages; always deliver the final TSV in one step.
+- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.
 - Always output all four fields: FORM, LEMMA, UPOS, FEATS.
 - The result **must be a markdown code block** (beginning and ending in "```") containing only a tab-delimited table (TSV) with the following header row:
 
@@ -354,9 +341,7 @@ Text:\n\n{doc.normalized_text}
             try:
                 features_tag_set = convert_pos_features_to_ud(feats_raw=feats_raw)
             except ValueError as e:
-                msg: str = (
-                    f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
-                )
+                msg: str = f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
                 logger.error(msg)
                 with open("features_err.log", "a") as f:
                     f.write(msg + "\n")

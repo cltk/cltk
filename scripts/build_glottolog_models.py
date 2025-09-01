@@ -14,16 +14,14 @@ from __future__ import annotations
 import argparse
 import configparser
 import json
-import os
 import re
 import subprocess
-from dataclasses import dataclass
-from dataclasses import field as dc_field
+from dataclasses import dataclass, field as dc_field
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Dict, Final, List, Optional
 
-from pydantic import AnyUrl, BaseModel, Field, TypeAdapter
+from pydantic import AnyUrl, TypeAdapter
 
 from cltk.core.data_types_v3 import *
 
@@ -521,7 +519,9 @@ def main():
 
     print("Converting to models (all languages and dialects) ...")
     langs = raw_to_models(
-        raw, root_glottocode=args.root, historic_cutoff=None  # ignored
+        raw,
+        root_glottocode=args.root,
+        historic_cutoff=None,  # ignored
     )
     lang_count = len(langs)
     dia_count = sum(len(L.dialects) for L in langs.values())

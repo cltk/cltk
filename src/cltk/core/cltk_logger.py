@@ -6,10 +6,7 @@ import logging
 import os
 import sys
 
-from colorama import Fore, Style
-from colorama import init as colorama_init
-
-from cltk.utils.utils import CLTK_DATA_DIR
+from colorama import Fore, Style, init as colorama_init
 
 colorama_init(autoreset=True)  # for Windows
 
@@ -23,7 +20,7 @@ class ColorFormatter(logging.Formatter):
         logging.CRITICAL: Fore.RED + Style.BRIGHT + Style.BRIGHT,
     }
 
-    def format(self, record):
+    def format(self, record: logging.LogRecord) -> str:
         color = self.COLORS.get(record.levelno, "")
         reset = Style.RESET_ALL
         # record.msg = f"{color}{record.msg}{reset}"
@@ -32,7 +29,12 @@ class ColorFormatter(logging.Formatter):
         return f"{color}{message}{reset}"
 
 
-def setup_cltk_logger(name="CLTK", log_to_file=True, log_to_console=True, level=None):
+def setup_cltk_logger(
+    name: str = "CLTK",
+    log_to_file: bool = True,
+    log_to_console: bool = True,
+    level: str | None = None,
+) -> logging.Logger:
     logger = logging.getLogger(name)
     logger.handlers.clear()  # Remove any existing handlers
 
