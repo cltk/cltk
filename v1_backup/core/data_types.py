@@ -1,0 +1,337 @@
+"""Custom data types for the CLTK. These types form the building blocks
+of the NLP pipeline.
+
+
+>>> from cltk.core.data_types import Language
+>>> from cltk.core.data_types import Word
+>>> from cltk.core.data_types import Process
+>>> from cltk.core.data_types import Doc
+>>> from cltk.core.data_types import Pipeline
+"""
+
+import importlib
+from dataclasses import dataclass, field
+from typing import Optional
+
+ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
+
+
+@dataclass(frozen=True)
+class Language:
+    """For holding information about any given language. Used to
+    encode data from ISO 639-3 and Glottolog at
+    ``cltk.languages.glottolog.LANGUAGES``. May be extended by
+    user for dialects or languages not documented by ISO 639-3.
+
+    >>> from cltk.core.data_types import Language
+    >>> from cltk.languages.utils import get_lang
+    >>> lat = get_lang("lat")
+    >>> isinstance(lat, Language)
+    True
+    >>> lat
+    Language(name='Latin', glottolog_id='lati1261', latitude=41.9026, longitude=12.4502, family_id='indo1319', parent_id='impe1234', level='language', iso='lat', type='a', dates=[])
+    """
+
+    name: str  # Glottolog description
+    glottolog_id: str
+    latitude: float
+    longitude: float
+    family_id: str  # from Glottolog
+    parent_id: str  # from Glottolog
+    level: str  # a language or a dialect
+    iso: str
+    type: str  # "a" for ancient and "h" for historical; this from Glottolog
+    dates: Optional[list[int]] = field(
+        default_factory=list
+    )  # add later; not available from Glottolog or ISO list
+
+
+# @dataclass
+# class Word:
+#     """Contains attributes of each processed word in a list of
+#     words. Designed to be used in the ``Doc.words`` dataclass.
+
+#     >>> from cltk.core.data_types import Word
+#     >>> Word(index_char_start=0, index_char_stop=6, string="Gallia")
+#     Word(index_char_start=0, index_char_stop=6, index_token=None, index_sentence=None, string='Gallia', pos=None, lemma=None, stem=None, scansion=None, xpos=None, upos=None, dependency_relation=None, governor=None, features={}, category={}, stop=None, named_entity=None, syllables=None, phonetic_transcription=None, definition=None)
+
+#     """
+
+#     index_char_start: Optional[int] = None
+#     index_char_stop: Optional[int] = None
+#     index_token: Optional[int] = None
+#     index_sentence: Optional[int] = None
+#     string: Optional[str] = None
+#     pos: Optional[MorphosyntacticFeature] = None
+#     lemma: Optional[str] = None
+#     stem: Optional[str] = None
+#     scansion: Optional[str] = None
+#     xpos: Optional[str] = None  # treebank-specific POS tag (from Stanza or Spacy)
+#     # TODO: Enforce `upos` to set of valid tags in UD at `FORM_UD_MAP`: https://universaldependencies.org/u/pos/all.html
+#     upos: Optional[str] = None  # universal POS tag (from Stanza or Spacy)
+#     dependency_relation: Optional[str] = None  # (from Stanza or Spacy)
+#     governor: Optional[int] = None
+#     features: MorphosyntacticFeatureBundle = field(
+#         default_factory=MorphosyntacticFeatureBundle
+#     )
+#     category: MorphosyntacticFeatureBundle = field(
+#         default_factory=MorphosyntacticFeatureBundle
+#     )
+#     embedding: Optional[np.ndarray] = None
+#     stop: Optional[bool] = None
+#     named_entity: Optional[str] = None
+#     syllables: Optional[list[str]] = field(default_factory=list)
+#     phonetic_transcription: Optional[str] = None
+#     definition: Optional[str] = None
+
+#     def __getitem__(
+#         self, feature_name: Union[str, Type[MorphosyntacticFeature]]
+#     ) -> list[MorphosyntacticFeature]:
+#         """Accessor to help get morphosyntatic features from a word object."""
+#         return self.features[feature_name]
+
+#     def __getattr__(self, item: str):
+#         """Accessor to help get morphosyntatic features from a word object."""
+#         feature_name = pascal_case(item)
+#         if feature_name in ud_mod.__dict__:
+#             return self.features[feature_name]
+#         else:
+#             raise AttributeError(item)
+
+
+# @dataclass
+# class Sentence:
+#     """
+#     The Data Container for sentences.
+#     """
+
+#     words: Optional[list[Word]] = field(default_factory=list)
+#     index: Optional[int] = None
+#     embedding: Optional[np.ndarray] = None
+
+#     def __getitem__(self, item: int) -> Word:
+#         if not self.words:
+#             raise IndexError("No words in sentence.")
+#         return self.words[item]
+
+#     def __len__(self) -> int:
+#         if not self.words:
+#             return 0
+#         return len(self.words)
+
+
+# @dataclass
+# class Doc:
+#     """The object returned to the user from the ``NLP()`` class.
+#     Contains overall attributes of submitted texts, plus most
+#     importantly the processed tokenized text ``words``,
+#     being a list of ``Word`` types.
+
+#     >>> from cltk import NLP
+#     >>> from cltk.languages.example_texts import get_example_text
+#     >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
+#     >>> cltk_doc = cltk_nlp.analyze(text=get_example_text("lat"))
+#     >>> cltk_doc.raw[:38]
+#     'Gallia est omnis divisa in partes tres'
+#     >>> isinstance(cltk_doc.raw, str)
+#     True
+#     >>> cltk_doc.tokens[:10]
+#     ['Gallia', 'est', 'omnis', 'divisa', 'in', 'partes', 'tres', ',', 'quarum', 'unam']
+#     >>> cltk_doc.tokens_stops_filtered[:10]
+#     ['Gallia', 'omnis', 'divisa', 'partes', 'tres', ',', 'incolunt', 'Belgae', ',', 'aliam']
+#     >>> cltk_doc.pos[:3]
+#     ['NOUN', 'AUX', 'DET']
+#     >>> cltk_doc.morphosyntactic_features[:3]
+#     [{Case: [nominative], Gender: [feminine], InflClass: [ind_eur_a], Number: [singular]}, {InflClass: [lat_anom], Number: [singular], VerbForm: [finite]}, {Case: [nominative], Gender: [feminine], InflClass: [ind_eur_i], Number: [singular], PronominalType: [indefinite]}]
+#     >>> cltk_doc[0].gender
+#     [feminine]
+#     >>> cltk_doc[0]['Case']
+#     [nominative]
+#     >>> cltk_doc.lemmata[:5]
+#     ['Gallia', 'sum', 'omnis', 'divisa', 'in']
+#     >>> len(cltk_doc.sentences)
+#     9
+#     >>> len(cltk_doc.sentences[0])
+#     26
+#     >>> type(cltk_doc.sentences[0][2])
+#     <class 'cltk.core.data_types.Word'>
+#     >>> cltk_doc.sentences[0][2].string
+#     'omnis'
+#     >>> len(cltk_doc.sentences_tokens)
+#     9
+#     >>> len(cltk_doc.sentences_tokens[0])
+#     26
+#     >>> isinstance(cltk_doc.sentences_tokens[0][2], str)
+#     True
+#     >>> cltk_doc.sentences_tokens[0][2]
+#     'omnis'
+#     >>> len(cltk_doc.sentences_strings)
+#     9
+#     >>> len(cltk_doc.sentences_strings[0])
+#     150
+#     >>> isinstance(cltk_doc.sentences_strings[0], str)
+#     True
+#     >>> cltk_doc.sentences_strings[1]
+#     'Hi omnes lingua , institutis , legibus inter se differunt .'
+#     >>> import numpy as np
+#     >>> isinstance(cltk_doc.embeddings[1], np.ndarray)
+#     True
+#     """
+
+#     language: Optional[str] = None
+#     words: list[Word] = field(default_factory=list)
+#     pipeline: Optional[
+#         "Pipeline"
+#     ] = None  # Note: type should be ``Pipeline`` w/o quotes
+#     raw: Optional[str] = None
+#     normalized_text: Optional[str] = None
+#     embeddings_model: Optional[object] = None
+#     sentence_embeddings: dict[int, np.ndarray] = field(default_factory=dict)
+#     # --- New fields for extended features ---
+#     translation: Optional[str] = None  # Full translation of the input text
+#     summary: Optional[str] = None  # Short summary or paraphrase
+#     topic: Optional[str] = None  # Topic or domain classification
+#     discourse_relations: list[str] = field(
+#         default_factory=list
+#     )  # Discourse relations between sentences/clauses
+#     coreferences: list[tuple[str, str, int, int]] = field(
+#         default_factory=list
+#     )  # (pronoun, referent, sentence idx, word idx)
+#     sentence_boundaries: list[tuple[int, int]] = field(
+#         default_factory=list
+#     )  # List of (start, stop) char offsets for sentences
+#     chatgpt: list[dict[str, Any]] = field(default_factory=list)  # ChatGPT metadata
+
+#     @property
+#     def sentences(self) -> list[Sentence]:
+#         if not self.words:
+#             return []
+#         sents: dict[int, list[Word]] = defaultdict(list)
+#         for word in self.words or []:
+#             if word.index_sentence is not None:
+#                 sents[word.index_sentence].append(word)
+#         for key in sents:
+#             for w in sents[key]:
+#                 if w.index_token is None:
+#                     raise ValueError(f"Index token is not defined for {w.string}")
+#         for key in sents:
+#             sents[key].sort(
+#                 key=lambda x: x.index_token if x.index_token is not None else -1
+#             )
+#         if self.sentence_embeddings is None:
+#             self.sentence_embeddings = dict()
+#         return [
+#             Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
+#             for key, val in sorted(sents.items(), key=lambda x: x[0])
+#         ]
+
+#     @property
+#     def sentences_tokens(self) -> list[list[str]]:
+#         sentences_tokens: list[list[str]] = list()
+#         for sentence in self.sentences:
+#             sentence_tokens: list[str] = [
+#                 word.string for word in sentence if word.string is not None
+#             ]
+#             sentences_tokens.append(sentence_tokens)
+#         return sentences_tokens
+
+#     @property
+#     def sentences_strings(self) -> list[str]:
+#         sentences_list: list[list[str]] = self.sentences_tokens
+#         sentences_str: list[str] = list()
+#         for sentence_tokens in sentences_list:
+#             sentence_tokens_str: str = " ".join(
+#                 [t for t in sentence_tokens if t is not None]
+#             )
+#             sentences_str.append(sentence_tokens_str)
+#         return sentences_str
+
+#     def _get_words_attribute(self, attribute):
+#         if not self.words:
+#             return []
+#         return [
+#             getattr(word, attribute) for word in self.words if hasattr(word, attribute)
+#         ]
+
+#     @property
+#     def tokens(self) -> list[str]:
+#         return self._get_words_attribute("string")
+
+#     @property
+#     def tokens_stops_filtered(self) -> list[str]:
+#         tokens: list[str] = self._get_words_attribute("string")
+#         is_token_stop: list[bool] = self._get_words_attribute("stop")
+#         tokens_no_stops: list[str] = [
+#             token
+#             for index, token in enumerate(tokens)
+#             if index < len(is_token_stop) and not is_token_stop[index]
+#         ]
+#         return tokens_no_stops
+
+#     @property
+#     def pos(self) -> list[str]:
+#         return self._get_words_attribute("upos")
+
+#     @property
+#     def morphosyntactic_features(self) -> list[MorphosyntacticFeatureBundle]:
+#         return self._get_words_attribute("features")
+
+#     @property
+#     def lemmata(self) -> list[str]:
+#         return self._get_words_attribute("lemma")
+
+#     @property
+#     def stems(self) -> list[str]:
+#         return self._get_words_attribute("stem")
+
+#     def __getitem__(self, word_index: int) -> Word:
+#         if not self.words:
+#             raise IndexError("No words in Doc.")
+#         return self.words[word_index]
+
+#     @property
+#     def embeddings(self):
+#         return self._get_words_attribute("embedding")
+
+
+# @dataclass
+# class Process(ABC):
+#     """For each type of NLP process there needs to be a definition.
+#     It includes the type of data it expects (``str``, ``list[str]``,
+#     ``Word``, etc.) and what field within ``Word`` it will populate.
+#     This base class is intended to be inherited by NLP process
+#     types (e.g., ``TokenizationProcess`` or ``DependencyProcess``).
+
+#     """
+
+#     language: Optional[str] = None
+
+#     @abstractmethod
+#     def run(self, input_doc: Doc) -> Doc:
+#         pass
+
+
+# @dataclass
+# class Pipeline:
+#     """Abstract ``Pipeline`` class to be inherited.
+
+#     # TODO: Consider adding a Unicode normalization as a default first Process
+
+#     >>> from cltk.core.data_types import Process, Pipeline
+#     >>> from cltk.languages.utils import get_lang
+#     >>> from cltk.tokenizers import LatinTokenizationProcess
+#     >>> a_pipeline = Pipeline(description="A custom Latin pipeline", processes=[LatinTokenizationProcess], language=get_lang("lat"))
+#     >>> a_pipeline.description
+#     'A custom Latin pipeline'
+#     >>> issubclass(a_pipeline.processes[0], Process)
+#     True
+#     """
+
+#     description: Optional[str] = None
+#     processes: Optional[list[Type[Process]]] = field(default_factory=list)
+#     language: Optional[Language] = None
+
+#     def add_process(self, process: Type[Process]):
+#         if self.processes is None:
+#             self.processes = []
+#         self.processes.append(process)

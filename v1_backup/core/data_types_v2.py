@@ -1,0 +1,271 @@
+"""Custom data types for the CLTK. These types form the building blocks
+of the NLP pipeline.
+"""
+
+# from cltk.utils import pascal_case
+# import importlib
+from abc import abstractmethod
+from typing import Any, Optional, Type
+
+import numpy as np
+from pydantic import BaseModel, Field
+
+from cltk.core.cltk_logger import logger
+from cltk.morphology.ud_deprels import UDDeprelTag
+from cltk.morphology.ud_features import UDFeatureTagSet
+from cltk.morphology.ud_pos import UDPartOfSpeechTag
+
+# from collections import defaultdict
+
+# ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
+
+
+class Dialect(BaseModel):
+    glottolog_id: str  # Glottolog id
+    language_code: str  # internal code (e.g., "egy-dem")
+    name: str  # human-readable variety name
+
+
+class Language(BaseModel):
+    """For holding information about any given language. Used to
+    encode data from ISO 639-3 and Glottolog at
+    ``cltk.languages.glottolog.LANGUAGES``. May be extended by
+    user for dialects or languages not documented by ISO 639-3.
+    """
+
+    name: str
+    glottolog_id: str
+    latitude: float
+    longitude: float
+    family_id: str
+    parent_id: str
+    level: str
+    iso: str
+    type: str
+    dates: Optional[list[int]] = []
+    dialects: list[Dialect] = []
+    selected_dialect: Optional[Dialect] = None
+
+    @property
+    def selected_dialect_name(self) -> Optional[str]:
+        """Convenience: return the name of the currently selected dialect, if any."""
+        return self.selected_dialect.name if self.selected_dialect else None
+
+    # TODO: Add a lazy-load mechanism for example_text?
+
+    # @field_validator("name")
+    # @classmethod
+    # def name_must_be_in_languages(cls, v):
+    #     from cltk.languages.glottolog_v3 import LANGUAGES  # to avoide circular import
+
+    #     valid_names = {lang.name for lang in LANGUAGES.values()}
+    #     if v not in valid_names:
+    #         raise ValueError(f"Language.name '{v}' is not in LANGUAGES.")
+    #     return v
+
+
+class CLTKBaseModel(BaseModel):
+    model_config = {"arbitrary_types_allowed": True}
+
+
+class Word(CLTKBaseModel):
+    """Contains attributes of each processed word in a list of words."""
+
+    index_char_start: Optional[int] = None
+    index_char_stop: Optional[int] = None
+    index_token: Optional[int] = None
+    index_sentence: Optional[int] = None
+    string: Optional[str] = None
+    # pos: Optional[MorphosyntacticFeature] = None
+    lemma: Optional[str] = None
+    upos: Optional[UDPartOfSpeechTag] = None
+    features: Optional[UDFeatureTagSet] = None
+    dependency_relation: Optional[UDDeprelTag] = None
+    governor: Optional[int] = None
+    stem: Optional[str] = None
+    scansion: Optional[str] = None
+    xpos: Optional[str] = None
+    embedding: Optional[np.ndarray] = None
+    stop: Optional[bool] = None
+    named_entity: Optional[str] = None
+    syllables: Optional[list[str]] = Field(default_factory=list)
+    phonetic_transcription: Optional[str] = None
+    definition: Optional[str] = None
+
+    # def __getitem__(self, feature_name: Union[str, Type[MorphosyntacticFeature]]) -> list[MorphosyntacticFeature]:
+    #     return self.features[feature_name]
+
+    # def __getattr__(self, item: str):
+    #     feature_name = pascal_case(item)
+    #     if feature_name in ud_mod.__dict__:
+    #         return self.features[feature_name]
+    #     else:
+    #         raise AttributeError(item)
+
+
+class Sentence(CLTKBaseModel):
+    """The Data Container for sentences."""
+
+    words: Optional[list[Word]] = Field(default_factory=list)
+    index: Optional[int] = None
+    embedding: Optional[np.ndarray] = None
+
+    # def __getitem__(self, item: int) -> Word:
+    #     if not self.words:
+    #         raise IndexError("No words in sentence.")
+    #     return self.words[item]
+
+    # def __len__(self) -> int:
+    #     if not self.words:
+    #         return 0
+    #     return len(self.words)
+
+
+class Doc(CLTKBaseModel):
+    """The object returned to the user from the ``NLP()`` class."""
+
+    language: Language
+    words: list[Word] = Field(default_factory=list)
+    pipeline: Optional["Pipeline"] = None
+    raw: Optional[str] = None
+    normalized_text: Optional[str] = None
+    embeddings_model: Optional[Any] = None
+    sentence_embeddings: dict[int, np.ndarray] = Field(default_factory=dict)
+    translation: Optional[str] = None
+    summary: Optional[str] = None
+    topic: Optional[str] = None
+    discourse_relations: list[str] = Field(default_factory=list)
+    coreferences: list[tuple[str, str, int, int]] = Field(default_factory=list)
+    sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
+    chatgpt: list[dict[str, Any]] = Field(default_factory=list)
+
+    @property
+    def sentence_strings(self) -> list[str]:
+        """
+        Return the list of sentence strings using sentence boundaries and the normalized text.
+        """
+        # TODO: Decide if this is preventable
+        from cltk.sentence.utils import extract_sentences_from_boundaries
+
+        if not self.normalized_text or not self.sentence_boundaries:
+            logger.warning(
+                "`Doc.normalized_text` or `.sentence_boundaries` is empty, cannot return sentence strings."
+            )
+            return []
+        return extract_sentences_from_boundaries(
+            self.normalized_text, self.sentence_boundaries
+        )
+
+    # @property
+    # def sentences(self) -> list[Sentence]:
+    #     if not self.words:
+    #         return []
+    #     sents: dict[int, list[Word]] = defaultdict(list)
+    #     for word in self.words or []:
+    #         if word.index_sentence is not None:
+    #             sents[word.index_sentence].append(word)
+    #     for key in sents:
+    #         for w in sents[key]:
+    #             if w.index_token is None:
+    #                 raise ValueError(f"Index token is not defined for {w.string}")
+    #     for key in sents:
+    #         sents[key].sort(
+    #             key=lambda x: x.index_token if x.index_token is not None else -1
+    #         )
+    #     if self.sentence_embeddings is None:
+    #         self.sentence_embeddings = dict()
+    #     return [
+    #         Sentence(words=val, index=key, embedding=self.sentence_embeddings.get(key))
+    #         for key, val in sorted(sents.items(), key=lambda x: x[0])
+    #     ]
+
+    # @property
+    # def sentences_tokens(self) -> list[list[str]]:
+    #     sentences_tokens: list[list[str]] = list()
+    #     for sentence in self.sentences:
+    #         sentence_tokens: list[str] = [
+    #             word.string for word in sentence if word.string is not None
+    #         ]
+    #         sentences_tokens.append(sentence_tokens)
+    #     return sentences_tokens
+
+    # @property
+    # def sentences_strings(self) -> list[str]:
+    #     sentences_list: list[list[str]] = self.sentences_tokens
+    #     sentences_str: list[str] = list()
+    #     for sentence_tokens in sentences_list:
+    #         sentence_tokens_str: str = " ".join(
+    #             [t for t in sentence_tokens if t is not None]
+    #         )
+    #         sentences_str.append(sentence_tokens_str)
+    #     return sentences_str
+
+    # def _get_words_attribute(self, attribute):
+    #     if not self.words:
+    #         return []
+    #     return [
+    #         getattr(word, attribute) for word in self.words if hasattr(word, attribute)
+    #     ]
+
+    # @property
+    # def tokens(self) -> list[str]:
+    #     return self._get_words_attribute("string")
+
+    # @property
+    # def tokens_stops_filtered(self) -> list[str]:
+    #     tokens: list[str] = self._get_words_attribute("string")
+    #     is_token_stop: list[bool] = self._get_words_attribute("stop")
+    #     tokens_no_stops: list[str] = [
+    #         token
+    #         for index, token in enumerate(tokens)
+    #         if index < len(is_token_stop) and not is_token_stop[index]
+    #     ]
+    #     return tokens_no_stops
+
+    # @property
+    # def pos(self) -> list[str]:
+    #     return self._get_words_attribute("upos")
+
+    # @property
+    # def morphosyntactic_features(self) -> list[MorphosyntacticFeatureBundle]:
+    #     return self._get_words_attribute("features")
+
+    # @property
+    # def lemmata(self) -> list[str]:
+    #     return self._get_words_attribute("lemma")
+
+    # @property
+    # def stems(self) -> list[str]:
+    #     return self._get_words_attribute("stem")
+
+    # def __getitem__(self, word_index: int) -> Word:
+    #     if not self.words:
+    #         raise IndexError("No words in Doc.")
+    #     return self.words[word_index]
+
+    # @property
+    # def embeddings(self):
+    #     return self._get_words_attribute("embedding")
+
+
+class Process(BaseModel):
+    """For each type of NLP process there needs to be a definition."""
+
+    language_code: Optional[str] = None
+
+    @abstractmethod
+    def run(self, input_doc: Doc) -> Doc:
+        pass
+
+
+class Pipeline(BaseModel):
+    """Abstract ``Pipeline`` class to be inherited."""
+
+    description: Optional[str] = None
+    processes: Optional[list[Type[Process]]] = Field(default_factory=list)
+    language: Optional[Language] = None
+
+    def add_process(self, process: Type[Process]):
+        if self.processes is None:
+            self.processes = []
+        self.processes.append(process)
