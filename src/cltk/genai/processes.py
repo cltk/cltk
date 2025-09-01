@@ -355,7 +355,7 @@ class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalMongolianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "cmg"
+    glottolog_id: Optional[str] = "mong1331"
     description: str = (
         "Default process for ChatGPT for the Classical Mongolian language."
     )
@@ -925,7 +925,7 @@ class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleMongolChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xng"
+    glottolog_id: Optional[str] = "midd1351"
     description: str = "Default process for ChatGPT for the Middle Mongol language."
     authorship_info: str = "Middle MongolChatGPTProcess using OpenAI GPT models."
 
@@ -1098,6 +1098,12 @@ class SgawKarenChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "sgaw1245"
     description: str = "Default process for ChatGPT for the Sgaw Karen language."
     authorship_info: str = "SgawKarenChatGPTProcess using OpenAI GPT models."
+
+
+class MogholiChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "mogh1245"
+    description: str = "Default process for ChatGPT for the Mogholi (Moghol) language."
+    authorship_info: str = "MogholiChatGPTProcess using OpenAI GPT models."
 
 
 class OldCornishChatGPTProcess(ChatGPTProcess):

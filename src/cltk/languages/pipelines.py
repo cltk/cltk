@@ -24,6 +24,7 @@ from cltk.genai.processes import (
     ClassicalArabicChatGPTProcess,
     ClassicalArmenianChatGPTProcess,
     ClassicalBurmeseChatGPTProcess,
+    ClassicalMongolianChatGPTProcess,
     ClassicalSanskritChatGPTProcess,
     ClassicalSyriacChatGPTProcess,
     ClassicalTibetanChatGPTProcess,
@@ -61,7 +62,9 @@ from cltk.genai.processes import (
     MiddleEnglishChatGPTProcess,
     MiddleFrenchChatGPTProcess,
     MiddleHighGermanChatGPTProcess,
+    MiddleMongolChatGPTProcess,
     MiddlePersianChatGPTProcess,
+    MogholiChatGPTProcess,
     NewarChatGPTProcess,
     OdiaChatGPTProcess,
     OfficialAramaicChatGPTProcess,
@@ -110,6 +113,7 @@ from cltk.sentence.processes import (
     ClassicalArabicSentenceSplittingProcess,
     ClassicalArmenianSentenceSplittingProcess,
     ClassicalBurmeseSentenceSplittingProcess,
+    ClassicalMongolianSentenceSplittingProcess,
     ClassicalSanskritSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
     ClassicalTibetanSentenceSplittingProcess,
@@ -146,7 +150,9 @@ from cltk.sentence.processes import (
     MiddleEnglishSentenceSplittingProcess,
     MiddleFrenchSentenceSplittingProcess,
     MiddleHighGermanSentenceSplittingProcess,
+    MiddleMongolSentenceSplittingProcess,
     MiddlePersianSentenceSplittingProcess,
+    MogholiSentenceSplittingProcess,
     NewarSentenceSplittingProcess,
     OdiaSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
@@ -2080,6 +2086,48 @@ class SgawKarenChatGPTPipeline(Pipeline):
     )
 
 
+class MiddleMongolChatGPTPipeline(Pipeline):
+    """Pipeline for Middle Mongol."""
+
+    description: Optional[str] = "Pipeline for the Middle Mongol language"
+    glottolog_id: Optional[str] = "midd1351"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddleMongolSentenceSplittingProcess,
+            MiddleMongolChatGPTProcess,
+        ]
+    )
+
+
+class ClassicalMongolianChatGPTPipeline(Pipeline):
+    """Pipeline for Classical Mongolian."""
+
+    description: Optional[str] = "Pipeline for the Classical Mongolian language"
+    glottolog_id: Optional[str] = "mong1331"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ClassicalMongolianSentenceSplittingProcess,
+            ClassicalMongolianChatGPTProcess,
+        ]
+    )
+
+
+class MogholiChatGPTPipeline(Pipeline):
+    """Pipeline for Mogholi (Moghol)."""
+
+    description: Optional[str] = "Pipeline for the Mogholi (Moghol) language"
+    glottolog_id: Optional[str] = "mogh1245"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MogholiSentenceSplittingProcess,
+            MogholiChatGPTProcess,
+        ]
+    )
+
+
 class BagriChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Bagri (Rajasthani)."""
 
@@ -2298,9 +2346,12 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Mongolic (Pre-1800 Attested)
     # | Language / Period                | Approx. Dates        | Glottocode      |
     # |----------------------------------|----------------------|-----------------|
-    # | Middle Mongol                    | 13th–16th centuries  | `mong1329`      |
+    # | Middle Mongol                    | 13th–16th centuries  | `midd1351`      |
     # | Classical Mongolian              | ca. 1700–1900        | `mong1331`      |
     # | Mogholi (Moghol language)        | ca. 13th–17th c.     | `mogh1245`      |
+    "midd1351": MiddleMongolChatGPTPipeline,
+    "mong1331": ClassicalMongolianChatGPTPipeline,  #  TODO: No glottolog broken
+    "mogh1245": MogholiChatGPTPipeline,
     # Pre-Modern Literate Language Families (Non-Euro/Afroasiatic/Sino-Tibetan/Mongolic)
     # | Family         | Language / Stage           | Approx. Period      | Glottocode     |
     # |----------------|-----------------------------|----------------------|----------------|
@@ -2315,7 +2366,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # | Koreanic       | Old Korean                  | 7th–10th c. CE       | *(not coded)*  |
     # |                | Middle Korean               | 15th c. onward       | *(not coded)*  |
     # | Japonic        | Old Japanese                | 8th c. CE            | `japo1237`     |
-    # | Altaic-Adj.    | Old Jurchen                 | 12th–13th c. CE      | *(not coded)*  |
+    # | Altaic-Adj.    | Old Jurchen                 | 12th–13th c. CE      | *`jurc1239`*  |
     # |                | Manchu                      | 17th–18th c. CE      | *(not coded)*  |
     # | Austroasiatic  | Old Mon                     | from 6th c. CE       | *(not coded)*  |
     # |                | Old Khmer                   | from 7th c. CE       | *(not coded)*  |

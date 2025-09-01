@@ -108,6 +108,10 @@ class SentenceSplittingProcess(Process):
             "newa1246",  # Newar
             "mani1292",  # Meitei (Classical Manipuri)
             "sgaw1245",  # Sgaw Karen
+            # Mongolic
+            "midd1351",  # Middle Mongol
+            "mong1331",  # Classical Mongolian
+            "mogh1245",  # Mogholi (Moghol)
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -478,6 +482,24 @@ class SgawKarenSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Sgaw Karen."""
 
     glottolog_id: Optional[str] = "sgaw1245"
+
+
+class MiddleMongolSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Mongol."""
+
+    glottolog_id: Optional[str] = "midd1351"
+
+
+class ClassicalMongolianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Mongolian."""
+
+    glottolog_id: Optional[str] = "mong1331"
+
+
+class MogholiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Mogholi (Moghol)."""
+
+    glottolog_id: Optional[str] = "mogh1245"
 
 
 class HittiteSentenceSplittingProcess(SentenceSplittingProcess):

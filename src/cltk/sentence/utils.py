@@ -99,6 +99,10 @@ def split_sentences_multilang(
         "tang1334": r"([。！？])",  # Tangut (modern editions with CJK punctuation)
         "newa1246": r"([।॥.!?])",  # Newar (Devanāgarī punctuation)
         "mani1292": r"([꯫।.!?])",  # Meitei: Cheikhei (꯫) and danda
+        # Mongolic family
+        "midd1351": r"([᠃.!?])",  # Middle Mongol: include Mongolian full stop ᠃
+        "mong1331": r"([᠃.!?])",  # Classical Mongolian
+        "mogh1245": r"([.!\u061F\u06D4])",  # Mogholi (Perso-Arabic punctuation)
         # South Asian – additional
         "sinh1246": r"([.!?෴])",  # Sinhala: period/exclam/question; kunddaliya (෴) historical
         "sind1272": r"([.!\u061F\u06D4])",  # Sindhi (Arabic script): period, Arabic ?, Urdu full stop

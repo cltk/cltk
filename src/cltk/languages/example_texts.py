@@ -427,6 +427,12 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     "mani1292": """ꯍꯧ ꯃꯩꯇꯩ ꯂꯣꯟꯁꯤ ꯑꯣꯏꯗꯒꯤ ꯑꯣꯢꯇꯝ.""",
     # Sgaw Karen (Myanmar script)
     "sgaw1245": """ဒါက ဇဂေါဝါး ဘာသာစကားရဲ့ ဥပမာတစ်ခုပါ။""",
+    # Middle Mongol (placeholder Latin transcription)
+    "midd1351": """eke mongɣol-un bičilge-yi kebtelüge üge.""",
+    # Classical Mongolian (vertical script often; placeholder Latin)
+    "mong1331": """mongɣol kele-yin ǰirum-a inu bičig-üdur-un üge.""",
+    # Mogholi (Perso-Arabic script; placeholder)
+    "mogh1245": """این جمله‌اى به زبان مغولى (موغولى) است.""",
     # Bengali (Bangla)
     "beng1280": """এটি বাংলা ভাষার একটি উদাহরণ। এটি একটি সাধারণ বাক্য।""",
     # Odia (Oriya)
