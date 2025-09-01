@@ -90,19 +90,19 @@ def split_sentences_multilang(
         "lydi1241": r"([.:;?·:])",  # Lydian
         "pala1331": r"(.;?:\|\||§|\r?\n+)",  # Palaic
         "cari1274": r"([.?!:;⸱·⁚⁝])",  # Carian
-        "saur1252": r"([।॥.!?])",      # Sauraseni Prakrit: danda, double danda, period, exclamation, question
-        "maha1305": r"([।॥.!?])",      # Maharastri Prakrit: same as above
-        "maga1260": r"([।॥.!?])",      # Magadhi Prakrit: same as above
-        "gand1259": r"([।॥.!?])",      # Gandhari: same as above (adjust if Kharoṣṭhī punctuation is needed)
+        "saur1252": r"([।॥.!?])",  # Sauraseni Prakrit: danda, double danda, period, exclamation, question
+        "maha1305": r"([।॥.!?])",  # Maharastri Prakrit: same as above
+        "maga1260": r"([।॥.!?])",  # Magadhi Prakrit: same as above
+        "gand1259": r"([।॥.!?])",  # Gandhari: same as above (adjust if Kharoṣṭhī punctuation is needed)
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")
 
-    sentence_endings = lang_sentence_endings[glottolog_id]
-    parts = re.split(sentence_endings, text)
+    sentence_endings: str = lang_sentence_endings[glottolog_id]
+    parts: list[str] = re.split(sentence_endings, text)
 
-    boundaries = []
-    idx = 0
+    boundaries: list[tuple[int, int]] = []
+    idx: int = 0
     for i in range(0, len(parts) - 1, 2):
         sentence = parts[i].strip() + parts[i + 1]
         if sentence:

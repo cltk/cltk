@@ -181,7 +181,7 @@ def drop_latin_punctuation(text: str) -> str:
     >>> drop_latin_punctuation("vides -ne , quod , planus est ")
     'vides -ne   quod   planus est '
 
-    >>> drop_latin_punctuation("here is some trash, punct \/':;,!\?\._『@#\$%^&\*okay").replace("  ", " ")
+    >>> drop_latin_punctuation("here is some trash, punct /':;,!?._『@#$%^&*okay").replace("  ", " ")
     'here is some trash punct okay'
 
     """

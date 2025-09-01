@@ -2,7 +2,7 @@
 
 import os
 import shutil
-from typing import Literal, Optional, Type
+from typing import Literal, Optional, Type, cast
 
 from colorama import Fore, Style
 
@@ -34,10 +34,11 @@ class NLP:
         self.language: Language
         self.dialect: Optional[Dialect]
         self.language, self.dialect = resolve_languoid(key=language_code)
+        self.language_code: str
         if self.dialect:
-            self.language_code: str = self.dialect.glottolog_id
+            self.language_code = self.dialect.glottolog_id
         else:
-            self.language_code: str = self.language.glottolog_id
+            self.language_code = self.language.glottolog_id
         # Resolve backend (param > env > auto detection)
         env_backend = os.getenv("CLTK_BACKEND")
         self.backend: str = self._normalize_backend(env_backend or backend)
@@ -62,8 +63,11 @@ class NLP:
             logger.error("Input text must be a non-empty string.")
             raise ValueError("Input text must be a non-empty string.")
         doc: Doc = Doc(language=self.language, raw=text)
-        processes: list[Type[Process]] = (
-            self.pipeline.processes if self.pipeline.processes is not None else []
+        from typing import cast
+
+        processes: list[Type[Process]] = cast(
+            list[Type[Process]],
+            self.pipeline.processes if self.pipeline.processes is not None else [],
         )
         for process in processes:
             process_obj: Process = self._get_process_object(process_object=process)
@@ -99,15 +103,14 @@ class NLP:
 
     def _print_pipelines_for_current_lang(self) -> None:
         logger.info(f"Printing pipeline for language: {self.language.name}")
-        processes = (
-            self.pipeline.processes if self.pipeline.processes is not None else []
+        processes: list[Type[Process]] = cast(
+            list[Type[Process]],
+            self.pipeline.processes if self.pipeline.processes is not None else [],
         )
         processes_name: list[str] = [process.__name__ for process in processes]
         lang_and_dialect_selected: str = ""
         if self.dialect:
-            lang_and_dialect_selected: str = (
-                f'Selected language "{self.language.name}" ("{self.language.glottolog_id}") with dialect "{self.dialect.name}" ("{self.dialect.glottolog_id}").'
-            )
+            lang_and_dialect_selected = f'Selected language "{self.language.name}" ("{self.language.glottolog_id}") with dialect "{self.dialect.name}" ("{self.dialect.glottolog_id}").'
         else:
             lang_and_dialect_selected = f'Selected language "{self.language.name}" ("{self.language.glottolog_id}") without dialect.'
         print(
@@ -121,7 +124,7 @@ class NLP:
         )
         logger.debug(f"Processes in pipeline: {processes_name}")
         for process_class in processes:
-            process_instance = self._get_process_object(process_class)
+            process_instance: Process = self._get_process_object(process_class)
             authorship_info = getattr(process_instance, "authorship_info", None)
             if authorship_info:
                 print(
@@ -133,11 +136,11 @@ class NLP:
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         logger.info("Printing special authorship messages for current language.")
-        processes = (
+        processes: list[Type[Process]] = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         for process_class in processes:
-            process_instance = self._get_process_object(process_class)
+            process_instance: Process = self._get_process_object(process_class)
             special_message = getattr(
                 process_instance, "special_authorship_message", None
             )

@@ -37,3 +37,34 @@ lxml = "^6.0.1"
 
 [tool.setuptools.package-data]
 cltk = ["languages/glottolog.json"]
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+warn_unused_ignores = true
+no_implicit_optional = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+pretty = true
+show_error_codes = true
+namespace_packages = true
+explicit_package_bases = true
+mypy_path = "src"
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = [
+  "openai.*",
+  "tqdm.*",
+  "colorama.*",
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+  "cltk.sentence.sentence",
+  "cltk.sentence.san",
+  "cltk.sentence.lat",
+  "cltk.sentence.grc",
+]
+ignore_errors = true

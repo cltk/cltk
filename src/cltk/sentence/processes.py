@@ -3,7 +3,7 @@
 from copy import copy
 from functools import cached_property
 from types import FunctionType
-from typing import Any, ClassVar, List, Optional, Tuple
+from typing import Any, Callable, ClassVar, List, Optional, Tuple
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types_v3 import Doc, Process
@@ -17,7 +17,7 @@ class SentenceSplittingProcess(Process):
     """Base class for sentence splitting processes."""
 
     @cached_property
-    def algorithm(self) -> FunctionType:
+    def algorithm(self) -> Callable[[str, str], list[tuple[int, int]]]:
         # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
         logger.debug(
             f"Selecting normalization algorithm for language: {self.glottolog_id}"
@@ -99,9 +99,13 @@ class SentenceSplittingProcess(Process):
         logger.debug(
             f"Sentence splitter passed to split_sentences_multilang: {self.glottolog_id}"
         )
+        # Ensure required attributes are present
+        if self.glottolog_id is None:
+            raise ValueError("glottolog_id must be set for sentence splitting")
+        # Callable typing does not retain keyword names; pass positionally
         output_doc.sentence_boundaries = self.algorithm(
-            text=output_doc.normalized_text,
-            glottolog_id=self.glottolog_id,
+            output_doc.normalized_text,
+            self.glottolog_id,
         )
         return output_doc
 
@@ -456,16 +460,23 @@ class AlbanianSentenceSplittingProcess(SentenceSplittingProcess):
 
 class SauraseniPrakritSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Sauraseni Prakrit."""
+
     glottolog_id: Optional[str] = "saur1252"
+
 
 class MaharastriPrakritSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Maharastri Prakrit."""
+
     glottolog_id: Optional[str] = "maha1305"
+
 
 class MagadhiPrakritSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Magadhi Prakrit."""
+
     glottolog_id: Optional[str] = "maga1260"
+
 
 class GandhariSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Gandhari."""
+
     glottolog_id: Optional[str] = "gand1259"

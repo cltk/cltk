@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from .nlp import NLP as NLP  # noqa: F401
 
 
-def __getattr__(name: str):  # PEP 562 lazy attribute loading
+def __getattr__(name: str) -> object:  # PEP 562 lazy attribute loading
     if name == "NLP":
         # Import lazily to avoid pulling heavy deps at import time
         from .nlp import NLP as _NLP

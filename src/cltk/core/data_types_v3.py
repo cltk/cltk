@@ -14,55 +14,6 @@ from cltk.morphology.ud_deprels import UDDeprelTag
 from cltk.morphology.ud_features import UDFeatureTagSet
 from cltk.morphology.ud_pos import UDPartOfSpeechTag
 
-# from collections import defaultdict
-
-# ud_mod = importlib.import_module("cltk.morphology.universal_dependencies_features")
-
-
-# class Dialect(BaseModel):
-#     glottolog_id: str  # Glottolog id
-#     language_code: str  # internal code (e.g., "egy-dem")
-#     name: str  # human-readable variety name
-
-
-# class Language(BaseModel):
-#     """For holding information about any given language. Used to
-#     encode data from ISO 639-3 and Glottolog at
-#     ``cltk.languages.glottolog.LANGUAGES``. May be extended by
-#     user for dialects or languages not documented by ISO 639-3.
-#     """
-
-#     name: str
-#     glottolog_id: str
-#     latitude: float
-#     longitude: float
-#     family_id: str
-#     parent_id: str
-#     level: str
-#     iso: str
-#     type: str
-#     dates: Optional[list[int]] = []
-#     dialects: list[Dialect] = []
-#     selected_dialect: Optional[Dialect] = None
-
-#     @property
-#     def selected_dialect_name(self) -> Optional[str]:
-#         """Convenience: return the name of the currently selected dialect, if any."""
-#         return self.selected_dialect.name if self.selected_dialect else None
-
-#     # TODO: Add a lazy-load mechanism for example_text?
-
-#     # @field_validator("name")
-#     # @classmethod
-#     # def name_must_be_in_languages(cls, v):
-#     #     from cltk.languages.glottolog_v3 import LANGUAGES  # to avoide circular import
-
-#     #     valid_names = {lang.name for lang in LANGUAGES.values()}
-#     #     if v not in valid_names:
-#     #         raise ValueError(f"Language.name '{v}' is not in LANGUAGES.")
-#     #     return v
-
-
 # --- Type aliases (mark with TypeAlias to appease linters/IDEs) ---------------
 Level: TypeAlias = Literal["family", "language", "dialect"]
 Status: TypeAlias = Literal[
@@ -412,7 +363,11 @@ class Pipeline(BaseModel):
     """Abstract ``Pipeline`` class to be inherited."""
 
     description: Optional[str] = None
-    processes: Optional[list[Type[Process]]] = Field(default_factory=list)
+    # Pydantic model classes use a custom metaclass, which mypy treats as
+    # ModelMetaclass rather than type[Process]. To avoid metaclass typing
+    # conflicts in subclasses' default_factory lists, keep this as list[Any]
+    # while callers can still treat items as type[Process] at runtime.
+    processes: Optional[list[Any]] = Field(default_factory=list)
     language: Optional[Language] = None
     dialect: Optional[Dialect] = None
     glottolog_id: Optional[str] = None

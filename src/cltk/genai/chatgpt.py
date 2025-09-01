@@ -57,7 +57,8 @@ class ChatGPT:
         if self.dialect:
             self.language_code: str = self.dialect.glottolog_id
         else:
-            self.language_code: str = self.language.glottolog_id
+            # Don't re-annotate; just assign
+            self.language_code = self.language.glottolog_id
         self.model: str = model
         self.temperature: float = temperature
         self.client: OpenAI = OpenAI(api_key=self.api_key)
@@ -76,9 +77,9 @@ class ChatGPT:
             raise ValueError(msg)
         # Get sentence indices if not set already
         if not input_doc.sentence_boundaries:
-            msg: str = "Input document must have `.sentence_boundaries`."
-            logger.error(msg)
-            raise ValueError(msg)
+            err_msg = "Input document must have `.sentence_boundaries`."
+            logger.error(err_msg)
+            raise ValueError(err_msg)
         # POS/morphology
         tmp_docs: list[Doc] = list()
         for sent_idx, sentence_string in tqdm(
@@ -114,9 +115,11 @@ class ChatGPT:
                 for k in chatgpt_total_tokens:
                     chatgpt_total_tokens[k] += doc.chatgpt[0].get(k, 0)
             else:
-                msg: str = "Failed to get ChatGPT tokens usage field from POS tagging."
-                logger.error(msg)
-                raise CLTKException(msg)
+                msg_bad_tokens: str = (
+                    "Failed to get ChatGPT tokens usage field from POS tagging."
+                )
+                logger.error(msg_bad_tokens)
+                raise CLTKException(msg_bad_tokens)
         input_doc.chatgpt = [chatgpt_total_tokens]
         logger.debug(
             f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
@@ -192,7 +195,7 @@ class ChatGPT:
         if self.dialect:
             lang_or_dialect_name: str = self.dialect.name
         else:
-            lang_or_dialect_name: str = self.language.name
+            lang_or_dialect_name = self.language.name
         # if self.language.selected_dialect_name:
         #     lang_or_dialect_name = self.language.selected_dialect_name
         # else:
@@ -221,12 +224,14 @@ Text:\n\n{doc.normalized_text}
         code_blocks: list[Any] = []
         for attempt in range(1, max_retries + 1):
             try:
+                # Predeclare for consistent typing across branches
+                chatgpt_response: Response
                 if "4.1" in self.model:
-                    chatgpt_response: Response = self.client.responses.create(
+                    chatgpt_response = self.client.responses.create(
                         model=self.model, input=prompt, temperature=self.temperature
                     )
                 elif "-5" in self.model:
-                    chatgpt_response: Response = self.client.responses.create(
+                    chatgpt_response = self.client.responses.create(
                         model=self.model,
                         input=prompt,
                         reasoning={"effort": "low"},
@@ -259,13 +264,11 @@ Text:\n\n{doc.normalized_text}
                 f"raw_chatgpt_response_normalized:\n{raw_chatgpt_response_normalized}"
             )
 
-            def extract_code_blocks(text) -> list[Any]:
+            def extract_code_blocks(text: str) -> list[Any]:
                 # This regex finds all text between triple backticks
                 return re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
 
-            code_blocks: list[Any] = extract_code_blocks(
-                raw_chatgpt_response_normalized
-            )
+            code_blocks = extract_code_blocks(raw_chatgpt_response_normalized)
             if code_blocks:
                 break  # Success, exit retry loop
             else:
@@ -273,16 +276,18 @@ Text:\n\n{doc.normalized_text}
                     f"Attempt {attempt}: No code block found in ChatGPT response. Retrying..."
                 )
                 if attempt == max_retries:
-                    msg: str = "No code blocks found in ChatGPT response after retries."
-                    logger.error(msg)
+                    final_err = (
+                        "No code blocks found in ChatGPT response after retries."
+                    )
+                    logger.error(final_err)
                     logger.error(raw_chatgpt_response_normalized)
                     # raise CLTKException(msg)
                     return doc
                 # Optionally, you could modify the prompt or add a delay here
         if not code_blocks:
-            msg: str = "No code blocks found in ChatGPT response."
-            logger.error(msg)
-            raise CLTKException(msg)
+            msg2 = "No code blocks found in ChatGPT response."
+            logger.error(msg2)
+            raise CLTKException(msg2)
         code_block: str = code_blocks[0].strip()
         logger.debug(f"Extracted code block:\n{code_block}")
 
