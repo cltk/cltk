@@ -184,8 +184,8 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
     Args:
         question: Question string presented to the user.
         default: Presumed answer if the user just hits <Enter>.
-           It must be "yes" (the default), "no", or None (meaning
-           an answer is required of the user).
+            It must be "yes" (the default), "no", or None (meaning
+            an answer is required of the user).
 
     Returns:
         ``True`` for "yes" and "y" or ``False`` for "no" and "n".

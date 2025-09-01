@@ -1,9 +1,13 @@
 build:
 	poetry build
 
-# docs:
-# 	# typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
-# 	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
+docs:
+	@echo "Building MkDocs site..."
+	poetry run mkdocs build --strict
+
+docsServe:
+	@echo "Serving MkDocs site at http://127.0.0.1:8000 ..."
+	poetry run mkdocs serve -a 127.0.0.1:8000
 
 # downloadAllModels:
 # 	poetry run python scripts/download_all_models.py
@@ -33,7 +37,7 @@ installPyPITest:
 lint:
 	poetry run ruff check src/
 
-lock:
+lockDependencies:
 	poetry lock
 
 notebook:
@@ -45,8 +49,8 @@ preCommitUpdate:
 preCommitRun:
 	poetry run pre-commit run --all-files
 
-profile:
-	poetry run python -m cProfile -o profile.out src/cltk/nlp.py && poetry run snakeviz profile.out
+# profile:
+# 	poetry run python -m cProfile -o profile.out src/cltk/nlp.py && poetry run snakeviz profile.out
 
 publishPyPI:
 	make build
@@ -107,4 +111,4 @@ updateDependencies:
 
 # all: format lint typing test uml docs
 
-.PHONY: build docs test typing
+.PHONY: build docs docsServe test typing

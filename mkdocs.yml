@@ -1,0 +1,47 @@
+site_name: CLTK
+site_url: https://cltk.readthedocs.io/
+repo_url: https://github.com/cltk/cltk
+repo_name: cltk/cltk
+
+docs_dir: docs
+watch:
+  - src
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - toc.follow
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            members_order: source
+            inherited_members: true
+            filters: ["!^_", "!^__"]
+            separate_signature: true
+            show_signature_annotations: true
+            merge_init_into_class: true
+            show_bases: true
+            show_if_no_docstring: false
+  - gen-files:
+      scripts:
+        - docs/_scripts/gen_ref_nav.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - git-revision-date-localized:
+      enable_creation_date: true

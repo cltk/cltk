@@ -1,32 +1,15 @@
-# .readthedocs.yaml
-# Read the Docs configuration file
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
-# Required
 version: 2
 
-# Optionally build your docs in additional formats such as PDF
-# Default
-formats: []
-#formats:
-#  - pdf
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.12"
 
-# Optionally set the version of Python and requirements required to build your docs
-# Adjust for poetry's pyproject.toml; can use ``pip install .`` in pip v. > 19 to install w/o ``requirements.txt``
+mkdocs:
+  configuration: mkdocs.yml
 
 python:
   install:
     - method: pip
       path: .
-#      extra_requirements:
-#        - docs
-    - requirements: docs/requirements.txt
-
-build:
-  os: "ubuntu-22.04"
-  tools:
-    python: "3.11"
-
-# Build documentation in the docs/ directory with Sphinx
-sphinx:
-  configuration: docs/conf.py
+    - requirements: docs/requirements-docs.txt
