@@ -293,7 +293,7 @@ class SogdianChatGPTProcess(ChatGPTProcess):
 
 
 class BengaliChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ben"
+    glottolog_id: Optional[str] = "beng1280"
     description: str = "Default process for ChatGPT for the Bengali language."
     authorship_info: str = "BengaliChatGPTProcess using OpenAI GPT models."
 
@@ -429,7 +429,7 @@ class EarlyTripuriChatGPTProcess(ChatGPTProcess):
 
 
 class EasternPanjabiChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "pan"
+    glottolog_id: Optional[str] = "panj1256"
     description: str = "Default process for ChatGPT for the Eastern Panjabi language."
     authorship_info: str = "Eastern PanjabiChatGPTProcess using OpenAI GPT models."
 
@@ -519,7 +519,7 @@ class GothicChatGPTProcess(ChatGPTProcess):
 
 
 class GujaratiChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "guj"
+    glottolog_id: Optional[str] = "guja1252"
     description: str = "Default process for ChatGPT for the Gujarati language."
     authorship_info: str = "GujaratiChatGPTProcess using OpenAI GPT models."
 
@@ -1009,7 +1009,7 @@ class NumidianChatGPTProcess(ChatGPTProcess):
 
 
 class OdiaChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ory"
+    glottolog_id: Optional[str] = "oriy1255"
     description: str = "Default process for ChatGPT for the Odia language."
     authorship_info: str = "OdiaChatGPTProcess using OpenAI GPT models."
 
@@ -1178,6 +1178,12 @@ class OldMarathiChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "omr"
     description: str = "Default process for ChatGPT for the Old Marathi language."
     authorship_info: str = "Old MarathiChatGPTProcess using OpenAI GPT models."
+
+
+class MarathiChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "mara1378"
+    description: str = "Default process for ChatGPT for the Marathi language."
+    authorship_info: str = "MarathiChatGPTProcess using OpenAI GPT models."
 
 
 class OldMonChatGPTProcess(ChatGPTProcess):
@@ -1375,7 +1381,7 @@ class ProvençalChatGPTProcess(ChatGPTProcess):
 
 
 class PunjabiChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "pan"
+    glottolog_id: Optional[str] = "panj1256"
     description: str = "Default process for ChatGPT for the Punjabi language."
     authorship_info: str = "PunjabiChatGPTProcess using OpenAI GPT models."
 
@@ -1402,6 +1408,38 @@ class RomanianChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "ron"
     description: str = "Default process for ChatGPT for the Romanian language."
     authorship_info: str = "RomanianChatGPTProcess using OpenAI GPT models."
+
+
+class AssameseChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "assa1263"
+    description: str = "Default process for ChatGPT for the Assamese language."
+    authorship_info: str = "AssameseChatGPTProcess using OpenAI GPT models."
+
+
+class SinhalaChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "sinh1246"
+    description: str = "Default process for ChatGPT for the Sinhala language."
+    authorship_info: str = "SinhalaChatGPTProcess using OpenAI GPT models."
+
+
+class SindhiChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "sind1272"
+    description: str = "Default process for ChatGPT for the Sindhi language."
+    authorship_info: str = "SindhiChatGPTProcess using OpenAI GPT models."
+
+
+class KashmiriChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "kash1277"
+    description: str = "Default process for ChatGPT for the Kashmiri language."
+    authorship_info: str = "KashmiriChatGPTProcess using OpenAI GPT models."
+
+
+class BagriChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "bagr1243"
+    description: str = (
+        "Default process for ChatGPT for the Bagri (Rajasthani) language."
+    )
+    authorship_info: str = "BagriChatGPTProcess using OpenAI GPT models."
 
 
 class RussianChatGPTProcess(ChatGPTProcess):

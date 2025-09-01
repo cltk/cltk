@@ -84,6 +84,20 @@ class SentenceSplittingProcess(Process):
             "braj1242",  # Braj Bhasha
             "awad1243",  # Awadhi
             "urdu1245",  # Urdu
+            # Eastern Indo-Aryan and neighbors
+            "beng1280",  # Bengali
+            "oriy1255",  # Odia (Oriya)
+            "assa1263",  # Assamese
+            # Western Indo-Aryan
+            "guja1252",  # Gujarati
+            "mara1378",  # Marathi
+            "bagr1243",  # Bagri (Rajasthani)
+            # Southern Indo-Aryan / Indo-Aryan adjacency
+            "sinh1246",  # Sinhala
+            # Northwestern frontier
+            "panj1256",  # Eastern Panjabi
+            "sind1272",  # Sindhi
+            "kash1277",  # Kashmiri
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -333,7 +347,7 @@ class LiteraryChineseSentenceSplittingProcess(SentenceSplittingProcess):
 class PanjabiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Panjabi."""
 
-    glottolog_id: Optional[str] = "pan"
+    glottolog_id: Optional[str] = "panj1256"
 
 
 class ParthianSentenceSplittingProcess(SentenceSplittingProcess):
@@ -346,6 +360,60 @@ class DemoticSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Egyptian."""
 
     glottolog_id: Optional[str] = "demo1234"
+
+
+class BengaliSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Bengali."""
+
+    glottolog_id: Optional[str] = "beng1280"
+
+
+class OdiaSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Odia (Oriya)."""
+
+    glottolog_id: Optional[str] = "oriy1255"
+
+
+class AssameseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Assamese."""
+
+    glottolog_id: Optional[str] = "assa1263"
+
+
+class GujaratiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Gujarati."""
+
+    glottolog_id: Optional[str] = "guja1252"
+
+
+class MarathiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Marathi."""
+
+    glottolog_id: Optional[str] = "mara1378"
+
+
+class BagriSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Bagri (Rajasthani)."""
+
+    glottolog_id: Optional[str] = "bagr1243"
+
+
+class SinhalaSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Sinhala."""
+
+    glottolog_id: Optional[str] = "sinh1246"
+
+
+class SindhiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Sindhi."""
+
+    glottolog_id: Optional[str] = "sind1272"
+
+
+class KashmiriSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Kashmiri."""
+
+    glottolog_id: Optional[str] = "kash1277"
 
 
 class HittiteSentenceSplittingProcess(SentenceSplittingProcess):

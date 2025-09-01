@@ -10,9 +10,12 @@ from cltk.genai.processes import (
     AkkadianChatGPTProcess,
     AlbanianChatGPTProcess,
     AncientGreekChatGPTProcess,
+    AssameseChatGPTProcess,
     AvestanChatGPTProcess,
     AwadhiChatGPTProcess,
     BactrianChatGPTProcess,
+    BagriChatGPTProcess,
+    BengaliChatGPTProcess,
     BiblicalHebrewChatGPTProcess,
     BrajChatGPTProcess,
     CarianChatGPTProcess,
@@ -26,12 +29,15 @@ from cltk.genai.processes import (
     CuneiformLuwianChatGPTProcess,
     DemoticChatGPTProcess,
     EarlyIrishChatGPTProcess,
+    EasternPanjabiChatGPTProcess,
     GandhariChatGPTProcess,
     GeezChatGPTProcess,
     GothicChatGPTProcess,
+    GujaratiChatGPTProcess,
     HieroglyphicLuwianChatGPTProcess,
     HindiChatGPTProcess,
     HittiteChatGPTProcess,
+    KashmiriChatGPTProcess,
     KhariBoliChatGPTProcess,
     KhotaneseChatGPTProcess,
     LateEgyptianChatGPTProcess,
@@ -43,6 +49,7 @@ from cltk.genai.processes import (
     LydianChatGPTProcess,
     MagadhiPrakritChatGPTProcess,
     MaharastriPrakritChatGPTProcess,
+    MarathiChatGPTProcess,
     MiddleArmenianChatGPTProcess,
     MiddleBretonChatGPTProcess,
     MiddleCornishChatGPTProcess,
@@ -51,6 +58,7 @@ from cltk.genai.processes import (
     MiddleFrenchChatGPTProcess,
     MiddleHighGermanChatGPTProcess,
     MiddlePersianChatGPTProcess,
+    OdiaChatGPTProcess,
     OfficialAramaicChatGPTProcess,
     OldEgyptianChatGPTProcess,
     OldEnglishChatGPTProcess,
@@ -65,6 +73,8 @@ from cltk.genai.processes import (
     ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
     SauraseniPrakritChatGPTProcess,
+    SindhiChatGPTProcess,
+    SinhalaChatGPTProcess,
     SogdianChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
@@ -78,9 +88,12 @@ from cltk.sentence.processes import (
     AlbanianSentenceSplittingProcess,
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
+    AssameseSentenceSplittingProcess,
     AvestanSentenceSplittingProcess,
     AwadhiSentenceSplittingProcess,
     BactrianSentenceSplittingProcess,
+    BagriSentenceSplittingProcess,
+    BengaliSentenceSplittingProcess,
     BrajSentenceSplittingProcess,
     CarianSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
@@ -96,9 +109,11 @@ from cltk.sentence.processes import (
     GandhariSentenceSplittingProcess,
     GeezSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
+    GujaratiSentenceSplittingProcess,
     HieroglyphicLuwianSentenceSplittingProcess,
     HindiSentenceSplittingProcess,
     HittiteSentenceSplittingProcess,
+    KashmiriSentenceSplittingProcess,
     KhariBoliSentenceSplittingProcess,
     KhotaneseSentenceSplittingProcess,
     LateEgyptianSentenceSplittingProcess,
@@ -110,6 +125,7 @@ from cltk.sentence.processes import (
     LydianSentenceSplittingProcess,
     MagadhiPrakritSentenceSplittingProcess,
     MaharastriPrakritSentenceSplittingProcess,
+    MarathiSentenceSplittingProcess,
     MiddleArmenianSentenceSplittingProcess,
     MiddleBretonSentenceSplittingProcess,
     MiddleCornishSentenceSplittingProcess,
@@ -118,6 +134,7 @@ from cltk.sentence.processes import (
     MiddleFrenchSentenceSplittingProcess,
     MiddleHighGermanSentenceSplittingProcess,
     MiddlePersianSentenceSplittingProcess,
+    OdiaSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
     OldEgyptianSentenceSplittingProcess,
     OldEnglishSentenceSplittingProcess,
@@ -129,9 +146,12 @@ from cltk.sentence.processes import (
     OldPrussianSentenceSplittingProcess,
     PalaicSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
+    PanjabiSentenceSplittingProcess,
     ParthianSentenceSplittingProcess,
     PhoenicianSentenceSplittingProcess,
     SauraseniPrakritSentenceSplittingProcess,
+    SindhiSentenceSplittingProcess,
+    SinhalaSentenceSplittingProcess,
     SogdianSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
@@ -901,26 +921,6 @@ class LiteraryChineseChatGPTPipeline(Pipeline):
             f"Initializing LiteraryChineseChatGPTPipeline with language: {self.language}"
         )
         logger.info("LiteraryChineseChatGPTPipeline created.")
-
-
-# class PanjabiChatGPTPipeline(Pipeline):
-#     """Default ``Pipeline`` for Panjabi."""
-
-#     description: Optional[str] = "Pipeline for the Panjabi language"
-#     language: Optional[Language] = get_language("pan")
-#     processes: Optional[list[Any]] = Field(
-#         default_factory=lambda: [
-#             MultilingualNormalizeProcess,
-#             PanjabiSentenceSplittingProcess,
-#             PunjabiChatGPTProcess,
-#         ]
-#     )
-
-#     def __post_init__(self) -> None:
-#         logger.debug(
-#             f"Initializing PanjabiChatGPTPipeline with language: {self.language}"
-#         )
-#         logger.info("PanjabiChatGPTPipeline created.")
 
 
 class DemoticChatGPTPipeline(Pipeline):
@@ -1756,6 +1756,205 @@ class UrduChatGPTPipeline(Pipeline):
         logger.info("UrduChatGPTPipeline created.")
 
 
+# Eastern Indo-Aryan and Western IA additions
+class BengaliChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Bengali."""
+
+    description: Optional[str] = "Pipeline for the Bengali language"
+    glottolog_id: Optional[str] = "beng1280"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            BengaliSentenceSplittingProcess,
+            BengaliChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing BengaliChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("BengaliChatGPTPipeline created.")
+
+
+class OdiaChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Odia (Oriya)."""
+
+    description: Optional[str] = "Pipeline for the Odia language"
+    glottolog_id: Optional[str] = "oriy1255"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OdiaSentenceSplittingProcess,
+            OdiaChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(f"Initializing OdiaChatGPTPipeline with language: {self.language}")
+        logger.info("OdiaChatGPTPipeline created.")
+
+
+class AssameseChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Assamese."""
+
+    description: Optional[str] = "Pipeline for the Assamese language"
+    glottolog_id: Optional[str] = "assa1263"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            AssameseSentenceSplittingProcess,
+            AssameseChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing AssameseChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("AssameseChatGPTPipeline created.")
+
+
+class GujaratiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Gujarati."""
+
+    description: Optional[str] = "Pipeline for the Gujarati language"
+    glottolog_id: Optional[str] = "guja1252"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            GujaratiSentenceSplittingProcess,
+            GujaratiChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing GujaratiChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("GujaratiChatGPTPipeline created.")
+
+
+class MarathiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Marathi."""
+
+    description: Optional[str] = "Pipeline for the Marathi language"
+    glottolog_id: Optional[str] = "mara1378"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MarathiSentenceSplittingProcess,
+            MarathiChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing MarathiChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MarathiChatGPTPipeline created.")
+
+
+class SinhalaChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Sinhala."""
+
+    description: Optional[str] = "Pipeline for the Sinhala language"
+    glottolog_id: Optional[str] = "sinh1246"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            SinhalaSentenceSplittingProcess,
+            SinhalaChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing SinhalaChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("SinhalaChatGPTPipeline created.")
+
+
+class EasternPanjabiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Eastern Panjabi."""
+
+    description: Optional[str] = "Pipeline for the Eastern Panjabi language"
+    glottolog_id: Optional[str] = "panj1256"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            PanjabiSentenceSplittingProcess,
+            EasternPanjabiChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing EasternPanjabiChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("EasternPanjabiChatGPTPipeline created.")
+
+
+class SindhiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Sindhi."""
+
+    description: Optional[str] = "Pipeline for the Sindhi language"
+    glottolog_id: Optional[str] = "sind1272"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            SindhiSentenceSplittingProcess,
+            SindhiChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing SindhiChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("SindhiChatGPTPipeline created.")
+
+
+class KashmiriChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Kashmiri."""
+
+    description: Optional[str] = "Pipeline for the Kashmiri language"
+    glottolog_id: Optional[str] = "kash1277"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            KashmiriSentenceSplittingProcess,
+            KashmiriChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing KashmiriChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("KashmiriChatGPTPipeline created.")
+
+
+class BagriChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Bagri (Rajasthani)."""
+
+    description: Optional[str] = "Pipeline for the Bagri (Rajasthani) language"
+    glottolog_id: Optional[str] = "bagr1243"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            BagriSentenceSplittingProcess,
+            BagriChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing BagriChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("BagriChatGPTPipeline created.")
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1867,20 +2066,20 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "awad1243": AwadhiChatGPTPipeline,
     # "urdu1245": "Urdu" Urdu: 13th–14th c.: In Delhi Sultanate, Sufi poets (e.g. Amīr Khusro, d. 1325) composed in Hindavī, blending Khari Boli vernacular with Persian/Arabic elements.
     "urdu1245": UrduChatGPTPipeline,
-    ### Eastern Indo-Aryan
-    # "beng1280": "Bengali" Bengali (Bangla): Descends from Magadhi Apabhraṃśa; Caryāpadas (Buddhist, c. 10th–12th c.); Chaitanya, a vast Vaishnava devotional literature
-    # "oriy1255": "Odia"; Oriya (Odia): diverging from Bengali/Assamese around 10th–11th c.; Sarala Dāsa (15th c.): Mahābhārata in Odia, Chandī Purāṇa, Vilanka Rāmāyaṇa, and other medieval epics
-    # "assa1263": "Assamese" Assamese: the same eastern Apabhraṃśa ancestor as Bengali and Odia; distinct by 12th–13th c.; Śaṅkaradeva (15th–16th c.): central figure, created Vaishnava plays (Ankiyā Nāt), poetry, translations of epics
-    ### Western Indo-Aryan
-    # "guja1252": "Gujarati" Gujarati: from western Apabhraṃśa by the 12th c.; Jain religious poetry (12th–14th c.).
-    # "mara1378": "Marathi" Marathi: Western Apabhraṃśa → Old Marathi attested from 11th–13th c. inscriptions.; Earliest texts: Jñāneśvarī (1275 CE) by Jñāneśvar — Marathi commentary on the Bhagavad Gītā.
-    # !? Glottolog calls Rajashani an alternative name for Bagri; investigate "bagr1243": "Bagri"; "Rajasthani" Rajasthani: Old Western Rajasthani (often overlapping with Old Gujarati/Apabhraṃśa). Jain texts in Dingal/Pingal dialects, heroic poetry (12th–13th c.).
-    ### Southern Indo-Aryan
-    # "sinh1246": "Sinhala" Sinhala (Sinhalese); Earliest texts: Elu Sandēsa poems (13th c.), chronicles (Cūḷavaṃsa continues through medieval period).
-    ### North-Western Frontier
-    # "panj1256": "Eastern Panjabi" Punjabi: in its Old forms; Baba Farid’s vārs (12th–13th c.)
-    # "sind1272": "Sindhi" Sindhi: Northwestern WIA dialect continuum; Sufi poetry from the 14th c.
-    # "kash1277": "Kashmiri" Kashmiri: Early poetry of Lal Dēd (14th c.) and Habba Khatoon (16th c.).
+    # Eastern Indo-Aryan
+    "beng1280": BengaliChatGPTPipeline,
+    "oriy1255": OdiaChatGPTPipeline,
+    "assa1263": AssameseChatGPTPipeline,
+    # Western Indo-Aryan
+    "guja1252": GujaratiChatGPTPipeline,
+    "mara1378": MarathiChatGPTPipeline,
+    # Southern Indo-Aryan / adjacency
+    "sinh1246": SinhalaChatGPTPipeline,
+    # Northwestern frontier
+    "panj1256": EasternPanjabiChatGPTPipeline,
+    "sind1272": SindhiChatGPTPipeline,
+    "kash1277": KashmiriChatGPTPipeline,
+    "bagr1243": BagriChatGPTPipeline,
     # Afroasiatic family
     ## Semitic languages
     ### East Semitic

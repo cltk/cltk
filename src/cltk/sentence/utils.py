@@ -56,7 +56,16 @@ def split_sentences_multilang(
         "awad1243": r"([।॥.!?])",  # Awadhi
         "urdu1245": r"([.!\u061F\u06D4])",  # Urdu: period, Arabic question mark (؟), Urdu full stop (۔)
         "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
-        "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
+        # Eastern Panjabi glottocode
+        "panj1256": r"([।॥.!?])",  # Eastern Panjabi (Gurmukhi): danda, double danda, etc.
+        # Eastern Indo-Aryan
+        "beng1280": r"([।॥.!?])",  # Bengali
+        "oriy1255": r"([।॥.!?])",  # Odia (Oriya)
+        "assa1263": r"([।॥.!?])",  # Assamese
+        # Western Indo-Aryan
+        "guja1252": r"([।॥.!?])",  # Gujarati
+        "mara1378": r"([।॥.!?])",  # Marathi
+        "bagr1243": r"([।॥.!?])",  # Bagri (Rajasthani)
         "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)
         "clas1252": r"(r[܀܁܂܃܄܆܇·])",  # Classical Syriac
         "hit1242": r"([\.!?𒑰])",  # Hittite: generic (Akkadian-like) punctuation + 𒑰
@@ -78,6 +87,10 @@ def split_sentences_multilang(
         "sogd1245": r"([·:܃⁘.;:])",  # Sogdian
         "khot1251": r"([।॥.])",  # Khotanese
         "tums1237": r"([।॥.])",  # Tumshuqese
+        # South Asian – additional
+        "sinh1246": r"([.!?෴])",  # Sinhala: period/exclam/question; kunddaliya (෴) historical
+        "sind1272": r"([.!\u061F\u06D4])",  # Sindhi (Arabic script): period, Arabic ?, Urdu full stop
+        "kash1277": r"([।॥.!?\u061F\u06D4])",  # Kashmiri: allow both Devanagari and Arabic script punctuation
         "oldw1239": r"([·.!?])",  # Old Welsh
         "bret1244": r"([∴.!?])",  # Old-Middle Breton
         "corn1251": r"([:.!?])",  # Cornish
