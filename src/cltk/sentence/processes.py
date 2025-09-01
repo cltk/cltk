@@ -98,6 +98,16 @@ class SentenceSplittingProcess(Process):
             "panj1256",  # Eastern Panjabi
             "sind1272",  # Sindhi
             "kash1277",  # Kashmiri
+            # Sino-Tibetan
+            "oldc1244",  # Old Chinese
+            "midd1344",  # Middle Chinese
+            "clas1255",  # Early Vernacular Chinese (Baihua)
+            "oldb1235",  # Old Burmese
+            "nucl1310",  # Classical Burmese
+            "tang1334",  # Tangut
+            "newa1246",  # Newar
+            "mani1292",  # Meitei (Classical Manipuri)
+            "sgaw1245",  # Sgaw Karen
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -344,6 +354,24 @@ class LiteraryChineseSentenceSplittingProcess(SentenceSplittingProcess):
     glottolog_id: Optional[str] = "lite1248"
 
 
+class OldChineseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Chinese."""
+
+    glottolog_id: Optional[str] = "oldc1244"
+
+
+class MiddleChineseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Chinese."""
+
+    glottolog_id: Optional[str] = "midd1344"
+
+
+class BaihuaChineseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Early Vernacular Chinese (Baihua)."""
+
+    glottolog_id: Optional[str] = "clas1255"
+
+
 class PanjabiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Panjabi."""
 
@@ -414,6 +442,42 @@ class KashmiriSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Kashmiri."""
 
     glottolog_id: Optional[str] = "kash1277"
+
+
+class OldBurmeseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Burmese."""
+
+    glottolog_id: Optional[str] = "oldb1235"
+
+
+class ClassicalBurmeseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Burmese."""
+
+    glottolog_id: Optional[str] = "nucl1310"
+
+
+class TangutSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Tangut."""
+
+    glottolog_id: Optional[str] = "tang1334"
+
+
+class NewarSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Newar (Classical Nepal Bhasa)."""
+
+    glottolog_id: Optional[str] = "newa1246"
+
+
+class MeiteiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Meitei (Classical Manipuri)."""
+
+    glottolog_id: Optional[str] = "mani1292"
+
+
+class SgawKarenSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Sgaw Karen."""
+
+    glottolog_id: Optional[str] = "sgaw1245"
 
 
 class HittiteSentenceSplittingProcess(SentenceSplittingProcess):

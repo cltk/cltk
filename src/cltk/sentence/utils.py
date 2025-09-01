@@ -56,6 +56,10 @@ def split_sentences_multilang(
         "awad1243": r"([।॥.!?])",  # Awadhi
         "urdu1245": r"([.!\u061F\u06D4])",  # Urdu: period, Arabic question mark (؟), Urdu full stop (۔)
         "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
+        # Sinitic stages
+        "oldc1244": r"([。！？])",  # Old Chinese
+        "midd1344": r"([。！？])",  # Middle Chinese
+        "clas1255": r"([。！？])",  # Early Vernacular Chinese (Baihua)
         # Eastern Panjabi glottocode
         "panj1256": r"([।॥.!?])",  # Eastern Panjabi (Gurmukhi): danda, double danda, etc.
         # Eastern Indo-Aryan
@@ -87,6 +91,14 @@ def split_sentences_multilang(
         "sogd1245": r"([·:܃⁘.;:])",  # Sogdian
         "khot1251": r"([।॥.])",  # Khotanese
         "tums1237": r"([।॥.])",  # Tumshuqese
+        # Burmese/Myanmar-script languages
+        "oldb1235": r"([။!?])",  # Old Burmese
+        "nucl1310": r"([။!?])",  # Classical/Nuclear Burmese
+        "sgaw1245": r"([။!?])",  # Sgaw Karen
+        # Tibeto-Burman
+        "tang1334": r"([。！？])",  # Tangut (modern editions with CJK punctuation)
+        "newa1246": r"([।॥.!?])",  # Newar (Devanāgarī punctuation)
+        "mani1292": r"([꯫।.!?])",  # Meitei: Cheikhei (꯫) and danda
         # South Asian – additional
         "sinh1246": r"([.!?෴])",  # Sinhala: period/exclam/question; kunddaliya (෴) historical
         "sind1272": r"([.!\u061F\u06D4])",  # Sindhi (Arabic script): period, Arabic ?, Urdu full stop

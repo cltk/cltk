@@ -15,6 +15,7 @@ from cltk.genai.processes import (
     AwadhiChatGPTProcess,
     BactrianChatGPTProcess,
     BagriChatGPTProcess,
+    BaihuaChineseChatGPTProcess,
     BengaliChatGPTProcess,
     BiblicalHebrewChatGPTProcess,
     BrajChatGPTProcess,
@@ -22,6 +23,7 @@ from cltk.genai.processes import (
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
     ClassicalArmenianChatGPTProcess,
+    ClassicalBurmeseChatGPTProcess,
     ClassicalSanskritChatGPTProcess,
     ClassicalSyriacChatGPTProcess,
     ClassicalTibetanChatGPTProcess,
@@ -50,16 +52,21 @@ from cltk.genai.processes import (
     MagadhiPrakritChatGPTProcess,
     MaharastriPrakritChatGPTProcess,
     MarathiChatGPTProcess,
+    MeiteiChatGPTProcess,
     MiddleArmenianChatGPTProcess,
     MiddleBretonChatGPTProcess,
+    MiddleChineseChatGPTProcess,
     MiddleCornishChatGPTProcess,
     MiddleEgyptianChatGPTProcess,
     MiddleEnglishChatGPTProcess,
     MiddleFrenchChatGPTProcess,
     MiddleHighGermanChatGPTProcess,
     MiddlePersianChatGPTProcess,
+    NewarChatGPTProcess,
     OdiaChatGPTProcess,
     OfficialAramaicChatGPTProcess,
+    OldBurmeseChatGPTProcess,
+    OldChineseChatGPTProcess,
     OldEgyptianChatGPTProcess,
     OldEnglishChatGPTProcess,
     OldFrenchChatGPTProcess,
@@ -73,9 +80,11 @@ from cltk.genai.processes import (
     ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
     SauraseniPrakritChatGPTProcess,
+    SgawKarenChatGPTProcess,
     SindhiChatGPTProcess,
     SinhalaChatGPTProcess,
     SogdianChatGPTProcess,
+    TangutChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
     TumshuqeseChatGPTProcess,
@@ -93,12 +102,14 @@ from cltk.sentence.processes import (
     AwadhiSentenceSplittingProcess,
     BactrianSentenceSplittingProcess,
     BagriSentenceSplittingProcess,
+    BaihuaChineseSentenceSplittingProcess,
     BengaliSentenceSplittingProcess,
     BrajSentenceSplittingProcess,
     CarianSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalArmenianSentenceSplittingProcess,
+    ClassicalBurmeseSentenceSplittingProcess,
     ClassicalSanskritSentenceSplittingProcess,
     ClassicalSyriacSentenceSplittingProcess,
     ClassicalTibetanSentenceSplittingProcess,
@@ -126,16 +137,21 @@ from cltk.sentence.processes import (
     MagadhiPrakritSentenceSplittingProcess,
     MaharastriPrakritSentenceSplittingProcess,
     MarathiSentenceSplittingProcess,
+    MeiteiSentenceSplittingProcess,
     MiddleArmenianSentenceSplittingProcess,
     MiddleBretonSentenceSplittingProcess,
+    MiddleChineseSentenceSplittingProcess,
     MiddleCornishSentenceSplittingProcess,
     MiddleEgyptianSentenceSplittingProcess,
     MiddleEnglishSentenceSplittingProcess,
     MiddleFrenchSentenceSplittingProcess,
     MiddleHighGermanSentenceSplittingProcess,
     MiddlePersianSentenceSplittingProcess,
+    NewarSentenceSplittingProcess,
     OdiaSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
+    OldBurmeseSentenceSplittingProcess,
+    OldChineseSentenceSplittingProcess,
     OldEgyptianSentenceSplittingProcess,
     OldEnglishSentenceSplittingProcess,
     OldFrenchSentenceSplittingProcess,
@@ -150,9 +166,11 @@ from cltk.sentence.processes import (
     ParthianSentenceSplittingProcess,
     PhoenicianSentenceSplittingProcess,
     SauraseniPrakritSentenceSplittingProcess,
+    SgawKarenSentenceSplittingProcess,
     SindhiSentenceSplittingProcess,
     SinhalaSentenceSplittingProcess,
     SogdianSentenceSplittingProcess,
+    TangutSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
     TumshuqeseSentenceSplittingProcess,
@@ -1935,6 +1953,133 @@ class KashmiriChatGPTPipeline(Pipeline):
         logger.info("KashmiriChatGPTPipeline created.")
 
 
+# Sino-Tibetan additions
+class OldChineseChatGPTPipeline(Pipeline):
+    """Pipeline for Old Chinese."""
+
+    description: Optional[str] = "Pipeline for Old Chinese"
+    glottolog_id: Optional[str] = "oldc1244"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldChineseSentenceSplittingProcess,
+            OldChineseChatGPTProcess,
+        ]
+    )
+
+
+class MiddleChineseChatGPTPipeline(Pipeline):
+    """Pipeline for Middle Chinese."""
+
+    description: Optional[str] = "Pipeline for Middle Chinese"
+    glottolog_id: Optional[str] = "midd1344"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MiddleChineseSentenceSplittingProcess,
+            MiddleChineseChatGPTProcess,
+        ]
+    )
+
+
+class BaihuaChineseChatGPTPipeline(Pipeline):
+    """Pipeline for Early Vernacular Chinese (Baihua)."""
+
+    description: Optional[str] = "Pipeline for Early Vernacular Chinese (Baihua)"
+    glottolog_id: Optional[str] = "clas1255"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            BaihuaChineseSentenceSplittingProcess,
+            BaihuaChineseChatGPTProcess,
+        ]
+    )
+
+
+class OldBurmeseChatGPTPipeline(Pipeline):
+    """Pipeline for Old Burmese."""
+
+    description: Optional[str] = "Pipeline for Old Burmese"
+    glottolog_id: Optional[str] = "oldb1235"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldBurmeseSentenceSplittingProcess,
+            OldBurmeseChatGPTProcess,
+        ]
+    )
+
+
+class ClassicalBurmeseChatGPTPipeline(Pipeline):
+    """Pipeline for Classical/Nuclear Burmese."""
+
+    description: Optional[str] = "Pipeline for Classical Burmese"
+    glottolog_id: Optional[str] = "nucl1310"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ClassicalBurmeseSentenceSplittingProcess,
+            ClassicalBurmeseChatGPTProcess,
+        ]
+    )
+
+
+class TangutChatGPTPipeline(Pipeline):
+    """Pipeline for Tangut (Xixia)."""
+
+    description: Optional[str] = "Pipeline for the Tangut language"
+    glottolog_id: Optional[str] = "tang1334"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            TangutSentenceSplittingProcess,
+            TangutChatGPTProcess,
+        ]
+    )
+
+
+class NewarChatGPTPipeline(Pipeline):
+    """Pipeline for Newar (Classical Nepal Bhasa)."""
+
+    description: Optional[str] = "Pipeline for the Newar language"
+    glottolog_id: Optional[str] = "newa1246"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            NewarSentenceSplittingProcess,
+            NewarChatGPTProcess,
+        ]
+    )
+
+
+class MeiteiChatGPTPipeline(Pipeline):
+    """Pipeline for Meitei (Classical Manipuri)."""
+
+    description: Optional[str] = "Pipeline for the Meitei (Classical Manipuri) language"
+    glottolog_id: Optional[str] = "mani1292"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MeiteiSentenceSplittingProcess,
+            MeiteiChatGPTProcess,
+        ]
+    )
+
+
+class SgawKarenChatGPTPipeline(Pipeline):
+    """Pipeline for Sgaw Karen."""
+
+    description: Optional[str] = "Pipeline for the Sgaw Karen language"
+    glottolog_id: Optional[str] = "sgaw1245"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            SgawKarenSentenceSplittingProcess,
+            SgawKarenChatGPTProcess,
+        ]
+    )
+
+
 class BagriChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Bagri (Rajasthani)."""
 
@@ -2133,6 +2278,15 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # | **Classical Chinese (Literary Chinese)**| ca. 5th c. BCE – 19th c. | `lite1248` |
     # | **Early Vernacular Chinese (Baihua)**   | ca. 10th – 18th c. CE | *(under `clas1255`)* |
     # | **Old Tibetan**                         | 7th – 10th c. CE     | *(not separately coded)* |
+    "oldc1244": OldChineseChatGPTPipeline,
+    "midd1344": MiddleChineseChatGPTPipeline,
+    "clas1255": BaihuaChineseChatGPTPipeline,
+    "oldb1235": OldBurmeseChatGPTPipeline,
+    "nucl1310": ClassicalBurmeseChatGPTPipeline,
+    "tang1334": TangutChatGPTPipeline,
+    "newa1246": NewarChatGPTPipeline,
+    "mani1292": MeiteiChatGPTPipeline,
+    "sgaw1245": SgawKarenChatGPTPipeline,
     # | **Classical Tibetan**                   | from 7th c. onward   | `clas1254`    |
     # | **Old Burmese**                         | 11th – 16th c. CE    | `oldb1235`    |
     # | **Classical Burmese**                   | 16th – 18th c. CE    | `nucl1310`    |

@@ -849,7 +849,7 @@ class MiddleBretonChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleChineseChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ltc"
+    glottolog_id: Optional[str] = "midd1344"
     description: str = "Default process for ChatGPT for the Middle Chinese language."
     authorship_info: str = "Middle ChineseChatGPTProcess using OpenAI GPT models."
 
@@ -1047,15 +1047,57 @@ class OldBretonChatGPTProcess(ChatGPTProcess):
 
 
 class OldBurmeseChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "obr"
+    glottolog_id: Optional[str] = "oldb1235"
     description: str = "Default process for ChatGPT for the Old Burmese language."
     authorship_info: str = "Old BurmeseChatGPTProcess using OpenAI GPT models."
 
 
 class OldChineseChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "och"
+    glottolog_id: Optional[str] = "oldc1244"
     description: str = "Default process for ChatGPT for the Old Chinese language."
     authorship_info: str = "Old ChineseChatGPTProcess using OpenAI GPT models."
+
+
+class BaihuaChineseChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "clas1255"
+    description: str = (
+        "Default process for ChatGPT for Early Vernacular Chinese (Baihua)."
+    )
+    authorship_info: str = "BaihuaChineseChatGPTProcess using OpenAI GPT models."
+
+
+class ClassicalBurmeseChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "nucl1310"
+    description: str = "Default process for ChatGPT for the Classical Burmese language."
+    authorship_info: str = "ClassicalBurmeseChatGPTProcess using OpenAI GPT models."
+
+
+class TangutChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "tang1334"
+    description: str = "Default process for ChatGPT for the Tangut (Xixia) language."
+    authorship_info: str = "TangutChatGPTProcess using OpenAI GPT models."
+
+
+class NewarChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "newa1246"
+    description: str = (
+        "Default process for ChatGPT for the Newar (Classical Nepal Bhasa) language."
+    )
+    authorship_info: str = "NewarChatGPTProcess using OpenAI GPT models."
+
+
+class MeiteiChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "mani1292"
+    description: str = (
+        "Default process for ChatGPT for the Meitei (Classical Manipuri) language."
+    )
+    authorship_info: str = "MeiteiChatGPTProcess using OpenAI GPT models."
+
+
+class SgawKarenChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "sgaw1245"
+    description: str = "Default process for ChatGPT for the Sgaw Karen language."
+    authorship_info: str = "SgawKarenChatGPTProcess using OpenAI GPT models."
 
 
 class OldCornishChatGPTProcess(ChatGPTProcess):

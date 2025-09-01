@@ -409,6 +409,24 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     "gand1259": """na śameṇa śamaṃ eti, na śameṇa śamaṃ gataṃ |
 śameṇa śamaṃ eti, esa dhammasya dhāraṇā ||
 """,
+    # Old Chinese (classical-style sample with modern punctuation)
+    "oldc1244": """天行健，君子以自强不息。""",
+    # Middle Chinese (classical-style sample)
+    "midd1344": """學而時習之，不亦說乎。""",
+    # Early Vernacular Chinese (Baihua)
+    "clas1255": """這是一個白話文的例句。""",
+    # Old Burmese
+    "oldb1235": """ဤသည် မြန်မာစာ၏ ဥပမာတစ်ခု ဖြစ်သည်။""",
+    # Classical Burmese (Nuclear Burmese)
+    "nucl1310": """ဒီဟာ မြန်မာဘာသာ စာရင်းအင်းတစ်ခု ဖြစ်ပါတယ်။""",
+    # Tangut (Xixia) — placeholder in Chinese description
+    "tang1334": """此为西夏文示例。""",
+    # Newar (Classical Nepal Bhasa) in Devanāgarī
+    "newa1246": """यो नेवार भाषाको एउटा उदाहरण हो।""",
+    # Meitei (Classical Manipuri) in Meetei Mayek
+    "mani1292": """ꯍꯧ ꯃꯩꯇꯩ ꯂꯣꯟꯁꯤ ꯑꯣꯏꯗꯒꯤ ꯑꯣꯢꯇꯝ.""",
+    # Sgaw Karen (Myanmar script)
+    "sgaw1245": """ဒါက ဇဂေါဝါး ဘာသာစကားရဲ့ ဥပမာတစ်ခုပါ။""",
     # Bengali (Bangla)
     "beng1280": """এটি বাংলা ভাষার একটি উদাহরণ। এটি একটি সাধারণ বাক্য।""",
     # Odia (Oriya)
