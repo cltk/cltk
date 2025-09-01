@@ -37,9 +37,6 @@ installPyPITest:
 lint:
 	poetry run ruff check src/
 
-lockDependencies:
-	poetry lock
-
 notebook:
 	poetry run jupyter notebook notebooks
 

@@ -1,4 +1,4 @@
-|circleci| |pypi| |twitter| |discord|
+|circleci| |pypi| |discord|
 
 
 .. |circleci| image:: https://circleci.com/gh/cltk/cltk/tree/master.svg?style=svg
@@ -7,20 +7,11 @@
 .. |rtd| image:: https://img.shields.io/readthedocs/cltk
    :target: http://docs.cltk.org/
 
-.. |codecov| image:: https://codecov.io/gh/cltk/cltk/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/cltk/cltk
-
 .. |pypi| image:: https://img.shields.io/pypi/v/cltk
    :target: https://pypi.org/project/cltk/
 
 .. |zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3445585.svg
    :target: https://doi.org/10.5281/zenodo.3445585
-
-.. |binder| image:: https://mybinder.org/badge_logo.svg
-   :target: https://mybinder.org/v2/gh/cltk/tutorials/master
-
-.. |twitter| image:: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FCLTKorg&label=Follow%20%40CLTKorg
-   :target: https://twitter.com/CLTKorg
 
 .. |discord| image:: https://img.shields.io/discord/974033391542480936
    :target: https://discord.gg/ATUDJQX7cg
