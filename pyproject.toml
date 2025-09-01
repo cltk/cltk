@@ -24,21 +24,28 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# Poetry-specific packaging config
+[tool.poetry]
+# Ensure Poetry discovers packages from the src layout
+packages = [
+    { include = "cltk", from = "src" }
+]
+# Explicitly include data files in both sdist and wheel
+include = [
+    { path = "src/cltk/py.typed", format = ["sdist", "wheel"] },
+    { path = "src/cltk/languages/glottolog.json", format = ["sdist", "wheel"] }
+]
 [tool.poetry.group.development.dependencies]
 mypy = "^1.17.1"
 ipython = "^9.4.0"
-# pylint = "^3.3.8"
-# pylint-json2html = "^0.5.0"
-# black = "^25.1.0"
-# isort = "^6.0.1"
 jupyter = "^1.1.1"
 colorama = "^0.4.6"
 lxml = "^6.0.1"
 ruff = "^0.6.0"
 pre-commit = "^3.7.0"
 
-[tool.setuptools.package-data]
-cltk = ["languages/glottolog.json"]
+# Note: setuptools package-data is unused with poetry-core and removed
 
 # Ruff configuration: formatter + lint (including isort rules)
 [tool.ruff]
@@ -82,12 +89,3 @@ module = [
   "colorama.*",
 ]
 ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = [
-  "cltk.sentence.sentence",
-  "cltk.sentence.san",
-  "cltk.sentence.lat",
-  "cltk.sentence.grc",
-]
-ignore_errors = true
