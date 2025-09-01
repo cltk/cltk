@@ -6,7 +6,7 @@ from typing import Optional, Union
 
 import numpy as np
 
-from cltk.core.data_types_v3 import Doc, Word
+from cltk.core.data_types import Doc, Word
 from cltk.core.exceptions import CLTKException
 from cltk.dependency.utils import (  # type: ignore[import-not-found]
     get_governor_word2,

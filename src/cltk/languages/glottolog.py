@@ -9,7 +9,7 @@ from typing import Any, Literal, Optional, cast
 from pydantic import TypeAdapter
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Dialect, Language
+from cltk.core.data_types import Dialect, Language
 
 # If you ship the JSON with the package, place it under cltk/languages/
 _DEFAULT_RESOURCE = "glottolog.json"

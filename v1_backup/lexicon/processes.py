@@ -6,7 +6,7 @@ from copy import copy
 from functools import cached_property
 from typing import Optional
 
-from cltk.core.data_types_v3 import Doc, Process
+from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.lexicon.lat import LatinLewisLexicon
 from cltk.lexicon.non import OldNorseZoegaLexicon

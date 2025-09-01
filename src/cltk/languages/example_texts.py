@@ -14,7 +14,7 @@ TODO: Get longer Akkadian text
 # pylint: disable=line-too-long
 
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog_v3 import resolve_languoid
+from cltk.languages.glottolog import resolve_languoid
 
 # from cltk.languages.utils import get_lang
 

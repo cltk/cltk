@@ -8,7 +8,7 @@ from typing import Any, Optional
 
 # from cltk.alphabet.text_normalization import cltk_normalize
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Doc, Process
+from cltk.core.data_types import Doc, Process
 from cltk.core.exceptions import CLTKException
 from cltk.genai.chatgpt import AVAILABILE_MODELS, ChatGPT
 from cltk.utils.utils import load_env_file

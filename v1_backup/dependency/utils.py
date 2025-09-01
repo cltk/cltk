@@ -4,7 +4,7 @@ info from CLTK data structures.
 
 from typing import Any, Optional
 
-from cltk.core.data_types_v3 import Word
+from cltk.core.data_types import Word
 
 
 def get_governor_word(word: Word, sentence: list[Word]) -> Optional[Word]:

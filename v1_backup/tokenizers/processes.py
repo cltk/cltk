@@ -6,7 +6,7 @@ TODO: Think about adding check somewhere if a contrib (not user) chooses an unav
 from copy import copy
 from functools import cached_property
 
-from cltk.core.data_types_v3 import Doc, Process, Word
+from cltk.core.data_types import Doc, Process, Word
 from cltk.tokenizers.akk import AkkadianWordTokenizer
 from cltk.tokenizers.arb import ArabicWordTokenizer
 from cltk.tokenizers.enm import MiddleEnglishWordTokenizer

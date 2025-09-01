@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+import importlib
 import inspect
 from typing import Any
-
-import importlib
 
 
 def _collect_public_api() -> dict[str, Any]:

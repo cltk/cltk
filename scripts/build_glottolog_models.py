@@ -23,7 +23,7 @@ from typing import Any, Dict, Final, List, Optional
 
 from pydantic import AnyUrl, TypeAdapter
 
-from cltk.core.data_types_v3 import *
+from cltk.core.data_types import *
 
 # -------------------- Internal helpers --------------------
 

@@ -5,7 +5,7 @@ from typing import Any, Optional, Type
 from pydantic import Field
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Pipeline
+from cltk.core.data_types import Pipeline
 
 # from cltk.dependency.processes import (
 #     ChineseStanzaProcess,

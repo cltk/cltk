@@ -12,11 +12,11 @@ from pydantic_core._pydantic_core import ValidationError as PydanticValidationEr
 from tqdm import tqdm
 
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Dialect, Doc, Language, Word
+from cltk.core.data_types import Dialect, Doc, Language, Word
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 
 # from cltk.languages.utils import get_lang
-from cltk.languages.glottolog_v3 import resolve_languoid
+from cltk.languages.glottolog import resolve_languoid
 from cltk.morphosyntax.ud_features import (
     UDFeatureTagSet,
     convert_pos_features_to_ud,

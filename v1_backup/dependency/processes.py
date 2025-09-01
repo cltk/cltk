@@ -7,7 +7,7 @@ from typing import Literal, Optional
 import spacy
 import stanza
 
-from cltk.core.data_types_v3 import Doc, Process, Word
+from cltk.core.data_types import Doc, Process, Word
 from cltk.dependency.spacy_wrapper import SpacyWrapper
 from cltk.dependency.stanza_wrapper import StanzaWrapper
 from cltk.dependency.tree import DependencyTree

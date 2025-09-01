@@ -1,7 +1,7 @@
 from copy import copy
 from functools import cached_property
 
-from cltk.core.data_types_v3 import Doc, Process
+from cltk.core.data_types import Doc, Process
 from cltk.stops.words import Stops
 
 

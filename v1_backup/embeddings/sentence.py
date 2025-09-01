@@ -5,7 +5,7 @@ from typing import Union, ValuesView
 import numpy as np
 from sklearn.decomposition import TruncatedSVD
 
-from cltk.core.data_types_v3 import Sentence
+from cltk.core.data_types import Sentence
 
 
 def rescale_idf(val: float, min_idf: float, max_idf: float) -> float:

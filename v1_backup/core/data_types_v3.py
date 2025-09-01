@@ -379,7 +379,7 @@ class Pipeline(BaseModel):
         if (self.language is None or self.dialect is None) and self.glottolog_id:
             try:
                 # Late import to avoid core<->languages circular import at module import time
-                from cltk.languages.glottolog_v3 import resolve_languoid
+                from cltk.languages.glottolog import resolve_languoid
 
                 lang, dia = resolve_languoid(self.glottolog_id)
                 if self.language is None:

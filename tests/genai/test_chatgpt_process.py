@@ -3,8 +3,8 @@ from __future__ import annotations
 import importlib
 from typing import Any
 
-from cltk.core.data_types_v3 import Language
-from cltk.languages.glottolog_v3 import get_language
+from cltk.core.data_types import Language
+from cltk.languages.glottolog import get_language
 
 
 class _StubChatGPT:
@@ -22,7 +22,7 @@ def test_chatgpt_process_run_success(monkeypatch):  # type: ignore[no-untyped-de
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.setattr(processes, "ChatGPT", _StubChatGPT)
 
-    Doc = importlib.import_module("cltk.core.data_types_v3").Doc
+    Doc = importlib.import_module("cltk.core.data_types").Doc
     glottolog_id = "lati1261"
     proc = processes.ChatGPTProcess(glottolog_id=glottolog_id, api_key="test-key")
 
@@ -39,7 +39,7 @@ def test_chatgpt_process_requires_config(monkeypatch):  # type: ignore[no-untype
     # No API key configured anywhere
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 
-    Doc = importlib.import_module("cltk.core.data_types_v3").Doc
+    Doc = importlib.import_module("cltk.core.data_types").Doc
     glottolog_id = "lati1261"
     proc = processes.ChatGPTProcess(glottolog_id=glottolog_id)
 

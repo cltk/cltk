@@ -6,7 +6,7 @@ from copy import copy
 
 from boltons.cacheutils import cachedproperty
 
-from cltk.core.data_types_v3 import Doc, Process
+from cltk.core.data_types import Doc, Process
 from cltk.phonology.ang.phonology import OldEnglishSyllabifier
 from cltk.phonology.enm.phonology import MiddleEnglishSyllabifier
 from cltk.phonology.gmh.phonology import MiddleHighGermanSyllabifier

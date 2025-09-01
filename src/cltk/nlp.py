@@ -8,9 +8,9 @@ from colorama import Fore, Style
 
 import cltk
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types_v3 import Dialect, Doc, Language, Pipeline, Process
+from cltk.core.data_types import Dialect, Doc, Language, Pipeline, Process
 from cltk.core.exceptions import UnimplementedAlgorithmError
-from cltk.languages.glottolog_v3 import resolve_languoid
+from cltk.languages.glottolog import resolve_languoid
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
 )
