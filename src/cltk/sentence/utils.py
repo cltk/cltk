@@ -49,7 +49,12 @@ def split_sentences_multilang(
         "midd1343": r"([.!?])",  # Middle High German: period, exclamation, question
         "oldh1241": r"([.!?])",  # Old High German: period, exclamation, question
         "goth1244": r"([.!?])",  # Gothic: period, exclamation, question
-        "hin": r"([।.!?])",  # Hindi: danda, period, exclamation, question
+        # Hindi and related lects (Devanāgarī-domain): danda, double danda, period, exclamation, question
+        "hind1269": r"([।॥.!?])",  # Hindi (glottocode)
+        "khad1239": r"([।॥.!?])",  # Khari Boli (Hindi dialect)
+        "braj1242": r"([।॥.!?])",  # Braj Bhasha
+        "awad1243": r"([।॥.!?])",  # Awadhi
+        "urdu1245": r"([.!\u061F\u06D4])",  # Urdu: period, Arabic question mark (؟), Urdu full stop (۔)
         "lite1248": r"([。！？])",  # Literary Chinese: full stop (。), exclamation (！), question (？)
         "pan": r"([।.!?])",  # Panjabi: danda, period, exclamation, question
         "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)

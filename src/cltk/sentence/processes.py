@@ -78,6 +78,12 @@ class SentenceSplittingProcess(Process):
             "maha1305",  # Maharastri Prakrit
             "maga1260",  # Magadhi Prakrit
             "gand1259",  # Gandhari
+            # Newly added: Hindi family lects
+            "hind1269",  # Hindi (glottocode)
+            "khad1239",  # Khari Boli (Hindi dialect)
+            "braj1242",  # Braj Bhasha
+            "awad1243",  # Awadhi
+            "urdu1245",  # Urdu
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -291,7 +297,31 @@ class GothicSentenceSplittingProcess(SentenceSplittingProcess):
 class HindiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Hindi."""
 
-    glottolog_id: Optional[str] = "hin"
+    glottolog_id: Optional[str] = "hind1269"
+
+
+class KhariBoliSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Khari Boli (Hindi dialect)."""
+
+    glottolog_id: Optional[str] = "khad1239"
+
+
+class BrajSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Braj Bhasha."""
+
+    glottolog_id: Optional[str] = "braj1242"
+
+
+class AwadhiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Awadhi."""
+
+    glottolog_id: Optional[str] = "awad1243"
+
+
+class UrduSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Urdu."""
+
+    glottolog_id: Optional[str] = "urdu1245"
 
 
 class LiteraryChineseSentenceSplittingProcess(SentenceSplittingProcess):

@@ -6,36 +6,15 @@ from pydantic import Field
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Pipeline
-
-# from cltk.dependency.processes import (
-#     ChineseStanzaProcess,
-#     CopticStanzaProcess,
-#     GothicStanzaProcess,
-#     GreekSpacyProcess,
-#     GreekStanzaProcess,
-#     LatinSpacyProcess,
-#     LatinStanzaProcess,
-#     OCSStanzaProcess,
-#     OldFrenchStanzaProcess,
-# )
-# from cltk.embeddings.processes import (
-#     ArabicEmbeddingsProcess,
-#     AramaicEmbeddingsProcess,
-#     GothicEmbeddingsProcess,
-#     GreekEmbeddingsProcess,
-#     LatinEmbeddingsProcess,
-#     MiddleEnglishEmbeddingsProcess,
-#     OldEnglishEmbeddingsProcess,
-#     PaliEmbeddingsProcess,
-#     SanskritEmbeddingsProcess,
-# )
 from cltk.genai.processes import (
     AkkadianChatGPTProcess,
     AlbanianChatGPTProcess,
     AncientGreekChatGPTProcess,
     AvestanChatGPTProcess,
+    AwadhiChatGPTProcess,
     BactrianChatGPTProcess,
     BiblicalHebrewChatGPTProcess,
+    BrajChatGPTProcess,
     CarianChatGPTProcess,
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
@@ -51,7 +30,9 @@ from cltk.genai.processes import (
     GeezChatGPTProcess,
     GothicChatGPTProcess,
     HieroglyphicLuwianChatGPTProcess,
+    HindiChatGPTProcess,
     HittiteChatGPTProcess,
+    KhariBoliChatGPTProcess,
     KhotaneseChatGPTProcess,
     LateEgyptianChatGPTProcess,
     LatinChatGPTProcess,
@@ -89,27 +70,18 @@ from cltk.genai.processes import (
     TokharianBChatGPTProcess,
     TumshuqeseChatGPTProcess,
     UgariticChatGPTProcess,
+    UrduChatGPTProcess,
     VedicSanskritChatGPTProcess,
 )
-
-# from cltk.languages.utils import get_lang
-# from cltk.lemmatize.processes import (
-#     GreekLemmatizationProcess,
-#     LatinLemmatizationProcess,
-#     OldEnglishLemmatizationProcess,
-#     OldFrenchLemmatizationProcess,
-# )
-# from cltk.lexicon.processes import LatinLexiconProcess, OldNorseLexiconProcess
-# from cltk.ner.processes import (  # GreekNERProcess,; LatinNERProcess,; OldEnglishNERProcess,
-#     OldFrenchNERProcess,
-# )
 from cltk.sentence.processes import (
     AkkadianSentenceSplittingProcess,
     AlbanianSentenceSplittingProcess,
     AncientGreekSentenceSplittingProcess,
     AncientHebrewSentenceSplittingProcess,
     AvestanSentenceSplittingProcess,
+    AwadhiSentenceSplittingProcess,
     BactrianSentenceSplittingProcess,
+    BrajSentenceSplittingProcess,
     CarianSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
@@ -125,7 +97,9 @@ from cltk.sentence.processes import (
     GeezSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
     HieroglyphicLuwianSentenceSplittingProcess,
+    HindiSentenceSplittingProcess,
     HittiteSentenceSplittingProcess,
+    KhariBoliSentenceSplittingProcess,
     KhotaneseSentenceSplittingProcess,
     LateEgyptianSentenceSplittingProcess,
     LatinSentenceSplittingProcess,
@@ -163,24 +137,10 @@ from cltk.sentence.processes import (
     TocharianBSentenceSplittingProcess,
     TumshuqeseSentenceSplittingProcess,
     UgariticSentenceSplittingProcess,
+    UrduSentenceSplittingProcess,
     VedicSanskritSentenceSplittingProcess,
 )
 from cltk.text.processes import MultilingualNormalizeProcess
-
-# from cltk.stops.processes import StopsProcess
-# from cltk.tokenizers.processes import (
-#     AkkadianTokenizationProcess,
-#     ArabicTokenizationProcess,
-#     GreekTokenizationProcess,
-#     LatinTokenizationProcess,
-#     MiddleEnglishTokenizationProcess,
-#     MiddleFrenchTokenizationProcess,
-#     MiddleHighGermanTokenizationProcess,
-#     MultilingualTokenizationProcess,
-#     OldFrenchTokenizationProcess,
-#     OldNorseTokenizationProcess,
-# )
-
 
 # class AkkadianPipeline(Pipeline):
 #     """Default ``Pipeline`` for Akkadian."""
@@ -919,26 +879,6 @@ class MiddleHighGermanChatGPTPipeline(Pipeline):
             f"Initializing MiddleHighGermanChatGPTPipeline with language: {self.language}"
         )
         logger.info("MiddleHighGermanChatGPTPipeline created.")
-
-
-# class HindiChatGPTPipeline(Pipeline):
-#     """Default ``Pipeline`` for Hindi."""
-
-#     description: Optional[str] = "Pipeline for the Hindi language"
-#     language: Optional[Language] = get_language("hin")
-#     processes: Optional[list[Any]] = Field(
-#         default_factory=lambda: [
-#             MultilingualNormalizeProcess,
-#             HindiSentenceSplittingProcess,
-#             HindiChatGPTProcess,
-#         ]
-#     )
-
-#     def __post_init__(self) -> None:
-#         logger.debug(
-#             f"Initializing HindiChatGPTPipeline with language: {self.language}"
-#         )
-#         logger.info("HindiChatGPTPipeline created.")
 
 
 class LiteraryChineseChatGPTPipeline(Pipeline):
@@ -1719,6 +1659,103 @@ class GandhariChatGPTPipeline(Pipeline):
         logger.info("GandhariChatGPTPipeline created.")
 
 
+# Hindi and closely related lects
+class HindiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Hindi (glottocode hind1269)."""
+
+    description: Optional[str] = "Pipeline for the Hindi language"
+    glottolog_id: Optional[str] = "hind1269"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            HindiSentenceSplittingProcess,
+            HindiChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing HindiChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("HindiChatGPTPipeline created.")
+
+
+class KhariBoliChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Khari Boli (Hindi dialect)."""
+
+    description: Optional[str] = "Pipeline for the Khari Boli dialect of Hindi"
+    glottolog_id: Optional[str] = "khad1239"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            KhariBoliSentenceSplittingProcess,
+            KhariBoliChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing KhariBoliChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("KhariBoliChatGPTPipeline created.")
+
+
+class BrajChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Braj Bhasha."""
+
+    description: Optional[str] = "Pipeline for the Braj Bhasha language"
+    glottolog_id: Optional[str] = "braj1242"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            BrajSentenceSplittingProcess,
+            BrajChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(f"Initializing BrajChatGPTPipeline with language: {self.language}")
+        logger.info("BrajChatGPTPipeline created.")
+
+
+class AwadhiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Awadhi."""
+
+    description: Optional[str] = "Pipeline for the Awadhi language"
+    glottolog_id: Optional[str] = "awad1243"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            AwadhiSentenceSplittingProcess,
+            AwadhiChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(
+            f"Initializing AwadhiChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("AwadhiChatGPTPipeline created.")
+
+
+class UrduChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Urdu."""
+
+    description: Optional[str] = "Pipeline for the Urdu language"
+    glottolog_id: Optional[str] = "urdu1245"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            UrduSentenceSplittingProcess,
+            UrduChatGPTProcess,
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        logger.debug(f"Initializing UrduChatGPTPipeline with language: {self.language}")
+        logger.info("UrduChatGPTPipeline created.")
+
+
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
     # "ang": OldEnglishPipeline,
@@ -1821,10 +1858,15 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Early forms of Hindi, Bengali, Gujarati, Marathi, Punjabi, Oriya, Sinhala, etc
     # North-Western / Hindi Belt
     # "hind1269": "Hindi"; "Old Hindi" is alt_name: ~10th–14th century CE.
-    # "hind1269": "Hindi"; Khari Boli is alt name: In the medieval period (before 1700), Khari Boli itself was not a prestigious literary dialect; Braj and Awadhi dominated literary use.; becomes the basis of Standard Hindi and Standard Urdu
+    "hind1269": HindiChatGPTPipeline,
+    # "khad1239": "Hindi"; Khari Boli is alt name: In the medieval period (before 1700), Khari Boli itself was not a prestigious literary dialect; Braj and Awadhi dominated literary use.; becomes the basis of Standard Hindi and Standard Urdu
+    "khad1239": KhariBoliChatGPTPipeline,
     # "braj1242": "Braj" Braj Bhāṣā: Braj area around Mathura, Agra, western Uttar Pradesh, parts of Rajasthan; Flourished 15th–18th centuries as a major literary dialect; language of Krishna bhakti poetry
+    "braj1242": BrajChatGPTPipeline,
     # "awad1243": "Awadhi" Awadhi: Awadh region of eastern Uttar Pradesh; Active literary language from 14th century onward; Rāmāyaṇa tradition, Sufi poetry
+    "awad1243": AwadhiChatGPTPipeline,
     # "urdu1245": "Urdu" Urdu: 13th–14th c.: In Delhi Sultanate, Sufi poets (e.g. Amīr Khusro, d. 1325) composed in Hindavī, blending Khari Boli vernacular with Persian/Arabic elements.
+    "urdu1245": UrduChatGPTPipeline,
     ### Eastern Indo-Aryan
     # "beng1280": "Bengali" Bengali (Bangla): Descends from Magadhi Apabhraṃśa; Caryāpadas (Buddhist, c. 10th–12th c.); Chaitanya, a vast Vaishnava devotional literature
     # "oriy1255": "Odia"; Oriya (Odia): diverging from Bengali/Assamese around 10th–11th c.; Sarala Dāsa (15th c.): Mahābhārata in Odia, Chandī Purāṇa, Vilanka Rāmāyaṇa, and other medieval epics

@@ -571,9 +571,29 @@ class HibernoScottishGaelicChatGPTProcess(ChatGPTProcess):
 
 
 class HindiChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "hin"
+    glottolog_id: Optional[str] = "hind1269"
     description: str = "Default process for ChatGPT for the Hindi language."
     authorship_info: str = "HindiChatGPTProcess using OpenAI GPT models."
+
+
+class KhariBoliChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "khad1239"
+    description: str = (
+        "Default process for ChatGPT for the Khari Boli dialect of Hindi."
+    )
+    authorship_info: str = "KhariBoliChatGPTProcess using OpenAI GPT models."
+
+
+class BrajChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "braj1242"
+    description: str = "Default process for ChatGPT for the Braj Bhasha language."
+    authorship_info: str = "BrajChatGPTProcess using OpenAI GPT models."
+
+
+class AwadhiChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "awad1243"
+    description: str = "Default process for ChatGPT for the Awadhi language."
+    authorship_info: str = "AwadhiChatGPTProcess using OpenAI GPT models."
 
 
 class HittiteChatGPTProcess(ChatGPTProcess):
@@ -1543,7 +1563,7 @@ class UkrainianChatGPTProcess(ChatGPTProcess):
 
 
 class UrduChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ud"
+    glottolog_id: Optional[str] = "urdu1245"
     description: str = "Default process for ChatGPT for the Urdu language."
     authorship_info: str = "UrduChatGPTProcess using OpenAI GPT models."
 

@@ -413,6 +413,21 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     "gand1259": """na śameṇa śamaṃ eti, na śameṇa śamaṃ gataṃ |
 śameṇa śamaṃ eti, esa dhammasya dhāraṇā ||
 """,
+    # Hindi (Old Hindi/Hindavī umbrella). Kabir doha; normalized Devanāgarī
+    "hind1269": """साधु ऐसा चाहिए जैसा सूप सुभाय ।
+जाके मुख से निकले वही सार-सार ।
+""",
+    # Khari Boli (Hindi dialect)
+    "khad1239": """यह खड़ी बोली का एक उदाहरण है। यह दिल्ली क्षेत्र की बोली है।""",
+    # Braj Bhasha (Krishna bhakti poetry register)
+    "braj1242": """मैया मोहि दाऊ बहुत खिझायो।
+काहे को मोहि कान्हा कहायो॥
+""",
+    # Awadhi (Tulsidas register)
+    "awad1243": """सियाराममय सब जग जानी। करउँ प्रनाम जोरि जुग पानी॥
+""",
+    # Urdu
+    "urdu1245": """یہ اردو زبان کا ایک سادہ جملہ ہے۔ یہ مثال کے طور پر دی گئی ہے۔""",
     # "": """""",
 }
 
