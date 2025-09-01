@@ -1,8 +1,33 @@
-"""Init module for importing the CLTK class."""
+"""Lightweight package init exposing the public API.
 
-from importlib import metadata
+Goals:
+- Avoid importing heavy dependencies or performing I/O at import time.
+- Re-export only stable, leaf-level names.
+- Define ``__all__`` to the exact public surface.
+"""
 
-from .nlp import NLP
+from typing import TYPE_CHECKING
 
-curr_version: str = metadata.version("cltk")
-__version__: str = curr_version
+# Public surface: only "NLP" for normal users
+__all__ = ["NLP"]
+
+if TYPE_CHECKING:
+    # For type checkers without importing heavy runtime deps
+    from .nlp import NLP as NLP  # noqa: F401
+
+
+def __getattr__(name: str):  # PEP 562 lazy attribute loading
+    if name == "NLP":
+        # Import lazily to avoid pulling heavy deps at import time
+        from .nlp import NLP as _NLP
+
+        return _NLP
+    if name == "__version__":
+        # Compute lazily to avoid metadata I/O at import time
+        from importlib import metadata as _metadata
+
+        try:
+            return _metadata.version("cltk")
+        except _metadata.PackageNotFoundError:  # during editable installs
+            return "0"
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

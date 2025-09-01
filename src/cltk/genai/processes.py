@@ -1154,11 +1154,9 @@ class MaekChatGPTProcess(ChatGPTProcess):
 
 
 class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "pmh"
-    description: str = (
-        "Default process for ChatGPT for the Maharastri Prakrit language."
-    )
-    authorship_info: str = "Maharastri PrakritChatGPTProcess using OpenAI GPT models."
+    glottolog_id: Optional[str] = "maha1305"
+    description: str = "Default process for ChatGPT for the Maharastri Prakrit language."
+    authorship_info: str = "MaharastriPrakritChatGPTProcess using OpenAI GPT models."
 
     def model_post_init(self, __context):
         super().model_post_init(__context)
@@ -2517,12 +2515,34 @@ class ZuluChatGPTProcess(ChatGPTProcess):
         logger.debug("ZuluChatGPTProcess initialized.")
 
 
-# if __name__ == "__main__":
-#     logger.info("Entering main block of `src/cltk/genai/processes.py`.")
-#     TEXT: str = "ἐν ἀρχῇ ἦν ὁ λόγος."
-#     DOC = Doc(language="grc", normalized_text=cltk_normalize(TEXT), raw=TEXT)
-#     PROCESS = AncientGreekChatGPTProcess()
-#     print(PROCESS.description)
-#     print(PROCESS.authorship_info)
-#     PROCESS.run(DOC)
-#     logger.info("Exiting main block of `src/cltk/genai/processes.py`.")
+class SauraseniPrakritChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "saur1252"
+    description: str = "Default process for ChatGPT for the Sauraseni Prakrit language."
+    authorship_info: str = "SauraseniPrakritChatGPTProcess using OpenAI GPT models."
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("SauraseniPrakritChatGPTProcess initialized.")
+
+class MaharastriPrakritChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "maha1305"
+    description: str = "Default process for ChatGPT for the Maharastri Prakrit language."
+    authorship_info: str = "MaharastriPrakritChatGPTProcess using OpenAI GPT models."
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("MaharastriPrakritChatGPTProcess initialized.")
+
+class MagadhiPrakritChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "maga1260"
+    description: str = "Default process for ChatGPT for the Magadhi Prakrit language."
+    authorship_info: str = "MagadhiPrakritChatGPTProcess using OpenAI GPT models."
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("MagadhiPrakritChatGPTProcess initialized.")
+
+class GandhariChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "gand1259"
+    description: str = "Default process for ChatGPT for the Gandhari language."
+    authorship_info: str = "GandhariChatGPTProcess using OpenAI GPT models."
+    def model_post_init(self, __context):
+        super().model_post_init(__context)
+        logger.debug("GandhariChatGPTProcess initialized.")

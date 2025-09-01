@@ -90,6 +90,10 @@ def split_sentences_multilang(
         "lydi1241": r"([.:;?·:])",  # Lydian
         "pala1331": r"(.;?:\|\||§|\r?\n+)",  # Palaic
         "cari1274": r"([.?!:;⸱·⁚⁝])",  # Carian
+        "saur1252": r"([।॥.!?])",      # Sauraseni Prakrit: danda, double danda, period, exclamation, question
+        "maha1305": r"([।॥.!?])",      # Maharastri Prakrit: same as above
+        "maga1260": r"([।॥.!?])",      # Magadhi Prakrit: same as above
+        "gand1259": r"([।॥.!?])",      # Gandhari: same as above (adjust if Kharoṣṭhī punctuation is needed)
     }
     if glottolog_id not in lang_sentence_endings:
         raise ValueError(f"Unsupported language code: {glottolog_id}")

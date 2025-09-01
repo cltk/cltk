@@ -50,6 +50,7 @@ from cltk.genai.processes import (
     CuneiformLuwianChatGPTProcess,
     DemoticChatGPTProcess,
     EarlyIrishChatGPTProcess,
+    GandhariChatGPTProcess,
     GeezChatGPTProcess,
     GothicChatGPTProcess,
     HieroglyphicLuwianChatGPTProcess,
@@ -63,6 +64,8 @@ from cltk.genai.processes import (
     LithuanianChatGPTProcess,
     LycianAChatGPTProcess,
     LydianChatGPTProcess,
+    MagadhiPrakritChatGPTProcess,
+    MaharastriPrakritChatGPTProcess,
     MiddleArmenianChatGPTProcess,
     MiddleBretonChatGPTProcess,
     MiddleCornishChatGPTProcess,
@@ -85,6 +88,7 @@ from cltk.genai.processes import (
     ParthianChatGPTProcess,
     PhoenicianChatGPTProcess,
     PunjabiChatGPTProcess,
+    SauraseniPrakritChatGPTProcess,
     SogdianChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
@@ -124,6 +128,7 @@ from cltk.sentence.processes import (
     CuneiformLuwianSentenceSplittingProcess,
     DemoticSentenceSplittingProcess,
     EarlyIrishSentenceSplittingProcess,
+    GandhariSentenceSplittingProcess,
     GeezSentenceSplittingProcess,
     GothicSentenceSplittingProcess,
     HieroglyphicLuwianSentenceSplittingProcess,
@@ -137,6 +142,8 @@ from cltk.sentence.processes import (
     LithuanianSentenceSplittingProcess,
     LycianASentenceSplittingProcess,
     LydianSentenceSplittingProcess,
+    MagadhiPrakritSentenceSplittingProcess,
+    MaharastriPrakritSentenceSplittingProcess,
     MiddleArmenianSentenceSplittingProcess,
     MiddleBretonSentenceSplittingProcess,
     MiddleCornishSentenceSplittingProcess,
@@ -159,6 +166,7 @@ from cltk.sentence.processes import (
     PanjabiSentenceSplittingProcess,
     ParthianSentenceSplittingProcess,
     PhoenicianSentenceSplittingProcess,
+    SauraseniPrakritSentenceSplittingProcess,
     SogdianSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
@@ -1638,6 +1646,73 @@ class CarianChatGPTPipeline(Pipeline):
             f"Initializing CarianChatGPTPipeline with language: {self.language}"
         )
 
+class SauraseniPrakritChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Sauraseni Prakrit."""
+    description: Optional[str] = "Pipeline for the Sauraseni Prakrit language"
+    glottolog_id: Optional[str] = "saur1252"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            SauraseniPrakritSentenceSplittingProcess,
+            SauraseniPrakritChatGPTProcess,
+        ]
+    )
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing SauraseniPrakritChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("SauraseniPrakritChatGPTPipeline created.")
+
+class MaharastriPrakritChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Maharastri Prakrit."""
+    description: Optional[str] = "Pipeline for the Maharastri Prakrit language"
+    glottolog_id: Optional[str] = "maha1305"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MaharastriPrakritSentenceSplittingProcess,
+            MaharastriPrakritChatGPTProcess,
+        ]
+    )
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MaharastriPrakritChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MaharastriPrakritChatGPTPipeline created.")
+
+class MagadhiPrakritChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Magadhi Prakrit."""
+    description: Optional[str] = "Pipeline for the Magadhi Prakrit language"
+    glottolog_id: Optional[str] = "maga1260"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            MagadhiPrakritSentenceSplittingProcess,
+            MagadhiPrakritChatGPTProcess,
+        ]
+    )
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing MagadhiPrakritChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("MagadhiPrakritChatGPTPipeline created.")
+
+class GandhariChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Gandhari."""
+    description: Optional[str] = "Pipeline for the Gandhari language"
+    glottolog_id: Optional[str] = "gand1259"
+    processes: Optional[list[Type[Process]]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            GandhariSentenceSplittingProcess,
+            GandhariChatGPTProcess,
+        ]
+    )
+    def __post_init__(self):
+        logger.debug(
+            f"Initializing GandhariChatGPTPipeline with language: {self.language}"
+        )
+        logger.info("GandhariChatGPTPipeline created.")
 
 MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "akk": AkkadianPipeline,
@@ -1721,8 +1796,6 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "tums1237": TumshuqeseChatGPTPipeline,
     # Indo-Aryan (Indic): Sanskrit (Vedic & Classical), Prakrits, Pali, later medieval languages (Hindi, Bengali, etc.)
     ## Old Indo-Aryan
-    # Vedic Sanskrit (c. 1500–500 BCE) "vedi1234"
-    # Classical Sanskrit (from ~500 BCE) "clas1258"
     "vedi1234": VedicSanskritChatGPTPipeline,
     "clas1258": ClassicalSanskritChatGPTPipeline,
     # Prakrits (Middle Indo-Aryan, ca. 500 BCE–500 CE)
@@ -1733,7 +1806,10 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "maha1305": "Maharastri Prakrit"; Mahārāṣṭrī, Western Deccan (Maharashtra). Lyric and epic poetry, gatha
     # "maga1260": "Magadhi Prakrit"; Māgadhī, Magadha (Bihar). Buddhist texts (especially in eastern India).
     # "Gandhari": "gand1259"; Gāndhārī, Inscriptions and Buddhist texts. Kharoṣṭhī script
-    ## Middle Indo-Aryan
+    "saur1252": SauraseniPrakritChatGPTPipeline,
+    "maha1305": MaharastriPrakritChatGPTPipeline,
+    "maga1260": MagadhiPrakritChatGPTPipeline,
+    "gand1259": GandhariChatGPTPipeline,    ## Middle Indo-Aryan
     # "Maithili": "mait1250"; Apabhraṃśa; "Apabhramsa" is alt_name; (500–1200 CE); Bridges Prakrits → New Indo-Aryan
     ## New Indo-Aryan
     ## Medieval languages (~1200 CE onward):
@@ -1782,7 +1858,6 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Samʾalian (Zincirli) — 1st mill. BCE; NW Semitic variety with its own inscriptional corpus.
     ## South Semitic
     # Old South Arabian (OSA)
-    # Geʿez (Classical Ethiopic)
     "geez1241": GeezChatGPTPipeline,
     ### Central Semitic (bridge between NW and South)
     # Pre-Islamic Arabic

@@ -76,6 +76,10 @@ class SentenceSplittingProcess(Process):
             "lydi1241",  # Lydian
             "pala1331",  # Palaic
             "cari1274",  # Carian
+            "saur1252",  # Sauraseni Prakrit
+            "maha1305",  # Maharastri Prakrit
+            "maga1260",  # Magadhi Prakrit
+            "gand1259",  # Gandhari
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -448,3 +452,20 @@ class AlbanianSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Albanian."""
 
     glottolog_id: Optional[str] = "gheg1238"
+
+
+class SauraseniPrakritSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Sauraseni Prakrit."""
+    glottolog_id: Optional[str] = "saur1252"
+
+class MaharastriPrakritSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Maharastri Prakrit."""
+    glottolog_id: Optional[str] = "maha1305"
+
+class MagadhiPrakritSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Magadhi Prakrit."""
+    glottolog_id: Optional[str] = "maga1260"
+
+class GandhariSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Gandhari."""
+    glottolog_id: Optional[str] = "gand1259"

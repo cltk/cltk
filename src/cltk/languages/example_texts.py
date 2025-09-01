@@ -397,6 +397,25 @@ Rs 24′    šu-ú-na
 ślś : bśnś : kwśś : aśśś : ntrś : 
 śprśś : dwśś : qbrśś : tmśśś
 """,
+    # Śaurasenī Prakrit, Śakuntalā, Act IV, Śaurasenī dialogue
+    "saur1252": """sāmi, mama gharaṃ gato asi? 
+āṃ, tumaṃ gharaṃ gato. 
+kiṃ tumaṃ mama mitraṃ passasi? 
+āṃ, ahaṃ tassaṃ diṭṭhā. 
+""",
+    # Maharastri Prakrit, Sattasaī, verse 149,
+    "maha1305": """jeṇa padīṇaṃ paṇayanti paṇayanti ya jeṇa lajjanti |
+seṇa vi māṇavāṇāṃ vippaṭipattī hu suhavā ||
+""",
+    # Magadhi Prakrit, Bhagavatī Sūtra
+    "maga1260": """bhante, kahaṃ bhavissati esaṃ sattānaṃ gati? 
+te sattā kālena kālaṃ uppajjanti, kālena kālaṃ nirayesu nikkhanti. 
+evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
+""",
+    # Gandhari, Dharmapada fragment, Gāndhārī,
+    "gand1259": """na śameṇa śamaṃ eti, na śameṇa śamaṃ gataṃ |
+śameṇa śamaṃ eti, esa dhammasya dhāraṇā ||
+""",
     # "": """""",
 }
 
