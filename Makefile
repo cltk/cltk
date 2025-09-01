@@ -1,12 +1,15 @@
 build:
 	poetry build
 
-docs:
-	# typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
-	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
+# docs:
+# 	# typed_ast crashes ``sphinx-autodoc-typehints``; is dependency of ``mypy``, however not required for py3.8 and above
+# 	pip uninstall -y typed_ast && poetry run sphinx-apidoc --force --output-dir=docs --module-first src/cltk && cd docs && poetry run make html && cd ..
 
 # downloadAllModels:
 # 	poetry run python scripts/download_all_models.py
+
+fix:
+	poetry run ruff check --fix src
 
 format:
 	poetry run ruff format src/
@@ -30,8 +33,8 @@ installPyPITest:
 lint:
 	poetry run ruff check src/
 
-fix:
-	poetry run ruff check --fix src
+lock:
+	poetry lock
 
 notebook:
 	poetry run jupyter notebook notebooks
@@ -61,9 +64,15 @@ shell:
 	echo 'Tip: Use `option ``doctest_mode`` when making doctests'
 	poetry run ipython --automagic
 
-# test:
-# 	echo "Going to run all tests ..."
-# 	poetry run tox
+updateSnapshot:
+	poetry run pytest -k test_public_api_snapshot --snapshot-update
+
+testSnapshot:
+	poetry run pytest -k test_public_api_snapshot --snapshot-update
+
+test: typing
+	@echo "Running tests with coverage..."
+	poetry run pytest --cov=cltk --cov-report=term-missing
 
 # testChatGPT:
 # 	echo "Going to test code calling ChatGPT ..."
@@ -93,9 +102,9 @@ uninstall:
 updateDependencies:
 	poetry update
 
-uml:
-	cd docs/ && poetry run pyreverse -o svg ../src/cltk/ && cd ../
+# uml:
+# 	cd docs/ && poetry run pyreverse -o svg ../src/cltk/ && cd ../
 
-all: format lint typing test uml docs
+# all: format lint typing test uml docs
 
-.PHONY: build docs
+.PHONY: build docs test typing

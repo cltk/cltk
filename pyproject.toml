@@ -44,6 +44,11 @@ colorama = "^0.4.6"
 lxml = "^6.0.1"
 ruff = "^0.6.0"
 pre-commit = "^3.7.0"
+pytest = "^8.3.2"
+pytest-cov = "^5.0.0"
+pytest-mock = "^3.14.0"
+syrupy = "^4.6.0"
+hypothesis = "^6.112.0"
 
 # Note: setuptools package-data is unused with poetry-core and removed
 
@@ -81,6 +86,15 @@ namespace_packages = true
 explicit_package_bases = true
 mypy_path = "src"
 plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+xfail_strict = true
+filterwarnings = [
+  "error::DeprecationWarning",
+  "error::PendingDeprecationWarning",
+]
 
 [[tool.mypy.overrides]]
 module = [
