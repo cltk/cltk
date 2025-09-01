@@ -34,9 +34,31 @@ isort = "^6.0.1"
 jupyter = "^1.1.1"
 colorama = "^0.4.6"
 lxml = "^6.0.1"
+ruff = "^0.6.0"
+pre-commit = "^3.7.0"
 
 [tool.setuptools.package-data]
 cltk = ["languages/glottolog.json"]
+
+# Ruff configuration: formatter + lint (including isort rules)
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+fixable = ["E", "F", "I"]
+unfixable = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["cltk"]
+combine-as-imports = true
 
 [tool.mypy]
 python_version = "3.13"

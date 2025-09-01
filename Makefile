@@ -9,7 +9,7 @@ downloadAllModels:
 	poetry run python scripts/download_all_models.py
 
 format:
-	poetry run isort --profile black src/cltk tests docs scripts && poetry run black src/cltk tests docs scripts
+	poetry run ruff format src tests docs scripts
 
 freezeDependencies:
 	# Update lock file from pyptoject.toml, but do not install the changed/added packages
@@ -28,7 +28,10 @@ installPyPITest:
 	pip install --index-url https://test.pypi.org/simple/ --no-deps cltk
 
 lint:
-	mkdir -p pylint && poetry run pylint --output-format=json cltk > pylint/pylint.json || true && poetry run pylint-json2html pylint/pylint.json 1> pylint/pylint.html
+	poetry run ruff check src tests scripts
+
+fix:
+	poetry run ruff check --fix src tests scripts
 
 notebook:
 	poetry run jupyter notebook notebooks
