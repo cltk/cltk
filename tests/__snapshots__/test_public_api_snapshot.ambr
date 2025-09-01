@@ -1,0 +1,967 @@
+# serializer version: 1
+# name: test_public_api_snapshot
+  dict({
+    'ChatGPTProcess': dict({
+      'fields': list([
+        'api_key',
+        'authorship_info',
+        'chatgpt',
+        'description',
+        'glottolog_id',
+        'model',
+        'temperature',
+      ]),
+      'run_signature': '(self, input_doc: cltk.core.data_types_v3.Doc) -> cltk.core.data_types_v3.Doc',
+      'subclasses': list([
+        dict({
+          'glottolog_id': 'xae',
+          'name': 'AequianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xag',
+          'name': 'AghwanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'akka1240',
+          'name': 'AkkadianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xln',
+          'name': 'AlanicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'gheg1238',
+          'name': 'AlbanianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'anci1242',
+          'name': 'AncientGreekChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xlg',
+          'name': 'AncientLigurianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xmk',
+          'name': 'AncientMacedonianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xna',
+          'name': 'AncientNorthArabianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xzp',
+          'name': 'AncientZapotecChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xaa',
+          'name': 'AndalusianArabicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xno',
+          'name': 'AngloNormanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xaq',
+          'name': 'AquitanianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pka',
+          'name': 'ArdhamāgadhīPrākritChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xrm',
+          'name': 'ArmazicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'aves1237',
+          'name': 'AvestanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'bact1239',
+          'name': 'BactrianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ben',
+          'name': 'BengaliChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'anci1244',
+          'name': 'BiblicalHebrewChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xbo',
+          'name': 'BolgarianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pyx',
+          'name': 'BurmaPyuChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xcc',
+          'name': 'CamunicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'cari1274',
+          'name': 'CarianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xce',
+          'name': 'CeltiberianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'chur1257',
+          'name': 'ChurchSlavicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xcg',
+          'name': 'CisalpineGaulishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'arb-cla',
+          'name': 'ClassicalArabicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xcl',
+          'name': 'ClassicalArmenianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'myz',
+          'name': 'ClassicalMandaicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'cmg',
+          'name': 'ClassicalMongolianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nci',
+          'name': 'ClassicalNahuatlChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nwc',
+          'name': 'ClassicalNewariChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'qwc',
+          'name': 'ClassicalQuechuaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'clas1258',
+          'name': 'ClassicalSanskritChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'clas1252',
+          'name': 'ClassicalSyriacChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'clas1254',
+          'name': 'ClassicalTibetanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'copt1239',
+          'name': 'CopticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xcb',
+          'name': 'CumbricChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'cune1239',
+          'name': 'CuneiformLuwianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xcu',
+          'name': 'CuronianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xdc',
+          'name': 'DacianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'demo1234',
+          'name': 'DemoticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oldi1245',
+          'name': 'EarlyIrishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xtr',
+          'name': 'EarlyTripuriChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pan',
+          'name': 'EasternPanjabiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xeb',
+          'name': 'EblaiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xdm',
+          'name': 'EdomiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'elx',
+          'name': 'ElamiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xly',
+          'name': 'ElymianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xep',
+          'name': 'EpiOlmecChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'emy',
+          'name': 'EpigraphicMayanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ecr',
+          'name': 'EteocretanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ecy',
+          'name': 'EteocypriotChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ett',
+          'name': 'EtruscanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xfa',
+          'name': 'FaliscanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xga',
+          'name': 'GalatianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xgl',
+          'name': 'GalindanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'gand1259',
+          'name': 'GandhariChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'geez1241',
+          'name': 'GeezChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'goth1244',
+          'name': 'GothicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'guj',
+          'name': 'GujaratiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pgd',
+          'name': 'GāndhārīChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xhd',
+          'name': 'HadramiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xha',
+          'name': 'HaramiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xiv',
+          'name': 'HarappanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xht',
+          'name': 'HatticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xhr',
+          'name': 'HernicanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ghc',
+          'name': 'HibernoScottishGaelicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'hier1240',
+          'name': 'HieroglyphicLuwianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'hin',
+          'name': 'HindiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'hit1242',
+          'name': 'HittiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xhc',
+          'name': 'HunnicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xhu',
+          'name': 'HurrianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xib',
+          'name': 'IberianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xil',
+          'name': 'IllyrianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'jut',
+          'name': 'JutishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'kjv',
+          'name': 'KajkavianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'kan',
+          'name': 'KannadaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zra',
+          'name': 'KaraChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xqa',
+          'name': 'KarakhanidChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zsk',
+          'name': 'KaskeanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'kaw',
+          'name': 'KawiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zkz',
+          'name': 'KhazarChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zkh',
+          'name': 'KhorezmianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'khot1251',
+          'name': 'KhotaneseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xco',
+          'name': 'KhwarezmianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zkt',
+          'name': 'KitanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zkg',
+          'name': 'KoguryoChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lng',
+          'name': 'LangobardicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'late1256',
+          'name': 'LateEgyptianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lati1261',
+          'name': 'LatinChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'latv1249',
+          'name': 'LatvianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xle',
+          'name': 'LemnianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xlp',
+          'name': 'LeponticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xli',
+          'name': 'LiburnianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lab',
+          'name': 'LinearAChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lite1248',
+          'name': 'LiteraryChineseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lith1251',
+          'name': 'LithuanianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xls',
+          'name': 'LusitanianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lyci1241',
+          'name': 'LycianAChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'lydi1241',
+          'name': 'LydianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'hmk',
+          'name': 'MaekChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'maga1260',
+          'name': 'MagadhiPrakritChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'maha1305',
+          'name': 'MaharastriPrakritChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'mal',
+          'name': 'MalayalamChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xmn',
+          'name': 'ManichaeanMiddlePersianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'umc',
+          'name': 'MarrucinianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ims',
+          'name': 'MarsianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xme',
+          'name': 'MedianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xmr',
+          'name': 'MeroiticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'cms',
+          'name': 'MessapicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'axm',
+          'name': 'MiddleArmenianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oldb1244',
+          'name': 'MiddleBretonChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ltc',
+          'name': 'MiddleChineseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'corn1251',
+          'name': 'MiddleCornishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'dum',
+          'name': 'MiddleDutchChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'midd1369',
+          'name': 'MiddleEgyptianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'midd1317',
+          'name': 'MiddleEnglishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'midd1316',
+          'name': 'MiddleFrenchChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'midd1343',
+          'name': 'MiddleHighGermanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'htx',
+          'name': 'MiddleHittiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'mga',
+          'name': 'MiddleIrishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'okm',
+          'name': 'MiddleKoreanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'gml',
+          'name': 'MiddleLowGermanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xng',
+          'name': 'MiddleMongolChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nwx',
+          'name': 'MiddleNewarChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pahl1241',
+          'name': 'MiddlePersianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'imy',
+          'name': 'MilyanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'inm',
+          'name': 'MinaeanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'omn',
+          'name': 'MinoanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'obm',
+          'name': 'MoabiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'mxi',
+          'name': 'MozarabicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'gmy',
+          'name': 'MycenaeanGreekChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'yms',
+          'name': 'MysianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ndf',
+          'name': 'NadruvianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nei',
+          'name': 'NeoHittiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nrc',
+          'name': 'NoricChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nrp',
+          'name': 'NorthPiceneChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'nxm',
+          'name': 'NumidianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ory',
+          'name': 'OdiaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'impe1235',
+          'name': 'OfficialAramaicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oar',
+          'name': 'OldAramaicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oav',
+          'name': 'OldAvarChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'obt',
+          'name': 'OldBretonChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'obr',
+          'name': 'OldBurmeseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'och',
+          'name': 'OldChineseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oco',
+          'name': 'OldCornishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'odt',
+          'name': 'OldDutchOldFrankishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'olde1242',
+          'name': 'OldEgyptianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'olde1238',
+          'name': 'OldEnglishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'frk',
+          'name': 'OldFrankishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oldf1239',
+          'name': 'OldFrenchChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ofs',
+          'name': 'OldFrisianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oge',
+          'name': 'OldGeorgianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'goh',
+          'name': 'OldHighGermanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oht',
+          'name': 'OldHittiteChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ohu',
+          'name': 'OldHungarianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ojp',
+          'name': 'OldJapaneseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oko',
+          'name': 'OldKoreanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'olt',
+          'name': 'OldLithuanianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'omp',
+          'name': 'OldManipuriChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'omr',
+          'name': 'OldMarathiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oldw1239',
+          'name': 'OldMiddleWelshChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'omx',
+          'name': 'OldMonChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'non',
+          'name': 'OldNorseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'onw',
+          'name': 'OldNubianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oos',
+          'name': 'OldOsseticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oldp1254',
+          'name': 'OldPersianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pro',
+          'name': 'OldProvençalChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'prus1238',
+          'name': 'OldPrussianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'orv',
+          'name': 'OldRussianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'osx',
+          'name': 'OldSaxonChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'osp',
+          'name': 'OldSpanishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oty',
+          'name': 'OldTamilChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'otb',
+          'name': 'OldTibetanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'oui',
+          'name': 'OldTurkicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'otk',
+          'name': 'OldTurkishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'osc',
+          'name': 'OscanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ota',
+          'name': 'OttomanTurkishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pkc',
+          'name': 'PaekcheChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pgn',
+          'name': 'PaelignianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pala1331',
+          'name': 'PalaicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pau',
+          'name': 'PalauanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pali1273',
+          'name': 'PaliChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pam',
+          'name': 'PampangaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'part1239',
+          'name': 'ParthianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pus',
+          'name': 'PashtoChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pes',
+          'name': 'PersianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'phoe1239',
+          'name': 'PhoenicianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pic',
+          'name': 'PicardChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pol',
+          'name': 'PolishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'por',
+          'name': 'PortugueseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pro',
+          'name': 'ProvençalChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'pan',
+          'name': 'PunjabiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xqs',
+          'name': 'QashqaiChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'que',
+          'name': 'QuechuaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'rar',
+          'name': 'RarotonganChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ron',
+          'name': 'RomanianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'rus',
+          'name': 'RussianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'srd',
+          'name': 'SardinianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'saur1252',
+          'name': 'SauraseniPrakritChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'gla',
+          'name': 'ScottishGaelicChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'srp',
+          'name': 'SerbianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'scn',
+          'name': 'SicilianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'szl',
+          'name': 'SilesianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'slk',
+          'name': 'SlovakChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'slv',
+          'name': 'SlovenianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'sogd1245',
+          'name': 'SogdianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'som',
+          'name': 'SomaliChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'wen',
+          'name': 'SorbianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'spa',
+          'name': 'SpanishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'sux',
+          'name': 'SumerianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'swe',
+          'name': 'SwedishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'syc',
+          'name': 'SyriacChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'tah',
+          'name': 'TahitianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'bod',
+          'name': 'TibetanChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'tir',
+          'name': 'TigrinyaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'tig',
+          'name': 'TigréChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'toch1238',
+          'name': 'TokharianAChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'toch1237',
+          'name': 'TokharianBChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'tums1237',
+          'name': 'TumshuqeseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'tur',
+          'name': 'TurkishChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ugar1238',
+          'name': 'UgariticChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'uig',
+          'name': 'UighurChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ukr',
+          'name': 'UkrainianChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'ud',
+          'name': 'UrduChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'uz',
+          'name': 'UzbekChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'vedi1234',
+          'name': 'VedicSanskritChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'vie',
+          'name': 'VietnameseChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'cy',
+          'name': 'WelshChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'wo',
+          'name': 'WolofChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'xh',
+          'name': 'XhosaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'yo',
+          'name': 'YorubaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zza',
+          'name': 'ZazaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zen',
+          'name': 'ZenagaChatGPTProcess',
+        }),
+        dict({
+          'glottolog_id': 'zu',
+          'name': 'ZuluChatGPTProcess',
+        }),
+      ]),
+    }),
+    'top_level': dict({
+      'has_NLP': True,
+      'has___version__': True,
+    }),
+  })
+# ---
