@@ -428,7 +428,7 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     # Sgaw Karen (Myanmar script)
     "sgaw1245": """ဒါက ဇဂေါဝါး ဘာသာစကားရဲ့ ဥပမာတစ်ခုပါ။""",
     # Middle Mongol (placeholder Latin transcription)
-    "midd1351": """eke mongɣol-un bičilge-yi kebtelüge üge.""",
+    "mong1329": """eke mongɣol-un bičilge-yi kebtelüge üge.""",
     # Classical Mongolian (vertical script often; placeholder Latin)
     "mong1331": """mongɣol kele-yin ǰirum-a inu bičig-üdur-un üge.""",
     # Mogholi (Perso-Arabic script; placeholder)
@@ -453,6 +453,26 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     "kash1277": """یہ کشمیری زبان کی ایک مثال ہے۔""",
     # Bagri (Rajasthani)
     "bagr1243": """म्हारो नाम बागरी सै। म्हैं रैजस्थानी बाणी बोलूं।""",
+    # Moabite (Phoenician-family glyphs, placeholder)
+    "moab1234": """𐤌𐤀𐤁𐤉 𐤟 𐤋𐤀𐤌.""",
+    # Ammonite
+    "ammo1234": """𐤀𐤌𐤍 𐤟 𐤁𐤍𐤀𐤌.""",
+    # Edomite
+    "edom1234": """𐤀𐤃𐤌 𐤟 𐤋𐤀𐤌.""",
+    # Old Aramaic (square script placeholder)
+    "olda1246": """לשון ארמית קדומה.׃""",
+    # Old Aramaic–Samʾalian (Phoenician-family divider)
+    "olda1245": """𐤔𐤌𐤀𐤋𐤉𐤍 𐤟 𐤀𐤓𐤌.""",
+    # Middle Aramaic (Syriac placeholder)
+    "midd1366": """ܠܫܢܐ ܐܪ̈ܡܝܐ ܡܨܥܝܐ.܃""",
+    # Classical Mandaic (placeholder)
+    "clas1253": """ࡌࡀࡍࡃࡀࡉࡉࡀ ࡁࡀࡔࡀ.""",
+    # Hatran (placeholder)
+    "hatr1234": """Hatran inscription sample.""",
+    # Jewish Babylonian Aramaic (square script placeholder)
+    "jewi1240": """תלמודא דבבל׃""",
+    # Samʾalian (Phoenician-family glyphs)
+    "sama1234": """𐤎𐤌𐤀𐤋𐤉𐤍 𐤟 𐤌𐤋𐤊.""",
     # Hindi (Old Hindi/Hindavī umbrella). Kabir doha; normalized Devanāgarī
     "hind1269": """साधु ऐसा चाहिए जैसा सूप सुभाय ।
 जाके मुख से निकले वही सार-सार ।

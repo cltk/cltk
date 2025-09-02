@@ -36,6 +36,13 @@ def split_sentences_multilang(
         "clas1258": r"([।॥.!?])",  # Classical Sanskrit: danda, double danda, period, exclamation, question
         "pali1273": r"([।॥!?])",  # Pali: danda, period, exclamation, question
         "anci1244": r"([׃.])",  # Biblical Hebrew: sof pasuq, full stop
+        # Aramaic continuum
+        "olda1246": r"([׃.?!])",  # Old Aramaic (up to 700 BCE)
+        "olda1245": r"([𐤟.?!])",  # Old Aramaic–Samʾalian (allow Phoenician divider)
+        "midd1366": r"([׃.?!])",  # Middle Aramaic
+        "clas1253": r"([.!?])",  # Classical Mandaic
+        "hatr1234": r"([.!?])",  # Hatran
+        "jewi1240": r"([׃.?!])",  # Jewish Babylonian Aramaic
         "impe1235": r"([׃.?!])",  # Aramaic: sof pasuq (U+05C3), period, question, exclamation
         "copt1239": r"([⳹.!?])",  # Coptic: punctuation marks
         "oldn1244": r"([.:;!?])",  # Old Norse: period, colon, semicolon, exclamation, question
@@ -79,6 +86,10 @@ def split_sentences_multilang(
         "oldi1245": r"([.!?])",  # Early Irish: Latin punctuation
         "ugar1238": r"([𒑰])",  # Ugaritic: generic punctuation
         "phoe1239": r"([𐤟])",  # Phoenician: generic punctuation
+        "moab1234": r"([𐤟])",  # Moabite (Phoenician-family divider)
+        "ammo1234": r"([𐤟])",  # Ammonite
+        "edom1234": r"([𐤟])",  # Edomite
+        "sama1234": r"([𐤟])",  # Samʾalian
         "geez1241": r"([፡።፨])",  # Geez: generic punctuation
         "midd1369": r"([𓏛])",  # Middle Egyptian: generic punctuation
         "olde1242": r"([𓏛])",  # Old Egyptian: generic punctuation
@@ -100,7 +111,7 @@ def split_sentences_multilang(
         "newa1246": r"([।॥.!?])",  # Newar (Devanāgarī punctuation)
         "mani1292": r"([꯫।.!?])",  # Meitei: Cheikhei (꯫) and danda
         # Mongolic family
-        "midd1351": r"([᠃.!?])",  # Middle Mongol: include Mongolian full stop ᠃
+        "mong1329": r"([᠃.!?])",  # Middle Mongol: include Mongolian full stop ᠃
         "mong1331": r"([᠃.!?])",  # Classical Mongolian
         "mogh1245": r"([.!\u061F\u06D4])",  # Mogholi (Perso-Arabic punctuation)
         # South Asian – additional

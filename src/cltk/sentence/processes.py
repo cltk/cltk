@@ -78,6 +78,18 @@ class SentenceSplittingProcess(Process):
             "maha1305",  # Maharastri Prakrit
             "maga1260",  # Magadhi Prakrit
             "gand1259",  # Gandhari
+            # Canaanite / Northwest Semitic
+            "moab1234",  # Moabite
+            "ammo1234",  # Ammonite
+            "edom1234",  # Edomite
+            "sama1234",  # Samʾalian
+            # Aramaic continuum
+            "olda1246",  # Old Aramaic
+            "olda1245",  # Old Aramaic–Samʾalian
+            "midd1366",  # Middle Aramaic
+            "clas1253",  # Classical Mandaic
+            "hatr1234",  # Hatran
+            "jewi1240",  # Jewish Babylonian Aramaic
             # Newly added: Hindi family lects
             "hind1269",  # Hindi (glottocode)
             "khad1239",  # Khari Boli (Hindi dialect)
@@ -109,7 +121,7 @@ class SentenceSplittingProcess(Process):
             "mani1292",  # Meitei (Classical Manipuri)
             "sgaw1245",  # Sgaw Karen
             # Mongolic
-            "midd1351",  # Middle Mongol
+            "mong1329",  # Middle Mongol
             "mong1331",  # Classical Mongolian
             "mogh1245",  # Mogholi (Moghol)
         ]:
@@ -487,7 +499,7 @@ class SgawKarenSentenceSplittingProcess(SentenceSplittingProcess):
 class MiddleMongolSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Middle Mongol."""
 
-    glottolog_id: Optional[str] = "midd1351"
+    glottolog_id: Optional[str] = "mong1329"
 
 
 class ClassicalMongolianSentenceSplittingProcess(SentenceSplittingProcess):
@@ -662,3 +674,63 @@ class GandhariSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Gandhari."""
 
     glottolog_id: Optional[str] = "gand1259"
+
+
+class MoabiteSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Moabite."""
+
+    glottolog_id: Optional[str] = "moab1234"
+
+
+class AmmoniteSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Ammonite."""
+
+    glottolog_id: Optional[str] = "ammo1234"
+
+
+class EdomiteSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Edomite."""
+
+    glottolog_id: Optional[str] = "edom1234"
+
+
+class OldAramaicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Aramaic (up to 700 BCE)."""
+
+    glottolog_id: Optional[str] = "olda1246"
+
+
+class OldAramaicSamalianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Aramaic–Samʾalian."""
+
+    glottolog_id: Optional[str] = "olda1245"
+
+
+class MiddleAramaicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Middle Aramaic."""
+
+    glottolog_id: Optional[str] = "midd1366"
+
+
+class ClassicalMandaicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Classical Mandaic."""
+
+    glottolog_id: Optional[str] = "clas1253"
+
+
+class HatranSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Hatran."""
+
+    glottolog_id: Optional[str] = "hatr1234"
+
+
+class JewishBabylonianAramaicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Jewish Babylonian Aramaic."""
+
+    glottolog_id: Optional[str] = "jewi1240"
+
+
+class SamalianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Samʾalian."""
+
+    glottolog_id: Optional[str] = "sama1234"

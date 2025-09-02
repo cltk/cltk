@@ -349,7 +349,7 @@ class ClassicalArmenianChatGPTProcess(ChatGPTProcess):
 
 
 class ClassicalMandaicChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "myz"
+    glottolog_id: Optional[str] = "clas1253"
     description: str = "Default process for ChatGPT for the Classical Mandaic language."
     authorship_info: str = "Classical MandaicChatGPTProcess using OpenAI GPT models."
 
@@ -441,7 +441,7 @@ class EblaiteChatGPTProcess(ChatGPTProcess):
 
 
 class EdomiteChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "xdm"
+    glottolog_id: Optional[str] = "edom1234"
     description: str = "Default process for ChatGPT for the Edomite language."
     authorship_info: str = "EdomiteChatGPTProcess using OpenAI GPT models."
 
@@ -925,7 +925,7 @@ class MiddleLowGermanChatGPTProcess(ChatGPTProcess):
 
 
 class MiddleMongolChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "midd1351"
+    glottolog_id: Optional[str] = "mong1329"
     description: str = "Default process for ChatGPT for the Middle Mongol language."
     authorship_info: str = "Middle MongolChatGPTProcess using OpenAI GPT models."
 
@@ -955,7 +955,7 @@ class MinoanChatGPTProcess(ChatGPTProcess):
 
 
 class MoabiteChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "obm"
+    glottolog_id: Optional[str] = "moab1234"
     description: str = "Default process for ChatGPT for the Moabite language."
     authorship_info: str = "MoabiteChatGPTProcess using OpenAI GPT models."
 
@@ -1021,16 +1021,6 @@ class OfficialAramaicChatGPTProcess(ChatGPTProcess):
     )
     authorship_info: str = (
         "Official Aramaic (700-300 BCE) ChatGPTProcess using OpenAI GPT models."
-    )
-
-
-class OldAramaicChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "oar"
-    description: str = (
-        "Default process for ChatGPT for the Old Aramaic (up to 700 BCE) language."
-    )
-    authorship_info: str = (
-        "Old Aramaic (up to 700 BCE)ChatGPTProcess using OpenAI GPT models."
     )
 
 
@@ -1104,6 +1094,56 @@ class MogholiChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "mogh1245"
     description: str = "Default process for ChatGPT for the Mogholi (Moghol) language."
     authorship_info: str = "MogholiChatGPTProcess using OpenAI GPT models."
+
+
+class AmmoniteChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "ammo1234"
+    description: str = "Default process for ChatGPT for the Ammonite language."
+    authorship_info: str = "AmmoniteChatGPTProcess using OpenAI GPT models."
+
+
+class OldAramaicChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "olda1246"
+    description: str = (
+        "Default process for ChatGPT for the Old Aramaic (up to 700 BCE) language."
+    )
+    authorship_info: str = "OldAramaicChatGPTProcess using OpenAI GPT models."
+
+
+class OldAramaicSamalianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "olda1245"
+    description: str = (
+        "Default process for ChatGPT for the Old Aramaic–Samʾalian language."
+    )
+    authorship_info: str = "OldAramaicSamalianChatGPTProcess using OpenAI GPT models."
+
+
+class MiddleAramaicChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "midd1366"
+    description: str = "Default process for ChatGPT for the Middle Aramaic language."
+    authorship_info: str = "MiddleAramaicChatGPTProcess using OpenAI GPT models."
+
+
+class HatranChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "hatr1234"
+    description: str = "Default process for ChatGPT for the Hatran language."
+    authorship_info: str = "HatranChatGPTProcess using OpenAI GPT models."
+
+
+class JewishBabylonianAramaicChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "jewi1240"
+    description: str = (
+        "Default process for ChatGPT for the Jewish Babylonian Aramaic language."
+    )
+    authorship_info: str = (
+        "JewishBabylonianAramaicChatGPTProcess using OpenAI GPT models."
+    )
+
+
+class SamalianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "sama1234"
+    description: str = "Default process for ChatGPT for the Samʾalian language."
+    authorship_info: str = "SamalianChatGPTProcess using OpenAI GPT models."
 
 
 class OldCornishChatGPTProcess(ChatGPTProcess):
