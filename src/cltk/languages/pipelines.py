@@ -2284,17 +2284,24 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Biblical Hebrew
     "anci1244": BiblicalHebrewChatGPTPipeline,
     # Medieval Hebrew
-    # Moabite, Ammonite, Edomite
+    # "moab1234": Moabite
+    # "ammo1234": Ammonite
+    # "edom1234": Edomite
     # Old Aramaic (ca. 1000–700 BCE, inscriptions).
+    # "olda1246": "Old Aramaic (up to 700 BCE)",
+    # "Old Aramaic-Sam'alian": "olda1245"
     # Imperial Aramaic (ca. 700–300 BCE), lingua franca of Assyrian, Babylonian, Persian empires.
     "impe1235": ImperialAramaicChatGPTPipeline,
-    # Middle Aramaic (200 BCE – 700 CE), includes Biblical Aramaic, Palmyrene, Nabataean, Targumic Aramaic.
-    # Syriac (2nd c. CE → medieval period): huge Christian corpus (Bible, hymns, philosophy).
+    # "midd1366": Middle Aramaic (200 BCE – 700 CE), includes Biblical Aramaic, Palmyrene, Nabataean, Targumic Aramaic.
+    # Eastern Middle Aramaic
+    ##  Classical Mandaic, Hatran, Jewish Babylonian Aramaic dialects, and Classical Syriac
+    # "clas1253": "Classical Mandaic"
+    # "hatr1234": "Hatran"
     "clas1252": ClassicalSyriacChatGPTPipeline,
-    # Jewish Babylonian Aramaic: Talmud, liturgy.
-    # Mandaic: liturgy of the Mandaeans.
+    # "jewi1240": "Jewish Babylonian Aramaic"
     ### NW Semitic
     # Samʾalian (Zincirli) — 1st mill. BCE; NW Semitic variety with its own inscriptional corpus.
+    # "sama1234": "Samʾalian"
     ## South Semitic
     # Old South Arabian (OSA)
     "geez1241": GeezChatGPTPipeline,
