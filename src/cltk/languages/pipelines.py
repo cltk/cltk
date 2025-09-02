@@ -2377,10 +2377,6 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "pali1273": PaliChatGPTPipeline,
     # Ardhamāgadhī, Śaurasenī, Mahārāṣṭrī, etc. — languages of Jain/Buddhist texts and early drama.
     # ? Glotto says alt_name for Pali; Ardhamāgadhī, literary language associated with Magadha (eastern India); Jain canonical texts (the Āgamas) are written primarily in Ardhamāgadhī
-    # "saur1252": "Sauraseni Prakrit"; Śaurasenī, Linked to Śūrasena (region around Mathurā, central north India).
-    # "maha1305": "Maharastri Prakrit"; Mahārāṣṭrī, Western Deccan (Maharashtra). Lyric and epic poetry, gatha
-    # "maga1260": "Magadhi Prakrit"; Māgadhī, Magadha (Bihar). Buddhist texts (especially in eastern India).
-    # "Gandhari": "gand1259"; Gāndhārī, Inscriptions and Buddhist texts. Kharoṣṭhī script
     "saur1252": SauraseniPrakritChatGPTPipeline,
     "maha1305": MaharastriPrakritChatGPTPipeline,
     "maga1260": MagadhiPrakritChatGPTPipeline,
@@ -2390,15 +2386,10 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     ## Medieval languages (~1200 CE onward):
     # Early forms of Hindi, Bengali, Gujarati, Marathi, Punjabi, Oriya, Sinhala, etc
     # North-Western / Hindi Belt
-    # "hind1269": "Hindi"; "Old Hindi" is alt_name: ~10th–14th century CE.
     "hind1269": HindiChatGPTPipeline,
-    # "khad1239": "Hindi"; Khari Boli is alt name: In the medieval period (before 1700), Khari Boli itself was not a prestigious literary dialect; Braj and Awadhi dominated literary use.; becomes the basis of Standard Hindi and Standard Urdu
     "khad1239": KhariBoliChatGPTPipeline,
-    # "braj1242": "Braj" Braj Bhāṣā: Braj area around Mathura, Agra, western Uttar Pradesh, parts of Rajasthan; Flourished 15th–18th centuries as a major literary dialect; language of Krishna bhakti poetry
     "braj1242": BrajChatGPTPipeline,
-    # "awad1243": "Awadhi" Awadhi: Awadh region of eastern Uttar Pradesh; Active literary language from 14th century onward; Rāmāyaṇa tradition, Sufi poetry
     "awad1243": AwadhiChatGPTPipeline,
-    # "urdu1245": "Urdu" Urdu: 13th–14th c.: In Delhi Sultanate, Sufi poets (e.g. Amīr Khusro, d. 1325) composed in Hindavī, blending Khari Boli vernacular with Persian/Arabic elements.
     "urdu1245": UrduChatGPTPipeline,
     # Eastern Indo-Aryan
     "beng1280": BengaliChatGPTPipeline,
@@ -2433,7 +2424,6 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # Old Aramaic (ca. 1000–700 BCE, inscriptions).
     # "olda1246": "Old Aramaic (up to 700 BCE)",
     # "Old Aramaic-Sam'alian": "olda1245"
-    # Imperial Aramaic (ca. 700–300 BCE), lingua franca of Assyrian, Babylonian, Persian empires.
     "impe1235": ImperialAramaicChatGPTPipeline,
     "olda1246": OldAramaicChatGPTPipeline,
     "olda1245": OldAramaicSamalianChatGPTPipeline,
@@ -2445,19 +2435,13 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     # "midd1366": Middle Aramaic (200 BCE – 700 CE), includes Biblical Aramaic, Palmyrene, Nabataean, Targumic Aramaic.
     # Eastern Middle Aramaic
     ##  Classical Mandaic, Hatran, Jewish Babylonian Aramaic dialects, and Classical Syriac
-    # "clas1253": "Classical Mandaic"
-    # "hatr1234": "Hatran"
     "clas1252": ClassicalSyriacChatGPTPipeline,
-    # "jewi1240": "Jewish Babylonian Aramaic"
     ### NW Semitic
-    # Samʾalian (Zincirli) — 1st mill. BCE; NW Semitic variety with its own inscriptional corpus.
-    # "sama1234": "Samʾalian"
     ## South Semitic
     # Old South Arabian (OSA)
     "geez1241": GeezChatGPTPipeline,
     ### Central Semitic (bridge between NW and South)
     # Pre-Islamic Arabic
-    # Classical Arabic (7th c. CE onward): Qurʾān, poetry, early Islamic literature.
     "clas1259": ClassicalArabicChatGPTPipeline,  # Dialect
     # Glotto doesn't have medieval arabic; Medieval Arabic: scientific, philosophical, historical works dominate much of the Islamic Golden Age corpus.
     ## Egyptian languages
