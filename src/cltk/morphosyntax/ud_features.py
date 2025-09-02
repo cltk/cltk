@@ -1,6 +1,12 @@
-"""Universal Dependencies (UD) Features and Values.
+"""Universal Dependencies (UD) features and values.
 
-https://universaldependencies.org/u/feat/index.html
+This module defines the UD feature inventory (keys and values), provides
+validated data models for feature tags, and utilities to normalize and build
+feature tag sets from raw annotations.
+
+References:
+    - UD Features: https://universaldependencies.org/u/feat/index.html
+
 """
 
 __license__ = "MIT License. See LICENSE."
@@ -13,6 +19,16 @@ from cltk.core.cltk_logger import logger
 
 
 class UDFeatureValue(BaseModel):
+    """Canonical value for a UD feature key.
+
+    Attributes:
+        code: Short code for the value (e.g., ``"Masc"``).
+        label: Human‑readable label (e.g., ``"Masculine"``).
+        description: Longer explanation of the value.
+        is_deprecated: Whether the value is deprecated in UD.
+
+    """
+
     code: str  # e.g., "Masc"
     label: str  # e.g., "Masculine"
     description: str  # Full explanation
@@ -20,6 +36,18 @@ class UDFeatureValue(BaseModel):
 
 
 class UDFeature(BaseModel):
+    """Canonical UD feature definition.
+
+    Attributes:
+        key: Feature key (e.g., ``"Case"``).
+        category: High‑level category (lexical/inflectional/other).
+        description: Description of the feature semantics.
+        values: Mapping from value codes to their definitions.
+        inflectional_class: Optional class of inflectional features
+            (e.g., ``"Nominal"``, ``"Verbal"``).
+
+    """
+
     key: str  # e.g., "Case"
     category: Literal["Lexical", "Inflectional", "Other"]
     description: str
@@ -28,6 +56,20 @@ class UDFeature(BaseModel):
 
 
 class UDFeatureTag(BaseModel):
+    """A single UD feature key/value tag.
+
+    Validates a pair (``key``, ``value``) against the registry, attempting to
+    normalize known variants via ``normalize_ud_feature_pair``.
+
+    Attributes:
+        key: UD feature key (e.g., ``"Case"``).
+        value: UD feature value code (e.g., ``"Nom"``).
+        value_label: Human‑readable label resolved from the registry.
+        category: Feature category populated from the canonical definition.
+        inflectional_class: Optional inflectional class for the feature.
+
+    """
+
     # Use this when instantiated a tagged word
     key: str
     value: str
@@ -38,6 +80,22 @@ class UDFeatureTag(BaseModel):
     @model_validator(mode="before")
     @classmethod
     def fill_fields(cls, data: dict) -> dict:
+        """Pre-validate and enrich tag data using the feature registry.
+
+        Attempts to normalize ``(key, value)`` pairs that are not found. On
+        success, populates ``category``, ``inflectional_class``, and
+        ``value_label`` based on the canonical ``UD_FEATURES_MAP`` entry.
+
+        Args:
+            data: Input dictionary with at least ``key`` and ``value``.
+
+        Raises:
+            ValueError: If required fields are missing or normalization fails.
+
+        Returns:
+            The enriched data dictionary for model construction.
+
+        """
         key = data.get("key")
         value = data.get("value")
         if not isinstance(key, str) or not isinstance(value, str):
@@ -66,18 +124,40 @@ class UDFeatureTag(BaseModel):
         return data
 
     def __str__(self) -> str:
+        """Return a short, readable representation of the feature tag."""
         return f"UDFeatureTag({self.key}={self.value_label}" + ")"
 
     def __repr__(self) -> str:
+        """Alias for ``__str__`` to aid debugging and logging."""
         return self.__str__()
 
 
 class UDFeatureTagSet(BaseModel):
+    """A collection of feature tags for a token.
+
+    Attributes:
+        features: Ordered list of ``UDFeatureTag`` entries.
+
+    Notes:
+        This uses a list to retain insertion order. A dictionary keyed by
+        feature "key" may be more efficient for lookups in some contexts.
+
+    """
+
     # `add_feature` would be a little faster if this were a dict
     # `features: dict[str, UDFeatureTag] = {}`
     features: list[UDFeatureTag] = []
 
     def add_feature(self, feature: UDFeatureTag) -> None:
+        """Add a feature to the set if the key is not already present.
+
+        Args:
+            feature: Feature tag to add.
+
+        Returns:
+            None
+
+        """
         if any(f.key == feature.key for f in self.features):
             logger.error(
                 f"Feature with key '{feature.key}' already exists in the tag set."
@@ -87,10 +167,12 @@ class UDFeatureTagSet(BaseModel):
         logger.debug(f"Added feature {feature.key} to UDFeatureTagSet.")
 
     def __str__(self) -> str:
+        """Return a compact, readable representation of the tag set."""
         features_str = ", ".join(str(f) for f in self.features)
         return f"UDFeatureTagSet([{features_str}])"
 
     def __repr__(self) -> str:
+        """Alias for ``__str__`` to aid debugging and logging."""
         return self.__str__()
 
 
@@ -1255,15 +1337,16 @@ UD_FEATURES_MAP = {feature.key: feature for feature in UD_FEATURES}
 
 
 def normalize_ud_feature_key(key: str) -> Optional[str]:
-    """Normalize a UD feature key to the standard key used in `UD_FEATURES_MAP`.
+    """Normalize a UD feature key to the canonical form in ``UD_FEATURES_MAP``.
 
-    Extend this mapping as new variants or errors are encountered.
+    Extend this mapping as new variants or upstream errors are encountered.
 
     Args:
-        key (str): The feature key to normalize (e.g., "case", "Case", "GENDER").
+        key: Feature key to normalize (e.g., "case", "Case", "GENDER").
 
     Returns:
-        str: The normalized UD feature key (e.g., "Case", "Gender"). `False` if unable to normalize.
+        The normalized UD feature key (e.g., "Case", "Gender"), or ``None`` if
+        it cannot be normalized.
 
     """
     key_map = {
@@ -1283,14 +1366,15 @@ def normalize_ud_feature_key(key: str) -> Optional[str]:
 
 
 def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]:
-    """Normalize a UD feature key-value pair to the standard form used in UD_FEATURES_MAP.
+    """Normalize a feature ``(key, value)`` to canonical UD form.
 
     Args:
-        key (str): The feature key (e.g., "Case").
-        value (str): The feature value (e.g., "Nom").
+        key: The feature key (e.g., "Case").
+        value: The feature value (e.g., "Nom").
 
     Returns:
-        tuple[str, str]: The normalized key and value if valid, otherwise raises ValueError.
+        The normalized ``(key, value)`` pair if a mapping is known; otherwise
+        ``None``.
 
     """
     ud_feature_pair_remap: dict[tuple[str, str], tuple[str, str]] = {
@@ -1659,6 +1743,20 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
 
 
 def convert_pos_features_to_ud(feats_raw: str) -> Optional[UDFeatureTagSet]:
+    """Parse a raw feature string into a validated ``UDFeatureTagSet``.
+
+    The input is expected in the common CoNLL‑U style, e.g.,
+    ``"Case=Nom|Number=Sing|Gender=Masc"``. Unknown or unmappable pairs are
+    skipped with a warning.
+
+    Args:
+        feats_raw: Raw feature string containing ``key=value`` pairs separated by
+            ``|``.
+
+    Returns:
+        A ``UDFeatureTagSet`` containing validated features (possibly empty).
+
+    """
     features_tag_set = UDFeatureTagSet()
     raw_features_pairs: list[tuple[str, str]] = [
         tup

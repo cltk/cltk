@@ -1,6 +1,11 @@
-"""Universal Dependencies (UD) Dependency Relations (DepRel).
+"""Universal Dependencies (UD) dependency relations.
 
-https://universaldependencies.org/u/dep/index.html
+This module defines the core UD dependency relations (DepRel) and provides
+validated data models and helpers for working with them.
+
+References:
+    - UD homepage: https://universaldependencies.org/u/dep/index.html
+
 """
 
 __license__ = "MIT License. See LICENSE."
@@ -53,6 +58,27 @@ VALID_DEPREL_CATEGORIES: dict[str, tuple[str, Optional[str]]] = {
 
 
 class UDDeprel(BaseModel):
+    """Canonical UD dependency relation definition.
+
+    Represents a single UD relation (e.g., ``nsubj``) together with its
+    human-readable name, high-level word type, optional syntactic role, and
+    other metadata.
+
+    Validation ensures that the combination of ``code``, ``word_type`` and
+    ``syntactic_role`` matches the UD taxonomy encoded in
+    ``VALID_DEPREL_CATEGORIES``.
+
+    Attributes:
+        code: Short UD code (e.g., ``"nsubj"``).
+        name: Human-readable name (e.g., ``"nominal subject"``).
+        word_type: High-level category describing the head/word type.
+        syntactic_role: Optional role such as ``"Core Argument"``.
+        subtypes: Optional list of defined UD subtypes for this relation.
+        description: Official UD description of the relation.
+        is_obsolete: Whether the relation is obsolete or discouraged.
+
+    """
+
     code: str  # e.g., "nsubj"
     name: str  # Human-readable name, e.g., "nominal subject"
     word_type: Literal[
@@ -75,6 +101,18 @@ class UDDeprel(BaseModel):
 
     @model_validator(mode="after")
     def validate_categories(self) -> "UDDeprel":
+        """Validate ``word_type``/``syntactic_role`` for this relation.
+
+        Ensures that the pair ``(word_type, syntactic_role)`` is allowed for the
+        given ``code`` according to ``VALID_DEPREL_CATEGORIES``.
+
+        Raises:
+            ValueError: If the combination is not allowed for ``code``.
+
+        Returns:
+            The validated model instance (self).
+
+        """
         allowed = VALID_DEPREL_CATEGORIES.get(self.code)
         if allowed:
             if (self.word_type, self.syntactic_role) != allowed:
@@ -85,6 +123,18 @@ class UDDeprel(BaseModel):
 
 
 class UDDeprelTag(BaseModel):
+    """A concrete tag instance referencing a UD relation.
+
+    This model validates that the ``code`` is a known UD relation and, if a
+    ``subtype`` is provided, that it is permitted for the given ``code``.
+
+    Attributes:
+        code: Short UD code (e.g., ``"nsubj"``).
+        name: Human-readable name for display.
+        subtype: Optional UD subtype (e.g., ``"outer"``, ``"pass"``).
+
+    """
+
     code: str  # e.g., "nsubj"
     name: str  # Human-readable name
     subtype: Optional[str] = None  # e.g., "outer", "pass"
@@ -92,6 +142,18 @@ class UDDeprelTag(BaseModel):
     @field_validator("code")
     @classmethod
     def validate_code(cls, deprel_code: str) -> str:
+        """Ensure that ``deprel_code`` is one of the known UD relations.
+
+        Args:
+            deprel_code: Candidate UD DepRel code.
+
+        Raises:
+            ValueError: If ``deprel_code`` is not present in ``UD_DEPRELS``.
+
+        Returns:
+            The validated code.
+
+        """
         if deprel_code not in UD_DEPRELS:
             raise ValueError(f"Invalid UD DepRel code: '{deprel_code}'")
         return deprel_code
@@ -101,6 +163,23 @@ class UDDeprelTag(BaseModel):
     def validate_subtype(
         cls, subtype: Optional[str], values: ValidationInfo
     ) -> Optional[str]:
+        """Validate that ``subtype`` is allowed for the given ``code``.
+
+        Uses the already-validated ``code`` value from Pydantic's ``values`` to
+        check whether a provided ``subtype`` is among the declared subtypes for
+        that relation.
+
+        Args:
+            subtype: Optional UD subtype to validate.
+            values: Pydantic validation context containing ``code``.
+
+        Raises:
+            ValueError: If a non-empty ``subtype`` is not permitted for ``code``.
+
+        Returns:
+            The provided ``subtype`` if valid, otherwise ``None``.
+
+        """
         code_any = values.data.get("code")
         code = code_any if isinstance(code_any, str) else None
         if subtype:
@@ -114,6 +193,7 @@ class UDDeprelTag(BaseModel):
         return subtype
 
     def __str__(self) -> str:
+        """Return a concise, readable representation of the tag."""
         string: str = f'UDDeprelTag(code="{self.code}", name="{self.name}"'
         if self.subtype:
             string += f', subtype="{self.subtype}"'
@@ -121,6 +201,7 @@ class UDDeprelTag(BaseModel):
         return string
 
     def __repr__(self) -> str:
+        """Alias for ``__str__`` to aid debugging and logging."""
         return self.__str__()
 
 
@@ -403,14 +484,39 @@ UD_DEPRELS: dict[str, UDDeprel] = {
 
 
 def is_valid_deprel(code: str) -> bool:
-    """Check if the given code is a valid UD dependency relation."""
+    """Return whether ``code`` is a known UD relation.
+
+    Args:
+        code: Candidate UD DepRel code to check.
+
+    Returns:
+        True if ``code`` is defined in ``UD_DEPRELS``; otherwise False.
+
+    """
     return code in UD_DEPRELS
 
 
 def get_ud_deprel_tag(
     code: str, subtype: Optional[str] = None
 ) -> Optional[UDDeprelTag]:
-    """Return a UDDeprelTag for the given code, or None if not found."""
+    """Build a ``UDDeprelTag`` for a UD relation if available.
+
+    If the ``code`` is not known, logs a warning and returns ``None``. If a
+    ``subtype`` is supplied but is not permitted for the relation, a
+    ``ValueError`` from model validation is raised.
+
+    Args:
+        code: UD DepRel code to look up.
+        subtype: Optional UD subtype to attach to the tag.
+
+    Returns:
+        A validated ``UDDeprelTag`` for the given ``code``, or ``None`` if the
+        code is unknown.
+
+    Raises:
+        ValueError: If ``subtype`` is invalid for the provided ``code``.
+
+    """
     deprel = UD_DEPRELS.get(code)
     if not deprel:
         logger.warning(f"Unknown UD DepRel code '{code}'.")

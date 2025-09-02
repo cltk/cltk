@@ -1,6 +1,11 @@
-"""Universal Dependencies (UD) Part-of-Speech (POS) Tags.
+"""Universal Dependencies (UD) part‑of‑speech (POS) tags.
 
-https://universaldependencies.org/u/pos/index.html
+This module defines the core UD POS tag inventory and provides small, validated
+data models and helpers for working with POS tags in CLTK.
+
+References:
+    - UD POS: https://universaldependencies.org/u/pos/index.html
+
 """
 
 __license__ = "MIT License. See LICENSE."
@@ -13,6 +18,20 @@ from cltk.core.cltk_logger import logger
 
 
 class UDPartOfSpeech(BaseModel):
+    """Canonical UD POS definition.
+
+    Encapsulates a single UD POS tag together with its human‑readable name,
+    brief description, and whether it is considered an open or closed class in
+    the UD taxonomy.
+
+    Attributes:
+        tag: Short UD tag (e.g., ``"ADJ"``, ``"NOUN"``).
+        name: Human‑readable name (e.g., ``"adjective"``).
+        description: Official UD description for the POS tag.
+        open_class: Whether the POS is an open class (True) or closed (False).
+
+    """
+
     tag: str  # UD abbreviation, e.g., "ADJ"
     name: str  # Human-readable name
     description: str  # Official UD description
@@ -20,6 +39,19 @@ class UDPartOfSpeech(BaseModel):
 
 
 class UDPartOfSpeechTag(BaseModel):
+    """Concrete tag instance attached to a token.
+
+    Validates that the provided ``tag`` is a known UD POS tag (optionally
+    normalizing common variants), and fills in convenience fields like
+    ``name`` and ``open_class`` from the canonical registry.
+
+    Attributes:
+        tag: UD POS tag abbreviation (e.g., ``"ADJ"``).
+        name: Auto‑filled human‑readable name once validated.
+        open_class: Auto‑filled open/closed class flag once validated.
+
+    """
+
     # Use this when instantiating a tagged word
     tag: str  # UD abbreviation, e.g., "ADJ"
     name: Optional[str] = None  # Human-readable name (auto-filled)
@@ -69,6 +101,21 @@ class UDPartOfSpeechTag(BaseModel):
     @field_validator("tag")
     @classmethod
     def validate_tag(cls, v: str) -> str:
+        """Normalize and validate the UD POS ``tag``.
+
+        Converts common alternates (e.g., ``"CONJ"`` → ``"CCONJ"``) and ensures
+        the final value appears in the ``UD_POS_TAGS`` registry.
+
+        Args:
+            v: Candidate POS tag value.
+
+        Raises:
+            ValueError: If the tag cannot be normalized to a known UD POS tag.
+
+        Returns:
+            The validated and normalized POS tag.
+
+        """
         v = v.upper()
         if v not in UD_POS_TAGS:
             logger.info(f"Normalizing UD POS tag: '{v}' ...")
@@ -81,6 +128,15 @@ class UDPartOfSpeechTag(BaseModel):
 
     @model_validator(mode="after")
     def fill_fields(self) -> "UDPartOfSpeechTag":
+        """Populate derived fields from the canonical registry.
+
+        After a successful tag validation, look up the canonical entry in
+        ``UD_POS_TAGS`` and set ``name`` and ``open_class`` accordingly.
+
+        Returns:
+            The model instance with enriched fields.
+
+        """
         pos = UD_POS_TAGS.get(self.tag)
         if pos:
             object.__setattr__(self, "name", pos.name)
@@ -88,9 +144,11 @@ class UDPartOfSpeechTag(BaseModel):
         return self
 
     def __str__(self) -> str:
+        """Return a concise, human‑readable representation of the tag."""
         return f'UDPartOfSpeechTag(tag="{self.tag}", name="{self.name}")'
 
     def __repr__(self) -> str:
+        """Alias for ``__str__`` to aid debugging and logging."""
         return self.__str__()
 
 

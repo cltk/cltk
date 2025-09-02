@@ -77,7 +77,7 @@ def split_sentences_multilang(
         "bagr1243": r"([।॥.!?])",  # Bagri (Rajasthani)
         "demo1234": r"([.!?])",  # Demotic Egyptian: period, exclamation, question (adjust if you have more info)
         "clas1252": r"(r[܀܁܂܃܄܆܇·])",  # Classical Syriac
-        "hit1242": r"([\.!?𒑰])",  # Hittite: generic (Akkadian-like) punctuation + 𒑰
+        "hitt1242": r"([\.!?𒑰])",  # Hittite: generic (Akkadian-like) punctuation + 𒑰
         "toch1238": r"([।॥.!?])",  # Tocharian A: Brahmi danda family
         "toch1237": r"([।॥.!?])",  # Tocharian B: Brahmi danda family
         "oldp1254": r"([.!?])",  # Old Persian: generic punctuation

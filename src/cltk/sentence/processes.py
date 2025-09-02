@@ -626,7 +626,7 @@ class OldTamilSentenceSplittingProcess(SentenceSplittingProcess):
 class HittiteSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitter for Hittite (hit1242)."""
 
-    glottolog_id: Optional[str] = "hit1242"
+    glottolog_id: Optional[str] = "hitt1242"
 
 
 class TocharianASentenceSplittingProcess(SentenceSplittingProcess):

@@ -1015,7 +1015,7 @@ class HittiteChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Hittite."""
 
     description: Optional[str] = "Pipeline for the Hittite language"
-    glottolog_id: Optional[str] = "hit1242"
+    glottolog_id: Optional[str] = "hitt1242"
     processes: Optional[list[Any]] = Field(
         default_factory=lambda: [
             MultilingualNormalizeProcess,
@@ -2194,6 +2194,8 @@ class BagriChatGPTPipeline(Pipeline):
 
 # Additional Afroasiatic, Altaic-adjacent, Uralic, Turkic, Dravidian pipelines
 class NumidianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Numidian (Ancient Berber)."""
+
     description: Optional[str] = "Pipeline for the Numidian (Ancient Berber) language"
     glottolog_id: Optional[str] = "numi1241"
     processes: Optional[list[Any]] = Field(
@@ -2206,6 +2208,8 @@ class NumidianChatGPTPipeline(Pipeline):
 
 
 class TaitaChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Taita (Cushitic)."""
+
     description: Optional[str] = "Pipeline for the Cushitic Taita language"
     glottolog_id: Optional[str] = "tait1247"
     processes: Optional[list[Any]] = Field(
@@ -2218,6 +2222,8 @@ class TaitaChatGPTPipeline(Pipeline):
 
 
 class HausaChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Hausa."""
+
     description: Optional[str] = "Pipeline for the Hausa language"
     glottolog_id: Optional[str] = "haus1257"
     processes: Optional[list[Any]] = Field(
@@ -2230,6 +2236,8 @@ class HausaChatGPTPipeline(Pipeline):
 
 
 class OldJurchenChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Jurchen."""
+
     description: Optional[str] = "Pipeline for the Old Jurchen language"
     glottolog_id: Optional[str] = "jurc1239"
     processes: Optional[list[Any]] = Field(
@@ -2242,6 +2250,8 @@ class OldJurchenChatGPTPipeline(Pipeline):
 
 
 class OldJapaneseChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Japanese."""
+
     description: Optional[str] = "Pipeline for the Old Japanese language"
     glottolog_id: Optional[str] = "japo1237"
     processes: Optional[list[Any]] = Field(
@@ -2254,6 +2264,8 @@ class OldJapaneseChatGPTPipeline(Pipeline):
 
 
 class OldHungarianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Hungarian."""
+
     description: Optional[str] = "Pipeline for the Old Hungarian language"
     glottolog_id: Optional[str] = "oldh1242"
     processes: Optional[list[Any]] = Field(
@@ -2266,6 +2278,8 @@ class OldHungarianChatGPTPipeline(Pipeline):
 
 
 class ChagataiChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Chagatai."""
+
     description: Optional[str] = "Pipeline for the Chagatai language"
     glottolog_id: Optional[str] = "chag1247"
     processes: Optional[list[Any]] = Field(
@@ -2278,6 +2292,8 @@ class ChagataiChatGPTPipeline(Pipeline):
 
 
 class OldTurkicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Turkic."""
+
     description: Optional[str] = "Pipeline for the Old Turkic language"
     glottolog_id: Optional[str] = "oldu1238"
     processes: Optional[list[Any]] = Field(
@@ -2290,6 +2306,8 @@ class OldTurkicChatGPTPipeline(Pipeline):
 
 
 class OldTamilChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Tamil."""
+
     description: Optional[str] = "Pipeline for the Old Tamil language"
     glottolog_id: Optional[str] = "oldt1248"
     processes: Optional[list[Any]] = Field(
@@ -2303,6 +2321,8 @@ class OldTamilChatGPTPipeline(Pipeline):
 
 # Northwest Semitic and Aramaic additions
 class MoabiteChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Moabite."""
+
     description: Optional[str] = "Pipeline for the Moabite language"
     glottolog_id: Optional[str] = "moab1234"
     processes: Optional[list[Any]] = Field(
@@ -2315,6 +2335,8 @@ class MoabiteChatGPTPipeline(Pipeline):
 
 
 class AmmoniteChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Ammonite."""
+
     description: Optional[str] = "Pipeline for the Ammonite language"
     glottolog_id: Optional[str] = "ammo1234"
     processes: Optional[list[Any]] = Field(
@@ -2327,6 +2349,8 @@ class AmmoniteChatGPTPipeline(Pipeline):
 
 
 class EdomiteChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Edomite."""
+
     description: Optional[str] = "Pipeline for the Edomite language"
     glottolog_id: Optional[str] = "edom1234"
     processes: Optional[list[Any]] = Field(
@@ -2339,6 +2363,8 @@ class EdomiteChatGPTPipeline(Pipeline):
 
 
 class OldAramaicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Aramaic (up to 700 BCE)."""
+
     description: Optional[str] = "Pipeline for Old Aramaic (up to 700 BCE)"
     glottolog_id: Optional[str] = "olda1246"
     processes: Optional[list[Any]] = Field(
@@ -2351,6 +2377,8 @@ class OldAramaicChatGPTPipeline(Pipeline):
 
 
 class OldAramaicSamalianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Old Aramaic–Samʾalian."""
+
     description: Optional[str] = "Pipeline for Old Aramaic–Samʾalian"
     glottolog_id: Optional[str] = "olda1245"
     processes: Optional[list[Any]] = Field(
@@ -2363,6 +2391,8 @@ class OldAramaicSamalianChatGPTPipeline(Pipeline):
 
 
 class MiddleAramaicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Middle Aramaic."""
+
     description: Optional[str] = "Pipeline for Middle Aramaic"
     glottolog_id: Optional[str] = "midd1366"
     processes: Optional[list[Any]] = Field(
@@ -2375,6 +2405,8 @@ class MiddleAramaicChatGPTPipeline(Pipeline):
 
 
 class ClassicalMandaicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Classical Mandaic."""
+
     description: Optional[str] = "Pipeline for Classical Mandaic"
     glottolog_id: Optional[str] = "clas1253"
     processes: Optional[list[Any]] = Field(
@@ -2387,6 +2419,8 @@ class ClassicalMandaicChatGPTPipeline(Pipeline):
 
 
 class HatranChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Hatran."""
+
     description: Optional[str] = "Pipeline for Hatran"
     glottolog_id: Optional[str] = "hatr1234"
     processes: Optional[list[Any]] = Field(
@@ -2399,6 +2433,8 @@ class HatranChatGPTPipeline(Pipeline):
 
 
 class JewishBabylonianAramaicChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Jewish Babylonian Aramaic."""
+
     description: Optional[str] = "Pipeline for Jewish Babylonian Aramaic"
     glottolog_id: Optional[str] = "jewi1240"
     processes: Optional[list[Any]] = Field(
@@ -2411,6 +2447,8 @@ class JewishBabylonianAramaicChatGPTPipeline(Pipeline):
 
 
 class SamalianChatGPTPipeline(Pipeline):
+    """Default ``Pipeline`` for Samʾalian."""
+
     description: Optional[str] = "Pipeline for Samʾalian"
     glottolog_id: Optional[str] = "sama1234"
     processes: Optional[list[Any]] = Field(
@@ -2479,7 +2517,7 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "midd1364": MiddleArmenianChatGPTPipeline,
     # Note this is only a parent, not true languoid
     ## Anatolian
-    "hit1242": HittiteChatGPTPipeline,
+    "hitt1242": HittiteChatGPTPipeline,
     "cune1239": CuneiformLuwianChatGPTPipeline,
     "hier1240": HieroglyphicLuwianChatGPTPipeline,
     "lyci1241": LycianAChatGPTPipeline,
