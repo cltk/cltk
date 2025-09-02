@@ -124,6 +124,19 @@ class SentenceSplittingProcess(Process):
             "mong1329",  # Middle Mongol
             "mong1331",  # Classical Mongolian
             "mogh1245",  # Mogholi (Moghol)
+            # Afroasiatic (Berber/Cushitic/Chadic)
+            "numi1241",  # Numidian
+            "tait1247",  # Cushitic Taita
+            "haus1257",  # Hausa
+            # Altaic-Adj / Tungusic
+            "jurc1239",  # Old Jurchen
+            # Japonic / Uralic
+            "japo1237",  # Old Japanese
+            "oldh1242",  # Old Hungarian
+            # Turkic / Dravidian
+            "chag1247",  # Chagatai
+            "oldu1238",  # Old Turkic
+            "oldt1248",  # Old Tamil
         ]:
             logger.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
@@ -512,6 +525,60 @@ class MogholiSentenceSplittingProcess(SentenceSplittingProcess):
     """Sentence splitting process for Mogholi (Moghol)."""
 
     glottolog_id: Optional[str] = "mogh1245"
+
+
+class NumidianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Numidian (Ancient Berber)."""
+
+    glottolog_id: Optional[str] = "numi1241"
+
+
+class TaitaSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Cushitic Taita."""
+
+    glottolog_id: Optional[str] = "tait1247"
+
+
+class HausaSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Hausa."""
+
+    glottolog_id: Optional[str] = "haus1257"
+
+
+class OldJurchenSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Jurchen."""
+
+    glottolog_id: Optional[str] = "jurc1239"
+
+
+class OldJapaneseSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Japanese."""
+
+    glottolog_id: Optional[str] = "japo1237"
+
+
+class OldHungarianSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Hungarian."""
+
+    glottolog_id: Optional[str] = "oldh1242"
+
+
+class ChagataiSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Chagatai."""
+
+    glottolog_id: Optional[str] = "chag1247"
+
+
+class OldTurkicSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Turkic."""
+
+    glottolog_id: Optional[str] = "oldu1238"
+
+
+class OldTamilSentenceSplittingProcess(SentenceSplittingProcess):
+    """Sentence splitting process for Old Tamil."""
+
+    glottolog_id: Optional[str] = "oldt1248"
 
 
 class HittiteSentenceSplittingProcess(SentenceSplittingProcess):

@@ -114,6 +114,21 @@ def split_sentences_multilang(
         "mong1329": r"([᠃.!?])",  # Middle Mongol: include Mongolian full stop ᠃
         "mong1331": r"([᠃.!?])",  # Classical Mongolian
         "mogh1245": r"([.!\u061F\u06D4])",  # Mogholi (Perso-Arabic punctuation)
+        # Afroasiatic (Berber/Cushitic/Chadic)
+        "numi1241": r"([·:;.!?])",  # Numidian (Libyco-Berber separators)
+        "tait1247": r"([.!?])",  # Cushitic Taita
+        "haus1257": r"([.!?\u061F\u06D4])",  # Hausa (Latin/Ajami)
+        # Altaic-Adj / Tungusic
+        "jurc1239": r"([。！？])",  # Old Jurchen (CJK-style punctuation in editions)
+        # Japonic
+        "japo1237": r"([。！？])",  # Old Japanese
+        # Uralic
+        "oldh1242": r"([.!?])",  # Old Hungarian
+        # Turkic
+        "chag1247": r"([.!?\u061F\u06D4])",  # Chagatai (Arabic-script)
+        "oldu1238": r"([·:;.!?])",  # Old Turkic (Orkhon separators)
+        # Dravidian
+        "oldt1248": r"([.!?])",  # Old Tamil
         # South Asian – additional
         "sinh1246": r"([.!?෴])",  # Sinhala: period/exclam/question; kunddaliya (෴) historical
         "sind1272": r"([.!\u061F\u06D4])",  # Sindhi (Arabic script): period, Arabic ?, Urdu full stop

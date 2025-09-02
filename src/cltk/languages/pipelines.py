@@ -21,6 +21,7 @@ from cltk.genai.processes import (
     BiblicalHebrewChatGPTProcess,
     BrajChatGPTProcess,
     CarianChatGPTProcess,
+    ChagataiChatGPTProcess,
     ChurchSlavicChatGPTProcess,
     ClassicalArabicChatGPTProcess,
     ClassicalArmenianChatGPTProcess,
@@ -41,6 +42,7 @@ from cltk.genai.processes import (
     GothicChatGPTProcess,
     GujaratiChatGPTProcess,
     HatranChatGPTProcess,
+    HausaChatGPTProcess,
     HieroglyphicLuwianChatGPTProcess,
     HindiChatGPTProcess,
     HittiteChatGPTProcess,
@@ -73,6 +75,7 @@ from cltk.genai.processes import (
     MoabiteChatGPTProcess,
     MogholiChatGPTProcess,
     NewarChatGPTProcess,
+    NumidianChatGPTProcess,
     OdiaChatGPTProcess,
     OfficialAramaicChatGPTProcess,
     OldAramaicChatGPTProcess,
@@ -83,10 +86,15 @@ from cltk.genai.processes import (
     OldEnglishChatGPTProcess,
     OldFrenchChatGPTProcess,
     OldHighGermanChatGPTProcess,
+    OldHungarianChatGPTProcess,
+    OldJapaneseChatGPTProcess,
+    OldJurchenChatGPTProcess,
     OldMiddleWelshChatGPTProcess,
     OldNorseChatGPTProcess,
     OldPersianChatGPTProcess,
     OldPrussianChatGPTProcess,
+    OldTamilChatGPTProcess,
+    OldTurkicChatGPTProcess,
     PalaicChatGPTProcess,
     PaliChatGPTProcess,
     ParthianChatGPTProcess,
@@ -97,6 +105,7 @@ from cltk.genai.processes import (
     SindhiChatGPTProcess,
     SinhalaChatGPTProcess,
     SogdianChatGPTProcess,
+    TaitaChatGPTProcess,
     TangutChatGPTProcess,
     TokharianAChatGPTProcess,
     TokharianBChatGPTProcess,
@@ -120,6 +129,7 @@ from cltk.sentence.processes import (
     BengaliSentenceSplittingProcess,
     BrajSentenceSplittingProcess,
     CarianSentenceSplittingProcess,
+    ChagataiSentenceSplittingProcess,
     ChurchSlavonicSentenceSplittingProcess,
     ClassicalArabicSentenceSplittingProcess,
     ClassicalArmenianSentenceSplittingProcess,
@@ -139,6 +149,7 @@ from cltk.sentence.processes import (
     GothicSentenceSplittingProcess,
     GujaratiSentenceSplittingProcess,
     HatranSentenceSplittingProcess,
+    HausaSentenceSplittingProcess,
     HieroglyphicLuwianSentenceSplittingProcess,
     HindiSentenceSplittingProcess,
     HittiteSentenceSplittingProcess,
@@ -171,6 +182,7 @@ from cltk.sentence.processes import (
     MoabiteSentenceSplittingProcess,
     MogholiSentenceSplittingProcess,
     NewarSentenceSplittingProcess,
+    NumidianSentenceSplittingProcess,
     OdiaSentenceSplittingProcess,
     OfficialAramaicSentenceSplittingProcess,
     OldAramaicSamalianSentenceSplittingProcess,
@@ -181,10 +193,15 @@ from cltk.sentence.processes import (
     OldEnglishSentenceSplittingProcess,
     OldFrenchSentenceSplittingProcess,
     OldHighGermanSentenceSplittingProcess,
+    OldHungarianSentenceSplittingProcess,
+    OldJapaneseSentenceSplittingProcess,
+    OldJurchenSentenceSplittingProcess,
     OldMiddleWelshSentenceSplittingProcess,
     OldNorseSentenceSplittingProcess,
     OldPersianSentenceSplittingProcess,
     OldPrussianSentenceSplittingProcess,
+    OldTamilSentenceSplittingProcess,
+    OldTurkicSentenceSplittingProcess,
     PalaicSentenceSplittingProcess,
     PaliSentenceSplittingProcess,
     PanjabiSentenceSplittingProcess,
@@ -196,6 +213,7 @@ from cltk.sentence.processes import (
     SindhiSentenceSplittingProcess,
     SinhalaSentenceSplittingProcess,
     SogdianSentenceSplittingProcess,
+    TaitaSentenceSplittingProcess,
     TangutSentenceSplittingProcess,
     TocharianASentenceSplittingProcess,
     TocharianBSentenceSplittingProcess,
@@ -2168,6 +2186,115 @@ class BagriChatGPTPipeline(Pipeline):
         logger.info("BagriChatGPTPipeline created.")
 
 
+# Additional Afroasiatic, Altaic-adjacent, Uralic, Turkic, Dravidian pipelines
+class NumidianChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Numidian (Ancient Berber) language"
+    glottolog_id: Optional[str] = "numi1241"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            NumidianSentenceSplittingProcess,
+            NumidianChatGPTProcess,
+        ]
+    )
+
+
+class TaitaChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Cushitic Taita language"
+    glottolog_id: Optional[str] = "tait1247"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            TaitaSentenceSplittingProcess,
+            TaitaChatGPTProcess,
+        ]
+    )
+
+
+class HausaChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Hausa language"
+    glottolog_id: Optional[str] = "haus1257"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            HausaSentenceSplittingProcess,
+            HausaChatGPTProcess,
+        ]
+    )
+
+
+class OldJurchenChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Old Jurchen language"
+    glottolog_id: Optional[str] = "jurc1239"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldJurchenSentenceSplittingProcess,
+            OldJurchenChatGPTProcess,
+        ]
+    )
+
+
+class OldJapaneseChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Old Japanese language"
+    glottolog_id: Optional[str] = "japo1237"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldJapaneseSentenceSplittingProcess,
+            OldJapaneseChatGPTProcess,
+        ]
+    )
+
+
+class OldHungarianChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Old Hungarian language"
+    glottolog_id: Optional[str] = "oldh1242"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldHungarianSentenceSplittingProcess,
+            OldHungarianChatGPTProcess,
+        ]
+    )
+
+
+class ChagataiChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Chagatai language"
+    glottolog_id: Optional[str] = "chag1247"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            ChagataiSentenceSplittingProcess,
+            ChagataiChatGPTProcess,
+        ]
+    )
+
+
+class OldTurkicChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Old Turkic language"
+    glottolog_id: Optional[str] = "oldu1238"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldTurkicSentenceSplittingProcess,
+            OldTurkicChatGPTProcess,
+        ]
+    )
+
+
+class OldTamilChatGPTPipeline(Pipeline):
+    description: Optional[str] = "Pipeline for the Old Tamil language"
+    glottolog_id: Optional[str] = "oldt1248"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            MultilingualNormalizeProcess,
+            OldTamilSentenceSplittingProcess,
+            OldTamilChatGPTProcess,
+        ]
+    )
+
+
 # Northwest Semitic and Aramaic additions
 class MoabiteChatGPTPipeline(Pipeline):
     description: Optional[str] = "Pipeline for the Moabite language"
@@ -2451,11 +2578,11 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "demo1234": DemoticChatGPTPipeline,
     "copt1239": CopticChatGPTPipeline,
     ## Berber
-    # "numi1241": "Numidian"; "Ancient Berber" and "Lybico-Berber" are alt names; Libyco-Berber inscriptions (1st mill. BCE).
-    ## "tait1247": "Cushitic Taita" ; Cushitic
-    # earliest written records only medieval, often in Geʿez script or Arabic script (e.g. Beja glosses in Arabic works)
+    "numi1241": NumidianChatGPTPipeline,
+    "tait1247": TaitaChatGPTPipeline,
     ## Chadic
     # ; "haus1257": "Hausa"; Hausa; Essentially oral until medieval period, when Hausa is written in Ajami (Arabic script).
+    "haus1257": HausaChatGPTPipeline,
     "lite1248": LiteraryChineseChatGPTPipeline,
     "clas1254": ClassicalTibetanPipeline,
     # Sino-Tibetan family
@@ -2474,12 +2601,17 @@ MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE: dict[str, Type[Pipeline]] = {
     "mong1329": MiddleMongolChatGPTPipeline,
     "mong1331": ClassicalMongolianChatGPTPipeline,  #  TODO: No glottolog broken
     "mogh1245": MogholiChatGPTPipeline,
-    # "jurc1239": "Old Jurchen"
-    # "japo1237": "Old Japanese"
-    # "oldh1242": "Old Hungarian"
-    # "chag1247": "Chagatai"
-    # "oldu1238": "Old Turkic"
-    # "oldt1248": "Old Tamil"
+    # Altaic-Adj.
+    "jurc1239": OldJurchenChatGPTPipeline,
+    # Japonic
+    "japo1237": OldJapaneseChatGPTPipeline,
+    # Uralic
+    "oldh1242": OldHungarianChatGPTPipeline,
+    # Turkic
+    "chag1247": ChagataiChatGPTPipeline,
+    "oldu1238": OldTurkicChatGPTPipeline,
+    # Dravidian
+    "oldt1248": OldTamilChatGPTPipeline,
     # Pre-Modern Literate Language Families (Non-Euro/Afroasiatic/Sino-Tibetan/Mongolic)
     # | Family         | Language / Stage           | Approx. Period      | Glottocode     |
     # |----------------|-----------------------------|----------------------|----------------|

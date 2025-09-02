@@ -1002,12 +1002,6 @@ class NorthPiceneChatGPTProcess(ChatGPTProcess):
     authorship_info: str = "North PiceneChatGPTProcess using OpenAI GPT models."
 
 
-class NumidianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "nxm"
-    description: str = "Default process for ChatGPT for the Numidian language."
-    authorship_info: str = "NumidianChatGPTProcess using OpenAI GPT models."
-
-
 class OdiaChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "oriy1255"
     description: str = "Default process for ChatGPT for the Odia language."
@@ -1094,6 +1088,62 @@ class MogholiChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "mogh1245"
     description: str = "Default process for ChatGPT for the Mogholi (Moghol) language."
     authorship_info: str = "MogholiChatGPTProcess using OpenAI GPT models."
+
+
+class NumidianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "numi1241"
+    description: str = (
+        "Default process for ChatGPT for the Numidian (Ancient Berber) language."
+    )
+    authorship_info: str = "NumidianChatGPTProcess using OpenAI GPT models."
+
+
+class TaitaChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "tait1247"
+    description: str = "Default process for ChatGPT for the Cushitic Taita language."
+    authorship_info: str = "TaitaChatGPTProcess using OpenAI GPT models."
+
+
+class HausaChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "haus1257"
+    description: str = "Default process for ChatGPT for the Hausa language."
+    authorship_info: str = "HausaChatGPTProcess using OpenAI GPT models."
+
+
+class OldJurchenChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "jurc1239"
+    description: str = "Default process for ChatGPT for the Old Jurchen language."
+    authorship_info: str = "OldJurchenChatGPTProcess using OpenAI GPT models."
+
+
+class OldJapaneseChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "japo1237"
+    description: str = "Default process for ChatGPT for the Old Japanese language."
+    authorship_info: str = "OldJapaneseChatGPTProcess using OpenAI GPT models."
+
+
+class OldHungarianChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "oldh1242"
+    description: str = "Default process for ChatGPT for the Old Hungarian language."
+    authorship_info: str = "OldHungarianChatGPTProcess using OpenAI GPT models."
+
+
+class ChagataiChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "chag1247"
+    description: str = "Default process for ChatGPT for the Chagatai language."
+    authorship_info: str = "ChagataiChatGPTProcess using OpenAI GPT models."
+
+
+class OldTurkicChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "oldu1238"
+    description: str = "Default process for ChatGPT for the Old Turkic language."
+    authorship_info: str = "OldTurkicChatGPTProcess using OpenAI GPT models."
+
+
+class OldTamilChatGPTProcess(ChatGPTProcess):
+    glottolog_id: Optional[str] = "oldt1248"
+    description: str = "Default process for ChatGPT for the Old Tamil language."
+    authorship_info: str = "OldTamilChatGPTProcess using OpenAI GPT models."
 
 
 class AmmoniteChatGPTProcess(ChatGPTProcess):
@@ -1222,22 +1272,10 @@ class OldHittiteChatGPTProcess(ChatGPTProcess):
     authorship_info: str = "Old HittiteChatGPTProcess using OpenAI GPT models."
 
 
-class OldHungarianChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ohu"
-    description: str = "Default process for ChatGPT for the Old Hungarian language."
-    authorship_info: str = "Old HungarianChatGPTProcess using OpenAI GPT models."
-
-
 class EarlyIrishChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "oldi1245"
     description: str = "Default process for ChatGPT for the Old Irish language."
     authorship_info: str = "Old IrishChatGPTProcess using OpenAI GPT models."
-
-
-class OldJapaneseChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "ojp"
-    description: str = "Default process for ChatGPT for the Old Japanese language."
-    authorship_info: str = "Old JapaneseChatGPTProcess using OpenAI GPT models."
 
 
 class OldKoreanChatGPTProcess(ChatGPTProcess):
@@ -1332,22 +1370,10 @@ class OldSpanishChatGPTProcess(ChatGPTProcess):
     authorship_info: str = "Old SpanishChatGPTProcess using OpenAI GPT models."
 
 
-class OldTamilChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "oty"
-    description: str = "Default process for ChatGPT for the Old Tamil language."
-    authorship_info: str = "Old TamilChatGPTProcess using OpenAI GPT models."
-
-
 class OldTibetanChatGPTProcess(ChatGPTProcess):
     glottolog_id: Optional[str] = "otb"
     description: str = "Default process for ChatGPT for the Old Tibetan language."
     authorship_info: str = "Old TibetanChatGPTProcess using OpenAI GPT models."
-
-
-class OldTurkicChatGPTProcess(ChatGPTProcess):
-    glottolog_id: Optional[str] = "oui"
-    description: str = "Default process for ChatGPT for the Old Turkic language."
-    authorship_info: str = "Old TurkicChatGPTProcess using OpenAI GPT models."
 
 
 class OldTurkishChatGPTProcess(ChatGPTProcess):

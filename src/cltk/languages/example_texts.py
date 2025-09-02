@@ -473,6 +473,24 @@ evaṃ ime sattā anekesu bhavesu saṃsarantā dukkhāni anubhavanti.
     "jewi1240": """תלמודא דבבל׃""",
     # Samʾalian (Phoenician-family glyphs)
     "sama1234": """𐤎𐤌𐤀𐤋𐤉𐤍 𐤟 𐤌𐤋𐤊.""",
+    # Numidian (Tifinagh placeholder)
+    "numi1241": """ⵏⵓⵎⵉⴷⵢⴰⵏ ⴰⴷⵔⴰⵔ.""",
+    # Taita (placeholder in Swahili)
+    "tait1247": """Mfano wa lugha ya Taita.""",
+    # Hausa (Latin)
+    "haus1257": """Wannan misalin Hausa ne.""",
+    # Old Jurchen (Chinese placeholder)
+    "jurc1239": """此为女真文例。""",
+    # Old Japanese (modern punctuation)
+    "japo1237": """これは古日本語の例である。""",
+    # Old Hungarian (modern Hungarian placeholder)
+    "oldh1242": """Ez egy ómagyar példa.""",
+    # Chagatai (Perso-Arabic placeholder)
+    "chag1247": """این جمله‌ای به زبان جغتایی است.""",
+    # Old Turkic (modern Turkish placeholder)
+    "oldu1238": """Bu eski Türkçe örneğidir.""",
+    # Old Tamil
+    "oldt1248": """இது பழைய தமிழ் எடுத்துக்காட்டு.""",
     # Hindi (Old Hindi/Hindavī umbrella). Kabir doha; normalized Devanāgarī
     "hind1269": """साधु ऐसा चाहिए जैसा सूप सुभाय ।
 जाके मुख से निकले वही सार-सार ।
