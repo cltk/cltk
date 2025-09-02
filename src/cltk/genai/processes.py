@@ -1,4 +1,11 @@
-"""Processes for ChatGPT."""
+"""ChatGPT-backed process classes for CLTK.
+
+This module defines :class:`ChatGPTProcess`, a generic :class:`~cltk.core.data_types.Process`
+that initializes a :class:`~cltk.genai.chatgpt.ChatGPT` client for a given
+language (Glottolog code) and enriches a document with LLM‑produced
+annotations. It also exposes many thin per‑language subclasses that set
+``glottolog_id`` and human‑readable descriptions.
+"""
 
 __license__ = "MIT License. See LICENSE."
 
@@ -15,7 +22,22 @@ from cltk.utils.utils import load_env_file
 
 
 class ChatGPTProcess(Process):
-    """A Process type to capture everything that ChatGPT can do for a given language."""
+    """ChatGPT-backed linguistic annotation process.
+
+    This process initializes a ChatGPT client for a given language (by
+    Glottolog ID) and enriches a CLTK ``Doc`` with token-level and document-level
+    metadata produced by the model.
+
+    Attributes:
+      glottolog_id: Target language Glottolog code (e.g., ``lati1261``).
+      api_key: OpenAI API key. Loaded from ``OPENAI_API_KEY`` if not provided.
+      model: Model alias to use (see ``AVAILABILE_MODELS``).
+      temperature: Sampling temperature for generation.
+      description: Human-friendly description of the process.
+      authorship_info: Short attribution string for provenance.
+      chatgpt: Initialized ChatGPT client instance, or ``None`` if not ready.
+
+    """
 
     # For the type `ChatGPT`
     model_config = {"arbitrary_types_allowed": True}
@@ -70,7 +92,23 @@ class ChatGPTProcess(Process):
         return None
 
     def run(self, input_doc: Doc) -> Doc:
-        """Run ChatGPT inferencing and enrich the Doc with linguistic metadata."""
+        """Return a copy of ``input_doc`` enriched with ChatGPT annotations.
+
+        Args:
+          input_doc: Document with ``normalized_text`` (and sentence boundaries
+            for token-level annotation) to be enriched.
+
+        Returns:
+          A ``Doc`` containing the original fields plus ChatGPT-produced
+          annotations (e.g., tokens with UD features) and usage metadata.
+
+        Raises:
+          ValueError: If the process is not initialized (missing API key or
+            language), or if the input document lacks usable text.
+          CLTKException: If the document does not contain text in the expected
+            fields.
+
+        """
         logger.debug(f"Running ChatGPTProcess for language: {self.glottolog_id}")
         if not self.chatgpt:
             logger.error("ChatGPTProcess requires language and api_key to be set.")

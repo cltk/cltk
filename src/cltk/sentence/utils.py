@@ -6,10 +6,7 @@ import re
 def extract_sentences_from_boundaries(
     text: str, boundaries: list[tuple[int, int]]
 ) -> list[str]:
-    """
-    Given a text and a list of (start, stop) character index tuples,
-    return the list of sentence strings.
-    """
+    """Return the list of sentence strings given a text and a list of (start, stop) character index tuples."""
     return [text[start:stop] for start, stop in boundaries]
 
 
@@ -17,8 +14,8 @@ def split_sentences_multilang(
     text: str,
     glottolog_id: str,
 ) -> list[tuple[int, int]]:
-    """
-    Split text into sentences for multiple languages using language-specific punctuation.
+    """Split text into sentences for multiple languages using language-specific punctuation.
+
     Returns a list of (start, stop) character indices for each sentence.
 
     Args:
@@ -27,6 +24,7 @@ def split_sentences_multilang(
 
     Returns:
         list[tuple[int, int]]: List of (start, stop) indices for each sentence.
+
     """
     # Define language-specific sentence-ending regex patterns
     lang_sentence_endings = {

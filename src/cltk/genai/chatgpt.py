@@ -1,4 +1,12 @@
-"""Call ChatGPT."""
+"""ChatGPT integration for CLTK.
+
+This module provides a small wrapper class (:class:`ChatGPT`) around the
+OpenAI client and high‑level helpers to generate linguistic annotations from
+LLMs for a given language (resolved by Glottolog ID). It focuses on producing
+Universal Dependencies (UD) token annotations from short spans (sentences),
+aggregating usage metadata, and composing results back into a
+:class:`cltk.core.data_types.Doc`.
+"""
 
 __license__ = "MIT License. See LICENSE."
 
@@ -28,6 +36,22 @@ AVAILABILE_MODELS = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 
 
 class ChatGPT:
+    """Thin wrapper around the OpenAI client for CLTK use cases.
+
+    Args:
+      glottolog_id: Target language/dialect code (e.g., ``lati1261``).
+      api_key: OpenAI API key.
+      model: Small set of supported model aliases.
+      temperature: Sampling temperature (default 1.0).
+
+    Attributes:
+      language: Resolved :class:`~cltk.core.data_types.Language` model.
+      dialect: Optional resolved :class:`~cltk.core.data_types.Dialect`.
+      language_code: Effective code used (dialect if present; else language).
+      client: OpenAI client instance.
+
+    """
+
     def __init__(
         self,
         glottolog_id: str,
@@ -35,7 +59,7 @@ class ChatGPT:
         model: AVAILABILE_MODELS,
         temperature: float = 1.0,
     ):
-        """Initialize the ChatGPT class and set up OpenAI connection."""
+        """Initialize the client and resolve language/dialect metadata."""
         self.api_key = api_key
         # self.language: Language = get_language(glottolog_id)
         self.language: Language
@@ -54,9 +78,26 @@ class ChatGPT:
         self,
         input_doc: Doc,
     ) -> Doc:
-        """
-        Generate POS/morphological analysis, dependency parse, and enrich Doc with metadata (sentence segmentation, translation, summary, topic, discourse relations, coreferences).
-        Returns a CLTK Doc with all information populated.
+        """Enrich ``input_doc`` by running POS/UD on each sentence with ChatGPT.
+
+        The document must contain ``normalized_text`` and precomputed
+        ``sentence_boundaries``. Each sentence is sent to the LLM for UD token
+        annotation; results are merged back into the original document. The
+        method aggregates token usage across sentences into ``doc.chatgpt``.
+
+        Args:
+          input_doc: Document with normalized text and sentence boundaries.
+
+        Returns:
+          The same ``Doc`` instance, populated with combined words and usage
+          metadata.
+
+        Raises:
+          ValueError: If ``normalized_text`` or ``sentence_boundaries`` are
+            missing.
+          CLTKException: If usage metadata cannot be parsed from a sentence
+            response.
+
         """
         if not input_doc.normalized_text:
             msg: str = "Input document must have either `.normalized_text`."
@@ -177,7 +218,25 @@ class ChatGPT:
         sentence_idx: Optional[int] = None,
         max_retries: int = 2,
     ) -> Doc:
-        """Call the OpenAI API and return the response text, including lemma, gloss, NER, inflectional paradigm, and IPA pronunciation."""
+        """Call OpenAI and return UD token annotations for a short span.
+
+        Args:
+          doc: A document whose ``normalized_text`` contains a single sentence
+            (or short span) to analyze.
+          sentence_idx: Optional sentence index for logging/aggregation.
+          max_retries: Number of attempts if the model fails to return a TSV
+            code block.
+
+        Returns:
+          The same ``Doc`` instance with ``words`` and per‑call usage appended
+          to ``doc.chatgpt``.
+
+        Raises:
+          OpenAIInferenceError: If the API call fails.
+          CLTKException: If the response is empty or cannot be parsed.
+          ValueError: If an unsupported model alias is specified.
+
+        """
         # xxx update this to give dialect if given
         if self.dialect:
             lang_or_dialect_name: str = self.dialect.name
@@ -231,7 +290,7 @@ Text:\n\n{doc.normalized_text}
                     f"An error from OpenAI occurred: {openai_error}"
                 )
             logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
-            chatgpt_usage: dict[str, int] = self.chatgpt_response_tokens(
+            chatgpt_usage: dict[str, int] = self._chatgpt_response_tokens(
                 model=self.model, response=chatgpt_response
             )
             logger.info(f"ChatGPT usage: {chatgpt_usage}")
@@ -278,7 +337,8 @@ Text:\n\n{doc.normalized_text}
         code_block: str = code_blocks[0].strip()
         logger.debug(f"Extracted code block:\n{code_block}")
 
-        def parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
+        def _parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
+            # TODO: Remove duplicate name -- this is the one being invoked, I think
             lines = [
                 line.strip() for line in tsv_string.strip().splitlines() if line.strip()
             ]
@@ -299,7 +359,7 @@ Text:\n\n{doc.normalized_text}
                     logger.debug(f"Skipping malformed line: {line}")
             return data
 
-        parsed_pos_tags: list[dict[str, str]] = parse_tsv_table(code_block)
+        parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(code_block)
         logger.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
         cleaned_pos_tags: list[dict[str, Optional[str]]] = [
             {k: (None if v == "_" else v) for k, v in d.items()}
@@ -728,13 +788,35 @@ Text:\n\n{doc.normalized_text}
     #         return new_key, new_value
 
     def _normalize_feature_value(self, key: str, value: str) -> list:
-        """Normalize UD feature values to canonical format."""
+        """Normalize a UD feature value.
+
+        Args:
+          key: UD feature name (e.g., ``Tense``).
+          value: Feature value to normalize (e.g., ``Perf``).
+
+        Returns:
+          A list of normalized values (single item in the current placeholder
+          implementation).
+
+        """
         # Placeholder: implement normalization logic or import from UD features module
         # For now, just return as a single-item list
         return [value]
 
-    def parse_tsv_table(self, response: str) -> list[dict[str, str]]:
-        """Parse a TSV table with columns FORM, LEMMA, UPOS, FEATS into a list of dicts."""
+    def _parse_tsv_table(self, response: str) -> list[dict[str, str]]:
+        """Parse a TSV block with columns FORM, LEMMA, UPOS, FEATS.
+
+        Args:
+          response: Raw text (potentially including markdown code fences).
+
+        Returns:
+          A list of dictionaries with keys ``form``, ``lemma``, ``upos``,
+          and ``feats``.
+
+        Raises:
+          CLTKException: If no valid rows are found.
+
+        """
         lines = [line.strip() for line in response.splitlines() if line.strip()]
         data: list[dict[str, str]] = []
         header = None
@@ -762,8 +844,20 @@ Text:\n\n{doc.normalized_text}
             )
         return data
 
-    def chatgpt_response_tokens(self, model: str, response: Response) -> dict[str, int]:
-        """Extract token usage information from an OpenAI Response object."""
+    def _chatgpt_response_tokens(
+        self, model: str, response: Response
+    ) -> dict[str, int]:
+        """Extract token usage information from an OpenAI response.
+
+        Args:
+          model: Model alias used for the call.
+          response: OpenAI response object.
+
+        Returns:
+          A dict with ``input``, ``output``, and ``total`` token counts (0 if
+          unavailable).
+
+        """
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:

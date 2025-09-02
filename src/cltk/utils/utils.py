@@ -30,6 +30,7 @@ from tqdm import tqdm
 
 def file_exists(file_path: str, is_dir: bool = False) -> bool:
     """Try to expand `~/` and check if a file or dir exists.
+
     Optionally check if it's a dir.
 
     >>> file_exists('~/fake_file')
@@ -48,8 +49,9 @@ def reverse_dict(
     input_dict: dict[str, Any],  # pylint: disable=bad-continuation
     ignore_keys: Optional[list[str]] = None,  # pylint: disable=bad-continuation
 ) -> dict[str, str]:
-    """Take a dict and reverse its keys and values. Optional
-    parameter to ignore certain keys.
+    """Take a dict and reverse its keys and values.
+
+    Optional parameter to ignore certain keys.
 
     >>> ids_lang = dict(anci1242='Ancient Greek', lati1261='Latin', unlabeled=['Ottoman'])
     >>> reverse_dict(ids_lang, ignore_keys=['unlabeled'])
@@ -96,8 +98,7 @@ def reverse_dict(
 
 @contextmanager
 def suppress_stdout() -> Iterator[None]:
-    """Wrap a function with this to suppress
-    its printing to screen.
+    """Wrap a function with this to suppress its printing to screen.
 
     Source: `<https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/>`_.
 
@@ -120,7 +121,8 @@ def suppress_stdout() -> Iterator[None]:
 
 
 def get_cltk_data_dir() -> str:
-    """Defines where to look for the ``cltk_data`` dir.
+    """Return where to look for the ``cltk_data`` dir.
+
     By default, this is located in a user's home directory
     and the directory is created there (``~/cltk_data``).
     However a user may customize where this goes with
@@ -171,6 +173,7 @@ def str_to_bool(string: str, truths: Optional[list[str]] = None) -> bool:
     Returns:
         ``True`` if string is in truths; otherwise, returns ``False``. All strings
         are compared in lowercase, so the method is case insensitive.
+
     """
     truths = truths or ["yes", "y"]
     return string.lower() in [t.lower() for t in truths]
@@ -189,6 +192,7 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
 
     Returns:
         ``True`` for "yes" and "y" or ``False`` for "no" and "n".
+
     """
     # 1. Construct prompt
     if default == "yes":
@@ -214,14 +218,16 @@ def query_yes_no(question: str, default: Union[str, None] = "yes") -> bool:
 
 
 def mk_dirs_for_file(file_path: str) -> None:
-    """Make all dirs specified for final file. If dir already exists,
-    then silently continue.
+    """Make all dirs specified for final file.
+
+    If dir already exists, then silently continue.
 
     Args:
         file_path: Paths of dirs to be created (i.e., `mkdir -p`)
 
     Returns:
         None
+
     """
     dirs = os.path.split(file_path)[0]
     try:
@@ -245,6 +251,7 @@ def get_file_with_progress_bar(model_url: str, file_path: str) -> None:
 
     Returns:
         None
+
     """
     mk_dirs_for_file(file_path=file_path)
     req_obj = requests.get(url=model_url, stream=True)
@@ -287,8 +294,8 @@ def load_env_file(env_file: str = ".env") -> None:
 
     Returns:
         None
-    """
 
+    """
     load_dotenv(env_file)
 
 

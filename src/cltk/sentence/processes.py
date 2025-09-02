@@ -1,4 +1,10 @@
-"""Module for sentence tokenizers."""
+"""Sentence splitting processes.
+
+This module exposes a lightweight, language‑aware sentence splitter built
+around regular expressions per language (identified by Glottolog codes).
+It defines a generic ``SentenceSplittingProcess`` and many concrete
+subclasses, one per language or stage.
+"""
 
 from copy import copy
 from functools import cached_property
@@ -12,11 +18,33 @@ __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
 
 
 class SentenceSplittingProcess(Process):
-    """Base class for sentence splitting processes."""
+    """Base class for sentence splitting processes.
+
+    Subclasses set ``glottolog_id`` and inherit the default algorithm,
+    which delegates to a multi‑language regex splitter.
+
+    Attributes:
+      glottolog_id: Target language Glottolog code used to choose
+        punctuation rules for sentence boundaries.
+
+    """
 
     @cached_property
     def algorithm(self) -> Callable[[str, str], list[tuple[int, int]]]:
-        # TODO: Decide whether to strip out section numbers with `text = strip_section_numbers(text)`
+        """Return the language‑appropriate sentence boundary function.
+
+        The returned callable takes ``(text, glottolog_id)`` and
+        returns a list of ``(start, stop)`` character offsets for each
+        sentence.
+
+        Returns:
+          A callable implementing sentence boundary detection.
+
+        Raises:
+          ValueError: If the ``glottolog_id`` is not supported.
+
+        """
+        # TODO: Consider stripping section numbers before splitting
         logger.debug(
             f"Selecting normalization algorithm for language: {self.glottolog_id}"
         )
@@ -148,6 +176,20 @@ class SentenceSplittingProcess(Process):
             raise ValueError(msg)
 
     def run(self, input_doc: Doc) -> Doc:
+        """Compute sentence boundaries and return an updated document.
+
+        Args:
+          input_doc: Document whose ``normalized_text`` will be segmented.
+
+        Returns:
+          A shallow copy of ``input_doc`` with ``sentence_boundaries`` set to
+          a list of ``(start, stop)`` character indices.
+
+        Raises:
+          ValueError: If ``normalized_text`` is missing or if ``glottolog_id``
+            is not set on the process.
+
+        """
         output_doc = copy(input_doc)
         if not output_doc.normalized_text:
             msg: str = "Doc must have `normalized_text`."

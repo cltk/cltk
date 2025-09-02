@@ -22,8 +22,7 @@ CLTK_DATA_DIR_PRIVATE: str = os.path.expanduser(
 
 
 def make_cltk_path(*fp_list: str) -> str:
-    """Take arbitrary number of str arguments (not list) and return expanded,
-    absolute path to a user's (or user-defined) cltk_data dir.
+    """Take arbitrary number of str arguments (not list) and return expanded, absolute path to a user's (or user-defined) cltk_data dir.
 
     Example:
     In [8]: make_cltk_path('greek', 'model', 'greek_models_cltk')
@@ -32,13 +31,14 @@ def make_cltk_path(*fp_list: str) -> str:
     :type fp_list: str positional arguments
     :param: : fp_list tokens to join together beginning from cltk_root folder
     :rtype: str
-    """
 
+    """
     return os.path.join(CLTK_DATA_DIR, *fp_list)
 
 
 def open_pickle(path: str) -> Any:
     """Open a pickle and return loaded pickle object.
+
     :type path: str
     :param : path: File path to pickle file to be opened.
     """
@@ -64,8 +64,8 @@ def open_pickle(path: str) -> Any:
 
 
 def md5(filename: str) -> str:
-    """
-    Given a filename produce an md5 hash of the contents.
+    """Produce an md5 hash of the contents given a filename.
+
     >>> import tempfile, os
     >>> f = tempfile.NamedTemporaryFile(delete=False)
     >>> f.write(b'Hello Wirld!')

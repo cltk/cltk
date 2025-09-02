@@ -1,4 +1,9 @@
-"""Primary module for CLTK pipeline."""
+"""High-level NLP entry point for CLTK pipelines.
+
+The :class:`NLP` class resolves a language (by Glottolog/ISO/name), chooses an
+appropriate pipeline (discriminative or generative backends), and runs each
+process in order to produce a :class:`cltk.core.data_types.Doc`.
+"""
 
 import os
 import shutil
@@ -19,7 +24,24 @@ from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELI
 
 
 class NLP:
-    """NLP class for default processing."""
+    """Convenience facade for running CLTK pipelines.
+
+    Args:
+      language_code: Language key (Glottolog code, ISO code, or exact name).
+      backend: Backend family: ``"disc"`` (discriminative), ``"gen-cloud"``
+        (cloud LLM), ``"gen-local"`` (local LLM), or ``"auto"`` (detect from
+        env; default).
+      custom_pipeline: Optional pipeline to use instead of the default mapping.
+      suppress_banner: If true, suppresses informational console output.
+
+    Notes:
+      - ``backend="auto"`` resolves to:
+        1) ``gen-cloud`` if an API key is found (``OPENAI_API_KEY`` or
+           ``CLTK_GENAI_API_KEY``),
+        2) else ``gen-local`` if an Ollama server is detected,
+        3) else ``disc``.
+
+    """
 
     def __init__(
         self,
@@ -56,7 +78,20 @@ class NLP:
             # self._print_suppress_reminder()
 
     def analyze(self, text: str) -> Doc:
-        """Run text through NLP pipeline."""
+        """Run text through the selected NLP pipeline and return a document.
+
+        Args:
+          text: Raw text to analyze.
+
+        Returns:
+          A :class:`~cltk.core.data_types.Doc` enriched by each process in the
+          pipeline (e.g., sentence boundaries, tokens, features).
+
+        Raises:
+          ValueError: If ``text`` is empty or not a string.
+          RuntimeError: If any process fails during execution.
+
+        """
         logger.info("Analyzing text with NLP pipeline.")
         if not text or not isinstance(text, str):
             logger.error("Input text must be a non-empty string.")
@@ -85,6 +120,7 @@ class NLP:
         return doc
 
     def _print_cltk_info(self) -> None:
+        """Print CLTK version and citation information."""
         ltr_mark: str = "\u200e"
         alep: str = "\U00010900"
         print(
@@ -99,6 +135,7 @@ class NLP:
         )
 
     def _print_pipelines_for_current_lang(self) -> None:
+        """Print the resolved language/dialect and process list."""
         logger.info(f"Printing pipeline for language: {self.language.name}")
         processes: list[Type[Process]] = cast(
             list[Type[Process]],
@@ -130,6 +167,7 @@ class NLP:
                 )
 
     def _print_special_authorship_messages_for_current_lang(self) -> None:
+        """Print any special authorship messages exposed by processes."""
         logger.info("Printing special authorship messages for current language.")
         processes: list[Type[Process]] = (
             self.pipeline.processes if self.pipeline.processes is not None else []
@@ -143,6 +181,7 @@ class NLP:
                 print(special_message)
 
     def _print_suppress_reminder(self) -> None:
+        """Print reminder for suppressing banner output."""
         logger.info("Printing suppress banner reminder.")
         print(
             # "\n" +
@@ -153,6 +192,18 @@ class NLP:
         )
 
     def _get_process_object(self, process_object: Type[Process]) -> Process:
+        """Instantiate a process passing the resolved ``glottolog_id``.
+
+        Args:
+          process_object: Process class to instantiate.
+
+        Returns:
+          A ``Process`` instance ready to ``run()``.
+
+        Raises:
+          RuntimeError: If instantiation fails.
+
+        """
         logger.debug(f"Getting process object for: {process_object.__name__}")
         try:
             return process_object(glottolog_id=self.language_code)
@@ -165,7 +216,11 @@ class NLP:
             raise RuntimeError(msg) from e
 
     def _normalize_backend(self, value: str) -> str:
-        """Map friendly aliases to canonical backends."""
+        """Map friendly aliases to canonical backends.
+
+        Accepts "local", "cloud", "chatgpt", "openai", "stanza", etc., and
+        returns one of: ``disc``, ``gen-cloud``, ``gen-local``, or ``auto``.
+        """
         aliases = {
             "local": "disc",
             "discriminative": "disc",
@@ -183,11 +238,11 @@ class NLP:
         return aliases.get(value, "auto")
 
     def _has_local_gen(self) -> bool:
-        """Heuristic: treat presence of 'ollama' binary or OLLAMA_HOST as available local LLM."""
+        """Return true if an Ollama server/binary appears available locally."""
         return bool(os.getenv("OLLAMA_HOST") or shutil.which("ollama"))
 
     def _resolved_backend(self) -> str:
-        """Resolve 'auto' based on environment; otherwise return normalized backend."""
+        """Resolve backend when ``auto``; otherwise return normalized value."""
         if self.backend != "auto":
             return self.backend
         if self.api_key:
@@ -197,21 +252,24 @@ class NLP:
         return "disc"
 
     def _get_pipeline(self) -> Pipeline:
-        """Select appropriate pipeline for given language. If custom
-        processing is requested, ensure that user-selected choices
-        are valid, both in themselves and in unison.
+        """Select the default pipeline for the resolved language.
 
-        >>> from cltk.core.data_types import Pipeline
-        >>> cltk_nlp = NLP(language="lat", suppress_banner=True)
-        >>> lat_pipeline = cltk_nlp._get_pipeline()
-        >>> isinstance(cltk_nlp.pipeline, Pipeline)
-        True
-        >>> isinstance(lat_pipeline, Pipeline)
-        True
-        >>> cltk_nlp = NLP(language="axm", suppress_banner=True)
-        Traceback (most recent call last):
+        If a custom pipeline was not provided, this looks up the mapping for
+        the chosen backend and glottolog code and returns an instance.
+
+        Examples:
+          >>> from cltk.core.data_types import Pipeline
+          >>> cltk_nlp = NLP(language_code="lat", suppress_banner=True)
+          >>> lat_pipeline = cltk_nlp._get_pipeline()
+          >>> isinstance(cltk_nlp.pipeline, Pipeline)
+          True
+          >>> isinstance(lat_pipeline, Pipeline)
+          True
+          >>> cltk_nlp = NLP(language_code="axm", suppress_banner=True)
+          Traceback (most recent call last):
           ...
-        cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO language code, however this algorithm is not available for ``axm``.
+          cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO/Glottolog code but no pipeline for 'axm' with backend 'disc'.
+
         """
         backend = self._resolved_backend()
         if backend == "disc":

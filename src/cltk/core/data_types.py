@@ -1,5 +1,10 @@
-"""Custom data types for the CLTK. These types form the building blocks
-of the NLP pipeline.
+"""Core data models used throughout CLTK.
+
+This module defines small, typed Pydantic models for linguistic metadata
+and the main runtime containers (``Word``, ``Sentence``, ``Doc``), along with
+lightweight abstractions for ``Process`` and ``Pipeline``. These types are the
+building blocks of the NLP pipeline and are designed to be simple to serialize
+and render well in documentation.
 """
 
 from abc import abstractmethod
@@ -34,34 +39,59 @@ ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
 
 
 class NameVariant(BaseModel):
+    """Alternative name or label for a language or dialect.
+
+    Attributes:
+      value: The display string for the name.
+      source: Optional provenance or catalogue name.
+      script: Optional script tag (e.g., ISO 15924).
+
+    """
+
     value: str
     source: Optional[str] = None
     script: Optional[str] = None
 
 
 class Identifier(BaseModel):
+    """External identifier record.
+
+    Attributes:
+      scheme: Identifier scheme (e.g., ``glottocode``, ``iso639-3``).
+      value: Identifier value.
+
+    """
+
     scheme: str
     value: str
 
 
 class GeoPoint(BaseModel):
+    """Geographic point in decimal degrees."""
+
     lat: float
     lon: float
 
 
 class GeoArea(BaseModel):
+    """Geographic coverage for a language or dialect."""
+
     centroid: Optional[GeoPoint] = None
     macroareas: list[Macroarea] = Field(default_factory=list)
     countries: list[str] = Field(default_factory=list)
 
 
 class Timespan(BaseModel):
+    """Approximate temporal coverage for a resource or orthography."""
+
     start: Optional[int] = None
     end: Optional[int] = None
     note: Optional[str] = None
 
 
 class SourceRef(BaseModel):
+    """Bibliographic source/citation reference."""
+
     key: str
     pages: Optional[str] = None
     note: Optional[str] = None
@@ -69,6 +99,8 @@ class SourceRef(BaseModel):
 
 
 class Classification(BaseModel):
+    """Taxonomic/phylogenetic information for a language."""
+
     level: Level
     parent_glottocode: Optional[str] = None
     lineage: list[str] = Field(default_factory=list)  # ancestors (root-first)
@@ -76,6 +108,8 @@ class Classification(BaseModel):
 
 
 class Endangerment(BaseModel):
+    """Endangerment status summary (if available)."""
+
     status: Optional[str] = None
     source: Optional[str] = None
     date_assessed: Optional[date] = None
@@ -83,11 +117,15 @@ class Endangerment(BaseModel):
 
 
 class Link(BaseModel):
+    """External hyperlink with title."""
+
     title: str
     url: AnyUrl
 
 
 class TransliterationSystem(BaseModel):
+    """Transliteration scheme description and provenance."""
+
     name: str
     standard_body: Optional[str] = None
     year: Optional[int] = None
@@ -96,6 +134,8 @@ class TransliterationSystem(BaseModel):
 
 
 class Orthography(BaseModel):
+    """Orthography used for a language/dialect in a given period/region."""
+
     name: str
     script: str
     direction: Optional[ScriptDir] = None
@@ -110,6 +150,8 @@ class Orthography(BaseModel):
 
 
 class Dialect(BaseModel):
+    """Dialect metadata record from Glottolog‑derived data."""
+
     glottolog_id: str
     language_code: str
     name: str
@@ -125,6 +167,8 @@ class Dialect(BaseModel):
 
 
 class Language(BaseModel):
+    """Language metadata record from Glottolog‑derived data."""
+
     name: str
     glottolog_id: str
     identifiers: list[Identifier] = Field(default_factory=list)
@@ -166,6 +210,8 @@ class Language(BaseModel):
 
 
 class CLTKBaseModel(BaseModel):
+    """Base Pydantic model for CLTK runtime containers."""
+
     model_config = {"arbitrary_types_allowed": True}
 
 
@@ -205,7 +251,7 @@ class Word(CLTKBaseModel):
 
 
 class Sentence(CLTKBaseModel):
-    """The Data Container for sentences."""
+    """A sentence containing words and optional embedding."""
 
     words: Optional[list[Word]] = Field(default_factory=list)
     index: Optional[int] = None
@@ -223,7 +269,24 @@ class Sentence(CLTKBaseModel):
 
 
 class Doc(CLTKBaseModel):
-    """The object returned to the user from the ``NLP()`` class."""
+    """Top‑level container returned from ``NLP()`` pipelines.
+
+    Attributes:
+      language: Language metadata associated with the text.
+      words: Token‑level annotations (may be empty prior to analysis).
+      pipeline: Pipeline instance that produced this document, if any.
+      raw: Original raw text.
+      normalized_text: Normalized version of the text.
+      sentence_embeddings: Optional embeddings per sentence index.
+      translation: Optional translation of the document.
+      summary: Optional summary of the document.
+      topic: Optional topic classification.
+      discourse_relations: Discourse relation labels (if available).
+      coreferences: Coreference links as (mention, antecedent, i, j).
+      sentence_boundaries: List of (start, stop) character offsets.
+      chatgpt: List of usage/metadata dicts from model calls.
+
+    """
 
     language: Language
     words: list[Word] = Field(default_factory=list)
@@ -242,8 +305,13 @@ class Doc(CLTKBaseModel):
 
     @property
     def sentence_strings(self) -> list[str]:
-        """
-        Return the list of sentence strings using sentence boundaries and the normalized text.
+        """Return sentence strings derived from boundaries and text.
+
+        Returns:
+          A list of substrings of ``normalized_text`` cut by
+          ``sentence_boundaries``. Returns an empty list if either field is
+          missing.
+
         """
         # TODO: Decide if this is preventable
         from cltk.sentence.utils import extract_sentences_from_boundaries
@@ -350,17 +418,34 @@ class Doc(CLTKBaseModel):
 
 
 class Process(BaseModel):
-    """For each type of NLP process there needs to be a definition."""
+    """Abstract base for NLP processes operating on a ``Doc``.
+
+    Subclasses implement ``run()`` to transform or enrich a document.
+
+    Attributes:
+      glottolog_id: Optional target language code for language‑specific logic.
+
+    """
 
     glottolog_id: Optional[str] = None
 
     @abstractmethod
     def run(self, input_doc: Doc) -> Doc:
+        """Process ``input_doc`` and return an enriched/modified copy."""
         pass
 
 
 class Pipeline(BaseModel):
-    """Abstract ``Pipeline`` class to be inherited."""
+    """Composable set of processes to analyze a document.
+
+    Attributes:
+      description: Human‑readable description.
+      processes: Ordered list of process classes to apply.
+      language: Resolved language metadata.
+      dialect: Resolved dialect metadata (if applicable).
+      glottolog_id: Language code used for auto‑resolution.
+
+    """
 
     description: Optional[str] = None
     # Pydantic model classes use a custom metaclass, which mypy treats as
@@ -374,7 +459,13 @@ class Pipeline(BaseModel):
 
     @model_validator(mode="after")
     def _auto_resolve_language_and_dialect(self) -> "Pipeline":
-        """If glottolog_id is present, resolve language/dialect lazily."""
+        """Fill in language/dialect from ``glottolog_id`` when missing.
+
+        Returns:
+          Self, with ``language`` and/or ``dialect`` populated if resolution
+          succeeds.
+
+        """
         # Only resolve if at least one is missing
         if (self.language is None or self.dialect is None) and self.glottolog_id:
             try:
@@ -394,6 +485,12 @@ class Pipeline(BaseModel):
         return self
 
     def add_process(self, process: Type[Process]) -> None:
+        """Append a process class to the pipeline order.
+
+        Args:
+          process: A ``Process`` subclass to add to the pipeline.
+
+        """
         if self.processes is None:
             self.processes = []
         self.processes.append(process)

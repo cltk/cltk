@@ -29,8 +29,8 @@ class UDPartOfSpeechTag(BaseModel):
 
     @staticmethod
     def normalize_ud_pos_tag(tag: str) -> str:
-        """
-        Normalize a POS tag to the standard UD tag used in UD_POS_TAGS.
+        """Normalize a POS tag to the standard UD tag used in UD_POS_TAGS.
+
         Handles common LLM and upstream errors, e.g., "CONJ" -> "CCONJ", "SCONJ", etc.
 
         Args:
@@ -41,6 +41,7 @@ class UDPartOfSpeechTag(BaseModel):
 
         Raises:
             ValueError: If the tag cannot be normalized to a known UD POS tag.
+
         """
         # Common alternate/abbreviated forms
         tag_map = {

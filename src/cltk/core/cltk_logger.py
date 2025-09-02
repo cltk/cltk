@@ -1,4 +1,8 @@
-"""CLTK's logging module."""
+"""CLTK logging utilities.
+
+Provides a colorized console formatter and a helper to configure a module
+logger suitable for libraries and CLI output.
+"""
 
 __license__ = "MIT License. See LICENSE."
 
@@ -12,6 +16,8 @@ colorama_init(autoreset=True)  # for Windows
 
 
 class ColorFormatter(logging.Formatter):
+    """Console color formatter using Colorama styles."""
+
     COLORS = {
         logging.DEBUG: Fore.CYAN + Style.DIM,
         logging.INFO: Fore.CYAN,
@@ -21,6 +27,7 @@ class ColorFormatter(logging.Formatter):
     }
 
     def format(self, record: logging.LogRecord) -> str:
+        """Return a colorized log line for console output."""
         color = self.COLORS.get(record.levelno, "")
         reset = Style.RESET_ALL
         # record.msg = f"{color}{record.msg}{reset}"
@@ -35,6 +42,19 @@ def setup_cltk_logger(
     log_to_console: bool = True,
     level: str | None = None,
 ) -> logging.Logger:
+    """Configure and return a library logger.
+
+    Args:
+      name: Logger name.
+      log_to_file: If true, add a file handler writing to ``cltk.log``.
+      log_to_console: If true, add a colorized console handler.
+      level: Optional log level name (e.g., ``"INFO"``). If ``None``, uses
+        ``CLTK_LOG_LEVEL`` environment variable or defaults to ``INFO``.
+
+    Returns:
+      A configured ``logging.Logger`` instance.
+
+    """
     logger = logging.getLogger(name)
     logger.handlers.clear()  # Remove any existing handlers
 

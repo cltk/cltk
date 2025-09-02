@@ -13,7 +13,8 @@ def cltk_normalize(text: str, compatibility: bool = True) -> str:
 
 
 def remove_non_ascii(input_string: str) -> str:
-    """Remove non-ascii characters
+    """Remove non-ascii characters.
+
     Source: http://stackoverflow.com/a/1342373
     """
     no_ascii = "".join(i for i in input_string if ord(i) < 128)
@@ -22,6 +23,7 @@ def remove_non_ascii(input_string: str) -> str:
 
 def remove_non_latin(input_string: str, also_keep: Optional[list[str]] = None) -> str:
     """Remove non-Latin characters.
+
     `also_keep` should be a list which will add chars (e.g. punctuation)
     that will not be filtered.
     """
@@ -37,7 +39,9 @@ def remove_non_latin(input_string: str, also_keep: Optional[list[str]] = None) -
 
 
 def split_trailing_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
-    """Some tokenizers, including that in Stanza, do not always
+    """Split trailing punctuation from words.
+
+    Some tokenizers, including that in Stanza, do not always
     handle punctuation properly. For example, a trailing colon (``"οἶδα:"``)
     is not split into an extra punctuation token. This function
     does such splitting on raw text before being sent to such
@@ -53,6 +57,7 @@ def split_trailing_punct(text: str, punctuation: Optional[list[str]] = None) -> 
     >>> raw_text = "κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
     >>> split_trailing_punct(text=raw_text)
     'κατηγόρων ’, οὐκ οἶδα : ἐγὼ δ᾽ οὖν'
+
     """
     if not punctuation:
         # What about the curly thing (``᾽``) in eg ``δ᾽``
@@ -74,7 +79,9 @@ def split_trailing_punct(text: str, punctuation: Optional[list[str]] = None) -> 
 
 
 def split_leading_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
-    """Some tokenizers, including that in Stanza, do not always
+    """Split leading punctuation from words.
+
+    Some tokenizers, including that in Stanza, do not always
     handle punctuation properly. For example, an open curly
     quote  (``"‘κατηγόρων’"``) is not split into an extra punctuation
     token. This function does such splitting on raw text before
@@ -90,6 +97,7 @@ def split_leading_punct(text: str, punctuation: Optional[list[str]] = None) -> s
     >>> raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
     >>> split_leading_punct(text=raw_text)
     '‘ κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν'
+
     """
     if not punctuation:
         punctuation = ["‘", "“"]  # opening curly quotes
@@ -114,8 +122,9 @@ def split_leading_punct(text: str, punctuation: Optional[list[str]] = None) -> s
 
 
 def remove_odd_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
-    """Remove certain characters that downstream processes do
-    not handle well. It would be better to use ``split_leading_punct()``
+    """Remove certain characters that downstream processes do not handle well.
+
+    It would be better to use ``split_leading_punct()``
     and ``split_trailing_punct()``, however the default models
     out of Stanza make very strange mistakes when, e.g., ``"‘"``
     is made its own token.
@@ -134,9 +143,7 @@ def remove_odd_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
 
 
 def strip_section_numbers(text: str) -> str:
-    """
-    Remove section numbers like '1.2.2', '[55]', '[55A]', '1.2.2A', '55', '55B', '2:4b' from the text.
-    """
+    """Remove section numbers like '1.2.2', '[55]', '[55A]', '1.2.2A', '55', '55B', '2:4b' from the text."""
     # Remove bracketed numbers like [55], [55A]
     text = re.sub(r"\[\d+[A-Z]?\]", "", text)
     # Remove numbers like 1.2.2 or 1.2.2A (at word boundaries)

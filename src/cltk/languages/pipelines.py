@@ -1,4 +1,10 @@
-"""Processing pipelines for languages."""
+"""Language pipelines and mappings.
+
+This module defines many language‑specific pipeline classes (mostly
+ChatGPT‑backed) and central mappings from Glottolog codes to default pipelines.
+Pipelines are lightweight containers that list a small sequence of processes
+such as normalization, sentence splitting, and generative annotation.
+"""
 
 from typing import Any, Optional, Type
 

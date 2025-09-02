@@ -1255,8 +1255,8 @@ UD_FEATURES_MAP = {feature.key: feature for feature in UD_FEATURES}
 
 
 def normalize_ud_feature_key(key: str) -> Optional[str]:
-    """
-    Normalize a UD feature key to the standard key used in UD_FEATURES_MAP.
+    """Normalize a UD feature key to the standard key used in `UD_FEATURES_MAP`.
+
     Extend this mapping as new variants or errors are encountered.
 
     Args:
@@ -1264,6 +1264,7 @@ def normalize_ud_feature_key(key: str) -> Optional[str]:
 
     Returns:
         str: The normalized UD feature key (e.g., "Case", "Gender"). `False` if unable to normalize.
+
     """
     key_map = {
         # Common alternate/abbreviated forms
@@ -1282,8 +1283,7 @@ def normalize_ud_feature_key(key: str) -> Optional[str]:
 
 
 def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]:
-    """
-    Normalize a UD feature key-value pair to the standard form used in UD_FEATURES_MAP.
+    """Normalize a UD feature key-value pair to the standard form used in UD_FEATURES_MAP.
 
     Args:
         key (str): The feature key (e.g., "Case").
@@ -1291,6 +1291,7 @@ def normalize_ud_feature_pair(key: str, value: str) -> Optional[tuple[str, str]]
 
     Returns:
         tuple[str, str]: The normalized key and value if valid, otherwise raises ValueError.
+
     """
     ud_feature_pair_remap: dict[tuple[str, str], tuple[str, str]] = {
         ("Tense", "Perf"): ("Aspect", "Perf"),

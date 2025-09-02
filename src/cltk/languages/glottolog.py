@@ -1,3 +1,12 @@
+"""Utilities for loading and resolving Glottolog-derived language data.
+
+This module ships a compact Glottolog export (``glottolog.json``) and exposes
+helpers to load it into Pydantic models, build fast lookup indices, and resolve
+user-supplied keys (ISO codes, names, glottocodes) into
+``(Language, Optional[Dialect])`` pairs. It is used throughout CLTK to map
+human-facing inputs into canonical language identifiers.
+"""
+
 from __future__ import annotations
 
 import json
@@ -16,7 +25,20 @@ _DEFAULT_RESOURCE = "glottolog.json"
 
 
 def _read_bytes(path: Optional[Path]) -> bytes:
-    """Read JSON bytes from a filesystem path or packaged resource."""
+    """Return JSON bytes from a file path or the packaged resource.
+
+    Args:
+      path: Optional path to a JSON file. If ``None``, reads the packaged
+        ``glottolog.json`` resource.
+
+    Returns:
+      Raw JSON bytes.
+
+    Raises:
+      FileNotFoundError: If a file ``path`` is provided but does not exist.
+      Exception: If the packaged resource cannot be read.
+
+    """
     if path:
         logger.debug(f"Reading Glottolog JSON from file: {path}")
         p = Path(path)
@@ -41,7 +63,23 @@ def _read_bytes(path: Optional[Path]) -> bytes:
 
 @lru_cache(maxsize=1)
 def load_languages(path: Optional[str] = None) -> dict[str, Language]:
-    """Load Language models from JSON. Returns mapping glottocode -> Language."""
+    """Load ``Language`` models from JSON.
+
+    The JSON may be a dict mapping glottocode to objects, or a list of
+    language objects. The return value always maps glottocode -> ``Language``.
+
+    Args:
+      path: Optional filesystem path to a Glottolog JSON file. If omitted, the
+        packaged resource is used.
+
+    Returns:
+      Mapping from glottocode to :class:`~cltk.core.data_types.Language`.
+
+    Raises:
+      Exception: If reading or parsing the JSON fails.
+      ValueError: If the top-level JSON is neither an object nor an array.
+
+    """
     logger.info(
         f"Loading Glottolog languages (path={'packaged' if not path else path})"
     )
@@ -93,10 +131,16 @@ _HISTORIC_MODIFIERS: set[str] = {
 
 
 def _norm(s: str) -> str:
+    """Normalize whitespace and case for robust comparisons."""
     return " ".join(s.lower().split())
 
 
 def _is_historic_like(L: Language, cutoff: int = HISTORIC_CUTOFF_YEAR) -> bool:
+    """Return True if a language looks historic/ancient per simple heuristics.
+
+    Heuristics consider endangerment, explicit tokens like "ancient/old/middle",
+    and an earliest timespan prior to ``cutoff``.
+    """
     try:
         if getattr(L, "status", None) in {"extinct", "unattested"}:
             return True
@@ -123,6 +167,10 @@ def _is_historic_like(L: Language, cutoff: int = HISTORIC_CUTOFF_YEAR) -> bool:
 def _historic_rank(
     L: Language, cutoff: int = HISTORIC_CUTOFF_YEAR
 ) -> tuple[int, int, int]:
+    """Return a tuple scoring how plausibly historic a language is.
+
+    Higher tuples (by lexicographic order) indicate stronger historicity.
+    """
     is_hist = 1 if _is_historic_like(L, cutoff=cutoff) else 0
     has_mod = 1 if (set(_norm(L.name).split()) & _HISTORIC_MODIFIERS) else 0
     ts = getattr(L, "timespan", None)
@@ -141,11 +189,20 @@ def build_indices(
     Literal["by_iso", "by_name_lang", "by_name_dialect", "by_dialect"],
     dict[str, Any],
 ]:
-    """Build lookup indices:
-    - by_iso: iso -> language glottocode
-    - by_name_lang: lowercased language name/alt-name -> [language glottocode]
-    - by_name_dialect: lowercased dialect name -> [dialect glottocode]
-    - by_dialect: dialect glottocode -> parent language glottocode
+    """Build lookup indices for languages and dialects.
+
+    Indices built:
+      - ``by_iso``: ISO -> language glottocode
+      - ``by_name_lang``: lowercased language name/alt‑name -> [language glottocode]
+      - ``by_name_dialect``: lowercased dialect name -> [dialect glottocode]
+      - ``by_dialect``: dialect glottocode -> parent language glottocode
+
+    Args:
+      path: Optional path to a JSON file; see :func:`load_languages`.
+
+    Returns:
+      A dict of four indices as described above.
+
     """
     logger.debug(
         f"Building Glottolog indices (path={'packaged' if not path else path})"
@@ -180,7 +237,20 @@ def build_indices(
 
 
 def get_language(key: str, path: Optional[str] = None) -> Language:
-    """Lookup by glottocode, ISO, or name/alt-name."""
+    """Return a ``Language`` by glottocode, ISO, or exact name/alt‑name.
+
+    Args:
+      key: Glottocode, ISO code, or exact language name/alt‑name.
+      path: Optional JSON path; see :func:`load_languages`.
+
+    Returns:
+      The resolved :class:`~cltk.core.data_types.Language`.
+
+    Raises:
+      KeyError: If no matching language is found, or if a dialect code is
+        supplied (with guidance to call :func:`get_dialect`).
+
+    """
     logger.debug(
         f"Looking up language for key='{key}' (path={'packaged' if not path else path})"
     )
@@ -215,8 +285,19 @@ def get_language(key: str, path: Optional[str] = None) -> Language:
 
 
 def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect]:
-    """Lookup a dialect by glottocode or exact dialect name.
-    Returns (parent_language, dialect). Raises KeyError with guidance on failure.
+    """Return ``(Language, Dialect)`` by dialect code or exact dialect name.
+
+    Args:
+      key: Dialect glottocode or exact dialect name.
+      path: Optional JSON path; see :func:`load_languages`.
+
+    Returns:
+      A tuple of (parent ``Language``, matching ``Dialect``).
+
+    Raises:
+      KeyError: If the key refers to a language (guiding to :func:`get_language`),
+        or no dialect can be found (with hints on ambiguous names).
+
     """
     logger.debug(
         f"Looking up dialect for key='{key}' (path={'packaged' if not path else path})"
@@ -312,15 +393,19 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
 def resolve_languoid(
     key: str, path: Optional[str] = None
 ) -> tuple[Language, Optional[Dialect]]:
-    """Resolve a language or dialect key into (Language, Optional[Dialect]).
-    Accepts:
-      - language glottocode (e.g., 'lati1261'), ISO (e.g., 'lat'), or exact language name/alt-name
-      - dialect glottocode (e.g., 'demo1234') or exact dialect name
+    """Resolve a language or dialect key.
+
+    Args:
+      key: Language glottocode/ISO/name or dialect glottocode/name.
+      path: Optional JSON path; see :func:`load_languages`.
+
     Returns:
-      - (Language, None) for languages
-      - (Language, Dialect) for dialects
+      (``Language``, ``None``) for a language; (``Language``, ``Dialect``) for a
+      dialect.
+
     Raises:
-      - KeyError with guidance if nothing (or an ambiguous dialect name) matches.
+      KeyError: If nothing matches (or name is ambiguous without a glottocode).
+
     """
     logger.debug(
         f"Resolving languoid for key='{key}' (path={'packaged' if not path else path})"

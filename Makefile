@@ -75,6 +75,9 @@ test: typing
 	@echo "Running tests with coverage..."
 	poetry run pytest --cov=cltk --cov-report=term-missing
 
+docstrCoverage:
+	poetry run interrogate -c pyproject.toml -v src
+
 # testChatGPT:
 # 	echo "Going to test code calling ChatGPT ..."
 # 	poetry run python tests/test_chatgpt.py

@@ -1,5 +1,6 @@
-"""This module holds the ``Process`` for normalizing text strings, usually
-before the text is sent to other processes.
+"""Hold the ``Process`` for normalizing text strings.
+
+Usually used before the text is sent to other processes.
 """
 
 from functools import cached_property
@@ -24,7 +25,7 @@ class NormalizeProcess(Process):
         return cltk_normalize
 
     def run(self, input_doc: Doc) -> Doc:
-        """This invokes language-appropriate normalization code for text a given language."""
+        """Invoke language-appropriate normalization code for text a given language."""
         logger.debug(f"Running normalization for language: {self.language_code}")
         if self.algorithm is None:
             logger.error(

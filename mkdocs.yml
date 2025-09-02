@@ -30,6 +30,7 @@ plugins:
         python:
           options:
             docstring_style: google
+            docstring_section_style: list
             show_source: true
             members_order: source
             inherited_members: true
@@ -39,6 +40,7 @@ plugins:
             merge_init_into_class: true
             show_bases: true
             show_if_no_docstring: false
+            show_docstring_attributes: true
   - gen-files:
       scripts:
         - docs/_scripts/gen_ref_nav.py
