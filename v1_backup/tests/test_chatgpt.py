@@ -5,19 +5,19 @@ import pytest
 
 from cltk import NLP
 from cltk.core.data_types import Doc
-from cltk.genai.chatgpt import ChatGPT
+from cltk.genai.chatgpt import ChatGPTV1
 from cltk.languages.example_texts import get_example_text
-from cltk.languages.pipelines import GreekChatGPTPipeline
+from cltk.languages.pipelines import AncientGreekChatGPTPipeline
 
 
 def test_chatgpt_init():
-    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
+    chatgpt = ChatGPTV1(language_code="lat", api_key="sk-test")
     assert chatgpt.language.name == "Latin"
     assert chatgpt.api_key == "sk-test"
 
 
 def test_prompt_construction():
-    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
+    chatgpt = ChatGPTV1(language_code="lat", api_key="sk-test")
     prompt = chatgpt.generate_pos(
         "Gallia est omnis divisa in partes tres.", print_raw_response=False
     )
@@ -25,7 +25,7 @@ def test_prompt_construction():
 
 
 def test_fallback_word_info():
-    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
+    chatgpt = ChatGPTV1(language_code="lat", api_key="sk-test")
     # Simulate a malformed response
     result = chatgpt._parse_word_info_from_chatgpt_response(
         "", print_raw_response=False
@@ -34,7 +34,7 @@ def test_fallback_word_info():
 
 
 def test_metadata_aggregation():
-    chatgpt = ChatGPT(language_code="lat", api_key="sk-test")
+    chatgpt = ChatGPTV1(language_code="lat", api_key="sk-test")
     doc = chatgpt._post_process_pos_response(
         "Gallia\tGallia\tGallia\tO\tNOUN\tNOUN\tNOUN",
         "Gallia",
@@ -47,13 +47,13 @@ def test_metadata_aggregation():
 def test_missing_api_key():
     os.environ.pop("OPENAI_API_KEY", None)
     with pytest.raises(Exception):
-        ChatGPT(language_code="lat", api_key=None)  # type: ignore intentional bad parameter
+        ChatGPTV1(language_code="lat", api_key=None)  # type: ignore intentional bad parameter
 
 
 class TestChatGPTNLP(unittest.TestCase):
     def test_greek_chatgpt_pipeline(self):
         example_text = get_example_text("grc")
-        pipeline = GreekChatGPTPipeline()
+        pipeline = AncientGreekChatGPTPipeline()
         nlp = NLP(language_code="grc", custom_pipeline=pipeline, suppress_banner=True)
         doc = nlp.analyze(example_text)
         # Basic assertions

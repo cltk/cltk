@@ -9,7 +9,7 @@ and render well in documentation.
 
 from abc import abstractmethod
 from datetime import date
-from typing import Any, Literal, Optional, Type, TypeAlias
+from typing import Any, Literal, Optional, TypeAlias
 
 import numpy as np
 from pydantic import AnyUrl, BaseModel, Field, model_validator
@@ -36,6 +36,19 @@ Macroarea: TypeAlias = Literal[
 ISOType: TypeAlias = Literal["639-1", "639-2", "639-3"]
 # left-to-right, right-to-left, top-to-bottom, bottom-to-top
 ScriptDir: TypeAlias = Literal["ltr", "rtl", "ttb", "btt"]
+
+
+class CLTKGenAIResponse(BaseModel):
+    """Response model for ChatGPT interactions in CLTK.
+
+    Attributes:
+      response: The generated text response from ChatGPT.
+      usage: Token usage information (input, output, total).
+
+    """
+
+    response: str
+    usage: dict[str, int]
 
 
 class NameVariant(BaseModel):
@@ -239,7 +252,7 @@ class Word(CLTKBaseModel):
     phonetic_transcription: Optional[str] = None
     definition: Optional[str] = None
 
-    # def __getitem__(self, feature_name: Union[str, Type[MorphosyntacticFeature]]) -> list[MorphosyntacticFeature]:
+    # def __getitem__(self, feature_name: Union[str, type[MorphosyntacticFeature]]) -> list[MorphosyntacticFeature]:
     #     return self.features[feature_name]
 
     # def __getattr__(self, item: str):
@@ -266,6 +279,10 @@ class Sentence(CLTKBaseModel):
     #     if not self.words:
     #         return 0
     #     return len(self.words)
+
+
+BACKEND_TYPES: TypeAlias = Literal["chatgpt", "stanza", "spacy"]
+AVAILABLE_OPENAI_MODELS: TypeAlias = Literal["gpt-5-nano", "gpt-5-mini", "gpt-5"]
 
 
 class Doc(CLTKBaseModel):
@@ -302,6 +319,11 @@ class Doc(CLTKBaseModel):
     coreferences: list[tuple[str, str, int, int]] = Field(default_factory=list)
     sentence_boundaries: list[tuple[int, int]] = Field(default_factory=list)
     chatgpt: list[dict[str, Any]] = Field(default_factory=list)
+    backend: Optional[BACKEND_TYPES] = None
+    backend_version: Optional[AVAILABLE_OPENAI_MODELS] = (
+        None  # TODO: Implement for `backend` too with map
+    )
+    dialect: Optional[Dialect] = None
 
     @property
     def sentence_strings(self) -> list[str]:
@@ -484,7 +506,7 @@ class Pipeline(BaseModel):
                 )
         return self
 
-    def add_process(self, process: Type[Process]) -> None:
+    def add_process(self, process: type[Process]) -> None:
         """Append a process class to the pipeline order.
 
         Args:

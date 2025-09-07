@@ -28,7 +28,7 @@ def split_sentences_multilang(
     """
     # Define language-specific sentence-ending regex patterns
     lang_sentence_endings = {
-        "anci1242": r"([;;·.·])",
+        "anci1242": r"([;;·.·:])",  # Ancient Greek
         "lati1261": r"([.!?])",
         "vedi1234": r"([।॥.!?])",  # Vedic Sanskrit: danda, double danda, period, exclamation, question
         "clas1258": r"([।॥.!?])",  # Classical Sanskrit: danda, double danda, period, exclamation, question
@@ -179,5 +179,4 @@ def split_sentences_multilang(
             stop = start + len(sentence)
             boundaries.append((start, stop))
             idx = stop
-
     return boundaries

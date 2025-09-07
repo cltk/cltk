@@ -7,18 +7,29 @@ process in order to produce a :class:`cltk.core.data_types.Doc`.
 
 import os
 import shutil
-from typing import Literal, Optional, Type, cast
+from typing import Optional, cast
 
 from colorama import Fore, Style
 
 import cltk
 from cltk.core.cltk_logger import logger
-from cltk.core.data_types import Dialect, Doc, Language, Pipeline, Process
+from cltk.core.data_types import (
+    AVAILABLE_OPENAI_MODELS,
+    BACKEND_TYPES,
+    Dialect,
+    Doc,
+    Language,
+    Pipeline,
+    Process,
+)
 from cltk.core.exceptions import UnimplementedAlgorithmError
 from cltk.languages.glottolog import resolve_languoid
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
+    MAP_LANGUAGE_CODE_TO_SPACY_PIPELINE,
+    MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE,
 )
+from cltk.utils.utils import load_env_file
 
 # from cltk.languages.utils import get_lang
 
@@ -46,7 +57,7 @@ class NLP:
     def __init__(
         self,
         language_code: str,
-        backend: Literal["disc", "gen-cloud", "gen-local", "auto"] = "auto",
+        backend: BACKEND_TYPES = "stanza",
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
@@ -60,13 +71,16 @@ class NLP:
             self.language_code = self.dialect.glottolog_id
         else:
             self.language_code = self.language.glottolog_id
-        # Resolve backend (param > env > auto detection)
-        env_backend = os.getenv("CLTK_BACKEND")
-        self.backend: str = self._normalize_backend(env_backend or backend)
-        # API key used for gen-cloud auto detection
-        self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY") or os.getenv(
-            "CLTK_GENAI_API_KEY"
-        )
+        self.backend: BACKEND_TYPES = backend
+        if self.backend == "chatgpt":
+            load_env_file()
+            self.api_key: Optional[str] = os.getenv("OPENAI_API_KEY")
+            if not self.api_key:
+                msg: str = "API key for ChatGPT not found."
+                logger.error(msg)
+                raise ValueError(msg)
+            # TODO: Make structured data model to hold ChatGPT/other config
+            self.backend_version: AVAILABLE_OPENAI_MODELS = "gpt-5-mini"
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
@@ -97,12 +111,17 @@ class NLP:
             logger.error("Input text must be a non-empty string.")
             raise ValueError("Input text must be a non-empty string.")
         doc: Doc = Doc(language=self.language, raw=text)
-        from typing import cast
+        doc.backend = self.backend
+        doc.backend_version = self.backend_version
 
-        processes: list[Type[Process]] = cast(
-            list[Type[Process]],
+        processes: list[type[Process]] = cast(
+            list[type[Process]],
             self.pipeline.processes if self.pipeline.processes is not None else [],
         )
+        if not processes:
+            msg: str = "No processes found in pipeline."
+            logger.error(msg)
+            raise RuntimeError(msg)
         for process in processes:
             process_obj: Process = self._get_process_object(process_object=process)
             try:
@@ -137,8 +156,8 @@ class NLP:
     def _print_pipelines_for_current_lang(self) -> None:
         """Print the resolved language/dialect and process list."""
         logger.info(f"Printing pipeline for language: {self.language.name}")
-        processes: list[Type[Process]] = cast(
-            list[Type[Process]],
+        processes: list[type[Process]] = cast(
+            list[type[Process]],
             self.pipeline.processes if self.pipeline.processes is not None else [],
         )
         processes_name: list[str] = [process.__name__ for process in processes]
@@ -151,7 +170,7 @@ class NLP:
             Fore.CYAN
             + lang_and_dialect_selected
             + "\n"
-            + f'Pipeline for `NLP("{self.language_code}", backend="{self._resolved_backend()}")`:'
+            + f'Pipeline for `NLP("{self.language_code}", backend="{self.backend}")`:'
             + Fore.GREEN
             + f" {[process.__name__ for process in processes]}"
             + Style.RESET_ALL
@@ -169,7 +188,7 @@ class NLP:
     def _print_special_authorship_messages_for_current_lang(self) -> None:
         """Print any special authorship messages exposed by processes."""
         logger.info("Printing special authorship messages for current language.")
-        processes: list[Type[Process]] = (
+        processes: list[type[Process]] = (
             self.pipeline.processes if self.pipeline.processes is not None else []
         )
         for process_class in processes:
@@ -191,7 +210,7 @@ class NLP:
             + Style.RESET_ALL
         )
 
-    def _get_process_object(self, process_object: Type[Process]) -> Process:
+    def _get_process_object(self, process_object: type[Process]) -> Process:
         """Instantiate a process passing the resolved ``glottolog_id``.
 
         Args:
@@ -215,41 +234,9 @@ class NLP:
             logger.error(msg)
             raise RuntimeError(msg) from e
 
-    def _normalize_backend(self, value: str) -> str:
-        """Map friendly aliases to canonical backends.
-
-        Accepts "local", "cloud", "chatgpt", "openai", "stanza", etc., and
-        returns one of: ``disc``, ``gen-cloud``, ``gen-local``, or ``auto``.
-        """
-        aliases = {
-            "local": "disc",
-            "discriminative": "disc",
-            "spacy": "disc",
-            "stanza": "disc",
-            "cloud": "gen-cloud",
-            "chatgpt": "gen-cloud",
-            "openai": "gen-cloud",
-            "llama": "gen-local",
-            "ollama": "gen-local",
-            "local-gen": "gen-local",
-        }
-        if value in ("disc", "gen-cloud", "gen-local", "auto"):
-            return value
-        return aliases.get(value, "auto")
-
     def _has_local_gen(self) -> bool:
         """Return true if an Ollama server/binary appears available locally."""
         return bool(os.getenv("OLLAMA_HOST") or shutil.which("ollama"))
-
-    def _resolved_backend(self) -> str:
-        """Resolve backend when ``auto``; otherwise return normalized value."""
-        if self.backend != "auto":
-            return self.backend
-        if self.api_key:
-            return "gen-cloud"
-        if self._has_local_gen():
-            return "gen-local"
-        return "disc"
 
     def _get_pipeline(self) -> Pipeline:
         """Select the default pipeline for the resolved language.
@@ -271,20 +258,27 @@ class NLP:
           cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO/Glottolog code but no pipeline for 'axm' with backend 'disc'.
 
         """
-        backend = self._resolved_backend()
-        if backend == "disc":
-            raise NotImplementedError("Discriminative backend not yet reimplemented.")
-            # mapping = MAP_LANGUAGE_CODE_TO_DISCRIMINATIVE_PIPELINE
-        elif backend == "gen-cloud":
+        if self.backend == "stanza":
+            mapping = MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE
+            raise NotImplementedError(
+                f"Discriminative  {self.backend} not yet reimplemented."
+            )
+        elif self.backend == "spacy":
+            mapping = MAP_LANGUAGE_CODE_TO_SPACY_PIPELINE
+            raise NotImplementedError(
+                f"Discriminative backend '{self.backend}' not yet reimplemented."
+            )
+        elif self.backend == "chatgpt":
             mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE
-        else:  # "gen-local"
-            raise NotImplementedError("Local generative backend not yet implemented.")
-            # mapping = MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL
+        else:
+            raise NotImplementedError(f"Backend '{self.backend}' not available.")
         try:
             pipeline_cls = mapping[self.language_code]
         except KeyError as e:
             raise UnimplementedAlgorithmError(
-                f"Valid ISO/Glottolog code but no pipeline for '{self.language_code}' with backend '{backend}'."
+                f"Valid Glottolog code but no pipeline for '{self.language_code}' with backend '{self.backend}'."
             ) from e
-        logger.info(f"Using backend '{backend}' with pipeline {pipeline_cls.__name__}")
+        logger.info(
+            f"Using backend '{self.backend}' with pipeline {pipeline_cls.__name__}"
+        )
         return pipeline_cls()
