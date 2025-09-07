@@ -1,3 +1,5 @@
+import asyncio
+import concurrent.futures
 from typing import Optional, get_args
 
 from colorama import Fore, Style
@@ -12,7 +14,7 @@ from cltk.core.data_types import (
     Word,
 )
 from cltk.core.exceptions import CLTKException
-from cltk.genai.chatgpt import ChatGPTConnection
+from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
@@ -289,3 +291,234 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
         f"Completed processing POS for text starting with {doc.normalized_text[:50]} ..."
     )
     return doc
+
+
+async def generate_gpt_morphosyntax_async(
+    doc: Doc,
+    *,
+    max_concurrency: int = 4,
+    max_retries: int = 2,
+) -> Doc:
+    """Async variant of ``generate_gpt_morphosyntax`` with concurrency.
+
+    Runs one request per sentence concurrently (bounded by ``max_concurrency``)
+    using :class:`AsyncChatGPTConnection`. Keeps the one‑sentence‑per‑request
+    contract for simpler parsing and error isolation while reducing wall‑clock
+    time for long documents.
+
+    Args:
+        doc: Document whose ``sentence_strings`` will be annotated.
+        max_concurrency: Maximum number of in‑flight requests.
+        max_retries: Per‑request retry budget.
+
+    Returns:
+        The input ``doc`` enriched with ``words`` and aggregated ``chatgpt``
+        usage across all sentence calls.
+
+    Raises:
+        ValueError: If backend configuration is missing.
+        CLTKException: If per‑sentence parsing fails in unexpected ways.
+
+    """
+    logger.info(
+        "[async] Starting morphosyntax generation for %s sentences",
+        len(doc.sentence_strings),
+    )
+    if not doc.backend_version:
+        msg = "Document backend version is not set."
+        logger.error(msg)
+        raise ValueError(msg)
+    if not doc.normalized_text:
+        msg = "Input document must have `.normalized_text`."
+        logger.error(msg)
+        raise ValueError(msg)
+
+    conn = AsyncChatGPTConnection(model=doc.backend_version)
+
+    # Prepare prompts per sentence
+    lang_or_dialect_name = doc.dialect.name if doc.dialect else doc.language.name
+
+    def build_prompt(sentence: str) -> str:
+        return (
+            f"For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. "
+            "For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) guidelines.\n\n"
+            "Rules:\n"
+            "- Always use strict UD morphological tags (not a simplified system).\n"
+            "- Split off enclitics and contractions as separate tokens.\n"
+            "- Always include punctuation as separate tokens with UPOS=PUNCT and FEATS=_.\n"
+            "- For uncertain, rare, or dialectal forms, always provide the most standard dictionary lemma and supply a best‑effort UD tag. Do not skip any tokens.\n"
+            '- Separate UD features with a pipe ("|"). Do not use a semi‑colon or other characters.\n'
+            "- Preserve the spelling of the text exactly as given (including diacritics, breathings, and subscripts). Do not normalize.\n"
+            "- If a lemma or feature is uncertain, still provide the closest standard form and UD features. Never leave fields blank and never ask for clarification.\n"
+            "- If full accuracy is not possible, always provide a best‑effort output without asking for clarification.\n"
+            "- Never request to perform the task in multiple stages; always deliver the final TSV in one step.\n"
+            "- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.\n"
+            "- Always output all four fields: FORM, LEMMA, UPOS, FEATS.\n"
+            '- The result **must be a markdown code block** (beginning and ending in "```") containing only a tab‑delimited table (TSV) with the following header row:\n\n'
+            "FORM\tLEMMA\tUPOS\tFEATS\n\n"
+            f"Text:\n\n{sentence}\n"
+        )
+
+    sem = asyncio.Semaphore(max_concurrency)
+
+    async def process_one(i: int, sentence: str) -> tuple[int, Doc, dict[str, int]]:
+        prompt = build_prompt(sentence)
+        logger.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
+        async with sem:
+            logger.debug("[async] Dispatching sentence #%s", i)
+            res: CLTKGenAIResponse = await conn.generate_async(
+                prompt=prompt, max_retries=max_retries
+            )
+            logger.debug("[async] Received response for sentence #%s", i)
+        tmp = Doc(
+            language=doc.language,
+            normalized_text=sentence,
+            backend=doc.backend,
+            backend_version=doc.backend_version,
+        )
+        # Parse TSV and construct words (reuse sync logic pieces)
+        parsed = _parse_tsv_table(res.response)
+        cleaned: list[dict[str, Optional[str]]] = [
+            {k: (None if v == "_" else v) for k, v in d.items()} for d in parsed
+        ]
+        words: list[Word] = []
+        for word_idx, pos_dict in enumerate(cleaned):
+            upos_val = pos_dict.get("upos")
+            udpos = None
+            if upos_val:
+                try:
+                    udpos = UDPartOfSpeechTag(tag=upos_val)
+                except PydanticValidationError as e:  # pragma: no cover - defensive
+                    logger.error(
+                        "[async] %s: Invalid 'upos' in POS dict: %s (error: %s)",
+                        pos_dict.get("form"),
+                        pos_dict,
+                        e,
+                    )
+            else:
+                logger.error("[async] Missing 'upos' in POS dict: %s", pos_dict)
+            word = Word(
+                string=pos_dict.get("form"),
+                index_token=word_idx,
+                lemma=pos_dict.get("lemma"),
+                upos=udpos,
+            )
+            feats_raw = pos_dict.get("feats")
+            if feats_raw:
+                try:
+                    word.features = convert_pos_features_to_ud(feats_raw=feats_raw)
+                except ValueError as e:  # pragma: no cover - defensive
+                    logger.error(
+                        "[async] %s: Failed to parse features '%s': %s",
+                        word.string,
+                        feats_raw,
+                        e,
+                    )
+            words.append(word)
+
+        # Character offsets within the sentence string
+        start = 0
+        for idx, w in enumerate(words):
+            if not w.string:
+                w.index_char_start = None
+                w.index_char_stop = None
+                continue
+            pos = sentence.find(w.string, start)
+            if pos != -1:
+                w.index_char_start = pos
+                w.index_char_stop = pos + len(w.string)
+                start = w.index_char_stop or start
+        for w in words:
+            w.index_sentence = i
+        tmp.words = words
+        # Track usage per sentence for aggregation later
+        return i, tmp, res.usage
+
+    tasks = [process_one(i, s) for i, s in enumerate(doc.sentence_strings)]
+    logger.info(
+        "[async] Dispatching %d tasks with max_concurrency=%d",
+        len(tasks),
+        max_concurrency,
+    )
+    results = await asyncio.gather(*tasks)
+    results_sorted = sorted(results, key=lambda x: x[0])
+
+    # Flatten words, set global token indices
+    all_words: list[Word] = []
+    token_counter = 0
+    aggregated_usage = {"input": 0, "output": 0, "total": 0}
+    for idx, tmp, usage in results_sorted:
+        for k in aggregated_usage:
+            aggregated_usage[k] += usage.get(k, 0)
+        for w in tmp.words:
+            w.index_token = token_counter
+            all_words.append(w)
+            token_counter += 1
+
+    doc.words = all_words
+    doc.chatgpt = [aggregated_usage]
+    logger.info(
+        "[async] Completed morphosyntax generation: %d tokens across %d sentences",
+        len(all_words),
+        len(doc.sentence_strings),
+    )
+    return doc
+
+
+def generate_gpt_morphosyntax_concurrent(
+    doc: Doc,
+    *,
+    max_concurrency: int = 4,
+    max_retries: int = 2,
+) -> Doc:
+    """Run the async morphosyntax generator safely but appears synchronous from the outside.
+
+    - If there is no running event loop (typical scripts/CLIs), uses
+      ``asyncio.run`` directly.
+    - If an event loop is already running (e.g., Jupyter, FastAPI), this spins
+      up a worker thread and runs a fresh event loop there to avoid the
+      "cannot call asyncio.run() from a running event loop" error.
+
+    The output is identical to calling :func:`generate_gpt_morphosyntax_async`
+    and returns the same ``Doc`` instance enriched with morphosyntax and
+    aggregated usage.
+
+    Args:
+        doc: Input document with sentences, language, and backend configured.
+        max_concurrency: Maximum concurrent OpenAI requests.
+        max_retries: Per‑request retry budget.
+
+    Returns:
+        The input ``Doc`` updated in place, same as the async variant.
+
+    """
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        logger.info("[async-wrap] No running event loop detected; using asyncio.run()")
+        return asyncio.run(
+            generate_gpt_morphosyntax_async(
+                doc,
+                max_concurrency=max_concurrency,
+                max_retries=max_retries,
+            )
+        )
+    else:
+        logger.info(
+            "[async-wrap] Running inside an event loop; dispatching to worker thread"
+        )
+
+        def _runner() -> Doc:
+            return asyncio.run(
+                generate_gpt_morphosyntax_async(
+                    doc,
+                    max_concurrency=max_concurrency,
+                    max_retries=max_retries,
+                )
+            )
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+            fut = ex.submit(_runner)
+            result = fut.result()
+            logger.info("[async-wrap] Completed in worker thread")
+            return result

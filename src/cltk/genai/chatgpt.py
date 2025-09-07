@@ -11,7 +11,7 @@ import os
 import re
 from typing import Optional
 
-from openai import OpenAI, OpenAIError
+from openai import AsyncOpenAI, OpenAI, OpenAIError
 from openai.types.responses.response import Response
 
 from cltk.core.cltk_logger import logger
@@ -170,4 +170,114 @@ class ChatGPTConnection:
         )
         code_block: str = code_blocks[0].strip()
         logger.debug(f"Extracted code block:\n{code_block}")
+        return code_block
+
+
+class AsyncChatGPTConnection:
+    """Asynchronous variant of :class:`ChatGPTConnection`.
+
+    Provides an ``async`` ``generate_async()`` method and uses the
+    ``AsyncOpenAI`` client under the hood. Mirrors the behavior and logging of
+    the synchronous client while enabling concurrent requests.
+
+    Args:
+      model: Model alias to use (see ``AVAILABLE_OPENAI_MODELS``).
+      api_key: Optional OpenAI API key. Falls back to ``OPENAI_API_KEY``.
+      temperature: Sampling temperature for generation.
+
+    """
+
+    def __init__(
+        self,
+        model: AVAILABLE_OPENAI_MODELS,
+        api_key: Optional[str] = None,
+        temperature: float = 1.0,
+    ) -> None:
+        self.api_key = api_key
+        self.model: str = model
+        self.temperature: float = temperature
+        if not self.api_key:
+            load_env_file()
+            self.api_key = os.environ.get("OPENAI_API_KEY")
+        if not self.api_key:
+            msg: str = "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
+            logger.error(msg)
+            raise ValueError(msg)
+        self.client: AsyncOpenAI = AsyncOpenAI(api_key=self.api_key)
+
+    async def generate_async(
+        self,
+        prompt: str,
+        max_retries: int = 2,
+    ) -> CLTKGenAIResponse:
+        logger.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
+        code_block: Optional[str] = None
+        chatgpt_response: Optional[Response] = None
+        for attempt in range(1, max_retries + 1):
+            logger.debug("[async] Attempt %s of %s", attempt, max_retries)
+            try:
+                if "4.1" in self.model:
+                    chatgpt_response = await self.client.responses.create(
+                        model=self.model,
+                        input=prompt,
+                        temperature=self.temperature,
+                    )
+                elif "-5" in self.model:
+                    chatgpt_response = await self.client.responses.create(
+                        model=self.model,
+                        input=prompt,
+                        reasoning={"effort": "low"},
+                        text={"verbosity": "low"},
+                    )
+                else:
+                    raise ValueError(f"Unsupported model: {self.model}.")
+            except OpenAIError as openai_error:
+                logger.error(
+                    "[async] OpenAI error on attempt %s: %s", attempt, openai_error
+                )
+                if attempt == max_retries:
+                    raise OpenAIInferenceError(
+                        f"An error from OpenAI occurred: {openai_error}"
+                    )
+                continue
+
+            logger.debug(
+                "[async] Raw response from OpenAI: %s", chatgpt_response.output_text
+            )
+            try:
+                code_block = self._extract_code_blocks(chatgpt_response.output_text)
+            except Exception as e:  # pragma: no cover - defensive
+                logger.error("[async] Error extracting code block: %s", e)
+                code_block = None
+            if code_block:
+                break
+            logger.warning(
+                "[async] Attempt %s: No code block found in response. Retrying...",
+                attempt,
+            )
+
+        assert chatgpt_response is not None
+        usage = self._chatgpt_response_tokens(chatgpt_response)
+        raw_normalized: str = cltk_normalize(text=chatgpt_response.output_text)
+        logger.debug("[async] Normalized output text:\n%s", raw_normalized)
+        return CLTKGenAIResponse(response=raw_normalized, usage=usage)
+
+    def _chatgpt_response_tokens(self, response: Response) -> dict[str, int]:
+        usage = getattr(response, "usage", None)
+        tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
+        if not usage:
+            logger.info("[async] No usage info present; returning zeros")
+            return tokens
+        tokens["input"] = int(getattr(usage, "prompt_tokens", 0))
+        tokens["output"] = int(getattr(usage, "completion_tokens", 0))
+        tokens["total"] = int(getattr(usage, "total_tokens", 0))
+        logger.info("[async] ChatGPT usage: %s", tokens)
+        return tokens
+
+    def _extract_code_blocks(self, text: str) -> str:
+        code_blocks: list[str] = re.findall(
+            r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
+        )
+        code_block: str = code_blocks[0].strip()
+        logger.debug("[async] Extracted code block:\n%s", code_block)
         return code_block

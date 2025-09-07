@@ -7,7 +7,9 @@ from typing import Optional
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Process
-from cltk.morphosyntax.utils import generate_gpt_morphosyntax
+from cltk.morphosyntax.utils import (
+    generate_gpt_morphosyntax_concurrent,
+)
 
 
 class MorphosyntaxProcess(Process):
@@ -23,7 +25,8 @@ class ChatGPTMorphosyntaxProcess(MorphosyntaxProcess):
             msg: str = "glottolog_id must be set for MorphosyntaxProcess"
             logger.error(msg)
             raise ValueError(msg)
-        return generate_gpt_morphosyntax
+        # Prefer the safe concurrent wrapper (async under the hood, sync surface)
+        return generate_gpt_morphosyntax_concurrent
 
     def run(self, input_doc: Doc) -> Doc:
         output_doc = copy(input_doc)
