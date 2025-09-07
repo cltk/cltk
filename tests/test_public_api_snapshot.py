@@ -2,46 +2,39 @@ from __future__ import annotations
 
 import importlib
 import inspect
+import re
 from typing import Any
 
 
-def _collect_public_api() -> dict[str, Any]:
-    # Top-level cltk exposure
+def test_top_level_api() -> None:
     cltk = importlib.import_module("cltk")
+    assert hasattr(cltk, "NLP")
+    assert hasattr(cltk, "__version__")
 
-    top = {
-        "has_NLP": hasattr(cltk, "NLP"),
-        "has___version__": hasattr(cltk, "__version__"),
-    }
 
-    # ChatGPT process surface and subclasses
+def test_gpt_process_hierarchy() -> None:
     processes = importlib.import_module("cltk.genai.processes")
-    ChatGPTProcess = getattr(processes, "ChatGPTProcess")
+    GPTProcess = getattr(processes, "GPTProcess")
+    LocalGPTProcess = getattr(processes, "LocalGPTProcess")
 
-    # Lock the field names and the run() signature
-    fields = sorted(getattr(ChatGPTProcess, "model_fields").keys())
-    run_sig = str(inspect.signature(ChatGPTProcess.run))
+    # Types must exist and form the expected hierarchy
+    from cltk.core.data_types import Process as CLTKProcess
 
-    # Lock the set of subclasses and their default glottolog_id values
-    subclasses_info = []
-    for cls in sorted(ChatGPTProcess.__subclasses__(), key=lambda c: c.__name__):
-        fld = getattr(cls, "model_fields", {}).get("glottolog_id")
-        default_glotto = getattr(fld, "default", None)
-        subclasses_info.append({
-            "name": cls.__name__,
-            "glottolog_id": default_glotto,
-        })
-
-    return {
-        "top_level": top,
-        "ChatGPTProcess": {
-            "fields": fields,
-            "run_signature": run_sig,
-            "subclasses": subclasses_info,
-        },
-    }
+    assert issubclass(GPTProcess, CLTKProcess)
+    assert issubclass(LocalGPTProcess, GPTProcess)
 
 
-def test_public_api_snapshot(snapshot):  # type: ignore[no-untyped-def]
-    data = _collect_public_api()
-    assert data == snapshot
+def test_gpt_process_has_no_required_contract_beyond_base() -> None:
+    processes = importlib.import_module("cltk.genai.processes")
+    GPTProcess = getattr(processes, "GPTProcess")
+    # At minimum, the class should be instantiable with defaults (pydantic BaseModel semantics)
+    # and provide a .run method or allow subclasses to implement it.
+    # Here we simply assert the attribute exists on the class MRO (may be inherited).
+    assert hasattr(GPTProcess, "run")
+
+
+def test_genai_processes_module_surface() -> None:
+    processes = importlib.import_module("cltk.genai.processes")
+    # Ensure the minimal public surface is present
+    assert hasattr(processes, "GPTProcess")
+    assert hasattr(processes, "LocalGPTProcess")

@@ -17,6 +17,27 @@ from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
 
+def _parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
+    # TODO: Remove duplicate name -- this is the one being invoked, I think
+    lines = [line.strip() for line in tsv_string.strip().splitlines() if line.strip()]
+    header = ["form", "lemma", "upos", "feats"]
+    data = []
+    for line in lines:
+        # Skip markdown code block markers
+        if line.startswith("```"):
+            continue
+        parts = line.split("\t")
+        if len(parts) == 4:
+            # Skip the header row if present
+            if [p.lower() for p in parts] == header:
+                continue
+            entry = dict(zip(header, parts))
+            data.append(entry)
+        else:
+            logger.debug(f"Skipping malformed line: {line}")
+    return data
+
+
 def generate_pos(
     doc: Doc,
     sentence_idx: Optional[int] = None,
@@ -92,7 +113,7 @@ Text:\n\n{doc.normalized_text}
         logger.error(msg_unsupported_backend_version)
         raise CLTKException(msg_unsupported_backend_version)
     if not client:
-        client = ChatGPTConnection()
+        client = ChatGPTConnection(model=doc.backend_version)
     chatgpt_res_obj: CLTKGenAIResponse = client.generate(
         prompt=prompt, max_retries=max_retries
     )
@@ -101,28 +122,6 @@ Text:\n\n{doc.normalized_text}
     if not doc.chatgpt:
         doc.chatgpt = list()
     doc.chatgpt.append(chatgpt_usage)
-
-    def _parse_tsv_table(tsv_string: str) -> list[dict[str, str]]:
-        # TODO: Remove duplicate name -- this is the one being invoked, I think
-        lines = [
-            line.strip() for line in tsv_string.strip().splitlines() if line.strip()
-        ]
-        header = ["form", "lemma", "upos", "feats"]
-        data = []
-        for line in lines:
-            # Skip markdown code block markers
-            if line.startswith("```"):
-                continue
-            parts = line.split("\t")
-            if len(parts) == 4:
-                # Skip the header row if present
-                if [p.lower() for p in parts] == header:
-                    continue
-                entry = dict(zip(header, parts))
-                data.append(entry)
-            else:
-                logger.debug(f"Skipping malformed line: {line}")
-        return data
 
     parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(chatgpt_res)
     logger.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
@@ -229,7 +228,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
         raise ValueError(msg)
     client: ChatGPTConnection = ChatGPTConnection(model=doc.backend_version)
     if not doc.normalized_text:
-        msg: str = "Input document must have either `.normalized_text`."
+        msg = "Input document must have either `.normalized_text`."
         logger.error(msg)
         raise ValueError(msg)
     # POS/morphology

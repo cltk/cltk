@@ -133,7 +133,7 @@ class NLP:
                     f"Process '{process_obj.__class__.__name__}' failed: {e}"
                 ) from e
         if doc.words is None or not isinstance(doc.words, list):
-            msg: str = "Pipeline did not produce any words. Check your pipeline configuration and input text."
+            msg = "Pipeline did not produce any words. Check your pipeline configuration and input text."
             logger.warning(msg)
         logger.info("NLP analysis complete.")
         return doc
@@ -193,7 +193,7 @@ class NLP:
         )
         for process_class in processes:
             process_instance: Process = self._get_process_object(process_class)
-            special_message = getattr(
+            special_message: Optional[str] = getattr(
                 process_instance, "special_authorship_message", None
             )
             if special_message:

@@ -55,7 +55,7 @@ class ChatGPTConnection:
 
     def generate(
         self,
-        prompt,
+        prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
         logger.debug(prompt)
@@ -165,7 +165,9 @@ class ChatGPTConnection:
 
     def _extract_code_blocks(self, text: str) -> str:
         # This regex finds all text between triple backticks
-        code_blocks = re.findall(r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL)
-        code_block = code_blocks[0].strip()
+        code_blocks: list[str] = re.findall(
+            r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
+        )
+        code_block: str = code_blocks[0].strip()
         logger.debug(f"Extracted code block:\n{code_block}")
         return code_block
