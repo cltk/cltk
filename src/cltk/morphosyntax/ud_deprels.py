@@ -483,6 +483,40 @@ UD_DEPRELS: dict[str, UDDeprel] = {
 }
 
 
+def normalize_deprel(code: str, subtype: Optional[str]) -> tuple[str, Optional[str]]:
+    """Normalize a UD deprel pair to a valid combination.
+
+    If ``subtype`` is not one of the allowed subtypes for ``code`` (as declared
+    in this module), drop the subtype and log the remapping. This accommodates
+    common non‑UD patterns such as case‑coded subtypes (e.g., ``nmod:gen``,
+    ``obl:abl``) when morphology is already handled elsewhere.
+
+    Args:
+        code: UD deprel code (e.g., ``"obl"``, ``"nmod"``).
+        subtype: Optional subtype string.
+
+    Returns:
+        A tuple ``(code, normalized_subtype)`` where the subtype may be ``None``
+        if it was not allowed for the given ``code``.
+
+    """
+    deprel = UD_DEPRELS.get(code)
+    if not deprel:
+        return code, subtype
+    if not subtype:
+        return code, None
+    allowed = set(deprel.subtypes or [])
+    if subtype in allowed:
+        return code, subtype
+    logger.info(
+        "Normalizing UD deprel subtype: '%s:%s' → '%s' (dropping subtype)",
+        code,
+        subtype,
+        code,
+    )
+    return code, None
+
+
 def is_valid_deprel(code: str) -> bool:
     """Return whether ``code`` is a known UD relation.
 
@@ -501,9 +535,8 @@ def get_ud_deprel_tag(
 ) -> Optional[UDDeprelTag]:
     """Build a ``UDDeprelTag`` for a UD relation if available.
 
-    If the ``code`` is not known, logs a warning and returns ``None``. If a
-    ``subtype`` is supplied but is not permitted for the relation, a
-    ``ValueError`` from model validation is raised.
+    Applies a light normalization step: when the provided ``subtype`` is not
+    permitted for ``code``, it is dropped and the remapping is logged.
 
     Args:
         code: UD DepRel code to look up.
@@ -513,18 +546,16 @@ def get_ud_deprel_tag(
         A validated ``UDDeprelTag`` for the given ``code``, or ``None`` if the
         code is unknown.
 
-    Raises:
-        ValueError: If ``subtype`` is invalid for the provided ``code``.
-
     """
     deprel = UD_DEPRELS.get(code)
     if not deprel:
         logger.warning(f"Unknown UD DepRel code '{code}'.")
         return None
+    norm_code, norm_subtype = normalize_deprel(code, subtype)
     tag: UDDeprelTag = UDDeprelTag(
         code=deprel.code,
         name=deprel.name,
-        subtype=subtype,
+        subtype=norm_subtype,
     )
     return tag
 
