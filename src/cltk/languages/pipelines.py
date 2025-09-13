@@ -12,6 +12,114 @@ from pydantic import Field
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Pipeline
+from cltk.dependency.processes import (
+    AkkadianChatGPTDependencyProcess,
+    AlbanianChatGPTDependencyProcess,
+    AmmoniteChatGPTDependencyProcess,
+    AncientGreekChatGPTDependencyProcess,
+    AssameseChatGPTDependencyProcess,
+    AvestanChatGPTDependencyProcess,
+    AwadhiChatGPTDependencyProcess,
+    BactrianChatGPTDependencyProcess,
+    BagriChatGPTDependencyProcess,
+    BaihuaChineseChatGPTDependencyProcess,
+    BengaliChatGPTDependencyProcess,
+    BiblicalHebrewChatGPTDependencyProcess,
+    BrajChatGPTDependencyProcess,
+    CarianChatGPTDependencyProcess,
+    ChagataiChatGPTDependencyProcess,
+    ChurchSlavicChatGPTDependencyProcess,
+    ClassicalArabicChatGPTDependencyProcess,
+    ClassicalArmenianChatGPTDependencyProcess,
+    ClassicalBurmeseChatGPTDependencyProcess,
+    ClassicalMandaicChatGPTDependencyProcess,
+    ClassicalMongolianChatGPTDependencyProcess,
+    ClassicalSanskritChatGPTDependencyProcess,
+    ClassicalSyriacChatGPTDependencyProcess,
+    ClassicalTibetanChatGPTDependencyProcess,
+    CopticChatGPTDependencyProcess,
+    CuneiformLuwianChatGPTDependencyProcess,
+    DemoticChatGPTDependencyProcess,
+    EarlyIrishChatGPTDependencyProcess,
+    EasternPanjabiChatGPTDependencyProcess,
+    EdomiteChatGPTDependencyProcess,
+    GandhariChatGPTDependencyProcess,
+    GeezChatGPTDependencyProcess,
+    GothicChatGPTDependencyProcess,
+    GujaratiChatGPTDependencyProcess,
+    HatranChatGPTDependencyProcess,
+    HausaChatGPTDependencyProcess,
+    HieroglyphicLuwianChatGPTDependencyProcess,
+    HindiChatGPTDependencyProcess,
+    HittiteChatGPTDependencyProcess,
+    JewishBabylonianAramaicChatGPTDependencyProcess,
+    KashmiriChatGPTDependencyProcess,
+    KhariBoliChatGPTDependencyProcess,
+    KhotaneseChatGPTDependencyProcess,
+    LateEgyptianChatGPTDependencyProcess,
+    LatinChatGPTDependencyProcess,
+    LatvianChatGPTDependencyProcess,
+    LiteraryChineseChatGPTDependencyProcess,
+    LithuanianChatGPTDependencyProcess,
+    LycianAChatGPTDependencyProcess,
+    LydianChatGPTDependencyProcess,
+    MagadhiPrakritChatGPTDependencyProcess,
+    MaharastriPrakritChatGPTDependencyProcess,
+    MarathiChatGPTDependencyProcess,
+    MeiteiChatGPTDependencyProcess,
+    MiddleAramaicChatGPTDependencyProcess,
+    MiddleArmenianChatGPTDependencyProcess,
+    MiddleBretonChatGPTDependencyProcess,
+    MiddleChineseChatGPTDependencyProcess,
+    MiddleCornishChatGPTDependencyProcess,
+    MiddleEgyptianChatGPTDependencyProcess,
+    MiddleEnglishChatGPTDependencyProcess,
+    MiddleFrenchChatGPTDependencyProcess,
+    MiddleHighGermanChatGPTDependencyProcess,
+    MiddleMongolChatGPTDependencyProcess,
+    MiddlePersianChatGPTDependencyProcess,
+    MoabiteChatGPTDependencyProcess,
+    MogholiChatGPTDependencyProcess,
+    NewarChatGPTDependencyProcess,
+    NumidianChatGPTDependencyProcess,
+    OdiaChatGPTDependencyProcess,
+    OfficialAramaicChatGPTDependencyProcess,
+    OldAramaicChatGPTDependencyProcess,
+    OldAramaicSamalianChatGPTDependencyProcess,
+    OldBurmeseChatGPTDependencyProcess,
+    OldChineseChatGPTDependencyProcess,
+    OldEgyptianChatGPTDependencyProcess,
+    OldEnglishChatGPTDependencyProcess,
+    OldFrenchChatGPTDependencyProcess,
+    OldHighGermanChatGPTDependencyProcess,
+    OldHungarianChatGPTDependencyProcess,
+    OldJapaneseChatGPTDependencyProcess,
+    OldJurchenChatGPTDependencyProcess,
+    OldMiddleWelshChatGPTDependencyProcess,
+    OldNorseChatGPTDependencyProcess,
+    OldPersianChatGPTDependencyProcess,
+    OldPrussianChatGPTDependencyProcess,
+    OldTamilChatGPTDependencyProcess,
+    OldTurkicChatGPTDependencyProcess,
+    PalaicChatGPTDependencyProcess,
+    PaliChatGPTDependencyProcess,
+    ParthianChatGPTDependencyProcess,
+    PhoenicianChatGPTDependencyProcess,
+    SamalianChatGPTDependencyProcess,
+    SauraseniPrakritChatGPTDependencyProcess,
+    SgawKarenChatGPTDependencyProcess,
+    SindhiChatGPTDependencyProcess,
+    SinhalaChatGPTDependencyProcess,
+    SogdianChatGPTDependencyProcess,
+    TaitaChatGPTDependencyProcess,
+    TangutChatGPTDependencyProcess,
+    TokharianAChatGPTDependencyProcess,
+    TokharianBChatGPTDependencyProcess,
+    TumshuqeseChatGPTDependencyProcess,
+    UgariticChatGPTDependencyProcess,
+    UrduChatGPTDependencyProcess,
+    VedicSanskritChatGPTDependencyProcess,
+)
 from cltk.morphosyntax.processes import (
     AkkadianChatGPTMorphosyntaxProcess,
     AlbanianChatGPTMorphosyntaxProcess,
@@ -241,6 +349,7 @@ class AkkadianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AkkadianSentenceSplittingProcess,
             AkkadianChatGPTMorphosyntaxProcess,
+            AkkadianChatGPTDependencyProcess,
         ]
     )
 
@@ -262,6 +371,7 @@ class ClassicalArabicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalArabicSentenceSplittingProcess,
             ClassicalArabicChatGPTMorphosyntaxProcess,
+            ClassicalArabicChatGPTDependencyProcess,
         ]
     )
 
@@ -283,6 +393,7 @@ class ClassicalSyriacChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalSyriacSentenceSplittingProcess,
             ClassicalSyriacChatGPTMorphosyntaxProcess,
+            ClassicalSyriacChatGPTDependencyProcess,
         ]
     )
 
@@ -305,6 +416,7 @@ class ClassicalTibetanPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalTibetanSentenceSplittingProcess,
             ClassicalTibetanChatGPTMorphosyntaxProcess,
+            ClassicalTibetanChatGPTDependencyProcess,
         ]
     )
 
@@ -326,6 +438,7 @@ class CopticChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             CopticSentenceSplittingProcess,
             CopticChatGPTMorphosyntaxProcess,
+            CopticChatGPTDependencyProcess,
         ]
     )
 
@@ -340,6 +453,7 @@ class GothicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             GothicSentenceSplittingProcess,
             GothicChatGPTMorphosyntaxProcess,
+            GothicChatGPTDependencyProcess,
         ]
     )
 
@@ -361,6 +475,7 @@ class AncientGreekChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AncientGreekSentenceSplittingProcess,
             AncientGreekChatGPTMorphosyntaxProcess,
+            AncientGreekChatGPTDependencyProcess,
         ]
     )
 
@@ -381,6 +496,7 @@ class BiblicalHebrewChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AncientHebrewSentenceSplittingProcess,
             BiblicalHebrewChatGPTMorphosyntaxProcess,
+            BiblicalHebrewChatGPTDependencyProcess,
         ]
     )
 
@@ -400,6 +516,7 @@ class LatinChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LatinSentenceSplittingProcess,
             LatinChatGPTMorphosyntaxProcess,
+            LatinChatGPTDependencyProcess,
         ]
     )
 
@@ -418,6 +535,7 @@ class MiddleEnglishChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleEnglishSentenceSplittingProcess,
             MiddleEnglishChatGPTMorphosyntaxProcess,
+            MiddleEnglishChatGPTDependencyProcess,
         ]
     )
 
@@ -438,6 +556,7 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleFrenchSentenceSplittingProcess,
             MiddleFrenchChatGPTMorphosyntaxProcess,
+            MiddleFrenchChatGPTDependencyProcess,
         ]
     )
 
@@ -458,6 +577,7 @@ class MiddlePersianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddlePersianSentenceSplittingProcess,
             MiddlePersianChatGPTMorphosyntaxProcess,
+            MiddlePersianChatGPTDependencyProcess,
         ]
     )
 
@@ -478,6 +598,7 @@ class ImperialAramaicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OfficialAramaicSentenceSplittingProcess,
             OfficialAramaicChatGPTMorphosyntaxProcess,
+            OfficialAramaicChatGPTDependencyProcess,
         ]
     )
 
@@ -492,6 +613,7 @@ class ChurchSlavonicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ChurchSlavonicSentenceSplittingProcess,
             ChurchSlavicChatGPTMorphosyntaxProcess,
+            ChurchSlavicChatGPTDependencyProcess,
         ]
     )
 
@@ -512,6 +634,7 @@ class OldEnglishChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldEnglishSentenceSplittingProcess,
             OldEnglishChatGPTMorphosyntaxProcess,
+            OldEnglishChatGPTDependencyProcess,
         ]
     )
 
@@ -533,6 +656,7 @@ class OldFrenchChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldFrenchSentenceSplittingProcess,
             OldFrenchChatGPTMorphosyntaxProcess,
+            OldFrenchChatGPTDependencyProcess,
         ]
     )
 
@@ -553,6 +677,7 @@ class OldNorseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldNorseSentenceSplittingProcess,
             OldNorseChatGPTMorphosyntaxProcess,
+            OldNorseChatGPTDependencyProcess,
         ]
     )
 
@@ -573,6 +698,7 @@ class PaliChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             PaliSentenceSplittingProcess,
             PaliChatGPTMorphosyntaxProcess,
+            PaliChatGPTDependencyProcess,
         ]
     )
 
@@ -591,6 +717,7 @@ class ClassicalSanskritChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalSanskritSentenceSplittingProcess,
             ClassicalSanskritChatGPTMorphosyntaxProcess,
+            ClassicalSanskritChatGPTDependencyProcess,
         ]
     )
 
@@ -611,6 +738,7 @@ class VedicSanskritChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             VedicSanskritSentenceSplittingProcess,
             VedicSanskritChatGPTMorphosyntaxProcess,
+            VedicSanskritChatGPTDependencyProcess,
         ]
     )
 
@@ -632,6 +760,7 @@ class OldHighGermanChatGPTPipeline(Pipeline):
             # MiddleHighGermanTokenizationProcess,  # Substitute with OldHighGermanTokenizationProcess if available
             OldHighGermanSentenceSplittingProcess,
             OldHighGermanChatGPTMorphosyntaxProcess,
+            OldHighGermanChatGPTDependencyProcess,
         ]
     )
 
@@ -652,6 +781,7 @@ class MiddleHighGermanChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleHighGermanSentenceSplittingProcess,
             MiddleHighGermanChatGPTMorphosyntaxProcess,
+            MiddleHighGermanChatGPTDependencyProcess,
         ]
     )
 
@@ -674,6 +804,7 @@ class LiteraryChineseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LiteraryChineseSentenceSplittingProcess,
             LiteraryChineseChatGPTMorphosyntaxProcess,
+            LiteraryChineseChatGPTDependencyProcess,
         ]
     )
 
@@ -694,6 +825,7 @@ class DemoticChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             DemoticSentenceSplittingProcess,
             DemoticChatGPTMorphosyntaxProcess,
+            DemoticChatGPTDependencyProcess,
         ]
     )
 
@@ -714,6 +846,7 @@ class HittiteChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             HittiteSentenceSplittingProcess,
             HittiteChatGPTMorphosyntaxProcess,
+            HittiteChatGPTDependencyProcess,
         ]
     )
 
@@ -734,6 +867,7 @@ class TocharianAChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             TocharianASentenceSplittingProcess,
             TokharianAChatGPTMorphosyntaxProcess,
+            TokharianAChatGPTDependencyProcess,
         ]
     )
 
@@ -754,6 +888,7 @@ class TocharianBChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             TocharianBSentenceSplittingProcess,
             TokharianBChatGPTMorphosyntaxProcess,
+            TokharianBChatGPTDependencyProcess,
         ]
     )
 
@@ -774,6 +909,7 @@ class AvestanChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AvestanSentenceSplittingProcess,
             AvestanChatGPTMorphosyntaxProcess,
+            AvestanChatGPTDependencyProcess,
         ]
     )
 
@@ -794,6 +930,7 @@ class BactrianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             BactrianSentenceSplittingProcess,
             BactrianChatGPTMorphosyntaxProcess,
+            BactrianChatGPTDependencyProcess,
         ]
     )
 
@@ -814,6 +951,7 @@ class SogdianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             SogdianSentenceSplittingProcess,
             SogdianChatGPTMorphosyntaxProcess,
+            SogdianChatGPTDependencyProcess,
         ]
     )
 
@@ -834,6 +972,7 @@ class KhotaneseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             KhotaneseSentenceSplittingProcess,
             KhotaneseChatGPTMorphosyntaxProcess,
+            KhotaneseChatGPTDependencyProcess,
         ]
     )
 
@@ -854,6 +993,7 @@ class TumshuqeseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             TumshuqeseSentenceSplittingProcess,
             TumshuqeseChatGPTMorphosyntaxProcess,
+            TumshuqeseChatGPTDependencyProcess,
         ]
     )
 
@@ -874,6 +1014,7 @@ class OldPersianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldPersianSentenceSplittingProcess,
             OldPersianChatGPTMorphosyntaxProcess,
+            OldPersianChatGPTDependencyProcess,
         ]
     )
 
@@ -894,6 +1035,7 @@ class EarlyIrishChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             EarlyIrishSentenceSplittingProcess,
             EarlyIrishChatGPTMorphosyntaxProcess,
+            EarlyIrishChatGPTDependencyProcess,
         ]
     )
 
@@ -914,6 +1056,7 @@ class UgariticChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             UgariticSentenceSplittingProcess,
             UgariticChatGPTMorphosyntaxProcess,
+            UgariticChatGPTDependencyProcess,
         ]
     )
 
@@ -934,6 +1077,7 @@ class PhoenicianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             PhoenicianSentenceSplittingProcess,
             PhoenicianChatGPTMorphosyntaxProcess,
+            PhoenicianChatGPTDependencyProcess,
         ]
     )
 
@@ -954,6 +1098,7 @@ class GeezChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             GeezSentenceSplittingProcess,
             GeezChatGPTMorphosyntaxProcess,
+            GeezChatGPTDependencyProcess,
         ]
     )
 
@@ -972,6 +1117,7 @@ class MiddleEgyptianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleEgyptianSentenceSplittingProcess,
             MiddleEgyptianChatGPTMorphosyntaxProcess,
+            MiddleEgyptianChatGPTDependencyProcess,
         ]
     )
 
@@ -992,6 +1138,7 @@ class OldEgyptianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldEgyptianSentenceSplittingProcess,
             OldEgyptianChatGPTMorphosyntaxProcess,
+            OldEgyptianChatGPTDependencyProcess,
         ]
     )
 
@@ -1012,6 +1159,7 @@ class LateEgyptianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LateEgyptianSentenceSplittingProcess,
             LateEgyptianChatGPTMorphosyntaxProcess,
+            LateEgyptianChatGPTDependencyProcess,
         ]
     )
 
@@ -1032,6 +1180,7 @@ class ParthianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ParthianSentenceSplittingProcess,
             ParthianChatGPTMorphosyntaxProcess,
+            ParthianChatGPTDependencyProcess,
         ]
     )
 
@@ -1052,6 +1201,7 @@ class OldMiddleWelshChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldMiddleWelshSentenceSplittingProcess,
             OldMiddleWelshChatGPTMorphosyntaxProcess,
+            OldMiddleWelshChatGPTDependencyProcess,
         ]
     )
 
@@ -1072,6 +1222,7 @@ class MiddleBretonChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleBretonSentenceSplittingProcess,
             MiddleBretonChatGPTMorphosyntaxProcess,
+            MiddleBretonChatGPTDependencyProcess,
         ]
     )
 
@@ -1092,6 +1243,7 @@ class CornishChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleCornishSentenceSplittingProcess,
             MiddleCornishChatGPTMorphosyntaxProcess,
+            MiddleCornishChatGPTDependencyProcess,
         ]
     )
 
@@ -1112,6 +1264,7 @@ class OldPrussianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldPrussianSentenceSplittingProcess,
             OldPrussianChatGPTMorphosyntaxProcess,
+            OldPrussianChatGPTDependencyProcess,
         ]
     )
 
@@ -1132,6 +1285,7 @@ class LithuanianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LithuanianSentenceSplittingProcess,
             LithuanianChatGPTMorphosyntaxProcess,
+            LithuanianChatGPTDependencyProcess,
         ]
     )
 
@@ -1152,6 +1306,7 @@ class LatvianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LatvianSentenceSplittingProcess,
             LatvianChatGPTMorphosyntaxProcess,
+            LatvianChatGPTDependencyProcess,
         ]
     )
 
@@ -1172,6 +1327,7 @@ class AlbanianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AlbanianSentenceSplittingProcess,
             AlbanianChatGPTMorphosyntaxProcess,
+            AlbanianChatGPTDependencyProcess,
         ]
     )
 
@@ -1192,6 +1348,7 @@ class ClassicalArmenianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalArmenianSentenceSplittingProcess,
             ClassicalArmenianChatGPTMorphosyntaxProcess,
+            ClassicalArmenianChatGPTDependencyProcess,
         ]
     )
 
@@ -1212,6 +1369,7 @@ class MiddleArmenianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleArmenianSentenceSplittingProcess,
             MiddleArmenianChatGPTMorphosyntaxProcess,
+            MiddleArmenianChatGPTDependencyProcess,
         ]
     )
 
@@ -1231,6 +1389,7 @@ class CuneiformLuwianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             CuneiformLuwianSentenceSplittingProcess,
             CuneiformLuwianChatGPTMorphosyntaxProcess,
+            CuneiformLuwianChatGPTDependencyProcess,
         ]
     )
 
@@ -1251,6 +1410,7 @@ class HieroglyphicLuwianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             HieroglyphicLuwianSentenceSplittingProcess,
             HieroglyphicLuwianChatGPTMorphosyntaxProcess,
+            HieroglyphicLuwianChatGPTDependencyProcess,
         ]
     )
 
@@ -1271,6 +1431,7 @@ class LycianAChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LycianASentenceSplittingProcess,
             LycianAChatGPTMorphosyntaxProcess,
+            LycianAChatGPTDependencyProcess,
         ]
     )
 
@@ -1291,6 +1452,7 @@ class LydianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             LydianSentenceSplittingProcess,
             LydianChatGPTMorphosyntaxProcess,
+            LydianChatGPTDependencyProcess,
         ]
     )
 
@@ -1311,6 +1473,7 @@ class PalaicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             PalaicSentenceSplittingProcess,
             PalaicChatGPTMorphosyntaxProcess,
+            PalaicChatGPTDependencyProcess,
         ]
     )
 
@@ -1331,6 +1494,7 @@ class CarianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             CarianSentenceSplittingProcess,
             CarianChatGPTMorphosyntaxProcess,
+            CarianChatGPTDependencyProcess,
         ]
     )
 
@@ -1350,6 +1514,7 @@ class SauraseniPrakritChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             SauraseniPrakritSentenceSplittingProcess,
             SauraseniPrakritChatGPTMorphosyntaxProcess,
+            SauraseniPrakritChatGPTDependencyProcess,
         ]
     )
 
@@ -1370,6 +1535,7 @@ class MaharastriPrakritChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MaharastriPrakritSentenceSplittingProcess,
             MaharastriPrakritChatGPTMorphosyntaxProcess,
+            MaharastriPrakritChatGPTDependencyProcess,
         ]
     )
 
@@ -1390,6 +1556,7 @@ class MagadhiPrakritChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MagadhiPrakritSentenceSplittingProcess,
             MagadhiPrakritChatGPTMorphosyntaxProcess,
+            MagadhiPrakritChatGPTDependencyProcess,
         ]
     )
 
@@ -1410,6 +1577,7 @@ class GandhariChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             GandhariSentenceSplittingProcess,
             GandhariChatGPTMorphosyntaxProcess,
+            GandhariChatGPTDependencyProcess,
         ]
     )
 
@@ -1431,6 +1599,7 @@ class HindiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             HindiSentenceSplittingProcess,
             HindiChatGPTMorphosyntaxProcess,
+            HindiChatGPTDependencyProcess,
         ]
     )
 
@@ -1451,6 +1620,7 @@ class KhariBoliChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             KhariBoliSentenceSplittingProcess,
             KhariBoliChatGPTMorphosyntaxProcess,
+            KhariBoliChatGPTDependencyProcess,
         ]
     )
 
@@ -1471,6 +1641,7 @@ class BrajChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             BrajSentenceSplittingProcess,
             BrajChatGPTMorphosyntaxProcess,
+            BrajChatGPTDependencyProcess,
         ]
     )
 
@@ -1489,6 +1660,7 @@ class AwadhiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AwadhiSentenceSplittingProcess,
             AwadhiChatGPTMorphosyntaxProcess,
+            AwadhiChatGPTDependencyProcess,
         ]
     )
 
@@ -1509,6 +1681,7 @@ class UrduChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             UrduSentenceSplittingProcess,
             UrduChatGPTMorphosyntaxProcess,
+            UrduChatGPTDependencyProcess,
         ]
     )
 
@@ -1528,6 +1701,7 @@ class BengaliChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             BengaliSentenceSplittingProcess,
             BengaliChatGPTMorphosyntaxProcess,
+            BengaliChatGPTDependencyProcess,
         ]
     )
 
@@ -1548,6 +1722,7 @@ class OdiaChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OdiaSentenceSplittingProcess,
             OdiaChatGPTMorphosyntaxProcess,
+            OdiaChatGPTDependencyProcess,
         ]
     )
 
@@ -1566,6 +1741,7 @@ class AssameseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AssameseSentenceSplittingProcess,
             AssameseChatGPTMorphosyntaxProcess,
+            AssameseChatGPTDependencyProcess,
         ]
     )
 
@@ -1586,6 +1762,7 @@ class GujaratiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             GujaratiSentenceSplittingProcess,
             GujaratiChatGPTMorphosyntaxProcess,
+            GujaratiChatGPTDependencyProcess,
         ]
     )
 
@@ -1606,6 +1783,7 @@ class MarathiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MarathiSentenceSplittingProcess,
             MarathiChatGPTMorphosyntaxProcess,
+            MarathiChatGPTDependencyProcess,
         ]
     )
 
@@ -1626,6 +1804,7 @@ class SinhalaChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             SinhalaSentenceSplittingProcess,
             SinhalaChatGPTMorphosyntaxProcess,
+            SinhalaChatGPTDependencyProcess,
         ]
     )
 
@@ -1646,6 +1825,7 @@ class EasternPanjabiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             PanjabiSentenceSplittingProcess,
             EasternPanjabiChatGPTMorphosyntaxProcess,
+            EasternPanjabiChatGPTDependencyProcess,
         ]
     )
 
@@ -1666,6 +1846,7 @@ class SindhiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             SindhiSentenceSplittingProcess,
             SindhiChatGPTMorphosyntaxProcess,
+            SindhiChatGPTDependencyProcess,
         ]
     )
 
@@ -1686,6 +1867,7 @@ class KashmiriChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             KashmiriSentenceSplittingProcess,
             KashmiriChatGPTMorphosyntaxProcess,
+            KashmiriChatGPTDependencyProcess,
         ]
     )
 
@@ -1707,6 +1889,7 @@ class OldChineseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldChineseSentenceSplittingProcess,
             OldChineseChatGPTMorphosyntaxProcess,
+            OldChineseChatGPTDependencyProcess,
         ]
     )
 
@@ -1721,6 +1904,7 @@ class MiddleChineseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleChineseSentenceSplittingProcess,
             MiddleChineseChatGPTMorphosyntaxProcess,
+            MiddleChineseChatGPTDependencyProcess,
         ]
     )
 
@@ -1735,6 +1919,7 @@ class BaihuaChineseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             BaihuaChineseSentenceSplittingProcess,
             BaihuaChineseChatGPTMorphosyntaxProcess,
+            BaihuaChineseChatGPTDependencyProcess,
         ]
     )
 
@@ -1749,6 +1934,7 @@ class OldBurmeseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldBurmeseSentenceSplittingProcess,
             OldBurmeseChatGPTMorphosyntaxProcess,
+            OldBurmeseChatGPTDependencyProcess,
         ]
     )
 
@@ -1763,6 +1949,7 @@ class ClassicalBurmeseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalBurmeseSentenceSplittingProcess,
             ClassicalBurmeseChatGPTMorphosyntaxProcess,
+            ClassicalBurmeseChatGPTDependencyProcess,
         ]
     )
 
@@ -1777,6 +1964,7 @@ class TangutChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             TangutSentenceSplittingProcess,
             TangutChatGPTMorphosyntaxProcess,
+            TangutChatGPTDependencyProcess,
         ]
     )
 
@@ -1791,6 +1979,7 @@ class NewarChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             NewarSentenceSplittingProcess,
             NewarChatGPTMorphosyntaxProcess,
+            NewarChatGPTDependencyProcess,
         ]
     )
 
@@ -1805,6 +1994,7 @@ class MeiteiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MeiteiSentenceSplittingProcess,
             MeiteiChatGPTMorphosyntaxProcess,
+            MeiteiChatGPTDependencyProcess,
         ]
     )
 
@@ -1819,6 +2009,7 @@ class SgawKarenChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             SgawKarenSentenceSplittingProcess,
             SgawKarenChatGPTMorphosyntaxProcess,
+            SgawKarenChatGPTDependencyProcess,
         ]
     )
 
@@ -1833,6 +2024,7 @@ class MiddleMongolChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleMongolSentenceSplittingProcess,
             MiddleMongolChatGPTMorphosyntaxProcess,
+            MiddleMongolChatGPTDependencyProcess,
         ]
     )
 
@@ -1847,6 +2039,7 @@ class ClassicalMongolianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalMongolianSentenceSplittingProcess,
             ClassicalMongolianChatGPTMorphosyntaxProcess,
+            ClassicalMongolianChatGPTDependencyProcess,
         ]
     )
 
@@ -1861,6 +2054,7 @@ class MogholiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MogholiSentenceSplittingProcess,
             MogholiChatGPTMorphosyntaxProcess,
+            MogholiChatGPTDependencyProcess,
         ]
     )
 
@@ -1875,6 +2069,7 @@ class BagriChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             BagriSentenceSplittingProcess,
             BagriChatGPTMorphosyntaxProcess,
+            BagriChatGPTDependencyProcess,
         ]
     )
 
@@ -1896,6 +2091,7 @@ class NumidianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             NumidianSentenceSplittingProcess,
             NumidianChatGPTMorphosyntaxProcess,
+            NumidianChatGPTDependencyProcess,
         ]
     )
 
@@ -1910,6 +2106,7 @@ class TaitaChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             TaitaSentenceSplittingProcess,
             TaitaChatGPTMorphosyntaxProcess,
+            TaitaChatGPTDependencyProcess,
         ]
     )
 
@@ -1924,6 +2121,7 @@ class HausaChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             HausaSentenceSplittingProcess,
             HausaChatGPTMorphosyntaxProcess,
+            HausaChatGPTDependencyProcess,
         ]
     )
 
@@ -1938,6 +2136,7 @@ class OldJurchenChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldJurchenSentenceSplittingProcess,
             OldJurchenChatGPTMorphosyntaxProcess,
+            OldJurchenChatGPTDependencyProcess,
         ]
     )
 
@@ -1952,6 +2151,7 @@ class OldJapaneseChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldJapaneseSentenceSplittingProcess,
             OldJapaneseChatGPTMorphosyntaxProcess,
+            OldJapaneseChatGPTDependencyProcess,
         ]
     )
 
@@ -1966,6 +2166,7 @@ class OldHungarianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldHungarianSentenceSplittingProcess,
             OldHungarianChatGPTMorphosyntaxProcess,
+            OldHungarianChatGPTDependencyProcess,
         ]
     )
 
@@ -1980,6 +2181,7 @@ class ChagataiChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ChagataiSentenceSplittingProcess,
             ChagataiChatGPTMorphosyntaxProcess,
+            ChagataiChatGPTDependencyProcess,
         ]
     )
 
@@ -1994,6 +2196,7 @@ class OldTurkicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldTurkicSentenceSplittingProcess,
             OldTurkicChatGPTMorphosyntaxProcess,
+            OldTurkicChatGPTDependencyProcess,
         ]
     )
 
@@ -2008,6 +2211,7 @@ class OldTamilChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldTamilSentenceSplittingProcess,
             OldTamilChatGPTMorphosyntaxProcess,
+            OldTamilChatGPTDependencyProcess,
         ]
     )
 
@@ -2023,6 +2227,7 @@ class MoabiteChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MoabiteSentenceSplittingProcess,
             MoabiteChatGPTMorphosyntaxProcess,
+            MoabiteChatGPTDependencyProcess,
         ]
     )
 
@@ -2037,6 +2242,7 @@ class AmmoniteChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             AmmoniteSentenceSplittingProcess,
             AmmoniteChatGPTMorphosyntaxProcess,
+            AmmoniteChatGPTDependencyProcess,
         ]
     )
 
@@ -2051,6 +2257,7 @@ class EdomiteChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             EdomiteSentenceSplittingProcess,
             EdomiteChatGPTMorphosyntaxProcess,
+            EdomiteChatGPTDependencyProcess,
         ]
     )
 
@@ -2065,6 +2272,7 @@ class OldAramaicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldAramaicSentenceSplittingProcess,
             OldAramaicChatGPTMorphosyntaxProcess,
+            OldAramaicChatGPTDependencyProcess,
         ]
     )
 
@@ -2079,6 +2287,7 @@ class OldAramaicSamalianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             OldAramaicSamalianSentenceSplittingProcess,
             OldAramaicSamalianChatGPTMorphosyntaxProcess,
+            OldAramaicSamalianChatGPTDependencyProcess,
         ]
     )
 
@@ -2093,6 +2302,7 @@ class MiddleAramaicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             MiddleAramaicSentenceSplittingProcess,
             MiddleAramaicChatGPTMorphosyntaxProcess,
+            MiddleAramaicChatGPTDependencyProcess,
         ]
     )
 
@@ -2107,6 +2317,7 @@ class ClassicalMandaicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             ClassicalMandaicSentenceSplittingProcess,
             ClassicalMandaicChatGPTMorphosyntaxProcess,
+            ClassicalMandaicChatGPTDependencyProcess,
         ]
     )
 
@@ -2121,6 +2332,7 @@ class HatranChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             HatranSentenceSplittingProcess,
             HatranChatGPTMorphosyntaxProcess,
+            HatranChatGPTDependencyProcess,
         ]
     )
 
@@ -2135,6 +2347,7 @@ class JewishBabylonianAramaicChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             JewishBabylonianAramaicSentenceSplittingProcess,
             JewishBabylonianAramaicChatGPTMorphosyntaxProcess,
+            JewishBabylonianAramaicChatGPTDependencyProcess,
         ]
     )
 
@@ -2149,6 +2362,7 @@ class SamalianChatGPTPipeline(Pipeline):
             MultilingualNormalizeProcess,
             SamalianSentenceSplittingProcess,
             SamalianChatGPTMorphosyntaxProcess,
+            SamalianChatGPTDependencyProcess,
         ]
     )
 

@@ -12,29 +12,45 @@ def test_top_level_api() -> None:
     assert hasattr(cltk, "__version__")
 
 
-def test_gpt_process_hierarchy() -> None:
-    processes = importlib.import_module("cltk.genai.processes")
-    GPTProcess = getattr(processes, "GPTProcess")
-    LocalGPTProcess = getattr(processes, "LocalGPTProcess")
+def test_morphosyntax_processes_subclasses_use_glottolog_ids() -> None:
+    mod = importlib.import_module("cltk.morphosyntax.processes")
+    Base = getattr(mod, "ChatGPTMorphosyntaxProcess")
+    subclasses = Base.__subclasses__()
+    assert len(subclasses) >= 80
 
-    # Types must exist and form the expected hierarchy
-    from cltk.core.data_types import Process as CLTKProcess
-
-    assert issubclass(GPTProcess, CLTKProcess)
-    assert issubclass(LocalGPTProcess, GPTProcess)
-
-
-def test_gpt_process_has_no_required_contract_beyond_base() -> None:
-    processes = importlib.import_module("cltk.genai.processes")
-    GPTProcess = getattr(processes, "GPTProcess")
-    # At minimum, the class should be instantiable with defaults (pydantic BaseModel semantics)
-    # and provide a .run method or allow subclasses to implement it.
-    # Here we simply assert the attribute exists on the class MRO (may be inherited).
-    assert hasattr(GPTProcess, "run")
+    pat = re.compile(r"^[a-z]{4}\d{4}$")
+    for cls in subclasses:
+        fld = getattr(cls, "model_fields", {}).get("glottolog_id")
+        default_glotto: Any = getattr(fld, "default", None)
+        assert isinstance(default_glotto, str) and pat.match(default_glotto), (
+            f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
+        )
 
 
-def test_genai_processes_module_surface() -> None:
-    processes = importlib.import_module("cltk.genai.processes")
-    # Ensure the minimal public surface is present
-    assert hasattr(processes, "GPTProcess")
-    assert hasattr(processes, "LocalGPTProcess")
+def test_dependency_processes_subclasses_use_glottolog_ids() -> None:
+    mod = importlib.import_module("cltk.dependency.processes")
+    Base = getattr(mod, "ChatGPTDependencyProcess")
+    subclasses = Base.__subclasses__()
+    assert len(subclasses) >= 80
+
+    pat = re.compile(r"^[a-z]{4}\d{4}$")
+    for cls in subclasses:
+        fld = getattr(cls, "model_fields", {}).get("glottolog_id")
+        default_glotto: Any = getattr(fld, "default", None)
+        assert isinstance(default_glotto, str) and pat.match(default_glotto), (
+            f"{cls.__name__} has non-Glottolog id: {default_glotto!r}"
+        )
+
+
+def test_process_run_signature() -> None:
+    # Morphosyntax run signature
+    m = importlib.import_module("cltk.morphosyntax.processes")
+    dep = importlib.import_module("cltk.dependency.processes")
+    for base in (
+        getattr(m, "ChatGPTMorphosyntaxProcess"),
+        getattr(dep, "ChatGPTDependencyProcess"),
+    ):
+        sig = inspect.signature(base.run)
+        params = list(sig.parameters.values())
+        assert len(params) == 2  # self + input_doc
+        assert params[1].name == "input_doc"

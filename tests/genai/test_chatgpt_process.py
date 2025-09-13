@@ -4,12 +4,6 @@ import importlib
 from typing import Any
 
 
-def test_gpt_process_types_exist() -> None:
-    processes = importlib.import_module("cltk.genai.processes")
-    assert hasattr(processes, "GPTProcess")
-    assert hasattr(processes, "LocalGPTProcess")
-
-
 def test_chatgpt_connection_requires_api_key(monkeypatch):  # type: ignore[no-untyped-def]
     # Ensure no ambient API key
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
