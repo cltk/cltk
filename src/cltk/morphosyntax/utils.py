@@ -1,3 +1,8 @@
+"""Morphosyntax utilities used by CLTK pipelines.
+
+# Internal; no stability guarantees
+"""
+
 import asyncio
 import concurrent.futures
 from typing import Optional, get_args
@@ -15,6 +20,7 @@ from cltk.core.data_types import (
 )
 from cltk.core.exceptions import CLTKException
 from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
+from cltk.genai.prompts import morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
@@ -76,26 +82,9 @@ def generate_pos(
     #     lang_or_dialect_name = self.language.selected_dialect_name
     # else:
     #     lang_or_dialect_name = self.language.name
-    prompt: str = f"""For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) guidelines.
-
-Rules:
-- Always use strict UD morphological tags (not a simplified system).
-- Split off enclitics and contractions as separate tokens.
-- Always include punctuation as separate tokens with UPOS=PUNCT and FEATS=_.
-- For uncertain, rare, or dialectal forms, always provide the most standard dictionary lemma and supply a best-effort UD tag. Do not skip any tokens.
-- Separate UD features with a pipe ("|"). Do not use a semi-colon or other characters.
-- Preserve the spelling of the text exactly as given (including diacritics, breathings, and subscripts). Do not normalize.
-- If a lemma or feature is uncertain, still provide the closest standard form and UD features. Never leave fields blank and never ask for clarification.
-- If full accuracy is not possible, always provide a best-effort output without asking for clarification.
-- Never request to perform the task in multiple stages; always deliver the final TSV in one step.
-- Do not ask for confirmation, do not explain your reasoning, and do not include any commentary. Output only the TSV table.
-- Always output all four fields: FORM, LEMMA, UPOS, FEATS.
-- The result **must be a markdown code block** (beginning and ending in "```") containing only a tab-delimited table (TSV) with the following header row:
-
-FORM    LEMMA   UPOS    FEATS
-
-Text:\n\n{doc.normalized_text}
-"""
+    pinfo = morphosyntax_prompt(lang_or_dialect_name, doc.normalized_text)
+    prompt = pinfo.text
+    logger.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
     logger.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:

@@ -7,8 +7,6 @@ user-supplied keys (ISO codes, names, glottocodes) into
 human-facing inputs into canonical language identifiers.
 """
 
-from __future__ import annotations
-
 import json
 from functools import lru_cache
 from importlib.resources import files as pkg_files

@@ -1,15 +1,40 @@
 from __future__ import annotations
 
 import importlib
+import importlib.util
 import inspect
 import re
 from typing import Any
+import json
+from pathlib import Path
 
 
 def test_top_level_api() -> None:
     cltk = importlib.import_module("cltk")
     assert hasattr(cltk, "NLP")
     assert hasattr(cltk, "__version__")
+
+
+def test_public_manifest_enforced() -> None:
+    manifest_path = Path("api/public_manifest.json")
+    data = json.loads(manifest_path.read_text())
+    assert data.get("module") == "cltk"
+    allowed = set(data.get("exports", []))
+    mod = importlib.import_module("cltk")
+    names = {n for n in dir(mod) if not (n.startswith("__") and n.endswith("__"))}
+    # Allowed names must be present (attribute access, not dir())
+    for n in allowed:
+        assert hasattr(mod, n)
+    # Ignore submodules (namespace exposure is OK for import machinery)
+    def is_submodule(n: str) -> bool:
+        try:
+            spec = importlib.util.find_spec(f"cltk.{n}")
+            return spec is not None
+        except Exception:
+            return False
+    extras = {n for n in names if not is_submodule(n) and not n.isupper()}
+    # No extras beyond the allowed manifest
+    assert extras.issubset(allowed)
 
 
 def test_morphosyntax_processes_subclasses_use_glottolog_ids() -> None:

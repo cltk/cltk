@@ -113,29 +113,15 @@ def generate_dependency_tree(
         token_table = "\n".join(lines)
 
     if token_table:
-        prompt = (
-            f"Using the following tokens with UPOS and FEATS, produce a dependency parse as TSV with exactly three columns: FORM, HEAD, DEPREL.\n\n"
-            "Rules:\n"
-            "- Use strict UD dependency relations only (e.g., nsubj, obj, obl:tmod, root).\n"
-            "- Do not change, split, merge, or reorder tokens. Use the tokens as given.\n"
-            "- HEAD refers to the 1-based index of the head token in the given token order (0 for root).\n"
-            "- Output must be a Markdown code block containing only a tab-delimited table with the header: FORM\tHEAD\tDEPREL.\n\n"
-            f"Tokens:\n\n{token_table}\n\n"
-            "Output only the dependency table."
-        )
+        from cltk.genai.prompts import dependency_prompt_from_tokens
+
+        pinfo = dependency_prompt_from_tokens(token_table)
     else:
-        prompt = f"""For the following {lang_or_dialect_name} text, first tokenize the sentence.
-For each token, output a single TSV row with exactly three columns: FORM, HEAD, DEPREL.
+        from cltk.genai.prompts import dependency_prompt_from_text
 
-Rules:
-- Use strict Universal Dependencies (UD) deprel labels only (e.g., nsubj, obj, obl:tmod, root).
-- HEAD is the 1-based index of the token's head in this sentence (use 0 for the root).
-- Output must be a Markdown code block (```) containing only a tab-delimited table with header:
-
-FORM\tHEAD\tDEPREL
-
-Text:\n\n{doc.normalized_text}
-"""
+        pinfo = dependency_prompt_from_text(lang_or_dialect_name, doc.normalized_text)
+    prompt = pinfo.text
+    logger.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
     logger.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:

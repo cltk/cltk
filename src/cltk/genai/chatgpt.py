@@ -1,5 +1,7 @@
 """ChatGPT integration for CLTK.
 
+# Internal; no stability guarantees
+
 This module provides a small wrapper class (:class:`ChatGPT`) around the
 OpenAI client and high‑level helpers to generate linguistic annotations from
 LLMs for a given language (resolved by Glottolog ID).
