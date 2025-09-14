@@ -24,6 +24,8 @@ freezeDependencies:
 
 install:
 	poetry install --only main
+installOpenAI:
+	poetry install -E genai
 
 installDev:
 	poetry install

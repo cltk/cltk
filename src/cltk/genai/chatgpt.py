@@ -13,14 +13,36 @@ import os
 import re
 from typing import Any, Optional, cast
 
-from openai import AsyncOpenAI, OpenAI, OpenAIError
-from openai.types.responses.response import Response
-
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import AVAILABLE_OPENAI_MODELS, CLTKGenAIResponse
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.text.utils import cltk_normalize
 from cltk.utils.utils import load_env_file
+
+OpenAI: Any
+AsyncOpenAI: Any
+
+try:  # optional dependency guard
+    from openai import OpenAI as _RuntimeOpenAI
+
+    OpenAI = _RuntimeOpenAI  # re-export for tests/monkeypatch
+except Exception:  # pragma: no cover - fallback when openai missing
+    OpenAI = None
+
+try:  # optional dependency guard (async)
+    from openai import AsyncOpenAI as _RuntimeAsyncOpenAI
+
+    AsyncOpenAI = _RuntimeAsyncOpenAI  # re-export for tests/monkeypatch
+except Exception:  # pragma: no cover
+    AsyncOpenAI = None
+
+# Error type guard with alias to avoid mypy redefinition
+_OpenAIError: Any
+try:
+    from openai import OpenAIError as _OpenAIError
+except Exception:  # pragma: no cover - fallback
+    _OpenAIError = Exception
+OpenAIError = _OpenAIError
 
 
 class ChatGPTConnection:
@@ -54,7 +76,16 @@ class ChatGPTConnection:
             # Bind with model context even before self.log is available
             bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
-        self.client: OpenAI = OpenAI(api_key=self.api_key)
+        # Use patched OpenAI if provided by tests; else import lazily
+        _OpenAI = OpenAI
+        if _OpenAI is None:  # pragma: no cover - import only if needed
+            try:
+                from openai import OpenAI as _OpenAI
+            except Exception as e:
+                raise ImportError(
+                    "OpenAI client not installed. Install with: pip install 'cltk[genai]'"
+                ) from e
+        self.client = _OpenAI(api_key=self.api_key)
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
@@ -65,7 +96,7 @@ class ChatGPTConnection:
     ) -> CLTKGenAIResponse:
         self.log.debug(prompt)
         code_block: Optional[str] = None
-        chatgpt_response: Optional[Response] = None
+        chatgpt_response: Optional[Any] = None
         attempt: Optional[int] = None
         # Accumulate tokens across attempts (including failed ones)
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
@@ -139,7 +170,7 @@ class ChatGPTConnection:
         # logger.error(f"Exceeded maximum retries: {max_retries}")
         # raise RuntimeError("Failed to generate response after multiple attempts.")
 
-    def _chatgpt_response_tokens(self, response: Response) -> dict[str, int]:
+    def _chatgpt_response_tokens(self, response: Any) -> dict[str, int]:
         """Extract token usage information from an OpenAI response.
 
         Args:
@@ -232,7 +263,15 @@ class AsyncChatGPTConnection:
             msg: str = "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
             bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
-        self.client: AsyncOpenAI = AsyncOpenAI(api_key=self.api_key)
+        _AsyncOpenAI = AsyncOpenAI
+        if _AsyncOpenAI is None:  # pragma: no cover - import only if needed
+            try:
+                from openai import AsyncOpenAI as _AsyncOpenAI
+            except Exception as e:
+                raise ImportError(
+                    "OpenAI client not installed. Install with: pip install 'cltk[genai]'"
+                ) from e
+        self.client = _AsyncOpenAI(api_key=self.api_key)
         # Structured logger bound with model identifier
         self.log = bind_context(model=str(self.model))
 
@@ -243,7 +282,7 @@ class AsyncChatGPTConnection:
     ) -> CLTKGenAIResponse:
         self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
         code_block: Optional[str] = None
-        chatgpt_response: Optional[Response] = None
+        chatgpt_response: Optional[Any] = None
         agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         for attempt in range(1, max_retries + 1):
             self.log.debug("[async] Attempt %s of %s", attempt, max_retries)
@@ -301,7 +340,7 @@ class AsyncChatGPTConnection:
         self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
-    def _chatgpt_response_tokens(self, response: Response) -> dict[str, int]:
+    def _chatgpt_response_tokens(self, response: Any) -> dict[str, int]:
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:

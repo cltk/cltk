@@ -10,6 +10,12 @@ For the CLTK's latest version:
 pip install cltk
 ```
 
+To use optional GenAI features (OpenAI-backed annotation), install the extra:
+
+```bash
+pip install "cltk[genai]"
+```
+
 For more information, see [Installation docs](https://docs.cltk.org/en/latest/installation.html) or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).
 
 Pre-1.0 software remains available on the [branch v0.1.x](https://github.com/cltk/cltk/tree/v0.1.x) and docs at <https://legacy.cltk.org>. Install it with `pip install "cltk<1.0"`.
