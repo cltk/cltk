@@ -91,7 +91,7 @@ def _iter_ud_pairs_from_set(feats: UDFeatureTagSet) -> list[tuple[str, str]]:
         tags = getattr(feats, "features", None)
         if tags is None:
             # Fallback: some callers may pass an iterable of UDFeatureTag
-            tags = list(feats)  # type: ignore
+            tags = list(feats)
     except Exception:
         return []
     pairs: list[tuple[str, str]] = []
@@ -103,10 +103,12 @@ def _iter_ud_pairs_from_set(feats: UDFeatureTagSet) -> list[tuple[str, str]]:
                 pairs.append((k, v))
         else:
             # Very defensive fallback for unexpected shapes
-            k = getattr(t, "key", None)
-            v = getattr(t, "value", None)
-            if isinstance(k, str) and isinstance(v, str) and k and v:
-                pairs.append((k, v))
+            k_obj = getattr(t, "key", None)
+            v_obj = getattr(t, "value", None)
+            k_str = k_obj if isinstance(k_obj, str) else None
+            v_str = v_obj if isinstance(v_obj, str) else None
+            if k_str and v_str:
+                pairs.append((k_str, v_str))
     return pairs
 
 
