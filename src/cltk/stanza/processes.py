@@ -9,6 +9,8 @@ Requires optional extra: pip install "cltk[stanza]"
 
 from typing import Optional
 
+from stanza import DownloadMethod
+
 from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process, Word
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
@@ -64,6 +66,7 @@ class StanzaAnalyzeProcess(Process):
             lang=lang,
             processors="tokenize,pos,lemma,depparse",
             tokenize_no_ssplit=False,
+            download_method=DownloadMethod.REUSE_RESOURCES,
         )
         sdoc = nlp(output_doc.normalized_text)
 
