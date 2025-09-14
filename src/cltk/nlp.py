@@ -120,7 +120,7 @@ class NLP:
             raise ValueError("Input text must be a non-empty string.")
         doc: Doc = Doc(language=self.language, raw=text)
         doc.backend = self.backend
-        doc.backend_version = self.backend_version
+        doc.backend_version = getattr(self, "backend_version", None)
         log = bind_from_doc(doc)
 
         processes: list[type[Process]] = cast(
@@ -269,9 +269,6 @@ class NLP:
         """
         if self.backend == "stanza":
             mapping = MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE
-            raise NotImplementedError(
-                f"Discriminative  {self.backend} not yet reimplemented."
-            )
         elif self.backend == "spacy":
             mapping = MAP_LANGUAGE_CODE_TO_SPACY_PIPELINE
             raise NotImplementedError(

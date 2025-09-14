@@ -6,7 +6,7 @@ Pipelines are lightweight containers that list a small sequence of processes
 such as normalization, sentence splitting, and generative annotation.
 """
 
-from typing import Any, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 from pydantic import Field
 
@@ -337,6 +337,68 @@ from cltk.sentence.processes import (
     VedicSanskritSentenceSplittingProcess,
 )
 from cltk.text.processes import MultilingualNormalizeProcess
+
+if TYPE_CHECKING:  # for type checkers only
+    from cltk.stanza.processes import StanzaAnalyzeProcess as StanzaAnalyzeProcessType
+else:  # runtime resolution
+    StanzaAnalyzeProcessType = object  # sentinel
+
+RuntimeStanzaAnalyzeProcess: Any
+try:
+    from cltk.stanza.processes import (
+        StanzaAnalyzeProcess as RuntimeStanzaAnalyzeProcess,
+    )
+
+    STANZA_AVAILABLE = True
+except Exception:  # pragma: no cover - stanza optional
+    RuntimeStanzaAnalyzeProcess = None
+    STANZA_AVAILABLE = False
+
+
+class LatinStanzaPipeline(Pipeline):
+    """Stanza-backed pipeline for Latin."""
+
+    description: Optional[str] = "Stanza pipeline for the Latin language."
+    glottolog_id: Optional[str] = "lati1261"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            *([MultilingualNormalizeProcess]),
+            *(
+                [RuntimeStanzaAnalyzeProcess]
+                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                else []
+            ),
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        plog(self).debug(
+            f"Initializing LatinStanzaPipeline with language: {self.language}"
+        )
+        plog(self).info("LatinStanzaPipeline created.")
+
+
+class AncientGreekStanzaPipeline(Pipeline):
+    """Stanza-backed pipeline for Ancient Greek."""
+
+    description: Optional[str] = "Stanza pipeline for the Ancient Greek language."
+    glottolog_id: Optional[str] = "anci1242"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            *([MultilingualNormalizeProcess]),
+            *(
+                [RuntimeStanzaAnalyzeProcess]
+                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                else []
+            ),
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        plog(self).debug(
+            f"Initializing AncientGreekStanzaPipeline with language: {self.language}"
+        )
+        plog(self).info("AncientGreekStanzaPipeline created.")
 
 
 class AkkadianChatGPTPipeline(Pipeline):
@@ -2376,7 +2438,9 @@ class SamalianChatGPTPipeline(Pipeline):
 
 
 MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE: dict[str, type[Pipeline]] = {
-    # "akk": AkkadianPipeline,
+    # Seed a few languages where Stanza has robust models
+    "lati1261": LatinStanzaPipeline,
+    "anci1242": AncientGreekStanzaPipeline,
     # "ang": OldEnglishPipeline,
     # "arb": ArabicPipeline,
     # "arc": AramaicPipeline,
