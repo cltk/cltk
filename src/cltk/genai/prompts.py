@@ -39,9 +39,9 @@ def morphosyntax_prompt(lang_or_dialect_name: str, normalized_text: str) -> Prom
 
     Rules emphasize strict UD tags, no commentary, and TSV in a code block.
     """
-    kind = "morphosyntax"
-    version = "1.0"
-    text = (
+    kind: str = "morphosyntax"
+    version: str = "1.0"
+    text: str = (
         f"For the following {lang_or_dialect_name} text, tokenize the text and return one line per token. "
         "For each token, provide the FORM, LEMMA, UPOS, and FEATS fields following Universal Dependencies (UD) guidelines.\n\n"
         "Rules:\n"
@@ -60,7 +60,9 @@ def morphosyntax_prompt(lang_or_dialect_name: str, normalized_text: str) -> Prom
         "FORM\tLEMMA\tUPOS\tFEATS\n\n"
         f"Text:\n\n{normalized_text}\n"
     )
-    return PromptInfo(kind, version, text, _hash_prompt(kind, version, text))
+    return PromptInfo(
+        kind=kind, version=version, text=text, digest=_hash_prompt(kind, version, text)
+    )
 
 
 def dependency_prompt_from_tokens(token_table: str) -> PromptInfo:
@@ -68,9 +70,9 @@ def dependency_prompt_from_tokens(token_table: str) -> PromptInfo:
 
     The table must be TSV with header: INDEX, FORM, UPOS, FEATS.
     """
-    kind = "dependency-tokens"
-    version = "1.0"
-    text = (
+    kind: str = "dependency-tokens"
+    version: str = "1.0"
+    text: str = (
         "Using the following tokens with UPOS and FEATS, produce a dependency parse as TSV with exactly three columns: FORM, HEAD, DEPREL.\n\n"
         "Rules:\n"
         "- Use strict UD dependency relations only (e.g., nsubj, obj, obl:tmod, root).\n"
@@ -80,14 +82,16 @@ def dependency_prompt_from_tokens(token_table: str) -> PromptInfo:
         f"Tokens:\n\n{token_table}\n\n"
         "Output only the dependency table."
     )
-    return PromptInfo(kind, version, text, _hash_prompt(kind, version, text))
+    return PromptInfo(
+        kind=kind, version=version, text=text, digest=_hash_prompt(kind, version, text)
+    )
 
 
 def dependency_prompt_from_text(lang_or_dialect_name: str, sentence: str) -> PromptInfo:
     """Build a dependency prompt when no token table is available."""
-    kind = "dependency-text"
-    version = "1.0"
-    text = (
+    kind: str = "dependency-text"
+    version: str = "1.0"
+    text: str = (
         f"For the following {lang_or_dialect_name} text, first tokenize the sentence. "
         "For each token, output a TSV row with exactly three columns: FORM, HEAD, DEPREL.\n\n"
         "Rules:\n"
@@ -96,4 +100,6 @@ def dependency_prompt_from_text(lang_or_dialect_name: str, sentence: str) -> Pro
         "- Output must be a Markdown code block with the header: FORM\tHEAD\tDEPREL.\n\n"
         f"Text:\n\n{sentence}\n"
     )
-    return PromptInfo(kind, version, text, _hash_prompt(kind, version, text))
+    return PromptInfo(
+        kind=kind, version=version, text=text, digest=_hash_prompt(kind, version, text)
+    )
