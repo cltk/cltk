@@ -17,6 +17,7 @@ from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
+from cltk.morphosyntax.utils import _update_doc_chatgpt_stage
 
 
 def _parse_dep_tsv_table(tsv_string: str) -> list[dict[str, str]]:
@@ -310,7 +311,18 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             )
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
-    doc.chatgpt = [chatgpt_total_tokens]
+    # Merge with any existing totals (e.g., from prior processes)
+    combined_tokens = {"input": 0, "output": 0, "total": 0}
+    if (
+        isinstance(doc.chatgpt, list)
+        and doc.chatgpt
+        and isinstance(doc.chatgpt[0], dict)
+    ):
+        for k in combined_tokens:
+            combined_tokens[k] += int(doc.chatgpt[0].get(k, 0))
+    for k in combined_tokens:
+        combined_tokens[k] += int(chatgpt_total_tokens.get(k, 0))
+    _update_doc_chatgpt_stage(doc, stage="dep", stage_tokens=chatgpt_total_tokens)
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -511,7 +523,7 @@ async def generate_gpt_dependency_async(
             token_counter += 1
 
     doc.words = all_words
-    doc.chatgpt = [aggregated_usage]
+    _update_doc_chatgpt_stage(doc, stage="dep", stage_tokens=aggregated_usage)
     log.info(
         "[async-dep] Completed dependency generation: %d tokens across %d sentences",
         len(all_words),

@@ -6,7 +6,7 @@
 import asyncio
 import concurrent.futures
 import hashlib
-from typing import Optional, get_args
+from typing import Any, Optional, get_args
 
 from colorama import Fore, Style
 from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
@@ -295,7 +295,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             )
             log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
-    doc.chatgpt = [chatgpt_total_tokens]
+    _update_doc_chatgpt_stage(doc, stage="pos", stage_tokens=chatgpt_total_tokens)
     log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
@@ -474,7 +474,7 @@ async def generate_gpt_morphosyntax_async(
             token_counter += 1
 
     doc.words = all_words
-    doc.chatgpt = [aggregated_usage]
+    _update_doc_chatgpt_stage(doc, stage="pos", stage_tokens=aggregated_usage)
     log.info(
         "[async] Completed morphosyntax generation: %d tokens across %d sentences",
         len(all_words),
@@ -541,3 +541,46 @@ def generate_gpt_morphosyntax_concurrent(
             result = fut.result()
             log.info("[async-wrap] Completed in worker thread")
             return result
+
+
+def _update_doc_chatgpt_stage(
+    doc: Doc, *, stage: str, stage_tokens: dict[str, int]
+) -> None:
+    """Update doc.chatgpt with stage-specific and overall totals.
+
+    Keeps one entry per stage (e.g., "pos", "dep") and a single "overall" sum.
+    """
+    stage_norm = stage.strip().lower()
+    in_tokens = int(stage_tokens.get("input", 0))
+    out_tokens = int(stage_tokens.get("output", 0))
+    tot_tokens = int(stage_tokens.get("total", 0))
+
+    entries: list[dict[str, Any]] = []
+    for e in doc.chatgpt or []:
+        if isinstance(e, dict):
+            s = str(e.get("stage", "")).lower()
+            if s and s not in {stage_norm, "overall"}:
+                entries.append(e)
+    # Add/replace this stage
+    entries.append(
+        {
+            "stage": stage_norm,
+            "input": in_tokens,
+            "output": out_tokens,
+            "total": tot_tokens,
+        }
+    )
+    # Compute overall from all non-overall entries
+    overall = {"input": 0, "output": 0, "total": 0}
+    for e in entries:
+        s = str(e.get("stage", "")).lower()
+        if s == "overall":
+            continue
+        for k in overall:
+            try:
+                val: Any = e.get(k, 0)
+                overall[k] += int(val)
+            except Exception:
+                pass
+    entries.append({"stage": "overall", **overall})
+    doc.chatgpt = entries

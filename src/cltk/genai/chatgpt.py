@@ -11,7 +11,7 @@ __license__ = "MIT License. See LICENSE."
 
 import os
 import re
-from typing import Optional
+from typing import Any, Optional, cast
 
 from openai import AsyncOpenAI, OpenAI, OpenAIError
 from openai.types.responses.response import Response
@@ -67,6 +67,8 @@ class ChatGPTConnection:
         code_block: Optional[str] = None
         chatgpt_response: Optional[Response] = None
         attempt: Optional[int] = None
+        # Accumulate tokens across attempts (including failed ones)
+        agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         for attempt in range(1, max_retries + 1):
             self.log.debug(f"Attempt {attempt} of {max_retries}")
             try:
@@ -90,6 +92,13 @@ class ChatGPTConnection:
                     f"An error from OpenAI occurred: {openai_error}"
                 )
             self.log.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
+            # Add usage from this attempt even if parsing fails
+            try:
+                tok = self._chatgpt_response_tokens(chatgpt_response)
+                for k in ("input", "output", "total"):
+                    agg_tokens[k] += tok.get(k, 0)
+            except Exception:
+                pass
             try:
                 code_block = self._extract_code_blocks(
                     text=chatgpt_response.output_text
@@ -114,9 +123,8 @@ class ChatGPTConnection:
                     # return doc
                 # Optionally, you could modify the prompt or add a delay here
         assert chatgpt_response
-        chatgpt_usage: dict[str, int] = self._chatgpt_response_tokens(
-            response=chatgpt_response
-        )
+        # Use the accumulated usage across all attempts
+        chatgpt_usage: dict[str, int] = agg_tokens
         raw_chatgpt_response_normalized: str = cltk_normalize(
             text=chatgpt_response.output_text
         )
@@ -152,14 +160,30 @@ class ChatGPTConnection:
             self.log.info(f"ChatGPT usage: {tokens}")
             return tokens
 
-        # OpenAI API standardizes these keys:
-        # prompt_tokens: tokens in the prompt
-        # completion_tokens: tokens in the completion
-        # total_tokens: total tokens used
-        # TODO: input and output stay 0, fix
-        tokens["input"] = int(getattr(usage, "prompt_tokens", 0))
-        tokens["output"] = int(getattr(usage, "completion_tokens", 0))
-        tokens["total"] = int(getattr(usage, "total_tokens", 0))
+        # Normalize key names across OpenAI endpoints
+        def _get(u: object, *names: str) -> int:
+            for nm in names:
+                if hasattr(u, nm):
+                    try:
+                        return int(getattr(u, nm) or 0)
+                    except Exception:
+                        pass
+                if isinstance(u, dict):
+                    ud = cast(dict[str, Any], u)
+                    if nm in ud:
+                        try:
+                            return int(ud.get(nm) or 0)
+                        except Exception:
+                            pass
+            return 0
+
+        tokens["input"] = _get(
+            usage, "input_tokens", "prompt_tokens", "prompt_token_count"
+        )
+        tokens["output"] = _get(
+            usage, "output_tokens", "completion_tokens", "completion_token_count"
+        )
+        tokens["total"] = _get(usage, "total_tokens", "total_token_count")
 
         if tokens["total"] == 0:
             self.log.warning(
@@ -220,6 +244,7 @@ class AsyncChatGPTConnection:
         self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
         code_block: Optional[str] = None
         chatgpt_response: Optional[Response] = None
+        agg_tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         for attempt in range(1, max_retries + 1):
             self.log.debug("[async] Attempt %s of %s", attempt, max_retries)
             try:
@@ -251,6 +276,13 @@ class AsyncChatGPTConnection:
             self.log.debug(
                 "[async] Raw response from OpenAI: %s", chatgpt_response.output_text
             )
+            # Track usage for this attempt (even if parsing fails)
+            try:
+                tok = self._chatgpt_response_tokens(chatgpt_response)
+                for k in ("input", "output", "total"):
+                    agg_tokens[k] += tok.get(k, 0)
+            except Exception:
+                pass
             try:
                 code_block = self._extract_code_blocks(chatgpt_response.output_text)
             except Exception as e:  # pragma: no cover - defensive
@@ -264,7 +296,7 @@ class AsyncChatGPTConnection:
             )
 
         assert chatgpt_response is not None
-        usage = self._chatgpt_response_tokens(chatgpt_response)
+        usage = agg_tokens
         raw_normalized: str = cltk_normalize(text=chatgpt_response.output_text)
         self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
@@ -275,9 +307,30 @@ class AsyncChatGPTConnection:
         if not usage:
             self.log.info("[async] No usage info present; returning zeros")
             return tokens
-        tokens["input"] = int(getattr(usage, "prompt_tokens", 0))
-        tokens["output"] = int(getattr(usage, "completion_tokens", 0))
-        tokens["total"] = int(getattr(usage, "total_tokens", 0))
+
+        def _get(u: object, *names: str) -> int:
+            for nm in names:
+                if hasattr(u, nm):
+                    try:
+                        return int(getattr(u, nm) or 0)
+                    except Exception:
+                        pass
+                if isinstance(u, dict):
+                    ud = cast(dict[str, Any], u)
+                    if nm in ud:
+                        try:
+                            return int(ud.get(nm) or 0)
+                        except Exception:
+                            pass
+            return 0
+
+        tokens["input"] = _get(
+            usage, "input_tokens", "prompt_tokens", "prompt_token_count"
+        )
+        tokens["output"] = _get(
+            usage, "output_tokens", "completion_tokens", "completion_token_count"
+        )
+        tokens["total"] = _get(usage, "total_tokens", "total_token_count")
         self.log.info("[async] ChatGPT usage: %s", tokens)
         return tokens
 
