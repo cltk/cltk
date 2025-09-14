@@ -9,7 +9,7 @@ from contextlib import contextmanager
 # from enum import EnumMeta, IntEnum
 from typing import Any, Iterator, Optional, Union
 
-import requests  # type: ignore[import-untyped]
+import requests
 from dotenv import load_dotenv
 from tqdm import tqdm
 

@@ -5,13 +5,14 @@
 
 import asyncio
 import concurrent.futures
+import hashlib
 from typing import Optional, get_args
 
 from colorama import Fore, Style
 from pydantic_core._pydantic_core import ValidationError as PydanticValidationError
 from tqdm import tqdm
 
-from cltk.core.cltk_logger import logger
+from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     CLTKGenAIResponse,
@@ -84,24 +85,50 @@ def generate_pos(
     #     lang_or_dialect_name = self.language.name
     pinfo = morphosyntax_prompt(lang_or_dialect_name, doc.normalized_text)
     prompt = pinfo.text
-    logger.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
-    logger.debug(prompt)
+    # Structured logging context
+    try:
+        glottolog_id: Optional[str]
+        if doc.dialect and doc.dialect.glottolog_id:
+            glottolog_id = doc.dialect.glottolog_id
+        else:
+            glottolog_id = doc.language.glottolog_id
+    except Exception:
+        glottolog_id = None
+    try:
+        doc_hash = (
+            hashlib.sha1(
+                doc.normalized_text.encode("utf-8"), usedforsecurity=False
+            ).hexdigest()[:10]
+            if doc.normalized_text
+            else None
+        )
+    except Exception:
+        doc_hash = None
+    log = bind_context(
+        doc_id=doc_hash,
+        sentence_idx=sentence_idx,
+        model=str(doc.backend_version) if doc.backend_version else None,
+        glottolog_id=glottolog_id,
+        prompt_version=str(pinfo.version),
+    )
+    log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
+    log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
         msg_no_backend: str = (
             "Doc must have `.backend` set to 'chatgpt' to use generate_pos."
         )
-        logger.error(msg_no_backend)
+        log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.backend_version:
         msg_no_backend_version: str = (
             "Doc missing `.backend_version`. Setting to 'gpt-5.0' to use generate_pos."
         )
-        logger.info(msg_no_backend_version)
+        log.info(msg_no_backend_version)
         raise CLTKException(msg_no_backend_version)
     if doc.backend_version not in get_args(AVAILABLE_OPENAI_MODELS):
         msg_unsupported_backend_version: str = f"Doc has unsupported `.backend_version`: {doc.backend_version}. Supported versions are: {get_args(AVAILABLE_OPENAI_MODELS)}."
-        logger.error(msg_unsupported_backend_version)
+        log.error(msg_unsupported_backend_version)
         raise CLTKException(msg_unsupported_backend_version)
     if not client:
         client = ChatGPTConnection(model=doc.backend_version)
@@ -115,11 +142,11 @@ def generate_pos(
     doc.chatgpt.append(chatgpt_usage)
 
     parsed_pos_tags: list[dict[str, str]] = _parse_tsv_table(chatgpt_res)
-    logger.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
+    log.debug(f"Parsed POS tags:\n{parsed_pos_tags}")
     cleaned_pos_tags: list[dict[str, Optional[str]]] = [
         {k: (None if v == "_" else v) for k, v in d.items()} for d in parsed_pos_tags
     ]
-    logger.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
+    log.debug(f"Cleaned POS tags:\n{cleaned_pos_tags}")
     # Create Word objects from cleaned POS tags
     words: list[Word] = list()
     for word_idx, pos_dict in enumerate(cleaned_pos_tags):
@@ -130,12 +157,12 @@ def generate_pos(
             try:
                 udpos = UDPartOfSpeechTag(tag=upos_val_raw)
             except PydanticValidationError as e:
-                logger.error(
+                log.error(
                     f"{pos_dict['form']}: Invalid 'upos' field in POS dict: {pos_dict}, `upos_val_raw`='{upos_val_raw}'. Error: {e}"
                 )
         else:
-            logger.error(f"Missing 'upos' field in POS dict: {pos_dict}.")
-            logger.error(f"`code_block` from LLM: {chatgpt_res}")
+            log.error(f"Missing 'upos' field in POS dict: {pos_dict}.")
+            log.error(f"`code_block` from LLM: {chatgpt_res}")
         word: Word = Word(
             string=pos_dict.get("form", None),
             index_token=word_idx,
@@ -144,10 +171,10 @@ def generate_pos(
         )
         # Add morphology features to each Word object
         feats_raw: Optional[str] = pos_dict.get("feats", None)
-        logger.debug(f"feats_raw: {feats_raw}")
+        log.debug(f"feats_raw: {feats_raw}")
         if not feats_raw:
             words.append(word)
-            logger.debug(
+            log.debug(
                 f"No features found for {word.string}, skipping feature assignment."
             )
             continue
@@ -156,23 +183,23 @@ def generate_pos(
             features_tag_set = convert_pos_features_to_ud(feats_raw=feats_raw)
         except ValueError as e:
             msg: str = f"{word.string}: Failed to create features_tag_set from '{feats_raw}' for '{word.string}': {e}"
-            logger.error(msg)
+            log.error(msg)
             with open("features_err.log", "a") as f:
                 f.write(msg + "\n")
             word.features = features_tag_set
             # TODO: Re-raise this error
             # raise ValueError(msg)
-        logger.debug(f"features_tag_set for {word.string}: {features_tag_set}")
+        log.debug(f"features_tag_set for {word.string}: {features_tag_set}")
         word.features = features_tag_set
         words.append(word)
-    logger.debug(f"Created {len(words)} Word objects from POS tags.")
-    logger.debug("Words: %s", ", ".join([word.string or "" for word in words]))
+    log.debug(f"Created {len(words)} Word objects from POS tags.")
+    log.debug("Words: %s", ", ".join([word.string or "" for word in words]))
     if not doc.words:
-        logger.debug("`input_doc.words` is empty. Setting with new words.")
+        log.debug("`input_doc.words` is empty. Setting with new words.")
         doc.words = words
     else:
         # TODO: Handle case where input_doc.words already has data
-        logger.warning("`input_doc.words` already has data. Not overwriting.")
+        log.warning("`input_doc.words` already has data. Not overwriting.")
         raise CLTKException(
             "`input_doc.words` already has data. Not overwriting. "
             "Consider clearing it first if you want to replace."
@@ -196,7 +223,7 @@ def generate_pos(
             word.index_char_start = None
             word.index_char_stop = None
         doc.words[word_idx] = word
-    logger.debug("Set character indexes for each word in input_doc.words.")
+    log.debug("Set character indexes for each word in input_doc.words.")
 
     # Add sentence idx to Word objects
     if sentence_idx is not None:
