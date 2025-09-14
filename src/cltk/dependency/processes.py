@@ -5,8 +5,9 @@ from copy import copy
 from functools import cached_property
 from typing import Optional
 
-from cltk.core.cltk_logger import logger
+from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
+from cltk.core.logging_utils import bind_from_doc
 from cltk.dependency.utils import (
     generate_gpt_dependency_concurrent,
 )
@@ -23,7 +24,7 @@ class ChatGPTDependencyProcess(DependencyProcess):
     def algorithm(self) -> Callable[[Doc], Doc]:
         if not self.glottolog_id:
             msg: str = "glottolog_id must be set for DependencyProcess"
-            logger.error(msg)
+            bind_context(glottolog_id=self.glottolog_id).error(msg)
             raise ValueError(msg)
         # Prefer the safe concurrent wrapper (async under the hood, sync surface)
         return generate_gpt_dependency_concurrent
@@ -32,7 +33,7 @@ class ChatGPTDependencyProcess(DependencyProcess):
         output_doc = copy(input_doc)
         if not output_doc.normalized_text:
             msg: str = "Doc must have `normalized_text`."
-            logger.error(msg)
+            bind_from_doc(output_doc).error(msg)
             raise ValueError(msg)
         # Ensure required attributes are present
         if self.glottolog_id is None:

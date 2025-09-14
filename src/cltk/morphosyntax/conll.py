@@ -2,6 +2,7 @@ from typing import Iterable, Optional
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Doc, Word
+from cltk.core.logging_utils import bind_from_doc
 from cltk.morphosyntax.ud_features import (
     UDFeatureTag,
     UDFeatureTagSet,
@@ -209,7 +210,10 @@ def words_to_conllu(words: Iterable[Word]) -> str:
 
 def doc_to_conllu(doc: Doc) -> str:
     """Serialize Doc.words to a single-sentence CoNLL-U string."""
-    return words_to_conllu(getattr(doc, "words", []) or [])
+    log = bind_from_doc(doc)
+    words = getattr(doc, "words", []) or []
+    log.debug("Serializing %s tokens to CoNLL-U", len(words))
+    return words_to_conllu(words)
 
 
 def conllu_to_words(conllu: str) -> list[Word]:

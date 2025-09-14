@@ -12,7 +12,7 @@ from typing import Optional, cast
 from colorama import Fore, Style
 
 import cltk
-from cltk.core.cltk_logger import logger
+from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
     AVAILABLE_OPENAI_MODELS,
     BACKEND_TYPES,
@@ -23,6 +23,7 @@ from cltk.core.data_types import (
     Process,
 )
 from cltk.core.exceptions import UnimplementedAlgorithmError
+from cltk.core.logging_utils import bind_from_doc
 from cltk.languages.glottolog import resolve_languoid
 from cltk.languages.pipelines import (  # MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE_LOCAL,
     MAP_LANGUAGE_CODE_TO_GENERATIVE_PIPELINE,
@@ -61,7 +62,9 @@ class NLP:
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
-        logger.info(f"Initializing NLP for language: {language_code}")
+        bind_context(glottolog_id=language_code).info(
+            f"Initializing NLP for language: {language_code}"
+        )
         # self.language: Language = get_language(key=language_code)
         self.language: Language
         self.dialect: Optional[Dialect]
@@ -84,7 +87,12 @@ class NLP:
         self.pipeline: Pipeline = (
             custom_pipeline if custom_pipeline else self._get_pipeline()
         )
-        logger.debug(f"Pipeline selected: {self.pipeline}")
+        bind_context(
+            glottolog_id=self.language_code,
+            model=str(self.backend_version)
+            if getattr(self, "backend_version", None)
+            else None,
+        ).debug(f"Pipeline selected: {self.pipeline}")
         if not suppress_banner:
             self._print_cltk_info()
             self._print_pipelines_for_current_lang()
@@ -113,6 +121,7 @@ class NLP:
         doc: Doc = Doc(language=self.language, raw=text)
         doc.backend = self.backend
         doc.backend_version = self.backend_version
+        log = bind_from_doc(doc)
 
         processes: list[type[Process]] = cast(
             list[type[Process]],
@@ -120,22 +129,22 @@ class NLP:
         )
         if not processes:
             msg: str = "No processes found in pipeline."
-            logger.error(msg)
+            log.error(msg)
             raise RuntimeError(msg)
         for process in processes:
             process_obj: Process = self._get_process_object(process_object=process)
             try:
-                logger.debug(f"Running process: {process_obj.__class__.__name__}")
+                log.debug(f"Running process: {process_obj.__class__.__name__}")
                 doc = process_obj.run(doc)
             except Exception as e:
-                logger.error(f"Process '{process_obj.__class__.__name__}' failed: {e}")
+                log.error(f"Process '{process_obj.__class__.__name__}' failed: {e}")
                 raise RuntimeError(
                     f"Process '{process_obj.__class__.__name__}' failed: {e}"
                 ) from e
         if doc.words is None or not isinstance(doc.words, list):
             msg = "Pipeline did not produce any words. Check your pipeline configuration and input text."
-            logger.warning(msg)
-        logger.info("NLP analysis complete.")
+            log.warning(msg)
+        log.info("NLP analysis complete.")
         return doc
 
     def _print_cltk_info(self) -> None:
@@ -278,7 +287,10 @@ class NLP:
             raise UnimplementedAlgorithmError(
                 f"Valid Glottolog code but no pipeline for '{self.language_code}' with backend '{self.backend}'."
             ) from e
-        logger.info(
-            f"Using backend '{self.backend}' with pipeline {pipeline_cls.__name__}"
-        )
+        bind_context(
+            glottolog_id=self.language_code,
+            model=str(self.backend_version)
+            if getattr(self, "backend_version", None)
+            else None,
+        ).info(f"Using backend '{self.backend}' with pipeline {pipeline_cls.__name__}")
         return pipeline_cls()

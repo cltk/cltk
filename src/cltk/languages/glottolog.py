@@ -17,6 +17,7 @@ from pydantic import TypeAdapter
 
 from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Dialect, Language
+from cltk.core.logging_utils import glog
 
 # If you ship the JSON with the package, place it under cltk/languages/
 _DEFAULT_RESOURCE = "glottolog.json"
@@ -260,7 +261,7 @@ def get_language(key: str, path: Optional[str] = None) -> Language:
     k: str = key.lower()
     # glottocode (language)
     if key in langs:
-        logger.debug(f"Found language by glottocode: {key}")
+        glog(key).debug(f"Found language by glottocode: {key}")
         return langs[key]
     # glottocode (dialect) -> do NOT coerce to language; ask user to use get_dialect()
     parent = idx["by_dialect"].get(key)
@@ -275,7 +276,7 @@ def get_language(key: str, path: Optional[str] = None) -> Language:
     # ISO
     g: Optional[str] = idx["by_iso"].get(k)
     if g:
-        logger.debug(f"Found language by ISO='{k}' -> glottocode='{g}'")
+        glog(g).debug(f"Found language by ISO='{k}' -> glottocode='{g}'")
         return langs[g]
     msg = f"No language found for '{key}'"
     logger.error(msg)
@@ -311,7 +312,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
     # If the key is a language glottocode, direct user to get_language()
     if key in langs:
         msg = f"'{key}' is a language glottocode. Use get_language('{key}')."
-        logger.info(msg)
+        glog(key).info(msg)
         raise KeyError(msg)
 
     # If the key looks like a language ISO, direct user to get_language()
@@ -322,7 +323,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
             f"'{key}' resolves to the language {lang.name} (glottolog_id={lang_id}). "
             f"Use get_language('{key}') for languages."
         )
-        logger.info(msg)
+        glog(lang_id).info(msg)
         raise KeyError(msg)
 
     # Direct dialect glottocode
@@ -332,7 +333,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
         target_id = key if key in idx["by_dialect"] else k
         for d in lang.dialects:
             if d.glottolog_id == target_id:
-                logger.debug(
+                glog(key).debug(
                     f"Found dialect by id '{key}' under language '{lang.name}'"
                 )
                 return lang, d
@@ -340,7 +341,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
         for L in langs.values():
             for d in L.dialects:
                 if d.glottolog_id == target_id:
-                    logger.debug(
+                    glog(key).debug(
                         f"Found dialect by id '{key}' under language '{L.name}' (fallback scan)"
                     )
                     return L, d
@@ -360,7 +361,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
                     (d for d in lang.dialects if d.glottolog_id == did), None
                 )
                 if dialect_match:
-                    logger.debug(
+                    glog(did).debug(
                         f"Found dialect by name '{key}' -> {dialect_match.name} (id={did}) under '{lang.name}'"
                     )
                     return lang, dialect_match
@@ -380,7 +381,7 @@ def get_dialect(key: str, path: Optional[str] = None) -> tuple[Language, Dialect
             f"Ambiguous dialect name '{key}'. Please specify a dialect glottocode. "
             + ("Options: " + "; ".join(options) if options else "No options available.")
         )
-        logger.info(msg)
+        glog(key).info(msg)
         raise KeyError(msg)
 
     msg = f"No dialect found for '{key}'"
@@ -420,7 +421,7 @@ def resolve_languoid(
     # 1) Exact language glottocode
     if key in langs:
         L = langs[key]
-        logger.debug(f"Resolved language by glottocode: {key} -> {L.name}")
+        glog(key).debug(f"Resolved language by glottocode: {key} -> {L.name}")
         return L, None
 
     # 2) Exact dialect glottocode
@@ -430,7 +431,7 @@ def resolve_languoid(
         target_id = key if key in idx["by_dialect"] else k
         for d in lang.dialects:
             if d.glottolog_id == target_id:
-                logger.debug(
+                glog(target_id).debug(
                     f"Resolved dialect by glottocode: {key} -> {d.name} (parent={lang.name})"
                 )
                 return lang, d
@@ -438,7 +439,7 @@ def resolve_languoid(
         for L in langs.values():
             for d in L.dialects:
                 if d.glottolog_id == target_id:
-                    logger.debug(
+                    glog(target_id).debug(
                         f"Resolved dialect by glottocode via fallback scan: {key} -> {d.name} (parent={L.name})"
                     )
                     return L, d
@@ -450,7 +451,7 @@ def resolve_languoid(
     g = idx["by_iso"].get(k)
     if g:
         L = langs[g]
-        logger.debug(f"Resolved language by ISO: {key} -> {L.name} (glottolog_id={g})")
+        glog(g).debug(f"Resolved language by ISO: {key} -> {L.name} (glottolog_id={g})")
         return L, None
 
     # 4) Exact language name/alt-name (may be ambiguous) → prefer historic
@@ -459,14 +460,14 @@ def resolve_languoid(
         if len(hits_lang) == 1:
             g0 = hits_lang[0]
             L = langs[g0]
-            logger.debug(
+            glog(g0).debug(
                 f"Resolved language by name: '{key}' -> {L.name} (glottolog_id={g0})"
             )
             return L, None
         cands = [langs[gx] for gx in hits_lang if gx in langs]
         cands.sort(key=_historic_rank, reverse=True)
         best = cands[0]
-        logger.info(
+        glog(best.glottolog_id).info(
             f"Ambiguous language name '{key}' matched {len(cands)} entries; "
             f"selecting '{best.name}' (glottolog_id={best.glottolog_id}) by historic preference."
         )
@@ -484,7 +485,7 @@ def resolve_languoid(
                     (d for d in lang.dialects if d.glottolog_id == did), None
                 )
                 if dialect_match:
-                    logger.debug(
+                    glog(did).debug(
                         f"Resolved dialect by name: '{key}' -> {dialect_match.name} (id={did}, parent={lang.name})"
                     )
                     return lang, dialect_match
@@ -504,7 +505,7 @@ def resolve_languoid(
             f"Ambiguous dialect name '{key}'. Please specify a dialect glottocode. "
             + ("Options: " + "; ".join(options) if options else "No options available.")
         )
-        logger.info(msg)
+        glog(key).info(msg)
         raise KeyError(msg)
 
     # 6) No match

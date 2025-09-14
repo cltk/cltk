@@ -20,6 +20,7 @@ from cltk.core.data_types import (
     Word,
 )
 from cltk.core.exceptions import CLTKException
+from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
 from cltk.genai.prompts import morphosyntax_prompt
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
@@ -229,25 +230,24 @@ def generate_pos(
     if sentence_idx is not None:
         for word in doc.words:
             word.index_sentence = sentence_idx
-        logger.debug(
+        log.debug(
             f"Set sentence index {sentence_idx} for all words in input_doc.words."
         )
     else:
-        logger.warning(
-            "No sentence index provided. Skipping sentence index assignment."
-        )
+        log.warning("No sentence index provided. Skipping sentence index assignment.")
     return doc
 
 
 def generate_gpt_morphosyntax(doc: Doc) -> Doc:
+    log = bind_from_doc(doc)
     if not doc.backend_version:
         msg: str = "Document backend version is not set."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
     client: ChatGPTConnection = ChatGPTConnection(model=doc.backend_version)
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
     # POS/morphology
     tmp_docs: list[Doc] = list()
@@ -271,7 +271,7 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             client=client,
         )
         tmp_docs.append(tmp_doc)
-        logger.info(
+        bind_from_doc(doc, sentence_idx=sent_idx).info(
             f"Completed POS tagging to sentence #{sent_idx + 1} of {len(doc.sentence_strings)}"
         )
     # Combine all Word objects from tmp_docs into a single list
@@ -293,17 +293,17 @@ def generate_gpt_morphosyntax(doc: Doc) -> Doc:
             msg_bad_tokens: str = (
                 "Failed to get ChatGPT tokens usage field from POS tagging."
             )
-            logger.error(msg_bad_tokens)
+            log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
     doc.chatgpt = [chatgpt_total_tokens]
-    logger.debug(
+    log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
     # Assign to your main Doc
     doc.words = all_words
-    logger.debug(f"Doc after POS tagging:\n{doc}")
+    log.debug(f"Doc after POS tagging:\n{doc}")
     assert doc.normalized_text
-    logger.debug(
+    log.debug(
         f"Completed processing POS for text starting with {doc.normalized_text[:50]} ..."
     )
     return doc
@@ -336,17 +336,18 @@ async def generate_gpt_morphosyntax_async(
         CLTKException: If per‑sentence parsing fails in unexpected ways.
 
     """
-    logger.info(
+    log = bind_from_doc(doc)
+    log.info(
         "[async] Starting morphosyntax generation for %s sentences",
         len(doc.sentence_strings),
     )
     if not doc.backend_version:
         msg = "Document backend version is not set."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
     if not doc.normalized_text:
         msg = "Input document must have `.normalized_text`."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
 
     conn = AsyncChatGPTConnection(model=doc.backend_version)
@@ -379,13 +380,14 @@ async def generate_gpt_morphosyntax_async(
 
     async def process_one(i: int, sentence: str) -> tuple[int, Doc, dict[str, int]]:
         prompt = build_prompt(sentence)
-        logger.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
+        log_i = bind_from_doc(doc, sentence_idx=i)
+        log_i.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
         async with sem:
-            logger.debug("[async] Dispatching sentence #%s", i)
+            log_i.debug("[async] Dispatching sentence #%s", i)
             res: CLTKGenAIResponse = await conn.generate_async(
                 prompt=prompt, max_retries=max_retries
             )
-            logger.debug("[async] Received response for sentence #%s", i)
+            log_i.debug("[async] Received response for sentence #%s", i)
         tmp = Doc(
             language=doc.language,
             normalized_text=sentence,
@@ -405,14 +407,14 @@ async def generate_gpt_morphosyntax_async(
                 try:
                     udpos = UDPartOfSpeechTag(tag=upos_val)
                 except PydanticValidationError as e:  # pragma: no cover - defensive
-                    logger.error(
+                    log_i.error(
                         "[async] %s: Invalid 'upos' in POS dict: %s (error: %s)",
                         pos_dict.get("form"),
                         pos_dict,
                         e,
                     )
             else:
-                logger.error("[async] Missing 'upos' in POS dict: %s", pos_dict)
+                log_i.error("[async] Missing 'upos' in POS dict: %s", pos_dict)
             word = Word(
                 string=pos_dict.get("form"),
                 index_token=word_idx,
@@ -424,7 +426,7 @@ async def generate_gpt_morphosyntax_async(
                 try:
                     word.features = convert_pos_features_to_ud(feats_raw=feats_raw)
                 except ValueError as e:  # pragma: no cover - defensive
-                    logger.error(
+                    log_i.error(
                         "[async] %s: Failed to parse features '%s': %s",
                         word.string,
                         feats_raw,
@@ -451,7 +453,7 @@ async def generate_gpt_morphosyntax_async(
         return i, tmp, res.usage
 
     tasks = [process_one(i, s) for i, s in enumerate(doc.sentence_strings)]
-    logger.info(
+    log.info(
         "[async] Dispatching %d tasks with max_concurrency=%d",
         len(tasks),
         max_concurrency,
@@ -473,7 +475,7 @@ async def generate_gpt_morphosyntax_async(
 
     doc.words = all_words
     doc.chatgpt = [aggregated_usage]
-    logger.info(
+    log.info(
         "[async] Completed morphosyntax generation: %d tokens across %d sentences",
         len(all_words),
         len(doc.sentence_strings),
@@ -508,10 +510,11 @@ def generate_gpt_morphosyntax_concurrent(
         The input ``Doc`` updated in place, same as the async variant.
 
     """
+    log = bind_from_doc(doc)
     try:
         asyncio.get_running_loop()
     except RuntimeError:
-        logger.info("[async-wrap] No running event loop detected; using asyncio.run()")
+        log.info("[async-wrap] No running event loop detected; using asyncio.run()")
         return asyncio.run(
             generate_gpt_morphosyntax_async(
                 doc,
@@ -520,7 +523,7 @@ def generate_gpt_morphosyntax_concurrent(
             )
         )
     else:
-        logger.info(
+        log.info(
             "[async-wrap] Running inside an event loop; dispatching to worker thread"
         )
 
@@ -536,5 +539,5 @@ def generate_gpt_morphosyntax_concurrent(
         with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
             fut = ex.submit(_runner)
             result = fut.result()
-            logger.info("[async-wrap] Completed in worker thread")
+            log.info("[async-wrap] Completed in worker thread")
             return result

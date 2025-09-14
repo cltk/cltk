@@ -16,7 +16,7 @@ from typing import Optional
 from openai import AsyncOpenAI, OpenAI, OpenAIError
 from openai.types.responses.response import Response
 
-from cltk.core.cltk_logger import logger
+from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import AVAILABLE_OPENAI_MODELS, CLTKGenAIResponse
 from cltk.core.exceptions import CLTKException, OpenAIInferenceError
 from cltk.text.utils import cltk_normalize
@@ -51,21 +51,24 @@ class ChatGPTConnection:
             self.api_key = os.environ.get("OPENAI_API_KEY")
         if not self.api_key:
             msg: str = "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
-            logger.error(msg)
+            # Bind with model context even before self.log is available
+            bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
         self.client: OpenAI = OpenAI(api_key=self.api_key)
+        # Structured logger bound with model identifier
+        self.log = bind_context(model=str(self.model))
 
     def generate(
         self,
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
-        logger.debug(prompt)
+        self.log.debug(prompt)
         code_block: Optional[str] = None
         chatgpt_response: Optional[Response] = None
         attempt: Optional[int] = None
         for attempt in range(1, max_retries + 1):
-            logger.debug(f"Attempt {attempt} of {max_retries}")
+            self.log.debug(f"Attempt {attempt} of {max_retries}")
             try:
                 # TODO: Disable 4.1
                 if "4.1" in self.model:
@@ -86,26 +89,26 @@ class ChatGPTConnection:
                 raise OpenAIInferenceError(
                     f"An error from OpenAI occurred: {openai_error}"
                 )
-            logger.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
+            self.log.debug(f"Raw response from OpenAI: {chatgpt_response.output_text}")
             try:
                 code_block = self._extract_code_blocks(
                     text=chatgpt_response.output_text
                 )
             except Exception as e:
                 # TODO: Count tokens used for failed attempts, too
-                logger.error(f"Error extracting code block: {e}")
+                self.log.error(f"Error extracting code block: {e}")
                 continue
             if code_block:
                 break  # Success, exit retry loop
             else:
-                logger.warning(
+                self.log.warning(
                     f"Attempt {attempt}: No code block found in ChatGPT response. Retrying..."
                 )
                 if attempt == max_retries:
                     final_err = (
                         "No code blocks found in ChatGPT response after retries."
                     )
-                    logger.error(final_err)
+                    self.log.error(final_err)
                     # logger.error(raw_chatgpt_response_normalized)
                     raise CLTKException(final_err)
                     # return doc
@@ -117,10 +120,10 @@ class ChatGPTConnection:
         raw_chatgpt_response_normalized: str = cltk_normalize(
             text=chatgpt_response.output_text
         )
-        logger.debug(
+        self.log.debug(
             f"raw_chatgpt_response_normalized:\n{raw_chatgpt_response_normalized}"
         )
-        logger.debug(f"Completed generation() after {attempt} attempts")
+        self.log.debug(f"Completed generation() after {attempt} attempts")
         # return {"response": raw_chatgpt_response_normalized, "usage": chatgpt_usage}
         return CLTKGenAIResponse(
             response=raw_chatgpt_response_normalized, usage=chatgpt_usage
@@ -143,10 +146,10 @@ class ChatGPTConnection:
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
-            logger.warning(
+            self.log.warning(
                 "No usage information found in response. Tokens used may not be available."
             )
-            logger.info(f"ChatGPT usage: {tokens}")
+            self.log.info(f"ChatGPT usage: {tokens}")
             return tokens
 
         # OpenAI API standardizes these keys:
@@ -159,10 +162,10 @@ class ChatGPTConnection:
         tokens["total"] = int(getattr(usage, "total_tokens", 0))
 
         if tokens["total"] == 0:
-            logger.warning(
+            self.log.warning(
                 "No tokens used reported in response. This may indicate an issue with the API call."
             )
-        logger.info(f"ChatGPT usage: {tokens}")
+        self.log.info(f"ChatGPT usage: {tokens}")
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
@@ -171,7 +174,7 @@ class ChatGPTConnection:
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )
         code_block: str = code_blocks[0].strip()
-        logger.debug(f"Extracted code block:\n{code_block}")
+        self.log.debug(f"Extracted code block:\n{code_block}")
         return code_block
 
 
@@ -203,20 +206,22 @@ class AsyncChatGPTConnection:
             self.api_key = os.environ.get("OPENAI_API_KEY")
         if not self.api_key:
             msg: str = "OPENAI_API_KEY not found. Please set it in your environment or in a .env file."
-            logger.error(msg)
+            bind_context(model=str(model)).error(msg)
             raise ValueError(msg)
         self.client: AsyncOpenAI = AsyncOpenAI(api_key=self.api_key)
+        # Structured logger bound with model identifier
+        self.log = bind_context(model=str(self.model))
 
     async def generate_async(
         self,
         prompt: str,
         max_retries: int = 2,
     ) -> CLTKGenAIResponse:
-        logger.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
+        self.log.debug("[async] Prompt being sent to OpenAI:\n%s", prompt)
         code_block: Optional[str] = None
         chatgpt_response: Optional[Response] = None
         for attempt in range(1, max_retries + 1):
-            logger.debug("[async] Attempt %s of %s", attempt, max_retries)
+            self.log.debug("[async] Attempt %s of %s", attempt, max_retries)
             try:
                 if "4.1" in self.model:
                     chatgpt_response = await self.client.responses.create(
@@ -234,7 +239,7 @@ class AsyncChatGPTConnection:
                 else:
                     raise ValueError(f"Unsupported model: {self.model}.")
             except OpenAIError as openai_error:
-                logger.error(
+                self.log.error(
                     "[async] OpenAI error on attempt %s: %s", attempt, openai_error
                 )
                 if attempt == max_retries:
@@ -243,17 +248,17 @@ class AsyncChatGPTConnection:
                     )
                 continue
 
-            logger.debug(
+            self.log.debug(
                 "[async] Raw response from OpenAI: %s", chatgpt_response.output_text
             )
             try:
                 code_block = self._extract_code_blocks(chatgpt_response.output_text)
             except Exception as e:  # pragma: no cover - defensive
-                logger.error("[async] Error extracting code block: %s", e)
+                self.log.error("[async] Error extracting code block: %s", e)
                 code_block = None
             if code_block:
                 break
-            logger.warning(
+            self.log.warning(
                 "[async] Attempt %s: No code block found in response. Retrying...",
                 attempt,
             )
@@ -261,19 +266,19 @@ class AsyncChatGPTConnection:
         assert chatgpt_response is not None
         usage = self._chatgpt_response_tokens(chatgpt_response)
         raw_normalized: str = cltk_normalize(text=chatgpt_response.output_text)
-        logger.debug("[async] Normalized output text:\n%s", raw_normalized)
+        self.log.debug("[async] Normalized output text:\n%s", raw_normalized)
         return CLTKGenAIResponse(response=raw_normalized, usage=usage)
 
     def _chatgpt_response_tokens(self, response: Response) -> dict[str, int]:
         usage = getattr(response, "usage", None)
         tokens: dict[str, int] = {"input": 0, "output": 0, "total": 0}
         if not usage:
-            logger.info("[async] No usage info present; returning zeros")
+            self.log.info("[async] No usage info present; returning zeros")
             return tokens
         tokens["input"] = int(getattr(usage, "prompt_tokens", 0))
         tokens["output"] = int(getattr(usage, "completion_tokens", 0))
         tokens["total"] = int(getattr(usage, "total_tokens", 0))
-        logger.info("[async] ChatGPT usage: %s", tokens)
+        self.log.info("[async] ChatGPT usage: %s", tokens)
         return tokens
 
     def _extract_code_blocks(self, text: str) -> str:
@@ -281,5 +286,5 @@ class AsyncChatGPTConnection:
             r"```(?:[a-zA-Z]*\n)?(.*?)```", text, re.DOTALL
         )
         code_block: str = code_blocks[0].strip()
-        logger.debug("[async] Extracted code block:\n%s", code_block)
+        self.log.debug("[async] Extracted code block:\n%s", code_block)
         return code_block

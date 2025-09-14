@@ -10,8 +10,8 @@ from typing import Any, Optional
 
 from pydantic import Field
 
-from cltk.core.cltk_logger import logger
 from cltk.core.data_types import Pipeline
+from cltk.core.logging_utils import plog
 from cltk.dependency.processes import (
     AkkadianChatGPTDependencyProcess,
     AlbanianChatGPTDependencyProcess,
@@ -355,10 +355,10 @@ class AkkadianChatGPTPipeline(Pipeline):
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
-        logger.debug(
+        plog(self).debug(
             f"Initializing AkkadianChatGPTPipeline with language: {self.language.name}"
         )
-        logger.info("AkkadianChatGPTPipeline created.")
+        plog(self).info("AkkadianChatGPTPipeline created.")
 
 
 class ClassicalArabicChatGPTPipeline(Pipeline):
@@ -376,10 +376,10 @@ class ClassicalArabicChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing ArabicChatGPTPipeline with language: {self.language}"
         )
-        logger.info("ArabicChatGPTPipeline created.")
+        plog(self).info("ArabicChatGPTPipeline created.")
 
 
 #
@@ -399,10 +399,10 @@ class ClassicalSyriacChatGPTPipeline(Pipeline):
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
-        logger.debug(
+        plog(self).debug(
             f"Initializing ClassicalSyriacChatGPTPipeline with language: {self.language.name}"
         )
-        logger.info("ClassicalSyriacChatGPTPipeline created.")
+        plog(self).info("ClassicalSyriacChatGPTPipeline created.")
 
 
 # ClassicalTibetanPipeline
@@ -422,10 +422,10 @@ class ClassicalTibetanPipeline(Pipeline):
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
-        logger.debug(
+        plog(self).debug(
             f"Initializing ClassicalTibetanChatGPTPipeline with language: {self.language.name}"
         )
-        logger.info("ClassicalTibetanChatGPTPipeline created.")
+        plog(self).info("ClassicalTibetanChatGPTPipeline created.")
 
 
 class CopticChatGPTPipeline(Pipeline):
@@ -458,10 +458,10 @@ class GothicChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing GothicChatGPTPipeline with language: {self.language}"
         )
-        logger.info("GothicChatGPTPipeline created.")
+        plog(self).info("GothicChatGPTPipeline created.")
 
 
 class AncientGreekChatGPTPipeline(Pipeline):
@@ -480,10 +480,10 @@ class AncientGreekChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing GreekChatGPTPipeline with language: {self.language}"
         )
-        logger.info("GreekChatGPTPipeline created.")
+        plog(self).info("GreekChatGPTPipeline created.")
 
 
 class BiblicalHebrewChatGPTPipeline(Pipeline):
@@ -501,8 +501,8 @@ class BiblicalHebrewChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing LatinPipeline with language: {self.language}")
-        logger.info("LatinPipeline created.")
+        plog(self).debug(f"Initializing LatinPipeline with language: {self.language}")
+        plog(self).info("LatinPipeline created.")
 
 
 class LatinChatGPTPipeline(Pipeline):
@@ -521,8 +521,8 @@ class LatinChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing LatinPipeline with language: {self.language}")
-        logger.info("LatinPipeline created.")
+        plog(self).debug(f"Initializing LatinPipeline with language: {self.language}")
+        plog(self).info("LatinPipeline created.")
 
 
 class MiddleEnglishChatGPTPipeline(Pipeline):
@@ -540,10 +540,10 @@ class MiddleEnglishChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleEnglishChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddleEnglishChatGPTPipeline created.")
+        plog(self).info("MiddleEnglishChatGPTPipeline created.")
 
 
 class MiddleFrenchChatGPTPipeline(Pipeline):
@@ -561,10 +561,10 @@ class MiddleFrenchChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleFrenchChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddleFrenchChatGPTPipeline created.")
+        plog(self).info("MiddleFrenchChatGPTPipeline created.")
 
 
 class MiddlePersianChatGPTPipeline(Pipeline):
@@ -582,10 +582,10 @@ class MiddlePersianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddlePersianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddlePersianChatGPTPipeline created.")
+        plog(self).info("MiddlePersianChatGPTPipeline created.")
 
 
 class ImperialAramaicChatGPTPipeline(Pipeline):
@@ -618,10 +618,10 @@ class ChurchSlavonicChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing ChurchSlavonicChatGPTPipeline with language: {self.language}"
         )
-        logger.info("ChurchSlavonicChatGPTPipeline")
+        plog(self).info("ChurchSlavonicChatGPTPipeline")
 
 
 class OldEnglishChatGPTPipeline(Pipeline):
@@ -640,10 +640,10 @@ class OldEnglishChatGPTPipeline(Pipeline):
 
     def __post_init__(self) -> None:
         assert self.language, "Language not found"
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldEnglishChatGPTPipeline with language: {self.language.name}"
         )
-        logger.info("OldEnglishChatGPTPipeline created.")
+        plog(self).info("OldEnglishChatGPTPipeline created.")
 
 
 class OldFrenchChatGPTPipeline(Pipeline):
@@ -661,10 +661,10 @@ class OldFrenchChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldFrenchChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldFrenchChatGPTPipeline created.")
+        plog(self).info("OldFrenchChatGPTPipeline created.")
 
 
 class OldNorseChatGPTPipeline(Pipeline):
@@ -682,10 +682,10 @@ class OldNorseChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldNorseChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldNorseChatGPTPipeline created.")
+        plog(self).info("OldNorseChatGPTPipeline created.")
 
 
 class PaliChatGPTPipeline(Pipeline):
@@ -703,8 +703,8 @@ class PaliChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing PaliPipeline with language: {self.language}")
-        logger.info("PaliPipeline created.")
+        plog(self).debug(f"Initializing PaliPipeline with language: {self.language}")
+        plog(self).info("PaliPipeline created.")
 
 
 class ClassicalSanskritChatGPTPipeline(Pipeline):
@@ -722,10 +722,10 @@ class ClassicalSanskritChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing ClassicalSanskritChatGPTPipeline with language: {self.language}"
         )
-        logger.info("ClassicalSanskritChatGPTPipeline created.")
+        plog(self).info("ClassicalSanskritChatGPTPipeline created.")
 
 
 class VedicSanskritChatGPTPipeline(Pipeline):
@@ -743,10 +743,10 @@ class VedicSanskritChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing VedicSanskritChatGPTPipeline with language: {self.language}"
         )
-        logger.info("VedicSanskritChatGPTPipeline created.")
+        plog(self).info("VedicSanskritChatGPTPipeline created.")
 
 
 class OldHighGermanChatGPTPipeline(Pipeline):
@@ -765,10 +765,10 @@ class OldHighGermanChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldHighGermanChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldHighGermanChatGPTPipeline created.")
+        plog(self).info("OldHighGermanChatGPTPipeline created.")
 
 
 class MiddleHighGermanChatGPTPipeline(Pipeline):
@@ -786,10 +786,10 @@ class MiddleHighGermanChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleHighGermanChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddleHighGermanChatGPTPipeline created.")
+        plog(self).info("MiddleHighGermanChatGPTPipeline created.")
 
 
 class LiteraryChineseChatGPTPipeline(Pipeline):
@@ -809,10 +809,10 @@ class LiteraryChineseChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LiteraryChineseChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LiteraryChineseChatGPTPipeline created.")
+        plog(self).info("LiteraryChineseChatGPTPipeline created.")
 
 
 class DemoticChatGPTPipeline(Pipeline):
@@ -830,10 +830,10 @@ class DemoticChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing DemoticChatGPTPipeline with language: {self.language}"
         )
-        logger.info("DemoticChatGPTPipeline created.")
+        plog(self).info("DemoticChatGPTPipeline created.")
 
 
 class HittiteChatGPTPipeline(Pipeline):
@@ -851,10 +851,10 @@ class HittiteChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing HittiteChatGPTPipeline with language: {self.language}"
         )
-        logger.info("HittiteChatGPTPipeline created.")
+        plog(self).info("HittiteChatGPTPipeline created.")
 
 
 class TocharianAChatGPTPipeline(Pipeline):
@@ -872,10 +872,10 @@ class TocharianAChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing TocharianAChatGPTPipeline with language: {self.language}"
         )
-        logger.info("TocharianAChatGPTPipeline created.")
+        plog(self).info("TocharianAChatGPTPipeline created.")
 
 
 class TocharianBChatGPTPipeline(Pipeline):
@@ -893,10 +893,10 @@ class TocharianBChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing TocharianBChatGPTPipeline with language: {self.language}"
         )
-        logger.info("TocharianBChatGPTPipeline created.")
+        plog(self).info("TocharianBChatGPTPipeline created.")
 
 
 class AvestanChatGPTPipeline(Pipeline):
@@ -914,10 +914,10 @@ class AvestanChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing AvestanChatGPTPipeline with language: {self.language}"
         )
-        logger.info("AvestanChatGPTPipeline created.")
+        plog(self).info("AvestanChatGPTPipeline created.")
 
 
 class BactrianChatGPTPipeline(Pipeline):
@@ -935,10 +935,10 @@ class BactrianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing BactrianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("BactrianChatGPTPipeline created.")
+        plog(self).info("BactrianChatGPTPipeline created.")
 
 
 class SogdianChatGPTPipeline(Pipeline):
@@ -956,10 +956,10 @@ class SogdianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing SogdianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("SogdianChatGPTPipeline created.")
+        plog(self).info("SogdianChatGPTPipeline created.")
 
 
 class KhotaneseChatGPTPipeline(Pipeline):
@@ -977,10 +977,10 @@ class KhotaneseChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing KhotaneseChatGPTPipeline with language: {self.language}"
         )
-        logger.info("KhotaneseChatGPTPipeline created.")
+        plog(self).info("KhotaneseChatGPTPipeline created.")
 
 
 class TumshuqeseChatGPTPipeline(Pipeline):
@@ -998,10 +998,10 @@ class TumshuqeseChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing TumshuqeseChatGPTPipeline with language: {self.language}"
         )
-        logger.info("TumshuqeseChatGPTPipeline created.")
+        plog(self).info("TumshuqeseChatGPTPipeline created.")
 
 
 class OldPersianChatGPTPipeline(Pipeline):
@@ -1019,10 +1019,10 @@ class OldPersianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldPersianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldPersianChatGPTPipeline created.")
+        plog(self).info("OldPersianChatGPTPipeline created.")
 
 
 class EarlyIrishChatGPTPipeline(Pipeline):
@@ -1040,10 +1040,10 @@ class EarlyIrishChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldIrishChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldIrishChatGPTPipeline created.")
+        plog(self).info("OldIrishChatGPTPipeline created.")
 
 
 class UgariticChatGPTPipeline(Pipeline):
@@ -1061,10 +1061,10 @@ class UgariticChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing UgariticChatGPTPipeline with language: {self.language}"
         )
-        logger.info("UgariticChatGPTPipeline created.")
+        plog(self).info("UgariticChatGPTPipeline created.")
 
 
 class PhoenicianChatGPTPipeline(Pipeline):
@@ -1082,10 +1082,10 @@ class PhoenicianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing PhoenicianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("PhoenicianChatGPTPipeline created.")
+        plog(self).info("PhoenicianChatGPTPipeline created.")
 
 
 class GeezChatGPTPipeline(Pipeline):
@@ -1103,8 +1103,10 @@ class GeezChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing GeezChatGPTPipeline with language: {self.language}")
-        logger.info("GeezChatGPTPipeline created.")
+        plog(self).debug(
+            f"Initializing GeezChatGPTPipeline with language: {self.language}"
+        )
+        plog(self).info("GeezChatGPTPipeline created.")
 
 
 class MiddleEgyptianChatGPTPipeline(Pipeline):
@@ -1122,10 +1124,10 @@ class MiddleEgyptianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleEgyptianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddleEgyptianChatGPTPipeline created.")
+        plog(self).info("MiddleEgyptianChatGPTPipeline created.")
 
 
 class OldEgyptianChatGPTPipeline(Pipeline):
@@ -1143,10 +1145,10 @@ class OldEgyptianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldEgyptianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldEgyptianChatGPTPipeline created.")
+        plog(self).info("OldEgyptianChatGPTPipeline created.")
 
 
 class LateEgyptianChatGPTPipeline(Pipeline):
@@ -1164,10 +1166,10 @@ class LateEgyptianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LateEgyptianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LateEgyptianChatGPTPipeline created.")
+        plog(self).info("LateEgyptianChatGPTPipeline created.")
 
 
 class ParthianChatGPTPipeline(Pipeline):
@@ -1185,10 +1187,10 @@ class ParthianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LateEgyptianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LateEgyptianChatGPTPipeline created.")
+        plog(self).info("LateEgyptianChatGPTPipeline created.")
 
 
 class OldMiddleWelshChatGPTPipeline(Pipeline):
@@ -1206,10 +1208,10 @@ class OldMiddleWelshChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleWelshChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddleWelshChatGPTPipeline created.")
+        plog(self).info("MiddleWelshChatGPTPipeline created.")
 
 
 class MiddleBretonChatGPTPipeline(Pipeline):
@@ -1227,10 +1229,10 @@ class MiddleBretonChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleBretonChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MiddleBretonChatGPTPipeline created.")
+        plog(self).info("MiddleBretonChatGPTPipeline created.")
 
 
 class CornishChatGPTPipeline(Pipeline):
@@ -1248,10 +1250,10 @@ class CornishChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing CornishChatGPTPipeline with language: {self.language}"
         )
-        logger.info("CornishChatGPTPipeline created.")
+        plog(self).info("CornishChatGPTPipeline created.")
 
 
 class OldPrussianChatGPTPipeline(Pipeline):
@@ -1269,10 +1271,10 @@ class OldPrussianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing OldPrussianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("OldPrussianChatGPTPipeline created.")
+        plog(self).info("OldPrussianChatGPTPipeline created.")
 
 
 class LithuanianChatGPTPipeline(Pipeline):
@@ -1290,10 +1292,10 @@ class LithuanianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LithuanianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LithuanianChatGPTPipeline created.")
+        plog(self).info("LithuanianChatGPTPipeline created.")
 
 
 class LatvianChatGPTPipeline(Pipeline):
@@ -1311,10 +1313,10 @@ class LatvianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LatvianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LatvianChatGPTPipeline created.")
+        plog(self).info("LatvianChatGPTPipeline created.")
 
 
 class AlbanianChatGPTPipeline(Pipeline):
@@ -1332,10 +1334,10 @@ class AlbanianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing AlbanianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("AlbanianChatGPTPipeline created.")
+        plog(self).info("AlbanianChatGPTPipeline created.")
 
 
 class ClassicalArmenianChatGPTPipeline(Pipeline):
@@ -1353,10 +1355,10 @@ class ClassicalArmenianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing ClassicalArmenianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("ClassicalArmenianChatGPTPipeline created.")
+        plog(self).info("ClassicalArmenianChatGPTPipeline created.")
 
 
 class MiddleArmenianChatGPTPipeline(Pipeline):
@@ -1374,7 +1376,7 @@ class MiddleArmenianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MiddleArmenianChatGPTPipeline with language: {self.language}"
         )
 
@@ -1394,10 +1396,10 @@ class CuneiformLuwianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing CuneiformLuwianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("CuneiformLuwianChatGPTPipeline created.")
+        plog(self).info("CuneiformLuwianChatGPTPipeline created.")
 
 
 class HieroglyphicLuwianChatGPTPipeline(Pipeline):
@@ -1415,10 +1417,10 @@ class HieroglyphicLuwianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing HieroglyphicLuwianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("HieroglyphicLuwianChatGPTPipeline created.")
+        plog(self).info("HieroglyphicLuwianChatGPTPipeline created.")
 
 
 class LycianAChatGPTPipeline(Pipeline):
@@ -1436,10 +1438,10 @@ class LycianAChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LycianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LycianChatGPTPipeline created.")
+        plog(self).info("LycianChatGPTPipeline created.")
 
 
 class LydianChatGPTPipeline(Pipeline):
@@ -1457,10 +1459,10 @@ class LydianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing LydianChatGPTPipeline with language: {self.language}"
         )
-        logger.info("LydianChatGPTPipeline created.")
+        plog(self).info("LydianChatGPTPipeline created.")
 
 
 class PalaicChatGPTPipeline(Pipeline):
@@ -1478,10 +1480,10 @@ class PalaicChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing PalaicChatGPTPipeline with language: {self.language}"
         )
-        logger.info("PalaicChatGPTPipeline created.")
+        plog(self).info("PalaicChatGPTPipeline created.")
 
 
 class CarianChatGPTPipeline(Pipeline):
@@ -1499,7 +1501,7 @@ class CarianChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing CarianChatGPTPipeline with language: {self.language}"
         )
 
@@ -1519,10 +1521,10 @@ class SauraseniPrakritChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing SauraseniPrakritChatGPTPipeline with language: {self.language}"
         )
-        logger.info("SauraseniPrakritChatGPTPipeline created.")
+        plog(self).info("SauraseniPrakritChatGPTPipeline created.")
 
 
 class MaharastriPrakritChatGPTPipeline(Pipeline):
@@ -1540,10 +1542,10 @@ class MaharastriPrakritChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MaharastriPrakritChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MaharastriPrakritChatGPTPipeline created.")
+        plog(self).info("MaharastriPrakritChatGPTPipeline created.")
 
 
 class MagadhiPrakritChatGPTPipeline(Pipeline):
@@ -1561,10 +1563,10 @@ class MagadhiPrakritChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MagadhiPrakritChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MagadhiPrakritChatGPTPipeline created.")
+        plog(self).info("MagadhiPrakritChatGPTPipeline created.")
 
 
 class GandhariChatGPTPipeline(Pipeline):
@@ -1582,10 +1584,10 @@ class GandhariChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing GandhariChatGPTPipeline with language: {self.language}"
         )
-        logger.info("GandhariChatGPTPipeline created.")
+        plog(self).info("GandhariChatGPTPipeline created.")
 
 
 # Hindi and closely related lects
@@ -1604,10 +1606,10 @@ class HindiChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing HindiChatGPTPipeline with language: {self.language}"
         )
-        logger.info("HindiChatGPTPipeline created.")
+        plog(self).info("HindiChatGPTPipeline created.")
 
 
 class KhariBoliChatGPTPipeline(Pipeline):
@@ -1625,10 +1627,10 @@ class KhariBoliChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing KhariBoliChatGPTPipeline with language: {self.language}"
         )
-        logger.info("KhariBoliChatGPTPipeline created.")
+        plog(self).info("KhariBoliChatGPTPipeline created.")
 
 
 class BrajChatGPTPipeline(Pipeline):
@@ -1646,8 +1648,10 @@ class BrajChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing BrajChatGPTPipeline with language: {self.language}")
-        logger.info("BrajChatGPTPipeline created.")
+        plog(self).debug(
+            f"Initializing BrajChatGPTPipeline with language: {self.language}"
+        )
+        plog(self).info("BrajChatGPTPipeline created.")
 
 
 class AwadhiChatGPTPipeline(Pipeline):
@@ -1665,10 +1669,10 @@ class AwadhiChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing AwadhiChatGPTPipeline with language: {self.language}"
         )
-        logger.info("AwadhiChatGPTPipeline created.")
+        plog(self).info("AwadhiChatGPTPipeline created.")
 
 
 class UrduChatGPTPipeline(Pipeline):
@@ -1686,8 +1690,10 @@ class UrduChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing UrduChatGPTPipeline with language: {self.language}")
-        logger.info("UrduChatGPTPipeline created.")
+        plog(self).debug(
+            f"Initializing UrduChatGPTPipeline with language: {self.language}"
+        )
+        plog(self).info("UrduChatGPTPipeline created.")
 
 
 # Eastern Indo-Aryan and Western IA additions
@@ -1706,10 +1712,10 @@ class BengaliChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing BengaliChatGPTPipeline with language: {self.language}"
         )
-        logger.info("BengaliChatGPTPipeline created.")
+        plog(self).info("BengaliChatGPTPipeline created.")
 
 
 class OdiaChatGPTPipeline(Pipeline):
@@ -1727,8 +1733,10 @@ class OdiaChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(f"Initializing OdiaChatGPTPipeline with language: {self.language}")
-        logger.info("OdiaChatGPTPipeline created.")
+        plog(self).debug(
+            f"Initializing OdiaChatGPTPipeline with language: {self.language}"
+        )
+        plog(self).info("OdiaChatGPTPipeline created.")
 
 
 class AssameseChatGPTPipeline(Pipeline):
@@ -1746,10 +1754,10 @@ class AssameseChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing AssameseChatGPTPipeline with language: {self.language}"
         )
-        logger.info("AssameseChatGPTPipeline created.")
+        plog(self).info("AssameseChatGPTPipeline created.")
 
 
 class GujaratiChatGPTPipeline(Pipeline):
@@ -1767,10 +1775,10 @@ class GujaratiChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing GujaratiChatGPTPipeline with language: {self.language}"
         )
-        logger.info("GujaratiChatGPTPipeline created.")
+        plog(self).info("GujaratiChatGPTPipeline created.")
 
 
 class MarathiChatGPTPipeline(Pipeline):
@@ -1788,10 +1796,10 @@ class MarathiChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing MarathiChatGPTPipeline with language: {self.language}"
         )
-        logger.info("MarathiChatGPTPipeline created.")
+        plog(self).info("MarathiChatGPTPipeline created.")
 
 
 class SinhalaChatGPTPipeline(Pipeline):
@@ -1809,10 +1817,10 @@ class SinhalaChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing SinhalaChatGPTPipeline with language: {self.language}"
         )
-        logger.info("SinhalaChatGPTPipeline created.")
+        plog(self).info("SinhalaChatGPTPipeline created.")
 
 
 class EasternPanjabiChatGPTPipeline(Pipeline):
@@ -1830,10 +1838,10 @@ class EasternPanjabiChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing EasternPanjabiChatGPTPipeline with language: {self.language}"
         )
-        logger.info("EasternPanjabiChatGPTPipeline created.")
+        plog(self).info("EasternPanjabiChatGPTPipeline created.")
 
 
 class SindhiChatGPTPipeline(Pipeline):
@@ -1851,10 +1859,10 @@ class SindhiChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing SindhiChatGPTPipeline with language: {self.language}"
         )
-        logger.info("SindhiChatGPTPipeline created.")
+        plog(self).info("SindhiChatGPTPipeline created.")
 
 
 class KashmiriChatGPTPipeline(Pipeline):
@@ -1872,10 +1880,10 @@ class KashmiriChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing KashmiriChatGPTPipeline with language: {self.language}"
         )
-        logger.info("KashmiriChatGPTPipeline created.")
+        plog(self).info("KashmiriChatGPTPipeline created.")
 
 
 # Sino-Tibetan additions
@@ -2074,10 +2082,10 @@ class BagriChatGPTPipeline(Pipeline):
     )
 
     def __post_init__(self) -> None:
-        logger.debug(
+        plog(self).debug(
             f"Initializing BagriChatGPTPipeline with language: {self.language}"
         )
-        logger.info("BagriChatGPTPipeline created.")
+        plog(self).info("BagriChatGPTPipeline created.")
 
 
 # Additional Afroasiatic, Altaic-adjacent, Uralic, Turkic, Dravidian pipelines

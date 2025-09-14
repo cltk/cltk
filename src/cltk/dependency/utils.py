@@ -13,6 +13,7 @@ from cltk.core.data_types import (
     Word,
 )
 from cltk.core.exceptions import CLTKException
+from cltk.core.logging_utils import bind_from_doc
 from cltk.genai.chatgpt import AsyncChatGPTConnection, ChatGPTConnection
 from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet
@@ -121,22 +122,25 @@ def generate_dependency_tree(
 
         pinfo = dependency_prompt_from_text(lang_or_dialect_name, doc.normalized_text)
     prompt = pinfo.text
-    logger.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
-    logger.debug(prompt)
+    log = bind_from_doc(
+        doc, sentence_idx=sentence_idx, prompt_version=str(pinfo.version)
+    )
+    log.info("[prompt] %s v%s hash=%s", pinfo.kind, pinfo.version, pinfo.digest)
+    log.debug(prompt)
     # code_blocks: list[Any] = []
     if not doc.backend:
         msg_no_backend: str = (
             "Doc must have `.backend` set to 'chatgpt' to use generate_dependency_tree."
         )
-        logger.error(msg_no_backend)
+        log.error(msg_no_backend)
         raise CLTKException(msg_no_backend)
     if not doc.backend_version:
         msg_no_backend_version: str = "Doc missing `.backend_version`. Setting to 'gpt-5.0' to use generate_dependency_tree."
-        logger.info(msg_no_backend_version)
+        log.info(msg_no_backend_version)
         raise CLTKException(msg_no_backend_version)
     if doc.backend_version not in get_args(AVAILABLE_OPENAI_MODELS):
         msg_unsupported_backend_version: str = f"Doc has unsupported `.backend_version`: {doc.backend_version}. Supported versions are: {get_args(AVAILABLE_OPENAI_MODELS)}."
-        logger.error(msg_unsupported_backend_version)
+        log.error(msg_unsupported_backend_version)
         raise CLTKException(msg_unsupported_backend_version)
     if not client:
         client = ChatGPTConnection(model=doc.backend_version)
@@ -150,7 +154,7 @@ def generate_dependency_tree(
     doc.chatgpt.append(chatgpt_usage)
 
     rows = _parse_dep_tsv_table(chatgpt_res)
-    logger.debug(f"[dep] Parsed rows:\n{rows}")
+    log.debug(f"[dep] Parsed rows:\n{rows}")
     # If we already have words, update them in place; otherwise, create fresh Word objects
     words: list[Word] = list(doc.words) if doc.words else []
     for i, row in enumerate(rows):
@@ -158,7 +162,7 @@ def generate_dependency_tree(
         head_raw: Optional[str] = row.get("head")
         deprel_raw: Optional[str] = row.get("deprel")
         if not form_val or head_raw is None or deprel_raw is None:
-            logger.error("[dep] Missing fields in row: %s", row)
+            log.error("[dep] Missing fields in row: %s", row)
             continue
         # Validate deprel (support subtypes like obl:tmod)
         main, subtype = (deprel_raw.split(":", 1) + [None])[:2]
@@ -167,18 +171,16 @@ def generate_dependency_tree(
             if main is not None:
                 tag = get_ud_deprel_tag(main, subtype=subtype)
             else:
-                logger.error("[dep] Main deprel is None for row: %s", row)
+                log.error("[dep] Main deprel is None for row: %s", row)
         except ValueError as e:  # invalid subtype
-            logger.error("[dep] Invalid deprel '%s': %s", deprel_raw, e)
+            log.error("[dep] Invalid deprel '%s': %s", deprel_raw, e)
         # Convert HEAD (UD 1-based; 0=root) → governor index (0-based) or None
         governor: Optional[int]
         try:
             head_val = int(head_raw)
             governor = None if head_val == 0 else head_val - 1
         except ValueError:
-            logger.error(
-                "[dep] Non-integer HEAD '%s' for form '%s'", head_raw, form_val
-            )
+            log.error("[dep] Non-integer HEAD '%s' for form '%s'", head_raw, form_val)
             governor = None
         if i < len(words):
             # Update existing word, preserving lemma/upos/features
@@ -196,13 +198,13 @@ def generate_dependency_tree(
                 governor=governor,
             )
             words.append(word)
-    logger.debug("[dep] Created %d Word objects with dependency info.", len(words))
+    log.debug("[dep] Created %d Word objects with dependency info.", len(words))
     if not doc.words:
-        logger.debug("`input_doc.words` is empty. Setting with new words.")
+        log.debug("`input_doc.words` is empty. Setting with new words.")
         doc.words = words
     else:
         # TODO: Handle case where input_doc.words already has data
-        logger.warning("`input_doc.words` already has data. Not overwriting.")
+        log.warning("`input_doc.words` already has data. Not overwriting.")
         raise CLTKException(
             "`input_doc.words` already has data. Not overwriting. "
             "Consider clearing it first if you want to replace."
@@ -226,31 +228,32 @@ def generate_dependency_tree(
             word.index_char_start = None
             word.index_char_stop = None
         doc.words[word_idx] = word
-    logger.debug("[dep] Set character indexes for each word in input_doc.words.")
+    log.debug("[dep] Set character indexes for each word in input_doc.words.")
 
     # Add sentence idx to Word objects
     if sentence_idx is not None:
         for word in doc.words:
             word.index_sentence = sentence_idx
-        logger.debug(
+        log.debug(
             f"[dep] Set sentence index {sentence_idx} for all words in input_doc.words."
         )
     else:
-        logger.warning(
+        log.warning(
             "[dep] No sentence index provided. Skipping sentence index assignment."
         )
     return doc
 
 
 def generate_gpt_dependency(doc: Doc) -> Doc:
+    log = bind_from_doc(doc)
     if not doc.backend_version:
         msg: str = "Document backend version is not set."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
     client: ChatGPTConnection = ChatGPTConnection(model=doc.backend_version)
     if not doc.normalized_text:
         msg = "Input document must have either `.normalized_text`."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
     # Dependency per sentence
     tmp_docs: list[Doc] = list()
@@ -283,7 +286,7 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             client=client,
         )
         tmp_docs.append(tmp_doc)
-        logger.info(
+        bind_from_doc(doc, sentence_idx=sent_idx).info(
             f"[dep] Completed dependency parse for sentence #{sent_idx + 1} of {len(doc.sentence_strings)}"
         )
     # Combine all Word objects from tmp_docs into a single list
@@ -305,17 +308,17 @@ def generate_gpt_dependency(doc: Doc) -> Doc:
             msg_bad_tokens: str = (
                 "Failed to get ChatGPT tokens usage field from POS tagging."
             )
-            logger.error(msg_bad_tokens)
+            log.error(msg_bad_tokens)
             raise CLTKException(msg_bad_tokens)
     doc.chatgpt = [chatgpt_total_tokens]
-    logger.debug(
+    log.debug(
         f"Combined {len(all_words)} words from all tmp_docs and updated token indices."
     )
     # Assign to your main Doc
     doc.words = all_words
-    logger.debug(f"[dep] Doc after dependency parsing:\n{doc}")
+    log.debug(f"[dep] Doc after dependency parsing:\n{doc}")
     assert doc.normalized_text
-    logger.debug(
+    log.debug(
         f"[dep] Completed dependency parsing for text starting with {doc.normalized_text[:50]} ..."
     )
     return doc
@@ -348,17 +351,18 @@ async def generate_gpt_dependency_async(
         CLTKException: If per‑sentence parsing fails in unexpected ways.
 
     """
-    logger.info(
+    log = bind_from_doc(doc)
+    log.info(
         "[async-dep] Starting dependency generation for %s sentences",
         len(doc.sentence_strings),
     )
     if not doc.backend_version:
         msg = "Document backend version is not set."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
     if not doc.normalized_text:
         msg = "Input document must have `.normalized_text`."
-        logger.error(msg)
+        log.error(msg)
         raise ValueError(msg)
 
     conn = AsyncChatGPTConnection(model=doc.backend_version)
@@ -397,13 +401,14 @@ async def generate_gpt_dependency_async(
                 f"For the following {lang_or_dialect_name} text, first tokenize the sentence. For each token, output FORM, HEAD, DEPREL.\n\nText:\n\n{sentence}\n"
             )
         )
-        logger.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
+        log_i = bind_from_doc(doc, sentence_idx=i)
+        log_i.debug("[async] Scheduling sentence #%s (%d chars)", i, len(sentence))
         async with sem:
-            logger.debug("[async] Dispatching sentence #%s", i)
+            log_i.debug("[async] Dispatching sentence #%s", i)
             res: CLTKGenAIResponse = await conn.generate_async(
                 prompt=prompt, max_retries=max_retries
             )
-            logger.debug("[async] Received response for sentence #%s", i)
+            log_i.debug("[async] Received response for sentence #%s", i)
         tmp = Doc(
             language=doc.language,
             normalized_text=sentence,
@@ -420,7 +425,7 @@ async def generate_gpt_dependency_async(
             head_raw: Optional[str] = row.get("head")
             deprel_raw: Optional[str] = row.get("deprel")
             if not form_val or head_raw is None or deprel_raw is None:
-                logger.error("[async-dep] Missing fields in row: %s", row)
+                log_i.error("[async-dep] Missing fields in row: %s", row)
                 continue
             main, subtype = (deprel_raw.split(":", 1) + [None])[:2]
             tag = None
@@ -428,15 +433,15 @@ async def generate_gpt_dependency_async(
                 if main is not None:
                     tag = get_ud_deprel_tag(main, subtype=subtype)
                 else:
-                    logger.error("[async-dep] Main deprel is None for row: %s", row)
+                    log_i.error("[async-dep] Main deprel is None for row: %s", row)
                     tag = None
             except ValueError as e:  # pragma: no cover - defensive
-                logger.error("[async-dep] Invalid deprel '%s': %s", deprel_raw, e)
+                log_i.error("[async-dep] Invalid deprel '%s': %s", deprel_raw, e)
             try:
                 head_val = int(head_raw)
                 governor = None if head_val == 0 else head_val - 1
             except ValueError:
-                logger.error(
+                log_i.error(
                     "[async-dep] Non-integer HEAD '%s' for form '%s'",
                     head_raw,
                     form_val,
@@ -485,7 +490,7 @@ async def generate_gpt_dependency_async(
         process_one(i, s, sent_words_map.get(i, []))
         for i, s in enumerate(doc.sentence_strings)
     ]
-    logger.info(
+    log.info(
         "[async] Dispatching %d tasks with max_concurrency=%d",
         len(tasks),
         max_concurrency,
@@ -507,7 +512,7 @@ async def generate_gpt_dependency_async(
 
     doc.words = all_words
     doc.chatgpt = [aggregated_usage]
-    logger.info(
+    log.info(
         "[async-dep] Completed dependency generation: %d tokens across %d sentences",
         len(all_words),
         len(doc.sentence_strings),
@@ -542,10 +547,11 @@ def generate_gpt_dependency_concurrent(
         The input ``Doc`` updated in place, same as the async variant.
 
     """
+    log = bind_from_doc(doc)
     try:
         asyncio.get_running_loop()
     except RuntimeError:
-        logger.info("[async-wrap] No running event loop detected; using asyncio.run()")
+        log.info("[async-wrap] No running event loop detected; using asyncio.run()")
         return asyncio.run(
             generate_gpt_dependency_async(
                 doc,
@@ -554,7 +560,7 @@ def generate_gpt_dependency_concurrent(
             )
         )
     else:
-        logger.info(
+        log.info(
             "[async-wrap] Running inside an event loop; dispatching to worker thread"
         )
 
@@ -570,5 +576,5 @@ def generate_gpt_dependency_concurrent(
         with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
             fut = ex.submit(_runner)
             result = fut.result()
-            logger.info("[async-wrap] Completed in worker thread")
+            log.info("[async-wrap] Completed in worker thread")
             return result

@@ -10,8 +10,9 @@ from copy import copy
 from functools import cached_property
 from typing import Callable, Optional
 
-from cltk.core.cltk_logger import logger
+from cltk.core.cltk_logger import bind_context
 from cltk.core.data_types import Doc, Process
+from cltk.core.logging_utils import bind_from_doc
 from cltk.sentence.utils import split_sentences_multilang
 
 __author__ = ["Clément Besnier <clem@clementbesnier.fr>"]
@@ -45,7 +46,8 @@ class SentenceSplittingProcess(Process):
 
         """
         # TODO: Consider stripping section numbers before splitting
-        logger.debug(
+        log = bind_context(glottolog_id=self.glottolog_id)
+        log.debug(
             f"Selecting normalization algorithm for language: {self.glottolog_id}"
         )
         if self.glottolog_id in [
@@ -166,13 +168,13 @@ class SentenceSplittingProcess(Process):
             "oldu1238",  # Old Turkic
             "oldt1248",  # Old Tamil
         ]:
-            logger.debug(
+            log.debug(
                 f"`SentenceSplittingProcess.algorithm()`: Selecting sentence splitter algorithm for {self.glottolog_id}"
             )
             return split_sentences_multilang
         else:
             msg: str = f"`Sentence splitter not available for {self.glottolog_id}`"
-            logger.error(msg)
+            log.error(msg)
             raise ValueError(msg)
 
     def run(self, input_doc: Doc) -> Doc:
@@ -191,11 +193,12 @@ class SentenceSplittingProcess(Process):
 
         """
         output_doc = copy(input_doc)
+        log = bind_from_doc(output_doc)
         if not output_doc.normalized_text:
             msg: str = "Doc must have `normalized_text`."
-            logger.error(msg)
+            log.error(msg)
             raise ValueError(msg)
-        logger.debug(
+        log.debug(
             f"Sentence splitter passed to split_sentences_multilang: {self.glottolog_id}"
         )
         # Ensure required attributes are present
