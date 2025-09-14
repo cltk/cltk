@@ -7,15 +7,23 @@ an opaque content hash to aid logging and reproducibility.
 """
 
 import hashlib
-from dataclasses import dataclass
+
+from pydantic import BaseModel
 
 
-@dataclass(frozen=True)
-class PromptInfo:
+class PromptInfo(BaseModel):
+    """Structured metadata for a prompt template.
+
+    Frozen/immutable to ensure prompts are treated as value objects and can be
+    safely logged and hashed without mutation.
+    """
+
     kind: str
     version: str
     text: str
     digest: str
+
+    model_config = {"frozen": True}
 
 
 def _hash_prompt(kind: str, version: str, text: str) -> str:
