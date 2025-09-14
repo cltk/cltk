@@ -75,7 +75,7 @@ Lete I this noble duc to atthenes ryde,
 And al his hoost in armes hym bisyde.""",
     # Middle French, Montaigne, Les Essais, "De la Parsimonie des Anciens"
     "midd1316": "Attilius Regulus, general de l'armée Romaine en Afrique, au milieu de sa gloire et de ses victoires contre les Carthaginois, escrivit à la chose publique qu'un valet de labourage qu'il avoit laissé seul au gouvernement de son bien, qui estoit en tout sept arpents de terre, s'en estoit enfuy, ayant desrobé ses utils de labourage, et demandoit congé pour s'en retourner et y pourvoir, de peur que sa femme et ses enfans n'en eussent à souffrir: le Senat pourveut à commettre un autre à la conduite de ses biens et luy fist restablir ce qui luy avoit esté desrobé, et ordonna que sa femme et enfans seroient nourris aux despens du public. Le vieux Caton, revenant d'Espaigne Consul, vendit son cheval de service pour espargner l'argent qu'il eut couté à le ramener par mer en Italie; et, estant au gouvernement de Sardaigne, faisoit ses visitations à pied, n'ayant avec luy autre suite qu'un officier de la chose publique, qui luy portoit sa robbe, et un vase à faire des sacrifices; et le plus souvent il pourtoit sa male luy mesme. ",
-    # Li Lay del Trot, 1
+    # Old French, Li Lay del Trot, 1
     "oldf1239": """Une aventure vos voil dire
 Molt bien rimee tire a tire;
 Com il avint vos conterai,

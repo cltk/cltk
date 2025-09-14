@@ -877,6 +877,98 @@ class LiteraryChineseChatGPTPipeline(Pipeline):
         plog(self).info("LiteraryChineseChatGPTPipeline created.")
 
 
+class ChurchSlavonicStanzaPipeline(Pipeline):
+    """Stanza-backed pipeline for Church Slavonic."""
+
+    description: Optional[str] = "Stanza pipeline for the Church Slavonic language."
+    glottolog_id: Optional[str] = "chur1257"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            *([MultilingualNormalizeProcess]),
+            *(
+                [RuntimeStanzaAnalyzeProcess]
+                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                else []
+            ),
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        plog(self).debug(
+            f"Initializing ChurchSlavonicStanzaPipeline with language: {self.language}"
+        )
+        plog(self).info("ChurchSlavonicStanzaPipeline created.")
+
+
+class OldFrenchStanzaPipeline(Pipeline):
+    """Stanza-backed pipeline for Old French."""
+
+    description: Optional[str] = "Stanza pipeline for the Old French language."
+    glottolog_id: Optional[str] = "oldf1239"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            *([MultilingualNormalizeProcess]),
+            *(
+                [RuntimeStanzaAnalyzeProcess]
+                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                else []
+            ),
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        plog(self).debug(
+            f"Initializing OldFrenchStanzaPipeline with language: {self.language}"
+        )
+        plog(self).info("OldFrenchStanzaPipeline created.")
+
+
+class GothicStanzaPipeline(Pipeline):
+    """Stanza-backed pipeline for Gothic."""
+
+    description: Optional[str] = "Stanza pipeline for the Gothic language."
+    glottolog_id: Optional[str] = "goth1244"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            *([MultilingualNormalizeProcess]),
+            *(
+                [RuntimeStanzaAnalyzeProcess]
+                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                else []
+            ),
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        plog(self).debug(
+            f"Initializing GothicStanzaPipeline with language: {self.language}"
+        )
+        plog(self).info("GothicStanzaPipeline created.")
+
+
+class LiteraryChineseStanzaPipeline(Pipeline):
+    """Stanza-backed pipeline for Literary Chinese."""
+
+    description: Optional[str] = "Stanza pipeline for the Literary Chinese language."
+    glottolog_id: Optional[str] = "lite1248"
+    processes: Optional[list[Any]] = Field(
+        default_factory=lambda: [
+            *([MultilingualNormalizeProcess]),
+            *(
+                [RuntimeStanzaAnalyzeProcess]
+                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                else []
+            ),
+        ]
+    )
+
+    def __post_init__(self) -> None:
+        plog(self).debug(
+            f"Initializing LiteraryChineseStanzaPipeline with language: {self.language}"
+        )
+        plog(self).info("LiteraryChineseStanzaPipeline created.")
+
+
 class DemoticChatGPTPipeline(Pipeline):
     """Default ``Pipeline`` for Demotic Egyptian."""
 
@@ -2441,6 +2533,10 @@ MAP_LANGUAGE_CODE_TO_STANZA_PIPELINE: dict[str, type[Pipeline]] = {
     # Seed a few languages where Stanza has robust models
     "lati1261": LatinStanzaPipeline,
     "anci1242": AncientGreekStanzaPipeline,
+    "chur1257": ChurchSlavonicStanzaPipeline,
+    "oldf1239": OldFrenchStanzaPipeline,
+    "goth1244": GothicStanzaPipeline,
+    "lite1248": LiteraryChineseStanzaPipeline,
     # "ang": OldEnglishPipeline,
     # "arb": ArabicPipeline,
     # "arc": AramaicPipeline,

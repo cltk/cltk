@@ -50,3 +50,56 @@ if not ref_index.exists():
 # Emit the navigation in Literate Nav format
 with mkdocs_gen_files.open("SUMMARY.md", "w") as nav_file:
     nav_file.writelines(nav.build_literate_nav())
+
+# --- Add subclass indexes for key base/process classes -----------------------
+
+def _collect_subclasses(cls: type) -> list[type]:
+    seen: set[type] = set()
+    def _walk(c: type) -> None:
+        for sub in c.__subclasses__():
+            if sub in seen:
+                continue
+            seen.add(sub)
+            _walk(sub)
+    _walk(cls)
+    # Stable order by qualified name
+    return sorted(seen, key=lambda c: f"{c.__module__}.{c.__qualname__}")
+
+
+def _write_subclasses_page(dotted_class: str, title: str) -> None:
+    parts = dotted_class.split(".")
+    mod_name = ".".join(parts[:-1])
+    cls_name = parts[-1]
+    try:
+        mod = __import__(mod_name, fromlist=[cls_name])
+        base_cls = getattr(mod, cls_name)
+    except Exception:
+        return
+    subs = _collect_subclasses(base_cls)
+    # Build page only if there are discovered subclasses
+    out_path = REF_ROOT.joinpath(*parts, "subclasses.md")
+    with mkdocs_gen_files.open(out_path, "w") as fd:
+        fd.write(f"# {title}: Subclasses\n\n")
+        if not subs:
+            fd.write("No subclasses discovered.\n")
+        else:
+            for sub in subs:
+                dotted = f"{sub.__module__}.{sub.__qualname__}"
+                fd.write(f"- `{dotted}`\n")
+    # Add to nav under the class node
+    nav[["Reference", *parts, "Subclasses"]] = out_path.as_posix()
+
+
+# Generate subclass listings for selected bases
+_write_subclasses_page(
+    "cltk.morphosyntax.processes.ChatGPTMorphosyntaxProcess",
+    "ChatGPTMorphosyntaxProcess",
+)
+_write_subclasses_page(
+    "cltk.dependency.processes.ChatGPTDependencyProcess",
+    "ChatGPTDependencyProcess",
+)
+_write_subclasses_page(
+    "cltk.stanza.processes.StanzaAnalyzeProcess",
+    "StanzaAnalyzeProcess",
+)

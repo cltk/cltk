@@ -17,11 +17,20 @@ from cltk.morphosyntax.ud_deprels import UDDeprelTag, get_ud_deprel_tag
 from cltk.morphosyntax.ud_features import UDFeatureTagSet, convert_pos_features_to_ud
 from cltk.morphosyntax.ud_pos import UDPartOfSpeechTag
 
+# _GLOTTO_TO_STANZA_LANG = {
+#     # Latin
+#     "lati1261": "la",
+#     # Ancient Greek
+#     "anci1242": "grc",
+# }
 _GLOTTO_TO_STANZA_LANG = {
-    # Latin
-    "lati1261": "la",
-    # Ancient Greek
-    "anci1242": "grc",
+    "chur1257": "Old_Church_Slavonic",
+    "copt1239": "Coptic",
+    "oldf1239": "Old_French",
+    "anci1242": "Ancient_Greek",
+    "goth1244": "Gothic",
+    "lati1261": "Latin",
+    "lite1248": "Classical_Chinese",
 }
 
 
