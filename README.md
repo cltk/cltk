@@ -10,10 +10,24 @@ For the CLTK's latest version:
 pip install cltk
 ```
 
-To use optional GenAI features (OpenAI-backed annotation), install the extra:
+Optional extras
+
+- GenAI (OpenAI-backed annotation):
 
 ```bash
 pip install "cltk[genai]"
+```
+
+- Stanza (discriminative NLP backends powered by Stanford Stanza):
+
+```bash
+pip install "cltk[stanza]"
+```
+
+You can combine extras, for example:
+
+```bash
+pip install "cltk[genai,stanza]"
 ```
 
 For more information, see [Installation docs](https://docs.cltk.org/en/latest/installation.html) or, to install from source, [Development](https://docs.cltk.org/en/latest/development.html).
