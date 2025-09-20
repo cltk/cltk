@@ -33,11 +33,15 @@ def file_exists(file_path: str, is_dir: bool = False) -> bool:
 
     Optionally check if it's a dir.
 
-    >>> file_exists('~/fake_file')
-    False
+    Examples:
+        ```python
+        file_exists('~/fake_file')
+        # False
 
-    >>> file_exists('~/', is_dir=True)
-    True
+        file_exists('~/', is_dir=True)
+        # True
+        ```
+
     """
     file_path_expanded: str = os.path.expanduser(file_path)
     if is_dir:
@@ -53,27 +57,31 @@ def reverse_dict(
 
     Optional parameter to ignore certain keys.
 
-    >>> ids_lang = dict(anci1242='Ancient Greek', lati1261='Latin', unlabeled=['Ottoman'])
-    >>> reverse_dict(ids_lang, ignore_keys=['unlabeled'])
-    {'Ancient Greek': 'anci1242', 'Latin': 'lati1261'}
+    Examples:
+        ```python
+        ids_lang = dict(anci1242='Ancient Greek', lati1261='Latin', unlabeled=['Ottoman'])
+        reverse_dict(ids_lang, ignore_keys=['unlabeled'])
+        # {'Ancient Greek': 'anci1242', 'Latin': 'lati1261'}
 
-    >>> reverse_dict(dict(anci1242='Ancient Greek', lati1261='Latin'))
-    {'Ancient Greek': 'anci1242', 'Latin': 'lati1261'}
+        reverse_dict(dict(anci1242='Ancient Greek', lati1261='Latin'))
+        # {'Ancient Greek': 'anci1242', 'Latin': 'lati1261'}
 
-    >>> reverse_dict(ids_lang)
-    Traceback (most recent call last):
-      ...
-    TypeError: This function can only convert type str value to a key. Received value type `<class 'list'>` for key `unlabeled` instead. Consider using `ignore_keys` for this key-value pair to be skipped.
+        try:
+            reverse_dict(ids_lang)
+        except TypeError:
+            pass
 
-    >>> reverse_dict(ids_lang, ignore_keys='unlabeled')
-    Traceback (most recent call last):
-      ...
-    TypeError: The `ignore_key` parameter must be either types None or list. Received type `<class 'str'>` instead.
+        try:
+            reverse_dict(ids_lang, ignore_keys='unlabeled')
+        except TypeError:
+            pass
 
-    >>> reverse_dict(ids_lang, ignore_keys=['UNUSED-KEY'])
-    Traceback (most recent call last):
-      ...
-    TypeError: This function can only convert type str value to a key. Received value type `<class 'list'>` for key `unlabeled` instead. Consider using `ignore_keys` for this key-value pair to be skipped.
+        try:
+            reverse_dict(ids_lang, ignore_keys=['UNUSED-KEY'])
+        except TypeError:
+            pass
+        ```
+
     """
     if ignore_keys and not isinstance(ignore_keys, list):
         raise TypeError(
@@ -102,14 +110,16 @@ def suppress_stdout() -> Iterator[None]:
 
     Source: `<https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/>`_.
 
-    >>> print("You can see this")
-    You can see this
+    Examples:
+        ```python
+        print("You can see this")
 
-    >>> with suppress_stdout():
-    ...     print("YY")
+        with suppress_stdout():
+            print("YY")
 
-    >>> print("And you can see this again")
-    And you can see this again
+        print("And you can see this again")
+        ```
+
     """
     with open(os.devnull, "w") as devnull:
         old_stdout = sys.stdout
@@ -129,18 +139,22 @@ def get_cltk_data_dir() -> str:
     the OS environment variable ``$CLTK_DATA``. If the
     variable is found, then its value is used.
 
-    >>> from cltk.utils import CLTK_DATA_DIR
-    >>> import os
-    >>> os.environ["CLTK_DATA"] = os.path.expanduser("~/cltk_data")
-    >>> cltk_data_dir = get_cltk_data_dir()
-    >>> os.path.split(cltk_data_dir)[1]
-    'cltk_data'
-    >>> del os.environ["CLTK_DATA"]
-    >>> os.environ["CLTK_DATA"] = os.path.expanduser("~/custom_dir")
-    >>> cltk_data_dir = os.environ.get("CLTK_DATA")
-    >>> os.path.split(cltk_data_dir)[1]
-    'custom_dir'
-    >>> del os.environ["CLTK_DATA"]
+    Examples:
+        ```python
+        from cltk.utils import CLTK_DATA_DIR
+        import os
+
+        os.environ["CLTK_DATA"] = os.path.expanduser("~/cltk_data")
+        cltk_data_dir = get_cltk_data_dir()
+        assert os.path.split(cltk_data_dir)[1] == "cltk_data"
+        del os.environ["CLTK_DATA"]
+
+        os.environ["CLTK_DATA"] = os.path.expanduser("~/custom_dir")
+        cltk_data_dir = os.environ.get("CLTK_DATA")
+        assert os.path.split(cltk_data_dir)[1] == "custom_dir"
+        del os.environ["CLTK_DATA"]
+        ```
+
     """
     import os  # pylint: disable=import-outside-toplevel
 

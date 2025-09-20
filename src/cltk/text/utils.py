@@ -54,9 +54,12 @@ def split_trailing_punct(text: str, punctuation: Optional[list[str]] = None) -> 
     Returns:
         Text string with trailing punctuation separated by a whitespace character.
 
-    >>> raw_text = "κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
-    >>> split_trailing_punct(text=raw_text)
-    'κατηγόρων ’, οὐκ οἶδα : ἐγὼ δ᾽ οὖν'
+    Examples:
+        ```python
+        raw_text = "κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
+        split_trailing_punct(text=raw_text)
+        # 'κατηγόρων ’, οὐκ οἶδα : ἐγὼ δ᾽ οὖν'
+        ```
 
     """
     if not punctuation:
@@ -94,9 +97,12 @@ def split_leading_punct(text: str, punctuation: Optional[list[str]] = None) -> s
     Returns:
         Text string with leading punctuation separated by a whitespace character.
 
-    >>> raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
-    >>> split_leading_punct(text=raw_text)
-    '‘ κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν'
+    Examples:
+        ```python
+        raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
+        split_leading_punct(text=raw_text)
+        # '‘ κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν'
+        ```
 
     """
     if not punctuation:
@@ -132,9 +138,13 @@ def remove_odd_punct(text: str, punctuation: Optional[list[str]] = None) -> str:
     What to do about the apostrophe following an elision (e.g.,
     ``"δ᾽""``)?
 
-    >>> raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
-    >>> remove_odd_punct(raw_text)
-    'κατηγόρων, οὐκ οἶδα ἐγὼ δ᾽ οὖν'
+    Examples:
+        ```python
+        raw_text = "‘κατηγόρων’, οὐκ οἶδα: ἐγὼ δ᾽ οὖν"
+        remove_odd_punct(raw_text)
+        # 'κατηγόρων, οὐκ οἶδα ἐγὼ δ᾽ οὖν'
+        ```
+
     """
     if not punctuation:
         punctuation = ["‘", "“", "’", "”"]

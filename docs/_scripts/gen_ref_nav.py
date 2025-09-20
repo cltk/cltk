@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
-import mkdocs_gen_files
 
+import mkdocs_gen_files
 
 SRC_ROOT = Path("src")
 PKG_ROOT = SRC_ROOT / "cltk"

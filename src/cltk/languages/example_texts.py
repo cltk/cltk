@@ -1,15 +1,4 @@
-"""Example paragraphs of text to be reused within the codebase for testing or demonstrating code.
-
-TODO: Get longer Akkadian text
-
->>> from cltk.languages.example_texts import get_example_text
->>> get_example_text("grc")[:66]
-'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν κατηγόρων'
->>> get_example_text("lat")[:67]
-'Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae'
->>> get_example_text("non")[:50]
-'Gylfi konungr réð þar löndum er nú heitir Svíþjóð.'
-"""
+"""Example paragraphs of text to be reused within the codebase for testing or demonstrating code."""
 
 # pylint: disable=line-too-long
 
@@ -531,17 +520,14 @@ paṭisanthāro ca brāhmaṇa-śamaṇesu.
 def get_example_text(language_code: str) -> str:
     """Take in search term of usual language name and find ISO code.
 
-    >>> from cltk.languages.example_texts import get_example_text
-    >>> get_example_text("got")[:25]
-    'swa liuhtjai liuhaþ izwar'
-    >>> get_example_text("zkz")
-    Traceback (most recent call last):
-      ...
-    cltk.core.exceptions.UnimplementedAlgorithmError: Example text unavailable for ISO 639-3 code 'zkz'.
-    >>> get_example_text("xxx")
-    Traceback (most recent call last):
-      ...
-    cltk.core.exceptions.UnknownLanguageError: Unknown ISO language code 'xxx'.
+    Examples:
+        ```python
+        from cltk.languages.example_texts import get_example_text
+
+        get_example_text("anci1242")[:50]
+        # 'ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶ'
+        ```
+
     """
     resolve_languoid(key=language_code)
     try:

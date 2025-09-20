@@ -150,8 +150,10 @@ def bind_context(
     """Return a LoggerAdapter that carries structured CLTK context.
 
     Example:
-      >>> log = bind_context(doc_id="abc123", sentence_idx=0, model="gpt-5-mini")
-      >>> log.info("Generating POS tags")
+        ```python
+        log = bind_context(doc_id="abc123", sentence_idx=0, model="gpt-5-mini")
+        log.info("Generating POS tags")
+        ```
 
     Args:
       doc_id: Stable document identifier for correlating events.

@@ -349,10 +349,10 @@ try:
         StanzaAnalyzeProcess as RuntimeStanzaAnalyzeProcess,
     )
 
-    STANZA_AVAILABLE = True
+    _STANZA_AVAILABLE = True
 except Exception:  # pragma: no cover - stanza optional
     RuntimeStanzaAnalyzeProcess = None
-    STANZA_AVAILABLE = False
+    _STANZA_AVAILABLE = False
 
 
 class LatinStanzaPipeline(Pipeline):
@@ -365,7 +365,7 @@ class LatinStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -388,7 +388,7 @@ class AncientGreekStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -887,7 +887,7 @@ class ChurchSlavonicStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -910,7 +910,7 @@ class OldFrenchStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -933,7 +933,7 @@ class GothicStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -956,7 +956,7 @@ class OldEnglishStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -979,7 +979,7 @@ class LiteraryChineseStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -1002,7 +1002,7 @@ class OttomanTurkishStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -1025,7 +1025,7 @@ class ClassicalArmenianStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -1048,7 +1048,7 @@ class CopticStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]
@@ -1071,7 +1071,7 @@ class OldRussianStanzaPipeline(Pipeline):
             *([MultilingualNormalizeProcess]),
             *(
                 [RuntimeStanzaAnalyzeProcess]
-                if STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
+                if _STANZA_AVAILABLE and RuntimeStanzaAnalyzeProcess is not None
                 else []
             ),
         ]

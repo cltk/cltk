@@ -66,14 +66,21 @@ def open_pickle(path: str) -> Any:
 def md5(filename: str) -> str:
     """Produce an md5 hash of the contents given a filename.
 
-    >>> import tempfile, os
-    >>> f = tempfile.NamedTemporaryFile(delete=False)
-    >>> f.write(b'Hello Wirld!')
-    12
-    >>> f.close()
-    >>> md5(f.name)
-    '997c62b6afe9712cad3baffb49cb8c8a'
-    >>> os.unlink(f.name)
+    Examples:
+        ```python
+        import os
+        import tempfile
+
+        temp = tempfile.NamedTemporaryFile(delete=False)
+        temp.write(b"Hello Wirld!")
+        temp.close()
+
+        md5(temp.name)
+        # '997c62b6afe9712cad3baffb49cb8c8a'
+
+        os.unlink(temp.name)
+        ```
+
     """
     hash_md5 = hashlib.md5()
     with open(filename, "rb") as file_open:

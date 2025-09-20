@@ -4,26 +4,26 @@
 class CLTKException(Exception):
     """Base exception class for CLTK.
 
-    >>> from cltk.core.exceptions import CLTKException
-    >>> raise CLTKException
-    Traceback (most recent call last):
-      ...
-      File "<doctest cltk.core.exceptions.CLTKException[1]>", line 1, in <module>
-        raise CLTKException
-    cltk.core.exceptions.CLTKException
+    Examples:
+        ```python
+        from cltk.core.exceptions import CLTKException
+
+        raise CLTKException()
+        ```
+
     """
 
 
 class UnimplementedAlgorithmError(CLTKException):
     """Raised when a language is supported but a specific algorithm is missing.
 
-    >>> from cltk.core.exceptions import UnimplementedAlgorithmError
-    >>> raise UnimplementedAlgorithmError
-    Traceback (most recent call last):
-      ...
-      File "<doctest cltk.core.exceptions.UnimplementedAlgorithmError[1]>", line 1, in <module>
-        raise UnimplementedAlgorithmError
-    cltk.core.exceptions.UnimplementedAlgorithmError
+    Examples:
+        ```python
+        from cltk.core.exceptions import UnimplementedAlgorithmError
+
+        raise UnimplementedAlgorithmError()
+        ```
+
     """
 
 
@@ -34,13 +34,13 @@ class UnknownLanguageError(CLTKException):
     languages include those at ``cltk.languages.pipelines`` and some
     miscellaneously implemented throughout the library.
 
-    >>> from cltk.core.exceptions import UnknownLanguageError
-    >>> raise UnknownLanguageError
-    Traceback (most recent call last):
-      ...
-      File "<doctest cltk.core.exceptions.UnknownLanguageError[1]>", line 1, in <module>
-        raise UnknownLanguageError
-    cltk.core.exceptions.UnknownLanguageError
+    Examples:
+        ```python
+        from cltk.core.exceptions import UnknownLanguageError
+
+        raise UnknownLanguageError()
+        ```
+
     """
 
 

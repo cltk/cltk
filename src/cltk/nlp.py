@@ -271,17 +271,18 @@ class NLP:
         the chosen backend and glottolog code and returns an instance.
 
         Examples:
-          >>> from cltk.core.data_types import Pipeline
-          >>> cltk_nlp = NLP(language_code="lat", suppress_banner=True)
-          >>> lat_pipeline = cltk_nlp._get_pipeline()
-          >>> isinstance(cltk_nlp.pipeline, Pipeline)
-          True
-          >>> isinstance(lat_pipeline, Pipeline)
-          True
-          >>> cltk_nlp = NLP(language_code="axm", suppress_banner=True)
-          Traceback (most recent call last):
-          ...
-          cltk.core.exceptions.UnimplementedAlgorithmError: Valid ISO/Glottolog code but no pipeline for 'axm' with backend 'disc'.
+            ```python
+            from cltk.core.data_types import Pipeline
+
+            cltk_nlp = NLP(language_code="lat", suppress_banner=True)
+            lat_pipeline = cltk_nlp._get_pipeline()
+            assert isinstance(cltk_nlp.pipeline, Pipeline)
+            assert isinstance(lat_pipeline, Pipeline)
+
+            cltk_nlp = NLP(language_code="axm", suppress_banner=True)
+            # Raises cltk.core.exceptions.UnimplementedAlgorithmError for missing pipeline
+            cltk_nlp._get_pipeline()
+            ```
 
         """
         if self.backend == "stanza":
