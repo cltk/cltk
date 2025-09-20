@@ -7,13 +7,14 @@ process in order to produce a :class:`cltk.core.data_types.Doc`.
 
 import os
 import shutil
-from typing import Optional, cast
+from typing import Optional, Union, cast
 
 from colorama import Fore, Style
 
 import cltk
 from cltk.core.cltk_logger import bind_context, logger
 from cltk.core.data_types import (
+    AVAILABLE_OPENAI_MODELS,
     BACKEND_TYPES,
     Dialect,
     Doc,
@@ -58,7 +59,7 @@ class NLP:
         self,
         language_code: str,
         backend: BACKEND_TYPES = "stanza",
-        model: Optional[str] = None,
+        model: Optional[Union[str, AVAILABLE_OPENAI_MODELS]] = None,
         custom_pipeline: Optional[Pipeline] = None,
         suppress_banner: bool = False,
     ) -> None:
